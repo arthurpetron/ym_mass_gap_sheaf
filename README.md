@@ -13,7 +13,24 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [uniform polynomial limits act on the full original carrier](lean/YMGap/Continuum/BF4ExactSlabThermodynamicUniformPolynomialAction.lean),
+**Latest milestone:** [a positive square root of the original two-step transfer is constructed](lean/YMGap/Continuum/BF4ExactSlabThermodynamicSquareRootAction.lean).
+The explicit iteration `p₀(t)=0`, `pₙ₊₁=pₙ+(t-pₙ²)/2` has a proved
+uniform Cauchy rate on `[0,1]`, including zero. Its polynomial limits
+define a positive symmetric contraction `S` on the full original space,
+and Lean proves `S(Sx)=T2x` through exact original pairing limits.
+The existing unit complement is invariant; there `||Sv||² <= ½||v||²`
+follows from the previously proved fixed-spacing `T2` gap.
+The output representatives and convergence rates are explicit.
+Three modules passed 64 focused axiom checks within `{propext, Quot.sound}`
+(nine axiom-free); two older-timestamp rational dependencies were also
+validated by narrow build targets. No full-tree run.
+Next: unit compatibility and the operator identities needed for dyadic
+time refinement. `S` is not yet identified with geometric `T1`;
+`ker(S)=ker(T2)` is proved, but neither kernel is proved zero.
+Nome and spacing remain fixed; physical-scale control and continuum/Clay
+remain open.
+
+**Established uniform-limit action:** [uniform polynomial limits act on the full original carrier](lean/YMGap/Continuum/BF4ExactSlabThermodynamicUniformPolynomialAction.lean),
 with [computed boundedness and symmetric linear laws](lean/YMGap/Continuum/BF4ExactSlabThermodynamicUniformPolynomialLinear.lean).
 An explicit uniform Cauchy rate now constructs the limiting operator,
 output representatives and convergence rates. Equivalent sequences give
@@ -22,10 +39,9 @@ polynomial and continuous operators. Boundedness needs no extra hypothesis:
 one explicitly indexed polynomial controls the tail and supplies a
 continuity modulus. Two modules passed 34 focused axiom checks within
 `{propext, Quot.sound}` (two axiom-free); no full-tree run.
-Next: construct an explicit square-root polynomial sequence with uniform
-error control, including at zero, then prove its original operator square
-identity. No square root, geometric half-time identification or time
-injectivity is claimed yet. Nome and spacing remain fixed;
+The explicit square-root sequence and original operator square identity
+are now constructed above. Geometric half-time identification and time
+injectivity remain open. Nome and spacing remain fixed;
 physical-scale control and continuum/Clay remain open.
 
 **Established projection pin:** [an explicit continuous filter equals the original unit projection](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousUnitProjection.lean).

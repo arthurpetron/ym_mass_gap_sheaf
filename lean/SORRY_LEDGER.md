@@ -13,7 +13,50 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED bounded uniform polynomial limits on the FULL ORIGINAL carrier (2026-09-14)
+## CLOSED constructed positive square root of the ORIGINAL T2 (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/UniformSquareRootIteration.lean`,
+  `UniformSquareRootPolynomial.lean`, and
+  `BF4ExactSlabThermodynamicSquareRootAction.lean` in the same directory.
+- **closed uniform root data**: `iterate_invariants`, `weighted_residual`
+  and `residual_bound` control the division-free recurrence
+  x_{n+1}=x_n+(t-x_n^2)/2 from x_0=0 on all rational [0,1]. The explicit
+  residual stage is 2*epsilon.den. `iterate_uniformCauchy` gives stage
+  residualStage(epsilon^2), with no positive radicand floor.
+  `polynomial_eval`, `rootSequence` and `squareSequence` retain matching
+  coefficients and uniform Cauchy data. `value_square` is a scalar CReal
+  square identity with separate `valueCauchy` data, including at zero.
+- **closed original square identity**: `rootAction` acts on ALL original
+  completed states. `squareSequence_action` recovers the original T2;
+  `rootAction_pairing` passes exact polynomial pairings through the
+  original limits; `rootAction_square` proves S^2=T2 by positive
+  definiteness. No general uniform-sequence multiplication interface,
+  supplied spectral resolution or surrogate carrier is required.
+- **closed original operator laws**: rational linearity, symmetry,
+  nonnegativity and contraction are proved. S commutes with T2 and
+  centering. `complementRoot` restricts to the EXISTING UnitComplement;
+  `complementRoot_norm_bound` transports the PREVIOUS fixed-spacing T2
+  form gap to ||Sv||^2<=half*||v||^2. `rootActionCertificate` retains the
+  actual output Cauchy representative and polynomial convergence rate.
+- **honest kernel boundary**: `rootAction_kernel` proves ker(S)=ker(T2),
+  not injectivity. S has not been identified with geometric T1. The
+  pre-existing `completedTime_even_nonnegative` and
+  `time_positive_kernel_equal` do not assert either missing fact.
+- **open residue**: original unit compatibility and coherent dyadic-time
+  refinement, geometric half-time identification, full spectral
+  realization, canonical comparisons, quotient-level completeness/time
+  injectivity, continuous-time/physical spectral/non-Wick pins, continuum
+  scaling, other groups and Clay. Fixed SU(2) nome/spacing only. No new
+  hole, physical input, canonical type/atom/flag, weight or surrogate;
+  rational-interval approximation uniformity is not a beta/spacing gap.
+- **verification**: 64 exactly matched focused gates within
+  {propext, Quot.sound}, nine axiom-free, clean final logs and fresh own
+  artifacts. Direct imports are fresh or cache-validated by the narrow
+  Soundness/CauchyConv targets. One worker, explicit 20 GiB check/Lake
+  ceilings and separate preflights; no raised options or full build/audit/
+  guard/progress/root-import run. Logs and SHA-256 in work_plan.
+
+## Previous checkpoint: CLOSED bounded uniform polynomial limits on the FULL ORIGINAL carrier (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicUniformPolynomialAction.lean`
   and `BF4ExactSlabThermodynamicUniformPolynomialLinear.lean` in the same directory.
@@ -38,8 +81,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   B=2+2*normFactor(p_N). `sequenceAction_distance_bound` and
   `continuityCertificate` give the all-vector squared-distance estimate
   and positive tolerance epsilon/(B+1). This is not a physical gap bound.
-- **open residue**: an explicit uniformly controlled square-root
-  polynomial sequence and its original square identity, geometric
+- **subsequent closure**: an explicit uniformly controlled square-root
+  polynomial sequence and its original square identity are constructed
+  in the latest entry.
+- **open residue**: geometric
   half-time identification, full spectral realization, canonical
   comparisons, quotient-level completeness/time injectivity,
   continuous-time/physical spectral/non-Wick pins, continuum scaling,
@@ -78,7 +123,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   and equality with the SAME original projection.
 - **subsequent closure**: original action of represented uniform polynomial
   limits, with computed boundedness and original compatibility pins,
-  is constructed in the latest entry. Square-root symbols remain open.
+  is constructed above. The positive square root of T2 and its original
+  square identity are now also constructed in the latest entry.
 - **open residue**: full spectral realization, canonical
   comparisons, quotient-level completeness/time injectivity,
   continuous-time/physical spectral/non-Wick pins, continuum scaling,

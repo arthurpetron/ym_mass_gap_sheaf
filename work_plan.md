@@ -18,7 +18,68 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (bounded uniform polynomial limits on the FULL ORIGINAL carrier):**
+**Latest increment (constructed positive square root of the ORIGINAL T2):**
+PROGRESS after eab09a5. `UniformSquareRootIteration` constructs the
+division-free recurrence x_0(t)=0, x_{n+1}=x_n+(t-x_n^2)/2. The proved
+invariants are 0<=x_n<=1, x_n^2<=t and monotonicity on rational [0,1].
+The residual e_n=t-x_n^2 decreases, and `weighted_residual` proves
+n*e_n<=2*x_n<=2. `residualStage(epsilon)=2*epsilon.den` therefore gives
+the uniform bound e_n<=epsilon, INCLUDING at t=0; no positive radicand
+floor or pre-existing square root is supplied.
+
+`UniformSquareRootPolynomial` proves (x_m-x_n)^2<=e_n for n<=m,
+giving `cauchyStage(epsilon)=residualStage(epsilon^2)`. It constructs
+matching QPoly coefficients, proves `polynomial_eval`, and instantiates
+the actual `rootSequence` and `squareSequence` uniform Cauchy data.
+`squarePolynomial_le_coordinate` and `coordinate_le_squarePolynomial`
+give the explicit uniform square-error estimate. `value`, `valueCauchy`
+and `value_square` additionally retain a scalar CReal square root and its
+QCauchy witness, including at zero.
+
+`BF4ExactSlabThermodynamicSquareRootAction` constructs `rootAction` S on
+the FULL ORIGINAL completion. `squareSequence_action` identifies the
+square-sequence action with the pre-existing T2. Exact finite polynomial
+pairings pass through the original row limits to give `rootAction_pairing`;
+testing against original vectors then proves `rootAction_square`: S^2=T2.
+No general uniform-sequence product compiler, assumed spectral model or
+geometric T1 identification is needed for this proof. S is rational-linear,
+symmetric, nonnegative and contractive. It commutes with T2 and the
+original centering map. `complementRoot` is on the EXISTING UnitComplement,
+where `complementRoot_norm_bound` gives ||Sv||^2<=half*||v||^2 from the
+PREVIOUSLY proved T2 form gap. `rootActionCertificate` returns the output
+representative and convergence rate. `rootAction_kernel` proves
+ker(S)=ker(T2), not that the kernel vanishes.
+
+NEXT: prove compatibility with the original unit and the identities
+needed to refine time dyadically on this same carrier. The positive
+square-root construction and S^2=T2 identity are CLOSED. Do not identify
+S with geometric T1 without a positivity/identification proof:
+`BF4ExactSlabThermodynamicCompletedTime` currently supplies even-time
+positivity, and `BF4ExactSlabThermodynamicTimeKernel` identifies common
+positive-time kernels without proving them zero. Full spectral realization,
+canonical comparisons, quotient-level completeness/time injectivity,
+continuous-time/physical spectral/non-Wick pins, continuum scaling, other
+groups and Clay remain OPEN. Fixed SU(2) nome 1/1024 and spacing only.
+No new hole, physical input, canonical type/atom/flag, weight or surrogate;
+the approximation is uniform in rational t, NOT a beta/spacing-uniform gap.
+
+Verification: three focused monitored modules, 21+24+19=64 exactly matched
+gates within {propext, Quot.sound}, nine axiom-free. Clean final logs and
+fresh own artifacts. Direct imports are fresh or, for the older-timestamp
+Soundness/CauchyConv artifacts, cache-validated by their two explicit
+monitored Lake targets (exit 0). Safe-build skill: one worker, explicit
+20 GiB check AND Lake worker ceilings, separate process/swap preflights;
+no raised options or full build/audit/guard/progress/root-import run.
+Logs and SHA-256:
+`/tmp/ym-uniform-square-root-iteration.log`
+(`c7ae2a82c501195b04da401d3950751c54633f0bf36c6ebf4d10d92fba3a344b`),
+`/tmp/ym-uniform-square-root-polynomial.log`
+(`059ac5d63e99ac8439ed09f59ad16da40a55fecade290321f7838f687247e7eb`),
+`/tmp/ym-original-square-root-action.log`
+(`b0395526aba1ea79d92f3eae73f0ce12d73a5b30e4f37af0171dcaaf44dca295`).
+Dependency validation: `/tmp/ym-square-root-rational-dependencies.log`.
+
+**Previous increment (bounded uniform polynomial limits on the FULL ORIGINAL carrier):**
 PROGRESS after 8422443. `BF4ExactSlabThermodynamicUniformPolynomialAction`
 constructs `sequenceAction` from polynomial coefficients and an explicit
 uniform rational [0,1] Cauchy rate. The target need not be rational-valued.
@@ -41,11 +102,11 @@ inequality compute B=2+2*normFactor(p_N), with
 `continuityCertificate` returns the positive tolerance epsilon/(B+1).
 This coefficient bound establishes continuity, not a physical gap.
 
-NEXT: construct an explicit polynomial square-root approximation with
-uniform error control on [0,1], including zero, and prove that its actual
-original action squares to T2. The uniform-sequence action and its
-bounded symmetric laws are CLOSED; the square-root sequence and operator
-identity are not yet constructed. Do not identify any positive square-root
+Subsequent closure: an explicit polynomial square-root approximation with
+uniform error control on [0,1], including zero, and its original action
+squaring to T2 are now constructed above. The uniform-sequence action,
+its bounded symmetric laws, and that square-root identity are CLOSED.
+Do not identify any positive square-root
 candidate with geometric T1 without proof. Full spectral realization,
 canonical comparisons, quotient-level completeness/time injectivity,
 continuous-time/physical spectral/non-Wick pins, continuum scaling, other

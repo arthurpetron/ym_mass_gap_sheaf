@@ -4277,6 +4277,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousUnitProjection
 -- represented rates and computed boundedness, without a rational limit symbol.
 import YMGap.Continuum.BF4ExactSlabThermodynamicUniformPolynomialAction
 import YMGap.Continuum.BF4ExactSlabThermodynamicUniformPolynomialLinear
+-- An explicit polynomial root sequence gives a positive original S with
+-- S^2=T2; geometric T1 identification and zero-kernel claims remain open.
+import YMGap.Continuum.UniformSquareRootIteration
+import YMGap.Continuum.UniformSquareRootPolynomial
+import YMGap.Continuum.BF4ExactSlabThermodynamicSquareRootAction
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
