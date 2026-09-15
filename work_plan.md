@@ -119,7 +119,67 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED regularized logarithm series and original dense-domain candidate; OPEN generator identity):**
+**Latest mathematical increment (CLOSED actual dyadic derivative limit on the original T2 range; OPEN arbitrary-real derivative/generator):**
+PROGRESS after `ab38524`. `BF4ExactSlabThermodynamicDyadicDefectDecay`
+defines D_d=I-S_d for the EXISTING dyadic mesh generator and the actual
+moments m_d(k,l)=B(x,S_d^k D_d^l x). `moment_halfTime` uses the finer
+mesh square law; `moment_nonnegative` and `moment_split` prove positivity
+and the exact splitting into one more time or defect factor. The retained
+terminal term in `weighted_terminal` makes finite telescoping iterable:
+`weighted_order` proves n^r*m_d(k+r*n,l+r)<=m_d(k,l).
+`moment_square` then gives `smoothing_bound`:
+n^(2*r)*||S_d^(r*n) D_d^r x||^2 <= ||x||^2.
+No spectral representation or positive lower spectral bound is an input.
+
+`BF4ExactSlabThermodynamicDyadicDerivative.differenceQuotient` is the
+ACTUAL Q_k y=2^k*(T2y-S_k(T2y)). `refinement_difference` / `quotient_step`
+prove Q_(k+1)-Q_k=2^k*D_(k+1)^2*T2 on the original completion.
+The r=2 smoothing estimate with n=2^k gives `quotient_step_bound`:
+||Q_(k+1)y-Q_ky||^2 <= (half^k)^2*||y||^2.
+`quotient_tail_bound` and `quotient_pair_bound` sum this geometrically.
+`quotientModulus X epsilon=rangeModulus X (epsilon/16)` is explicit;
+`quotient_cauchy` certifies all later pairs. Actual original representatives
+give `quotientRows`, `representedLimit` and `derivative_bound`.
+Representative independence constructs `derivativeAction` on original
+inputs y, and `derivativeCertificate` returns its original output Cauchy
+data and usable rate. This is the negative derivative along h=2^(-k)
+of t |-> A_t(T2y), in T2-time units. It is not yet an all-increment
+derivative or a proved physical Hamiltonian.
+
+NEXT CAUSAL FRONTIER: extend this actual dyadic derivative to arbitrary
+positive increments on the same T2 range. The existing real-time consumer
+is `PositiveTimePins.realTimeAction`; the available full-space continuity
+data are `FullSpaceZeroContinuity.zeroRadius`. Reuse the constructed
+`derivativeCertificate`, not a new supplied generator field. Prioritize
+the direct derivative/generation route; identification with the previously
+constructed logarithmic candidate remains a separate, unproved equality.
+Do not conflate the candidate domain with a proved self-adjoint core.
+
+OPEN: all-real-increment differentiation, equality with the logarithmic
+candidate, self-adjoint generator/maximal domain and physical spectral pins,
+time/spacing and beta(a) calibration, continuum/QFT, other compact simple
+groups and Clay. The operators here remain fixed SU(2), nome 1/1024,
+fixed spacing. The smoothing bound is functional-analytic, not a new
+Yang--Mills mass-gap bound. No canonical field, analytic premise, axiom,
+literal hole or legacy scorecard flag changed.
+
+Verification: 41 exact public gates, all {propext, Quot.sound}; both final
+logs contain only their exact gate outputs. Own/direct artifacts fresh;
+forbidden-source/option scan clean except autoImplicit false. Five focused
+safe launches (two smoothing, three derivative), one worker/20 GiB, each
+with a separate process/swap preflight; swap 11973.31 MiB throughout.
+Repaired one commutation rewrite, used the existing smul_norm and
+four_quarter_scale lemmas, and made scalar identities explicitly typed.
+No raised limits, dependency rebuild or full build/audit/guard/progress
+run. Two additive root imports, root not compiled; CI still manual-only.
+Logs and SHA-256:
+
+- `/tmp/ym-dyadic-defect-decay.log`:
+  `62ad0e58b0e4eec9184daa9b0d9c358f73e848957470f88ee3ce6e8c54a2b7bf`
+- `/tmp/ym-dyadic-derivative.log`:
+  `722c3aa5f9310f61ffd37c3aeb74dcc3495449871da88c9d78c115b09d7aaab7`
+
+**Previous mathematical increment (CLOSED regularized logarithm series and original dense-domain candidate; OPEN generator identity):**
 PROGRESS after `983de7f`. `RegularizedLogPolynomial` constructs the actual
 polynomials p_N(t)=sum_{k=1}^N t*(1-t)^k/k. The retained remainder
 r_N(t)=(1-t)^(N+1)/(N+1) makes p_N+r_N decrease while p_N increases.

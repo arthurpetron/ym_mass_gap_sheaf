@@ -4406,6 +4406,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicFullSpaceZeroContinuity
 -- self-adjoint closure, physical spectral and continuum pins remain open.
 import YMGap.Continuum.RegularizedLogPolynomial
 import YMGap.Continuum.BF4ExactSlabThermodynamicLogarithmicCore
+-- Original positive mixed moments telescope to higher defect decay and
+-- an explicit limit of actual dyadic difference quotients on the T2 range.
+-- Arbitrary-real-increment differentiation and self-adjointness remain open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicDyadicDefectDecay
+import YMGap.Continuum.BF4ExactSlabThermodynamicDyadicDerivative
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

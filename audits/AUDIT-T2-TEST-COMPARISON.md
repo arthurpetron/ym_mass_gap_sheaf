@@ -1,5 +1,29 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Actual original dyadic derivative limit (2026-09-15)
+
+Follow-up after `ab38524`. This constructs the limit of actual difference
+quotients on the original T2 range, without identifying the logarithmic
+candidate or asserting an all-real-increment derivative.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Positive original dyadic moments | `moment_halfTime`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDefectDecay.lean:114`; `moment_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDefectDecay.lean:119`; `moment_split`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDefectDecay.lean:126` | Actual S_d and I-S_d on the original completion; finer mesh proves positivity. |
+| All finite orders of smoothing | `weighted_order`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDefectDecay.lean:170`; `smoothing_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDefectDecay.lean:190` | n^(2r)*||S_d^(rn)(I-S_d)^r x||^2<=||x||^2, without spectral-floor input. |
+| Actual quotient refinement | `differenceQuotient`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean:50`; `quotient_step`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean:78`; `quotient_step_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean:100` | Q_k y=2^k*(T2y-S_k(T2y)); squared consecutive difference <=4^(-k)||y||^2. |
+| Explicit Cauchy data | `quotientModulus`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean:166`; `quotient_cauchy`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean:169`; `quotientRows`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean:197` | Original state rows; actual epsilon/16 norm-based modulus. |
+| Constructed limit and output certificate | `derivative_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean:207`; `derivativeAction`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean:219`; `derivativeCertificate`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean:223` | Original quotient-independent limit, explicit original output representative and convergence rate, along h=2^(-k) in T2-time units. |
+
+NOT FOUND in these two modules: convergence of difference quotients for
+arbitrary positive real increments, equality with `LogarithmicCore.regularizedAction`,
+a self-adjoint generator, physical time/spacing/coupling calibration,
+continuum QFT or all-group Clay closure. These residues remain ledgered.
+Scope is SU(2), nome 1/1024, fixed spacing; this is not a new mass-gap bound.
+
+Forty-one exact public gates passed with {propext, Quot.sound}; five
+focused one-worker/20 GiB launches, no raised limits or full-tree audit.
+Exact log hashes and verification boundary are recorded in work_plan.
+
 ## Original dense-domain logarithmic candidate (2026-09-15)
 
 Follow-up after `983de7f`. This constructs a candidate operator, not its

@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [a constructed logarithmic generator candidate on an original dense domain](lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean).
+**Latest analytic result:** [actual dyadic difference quotients converge on the original transfer range](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean).
+For the existing dyadic time operators `S_k`, the vectors
+`Q_k y = 2^k (T2 y - S_k T2 y)` have a constructed limit in the
+original completion, with explicit output representatives and an error
+modulus. The key estimate is
+`||Q_(k+1)y - Q_k y||^2 <= 4^(-k) ||y||^2`.
+It follows from positive mixed moments and repeated finite telescoping,
+without assuming a logarithm or a generator.
+
+This proves convergence along `h = 2^(-k)` in **T2-time units**, not yet
+differentiability for arbitrary real increments or a physical Hamiltonian.
+Identification with the logarithmic candidate below, self-adjointness,
+physical scaling, continuum QFT and the all-group Clay target remain open.
+Scope remains SU(2), nome `1/1024`, fixed spacing. All 41 new public axiom
+checks passed within the constructive gate; no full-tree run or raised limits.
+
+**Previous analytic result:** [a constructed logarithmic generator candidate on an original dense domain](lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean).
 The explicit polynomials `p_N(t) = sum_{k=1}^N t*(1-t)^k/k` have
 a proved uniform tail bound `1/(N+1)`, including at zero. Their limit
 constructs a bounded positive symmetric operator `L` on the original

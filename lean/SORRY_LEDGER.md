@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED regularized logarithm series and original dense-domain candidate; OPEN generation/self-adjointness (2026-09-15)
+## CLOSED actual dyadic derivative limit on the original T2 range; OPEN all-real differentiation/generation (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDefectDecay.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean`.
+- **new estimate**: actual dyadic mixed moments are nonnegative and split
+  exactly. `weighted_terminal` / `weighted_order` telescope repeatedly;
+  `smoothing_bound` proves n^(2*r)*||S_d^(r*n)(I-S_d)^r x||^2<=||x||^2.
+  The finer actual mesh supplies the positive square root. No spectral
+  representation, lower spectral floor or substituted operator is supplied.
+- **actual derivative sequence**: `differenceQuotient k y` is
+  2^k*(T2y-S_k(T2y)). `quotient_step` is its exact refinement difference;
+  `quotient_step_bound` bounds the squared norm by 4^(-k)*||y||^2.
+  Geometric tails give `quotient_cauchy`, with `quotientModulus` computed
+  from the previous norm-based modulus at epsilon/16.
+- **constructed limit**: `quotientRows`, `representedLimit`,
+  `derivative_bound`, `representedLimit_congr` and `derivativeAction`
+  construct a limit on the original completion without choosing quotient
+  representatives. `derivativeCertificate` returns original Cauchy data,
+  its pin and explicit convergence rate. It certifies the negative
+  derivative along h=2^(-k) on inputs T2y in T2-time units.
+- **residue**: arbitrary-positive-real-increment differentiation on
+  the same range; equality with the logarithmic candidate; self-adjoint
+  generator and physical spectral pins. SU(2), nome 1/1024 and fixed
+  spacing only; time/spacing/beta(a), continuum QFT, all groups and Clay
+  remain open. No canonical field, analytic premise, axiom, literal hole
+  or legacy scorecard flag changed. No new physical gap is claimed.
+- **verification**: 41 exact gates, all {propext, Quot.sound}, clean
+  final logs and exact declaration/gate/log matching, own/direct artifacts
+  fresh. Five safe focused launches, one worker/20 GiB, separate preflights;
+  no raised limits, dependency rebuild or full-tree run. Two root imports
+  added, root not compiled. CI manual-only; hashes in work_plan.
+
+## Previous CLOSED regularized logarithm series and original dense-domain candidate; OPEN generation/self-adjointness (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/RegularizedLogPolynomial.lean` and
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean`.
