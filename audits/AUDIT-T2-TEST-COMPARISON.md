@@ -1,5 +1,47 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Same-action graph transport and physical-scale boundary (2026-09-15)
+
+Follow-up after `06d70b2`. The original graph and its image are now
+transported by the same existing time action.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Actual quotients commute with time | `time_generator`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:50`; `quotient_time`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:56` | Old real-time composition and exact dyadic pin. |
+| Derivative rate and graph preserved | `transported_quotient_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:62`; `graph_invariant`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:76` | Original contraction and the exact derivative-domain theorem. |
+| State/image action and actual outputs | `GraphPoint.time`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:86`; `GraphPoint.time_addTime`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:97`; `graphTransportData`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:102` | Both original coordinates, output representatives, pins, graph equation and unchanged rate. |
+| Exact remainder transport | `time_realSmul`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:113`; `remainder_time`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:119` | Same supplied real scalar and old action. |
+| One radius along the whole positive-time orbit | `transported_taylor_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:125`; `orbitTaylorCertificate`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:135` | Original computed radius is independent of the positive base time. |
+| Centered orbit form gap | `GraphPoint.orbit_form_gap`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:145` | Same state, derivative image and centered half-form bound, in T2-time units. |
+
+Fifteen exact public gates passed with {propext, Quot.sound}; two focused
+safe one-worker/20 GiB checks, no raised limits or full-tree run. Exact
+name matching, artifact checks and log hash in work_plan.
+
+### Source-only physical-scale review
+
+| Source fact | Declaration and source |
+| --- | --- |
+| Current nome is fixed at invSucc 1023 | `nome`, `lean/YMGap/Continuum/BF4ExactSlabPlaquetteSmallNomeCertificate.lean:32` |
+| Actual thermodynamic sequence uses that nome; limit uses explicit volume/inner moduli | `meanSequence`, `lean/YMGap/Continuum/BF4ExactSlabExpressionThermodynamicLimit.lean:79`; `meanLimit`, `lean/YMGap/Continuum/BF4ExactSlabExpressionThermodynamicLimit.lean:118`; `value`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLowerFunctional.lean:54` |
+| Smallness premises in this limit | Private `deltaGuard`, `lean/YMGap/Continuum/BF4ExactSlabExpressionThermodynamicLimit.lean:39`; private `countGuard`, same full path `lean/YMGap/Continuum/BF4ExactSlabExpressionThermodynamicLimit.lean:41` |
+| First heat bound is exactly equivalent to 128*w^3 | `heatRemainderBound_eq`, `lean/YMGap/Continuum/QuaternionHaarCharacterInterval.lean:85` |
+| AF block law and physical spacing are separate supplied inputs | `CubicMarginLaw`, `lean/YMGap/Continuum/BF4MatchedPhysicalAFBridge.lean:175`; `PhysicalSpacingEnvelope`, `lean/YMGap/Continuum/BF4MatchedPhysicalAFBridge.lean:333`; consumer `physicalAFEnvelope`, `lean/YMGap/Continuum/BF4MatchedPhysicalAFBridge.lean:377` |
+| Dynamic completed family requires a scale-indexed nome, completed gap and spacing-to-zero data | `DynamicVacuumSectorCompletedFamily`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorCompletedFamily.lean:53` |
+| Two-sided physical rate/spacing band is an input; it forces the lattice margin to zero | `DynamicVacuumSectorPhysicalRateBand`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorCompletedFamily.lean:121`; `latticeMargin_le_epsilon`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorCompletedFamily.lean:168` |
+| Continuum handoff still takes rate convergence and projective/OS/spectral pins | `DynamicVacuumSectorContinuumHandoff`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorContinuumRealization.lean:91` |
+
+NOT FOUND: a declaration identifying this fixed-nome thermodynamic
+completion/time action with the scale-indexed completed family in the
+four searched modules `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorCompletedFamily.lean`,
+`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorObservablePath.lean`,
+`lean/YMGap/Continuum/BF4MatchedPhysicalAFBridge.lean`, and
+`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorContinuumRealization.lean`.
+This is a bounded source search, not a repository-wide absence theorem.
+No AF input, physical spacing family, continuum/QFT or all-group Clay
+obligation is discharged by the new time-transport module. Earlier
+NOT FOUND records retain their dated, named-module scope.
+
 ## Whole-graph real-time derivative and exact dyadic domain (2026-09-15)
 
 Follow-up after `fb3c85b`. No surrogate carrier, logarithmic candidate

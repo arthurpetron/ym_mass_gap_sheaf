@@ -4438,6 +4438,9 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicGraphTimeBound
 import YMGap.Continuum.BF4ExactSlabThermodynamicGraphMeshDerivative
 import YMGap.Continuum.BF4ExactSlabThermodynamicGraphRealDerivative
 import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeDomain
+-- The SAME time action preserves this graph, its derivative rates and
+-- one Taylor radius uniformly along positive-time orbits.
+import YMGap.Continuum.BF4ExactSlabThermodynamicGraphTimeTransport
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

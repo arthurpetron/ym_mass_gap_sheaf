@@ -119,7 +119,63 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED whole-graph real-time differentiation and exact modulus-bearing dyadic domain; OPEN physical generator/spectral identification):**
+**Latest mathematical increment (CLOSED same-action graph transport and orbit-uniform derivative radius; OPEN physical-scale family):**
+PROGRESS after `06d70b2`. `BF4ExactSlabThermodynamicGraphTimeTransport`
+proves `time_generator` / `quotient_time` from the OLD real-time semigroup
+and its exact dyadic pin. `transported_quotient_bound` retains the OLD
+derivative rate by contraction; `represented_graph_invariant` consumes
+`DerivativeDomain.graph_of_quotient_bound`. Thus `graph_invariant` proves
+J(A_t u)=T2(A_t v) whenever J u=T2 v, for the original action and graph.
+`GraphPoint.time` transports both coordinates and obeys composition;
+`graphTransportData` returns their original output Cauchy representatives,
+both exact pins, the graph equation and the unchanged derivative rate.
+
+`time_realSmul` and `remainder_time` give exact transport of the ORIGINAL
+Taylor remainder. `transported_taylor_bound` / `orbitTaylorCertificate`
+retain ONE original computed radius uniformly over all positive base
+times. `GraphPoint.orbit_form_gap` transports the old centered form gap
+to that same orbit. No replacement operator, carrier or analytic premise.
+
+NEXT CAUSAL FRONTIER: confront the coupling/physical-scale boundary,
+not further repackaging of the fixed-spacing generator. The source review
+below identifies the first concrete small-nome guard. Prove its precise
+range obstruction against the existing AF margin chart, then locate the
+same-action RG/scale estimate that must replace it. Do not generalize the
+whole completion stack before finding the load-bearing new estimate; do
+not manufacture a physical spacing schedule or assume a bridge between
+distinct completed carriers. The consumers already exist as explicit
+AF/spacing and same-object continuum fields, but their physical inputs
+are not supplied by the time-transport proof.
+
+Source review (not a new continuum proof): `nome` is invSucc 1023 in
+`BF4ExactSlabPlaquetteSmallNomeCertificate.lean:32`; `meanSequence` and
+`meanLimit` in `BF4ExactSlabExpressionThermodynamicLimit.lean:79,118`
+use that fixed nome. Its private `deltaGuard` / `countGuard` at :39,41
+require heatRemainderBound(nome)<1 and an adjusted entropy rate<1.
+`QuaternionHaarCharacterInterval.heatRemainderBound_eq` at :85 identifies
+the former bound with 128*w^3. `BF4MatchedPhysicalAFBridge.CubicMarginLaw`
+at :175 and `PhysicalSpacingEnvelope` at :333 are supplied inputs to
+`physicalAFEnvelope` at :377, not consequences of the fixed-nome limit.
+Exact paths and the limited bridge search are recorded in the T2 audit.
+
+OPEN: same-action coupling/spacing family, physical generator/spectral
+and complex/QFT interfaces, beta(a), continuum QFT and every compact
+simple group/Clay; J=L remains unidentified but is not automatically a
+necessary branch. Scope: original REAL completion, fixed SU(2), nome
+1/1024, fixed spacing and T2-time units. No canonical field, analytic
+premise, axiom, literal hole or legacy flag changed.
+
+Verification: 15 exact public gates, all {propext, Quot.sound}; two
+focused safe one-worker/20 GiB checks, separate preflights, swap stable
+at 11869.31 MiB. Corrected a closed Nat decision's expected type and
+qualified local graph operations; no statement weakening. Exact public
+declaration/gate/log matching, clean final log, own/direct artifacts
+fresh. No dependency rebuild or full build/audit/guard/progress run;
+one root import added, root not compiled; CI remains manual-only.
+`/tmp/ym-graph-time-transport.log` SHA-256:
+`a9a5f410f55306e69a3b7323ab9287ac3249cfc51983fb3d5867c0a5000a69be`.
+
+**Previous mathematical increment (CLOSED whole-graph real-time differentiation and exact modulus-bearing dyadic domain; OPEN physical generator/spectral identification):**
 PROGRESS after `fb3c85b`. `BF4ExactSlabThermodynamicGraphMeshDerivative`
 uses the actual graph difference and previous image-norm bound to prove
 `remainder_graph_bound`: the squared remainder is at most 4*t^2 times
@@ -152,7 +208,7 @@ exact domain identification for modulus-bearing dyadic derivatives,
 with full positive-real-time differentiation proved on every graph point.
 No separate logarithmic candidate has been assumed equal to J.
 
-NEXT CAUSAL FRONTIER: prove invariance of this graph under the EXISTING
+NEXT FRONTIER AT THAT CHECKPOINT (transport now proved above): prove invariance of this graph under the EXISTING
 realTimeAction, with its image transported by that SAME action. Commute
 the actual normalized quotients through time; contraction should preserve
 the supplied derivative rate, and `graph_of_quotient_bound` is the concrete

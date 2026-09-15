@@ -21,7 +21,21 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [the original time action differentiates on the whole closed graph](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphRealDerivative.lean).
+**Latest analytic result:** [the original time action preserves its derivative graph](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean).
+If `J u = T2 v`, then `(A_t u, A_t v)` belongs to the same graph.
+Commutation of the actual difference quotients and contraction preserve
+the derivative rate. The original output representatives are constructed,
+and the same Taylor radius works uniformly along the entire positive-time
+orbit. The centered form gap is preserved there as well.
+
+This completes another same-operator link, not the physical-scale limit.
+The underlying thermodynamic functional is still fixed at SU(2) nome
+`1/1024`; its smallness guards have not been proved along an AF trajectory.
+Physical calibration, spectral/QFT interfaces, continuum existence and all
+required groups remain open. All 15 new public axiom checks passed within
+the constructive gate in focused safe checks; no full-tree run or raised limits.
+
+**Previous analytic result:** [the original time action differentiates on the whole closed graph](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphRealDerivative.lean).
 For supplied original state/image representatives with `J u = T2 v`, a
 computed positive radius gives `||u - A_t u - t v||^2 <= epsilon*t^2`
 for every supplied positive real time below it. The proof uses the old

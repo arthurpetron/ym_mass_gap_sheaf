@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED whole-graph real-time derivative and exact modulus-bearing dyadic domain; OPEN physical generator/spectral identification (2026-09-15)
+## CLOSED same-action graph invariance and orbit-uniform Taylor radius; OPEN physical-scale family (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean`.
+- **same graph under time**: `quotient_time` and contraction preserve the
+  actual derivative rate. `graph_invariant` consumes the exact-domain
+  theorem and proves J(A_t u)=T2(A_t v). `GraphPoint.time` transports
+  both original coordinates and obeys time composition. `graphTransportData`
+  returns original output Cauchy representatives with both pins, the
+  graph equation and the unchanged derivative rate.
+- **orbit-uniform derivative estimate**: `remainder_time` identifies the
+  exact transported real remainder. `orbitTaylorCertificate` retains the
+  original radius, uniformly over positive base times; contraction is
+  the only new estimate. `GraphPoint.orbit_form_gap` retains the old
+  centered form gap for that same action and image.
+- **residue/repointing**: this does not remove the fixed-nome guard in
+  the underlying thermodynamic functional. The next obstruction is the
+  actual coupling/physical-scale family, including replacement/control
+  of the small-nome bounds and a same-action AF/spacing pin. Physical
+  generator/spectral and complex/QFT interfaces, beta(a), continuum QFT,
+  all groups/Clay and J=L remain open. The source review is in the T2
+  audit; no physical input is supplied merely by an AF compiler's type.
+  Fixed SU(2), nome 1/1024, original REAL completion, spacing and T2-time
+  units remain. No canonical field, analytic premise, axiom, literal
+  hole or legacy scorecard flag changed.
+- **verification**: 15 exact public gates, all {propext, Quot.sound};
+  two focused safe one-worker/20 GiB checks, exact matching, clean final
+  log and fresh own/direct artifacts. Separate preflights, no raised
+  limits or full-tree run. One additive root import, root not compiled;
+  CI manual-only. Exact hash in work_plan.
+
+## Previous CLOSED whole-graph real-time derivative and exact modulus-bearing dyadic domain; graph transport subsequently proved above (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphMeshDerivative.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphRealDerivative.lean`,
