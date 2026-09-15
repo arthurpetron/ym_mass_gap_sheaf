@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED same-source bulk collar bound and original thermodynamic collar-test separation (2026-09-15)
+## CLOSED limit-inference counterexample; OPEN actual T2 approximate-range estimate (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/PositiveTransferLimitKernelFence.lean`.
+- **closed, counterexample only**: `transfer_symmetric`, `transfer_coercive`,
+  `transfer_strictly_positive`, `vacuum_fixed` and
+  `uniform_excited_form_bound` hold for T_n=diag(1,(1/16)*2^(-n)).
+  `operatorErrorModulus` and `operator_error_atModulus` give explicit
+  uniform-over-vectors squared-error control. `limit_nonzero_kernel` and
+  `limit_test_bound_impossible` refute passing finite strict positivity to
+  limit injectivity from these properties alone. Not a physical model or
+  frontier-bundle inhabitant; no assertion about the actual T2 kernel.
+- **review**: `audits/AUDIT-T2-TEST-COMPARISON.md` records the exact source
+  consumers, local-collar/full-dressing and cutoff distinctions, and a
+  non-load-bearing classical exact-range-versus-closure argument. Prefer
+  approximate original preimages over mandatory exact test preimages.
+- **open residue**: the existing actual `partialPreimage` and
+  `approximationCertificate` already return candidate data and an exact
+  residual moment; a computable smallness rule for a dense original family
+  is unsupplied. `range_residual_small` only covers existing T2 images.
+  Actual test annihilation/range density, full-space time zero, physical
+  Hamiltonian, beta(a)/continuum, QFT/spectral pins, other groups and Clay
+  remain open. No new analytic premise, hole or canonical type/field/flag.
+- **verification**: 21 exact focused gates, 11 axiom-free and the rest within
+  {propext, Quot.sound}; no forbidden executable tokens or extra options.
+  One root import, root not compiled; narrow dependency content-hash check,
+  no full build/audit/guard/progress run. Safe-build skill used. Focused
+  check had explicit 20 GiB; a dependency invocation inherited the existing
+  32 GiB default and was repeated with explicit 20 GiB. No limits edited.
+  Exact logs, hash and safety/freshness boundary are recorded in work_plan
+  and the audit. This entry closes a rejected inference, not a physical atom.
+
+## Previous checkpoint: CLOSED same-source bulk collar bound and original thermodynamic collar-test separation (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkCollarApproximation.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCollarTestDensity.lean`.

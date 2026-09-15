@@ -101,6 +101,45 @@ provide missing witnesses or turn a conditional theorem into an unconditional on
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
+**Latest route review (a checked obstruction, not physical closure):**
+The [actual T2/test comparison audit](audits/AUDIT-T2-TEST-COMPARISON.md)
+distinguishes exact range from constructive approximate range. A bound
+`|<x,f>|^2<=C_f*||T2 x||^2` for every x is stronger than density requires:
+the classical review argument asks for an exact test preimage. Do not make
+that a compulsory target. The existing original `partialPreimage` and
+`approximationCertificate` already compute finite candidate preimages and
+their exact residual `mixedMoment x 0 (n+n)`; the missing analytic result is
+a computable smallness threshold on a dense family of original states.
+`range_residual_small` currently provides it only on actual T2 images.
+Approximate preimages, together with existing actual range time-zero continuity
+and distance contraction, suffice for the explicit conditional calculation
+in the audit; no new hypothesis wrapper or classical witness is introduced.
+
+`PositiveTransferLimitKernelFence` proves a separate rational counterexample:
+T_n=diag(1,(1/16)*2^(-n)) is symmetric, strictly positive and vacuum-fixing,
+with common excited form cap 1/16 and computed squared-operator-error modulus.
+Its limit diag(1,0) kills a unit excitation. Thus finite positivity plus an
+upper gap cannot by itself close a thermodynamic kernel. This says nothing
+about whether the actual T2 has a kernel and inhabits no frontier bundle.
+The source review also distinguishes the finite local 24-face collar from a
+full time-slice dressing, and the finite same-K amplitude identity from
+fixed-test-K thermodynamic density. Both identifications require proof.
+
+Verification: 21 exact focused public gates, 11 axiom-free and the rest within
+{propext, Quot.sound}; no new hole/analytic premise/classical input, forbidden
+executable token, extra option or canonical atom/type/field/flag change.
+One new root import; prior multiplicities preserved, root not compiled.
+The safe-build skill kept verification narrow: focused check at one worker
+and explicit 20 GiB, followed by a 40-job content-hash dependency target.
+The first dependency invocation mistakenly inherited the existing 32 GiB
+default (new module built in 330 ms); it was repeated with explicit 20 GiB.
+No limits were edited. Separate process/swap preflights; swap 12718.31 MiB.
+Own artifact fresh; dependency validity is by Lake content hashes, not a claim
+that all dependency artifact mtimes are newer than source mtimes. No full
+build/audit/guard/progress run. Focused log:
+`/tmp/ym-positive-transfer-limit-kernel-fence.log`, SHA-256
+`8c9ec6898eefebdc243a6bb11c6a55483f47ea6ef098d1dc86a9f55ad2e8d978`.
+
 **Latest increment (SAME source-collar error through volume, then original thermodynamic separation):**
 PROGRESS after 1c8e5b5. `BF4ExactSlabBulkCollarApproximation.bulkLowerErrorSquare`
 and `bulkUpperErrorSquare` certify the actual embedded source error and its
@@ -131,11 +170,12 @@ continuum conclusion. The finite-action uniformity above concerns size, not gap.
 NEXT mathematical obstruction: for the ACTUAL
 `BF4ExactSlabThermodynamicCompletedTime.twoStepTransfer`, prove that a zero
 mode vanishes against the constructed dressed tests, or find a more direct
-separating family tied to that operator. The new separation theorem is an
-actual consumer of this implication, not its proof. A sufficient quantitative
-route would bound each test pairing by a test-dependent constant times the
-original T2 norm, with the same action/normalization throughout; no such
-bound is asserted here. `BF4ExactSlabThermodynamicTranslatedChannelPacket.twoStepTransfer_norm_interval`
+separating family tied to that operator. For constructive full-space time zero,
+seek approximate actual preimages with an explicit squared-error rule, not
+necessarily exact test preimages or a test-relative C_f bound. The existing
+candidate residual moments give a concrete analytic target. The separation
+theorem is a consumer, not proof of a transfer comparison.
+`BF4ExactSlabThermodynamicTranslatedChannelPacket.twoStepTransfer_norm_interval`
 already pins translated packets to that norm, but an interval for the norm
 does not establish the needed comparison with these tests. Inspect that
 comparison before adding any new compiler or range hypothesis. Do not demand

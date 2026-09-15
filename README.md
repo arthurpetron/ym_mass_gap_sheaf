@@ -21,6 +21,17 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
+**Latest route review:** [the missing actual-transfer comparison](audits/AUDIT-T2-TEST-COMPARISON.md).
+A new Lean-checked counterexample shows why finite strict positivity and a
+common excited-sector upper bound do not alone exclude a limit kernel.
+It is not a Yang--Mills model or a physical closure. The next target is
+constructive approximate range for the **actual** thermodynamic transfer;
+candidate preimages already exist, but their residuals need a computable
+smallness estimate on a dense original family. Exact test preimages need not
+be demanded. Classical review helped distinguish these obligations without
+changing the constructive proof substrate. The counterexample passed 21
+focused axiom checks; no full-tree audit was run.
+
 **Latest milestone:** [collar tests separate the original thermodynamic completed states](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCollarTestDensity.lean).
 The same source collar and correction now retain their geometric OS error
 under actual bulk enlargement, and the bound passes through the existing

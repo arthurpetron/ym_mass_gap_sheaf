@@ -4398,6 +4398,9 @@ import YMGap.Continuum.BF4ExactSlabCollarDressedTestDensity
 -- Actual T2 zero modes annihilating this family remains a separate obligation.
 import YMGap.Continuum.BF4ExactSlabBulkCollarApproximation
 import YMGap.Continuum.BF4ExactSlabThermodynamicCollarTestDensity
+-- Counterexample ONLY: finite strict positivity and a common upper gap do
+-- not prevent a limit kernel. This does not discharge any physical frontier.
+import YMGap.Continuum.PositiveTransferLimitKernelFence
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
