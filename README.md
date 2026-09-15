@@ -21,7 +21,19 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest milestone:** [collar-dressed tests distinguish the same original completed states](lean/YMGap/Continuum/BF4ExactSlabCollarDressedTestDensity.lean).
+**Latest milestone:** [collar tests separate the original thermodynamic completed states](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCollarTestDensity.lean).
+The same source collar and correction now retain their geometric OS error
+under actual bulk enlargement, and the bound passes through the existing
+thermodynamic form limit. Explicit approximants prove separation by the family
+of source-collar-dressed tests, ranging over source bases. This is the original
+fixed-spacing completion, not a new carrier or a continuum limit.
+Two modules passed 14 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree run. The remaining transfer question is whether an actual
+two-step-transfer zero mode vanishes against these tests. That implication,
+transfer range density, physical time zero, and the continuum/Clay target
+remain open; test-family density alone does not supply them.
+
+**Established finite-slab result:** [collar-dressed tests distinguish the same original completed states](lean/YMGap/Continuum/BF4ExactSlabCollarDressedTestDensity.lean).
 At each finite slab, the actual OS squared error of `H * (e * G_n) - e`
 is at most `bound(e) * 2^(-2n)`. A computed correction order and the
 existing Cauchy modulus therefore produce collar-dressed approximants to
@@ -31,8 +43,8 @@ representative selection is assumed.
 Two modules passed 23 focused axiom checks within `{propext, Quot.sound}`;
 no full-tree run. The collar uses nome `1/1024`; these size/density results
 hold in every existing finite-slab action with `0 < w < 1`, not as a
-coupling-uniform spectral gap. Growing-volume transport and identification
-of tests as actual time-transfer images remain open, as does the Clay target.
+coupling-uniform spectral gap. Growing-volume transport is now supplied above;
+identification of tests as actual time-transfer images remains open.
 
 **Established realization:** [collar corrections are admissible original observables](lean/YMGap/Continuum/BF4ExactSlabOriginalCollarCorrector.lean).
 Finite heat products and their geometric corrections now live in the existing

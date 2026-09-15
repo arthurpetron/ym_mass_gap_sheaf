@@ -101,7 +101,64 @@ provide missing witnesses or turn a conditional theorem into an unconditional on
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest increment (SAME-STATE finite-slab collar-test density with explicit OS error):**
+**Latest increment (SAME source-collar error through volume, then original thermodynamic separation):**
+PROGRESS after 1c8e5b5. `BF4ExactSlabBulkCollarApproximation.bulkLowerErrorSquare`
+and `bulkUpperErrorSquare` certify the actual embedded source error and its
+reflection. The source's at-most-24 face list is mapped to physical target
+faces; its length is unchanged. No fresh target collar is substituted.
+`bulk_approximation_error_bound` keeps bound(e)*2^(-2n), for every padding
+and permitted time lag, at arbitrary existing action 0<w<1.
+`bulk_approximation_error_atOrder` uses ONE source-computed correction order
+at every such enlargement. The collar itself still uses nome 1/1024.
+
+`BF4ExactSlabThermodynamicCollarTestDensity.thermodynamic_approximation_error_bound`
+passes this actual error through `BF4ExactSlabThermodynamicReflectedForm.form_converges`.
+`thermodynamic_approximation_error_atOrder` and `collarApproximation_bound`
+give the original completed squared-distance estimate. `dressedTest` ranges
+over source presentations. `approximationCofactor` computes its base,
+cofactor and degree from a SUPPLIED original Cauchy representative;
+`approximationCofactor_spec` certifies the resulting nearby test.
+`completed_zero_of_collar_tests` and `completed_eq_iff_collar_tests_eq`
+prove separation of the SAME original thermodynamic completed states.
+
+Scope: the family ranges over source bases. Each source expression and its
+collar are fixed during its volume limit; successive completed approximants
+may have different bases. No density for one fixed collar at all bases,
+OS quotient multiplier, or quotient representative selection is asserted.
+This is fixed-spacing, fixed-nome thermodynamic density, not a spectral or
+continuum conclusion. The finite-action uniformity above concerns size, not gap.
+
+NEXT mathematical obstruction: for the ACTUAL
+`BF4ExactSlabThermodynamicCompletedTime.twoStepTransfer`, prove that a zero
+mode vanishes against the constructed dressed tests, or find a more direct
+separating family tied to that operator. The new separation theorem is an
+actual consumer of this implication, not its proof. A sufficient quantitative
+route would bound each test pairing by a test-dependent constant times the
+original T2 norm, with the same action/normalization throughout; no such
+bound is asserted here. `BF4ExactSlabThermodynamicTranslatedChannelPacket.twoStepTransfer_norm_interval`
+already pins translated packets to that norm, but an interval for the norm
+does not establish the needed comparison with these tests. Inspect that
+comparison before adding any new compiler or range hypothesis. Do not demand
+an unbounded inverse on all states or assume each dressed test is a T2 image.
+General channel comparison, T2 zero kernel/range density, full-space time
+zero, geometric T1/physical Hamiltonian, beta(a)/continuum control,
+spectral/non-Wick pins, other groups and Clay remain open.
+
+Verification: 4+10=14 exact public gates, all within {propext, Quot.sound};
+clean logs, fresh own/direct-import artifacts, no forbidden executable
+tokens, only autoImplicit false. Two new root imports occur once, prior
+multiplicities preserved; root not compiled. Safe-build skill: one worker,
+explicit 20 GiB and separate process/swap preflights; swap stayed 12734.31 MiB.
+Corrected namespace opens and a local notation/binder collision without
+raised limits. No full build/audit/guard/progress run, analytic premise,
+new hole, canonical atom/type/field/flag, surrogate or classical input.
+Logs and SHA-256:
+`/tmp/ym-bulk-collar-approximation.log`
+(`5bd95a0ff8630360051c7f6a12fc610270a6a776d003b607b8f81b6eae2515bc`),
+`/tmp/ym-thermodynamic-collar-test-density.log`
+(`60822596f0641e8384c5da52c2ec35fa06ae0bd0bbb22651fa17728fe8227690`).
+
+**Previous increment (SAME-STATE finite-slab collar-test density with explicit OS error):**
 PROGRESS after 246396d. The corrected TEST, not the input state, supplies
 the legitimate comparison. `BF4ExactSlabCollarTestNorm.corrected_form_bound`
 proves actual original normalized OS squared norm <=bound(e)*4, uniformly

@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original finite-slab collar-test density and same-state separation (2026-09-15)
+## CLOSED same-source bulk collar bound and original thermodynamic collar-test separation (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkCollarApproximation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCollarTestDensity.lean`.
+- **closed**: `bulkLowerErrorSquare`, `bulkUpperErrorSquare`,
+  `bulk_approximation_error_bound` and `bulk_approximation_error_atOrder`
+  retain the SAME source collar/error under actual bulk maps, with one
+  source-derived order for all padding and allowed lags. No target-collar swap.
+  `thermodynamic_approximation_error_bound` consumes actual `form_converges`;
+  `thermodynamic_approximation_error_atOrder`, `collarApproximation_bound`,
+  `approximationCofactor` and `approximationCofactor_spec` supply constructive
+  density. `completed_zero_of_collar_tests` and
+  `completed_eq_iff_collar_tests_eq` separate the SAME original thermodynamic
+  completed states using the family across source bases, not one fixed collar.
+- **open residue**: actual T2 zero mode => annihilation of these tests (or a
+  different operator-linked separating family). The packet norm pin is not
+  that implication. No test-preimage, OS multiplication operator, quotient
+  representative choice or T2 range density/injectivity is supplied. Full
+  time zero, physical Hamiltonian, beta(a)/continuum, spectral/non-Wick pins,
+  other groups and Clay remain open. No canonical atom/type/field/flag changes.
+- **verification**: 14 exact focused public gates within {propext, Quot.sound};
+  clean logs and fresh own/direct imports; no new holes/classical/analytic
+  inputs or forbidden executable tokens. One worker, explicit 20 GiB,
+  separate process/swap preflights. Two root imports, prior multiplicities
+  preserved; root not compiled; no full build/audit/guard/progress run.
+  Log hashes and exact uniformity parameters are in work_plan.
+
+## Previous checkpoint: CLOSED original finite-slab collar-test density and same-state separation (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabCollarTestNorm.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabCollarDressedTestDensity.lean`.

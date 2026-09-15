@@ -4390,9 +4390,14 @@ import YMGap.Continuum.BF4ExactSlabPlaquetteHeatExpression
 import YMGap.Continuum.BF4ExactSlabOriginalCollarCorrector
 -- Actual OS geometric error makes collar-dressed TESTS dense in the original
 -- finite-slab completion; agreement on all such tests implies state equality.
--- Growing-volume transport and identification as T2 images remain open.
+-- These finite-slab results do not alone identify any T2 images.
 import YMGap.Continuum.BF4ExactSlabCollarTestNorm
 import YMGap.Continuum.BF4ExactSlabCollarDressedTestDensity
+-- The SAME source collar/error survives actual bulk enlargement. Its bound
+-- passes to the original thermodynamic completion and gives test separation.
+-- Actual T2 zero modes annihilating this family remains a separate obligation.
+import YMGap.Continuum.BF4ExactSlabBulkCollarApproximation
+import YMGap.Continuum.BF4ExactSlabThermodynamicCollarTestDensity
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
