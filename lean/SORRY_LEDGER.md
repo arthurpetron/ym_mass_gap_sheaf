@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED finite original-observable realization of collar corrections (2026-09-15)
+## CLOSED original finite-slab collar-test density and same-state separation (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabCollarTestNorm.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCollarDressedTestDensity.lean`.
+- **closed actual OS comparison**: `corrected_form_bound`,
+  `unchanged_pairing_bound` and `unchanged_completed_pairing_bound` control
+  the test vector while retaining the unchanged original input norm.
+  `approximationError_lower`, `approximationError_upper`,
+  `approximation_error_bound`, `approximationOrder` and
+  `approximation_error_atOrder` give actual OS squared error
+  <=bound(e)*2^(-2n), with a degree for requested squared-distance tolerance.
+- **closed finite-slab separating family**: `approximationCofactor` and
+  `approximationCofactor_spec` compute actual collar-dressed approximants
+  from supplied original Cauchy representatives. `completed_zero_of_collar_tests`
+  and `completed_eq_iff_collar_tests_eq` prove separation of the SAME original
+  completed states. No OS quotient multiplier or representative choice.
+- **open residue**: growing-volume transport of the SAME source collar/test
+  expressions and the corresponding thermodynamic density. No time-transfer
+  range pin is supplied: collar-test density does not establish T2 range
+  density/injectivity. Full-space time zero, physical Hamiltonian, beta(a)/
+  continuum control, spectral/non-Wick pins, other groups and Clay remain open.
+  The collar nome is 1/1024. Bounds under any existing 0<w<1 action are size
+  estimates, not a uniform spectral gap. No canonical atom/type/flag changes.
+- **verification**: 23 exact focused public gates within {propext, Quot.sound};
+  clean logs, fresh own/direct imports, no new holes/classical/analytic inputs,
+  no forbidden executable tokens. One worker, explicit 20 GiB, separate
+  process/swap preflights. Two root imports, prior multiplicities preserved;
+  root not compiled; no full build/audit/guard/progress run. Hashes in work_plan.
+
+## Previous checkpoint: CLOSED finite original-observable realization of collar corrections (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteHeatExpression.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabOriginalCollarCorrector.lean`.

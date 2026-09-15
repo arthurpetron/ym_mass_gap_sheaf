@@ -4385,9 +4385,14 @@ import YMGap.Continuum.BF4ExactSlabSpectatorCollarCorrection
 import YMGap.Continuum.BF4ExactSlabPlaquetteCollarCorrection
 -- The corrections are actual original plaquette expressions, and the
 -- existing OS test amplitude equals the estimated corrected integral.
--- They change the observable; unchanged-state separation remains open.
+-- They change the observable; they do not alone give unchanged-state separation.
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatExpression
 import YMGap.Continuum.BF4ExactSlabOriginalCollarCorrector
+-- Actual OS geometric error makes collar-dressed TESTS dense in the original
+-- finite-slab completion; agreement on all such tests implies state equality.
+-- Growing-volume transport and identification as T2 images remain open.
+import YMGap.Continuum.BF4ExactSlabCollarTestNorm
+import YMGap.Continuum.BF4ExactSlabCollarDressedTestDensity
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

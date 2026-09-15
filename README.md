@@ -21,7 +21,20 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest milestone:** [collar corrections are admissible original observables](lean/YMGap/Continuum/BF4ExactSlabOriginalCollarCorrector.lean).
+**Latest milestone:** [collar-dressed tests distinguish the same original completed states](lean/YMGap/Continuum/BF4ExactSlabCollarDressedTestDensity.lean).
+At each finite slab, the actual OS squared error of `H * (e * G_n) - e`
+is at most `bound(e) * 2^(-2n)`. A computed correction order and the
+existing Cauchy modulus therefore produce collar-dressed approximants to
+every supplied completed-state representative. Two states agreeing on all
+these tests are equal. No OS multiplication operator or quotient
+representative selection is assumed.
+Two modules passed 23 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree run. The collar uses nome `1/1024`; these size/density results
+hold in every existing finite-slab action with `0 < w < 1`, not as a
+coupling-uniform spectral gap. Growing-volume transport and identification
+of tests as actual time-transfer images remain open, as does the Clay target.
+
+**Established realization:** [collar corrections are admissible original observables](lean/YMGap/Continuum/BF4ExactSlabOriginalCollarCorrector.lean).
 Finite heat products and their geometric corrections now live in the existing
 plaquette-expression algebra, with their lower and reflected upper evaluations
 proved equal to the actual heat/correction polynomials. Both correction

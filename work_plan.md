@@ -101,7 +101,64 @@ provide missing witnesses or turn a conditional theorem into an unconditional on
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest increment (ADMISSIBLE original collar correction and existing test-amplitude pin):**
+**Latest increment (SAME-STATE finite-slab collar-test density with explicit OS error):**
+PROGRESS after 246396d. The corrected TEST, not the input state, supplies
+the legitimate comparison. `BF4ExactSlabCollarTestNorm.corrected_form_bound`
+proves actual original normalized OS squared norm <=bound(e)*4, uniformly
+in correction cutoff K and degree n. `unchanged_pairing_bound` retains the
+original input norm on the right. `approximationError_lower` and
+`approximationError_upper` identify H*(e*G_n)-e with the same signed
+geometric defect; `errorLowerSquare` and `errorUpperSquare` certify its
+actual lower/reflected square caps. `approximation_error_bound` gives
+OS squared error <=bound(e)*(half^n*half^n). `approximationOrder`,
+`approximation_order_budget` and `approximation_error_atOrder` return a
+source-derived degree for any positive SQUARED-distance tolerance.
+
+`BF4ExactSlabCollarDressedTestDensity.unchanged_completed_pairing_bound`
+extends the norm-relative test comparison to every original completed state.
+`approximationCofactor` computes a dense source approximant and its finite
+correction from a SUPPLIED original Cauchy representative;
+`approximationCofactor_spec` puts the corresponding H*f within requested
+original completed squared distance. No quotient representative is chosen.
+`completed_zero_of_collar_tests` and `completed_eq_iff_collar_tests_eq`
+prove that the actual collar-dressed family separates these same states.
+No OS multiplier/null-invariance hypothesis is used or supplied.
+
+Scope: H and its correction use nome 1/1024, with K fixed but arbitrary.
+The positive-polynomial certificates evaluate in the existing cutoff-limit
+finite-slab action for any 0<w<1. This uniform SIZE/APPROXIMATION bound is
+not a coupling-uniform gap. The previous obstruction to using a changed
+insertion as a test of an unchanged state is avoided by constructing test
+vectors and proving their actual OS approximation, not by assuming the
+desired quotient operator.
+
+NEXT: prove these estimates for actual enlargements of the SAME source
+collar/test expressions, then pass through the existing thermodynamic
+`form_converges`. A freshly chosen collar at each larger volume cannot
+silently replace the embedded source collar. This is a justified consumer
+for the geometric bound; fixed-volume separation alone is insufficient.
+Even thermodynamic collar-test density will not identify the test family
+as the range of actual T2. That range pin, general channel transport,
+T2 zero kernel/range density, full-space time-zero continuity, geometric
+T1/physical Hamiltonian, beta(a)/continuum control, spectral/non-Wick pins,
+other groups and Clay remain open. No canonical continuum atom closes.
+
+Verification: 14+9=23 exact public gates within {propext, Quot.sound},
+clean logs, fresh own/direct-import artifacts, no forbidden executable
+tokens, only autoImplicit false. Two new root imports occur once;
+existing multiplicities preserved; root not compiled. Safe-build skill:
+one worker, explicit 20 GiB, separate process/swap preflights; swap stayed
+12734.31 MiB. Fixed a local notation/binder collision, a support reference,
+and explicit scalar/quotient proof intermediates without raised limits.
+No full build/audit/guard/progress run. No new analytic premise, hole,
+canonical field/type/flag, surrogate or classical input.
+Logs and SHA-256:
+`/tmp/ym-collar-test-norm.log`
+(`7e927733864663b5d50f997a53c85858978b5345c5128c36124579689c1d180e`),
+`/tmp/ym-collar-dressed-test-density.log`
+(`0173612e9b31d16492e560e53962bb302deba8b3caae00de3bda951876feab6e`).
+
+**Previous increment (ADMISSIBLE original collar correction and existing test-amplitude pin):**
 PROGRESS after 4538415. The finite correction is now actual data in the
 original plaquette algebra, not merely an ambient Haar polynomial with an
 unproved representation. Its existing OS test amplitude is exactly the
