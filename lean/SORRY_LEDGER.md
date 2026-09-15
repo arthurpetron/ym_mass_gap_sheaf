@@ -13,7 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED real-time Taylor estimate on the original transfer range; OPEN logarithmic/generator identification (2026-09-15)
+## CLOSED actual derivative laws, dense-domain form gap and closability; OPEN maximal domain/generation (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeLaws.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDifferentiatedCore.lean`.
+- **actual derivative laws**: `quotient_contraction` uses the previous
+  first-order smoothing bound. Original pairing limits and separation
+  prove derivative symmetry, positivity, contraction and rational/
+  supplied-real linearity. `derivative_transfer` and `derivative_unit`
+  use the original T2 and unit. No generator or logarithm is supplied.
+- **new lower bound**: `quotient_form_step` is a positive defect-square
+  increment; `derivative_form_lower` proves the actual J form dominates
+  the T2-defect form on T2x. `image_form_gap` then consumes the OLD
+  completed transfer gap to give B(H0v,v)>=(1/2)B(v,v) for original
+  centered dense-domain states, in T2-time units.
+- **domain and derivative pin**: reuses LogarithmicCore.CorePoint's
+  original states and old constructive density witnesses. The new
+  `image` is J(y); the old CorePoint.image=L(y) is unchanged and NOT
+  identified with it. `remainder_pin` / `derivativeCertificate` retain
+  the actual real-time action and previous computed radius. The norm
+  bound is in the PREIMAGE norm, not a boundedness claim for H0.
+- **closability**: `graph_rows_closable` proves a zero state limit has
+  zero image limit for supplied original Cauchy graph rows. No new
+  completion, limit choice or maximal-domain premise is used.
+- **residue**: maximal/self-adjoint realization, full same-semigroup
+  generation and spectral interpretation; J=L; physical calibration,
+  beta(a)/spacing, continuum QFT, all groups and Clay. Fixed SU(2), nome
+  1/1024 and T2-time units only. No canonical field, analytic premise,
+  axiom, literal hole or legacy scorecard flag changed.
+- **verification**: 33 exact public gates, all {propext, Quot.sound};
+  exact logged names, clean final logs, own/direct artifacts fresh.
+  Three focused safe one-worker/20 GiB checks, separate preflights,
+  no raised limits or full-tree run. Two additive root imports, root
+  not compiled; CI manual-only. Exact hashes in work_plan.
+
+## Previous CLOSED real-time Taylor estimate on the original transfer range; OPEN logarithmic/generator identification (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicScalarRows.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRealDerivative.lean`.

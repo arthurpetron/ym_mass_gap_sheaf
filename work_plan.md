@@ -119,7 +119,81 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED real-time Taylor estimate on the original transfer range; OPEN logarithmic/generator identification):**
+**Latest mathematical increment (CLOSED actual derivative laws, original dense-domain form gap and closability; OPEN maximal domain/generation):**
+PROGRESS after `eff75ad`. The next proposition was J=L, but the inspected
+scalar/root/logarithm modules do not already supply that identification.
+The actual derivative J has already been constructed, so a direct argument
+can prove the necessary domain laws without first joining the logarithm
+branch. No goal, physical operator or state space is replaced by this choice.
+
+`BF4ExactSlabThermodynamicDerivativeLaws.quotient_contraction` specializes
+the PREVIOUS smoothing_bound to first order and n=2^depth. It proves a
+depth-independent original norm bound for every actual quotient.
+`quotient_symmetric`, `quotient_nonnegative` and the original row pairing
+limits yield `derivative_symmetric`, `derivative_nonnegative` and
+`derivative_contraction`. Pairing separation gives `derivative_add`,
+`derivative_smul` and `derivative_realSmul` for supplied QCauchy scalars.
+`derivative_transfer` and `derivative_unit` pin the same T2 and vacuum.
+
+The useful new estimate is `quotient_form_step`: the exact refinement
+difference, paired with T2x, is a positive ORIGINAL defect square.
+Finite induction and the same row limits give `derivative_form_lower`:
+  B((I-T2)T2x,T2x) <= B(Jx,T2x).
+No logarithm, generator or spectral comparison premise is supplied.
+
+`BF4ExactSlabThermodynamicDifferentiatedCore` reuses the EXISTING
+LogarithmicCore.CorePoint domain states T2y and old density data.
+Its explicitly named `image` is J(y); the OLD CorePoint.image remains
+L(y), with no asserted equality. `image_welldef`, `image_symmetric`,
+`image_nonnegative` and the rational/represented-real linear laws prove
+an actual derivative operator on this domain. `remainder_pin` and
+`derivativeCertificate` identify its real-time derivative estimate with
+the PREVIOUS computed radius, on the SAME action and norm.
+
+`image_form_gap` consumes the OLD completed transfer form gap and the
+new transfer-defect comparison. It proves B(H0v,v)>=(1/2)B(v,v) for
+centered ORIGINAL domain states, in T2-time units. This is not yet a
+self-adjoint spectral-gap theorem or a physical mass calibration.
+`image_preimage_bound` bounds J(y) by y, not by T2y; H0 is NOT asserted
+bounded. `graph_rows_closable` proves: for supplied original Cauchy
+graph rows, a zero state limit forces a zero image limit. Its short
+proof uses symmetry, pairing limits and actual T2 injectivity.
+
+NEXT CAUSAL FRONTIER: construct the maximal graph on the same completion
+and prove its relation to the differentiated dense domain. The proposed
+equation is J(u)=T2(v); it is a target to prove equivalent to the closure
+and adjoint graph, NOT a proved maximal-domain declaration yet. Existing
+consumers/data are RangeApproximation.partialPreimage / partialPreimageCauchy,
+partialPreimage_distance, FullSpaceZeroContinuity.residualModulus /
+residual_small, and the new derivative_transfer / linear laws. Seek
+explicit two-coordinate graph approximants using the same finite sums,
+with a shared degree computed from the state and image moduli. Do not
+choose an inverse or assume dense-range surjectivity. Generation on the
+maximal graph, self-adjointness and extension of the form gap must be
+proved, not inferred from closability. J=L remains a separate open
+identification; it need not block a valid direct route.
+
+OPEN: maximal/self-adjoint realization and its full same-semigroup pins,
+logarithmic identification, physical time/spacing/beta(a) calibration,
+continuum QFT and all compact simple groups/Clay. SU(2), nome 1/1024,
+fixed spacing only. No canonical frontier field, analytic premise, axiom,
+literal hole or legacy scorecard flag changed.
+
+Verification: 33 exact public gates, all {propext, Quot.sound}; exact
+declaration/gate/log matching, clean final logs, own/direct artifacts
+fresh. Three focused safe checks (DerivativeLaws twice, DifferentiatedCore
+once), one worker/20 GiB, separate process/swap preflights; swap stable
+at 11869.31 MiB. Fixed a commutation rewrite and reused the actual
+scalar-zero-state lemma; no statement weakening or raised limits.
+No dependency rebuild or full build/audit/guard/progress run. Two root
+imports added, root not compiled; CI remains manual-only. Logs and SHA-256:
+
+- `/tmp/ym-derivative-laws.log`:
+  `033bace35821ad04a22db10036e604fb1ee8445a5e6ff801fafb54fc84cfc495`
+- `/tmp/ym-differentiated-core.log`:
+  `e4066a8a8012b2bb58b4c9b167391cbd96e909e7494d38edb121a3fe6d6c706c`
+
+**Previous mathematical increment (CLOSED real-time Taylor estimate on the original transfer range; OPEN logarithmic/generator identification):**
 PROGRESS after `ebc052e`. `BF4ExactSlabThermodynamicScalarRows` treats an
 explicitly QCauchy scalar stream as constant polynomials in the EXISTING
 uniform-action calculus. `scalarRows` retains actual Cauchy data;

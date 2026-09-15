@@ -1,5 +1,33 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Actual differentiated dense-domain gap and closability (2026-09-15)
+
+Follow-up after `eff75ad`. The actual derivative is used directly; the
+separate logarithmic candidate is not assumed equal to it.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Uniform actual quotient norm | `quotient_contraction`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeLaws.lean:66` | First-order original smoothing bound, n=2^depth; input is the PREIMAGE y. |
+| Constructed derivative laws | `derivative_symmetric`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeLaws.lean:95`; `derivative_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeLaws.lean:103`; `derivative_contraction`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeLaws.lean:111`; `derivative_realSmul`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeLaws.lean:132`; `derivative_transfer`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeLaws.lean:138`; `derivative_unit`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeLaws.lean:162` | The existing J is positive, symmetric, contractive, linear for supplied scalars, commutes with T2 and kills the unit. |
+| Positive refinement and form comparison | `quotient_form_step`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeLaws.lean:173`; `derivative_form_lower`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeLaws.lean:200` | B((I-T2)T2y,T2y)<=B(Jy,T2y), by an original positive square and pairing limits. |
+| Actual differentiated old domain | `image`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDifferentiatedCore.lean:60`; `image_welldef`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDifferentiatedCore.lean:62`; `image_symmetric`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDifferentiatedCore.lean:79`; `image_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDifferentiatedCore.lean:84` | H0(T2y)=Jy on the OLD CorePoint states. Old CorePoint.image=Ly is not changed. |
+| Centered dense-domain FORM gap | `image_form_gap`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDifferentiatedCore.lean:112` | B(H0v,v)>=(1/2)B(v,v) under B(v,unit)=0; uses the old completed original transfer gap. T2-time units, not a self-adjoint spectral or physical mass-gap claim. |
+| Exact real-time derivative pin | `remainder_pin`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDifferentiatedCore.lean:126`; `derivativeCertificate`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDifferentiatedCore.lean:129` | Same realTimeAction and completedRealSmul; previous computed radius retained as data. |
+| Closability with actual rows | `graph_rows_closable`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDifferentiatedCore.lean:137` | Supplied Cauchy graph rows: state limit zero forces image limit zero. Uses original pairing symmetry and T2 injectivity. |
+
+The inherited constructive domain-density declaration is `denseDomainData`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean:157`.
+NOT FOUND in these new modules: a maximal/self-adjoint graph realization,
+generation on that maximal graph, equality J=L, physical time/spacing/beta(a)
+calibration, continuum QFT or all-group Clay closure. Those remain ledgered.
+The bound is fixed SU(2), nome 1/1024, fixed spacing; no beta-uniform
+Hamiltonian theorem is asserted. This form-bound theorem does not itself
+construct a nonzero excitation.
+
+Thirty-three exact public gates passed with {propext, Quot.sound}; three
+focused safe one-worker/20 GiB checks, no raised limits or full-tree audit.
+Exact gate/log matching, artifact checks and hashes are in work_plan.
+
 ## Real-time Taylor estimate on the original transfer range (2026-09-15)
 
 Follow-up after `ebc052e`. This closes the dyadic-to-positive-real-time

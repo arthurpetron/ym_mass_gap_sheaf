@@ -4420,6 +4420,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicMeshDerivative
 -- and physical/continuum/all-group conclusions remain open.
 import YMGap.Continuum.BF4ExactSlabThermodynamicScalarRows
 import YMGap.Continuum.BF4ExactSlabThermodynamicRealDerivative
+-- The ACTUAL derivative is positive and symmetric on the existing dense
+-- transfer domain, with a centered form gap and graph closability.
+-- Maximal/self-adjoint generation and physical/continuum pins stay open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeLaws
+import YMGap.Continuum.BF4ExactSlabThermodynamicDifferentiatedCore
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin
