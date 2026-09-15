@@ -379,3 +379,60 @@ one worker, explicit 20 GiB, separate process/swap preflights. One additive
 root import was checked statically; root not compiled and no full-tree run.
 Final log `/tmp/ym-quadratic-heat-transmission.log`, SHA-256
 `d39ae2a89e20371de284c1929572d4c2bc5054ae8599ac0e7cd2b28fd5320048`.
+
+## Auxiliary dual tests need not be original states (2026-09-15)
+
+Source baseline: `87ea5eb`. This is a read-only source finding and a planning
+correction, not a new Lean result. The preceding recoding obstruction must not
+be expanded into a prohibition on using non-plaquette polynomials as auxiliary
+dual tests. The following declarations already distinguish the two inputs.
+
+| Declaration | Source | Actual scope |
+| --- | --- | --- |
+| `testAmplitude` | `lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceTests.lean:45` | State input e is `PlaquetteExpression half`; test input q is arbitrary `RatPoly`. |
+| `referenceEnergy`; `referenceEnergy_nonnegative` | `lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceTests.lean:48`; `:51` | Nonnegative finite rational test energy on the retained interface; depends on w, K, half, retained choice and q. |
+| `testAmplitude_bound` | `lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceTests.lean:55` | A(q,e)^2 <= rawForm(e,e) * referenceEnergy(q), for w>=0 and K>=1. No original-expression representation of q is required. |
+| `testAmplitude_add`; `testAmplitude_smul` | `lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceTests.lean:63`; `:71` | Rational linearity in the ORIGINAL expression e. |
+| `rawForm` | `lean/YMGap/Continuum/BF4ExactSlabPlaquetteFiniteGNS.lean:41` | The original full-action finite-cutoff numerator with upper(e)*lower(f), not the normalized thermodynamic form. |
+| `testAmplitude_haar`; `referenceEnergy_haar` | `lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceHaarForm.lean:156`; `:164` | Actual retained Haar pins require q supported on the slab and `LowerLocal`; neither type asks for plaquette recoding. The e insertion retains its original lower dressing. |
+| `normalizedTolerance` | `lean/YMGap/Continuum/BF4ExactSlabNormalizedChannelReconstruction.lean:70` | Existing packet normalization divides tolerance by an explicitly volume-dependent original-partition reciprocal ceiling. It is not a volume-uniform bound for arbitrary q. |
+| `normalizedSample`; `normalizedSample_approx_close` | `lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorIntegralLimit.lean:102`; `:117` | Existing all-spin spectator integral samples use the original action reciprocal and converge to the existing finite-volume normalized retained packet. Not a thermodynamic arbitrary-q dual functional. |
+| `completedCoefficient`; `completedCoefficient_norm_bound` | `lean/YMGap/Continuum/BF4ExactSlabIntrinsicChannelCompletion.lean:125`; `:194` | Original fixed-volume completed channel functionals and their intrinsic norm-floor bound already exist. This is not a new arbitrary-q or thermodynamic extension. |
+| `completed_zero_of_coefficients_zero`; `completedCoefficients_injective` | `lean/YMGap/Continuum/BF4ExactSlabCompletedChannelSeparation.lean:144`; `:174` | These fixed-volume channels already separate the original completion; do not rebuild that result. |
+| `norm_pin`; `twoStepTransfer_norm_interval` | `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTranslatedChannelPacket.lean:45`; `:167` | The actual thermodynamic translated norm is pinned and numerically enclosed. No persistence or transfer-intertwining assertion for individual auxiliary test functionals. |
+
+**Corrected instruction:** when claiming an original observable or transfer
+preimage, prove its original realization or equality in the original OS
+completion. When using q only as an auxiliary dual test, prove the relevant
+original-norm bound and all required quotient/limit and time-translation
+identifications; do not impose exact plaquette-expression recoding as an
+extra premise. The finite bound above is a real available starting point,
+not an identification of q with an original state or of a conditional local
+heat inverse with the physical transfer inverse.
+
+**NOT FOUND in the inspected modules:** a normalized thermodynamic extension
+of this arbitrary-q test family with an explicit usable reference-energy bound
+and a pin connecting it to the actual geometric T2 for the unshifted original
+state. Searched `BF4ExactSlabPartialInterfaceTests`,
+`BF4ExactSlabPartialInterfaceHaarForm`,
+`BF4ExactSlabNormalizedChannelReconstruction`,
+`BF4ExactSlabAllSpinSpectatorIntegralLimit`,
+`BF4ExactSlabIntrinsicChannelCompletion`,
+`BF4ExactSlabCompletedChannelSeparation`, and
+`BF4ExactSlabThermodynamicTranslatedChannelPacket`, all under
+`lean/YMGap/Continuum/`. A name search for `testAmplitude` and `referenceEnergy`
+also returned no uses in `lean/YMGap/Continuum/BF4ExactSlabThermodynamic*.lean`;
+that name search is not a proof that no differently formulated bridge exists.
+
+This refines the task selection, not the canonical frontier: derive that
+physical comparison for a suitable family, or obtain explicit approximate
+original preimages directly. Section 2's stronger exact-range bound is not a
+mandatory premise of every route. Existing candidate/residual and time-zero
+consumers remain those in section 1. No abstract dual-to-range compiler was
+added without a physical input to consume. Full-space time zero, geometric
+T1/root identification, physical Hamiltonian, continuum/QFT/spectral pins,
+other compact simple groups and the Clay target remain open.
+
+Verification: source/type inspection and documentation diff checks only.
+No `.lean` file or proof-status flag changed; no compiler, full build, audit,
+guard or progress script was run. Historical checks above are not new checks.

@@ -13,7 +13,28 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED quadratic relative-heat transmission/inverse; OPEN interacting OS comparison (2026-09-15)
+## REVIEW auxiliary dual tests versus original states; no closure (2026-09-15)
+
+Source baseline `87ea5eb`; documentation-only clarification of the still-open
+interacting OS comparison. `testAmplitude_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceTests.lean:55`, allows arbitrary
+`RatPoly q` while retaining the original `PlaquetteExpression` state and raw
+OS form. `testAmplitude_haar`,
+`lean/YMGap/Continuum/BF4ExactSlabPartialInterfaceHaarForm.lean:156`, requires
+support and lower locality, not original-expression recoding, for its integral
+pin. Thus exact recoding is not a prerequisite for every auxiliary dual test.
+It remains necessary to justify any claimed original observable/preimage.
+
+The auxiliary route still lacks a supplied normalized thermodynamic norm
+comparison tied to actual time translation. Existing finite-volume channel
+completion/separation is not that bridge. The full source/search boundary is
+in the final addendum of `audits/AUDIT-T2-TEST-COMPARISON.md`. Goal instructions
+now separate these obligations and discourage imposing exact inverses when
+computed approximation is the consumer. No new Lean theorem, `sorry`, analytic
+field, canonical type, atom or flag; no proof frontier closed. Source and
+documentation checks only, no compilation or full-tree run.
+
+## Previous checkpoint: CLOSED quadratic relative-heat transmission/inverse; OPEN interacting OS comparison (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionQuadraticHeatTransmission.lean`.
 - **closed local calculation**: `quadratic_trace_decomposition`,

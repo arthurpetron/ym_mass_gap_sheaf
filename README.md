@@ -76,7 +76,13 @@ states by this range remains open, as do full-space time zero, the physical
 Hamiltonian, continuum control and the Clay target.
 
 **Latest route review:** [the missing actual-transfer comparison](audits/AUDIT-T2-TEST-COMPARISON.md).
-A new Lean-checked counterexample shows why finite strict positivity and a
+The instructions now distinguish an **original observable or transfer preimage**
+from an **auxiliary dual test**. Existing finite-cutoff bounds permit arbitrary
+polynomial dual tests; exact plaquette-only recoding is not required for that
+use. Their normalized thermodynamic bound and actual-transfer comparison remain
+open. This is a source-backed planning correction, not a new theorem.
+
+An earlier Lean-checked counterexample shows why finite strict positivity and a
 common excited-sector upper bound do not alone exclude a limit kernel.
 It is not a Yang--Mills model or a physical closure. The next target is
 constructive approximate range for the **actual** thermodynamic transfer;

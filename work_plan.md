@@ -47,6 +47,10 @@ decay is infrastructure, not completion.
    missing estimate to renaming or repackaging the same assumption. If a shorter
    valid route reaches the unchanged target, use it; completing every historical
    scaffold is not itself an obligation.
+   Demand only what the next consumer needs: an explicit approximate preimage
+   is not an exact inverse, and a bounded dual test need not be a state in the
+   original observable algebra. Do not impose the stronger requirement without
+   identifying the declaration that consumes it.
 3. **Test the crucial implication early.** Track the same action, carrier,
    observable, normalization and operator at each edge. Check group dependence,
    degenerate cases and parameter limits before investing in a large compiler.
@@ -54,10 +58,13 @@ decay is infrastructure, not completion.
    relevant conclusions against current source. No diagram arrow replaces a
    theorem. An ordinary weighted L2 estimate is not an OS quotient estimate;
    a heat-bath gap is not an OS transfer/Hamiltonian gap without a proved bridge.
-   Before treating a conditional integral as a new original test, verify that
-   its output belongs to the ORIGINAL observable algebra. Retain every action
-   factor involving the integrated variables; spectator independence is a
-   hypothesis to check, not a consequence of drawing a local diagram.
+   Before treating a conditional integral as an original observable or transfer
+   preimage, prove its original-algebra realization or equality in the original
+   OS completion. For an auxiliary polynomial used only as a dual test, instead
+   prove the needed original-norm bound, quotient/limit compatibility and
+   actual-transfer identity; do not assume it is an original state. Retain every
+   action factor involving the integrated variables; spectator independence is
+   a hypothesis to check, not a consequence of drawing a local diagram.
 4. **Make the analytic budget visible.** Separate heat cutoff, volume, spacing,
    coupling, time and observable dependence. Preserve signed cancellations and
    shared partition factors before taking absolute values. Do not pass changing
@@ -68,6 +75,8 @@ decay is infrastructure, not completion.
    a proposed route. State the residue. Stop extending a branch when its intended
    consumer is unjustified; reassess the mathematics before adding more wrappers.
    No silent field weakening, new parallel scorecard or surrogate closure.
+   Label source/planning reviews separately from new mathematical proofs. A
+   corrected instruction or a conditional paper argument closes no proof node.
 6. **Verify in proportion to the change.** Apply the existing safe-build and
    axiom gates to the narrow changed targets. Do not repeatedly run broad checks
    on unchanged machinery. Record the exact verification boundary, update the
@@ -102,10 +111,43 @@ perform an independent classical mathematical review of its correspondence to
 the Clay statement, same-object identifications, limits and mass normalization.
 That review supplements the constructive kernel checks; it does not retroactively
 provide missing witnesses or turn a conditional theorem into an unconditional one.
+In particular, the official description's section 6.5, footnote 2 excludes a
+compactness-only existence argument unless the required properties of the limit
+are also established. Classical subsequence selection would therefore not remove
+the same-theory QFT and physical-gap obligations, even without our extra demand
+for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest increment (EXACT quadratic transmission and local inverse; two shortcuts refuted):**
+**Latest review (dual tests versus original states; NO new Lean theorem):**
+Source inspection at `87ea5eb` sharpens the goal instructions without changing
+the Clay target or a canonical frontier. `BF4ExactSlabPartialInterfaceTests`
+already permits an arbitrary `RatPoly q` in `testAmplitude_bound`, while its
+state input remains an original `PlaquetteExpression`. Its square is bounded
+by the ORIGINAL finite-cutoff raw OS form times `referenceEnergy`. The Haar
+identification additionally requires support and lower locality of q, not
+plaquette-expression recoding. Consequently the rectangle's proved failure of
+exact original-algebra recoding does not by itself reject this auxiliary-test
+use. It still rejects claiming that polynomial as an exact original observable.
+
+The missing consumer is unchanged: a same-action, correctly normalized
+comparison with the ACTUAL thermodynamic time operator that makes existing
+original-state residuals small with explicit tolerances. The finite bound is
+not that comparison; its reference energy names coupling, cutoff, volume,
+retained choice and q. Existing completed channel functionals and separation
+are at fixed volume. Translated thermodynamic packet norm samples do not
+identify those functionals across volumes. See the source-cited addendum in
+`audits/AUDIT-T2-TEST-COMPARISON.md` for the precise search boundary.
+
+NEXT: first establish a usable normalized reference-energy estimate and an
+actual time-translation pin for a chosen auxiliary family, or pursue direct
+approximate original preimages. Do not add an abstract dual-to-range wrapper
+while its physical comparison is unsupplied. All physical/continuum/all-group
+obligations listed below remain open. Verification was source inspection and
+documentation checks only; no Lean source, hole, field, atom or axiom changed,
+and no compiler/full-tree run was needed. Classical review remains non-load-bearing.
+
+**Previous mathematical increment (EXACT quadratic transmission and local inverse; two shortcuts refuted):**
 The preceding goal turn made no new proof progress; it confirmed the goal
 instructions. This turn resumed the actual source comparison. The existing
 `SU2QuaternionFullHeatTubeLayer.one_layer` and
