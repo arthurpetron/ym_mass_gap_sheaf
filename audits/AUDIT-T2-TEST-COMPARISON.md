@@ -436,3 +436,53 @@ other compact simple groups and the Clay target remain open.
 Verification: source/type inspection and documentation diff checks only.
 No `.lean` file or proof-status flag changed; no compiler, full build, audit,
 guard or progress script was run. Historical checks above are not new checks.
+
+## Implemented finite normalization and original null descent (2026-09-15)
+
+Implementation after `a38acb4`, not a revision of the dated source findings
+above. All declarations in the following table are in
+`lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean`.
+
+| Declaration | Source | Actual statement |
+| --- | --- | --- |
+| `background_partition` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean:74` | Integral of full lower action, full spatial-Gram interface and full upper action equals the ORIGINAL raw unit diagonal. |
+| `dress`; `backgroundCertificate` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean:82`; `:98` | Auxiliary p is multiplied by the entire original lower action; ordinary positive-polynomial evidence for the full background is constructed under explicit small-nome guards. |
+| `full_energy_haar` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean:108` | Exact full-channel energy identity for supported lower-local p and its literal reflection image p'. No original-expression realization of p is required. |
+| `reference_le_full`; `reference_partition_bound` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean:135`; `:146` | Pruning followed by interval bounds gives referenceEnergy(dress p) <= (upperCap*lowerCap)*Z_original. |
+| `partition_positive`; `normalizer`; `normalizer_partition` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean:175`; `:180`; `:186` | Constructed positive rational reciprocal of the SAME finite partition, with exact cancellation. The supporting partition floor itself is volume-dependent. |
+| `normalized_amplitude_bound` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean:191` | (A/Z)^2 <= (upperCap*lowerCap)*(rawForm(e,e)/Z), with the ORIGINAL plaquette expression e unchanged. |
+| `normalized_bulkScalar_bound`; `normalized_unit_pin` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean:222`; `:236` | The existing spatial-coordinate product test has coefficient one at every slab/cutoff; the all-channel unit test evaluates to one. |
+| `amplitude_null`; `amplitude_rad_congr` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean:250`; `:262` | Arbitrary polynomial tests vanish on/respect the original finite-cutoff raw OS radical, using only w>=0 and K>=1. |
+| `quotientAmplitude`; `quotientAmplitude_mk`; `quotient_unit_pin` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean:274`; `:282`; `:288` | Normalized functional on EXISTING finiteGNSData.QuotSpace, with its original representative and unit pins. No new state algebra or choice of representatives. |
+
+The normalization estimate assumes `0<=w<=1`, `heatRatio(w)<=1/2`,
+`heatRemainderBound(w)<1`, `K>=1`, and the supplied constructive test interval
+certificates. The existing nome 1/1024 satisfies the two extra heat guards by
+`existingNome_guards`,
+`lean/YMGap/Continuum/BF4ExactSlabSmallNomeHaarComparison.lean:195`.
+The resulting coefficient is exactly the product of test caps: it contains
+no partition reciprocal or face-count factor. Its volume/cutoff uniformity
+is conditional on uniform test caps; `normalized_bulkScalar_bound` supplies
+those caps concretely. A conditional heat inverse may have growing caps, so
+this theorem does not assert uniform bounds for all inverse families.
+
+The proof does not convert an arbitrary auxiliary polynomial into an original
+gauge-invariant observable. It bounds its energy directly on the certified
+spatial-Gram background, then uses the original UNIT partition pin. The state
+slot remains an original expression and its norm is the original raw OS norm.
+
+**Still open:** the cutoff/volume compatibility and actual time-translation
+comparison identified in the preceding addendum. `quotientAmplitude` has a
+finite-cutoff domain; it is not a functional on the cutoff-removed finite-volume
+or thermodynamic completion. Uniform boundedness alone is not convergence,
+does not remove a thermodynamic kernel, and does not provide a time-preimage.
+No canonical field or mathematical target changed.
+
+Verification: 23 exactly matched public gates, all within {propext, Quot.sound};
+clean focused log and fresh own/direct artifacts. No executable forbidden tokens
+or raised options; initial syntax/scoping and reflection-multiplication dispatch
+errors were corrected. Safe-build skill: one worker, explicit 20 GiB and fresh
+process/swap preflights. One additive root import, old multiplicities preserved;
+root not compiled. No full build/audit/guard/progress run. Log
+`/tmp/ym-dressed-dual-test-bound.log`, SHA-256
+`ed58b1463adcac8f380114b4f19733bd68619aeed0fcc9d173df58900d053621`.

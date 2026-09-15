@@ -13,7 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## REVIEW auxiliary dual tests versus original states; no closure (2026-09-15)
+## CLOSED dressed finite dual-test bound and null descent; OPEN thermodynamic time comparison (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean`.
+- **closed original normalization**: `backgroundCertificate` constructs the
+  positive full spatial-Gram background from existing heat certificates;
+  `background_partition` pins its mass to the original unit diagonal.
+  `full_energy_haar` retains both complete lower/upper dressings. Neither
+  equality substitutes a product law or requires auxiliary test recoding.
+- **closed estimate**: `reference_partition_bound` bounds the retained energy
+  of `dress p` by its two interval caps times the SAME partition. The actual
+  positive reciprocal `normalizer` and `normalizer_partition` give
+  `normalized_amplitude_bound` in the original normalized raw OS norm. No
+  reciprocal ceiling remains in the coefficient. The small-nome guards and
+  test caps are explicit; volume/cutoff-uniform caps give the corresponding
+  uniform size bound, not a beta/spacing-uniform gap.
+- **concrete instances**: `normalized_bulkScalar_bound` has coefficient one
+  for the existing spatial-coordinate product at every finite slab/cutoff.
+  `normalized_unit_pin` evaluates to one with all interface channels retained.
+- **constructed finite functional**: `amplitude_null`, `amplitude_rad_congr`
+  and `quotientAmplitude` descend to the EXISTING `finiteGNSData.QuotSpace`.
+  `quotientAmplitude_mk` pins its representatives and `quotient_unit_pin`
+  retains unit normalization. No representative selection or enlarged algebra.
+- **open residue**: cutoff/volume-compatible auxiliary tests, their actual
+  time-translation pin and original-state residual smallness. The finite
+  bound alone proves no test limit or T2 injectivity. Full-space time zero,
+  geometric T1/root identification, Hamiltonian, beta(a)/continuum, QFT/spectral
+  pins, other groups and Clay remain open. No canonical field/type/atom/flag,
+  new named analytic premise or hole was introduced or changed.
+- **verification**: 23 exact focused public gates within {propext, Quot.sound};
+  clean final log, fresh own/direct artifacts, no forbidden executable tokens,
+  only autoImplicit false. Safe-build skill, one worker, explicit 20 GiB,
+  separate process/swap preflights. One additive root import; root not compiled.
+  No full build/audit/guard/progress run. Log/hash in work_plan.
+
+## Previous REVIEW auxiliary dual tests versus original states; no closure (2026-09-15)
 
 Source baseline `87ea5eb`; documentation-only clarification of the still-open
 interacting OS comparison. `testAmplitude_bound`,

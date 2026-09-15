@@ -4319,6 +4319,7 @@ import YMGap.Continuum.SU2QuaternionHeadLinearHaar
 import YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing
 import YMGap.Continuum.SU2PlaquetteCharacterNonseparation
 import YMGap.Continuum.SU2QuaternionQuadraticHeatTransmission
+import YMGap.Continuum.BF4ExactSlabDressedDualTestBound
 import YMGap.Continuum.BF4ExactSlabThermodynamicZeroTimeCertificate
 -- Same-channel finite interface coercivity, pinned to the original bulk
 -- dressed numerator. Its explicit floor is NOT cutoff/volume uniform.

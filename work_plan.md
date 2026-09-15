@@ -119,7 +119,58 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest review (dual tests versus original states; NO new Lean theorem):**
+**Latest mathematical increment (CLOSED normalized finite dual-test bound and null descent):**
+PROGRESS after the documentation-only checkpoint `a38acb4`:
+`BF4ExactSlabDressedDualTestBound` proves the needed finite reference-energy
+estimate by keeping the FULL original lower action in the auxiliary test.
+The complete spatial-Gram background has a constructed positive-polynomial
+certificate from the existing lower, upper and crossing heat certificates.
+`background_partition` pins its integral to the SAME original unit diagonal;
+`full_energy_haar` needs support, lower locality and a literal reflection image,
+but no plaquette-expression realization of the auxiliary polynomial.
+
+Pruning and the polynomial interval certificates prove
+`referenceEnergy(dress p) <= (upperCap*lowerCap)*Z_original`.
+`normalizer` computes the reciprocal of that actual positive finite partition.
+`normalized_amplitude_bound` cancels Z exactly and gives
+`(A_originalTest/Z_original)^2 <= (upperCap*lowerCap)*(rawOS(e,e)/Z_original)`.
+It keeps the original plaquette state e and its reflected norm. No absolute
+reciprocal ceiling enters the final coefficient. The guards are explicit:
+0<=w<=1, heatRatio(w)<=1/2, heatRemainderBound(w)<1, and K>=1.
+This is a size estimate in the guarded small-nome region, NOT a spectral gap
+uniform in beta or spacing.
+
+`normalized_bulkScalar_bound` supplies a concrete original spatial-coordinate
+product test with coefficient one at EVERY slab and cutoff in that region.
+`normalized_unit_pin` and `quotient_unit_pin` give value one on the actual
+unit with no interface selection. `amplitude_null` and `amplitude_rad_congr`
+also prove arbitrary polynomial tests vanish on/respect ORIGINAL finite-cutoff
+nulls; this unnormalized descent needs only w>=0 and K>=1.
+`quotientAmplitude` therefore constructs a normalized functional on the
+EXISTING `finiteGNSData.QuotSpace`, without selecting representatives or
+substituting a larger state algebra.
+
+NEXT: cutoff-compatible and volume-compatible auxiliary tests tied to actual
+geometric time translation. The bound is uniform when its supplied test caps
+are, but a local inverse's cap may depend on coupling, cutoff or degree, and
+the bound does not control that dependence. Nor does boundedness prove
+convergence or make the moving finite quotient equal to the cutoff-removed or
+thermodynamic completion. Direct approximate original preimages remain an
+alternative. Full-space time zero, geometric T1/root identification, physical
+Hamiltonian, beta(a)/continuum, QFT/spectral pins, other groups and Clay stay
+open. No canonical field/type/atom/flag, analytic premise or hole changed.
+
+Verification: 23 exactly matched public gates within {propext, Quot.sound};
+clean final log, fresh own/direct artifacts, no forbidden executable tokens
+and only autoImplicit false. Initial notation/scoping errors and a mistaken
+ReflectionImage-vs-padded multiplication dispatch were corrected without
+raising any limit or weakening a statement. Safe-build skill: one worker,
+explicit 20 GiB, separate process/swap preflights; swap stayed 12413.81 MiB.
+One additive root import, old multiplicities preserved; root not compiled.
+No full build/audit/guard/progress run. Log `/tmp/ym-dressed-dual-test-bound.log`,
+SHA-256 `ed58b1463adcac8f380114b4f19733bd68619aeed0fcc9d173df58900d053621`.
+
+**Previous review (dual tests versus original states; NO new Lean theorem):**
 Source inspection at `87ea5eb` sharpens the goal instructions without changing
 the Clay target or a canonical frontier. `BF4ExactSlabPartialInterfaceTests`
 already permits an arbitrary `RatPoly q` in `testAmplitude_bound`, while its
