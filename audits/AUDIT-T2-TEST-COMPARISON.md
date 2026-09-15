@@ -1,6 +1,35 @@
 # Actual T2, collar tests, and the missing range estimate
 
-Latest local-selection follow-up, 2026-09-15, after `655cf04`: exact selected
+Latest reflected-local-comparison follow-up, 2026-09-15, after `08bf7a4`:
+local selection and positive comparison now concern the SAME complete
+reflection-compatible physical action. The comparison factor no longer
+depends on selected or distant cutoffs; the touching cutoff B remains fixed.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Original crossing profile to same Gram form | `profile_image`, `lean/YMGap/Continuum/BF4ExactSlabProfileOriginalInterface.lean:66`; `temporalProfile_gram`, `lean/YMGap/Continuum/BF4ExactSlabProfileOriginalInterface.lean:102`; `originalForm_pin`, `lean/YMGap/Continuum/BF4ExactSlabProfileOriginalInterface.lean:130` | Original observable and all crossing factors use the old temporal ledger together; same lower expression. |
+| Constructed reflection-compatible full action | `reflectedProfile`, `lean/YMGap/Continuum/BF4ExactSlabReflectedHeatProfiles.lean:55`; `profileExpression`, `lean/YMGap/Continuum/BF4ExactSlabReflectedHeatProfiles.lean:79`; `fullHeat_split`, `lean/YMGap/Continuum/BF4ExactSlabReflectedHeatProfiles.lean:130`; `fullQuadratic_gram`, `lean/YMGap/Continuum/BF4ExactSlabReflectedHeatProfiles.lean:200` | Upper profiles are computed by actual face reflection. Lower bulk heat is an expression in the existing algebra. Complete physical face list and every shared-link factor retained. |
+| Full-action positivity and local comparison | `fullQuadratic_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabReflectedHeatProfiles.lean:207`; `fullQuadratic_comparison`, `lean/YMGap/Continuum/BF4ExactSlabReflectedHeatProfiles.lean:214`; `fullQuadratic_local_lower`, `lean/YMGap/Continuum/BF4ExactSlabReflectedHeatProfiles.lean:226`; `fullQuadratic_diagonal`, `lean/YMGap/Continuum/BF4ExactSlabReflectedHeatProfiles.lean:250` | Arbitrary bulk cutoffs with reflection pairing; comparison retains identical bulk dressing. Equal profiles recover the pre-existing original numerator exactly. |
+| Local reflection geometry | `touching_other_lower`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:63`; `bulkCutoff`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:83`; `cutoff_pin`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:88` | Every other touching face is lower. Its B cutoff and computed upper partner fit the previous full-cutoff family on every actual physical face. |
+| Exact saturation of the positive family | `quadratic_pin`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:114`; `degree`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:132`; `quadratic_stable`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:136`; `quadratic_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:145` | Degree has no distant-cutoff argument. All remaining lower/crossing cutoffs are arbitrary; upper cutoffs are computed. Same original full action throughout. |
+| One-face explicit positive factor | `singleMask_count`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:152`; `comparisonDegree`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:165`; `comparisonFloor`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:169`; `comparisonFloor_positive`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:173` | Exactly one physical face pays. D is the maximum of the two computed local degrees; w^(D(D+2)) is positive for w>0. B, insertion, nomes and extent still enter D. |
+| Saturation and comparison compose | `quadratic_local_lower`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:182`; `quadratic_local_upper`, `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean:201` | floor*reference <= original <= reference for 0<=w<=1 and every selected K>=D/distant cutoff profile. Only the selected crossing nome changes to one; finite unnormalized forms. |
+
+**NOT FOUND in these three modules:** touching-cutoff removal controlled in
+the original normalized thermodynamic OS norm, a fixed-source volume-invariant
+degree, or an arbitrary-state approximate preimage for
+`certificateOfRangeApproximation`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicZeroTimeCertificate.lean:190`.
+The bound is not uniform in w or B. A finite nome-one reference is not an
+infinite heat law; arbitrary non-reflected profiles are not asserted positive.
+Range/injectivity, full-space time zero, physical Hamiltonian, beta(a)/spacing,
+continuum/QFT, other compact simple groups and Clay remain open. Forty-six
+exact public gates passed within {propext, Quot.sound}; no full-tree run,
+new analytic premise or canonical field change. Exact scope/hashes are in
+`work_plan.md`. Earlier module-local NOT FOUND statements below retain their
+historical scope; this checkpoint supplies their reflection-profile pin.
+
+Previous local-selection follow-up, 2026-09-15, after `655cf04`: exact selected
 heat-cutoff saturation now retains the COMPLETE physical face list while
 its threshold ignores all detached cutoff choices. The touching cutoff B
 remains fixed. These are finite Haar identities, not an OS-norm comparison.

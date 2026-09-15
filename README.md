@@ -21,7 +21,26 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest finite result:** [local cutoff selection inside the full physical action](lean/YMGap/Continuum/BF4ExactSlabLocalBulkCutoff.lean).
+**Latest finite result:** [a positive local comparison on the full reflected action](lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean).
+The lower heat profile now determines its actual reflected upper profile.
+The complete original action is identified with the same-channel Gram form,
+so positivity and cutoff selection apply to **the same object**.
+
+For one selected crossing face, a computed degree `D` gives
+`w^(D*(D+2)) * reference <= original <= reference`, with positive factor
+when `0 < w <= 1`. This holds for **every distant cutoff profile** and
+every selected cutoff at least `D`. Only the touching lower collar is held
+at cutoff `B`, with its upper partners reflected. The reference changes the
+selected face's nome to one; every other heat factor remains unchanged.
+
+`D` still depends on `B`, the insertion, nomes and extent. This is an
+unnormalized finite comparison, **not** a completed OS-norm or mass-gap theorem.
+The next task is touching-cutoff/error control in the original normalized
+thermodynamic norm. Forty-six focused constructive axiom checks passed;
+no full-tree run or raised resource limits. Range, full-space time zero,
+physical Hamiltonian and continuum/Clay closure remain open.
+
+**Previous finite result:** [local cutoff selection inside the full physical action](lean/YMGap/Continuum/BF4ExactSlabLocalBulkCutoff.lean).
 After separating one selected face, at most **five** other faces touch its
 exposed link. Holding their cutoff `B` fixed, the selected heat cutoff
 stabilizes exactly at a computed threshold, for **every individual cutoff
@@ -31,8 +50,8 @@ Equal cutoffs recover the pre-existing full-action numerator exactly.
 The threshold still depends on the touching cutoff `B` and the insertion.
 This is finite mixed-cutoff Haar selection, not a normalized OS-norm estimate;
 arbitrary cutoff profiles are not asserted to preserve reflection positivity.
-Connecting reflection-compatible profiles to the comparison below and controlling
-the touching-cutoff error in the original thermodynamic norm remain open.
+The reflection-compatible connection is now supplied above; controlling
+the touching-cutoff error in the original thermodynamic norm remains open.
 Twenty-five focused constructive axiom checks passed; no full-tree run or raised
 resource limits. Transfer range, full-space time zero and the Clay target remain open.
 

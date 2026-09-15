@@ -13,7 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED local full-action cutoff selection; OPEN touching-cutoff original-norm control (2026-09-15)
+## CLOSED reflected local comparison with cutoff saturation; OPEN touching-cutoff original-norm control (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabProfileOriginalInterface.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabReflectedHeatProfiles.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabReflectedLocalCutoff.lean`.
+- **same-action pin**: `originalForm_pin` transports the original crossing
+  profiles and observable through the actual temporal ledger. `reflectedProfile`
+  computes upper nomes/cutoffs, while `profileExpression` uses the EXISTING
+  plaquette algebra. `fullHeat_split`, `fullQuadratic_expression` and
+  `fullQuadratic_gram` keep the complete physical action and computed bulk
+  dressing. Its positivity and comparison are proved, not supplied as fields;
+  `fullQuadratic_diagonal` is the pre-existing full original numerator.
+- **actual local consumer**: `touching_other_lower` locates every other
+  touching face in the lower half. `cutoff_pin` / `quadratic_pin` identify
+  the reflected local profile with the previous full-action selection family.
+  `degree` ignores all distant cutoff inputs; `quadratic_stable` and
+  `quadratic_nonnegative` apply to this SAME family. Its touching lower
+  cutoff B and reflected upper partners remain fixed.
+- **new estimate**: `singleMask_count` gives one selected physical face.
+  `comparisonDegree` computes both target/reference thresholds; the resulting
+  `comparisonFloor` w^(D(D+2)) is positive for w>0. `quadratic_local_lower`
+  and `quadratic_local_upper` give floor*reference <= original <= reference
+  for 0<=w<=1, every selected K>=D and every distant cutoff profile. All bulk
+  factors are unchanged; the reference changes only the selected crossing
+  nome to one. No selected-K or distant-cutoff dependence remains in the floor.
+- **open residue**: D still depends on touching B, insertion, nome profiles
+  and extent. No touching-cutoff removal/error estimate in the original
+  normalized thermodynamic OS norm, fixed-source volume-uniform degree or
+  arbitrary-state approximate preimage is supplied. Range/injectivity,
+  full-space time zero, physical Hamiltonian, beta(a)/spacing, continuum/QFT,
+  other compact simple groups and Clay remain open. No canonical field/type/
+  atom/flag, analytic premise, axiom or literal hole changed.
+- **verification**: 46 exact public gates within {propext, Quot.sound}; two
+  axiom-free and seven propext-only. Exact gate/log mapping, clean logs,
+  own/direct freshness and source checks passed. Safe one-worker/20-GiB
+  focused checks with separate preflights and unchanged swap; no dependency
+  rebuild/full-tree run or raised limits. Three additive root imports, not
+  compiled. Exact scope and log hashes are in `work_plan.md`.
+
+## Previous CLOSED local full-action cutoff selection; then-OPEN reflection pin and independent touching-cutoff control (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabLocalBulkSelection.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabLocalBulkCutoff.lean`.

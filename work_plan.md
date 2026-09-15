@@ -119,7 +119,74 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED local full-action cutoff selection; OPEN touching-cutoff original-norm control):**
+**Latest mathematical increment (CLOSED reflected local comparison with cutoff saturation; OPEN touching-cutoff original-norm control):**
+PROGRESS after `08bf7a4`. The local-selection and same-channel comparison
+branches now compose on the COMPLETE original reflection-compatible action.
+
+`BF4ExactSlabProfileOriginalInterface.profile_image`, `temporalProfile_gram`
+and `upper_gram` transport original plaquette expressions and individual
+crossing heat profiles together through the old temporal ledger. The actual
+`originalForm_pin` identifies their form with the previous `profileForm` on
+the SAME lower expression; positivity and per-face comparison follow.
+`BF4ExactSlabReflectedHeatProfiles.reflectedProfile` constructs upper data
+from the actual reflected lower face. `profileExpression` encodes the lower
+heat product in the EXISTING original plaquette algebra. Its lower/upper
+pins and `fullHeat_split` retain every physical factor. `fullQuadratic_gram`
+identifies the full original reflected form with the same-channel form of
+the computed `dressedExpression`, not a supplied reflection hypothesis.
+`fullQuadratic_nonnegative`, `fullQuadratic_comparison` and the local
+lower/upper bounds use that pin. `fullQuadratic_diagonal` recovers the
+pre-existing original numerator exactly when all profiles agree.
+
+The concrete consumer `BF4ExactSlabReflectedLocalCutoff.touching_other_lower`
+proves every OTHER face touching a selected crossing face's exposed lower
+link lies in the LOWER half. `bulkCutoff` caps precisely that lower collar
+at B; the upper partners are computed by reflection. `cutoff_pin` identifies
+this physical profile with the previous local full-cutoff profile, whose
+detached profile has no selected-K argument. `quadratic_pin` and
+`quadratic_stable` give exact selected-cutoff saturation for EVERY choice of
+remaining lower and crossing cutoffs, while `quadratic_nonnegative` supplies
+positivity of this very family.
+
+`comparisonDegree` is the explicit maximum of target/reference local degrees;
+it has no distant-cutoff input. `singleMask_count` proves exactly ONE physical
+crossing face pays. With D=`comparisonDegree`, `comparisonFloor` is
+w^(D(D+2)), positive for w>0. `quadratic_local_lower` / `quadratic_local_upper`
+prove floor*reference <= original <= reference, for 0<=w<=1 and EVERY
+selected K>=D and distant cutoff profile. The same bulk profiles appear on
+both sides; only the selected crossing nome changes to one. This composes
+exact cancellation and positive comparison, removing selected-K dependence
+without replacing the original action or dropping shared-link factors.
+
+Scope/residue: B, insertion, nome profiles and extent still enter D. The
+bound is finite and unnormalized; a nome-one finite reference is not an
+infinite heat law. Arbitrary NON-reflected profiles are not asserted positive.
+NEXT: obtain touching-cutoff/error control through the ORIGINAL normalized
+thermodynamic OS norm, with fixed-source volume/parameter dependence proved.
+The actual arbitrary-state preimage required by
+`ZeroTimeCertificate.certificateOfRangeApproximation` remains unsupplied.
+Range/injectivity, full-space time zero, physical Hamiltonian, beta(a)/spacing,
+continuum/QFT, other compact simple groups and Clay remain open. No canonical
+field/type/atom/flag, analytic premise, axiom or literal hole changed.
+
+Verification: 9 + 21 + 16 exact public gates within {propext, Quot.sound};
+two axiom-free and seven propext-only. Clean final logs, exact public/source/log
+name agreement, fresh own/direct artifacts and no forbidden source tokens/options.
+Initial fixes were namespace qualification, explicit support/reflection images,
+and the differing ORDER (not membership) of oriented versus unoriented edges;
+no theorem weakened. Safe-build skill: nine focused launches, one worker,
+explicit 20 GiB, separate process/swap preflights; swap stayed at 12157.31 MiB.
+No raised limits, dependency rebuild or full build/audit/guard/progress run.
+Three additive root imports; root not compiled. Final logs/SHA-256:
+
+- `/tmp/ym-profile-original-interface.log`:
+  `2ba584831d249bd1bd35dbd0a85e95b92afbda00b6a38cc01ba506c7e9095090`.
+- `/tmp/ym-reflected-heat-profiles.log`:
+  `1cecec24a2bd444cede34e401f81e285ff5dd15e7c7bab5d0188db7d9fe37ceb`.
+- `/tmp/ym-reflected-local-cutoff.log`:
+  `70ffb40d09847232219bc22c5190d5620aaa9531ae79e2ef1ac17fa5b343dfb9`.
+
+**Previous mathematical increment (CLOSED local full-action cutoff selection; then-OPEN reflection pin and independent touching-cutoff control):**
 PROGRESS after `655cf04`. The existing `selectedCutoff` inspects the entire
 bulk-dressed insertion. Instead, exact selected-character cancellation now
 uses a computed touching collar and proves that the remaining actual heat

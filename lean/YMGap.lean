@@ -4367,6 +4367,12 @@ import YMGap.Continuum.BF4ExactSlabLocalInterfaceCoercivity
 -- every original face; touching-cutoff OS-norm control remains open.
 import YMGap.Continuum.BF4ExactSlabLocalBulkSelection
 import YMGap.Continuum.BF4ExactSlabLocalBulkCutoff
+-- Computed reflected profiles pin the complete original action to the same
+-- Gram form. Exact local saturation removes selected/distant cutoff losses;
+-- the touching cutoff B and normalized thermodynamic OS-norm control remain.
+import YMGap.Continuum.BF4ExactSlabProfileOriginalInterface
+import YMGap.Continuum.BF4ExactSlabReflectedHeatProfiles
+import YMGap.Continuum.BF4ExactSlabReflectedLocalCutoff
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin
