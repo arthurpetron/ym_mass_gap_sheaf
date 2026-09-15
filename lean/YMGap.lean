@@ -4362,6 +4362,13 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicTranslatedChannelPacket
 import YMGap.Continuum.BF4ExactSlabGramChannelTransport
 import YMGap.Continuum.BF4ExactSlabGrowingRetainedChannel
 import YMGap.Continuum.BF4ExactSlabAllSpinSpectatorRetention
+-- The actual block map transports every original channel polynomial and
+-- its observable. Embedded source lower action preserves amplitudes;
+-- added lower interactions have an exact response, not a smallness bound.
+import YMGap.Continuum.BF4ExactSlabGramChannelEmbedding
+import YMGap.Continuum.BF4ExactSlabGrowingChannelPolynomial
+import YMGap.Continuum.BF4ExactSlabGrowingChannelInterior
+import YMGap.Continuum.BF4ExactSlabGrowingChannelExterior
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

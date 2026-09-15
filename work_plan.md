@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-14)
+## Whole-project goal and live completion map (updated 2026-09-15)
 
 The north-star deliverable is a constructive, same-object four-dimensional
 Yang--Mills construction whose continuum measure, observable algebra,
@@ -16,9 +16,86 @@ bundles without `sorry`, a new axiom, classical witness erasure, a surrogate
 model, or a weakened field.  Fixed-spacing or finite-cutoff decay is evidence
 and infrastructure for this goal, not the goal itself.
 
-### Current original-action gap and continuum frontier (2026-09-14)
+### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest increment (ORIGINAL all-spin channels in growing volumes with full spectators):**
+**Latest increment (ACTUAL channel polynomial embedding and original added-action response):**
+PROGRESS after 09d8dfe. The geometric polynomial obligation for the actual
+bulk enlargement is now proved, rather than supplied to channel transport.
+The embedded original lower interaction is retained, and the full enlarged
+lower-action difference is pinned to its exact added-interaction response.
+
+`BF4ExactSlabGramChannelEmbedding.PolynomialImage` retains the actual
+coefficient-sensitive prefix map. `matrixAction_image`, `fundamental_image`
+and `polynomialColumn_image` prove naturality through the original complex
+tensor recursion and constant basis tensors. `channel_image` proves the
+image of every original Gram leaf, at every spin, column and tensor row.
+
+`BF4ExactSlabGrowingChannelPolynomial.facePolynomial_supported` proves
+actual carrier support. `shiftedChannel_polynomial` consumes the concrete
+Haar block map and physical face membership, with no supplied column-image
+premise. `insertion_image` moves the actual lower observable and channel
+together; `haar_image`, `insertion_haar` and `insertion_pair_haar` retain
+both carrier support proofs and all shared links in mixed Haar pairings.
+
+`BF4ExactSlabGrowingChannelInterior.embeddedLowerIds_lower` pins every
+source lower face to a target lower face. `lowerHeat_image` transports
+the ORIGINAL full source lower action. `interiorSequence_image` and
+`interiorSequence_selected` identify its target-carrier moment with the
+original smaller-slab lower amplitude, at every common cutoff.
+`interiorLimit` and `interiorLimitCauchy` retain explicit numerical data;
+`interiorLimit_selected` identifies the original coefficient limit.
+`selectedApproxCutoff` is computed from source data only;
+`selected_approx_close` works at EVERY padding. This is an interior-action
+statement, not a padding-uniform full-action estimate.
+
+`BF4ExactSlabGrowingChannelExterior.embeddedLowerIds_nodup`,
+`interiorIds_perm` and `lowerFace_partition` partition the actual target
+lower faces with no duplicates or omissions. `lowerHeat_dressing` and
+`lowerMoment_dressed` retain all added heat factors on the same links.
+`responseSequence_exterior` pins the actual same-cutoff amplitude difference
+to I(p W)-I(p). `responseSequenceCauchy`, `responseLimit`,
+`responseLimitCauchy`, `responseCutoff` and `response_approx_close` provide
+explicit cutoff/numerical control for each fixed pair of slabs.
+`responseLimit_pin` identifies this limit with the difference of the
+ORIGINAL lower-action coefficient limits. No response-smallness claim.
+
+NEXT: normalized, cancellation-preserving control of general all-spin
+packets with full spectators, not a demand that a raw unnormalized
+amplitude remain fixed as interactions are added. Concrete source anchors:
+`BF4ExactSlabPartialInterfaceHaarForm.retained_mixed_haar`,
+`BF4ExactSlabBulkProbeInterfaceFactorization.retained_factorization`,
+`BF4ExactSlabBulkProbeHomogeneousFloor.rawForm_relative_floor` and
+`BF4ExactSlabBulkProbePartitionComparison.existingNome_originalUnit_upper`.
+The existing `BF4ExactSlabBulkProbeNormalizedFloor.connectedCovariance_floor`
+is a specific fundamental-probe result at nome 1/1024, not a general
+thermodynamic separating family or completed T2 kernel/range theorem.
+General thermodynamic coefficient/packet separation, T2 range density/zero
+kernel, full-space time-zero continuity, geometric T1/physical Hamiltonian,
+beta(a)/spacing-uniform continuum control, spectral/non-Wick pins, other
+groups and Clay remain OPEN. No new hole, analytic premise, canonical
+field/type/atom/flag, surrogate or quotient representative choice.
+
+Verification: four focused monitored modules, 11+8+11+16=46 exactly
+matched public declaration gates, all within {propext, Quot.sound}.
+Clean final logs; fresh own/direct-import artifacts; no forbidden
+executable tokens; only autoImplicit false. Four new root imports occur
+once; existing import multiplicities unchanged and root not compiled.
+Safe-build skill: one worker, explicit 20 GiB, separate process/swap
+preflights; swap stable at 12790.31 MiB. Corrected namespace opens and
+explicit Fin notation; factored sequence arithmetic with explicit CReal
+intermediates to avoid elaborating ambiguous limit expressions. No raised
+options/limits; no full build/audit/guard/progress run.
+Logs and SHA-256:
+`/tmp/ym-original-gram-channel-embedding.log`
+(`4218e74c99b328dde462be762ab78082a7dc519dfa3e6768b95e09be1fae2bb4`),
+`/tmp/ym-original-growing-channel-polynomial.log`
+(`6d48ab687cd514eb0eb1bc66ea6b1f71b7170331abf06a81c67f9ee6b953c654`),
+`/tmp/ym-original-growing-channel-interior.log`
+(`eff4ffc5a261123d314e0f82c377561d19ec58d026d025b1977eb7fefc4fc186`),
+`/tmp/ym-original-growing-channel-exterior.log`
+(`b9549ac5b9d7e55a44f7a60c07af2588244f183415dd0500807f91040c1559a5`).
+
+**Previous increment (ORIGINAL all-spin channels in growing volumes with full spectators):**
 PROGRESS after 553c9bf. This closes the combinatorial channel/weight
 transport and all-spin spectator-retention step, not the analytic volume
 bridge or a canonical continuum/gap atom.

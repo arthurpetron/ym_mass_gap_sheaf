@@ -13,7 +13,56 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED ORIGINAL all-spin branch transport and full-spectator packet bounds (2026-09-14)
+## CLOSED actual channel polynomial embedding and original added-action response (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabGramChannelEmbedding.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabGrowingChannelPolynomial.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabGrowingChannelInterior.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabGrowingChannelExterior.lean`.
+- **closed all-spin polynomial bridge**: `PolynomialImage`,
+  `matrixAction_image`, `fundamental_image`, `polynomialColumn_image`
+  and `channel_image` prove the original representation's naturality.
+  `facePolynomial_supported`, `shiftedChannel_polynomial`,
+  `insertion_supported` and `insertion_image` consume the actual physical
+  slab map and translated observable. The previous supplied column-image
+  relation is now proved for this enlargement. `insertion_haar` and
+  `insertion_pair_haar` preserve Haar pairings with both carrier supports.
+- **closed original interior-action amplitude**: `embeddedLowerIds`,
+  `embeddedLowerIds_lower` and `lowerHeat_image` retain the entire source
+  lower interaction. `interiorSequence_image` and
+  `interiorSequence_selected` give exact same-cutoff amplitude equality.
+  `interiorLimit`, `interiorLimitCauchy` and `interiorLimit_selected`
+  preserve the original coefficient limit and numerical data.
+  `selectedApproxCutoff` and `selected_approx_close` use a SOURCE cutoff
+  at every padding, for this embedded-interior action only.
+- **closed exact full added-action response**: `embeddedLowerIds_nodup`,
+  `interiorIds_perm`, `lowerFace_partition`, `lowerHeat_dressing` and
+  `lowerMoment_dressed` retain every added lower-face heat factor.
+  `responseSequence_exterior` identifies the original amplitude difference
+  with I(p W)-I(p), sharing all target link variables.
+  `responseSequenceCauchy`, `responseLimit`, `responseLimitCauchy`,
+  `responseCutoff` and `response_approx_close` return actual numerical
+  moduli for each pair of slabs. `responseLimit_pin` proves equality
+  with the difference of the two original coefficient limits.
+- **open residue**: normalized, cancellation-preserving estimates for
+  general all-spin full-spectator packets. Neither the raw amplitude
+  response nor the original reciprocal has a new volume-uniform bound.
+  The existing specific fundamental-probe covariance floor is not a
+  general thermodynamic separating-family theorem. General packet/
+  coefficient separation, completed T2 zero kernel/range density,
+  full-space time-zero continuity, geometric T1/physical Hamiltonian,
+  beta(a)/spacing-uniform gap, continuum/non-Wick pins, other groups and
+  Clay remain open. No new hole, analytic premise, canonical field/type/
+  atom/flag, surrogate or arbitrary quotient representative selection.
+- **verification**: 11+8+11+16=46 exact focused public gates, only
+  {propext, Quot.sound}. Clean logs and fresh own/direct imports;
+  only autoImplicit false. Four new root imports occur once; existing
+  multiplicities unchanged and root not compiled. Safe-build skill:
+  one worker, explicit 20 GiB, separate process/swap preflights; no raised
+  limits/options, no full build/audit/guard/progress run. Hashes and next
+  mathematical source anchors are recorded in work_plan.
+
+## Previous checkpoint: CLOSED ORIGINAL all-spin branch transport and full-spectator packet bounds (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabGramChannelTransport.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabGrowingRetainedChannel.lean`,

@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-> **Research status (2026-09-14): this repository does not prove the Clay
+> **Research status (2026-09-15): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
@@ -13,7 +13,22 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [arbitrary-spin local channels retain the full surrounding interface](lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorRetention.lean).
+**Latest milestone:** [actual growing channel polynomials and their original-action response](lean/YMGap/Continuum/BF4ExactSlabGrowingChannelExterior.lean).
+Every selected all-spin channel now follows the **actual physical link
+embedding**, together with the translated observable. Moving the source's
+entire lower interaction along with them preserves its amplitude exactly;
+a source-derived numerical cutoff works at every padding for this interior
+integral. The full enlarged lower action is separately pinned to that
+interior action times all added heat factors, with shared links retained.
+The resulting amplitude difference has an explicit modulus and is proved
+equal, in the limit, to the difference of the original coefficient limits.
+Four modules passed 46 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree run. This closes the geometric polynomial bridge for this
+enlargement, **not** normalized volume control. General full-spectator
+packet estimates, thermodynamic separating data, transfer injectivity,
+full-space time-zero continuity and the continuum/Clay target remain open.
+
+**Established retention:** [arbitrary-spin local channels retain the full surrounding interface](lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorRetention.lean).
 An original Gram channel can now be followed to the physically shifted
 crossing face in every larger slab, preserving its spin, branch and exact
 heat weight. Selecting such channels need not freeze the surroundings:
@@ -24,8 +39,8 @@ Three modules passed 50 focused axiom checks, 18 axiom-free and the rest
 within `{propext, Quot.sound}`; no full-tree run.
 Only the selected channel's heat weight is independent of enlargement;
 its interacting amplitude and the original partition reciprocal are not.
-Geometric polynomial pullback and normalized growing-volume control remain
-open, as do thermodynamic coefficient separation, transfer injectivity,
+Geometric polynomial pullback is now proved above. Normalized growing-volume
+control remains open, as do thermodynamic coefficient separation, transfer injectivity,
 full-space time-zero continuity and the continuum/Clay target.
 
 **Established scalar bridge:** [original channel packets approximate actual thermodynamic translated norms](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTranslatedChannelPacket.lean).
