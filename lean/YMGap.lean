@@ -4318,13 +4318,17 @@ import YMGap.Continuum.BF4ExactSlabSquareWeightComparison
 import YMGap.Continuum.BF4ExactSlabFiniteInterfaceCoercivity
 import YMGap.Continuum.BF4ExactSlabOriginalInterfaceCoercivity
 -- Independent original bulk/crossing cutoffs and exact crossing removal
--- for each fixed bulk insertion; bulk/volume limits remain open.
+-- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin
 import YMGap.Continuum.BF4ExactSlabSelectedInterfaceCoercivity
 -- Every fixed original all-spin channel survives the full bulk cutoff limit.
 -- Original norm reconstruction, volume control and transfer injectivity remain open.
 import YMGap.Continuum.BF4ExactSlabAllSpinRetainedChannels
 import YMGap.Continuum.BF4ExactSlabRetainedChannelBulkLimit
+-- Bulk-uniform crossing tails and two-stage convergence to the SAME
+-- original full-action limit. Limiting channel-sum reconstruction remains open.
+import YMGap.Continuum.BF4ExactSlabBulkUniformCrossingTail
+import YMGap.Continuum.BF4ExactSlabCrossingPacketBulkLimit
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

@@ -13,7 +13,53 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED all-spin ORIGINAL channel bounds through full bulk cutoff removal (2026-09-14)
+## CLOSED bulk-uniform ORIGINAL crossing tails and two-stage full-action limit (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkUniformCrossingTail.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCrossingPacketBulkLimit.lean`.
+- **closed original bulk cap**: `mixedInsertion_eq_bulkInsertion` and
+  `mixedQuadratic_eq_bulkHaar` recode the ORIGINAL heat factors inside
+  Haar. `bulkInsertion_l1_bound` bounds the independently written product;
+  it does not transport literal coefficient L1 across an arbitrary
+  coefficient equivalence. `bulkCap` has no bulk cutoff parameter.
+- **closed all-bulk crossing tail**: `tailTolerance` divides by
+  `bulkCap + 1`; `crossingCutoff` feeds it to the existing original
+  heat-product remainder modulus. `crossingRemainder_bound`,
+  `mixed_later` and `bulkUniformCrossingCertificate` control EVERY bulk
+  cutoff B and EVERY later crossing cutoff K using one computed N.
+  The bulk/crossing nomes b,v remain explicit and may differ.
+  `original_diagonal_close` applies this to the SAME full-action numerator
+  with its growing bulk cutoff K, not a fixed-bulk surrogate.
+- **closed fixed-packet bulk removal**: `mixed_packet_pin` regroups
+  the original lower/upper face products around a fixed crossing packet.
+  `packetCauchy`, `packetLimit`, `packetLimitCauchy` and
+  `mixed_approx_close` construct its original bulk limit and explicit
+  numerical bounds, preserving the original shared link variables.
+- **closed two-stage limit passage**: `packetLimit_original_approx_close`
+  compares this limit with the pre-existing full original reflected
+  numerator limit. `reconstructionCutoff` gives the packet threshold;
+  `reconstructionApproxCutoff` gives the numerical threshold for each
+  packet. `packetLimit_converges` proves convergence to that SAME original
+  limit. `reconstructionCertificate` returns both choices as Type-level
+  data. No exchange of limits is assumed.
+- **open residue**: identify each limiting packet with the actual finite
+  sum of limiting retained-channel squares; completed channel-norm
+  reconstruction and the converse null implication; compatibility with
+  actual time translation; volume passage; completed transfer range/density
+  and zero kernel; full-space zero-time continuity, physical Hamiltonian/
+  scaling, other groups and continuum/Clay. Uniformity here ranges only over
+  the bulk spin cutoff and later crossing cutoff, NOT volume, beta or
+  spacing. No new hole, analytic premise, canonical field/type/atom/flag,
+  weight or surrogate is introduced or discharged.
+- **verification**: 15+15=30 exactly matched focused gates within
+  {propext, Quot.sound}, one propext-only; clean final logs and fresh
+  own/direct-import artifacts. Safe-build skill: one worker, explicit
+  20 GiB ceiling and separate process/swap preflights. One local-notation
+  projection needed parentheses; final outputs contain no errors,
+  warnings or sorryAx. No raised options or full build/audit/guard/progress/
+  root-import run. Log hashes are in work_plan.
+
+## Previous checkpoint: CLOSED all-spin ORIGINAL channel bounds through full bulk cutoff removal (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabAllSpinRetainedChannels.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabRetainedChannelBulkLimit.lean`.
@@ -47,8 +93,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   ORIGINAL OS-null polynomial. It follows by retaining the positive
   weighted square, then rational positive-factor cancellation and
   an epsilon-squared bound. No channel completeness is assumed.
-- **open residue**: quantitative finite-channel reconstruction and
-  tail control for the original norm; the converse null implication;
+- **open residue**: reconstruction from limiting channel squares and
+  the converse null implication (crossing-packet tail control and its
+  two-stage original action limit are now proved above);
   compatibility with actual time translation; volume passage;
   completed transfer range/density and zero kernel; full-space
   time-zero continuity, physical Hamiltonian/scaling, other groups

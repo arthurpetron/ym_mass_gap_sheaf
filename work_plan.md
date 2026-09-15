@@ -18,7 +18,63 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (all-spin ORIGINAL channel bounds through full bulk cutoff removal):**
+**Latest increment (bulk-uniform ORIGINAL crossing tail and two-stage full-action limit):**
+PROGRESS after 4f2efe4. The complementary estimate to the fixed-channel
+bulk limits is now proved: one crossing cutoff works uniformly over ALL
+bulk spin cutoffs, at fixed nomes, extent and observable.
+
+`BF4ExactSlabBulkUniformCrossingTail.mixedInsertion_eq_bulkInsertion`
+recodes the original lower/upper dressing as observable times literal
+heat products; `mixedQuadratic_eq_bulkHaar` performs that recoding inside
+the same Haar integral. `bulkInsertion_l1_bound` then uses the existing
+cutoff-independent product bounds. This is not an invalid transfer of
+literal coefficient L1 through coefficient equivalence. `bulkCap` has no
+cutoff argument. `tailTolerance = epsilon/(bulkCap+1)` and
+`crossingCutoff` provide the computed remainder budget. `mixed_later`
+and `bulkUniformCrossingCertificate` retain every B and every K>=N.
+`original_diagonal_close` bounds the actual full-action numerator with
+bulk cutoff K against the finite crossing packet N with that SAME bulk
+cutoff K. No uniform positive coercivity floor is assumed.
+
+`BF4ExactSlabCrossingPacketBulkLimit.mixed_packet_pin` regroups the
+original bulk factors into the concatenated lower/upper face list.
+`packetCauchy`, `packetLimit`, `packetLimitCauchy` and `mixed_approx_close`
+construct the bulk limit of every fixed crossing packet with numerical
+moduli. `packetLimit_original_approx_close` combines the all-bulk tail
+estimate with the two original numerator moduli, using a three-quarter
+error budget. `reconstructionCutoff` is the crossing-packet threshold;
+`reconstructionApproxCutoff` is the numerical representative threshold
+for each retained packet. `packetLimit_converges` identifies the limit
+of these bulk limits with the EXISTING full original reflected numerator
+limit. `reconstructionCertificate` returns both stage choices in Type.
+All original shared links and heat factors remain; the two-stage passage
+is proved, not an assumed exchange of limits.
+
+NEXT: express each limiting packet as its actual finite sum of limiting
+channel squares, using the original mixed Gram pin and finite square tree.
+This sum identity, completed channel-norm reconstruction and the converse
+null implication remain open. Their compatibility with actual time
+translation is also open. No completed T2 range-density/zero-kernel theorem
+is inferred. Volume control, full-space time-zero continuity, geometric
+T1/physical Hamiltonian identification, canonical spectral/non-Wick
+comparisons, quotient-level completeness, beta(a)/spacing-uniform
+continuum control, other groups and Clay remain OPEN. Uniformity here is
+ONLY in bulk and later crossing spin cutoffs, not volume, beta or spacing.
+No new hole, analytic premise, canonical field/type/atom/flag or surrogate.
+
+Verification: two focused monitored modules, 15+15=30 exactly matched
+gates within {propext, Quot.sound}, one propext-only. Clean final logs;
+fresh own/direct-import artifacts. Safe-build skill: one worker, explicit
+20 GiB ceiling and separate process/swap preflights. The first module
+passed directly; the second needed parentheses around a local notation
+before a projection. No raised options or full build/audit/guard/progress/
+root-import run. Logs and SHA-256:
+`/tmp/ym-original-bulk-uniform-crossing-tail.log`
+(`07e922f4c2614995b49aca8fe965f7107dd7a9bc3596a1124f11a0d5aacca35d`),
+`/tmp/ym-original-crossing-packet-bulk-limit.log`
+(`4c2462f2347a183c4b547c85c607904074f4b9d88c46bbcd01ef4c3e2d54d1ab`).
+
+**Previous increment (all-spin ORIGINAL channel bounds through full bulk cutoff removal):**
 PROGRESS after 42877e3. Instead of trying to pass one shrinking
 coercivity floor through a growing bulk cutoff, the proof now retains
 each FIXED positive square channel and passes its actual amplitude
@@ -54,8 +110,9 @@ polynomial has zero coefficient in EVERY fixed selected all-spin
 channel. Positive-factor cancellation and an epsilon-squared estimate
 give the latter; no uniform floor over the entire family is needed.
 
-NEXT: quantitative reconstruction/tail control of the ORIGINAL norm
-from these finite channels, and their compatibility with actual time
+NEXT at this checkpoint: quantitative reconstruction/tail control of
+the ORIGINAL norm from these finite channels (crossing-packet tail and
+two-stage action limit are now proved above), and compatibility with actual time
 translation. The converse null implication and channel completeness
 are not proved. Neither is volume control or completed T2 range density/
 zero kernel. Full-space time-zero continuity, geometric T1/physical
