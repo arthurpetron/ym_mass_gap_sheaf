@@ -518,3 +518,49 @@ Verification: 20 exactly matched public gates within {propext, Quot.sound},
 one monitored worker, explicit 20 GiB. No full-tree check. Log
 `/tmp/ym-dressed-dual-test-cutoff-limit.log`, SHA-256
 `049bdccc7eed1a7a81b4cf64bc7902bcdd47e51979c1da702c86a6d25400c65e`.
+
+## Implemented concrete scalar-test volume limit (2026-09-15)
+
+Implementation after `29a0da9`; earlier dated findings are preserved. All
+declarations below belong to
+`lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean`.
+
+| Declaration | Source | Actual statement |
+| --- | --- | --- |
+| `probeLinks_shift` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:74` | The actual four-link test support is translated by the same bulk placement as the state. |
+| `bulkScalar_image` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:90` | Exact prefix-polynomial image of the scalar product under every original inter-slab embedding. |
+| `insertionInterval` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:101` | The mixed upper-state/lower-test insertion has the upper expression's interval cap, since the scalar product has cap one. |
+| `insertion_local` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:109` | Both factors lie in the same translated fixed source box. |
+| `insertion_image` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:121` | The complete mixed insertion follows the original inter-volume map; it is not a changing unrelated observable. |
+| `mean_difference_bound` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:147` | Original normalized expectations differ by at most A(w,base,e) times the existing rate to power margin+1-boxSize(base), uniformly in further padding under the explicit coupling guards. |
+| `volumeModulus` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:188` | Reuses the existing upper-expression volume modulus at nome 1/1024. |
+| `meanLimit` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:229` | Constructs the CReal volume limit from the original expectation sequence and explicit inner/outer moduli. |
+| `meanLimitCauchy` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:237` | Returns numerical Cauchy data for that particular limit representative. |
+| `meanLimit_geometric_bound` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:245` | The original geometric boundary estimate also controls the error from each finite volume to this limit. |
+| `meanLimit_bound` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:263` | L(e)^2 <= formLimit(e,e), the EXISTING thermodynamic reflected OS norm. |
+| `meanLimit_add` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:273` | Additivity on original expressions at each source base. |
+| `meanLimit_smul` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean:280` | Signed rational linearity on those expressions. |
+
+The boundary estimate uses the same original action and partition cancellation;
+the test was not made an original plaquette expression. The concrete limit is
+constructed only at the existing nome. Its cap-one norm bound does not assert
+coupling-uniform volume convergence or a beta/spacing-uniform spectral gap.
+The cutoff modulus remains the existing volume-dependent one; the new outer
+modulus controls the subsequent volume passage for a fixed source expression.
+
+**Still open:** descent under original presentation equivalence and the
+thermodynamic OS null relation, completed extension, and an identity/estimate
+involving the ACTUAL geometric time operator. The new norm estimate concerns
+e, not T2(e). No separating family, excited nonzero witness or residual
+smallness threshold is supplied. Thus this construction does not yet discharge
+the range/time-zero consumer in section 1. No canonical frontier was changed.
+
+Verification: 25 exactly matched public gates within {propext, Quot.sound};
+clean final log, fresh own and two direct-import artifacts. No executable
+forbidden tokens or raised options. Initial notation, unfolding and namespace
+errors were corrected without weakening the mathematical statements. The
+safe-build skill kept one worker, explicit 20 GiB and separate process/swap
+preflights; swap stayed 12389.81 MiB. One additive root import, not compiled.
+No full build/audit/guard/progress run. Log
+`/tmp/ym-bulk-scalar-thermodynamic-test.log`, SHA-256
+`f986f380298bce830ec5f549fb23373d8232cf30283cac5d726b447945a05088`.

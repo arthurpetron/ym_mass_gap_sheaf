@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED full-channel dual-test cutoff removal; OPEN thermodynamic time comparison (2026-09-15)
+## CLOSED scalar dual-test volume limit; OPEN presentation/completion and time comparison (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean`.
+- **original volume family**: `probeLinks_shift`, `bulkScalar_image` and
+  `insertion_image` translate the actual upper expression and lower scalar
+  product together. `insertionInterval` and `insertion_local` construct the
+  fixed-support premises for the existing original boundary estimate.
+- **constructed limit**: `mean_difference_bound` has explicit small-nome
+  guards and support-dependent amplitude. At nome 1/1024, `volumeModulus`,
+  `innerModulus`, `meanLimit` and `meanLimitCauchy` return the actual volume
+  limit and its data. `meanLimit_geometric_bound` and `meanLimit_error_le`
+  control the limit error; `meanLimit_add` and `meanLimit_smul` give linearity.
+- **same norm**: `meanLimit_bound` proves L(e)^2 <= formLimit(e,e), where the
+  right side is the EXISTING original thermodynamic reflected form. The proof
+  consumes the preceding cutoff-removed full-action bound, not an ordinary
+  product-law norm or a newly supplied analytic premise.
+- **open residue**: original presentation equivalence and thermodynamic OS
+  null descent, completed extension, actual time-translation identity and
+  residual smallness for a sufficiently rich original family. This single
+  scalar test is not proved separating or nonzero on an excited state; it is
+  not an original-state/preimage realization. T2 range density, full-space
+  time zero, Hamiltonian, beta(a)/continuum, QFT/spectral pins, other compact
+  simple groups and Clay remain open. No canonical field/type/atom/flag or
+  hole changed; no new analytic premise was introduced.
+- **verification**: 25 exact focused public gates within {propext, Quot.sound};
+  fresh own/two direct-import artifacts, clean executable-token/option check.
+  Safe-build skill: one worker, explicit 20 GiB, separate process/swap preflights.
+  One additive root import, not compiled; no full build/audit/guard/progress.
+  Exact log/hash and initial elaboration corrections are recorded in work_plan.
+
+## Previous CLOSED full-channel dual-test cutoff removal; OPEN thermodynamic time comparison (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestCutoffLimit.lean`.
 - **same-object identity**: `bulkScalar_temporal_fixed` constructs the concrete

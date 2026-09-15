@@ -119,7 +119,45 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED full-channel dual-test cutoff removal):**
+**Latest mathematical increment (CLOSED scalar dual-test volume limit and original norm bound):**
+PROGRESS after `29a0da9`: `BF4ExactSlabBulkScalarThermodynamicTest` constructs
+the thermodynamic value of the concrete full-channel lower scalar test on
+each original plaquette expression. `probeLinks_shift`, `bulkScalar_image`
+and `insertion_image` pin both factors to the SAME inter-slab embedding.
+`insertionInterval` and `insertion_local` give the mixed insertion a fixed
+translated box support and a cap independent of further volume padding.
+There is no auxiliary-state recoding or change to the original action.
+
+`mean_difference_bound` applies the existing boundary determinant estimate
+with coupling, support and margin explicit. At the existing nome 1/1024,
+`volumeModulus` reuses the original upper-expression modulus because the
+scalar factor has cap one. `meanLimit`, `meanLimitCauchy`,
+`meanLimit_geometric_bound` and `meanLimit_error_le` construct the value and
+its numerical/volume control. This is convergence, not just uniform boundedness.
+Passing the preceding cutoff-removed estimate through these volume limits
+gives `meanLimit_bound`: L(e)^2 <= formLimit(e,e), for the EXISTING original
+thermodynamic OS form. Rational linearity is proved on each source base.
+
+NEXT: establish compatibility under the original presentation equivalence
+and thermodynamic OS nulls, then completed extension and a useful identity
+with actual geometric time translation. The current one-test family is not
+proved separating, nonzero on an excited state, or a transfer image. A norm
+bound against e is not a bound against T2(e). Keep direct approximate original
+preimages as an alternative; do not infer T2 range density from this limit.
+Full-space time zero, physical Hamiltonian, beta(a)/continuum, QFT/spectral
+pins, other compact simple groups and Clay remain open. No canonical field,
+analytic premise or hole changed.
+
+Verification: 25 exactly matched public gates within {propext, Quot.sound};
+clean focused log, fresh own and two direct-import artifacts, no forbidden
+executable tokens, only autoImplicit false. Initial notation, unfolding and
+namespace errors were corrected without changing the statements or limits.
+Safe-build skill: one worker, explicit 20 GiB, separate process/swap preflights;
+swap stayed 12389.81 MiB. One additive root import, not compiled. No full
+build/audit/guard/progress run. Log `/tmp/ym-bulk-scalar-thermodynamic-test.log`,
+SHA-256 `f986f380298bce830ec5f549fb23373d8232cf30283cac5d726b447945a05088`.
+
+**Previous mathematical increment (CLOSED full-channel dual-test cutoff removal):**
 PROGRESS after `82518a0`: `BF4ExactSlabDressedDualTestCutoffLimit` closes a
 same-action identity, not a second limit construction. The temporal ledger
 acts only on upper links, so `bulkScalar_temporal_fixed` proves it fixes the
