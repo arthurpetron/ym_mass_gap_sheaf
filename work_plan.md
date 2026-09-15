@@ -18,7 +18,80 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (positive real-time addition/composition on the ORIGINAL carrier):**
+**Latest increment (quantitative real-time and range-zero continuity on the ORIGINAL carrier):**
+PROGRESS after ad162cc. `BF4ExactSlabThermodynamicRowDistanceOrder`
+constructs `differenceRows` from the existing original addition and
+constant-polynomial action, retaining their Cauchy data.
+`rowLimit_difference` pins the limit to the original difference.
+`rowLimit_pairing_eventual_le` and `rowLimit_distance_eventual_le`
+pass eventual inequalities with an actual RC upper bound through the
+already-constructed original limits. Eventual indices are used only
+in logical proofs, never to select output data or a modulus.
+
+`BF4ExactSlabThermodynamicPositiveRealContinuity` compares ACTUAL RC
+time values. For b>0 and times s,t>=b+b, two-sided time error at most
+`timeRadius b k = half*(b*half^k)` implies
+||A(s)x-A(t)x||^2 <= half^k*||x||^2 for every original completed x.
+`time_lower_eventually` and `time_close_eventually` transfer real order
+to the existing dyadic streams with a safety margin. The previous
+energy bound applies there and passes to the original limits.
+`uniformTimeContinuityCertificate` returns the computed radius with
+k=rangeModulus X epsilon, valid for ALL time values in that interval.
+The radius depends on b, X and epsilon, not on time representatives.
+
+`BF4ExactSlabThermodynamicPositiveRealLocalContinuity.localFloor` is
+D.floor/4. `timeValue_floor`, `localFloor_four` and `nearbyTime_floor`
+prove that a sufficiently close actual time automatically stays above
+twice that local floor. `localRadius` uses the preceding uniform
+radius; `localTimeContinuityCertificate` needs no extra lower-bound
+hypothesis on the arbitrary comparison time. `jointContinuityCertificate`
+returns time radius localRadius(D,X,epsilon/4) and original squared-state
+distance tolerance epsilon/4. Original contraction and the two-segment
+bound prove joint time/state continuity, without choosing either
+comparison representative.
+
+`BF4ExactSlabThermodynamicPositiveRangeZeroContinuity.addTime_close`
+uses positivity of actual time values. The semigroup law and the
+local modulus at s>0 give `positive_range_zero_bound`:
+||A(t)A(s)x-A(s)x||^2<=epsilon whenever 0<t<=localRadius(s,X,epsilon).
+`rangeZeroContinuityCertificate` retains the ORIGINAL output Cauchy
+representative, its exact action pin and the computed radius.
+`oneTime_action` identifies real time one with the PRE-EXISTING T2;
+`twoStepZeroContinuityCertificate` gives its original range as a
+concrete instance. No alternative state space or range-density input.
+
+NEXT: the full-space time-zero boundary, examining the actual original
+transfer range/injectivity rather than assuming density. Quantitative
+positive real-time continuity, joint time/state continuity, and zero-time
+continuity on ALL original positive-time ranges are CLOSED. Those ranges
+are NOT proved dense; the transfer kernel is NOT proved zero. The
+pre-existing `TimeKernel.time_positive_kernel_equal` identifies kernels
+of positive discrete times but does not discharge either assertion.
+A strongly continuous nonnegative-time semigroup on the FULL space,
+geometric T1 identification, full spectral realization, canonical
+comparisons, quotient-level completeness/time injectivity, physical
+spectral/non-Wick pins, continuum scaling, other groups and Clay remain
+OPEN. Fixed SU(2) nome 1/1024 and spacing. Uniformity is over actual times
+bounded away from zero, NOT beta or spacing. No new hole, physical input,
+canonical type/atom/flag, weight or surrogate.
+
+Verification: four focused monitored modules, 5+12+15+9=41 exactly
+matched gates within {propext, Quot.sound}, two axiom-free. Clean final
+logs and fresh own/direct-import artifacts. Safe-build skill: one worker,
+explicit 20 GiB ceiling, separate process/swap preflights; no raised
+options or full build/audit/guard/progress/root-import run. A read-only
+preflight temporarily failed due to approval-service capacity; compilation
+remained paused until that SAME preflight succeeded. Logs and SHA-256:
+`/tmp/ym-original-row-distance-order.log`
+(`836e27b26d94419a6bee501b429d70a2bc190d1bf0c6ab1b98d4702448afb03e`),
+`/tmp/ym-original-positive-real-continuity.log`
+(`10404c2ab0b50d303bda4bd555156012366a2e6b4454a50008d635f458cfe545`),
+`/tmp/ym-original-positive-real-local-continuity.log`
+(`da2b1a970b6c1eea6c284496335ddc9dc6b503f82bd50a52dfc21c3455c8fcd8`),
+`/tmp/ym-original-positive-range-zero-continuity.log`
+(`4c272b3502670befa81d63c3c2228cc351f033fb1687d017c77ff99dc9cd2823`).
+
+**Previous increment (positive real-time addition/composition on the ORIGINAL carrier):**
 PROGRESS after 0fd07c8. `PositiveRealDyadicTimeAddition.value_addMesh`
 identifies mesh addition with exact Q' addition. `sumCauchy` retains the
 computed rate max(approximationModulus D (half*epsilon),
@@ -57,8 +130,10 @@ squared-distance contraction and centering are proved.
 `complementAction` acts on the ORIGINAL UnitComplement, with its exact
 state pin and the same composition law, not a new vacuum sector.
 
-NEXT: quantitative continuity for positive real-time values, then the
-full-space time-zero issue. Positive-real-time ALGEBRAIC semigroup laws
+Subsequent closure: quantitative positive real-time continuity, joint
+time/state continuity and continuity at zero on original positive-time
+ranges are proved above. The full-space time-zero issue remains open.
+Positive-real-time ALGEBRAIC semigroup laws
 are CLOSED. A strongly continuous nonnegative-time semigroup is NOT yet
 proved. Density of the T2 range, zero transfer kernel, geometric T1
 identification, full spectral realization, canonical comparisons,

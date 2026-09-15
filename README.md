@@ -13,7 +13,22 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [positive real-time semigroup on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveRealSemigroup.lean).
+**Latest milestone:** [quantitative real-time continuity on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveRealLocalContinuity.lean).
+At every positive real time, the same operator action now has computed
+time and state continuity radii. A uniform estimate away from zero
+compares actual real-time values, independently of their numerical
+representations. Local bounds ensure that a sufficiently nearby time
+automatically stays in that interval. The semigroup law also gives
+[continuity at zero on every original positive-time range](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveRangeZeroContinuity.lean),
+including the range of the pre-existing `T2`, with explicit output data
+and radii. Four modules passed 41 focused axiom checks within
+`{propext, Quot.sound}` (two axiom-free); no full-tree run.
+Next: the full-space time-zero boundary. Positive-time range density
+and a zero transfer kernel are not proved or assumed. Geometric `T1`
+identification, the Hamiltonian, physical-scale control and continuum/Clay
+remain open; nome and spacing are fixed.
+
+**Established semigroup:** [positive real-time composition on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveRealSemigroup.lean).
 Addition of positive real times now gives composition of the existing
 operators: `A(s+t)x = A(s)(A(t)x)`. Time addition is pinned to the
 existing real-number addition. The proof passes an exact dyadic
@@ -23,8 +38,8 @@ is invariant and carries the same semigroup. Output representatives,
 sum-time convergence rates and mixed-time moment identities are explicit.
 Three modules passed 47 focused axiom checks within `{propext, Quot.sound}`
 (three axiom-free); no full-tree run.
-Next: quantitative continuity for real-time values. This is an algebraic
-positive-time semigroup; full-space continuity at zero, geometric `T1`
+Quantitative positive-time and range-zero continuity are now proved above.
+Full-space continuity at zero, geometric `T1`
 identification, the Hamiltonian, physical-scale control and continuum/Clay
 remain open. Nome and spacing are fixed.
 
@@ -73,8 +88,8 @@ Two modules passed 51 focused axiom checks within `{propext, Quot.sound}`
 (six axiom-free); no full-tree run.
 Quantitative positive-time right continuity and zero-time continuity on
 the `T2` range are now proved above. Full-space continuity at zero and a
-strongly continuous nonnegative-time semigroup are not established; the possible kernel of `T2`
-remains open. Geometric `T1` identification, the Hamiltonian,
+strongly continuous nonnegative-time semigroup are not established;
+the possible kernel of `T2` remains open. Geometric `T1` identification, the Hamiltonian,
 physical-scale control and continuum/Clay remain open; nome and spacing
 are fixed.
 

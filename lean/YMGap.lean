@@ -4301,6 +4301,12 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveTimePins
 import YMGap.Continuum.PositiveRealDyadicTimeAddition
 import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveTimeComposition
 import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveRealSemigroup
+-- Quantitative actual real-time continuity, jointly with the original
+-- state, and at zero on positive-time ranges. Full-space zero remains open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicRowDistanceOrder
+import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveRealContinuity
+import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveRealLocalContinuity
+import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveRangeZeroContinuity
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

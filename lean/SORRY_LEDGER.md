@@ -13,7 +13,57 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED positive real-time addition/composition on the ORIGINAL carrier (2026-09-14)
+## CLOSED quantitative positive real-time and range-zero continuity on the ORIGINAL carrier (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicRowDistanceOrder.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveRealContinuity.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveRealLocalContinuity.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveRangeZeroContinuity.lean`.
+- **closed original distance limit**: `differenceRows` computes
+  original difference Cauchy data; `rowLimit_difference` pins the
+  limit. `rowLimit_pairing_eventual_le` and
+  `rowLimit_distance_eventual_le` pass eventual inequalities to the
+  SAME original limits. Logical eventual indices do not supply any
+  output representative or numerical modulus.
+- **closed uniform continuity away from zero**:
+  `realTimeAction_close_bound` proves original squared error
+  <=half^k*||x||^2 when actual RC times are >=2b and their two-sided
+  difference is <=timeRadius b k=half*(b*half^k), b>0.
+  `uniformTimeContinuityCertificate` computes a radius from b, the
+  supplied original state data and epsilon, independently of time
+  representations. Uniformity is over actual times bounded away
+  from zero, NOT beta or lattice spacing.
+- **closed local and joint continuity**: `localFloor` is D.floor/4.
+  `nearbyTime_floor` proves that nearby actual time values stay in
+  the required positive interval. `localTimeContinuityCertificate`
+  imposes no lower-bound hypothesis on the comparison time.
+  `jointContinuityCertificate` returns the time radius at epsilon/4
+  and original squared-state tolerance epsilon/4, using contraction.
+  Neither comparison time nor state representatives are selected.
+- **closed zero-time continuity on original positive-time ranges**:
+  `positive_range_zero_bound` follows from the local modulus at
+  positive anchor time and the semigroup law. `rangeZeroContinuityCertificate`
+  retains the actual output Cauchy representative, action pin and radius.
+  `oneTime_action` is exactly the PRE-EXISTING T2, and
+  `twoStepZeroContinuityCertificate` supplies its concrete range case.
+  No replacement carrier or range-density hypothesis is introduced.
+- **open residue**: full-space time-zero continuity; density of the
+  original positive-time/T2 ranges; zero transfer kernel; geometric
+  T1 identification; full spectral realization; canonical comparisons;
+  quotient-level completeness/time injectivity; physical spectral/
+  non-Wick pins; continuum scaling; other groups and Clay. The old
+  `TimeKernel.time_positive_kernel_equal` equates positive discrete
+  kernels; it does NOT prove them zero. No strongly continuous
+  nonnegative-time semigroup on the FULL space is claimed. Fixed
+  SU(2) nome/spacing; no new hole, physical input, canonical type/atom/
+  flag, weight or surrogate; no beta/spacing-uniform gap assertion.
+- **verification**: 41 exactly matched focused gates within
+  {propext, Quot.sound}, two axiom-free; clean final logs and fresh
+  own/direct-import artifacts. One worker, explicit 20 GiB ceiling,
+  separate preflights; no raised options or full build/audit/guard/
+  progress/root-import run. Logs and SHA-256 in work_plan.
+
+## Previous checkpoint: CLOSED positive real-time addition/composition on the ORIGINAL carrier (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/PositiveRealDyadicTimeAddition.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveTimeComposition.lean`,
@@ -42,8 +92,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   Mixed/doubled moments, original state linearity, squared-distance
   contraction and centering are proved. `complementAction` restricts
   to the PRE-EXISTING UnitComplement with the same composition law.
-- **open residue**: quantitative continuity for positive real-time
-  values; full-space time-zero continuity; density of the T2 range;
+- **subsequent closure**: quantitative positive-time, joint time/state
+  and positive-range zero-time continuity are proved above.
+- **open residue**: full-space time-zero continuity; density of the T2 range;
   zero transfer kernel; geometric T1 identification; full spectral
   realization; canonical comparisons; quotient-level completeness/time
   injectivity; physical spectral/non-Wick pins; continuum scaling;
@@ -89,7 +140,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   quotient representative is selected.
 - **subsequent closure**: actual positive-real-time addition/composition
   and the original UnitComplement semigroup are proved above.
-- **open residue**: quantitative positive-real-time continuity;
+- **subsequent continuity closure**: positive-time, joint time/state
+  and positive-range zero-time continuity are proved above.
+- **open residue**: full-space time-zero continuity;
   density of the T2 range; zero transfer kernel; full-space time-zero
   continuity; geometric T1 identification; full spectral realization;
   canonical comparisons; quotient-level completeness/time injectivity;
@@ -130,7 +183,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **subsequent closure**: controlled positive-time Cauchy families and
   the original positive-real-time operator family, with exact dyadic
   pins and its time-addition law, are constructed above.
-- **open residue**: real-time continuity; density of the T2 range;
+- **open residue**: full-space time-zero continuity; density of the T2 range;
   zero transfer kernel; full-space continuity at zero; geometric T1 identification; full
   spectral realization; canonical comparisons; quotient-level
   completeness/time injectivity; continuous-time/physical spectral/
@@ -169,7 +222,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **subsequent closure**: positive-time right continuity and zero-time
   continuity on the T2 range are quantitative in the latest entry.
 - **open residue**: full-space time-zero continuity;
-  real-time continuity; geometric T1 identification; full spectral
+  geometric T1 identification; full spectral
   realization; canonical comparisons; quotient-level completeness/time
   injectivity; continuous-time/physical spectral/non-Wick pins;
   continuum scaling; other groups and Clay. The possible kernel of T2
@@ -213,7 +266,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   NOT a proof that this kernel vanishes.
 - **subsequent closure**: representation-independent nonnegative dyadic
   indexing and addition are proved in the latest entry.
-- **open residue**: full-space time-zero continuity, real-time continuity,
+- **open residue**: full-space time-zero continuity,
   geometric T1 identification, full spectral realization,
   canonical comparisons, quotient-level completeness/time injectivity,
   continuous-time/physical spectral/non-Wick pins, continuum scaling,
