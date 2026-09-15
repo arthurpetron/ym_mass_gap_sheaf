@@ -18,7 +18,77 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest increment (ACTUAL channel polynomial embedding and original added-action response):**
+**Latest increment (ORIGINAL all-spin spectator Haar factorization and normalized integral samples):**
+PROGRESS after 95b2dd8. The all-spin retained tree is now pinned to its
+actual full-spectator Haar integrand, factored on the original shared
+variables, and connected to the existing normalized packet by explicit
+bulk and representative thresholds. This closes an algebraic/integration
+bridge, not a volume-uniform analytic estimate or canonical Clay atom.
+
+`BF4ExactSlabAllSpinSpectatorHaarForm.faceFactor`, `faceFactor_supported`,
+`faceFactor_image` and `retainedExpansion` retain each original selected
+weighted channel square and every unselected full Gram factor.
+`retained_mixed_haar` and `bulkPairing_haar` identify the actual mixed Haar
+form, with independently named bulk B and crossing K. Its diagonal equals
+the existing `energySequence`; `bulkPairing_original_bound` and
+`bulkPairing_squared_bound` compare it to the ORIGINAL full-action
+quadratic forms for K <= B, with constant one and explicit w > 0.
+
+`BF4ExactSlabAllSpinSpectatorFactorization.face_partition` splits the
+actual crossing-face list by the supplied all-spin selection.
+`retained_factorization` and `retained_square_factorization` prove the
+exact product of selected positive weight, reflected selected polynomial
+square and full spectator heat product. `selectedWeight_positive` and
+`selectedPolynomial_supported` preserve the actual original channels;
+`spectatorExpansion` retains the complete surrounding Gram tree.
+`factorized_mixed_haar` removes padding only with both carrier supports.
+There is no independence assumption or claim of positive amplitude.
+
+`BF4ExactSlabAllSpinSpectatorIntegralLimit.integral` keeps both original
+bulk-dressed observables in that factorized integrand. `integral_pairing`,
+`integral_energy`, `integral_nonnegative` and `integral_original_bound`
+pin its actual original form. `bulkCutoff`, `integral_approx_close` and
+`integral_converges` identify the EXISTING retained packet as its bulk
+limit. `normalizedSample`, `normalizedBulkCutoff`,
+`normalizedSample_approx_close`, `computedSample` and `computedSample_spec`
+give original normalized samples with an explicit two-sided error budget.
+The sample uses the original limiting partition reciprocal's numerical
+representative, not the reciprocal of the finite-B partition. The
+threshold uses epsilon / reciprocalCeiling(w, half), explicitly
+finite-volume-dependent; it is not cancellation-preserving volume control.
+
+NEXT: spectator-relative estimates for general all-spin tests/packets
+that cancel against the SAME original partition before growing volume.
+The new arbitrary-spin factorization supplies the exact integrand for
+that comparison. Existing specific-probe anchors remain
+`BF4ExactSlabBulkProbeHomogeneousFloor.rawForm_relative_floor`,
+`BF4ExactSlabBulkProbePartitionComparison.existingNome_originalUnit_upper`
+and `BF4ExactSlabBulkProbeNormalizedFloor.connectedCovariance_floor`.
+The last is a specific fundamental-probe floor at nome 1/1024, not a
+general thermodynamic separating family. General separation, completed
+thermodynamic T2 zero kernel/range density, full-space time-zero
+continuity, geometric T1/physical Hamiltonian, beta(a)/spacing-uniform
+continuum control, spectral/non-Wick pins, other groups and Clay remain
+OPEN. No new hole, analytic premise, canonical field/type/atom/flag,
+surrogate or quotient representative choice.
+
+Verification: three focused monitored modules, 12+14+13=39 exactly
+matched public declaration gates, only {propext, Quot.sound}. Clean
+final logs; fresh own/direct-import artifacts; no forbidden executable
+tokens; only autoImplicit false. Three new root imports occur once;
+existing import multiplicities unchanged and root not compiled.
+Safe-build skill: one worker, explicit 20 GiB, separate process/swap
+preflights; swap stable at 12790.31 MiB. Corrected namespace opens and
+explicit section-parameter inclusion, without raised options/limits.
+No full build/audit/guard/progress run. Logs and SHA-256:
+`/tmp/ym-original-all-spin-spectator-haar-form.log`
+(`630ad6a9d39e31db4d26e425769b84ddadb9d5d507156878388be1e92a4fbe4d`),
+`/tmp/ym-original-all-spin-spectator-factorization.log`
+(`c1b2ad0f07d101b739cf2c96916520ad42ed43f83e7ae2112d94a4b82eaebafe`),
+`/tmp/ym-original-all-spin-spectator-integral-limit.log`
+(`547ed3c6aa727d5ce9c9d26aecca8482ed48ea9f55cec751f0398335704ca884`).
+
+**Previous increment (ACTUAL channel polynomial embedding and original added-action response):**
 PROGRESS after 09d8dfe. The geometric polynomial obligation for the actual
 bulk enlargement is now proved, rather than supplied to channel transport.
 The embedded original lower interaction is retained, and the full enlarged

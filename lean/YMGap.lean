@@ -4358,7 +4358,7 @@ import YMGap.Continuum.BF4ExactSlabNormalizedChannelReconstruction
 import YMGap.Continuum.BF4ExactSlabThermodynamicTranslatedChannelPacket
 -- Original all-spin branches persist at the actual enlarged crossing face.
 -- Full spectators can be retained with the original bulk limit/norm bound;
--- polynomial pullback and normalized volume control remain open.
+-- polynomial pullback follows below; normalized volume control remains open.
 import YMGap.Continuum.BF4ExactSlabGramChannelTransport
 import YMGap.Continuum.BF4ExactSlabGrowingRetainedChannel
 import YMGap.Continuum.BF4ExactSlabAllSpinSpectatorRetention
@@ -4369,6 +4369,13 @@ import YMGap.Continuum.BF4ExactSlabGramChannelEmbedding
 import YMGap.Continuum.BF4ExactSlabGrowingChannelPolynomial
 import YMGap.Continuum.BF4ExactSlabGrowingChannelInterior
 import YMGap.Continuum.BF4ExactSlabGrowingChannelExterior
+-- Arbitrary original selected squares factor from the complete spectator
+-- interface on shared variables. Their actual bulk-dressed Haar integrals
+-- reach existing normalized packets with explicit finite-volume cutoffs;
+-- cancellation-preserving volume estimates and separation remain open.
+import YMGap.Continuum.BF4ExactSlabAllSpinSpectatorHaarForm
+import YMGap.Continuum.BF4ExactSlabAllSpinSpectatorFactorization
+import YMGap.Continuum.BF4ExactSlabAllSpinSpectatorIntegralLimit
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

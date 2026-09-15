@@ -13,7 +13,23 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [actual growing channel polynomials and their original-action response](lean/YMGap/Continuum/BF4ExactSlabGrowingChannelExterior.lean).
+**Latest milestone:** [all-spin spectator integrals reach the original normalized packets](lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorIntegralLimit.lean).
+For arbitrary selected spins and crossing faces, the actual retained
+integrand is now identified with its selected positive weight, reflected
+channel square, and **complete spectator heat product**. All factors keep
+their original shared link variables. With both observables dressed by the
+original bulk action, its mixed pairing obeys a constant-one original-form
+bound. Its diagonal converges to the existing retained packet with an
+explicit cutoff; the same original partition reciprocal gives a computed
+normalized sample and error guarantee.
+Three modules passed 39 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree run. The normalization threshold explicitly depends on the
+finite-volume reciprocal ceiling. This does **not** establish a surviving
+general packet floor, thermodynamic separation, transfer injectivity, or
+continuum/Clay closure. Cancellation-preserving growing-volume control
+remains the next frontier.
+
+**Established geometric bridge:** [actual growing channel polynomials and their original-action response](lean/YMGap/Continuum/BF4ExactSlabGrowingChannelExterior.lean).
 Every selected all-spin channel now follows the **actual physical link
 embedding**, together with the translated observable. Moving the source's
 entire lower interaction along with them preserves its amplitude exactly;

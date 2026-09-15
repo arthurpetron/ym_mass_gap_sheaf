@@ -13,7 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED actual channel polynomial embedding and original added-action response (2026-09-15)
+## CLOSED all-spin spectator integrand and normalized sample bridge (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorHaarForm.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorFactorization.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorIntegralLimit.lean`.
+- **closed original-form pin**: `faceFactor_supported`, `faceFactor_image`,
+  `retainedExpansion`, `retained_mixed_haar`, `bulkPairing_haar` and
+  `bulkPairing_diagonal` retain the actual all-spin tree and original
+  bulk-dressed observables. `bulkPairing_original_bound` and
+  `bulkPairing_squared_bound` give constant-one original-form comparisons
+  for crossing cutoff K <= bulk cutoff B and explicit w > 0.
+- **closed exact spectator factorization**: `face_partition`,
+  `retained_factorization`, `retained_square_factorization`,
+  `selectedWeight_positive`, `selectedPolynomial_supported`,
+  `spectatorExpansion` and `factorized_mixed_haar` retain every unselected
+  heat factor and the original shared variables, without independence.
+- **closed same-object limit/sample bridge**: `integral_pairing`,
+  `integral_energy`, `integral_nonnegative`, `integral_original_bound`,
+  `bulkCutoff`, `integral_approx_close` and `integral_converges` pin the
+  actual factorized integral to the EXISTING original retained packet.
+  `normalizedBulkCutoff`, `normalizedSample_approx_close` and
+  `computedSample_spec` give explicit bulk/numerical error control with
+  the SAME original limiting partition reciprocal. Its finite-volume
+  ceiling remains explicit; no uniform bound is hidden in the threshold.
+- **open residue**: cancellation-preserving spectator-relative estimates
+  for general all-spin tests/packets through growing volume. No general
+  surviving lower bound or thermodynamic separating family is supplied.
+  The existing specific fundamental-probe floor is not such a family.
+  Completed thermodynamic T2 zero kernel/range density, full-space
+  time-zero continuity, geometric T1/physical Hamiltonian,
+  beta(a)/spacing-uniform gap, continuum/spectral/non-Wick pins, other
+  groups and Clay remain open. No new hole, analytic premise, canonical
+  field/type/atom/flag, surrogate or arbitrary representative selection.
+- **verification**: 12+14+13=39 exact focused public gates, only
+  {propext, Quot.sound}; clean logs, fresh own/direct imports, only
+  autoImplicit false. Three new root imports occur once; existing
+  multiplicities unchanged and root not compiled. Safe-build skill:
+  one worker, explicit 20 GiB, separate process/swap preflights. No
+  raised limits/options or full build/audit/guard/progress run. Hashes
+  and mathematical next-step anchors are in work_plan.
+
+## Previous checkpoint: CLOSED actual channel polynomial embedding and original added-action response (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabGramChannelEmbedding.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabGrowingChannelPolynomial.lean`,
