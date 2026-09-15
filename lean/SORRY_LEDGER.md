@@ -13,7 +13,50 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED constructed positive square root of the ORIGINAL T2 (2026-09-14)
+## CLOSED coherent positive dyadic time meshes on the ORIGINAL carrier (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/UniformPolynomialRootTransform.lean`,
+  `BF4ExactSlabThermodynamicUniformRootAction.lean`, and
+  `BF4ExactSlabThermodynamicDyadicTimeMeshes.lean` in the same directory.
+- **closed iteratable root data**: `rootTransform` maps the explicit
+  `IntervalSequence` data to the same type. `transformed_uniformCauchy`
+  computes max(P.modulus(half*epsilon^2),residualStage(half*epsilon^2))
+  from the source Cauchy data and the existing root residual estimate.
+  Bounds and square-sequence convergence are proved; no positive lower
+  spectral floor or unproved analytic input is supplied.
+- **closed original root law**: `transformedAction_square` squares to
+  the SAME input action, by `transformedAction_pairing` and original
+  positive definiteness. Symmetry, positivity, contraction, centering
+  and kernel equality remain on the original carrier. Output
+  representatives and rates are retained by `transformedActionCertificate`.
+- **closed same-unit compatibility**: `positive_square_fixed` proves
+  S^2x=x implies Sx=x for a positive linear S. `originalRoot_unit`,
+  `transformedAction_preserves_fixed` and `generator_unit` fix the SAME
+  original unit, without a supplied replacement vacuum.
+- **closed coherent meshes**: `generator_zero` is exactly T2;
+  `generator_one` is exactly the previously constructed S.
+  `generator_square`, `time_double` and `time_refinement` identify all
+  finite refinements. Each mesh has time-addition, state-linearity,
+  symmetry, positivity, contraction, unit, centering and same-object
+  moment identities. `time_original_even` pins the coarsest mesh to
+  the pre-existing completedTime(2*n). `timeRepresentative_pin` retains
+  actual output Cauchy data. `generator_kernel` is equality with ker(T2),
+  NOT a proof that this kernel vanishes.
+- **open residue**: representation-independent nonnegative dyadic-time
+  indexing and addition, quantitative time continuity (especially at
+  zero), geometric T1 identification, full spectral realization,
+  canonical comparisons, quotient-level completeness/time injectivity,
+  continuous-time/physical spectral/non-Wick pins, continuum scaling,
+  other groups and Clay. Fixed SU(2) nome/spacing only. No new hole,
+  physical input, canonical type/atom/flag, weight or surrogate; no
+  beta/spacing-uniform physical gap is asserted.
+- **verification**: 70 exactly matched focused gates within
+  {propext, Quot.sound}, six axiom-free, clean final logs and fresh
+  own/direct-import artifacts. One worker, explicit 20 GiB ceiling,
+  separate preflights; no raised options or full build/audit/guard/
+  progress/root-import run. Logs and SHA-256 in work_plan.
+
+## Previous checkpoint: CLOSED constructed positive square root of the ORIGINAL T2 (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/UniformSquareRootIteration.lean`,
   `UniformSquareRootPolynomial.lean`, and
@@ -42,8 +85,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   not injectivity. S has not been identified with geometric T1. The
   pre-existing `completedTime_even_nonnegative` and
   `time_positive_kernel_equal` do not assert either missing fact.
-- **open residue**: original unit compatibility and coherent dyadic-time
-  refinement, geometric half-time identification, full spectral
+- **subsequent closure**: original unit compatibility and coherent finite
+  dyadic time meshes are constructed in the latest entry.
+- **open residue**: quotient-indexed dyadic time and quantitative
+  continuity, geometric half-time identification, full spectral
   realization, canonical comparisons, quotient-level completeness/time
   injectivity, continuous-time/physical spectral/non-Wick pins, continuum
   scaling, other groups and Clay. Fixed SU(2) nome/spacing only. No new

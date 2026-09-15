@@ -4282,6 +4282,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicUniformPolynomialLinear
 import YMGap.Continuum.UniformSquareRootIteration
 import YMGap.Continuum.UniformSquareRootPolynomial
 import YMGap.Continuum.BF4ExactSlabThermodynamicSquareRootAction
+-- Iteratable original roots give coherent finite dyadic time meshes,
+-- fixing the same unit; continuity at zero and continuum remain open.
+import YMGap.Continuum.UniformPolynomialRootTransform
+import YMGap.Continuum.BF4ExactSlabThermodynamicUniformRootAction
+import YMGap.Continuum.BF4ExactSlabThermodynamicDyadicTimeMeshes
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

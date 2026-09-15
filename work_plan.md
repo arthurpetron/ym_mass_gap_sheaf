@@ -18,7 +18,65 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (constructed positive square root of the ORIGINAL T2):**
+**Latest increment (coherent positive dyadic time meshes on the ORIGINAL carrier):**
+PROGRESS after 8f4a526. `UniformPolynomialRootTransform` uses the
+pre-existing proved polynomial composition to apply the n-th root
+polynomial to the n-th stage of an interval-valued uniform sequence P.
+`square_error` transfers a^2<=b^2+epsilon^2 to a<=b+epsilon on the
+nonnegative cone, without a positive lower spectral bound. The constructed
+rate is max(P.modulus(half*epsilon^2),residualStage(half*epsilon^2)).
+`rootTransform` returns the SAME `IntervalSequence` type, including all
+interval bounds, so it can be iterated. The constructed square sequence
+converges uniformly to the original P with an explicit residual rate.
+
+`BF4ExactSlabThermodynamicUniformRootAction.transformedAction_square`
+proves the transformed operator squares to the SAME original input
+sequence action. Exact polynomial pairings and original row limits supply
+the proof. Positivity, contraction, centering and kernel equality are
+retained. `positive_square_fixed` proves that positivity and S^2x=x force
+Sx=x: for d=Sx-x, Sd+d=0 and positivity forces ||d||^2=0.
+`originalRoot_unit` and `transformedAction_preserves_fixed` therefore fix
+the pre-existing original unit at every refinement, without a new vacuum
+or eigenvector hypothesis. `transformedActionCertificate` retains output
+representatives and rates.
+
+`BF4ExactSlabThermodynamicDyadicTimeMeshes` constructs every root level.
+`generator_zero` pins depth zero to T2, and `generator_one` pins depth one
+to the PREVIOUSLY constructed S, not another freely chosen root.
+`generator_square` gives two fine steps = one coarse step. Each mesh's
+`time` has proved time-addition, state-linearity, symmetry, nonnegative
+forms, contraction, unit and centering laws. `time_double` and
+`time_refinement`, with computed `doubleSteps`, give exact equality under
+every finite refinement. `time_original_even` identifies time(0,n) with
+the original completedTime(2*n); `time_moments` gives same-object pairings.
+`timeRepresentative` constructs output Cauchy data with its exact pin.
+Every generator's kernel equals that of T2, NOT a proved zero kernel.
+
+NEXT: descend these coherent meshes to a representation-independent
+nonnegative dyadic-time action with its addition law and constructive
+output data; then prove the required quantitative time-continuity
+statements. Unit compatibility and coherent finite mesh refinement are
+CLOSED. No quotient-indexed dyadic/real-time semigroup or continuity at
+zero is asserted yet. Geometric T1 identification, full spectral
+realization, canonical comparisons, quotient-level completeness/time
+injectivity, continuous-time/physical spectral/non-Wick pins, continuum
+scaling, other groups and Clay remain OPEN. Fixed SU(2) nome 1/1024 and
+spacing only. No new hole, physical input, canonical type/atom/flag,
+weight or surrogate; no beta/spacing-uniform physical gap is asserted.
+
+Verification: three focused monitored modules, 17+16+37=70 exactly matched
+gates within {propext, Quot.sound}, six axiom-free. Clean final logs and
+fresh own/direct-import artifacts. Safe-build skill: one worker, explicit
+20 GiB ceiling, separate process/swap preflights; no raised options or
+full build/audit/guard/progress/root-import run. Logs and SHA-256:
+`/tmp/ym-uniform-polynomial-root-transform.log`
+(`d1a5d1cc33eceb6915defc9bc600fb83ecc7d93d589bbd2f62517cf830ea55a3`),
+`/tmp/ym-original-uniform-root-action.log`
+(`487258648913d88f6eaa1be66985ad6730cb57780e54753104d06559e785efec`),
+`/tmp/ym-original-dyadic-time-meshes.log`
+(`7cfe1973868ad41baeecc6d276eb570b605d13be0dac0d208b01841fad05baef`).
+
+**Previous increment (constructed positive square root of the ORIGINAL T2):**
 PROGRESS after eab09a5. `UniformSquareRootIteration` constructs the
 division-free recurrence x_0(t)=0, x_{n+1}=x_n+(t-x_n^2)/2. The proved
 invariants are 0<=x_n<=1, x_n^2<=t and monotonicity on rational [0,1].
@@ -50,9 +108,9 @@ PREVIOUSLY proved T2 form gap. `rootActionCertificate` returns the output
 representative and convergence rate. `rootAction_kernel` proves
 ker(S)=ker(T2), not that the kernel vanishes.
 
-NEXT: prove compatibility with the original unit and the identities
-needed to refine time dyadically on this same carrier. The positive
-square-root construction and S^2=T2 identity are CLOSED. Do not identify
+Subsequent closure: compatibility with the original unit and coherent
+finite dyadic time meshes on this same carrier are constructed above.
+The positive square-root construction and S^2=T2 identity are CLOSED. Do not identify
 S with geometric T1 without a positivity/identification proof:
 `BF4ExactSlabThermodynamicCompletedTime` currently supplies even-time
 positivity, and `BF4ExactSlabThermodynamicTimeKernel` identifies common

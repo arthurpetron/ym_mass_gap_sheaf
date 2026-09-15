@@ -13,7 +13,23 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [a positive square root of the original two-step transfer is constructed](lean/YMGap/Continuum/BF4ExactSlabThermodynamicSquareRootAction.lean).
+**Latest milestone:** [coherent positive dyadic time meshes on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicTimeMeshes.lean).
+Repeated roots are now constructed at every finite depth with explicit
+polynomial Cauchy rates. The first generators are exactly the existing
+`T2` and `S`; every finer generator squares to its parent. Each mesh is a
+positive symmetric contraction semigroup, fixes the same original unit,
+and preserves centering. Doubling the step count gives exactly the same
+operator on the next finer mesh; the coarsest mesh equals all original
+even geometric times. Output representatives are constructed.
+Three modules passed 70 focused axiom checks within `{propext, Quot.sound}`
+(six axiom-free); no full-tree run.
+Next: representation-independent dyadic-time indexing and its addition
+law, then quantitative time continuity. These meshes do not yet establish
+continuity at zero: all generators retain the possible kernel of `T2`.
+Geometric `T1` identification, physical-scale control and continuum/Clay
+remain open; nome and spacing are fixed.
+
+**Established original square root:** [a positive square root of the original two-step transfer is constructed](lean/YMGap/Continuum/BF4ExactSlabThermodynamicSquareRootAction.lean).
 The explicit iteration `p₀(t)=0`, `pₙ₊₁=pₙ+(t-pₙ²)/2` has a proved
 uniform Cauchy rate on `[0,1]`, including zero. Its polynomial limits
 define a positive symmetric contraction `S` on the full original space,
@@ -24,8 +40,8 @@ The output representatives and convergence rates are explicit.
 Three modules passed 64 focused axiom checks within `{propext, Quot.sound}`
 (nine axiom-free); two older-timestamp rational dependencies were also
 validated by narrow build targets. No full-tree run.
-Next: unit compatibility and the operator identities needed for dyadic
-time refinement. `S` is not yet identified with geometric `T1`;
+Original-unit compatibility and coherent finite dyadic mesh refinement
+are now proved above. `S` is not yet identified with geometric `T1`;
 `ker(S)=ker(T2)` is proved, but neither kernel is proved zero.
 Nome and spacing remain fixed; physical-scale control and continuum/Clay
 remain open.
