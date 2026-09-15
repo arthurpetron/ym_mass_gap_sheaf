@@ -119,7 +119,50 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED normalized finite dual-test bound and null descent):**
+**Latest mathematical increment (CLOSED full-channel dual-test cutoff removal):**
+PROGRESS after `82518a0`: `BF4ExactSlabDressedDualTestCutoffLimit` closes a
+same-action identity, not a second limit construction. The temporal ledger
+acts only on upper links, so `bulkScalar_temporal_fixed` proves it fixes the
+actual lower scalar-coordinate product. `original_numerator_spatialGram` and
+`full_amplitude_original` identify the FULL-channel dressed amplitude with
+the original numerator of the FIXED insertion `upper(e)*p`. Every crossing
+mode and every lower/upper action factor remains. No exact plaquette-state
+recoding of p, inverse ledger, or new heat-product limit machinery is needed.
+
+`testCutoff` and `full_amplitude_approx_close` reuse the existing original
+numerator modulus, controlling both the all-later action cutoff and numerical
+precision. `rawTestLimit_bound` passes the preceding finite estimate to that
+limit. `testLimit` is the pre-existing normalized expectation;
+`testLimitCauchy` retains its explicit modulus. Exact original unit normalization
+gives `testLimit_bound`, and `bulkScalar_limit_bound` has coefficient one at
+every finite volume in the explicit small-nome region. The convergence modulus
+is volume-dependent; a uniform size bound is not uniform convergence.
+
+Linearity and `bulkScalar_limit_null` now give `bulkScalarQuotientTest` on the
+EXISTING cutoff-removed finite-volume OS quotient. Its representative pin is
+literal. The general identities require an explicit temporal-invariance pin;
+the concrete bulk-scalar family supplies that pin by proof. This does not assert
+that every auxiliary polynomial is temporally invariant or an original state.
+
+NEXT: volume-compatible limiting tests and a same-object identity/estimate for
+actual geometric time translation, or direct approximate original preimages.
+No thermodynamic functional, completed extension of this new test, T2 range
+estimate or excited nonzero witness is supplied here. Full-space time zero,
+physical Hamiltonian, beta(a)/continuum, QFT/spectral pins, other groups and
+the Clay target remain open. No canonical field, analytic premise or hole changed.
+
+Verification: 20 exactly matched public axiom gates within {propext, Quot.sound};
+clean final log, fresh own and three direct-import artifacts, no forbidden
+executable tokens and only autoImplicit false. Fifteen audit citations checked.
+Missing namespace opens, omitted theorem-bound variables and
+an expensive inferred convergence expression were corrected with explicit
+types, without raising limits or weakening statements. Safe-build skill: one
+worker, explicit 20 GiB, separate process/swap preflights; swap 12389.81 MiB.
+One additive root import; root not compiled. No full build/audit/guard/progress
+run. Log `/tmp/ym-dressed-dual-test-cutoff-limit.log`, SHA-256
+`049bdccc7eed1a7a81b4cf64bc7902bcdd47e51979c1da702c86a6d25400c65e`.
+
+**Previous mathematical increment (CLOSED normalized finite dual-test bound and null descent):**
 PROGRESS after the documentation-only checkpoint `a38acb4`:
 `BF4ExactSlabDressedDualTestBound` proves the needed finite reference-energy
 estimate by keeping the FULL original lower action in the auxiliary test.

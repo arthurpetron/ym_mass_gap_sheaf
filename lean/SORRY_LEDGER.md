@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED dressed finite dual-test bound and null descent; OPEN thermodynamic time comparison (2026-09-15)
+## CLOSED full-channel dual-test cutoff removal; OPEN thermodynamic time comparison (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestCutoffLimit.lean`.
+- **same-object identity**: `bulkScalar_temporal_fixed` constructs the concrete
+  test's temporal-invariance pin. `original_numerator_spatialGram` and
+  `full_amplitude_original` retain all crossing channels and the full action,
+  identifying the dressed amplitude with the original fixed-insertion numerator.
+  No auxiliary polynomial is silently made an original plaquette state.
+- **cutoff removal**: `rawTestLimit`, `testCutoff` and
+  `full_amplitude_approx_close` use the existing original numerator limit/modulus.
+  `testLimit` is the original normalized expectation, with `testLimitCauchy`.
+  `rawTestLimit_bound` and `testLimit_bound` preserve the original norm and cap;
+  `bulkScalar_limit_bound` has coefficient one under explicit small-nome guards.
+  Moduli may depend on volume; this is not a uniform convergence assertion.
+- **existing quotient**: `bulkScalar_limit_null`, `bulkScalar_null_congr` and
+  `bulkScalarQuotientTest` descend to the cutoff-REMOVED finite-volume OS
+  quotient; `bulkScalarQuotientTest_embed` pins its original representatives.
+- **open residue**: thermodynamic compatibility, completed extension of these
+  tests, actual time-translation comparison and original-state residual smallness.
+  No T2 injectivity or excited nonzero witness is supplied. Full-space time zero,
+  geometric T1/root identification, Hamiltonian, beta(a)/continuum, QFT/spectral
+  pins, other compact simple groups and Clay remain open. No canonical
+  field/type/atom/flag, new analytic premise or hole changed.
+- **verification**: 20 exact focused public gates within {propext, Quot.sound};
+  safe-build skill, one worker, explicit 20 GiB, separate process/swap preflights.
+  One additive root import, not compiled. No full build/audit/guard/progress run.
+  Exact log/hash and corrected elaboration issues are recorded in work_plan.
+
+## Previous CLOSED dressed finite dual-test bound and null descent; OPEN thermodynamic time comparison (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean`.
 - **closed original normalization**: `backgroundCertificate` constructs the

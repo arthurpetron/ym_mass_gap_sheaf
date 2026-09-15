@@ -486,3 +486,35 @@ process/swap preflights. One additive root import, old multiplicities preserved;
 root not compiled. No full build/audit/guard/progress run. Log
 `/tmp/ym-dressed-dual-test-bound.log`, SHA-256
 `ed58b1463adcac8f380114b4f19733bd68619aeed0fcc9d173df58900d053621`.
+
+## Implemented full-channel cutoff removal (2026-09-15)
+
+Implementation after `82518a0`; the preceding dated findings are preserved.
+All source references below are to
+`lean/YMGap/Continuum/BF4ExactSlabDressedDualTestCutoffLimit.lean`.
+
+| Declaration | Source | Actual statement |
+| --- | --- | --- |
+| `bulkScalar_temporal_fixed` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestCutoffLimit.lean:90` | The existing temporal ledger fixes the concrete lower-link scalar product. |
+| `original_numerator_spatialGram`; `full_amplitude_original` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestCutoffLimit.lean:114`; `:148` | For a supported lower-local, temporally fixed auxiliary test, the full-channel amplitude equals the ORIGINAL numerator with fixed insertion upper(e)*p. No crossing channel or bulk factor is dropped. |
+| `rawTestLimit`; `testCutoff`; `full_amplitude_approx_close` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestCutoffLimit.lean:174`; `:178`; `:183` | Existing numerator limit plus computed all-later cutoff and representative thresholds; all action cutoffs vary together. |
+| `rawTestLimit_bound`; `testLimit_bound`; `bulkScalar_limit_bound` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestCutoffLimit.lean:234`; `:306`; `:325` | The cap survives cutoff removal and exact original normalization; the concrete scalar test has coefficient one in the ORIGINAL cutoff-removed OS norm under explicit small-nome guards. |
+| `testLimit`; `testLimitCauchy` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestCutoffLimit.lean:274`; `:277` | The normalized value is the pre-existing original expectation, with its explicit Cauchy modulus. |
+| `bulkScalar_limit_null`; `bulkScalar_null_congr`; `bulkScalarQuotientTest`; `bulkScalarQuotientTest_embed` | `lean/YMGap/Continuum/BF4ExactSlabDressedDualTestCutoffLimit.lean:379`; `:386`; `:393`; `:397` | Concrete test descends to the EXISTING cutoff-removed finite-volume null quotient, with its original representative pin. |
+
+This closes cutoff removal for the displayed full-channel family, not for
+every partial selection or cutoff-dependent inverse. The general identity
+retains an explicit algebraic temporal-image hypothesis; the concrete scalar
+test supplies it. The convergence modulus remains volume-dependent even though
+the concrete normalized size bound has coefficient one. No new limiting law,
+original-state realization of p, or pointwise recoding theorem is asserted.
+
+**Still open:** volume-compatible auxiliary tests, their completed extension
+and actual geometric time comparison; no T2 range estimate or excited nonzero
+witness follows from this module. The thermodynamic, Hamiltonian, continuum,
+other-group and Clay obligations remain unchanged.
+
+Verification: 20 exactly matched public gates within {propext, Quot.sound},
+one monitored worker, explicit 20 GiB. No full-tree check. Log
+`/tmp/ym-dressed-dual-test-cutoff-limit.log`, SHA-256
+`049bdccc7eed1a7a81b4cf64bc7902bcdd47e51979c1da702c86a6d25400c65e`.

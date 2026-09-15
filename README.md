@@ -21,7 +21,17 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest estimate:** [normalized auxiliary tests on the original finite OS quotient](lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean).
+**Latest result:** [full-channel auxiliary tests through cutoff removal](lean/YMGap/Continuum/BF4ExactSlabDressedDualTestCutoffLimit.lean).
+The temporal gauge change fixes the concrete lower-link test. Its fully dressed
+amplitude is therefore an existing **original-action numerator**, with every
+crossing channel retained. This supplies its cutoff limit and explicit modulus;
+the coefficient-one bound survives in the original normalized OS norm. The
+test descends to the existing cutoff-removed finite-volume quotient.
+Twenty focused constructive axiom checks passed; no full-tree run.
+Volume compatibility and the actual time-transfer comparison remain open.
+This is not a spectral gap or a continuum result.
+
+**Previous finite estimate:** [normalized auxiliary tests on the original finite OS quotient](lean/YMGap/Continuum/BF4ExactSlabDressedDualTestBound.lean).
 Keeping the full lower action gives `test energy <= test cap * original Z`;
 exact normalization cancels the partition. The resulting dual-test bound uses
 the **original reflected norm**, without requiring the auxiliary polynomial to
@@ -29,7 +39,7 @@ be a plaquette expression. A concrete spatial-coordinate product has coefficient
 one at every slab and cutoff under explicit small-nome guards. Tests descend
 to the existing finite-cutoff null quotient, and the unit test has value one.
 Twenty-three focused constructive axiom checks passed; no full-tree run.
-Cutoff/volume compatibility and the actual time-transfer comparison remain open.
+That finite estimate alone supplied neither test limits nor time-transfer comparison.
 This is a size bound, **not** a coupling-uniform spectral gap or a continuum result.
 
 **Previous local result:** [exact quadratic heat transmission and its polynomial inverse](lean/YMGap/Continuum/SU2QuaternionQuadraticHeatTransmission.lean).
@@ -90,9 +100,10 @@ Hamiltonian, continuum control and the Clay target.
 The instructions now distinguish an **original observable or transfer preimage**
 from an **auxiliary dual test**. Existing finite-cutoff bounds permit arbitrary
 polynomial dual tests; exact plaquette-only recoding is not required for that
-use. The new estimate above supplies original-partition control and finite null
-descent for dressed tests. Their thermodynamic compatibility and actual-transfer
-comparison remain open; the audit separates these from the closed finite step.
+use. The estimates above supply original-partition control and, for the concrete
+full-channel test, cutoff removal and original null descent. Thermodynamic
+compatibility and actual-transfer comparison remain open; the audit separates
+these from the closed finite-volume steps.
 
 An earlier Lean-checked counterexample shows why finite strict positivity and a
 common excited-sector upper bound do not alone exclude a limit kernel.
