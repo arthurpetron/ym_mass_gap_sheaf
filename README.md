@@ -13,7 +13,24 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [all-spin spectator integrals reach the original normalized packets](lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorIntegralLimit.lean).
+**Latest milestone:** [finite collar corrections with spectator-relative error control](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCollarCorrection.lean).
+An exact geometric identity now approximately cancels the actual local
+heat collar. Its correction polynomial is bounded by 2 at every order;
+its ordinary squared test norm costs at most a factor 4 against the same
+positive background. For every original plaquette expression, a computed
+order gives error at most `epsilon * Zsp`, where `Zsp` is the **original
+full spectator partition**. That order is unchanged by actual bulk/time
+embedding and does not use a partition reciprocal or the action cutoff.
+Three modules passed 46 focused axiom checks, three axiom-free and the
+rest within `{propext, Quot.sound}`; no full-tree run.
+The application fixes the nome at `1/1024` and the existing translated
+24-face collar. The correction changes the insertion and depends on the
+heat cutoff. Admissible original observable/test realizations, their
+cutoff limits, and separation of the same thermodynamic states remain
+open. The ordinary weighted square bound is **not** an OS operator-norm
+bound, and no transfer inverse or continuum/Clay result is claimed.
+
+**Established integral bridge:** [all-spin spectator integrals reach the original normalized packets](lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorIntegralLimit.lean).
 For arbitrary selected spins and crossing faces, the actual retained
 integrand is now identified with its selected positive weight, reflected
 channel square, and **complete spectator heat product**. All factors keep

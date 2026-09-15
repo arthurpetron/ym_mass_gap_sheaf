@@ -18,7 +18,84 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest increment (ORIGINAL all-spin spectator Haar factorization and normalized integral samples):**
+**Latest increment (GEOMETRIC local-collar cancellation with source-computed relative accuracy):**
+PROGRESS after 2ba0aba. The original collar can now be approximately
+cancelled by finite polynomials with arbitrary requested relative accuracy,
+without estimating the reciprocal of the spectator partition. This is an
+actual signed-integral estimate, not yet an OS separating-test theorem.
+
+`QuaternionHaarPolynomialGeometricInverse.corrector` and `residual`
+compute G_n=sum_{j<n}(-R)^j and E_n=(-R)^n. `cancellation` proves
+(1+R)*G_n+E_n=1 by coefficient identities. `corrector_local` and
+`residual_local` preserve the same block predicate. `correctorInterval`
+has cap 2 whenever the certified remainder cap is <=1/2;
+`residualInterval` and `defectInterval` have cap 2^(-n).
+`moment_difference` retains the signed difference before absolute values.
+`relative_error` bounds it by c*2^(-n) times the SAME certified positive
+background integral. `correctionOrder`, `correctionOrder_budget` and
+`relative_error_atOrder` return an explicit degree from c and epsilon
+alone. The degree is conservative, not a claimed optimal logarithmic one.
+`corrected_square_bound` gives factor 4 for the ORDINARY weighted square
+norm at every degree; it is not an OS operator-norm estimate.
+
+`BF4ExactSlabSpectatorCollarCorrection.collar_heat_pin` and
+`collar_cap_half` use the actual reflected collar at nome 1/1024 and the
+existing checked 24-face cap <=1/262144. `collar_cancellation`,
+`collarCorrectorInterval` and `collarResidualInterval` hold for every K
+and half. `squareBackgroundCertificate` retains an arbitrary supported
+S^2 INSIDE the original positive spectator presentation. For S local to
+the probe links, `squareBackground_mass` is exactly Haar(S^2)*Zsp.
+`correctedMoment_error`, `correctedMoment_local_error`,
+`correctedMoment_atOrder`, `correctedMoment_local_atOrder` and
+`correctedTest_square_bound` preserve that same background mass.
+No positivity of Haar(S^2) for arbitrary S is asserted.
+
+`BF4ExactSlabPlaquetteCollarCorrection.observableInterval` constructs the
+cap bound(e)+1 from the original all-spin plaquette expression.
+`observableOrder` uses only that cap and epsilon;
+`observableOrder_bulkAtTime` proves exact invariance under the actual
+bulk/time embedding. `reference_pin` identifies the EXISTING unit-test
+reference, not a new reference law. `correctedIntegral_error`,
+`correctedIntegral_atOrder` and `bulk_correctedIntegral_atOrder` give
+error <=epsilon*Zsp for every cutoff, padding and admissible lag, with
+one source-derived degree. No interval premise remains for this consumer.
+
+NEXT: realize the correction as admissible ORIGINAL observable/test data,
+and determine the same-state separating comparison it can legitimately
+support. In particular, G_n currently multiplies the insertion; it is not
+an inverse transfer or a detecting test for an unchanged input state.
+The polynomial also depends on heat cutoff K: a sequence of different
+corrected expressions cannot be passed through a fixed-observable limit
+without a new explicit compatibility/modulus proof. Ordinary positive
+background L2 control must not be substituted for reflected OS norm
+control. General all-spin packet floors and thermodynamic separation,
+T2 zero kernel/range density, full-space time-zero continuity, geometric
+T1/physical Hamiltonian, beta(a)/spacing-uniform continuum control,
+spectral/non-Wick pins, other groups and Clay remain OPEN. No new hole,
+analytic premise, canonical field/type/atom/flag, surrogate or quotient
+representative selection. The checked relative integral estimate is real
+progress but closes no canonical continuum atom.
+
+Verification: three focused monitored modules, 17+19+10=46 exactly
+matched public gates; three axiom-free, remainder within
+{propext, Quot.sound}. Clean logs; fresh own/direct-import artifacts;
+no forbidden executable tokens; only autoImplicit false. Three new root
+imports occur once, existing multiplicities unchanged; root not compiled.
+Safe-build skill: one worker, explicit 20 GiB, separate process/swap
+preflights; swap fell from 12790.31 to 12750.31 MiB. Corrected an exact
+zero-polynomial base, explicit negation congruence and scalar intermediates;
+no raised limits/options. No full build/audit/guard/progress run.
+The hourly ASCII map distinguished checked integral arrows from the open
+same-state bridge and retained the whole-project continuum/Clay goal.
+Logs and SHA-256:
+`/tmp/ym-polynomial-geometric-inverse.log`
+(`982818426db7f5088188beb529fc611c984569fee4fe6357df1b281541b31bbd`),
+`/tmp/ym-spectator-collar-correction.log`
+(`5249bee4a71878da11f7a94c862395a487cb7f164467f7cfa7b03ef3f700f726`),
+`/tmp/ym-plaquette-collar-correction.log`
+(`0ea8b75b9a5aae825ffb59de739373925ffbad4343fa52108ad5e564fac17810`).
+
+**Previous increment (ORIGINAL all-spin spectator Haar factorization and normalized integral samples):**
 PROGRESS after 95b2dd8. The all-spin retained tree is now pinned to its
 actual full-spectator Haar integrand, factored on the original shared
 variables, and connected to the existing normalized packet by explicit

@@ -13,7 +13,52 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED all-spin spectator integrand and normalized sample bridge (2026-09-15)
+## CLOSED spectator-relative geometric collar correction (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarPolynomialGeometricInverse.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSpectatorCollarCorrection.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabPlaquetteCollarCorrection.lean`.
+- **closed finite cancellation**: `corrector`, `residual`, `cancellation`,
+  `corrector_local`, `residual_local`, `correctorInterval`,
+  `residualInterval`, `defect_pin`, `defectInterval` and `moment_difference`
+  keep the original shared-variable polynomials and exact signed defect.
+  `relative_error`, `correctionOrder`, `correctionOrder_budget` and
+  `relative_error_atOrder` give arbitrary requested error relative to
+  the SAME positive background mass. `corrected_square_bound` costs
+  factor 4 in the ordinary weighted square norm, not the OS operator norm.
+- **closed original collar application**: `collar_heat_pin`,
+  `collar_cap_half`, `collar_cancellation`, `collarCorrectorInterval`
+  and `collarResidualInterval` apply at nome 1/1024 for every K and half.
+  `squareBackgroundCertificate` keeps a supported S^2 inside the actual
+  positive spectator presentation; `squareBackground_mass` factors it
+  when S is local to the probe links. The `correctedMoment_*` estimates
+  and `correctedTest_square_bound` retain this mass without a reciprocal.
+- **closed all-spin observable cap/order consumer**: `observableInterval`,
+  `observableOrder`, `observableOrder_bulkAtTime`, `reference_pin`,
+  `correctedIntegral_error`, `correctedIntegral_atOrder` and
+  `bulk_correctedIntegral_atOrder` use the actual reflected expression
+  and existing unit-test reference. A source-only order gives
+  error <=epsilon*Zsp at every cutoff, padding and admissible lag.
+- **open residue**: admissible original corrected observable/test data,
+  heat-cutoff compatibility of the changing correction polynomials,
+  and a separating comparison for the SAME fixed thermodynamic state.
+  The correction changes the insertion; it is not an inverse transfer.
+  Ordinary positive-background square bounds do not give an OS bounded
+  multiplier or preserve the OS null quotient automatically. General
+  packet floors/separation, T2 zero kernel/range density, full-space
+  time-zero continuity, geometric T1/physical Hamiltonian,
+  beta(a)/spacing-uniform continuum control, spectral/non-Wick pins,
+  other groups and Clay remain open. No new hole, analytic premise,
+  canonical field/type/atom/flag, surrogate or representative choice.
+- **verification**: 17+19+10=46 exact focused public gates, three
+  axiom-free and remainder within {propext, Quot.sound}; clean logs,
+  fresh own/direct imports, only autoImplicit false. Three new root
+  imports occur once; existing multiplicities unchanged; root not
+  compiled. Safe-build skill: one worker, explicit 20 GiB, separate
+  process/swap preflights. No full build/audit/guard/progress run or
+  raised limits. Hashes and precise next-step boundaries in work_plan.
+
+## Previous checkpoint: CLOSED all-spin spectator integrand and normalized sample bridge (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorHaarForm.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabAllSpinSpectatorFactorization.lean`,
