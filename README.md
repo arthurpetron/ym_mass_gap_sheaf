@@ -21,6 +21,17 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
+**Latest milestone:** [time-zero continuity on the actual geometric one-step range](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRangeContinuity.lean).
+A finite telescoping argument proves
+`n * ||(I-T2)^n T1 x||^2 <= ||x||^2` for the **original** geometric operators.
+It computes approximate two-step preimages of one-step states, then uses
+the existing time-zero modulus and contraction to prove continuity there.
+No exact inverse or identification of geometric T1 with the positive square
+root is assumed. Sixteen focused axiom checks passed within
+`{propext, Quot.sound}`; no full-tree run. Approximating arbitrary unshifted
+states by this range remains open, as do full-space time zero, the physical
+Hamiltonian, continuum control and the Clay target.
+
 **Latest route review:** [the missing actual-transfer comparison](audits/AUDIT-T2-TEST-COMPARISON.md).
 A new Lean-checked counterexample shows why finite strict positivity and a
 common excited-sector upper bound do not alone exclude a limit kernel.
@@ -32,7 +43,7 @@ be demanded. Classical review helped distinguish these obligations without
 changing the constructive proof substrate. The counterexample passed 21
 focused axiom checks; no full-tree audit was run.
 
-**Latest milestone:** [collar tests separate the original thermodynamic completed states](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCollarTestDensity.lean).
+**Established separation:** [collar tests separate the original thermodynamic completed states](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCollarTestDensity.lean).
 The same source collar and correction now retain their geometric OS error
 under actual bulk enlargement, and the bound passes through the existing
 thermodynamic form limit. Explicit approximants prove separation by the family

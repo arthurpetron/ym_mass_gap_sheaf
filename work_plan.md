@@ -101,6 +101,50 @@ provide missing witnesses or turn a conditional theorem into an unconditional on
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
+**Latest increment (computed approximate range for ACTUAL geometric T1 states):**
+PROGRESS after 521c06f. `BF4ExactSlabThermodynamicGeometricRangeContinuity`
+uses the existing nonnegative mixed moments, not a new analytic premise.
+`moment_weighted_energy` telescopes the exact split
+m(0,n)=m(1,n)+m(0,n+1), retaining the terminal moment;
+`moment_weighted_bound` proves n*m(1,n)<=||x||^2.
+`oneStep_residual_moment` identifies m(1,2n) with the actual squared
+residual of geometric `completedTime 1 x`. Monotonicity then gives
+`oneStep_residual_weighted`: n*||(I-T2)^n T1 x||^2<=||x||^2.
+No positivity of geometric T1 or identification with the positive root is used.
+
+`oneStep_residual_dyadic_bound` and `oneStep_residual_small` compute the
+degree `residualDegree X epsilon = 2^(rangeModulus X epsilon)` from the
+supplied ORIGINAL X. `oneStepPreimage` uses the existing finite candidate at
+that proved sufficient degree; `oneStepPreimage_bound` and
+`oneStepApproximationCertificate` certify its actual original squared error.
+This supplies approximate T2 preimages on the geometric T1 range, not just
+on states already supplied as T2 images. It asserts no exact inverse.
+
+`oneStepZeroRadius` computes a positive radius by applying the existing
+T2-range radius to this constructed preimage at epsilon/16.
+`oneStep_zero_bound` and `oneStepZeroContinuityCertificate` combine the
+actual distance contraction and three-segment budget to prove time-zero
+continuity on the ORIGINAL geometric T1 range.
+
+NEXT: a same-action estimate approximating arbitrary unshifted dense states
+by that geometric range (or directly by the T2 range). The new result removes
+the need to approximate one-step images from scratch; it does not show those
+images dense. Source-level time-slice/channel comparison remains necessary.
+T2 injectivity/range density, full-space time zero, geometric T1 positivity/
+identification, physical Hamiltonian, beta(a)/continuum, QFT/spectral pins,
+other groups and Clay remain open. Fixed SU(2) nome and spacing throughout.
+
+Verification: 16 exact focused public gates within {propext, Quot.sound};
+clean final log, fresh own/direct-import artifacts, no forbidden executable
+tokens, only autoImplicit false. One explicit rational normalization type
+annotation corrected a rewrite failure; no limits raised. The safe-build
+skill used one worker, explicit 20 GiB and separate process/swap preflights;
+swap stayed 12670.31 MiB. One new root import, previous multiplicities
+preserved; root not compiled. No full build/audit/guard/progress run, new
+hole, analytic premise, canonical atom/type/field/flag or classical input.
+Log `/tmp/ym-geometric-range-continuity.log`, SHA-256
+`929ae59c6f8202a93ddf89619cba53b4e916e6cf39bfb8fc343ddebffcc81088`.
+
 **Latest route review (a checked obstruction, not physical closure):**
 The [actual T2/test comparison audit](audits/AUDIT-T2-TEST-COMPARISON.md)
 distinguishes exact range from constructive approximate range. A bound
@@ -140,7 +184,7 @@ build/audit/guard/progress run. Focused log:
 `/tmp/ym-positive-transfer-limit-kernel-fence.log`, SHA-256
 `8c9ec6898eefebdc243a6bb11c6a55483f47ea6ef098d1dc86a9f55ad2e8d978`.
 
-**Latest increment (SAME source-collar error through volume, then original thermodynamic separation):**
+**Previous increment (SAME source-collar error through volume, then original thermodynamic separation):**
 PROGRESS after 1c8e5b5. `BF4ExactSlabBulkCollarApproximation.bulkLowerErrorSquare`
 and `bulkUpperErrorSquare` certify the actual embedded source error and its
 reflection. The source's at-most-24 face list is mapped to physical target

@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED limit-inference counterexample; OPEN actual T2 approximate-range estimate (2026-09-15)
+## CLOSED computed approximate T2 range and time zero for original geometric T1 states (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRangeContinuity.lean`.
+- **closed estimate**: `moment_weighted_energy` and `moment_weighted_bound`
+  telescope existing nonnegative mixed moments. `oneStep_residual_moment`,
+  `oneStep_residual_weighted`, `oneStep_residual_dyadic_bound` and
+  `oneStep_residual_small` bound the actual geometric one-step residual,
+  with a degree computed from the supplied original representative and
+  requested squared-error tolerance. No spectral representation is assumed.
+- **closed construction/consumer**: `oneStepPreimage`, its pin/bound and
+  `oneStepApproximationCertificate` use the existing candidate at the proved
+  sufficient degree. `oneStepZeroRadius`, `oneStep_zero_bound` and
+  `oneStepZeroContinuityCertificate` prove continuity at time zero on the
+  actual geometric T1 range, consuming the constructed approximate T2
+  preimages and the existing positive-real-time action on the SAME completion.
+- **open residue**: approximation of arbitrary unshifted dense original
+  states by the geometric T1 range, or by the T2 range directly. Neither
+  range density nor injectivity is established. No exact inverse, geometric
+  T1 positivity or identification T1=A(1/2) is asserted. Full-space time
+  zero, physical Hamiltonian, beta(a)/continuum, QFT/spectral pins, other
+  groups and Clay remain open. No canonical atom/type/field/flag is changed.
+- **verification**: 16 exact focused public gates within {propext, Quot.sound};
+  fresh own/direct-import artifacts and clean final output. No new hole,
+  analytic premise, classical input, forbidden executable token or extra
+  option. Safe-build skill: one worker, explicit 20 GiB, separate process/
+  swap preflights. One new root import, root not compiled; no full build/
+  audit/guard/progress run. Exact log/hash and scope are in work_plan.
+
+## Previous checkpoint: CLOSED limit-inference counterexample; OPEN actual T2 approximate-range estimate (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/PositiveTransferLimitKernelFence.lean`.
 - **closed, counterexample only**: `transfer_symmetric`, `transfer_coercive`,

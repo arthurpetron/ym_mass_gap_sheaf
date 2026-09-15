@@ -1,5 +1,17 @@
 # Actual T2, collar tests, and the missing range estimate
 
+Implementation follow-up, 2026-09-15: the restricted geometric one-step
+range now has the approximate-preimage data discussed here.
+`oneStep_residual_weighted`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRangeContinuity.lean:95`,
+proves `n * ||(I-T2)^n T1 x||^2 <= ||x||^2` using nonnegative mixed moments.
+`oneStepApproximationCertificate`, same file `:131`, computes original
+approximate T2 preimages for supplied geometric T1 states, and
+`oneStepZeroContinuityCertificate`, same file `:160`, gives time zero there.
+This does not supply approximate range for every unshifted dense presentation,
+which remains the missing data in the dated audit below. No exact T1 preimage
+under T2, T1 positivity, or identification T1=A(1/2) is asserted.
+
 Date: 2026-09-15. Source baseline: `5067234`, plus the independently checked
 `PositiveTransferLimitKernelFence.lean` recorded below. This is a mathematical
 route review, not a closure of a physical frontier or a replacement for the

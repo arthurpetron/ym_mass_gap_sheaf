@@ -4311,6 +4311,9 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicPositiveRangeZeroContinuity
 -- Successful tests on EVERY original dense observable remain open.
 import YMGap.Continuum.BF4ExactSlabThermodynamicRangeApproximation
 import YMGap.Continuum.BF4ExactSlabThermodynamicRangeDefectEnergy
+-- A finite moment telescope gives approximate T2 preimages for the ACTUAL
+-- geometric T1 range and time-zero continuity there. Range density stays open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicGeometricRangeContinuity
 import YMGap.Continuum.BF4ExactSlabThermodynamicZeroTimeCertificate
 -- Same-channel finite interface coercivity, pinned to the original bulk
 -- dressed numerator. Its explicit floor is NOT cutoff/volume uniform.
