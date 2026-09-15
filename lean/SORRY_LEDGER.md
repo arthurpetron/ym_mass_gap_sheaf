@@ -13,7 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED full original positive symbol algebra and unit-complement restriction (2026-09-14)
+## CLOSED explicit continuous filter equals the ORIGINAL unit projection (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicClippedSymbols.lean`,
+  `BF4ExactSlabThermodynamicContinuousUnit.lean`, and
+  `BF4ExactSlabThermodynamicContinuousUnitProjection.lean` in the same directory.
+- **closed symbol data**: `clip`, `coordinateSymbol`, `coordinateVanishing`,
+  `affineSymbol` and `affineVanishing` carry exact bounds and continuity
+  data. `unitFilterSymbol` is h(t)=clip(4t-3), with constructed vanishing
+  data, h(1)=1, h(t)=0 for t<=3/4 and a proved squared support inequality.
+- **closed original operator pins**: `coordinate_action` recovers the
+  pre-existing T2; `continuousAction_unit` is F(T2)u=F(1)u on the original
+  unit, with `unitActionModulus` and `unitAction_bound`. No spectral
+  resolution or eigenvector premise is supplied.
+- **closed projection identification**: `unitFilter_support_form` gives
+  the 3/4 lower form bound on the filtered state. The existing 1/2
+  unit-complement gap and `zero_of_edge_half` prove
+  `unitFilter_complement_zero`. `unitFilter_unit`, `unitFilter_projection`
+  and the original center decomposition prove `unitFilter_eq_projection`
+  on EVERY original completed state. `unitFilter_idempotent` and
+  `unitFilter_nonzero` follow. The projection is the already-defined
+  unitProjection, not an assumed or freely chosen spectral model.
+- **closed constructive data**: `unitProjectionFilterCertificate` returns
+  original output Cauchy data, the computed Bernstein convergence rate,
+  and equality with the SAME original projection.
+- **open residue**: original action of represented uniform polynomial
+  limits/CReal-valued symbols, full spectral realization, canonical
+  comparisons, quotient-level completeness/time injectivity,
+  continuous-time/physical spectral/non-Wick pins, continuum scaling,
+  other groups and Clay. Fixed SU(2) nome/spacing only. No new hole,
+  physical input, canonical type/atom/flag, weight or surrogate; no
+  beta/spacing-uniform gap asserted.
+- **verification**: three focused monitored modules, 40 exactly matched
+  gates within {propext, Quot.sound}, four axiom-free, clean final logs
+  and fresh own/direct-import artifacts. One worker, explicit 20 GiB
+  ceiling; no raised options or full build/audit/guard/progress/root-import
+  run. Logs and SHA-256 digests in work_plan.
+
+## Previous checkpoint: CLOSED full original positive symbol algebra and unit-complement restriction (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorMultiplication.lean`,
   `BF4ExactSlabThermodynamicAllVectorSymbolOrder.lean`, and
@@ -40,8 +77,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   the existing UnitComplement, with proved pin, product, symmetry,
   positivity and norm bounds. `complementAction_twoStep_form_gap` applies
   the PREVIOUSLY proved fixed-spacing gap to that same filtered state.
-- **open residue**: explicit continuous unit-isolating filter and unit
-  projection pin, full spectral realization, canonical comparisons,
+- **subsequent closure**: the explicit continuous unit-isolating filter
+  and exact original unitProjection pin are proved in the latest entry.
+- **open residue**: full spectral realization, canonical comparisons,
   quotient-level completeness/time injectivity, continuous-time/physical
   spectral/non-Wick pins, continuum scaling, other groups and Clay.
   Fixed SU(2) nome/spacing only. No new hole, physical input, canonical

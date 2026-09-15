@@ -4268,6 +4268,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorContinuousLinear
 import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorMultiplication
 import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorSymbolOrder
 import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorCenteredCalculus
+-- A fully constructed continuous filter is exactly the original unit
+-- projection, by the existing fixed-spacing gap and actual operator calculus.
+import YMGap.Continuum.BF4ExactSlabThermodynamicClippedSymbols
+import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousUnit
+import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousUnitProjection
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

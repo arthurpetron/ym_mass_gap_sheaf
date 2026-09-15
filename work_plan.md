@@ -18,7 +18,58 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (full original positive symbol algebra and unit-complement restriction):**
+**Latest increment (an explicit continuous filter equals the ORIGINAL unit projection):**
+PROGRESS after db363f4. `BF4ExactSlabThermodynamicClippedSymbols` constructs
+the rational [0,1] clipping map, its 1-Lipschitz proof, a bounded coordinate
+symbol, and affine clipped symbols with all continuity/vanishing data.
+For h(t)=clip(4t-3), `unitFilter_at_one`, `unitFilter_below` and
+`unitFilter_support` prove h(1)=1, h(t)=0 for t<=3/4, and
+(3/4)h(t)^2 <= t h(t)^2. The threshold is explicit rational data.
+
+`BF4ExactSlabThermodynamicContinuousUnit` proves `polynomial_unit`, the
+exact scalar-distance identity, and `continuousAction_unit`:
+F(T2)u=F(1)u for the ORIGINAL unit. `unitActionModulus` is the Bernstein
+stage at min(epsilon,1); `unitAction_bound` retains the convergence rate.
+`coordinate_action` identifies the clipped coordinate's action with the
+pre-existing T2, not a replacement operator.
+
+`BF4ExactSlabThermodynamicContinuousUnitProjection.unitFilter_support_form`
+transfers the rational support inequality into
+(3/4)||h(T2)x||^2 <= <T2 h(T2)x,h(T2)x>. The PREVIOUSLY proved unit-complement
+gap supplies the upper bound (1/2)||h(T2)x||^2 there. Exact rational order
+and positive definiteness prove `unitFilter_complement_zero`. Evaluation
+at one fixes the unit, symmetry fixes its original projection, and the
+original center decomposition proves `unitFilter_eq_projection` on ALL
+original completed states. `unitProjectionFilterCertificate` returns
+the actual Bernstein output representative/rate with equality to that
+SAME unitProjection. Idempotence and nonzeroness are also proved.
+
+NEXT: construct action on the original carrier for explicitly represented
+uniformly Cauchy polynomial sequences, retaining rates and compatibility
+with the existing continuous action. This is needed to reach CReal-valued
+symbols such as square roots/fractional-time candidates without pretending
+they are rational-valued CtsMod functions. Do not assume a spectral model,
+time injectivity, or identify a square-root candidate with geometric T1
+without an actual proof. The continuous unit-projection pin is CLOSED;
+full spectral realization, canonical comparisons, quotient-level
+completeness/time injectivity, continuous-time/physical spectral/non-Wick
+pins, continuum scaling, other groups and Clay remain OPEN. Fixed SU(2)
+nome 1/1024 and spacing only. No new hole, physical input, canonical
+type/atom/flag, weight or surrogate; no beta/spacing-uniform gap asserted.
+
+Verification: three focused monitored modules, 22+8+10=40 exactly matched
+gates within {propext, Quot.sound}, four axiom-free. Clean final logs and
+fresh own/direct-import artifacts. Safe-build skill: one worker, explicit
+20 GiB ceiling and separate process/swap preflights; no raised options,
+full build/audit/guard/progress or root-import run. Logs and SHA-256:
+`/tmp/ym-original-clipped-symbols.log`
+(`f8e74be6fc68cbdb93458875928c077d21eb2e54b523dc399bc6f4283a9b3403`),
+`/tmp/ym-original-continuous-unit.log`
+(`67efa6edb574be8005e02ca2a7ed7cb5c4f93b44c7524cbed21f738e38c5f105`),
+`/tmp/ym-original-continuous-unit-projection.log`
+(`a69b1fff4966773dadcdd58089a8cd49124b10fae665a6e9e5e5a49c18c70902`).
+
+**Previous increment (full original positive symbol algebra and unit-complement restriction):**
 PROGRESS after fbeeb78. `BF4ExactSlabThermodynamicAllVectorMultiplication`
 proves that polynomial products converge directly to the already-constructed
 composition, with `productModulus` and `compositionCertificate` retaining
@@ -45,11 +96,10 @@ positivity and interval norm bound are proved. The existing fixed-spacing
 two-step gap applies to this same filtered vector; no new gap or
 beta/spacing-uniform estimate is introduced.
 
-NEXT: construct a continuous unit-isolating filter with explicit symbol
-data; prove its action on the original unit and its annihilation of the
-unit complement using the already-proved half-rate form gap, then identify
-it with the SAME unit projection. This is the next original spectral
-pin, not permission to assume a spectral resolution or time injectivity.
+Subsequent closure: the continuous unit-isolating filter, its explicit
+data, original unit action, complement annihilation and exact original
+unitProjection pin are proved in the latest entry. This does not supply
+a spectral resolution or time injectivity.
 Full-carrier positive continuous algebra and its unit-complement
 restriction are CLOSED. Full spectral realization, canonical comparisons,
 quotient-level completeness/time injectivity, continuous-time/physical

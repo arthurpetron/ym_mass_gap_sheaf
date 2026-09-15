@@ -13,7 +13,20 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [multiplication](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorMultiplication.lean),
+**Latest milestone:** [an explicit continuous filter equals the original unit projection](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousUnitProjection.lean).
+For `h(t) = clamp(4t-3, 0, 1)`, Lean proves `h(T2)x = unitProjection x`
+for every original completed state. The filter fixes the original unit.
+On its complement, the filter's `3/4` lower form bound conflicts with the
+existing `1/2` upper bound unless the filtered vector is zero. All symbol
+data, output representatives and Bernstein convergence rates are explicit;
+no spectral projection is assumed. Three modules passed 40 focused axiom
+checks within `{propext, Quot.sound}` (four axiom-free); no full-tree run.
+Next: original-carrier action for represented uniform polynomial limits,
+needed for CReal-valued symbols and fractional-time candidates. This is a
+fixed-nome, fixed-spacing result; time injectivity, physical-scale control
+and continuum/Clay remain open.
+
+**Established full-carrier calculus:** [multiplication](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorMultiplication.lean),
 [positive symbol algebra](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorSymbolOrder.lean),
 and the [original unit-complement restriction](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorCenteredCalculus.lean)
 now hold on the full original completed carrier.
@@ -24,8 +37,8 @@ existing centering map, so the original unit complement is invariant.
 The previously proved fixed-spacing gap applies to those filtered states;
 this is not a new physical-scale gap. Three modules passed 35 focused
 axiom checks within `{propext, Quot.sound}`; no full-tree run.
-Next: construct a continuous unit-isolating filter and prove its equality
-with the existing unit projection. Nome and spacing remain fixed;
+The continuous unit-isolating filter and its equality with the existing
+unit projection are now proved above. Nome and spacing remain fixed;
 physical-scale control and continuum/Clay remain open.
 
 **Established full-carrier action:** [continuous action is constructed on the full original completed carrier](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorContinuousAction.lean),
