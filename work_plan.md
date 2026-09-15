@@ -18,7 +18,49 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (coherent positive dyadic time meshes on the ORIGINAL carrier):**
+**Latest increment (representation-independent dyadic semigroup on the ORIGINAL carrier):**
+PROGRESS after 121604a. `Constructive/NonnegativeDyadicTime` carries a
+mesh presentation (depth,steps) of steps/2^depth. `Equivalent` is exact
+natural-number cross multiplication, with proved equivalence laws.
+`refine` computes a finer presentation and `addMesh` computes the common
+mesh for addition. `addMesh_congr` descends addition to `Time`; its
+commutative monoid laws and `same_mesh_add` are proved. No representative
+selection or analytic premise is used.
+
+`BF4ExactSlabThermodynamicDyadicSemigroup.doubleSteps_eq` identifies the
+existing repeated doubling with steps*2^extra. `mesh_action_congr`
+compares equivalent presentations at the SUM of their depths, using the
+previous exact original-space refinement theorem. `action` descends to
+one operator for each dyadic time. `action_add` proves the semigroup law;
+the same original carrier has rational linearity, symmetry, positivity,
+contraction, centering and fixed-unit laws. `action_whole` pins every
+whole time n to the PRE-EXISTING completedTime(2*n); `action_one` is T2.
+`action_mixed_moments` and `action_doubled_moments` give exact original
+pairing identities. `representativeCertificate` returns the actual output
+Cauchy sequence/modulus and its quotient pin for supplied mesh and input
+data; `representative_congr` proves its representation independence.
+
+NEXT: quantitative time continuity, with time-zero behavior and the
+possible transfer kernel kept explicit. The representation-independent
+ALGEBRAIC nonnegative dyadic semigroup is CLOSED; no continuity at zero
+or real-time extension is asserted. Geometric T1 identification, full
+spectral realization, canonical comparisons, quotient-level completeness/
+time injectivity, continuous-time/physical spectral/non-Wick pins,
+continuum scaling, other groups and Clay remain OPEN. Fixed SU(2) nome
+1/1024 and spacing only. No new hole, physical input, canonical
+type/atom/flag, weight or surrogate; no beta/spacing-uniform gap asserted.
+
+Verification: two focused monitored modules, 25+26=51 exactly matched
+gates within {propext, Quot.sound}, six axiom-free. Clean final logs and
+fresh own/direct-import artifacts. Safe-build skill: one worker, explicit
+20 GiB ceiling, separate process/swap preflights; no raised options or
+full build/audit/guard/progress/root-import run. Logs and SHA-256:
+`/tmp/ym-nonnegative-dyadic-time.log`
+(`79aa34a31d568c50f7c5b675f9efbdb3072e46a275a3adb50640e536a1b698fb`),
+`/tmp/ym-original-dyadic-semigroup.log`
+(`36305b613cbbe21dcd946d7a8af483470ee1b92f7ec2bab230ed5c4e2d468378`).
+
+**Previous increment (coherent positive dyadic time meshes on the ORIGINAL carrier):**
 PROGRESS after 8f4a526. `UniformPolynomialRootTransform` uses the
 pre-existing proved polynomial composition to apply the n-th root
 polynomial to the n-th stage of an interval-valued uniform sequence P.
@@ -52,12 +94,11 @@ the original completedTime(2*n); `time_moments` gives same-object pairings.
 `timeRepresentative` constructs output Cauchy data with its exact pin.
 Every generator's kernel equals that of T2, NOT a proved zero kernel.
 
-NEXT: descend these coherent meshes to a representation-independent
-nonnegative dyadic-time action with its addition law and constructive
-output data; then prove the required quantitative time-continuity
-statements. Unit compatibility and coherent finite mesh refinement are
-CLOSED. No quotient-indexed dyadic/real-time semigroup or continuity at
-zero is asserted yet. Geometric T1 identification, full spectral
+Subsequent closure: the representation-independent nonnegative dyadic-time
+action, addition law and constructive output data are proved above.
+Quantitative time-continuity statements remain open. Unit compatibility
+and coherent finite mesh refinement are CLOSED. No real-time semigroup
+or continuity at zero is asserted. Geometric T1 identification, full spectral
 realization, canonical comparisons, quotient-level completeness/time
 injectivity, continuous-time/physical spectral/non-Wick pins, continuum
 scaling, other groups and Clay remain OPEN. Fixed SU(2) nome 1/1024 and

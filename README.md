@@ -13,7 +13,23 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [coherent positive dyadic time meshes on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicTimeMeshes.lean).
+**Latest milestone:** [one representation-independent dyadic semigroup on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicSemigroup.lean).
+Different mesh descriptions of the same nonnegative dyadic time now give
+exactly the same operator. Addition of times gives composition, on the
+same original completed carrier. Positivity, symmetry, contraction,
+rational linearity, centering and the original unit are preserved.
+Whole time `n` is exactly the existing geometric time `2*n`.
+Supplied time and state representatives construct output Cauchy data;
+no representative is selected from a quotient.
+Two modules passed 51 focused axiom checks within `{propext, Quot.sound}`
+(six axiom-free); no full-tree run.
+Next: quantitative time continuity. This algebraic semigroup does not
+establish continuity at zero or a real-time extension; the possible
+kernel of `T2` remains open. Geometric `T1` identification, the Hamiltonian,
+physical-scale control and continuum/Clay remain open; nome and spacing
+are fixed.
+
+**Established coherent meshes:** [positive dyadic time meshes on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicTimeMeshes.lean).
 Repeated roots are now constructed at every finite depth with explicit
 polynomial Cauchy rates. The first generators are exactly the existing
 `T2` and `S`; every finer generator squares to its parent. Each mesh is a
@@ -23,9 +39,9 @@ operator on the next finer mesh; the coarsest mesh equals all original
 even geometric times. Output representatives are constructed.
 Three modules passed 70 focused axiom checks within `{propext, Quot.sound}`
 (six axiom-free); no full-tree run.
-Next: representation-independent dyadic-time indexing and its addition
-law, then quantitative time continuity. These meshes do not yet establish
-continuity at zero: all generators retain the possible kernel of `T2`.
+Representation-independent dyadic-time indexing and its addition law are
+now proved above. Quantitative time continuity remains open: all
+generators retain the possible kernel of `T2`.
 Geometric `T1` identification, physical-scale control and continuum/Clay
 remain open; nome and spacing are fixed.
 

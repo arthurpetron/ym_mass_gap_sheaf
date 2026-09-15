@@ -13,7 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED coherent positive dyadic time meshes on the ORIGINAL carrier (2026-09-14)
+## CLOSED representation-independent dyadic semigroup on the ORIGINAL carrier (2026-09-14)
+
+- **files**: `lean/YMGap/Constructive/NonnegativeDyadicTime.lean` and
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicSemigroup.lean`.
+- **closed exact time indexing**: `MeshPoint` retains depth and steps.
+  `Equivalent` uses natural-number cross multiplication. Its equivalence
+  laws, computed refinement and `addMesh_congr` construct the quotient
+  `Time` and its addition, with proved zero, associativity, commutativity
+  and `same_mesh_add` laws. No quotient representative is selected.
+- **closed same-object descent**: `doubleSteps_eq` and
+  `time_refinement_power` expose the numerical refinement count.
+  `mesh_action_congr` compares both presentations at the sum of their
+  depths using the PREVIOUS original-space refinement law. `action` is
+  representation-independent on the ORIGINAL completed state space.
+- **closed algebraic semigroup**: `action_add`, `action_zero`,
+  `action_commutes`, state-addition, rational scaling, symmetry,
+  nonnegativity, contraction, fixed-unit and centering laws are proved.
+  `action_whole` pins time n to the existing completedTime(2*n), and
+  `action_one` is exactly T2, NOT an assumed geometric T1 identification.
+  `action_mixed_moments` and `action_doubled_moments` retain the SAME
+  original pairings. `representativeCertificate` retains output Cauchy
+  sequence/modulus data for supplied time/input presentations, with
+  `representative_pin` and `representative_congr`.
+- **open residue**: quantitative time continuity, especially at zero;
+  real-time extension; geometric T1 identification; full spectral
+  realization; canonical comparisons; quotient-level completeness/time
+  injectivity; continuous-time/physical spectral/non-Wick pins;
+  continuum scaling; other groups and Clay. The possible kernel of T2
+  has NOT been proved zero. Fixed SU(2) nome/spacing only. No new hole,
+  physical input, canonical type/atom/flag, weight or surrogate; no
+  beta/spacing-uniform physical gap is asserted.
+- **verification**: 51 exactly matched focused gates within
+  {propext, Quot.sound}, six axiom-free, clean final logs and fresh
+  own/direct-import artifacts. One worker, explicit 20 GiB ceiling,
+  separate preflights; no raised options or full build/audit/guard/
+  progress/root-import run. Logs and SHA-256 in work_plan.
+
+## Previous checkpoint: CLOSED coherent positive dyadic time meshes on the ORIGINAL carrier (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/UniformPolynomialRootTransform.lean`,
   `BF4ExactSlabThermodynamicUniformRootAction.lean`, and
@@ -42,8 +79,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   the pre-existing completedTime(2*n). `timeRepresentative_pin` retains
   actual output Cauchy data. `generator_kernel` is equality with ker(T2),
   NOT a proof that this kernel vanishes.
-- **open residue**: representation-independent nonnegative dyadic-time
-  indexing and addition, quantitative time continuity (especially at
+- **subsequent closure**: representation-independent nonnegative dyadic
+  indexing and addition are proved in the latest entry.
+- **open residue**: quantitative time continuity (especially at
   zero), geometric T1 identification, full spectral realization,
   canonical comparisons, quotient-level completeness/time injectivity,
   continuous-time/physical spectral/non-Wick pins, continuum scaling,
@@ -87,8 +125,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `time_positive_kernel_equal` do not assert either missing fact.
 - **subsequent closure**: original unit compatibility and coherent finite
   dyadic time meshes are constructed in the latest entry.
-- **open residue**: quotient-indexed dyadic time and quantitative
-  continuity, geometric half-time identification, full spectral
+- **open residue**: quantitative time continuity, real-time extension,
+  geometric half-time identification, full spectral
   realization, canonical comparisons, quotient-level completeness/time
   injectivity, continuous-time/physical spectral/non-Wick pins, continuum
   scaling, other groups and Clay. Fixed SU(2) nome/spacing only. No new
