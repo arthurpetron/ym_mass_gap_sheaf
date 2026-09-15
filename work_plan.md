@@ -18,7 +18,58 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (constructed bounded symmetric continuous action on the FULL original carrier):**
+**Latest increment (full original positive symbol algebra and unit-complement restriction):**
+PROGRESS after fbeeb78. `BF4ExactSlabThermodynamicAllVectorMultiplication`
+proves that polynomial products converge directly to the already-constructed
+composition, with `productModulus` and `compositionCertificate` retaining
+the actual nested output representative and rate. `continuousAction_mul`
+and `productSymbol_composition` identify the product-symbol action with
+composition on EVERY original completed vector. Product-symbol data are
+constructed, not supplied as an extra premise. Commutation, original
+mixed pairing and square-form identities follow. No intermediate carrier
+or additional product-row limit is needed.
+
+`BF4ExactSlabThermodynamicAllVectorSymbolOrder` proves full-carrier
+sum/unit/zero/scalar/difference compatibility. Nonnegative Bernstein rows
+and the actual pairing limits give `continuousAction_form_nonnegative`;
+differences give `continuousAction_form_mono`. The square-form identity
+then gives sharp interval upper/lower norm bounds and
+||F(T2)x-G(T2)x||^2 <= M^2 ||x||^2 from |F-G|<=M on rational [0,1].
+The lower norm theorem transports a SUPPLIED interval lower bound, not
+an asserted physical gap.
+
+`BF4ExactSlabThermodynamicAllVectorCenteredCalculus` proves
+`continuousAction_center`, then constructs `complementAction` on the
+EXISTING original UnitComplement. Its pin, multiplication, symmetry,
+positivity and interval norm bound are proved. The existing fixed-spacing
+two-step gap applies to this same filtered vector; no new gap or
+beta/spacing-uniform estimate is introduced.
+
+NEXT: construct a continuous unit-isolating filter with explicit symbol
+data; prove its action on the original unit and its annihilation of the
+unit complement using the already-proved half-rate form gap, then identify
+it with the SAME unit projection. This is the next original spectral
+pin, not permission to assume a spectral resolution or time injectivity.
+Full-carrier positive continuous algebra and its unit-complement
+restriction are CLOSED. Full spectral realization, canonical comparisons,
+quotient-level completeness/time injectivity, continuous-time/physical
+spectral/non-Wick pins, continuum scaling, other groups and Clay remain
+OPEN. Fixed SU(2) nome 1/1024 and spacing only. No new hole, physical input,
+canonical type/atom/flag, weight or surrogate.
+
+Verification: three focused monitored modules, 11+13+11=35 exactly matched
+gates within {propext, Quot.sound}. Clean final logs and fresh own/direct-import
+artifacts. Safe-build skill: one worker, explicit 20 GiB ceiling and
+separate process/swap preflights; no raised options, full build/audit/guard/
+progress or root-import run. Logs and SHA-256:
+`/tmp/ym-original-all-vector-multiplication.log`
+(`54ff1b15e1eb384303a2624d9f3250b7a324f00c393400c7f5bc59f2e21afc0e`),
+`/tmp/ym-original-all-vector-symbol-order.log`
+(`5a678db04f5a09bf5b6cb4c4258b9f53722db9be7401cac6cd18a76c4107dd07`),
+`/tmp/ym-original-all-vector-centered-calculus.log`
+(`b49a6e794bf6a84b6873b957a33999c3a475a8c591af53f50a064efe1b507d35`).
+
+**Previous increment (constructed bounded symmetric continuous action on the FULL original carrier):**
 PROGRESS after 9d25025. `BF4ExactSlabThermodynamicAllVectorContinuousAction`
 uses the sharp all-vector polynomial bound to construct Bernstein Cauchy
 rows for every supplied original Cauchy representative X. Its computed
@@ -41,9 +92,9 @@ d(F(T2)x,F(T2)y) <= F.bound^2 d(x,y) on the full original carrier;
 input tolerance controlling all original x,y. The norm cap affects the
 represented Bernstein rate, not the sharp operator bound.
 
-NEXT: extend symbol multiplication and quadratic-form order/positivity
-to this full-carrier action, using the actual output representatives and
-the existing polynomial and pairing-limit identities. Full-carrier
+Subsequent closure: full-carrier symbol multiplication, algebra,
+quadratic-form order/positivity, sharp interval estimates and the SAME
+unit-complement restriction are proved in the latest entry. Full-carrier
 continuous action and its bounded symmetric rational-linear laws are now
 CLOSED; the full spectral/physical realization is not. Canonical
 comparisons, quotient-level completeness/time injectivity,

@@ -13,7 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED bounded symmetric continuous action on the FULL original completed carrier (2026-09-14)
+## CLOSED full original positive symbol algebra and unit-complement restriction (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorMultiplication.lean`,
+  `BF4ExactSlabThermodynamicAllVectorSymbolOrder.lean`, and
+  `BF4ExactSlabThermodynamicAllVectorCenteredCalculus.lean` in the same directory.
+- **closed multiplication**: `productModulus`, `product_bound` and
+  `compositionCertificate` retain the actual nested original output
+  representative and direct polynomial-product convergence rate.
+  `continuousAction_mul` and `productSymbol_composition` prove actual
+  composition on ALL original completed vectors. Product-symbol data are
+  constructed. `continuousAction_comm`, `productSymbol_pairing` and
+  `productSquare_form_identity` give commutation and same-object forms.
+- **closed algebra/order**: `sumSymbol_action`, `constantSymbol_action`,
+  `oneSymbol_action`, `zeroSymbol_action`, `scaledSymbol_action` and
+  `differenceSymbol_action` hold on the full carrier.
+  `continuousAction_form_nonnegative` and `continuousAction_form_mono`
+  transfer rational interval positivity/order through original row limits.
+  `continuousAction_interval_norm_bound`, `continuousAction_interval_norm_lower`
+  and `continuousAction_interval_distance_bound` give sharp estimates on
+  the SAME input norm. The lower theorem requires a supplied interval
+  bound and does not assert a physical gap. Uniformity is over interval
+  points and original states, not beta or lattice spacing.
+- **closed sector restriction**: `continuousAction_center` commutes with
+  the original centering map. `complementAction` is an actual operator on
+  the existing UnitComplement, with proved pin, product, symmetry,
+  positivity and norm bounds. `complementAction_twoStep_form_gap` applies
+  the PREVIOUSLY proved fixed-spacing gap to that same filtered state.
+- **open residue**: explicit continuous unit-isolating filter and unit
+  projection pin, full spectral realization, canonical comparisons,
+  quotient-level completeness/time injectivity, continuous-time/physical
+  spectral/non-Wick pins, continuum scaling, other groups and Clay.
+  Fixed SU(2) nome/spacing only. No new hole, physical input, canonical
+  type/atom/flag, weight or surrogate.
+- **verification**: three focused monitored modules, 35 exactly matched
+  gates within {propext, Quot.sound}, clean final logs and fresh
+  own/direct-import artifacts. One worker, explicit 20 GiB ceiling;
+  no raised options or full build/audit/guard/progress/root-import run.
+  Logs and SHA-256 digests in work_plan.
+
+## Previous checkpoint: CLOSED bounded symmetric continuous action on the FULL original completed carrier (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorContinuousAction.lean`
   and `BF4ExactSlabThermodynamicAllVectorContinuousLinear.lean` in the same directory.
@@ -36,8 +75,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `continuityCertificate` returns a positive epsilon/(F.bound^2+1)
   tolerance applying to all original x,y. This uniformity is over the
   original states, not beta or lattice spacing.
-- **open residue**: full-carrier symbol multiplication and form order,
-  full spectral realization, canonical comparisons, quotient-level
+- **subsequent closure**: full-carrier symbol algebra, multiplication,
+  form order/positivity and the original unit-complement restriction are
+  proved in the latest entry.
+- **open residue**: full spectral realization, canonical comparisons, quotient-level
   completeness/time injectivity, continuous-time/physical spectral/non-Wick
   pins, continuum scaling, other groups and Clay. Fixed SU(2) nome/spacing
   only. No new hole, physical input, canonical type/atom/flag, weight or

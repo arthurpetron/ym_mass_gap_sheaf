@@ -4263,6 +4263,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorPolynomialBound
 -- with explicit represented rates and proved quotient descent; fixed spacing.
 import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorContinuousAction
 import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorContinuousLinear
+-- Full original symbol algebra, positive form calculus and an actual
+-- restriction to the SAME unit complement; no physical-scale gap claim.
+import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorMultiplication
+import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorSymbolOrder
+import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorCenteredCalculus
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

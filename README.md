@@ -13,7 +13,22 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [continuous action is constructed on the full original completed carrier](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorContinuousAction.lean),
+**Latest milestone:** [multiplication](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorMultiplication.lean),
+[positive symbol algebra](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorSymbolOrder.lean),
+and the [original unit-complement restriction](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorCenteredCalculus.lean)
+now hold on the full original completed carrier.
+`(FG)(T2)x = F(T2)G(T2)x`; nonnegative symbols give nonnegative forms,
+and `|F-G| <= M` on `[0,1]` gives the sharp bound
+`||F(T2)x-G(T2)x||² <= M² ||x||²`. Continuous action commutes with the
+existing centering map, so the original unit complement is invariant.
+The previously proved fixed-spacing gap applies to those filtered states;
+this is not a new physical-scale gap. Three modules passed 35 focused
+axiom checks within `{propext, Quot.sound}`; no full-tree run.
+Next: construct a continuous unit-isolating filter and prove its equality
+with the existing unit projection. Nome and spacing remain fixed;
+physical-scale control and continuum/Clay remain open.
+
+**Established full-carrier action:** [continuous action is constructed on the full original completed carrier](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorContinuousAction.lean),
 with [bounded symmetric rational-linear operator laws](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorContinuousLinear.lean).
 Bernstein approximations now define `F(T2)x` for every original completed
 state, with explicit output representatives and convergence rates for
@@ -23,7 +38,7 @@ cyclic action. The bound `||F(T2)x||² <= F.bound² ||x||²` retains the
 original norm; no assumption that one probe generates the whole space is
 needed. Two modules passed 30 focused axiom checks within
 `{propext, Quot.sound}`; no full-tree run. Full-space multiplication and
-form-order laws are next. Nome and spacing remain fixed; physical-scale
+form-order laws are now proved above. Nome and spacing remain fixed; physical-scale
 control and continuum/Clay remain open.
 
 **Established polynomial bound:** [sharp polynomial bounds hold on the full original completed carrier](lean/YMGap/Continuum/BF4ExactSlabThermodynamicAllVectorPolynomialBound.lean).
