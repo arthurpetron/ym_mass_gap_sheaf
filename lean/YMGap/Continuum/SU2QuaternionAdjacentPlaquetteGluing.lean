@@ -43,12 +43,12 @@ private theorem lift_add (p q : RatPoly) :
 def liftQuaternion (q : PolyQuaternion) : PolyQuaternion :=
   ⟨liftHead q.scalar, liftHead q.iPart, liftHead q.jPart, liftHead q.kPart⟩
 
-private theorem lift_mul (p q : PolyQuaternion) :
+theorem lift_mul (p q : PolyQuaternion) :
     liftQuaternion (PolyQuaternion.mul p q) =
       PolyQuaternion.mul (liftQuaternion p) (liftQuaternion q) := by
   simp only [liftQuaternion, PolyQuaternion.mul, lift_add, lift_neg, liftHead_mul]
 
-private theorem lift_conj (q : PolyQuaternion) :
+theorem lift_conj (q : PolyQuaternion) :
     liftQuaternion (PolyQuaternion.conj q) = PolyQuaternion.conj (liftQuaternion q) := by
   simp only [liftQuaternion, PolyQuaternion.conj, lift_neg]
 
@@ -103,7 +103,7 @@ private theorem right_linear (q : PolyQuaternion) :
         (.add (.mul (.var 6) (.var 2)) (.mul (.var 7) (.var 3)))))
       (by decide) (environment q))
 
-private theorem scalar_schur (p q : PolyQuaternion) :
+theorem scalar_schur (p q : PolyQuaternion) :
     RatPolyCoeffEqv (partialHaarHead (polyMul
       (PolyQuaternion.mul (liftQuaternion p) (PolyQuaternion.coordinateVariable 0)).scalar
       (PolyQuaternion.mul (PolyQuaternion.conj (PolyQuaternion.coordinateVariable 0))
@@ -121,7 +121,7 @@ private theorem scalar_schur (p q : PolyQuaternion) :
       | 0 => p.scalar | 1 => p.iPart | 2 => p.jPart | 3 => p.kPart
       | 4 => q.scalar | 5 => q.iPart | 6 => q.jPart | _ => q.kPart)
 
-private theorem partial_smul (c : Q') (p : RatPoly) :
+theorem partial_smul (c : Q') (p : RatPoly) :
     RatPolyCoeffEqv (partialHaarHead (polySmul c p)) (polySmul c (partialHaarHead p)) := by
   have h : RatPolyTermwiseEqv (partialHaarHead (polySmul c p))
       (polySmul c (partialHaarHead p)) := by
@@ -261,6 +261,10 @@ theorem selectedHeatFactor_pin (w : Q') : selectedHeatFactor w ≈ 2*qpow w 6 :=
 end YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing
 
 #print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.liftQuaternion
+#print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.lift_mul
+#print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.lift_conj
+#print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.scalar_schur
+#print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.partial_smul
 #print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.schurFactor
 #print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.path_schur
 #print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.adjacentProduct

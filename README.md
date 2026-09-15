@@ -21,7 +21,18 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [the scalar test on the original completed OS carrier](lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean).
+**Latest mathematical check:** [what the scalar test measures under local gauge averaging](lean/YMGap/Continuum/BF4ExactSlabBulkScalarGaugeAverage.lean).
+Three exact SU(2) Schur contractions turn its vertex-gauged four-link product
+into the **original plaquette character divided by 128**. This holds on the
+actual translated slab links, retaining arbitrary dependence on all original
+links. Only the three auxiliary gauge variables are integrated. The missing
+step is a common change of variables preserving the full interacting action
+and observable insertion; the completed functional is **not yet** identified
+with that plaquette pairing. This local result supplies no new separating
+family, transfer preimage or mass gap. Focused constructive checks passed;
+no full-tree run.
+
+**Previous completed-space result:** [the scalar test on the original completed OS carrier](lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean).
 Common-volume comparison and null descent make the test independent of the
 original observable presentation. An explicit continuity modulus extends it to
 the **existing** thermodynamic completion, with

@@ -618,3 +618,48 @@ No full build/audit/guard/progress run. Logs and SHA-256:
   `9baf4125f5e4c6b77e1aa00e04eb51164f565c8c514bc1e9fa792215638d96f9`.
 - `/tmp/ym-bulk-scalar-completed-test.log`:
   `2baf8dfb5223669d7276f3cb7338d00842b35a5e4b965a688b1836cd32eaff04`.
+
+## Implemented local vertex-gauge average of the original scalar test (2026-09-15)
+
+Implementation after `646d14d`. This identifies the local gauge average,
+not yet the original interacting expectation or completed functional.
+
+| Declaration | Source | Actual statement |
+| --- | --- | --- |
+| `scalar_schur` | `lean/YMGap/Continuum/SU2QuaternionAdjacentPlaquetteGluing.lean:106` | Existing normalized scalar Schur factor 1/4, now public; original proof unchanged. Retained path polynomials need neither unit norm nor mutually disjoint support. |
+| `threeGauges_average` | `lean/YMGap/Continuum/SU2QuaternionScalarVertexGaugeAverage.lean:97` | Three auxiliary integrations give 1/64 times the ordered scalar path product, with original variables unintegrated. |
+| `gaugedScalarProduct` | `lean/YMGap/Continuum/SU2QuaternionScalarVertexGaugeAverage.lean:120` | Literal three-vertex-gauged scalar product; base gauge fixed to one, auxiliary blocks 0,1,2. |
+| `orientedScalarProduct_pin` | `lean/YMGap/Continuum/SU2QuaternionScalarVertexGaugeAverage.lean:133` | Endpoint ordering and conjugate reversal match that literal product, without commuting quaternion factors. |
+| `characterFraction` | `lean/YMGap/Continuum/SU2QuaternionScalarVertexGaugeAverage.lean:151` | Explicit rational 1/128, independent of coupling/spacing; an algebraic coefficient, not a gap or decay rate. |
+| `gaugedScalarProduct_average_with_tail` | `lean/YMGap/Continuum/SU2QuaternionScalarVertexGaugeAverage.lean:181` | The local average is 1/128 times the plaquette character with every supplied original-link insertion retained. Only auxiliary-gauge independence is encoded by `liftBoundary 3`. |
+| `bulkScalar_product_pin` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarGaugeAverage.lean:57` | Existing `bulkScalar` uses the same four original links; source list A,D,C,B is reordered only at the scalar level. |
+| `bulkProbe_word_pin` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarGaugeAverage.lean:65` | The ordered character equals the existing original lower plaquette expression. |
+| `bulkScalarVertexImage` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarGaugeAverage.lean:77` | Literal local gauge image using the actual corrected-slab link polynomials. No global substitution is asserted. |
+| `bulkScalar_vertex_average` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarGaugeAverage.lean:81` | Its three-gauge average is 1/128 of `lower (bulkProbe half)` at every half-size. |
+| `bulkScalar_vertex_average_with_tail` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarGaugeAverage.lean:88` | The same original-probe identity retains arbitrary dependence on all original links. |
+
+**Still open:** realizing this local image by a common Haar-preserving change
+of variables on all affected original links, including every action factor
+and the original plaquette-observable insertion. Ordered plaquette-character
+gauge invariance is supplied by `plaquette_gauge_character`,
+`lean/YMGap/Continuum/SU2QuaternionHaarGaugeCancellation.lean:139`; that
+declaration alone is not the simultaneous original-slab change of variables.
+The existing `applyTemporalTranslationLedger_haar`,
+`lean/YMGap/Continuum/BF4ExactSlabTemporalGaugeLedger.lean:135`, preserves
+Haar for a different, explicitly temporal link assignment. No equality of
+that assignment with this three-vertex image is supplied here.
+
+Only after the full-action identity and its original limit pins are proved
+may the completed scalar functional be identified with the plaquette pairing.
+There is no new separating-family or actual-transfer comparison theorem in
+these modules. The range/time-zero consumer in section 1 remains open; no
+canonical frontier or constructive assumption changed.
+
+Verification: 13 + 15 + 5 exact focused public gates within {propext,
+Quot.sound}, including 12 axiom-free and one propext-only. One monitored
+worker, explicit 20 GiB and separate process/swap preflights. Own/direct
+artifacts fresh; clean final logs, executable-token and option checks.
+The original A,D,C,B enumeration required explicit scalar reordering; no
+quaternion ordering or theorem statement was weakened. Two additive root
+imports, not compiled. No full build/audit/guard/progress run. Exact logs
+and hashes are recorded in the current work_plan increment.

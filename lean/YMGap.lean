@@ -4324,6 +4324,8 @@ import YMGap.Continuum.BF4ExactSlabDressedDualTestCutoffLimit
 import YMGap.Continuum.BF4ExactSlabBulkScalarThermodynamicTest
 import YMGap.Continuum.BF4ExactSlabBulkScalarQuotientTest
 import YMGap.Continuum.BF4ExactSlabBulkScalarCompletedTest
+import YMGap.Continuum.SU2QuaternionScalarVertexGaugeAverage
+import YMGap.Continuum.BF4ExactSlabBulkScalarGaugeAverage
 import YMGap.Continuum.BF4ExactSlabThermodynamicZeroTimeCertificate
 -- Same-channel finite interface coercivity, pinned to the original bulk
 -- dressed numerator. Its explicit floor is NOT cutoff/volume uniform.

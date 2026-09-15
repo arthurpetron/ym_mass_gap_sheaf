@@ -119,7 +119,58 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED original quotient descent and completed scalar test):**
+**Latest mathematical increment (CLOSED original-link local gauge average):**
+PROGRESS after `646d14d`: `SU2QuaternionScalarVertexGaugeAverage` integrates
+three auxiliary vertex gauges, leaving every original link polynomial symbolic.
+The existing scalar Schur identity contributes 1/4 at each vertex, giving
+1/64 of the ordered scalar holonomy, or 1/128 of its fundamental character.
+`orientedScalarProduct_pin` proves the original endpoint/inverse orientations;
+`gaugedScalarProduct_average_with_tail` retains arbitrary original-link
+insertions, without assuming that they avoid the four probe links. The tail
+is independent ONLY of the three additional gauge variables.
+
+`BF4ExactSlabBulkScalarGaugeAverage` instantiates this identity on the SAME
+four corrected-slab links used by `bulkScalar`. `bulkScalar_product_pin`
+explicitly reorders the scalar factors from the source edge list A,D,C,B;
+it does not commute the quaternion holonomy A B C^-1 D^-1.
+`bulkProbe_word_pin` identifies the output with the EXISTING `bulkProbe`.
+Thus `bulkScalar_vertex_average` and its arbitrary-tail version identify the
+local image's average at every half-size. The earlier bare-Haar mixed moment
+was not used to infer an interacting identity.
+
+NEXT: prove that a common three-vertex change of variables on ALL affected
+original links preserves the original product Haar functional, full action
+and plaquette-observable insertion, and has this literal image on the scalar
+test. Then compare the existing cutoff/volume limits and completed functional.
+This is a smaller remaining identification problem, not a completed proof
+that the scalar functional equals a plaquette pairing. The existing temporal
+gauge ledger changes a different set of links; its theorem cannot be used
+as that identification without a new source pin. Do not count this one test
+as new separating information or add test-family wrappers while this remains
+unresolved. Actual T2 approximate range/full-space time zero, geometric T1/root
+identification, physical Hamiltonian, beta(a)/continuum, QFT/spectral pins,
+other compact simple groups and Clay remain open. No canonical field, analytic
+premise or hole changed; the whole-project goal and constructive gate are unchanged.
+
+Verification: 13 + 15 + 5 exactly matched public gates within {propext,
+Quot.sound}, including 12 axiom-free and one propext-only gate. Four existing
+private algebra lemmas were exposed without changing their proofs, to reuse
+the scalar Schur contraction. New own/direct artifacts are fresh; final logs
+are clean. An unnecessary rewrite, missing namespace, and an actual source
+edge-order mismatch were corrected; abstract scalar algebra avoided deep
+elaboration without raising limits. Safe-build skill: one worker, explicit
+20 GiB, separate process/swap preflights; swap stayed 12389.81 MiB. Two
+additive root imports, old multiplicities preserved; root not compiled.
+No full build/audit/guard/progress run. Logs and SHA-256:
+
+- `/tmp/ym-adjacent-scalar-schur-public.log`:
+  `5ffa28004692acd4c7c78d41c26a04c4c67ecbc461770335a19cd0973585bf14`.
+- `/tmp/ym-scalar-vertex-gauge-average.log`:
+  `d040755890c952cfba9f9153b478c9549070aa5e5fb187f9c37bd1fe2f45ca91`.
+- `/tmp/ym-bulk-scalar-gauge-average.log`:
+  `216f52fe24dc367d0e8e8d978ecc4075095752c9416240626c9ee55475bed5ce`.
+
+**Previous mathematical increment (CLOSED original quotient descent and completed scalar test):**
 PROGRESS after `41c057e`: `BF4ExactSlabBulkScalarQuotientTest` uses a shorter
 semantic argument. `finite_lower_congr` combines the existing lower-carrier
 form congruence with the already proved finite OS-null descent; no new upper

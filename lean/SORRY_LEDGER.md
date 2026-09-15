@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED scalar test on original thermodynamic completion; OPEN actual-time comparison (2026-09-15)
+## CLOSED local scalar gauge average; OPEN full-action identification (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionScalarVertexGaugeAverage.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabBulkScalarGaugeAverage.lean`;
+  four existing algebra lemmas in `SU2QuaternionAdjacentPlaquetteGluing.lean`
+  are exposed unchanged for reuse.
+- **local calculation**: three exact scalar Schur contractions give the
+  fundamental plaquette character times 1/128. `orientedScalarProduct_pin`
+  retains the ordered gauge endpoints and inverse orientations.
+  `gaugedScalarProduct_average_with_tail` permits arbitrary dependence on all
+  original links, but no dependence on the three auxiliary gauge variables.
+- **physical source pin**: `bulkScalar_product_pin` handles the source edge
+  enumeration A,D,C,B using scalar commutativity only. `bulkProbe_word_pin`
+  and `bulkScalar_vertex_average` identify the local average with 1/128 of
+  the EXISTING original translated plaquette. The arbitrary-tail version
+  requires no original probe-link/spectator disjointness.
+- **open residue**: a common Haar-preserving vertex change of variables on
+  every affected original link, preserving the FULL action and original
+  observable insertion, with this scalar image. Then the original cutoff,
+  volume and completion pins must be used to identify `completedTest`.
+  Neither a completed plaquette-pairing identity nor new separation/transfer
+  range is asserted. Full-space time zero, Hamiltonian, beta(a)/continuum,
+  QFT/spectral pins, other compact simple groups and Clay remain open.
+  No new analytic premise, canonical field/type/atom/flag or hole changed.
+- **verification**: 13 + 15 + 5 exact public gates within {propext, Quot.sound},
+  including 12 axiom-free and one propext-only. Focused monitored checks,
+  one worker, explicit 20 GiB, separate preflights and unchanged swap.
+  Clean final logs; fresh own/direct artifacts; no forbidden executable
+  tokens or raised options. Two additive root imports, not compiled.
+  No full build/audit/guard/progress run. Work_plan records logs/hashes and
+  the initial source-order and elaboration corrections.
+
+## Previous CLOSED scalar test on original thermodynamic completion; OPEN actual-time comparison (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkScalarQuotientTest.lean` and
   `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean`.
