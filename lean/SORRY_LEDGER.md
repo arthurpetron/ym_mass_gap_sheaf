@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED actual derivative laws, dense-domain form gap and closability; OPEN maximal domain/generation (2026-09-15)
+## CLOSED constructed graph approximation, real adjoint-graph equality and extended form gap; OPEN full-domain generation (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeGraphApproximation.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean`.
+- **same-object graph**: GraphPoint stores original u,v with J u=T2 v.
+  `GraphPoint.image_unique` uses original injectivity; `fromCore` embeds
+  the actual differentiated domain. No new physical carrier or generator
+  premise is supplied.
+- **constructive graph approximation**: `derivative_partialPreimage`,
+  `partialPreimage_transfer` and `approximant_image` pin both coordinates
+  of the old finite-sum approximant. `graphDegree` is the maximum of the
+  existing state and image residual moduli. `approximationData` returns
+  an original representative with both errors; the geometric rows carry
+  actual moduli, and both row limits equal the supplied u and v.
+- **closed adjoint graph**: `core_test_iff` identifies the equation with
+  the original dense-domain adjoint test. `graph_closed` / `graphRowLimit`
+  preserve it under supplied Cauchy limits. Constructed approximants
+  prove symmetry, positivity and `selfAdjoint_graph_iff`, equality to
+  the whole graph's REAL-PAIRING adjoint. `denseGraphData` returns a dense
+  graph point using the old original density algorithm.
+- **extended form bound**: `GraphPoint.form_gap` gives
+  B(v,u)>=(1/2)B(u,u) on centered graph states, through actual centered
+  core approximants. No nonzero excitation is constructed by this bound.
+- **residue**: full-domain generation/differentiation, canonical physical
+  Hamiltonian/spectral interface, J=L, physical time/spacing/beta(a),
+  continuum QFT and all groups/Clay. A difference-quotient bound in the
+  IMAGE norm is the next estimate; the earlier PREIMAGE norm bound does
+  not provide it. Fixed SU(2), nome 1/1024, original real completion and
+  T2-time units only. No canonical field, analytic premise, axiom,
+  literal hole or legacy scorecard flag changed.
+- **verification**: 39 exact public gates, all {propext, Quot.sound};
+  exact logged names, clean final logs and fresh own/direct artifacts.
+  Four focused safe one-worker/20 GiB checks, separate preflights,
+  no raised limits or full-tree run. Two additive root imports, root
+  not compiled; CI manual-only. Exact hashes in work_plan.
+
+## Previous CLOSED actual derivative laws, dense-domain form gap and closability; graph extension subsequently proved above (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeLaws.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDifferentiatedCore.lean`.

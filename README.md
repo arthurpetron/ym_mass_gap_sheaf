@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [the actual derivative has a centered form gap on its original dense domain](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDifferentiatedCore.lean).
+**Latest analytic result:** [the original derivative graph equals its real-pairing adjoint](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean).
+The equation `J u = T2 v` now defines a single-valued graph extending
+`H0(T2 y) = J y`. One computed finite-sum degree approximates both `u`
+and `v` by points of the old differentiated domain. These approximants
+prove symmetry and positivity; the graph is closed under supplied Cauchy
+rows and equals its adjoint graph for the original real pairing. The
+centered form bound `B(v,u) >= (1/2)*B(u,u)` extends to the whole graph.
+
+Generation/differentiation of the existing time action on this entire
+domain still needs proof. The canonical physical Hamiltonian interface,
+spectral interpretation, physical scaling, continuum QFT and all required
+groups remain open. Scope: the original real completion, SU(2), nome
+`1/1024`, fixed spacing and T2-time units. This is not a physical or Clay
+mass-gap theorem. All 39 new public axiom checks passed within the
+constructive gate in focused safe checks; no full-tree run or raised limits.
+
+**Previous analytic result:** [the actual derivative has a centered form gap on its original dense domain](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDifferentiatedCore.lean).
 The existing real-time derivative defines `H0(T2 y) = J y`. This rule is
 well-defined, positive, symmetric, linear, and zero on the original vacuum.
 For centered domain states it satisfies `B(H0 v,v) >= (1/2)*B(v,v)`.
@@ -30,8 +46,8 @@ square to the derivative form, so the existing transfer-gap bound passes
 to the actual derivative. Supplied Cauchy graph rows also prove closability.
 
 This is a **dense-domain form gap in T2-time units**, not yet a
-self-adjoint spectral or physical mass-gap theorem. The maximal domain,
-same-semigroup generation on that domain, physical scaling, continuum QFT
+self-adjoint spectral or physical mass-gap theorem. The graph extension
+is now proved above; same-semigroup generation on it, physical scaling, continuum QFT
 and every required gauge group remain open. The scope is SU(2), nome
 `1/1024`, fixed spacing. The separate logarithmic candidate has not been
 silently substituted or identified. All 33 new public axiom checks passed

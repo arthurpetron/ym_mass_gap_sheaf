@@ -119,7 +119,74 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED actual derivative laws, original dense-domain form gap and closability; OPEN maximal domain/generation):**
+**Latest mathematical increment (CLOSED constructed graph approximation, real-pairing adjoint equality and extended form gap; OPEN full-domain generation):**
+PROGRESS after `a5c49a3`. `BF4ExactSlabThermodynamicDerivativeGraphApproximation`
+defines GraphPoint with ORIGINAL state u, image v and the equation J u=T2 v.
+`GraphPoint.image_unique` uses actual T2 injectivity; `fromCore` embeds the
+OLD differentiated domain, not a replacement carrier. This equation alone
+does not assert maximality or generation.
+
+The short constructive argument is `derivative_partialPreimage` and
+`partialPreimage_transfer`: the OLD finite preimage sums P_n commute
+with J and T2. Hence a core point with preimage P_n u has image T2 P_n v
+when J u=T2 v. `graphDegree U V epsilon` is the maximum of the two OLD
+residualModulus values. `state_error`, `image_error` and `approximationData`
+return one original preimage representative with both squared errors
+bounded by epsilon. `geometricRows` supplies the explicit outer modulus;
+`stateRows_limit` and `imageRows_limit` pin the resulting core graph rows
+to the supplied ORIGINAL u and v. No inverse or representative choice.
+
+`BF4ExactSlabThermodynamicDerivativeClosedGraph.core_test_iff` proves
+that this equation is exactly the adjoint test against the old dense
+domain. `graph_closed` / `graphRowLimit` prove closure under supplied
+original Cauchy rows. The actual two-coordinate approximants give
+`GraphPoint.symmetric` and `GraphPoint.nonnegative`. Consequently
+`selfAdjoint_graph_iff` proves equality with the graph's REAL-PAIRING
+adjoint, not an assumed self-adjointness field. `denseGraphData` retains
+the old constructive density witness; addition, supplied-real scaling
+and the original vacuum have actual graph points.
+
+`partialPreimage_orthogonal` keeps centered approximants centered.
+`GraphPoint.form_gap` passes the PREVIOUS differentiated-core estimate
+through the SAME pairing limits and proves B(v,u)>=(1/2)B(u,u) for every
+graph point with u orthogonal to the original unit. This does not itself
+construct a nonzero excitation or a physical mass normalization.
+
+NEXT CAUSAL FRONTIER: extend the existing time-derivative estimate from
+the T2 range to this entire graph. The needed intermediate estimate is
+  ||differenceQuotient depth y||^2 <= ||J y||^2,
+in the IMAGE norm, not the already proved PREIMAGE bound <=||y||^2.
+The concrete consumers are RealDerivative.real_taylor_bound and the new
+two-coordinate graph approximants. Norm convergence of preimages is not
+available and must not be assumed. Seek the missing image estimate from
+the exact refinement square and positive original mixed moments, then
+pass the same-object time estimates through the graph approximations
+with explicit radii. Neither that image-norm estimate nor differentiation
+on the whole graph is claimed by the present modules.
+
+OPEN: full-domain generation/differentiation and canonical physical
+Hamiltonian/spectral interface, J=L, physical time/spacing/beta(a),
+continuum QFT and every compact simple group/Clay. Current result is
+the original REAL completion, fixed SU(2), nome 1/1024, fixed spacing,
+T2-time units. The real-pairing adjoint-graph identity does not silently
+inhabit a canonical physical-Hamiltonian field or a continuum scorecard.
+No canonical field, analytic premise, axiom, literal hole or legacy flag changed.
+
+Verification: 39 exact public gates, all {propext, Quot.sound}; exact
+declaration/gate/log matching, clean final logs, own/direct artifacts
+fresh. Four focused safe checks (two per module), one worker/20 GiB,
+separate process/swap preflights; swap stable at 11869.31 MiB. Resolved
+one definitional T2 equality and explicitly typed a closed rational-zero
+identity; no statement weakening or raised limits. No dependency rebuild
+or full build/audit/guard/progress run. Two root imports added, root not
+compiled; CI remains manual-only. Logs and SHA-256:
+
+- `/tmp/ym-derivative-graph-approximation.log`:
+  `bc7ee8b6aa51b7e32d6c57843c709358dbbccd5919876746f61d683b26a98ab7`
+- `/tmp/ym-derivative-closed-graph.log`:
+  `b9ea81a627e404d18061b27639bdf98c314f65e58d1c584d8381f139f268f309`
+
+**Previous mathematical increment (CLOSED actual derivative laws, original dense-domain form gap and closability; graph extension subsequently proved above):**
 PROGRESS after `eff75ad`. The next proposition was J=L, but the inspected
 scalar/root/logarithm modules do not already supply that identification.
 The actual derivative J has already been constructed, so a direct argument

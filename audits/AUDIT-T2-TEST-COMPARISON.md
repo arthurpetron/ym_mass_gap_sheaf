@@ -1,5 +1,33 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Constructed closed graph and real-pairing adjoint equality (2026-09-15)
+
+Follow-up after `a5c49a3`. The graph remains on the original real
+completion; its defining equation is not taken as a maximality assumption.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Actual graph and single-valued image | `GraphPoint`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeGraphApproximation.lean:52`; `GraphPoint.image_unique`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeGraphApproximation.lean:57`; `fromCore`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeGraphApproximation.lean:61` | Original J u=T2 v; injectivity of T2; embeds the old differentiated domain. |
+| Exact image of finite preimages | `derivative_partialPreimage`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeGraphApproximation.lean:82`; `partialPreimage_transfer`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeGraphApproximation.lean:88`; `approximant_image`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeGraphApproximation.lean:107` | The same finite P_n applied to u produces state T2 P_n u and image T2 P_n v. |
+| Two-coordinate witnesses and limits | `graphDegree`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeGraphApproximation.lean:99`; `approximationData`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeGraphApproximation.lean:126`; `stateRows_limit`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeGraphApproximation.lean:171`; `imageRows_limit`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeGraphApproximation.lean:174` | Maximum of two original residual moduli; actual original Cauchy rows and both limit pins. |
+| Constructive domain density | `denseGraphData`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean:75` | Reuses the old approximate-preimage algorithm, now returning a graph point. |
+| Exact adjoint test against the old domain | `core_test_iff`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean:85` | Dense-domain pairing test iff J u=T2 v. |
+| Closed original graph | `graph_closed`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean:99`; `graphRowLimit`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean:115` | Supplied original Cauchy rows retain their constructed limits and equation. |
+| Symmetry and whole-graph adjoint identity | `GraphPoint.symmetric`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean:120`; `selfAdjoint_graph_iff`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean:139` | Uses constructed two-coordinate approximants, not a symmetry hypothesis. Equality is for the original REAL pairing. |
+| Positive graph and centered form gap | `GraphPoint.nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean:147`; `GraphPoint.form_gap`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean:183` | B(v,u)>=0; if B(u,unit)=0, B(v,u)>=(1/2)B(u,u). Same graph and original completed pairing, T2-time units. |
+
+NOT FOUND in these two modules: a difference-quotient bound in the J-image
+norm, differentiation/generation of realTimeAction on the whole graph,
+a canonical physical Hamiltonian/spectral-interface inhabitant, J=L,
+physical time/spacing/beta(a) calibration, continuum QFT or all-group Clay
+closure. These residues remain ledgered. Scope: SU(2), nome 1/1024,
+fixed spacing and original real completion. The form-bound theorem does
+not itself construct a nonzero excitation.
+
+Thirty-nine exact public gates passed with {propext, Quot.sound}; four
+focused safe one-worker/20 GiB checks, no raised limits or full-tree audit.
+Exact declaration/gate/log matching, artifacts and hashes are in work_plan.
+
 ## Actual differentiated dense-domain gap and closability (2026-09-15)
 
 Follow-up after `eff75ad`. The actual derivative is used directly; the

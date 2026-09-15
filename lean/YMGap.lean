@@ -4425,6 +4425,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicRealDerivative
 -- Maximal/self-adjoint generation and physical/continuum pins stay open.
 import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeLaws
 import YMGap.Continuum.BF4ExactSlabThermodynamicDifferentiatedCore
+-- Computed two-coordinate approximants give the original closed graph,
+-- real-pairing adjoint-graph equality and the extended centered form bound.
+-- Full-domain generation and physical/continuum/all-group pins remain open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeGraphApproximation
+import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin
