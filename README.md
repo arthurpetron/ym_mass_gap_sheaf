@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [computed range density and time-zero continuity on the original completed space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean).
+**Latest analytic result:** [a constructed logarithmic generator candidate on an original dense domain](lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean).
+The explicit polynomials `p_N(t) = sum_{k=1}^N t*(1-t)^k/k` have
+a proved uniform tail bound `1/(N+1)`, including at zero. Their limit
+constructs a bounded positive symmetric operator `L` on the original
+completion. On the original dense range of `T2`, the rule
+`H0(T2 y) = L y` is well-defined, rational-linear, symmetric, positive,
+and annihilates the original vacuum. Domain approximants and operator
+convergence moduli are computed.
+
+This is a **generator candidate**, not yet the physical Hamiltonian.
+Equality with the existing semigroup's time derivative and self-adjoint
+closure remain open. No inverse bound or logarithm oracle is assumed.
+The scope is still SU(2), nome `1/1024`, fixed spacing; physical scaling,
+continuum QFT and the all-group Clay target remain open. All 45 new
+constructive axiom checks passed in focused checks; no full-tree run.
+
+**Previous analytic result:** [computed range density and time-zero continuity on the original completed space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean).
 Every supplied original Cauchy state and positive squared-error tolerance
 now compute a finite approximate preimage under the actual two-step
 transfer. The residual is bounded at every degree above the computed
@@ -37,7 +53,7 @@ assumed and no range-closure space replaces the original completion.
 This remains SU(2), nome `1/1024`, fixed spacing. Moduli use supplied
 Cauchy representatives; no representative is selected from a quotient.
 There is no uniform inverse bound or new physical mass-gap claim.
-Next is the densely defined generator of this same semigroup; its
+The dense-domain candidate is now built above; its generator and
 physical identification, spacing/coupling control, continuum QFT and the
 all-group Clay target remain open. All 20 new constructive axiom checks
 passed in focused checks; no full-tree run or raised resource limits.

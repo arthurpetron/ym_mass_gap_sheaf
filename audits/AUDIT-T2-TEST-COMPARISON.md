@@ -1,5 +1,29 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Original dense-domain logarithmic candidate (2026-09-15)
+
+Follow-up after `983de7f`. This constructs a candidate operator, not its
+generation theorem or self-adjoint closure.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Uniform logarithm-series tail | `partial_tail`, `lean/YMGap/Continuum/RegularizedLogPolynomial.lean:105`; `modulus`, `lean/YMGap/Continuum/RegularizedLogPolynomial.lean:115`; `regularizedSequence`, `lean/YMGap/Continuum/RegularizedLogPolynomial.lean:180` | Actual rational polynomials p_N(t)=sum t*(1-t)^k/k, uniform remainder <=1/(N+1), including zero. No separate scalar logarithm identity asserted. |
+| Original bounded limit L | `regularizedAction`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean:53`; `regularizedCertificate`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean:76` | Old completion/calculus and explicit output/rate data. |
+| Positive candidate form | `regularized_transfer_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean:89` | Positivity of t*p_N(t) reaches B(Ly,T2y) through the original pairing limits. |
+| Domain and well-defined image | `CorePoint`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean:107`; `CorePoint.image_welldef`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean:121` | Witnessed ORIGINAL state=T2y, image=Ly; original T2 injectivity removes witness ambiguity. |
+| Symmetry, positivity, vacuum | `CorePoint.symmetric`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean:136`; `CorePoint.nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean:141`; `vacuumPoint_pin`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean:146` | Actual dense-domain candidate laws; no Hamiltonian identification. |
+| Constructive domain density | `coreApproximation_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean:153`; `denseDomainData`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean:157` | Computes nearby original domain states from the previous finite-sum preimage algorithm. |
+
+NOT FOUND in these two modules: an identity with the existing semigroup's
+time derivative, a self-adjoint closure/maximal domain, physical spectral
+or spacing/coupling control, continuum QFT or all-group Clay closure.
+The named residue is recorded in SORRY_LEDGER; no generation assumption
+was added. Scope remains SU(2), nome 1/1024, fixed spacing.
+
+Forty-five exact public gates passed within {propext, Quot.sound}, six
+axiom-free. Five focused one-worker/20 GiB checks; no full-tree audit,
+raised limits or canonical field change. Exact hashes in work_plan.
+
 ## Range/time-zero obstruction closed on the original space (2026-09-15)
 
 Follow-up after `8ee3ef9`: the original test estimate now yields computed

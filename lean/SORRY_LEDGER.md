@@ -13,7 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original residual decay, constructive range density, injectivity and full-space time zero (2026-09-15)
+## CLOSED regularized logarithm series and original dense-domain candidate; OPEN generation/self-adjointness (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/RegularizedLogPolynomial.lean` and
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicLogarithmicCore.lean`.
+- **new estimate**: p_N(t)=sum_{k=1}^N t*(1-t)^k/k. `step_remainder`,
+  `remainder_bound`, `partial_tail` prove a uniform 1/(N+1) tail on
+  [0,1], including zero, by retaining (1-t)^(N+1)/(N+1). Actual coefficient
+  lists and modulus epsilon.den supply `regularizedSequence`. Bounds
+  0<=p_N<=1 and p_N(1)=0 are proved; no logarithm oracle or positive
+  lower spectrum is a premise.
+- **actual original operator**: `regularizedAction` is constructed by
+  the old original uniform-sequence calculus, with representative/rate
+  data in `regularizedCertificate`. Proved rational linearity, symmetry,
+  positivity, contraction, geometric-time commutation and unit annihilation.
+  `regularized_transfer_nonnegative` uses positivity of t*p_N(t) in the
+  same original pairing limits.
+- **witnessed original domain**: `CorePoint.state=T2(preimage)` and
+  `CorePoint.image=L(preimage)`. `state_injective` / `image_welldef` use
+  the proved original T2 injectivity. Addition, rational scaling, symmetry,
+  positivity and the original vacuum pin are proved. `denseDomainData`
+  computes domain approximants from the previous actual range approximation.
+  This is a densely defined candidate, NOT a proved self-adjoint generator
+  or a proved core for its closure, and not a substituted physical carrier.
+- **residue**: identify the actual positive-time difference quotient
+  with this candidate (or first construct the direct derivative limit),
+  prove generation/self-adjoint closure and spectral pins. Separate scalar
+  logarithm identification is not claimed. Fixed SU(2) nome 1/1024 and
+  spacing only; physical normalization, spacing/coupling control,
+  continuum QFT, other groups and Clay remain open. No canonical field,
+  analytic premise, axiom or literal hole changed. Legacy scorecards do
+  not enumerate this local candidate; no scorecard closure is asserted.
+- **verification**: 45 exact public gates (6 axiom-free, 2 {propext},
+  37 {propext, Quot.sound}); clean final logs and exact name mapping,
+  own/direct artifacts fresh. Five one-worker/20 GiB focused checks,
+  separate preflights, no raised limits, dependency rebuild or full-tree
+  run. Two root imports added, not compiled; CI manual-only. Hashes in
+  work_plan. Older entries retain historical/module-local scope.
+
+## Previous CLOSED original residual decay, constructive range density, injectivity and full-space time zero (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDenseResidualDecay.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicFullSpaceZeroContinuity.lean`.

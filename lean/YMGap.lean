@@ -4401,6 +4401,11 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicTransferTestBound
 -- Physical Hamiltonian and continuum/all-group conclusions remain open.
 import YMGap.Continuum.BF4ExactSlabThermodynamicDenseResidualDecay
 import YMGap.Continuum.BF4ExactSlabThermodynamicFullSpaceZeroContinuity
+-- Uniform logarithm-series tail constructs an original regularized operator
+-- and a witnessed dense-domain positive symmetric candidate. Generation,
+-- self-adjoint closure, physical spectral and continuum pins remain open.
+import YMGap.Continuum.RegularizedLogPolynomial
+import YMGap.Continuum.BF4ExactSlabThermodynamicLogarithmicCore
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

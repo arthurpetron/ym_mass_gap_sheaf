@@ -119,7 +119,71 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED computed original residual decay, range density, injectivity and full-space time zero):**
+**Latest mathematical increment (CLOSED regularized logarithm series and original dense-domain candidate; OPEN generator identity):**
+PROGRESS after `983de7f`. `RegularizedLogPolynomial` constructs the actual
+polynomials p_N(t)=sum_{k=1}^N t*(1-t)^k/k. The retained remainder
+r_N(t)=(1-t)^(N+1)/(N+1) makes p_N+r_N decrease while p_N increases.
+`step_remainder`, `partial_tail` and `remainder_bound` prove a uniform
+1/(N+1) tail, including spectral value zero. `modulus epsilon=epsilon.den`
+and `polynomial_uniformCauchy` construct `regularizedSequence` without a
+positive lower spectral bound. `polynomial_bounds` gives 0<=p_N<=1;
+`polynomial_one` gives exact annihilation at the vacuum spectral value.
+No equality with a separately defined scalar logarithm is assumed.
+
+`BF4ExactSlabThermodynamicLogarithmicCore.regularizedAction` uses the OLD
+original sequenceAction calculus. It is rational-linear, symmetric,
+positive, contractive, commutes with geometric time, and annihilates the
+original unit. `regularizedCertificate` returns its original Cauchy
+representative and squared-distance convergence rate. Positivity of
+t*p_N(t) passes through the same row-pairing limits to
+`regularized_transfer_nonnegative`, with no new positivity premise.
+
+The witnessed domain `CorePoint` carries an ORIGINAL preimage y, with
+`state=T2 y` and `image=L y`. `state_injective` and `image_welldef` use
+the preceding T2 injectivity. Its `add_laws`, `smul_laws`, `symmetric`,
+`nonnegative`, and `vacuumPoint_pin` prove the displayed dense-domain
+operator laws. `coreApproximation_bound` and `denseDomainData` consume
+the actual previous finite-sum preimages to compute nearby domain points
+in the original completed distance. This is not a new physical carrier
+or a supplied Hamiltonian bundle. "Core" names a candidate domain, not
+an already proved core for a self-adjoint closure.
+
+NEXT CAUSAL FRONTIER: control the actual time-difference quotients on
+the original T2 range, beginning with dyadic times, with an explicit
+convergence rate. Prove, rather than posit, identification with the
+constructed candidate. If a direct derivative-limit construction is
+shorter, prioritize that actual generator; a separate scalar-logarithm
+identity can be downstream. The consumers are the existing
+`PositiveTimePins.realTimeAction` and `FullSpaceZeroContinuity.zeroRadius`.
+The candidate alone does NOT yet satisfy a proved generation theorem.
+
+OPEN: derivative identity, self-adjoint closure/maximal domain, spectral
+and physical Hamiltonian pins, physical time/spacing and beta(a) control,
+continuum/QFT, other compact simple groups and Clay. Current operator
+scope remains SU(2), nome 1/1024, fixed spacing. No bounded inverse,
+bounded -log(T2), or new mass-gap claim. No canonical field/type/atom/flag,
+analytic premise, axiom or literal hole changed; no legacy scorecard atom
+is closed by this candidate construction.
+
+Verification: 19+26 exact public gates: six axiom-free, two {propext},
+37 {propext, Quot.sound}. Exact public/gate/log names, clean final logs,
+own/direct artifact freshness and forbidden-source/option checks. Five
+monitored focused launches (three polynomial, two original core), each
+with a separate process/swap preflight, one worker/20 GiB. Swap decreased
+from 12093.31 to 11973.31 MiB. Repairs were a reserved-word rename,
+continuation indentation, a closed rational base-case reduction, and
+the defining import for polynomial_unit. No limits raised, dependency
+rebuild, full build/audit/guard/progress run or canonical change. Two
+additive root imports, not compiled; CI manual-only. The ASCII map
+distinguishes this checked candidate from the unproved generator arrow.
+Final logs/SHA-256:
+
+- `/tmp/ym-regularized-log-polynomial.log`:
+  `413c44bdaaeb56ba4fee8273efd5bebae2f8c0702fcf0803896cd0e641eca936`.
+- `/tmp/ym-logarithmic-core.log`:
+  `54c6afd0893a9b037ee0720a6636ad7aee4997ad9bcdd90183620b53f84bf5fa`.
+
+**Previous mathematical increment (CLOSED computed original residual decay, range density, injectivity and full-space time zero):**
 PROGRESS after `8ee3ef9`. The analytic test estimate now discharges the
 arbitrary-state range/time-zero obstruction, not just a conditional wrapper.
 `BF4ExactSlabThermodynamicDenseResidualDecay.dense_residual_small` bounds
