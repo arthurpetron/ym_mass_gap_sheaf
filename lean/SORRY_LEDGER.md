@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED literal interior time preimages; OPEN boundary-touching source comparison (2026-09-15)
+## CLOSED conditional adjacent-plaquette gluing; OPEN original-algebra/full-action consumer (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionHeadLinearHaar.lean` and
+  `lean/YMGap/Continuum/SU2QuaternionAdjacentPlaquetteGluing.lean`.
+- **closed local identity**: `partialHaarHead_mul_lift`, `atom_pair`,
+  `linear_pair` and `four_pair` retain arbitrary tail coefficients and use
+  only the sixteen head-coordinate moments. Their consumer `path_schur`
+  gives the conditional fundamental Schur rule for arbitrary quaternion paths.
+  `shared_link_contraction` integrates the SAME shared link of two adjacent
+  ordered fundamental plaquettes to half the six-link outer-rectangle character.
+- **closed retained-factor consumer**: `adjacent_boundary_haar` preserves
+  any boundary/spectator polynomial independent of the integrated link.
+  `selectedHeatFactor_pin` gives 2*w^6 for the two selected heat coefficients
+  times the Haar factor; it is not a lower bound for the full heat product.
+- **open residue**: the actual boundary comparison needs an original-algebra
+  realization/approximation of its output and the action factors depending on
+  the integrated link. The new identity does not prove nonrepresentability of
+  the rectangle, an actual physical-slab transfer preimage, range density or
+  injectivity. Full-space time zero, geometric T1/root identification, physical
+  Hamiltonian, beta(a)/continuum, QFT/spectral pins, other groups and Clay remain
+  open. No canonical type/field/atom/flag, original algebra, analytic premise
+  or hole changed. This is local exact algebra, not canonical frontier closure.
+- **verification**: 22 exact focused public gates, 11 axiom-free and the rest
+  within {propext, Quot.sound}; clean logs and fresh own/direct-import artifacts.
+  The memory-capped expanded draft was replaced with a structural proof; a
+  finite-index automation-induced classical dependency was removed. No final
+  forbidden executable tokens or extra options. Safe-build skill, one worker,
+  explicit 20 GiB, separate process/swap checks. Two new root imports, root
+  not compiled; no full build/audit/guard/progress run. Logs/hashes in work_plan.
+
+## Previous checkpoint: CLOSED literal interior time preimages; OPEN boundary-touching source comparison (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicInteriorTimePreimage.lean`.
 - **closed source geometry**: `Interior` and `interiorDecision` give a

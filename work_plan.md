@@ -54,6 +54,10 @@ decay is infrastructure, not completion.
    relevant conclusions against current source. No diagram arrow replaces a
    theorem. An ordinary weighted L2 estimate is not an OS quotient estimate;
    a heat-bath gap is not an OS transfer/Hamiltonian gap without a proved bridge.
+   Before treating a conditional integral as a new original test, verify that
+   its output belongs to the ORIGINAL observable algebra. Retain every action
+   factor involving the integrated variables; spectator independence is a
+   hypothesis to check, not a consequence of drawing a local diagram.
 4. **Make the analytic budget visible.** Separate heat cutoff, volume, spacing,
    coupling, time and observable dependence. Preserve signed cancellations and
    shared partition factors before taking absolute values. Do not pass changing
@@ -101,7 +105,55 @@ provide missing witnesses or turn a conditional theorem into an unconditional on
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest increment (literal geometric preimages of ORIGINAL interior sources):**
+**Latest increment (symbolic conditional Schur rule and adjacent-plaquette output):**
+PROGRESS after e3469a9 on the local boundary calculation, not a closure of
+the remaining physical range comparison. `SU2QuaternionHeadLinearHaar`
+proves `partialHaarHead_mul_lift`, `atom_pair`, `linear_pair` and `four_pair`:
+arbitrary retained polynomial coefficients contract by the sixteen head
+coordinate moments, with the exact normalized S^3 diagonal factor 1/4.
+The coefficients need not be independent of each other or degree-bounded.
+
+Its concrete consumer, `SU2QuaternionAdjacentPlaquetteGluing.path_schur`,
+proves the conditional fundamental character identity for arbitrary retained
+quaternion paths. `shared_link_contraction` applies it to the SAME shared
+block in `plaquette 1 0 5 6` and `plaquette 2 3 4 0`, with opposite incidences:
+integral_s chi(a s c^-1 d^-1) chi(b e f^-1 s^-1)
+= (1/2) chi(a b e f^-1 c^-1 d^-1).
+All six outer links stay as variables. `adjacent_boundary_haar` retains any
+outer/spectator polynomial independent of s. `selectedHeatFactor_pin` gives
+the exact two-selected-heat-coefficient factor 2*w^6, explicitly in w.
+Neither 1/4 nor 1/2 is a spectral contraction rate or a full-action bound.
+
+NEXT: determine whether the actual boundary comparison's output has an
+original plaquette-expression realization (or an approximation in its original
+OS norm), while retaining the action factors depending on the shared link.
+The new theorem identifies an outer rectangle; it does NOT prove that this
+rectangle is unrepresentable in the original algebra, supply a physical-slab
+transfer preimage, or exclude a kernel. The completed-state comparison remains
+open. Do not expand a general boundary-channel interface before establishing
+its original-algebra consumer. The goal instructions now make this test explicit.
+Full-space time zero, geometric T1 positivity/root identification, physical
+Hamiltonian, beta(a)/continuum, QFT/spectral pins, other groups and Clay remain
+open. No original observable algebra, canonical type/field/atom/flag or analytic
+premise has been changed. No new hole or classical input.
+
+Verification: two focused monitored checks, 13+9=22 exactly matched public
+gates, 11 axiom-free and the remainder within {propext, Quot.sound}; clean final
+logs, fresh own/direct-import artifacts, no forbidden executable tokens, only
+autoImplicit false. An initial fully expanded coefficient check hit the 20 GiB
+kernel cap. It was replaced, not rerun at a higher limit: the structural proofs
+complete in under a second each. A finite-index arithmetic branch initially
+introduced Classical.choice; proving its Nat contradiction separately removed
+that dependency before the final checks. Safe-build skill: one worker, explicit
+20 GiB, separate process/swap preflights; latest swap 12413.81 MiB. Two new root
+imports, old multiplicities preserved; root not compiled. No full build/audit/
+guard/progress run. Logs and SHA-256:
+`/tmp/ym-head-linear-haar.log`
+(`5580b75f8454cd1c4a915e25ba248dd0284511e9b611e80172deb83cead03a33`),
+`/tmp/ym-adjacent-plaquette-gluing.log`
+(`856622d366ab280f98961ed26a3989be0a236930423f458ce2d2e56835a64a20`).
+
+**Previous increment (literal geometric preimages of ORIGINAL interior sources):**
 PROGRESS after 6c05311. `BF4ExactSlabThermodynamicInteriorTimePreimage`
 defines `faceTopTime`, the maximum time vertex of a face, and proves
 `lower_top_le`. `Interior` checks that each syntactic character generator has

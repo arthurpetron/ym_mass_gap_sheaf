@@ -21,7 +21,17 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest milestone:** [literal time preimages for original interior observables](lean/YMGap/Continuum/BF4ExactSlabThermodynamicInteriorTimePreimage.lean).
+**Latest local calculation:** [adjacent-plaquette shared-link integration](lean/YMGap/Continuum/SU2QuaternionAdjacentPlaquetteGluing.lean).
+Integrating the shared link of two selected fundamental plaquettes gives
+exactly half the outer-rectangle character, with all six outer links retained.
+A symbolic Schur proof avoids expanding those paths; arbitrary spectator
+polynomials independent of the shared link are preserved. The selected heat
+factor is explicitly `2*w^6`, not a coupling-uniform gap. Two focused modules
+passed the constructive axiom gate; no full-tree run. Representing the resulting
+boundary observable in the original state algebra, retaining the full action,
+and proving an actual transfer-range comparison remain open.
+
+**Established interior result:** [literal time preimages for original interior observables](lean/YMGap/Continuum/BF4ExactSlabThermodynamicInteriorTimePreimage.lean).
 A decidable support condition identifies plaquette expressions strictly inside
 the reflection boundary. A computed inward shift is their exact geometric
 one-step preimage: translating it back gives the **same polynomial on the same

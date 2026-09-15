@@ -258,3 +258,45 @@ process/swap preflights found no competing compiler; swap stayed 12718.31 MiB.
 No full build/audit/guard/progress run; the root import was statically checked,
 not compiled. The focused log is `/tmp/ym-positive-transfer-limit-kernel-fence.log`,
 SHA-256 `8c9ec6898eefebdc243a6bb11c6a55483f47ea6ef098d1dc86a9f55ad2e8d978`.
+
+## Subsequent local boundary calculation (2026-09-15)
+
+This addendum is exact polynomial Haar algebra, not a proof of the missing
+thermodynamic comparison in section 1.
+
+`four_pair`, `lean/YMGap/Continuum/SU2QuaternionHeadLinearHaar.lean:171`,
+contracts four head coordinates with arbitrary retained polynomial
+coefficients to their dot product times 1/4. Its concrete consumer
+`path_schur`, `lean/YMGap/Continuum/SU2QuaternionAdjacentPlaquetteGluing.lean:137`,
+gives the fundamental conditional Schur identity with arbitrary outer paths.
+No unit-quaternion or disjoint-support assumption on those paths is needed.
+
+`shared_link_contraction`,
+`lean/YMGap/Continuum/SU2QuaternionAdjacentPlaquetteGluing.lean:194`,
+identifies the integral over the common link s exactly:
+
+`integral_s chi(a s c^-1 d^-1) chi(b e f^-1 s^-1)`
+`= (1/2) chi(a b e f^-1 c^-1 d^-1)`.
+
+`adjacent_boundary_haar`, same file `:237`, retains any polynomial in the
+outer and spectator coordinates **independent of s**. It does not permit
+dropping the other heat factors that depend on s. `selectedHeatFactor_pin`,
+same file `:252`, gives the selected coefficient `2*w^6`; neither it nor the
+Haar normalization factor is a full-action lower bound or a spectral rate.
+
+The output is the explicit six-link `rectangle` (same file `:185`). No theorem
+in these two modules says that this polynomial has an original
+`PlaquetteExpression`, approximates such a state in the original OS norm, or
+is an actual geometric transfer image. Nor do they prove its
+nonrepresentability. This output-algebra check and retention of shared-link
+action factors precede any use of the identity as a boundary-state comparison.
+No canonical field or original observable algebra has been changed.
+
+Verification for this addendum only: 13+9=22 exact focused public gates,
+11 axiom-free and the rest within {propext, Quot.sound}; own/direct artifacts
+fresh, clean final logs, no new holes/classical input/extra options. The
+initial expanded coefficient calculation hit its 20 GiB kernel cap and was
+replaced by a structural proof, with no limit increase. The safe-build skill
+kept one worker and explicit 20 GiB throughout these focused checks. No
+full-tree run; the two new root imports were checked statically, not compiled.
+Exact final log hashes are recorded in the new work-plan entry.
