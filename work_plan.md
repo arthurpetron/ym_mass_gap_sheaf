@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (an explicit continuous filter equals the ORIGINAL unit projection):**
+**Latest increment (bounded uniform polynomial limits on the FULL ORIGINAL carrier):**
+PROGRESS after 8422443. `BF4ExactSlabThermodynamicUniformPolynomialAction`
+constructs `sequenceAction` from polynomial coefficients and an explicit
+uniform rational [0,1] Cauchy rate. The target need not be rational-valued.
+`sequenceActionCertificate` returns the original output representative,
+its pin and squared-distance rate; quotient lift uses proved representative
+independence, not representative selection. `sequenceAction_congr` proves
+independence under explicit uniform asymptotic equality. Constant sequences
+recover the original polynomial operator, and `bernsteinSequence_action`
+recovers the already constructed full-carrier continuous action.
+
+`BF4ExactSlabThermodynamicUniformPolynomialLinear` proves rational
+linearity, symmetry and positivity from nonnegative polynomial rows.
+`rowLimit_norm_upper_eventual` discards arbitrary finite prefixes, giving
+the sharp `sequenceAction_tail_norm_bound` when an eventual interval
+bound is supplied. More importantly, `sequenceAction_norm_bound` needs
+NO additional norm-bound premise: at N=P.modulus(1), uniform Cauchy data
+bound p_n-p_N by one. The original polynomial bound and norm-of-sum
+inequality compute B=2+2*normFactor(p_N), with
+||sequenceAction(P)x||^2 <= B||x||^2 on ALL original states.
+`continuityCertificate` returns the positive tolerance epsilon/(B+1).
+This coefficient bound establishes continuity, not a physical gap.
+
+NEXT: construct an explicit polynomial square-root approximation with
+uniform error control on [0,1], including zero, and prove that its actual
+original action squares to T2. The uniform-sequence action and its
+bounded symmetric laws are CLOSED; the square-root sequence and operator
+identity are not yet constructed. Do not identify any positive square-root
+candidate with geometric T1 without proof. Full spectral realization,
+canonical comparisons, quotient-level completeness/time injectivity,
+continuous-time/physical spectral/non-Wick pins, continuum scaling, other
+groups and Clay remain OPEN. Fixed SU(2) nome 1/1024 and spacing only.
+No new hole, physical input, canonical type/atom/flag, weight or surrogate;
+uniformity is over rational interval points and original states, not beta
+or lattice spacing.
+
+Verification: two focused monitored modules, 19+15=34 exactly matched
+gates within {propext, Quot.sound}, two axiom-free. Clean final logs and
+fresh own/direct-import artifacts. Safe-build skill: one worker, explicit
+20 GiB ceiling and separate process/swap preflights; no raised options,
+full build/audit/guard/progress or root-import run. Logs and SHA-256:
+`/tmp/ym-original-uniform-polynomial-action.log`
+(`2a6a9c0ce1b3c7f5e0da6dd0112c6626ddf4e1a92d81632cb6a96e9127846c43`),
+`/tmp/ym-original-uniform-polynomial-linear.log`
+(`c0cce2f9ccdaaf28ef5e430ff2b81b5baf4f51bed5dfd545d5f15eaf133d442f`).
+
+**Previous increment (an explicit continuous filter equals the ORIGINAL unit projection):**
 PROGRESS after db363f4. `BF4ExactSlabThermodynamicClippedSymbols` constructs
 the rational [0,1] clipping map, its 1-Lipschitz proof, a bounded coordinate
 symbol, and affine clipped symbols with all continuity/vanishing data.
@@ -44,11 +90,11 @@ original completed states. `unitProjectionFilterCertificate` returns
 the actual Bernstein output representative/rate with equality to that
 SAME unitProjection. Idempotence and nonzeroness are also proved.
 
-NEXT: construct action on the original carrier for explicitly represented
-uniformly Cauchy polynomial sequences, retaining rates and compatibility
-with the existing continuous action. This is needed to reach CReal-valued
-symbols such as square roots/fractional-time candidates without pretending
-they are rational-valued CtsMod functions. Do not assume a spectral model,
+Subsequent closure: action on the original carrier for explicitly
+represented uniformly Cauchy polynomial sequences, with rates and
+compatibility with the existing continuous action, is now constructed
+above. This prepares for square roots/fractional-time candidates without
+pretending they are rational-valued CtsMod functions. Do not assume a spectral model,
 time injectivity, or identify a square-root candidate with geometric T1
 without an actual proof. The continuous unit-projection pin is CLOSED;
 full spectral realization, canonical comparisons, quotient-level

@@ -4273,6 +4273,10 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicAllVectorCenteredCalculus
 import YMGap.Continuum.BF4ExactSlabThermodynamicClippedSymbols
 import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousUnit
 import YMGap.Continuum.BF4ExactSlabThermodynamicContinuousUnitProjection
+-- Uniform polynomial limits extend that SAME original action, with
+-- represented rates and computed boundedness, without a rational limit symbol.
+import YMGap.Continuum.BF4ExactSlabThermodynamicUniformPolynomialAction
+import YMGap.Continuum.BF4ExactSlabThermodynamicUniformPolynomialLinear
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

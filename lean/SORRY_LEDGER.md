@@ -13,7 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED explicit continuous filter equals the ORIGINAL unit projection (2026-09-14)
+## CLOSED bounded uniform polynomial limits on the FULL ORIGINAL carrier (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicUniformPolynomialAction.lean`
+  and `BF4ExactSlabThermodynamicUniformPolynomialLinear.lean` in the same directory.
+- **closed original action**: `UniformSequence` retains polynomial data
+  and a uniform rational [0,1] Cauchy rate. `sequenceAction` descends the
+  constructed original row limit to ALL original completed states.
+  `sequenceActionCertificate` returns output data, equality to that same
+  action, and its computed squared-distance rate. No limiting rational
+  symbol, spectral model or representative choice is supplied.
+- **closed representation pins**: `sequenceAction_congr` proves equality
+  for explicitly uniformly asymptotic sequences, independently of rate
+  data. `constantSequence_action` and `bernsteinSequence_action` recover
+  the pre-existing original polynomial and continuous actions.
+- **closed bounded symmetric laws**: `sequenceAction_add`,
+  `sequenceAction_smul`, `sequenceAction_sub` and `sequenceAction_symmetric`
+  hold on the full carrier. `sequenceAction_form_nonnegative` transports
+  nonnegative polynomial rows. `sequenceAction_tail_norm_bound` retains
+  a supplied sharp eventual interval bound without a finite-prefix loss.
+- **closed computed continuity**: `sequenceAction_norm_bound` requires
+  NO additional norm-bound field. Cauchy data at N=P.modulus(1), the
+  original polynomial norm bound and the norm-of-sum inequality compute
+  B=2+2*normFactor(p_N). `sequenceAction_distance_bound` and
+  `continuityCertificate` give the all-vector squared-distance estimate
+  and positive tolerance epsilon/(B+1). This is not a physical gap bound.
+- **open residue**: an explicit uniformly controlled square-root
+  polynomial sequence and its original square identity, geometric
+  half-time identification, full spectral realization, canonical
+  comparisons, quotient-level completeness/time injectivity,
+  continuous-time/physical spectral/non-Wick pins, continuum scaling,
+  other groups and Clay. Fixed SU(2) nome/spacing only. No new hole,
+  physical input, canonical type/atom/flag, weight or surrogate;
+  uniformity is over interval points/original states, not beta/spacing.
+- **verification**: two focused monitored modules, 34 exactly matched
+  gates within {propext, Quot.sound}, two axiom-free, clean final logs
+  and fresh own/direct-import artifacts. One worker, explicit 20 GiB
+  ceiling; no raised options or full build/audit/guard/progress/root-import
+  run. Logs and SHA-256 digests in work_plan.
+
+## Previous checkpoint: CLOSED explicit continuous filter equals the ORIGINAL unit projection (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicClippedSymbols.lean`,
   `BF4ExactSlabThermodynamicContinuousUnit.lean`, and
@@ -37,8 +76,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **closed constructive data**: `unitProjectionFilterCertificate` returns
   original output Cauchy data, the computed Bernstein convergence rate,
   and equality with the SAME original projection.
-- **open residue**: original action of represented uniform polynomial
-  limits/CReal-valued symbols, full spectral realization, canonical
+- **subsequent closure**: original action of represented uniform polynomial
+  limits, with computed boundedness and original compatibility pins,
+  is constructed in the latest entry. Square-root symbols remain open.
+- **open residue**: full spectral realization, canonical
   comparisons, quotient-level completeness/time injectivity,
   continuous-time/physical spectral/non-Wick pins, continuum scaling,
   other groups and Clay. Fixed SU(2) nome/spacing only. No new hole,

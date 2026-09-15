@@ -13,7 +13,22 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [an explicit continuous filter equals the original unit projection](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousUnitProjection.lean).
+**Latest milestone:** [uniform polynomial limits act on the full original carrier](lean/YMGap/Continuum/BF4ExactSlabThermodynamicUniformPolynomialAction.lean),
+with [computed boundedness and symmetric linear laws](lean/YMGap/Continuum/BF4ExactSlabThermodynamicUniformPolynomialLinear.lean).
+An explicit uniform Cauchy rate now constructs the limiting operator,
+output representatives and convergence rates. Equivalent sequences give
+the same action; constant and Bernstein sequences recover the existing
+polynomial and continuous operators. Boundedness needs no extra hypothesis:
+one explicitly indexed polynomial controls the tail and supplies a
+continuity modulus. Two modules passed 34 focused axiom checks within
+`{propext, Quot.sound}` (two axiom-free); no full-tree run.
+Next: construct an explicit square-root polynomial sequence with uniform
+error control, including at zero, then prove its original operator square
+identity. No square root, geometric half-time identification or time
+injectivity is claimed yet. Nome and spacing remain fixed;
+physical-scale control and continuum/Clay remain open.
+
+**Established projection pin:** [an explicit continuous filter equals the original unit projection](lean/YMGap/Continuum/BF4ExactSlabThermodynamicContinuousUnitProjection.lean).
 For `h(t) = clamp(4t-3, 0, 1)`, Lean proves `h(T2)x = unitProjection x`
 for every original completed state. The filter fixes the original unit.
 On its complement, the filter's `3/4` lower form bound conflicts with the
@@ -21,8 +36,8 @@ existing `1/2` upper bound unless the filtered vector is zero. All symbol
 data, output representatives and Bernstein convergence rates are explicit;
 no spectral projection is assumed. Three modules passed 40 focused axiom
 checks within `{propext, Quot.sound}` (four axiom-free); no full-tree run.
-Next: original-carrier action for represented uniform polynomial limits,
-needed for CReal-valued symbols and fractional-time candidates. This is a
+Original-carrier action for represented uniform polynomial limits is now
+constructed above, preparing for CReal-valued symbols. This is a
 fixed-nome, fixed-spacing result; time injectivity, physical-scale control
 and continuum/Clay remain open.
 
