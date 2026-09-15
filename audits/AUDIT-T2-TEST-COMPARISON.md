@@ -1,5 +1,28 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Uniform original Taylor estimate on every dyadic mesh (2026-09-15)
+
+Follow-up after `40108e9`. The derivative estimate now holds for all
+dyadic increments below a computed radius, not just a halving sequence.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Length-independent averaging bound | `average_norm_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeAverages.lean:154`; `average_distance_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeAverages.lean:171` | Finite averages on the ORIGINAL completion, retaining the same common squared-norm/distance bound. |
+| Actual time-average identity | `timeAverage_defect`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeAverages.lean:208`; `meshQuotient_average`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean:57` | The actual multi-step difference quotient equals the average of translated one-step quotients. |
+| Computed control data | `derivativeRepresentative`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean:69`; `meshDepth`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean:74`; `meshRadius`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean:76` | Previous derivative output, convergence rate and full-space zeroRadius; no selected quotient representatives. |
+| Fine-mesh differentiation | `timeAverage_derivative_close`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean:82`; `mesh_quotient_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean:103` | Consumes the actual old real/dyadic time pin and original time-zero continuity. |
+| Every dyadic mesh | `remainder_refine`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean:151`; `mesh_taylor_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean:159` | ||T2y-A_t(T2y)-t*J(y)||^2<=epsilon*t^2 for all meshes below meshRadius, including coarse and zero-time presentations. |
+
+NOT FOUND in these two modules: the corresponding arbitrary-positive-real-time
+Taylor bound, equality with the logarithmic candidate, self-adjoint
+generation, physical time/spacing/beta(a) calibration, continuum QFT or
+all-group Clay closure. These residues remain ledgered. The current
+scope is fixed SU(2), nome 1/1024, fixed spacing and T2-time units.
+
+Thirty-nine exact public gates passed (2 {propext}, 37 {propext, Quot.sound});
+four focused safe one-worker/20 GiB checks, no full-tree audit or raised
+limits. Verification details and hashes are in work_plan.
+
 ## Actual original dyadic derivative limit (2026-09-15)
 
 Follow-up after `ab38524`. This constructs the limit of actual difference

@@ -21,7 +21,22 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [actual dyadic difference quotients converge on the original transfer range](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean).
+**Latest analytic result:** [one derivative estimate now controls every dyadic time mesh](lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean).
+The actual multi-step quotient is a finite average of translated one-step
+quotients. A length-independent norm bound and the original time-zero
+continuity give a computed radius such that
+`||T2 y - A_t(T2 y) - t J y||^2 <= epsilon*t^2`
+for **every dyadic time** below that radius, including coarse mesh
+presentations. `J y` is the previous constructed derivative limit, not a
+supplied generator. All vectors and norms are the original ones.
+
+Passing this estimate to arbitrary real times remains open, as do
+self-adjoint generation, logarithmic identification and physical scaling.
+This is still SU(2), nome `1/1024`, fixed spacing and T2-time units;
+continuum QFT and the all-group Clay target are not proved.
+All 39 new public axiom checks passed in focused safe builds; no full-tree run.
+
+**Previous analytic result:** [actual dyadic difference quotients converge on the original transfer range](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean).
 For the existing dyadic time operators `S_k`, the vectors
 `Q_k y = 2^k (T2 y - S_k T2 y)` have a constructed limit in the
 original completion, with explicit output representatives and an error

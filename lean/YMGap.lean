@@ -4411,6 +4411,10 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicLogarithmicCore
 -- Arbitrary-real-increment differentiation and self-adjointness remain open.
 import YMGap.Continuum.BF4ExactSlabThermodynamicDyadicDefectDecay
 import YMGap.Continuum.BF4ExactSlabThermodynamicDyadicDerivative
+-- Finite time averages identify multi-step quotients and give one Taylor
+-- radius for EVERY dyadic mesh. Passage to arbitrary real time remains open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicTimeAverages
+import YMGap.Continuum.BF4ExactSlabThermodynamicMeshDerivative
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

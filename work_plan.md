@@ -119,7 +119,67 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED actual dyadic derivative limit on the original T2 range; OPEN arbitrary-real derivative/generator):**
+**Latest mathematical increment (CLOSED uniform Taylor estimate over EVERY dyadic mesh; OPEN real-time limit passage):**
+PROGRESS after `40108e9`. `BF4ExactSlabThermodynamicTimeAverages` proves
+`pairing_common_bound` from the original squared distance, then
+`average_norm_bound` / `average_distance_bound` with no factor depending
+on the number of terms. `timeAverage_contraction` and `timeAverage_close`
+apply these to the existing original dyadic semigroup. The finite identity
+`sum_defect` / `timeAverage_defect` telescopes exactly, rather than
+postulating an average representation for a difference quotient.
+
+`BF4ExactSlabThermodynamicMeshDerivative.meshQuotient_average` identifies
+the actual (n+1)-step quotient with timeAverage(depth,n,Q_depth).
+`derivativeRepresentative` is the previous actual derivative output.
+`meshDepth X epsilon=derivativeRate X (epsilon/4)` and
+`meshRadius X epsilon=zeroRadius (derivativeRepresentative X) (epsilon/4)`
+are computed. `timeAverage_derivative_close` consumes the PREVIOUS
+full-space time-zero estimate, including its exact real/dyadic action pin.
+Average contraction then proves `mesh_quotient_bound` on fine meshes.
+
+`mesh_value`, `mesh_normalization` and `remainder_quotient` retain the
+actual time coefficient. `remainder_refine` is the exact SAME remainder
+under dyadic refinement. Refining by the computed meshDepth removes the
+depth restriction: `mesh_taylor_bound` proves, for EVERY original mesh
+t=steps/2^depth below meshRadius,
+  ||T2y-A_t(T2y)-t*J(y)||^2 <= epsilon*t^2.
+This includes zero and coarse presentations. J is the previously
+constructed derivativeAction; no new derivative or spectral premise is
+supplied. The estimate concerns arbitrary small dyadic increments, not
+only the single halving sequence.
+
+NEXT CAUSAL FRONTIER: pass this uniform Taylor estimate through the
+existing positive-real-time approximation limits. The actual consumers
+are `PositiveTimeAction.timeRows`, `PositiveTimePins.realTimeAction`,
+`PositiveRealDyadicTimeData.approximationReal_equiv`, and the original
+`CompletedRealScalar.completedRealSmul` / `RealScalarAlgebra` operations.
+Keep the derivative J and T2 range unchanged. Use the unnormalized
+Taylor remainder and its epsilon*t^2 bound to avoid adding a real inverse
+or quotient-scalar selection requirement. Prove the scalar and time limit
+pins; do not assume a product-limit interchange.
+
+OPEN: arbitrary-real-increment derivative, equality with the logarithmic
+candidate, self-adjoint generator/maximal domain and physical spectral
+pins, spacing/coupling/physical-time calibration, continuum QFT and all
+compact simple groups/Clay. Fixed SU(2), nome 1/1024 and T2-time units
+only. No canonical field, analytic premise, axiom, literal hole or legacy
+scorecard flag changed. This is not a new physical mass-gap bound.
+
+Verification: 39 exact public gates (2 {propext}, 37 {propext, Quot.sound});
+exact declaration/gate/log matching, clean final logs, own/direct artifacts
+fresh. Four focused safe checks (two per module), one worker/20 GiB, each
+with a separate process/swap preflight; swap 11925.31 MiB throughout.
+Corrected rewrite scope and made refinement equalities explicit; no
+statement weakening or raised limits. No dependency rebuild or full
+build/audit/guard/progress run. Two root imports added, root not compiled;
+CI remains manual-only. Logs and SHA-256:
+
+- `/tmp/ym-time-averages.log`:
+  `8989ce59dfafd26526eba9c88ce935cd49ca73695242938a035c6d61f15e0f7d`
+- `/tmp/ym-mesh-derivative.log`:
+  `db30143ddd102cc7d638d0a5592fbd2810f8a9cc7dbf463c93100f36686d921b`
+
+**Previous mathematical increment (CLOSED actual dyadic derivative limit on the original T2 range; OPEN arbitrary-real derivative/generator):**
 PROGRESS after `ab38524`. `BF4ExactSlabThermodynamicDyadicDefectDecay`
 defines D_d=I-S_d for the EXISTING dyadic mesh generator and the actual
 moments m_d(k,l)=B(x,S_d^k D_d^l x). `moment_halfTime` uses the finer

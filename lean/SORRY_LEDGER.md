@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED actual dyadic derivative limit on the original T2 range; OPEN all-real differentiation/generation (2026-09-15)
+## CLOSED uniform Taylor estimate on all original dyadic meshes; OPEN real-time passage/generation (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTimeAverages.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicMeshDerivative.lean`.
+- **finite estimate and identity**: `average_norm_bound` and
+  `average_distance_bound` retain a common bound independently of length.
+  `timeAverage_contraction`, `sum_defect` and `timeAverage_defect` concern
+  the actual original dyadic operators. `meshQuotient_average` identifies
+  the multi-step quotient exactly, with its correct normalization.
+- **constructed radius**: `meshDepth` uses the previous dyadic derivative
+  rate at epsilon/4. `meshRadius` uses the previous full-space zeroRadius
+  at the actual `derivativeRepresentative`, also at epsilon/4.
+  `timeAverage_derivative_close` and `mesh_quotient_bound` consume these
+  original data, with no supplied derivative or continuity premise.
+- **all meshes**: `remainder_quotient`, `remainder_refine` and
+  `mesh_taylor_bound` prove ||T2y-A_t(T2y)-t*J(y)||^2<=epsilon*t^2 for
+  every nonnegative dyadic mesh below the computed radius, including
+  coarse presentations. J is the previous derivativeAction. Refinement
+  removes the intermediate depth restriction; no physical time pin is claimed.
+- **residue**: pass the uniform bound to the existing positive-real-time
+  action and real-scalar operation; prove arbitrary-real differentiation,
+  self-adjoint generation and physical spectral pins. Equality with the
+  logarithmic candidate is still open. SU(2), nome 1/1024 and fixed
+  spacing only; beta(a)/spacing, continuum QFT, all groups and Clay remain
+  open. No canonical field, analytic premise, axiom, literal hole or
+  legacy scorecard flag changed.
+- **verification**: 39 exact gates, 2 {propext} and 37 {propext, Quot.sound};
+  exact logged names, clean final logs, own/direct artifacts fresh. Four
+  safe one-worker/20 GiB focused checks with separate preflights, no raised
+  limits or full-tree run. Two additive root imports, root not compiled;
+  CI manual-only. Exact hashes in work_plan.
+
+## Previous CLOSED actual dyadic derivative limit on the original T2 range; OPEN all-real differentiation/generation (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDefectDecay.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean`.
