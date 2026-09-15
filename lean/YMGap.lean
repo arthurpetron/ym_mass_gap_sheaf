@@ -4443,6 +4443,8 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeDomain
 import YMGap.Continuum.BF4ExactSlabThermodynamicGraphTimeTransport
 import YMGap.Continuum.BF4SmallNomeAFGuardObstruction
 import YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction
+import YMGap.Continuum.BF4ExactSlabAllNomeTailInterval
+import YMGap.Continuum.BF4ExactSlabAllNomeProductTail
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

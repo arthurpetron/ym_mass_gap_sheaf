@@ -119,7 +119,67 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED actual-Haar all-cutoff obstruction; OPEN late-tail scale estimate):**
+**Latest mathematical increment (CLOSED arbitrary-nome local Haar tails and original second-moment control; OPEN dressed OS estimate and physical scale):**
+PROGRESS after `c25629d`. `BF4ExactSlabAllNomeTailInterval`
+uses the OLD sharp character Interval, at the exact dimension cap, and
+the OLD computed high-spin cutoff/geometric envelope. `closedTail_small`
+retains the explicit tolerance rescaling; `tailCutoff` / `faceTailInterval`
+give actual original-Haar tail certificates for every rational 0<w<1,
+all extents/faces, and all later cutoff/tail lengths. `prefixCap` keeps
+the complete finite head plus its tail bound; `facePrefixInterval`
+does not assume the full heat polynomial is near one.
+
+`BF4ExactSlabAllNomeProductTail` constructs the actual shared-variable
+product remainder's Interval. `sensitivity` is a finite face-count
+recursion; `productTolerance` pays its budget and `productCutoff`
+depends only on w, retained face count and epsilon. `productTailData`
+returns ONE cutoff with certificates for every placement of that many
+faces in every slab. `productDifference_pin` identifies the literal
+later-minus-earlier product with the OLD telescoping remainder.
+`remainder_square_expectation` / `difference_square_expectation` prove
+the normalized ORIGINAL interacting square expectation <=epsilon^2.
+The surrounding action nome v and inserted-region nome w are explicit
+and independent; normalization uses the same original partition.
+
+This is original-Haar order and ordinary square-expectation control,
+not a pointwise-to-Haar inference, a reflected OS multiplication operator,
+thermodynamic decay, or a physical gap. Cutoff depends on w and region
+size; the low-spin interaction is retained and not proved small. Existing
+all-cutoff obstruction and fixed-nome thermodynamic results are unchanged.
+
+NEXT CAUSAL FRONTIER: consume the new interval in the EXISTING
+heat-dressed expression and reflected OS norm. The concrete consumers
+are `BF4ExactSlabLocalHeatCutoffNorm.bulk_norm_bound` and
+`thermodynamic_norm_bound`, which still require heatRatio(w)<=1/2.
+Reuse their exact expression-evaluation identities and lower/upper
+square-bound argument, replacing only the local-tail estimate with
+`smallProductTailInterval`. Preserve the old `dressed` / `difference`
+expressions, original action nome v and explicit dependence on bound(e).
+No new observable or carrier is needed. The resulting thermodynamic
+statement, if proved, is still for the OLD action nome 1/1024; allowing
+arbitrary inserted w does not change that action into an AF trajectory.
+
+OPEN: this dressed OS bound and its old-limit passage; original-action
+thermodynamic decay/moduli along a coupling/physical-scale family;
+AF/spacing pins, physical generator/spectral and complex/QFT interfaces,
+beta(a), continuum QFT and every required group/Clay. No canonical field,
+analytic premise, axiom, literal hole or legacy flag changed.
+Verification: 25 exact public gates, five axiom-free, three propext-only,
+seventeen {propext, Quot.sound}. Five focused safe one-worker/20 GiB
+checks across two files: corrected an explicit rescaling-projection type
+and a match-layout syntax issue, then checked the independent action-nome
+parameter. No statement weakening. Exact declaration/gate/log matching,
+clean logs and fresh own/direct artifacts. Separate preflights, swap
+stable at 11869.31 MiB; no raised limits, dependency rebuild or full-tree
+run. Two additive root imports, root not compiled; CI manual-only.
+Logs and SHA-256:
+
+- `/tmp/ym-all-nome-tail-interval.log`:
+  `1e0e835a32b8fc48539e4ed0367b2b3c9a4207e6afdc82272ce4ca5eb6b44399`.
+- `/tmp/ym-all-nome-product-tail.log`:
+  `fc1cd36d0110e6361305da46ce3c958a3eb8750e4b86295bf6be486e5f2d89a8`.
+
+**Previous mathematical increment (CLOSED actual-Haar all-cutoff obstruction; local late-tail replacement now proved above):**
 PROGRESS after `1b5d2bf`. `BF4ExactSlabHeatHaarGuardObstruction`
 constructs `testPolynomial`=1+chi_1 on the ORIGINAL plaquette.
 `face_character_haar_zero` uses the old single-link selection theorem;

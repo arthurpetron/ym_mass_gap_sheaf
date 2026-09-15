@@ -1,5 +1,41 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Arbitrary-nome original-Haar local tails and normalized square control (2026-09-15)
+
+Follow-up after `c25629d`. The low-spin head is retained; only the
+late omitted tail is made small. These are actual original-Haar
+certificates, not scalar pointwise inequalities used as order axioms.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Sharp original term certificate | `heat_dimension_majorant`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean:47`; `heatTermInterval`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean:58` | Old sharp dimension Interval with the actual heat coefficient. |
+| Shifted tail and computed smallness | `shiftedFaceTailInterval`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean:73`; `closedTail_small`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean:82`; `tailCutoff`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean:102`; `faceTailInterval`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean:104` | Every rational 0<w<1; cutoff depends on w/epsilon, not extent, face or later tail length. |
+| Full low-spin head retained | `prefixCap`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean:117`; `facePrefixInterval`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean:138` | Computed finite head plus geometric tail; no near-unit assumption. |
+| Shared-variable product remainder | `productTailInterval`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeProductTail.lean:60`; `productCutoff`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeProductTail.lean:93`; `smallProductTailInterval`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeProductTail.lean:96` | Old remainder, computed face-count sensitivity, no independent-face substitution. |
+| One cutoff for all placements/slabs | `productTailData`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeProductTail.lean:105` | Type-level cutoff for fixed w, face count n and epsilon; not uniform in w or n. |
+| Exact original difference | `productDifference`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeProductTail.lean:115`; `productDifference_pin`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeProductTail.lean:119` | Literal later prefix minus earlier prefix equals the old remainder coefficientwise. |
+| Normalized original second moment | `remainder_square_expectation`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeProductTail.lean:126`; `difference_square_expectation`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeProductTail.lean:137` | <=epsilon^2 under the original law; independent explicit action nome v and inserted nome w. Same partition normalization. |
+
+Not claimed: a reflected OS operator bound, thermodynamic decay or
+modulus for changing action, AF/physical-spacing identification, continuum
+QFT or Clay closure. The prior cutoff-one no-go is unchanged.
+
+Next exact consumers are `bulk_norm_bound` at
+`lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:156` and
+`thermodynamic_norm_bound` at
+`lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:165`.
+Both still require the old inserted-heat smallness guard. Their private
+`difference_eval` at
+`lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean:88`
+already pins the old dressed-expression difference to the original
+product remainder. Source review identifies the consumer; its new
+all-nome OS bound is not asserted here. The thermodynamic action stays
+fixed at nome 1/1024 even if the inserted heat nome is generalized.
+
+Twenty-five exact public gates passed within {propext, Quot.sound};
+five focused safe one-worker/20 GiB checks, no raised limits or full-tree
+run. Exact name matching, artifact checks and log hashes in work_plan.
+
 ## Actual original-Haar obstruction to a small all-cutoff interval (2026-09-15)
 
 Follow-up after `1b5d2bf`. The obstruction now tests the actual

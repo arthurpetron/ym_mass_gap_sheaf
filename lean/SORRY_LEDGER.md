@@ -13,7 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED actual-Haar all-cutoff obstruction; OPEN late-tail scale estimate (2026-09-15)
+## CLOSED arbitrary-nome local Haar tails and original second moments; OPEN dressed OS and physical-scale control (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabAllNomeProductTail.lean`.
+- **actual face intervals**: sharp original-Haar character certificates
+  combine with the old computed high-spin cutoff and geometric tail.
+  `faceTailInterval` removes the small-nome guard for omitted tails at
+  every rational 0<w<1. `tailCutoff` depends on w/epsilon, not extent,
+  face or later tail length. `facePrefixInterval` retains the complete
+  low-spin head in its explicit, possibly large `prefixCap`.
+- **actual shared-variable products**: `smallProductTailInterval` uses
+  a computed face-count sensitivity and rescaled tolerance.
+  `productTailData` returns a common cutoff for every placement of n
+  physical faces in every slab. `productDifference_pin` identifies the
+  actual prefix difference with the old telescoping remainder.
+- **original normalized consequence**: `difference_square_expectation`
+  bounds its original interacting square expectation by epsilon^2,
+  with independent explicit action nome v and inserted nome w.
+  The old normalization theorem cancels the same partition exactly.
+- **residue**: transfer this local-tail bound to the existing dressed
+  expression's reflected OS norm and, separately, the old fixed-nome
+  thermodynamic form. This is not yet an OS multiplication operator,
+  decay estimate or AF/spacing family. Cutoff depends on w and n;
+  low-spin control, physical scale, generator/spectral/QFT interfaces,
+  continuum and every required group/Clay remain open. No canonical
+  field, analytic premise, axiom, literal hole or legacy flag changed.
+- **verification**: 25 exact public gates: five empty, three propext,
+  seventeen {propext, Quot.sound}. Five focused safe one-worker/20 GiB
+  checks, explicit projection typing and syntax fixes, independent
+  action-nome check, separate preflights, exact matching, clean logs
+  and fresh own/direct artifacts. No raised limits or full-tree run;
+  two additive root imports, root not compiled. CI manual-only.
+  Hashes in work_plan.
+
+## Previous CLOSED actual-Haar all-cutoff obstruction; local late-tail replacement above (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean`.
 - **actual test**: `testPolynomial`=1+chi_1 is supported on the original

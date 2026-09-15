@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [an exact original-Haar test rules out sharpening the all-cutoff guard](lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean).
+**Latest result:** [arbitrary-nome local heat tails now have original-Haar certificates](lean/YMGap/Continuum/BF4ExactSlabAllNomeTailInterval.lean).
+The low-spin head is retained exactly. For every rational `0<w<1`,
+a computed cutoff makes the omitted tail small in original Haar order.
+[The actual product remainder and prefix difference are controlled too](lean/YMGap/Continuum/BF4ExactSlabAllNomeProductTail.lean):
+one cutoff depending on `w`, retained face count and tolerance works
+in every slab, with all shared links retained. Its normalized square
+expectation is at most `epsilon^2` under the original interacting law;
+the action's nome `v` is an independent, explicit parameter.
+
+This is local representation-cutoff control, not thermodynamic decay
+or a mass-gap theorem. The cutoff is not uniform in `w` or region size.
+Next is the reflected OS norm of the existing heat-dressed observable.
+Physical scaling, continuum QFT and all required groups remain open.
+All 25 public axiom checks passed within the constructive gate in
+focused safe checks; no full-tree run or raised limits.
+
+**Previous result:** [an exact original-Haar test rules out sharpening the all-cutoff guard](lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean).
 On any physical slab plaquette, the explicit square `(1+chi_1)^2` has
 Haar integral two. Against the cutoff-one heat remainder its integral
 is `4*w^3`. Thus, for `w >= 7/8`, no existing Haar interval certificate
