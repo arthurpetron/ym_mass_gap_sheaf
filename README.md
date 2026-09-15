@@ -13,7 +13,21 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [original channel coefficients distinguish original completed states](lean/YMGap/Continuum/BF4ExactSlabCompletedChannelSeparation.lean).
+**Latest milestone:** [original channel packets approximate actual thermodynamic translated norms](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTranslatedChannelPacket.lean).
+For any dense presentation, integer time lag and positive rational
+`epsilon`, the construction now computes a volume, crossing cutoff and
+numerical precision. Its actual original channel-square sample encloses
+the **existing translated thermodynamic state's squared norm** in
+`[sample - epsilon, sample + epsilon]`, including the actual two-step
+transfer. The original partition reciprocal is retained; its
+finite-volume dependence is explicit.
+Two modules passed 27 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree run. This is at the existing nome `1/1024` and fixed spacing.
+The channel family changes with volume: scalar norm approximation does
+not yet transport separating coefficients or prove transfer injectivity,
+range density, continuity at time zero, or the continuum/Clay target.
+
+**Established separation:** [original channel coefficients distinguish original completed states](lean/YMGap/Continuum/BF4ExactSlabCompletedChannelSeparation.lean).
 At each finite slab and `0 < w < 1`, two states of the original completed
 OS space are now proved equal **if and only if all their actual channel
 coefficients agree**. The proof bounds each entire retained packet by
@@ -21,8 +35,9 @@ the original normalized norm, uses the existing dense packet reconstruction,
 and passes through the original explicit-modulus state approximation.
 It assumes neither a channel resolution nor a transfer inverse.
 Two modules passed 17 focused axiom checks within `{propext, Quot.sound}`;
-no full-tree run. Next: transport the channel/packet information through
-growing volume and actual time translation. The active two-step transfer
+no full-tree run. Scalar packet approximation through growing volume and
+actual time translation is now constructed above; coefficient-level
+transport remains open. The active two-step transfer
 acts on the **thermodynamic** completion; this finite-slab separation
 does not prove its injectivity, range density, or continuity at time zero.
 The physical Hamiltonian, continuum control and Clay target remain open.

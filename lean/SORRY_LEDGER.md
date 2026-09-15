@@ -13,7 +13,52 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED ORIGINAL channel separation on the existing finite-slab completion (2026-09-14)
+## CLOSED scalar ORIGINAL channel-packet bridge to thermodynamic translated norms (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabNormalizedChannelReconstruction.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTranslatedChannelPacket.lean`.
+- **closed quantitative normalization**: `reflectionApproxCutoff` and
+  `reflected_raw_approx_close` compare the original reflected and upper
+  numerator streams using literal reflection at one common finite cutoff.
+  `normalizedTolerance` explicitly divides by the original reciprocal
+  ceiling; its positivity and budget are proved. `normalizedCutoff`,
+  `normalizedApproxCutoff` and `normalizedPacket_form_approx_close`
+  expose both thresholds and bound the actual normalized packet against
+  the original form. `normalizedReconstructionCertificate` returns
+  Type-level cutoff data; `normalizedPacket_converges` uses those data.
+- **closed same-object translated norm pin**: `normRepresentative` and
+  `norm_pin` target the original `completedTime lag` on the existing
+  thermodynamic completion. `finiteExpression`, `packet` and `sample`
+  retain the actual translated/enlarged expression, its original channel
+  tree and original reciprocal. Nome is the existing fixed 1/1024.
+- **closed three-error certificate**: `volumeCutoff`, `crossingCutoff`
+  and `numericalCutoff` control volume, crossing and numerical errors.
+  `sample_interval` gives the sum of three delta allowances;
+  `tolerance`, `tolerance_positive` and `tolerance_budget` allocate
+  epsilon/3. `approximationCertificate` returns all three indices.
+  `computedSample_interval` gives [sample-epsilon,sample+epsilon] for
+  the original squared norm. `completedTime_norm_interval` and
+  `twoStepTransfer_norm_interval` give the actual operator consumers.
+- **open residue**: the coefficient family/index type and normalization
+  vary with volume. No persistent thermodynamic channel functional or
+  positive surviving coefficient is constructed by scalar norm
+  approximation. Finite-slab separation still does not discharge the
+  completed thermodynamic T2 zero-kernel/range-density frontier.
+  Quantitative completed packet resolution, full-space time-zero
+  continuity, geometric T1/physical Hamiltonian, beta(a)/spacing-uniform
+  gap, continuum/non-Wick pins, other groups and Clay remain open.
+  No new hole, analytic premise, canonical field/type/atom/flag,
+  surrogate or arbitrary quotient representative selection.
+- **verification**: 10+17=27 exact focused public gates, only
+  {propext, Quot.sound}. Clean final logs, fresh own/direct-import
+  artifacts, only autoImplicit false. Both new root imports occur once;
+  the pre-existing repeated `HarmonicLowerSixCubicDebtCoefficient1330Physical`
+  import is unchanged. Root not compiled. Safe-build skill: one worker, explicit 20 GiB and separate
+  process/swap preflights. Factored interval arithmetic and avoided
+  unfolding large certificate projections; no raised options/limits.
+  No full build/audit/guard/progress run. Log hashes are in work_plan.
+
+## Previous checkpoint: CLOSED ORIGINAL channel separation on the existing finite-slab completion (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabWholePacketNormBound.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabCompletedChannelSeparation.lean`.

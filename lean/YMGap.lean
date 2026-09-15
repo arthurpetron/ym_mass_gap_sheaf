@@ -4351,6 +4351,11 @@ import YMGap.Continuum.BF4ExactSlabIntrinsicChannelCompletion
 -- a zero-kernel theorem for the thermodynamic two-step transfer.
 import YMGap.Continuum.BF4ExactSlabWholePacketNormBound
 import YMGap.Continuum.BF4ExactSlabCompletedChannelSeparation
+-- Computed original normalization/crossing/volume/precision choices enclose
+-- actual thermodynamic translated norms, including T2. This is scalar
+-- packet approximation, not persistent coefficients or transfer injectivity.
+import YMGap.Continuum.BF4ExactSlabNormalizedChannelReconstruction
+import YMGap.Continuum.BF4ExactSlabThermodynamicTranslatedChannelPacket
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

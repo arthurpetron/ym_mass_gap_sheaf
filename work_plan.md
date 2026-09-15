@@ -18,7 +18,70 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (ORIGINAL coefficients separate the actual completed states):**
+**Latest increment (ORIGINAL packets approximate actual thermodynamic translated norms):**
+PROGRESS after 22a80df. The finite-slab packet construction now has a
+quantitative, same-object scalar bridge to the existing thermodynamic
+time operator. No coefficient persistence, transfer inverse or uniform
+physical estimate is assumed or concluded.
+
+`BF4ExactSlabNormalizedChannelReconstruction.reflectionApproxCutoff`
+and `reflected_raw_approx_close` compare the actual reflected/upper
+numerator representatives through the same finite original bulk cutoff.
+`normalizedTolerance` is epsilon divided by the original reciprocal
+ceiling, with proved positivity and budget. `normalizedCutoff` and
+`normalizedApproxCutoff` combine this normalization cost, original
+channel reconstruction and literal reflection error.
+`normalizedPacket_form_approx_close` gives the two numerical inequalities
+against the SAME original normalized form. `normalizedReconstructionCertificate`
+returns both thresholds as Type-level data; `normalizedPacket_converges`
+proves convergence of these actual packets, not a replacement action.
+
+`BF4ExactSlabThermodynamicTranslatedChannelPacket.norm_pin` identifies
+`normRepresentative lag p` with the original completed inner product of
+`completedTime lag (embedPresentation p)` with itself. `finiteExpression`
+is the actual enlarged translated presentation; `packet` and `sample`
+use its original normalized crossing-channel tree at nome 1/1024.
+`volumeCutoff`, `crossingCutoff` and `numericalCutoff` are explicit.
+`sample_interval` combines three errors of size delta: volume convergence,
+the original form's representative regularity, and normalized packet
+truncation. `tolerance` allocates epsilon/3 to each.
+`approximationCertificate` returns margin, crossing cutoff and numerical
+index. `computedSample_interval` bounds the actual thermodynamic squared
+norm between sample-epsilon and sample+epsilon.
+`completedTime_norm_interval` and `twoStepTransfer_norm_interval` pin
+this certificate to the EXISTING operators on the EXISTING completion.
+
+NEXT: coefficient-level information that persists through growing volumes
+and actual time translation, sufficient for the original T2 zero-kernel/
+range-approximation frontier. The packet's index type, coefficients and
+partition normalization vary with volume. The new scalar approximation
+does not turn finite-slab coefficient separation into a separating family
+on the thermodynamic completion. No positive surviving coefficient or
+volume-uniform channel norm floor has been constructed here. Quantitative
+completed packet resolution, completed T2 range density/zero kernel,
+full-space time-zero continuity, geometric T1/physical Hamiltonian,
+beta(a)/spacing-uniform continuum control, canonical spectral/non-Wick
+pins, other groups and Clay remain OPEN. No new hole, analytic premise,
+canonical field/type/atom/flag, surrogate or quotient representative choice.
+
+Verification: two focused monitored modules, 10+17=27 exactly matched
+public declaration gates, all within {propext, Quot.sound}. Clean final
+logs, fresh own/direct-import artifacts, no forbidden executable tokens,
+only autoImplicit false; both new root imports occur once, root not compiled.
+The existing repeated `HarmonicLowerSixCubicDebtCoefficient1330Physical`
+root import is unchanged; no global root-import uniqueness is claimed.
+Safe-build skill: one worker, explicit 20 GiB, separate process/swap
+preflights; swap stable at 12814.31 MiB. Corrected local notation and
+factored abstract interval arithmetic/direct bound proofs to avoid
+expanding huge computed certificate projections. No raised options or
+limits; no full build/audit/guard/progress run.
+Logs and SHA-256:
+`/tmp/ym-original-normalized-channel-reconstruction.log`
+(`ff4cbf3f6f2e97423bf220955742dd2abe5cfc8ef5cae586be5b06a156155f8a`),
+`/tmp/ym-thermodynamic-translated-channel-packet.log`
+(`3643980f21a4cc3790c8ad07548a702625da9bfc3d2485e3992ff809b115ab2c`).
+
+**Previous increment (ORIGINAL coefficients separate the actual completed states):**
 PROGRESS after 4634773. At every finite slab and 0<w<1, equality of all
 original intrinsic channel coefficients is now equivalent to equality of
 states in the EXISTING original completion. No new carrier, transfer
