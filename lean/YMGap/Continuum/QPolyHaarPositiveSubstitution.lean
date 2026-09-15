@@ -51,6 +51,51 @@ def certificate {blocks : Nat} {x : RatPoly} (X : Certificate blocks x) :
       have hh := h
       exact .add (.constant blocks c (of_decide_eq_true hh.1)) (X.mul (certificate X p hh.2))
 
+private theorem neg_constant (c : Q') :
+    RatPolyCoeffEqv (polyNeg (polySmul c polyOne)) (polySmul (-c) polyOne) := by
+  intro weight
+  change (-(c * 1)) * weight [] + 0 ≈ ((-c) * 1) * weight [] + 0
+  exact Q'.add_eqv_congr'
+    (Q'.mul_eqv_congr_right _ _ _ (Q'.eqv_symm (Q'.neg_mul_eqv c 1)))
+    (Q'.eqv_refl 0)
+
+/-- Retain any floor below the constant coefficient as an actual square
+certificate, not merely an integrated inequality. Horner's positive tail
+may share all variables with the certified argument. No sign condition on
+the requested floor is needed. -/
+def certificate_sub_constant {blocks : Nat} {x : RatPoly} (X : Certificate blocks x) :
+    (p : Poly) → nonnegCoeffs p → (c : Q') → c ≤ QPoly.eval p 0 →
+      Certificate blocks (polyAdd (subst x p) (polyNeg (polySmul c polyOne)))
+  | [], _, c, hc => by
+      have hc0 : c ≤ (0 : Q') := hc
+      have hnonnegative : (0 : Q') ≤ -c := by
+        have h := Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.add_neg_self_eqv c))
+          (Q'.add_le_add_right c 0 (-c) hc0)
+        simpa only [Q'.zero_add'] using h
+      exact .ofCoeff (neg_constant c) (.constant blocks (-c) hnonnegative)
+  | a :: p, h, c, hc => by
+      unfold nonnegCoeffs at h
+      rw [nonnegCoeffsB, Bool.and_eq_true] at h
+      have he : QPoly.eval (a :: p) 0 ≈ a :=
+        Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left _ _ _ (Q'.zero_mul_eqv _))
+          (QPoly.q_add_zero_eqv a)
+      have hac : c ≤ a := Q'.le_trans' _ _ _ hc (Q'.le_of_eqv he)
+      have hnonnegative : (0 : Q') ≤ a + -c :=
+        Q'.le_trans' _ _ _ (Q'.ge_of_eqv (Q'.add_neg_self_eqv c))
+          (Q'.add_le_add_right c a (-c) hac)
+      let tail := polyMul x (subst x p)
+      have hswap : RatPolyCoeffEqv
+          (polyAdd (polyAdd (polySmul a polyOne) tail) (polySmul (-c) polyOne))
+          (polyAdd (polyAdd (polySmul a polyOne) (polySmul (-c) polyOne)) tail) :=
+        (RatPolyCoeffEqv.add_assoc _ _ _).trans
+          (((RatPolyCoeffEqv.refl _).add (RatPolyCoeffEqv.add_comm _ _)).trans
+            (RatPolyCoeffEqv.add_assoc _ _ _).symm)
+      exact .ofCoeff
+        (((RatPolyCoeffEqv.refl _).add (neg_constant c)).trans
+          (hswap.trans ((RatPolyCoeffEqv.add_smul_same a (-c) polyOne).add
+            (RatPolyCoeffEqv.refl tail))))
+        (.add (.constant blocks (a + -c) hnonnegative) (X.mul (certificate X p h.2)))
+
 /-- Normalization of the same finite quaternion Haar functional. -/
 theorem haar_one (blocks : Nat) : quaternionHaar blocks polyOne ≈ (1 : Q') := by
   change (1 : Q') * quaternionHaarMono blocks [] + 0 ≈ 1
@@ -105,6 +150,7 @@ end YMGap.Continuum.QPolyHaarPositiveSubstitution
 #print axioms YMGap.Continuum.QPolyHaarPositiveSubstitution.subst
 #print axioms YMGap.Continuum.QPolyHaarPositiveSubstitution.eval_subst
 #print axioms YMGap.Continuum.QPolyHaarPositiveSubstitution.certificate
+#print axioms YMGap.Continuum.QPolyHaarPositiveSubstitution.certificate_sub_constant
 #print axioms YMGap.Continuum.QPolyHaarPositiveSubstitution.haar_one
 #print axioms YMGap.Continuum.QPolyHaarPositiveSubstitution.eval_zero_le_haar
 #print axioms YMGap.Continuum.QPolyHaarPositiveSubstitution.eval_zero_mul_haar_le

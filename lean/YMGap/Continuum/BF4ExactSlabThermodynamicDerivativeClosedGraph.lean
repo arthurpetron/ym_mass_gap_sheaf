@@ -13,9 +13,11 @@ The graph is single-valued by the original T2 injectivity, and its dense
 domain already contains the old T2 range with explicit approximations.
 No inverse, quotient representative selection or replacement Hilbert
 carrier is introduced. Row limits retain the original data/moduli.
+Every graph image is orthogonal to the constructed unit vacuum. The
+centered zero-image kernel is trivial by the same form gap and definiteness.
 
-Generation/differentiation on the entire graph, the canonical physical
-Hamiltonian interface and spectral interpretation, physical time/spacing/
+Whole-graph differentiation is proved downstream in GraphRealDerivative.
+The canonical physical Hamiltonian interface and spectral interpretation, physical time/spacing/
 beta(a), continuum QFT and all gauge groups remain open. This is the
 original real completion at SU(2), nome 1/1024 and fixed spacing, with
 T2-time units; it is not a continuum or Clay mass-gap theorem.
@@ -33,6 +35,7 @@ open YMGap.Constructive.HalfPow (half)
 open YMGap.Continuum.BF4ExactSlabThermodynamicSeminormCompletion
 open YMGap.Continuum.BF4ExactSlabThermodynamicCompletionLinear
 open YMGap.Continuum.BF4ExactSlabThermodynamicCompletedInner
+open YMGap.Continuum.BF4ExactSlabThermodynamicCompletedPosdef (completedInner_posdef)
 open YMGap.Continuum.BF4ExactSlabThermodynamicCompletedBilinear
 open YMGap.Continuum.BF4ExactSlabThermodynamicCompletedGeometry
 open YMGap.Continuum.BF4ExactSlabThermodynamicCompletedRealScalar
@@ -44,6 +47,7 @@ open YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialRowAction (operatorRows 
 open YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialOperator (operator_constant)
 open YMGap.Continuum.BF4ExactSlabThermodynamicPolynomialFunctional (rc_add_zero)
 open YMGap.Continuum.BF4ExactSlabThermodynamicResolvent (defect)
+open YMGap.Continuum.BF4ExactSlabThermodynamicResolventPartial (scale_congr)
 open YMGap.Continuum.BF4ExactSlabThermodynamicTimeDefectMoments (defectPower)
 open YMGap.Continuum.BF4ExactSlabThermodynamicRangeApproximation (partialPreimage partialPreimageCauchy partialPreimageCauchy_pin)
 open YMGap.Continuum.BF4ExactSlabThermodynamicDyadicDerivative (derivativeAction)
@@ -135,6 +139,13 @@ theorem GraphPoint.symmetric (p q : GraphPoint) : B p.image q.state=B p.state q.
   rw [imageRows_limit,stateRows_limit,rowLimit_constant,rowLimit_constant] at h
   exact h
 
+/-- The actual graph image is orthogonal to the original unit vacuum. -/
+theorem GraphPoint.image_orthogonal_unit (p : GraphPoint) : B p.image completedUnit=RCzero := by
+  have h := GraphPoint.symmetric p vacuum
+  change B p.image completedUnit=B p.state completedZero at h
+  rw [completedInner_zero_right] at h
+  exact h
+
 /-- Equality with its REAL-PAIRING adjoint graph, on the same original completion. -/
 theorem selfAdjoint_graph_iff (u v : Completion) :
     (∀ p : GraphPoint,B v p.state=B u p.image) ↔ derivativeAction u=twoStepTransfer v := by
@@ -196,6 +207,19 @@ theorem GraphPoint.form_gap (p : GraphPoint) (hc : B p.state completedUnit=RCzer
   rw [operator_rowLimit,operator_constant,stateRows_limit,imageRows_limit,completedInner_smul_left] at h
   exact h
 
+/-- No nonzero centered state in the ORIGINAL graph has zero image.
+This is a graph-kernel statement in T2-time units, not a physical spectral theorem. -/
+theorem GraphPoint.centered_kernel_trivial (p : GraphPoint)
+    (hc : B p.state completedUnit=RCzero) (hv : p.image=completedZero) :
+    p.state=completedZero := by
+  apply (completedInner_posdef p.state).mp
+  have hg := GraphPoint.form_gap p hc
+  rw [hv,completedInner_zero_left] at hg
+  have h := RCscale_mono (by decide : (0 : Q')≤2) hg
+  rw [RCscale_RCscale,scale_congr (by decide : Q'.eqv ((2 : Q')*half) 1),
+    RCscale_one,RCscale_RCzero] at h
+  exact RCle_antisymm h (completedInner_nonnegative p.state)
+
 end YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph
 
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph.GraphPoint.add
@@ -207,8 +231,10 @@ end YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph.graph_closed
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph.graphRowLimit
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph.GraphPoint.symmetric
+#print axioms YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph.GraphPoint.image_orthogonal_unit
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph.selfAdjoint_graph_iff
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph.GraphPoint.nonnegative
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph.partialPreimage_orthogonal
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph.approximant_orthogonal
 #print axioms YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph.GraphPoint.form_gap
+#print axioms YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph.GraphPoint.centered_kernel_trivial

@@ -119,7 +119,99 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED arbitrary-nome dressed OS cutoff limit; OPEN changing-action and physical-scale control):**
+**Latest mathematical increment (CLOSED retained-head relative truncation, late-cutoff normalization and centered graph kernel; OPEN original spatial decay/physical scale):**
+PROGRESS after `5774f6f`. Three user-authorized parallel tasks ran beside
+the retained-head proof; all Lean checks remained serialized. They supplied
+an actual reusable constant-term certificate, a source-backed volume-consumer
+audit followed by eventual-cutoff transport, and a physical-interface audit
+followed by a fixed-action graph-kernel theorem. No parallel scorecard.
+
+`QPolyHaarPositiveSubstitution.certificate_sub_constant` retains a floor
+below a nonnegative-coefficient polynomial's constant term as an actual
+square certificate. `BF4ExactSlabJacobiDeficitInterval.faceDeficitInterval`
+splits the OLD weighted/unweighted deficit into a finite band and high-spin
+tail, controlling both with sharp character intervals. `deficitCutoff`
+depends only on w/epsilon, not extent, face or background size. This is
+Haar order under arbitrary positive insertions, not a scalar positivity
+inference or a syntactic coefficient bound amplified by the background.
+
+`BF4ExactSlabRetainedHeatHeadComparison.faceHead_floorCertificate`
+combines that deficit certificate with the actual weighted-Jacobi pin,
+retaining `headFloor w` = half the old strict heat floor in every late
+UNWEIGHTED original prefix. `headProduct_certificate` constructs positive
+certificates for any finite collection of those shared-link factors.
+`relativePrefix_weighted_bound` proves, for positive background p,
+|H(p*(H_(K+L)-H_K))| <= eta*H(p*H_K), whenever K>=`relativeCutoff w eta`.
+`originalBackground_relative` supplies p as the ACTUAL original heat
+product, discharging its positivity premise. The cutoff depends on w/eta,
+not slab size, placement, background face count or L. No near-unit head,
+whole-volume reciprocal estimate or independent-face substitution.
+
+Two independent consequences/consumers are now checked:
+
+- `BF4ExactSlabBoundaryLimitNormalization` has four `*_eventually`
+  theorems. They transport the SAME denominator-cleared boundary estimate
+  after an explicit K0 through the original cutoff limits and partition
+  cancellation. No low-cutoff positivity or estimate is required. The
+  finite spatial estimate itself remains an explicit unsupplied input.
+- `BF4ExactSlabThermodynamicDerivativeClosedGraph` proves full-graph
+  `GraphPoint.image_orthogonal_unit` and `GraphPoint.centered_kernel_trivial`.
+  The original form gap and definiteness exclude a nonzero centered state
+  with zero graph image. This is at fixed nome 1/1024 and T2-time units,
+  not a physical spectral theorem or complex/continuum reconstruction.
+
+NEXT CAUSAL FRONTIER: the truncation branch has its relative estimate;
+attack the ORIGINAL spatial estimate. The exact consumer is
+`expectationDifference_bound_of_prefix_eventually`: after a computed K0,
+bound the actual `boundaryNumerator` by b times the SAME full/interior
+partition product, where b(w,e,margin) tends to zero with the INNER margin
+with a supplied modulus, uniformly in outer padding. K0 may depend on
+the finite geometry; do not impose volume-uniform cutoff selection when
+the subsequent cutoff-limit theorem does not require it. A geometric
+rate is one possible sufficient bound, not an additional requirement.
+If using the retained-head route, prove genuine head spatial control
+and its stability under the actual tail; relative truncation alone is
+not either theorem. The old `mixedCoefficient_selective_pin` contains
+H_K-1, so replacing its full-interaction delta by eta changes the object
+and is invalid. Existing retained Harnack, conditional Gram windows and
+cutoff-one AF matching do not supply this original boundary estimate in
+the bounded source audit. See the updated T2 audit for exact declarations.
+
+OPEN: that spatial estimate and coupling/physical-scale family;
+thermodynamic decay/moduli along it, AF/spacing pins, physical time and
+unbounded spectrum, original-carrier complexification/canonical QFT pins,
+continuum QFT and every required group/Clay. The fixed-nome graph and the
+general local heat floor do not remove those obligations. No canonical
+field, analytic premise, axiom, literal hole or legacy flag changed.
+
+Verification: 28 new public gates plus all 27 legacy gates in the five
+changed modules: 55 total, eight empty, two propext-only, forty-five
+{propext, Quot.sound}. Eight focused safe one-worker/20 GiB checks of
+these files (two interval, two retained-head, two constant-term, one
+graph and one normalization), plus one focused Favard dependency refresh.
+Repairs were a bounded-sum rewrite, missing namespace, notation syntax
+and exact-equality/field notation; no statement weakening or raised limits.
+The inherited Favard artifact predated its unchanged source; refreshed
+that one dependency and rechecked its direct edited consumer. Exact
+public/gate/log name matching, clean logs and fresh own/direct artifacts.
+No full-tree run; two additive root imports, root not compiled. Separate
+preflights; swap decreased from 11605.25 to 11581.25 MiB. CI manual-only.
+Logs and SHA-256:
+
+- `/tmp/ym-positive-substitution-floor.log`:
+  `e5f29dc48eaf2469c7cd53367b1990f90b2c986c25a1afddf159539b8dfae60f`.
+- `/tmp/ym-jacobi-deficit-interval.log`:
+  `a4ac004bbc2893445a44961dfc0a9f9edae4e3d368e7ea742cb048df72d0b8b8`.
+- `/tmp/ym-retained-heat-head-comparison.log`:
+  `af32867dc02d0299616afccaed7ef73d29aaf297e35c3a9fbf8c5640fa511e67`.
+- `/tmp/ym-closed-graph-centered-kernel.log`:
+  `2fe5bc68a51e35257159eb5d5d705e1206d92ccc1690197971e49ac017a4125c`.
+- `/tmp/ym-boundary-eventual-normalization.log`:
+  `f19efe0139c01674a928a2905ad9c2d64c9cbfd97387f47e2f94ee6194a6a4c4`.
+- `/tmp/ym-favard-dependency-refresh.log` (15 existing axiom gates, all allowed):
+  `0e0baa320e182d234ce93c34bc0f51246b8f0b271e964681409127a56bf78af8`.
+
+**Previous mathematical increment (CLOSED arbitrary-nome dressed OS cutoff limit; retained-head comparison subsequently supplied above):**
 PROGRESS after `a7f434e`. Additive extensions of the EXISTING
 `BF4ExactSlabLocalHeatCutoffNorm` and
 `BF4ExactSlabThermodynamicLocalHeatState`; all legacy public signatures

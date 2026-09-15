@@ -172,6 +172,75 @@ theorem expectationDifference_bound_of_prefix (p : RatPoly)
     Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_eqv_congr
       (boundaryNumerator_prefix w half padding K ((slabEmbedding half padding).polynomial_supported p) hq he))) (h K))
 
+/-- A cleared estimate after an explicit cutoff reaches the SAME original
+limits. The streams and their constructed Cauchy moduli are unchanged; no
+positivity or estimate is required at the discarded initial cutoffs. -/
+theorem boundaryResponse_bound_eventually (p : RatPoly) (b : Q') (K0 : Nat)
+    (h : ∀ K, K0 ≤ K → Q'.abs (boundaryNumerator w half padding p K) ≤
+      b * (fullMoment w K half padding polyOne * interiorSequence w half padding polyOne K)) :
+    leEv (CReal.abs (D p)) (CReal.mul (ofQ' b) (CReal.mul Zl Zs)) := by
+  let d := streamReal _ (boundaryNumeratorCauchy w hw0 hw1 half padding p)
+  let f := streamReal _ (numeratorCauchy w hw0 hw1
+    (boundaryCompleteSlabLinks (centralExtent (half+padding))).length
+    (centralExtent (half+padding)) (slabPhysicalFaceEdges (centralExtent (half+padding))) polyOne)
+  let i := streamReal _ (numeratorCauchy w hw0 hw1
+    (boundaryCompleteSlabLinks (centralExtent (half+padding))).length
+    (centralExtent (half+padding)) (interiorIds half padding) polyOne)
+  have hd : Equiv d (D p) := streamReal_eq_limit _ _
+  have hf : Equiv f Zl := (streamReal_eq_limit _ _).trans (numeratorLimit_one w hw0 hw1 _ _ _)
+  have hi : Equiv i Zs := (streamReal_eq_limit _ _).trans (interiorPartition_small w hw0 hw1 half padding)
+  have hraw : leEv (CReal.abs d) (CReal.mul (ofQ' b) (CReal.mul f i)) := by
+    intro epsilon he
+    exact ⟨K0, fun K hK => Q'.le_trans' _ _ _ (h K hK)
+      (Q'.add_le_self_of_nonneg _ _ (Q'.le_of_lt he))⟩
+  exact (leEv_congr (abs_equiv_congr hd)
+    (Pivot2.mul_congr_right ((Pivot2.mul_congr_left hf).trans (Pivot2.mul_congr_right hi)))).mp hraw
+
+/-- Eventual-cutoff transport cancels the two ORIGINAL partition factors,
+using exactly the original reciprocals and their existing moduli. -/
+theorem normalizedBoundaryResponse_bound_eventually (p : RatPoly) (b : Q') (K0 : Nat)
+    (h : ∀ K, K0 ≤ K → Q'.abs (boundaryNumerator w half padding p K) ≤
+      b * (fullMoment w K half padding polyOne * interiorSequence w half padding polyOne K)) :
+    leEv (CReal.abs (normalizedBoundaryResponse w hw0 hw1 half padding p)) (ofQ' b) := by
+  have hl := reciprocal_nonnegative w hw0 hw1 (half+padding)
+  have hs := reciprocal_nonnegative w hw0 hw1 half
+  have habs := leEv_trans
+    (abs_mul_right (a := CReal.mul (D p) Ll) (fun n => Q'.le_of_lt (actionReciprocal_approx_pos w hw0 hw1 half n)))
+    (mul_right_mono hs (abs_mul_right (a := D p)
+      (fun n => Q'.le_of_lt (actionReciprocal_approx_pos w hw0 hw1 (half+padding) n))))
+  exact leEv_trans habs (leEv_trans
+    (mul_right_mono hs (mul_right_mono hl
+      (boundaryResponse_bound_eventually w hw0 hw1 half padding p b K0 h)))
+    (leEv_of_equiv (normalizedPartition_cancel w hw0 hw1 half padding b)))
+
+/-- The eventual finite bound controls the existing normalized inter-slab
+expectation difference. This transports the supplied bound, not spatial decay. -/
+theorem expectationDifference_bound_eventually (p : RatPoly)
+    (hp : SupportedQuaternionBlocks (boundaryCompleteSlabLinks (centralExtent half)).length p)
+    (b : Q') (K0 : Nat)
+    (h : ∀ K, K0 ≤ K →
+      Q'.abs (boundaryNumerator w half padding ((slabEmbedding half padding).polynomial p) K) ≤
+        b * (fullMoment w K half padding polyOne * interiorSequence w half padding polyOne K)) :
+    leEv (CReal.abs (expectationDifference w hw0 hw1 half padding p)) (ofQ' b) :=
+  leEv_trans (leEv_of_equiv (abs_equiv_congr (expectationDifference_formula w hw0 hw1 half padding p hp)))
+    (normalizedBoundaryResponse_bound_eventually w hw0 hw1 half padding _ b K0 h)
+
+/-- The same original-observable prefix pin may be used with a cleared bound
+only beyond an explicit cutoff. No new action or normalization is introduced. -/
+theorem expectationDifference_bound_of_prefix_eventually (p : RatPoly)
+    (hp : SupportedQuaternionBlocks (boundaryCompleteSlabLinks (centralExtent half)).length p)
+    (q : RatPoly)
+    (hq : SupportedQuaternionBlocks (boundaryCompleteSlabLinks (centralExtent (half+padding))).length q)
+    (he : QuaternionPrefixPolynomialEqv (boundaryCompleteSlabLinks (centralExtent (half+padding))).length
+      ((slabEmbedding half padding).polynomial p) q) (b : Q') (K0 : Nat)
+    (h : ∀ K, K0 ≤ K → Q'.abs (boundaryNumerator w half padding q K) ≤
+      b * (fullMoment w K half padding polyOne * interiorSequence w half padding polyOne K)) :
+    leEv (CReal.abs (expectationDifference w hw0 hw1 half padding p)) (ofQ' b) :=
+  expectationDifference_bound_eventually w hw0 hw1 half padding p hp b K0 (fun K hK =>
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.abs_eqv_congr
+      (boundaryNumerator_prefix w half padding K ((slabEmbedding half padding).polynomial_supported p) hq he)))
+      (h K hK))
+
 end YMGap.Continuum.BF4ExactSlabBoundaryLimitNormalization
 
 #print axioms YMGap.Continuum.BF4ExactSlabBoundaryLimitNormalization.boundaryResponse_bound
@@ -181,3 +250,7 @@ end YMGap.Continuum.BF4ExactSlabBoundaryLimitNormalization
 #print axioms YMGap.Continuum.BF4ExactSlabBoundaryLimitNormalization.expectationDifference_bound
 #print axioms YMGap.Continuum.BF4ExactSlabBoundaryLimitNormalization.boundaryNumerator_prefix
 #print axioms YMGap.Continuum.BF4ExactSlabBoundaryLimitNormalization.expectationDifference_bound_of_prefix
+#print axioms YMGap.Continuum.BF4ExactSlabBoundaryLimitNormalization.boundaryResponse_bound_eventually
+#print axioms YMGap.Continuum.BF4ExactSlabBoundaryLimitNormalization.normalizedBoundaryResponse_bound_eventually
+#print axioms YMGap.Continuum.BF4ExactSlabBoundaryLimitNormalization.expectationDifference_bound_eventually
+#print axioms YMGap.Continuum.BF4ExactSlabBoundaryLimitNormalization.expectationDifference_bound_of_prefix_eventually

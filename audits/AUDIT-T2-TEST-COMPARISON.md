@@ -1,5 +1,107 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Retained-head comparison and parallel downstream checks (2026-09-15)
+
+Follow-up after `5774f6f`. This supplies the strict unweighted-prefix
+floor left open below. Three user-authorized parallel tasks contributed
+constant-term certification, volume-consumer transport, and a real-graph
+kernel theorem; the parent serialized all Lean checks.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Actual constant-term floor certificate | `certificate_sub_constant`, `lean/YMGap/Continuum/QPolyHaarPositiveSubstitution.lean:66` | Nonnegative coefficients and c <= p(0); c need not be nonnegative. |
+| Original Jacobi deficit in Haar order | `faceDeficitInterval`, `lean/YMGap/Continuum/BF4ExactSlabJacobiDeficitInterval.lean:87`; `faceDeficit_weighted_bound`, same module :117 | Every rational 0<w<1, original deficit, arbitrary square-certified shared-link background. |
+| Computed cutoff | `bandSize`, `lean/YMGap/Continuum/BF4ExactSlabJacobiDeficitInterval.lean:49`; `weightTolerance`, same module :51; `deficitCutoff`, same module :69 | Depends on w/epsilon, not placement, extent or background size. Finite-band weight convergence plus sharp high-spin tail. |
+| Strict original unweighted-head floor | `weightedFace_floorCertificate`, `lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean:58`; `faceHead_floorCertificate`, same module :71; `faceHead_weighted_floor`, same module :132 | Half the Jacobi strict floor, with explicit w dependence. Not a whole-volume partition reciprocal. |
+| Constructed original backgrounds | `headProduct_certificate`, `lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean:101` | Actual finite heat-product factors at sufficiently late common cutoff, including shared links. |
+| Relative late-prefix change | `relativeCutoff`, `lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean:139`; `prefixDifference_pin`, same module :156; `relativePrefix_weighted_bound`, same module :163; `originalBackground_relative`, same module :173 | Original later-minus-retained prefix. Relative tolerance eta against the SAME background times retained head; cutoff depends only on w/eta, not background face count. |
+| Eventual finite bound reaches original limits | `boundaryResponse_bound_eventually`, `lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean:178`; `normalizedBoundaryResponse_bound_eventually`, same module :201; `expectationDifference_bound_eventually`, same module :218; `expectationDifference_bound_of_prefix_eventually`, same module :230 | Explicit K0; original streams, embeddings and both original partition factors. Conditional on the finite estimate, not a spatial-decay theorem. |
+| Fixed-action real graph consequences | `GraphPoint.image_orthogonal_unit`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean:143`; `GraphPoint.centered_kernel_trivial`, same module :212 | Original real completion, fixed nome 1/1024, T2-time units. No centered zero-image state; not physical spectrum identification. |
+
+The relative truncation branch is closed at its intended local consumer.
+It does not control the retained head's spatial interaction. No
+coupling-uniform decay, changing-action thermodynamic family, physical
+mass calibration, continuum QFT or all-group Clay closure follows.
+
+### Spatial consumer: what remains, and what cannot be substituted
+
+The source-backed next input is the premise of
+`expectationDifference_bound_of_prefix_eventually`,
+`lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean:230`:
+for every K >= an explicit K0, bound the ORIGINAL boundary numerator by
+b times the ORIGINAL full and interior partition factors. For a
+thermodynamic application, b must tend to zero with inner margin with
+an explicit modulus, uniformly in outer padding. This spatial estimate
+is not supplied by the new declarations. K0 may depend on the finite
+geometry: this consumer does not require a volume-uniform cutoff.
+
+The existing spatial chain expands the whole interaction H_K-1:
+
+| Existing edge | Declaration and source | Actual premise/factor |
+| --- | --- | --- |
+| Unit-background comparison | `faceRemainderInterval`, `lean/YMGap/Continuum/BF4ExactSlabSmallNomeHaarComparison.lean:54`; `originalBackground_comparison`, same module :160 | Full positive-label remainder and the old heat-ratio/smallness guards. |
+| Exact inserted coefficient | `mixedCoefficient_selective_pin`, `lean/YMGap/Continuum/BF4ExactSlabMixedCoefficientBound.lean:79`; `mixedCoefficient_bound`, same module :92 | `faceHeatTail ... 1 K`, not a late omitted tail. |
+| Shared partition cancellation | `mixedFamily_cleared_bound`, `lean/YMGap/Continuum/BF4ExactSlabMixedRelativePartition.lean:126` | Original spectator resummation and mixed partition. |
+| Collar-adjusted rate | `inverseFaceFloor`, `lean/YMGap/Continuum/BF4ExactSlabCollarAdjustedRate.lean:41`; `adjustedCoreRate`, same module :47; `normalizedCoreWeight_geometric_bound`, same module :119 | Reciprocal of 1-delta, and pairedHeatRate times that reciprocal to power 48; requires delta<1. |
+| Summable core count and expectation difference | `geometricCoreSum_tail_bound`, `lean/YMGap/Continuum/BF4ExactSlabUniformCoreBudget.lean:47`; `expressionMean_difference_bound`, `lean/YMGap/Continuum/BF4ExactSlabExpressionExpectationDecay.lean:114` | Entropy-adjusted rate <1, plus the old heat-ratio and delta guards. |
+
+Consequently, the new late-tail eta cannot replace the full-interaction
+delta in those statements. Retaining the head leaves its spatial
+estimate and stability under the tail as separate open inputs.
+
+The inspected retained/blocking interfaces do not supply this estimate:
+`completedPointwiseRetainedHarnack`,
+`lean/YMGap/Continuum/BF4CompletedSU2PointwiseRetainedHarnack.lean:143`,
+concerns a 23-factor product with each nome <=1/2;
+`retainedSU2Quadratic_reference_sandwich_of_boundaryWeightComparison`,
+`lean/YMGap/Continuum/BF4RetainedGramReferenceOrder.lean:415`, consumes
+boundary-weight comparisons; `CubicMarginLaw`,
+`lean/YMGap/Continuum/BF4MatchedPhysicalAFBridge.lean:175`, is supplied
+recurrence data. NOT FOUND: a retained-head-to-original-boundary spatial
+decay bridge in these named modules and the six spatial-chain modules
+listed in the table. This is a bounded source search, not a global
+absence theorem.
+
+### Physical-interface review: real graph is not yet the physical spectrum
+
+The original graph has genuine real adjoint-graph equality:
+`selfAdjoint_graph_iff`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean:150`.
+Its derivative and time transport are already constructed:
+`realTaylorCertificate`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphRealDerivative.lean:116`;
+`derivativeCertificate`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeDomain.lean:128`;
+`graphTransportData`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean:102`.
+The new centered-kernel result uses that graph's existing form bound,
+`GraphPoint.form_gap`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean:194`.
+
+In contrast, `SelfAdjointHamiltonianResidual`,
+`lean/YMGap/Continuum/GNSHamiltonian.lean:285`, contains a total map and
+pairing symmetry only: no unbounded domain or generation equation.
+`SpectrumInfResidual`, `lean/YMGap/Continuum/GNSHamiltonian.lean:296`,
+contains a real scalar and agreement with the logarithmic gap, but no
+operator-spectrum predicate. Inhabiting those fields alone is not
+physical Hamiltonian/spectrum closure.
+
+NOT FOUND in the four graph modules just cited, `GNSHamiltonian.lean`,
+and `lean/YMGap/Continuum/CanonicalOSRoot.lean`: identification of this
+fixed-action real graph with a physically calibrated changing-action
+complex Hamiltonian on the canonical OS carrier. The distinct canonical
+requirements are `ReferenceWeightStageFamily`,
+`lean/YMGap/Continuum/CanonicalOSRoot.lean:84`,
+`CanonicalSchwingerLimit`, same module :121, `PositiveTimeOSRoot`, same
+module :268, and `completedTransfer`, same module :432. This bounded
+review discharges none of those physical/continuum obligations.
+
+Verification: 28 new plus 27 legacy exact public gates passed within
+{propext, Quot.sound}; eight focused changed-module checks plus one
+inherited Favard artifact refresh. One worker/20 GiB, no raised limits,
+no full-tree run. Two root imports added; root not compiled. Exact gate
+matching, clean logs, own/direct artifact checks and hashes in work_plan.
+
 ## Arbitrary-nome heat insertions in the ORIGINAL reflected completion (2026-09-15)
 
 Follow-up after `a7f434e`. These are additive extensions of two old

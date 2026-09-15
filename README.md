@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [arbitrary-nome heat insertions converge in the original reflected OS norm](lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean).
+**Latest result:** [late original heat prefixes have a strict Haar-order floor and a relative tail bound](lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean).
+For every rational `0<w<1`, the proof retains the full interacting head
+and controls its omitted tail against the **same** positive background.
+The computed cutoff depends on `w` and the relative tolerance, not the
+slab, face placement, background size or tail length. Original shared-link
+heat-product backgrounds receive actual positivity certificates.
+
+Three parallel tasks also delivered a reusable constant-term certificate,
+[late-cutoff normalization transport](lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean),
+and [a trivial centered zero-image kernel for the original real generator graph](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeClosedGraph.lean).
+All 55 public declarations in the five changed modules passed focused
+constructive axiom checks; compiler checks were serialized.
+
+**The remaining issue is spatial decay of the retained interaction.**
+A small truncation tail is not a small full interaction. The next target
+is the original denominator-cleared inter-slab estimate, with a bound
+that tends to zero with separation. The thermodynamic action is still
+fixed at nome `1/1024`; physical scaling, continuum QFT and all required
+groups remain open. CI remains manual-only.
+
+**Previous result:** [arbitrary-nome heat insertions converge in the original reflected OS norm](lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean).
 For every rational inserted `0<w<1`, a computed cutoff controls the
 existing heat-dressed observable, uniformly over bulk padding and allowed
 lag, under any independent finite-volume action nome `0<v<1`.
@@ -31,7 +51,7 @@ where its old guard holds. No new carrier or replacement observable.
 
 The thermodynamic action is **still fixed at nome `1/1024`**. This removes
 an inserted-cutoff restriction, not the changing-action or physical-scale
-obstruction. Next is a background-relative retained-head/tail comparison;
+obstruction. The background-relative retained-head/tail comparison is now supplied above;
 low-spin decay, a compatible scaling family, continuum QFT and all required
 groups remain open. Seventeen new public gates and all 22 existing gates
 in the two edited modules passed within the constructive axiom gate in

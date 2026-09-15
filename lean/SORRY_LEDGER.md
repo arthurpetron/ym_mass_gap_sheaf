@@ -13,7 +13,50 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED arbitrary-nome dressed OS cutoff limit; OPEN changing-action and physical-scale control (2026-09-15)
+## CLOSED retained-head relative truncation and parallel consumers; OPEN spatial decay and physical scale (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/BF4ExactSlabJacobiDeficitInterval.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean`;
+  additive extensions of `QPolyHaarPositiveSubstitution.lean`,
+  `BF4ExactSlabBoundaryLimitNormalization.lean`, and
+  `BF4ExactSlabThermodynamicDerivativeClosedGraph.lean` in the same directory.
+- **actual floor**: `certificate_sub_constant` supplies a square certificate
+  below a nonnegative-coefficient polynomial's constant term. The original
+  Jacobi deficit gets a sharp Haar Interval, with a nome/tolerance cutoff
+  independent of placement/background size. The exact old weighted pin
+  then gives `faceHead_floorCertificate`: a strict floor under every late
+  UNWEIGHTED original heat prefix. `headProduct_certificate` certifies
+  actual finite shared-link original backgrounds; no positivity premise
+  is silently inherited from a different Jacobi polynomial.
+- **actual relative comparison**: `relativePrefix_weighted_bound` controls
+  the literal later-minus-retained prefix relative to the SAME background
+  times retained head. `originalBackground_relative` constructs the
+  background certificate. Cutoff depends only on w/eta, not the number
+  of surrounding faces; the positive floor depends on w. No claim of
+  coupling-uniform decay or control of the retained interaction.
+- **parallel consumers**: the four `*_eventually` normalization theorems
+  consume the original cleared estimate after explicit K0 and preserve
+  both original partition factors until exact cancellation. The spatial
+  estimate remains unsupplied. On the old real generator graph,
+  `GraphPoint.image_orthogonal_unit` and `centered_kernel_trivial` give
+  vacuum orthogonality and no centered zero-image state at fixed action.
+  They do not identify an unbounded physical operator spectrum.
+- **next obligation**: construct an original denominator-cleared boundary
+  estimate with error tending to zero in inner margin, uniformly in outer
+  padding. The cutoff threshold may depend on the finite geometry. The
+  old full-interaction expansion uses H_K-1, not the late tail, so its
+  interaction constant cannot be replaced by eta. Retained-head spatial
+  control and tail stability remain separate analytic work. Scaling family,
+  physical time/spectrum, complex/canonical QFT pins, continuum and every
+  required group/Clay remain open. No canonical field, analytic premise,
+  axiom, literal hole or legacy flag changed.
+- **verification**: 28 new plus 27 legacy public gates within the allowed
+  gate. Eight focused one-worker/20 GiB checks plus one inherited Favard
+  artifact refresh; exact matching, clean logs and fresh own/direct
+  artifacts. Proof-development fixes only; no raised limits or full-tree
+  run. Two root imports, root not compiled. CI manual-only; hashes in work_plan.
+
+## Previous CLOSED arbitrary-nome dressed OS cutoff limit; retained-head consumer supplied above (2026-09-15)
 
 - **files**: additive extensions of
   `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean` and
