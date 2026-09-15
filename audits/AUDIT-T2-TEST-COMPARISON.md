@@ -564,3 +564,57 @@ preflights; swap stayed 12389.81 MiB. One additive root import, not compiled.
 No full build/audit/guard/progress run. Log
 `/tmp/ym-bulk-scalar-thermodynamic-test.log`, SHA-256
 `f986f380298bce830ec5f549fb23373d8232cf30283cac5d726b447945a05088`.
+
+## Implemented original quotient descent and completed scalar test (2026-09-15)
+
+Implementation after `41c057e`; the earlier dated findings are preserved.
+The existing scalar test now acts on the existing thermodynamic completion.
+
+| Declaration | Source | Actual statement |
+| --- | --- | --- |
+| `finite_lower_congr` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarQuotientTest.lean:43` | Equality of lower original Haar-carrier observables preserves the finite scalar test, by existing form congruence and OS-null descent. No new upper reflection recoding. |
+| `meanLimit_same` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarQuotientTest.lean:78` | Common-volume comparison makes the test limit independent of the existing state-independent presentation equivalence. |
+| `observableTest` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarQuotientTest.lean:95` | Constructed functional on the EXISTING semantic observable quotient. |
+| `observableTest_null` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarQuotientTest.lean:168` | Original thermodynamic OS-null differences have equal test values. |
+| `osTest` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarQuotientTest.lean:179` | Constructed functional on the EXISTING thermodynamic OS quotient. |
+| `testTolerance` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarQuotientTest.lean:195` | The explicit squared-distance budget is epsilon^2/2. |
+| `presentedTest_close` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarQuotientTest.lean:200` | That original-distance budget gives the two signed scalar bounds at epsilon. |
+| `testRate` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean:48` | Computed antitone closure of the supplied original Cauchy modulus at the scalar tolerance. |
+| `representativeTest` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean:61` | Actual diagonal CReal limit of the previously constructed test values on a supplied original Cauchy sequence. |
+| `representativeTestCauchy` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean:78` | Numerical Cauchy data for that particular representative. |
+| `representativeTest_welldef` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean:91` | Explicit original Cauchy closeness gives equal scalar limits. |
+| `completedTest` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean:106` | A scalar functional on the EXISTING original thermodynamic completion, without representative selection. |
+| `completedTestRepresentative` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean:113` | Supplied Cauchy data return a real representative, numerical modulus and quotient-value pin. |
+| `completedTest_embedPresentation` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean:118` | Exact agreement with the original presented test. |
+| `completedTest_embedOSQuotient` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean:128` | Exact agreement with the original OS-quotient test. |
+| `completedTest_bound` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean:140` | L(x)^2 <= completedInner(x,x), for the original completed form. |
+| `completedTest_add` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean:145` | Additivity for the existing completed operation. |
+| `completedTest_smul` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean:154` | Rational linearity for the existing completed operation. |
+| `completedTest_distance_bound` | `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean:173` | (L(x)-L(y))^2 <= completedDist(x,y), with coefficient one and the original squared distance. |
+
+This closes presentation compatibility, thermodynamic OS-null descent and
+completed extension for this particular test at nome 1/1024. The construction
+does not select a Hilbert-space representing vector, enlarge the original
+observable algebra or assert a value on any nonzero excited state.
+
+**Still open:** a full-action identity or estimate connecting a sufficiently
+rich test family to ACTUAL geometric time, or direct approximate original
+preimages. Neither new module asserts separation by this single functional
+or the missing unshifted-to-translated bound. The norm on the right is still
+the norm of x, not T2(x). Therefore the actual-transfer range/time-zero
+consumer in section 1 is not discharged. Physical Hamiltonian, continuum,
+other-group and Clay obligations remain open; no canonical field changed.
+
+Verification: 23 + 26 exact focused public gates within {propext, Quot.sound};
+one axiom-free and one propext-only. Own/direct artifacts fresh; final logs
+clean. Explicit presentation arguments, a displayed quotient pin and a
+generic diagonal-Cauchy helper resolved elaboration timeouts without changing
+the statements or increasing limits. Safe-build skill: one worker, explicit
+20 GiB, separate process/swap preflights; swap stayed 12389.81 MiB. Two
+additive root imports, old multiplicities preserved; root not compiled.
+No full build/audit/guard/progress run. Logs and SHA-256:
+
+- `/tmp/ym-bulk-scalar-quotient-test.log`:
+  `9baf4125f5e4c6b77e1aa00e04eb51164f565c8c514bc1e9fa792215638d96f9`.
+- `/tmp/ym-bulk-scalar-completed-test.log`:
+  `2baf8dfb5223669d7276f3cb7338d00842b35a5e4b965a688b1836cd32eaff04`.

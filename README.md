@@ -21,14 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [a scalar dual test through the thermodynamic limit](lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean).
+**Latest result:** [the scalar test on the original completed OS carrier](lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean).
+Common-volume comparison and null descent make the test independent of the
+original observable presentation. An explicit continuity modulus extends it to
+the **existing** thermodynamic completion, with
+`|L(x)-L(y)|^2 <= original squared distance(x,y)`. Its values agree with the
+previous concrete test; no representatives are chosen and no state algebra is
+enlarged. Two focused modules passed 49 constructive axiom checks; no full-tree
+run. A useful comparison with actual time translation, separation by a rich
+test family, and transfer range density remain open. This is not a mass gap.
+
+**Previous volume result:** [a scalar dual test through the thermodynamic limit](lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean).
 Translating the original state and scalar-link test together gives a constructed
 volume limit with an explicit geometric error bound at the existing small nome.
 Its value satisfies `L(e)^2 <= formLimit(e,e)`: the norm is the **original
 thermodynamic OS norm**, with the full action retained. Twenty-five focused
-constructive axiom checks passed; no full-tree run. Presentation/null-quotient
-compatibility, completed extension and a useful actual-transfer identity remain
-open. One bounded test does not prove separation, range density or a mass gap.
+constructive axiom checks passed; no full-tree run. Its quotient compatibility
+and completed extension are now supplied above. A useful actual-transfer
+identity remains open; one bounded test does not prove separation or range density.
 
 **Previous cutoff result:** [full-channel auxiliary tests through cutoff removal](lean/YMGap/Continuum/BF4ExactSlabDressedDualTestCutoffLimit.lean).
 The temporal gauge change fixes the concrete lower-link test. Its fully dressed
@@ -112,9 +122,9 @@ from an **auxiliary dual test**. Existing finite-cutoff bounds permit arbitrary
 polynomial dual tests; exact plaquette-only recoding is not required for that
 use. The estimates above supply original-partition control and, for the concrete
 full-channel test, cutoff removal and original finite-volume null descent.
-The concrete scalar test now also has a volume limit in the original norm.
-Thermodynamic presentation/null descent, completed extension and actual-transfer
-comparison remain open; the audit separates these from the checked limits.
+The concrete scalar test now also has a volume limit, original quotient descent
+and a bounded completed extension. Actual-transfer comparison and a sufficiently
+rich test family remain open; the audit separates these from the checked limits.
 
 An earlier Lean-checked counterexample shows why finite strict positivity and a
 common excited-sector upper bound do not alone exclude a limit kernel.

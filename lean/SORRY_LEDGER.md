@@ -13,7 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED scalar dual-test volume limit; OPEN presentation/completion and time comparison (2026-09-15)
+## CLOSED scalar test on original thermodynamic completion; OPEN actual-time comparison (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkScalarQuotientTest.lean` and
+  `lean/YMGap/Continuum/BF4ExactSlabBulkScalarCompletedTest.lean`.
+- **semantic compatibility**: `finite_lower_congr` uses the existing original
+  form congruence and finite null descent. Common-volume comparison gives
+  `meanLimit_same`; `observableTest` descends to the EXISTING observable
+  quotient. `observableTest_null` and `osTest` then descend through the
+  EXISTING thermodynamic OS null quotient. No upper reflection recoding,
+  new state algebra or representative selection is used.
+- **constructive continuity**: `presentedTest_distance_bound` retains coefficient
+  one in the original squared distance. `testTolerance` and `presentedTest_close`
+  give scalar tolerance epsilon from squared tolerance epsilon^2/2.
+- **completed object**: `testRate`, `testReg`, `representativeTest` and
+  `representativeTestCauchy` construct the actual value on supplied Cauchy
+  representatives. `representativeTest_welldef` yields `completedTest` on
+  the EXISTING completion, with original presentation/observable/OS pins.
+  `completedTest_add`, `completedTest_smul`, `completedTest_bound` and
+  `completedTest_distance_bound` retain rational linearity and the same norm.
+- **open residue**: a useful full-action comparison with actual geometric
+  time, for a sufficiently rich family, or direct approximate original
+  preimages. This scalar test is not proved separating, a time preimage or
+  nonzero on an excited state. No range-density or full-space time-zero
+  conclusion follows. Geometric T1/root identification, Hamiltonian,
+  beta(a)/continuum, QFT/spectral pins, other groups and Clay remain open.
+  No canonical field/type/atom/flag, new analytic premise or hole changed.
+- **verification**: 23 + 26 exact focused public gates within {propext,
+  Quot.sound}; one axiom-free, one propext-only. Own/direct artifacts fresh;
+  clean final logs and executable-token/option checks. Explicit arguments
+  and a generic diagonal-Cauchy helper resolved elaboration timeouts without
+  raising limits. Safe-build skill: one worker, explicit 20 GiB and separate
+  process/swap preflights. Two additive root imports, not compiled. No full
+  build/audit/guard/progress run. Exact log/hash records are in work_plan.
+
+## Previous CLOSED scalar dual-test volume limit; OPEN presentation/completion and time comparison (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabBulkScalarThermodynamicTest.lean`.
 - **original volume family**: `probeLinks_shift`, `bulkScalar_image` and

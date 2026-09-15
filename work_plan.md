@@ -119,7 +119,56 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED scalar dual-test volume limit and original norm bound):**
+**Latest mathematical increment (CLOSED original quotient descent and completed scalar test):**
+PROGRESS after `41c057e`: `BF4ExactSlabBulkScalarQuotientTest` uses a shorter
+semantic argument. `finite_lower_congr` combines the existing lower-carrier
+form congruence with the already proved finite OS-null descent; no new upper
+reflection recoding is needed. Comparing the actual test at a common volume
+proves `meanLimit_same` and base compatibility. `observableTest` and `osTest`
+then descend through the EXISTING state-independent observable quotient and
+positive-definite thermodynamic OS quotient, without representative selection.
+The difference bound keeps coefficient one; `testTolerance epsilon` is the
+explicit squared-distance budget epsilon^2/2 for scalar accuracy epsilon.
+
+`BF4ExactSlabBulkScalarCompletedTest` consumes that continuity estimate on
+supplied original Cauchy representatives. `testRate`, `testReg`,
+`representativeTest` and `representativeTestCauchy` retain the data at both
+sequence and numerical levels. `representativeTest_welldef` gives quotient
+descent to `completedTest` on the EXISTING completion, with exact presentation,
+observable and OS-quotient pins. Rational linearity, the original norm bound
+and `completedTest_distance_bound` all pass through the SAME limit. This
+closes this test's completion step, not a new carrier or a spectral theorem.
+
+NEXT: stop extending the now-completed scalar-test interface merely for its
+own sake. Seek a full-action identity/estimate connecting a sufficiently rich
+test family to ACTUAL geometric time, or direct approximate original preimages.
+Determine what the concrete test measures under gauge averaging before
+claiming it adds separating information. The source has ordered plaquette
+gauge-character invariance (`SU2QuaternionHaarGaugeCancellation`), but no
+gauge-averaged scalar-test identification was proved in this increment.
+Neither a bounded functional nor its formal composition with T2 supplies the
+missing unshifted-to-translated comparison. This single test is not proved
+separating, an excited nonzero witness, or a time preimage. Full-space time
+zero, geometric T1/root identification, physical Hamiltonian, beta(a)/continuum,
+QFT/spectral pins, other compact simple groups and Clay remain open. No
+canonical field, analytic premise or hole changed.
+
+Verification: 23 + 26 exactly matched public gates within {propext, Quot.sound}
+(one axiom-free and one propext-only); fresh own/direct artifacts and clean
+final focused logs. No forbidden executable tokens; only autoImplicit false.
+Explicit presentation arguments, a quotient display pin, and an isolated
+generic diagonal-Cauchy proof avoided elaboration timeouts without raising
+limits or changing a statement. Safe-build skill: one worker, explicit 20 GiB,
+separate process/swap preflights; swap stayed 12389.81 MiB. Two additive root
+imports, old multiplicities preserved; root not compiled. No full build/audit/
+guard/progress run. Logs and SHA-256:
+
+- `/tmp/ym-bulk-scalar-quotient-test.log`:
+  `9baf4125f5e4c6b77e1aa00e04eb51164f565c8c514bc1e9fa792215638d96f9`.
+- `/tmp/ym-bulk-scalar-completed-test.log`:
+  `2baf8dfb5223669d7276f3cb7338d00842b35a5e4b965a688b1836cd32eaff04`.
+
+**Previous mathematical increment (CLOSED scalar dual-test volume limit and original norm bound):**
 PROGRESS after `29a0da9`: `BF4ExactSlabBulkScalarThermodynamicTest` constructs
 the thermodynamic value of the concrete full-channel lower scalar test on
 each original plaquette expression. `probeLinks_shift`, `bulkScalar_image`
