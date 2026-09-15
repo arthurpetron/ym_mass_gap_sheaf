@@ -21,7 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [time increments are controlled by the derivative image on the whole original graph](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeBound.lean).
+**Latest analytic result:** [the original time action differentiates on the whole closed graph](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphRealDerivative.lean).
+For supplied original state/image representatives with `J u = T2 v`, a
+computed positive radius gives `||u - A_t u - t v||^2 <= epsilon*t^2`
+for every supplied positive real time below it. The proof uses the old
+core Taylor estimate and the new image-norm control; no preimage limit
+or division by a small time is needed.
+
+[The dyadic derivative domain is also identified exactly](lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeDomain.lean):
+the graph computes a convergence rate for `2^n(u-S_n u) -> v`, and any
+such modulus-bearing derivative forces `J u = T2 v`. The short converse
+applies the bounded original `T2` and compares two constructed limits.
+
+This is still SU(2), nome `1/1024`, fixed spacing, the original real
+completion and T2-time units. Physical Hamiltonian/spectral identification,
+physical scaling, continuum QFT and all required gauge groups remain
+open. All 33 new public axiom checks passed within the constructive gate
+in three focused safe checks; no full-tree run or raised limits.
+
+**Previous analytic result:** [time increments are controlled by the derivative image on the whole original graph](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeBound.lean).
 For every graph point `J u = T2 v` and every supplied positive real time,
 `||u - A_t u||^2 <= t^2 ||v||^2`. The constant is one, with no small-time
 restriction. Positive original mixed moments show that the squared dyadic
@@ -31,8 +49,8 @@ the whole graph and the actual real-time action. No convergence of
 preimages is assumed.
 
 This supplies the missing uniform increment control for extending the
-Taylor derivative to the whole graph; that differentiation remains the
-next proof. The scope is still the original real completion, SU(2), nome
+Taylor derivative to the whole graph; that differentiation is now proved
+above. The scope is still the original real completion, SU(2), nome
 `1/1024`, fixed spacing and T2-time units. Physical Hamiltonian/spectral
 identification, scaling, continuum QFT and every required group remain
 open. All 17 new public axiom checks passed within the constructive gate

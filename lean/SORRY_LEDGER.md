@@ -13,7 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED derivative-image norm estimate and whole-graph time increment control; OPEN full-domain differentiation (2026-09-15)
+## CLOSED whole-graph real-time derivative and exact modulus-bearing dyadic domain; OPEN physical generator/spectral identification (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphMeshDerivative.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphRealDerivative.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeDomain.lean`.
+- **whole-graph Taylor estimate**: `remainder_graph_bound` and
+  `remainder_sub` control the difference from the old core approximant
+  in its IMAGE norm. The existing linearTolerance at 10 supplies
+  epsilon/11, and the squared-error budget is at most 10 times that
+  tolerance. `meshTaylorCertificate` gives the old core radius of the
+  actual approximant, valid on every nonnegative dyadic mesh below it.
+  No preimage convergence or small-time division.
+- **actual real-time derivative**: original remainder rows retain
+  their explicit moduli and same-object limit. `real_taylor_bound` /
+  `realTaylorCertificate` give one computed positive radius with
+  ||u-A_t u-t*v||^2<=epsilon*t^2 for all supplied positive real times
+  below it and every supplied original U,V with J u=T2 v.
+- **exact dyadic domain**: `quotient_transfer` identifies T2 of the
+  actual normalized quotient with the old Q_n. Contraction and its
+  existing limit prove `graph_of_quotient_bound`. `rate` / `quotient_bound`
+  give the converse direction from the graph; `derivativeCertificate`
+  and `graphFromDerivative` retain the rate and original states as data.
+  This is an exact modulus-bearing DYADIC-domain identification, not an
+  inhabited canonical physical Hamiltonian or spectral field.
+- **residue**: graph invariance/image transport under the same action;
+  physical generator/spectral and complex/QFT interfaces; J=L; physical
+  time/spacing/beta(a), continuum QFT and every required group/Clay.
+  Fixed SU(2), nome 1/1024, spacing, original real completion and T2-time
+  units remain. The legacy `SelfAdjointHamiltonianResidual` total-map
+  symmetry field is not substituted for a domain-aware generator law.
+  No canonical field, analytic premise, axiom, literal hole or legacy
+  scorecard flag changed.
+- **verification**: 33 exact public gates, all {propext, Quot.sound};
+  three focused safe one-worker/20 GiB checks, all first-compile passes.
+  Exact declaration/gate/log matching, clean logs, fresh own/direct
+  artifacts, separate preflights; no raised limits or full-tree run.
+  Three additive root imports, root not compiled; CI manual-only.
+  Exact hashes in work_plan.
+
+## Previous CLOSED derivative-image norm estimate and whole-graph time increment control; differentiation subsequently proved above (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeImageBound.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeBound.lean`.

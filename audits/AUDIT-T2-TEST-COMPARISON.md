@@ -1,5 +1,39 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Whole-graph real-time derivative and exact dyadic domain (2026-09-15)
+
+Follow-up after `fb3c85b`. No surrogate carrier, logarithmic candidate
+or supplied generator replaces the original action or graph.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Difference remainder and image budget | `remainder_sub`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphMeshDerivative.lean:85`; `remainder_graph_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphMeshDerivative.lean:95` | Exact original-state identity; squared remainder <=4*t^2 times squared image norm. |
+| Computed tolerance and radius | `tolerance`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphMeshDerivative.lean:107`; `tolerance_budget`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphMeshDerivative.lean:121`; `radius`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphMeshDerivative.lean:135` | Existing linearTolerance at 10, epsilon/11; old core radius of the computed graph approximant. |
+| Whole-graph dyadic Taylor bound | `mesh_taylor_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphMeshDerivative.lean:142`; `meshTaylorCertificate`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphMeshDerivative.lean:172` | Every nonnegative mesh below one computed radius. No preimage convergence. |
+| Same real remainder limit | `remainderRows_pin`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphRealDerivative.lean:56`; `remainderRows_limit`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphRealDerivative.lean:64` | Actual time and scalar rows with old operators and supplied original U,V. |
+| Whole-graph real-time derivative | `real_taylor_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphRealDerivative.lean:78`; `realTaylorCertificate`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphRealDerivative.lean:116` | J u=T2 v implies ||u-A_t u-t*v||^2<=epsilon*t^2 below the computed positive radius, for every supplied positive real time. |
+| Exact quotient-transfer identity | `quotient`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeDomain.lean:51`; `quotient_transfer`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeDomain.lean:54` | q_n=2^n(u-S_nu); T2 q_n=old Q_n u. |
+| Forward and reverse dyadic domain maps | `rate`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeDomain.lean:89`; `quotient_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeDomain.lean:98`; `graph_of_quotient_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeDomain.lean:110`; `derivativeCertificate`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeDomain.lean:128`; `graphFromDerivative`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDerivativeDomain.lean:135` | Exact domain of modulus-bearing normalized dyadic derivatives, with the original state/image and forward rate retained as data. |
+
+NOT FOUND in these three modules: graph invariance/image transport under
+realTimeAction, a canonical physical Hamiltonian/spectral-interface
+inhabitant, J=L, physical time/spacing/beta(a) calibration, continuum QFT
+or all-group Clay closure. Scope: fixed SU(2), nome 1/1024 and spacing,
+original REAL completion and T2-time units. Earlier NOT FOUND statements
+retain their dated, named-module scope.
+
+Source-interface caution: `SelfAdjointHamiltonianResidual` at
+`lean/YMGap/Continuum/GNSHamiltonian.lean:285` contains a total `op` and
+pairing symmetry, with no unbounded domain or generation equation.
+It is not used as a physical discharge. `CanonicalSchwingerLimit` at
+`lean/YMGap/Continuum/CanonicalOSRoot.lean:121` and `PositiveTimeOSRoot`
+at `lean/YMGap/Continuum/CanonicalOSRoot.lean:268` are unchanged pinned
+requirements, not consequences of these three modules.
+
+Thirty-three exact public gates passed with {propext, Quot.sound}; three
+first-pass focused safe checks, one worker/20 GiB, no raised limits or
+full-tree run. Exact name matching, artifact checks and hashes in work_plan.
+
 ## Derivative-image bound and whole-graph time increments (2026-09-15)
 
 Follow-up after `6121a40`. This closes the missing IMAGE-norm estimate

@@ -4432,6 +4432,12 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeGraphApproximation
 import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeClosedGraph
 import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeImageBound
 import YMGap.Continuum.BF4ExactSlabThermodynamicGraphTimeBound
+-- The original time action differentiates on the whole graph with an
+-- explicit radius; normalized dyadic derivatives characterize that domain.
+-- Physical Hamiltonian/spectral and continuum identifications stay open.
+import YMGap.Continuum.BF4ExactSlabThermodynamicGraphMeshDerivative
+import YMGap.Continuum.BF4ExactSlabThermodynamicGraphRealDerivative
+import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeDomain
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

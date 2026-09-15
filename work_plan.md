@@ -119,7 +119,79 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED derivative-image norm control and whole-graph real-time increment bound; OPEN full-domain differentiation):**
+**Latest mathematical increment (CLOSED whole-graph real-time differentiation and exact modulus-bearing dyadic domain; OPEN physical generator/spectral identification):**
+PROGRESS after `fb3c85b`. `BF4ExactSlabThermodynamicGraphMeshDerivative`
+uses the actual graph difference and previous image-norm bound to prove
+`remainder_graph_bound`: the squared remainder is at most 4*t^2 times
+the squared image norm. `remainder_sub` applies that bound to the
+difference from the computed old core approximant. `tolerance` reuses
+linearTolerance at 10, i.e. epsilon/11; the final squared triangle
+estimate costs at most 10 times that tolerance. `radius` is the OLD
+core mesh radius of that actual approximant. `mesh_taylor_bound` and
+`meshTaylorCertificate` control EVERY nonnegative mesh below the radius.
+This replaces the earlier epsilon/16 plan with the existing general
+tolerance algorithm; no new analytic premise or preimage convergence.
+
+`BF4ExactSlabThermodynamicGraphRealDerivative.remainderRows_pin` and
+`remainderRows_limit` preserve the original time action, real scalar
+and state/image. `real_taylor_bound` / `realTaylorCertificate` return
+half the graph mesh radius and prove
+  ||u - A_t u - t v||^2 <= epsilon*t^2
+for every supplied positive real time below it, whenever J u=T2 v.
+The radius depends on supplied original U,V and epsilon; no quotient
+representative or modulus is selected from Prop.
+
+`BF4ExactSlabThermodynamicDerivativeDomain` proves the converse for
+modulus-bearing normalized DYADIC derivatives. `quotient_transfer` is
+the exact identity T2(2^n(u-S_n u))=Q_n u. `graph_of_quotient_bound`
+uses original contraction and the already constructed Q_n limit to
+force J u=T2 v. `rate` is halfCutoff of the graph mesh radius;
+`quotient_bound` / `derivativeCertificate` give the forward rate.
+`graphFromDerivative` supplies the reverse domain map. Thus this is an
+exact domain identification for modulus-bearing dyadic derivatives,
+with full positive-real-time differentiation proved on every graph point.
+No separate logarithmic candidate has been assumed equal to J.
+
+NEXT CAUSAL FRONTIER: prove invariance of this graph under the EXISTING
+realTimeAction, with its image transported by that SAME action. Commute
+the actual normalized quotients through time; contraction should preserve
+the supplied derivative rate, and `graph_of_quotient_bound` is the concrete
+consumer. Retain original output representatives. Then assess the required
+physical generator/spectral interface and time calibration before building
+further logarithmic machinery: J=L is not a prerequisite merely because
+an older candidate exists. This is a plan, not a proved invariance theorem.
+
+Interface warning from source inspection: `SelfAdjointHamiltonianResidual`
+in `lean/YMGap/Continuum/GNSHamiltonian.lean:285` asks for a TOTAL operator
+and a pairing-symmetry equation, with no unbounded domain or generation
+law. It must not be treated as an adequate discharge of the new unbounded
+graph. The corrected `CanonicalOSRoot` also still requires a pinned
+Schwinger limit and reflected-support realization; no legacy field is
+inhabited or weakened here.
+
+OPEN: graph time-invariance/transport, physical generator/spectral and
+complex/QFT interfaces, physical time/spacing/beta(a), continuum QFT and
+every compact simple group/Clay; J=L remains unidentified. Scope remains
+fixed SU(2), nome 1/1024, original REAL completion, fixed spacing and
+T2-time units. No physical mass, beta/spacing uniformity, canonical-field
+closure or legacy flag change is asserted. No added axiom or literal hole.
+
+Verification: 33 exact public gates, all {propext, Quot.sound}; three
+focused safe checks, one per module, one worker/20 GiB, separate
+process/swap preflights, swap stable at 11869.31 MiB. All passed on their
+first compile. Exact declaration/gate/log matching excludes the leading
+doc comment; clean logs and fresh own/direct artifacts. No dependency
+rebuild or full build/audit/guard/progress run; three additive root
+imports, root not compiled; CI remains manual-only. Logs/SHA-256:
+
+- `/tmp/ym-graph-mesh-derivative.log`:
+  `abe7b9fb1d67f47d0c9cd51a0663061c5dcd39121b30a90a7649305048de5aa9`
+- `/tmp/ym-graph-real-derivative.log`:
+  `48ddd5baa7457b44056f7e9fe3e20dd509e081e035ed6cbdb64eb83d7e961968`
+- `/tmp/ym-derivative-domain.log`:
+  `0debd4932c4a79405e609b14e6e28e837b2f5a345d1f1395439e915936876683`
+
+**Previous mathematical increment (CLOSED derivative-image norm control and whole-graph real-time increment bound; full-domain differentiation subsequently proved above):**
 PROGRESS after `6121a40`. `BF4ExactSlabThermodynamicDerivativeImageBound`
 proves `refinement_cross_nonnegative`: pairing the finer defect square
 with the coarser defect is the sum of the original positive moments
@@ -141,7 +213,7 @@ the original positive-real-time limit. Thus every graph point J u=T2 v
 satisfies ||u-A_t u||^2<=t^2||v||^2 for every supplied positive real time.
 No preimage convergence, representative choice or replacement carrier.
 
-NEXT CAUSAL FRONTIER: extend `RealDerivative.real_taylor_bound` to the
+NEXT FRONTIER AT THAT CHECKPOINT (now proved above): extend `RealDerivative.real_taylor_bound` to the
 whole graph using this image-norm control. For supplied U,V and epsilon,
 choose the existing core approximant with image squared error at most
 epsilon/16. Its OLD `realRadius` supplies the small-time radius for the
