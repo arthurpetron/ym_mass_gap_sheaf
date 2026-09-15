@@ -119,7 +119,61 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED small-nome/AF guard incompatibility; OPEN replacement original-action scale estimate):**
+**Latest mathematical increment (CLOSED actual-Haar all-cutoff obstruction; OPEN late-tail scale estimate):**
+PROGRESS after `1b5d2bf`. `BF4ExactSlabHeatHaarGuardObstruction`
+constructs `testPolynomial`=1+chi_1 on the ORIGINAL plaquette.
+`face_character_haar_zero` uses the old single-link selection theorem;
+short polynomial identities prove `test_square_haar`=2 and
+`test_square_character_haar`=2. `tail_one` and the original coefficient
+give `test_remainder_haar`=4*w^3. The existing Interval weighted-Haar
+theorem then forces `interval_cap_constraint`: 4*w^3<=2*c.
+`no_small_interval` excludes c<=1 for w>=7/8; `no_allCutoff_intervals`
+therefore excludes the old all-cutoff interface. This is an actual
+original-Haar square test, not a pointwise-to-Haar inference or the
+old cap 128*w^3. `afObstructionWitness` computes min(g1,1/4), with
+both actual fine and matched blocked nomes >=7/8, from a supplied law.
+
+Scope: cutoff one suffices to refute an ALL-CUTOFF family. This does
+not refute an interval family starting later, a different reference
+action, `CubicMarginLaw`, or Yang--Mills existence. It does not change
+the original fixed-nome thermodynamic results or supply a physical
+instance of an AF/continuum input.
+
+NEXT CAUSAL FRONTIER: retain the low-spin head and construct a small
+Interval for only the OMITTED ORIGINAL tail at arbitrary rational
+0<w<1. Reuse `QuaternionHaarSharpCharacterInterval.sharpCharacterInterval`
+(exact dimension cap) and the computed `spacingLabelCutoff`,
+`shiftedMajorant_le_geometric` and `spacingClosedTail`; do not infer
+Haar order from scalar pointwise inequalities. The concrete existing
+consumer is `BF4ExactSlabLocalHeatTailInterval.faceTailInterval`, whose
+current signature still requires heatRatio(w)<=1/2, followed by its
+fixed-region `productTailInterval`. Aim for a cutoff depending on nome
+and tolerance, not slab extent, with shared variables retained. This
+would remove a local tail guard, NOT the thermodynamic entropy guard
+or the need for a genuinely interacting physical-scale estimate.
+
+Source review: `BF4ExactSlabPolynomialExpectation.expectation` and
+`expectationCauchy` already construct arbitrary-nome normalized original
+finite-slab expectations. `BF4ExactSlabPlaquetteUniformMomentBound`
+already supplies uniform SIZE bounds, explicitly not decaying ones.
+Do not rebuild those objects or mistake them for a volume modulus.
+The new tail interval and its product/OS consumers remain to be proved.
+
+OPEN: original-action thermodynamic decay/moduli along the coupling and
+physical-scale family, AF/spacing pins, physical generator/spectral and
+complex/QFT interfaces, beta(a), continuum QFT and every required
+group/Clay. No canonical field, analytic premise, axiom, literal hole
+or legacy flag changed. Verification: 14 exact public gates, thirteen
+{propext, Quot.sound} and one axiom-free. Two focused safe one-worker/
+20 GiB checks; first exposed namespace/name omissions, corrected with
+no statement weakening. Exact name matching, clean final log and fresh
+own/direct artifacts. Separate preflights; swap stable at 11869.31 MiB;
+no raised limits, dependency rebuild or full-tree run. One additive
+root import, root not compiled; CI manual-only.
+`/tmp/ym-heat-haar-guard-obstruction.log` SHA-256:
+`81a4c7bcfc30b3560c4881c4555d8f2783994ca3eb0abd50422425bf2967a6d2`.
+
+**Previous mathematical increment (CLOSED small-nome/AF guard incompatibility; sharper actual-Haar obstruction now proved above):**
 PROGRESS after `ea4fe09`. `BF4SmallNomeAFGuardObstruction`
 proves `remainder_cap_ge_two` and `guard_forces_small_nome` using the
 existing exact cap formula 128*w^3. The old strict guard forces w<1/4.

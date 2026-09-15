@@ -1,5 +1,46 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Actual original-Haar obstruction to a small all-cutoff interval (2026-09-15)
+
+Follow-up after `1b5d2bf`. The obstruction now tests the actual
+polynomial against an actual supported square under original product
+Haar, not the earlier returned cap.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Bare-Haar character cancellation | `face_character_haar_zero`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:66` | Every positive spin on any physical plaquette; old single-link selection. |
+| Explicit square test | `testPolynomial`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:79`; `test_supported`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:82` | r=1+chi_1 on the original full carrier. |
+| Exact square moments | `test_square_haar`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:114`; `test_square_character_haar`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:127` | H(r^2)=2 and H(r^2 chi_1)=2. |
+| Actual remainder test | `tail_one`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:145`; `test_remainder_haar`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:150` | Original cutoff-one remainder gives 4*w^3. |
+| Necessary cap and no-go | `interval_cap_constraint`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:162`; `no_small_interval`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:173`; `no_allCutoff_intervals`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:186` | Original Interval implies 4*w^3<=2*c; impossible for w>=7/8 and c<=1. |
+| Actual AF-chart witness | `fine_nome_ge_threshold`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:191`; `blocked_nome_ge_threshold`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:200`; `afObstructionWitness`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:213` | min(g1,1/4) puts both nomes>=7/8, conditional on the existing supplied law. |
+
+The excluded interface is ALL cutoffs, already contradicted at cutoff
+one. No later-cutoff no-go, physical nonexistence, AF-law inhabitant or
+thermodynamic/continuum result is claimed. Fourteen exact public gates
+passed within {propext, Quot.sound}; two focused safe checks, namespace/
+name fixes only. Verification boundary and hash in work_plan.
+
+### Next-tail source review (not a proved replacement)
+
+The existing `faceTailInterval` at
+`lean/YMGap/Continuum/BF4ExactSlabLocalHeatTailInterval.lean:59` still
+requires the small-nome heat-ratio guard; `productTailInterval` at
+`lean/YMGap/Continuum/BF4ExactSlabLocalHeatTailInterval.lean:82` consumes it.
+`sharpCharacterInterval` at
+`lean/YMGap/Continuum/QuaternionHaarSharpCharacterInterval.lean:50`
+returns a genuine original-Haar interval at the exact dimension cap.
+`spacingLabelCutoff` at
+`lean/YMGap/Continuum/SU2PointwiseHeatSpacingCompletion.lean:71`,
+`shiftedMajorant_le_geometric` at
+`lean/YMGap/Continuum/SU2PointwiseHeatSpacingCompletion.lean:191`, and
+`spacingClosedTail` at
+`lean/YMGap/Continuum/SU2PointwiseHeatSpacingTailBound.lean:53` provide
+nome-dependent scalar tail data. Their composition into an original-face
+Interval with no small-nome guard is the next unproved step, not supplied
+by this obstruction module. The head must be retained; tail smallness
+does not make the complete positive-label sum small.
+
 ## Proved incompatibility of the old guard with the AF chart (2026-09-15)
 
 Follow-up after `ea4fe09`. This is a new kernel-checked obstruction,

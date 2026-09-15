@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED small-nome/AF guard incompatibility; OPEN replacement original-action scale estimate (2026-09-15)
+## CLOSED actual-Haar all-cutoff obstruction; OPEN late-tail scale estimate (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean`.
+- **actual test**: `testPolynomial`=1+chi_1 is supported on the original
+  plaquette. Exact character cancellation and polynomial identities give
+  `test_square_haar`=2 and `test_square_character_haar`=2. The actual
+  cutoff-one heat remainder has `test_remainder_haar`=4*w^3.
+  `interval_cap_constraint` consumes the old weighted-Haar certificate
+  theorem, forcing 4*w^3<=2*c. `no_small_interval` and
+  `no_allCutoff_intervals` exclude c<=1 for w>=7/8.
+- **AF witness**: `afObstructionWitness` returns min(g1,1/4) as data
+  with its positive chart guards and both fine/blocked nomes>=7/8.
+  The existing AF law is an explicit input, not a newly supplied law.
+- **scope**: actual Haar-order obstruction to an all-cutoff interval,
+  already at cutoff one. No claim excluding later-cutoff estimates,
+  different reference actions or Yang--Mills existence. No inference
+  from pointwise negativity or from an overlarge majorant.
+- **next consumer/residue**: generalize the local original-tail interval
+  beyond its small-nome guard using sharp dimension certificates and
+  the existing nome-dependent high-spin cutoff. Keep the full low-spin
+  head. Shared-variable product estimates and original OS/volume/scale
+  consumers need proof; a tail modulus is not thermodynamic decay.
+  Physical scale/AF pins, generator/spectral/QFT interfaces, continuum
+  and all groups/Clay remain open. No canonical field, analytic premise,
+  axiom, literal hole or legacy flag changed.
+- **verification**: 14 exact public gates within {propext, Quot.sound},
+  including one axiom-free gate. Two focused safe one-worker/20 GiB
+  checks, namespace/name fixes only, separate preflights, exact name
+  matching, clean log and fresh own/direct artifacts. No raised limits
+  or full-tree run; one additive root import, root not compiled.
+  CI manual-only; hash in work_plan.
+
+## Previous CLOSED small-nome/AF guard incompatibility; sharper actual-Haar obstruction above (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean`.
 - **proved obstruction**: `remainder_cap_ge_two` shows the old returned

@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [the existing small-nome guard cannot cover the AF chart](lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean).
+**Latest result:** [an exact original-Haar test rules out sharpening the all-cutoff guard](lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean).
+On any physical slab plaquette, the explicit square `(1+chi_1)^2` has
+Haar integral two. Against the cutoff-one heat remainder its integral
+is `4*w^3`. Thus, for `w >= 7/8`, no existing Haar interval certificate
+for that remainder can have cap at most one. This concerns the actual
+polynomial, not a loose upper bound. A computed point on any supplied
+AF chart puts both its fine and matched blocked nomes in this range.
+
+The obstruction is to the **all-cutoff** near-unit interface, already
+at cutoff one. Later-cutoff estimates and different reference actions
+are not excluded. The next task retains the low-spin head and controls
+only its omitted tail in original Haar order. Physical scaling,
+continuum QFT and all required groups remain open. All 14 public axiom
+checks passed within the constructive gate in focused safe checks;
+no full-tree run or raised limits.
+
+**Previous result:** [the existing small-nome guard cannot cover the AF chart](lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean).
 The guard requires a returned remainder cap below one. That cap is
 `128*w^3`, already at least two for `w >= 1/4`. Any supplied existing
 AF margin law puts both the fine nome and the one-step matched blocked
