@@ -18,7 +18,53 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (finite ORIGINAL retained-bulk interface comparison):**
+**Latest increment (selected ORIGINAL interface floor and exact crossing-cutoff removal):**
+PROGRESS after 5275339. `BF4ExactSlabMixedInterfacePin` separates
+bulk nome/cutoff b,B from crossing nome/cutoff v,K, retaining the
+ORIGINAL `mixedInsertion b B e` throughout. `mixedQuadratic` uses
+the original crossing plaquette insertion, not the Gram polynomial.
+`mixed_spatialGram_pin` proves its Haar-preserving temporal-gauge
+identity; `mixed_interface_pin` then uses literal reflection to pin
+the same dressed lower polynomial to `interfaceForm`. The diagonal
+`mixed_original_diagonal` is the pre-existing complete original action.
+
+`BF4ExactSlabSelectedInterfaceCoercivity.selectedCutoff` computes
+N=`interfaceBound half (mixedInsertion b B e)`. The EXISTING
+original-interface selection theorem gives `mixed_stable` for all
+K>=N; the new pin gives `gram_stable`. Applying the finite comparison
+at N proves `selected_lower` and `selected_upper`, with ONE fixed
+`selectedReference` retaining b,B,e. `selectedFloor_exponent` is
+rho=v^(N*(N+2)*F), strictly positive for v>0 and independent of ALL
+later crossing cutoffs K. `selectedComparisonCertificate` returns
+N, rho, their pins and the bounds for every K>=N. `selected_null_iff`
+identifies nullity. `mixedCutoffLimit` is the existing original
+interface limit; `mixedCutoffLimit_exact` gives equality at every
+precision above the computed threshold, not merely asymptotic error.
+
+NEXT: inspect fixed-channel estimates through the actual bulk limit.
+This result fixes B and the original insertion. It does NOT establish
+a positive floor as B or volume grow, and therefore is not yet an
+estimate on the completed T2 range. Full original range density/zero
+kernel, full-space time-zero continuity, geometric T1/physical
+Hamiltonian identification, canonical spectral/non-Wick comparisons,
+quotient-level completeness, beta(a)/spacing-uniform continuum control,
+other groups and Clay remain OPEN. No new hole, analytic premise,
+canonical field/type/atom/flag, weight or surrogate. No beta- or
+spacing-uniform claim; the reference is a finite nome-one crossing
+form with the original bulk dressing, not a new Gibbs law.
+
+Verification: two focused monitored modules, 7+13=20 exactly matched
+gates within {propext, Quot.sound}; none axiom-free. Clean final logs
+and fresh own/direct-import artifacts. Safe-build skill: one worker,
+explicit 20 GiB ceiling and separate process/swap preflights. Only
+two missing namespace opens needed correction; no raised options or
+full build/audit/guard/progress/root-import run. Logs and SHA-256:
+`/tmp/ym-original-mixed-interface-pin.log`
+(`c584600ed9e94302c167dcb6db7950aaa09d8a8eaea91973ec80493abb203cd7`),
+`/tmp/ym-original-selected-interface-coercivity.log`
+(`1033722bec3a01d18a0603bbe7e801ff896ff7f2006c72856431b953f0af812c`).
+
+**Previous increment (finite ORIGINAL retained-bulk interface comparison):**
 PROGRESS after 1141639. The search for an actual physical range estimate
 now reaches the existing reflection-positive finite square channels.
 `BF4ExactSlabSquareWeightComparison.WeightBound` compares weights on

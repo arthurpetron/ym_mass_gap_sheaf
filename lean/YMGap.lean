@@ -4317,6 +4317,10 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicZeroTimeCertificate
 import YMGap.Continuum.BF4ExactSlabSquareWeightComparison
 import YMGap.Continuum.BF4ExactSlabFiniteInterfaceCoercivity
 import YMGap.Continuum.BF4ExactSlabOriginalInterfaceCoercivity
+-- Independent original bulk/crossing cutoffs and exact crossing removal
+-- for each fixed bulk insertion; bulk/volume limits remain open.
+import YMGap.Continuum.BF4ExactSlabMixedInterfacePin
+import YMGap.Continuum.BF4ExactSlabSelectedInterfaceCoercivity
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor

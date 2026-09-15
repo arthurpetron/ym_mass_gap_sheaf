@@ -13,7 +13,22 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [an explicit finite interface comparison for the original action](lean/YMGap/Continuum/BF4ExactSlabOriginalInterfaceCoercivity.lean).
+**Latest milestone:** [crossing-cutoff removal for each fixed original bulk insertion](lean/YMGap/Continuum/BF4ExactSlabSelectedInterfaceCoercivity.lean).
+The bulk and crossing cutoffs are now independently pinned to the
+original action. For each fixed bulk-dressed observable, a computed
+degree cutoff `N` makes every later crossing pairing exactly constant.
+The positive comparison factor is therefore `v^(N*(N+2)*F)`, independent
+of every later crossing cutoff `K >= N`; the reference and observable
+stay fixed. The exact original-interface limit and nullity equivalence
+are retained. Two modules passed 20 focused axiom checks within
+`{propext, Quot.sound}`; no full-tree run.
+This removes only the crossing cutoff with the bulk insertion fixed.
+Growing bulk cutoffs, volume, completed transfer range/density,
+full-space time-zero continuity, physical scaling and continuum/Clay
+remain open. Next: examine fixed-channel control through the original
+bulk limit; no uniform positive bulk/volume floor is assumed.
+
+**Established finite comparison:** [an explicit finite interface comparison for the original action](lean/YMGap/Continuum/BF4ExactSlabOriginalInterfaceCoercivity.lean).
 At `0 < w <= 1`, the original reflected numerator is bounded above
 by its retained-bulk reference and below by that reference times
 `w^(K*(K+2)*F)`, where `K` is the spin cutoff and `F` counts the
@@ -24,8 +39,7 @@ Three modules passed 34 focused axiom checks within `{propext, Quot.sound}`
 (two axiom-free); no full-tree run. The positive factor is explicitly
 coupling-, cutoff- and volume-dependent. This is not a uniform limit
 bound, a transfer inverse, or a proof of a zero completed transfer kernel.
-Next: use the existing fixed-insertion selection theorem to test removal
-of the crossing cutoff while retaining the same original insertion.
+Crossing-cutoff removal for each fixed insertion is now proved above.
 Full-space time-zero continuity, physical scaling and continuum/Clay
 remain open.
 

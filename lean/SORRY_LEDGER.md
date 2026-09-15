@@ -13,7 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED finite ORIGINAL retained-bulk interface comparison (2026-09-14)
+## CLOSED selected ORIGINAL interface floor and exact crossing-cutoff removal (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabMixedInterfacePin.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSelectedInterfaceCoercivity.lean`.
+- **closed independent physical cutoffs**: `mixedInsertion b B e`
+  is the ORIGINAL lower/upper bulk-dressed insertion, independent
+  of crossing nome v and cutoff K. `mixedQuadratic` pairs it with
+  the ORIGINAL plaquette interface. `mixed_spatialGram_pin` proves
+  the temporal-gauge identity with independent b,B,v,K;
+  `mixed_interface_pin` gives the reflected Gram form of the SAME
+  dressed lower polynomial. `mixed_original_diagonal` recovers the
+  existing original complete-action numerator when b=v and B=K.
+- **closed exact fixed-insertion stabilization**: `selectedCutoff`
+  computes N from the existing exposed-link `interfaceBound` of
+  that ORIGINAL insertion. `mixed_stable` uses the existing
+  all-extent selection theorem; `gram_stable` transfers it only
+  through the new two-sided original pin. `mixedCutoffLimit` is
+  the EXISTING interfacePairingLimit, with `mixedCutoffLimit_exact`
+  at every precision for all K>=N.
+- **closed positive floor independent of later crossing cutoffs**:
+  `selected_lower` and `selected_upper` compare every K>=N with
+  ONE fixed retained-bulk reference. `selectedFloor_positive` and
+  `selectedFloor_exponent` give rho=v^(N*(N+2)*F)>0; N and rho
+  are returned by `selectedComparisonCertificate` together with
+  the bound for ALL later K. `selected_null_iff` gives nullity
+  equivalence with the fixed finite nome-one reference.
+- **open residue**: B and the original insertion remain FIXED;
+  growing bulk-cutoff and volume control are not proved. The floor
+  remains nome-, insertion-, bulk-cutoff- and extent-dependent.
+  Completed transfer range/density and zero kernel, full-space
+  time-zero continuity, physical Hamiltonian/scaling, other groups
+  and continuum/Clay remain OPEN. No new hole, analytic hypothesis,
+  canonical field/atom/flag or surrogate. No beta/spacing uniformity.
+- **verification**: 7+13=20 exactly matched focused gates, all
+  within {propext, Quot.sound}; clean final logs, fresh own/direct
+  artifacts, one worker and explicit 20 GiB ceiling. Separate
+  process/swap preflights; no raised options or full build/audit/
+  guard/progress/root-import run. Log hashes are in work_plan.
+
+## Previous checkpoint: CLOSED finite ORIGINAL retained-bulk interface comparison (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabSquareWeightComparison.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabFiniteInterfaceCoercivity.lean`,
@@ -36,8 +75,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   bulk-dressed polynomial, not a different normalized Gibbs state.
   `original_lower`, `original_upper`, `original_null_iff` and
   `originalComparisonCertificate` supply the actual full-action result.
-- **open residue**: removing the crossing cutoff for the SAME fixed
-  insertion; control as the bulk cutoff and volume also grow;
+- **open residue**: crossing-cutoff removal for the SAME fixed
+  insertion is now proved above; control as the bulk cutoff and volume grow;
   identification with completed transfer/range estimates; residual
   decay for every original dense observable; full-space zero-time
   continuity, physical Hamiltonian/scaling, other groups and Clay.
