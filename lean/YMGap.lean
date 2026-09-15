@@ -4386,10 +4386,17 @@ import YMGap.Continuum.QuaternionHaarPolynomialCorrectorStability
 import YMGap.Continuum.BF4ExactSlabCorrectedCutoffNorm
 import YMGap.Continuum.BF4ExactSlabThermodynamicCorrectedState
 -- An inward site test retains the original zero-lag pairing and has a
--- normalized source-only cap. The transfer-relative Schwarz estimate and
--- arbitrary-state range/time-zero consequence remain open.
+-- normalized source-only cap. These are inputs to the transfer-relative
+-- Schwarz estimate immediately below.
 import YMGap.Continuum.BF4ExactSlabSiteInwardTest
 import YMGap.Continuum.BF4ExactSlabSiteInwardTestNorm
+-- Full-action mixed site CS and the original inward test now give the
+-- geometric T1-relative bound for every original completed state. A
+-- quantified residual/preimage and full-space time zero remain open.
+import YMGap.Continuum.BF4ExactSlabSiteMixedSquare
+import YMGap.Continuum.QuaternionHaarWeightedCauchySchwarz
+import YMGap.Continuum.BF4ExactSlabSiteCauchySchwarz
+import YMGap.Continuum.BF4ExactSlabThermodynamicTransferTestBound
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

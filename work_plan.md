@@ -119,7 +119,87 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED original inward-site test, normalized cap and thermodynamic pin; OPEN transfer-relative Schwarz estimate):**
+**Latest mathematical increment (CLOSED transfer-relative bound on the ENTIRE original completion; OPEN arbitrary-state residual modulus):**
+PROGRESS after `7dbb2df`. The proposed estimate is now proved:
+`ThermodynamicTransferTestBound.completed_bound` gives
+B(f,x)^2 <= diagonalCeiling(f)*B(T1 x,x) for EVERY x in the EXISTING
+original completion and EVERY fixed original presentation f. T1 is the
+actual `completedTime 1`; the test is the old `embedPresentation f`.
+The constant is the old syntactic square cap of f, not an asserted bound
+relative to f's OS norm. No heat inverse, range-closure substitution,
+new dual-functional premise or replacement action/carrier enters the proof.
+
+The mathematical contraction is now checked, not just a proposed shortcut.
+`BF4ExactSlabSiteMixedSquare.conditional_weighted_pair` retains the actual
+shared-slice weight W in H(theta(p)*q*W)=H(C(p)*C(q)*W), for signed
+one-sided polynomials. `fullAction_dressing_pair` / `fullAction_pair`
+retain the FULL original lower/fixed/upper action and identify its mixed
+site form with the computed weighted boundary pair at every finite cutoff.
+`QuaternionHaarWeightedCauchySchwarz.weightedGNSData` constructs the
+positive form from an existing square certificate, then
+`weighted_cauchySchwarz` uses the old sharp GNS theorem. No pointwise
+positivity oracle or auxiliary probability law is assumed.
+
+`BF4ExactSlabSiteCauchySchwarz.raw_cauchySchwarz` uses the actual fixed-face
+heat certificate. `finite_cauchySchwarz` normalizes all three entries by
+the SAME finite partition; `expectation_cauchySchwarz` removes the cutoff,
+holding both original polynomials fixed. The changing conditional
+polynomials remain inside the finite proof, not inside a fixed-test limit.
+
+`BF4ExactSlabThermodynamicTransferTestBound.even_transfer_bound` composes
+that inequality with the previous inward norm and actual one-step pin.
+`form_transfer_bound` uses the old thermodynamic sequences at nome 1/1024.
+`presented_bound` rebases arbitrary source/test boxes with NO test-cap
+loss. `representative_bound` uses the old Cauchy pairing limits with f
+fixed; `completed_bound` descends to the unchanged whole completion.
+Finite normalized bounds retain 0<w<1, heatRatio(w)<=1/2 and
+heatRemainderBound(w)<1. Raw site CS allows the corresponding non-strict
+guards. Completed results remain SU(2), fixed nome and spacing.
+
+NEXT CAUSAL FRONTIER: apply the completed test estimate to x=D^n f,
+where D=I-T2 and f is an original embedded presentation. Combine it with
+the old `GeometricRangeContinuity.moment_defect_antitone`,
+`moment_weighted_bound` and original completed Cauchy--Schwarz to prove
+an explicit smallness index for `mixedMoment f 0 (n+n)`.
+`RangeApproximation.partialPreimage_distance` already identifies that
+moment with the exact squared error of the concrete finite preimage sum.
+Then approximate an arbitrary original Cauchy state by a dense sample and
+feed its actual preimage/error to
+`ZeroTimeCertificate.certificateOfRangeApproximation`. This is a plan,
+not a claimed residual bound or a new assumed approximation compiler.
+
+OPEN: explicit residual modulus / approximate preimage for arbitrary
+original states, range/injectivity as proved declarations, full-space
+time zero, physical Hamiltonian, beta(a)/spacing, continuum/QFT, all other
+compact simple groups and Clay. The new estimate is not a uniform lower
+spectral floor and not a mass gap. No canonical field/type/atom/flag,
+analytic premise, axiom or literal hole changed. Legacy scorecards enumerate
+none of this local estimate. The older heat-correction preimage identity is
+not needed by the new test estimate and is not asserted proved.
+
+Verification: 3 + 6 + 5 + 5 exact public gates, all {propext, Quot.sound};
+exact public/gate/log mappings, clean final logs, fresh own/direct artifacts,
+forbidden-source and option checks. Seven safe focused launches (three
+mixed identity, one weighted CS, two site CS, one completed bound), each
+with a separate process/swap preflight and one worker/20 GiB. Swap remained
+at 12109.31 MiB. Repairs only exposed the defining prefix/algebra namespaces
+and used the existing rational-to-CReal multiplication pin. No statement
+weakened, limits raised, dependency rebuild or full build/audit/guard/progress
+run. Four additive root imports; root not compiled. CI remains manual-only.
+The hourly ASCII map distinguished checked inputs from open arrows; the
+subsequent completed estimate now closes its composition/extension arrows.
+Final logs/SHA-256:
+
+- `/tmp/ym-site-mixed-square.log`:
+  `7dbc2a3b23ff7a4b633b663f00afe4f99feaf78422f8742a3e427851c3f952fe`.
+- `/tmp/ym-weighted-haar-schwarz.log`:
+  `a72d85de199a60a30dd11b20aaeb0d880ed80126ab95e0bde5f705d8fe9a401e`.
+- `/tmp/ym-site-cauchy-schwarz.log`:
+  `00f68f30bdd18418c901fec292a5db92e62a602f8d458f6d2a57d8f38db725d5`.
+- `/tmp/ym-thermodynamic-transfer-test-bound.log`:
+  `c38382a1b988ad49a228d9e1375a7b95dc3d9d59ec693893491762ffdff029e1`.
+
+**Previous mathematical increment (CLOSED original inward-site test, normalized cap and thermodynamic pin; then-OPEN transfer-relative Schwarz estimate):**
 PROGRESS after `fa356fb`. The next proposed inequality is
 B(f,e)^2 <= bound(f)*B(e,T1 e), with the ORIGINAL B and geometric T1,
 arbitrary original e, and a cap depending only on the fixed test f.

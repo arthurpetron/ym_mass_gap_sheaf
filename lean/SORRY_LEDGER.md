@@ -13,7 +13,49 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED original inward-site test, normalized cap and thermodynamic pin; OPEN transfer-relative Schwarz estimate (2026-09-15)
+## CLOSED transfer-relative bound on the ENTIRE original completion; OPEN arbitrary-state residual modulus (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabSiteMixedSquare.lean`,
+  `lean/YMGap/Continuum/QuaternionHaarWeightedCauchySchwarz.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSiteCauchySchwarz.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTransferTestBound.lean`.
+- **mixed same-action identity**: `conditional_weighted_pair` retains W
+  inside the conditional Haar pairing. `fullAction_dressing_pair` and
+  `fullAction_pair` identify the FULL original heat form with the two
+  computed boundary polynomials and its actual fixed-face heat weight.
+  All signed mixed terms and shared variables remain.
+- **sharp inequality**: `weightedGNSData` / `weighted_cauchySchwarz`
+  derive weighted Haar CS from an existing constructive square certificate.
+  `raw_cauchySchwarz` supplies the actual fixed-face certificate;
+  `finite_cauchySchwarz` uses the same original partition throughout and
+  `expectation_cauchySchwarz` removes the cutoff with fixed original tests.
+  No limit of changing conditional tests is presumed.
+- **actual transfer-relative estimate**: `even_transfer_bound`,
+  `form_transfer_bound`, `presented_bound`, `representative_bound` and
+  `completed_bound` give B(f,x)^2 <= diagonalCeiling(f)*B(T1 x,x),
+  for every original completed x and fixed original presentation f.
+  Rebasing preserves the test's syntactic cap. T1 is completedTime 1,
+  f embeds by the old embedPresentation, and B is the old completedInner.
+  No inverse-heat premise, substitute carrier or supplied dual-test bound.
+- **parameters and residue**: normalized finite statements have explicit
+  0<w<1, heatRatio(w)<=1/2, heatRemainderBound(w)<1 guards. Thermodynamic/
+  completed statements use SU(2), nome 1/1024, fixed spacing. The cap
+  depends on f; this is not a uniform lower spectral floor or a mass gap.
+  The residual modulus / actual approximate preimage for arbitrary states
+  remains open. Its consumers are `partialPreimage_distance` and
+  `certificateOfRangeApproximation`; the next proof must quantify decay
+  using the existing defect moments, not assume a preimage. Range/injectivity
+  as proved declarations, full-space time zero, physical Hamiltonian,
+  beta(a)/spacing, continuum/QFT, other compact simple groups and Clay remain
+  open. No canonical field/type/atom/flag, analytic premise, axiom or literal
+  hole changed; legacy scorecards enumerate none of this local estimate.
+- **verification**: 19 exact public gates, all {propext, Quot.sound}; clean
+  logs, exact name mappings, own/direct freshness and source checks.
+  Seven safe focused launches with separate preflights, one worker/20 GiB;
+  no raised limits, dependency rebuild or full-tree run. Four additive root
+  imports, not compiled; CI manual-only. Exact scope/hashes in work_plan.
+
+## Previous CLOSED original inward-site test, normalized cap and thermodynamic pin; then-OPEN transfer-relative Schwarz estimate (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabSiteInwardTest.lean` and
   `lean/YMGap/Continuum/BF4ExactSlabSiteInwardTestNorm.lean`.

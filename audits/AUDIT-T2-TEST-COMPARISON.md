@@ -1,5 +1,48 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Completed original transfer-relative test estimate (2026-09-15)
+
+Follow-up after `7dbb2df`. The preceding proposed estimate and its extension
+to the ENTIRE original completion are now proved. The residual modulus and
+actual arbitrary-state preimage are still open.
+
+| Result | Declaration and source | Actual statement / boundary |
+| --- | --- | --- |
+| Shared-slice mixed identity | `conditional_weighted_pair`, `lean/YMGap/Continuum/BF4ExactSlabSiteMixedSquare.lean:112` | H(theta(p)*q*W)=H(C(p)*C(q)*W), retaining the actual fixed-slice W and all signed mixed terms. |
+| Full original action | `fullAction_dressing_pair`, `lean/YMGap/Continuum/BF4ExactSlabSiteMixedSquare.lean:142`; `fullAction_pair`, `lean/YMGap/Continuum/BF4ExactSlabSiteMixedSquare.lean:160` | Exact same-action mixed boundary pairing at every finite cutoff. |
+| Constructed weighted CS | `weightedGNSData`, `lean/YMGap/Continuum/QuaternionHaarWeightedCauchySchwarz.lean:63`; `weighted_cauchySchwarz`, `lean/YMGap/Continuum/QuaternionHaarWeightedCauchySchwarz.lean:87` | Positive form built from a square certificate, not a positivity oracle or auxiliary law. |
+| Original site CS | `raw_cauchySchwarz`, `lean/YMGap/Continuum/BF4ExactSlabSiteCauchySchwarz.lean:52`; `finite_cauchySchwarz`, `lean/YMGap/Continuum/BF4ExactSlabSiteCauchySchwarz.lean:85`; `expectation_cauchySchwarz`, `lean/YMGap/Continuum/BF4ExactSlabSiteCauchySchwarz.lean:98` | Actual fixed-face weight; same finite partition; old cutoff limits with both original tests held fixed. |
+| Inward/one-step composition | `even_transfer_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTransferTestBound.lean:66`; `form_transfer_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTransferTestBound.lean:84` | Mixed term is original B(f,e), test diagonal <=bound(f), other diagonal is the actual geometric one-step form. |
+| Common-base and Cauchy extension | `presented_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTransferTestBound.lean:111`; `representative_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTransferTestBound.lean:122` | Rebasing preserves the test cap; arbitrary first-state Cauchy representatives use the old pairing limits. |
+| Entire original completion | `completed_bound`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicTransferTestBound.lean:132` | B(embedPresentation(f),x)^2 <= diagonalCeiling(f)*B(completedTime(1,x),x), EVERY original completed x and fixed original presentation f. |
+
+Finite normalized statements name the 0<w<1, heatRatio(w)<=1/2,
+heatRemainderBound(w)<1 guards. Thermodynamic and completed statements
+use the existing SU(2) nome 1/1024 at fixed spacing. The cap depends on
+the syntactic original test, not just its OS norm. This is NOT a uniform
+positive lower spectral floor, beta(a) estimate or physical mass gap.
+No heat inverse or range-closure carrier is a premise of this theorem.
+
+**NOT FOUND in these four modules:** a computed arbitrary-state smallness
+index for `mixedMoment x 0 (n+n)` or an actual arbitrary-state approximate
+preimage. The existing consumer `partialPreimage_distance`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicRangeApproximation.lean:89`,
+identifies that moment with the exact candidate error. The next estimate
+can use `moment_defect_antitone` / `moment_weighted_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRangeContinuity.lean:61`
+/ `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRangeContinuity.lean:82`.
+Those declarations do not themselves supply arbitrary-state decay.
+`certificateOfRangeApproximation`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicZeroTimeCertificate.lean:190`,
+still requires the actual approximate preimage/error certificate.
+No full-space time-zero, physical Hamiltonian, continuum/QFT, all-group or
+Clay closure is asserted. Earlier module-local NOT FOUND statements below
+retain their named-module and historical scope.
+
+Nineteen exact public gates passed within {propext, Quot.sound}; no canonical
+field, analytic premise or hole changed. Seven safe focused checks, one
+worker/20 GiB, no raised limits or full-tree run. Exact hashes in work_plan.
+
 ## Original inward-site test and normalized cap (2026-09-15)
 
 Follow-up after `fa356fb`. This is a concrete test for a proposed shorter

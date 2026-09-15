@@ -21,7 +21,26 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [a bounded inward test is pinned to the original reflected pairing](lean/YMGap/Continuum/BF4ExactSlabSiteInwardTestNorm.lean).
+**Latest analytic result:** [the transfer-relative test bound holds on the original completed space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicTransferTestBound.lean).
+For every original completed state `x` and fixed original test `f`,
+`B(f,x)^2 <= bound(f) * B(T1 x,x)`. Here `B` is the original OS pairing,
+`T1` is the actual geometric one-step transfer, and `bound(f)` is the
+test's existing computed square cap. No heat-inverse premise or replacement
+carrier is used.
+
+The short argument combines adjacent-site reflection, weighted
+Cauchy--Schwarz and the inward test. Every original action factor and the
+same partition are retained. The test cap survives rebasing, so the existing
+pairing limits extend the bound to all original completed `x`.
+
+This is SU(2), nome `1/1024`, fixed spacing. The cap depends on the test;
+the estimate is **not** a uniform lower spectral bound or a physical mass
+gap. Next is a computed residual modulus for the existing finite preimage
+sums. Full-space time zero, physical Hamiltonian, continuum QFT and the
+all-group Clay target remain open. All 19 new constructive axiom checks
+passed; no full-tree run or raised resource limits.
+
+**Previous analytic result:** [a bounded inward test is pinned to the original reflected pairing](lean/YMGap/Continuum/BF4ExactSlabSiteInwardTestNorm.lean).
 Moving the reflection plane to the adjacent time slice permits an arbitrary
 original plaquette expression to move one step inward, including its
 boundary-touching terms. Its site-reflected mixed product is exactly the
@@ -30,10 +49,9 @@ expression's computed square cap, with the full action and its partition
 unchanged. The mixed identity reaches the existing thermodynamic form with
 an explicit volume modulus.
 
-This supplies the concrete test for a shorter proposed transfer-relative
-Cauchy--Schwarz argument. That inequality and its completed-space extension
-are **not yet proved**; neither range density nor full-space time zero is
-claimed. The finite bound has explicit small-nome guards, while the
+This supplied the concrete test for the transfer-relative Cauchy--Schwarz
+argument now completed above. Neither range density nor full-space time
+zero is claimed. The finite bound has explicit small-nome guards, while the
 thermodynamic pin uses SU(2), nome `1/1024`, fixed spacing. It is a size bound,
 not a mass-gap estimate. All 22 focused constructive axiom checks passed;
 no full-tree run or raised resource limits. The physical Hamiltonian,
@@ -54,8 +72,9 @@ partition normalization remain unchanged throughout the bulk and volume limits.
 This result concerns the existing canonical source collar (at most 24 faces),
 at SU(2) nome `1/1024` and fixed spacing. It does **not** define multiplication
 on arbitrary OS classes or identify the corrected state with a time-transfer
-preimage. That original-operator comparison remains open, as do full-space
-time zero, physical Hamiltonian and the continuum/all-group Clay target.
+preimage. Identifying that corrected state with a transfer preimage remains
+open; the direct test estimate above uses another argument. Full-space
+time zero, physical Hamiltonian and the continuum/all-group Clay target remain open.
 Twenty-nine focused constructive axiom checks passed; no full-tree run or
 raised resource limits.
 
