@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [local heat cutoffs converge in the original OS completion](lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean).
+**Latest analytic result:** [the original collar corrections now have a joint cutoff/order limit](lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean).
+The actual existing corrections `e * G_K(H_K-1)` converge in the **existing
+OS completion**, with an explicit source-dependent, volume-independent
+modulus. Both the heat cutoff and correction order increase together.
+Multiplying those same finite samples by their same heat collar gives a
+second convergent sequence whose completed state is **exactly the original e**.
+
+The key estimate comes from one finite cancellation identity. It bounds the
+difference of two corrections by their heat-factor difference and residuals,
+without paying for growing polynomial degrees. The original full action and
+partition normalization remain unchanged throughout the bulk and volume limits.
+
+This result concerns the existing canonical source collar (at most 24 faces),
+at SU(2) nome `1/1024` and fixed spacing. It does **not** define multiplication
+on arbitrary OS classes or identify the corrected state with a time-transfer
+preimage. That original-operator comparison remains open, as do full-space
+time zero, physical Hamiltonian and the continuum/all-group Clay target.
+Twenty-nine focused constructive axiom checks passed; no full-tree run or
+raised resource limits.
+
+**Previous analytic result:** [local heat cutoffs converge in the original OS completion](lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean).
 For a fixed original source expression `e` and finite lower face region `R`,
 the actual states `e * H_K(R)` now have a computed Cauchy modulus. Their
 cutoff difference has squared OS norm at most

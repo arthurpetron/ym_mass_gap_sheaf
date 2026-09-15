@@ -119,7 +119,73 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED local-heat state cutoff limit in the original OS completion; OPEN inverse-correction/action/range bridge):**
+**Latest mathematical increment (CLOSED joint corrected-state limit and original re-dressing equality; OPEN actual-transfer comparison):**
+PROGRESS after `4b5b624`. The actual canonical collar corrections now have
+joint heat-cutoff/order control in the EXISTING original OS completion.
+This is the missing corrected-expression limit, not another preimage compiler.
+
+The short argument is `QuaternionHaarPolynomialCorrectorStability.difference_pin`.
+For H_R=1+R, H_S=1+S and their finite corrections/residuals, the old exact
+cancellations give G_R-G_S=-G_R*(R-S)*G_S+G_R*E_S-E_R*G_S.
+`differenceInterval` therefore gives 4*d+2*(2^(-n)+2^(-m)) when R-S has
+cap d and R,S have cap <=1/2. All variables may overlap. There is no inverse
+limit premise, spectral argument or growing-degree coefficient estimate.
+
+`BF4ExactSlabCorrectedCutoffNorm.correctedDifference` compares the EXISTING
+`correctedExpression (K+L) (K+L) e` with `correctedExpression K K e`.
+The previous shared-variable heat-tail certificate and actual original collar
+pins feed the new identity. `tailCap` computes A=4*S(nome,|source collar|)+4.
+`bulkLowerSquare` / `bulkUpperSquare` preserve the SAME source collar under
+actual embedding/reflection. `bulk_norm_bound` gives bound(e)*(A*2^(-K))^2
+in the full normalized original action, any separate action nome 0<v<1,
+every padding/allowed lag and increment L. No reciprocal partition ceiling.
+`thermodynamic_norm_bound` passes to the EXISTING formLimit at action nome
+1/1024; the collar correction itself also uses that fixed nome.
+
+The concrete consumer `BF4ExactSlabThermodynamicCorrectedState.cutoffModulus`
+computes an order from bound(e)*A^2 and epsilon. `sample_distance` pins the
+old original presentation distance. `cauchy`, `state` and `state_approximation`
+return the actual corrected Cauchy representative, completed state, and
+EVERY sufficiently late sample's distance bound. The same module constructs
+`redressedCauchy` from the EXISTING `collarApproximation K K e`.
+`redressingModulus` and `redressed_atCutoff` control its distance to the
+unchanged e. `redressedClose` keeps that closeness modulus as Type-level data;
+`redressed_limit_eq` identifies its completed state EXACTLY with embedded e.
+
+Scope: this uses the canonical at-most-24-face source collar, not an asserted
+inverse correction on the preceding five-face selected region. The source
+expression and collar size enter the modulus; volume/padding and increment
+do not. A product of quotient states has neither been defined nor assumed:
+re-dressing is performed on the literal finite samples before taking limits.
+No claim that this corrected state is T2^{-1}e follows from re-dressing.
+OPEN: the required original-norm changed-action/dual-test comparison and
+actual-T2 identity or approximate preimage for
+`ZeroTimeCertificate.certificateOfRangeApproximation`. Range/injectivity,
+full-space time zero, physical Hamiltonian, beta(a)/spacing, continuum/QFT,
+other compact simple groups and Clay remain open. No canonical field/type/
+atom/flag, analytic premise, axiom or literal hole changed. Legacy scorecards
+enumerate none of this local analytic step. Next work should use the original
+test/transfer formulas to prove the needed same-object comparison; do not
+infer it from a bounded correction or add a replacement conditional compiler.
+
+Verification: 4 + 7 + 18 exact public gates within {propext, Quot.sound};
+two axiom-free and twenty-seven with both. Exact public/gate/log mapping,
+clean final logs, fresh own/direct artifacts and source checks passed.
+The first identity check needed an explicit polynomial unit reduction and
+the support namespace; no statement weakened. Safe-build skill: four focused
+launches, one worker, explicit 20 GiB, separate process/swap preflights;
+swap stayed at 12149.31 MiB during those checks. No raised limits, dependency
+rebuild or full build/audit/guard/progress run. Three additive root imports;
+root not compiled. Final logs/SHA-256:
+
+- `/tmp/ym-corrector-stability.log`:
+  `7d9bd6a6603c29e6e5458be43555a6ccc727df020b7d81a04d93dd18ad06adf3`.
+- `/tmp/ym-corrected-cutoff-norm.log`:
+  `b6d3f021b00ab46c96a62c83e942ef1f920b3d5f6f89e4496e99660e8b31b04c`.
+- `/tmp/ym-thermodynamic-corrected-state.log`:
+  `8cfa5b4a86e7528dac0bc28f8783b3a8861eccd92ccf3d721c11d246ff74dfc6`.
+
+**Previous mathematical increment (CLOSED local-heat state cutoff limit in the original OS completion; then-OPEN inverse-correction/action/range bridge):**
 PROGRESS after `e2067ac`. The previous comparison degree depends on the
 insertion: its positive factor is NOT a bounded original-OS operator estimate.
 This increment instead controls the actual changing source expressions

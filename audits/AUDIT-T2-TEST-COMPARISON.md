@@ -1,6 +1,39 @@
 # Actual T2, collar tests, and the missing range estimate
 
-Latest original-norm heat-cutoff follow-up, 2026-09-15, after `e2067ac`:
+Latest joint-correction follow-up, 2026-09-15, after `4b5b624`: the actual
+canonical collar corrections now converge with BOTH heat cutoff and correction
+order increasing. Re-dressing the same samples recovers the original completed
+state. No product of OS quotient classes or actual-transfer inverse is asserted.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Exact two-correction cancellation | `difference_pin`, `lean/YMGap/Continuum/QuaternionHaarPolynomialCorrectorStability.lean:37` | G_R-G_S=-G_R*(R-S)*G_S+G_R*E_S-E_R*G_S, from the existing finite cancellations; overlapping variables allowed. |
+| Simultaneous polynomial/order stability | `differenceInterval`, `lean/YMGap/Continuum/QuaternionHaarPolynomialCorrectorStability.lean:58` | Cap 4*d+2*(2^(-n)+2^(-m)); explicit remainder caps <=1/2 and difference cap d. No limiting inverse premise. |
+| Actual original corrected differences | `tailCap`, `lean/YMGap/Continuum/BF4ExactSlabCorrectedCutoffNorm.lean:66`; `correctedDifference`, `lean/YMGap/Continuum/BF4ExactSlabCorrectedCutoffNorm.lean:71` | Old correctedExpression (K+L) (K+L) e minus old correctedExpression K K e. A=4*S(nome,|source collar|)+4. |
+| Source collar under both physical maps | `bulkLowerSquare`, `lean/YMGap/Continuum/BF4ExactSlabCorrectedCutoffNorm.lean:182`; `bulkUpperSquare`, `lean/YMGap/Continuum/BF4ExactSlabCorrectedCutoffNorm.lean:196` | Same squared cap bound(e)*(A*2^(-K))^2 at every padding/allowed lag. Canonical at-most-24-face source collar, not a new target-volume collar. |
+| Complete original normalized forms | `bulk_norm_bound`, `lean/YMGap/Continuum/BF4ExactSlabCorrectedCutoffNorm.lean:211`; `thermodynamic_norm_bound`, `lean/YMGap/Continuum/BF4ExactSlabCorrectedCutoffNorm.lean:217` | Any separate finite action nome 0<v<1, then EXISTING thermodynamic form at 1/1024. No 1/Z ceiling; corrections themselves use the fixed nome. |
+| Explicit joint modulus | `cutoffConstant`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:61`; `cutoffModulus`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:66`; `cutoff_budget`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:69` | Computed from bound(e)*A^2 and epsilon. Source dependence retained; volume/padding/increment absent. |
+| Original Cauchy state | `sample_distance`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:91`; `cauchy`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:119`; `state`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:124`; `state_approximation`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:127` | Actual existing correctedExpression K K e, actual old completion, every sufficiently late cutoff's distance bound. |
+| Same-sample re-dressing | `redressedSample`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:133`; `redressingModulus`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:136`; `redressed_atCutoff`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:148` | Existing collarApproximation K K e, distance to unchanged e at every late cutoff. Multiplication occurs on finite original expressions, not quotient states. |
+| Constructive exact recovery | `redressedCauchy`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:155`; `redressedClose`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:173`; `redressed_limit_eq`, `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean:178` | Type-level Cauchy/closeness data; completed re-dressed state equals original embedded e. |
+
+**NOT FOUND in these three modules:** an OS multiplication operator, a
+changed-action or actual-transfer dual-test comparison, an actual T2 identity
+for the corrected limit, or an approximate preimage for
+`certificateOfRangeApproximation`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicZeroTimeCertificate.lean:190`.
+The new correction uses the old canonical collar, not an asserted inverse
+correction on the five-face `selectedRegion`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicLocalHeatState.lean:159`.
+The remaining comparison/range obligations stay ledgered. No physical
+Hamiltonian, spacing/continuum, all-group or Clay closure is claimed.
+Twenty-nine exact public gates passed within {propext, Quot.sound}; no
+canonical field or analytic premise changed and no full-tree run. Exact scope
+and hashes are in `work_plan.md`. Earlier module-local NOT FOUND statements
+retain their historical scope; joint canonical correction convergence is now
+supplied by the declarations above.
+
+Previous original-norm heat-cutoff follow-up, 2026-09-15, after `e2067ac`:
 actual changing heat-dressed source expressions now form a constructed Cauchy
 sequence in the EXISTING thermodynamic completion. This is a state-cutoff
 limit, not a changed-action comparison or an inverse-correction limit.

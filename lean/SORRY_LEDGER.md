@@ -13,7 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED local-heat state cutoff limit in the original OS completion; OPEN inverse-correction/action/range bridge (2026-09-15)
+## CLOSED joint corrected-state limit and original re-dressing equality; OPEN actual-transfer comparison (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarPolynomialCorrectorStability.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCorrectedCutoffNorm.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCorrectedState.lean`.
+- **finite signed identity**: `difference_pin` derives
+  G_R-G_S=-G_R*(R-S)*G_S+G_R*E_S-E_R*G_S from the two existing exact
+  finite cancellations. `differenceInterval` bounds it by
+  4*d+2*(2^(-n)+2^(-m)) when both remainders have cap <=1/2 and their
+  difference has cap d. No disjointness or inverse-limit hypothesis.
+- **actual corrected-expression estimate**: `correctedDifference` is the
+  old correctedExpression at (K+L,K+L) minus that at (K,K). `tailCap`
+  computes A=4*S(nome,|source collar|)+4. `bulkLowerSquare` /
+  `bulkUpperSquare` retain the same embedded source collar;
+  `bulk_norm_bound` gives squared error <=bound(e)*(A*2^(-K))^2 in the
+  complete normalized action at any separate 0<v<1, all padding/lags/L.
+  `thermodynamic_norm_bound` reaches the old formLimit at nome 1/1024.
+  Both heat cutoff and correction order vary, with no degree-growing cap.
+- **constructed completed consumer**: `cutoffConstant`, `cutoffModulus`,
+  `cutoff_budget`, `sample_distance` and `sample_cauchy` supply the actual
+  original distance and explicit joint modulus. `cauchy`, `state` and
+  `state_approximation` construct the corrected state and late-sample bounds
+  in the EXISTING completion. `redressedCauchy` uses the same samples with
+  their same finite heat collar; `redressingModulus`, `redressed_atCutoff`
+  and `redressedClose` supply constructive closeness to the unchanged e.
+  `redressed_limit_eq` proves that completed state equals embedded e.
+- **scope and open residue**: canonical source collar of at most 24 faces;
+  source expression and collar size remain parameters. This is not an
+  asserted five-face inverse correction, a multiplication operator on OS
+  quotient classes, or an actual T2 preimage. Original-norm changed-action/
+  dual-test comparison and actual-T2 identity remain unsupplied.
+  Range/injectivity, full-space time zero, physical Hamiltonian,
+  beta(a)/spacing, continuum/QFT, other compact simple groups and Clay remain
+  open. No canonical field/type/atom/flag, analytic premise, axiom or literal
+  hole changed; legacy scorecards enumerate none of this local analytic step.
+- **verification**: 29 exact public gates within {propext, Quot.sound}; two
+  axiom-free. Exact gate/log mapping, clean logs, own/direct freshness and
+  source checks passed. Four safe one-worker/20-GiB focused launches with
+  separate preflights; no dependency rebuild, full-tree run or raised limits.
+  Three additive root imports, not compiled. Exact scope/hashes in `work_plan.md`.
+
+## Previous CLOSED local-heat state cutoff limit in the original OS completion; then-OPEN inverse-correction/action/range bridge (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabLocalHeatTailInterval.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabLocalHeatCutoffNorm.lean`, and

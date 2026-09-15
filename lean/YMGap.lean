@@ -4379,6 +4379,12 @@ import YMGap.Continuum.BF4ExactSlabReflectedLocalCutoff
 import YMGap.Continuum.BF4ExactSlabLocalHeatTailInterval
 import YMGap.Continuum.BF4ExactSlabLocalHeatCutoffNorm
 import YMGap.Continuum.BF4ExactSlabThermodynamicLocalHeatState
+-- Joint heat-cutoff/correction-order control constructs original corrected
+-- states. Re-dressing the same finite samples recovers the original state;
+-- no OS multiplication operator or actual transfer preimage is asserted.
+import YMGap.Continuum.QuaternionHaarPolynomialCorrectorStability
+import YMGap.Continuum.BF4ExactSlabCorrectedCutoffNorm
+import YMGap.Continuum.BF4ExactSlabThermodynamicCorrectedState
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin
