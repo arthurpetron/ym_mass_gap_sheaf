@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [the constructed positive root equals actual one-step translation](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRootIdentification.lean).
+**Latest finite result:** [only changed crossing faces pay the comparison factor](lean/YMGap/Continuum/BF4ExactSlabLocalInterfaceCoercivity.lean).
+For `0 <= w <= 1`, the same reflected form, with all overlapping channels
+retained, now has lower factor `w^(sum of K_f*(K_f+2) over changed faces)`.
+If only those cutoffs are bounded by `N`, the factor `w^(N*(N+2)*S)` works
+for every choice of untouched cutoffs; `S` counts the changed physical faces.
+At common cutoff this is pinned to the **original full-action numerator**,
+with the same bulk dressing. Untouched faces contribute exactly one.
+
+This is an **unnormalized finite comparison**, not a completed OS-norm or
+range estimate. The factor still depends on the changed cutoffs and coupling;
+its reference retains finite nome-one packets only on the selected faces.
+The next task is an observable-dependent comparison with controlled local
+degrees and errors through the original bulk and volume limits.
+Thirty focused constructive axiom checks passed; no full-tree run or raised
+resource limits. The physical Hamiltonian and continuum/Clay target remain open.
+
+**Previous geometric-time result:** [the constructed positive root equals actual one-step translation](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRootIdentification.lean).
 On every state of the **existing** thermodynamic completion, `rootAction = T1`.
 The constructive proof uses commuting polynomial approximations, the newly
 proved geometric positivity, and the already constructed next root to reduce

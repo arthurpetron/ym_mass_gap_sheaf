@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED geometric root and all discrete/positive-real-time pins; OPEN arbitrary-state range/time zero (2026-09-15)
+## CLOSED localized original-interface comparison; OPEN original-norm range estimate (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabProfileInterfaceComparison.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabLocalInterfaceCoercivity.lean`.
+- **same physical channels**: `finiteProduct_factors`, `profile_weight_bound`
+  and `profile_form_comparison` multiply individual face factors on the old
+  square expansions. `profileForm_constant` is the old physical interface.
+  Overlapping variables and the same supported lower polynomial remain literal.
+- **proved local floor**: `factorProduct_pin`, `local_lower`, `local_upper`
+  and `localFloor_constant` give w^(sum K_f(K_f+2)) over ONLY selected physical
+  faces, or w^(K(K+2)*S) at common cutoff. `localFloor_positive` uses w>0.
+  `changedEnergy_bound` and `local_lower_bounded` provide w^(N(N+2)*S) for
+  EVERY untouched cutoff profile when only selected cutoffs are <=N.
+  All coupling guards and remaining selected-mask/cutoff dependencies are
+  explicit. There is no coupling-uniform positive floor.
+- **actual finite consumer**: `original_local_lower` / `original_local_upper`
+  pin the constant-cutoff target to the ORIGINAL full-action numerator via
+  the existing `original_interface_pin`. `originalLocalReference` uses the
+  same `dressedLower w K e`, retaining the whole original bulk action.
+  Its selected nome-one packets are finite and unnormalized; it is not a
+  normalized Gibbs-law comparison or a completed original-norm estimate.
+- **open residue**: an observable-dependent mask/degree and error bound
+  controlled through the original bulk/volume limits, and an actual original
+  approximate preimage for `ZeroTimeCertificate.certificateOfRangeApproximation`.
+  Arbitrary-state range/injectivity, full-space time zero, physical Hamiltonian,
+  beta(a)/spacing, continuum/QFT, all compact simple groups and Clay remain open.
+  No canonical field/type/atom/flag, analytic premise, axiom or literal hole
+  changed; this finite estimate closes no completed-range atom.
+- **verification**: 30 exact public gates within {propext, Quot.sound}; five
+  axiom-free and nine propext-only. Clean final logs, exact gate-name mapping,
+  fresh own/direct artifacts and no forbidden tokens/options. Safe focused
+  one-worker/20-GiB checks with separate preflights and unchanged swap. Two
+  additive root imports, not compiled; no dependency rebuild/full-tree run.
+  Exact checks, elaboration fixes and log hashes are in `work_plan.md`.
+
+## Previous CLOSED geometric root and all discrete/positive-real-time pins; OPEN arbitrary-state range/time zero (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricRootIdentification.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGeometricTimePins.lean`.

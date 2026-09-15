@@ -1,6 +1,40 @@
 # Actual T2, collar tests, and the missing range estimate
 
-Latest geometric-time identification follow-up, 2026-09-15, after `e838e34`:
+Latest localized-interface follow-up, 2026-09-15, after `b97335a`: the finite
+comparison factor now charges ONLY changed physical crossing faces. The
+existing shared channels and original bulk dressing are retained. This removes
+the whole-interface factor from this comparison, not the independent
+original-norm range obstruction.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Individual factors on the same trees | `finiteProduct_factors`, `lean/YMGap/Continuum/BF4ExactSlabProfileInterfaceComparison.lean:46` | Product of per-face factors; no independence of overlapping channels. |
+| Actual crossing profiles and old constant pin | `profilePolynomial`, `lean/YMGap/Continuum/BF4ExactSlabProfileInterfaceComparison.lean:63`; `profileExpansion`, same file `:66`; `profileForm`, same file `:70`; `profileForm_constant`, same file `:74` | Actual centralFixedFaceIds; same physical Gram channels; the constant profile is the previous interface. |
+| Same-p reflected comparison | `profile_weight_bound`, `lean/YMGap/Continuum/BF4ExactSlabProfileInterfaceComparison.lean:89`; `profile_form_comparison`, same file `:99` | Supplied coefficient inequalities multiply; p and all its shared-variable dependence stay unchanged. |
+| Exact local reference and floor | `referenceNome`, `lean/YMGap/Continuum/BF4ExactSlabLocalInterfaceCoercivity.lean:45`; `factorProduct_pin`, same file `:68`; `localFloor`, same file `:79`; `localFloor_positive`, same file `:86`; `localReference`, same file `:91` | Only selected faces change nome w to one at the same finite cutoffs. Floor w^(sum selected K_f(K_f+2)), positive for w>0. |
+| Both finite inequalities | `local_lower`, `lean/YMGap/Continuum/BF4ExactSlabLocalInterfaceCoercivity.lean:94`; `local_upper`, same file `:112` | 0<=w<=1, same p and actual physical face list. Unnormalized forms, not completed OS norms. |
+| Selected physical count | `changedFaceCount`, `lean/YMGap/Continuum/BF4ExactSlabLocalInterfaceCoercivity.lean:126`; `changedEnergy_constant`, same file `:129`; `localFloor_constant`, same file `:137` | At common cutoff K, exact floor w^(K(K+2)*S), S=selected physical count, not whole-interface size. |
+| Untouched cutoffs are arbitrary | `changedEnergy_bound`, `lean/YMGap/Continuum/BF4ExactSlabLocalInterfaceCoercivity.lean:144`; `local_lower_bounded`, same file `:158` | One factor w^(N(N+2)*S) for every untouched cutoff profile; only selected cutoffs are assumed <=N. No bound independent of w, N or a growing selected mask. |
+| Original full-action numerator | `originalLocalReference`, `lean/YMGap/Continuum/BF4ExactSlabLocalInterfaceCoercivity.lean:171`; `original_local_lower`, same file `:176`; `original_local_upper`, same file `:184` | Common K; p is actual dressedLower w K e and old original_interface_pin identifies the target numerator. Same bulk dressing, no partition change or marginal replacement. |
+
+**NOT FOUND in these two modules:** a source-observable-specific selected mask
+with controlled changed-face degrees through the bulk limit, a normalized
+thermodynamic original-OS-norm comparison, or an actual approximate preimage.
+No arbitrary-profile original temporal-action identity is asserted. The finite
+nome-one reference is not an infinite heat law. The existing range consumer
+`certificateOfRangeApproximation`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicZeroTimeCertificate.lean:190`,
+still needs a supplied Cauchy preimage with squared-distance error epsilon/128;
+`Certificate.continuityData`, same file `:138`, then constructs the time-zero
+radius. This local floor does not supply that input.
+
+Thirty exact public gates passed within {propext, Quot.sound}; exact scope and
+hashes are in `work_plan.md`. No full-tree run, new analytic premise, canonical
+field change or literal hole. Injectivity/range density, full-space time zero,
+physical Hamiltonian, beta(a)/spacing, continuum/QFT, other compact simple groups
+and Clay remain open. Earlier checkpoints follow.
+
+Previous geometric-time identification follow-up, 2026-09-15, after `e838e34`:
 the old constructed positive root equals the ORIGINAL geometric T1 on the
 EXISTING completion. The previous positive-real-time action at n/2 now equals
 original lattice time n, including odd n. Its time unit is unchanged: A(1)=T2.

@@ -4359,6 +4359,10 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicZeroTimeCertificate
 import YMGap.Continuum.BF4ExactSlabSquareWeightComparison
 import YMGap.Continuum.BF4ExactSlabFiniteInterfaceCoercivity
 import YMGap.Continuum.BF4ExactSlabOriginalInterfaceCoercivity
+-- Per-face profiles charge only changed crossing faces, retaining the full
+-- original bulk dressing; completed original-norm/range control remains open.
+import YMGap.Continuum.BF4ExactSlabProfileInterfaceComparison
+import YMGap.Continuum.BF4ExactSlabLocalInterfaceCoercivity
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

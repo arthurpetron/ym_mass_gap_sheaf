@@ -119,7 +119,72 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED geometric root and all discrete/positive-real-time pins; OPEN arbitrary-state range/time zero):**
+**Latest mathematical increment (CLOSED localized original-interface comparison; OPEN original-norm range estimate):**
+PROGRESS after `b97335a`. The old finite lower factor charged every crossing
+face, including faces whose heat packets need not change. The constructive
+argument now compares the SAME square channels face by face, assigning factor
+one to untouched faces. Shared variables and the original lower polynomial
+are retained, not declared independent.
+
+`BF4ExactSlabProfileInterfaceComparison.finiteProduct_factors` multiplies
+individual comparison factors on the existing square-expansion trees.
+`profilePolynomial`, `profileExpansion` and `profileForm` use the ACTUAL
+physical crossing-face list with individual nome/cutoff profiles;
+`profileForm_constant` is the old interface by definitional equality.
+`profile_weight_bound` and `profile_form_comparison` give the coefficientwise
+and reflected-Haar comparisons without changing the lower polynomial p.
+
+`BF4ExactSlabLocalInterfaceCoercivity.referenceNome` changes w to one only
+on a supplied Boolean face mask. `factorProduct_pin` computes the exact
+floor as w^(sum of K_f(K_f+2) over selected physical faces), and
+`localFloor_positive` proves positivity for w>0. For 0<=w<=1, `local_lower`
+and `local_upper` compare the same actual forms in both directions.
+`changedEnergy_constant` and `localFloor_constant` give w^(K(K+2)*S),
+where S=`changedFaceCount`, instead of the previous whole-interface count.
+`changedEnergy_bound` and `local_lower_bounded` strengthen this: if ONLY
+selected cutoffs are <=N, the single factor w^(N(N+2)*S) works for EVERY
+choice of untouched cutoffs, explicitly quantified in the statement.
+
+The actual finite consumer is `original_local_lower` / `original_local_upper`:
+at common cutoff K and p=`dressedLower w K e`, the target is the ORIGINAL
+`originalQuadratic w K e` by the old `original_interface_pin`.
+`originalLocalReference` keeps that same full original bulk dressing.
+This is an UNNORMALIZED reflected-interface comparison. The reference has
+finite nome-one crossing packets only on selected faces; it is not an
+infinite nome-one heat law, a normalized Gibbs comparison or an auxiliary
+product measure. No arbitrary-profile temporal-action identity is asserted.
+The floor still depends on w, selected cutoff bound N and selected count S.
+Its independence of untouched cutoffs does not control a growing selected
+mask or the changed-face degree created by the original bulk dressing.
+
+NEXT: obtain an observable-dependent selected mask/degree and error estimate
+through the ORIGINAL bulk/volume limits, sufficient for actual OS-norm range
+approximation. No such original-norm estimate or approximate preimage is
+constructed here. The existing
+`BF4ExactSlabThermodynamicZeroTimeCertificate.certificateOfRangeApproximation`
+still consumes a supplied original Cauchy preimage with squared-distance error
+epsilon/128; `Certificate.continuityData` then returns the time-zero radius.
+Arbitrary-state range/injectivity, full-space time zero, physical Hamiltonian,
+beta(a)/spacing, continuum/QFT, other compact simple groups and Clay remain
+open. No canonical field/type/atom/flag, new analytic premise or literal hole.
+
+Verification: 11 + 19 exact public gates, all within {propext, Quot.sound};
+five axiom-free and nine propext-only. Exact source/gate/log name agreement,
+clean final logs, fresh own/direct artifacts and no forbidden source tokens
+or options. Initial elaboration fixes were explicit closed-rational unfolding,
+Boolean-case unfolding and natural-number addition order; no statement was
+weakened. The final selected-cutoff strengthening passed on its first check.
+Safe-build skill: five focused launches total, each one worker, explicit
+20 GiB and separate process/swap preflight. Swap stayed at 12165.31 MiB.
+No raised limit, dependency rebuild or full build/audit/guard/progress run.
+Two additive root imports; root not compiled. Final logs/SHA-256:
+
+- `/tmp/ym-profile-interface-comparison.log`:
+  `a16e5dad6aaa51e938c963ec06fb2612f338d984f79d5a8049c40dbeb406489e`.
+- `/tmp/ym-local-interface-coercivity.log`:
+  `1cbdfe6fe0e020663aa3797194bd91b129c44710c7569a07d97237567df10689`.
+
+**Previous mathematical increment (CLOSED geometric root and all discrete/positive-real-time pins; OPEN arbitrary-state range/time zero):**
 PROGRESS after `e838e34`. `BF4ExactSlabThermodynamicGeometricRootIdentification`
 proves `time_polynomialVector` and `time_polynomialOperator` for every original
 integer lag. `sequenceAction_time` passes commutation through the EXISTING
