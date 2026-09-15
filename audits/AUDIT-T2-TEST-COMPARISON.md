@@ -1,6 +1,34 @@
 # Actual T2, collar tests, and the missing range estimate
 
-Latest finite follow-up, 2026-09-15, after `941b2ae`: the integer-slice
+Latest finite follow-up, 2026-09-15, after `95cca6b`: the conditional-square
+identity now retains the FULL ORIGINAL heat action on the actual even slab.
+This closes the finite heat-action input on the geometric T1 positivity branch,
+not the thermodynamic one-step pin or the separate T2 range estimate.
+
+| Finite result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Shared weight is retained | `conditional_weighted_square`, `lean/YMGap/Continuum/BF4ExactSlabSiteWeightedSquare.lean:130` | Arbitrary signed supported boundary-local W; H((theta(p)*p)*W)=H(C(p)^2*W). |
+| Weight certificate gives positivity | `certified_weighted_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabSiteWeightedSquare.lean:165` | Existing constructive Haar certificate, not a supplied analytic positive form; no boundary-locality assumption on individual square features. |
+| Actual heat locality | `lowerHeat_oneSided`, `lean/YMGap/Continuum/BF4ExactSlabSiteHeatAction.lean:90`; `fixedHeat_local`, same file `:101` | Lower temporal faces retain the shared spatial links; all fixed-face links are fixed. |
+| Original full action splits | `lowerHeat_reflection`, `lean/YMGap/Continuum/BF4ExactSlabSiteHeatAction.lean:135`; `fullHeat_split`, same file `:143`; `fullAction_dressing`, same file `:155` | Actual face partition and original heat polynomials, not the positive multiplicity-product model. |
+| Full finite site square | `fullAction_square`, `lean/YMGap/Continuum/BF4ExactSlabSiteHeatAction.lean:173` | H((theta(p)*p)*fullHeat)=H(C(p*L)^2*W), every finite K/radius and rational w; p supported and one-sided. |
+| Actual small-nome positivity | `fixedHeatCertificate`, `lean/YMGap/Continuum/BF4ExactSlabSiteHeatAction.lean:191`; `fullAction_nonnegative`, same file `:197`; `existingNome_fullAction_nonnegative`, same file `:208` | Explicit guards 0<=w<=1, heatRatio(w)<=1/2, heatRemainderBound(w)<=1, discharged at 1/1024. Nonnegativity only, not a strict gap or beta-uniform rate. |
+
+**NOT FOUND in these two modules,**
+`BF4ExactSlabThermodynamicTimeBalance.lean`, or
+`BF4ExactSlabThermodynamicSquareRootAction.lean`: identification of this full
+finite site form and its normalized limits with the existing thermodynamic
+geometric one-step pairing. `one_step_balance` remains a symmetry statement;
+`rootAction_nonnegative` concerns the separately constructed positive root.
+Neither supplies the missing pin. C(p*L) depends on the cutoff and is not
+asserted to be an original fixed observable or a transfer preimage.
+
+Twenty exact public axiom gates passed within {propext, Quot.sound}.
+Focused check/dependency-build boundaries and hashes are in `work_plan.md`;
+no full-tree run. No new analytic premise, canonical-field change or hole.
+The following dated checkpoint records the preceding unweighted result.
+
+Previous finite follow-up, 2026-09-15, after `941b2ae`: the integer-slice
 conditional-square calculation is now proved for arbitrary supported one-sided
 polynomials, with the boundary polynomial computed from their original monomials.
 This addresses a finite input to the separate geometric T1 positivity branch,

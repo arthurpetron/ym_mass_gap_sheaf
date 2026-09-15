@@ -21,18 +21,19 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest finite result:** [an explicit conditional square at the integer reflection slice](lean/YMGap/Continuum/BF4ExactSlabSiteConditionalSquare.lean).
-For every supported polynomial on the lower half and shared spatial slice,
-the original product-Haar reflected quadratic equals the Haar square of a
-computed boundary polynomial. The construction splits the original monomials,
-retains all signed mixed terms, and uses the actual orientation-correct slab
-reflection. No separated expansion or reflection hypothesis is left to supply.
+**Latest finite result:** [site reflection positivity with the full original heat action](lean/YMGap/Continuum/BF4ExactSlabSiteHeatAction.lean).
+At every finite cutoff and even-slab size, the original reflected quadratic
+equals a computed boundary square integrated against the original fixed-slice
+heat weight. All lower, upper and shared-slice interactions are retained.
+The identity holds for arbitrary rational nome; nonnegativity uses explicit
+small-nome guards, discharged in particular at the existing nome `1/1024`.
 
-This is an **unweighted finite Haar identity**, not positivity of the completed
-physical one-step transfer. Applying it to the full heat-weighted action and
-identifying the existing thermodynamic one-step pairing remain open. So does
-the distinct transfer-range approximation needed for full-space time zero.
-Forty focused constructive axiom checks passed; no full-tree run or raised limits.
+This closes the finite heat-action step, **not positivity of the completed
+physical one-step transfer**. Identification with its existing thermodynamic
+pairing remains open, as does the distinct transfer-range approximation needed
+for full-space time zero. Twenty focused constructive axiom checks passed;
+no full-tree run. The preceding [unweighted conditional square](lean/YMGap/Continuum/BF4ExactSlabSiteConditionalSquare.lean)
+supplies the computed monomial decomposition used here.
 
 **Previous completed-space result:** [the completed scalar test is exactly an original plaquette pairing](lean/YMGap/Continuum/BF4ExactSlabBulkScalarPlaquettePairing.lean).
 On the **existing** thermodynamic OS completion,

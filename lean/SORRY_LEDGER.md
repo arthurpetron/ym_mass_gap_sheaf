@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED finite integer-slice conditional square; OPEN heat-weighted T1 pin and range (2026-09-15)
+## CLOSED full-action finite site positivity; OPEN thermodynamic T1 pin and range (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabSiteWeightedSquare.lean` and
+  `lean/YMGap/Continuum/BF4ExactSlabSiteHeatAction.lean`.
+- **weighted identity**: `conditional_weighted_square` retains arbitrary signed
+  boundary-local W in the ORIGINAL Haar integral and every mixed term of p.
+  `certified_weighted_nonnegative` consumes an existing constructive certificate
+  for W, not a claimed positive form or boundary-local square features.
+- **full original action**: `lowerHeat_oneSided` and `fixedHeat_local` prove
+  the needed locality directly from the actual face-link incidence.
+  `lowerHeat_reflection` and `fullHeat_split` retain every original heat factor.
+  `fullAction_dressing` pins the full carrier expression;
+  `fullAction_square` proves H((theta(p)*p)*fullHeat)=H(C(p*L)^2*W) at every
+  finite K/radius and rational w, for every supported one-sided p.
+  `fixedHeatCertificate` constructs the original fixed-face certificate;
+  `fullAction_nonnegative` uses explicit small-nome guards, and
+  `existingNome_fullAction_nonnegative` discharges them at 1/1024.
+- **open residue**: same-object normalization/cutoff/volume identification with
+  the existing thermodynamic geometric T1 pairing. Neither completed T1
+  positivity/root equality nor arbitrary unshifted-state range approximation
+  follows here. The conditional polynomial depends on K and is not asserted
+  to be an original fixed observable or a transfer preimage. Time zero,
+  physical Hamiltonian, beta(a)/continuum, QFT/spectral pins, other groups and
+  Clay remain open. No canonical field/type/atom/flag, analytic premise,
+  axiom or hole changed. Nonnegativity is not a strict gap estimate.
+- **verification**: 20 exact public gates with {propext, Quot.sound}; clean
+  focused logs, source/options and fresh own/direct artifacts. One worker,
+  separate preflights, explicit 20 GiB for both new modules. The missing old
+  even-geometry artifact required a narrow dependency build; it used the
+  existing 32 GiB default in error, reported to the user, with no settings
+  change or observed swap increase. Two additive root imports, not compiled.
+  No full build/audit/guard/progress run. Exact evidence is in `work_plan.md`.
+
+## Previous CLOSED finite integer-slice conditional square; then-OPEN heat-weighted T1 pin and range (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabSiteHaarFactorization.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabSiteBoundaryReflection.lean`, and

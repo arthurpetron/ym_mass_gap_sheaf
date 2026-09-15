@@ -119,7 +119,63 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED finite integer-slice conditional square; OPEN heat-weighted T1 pin and range):**
+**Latest mathematical increment (CLOSED full-action finite site positivity; OPEN thermodynamic T1 pin and range):**
+PROGRESS after `95cca6b`. The finite heat-action input to geometric T1 positivity
+is now supplied, with no new analytic assumption. In
+`BF4ExactSlabSiteWeightedSquare`, `conditional_weighted_square` retains an
+arbitrary supported boundary-local W inside Haar:
+H((theta(p)*p)*W)=H((C(p)*C(p))*W). The identity is linear in W, not a positivity
+assumption. `certified_weighted_nonnegative` uses the existing witness-bearing
+Haar certificate for W; its individual square features need not be boundary-local.
+
+`BF4ExactSlabSiteHeatAction` applies this to the actual full finite action.
+`lowerHeat_oneSided` retains fixed spatial links in lower temporal faces;
+`fixedHeat_local` proves the fixed-face product is boundary-local.
+`lowerHeat_reflection` and `fullHeat_split` prove U=theta(L) on the original
+carrier and fullHeat=L*(W*U), with every physical face present once.
+`fullAction_dressing` is an insertion-compatible carrier equality, not equality
+of an auxiliary partition. `fullAction_square` then proves the original
+reflected full-action quadratic equals H(C(p*L)^2*W) for every supported
+one-sided signed p, rational w, cutoff K and radius. `fixedHeatCertificate`
+constructs the original fixed-face heat certificate under the explicit guards
+0<=w<=1, heatRatio(w)<=1/2 and heatRemainderBound(w)<=1.
+`fullAction_nonnegative` proves finite site reflection positivity there;
+`existingNome_fullAction_nonnegative` discharges all coupling guards at 1/1024.
+No strict form rate, beta-uniform gap or transfer range estimate occurs.
+
+NEXT physical edge: identify this SAME full-action even-slab form, its
+normalization and limits with the existing thermodynamic geometric one-step
+pairing. The current time-balance/root declarations do not supply that pin.
+Keep the cutoff-dependent C(p*L) on the finite side: it is not a fixed original
+observable that can silently pass through the existing limits. Completed T1
+positivity and T1=rootAction remain open. Independently, `partialPreimage_distance`
+still needs a small-error index for arbitrary unshifted original dense states.
+Full-space time zero, physical Hamiltonian, spacing/coupling calibration,
+continuum QFT and all compact simple groups remain open. No canonical field,
+analytic premise, hole or axiom was added or changed.
+
+Verification: 2 + 18 exact public gates, all with precisely {propext, Quot.sound};
+clean final focused logs, executable-token/option checks and fresh own/direct
+dependency artifacts. Both new modules elaborated without proof corrections.
+The first heat-action check stopped at a missing old geometry artifact. Its
+narrow `+YMGap.Continuum.Z4HalfTimeReflectionAdjacentEvenOuterFactorLocality:olean`
+dependency build succeeded (706 dependency jobs, not a full-tree build).
+That one build accidentally used the existing 32 GiB Lake ceiling rather than
+the intended 20 GiB override; the discrepancy was reported, no setting changed,
+and the monitor reported 40.1 GiB available / 86% pressure-free. All new-module
+checks used an explicit 20 GiB ceiling. Every launch used one worker and a
+separate process/swap preflight; swap stayed at 12197.81 MiB. No further limit
+increase was needed. Two additive root imports; root not compiled. No full
+build/audit/guard/progress run. Final logs/SHA-256:
+
+- `/tmp/ym-site-weighted-square.log`:
+  `a16458083feb62aba28416b6867076d2b6a63309567897125bf847b2b797f01e`.
+- `/tmp/ym-site-heat-action.log`:
+  `f511990011c2cf21ef48f55890d71724cdfa1d4909ed67b326e01510b9b35852`.
+- `/tmp/ym-site-even-geometry-dependency.log`:
+  `98acbf6e06eaafcce7d47c1a019d8fcd012849bbc2871ebb72b4699405bfa255`.
+
+**Previous mathematical increment (CLOSED finite integer-slice conditional square; then-OPEN heat-weighted T1 pin and range):**
 PROGRESS after `941b2ae` on the distinct geometric one-step positivity branch.
 Source review of the range/interior/collar modules supplied no new unshifted
 boundary-state preimage. The older adjacent-even boundary-character Haar
