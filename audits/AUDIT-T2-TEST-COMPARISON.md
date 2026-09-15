@@ -1,5 +1,38 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Proved incompatibility of the old guard with the AF chart (2026-09-15)
+
+Follow-up after `ea4fe09`. This is a new kernel-checked obstruction,
+not merely the earlier source review and not a physical nonexistence result.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Returned cap >=2 once w>=1/4 | `remainder_cap_ge_two`, `lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean:37`; `guard_forces_small_nome`, `lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean:51` | Uses the exact old cap 128*w^3; NOT a lower bound on the actual heat remainder. |
+| Fine and one-step blocked nomes exceed that threshold on the small AF chart | `fine_nome_ge_threshold`, `lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean:69`; `blocked_nome_ge_threshold`, `lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean:80` | Supplied `CubicMarginLaw`; 0<g<=g1 and g<=1/2. Fine pin and old blockedMargin<=2*g^2. |
+| Both old guards fail | `fine_guard_fails`, `lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean:91`; `blocked_guard_fails`, `lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean:97` | Does not exclude a different reference action or a multiscale estimate. |
+| Computed witness and chart-wide no-go | `chartWitness`, `lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean:103`; `obstructionWitness`, `lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean:115`; `no_fine_guard_on_chart`, `lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean:126`; `no_blocked_guard_on_chart`, `lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean:133` | min(g1,1/2) retained as data with its positive chart guards and both cap bounds; no AF law constructed. |
+
+Relevant unchanged consumer: `faceRemainderInterval` at
+`lean/YMGap/Continuum/BF4ExactSlabSmallNomeHaarComparison.lean:54`,
+`faceCertificate` at
+`lean/YMGap/Continuum/BF4ExactSlabSmallNomeHaarComparison.lean:62`, and
+`originalBackground_comparison` at
+`lean/YMGap/Continuum/BF4ExactSlabSmallNomeHaarComparison.lean:160`.
+The next test is an actual-polynomial bound before attempting a sharper
+cap; no such lower bound is claimed by the new module.
+
+Source-only distinction: `pointwiseHeatCReal` at
+`lean/YMGap/Continuum/SU2PointwiseHeatSpacingCompletion.lean:377` uses a
+nome-dependent cutoff from `spacingLabelCutoff` at the same path :71.
+Its header excludes interacting BF4 and spacing-uniform conclusions.
+Convergence of a later tail is not a theorem that the complete
+positive-label remainder is smaller than one.
+
+Fifteen exact public gates passed within {propext, Quot.sound}; one
+first-pass focused safe one-worker/20 GiB check, no raised limits or
+full-tree run. Exact name matching, artifact checks and hash in work_plan.
+Physical-scale/QFT/all-group obligations remain open and ledgered.
+
 ## Same-action graph transport and physical-scale boundary (2026-09-15)
 
 Follow-up after `06d70b2`. The original graph and its image are now

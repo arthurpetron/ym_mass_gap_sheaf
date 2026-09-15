@@ -21,7 +21,22 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest analytic result:** [the original time action preserves its derivative graph](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean).
+**Latest result:** [the existing small-nome guard cannot cover the AF chart](lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean).
+The guard requires a returned remainder cap below one. That cap is
+`128*w^3`, already at least two for `w >= 1/4`. Any supplied existing
+AF margin law puts both the fine nome and the one-step matched blocked
+nome above this threshold when `0 < g <= min(g1,1/2)`.
+The proof returns that explicit coupling witness.
+
+This rules out direct reuse of the old guard, not the AF law or
+Yang--Mills existence. It is a bound on the returned cap, not a lower
+bound on the actual heat remainder. The next task is to test whether
+a sharper original-face estimate suffices before designing a replacement
+scale/volume estimate. Physical scaling, continuum QFT and all required
+groups remain open. All 15 public checks passed within the constructive
+gate in one focused safe check; no full-tree run or raised limits.
+
+**Previous analytic result:** [the original time action preserves its derivative graph](lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean).
 If `J u = T2 v`, then `(A_t u, A_t v)` belongs to the same graph.
 Commutation of the actual difference quotients and contraction preserve
 the derivative rate. The original output representatives are constructed,

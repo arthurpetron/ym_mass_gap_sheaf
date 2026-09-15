@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED same-action graph invariance and orbit-uniform Taylor radius; OPEN physical-scale family (2026-09-15)
+## CLOSED small-nome/AF guard incompatibility; OPEN replacement original-action scale estimate (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean`.
+- **proved obstruction**: `remainder_cap_ge_two` shows the old returned
+  cap is at least two when w>=1/4. For any supplied `CubicMarginLaw`,
+  `fine_guard_fails` and `blocked_guard_fails` exclude the old strict
+  guard throughout 0<g<=min(g1,1/2), using the existing fine pin and
+  one-step blocked margin bound. `obstructionWitness` computes a
+  coupling with its guards and both cap bounds as Type-level data.
+  `no_fine_guard_on_chart` / `no_blocked_guard_on_chart` exclude uniform
+  coverage of that supplied AF chart by the old guard.
+- **precise scope**: lower bound on the returned cap, not on the actual
+  heat remainder. No AF law is supplied or refuted, no Yang--Mills
+  nonexistence claim, and no original fixed-nome result is invalidated.
+- **residue/consumer**: test the actual original-face remainder before
+  attempting to sharpen `faceRemainderInterval` or reuse
+  `originalBackground_comparison`. A different same-action scale/volume
+  estimate and AF/spacing pin remain unsupplied; pointwise arbitrary-nome
+  heat-tail completion is not that estimate. Physical generator/spectral
+  and QFT interfaces, continuum and every required group/Clay remain
+  open. No canonical field, analytic premise, axiom, literal hole or
+  legacy flag changed.
+- **verification**: 15 exact public gates inside {propext, Quot.sound},
+  including one axiom-free gate; one first-pass focused safe check,
+  one worker/20 GiB, separate preflight, exact matching and clean log,
+  fresh own/direct artifacts. No raised limits or full-tree run.
+  One additive root import, root not compiled; CI manual-only.
+  Hash in work_plan.
+
+## Previous CLOSED same-action graph invariance and orbit-uniform Taylor radius; OPEN physical-scale family (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabThermodynamicGraphTimeTransport.lean`.
 - **same graph under time**: `quotient_time` and contraction preserve the

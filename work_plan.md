@@ -119,7 +119,51 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED same-action graph transport and orbit-uniform derivative radius; OPEN physical-scale family):**
+**Latest mathematical increment (CLOSED small-nome/AF guard incompatibility; OPEN replacement original-action scale estimate):**
+PROGRESS after `ea4fe09`. `BF4SmallNomeAFGuardObstruction`
+proves `remainder_cap_ge_two` and `guard_forces_small_nome` using the
+existing exact cap formula 128*w^3. The old strict guard forces w<1/4.
+For every supplied `CubicMarginLaw`, `fine_nome_ge_threshold` uses its
+actual fine pin 1-w=g^2, and `blocked_nome_ge_threshold` uses the old
+blockedMargin<=2*g^2 theorem. Both violate the guard throughout the
+positive chart below g<=1/2. `obstructionWitness` returns min(g1,1/2)
+as Type-level data with its chart guards and both cap>=2 proofs;
+`no_fine_guard_on_chart` / `no_blocked_guard_on_chart` refute coverage
+of the whole supplied chart by the old guard.
+
+This is a conditional incompatibility theorem, not an inhabitant or
+refutation of `CubicMarginLaw`. The lower bound concerns the RETURNED
+CAP, not the actual heat remainder. It does not refute weak-coupling
+heat convergence or Yang--Mills existence. The original fixed-nome
+thermodynamic/time-action results are unchanged.
+
+NEXT CAUSAL FRONTIER: test whether a sharper original-face bound can
+restore the needed comparison, before generalizing the completion stack.
+Inspect the actual character prefix at the identity and its positive-label
+remainder; prove its dependence on w and cutoff. Its concrete consumer
+is `BF4ExactSlabSmallNomeHaarComparison.faceRemainderInterval` and the
+positivity/comparison chain through `faceCertificate` and
+`originalBackground_comparison`. If a near-unit bound fails for the
+actual polynomial, rule out that repair and identify the different
+same-action reference measure/block estimate required. Arbitrary-nome
+tail convergence alone does not supply a small COMPLETE remainder or
+an interacting volume-uniform bound. The pointwise spacing completion
+and tail-bound modules explicitly retain those limitations.
+
+OPEN: replacement same-action coupling/scale/volume estimate, its AF and
+physical-spacing pins, physical generator/spectral and complex/QFT
+interfaces, beta(a), continuum QFT and every required group/Clay.
+No canonical field, analytic premise, axiom, literal hole or legacy flag
+changed. Verification: 15 exact public gates; one axiom-free, one uses
+only propext, thirteen use {propext, Quot.sound}. One first-pass focused
+safe one-worker/20 GiB check; exact declaration/gate/log matching, clean
+log and fresh own/direct artifacts. Separate preflight, swap stable at
+11869.31 MiB; no raised limits, dependency rebuild or full-tree run.
+One additive root import, root not compiled; CI manual-only.
+`/tmp/ym-small-nome-af-obstruction.log` SHA-256:
+`d93576b357553815773c2ed71e4327ce86084a49f09d581623009524b312f095`.
+
+**Previous mathematical increment (CLOSED same-action graph transport and orbit-uniform derivative radius; its next guard obstruction is proved above):**
 PROGRESS after `06d70b2`. `BF4ExactSlabThermodynamicGraphTimeTransport`
 proves `time_generator` / `quotient_time` from the OLD real-time semigroup
 and its exact dyadic pin. `transported_quotient_bound` retains the OLD
