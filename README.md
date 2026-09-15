@@ -21,7 +21,22 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest finite result:** [site reflection positivity with the full original heat action](lean/YMGap/Continuum/BF4ExactSlabSiteHeatAction.lean).
+**Latest cutoff-limit result:** [normalized site reflection positivity](lean/YMGap/Continuum/BF4ExactSlabSiteExpectation.lean).
+The heat cutoff is now removed at every fixed even volume, keeping the full
+original action and its own partition normalization. Explicit moduli control
+the normalized cutoff values and their constructive-real limit. The new
+[face-list expectation](lean/YMGap/Continuum/BF4ExactSlabFaceSetExpectation.lean)
+is proved equal to the existing expectation on every full odd slab.
+
+The existing [boundary estimate now also passes through this normalization](lean/YMGap/Continuum/BF4ExactSlabFaceSetBoundaryComparison.lean)
+for any physical face mask, with both partition factors cancelled exactly.
+The remaining one-step bridge needs the actual odd/even slab inclusion,
+observable/reflection identity and receding-boundary separation. **Completed
+one-step positivity, full-space time zero and the Clay target remain open.**
+Twenty-three focused constructive axiom checks passed; no full-tree run or
+raised resource limits.
+
+**Previous finite result:** [site reflection positivity with the full original heat action](lean/YMGap/Continuum/BF4ExactSlabSiteHeatAction.lean).
 At every finite cutoff and even-slab size, the original reflected quadratic
 equals a computed boundary square integrated against the original fixed-slice
 heat weight. All lower, upper and shared-slice interactions are retained.

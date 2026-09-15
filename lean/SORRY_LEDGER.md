@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED full-action finite site positivity; OPEN thermodynamic T1 pin and range (2026-09-15)
+## CLOSED normalized cutoff-removed site positivity and arbitrary-mask comparison; OPEN parity/T1 pin and range (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabFaceSetExpectation.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabSiteExpectation.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabFaceSetBoundaryComparison.lean`.
+- **same normalization, every parity**: `partition_floor`, `reciprocal`,
+  `partition_cancellation` and `finiteValue` use the original face heat products,
+  numerator and SAME partition. `finiteCauchy`, `expectationCauchy` and
+  `approx_close` return/control explicit moduli for the raw cutoff and actual
+  representative. `expectation_one` and `expectation_recover` prove normalization;
+  `odd_expectation_pin` equals the EXISTING full odd-slab expectation, not a
+  substitute law. All small-nome guards are explicit. The floor and numerical
+  reciprocal/product budget depend on coupling and finite face count.
+- **cutoff-removed site form**: `finite_site_nonnegative`, `site_nonnegative`
+  and `existingNome_site_nonnegative` retain positivity with the full original
+  action at fixed even volume. The original p is fixed; C(p*L_K) remains inside
+  the finite proof and is not asserted to be an original fixed observable.
+- **normalized signed boundary response**: `finite_mask_bound` cancels the
+  two actual partition factors; `mask_bound` passes the inequality to their
+  cutoff limits. `mask_tail_bound` uses the existing arbitrary-mask core bound
+  at every extent with the finite active-core size condition still explicit.
+  No volume-dependent reciprocal ceiling enters its final coefficient.
+- **open residue**: actual odd-to-adjacent-even inclusion, face mask,
+  observable/reflection identity and growing exterior/core separation;
+  comparison with the existing thermodynamic one-step pairing. No even-volume
+  thermodynamic limit, completed T1 positivity/root equality or arbitrary-state
+  range approximation is proved here. Full-space time zero, Hamiltonian,
+  physical scale/continuum/QFT, other groups and Clay remain open. No canonical
+  field/type/atom/flag, analytic premise, axiom or hole changed.
+- **verification**: 23 exact public gates within {propext, Quot.sound}, one
+  axiom-free and one propext-only; clean focused logs and fresh own/direct
+  artifacts. Elaboration/import corrections, no changed statements or raised
+  limits. One worker, explicit 20 GiB, separate preflights, unchanged swap.
+  Three additive root imports, not compiled; no full-tree build/audit/guard.
+  Exact log hashes and scope are in `work_plan.md`.
+
+## Previous CLOSED full-action finite site positivity; OPEN thermodynamic T1 pin and range (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabSiteWeightedSquare.lean` and
   `lean/YMGap/Continuum/BF4ExactSlabSiteHeatAction.lean`.

@@ -119,7 +119,71 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED full-action finite site positivity; OPEN thermodynamic T1 pin and range):**
+**Latest mathematical increment (CLOSED normalized cutoff-removed site positivity and arbitrary-mask comparison; OPEN parity geometry/T1 pin and range):**
+PROGRESS after `3fdebff`. Source review identified the concrete mismatch:
+`BF4ExactSlabPolynomialExpectation.expectation` and the existing thermodynamic
+spacetime family use odd `centralExtent` slabs; site positivity uses
+`adjacentEvenExtent`. The old `BF4ExactSlabOffsetHaarEmbedding.Placement`
+also fixes BOTH source and target to odd extents. Its offset comparison cannot
+silently identify the two parity families.
+
+`BF4ExactSlabFaceSetExpectation` supplies the missing normalization without
+changing the theory. For any extent and physical face list, the original
+finite partitions obey the proved floor (1-heatRemainderBound(w))^|ids|>0
+under explicit 0<w<1, heatRatio(w)<=1/2 and heatRemainderBound(w)<1 guards.
+`finiteValue` divides the SAME finite numerator by the SAME finite partition;
+`reciprocal` has a computed rational-stream modulus and `partition_cancellation`
+ties it to the existing original partition limit. `finiteCauchy` and
+`expectationCauchy` expose the raw cutoff and actual CReal moduli;
+`approx_close` controls both indices by the computed product-stream modulus.
+`expectation_one` and `expectation_recover` prove exact normalization, and
+`odd_expectation_pin` identifies the full odd specialization with the EXISTING
+polynomial expectation. The floor and numerical product budget depend on w,
+extent, face count and insertion as stated; neither is a uniform-volume estimate.
+
+`BF4ExactSlabSiteExpectation.site_nonnegative` passes the full-action site
+positivity through this original normalized cutoff limit, for every supported
+one-sided p at any fixed even volume. `existingNome_site_nonnegative` supplies
+the existing nome 1/1024 case. Only the original insertion is fixed in this
+limit: C(p*L_K) stays in the finite proof and is not treated as an original
+fixed observable, an OS state or a preimage.
+
+`BF4ExactSlabFaceSetBoundaryComparison.finite_mask_bound` cancels both actual
+partition factors from the original signed determinant. `mask_bound` passes
+that bound to the normalized cutoff limits. `mask_tail_bound` consumes the
+already-proved arbitrary-mask core estimate, yielding
+|E_ids(p)-E_filtered(p)| <= (c+c)*summedBoundaryBudget(probe,w,d).
+It is valid at any extent and retains the explicit finite active-core size
+condition. No reciprocal ceiling survives in this coefficient and no new
+analytic decay premise was supplied in place of the existing core theorem.
+
+NEXT physical edge: construct the literal odd-to-adjacent-even inclusion and
+its physical-face mask; prove its original observable/reflection pin and the
+growing exterior-distance/core-size bound. Then apply the checked mask estimate
+to compare the actual site form with the existing thermodynamic one-step
+pairing. No even thermodynamic limit or completed T1 positivity is proved by
+this checkpoint. T1=rootAction, arbitrary unshifted-state range, full-space
+time zero, physical Hamiltonian, beta(a)/continuum/QFT and all compact simple
+groups remain open. No canonical field, analytic premise, axiom or hole changed.
+
+Verification: 17 + 3 + 3 exact public gates within {propext, Quot.sound}; one
+axiom-free and one propext-only. Clean final focused logs, source/options and
+fresh own/direct artifacts. Initial checks exposed a notation projection,
+an ambiguous abbreviation and a missing continuity import; explicit sequence
+arguments removed a normalization elaboration timeout. No proof statement or
+resource limit was weakened. Safe-build skill: one worker, explicit 20 GiB and
+separate process/swap preflights for every launch; swap stayed at 12197.81 MiB.
+No dependency rebuild or full build/audit/guard/progress run. Three additive
+root imports; root not compiled. Final logs/SHA-256:
+
+- `/tmp/ym-face-set-expectation.log`:
+  `94b2e7636da87af974e86d385eff8e87c88e47b3c075716304bb1faaf9f8196e`.
+- `/tmp/ym-site-expectation.log`:
+  `6cf426d375eb4b4a7cab4463f544becbcf00ed08e7eb6aaea7e657a0ec0a8bfe`.
+- `/tmp/ym-face-set-boundary-comparison.log`:
+  `74d56db444c82997c83aa2f00c375a99d6ab0247ae6c5514f5eb31d8a005ab2c`.
+
+**Previous mathematical increment (CLOSED full-action finite site positivity; OPEN thermodynamic T1 pin and range):**
 PROGRESS after `95cca6b`. The finite heat-action input to geometric T1 positivity
 is now supplied, with no new analytic assumption. In
 `BF4ExactSlabSiteWeightedSquare`, `conditional_weighted_square` retains an

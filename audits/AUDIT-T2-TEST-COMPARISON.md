@@ -1,6 +1,32 @@
 # Actual T2, collar tests, and the missing range estimate
 
-Latest finite follow-up, 2026-09-15, after `95cca6b`: the conditional-square
+Latest cutoff-limit follow-up, 2026-09-15, after `3fdebff`: normalized site
+reflection positivity now survives heat-cutoff removal at each fixed even
+volume. Arbitrary-mask normalized boundary response is also proved without
+an odd/even restriction. This does not identify the thermodynamic T1 form.
+
+| Result | Declaration and source | Boundary |
+| --- | --- | --- |
+| Actual positive finite partition | `partitionFloor`, `lean/YMGap/Continuum/BF4ExactSlabFaceSetExpectation.lean:44`; `partition_floor`, same file `:61` | (1-delta(w))^|ids|, explicit small-nome guards and physical face list; not volume-uniform. |
+| Original normalized cutoff and limit | `finiteValue`, `lean/YMGap/Continuum/BF4ExactSlabFaceSetExpectation.lean:70`; `partition_cancellation`, same file `:79`; `expectation`, same file `:83` | Same numerator, same partition and original cutoff limit, any extent. |
+| Computed two-index control | `finiteCauchy`, `lean/YMGap/Continuum/BF4ExactSlabFaceSetExpectation.lean:135`; `expectationCauchy`, same file `:141`; `approx_close`, same file `:165` | Explicit raw-cutoff and actual-representative moduli; w/extent/face-list/insertion dependence retained. |
+| Existing odd law is unchanged | `odd_expectation_pin`, `lean/YMGap/Continuum/BF4ExactSlabFaceSetExpectation.lean:206` | Full odd specialization equals the pre-existing polynomial expectation by partition cancellation. |
+| Site positivity after cutoff removal | `site_nonnegative`, `lean/YMGap/Continuum/BF4ExactSlabSiteExpectation.lean:63`; `existingNome_site_nonnegative`, same file `:71` | Fixed even volume, full original action and normalization. Original p fixed; cutoff-dependent C(p*L_K) is not a fixed state. |
+| Both partitions cancel | `finite_mask_bound`, `lean/YMGap/Continuum/BF4ExactSlabFaceSetBoundaryComparison.lean:102`; `mask_bound`, same file `:110` | Actual determinant bound passes to normalized expectation difference with unchanged coefficient. |
+| Existing core tail reaches normalized law | `mask_tail_bound`, `lean/YMGap/Continuum/BF4ExactSlabFaceSetBoundaryComparison.lean:123` | Arbitrary physical mask and extent; explicit finite core-size condition and coupling guards, not a transfer gap. |
+
+**NOT FOUND in these three modules:** the literal odd/even slab inclusion,
+its observable/reflection identity, or the receding-volume comparison to the
+existing thermodynamic one-step form. The older
+`Placement.source`, `lean/YMGap/Continuum/BF4ExactSlabOffsetHaarEmbedding.lean:47`,
+and `Placement.target`, same file `:48`, are both odd `centralExtent` slabs;
+their definitions do not supply this parity change.
+Completed T1 positivity/root equality and the independent range obligation
+remain open. Twenty-three exact public gates passed within {propext, Quot.sound};
+no full-tree run. Exact verification evidence is in `work_plan.md`.
+No canonical field or analytic premise changed. Earlier checkpoints follow.
+
+Previous finite follow-up, 2026-09-15, after `95cca6b`: the conditional-square
 identity now retains the FULL ORIGINAL heat action on the actual even slab.
 This closes the finite heat-action input on the geometric T1 positivity branch,
 not the thermodynamic one-step pin or the separate T2 range estimate.
