@@ -13,7 +13,22 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [positive real-time operators on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveTimePins.lean).
+**Latest milestone:** [positive real-time semigroup on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveRealSemigroup.lean).
+Addition of positive real times now gives composition of the existing
+operators: `A(s+t)x = A(s)(A(t)x)`. Time addition is pinned to the
+existing real-number addition. The proof passes an exact dyadic
+inner-product identity through computed Cauchy limits; it requires no
+inverse or supplied spectral model. The same original vacuum complement
+is invariant and carries the same semigroup. Output representatives,
+sum-time convergence rates and mixed-time moment identities are explicit.
+Three modules passed 47 focused axiom checks within `{propext, Quot.sound}`
+(three axiom-free); no full-tree run.
+Next: quantitative continuity for real-time values. This is an algebraic
+positive-time semigroup; full-space continuity at zero, geometric `T1`
+identification, the Hamiltonian, physical-scale control and continuum/Clay
+remain open. Nome and spacing are fixed.
+
+**Established operator family:** [positive real-time operators on the original space](lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveTimePins.lean).
 Every supplied positive real time, with explicit numerical Cauchy data,
 now constructs an operator on the same completed state space. Certified
 dyadic rounding and the energy estimate give computed convergence rates
@@ -23,8 +38,7 @@ operators exactly. Positivity, symmetry, contraction, rational linearity,
 the original unit and centering are retained.
 Four modules passed 79 focused axiom checks within `{propext, Quot.sound}`
 (13 axiom-free); no full-tree run.
-Next: prove that addition of positive real times gives composition.
-This is an operator family, not yet a proved real-time semigroup.
+The time-addition/composition law is now proved above.
 Full-space continuity at zero, geometric `T1` identification, the
 Hamiltonian, physical-scale control and continuum/Clay remain open;
 nome and spacing are fixed.
@@ -41,7 +55,7 @@ on every original state, and continuity at zero on the range of `T2`.
 One module passed 29 focused axiom checks within `{propext, Quot.sound}`;
 no full-tree run.
 Controlled positive-time Cauchy families and the positive-real-time
-operator family are now constructed above; its time-addition law is open.
+operator family and its time-addition law are now constructed above.
 Density of the `T2` range, zero transfer kernel and full-space continuity
 at zero are not proved. Geometric `T1` identification, the Hamiltonian,
 physical-scale control and continuum/Clay remain open; nome and spacing
@@ -59,7 +73,7 @@ Two modules passed 51 focused axiom checks within `{propext, Quot.sound}`
 (six axiom-free); no full-tree run.
 Quantitative positive-time right continuity and zero-time continuity on
 the `T2` range are now proved above. Full-space continuity at zero and a
-real-time semigroup are not established; the possible kernel of `T2`
+strongly continuous nonnegative-time semigroup are not established; the possible kernel of `T2`
 remains open. Geometric `T1` identification, the Hamiltonian,
 physical-scale control and continuum/Clay remain open; nome and spacing
 are fixed.

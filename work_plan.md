@@ -18,7 +18,69 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (constructed positive real-time operator family on the ORIGINAL carrier):**
+**Latest increment (positive real-time addition/composition on the ORIGINAL carrier):**
+PROGRESS after 0fd07c8. `PositiveRealDyadicTimeAddition.value_addMesh`
+identifies mesh addition with exact Q' addition. `sumCauchy` retains the
+computed rate max(approximationModulus D (half*epsilon),
+approximationModulus E (half*epsilon)). `sumTime` constructs positive
+time data from the two original dyadic streams, with floor D.floor+E.floor.
+`sumTime_real_equiv` and `sumTime_real_pin` identify its value with the
+PRE-EXISTING CReal/RC sum of the original supplied real values.
+No new formal time addition is left unconnected to numerical time.
+
+`BF4ExactSlabThermodynamicPositiveTimeComposition.sumRows` constructs
+original state Cauchy data for the pointwise SUM of those meshes, with
+modulus `sumRowModulus`: the numerical sum modulus at
+(D.floor+E.floor)*half^(rangeModulus X epsilon).
+The upper rounding used by the previous positive-time action changes
+the sum by at most half^n. `sum_rows_close` controls this error with
+`sumComparisonModulus`, the computed half-power cutoff for that same
+tolerance. Thus `sumRows_limit` identifies the limit with the PREVIOUS
+positiveAction at the ACTUAL sumTime, not a replacement action.
+
+The mathematical contraction is short: `sumRows_pairing` uses the
+PRE-EXISTING exact mixed dyadic identity
+<A(p+q)x,y>=<A(q)x,A(p)y>. `positiveAction_sum_pairing` passes that
+identity through constructed original row limits. Original symmetry
+and positive definiteness give `positiveAction_sum`:
+A(sumTime D E)x=A(D)(A(E)x). `sumActionCertificate` returns output
+Cauchy data, the composition pin, and the summed-mesh convergence rate.
+There is no assumed product-limit theorem, inverse, zero-kernel premise,
+spectral model or selected quotient representative.
+
+`BF4ExactSlabThermodynamicPositiveRealSemigroup.addTime` descends those
+sum-time data to the EXISTING `PositiveTimeValue`. `realValue_addTime`
+pins it to RCadd; injectivity of realValue gives commutativity and
+associativity. `realTimeAction_addTime` is the composition law for the
+PREVIOUS realTimeAction. Mixed/doubled moments, state linearity,
+squared-distance contraction and centering are proved.
+`complementAction` acts on the ORIGINAL UnitComplement, with its exact
+state pin and the same composition law, not a new vacuum sector.
+
+NEXT: quantitative continuity for positive real-time values, then the
+full-space time-zero issue. Positive-real-time ALGEBRAIC semigroup laws
+are CLOSED. A strongly continuous nonnegative-time semigroup is NOT yet
+proved. Density of the T2 range, zero transfer kernel, geometric T1
+identification, full spectral realization, canonical comparisons,
+quotient-level completeness/time injectivity, physical spectral/non-Wick
+pins, continuum scaling, other groups and Clay remain OPEN. Fixed SU(2)
+nome 1/1024 and spacing only. No new hole, physical input, canonical
+type/atom/flag, weight or surrogate; no beta/spacing-uniform physical
+gap is asserted.
+
+Verification: three focused monitored modules, 17+11+19=47 exactly
+matched gates within {propext, Quot.sound}, three axiom-free. Clean final
+logs and fresh own/direct-import artifacts. Safe-build skill: one worker,
+explicit 20 GiB ceiling, separate process/swap preflights; no raised
+options or full build/audit/guard/progress/root-import run. Logs and SHA-256:
+`/tmp/ym-positive-real-dyadic-time-addition.log`
+(`0e92c1acda6631842cd758aa7b6b90e4eae04c0a6ac5baefd405082447f25dd2`),
+`/tmp/ym-original-positive-time-composition.log`
+(`96b67d0713e36424c281e7b8bac6e1c2f8786a09af0107cbb53914aad115ef24`),
+`/tmp/ym-original-positive-real-semigroup.log`
+(`bf6abd3b279f91f13b4fbff68687a58036a2e96a4bf395b234798e8e2e508066`).
+
+**Previous increment (constructed positive real-time operator family on the ORIGINAL carrier):**
 PROGRESS after bad00a8. `Constructive/DyadicTimeRationals.value` maps a
 mesh to its exact rational time. `value_le_iff` and `value_eqv_iff`
 identify order/equality with natural cross products; `value_refine`
@@ -62,9 +124,10 @@ original unit and centering. `realTimeAction` descends to `PositiveTimeValue`;
 `realValue_injective` pins that quotient injectively to the original RC
 time value. No state or time representative is selected from a quotient.
 
-NEXT: construct sum-time numerical data and prove that positive real-time
-addition gives composition. The positive-real-time OPERATOR FAMILY and
-its exact dyadic pins are CLOSED, NOT yet the real-time semigroup law.
+Subsequent closure: sum-time numerical data, pinned real addition and
+positive real-time composition are proved above. The positive-real-time
+OPERATOR FAMILY and its exact dyadic pins are CLOSED, as are the
+positive-time algebraic semigroup laws.
 Density of the T2 range, zero transfer kernel and full-space time-zero
 continuity remain OPEN. Geometric T1 identification, full spectral
 realization, canonical comparisons, quotient-level completeness/time
@@ -118,7 +181,7 @@ so NO full-space continuity-at-zero assertion is hidden in this theorem.
 
 Subsequent closure: controlled positive-time Cauchy families and a
 representation-independent positive-real-time operator family, retaining
-exact original dyadic pins, are constructed above; time addition is open.
+exact original dyadic pins and time addition, are constructed above.
 Positive-time RIGHT continuity and
 zero-time continuity on the T2 RANGE are CLOSED. Density of that range,
 zero transfer kernel, and full-space time-zero continuity are NOT proved.
@@ -161,7 +224,7 @@ data; `representative_congr` proves its representation independence.
 Subsequent closure: positive-time right continuity and zero-time
 continuity on the T2 range are proved above, with explicit moduli.
 The representation-independent ALGEBRAIC nonnegative dyadic semigroup
-is CLOSED; full-space continuity at zero and the real-time semigroup law remain
+is CLOSED; full-space continuity at zero and the strongly continuous nonnegative-time semigroup remain
 open. Geometric T1 identification, full
 spectral realization, canonical comparisons, quotient-level completeness/
 time injectivity, continuous-time/physical spectral/non-Wick pins,

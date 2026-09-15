@@ -13,7 +13,51 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED positive real-time operator family on the ORIGINAL carrier (2026-09-14)
+## CLOSED positive real-time addition/composition on the ORIGINAL carrier (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/PositiveRealDyadicTimeAddition.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveTimeComposition.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveRealSemigroup.lean`.
+- **closed actual time addition**: `value_addMesh` identifies mesh
+  addition with Q' addition. `sumCauchy` computes the numerical sum
+  modulus, `sumTime` retains a positive floor, and `sumTime_real_pin`
+  identifies the constructed time with the PRE-EXISTING RC addition
+  of the supplied original real values. No numerical modulus is
+  selected from a legacy Prop field or a time quotient.
+- **closed original sum-time limit**: `sumRows` constructs original
+  state Cauchy data on the summed meshes. `sumComparisonModulus` and
+  `sum_rows_close` control the additional upward-rounding error by
+  the previous energy estimate. `sumRows_limit` pins this limit to
+  the PREVIOUS positiveAction at the actual sumTime.
+- **closed composition by original pairings**: `sumRows_pairing`
+  applies the old mixed dyadic pairing identity. Passing to original
+  row limits gives `positiveAction_sum_pairing`; symmetry and positive
+  definiteness give `positiveAction_sum`. `sumActionCertificate`
+  retains the output Cauchy data, the composition pin and rate.
+  No product-limit, inverse, injectivity or spectral-model premise.
+- **closed representation-independent semigroup**: `realValue_addTime`
+  pins quotient time addition to RCadd; `addTime_comm` and
+  `addTime_assoc` follow from the existing real-value injection.
+  `realTimeAction_addTime` is the law for the PREVIOUS realTimeAction.
+  Mixed/doubled moments, original state linearity, squared-distance
+  contraction and centering are proved. `complementAction` restricts
+  to the PRE-EXISTING UnitComplement with the same composition law.
+- **open residue**: quantitative continuity for positive real-time
+  values; full-space time-zero continuity; density of the T2 range;
+  zero transfer kernel; geometric T1 identification; full spectral
+  realization; canonical comparisons; quotient-level completeness/time
+  injectivity; physical spectral/non-Wick pins; continuum scaling;
+  other groups and Clay. Algebraic positive-time semigroup, NOT yet a
+  strongly continuous nonnegative-time semigroup. Fixed SU(2)
+  nome/spacing only. No new hole, physical input, canonical type/atom/
+  flag, weight or surrogate; no beta/spacing-uniform gap is asserted.
+- **verification**: 47 exactly matched focused gates within
+  {propext, Quot.sound}, three axiom-free; clean final logs and fresh
+  own/direct-import artifacts. One worker, explicit 20 GiB ceiling,
+  separate preflights; no raised options or full build/audit/guard/
+  progress/root-import run. Logs and SHA-256 in work_plan.
+
+## Previous checkpoint: CLOSED positive real-time operator family on the ORIGINAL carrier (2026-09-14)
 
 - **files**: `lean/YMGap/Constructive/DyadicTimeRationals.lean`,
   `lean/YMGap/Continuum/PositiveRealDyadicTimeData.lean`,
@@ -43,13 +87,16 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The original unit and centering are retained. `realValue_injective`
   pins the time quotient to the original RC time value. No time/state
   quotient representative is selected.
-- **open residue**: the positive-real-time ADDITION/COMPOSITION law;
+- **subsequent closure**: actual positive-real-time addition/composition
+  and the original UnitComplement semigroup are proved above.
+- **open residue**: quantitative positive-real-time continuity;
   density of the T2 range; zero transfer kernel; full-space time-zero
   continuity; geometric T1 identification; full spectral realization;
   canonical comparisons; quotient-level completeness/time injectivity;
   continuous-time/physical spectral/non-Wick pins; continuum scaling;
-  other groups and Clay. This is an operator family, NOT yet a proved
-  real-time semigroup. Fixed SU(2) nome/spacing only. No new hole,
+  other groups and Clay. The algebraic positive-time semigroup is
+  proved above; full-space time-zero continuity is not. Fixed SU(2)
+  nome/spacing only. No new hole,
   physical input, canonical type/atom/flag, weight or surrogate; no
   beta/spacing-uniform physical gap is asserted.
 - **verification**: 79 exactly matched focused gates within
@@ -82,8 +129,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   time-zero continuity conclusion.
 - **subsequent closure**: controlled positive-time Cauchy families and
   the original positive-real-time operator family, with exact dyadic
-  pins, are constructed above; its time-addition law remains open.
-- **open residue**: real-time semigroup law; density of the T2 range;
+  pins and its time-addition law, are constructed above.
+- **open residue**: real-time continuity; density of the T2 range;
   zero transfer kernel; full-space continuity at zero; geometric T1 identification; full
   spectral realization; canonical comparisons; quotient-level
   completeness/time injectivity; continuous-time/physical spectral/
@@ -122,7 +169,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **subsequent closure**: positive-time right continuity and zero-time
   continuity on the T2 range are quantitative in the latest entry.
 - **open residue**: full-space time-zero continuity;
-  real-time semigroup law; geometric T1 identification; full spectral
+  real-time continuity; geometric T1 identification; full spectral
   realization; canonical comparisons; quotient-level completeness/time
   injectivity; continuous-time/physical spectral/non-Wick pins;
   continuum scaling; other groups and Clay. The possible kernel of T2
@@ -166,7 +213,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   NOT a proof that this kernel vanishes.
 - **subsequent closure**: representation-independent nonnegative dyadic
   indexing and addition are proved in the latest entry.
-- **open residue**: full-space time-zero continuity, real-time semigroup law,
+- **open residue**: full-space time-zero continuity, real-time continuity,
   geometric T1 identification, full spectral realization,
   canonical comparisons, quotient-level completeness/time injectivity,
   continuous-time/physical spectral/non-Wick pins, continuum scaling,
