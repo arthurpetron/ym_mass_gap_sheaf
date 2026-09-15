@@ -13,7 +13,57 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED selected ORIGINAL interface floor and exact crossing-cutoff removal (2026-09-14)
+## CLOSED all-spin ORIGINAL channel bounds through full bulk cutoff removal (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabAllSpinRetainedChannels.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabRetainedChannelBulkLimit.lean`.
+- **closed arbitrary retained spin channels**: `GramChannel` carries
+  a spin and an ACTUAL leaf of the existing representation tree;
+  `SpinChannel` specializes it to the physical crossing face's lower
+  spatial link. `gram_leaf_positive` and `heat_coefficient_positive`
+  prove strict positivity of all retained weights. `faceChannel`
+  and `interfaceChannel` construct actual original interface leaves.
+  `channelCutoff` computes the maximum selected spin on the actual
+  face list; the polynomial and weight are independent of every
+  later action cutoff. `vacuumChannel` is an explicit instance;
+  positive weight does not assert nonzero channel amplitude.
+- **closed original amplitude pin and bulk limit**:
+  `realized_amplitude` identifies each retained amplitude with the
+  ORIGINAL lower-action numerator, retaining all shared links and
+  bulk heat factors. `amplitudeCauchy` uses the existing numerator
+  cutoff modulus; `amplitudeLimit` is that existing interacting
+  limit. `amplitudeLimitCauchy` and `amplitude_approx_close` expose
+  numerical data for the actual representative as well.
+- **closed coefficient estimate after ALL spin cutoffs are removed**:
+  `realized_bound` bounds the weighted amplitude square by the
+  original complete reflected numerator at the SAME cutoff K.
+  `lowerMomentBound` is the explicit coefficient-L1 heat-product
+  cap. `channelEnergy_converges` passes the square and fixed weight
+  through the actual limit; `channelEnergyLimitCauchy` retains its
+  modulus. `channelEnergyLimit_bound` proves W*A^2<=Q_original
+  with bulk and crossing cutoffs tending to infinity together.
+- **closed null implication**: `amplitudeLimit_zero_of_original_null`
+  proves that every selected all-spin coefficient vanishes on an
+  ORIGINAL OS-null polynomial. It follows by retaining the positive
+  weighted square, then rational positive-factor cancellation and
+  an epsilon-squared bound. No channel completeness is assumed.
+- **open residue**: quantitative finite-channel reconstruction and
+  tail control for the original norm; the converse null implication;
+  compatibility with actual time translation; volume passage;
+  completed transfer range/density and zero kernel; full-space
+  time-zero continuity, physical Hamiltonian/scaling, other groups
+  and continuum/Clay. Weights depend on nome and channel; the
+  coefficient cap/modulus depends on extent. No beta/spacing-uniform
+  claim, new hole, analytic premise, canonical atom/type/flag or surrogate.
+- **verification**: 15+19=34 exactly matched focused gates within
+  {propext, Quot.sound}, one axiom-free and one propext-only; clean
+  logs and fresh own/direct-import artifacts. One worker, explicit
+  20 GiB ceiling and separate process/swap preflights. Geometry was
+  factored out of the channel structure and scalar convergence
+  elaboration; no limits/options were raised. No full build/audit/
+  guard/progress/root-import run. Log hashes are in work_plan.
+
+## Previous checkpoint: CLOSED selected ORIGINAL interface floor and exact crossing-cutoff removal (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabMixedInterfacePin.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabSelectedInterfaceCoercivity.lean`.

@@ -18,7 +18,67 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (selected ORIGINAL interface floor and exact crossing-cutoff removal):**
+**Latest increment (all-spin ORIGINAL channel bounds through full bulk cutoff removal):**
+PROGRESS after 42877e3. Instead of trying to pass one shrinking
+coercivity floor through a growing bulk cutoff, the proof now retains
+each FIXED positive square channel and passes its actual amplitude
+through the original bulk limit.
+
+`BF4ExactSlabAllSpinRetainedChannels.GramChannel` carries any spin and
+actual leaf of the existing representation Gram tree. `SpinChannel`
+pins that data to a physical crossing face's lower spatial quaternion.
+`gram_leaf_positive` follows from the positive inverse-basis weights
+and unit-weight real tensor leaves; `heat_coefficient_positive` uses
+the original coeffW, not a proxy. `channelCutoff` computes the maximum
+selected spin over the actual crossing-face list. `interfaceChannel`
+constructs the selected product leaf at every later cutoff with the
+SAME `channelPolynomial` and `channelWeight`. No claim that a chosen
+polynomial lies in an unspecified channel span is made.
+
+`BF4ExactSlabRetainedChannelBulkLimit.realized_amplitude` identifies
+the amplitude with the original lower-action numerator against
+lower(e)*channelPolynomial. ALL original bulk heat factors still
+vary. `amplitudeCauchy`, `amplitudeLimitCauchy` and
+`amplitude_approx_close` expose the original cutoff and representative
+moduli. `lowerMomentBound` is the explicit coefficient-L1 product cap.
+`realized_bound` retains the weighted square in the full original
+reflected numerator at the SAME cutoff K. Scalar multiplication and
+square convergence, with that cap, give `channelEnergyLimit_bound`:
+W*A^2<=Q_original after bulk and crossing cutoffs go to infinity
+together. `channelEnergyLimitCauchy` supplies its numerical modulus.
+The weight W remains strictly positive and independent of K.
+
+`channelEnergyLimit_zero_of_original_null` and
+`amplitudeLimit_zero_of_original_null` show that an original OS-null
+polynomial has zero coefficient in EVERY fixed selected all-spin
+channel. Positive-factor cancellation and an epsilon-squared estimate
+give the latter; no uniform floor over the entire family is needed.
+
+NEXT: quantitative reconstruction/tail control of the ORIGINAL norm
+from these finite channels, and their compatibility with actual time
+translation. The converse null implication and channel completeness
+are not proved. Neither is volume control or completed T2 range density/
+zero kernel. Full-space time-zero continuity, geometric T1/physical
+Hamiltonian identification, canonical spectral/non-Wick comparisons,
+quotient-level completeness, beta(a)/spacing-uniform continuum control,
+other groups and Clay remain OPEN. No new hole, analytic premise,
+canonical field/type/atom/flag, weight or surrogate. The comparison is
+on the original finite-volume OS form, not on a replacement carrier.
+
+Verification: two focused monitored modules, 15+19=34 exactly matched
+gates within {propext, Quot.sound}; one axiom-free and one propext-only.
+Clean final logs and fresh own/direct-import artifacts. Safe-build
+skill: one worker, explicit 20 GiB ceiling, separate process/swap
+preflights. The geometric leaf index was factored through an abstract
+quaternion structure; the scalar product-limit proof uses explicit
+sequence/limit parameters to avoid elaborator expansion. No raised
+options or full build/audit/guard/progress/root-import run. Logs and SHA-256:
+`/tmp/ym-original-all-spin-retained-channels.log`
+(`986df11caaa3c860265e78dafc4f031fa61563e8ac7b1f45849eac140542cf6e`),
+`/tmp/ym-original-retained-channel-bulk-limit.log`
+(`ffc396b1512e5d8d30ea752c14a80b9ab19231b48dfb4fb8231c0756951440b5`).
+
+**Previous increment (selected ORIGINAL interface floor and exact crossing-cutoff removal):**
 PROGRESS after 5275339. `BF4ExactSlabMixedInterfacePin` separates
 bulk nome/cutoff b,B from crossing nome/cutoff v,K, retaining the
 ORIGINAL `mixedInsertion b B e` throughout. `mixedQuadratic` uses

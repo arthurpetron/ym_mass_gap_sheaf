@@ -4321,6 +4321,10 @@ import YMGap.Continuum.BF4ExactSlabOriginalInterfaceCoercivity
 -- for each fixed bulk insertion; bulk/volume limits remain open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin
 import YMGap.Continuum.BF4ExactSlabSelectedInterfaceCoercivity
+-- Every fixed original all-spin channel survives the full bulk cutoff limit.
+-- Original norm reconstruction, volume control and transfer injectivity remain open.
+import YMGap.Continuum.BF4ExactSlabAllSpinRetainedChannels
+import YMGap.Continuum.BF4ExactSlabRetainedChannelBulkLimit
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
