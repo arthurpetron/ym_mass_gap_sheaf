@@ -13,7 +13,21 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [finite crossing packets recover the original full-action limit](lean/YMGap/Continuum/BF4ExactSlabCrossingPacketBulkLimit.lean).
+**Latest milestone:** [actual channel squares reconstruct the original reflected numerator](lean/YMGap/Continuum/BF4ExactSlabOriginalChannelReconstruction.lean).
+At fixed finite volume, each crossing packet's bulk limit equals its
+actual finite sum of nonnegative-weight channel amplitudes squared. The
+amplitudes use the original lower action, not a replacement measure.
+These sums approximate the original full reflected numerator with
+computed packet and numerical thresholds. If every actual packet-leaf
+coefficient of a dense expression vanishes, its **original normalized
+OS form and embedded completed state are zero**.
+Two modules passed 28 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree run. Next: coefficient bounds/descent on completed states
+and compatibility with actual time translation. This is not yet a
+Hilbert-space channel resolution or a zero-transfer-kernel theorem.
+Volume/physical-scale control and continuum/Clay remain open.
+
+**Established two-stage limit:** [finite crossing packets recover the original full-action limit](lean/YMGap/Continuum/BF4ExactSlabCrossingPacketBulkLimit.lean).
 An explicit crossing-tail cutoff now works for **every bulk spin cutoff**,
 at fixed heat parameters, volume and observable. The bulk limit of each
 retained finite crossing packet is constructed with a numerical modulus.
@@ -21,8 +35,8 @@ These packet limits then converge to the pre-existing original full-action
 reflected numerator limit, with both stage and representative thresholds
 returned as data. All shared links and original heat factors are retained.
 Two modules passed 30 focused axiom checks within `{propext, Quot.sound}`;
-no full-tree run. Next: identify each limiting packet with its finite sum
-of limiting channel squares. Completed channel-norm reconstruction,
+no full-tree run. Each limiting packet is now identified with its finite
+sum of limiting channel squares above. Completed channel resolution,
 transfer range density, volume/physical-scale control and continuum/Clay
 remain open. The bound is **not** uniform in volume, beta or spacing.
 
@@ -36,10 +50,10 @@ together. Thus an original OS-null polynomial has zero amplitude in
 every such channel. No uniform lower bound over channels is assumed.
 Two modules passed 34 focused axiom checks within `{propext, Quot.sound}`
 (one axiom-free); no full-tree run.
-Crossing-packet tail control through bulk removal is now proved above.
-Next: reconstruction from limiting channel squares, then compatibility
-with actual time translation.
-Channel completeness, volume control, zero completed transfer kernel,
+Crossing-packet tail control and reconstruction from limiting channel
+squares are now proved above. Next: completed coefficient descent and
+compatibility with actual time translation.
+Completed channel resolution, volume control, zero completed transfer kernel,
 full-space time-zero continuity, physical scaling and continuum/Clay
 remain open.
 

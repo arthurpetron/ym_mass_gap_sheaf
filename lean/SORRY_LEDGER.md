@@ -13,7 +13,58 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED bulk-uniform ORIGINAL crossing tails and two-stage full-action limit (2026-09-14)
+## CLOSED actual channel-square reconstruction of the ORIGINAL reflected numerator (2026-09-14)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabChannelSquareBulkLimit.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalChannelReconstruction.lean`.
+- **closed actual finite square-sum bulk limit**: `coefficientLimit`
+  is the original lower-action numerator with the same observable/channel
+  product. `energySequence` and `energyLimit` recurse on the ACTUAL
+  `SquareTree`, preserving every polynomial and rational weight.
+  `coefficientLimitCauchy` and `energyLimitCauchy` carry numerical moduli.
+  `leafTolerance` rescales for the original weight and computed amplitude
+  bound; `energyApproxCutoff` takes finite maxima after splitting sum
+  tolerances. `energy_approx_close` controls bulk and representative indices.
+- **closed original mixed pin**: `dressed_energy_pin` regroups the
+  original lower heat dressing inside Haar. `mixed_energy_pin` combines
+  this with the existing original mixed Gram pin and local square expansion.
+  `packetLimit_eq_energyLimit` proves equality with the pre-existing fixed
+  crossing packet's bulk limit. All shared link variables remain.
+- **closed quantitative original quadratic-form reconstruction**:
+  `packet_energy_approx_close` supplies a numerical rate for that identity.
+  `channelPacket` is the actual finite sum of limiting channel squares.
+  `channelPacket_original_approx_close` combines the identity with the
+  previously proved original tail estimate. `channelCutoff`,
+  `channelApproxCutoff`, `channelPacketCauchy` and
+  `channelReconstructionCertificate` expose both stage choices and the
+  actual representative's modulus. `channelPacket_converges` targets the
+  SAME existing original complete reflected numerator limit.
+- **closed vanishing consequence on the existing physical objects**:
+  `original_null_of_all_channel_coefficients_zero` tests every actual
+  leaf of every finite original interface tree, including multiplicities.
+  `form_null_of_all_channel_coefficients_zero` uses only the ORIGINAL
+  action reciprocal and reflected-form pin.
+  `embedded_zero_of_all_channel_coefficients_zero` concludes equality
+  with zero in the pre-existing original plaquette completion for the
+  embedded dense expression. No transfer-kernel premise or conclusion.
+- **open residue**: reverse vanishing implication for this intrinsic
+  packet-leaf family (the earlier all-spin selected family has its own
+  proved forward implication); norm bounds and descent of coefficients
+  to completed states; a Hilbert-space channel resolution; quantitative
+  normalized sum approximants; compatibility with actual time translation;
+  volume passage; completed transfer range/density and zero kernel;
+  full-space zero-time continuity, physical Hamiltonian/scaling, other
+  groups and continuum/Clay. Bounds depend on nome, extent, observable
+  and retained tree; no beta/spacing/volume uniformity. No new hole,
+  analytic premise, canonical field/type/atom/flag, weight or surrogate.
+- **verification**: 13+15=28 exactly matched focused gates, all with
+  only {propext, Quot.sound}; clean final logs, fresh own/direct-import
+  artifacts. Safe-build skill: one worker, explicit 20 GiB ceiling,
+  separate process/swap preflights. A notation projection was rewritten
+  as an explicit projection application; no options were raised.
+  No full build/audit/guard/progress/root-import run. Log hashes in work_plan.
+
+## Previous checkpoint: CLOSED bulk-uniform ORIGINAL crossing tails and two-stage full-action limit (2026-09-14)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabBulkUniformCrossingTail.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabCrossingPacketBulkLimit.lean`.
@@ -42,9 +93,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   packet. `packetLimit_converges` proves convergence to that SAME original
   limit. `reconstructionCertificate` returns both choices as Type-level
   data. No exchange of limits is assumed.
-- **open residue**: identify each limiting packet with the actual finite
-  sum of limiting retained-channel squares; completed channel-norm
-  reconstruction and the converse null implication; compatibility with
+- **open residue**: the actual finite channel-sum identity and raw-form
+  reconstruction are now proved above; completed channel resolution
+  and the remaining leaf-family nullity equivalence; compatibility with
   actual time translation; volume passage; completed transfer range/density
   and zero kernel; full-space zero-time continuity, physical Hamiltonian/
   scaling, other groups and continuum/Clay. Uniformity here ranges only over

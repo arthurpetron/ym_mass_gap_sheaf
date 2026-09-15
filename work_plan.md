@@ -18,7 +18,70 @@ and infrastructure for this goal, not the goal itself.
 
 ### Current original-action gap and continuum frontier (2026-09-14)
 
-**Latest increment (bulk-uniform ORIGINAL crossing tail and two-stage full-action limit):**
+**Latest increment (actual channel-square reconstruction and original embedded nullity):**
+PROGRESS after 3715a8a. The finite crossing packet is now identified
+with its ACTUAL finite sum of limiting original channel squares. This
+is quantitative reconstruction of the original reflected numerator,
+not a replacement norm or an assumed Hilbert-space channel resolution.
+
+`BF4ExactSlabChannelSquareBulkLimit.coefficientLimit` retains the
+original lower-action numerator for observable times channel polynomial.
+`energySequence` and `energyLimit` recurse on the actual `SquareTree`,
+retaining all rational heat weights, channels and multiplicities.
+`coefficientLimitCauchy` and `energyLimitCauchy` carry numerical moduli.
+`leafTolerance` first rescales for the original weight, then for the
+computed amplitude bound plus one. `energyApproxCutoff` composes leaf
+thresholds by halving tolerances and finite maxima. `energy_approx_close`
+controls both bulk cutoff and CReal representative index with that data.
+
+`dressed_energy_pin` recodes original lower dressing only inside Haar.
+`mixed_energy_pin` uses the original mixed Gram identity and the local
+square expansion to identify the SAME mixed action with this sum.
+`packetLimit_eq_energyLimit` passes it through the proved bulk limits;
+no limit exchange or channel-completeness premise is assumed.
+
+`BF4ExactSlabOriginalChannelReconstruction.packet_energy_approx_close`
+adds the explicit precision rate for the packet/square-sum equality.
+`channelPacket_original_approx_close` combines this with the existing
+bulk-uniform crossing tail. `channelCutoff`, `channelApproxCutoff`,
+`channelPacketCauchy` and `channelReconstructionCertificate` expose all
+stage/representative choices. `channelPacket_converges` targets the
+pre-existing full original reflected numerator limit at fixed volume.
+
+`original_null_of_all_channel_coefficients_zero` proves the vanishing
+implication when every actual leaf of every finite original interface
+tree has zero limiting amplitude. `form_null_of_all_channel_coefficients_zero`
+uses the SAME original partition reciprocal and reflection pin;
+`embedded_zero_of_all_channel_coefficients_zero` concludes zero in the
+pre-existing completed plaquette carrier for the embedded dense expression.
+This does not assert a zero transfer kernel or range density.
+
+NEXT: control the intrinsic packet-leaf coefficients by the original
+norm, descend them to completed states, and establish their compatibility
+with actual time translation. The reverse null implication for this
+intrinsic family is not yet proved; do not silently identify it with the
+earlier globally selected all-spin family. A full Hilbert-space channel
+resolution and quantitative normalized packet approximation remain open.
+So do growing-volume passage, completed T2 range density/zero kernel,
+full-space time-zero continuity, geometric T1/physical Hamiltonian
+identification, canonical spectral/non-Wick comparisons, quotient-level
+completeness, beta(a)/spacing-uniform continuum control, other groups
+and Clay. No new hole, analytic premise, canonical field/type/atom/flag
+or surrogate; no volume/beta/spacing-uniform claim.
+
+Verification: two focused monitored modules, 13+15=28 exactly matched
+gates, all with only {propext, Quot.sound}. Clean final logs and fresh
+own/direct-import artifacts. Safe-build skill: one worker, explicit
+20 GiB ceiling and separate process/swap preflights. The first module
+passed directly. In the second, a parameterized notation's dot projection
+was replaced with the explicit projection application; no raised options.
+No full build/audit/guard/progress/root-import run. Logs and SHA-256:
+`/tmp/ym-original-channel-square-bulk-limit.log`
+(`32b7bc51e3d5596752302bc4cd3cfadad347c2b726bc6095f49e14090be1e406`),
+`/tmp/ym-original-channel-reconstruction.log`
+(`426b7cdd3e0744b42dc42beb6df2c29132d6fdcab95e6bc79748b37e14ecdaf6`).
+
+**Previous increment (bulk-uniform ORIGINAL crossing tail and two-stage full-action limit):**
 PROGRESS after 4f2efe4. The complementary estimate to the fixed-channel
 bulk limits is now proved: one crossing cutoff works uniformly over ALL
 bulk spin cutoffs, at fixed nomes, extent and observable.
@@ -50,10 +113,10 @@ limit. `reconstructionCertificate` returns both stage choices in Type.
 All original shared links and heat factors remain; the two-stage passage
 is proved, not an assumed exchange of limits.
 
-NEXT: express each limiting packet as its actual finite sum of limiting
-channel squares, using the original mixed Gram pin and finite square tree.
-This sum identity, completed channel-norm reconstruction and the converse
-null implication remain open. Their compatibility with actual time
+NEXT at this checkpoint: express each limiting packet as its actual finite
+sum of limiting channel squares (now proved above). Completed channel
+resolution and the remaining intrinsic leaf-family nullity equivalence
+remain open. Their compatibility with actual time
 translation is also open. No completed T2 range-density/zero-kernel theorem
 is inferred. Volume control, full-space time-zero continuity, geometric
 T1/physical Hamiltonian identification, canonical spectral/non-Wick
