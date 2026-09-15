@@ -13,7 +13,29 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
-**Latest milestone:** [finite collar corrections with spectator-relative error control](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCollarCorrection.lean).
+The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
+a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
+and a positive physical mass gap for each compact simple gauge group.
+The [goal and execution instructions](work_plan.md#whole-project-goal-and-live-completion-map-updated-2026-09-15)
+distinguish that target from the current SU(2) working case. Constructive
+requirements are unchanged; classical mathematical review is encouraged as a
+review aid, not as a replacement for explicit witnesses or the axiom gate.
+
+**Latest milestone:** [collar corrections are admissible original observables](lean/YMGap/Continuum/BF4ExactSlabOriginalCollarCorrector.lean).
+Finite heat products and their geometric corrections now live in the existing
+plaquette-expression algebra, with their lower and reflected upper evaluations
+proved equal to the actual heat/correction polynomials. Both correction
+evaluations have certified cap 2. Multiplying an original expression by this
+correction gives an **existing original OS test amplitude** exactly equal to
+the previously bounded corrected integral. The computed order therefore gives
+error at most `epsilon * Zsp` against the existing reference amplitude.
+Two modules passed 24 focused axiom checks within `{propext, Quot.sound}`;
+no full-tree run. This closes finite representability, not state separation:
+the observable is changed and depends on the heat cutoff. Cutoff-compatible
+limits and a comparison that detects the **unchanged thermodynamic state**
+remain open, as do transfer injectivity and the continuum/Clay target.
+
+**Established estimate:** [finite collar corrections with spectator-relative error control](lean/YMGap/Continuum/BF4ExactSlabPlaquetteCollarCorrection.lean).
 An exact geometric identity now approximately cancels the actual local
 heat collar. Its correction polynomial is bounded by 2 at every order;
 its ordinary squared test norm costs at most a factor 4 against the same
@@ -25,8 +47,8 @@ Three modules passed 46 focused axiom checks, three axiom-free and the
 rest within `{propext, Quot.sound}`; no full-tree run.
 The application fixes the nome at `1/1024` and the existing translated
 24-face collar. The correction changes the insertion and depends on the
-heat cutoff. Admissible original observable/test realizations, their
-cutoff limits, and separation of the same thermodynamic states remain
+heat cutoff. Admissible finite original realizations are now proved above;
+their cutoff limits and separation of the same thermodynamic states remain
 open. The ordinary weighted square bound is **not** an OS operator-norm
 bound, and no transfer inverse or continuum/Clay result is claimed.
 

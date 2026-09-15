@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED spectator-relative geometric collar correction (2026-09-15)
+## CLOSED finite original-observable realization of collar corrections (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteHeatExpression.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabOriginalCollarCorrector.lean`.
+- **closed finite representability**: `faceExpression`, `regionExpression`,
+  `collarExpression` and their lower/upper evaluation pins construct the actual
+  finite heat products in the original plaquette algebra. `geometricExpression`,
+  `evaluate_geometric`, `collarRExpression_lower`, `collarRExpression_upper`,
+  `correctionExpression_lower` and `correctionExpression_upper` implement and
+  identify the actual geometric correction. `correctionLowerInterval` and
+  `correctionUpperInterval` have cap 2 for all K, half and n at nome 1/1024.
+- **closed existing-test consumer**: `correctedExpression`,
+  `correctedExpression_upper` and `correctedAmplitude_pin` identify the existing
+  original OS test amplitude with the previously estimated corrected integral.
+  `correctedAmplitude_atOrder` gives error <=epsilon*Zsp against the existing
+  reference without a supplied interval or representation pin.
+- **open residue**: the observable is CHANGED, and its correction depends on
+  heat cutoff K. Same-state separating comparisons, cutoff/degree-compatible
+  limits, OS null preservation and multiplier bounds are not proved. Establish
+  a legitimate unchanged-state consumer before extending this branch. General
+  thermodynamic separation, T2 zero kernel/range density, full-space time-zero
+  continuity, geometric T1/physical Hamiltonian, beta(a)/continuum control,
+  spectral/non-Wick pins, other groups and Clay remain open. No new hole,
+  analytic premise, canonical field/type/atom/flag, surrogate or choice.
+- **verification**: 24 exactly matched focused public axiom gates within
+  {propext, Quot.sound}; clean logs, fresh own/direct imports, no forbidden
+  executable tokens or extra options. Two new root imports, existing
+  multiplicities preserved; root not compiled. One worker, explicit 20 GiB,
+  separate process/swap preflights; no full build/audit/guard/progress run.
+  Precise log hashes and the unchanged-goal instruction review are in work_plan.
+
+## Previous checkpoint: CLOSED spectator-relative geometric collar correction (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarPolynomialGeometricInverse.lean`,
   `lean/YMGap/Continuum/BF4ExactSlabSpectatorCollarCorrection.lean`,

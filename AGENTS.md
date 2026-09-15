@@ -3,6 +3,15 @@
 These instructions apply to every agent and automation working in this
 repository.
 
+## Goal-directed execution
+
+Read the opening "Whole-project goal and live completion map" and "Goal-mode
+execution instructions" in `work_plan.md` before selecting a proof frontier.
+They distinguish the unchanged Clay target from the current working subgoal.
+Prefer a short, causally useful mathematical argument over additional proof
+scaffolding. Every increment must identify its actual consumer and what remains
+unproved. The constructive contract and machine-safety rules below are unchanged.
+
 ## Machine safety is a correctness requirement
 
 Computationally demanding work is encouraged. Destabilizing the host is not.

@@ -7,18 +7,155 @@ is `docs/context.md`; this file is the *schedule*.
 
 ## Whole-project goal and live completion map (updated 2026-09-15)
 
-The north-star deliverable is a constructive, same-object four-dimensional
-Yang--Mills construction whose continuum measure, observable algebra,
-OS/GNS reconstruction, time-translation operator, and strictly positive
-physical mass gap are all pinned to the same theory.  At the Clay-facing
-boundary this means legitimately inhabiting the canonical pinned frontier
-bundles without `sorry`, a new axiom, classical witness erasure, a surrogate
-model, or a weakened field.  Fixed-spacing or finite-cutoff decay is evidence
-and infrastructure for this goal, not the goal itself.
+The unchanged mathematical target is: for each compact simple gauge group G,
+construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
+axioms required by Jaffe--Witten, and establish a strictly positive gap above
+the vacuum for its physical Hamiltonian. The official description requires
+axiomatic strength at least that of its Wightman/OS references; it also
+specifies finite physical mass and the Yang--Mills local-field/short-distance
+identification. See [Clay's official problem description, sections 3--4](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf).
+
+This repository's additional method constraint is a constructive, Mathlib-free
+Lean proof within `lean/AGENTS.md`: witnesses and explicit moduli are data,
+and load-bearing axiom dependencies stay within {propext, Quot.sound}.
+The continuum measure, observable algebra, OS/GNS reconstruction, time
+translations, vacuum and Hamiltonian must belong to the SAME theory.
+Legitimately inhabit the canonical pinned frontier bundles without `sorry`,
+a new axiom, witness erasure, surrogate substitution or weakened fields, and
+audit their correspondence to the official target. Inhabiting an inadequate
+formal statement would not solve the mathematical problem.
+
+SU(2) at the fixed nome is the current working case, not a restriction of
+the whole-project quantifier. Other compact simple groups, including their
+global forms and representation descent, remain part of the target. The
+positive physical gap may depend on G; the Clay target does not require one
+common numerical gap for all G or every bare lattice coupling. Any uniformity
+needed by our chosen limiting route must instead be proved with its actual
+parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
+decay is infrastructure, not completion.
+
+### Goal-mode execution instructions (user-requested review, 2026-09-15)
+
+1. **Work backward from a real obstruction.** Before opening a new proof branch,
+   state the next mathematical proposition, its existing declaration/consumer
+   (or explicitly say that none exists), and which open input it would remove.
+   Distinguish a proved implication with an unsupplied hypothesis from a proved
+   physical instance. Do not optimize for module, compiler, gate or commit counts.
+2. **Find the mathematical argument before expanding the interface.** Seek a
+   short identity, coercive estimate, constructive approximation, or decisive
+   obstruction using existing objects. Reuse general algebra. Prefer proving a
+   missing estimate to renaming or repackaging the same assumption. If a shorter
+   valid route reaches the unchanged target, use it; completing every historical
+   scaffold is not itself an obligation.
+3. **Test the crucial implication early.** Track the same action, carrier,
+   observable, normalization and operator at each edge. Check group dependence,
+   degenerate cases and parameter limits before investing in a large compiler.
+   Consult `audits/AUDIT-GROUP-DEPENDENCE.md` as a dated audit, verifying its
+   relevant conclusions against current source. No diagram arrow replaces a
+   theorem. An ordinary weighted L2 estimate is not an OS quotient estimate;
+   a heat-bath gap is not an OS transfer/Hamiltonian gap without a proved bridge.
+4. **Make the analytic budget visible.** Separate heat cutoff, volume, spacing,
+   coupling, time and observable dependence. Preserve signed cancellations and
+   shared partition factors before taking absolute values. Do not pass changing
+   observables through a fixed-observable limit. A physical mass claim requires
+   the actual time/spacing calibration, not just a dimensionless rate below one.
+5. **Keep a bounded useful frontier.** Each checkpoint should supply an actual
+   object/estimate consumed by the route, reduce a named open input, or rule out
+   a proposed route. State the residue. Stop extending a branch when its intended
+   consumer is unjustified; reassess the mathematics before adding more wrappers.
+   No silent field weakening, new parallel scorecard or surrogate closure.
+6. **Verify in proportion to the change.** Apply the existing safe-build and
+   axiom gates to the narrow changed targets. Do not repeatedly run broad checks
+   on unchanged machinery. Record the exact verification boundary, update the
+   live status/ledger, and commit and push completed increments as requested.
+   Keep CI off. Rust can generate certificates only for independent Lean checking.
+7. **Keep the causal picture visible.** Roughly hourly during active work, show
+   an ASCII map that includes the WHOLE-PROJECT GOAL, checked arrows, the current
+   obstruction and the remaining continuum/all-group obligations. Expansion
+   exposes necessary witnesses and estimates; contraction composes proved arrows
+   or eliminates an unnecessary branch. Do not imply proximity from graph size.
+
+### Classical methods: review aid, not a changed proof substrate
+
+The word "constructive" in constructive quantum field theory is not itself a
+claim of intuitionistic foundations; see section 6 of the official description.
+Our explicit-modulus/axiom-gate requirement is an additional project commitment.
+It is not relaxed by this instruction review.
+
+Working assessment: classical compactness, choice-based selection, or spectral
+machinery might shorten some existence/functional-analysis arguments, but they
+do not supply the missing original-state comparison or a spacing-uniform
+Yang--Mills estimate merely by being available. Classify any apparent logical
+bottleneck separately from missing analytic hypotheses. Use a classical paper
+argument as a clearly labelled, non-load-bearing design/review aid when useful;
+recover and prove the required witnesses before it enters the constructive path.
+Do not import classical axioms or change the axiom gate under this permission.
+
+Review the mathematical statements and constants from the usual classical
+viewpoint at major milestones, not only after the end: a counterexample or a
+shorter valid argument is useful early. After a completed constructive proof,
+perform an independent classical mathematical review of its correspondence to
+the Clay statement, same-object identifications, limits and mass normalization.
+That review supplements the constructive kernel checks; it does not retroactively
+provide missing witnesses or turn a conditional theorem into an unconditional one.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest increment (GEOMETRIC local-collar cancellation with source-computed relative accuracy):**
+**Latest increment (ADMISSIBLE original collar correction and existing test-amplitude pin):**
+PROGRESS after 4538415. The finite correction is now actual data in the
+original plaquette algebra, not merely an ambient Haar polynomial with an
+unproved representation. Its existing OS test amplitude is exactly the
+corrected integral of the previous checkpoint.
+
+`BF4ExactSlabPlaquetteHeatExpression.faceExpression` and `regionExpression`
+build the actual finite character sums/products with physical lower-face
+membership. Their `*_lower` and `*_upper` theorems pin the original and
+reflected heat products. `collarExpression_lower` and
+`collarExpression_upper` apply to the actual original collar and its reflection.
+
+`BF4ExactSlabOriginalCollarCorrector.geometricExpression` implements the
+same finite recursion inside the original expression algebra;
+`evaluate_geometric`, `collarRExpression_lower`, `collarRExpression_upper`,
+`correctionExpression_lower` and `correctionExpression_upper` prove its
+coefficient identities. `correctionLowerInterval` and
+`correctionUpperInterval` certify cap 2 for every K, half and n at the
+fixed nome 1/1024. `correctedExpression` multiplies the original e by this
+actual expression. `correctedAmplitude_pin` identifies the EXISTING
+`BF4ExactSlabPartialInterfaceTests.testAmplitude` of that changed expression
+with the existing `correctedIntegral`. `correctedAmplitude_atOrder`
+inherits error <=epsilon*Zsp against the existing unit-test reference,
+with the source-computed degree and no new interval/pinning premise.
+
+NEXT: identify and justify a comparison for the UNCHANGED original
+thermodynamic state before extending the correction machinery further.
+The new theorem estimates a CHANGED insertion; it does not prove a detecting
+test for e, an OS multiplier, preservation of OS null vectors or a transfer
+inverse. Prove cutoff/degree compatibility only for a mathematically justified
+consumer: the correction depends on K, so fixed-observable convergence alone
+does not apply. General packet floors/thermodynamic separation, T2 zero
+kernel/range density, full-space time-zero continuity, geometric T1/physical
+Hamiltonian, beta(a)/spacing-uniform continuum control, spectral/non-Wick
+pins, other groups and Clay remain OPEN. No new hole, analytic premise,
+canonical field/type/atom/flag or surrogate. Finite representability closes
+no canonical continuum atom.
+
+Verification: two focused monitored checks, 10+14=24 exactly matched public
+gates, all within {propext, Quot.sound}; clean logs, fresh own/direct-import
+artifacts, no forbidden executable tokens, only autoImplicit false. Two new
+root imports occur once and existing multiplicities are preserved; root not
+compiled. Safe-build skill: one worker, explicit 20 GiB, separate process/swap
+preflights; latest swap 12734.31 MiB. No raised limits/options and no full
+build/audit/guard/progress run. The user-requested goal-instruction review
+clarifies the unchanged all-group Clay target, prioritizes useful mathematical
+arguments and early refutation checks, and permits classical REVIEW without
+relaxing the constructive proof contract. No runtime-goal completion is claimed.
+Logs and SHA-256:
+`/tmp/ym-plaquette-heat-expression.log`
+(`1bd3e90412bb3fe8f6c424efb3db08545d6d65b40f813f2f6138fa16eaf1649f`),
+`/tmp/ym-original-collar-corrector.log`
+(`1e0ac1449e6a9565944649e88922bbc7a708a36691190b7533292529ff9aa5a1`).
+
+**Previous increment (GEOMETRIC local-collar cancellation with source-computed relative accuracy):**
 PROGRESS after 2ba0aba. The original collar can now be approximately
 cancelled by finite polynomials with arbitrary requested relative accuracy,
 without estimating the reciprocal of the spectator partition. This is an

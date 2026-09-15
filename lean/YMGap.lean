@@ -4378,11 +4378,16 @@ import YMGap.Continuum.BF4ExactSlabAllSpinSpectatorFactorization
 import YMGap.Continuum.BF4ExactSlabAllSpinSpectatorIntegralLimit
 -- Finite local-collar corrections have cap 2, ordinary square-norm cost
 -- <=4, and a source-derived relative-error degree independent of volume.
--- These change the insertion; original OS test/limit/separation compatibility
+-- These change the insertion; OS quotient/limit/separation compatibility
 -- is not supplied by the positive-background integral estimates.
 import YMGap.Continuum.QuaternionHaarPolynomialGeometricInverse
 import YMGap.Continuum.BF4ExactSlabSpectatorCollarCorrection
 import YMGap.Continuum.BF4ExactSlabPlaquetteCollarCorrection
+-- The corrections are actual original plaquette expressions, and the
+-- existing OS test amplitude equals the estimated corrected integral.
+-- They change the observable; unchanged-state separation remains open.
+import YMGap.Continuum.BF4ExactSlabPlaquetteHeatExpression
+import YMGap.Continuum.BF4ExactSlabOriginalCollarCorrector
 import YMGap.Continuum.BF4ExactSlabPlaquetteConcreteMinor
 import YMGap.Continuum.BF4ExactSlabPlaquetteProbeHaarMoments
 import YMGap.Continuum.BF4ExactSlabPlaquetteHeatDressedMinor
