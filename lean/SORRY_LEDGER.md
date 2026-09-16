@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original full-space conditional projection; OPEN quantitative spatial influence (2026-09-15)
+## PROVED strict local free-residual estimate; OPEN cross-link influence and boundary-law transport (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/BF4ExactSlabStarFreeCentering.lean`
+  and `BF4ExactSlabStarLocalInfluence.lean`; two added APIs in
+  `GNSPairingNormBound.lean`, in the same directory.
+- **proof**: every original polynomial has a computed free-link residual
+  orthogonal to all exterior probes in the actual star-deleted form.
+  Subtracting any exterior probe leaves at least L/U times the original
+  full-action input squared norm. This uniform-in-approximation floor
+  passes through the existing conditional Cauchy representative. The
+  exact projection identity gives squared norm factor 1-L(w)/U(w)<1
+  for the original conditional projection on these explicit residuals.
+  No inverse exterior weight, replacement law or new analytic premise.
+- **open residue**: support propagation and quantitative influence under
+  different link updates; centering is not known invariant under them.
+  The boundary determinant uses the interior law, not this full-action
+  law; its decaying normalized bound needs proved two-law/intermediate-law
+  transport and a spatial estimate. The local rate is nome-dependent,
+  not a whole-vacuum-complement or spacing-uniform physical gap.
+  OS/Hamiltonian gap, continuum QFT and all-group Clay remain open.
+  No canonical field, axiom, legacy flag or literal hole changed.
+- **verification**: 16 new plus two legacy exact public gates within
+  {propext, Quot.sound}; seven focused serialized safe one-worker/20 GiB
+  launches including the direct projection dependency refresh (25 gates).
+  Final logs clean; own/direct artifacts fresh. No raised options/limits.
+  Paused for an observed external pytest, resumed after verified exit.
+  Two root imports; root/full-tree unrun. Log hashes in work_plan.
+
+## Previous PROVED original full-space conditional projection; OPEN quantitative spatial influence (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/BF4ExactSlabStarFullActionProbe.lean`,
   `GNSPairingNormBound.lean`, and `BF4ExactSlabStarConditionalProjection.lean`

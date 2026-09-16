@@ -119,7 +119,87 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED original full-space conditional projection; OPEN quantitative spatial influence):**
+**Latest mathematical increment (PROVED strict local free-residual estimate; OPEN cross-link influence and boundary-law transport):**
+PROGRESS after `6f48770`. Two parallel algebra branches supplied the exact
+free-link centering and the completed residual-floor subtraction identity.
+A read-only review isolated the next propagation and two-law consumer seams.
+The parent proved the concrete strict estimate on the SAME original action.
+All compilation remained serialized; no new operator framework was added.
+
+`BF4ExactSlabStarFreeCentering.freeAverage` computes the selected-link Haar
+integral before incident heat factors are inserted. `deletedData` retains
+the entire actual complementary action on the original polynomial carrier.
+`deleted_probe_pair` proves its exact pairing against exterior probes.
+`freeResidual p = p - J(freeAverage p)` is a computed polynomial;
+`freeResidual_pair_zero` proves its orthogonality to every exterior probe
+in that deleted-star form, directly at the level of Haar pairings. It does
+not assert a false equality of padded and unpadded coefficient presentations.
+
+The short mathematical argument is now kernel-checked. For a free-centered
+input r and ANY exterior polynomial a,
+
+    ||r-Ja||_full^2 >= L(w) ||r-Ja||_deleted^2
+                    >= L(w) ||r||_deleted^2
+                    >= (L(w)/U(w)) ||r||_full^2.
+
+`BF4ExactSlabStarLocalInfluence.probe_residual_lower` proves this finite
+floor. `conditional_residual_lower` applies it at every approximation index
+of the EXISTING completed conditional vector; no limit interchange or
+second completion is needed. `GNSPairingNormBound.norm_le_of_residual_floor`
+subtracts it using the exact orthogonal residual identity. The capstone
+`conditionalProjection_freeResidual_norm` thus applies to EVERY original
+polynomial p after its explicit free centering:
+
+    ||Q_link(freeResidual p)||_full^2
+      <= (1-starRatio(w)) ||freeResidual p||_full^2.
+
+This reuses `inverseRate(w)=1-starRatio(w)` and its proved bounds 0<=q<1.
+It is a squared-norm rate on a directional sector, NOT on the whole vacuum
+complement. Constants depend on w; volume and K>=headCutoff(w) do not enter
+the rate. No spacing/coupling-uniform physical margin follows.
+
+NEXT CAUSAL FRONTIER: prove support propagation for the ACTUAL conditional
+approximants: an input supported on S can depend only on S plus the selected
+link's incident-face neighbors after the update, with that link removed.
+Use existing `LinkLocal`/`BlockLocal` and the actual polynomial recurrence;
+the small partial-Haar/lift support transports remain to be supplied. Then
+control neighboring updates' effect on free-centered sectors quantitatively.
+The present directional bound cannot simply be iterated across links.
+
+The separate SAME-LAW seam remains explicit: `boundaryNumerator_covariance`
+is a covariance under the INTERIOR law, while these projections use the
+FULL law. The consumer `expectationDifference_bound_of_prefix_eventually`
+needs |D_K(p)|<=b*Z_full*Z_interior with b decaying in inner margin, uniformly
+in outer padding and late K. Actual selected-face positive forms are already
+available via `headProduct_certificate` and `weightedGNSData`; the exact
+`mixedNumerator` retains their two partitions. A quantitative block estimate
+across those actual intermediate laws, with a proved telescoping/transport
+identity, is still needed. Do not insert an unconstructed inverse exterior
+weight or substitute the local norm gain for this boundary estimate.
+Physical calibration, OS spectrum, continuum/nontriviality and all-group
+Clay remain open; no canonical field or literal hole was changed.
+
+Verification: seven focused serialized safe launches, one worker/20 GiB.
+All 16 new and two legacy public gates in the three changed proof modules
+match exactly within {propext, Quot.sound}. Refreshing the unchanged direct
+projection dependency checked its 25 public gates too. Final logs clean;
+own/direct artifacts fresh. A repeated probe identity was factored into a
+private lemma to stay within default heartbeats; a dense embedding rewrite
+was replaced by the direct representative equality. No raised options or
+limits. A competing pytest process was observed, left alone, and compilation
+resumed only after its exit and a fresh clean process check. Two root
+imports added; root/full-tree unrun. CI remains manual-only. Final hashes:
+
+- `/tmp/ym-gns-residual-floor.log`:
+  `82f7bc2c588ca1be4ed66ddc29202c3670fe8bffd140de04c9bc610f4bb0a64d`.
+- `/tmp/ym-star-free-centering.log`:
+  `d134385c2adb01633e23feb8c276f031448843d136beff145380e401fce438fc`.
+- `/tmp/ym-star-local-influence.log`:
+  `a1c47b13b8303e99b77e7c9e83de959bfd23e604479c00f6bdceafd46d51ef5d`.
+- `/tmp/ym-star-projection-floor-refresh.log`:
+  `a65142c680170b174f0eae4bc73face7fec9d05057f36d8b1352a8e77435b059`.
+
+**Previous mathematical increment (PROVED original full-space conditional projection; OPEN quantitative spatial influence):**
 PROGRESS after `33187f8`. Parallel branches supplied the original full-action
 probe and a generic completed self-pairing norm lemma. An independent
 read-only review pinned the downstream spatial/physical consumers. The

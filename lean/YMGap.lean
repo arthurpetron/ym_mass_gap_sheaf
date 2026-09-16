@@ -4462,6 +4462,9 @@ import YMGap.Continuum.BF4ExactSlabStarInverseApproximation
 import YMGap.Continuum.BF4ExactSlabStarCompletedInverse
 import YMGap.Continuum.BF4ExactSlabStarFullActionProbe
 import YMGap.Continuum.BF4ExactSlabStarConditionalProjection
+-- Strict on explicitly free-centered inputs, not the whole vacuum complement.
+import YMGap.Continuum.BF4ExactSlabStarFreeCentering
+import YMGap.Continuum.BF4ExactSlabStarLocalInfluence
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

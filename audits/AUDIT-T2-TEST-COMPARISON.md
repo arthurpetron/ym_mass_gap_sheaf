@@ -1,5 +1,59 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Strict local gain and the remaining cross-link/two-law seams (2026-09-15)
+
+Follow-up after `6f48770`. The original one-link projection now has a strict
+directional estimate on explicitly constructed free residuals. No gap on
+the whole vacuum complement or spatial-decay conclusion is claimed.
+
+| Result | Declaration and source | Scope |
+| --- | --- | --- |
+| Actual deleted-star form and free average | `deletedData`, `lean/YMGap/Continuum/BF4ExactSlabStarFreeCentering.lean:53`; `freeAverage`, `lean/YMGap/Continuum/BF4ExactSlabStarFreeCentering.lean:71`; `deleted_probe_pair`, `lean/YMGap/Continuum/BF4ExactSlabStarFreeCentering.lean:82` | Same full polynomial carrier, entire complementary action, exact selected-link Haar integration. |
+| Explicit centered input | `freeResidual`, `lean/YMGap/Continuum/BF4ExactSlabStarFreeCentering.lean:128`; `freeResidual_pair_zero`, `lean/YMGap/Continuum/BF4ExactSlabStarFreeCentering.lean:143` | Every p yields p-J(Ap), orthogonal to every exterior probe in the deleted-star form. No padded-coefficient equality assumed. |
+| Finite and completed residual floor | `probe_residual_lower`, `lean/YMGap/Continuum/BF4ExactSlabStarLocalInfluence.lean:63`; `conditional_residual_lower`, `lean/YMGap/Continuum/BF4ExactSlabStarLocalInfluence.lean:85` | At least starRatio(w) times the ORIGINAL input squared norm remains; holds for every finite exterior approximation and the actual completed conditional vector. |
+| Exact norm subtraction | `residual_norm_identity`, `lean/YMGap/Continuum/GNSPairingNormBound.lean:56`; `norm_le_of_residual_floor`, `lean/YMGap/Continuum/GNSPairingNormBound.lean:74` | Completed self-pairing identity subtracts the proved residual floor, without real division or classical order decisions. |
+| Actual local operator estimate | `conditionalProjection_freeResidual_norm`, `lean/YMGap/Continuum/BF4ExactSlabStarLocalInfluence.lean:134` | For EVERY original p and r=freeResidual(p), ||Q_link r||^2<=inverseRate(w)||r||^2 in the full-action norm. |
+| Explicit strict rate | `inverseRate`, `lean/YMGap/Continuum/BF4ExactSlabStarInverseApproximation.lean:157`; `inverseRate_bounds`, `lean/YMGap/Continuum/BF4ExactSlabStarInverseApproximation.lean:160`; `starRatio`, `lean/YMGap/Continuum/BF4ExactSlabLocalStarComparison.lean:46` | q=1-L(w)/U(w), 0<=q<1. Nome-dependent, volume-independent and cutoff-independent for K>=headCutoff(w); no spacing-uniform physical margin. |
+
+**Still open, not supplied by that inequality:**
+
+1. Propagation/control between links. `LinkLocal` and `heatProduct_local`,
+   `lean/YMGap/Continuum/BF4ExactSlabFaceLinkLocality.lean:43` and
+   `lean/YMGap/Continuum/BF4ExactSlabFaceLinkLocality.lean:116`, identify
+   actual support. The next finite target is locality of the EXISTING
+   `conditionalApproximation`,
+   `lean/YMGap/Continuum/BF4ExactSlabStarInverseApproximation.lean:216`,
+   on the input support plus incident-face neighbors, minus the selected
+   link, uniformly in approximation index. This target was source-reviewed,
+   not newly proved. Nor is free centering proved invariant under another
+   link update; the one-link rate cannot simply be multiplied across links.
+2. The two-law boundary response. `boundaryNumerator_covariance`,
+   `lean/YMGap/Continuum/BF4ExactSlabBulkBoundaryResponse.lean:68`, uses
+   the INTERIOR law, while `fullData`,
+   `lean/YMGap/Continuum/BF4ExactSlabStarFullActionProbe.lean:49`, uses
+   the FULL law. The target bound |D_K(p)|<=b*Z_full*Z_interior is the
+   explicit hypothesis of `expectationDifference_bound_of_prefix_eventually`,
+   `lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean:230`.
+   A decaying b, uniform in outer padding and late cutoff, is unsupplied.
+   Actual intermediate selected-face forms are available from
+   `headProduct_certificate`,
+   `lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean:101`,
+   and `weightedGNSData`,
+   `lean/YMGap/Continuum/QuaternionHaarWeightedCauchySchwarz.lean:63`.
+   `mixedNumerator`, `lean/YMGap/Continuum/BF4ExactSlabMixedAction.lean:51`,
+   and `boundary_mixedNumerator`,
+   `lean/YMGap/Continuum/BF4ExactSlabMixedAction.lean:107`, retain/pin
+   the two actual partitions. These exact objects do not supply the missing
+   quantitative influence or a general normalized face-addition telescoping
+   estimate. No inverse of the exterior weight has been constructed here.
+
+Verification: 16 new plus two legacy public gates in the three changed
+proof modules match exactly within {propext, Quot.sound}. Seven focused
+serialized safe launches also refreshed the direct projection dependency
+and checked its 25 gates. Final logs clean, own/direct artifacts fresh;
+no raised limits. Root/full-tree unrun. The source review is not a newly
+proved support, commutation, two-law, spatial or physical-gap theorem.
+
 ## Original full-space conditional projection (2026-09-15)
 
 Follow-up after `33187f8`. The previous original-law lift, completed
@@ -13,7 +67,7 @@ completion. It is not the OS transfer operator or a physical gap theorem.
 | Marginal and numerator pairings | `probeMap_pair`, `lean/YMGap/Continuum/BF4ExactSlabStarFullActionProbe.lean:89`; `probeMap_test`, `lean/YMGap/Continuum/BF4ExactSlabStarFullActionProbe.lean:105`; `numerator_rad`, `lean/YMGap/Continuum/BF4ExactSlabStarFullActionProbe.lean:120` | Retains D*B, N_p, and original input null classes; no replacement law. |
 | Constructive lift | `probeCauchy`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:69`; `probeNullModulus`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:79`; `probeCompletion`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:101` | Pointwise actual probe, explicit rescaled Cauchy/null moduli and genuine quotient map. |
 | Completed pairings and conditional vector | `probeCompletion_pair`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:114`; `probeCompletion_test`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:126`; `conditionalUpdate`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:137`; `conditionalUpdate_pairing`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:144` | Lifted actual N_p/D, tested against every completed exterior vector. |
-| Norm argument and two-input estimate | `norm_le_of_self_pairing`, `lean/YMGap/Continuum/GNSPairingNormBound.lean:56`; `conditionalUpdate_nonexpansive`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:186`; `conditionalUpdate_rad`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:207` | Residual-square positivity yields the non-strict contraction and full-input null compatibility. |
+| Norm argument and two-input estimate | `norm_le_of_self_pairing`, `lean/YMGap/Continuum/GNSPairingNormBound.lean:65`; `conditionalUpdate_nonexpansive`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:186`; `conditionalUpdate_rad`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:207` | Residual-square positivity yields the non-strict contraction and full-input null compatibility. |
 | Entire original-space operator | `conditionalProjection`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:220`; `conditionalProjection_nonexpansive`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:228`; `conditionalProjection_selfAdjoint`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:234` | Existing constructive dense-map extension; full-space nonexpansiveness and self-adjointness. |
 | Projection laws | `conditionalProjection_positive`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:248`; `conditionalProjection_fix_exterior`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:258`; `conditionalProjection_idempotent`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:266`; `conditionalProjection_norm`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:277`; `conditionalProjection_orthogonal`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:284` | Hilbert-form positivity, fixes all completed exterior probes, idempotence and norm bound 1, orthogonality of all original residuals. |
 

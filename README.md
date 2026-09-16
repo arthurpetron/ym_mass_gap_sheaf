@@ -21,7 +21,22 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [the actual one-link conditional projection is constructed on the entire original weighted completion](lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean).
+**Latest result:** [a strict local estimate for explicitly free-centered inputs](lean/YMGap/Continuum/BF4ExactSlabStarLocalInfluence.lean).
+For every original polynomial `p`, compute its free-link residual `r` by
+subtracting its Haar average over the selected link. The **actual**
+conditional projection satisfies `||Q_link r||² <= (1-L(w)/U(w))*||r||²`
+in the original full-action norm. The factor is below one for each allowed
+`w`, independent of volume and cutoff above the stated guard. Sixteen new
+public declarations passed focused constructive checks; no full-tree build
+was run.
+
+This is a **directional one-link estimate**, not a gap on the whole vacuum
+complement. Next are cross-link propagation and quantitative influence,
+followed by a proved connection to the two-law boundary response. A later
+link update need not preserve this centering condition. No coupling-uniform
+physical margin, continuum QFT or all-group Clay closure is claimed.
+
+**Previous result:** [the actual one-link conditional projection is constructed on the entire original weighted completion](lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean).
 It is self-adjoint, idempotent and nonexpansive, agrees with the lifted
 `N_p/D` on dense inputs, and fixes every completed exterior probe. The
 construction retains the original full action and the exterior marginal
