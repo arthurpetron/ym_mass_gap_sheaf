@@ -119,7 +119,66 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED fixed-neighborhood conditional representative and coarse-rate obstruction; OPEN sharper two-link/block control):**
+**Latest mathematical increment (PROVED shared-face and one-face insertion identities; REASSESSED small-nome branch):**
+PROGRESS after `734aace`. Two independent proof branches supplied exact
+original-action algebra; a third, read-only branch checked whether the
+proposed next estimate would advance an unsolved consumer. The parent
+reviewed the sources and serialized every compiler check.
+
+`BF4ExactSlabSharedFaceGeometry` partitions actual physical faces into
+shared and retained lists, proves that at most six faces are shared, and
+factorizes the ORIGINAL heat product accordingly. The retained product
+is further split into left-only, right-only and neither factors, with
+explicit opposite-link exclusions and locality. These are polynomial
+identities with no coupling restriction. They are not factorization of
+the integrated law or a conditional-correlation estimate.
+
+`BF4ExactSlabFaceInsertionDeterminant` proves the actual one-face identity
+N_(S+f)(p) Z_S - N_S(p) Z_(S+f) =
+N_S(p*h_f) Z_S - N_S(p) N_S(h_f), and pins it to the existing
+mixed numerator and mixed partition. Both original partition functions
+remain. There is no normalized telescoping bound or decay claim.
+
+The route review found coupling-sensitive bounds already present:
+delta(w)=128*w^3, and an m-face product remainder cap
+(1+delta(w))^m-1. They are small at w=1/1024, but the existing
+`existingNome_expressionMean_difference_bound`, `meanLimit`, and
+`complement_twoStep_form_gap` already provide the intended fixed-nome
+boundary, thermodynamic and original OS two-step consequences. No open
+changing-action/physical-scaling input discharged by another fixed-nome
+conditional-angle proof was identified. Stop that branch here unless a
+new explicit consumer justifies it. This is a scope decision, not a no-go
+theorem for every pair/block method. The two-link conditional estimate
+itself remains unproved. See the cited source review at the top of
+`audits/AUDIT-T2-TEST-COMPARISON.md`.
+
+NEXT CAUSAL FRONTIER: find a retained-interaction comparison for the
+changing ORIGINAL action, with explicit coupling and scale dependence,
+that supplies a genuinely new decaying boundary-determinant bound to
+`expectationDifference_bound_of_prefix_eventually`. Establish the
+mathematical estimate before adding another compiler. Neither all-nome
+positivity nor small omitted tails control the retained head's spatial
+response; the checked `no_eventual_small_intervals` also excludes repairing
+the unit-background route at w>=7/8. Exact shared-face algebra remains
+available if a nonredundant pair/block argument is found. No such new
+spatial estimate is supplied by this checkpoint. Physical transfer/scale
+transport, continuum QFT, nontriviality and all compact simple groups
+remain open; no canonical field, axiom or literal hole changed.
+
+Verification: 33 new public gates exactly within {propext, Quot.sound}.
+Three focused safe launches, serialized with one worker/20 GiB: the
+face-insertion file needed one notation-syntax correction, then passed;
+shared-face geometry passed first check. Final logs clean, own/direct
+artifacts fresh; no raised resource/heartbeat limits or dependency refresh.
+Two root imports added; root/full-tree unrun. CI remains manual-only.
+Final log hashes:
+
+- `/tmp/ym-face-insertion-determinant.log`:
+  `1dcc5f9ab6c807dd76c97c8e628fc904379a47fe16037499a07603cd1e10e6eb`.
+- `/tmp/ym-shared-face-geometry.log`:
+  `795f9b279f55ddcf7ae06ef668395f4f2fbea5190d1354f94c3c0ccdc15f5503`.
+
+**Previous mathematical increment (PROVED fixed-neighborhood conditional representative and coarse-rate obstruction; then OPEN sharper two-link/block control):**
 PROGRESS after `ee06bee`. A parallel branch proved the exact head-integration
 and lift support transports; the parent applied them to the ORIGINAL
 normalizer, numerator and division recurrence. A read-only geometry review

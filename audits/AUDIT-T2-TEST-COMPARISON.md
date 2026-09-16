@@ -1,5 +1,106 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Parallel exact-action algebra and small-nome route reassessment (2026-09-15)
+
+Follow-up after `734aace`. Two proof branches ran independently; a third
+branch reviewed the intended quantitative consumer. The parent checked
+both new modules serially. This section distinguishes new kernel checks
+from inspection of pre-existing results.
+
+### Newly checked identities
+
+| Result | Declaration and source | Scope |
+| --- | --- | --- |
+| Literal shared/retained partition | `shared_retained_partition`, `lean/YMGap/Continuum/BF4ExactSlabSharedFaceGeometry.lean:63`; `sharedIds_length_le_six`, same file `:73`; `heatProduct_shared_partition`, same file `:99` | Original full heat product equals shared times retained, with at most six shared faces. No coupling or cutoff restriction. |
+| Retained factor groups | `retained_partition`, `lean/YMGap/Continuum/BF4ExactSlabSharedFaceGeometry.lean:134`; `retainedHeat_partition`, same file `:145` | Exact left-only, right-only and neither decomposition. All remaining variables and factors retained. |
+| Explicit excluded links | `right_not_mem_leftOnly`, `lean/YMGap/Continuum/BF4ExactSlabSharedFaceGeometry.lean:159`; `left_not_mem_rightOnly`, same file `:166`; `links_not_mem_neither`, same file `:172`; `leftOnly_heat_local`, same file `:188`; `rightOnly_heat_local`, same file `:193`; `neither_heat_local`, same file `:198` | Syntactic locality, not independence after integrating other shared links. |
+| One-face change of action | `numerator_append_face`, `lean/YMGap/Continuum/BF4ExactSlabFaceInsertionDeterminant.lean:44`; `partition_append_face`, same file `:53`; `face_insertion_determinant`, same file `:59` | N_(S+f)(p) Z_S - N_S(p) Z_(S+f) equals N_S(p*h_f) Z_S - N_S(p) N_S(h_f), in exact rational equivalence. |
+| Existing mixed-action endpoints | `mixedNumerator_append_face`, `lean/YMGap/Continuum/BF4ExactSlabFaceInsertionDeterminant.lean:81`; `mixedPartition_append_face`, same file `:94` | Under the explicit Boolean selection guards, the existing mixed objects specialize to the same covariance numerator and Z_(S+f)*Z_S. |
+
+These identities provide reusable finite algebra. They do NOT prove a
+two-link conditional factorization, common-exterior centered angle,
+normalized telescoping bound, spatial decay, or physical-scale transport.
+The two-link angle has no direct consumer in the inspected star/local
+comparison/boundary-normalization modules, as recorded in the previous
+section. The new insertion identity reaches the existing mixed numerator,
+not its missing decaying bound.
+
+### Source review: why not build another fixed-nome angle proof now?
+
+The source already contains a coupling-sensitive full-interaction cap:
+`heatRemainderBound_eq`,
+`lean/YMGap/Continuum/QuaternionHaarCharacterInterval.lean:85`, gives
+delta(w)=128*w^3. `faceRemainderInterval`,
+`lean/YMGap/Continuum/BF4ExactSlabSmallNomeHaarComparison.lean:54`, requires
+the explicit small-nome guard. `productErrorInterval`,
+`lean/YMGap/Continuum/BF4ExactSlabBulkProbeCollarInterval.lean:88`, bounds
+the original m-face product remainder by (1+delta)^m-1; this is
+`productErrorCap`, same file `:49`. Its count monotonicity is
+`productErrorCap_mono`, same file `:58`. At nome 1/1024,
+`existingNome_collar_cap`, same file `:135`, bounds the 24-face cap by
+1/262144. The newly proved six-face count can use that monotonicity.
+This does not supply the missing conditional-angle theorem.
+
+The intended fixed-nome consequences already have declarations:
+
+- `singlePlaquette_boundary_geometric_bound`,
+  `lean/YMGap/Continuum/BF4ExactSlabInnerMarginBoundaryDecay.lean:125`.
+- `existingNome_expressionMean_difference_bound`,
+  `lean/YMGap/Continuum/BF4ExactSlabExpressionExpectationDecay.lean:147`,
+  for every existing finite `PlaquetteExpression`.
+- `outer_cauchy`, `meanLimit`, and `meanLimit_geometric_bound`,
+  `lean/YMGap/Continuum/BF4ExactSlabExpressionThermodynamicLimit.lean:104`,
+  `:118`, and `:133`, respectively.
+- `complement_twoStep_form_gap`,
+  `lean/YMGap/Continuum/BF4ExactSlabThermodynamicCompletedGap.lean:99`,
+  for the original completed geometric OS two-step transfer, at fixed
+  nome and spacing. This is not a link-update dynamics claim.
+
+No changing-action or physical-scaling input discharged by the proposed
+fixed-nome angle was identified in those modules or
+`BF4ExactSlabStarConditionalProjection.lean`,
+`BF4ExactSlabStarLocalInfluence.lean`, and
+`BF4ExactSlabBoundaryLimitNormalization.lean`.
+**Decision: stop the duplicate fixed-small-nome branch at the exact
+algebra checkpoint.** This is a prioritization conclusion from the source
+review, not a proved impossibility of all pair/block methods.
+
+### Remaining causal target
+
+The existing original boundary consumer is
+`expectationDifference_bound_of_prefix_eventually`,
+`lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean:230`.
+A new argument must supply its decaying determinant bound for the relevant
+changing original actions, with actual coupling and scale dependence.
+`headProduct_weighted_floor` and `headProduct_weighted_upper`,
+`lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean:186`
+and `:205`, supply positivity/size comparison, not spatial smallness of
+the retained interaction.
+
+The obstruction is not cured by using the old full-remainder expansion
+at later cutoffs: `no_eventual_small_intervals`,
+`lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:340`,
+excludes a cap <=1 for the actual full remainder at w>=7/8.
+`fine_nome_ge_threshold` and `blocked_nome_ge_threshold`, same file
+`:347` and `:356`, place sufficiently small chart couplings in this
+regime GIVEN a `CubicMarginLaw`; they do not construct that law.
+
+Physical transport still requires substantive fields, including
+`CompletedWeakToStrongRGBridge.transferIntertwining` and
+`CompletedWeakToStrongRGBridge.physicalLengthBound`,
+`lean/YMGap/Continuum/Z4HalfTimeReflectionStrictJointCompletedRGTransport.lean:174`
+and `:217`. None is supplied by the new algebra or source review.
+The whole-project continuum QFT, positive physical Hamiltonian gap and
+all compact simple group target are unchanged and open.
+
+Verification: all 33 new public gates match exactly within {propext,
+Quot.sound}; three focused safe one-worker/20 GiB launches including a
+notation-syntax correction. Final logs clean and own/direct artifacts
+fresh; no raised limits or dependency refresh. Two root imports added;
+root/full-tree unrun. Older mathematical declarations above were inspected,
+not recompiled in this checkpoint. No axiom, canonical field or literal
+hole changed.
+
 ## Fixed-neighborhood representative and rejected coarse-rate iteration (2026-09-15)
 
 Follow-up after `ee06bee`. The support target described in the previous

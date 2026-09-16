@@ -4470,6 +4470,9 @@ import YMGap.Continuum.SU2QuaternionHeadBlockLocality
 import YMGap.Continuum.BF4ExactSlabStarConditionalLocality
 -- The coarse directional rate cannot be used as a small per-edge weight.
 import YMGap.Continuum.BF4ExactSlabStarRateObstruction
+-- Exact original-action factorization and two-partition insertion identities.
+import YMGap.Continuum.BF4ExactSlabSharedFaceGeometry
+import YMGap.Continuum.BF4ExactSlabFaceInsertionDeterminant
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

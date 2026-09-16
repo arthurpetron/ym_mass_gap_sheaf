@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED fixed-neighborhood conditional representative and coarse-rate obstruction; OPEN two-link/block estimate (2026-09-15)
+## PROVED exact shared-face and one-face insertion algebra; OPEN changing-action spatial estimate (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/BF4ExactSlabSharedFaceGeometry.lean`
+  and `BF4ExactSlabFaceInsertionDeterminant.lean` in the same directory.
+- **proof**: the original heat product splits into at most six shared
+  faces and its entire retained complement; the latter splits into
+  left-only/right-only/neither factors with explicit link exclusions.
+  One-face insertion equals its covariance numerator under the preceding
+  original action. Existing mixed-action endpoints retain BOTH partitions.
+  No coupling restriction or analytic premise enters these identities.
+- **route review**: the existing small-nome product-error bounds could
+  support a proposed conditional-angle argument, but its intended
+  fixed-nome consequences already have source declarations. No new
+  changing-action/scale consumer was identified. Further development of
+  that duplicate branch is paused, not recorded as an analytic closure.
+- **open residue**: two-link conditional factorization and quantitative
+  correlation are not proved by polynomial factorization. The needed
+  new estimate must control the retained interaction in the changing
+  original action and reach the existing normalized boundary consumer.
+  All-nome positivity and cutoff-tail smallness do not supply it.
+  Physical scaling/transfer, continuum QFT/nontriviality and all-group
+  Clay remain open. No canonical field, axiom or literal hole changed.
+- **verification**: 33 new public gates exactly within {propext,
+  Quot.sound}; three focused serialized safe one-worker/20 GiB launches
+  including one notation correction. Final logs clean, own/direct
+  artifacts fresh; no raised limits or dependency refresh. Two root
+  imports; root/full-tree unrun. Logs/hashes and source review in work_plan
+  and `audits/AUDIT-T2-TEST-COMPARISON.md`.
+
+## Previous PROVED fixed-neighborhood conditional representative and coarse-rate obstruction; OPEN two-link/block estimate (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/SU2QuaternionHeadBlockLocality.lean`,
   `BF4ExactSlabStarConditionalLocality.lean`, and

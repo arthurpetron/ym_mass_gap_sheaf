@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [fixed support for the actual conditional projection's approximants](lean/YMGap/Continuum/BF4ExactSlabStarConditionalLocality.lean).
+**Latest result:** two parallel proof branches supplied
+[exact shared-face factorization](lean/YMGap/Continuum/BF4ExactSlabSharedFaceGeometry.lean)
+and [one-face change-of-action identities](lean/YMGap/Continuum/BF4ExactSlabFaceInsertionDeterminant.lean).
+Only faces touching both selected links are separated; every other action
+factor remains, and the shared list has at most six faces. The change-of-action
+numerator from adding a face is exactly a covariance numerator under the
+preceding action, retaining both different partition functions. These are algebraic identities, not
+conditional independence or spatial decay.
+
+An independent [route review](audits/AUDIT-T2-TEST-COMPARISON.md)
+prevented a redundant branch: the proposed small-nome path targets
+fixed-coupling consequences already proved here. The next argument
+must address the changing original action and physical scale, not merely
+produce another fixed-nome gap. All 33 new public declarations passed focused,
+serialized constructive checks; no full-tree build was run. The continuum
+and all-group Clay target remain open.
+
+**Previous result:** [fixed support for the actual conditional projection's approximants](lean/YMGap/Continuum/BF4ExactSlabStarConditionalLocality.lean).
 For an input supported on `S`, every approximation is supported on `S` plus
 the selected link's incident faces, with that link removed. The neighborhood
 does not grow with iteration count. An explicit Cauchy representative with
