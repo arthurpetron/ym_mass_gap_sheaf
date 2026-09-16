@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original separated-window finite covariance decay; OPEN reflected time pin/limit and strict norm bound (2026-09-16)
+## PROVED actual physical-lag covariance and completed unit-complement strict bound; OPEN reflected joint cutoff/time and spatial/spacing control (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialReflectedSeparatedProbe.lean`,
+  `BF4ExactSlabFixedSpatialCenteredMoments.lean`,
+  `BF4ExactSlabFixedSpatialPhysicalCovariance.lean`,
+  `BF4ExactSlabFixedSpatialDenseCenteredGap.lean`, and
+  `BF4ExactSlabFixedSpatialCompletedCenteredGap.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: actual reflected geometry and padded source lifts pin the joint
+  and both marginals to one original action/partition. The finite covariance
+  bound passes through the actual connected limit with lag-independent caps.
+  Actual even-time moments satisfy the model-independent dyadic hypotheses,
+  removing the prefactor; the zero-rate case uses no division. Actual pairing
+  and product limits extend the estimate to Cauchy streams and their quotient,
+  without representative choice or uniform presentation caps.
+  `unitComplement_twoStep_form_gap` proves B(v,T_2 v)<=q*q*B(v,v), and
+  `unitComplement_oneStep_norm_gap` proves the corresponding one-step
+  squared-norm contraction. The explicit q*q<1 depends on nome/width only.
+- **consumer/open input**: removes the reflected physical-lag pin/limit,
+  dense prefactor removal and completed strict norm-relative estimate for
+  this fixed-width, fixed-cutoff physical carrier. Next is the reflected
+  common-chart joint cutoff/time limit; the stage-independent rate alone
+  does not construct it. Nonconstant excitations, metric completeness,
+  full Hilbert/OS and gauge algebra, width/spacing control, physical mass
+  calibration, continuum QFT and all-group Clay closure remain open.
+  No canonical field, sorry, axiom or analytical premise changed.
+- **verification**: five focused serialized one-worker/20 GiB checks;
+  all 35 public gates within {propext, Quot.sound}. Five selective-root
+  imports; root/full-tree/full axiom audit unrun. Independent source review
+  checked the same-object pins, q=0, even-time indexing and no-choice limit
+  extension. Evidence: `audits/AUDIT-FIXED-SPATIAL-CENTERED-STRICT-BOUND.md`.
+
+## Previous PROVED original separated-window finite covariance decay; OPEN reflected time pin/limit and strict norm bound at that checkpoint (2026-09-16)
 
 - **files**: `SU2QuaternionHeadSeparatedWindows.lean`,
   `RationalCommonPartitionCovariance.lean`,

@@ -133,7 +133,52 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED original separated-window finite covariance decay; OPEN reflected physical-lag pin/limit and strict reflected-norm bound):**
+**Latest mathematical increment (PROVED actual physical-lag covariance and completed unit-complement strict form bound; OPEN joint cutoff/time passage and spatial/spacing control):**
+PROGRESS after `e70f3b0`. Guarded reflected-distance geometry and padded
+polynomial lifts pin the actual time-n mixed probe and its two unit marginals
+to the SAME original finite chart, action and partition. In chart H=R+n,
+the windows have lengths R,H and separation n. Coefficient caps are invariant
+under their placements, so |connectedScalar|<=A(x,y)*q^n at every boundary
+depth, with physical lag independent of that depth. The bound passes to
+the actual connected limit and centered completed-time pairing.
+
+CONTRACTION: actual even-time moments satisfy positivity, diagonal
+comparison and dyadic Cauchy--Schwarz. The constructive dyadic argument
+removes the computed positive prefactor 1+A, giving
+B(Cx,T_2 Cx)<=q*q*B(Cx,Cx) on embedded probes. A separate rational q=0
+branch never divides by q or a norm. Actual representative pairing/product
+limits extend this prefactor-free bound to all supplied Cauchy streams;
+proposition-valued quotient induction covers every completed vector without
+choosing representatives or assuming a uniform presentation cap. The actual
+even-time diagonal identity also proves the one-step squared-norm bound.
+Both specialize to the existing unit-orthogonal subtype.
+
+q=mixRate(w,width) and q*q<1 are independent of retained stage, NOT uniformly
+below one in width or spacing. These are bounds for the actual physical-time
+advance, not a link heat-bath operator. No nonzero excitation, one-step
+positivity, metric completeness, full Hilbert/OS or continuum Hamiltonian
+is inferred. No canonical field, hole, axiom or analytical premise changed.
+Five focused serialized one-worker/20 GiB checks passed all 35 public gates
+within {propext, Quot.sound}; five selective-root imports, root/full-tree/
+full audit unrun. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-CENTERED-STRICT-BOUND.md`.
+
+NEXT CAUSAL FRONTIER: instantiate joint cutoff/boundary-time convergence
+for the actual reflected common-chart scalars. Source review found an
+existing cutoff-independent boundary-time modulus and a fixed-boundary
+cutoff modulus. Choose one late boundary depth, then its cutoff threshold;
+the three-hop rectangle is already proved for a different one-sided scalar.
+Construct the joint and two marginal chart limits separately before scalar
+product arithmetic; do not assume that a product-generated stored modulus
+is cutoff-independent. This is reviewed proof design, not a checked
+reflected joint-limit theorem. A cutoff-removed reflected carrier, nonconstant
+excitations, metric completeness/full Hilbert/OS and gauge algebra, spatial
+and spacing control, physical mass calibration, continuum QFT and all compact
+simple groups remain open. The actual kinetic floor/cap ratio is
+headFloor(w)^F / prefixCap(w)^F, F=number of temporal faces; a fixed-width
+strict rate supplies no width-uniform positive physical mass.
+
+**Previous mathematical increment (PROVED original separated-window finite covariance decay; OPEN reflected physical-lag pin/limit and strict reflected-norm bound at that checkpoint):**
 PROGRESS after `be767d0`. Exact chronological factorization contracts the
 left observation over L transitions, propagates the same message over g
 unobserved transitions, then contracts the right observation over R.

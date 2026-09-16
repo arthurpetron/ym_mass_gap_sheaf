@@ -21,7 +21,29 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: connected correlation decay between separated finite windows.**
+**Latest result: strict contraction on the actual completed unit complement.**
+For fixed nome, spatial width and retained cutoff, the SAME physical-time
+map now satisfies `B(v,T_2 v) <= q^2 * B(v,v)` and
+`B(T_1 v,T_1 v) <= q^2 * B(v,v)` on the original unit-orthogonal carrier,
+with the computed `0 <= q < 1`. Reflected probes are pinned to the original
+separated-window covariance; actual even-time moment inequalities remove
+its presentation-dependent prefactor. The resulting norm-relative estimate
+passes to supplied Cauchy streams and their quotient without representative
+choice or a uniform coefficient cap.
+
+The rate is independent of retained heat stage but depends on nome and
+spatial width. **This is not a continuum mass-gap theorem.** Nonconstant
+excitations, full Hilbert/OS reconstruction, joint cutoff/time passage,
+spatial/spacing control and physical mass calibration remain open. Next is
+the reflected common-chart cutoff/time limit, keeping the original action
+and partition. Five focused checks passed all 35 public axiom gates; no
+root/full-tree check was run. See the
+[centered strict-bound audit](audits/AUDIT-FIXED-SPATIAL-CENTERED-STRICT-BOUND.md).
+
+Earlier entries below describe their historical checkpoints; the latest
+result above supersedes their then-open finite strict-bound statements.
+
+**Previous result: connected correlation decay between separated finite windows.**
 For the original fixed-spatial SU(2) transfer, the connected expectation of
 two signed polynomial windows is bounded by `4 * cap(P) * cap(Q) * q^g`,
 where `g` counts the transitions between their endpoints. Joint and marginal
@@ -30,10 +52,11 @@ of the first window, transfer-bracket decay, and signed residual cancellation
 prove the bound without dividing by an observed or residual mass.
 
 The rate depends on nome and spatial width; the estimate is uniform in
-external boundary lengths and late heat cutoff for fixed probes. It is not
-yet a strict reflected-norm or physical mass-gap theorem. Next: identify the
-reflected physical-time probes with these separated windows and pass the
-bound to their existing connected limit. Five focused checks passed all 15
+external boundary lengths and late heat cutoff for fixed probes. At that
+checkpoint it was not a strict reflected-norm or physical mass-gap theorem.
+The next step was to identify the reflected physical-time probes with these
+separated windows and pass the bound to their existing connected limit.
+Five focused checks passed all 15
 public axiom gates; no root/full-tree check was run. See the
 [separated-covariance audit](audits/AUDIT-FIXED-SPATIAL-SEPARATED-COVARIANCE.md).
 
