@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: exact fixed-width boundary realization.**
+**Latest result: one original spatial weight on a fixed slice carrier.**
+The [spatial-weight identity](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean)
+constructs one polynomial depending only on spatial width, rational nome
+and heat cutoff. At every contained time and ambient extent, its explicit
+coordinate placement gives the original spatial heat product. Ordered
+plaquette multiplication, every finite spin term and spatial fringe links
+are retained. Weighted Haar pairings agree for all supported source insertions.
+
+Parallel work also supplied the exact face-list placements and an ordered
+pair of consecutive slice carriers. Six focused serialized checks passed;
+all 73 reported public gates are within {propext, Quot.sound}. This is an
+exact finite identity, not a contraction estimate. The kinetic-factor pin,
+repeated weighted composition, stationary OS identification and continuum
+mass gap remain open. Root/full-tree verification was not run. See the
+[proof audit](audits/AUDIT-FIXED-SPATIAL-SLICE-WEIGHT.md).
+
+**Previous result: exact fixed-width boundary realization.**
 The [computed two-layer kernel](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBoundaryCarrier.lean)
 now lives on an explicit two-endpoint carrier whose size depends only on
 spatial width, not ambient extent, start time or heat cutoff. Its embedding

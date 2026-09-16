@@ -98,7 +98,8 @@ private theorem link_local {extent : Nat} {P : Z4Link → Prop} {link : Z4Link} 
   · rw [correctedSlabLinkPolynomial_of_not_mem hm]
     exact quaternion_one extent P
 
-private theorem face_edge_box {width : Nat} {face : Z4Plaq}
+/-- Literal edges of a base-cutoff face fit the inclusive spatial box. -/
+theorem face_edge_box {width : Nat} {face : Z4Plaq}
     (hx : face.1.1 < width) (hy : face.1.2.1 < width) (hz : face.1.2.2.1 < width)
     {link : Z4Link} (hl : link ∈ edgesOf face) :
     link.1.1 ≤ width ∧ link.1.2.1 ≤ width ∧ link.1.2.2.1 ≤ width := by
@@ -199,6 +200,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerBoundary
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerBoundary.SliceLink
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerBoundary.BoundaryLink
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerBoundary.face_edge_box
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerBoundary.spatialHeat_local
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerBoundary.kineticHeat_local
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerBoundary.middleIntegrand_local

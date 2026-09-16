@@ -47,7 +47,7 @@ local instance (width start : Nat) (link : Z4Link) : Decidable (BoundaryLink wid
   unfold BoundaryLink
   infer_instance
 
-private theorem slice_physical {width time extent : Nat} (hw : width ≤ extent) (ht : time ≤ extent)
+theorem sliceLink_physical {width time extent : Nat} (hw : width ≤ extent) (ht : time ≤ extent)
     {link : Z4Link} (hl : SliceLink width time link) :
     link ∈ boundaryCompleteSlabLinks extent := by
   rcases link with ⟨⟨x,y,z,t⟩,dir⟩
@@ -73,7 +73,7 @@ private theorem slice_physical {width time extent : Nat} (hw : width ≤ extent)
 private theorem boundary_physical {width start extent : Nat}
     (hw : width ≤ extent) (ht : start+2 ≤ extent) {link : Z4Link}
     (hl : BoundaryLink width start link) : link ∈ boundaryCompleteSlabLinks extent :=
-  hl.elim (slice_physical hw (by omega)) (slice_physical hw ht)
+  hl.elim (sliceLink_physical hw (by omega)) (sliceLink_physical hw ht)
 
 /-- This enumeration depends only on spatial width, not ambient volume/time/cutoff. -/
 def baseLinks (width : Nat) : List Z4Link :=
@@ -192,6 +192,7 @@ theorem kernel_haar {width start extent : Nat} (hw : width ≤ extent) (ht : sta
 
 end YMGap.Continuum.BF4ExactSlabFixedSpatialBoundaryCarrier
 
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialBoundaryCarrier.sliceLink_physical
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialBoundaryCarrier.baseLinks
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialBoundaryCarrier.baseLinks_mem_iff
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialBoundaryCarrier.baseLinks_nodup

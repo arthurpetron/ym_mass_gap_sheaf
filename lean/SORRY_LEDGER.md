@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED exact fixed-width boundary realization; OPEN iteration and quantitative control (2026-09-16)
+## PROVED original fixed-slice spatial weight; OPEN kinetic pin and finite iteration (2026-09-16)
+
+- **files**: new `BF4ExactSlabFixedSpatialSliceCarrier.lean`,
+  `BF4ExactSlabFixedSpatialFacePlacement.lean`,
+  `BF4ExactSlabFixedSpatialPairCarrier.lean`, and
+  `BF4ExactSlabFixedSpatialSliceHeat.lean`, all in `lean/YMGap/Continuum/`.
+  Two existing geometric helpers in `BF4ExactSlabFixedSpatialTwoLayerBoundary`
+  and `BF4ExactSlabFixedSpatialBoundaryCarrier` are exposed with axiom gates.
+- **proof**: exact single-slice coordinates and multiplicity-preserving
+  original face placements give one width/nome/cutoff-only spatial polynomial.
+  `spatialWeight_pin` places it into every contained original `spatialHeat`;
+  `spatialWeight_haar` preserves its weighted Haar law for supported source
+  insertions. Full ordered words and every spin term remain. The pair carrier
+  orders the same N coordinates at start and start+1, with explicit original
+  lower/upper link pins. Inclusive fringe links remain in both slices.
+- **consumer/open input**: supplies the original V factor and coordinates
+  for a finite original K/V iteration. The K pin and iteration theorem remain
+  open; no stationary vacuum or contraction follows from these identities.
+  General ambient insertions still need locality/marginal treatment before
+  reducing carrier size. Original-Haar quantitative estimates, cutoff-dependent
+  insertion control, stationary OS identification, continuum passage and
+  physical/all-group gap remain open. No old statement or canonical frontier
+  field changed; no hole, axiom or analytic hypothesis added or discharged.
+- **verification**: six focused serialized one-worker/20 GiB checks passed;
+  all 73 public gates within {propext, Quot.sound}. Four root imports added;
+  root/full-tree and full audit unrun. Independent source review found no
+  mismatch or vacuity. See `audits/AUDIT-FIXED-SPATIAL-SLICE-WEIGHT.md`.
+
+## Previous PROVED exact fixed-width boundary realization; OPEN iteration and quantitative control (2026-09-16)
 
 - **files**: new `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoLayerBoundary.lean`,
   `SU2QuaternionHaarBlockCompression.lean`, and

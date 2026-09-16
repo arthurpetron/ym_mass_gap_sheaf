@@ -126,7 +126,52 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED exact fixed-width boundary realization; OPEN single-slice iteration and quantitative control):**
+**Latest mathematical increment (PROVED original fixed-slice spatial weight; OPEN kinetic pin and finite iteration):**
+PROGRESS after `9706793`. Independent parallel branches constructed the
+single-slice coordinate placement, original spatial/temporal face-list
+placements, and ordered consecutive-slice carrier. The parent composed
+the first two into a literal original spatial-weight pin and checked all
+six changed/new modules serially. No new analytic premise or frontier
+wrapper was added.
+
+EXPANSION: `BF4ExactSlabFixedSpatialSliceCarrier` enumerates one boxed
+spatial slice, retaining all fringe links, and sends each source quaternion
+to the original translated link. `BF4ExactSlabFixedSpatialFacePlacement`
+proves that the width-only face lists permute the original contained
+spatial/temporal ID lists, without loss or duplication.
+`BF4ExactSlabFixedSpatialPairCarrier` orders two copies as N+N blocks;
+the first N pins are at start and the next N at start+1.
+
+CONTRACTION: `BF4ExactSlabFixedSpatialSliceHeat.spatialWeight w K width`
+has NO ambient extent or time parameter. `spatialWeight_pin` identifies
+its placed polynomial with the actual `spatialHeat`, coefficient-sensitively
+up to zero padding. Ordered plaquette quaternion products and every finite
+character term survive. `spatialWeight_haar` preserves its original weighted
+Haar pairing for every supported source insertion. The guards are
+width<=extent and time<=extent; no positivity or coupling restriction.
+This improves fixed carrier size to a common original V polynomial.
+
+NEXT: construct the original K on the ordered pair using the checked
+lower/upper link pins and temporal-face placement. Then prove finite
+weighted composition, integrating one full boxed input slice and including
+each joining V once. No such new kinetic or iteration theorem is asserted
+by this increment. Finite iteration need not first build a stationary
+vacuum; stationarity, positivity and physical OS identification remain
+separate obligations. Ambient insertions not in the slice image cannot
+be reduced by `spatialWeight_haar` without further locality or marginal
+control. Quantitative original-Haar response/contraction, cutoff-dependent
+insertions, nome/volume/spacing limits, continuum QFT and all groups remain open.
+
+Verification: six focused one-worker/20 GiB checks passed; all 73 public
+gates report subsets of {propext, Quot.sound}. Four new modules have 49
+gates; two exposed existing geometric helpers have new gates. Missing
+imports and notation precedence were corrected before acceptance. An
+independent source review found no mathematical mismatch or vacuity.
+Four root imports added; root/full-tree and full axiom audit unrun.
+No old field, literal hole, axiom, worker or memory limit changed.
+Evidence: `audits/AUDIT-FIXED-SPATIAL-SLICE-WEIGHT.md`.
+
+**Previous mathematical increment (PROVED exact fixed-width boundary realization; OPEN single-slice iteration and quantitative control):**
 PROGRESS after `48715db`. Parallel source reviews isolated a direct inverse
 to the existing coordinate embedding and checked the next finite-iteration
 consumer. The compression proof developed independently of the actual
