@@ -1,7 +1,8 @@
 # From local heat windows to the original operator
 
-Date: 2026-09-15 (local). Source review starts at `b9a9292`.
-This is a parallel source audit, not a new proof of the physical gap.
+Date: 2026-09-15 (local). Source review starts at `b9a9292`; the six-face
+increment is `6ad5cc7`, followed by the all-nome spatial certificates below.
+Source review and new finite proofs are distinguished; no physical gap is proved.
 
 ## Whole-project goal
 
@@ -142,9 +143,9 @@ The actual Gram factor already has `faceHeat_pin`,
 it with the character heat prefix of the actual two-link `spatialWord`
 (defined at line 51). Support and Haar-unit norm are proved at lines 55 and
 59. Its existing `spatialFaceCertificate` at line 106 still assumes
-small-nome bounds. Extending positive certificates to all nomes at sufficiently
-late cutoff is therefore a genuine finite subtask, not a missing coordinate
-definition. Ordinary square certificates with arbitrary positive insertions
+small-nome bounds. The new all-nome, sufficiently-late-cutoff construction below
+removes this restriction without changing the old statement. It is not a new
+coordinate definition. Ordinary square certificates with arbitrary positive insertions
 must not be confused with the already-proved reflected-pairing positivity.
 
 The generic boundary integration identity also already exists:
@@ -163,12 +164,86 @@ reviewed all-extent, temporal-gauge, partial-factorized-Haar, tube-disintegratio
 and physical-joint-transfer modules. The search finding is not a theorem of
 nonexistence. Even such a kernel identity would not supply centered decay.
 
+## New proof: all-nome original spatial heat certificates
+
+The Jacobi argument now applies to a general supported Haar-unit quaternion
+word. Its character intervals bound the finite Jacobi-weight deficit in Haar
+certificate order, not just at rational evaluation points. Adding that deficit
+to the positive Jacobi polynomial leaves the SAME original unweighted prefix
+above the SAME `headFloor(w)` for `K>=headCutoff(w)`.
+
+All entries in this table are in
+`lean/YMGap/Continuum/QuaternionHaarAllNomeHeatCertificate.lean`:
+
+| Declaration | Line | Content |
+|---|---:|---|
+| `termInterval` | 50 | Sharp certificate interval for the actual dimension/Casimir character term. |
+| `prefixInterval` | 56 | Cutoff-independent absolute cap `prefixCap(w)`. |
+| `prefix_eq_weighted_add_deficit` | 65 | Exact original-prefix recombination. |
+| `deficitInterval` | 91 | Existing computed `deficitCutoff` controls an arbitrary word. |
+| `weightedFloorCertificate` | 123 | Jacobi constant floor as a square certificate. |
+| `prefixFloorCertificate` | 137 | Late original unweighted prefix minus `headFloor(w)` is certified positive. |
+| `prefixCertificate` | 159 | Its actual positive certificate. |
+
+The original-action consumer is now implemented in
+`lean/YMGap/Continuum/BF4ExactSlabAllNomeSpatialHeatCertificate.lean`:
+
+| Declaration | Line | Content |
+|---|---:|---|
+| `faceFloorCertificate` | 50 | Floor on the actual Gram heat factor, via existing `faceHeat_pin`. |
+| `faceCertificate` | 56 | Its ordinary positive certificate at late cutoff. |
+| `faceInterval` | 63 | Absolute cap for actual crossing faces, all cutoffs. |
+| `productCertificate` | 72 | Products retain every shared variable. |
+| `interfaceCertificate` | 78 | The literal original `interfacePolynomial`. |
+| `spectatorCertificate` | 83 | The existing spectator interface with no removed interactions. |
+| `face_weighted_floor` | 111 | One-face lower bound with an arbitrary positive background. |
+| `product_weighted_floor` | 119 | Lower cost is `headFloor(w)^length`. |
+| `product_weighted_upper` | 135 | Upper cost is `prefixCap(w)^length`. |
+| `interface_weighted_floor` | 144 | Full original crossing-interface lower comparison. |
+| `interface_weighted_upper` | 151 | Full original crossing-interface upper comparison. |
+
+All statements retain `0<w<1`; floors/positivity require the explicit late
+cutoff. All-nome does NOT mean a common positive floor as w tends to one.
+The interface cost counts all its actual crossing faces; it is not a
+volume-independent contraction. Arbitrary positive background certificates
+are inputs to the comparison, not assertions that a signed lower-times-upper
+observable is pointwise positive.
+
+Twenty printed gates passed within `{propext, Quot.sound}`; `heatTerm` and
+`deficitPolynomial` are axiom-free. Four focused one-worker/20 GiB checks
+included two namespace/section-parameter correction reruns. Final logs:
+
+- `/tmp/ym-all-nome-word-heat-certificate.log`: SHA-256
+  `1ca83080d4693d0af53b50e40faefe175901cbd319925d31750d697b8b8be809`.
+- `/tmp/ym-all-nome-spatial-heat-certificate.log`: SHA-256
+  `d08e77acd3acecdf88beaa95895d6264ca22c808700f93f3c6d06b519e5e8ad4`.
+
+No raised limits, dependency refresh, changed old statements/fields, custom
+axiom or literal hole. Own/direct artifacts were fresh. Two semantic-root
+imports were added; root/full-tree verification was not run. CI remains
+manual-only. This removes the finite spatial-factor positivity restriction;
+it does not construct a strict centered OS estimate or a continuum limit.
+
+Independent source review found no hidden analytic premise in these two new
+modules. A further direct consumer is the original bulk-probe background:
+`backgroundCertificate` and `background_weighted_bound` in
+`lean/YMGap/Continuum/BF4ExactSlabBulkProbePositiveBackground.lean:119` and
+line 126 currently use small-nome guards only to obtain positive certificates
+for their lower, upper and crossing spectators. An all-nome late-cutoff
+version can use the constructed certificates; that additional composition
+is not claimed as a declaration of this checkpoint. In contrast,
+`productErrorInterval`,
+`lean/YMGap/Continuum/BF4ExactSlabBulkProbeCollarInterval.lean:88`, retains a
+small-nome estimate on the original collar's deviation from the unit
+reference. Positive background certificates do not supply that small error.
+
 ## Parallelism and verification boundary
 
 Three bounded branches were reviewed concurrently: quantitative original-star
 constants, original temporal/Harnack identification, and the operator/spatial
-consumer. The latter two are read-only checks. Only the first was selected for
-a new proof after locating a direct existing consumer. No parallel Lean
+consumer. The initial identification reviews were read-only. They selected two
+independent proof branches: the six-face budget and the all-nome original
+spatial certificates, each with a direct existing consumer. No parallel Lean
 compilers, replacement scorecard, relaxed frontier field or new assumed
 analytic interface is needed.
 

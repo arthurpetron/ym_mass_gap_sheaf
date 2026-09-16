@@ -21,7 +21,22 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: an explicit budget for the original six-face conditional law.**
+**Latest result: positive certificates for the actual crossing interface at all nomes.**
+The [new original-interface construction](lean/YMGap/Continuum/BF4ExactSlabAllNomeSpatialHeatCertificate.lean)
+certifies its spatial heat factors and complete spectator products for every
+rational `0<w<1`, once the existing explicit `headCutoff(w)` is reached.
+The proof uses the literal lower/reflected-upper link word and retains all
+shared variables. Weighted lower/upper comparisons use the existing
+`headFloor(w)` and `prefixCap(w)`; they are not coupling- or volume-uniform
+gap bounds. The older small-nome statements are unchanged.
+
+This removes a finite positivity restriction, not the missing centered
+spatial/OS estimate. Twenty new public gates passed focused serialized
+checks; root/full-tree verification was not run. See the
+[operator-path audit](audits/AUDIT-HEAT-WINDOW-OPERATOR-PATH.md) for the exact
+original-action pins and remaining boundary/operator and continuum obligations.
+
+**Previous result: an explicit budget for the original six-face conditional law.**
 The [new comparison](lean/YMGap/Continuum/BF4ExactSlabRoundedStarBudget.lean)
 uses the actual heat windows to prove `1 <= 4^(6*bits(w))*starRatio(w)`.
 Its normalized original-action consequence retains every complementary

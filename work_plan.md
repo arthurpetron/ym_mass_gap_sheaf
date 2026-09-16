@@ -126,7 +126,40 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED original six-face conditioning budget; OPEN centered spatial/OS estimate):**
+**Latest mathematical increment (PROVED all-nome original spatial heat certificates; OPEN boundary/operator and centered-decay estimates):**
+PROGRESS after `6ad5cc7`. The parallel geometry audit located an actual
+remaining finite positivity restriction, rather than another missing
+coordinate definition. `QuaternionHaarAllNomeHeatCertificate` applies the
+existing Jacobi positive-polynomial and deficit argument to ANY supported
+Haar-unit quaternion word. It keeps the SAME headFloor/headCutoff and proves
+the unweighted late-prefix floor; its absolute interval uses prefixCap.
+
+`BF4ExactSlabAllNomeSpatialHeatCertificate` transports those witnesses
+through the EXISTING `faceHeat_pin` for the actual lower/reflected-upper
+spatial link word. It constructs face, full interface and spectator
+certificates at every rational 0<w<1, for K>=headCutoff(w), with no old
+small-nome guard. Weighted floor/upper estimates retain the entire positive
+background and all shared variables, paying powers only for inserted factors.
+This is ordinary positive-certificate order, not a new reflected OS gap;
+the interface-wide exponent still grows with its actual face count.
+
+NEXT: the all-nome original spatial-factor positivity input is now supplied.
+Do not rebuild it or the existing original temporal-gauge identity. The
+original boundary-marginal/adjacent-slab composition and normalization pin,
+and especially centered spatial/transfer decay with usable nome, volume and
+physical-scale dependence, remain separate tasks. Local endpoint bounds
+alone do not supply that cancellation. Physical scaling, continuum QFT,
+nontriviality and every compact simple group remain open.
+
+Verification: twenty public gates in two new modules within {propext,
+Quot.sound}; four focused serialized one-worker/20 GiB launches, including
+two namespace/section-parameter correction reruns. No raised limits or
+dependency refresh. Final logs clean, own/direct artifacts fresh. Two root
+imports; root/full-tree unrun, CI manual-only. No old theorem statement,
+canonical field, custom axiom or hole changed. Exact declarations and log
+hashes: `audits/AUDIT-HEAT-WINDOW-OPERATOR-PATH.md`.
+
+**Previous mathematical increment (PROVED original six-face conditioning budget; OPEN centered spatial/OS estimate):**
 PROGRESS after `b9a9292`. Parallel source checks separated the actual original
 Haar path from the old positive multiplicity-model bridge. The original
 arbitrary-cutoff/extent temporal change of variables is ALREADY proved by
@@ -145,7 +178,7 @@ This adds quantitative conditioning control, not a new spatial mixing premise
 or a contraction on the OS vacuum complement. The directional inverse rate
 is still >=63/64 by the existing obstruction.
 
-NEXT: reuse the actual temporal/Gram pin and construct all-nome late-prefix
+NEXT AT THAT CHECKPOINT (subsequently proved above): reuse the actual temporal/Gram pin and construct all-nome late-prefix
 square certificates on its two-link spatial words (the existing spatial
 certificate still has small-nome guards). A precise boundary-marginal and
 adjacent-slab composition pin remains a separate identification task; it is

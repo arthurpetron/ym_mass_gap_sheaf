@@ -13,7 +13,31 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original six-face conditioning budget; OPEN spatial/OS contraction (2026-09-15)
+## PROVED all-nome original spatial heat certificates; OPEN centered spatial/OS contraction (2026-09-15)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarAllNomeHeatCertificate.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabAllNomeSpatialHeatCertificate.lean`.
+- **proof**: the existing Jacobi positive-polynomial and deficit estimate
+  applies to any supported Haar-unit word, preserving headFloor/headCutoff.
+  The actual lower/reflected-upper spatial word and existing faceHeat_pin
+  supply original Gram-factor, interface and spectator certificates, plus
+  weighted lower/upper comparisons with all shared variables retained.
+- **removed restriction**: the old small-nome guards are unnecessary for
+  these finite positive certificates at K>=headCutoff(w), for 0<w<1.
+  Old statements and constants are preserved. The new explicit late-cutoff
+  condition is essential; no all-cutoff positivity claim is made.
+- **open residue**: boundary/operator identification and composition,
+  centered original spatial/OS decay, physical-scale control, continuum QFT
+  and all-group Clay. Interface comparison constants depend on w and the
+  actual number of inserted faces; no coupling/volume-uniform gap follows.
+- **verification**: twenty public gates within {propext, Quot.sound}, four
+  focused safe serialized one-worker/20 GiB launches including two namespace/
+  section-parameter corrections. No raised limits or dependency refresh.
+  Final logs clean, own/direct artifacts fresh. Two root imports; root/full-tree
+  unrun. No old statement, canonical field, axiom or literal hole changed.
+  Source and hashes: `audits/AUDIT-HEAT-WINDOW-OPERATOR-PATH.md`.
+
+## Previous PROVED original six-face conditioning budget; OPEN spatial/OS contraction (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabRoundedStarBudget.lean`.
 - **proof**: the actual window spread controls the existing local cap/floor;
