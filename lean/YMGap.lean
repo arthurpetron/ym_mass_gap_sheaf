@@ -4736,6 +4736,14 @@ import YMGap.Continuum.BF4SpatialUnionResolvent
 import YMGap.Continuum.BF4SpatialUnionResolventBound
 import YMGap.Continuum.BF4SpatialUnionDiagonalTranslation
 import YMGap.Continuum.BF4SpatialUnionOddEvenResponse
+-- Original positive response transported to the SAME union and unchanged diagonal.
+import YMGap.Continuum.BF4SpatialUnionResponseGeometry
+import YMGap.Continuum.BF4SpatialUnionResponseBoundary
+import YMGap.Continuum.BF4SpatialUnionResponseProbePins
+import YMGap.Continuum.BF4SpatialUnionResponseActionPin
+import YMGap.Continuum.BF4ExactSlabAllNomeFiniteMomentBounds
+import YMGap.Continuum.BF4SpatialUnionResponseFiniteComparison
+import YMGap.Continuum.BF4SpatialUnionPositiveResponse
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

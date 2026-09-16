@@ -1,5 +1,23 @@
 # Positive response on the actual spatial union: corrected analytic frontier
 
+## Completion addendum (2026-09-16)
+
+The geometry, action/probe pins, normalized three-moment comparison and
+unchanged-diagonal limit proposed below are now implemented and checked.
+`BF4SpatialUnionResponseFiniteComparison.covariance_bound`,
+`lean/YMGap/Continuum/BF4SpatialUnionResponseFiniteComparison.lean:110`, proves
+the displayed `6*c*c*A*rho^depth` estimate. The computed original-index
+threshold is `BF4SpatialUnionPositiveResponse.comparisonModulus`,
+`lean/YMGap/Continuum/BF4SpatialUnionPositiveResponse.lean:75`.
+`lagThree_floor` and `lagTwo_floor` in the same module at lines 113 and 119
+preserve the FULL old floor, not merely its half. The carrier, pairing,
+excitation and physical discrete time are the existing union objects.
+See [the checked proof and verification record](AUDIT-SPATIAL-UNION-POSITIVE-RESPONSE.md).
+The plan below is retained as dated history; its unproved-status statements
+describe the earlier checkpoint, not the current response frontier.
+
+## Historical review and proof plan
+
 2026-09-16. Sections 1–4 are a source review and mathematical proof plan, not
 new Lean theorems. Section 5 has a focused new Lean implementation checked
 by the parent agent: exit 0, all four public gates within `{propext, Quot.sound}`.

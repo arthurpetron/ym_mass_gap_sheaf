@@ -21,7 +21,29 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: a constructive reduced inverse and spatial symmetry on the same completed carrier.**
+**Latest result: a positive nonzero-time response on the same completed carrier.**
+The original centered plaquette now has an explicit positive connected-response
+floor at physical lattice lag three and at lag two. The proof embeds the older
+full finite action into the current selected-chain action, bounds their signed
+covariance difference, and makes that error vanish on the existing unchanged
+diagonal. It retains the actual excitation, pairing, time and cutoff; it does
+not identify different completed carriers or assume the desired response.
+
+The floor is `(1/16)*(1/1024)^36`, with a computed comparison modulus. This
+closes the fixed-spacing response transport highlighted by the parallel review.
+Full real/Hilbert/OS/QFT structure, signed/axiswise spatial translations,
+changing-scale control, physical mass calibration, continuum survival and
+actual constructions for every compact simple group remain open.
+
+Seven focused checks passed all 81 public axiom gates within
+`{propext, Quot.sound}`; no root/full-tree check ran. See the
+[positive-response proof and five-front parallel map](audits/AUDIT-SPATIAL-UNION-POSITIVE-RESPONSE.md).
+This is **fixed-spacing SU(2) at nome 1/1024**, not a continuum mass-gap theorem.
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: a constructive reduced inverse and spatial symmetry on the same completed carrier.**
 The actual two-step transfer now has a bounded inverse for `I-T_2` on the
 unit complement. Its geometric-series construction returns an approximation
 modulus; its squared-norm bound is explicitly `(1-q(w))^(-2)`. Rational
@@ -39,9 +61,6 @@ structure, changing-scale control, physical mass calibration and actual
 constructions for every compact simple group remain open. Six focused checks
 passed 92 public axiom gates within `{propext, Quot.sound}`; no root/full-tree
 check ran. See the [proof checkpoint and parallel-work map](audits/AUDIT-SPATIAL-UNION-RESOLVENT.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: computed row limits and quantitative relaxation on the same spatial union carrier.**
 Supplied Cauchy representatives now have a computed diagonal limit with an

@@ -133,7 +133,53 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED bounded same-carrier reduced inverse, positive diagonal spatial symmetry and odd/even response comparison; OPEN positive-response transport, full real/Hilbert/OS/QFT and changing-scale physical construction):**
+**Latest mathematical increment (PROVED positive lag-three and lag-two response on the SAME spatial union; OPEN full real/Hilbert/OS/QFT, full spatial symmetry and changing-scale physical construction):**
+PROGRESS after `da1df7c`: the preceding reduced-inverse/spatial-symmetry
+checkpoint was committed and pushed. The missing positive-response transport
+is now proved, not retained as a new analytic premise. The translated old full
+slab is a literal subset of the current selected-chain action. Orientation-aware
+omitted-face distance supplies the existing signed boundary estimate. Actual
+probe pins and normalized marginal caps give the connected error
+`6*c*c*A(w)*rho(w)^(s+1-S)`, where `S=6*7^4` is fixed support, not volume.
+Both actual partitions and the common cutoff are preserved.
+
+CONTRACTION: at nome `1/1024`, the old finite numerator floor is transported
+to the filtered law. The proved error then bounds the current finite law on
+the EXISTING diagonal. `comparisonModulus(epsilon)` computes its original
+index threshold. Eventual-order passage preserves the FULL positive floor
+`(1/16)*(1/1024)^36` at lag three, and actual odd/even contraction gives the
+same floor at lag two. The vector, pairing, physical discrete time and
+connected correlator are the existing union objects. No regulator interchange,
+one-step positivity assumption or isomorphism of old/new completions is used.
+
+PARALLEL WORK: independent action transport, actual probe/locality pins and
+normalized finite-moment inequalities were composed with parent geometry and
+limit work. The generic finite-moment inequalities need no small-nome premise;
+the spatial comparison retains its named small-nome guards, and the positive
+floor is a fixed-nome SU(2) instance. No beta-uniform physical claim follows.
+The nonzero excitation and strict completed bound were already present;
+neither is an open prerequisite of the new parallel lanes.
+
+NEXT CAUSAL FRONTIER: full real scalar action on the SAME union can use the
+represented-row construction with supplied CReal approximants and explicit
+product moduli; representative independence must be proved, not chosen.
+Actual signed/axiswise spatial invariance is an independent branch. The new
+raw response is not yet the normalized canonical OS probe: real Hilbert/OS/QFT
+structure, original-algebra coverage and the rational-GNSData/CReal-form
+interface remain open. Changing-scale estimates outside the obstructed
+small-nome AF chart, SAME-transfer physical length and finite-rate pins,
+continuum nontriviality, and actual group/global-form producers are still
+required. Reuse the already available scalar calibration and group compilers;
+do not duplicate their open inputs in new assumption-only wrappers.
+
+Seven focused checks passed all 81 public gates within {propext, Quot.sound},
+one monitored worker/20 GiB at a time. Root imports added; root/full-tree/full
+audit unrun. No old proof, canonical field, sorry, axiom, analytic assumption
+or safety limit changed. No literature scan; CI remains manual-only. Exact
+declarations, verification and the five-front map:
+`audits/AUDIT-SPATIAL-UNION-POSITIVE-RESPONSE.md`. Whole-project Clay goal OPEN.
+
+**Previous mathematical increment (PROVED bounded same-carrier reduced inverse, positive diagonal spatial symmetry and odd/even response comparison; positive-response transport was OPEN at that checkpoint):**
 PROGRESS after `405acc5`: the preceding represented-row/relaxation checkpoint
 was committed and pushed. The actual partial sums of `T_2` applied to the
 centered source now have the explicit common squared-norm budget

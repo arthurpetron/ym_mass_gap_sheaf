@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED bounded same-union reduced inverse, diagonal spatial symmetry and odd/even response comparison; OPEN positive-response transport and physical continuum construction (2026-09-16)
+## PROVED positive original response on the SAME spatial union; OPEN full Hilbert/OS/QFT and physical continuum construction (2026-09-16)
+
+- **files**: `BF4SpatialUnionResponseGeometry.lean`,
+  `BF4SpatialUnionResponseBoundary.lean`, `BF4SpatialUnionResponseProbePins.lean`,
+  `BF4SpatialUnionResponseActionPin.lean`,
+  `BF4ExactSlabAllNomeFiniteMomentBounds.lean`,
+  `BF4SpatialUnionResponseFiniteComparison.lean`, and
+  `BF4SpatialUnionPositiveResponse.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: actual translated-full-action inclusion and omitted-face geometry
+  discharge the existing boundary-tail hypotheses. Three original moment pins,
+  normalized interval caps and both retained partitions yield the connected
+  error `6*c*c*A(w)*rho(w)^(s+1-S)`, with fixed `S=6*7^4`. At nome `1/1024`,
+  the original finite numerator floor transfers to the current diagonal with
+  this error. A computed original-index modulus and existing convergence
+  preserve the full floor `(1/16)*(1/1024)^36` at lag three. Actual odd/even
+  contraction gives the lag-two floor; `positiveResponse` returns its rational
+  constant and proof as Type-valued data on the SAME completed excitation.
+- **consumer/open input**: removes the finite-action comparison and positive
+  nonzero-time response transport, not the normalized canonical OS probe or
+  continuum nontriviality. Full real scalar/Hilbert/OS/QFT and original-algebra
+  coverage, signed/axiswise spatial actions, changing-scale original-action
+  estimates, physical time/mass calibration, continuum survival and actual
+  constructions for all compact simple groups remain open. The small-nome AF
+  obstruction and rational-GNSData/CReal-form interface are unchanged. No
+  canonical scorecard field is closed or weakened by this ingredient.
+- **verification**: seven focused serialized checks, 81 public gates within
+  {propext, Quot.sound}; one worker/20 GiB. Root imports added; root/full-tree/
+  full audit unrun. No prior proof, sorry, axiom, analytic premise or safety
+  limit changed. Independent source review and exact evidence:
+  `audits/AUDIT-SPATIAL-UNION-POSITIVE-RESPONSE.md`.
+
+## Previous PROVED bounded same-union reduced inverse, diagonal spatial symmetry and odd/even response comparison; positive-response transport was OPEN at that checkpoint (2026-09-16)
 
 - **files**: `BF4SpatialUnionWeightedNorm.lean`,
   `BF4SpatialUnionResolventPartial.lean`, `BF4SpatialUnionResolvent.lean`,
