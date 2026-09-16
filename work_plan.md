@@ -119,7 +119,62 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED shared-face and one-face insertion identities; REASSESSED small-nome branch):**
+**Latest mathematical increment (PROVED all-nome intermediate normalization and lossless comparison; OPEN decaying determinant estimate):**
+PROGRESS after `c416885`. Source review isolated a real remaining guard:
+the intermediate laws in `BF4ExactSlabFaceSetExpectation` required
+`hsmall` and `hd`, even though the original full-slab law and sufficiently
+late physical heat prefixes were already available at every rational
+0<w<1. A parallel branch supplied the reciprocal; the parent constructed
+the normalized law and comparison; an independent read-only review checked
+the same-action, same-cutoff and changing-observable boundaries.
+
+`BF4ExactSlabAllNomeFaceSetReciprocal` uses the explicit tail
+K=headCutoff(w)+n and floor headFloor(w)^|ids|. Its reciprocal has a
+Type-level modulus and cancels the EXISTING unshifted partition limit.
+`BF4ExactSlabAllNomeFaceSetExpectation` constructs the actual normalized
+rational stream with its modulus, proves normalization and certificate
+positivity, and pins its limit to the original numerator/partition,
+legacy face-set law, and full odd-slab original law. This is ordinary
+positive-law normalization, not a new reflection-positivity theorem.
+
+`BF4ExactSlabAllNomeFaceSetComparison.comparison_bound_eventually`
+preserves exactly a supplied eventual determinant coefficient b: both
+original partitions cancel at finite cutoff BEFORE the limit. Its
+`insertion_bound_eventually` consumes the one-face covariance identity
+from the previous checkpoint. The K-dependent heat insertion remains
+inside the finite hypothesis; only the fixed original observable p under
+two fixed face lists is passed to the limit. The old rational
+`ratio_difference_bound` is reused publicly, with its proof unchanged.
+
+NEXT CAUSAL FRONTIER: supply a spatially decaying determinant/covariance
+coefficient for these ORIGINAL actions, with explicit coupling and scale
+dependence. The all-nome normalization restriction is removed, not the
+analytic estimate. No uniform bound in face count or nome follows from
+headFloor(w)^|ids|. This checkpoint compares face lists at the SAME w;
+it does not compare different nomes, construct a decimated coarse action,
+or discharge physical transfer/spacing transport. Continuum QFT,
+nontriviality and every compact simple group remain open. No canonical
+field, axiom or literal hole changed.
+
+Verification: 28 new public declarations and one newly public existing
+helper, plus three existing public gates, all 32 within {propext,
+Quot.sound}. Seven focused safe launches, serialized one-worker/20 GiB:
+the reciprocal needed an explicit included-hypothesis correction;
+expectation and comparison each needed explicit sequence equalities to
+avoid elaborator unfolding. Final logs clean, own/direct artifacts fresh;
+no raised heartbeat/resource limit or dependency refresh. Three root
+imports added; root/full-tree unrun. CI remains manual-only. Final logs:
+
+- `/tmp/ym-all-nome-face-set-reciprocal.log`:
+  `4a84d4683944ab808be84995f11b46b70cb3a5c1eb3c4fcedf93776bd054f86f`.
+- `/tmp/ym-all-nome-face-set-expectation.log`:
+  `a41dbdcb307eb22e7669303e6d4761ffc47a80eb4c2da28fe6412b0b0e4eb4d0`.
+- `/tmp/ym-face-set-boundary-comparison-public.log`:
+  `c32b268e5941470e5d465b5b3c4651866b153d9e1ecfeb2176aa7833b24b753b`.
+- `/tmp/ym-all-nome-face-set-comparison.log`:
+  `b23b6d00b86c183614fa04d773770831e04c1b270dbba8048fe8f8557b8f6b5e`.
+
+**Previous mathematical increment (PROVED shared-face and one-face insertion identities; REASSESSED small-nome branch):**
 PROGRESS after `734aace`. Two independent proof branches supplied exact
 original-action algebra; a third, read-only branch checked whether the
 proposed next estimate would advance an unsolved consumer. The parent

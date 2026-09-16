@@ -57,7 +57,9 @@ private theorem cancel_partitions (b X Y r s : Q') (hx : X*r ≈ 1) (hy : Y*s �
     (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left b _ _
       (Q'.eqv_trans _ _ _ (qmul hx hy) (Q'.one_mul_eqv _))) (Q'.mul_one_eqv _))
 
-private theorem ratio_difference_bound (a b X Y cap : Q') (hX : (0 : Q') < X) (hY : (0 : Q') < Y)
+/-- Exact cancellation for two positive original partitions; no small-nome
+guard or reciprocal ceiling enters this rational estimate. -/
+theorem ratio_difference_bound (a b X Y cap : Q') (hX : (0 : Q') < X) (hY : (0 : Q') < Y)
     (h : Q'.abs (a*Y + -(b*X)) ≤ cap*(X*Y)) :
     Q'.abs (a*Q'.recipPos X hX + -(b*Q'.recipPos Y hY)) ≤ cap := by
   let r := Q'.recipPos X hX
@@ -134,5 +136,6 @@ theorem mask_tail_bound (hs : entropyRate 625 (adjustedCoreRate w hd) < 1)
 end YMGap.Continuum.BF4ExactSlabFaceSetBoundaryComparison
 
 #print axioms YMGap.Continuum.BF4ExactSlabFaceSetBoundaryComparison.finite_mask_bound
+#print axioms YMGap.Continuum.BF4ExactSlabFaceSetBoundaryComparison.ratio_difference_bound
 #print axioms YMGap.Continuum.BF4ExactSlabFaceSetBoundaryComparison.mask_bound
 #print axioms YMGap.Continuum.BF4ExactSlabFaceSetBoundaryComparison.mask_tail_bound

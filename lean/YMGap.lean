@@ -4473,6 +4473,11 @@ import YMGap.Continuum.BF4ExactSlabStarRateObstruction
 -- Exact original-action factorization and two-partition insertion identities.
 import YMGap.Continuum.BF4ExactSlabSharedFaceGeometry
 import YMGap.Continuum.BF4ExactSlabFaceInsertionDeterminant
+-- Original intermediate face-set laws for every rational 0<w<1;
+-- denominator-cleared estimates pass to normalized limits without loss.
+import YMGap.Continuum.BF4ExactSlabAllNomeFaceSetReciprocal
+import YMGap.Continuum.BF4ExactSlabAllNomeFaceSetExpectation
+import YMGap.Continuum.BF4ExactSlabAllNomeFaceSetComparison
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

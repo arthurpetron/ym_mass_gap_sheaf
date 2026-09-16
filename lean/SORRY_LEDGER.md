@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED exact shared-face and one-face insertion algebra; OPEN changing-action spatial estimate (2026-09-15)
+## PROVED all-nome intermediate normalization and lossless comparison; OPEN spatial estimate (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetReciprocal.lean`,
+  `BF4ExactSlabAllNomeFaceSetExpectation.lean`, and
+  `BF4ExactSlabAllNomeFaceSetComparison.lean`; newly public unchanged
+  rational helper in `BF4ExactSlabFaceSetBoundaryComparison.lean`.
+- **proof**: for every rational 0<w<1 and finite physical face list,
+  the original positive cutoff tail yields a reciprocal and normalized
+  expectation with explicit moduli. The shifted partition limit equals
+  the existing original partition limit. Expectation is pinned to the
+  old laws. A supplied eventual determinant bound passes to normalized
+  expectations with exactly its coefficient b, by canceling both actual
+  partitions before the limit. The one-face specialization keeps the
+  cutoff-dependent heat insertion inside the finite hypothesis.
+- **removed guard**: `hsmall` and `hd` are no longer needed to normalize
+  intermediate face lists or pass their determinant bounds to the limit.
+  The legacy API and its statement remain unchanged; its guards occur
+  only on the legacy side of the new compatibility theorem.
+- **open residue**: the eventual determinant/covariance inequality is
+  still a named supplied hypothesis in `comparison_bound_eventually`
+  and `insertion_bound_eventually`. No spatially decaying b is constructed
+  here. The positive floor depends on w and face count; no uniform
+  nome/volume modulus, different-nome comparison, decimation closure or
+  physical transfer/spacing transport is supplied. Continuum QFT,
+  nontriviality and all-group Clay remain open. No canonical field,
+  axiom or literal hole changed.
+- **verification**: all 32 public gates in four changed proof modules
+  within {propext, Quot.sound}; seven focused safe one-worker/20 GiB
+  launches including elaboration corrections. Final logs clean,
+  own/direct artifacts fresh; no raised limits or dependency refresh.
+  Three root imports; root/full-tree unrun. Logs/hashes in work_plan;
+  declaration-level review in `audits/AUDIT-T2-TEST-COMPARISON.md`.
+
+## Previous PROVED exact shared-face and one-face insertion algebra; OPEN changing-action spatial estimate (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/BF4ExactSlabSharedFaceGeometry.lean`
   and `BF4ExactSlabFaceInsertionDeterminant.lean` in the same directory.

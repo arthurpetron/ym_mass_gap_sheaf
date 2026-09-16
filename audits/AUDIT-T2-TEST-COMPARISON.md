@@ -1,5 +1,46 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## All-nome intermediate laws and lossless normalized comparison (2026-09-15)
+
+Follow-up after `c416885`. The source review identified a removable
+small-nome restriction on intermediate face-set normalization, distinct
+from the still-open spatial estimate. A parallel reciprocal proof and
+independent read-only fidelity review were integrated; compilation was
+serialized by the parent.
+
+| Result | Declaration and source | Scope |
+| --- | --- | --- |
+| Original positive partition tail | `partitionFloor`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetReciprocal.lean:40`; `partition_floor`, same file `:47`; `partitionSample`, same file `:62` | Floor headFloor(w)^|ids| at cutoff headCutoff(w)+n, every rational 0<w<1. Nome and face-count dependent. |
+| Same original partition limit and reciprocal | `partitionSampleLimit_eq_partition`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetReciprocal.lean:79`; `reciprocalStreamCauchy`, same file `:103`; `reciprocalCauchy`, same file `:114`; `partition_cancellation`, same file `:122` | Explicit rational/representative moduli; cancellation against the existing unshifted original limit. |
+| Actual normalized values with moduli | `finiteValue`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetExpectation.lean:62`; `finiteCauchy`, same file `:65`; `expectation`, same file `:72`; `expectationCauchy`, same file `:75`; `approx_close`, same file `:83` | Matching numerator and denominator at the SAME explicit cutoff; no small-nome assumption. |
+| Original-law identification | `expectation_formula`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetExpectation.lean:94`; `expectation_one`, same file `:109`; `expectation_recover`, same file `:114`; `legacy_expectation_pin`, same file `:129`; `odd_expectation_pin`, same file `:141` | Normalization, original numerator recovery, and equality with pre-existing laws. Old small-nome guards occur only in the legacy compatibility theorem. |
+| Lossless coefficient | `ratio_difference_bound`, `lean/YMGap/Continuum/BF4ExactSlabFaceSetBoundaryComparison.lean:62`; `finite_comparison_bound`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetComparison.lean:51`; `comparison_bound_eventually`, same file `:64` | Cancel the two actual finite partitions before taking the limit; preserve exactly the supplied b, including an arbitrary initial cutoff threshold. |
+| Actual one-face specialization | `insertion_bound_eventually`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetComparison.lean:86` | Uses the preceding-action covariance with its K-dependent heat insertion inside the finite hypothesis. Only fixed p under the two fixed face lists passes through the limit. |
+
+Precisely removed: `hsmall` and `hd` from normalization and
+determinant-to-expectation comparison for intermediate physical face
+lists. The legacy `BF4ExactSlabFaceSetExpectation` API is unchanged.
+The new `expectation_certificate_nonnegative`,
+`lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetExpectation.lean:121`,
+is ordinary certificate positivity, not a new OS reflection-positivity result.
+
+Still supplied: the eventual determinant inequality in
+`comparison_bound_eventually` and the finite inserted covariance bound
+in `insertion_bound_eventually`. These declarations construct neither
+smallness nor spatial decay of b. They compare face lists at the same
+nome, not distinct couplings. No nome/volume-uniform modulus, closed
+decimation action, physical transfer/spacing transport or continuum QFT
+is constructed. The next analytic task is to supply the stated finite
+bound with usable spatial, coupling and scale dependence.
+
+Verification: 28 new public declarations, one newly public unchanged
+rational helper, and three existing gates: all 32 within {propext,
+Quot.sound}. Seven focused safe one-worker/20 GiB launches, including
+one missing included-hypothesis fix and two explicit-sequence elaboration
+fixes. Final logs clean, own/direct artifacts fresh, no raised limits or
+dependency refresh. Three root imports added; root/full-tree unrun.
+No canonical field, axiom or literal hole changed. Log hashes in work_plan.
+
 ## Parallel exact-action algebra and small-nome route reassessment (2026-09-15)
 
 Follow-up after `734aace`. Two proof branches ran independently; a third

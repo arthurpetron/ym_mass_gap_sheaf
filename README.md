@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** two parallel proof branches supplied
+**Latest result:** [original intermediate face-set expectations](lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetExpectation.lean)
+are now constructed for every rational nome `0<w<1`, with explicit cutoff
+and Cauchy moduli. The [partition reciprocal](lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetReciprocal.lean)
+uses the original positive cutoff tail, and the resulting expectations are
+proved equal to the existing original-action laws where both are defined.
+[Comparison bounds](lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetComparison.lean)
+cancel both actual partitions before taking limits, preserving exactly the
+supplied determinant coefficient. This removes the old small-nome
+normalization guard; it does **not** supply a spatially decaying coefficient,
+a nome/volume-uniform modulus, or a comparison between different nomes.
+
+Parallel proof work and independent source review were integrated with
+serialized checks under the safe-build policy. All 32 public gates in the
+four changed proof modules passed; no full-tree build was run. The next
+obstacle is an original-action spatial estimate with usable coupling and
+scale dependence. The continuum and all-group Clay target remain open.
+
+**Previous result:** two parallel proof branches supplied
 [exact shared-face factorization](lean/YMGap/Continuum/BF4ExactSlabSharedFaceGeometry.lean)
 and [one-face change-of-action identities](lean/YMGap/Continuum/BF4ExactSlabFaceInsertionDeterminant.lean).
 Only faces touching both selected links are separated; every other action
