@@ -126,7 +126,38 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED norm-relative one-face variance stability; OPEN spatial response and OS comparison):**
+**Latest mathematical increment (PROVED original non-neighbor commutation; OPEN neighboring influence):**
+PROGRESS after `d52199a`. The regulator branch was not extended. Instead,
+`BF4ExactSlabStarNonneighborCommutation.conditionalProjection_commute`
+proves exact commutation of the already constructed original conditional
+projections at links sharing no physical plaquette, on their SAME full-action
+completion. The proof constructs an exterior realization of every supported
+link-independent input, uses the existing localized conditional Cauchy
+representatives to prove invariant range, and transposes the two self-adjoint
+operators. All rational 0<w<1 and K>=headCutoff(w) are covered.
+The ordered pair update is self-adjoint and idempotent; its fixed space is
+exactly the intersection of the two individual fixed spaces.
+
+Actual consumer of the three parallel helper components: the above original
+operator theorem. It removes non-neighbor commutators from a prospective
+influence argument. No spatial-decay theorem consuming this commutation is
+constructed in this increment. This does NOT say distant observables are
+uncorrelated, and these are ordinary L2 conditional updates, not physical
+OS time transfers. NEXT: a useful quantitative estimate for neighboring
+updates or for the original signed spatial response, retaining actual
+coupling/scale dependence. Current coarse directional inverseRate is at
+least 63/64, not a small cross-link weight; the retained interacting head
+also has a proved nonzero connected baseline. Commutation fixes neither
+quantitative obstruction. Continuum, physical gap and all-group obligations
+remain open; no canonical atom, old statement or field was changed.
+
+Verification: nineteen public gates within {propext, Quot.sound} in five
+focused serialized one-worker/20 GiB checks, all successful. Four root
+imports; root/full-tree and full audit unrun. No raised limits, dependency
+rebuild, custom axiom or literal hole. Source map and logs:
+`audits/AUDIT-NONNEIGHBOR-COMMUTATION.md`.
+
+**Previous mathematical increment (PROVED norm-relative one-face variance stability; OPEN spatial response and OS comparison):**
 PROGRESS after `d00456e`. The original high-spin estimate holds under
 EVERY supported square, including squares about a rational center. This
 gives `BF4ExactSlabOneFaceVarianceComparison.variance_comparison` and its

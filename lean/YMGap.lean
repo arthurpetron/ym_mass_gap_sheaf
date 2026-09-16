@@ -4481,6 +4481,11 @@ import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison
 import YMGap.Continuum.BF4ExactSlabOneFaceVarianceComparison
+-- Exact non-neighbor commutation of ORIGINAL conditional updates, not OS time.
+import YMGap.Continuum.GNSProjectionCommutation
+import YMGap.Continuum.GNSDenseFixedPoint
+import YMGap.Continuum.BF4ExactSlabStarIndependentProbe
+import YMGap.Continuum.BF4ExactSlabStarNonneighborCommutation
 -- Actual six-face star and normalized deletion comparison; not spatial mixing.
 import YMGap.Continuum.BF4ExactSlabLinkStarGeometry
 import YMGap.Continuum.BF4ExactSlabLocalStarComparison

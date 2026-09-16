@@ -13,7 +13,31 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED norm-relative one-face variance stability; OPEN spatial response and OS comparison (2026-09-15)
+## PROVED original non-neighbor conditional commutation; OPEN neighboring influence (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/GNSProjectionCommutation.lean`,
+  `GNSDenseFixedPoint.lean`, `BF4ExactSlabStarIndependentProbe.lean`, and
+  `BF4ExactSlabStarNonneighborCommutation.lean` in that directory.
+- **proof**: literal no-common-plaquette condition implies commutation of
+  the two already constructed original conditional projections on the SAME
+  full-action completion. Link-independent inputs have a computed exterior
+  realization; existing localized Cauchy representatives prove invariant
+  range. Adjointness yields commutation. The ordered pair is self-adjoint,
+  idempotent, and fixed exactly on the intersection of the fixed spaces.
+- **parameters**: arbitrary rational 0<w<1, K>=headCutoff(w), finite extent,
+  and two supplied physical links satisfying the stated incidence condition.
+  No interaction is discarded and no spatial rate is supplied or assumed.
+- **scope/residue**: ordinary L2 local updates, NOT OS time transfer. Zero
+  non-neighbor commutators do not imply zero distant correlations or a gap.
+  Neighboring-influence estimates, the signed spatial-response bound with
+  useful scale control, physical normalization, continuum QFT and all groups
+  remain open. No canonical atom, old statement, field or literal hole changed.
+- **verification**: nineteen public gates within {propext, Quot.sound}; five
+  successful focused serialized one-worker/20 GiB checks. Four root imports;
+  root/full-tree and full audit unrun. No raised limits or dependency rebuild.
+  See `audits/AUDIT-NONNEIGHBOR-COMMUTATION.md` for exact source and log hashes.
+
+## Previous PROVED norm-relative one-face variance stability; OPEN spatial response and OS comparison (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/RationalPositiveRatioComparison.lean`,
   `RationalVarianceComparison.lean`, and

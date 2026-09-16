@@ -21,7 +21,21 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: cutoff stability relative to the actual centered variance.**
+**Latest result: non-neighbor conditional updates commute for the original action.**
+The [new theorem](lean/YMGap/Continuum/BF4ExactSlabStarNonneighborCommutation.lean)
+proves that updates at two physical links sharing no plaquette commute on the
+entire original full-action L2 completion. Their joint update is self-adjoint
+and idempotent, with fixed space exactly the intersection of the two fixed
+spaces. This holds for every rational `0<w<1` and `K>=headCutoff(w)`, retaining
+all interactions and the already constructed Cauchy representatives.
+
+This removes non-neighbor commutators, not correlations between distant
+observables. A quantitative neighboring-influence bound, spatial decay and
+an OS/physical-gap bridge remain open. Nineteen public gates passed focused
+serialized constructive checks; root/full-tree checks were not run.
+See the [proof and scope audit](audits/AUDIT-NONNEIGHBOR-COMMUTATION.md).
+
+**Previous result: cutoff stability relative to the actual centered variance.**
 The [new comparison](lean/YMGap/Continuum/BF4ExactSlabOneFaceVarianceComparison.lean)
 proves that changing one face from cutoff `K` to `K+L` changes ordinary
 original-action variance by at most a multiplicative factor `(1+eta)^2`,
