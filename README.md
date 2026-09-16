@@ -21,7 +21,21 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [increasing the cutoff cannot rescue the unit-background spatial expansion](lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean#L285).
+**Latest result:** [an explicit volume-independent comparison for the actual one-link star](lean/YMGap/Continuum/BF4ExactSlabLocalStarComparison.lean#L120).
+For every rational `0<w<1` and sufficiently late cutoff, deleting only
+the link's at-most-six incident heat factors costs explicit positive
+constants depending on `w`, not volume or cutoff. All complementary
+factors and shared links remain. The normalized comparison retains both
+partition functions by cross multiplication.
+
+[Parallel geometry work](lean/YMGap/Continuum/BF4ExactSlabLinkStarGeometry.lean)
+proves the actual incidence bound and exact complement Fubini identity.
+All 49 public gates across three focused modules pass the constructive
+axiom gate; compiler checks were serialized. This is **not yet an original
+conditional kernel or spatial contraction**: its boundary-dependent
+normalizer and influence estimate remain to be constructed and controlled.
+
+**Previous result:** [increasing the cutoff cannot rescue the unit-background spatial expansion](lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean#L285).
 For the actual plaquette and `r=1+chi_1`, the exact Haar moments are
 `H(r^2)=2` and `H(r^2*(H_K-1))=4*w^3+3*w^8` for every `K>=2`.
 Thus at `w>=7/8`, the full interaction cannot have an original Haar

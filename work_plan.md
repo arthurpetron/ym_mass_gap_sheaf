@@ -119,7 +119,55 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED eventual-cutoff unit-reference obstruction; OPEN interacting-head spatial control/physical scale):**
+**Latest mathematical increment (PROVED actual local-star comparison; OPEN original conditional influence/spatial control):**
+PROGRESS after `428adb5`. User-authorized parallel geometry work and a
+separate read-only mathematical review accompanied the local estimate;
+all compilation remained serialized. The action is the original SU(2)
+finite slab, at every rational 0<w<1 and K>=headCutoff(w).
+
+`BF4ExactSlabLinkStarGeometry` partitions the actual physical faces into
+incident/complement lists, proves incident length <=6, and proves that
+the complete complement has degree zero in the selected link. Its
+`complementHeat_fubini` uses the actual Haar-preserving block swap and
+partial Haar integral. No disjointness of the other shared links is assumed.
+`BF4ExactSlabRetainedHeatHeadComparison.headProduct_weighted_floor` and
+`headProduct_weighted_upper` bound insertion of a selected face product
+against an arbitrary square-certified positive background.
+
+`BF4ExactSlabLocalStarComparison` constructs
+L(w)=min(headFloor(w),1)^6, U(w)=(1+prefixCap(w))^6 and eta(w)=L(w)/U(w),
+with 0<eta<=1. `original_star_bounds` proves L H(p B)<=H(p A)<=U H(p B)
+for certified positive p, full original action A and star-deleted B.
+`original_star_normalized_cross` proves
+eta H(p B) H(A)<=H(p A) H(B), preserving both partition factors.
+These constants and the late-cutoff threshold are independent of volume,
+placement and later cutoff, NOT uniform positive constants as w approaches one.
+
+NEXT CAUSAL FRONTIER: use the proved unnormalized disintegration to
+construct/control the boundary-dependent star normalizer
+D=partialHaarHead(reindexed incidentHeat), retaining the original exterior
+weight D*B. The deleted-star exterior weight B is NOT this marginal.
+No original conditional ratio/preservation theorem or summed boundary-
+influence/spatial contraction is claimed here. The existing consumer remains
+`BF4ExactSlabBoundaryLimitNormalization.expectationDifference_bound_of_prefix_eventually`;
+its decaying original boundary-numerator premise is still open. A compatible
+physical scaling family, same-object OS/physical spectrum identification,
+continuum QFT, all required groups and the Clay goal remain open.
+
+Verification: six focused safe launches across three modules (one worker,
+20 GiB), final logs clean; 36 new and 13 legacy public gates exactly matched
+within {propext, Quot.sound}; own/direct-import artifacts fresh. Repairs used
+an existing locality lemma and explicit namespaces/induction context; no
+raised limit, new hole/axiom, changed canonical field, or broad check. Two
+root imports added but root not compiled. CI remains manual-only. Logs/hashes:
+- `/tmp/ym-local-product-comparison.log`:
+  `0b070245f7a212c1b6facdde8d764f775fd808556bbddb91272abc714aa52a15`.
+- `/tmp/ym-link-star-geometry.log`:
+  `85b532e32478004798f5a87631548817830c9d3c08330ab2127af6dba8574ddf`.
+- `/tmp/ym-local-star-comparison.log`:
+  `3741eb9665f970e0907f2e851dabb4d4237131051aa90e519762fdbea168c007`.
+
+**Previous mathematical increment (PROVED eventual-cutoff unit-reference obstruction; OPEN interacting-head spatial control/physical scale):**
 PROGRESS after `82b8842`. The previous relative truncation result is preserved.
 Before attempting to reuse the old spatial expansion, two bounded parallel
 source reviews checked its cancellations and the existing heat-tube/retained

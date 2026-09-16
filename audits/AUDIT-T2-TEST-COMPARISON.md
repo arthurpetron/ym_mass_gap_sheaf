@@ -1,5 +1,37 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Actual local-star comparison, with original shared links (2026-09-15)
+
+Follow-up after `428adb5`. The local comparison is proved; its conditional
+and spatial consumers remain open. This is not a heat-bath or OS gap claim.
+
+| Result | Declaration and source | Scope |
+| --- | --- | --- |
+| At most six actual incident faces | `incidentIds_length_le_six`, `lean/YMGap/Continuum/BF4ExactSlabLinkStarGeometry.lean:89` | Exact physical face incidence; not an assumed degree parameter. |
+| Full-action partition | `heatProduct_partition`, same module :123 | Original polynomial identity; all shared links retained. |
+| Independent complement and exact partial integral | `complementHeat_degree_zero`, same module :130; `complementHeat_fubini`, same module :159 | Complement independent only of selected link; no factorization of other interacting links. |
+| Selected-product bounds | `headProduct_weighted_floor`, `lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean:186`; `headProduct_weighted_upper`, same module :205 | Actual shared-link heat products against arbitrary square-certified positive backgrounds. |
+| Explicit local constants | `lowerFactor`, `lean/YMGap/Continuum/BF4ExactSlabLocalStarComparison.lean:44`; `upperFactor`, :45; `starRatio`, :46 | L=min(headFloor,1)^6, U=(1+prefixCap)^6, eta=L/U. Depend on w only. |
+| Original versus deleted-star action | `original_star_bounds`, same module :120 | L H(p B)<=H(p A)<=U H(p B), all 0<w<1, K>=headCutoff(w). |
+| Normalized cross comparison | `original_star_normalized_cross`, same module :144 | eta H(p B) H(A)<=H(p A) H(B); both partitions retained. |
+
+The independent source review confirms the next distinction: after
+reindexing the selected link to the head block, let
+D=partialHaarHead(incidentHeat). The original exterior weight is D*B,
+not B. The proved Fubini identity supplies unnormalized disintegration;
+an actual conditional ratio needs the boundary-dependent D retained and
+controlled. NOT FOUND in these reviewed modules: a constructed conditional
+update preserving the original law or a summed influence/contraction estimate.
+The spatial consumer remains `expectationDifference_bound_of_prefix_eventually`,
+`lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean:230`, with
+its decaying boundary-numerator premise unsupplied. No coupling-uniform
+positive eta as w approaches one, scaling family, or physical gap is asserted.
+
+Verification: all 49 public gates across the three checked modules match
+exactly and stay within {propext, Quot.sound}; six focused serialized safe
+launches, no raised limit. Clean final logs, fresh own/direct artifacts.
+Root imports added but root not compiled; hashes and next frontier in work_plan.
+
 ## Even eventual-cutoff unit-reference smallness is impossible (2026-09-15)
 
 Follow-up after `82b8842`. This strengthens the earlier cutoff-one

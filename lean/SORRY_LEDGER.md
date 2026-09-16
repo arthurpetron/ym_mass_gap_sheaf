@@ -13,7 +13,29 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED eventual-cutoff unit-reference obstruction; OPEN interacting-head spatial control (2026-09-15)
+## PROVED actual six-face star comparison; OPEN original conditional influence (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/BF4ExactSlabLinkStarGeometry.lean`
+  and `BF4ExactSlabLocalStarComparison.lean` in the same directory;
+  two added product bounds in `BF4ExactSlabRetainedHeatHeadComparison.lean`.
+- **proof**: actual physical face partition, incident count <=6, complement
+  link-independence and exact Fubini; original full-action insertion lies
+  between L(w) and U(w) times the same insertion with only that star deleted.
+  `original_star_normalized_cross` retains both actual partition factors.
+  Explicit eta(w)=L(w)/U(w) is positive and <=1; no volume/cutoff dependence
+  beyond the common K>=headCutoff(w) guard. Positive tests carry certificates.
+- **open residue**: the original conditional normalizer D and law preservation,
+  retaining exterior weight D*B rather than the free-link reference B;
+  boundary-influence/spatial decay along a compatible physical scaling family.
+  Neither an original conditional kernel nor its contraction is supplied.
+  OS/physical gap identification, continuum QFT and all-group Clay remain open.
+  No canonical field, old flag, analytic premise, axiom or literal hole changed.
+- **verification**: 36 new and 13 legacy exact gates within
+  {propext, Quot.sound}; six focused safe one-worker/20 GiB launches;
+  final logs clean, own/direct artifacts fresh. Two root imports, root unrun.
+  No raised limits or full-tree check. Log hashes in work_plan.
+
+## Previous PROVED eventual-cutoff unit-reference obstruction; OPEN interacting-head spatial control (2026-09-15)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean`.
 - **proof**: `test_square_character_haar_high` evaluates the original

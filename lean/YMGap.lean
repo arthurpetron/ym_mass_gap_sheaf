@@ -4447,6 +4447,9 @@ import YMGap.Continuum.BF4ExactSlabAllNomeTailInterval
 import YMGap.Continuum.BF4ExactSlabAllNomeProductTail
 import YMGap.Continuum.BF4ExactSlabJacobiDeficitInterval
 import YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison
+-- Actual six-face star and normalized deletion comparison; not spatial mixing.
+import YMGap.Continuum.BF4ExactSlabLinkStarGeometry
+import YMGap.Continuum.BF4ExactSlabLocalStarComparison
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

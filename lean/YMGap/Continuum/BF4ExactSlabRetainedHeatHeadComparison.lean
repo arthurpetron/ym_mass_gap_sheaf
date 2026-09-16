@@ -181,6 +181,36 @@ theorem originalBackground_relative {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 
   relativePrefix_weighted_bound hw0 hw1 eta he K L extent id hi hK
     (headProduct_certificate hw0 hw1 K extent (Nat.le_trans (Nat.le_max_left _ _) hK) ids hids)
 
+/-- Inserting a selected finite set pays only for those faces, with every
+shared variable retained in the arbitrary positive background. -/
+theorem headProduct_weighted_floor {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K extent : Nat) (hK : headCutoff w ≤ K) {p : RatPoly} (P : Certificate (blocks extent) p) :
+    ∀ ids : List Nat, (∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent) →
+      (headFloor w)^ids.length * quaternionHaar (blocks extent) p ≤
+        quaternionHaar (blocks extent) (polyMul p (polynomialProduct (faceHeatPolynomial w K extent) ids))
+  | [], _ => Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.one_mul_eqv _))
+      (Q'.ge_of_eqv (haar_of_coeff (RatPolyCoeffEqv.mul_one p)))
+  | id::ids, hi => by
+      have ht : ∀ j, j ∈ ids → j ∈ slabPhysicalFaceEdges extent :=
+        fun j hj => hi j (List.mem_cons_of_mem id hj)
+      have h := faceHead_weighted_floor hw0 hw1 K extent id (hi id List.mem_cons_self) hK
+        (P.mul (headProduct_certificate hw0 hw1 K extent hK ids ht))
+      exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_assoc_eqv _ _ _))
+        (Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ _
+          (headProduct_weighted_floor hw0 hw1 K extent hK P ids ht) (Q'.le_of_lt (headFloor_positive hw0 hw1)))
+          (Q'.le_trans' _ _ _ h (Q'.le_of_eqv (haar_of_coeff
+            ((RatPolyCoeffEqv.mul_assoc _ _ _).trans ((RatPolyCoeffEqv.refl p).mul (RatPolyCoeffEqv.mul_comm _ _)))))))
+
+/-- Original product upper bound; the cost counts inserted faces only. -/
+theorem headProduct_weighted_upper {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K extent : Nat) {p : RatPoly} (P : Certificate (blocks extent) p)
+    (ids : List Nat) (hi : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent) :
+    quaternionHaar (blocks extent) (polyMul p (polynomialProduct (faceHeatPolynomial w K extent) ids)) ≤
+      (prefixCap w)^ids.length * quaternionHaar (blocks extent) p :=
+  Q'.le_trans' _ _ _ (Q'.le_abs_self _)
+    ((Interval.productUniform (faceHeatPolynomial w K extent) (prefixCap w) ids
+      (fun id hid => facePrefixInterval hw0 hw1 K extent id (hi id hid))).weighted_haar_bound P)
+
 end YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison
 
 #print axioms YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison.headFloor
@@ -196,3 +226,5 @@ end YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison
 #print axioms YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison.prefixDifference_pin
 #print axioms YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison.relativePrefix_weighted_bound
 #print axioms YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison.originalBackground_relative
+#print axioms YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison.headProduct_weighted_floor
+#print axioms YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison.headProduct_weighted_upper
