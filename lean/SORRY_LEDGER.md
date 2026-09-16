@@ -13,7 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED nested original boundary-time limit; OPEN joint cutoff/time and stationary/OS passage (2026-09-16)
+## PROVED original joint cutoff/time limit and both iterated limits; OPEN bulk/stationary and OS passage (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialOriginalJointCauchy.lean` and
+  `BF4ExactSlabFixedSpatialOriginalJointLimits.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: explicit quarter-error budgets choose one comparison time a
+  and its existing original cutoff modulus b. Three original-scalar
+  comparisons give the independent two-index rectangle bound. The diagonal
+  has QCauchy modulus max(a,b) and constructs originalJointLimit. The same
+  rectangle controls the full late family and both existing iterated-limit
+  representatives. Cutoff-first and time-first converge to that SAME limit,
+  with named outer/inner thresholds and unchanged normalization.
+- **consumer/open input**: removes joint cutoff/time and limit-order passage
+  for the fixed-nome, fixed-width, fixed-physical-probe one-sided scalar.
+  No cutoff bound uniform over arbitrary time lengths is assumed. A bulk
+  state still needs actual weighted symmetry, certified terminal-pairing
+  comparison, an original interior-insertion pin and multi-insertion/shift
+  consistency. Physical OS/vacuum identification, connected correlations,
+  completed cutoff-limit operator power/moment compatibility, uniform
+  width/spacing control, continuum QFT and all-group Clay closure remain
+  open. No old field, literal hole, axiom or analytic premise changed.
+- **verification**: two focused serialized one-worker/20 GiB checks; all
+  15 public gates within {propext, Quot.sound}. Two selective-root imports;
+  root/full-tree/full axiom audit unrun. Independent read-only source review
+  found no mathematical defect. Evidence:
+  `audits/AUDIT-FIXED-SPATIAL-JOINT-BOUNDARY-LIMIT.md`.
+
+## Previous PROVED nested original boundary-time limit; OPEN joint cutoff/time and stationary/OS passage at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialTransferBracketNesting.lean`,
   `BF4ExactSlabFixedSpatialBoundaryTimeLimit.lean`, and

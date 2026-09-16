@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: an original chain observable has an explicit boundary-time limit.**
+**Latest result: heat cutoff and boundary time have the same joint limit.**
+The [original-scalar rectangle estimate](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalJointCauchy.lean)
+constructs a common limit as both indices recede, with explicit independent
+cutoff and time thresholds. It compares long chains through one computed
+intermediate length; no cutoff estimate uniform in all chain lengths is assumed.
+The [two iterated-limit theorems](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalJointLimits.lean)
+prove that removing the heat cutoff first or the opposite time boundary first
+reaches that SAME limit of the original selected-chain expectation.
+
+This remains a **one-sided boundary scalar at fixed nome and spatial width**,
+not a stationary vacuum, a bulk state or a physical OS theory. The next step
+requires two-sided transfer pairing and an exact interior-probe identity.
+Width/spacing-uniform control, continuum QFT and the Clay target remain open.
+Two focused checks passed all 15 public axiom gates; no root/full-tree check
+was run. See the [joint-limit audit](audits/AUDIT-FIXED-SPATIAL-JOINT-BOUNDARY-LIMIT.md).
+
+**Previous result: an original chain observable has an explicit boundary-time limit.**
 The [nested comparison intervals](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferBracketNesting.lean)
 now contain every later normalized ratio. Their geometric widths give a
 constructed [CReal boundary limit](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBoundaryTimeLimit.lean),

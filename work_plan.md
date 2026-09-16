@@ -133,7 +133,53 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED nested original-observable boundary-time limit; OPEN joint cutoff/time and stationary/OS passage):**
+**Latest mathematical increment (PROVED original joint cutoff/time limit and both orders of limits; OPEN bulk/stationary and physical OS passage):**
+PROGRESS after `4c8d734`. `originalCutoffCauchy` is the existing fixed-time
+original finiteCauchy. With delta=epsilon/4, `jointTimeThreshold` computes
+a=A(delta) and `jointCutoffThreshold` computes b=C_a(delta). The actual
+three-hop comparison R(k,n) -> R(k,a) -> R(j,a) -> R(j,m) proves
+`originalJoint_rectangle` for independently quantified n,m>=a and k,j>=b.
+Its only time estimate is the checked K-independent modulus; no uniform
+cutoff bound over all time lengths is introduced.
+
+CONTRACTION: `originalJointCauchy` uses max(a,b) on the literal diagonal;
+`originalJointLimit` returns its CReal. `originalJoint_approx` then controls
+the whole late rectangle, not just that diagonal. Existing representative
+reindexing gives `originalCutoffExpectation_converges` and
+`boundaryTimeLimit_converges_joint`: BOTH orders of limits reach the SAME
+constructed scalar. Their outer and inner thresholds are explicit functions,
+and the two representative indices can be independently large. Original
+action, fixed physical source probe, partition and terminal V are retained.
+
+NEXT CAUSAL FRONTIER: move the probe into the interior and prove two-sided
+boundary forgetting before asserting a bulk/stationary state. Candidate
+short route: prove actual weighted symmetry ell(g*T f)=ell(f*T g) from the
+slice-swap symmetry of the genuine kinetic word; multiply relative brackets
+by certified terminal messages with proved positive pairing denominators;
+pin the resulting interior scalar ell((T^m 1)*f*(T^n 1))/ell((T^m 1)*(T^n 1))
+to the original interior insertion. Retain the middle spatial V exactly once.
+`SU2QuaternionHeadChainComposition.step_pairing` and
+`BF4ExactSlabFixedSpatialChainAction.original_chain_pairing` are existing
+ingredients, NOT the missing weighted-symmetry/interior-pin theorems.
+This is a source-reviewed proof proposal, not a proved bulk modulus.
+
+The present one-sided scalar family is not yet a linear functional on a
+T-stable algebra, a stationary state, or a physical vacuum. Multi-insertion
+consistency/shift invariance, connected correlations, physical reflected
+OS realization, completed cutoff-limit operator power/moment compatibility,
+width/spacing-uniform estimates, continuum QFT and all compact simple groups
+remain open. No limit removed here is the spatial thermodynamic or lattice-
+spacing limit; the selected-chain action is not the full ambient-box action.
+
+Verification: two focused serialized one-worker/20 GiB checks; all 15 public
+gates within {propext, Quot.sound}; two selective-root imports. Independent
+source review found no mathematical defect. Local opacity for the existing
+modulus data removed an elaboration timeout without raising resource limits.
+Root/full-tree/full axiom audit unrun; no old statement, frontier field,
+literal hole, axiom or analytic premise changed. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-JOINT-BOUNDARY-LIMIT.md`.
+
+**Previous mathematical increment (PROVED nested original-observable boundary-time limit; OPEN joint cutoff/time and stationary/OS passage at that checkpoint):**
 PROGRESS after `bdddddb` (with research-cadence checkpoint `1efcf5d`).
 Nonnegative residual gains prove `refresh_nested`. Scalar endpoint induction
 gives nesting through every later actual transfer iterate; the common-tail
