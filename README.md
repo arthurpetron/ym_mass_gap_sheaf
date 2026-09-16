@@ -21,7 +21,30 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: the strict bound holds on the completed spatial-limit unit complement, with a nonzero excitation.**
+**Latest result: one spatial union carrier with a strict completed-sector bound and a concrete nonzero excitation.**
+The existing finite-base plaquette-character presentations now share one
+Cauchy carrier, allowing streams with growing support bases. Its actual
+spatial-limit pairing is positive definite and satisfies Cauchy--Schwarz.
+Original physical time preserves the unit complement, where
+`B(v,T_2 v) <= rho(w)^2 B(v,v)` and the corresponding one-step squared-norm
+bound hold for every completed vector. Fixed-base maps preserve pairings
+and time; the original centered plaquette remains nonzero with the same
+connected correlators. A closed instance at `w = 1/1024` supplies every
+coupling guard and an actual nonzero vector in this sector.
+
+This is **fixed-spacing, small-nome SU(2)**, not the continuum theorem.
+General completed linear/centering laws, metric completeness, full gauge
+observable coverage, spatial-translation/OS/QFT identification, continuum
+control and the all-group target remain open. The old small-nome guard is
+already proved incompatible with the supplied AF chart; that analytic
+obstruction is not removed here. Fifteen focused checks passed all 180
+public axiom gates; no root/full-tree check ran. See the
+[spatial union-sector audit](audits/AUDIT-SPATIAL-UNION-SECTOR.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: the strict bound holds on the completed spatial-limit unit complement, with a nonzero excitation.**
 The actual spatial-limit pairing now extends to its own Cauchy quotient,
 with explicit moduli, positive definiteness and Cauchy--Schwarz. For every
 completed vector orthogonal to its normalized unit,
@@ -40,9 +63,6 @@ Twelve focused checks passed all 110 printed public axiom gates, including
 one existing module whose scalar helper was exported. No root/full-tree
 check ran. See the
 [completed spatial-sector audit](audits/AUDIT-SPATIAL-COMPLETED-SECTOR.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: a strict, base-independent two-step bound on the dense spatial-limit unit complement.**
 Separate fixed-size boxes around the actual two probes give connected

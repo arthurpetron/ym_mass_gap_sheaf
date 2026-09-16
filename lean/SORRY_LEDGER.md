@@ -13,7 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED positive-definite spatial completed pairing, universal strict complement bound and actual nonzero excitation; OPEN union carrier and full Hilbert/continuum passage (2026-09-16)
+## PROVED spatial union carrier, completed strict sector and closed nonzero pilot; OPEN completed linear/centering laws, full observable/Hilbert/continuum passage (2026-09-16)
+
+- **files**: `BF4SpatialUnion.lean`, `BF4SpatialUnionSeminorm.lean`,
+  `BF4SpatialUnionPairingData.lean`, `BF4SpatialUnionCenteredForm.lean`,
+  `BF4SpatialUnionCompletedGap.lean`, `BF4SpatialUnionGeometry.lean`,
+  `BF4SpatialUnionUnitComplement.lean`, `BF4SpatialUnionFixedBase.lean`,
+  `BF4SpatialUnionExcitation.lean`, `BF4SpatialUnionSmallNome.lean`,
+  `CRealSeminormPairingCompletionBounds.lean`,
+  `CRealSeminormPairingCompletionLimit.lean`,
+  `CRealSeminormPairingCompletion.lean`, `CRealSeminormPairingPosdef.lean`,
+  and `BF4ExactSlabFixedSpatialSpatialGenericPairingPin.lean`, all under
+  `lean/YMGap/Continuum/`.
+- **proof**: explicit common-base pairing/distance coherence gives one
+  squared-seminorm Cauchy carrier for the existing physical presentations,
+  permitting unbounded support bases in streams. Generic completion computes
+  actual anchor ceilings/moduli, positive-definite pairing and sharp CS; every
+  physical input is supplied and the old completed pairing is pinned. The
+  unconditional centered estimate passes termwise to every completed vector
+  before imposing unit orthogonality. Actual time preserves that complement,
+  with common rho(w)^2 two-step form/one-step squared-norm bounds and no nonzero
+  stationary vector there. Fixed-base maps preserve original moduli, pairings
+  and time. The original centered face has the same connected correlators and
+  positive squared-norm floor after mapping. The closed nome=1/1024 instance
+  supplies every guard and a nonzero excitation as Type-valued data.
+- **consumer/open input**: removes the single-union-carrier and its completed
+  strict-sector/nonzero-witness obligations under the existing small-nome
+  assumptions. Completed linear/centering operations and the full stationary
+  vacuum-span theorem remain open, as do metric completeness, required gauge
+  observable coverage, signed-coordinate spatial translation, Hilbert/OS/QFT,
+  physical scaling, continuum nontriviality and all-group Clay closure. The
+  existing AF small-nome-guard obstruction is unchanged. No canonical field,
+  sorry, axiom, new analytic premise or old proof was changed.
+- **verification**: fifteen focused serialized one-worker/20 GiB checks,
+  180 public gates, all within {propext, Quot.sound}. Fifteen root imports;
+  root/full-tree/full audit unrun. Independent source review and explicit
+  next-consumer audit recorded in `audits/AUDIT-SPATIAL-UNION-SECTOR.md`.
+
+## Previous PROVED positive-definite spatial completed pairing, universal strict complement bound and actual nonzero excitation; OPEN union carrier and full Hilbert/continuum passage at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialSpatialPairingBounds.lean`,
   `BF4ExactSlabFixedSpatialSpatialPairingContinuity.lean`,

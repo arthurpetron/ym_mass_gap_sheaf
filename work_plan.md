@@ -133,7 +133,61 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED positive-definite completed spatial pairing, universal strict unit-complement bound and actual nonzero centered excitation; OPEN union carrier, full Hilbert/OS/QFT and continuum/physical-scale passage):**
+**Latest mathematical increment (PROVED one spatial union Cauchy carrier with positive-definite pairing, invariant strict unit complement and nonzero actual excitation, including a closed 1/1024 instance; OPEN completed linear/centering laws, full observable/Hilbert/OS/QFT and continuum passage):**
+PROGRESS after `32bc192`. Each original finite presentation retains its own
+positive support base. Pairing and squared distance use the computed maximum
+base; the proved inclusion coherence removes the arbitrary common-box choice.
+Three/four-input common-base transport proves the union squared seminorm,
+including limiting nullity. Its single Cauchy quotient permits streams with
+unbounded bases and carries the original physical-time semigroup. It is not
+the union of fixed-base completions and does not choose a bound for a stream.
+
+CONTRACTION: the reusable CReal squared-seminorm pairing completion computes
+anchor ceilings, inner/outer rates, quotient descent and positive definiteness.
+Every physical input is supplied, and a uniqueness pin recovers the previous
+fixed-base completed form. The unconditional centered dense inequality holds
+termwise at each stream term's base with the SAME rho(w)^2. Its scalar limit
+gives the strict bound on every completed unit-orthogonal vector, with no
+orthogonal approximants. Actual time balance gives the one-step squared-norm
+bound; positive-margin cancellation excludes nonzero stationary vectors in
+this complement. Full stationary vacuum-span characterization is still open.
+
+Fixed-base Cauchy/Close maps keep their original moduli and preserve completed
+pairing, time, unit and zero. The actual centered original face maps to a
+nonzero union vector with squared norm >= starRatio(w)>0 and the same connected
+spatial correlators. BF4SpatialUnionSmallNome supplies a closed sector and
+nonzero excitation at the EXISTING nome 1/1024, with all guards proved and
+0<rate<1. No new analytic input, beta-uniformity or physical mass calibration.
+
+NEXT CAUSAL FRONTIER: prove the union addition squared-distance estimate and
+rational scaling identity by common-base transport. Consume the existing
+SquaredSeminorm.BinaryQuadraticLipschitz and ModulusContinuous completion maps
+for actual rational operations and bilinear laws; then construct the all-vector
+unit projection/centering from representativeInnerCauchy data. Its consumer is
+the missing stationary vacuum-span characterization, not a new scorecard.
+This plan is source-reviewed, not yet implemented. The old GNSComplete
+GeneralCompletionCauchy already asks for Type-valued representatives; do not
+silently infer a lift of an arbitrary sequence of quotient vectors. Its
+canonical OS consumer also still uses rational-valued GNSData, not this CReal
+form. These differences require honest bridges, not a carrier substitution.
+
+Full signed-coordinate spatial translation, density in the required gauge
+observable algebra, metric completeness, Hilbert/OS/QFT, physical scaling,
+controlled continuum passage/nontriviality and every compact simple group
+remain open. The checked BF4SmallNomeAFGuardObstruction still prevents using
+the current perturbative guard on the supplied AF chart; new same-action
+scale/volume control is necessary along that route, not extrapolation of this
+fixed-spacing sector bound.
+
+Fifteen narrow serialized one-worker/20 GiB checks passed all 180 public gates
+within {propext, Quot.sound}. Fifteen new modules/root imports; no existing
+proof, canonical field, sorry, axiom, analytic premise or safety limit changed.
+Root/full-tree/full audit unrun; CI remains manual-only. Parallel independent
+source review covered common-base/nullity, explicit moduli, physical instances,
+time/pairing pins, sector bounds and the next completeness interface. No routine
+literature scan. Evidence: `audits/AUDIT-SPATIAL-UNION-SECTOR.md`.
+
+**Previous mathematical increment (PROVED positive-definite completed spatial pairing, universal strict unit-complement bound and actual nonzero centered excitation; OPEN union carrier, full Hilbert/OS/QFT and continuum/physical-scale passage at that checkpoint):**
 PROGRESS after `fdd1a46`. Actual spatial-pairing approximation data compute
 each Cauchy stream's anchor ceiling; limiting CS gives quantitative pairing
 continuity. The explicit outer rate and actual inner regularity construct
