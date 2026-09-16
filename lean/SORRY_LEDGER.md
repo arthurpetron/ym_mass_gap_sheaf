@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original chart plaquette cross-width comparison under small-nome guards; OPEN general moments, spatial limits and continuum passage (2026-09-16)
+## PROVED actual reflected spatial scalar limits and positive plaquette variance; OPEN base coherence, limiting carrier, uniform decay and continuum passage (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialBoxBoundary.lean`,
+  `BF4ExactSlabFixedSpatialTranslatedProbe.lean`,
+  `BF4ExactSlabFixedSpatialPlacedProbeControl.lean`,
+  `BF4ExactSlabFixedSpatialSpatialComparison.lean`, `SpatialPivotCauchy.lean`,
+  `BF4ExactSlabFixedSpatialSpatialLimit.lean`, and
+  `BF4ExactSlabFixedSpatialSpatialVariance.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: actual reflected products have computed fixed-support interval
+  and literal link-locality certificates. Original action transport and the
+  signed boundary estimate give cross-width error A*rho^(r+1-M), uniform in
+  stage, time buffer and further padding. An explicit spatial pivot uses
+  only one fixed-width joint modulus to construct the original three-index
+  diagonal's QCauchy data and CReal limit. Existing recentered jointPairings
+  converge to that same scalar; valid observation charts give equivalent
+  limits. Actual first/second moments retain one action and partition; their
+  spatial variance is >= starRatio(w)>0 by genuine product limit passage.
+- **consumer/open input**: supplies the actual reflected-product comparison
+  and spatial scalar limits under the explicit small-nome guards. Base-width
+  inclusion coherence, exported limiting form laws, its radical quotient and
+  physical-time completion remain open. No infinite-volume strict gap is
+  inferred from the width-dependent finite rate. Width-independent connected
+  decay, full Hilbert/OS/QFT, spacing/physical mass calibration, continuum
+  nontriviality and all-group Clay closure remain open. No canonical field,
+  sorry, axiom or analytic premise changed.
+- **verification**: seven narrow serialized one-worker/20 GiB checks, 59
+  public gates within {propext, Quot.sound}; seven root imports, root/full-
+  tree/full audit unrun. Independent source review found no same-action,
+  normalization, quantifier or representative mismatch. Evidence:
+  `audits/AUDIT-REFLECTED-SPATIAL-LIMIT.md`.
+
+## Previous PROVED original chart plaquette cross-width comparison under small-nome guards; OPEN general moments, spatial limits and continuum passage at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabTranslatedHaarEmbedding.lean`,
   `BF4ExactSlabTranslatedSelectedAction.lean`,

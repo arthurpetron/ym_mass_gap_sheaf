@@ -133,7 +133,50 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED geometric cross-width comparison of ORIGINAL chart plaquette means under explicit small-nome guards; OPEN general reflected-product comparison, spatial limits and physical gap control):**
+**Latest mathematical increment (PROVED actual reflected spatial scalar limits and positive plaquette variance under explicit small-nome guards; OPEN base coherence, limiting carrier, width-independent gap and continuum passage):**
+PROGRESS after `4d34aa6`. Exact literal reflected-product transport and
+computed fixed-support interval/locality witnesses extend the original
+action comparison to chartScalar itself. For fixed base presentations x,y
+and a chart H covering both radii, let N=max(base,2*H+1), M=6*N^4. The
+actual cross-width difference is <= A(w,base,H,x,y)*rho(w)^(r+1-M), with
+natural truncated subtraction. Neither amplitude nor rate depends on heat
+stage, boundary-time buffer, margin r or additional outer padding d. The
+same three small-nome guards as the preceding checkpoint remain explicit.
+
+CONTRACTION: compute a spatial pivot p=M+geometricCutoff(rho,A,epsilon/4).
+Compare both late spatial boxes through p, using only the existing joint
+cutoff/time modulus at that ONE box for the middle comparison. This yields
+explicit QCauchy data for the literal (margin,stage,time)=(n,n,n) diagonal,
+without any width-uniform temporal mixing rate or subsequence selection.
+The already cutoff/time-removed recentered jointPairing sequence converges
+to the SAME CReal. Limit uniqueness proves independence of the valid
+observation chart. Genuine multiplication continuity preserves the original
+fundamental-character variance >= starRatio(w)>0. Both moments retain one
+original action and partition before passage to limits.
+
+NEXT CAUSAL FRONTIER: export the limiting reflected form laws, deriving its
+radical from LIMIT Cauchy--Schwarz, then construct its own physical-time
+quotient/completion with the existing SquaredSeminorm consumer. Separately,
+prove compatibility when unchanged physical presentations are included in
+a larger base; chart independence does not establish that coherence. Only
+then identify a presentation-independent union carrier. The quantitative
+gap input is still a same-partition connected two-probe estimate with a
+width-independent strict temporal rate. Enclosing temporally separated
+probes in the present growing support box does not supply a lag-independent
+prefactor. Current fixed-width mixRate retains its volume loss.
+
+Seven narrow serialized one-worker/20 GiB checks passed all 59 public gates
+within {propext, Quot.sound}; seven root imports added, root/full-tree/full
+audit unrun. Independent source review checked literal insertion/action
+pins, original partitions, fixed support, pivot quantifiers, actual CReal
+representatives and variance passage. No canonical field, sorry, axiom,
+analytic premise or safety limit changed; no literature scan. These are
+fixed-spacing SU(2) scalar limits, not full Hilbert/OS/QFT reconstruction,
+unrestricted-nome control, physical mass/spacing calibration, continuum
+nontriviality or all-group Clay closure. Evidence:
+`audits/AUDIT-REFLECTED-SPATIAL-LIMIT.md`.
+
+**Previous mathematical increment (PROVED geometric cross-width comparison of ORIGINAL chart plaquette means under explicit small-nome guards; OPEN general reflected-product comparison, spatial limits and physical gap control at that checkpoint):**
 PROGRESS after `6ea3deb`. A computed injective translation preserves the
 original complete link carrier, ordered plaquette words, selected heat
 product, numerator and actual partition. For padded width W_r=base+2*r+2,

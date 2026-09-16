@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: original plaquette means in different spatial boxes have a geometric comparison bound.**
+**Latest result: actual reflected correlators have explicit spatial limits, with a positive plaquette variance.**
+For fixed signed physical presentations, the original reflected product now
+has a geometric cross-box comparison bound, uniform in heat cutoff and time
+buffer. A computed spatial pivot combines this bound with the existing
+cutoff/time modulus at just one box. This constructs a `CReal` limit of the
+literal three-regulator diagonal, with explicit Cauchy data. Removing
+cutoff/time first gives the same scalar; the observation chart does not
+change it. The original plaquette variance retains its strictly positive,
+coupling-dependent local floor after this spatial passage.
+
+This is **small-nome SU(2) scalar-limit progress**, not a continuum theory or
+an infinite-volume gap. Compatibility between different base presentations,
+the limiting form's own quotient/completion, width-independent connected
+decay, physical spacing control and the all-group target remain open.
+Seven focused checks passed all 59 public axiom gates; no root/full-tree
+check ran. See the [spatial-limit audit](audits/AUDIT-REFLECTED-SPATIAL-LIMIT.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: original plaquette means in different spatial boxes have a geometric comparison bound.**
 Translate the smaller action into the larger Haar carrier, keeping its exact
 partition. A spatial shift by `d` and time shift by `2*d` align both time
 boundaries. Every omitted factor is then spatially distant, including
@@ -39,9 +59,6 @@ control, full Hilbert/OS/QFT reconstruction and the all-group target remain
 open. Seven focused checks passed the constructive axiom gates; no root or
 full-tree check ran. See the
 [aligned-box comparison audit](audits/AUDIT-ALIGNED-SPATIAL-PLAQUETTE-COMPARISON.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: recentered plaquette excitations retain a positive variance floor independent of box size.**
 The proof compares only the at-most-six heat factors touching one actual

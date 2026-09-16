@@ -4669,6 +4669,15 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialAlignedBoxes
 import YMGap.Continuum.BF4ExactSlabFixedSpatialAlignedAction
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteBoundary
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteComparison
+-- Actual small-nome reflected spatial scalar limits and positive variance.
+-- Base-presentation coherence, limiting carrier and uniform gap remain open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBoxBoundary
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTranslatedProbe
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlacedProbeControl
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialComparison
+import YMGap.Continuum.SpatialPivotCauchy
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialLimit
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialVariance
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison
