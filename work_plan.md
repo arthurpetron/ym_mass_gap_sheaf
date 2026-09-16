@@ -133,7 +133,51 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED original two-sided interior time limit; OPEN observable-algebra/cylinder state, cutoff removal and physical OS passage):**
+**Latest mathematical increment (PROVED constructed positive rational-linear slice expectation; OPEN stationary cylinder law, cutoff and physical OS passage):**
+PROGRESS after `53edc11`. Every supported rational quaternion polynomial
+now has a computed interval certificate, with cap the literal sum of
+coefficient^2+1. The proof constructs square cap one for every coordinate
+and raw monomial, including shared variables, arbitrary degrees and trailing
+zero padding. It does not replace a polynomial certificate by pointwise
+evaluation, and adds no analytic input.
+
+CONTRACTION: `intervalMiddle_commonTail` applies the existing 4*C*q^s
+two-boundary estimate to any such interval. `polynomialCauchy` and
+`expectation` construct the actual diagonal's Cauchy data and CReal, with
+the same explicit time modulus independent of late K. Finite laws retain
+the identical ell(u_m*u_n) denominator. Limit uniqueness then proves
+normalization, addition, arbitrary signed rational homogeneity and
+coefficient/Haar-carrier congruence despite differing computed moduli.
+Every actual representative is nonnegative for a certified polynomial;
+in particular `expectation_square_nonnegative` holds in transitive leEv.
+`expectation_sourceProbe` identifies the earlier source-probe limit.
+
+NEXT CAUSAL FRONTIER: prove finite all-window contraction and certified
+relative bounds for multi-time observables, without treating a changing
+conditional message as a fixed one-slice observable. Retain the half-open
+window action (all its K factors and all V except the final retained V),
+so final ell inserts V exactly once. Certificate-preserving partial Haar
+integration and the existing brackets are ingredients. Window reversal,
+unit-padding identities and rectangular convergence must establish cylinder
+consistency and time translation; these are not finite stationary identities.
+The source-reviewed argument is recorded in the audit, not claimed proved.
+
+Nome, width and retained heat cutoff remain fixed. Joint interior cutoff
+passage, gauge-invariant original-observable realization of arbitrary
+coordinate cylinders, reflected physical OS/vacuum, connected correlations,
+completed cutoff-limit power/moment compatibility, width/spacing-uniform
+control, continuum QFT and the all-group Clay target remain open. No canonical
+frontier field or analytic premise changed.
+
+Verification: four focused serialized one-worker/20 GiB checks; all 30 public
+gates within {propext, Quot.sound}. An indirect classical dependency from
+generic conditional simplification was detected and removed using explicit
+Nat cases before final acceptance. Four selective-root imports; root/full-tree/
+full axiom audit unrun. No literal holes, new axioms or raised limits.
+Independent source review checked same-object normalization and limit laws.
+Evidence: `audits/AUDIT-FIXED-SPATIAL-POLYNOMIAL-STATE.md`.
+
+**Previous mathematical increment (PROVED original two-sided interior time limit; OPEN observable-algebra/cylinder state, cutoff removal and physical OS passage at that checkpoint):**
 PROGRESS after `4d820b3`. For u_m=T^m1 and a signed source probe p with
 certificate [-C,C], `intervalTimesMessage` constructs the initial relative
 bracket (u_m*p,u_m). Iteration and weighted symmetry identify its normalized

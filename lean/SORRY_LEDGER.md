@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original two-sided interior time limit; OPEN observable-algebra/cylinder state, cutoff and physical OS passage (2026-09-16)
+## PROVED constructed positive rational-linear slice expectation; OPEN stationary cylinder, cutoff and physical OS passage (2026-09-16)
+
+- **files**: `QuaternionHaarSupportedPolynomialInterval.lean`,
+  `BF4ExactSlabFixedSpatialPolynomialMiddleTime.lean`,
+  `BF4ExactSlabFixedSpatialMiddleFunctionalLaws.lean`, and
+  `BF4ExactSlabFixedSpatialPolynomialState.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: every supported polynomial receives a computed two-sided
+  certificate with cap sum(coefficient^2+1). Generic middle-bracket convergence
+  constructs the actual CReal expectation. Same-denominator finite laws and
+  uniqueness of limits prove normalization, addition, signed rational
+  homogeneity and coefficient/carrier congruence. Actual representative
+  positivity gives leEv nonnegativity, including all supported squares.
+  Source-probe expectations agree with the previously constructed limit.
+- **consumer/open input**: removes the all-supported-polynomial interval
+  producer and positive linear slice-functional laws. The next consumer is
+  a consistent multi-time cylinder functional for the SAME chain action;
+  whole-window contraction, reversal and unit-padding/shift passage are
+  not yet supplied. Fixed nome, width and cutoff remain. Interior cutoff
+  removal, arbitrary-coordinate original-observable identification,
+  reflected physical OS/vacuum, connected correlations, cutoff-limit
+  power/moment compatibility, uniform width/spacing estimates, continuum
+  QFT and the all-group Clay target remain open. No old theorem, canonical
+  field, literal hole, axiom or analytic premise changed.
+- **verification**: four focused serialized one-worker/20 GiB checks; all
+  30 public gates within {propext, Quot.sound}. An initial indirect classical
+  simplifier dependency was removed and both producer and consumer rechecked.
+  Four selective-root imports; root/full-tree/full axiom audit unrun.
+  Independent read-only source review checked same-object finite and limit
+  laws. Evidence: `audits/AUDIT-FIXED-SPATIAL-POLYNOMIAL-STATE.md`.
+
+## Previous PROVED original two-sided interior time limit; OPEN observable-algebra/cylinder state, cutoff and physical OS passage at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialMiddleRatioPins.lean`,
   `BF4ExactSlabFixedSpatialMiddleBracket.lean`,

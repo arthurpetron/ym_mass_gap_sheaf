@@ -21,7 +21,26 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: an original interior observable has a two-sided time limit.**
+**Latest result: a constructed positive linear expectation on supported slice polynomials.**
+The [polynomial-bound construction](lean/YMGap/Continuum/QuaternionHaarSupportedPolynomialInterval.lean)
+returns an explicit interval certificate for every supported rational
+polynomial, including signed coefficients and shared variables. The existing
+two-boundary argument therefore constructs a [CReal expectation](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPolynomialState.lean)
+on an addition-closed algebra, not only separate probe-list scalars.
+It is normalized, rational-linear and nonnegative on squares, respects
+the original Haar-carrier relations, and agrees with the previous probe limit.
+All laws retain the SAME finite partition before passing to the limit.
+
+This is a **fixed-nome, fixed-width, fixed-cutoff slice functional**, not yet
+a stationary multi-time cylinder state or physical OS theory. The next
+step is to retain a whole observed time window while integrating its
+boundaries, then prove consistency under unit insertion and time translation.
+Cutoff removal, uniform volume/spacing control, continuum QFT and the Clay
+target remain open. Four focused checks passed all 30 public axiom gates;
+no root/full-tree check was run. See the
+[polynomial-state audit](audits/AUDIT-FIXED-SPATIAL-POLYNOMIAL-STATE.md).
+
+**Previous result: an original interior observable has a two-sided time limit.**
 The [two-boundary estimate](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialMiddleBracket.lean)
 compares any two pairs of boundary distances beyond `s` with error
 `4*probeCap*q^s`. It first changes one boundary, then the other; the
@@ -34,10 +53,11 @@ its physical face and geometry guards. Its [constructed time limit](lean/YMGap/C
 has an explicit modulus and controls independently receding boundaries,
 not just a chosen diagonal. Nome, width and heat cutoff remain fixed.
 
-This is an **interior scalar limit**, not yet a positive linear cylinder
-state, a stationary vacuum or a physical OS theory. Extending from the
-probe-list scalars to an observable algebra, cutoff removal, multi-insertion
-consistency, and uniform volume/spacing control remain open. The continuum
+At that checkpoint this was an **interior scalar limit**, not yet a positive
+linear functional. The latest result above supplies the slice-algebra laws;
+a positive linear cylinder state, stationary vacuum, physical OS theory,
+cutoff removal, multi-insertion consistency and uniform volume/spacing
+control remain open. The continuum
 QFT and Clay target remain open. Five focused checks passed all 30 public
 axiom gates; no root/full-tree check was run. See the
 [two-sided-limit audit](audits/AUDIT-FIXED-SPATIAL-TWO-SIDED-TIME-LIMIT.md).
