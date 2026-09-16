@@ -119,7 +119,77 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED strict local free-residual estimate; OPEN cross-link influence and boundary-law transport):**
+**Latest mathematical increment (PROVED fixed-neighborhood conditional representative and coarse-rate obstruction; OPEN sharper two-link/block control):**
+PROGRESS after `ee06bee`. A parallel branch proved the exact head-integration
+and lift support transports; the parent applied them to the ORIGINAL
+normalizer, numerator and division recurrence. A read-only geometry review
+verified the physical-index guard needed to undo the block swap. The next
+estimate review exposed an arithmetic obstruction, now also kernel-checked.
+
+`SU2QuaternionHeadBlockLocality` proves `BlockLocal.partialHaarHead` and
+`BlockLocal.liftHead`: dropping the integrated block and inserting a zero
+head preserve the explicitly shifted support predicates, including the
+zero-block case. No positive density or analytic hypothesis enters these
+syntactic facts.
+
+`BF4ExactSlabStarConditionalLocality.updateLinks` returns the finite list
+(S ++ faceLinks(incidentIds(link))).filter(!=link). `normalizer_local`
+and `insertedNormalizer_local` retain the actual star, original input and
+actual swap. The recurrence for `approximateInverse` only adds/scales
+polynomials and multiplies by this SAME normalizer, so
+`conditionalApproximation_local` proves the same neighborhood for EVERY
+iteration index. It does not grow with cutoff or iteration count.
+`conditionalProjection_localRepresentative` returns a Type-level witness:
+the already constructed original full-action Cauchy representative, its
+existing modulus, the support proof at every index, and equality of its
+class with the actual conditional projection of the original input.
+No new completion, selected representative or changed operator is introduced.
+
+`BF4ExactSlabStarRateObstruction` proves prefixCap(w)>=1, since the majorant
+contains its constant mode. Consequently localCap>=2, U>=64 and L<=1;
+`starRatio_le_oneSixtyFourth` gives L/U<=1/64 and
+`inverseRate_ge_sixtyThreeSixtyFour` gives q(w)>=63/64 for ALL 0<w<1.
+`not_two_mul_inverseRate_lt_one` rules out even the arithmetic test 2*q<1.
+This refutes using THIS coarse directional bound as a small per-edge weight.
+It does not lower-bound an actual cross-link influence, disprove mixing,
+or refute a physical Yang--Mills gap. No degree-18 theorem is claimed.
+
+NEXT CAUSAL FRONTIER: test a genuinely quantitative two-link/block
+correlation estimate in the ORIGINAL full-action norm, after removing the
+common exterior sector (observables independent of BOTH links). Global
+scalar centering or a small commutator alone would retain shared fixed
+vectors. Compare the faces involving BOTH links while keeping all remaining
+action factors; deleting two entire stars would pay unnecessarily coarse
+constants. The actual conditional factorization and its norm estimate still
+need proofs. No direct two-link-angle-to-boundary-decay consumer was found
+in the inspected star, local comparison and boundary normalization modules.
+Do not spend further iterations trying to sum the already-rejected q.
+
+The concrete downstream target remains the decaying denominator-cleared
+bound consumed by `expectationDifference_bound_of_prefix_eventually`.
+The interior/full-law seam, compatible partial-face laws, outer-padding
+uniformity, coupling/spacing calibration, OS/physical spectral identification,
+continuum QFT/nontriviality and all required compact simple groups remain
+open. Localized representatives do not prove cross-link commutation or
+quantitative mixing. No canonical field, axiom or literal hole changed.
+
+Verification: three focused serialized safe launches, one worker/20 GiB.
+All 11 new public gates match exactly within {propext, Quot.sound}; all
+three modules passed their first check. Final logs clean, own/direct
+artifacts fresh. No raised limits/options or dependency refresh. Three root
+imports added; root/full-tree unrun. CI remains manual-only. The causal
+ASCII map was refreshed at about 02:13 UTC on September 16, retaining the
+whole-project target and distinguishing proved arrows from open steps.
+Final log hashes:
+
+- `/tmp/ym-head-block-locality.log`:
+  `b807495ee3dbb7f3ff1fe0de51d0ee1cedb4007a4c5c3c2e69fe9302372fb7f9`.
+- `/tmp/ym-star-conditional-locality.log`:
+  `b89c39e980c21c85a8f79651fc5c8478612997a4bc2aab616efde70c0a07c5c9`.
+- `/tmp/ym-star-rate-obstruction.log`:
+  `c8f8b090209bdd2df75877ebf45fbb71a16e46745c3065779e86fa585f967d56`.
+
+**Previous mathematical increment (PROVED strict local free-residual estimate; OPEN cross-link influence and boundary-law transport):**
 PROGRESS after `6f48770`. Two parallel algebra branches supplied the exact
 free-link centering and the completed residual-floor subtraction identity.
 A read-only review isolated the next propagation and two-law consumer seams.

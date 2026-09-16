@@ -21,7 +21,26 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [a strict local estimate for explicitly free-centered inputs](lean/YMGap/Continuum/BF4ExactSlabStarLocalInfluence.lean).
+**Latest result:** [fixed support for the actual conditional projection's approximants](lean/YMGap/Continuum/BF4ExactSlabStarConditionalLocality.lean).
+For an input supported on `S`, every approximation is supported on `S` plus
+the selected link's incident faces, with that link removed. The neighborhood
+does not grow with iteration count. An explicit Cauchy representative with
+this support and the existing modulus is proved to represent the original
+completed conditional projection.
+
+This closes the local support step, not cross-link commutation or spatial
+mixing. The next quantitative target must remove the common exterior
+observables of two links and control their remaining interaction in the
+original action. The boundary-law and physical-scale bridges remain open.
+
+[A checked arithmetic obstruction](lean/YMGap/Continuum/BF4ExactSlabStarRateObstruction.lean)
+also shows that the present coarse directional factor is at least `63/64`:
+it cannot serve as a small per-neighbor weight, even for `2*q<1`.
+This is a limitation of that bound, not a non-mixing or nonexistence theorem.
+All 11 new declarations passed focused constructive checks; root/full-tree
+verification was not run.
+
+**Previous result:** [a strict local estimate for explicitly free-centered inputs](lean/YMGap/Continuum/BF4ExactSlabStarLocalInfluence.lean).
 For every original polynomial `p`, compute its free-link residual `r` by
 subtracting its Haar average over the selected link. The **actual**
 conditional projection satisfies `||Q_link r||² <= (1-L(w)/U(w))*||r||²`

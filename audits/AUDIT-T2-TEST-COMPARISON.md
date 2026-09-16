@@ -1,5 +1,53 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Fixed-neighborhood representative and rejected coarse-rate iteration (2026-09-15)
+
+Follow-up after `ee06bee`. The support target described in the previous
+section is now proved for the actual approximants and an explicitly
+returned representative of the actual completed conditional projection.
+
+| Result | Declaration and source | Scope |
+| --- | --- | --- |
+| Head integration and lift locality | `BlockLocal.partialHaarHead`, `lean/YMGap/Continuum/SU2QuaternionHeadBlockLocality.lean:25`; `BlockLocal.liftHead`, `lean/YMGap/Continuum/SU2QuaternionHeadBlockLocality.lean:38` | Exact block removal/insertion and shifted allowed predicates, including zero blocks. |
+| Actual finite neighborhood | `updateLinks`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalLocality.lean:51`; `normalizer_local`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalLocality.lean:87`; `insertedNormalizer_local`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalLocality.lean:95` | Input plus incident-face links, selected link removed after integration and swap-back. |
+| All-iteration support | `conditionalApproximation_local`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalLocality.lean:126` | The existing division recurrence stays in the SAME finite neighborhood at every n. |
+| Same completed operator | `conditionalProjection_localRepresentative`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalLocality.lean:141` | Returned Cauchy data with existing modulus, support at every index, and equality to the original projection on the embedded input. |
+| Explicit coarse-rate limitation | `prefixCap_ge_one`, `lean/YMGap/Continuum/BF4ExactSlabStarRateObstruction.lean:32`; `starRatio_le_oneSixtyFourth`, `lean/YMGap/Continuum/BF4ExactSlabStarRateObstruction.lean:39`; `inverseRate_ge_sixtyThreeSixtyFour`, `lean/YMGap/Continuum/BF4ExactSlabStarRateObstruction.lean:56`; `not_two_mul_inverseRate_lt_one`, `lean/YMGap/Continuum/BF4ExactSlabStarRateObstruction.lean:65` | L/U<=1/64 and q>=63/64 for all 0<w<1. The proposed scalar criterion 2*q<1 fails. This is not an estimate of actual cross-link influence or physical non-mixing. |
+
+The q in that limitation is still the SQUARED directional rate consumed by
+`conditionalProjection_freeResidual_norm`,
+`lean/YMGap/Continuum/BF4ExactSlabStarLocalInfluence.lean:134`.
+No number of neighbors or summable influence matrix is asserted here.
+
+NEXT PROPOSED ESTIMATE, NOT A PROVED DECLARATION: for vectors fixed by two
+different original Q_i and Q_j, each orthogonal to ALL observables independent
+of both links, bound their squared pairing by a quantitative coefficient
+times their original full-action squared norms. The common-exterior removal
+is stronger than scalar centering. Existing projections fix exterior vectors
+by `conditionalProjection_fix_exterior`,
+`lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:258`;
+commutation alone cannot remove that sector. The review recommends comparing
+only the faces shared by both links, retaining the rest of the actual action.
+The background-preserving inputs `headProduct_weighted_floor` and
+`headProduct_weighted_upper`,
+`lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean:186` and
+`lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean:205`,
+do not themselves prove this conditional correlation estimate.
+
+A direct two-link-angle-to-boundary-decay consumer was NOT FOUND in the
+inspected `BF4ExactSlabStar*.lean`, `BF4ExactSlabLocalStarComparison.lean`,
+and `BF4ExactSlabBoundaryLimitNormalization.lean` modules. The actual
+denominator-cleared boundary estimate remains the hypothesis of
+`expectationDifference_bound_of_prefix_eventually`,
+`lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean:230`.
+The full/interior-law and physical-scale seams remain open.
+
+Verification: all 11 new gates match exactly within {propext, Quot.sound};
+three focused serialized safe launches, all passing first checks. Final
+logs clean, own/direct artifacts fresh. No raised limits/options or dependency
+refresh. Root/full-tree unrun. Earlier open-support reports below are now
+superseded; their quantitative spatial/physical conclusions remain open.
+
 ## Strict local gain and the remaining cross-link/two-law seams (2026-09-15)
 
 Follow-up after `6f48770`. The original one-link projection now has a strict

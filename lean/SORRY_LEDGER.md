@@ -13,7 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED strict local free-residual estimate; OPEN cross-link influence and boundary-law transport (2026-09-15)
+## PROVED fixed-neighborhood conditional representative and coarse-rate obstruction; OPEN two-link/block estimate (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/SU2QuaternionHeadBlockLocality.lean`,
+  `BF4ExactSlabStarConditionalLocality.lean`, and
+  `BF4ExactSlabStarRateObstruction.lean` in the same directory.
+- **proof**: exact integration/lift support transport bounds the original
+  numerator and normalizer support. The existing polynomial division
+  recurrence stays in the input plus incident-face neighborhood, minus
+  the selected link, at EVERY iteration. A Type-level localized Cauchy
+  representative with the old modulus represents the ACTUAL original
+  completed conditional projection. Separately the explicit constants
+  give L/U<=1/64 and q>=63/64; therefore this coarse squared directional
+  factor cannot satisfy even 2*q<1 as a proposed per-edge smallness test.
+- **open residue**: quantitative two-link/block correlation after removing
+  the common exterior sector; conditional factorization with all remaining
+  action retained; boundary-law transport and uniform spatial decay.
+  The bound on q is not a lower bound on actual influence or a physical
+  non-mixing theorem. Locality is not commutation. Physical calibration,
+  OS/Hamiltonian gap, continuum/nontriviality and all-group Clay remain
+  open. No canonical field, axiom, legacy flag or literal hole changed.
+- **verification**: all 11 new public gates match exactly within
+  {propext, Quot.sound}; three focused serialized safe one-worker/20 GiB
+  launches, all passing first checks. Final logs clean, own/direct artifacts
+  fresh; no raised limits/options or dependency refresh. Three root imports;
+  root/full-tree unrun. Logs/hashes and next estimate in work_plan.
+
+## Previous PROVED strict local free-residual estimate; OPEN cross-link influence and boundary-law transport (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/BF4ExactSlabStarFreeCentering.lean`
   and `BF4ExactSlabStarLocalInfluence.lean`; two added APIs in
