@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED full observed-window contraction and right-boundary forgetting; OPEN left comparison and stationary cylinder passage (2026-09-16)
+## PROVED two-boundary window estimate and constructed time limit; OPEN stationary cylinder consistency and physical passage (2026-09-16)
+
+- **files**: `RationalPositiveResidualRatio.lean`,
+  `BF4ExactSlabFixedSpatialWindowInput.lean`,
+  `BF4ExactSlabFixedSpatialWindowInputComparison.lean`,
+  `BF4ExactSlabFixedSpatialTerminalComparison.lean`,
+  `BF4ExactSlabFixedSpatialWindowTwoBoundary.lean`, and
+  `BF4ExactSlabFixedSpatialWindowTimeLimit.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: the actual sandwich and bracket iteration construct a positive
+  terminal comparison with relative width <= kappa*q^s, kappa=(b/a)^2.
+  Linear same-window input functionals bound the certified residual without
+  dividing by its potentially zero mass. Exact ratio algebra cancels endpoint
+  normalization, leaving 2*C*kappa*q^s left error. Adding the existing right
+  error gives 2*C*(kappa+1)*q^s when all distances are >=s+1. The explicit
+  1+geometricCutoff modulus returns QCauchy data and a CReal limit, with a
+  rectangular representative bound. Every supported P receives its computed
+  cap; no extra interval or contraction premise is supplied by the caller.
+- **consumer/open input**: removes left comparison and two-sided scalar
+  convergence for a complete fixed window. Positive linear window-limit
+  laws, padding/shift consistency and original ambient-window placement
+  remain open. Nome, width and cutoff are fixed; only the time modulus is
+  independent of late K. Interior cutoff removal, physical reflected OS/
+  vacuum, same-operator correlations, cutoff-limit power/moment compatibility,
+  width/spacing-uniform estimates, continuum QFT and all-group Clay closure
+  remain open. No old theorem, canonical field, literal hole, axiom or
+  analytic premise changed.
+- **verification**: six focused serialized one-worker/20 GiB checks; all
+  54 public gates within {propext, Quot.sound}. Six selective-root imports;
+  root/full-tree/full axiom audit unrun. Independent source review checked
+  same-object normalization, zero residual mass and the coarse coefficient.
+  Evidence: `audits/AUDIT-FIXED-SPATIAL-WINDOW-TIME-LIMIT.md`.
+
+## Previous PROVED full observed-window contraction and right-boundary forgetting; OPEN left comparison and stationary cylinder passage at that checkpoint (2026-09-16)
 
 - **files**: `SU2QuaternionHaarCertificateLift.lean`,
   `SU2QuaternionHeadWindowContraction.lean`, `SU2QuaternionHeadWindowBounds.lean`,

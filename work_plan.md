@@ -133,7 +133,44 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED full observed-window contraction and right-boundary forgetting; OPEN left comparison and stationary cylinder passage):**
+**Latest mathematical increment (PROVED two-boundary window estimate and constructed time limit; OPEN stationary cylinder consistency and physical passage):**
+PROGRESS after `473b1dd`. The actual transfer sandwich constructs a positive
+relative bracket between any two terminal messages after one refreshed layer.
+Its initial endpoints are (a/b)*R and (b/a)*R, with a=kineticFloor,
+b=kineticCap and R the positive terminal-mass ratio. Iteration and nesting
+give a positive lower endpoint l and width <= kappa*q^s*l. The chosen
+computed kappa=(b/a)^2 is deliberately coarser than the previously reviewed
+(b/a)^2-1 left coefficient; the final rectangle budget retains the extra +1.
+
+CONTRACTION: window input linearity and certified bounds apply to f-l*g.
+Its mass may vanish. The exact scalar determinant estimate cancels both
+endpoint partitions and gives left error 2*C*kappa*q^s, with no inverse of
+the residual, no global partition floor and no changed action. The old
+right estimate then gives 2*C*(kappa+1)*q^s for all four boundary distances
+>=s+1. `polynomialWindowLimit` returns the actual diagonal's CReal with
+modulus 1+geometricCutoff(q,2*C*(kappa+1),epsilon). Its rectangular
+representative bound controls independently receding left/right distances.
+The computed C=polynomialCap(P) supplies every supported fixed window.
+
+NEXT CAUSAL FRONTIER: prove window padding/shift identities and positive
+linear limit laws, so these scalar limits define one consistent stationary
+multi-time functional. Keep finite redistribution of boundary/window lengths
+distinct from finite stationarity. No changing contracted F_m is passed
+through a fixed-observable slice limit. Original ambient-lattice window
+placement, interior heat-cutoff removal, physical reflected OS/vacuum and
+same-transfer correlations remain open. The rate and kappa depend on nome
+and spatial width; uniform width/spacing control, continuum QFT and the
+all-group Clay target remain open. No canonical field or analytic premise
+changed. The return value is a fixed-window scalar, not yet a cylinder state.
+
+Verification: six focused serialized one-worker/20 GiB checks; all 54 public
+gates within {propext, Quot.sound}. Six selective-root imports; root/full-tree/
+full axiom audit unrun. No new literal holes, axioms, classical input or raised
+limits. Independent source review checked residual zero mass, same partition,
+the s+1 threshold and the coarse coefficient. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-WINDOW-TIME-LIMIT.md`.
+
+**Previous mathematical increment (PROVED full observed-window contraction and right-boundary forgetting; OPEN left comparison and stationary cylinder passage at that checkpoint):**
 PROGRESS after `133a395`. `lift_certificate` preserves the actual positive
 cone under coordinate shifts, with arbitrary-insertion Haar equality handled
 by ordered-head Fubini. `halfOpenAction` retains L kinetic/head-spatial factors

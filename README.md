@@ -21,7 +21,26 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: complete observed windows have quantitative right-boundary control.**
+**Latest result: complete observed windows have a constructive two-boundary time limit.**
+The [two-boundary estimate](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowTwoBoundary.lean)
+compares the SAME observed window with independently receding left and right
+boundaries. The error is `2*C*(kappa+1)*q^s` once all four distances are at
+least `s+1`, where `C=polynomialCap(P)` and `kappa=(kineticCap/kineticFloor)^2`.
+Positive-message comparison and exact residual cancellation supply the new
+left estimate without dividing by a possibly zero residual mass.
+
+The [returned CReal](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowTimeLimit.lean)
+has an explicit Cauchy modulus and a bound for arbitrary late rectangles,
+not only the diagonal. The modulus is independent of late heat cutoff;
+nome and spatial width still enter both `q` and `kappa`.
+This is a **fixed-window scalar limit**, not yet a consistent stationary
+cylinder state. Window padding/shift laws, original ambient-lattice placement,
+interior cutoff removal, physical OS identification and width/spacing control
+remain open, as do continuum QFT and the Clay target. Six focused checks
+passed all 54 public axiom gates; no root/full-tree check was run. See the
+[window-time audit](audits/AUDIT-FIXED-SPATIAL-WINDOW-TIME-LIMIT.md).
+
+**Previous result: complete observed windows have quantitative right-boundary control.**
 The [window-contraction identity](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowPairing.lean)
 retains any supported polynomial across several consecutive time slices,
 with the SAME chronological action and partition. Its intermediate action
@@ -33,9 +52,10 @@ The [window estimate](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowBracket
 then bounds two right-boundary distances beyond `s` by `2*polynomialCap*q^s`.
 The error is independent of the fixed left-boundary distance and late heat
 cutoff, but still depends on nome, spatial width and the observable.
-Left-boundary comparison, whole-window ambient-lattice placement and
-stationary cylinder consistency remain open; this is not yet a physical
-OS state or mass gap. Five focused checks passed all 29 public axiom gates;
+The latest result above adds left-boundary comparison and the two-sided
+time limit. Whole-window ambient-lattice placement and stationary cylinder
+consistency remain open; this is not yet a physical OS state or mass gap.
+Five focused checks passed all 29 public axiom gates;
 no root/full-tree check was run. See the
 [observed-window audit](audits/AUDIT-FIXED-SPATIAL-OBSERVED-WINDOW.md).
 
@@ -51,9 +71,8 @@ All laws retain the SAME finite partition before passing to the limit.
 
 This is a **fixed-nome, fixed-width, fixed-cutoff slice functional**, not yet
 a stationary multi-time cylinder state or physical OS theory. The latest
-result supplies the whole-window contraction and right-boundary estimate;
-both-boundary convergence and consistency under unit insertion and time
-translation remain to be proved.
+results supply whole-window contraction and both-boundary convergence;
+consistency under unit insertion and time translation remains to be proved.
 Cutoff removal, uniform volume/spacing control, continuum QFT and the Clay
 target remain open. Four focused checks passed all 30 public axiom gates;
 no root/full-tree check was run. See the
