@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: one-face cutoff stability without a volume penalty.**
+**Latest result: an exact connected response, and a test of pairwise closure.**
+The [original-action identity](lean/YMGap/Continuum/BF4ExactSlabConnectedFaceResponse.lean)
+expresses the change of covariance under one full heat-face insertion using
+a third connected moment and a subtracted product of two pairwise moments,
+with their exact partition factors.
+Both different partition functions and the pre-existing covariance remain.
+The cutoff-limit consumer preserves this signed combination; it still
+requires a quantitative bound as input and does not produce spatial decay.
+Its full-slab covariance is proved equal to the existing original observable.
+
+An independent [finite witness](lean/YMGap/Continuum/BF4ExactSlabPairwiseResponseObstruction.lean)
+uses the actual positive cutoff-one heat factor at `w=1/8`: both
+probe–insertion covariances vanish, yet the covariance changes by `1/256`.
+Thus pairwise responses alone do not determine this change. The probes
+occupy the same plaquette; this is not a separated-probe, all-late-cutoff,
+cutoff-removed or full-slab counterexample. The next missing estimate must
+control this signed response with usable spatial and coupling
+dependence. See the [audit](audits/AUDIT-CONNECTED-FACE-RESPONSE.md) for exact
+scope and verification. The continuum and physical mass-gap target remains open.
+
+**Previous result: one-face cutoff stability without a volume penalty.**
 The [new estimate](lean/YMGap/Continuum/BF4ExactSlabOneFaceCutoffStability.lean)
 bounds the change of an original normalized expectation by `2*c*eta` when
 one face's heat cutoff is increased beyond the explicit `relativeCutoff(w,eta)`.

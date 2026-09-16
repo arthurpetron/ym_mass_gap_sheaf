@@ -13,7 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED one-face normalized cutoff stability; OPEN retained-head spatial control (2026-09-15)
+## PROVED original connected face response; OPEN spatially summable third response (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/RationalConnectedResponse.lean`,
+  `BF4ExactSlabConnectedFaceResponse.lean`, and
+  `BF4ExactSlabPairwiseResponseObstruction.lean` in that directory.
+- **proof**: exact original covariance change under one full heat insertion,
+  preserving the old covariance, the third connected numerator, the signed
+  product correction and both different partition squares. The all-nome
+  late-cutoff consumer passes a SUPPLIED response bound to the existing
+  original CReal covariance; changing heat polynomials stay inside the
+  finite hypothesis. The full-slab covariance is pinned to the existing one.
+- **independent obstruction**: original positive cutoff-one heat at w=1/8
+  has zero insertion pair responses for same-plaquette chi_2, chi_3, but
+  third numerator and new connected numerator 1/256, with unit partitions.
+  This excludes a universal pairwise-only closure at finite cutoff; no
+  separated-probe, late-cutoff, full-heat or full-slab claim is made.
+- **open residue**: an actual spatially summable bound on the signed third/
+  pair response combination and the retained-head baseline, with useful
+  volume/coupling control. `covariance_response_bound_eventually` still
+  assumes this analytic input; it does not discharge it. Original physical
+  time/scale calibration, continuum QFT/nontriviality and all-group Clay
+  remain open. No canonical atom, old statement or field changed.
+- **verification**: exact focused checks, gates and logs are recorded in
+  `audits/AUDIT-CONNECTED-FACE-RESPONSE.md`. Three root imports; root/full-tree
+  unrun. No new custom axiom or literal hole.
+
+## Previous PROVED one-face normalized cutoff stability; OPEN retained-head spatial control (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/RationalRelativePerturbation.lean`,
   `BF4ExactSlabOneFaceCutoffStability.lean`, and

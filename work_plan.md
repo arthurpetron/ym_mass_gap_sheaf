@@ -126,7 +126,43 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED one-face normalized cutoff stability; OPEN retained-head spatial control):**
+**Latest mathematical increment (PROVED original connected response identity; OPEN spatially summable third response):**
+PROGRESS after `963cbb9`. Parallel work separated a reusable rational identity,
+an actual original-plaquette test of pairwise closure, and read-only review
+of the physical consumer. The parent proved the original-action and
+cutoff-limit consumer and serialized all verification.
+`BF4ExactSlabConnectedFaceResponse.response_identity` retains the old
+connected numerator and BOTH different partition squares when a full heat
+factor is appended. Its right side is the inserted mass times the third
+connected numerator MINUS the product of the two insertion covariances.
+The diagonal correction is a negative square, not a bound on the third term.
+`covariance_response_bound_eventually` carries a supplied late-cutoff bound
+on this signed response to the original CReal covariance. Only fixed probes
+pass through convergence; the K-dependent inserted heat stays in the finite
+hypothesis. `full_covariance_pin` identifies the full-face specialization
+with the existing `BF4ExactSlabTwoProbeCovariance.covariance`.
+
+`BF4ExactSlabPairwiseResponseObstruction` uses chi_2 and chi_3 on the SAME
+original plaquette, with positive cutoff-one heat at w=1/8. Both insertion
+pair responses and the old connected numerator vanish, but the third
+numerator and new connected numerator are exactly 1/256; both partitions
+are one. It rules out dropping the third response merely because the
+pair responses vanish. It is NOT an all-late-cutoff, full-heat, separated
+probe or full-slab obstruction; it does not claim cutoff-one boundary-code
+membership for these polynomial probes.
+
+NEXT: supply a spatially summable bound on the signed original response,
+retaining the interacting head and its partition factors. Pairwise closure
+without further hypotheses is not available. Finite cutoff telescoping
+alone only controls regulator error and incurs a face-count sum; it is not
+the next missing spatial estimate. No actual distance-decaying coefficient
+for the existing all-nome covariance consumer is supplied here. Varying-nome
+thermodynamic/OS compatibility, physical scale/time calibration, continuum
+QFT/nontriviality and every compact simple group remain open. No canonical
+frontier atom is closed. Exact source and verification boundary:
+`audits/AUDIT-CONNECTED-FACE-RESPONSE.md`.
+
+**Previous mathematical increment (PROVED one-face normalized cutoff stability; OPEN retained-head spatial control):**
 PROGRESS after `fe9cb83`. Parallel proof work supplied endpoint-relative
 rational algebra and an explicit nonzero retained-head example; the parent
 proved their original-action perturbation consumer and ran all checks serially.
