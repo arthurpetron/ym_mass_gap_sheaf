@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original non-neighbor conditional commutation; OPEN neighboring influence (2026-09-15)
+## PROVED shared-face uniqueness and absolute-window obstruction; OPEN action-specific spatial control (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/BF4ExactSlabSharedFaceUniqueness.lean`,
+  `BF4ExactSlabSharedWindowFloorBound.lean`, `RationalTwoStateWindowWitness.lean`,
+  and `BF4ExactSlabSharedWindowInfluenceObstruction.lean` in that directory.
+- **proof**: distinct original links share at most one physical face. For
+  every rational 0<w<1 the existing constants satisfy headFloor<=1/32 and
+  32*headFloor<=prefixCap. The computed finite law [[M,m],[m,M]] has uniform
+  marginals, centered unit sign inputs and conditional squared norm
+  ((M-m)/(M+m))^2. At those window endpoints its value is >=961/1089>7/8;
+  the universal half-norm inference from the window alone is false.
+- **scope**: this explicit finite counterexample is NOT the YM law and
+  does not estimate its actual influence or gap. Sharper small-nome
+  windows, all pair/block methods and arbitrary contractions below one
+  are not refuted. No surrogate is used to inhabit a frontier bundle.
+- **open residue**: an action-specific spatially decaying signed response
+  or two-partition determinant bound, with useful coupling/scale and
+  cutoff/volume control. The neighboring completion branch is not
+  expanded solely for the now-excluded generic inference. Physical
+  identification/normalization, continuum QFT, nontriviality and all
+  compact simple groups remain open. No old statement, canonical atom,
+  field, axiom or literal hole changed.
+- **verification**: four focused serialized one-worker/20 GiB checks;
+  all 31 public gates within {propext, Quot.sound}. Four root imports;
+  root/full-tree and full audit unrun. No raised limits or dependency
+  rebuild. `audits/AUDIT-SHARED-WINDOW-INFLUENCE.md` records exact evidence.
+
+## Previous PROVED original non-neighbor conditional commutation; OPEN neighboring influence (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/GNSProjectionCommutation.lean`,
   `GNSDenseFixedPoint.lean`, `BF4ExactSlabStarIndependentProbe.lean`, and

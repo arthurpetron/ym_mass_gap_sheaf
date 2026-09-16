@@ -21,7 +21,26 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: non-neighbor conditional updates commute for the original action.**
+**Latest result: one shared face, and a ruled-out coarse-window inference.**
+Two distinct literal links share
+[at most one physical plaquette](lean/YMGap/Continuum/BF4ExactSlabSharedFaceUniqueness.lean).
+But even this improvement does not make the existing absolute heat window
+narrow: `32*headFloor(w) <= prefixCap(w)` for every rational `0<w<1`.
+An [explicit four-weight law](lean/YMGap/Continuum/RationalTwoStateWindowWitness.lean)
+inside that numerical window has centered unit-norm signs and computed
+conditional squared norm at least `961/1089 > 7/8`. Thus that window alone
+cannot imply a squared-norm contraction factor of `1/2`.
+
+This witness is **not Yang--Mills** and does not lower-bound its actual
+influence or refute sharper small-nome estimates. It rules out a proposed
+generic inference before investing in further operator scaffolding.
+The next missing input is a spatially decaying, action-specific signed
+response or boundary-determinant estimate with useful physical-scale
+dependence. Four focused serialized checks passed; all 31 public gates
+are within the constructive axiom gate. Root/full-tree checks were not run.
+See the [proof and route audit](audits/AUDIT-SHARED-WINDOW-INFLUENCE.md).
+
+**Previous result: non-neighbor conditional updates commute for the original action.**
 The [new theorem](lean/YMGap/Continuum/BF4ExactSlabStarNonneighborCommutation.lean)
 proves that updates at two physical links sharing no plaquette commute on the
 entire original full-action L2 completion. Their joint update is self-adjoint

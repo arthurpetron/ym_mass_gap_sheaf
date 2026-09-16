@@ -4509,6 +4509,12 @@ import YMGap.Continuum.BF4ExactSlabStarRateObstruction
 import YMGap.Continuum.BF4ExactSlabRoundedStarBudget
 -- Exact original-action factorization and two-partition insertion identities.
 import YMGap.Continuum.BF4ExactSlabSharedFaceGeometry
+-- Distinct links share at most one face. The coarse absolute heat window
+-- alone cannot force small conditional influence; the witness is NOT YM.
+import YMGap.Continuum.BF4ExactSlabSharedFaceUniqueness
+import YMGap.Continuum.BF4ExactSlabSharedWindowFloorBound
+import YMGap.Continuum.RationalTwoStateWindowWitness
+import YMGap.Continuum.BF4ExactSlabSharedWindowInfluenceObstruction
 import YMGap.Continuum.BF4ExactSlabFaceInsertionDeterminant
 -- Original intermediate face-set laws for every rational 0<w<1;
 -- denominator-cleared estimates pass to normalized limits without loss.

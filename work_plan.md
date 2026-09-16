@@ -126,7 +126,50 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED original non-neighbor commutation; OPEN neighboring influence):**
+**Latest mathematical increment (PROVED one-face geometry and absolute-window obstruction; OPEN action-specific spatial control):**
+PROGRESS after `3f3f975`. Three parallel branches supplied a geometric
+sharpening, an explicit finite-law witness, and the numerical heat-window
+specialization/source review; the parent reviewed and serialized all checks.
+`BF4ExactSlabSharedFaceUniqueness.sharedIds_length_le_one` proves that two
+distinct literal links share at most ONE physical plaquette. Nevertheless,
+the existing all-nome constants satisfy headFloor(w)<=1/32 and
+32*headFloor(w)<=prefixCap(w). No exponent-six loss is needed for the
+remaining coarse-window problem.
+
+`RationalTwoStateWindowWitness` computes the actual positive table
+[[M,m],[m,M]], its mass, uniform marginals, centered unit sign probes and
+conditional expectation. Its squared conditional norm equals
+((M-m)/(M+m))^2. `BF4ExactSlabSharedWindowInfluenceObstruction` instantiates
+m=headFloor(w), M=prefixCap(w) and proves that evaluated norm is at least
+961/1089>7/8, refuting a universal half-squared-norm inference from only
+this window. This finite law is NOT identified with YM and does not
+lower-bound original YM influence or refute its gap. Sharper 1+-128*w^3
+small-nome windows and general pair/block approaches are not ruled out.
+
+CONTRACTION OF THE PLAN: do not construct shared-deleted completions or
+projection transport merely to feed THIS absolute window into a small
+neighbor bound. The sharper geometry cannot fix its insufficient
+hypotheses. A bounded source review found no already-proved spatial
+cross-ratio/blocked retained-interaction estimate filling the missing
+input: physical identifications, boundary comparisons or spread bounds
+are still premises in the nearby Harnack/Gram consumers.
+NEXT: establish an action-specific signed spatial-response estimate or
+two-partition boundary-determinant bound, with explicit coupling, distance,
+cutoff and volume dependence, for the existing original-action consumers.
+The matched physical route additionally needs its actual regime or a proved
+passage into a controlled regime; another fixed-small-nome proof alone
+does not supply that. No such new spatial estimate is claimed here.
+OS/physical-time identification, continuum QFT, nontriviality, physical
+normalization and all compact simple groups remain open.
+
+Verification: four successful focused serialized one-worker/20 GiB checks;
+all 31 public gates within {propext, Quot.sound}. No compiler correction
+rerun, dependency rebuild, raised limit, new axiom, literal hole, changed
+old statement or canonical field. Four root imports; root/full-tree and
+full audit unrun. Exact statements, route boundary and logs:
+`audits/AUDIT-SHARED-WINDOW-INFLUENCE.md`.
+
+**Previous mathematical increment (PROVED original non-neighbor commutation; OPEN neighboring influence):**
 PROGRESS after `d52199a`. The regulator branch was not extended. Instead,
 `BF4ExactSlabStarNonneighborCommutation.conditionalProjection_commute`
 proves exact commutation of the already constructed original conditional
