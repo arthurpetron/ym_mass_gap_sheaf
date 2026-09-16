@@ -4656,6 +4656,11 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialJointCenteredPairing
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointCompletedGap
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointUnitComplement
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointCentralExcitation
+-- Actual recentered plaquette variance, uniform in width; not a uniform gap rate.
+import YMGap.Continuum.BF4ExactSlabSelectedStarVariance
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFaceCharacter
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialRecenter
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalVariance
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

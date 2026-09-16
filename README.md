@@ -21,7 +21,28 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: the actual completed unit complement has a strict form bound and a nonzero excitation.**
+**Latest result: recentered plaquette excitations retain a positive variance floor independent of box size.**
+The proof compares only the at-most-six heat factors touching one actual
+link, retaining every other action factor and the original partition.
+Exact SU(2) character cancellation then bounds the interacting variance
+below by the explicit positive `starRatio(w)`. This same bound survives
+joint heat-cutoff/time-boundary removal and is the squared-norm floor of
+an actual centered vector in each original completed carrier. Computed
+spatial translations put every probe endpoint arbitrarily far from the
+spatial boundaries without changing its time distance.
+
+The constant depends on coupling. **This is a volume-independent
+nontriviality estimate, not a volume-independent spectral gap.** Comparing
+the states in different boxes, a width-independent decay rate, spacing
+control, full Hilbert/OS/QFT reconstruction and the continuum/all-group
+target remain open. Four focused module checks passed all 39 public gates;
+no root/full-tree check ran. See the
+[local-variance audit](audits/AUDIT-RECENTERED-LOCAL-VARIANCE.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: the actual completed unit complement has a strict form bound and a nonzero excitation.**
 Rational approximations to the original plaquette mean construct an actual
 orthogonal vector with an explicit positive norm floor. Its physical-time
 pairings are exactly the original connected correlators. The prefactor-free
@@ -36,9 +57,6 @@ General completed linear/centering and Hilbert structure, spacing control,
 physical mass calibration and the continuum/all-group target remain open.
 Six focused module checks passed 58 public axiom gates; no root/full-tree check
 ran. See the [completed-sector audit](audits/AUDIT-JOINT-COMPLETED-CENTERED-GAP.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: reflected correlators survive heat-cutoff removal, preserving the strict scalar bound.**
 At fixed spatial width and nome, the original reflected correlators now

@@ -13,7 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual nonzero joint centered excitation and universal strict completed form bound; OPEN bulk spatial/spacing control and full Hilbert/OS/QFT (2026-09-16)
+## PROVED recentered original plaquette variance with a volume-independent positive floor; OPEN spatial comparison, uniform decay and continuum passage (2026-09-16)
+
+- **files**: `BF4ExactSlabSelectedStarVariance.lean`,
+  `BF4ExactSlabFixedSpatialFaceCharacter.lean`,
+  `BF4ExactSlabFixedSpatialSpatialRecenter.lean`, and
+  `BF4ExactSlabFixedSpatialLocalVariance.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: exact selected-action star/complement partition, at-most-six
+  incident faces, and original-link character selection prove the squared
+  shifted-character floor against the retained complement. Division by the
+  SAME original partition, at its actual interacting mean, gives variance
+  >= starRatio(w)>0. Arbitrary-face chart pins and joint cutoff/time limits
+  preserve it. Existing centering constructs actual nonzero completed
+  vectors with this self-pairing floor. Spatial recentering preserves time
+  and puts every endpoint at the requested margin; each larger box retains
+  the same nome-dependent lower bound.
+- **consumer/open input**: removes volume loss from this particular
+  nontriviality witness, not from the strict transfer rate. Cross-width
+  selected-chain/action transport and state comparison, width-independent
+  decay, full Hilbert/OS/QFT, spatial/spacing passage, physical mass
+  calibration, continuum nontriviality and all-group Clay closure remain
+  open. No canonical field, sorry, axiom or analytic premise changed.
+- **verification**: four focused serialized one-worker/20 GiB checks,
+  39 public gates within {propext, Quot.sound}; four root imports, root/full-
+  tree/full audit unrun. Independent source review found no same-object
+  mismatch. Evidence: `audits/AUDIT-RECENTERED-LOCAL-VARIANCE.md`.
+
+## Previous PROVED actual nonzero joint centered excitation and universal strict completed form bound; OPEN bulk spatial/spacing control and full Hilbert/OS/QFT at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialJointCenterAlgebra.lean`,
   `BF4ExactSlabFixedSpatialJointCenteredStream.lean`,

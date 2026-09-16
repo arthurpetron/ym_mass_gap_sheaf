@@ -133,7 +133,46 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED actual nonzero centered excitation, original correlator realization and universal strict form bound on the invariant JOINT completed unit complement; OPEN bulk spatial/spacing control and full Hilbert/OS/QFT structure):**
+**Latest mathematical increment (PROVED recentered original plaquette variance with a volume-independent positive floor; OPEN cross-width state comparison, width-independent decay and continuum/physical-scale control):**
+PROGRESS after `c7729d4`. Partition any duplicate-free physical selected
+action into the heat factors incident to one chosen plaquette link and
+their exact complement. Four-dimensional geometry bounds the former by
+six. Against the retained link-independent complement, the fundamental
+SU(2) character has zero first moment and second moment equal to the
+complement's mass. Its squared shift by ANY rational center therefore
+dominates that mass. The local heat floor/cap comparison and SAME original
+partition yield variance >= starRatio(w)>0, with no volume, face-count,
+cutoff-stage, or position dependence. Coupling dependence remains explicit.
+
+CONTRACTION: the nontriviality floor no longer needs whole-volume density
+domination. Exact arbitrary-face mean/square pins feed the original chart
+diagonal. Joint cutoff/time passage preserves the local floor; the existing
+centering stream turns it into an actual completed self-pairing bound and
+nonzero-vector proof. Translation by margin+1 into width+2*margin+2 puts
+EVERY face-edge endpoint at spatial margin >= margin, preserving temporal
+radius and commuting with physical time. The resulting recentered family
+retains the SAME starRatio(w) floor in each separate completed carrier.
+
+NEXT ANALYTIC FRONTIER: compare these different ORIGINAL spatial states.
+First establish exact translated selected-chain numerator/partition pins
+in a common ambient Haar carrier. Existing arbitrary-mask signed-core
+bounds provide a candidate small-nome consumer, conditional on their
+explicit heat-remainder/entropy guards and actual omitted-face separation;
+they do not automatically cover arbitrary w. A useful comparison must
+survive growing time buffers. The unrestricted-nome signed response bound
+and a width-independent connected decay rate remain open. The old
+fixed-width transfer rate has not been improved by the variance theorem.
+
+Four narrow serialized one-worker/20 GiB checks passed all 39 public gates
+within {propext, Quot.sound}; four selective-root imports, root/full-tree/
+full audit unrun. Independent source review checked spectators, same
+normalization, joint limits and recentered carriers. No canonical field,
+hole, axiom, analytic premise or memory limit changed; no literature scan.
+Full Hilbert/OS/QFT structure, spatial/spacing passage, physical time/mass
+calibration, continuum nontriviality and all-group Clay closure remain open.
+Evidence: `audits/AUDIT-RECENTERED-LOCAL-VARIANCE.md`.
+
+**Previous mathematical increment (PROVED actual nonzero centered excitation, original correlator realization and universal strict form bound on the invariant JOINT completed unit complement; OPEN bulk spatial/spacing control and full Hilbert/OS/QFT structure at that checkpoint):**
 PROGRESS after `54346f5`. Rational centering x-mu.approx(k)*unit has exact
 squared distance (mu.approx(m)-mu.approx(n))^2. The existing scalar modulus
 at min(epsilon,1) constructs its Cauchy stream in the SAME JointCompletion.
