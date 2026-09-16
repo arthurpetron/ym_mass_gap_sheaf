@@ -4521,6 +4521,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialChainAction
 import YMGap.Continuum.BF4ExactSlabFixedSpatialChainCarrier
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProbe
 import YMGap.Continuum.BF4ExactSlabFixedSpatialOriginalIteration
+import YMGap.Continuum.BF4ExactSlabFixedSpatialIterationLimit
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

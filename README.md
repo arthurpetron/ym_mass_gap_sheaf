@@ -21,7 +21,21 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: original finite-chain moments equal weighted-step iterates.**
+**Latest result: cutoff removal for the actual normalized finite-chain iterate.**
+The [scalar-limit theorem](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialIterationLimit.lean)
+identifies both the iterated numerator and its partition with the same
+original selected action. One original reciprocal normalizes the whole
+chain. At every rational `0<w<1`, the resulting scalar stream converges to
+the existing original expectation with its explicit cutoff modulus.
+
+This uses the exact original-action identity below, so no convergence of
+cutoff-dependent intermediate messages is assumed. Width, chain length and
+probes are fixed: stationary time limits, OS realization, quantitative
+contraction and volume/spacing/continuum control remain open. All 13 public
+gates passed a focused serialized check; root/full-tree verification was
+not run. See the [follow-up audit](audits/AUDIT-FIXED-SPATIAL-ORIGINAL-ITERATION.md#original-scalar-cutoff-limit-follow-up).
+
+**Previous result: original finite-chain moments equal weighted-step iterates.**
 The [original-action identity](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalIteration.lean)
 now connects the entire selected time chain to repeated application of
 the same original kinetic/spatial step on one fixed spatial carrier.

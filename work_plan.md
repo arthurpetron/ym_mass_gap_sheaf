@@ -126,7 +126,41 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED original arbitrary-length endpoint iteration; OPEN normalized cutoff-limit consumer and quantitative control):**
+**Latest mathematical increment (PROVED same-original normalized scalar cutoff limit; OPEN stationary time limits and quantitative Haar control):**
+PROGRESS after `67e0a60`. `BF4ExactSlabFixedSpatialIterationLimit` applies
+the proved original-chain identity to both the actual endpoint iterate
+and its empty/empty partition. `compactPartition_pin` identifies the
+denominator; `compactPartition_reciprocal` proves that the existing original
+reciprocal cancels this SAME compact partition at each late cutoff.
+No independent layer normalization or T1=1 is introduced.
+
+CONTRACTION: at cutoff headCutoff(w)+stage, `normalizedScalar_pin` is the
+existing fixed-original-insertion finite stream. `normalizedCauchy` carries
+exactly its computed finiteCauchy modulus; `normalized_converges` and
+`normalizedLimit_pin` identify the limit with the pre-existing selected-face
+expectation. This bypasses the changing-intermediate-message obstruction
+for the WHOLE scalar pairing, not for messages or operators themselves.
+The construction works for rational 0<w<1 at fixed width, finite chain
+length and signed endpoint factors with the explicit geometry guards.
+
+NEXT MATHEMATICAL OBSTRUCTION: obtain quantitative original-Haar boundary
+forgetting or signed-response control with its actual nome/width dependence,
+and use it to construct the required stationary time/OS object. The finite-
+state terminal refresh theorem still has no proved applicability bridge to
+these original Haar kernels. Merely wrapping its hypotheses is not progress.
+The existing positive floor depends on nome and face count and is not a
+volume- or spacing-uniform rate. Long-time/stationary vacuum construction,
+completed OS transfer identification, uniform thermodynamic/spacing passage,
+continuum QFT/nontriviality and every compact simple group remain open.
+
+Verification: one focused serialized one-worker/20 GiB check; all 13 public
+gates within {propext, Quot.sound}. One root import; root/full-tree and full
+axiom audit unrun. No old field, literal hole or analytic premise changed.
+The module was developed in parallel with the previous increment's review
+and integration. Evidence: the follow-up section of
+`audits/AUDIT-FIXED-SPATIAL-ORIGINAL-ITERATION.md`.
+
+**Previous mathematical increment (PROVED original arbitrary-length endpoint iteration; OPEN normalized cutoff-limit consumer at that checkpoint):**
 PROGRESS after `0aff852`. The chronological carrier and signed endpoint
 probes were constructed independently, then composed with the original
 K/V placement and common-sweep theorems. `chain_pin` proves the full

@@ -13,7 +13,31 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original arbitrary-length endpoint iteration; OPEN normalized limit and quantitative control (2026-09-16)
+## PROVED same-original normalized scalar cutoff limit; OPEN stationary time and quantitative control (2026-09-16)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialIterationLimit.lean`.
+- **proof**: `compactNumerator_pin` and `compactPartition_pin` identify
+  the actual finite-chain iterate numerator and empty-probe partition
+  with the SAME original selected action. Its positive tail floor and
+  reciprocal apply; `compactPartition_reciprocal` proves cancellation.
+  `normalizedScalar_pin` identifies the entire normalized rational stream;
+  `normalizedCauchy` retains the existing finiteCauchy modulus exactly.
+  `normalized_converges` and `normalizedLimit_pin` give the pre-existing
+  original expectation, for fixed geometry and endpoint face factors.
+- **consumer/open input**: discharges the scalar cutoff-limit consumer
+  recorded below without assuming intermediate-message convergence.
+  No message/operator limit, stationary vacuum, T1=1, completed OS operator
+  or quantitative forgetting estimate follows. The remaining actual-Haar
+  applicability/estimate, stationary time limit, uniform volume/spacing
+  passage, continuum QFT and all-group physical gap remain open. The
+  partition floor depends on nome and face count. No canonical field,
+  old statement, literal hole, axiom or analytic premise changed.
+- **verification**: one focused serialized one-worker/20 GiB check;
+  all 13 public gates within {propext, Quot.sound}. One root import;
+  root/full-tree and full axiom audit unrun. See the follow-up section of
+  `audits/AUDIT-FIXED-SPATIAL-ORIGINAL-ITERATION.md`.
+
+## Previous PROVED original arbitrary-length endpoint iteration; OPEN normalized limit and quantitative control at that checkpoint (2026-09-16)
 
 - **files**: new `BF4ExactSlabFixedSpatialChainCarrier.lean`,
   `BF4ExactSlabFixedSpatialProbe.lean`, and

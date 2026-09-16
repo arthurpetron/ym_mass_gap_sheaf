@@ -113,3 +113,62 @@ manual-only. Local final log hashes:
 | `BF4ExactSlabFixedSpatialChainCarrier.log` | `9aa3d301dc5f6a831fc0b47b9b1fe1c2924d2b0ab29a8ae11acf37fd7b4286d0` |
 | `BF4ExactSlabFixedSpatialProbe.log` | `33328e23d209a0e4593ff775cce3286e82ae5e65738b51ee58e344aab2faa5e6` |
 | `BF4ExactSlabFixedSpatialOriginalIteration.log` | `d3b8260108003a1321784a6e6c18038bdcbbeeb396715887ce4e1af630cbd279` |
+
+## Original scalar cutoff-limit follow-up
+
+Date: 2026-09-16. Classification: PROGRESS after `67e0a60`.
+This follow-up discharges the immediate scalar consumer left open above.
+
+`BF4ExactSlabFixedSpatialIterationLimit.lean` proves, for every rational
+0<w<1 and fixed geometry/endpoint factors, that the ACTUAL normalized
+compact scalar iterate converges to the existing original selected-face
+expectation. The numerator and empty/empty partition are independently
+pinned by the original-chain identity. The previously constructed
+positive-tail reciprocal cancels this SAME compact partition, not a
+layerwise normalization or a surrogate denominator.
+
+| Declaration | Module:line (under `lean/YMGap/Continuum/`) | Content |
+|---|---|---|
+| `endpointInsertion` | `BF4ExactSlabFixedSpatialIterationLimit.lean:54` | Fixed original polynomial while heat cutoff varies. |
+| `compactNumerator` / `compactPartition` | `BF4ExactSlabFixedSpatialIterationLimit.lean:58` / `:65` | Actual iterate pairing and empty/empty scalar partition. |
+| `compactNumerator_pin` | `BF4ExactSlabFixedSpatialIterationLimit.lean:73` | Same original numerator. |
+| `compactPartition_pin` | `BF4ExactSlabFixedSpatialIterationLimit.lean:84` | Same original partition. |
+| `compactPartition_floor` | `BF4ExactSlabFixedSpatialIterationLimit.lean:98` | Existing nome/face-count-dependent late-cutoff floor. |
+| `compactPartition_reciprocal` | `BF4ExactSlabFixedSpatialIterationLimit.lean:108` | Original reciprocal cancels the actual compact partition. |
+| `normalizedScalar` / `normalizedScalar_pin` | `BF4ExactSlabFixedSpatialIterationLimit.lean:122` / `:129` | Actual normalized iterate at headCutoff(w)+stage and exact original-stream pin. |
+| `normalizedCauchy` / `normalizedCauchy_modulus` | `BF4ExactSlabFixedSpatialIterationLimit.lean:143` / `:166` | Explicit data; exactly the existing finiteCauchy modulus. |
+| `normalized_converges` | `BF4ExactSlabFixedSpatialIterationLimit.lean:177` | Convergence to the pre-existing original expectation. |
+| `normalizedLimit_pin` | `BF4ExactSlabFixedSpatialIterationLimit.lean:199` | The completed scalar stream is that SAME CReal. |
+
+The action, geometry guards and probe class are unchanged. The original
+endpoint insertion is fixed; only the heat cutoff varies. Intermediate
+messages may vary with that cutoff, but their convergence is neither
+assumed nor proved. The scalar identity lets the existing fixed-insertion
+theorem apply directly to the original observable. This is a contraction
+of the proof route, not a new assumption about moving observables.
+
+No long-time limit, stationary normalization/vacuum, T1=1, completed OS
+operator, norm contraction, or rate uniform in width/chain length/nome/
+spacing is asserted. `partitionFloor`, in
+`BF4ExactSlabAllNomeFaceSetReciprocal.lean:39`, is headFloor(w)^faceCount.
+Its positivity is not a useful volume-uniform or physical mass-gap estimate.
+The next obstruction is quantitative ORIGINAL-Haar boundary forgetting
+or signed-response control and the stationary time/OS construction; the
+finite-state refresh theorem is not automatically applicable to Haar.
+All continuum/QFT/all-group obligations remain open.
+
+The new module developed in parallel with the preceding increment's review
+and integration. The parent inspected its source and fixed one missing
+namespace and one sequence-type annotation. Its focused serialized
+one-worker/20 GiB check passed; all 13 public gates are within
+{propext, Quot.sound}, with no final warnings. One root import added;
+root/full-tree and full axiom audit NOT run. No old field, hole, axiom or
+analytic premise changed. Local final log:
+
+An independent read-only review confirmed the same partition and cutoff,
+fixed original insertion, literal inherited stage-index modulus, and n=0
+numerator H[fVg]/denominator H[V]. It found no normalization or moving-
+observable limit mismatch. The actual cutoff is headCutoff(w)+stage.
+
+`/tmp/BF4ExactSlabFixedSpatialIterationLimit.log`, SHA-256
+`7225ea91a54f2b509ebceaca77e515770996b8a2a388e7b9ade89f83179557b0`.
