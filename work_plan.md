@@ -133,7 +133,36 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED completed original-chain moments and Gaussian tail-square certificates; OPEN actual partial-Haar order preservation):**
+**Latest mathematical increment (PROVED completed cutoff-Cauchy estimate and actual partial-Haar certificate preservation; OPEN limit construction and quantitative forgetting):**
+PROGRESS after `350e095`. The exact signed difference of the actual two-slice
+W=K*V weights has a computed interval using all-nome heat tails and the finite
+product telescope. `kernelMap_difference_bound` uses ordinary Haar
+Cauchy--Schwarz on W*f, with the SQUARED interval, so no positivity of the
+signed difference is assumed. `completedTransfer_difference_bound` proves
+`||(T_J-T_K)x||^2 <= epsilon^2 ||x||^2` on EVERY point of the same completion.
+The cutoff is `max(headCutoff(w), productCutoff(w, faceCount(width), epsilon))`;
+it is independent of x, not of nome or width. The actual limiting operator
+still needs construction and quotient-compatible convergence proofs.
+
+The parallel `partialHaarHead_square_certificate` now constructs certificates
+for actual Haar integration: two total-head parity sectors, head-only radius
+homogenization under every tail coefficient probe, then the Gaussian channels
+and explicit positive radial cancellation. `partialHaarHeads_certificate`
+propagates this through addition, scaling and arbitrary-insertion transport.
+NEXT: safely enlarge SUPPORTED message certificates to the pair carrier and
+apply the actual T, then prove quantitative order contraction/forgetting.
+Unconditional certificate enlargement is false for off-carrier transported
+polynomials and is not assumed. No stationary/OS, width/spacing, continuum
+QFT or compact-simple-group gap input is supplied by these results.
+
+Verification: five focused serialized one-worker/20 GiB checks; all 29 public
+gates within {propext, Quot.sound}. Five root imports; root/full-tree and full
+axiom audit unrun. Independent source review found no mismatch in the signed
+estimate, original weight, quotient passage or parameter scope. No old field,
+literal hole or analytic premise changed. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-HAAR-CUTOFF.md`.
+
+**Previous mathematical increment (PROVED completed original-chain moments and Gaussian tail-square certificates; OPEN actual partial-Haar order preservation at that checkpoint):**
 PROGRESS after `c7a5ddb`. `completedIterate_embed` pins every finite power
 of the actual completed map to the existing K/V polynomial iterate.
 `completedIterate_pair_dense` keeps the terminal V*g explicitly;

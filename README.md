@@ -21,7 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: completed powers recover the original finite-chain moments.**
+**Latest result: explicit cutoff-Cauchy control of the actual completed operator.**
+The [completed difference estimate](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCompletedCutoffControl.lean)
+proves `||(T_J-T_K)x||^2 <= epsilon^2 ||x||^2` for every point of the
+same ordinary-Haar completion once both cutoffs exceed a computed threshold.
+The threshold depends on nome, spatial width and epsilon, not on x.
+The proof retains the original K*V weight and handles its signed difference;
+it does not assume that difference is positive.
+
+In parallel, [actual partial-Haar integration](lean/YMGap/Continuum/SU2QuaternionHaarCertificateIntegration.lean)
+now preserves constructive square certificates on all remaining variables.
+The square case uses two parity sectors and coefficientwise sphere-radius
+homogenization. This supplies an order-preservation ingredient; quantitative
+forgetting is still open. A limiting operator has NOT yet been constructed
+from the Cauchy estimate. Stationary/physical OS, volume/spacing and continuum
+mass-gap obligations remain open. Five focused checks passed all 29 public
+gates; no root/full-tree verification was run. See the
+[proof audit](audits/AUDIT-FIXED-SPATIAL-HAAR-CUTOFF.md).
+
+**Previous result: completed powers recover the original finite-chain moments.**
 The [completed-iteration theorem](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCompletedIteration.lean)
 identifies every finite power of the actual completed map with its original
 polynomial iterate. Pairing with `V*g` recovers the original selected-chain

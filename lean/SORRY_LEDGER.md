@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED completed original-chain moments and Gaussian tail-square certificates; OPEN actual partial-Haar order preservation (2026-09-16)
+## PROVED completed cutoff-Cauchy control and actual partial-Haar certificate preservation; OPEN limiting operator and quantitative forgetting (2026-09-16)
+
+- **files**: `SU2QuaternionHeadHaarSquareCertificate.lean`,
+  `SU2QuaternionHaarCertificateIntegration.lean`, `SU2QuaternionHaarSignedKernelBound.lean`,
+  `BF4ExactSlabFixedSpatialTransferTail.lean`, and
+  `BF4ExactSlabFixedSpatialCompletedCutoffControl.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: every supported square yields a computed tail certificate after
+  actual partial Haar integration, via two head-parity sectors, coefficientwise
+  homogenization and explicit positive radial cancellation. Certificate
+  constructors survive arbitrary ordered head integrations, including full
+  arbitrary-insertion transport. Separately, signed K*V differences have an
+  explicit all-nome product-tail interval; squaring that interval plus ordinary
+  Haar Cauchy--Schwarz gives an input-norm-relative difference estimate. The
+  estimate passes to every completed point with a computed cutoff independent
+  of that point, but dependent on nome and width.
+- **consumer/open input**: supplies the analytic Cauchy estimate for the actual
+  completed-operator cutoff construction; constructing its limiting operator
+  and convergence pins remains open. Safe support-guarded certificate
+  enlargement and actual transfer-cone preservation are the next order
+  consumers, followed by quantitative boundary forgetting. Unconditional
+  carrier enlargement is NOT assumed. Stationary/physical OS identification,
+  volume/spacing/continuum control, nontrivial QFT and all-group physical gap
+  remain open. No canonical field, old statement, literal hole or analytic
+  premise was changed, added or discharged.
+- **verification**: five focused serialized one-worker/20 GiB checks;
+  all 29 public gates within {propext, Quot.sound}. Five root imports;
+  root/full-tree and full axiom audit unrun. Independent signed-kernel and
+  completed-scope source review found no mathematical mismatch. See
+  `audits/AUDIT-FIXED-SPATIAL-HAAR-CUTOFF.md`.
+
+## Previous PROVED completed original-chain moments and Gaussian tail-square certificates; OPEN actual partial-Haar order preservation at that checkpoint (2026-09-16)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCompletedIteration.lean`
   and `lean/YMGap/Continuum/SU2QuaternionHeadGaussianSquareCertificate.lean`.
