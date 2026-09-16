@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: the original transfer preserves certified polynomial order.**
+**Latest result: the actual transfer has a constructed cutoff limit.**
+The [limit operator](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCompletedTransferLimit.lean)
+acts on the SAME ordinary-Haar completion, without rescaling T or selecting
+quotient representatives. Its explicit Cauchy family yields the original norm
+cap and `||(T_limit-T_K)x||^2 <= epsilon^2 ||x||^2` at the existing computed
+cutoff, uniformly in x at fixed nome and width. Addition and rational scaling
+are proved for this actual limit map.
+
+In parallel, [rank-one bounds](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferSandwich.lean)
+certify `a*H[V_K*f] <= T_K f <= b*H[V_K*f]` in the polynomial certificate
+cone. Here a and b depend on nome and width, not the late heat cutoff;
+the displayed weighted mass still depends on K. No spatial factor is dropped.
+These bounds do not yet prove a contraction, stationary vacuum or physical
+OS identification. Uniform volume/spacing passage and the Clay target remain
+open. Four focused checks passed all 35 public axiom gates; no root/full-tree
+check was run. See the [proof audit](audits/AUDIT-FIXED-SPATIAL-TRANSFER-LIMIT.md).
+
+**Previous result: the original transfer preserves certified polynomial order.**
 The [actual transfer-order theorem](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferOrder.lean)
 now composes the proved Haar-integration rule with a support-guarded
 certificate enlargement. It retains the original K*V weight and constructs
@@ -48,8 +65,9 @@ In parallel, [actual partial-Haar integration](lean/YMGap/Continuum/SU2Quaternio
 now preserves constructive square certificates on all remaining variables.
 The square case uses two parity sectors and coefficientwise sphere-radius
 homogenization. This supplies an order-preservation ingredient; quantitative
-forgetting is still open. A limiting operator has NOT yet been constructed
-from the Cauchy estimate. Stationary/physical OS, volume/spacing and continuum
+forgetting is still open. At that checkpoint a limiting operator had not yet
+been constructed from the Cauchy estimate; the latest result above supplies it.
+Stationary/physical OS, volume/spacing and continuum
 mass-gap obligations remain open. Five focused checks passed all 29 public
 gates; no root/full-tree verification was run. See the
 [proof audit](audits/AUDIT-FIXED-SPATIAL-HAAR-CUTOFF.md).

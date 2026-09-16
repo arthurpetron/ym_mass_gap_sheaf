@@ -13,7 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED support-guarded extension and actual transfer-cone preservation; OPEN limiting operator and quantitative forgetting (2026-09-16)
+## PROVED actual cutoff-limit transfer and rank-one cone bounds; OPEN quantitative forgetting and stationary/OS identification (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialTransferLimitFamily.lean`,
+  `BF4ExactSlabFixedSpatialCompletedTransferLimit.lean`,
+  `BF4ExactSlabFixedSpatialCompletedTransferLimitLinear.lean`, and
+  `BF4ExactSlabFixedSpatialTransferSandwich.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: an explicit outer modulus and diagonal construct limitRep from
+  the actual cutoff maps. Same-cutoff three-hop null descent defines
+  completedLimit on the existing ordinary-Haar completion. The original
+  norm cap, distance bound, input-uniform cutoff estimate and rational
+  linearity pass to this SAME unrescaled map. Separately, complete kinetic
+  floor/cap certificates, supported V_K*f and actual partial Haar give
+  certificates for T_K f-a*H[V_K*f] and b*H[V_K*f]-T_K f.
+- **consumer/open input**: closes actual single-step operator cutoff-limit
+  construction, not the limit of its iterated original-chain pairings.
+  The rank-one constants depend on nome and width; the weighted mass still
+  depends on K, and its strict positivity is not asserted for arbitrary f.
+  Quantitative boundary forgetting, stationary vacuum and physical OS
+  identification, uniform width/spacing/continuum passage and the all-group
+  physical gap remain open. No canonical field, old statement, literal hole
+  or analytic premise changed. No normalization or surrogate substituted.
+- **verification**: four narrow serialized one-worker/20 GiB checks; all
+  35 public gates within {propext, Quot.sound}. Four root imports; root/full-
+  tree and full axiom audit unrun. Independent source review found no
+  mathematical mismatch. Evidence: `audits/AUDIT-FIXED-SPATIAL-TRANSFER-LIMIT.md`.
+
+## Previous PROVED support-guarded extension and actual transfer-cone preservation; OPEN limiting operator and quantitative forgetting at that checkpoint (2026-09-16)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionHaarCertificateExtension.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferOrder.lean`.

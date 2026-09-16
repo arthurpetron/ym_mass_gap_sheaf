@@ -133,7 +133,41 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED actual transfer order preservation; OPEN limiting operator and quantitative forgetting):**
+**Latest mathematical increment (PROVED actual cutoff-limit operator and rank-one cone bounds; OPEN quantitative forgetting and stationary/OS identification):**
+PROGRESS after `1b7c0fc`. `cutoffFamily` uses the actual completed T_K,
+an explicit norm-ceiling tolerance and the existing constructive diagonal.
+`limitRep_null` compares two inputs at ONE common outer cutoff and then
+at a common inner representative index. `completedLimit` therefore acts
+on the SAME ordinary-Haar completion with no choice or rescaling.
+`completedLimit_norm_bound`, `completedLimit_distance_bound` and
+`completedLimit_cutoff_bound` retain the original cap and norm-relative
+cutoff estimate on EVERY completed input. `completedLimit_add` and
+`completedLimit_smul` prove rational linearity of this actual map.
+
+The parallel `transferStepLowerCertificate` / `transferStepUpperCertificate`
+give a*H[V_K*f] <= T_K f <= b*H[V_K*f] in the actual polynomial certificate
+cone, for supported certified f. a=headFloor(w)^temporalCount(width),
+b=prefixCap(w)^temporalCount(width). The constants are late-cutoff-independent,
+but the V_K-weighted mass is NOT. Its nonnegativity does not permit division
+for arbitrary f. These are not positive-semidefiniteness or a gap theorem.
+
+NEXT CAUSAL FRONTIERS: quantitative comparison of two positive original
+messages using these same-kernel bounds, with every required positive mass
+witness supplied; and compatibility of finite powers/pairings of the actual
+limit with the original fixed-insertion scalar limits. Neither consumer is
+already supplied by the two-sided bounds or by single-step convergence.
+Stationary vacuum and physical reflected OS realization remain open, as do
+width/spacing-uniform control, continuum QFT and all compact simple groups.
+
+Verification: four focused serialized one-worker/20 GiB checks, all 35
+public gates within {propext, Quot.sound}; four selective-root imports.
+Root/full-tree and full axiom audit unrun. Independent source review found
+no mismatch in quotient descent, cutoff vs representative indices, the
+unrescaled operator, retained V, or parameter scope. No old field, literal
+hole, axiom or analytic premise changed. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-TRANSFER-LIMIT.md`.
+
+**Previous mathematical increment (PROVED actual transfer order preservation; OPEN limiting operator and quantitative forgetting at that checkpoint):**
 PROGRESS after `93ea3cc`. `certificate_extend` safely enlarges a SUPPORTED
 message certificate to the two-slice carrier. The explicit `tailMarginal`
 contracts arbitrary insertions, retaining their full Haar moments and
