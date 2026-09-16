@@ -154,7 +154,8 @@ The generic boundary integration identity also already exists:
 an explicit number of head blocks while retaining an arbitrary polynomial on
 the boundary blocks. No degree bound or Fubini axiom is supplied as a premise.
 
-The following is a proposed next identification, **not a proved declaration**:
+At the `50d0d9d` checkpoint, the following was a proposed identification,
+**not then a proved declaration**:
 recode the actual lower interior and crossing-boundary blocks, integrate the
 heat-dressed lower observables over their interior variables, and identify
 the original bilinear with their pairing against the actual retained crossing
@@ -163,6 +164,11 @@ original adjacent-slab composition/normalization pin, was **NOT FOUND** in the
 reviewed all-extent, temporal-gauge, partial-factorized-Haar, tube-disintegration
 and physical-joint-transfer modules. The search finding is not a theorem of
 nonexistence. Even such a kernel identity would not supply centered decay.
+
+**Subsequent update:** the explicit interior marginal and original boundary
+pairing pin are now proved without global recoding; see
+`audits/AUDIT-ORIGINAL-BOUNDARY-MARGINAL.md`. Adjacent-region composition,
+normalization/time identification and centered decay remain open.
 
 ## New proof: all-nome original spatial heat certificates
 
@@ -231,7 +237,9 @@ modules. A further direct consumer is the original bulk-probe background:
 line 126 currently use small-nome guards only to obtain positive certificates
 for their lower, upper and crossing spectators. An all-nome late-cutoff
 version can use the constructed certificates; that additional composition
-is not claimed as a declaration of this checkpoint. In contrast,
+was not claimed as a declaration of that checkpoint. It is now supplied by
+`BF4ExactSlabAllNomeBulkProbeBackground`, documented in
+`audits/AUDIT-ORIGINAL-BOUNDARY-MARGINAL.md`. In contrast,
 `productErrorInterval`,
 `lean/YMGap/Continuum/BF4ExactSlabBulkProbeCollarInterval.lean:88`, retains a
 small-nome estimate on the original collar's deviation from the unit

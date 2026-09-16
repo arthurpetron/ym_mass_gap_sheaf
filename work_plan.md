@@ -126,7 +126,44 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED all-nome original spatial heat certificates; OPEN boundary/operator and centered-decay estimates):**
+**Latest mathematical increment (PROVED original retained-boundary marginal; OPEN gluing/time identification and centered decay):**
+PROGRESS after `50d0d9d`. Parallel work produced two independent finite
+results and a read-only consumer audit. `BF4ExactSlabBoundaryMarginal`
+constructs explicit interior-integration schedules for both complete
+heat-dressed observables. `exact_bilinear_eq_boundaryHaar` pins their pairing
+against the actual crossing interface to the SAME original signed bilinear,
+every finite cutoff and odd extent, for w>=0. Residual polynomials retain
+the original coordinate numbering, carrier support and boundary locality.
+`SU2QuaternionOriginalHaarBlockMarginal` bridges the two existing Haar
+functionals and supplies selected-block spectator integration;
+`BF4ExactSlabCrossingBoundary` proves the literal interface locality/pin.
+
+Independently, `BF4ExactSlabAllNomeBulkProbeBackground` removes the old
+small-nome positivity guards from the existing full-background signed
+insertion estimate, for 0<w<1 and K>=headCutoff(w). It preserves the SAME
+original background and backgroundMass. Collar deviation smallness is NOT
+supplied by that result.
+
+NEXT: do not repeat scalar Gram factorization or this finite marginal.
+For this boundary-operator route, identify composition with the action on
+actual adjacent temporal regions, retaining every complementary interaction
+and counting the shared spatial slice correctly. Support/locality do not
+prove that an auxiliary marginal is in the original OS observable algebra.
+Increasing the common slab extent is not automatically time extension at
+fixed spatial volume. Existing original-action insertion and coordinate
+transport APIs accept polynomials, but their pins do not supply this gluing
+or a physical time operator. The decisive all-nome centered-decay estimate,
+physical scaling, continuum QFT/nontriviality and all-group target remain open.
+
+Verification: thirty public gates in four new modules within {propext,
+Quot.sound}; seven focused serialized one-worker/20 GiB checks, including
+three syntax/namespace/implicit-argument correction reruns. No raised limits
+or dependency rebuild. Four root imports; root/full-tree unrun. No existing
+statement, frontier field, axiom or literal hole changed. Source-level evidence,
+exact verification logs and next-consumer review:
+`audits/AUDIT-ORIGINAL-BOUNDARY-MARGINAL.md`.
+
+**Previous mathematical increment (PROVED all-nome original spatial heat certificates; OPEN boundary/operator and centered-decay estimates):**
 PROGRESS after `6ad5cc7`. The parallel geometry audit located an actual
 remaining finite positivity restriction, rather than another missing
 coordinate definition. `QuaternionHaarAllNomeHeatCertificate` applies the

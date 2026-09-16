@@ -13,7 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED all-nome original spatial heat certificates; OPEN centered spatial/OS contraction (2026-09-15)
+## PROVED original retained-boundary marginal and all-nome background estimate; OPEN physical gluing/decay (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/SU2QuaternionOriginalHaarBlockMarginal.lean`,
+  `BF4ExactSlabCrossingBoundary.lean`, `BF4ExactSlabBoundaryMarginal.lean`,
+  and `BF4ExactSlabAllNomeBulkProbeBackground.lean` in that directory.
+- **proof**: same original Haar functional, explicit interior schedules,
+  supported boundary-local residuals and an exact original signed bilinear
+  pin to their pairing against the actual crossing interface. All complete
+  heat-dressed observables and interaction factors are retained. No global
+  recoding or unproved independence is used.
+- **independent consumer**: all-nome late-cutoff positive certificates give
+  the existing original bulk-probe background weighted insertion bound with
+  its exact original mass. Collar deviation smallness remains separate.
+- **open residue**: adjacent temporal-region action gluing and shared-slice
+  accounting, original OS-observable realization or the sufficient proven
+  quotient/intertwining alternative, physical time/normalization identity,
+  centered spatial/OS decay with usable coupling/scale control, continuum
+  QFT/nontriviality and all-group Clay. No canonical atom is closed here.
+- **verification**: thirty public gates within {propext, Quot.sound}; seven
+  focused serialized one-worker/20 GiB checks including three correction
+  reruns. No raised limits or dependency rebuild. Four root imports; root
+  and full-tree unrun. No old statement, canonical field, axiom or literal
+  hole changed. Exact source evidence and log hashes:
+  `audits/AUDIT-ORIGINAL-BOUNDARY-MARGINAL.md`.
+
+## Previous PROVED all-nome original spatial heat certificates; OPEN centered spatial/OS contraction (2026-09-15)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarAllNomeHeatCertificate.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabAllNomeSpatialHeatCertificate.lean`.

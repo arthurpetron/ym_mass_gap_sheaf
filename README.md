@@ -21,7 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: positive certificates for the actual crossing interface at all nomes.**
+**Latest result: the original signed slab form is reduced to its actual boundary.**
+The [boundary-marginal identity](lean/YMGap/Continuum/BF4ExactSlabBoundaryMarginal.lean)
+integrates the interior links of both complete heat-dressed observables,
+retaining the literal crossing-link coordinates and every action factor.
+Their pairing against the original relative heat interface equals the SAME
+signed slab bilinear, at every finite cutoff and odd extent for `w>=0`.
+The schedules and residual polynomials are explicit; no coordinate recoding
+or assumed conditional independence is needed.
+
+An independent [background estimate](lean/YMGap/Continuum/BF4ExactSlabAllNomeBulkProbeBackground.lean)
+now works for every rational `0<w<1` at `K>=headCutoff(w)`. It does not
+remove the separate smallness condition on collar perturbations.
+Thirty public gates passed focused serialized checks; root/full-tree checks
+were not run. The [boundary audit](audits/AUDIT-ORIGINAL-BOUNDARY-MARGINAL.md)
+separates this finite identity from the still-missing adjacent-region gluing,
+original OS-observable realization, physical time identification, and usable
+centered decay. None of these results closes the continuum/Clay target.
+
+**Previous result: positive certificates for the actual crossing interface at all nomes.**
 The [new original-interface construction](lean/YMGap/Continuum/BF4ExactSlabAllNomeSpatialHeatCertificate.lean)
 certifies its spatial heat factors and complete spectator products for every
 rational `0<w<1`, once the existing explicit `headCutoff(w)` is reached.
