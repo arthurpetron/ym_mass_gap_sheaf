@@ -1,15 +1,19 @@
 /-
-# An original-Haar square test excludes small all-cutoff heat intervals
+# An original-Haar square test excludes even EVENTUAL small heat intervals
 
 On any actual slab plaquette, r=1+chi_1 satisfies H(r^2)=2 and
 H(r^2 chi_1)=2. The cutoff-one positive-label heat remainder therefore
-has H(r^2 R)=4*w^3. At w>=7/8 no original Haar Interval for R can
-have cap <=1. This tests the actual polynomial and the actual certificate
-semantics, not the previous coarse cap 128*w^3 or pointwise positivity.
+has H(r^2 R)=4*w^3. At every K>=2 its moment is exactly
+4*w^3+3*w^8: the character recurrence kills all spins above two.
+At w>=7/8 no original Haar Interval for the FULL positive-label remainder
+can have cap <=1, even after an arbitrary cutoff threshold and with a
+cutoff-dependent cap. This tests the actual polynomial and certificate
+semantics, not the coarse cap 128*w^3 or pointwise positivity.
 
-The obstruction is to the existing ALL-CUTOFF interval interface (already
-at cutoff one). It does not exclude a later-cutoff estimate, a different
-reference action, an AF law, or Yang--Mills existence. It supplies no
+The obstruction is to comparison of the FULL interaction with one, not to
+smallness of an OMITTED late tail relative to a retained head. It does not
+exclude a different reference action, an AF law or Yang--Mills existence.
+It supplies no
 physical-scale family, continuum limit or Clay closure.
 -/
 
@@ -17,6 +21,7 @@ import YMGap.Continuum.BF4ExactSlabSingleLinkCharacterSelection
 import YMGap.Continuum.BF4ExactSlabSmallNomeHaarComparison
 import YMGap.Continuum.QuaternionHaarPolynomialIntervalProduct
 import YMGap.Continuum.BF4SmallNomeAFGuardObstruction
+import YMGap.Continuum.PolynomialWeightedSumBounds
 
 namespace YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction
 
@@ -188,6 +193,157 @@ theorem no_allCutoff_intervals {w c : Q'} (hw : nomeThreshold ≤ w) (hc : c ≤
     (R : ∀ K : Nat, Interval (boundaryCompleteSlabLinks extent).length (faceHeatTail w extent id 1 K) c) :
     False := no_small_interval hw hc hi (R 1)
 
+private theorem first_character_mul_succ (p : RatPoly) (n : Nat) :
+    RatPolyCoeffEqv (polyMul (characterPolynomial p 1) (characterPolynomial p (n+1)))
+      (polyAdd (characterPolynomial p (n+2)) (characterPolynomial p n)) := by
+  let a := polyMul (characterPolynomial p 1) (characterPolynomial p (n+1))
+  let b := characterPolynomial p n
+  exact (coeffEvalExpr_eqv_of_normalize_eq (.var 0)
+    (.add (.add (.var 0) (.mul (.const (-1)) (.var 1))) (.var 1)) (by decide)
+    (fun i => if i = 0 then a else b)).trans
+    (((RatPolyCoeffEqv.refl a).add (cap_mul_left (-1) b)).add (RatPolyCoeffEqv.refl b))
+
+private theorem first_character_pair {extent id : Nat}
+    (hi : id ∈ slabPhysicalFaceEdges extent) (n : Nat) :
+    quaternionHaar (boundaryCompleteSlabLinks extent).length
+      (polyMul (characterPolynomial (faceScalar extent id) 1)
+        (characterPolynomial (faceScalar extent id) (n+1))) ≈ (if n = 0 then 1 else 0) := by
+  refine Q'.eqv_trans _ _ _ (haar_of_coeff (first_character_mul_succ (faceScalar extent id) n)) ?_
+  refine Q'.eqv_trans _ _ _ (quaternionHaar_append _ _ _) ?_
+  cases n with
+  | zero =>
+      exact Q'.eqv_trans _ _ _ (Q'.add_eqv_congr'
+        (face_character_haar_zero hi 2 (by decide)) (haar_one _)) (by decide)
+  | succ n =>
+      exact Q'.eqv_trans _ _ _ (Q'.add_eqv_congr'
+        (face_character_haar_zero hi (n+1+2) (by omega))
+        (face_character_haar_zero hi (n+1) (by omega))) (by simp only [Nat.succ_ne_zero, ↓reduceIte]; decide)
+
+/-- Exact original square-test moments at EVERY spin >=2. Only spin two survives. -/
+theorem test_square_character_haar_high {extent id : Nat}
+    (hi : id ∈ slabPhysicalFaceEdges extent) (n : Nat) :
+    quaternionHaar (boundaryCompleteSlabLinks extent).length
+      (polyMul (polyMul (testPolynomial extent id) (testPolynomial extent id))
+        (characterPolynomial (faceScalar extent id) (n+2))) ≈ (if n = 0 then 1 else 0) := by
+  let a := characterPolynomial (faceScalar extent id) 1
+  let b := characterPolynomial (faceScalar extent id) (n+2)
+  have hexpand : RatPolyCoeffEqv
+      (polyMul (polyMul (testPolynomial extent id) (testPolynomial extent id)) b)
+      (polyAdd b (polyAdd (polySmul 2 (polyMul a b)) (polyMul a (polyMul a b)))) :=
+    (coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul texpr texpr) (.var 1))
+      (.add (.var 1) (.add (.mul (.const 2) (.mul (.var 0) (.var 1)))
+        (.mul (.var 0) (.mul (.var 0) (.var 1))))) (by decide)
+      (fun i => if i = 0 then a else b)).trans
+      ((RatPolyCoeffEqv.refl b).add ((cap_mul_left 2 _).add (RatPolyCoeffEqv.refl _)))
+  have hlast := ((first_character_mul_succ (faceScalar extent id) (n+1)).mul_left a).trans
+    (RatPolyCoeffEqv.mul_add_right _ _ _)
+  refine Q'.eqv_trans _ _ _ (haar_of_coeff
+    (hexpand.trans ((RatPolyCoeffEqv.refl b).add ((RatPolyCoeffEqv.refl _).add hlast)))) ?_
+  refine Q'.eqv_trans _ _ _ (quaternionHaar_append _ _ _) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' (face_character_haar_zero hi (n+2) (by omega))
+    (Q'.eqv_trans _ _ _ (quaternionHaar_append _ _ _)
+      (Q'.add_eqv_congr'
+        (Q'.eqv_trans _ _ _ (quaternionHaar_polySmul _ _ _)
+          (Q'.mul_eqv_congr_left _ _ _ (first_character_pair hi (n+1))))
+        (Q'.eqv_trans _ _ _ (quaternionHaar_append _ _ _)
+          (Q'.add_eqv_congr' (first_character_pair hi (n+2)) (first_character_pair hi n)))))) ?_
+  cases n <;> simp only [Nat.succ_ne_zero, ↓reduceIte] <;> decide
+
+private theorem test_heatTerm_high (w : Q') {extent id : Nat}
+    (hi : id ∈ slabPhysicalFaceEdges extent) (n : Nat) :
+    quaternionHaar (boundaryCompleteSlabLinks extent).length
+      (polyMul (polyMul (testPolynomial extent id) (testPolynomial extent id))
+        (faceHeatTerm w extent id (n+3))) ≈ 0 :=
+  Q'.eqv_trans _ _ _ (haar_of_coeff (RatPolyCoeffEqv.polyMul_smul_right _ _ _))
+    (Q'.eqv_trans _ _ _ (quaternionHaar_polySmul _ _ _)
+      (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _ (test_square_character_haar_high hi (n+1)))
+        (Q'.mul_zero_eqv _)))
+
+private theorem inserted_sum_zero (blocks : Nat) (p : RatPoly) (f : Nat → RatPoly) :
+    ∀ ids : List Nat, (∀ i, i ∈ ids → quaternionHaar blocks (polyMul p (f i)) ≈ 0) →
+      quaternionHaar blocks (polyMul p (finitePolySum f ids)) ≈ 0
+  | [], _ => haar_of_coeff (RatPolyCoeffEqv.mul_zero_right p)
+  | i :: ids, h =>
+      Q'.eqv_trans _ _ _ (haar_of_coeff (RatPolyCoeffEqv.mul_add_right _ _ _))
+        (Q'.eqv_trans _ _ _ (quaternionHaar_append _ _ _)
+          (Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' (h i List.mem_cons_self)
+            (inserted_sum_zero blocks p f ids (fun j hj => h j (List.mem_cons_of_mem i hj)))) (by decide)))
+
+private theorem test_heatTail_high (w : Q') {extent id : Nat}
+    (hi : id ∈ slabPhysicalFaceEdges extent) (N : Nat) :
+    quaternionHaar (boundaryCompleteSlabLinks extent).length
+      (polyMul (polyMul (testPolynomial extent id) (testPolynomial extent id))
+        (faceHeatTail w extent id 3 N)) ≈ 0 := by
+  apply inserted_sum_zero
+  intro i _
+  rw [Nat.add_comm 3 i]
+  exact test_heatTerm_high w hi i
+
+/-- Increasing the cutoff does not remove the low-spin obstruction: the
+complete positive-label remainder has this SAME square moment at every K>=2. -/
+theorem test_remainder_haar_late (w : Q') {extent id : Nat}
+    (hi : id ∈ slabPhysicalFaceEdges extent) (K : Nat) (hK : 2 ≤ K) :
+    quaternionHaar (boundaryCompleteSlabLinks extent).length
+      (polyMul (polyMul (testPolynomial extent id) (testPolynomial extent id))
+        (faceHeatTail w extent id 1 K)) ≈ 4 * qpow w 3 + 3 * qpow w 8 := by
+  have hsplit := PolynomialWeightedSumBounds.sum_range_add (fun i => faceHeatTerm w extent id (1+i)) 2 (K-2)
+  rw [Nat.add_sub_of_le hK] at hsplit
+  unfold faceHeatTail
+  rw [hsplit]
+  refine Q'.eqv_trans _ _ _ (haar_of_coeff (RatPolyCoeffEqv.mul_add_right _ _ _)) ?_
+  refine Q'.eqv_trans _ _ _ (quaternionHaar_append _ _ _) ?_
+  have htail : quaternionHaar (boundaryCompleteSlabLinks extent).length
+      (polyMul (polyMul (testPolynomial extent id) (testPolynomial extent id))
+        (finitePolySum (fun i => faceHeatTerm w extent id (1+(2+i))) (List.range (K-2)))) ≈ 0 := by
+    simp only [← Nat.add_assoc]
+    exact test_heatTail_high w hi (K-2)
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' ?_ htail) (Q'.eqv_of_eq (Q'.add_zero' _))
+  simp only [show List.range 2 = [0,1] from rfl, finitePolySum, Nat.reduceAdd,
+    polyAdd, polyZero, List.append_nil]
+  change quaternionHaar _ (polyMul _ (polyAdd (faceHeatTerm w extent id 1) (faceHeatTerm w extent id 2))) ≈ _
+  refine Q'.eqv_trans _ _ _ (haar_of_coeff (RatPolyCoeffEqv.mul_add_right _ _ _)) ?_
+  refine Q'.eqv_trans _ _ _ (quaternionHaar_append _ _ _) ?_
+  refine Q'.add_eqv_congr' ?_ ?_
+  · simpa only [tail_one] using test_remainder_haar w hi
+  · refine Q'.eqv_trans _ _ _ (haar_of_coeff (RatPolyCoeffEqv.polyMul_smul_right _ _ _)) ?_
+    refine Q'.eqv_trans _ _ _ (quaternionHaar_polySmul _ _ _) ?_
+    exact Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _ (test_square_character_haar_high hi 0))
+      (Q'.mul_one_eqv _)
+
+theorem interval_cap_constraint_late (w c : Q') {extent id : Nat}
+    (hi : id ∈ slabPhysicalFaceEdges extent) (K : Nat) (hK : 2 ≤ K)
+    (R : Interval (boundaryCompleteSlabLinks extent).length (faceHeatTail w extent id 1 K) c) :
+    4 * qpow w 3 + 3 * qpow w 8 ≤ c * 2 := by
+  have h := R.weighted_haar_bound (Certificate.square (testPolynomial extent id) (test_supported _ _))
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv (test_remainder_haar_late w hi K hK))
+    (Q'.le_trans' _ _ _ (Q'.le_abs_self _)
+      (Q'.le_trans' _ _ _ h (Q'.le_of_eqv (Q'.mul_eqv_congr_left _ _ _ (test_square_haar hi)))))
+
+/-- Even EVENTUAL full-interaction intervals with cap<=1 fail at these nomes. -/
+theorem no_small_interval_late {w c : Q'} (hw : nomeThreshold ≤ w) (hc : c ≤ 1)
+    {extent id : Nat} (hi : id ∈ slabPhysicalFaceEdges extent) (K : Nat) (hK : 2 ≤ K)
+    (R : Interval (boundaryCompleteSlabLinks extent).length (faceHeatTail w extent id 1 K) c) : False := by
+  have hw0 : (0 : Q') ≤ w := Q'.le_trans' _ _ _ (by decide : (0 : Q') ≤ nomeThreshold) hw
+  have hlow : (2 : Q') < 4 * qpow w 3 :=
+    lt_of_lt_of_le (by decide : (2 : Q') < 4 * qpow nomeThreshold 3)
+      (Q'.mul_le_mul_of_nonneg_left _ _ 4
+        (qpow_mono_base (by decide : (0 : Q') ≤ nomeThreshold) hw 3) (by decide))
+  have hu : 4 * qpow w 3 ≤ 2 :=
+    Q'.le_trans' _ _ _ (Q'.add_le_self_of_nonneg _ _
+      (Q'.mul_nonneg _ _ (by decide : (0 : Q') ≤ 3) (RGTransport.qpow_nonneg w hw0 8)))
+      (Q'.le_trans' _ _ _ (interval_cap_constraint_late w c hi K hK R)
+        (Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_right _ _ 2 hc (by decide))
+          (Q'.le_of_eqv (Q'.one_mul_eqv 2))))
+  exact Int.not_lt_of_ge hu hlow
+
+theorem no_eventual_small_intervals {w : Q'} (hw : nomeThreshold ≤ w)
+    {extent id : Nat} (hi : id ∈ slabPhysicalFaceEdges extent) (K0 : Nat) (c : Nat → Q')
+    (hc : ∀ K, K0 ≤ K → c K ≤ 1)
+    (R : ∀ K, K0 ≤ K → Interval (boundaryCompleteSlabLinks extent).length (faceHeatTail w extent id 1 K) (c K)) :
+    False := no_small_interval_late hw (hc (max K0 2) (Nat.le_max_left _ _)) hi
+      (max K0 2) (Nat.le_max_right _ _) (R (max K0 2) (Nat.le_max_left _ _))
+
 theorem fine_nome_ge_threshold (family : MatchedBlockFamily) (law : CubicMarginLaw family)
     (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁) (hsmall : g ≤ guardThreshold) :
     nomeThreshold ≤ fineWeight family g := by
@@ -236,6 +392,11 @@ end YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction
 #print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.nomeThreshold
 #print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.no_small_interval
 #print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.no_allCutoff_intervals
+#print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.test_square_character_haar_high
+#print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.test_remainder_haar_late
+#print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.interval_cap_constraint_late
+#print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.no_small_interval_late
+#print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.no_eventual_small_intervals
 #print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.fine_nome_ge_threshold
 #print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.blocked_nome_ge_threshold
 #print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.afObstructionWitness

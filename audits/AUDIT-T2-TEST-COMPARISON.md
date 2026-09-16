@@ -1,5 +1,75 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Even eventual-cutoff unit-reference smallness is impossible (2026-09-15)
+
+Follow-up after `82b8842`. This strengthens the earlier cutoff-one
+obstruction, without changing any old statement or the retained-head
+relative tail theorem.
+
+| Result | Declaration and source | Scope |
+| --- | --- | --- |
+| All high-spin square moments | `test_square_character_haar_high`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:223` | For r=1+chi_1, H(r^2 chi_(n+2)) is one at n=0 and zero otherwise. Actual physical plaquette, original Haar. |
+| Exact moment at every late cutoff | `test_remainder_haar_late`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:285` | H(r^2*(H_K-1)) = 4*w^3+3*w^8 for EVERY K>=2; no limiting interchange. |
+| Necessary actual interval cap | `interval_cap_constraint_late`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:314` | 4*w^3+3*w^8 <= 2*c. |
+| Late and eventual no-go | `no_small_interval_late`, `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean:324`; `no_eventual_small_intervals`, same module :340 | At w>=7/8, no original interval cap <=1 at K>=2; no arbitrary K0/cutoff-dependent-cap workaround. |
+
+The excluded object is the FULL positive-label remainder H_K-1 appearing
+in `mixedCoefficient_selective_pin`,
+`lean/YMGap/Continuum/BF4ExactSlabMixedCoefficientBound.lean:79`.
+It is not the omitted late tail in `originalBackground_relative`,
+`lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean:173`.
+Thus no improved cap or later cutoff can supply the old unit-reference
+smallness at these nomes. This does not refute a different reference,
+spatial decay, the supplied AF law, or Yang--Mills existence.
+
+### Bounded parallel review of the actual spatial cancellation
+
+`FiniteSelectionMobius.coefficient`,
+`lean/YMGap/Continuum/FiniteSelectionMobius.lean:25`, sends an empty
+selection to the original functional at that selection. For an expansion
+retaining heads and selecting tail upgrades, that zero-order datum still
+contains the full/interior head boundary response. No new such expansion
+is defined or claimed proved here.
+
+The existing cancellation is `mixedCoefficient_inside_zero`,
+`lean/YMGap/Continuum/BF4ExactSlabMixedAction.lean:99`: its preceding
+`mixedNumerator_inside_zero` at :92 uses `inside keep ids = ids`, equality
+of the ENTIRE selected actions. The consumer
+`mixedNumerator_active_expansion`,
+`lean/YMGap/Continuum/BF4ExactSlabProbeRootedBoundaryExpansion.lean:80`,
+therefore cannot be justified merely by declaring the tail selection
+empty/interior while retaining distinct full/interior heads.
+
+`mixedNumerator_factorizes`,
+`lean/YMGap/Continuum/BF4ExactSlabMixedSpectatorFactorization.lean:46`,
+is already valid without a small-nome premise, but requires disjoint
+supports of ALL retained factors. `heatProduct_local`,
+`lean/YMGap/Continuum/BF4ExactSlabFaceLinkLocality.lean:116`, retains
+those factors' links. NOT FOUND: a new tail-only cancellation removing
+the head spatial estimate in these four modules, the existing
+`BF4ExactSlabMixedRootedResummation.lean`, and
+`BF4ExactSlabRetainedHeatHeadComparison.lean` (same directory).
+
+The exact full-heat contraction is also conditional in the relevant
+place: `literal_boundary_haar`,
+`lean/YMGap/Continuum/BF4ExactSlabFullHeatTubeContraction.lean:136`,
+gives w^36 through twelve heat factors only when the remainder has
+degree zero in all twelve integrated links. `literal_connected_transport`,
+`lean/YMGap/Continuum/BF4ExactSlabFullHeatTubeCovariance.lean:87`, keeps
+the same guard. Neither supplies it for the entire original action.
+
+The remaining spatial consumer is still
+`expectationDifference_bound_of_prefix_eventually`,
+`lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean:230`.
+The local conditional comparison proposed in work_plan is a NEXT TEST,
+not a proved minorization or an OS/physical gap. A local positive floor
+alone does not discharge the displayed spatial premise.
+
+Verification: five new and 14 legacy exact public gates passed, one
+empty and 18 with {propext, Quot.sound}. Three focused safe checks,
+one worker/20 GiB; no raised limit or full-tree run. Final log clean,
+own/direct artifacts fresh; exact gate matching and hash in work_plan.
+
 ## Retained-head comparison and parallel downstream checks (2026-09-15)
 
 Follow-up after `5774f6f`. This supplies the strict unweighted-prefix

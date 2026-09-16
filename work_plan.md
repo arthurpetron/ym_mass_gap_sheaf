@@ -119,7 +119,62 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (CLOSED retained-head relative truncation, late-cutoff normalization and centered graph kernel; OPEN original spatial decay/physical scale):**
+**Latest mathematical increment (PROVED eventual-cutoff unit-reference obstruction; OPEN interacting-head spatial control/physical scale):**
+PROGRESS after `82b8842`. The previous relative truncation result is preserved.
+Before attempting to reuse the old spatial expansion, two bounded parallel
+source reviews checked its cancellations and the existing heat-tube/retained
+interfaces. Neither supplies the missing original spatial estimate.
+
+The new proof in the EXISTING `BF4ExactSlabHeatHaarGuardObstruction` uses
+the character recurrence, not a numerical large-cutoff experiment.
+`test_square_character_haar_high` proves that the original square
+`r=1+chi_1` tests spin two with value one and every higher spin with zero.
+Consequently `test_remainder_haar_late` gives exactly
+H(r^2*(H_K-1)) = 4*w^3+3*w^8 for every K>=2, on any physical plaquette.
+Together with H(r^2)=2, `interval_cap_constraint_late` forces every
+actual original-Haar interval cap c to satisfy 4*w^3+3*w^8 <= 2*c.
+`no_eventual_small_intervals` excludes ANY threshold K0 and ANY sequence
+c(K)<=1 thereafter when w>=7/8. This strengthens the earlier cutoff-one
+obstruction: an eventual-cutoff repair of the old FULL-interaction
+smallness premise is impossible too. It does not exclude small OMITTED
+tails relative to a retained head, or any physical theory.
+
+The source review locates the separate head issue precisely. Möbius
+coefficient at the empty selection is the input functional at that empty
+selection. In a head-relative expansion this retains the actual full versus
+interior HEAD determinant. The old `mixedCoefficient_inside_zero` instead
+uses equality of the ENTIRE selected full/interior actions. Its active-core
+filter cannot simply be reused for tail selections. Existing mixed Haar
+factorization requires separation of all retained head links. The exact
+full-heat tube transmission w^36 also requires independence of the remainder
+from all twelve integrated links, not supplied for the full action.
+
+NEXT CAUSAL FRONTIER: genuinely control the retained interaction in the
+original boundary numerator, along a compatible physical scaling family.
+Do not require arbitrary-coupling mixing if the chosen physical trajectory
+needs less, and do not treat that trajectory as constructed. A concrete
+local route to test is an actual one-link conditional comparison paying
+only its incident faces (using headFloor/prefixCap), with the complementary
+action's independence proved by incidence and exact Fubini. This is NOT yet
+proved or a spatial contraction: the summed influence/scale estimate must
+be established before this route can feed the boundary consumer. Do not
+write another conditional gap wrapper in place of that estimate. Source
+citations and the bounded review scope are in the latest T2 audit section.
+The physical time/spectrum, complex OS identification, two-parameter limit,
+QFT axioms/nontriviality, all required groups and Clay goal remain open.
+
+Verification: five new plus all 14 legacy public gates passed (18 with
+{propext, Quot.sound}, one empty). Three focused safe one-worker/20 GiB
+checks; exact public/gate/log name matching, clean final log, fresh own and
+direct-import artifacts. Initial repairs concerned finite-sum elaboration,
+Nat reassociation, one existing lemma name and explicit rational arguments;
+no weakened statement, new hole/axiom, raised limit or canonical-field change.
+No full-tree run or root change. Swap decreased from 10421.75 to 10365.75 MiB
+across preflights. CI remains manual-only. Log
+`/tmp/ym-eventual-heat-haar-obstruction.log`, SHA-256
+`391fa0748225f4c47a65389c5ccd7fa3f4081a58a9c11b601407098b23597516`.
+
+**Previous mathematical increment (CLOSED retained-head relative truncation, late-cutoff normalization and centered graph kernel; OPEN original spatial decay/physical scale):**
 PROGRESS after `5774f6f`. Three user-authorized parallel tasks ran beside
 the retained-head proof; all Lean checks remained serialized. They supplied
 an actual reusable constant-term certificate, a source-backed volume-consumer

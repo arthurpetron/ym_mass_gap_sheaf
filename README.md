@@ -21,7 +21,20 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [late original heat prefixes have a strict Haar-order floor and a relative tail bound](lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean).
+**Latest result:** [increasing the cutoff cannot rescue the unit-background spatial expansion](lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean#L285).
+For the actual plaquette and `r=1+chi_1`, the exact Haar moments are
+`H(r^2)=2` and `H(r^2*(H_K-1))=4*w^3+3*w^8` for every `K>=2`.
+Thus at `w>=7/8`, the full interaction cannot have an original Haar
+interval cap at most one—even eventually, with a cutoff-dependent cap.
+This rules out a repair of the old spatial argument, **not Yang–Mills
+existence**. The small omitted tail proved below is a different object.
+
+The parallel source review also identifies the retained-head obstacle:
+the zero-tail term is still the head's boundary response, not zero.
+Its spatial estimate remains open. Five new and 14 existing declarations
+passed focused constructive axiom checks; no full-tree build was run.
+
+**Previous result:** [late original heat prefixes have a strict Haar-order floor and a relative tail bound](lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean).
 For every rational `0<w<1`, the proof retains the full interacting head
 and controls its omitted tail against the **same** positive background.
 The computed cutoff depends on `w` and the relative tolerance, not the

@@ -13,7 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## CLOSED retained-head relative truncation and parallel consumers; OPEN spatial decay and physical scale (2026-09-15)
+## PROVED eventual-cutoff unit-reference obstruction; OPEN interacting-head spatial control (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabHeatHaarGuardObstruction.lean`.
+- **proof**: `test_square_character_haar_high` evaluates the original
+  r=1+chi_1 square against every spin >=2; only spin two survives.
+  `test_remainder_haar_late` gives 4*w^3+3*w^8 at EVERY cutoff K>=2.
+  `interval_cap_constraint_late` tests the actual Haar Interval semantics,
+  and `no_eventual_small_intervals` excludes even cutoff-dependent caps
+  <=1 beyond any K0 when w>=7/8. No coarse cap or numerical extrapolation.
+- **route consequence**: increasing representation cutoff cannot repair
+  the old full-interaction/unit-background smallness premise. The proved
+  small omitted tail relative to the original retained head is unaffected.
+  This is a refuted proof interface, not physical nonexistence.
+- **open residue**: the retained-head boundary determinant and its spatial
+  control; a tail-only active-core cancellation does not remove that
+  determinant. The source review also retains the exact heat-tube
+  independence guard. Original conditional/block influence, physical
+  scaling/time/spectrum, canonical complex OS/QFT identification, continuum
+  limits and all-group Clay remain open. No canonical field, legacy flag,
+  analytic premise, axiom or literal hole changed.
+- **verification**: five new plus 14 legacy gates within {propext, Quot.sound};
+  three focused safe one-worker/20 GiB checks. Exact matching, clean final
+  log and fresh own/direct artifacts. No raised limits, root change or
+  full-tree check. Log/hash and next mathematical test in work_plan.
+
+## Previous CLOSED retained-head relative truncation and parallel consumers; OPEN spatial decay and physical scale (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/BF4ExactSlabJacobiDeficitInterval.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabRetainedHeatHeadComparison.lean`;
