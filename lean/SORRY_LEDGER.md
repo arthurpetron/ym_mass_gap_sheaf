@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original joint cutoff/time limit and both iterated limits; OPEN bulk/stationary and OS passage (2026-09-16)
+## PROVED actual weighted symmetry and finite middle pairing; OPEN original middle placement and two-sided convergence (2026-09-16)
+
+- **files**: `SU2QuaternionTwoSliceSwap.lean`,
+  `BF4ExactSlabFixedSpatialKineticSymmetry.lean`,
+  `BF4ExactSlabFixedSpatialTransferSymmetry.lean`,
+  `BF4ExactSlabFixedSpatialTerminalBracket.lean`,
+  `SU2QuaternionHeadChainMiddleInsertion.lean`, and
+  `BF4ExactSlabFixedSpatialMiddlePairing.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: full-coordinate slice swapping preserves the actual K and
+  double-Haar pairing with BOTH V factors. Actual T and all finite powers
+  are symmetric in ell(g*f)=H[V*g*f]. Certified residual multiplication
+  preserves bracket endpoints; the actual transfer floor proves every
+  terminal-pair denominator positive. Exact chain contraction and weighted
+  symmetry identify the middle numerator as ell((u_m*p)*u_n), with u_j=T^j1,
+  and identify the same partition as ell(u_m*u_n). Zero lengths are included.
+- **consumer/open input**: supplies the finite algebra and denominator for
+  the two-sided interior scalar. The endpoint ratio ell(u_m*T^n p) is NOT
+  substituted for the interior numerator. Original middle-slice geometric
+  placement/normalization, two-sided convergence, multi-insertion and shift
+  consistency, connected correlations, physical reflected OS/vacuum,
+  completed cutoff-limit power/moment compatibility, uniform width/spacing
+  estimates, continuum QFT and all-group Clay closure remain open. No old
+  statement, frontier field, literal hole, axiom or analytic premise changed.
+- **verification**: six focused serialized one-worker/20 GiB checks; all
+  34 public gates within {propext, Quot.sound}. Six selective-root imports;
+  root/full-tree/full axiom audit unrun. Independent read-only source reviews
+  checked original factors, chronology and the endpoint/interior distinction.
+  Evidence: `audits/AUDIT-FIXED-SPATIAL-MIDDLE-PAIRING.md`.
+
+## Previous PROVED original joint cutoff/time limit and both iterated limits; OPEN bulk/stationary and OS passage at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialOriginalJointCauchy.lean` and
   `BF4ExactSlabFixedSpatialOriginalJointLimits.lean`, under `lean/YMGap/Continuum/`.

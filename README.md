@@ -21,7 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: heat cutoff and boundary time have the same joint limit.**
+**Latest result: the actual transfer gives an exact interior-message pairing.**
+The [weighted-symmetry proof](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferSymmetry.lean)
+exchanges the two complete slices of the original kinetic polynomial and
+retains both spatial weights. The [middle-insertion contraction](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialMiddlePairing.lean)
+then identifies a chronological chain's interior numerator as
+`ell((T^m 1) * p * (T^n 1))`, where `ell(h) = H[V*h]`.
+Its denominator is proved equal to the SAME finite-chain partition and
+strictly positive at every pair of lengths, including zero.
+
+This is an **exact finite identity**, not yet two-sided convergence or a
+stationary vacuum. The original ambient-lattice middle-slice placement and
+two-sided boundary-forgetting bound remain next. A separately checked
+endpoint-probe ratio is explicitly distinguished from this interior ratio.
+The rate still depends on nome and spatial width; physical OS identification,
+uniform volume/spacing passage, continuum QFT and the Clay target remain open.
+Six focused checks passed all 34 public axiom gates; no root/full-tree check
+was run. See the [middle-pairing audit](audits/AUDIT-FIXED-SPATIAL-MIDDLE-PAIRING.md).
+
+**Previous result: heat cutoff and boundary time have the same joint limit.**
 The [original-scalar rectangle estimate](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalJointCauchy.lean)
 constructs a common limit as both indices recede, with explicit independent
 cutoff and time thresholds. It compares long chains through one computed
@@ -31,8 +49,9 @@ prove that removing the heat cutoff first or the opposite time boundary first
 reaches that SAME limit of the original selected-chain expectation.
 
 This remains a **one-sided boundary scalar at fixed nome and spatial width**,
-not a stationary vacuum, a bulk state or a physical OS theory. The next step
-requires two-sided transfer pairing and an exact interior-probe identity.
+not a stationary vacuum, a bulk state or a physical OS theory. At that
+checkpoint two-sided transfer pairing and an exact interior-probe identity
+were the next steps; the latest result above supplies their finite algebra.
 Width/spacing-uniform control, continuum QFT and the Clay target remain open.
 Two focused checks passed all 15 public axiom gates; no root/full-tree check
 was run. See the [joint-limit audit](audits/AUDIT-FIXED-SPATIAL-JOINT-BOUNDARY-LIMIT.md).

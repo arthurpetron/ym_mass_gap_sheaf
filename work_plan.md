@@ -133,7 +133,51 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED original joint cutoff/time limit and both orders of limits; OPEN bulk/stationary and physical OS passage):**
+**Latest mathematical increment (PROVED actual weighted symmetry, positive terminal pairing and finite interior contraction; OPEN original middle placement and two-sided convergence):**
+PROGRESS after `1c981db`. The explicit full-slice swap preserves the actual
+kinetic polynomial through the quaternion scalar dot product, its complete
+character sums and temporal-face product. Haar invariance and ordered-head
+Fubini prove `transferStep_weighted_symmetric` and
+`iterateStep_weighted_symmetric` in ell(h)=H[V*h], retaining V(x)V(y).
+These finite identities need no positive-nome or late-cutoff hypothesis;
+they are not unweighted-completion or physical OS self-adjointness.
+
+The existing transfer floor and product certificates now construct
+`terminalPair_positive`: ell(u_m*u_n)>0 for u_j=T^j 1, 0<w<1 and
+K>=headCutoff(w). `multiplyBracket` and `terminalMassRatio_bounds` retain
+the same comparison endpoints after a certified terminal multiplier.
+The specialized `terminalProbeRatio` has numerator ell(u_m*T^n p), NOT
+ell(u_m*p*u_n); its bound must not be relabeled as interior convergence.
+
+CONTRACTION: `chain_middle_pairing` integrates m steps, retains the middle
+probe, then integrates n steps. `middle_pairing` composes this with the
+actual weighted symmetry to obtain ell((u_m*p)*u_n). Its corresponding
+`chain_partition_pairing` identifies the SAME chronological partition with
+ell(u_m*u_n); `chain_partition_positive` supplies strict positivity.
+The middle V is counted exactly once. `middleRatio` names this actual
+interior ratio, separately from the endpoint-probe ratio.
+
+NEXT CAUSAL FRONTIER: prove the middle block of the chronological embedding
+is the original slice at start+m, and pin this pairing/normalization to the
+existing original finiteValue with its spatial-face and extent guards.
+For two-sided forgetting, initialize the generic bracket on (u_m*p,u_m)
+by multiplying a source-probe interval by the certified u_m; then compare
+extensions using weighted symmetry and the positive pair denominators.
+This is a source-reviewed next argument, NOT a checked bulk Cauchy modulus.
+Multi-insertion consistency/shift invariance, connected correlations,
+physical reflected OS realization, completed cutoff-limit power/moment
+compatibility, width/spacing-uniform estimates, continuum QFT and all-group
+physical gap remain open. No original frontier field or analytic premise
+changed. The selected-chain action remains distinct from the full ambient box.
+
+Verification: six focused serialized one-worker/20 GiB checks; all 34 public
+gates within {propext, Quot.sound}. Six selective-root imports; root/full-tree/
+full axiom audit unrun. No new literal hole, axiom, classical input or raised
+resource limit. Independent read-only reviews checked the chronology,
+spatial weights and endpoint/interior distinction. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-MIDDLE-PAIRING.md`.
+
+**Previous mathematical increment (PROVED original joint cutoff/time limit and both orders of limits; OPEN bulk/stationary and physical OS passage at that checkpoint):**
 PROGRESS after `4c8d734`. `originalCutoffCauchy` is the existing fixed-time
 original finiteCauchy. With delta=epsilon/4, `jointTimeThreshold` computes
 a=A(delta) and `jointCutoffThreshold` computes b=C_a(delta). The actual
