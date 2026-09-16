@@ -4522,6 +4522,13 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialChainCarrier
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProbe
 import YMGap.Continuum.BF4ExactSlabFixedSpatialOriginalIteration
 import YMGap.Continuum.BF4ExactSlabFixedSpatialIterationLimit
+-- Actual fixed-spatial Haar norm control and its constructive completion.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialKineticOrder
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialOrder
+import YMGap.Continuum.SU2QuaternionHaarKernelBound
+import YMGap.Continuum.SU2QuaternionHaarBoundedCompletion
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferBound
+import YMGap.Continuum.BF4ExactSlabFixedSpatialCompletedHaarTransfer
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

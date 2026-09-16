@@ -94,6 +94,13 @@ decay is infrastructure, not completion.
    obstruction and the remaining continuum/all-group obligations. Expansion
    exposes necessary witnesses and estimates; contraction composes proved arrows
    or eliminates an unnecessary branch. Do not imply proximity from graph size.
+8. **Bound literature polling (user request, 2026-09-16).** Check the routine
+   math-ph new listing at most once every 12 hours, using the timestamped
+   research audit between checks. Do not repeat a scan on each goal turn.
+   The latest scan ended at 2026-09-16 09:54 UTC; the next routine scan is
+   not before 21:54 UTC that day. A direct request to inspect a specific
+   paper is separate from routine listing polling. Prefer proof work when
+   no new literature check is due.
 
 ### Classical methods: review aid, not a changed proof substrate
 
@@ -126,7 +133,41 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED same-original normalized scalar cutoff limit; OPEN stationary time limits and quantitative Haar control):**
+**Latest mathematical increment (PROVED cutoff-independent ordinary-Haar norm control and completed actual step; OPEN stationary/OS identification):**
+PROGRESS after `1e8cd78` (literature recheck recorded in `7d9118b`). The
+actual lower-times-conjugate-upper kinetic word and ordered spatial words
+produce positive square certificates on the same two-slice carrier.
+`stepWeightCertificate` retains W=K*V with one head V;
+`stepWeightInterval` gives the explicit cap
+`C = prefixCap(w)^numberOfTemporalFaces * prefixCap(w)^numberOfSpatialFaces`.
+For rational 0<w<1 and K>=headCutoff(w), `transferStep_square_bound`
+proves the original T's ordinary-Haar squared-norm bound with constant C*C.
+C is independent of K but depends on nome and spatial width.
+
+CONTRACTION: weighted Cauchy--Schwarz and ordered-head Fubini yield the
+norm estimate. Pointwise action on existing GNS Cauchy representatives
+then constructs `completedTransfer`, preserving the exact dense map,
+rational linearity and completed norm bound. Its explicit input tolerance
+is epsilon*invSucc((C*C).num.toNat). No representative is chosen from a
+quotient and no intermediate cutoff-message convergence is assumed.
+The completed dense pairing is H(Tf*g); the original chain's endpoint
+weight still requires the supported test V*g, not g alone.
+
+NEXT: pin finite powers of this completed map to the original selected-chain
+moments, and construct certificate preservation under actual partial Haar
+integration for order-based boundary forgetting. The completed carrier is
+ORDINARY Haar, not physical reflected OS. No stationary normalization,
+vacuum, operator cutoff limit, strict rate, width/spacing uniformity, or
+continuum/all-group gap is supplied. Those remain the real open inputs.
+
+Verification: six narrow serialized one-worker/20 GiB checks; all 57 public
+gates within {propext, Quot.sound}. Six root imports; no root/full-tree or
+full axiom audit run. An independent source review confirmed weight
+accounting, cutoff guards, explicit moduli and scope. No frontier field,
+old statement, literal hole or analytic premise changed. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-HAAR-TRANSFER.md`.
+
+**Previous mathematical increment (PROVED same-original normalized scalar cutoff limit; OPEN stationary time limits and quantitative Haar control at that checkpoint):**
 PROGRESS after `67e0a60`. `BF4ExactSlabFixedSpatialIterationLimit` applies
 the proved original-chain identity to both the actual endpoint iterate
 and its empty/empty partition. `compactPartition_pin` identifies the

@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED same-original normalized scalar cutoff limit; OPEN stationary time and quantitative control (2026-09-16)
+## PROVED actual ordinary-Haar transfer bound and completion; OPEN stationary/OS identification (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialKineticOrder.lean`,
+  `BF4ExactSlabFixedSpatialSpatialOrder.lean`, `SU2QuaternionHaarKernelBound.lean`,
+  `SU2QuaternionHaarBoundedCompletion.lean`, `BF4ExactSlabFixedSpatialTransferBound.lean`,
+  `BF4ExactSlabFixedSpatialCompletedHaarTransfer.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: actual K/V source-word certificates give an explicit interval
+  cap depending on nome and both width-only face counts, but not heat cutoff.
+  Weighted Cauchy--Schwarz plus exact partial-integration pairing proves
+  `transferStep_square_bound` for K>=headCutoff(w), 0<w<1. The actual
+  `completedTransfer` acts on the existing ordinary-Haar GNS completion,
+  with exact dense embedding/pairing, rational linearity, the same C*C
+  bound, and the explicit inherited representative modulus.
+- **consumer/open input**: supplies bounded completion of the original
+  finite polynomial step, not a surrogate kernel. Finite completed powers
+  still need their original-chain pairing pin; its terminal test must be
+  V*g. General partial-Haar certificate preservation and quantitative
+  boundary forgetting remain open. Ordinary-Haar completion is NOT the
+  reflected physical OS construction. Cutoff-operator convergence,
+  stationary normalization/vacuum, uniform volume/spacing passage,
+  continuum QFT/nontriviality and the all-group physical gap remain open.
+  No canonical field, old statement, literal hole or analytic premise changed.
+- **verification**: six focused serialized one-worker/20 GiB checks; all
+  57 public axiom gates within {propext, Quot.sound}. Six root imports;
+  root/full-tree and full axiom audit unrun. Independent source review found
+  no mathematical mismatch. See `audits/AUDIT-FIXED-SPATIAL-HAAR-TRANSFER.md`.
+
+## Previous PROVED same-original normalized scalar cutoff limit; OPEN stationary time and quantitative control at that checkpoint (2026-09-16)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialIterationLimit.lean`.
 - **proof**: `compactNumerator_pin` and `compactPartition_pin` identify

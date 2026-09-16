@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: cutoff removal for the actual normalized finite-chain iterate.**
+**Latest result: the actual weighted step has a bounded ordinary-Haar completion.**
+The [original transfer bound](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferBound.lean)
+proves `||T f||^2 <= C(w,width)^2 ||f||^2` for the actual
+`T f(y) = integral K(x,y)V(x)f(x) dH(x)`. The explicit cap is independent
+of heat cutoff after the existing positivity threshold, but depends on
+nome and spatial width. No action factor is removed or separately normalized.
+
+The [completed map](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCompletedHaarTransfer.lean)
+retains that bound, exact dense pairing, rational linearity, and explicit
+Cauchy moduli on the existing ordinary product-Haar GNS completion.
+**This is not the physical reflected OS Hilbert space or a gap estimate.**
+Cutoff-operator convergence, stationary vacuum construction, quantitative
+forgetting and the volume/spacing/continuum passage remain open.
+Six focused serialized checks passed all 57 public gates; root/full-tree
+verification was not run. See the [proof audit](audits/AUDIT-FIXED-SPATIAL-HAAR-TRANSFER.md).
+
+**Previous result: cutoff removal for the actual normalized finite-chain iterate.**
 The [scalar-limit theorem](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialIterationLimit.lean)
 identifies both the iterated numerator and its partition with the same
 original selected action. One original reciprocal normalizes the whole
