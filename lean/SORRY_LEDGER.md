@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual cutoff-limit transfer and rank-one cone bounds; OPEN quantitative forgetting and stationary/OS identification (2026-09-16)
+## PROVED actual geometric comparison brackets and original normalized scalar pin; OPEN stationary/connected-correlation and physical OS passage (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialTransferMixingRate.lean`,
+  `BF4ExactSlabFixedSpatialWeightedMass.lean`,
+  `BF4ExactSlabFixedSpatialProbeInterval.lean`,
+  `BF4ExactSlabFixedSpatialTransferBracket.lean`,
+  `BF4ExactSlabFixedSpatialTransferBracketDecay.lean`, and
+  `BF4ExactSlabFixedSpatialTransferBracketOriginalScalar.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: actual kinetic certificates imply 0<a<=b and 0<=q=1-a/b<1.
+  The original V_K-weighted functional is signed-linear and has positive mass
+  on one; positive certified comparison masses propagate through actual T_K.
+  Lower bounds on the two bracket residuals plus the same upper bound on g
+  construct refresh. Exact residual cancellation proves q-width reduction;
+  recursion gives q^n width on the existing iterateStep. Explicit original
+  signed-probe intervals provide inhabited initial data, not an analytic
+  bracket premise. The actual normalized mass ratio lies in the interval
+  and is pinned to the original finiteValue using the SAME chain partition.
+- **consumer/open input**: supplies geometric comparison-spread control and
+  an original finite-chain scalar consumer. The centres can depend on time
+  and cutoff. Nested/consistent interval passage, general terminal-boundary
+  comparison, stationary time/connected-correlation limits, completed-limit
+  power/moment compatibility and physical reflected OS realization remain
+  open. q depends on nome and width; no uniform width/spacing rate, continuum
+  QFT or all-group physical gap is supplied. No old field, literal hole,
+  axiom, analytic premise or normalization changed.
+- **verification**: six narrow serialized one-worker/20 GiB checks; all
+  40 public gates within {propext, Quot.sound}. Six root imports; root/full-
+  tree and full axiom audit unrun. Source reviews found no mathematical
+  mismatch. Evidence: `audits/AUDIT-FIXED-SPATIAL-PROJECTIVE-BRACKETS.md`.
+
+## Previous PROVED actual cutoff-limit transfer and rank-one cone bounds; OPEN quantitative forgetting and stationary/OS identification at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialTransferLimitFamily.lean`,
   `BF4ExactSlabFixedSpatialCompletedTransferLimit.lean`,

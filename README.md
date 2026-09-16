@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: the actual transfer has a constructed cutoff limit.**
+**Latest result: geometric comparison bounds reach an original chain observable.**
+The [actual transfer comparison](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferBracketDecay.lean)
+constructs polynomial certificates bracketing `T_K^n f` relative to
+`T_K^n 1`. For each original signed source probe, the interval width is
+exactly `2*probeCap*q^n`, where `q = 1 - kineticFloor/kineticCap` and
+`0 <= q < 1`. Positive normalization masses are proved at every step.
+The rate is independent of late heat cutoff K, **not** of nome or width.
+
+The [same-original scalar pin](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferBracketOriginalScalar.lean)
+places the existing normalized finite-chain expectation inside that interval,
+with its actual geometry guards, terminal spatial weight and whole-chain
+partition. The interval centre may change with time and cutoff: this is not
+yet a stationary limit, connected-correlation bound or physical OS gap.
+Uniform volume/spacing passage and the Clay target remain open. Six focused
+checks passed all 40 public axiom gates; no root/full-tree check was run.
+See the [proof audit](audits/AUDIT-FIXED-SPATIAL-PROJECTIVE-BRACKETS.md).
+
+**Previous result: the actual transfer has a constructed cutoff limit.**
 The [limit operator](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCompletedTransferLimit.lean)
 acts on the SAME ordinary-Haar completion, without rescaling T or selecting
 quotient representatives. Its explicit Cauchy family yields the original norm

@@ -133,7 +133,49 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED actual cutoff-limit operator and rank-one cone bounds; OPEN quantitative forgetting and stationary/OS identification):**
+**Latest mathematical increment (PROVED geometric comparison brackets and original normalized scalar pin; OPEN stationary/connected-correlation and physical OS passage):**
+PROGRESS after `aea5cde`. The actual kinetic floor/cap certificates prove
+0<a<=b, hence eta=a/b and q=1-eta satisfy 0<=q<1. The original V_K-weighted
+mass is signed-linear; its mass of one has the actual spatial-product floor.
+The lower transfer certificate propagates positive comparison mass, so
+normalization witnesses are constructed at every iteration, not assumed.
+
+`refresh` improves a bracket lower*g <= f <= upper*g by applying the
+actual lower bound to its two positive residuals and the SAME upper bound
+to g. Their masses cancel the signed f term exactly. `refresh_width` gives
+q*(upper-lower); `iterateBracket_width` follows the existing iterateStep and
+gives q^n*(upper-lower). An inhabited interval for each original signed
+sourceProbe yields `sourceProbeBracket_width` = q^n*(probeCap+probeCap).
+The edge q=0 is included without division by q or positivity of the probe.
+
+CONTRACTION TO AN ACTUAL OBSERVABLE: `massRatio_bounds` applies the same
+V-weighted functional. `sourceProbeMassRatio_normalizedScalar` identifies
+both reciprocals using the SAME compact partition; `originalFiniteValue_bounds`
+places the original selected-action scalar in the constructed interval under
+the existing width/time/face guards. The terminal V remains present, including
+at zero steps. No finite-state kernel or independently normalized layer replaces T.
+
+NEXT CAUSAL FRONTIERS: prove consistency/nesting of the successive intervals
+or comparison of positive terminal boundary tests, then use the explicit
+geometric rate for original stationary/connected-correlation limits. The
+interval centre may still depend on n and K; this checkpoint alone does not
+prove convergence of those centres or decay of an unnormalized transfer power.
+Keep the earlier actual cutoff-limit operator's finite-power/moment
+compatibility frontier visible. Physical reflected OS/vacuum identification,
+width/spacing-uniform control, continuum QFT and all compact simple groups
+remain open. q retains nome/width dependence; only late heat-cutoff uniformity
+is proved here.
+
+Verification: six focused serialized one-worker/20 GiB checks; all 40 public
+gates within {propext, Quot.sound}; six selective-root imports. Scalar
+identities were isolated, and the actual iteration uses explicit Nat induction
+with local elaborator opacity for concrete Haar/face data. Its heartbeat budget
+is 2,000,000; memory/worker limits are unchanged. Independent source review
+found no mathematical mismatch. Root/full-tree and full axiom audit unrun;
+no old field, literal hole, axiom or analytic premise changed. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-PROJECTIVE-BRACKETS.md`.
+
+**Previous mathematical increment (PROVED actual cutoff-limit operator and rank-one cone bounds; OPEN quantitative forgetting and stationary/OS identification at that checkpoint):**
 PROGRESS after `1b7c0fc`. `cutoffFamily` uses the actual completed T_K,
 an explicit norm-ceiling tolerance and the existing constructive diagonal.
 `limitRep_null` compares two inputs at ONE common outer cutoff and then
