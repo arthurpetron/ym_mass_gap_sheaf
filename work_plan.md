@@ -65,6 +65,13 @@ decay is infrastructure, not completion.
    actual-transfer identity; do not assume it is an original state. Retain every
    action factor involving the integrated variables; spectator independence is
    a hypothesis to check, not a consequence of drawing a local diagram.
+   Test inhabitability of exact rational parametrizations before treating
+   them as analytic frontiers: the physical square-time dyadic bridge is
+   now refuted (`audits/AUDIT-AF-DYADIC-BRIDGE.md`). Trace such defects
+   through bundled fields, not only through named theorem calls. Reuse an
+   existing quantitatively sufficient interface instead of imposing an
+   unnecessary exact schedule. Preserve refuted fields unless an explicit,
+   reviewed statement change is authorized.
 4. **Make the analytic budget visible.** Separate heat cutoff, volume, spacing,
    coupling, time and observable dependence. Preserve signed cancellations and
    shared partition factors before taking absolute values. Do not pass changing
@@ -119,7 +126,51 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED all-nome intermediate normalization and lossless comparison; OPEN decaying determinant estimate):**
+**Latest mathematical increment (REFUTED physical square-time dyadic bridge; NEXT direct quantitative growth):**
+PROGRESS after `a912133`. Parallel source reviews did not find a new spatial
+estimate: cutoff-tail smallness leaves the retained common-exterior
+interaction, and local nome Lipschitz control alone loses the necessary
+spatial cancellation. Those branches were not expanded into more wrappers.
+The scale-convention review instead found a decisive specification defect.
+
+`physicalTime(g)=4*g^2` and the exact dyadic heat-time field force
+`coupling(1)^2=1/2` with rational coupling. The new constructive
+`Q'.square_ne_half` proves this impossible by integer parity descent.
+`BF4MatchedDyadicHeatObstruction` applies it to every square-time envelope,
+the exact `MatchedDyadicSameActionAFBridge`, and the matched pointwise
+windows, which also contain the same bridge. This is a checked refutation
+of these inputs, not a refutation of `CubicMarginLaw`, the generic AF
+envelope, original-action normalization, the fixed-nome OS result, or YM.
+
+The physical Faraut module now labels its impossible inputs explicitly.
+Thirty other existing modules reference the matched bridge/window types
+directly; this is a lexical inventory, not a full transitive audit. The
+finite-window certificate families and matched cube/ray gates are among
+the affected specializations. Generic algebra in those files is not
+declared false. See `audits/AUDIT-AF-DYADIC-BRIDGE.md` for exact declarations,
+the separate fine-to-coarse sign/calibration concern, and verification.
+
+NEXT CAUSAL FRONTIER: prove a representation-safe cutoff
+N(w)=floor(8/(1-w))+1 with 8<=N*(1-w)<=9 and w^N<=1/8.
+The existing AF margin field would then give N*(t/4)<=18, directly
+supplying the existing `FarautAFBitGrowth` interface at the ACTUAL nome,
+without any exact dyadic or Padé identity. Existing constructive integer
+upper approximations and Bernoulli estimates support this paper argument;
+it is NOT yet a newly checked theorem. Feed a proved growth witness only
+to the generic `PointwiseHeatAFWindowFamily`, whose actual local windows
+and upper<=4^N*lower bound remain separate. A tail cutoff is not by itself
+a Harnack bound. Changing-action spatial decay, scale/transfer calibration,
+continuum QFT/nontriviality and all compact simple groups remain open.
+
+Verification: five new public gates and seven unchanged public gates in
+the comment-updated module all within {propext, Quot.sound}; three focused
+safe one-worker/20 GiB checks, each passing first run. No raised limits,
+dependency refresh, literal hole, custom axiom, old theorem statement or
+canonical field change. Own/direct artifacts fresh. Two root imports;
+root/full-tree unrun, CI manual-only. Final log hashes are recorded in
+`audits/AUDIT-AF-DYADIC-BRIDGE.md`.
+
+**Previous mathematical increment (PROVED all-nome intermediate normalization and lossless comparison; OPEN decaying determinant estimate):**
 PROGRESS after `c416885`. Source review isolated a real remaining guard:
 the intermediate laws in `BF4ExactSlabFaceSetExpectation` required
 `hsmall` and `hd`, even though the original full-slab law and sufficiently

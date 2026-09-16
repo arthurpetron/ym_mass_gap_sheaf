@@ -21,7 +21,22 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [original intermediate face-set expectations](lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetExpectation.lean)
+**Latest result: a bridge specification was refuted, not a physics theorem proved.**
+The [exact matched dyadic bridge](lean/YMGap/Continuum/BF4MatchedDyadicHeatObstruction.lean)
+requires a rational coupling with square `1/2`. Lean now proves that it
+has no inhabitant. The matched pointwise-window interface also contains
+that impossible bridge. Its conditional theorems therefore cannot supply
+physical instances. The [audit](audits/AUDIT-AF-DYADIC-BRIDGE.md) traces
+the affected consumers and distinguishes the separate RG-calibration issue.
+
+The old statements are preserved and explicitly labelled; no frontier field
+was weakened. Five new and seven existing public axiom checks passed in
+three focused, serialized runs. The next target is direct quantitative
+cutoff growth at the actual nome, without exact dyadic/Padé identification;
+the required local-window and spatial estimates remain open. The independent
+original-action results below are not refuted. No full-tree build was run.
+
+**Previous result:** [original intermediate face-set expectations](lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetExpectation.lean)
 are now constructed for every rational nome `0<w<1`, with explicit cutoff
 and Cauchy moduli. The [partition reciprocal](lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetReciprocal.lean)
 uses the original positive cutoff tail, and the resulting expectations are

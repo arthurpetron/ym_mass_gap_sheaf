@@ -1,5 +1,23 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Scale-route correction: exact physical dyadic input refuted (2026-09-15)
+
+The parallel next-consumer review found no new retained-interaction
+estimate to supply the boundary determinant. It did identify an impossible
+physical dyadic schedule. The new checked theorem
+`matchedDyadicSameActionAFBridge_uninhabited`,
+`lean/YMGap/Continuum/BF4MatchedDyadicHeatObstruction.lean:55`, refutes
+that input; `matchedPhysicalPointwiseHeatWindows_uninhabited`, same
+file `:62`, traces it through the window bundle. The independent
+original-action normalization and fixed-nome OS estimates are unaffected.
+
+See [the scoped audit](AUDIT-AF-DYADIC-BRIDGE.md) for the exact arithmetic
+contradiction, affected conditional consumers, separate scale/sign
+calibration concern, and proposed direct quantitative growth argument.
+No field was changed. The spatial covariance estimate and actual
+physical-window/scale transport remain open; removing this impossible
+branch does not prove either one.
+
 ## All-nome intermediate laws and lossless normalized comparison (2026-09-15)
 
 Follow-up after `c416885`. The source review identified a removable

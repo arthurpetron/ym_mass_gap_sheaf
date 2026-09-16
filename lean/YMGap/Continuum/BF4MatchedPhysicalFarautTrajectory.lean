@@ -14,13 +14,24 @@ specialization.  Its executable bit schedule is therefore literally
 
     spacingLabelCutoff (blockedWeight family (coupling scale)).
 
-No Padé weight is substituted for the matched block output.
+No Padé weight is definitionally substituted for the matched block output.
+However, the dyadic bridge separately ASSUMES exact Padé-nome equality.
 
-The inputs `CubicMarginLaw`, `PhysicalSpacingEnvelope`, the dyadic bridge,
-and the local prefix/tail windows remain explicit Type-valued obligations.
-In particular, this module does not claim the still-open four-dimensional
-cubic remainder, physical spacing law, or equality between the completed
-pointwise character product and the full BF4 slab kernel.
+## REFUTED physical dyadic specialization (2026-09-15)
+
+`BF4MatchedDyadicHeatObstruction.matchedDyadicSameActionAFBridge_uninhabited`
+proves that the dyadic bridge used here has NO inhabitant: t(g)=4*g^2,
+where g is rational, and its scale-one heat-time equation forces g^2=1/2.
+`MatchedPhysicalPointwiseHeatWindows` is also uninhabited, because its
+underlying `SameActionPointwiseHeatWindows` contains that same bridge.
+Consequently the bit-growth, physical-core-length and matched-window-family
+constructors below are valid conditional implications with impossible
+inputs, NOT available physical constructions. The original field types
+are preserved here; no statement has been weakened or silently repaired.
+
+`CubicMarginLaw`, `PhysicalSpacingEnvelope`, and generic heat windows are
+not refuted by this arithmetic obstruction. Their physical construction,
+and identification with the original exact-Haar theory, remain open.
 
 ## Constructivity
 
@@ -64,8 +75,9 @@ theorem sameActionSpacingBits_physical_eq
 
 /-! ## 2. Dyadic bridge and AF growth on the matched action -/
 
-/-- A dyadic same-action identification specialized to the exact matched
-BF4 AF envelope.  Its nome field reads `blockedWeight family` by reduction. -/
+/-- REFUTED exact rational dyadic specialization; retained as written.
+See `BF4MatchedDyadicHeatObstruction`. Its nome is still the actual
+`blockedWeight family`, not a replacement definition. -/
 abbrev MatchedDyadicSameActionAFBridge
     (family : MatchedBlockFamily)
     (law : CubicMarginLaw family)
@@ -75,7 +87,8 @@ abbrev MatchedDyadicSameActionAFBridge
     (physicalAFEnvelope family law spacing)
     coupling
 
-/-- The exact matched BF4 cutoff has the uniform dyadic heat cost `≤16`. -/
+/-- Conditional heat cost `≤16`; the required physical dyadic bridge
+is provably uninhabited, so this supplies no physical instance. -/
 def matchedPhysicalFarautAFBitGrowth
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -90,8 +103,8 @@ def matchedPhysicalFarautAFBitGrowth
       (matchedPhysicalSpacingBits family coupling) := by
   exact sameActionFarautAFBitGrowth bridge
 
-/-- Consequently the moving cutoff of the exact matched block output occupies
-a uniformly bounded physical core length. -/
+/-- Conditional core-length implication from the refuted dyadic input;
+this does not construct a physical uniformly bounded core. -/
 theorem matchedPhysicalFarautCoreLength_uniform
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -113,10 +126,10 @@ theorem matchedPhysicalFarautCoreLength_uniform
 
 /-! ## 3. Direct completed heat windows on `blockedWeight` -/
 
-/-- The same-action completed character-window family specialized to the
-exact matched BF4 block output.  Unfolding this abbreviation shows that every
-local window is evaluated at
-`blockedWeight family (coupling scale)`. -/
+/-- The same-action character windows at the exact matched block output.
+UNINHABITED: their underlying interface also contains the refuted dyadic
+bridge. See `matchedPhysicalPointwiseHeatWindows_uninhabited` in
+`BF4MatchedDyadicHeatObstruction`. -/
 abbrev MatchedPhysicalPointwiseHeatWindows
     (family : MatchedBlockFamily)
     (law : CubicMarginLaw family)

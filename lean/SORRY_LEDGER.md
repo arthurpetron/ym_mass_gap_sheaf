@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED all-nome intermediate normalization and lossless comparison; OPEN spatial estimate (2026-09-15)
+## REFUTED exact physical dyadic bridge; OPEN direct growth and physical windows (2026-09-15)
+
+- **files**: new `lean/YMGap/Constructive/RationalSquareHalfObstruction.lean`
+  and `lean/YMGap/Continuum/BF4MatchedDyadicHeatObstruction.lean`;
+  status docstrings corrected in `BF4MatchedPhysicalFarautTrajectory.lean`.
+- **proved diagnostic**: `Q'.square_ne_half` uses constructive parity
+  descent. The square-time envelope t(g)=4*g^2 and exact dyadic heat
+  field require coupling(1)^2=1/2, so the matched physical dyadic bridge
+  is provably uninhabited. The matched pointwise windows contain that
+  bridge and are also refuted. The general theorem applies to any
+  envelope with the same exact square chart, not every AF envelope.
+- **status correction**: the conditional physical dyadic bit-growth and
+  core-length results and matched window-family constructor have impossible
+  inputs. The three matched finite-window certificate families and other
+  bridge-indexed specializations inherit that defect. Existing field types
+  and theorem statements are retained unchanged. This is a specification
+  refutation, not analytic closure, not a refutation of the supplied AF
+  law itself, and not an axiom introducing a contradiction.
+- **next input**: establish direct quantitative cutoff/heat-cost growth
+  for the actual nome through the existing generic `FarautAFBitGrowth`.
+  The proposed rounded reciprocal cutoff removes the impossible schedule,
+  but actual local windows and their bit spread, spatial cancellation,
+  physical scale/OS transport, continuum/nontriviality and all-group Clay
+  remain open. The exact proposal is recorded, not asserted proved.
+- **verification**: all five new and seven unchanged public gates within
+  {propext, Quot.sound}; three focused safe serialized one-worker/20 GiB
+  checks, first-run success. Final logs clean, own/direct artifacts fresh;
+  no raised limits or dependency refresh. Two root imports; root/full-tree
+  unrun. No canonical field, axiom or literal hole changed. Full scoped
+  audit and log hashes: `audits/AUDIT-AF-DYADIC-BRIDGE.md`.
+
+## Previous PROVED all-nome intermediate normalization and lossless comparison; OPEN spatial estimate (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetReciprocal.lean`,
   `BF4ExactSlabAllNomeFaceSetExpectation.lean`, and

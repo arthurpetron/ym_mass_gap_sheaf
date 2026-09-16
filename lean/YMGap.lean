@@ -1429,6 +1429,9 @@ import YMGap.Continuum.BF4AFHeatSpacing
 import YMGap.Continuum.BF4AFInstantiation
 import YMGap.Continuum.BF4MatchedPhysicalAFBridge
 import YMGap.Continuum.BF4MatchedPhysicalFarautTrajectory
+-- Exact rational square-time dyadic specialization is impossible, not open physics.
+import YMGap.Constructive.RationalSquareHalfObstruction
+import YMGap.Continuum.BF4MatchedDyadicHeatObstruction
 import YMGap.Continuum.BF4MatchedPhysicalFiniteHeatWindow
 import YMGap.Continuum.BF4CanonicalClassCoordinateCarrier
 import YMGap.Continuum.BF4NormalizedSameCarrierPerron
