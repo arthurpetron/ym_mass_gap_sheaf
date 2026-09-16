@@ -133,7 +133,37 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED completed cutoff-Cauchy estimate and actual partial-Haar certificate preservation; OPEN limit construction and quantitative forgetting):**
+**Latest mathematical increment (PROVED actual transfer order preservation; OPEN limiting operator and quantitative forgetting):**
+PROGRESS after `93ea3cc`. `certificate_extend` safely enlarges a SUPPORTED
+message certificate to the two-slice carrier. The explicit `tailMarginal`
+contracts arbitrary insertions, retaining their full Haar moments and
+off-carrier zero contributions. Recursive supported representatives handle
+certificate transports whose intermediate polynomials are not supported.
+No unconditional carrier-monotonicity rule is asserted.
+
+CONTRACTION: `transferStep_certificate` composes that extension, the original
+K*V certificate and actual partial-Haar integration. `transferStep_monotone`
+preserves certified comparisons; `iterateStep_certificate` applies the SAME
+step in the existing finite-time order. This closes the actual transfer-cone
+preservation consumer left open below, not a positive-semidefinite completed
+operator, a strict rate, a stationary vacuum or physical OS identification.
+
+NEXT CAUSAL FRONTIERS: construct the actual cutoff-limit operator from the
+proved completed Cauchy bound, and obtain quantitative order contraction or
+boundary forgetting from the original nome/width-dependent kernel bounds.
+The existing `GNSComplete.GeneralCompletionCauchy` is a candidate consumer for
+the former; a source review identified representative-family construction,
+an explicit norm-dependent tolerance and three-hop null descent, but no
+limiting operator is yet implemented. Do not rescale T to fit an unrelated
+nonexpansive interface. Uniform width/spacing passage, continuum QFT and
+all compact simple groups remain open.
+
+Verification: two focused serialized one-worker/20 GiB checks; all 11 public
+gates within {propext, Quot.sound}. Two root imports; root/full-tree and full
+axiom audit unrun. No old field, literal hole or analytic premise changed.
+See the follow-up section of `audits/AUDIT-FIXED-SPATIAL-HAAR-CUTOFF.md`.
+
+**Previous mathematical increment (PROVED completed cutoff-Cauchy estimate and actual partial-Haar certificate preservation; OPEN limit construction and quantitative forgetting):**
 PROGRESS after `350e095`. The exact signed difference of the actual two-slice
 W=K*V weights has a computed interval using all-nome heat tails and the finite
 product telescope. `kernelMap_difference_bound` uses ordinary Haar

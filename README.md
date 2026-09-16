@@ -21,7 +21,22 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: explicit cutoff-Cauchy control of the actual completed operator.**
+**Latest result: the original transfer preserves certified polynomial order.**
+The [actual transfer-order theorem](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferOrder.lean)
+now composes the proved Haar-integration rule with a support-guarded
+certificate enlargement. It retains the original K*V weight and constructs
+certificates for T f and every finite iterate from a supported certified f.
+Certified comparisons between two supported messages are preserved as well.
+
+The support guard matters: enlarging a carrier without it can expose terms
+that were previously invisible to Haar integration. The proof handles
+arbitrary transported certificate intermediates through an explicit supported
+representative. This is positive-cone preservation, **not** operator positive
+semidefiniteness, contraction or a physical gap. Two focused checks passed
+all 11 public gates; no root/full-tree check was run. See the
+[follow-up audit](audits/AUDIT-FIXED-SPATIAL-HAAR-CUTOFF.md#support-guarded-extension-and-actual-transfer-order-follow-up).
+
+**Previous result: explicit cutoff-Cauchy control of the actual completed operator.**
 The [completed difference estimate](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCompletedCutoffControl.lean)
 proves `||(T_J-T_K)x||^2 <= epsilon^2 ||x||^2` for every point of the
 same ordinary-Haar completion once both cutoffs exceed a computed threshold.

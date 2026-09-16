@@ -13,7 +13,31 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED completed cutoff-Cauchy control and actual partial-Haar certificate preservation; OPEN limiting operator and quantitative forgetting (2026-09-16)
+## PROVED support-guarded extension and actual transfer-cone preservation; OPEN limiting operator and quantitative forgetting (2026-09-16)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionHaarCertificateExtension.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferOrder.lean`.
+- **proof**: an explicit appended-block Haar marginal retains arbitrary
+  insertion moments, including exponents beyond the enlarged carrier.
+  `carrier_extend` requires support of both polynomials. A recursive
+  supported certificate representative then gives `certificate_extend`
+  from support of the final message alone. `transferStep_certificate`
+  multiplies this actual extension by original K*V and integrates actual
+  head blocks. `transferStep_monotone` and `iterateStep_certificate`
+  preserve certified order and positivity along the existing finite iterates.
+- **consumer/open input**: closes support-guarded enlargement and actual
+  transfer-cone preservation from the previous checkpoint. No positive
+  semidefinite operator or strict contraction follows merely from positive-
+  cone preservation. The actual cutoff-limit operator, quantitative boundary
+  forgetting, stationary vacuum/physical OS identification, uniform width/
+  spacing/continuum passage and all-group physical gap remain open. No
+  canonical field, old statement, literal hole or analytic premise changed.
+- **verification**: two narrow serialized one-worker/20 GiB checks;
+  all 11 public gates within {propext, Quot.sound}. Two root imports;
+  root/full-tree and full axiom audit unrun. Evidence: follow-up section of
+  `audits/AUDIT-FIXED-SPATIAL-HAAR-CUTOFF.md`.
+
+## Previous PROVED completed cutoff-Cauchy control and actual partial-Haar certificate preservation; OPEN limiting operator and quantitative forgetting (2026-09-16)
 
 - **files**: `SU2QuaternionHeadHaarSquareCertificate.lean`,
   `SU2QuaternionHaarCertificateIntegration.lean`, `SU2QuaternionHaarSignedKernelBound.lean`,

@@ -109,3 +109,49 @@ axiom audit were not run. CI remains manual-only.
 | `SU2QuaternionHaarSignedKernelBound.log` | `5ebb3955549b058c9546197722aa90dec4b3dd4fdf4834bf53e42d00f55553b8` |
 | `BF4ExactSlabFixedSpatialTransferTail.log` | `bcca1dc347b84c5277f77e6e3a01bb82bd6cba9f9262e3cf1bc64e424b679b67` |
 | `BF4ExactSlabFixedSpatialCompletedCutoffControl.log` | `8988f33cc2c4a7c24e321a91b367fae7e211b12f92c182653a4cc729a625560d` |
+
+## Support-guarded extension and actual transfer order follow-up
+
+Date: 2026-09-16. PROGRESS after `93ea3cc`. The support-sensitive consumer
+explicitly left open above is now implemented and checked.
+
+| Declaration | Module:line (prefix `lean/YMGap/Continuum/`) | Content |
+|---|---|---|
+| `haarMono_split` | `SU2QuaternionHaarCertificateExtension.lean:62` | Finite Fubini for arbitrary raw monomials, including off-carrier tails. |
+| `tailMarginal`, `tailMarginal_supported` | `SU2QuaternionHaarCertificateExtension.lean:89`, `:93` | Computed polynomial on the retained carrier with full appended Haar moments. |
+| `haar_tailMarginal` | `SU2QuaternionHaarCertificateExtension.lean:100` | Total Haar identity with no support premise on the input. |
+| `tailMarginal_mul`, `tail_pairing` | `SU2QuaternionHaarCertificateExtension.lean:146`, `:170` | Supported head messages pull out; arbitrary insertions are retained. |
+| `carrier_extend` | `SU2QuaternionHaarCertificateExtension.lean:178` | Both supported sides permit arbitrary-insertion equality on the larger carrier. |
+| `certificate_extend` | `SU2QuaternionHaarCertificateExtension.lean:227` | A supported final message certificate extends despite unsupported intermediate transports. |
+| `transferStep_certificate` | `BF4ExactSlabFixedSpatialTransferOrder.lean:39` | Same T, original K*V and actual Haar integration preserve the certificate. |
+| `transferStep_monotone` | `BF4ExactSlabFixedSpatialTransferOrder.lean:55` | Certified g-f implies certified Tg-Tf, for supported f,g. |
+| `iterateStep_certificate` | `BF4ExactSlabFixedSpatialTransferOrder.lean:67` | Every actual finite K/V iterate preserves the certificate. |
+
+The extension does not assume intermediate transport nodes are supported.
+It recursively keeps a supported sum-of-squares representative and its
+smaller-carrier equality, then extends that equality only at the final,
+support-guarded step. The tail marginal includes the full Haar moment of
+discarded exponents, not a truncation that could lose zero contributions.
+
+The actual transfer consumer uses exactly N head integrations of
+`(K*V)*f` on N+N blocks. Reassociation identifies it with the pre-existing
+`transferStep`. It requires rational 0<w<1 and the existing late-cutoff
+positivity threshold, not a new analytic positivity assumption.
+
+This is polynomial positive-cone preservation. No positive-semidefinite
+completed operator, self-adjointness, strict contraction, stationary vacuum
+or physical OS identification follows just from that fact. The cutoff-limit
+operator still needs construction; quantitative original-kernel forgetting,
+width/spacing/continuum passage and the all-group physical gap remain open.
+
+Two focused serialized one-worker/20 GiB checks passed all 11 public gates
+within {propext, Quot.sound}. The extension's only retry added the zero-block
+list/natural-number simplifications; the actual order consumer passed its
+first check. Two selective-root imports added; root/full-tree verification
+and the full axiom audit were not run. No old field, literal hole, axiom or
+analytic premise changed. CI remains manual-only.
+
+| Focused log in `/tmp/` | SHA-256 |
+|---|---|
+| `SU2QuaternionHaarCertificateExtension.log` | `52aa7cf3dd78bb64187f097d531c3b42d348c420a10d18056f1f67c044eb8a31` |
+| `BF4ExactSlabFixedSpatialTransferOrder.log` | `a253d62ac392654f7520acc0eb6c320f173d8c4de29f5f0ac561301b24df5e8c` |
