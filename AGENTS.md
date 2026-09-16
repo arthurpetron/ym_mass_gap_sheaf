@@ -42,3 +42,16 @@ The incident record and supported commands are in
 Before changing anything under `lean/`, read and follow `lean/AGENTS.md` in
 full. Its constructivity, axiom-gate, honest-hole, and frontier-honesty rules
 remain mandatory in addition to the machine-safety rules above.
+
+## Literature review cadence
+
+- Routine arXiv math-ph listing reviews must be at least 12 hours apart.
+  A new goal turn, proof frontier, or reviewer does not reset this interval.
+- Before browsing, read the latest `audits/RESEARCH-MATH-PH-*.md` report and
+  its last-completed-scan timestamp. Reuse the saved findings between scans;
+  do not repeatedly fetch or re-screen the same abstracts.
+- Record each completed scan's UTC time and earliest next routine refresh
+  in its report. An eligible refresh is optional, not a reason to interrupt
+  productive proof work. Coordinate reviewers so only one performs a scan.
+- Explicit requests to inspect a particular paper may be handled separately;
+  they do not authorize another full listing scan.

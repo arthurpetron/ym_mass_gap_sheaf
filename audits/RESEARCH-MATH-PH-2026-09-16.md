@@ -1,5 +1,14 @@
 # New math-ph papers: relevance to the constructive Yang--Mills route
 
+## Reuse and refresh policy
+
+- Last completed listing scan: **2026-09-16 09:54 UTC**.
+- Earliest next routine listing scan: **2026-09-16 21:54 UTC**.
+- Routine scans are at least 12 hours apart, following the user's request.
+  Reuse this report between scans; do not repeat the screen on each goal turn.
+  This file stores research findings, not a complete cache of all abstracts.
+  A refresh becoming eligible does not make it mandatory.
+
 Reviewed 2026-09-16 by a parallel read-only reviewer, with the principal
 agent checking the listing and the cited primary-source passages. The
 [live listing](https://arxiv.org/list/math-ph/new) was dated 16 September:
