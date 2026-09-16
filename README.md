@@ -21,7 +21,26 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: direct cutoff growth without the impossible dyadic schedule.**
+**Latest result: actual positive SU(2) heat windows with a proved AF budget.**
+The [new construction](lean/YMGap/Continuum/BF4RoundedPositiveAFWindows.lean)
+now supplies local windows, their ratio bound, and their growth witness;
+these are no longer assumed inputs. For the rounded cutoff `N(w)`, it
+uses the explicit budget `bits=5*N+5` and proves `bits*t/4 <= 180`
+under the existing AF envelope. Finite Euler-product bounds and the
+actual SU(2) Casimir decay control both window endpoints, including all
+rational class coordinates in `[-1,1]`. No Gaussian image identity or
+exact dyadic schedule is assumed.
+
+The bounds feed a comparison for products of 23 actual completed heat
+factors. They do **not** identify that product with the original interacting
+transfer or prove its centered contraction rate. The matched specialization
+still assumes the cubic law and physical spacing envelope. See the
+[declaration-level audit](audits/AUDIT-ROUNDED-HEAT-WINDOWS.md) for this
+boundary. All 37 public gates passed focused serialized checks; root/full-tree
+verification was not run. Continuum Yang--Mills and the all-group Clay target
+remain open.
+
+**Previous result: direct cutoff growth without the impossible dyadic schedule.**
 The [rounded actual-nome cutoff](lean/YMGap/Continuum/HeatRoundedCutoff.lean)
 computes `N=floor(8/(1-w))+1`, proves `8 <= N*(1-w) <= 9` and
 `w^N <= 1/8`, and gives the same integer for equivalent rational nomes.
@@ -31,9 +50,10 @@ It supplies the existing growth and generic window interfaces at the actual
 nome; the matched specialization still assumes the cubic law and spacing
 envelope. No exact dyadic or Pade identity is required.
 
-The actual local windows and their `upper <= 4^N*lower` estimate remain
-explicit inputs. A cutoff-tail estimate is not a Harnack bound or a mass
-gap. All 13 public gates passed in two focused, serialized checks; no
+At that checkpoint, the actual local windows and their `upper <= 4^N*lower`
+estimate were explicit inputs. The new result above constructs windows
+with the sufficient larger bit budget `5*N+5`; the sharper `4^N` cap is
+not asserted. All 13 public gates passed in two focused, serialized checks; no
 full-tree build was run. Physical scale/transfer calibration, changing-action
 spatial estimates, continuum construction and the all-group target remain open.
 

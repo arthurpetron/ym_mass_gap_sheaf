@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED rounded actual-nome AF growth; OPEN local-window spread (2026-09-15)
+## PROVED actual positive SU(2) windows and AF bit budget; OPEN original operator identification/rate (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/EulerRoundedHeadFloor.lean`,
+  `EulerRoundedBlockFloor.lean`, `SU2PointwiseHeatPositiveWindow.lean`,
+  `SU2RoundedHeatLower.lean`, `SU2RoundedHeatUpper.lean`, and
+  `BF4RoundedPositiveAFWindows.lean` in that directory.
+- **proof**: finite q-binomial normalization and blocked Euler tails
+  give E_w(K)>=(1/16)^N at all lengths. The actual Casimir/dimension
+  majorant gives prefixCap<=4^(N+1). Existing positivity and the tail
+  modulus construct windows on the entire rational class box. Their
+  spread is <=4^(5N+5), and the SAME schedule has AF heat cost<=180.
+- **removed inputs**: `windowFamily` constructs the EXISTING generic
+  family without supplied windows, endpoint positivity, spread or
+  growth. It uses a sufficient larger computed bit budget, not an
+  assumed or claimed tighter 4^N bound. No old field was modified.
+  `retainedHarnack` feeds the actual completed 23-factor comparison.
+- **open residue**: identify this retained product/pushforward with the
+  ORIGINAL interacting transfer and prove a centered rate for that same
+  object. The scalar Perron qS<=1/4 premise remains independent and is
+  not discharged by heat-nome smallness. Cubic-law/spacing instances,
+  fine/coarse calibration, spatial cancellation, physical OS transport,
+  continuum QFT/nontriviality and all-group Clay remain open.
+- **verification**: 37 public gates within {propext, Quot.sound}; eleven
+  focused safe serialized one-worker/20 GiB launches including corrections
+  and the added analytic-consumer check. No raised limits or dependency
+  refresh. Final logs clean, own/direct artifacts fresh. Six root imports;
+  root/full-tree unrun. No canonical field, axiom or literal hole changed.
+  Source-level evidence and hashes: `audits/AUDIT-ROUNDED-HEAT-WINDOWS.md`.
+
+## Previous PROVED rounded actual-nome AF growth; windows subsequently constructed above (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/HeatRoundedCutoff.lean` and
   `lean/YMGap/Continuum/BF4RoundedNomeAFGrowth.lean`.

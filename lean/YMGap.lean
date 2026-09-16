@@ -1435,6 +1435,12 @@ import YMGap.Continuum.BF4MatchedDyadicHeatObstruction
 -- Direct actual-nome growth, independent of the refuted exact dyadic schedule.
 import YMGap.Continuum.HeatRoundedCutoff
 import YMGap.Continuum.BF4RoundedNomeAFGrowth
+import YMGap.Continuum.EulerRoundedHeadFloor
+import YMGap.Continuum.EulerRoundedBlockFloor
+import YMGap.Continuum.SU2PointwiseHeatPositiveWindow
+import YMGap.Continuum.SU2RoundedHeatLower
+import YMGap.Continuum.SU2RoundedHeatUpper
+import YMGap.Continuum.BF4RoundedPositiveAFWindows
 import YMGap.Continuum.BF4MatchedPhysicalFiniteHeatWindow
 import YMGap.Continuum.BF4CanonicalClassCoordinateCarrier
 import YMGap.Continuum.BF4NormalizedSameCarrierPerron

@@ -126,7 +126,56 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED rounded actual-nome growth; OPEN local-window spread):**
+**Latest mathematical increment (PROVED actual positive heat windows and AF spread budget; OPEN original-operator pin and centered rate):**
+PROGRESS after `b3e252a`. Parallel head, upper-estimate, positive-window and
+read-only consumer work was integrated with the parent's blocked-tail and
+AF composition proofs. All Lean checks were serialized by the parent.
+
+For N=HeatRoundedCutoff.cutoff(w), `EulerRoundedHeadFloor` uses q-Pascal
+and exact Gaussian-binomial normalization to bound the original Euler
+head below by (1/8)^N. `EulerRoundedBlockFloor` groups the remaining
+factors into blocks and proves E_w(K)>=(1/16)^N for EVERY finite K.
+`SU2RoundedHeatLower.lower_paid` consequently gives
+1<=4^(4N+3)*lower(w), with the EXISTING lower endpoint unchanged.
+`SU2RoundedHeatUpper.prefixCap_le_rounded_pow` uses the actual
+squared-dimension/Casimir majorant to prove prefixCap(w)<=4^(N+1),
+even though that cap contains the old raw-representation cutoff.
+
+`SU2PointwiseHeatPositiveWindow.window` constructs the actual finite
+prefix/tail window at a computed common depth for all rational x in
+[-1,1]. `BF4RoundedPositiveAFWindows.window_spread` proves its ratio
+bound with bits(w)=5N+5. Since bits<=10N, `bit_heat_cost` proves a
+ceiling of 180. `windowFamily` supplies the EXISTING generic AF window
+family with NO window, spread, positivity or growth premise. The sharper
+4^N cap is not needed or asserted; this sufficient computed schedule
+meets the unchanged type. `matchedWindowFamily` preserves the actual
+blocked nome and the still-supplied cubic-law/spacing assumptions.
+
+`retainedHarnack` is an actual analytic consumer: the existing projective
+comparison for 23 completed character factors now takes constructed
+windows. This is distinct from the scalar-only Perron arithmetic theorem,
+which still assumes an unpinned qS<=1/4 and available depth.
+
+NEXT CAUSAL FRONTIER: identify the retained product/pushforward with the
+ORIGINAL interacting action and transfer, preserving every action factor,
+normalization and centered observable, then prove a centered contraction
+rate for that SAME operator. Do not replace this step by choosing an
+arbitrary scalar qS or by applying a theorem that reads only family.bits.
+The physical cubic/spacing laws and fine/coarse calibration, changing-action
+spatial cancellation, original OS/physical-time transport, continuum
+QFT/nontriviality and every compact simple group remain open. Local SU(2)
+heat positivity/Harnack control is not an interacting physical mass gap.
+
+Verification: 37 public gates in six new proof modules within {propext,
+Quot.sound}; eleven focused safe one-worker/20 GiB launches, including four
+elaboration-correction reruns and one final added-consumer check. Final
+logs clean, own/direct artifacts fresh; no raised limits or dependency
+refresh. Six root imports; root/full-tree unrun, CI manual-only. No
+canonical field, old statement, custom axiom or literal hole changed.
+Exact declarations, source review and final log hashes:
+`audits/AUDIT-ROUNDED-HEAT-WINDOWS.md`.
+
+**Previous mathematical increment (PROVED rounded actual-nome growth; local-window inputs subsequently constructed above):**
 PROGRESS after `ee90dde`. The parallel cutoff branch and parent AF consumer
 now prove the direct alternative identified by the bridge audit. An
 independent read-only review checked that neither the growth witness nor
@@ -151,7 +200,7 @@ dyadic schedule without modifying any old statement. The local windows'
 own truncation indices remain independent of the Harnack bit schedule;
 no tail estimate is silently promoted to a spread estimate.
 
-NEXT CAUSAL FRONTIER: prove positive actual heat windows whose endpoint
+NEXT CAUSAL FRONTIER AT THAT CHECKPOINT: prove positive actual heat windows whose endpoint
 ratio obeys that explicit rounded bit cap, uniformly over the required
 coordinates and with every nome/scale parameter retained. Existing
 finite-prefix constructors can supply windows once endpoints/depths are

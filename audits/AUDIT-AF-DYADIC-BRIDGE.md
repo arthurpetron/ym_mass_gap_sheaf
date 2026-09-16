@@ -154,6 +154,11 @@ Own/direct artifacts were fresh. Root/full-tree audit unrun; CI manual-only.
 
 ## 7. Checked direct replacement growth (2026-09-15)
 
+Subsequent checkpoint: [actual positive heat windows](AUDIT-ROUNDED-HEAT-WINDOWS.md)
+now construct the local windows and spread with a sufficient larger budget
+5N+5 and AF heat cost<=180. The original-operator pin and centered rate
+remain open. This section records the preceding growth-only checkpoint.
+
 Follow-up after `ee90dde`: the cutoff proof branch, parent AF consumer, and
 independent read-only interface review ran in parallel. Only the parent
 compiled, serially. No refuted field or old theorem statement was changed.

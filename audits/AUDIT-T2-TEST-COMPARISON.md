@@ -1,5 +1,21 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Actual heat windows constructed; original operator pin/rate still open (2026-09-15)
+
+The local heat analytic input has advanced beyond direct cutoff growth:
+`windowFamily`, `lean/YMGap/Continuum/BF4RoundedPositiveAFWindows.lean:119`,
+constructs the existing generic AF window family with proved spread and
+growth at bits=5N+5, heat cost<=180. `retainedHarnack`, same file `:155`,
+feeds the actual completed 23-factor comparison. It does not identify
+that product with the original interacting transfer. The source review
+confirmed that `pointwise_af_window_family_perron_strict`,
+`lean/YMGap/Continuum/SU2PointwiseHeatDynamicWindow.lean:961`, only reads
+family.bits and still assumes qS<=1/4; it is not the physical rate theorem.
+The next step must supply the original-action identification and centered
+rate, preserving the same operator, observables and normalization. See
+[the scoped audit](AUDIT-ROUNDED-HEAT-WINDOWS.md) for mathematical proof,
+declarations, open residue and verification of all 37 new gates.
+
 ## Direct actual-nome growth, separate from the spatial estimate (2026-09-15)
 
 The proposed replacement schedule is now checked:
