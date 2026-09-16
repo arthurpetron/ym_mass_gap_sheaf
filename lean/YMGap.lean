@@ -4482,6 +4482,12 @@ import YMGap.Continuum.BF4ExactSlabConnectedFaceResponse
 import YMGap.Continuum.BF4ExactSlabResponseProbeSeparation
 import YMGap.Continuum.BF4ExactSlabResponseInsertionSeparation
 import YMGap.Continuum.BF4ExactSlabThreeMarkResponseExpansion
+-- Detached response selections resum to the original Z^4; normalization
+-- has an explicit local collar cost, not a proved spatial-decay rate.
+import YMGap.Continuum.BF4ExactSlabResponseSpectatorFactorization
+import YMGap.Continuum.BF4ExactSlabRootedFunctionalResummation
+import YMGap.Continuum.BF4ExactSlabResponseCollarNormalization
+import YMGap.Continuum.BF4ExactSlabRootedResponseResummation
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

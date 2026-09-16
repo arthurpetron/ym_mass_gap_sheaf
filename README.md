@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-> **Research status (2026-09-15): this repository does not prove the Clay
+> **Research status (2026-09-16): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
@@ -16,12 +16,30 @@ part of the trusted proof.
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.
-The [goal and execution instructions](work_plan.md#whole-project-goal-and-live-completion-map-updated-2026-09-15)
+The [goal and execution instructions](work_plan.md#whole-project-goal-and-live-completion-map-updated-2026-09-16)
 distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: exact three-mark cancellation for the original response.**
+**Latest result: exact spectator resummation and local response normalization.**
+The [new identity](lean/YMGap/Continuum/BF4ExactSlabRootedResponseResummation.lean)
+regroups the original signed covariance response by its computed rooted
+cores. Detached selections sum exactly to their original partition fourth
+power, before any absolute bound is taken. The inserted face and both
+probes are included in the roots; the existing three-mark tests remove
+only proved-zero coefficients.
+
+An [explicit normalization bound](lean/YMGap/Continuum/BF4ExactSlabResponseCollarNormalization.lean)
+then charges only for the local collar, retaining both original endpoint
+partitions. Its cost depends on the coupling and marked/core sizes, not
+the number of detached faces. This removes a whole-volume normalization
+penalty, but supplies no smallness, summability or spatial decay. The
+physical/continuum gap remains open. All 22 public gates passed focused
+serialized constructive checks; root/full-tree checks were not run.
+The [audit](audits/AUDIT-RESPONSE-SPECTATOR-RESUMMATION.md) records the
+parallel proofs, exact cost and remaining analytic input.
+
+**Previous result: exact three-mark cancellation for the original response.**
 The [new expansion](lean/YMGap/Continuum/BF4ExactSlabThreeMarkResponseExpansion.lean)
 removes terms whenever a literal link cut separates either probe from the
 other probe and inserted face, or separates the inserted face from both

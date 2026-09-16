@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED three-mark response cancellation; OPEN bound on surviving signed sum (2026-09-15)
+## PROVED response spectator resummation and local normalization; OPEN signed spatial decay (2026-09-16)
+
+- **files**: new `lean/YMGap/Continuum/BF4ExactSlabResponseSpectatorFactorization.lean`,
+  `BF4ExactSlabRootedFunctionalResummation.lean`,
+  `BF4ExactSlabResponseCollarNormalization.lean`, and
+  `BF4ExactSlabRootedResponseResummation.lean` in that directory.
+- **proof**: both original response and denominator factor by the SAME
+  spectator partition fourth power. Rooted finite Mobius resummation
+  exactly restores that factor, then filters the three proved-zero mark
+  separations. Both probes and the inserted face are in the literal root.
+  No absolute spectator majorant or independent-face law is substituted.
+- **quantitative reduction**: for 0<w<1 and K>=headCutoff(w), each actual
+  resummed term has normalization cost collarCost(w,N), with
+  N=6*(markedLinks.length+4*anchor.length). The reciprocal floor is for
+  the local collar, not every ambient face, and counts the inserted face
+  at both new-endpoint factors. Cost depends explicitly on nome and sizes.
+- **consumer/open input**: `covariance_response_bound_of_rooted` consumes
+  a SUPPLIED eventual bound on the same signed sum and preserves the
+  original cutoff-limit covariance. The local term estimate supplies no
+  smallness, summability or spatial decay. These coefficient/sum estimates,
+  useful physical-scale dependence, same-carrier temporal composition,
+  required volume/continuum control and all-group target remain open.
+  No canonical atom, old field/statement, new axiom or literal hole changed.
+- **verification**: all 22 public gates within {propext, Quot.sound};
+  four modules checked with serialized one-worker/20 GiB launches. Two
+  namespace corrections and integration/documentation rechecks included.
+  Four root imports; root/full-tree and full audit unrun. No dependency
+  rebuild or raised limit. Exact evidence and scope are in
+  `audits/AUDIT-RESPONSE-SPECTATOR-RESUMMATION.md`.
+
+## Previous PROVED three-mark response cancellation; OPEN bound on surviving signed sum (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/BF4ExactSlabResponseProbeSeparation.lean`,
   `BF4ExactSlabResponseInsertionSeparation.lean`, and

@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-15)
+## Whole-project goal and live completion map (updated 2026-09-16)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -124,9 +124,55 @@ are also established. Classical subsequence selection would therefore not remove
 the same-theory QFT and physical-gap obligations, even without our extra demand
 for explicit moduli.
 
-### Current original-action gap and continuum frontier (2026-09-15)
+### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED three-mark response cancellation; OPEN bound on surviving signed sum):**
+**Latest mathematical increment (PROVED exact response resummation and local normalization; OPEN signed spatial decay):**
+PROGRESS after `284e8fa`. Three parallel branches supplied original-response
+spectator factorization, general finite rooted resummation using the existing
+fiber bijection, and an explicit collar normalization estimate. The parent
+connected these to the SAME original covariance response and serialized
+verification; a read-only review checked the integrated statements.
+
+EXPANSION: root the computed face graph at both probe supports AND the
+inserted face. For a disjoint core/spectator split, the actual response
+and its original two-endpoint denominator each acquire exactly Z_spectator^4.
+CONTRACTION: `BF4ExactSlabRootedResponseResummation.response_resummed_filtered`
+sums all detached Mobius selections back to that literal fourth power,
+then removes only the already-proved three-mark zero coefficients. No
+absolute spectator majorant or substituted reference action is used.
+
+The quantitative improvement is `rooted_response_term_bound`: after
+K>=headCutoff(w), the actual resummed term is bounded against the original
+responseDenominator with cost collarCost(w,N), where
+N=6*(markedLinks.length+4*anchor.length). Writing h=headFloor(w), the
+constructed cost is the positive reciprocal of
+(h^N*h^N)*(h^(N+1)*h^(N+1)). Restoring the local collar, including the
+new endpoint's inserted face, proves this inequality. No reciprocal floor
+for every ambient face is taken. The bound is volume-independent only
+at fixed marked-support/core sizes, and the nome dependence is explicit.
+
+Actual consumer: `covariance_response_bound_of_rooted` passes a SUPPLIED
+eventual bound on the same SIGNED sum to the existing original cutoff-limit
+covariance. It does not supply that bound. The term estimate does not prove
+coefficient smallness, summability, spatial decay or a coupling-uniform gap.
+The union-root is not a claim that every marked support is one connected
+physical component; the three mark-cut tests are retained separately.
+
+NEXT: control the remaining rooted coefficients/signed sum with useful
+spatial and coupling/scale dependence. The local cost must remain in that
+budget; exact resummation alone does not make it small. All-nome temporal
+composition on one stationary physical carrier, volume/spacing control,
+continuum QFT/nontriviality and all compact simple groups remain open.
+No canonical atom, old statement/field, axiom or literal hole changed.
+
+Verification: four new modules, all 22 public gates within
+{propext, Quot.sound}, focused serialized one-worker/20 GiB checks.
+Two missing namespace opens were corrected; final integration and
+documentation precision were rechecked. Four root imports; root/full-tree
+and full audit unrun. No dependency rebuild or raised limits.
+Exact source and final log hashes: `audits/AUDIT-RESPONSE-SPECTATOR-RESUMMATION.md`.
+
+**Previous mathematical increment (PROVED three-mark response cancellation; OPEN bound on surviving signed sum):**
 PROGRESS after `ceebcbf`. Returned to the original signed spatial-response
 consumer rather than constructing reference completions for the rejected
 coarse window. Two parallel proof branches established the three literal
