@@ -126,7 +126,37 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED original weighted step and two finite-chain identities; OPEN their arbitrary-length carrier pin):**
+**Latest mathematical increment (PROVED original arbitrary-length endpoint iteration; OPEN normalized cutoff-limit consumer and quantitative control):**
+PROGRESS after `0aff852`. The chronological carrier and signed endpoint
+probes were constructed independently, then composed with the original
+K/V placement and common-sweep theorems. `chain_pin` proves the full
+arbitrary-length coefficient-sensitive action/terminal identity.
+`original_chain_iteration` identifies the original selected-chain Haar
+moment with H_N[(T^n f) V g] for the actual original weighted step T.
+The source carrier depends only on width; all endpoint signed terms,
+repetitions and fringe variables survive. Explicit guards are width<=extent
+and start+n<=extent. At n=0 both probes occupy the SAME slice with one V.
+
+CONTRACTION: the two separately checked finite-chain identities are now
+connected by a proof, not an assumed pin. No original action factor is
+lost, no intermediate message is relabelled a gauge observable, and no
+analytic premise is added. The action remains the selected window, not
+the full surrounding interacting action with omitted factors.
+
+NEXT: use the same identity for the numerator and empty-probe partition
+to transfer the existing all-nome selected-face cutoff limit to the whole
+normalized scalar iterate. This avoids assuming convergence of changing
+intermediate messages. It does NOT give convergence of the messages or
+operators, a stationary vacuum, T1=1, an OS realization, or contraction.
+Original-Haar quantitative estimates, uniform volume/spacing passage,
+continuum QFT/nontriviality and every compact simple group remain open.
+
+Verification: three focused serialized one-worker/20 GiB checks; all 27
+public gates within {propext, Quot.sound}. Three root imports; root/full-tree
+and full axiom audit unrun. No existing field, hole or axiom changed.
+Evidence: `audits/AUDIT-FIXED-SPATIAL-ORIGINAL-ITERATION.md`.
+
+**Previous mathematical increment (PROVED original weighted step and two finite-chain identities; OPEN their arbitrary-length carrier pin at that checkpoint):**
 PROGRESS after `370dc74`. The original kinetic factor is now one fixed
 N+N polynomial, with the actual lower-times-inverse-upper quaternion order
 and every finite heat term. `kineticWeight_pin` places it into the original

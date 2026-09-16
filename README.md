@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: an exact original weighted step and finite-chain identities.**
+**Latest result: original finite-chain moments equal weighted-step iterates.**
+The [original-action identity](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalIteration.lean)
+now connects the entire selected time chain to repeated application of
+the same original kinetic/spatial step on one fixed spatial carrier.
+Signed spatial-face probes on both endpoints are retained. There are n
+kinetic factors and n+1 spatial weights; the zero-step case has one weight.
+
+The chronological carrier and endpoint-probe pins were developed in parallel;
+the parent composed and checked them. All 27 public gates passed three
+focused serialized checks. This closes the previously missing finite-chain
+identification, not a normalization, stationary OS operator or gap estimate.
+The next consumer is the existing fixed-insertion cutoff limit, applied to
+the whole scalar pairing. Quantitative control and the continuum/all-group
+target remain open. Root/full-tree verification was not run. See the
+[proof audit](audits/AUDIT-FIXED-SPATIAL-ORIGINAL-ITERATION.md).
+
+**Previous result: an exact original weighted step and finite-chain identities.**
 The [computed step](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferStep.lean)
 integrates the original kinetic factor and one lower spatial weight on a
 fixed slice carrier. Its pairing equals the original swept `V0*K01*V1`

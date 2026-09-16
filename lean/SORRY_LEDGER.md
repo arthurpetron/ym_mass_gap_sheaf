@@ -13,7 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original weighted step and finite-chain identities; OPEN arbitrary-chain carrier identification (2026-09-16)
+## PROVED original arbitrary-length endpoint iteration; OPEN normalized limit and quantitative control (2026-09-16)
+
+- **files**: new `BF4ExactSlabFixedSpatialChainCarrier.lean`,
+  `BF4ExactSlabFixedSpatialProbe.lean`, and
+  `BF4ExactSlabFixedSpatialOriginalIteration.lean` in `lean/YMGap/Continuum/`.
+- **proof**: the explicit chronological (n+1)-slice embedding preserves
+  head, tail, adjacent-pair and final-slice placements. Canonical signed
+  spatial-face probes retain every spin, sign and repetition. `chain_pin`
+  identifies the entire compact chain with its original ambient factors;
+  `original_chain_iteration` composes the single original temporal sweep,
+  endpoint pins, injective Haar placement and finite iteration. Every
+  joining and endpoint V occurs once; n=0 has one shared endpoint slice.
+- **consumer/open input**: closes the finite carrier/action/endpoint seam
+  recorded below. The next consumer is the existing all-nome selected-face
+  expectation, via numerator AND empty-probe partition identities. This
+  consumer is not yet proved in this checkpoint. No stationary normalization,
+  message/operator limit, physical OS transfer or quantitative bound follows.
+  Uniform thermodynamic/spacing limits, continuum QFT and physical/all-group
+  gap remain open. No canonical field, old statement, literal hole, axiom
+  or analytic premise was added, weakened or discharged.
+- **verification**: three focused serialized one-worker/20 GiB checks;
+  all 27 public gates within {propext, Quot.sound}. Three root imports;
+  root/full-tree and full axiom audit unrun. Exact scope and evidence:
+  `audits/AUDIT-FIXED-SPATIAL-ORIGINAL-ITERATION.md`.
+
+## Previous PROVED original weighted step and finite-chain identities; OPEN arbitrary-chain carrier identification at that checkpoint (2026-09-16)
 
 - **files**: six new modules in `lean/YMGap/Continuum/`:
   `BF4ExactSlabFixedSpatialKineticHeat`, `SU2QuaternionHaarBlockEmbeddingPlacement`,
