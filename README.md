@@ -21,7 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: the actual weighted step has a bounded ordinary-Haar completion.**
+**Latest result: completed powers recover the original finite-chain moments.**
+The [completed-iteration theorem](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCompletedIteration.lean)
+identifies every finite power of the actual completed map with its original
+polynomial iterate. Pairing with `V*g` recovers the original selected-chain
+numerator, including signed endpoint probes. The terminal spatial weight
+occurs once, including at zero steps. This joins the completed operator to
+the existing finite-chain scalar theory; it is not an operator cutoff limit
+or a stationary OS construction.
+
+A parallel [Gaussian square certificate](lean/YMGap/Continuum/SU2QuaternionHeadGaussianSquareCertificate.lean)
+expresses integration of four head coordinates of a polynomial square as
+an explicit nonnegative sum of tail-polynomial squares. This supplies a
+constructive algebraic ingredient for partial-integration positivity;
+the actual partial-Haar certificate producer remains open at this checkpoint.
+Both focused checks passed, with all 13 public gates in the allowed axiom
+set. Root/full-tree verification was not run. See the
+[follow-up audit](audits/AUDIT-FIXED-SPATIAL-HAAR-TRANSFER.md#completed-original-moments-and-gaussian-square-follow-up).
+
+**Previous result: the actual weighted step has a bounded ordinary-Haar completion.**
 The [original transfer bound](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferBound.lean)
 proves `||T f||^2 <= C(w,width)^2 ||f||^2` for the actual
 `T f(y) = integral K(x,y)V(x)f(x) dH(x)`. The explicit cap is independent

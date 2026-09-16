@@ -103,3 +103,50 @@ verification and the full axiom audit were NOT run. CI remains manual-only.
 | `SU2QuaternionHaarBoundedCompletion.log` | `904eea1e5064c9d73ebc8b6246ea91d0122a26ab817805b6c8ba2ea63cd2ebe5` |
 | `BF4ExactSlabFixedSpatialTransferBound.log` | `ed20ad6e197035c80cfaa72f1bb5df4097358f64f16f56acde5da062c5d6a6b8` |
 | `BF4ExactSlabFixedSpatialCompletedHaarTransfer.log` | `2537aa3085163518daaf9ddbdd9ad9e16d1ccc07a506dff9efc88398c64d4a91` |
+
+## Completed original moments and Gaussian square follow-up
+
+Date: 2026-09-16. PROGRESS after `c7a5ddb`. The following checked result
+closes the finite-power original-moment seam explicitly left open above.
+Paths below have prefix `lean/YMGap/Continuum/`.
+
+| Declaration | Module:line | Checked content |
+|---|---|---|
+| `completedIterate` | `BF4ExactSlabFixedSpatialCompletedIteration.lean:48` | Finite powers of the same actual completedTransfer. |
+| `completedIterate_embed` | `BF4ExactSlabFixedSpatialCompletedIteration.lean:57` | Exact dense pin to iterateStep, with support maintained. |
+| `completedIterate_pair_dense` | `BF4ExactSlabFixedSpatialCompletedIteration.lean:79` | Completed inner product equals H[(T^n f)*V*g]. |
+| `completedIterate_compactNumerator` | `BF4ExactSlabFixedSpatialCompletedIteration.lean:95` | Signed face-source probes give the pre-existing compact numerator. |
+| `completedIterate_originalNumerator` | `BF4ExactSlabFixedSpatialCompletedIteration.lean:110` | Same original selected action and endpoint insertions, with width/time/face guards. |
+| `headGram`, `channel`, `squareSum` | `SU2QuaternionHeadGaussianSquareCertificate.lean:132`, `:142`, `:147` | Explicit four-coordinate Gaussian Gram channels retain all tail exponents. |
+| `partialGaussianHead_square_coeff` | `SU2QuaternionHeadGaussianSquareCertificate.lean:181` | Polynomial-valued square identity under every tail coefficient probe. |
+| `channel_supported` | `SU2QuaternionHeadGaussianSquareCertificate.lean:235` | Each channel loses precisely the four integrated head coordinates. |
+| `squareSum_certificate`, `partialGaussianHead_square_certificate` | `SU2QuaternionHeadGaussianSquareCertificate.lean:256`, `:265` | Constructive nonnegative weighted square certificates on the tail. |
+
+At n=0 the completed power is the identity and the pairing still has one
+spatial V. At arbitrary n there are n kinetic and n+1 spatial weights,
+as in the original finite-chain theorem. No T1=1 law, independent layer
+normalization, or omission of endpoint action factors is used. The existing
+normalized scalar cutoff theorem remains about the entire finite-chain
+pairing, not convergence of the completed operators or intermediate messages.
+
+The Gaussian producer is a separate constructive algebraic branch. It
+integrates four Gaussian coordinates, not Haar sphere coordinates. It
+uses existing Gram weights and vectors with their proved nonnegativity;
+no pointwise positivity-to-certificate rule is postulated. Turning this
+into an actual partial-Haar certificate producer, or giving a direct Haar
+producer, remains open at this checkpoint. Thus this result alone does not
+prove original-transfer order preservation or boundary forgetting.
+
+Both files passed focused, serialized one-worker/20 GiB checks. The final
+five completed-iteration gates and eight Gaussian gates are within
+{propext, Quot.sound}; the finite sum definition is axiom-free. The only
+completed-iteration retry added the existing support-lemma namespace.
+No old statement, canonical field, literal hole or analytic premise changed.
+Two selective-root imports were added. No root/full-tree check or full
+axiom audit was run. Physical OS/stationary, volume/spacing/continuum and
+all-group gap obligations remain open; CI stays manual-only.
+
+| Focused log in `/tmp/` | SHA-256 |
+|---|---|
+| `BF4ExactSlabFixedSpatialCompletedIteration.log` | `8d99673091077b6e0e49f3dc151c9d683334a33522fb2459707305cc9ec4d61a` |
+| `SU2QuaternionHeadGaussianSquareCertificate.log` | `f1f042ec28073e9833594022fc4536ffa59a98a6b3b30b675f69b4630cab57d3` |

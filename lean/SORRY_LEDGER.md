@@ -13,7 +13,30 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual ordinary-Haar transfer bound and completion; OPEN stationary/OS identification (2026-09-16)
+## PROVED completed original-chain moments and Gaussian tail-square certificates; OPEN actual partial-Haar order preservation (2026-09-16)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCompletedIteration.lean`
+  and `lean/YMGap/Continuum/SU2QuaternionHeadGaussianSquareCertificate.lean`.
+- **proof**: finite powers of the actual completedTransfer act on dense
+  embeddings as the existing iterateStep. Pairing against V*g, with
+  support proved, recovers compactNumerator and the original selected-chain
+  numerator under the original geometry guards. Separately, explicit
+  four-coordinate Gaussian Gram data produce a coefficientwise finite
+  sum of nonnegatively weighted tail-polynomial squares and its certificate.
+- **consumer/open input**: closes the completed finite-power pairing seam
+  recorded below. The Gaussian construction retains the whole tail, but
+  is not a Haar partial-integral certificate producer. That producer and
+  its extension through certificate constructors remain open, as do
+  quantitative boundary forgetting, cutoff-operator convergence,
+  stationary vacuum/OS identification, uniform volume/spacing passage,
+  continuum QFT and the all-group physical gap. No old field, literal
+  hole, new axiom or analytic premise was changed, added or discharged.
+- **verification**: two narrow serialized one-worker/20 GiB checks;
+  all 13 public gates within {propext, Quot.sound}. Two root imports;
+  root/full-tree and full axiom audit unrun. See the follow-up section
+  of `audits/AUDIT-FIXED-SPATIAL-HAAR-TRANSFER.md`.
+
+## Previous PROVED actual ordinary-Haar transfer bound and completion; OPEN stationary/OS identification (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialKineticOrder.lean`,
   `BF4ExactSlabFixedSpatialSpatialOrder.lean`, `SU2QuaternionHaarKernelBound.lean`,

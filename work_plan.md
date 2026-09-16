@@ -133,7 +133,33 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED cutoff-independent ordinary-Haar norm control and completed actual step; OPEN stationary/OS identification):**
+**Latest mathematical increment (PROVED completed original-chain moments and Gaussian tail-square certificates; OPEN actual partial-Haar order preservation):**
+PROGRESS after `c7a5ddb`. `completedIterate_embed` pins every finite power
+of the actual completed map to the existing K/V polynomial iterate.
+`completedIterate_pair_dense` keeps the terminal V*g explicitly;
+`completedIterate_originalNumerator` gives the SAME original selected-chain
+moment under its existing geometry guards. Zero steps retain one V.
+This discharges the finite-power pairing consumer recorded below, not
+operator-cutoff convergence, stationarity, a physical OS identification
+or any spectral gap.
+
+The parallel `partialGaussianHead_square_certificate` constructs actual
+finite Gram channels on the retained tail coordinates. Its coefficientwise
+sum-of-squares identity has no positivity premise; support gives a tail
+Haar square certificate. This integrates GAUSSIAN head coordinates only.
+NEXT: obtain the actual partial-Haar square producer, then propagate the
+existing certificate constructors through Haar integration and prove
+quantitative original-kernel boundary forgetting. No conclusion is inferred
+from the Gaussian producer alone. All volume/spacing, stationary/OS,
+continuum QFT and compact-simple-group obligations remain open.
+
+Verification: two focused serialized one-worker/20 GiB checks; all 13
+public gates within {propext, Quot.sound}. Two root imports; no root/full
+tree or full axiom audit run. No old field, literal hole or analytic
+premise changed. See the follow-up section of
+`audits/AUDIT-FIXED-SPATIAL-HAAR-TRANSFER.md`.
+
+**Previous mathematical increment (PROVED cutoff-independent ordinary-Haar norm control and completed actual step; OPEN stationary/OS identification):**
 PROGRESS after `1e8cd78` (literature recheck recorded in `7d9118b`). The
 actual lower-times-conjugate-upper kinetic word and ordered spatial words
 produce positive square certificates on the same two-slice carrier.
