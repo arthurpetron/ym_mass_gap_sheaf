@@ -21,7 +21,30 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: actual reflected correlators have explicit spatial limits, with a positive plaquette variance.**
+**Latest result: a strict, base-independent two-step bound on the dense spatial-limit unit complement.**
+Separate fixed-size boxes around the actual two probes give connected
+decay with a coupling-dependent rate and a prefactor independent of time
+separation and all three regulators. This estimate passes to the original
+spatial-limit reflected form. Its even-moment inequalities eliminate the
+observable-dependent prefactor, proving `B(x,T_2 x) <= rho(w)^2 B(x,x)`
+for dense presentations orthogonal to the unit, with `0 < rho(w)^2 < 1`.
+Enlarging the base box around unchanged words now preserves that form.
+The limiting seminorm also has its own explicit-Cauchy quotient and
+physical-time action, with a nonzero fixed unit.
+
+This is **fixed-spacing SU(2) progress under explicit small-nome guards**.
+The bound has not yet been extended to every vector of this new completed
+carrier; a nonzero centered completed excitation and a single union carrier
+remain to be constructed. Full Hilbert/OS/QFT reconstruction, physical
+spacing control, continuum nontriviality and the all-group target remain
+open. Twelve focused checks passed all 139 public axiom gates; no root or
+full-tree check ran. See the
+[spatial dense-gap and coherence audit](audits/AUDIT-SPATIAL-DENSE-GAP-AND-COHERENCE.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: actual reflected correlators have explicit spatial limits, with a positive plaquette variance.**
 For fixed signed physical presentations, the original reflected product now
 has a geometric cross-box comparison bound, uniform in heat cutoff and time
 buffer. A computed spatial pivot combines this bound with the existing
@@ -37,9 +60,6 @@ the limiting form's own quotient/completion, width-independent connected
 decay, physical spacing control and the all-group target remain open.
 Seven focused checks passed all 59 public axiom gates; no root/full-tree
 check ran. See the [spatial-limit audit](audits/AUDIT-REFLECTED-SPATIAL-LIMIT.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: original plaquette means in different spatial boxes have a geometric comparison bound.**
 Translate the smaller action into the larger Haar carrier, keeping its exact

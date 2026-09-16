@@ -133,7 +133,51 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED actual reflected spatial scalar limits and positive plaquette variance under explicit small-nome guards; OPEN base coherence, limiting carrier, width-independent gap and continuum passage):**
+**Latest mathematical increment (PROVED coherent spatial-limit form, its Cauchy carrier/time action and base-independent strict DENSE two-step bound; OPEN completed strict bound, union carrier and continuum/physical-scale passage):**
+PROGRESS after `eda63b9`. The actual spatial-limit pairing now has symmetry,
+positivity, unit normalization, rational bilinearity and sharp CS. LIMIT
+CS proves radical descent; finite-width nullity is not inferred. Its
+SquaredSeminorm constructs a new explicit-Cauchy quotient, actual physical
+time semigroup and nonzero fixed unit. Existing moduli are retained by
+time action. Separately, exact time alignment and original-action boundary
+comparison show that including unchanged words into a larger base leaves
+the limiting pairing equivalent, with a computed finite-error modulus.
+
+The quantitative expansion uses TWO fixed support boxes of side
+N=max(base,R+1), not a box enclosing the growing temporal gap. Their
+actual selected-chain joint and marginal moments share one action and
+partition. The original connected estimate is bounded by
+A(w,base,R,x,y)*rho(w)^(R+n+1-M), M=12*N^4, uniformly in spatial margin,
+heat stage, time buffer and lag n. Natural subtraction includes overlapping
+initial supports. An explicit positive P=A/rho^M+1 gives P*rho^n.
+CONTRACTION: same-object limit passage and the actual centered even-moment
+dyadic inequalities remove P altogether. For every positive base and dense
+physical x orthogonal to the unit, B(x,T_2 x)<=rho(w)^2*B(x,x), with
+0<rho(w)^2<1. No positive norm hypothesis or width-dependent mixing rate
+is used. The original character's centered scalar retains starRatio(w)>0.
+The guards 0<w<1, heatRatio<=1/2, heatRemainderBound<1 and rho<1 remain;
+there is no uniform-in-coupling or continuum claim.
+
+NEXT CAUSAL FRONTIER: construct the completed mixed pairing on this SAME
+new Cauchy carrier, construct its actual nonzero centered character using
+rational mean approximations, and pass the dense centered inequality to
+every completed unit-orthogonal vector. Base-inclusion coherence also
+enables, but does not itself construct, a presentation-independent union
+carrier. Full spatial-translation/algebra identification, Hilbert/OS/QFT,
+physical time/spacing calibration, controlled continuum passage and
+nontriviality, unrestricted-nome control and every compact simple group
+remain open. No dimensionless form bound is a physical Hamiltonian gap.
+
+Twelve narrow serialized one-worker/20 GiB checks passed all 139 public
+gates within {propext, Quot.sound}; twelve root imports added, root/full-
+tree/full audit unrun. Independent read-only review checked original
+actions/partitions, literal probe support, lag/regulator independence,
+limiting radical descent and the precise base-coherence boundary. No
+canonical field, sorry, axiom, analytic premise or safety limit changed;
+no literature scan. Evidence:
+`audits/AUDIT-SPATIAL-DENSE-GAP-AND-COHERENCE.md`.
+
+**Previous mathematical increment (PROVED actual reflected spatial scalar limits and positive plaquette variance under explicit small-nome guards; OPEN base coherence, limiting carrier, width-independent gap and continuum passage at that checkpoint):**
 PROGRESS after `4d34aa6`. Exact literal reflected-product transport and
 computed fixed-support interval/locality witnesses extend the original
 action comparison to chartScalar itself. For fixed base presentations x,y

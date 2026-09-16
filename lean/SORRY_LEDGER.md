@@ -13,7 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual reflected spatial scalar limits and positive plaquette variance; OPEN base coherence, limiting carrier, uniform decay and continuum passage (2026-09-16)
+## PROVED spatial-limit form, base coherence and base-independent strict DENSE two-step bound; OPEN completed bound, union carrier and continuum passage (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialSpatialPairingLaws.lean`,
+  `BF4ExactSlabFixedSpatialSpatialSeminorm.lean`,
+  `BF4ExactSlabFixedSpatialSpatialPhysicalTime.lean`,
+  `BF4ExactSlabFixedSpatialBaseInclusion.lean`,
+  `BF4ExactSlabFixedSpatialBaseAlignedBoxes.lean`,
+  `BF4ExactSlabFixedSpatialBaseCoherence.lean`,
+  `BF4ExactSlabSelectedTwoProbeCovariance.lean`,
+  `BF4ExactSlabFixedSpatialSeparatedProbeControl.lean`,
+  `BF4ExactSlabFixedSpatialUniformConnectedDecay.lean`,
+  `BF4ExactSlabFixedSpatialSpatialCenteredForm.lean`,
+  `RationalShiftedGeometric.lean`, and
+  `BF4ExactSlabFixedSpatialSpatialDenseGap.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: actual spatial pairing laws and LIMIT CS give its radical,
+  SquaredSeminorm and explicit-Cauchy quotient with physical time/nonzero
+  unit. Aligned original-action comparison proves inclusion coherence for
+  unchanged words. Separate fixed-support probes retain a common original
+  action/partition and supply regulator- and lag-independent amplitude.
+  Actual connected limits and centered dyadic moments remove that amplitude,
+  proving B(x,T_2 x)<=rho(w)^2*B(x,x) for every dense unit-orthogonal
+  presentation, with one rate for all positive base sizes. The actual
+  centered face scalar retains the positive starRatio(w) floor.
+- **consumer/open input**: removes the small-nome spatial form/base-coherence
+  and uniform-in-base DENSE decay obligations. The SAME new carrier's
+  completed mixed pairing, actual nonzero centered vector and all-completed-
+  vector strict bound remain open, as does the union carrier. Full
+  spatial-translation/algebra identification, Hilbert/OS/QFT, physical
+  mass/spacing calibration, continuum nontriviality and all-group Clay
+  closure remain open. Rate and guards depend on coupling; no all-beta
+  theorem is asserted. No canonical field, sorry, axiom or analytic premise
+  changed.
+- **verification**: twelve narrow serialized one-worker/20 GiB checks,
+  139 public gates within {propext, Quot.sound}; twelve root imports,
+  root/full-tree/full audit unrun. Independent source review checked
+  same-object pins, all uniformity quantifiers and the dense/completed
+  boundary. Evidence: `audits/AUDIT-SPATIAL-DENSE-GAP-AND-COHERENCE.md`.
+
+## Previous PROVED actual reflected spatial scalar limits and positive plaquette variance; OPEN base coherence, limiting carrier, uniform decay and continuum passage at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialBoxBoundary.lean`,
   `BF4ExactSlabFixedSpatialTranslatedProbe.lean`,
