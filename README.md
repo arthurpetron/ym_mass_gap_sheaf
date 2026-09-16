@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: a bridge specification was refuted, not a physics theorem proved.**
+**Latest result: direct cutoff growth without the impossible dyadic schedule.**
+The [rounded actual-nome cutoff](lean/YMGap/Continuum/HeatRoundedCutoff.lean)
+computes `N=floor(8/(1-w))+1`, proves `8 <= N*(1-w) <= 9` and
+`w^N <= 1/8`, and gives the same integer for equivalent rational nomes.
+The [AF growth proof](lean/YMGap/Continuum/BF4RoundedNomeAFGrowth.lean)
+uses the existing margin `t/8 <= 1-w` to prove `N*(t/4) <= 18`.
+It supplies the existing growth and generic window interfaces at the actual
+nome; the matched specialization still assumes the cubic law and spacing
+envelope. No exact dyadic or Pade identity is required.
+
+The actual local windows and their `upper <= 4^N*lower` estimate remain
+explicit inputs. A cutoff-tail estimate is not a Harnack bound or a mass
+gap. All 13 public gates passed in two focused, serialized checks; no
+full-tree build was run. Physical scale/transfer calibration, changing-action
+spatial estimates, continuum construction and the all-group target remain open.
+
+**Previous result: a bridge specification was refuted, not a physics theorem proved.**
 The [exact matched dyadic bridge](lean/YMGap/Continuum/BF4MatchedDyadicHeatObstruction.lean)
 requires a rational coupling with square `1/2`. Lean now proves that it
 has no inhabitant. The matched pointwise-window interface also contains
@@ -31,8 +47,8 @@ the affected consumers and distinguishes the separate RG-calibration issue.
 
 The old statements are preserved and explicitly labelled; no frontier field
 was weakened. Five new and seven existing public axiom checks passed in
-three focused, serialized runs. The next target is direct quantitative
-cutoff growth at the actual nome, without exact dyadic/Padé identification;
+three focused, serialized runs. The direct quantitative growth above now
+bypasses this schedule through an unchanged generic interface;
 the required local-window and spatial estimates remain open. The independent
 original-action results below are not refuted. No full-tree build was run.
 

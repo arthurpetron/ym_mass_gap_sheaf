@@ -1432,6 +1432,9 @@ import YMGap.Continuum.BF4MatchedPhysicalFarautTrajectory
 -- Exact rational square-time dyadic specialization is impossible, not open physics.
 import YMGap.Constructive.RationalSquareHalfObstruction
 import YMGap.Continuum.BF4MatchedDyadicHeatObstruction
+-- Direct actual-nome growth, independent of the refuted exact dyadic schedule.
+import YMGap.Continuum.HeatRoundedCutoff
+import YMGap.Continuum.BF4RoundedNomeAFGrowth
 import YMGap.Continuum.BF4MatchedPhysicalFiniteHeatWindow
 import YMGap.Continuum.BF4CanonicalClassCoordinateCarrier
 import YMGap.Continuum.BF4NormalizedSameCarrierPerron

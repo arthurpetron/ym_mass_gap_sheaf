@@ -129,7 +129,8 @@ and `HKConvGen.bernoulli_pow` plus `ofNat_mul_le_bScale`,
 `lean/YMGap/Continuum/HeatKernelConvGen.lean:190`, `:245`.
 They also suggest the power-tail inequality w^N <= 1/8.
 
-This paragraph is a paper-level next argument, NOT a checked new theorem.
+At the refutation checkpoint this was a paper-level argument, not a checked
+new theorem. The follow-up in section 7 now proves it directly.
 A tail cutoff is NOT automatically a Harnack bit bound. The actual local
 window/spread bound, retained interaction, original-action identification,
 and physical scale remain separate obligations. Do not replace the
@@ -150,3 +151,50 @@ Own/direct artifacts were fresh. Root/full-tree audit unrun; CI manual-only.
   `9555c8b5452960e56b1489ffa49f82dc2135434acf004b05f34994540cfdc23e`.
 - `/tmp/ym-matched-faraut-refutation-docs.log`:
   `3bbb4a4d3c87834f588cdd778431654dea46de003c7a4c5c7b0ede9682620932`.
+
+## 7. Checked direct replacement growth (2026-09-15)
+
+Follow-up after `ee90dde`: the cutoff proof branch, parent AF consumer, and
+independent read-only interface review ran in parallel. Only the parent
+compiled, serially. No refuted field or old theorem statement was changed.
+
+| Checked result | Declaration and source | Scope |
+| --- | --- | --- |
+| Computed integer cutoff | `cutoff`, `lean/YMGap/Continuum/HeatRoundedCutoff.lean:20`; `cutoff_positive`, same file `:23` | N=floor(8/(1-w))+1, positive without choosing a witness from a proposition. |
+| Rounded gap bounds | `cutoff_gap_lower`, same file `:75`; `cutoff_gap_upper`, same file `:86` | 8<=N*(1-w)<=9, for every rational 0<w<1. |
+| Nome power bound | `power_le`, same file `:105` | w^N<=1/8 from the existing Bernoulli bound, not a pointwise heat-window estimate. |
+| Representation invariance | `cutoff_eq_of_eqv`, same file `:123` | Equivalent positive subunit rational nomes compute equal natural cutoffs. |
+| Envelope subunity | `envelope_time_pos`, `lean/YMGap/Continuum/BF4RoundedNomeAFGrowth.lean:32`; `envelope_weight_lt_one`, same file `:48` | Follows from the existing AF lower-time and margin fields on 0<g<=g1. |
+| Direct heat cost | `rounded_heat_cost`, same file `:57` | N(E.w g)*(E.t g/4)<=18, with positive actual nome explicit. |
+| Existing growth witness and consumer | `roundedAFBitGrowth`, same file `:89`; `rounded_core_length_uniform`, same file `:103` | Constructs `FarautAFBitGrowth` and feeds its scalar core-length theorem with ceiling 46*18. |
+| Existing window interface | `roundedPointwiseHeatAFWindowFamily`, same file `:115` | Actual local windows and upper<=4^N*lower remain supplied; growth is proved. No hidden dyadic bridge. |
+| Literal matched output | `matchedRoundedAFBitGrowth`, same file `:138` | Same cutoff at `blockedWeight`, with unchanged `CubicMarginLaw` and `PhysicalSpacingEnvelope` arguments. |
+
+This strict reduction does not prove the outstanding window inequalities.
+The existing bridge-free `matchedFinitePointwiseHeatTailWindow`,
+`lean/YMGap/Continuum/BF4MatchedPhysicalFiniteHeatWindow.lean:388`, and
+`matchedFinitePhysicalPointwiseHeatTailWindow`, same file `:434`, construct
+finite-prefix windows at supplied depths and coordinate lists. Positive
+lower endpoints and the required spread cap are not consequences of the
+new cutoff theorem. The local windows' truncation indices are separate
+from the proved Harnack bit schedule in the unchanged generic interface.
+
+Next required estimate: actual positive local windows with
+upper<=4^N(w)*lower along the coupling family, retaining every nome and
+coordinate parameter. Independent cubic-law/spacing inputs, original
+physical transfer calibration, changing-action spatial cancellation,
+continuum QFT/nontriviality and all compact simple groups remain open.
+No physical beta-uniform gap is derived from this group-independent scalar
+estimate.
+
+Verification: two focused safe one-worker/20 GiB checks, first-run success.
+The cutoff definition and positivity theorem use no axioms; the other
+eleven public gates use only {propext, Quot.sound}. No new analytic
+assumption, literal hole, axiom, option increase or dependency refresh.
+Own/direct artifacts fresh; two root imports added, root/full-tree unrun.
+CI remains manual-only.
+
+- `/tmp/ym-heat-rounded-cutoff.log`:
+  `c5410778dfc9b9e5f23a66eb680154b8c257c00b3813c40618b68977f8a9fc15`.
+- `/tmp/ym-rounded-nome-af-growth.log`:
+  `ad2675fae3ab36611b61427d958654b0831ee4b390b95aea5272d4a899bff59b`.

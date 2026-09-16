@@ -1,5 +1,18 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Direct actual-nome growth, separate from the spatial estimate (2026-09-15)
+
+The proposed replacement schedule is now checked:
+`rounded_heat_cost`, `lean/YMGap/Continuum/BF4RoundedNomeAFGrowth.lean:57`,
+proves N*(t/4)<=18 using the actual nome and the existing AF margin.
+`roundedPointwiseHeatAFWindowFamily`, same file `:115`, supplies growth
+to the existing generic window interface with no impossible dyadic bridge.
+The actual local windows and their upper<=4^N*lower bound remain arguments.
+This does not supply the original-action spatial determinant estimate or
+physical transfer calibration. See section 7 of
+[the scoped audit](AUDIT-AF-DYADIC-BRIDGE.md) for exact cutoff statements,
+remaining inputs and the two focused checks (13 permitted public gates).
+
 ## Scale-route correction: exact physical dyadic input refuted (2026-09-15)
 
 The parallel next-consumer review found no new retained-interaction

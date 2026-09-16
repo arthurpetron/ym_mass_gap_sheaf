@@ -126,7 +126,49 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (REFUTED physical square-time dyadic bridge; NEXT direct quantitative growth):**
+**Latest mathematical increment (PROVED rounded actual-nome growth; OPEN local-window spread):**
+PROGRESS after `ee90dde`. The parallel cutoff branch and parent AF consumer
+now prove the direct alternative identified by the bridge audit. An
+independent read-only review checked that neither the growth witness nor
+the generic window constructor inherits the refuted dyadic premise.
+
+`HeatRoundedCutoff.cutoff` computes N(w)=floor(8/(1-w))+1. Its checked
+bounds are 8<=N*(1-w)<=9 and w^N<=1/8 for rational 0<w<1; equivalent
+rational presentations compute exactly the same N. The integer-floor
+argument and existing Bernoulli estimate need no analytic input.
+`BF4RoundedNomeAFGrowth.rounded_heat_cost` combines the upper bound with
+the EXISTING AF margin t/8<=1-w to prove N*(t/4)<=18. Subunity follows
+from the envelope; positive w is explicit. `roundedAFBitGrowth` constructs
+the existing growth witness, and `rounded_core_length_uniform` feeds the
+existing scalar length consumer with ceiling 46*18.
+
+`matchedRoundedAFBitGrowth` specializes definitionally to `blockedWeight`
+under the unchanged cubic-law and spacing assumptions. The existing
+generic `PointwiseHeatAFWindowFamily` is assembled directly by
+`roundedPointwiseHeatAFWindowFamily`, with its actual local windows and
+upper<=4^N*lower estimate STILL SUPPLIED. This removes the unnecessary
+dyadic schedule without modifying any old statement. The local windows'
+own truncation indices remain independent of the Harnack bit schedule;
+no tail estimate is silently promoted to a spread estimate.
+
+NEXT CAUSAL FRONTIER: prove positive actual heat windows whose endpoint
+ratio obeys that explicit rounded bit cap, uniformly over the required
+coordinates and with every nome/scale parameter retained. Existing
+finite-prefix constructors can supply windows once endpoints/depths are
+specified, but do not themselves prove positive floors or this spread.
+The cubic law, physical spacing and transfer calibration, changing-action
+spatial cancellation, continuum QFT/nontriviality and all compact simple
+groups remain open. This scalar growth estimate is group-independent
+infrastructure, not a beta-uniform physical-gap theorem.
+
+Verification: all 13 public gates within {propext, Quot.sound}; two
+focused safe one-worker/20 GiB checks, both first-run success. No raised
+limits, dependency refresh, literal hole, custom axiom, old theorem
+statement or canonical field change. Own/direct artifacts fresh. Two
+root imports; root/full-tree unrun, CI manual-only. Exact declarations
+and log hashes are in `audits/AUDIT-AF-DYADIC-BRIDGE.md`, section 7.
+
+**Previous mathematical increment (REFUTED physical square-time dyadic bridge; next proposal now proved above):**
 PROGRESS after `a912133`. Parallel source reviews did not find a new spatial
 estimate: cutoff-tail smallness leaves the retained common-exterior
 interaction, and local nome Lipschitz control alone loses the necessary
@@ -150,13 +192,13 @@ the affected specializations. Generic algebra in those files is not
 declared false. See `audits/AUDIT-AF-DYADIC-BRIDGE.md` for exact declarations,
 the separate fine-to-coarse sign/calibration concern, and verification.
 
-NEXT CAUSAL FRONTIER: prove a representation-safe cutoff
+NEXT CAUSAL FRONTIER AT THAT CHECKPOINT: prove a representation-safe cutoff
 N(w)=floor(8/(1-w))+1 with 8<=N*(1-w)<=9 and w^N<=1/8.
 The existing AF margin field would then give N*(t/4)<=18, directly
 supplying the existing `FarautAFBitGrowth` interface at the ACTUAL nome,
 without any exact dyadic or Padé identity. Existing constructive integer
 upper approximations and Bernoulli estimates support this paper argument;
-it is NOT yet a newly checked theorem. Feed a proved growth witness only
+it was NOT yet a newly checked theorem at that checkpoint. Feed a proved growth witness only
 to the generic `PointwiseHeatAFWindowFamily`, whose actual local windows
 and upper<=4^N*lower bound remain separate. A tail cutoff is not by itself
 a Harnack bound. Changing-action spatial decay, scale/transfer calibration,

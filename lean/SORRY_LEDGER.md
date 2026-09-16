@@ -13,7 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## REFUTED exact physical dyadic bridge; OPEN direct growth and physical windows (2026-09-15)
+## PROVED rounded actual-nome AF growth; OPEN local-window spread (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/HeatRoundedCutoff.lean` and
+  `lean/YMGap/Continuum/BF4RoundedNomeAFGrowth.lean`.
+- **proof**: a representation-invariant computed cutoff N=floor(8/(1-w))+1
+  satisfies 8<=N*(1-w)<=9 and w^N<=1/8. The existing AF envelope's
+  margin proves N*(t/4)<=18, supplying `FarautAFBitGrowth` at its actual
+  nome and the existing scalar core-length consumer. The matched
+  specialization uses the literal blocked output, with cubic law and
+  spacing envelope still supplied. No dyadic/Pade premise is required.
+- **strictly reduced input**: `roundedPointwiseHeatAFWindowFamily` returns
+  the EXISTING generic window structure with growth constructed, not
+  assumed. Its actual local windows, positive lower endpoints, nonnegative
+  upper endpoints and `upper<=4^N*lower` remain explicit arguments.
+  The power-tail bound does not supply the window-spread inequality.
+- **open residue**: prove the remaining analytic windows and bit cap,
+  cubic/spacing laws, original physical transfer calibration and spatial
+  cancellation. Continuum QFT, nontriviality and all-group Clay remain
+  open. The previously refuted fields and old theorem statements are
+  preserved; no canonical field, custom axiom or literal hole changed.
+- **verification**: all 13 public gates within {propext, Quot.sound}; two
+  focused safe serialized one-worker/20 GiB checks, first-run success.
+  Final logs clean, own/direct artifacts fresh, no raised limits or
+  dependency refresh. Two root imports; root/full-tree unrun. Exact
+  declarations and hashes: `audits/AUDIT-AF-DYADIC-BRIDGE.md`, section 7.
+
+## Previous REFUTED exact physical dyadic bridge; direct growth subsequently proved above (2026-09-15)
 
 - **files**: new `lean/YMGap/Constructive/RationalSquareHalfObstruction.lean`
   and `lean/YMGap/Continuum/BF4MatchedDyadicHeatObstruction.lean`;
@@ -36,7 +62,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The proposed rounded reciprocal cutoff removes the impossible schedule,
   but actual local windows and their bit spread, spatial cancellation,
   physical scale/OS transport, continuum/nontriviality and all-group Clay
-  remain open. The exact proposal is recorded, not asserted proved.
+  remain open. The proposal was recorded then and is now proved above.
 - **verification**: all five new and seven unchanged public gates within
   {propext, Quot.sound}; three focused safe serialized one-worker/20 GiB
   checks, first-run success. Final logs clean, own/direct artifacts fresh;
