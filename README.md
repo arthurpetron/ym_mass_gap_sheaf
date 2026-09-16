@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: an exact connected response, and a test of pairwise closure.**
+**Latest result: cutoff stability relative to the actual centered variance.**
+The [new comparison](lean/YMGap/Continuum/BF4ExactSlabOneFaceVarianceComparison.lean)
+proves that changing one face from cutoff `K` to `K+L` changes ordinary
+original-action variance by at most a multiplicative factor `(1+eta)^2`,
+in either direction, once `K>=relativeCutoff(w,eta)`. Each law uses its
+own computed mean. The bound works for every supported polynomial,
+without a supplied observable cap or `eta<1`; both partitions and every
+positive spectator interaction remain. The two centered null spaces agree.
+
+This is norm-relative regulator stability, not spatial decay or an OS-norm
+comparison. The cutoff depends on the coupling, and only one face changes.
+Twenty public gates passed focused serialized checks; root/full-tree checks
+were not run. The [audit](audits/AUDIT-ONE-FACE-VARIANCE-COMPARISON.md)
+also records why heat cap/floor bounds alone do not supply the missing
+all-nome physical transfer identification. The Clay target remains open.
+
+**Previous result: an exact connected response, and a test of pairwise closure.**
 The [original-action identity](lean/YMGap/Continuum/BF4ExactSlabConnectedFaceResponse.lean)
 expresses the change of covariance under one full heat-face insertion using
 a third connected moment and a subtracted product of two pairwise moments,

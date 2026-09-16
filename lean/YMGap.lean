@@ -4478,6 +4478,9 @@ import YMGap.Continuum.BF4ExactSlabRetainedHeadCorrelation
 import YMGap.Continuum.RationalConnectedResponse
 import YMGap.Continuum.BF4ExactSlabConnectedFaceResponse
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
+import YMGap.Continuum.RationalPositiveRatioComparison
+import YMGap.Continuum.RationalVarianceComparison
+import YMGap.Continuum.BF4ExactSlabOneFaceVarianceComparison
 -- Actual six-face star and normalized deletion comparison; not spatial mixing.
 import YMGap.Continuum.BF4ExactSlabLinkStarGeometry
 import YMGap.Continuum.BF4ExactSlabLocalStarComparison

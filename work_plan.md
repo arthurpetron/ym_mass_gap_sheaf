@@ -126,7 +126,46 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED original connected response identity; OPEN spatially summable third response):**
+**Latest mathematical increment (PROVED norm-relative one-face variance stability; OPEN spatial response and OS comparison):**
+PROGRESS after `d00456e`. The original high-spin estimate holds under
+EVERY supported square, including squares about a rational center. This
+gives `BF4ExactSlabOneFaceVarianceComparison.variance_comparison` and its
+reverse with factor (1+eta)^2, for K>=relativeCutoff(w,eta), eta>0 and
+0<w<1. Each law is centered at its OWN computed normalized mean, using
+the exact rational minimum of its squared-distance polynomial. No supplied
+observable cap, eta<1 guard or volume-dependent partition floor enters
+the coefficient. The cutoff is coupling-dependent.
+`original_variance_comparison` constructs positivity of the actual
+spectator product and both endpoint partitions, retaining all shared links.
+`variance_null_iff` proves equality of the two ordinary centered null spaces.
+
+This is a bounded regulator/norm result, NOT an original reflected OS-norm
+comparison or spatial-decay estimate. Source review found no immediate
+operator consumer: changing the law also changes its conditional projections.
+The existing connected-response consumer adds an ENTIRE face; the new
+comparison changes the cutoff of an EXISTING face. It does not supply that
+consumer's missing spatially summable bound. Stop expanding this regulator
+branch into completion/operator scaffolding without such a concrete consumer.
+
+The alternative finite-volume cap/floor route also lacks a same-object
+time identity: finite-stage `translate` changes half to half+n, rather
+than defining an endomorphism of a fixed finite-volume completion.
+The actual completed thermodynamic two-step gap at fixed nome 1/1024 is
+already proved, but is not an all-nome finite-volume transfer construction.
+NEXT remains the spatially summable signed original response with usable
+coupling/scale control, or a separately justified physical time-kernel route.
+Physical normalization, continuum QFT/nontriviality and the all-group Clay
+target remain open. No canonical atom is closed or statement weakened.
+
+Verification: twenty public gates within {propext, Quot.sound}; seven focused
+serialized one-worker/20 GiB launches, including one corrected syntax attempt,
+the added null-space corollary and two final rechecks. A separate narrow
+SumOfSquares dependency target accepted the existing cache without rebuilding.
+No raised limits; this was not fresh elaboration of every dependency.
+Three root imports; root/full-tree unrun. Source evidence and log hashes:
+`audits/AUDIT-ONE-FACE-VARIANCE-COMPARISON.md`.
+
+**Previous mathematical increment (PROVED original connected response identity; OPEN spatially summable third response):**
 PROGRESS after `963cbb9`. Parallel work separated a reusable rational identity,
 an actual original-plaquette test of pairwise closure, and read-only review
 of the physical consumer. The parent proved the original-action and

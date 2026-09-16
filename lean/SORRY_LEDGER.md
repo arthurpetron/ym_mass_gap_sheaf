@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original connected face response; OPEN spatially summable third response (2026-09-15)
+## PROVED norm-relative one-face variance stability; OPEN spatial response and OS comparison (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/RationalPositiveRatioComparison.lean`,
+  `RationalVarianceComparison.lean`, and
+  `BF4ExactSlabOneFaceVarianceComparison.lean` in that directory.
+- **proof**: both directions of normalized square/variance comparison with
+  factor (1+eta)^2 for one original face's K-to-K+L change above the explicit
+  relativeCutoff(w,eta). Applies to every supported polynomial under a
+  certified positive background; no observable cap or eta<1 assumption.
+  Both partitions remain, and the two laws use their own computed means.
+  The actual spectator-product specialization constructs all positivity.
+  Ordinary centered null spaces agree.
+- **scope**: ordinary original-action L2 variance, NOT reflected OS norm.
+  No cutoff-removed completion map, physical transfer comparison, spatial
+  decay or uniform many-face estimate follows. The cutoff depends on w.
+- **open residue**: the spatially summable signed original response remains
+  unsupplied. The all-nome finite-stage time embedding changes carrier size;
+  cap/floor bounds alone do not identify a physical time endomorphism.
+  Physical scaling, continuum QFT/nontriviality and all-group Clay remain
+  open. No canonical atom, old statement/field, custom axiom or literal hole
+  changed. Further regulator wrappers require a concrete consumer.
+- **verification**: twenty public gates within {propext, Quot.sound}; seven
+  focused serialized one-worker/20 GiB launches, one syntax correction,
+  an added corollary and two final rechecks included. A separate narrow
+  SumOfSquares dependency target accepted the existing cache without a
+  rebuild. No raised limits or fresh elaboration of every dependency.
+  Three root imports; root/full-tree unrun. Exact source and hashes:
+  `audits/AUDIT-ONE-FACE-VARIANCE-COMPARISON.md`.
+
+## Previous PROVED original connected face response; OPEN spatially summable third response (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/RationalConnectedResponse.lean`,
   `BF4ExactSlabConnectedFaceResponse.lean`, and
