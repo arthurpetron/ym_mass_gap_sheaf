@@ -72,6 +72,34 @@ def normalizerMap (r : (G).V) : (G).V :=
 local notation "M" => normalizerMap hw0 hw1 K extent hK link hl
 local notation "s" => HKConv.divPos 1 (upperFactor w)
 
+/-- The actual normalizer multiplier preserves polynomial differences. -/
+theorem normalizerMap_sub (a b : (G).V) :
+    (G).veq (M ((G).sub a b)) ((G).sub (M a) (M b)) := by
+  change RatPolyCoeffEqv
+    (polyMul (polyAdd a.val (polySmul (-1) b.val)) (normalizer w K extent link hl))
+    (polyAdd (polyMul a.val (normalizer w K extent link hl))
+      (polySmul (-1) (polyMul b.val (normalizer w K extent link hl))))
+  rw [polyMul_add_left_exact]
+  exact (RatPolyCoeffEqv.refl _).add (RatPolyCoeffEqv.polyMul_smul_left _ _ _)
+
+/-- The original local-star floor and cap act on the SAME B-weighted form. -/
+theorem normalizerMap_form_bounds (a : (G).V) :
+    lowerFactor w * (G).B a a ≤ (G).B a (M a) ∧
+      (G).B a (M a) ≤ upperFactor w * (G).B a a := by
+  have h := normalizer_weighted_form_bounds hw0 hw1 K extent hK link hl a.val a.property
+  have hp : (G).B a (M a) ≈
+      quaternionHaar (blocks extent-1)
+        (polyMul (polyMul (polyMul a.val a.val) (normalizer w K extent link hl))
+          (exterior w K extent link hl)) :=
+    haar_of_coeff ((RatPolyCoeffEqv.mul_assoc _ _ _).symm.mul_right _)
+  exact ⟨Q'.le_trans' _ _ _ h.1 (Q'.ge_of_eqv hp),
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv hp) h.2⟩
+
+/-- Boundedness of the multiplier in the actual B-weighted exterior norm. -/
+theorem normalizerMap_norm (a : (G).V) :
+    (G).B (M a) (M a) ≤ (upperFactor w * upperFactor w) * (G).B a a :=
+  normalizer_weighted_multiplication_norm hw0 hw1 K extent hK link hl a.val a.property
+
 def scaledNormalizer (r : (G).V) : (G).V := (G).smul s (M r)
 
 local notation "P" => scaledNormalizer hw0 hw1 K extent hK link hl
@@ -232,6 +260,9 @@ end YMGap.Continuum.BF4ExactSlabStarInverseApproximation
 
 #print axioms YMGap.Continuum.BF4ExactSlabStarInverseApproximation.exteriorData
 #print axioms YMGap.Continuum.BF4ExactSlabStarInverseApproximation.normalizerMap
+#print axioms YMGap.Continuum.BF4ExactSlabStarInverseApproximation.normalizerMap_sub
+#print axioms YMGap.Continuum.BF4ExactSlabStarInverseApproximation.normalizerMap_form_bounds
+#print axioms YMGap.Continuum.BF4ExactSlabStarInverseApproximation.normalizerMap_norm
 #print axioms YMGap.Continuum.BF4ExactSlabStarInverseApproximation.scaledNormalizer
 #print axioms YMGap.Continuum.BF4ExactSlabStarInverseApproximation.scaledNormalizer_symmetric
 #print axioms YMGap.Continuum.BF4ExactSlabStarInverseApproximation.scaledNormalizer_form_bounds

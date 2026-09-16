@@ -1,5 +1,40 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Actual completed normalizer preimages (2026-09-15)
+
+Follow-up after `f192068`. The Cauchy modulus and completed image identity
+are now supplied in the SAME B-weighted exterior completion. This is not
+yet a full-action conditional projection or an OS operator estimate.
+
+| Result | Declaration and source | Scope |
+| --- | --- | --- |
+| Coercive norm lower bound | `lower_norm`, `lean/YMGap/Continuum/PositiveCoerciveForm.lean:22` | L B(a,a)<=B(a,Pa) implies L^2 B(a,a)<=B(Pa,Pa), using sharp Cauchy--Schwarz. |
+| Actual multiplier APIs | `normalizerMap_sub`, `lean/YMGap/Continuum/BF4ExactSlabStarInverseApproximation.lean:76`; `normalizerMap_form_bounds`, :86; `normalizerMap_norm`, :99 | Exact polynomial difference map and original B-weighted lower/upper bounds. |
+| Preimage Cauchy data | `normalizer_distance_bounds`, `lean/YMGap/Continuum/BF4ExactSlabStarCompletedInverse.lean:62`; `inverseCauchy`, :88 | Explicit modulus at residual tolerance L^2*epsilon/4. |
+| Genuine completed multiplier | `normalizerCauchy`, same module :123; `normalizerNullModulus`, :134; `normalizerCompletion`, :158; `normalizerCompletion_embed`, :162 | Pointwise actual D, rescaled modulus, explicit null transport and dense agreement. |
+| Uniqueness and exact image | `normalizerCompletion_injective`, same module :169; `inverseImageNull`, :185; `normalizer_inverseState`, :196 | Injective actual multiplier; constructed dense-input preimage and exact completed image equation with explicit null modulus. |
+| Compatibility and actual numerator | `inverseState_normalizer`, same module :201; `inverseState_rad`, :207; `conditionalState`, :215; `normalizer_conditionalState`, :220 | Reverse identity on polynomial images, dense null-class compatibility and actual N_p/D in the B completion. |
+
+The pointwise bounded-map construction reuses the existing rescaling facts
+`oneOver1p_pos`, `lean/YMGap/Continuum/HamiltonianScalar.lean:134`, and
+`key_bound`, same module :143. No transfer-operator structure or assumption
+of nonexpansiveness for unscaled D was introduced.
+
+NEXT: the proved `headProbe_full_norm_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabStarInsertedNumerator.lean:68`, can support
+the original full-action lift, but that completed lift is not constructed
+here. The exact finite `full_test_pin`,
+`lean/YMGap/Continuum/BF4ExactSlabStarNormalizer.lean:283`, must then pass
+through the actual completed pairings to prove orthogonality and projection
+contraction. Original-input null compatibility and any claimed unit/positivity/
+Markov properties remain separate. The original spatial-decay premise,
+physical calibration, OS spectrum, continuum QFT and all-group target remain open.
+
+Verification: all 18 new and 13 legacy public gates pass, with exact matching;
+six focused serialized safe launches including a stale null-modulus artifact
+refresh. The dependency's eight printed gates also pass. Final logs clean,
+own/direct artifacts fresh. No raised limits; root/full-tree unrun.
+
 ## Weighted polynomial approximate division and completion review (2026-09-15)
 
 Follow-up after `efe64fc`. Parallel proof branches supply the residual
@@ -11,10 +46,10 @@ finite approximate preimages in the actual B-weighted exterior form.
 | Positive residual and geometric norm bound | `residual_norm`, `lean/YMGap/Continuum/PositiveContractionResidual.lean:83`; `residualIterate_norm`, :99 | eta I<=P<=I gives squared residual rate (1-eta)^2. |
 | Explicit geometric tolerance index | `geometricCutoff`, same module :119; `geometric_bound`, :126 | Handles zero rate and zero initial norm; does not divide by the norm. |
 | Original inserted numerator bound | `insertedNormalizer_weighted_norm`, `lean/YMGap/Continuum/BF4ExactSlabStarInsertedNumerator.lean:90` | H_tail(N_p^2 B)<=U H_full(p^2 fullAction), via actual full-law Cauchy--Schwarz. |
-| Concrete scaled multiplier | `exteriorData`, `lean/YMGap/Continuum/BF4ExactSlabStarInverseApproximation.lean:48`; `scaledNormalizer_form_bounds`, :105 | Actual B form, actual D/U, proved eta=L/U. |
-| Polynomial approximate division | `approximateInverse`, same module :137; `approximateInverse_residual_norm`, :160 | a_0=0; a_(n+1)=a_n+(r-D*a_n)/U; squared division error <=(1-L/U)^(2n)||r||_B^2. |
-| Actual conditional numerator consumer | `conditionalApproximation`, same module :188; `conditionalApproximation_defect_norm`, :195 | Approximation to N_p/D with error bounded by the ORIGINAL full-action input norm. |
-| Concrete residual tolerance | `approximationCutoff`, same module :213; `approximateInverse_error_le`, :217 | Computed iteration count for requested squared division error; NOT a preimage Cauchy modulus. |
+| Concrete scaled multiplier | `exteriorData`, `lean/YMGap/Continuum/BF4ExactSlabStarInverseApproximation.lean:48`; `scaledNormalizer_form_bounds`, :133 | Actual B form, actual D/U, proved eta=L/U. |
+| Polynomial approximate division | `approximateInverse`, same module :165; `approximateInverse_residual_norm`, :188 | a_0=0; a_(n+1)=a_n+(r-D*a_n)/U; squared division error <=(1-L/U)^(2n)||r||_B^2. |
+| Actual conditional numerator consumer | `conditionalApproximation`, same module :216; `conditionalApproximation_defect_norm`, :223 | Approximation to N_p/D with error bounded by the ORIGINAL full-action input norm. |
+| Concrete residual tolerance | `approximationCutoff`, same module :241; `approximateInverse_error_le`, :245 | Computed iteration count for requested squared division error; NOT a preimage Cauchy modulus. |
 
 The independent read-only completion review identifies existing consumers:
 `CauchyGNS`, `lean/YMGap/Continuum/GNSCompletion.lean:364`, retains

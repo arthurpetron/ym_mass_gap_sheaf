@@ -119,7 +119,73 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED weighted polynomial approximate division; OPEN completed conditional update/spatial control):**
+**Latest mathematical increment (PROVED actual completed normalizer preimages; OPEN original-law projection/spatial control):**
+PROGRESS after `f192068`. Parallel tasks supplied the generic lower norm
+estimate and the actual multiplier difference/form/norm APIs; a read-only
+review identified the existing bounded-Cauchy-lift template. The parent
+constructed the concrete completed preimages without a new operator framework.
+
+`PositiveCoerciveForm.lower_norm` proves L^2||x||^2<=||D*x||^2 from the
+coercive form and Cauchy--Schwarz, cancelling only a decidably positive
+input norm. The actual `normalizerMap_sub`, `normalizerMap_form_bounds` and
+`normalizerMap_norm` instantiate two-sided squared-distance bounds.
+`BF4ExactSlabStarCompletedInverse.inverseCauchy` uses the OLD polynomial
+approximants with modulus
+epsilon |-> approximationCutoff(r, L(w)^2*epsilon/4).
+The quadratic triangle through r bounds image distances; coercivity and
+positive L^2 cancellation then bound preimage distances. No series engine,
+choice of representatives or new completion carrier is introduced.
+
+`normalizerCauchy` maps ANY existing B-weighted Cauchy representative
+pointwise by actual D, rescaling its modulus by epsilon/(1+U(w)^2).
+`normalizerNullModulus` retains explicit null data, and
+`normalizerCompletion` is its genuine quotient extension, agreeing with D
+on dense polynomials. `normalizerCompletion_injective` follows from the
+same coercivity. `inverseImageNull` gives the explicit limiting division
+modulus, and `normalizer_inverseState` proves the EXACT completed equation
+Dhat(inverseState(r))=embed(r). `inverseState_normalizer` gives the reverse
+identity on polynomial images; `inverseState_rad` proves dense null-class
+compatibility. `conditionalState` instantiates the actual inserted N_p.
+This constructs unique completed preimages for every dense polynomial input;
+it does not claim a separately constructed inverse function on arbitrary
+completed inputs. That stronger function is not needed for the current N_p
+consumer. Every form and multiplier remains the actual B-weighted one.
+
+NEXT CAUSAL FRONTIER: use the existing
+`BF4ExactSlabStarInsertedNumerator.headProbe_full_norm_bound` to extend the
+actual exterior probe into the ORIGINAL full-action weighted completion.
+Then pass `BF4ExactSlabStarNormalizer.full_test_pin` and the new division
+identity through the completed pairings. Prove that p-lift(inverseState(N_p))
+is orthogonal to exterior tests, and obtain the L2 projection contraction
+by the Pythagorean identity. This still needs the actual lift, pairing-limit
+compatibility and original-input null-class compatibility. Unit/positivity/
+Markov semantics require their own statements if claimed. An auxiliary
+ordinary L2 projection is not an OS transfer operator or Hamiltonian gap.
+
+The decaying original boundary-numerator premise in
+`BF4ExactSlabBoundaryLimitNormalization.expectationDifference_bound_of_prefix_eventually`
+remains open. No local inverse theorem supplies spatial contraction,
+coupling/spacing-uniform physical estimates, continuum QFT/nontriviality,
+other required compact simple groups or the Clay target.
+
+Verification: six focused serialized safe launches, one worker/20 GiB:
+the three proof modules plus an inherited `GNSModulusCompletion` artifact
+refresh. All 18 new and 13 legacy public gates in the changed proof modules
+match exactly within {propext, Quot.sound}; the refreshed dependency's eight
+printed gates also stay within the gate. Final logs clean, own/direct
+artifacts fresh. A namespace opening was the only new-source check repair.
+No raised limits, new holes/axioms or changed canonical fields. Two root
+imports added; root/full-tree unrun. CI remains manual-only. Final hashes:
+- `/tmp/ym-positive-coercivity.log`:
+  `7f9e3491b78256103a70854fb221986da44c46fd8902aef95467b5186c675a22`.
+- `/tmp/ym-star-inverse-linear.log`:
+  `afc49063ea4e552dfca209fd533f158041a5abaac139a6693674b18961e5796b`.
+- `/tmp/ym-star-completed-inverse.log`:
+  `f2a320204cbe7df184ad6a3cd51634fccde775540224ad8c2f8414f2ca56ff79`.
+- `/tmp/ym-star-modulus-refresh.log`:
+  `38990f884c976086cdd095eadad3a1ee6215064b932d496e75e8bea7f6e06896`.
+
+**Previous mathematical increment (PROVED weighted polynomial approximate division; OPEN completed conditional update/spatial control):**
 PROGRESS after `efe64fc`. Two bounded parallel proof branches and an
 independent completion-API review were integrated with the concrete parent
 application. All compilation remains serialized.

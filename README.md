@@ -21,7 +21,21 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [explicit polynomial approximate division by the actual one-link normalizer](lean/YMGap/Continuum/BF4ExactSlabStarInverseApproximation.lean).
+**Latest result:** [the actual one-link normalizer now has constructed completed preimages](lean/YMGap/Continuum/BF4ExactSlabStarCompletedInverse.lean).
+The polynomial approximants are Cauchy in the original complementary-action
+weighted space, with an explicit modulus. Multiplication by `D` extends to
+that same completion and is injective. For every supported polynomial `r`,
+the constructed state satisfies the exact equation `D * inverseState(r) = r`.
+This constructs `N_p/D` for the actual conditional numerator, not a replacement law.
+All 31 public gates in the three checked proof modules pass the constructive
+axiom gate. Verification was focused and serialized, not a full-tree build.
+
+**Next:** lift that vector to the original full-action space and prove the
+conditional projection identity. This is ordinary weighted L2 construction,
+not an OS transfer gap. Spatial decay, physical scaling, continuum QFT and
+the whole-project Clay target remain open.
+
+**Previous result:** [explicit polynomial approximate division by the actual one-link normalizer](lean/YMGap/Continuum/BF4ExactSlabStarInverseApproximation.lean).
 In the actual complementary-action weighted norm, the iteration
 `a <- a + (r-D*a)/U` has squared residual bounded by
 `(1-L/U)^(2*n)` times the input norm, with a computed tolerance cutoff.

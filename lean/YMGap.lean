@@ -3769,6 +3769,7 @@ import YMGap.Continuum.BF4PhysicalCubeCompletion
 -- Same conditional action on the finite reflected form; cofinal/time pins remain open.
 import YMGap.Continuum.PositiveContractionOneStepForm
 import YMGap.Continuum.PositiveContractionResidual
+import YMGap.Continuum.PositiveCoerciveForm
 import YMGap.Continuum.PositiveContractionOneStepCompletion
 import YMGap.Continuum.BF4PhysicalJointFormTransfer
 -- Actual cutoff-removed normalization of the raw all-spin reflected form.
@@ -4456,6 +4457,7 @@ import YMGap.Continuum.SU2QuaternionHaarHeadProbeTransport
 import YMGap.Continuum.BF4ExactSlabStarNormalizer
 import YMGap.Continuum.BF4ExactSlabStarInsertedNumerator
 import YMGap.Continuum.BF4ExactSlabStarInverseApproximation
+import YMGap.Continuum.BF4ExactSlabStarCompletedInverse
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

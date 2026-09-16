@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED weighted polynomial approximate division; OPEN completed conditional inverse and spatial control (2026-09-15)
+## PROVED actual completed normalizer preimages; OPEN original-law projection and spatial control (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/PositiveCoerciveForm.lean` and
+  `BF4ExactSlabStarCompletedInverse.lean`; three additive APIs in
+  `BF4ExactSlabStarInverseApproximation.lean` in the same directory.
+- **proof**: coercivity and Cauchy--Schwarz give a lower squared-norm
+  bound. The actual polynomial division approximants are Cauchy with
+  explicit modulus epsilon |-> approximationCutoff(r,L^2*epsilon/4).
+  The actual bounded multiplier extends pointwise and null-compatibly
+  to the existing B completion and is injective. Every dense input has
+  a constructed unique completed preimage, with an explicit image-null
+  modulus and exact division identity. Dense null inputs give equal
+  states. The actual conditional numerator N_p is instantiated.
+- **open residue**: lift into the original full-action weighted completion;
+  completed test-pairing identity and orthogonality/Pythagorean projection
+  contraction; original-input null-class compatibility; unit/positivity/
+  Markov semantics if claimed. No inverse function on arbitrary completed
+  inputs is claimed here. The actual conditional numerator only requires
+  the proved dense-input construction. Spatial decay, physical scale,
+  OS gap, continuum QFT and all-group Clay remain open. No canonical
+  field, analytic premise, axiom, legacy flag or literal hole changed.
+- **verification**: 18 new plus 13 legacy public gates match exactly
+  within {propext, Quot.sound}; six focused serialized safe one-worker/
+  20 GiB launches including one inherited null-modulus artifact refresh.
+  Its eight printed gates also pass. Final logs clean; own/direct
+  artifacts fresh. No raised limits. Two root imports; root/full-tree
+  unrun. Logs/hashes and next causal consumer in work_plan.
+
+## Previous PROVED weighted polynomial approximate division; OPEN completed conditional inverse and spatial control (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/PositiveContractionResidual.lean`,
   `BF4ExactSlabStarInsertedNumerator.lean`, and
