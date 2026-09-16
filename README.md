@@ -21,20 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: the cutoff-removed reflected Cauchy carrier has actual physical time.**
-Limiting Cauchy--Schwarz proves that zero-norm presentations pair to zero;
-the original reflected squared distance therefore supplies a well-defined
-new Cauchy quotient. The SAME physical advance acts on it as a discrete
-semigroup, preserving each supplied Cauchy modulus exactly. The original
-constant unit is fixed and distinct from zero.
+**Latest result: a concrete central observable has strictly positive limiting variance.**
+The original fundamental plaquette character has an explicit positive variance
+floor after both heat-cutoff and time-boundary removal. The proof retains the
+actual central density and its partition; the floor depends on spatial width
+and coupling, not the removed regulators. The actual reflected pairing now
+extends to the same Cauchy carrier as physical time. Its embedding theorem
+identifies this variance with the character/unit Gram determinant there.
 
 This remains **fixed-spatial-width SU(2) progress**, not a complete Hilbert/OS
-theory. Its completed pairing and strict unit-complement bound, a nonconstant
-excitation, spatial/spacing control and the continuum Clay target remain open.
-Next: extend the actual pairing on this carrier and investigate an explicit
-central-face positive-variance witness. Three focused checks passed all 44
-public axiom gates; no root/full-tree check was run. See the
-[joint-carrier audit](audits/AUDIT-FIXED-SPATIAL-JOINT-CARRIER.md).
+theory or continuum nontriviality theorem. Next: construct the actual centered
+nonzero vector from rational approximations to its mean. Completed centering
+and the strict completed bound, spatial/spacing control, physical mass
+calibration and the continuum Clay target remain open. Focused checks passed
+all 88 public axiom gates in the touched modules; no root/full-tree check ran.
+See the [variance and pairing audit](audits/AUDIT-CENTRAL-VARIANCE-AND-JOINT-PAIRING.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
 
 **Previous result: reflected correlators survive heat-cutoff removal, preserving the strict scalar bound.**
 At fixed spatial width and nome, the original reflected correlators now
@@ -69,9 +73,6 @@ the reflected common-chart cutoff/time limit, keeping the original action
 and partition. Five focused checks passed all 35 public axiom gates; no
 root/full-tree check was run. See the
 [centered strict-bound audit](audits/AUDIT-FIXED-SPATIAL-CENTERED-STRICT-BOUND.md).
-
-Earlier entries below describe their historical checkpoints; the latest
-result above supersedes their then-open finite strict-bound statements.
 
 **Previous result: connected correlation decay between separated finite windows.**
 For the original fixed-spatial SU(2) transfer, the connected expectation of

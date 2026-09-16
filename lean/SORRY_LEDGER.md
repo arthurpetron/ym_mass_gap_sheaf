@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED cutoff-removed reflected squared seminorm and physical-time Cauchy carrier; OPEN completed joint pairing/strict gap, nonconstant excitation and spatial/spacing control (2026-09-16)
+## PROVED positive original central-character joint variance and SAME-carrier completed pairing; OPEN centered completed vector/strict gap and spatial/spacing control (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialCentralDensity`, `CentralDensityFloor`,
+  `CentralCharacter`, `CentralVariance`, `JointCentralVariance`,
+  `JointPairingBounds`, `JointPairingContinuity`, `JointPairingLimit`,
+  `JointCompletedInner` (all with the same fixed-spatial prefix), and
+  `QuaternionHaarDensityVariance`, under `lean/YMGap/Continuum/`.
+  Existing `WeightedMass.spatialFloorCertificate` made public without
+  changing its proof.
+- **proof**: the actual central density V*(T^(t+1)1)^2 retains the same
+  boundary-mass square in its certified floor and cap. Normalization gives
+  explicit positive delta=L/U, independent of late cutoff and depth at
+  fixed nome/width. Testing supported squares at their actual weighted
+  mean gives variance domination. The actual origin p01 character has Haar
+  moments zero/one and exact first/second-moment pins to the same original
+  central law. Its variance floor passes along the SAME shifted joint
+  diagonal. Explicit anchor ceilings/CS continuity construct the actual
+  completed pairing, with quotient descent, original embedding, symmetry,
+  positivity and unit normalization. The positive limiting variance is
+  exactly its character/unit Gram determinant.
+- **consumer/open input**: supplies the completed mixed pairing and a
+  concrete positive-variance observable, not merely a nonzero unit. Next:
+  construct x-mu.approx(n)*unit as a joint Cauchy stream, prove orthogonality
+  and identify its norm with the positive determinant. Actual centered
+  completed vector/general centering/strict bound, metric completeness,
+  full Hilbert/OS/QFT, spatial/spacing control, physical mass calibration,
+  continuum nontriviality and all-group Clay closure remain open. No
+  canonical field, sorry, axiom or analytic premise changed.
+- **verification**: eleven focused serialized one-worker/20 GiB checks,
+  80 new-module plus eight existing-module public gates, all within
+  {propext, Quot.sound}; one narrow missing-dependency target. Ten root
+  imports; root/full-tree/full audit unrun. Independent mathematical source
+  review checked same-density normalization and joint-limit/carrier pins.
+  Evidence: `audits/AUDIT-CENTRAL-VARIANCE-AND-JOINT-PAIRING.md`.
+
+## Previous PROVED cutoff-removed reflected squared seminorm and physical-time Cauchy carrier; OPEN completed joint pairing/strict gap, nonconstant excitation and spatial/spacing control at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialJointPairingLaws.lean`,
   `BF4ExactSlabFixedSpatialJointSeminorm.lean`, and

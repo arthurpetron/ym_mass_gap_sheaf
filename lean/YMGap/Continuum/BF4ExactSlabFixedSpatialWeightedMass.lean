@@ -89,7 +89,7 @@ private def productFloorCertificate {A : Type} {blocks : Nat} (f : A → RatPoly
       (((L i).mul (productCertificate f F ids)).add
         (.smul c hc (productFloorCertificate f F c hc L ids)))
 
-private def spatialFloorCertificate {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+def spatialFloorCertificate {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (K width : Nat) (hK : headCutoff w ≤ K) :
     Certificate (N width) (polyAdd (spatialWeight w K width)
       (polyNeg (cap ((headFloor w)^(spatialFaces width).length)))) :=
@@ -182,6 +182,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialWeightedMass
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWeightedMass.weightedMass_congr
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWeightedMass.weightedMass_add
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWeightedMass.weightedMass_smul
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWeightedMass.spatialFloorCertificate
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWeightedMass.weightedMass_one_floor
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWeightedMass.weightedMass_one_positive
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWeightedMass.weightedMass_transfer_floor

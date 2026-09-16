@@ -133,7 +133,53 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED cutoff-removed reflected squared seminorm, Cauchy carrier and discrete physical-time semigroup; OPEN completed joint pairing/strict bound, nonconstant excitation and spatial/spacing control):**
+**Latest mathematical increment (PROVED explicit positive original central-character variance after joint cutoff/time removal and SAME-carrier completed pairing; OPEN actual centered completed vector/strict bound and spatial/spacing control):**
+PROGRESS after `9cb7613`. The original density is exactly V*(T^(t+1)1)^2.
+Existing transfer floor/cap certificates give L*M_t^2 <= density <= U*M_t^2,
+with L=headFloor^spatialFaceCount*kineticFloor^2 and
+U=prefixCap^spatialFaceCount*kineticCap^2. The explicit positive delta=L/U
+depends only on nome/width. The SAME boundary mass square cancels, yielding
+a certificate for density-delta*Haar(density). Supported square insertion
+and division by that SAME partition give normalized square domination.
+Testing at the computed interacting mean gives the general variance floor.
+
+The explicit origin p01 fundamental character has source Haar mean zero
+and square moment one for width>0, transported through the actual slice
+embedding. Exact radius-zero first/second-moment pins retain the original
+central potential and chart partition. Hence finite original variance is
+at least delta for every late cutoff and positive boundary depth. The
+shifted SAME joint diagonal (stage=k+1, depth=k+1) passes that floor to
+jointCenteredMoment at time zero.
+
+In parallel, limiting sharp CS gives quantitative pairing continuity.
+Computed Cauchy-anchor ceilings, the closed outer rate and actual inner
+regularity epsilon.den construct and descend the mixed pairing on the
+EXISTING JointCompletion. Symmetry, positivity, unit normalization and the
+original embedded-probe pin are proved. The positive joint variance is
+therefore the Gram determinant of that embedded character and unit in
+the SAME completed pairing, not a substitute probability model.
+
+NEXT: build the explicit stream x-mu.approx(n)*unit from the already
+constructed jointPairingCauchy for mu=jointPairing(x,unit). Prove its joint
+Cauchy modulus, zero unit pairing and self-pairing equal to the positive
+determinant. This supplies an actual nonzero centered completed vector
+without first constructing every real-scalar operation. Then extend the
+strict centered scalar bound with same-carrier/time pins. Completed
+linearity/centering, positive definiteness/metric completeness/full Hilbert
+and OS/QFT structure, spatial/spacing control, physical mass calibration,
+continuum nontriviality and all-group Clay closure remain open.
+
+Eleven focused serialized one-worker/20 GiB checks passed 80 new-module
+gates and eight existing WeightedMass gates within {propext, Quot.sound};
+only its already-proved spatial floor was made public. One missing
+dependency was built by a narrow monitored dependency-complete target.
+Ten selective-root imports; root/full-tree/full axiom audit unrun.
+No canonical field, hole, axiom, analytic premise or resource limit changed;
+no literature scan. Independent source review found no defect in the
+density normalization or joint-diagonal/same-carrier argument. Evidence:
+`audits/AUDIT-CENTRAL-VARIANCE-AND-JOINT-PAIRING.md`.
+
+**Previous mathematical increment (PROVED cutoff-removed reflected squared seminorm, Cauchy carrier and discrete physical-time semigroup; OPEN completed joint pairing/strict bound, nonconstant excitation and spatial/spacing control at that checkpoint):**
 PROGRESS after `cef8cde`. Actual jointPairing inherits symmetry, signed-
 rational bilinearity, normalization, positivity and sharp CS. LIMIT CS,
 not finite-stage nullity, gives the radical law by an epsilon-squared
