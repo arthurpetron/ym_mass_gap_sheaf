@@ -21,7 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: a constructed positive linear expectation on supported slice polynomials.**
+**Latest result: complete observed windows have quantitative right-boundary control.**
+The [window-contraction identity](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowPairing.lean)
+retains any supported polynomial across several consecutive time slices,
+with the SAME chronological action and partition. Its intermediate action
+omits the final spatial weight; the terminal pairing supplies that weight
+exactly once. Constructed certificates bound the observed message relative
+to the original unobserved transfer iterate.
+
+The [window estimate](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowBracket.lean)
+then bounds two right-boundary distances beyond `s` by `2*polynomialCap*q^s`.
+The error is independent of the fixed left-boundary distance and late heat
+cutoff, but still depends on nome, spatial width and the observable.
+Left-boundary comparison, whole-window ambient-lattice placement and
+stationary cylinder consistency remain open; this is not yet a physical
+OS state or mass gap. Five focused checks passed all 29 public axiom gates;
+no root/full-tree check was run. See the
+[observed-window audit](audits/AUDIT-FIXED-SPATIAL-OBSERVED-WINDOW.md).
+
+**Previous result: a constructed positive linear expectation on supported slice polynomials.**
 The [polynomial-bound construction](lean/YMGap/Continuum/QuaternionHaarSupportedPolynomialInterval.lean)
 returns an explicit interval certificate for every supported rational
 polynomial, including signed coefficients and shared variables. The existing
@@ -32,9 +50,10 @@ the original Haar-carrier relations, and agrees with the previous probe limit.
 All laws retain the SAME finite partition before passing to the limit.
 
 This is a **fixed-nome, fixed-width, fixed-cutoff slice functional**, not yet
-a stationary multi-time cylinder state or physical OS theory. The next
-step is to retain a whole observed time window while integrating its
-boundaries, then prove consistency under unit insertion and time translation.
+a stationary multi-time cylinder state or physical OS theory. The latest
+result supplies the whole-window contraction and right-boundary estimate;
+both-boundary convergence and consistency under unit insertion and time
+translation remain to be proved.
 Cutoff removal, uniform volume/spacing control, continuum QFT and the Clay
 target remain open. Four focused checks passed all 30 public axiom gates;
 no root/full-tree check was run. See the

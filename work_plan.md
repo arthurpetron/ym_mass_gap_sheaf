@@ -133,7 +133,48 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED constructed positive rational-linear slice expectation; OPEN stationary cylinder law, cutoff and physical OS passage):**
+**Latest mathematical increment (PROVED full observed-window contraction and right-boundary forgetting; OPEN left comparison and stationary cylinder passage):**
+PROGRESS after `133a395`. `lift_certificate` preserves the actual positive
+cone under coordinate shifts, with arbitrary-insertion Haar equality handled
+by ordered-head Fubini. `halfOpenAction` retains L kinetic/head-spatial factors
+but no final V. `windowMessage` integrates the first L slices of u_m*P*A_L;
+its exact coefficient pin is T^L(u_m*P), and its unobserved version is
+u_(m+L). Full-window support is proved before applying one-slice symmetry.
+
+CONTRACTION: `window_pairing` identifies the complete chronological numerator
+with ell(F_m*u_n); `window_partition_pairing` identifies its SAME partition
+with ell(u_(m+L)*u_n). Every denominator is already constructed positive.
+Support-guarded enlargement, shifted action certificates and partial Haar
+integration send C-P and C+P to C*D-F and C*D+F, with no message division.
+These initialize the actual relative bracket. Its n-step width is 2*C*q^n;
+nesting proves `polynomialWindow_right_commonTail` for every supported P.
+The comparison holds at the SAME m,L,P,K and any two late right distances;
+its error is independent of m and late K, not of nome or width.
+
+NEXT CAUSAL FRONTIER: establish the left-boundary comparison for that SAME
+window by direct positive-message comparison. Source review gives initial
+relative endpoints (a/b)*R and (b/a)*R from the actual transfer sandwich,
+where R is a positive ratio of terminal masses. After s iterations, the
+normalized window residual estimate cancels R and gives the candidate left
+error 2*C*((b/a)^2-1)*q^s. Together with the checked right bound this targets
+the simpler rectangle budget 2*C*(b/a)^2*q^s. These are reviewed mathematical
+arguments, NOT Lean theorems yet: prove the initial bracket, input linearity
+and residual normalization estimate before using them. This avoids requiring
+full window reversal as a separate prerequisite. Unit-padding/shift consistency
+and the original ambient-lattice window-placement pin still need proofs. The
+changing F_m is not treated as a fixed observable in the slice expectation.
+Interior cutoff removal, reflected physical OS/vacuum, connected correlations,
+completed cutoff-limit power/moment compatibility, uniform width/spacing
+control, continuum QFT and the all-group Clay target remain open. No canonical
+frontier field or analytic premise changed.
+
+Verification: five focused serialized one-worker/20 GiB checks; all 29 public
+gates within {propext, Quot.sound}. Five selective-root imports; root/full-tree/
+full axiom audit unrun. No new literal holes, axioms, classical input or raised
+limits. Independent source review checked support, final V and whole-window
+normalization. Evidence: `audits/AUDIT-FIXED-SPATIAL-OBSERVED-WINDOW.md`.
+
+**Previous mathematical increment (PROVED constructed positive rational-linear slice expectation; OPEN stationary cylinder law, cutoff and physical OS passage at that checkpoint):**
 PROGRESS after `53edc11`. Every supported rational quaternion polynomial
 now has a computed interval certificate, with cap the literal sum of
 coefficient^2+1. The proof constructs square cap one for every coordinate

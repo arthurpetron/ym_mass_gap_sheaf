@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED constructed positive rational-linear slice expectation; OPEN stationary cylinder, cutoff and physical OS passage (2026-09-16)
+## PROVED full observed-window contraction and right-boundary forgetting; OPEN left comparison and stationary cylinder passage (2026-09-16)
+
+- **files**: `SU2QuaternionHaarCertificateLift.lean`,
+  `SU2QuaternionHeadWindowContraction.lean`, `SU2QuaternionHeadWindowBounds.lean`,
+  `BF4ExactSlabFixedSpatialWindowPairing.lean`, and
+  `BF4ExactSlabFixedSpatialWindowBracket.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: coordinate shifts preserve actual certificates. The half-open
+  action integrates an arbitrary L+1-slice polynomial without duplicating
+  final V; its unobserved message is the actual iterate. Exact chronological
+  numerator and partition pins give ell(F_m*u_n)/ell(u_(m+L)*u_n).
+  Certificate integration constructs the relative bounds, then the original
+  bracket and nesting give 2*polynomialCap(P)*q^s right-boundary control for
+  every supported P, independently of the fixed m and late K.
+- **consumer/open input**: removes full-window finite contraction, positive
+  relative bounds and right-boundary forgetting for the same chain action.
+  Left-boundary comparison, two-sided window limit, unit-padding/shift
+  consistency and original ambient-window placement remain open. No changing
+  conditional message is passed through a fixed-observable limit. Interior
+  cutoff removal, reflected physical OS/vacuum, connected correlations,
+  cutoff-limit power/moment compatibility, uniform width/spacing estimates,
+  continuum QFT and all-group Clay closure remain open. No old theorem,
+  canonical field, literal hole, axiom or analytic premise changed.
+- **verification**: five focused serialized one-worker/20 GiB checks; all
+  29 public gates within {propext, Quot.sound}. Five selective-root imports;
+  root/full-tree/full axiom audit unrun. Independent read-only source review
+  checked support and same-object normalization. Evidence:
+  `audits/AUDIT-FIXED-SPATIAL-OBSERVED-WINDOW.md`.
+
+## Previous PROVED constructed positive rational-linear slice expectation; OPEN stationary cylinder, cutoff and physical OS passage at that checkpoint (2026-09-16)
 
 - **files**: `QuaternionHaarSupportedPolynomialInterval.lean`,
   `BF4ExactSlabFixedSpatialPolynomialMiddleTime.lean`,
