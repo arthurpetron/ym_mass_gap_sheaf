@@ -21,7 +21,29 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: a positive nonzero-time response on the same completed carrier.**
+**Latest result: an actual unit-norm excitation with a positive strict response interval.**
+Real scaling by a supplied constructive real and its explicit Cauchy modulus
+now acts on the same spatial union carrier. Scalar/vector representative
+independence, the scalar algebra laws, and compatibility with original time,
+centering, unit projection and reduced inverse are proved.
+
+Applying a computed inverse square root to the actual excitation norm gives
+a vacuum-orthogonal vector `v` with `B(v,v)=1` and explicit rational bounds
+`0 < lower <= B(v,T_2 v) <= upper < 1`. The construction returns the vector,
+bounds, response real and response modulus. No eigenvector is assumed.
+
+This is **fixed-spacing SU(2) at nome 1/1024**, not physical mass calibration.
+Full Hilbert/OS/QFT identification, original observable coverage, full spatial
+symmetry, changing-scale control, continuum survival and every-group physical
+construction remain open. No modulus for an arbitrary legacy quotient real
+is selected. Six focused checks passed all 56 public axiom gates within
+`{propext, Quot.sound}`; no root/full-tree check ran. See the
+[normalized-excitation checkpoint](audits/AUDIT-SPATIAL-UNION-NORMALIZED-EXCITATION.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: a positive nonzero-time response on the same completed carrier.**
 The original centered plaquette now has an explicit positive connected-response
 floor at physical lattice lag three and at lag two. The proof embeds the older
 full finite action into the current selected-chain action, bounds their signed
@@ -39,9 +61,6 @@ Seven focused checks passed all 81 public axiom gates within
 `{propext, Quot.sound}`; no root/full-tree check ran. See the
 [positive-response proof and five-front parallel map](audits/AUDIT-SPATIAL-UNION-POSITIVE-RESPONSE.md).
 This is **fixed-spacing SU(2) at nome 1/1024**, not a continuum mass-gap theorem.
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: a constructive reduced inverse and spatial symmetry on the same completed carrier.**
 The actual two-step transfer now has a bounded inverse for `I-T_2` on the

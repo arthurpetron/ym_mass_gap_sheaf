@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED positive original response on the SAME spatial union; OPEN full Hilbert/OS/QFT and physical continuum construction (2026-09-16)
+## PROVED witnessed real-scalar action and normalized strict positive response on the SAME spatial union; OPEN full Hilbert/OS/QFT and physical continuum construction (2026-09-16)
+
+- **files**: `BF4SpatialUnionScalarDistance.lean`,
+  `BF4SpatialUnionRealScalarCauchy.lean`,
+  `BF4SpatialUnionCompletedRealScalar.lean`,
+  `BF4SpatialUnionRealScalarAlgebra.lean`,
+  `BF4SpatialUnionRealLinearOperators.lean`, and
+  `BF4SpatialUnionNormalizedExcitation.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: exact dense coefficient-square distance and the computed actual
+  norm ceiling give a modulus for `s.approx n * X.seq n`. Original mixed
+  pairing limits prove quotient descent, independence of scalar streams/moduli,
+  and the witnessed real-scalar algebra laws. Original time, unit projection,
+  centering, defect and reduced inverse commute with scaling. The old unit
+  coefficient/modulus pins the projection to its actual real multiple.
+  Constructive inverse-root normalization of the original excitation yields
+  norm exactly one and rational response bounds
+  `0 < responseFloor/P <= B(v,T_2 v) <= twoStepRate(nome) < 1`. The actual
+  vector, endpoints, response real and QCauchy data are returned.
+- **consumer/open input**: removes witnessed real scaling and unit-norm
+  response on this fixed-spacing SU(2) carrier. Does not supply unrestricted
+  legacy RC modulus selection, arbitrary quotient-sequence completeness, full
+  original gauge/positive-time observable coverage, or the canonical rational
+  GNSData/CReal-form bridge. Full spatial symmetry, changing-scale estimates,
+  physical time/mass calibration, continuum survival and actual constructions
+  for every compact simple group remain open. No canonical field is weakened
+  or declared closed; the AF small-nome obstruction remains.
+- **verification**: six focused serialized one-worker/20 GiB checks, 56 public
+  gates within {propext, Quot.sound}. Root imports added; root/full-tree/full
+  audit unrun. No prior proof, sorry, axiom, analytic guard or safety limit
+  changed. Independent source review and exact evidence:
+  `audits/AUDIT-SPATIAL-UNION-NORMALIZED-EXCITATION.md`.
+
+## Previous PROVED positive original response on the SAME spatial union; normalization and full Hilbert/OS/QFT were OPEN at that checkpoint (2026-09-16)
 
 - **files**: `BF4SpatialUnionResponseGeometry.lean`,
   `BF4SpatialUnionResponseBoundary.lean`, `BF4SpatialUnionResponseProbePins.lean`,

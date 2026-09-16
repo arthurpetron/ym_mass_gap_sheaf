@@ -133,7 +133,54 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED positive lag-three and lag-two response on the SAME spatial union; OPEN full real/Hilbert/OS/QFT, full spatial symmetry and changing-scale physical construction):**
+**Latest mathematical increment (PROVED witnessed real-scalar action, original operator homogeneity and normalized positive strict response on the SAME spatial union; OPEN full Hilbert/OS/QFT and physical continuum construction):**
+PROGRESS after `d18fd1d`: the preceding positive-response transport checkpoint
+was committed and pushed. Scalar multiplication is now constructed from the
+literal dense stream `s.approx n * X.seq n`, using the supplied scalar QCauchy
+modulus, the actual vector modulus and a computed original norm ceiling.
+This direct construction avoids an unnecessary outer completion. Original
+pairing limits and separation prove independence of scalar/vector
+representatives and scalar moduli. The action has the scalar addition/product
+laws and quadratic distance scaling; original physical time commutes with it.
+No bare-RC modulus or vector representative is chosen.
+
+CONTRACTION: the existing unit projection is exactly the new action of its
+ORIGINAL coefficient on the original unit. Projection, centering, defect and
+reduced inverse are homogeneous for these witnessed real scalars, by their
+already proved self-adjointness and actual pairing separation. The scalar
+action is not a parallel compatible operation on a different space.
+
+The actual centered plaquette norm has the old positive star floor and a
+computed rational upper bound `P` from the existing spatial prefactor at lag
+zero. A clamped inverse-square-root construction returns the normalization
+scalar and its QCauchy data. On the SAME completed unit complement this gives
+an actual norm-one vector whose two-step response satisfies
+`0 < responseFloor/P <= B(v,T_2 v) <= twoStepRate(nome) < 1` at nome `1/1024`.
+The vector, both rational endpoints, response CReal and response modulus are
+returned as data. No eigenvector or physical-unit interpretation is assumed.
+
+NEXT CAUSAL FRONTIERS: full original positive-time observable realization and
+the canonical OS scalar interface remain unresolved. The new normalized
+RC-valued probe does not inhabit `CanonicalOSRoot.PositiveTimeOSRoot`, whose
+`positive` field is rational-valued GNSData and whose supported representation
+and essential-surjectivity fields need actual physical maps. Full spatial
+translations are another genuine branch; the existing positive diagonal
+semigroup is insufficient. Reuse the already proved union Cauchy--Schwarz,
+represented-row limits and scalar compilers rather than scheduling them again.
+An action on witnessed scalars does not assert arbitrary legacy RC-modulus
+selection or arbitrary quotient-sequence completeness. Changing-scale
+original-action control outside the obstructed small-nome AF chart, physical
+time/mass calibration, continuum survival and all-group producers stay open.
+
+Six focused checks passed all 56 public gates within {propext, Quot.sound},
+one monitored worker/20 GiB at a time. Independent review covered scalar
+moduli, original norm/response pins and operator identity. Root imports added;
+root/full-tree/full audit unrun. No old proof, canonical field, sorry, axiom,
+analytic guard or safety limit changed. No literature scan; CI manual-only.
+Evidence: `audits/AUDIT-SPATIAL-UNION-NORMALIZED-EXCITATION.md`.
+The whole-project continuum/all-group Clay target remains OPEN.
+
+**Previous mathematical increment (PROVED positive lag-three and lag-two response on the SAME spatial union; witnessed real scalars and normalization were OPEN at that checkpoint):**
 PROGRESS after `da1df7c`: the preceding reduced-inverse/spatial-symmetry
 checkpoint was committed and pushed. The missing positive-response transport
 is now proved, not retained as a new analytic premise. The translated old full

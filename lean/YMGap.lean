@@ -4744,6 +4744,13 @@ import YMGap.Continuum.BF4SpatialUnionResponseActionPin
 import YMGap.Continuum.BF4ExactSlabAllNomeFiniteMomentBounds
 import YMGap.Continuum.BF4SpatialUnionResponseFiniteComparison
 import YMGap.Continuum.BF4SpatialUnionPositiveResponse
+-- Witnessed real scalars and an actual normalized positive-response excitation.
+import YMGap.Continuum.BF4SpatialUnionScalarDistance
+import YMGap.Continuum.BF4SpatialUnionRealScalarCauchy
+import YMGap.Continuum.BF4SpatialUnionCompletedRealScalar
+import YMGap.Continuum.BF4SpatialUnionRealScalarAlgebra
+import YMGap.Continuum.BF4SpatialUnionRealLinearOperators
+import YMGap.Continuum.BF4SpatialUnionNormalizedExcitation
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison
