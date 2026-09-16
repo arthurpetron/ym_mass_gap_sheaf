@@ -21,7 +21,29 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: original multi-time spatial probes reach the same constructed window limit.**
+**Latest result: the constructed time limit is reflection-positive on signed spatial-probe sums.**
+The [reflected-window theorem](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowReflectionPositive.lean)
+proves nonnegativity of the reflected form for every finite rational sum of
+scheduled spatial face-character products, including all signed cross terms.
+The proof factors the SAME selected original action into lower, central and
+reflected-lower weights. It keeps the central weight once and uses its actual
+positive certificate, without assuming the insertion or lower factor positive.
+
+A symmetric ambient placement makes reflection send offset `j` to `2*h-j`.
+The compact observable and heat cutoff therefore stay fixed while both time
+boundaries recede. Positivity passes to the **existing explicit-modulus window
+limit**, with no replacement state or new convergence assumption. Separately,
+reflection positivity survives cutoff removal on each fixed selected chain;
+these two limits have not been interchanged.
+
+This remains a **fixed-nome, fixed-width, fixed-cutoff SU(2) time-limit result
+on the spatial-probe span**. An intrinsic reflected carrier with compatible
+time shifts, physical OS quotient/transfer/vacuum, joint cutoff/volume/spacing
+control, and the continuum Clay target remain open. Six focused checks passed
+63 public axiom gates; no root/full-tree check was run. See the
+[reflection audit](audits/AUDIT-FIXED-SPATIAL-WINDOW-REFLECTION.md).
+
+**Previous result: original multi-time spatial probes reach the same constructed window limit.**
 The [original-window identity](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalWindow.lean)
 identifies scheduled products of signed spatial face characters with the
 existing original lattice expectation, retaining the SAME selected action,
@@ -36,9 +58,10 @@ This concerns the **selected fixed-width chain action**, not the full
 growing-box action or its interacting marginal. Arbitrary coordinate
 polynomials are not declared original gauge observables.
 
-Reflected positivity for that same selected chain, physical OS transfer/vacuum,
-cutoff removal, width/spacing control, continuum QFT and the Clay target remain
-open. Three focused checks passed all 17 public axiom gates; no root/full-tree
+The latest result supplies reflected positivity on the scheduled spatial-probe
+span. Physical OS transfer/vacuum, joint limit control, width/spacing control,
+continuum QFT and the Clay target remain open. Three focused checks at this
+earlier checkpoint passed all 17 public axiom gates; no root/full-tree
 check was run. See the [original-window audit](audits/AUDIT-FIXED-SPATIAL-ORIGINAL-WINDOW.md).
 
 **Previous result: the window limits form a normalized positive linear family with translation consistency.**
@@ -55,11 +78,12 @@ translation leaves the limiting expectation unchanged. No stationary law
 for a finite boundary-conditioned chain is assumed.
 
 This is a **fixed-nome, fixed-width, fixed-cutoff polynomial window family**,
-not yet a physical OS theory. The latest result above identifies scheduled
-spatial probes with original observables; completeness of that realization
-and reflected positivity remain open. Cutoff removal, width/spacing control,
-continuum QFT and the Clay target remain open. Three focused checks passed all 25 public axiom
-gates; no root/full-tree check was run. See the
+not yet a physical OS theory. Later results identify scheduled spatial probes
+with original observables and prove their span reflection-positive;
+gauge-observable completeness and the physical OS construction remain open.
+Joint limit and width/spacing control, continuum QFT and the Clay target remain
+open. Three focused checks at this checkpoint passed all 25 public axiom gates;
+no root/full-tree check was run. See the
 [window-state audit](audits/AUDIT-FIXED-SPATIAL-WINDOW-STATE.md).
 
 **Previous result: complete observed windows have a constructive two-boundary time limit.**

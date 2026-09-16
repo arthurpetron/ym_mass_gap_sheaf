@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original multi-time spatial-probe identification and same window limit; OPEN selected-chain reflected physical OS realization (2026-09-16)
+## PROVED selected-chain and same time-limit reflected positivity on signed spatial-probe spans; OPEN intrinsic reflected carrier and physical OS transfer (2026-09-16)
+
+- **files**: `BF4ExactSlabSiteSelectedHeatAction.lean`,
+  `BF4ExactSlabFixedSpatialChainReflection.lean`,
+  `BF4ExactSlabFixedSpatialChainReflectionPositive.lean`,
+  `BF4ExactSlabFixedSpatialWindowReflection.lean`,
+  `BF4ExactSlabFixedSpatialWindowProbeSpan.lean`, and
+  `BF4ExactSlabFixedSpatialWindowReflectionPositive.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: the actual centered selected chain reflects into itself; its
+  lower/fixed/upper factorization and conditional-square dressing prove
+  finite RP with the central heat weight once. The existing same-partition
+  reciprocal and fixed-chain cutoff limit preserve positivity. Literal
+  mirrored probe placement and a signed-span bilinear original pin retain
+  all cross terms. Symmetric varying ambient placement keeps the compact
+  insertion fixed; the existing time-limit representatives inherit RP.
+- **consumer/open input**: removes reflected positivity and its literal
+  same-observable time-limit pin for finite rational sums of scheduled
+  spatial face-character products. Next is an intrinsic reflected form
+  compatible with half-space carrier/window inclusions and time shifts.
+  Physical OS quotient/completion/transfer/vacuum, gauge-observable
+  completeness, joint cutoff/time passage, width/spacing-uniform estimates,
+  continuum QFT and all-group Clay closure remain open. The two separately
+  proved limits have NOT been interchanged. No canonical field, literal
+  hole, axiom or analytic premise changed.
+- **verification**: six focused serialized one-worker/20 GiB checks;
+  all 63 public gates within {propext, Quot.sound}. Six selective-root imports;
+  root/full-tree/full axiom audit unrun. Evidence:
+  `audits/AUDIT-FIXED-SPATIAL-WINDOW-REFLECTION.md`.
+
+## Previous PROVED original multi-time spatial-probe identification and same window limit; OPEN selected-chain reflected physical OS realization at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialWindowEmbedding.lean`,
   `BF4ExactSlabFixedSpatialWindowProbe.lean`, and

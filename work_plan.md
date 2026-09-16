@@ -133,7 +133,49 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED original multi-time spatial-probe identification and same window limit; OPEN selected-chain reflected physical OS realization):**
+**Latest mathematical increment (PROVED selected-chain and same time-limit reflected positivity on finite signed spatial-probe spans; OPEN intrinsic reflected carrier and physical OS transfer):**
+PROGRESS after `9c4cc0a`. The centered selected chain, not the full ambient
+action, is preserved by the actual plaquette reflection. Its lower/fixed/
+upper factors split the unchanged action; the lower factor is one-sided and
+the central weight is fixed-local. Dressing an arbitrary signed insertion
+by the lower factor gives an exact conditional square. The existing actual
+central heat certificate supplies positivity for 0<w<1, K>=headCutoff(w).
+The original reciprocal normalizes that same partition. Positivity also
+passes to the existing fixed-chain cutoff limit, without a uniform volume
+floor or an interchange of limits.
+
+CONTRACTION: signed finite probe sums retain every mixed term under the
+original-window bilinear pin. At diagonal index t, use radius=width+t+h,
+start=width+1 and depth=t+h. Reflection sends a lower-window offset j<=h
+to 2*h-j, so the source reflected product is FIXED as both buffers t grow.
+Actual finite RP proves every diagonal nonnegative; the stored QMhat
+representatives give `reflectedWindowLimit_nonnegative` for the EXISTING
+polynomialWindowLimit and its unchanged explicit modulus. No new limit,
+ordinary-L2 substitution, or positivity premise on the observable is used.
+
+NEXT CAUSAL FRONTIER: make this reflected form intrinsic to a compatible
+half-space observable carrier, including bilinearity/symmetry and invariance
+under changes of enclosing window, then derive the actual time-shift laws
+needed by the physical OS quotient/completion. The immediate inclusion is
+h->h+1 together with every offset j->j+1; use the existing left/right padding
+laws. Existing CRealGNSFormData/CRealPreHilbertData are possible consumers,
+not their old concrete physical instances; the legacy rational-valued
+CanonicalOSRoot cannot silently absorb this CReal-valued limit. The current
+result is real rational RP on finite sums of scheduled spatial face-character products,
+not gauge-observable completeness or an inhabited canonical OS root. Nome,
+width and cutoff remain fixed in the time limit. Joint cutoff/time passage,
+width/spacing-uniform control, physical transfer/vacuum/gap, continuum QFT
+and all compact simple groups remain open. No canonical field changed.
+
+Verification: six focused serialized one-worker/20 GiB checks; all 63 public
+gates within {propext, Quot.sound}, with axiom-free mirror schedules. Six
+selective-root imports; root/full-tree/full axiom audit unrun. No new literal
+holes, axioms, classical input, raised limits or routine literature scan.
+Independent review checked the same action, cross terms, normalization and
+fixed-observable time passage. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-WINDOW-REFLECTION.md`.
+
+**Previous mathematical increment (PROVED original multi-time spatial-probe identification and same window limit; OPEN selected-chain reflected physical OS realization at that checkpoint):**
 PROGRESS after `68b9ba6`. Literal whole-window block/polynomial placement
 retains all L+1 slices and fringe coordinates in the original chain carrier.
 A finite schedule of signed spatial face-character lists compiles to both
