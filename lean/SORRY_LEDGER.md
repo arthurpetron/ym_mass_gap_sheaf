@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED spatial union rational operations, centering and stationary projection image; OPEN represented-row limit/resolvent and full real/Hilbert/continuum passage (2026-09-16)
+## PROVED same-union represented limits and quantitative relaxation; OPEN resolvent and full real/Hilbert/continuum passage (2026-09-16)
+
+- **files**: `CRealSeminormCompletedApproximation.lean`,
+  `CRealSeminormCauchyRows.lean`, `BF4ExactSlabThermodynamicGenericRowsPin.lean`,
+  `BF4SpatialUnionCompletedDistance.lean`, `BF4SpatialUnionRelaxation.lean`,
+  and `BF4SpatialUnionCauchyRows.lean`, all under `lean/YMGap/Continuum/`.
+- **proof**: actual difference norm supplies the generic completed-distance
+  laws on the original union. Supplied Cauchy rows have a computed diagonal,
+  outer rate, unique limit and representative independence; the old instance
+  is pinned without carrier substitution. Original time and centering preserve
+  represented limits, closing the existing unit complement under them.
+  Actual relaxation has squared-distance rate `q(w)^n`, a computed representative
+  ceiling and threshold; the orbit's computed limit is its unit projection.
+- **consumer/open input**: removes the represented-row limit and continuity
+  prerequisites for the actual reduced transfer resolvent. Its rate-dependent
+  partial-sum tail is still open. No arbitrary quotient-sequence lift, full real
+  module or Hilbert/OS/QFT realization is asserted. Positive nonzero-time
+  response of the actual excitation, full spatial translations, changing-scale
+  original-action control, physical time/mass calibration, continuum
+  nontriviality and other compact simple groups remain open. Existing AF guard
+  obstruction unchanged; no new named analytic input or canonical field change.
+- **verification**: six focused module checks; 78 public axiom gates within
+  {propext, Quot.sound}; one worker, 20 GiB. Root/full-tree/audit unrun. No prior
+  proof, sorry, axiom or safety limit changed. Three source-only parallel audits
+  and independent review accompany the new proofs; see
+  `audits/AUDIT-PARALLEL-FRONTIERS-2026-09-16.md`.
+
+## Previous PROVED spatial union rational operations, centering and stationary projection image; OPEN represented-row limit/resolvent and full real/Hilbert/continuum passage at that checkpoint (2026-09-16)
 
 - **files**: `BF4SpatialUnionLinear.lean`, `BF4SpatialUnionBilinear.lean`,
   `BF4SpatialUnionLinearLaws.lean`, `BF4SpatialUnionUnitProjection.lean`,

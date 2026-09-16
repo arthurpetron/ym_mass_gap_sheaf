@@ -4722,6 +4722,13 @@ import YMGap.Continuum.BF4SpatialUnionLinearLaws
 import YMGap.Continuum.BF4SpatialUnionUnitProjection
 import YMGap.Continuum.BF4SpatialUnionCentered
 import YMGap.Continuum.BF4SpatialUnionStationary
+-- Supplied-representative limits on the SAME carrier; no quotient-sequence choice.
+import YMGap.Continuum.CRealSeminormCompletedApproximation
+import YMGap.Continuum.CRealSeminormCauchyRows
+import YMGap.Continuum.BF4ExactSlabThermodynamicGenericRowsPin
+import YMGap.Continuum.BF4SpatialUnionCompletedDistance
+import YMGap.Continuum.BF4SpatialUnionRelaxation
+import YMGap.Continuum.BF4SpatialUnionCauchyRows
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

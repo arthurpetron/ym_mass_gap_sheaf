@@ -21,7 +21,30 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: exact centering and stationary-sector characterization on the same spatial union carrier.**
+**Latest result: computed row limits and quantitative relaxation on the same spatial union carrier.**
+Supplied Cauchy representatives now have a computed diagonal limit with an
+explicit outer modulus. Original physical time and centering commute with
+these limits; the existing unit complement is closed under them. The actual
+time orbit converges to its unit projection with squared-distance rate
+`q(w)^n` and a computed tolerance threshold. This does not select representatives
+for arbitrary quotient-valued sequences or assert full Hilbert completeness.
+
+The strict completed bound and a nonzero excitation were already proved.
+A parallel review separates the remaining work: full Hilbert/OS/QFT structure,
+original-action spatial/spacing comparison, physical time/mass calibration,
+and actual constructions for other compact simple groups. The positive norm
+floor is not yet a positive nonzero-time response or continuum nontriviality.
+The existing AF guard obstruction remains. This is **fixed-spacing,
+small-nome SU(2)**, not a continuum mass-gap theorem.
+
+Six focused module checks passed all 78 public axiom gates within
+`{propext, Quot.sound}`; no root/full-tree check ran. See the
+[proof checkpoint and parallel dependency map](audits/AUDIT-PARALLEL-FRONTIERS-2026-09-16.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: exact centering and stationary-sector characterization on the same spatial union carrier.**
 Actual addition and rational scaling now descend with explicit moduli and
 bilinear laws. A computed unit projection splits every vector into its
 unit component and its orthogonal part. Centered time pairings equal the
@@ -37,9 +60,6 @@ the all-group target remain open. The AF small-nome-guard obstruction is
 unchanged. Six focused checks passed all 114 public axiom gates; no
 root/full-tree check ran. See the
 [union centering and stationary-sector audit](audits/AUDIT-SPATIAL-UNION-STATIONARY.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: one spatial union carrier with a strict completed-sector bound and a concrete nonzero excitation.**
 The existing finite-base plaquette-character presentations now share one

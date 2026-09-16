@@ -133,7 +133,54 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED actual rational linear operations, all-vector unit projection/centering and stationary projection-image characterization on the SAME spatial union carrier; OPEN represented-row limit/resolvent, full real/Hilbert/OS/QFT and continuum passage):**
+**Latest mathematical increment (PROVED represented-row limits, same-carrier time/centering continuity and quantitative relaxation; OPEN reduced resolvent, full real/Hilbert/OS/QFT and changing-scale physical construction):**
+PROGRESS after `b84fa5e`: the preceding checked centering/stationary milestone
+was committed and pushed. The actual squared distance is now identified with
+the limit of original union distances. Generic dense approximation and a
+diagonal of Type-supplied Cauchy rows give a limit with outer rate
+`outerModulus(epsilon/16)`. Both inner and outer moduli remain data. A regression
+pin recovers the old thermodynamic rows, diagonal and limit definitionally;
+it does not identify that old carrier with the union.
+
+CONTRACTION: on the SAME union completion, original time and centering map
+rows without changing the outer modulus and commute with their limits. The
+existing unit complement is closed under these represented limits. Iteration
+of the existing one-step squared-norm bound gives `q(w)^n` relaxation to the
+actual unit projection; a computed scalar ceiling and geometric cutoff return
+the tolerance threshold. The actual orbit's computed row limit equals that
+projection. No stronger nome guard, beta-independent rate or arbitrary
+quotient-sequence lift is supplied or assumed.
+
+USER-REQUESTED PARALLEL FRONTIERS: three independent source reviewers checked
+excitation, spatial/spacing plus mass calibration, and all groups while the
+completion branch was implemented. The strict bound and nonzero fixed-spacing
+excitation were already proved; do not schedule them as open boxes. The
+distinct excitation question is positive nonzero-time response, followed by
+continuum survival. Spatial/spacing work needs a changing-action physical
+comparison: the existing small-nome guard fails on the supplied AF chart.
+Mass work needs actual-transfer/physical-length and finite-rate pins, not
+another scalar log compiler. Group work can proceed on actual global forms,
+representation/Haar/action data and a second-group physical producer; the
+SO(3) descent test already rejects the present spin-half observable.
+
+NEXT CAUSAL FRONTIER: the represented-row construction can now consume actual
+partial-sum streams for the reduced inverse of `I-T_2`. Prove the rate-dependent
+series-tail bound for the existing `q(w)<1`, without importing the old fixed
+numerical constant or a different carrier. In parallel, investigate the actual
+excitation's nonzero-time response and signed-coordinate spatial invariance;
+both have existing downstream OS consumers. Full real scalar action, arbitrary
+quotient-sequence completeness, original gauge-algebra coverage and the
+rational-GNSData/CReal-form canonical OS mismatch remain explicit open seams.
+No new canonical target or assumption-only scaffold is introduced.
+
+Six focused module checks passed 78 public gates within {propext, Quot.sound},
+one monitored worker/20 GiB at a time. Root imports added, root/full-tree/full
+audit unrun. No old proof, canonical field, sorry, axiom, analytic assumption or
+safety limit changed. No literature scan; CI remains manual-only. Evidence and
+the five-front parallel map: `audits/AUDIT-PARALLEL-FRONTIERS-2026-09-16.md`.
+The whole continuum/all-group Clay target remains OPEN.
+
+**Previous mathematical increment (PROVED actual rational linear operations, all-vector unit projection/centering and stationary projection-image characterization on the SAME spatial union carrier; OPEN represented-row limit/resolvent, full real/Hilbert/OS/QFT and continuum passage at that checkpoint):**
 PROGRESS after `a90f0e1`: the preceding goal turn pushed its verified checkpoint
 to main. This increment proves the next named proposition and its consumer.
 Common-base transport supplies dense bilinearity and distance estimates.
