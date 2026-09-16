@@ -133,7 +133,57 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED intrinsic reflected scalar pairing, signed-rational bilinearity, sharp CS and null-pairing annihilation; OPEN actual physical shift and completion):**
+**Latest mathematical increment (PROVED original physical-time contraction, actual squared seminorm and Cauchy-carrier semigroup with fixed nonzero unit; OPEN completed inner product and Hilbert laws):**
+PROGRESS after `200e12b`. Literal distance advance defines S; the actual
+mixed-product padding pin and existing window-limit laws prove
+B(SX,Y)=B(X,SY) and B(S^r X,S^s Y)=B(X,S^(r+s)Y). This is physical time,
+not chart inclusion. Time relabeling preserves the raw coefficient list,
+so the full normalized window bracket gives one computed cap for every
+lag. No equality of time-erased polynomial VALUES is asserted.
+
+CONTRACTION: with a_n=B(S^n X,S^n X), RP of X-S^(2n)X gives
+2*a_n<=a_0+a_(2n). The actual lag-independent cap feeds the existing
+bounded-midpoint theorem, proving a_n<=a_0 without division or a strict-gap
+premise. Signed-difference contraction preserves the radical. Site RP
+also gives B(X,S^(2n)X)>=0, not one-step positivity. The literal unit has
+B(1,1)=1 and is fixed by S.
+
+The physical-span subtype and actual reflected distance now satisfy all
+squared-seminorm laws. Termwise advance preserves each supplied
+Cauchy modulus verbatim; it descends to the existing choice-free quotient
+of Cauchy data, with zero/addition laws and the exact original-presentation
+pin. The completed unit is fixed and distinct from embedded zero. This
+does not prove a nonconstant excitation or vacuum isolation.
+
+NEXT CAUSAL FRONTIER: construct the completed inner product on THIS
+carrier, not an old surrogate. Prove actual pairing continuity using sharp
+CS and signed differences, with delta=epsilon^2/[8*(B+1)]. A representative
+X supplies its own anchor X.seq(X.modulus 1); the new coefficient cap and
+squared-sum bound compute an eventual diagonal ceiling. The resulting
+outer Cauchy rate and existing ofQ'CauchySeq regularity feed
+`completeLimitFromRate`. Prove closeness invariance, descend the pairing,
+and pin time-correlators using `completedTime_embedSpan`. These are next
+proof obligations, not premises added to the completed carrier. The audit
+records exact reusable generic declarations and model-specific templates.
+
+Completed vector-space/inner-product laws, positive definiteness and
+metric completeness remain open here. Nome, spatial width and retained
+cutoff remain fixed. The coefficient cap is independent of lag, window,
+nome and late cutoff but depends on width and presentation; contraction
+has constant ONE, not q<1. Joint cutoff/time passage, full gauge algebra,
+width/spacing control, strict vacuum-complement gap, physical Hamiltonian,
+continuum QFT and every compact simple group remain open. No old canonical
+field, hole, axiom or analytic premise changed.
+
+Verification: seven focused serialized one-worker/20 GiB checks; all 101
+public gates within {propext, Quot.sound}, including axiom-free literal
+computations. Seven selective-root imports; root/full-tree/full axiom audit
+unrun. Independent review checked coefficient-only invariance, actual RP,
+all physical guards, squared triangle/null congruence, composition order,
+modulus preservation and the fixed-unit/non-excitation distinction.
+Evidence: `audits/AUDIT-FIXED-SPATIAL-PHYSICAL-TIME.md`.
+
+**Previous mathematical increment (PROVED intrinsic reflected scalar pairing, signed-rational bilinearity, sharp CS and null-pairing annihilation; OPEN actual physical shift and completion at that checkpoint):**
 PROGRESS after `035d097`. The actual sign-corrected reflection is involutive
 and preserves the selected chain action. Same-partition Haar symmetry and
 the original signed-span pin give mixed reflected symmetry. Existing window

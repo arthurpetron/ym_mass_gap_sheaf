@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED intrinsic reflected pairing, sharp CS and null-pairing annihilation; OPEN actual physical shift and completion (2026-09-16)
+## PROVED original physical-time contraction and Cauchy-carrier semigroup; OPEN completed inner product and Hilbert laws (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialIntrinsicUnit.lean`,
+  `BF4ExactSlabFixedSpatialIntrinsicDifference.lean`,
+  `BF4ExactSlabFixedSpatialPhysicalTimeShift.lean`,
+  `BF4ExactSlabFixedSpatialUniformProbeCap.lean`,
+  `BF4ExactSlabFixedSpatialPhysicalTimeContraction.lean`,
+  `BF4ExactSlabFixedSpatialIntrinsicSeminorm.lean`, and
+  `BF4ExactSlabFixedSpatialCompletedPhysicalTime.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: actual distance advance and mixed-product padding give time
+  balance on the same reflected form. Raw coefficient-list invariance and
+  the full normalized window bracket give a lag-independent cap. RP of
+  X-S^(2n)X gives the bounded-midpoint inequality, hence contraction with
+  constant one. The actual difference seminorm has squared triangle and
+  null congruence. Nonexpansive time acts termwise on explicit-modulus
+  Cauchy data and descends with exact semigroup/embedding laws. The original
+  normalized unit is fixed and distinct from embedded zero.
+- **consumer/open input**: removes physical-time balance, boundedness,
+  radical descent, the actual squared-seminorm instance and induced time
+  semigroup on its Cauchy carrier. Next is quantitative continuity of the
+  SAME intrinsic pairing, a computed representative limit and closeness
+  descent to a completed inner product. Completed vector-space/Hilbert
+  laws and completeness remain separate obligations. No isolated vacuum,
+  nonconstant excitation, one-step positivity or strict gap is asserted.
+  Nome, width and cutoff remain fixed; joint cutoff/time and width/spacing
+  control, full gauge algebra, physical Hamiltonian gap, continuum QFT and
+  all-group Clay closure remain open. No canonical field, literal hole,
+  axiom or analytic premise changed.
+- **verification**: seven focused serialized one-worker/20 GiB checks;
+  all 101 public gates within {propext, Quot.sound}. Seven selective-root
+  imports; root/full-tree/full axiom audit unrun. Independent mathematical
+  review found no defect in the cap/contraction or seminorm/semigroup.
+  Evidence: `audits/AUDIT-FIXED-SPATIAL-PHYSICAL-TIME.md`.
+
+## Previous PROVED intrinsic reflected pairing, sharp CS and null-pairing annihilation; OPEN actual physical shift and completion at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialCenteredWindowShift.lean`,
   `BF4ExactSlabFixedSpatialWindowPaddedCongruence.lean`,

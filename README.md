@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: a window-independent reflected pairing with sharp Cauchy--Schwarz.**
+**Latest result: genuine physical time is contractive in the original reflected seminorm.**
+Incrementing each observable's distance from the reflection plane defines
+the actual time shift. Its same-object time-balance identity, reflection
+positivity and a lag-independent coefficient bound prove contraction with
+constant **one**, without assuming a spectral gap. The shift preserves null
+presentations and acts on the explicit-modulus Cauchy carrier, retaining
+each supplied modulus exactly. The original unit gives a fixed element
+distinct from embedded zero.
+
+This is a **fixed-nome, fixed-width, fixed-cutoff SU(2) construction** for
+the selected original action. The completed inner product and Hilbert-space
+laws are next; a fixed unit is not an isolated vacuum. Strict contraction
+on the vacuum complement, joint limit control, continuum QFT and the Clay
+mass gap remain open. Seven focused checks passed all 101 public axiom
+gates; no root/full-tree check was run. See the
+[physical-time audit](audits/AUDIT-FIXED-SPATIAL-PHYSICAL-TIME.md).
+
+**Previous result: a window-independent reflected pairing with sharp Cauchy--Schwarz.**
 The [intrinsic reflected pairing](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialIntrinsicReflectedForm.lean)
 records observables by their distances from the reflection plane and computes
 a common enclosing window. Changing that window provably leaves the SAME
@@ -32,10 +49,10 @@ A zero-norm presentation pairs to zero with every physical probe span.
 The proof retains the original selected action and partition. It neither
 assumes finite stationarity nor synchronizes different CReal approximation
 indices. This is a **fixed-nome, fixed-width, fixed-cutoff SU(2) intrinsic
-scalar form**, not yet a completed physical OS theory. The next mathematical
-step is the genuine time-shift identity and its contraction bound, followed
-by the quotient/completion on the same form. Joint limits, continuum QFT and
-the physical mass gap remain open. Six focused checks passed 73 public
+scalar form**, not yet a completed physical OS theory. The latest result
+adds genuine time-shift balance, contraction and its Cauchy-carrier descent.
+The completed inner product, joint limits, continuum QFT and the physical
+mass gap remain open. Six focused checks at this earlier checkpoint passed 73 public
 axiom gates; no root/full-tree check was run. See the
 [intrinsic-form audit](audits/AUDIT-FIXED-SPATIAL-INTRINSIC-REFLECTED-FORM.md).
 
@@ -55,9 +72,10 @@ reflection positivity survives cutoff removal on each fixed selected chain;
 these two limits have not been interchanged.
 
 This remains a **fixed-nome, fixed-width, fixed-cutoff SU(2) time-limit result
-on the spatial-probe span**. The latest result supplies the intrinsic scalar
-pairing; compatible time shifts, physical OS quotient/transfer/vacuum, joint cutoff/volume/spacing
-control, and the continuum Clay target remain open. Six focused checks passed
+on the spatial-probe span**. Later results supply the intrinsic scalar
+pairing and contractive physical shifts on its Cauchy carrier. The completed
+Hilbert structure, isolated vacuum, joint cutoff/volume/spacing control,
+and the continuum Clay target remain open. Six focused checks passed
 63 public axiom gates; no root/full-tree check was run. See the
 [reflection audit](audits/AUDIT-FIXED-SPATIAL-WINDOW-REFLECTION.md).
 
