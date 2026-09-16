@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED positive original central-character joint variance and SAME-carrier completed pairing; OPEN centered completed vector/strict gap and spatial/spacing control (2026-09-16)
+## PROVED actual nonzero joint centered excitation and universal strict completed form bound; OPEN bulk spatial/spacing control and full Hilbert/OS/QFT (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialJointCenterAlgebra.lean`,
+  `BF4ExactSlabFixedSpatialJointCenteredStream.lean`,
+  `BF4ExactSlabFixedSpatialJointCenteredPairing.lean`,
+  `BF4ExactSlabFixedSpatialJointCompletedGap.lean`,
+  `BF4ExactSlabFixedSpatialJointUnitComplement.lean`, and
+  `BF4ExactSlabFixedSpatialJointCentralExcitation.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: rational mean approximations have exact coefficient-difference
+  squared distance, hence an explicit Cauchy modulus clipped at one. Their
+  vector lies in the SAME joint carrier, is unit-orthogonal, and realizes
+  the original connected moments under actual physical time. The actual
+  central character has a positive norm floor and is nonzero for width>0.
+  Independently, passing the dense strict inequality through the three
+  actual completed scalar pairings proves it for EVERY completed vector
+  orthogonal to the unit. Time balance gives the invariant sector/semigroup,
+  positive two-step transfer and strict one-step squared-norm bound.
+- **consumer/open input**: removes the joint completed form-extension and
+  actual nonzero centered-witness obligations. Nome/width dependence remains.
+  Next: recentered bulk probes, original spatial-boundary comparison and a
+  width-independent decay rate (a uniform prefactor is not required by the
+  existing dyadic consumer). General completed linear/centering laws,
+  positive definiteness/metric completeness/full Hilbert and OS/QFT,
+  spatial/spacing control, physical mass calibration, continuum nontriviality
+  and all-group Clay closure remain open. No canonical field, sorry, axiom
+  or analytic premise changed; a form bound is not a Hamiltonian spectrum.
+- **verification**: six focused serialized one-worker/20 GiB module checks,
+  58 public gates within {propext, Quot.sound}; six root imports, root/full-tree/
+  full audit unrun. Independent read-only review found no same-object defect.
+  Evidence: `audits/AUDIT-JOINT-COMPLETED-CENTERED-GAP.md`.
+
+## Previous PROVED positive original central-character joint variance and SAME-carrier completed pairing; OPEN centered completed vector/strict gap and spatial/spacing control at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialCentralDensity`, `CentralDensityFloor`,
   `CentralCharacter`, `CentralVariance`, `JointCentralVariance`,

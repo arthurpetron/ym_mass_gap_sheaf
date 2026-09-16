@@ -21,21 +21,21 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: a concrete central observable has strictly positive limiting variance.**
-The original fundamental plaquette character has an explicit positive variance
-floor after both heat-cutoff and time-boundary removal. The proof retains the
-actual central density and its partition; the floor depends on spatial width
-and coupling, not the removed regulators. The actual reflected pairing now
-extends to the same Cauchy carrier as physical time. Its embedding theorem
-identifies this variance with the character/unit Gram determinant there.
+**Latest result: the actual completed unit complement has a strict form bound and a nonzero excitation.**
+Rational approximations to the original plaquette mean construct an actual
+orthogonal vector with an explicit positive norm floor. Its physical-time
+pairings are exactly the original connected correlators. The prefactor-free
+two-step inequality now holds for **every completed vector orthogonal to the
+same unit**; actual physical time preserves that sector. The rate is below
+one at fixed coupling and spatial width, not uniformly over those parameters.
 
 This remains **fixed-spatial-width SU(2) progress**, not a complete Hilbert/OS
-theory or continuum nontriviality theorem. Next: construct the actual centered
-nonzero vector from rational approximations to its mean. Completed centering
-and the strict completed bound, spatial/spacing control, physical mass
-calibration and the continuum Clay target remain open. Focused checks passed
-all 88 public axiom gates in the touched modules; no root/full-tree check ran.
-See the [variance and pairing audit](audits/AUDIT-CENTRAL-VARIANCE-AND-JOINT-PAIRING.md).
+theory or a continuum mass gap. Next: recenter local probes for genuine bulk
+exhaustion and prove spatial-boundary comparison and width-independent decay.
+General completed linear/centering and Hilbert structure, spacing control,
+physical mass calibration and the continuum/all-group target remain open.
+Six focused module checks passed 58 public axiom gates; no root/full-tree check
+ran. See the [completed-sector audit](audits/AUDIT-JOINT-COMPLETED-CENTERED-GAP.md).
 
 The entries below are historical checkpoints. Their next steps and open
 items describe the status then; use the latest result above for current status.

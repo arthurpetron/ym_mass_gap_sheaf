@@ -133,7 +133,50 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED explicit positive original central-character variance after joint cutoff/time removal and SAME-carrier completed pairing; OPEN actual centered completed vector/strict bound and spatial/spacing control):**
+**Latest mathematical increment (PROVED actual nonzero centered excitation, original correlator realization and universal strict form bound on the invariant JOINT completed unit complement; OPEN bulk spatial/spacing control and full Hilbert/OS/QFT structure):**
+PROGRESS after `54346f5`. Rational centering x-mu.approx(k)*unit has exact
+squared distance (mu.approx(m)-mu.approx(n))^2. The existing scalar modulus
+at min(epsilon,1) constructs its Cauchy stream in the SAME JointCompletion.
+Scalar limit uniqueness gives zero unit pairing and identifies every
+physical-time pairing of two such vectors with jointCenteredMoment.
+The actual origin plaquette character therefore supplies a unit-orthogonal
+nonzero vector with positive norm floor centralFraction(w,width), for width>0.
+Its norm retains explicit QCauchy data; this is no longer only a Gram scalar.
+
+CONTRACTION: the universal completed bound does not need a general completed
+real-scalar/centering interface first. Along ANY supplied Cauchy representative,
+the three actual pairing limits identify the scalar centered moment. Pass
+the existing prefactor-free dense inequality, descend by quotient induction,
+and remove the unit coefficient for an orthogonal vector. This proves the
+strict two-step form bound for EVERY such completed vector. Actual completed
+time balance preserves the unit complement, descends its discrete semigroup,
+and gives the one-step squared-norm bound. Two-step positivity is proved;
+one-step positivity is not inferred. The SAME q^2<1 retains nome/width dependence.
+
+NEXT ANALYTIC FRONTIER: explicit recentered embeddings of fixed local probes
+in growing ORIGINAL spatial boxes, and a same-action spatial-boundary
+comparison modulus. The current origin character stays beside three lower
+spatial boundaries when width alone increases; that is not bulk exhaustion.
+The current floor/cap powers have volume loss. Seek an even-time connected
+envelope for the recentered probes with rate independent of width; its
+prefactor may depend on width and presentation, since the existing dyadic
+moment theorem removes it. Do not introduce an unnecessary uniform-prefactor
+obligation or treat the old fixed-small-nome/full-slab covariance theorem as
+an identification with the new all-nome joint forms. These estimates are open,
+not newly supplied assumptions or extra frontier bundles.
+
+General completed linear/centering laws, positive definiteness and metric
+completeness/full Hilbert structure, full original observable/gauge and OS/QFT
+reconstruction, spatial/spacing passage, physical time/mass calibration,
+continuum nontriviality and all-group Clay closure remain open. No spectral
+Hamiltonian or isolated-vacuum theorem follows here merely from the form bound.
+Six narrow serialized one-worker/20 GiB module checks passed all 58 public
+gates within {propext, Quot.sound}; six selective-root imports, root/full-tree/
+full audit unrun. Independent source review found no defect. No canonical
+field, hole, axiom, analytic premise or resource limit changed; no literature
+scan. Evidence: `audits/AUDIT-JOINT-COMPLETED-CENTERED-GAP.md`.
+
+**Previous mathematical increment (PROVED explicit positive original central-character variance after joint cutoff/time removal and SAME-carrier completed pairing; OPEN actual centered completed vector/strict bound and spatial/spacing control at that checkpoint):**
 PROGRESS after `9cb7613`. The original density is exactly V*(T^(t+1)1)^2.
 Existing transfer floor/cap certificates give L*M_t^2 <= density <= U*M_t^2,
 with L=headFloor^spatialFaceCount*kineticFloor^2 and
