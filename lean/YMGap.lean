@@ -4499,6 +4499,11 @@ import YMGap.Continuum.BF4ExactSlabResponseDistanceActivity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerGeometry
 import YMGap.Continuum.BF4ExactSlabSpatialSliceFactors
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerGluing
+-- Exact width-only boundary recoding, with reconstruction of the original
+-- integrated kernel. This does not identify stationary transfer powers.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerBoundary
+import YMGap.Continuum.SU2QuaternionHaarBlockCompression
+import YMGap.Continuum.BF4ExactSlabFixedSpatialBoundaryCarrier
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

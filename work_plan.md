@@ -126,7 +126,57 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED fixed-spatial two-layer original Haar gluing; OPEN stationary iteration and quantitative control):**
+**Latest mathematical increment (PROVED exact fixed-width boundary realization; OPEN single-slice iteration and quantitative control):**
+PROGRESS after `48715db`. Parallel source reviews isolated a direct inverse
+to the existing coordinate embedding and checked the next finite-iteration
+consumer. The compression proof developed independently of the actual
+original-kernel locality and boundary placement; the parent checked all
+three modules serially and composed them. No new frontier bundle or
+analytic premise was introduced.
+
+EXPANSION: `BF4ExactSlabFixedSpatialTwoLayerBoundary.gluedMiddle_local`
+and `gluedMiddle_supported` prove that the computed K01*V1*K12 integral
+has only spatial endpoint variables, with all three spatial coordinates
+at most width, and no unsupported exponent tail. The fringe is retained.
+`SU2QuaternionHaarBlockCompression` computes monomial restriction to an
+embedding image, preserving signs, term order and multiplicities.
+
+CONTRACTION: `BF4ExactSlabFixedSpatialBoundaryCarrier.kernel` realizes
+that ACTUAL original kernel on one explicit two-endpoint list depending
+only on width. `kernel_reconstructs` recovers the ambient polynomial up
+to its exact supported prefix; `kernel_haar` preserves its Haar integral.
+The room guards are width<=extent and start+2<=extent. The width guard is
+stronger than window completeness because the box overcarrier includes
+unused fringe/corner coordinates. Kernel coefficients are still allowed
+to depend on extent/start; only the carrier size is independent of them.
+
+NEXT: split/identify the single-slice carrier and pin the original spatial
+and kinetic factors under its placements, then prove finite weighted time
+iteration. Keep each joining spatial heat once. Finite iteration does not
+first require a stationary vacuum; positive stationary normalization and
+the physical OS identification remain separate analytic obligations.
+The previous original gluing theorem permits probes outside this box:
+moving its entire pairing onto the compact carrier requires probe locality,
+an enlarged carrier, or the corresponding spectator integration. It is not
+implied by the bare-kernel Haar theorem. Cutoff-dependent insertions and
+all nome/volume/spacing/continuum/all-group obligations remain open.
+
+Verification: focused one-worker/20 GiB checks of all three new modules
+passed; all 30 public gates lie in {propext, Quot.sound}. Initial namespace,
+projection and elaboration issues were corrected before acceptance. A
+scoped kinetic-locality elaboration budget is 1,000,000 heartbeats; memory
+and worker limits unchanged. Three root imports; root/full-tree and full
+axiom audits unrun. Independent source review found no mathematical bug,
+and recorded the probe-locality boundary above. Evidence and log hashes:
+`audits/AUDIT-FIXED-SPATIAL-BOUNDARY-CARRIER.md`.
+
+The requested parallel review of the 2026-09-16 math-ph listing found useful
+exact backward-message normalization and hierarchical convexification
+methods, but no applicable original-Haar quantitative theorem. See
+`audits/RESEARCH-MATH-PH-2026-09-16.md`. No paper is an added proof premise;
+the whole-project target and constructive gate are unchanged.
+
+**Previous mathematical increment (PROVED fixed-spatial two-layer original Haar gluing; OPEN stationary iteration and quantitative control):**
 PROGRESS after `3fc7c58`. Three parallel source reviews checked geometry,
 the physical operator interface, and the positivity/normalization route.
 Geometry and endpoint-locality proofs then developed independently; the

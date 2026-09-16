@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: original two-layer gluing at fixed spatial width.**
+**Latest result: exact fixed-width boundary realization.**
+The [computed two-layer kernel](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBoundaryCarrier.lean)
+now lives on an explicit two-endpoint carrier whose size depends only on
+spatial width, not ambient extent, start time or heat cutoff. Its embedding
+reconstructs the original polynomial and preserves the Haar integral.
+Spatial plaquette-edge fringe variables are retained.
+
+Parallel work supplied the exact compression proof and an independent
+consumer review. All 30 new public axiom gates passed focused serialized
+checks. The kernel's coefficients still depend on the original parameters;
+repeated single-slice composition, stationary normalization and quantitative
+control remain open. No continuum or gap claim follows from this recoding.
+See the [proof audit](audits/AUDIT-FIXED-SPATIAL-BOUNDARY-CARRIER.md).
+The parallel [new-paper review](audits/RESEARCH-MATH-PH-2026-09-16.md)
+identified useful normalization and hierarchical-RG ideas, but no directly
+applicable Yang--Mills estimate. Root/full-tree verification was not run.
+
+**Previous result: original two-layer gluing at fixed spatial width.**
 The [new finite identity](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoLayerGluing.lean)
 glues two adjacent temporal layers of the original selected-window action.
 The shared middle spatial heat occurs exactly once; both endpoint spatial

@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED fixed-spatial original two-layer Haar gluing; OPEN stationary iteration and quantitative control (2026-09-16)
+## PROVED exact fixed-width boundary realization; OPEN iteration and quantitative control (2026-09-16)
+
+- **files**: new `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoLayerBoundary.lean`,
+  `SU2QuaternionHaarBlockCompression.lean`, and
+  `BF4ExactSlabFixedSpatialBoundaryCarrier.lean` in that directory.
+- **proof**: the actual middle-integrated original two-layer polynomial is
+  supported and local to the spatial endpoint box, including fringe links.
+  Computed coordinate restriction reconstructs every target exponent of a
+  local polynomial, preserving signed terms and Haar integrals. An explicit
+  width-only endpoint list embeds into the ambient slab under width<=extent
+  and start+2<=extent; `kernel_reconstructs` and `kernel_haar` pin its compressed
+  kernel to the actual `gluedMiddle`. No original action term is omitted.
+- **consumer/open input**: supplies fixed-size two-endpoint realization
+  before single-slice original-factor pinning and finite weighted iteration.
+  It is not coefficient independence from extent/start, a stationary vacuum,
+  or a quantitative contraction. Original endpoint probes outside the box
+  require extra locality/carrier/spectator handling. Cutoff-dependent
+  insertions, original-Haar quantitative control, stationary OS identification,
+  continuum passage and physical/all-group gap remain open. No canonical
+  field, old statement, literal hole or axiom changed; no new analytic premise.
+- **verification**: all three focused serialized one-worker/20 GiB checks
+  passed; all 30 public gates within {propext, Quot.sound}. No root/full-tree
+  or full audit run. Three root imports; worker/memory caps unchanged. See
+  `audits/AUDIT-FIXED-SPATIAL-BOUNDARY-CARRIER.md` for source and log evidence.
+- **parallel research**: `audits/RESEARCH-MATH-PH-2026-09-16.md` screens fresh
+  papers; none discharges an open field or enters the Lean proof assumptions.
+
+## Previous PROVED fixed-spatial original two-layer Haar gluing; OPEN stationary iteration and quantitative control (2026-09-16)
 
 - **files**: new `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoLayerGeometry.lean`,
   `BF4ExactSlabSpatialSliceFactors.lean`, and
