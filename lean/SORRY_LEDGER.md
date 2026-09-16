@@ -13,7 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original retained-boundary marginal and all-nome background estimate; OPEN physical gluing/decay (2026-09-15)
+## PROVED all-nome original OS dual bounds and site reflection positivity; OPEN centered decay (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/BF4ExactSlabAllNomeDressedDualTest.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabAllNomeSiteReflection.lean`.
+- **proof**: complete original L/interface/U background at late cutoff;
+  original fixed-insertion limit and exact cancellation of both partition
+  factors. The bound uses the SAME reflected norm, with coefficient equal
+  to the supplied cap product. Concrete bulkScalar has norm at most one and
+  descends to the existing cutoff-removed finite-volume OS quotient.
+  Unit-test normalization is one; bulkScalar nontriviality is not asserted.
+- **independent proof**: full original even-slab site positivity and its
+  normalized cutoff-limit consequence for 0<w<1, removing old small-nome
+  guards. The conditional polynomial remains inside the finite proof.
+- **route correction**: adjacent-kernel composition is not required by the
+  existing all-nome connected-covariance consumer. It remains unproved on
+  that alternative route but is not the next dependency to scaffold.
+- **open residue**: original determinant/spatial decay with usable coupling,
+  volume and scale dependence; varying-nome thermodynamic/OS compatibility,
+  physical time/scale calibration, continuum QFT and all-group Clay. No
+  canonical atom closed; no old statement, field, axiom or literal hole changed.
+- **verification**: fifteen gates within {propext, Quot.sound}, five focused
+  serialized one-worker/20 GiB checks including two correction reruns and
+  the added unit pin. No raised limits or dependency rebuild. Two root
+  imports; root/full-tree unrun. `audits/AUDIT-ALL-NOME-OS-TESTS.md` records
+  the evidence and verification boundary.
+
+## Previous PROVED original retained-boundary marginal and all-nome background estimate; OPEN physical gluing/decay (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/SU2QuaternionOriginalHaarBlockMarginal.lean`,
   `BF4ExactSlabCrossingBoundary.lean`, `BF4ExactSlabBoundaryMarginal.lean`,

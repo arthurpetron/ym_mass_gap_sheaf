@@ -126,7 +126,49 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED original retained-boundary marginal; OPEN gluing/time identification and centered decay):**
+**Latest mathematical increment (PROVED all-nome original OS dual bounds and site positivity; OPEN centered decay):**
+PROGRESS after `f435b72`. Source review contracted the proposed path: new
+adjacent-region transfer composition is NOT required by the existing
+original connected-covariance consumer. Centered even-slab full-action
+splitting and mixed conditional pairing also already exist. Do not expand
+time/gluing infrastructure without attaching it to a missing estimate.
+
+`BF4ExactSlabAllNomeDressedDualTest` now proves the original full-background
+dual-test bound for every rational 0<w<1. At K>=max(1,headCutoff(w)), all
+actual lower/crossing/upper action factors give the required positive
+certificate. The fixed-insertion cutoff limit preserves both partitions;
+the SAME reciprocal cancels them. The result is testLimit(p,e)^2 <=
+(b*a)*form(e,e), with the test caps, lower locality, reflection and temporal
+invariance explicit. The concrete bulkScalar satisfies these requirements,
+has norm AT MOST one, and acts on the existing cutoff-removed OS quotient.
+No original-state preimage is demanded. A unit-test pin witnesses the
+family's nonzero normalization; bulkScalar nontriviality/separation is not
+asserted. Existing constructive cutoff and reciprocal moduli are reused.
+
+The independent `BF4ExactSlabAllNomeSiteReflection` proves late finite and
+normalized cutoff-limit site reflection positivity for the same original
+even-slab action at every 0<w<1. Its cutoff-dependent conditional square
+remains inside the finite proof; only the original insertion is held fixed.
+
+NEXT: prioritize the original connected determinant estimate, not further
+positivity/normalization wrappers. `BF4ExactSlabTwoProbeCovariance.covariance_bound`
+already consumes the bound relative to the SAME partition square at all
+nomes. Its distance-decay producer still requires small-nome and summability
+hypotheses. `no_eventual_small_intervals` rules out extending the old full
+unit-reference heat-remainder argument near w=1. The missing mathematical
+input is cancellation-preserving spatial control for the changing ORIGINAL
+action, with explicit coupling, volume and physical-scale dependence.
+All-nome thermodynamic compatibility, physical scaling, continuum QFT,
+nontriviality and all compact simple groups remain open.
+
+Verification: fifteen public gates in two new modules within {propext,
+Quot.sound}; five focused serialized one-worker/20 GiB checks, including
+two parameter/namespace correction reruns and the added unit sanity check.
+No raised limits, dependency rebuild, changed old theorem/field, custom
+axiom or literal hole. Two root imports; root/full-tree unrun. Exact evidence:
+`audits/AUDIT-ALL-NOME-OS-TESTS.md`.
+
+**Previous mathematical increment (PROVED original retained-boundary marginal; OPEN gluing/time identification and centered decay):**
 PROGRESS after `50d0d9d`. Parallel work produced two independent finite
 results and a read-only consumer audit. `BF4ExactSlabBoundaryMarginal`
 constructs explicit interior-integration schedules for both complete

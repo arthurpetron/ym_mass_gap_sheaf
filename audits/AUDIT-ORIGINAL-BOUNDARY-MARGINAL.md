@@ -68,6 +68,14 @@ all-nome floor or volume-uniform contraction claimed here.
 
 ## Next-consumer review: gluing and original observable realization
 
+**Subsequent route refinement:** `audits/AUDIT-ALL-NOME-OS-TESTS.md`
+records the existing centered even-slab action split/mixed pairing and the
+direct all-nome covariance consumer. New adjacent-kernel/time composition
+is not a prerequisite for that correlation route. The missing declarations
+below concern a proposed boundary-kernel route, not a proof that all routes
+must pass through it. All-nome original dual-test boundedness and original
+cutoff-limit site positivity are now proved in the newer checkpoint.
+
 The new residual is admissible as an ordinary polynomial insertion:
 `expectation`, `lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetExpectation.lean:72`,
 accepts RatPoly. `numerator_pin`,

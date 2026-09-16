@@ -21,7 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: the original signed slab form is reduced to its actual boundary.**
+**Latest result: bounded original OS dual tests at all positive subunit nomes.**
+The [new estimate](lean/YMGap/Continuum/BF4ExactSlabAllNomeDressedDualTest.lean)
+removes the old small-nome restriction on bounded auxiliary polynomial tests.
+After cutoff removal, their squared amplitude is bounded by their supplied
+cap product times the SAME original reflected norm. Both original partitions
+cancel exactly. The concrete bulk scalar test has norm at most one and
+descends to the existing finite-volume OS quotient; it is not assumed to be
+an original state or a separating test. The unit test evaluates to one on
+the original unit.
+
+In parallel, [site-reflection positivity](lean/YMGap/Continuum/BF4ExactSlabAllNomeSiteReflection.lean)
+now holds for the original cutoff-removed even-slab law at every rational
+`0<w<1`. These results do not supply centered decay or continuum control.
+Fifteen public gates passed focused serialized checks; no full-tree check
+was run. The [route audit](audits/AUDIT-ALL-NOME-OS-TESTS.md) identifies the
+next analytic estimate and explains why extra boundary gluing is not its
+prerequisite.
+
+**Previous result: the original signed slab form is reduced to its actual boundary.**
 The [boundary-marginal identity](lean/YMGap/Continuum/BF4ExactSlabBoundaryMarginal.lean)
 integrates the interior links of both complete heat-dressed observables,
 retaining the literal crossing-link coordinates and every action factor.
