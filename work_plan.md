@@ -133,7 +133,56 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED actual weighted symmetry, positive terminal pairing and finite interior contraction; OPEN original middle placement and two-sided convergence):**
+**Latest mathematical increment (PROVED original two-sided interior time limit; OPEN observable-algebra/cylinder state, cutoff removal and physical OS passage):**
+PROGRESS after `4d820b3`. For u_m=T^m1 and a signed source probe p with
+certificate [-C,C], `intervalTimesMessage` constructs the initial relative
+bracket (u_m*p,u_m). Iteration and weighted symmetry identify its normalized
+mass ratio with the ACTUAL interior B(m,n)=ell((u_m*p)*u_n)/ell(u_m*u_n).
+This is not the earlier evolved endpoint ratio. All comparison masses are
+proved positive by the existing original transfer floor.
+
+CONTRACTION: nested n-step brackets have width 2*C*q^n independently of m.
+`middleRatio_right_commonTail` controls two right-boundary distances;
+`middleRatio_swap` gives the left comparison. The two hops
+B(m,n) -> B(m,j) -> B(i,j) yield `middleRatio_commonTail`, a paired
+4*C*q^s bound whenever m,n,i,j>=s. No uniform lower bound on growing
+partitions, rate positivity, or power-monotonicity argument is required.
+`middleTimeModulus` is an explicit geometric cutoff independent of K;
+`middleTimeLimit` returns a CReal controlling the full late rectangle.
+
+The exact middle block/polynomial placement and `middleNumerator_pin`
+identify the original probe at start+m. `middleRatio_originalFiniteValue`
+keeps the SAME action, cutoff and reciprocal partition, with the physical
+face/extent guards. `originalMiddleScalar` uses extent=width+(m+n), start=0,
+probe time=m. Its Cauchy witness, diagonal convergence and rectangular
+representative bound reach that SAME middleTimeLimit. Both boundaries
+recede relative to the probe; a stationary shift law is not assumed.
+
+NEXT CAUSAL FRONTIER: stop treating probe-list scalar limits as a linear
+observable algebra. They are not closed under addition. Extend the existing
+interval/bracket argument to arbitrary supported slice polynomials with
+computed interval certificates, then prove same-denominator finite linearity,
+normalization and positivity and pass these laws to the constructed limit.
+This targets a genuine positive slice functional, NOT an automatic physical
+OS carrier. Multi-insertion/time-shift consistency and cutoff passage must
+still be proved for the SAME original observables. Existing fixed-time
+original cutoff moduli and the K-independent time modulus are available
+ingredients, not yet a joint interior limit theorem.
+
+Nome and width remain fixed; this is not spatial thermodynamic or lattice-
+spacing convergence. Connected correlations, physical reflected OS/vacuum
+realization, completed cutoff-limit operator power/moment compatibility,
+width/spacing-uniform control, continuum QFT and all compact simple groups
+remain open. No canonical frontier field or analytic premise changed.
+
+Verification: five focused serialized one-worker/20 GiB checks; all 30 public
+gates within {propext, Quot.sound}. Five selective-root imports; root/full-tree/
+full axiom audit unrun. No literal holes, axioms, classical input or raised
+resource limits. Independent source review checked the two-hop estimate and
+the original moving-box schedule. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-TWO-SIDED-TIME-LIMIT.md`.
+
+**Previous mathematical increment (PROVED actual weighted symmetry, positive terminal pairing and finite interior contraction; OPEN original middle placement and two-sided convergence at that checkpoint):**
 PROGRESS after `1c981db`. The explicit full-slice swap preserves the actual
 kinetic polynomial through the quaternion scalar dot product, its complete
 character sums and temporal-face product. Haar invariance and ordered-head

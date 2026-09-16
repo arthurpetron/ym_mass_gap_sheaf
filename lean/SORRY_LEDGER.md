@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual weighted symmetry and finite middle pairing; OPEN original middle placement and two-sided convergence (2026-09-16)
+## PROVED original two-sided interior time limit; OPEN observable-algebra/cylinder state, cutoff and physical OS passage (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialMiddleRatioPins.lean`,
+  `BF4ExactSlabFixedSpatialMiddleBracket.lean`,
+  `BF4ExactSlabFixedSpatialMiddleTimeLimit.lean`,
+  `BF4ExactSlabFixedSpatialOriginalMiddle.lean`, and
+  `BF4ExactSlabFixedSpatialOriginalMiddleTime.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: initialize the relative bracket at (u_m*p,u_m), not at the
+  evolved endpoint probe. Nested intervals give right-boundary variation
+  uniformly in m; message exchange gives left variation. Two hops prove
+  4*C*q^s control for four independently late lengths. The explicit
+  K-independent geometric modulus constructs the interior CReal and its
+  full rectangular representative bound. Exact middle placement and
+  reciprocal cancellation pin the same ratio to original finiteValue.
+  The original growing-box diagonal and arbitrary late rectangles converge
+  to that SAME returned scalar, with one middle spatial V.
+- **consumer/open input**: removes original middle placement and two-sided
+  scalar time convergence at fixed nome, width and retained heat cutoff.
+  Probe lists are not an addition-closed observable algebra; positive
+  linear functional laws, multi-insertion and stationary cylinder
+  consistency remain unproved. Joint interior cutoff passage, connected
+  correlations, reflected physical OS/vacuum, completed cutoff-limit
+  power/moment compatibility, uniform width/spacing control, continuum QFT
+  and all-group Clay closure remain open. No old statement, frontier field,
+  literal hole, axiom or analytic premise changed.
+- **verification**: five focused serialized one-worker/20 GiB checks; all
+  30 public gates within {propext, Quot.sound}. Five selective-root imports;
+  root/full-tree/full axiom audit unrun. Independent read-only source review
+  checked the two-sided estimate and actual original schedule. Evidence:
+  `audits/AUDIT-FIXED-SPATIAL-TWO-SIDED-TIME-LIMIT.md`.
+
+## Previous PROVED actual weighted symmetry and finite middle pairing; OPEN original middle placement and two-sided convergence at that checkpoint (2026-09-16)
 
 - **files**: `SU2QuaternionTwoSliceSwap.lean`,
   `BF4ExactSlabFixedSpatialKineticSymmetry.lean`,

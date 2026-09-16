@@ -21,7 +21,28 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: the actual transfer gives an exact interior-message pairing.**
+**Latest result: an original interior observable has a two-sided time limit.**
+The [two-boundary estimate](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialMiddleBracket.lean)
+compares any two pairs of boundary distances beyond `s` with error
+`4*probeCap*q^s`. It first changes one boundary, then the other; the
+original partition is retained throughout. The rate is independent of late
+heat cutoff, but still depends on nome and spatial width.
+
+The [middle-slice pin](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalMiddle.lean)
+identifies that ratio with the existing original lattice expectation, with
+its physical face and geometry guards. Its [constructed time limit](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalMiddleTime.lean)
+has an explicit modulus and controls independently receding boundaries,
+not just a chosen diagonal. Nome, width and heat cutoff remain fixed.
+
+This is an **interior scalar limit**, not yet a positive linear cylinder
+state, a stationary vacuum or a physical OS theory. Extending from the
+probe-list scalars to an observable algebra, cutoff removal, multi-insertion
+consistency, and uniform volume/spacing control remain open. The continuum
+QFT and Clay target remain open. Five focused checks passed all 30 public
+axiom gates; no root/full-tree check was run. See the
+[two-sided-limit audit](audits/AUDIT-FIXED-SPATIAL-TWO-SIDED-TIME-LIMIT.md).
+
+**Previous result: the actual transfer gives an exact interior-message pairing.**
 The [weighted-symmetry proof](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferSymmetry.lean)
 exchanges the two complete slices of the original kinetic polynomial and
 retains both spatial weights. The [middle-insertion contraction](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialMiddlePairing.lean)
@@ -30,9 +51,9 @@ then identifies a chronological chain's interior numerator as
 Its denominator is proved equal to the SAME finite-chain partition and
 strictly positive at every pair of lengths, including zero.
 
-This is an **exact finite identity**, not yet two-sided convergence or a
-stationary vacuum. The original ambient-lattice middle-slice placement and
-two-sided boundary-forgetting bound remain next. A separately checked
+This was an **exact finite identity**, not yet two-sided convergence or a
+stationary vacuum. The latest result above supplies the original middle-slice
+placement and two-sided scalar boundary-forgetting bound. A separately checked
 endpoint-probe ratio is explicitly distinguished from this interior ratio.
 The rate still depends on nome and spatial width; physical OS identification,
 uniform volume/spacing passage, continuum QFT and the Clay target remain open.
