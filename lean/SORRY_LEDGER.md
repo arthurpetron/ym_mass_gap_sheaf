@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual six-face star comparison; OPEN original conditional influence (2026-09-15)
+## PROVED original weighted star-normalizer bounds; OPEN conditional inverse and spatial control (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/SU2QuaternionHaarHeadProbeTransport.lean`
+  and `BF4ExactSlabStarNormalizer.lean` in the same directory; two added
+  generic bounds in `PositiveContractionOneStepForm.lean`.
+- **proof**: exact supported exterior probes are pulled back to the original
+  Haar carrier; the normalizer D is the actual partial incident-heat integral.
+  `full_partition_pin` retains the original marginal D*B;
+  `full_insertion_pin` and `full_test_pin` retain the inserted numerator.
+  `normalizer_weighted_form_bounds` gives L H(r^2 B)<=H(r^2 D B)<=U H(r^2 B)
+  on all supported exterior polynomials. The constructed positive B form
+  and generic Cauchy--Schwarz norm theorem yield
+  `normalizer_weighted_multiplication_norm`. Unweighted versions also proved.
+  L,U depend explicitly on w, not volume or K>=headCutoff(w).
+- **open residue**: constructive weighted inverse/approximation moduli,
+  realization of N_p/D in the original marginal and its lifted conditional
+  update, projection contraction and null-class/lift compatibility. The
+  exact test identity supports an orthogonality/Pythagorean route without
+  requiring a separate pointwise Jensen theorem; positivity/unit/Markov
+  semantics remain separate if claimed.
+  Form bounds are not Interval or pointwise certificates. Spatial decay,
+  scaling, physical OS gap, continuum QFT and all-group Clay remain open.
+  No old flag, canonical field, analytic premise, axiom or literal hole changed.
+- **verification**: 24 new and four legacy exact gates within
+  {propext, Quot.sound}; nine focused serialized safe one-worker/20 GiB
+  launches; clean final logs, fresh own/direct artifacts. No raised limits.
+  Root imports added, root/full-tree unrun. Log hashes and next step in work_plan.
+
+## Previous PROVED actual six-face star comparison; OPEN original conditional influence (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/BF4ExactSlabLinkStarGeometry.lean`
   and `BF4ExactSlabLocalStarComparison.lean` in the same directory;

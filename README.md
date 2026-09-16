@@ -21,7 +21,20 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [an explicit volume-independent comparison for the actual one-link star](lean/YMGap/Continuum/BF4ExactSlabLocalStarComparison.lean#L120).
+**Latest result:** [the actual one-link normalizer has strict weighted form bounds](lean/YMGap/Continuum/BF4ExactSlabStarNormalizer.lean#L196).
+The original exterior marginal retains the boundary-dependent normalizer
+`D` and complementary action `B`: its weight is `D*B`, not `B`.
+Exact test-function identities preserve the original action and observables.
+For every supported exterior polynomial, the proof bounds this marginal
+form above and below by explicit `w`-dependent multiples of the `B` form,
+and bounds multiplication by `D` in that weighted norm. Constants do not
+grow with volume or sufficiently late representation cutoff.
+
+All 28 public gates across three focused modules pass; checks were serialized.
+The constructive inverse and original-law conditional update remain next,
+followed by the still-open spatial estimate. This is not an OS or physical gap.
+
+**Previous result:** [an explicit volume-independent comparison for the actual one-link star](lean/YMGap/Continuum/BF4ExactSlabLocalStarComparison.lean#L120).
 For every rational `0<w<1` and sufficiently late cutoff, deleting only
 the link's at-most-six incident heat factors costs explicit positive
 constants depending on `w`, not volume or cutoff. All complementary

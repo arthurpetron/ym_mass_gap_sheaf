@@ -4450,6 +4450,9 @@ import YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison
 -- Actual six-face star and normalized deletion comparison; not spatial mixing.
 import YMGap.Continuum.BF4ExactSlabLinkStarGeometry
 import YMGap.Continuum.BF4ExactSlabLocalStarComparison
+-- Original weighted marginal D*B and form/norm control; conditional inverse open.
+import YMGap.Continuum.SU2QuaternionHaarHeadProbeTransport
+import YMGap.Continuum.BF4ExactSlabStarNormalizer
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

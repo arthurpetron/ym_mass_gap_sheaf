@@ -1,5 +1,45 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Original weighted normalizer and conditional test identity (2026-09-15)
+
+Follow-up after `450bc08`. D is now controlled in form and multiplier norm,
+including the actual complementary exterior weight B. No normalized
+conditional update, spatial contraction or OS gap is claimed.
+
+| Result | Declaration and source | Scope |
+| --- | --- | --- |
+| Exact exterior test transport | `headProbe_pair`, `lean/YMGap/Continuum/SU2QuaternionHaarHeadProbeTransport.lean:100`; `headProbe_independent_pair`, :165; `headProbe_product_pair`, :183 | Supported original carrier; the product pin retains the actual independent complement. |
+| Form-to-norm argument | `square_form_bound`, `lean/YMGap/Continuum/PositiveContractionOneStepForm.lean:113`; `norm_bound`, :145 | Generic rational Cauchy--Schwarz theorem, instantiated below with multiplication by actual D. |
+| Original normalizer and marginal | `normalizer`, `lean/YMGap/Continuum/BF4ExactSlabStarNormalizer.lean:52`; `full_partition_pin`, :75; `full_insertion_pin`, :86 | D is the incident product's partial integral; original exterior weight is D*B, with actual numerator N_p. |
+| Strict unweighted form and multiplier bounds | `normalizer_form_bounds`, same module :101; `normalizer_multiplication_norm`, :163 | All supported exterior square tests, explicit L(w), U(w). |
+| Complement retained in the estimates | `exterior_square_nonnegative`, same module :176; `normalizer_weighted_form_bounds`, :196; `normalizer_weighted_multiplication_norm`, :262 | L H(r^2 B)<=H(r^2 D B)<=U H(r^2 B); H((r D)^2 B)<=U^2 H(r^2 B). |
+| Original conditional test identity before division | `full_test_pin`, same module :283 | H_full(probe(r)*p*fullAction)=H_tail(r*N_p*B), for arbitrary supported r,p. |
+
+The independent review distinguishes this from assuming pointwise positivity:
+`Certificate.transport`, `lean/YMGap/Continuum/QuaternionHaarSquareCertificate.lean:68`,
+uses full Haar insertion equality. No theorem turning that equality into
+pointwise equality was used. The new bounds instead use actual lifted square
+tests, then Cauchy--Schwarz on the same weighted form.
+
+NEXT: weighted polynomial inverse approximation, explicit completion/moduli,
+and realization/lift of N_p/D with original-law conditional contraction and
+null-class compatibility. The exact test identity suggests the shorter L2
+route: prove orthogonality of p-lift(D^-1 N_p) to exterior tests, then pass
+to the constructed output and use the projection/Pythagorean identity.
+No separate pointwise Jensen theorem is needed for that Hilbert-space result;
+unit/positivity/Markov semantics remain separate if claimed.
+Ordinary Haar convergence alone would not
+prove that original-law result; the weighted estimates above preserve the
+needed B and D*B forms. `QuaternionHaarPolynomialGeometricInverse.cancellation`,
+`lean/YMGap/Continuum/QuaternionHaarPolynomialGeometricInverse.lean:67`, is an
+available exact algebraic identity, but its `residualInterval` at :88 and
+`correctorInterval` at :94 require certificates not supplied by form bounds.
+No spatial-decay premise, physical-scale pin or continuum node is closed.
+
+Verification: 28 exact public gates in the three changed modules stay within
+{propext, Quot.sound}; nine focused serialized safe checks; no raised limits.
+Final logs clean, own/direct artifacts fresh. Root imports added, root unrun.
+
 ## Actual local-star comparison, with original shared links (2026-09-15)
 
 Follow-up after `428adb5`. The local comparison is proved; its conditional

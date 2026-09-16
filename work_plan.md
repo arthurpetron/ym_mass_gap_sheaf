@@ -119,7 +119,66 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED actual local-star comparison; OPEN original conditional influence/spatial control):**
+**Latest mathematical increment (PROVED original weighted normalizer bounds; OPEN constructive conditional update/spatial control):**
+PROGRESS after `450bc08`. The preceding local-star comparison is now
+transported through actual one-link integration, retaining the original
+exterior marginal. Two bounded parallel proof tasks and an independent
+source review accompanied the parent application; compilation was serialized.
+
+`SU2QuaternionHaarHeadProbeTransport` lifts an arbitrary supported exterior
+test back to the original block carrier using the same explicit involution.
+The exact square and product pins retain the complementary weight, not just
+unweighted Haar. No pointwise inference from HaarCarrierEqv is made.
+`PositiveContractionOneStepForm.square_form_bound` and `norm_bound` prove
+the rational positive-form-to-operator-norm argument using Cauchy--Schwarz
+and decidable positive-factor cancellation; no spectral theorem is needed.
+
+`BF4ExactSlabStarNormalizer.normalizer` constructs D by partial integration
+of the actual incident heat product. `full_partition_pin` retains exterior
+weight D*B; `full_insertion_pin` and `full_test_pin` retain the actual inserted
+numerator N_p, including every action factor involving the integrated link.
+`normalizer_weighted_form_bounds` proves
+L(w) H(r^2 B) <= H(r^2 D B) <= U(w) H(r^2 B)
+for EVERY supported exterior polynomial r. `exterior_square_nonnegative`
+supplies the positive B form from the actual complementary-action certificate.
+`normalizer_weighted_multiplication_norm` proves
+H((r D)^2 B) <= U(w)^2 H(r^2 B).
+The same unweighted Haar statements also hold. L,U are the previous explicit
+nome-dependent six-face constants, independent of extent/placement and
+K>=headCutoff(w). They are not coupling/physical-scale-uniform gap constants.
+
+NEXT CAUSAL FRONTIER: construct the inverse of multiplication by D in the
+ACTUAL weighted exterior completion, with explicit polynomial approximation
+moduli, and realize N_p/D as an original-law conditional update. The proposed
+residual is I-D/U with rate 1-L/U<1; its contraction, geometric approximation,
+completion and inverse identities still need formalization. Reuse the exact
+algebraic `QuaternionHaarPolynomialGeometricInverse.cancellation` where useful,
+NOT its Interval estimates: form bounds do not supply those certificates.
+The new weighted bounds and test identity remove the Haar-only-space detour.
+For the L2 consumer, prove orthogonality of p-lift(D^-1 N_p) to exterior
+tests and obtain contraction by the projection/Pythagorean identity; do not
+impose a separate pointwise Jensen theorem. Null-class/lift compatibility
+and the limiting division identity remain. Positivity/unit/Markov semantics
+need separate proofs if claimed. None is spatial contraction. The downstream
+decaying boundary-numerator premise in
+`BF4ExactSlabBoundaryLimitNormalization.expectationDifference_bound_of_prefix_eventually`
+is still open, as are a compatible scaling family, physical-time/OS spectrum,
+continuum QFT/nontriviality, other compact simple groups and the Clay target.
+
+Verification: nine focused safe launches, one worker/20 GiB, across three
+modules. Final 24 new and four legacy public gates match exactly within
+{propext, Quot.sound}; final logs clean, own/direct artifacts fresh. Repairs
+were namespace openings and explicit block-count parsing/arithmetic; no new
+hole, axiom, raised limit or canonical-field change. Two root imports added,
+root/full-tree build unrun. CI remains manual-only. Logs/hashes:
+- `/tmp/ym-positive-form-norm.log`:
+  `9bff2be6ba5ad03b20e4753308ea8cb18070915e4fa368381ebf9bb0c0117bcb`.
+- `/tmp/ym-head-probe-transport.log`:
+  `3baf6e59dc9a6f2ab1ef357d610312e78cc79480ab94b41e854ccfbed9463014`.
+- `/tmp/ym-star-normalizer.log`:
+  `6c201000046d3afca0f076d3764d87fd8d2bc428bcdd311706b968c8832ea71c`.
+
+**Previous mathematical increment (PROVED actual local-star comparison; OPEN original conditional influence/spatial control):**
 PROGRESS after `428adb5`. User-authorized parallel geometry work and a
 separate read-only mathematical review accompanied the local estimate;
 all compilation remained serialized. The action is the original SU(2)

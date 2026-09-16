@@ -107,9 +107,57 @@ def oneStepSymbol (D : SmulGNSData) (S : DiagonalTransferSymbol D)
     exact le_of_eqv_le he
       (oneStep_contraction D.toGNSData S.Dv hsa hpos hupper (D.toGNSData.sub a b))
 
+/-- A positive symmetric form bound controls the actual image norm. The
+Cauchy--Schwarz argument uses the same one-step form and cancels its
+rational norm only in the decidable strictly positive case. -/
+theorem square_form_bound (D : GNSData) (P : D.V → D.V)
+    (hsa : ∀ a b, D.B a (P b) ≈ D.B (P a) b)
+    (hpos : ∀ a, (0 : Q') ≤ D.B a (P a))
+    {U : Q'} (hU0 : (0 : Q') ≤ U)
+    (hupper : ∀ a, D.B a (P a) ≤ U * D.B a a) (a : D.V) :
+    D.B (P a) (P a) ≤ U * D.B a (P a) := by
+  let E := oneStepGNSData D P hsa hpos
+  let x := D.B (P a) (P a)
+  let y := D.B a (P a)
+  have hpin : E.B a (P a) ≈ x := hsa a (P a)
+  have hsq : E.B a (P a) * E.B a (P a) ≈ x * x :=
+    Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ hpin)
+      (Q'.mul_eqv_congr_left _ _ _ hpin)
+  have hscaled : E.B a a * E.B (P a) (P a) ≤ y * (U * x) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ y (hupper (P a)) (hpos a)
+  have hproduct : x * x ≤ x * (U * y) :=
+    Q'.le_trans' _ _ _ (Q'.ge_of_eqv hsq)
+      (Q'.le_trans' _ _ _ (E.cauchy_schwarz a (P a))
+        (Q'.le_trans' _ _ _ hscaled (Q'.le_of_eqv
+          (Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv y (U * x))
+            (Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv U x y) (mul_pull U x y))))))
+  by_cases hx : (0 : Q') < x
+  · exact q_cancel_left hx hproduct
+  · have hnum : x.num ≤ (0 : Int) :=
+      Int.not_lt.mp (fun h => hx ((zero_lt_iff_num_pos x).mpr h))
+    have hx0 : x ≤ (0 : Q') := by
+      change x.num * (1 : Int) ≤ (0 : Int) * (x.den : Int)
+      simpa only [Int.mul_one, Int.zero_mul] using hnum
+    exact Q'.le_trans' _ _ _ hx0 (Q'.mul_nonneg U y hU0 (hpos a))
+
+/-- The rational quadratic-form ceiling yields its squared multiplier
+norm ceiling, with no spectral theorem or pointwise-order premise. -/
+theorem norm_bound (D : GNSData) (P : D.V → D.V)
+    (hsa : ∀ a b, D.B a (P b) ≈ D.B (P a) b)
+    (hpos : ∀ a, (0 : Q') ≤ D.B a (P a))
+    {U : Q'} (hU0 : (0 : Q') ≤ U)
+    (hupper : ∀ a, D.B a (P a) ≤ U * D.B a a) (a : D.V) :
+    D.B (P a) (P a) ≤ (U * U) * D.B a a :=
+  Q'.le_trans' _ _ _ (square_form_bound D P hsa hpos hU0 hupper a)
+    (Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left _ _ U (hupper a) hU0)
+      (Q'.ge_of_eqv (Q'.mul_assoc_eqv U U (D.B a a))))
+
 end YMGap.Continuum.PositiveContractionOneStepForm
 
 #print axioms YMGap.Continuum.PositiveContractionOneStepForm.oneStepGNSData
 #print axioms YMGap.Continuum.PositiveContractionOneStepForm.oneStep_contraction
 #print axioms YMGap.Continuum.PositiveContractionOneStepForm.oneStepSmulGNSData
 #print axioms YMGap.Continuum.PositiveContractionOneStepForm.oneStepSymbol
+#print axioms YMGap.Continuum.PositiveContractionOneStepForm.square_form_bound
+#print axioms YMGap.Continuum.PositiveContractionOneStepForm.norm_bound
