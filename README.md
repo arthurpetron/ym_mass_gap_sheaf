@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: exact spectator resummation and local response normalization.**
+**Latest result: distance exclusion and exact insertion activity.**
+The [original response](lean/YMGap/Continuum/BF4ExactSlabResponseDistanceActivity.lean)
+now has a proved geometric floor: for two connected probe carriers and
+a fresh inserted face, a retained core needs at least the largest pairwise
+root distance minus the two carrier sizes in old faces. The proof adds
+only the actual inserted face, not an artificial connecting corridor.
+
+Independently, the actual SU(2) heat insertion contributes an exact `w^3`
+factor to the signed response and every old-face finite-difference
+coefficient. The combined finite identity retains the third-moment term,
+quadratic correction and every detached partition factor. It works at
+arbitrary rational `w`, including zero, without division by `w`.
+
+This is one insertion factor, **not decay per core face**. A useful bound
+on the remaining signed cofactor is still missing; the coarse all-coupling
+normalization cost does not supply one. All 22 public gates passed four
+focused serialized checks; root/full-tree checks were not run. See the
+[proof and route audit](audits/AUDIT-RESPONSE-DISTANCE-ACTIVITY.md).
+The continuum physical mass-gap goal remains open.
+
+**Previous result: exact spectator resummation and local response normalization.**
 The [new identity](lean/YMGap/Continuum/BF4ExactSlabRootedResponseResummation.lean)
 regroups the original signed covariance response by its computed rooted
 cores. Detached selections sum exactly to their original partition fourth

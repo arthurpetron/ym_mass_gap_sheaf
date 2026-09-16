@@ -126,7 +126,65 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED exact response resummation and local normalization; OPEN signed spatial decay):**
+**Latest mathematical increment (PROVED response distance floor and insertion activity; OPEN signed cofactor estimate):**
+PROGRESS after `2319e53`. Two independent branches supplied a literal
+three-mark geometric bridge and the actual heat-insertion activity; the
+parent proved the affine-response algebra and integrated both into the
+existing original signed response. No new component enumerator or guessed
+connecting corridor is introduced.
+
+EXPANSION: the three responseKeep tests imply ordinary two-probe
+connectivity after adding the actual inserted plaquette. The fixed-root
+condition transports every anchor face into that same component.
+`BF4ExactSlabThreeMarkGeometry.responseAnimal` uses the two supplied
+connected probe carriers and has at most |P|+|Q|+|anchor|+1 faces.
+For fresh insertion, `response_anchor_size_floor` therefore forces
+|anchor| >= max(d(P,Q),d(P,face),d(Q,face)) - |P| - |Q|, with Nat
+subtraction. This is literal L-infinity geometry, independent of coupling.
+
+The constant character cancels from the covariance response. For H=1+tR,
+`RationalConnectedResponsePerturbation.affine_response` gives exactly
+t*[Z*T3(R)+t*(M(R)*T3(R)-C(p,R)*C(q,R))]. All signs remain.
+`BF4ExactSlabResponseInsertionActivity.faceHeat_affine` strips t=w^3
+from every positive-spin SU(2) term using c4(s)>=3 and natural exponent
+subtraction, never division. This same factor survives finite differences.
+CONTRACTION: `BF4ExactSlabResponseDistanceActivity.response_distance_activity`
+is an exact formula for the ORIGINAL response as w^3 times a computed
+signed sum, with no too-short anchors and with every anchor's original
+detached Z^4 retained. It holds at arbitrary rational w and cutoff K.
+The distance statement requires connected carriers and fresh insertion;
+the activity identities do not. No old statement is weakened.
+
+Actual consumer: this equality rewrites the finite response in
+`BF4ExactSlabConnectedFaceResponse.covariance_response_bound_eventually`.
+It supplies neither its quantitative bound nor a bound on the cofactor.
+Only ONE global w^3 is extracted, not w^(3*anchor.length). In particular,
+the all-nome local collar cost is too coarse to combine blindly with a
+small-nome absolute activity estimate: it grows per anchor face by h^-96,
+h=headFloor(w)<=1/32. Reuse the sharper existing 1-delta comparison where
+its small-nome guards hold; neither comparison proves AF-regime decay.
+Do not add further counting wrappers without a usable analytic budget.
+
+Independent temporal-route review: all-nome positive interface windows
+and the one-slab boundary pairing already exist. The missing next original
+identity is gluing two adjacent temporal layers at FIXED spatial volume,
+counting the shared spatial heat once. Current time enlargement also
+enlarges space; fixed-nome thermodynamic stationarity is not an all-nome
+stationary carrier. This is a source/planning finding, not a new transfer
+theorem. Its source pins and remaining stationary-vacuum/OS identification
+are recorded in `audits/AUDIT-RESPONSE-DISTANCE-ACTIVITY.md`.
+
+NEXT: a signed retained-interaction estimate with useful coupling/scale
+dependence, or the missing original fixed-spatial temporal-gluing identity.
+No cofactor magnitude, spatial summability, completed all-nome physical
+gap, spacing/continuum passage, QFT/nontriviality or all-group closure is
+claimed. No canonical atom, existing field, axiom or literal hole changed.
+Verification: all four new modules passed their first focused serialized
+one-worker/20 GiB checks; 22 public gates within {propext, Quot.sound}.
+Four root imports; root/full-tree and full audit unrun. No dependency
+rebuild or raised limits. Source, review and log hashes are in the audit.
+
+**Previous mathematical increment (PROVED exact response resummation and local normalization; OPEN signed spatial decay):**
 PROGRESS after `284e8fa`. Three parallel branches supplied original-response
 spectator factorization, general finite rooted resummation using the existing
 fiber bijection, and an explicit collar normalization estimate. The parent

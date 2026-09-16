@@ -13,7 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED response spectator resummation and local normalization; OPEN signed spatial decay (2026-09-16)
+## PROVED response distance floor and insertion activity; OPEN signed cofactor estimate (2026-09-16)
+
+- **files**: new `lean/YMGap/Continuum/RationalConnectedResponsePerturbation.lean`,
+  `BF4ExactSlabThreeMarkGeometry.lean`, `BF4ExactSlabResponseInsertionActivity.lean`,
+  and `BF4ExactSlabResponseDistanceActivity.lean` in that directory.
+- **geometry**: with two connected probe carriers and a fresh physical
+  inserted face, retained original anchors form an actual animal together
+  with those carriers and that one face. No corridor is added. The core
+  size is at least the largest pairwise marked-root L-infinity distance
+  minus both carrier sizes. The computed short-core filter removes nothing.
+- **activity**: the actual inserted heat is 1+w^3*strippedHeat, with the
+  stripped polynomial computed without division. The original response
+  and its old-face Mobius coefficients retain one explicit w^3 factor,
+  including the linear third-moment contribution and quadratic correction.
+  The combined response sum keeps every detached Z^4 and both original
+  endpoint partitions. Finite identities admit arbitrary rational w and K.
+- **consumer/open input**: the exact equality rewrites the finite input
+  of `covariance_response_bound_eventually`; it supplies no quantitative
+  cofactor estimate. Distance exclusion and a single insertion factor
+  are not decay per core face. The coarse all-nome collar cost cannot be
+  treated as a useful decay rate; the signed retained-head bound with
+  physical-scale control is open. No new analytic premise is introduced.
+- **temporal residue**: source review identifies fixed-spatial-volume
+  adjacent-layer original Haar gluing as missing before constructing an
+  all-nome stationary physical transfer/vacuum. Existing site reflection
+  and one-slab marginal identities do not supply temporal composition.
+  This is not a new proved operator bridge. Continuum/QFT/nontriviality,
+  physical mass normalization and the all-group target remain open.
+  No canonical atom, existing field, axiom or literal hole changed.
+- **verification**: four first-pass focused serialized one-worker/20 GiB
+  checks; all 22 public gates within {propext, Quot.sound}. Four root
+  imports; root/full-tree and full audit unrun. No dependency rebuild or
+  raised limits. Exact evidence: `audits/AUDIT-RESPONSE-DISTANCE-ACTIVITY.md`.
+
+## Previous PROVED response spectator resummation and local normalization; OPEN signed spatial decay (2026-09-16)
 
 - **files**: new `lean/YMGap/Continuum/BF4ExactSlabResponseSpectatorFactorization.lean`,
   `BF4ExactSlabRootedFunctionalResummation.lean`,

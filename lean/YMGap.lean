@@ -4476,6 +4476,7 @@ import YMGap.Continuum.RationalRelativePerturbation
 import YMGap.Continuum.BF4ExactSlabOneFaceCutoffStability
 import YMGap.Continuum.BF4ExactSlabRetainedHeadCorrelation
 import YMGap.Continuum.RationalConnectedResponse
+import YMGap.Continuum.RationalConnectedResponsePerturbation
 import YMGap.Continuum.BF4ExactSlabConnectedFaceResponse
 -- Exact three-mark cancellation retains the signed response and both Z^2
 -- factors. A spatially decaying bound on the surviving sum is still open.
@@ -4488,6 +4489,11 @@ import YMGap.Continuum.BF4ExactSlabResponseSpectatorFactorization
 import YMGap.Continuum.BF4ExactSlabRootedFunctionalResummation
 import YMGap.Continuum.BF4ExactSlabResponseCollarNormalization
 import YMGap.Continuum.BF4ExactSlabRootedResponseResummation
+-- Three-mark cores pay their literal separation; the signed response
+-- retains one w^3 insertion factor. Its cofactor bound remains open.
+import YMGap.Continuum.BF4ExactSlabThreeMarkGeometry
+import YMGap.Continuum.BF4ExactSlabResponseInsertionActivity
+import YMGap.Continuum.BF4ExactSlabResponseDistanceActivity
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison
