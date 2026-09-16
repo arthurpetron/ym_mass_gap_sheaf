@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: geometric comparison bounds reach an original chain observable.**
+**Latest result: an original chain observable has an explicit boundary-time limit.**
+The [nested comparison intervals](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferBracketNesting.lean)
+now contain every later normalized ratio. Their geometric widths give a
+constructed [CReal boundary limit](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialBoundaryTimeLimit.lean),
+with an executable time-Cauchy modulus independent of late heat cutoff K.
+The [original-action pin](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalTimeLimit.lean)
+transfers this limit to the existing selected-chain expectation on admissible
+growing boxes, keeping the same partition and terminal spatial weight.
+
+This is a **one-sided, fixed-width, fixed-cutoff boundary scalar**, not a
+stationary vacuum or physical OS state. The rate still depends on nome and
+width. Joint cutoff/time passage is the next step; bulk/stationary and
+connected-correlation construction, physical OS identification, uniform
+volume/spacing estimates, continuum QFT and the Clay target remain open.
+Three focused checks passed all 19 public axiom gates; no root/full-tree
+check was run. See the [boundary-limit audit](audits/AUDIT-FIXED-SPATIAL-BOUNDARY-TIME-LIMIT.md).
+
+**Previous result: geometric comparison bounds reach an original chain observable.**
 The [actual transfer comparison](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferBracketDecay.lean)
 constructs polynomial certificates bracketing `T_K^n f` relative to
 `T_K^n 1`. For each original signed source probe, the interval width is

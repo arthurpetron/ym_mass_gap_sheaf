@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual geometric comparison brackets and original normalized scalar pin; OPEN stationary/connected-correlation and physical OS passage (2026-09-16)
+## PROVED nested original boundary-time limit; OPEN joint cutoff/time and stationary/OS passage (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialTransferBracketNesting.lean`,
+  `BF4ExactSlabFixedSpatialBoundaryTimeLimit.lean`, and
+  `BF4ExactSlabFixedSpatialOriginalTimeLimit.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: nonnegative residual gains tighten both endpoints; scalar
+  induction gives all-later nesting. Two later original mass ratios lie
+  within the same 2*probeCap*q^n interval. The existing geometric cutoff
+  supplies an explicit time-Cauchy modulus including q=0 and zero cap.
+  A CReal limit retains geometric representative bounds and every bracket.
+  The existing original finiteValue, at extent=width+steps and start=0,
+  is pinned to the SAME ratio with physical face guards. Its Cauchy datum
+  and convergence use that same constructed limit and modulus.
+- **consumer/open input**: removes the unproved interval-consistency/time-
+  convergence step for fixed-width, fixed-K one-sided boundary scalars.
+  The time modulus is independent of late K, not of nome or width; the
+  limit still depends on K. Joint cutoff/time passage is next, using the
+  existing fixed-time finiteCauchy. A stationary or bulk law, connected
+  correlations, physical OS/vacuum realization, cutoff-limit operator
+  power/moment compatibility, uniform width/spacing control, continuum
+  QFT and the all-group Clay target remain open. This selected-chain
+  action is not the full ambient-box action. No canonical field, literal
+  hole, axiom, analytic premise or old statement changed.
+- **verification**: three focused serialized one-worker/20 GiB checks;
+  all 19 public gates within {propext, Quot.sound}. Three root imports;
+  root/full-tree/full axiom audit unrun. Independent source review found
+  no mathematical defect. Evidence:
+  `audits/AUDIT-FIXED-SPATIAL-BOUNDARY-TIME-LIMIT.md`.
+
+## Previous PROVED actual geometric comparison brackets and original normalized scalar pin; OPEN stationary/connected-correlation and physical OS passage at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialTransferMixingRate.lean`,
   `BF4ExactSlabFixedSpatialWeightedMass.lean`,

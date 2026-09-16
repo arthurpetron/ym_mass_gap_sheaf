@@ -133,7 +133,52 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED geometric comparison brackets and original normalized scalar pin; OPEN stationary/connected-correlation and physical OS passage):**
+**Latest mathematical increment (PROVED nested original-observable boundary-time limit; OPEN joint cutoff/time and stationary/OS passage):**
+PROGRESS after `bdddddb` (with research-cadence checkpoint `1efcf5d`).
+Nonnegative residual gains prove `refresh_nested`. Scalar endpoint induction
+gives nesting through every later actual transfer iterate; the common-tail
+bound puts any two later normalized ratios within 2*probeCap*q^n.
+`boundaryTimeModulus` reuses the existing `geometricCutoff`, including q=0
+and zero probe cap, with no new analytic input. `boundaryTimeCauchy` and
+`boundaryTimeLimit` construct the actual one-sided boundary scalar and retain
+its geometric representative bound and every enclosing bracket.
+
+CONTRACTION TO THE ORIGINAL ACTION: `originalTimeScalar` uses the existing
+finiteValue at extent=width+steps, lower endpoint time zero, upper probe empty.
+`originalTimeScalar_pin` retains physical face membership and proves both
+geometry guards. `originalTimeCauchy` and `originalTime_converges` transfer
+the SAME limit and unchanged modulus to that literal original stream.
+The terminal spatial V and whole-chain partition are never dropped.
+Only the selected fixed-width chain carries action factors; growing the
+ambient encoding box is not a full four-dimensional volume limit.
+
+NEXT CAUSAL FRONTIER: joint cutoff/time convergence at fixed nome and width.
+Existing `BF4ExactSlabAllNomeFaceSetExpectation.finiteCauchy` supplies the
+cutoff modulus C_n for each fixed-time original scalar. The checked time
+modulus A is cutoff-independent. For delta=epsilon/4, set a=A(delta),
+b=C_a(delta). Compare R(k,n) -> R(k,a) -> R(j,a) -> R(j,m) for n,m>=a and
+k,j>=b. This is a proposed three-hop proof, not a checked joint-limit theorem.
+It would give an explicit diagonal modulus max(a,b) without requiring
+cutoff convergence uniform in all time lengths. Fixed probes and actual
+extent recodings must be retained; arbitrary moving insertions are not covered.
+
+The constructed limit is NOT yet stationary or a bulk vacuum. Two-sided
+bulk/stationary and connected-correlation construction, physical reflected
+OS identification, the actual cutoff-limit operator's finite-power/moment
+compatibility, width/spacing-uniform estimates, continuum QFT and all compact
+simple groups remain open. Only late heat-cutoff uniformity of the time
+rate/modulus is proved; the limit itself still depends on K.
+
+Verification: three focused serialized one-worker/20 GiB checks; all 19
+public gates within {propext, Quot.sound}; three selective-root imports.
+Independent read-only review found no mathematical defect. A dependent
+index rewrite was replaced by scalar endpoint induction; local scalar
+opacity avoids unfolding growing Haar actions, without increasing the
+original consumer's heartbeat budget. Root/full-tree/full axiom audit unrun.
+No old field, literal hole, axiom or analytic premise changed. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-BOUNDARY-TIME-LIMIT.md`.
+
+**Previous mathematical increment (PROVED geometric comparison brackets and original normalized scalar pin; OPEN stationary/connected-correlation and physical OS passage at that checkpoint):**
 PROGRESS after `aea5cde`. The actual kinetic floor/cap certificates prove
 0<a<=b, hence eta=a/b and q=1-eta satisfy 0<=q<1. The original V_K-weighted
 mass is signed-linear; its mass of one has the actual spatial-product floor.
