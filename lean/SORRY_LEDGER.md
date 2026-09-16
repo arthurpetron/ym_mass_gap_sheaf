@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED shared-face uniqueness and absolute-window obstruction; OPEN action-specific spatial control (2026-09-15)
+## PROVED three-mark response cancellation; OPEN bound on surviving signed sum (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/BF4ExactSlabResponseProbeSeparation.lean`,
+  `BF4ExactSlabResponseInsertionSeparation.lean`, and
+  `BF4ExactSlabThreeMarkResponseExpansion.lean` in that directory.
+- **proof**: the actual cleared covariance response vanishes under any
+  of three literal separators: p|(q,face), q|(p,face), or (p,q)|face.
+  The insertion-separation case preserves possibly nonzero p/q covariance
+  and cancels both spectator partition factors. The same separator works
+  for every subselection; finite Mobius reconstruction removes exactly
+  those coefficients before any bound is taken. Every retained interaction
+  participates in the geometry; no retained head is replaced by a product.
+- **consumer**: an estimate on the filtered SIGNED sum, with both actual
+  partition squares, passes to the original covariance limit. Its spatial
+  estimate remains a named theorem argument, not a proved input.
+  Disconnected spectator insertion does give actual cutoff-limit covariance
+  invariance for rational 0<w<1, with no extra estimate premise.
+- **scope/residue**: no decay, physical transfer or gap follows. Raw
+  coefficients can retain detached spectators; three failed cut searches
+  do not assert one connected component for every selected face. Repeated
+  identifiers and empty selections are preserved. Remaining signed spatial,
+  coupling/scale, volume/continuum and all-group obligations remain open.
+  No canonical atom, old statement/field, new axiom or literal hole changed.
+- **verification**: all 11 public gates within {propext, Quot.sound}; six
+  focused serialized one-worker/20 GiB launches including two small source
+  corrections and the added-corollary recheck. No raised limit or dependency
+  rebuild. Three root imports; root/full-tree and full audit unrun. Exact
+  evidence: `audits/AUDIT-THREE-MARK-RESPONSE.md`.
+
+## Previous PROVED shared-face uniqueness and absolute-window obstruction; OPEN action-specific spatial control (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/BF4ExactSlabSharedFaceUniqueness.lean`,
   `BF4ExactSlabSharedWindowFloorBound.lean`, `RationalTwoStateWindowWitness.lean`,

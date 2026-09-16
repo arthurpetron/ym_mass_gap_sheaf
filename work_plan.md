@@ -126,7 +126,54 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED one-face geometry and absolute-window obstruction; OPEN action-specific spatial control):**
+**Latest mathematical increment (PROVED three-mark response cancellation; OPEN bound on surviving signed sum):**
+PROGRESS after `ceebcbf`. Returned to the original signed spatial-response
+consumer rather than constructing reference completions for the rejected
+coarse window. Two parallel proof branches established the three literal
+separation cases; an independent source/proof review checked their scope.
+`BF4ExactSlabResponseProbeSeparation` kills both endpoint connected
+numerators when either probe is separated from the other probe AND the
+inserted face. `BF4ExactSlabResponseInsertionSeparation` instead keeps the
+possibly nonzero covariance inside the probe region, factors the old and
+new spectator partition squares, and cancels the exact cleared response.
+These finite identities need no positivity, cutoff or freshness guard.
+All retained action faces are included in the disjointness test.
+
+EXPANSION: apply the existing finite Mobius operation to the SAME raw
+response, with w,K,extent,id,p,q fixed. Each of the three separator
+witnesses restricts to every positional subselection.
+CONTRACTION: `BF4ExactSlabThreeMarkResponseExpansion.response_filtered`
+reconstructs the original response from only selections passing all three
+computed no-separator tests. Multiplicities and the empty selection are
+preserved. This does NOT say all selected faces lie in one component;
+detached spectators can still contribute to these raw coefficients.
+No absolute value is taken term by term or before cancellation.
+
+Actual consumer: `covariance_response_bound_of_filtered` feeds a SUPPLIED
+bound on this signed sum, with the unchanged two partition squares, into
+the existing original covariance limit. With the displayed geometric separator,
+`covariance_invariant_of_insertion_separator`, proves equality of the
+actual cutoff-removed covariances under a disconnected spectator insertion
+for every rational 0<w<1. The existing expectation moduli are reused.
+
+NEXT: control the surviving signed response with spatial decay and useful
+coupling/scale dependence, preserving or exactly resumming spectator
+partition factors. No such bound is supplied by the filter. All-nome
+temporal composition on one stationary physical carrier, required
+volume/spacing control, continuum QFT/nontriviality and all compact simple
+groups remain open. The parallel alternative-route review declined a new
+dual-self-test separation wrapper: `PlaquetteNullQuotient.null_iff_pairing`
+already supplies that separation, not physical transfer injectivity.
+No canonical field, old statement, axiom or literal hole changed.
+
+Verification: six focused serialized one-worker/20 GiB launches: one
+namespace correction, one Boolean-lemma application correction and a
+final corollary recheck included. All three final logs are clean and all
+11 public gates report {propext, Quot.sound}. No dependency rebuild or
+raised limit. Three root imports; root/full-tree and full audit unrun.
+Exact source, scope and final log hashes: `audits/AUDIT-THREE-MARK-RESPONSE.md`.
+
+**Previous mathematical increment (PROVED one-face geometry and absolute-window obstruction; OPEN action-specific spatial control):**
 PROGRESS after `3f3f975`. Three parallel branches supplied a geometric
 sharpening, an explicit finite-law witness, and the numerical heat-window
 specialization/source review; the parent reviewed and serialized all checks.

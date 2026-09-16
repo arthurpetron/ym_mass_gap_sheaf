@@ -4477,6 +4477,11 @@ import YMGap.Continuum.BF4ExactSlabOneFaceCutoffStability
 import YMGap.Continuum.BF4ExactSlabRetainedHeadCorrelation
 import YMGap.Continuum.RationalConnectedResponse
 import YMGap.Continuum.BF4ExactSlabConnectedFaceResponse
+-- Exact three-mark cancellation retains the signed response and both Z^2
+-- factors. A spatially decaying bound on the surviving sum is still open.
+import YMGap.Continuum.BF4ExactSlabResponseProbeSeparation
+import YMGap.Continuum.BF4ExactSlabResponseInsertionSeparation
+import YMGap.Continuum.BF4ExactSlabThreeMarkResponseExpansion
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

@@ -21,7 +21,22 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: one shared face, and a ruled-out coarse-window inference.**
+**Latest result: exact three-mark cancellation for the original response.**
+The [new expansion](lean/YMGap/Continuum/BF4ExactSlabThreeMarkResponseExpansion.lean)
+removes terms whenever a literal link cut separates either probe from the
+other probe and inserted face, or separates the inserted face from both
+probes. In the last case the probes may remain correlated: both spectator
+partition factors cancel exactly. A disconnected insertion also leaves
+the actual cutoff-removed covariance unchanged for every rational `0<w<1`.
+
+The surviving response is one signed, computed finite sum. Its spatially
+decaying bound remains open; detached spectator factors cannot simply be
+dropped, and absence of these cuts does not mean every face is connected.
+All 11 public gates passed focused serialized constructive checks;
+root/full-tree checks were not run. The [audit](audits/AUDIT-THREE-MARK-RESPONSE.md)
+records the exact consumer and the remaining physical/continuum obligations.
+
+**Previous result: one shared face, and a ruled-out coarse-window inference.**
 Two distinct literal links share
 [at most one physical plaquette](lean/YMGap/Continuum/BF4ExactSlabSharedFaceUniqueness.lean).
 But even this improvement does not make the existing absolute heat window
