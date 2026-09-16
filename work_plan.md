@@ -126,7 +126,43 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED actual positive heat windows and AF spread budget; OPEN original-operator pin and centered rate):**
+**Latest mathematical increment (PROVED original six-face conditioning budget; OPEN centered spatial/OS estimate):**
+PROGRESS after `b9a9292`. Parallel source checks separated the actual original
+Haar path from the old positive multiplicity-model bridge. The original
+arbitrary-cutoff/extent temporal change of variables is ALREADY proved by
+`BF4ExactSlabAllExtentTemporalHaarForm.exact_bilinear_eq_spatialGramHaar`;
+do not rebuild that scaffold or impose the separate degree-five tree-gauge
+restriction on it.
+
+`BF4ExactSlabRoundedStarBudget` now pays the EXISTING original six-face
+comparison: with B=5*HeatRoundedCutoff.cutoff(w)+5, localCap<=4^B*localFloor,
+upperFactor<=4^(6B)*lowerFactor, and 1<=4^(6B)*starRatio.
+`original_star_normalized_budget` consumes this on the actual full and
+star-deleted actions, preserving complementary interactions and BOTH
+partition factors. The AF-scaled exponent costs <=1080 under the existing
+envelope. The constants depend explicitly on w, not volume or later cutoff.
+This adds quantitative conditioning control, not a new spatial mixing premise
+or a contraction on the OS vacuum complement. The directional inverse rate
+is still >=63/64 by the existing obstruction.
+
+NEXT: reuse the actual temporal/Gram pin and construct all-nome late-prefix
+square certificates on its two-link spatial words (the existing spatial
+certificate still has small-nome guards). A precise boundary-marginal and
+adjacent-slab composition pin remains a separate identification task; it is
+not supplied by a local window or a generic finite Feynman--Kac path sum.
+The substantive analytic input remains a centered original-action estimate
+with usable nome, volume and physical-scale dependence. Cubic-law/spacing
+instances, physical normalization, continuum QFT/nontriviality and all compact
+simple groups remain open.
+
+Verification: five new public gates within {propext, Quot.sound}, two focused
+serialized one-worker/20 GiB checks. The first exposed two costly algebra
+expansions; direct associativity proofs fixed them without raised limits.
+Final log clean, own/direct artifacts fresh. One root import; root/full-tree
+unrun, CI manual-only. No old statement, canonical field, axiom or hole changed.
+Source findings and log hash: `audits/AUDIT-HEAT-WINDOW-OPERATOR-PATH.md`.
+
+**Previous mathematical increment (PROVED actual positive heat windows and AF spread budget; OPEN original-operator pin and centered rate):**
 PROGRESS after `b3e252a`. Parallel head, upper-estimate, positive-window and
 read-only consumer work was integrated with the parent's blocked-tail and
 AF composition proofs. All Lean checks were serialized by the parent.

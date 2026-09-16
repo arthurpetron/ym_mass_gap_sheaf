@@ -13,7 +13,28 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual positive SU(2) windows and AF bit budget; OPEN original operator identification/rate (2026-09-15)
+## PROVED original six-face conditioning budget; OPEN spatial/OS contraction (2026-09-15)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabRoundedStarBudget.lean`.
+- **proof**: the actual window spread controls the existing local cap/floor;
+  sixth powers give `1<=4^(6*bits(w))*starRatio(w)`. The original normalized
+  comparison retains the complementary action and both partition factors.
+  The exponent has AF heat cost <=1080 under the existing envelope.
+- **scope**: explicit coupling dependence, uniform over extent and cutoffs
+  above the old headCutoff. This quantifies the existing ordinary conditional
+  construction; it does not supply cross-link decay or an OS vacuum-sector
+  gap. The existing coarse inverse rate remains >=63/64.
+- **source correction**: the original all-extent temporal/Gram identity already
+  exists; rebuilding it is unnecessary. The historical 23-factor half-amplitude
+  bridge targets the distinct multiplicity law. See
+  `audits/AUDIT-HEAT-WINDOW-OPERATOR-PATH.md` for exact declarations.
+- **verification**: all five public gates within {propext, Quot.sound}; two
+  focused safe one-worker/20 GiB checks, with associativity replacing two
+  expensive expansions. No raised limits or dependency refresh. Final log
+  clean, own/direct artifacts fresh. One root import; root/full-tree unrun.
+  No old statement, canonical field, axiom or literal hole changed.
+
+## Previous PROVED actual positive SU(2) windows and AF bit budget; OPEN original operator identification/rate (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/EulerRoundedHeadFloor.lean`,
   `EulerRoundedBlockFloor.lean`, `SU2PointwiseHeatPositiveWindow.lean`,

@@ -21,7 +21,22 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: actual positive SU(2) heat windows with a proved AF budget.**
+**Latest result: an explicit budget for the original six-face conditional law.**
+The [new comparison](lean/YMGap/Continuum/BF4ExactSlabRoundedStarBudget.lean)
+uses the actual heat windows to prove `1 <= 4^(6*bits(w))*starRatio(w)`.
+Its normalized original-action consequence retains every complementary
+interaction and both partition functions. The exponent counts six incident
+faces, not the volume, and has AF-scaled cost at most `1080` under the existing
+envelope. The coupling dependence remains explicit: this is not a uniform
+mixing margin or an OS spectral gap.
+
+Parallel [operator-path review](audits/AUDIT-HEAT-WINDOW-OPERATOR-PATH.md)
+also located the already-proved original temporal-gauge identity at arbitrary
+cutoff and extent. It should be reused; the old 23-factor comparison is not
+an identification with the original physical transfer. All five new gates
+passed focused serialized checks; root/full-tree verification was not run.
+
+**Previous result: actual positive SU(2) heat windows with a proved AF budget.**
 The [new construction](lean/YMGap/Continuum/BF4RoundedPositiveAFWindows.lean)
 now supplies local windows, their ratio bound, and their growth witness;
 these are no longer assumed inputs. For the rounded cutoff `N(w)`, it
