@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: the window limits form a normalized positive linear family with translation consistency.**
+**Latest result: original multi-time spatial probes reach the same constructed window limit.**
+The [original-window identity](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalWindow.lean)
+identifies scheduled products of signed spatial face characters with the
+existing original lattice expectation, retaining the SAME selected action,
+cutoff and partition. The whole-window coordinate embedding preserves all
+slice and fringe coordinates; probe placement preserves coefficients, spins,
+repeated times and list order.
+
+The original expectation stream inherits the explicit two-boundary Cauchy
+modulus and converges to the already constructed positive window family.
+Its rectangular bound allows the two boundaries to recede independently.
+This concerns the **selected fixed-width chain action**, not the full
+growing-box action or its interacting marginal. Arbitrary coordinate
+polynomials are not declared original gauge observables.
+
+Reflected positivity for that same selected chain, physical OS transfer/vacuum,
+cutoff removal, width/spacing control, continuum QFT and the Clay target remain
+open. Three focused checks passed all 17 public axiom gates; no root/full-tree
+check was run. See the [original-window audit](audits/AUDIT-FIXED-SPATIAL-ORIGINAL-WINDOW.md).
+
+**Previous result: the window limits form a normalized positive linear family with translation consistency.**
 The [window-state laws](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowState.lean)
 prove normalization, addition, signed rational homogeneity and nonnegativity
 on supported squares for the already constructed CReal limits. They retain
@@ -35,10 +55,10 @@ translation leaves the limiting expectation unchanged. No stationary law
 for a finite boundary-conditioned chain is assumed.
 
 This is a **fixed-nome, fixed-width, fixed-cutoff polynomial window family**,
-not yet a physical OS theory. Whole-window identification with original
-gauge observables and reflection positivity for those same observables are
-still missing. Cutoff removal, width/spacing control, continuum QFT and the
-Clay target remain open. Three focused checks passed all 25 public axiom
+not yet a physical OS theory. The latest result above identifies scheduled
+spatial probes with original observables; completeness of that realization
+and reflected positivity remain open. Cutoff removal, width/spacing control,
+continuum QFT and the Clay target remain open. Three focused checks passed all 25 public axiom
 gates; no root/full-tree check was run. See the
 [window-state audit](audits/AUDIT-FIXED-SPATIAL-WINDOW-STATE.md).
 
@@ -55,9 +75,10 @@ has an explicit Cauchy modulus and a bound for arbitrary late rectangles,
 not only the diagonal. The modulus is independent of late heat cutoff;
 nome and spatial width still enter both `q` and `kappa`.
 At that checkpoint this was a fixed-window scalar limit. The latest result
-adds positive linear laws and unit-padding/shift consistency. Original
-ambient-lattice placement, interior cutoff removal, physical OS identification
-and width/spacing control remain open, as do continuum QFT and the Clay target. Six focused checks
+adds positive linear laws, unit-padding/shift consistency and original
+placement for scheduled spatial probes. Interior cutoff removal, physical OS
+identification and width/spacing control remain open, as do continuum QFT
+and the Clay target. Six focused checks
 passed all 54 public axiom gates; no root/full-tree check was run. See the
 [window-time audit](audits/AUDIT-FIXED-SPATIAL-WINDOW-TIME-LIMIT.md).
 

@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED positive linear window family and padding/translation consistency; OPEN original multi-time observable and reflected physical OS realization (2026-09-16)
+## PROVED original multi-time spatial-probe identification and same window limit; OPEN selected-chain reflected physical OS realization (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialWindowEmbedding.lean`,
+  `BF4ExactSlabFixedSpatialWindowProbe.lean`, and
+  `BF4ExactSlabFixedSpatialOriginalWindow.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: literal whole-window coordinate placement and ordered signed
+  spatial-probe compilation identify the original selected-chain numerator.
+  Both reciprocal constructions cancel the same positive original partition.
+  The original varying-ambient finiteValue stream inherits the explicit time
+  modulus, reaches the existing polynomialWindowLimit and has the same
+  rectangular representative bound with all three s+1 guards.
+- **consumer/open input**: removes original placement and normalization for
+  the scheduled spatial face-character subfamily, not arbitrary coordinate
+  polynomials or gauge-observable completeness. The action is the selected
+  fixed-width chain, not the full growing-box action or its marginal. Next:
+  reflection-compatible selected-mask decomposition, locality/dressing and
+  actual central-weight certificate for finite reflected positivity; then
+  the reflected observable/time-limit identification. Physical OS carrier,
+  transfer/vacuum, interior cutoff removal, cutoff-limit power/moment
+  compatibility, width/spacing control, continuum QFT and all-group Clay
+  closure remain open. No old theorem, canonical field, literal hole, axiom
+  or analytic premise changed.
+- **verification**: three focused serialized one-worker/20 GiB checks; all
+  17 public gates within {propext, Quot.sound}. Three selective-root imports;
+  root/full-tree/full axiom audit unrun. Independent review checked complete
+  chronology, unchanged normalization and original-observable scope.
+  Evidence: `audits/AUDIT-FIXED-SPATIAL-ORIGINAL-WINDOW.md`.
+
+## Previous PROVED positive linear window family and padding/translation consistency; OPEN original multi-time observable and reflected physical OS realization at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialWindowPadding.lean`,
   `BF4ExactSlabFixedSpatialWindowFunctionalLaws.lean`, and

@@ -133,7 +133,47 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED positive linear window family and padding/translation consistency; OPEN original multi-time observable and reflected physical OS realization):**
+**Latest mathematical increment (PROVED original multi-time spatial-probe identification and same window limit; OPEN selected-chain reflected physical OS realization):**
+PROGRESS after `68b9ba6`. Literal whole-window block/polynomial placement
+retains all L+1 slices and fringe coordinates in the original chain carrier.
+A finite schedule of signed spatial face-character lists compiles to both
+the supported source polynomial and literal original probe list, preserving
+coefficients, spins, repeated offsets and order. Physical face and in-window
+time guards remain explicit; arbitrary coordinate polynomials are not
+declared original gauge observables.
+
+CONTRACTION: the existing common temporal sweep and new window pin identify
+the original numerator with ell(observedMessage*u_n). The denominator is
+the SAME original selected-chain partition, with m+L+n transitions and
+m+L+n+1 spatial weights. Constructed positivity and rational cancellation
+equate both reciprocal normalizations. `originalWindowCauchy` transfers the
+existing explicit modulus to the varying-ambient original finiteValue stream;
+`originalWindow_converges` reaches the SAME polynomialWindowLimit, and the
+rectangular representative bound retains s+1<=m,n,k. Width, nome and retained
+heat cutoff stay fixed. The ambient extent only encodes the selected fixed-
+width action; this is not the full growing-box action or its marginal.
+
+NEXT CAUSAL FRONTIER: site reflection positivity for that SAME selected
+chain, then the literal reflected-probe/time-limit pin. A reviewed finite
+route partitions a reflection-symmetric chainIds list into lower, fixed
+and upper factors, proves upper=reflection(lower), and dresses the one-sided
+insertion by the lower factor. The existing `certified_weighted_nonnegative`
+and actual central-weight certificate are consumers. This is a plan, not a
+new theorem: the selected-mask permutation, locality and dressing identities
+remain to be supplied. It avoids requiring full compact-window reversal as
+a prerequisite. General gauge-observable completeness, the physical OS
+quotient/transfer/vacuum, cutoff-limit moment compatibility, interior cutoff
+removal, width/spacing-uniform control, continuum QFT and all compact simple
+groups remain open. No canonical field or analytic premise changed.
+
+Verification: three focused serialized one-worker/20 GiB checks; all 17 public
+gates within {propext, Quot.sound}; literal schedule placement is axiom-free.
+Three selective-root imports; root/full-tree/full axiom audit unrun. No new
+literal holes, axioms, classical input or raised limits. Independent review
+checked same action/partition and observable scope. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-ORIGINAL-WINDOW.md`.
+
+**Previous mathematical increment (PROVED positive linear window family and padding/translation consistency; OPEN original multi-time observable and reflected physical OS realization at that checkpoint):**
 PROGRESS after `06b601f`. Finite window ratios retain the SAME positive
 partition for unit, addition, arbitrary signed rational scaling and
 coefficient/Haar-carrier congruence. Actual certificate integration proves
