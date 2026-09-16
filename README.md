@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: a positive-definite completed pairing with original physical-time correlators.**
+**Latest result: rational linear structure and actual squared-distance geometry on the original completed carrier.**
+Addition and rational scaling now act on the SAME physical Cauchy carrier,
+with explicit moduli and proved algebraic laws. Its original pairing is
+bilinear, positive definite and satisfies sharp Cauchy--Schwarz. The
+completed squared distance recovers the original dense distance and is
+zero exactly at equal states. The SAME physical-time map is rational-linear
+and contracts that distance with constant **one**.
+
+This remains **fixed-nome, fixed-width, fixed-cutoff SU(2) progress**.
+The next producer is real scaling with supplied Cauchy moduli, for an actual
+projection onto the fixed unit and centered correlations. Metric completeness,
+full Hilbert/OS reconstruction, nonconstant excitations, vacuum isolation,
+a strict gap, joint limits and continuum Clay closure remain open. Five
+modules passed focused checks with all 77 public gates inside the
+constructive axiom gate; no root/full-tree check was run. See the
+[completed-linear audit](audits/AUDIT-FIXED-SPATIAL-COMPLETED-LINEAR.md).
+
+**Previous result: a positive-definite completed pairing with original physical-time correlators.**
 The original reflected pairing now extends to the SAME Cauchy carrier as
 the physical-time maps. Its limit and representative-independence proofs
 carry explicit moduli; zero diagonal means exactly the zero element.
@@ -31,8 +48,9 @@ the constructed limit of the **original finite expectations**, retaining
 the selected action and partition.
 
 This remains **fixed-nome, fixed-width, fixed-cutoff SU(2) progress**.
-Completed linear laws, bilinearity and metric completeness are next; it
-is not yet a full Hilbert/OS construction. Nonconstant excitations,
+The latest result adds rational linear laws and bilinearity; scalar
+extension and metric completeness remain open. This is not yet a full
+Hilbert/OS construction. Nonconstant excitations,
 vacuum isolation, a strict gap, joint limits and continuum Clay closure
 remain open. Seven modules passed focused checks with all 61 public gates
 inside the constructive axiom gate; no root/full-tree check was run.

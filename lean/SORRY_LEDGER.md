@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED same-carrier completed pairing, positive definiteness and original physical correlators; OPEN completed linear/Hilbert structure (2026-09-16)
+## PROVED actual completed rational linear/bilinear laws, sharp CS, squared-distance geometry and linear nonexpansive physical time; OPEN real scaling, centering and metric completeness (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialIntrinsicLinear.lean`,
+  `BF4ExactSlabFixedSpatialCompletionLinear.lean`,
+  `BF4ExactSlabFixedSpatialCompletedBilinear.lean`,
+  `BF4ExactSlabFixedSpatialCompletedGeometry.lean`, and
+  `BF4ExactSlabFixedSpatialCompletedLinearTime.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: actual dense addition/scaling estimates construct operations
+  on the SAME Cauchy quotient with explicit tolerances. Pairing equality
+  gives original null distance and descends algebra through pointwise
+  closeness. Original form identities and limit uniqueness give completed
+  bilinearity. Dense CS passes through the SAME scalar limits. The diagonal
+  of x-y gives the completed squared distance, with the original dense pin,
+  zero iff equality and the factor-two triangle inequality. Literal
+  physical advance is linear and contracts that distance with constant one.
+- **consumer/open input**: removes actual rational vector operations,
+  bilinearity, completed CS, squared-distance geometry and time linearity.
+  Next: explicit-modulus real-scalar streams and their descent, consumed
+  by the fixed-unit projection and actual centered correlations. The
+  coefficient modulus is already produced by representativeInnerCauchy;
+  arbitrary quotient representative selection is not licensed. Metric
+  completeness and full Hilbert/OS structure remain open; the old-model
+  represented-row template does not by itself close them. Fixed nome,
+  width and cutoff, selected spatial-probe domain only. Nonconstant
+  excitations, isolated vacuum, strict gap, joint limits, continuum QFT,
+  physical Hamiltonian gap and all-group Clay closure remain open.
+  No canonical field, literal hole, axiom or analytic premise changed.
+- **verification**: five focused serialized one-worker/20 GiB checks;
+  all 77 public gates within {propext, Quot.sound}. Five selective-root
+  imports; root/full-tree/full axiom audit unrun. Independent review
+  checked actual operations, no representative selection, limit CS and
+  squared-distance scope. Evidence:
+  `audits/AUDIT-FIXED-SPATIAL-COMPLETED-LINEAR.md`.
+
+## Previous PROVED same-carrier completed pairing, positive definiteness and original physical correlators; OPEN completed linear/Hilbert structure at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialPairingBounds.lean`,
   `BF4ExactSlabFixedSpatialPairingContinuity.lean`,

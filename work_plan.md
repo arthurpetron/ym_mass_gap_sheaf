@@ -133,7 +133,54 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED same-carrier completed pairing, positive definiteness, completed physical-time form laws and original finite-correlator limit pin; OPEN completed linear/Hilbert structure):**
+**Latest mathematical increment (PROVED actual completed rational linear/bilinear laws, sharp CS, squared-distance geometry and linear nonexpansive physical time; OPEN real scaling, centering and metric completeness):**
+PROGRESS after `db24c1a6`. Original signed presentations retain physical-face
+guards under append and rational scaling. Equality tested against every
+physical presentation is equivalent to zero original reflected distance;
+the algebraic laws hold through that relation, not literal list equality.
+Actual squared-distance addition is bounded by twice each input distance,
+and scaling multiplies distance by c^2 with no sign restriction on c.
+
+CONTRACTION: existing modulus-bearing maps now construct addition and
+rational scaling on the SAME Cauchy quotient. Addition retains the maximum
+of the two supplied epsilon/4 rates; scaling retains the supplied rate at
+epsilon/(c*c+1). Zero-modulus pointwise closeness descends the algebraic laws.
+Original pairing identities and uniqueness of the SAME scalar limits give
+completed bilinearity; actual dense CS and general scalar multiplication
+continuity give completed sharp CS. No representative is selected.
+
+The completed diagonal of x-y gives a nonnegative symmetric squared distance,
+equal to the original distance on embedded probes, with zero iff equality
+and the factor-two triangle bound. Actual physical advance preserves the
+completed operations and contracts this SAME distance with constant one.
+This is not metric completeness, one-step positivity, or a strict gap.
+
+NEXT CAUSAL FRONTIER: construct the actual stream (s.approx n)*X.seq n with
+an explicit modulus from supplied QCauchy s.approx and the existing computed
+norm ceiling of X. Descend it using the actual pairing and positive
+definiteness. Its immediate consumer is projection onto the fixed unit:
+the existing representativeInnerCauchy supplies the scalar coefficient's
+modulus, enabling centering and SAME-object connected correlations. This
+does not require first selecting representatives of arbitrary quotient
+reals. Independently, the existing old-model CauchyRows template applies
+only to supplied representative rows; it is not a choice-free proof of
+completeness for arbitrary quotient-valued Cauchy sequences. The audit
+records those exact producer/consumer boundaries.
+
+Nome, width and cutoff remain fixed, on the selected original spatial-probe
+domain. Full gauge algebra, a physical Hilbert/OS root, nonconstant
+excitations, isolated vacuum, strict vacuum-complement estimate, joint
+cutoff/time and spatial/spacing passage, physical Hamiltonian gap,
+continuum QFT and all compact simple groups remain open. No canonical field,
+literal hole, axiom or analytic premise changed.
+
+Verification: five modules passed focused serialized one-worker/20 GiB
+checks, all 77 public gates within {propext, Quot.sound}. Five selective-root
+imports; root/full-tree/full axiom audit unrun. Independent source review
+checked same-object descent, limit CS and squared-distance scope.
+Evidence: `audits/AUDIT-FIXED-SPATIAL-COMPLETED-LINEAR.md`.
+
+**Previous mathematical increment (PROVED same-carrier completed pairing, positive definiteness, completed physical-time form laws and original finite-correlator limit pin; OPEN completed linear/Hilbert structure at that checkpoint):**
 PROGRESS after `68c1cbc`. Every actual Cauchy representative supplies an
 anchor at its modulus(1). Original coefficient control and the reflected
 squared-sum bound compute the eventual diagonal ceiling 2+2*C_anchor.
