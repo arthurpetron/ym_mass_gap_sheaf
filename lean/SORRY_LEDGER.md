@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original physical-time contraction and Cauchy-carrier semigroup; OPEN completed inner product and Hilbert laws (2026-09-16)
+## PROVED same-carrier completed pairing, positive definiteness and original physical correlators; OPEN completed linear/Hilbert structure (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialPairingBounds.lean`,
+  `BF4ExactSlabFixedSpatialPairingContinuity.lean`,
+  `BF4ExactSlabFixedSpatialPairingLimit.lean`,
+  `BF4ExactSlabFixedSpatialCompletedInner.lean`,
+  `BF4ExactSlabFixedSpatialCompletedTimeForm.lean`,
+  `BF4ExactSlabFixedSpatialCompletedPosdef.lean`, and
+  `BF4ExactSlabFixedSpatialOriginalCorrelator.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: actual anchor ceilings and sharp-CS continuity compute the
+  outer pairing rate; original reindexed time-limit regularity supplies
+  the inner modulus. Their constructed scalar limit descends through
+  explicit closeness to the SAME Cauchy carrier. Zero diagonal constructs
+  closeness to zero with the existing rate, proving positive definiteness.
+  Time balance, constant-one contraction and even-time positivity pass
+  through these limits. Literal original finiteValue terms have the
+  existing window Cauchy modulus and their returned CReal is pinned to
+  the completed time correlator, with unchanged action and partition.
+- **consumer/open input**: removes the completed pairing, representative
+  independence, positive definiteness, completed time-form identities and
+  original finite-correlator limit pin for this physical probe domain.
+  Next: actual addition/scaling continuity, completed algebraic/bilinear
+  laws, scalar extension and metric completeness. No full Hilbert/OS root,
+  nonconstant excitation, isolated vacuum, one-step positivity or strict
+  gap is asserted. Nome, width and retained cutoff stay fixed; full gauge
+  algebra, joint cutoff/time and width/spacing control, physical Hamiltonian
+  gap, continuum QFT and all-group Clay closure remain open. No canonical
+  field, literal hole, axiom or analytic premise changed.
+- **verification**: seven modules passed focused serialized one-worker/
+  20 GiB checks; all 61 public gates within {propext, Quot.sound}. Seven
+  selective-root imports; root/full-tree/full axiom audit unrun. Independent
+  review checked same-object analytic estimates and constructive descent.
+  Evidence: `audits/AUDIT-FIXED-SPATIAL-COMPLETED-PAIRING.md`.
+
+## Previous PROVED original physical-time contraction and Cauchy-carrier semigroup; OPEN completed inner product and Hilbert laws at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialIntrinsicUnit.lean`,
   `BF4ExactSlabFixedSpatialIntrinsicDifference.lean`,

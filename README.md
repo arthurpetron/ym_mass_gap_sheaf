@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: genuine physical time is contractive in the original reflected seminorm.**
+**Latest result: a positive-definite completed pairing with original physical-time correlators.**
+The original reflected pairing now extends to the SAME Cauchy carrier as
+the physical-time maps. Its limit and representative-independence proofs
+carry explicit moduli; zero diagonal means exactly the zero element.
+Time balance, constant-one contraction and even-time positivity hold on
+this carrier. On embedded probes, the completed time correlator equals
+the constructed limit of the **original finite expectations**, retaining
+the selected action and partition.
+
+This remains **fixed-nome, fixed-width, fixed-cutoff SU(2) progress**.
+Completed linear laws, bilinearity and metric completeness are next; it
+is not yet a full Hilbert/OS construction. Nonconstant excitations,
+vacuum isolation, a strict gap, joint limits and continuum Clay closure
+remain open. Seven modules passed focused checks with all 61 public gates
+inside the constructive axiom gate; no root/full-tree check was run.
+See the [completed-pairing audit](audits/AUDIT-FIXED-SPATIAL-COMPLETED-PAIRING.md).
+
+**Previous result: genuine physical time is contractive in the original reflected seminorm.**
 Incrementing each observable's distance from the reflection plane defines
 the actual time shift. Its same-object time-balance identity, reflection
 positivity and a lag-independent coefficient bound prove contraction with
@@ -31,8 +48,9 @@ each supplied modulus exactly. The original unit gives a fixed element
 distinct from embedded zero.
 
 This is a **fixed-nome, fixed-width, fixed-cutoff SU(2) construction** for
-the selected original action. The completed inner product and Hilbert-space
-laws are next; a fixed unit is not an isolated vacuum. Strict contraction
+the selected original action. The latest result adds a positive-definite
+completed pairing and its original correlator pin; Hilbert-space laws
+remain open, and a fixed unit is not an isolated vacuum. Strict contraction
 on the vacuum complement, joint limit control, continuum QFT and the Clay
 mass gap remain open. Seven focused checks passed all 101 public axiom
 gates; no root/full-tree check was run. See the
@@ -51,7 +69,7 @@ assumes finite stationarity nor synchronizes different CReal approximation
 indices. This is a **fixed-nome, fixed-width, fixed-cutoff SU(2) intrinsic
 scalar form**, not yet a completed physical OS theory. The latest result
 adds genuine time-shift balance, contraction and its Cauchy-carrier descent.
-The completed inner product, joint limits, continuum QFT and the physical
+The completed Hilbert structure, joint limits, continuum QFT and the physical
 mass gap remain open. Six focused checks at this earlier checkpoint passed 73 public
 axiom gates; no root/full-tree check was run. See the
 [intrinsic-form audit](audits/AUDIT-FIXED-SPATIAL-INTRINSIC-REFLECTED-FORM.md).

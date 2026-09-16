@@ -133,7 +133,60 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED original physical-time contraction, actual squared seminorm and Cauchy-carrier semigroup with fixed nonzero unit; OPEN completed inner product and Hilbert laws):**
+**Latest mathematical increment (PROVED same-carrier completed pairing, positive definiteness, completed physical-time form laws and original finite-correlator limit pin; OPEN completed linear/Hilbert structure):**
+PROGRESS after `68c1cbc`. Every actual Cauchy representative supplies an
+anchor at its modulus(1). Original coefficient control and the reflected
+squared-sum bound compute the eventual diagonal ceiling 2+2*C_anchor.
+Sharp CS and signed differences prove actual pairing continuity with
+delta=epsilon^2/[8*(B+1)]. No uniform norm bound is assumed.
+
+CONTRACTION: the maxima of two anchors and two delta-moduli give the outer
+rate; reciprocal-index closure handles arbitrary supplied moduli. Actual
+ofQ'CauchySeq regularity supplies the inner rate epsilon.den. These compute
+the scalar pairing limit and its own named QCauchy witness. Explicit
+closeness rates prove independence of both representatives, so quotient
+elimination gives the pairing on the SAME physical-time Cauchy carrier.
+Original dense pin, symmetry, nonnegative diagonal and unit normalization
+hold. The existing outer rate also constructs closeness to zero whenever
+the limiting diagonal vanishes: positive definiteness requires no completed
+vector laws or representative selection.
+
+The actual time-sum identity and constant-one contraction pass through these
+limits. On every completed element, 0<=B(x,T_(2n)x)<=B(x,x). This is even-time
+positivity, not one-step positivity or a strict gap. The embedded time
+correlator is now pinned directly to the CReal constructed from ORIGINAL
+finiteValue terms, with literal mirrored/advanced signed probe placement
+and the SAME selected chain action and partition. Its chart and lag remain
+fixed while both time buffers recede; the stored original-window modulus
+is retained. No cutoff/time limits are interchanged.
+
+NEXT CAUSAL FRONTIER: construct actual addition and rational scaling on this
+carrier. Prove the squared-distance addition bound and c^2 scaling identity,
+then use existing BinaryQuadraticLipschitz and ModulusContinuous maps with
+explicit tolerances (epsilon/(c*c+1) for scaling). Descend algebraic laws
+through actual pointwise nullity, not literal signed-list equality. The
+completed bilinear laws then follow by uniqueness of the SAME scalar limits.
+Scalar extension and metric completeness remain further obligations before
+claiming a physical Hilbert/OS root. These are unsupplied producers, not
+new assumptions attached to the proved completed pairing.
+
+Nome, width and retained cutoff remain fixed. The observable domain is still
+the scheduled spatial-face-character span for the selected action, not an
+established full gauge algebra or growing-box marginal. Nonconstant
+excitations, isolated vacuum, strict vacuum-complement bound, joint
+cutoff/time and spatial/spacing passage, physical Hamiltonian mass gap,
+continuum QFT and every compact simple group remain open. No canonical
+field, literal hole, axiom or analytic premise changed.
+
+Verification: seven modules passed focused serialized one-worker/20 GiB
+checks; all 61 public gates within {propext, Quot.sound}. Seven selective-root
+imports; root/full-tree/full axiom audit unrun. Independent mathematical
+review checked actual ceilings/tolerance, arbitrary-modulus closure,
+original scalar regularity, choice-free descent, positive definiteness,
+non-strict even-time scope and the original correlator identification.
+Evidence: `audits/AUDIT-FIXED-SPATIAL-COMPLETED-PAIRING.md`.
+
+**Previous mathematical increment (PROVED original physical-time contraction, actual squared seminorm and Cauchy-carrier semigroup with fixed nonzero unit; OPEN completed inner product and Hilbert laws at that checkpoint):**
 PROGRESS after `200e12b`. Literal distance advance defines S; the actual
 mixed-product padding pin and existing window-limit laws prove
 B(SX,Y)=B(X,SY) and B(S^r X,S^s Y)=B(X,S^(r+s)Y). This is physical time,
