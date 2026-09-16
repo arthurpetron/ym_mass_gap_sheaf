@@ -105,3 +105,82 @@ Next use: consult the exact backward-message normalization when implementing
 finite iteration of the ORIGINAL kinetic/spatial factors. Establish all
 Haar identities in Lean and keep stationary normalization, quantitative
 control, and continuum passage separate. The goal and axiom gate are unchanged.
+
+## Parallel recheck, 2026-09-16 09:49--09:54 UTC
+
+At the user's renewed request, a parallel reviewer screened all 79 titles
+and abstracts in the [live listing](https://arxiv.org/list/math-ph/new),
+including replacements. The announcement date and counts remain those above.
+The four previously detailed papers' abstract histories still show v1 only.
+This is not a byte-level comparison: the earlier screen stored no complete
+per-entry version manifest. The parent independently checked the current
+source consumers and selected primary-source passages.
+
+### Additional findings
+
+**Defant--Galicer, Intrinsic Bohnenblust--Hille Inequalities for Local Qudit
+Systems:** the reviewer inspected the self-labelled
+[v2 PDF](https://arxiv.org/pdf/2609.13084), dated 14 September; explicit v2
+HTML was unavailable. The parent checked the v2 abstract history and v1 HTML.
+Theorem 3.1 (printed p. 8) bounds coefficient l^p by operator norm,
+`p = 2*d/(d+1)`, uniformly in site count n, but with local-dimension K and
+interaction-order d dependence. Theorem 3.12 (p. 17) gives unavoidable
+growth of the asymptotic exponential constant with K. Theorem 5.1 (p. 27)
+places the coefficient l^1 normalization between
+`c(K)^(-d)*(n/d)^((d-1)/2)` and `c(K)^d*(n/d)^((d-1)/2)`.
+
+Assessment: a useful norm-loss warning, not a volume-uniform l^1/operator
+bridge. Here K is local matrix dimension, not our heat cutoff, and d is
+interaction order, not spacetime dimension. No original-Haar/OS norm
+identification or cutoff-uniform compact-group application was found.
+
+**Frob, A generalization of the Powers--Stormer--Ogata inequality:**
+[Theorem 1](https://arxiv.org/html/2609.16184v1) compares normal positive
+functionals on a von Neumann algebra in standard form through a relative
+modular operator and a positive operator-monotone function. Its proof uses
+the variational Lemma 2 and integral representation Theorem 3, spectral
+measures, and dominated convergence/Tonelli. Assessment: possible later
+state-comparison guidance; it provides neither a dynamical contraction nor
+the explicit polynomial certificate or convergence modulus needed here.
+
+**Vladimirov, Renyi's Relative Entropy Lyapunov Functional for Convergence
+to Invariant Measure in Dissipative Stochastic Hamiltonian Systems:**
+[Theorem 3, section 11](https://arxiv.org/html/2609.16297v1) assumes conditions
+(65), (67), (69), (95), and (111), and establishes strict decrease of
+chi-square divergence before equilibrium. Assessment: the statement supplies
+no explicit decay rate. This finite-dimensional dissipative dynamics result
+is not a volume-uniform original transfer estimate or a physical YM gap.
+
+**Jiang, Higher abelian gauge theory in BV formalism:**
+[Theorem 2.1](https://arxiv.org/html/2609.17518v1) makes a zero-mode partition
+function independent of a maximal admissible Lagrangian under its stated
+niceness/admissibility hypotheses, including unimodularity and positivity.
+Assessment: abelian quadratic zero-mode integration is not the nonabelian
+interacting Haar integration problem. No relevant square-certificate
+preservation or transfer estimate was found.
+
+### Updated connection to the live proof path
+
+The earlier "Next use" suggestion is now partly historical:
+
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalIteration.lean:182`,
+  `original_chain_iteration`, already identifies the original selected-chain
+  moment with the actual weighted-step iterate.
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialIterationLimit.lean:177`,
+  `normalized_converges`, already passes the whole normalized scalar stream
+  to the same original selected-action expectation. Winstein's finite-message
+  bookkeeping now mainly corroborates that implemented finite path.
+- `lean/YMGap/Continuum/QuaternionHaarSquareCertificate.lean:62`,
+  `Certificate`, requires explicit square/addition/scaling/transport data;
+  none of the newly inspected statements supplies a producer preserving
+  these certificates under original partial Haar integration.
+- `lean/YMGap/Continuum/BF4ExactSlabConnectedFaceResponse.lean:224`,
+  `covariance_response_bound_eventually`, still requires its finite signed
+  response estimate. No inspected paper discharges that premise.
+
+Conclusion: no inspected theorem closes the original-Haar certificate,
+quantitative boundary-forgetting, stationary/OS, or physical-gap bridges.
+Retain the norm-loss warning and later state-comparison reference; do not
+repoint the proof around an unproved analogy. These are source-screening
+findings, not independent verification of the papers or new Lean results.
+No Lean file, hypothesis, axiom gate, or goal was changed by this recheck.
