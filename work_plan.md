@@ -119,7 +119,70 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED actual completed normalizer preimages; OPEN original-law projection/spatial control):**
+**Latest mathematical increment (PROVED original full-space conditional projection; OPEN quantitative spatial influence):**
+PROGRESS after `33187f8`. Parallel branches supplied the original full-action
+probe and a generic completed self-pairing norm lemma. An independent
+read-only review pinned the downstream spatial/physical consumers. The
+parent joined the branches through the actual normalizer inverse and
+extended the resulting nonexpansive dense map to the full original space.
+All Lean compilation remained serialized.
+
+`BF4ExactSlabStarFullActionProbe.fullData` uses the ORIGINAL finite action
+over all physical faces. `probeMap_pair` retains the actual exterior
+marginal D*B; `probeMap_test` retains the actual inserted numerator N_p.
+`numerator_rad` proves original-input null-class compatibility from those
+pairings. `GNSPairingNormBound.norm_le_of_self_pairing` derives the norm
+bound from positivity of the actual residual square, without an inverse,
+classical decision, or new analytic premise.
+
+`BF4ExactSlabStarConditionalProjection.probeCauchy` transports the existing
+exterior Cauchy data with modulus epsilon |-> X.modulus(epsilon/(1+U)).
+`probeNullModulus` retains explicit null data; `probeCompletion` is the
+genuine original full-action quotient lift. The actual multiplier and
+numerator pairing identities pass through the separately reindexed limits.
+`conditionalUpdate` is the lifted inverseState(N_p). Its residual is
+orthogonal to EVERY completed exterior probe; the self-pairing identity
+gives both the norm bound and the two-input squared-distance contraction.
+
+`conditionalProjection` then uses the existing constructive dense-map
+extension to act on the ENTIRE original full-action completion.
+`conditionalProjection_selfAdjoint`, `conditionalProjection_idempotent`,
+`conditionalProjection_nonexpansive`, `conditionalProjection_norm`,
+`conditionalProjection_fix_exterior`, and `conditionalProjection_orthogonal`
+give the full-space laws. Positivity is Hilbert-form positivity, NOT a
+proved order-preserving/Markov property. The bound is the non-strict
+constant 1. The construction's L,U and approximation rate remain
+nome-dependent. No strict mixing rate, heat-bath dynamics gap, OS transfer
+gap or physical Hamiltonian gap has been proved by this increment.
+
+NEXT CAUSAL FRONTIER: identify and test a quantitative inter-link or
+inter-region estimate for these SAME original projections, capable of
+supplying the decaying denominator-cleared boundary-numerator premise of
+`BF4ExactSlabBoundaryLimitNormalization.expectationDifference_bound_of_prefix_eventually`.
+It must retain the actual action, norm, outer-padding uniformity, cutoff
+guard and explicit nome/physical-scale dependence. The local projection
+alone does not supply that estimate. Do not extend projection wrappers or
+claim unit/order/Markov laws without an identified consumer; do not revive
+the refuted full-interaction/unit-background smallness route by substituting
+an omitted-tail bound. Coupling/spacing-uniform physical estimates,
+continuum QFT/nontriviality, other compact simple groups and Clay remain open.
+
+Verification: five focused serialized safe launches, one worker/20 GiB,
+for the three new proof modules. All 35 new public gates match exactly
+within {propext, Quot.sound}; final logs clean, own/direct artifacts fresh.
+The first projection check needed only the missing Z4Link namespace opened;
+the later full-space extension passed. No raised limits, new holes/axioms,
+changed canonical fields or dependency refresh. Three root imports added;
+root/full-tree unrun. CI remains manual-only. Final hashes:
+
+- `/tmp/ym-star-full-action-probe.log`:
+  `1a07bf6f31be84ae16905611c62b700def7954c03dbf9b43ac1fa46b47722deb`.
+- `/tmp/ym-gns-pairing-norm.log`:
+  `a6b054aab01d976e93b25b15fe571108f04815f33b4a92e87fd169ffb436b493`.
+- `/tmp/ym-star-conditional-projection.log`:
+  `a65142c680170b174f0eae4bc73face7fec9d05057f36d8b1352a8e77435b059`.
+
+**Previous mathematical increment (PROVED actual completed normalizer preimages; then OPEN original-law projection/spatial control):**
 PROGRESS after `f192068`. Parallel tasks supplied the generic lower norm
 estimate and the actual multiplier difference/form/norm APIs; a read-only
 review identified the existing bounded-Cauchy-lift template. The parent

@@ -21,7 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [the actual one-link normalizer now has constructed completed preimages](lean/YMGap/Continuum/BF4ExactSlabStarCompletedInverse.lean).
+**Latest result:** [the actual one-link conditional projection is constructed on the entire original weighted completion](lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean).
+It is self-adjoint, idempotent and nonexpansive, agrees with the lifted
+`N_p/D` on dense inputs, and fixes every completed exterior probe. The
+construction retains the original full action and the exterior marginal
+`D*B`, with explicit Cauchy and null-compatibility moduli. Two parallel
+proof branches and a downstream-interface review were integrated; all 35
+new public gates pass focused, serialized constructive checks.
+
+**Next:** quantitative influence between links or regions, sufficient for
+the original boundary-numerator spatial-decay estimate. The proved norm
+bound is **1, not a strict rate below 1**. This ordinary weighted L2
+projection is not an OS transfer or Hamiltonian gap. Physical scaling,
+continuum QFT and the all-group Clay target remain open. Root/full-tree
+verification was not run.
+
+The entries below record earlier checkpoints; their then-open local
+obligations are superseded where explicitly closed above.
+
+**Previous result:** [the actual one-link normalizer now has constructed completed preimages](lean/YMGap/Continuum/BF4ExactSlabStarCompletedInverse.lean).
 The polynomial approximants are Cauchy in the original complementary-action
 weighted space, with an explicit modulus. Multiplication by `D` extends to
 that same completion and is injective. For every supported polynomial `r`,
@@ -30,10 +48,8 @@ This constructs `N_p/D` for the actual conditional numerator, not a replacement 
 All 31 public gates in the three checked proof modules pass the constructive
 axiom gate. Verification was focused and serialized, not a full-tree build.
 
-**Next:** lift that vector to the original full-action space and prove the
-conditional projection identity. This is ordinary weighted L2 construction,
-not an OS transfer gap. Spatial decay, physical scaling, continuum QFT and
-the whole-project Clay target remain open.
+The original full-action lift and conditional projection, open at that
+checkpoint, are now supplied by the latest result above.
 
 **Previous result:** [explicit polynomial approximate division by the actual one-link normalizer](lean/YMGap/Continuum/BF4ExactSlabStarInverseApproximation.lean).
 In the actual complementary-action weighted norm, the iteration

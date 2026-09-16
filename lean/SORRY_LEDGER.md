@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual completed normalizer preimages; OPEN original-law projection and spatial control (2026-09-15)
+## PROVED original full-space conditional projection; OPEN quantitative spatial influence (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/BF4ExactSlabStarFullActionProbe.lean`,
+  `GNSPairingNormBound.lean`, and `BF4ExactSlabStarConditionalProjection.lean`
+  in the same directory.
+- **proof**: the actual full-action probe preserves the D*B marginal and
+  numerator test identities, including input null compatibility. Explicit
+  Cauchy and null moduli construct its completed lift. The lifted N_p/D
+  has the exact completed exterior pairing and orthogonal residual;
+  positivity of its residual square gives the non-strict norm bound.
+  Two-input nonexpansiveness permits the existing constructive extension
+  to ALL original full-action completion vectors. The resulting operator
+  is self-adjoint, idempotent and nonexpansive, fixes every completed
+  exterior probe, and has residual orthogonal to every such probe.
+- **open residue**: quantitative inter-link/inter-region influence and
+  the actual decaying boundary-numerator estimate, physical scaling,
+  OS/physical gap, continuum QFT and all-group Clay. The operator's bound
+  is 1, not strict mixing. Its positivity is Hilbert-form positivity,
+  not order preservation; unit/Markov semantics are not asserted.
+  No canonical field, analytic premise, axiom, legacy flag or literal
+  hole changed. The previous local lift/projection/null obligations
+  below are closed by this increment; their spatial residue remains.
+- **verification**: all 35 new public gates match exactly within
+  {propext, Quot.sound}; five focused serialized safe one-worker/20 GiB
+  launches. Final logs clean; own/direct artifacts fresh. No raised
+  limits or dependency refresh. Three root imports; root/full-tree
+  unrun. Logs/hashes and next causal consumer in work_plan.
+
+## Previous PROVED actual completed normalizer preimages; then OPEN original-law projection and spatial control (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/PositiveCoerciveForm.lean` and
   `BF4ExactSlabStarCompletedInverse.lean`; three additive APIs in

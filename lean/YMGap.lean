@@ -3770,6 +3770,7 @@ import YMGap.Continuum.BF4PhysicalCubeCompletion
 import YMGap.Continuum.PositiveContractionOneStepForm
 import YMGap.Continuum.PositiveContractionResidual
 import YMGap.Continuum.PositiveCoerciveForm
+import YMGap.Continuum.GNSPairingNormBound
 import YMGap.Continuum.PositiveContractionOneStepCompletion
 import YMGap.Continuum.BF4PhysicalJointFormTransfer
 -- Actual cutoff-removed normalization of the raw all-spin reflected form.
@@ -4452,12 +4453,15 @@ import YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison
 -- Actual six-face star and normalized deletion comparison; not spatial mixing.
 import YMGap.Continuum.BF4ExactSlabLinkStarGeometry
 import YMGap.Continuum.BF4ExactSlabLocalStarComparison
--- Original weighted marginal D*B and form/norm control; conditional inverse open.
+-- Original weighted marginal D*B, completed division and full-space projection.
+-- The projection bound is non-strict; spatial influence remains open.
 import YMGap.Continuum.SU2QuaternionHaarHeadProbeTransport
 import YMGap.Continuum.BF4ExactSlabStarNormalizer
 import YMGap.Continuum.BF4ExactSlabStarInsertedNumerator
 import YMGap.Continuum.BF4ExactSlabStarInverseApproximation
 import YMGap.Continuum.BF4ExactSlabStarCompletedInverse
+import YMGap.Continuum.BF4ExactSlabStarFullActionProbe
+import YMGap.Continuum.BF4ExactSlabStarConditionalProjection
 -- Independent original bulk/crossing cutoffs and exact crossing removal
 -- for each fixed bulk insertion; a bulk/volume-uniform floor remains open.
 import YMGap.Continuum.BF4ExactSlabMixedInterfacePin

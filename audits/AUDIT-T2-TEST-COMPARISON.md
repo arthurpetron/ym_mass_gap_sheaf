@@ -1,5 +1,37 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Original full-space conditional projection (2026-09-15)
+
+Follow-up after `33187f8`. The previous original-law lift, completed
+pairings, projection and input-null obligations are now proved. The
+operator acts on the ENTIRE original finite-action ordinary weighted L2
+completion. It is not the OS transfer operator or a physical gap theorem.
+
+| Result | Declaration and source | Scope |
+| --- | --- | --- |
+| Original full action and probe | `fullData`, `lean/YMGap/Continuum/BF4ExactSlabStarFullActionProbe.lean:49`; `probeMap`, `lean/YMGap/Continuum/BF4ExactSlabStarFullActionProbe.lean:64` | Actual all-face action and the same coordinate-swap exterior probe. |
+| Marginal and numerator pairings | `probeMap_pair`, `lean/YMGap/Continuum/BF4ExactSlabStarFullActionProbe.lean:89`; `probeMap_test`, `lean/YMGap/Continuum/BF4ExactSlabStarFullActionProbe.lean:105`; `numerator_rad`, `lean/YMGap/Continuum/BF4ExactSlabStarFullActionProbe.lean:120` | Retains D*B, N_p, and original input null classes; no replacement law. |
+| Constructive lift | `probeCauchy`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:69`; `probeNullModulus`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:79`; `probeCompletion`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:101` | Pointwise actual probe, explicit rescaled Cauchy/null moduli and genuine quotient map. |
+| Completed pairings and conditional vector | `probeCompletion_pair`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:114`; `probeCompletion_test`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:126`; `conditionalUpdate`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:137`; `conditionalUpdate_pairing`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:144` | Lifted actual N_p/D, tested against every completed exterior vector. |
+| Norm argument and two-input estimate | `norm_le_of_self_pairing`, `lean/YMGap/Continuum/GNSPairingNormBound.lean:56`; `conditionalUpdate_nonexpansive`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:186`; `conditionalUpdate_rad`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:207` | Residual-square positivity yields the non-strict contraction and full-input null compatibility. |
+| Entire original-space operator | `conditionalProjection`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:220`; `conditionalProjection_nonexpansive`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:228`; `conditionalProjection_selfAdjoint`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:234` | Existing constructive dense-map extension; full-space nonexpansiveness and self-adjointness. |
+| Projection laws | `conditionalProjection_positive`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:248`; `conditionalProjection_fix_exterior`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:258`; `conditionalProjection_idempotent`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:266`; `conditionalProjection_norm`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:277`; `conditionalProjection_orthogonal`, `lean/YMGap/Continuum/BF4ExactSlabStarConditionalProjection.lean:284` | Hilbert-form positivity, fixes all completed exterior probes, idempotence and norm bound 1, orthogonality of all original residuals. |
+
+OPEN: a quantitative multi-link/region estimate supplying the decaying
+denominator-cleared original boundary numerator required by
+`expectationDifference_bound_of_prefix_eventually`,
+`lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean:230`.
+The local norm bound 1 is not a strict mixing rate. Construction constants
+L,U and the approximation rate are nome-dependent. No order-preserving/
+Markov law, heat-bath dynamics gap, OS transfer identification, spacing-uniform
+physical gap, continuum QFT or all-group closure is supplied by these modules.
+
+Verification: all 35 new public gates match exactly within {propext,
+Quot.sound}; five focused serialized safe launches, final logs clean,
+own/direct artifacts fresh. No raised limits or dependency refresh.
+Root imports added; root/full-tree unrun. Earlier sections below are
+historical checkpoint reports, superseded by this section where noted.
+
 ## Actual completed normalizer preimages (2026-09-15)
 
 Follow-up after `f192068`. The Cauchy modulus and completed image identity
