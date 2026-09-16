@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: one original spatial weight on a fixed slice carrier.**
+**Latest result: an exact original weighted step and finite-chain identities.**
+The [computed step](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferStep.lean)
+integrates the original kinetic factor and one lower spatial weight on a
+fixed slice carrier. Its pairing equals the original swept `V0*K01*V1`
+pairing, for arbitrary supported source polynomials. The upper weight
+stays explicit; neither endpoint weight is counted twice.
+
+Parallel proofs establish exact iteration on an ordered polynomial chain
+and duplicate-free original face geometry for any finite number of layers.
+A single common sweep also factors that original chain into its actual
+spatial and kinetic factors. **Connecting the entire arbitrary-length
+original carrier to the ordered iteration still needs proof.** Stationary
+OS identification, quantitative contraction and the continuum gap remain open.
+All 45 public gates passed six focused serialized checks; root/full-tree
+verification was not run. See the [proof audit](audits/AUDIT-FIXED-SPATIAL-TRANSFER-STEP.md).
+
+**Previous result: one original spatial weight on a fixed slice carrier.**
 The [spatial-weight identity](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean)
 constructs one polynomial depending only on spatial width, rational nome
 and heat cutoff. At every contained time and ambient extent, its explicit

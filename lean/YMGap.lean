@@ -4505,11 +4505,19 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerBoundary
 import YMGap.Continuum.SU2QuaternionHaarBlockCompression
 import YMGap.Continuum.BF4ExactSlabFixedSpatialBoundaryCarrier
 -- One placed original spatial weight on a width-only slice, with ordered
--- consecutive slice coordinates. Kinetic pin and finite iteration remain open.
+-- consecutive slice coordinates for the kinetic/iteration consumers below.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSliceCarrier
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFacePlacement
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPairCarrier
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSliceHeat
+-- Original K/V step and exact signed chain algebra. The arbitrary-length
+-- original-to-ordered carrier pin and quantitative OS control remain open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialKineticHeat
+import YMGap.Continuum.SU2QuaternionHaarBlockEmbeddingPlacement
+import YMGap.Continuum.SU2QuaternionHeadChainComposition
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferStep
+import YMGap.Continuum.BF4ExactSlabFixedSpatialChainGeometry
+import YMGap.Continuum.BF4ExactSlabFixedSpatialChainAction
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

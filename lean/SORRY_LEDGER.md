@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original fixed-slice spatial weight; OPEN kinetic pin and finite iteration (2026-09-16)
+## PROVED original weighted step and finite-chain identities; OPEN arbitrary-chain carrier identification (2026-09-16)
+
+- **files**: six new modules in `lean/YMGap/Continuum/`:
+  `BF4ExactSlabFixedSpatialKineticHeat`, `SU2QuaternionHaarBlockEmbeddingPlacement`,
+  `SU2QuaternionHeadChainComposition`, `BF4ExactSlabFixedSpatialTransferStep`,
+  `BF4ExactSlabFixedSpatialChainGeometry`, `BF4ExactSlabFixedSpatialChainAction`.
+- **proof**: the fixed K polynomial retains the original lower-times-conjugate-
+  upper word and all heat terms. Explicit placement/lifting identities compose
+  K and V into one computed supported step. `swept_step_pairing` is its original
+  ambient V0*K01*V1 weighted pairing. Independently, finite ordered-chain
+  integration equals iteration of that algebraic step; original chronological
+  face geometry and a common sweep give the original n-layer action factorization.
+  Every joining V occurs once. No positivity or stationary law is assumed.
+- **consumer/open input**: the remaining finite connection is the whole
+  arbitrary-length original-to-ordered carrier/action/endpoint pin. One-step
+  placement plus two separate chain identities is not yet that theorem.
+  The original sweep theorem covers signed spatial-face probes; arbitrary
+  intermediate polynomial messages are not newly declared gauge observables.
+  Stationary OS realization, quantitative control, cutoff-dependent message
+  limits, continuum construction and physical/all-group gap remain open.
+  No canonical field, old statement, literal hole, axiom or analytic premise
+  was added, weakened or discharged.
+- **verification**: six focused serialized one-worker/20 GiB checks passed;
+  all 45 public axiom gates within {propext, Quot.sound}. No root/full-tree or
+  full audit run. Six root imports added. Source review and exact evidence:
+  `audits/AUDIT-FIXED-SPATIAL-TRANSFER-STEP.md`.
+
+## Previous PROVED original fixed-slice spatial weight; OPEN kinetic pin and finite iteration (2026-09-16)
 
 - **files**: new `BF4ExactSlabFixedSpatialSliceCarrier.lean`,
   `BF4ExactSlabFixedSpatialFacePlacement.lean`,

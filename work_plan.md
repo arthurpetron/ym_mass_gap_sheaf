@@ -126,7 +126,52 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED original fixed-slice spatial weight; OPEN kinetic pin and finite iteration):**
+**Latest mathematical increment (PROVED original weighted step and two finite-chain identities; OPEN their arbitrary-length carrier pin):**
+PROGRESS after `370dc74`. The original kinetic factor is now one fixed
+N+N polynomial, with the actual lower-times-inverse-upper quaternion order
+and every finite heat term. `kineticWeight_pin` places it into the original
+`kineticHeat`. No spatial action factor is absorbed into K.
+
+CONTRACTION: `BF4ExactSlabFixedSpatialTransferStep.transferStep` computes
+T f(y) = integral_x K(x,y)*V(x)*f(x) dH(x), retaining the SAME N-block
+carrier. `swept_step_pairing` identifies its V-weighted pairing with the
+original ambient V0*K01*V1 pairing under the explicit lower/upper placements.
+This is a finite signed polynomial map, not yet a completed OS operator.
+
+EXPANSION INTO TWO CHECKED BRANCHES:
+`SU2QuaternionHeadChainComposition.chain_pairing` proves exact iteration
+for any finite ordered polynomial chain, with one V on every slice.
+Separately, `BF4ExactSlabFixedSpatialChainGeometry` enumerates the original
+n-layer face list without omission/duplication, and
+`BF4ExactSlabFixedSpatialChainAction.original_chain_pairing` applies ONE
+common sweep to the original selected action and signed spatial-face probes,
+yielding V0*K01*...*K(n-1,n)*Vn on ambient coordinates. Intermediate messages
+are not silently treated as unchanged original gauge observables.
+
+NEXT: prove that the entire original finite chain, not only one adjacent
+pair, has the ordered (n+1)-slice realization consumed by `chain_pairing`.
+An explicit concatenation of slice placements, together with
+`BlockEmbedding.polynomial_liftBoundary`, can supply the needed chronological
+coordinate compatibility. This construction and its whole-action/endpoint
+pin remain unproved here. The two checked chain identities must not be
+identified by prose. Retain the original supported endpoint insertions.
+After that finite identification, stationary normalization/OS realization,
+quantitative original-Haar control, cutoff-dependent message limits,
+nome/volume/spacing passage, continuum QFT and every compact simple group
+remain open. No positivity, T1=1 or contraction is inferred from finite Fubini.
+
+Verification: all six new modules passed focused serialized one-worker/
+20 GiB checks; all 45 public gates are within {propext, Quot.sound}.
+The generic composition, geometry and placement proofs developed independently;
+the parent implemented the original K/step/action pins. Compilation paused
+while a separately owned broad test suite was live, then resumed after
+process inspection confirmed its exit. Missing namespaces/support annotations
+were corrected; abstract list mapping removed a costly unfolding without
+raising elaboration, memory or worker limits. Six root imports; root/full-tree
+and full axiom audit unrun. No old field, literal hole or analytic premise
+changed. Evidence: `audits/AUDIT-FIXED-SPATIAL-TRANSFER-STEP.md`.
+
+**Previous mathematical increment (PROVED original fixed-slice spatial weight; OPEN kinetic pin and finite iteration):**
 PROGRESS after `9706793`. Independent parallel branches constructed the
 single-slice coordinate placement, original spatial/temporal face-list
 placements, and ordered consecutive-slice carrier. The parent composed
