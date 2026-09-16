@@ -21,7 +21,21 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: distance exclusion and exact insertion activity.**
+**Latest result: original two-layer gluing at fixed spatial width.**
+The [new finite identity](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoLayerGluing.lean)
+glues two adjacent temporal layers of the original selected-window action.
+The shared middle spatial heat occurs exactly once; both endpoint spatial
+weights remain outside the middle-link Haar integral. Signed endpoint
+insertions and every finite character term are retained.
+
+Parallel geometry, locality and operator-interface work supplied the inputs.
+All 30 new public axiom gates passed focused serialized checks. This is an
+exact finite pairing identity, **not a stationary transfer or gap theorem**.
+Repeated composition on one physical carrier, the applicable quantitative
+Haar estimate and continuum-scale control remain open. The root/full tree
+was not checked. See the [proof and future-path audit](audits/AUDIT-FIXED-SPATIAL-TWO-LAYER-GLUING.md).
+
+**Previous result: distance exclusion and exact insertion activity.**
 The [original response](lean/YMGap/Continuum/BF4ExactSlabResponseDistanceActivity.lean)
 now has a proved geometric floor: for two connected probe carriers and
 a fresh inserted face, a retained core needs at least the largest pairwise

@@ -126,7 +126,58 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED response distance floor and insertion activity; OPEN signed cofactor estimate):**
+**Latest mathematical increment (PROVED fixed-spatial two-layer original Haar gluing; OPEN stationary iteration and quantitative control):**
+PROGRESS after `3fc7c58`. Three parallel source reviews checked geometry,
+the physical operator interface, and the positivity/normalization route.
+Geometry and endpoint-locality proofs then developed independently; the
+parent composed them with the existing common sweep and original Haar
+integration. No new generic transfer or frontier bundle was introduced.
+
+EXPANSION: `BF4ExactSlabFixedSpatialTwoLayerGeometry` partitions the SAME
+ambient physical face IDs into spatial t, temporal t, spatial t+1,
+temporal t+1 and spatial t+2, with an independent spatial base width.
+Permutation and duplicate-freeness count the middle spatial action once.
+Complete unclipped membership has explicit width<=extent+1 and
+start+2<=extent guards. `BF4ExactSlabSpatialSliceFactors` proves signed
+spatial endpoint factors unchanged by the sweep and local to endpoint links.
+
+CONTRACTION: `BF4ExactSlabFixedSpatialTwoLayerGluing.original_twoLayer_gluing`
+identifies the ORIGINAL selected-window action under every supplied finite
+signed spatial endpoint face-factor insertion with the Haar pairing against
+the computed integral of K01*V1*K12. Both endpoint spatial heats V0,V2
+remain outside that integral; the middle spatial heat V1 occurs once.
+Every finite character term remains. There is no positivity, division,
+coupling restriction or quantitative bound in the identity. It does not
+discard surrounding interactions from a larger ambient action: the selected
+finite action region is explicit. It is not yet an all-OS-vector theorem.
+
+Actual next consumer: repeated original temporal composition on a single
+fixed-spatial boundary carrier. A direct all-nome iterate consumer is NOT
+FOUND in the reviewed boundary/time/Perron modules; it remains to be built.
+The existing physical `completedTime_moments` belongs to the stationary
+fixed-nome theory. The parallel review also found that the existing terminal
+message contraction uses finite rational state lists, whereas the original
+interface estimates use quaternion-Haar square certificates. That missing
+applicability bridge cannot be replaced by representation-label matrices.
+
+NEXT: prove the original fixed-spatial boundary realization/recoding needed
+for repeated layer composition, and an applicable original-Haar quantitative
+message estimate or the still-open signed spatial-response bound. Stationary
+vacuum/OS identification and cutoff-dependent intermediate insertions need
+their own proofs. Nome/volume/spacing control, continuum QFT/nontriviality,
+physical mass normalization and every compact simple group remain open.
+No canonical atom, old statement, field, axiom or literal hole changed.
+
+Verification: all three modules passed focused serialized one-worker/20 GiB
+checks; all 30 new public gates are within {propext, Quot.sound}. An initially
+classical classifier proof was rejected and made constructive by explicit
+logical cases. Abstract-list factorization removed costly unfolding of
+physical enumerations; one theorem has a scoped 1,000,000-heartbeat budget.
+Memory/worker limits stayed unchanged. Three root imports; root/full-tree
+and full audit unrun. Evidence and future-path checks:
+`audits/AUDIT-FIXED-SPATIAL-TWO-LAYER-GLUING.md`.
+
+**Previous mathematical increment (PROVED response distance floor and insertion activity; OPEN signed cofactor estimate):**
 PROGRESS after `2319e53`. Two independent branches supplied a literal
 three-mark geometric bridge and the actual heat-insertion activity; the
 parent proved the affine-response algebra and integrated both into the

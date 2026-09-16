@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED response distance floor and insertion activity; OPEN signed cofactor estimate (2026-09-16)
+## PROVED fixed-spatial original two-layer Haar gluing; OPEN stationary iteration and quantitative control (2026-09-16)
+
+- **files**: new `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoLayerGeometry.lean`,
+  `BF4ExactSlabSpatialSliceFactors.lean`, and
+  `BF4ExactSlabFixedSpatialTwoLayerGluing.lean` in that directory.
+- **proof**: five disjoint physical face families give the literal original
+  selected time window on one ambient carrier at an independent spatial
+  base width. A common sweep of action and signed spatial endpoint probes
+  yields V0*K01*V1*K12*V2. Original middle-link Haar integration retains V1
+  once and leaves V0,V2 outside, using proved endpoint-variable locality.
+  All finite spin terms and signs remain, at arbitrary rational nome and
+  cutoff. The original action is explicitly the selected window, not the
+  full larger slab with surrounding factors omitted. Unclipped geometry
+  has explicit spatial/time containment guards.
+- **consumer/open input**: this supplies the finite original pairing pin
+  before repeated composition on one fixed-spatial boundary carrier. It
+  does not construct that carrier's stationary law or physical OS transfer.
+  The existing finite-state terminal contraction does not directly consume
+  the original Haar square-certificate bounds. The applicability proof,
+  normalization, cutoff-dependent boundary-function control and quantitative
+  nome/volume/spacing estimates remain open. No new analytic assumption
+  is introduced. No canonical atom, old field, axiom or literal hole changed.
+- **verification**: three focused serialized one-worker/20 GiB checks passed;
+  all 30 public gates within {propext, Quot.sound}. The initial classifier's
+  unwanted classical dependency was removed through explicit logical cases.
+  Three root imports; root/full-tree and full audit unrun. Memory/worker
+  limits unchanged; one local elaboration budget increased. Exact sources,
+  parallel route reviews and log hashes:
+  `audits/AUDIT-FIXED-SPATIAL-TWO-LAYER-GLUING.md`.
+
+## Previous PROVED response distance floor and insertion activity; OPEN signed cofactor estimate (2026-09-16)
 
 - **files**: new `lean/YMGap/Continuum/RationalConnectedResponsePerturbation.lean`,
   `BF4ExactSlabThreeMarkGeometry.lean`, `BF4ExactSlabResponseInsertionActivity.lean`,

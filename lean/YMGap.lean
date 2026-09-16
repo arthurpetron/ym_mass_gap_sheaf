@@ -4494,6 +4494,11 @@ import YMGap.Continuum.BF4ExactSlabRootedResponseResummation
 import YMGap.Continuum.BF4ExactSlabThreeMarkGeometry
 import YMGap.Continuum.BF4ExactSlabResponseInsertionActivity
 import YMGap.Continuum.BF4ExactSlabResponseDistanceActivity
+-- Fixed-spatial original two-layer action: shared spatial heat once,
+-- followed by actual middle-link Haar integration, not a stationary gap.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerGeometry
+import YMGap.Continuum.BF4ExactSlabSpatialSliceFactors
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTwoLayerGluing
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison
