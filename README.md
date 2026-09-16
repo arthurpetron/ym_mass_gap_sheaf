@@ -21,7 +21,26 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: bounded original OS dual tests at all positive subunit nomes.**
+**Latest result: one-face cutoff stability without a volume penalty.**
+The [new estimate](lean/YMGap/Continuum/BF4ExactSlabOneFaceCutoffStability.lean)
+bounds the change of an original normalized expectation by `2*c*eta` when
+one face's heat cutoff is increased beyond the explicit `relativeCutoff(w,eta)`.
+Here `c` is the supplied observable cap; every other interaction and shared
+link remains in the same positive background. Both different partition
+functions are retained until division. No `eta<1` assumption or inverse-floor
+loss is needed, but the cutoff still depends on the coupling.
+
+An independent [retained-head witness](lean/YMGap/Continuum/BF4ExactSlabRetainedHeadCorrelation.lean)
+has original connected numerator exactly `w^36>0` on the twelve-face tube
+sub-action. Thus small high-spin tails do not make the interacting head's
+correlation vanish. The missing step is spatial control of that head and
+its response to perturbations, not another normalization wrapper. Nineteen
+public gates passed focused serialized checks; root/full-tree checks were
+not run. The [audit](audits/AUDIT-RETAINED-HEAD-CUTOFF-STABILITY.md) records
+the parallel work and the precise remaining boundary. No continuum or
+physical mass-gap claim follows.
+
+**Previous result: bounded original OS dual tests at all positive subunit nomes.**
 The [new estimate](lean/YMGap/Continuum/BF4ExactSlabAllNomeDressedDualTest.lean)
 removes the old small-nome restriction on bounded auxiliary polynomial tests.
 After cutoff removal, their squared amplitude is bounded by their supplied

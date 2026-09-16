@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED all-nome original OS dual bounds and site reflection positivity; OPEN centered decay (2026-09-15)
+## PROVED one-face normalized cutoff stability; OPEN retained-head spatial control (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/RationalRelativePerturbation.lean`,
+  `BF4ExactSlabOneFaceCutoffStability.lean`, and
+  `BF4ExactSlabRetainedHeadCorrelation.lean` in that directory.
+- **proof**: at explicit K>=relativeCutoff(w,eta), changing one original
+  face from K to K+L changes its normalized expectation by at most 2*c*eta.
+  Endpoint-relative moment/partition errors preserve both different
+  partitions before division. No eta<1 guard or inverse-floor loss.
+  The background retains all shared links and interaction factors; the
+  actual original-product specialization constructs its own positivity.
+  The cutoff depends on w, and c is the explicit observable cap.
+- **independent obstruction**: the positive retained ORIGINAL twelve-face
+  tube head has connected numerator w^36>0 for unchanged separated probes.
+  An interacting head's baseline cannot be dropped merely because no
+  additional tail is inserted. This is not a full-slab lower bound.
+- **open residue**: retained-head connected spatial control and summable
+  response to tail insertions. Local cutoff stability is not spatial decay;
+  telescoping alone would incur a face-count factor. The existing all-nome
+  covariance consumer still lacks a usable changing-action distance bound.
+  Physical scale, continuum QFT/nontriviality and all-group Clay remain open.
+  No canonical atom closed; no old statement/field, axiom or literal hole changed.
+- **verification**: nineteen public gates within {propext, Quot.sound};
+  five focused serialized one-worker/20 GiB launches including two correction
+  reruns. No raised limits or dependency rebuild. Three root imports;
+  root/full-tree unrun. Exact source evidence and hashes:
+  `audits/AUDIT-RETAINED-HEAD-CUTOFF-STABILITY.md`.
+
+## Previous PROVED all-nome original OS dual bounds and site reflection positivity; OPEN centered decay (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/BF4ExactSlabAllNomeDressedDualTest.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabAllNomeSiteReflection.lean`.

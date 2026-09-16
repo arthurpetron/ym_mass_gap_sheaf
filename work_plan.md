@@ -126,7 +126,44 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED all-nome original OS dual bounds and site positivity; OPEN centered decay):**
+**Latest mathematical increment (PROVED one-face normalized cutoff stability; OPEN retained-head spatial control):**
+PROGRESS after `fe9cb83`. Parallel proof work supplied endpoint-relative
+rational algebra and an explicit nonzero retained-head example; the parent
+proved their original-action perturbation consumer and ran all checks serially.
+`BF4ExactSlabOneFaceCutoffStability.original_background_normalized` bounds
+the change from K to K+L on ONE original face by 2*c*eta, for
+K>=relativeCutoff(w,eta), 0<w<1 and eta>0. All spectator heat factors and
+shared links remain; their cutoff J need only satisfy J>=headCutoff(w).
+The generic result permits any certified positive background with positive
+Haar mass. Background positivity is constructed in the original-product
+specialization. Both endpoint partitions cancel; there is no eta<1 guard,
+inverse-floor loss, face-count or L factor in this single-change coefficient.
+The cutoff remains coupling-dependent, and c is an explicit supplied probe cap.
+
+`BF4ExactSlabRetainedHeadCorrelation` constructs the actual positive tube
+head at max(1,headCutoff(w)). Its unchanged three-step response probes have
+original connected numerator exactly w^36>0. This is the named twelve-face
+SUBACTION, not a full-slab lower bound. A pure-tail connectedness filter
+cannot simply discard an interacting head's nonzero baseline.
+
+NEXT: estimate the retained head's ORIGINAL connected covariance and its
+spatial response to tail insertions. The local bound controls representation
+truncation, NOT separation; finite telescoping incurs a face-count factor.
+There is no new distance-decaying producer for
+`BF4ExactSlabTwoProbeCovariance.covariance_bound`. Preserve the nonzero head
+term and both partitions in any proposed expansion. Varying-nome/volume
+compatibility, physical scaling, continuum QFT/nontriviality and every
+compact simple group remain open. No canonical frontier atom is closed.
+
+Verification: nineteen public gates in three new modules within {propext,
+Quot.sound}; five focused serialized one-worker/20 GiB checks including
+two syntax/namespace/parameter correction reruns. No raised limits or
+dependency rebuild. Three root imports; root/full-tree unrun. No old
+statement, canonical field, custom axiom or literal hole changed.
+Exact declarations, scope and log hashes:
+`audits/AUDIT-RETAINED-HEAD-CUTOFF-STABILITY.md`.
+
+**Previous mathematical increment (PROVED all-nome original OS dual bounds and site positivity; OPEN centered decay):**
 PROGRESS after `f435b72`. Source review contracted the proposed path: new
 adjacent-region transfer composition is NOT required by the existing
 original connected-covariance consumer. Centered even-slab full-action

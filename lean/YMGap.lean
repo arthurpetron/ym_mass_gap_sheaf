@@ -4470,6 +4470,11 @@ import YMGap.Continuum.BF4ExactSlabAllNomeTailInterval
 import YMGap.Continuum.BF4ExactSlabAllNomeProductTail
 import YMGap.Continuum.BF4ExactSlabJacobiDeficitInterval
 import YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison
+-- One original face's normalized cutoff change costs 2*c*eta; the
+-- retained interacting head has a nonzero connected baseline, not decay.
+import YMGap.Continuum.RationalRelativePerturbation
+import YMGap.Continuum.BF4ExactSlabOneFaceCutoffStability
+import YMGap.Continuum.BF4ExactSlabRetainedHeadCorrelation
 -- Actual six-face star and normalized deletion comparison; not spatial mixing.
 import YMGap.Continuum.BF4ExactSlabLinkStarGeometry
 import YMGap.Continuum.BF4ExactSlabLocalStarComparison
