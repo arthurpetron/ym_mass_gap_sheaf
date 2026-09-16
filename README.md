@@ -21,7 +21,30 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: a strict, base-independent two-step bound on the dense spatial-limit unit complement.**
+**Latest result: the strict bound holds on the completed spatial-limit unit complement, with a nonzero excitation.**
+The actual spatial-limit pairing now extends to its own Cauchy quotient,
+with explicit moduli, positive definiteness and Cauchy--Schwarz. For every
+completed vector orthogonal to its normalized unit,
+`B(v,T_2 v) <= rho(w)^2 B(v,v)`. Physical time preserves this sector;
+its one-step squared norm has the same strict bound. Rational approximations
+to the original plaquette mean construct an actual centered vector with
+squared norm at least `starRatio(w)>0`. Its time correlations equal the original
+connected spatial limits. No nonzero stationary vector exists in this sector.
+
+This is **fixed-spacing, small-nome SU(2) progress**, with a common rate
+and excitation floor across positive base sizes. The separate fixed-base
+completions are not yet one union carrier. General completed linear/centering
+laws, metric completeness, full Hilbert/OS/QFT reconstruction, physical
+spacing control, continuum nontriviality and the all-group goal remain open.
+Twelve focused checks passed all 110 printed public axiom gates, including
+one existing module whose scalar helper was exported. No root/full-tree
+check ran. See the
+[completed spatial-sector audit](audits/AUDIT-SPATIAL-COMPLETED-SECTOR.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: a strict, base-independent two-step bound on the dense spatial-limit unit complement.**
 Separate fixed-size boxes around the actual two probes give connected
 decay with a coupling-dependent rate and a prefactor independent of time
 separation and all three regulators. This estimate passes to the original
@@ -40,9 +63,6 @@ spacing control, continuum nontriviality and the all-group target remain
 open. Twelve focused checks passed all 139 public axiom gates; no root or
 full-tree check ran. See the
 [spatial dense-gap and coherence audit](audits/AUDIT-SPATIAL-DENSE-GAP-AND-COHERENCE.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: actual reflected correlators have explicit spatial limits, with a positive plaquette variance.**
 For fixed signed physical presentations, the original reflected product now

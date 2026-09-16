@@ -13,7 +13,49 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED spatial-limit form, base coherence and base-independent strict DENSE two-step bound; OPEN completed bound, union carrier and continuum passage (2026-09-16)
+## PROVED positive-definite spatial completed pairing, universal strict complement bound and actual nonzero excitation; OPEN union carrier and full Hilbert/continuum passage (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialSpatialPairingBounds.lean`,
+  `BF4ExactSlabFixedSpatialSpatialPairingContinuity.lean`,
+  `BF4ExactSlabFixedSpatialSpatialPairingLimit.lean`,
+  `BF4ExactSlabFixedSpatialSpatialCompletedInner.lean`,
+  `BF4ExactSlabFixedSpatialSpatialCompletedPosdef.lean`,
+  `BF4ExactSlabFixedSpatialSpatialCenterAlgebra.lean`,
+  `BF4ExactSlabFixedSpatialSpatialCenteredStream.lean`,
+  `BF4ExactSlabFixedSpatialSpatialCenteredPairing.lean`,
+  `BF4ExactSlabFixedSpatialSpatialCompletedGap.lean`,
+  `BF4ExactSlabFixedSpatialSpatialUnitComplement.lean`, and
+  `BF4ExactSlabFixedSpatialSpatialCentralExcitation.lean`, under
+  `lean/YMGap/Continuum/`. Existing `FixedSpatialCompletedPosdef` scalar
+  `late_limit_bound` exported with unchanged proof and an added axiom gate.
+- **proof**: explicit scalar/stream anchor ceilings and limiting CS
+  construct the mixed pairing on the SAME spatial Cauchy quotient. Its
+  rate constructs Close-to-zero at zero norm, giving positive definiteness.
+  The actual centered scalar estimate passes to every completed vector
+  before using orthogonality. Physical time preserves the unit complement,
+  with base-independent rho(w)^2 strict two-step form/one-step norm bounds.
+  The positive margin excludes nonzero stationary vectors in that sector.
+  Rational mean approximations construct actual centered vectors realizing
+  original connected spatial correlators; the canonical face has squared norm
+  >= starRatio(w)>0 independent of positive base size.
+- **consumer/open input**: removes the SAME spatial carrier's completed
+  pairing, positive-definiteness, strict completed-sector estimate and
+  actual nonzero centered-excitation obligations under the existing
+  small-nome guards. A single union carrier, general completed linear and
+  centering laws, full stationary vacuum-span characterization, metric
+  completeness, spatial-translation/observable-algebra pins, Hilbert/OS/QFT,
+  physical time/spacing calibration, continuum nontriviality and all-group
+  Clay closure remain open. No canonical field, sorry, axiom or analytic
+  premise changed; no beta-uniform or physical Hamiltonian gap is asserted.
+- **verification**: twelve narrow serialized one-worker/20 GiB checks,
+  110 printed public gates (103 in eleven new modules, 7 in the modified
+  existing module), all within {propext, Quot.sound}. Eleven root imports;
+  root/full-tree/full audit unrun. Independent read-only review checked
+  actual carriers, moduli, original connected moments, positive-margin
+  cancellation and the nonzero vector. Evidence:
+  `audits/AUDIT-SPATIAL-COMPLETED-SECTOR.md`.
+
+## Previous PROVED spatial-limit form, base coherence and base-independent strict DENSE two-step bound; OPEN completed bound, union carrier and continuum passage at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialSpatialPairingLaws.lean`,
   `BF4ExactSlabFixedSpatialSpatialSeminorm.lean`,

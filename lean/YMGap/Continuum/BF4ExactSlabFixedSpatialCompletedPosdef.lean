@@ -33,7 +33,9 @@ private theorem convergesTo_max {s : Nat → CReal} {L : CReal}
   obtain ⟨N, hN⟩ := h epsilon he
   exact ⟨N, fun n hn => hN (max n base) (Nat.le_trans hn (Nat.le_max_left _ _))⟩
 
-private theorem late_limit_bound {s : Nat → CReal} {L : CReal} {M : Q' → Nat}
+/-- A supplied outer Cauchy rate bounds late terms against the actual limit.
+This scalar argument is independent of the physical model or carrier. -/
+theorem late_limit_bound {s : Nat → CReal} {L : CReal} {M : Q' → Nat}
     (hs : ConvergesTo s L) (hb : LeRatBound s M) (epsilon : Q') (he : (0 : Q') < epsilon)
     (n : Nat) (hn : M epsilon ≤ n) :
     leRat (sub (s n) L) epsilon ∧ leRat (sub L (s n)) epsilon := by
@@ -109,6 +111,7 @@ theorem completedInner_posdef (x : Completion hw0 hw1 width stage) :
 end YMGap.Continuum.BF4ExactSlabFixedSpatialCompletedPosdef
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCompletedPosdef.completedZero
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCompletedPosdef.late_limit_bound
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCompletedPosdef.pairSequence_limit_close
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCompletedPosdef.distSq_zero
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCompletedPosdef.closeZeroOfInnerZero

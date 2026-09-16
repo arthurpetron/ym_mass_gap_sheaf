@@ -133,7 +133,57 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED coherent spatial-limit form, its Cauchy carrier/time action and base-independent strict DENSE two-step bound; OPEN completed strict bound, union carrier and continuum/physical-scale passage):**
+**Latest mathematical increment (PROVED positive-definite completed spatial pairing, universal strict unit-complement bound and actual nonzero centered excitation; OPEN union carrier, full Hilbert/OS/QFT and continuum/physical-scale passage):**
+PROGRESS after `fdd1a46`. Actual spatial-pairing approximation data compute
+each Cauchy stream's anchor ceiling; limiting CS gives quantitative pairing
+continuity. The explicit outer rate and actual inner regularity construct
+mixed scalar limits, descending to the SAME existing SpatialCompletion.
+The computed rate also constructs closeness to zero when the limiting norm
+is zero, proving positive definiteness without choosing representatives or
+moduli. Completed sharp CS and unit normalization are retained.
+
+CONTRACTION: every supplied Cauchy stream's centered moments converge via
+three actual mixed pairings. Their prefactor-free dense bound passes to
+every completed vector; only THEN is unit orthogonality used. No orthogonal
+approximants or uniform presentation cap are assumed. The actual invariant
+unit complement has B(v,T_2 v)<=rho(w)^2*B(v,v) and the corresponding T_1
+squared-norm bound. Cancelling the explicit positive 1-rho(w)^2, never a
+norm, excludes nonzero one- or two-step stationary vectors in this sector.
+This is not yet a theorem that all stationary vectors are scalar units.
+
+Independently, rational approximations to the actual spatial mean define
+a centered physical stream, with modulus inherited at min(epsilon,1).
+Its squared distance is exactly the square of the coefficient difference.
+The completed vector is unit-orthogonal and its time pairing is EXACTLY
+the original spatialCenteredMoment. The canonical original face supplies
+a concrete nonzero vector with squared norm >= starRatio(w)>0, independent of
+positive base size. The common strict rate and floor still depend on nome;
+the original three small-nome guards and fixed lattice spacing remain.
+
+NEXT CAUSAL FRONTIER: construct a single staged union of finite physical
+presentations, evaluating each pair at the computed maximum base and using
+BaseCoherence for independence of the common larger base. A union Cauchy
+stream may have unbounded base sizes; do not substitute a single fixed-base
+completion. To avoid another copied proof tower, extract the existing
+pairing-completion argument over a SquaredSeminorm with actual dense pairing,
+Type-valued per-pair QCauchy data, anchor bound and quantitative continuity;
+prove its pin to the present instance, then consume it for the staged form.
+This is a source-reviewed next-proof plan, not a new assumed certificate or
+a constructed union carrier. General completed linear/centering structure,
+metric completeness, full spatial-translation/observable-algebra pins,
+Hilbert/OS/QFT, physical time/spacing calibration, controlled continuum
+passage/nontriviality and all compact simple groups remain open.
+
+Twelve narrow serialized one-worker/20 GiB checks passed all 110 printed
+public gates within {propext, Quot.sound}: eleven new modules (103 gates)
+and one existing module (7 gates) exporting its unchanged generic scalar
+late-limit lemma. Eleven root imports added; root/full-tree/full audit
+unrun. Parallel independent source review found no same-object, limit,
+modulus, scalar-cancellation or nontriviality mismatch. No canonical field,
+sorry, axiom, analytic premise or safety limit changed; no literature scan.
+Evidence: `audits/AUDIT-SPATIAL-COMPLETED-SECTOR.md`.
+
+**Previous mathematical increment (PROVED coherent spatial-limit form, its Cauchy carrier/time action and base-independent strict DENSE two-step bound; OPEN completed strict bound, union carrier and continuum/physical-scale passage at that checkpoint):**
 PROGRESS after `eda63b9`. The actual spatial-limit pairing now has symmetry,
 positivity, unit normalization, rational bilinearity and sharp CS. LIMIT
 CS proves radical descent; finite-width nullity is not inferred. Its
