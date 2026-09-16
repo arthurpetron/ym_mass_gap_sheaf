@@ -133,7 +133,44 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED two-boundary window estimate and constructed time limit; OPEN stationary cylinder consistency and physical passage):**
+**Latest mathematical increment (PROVED positive linear window family and padding/translation consistency; OPEN original multi-time observable and reflected physical OS realization):**
+PROGRESS after `06b601f`. Finite window ratios retain the SAME positive
+partition for unit, addition, arbitrary signed rational scaling and
+coefficient/Haar-carrier congruence. Actual certificate integration proves
+nonnegativity, including supported squares. The existing CReal limits inherit
+these laws by uniqueness of limits, despite different computed polynomial
+caps and representative indices. No abstract positive-state input is added.
+
+CONTRACTION: two full-chain pairing identities prove
+R(m,L+1,n,P)=R(m,L,n+1,P) and
+R(m,L+1,n,lift_N(P))=R(m+1,L,n,P). Each keeps the literal insertion and
+total chain unchanged. The explicit rectangle modulus controls every fixed-
+offset diagonal (t+a,t+b). Limit uniqueness therefore proves right-padding
+and left-shift consistency, and one-slice translation in a common enlarged
+window. The zero-transition window agrees with the previously constructed
+slice expectation. Ordinary square positivity is NOT reflected OS positivity.
+
+NEXT CAUSAL FRONTIER: pin complete windows to original multi-time gauge
+observables and their original finiteValue partition. There is an actual
+consumer: `BF4ExactSlabFixedSpatialChainAction.original_chain_pairing` already
+handles physical spatial FaceFactor lists at multiple times; the current
+`OriginalMiddle.middleRatio_originalFiniteValue` pin only handles one slice.
+Extend the chronological block embedding and probe pin to the whole window,
+then transport the checked time limit without silently declaring every
+coordinate polynomial to be a gauge observable. The reflected half-space
+form, same physical transfer/vacuum and their GNS realization remain separate
+open inputs, not consequences of ordinary positive linearity or translation.
+Interior cutoff removal, cutoff-limit moment compatibility, nome/width/spacing
+control, continuum QFT and all compact simple groups remain open. No canonical
+field or analytic premise changed.
+
+Verification: three focused serialized one-worker/20 GiB checks; all 25 public
+gates within {propext, Quot.sound}, including an axiom-free support-enlargement
+proof. Three selective-root imports; root/full-tree/full axiom audit unrun.
+No new literal holes, axioms, classical input or raised limits. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-WINDOW-STATE.md`.
+
+**Previous mathematical increment (PROVED two-boundary window estimate and constructed time limit; OPEN stationary cylinder consistency and physical passage at that checkpoint):**
 PROGRESS after `473b1dd`. The actual transfer sandwich constructs a positive
 relative bracket between any two terminal messages after one refreshed layer.
 Its initial endpoints are (a/b)*R and (b/a)*R, with a=kineticFloor,

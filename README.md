@@ -21,7 +21,28 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: complete observed windows have a constructive two-boundary time limit.**
+**Latest result: the window limits form a normalized positive linear family with translation consistency.**
+The [window-state laws](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowState.lean)
+prove normalization, addition, signed rational homogeneity and nonnegativity
+on supported squares for the already constructed CReal limits. They retain
+the original Haar-carrier relations and agree with the earlier slice
+functional when the window has zero transitions.
+
+Exact finite identities redistribute a single unobserved slice between the
+window and a boundary, keeping the SAME action, insertion and partition.
+The rectangular estimate then proves that right padding or a one-slice
+translation leaves the limiting expectation unchanged. No stationary law
+for a finite boundary-conditioned chain is assumed.
+
+This is a **fixed-nome, fixed-width, fixed-cutoff polynomial window family**,
+not yet a physical OS theory. Whole-window identification with original
+gauge observables and reflection positivity for those same observables are
+still missing. Cutoff removal, width/spacing control, continuum QFT and the
+Clay target remain open. Three focused checks passed all 25 public axiom
+gates; no root/full-tree check was run. See the
+[window-state audit](audits/AUDIT-FIXED-SPATIAL-WINDOW-STATE.md).
+
+**Previous result: complete observed windows have a constructive two-boundary time limit.**
 The [two-boundary estimate](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowTwoBoundary.lean)
 compares the SAME observed window with independently receding left and right
 boundaries. The error is `2*C*(kappa+1)*q^s` once all four distances are at
@@ -33,10 +54,10 @@ The [returned CReal](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowTimeLimi
 has an explicit Cauchy modulus and a bound for arbitrary late rectangles,
 not only the diagonal. The modulus is independent of late heat cutoff;
 nome and spatial width still enter both `q` and `kappa`.
-This is a **fixed-window scalar limit**, not yet a consistent stationary
-cylinder state. Window padding/shift laws, original ambient-lattice placement,
-interior cutoff removal, physical OS identification and width/spacing control
-remain open, as do continuum QFT and the Clay target. Six focused checks
+At that checkpoint this was a fixed-window scalar limit. The latest result
+adds positive linear laws and unit-padding/shift consistency. Original
+ambient-lattice placement, interior cutoff removal, physical OS identification
+and width/spacing control remain open, as do continuum QFT and the Clay target. Six focused checks
 passed all 54 public axiom gates; no root/full-tree check was run. See the
 [window-time audit](audits/AUDIT-FIXED-SPATIAL-WINDOW-TIME-LIMIT.md).
 
@@ -54,7 +75,8 @@ The error is independent of the fixed left-boundary distance and late heat
 cutoff, but still depends on nome, spatial width and the observable.
 The latest result above adds left-boundary comparison and the two-sided
 time limit. Whole-window ambient-lattice placement and stationary cylinder
-consistency remain open; this is not yet a physical OS state or mass gap.
+consistency were still open at that checkpoint; the latest result supplies
+the unit-padding/shift laws, not a physical OS state or mass gap.
 Five focused checks passed all 29 public axiom gates;
 no root/full-tree check was run. See the
 [observed-window audit](audits/AUDIT-FIXED-SPATIAL-OBSERVED-WINDOW.md).
@@ -71,8 +93,8 @@ All laws retain the SAME finite partition before passing to the limit.
 
 This is a **fixed-nome, fixed-width, fixed-cutoff slice functional**, not yet
 a stationary multi-time cylinder state or physical OS theory. The latest
-results supply whole-window contraction and both-boundary convergence;
-consistency under unit insertion and time translation remains to be proved.
+results supply whole-window contraction, both-boundary convergence and
+consistency under unit insertion and one-slice time translation.
 Cutoff removal, uniform volume/spacing control, continuum QFT and the Clay
 target remain open. Four focused checks passed all 30 public axiom gates;
 no root/full-tree check was run. See the

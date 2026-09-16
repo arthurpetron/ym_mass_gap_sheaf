@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED two-boundary window estimate and constructed time limit; OPEN stationary cylinder consistency and physical passage (2026-09-16)
+## PROVED positive linear window family and padding/translation consistency; OPEN original multi-time observable and reflected physical OS realization (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialWindowPadding.lean`,
+  `BF4ExactSlabFixedSpatialWindowFunctionalLaws.lean`, and
+  `BF4ExactSlabFixedSpatialWindowState.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: same-partition finite unit/add/signed-scale laws and actual
+  certificate positivity pass to the existing window CReal limits.
+  Coefficient and arbitrary-insertion Haar equality are respected. Exact
+  left/right padding compares the same full chain, not stationary finite
+  boundaries. Explicit fixed-offset convergence then gives right-padding,
+  left-shift and common-window translation consistency. The zero-transition
+  window equals the existing slice expectation despite differing moduli.
+- **consumer/open input**: removes positive linear window-limit laws and
+  unit-padding/one-slice-shift consistency. Whole-window original gauge-
+  observable placement remains open: original_chain_pairing handles multi-time
+  spatial probes, but the existing physical observable pin is single-slice.
+  Fixed nome, width and retained cutoff remain. Ordinary square positivity
+  does not give the reflected half-space form, physical transfer/vacuum or
+  OS/GNS realization. Interior cutoff removal, cutoff-limit power/moment
+  compatibility, width/spacing control, continuum QFT and all-group Clay
+  closure remain open. No old theorem, canonical field, literal hole, axiom
+  or analytic premise changed.
+- **verification**: three focused serialized one-worker/20 GiB checks; all
+  25 public gates within {propext, Quot.sound}. Three selective-root imports;
+  root/full-tree/full axiom audit unrun. Source review checked exact placement,
+  fixed-offset thresholds and the ordinary/OS positivity distinction.
+  Evidence: `audits/AUDIT-FIXED-SPATIAL-WINDOW-STATE.md`.
+
+## Previous PROVED two-boundary window estimate and constructed time limit; OPEN stationary cylinder consistency and physical passage at that checkpoint (2026-09-16)
 
 - **files**: `RationalPositiveResidualRatio.lean`,
   `BF4ExactSlabFixedSpatialWindowInput.lean`,
