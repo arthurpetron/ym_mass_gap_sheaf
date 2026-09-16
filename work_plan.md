@@ -133,7 +133,48 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED modulus-bearing real scaling, actual unit projection/centering, physical time on the unit complement and SAME-partition connected finite-correlator limit; OPEN separation decay, strict reflected-norm bound and metric completeness):**
+**Latest mathematical increment (PROVED original separated-window finite covariance decay; OPEN reflected physical-lag pin/limit and strict reflected-norm bound):**
+PROGRESS after `be767d0`. Exact chronological factorization contracts the
+left observation over L transitions, propagates the same message over g
+unobserved transitions, then contracts the right observation over R.
+Joint and both marginal scalar pins keep the SAME total window L+g+R,
+external boundaries m,n, original K/V action and positive partition.
+
+CONTRACTION: subtract the lower comparison multiple before taking absolute
+values. The certified residual has mass between zero and bracketWidth*Z;
+the signed right-window estimate bounds its numerator by capQ times that
+SAME mass. The resulting covariance determinant is bounded by
+2*capQ*bracketWidth*Z^2, including zero residual mass. Only the positive
+unobserved Z is inverted. The actual bracket width is 2*capP*q^g, proving
+|Cov(P,Q)| <= 4*capP*capQ*q^g. Both intervals are constructed for every
+supported polynomial pair. No covariance hypothesis, positive signed
+insertion mass or new dynamics is assumed.
+
+Here g is insertion separation, not receding boundary depth. The bound is
+uniform in external boundary lengths and late cutoff at fixed nome, width
+and probe caps. q=mixRate depends on nome/width and may be zero. It is not
+uniformly below one in width/spacing. Finite algebra includes zero gaps,
+zero window lengths and zero block count. No canonical field, literal hole,
+axiom, hypothesis or capacity limit changed. Five focused serialized
+one-worker/20 GiB checks passed all 15 public gates within {propext,
+Quot.sound}; five selective-root imports, no root/full-tree/full audit.
+Evidence: `audits/AUDIT-FIXED-SPATIAL-SEPARATED-COVARIANCE.md`.
+
+NEXT CAUSAL FRONTIER: realize the reflected time-n mixed probe as these
+windows in a common chart, then apply the existing same-partition connected
+limit. Read-only review identified R=max(radius x,radius y), H=R+n,
+left length R, gap n, right length H, total 2H. Missing helpers are the
+guarded mirror/encode identity and arbitrary-advance PADDED source-span
+lift pin (empty schedules prohibit a naive exact coefficient equality).
+Keep caps independent of n. Then instantiate the existing scalar
+dyadic_geometric_first_le on actual even-time centered moments to remove
+the presentation prefactor; handle q=0 separately. This is a reviewed
+plan, NOT a checked physical-lag or strict-norm theorem. Completion passage,
+nonconstant excitations, vacuum isolation, metric completeness, full
+Hilbert/OS/gauge algebra, joint cutoff/time, spatial/spacing control,
+physical mass calibration, continuum QFT and all groups remain open.
+
+**Previous mathematical increment (PROVED modulus-bearing real scaling, actual unit projection/centering, physical time on the unit complement and SAME-partition connected finite-correlator limit; OPEN separation decay, strict reflected-norm bound and metric completeness at that checkpoint):**
 PROGRESS after `7a8bfc5`. The scalar stream (s.approx n)*X.seq n is Cauchy
 in the actual reflected squared distance, with an explicit rate computed
 from the supplied scalar modulus and actual vector norm ceiling. Pairing

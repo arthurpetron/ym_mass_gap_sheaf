@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual unit projection, centered physical time and SAME-partition connected correlators; OPEN separation decay, strict reflected-norm bound and metric completeness (2026-09-16)
+## PROVED original separated-window finite covariance decay; OPEN reflected time pin/limit and strict norm bound (2026-09-16)
+
+- **files**: `SU2QuaternionHeadSeparatedWindows.lean`,
+  `RationalCommonPartitionCovariance.lean`,
+  `BF4ExactSlabFixedSpatialInputCovariance.lean`,
+  `BF4ExactSlabFixedSpatialSeparatedWindowPins.lean`, and
+  `BF4ExactSlabFixedSpatialSeparatedCovariance.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: actual half-open window factorization and unchanged total-chain
+  joint/marginal pins combine with the actual shrinking bracket. Subtract
+  its lower multiple before taking absolute values, bound the certified
+  residual without dividing by its mass, then cancel the common partition
+  square. `polynomialWindow_covariance_bound` constructs the intervals and
+  proves the explicit 4*capP*capQ*q^g bound, with g insertion separation.
+- **consumer/open input**: removes the finite two-window factorization and
+  connected covariance estimate; reflected physical-time probe placement
+  and its existing connected-limit consumer are still required. Subsequent
+  dyadic prefactor removal and completed strict reflected-norm bound are
+  not proved here. Nome/width dependence remains explicit; no width/spacing
+  uniformity, isolated vacuum, full Hilbert/OS reconstruction or continuum
+  physical gap is claimed. No canonical field, sorry, axiom or analytical
+  premise changed.
+- **verification**: five focused serialized one-worker/20 GiB checks; all
+  15 public gates within {propext, Quot.sound}. Five selective-root imports;
+  root/full-tree/full axiom audit unrun. Independent source review covered
+  same partition/final V, signed endpoints, zero residual mass and zero-gap,
+  zero-rate, zero-width cases. See
+  `audits/AUDIT-FIXED-SPATIAL-SEPARATED-COVARIANCE.md`.
+
+## PROVED actual unit projection, centered physical time and SAME-partition connected correlators; OPEN separation decay, strict reflected-norm bound and metric completeness at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialRealScalarCauchy.lean`,
   `BF4ExactSlabFixedSpatialCompletedRealScalar.lean`,

@@ -21,7 +21,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: actual unit projection, centered physical time and same-partition connected correlators.**
+**Latest result: connected correlation decay between separated finite windows.**
+For the original fixed-spatial SU(2) transfer, the connected expectation of
+two signed polynomial windows is bounded by `4 * cap(P) * cap(Q) * q^g`,
+where `g` counts the transitions between their endpoints. Joint and marginal
+expectations retain the **same full action and partition**. Exact contraction
+of the first window, transfer-bracket decay, and signed residual cancellation
+prove the bound without dividing by an observed or residual mass.
+
+The rate depends on nome and spatial width; the estimate is uniform in
+external boundary lengths and late heat cutoff for fixed probes. It is not
+yet a strict reflected-norm or physical mass-gap theorem. Next: identify the
+reflected physical-time probes with these separated windows and pass the
+bound to their existing connected limit. Five focused checks passed all 15
+public axiom gates; no root/full-tree check was run. See the
+[separated-covariance audit](audits/AUDIT-FIXED-SPATIAL-SEPARATED-COVARIANCE.md).
+
+**Previous result: actual unit projection, centered physical time and same-partition connected correlators.**
 Real scaling with explicit Cauchy data now constructs projection onto the
 original fixed unit. Subtracting that projection gives its orthogonal
 complement and an exact norm decomposition. The SAME physical-time map
@@ -30,8 +46,8 @@ equals the constructed limit of a **finite connected expectation with one
 shared action and partition** for the joint moment and both marginals.
 
 This is **fixed-nome, fixed-width, fixed-cutoff SU(2) progress**, not a
-strict-gap theorem. The next estimate must control separation between two
-observables; existing receding-boundary estimates alone do not do that.
+strict-gap theorem. The latest finite estimate controls separated windows;
+its reflected physical-time placement and limit consumers remain open.
 Metric completeness, full Hilbert/OS reconstruction, nonconstant excitations,
 vacuum isolation, the reflected-norm strict bound, joint limits and continuum
 Clay closure remain open. Seven focused checks passed all 97 public axiom
