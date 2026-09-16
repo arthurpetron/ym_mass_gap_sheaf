@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED spatial union carrier, completed strict sector and closed nonzero pilot; OPEN completed linear/centering laws, full observable/Hilbert/continuum passage (2026-09-16)
+## PROVED spatial union rational operations, centering and stationary projection image; OPEN represented-row limit/resolvent and full real/Hilbert/continuum passage (2026-09-16)
+
+- **files**: `BF4SpatialUnionLinear.lean`, `BF4SpatialUnionBilinear.lean`,
+  `BF4SpatialUnionLinearLaws.lean`, `BF4SpatialUnionUnitProjection.lean`,
+  `BF4SpatialUnionCentered.lean`, and `BF4SpatialUnionStationary.lean`,
+  all under `lean/YMGap/Continuum/`.
+- **proof**: common-base dense linear/distance laws construct actual rational
+  operations on the same Cauchy quotient. Explicit Close at the difference
+  pairing rate proves separation before group-law use. Actual unit-coefficient
+  QCauchy data construct projection by rational unit multiples; all-vector
+  centering retracts onto the existing complement with exact mixed Pythagoras
+  and original connected-time pairing. The strict complement estimate now
+  proves one-/two-step stationary vectors are exactly the constructed unit
+  projection image, uniquely determined by their RC unit coefficient.
+- **consumer/open input**: removes the union's rational-linear/centering and
+  stationary projection-image obligations. Does not extract Type-valued scalar
+  representatives from RC. Actual represented-row limits and reduced transfer
+  resolvent are next, using the existing same-object templates; full real
+  scalar action, arbitrary quotient-sequence completeness, observable coverage,
+  spatial translations, Hilbert/OS/QFT, physical scaling, continuum nontriviality
+  and all-group Clay closure remain open. Same nome guards/rate, no new analytic
+  premise; the existing AF guard obstruction is unchanged.
+- **verification**: six focused serialized one-worker/20 GiB checks, 114 public
+  gates within {propext, Quot.sound}; six root imports, root/full-tree/full audit
+  unrun. No prior proof, canonical field, sorry, axiom or safety limit changed.
+  Independent review and evidence: `audits/AUDIT-SPATIAL-UNION-STATIONARY.md`.
+
+## Previous PROVED spatial union carrier, completed strict sector and closed nonzero pilot; OPEN completed linear/centering laws, full observable/Hilbert/continuum passage at that checkpoint (2026-09-16)
 
 - **files**: `BF4SpatialUnion.lean`, `BF4SpatialUnionSeminorm.lean`,
   `BF4SpatialUnionPairingData.lean`, `BF4SpatialUnionCenteredForm.lean`,

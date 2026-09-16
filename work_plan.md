@@ -133,7 +133,59 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED one spatial union Cauchy carrier with positive-definite pairing, invariant strict unit complement and nonzero actual excitation, including a closed 1/1024 instance; OPEN completed linear/centering laws, full observable/Hilbert/OS/QFT and continuum passage):**
+**Latest mathematical increment (PROVED actual rational linear operations, all-vector unit projection/centering and stationary projection-image characterization on the SAME spatial union carrier; OPEN represented-row limit/resolvent, full real/Hilbert/OS/QFT and continuum passage):**
+PROGRESS after `a90f0e1`: the preceding goal turn pushed its verified checkpoint
+to main. This increment proves the next named proposition and its consumer.
+Common-base transport supplies dense bilinearity and distance estimates.
+Actual addition uses max of the two epsilon/4 moduli; rational scaling uses
+the input modulus at epsilon/(c*c+1). Their same-carrier completed operations
+have the rational linear laws and physical-time compatibility.
+
+CONTRACTION: pairing separation constructs Close(X,Y) at the explicit
+pairRate of the difference stream, before using any completed group law.
+The computed actual unit coefficient and its QCauchy data generate a stream
+of rational unit multiples. Its exact squared coefficient-distance gives
+unitProjection on the existing quotient, without scalar or vector choice.
+Subtracting this projection gives all-vector centering, exact Pythagoras,
+nonexpansiveness, and retraction onto the EXISTING unit complement. Its
+time pairing equals the already constructed connected scalar moment.
+
+The original strict complement bound now has its missing all-vector
+consumer: T_1 x=x iff unitProjection x=x, and likewise for T_2 and all
+discrete times. The quotient unit coefficient B(x,U) determines each
+stationary vector; overlap B(x,U)=1 forces x=U. This is the constructed
+projection image, not a Type-valued choice of a scalar multiple for every
+quotient vector. The existing small-nome guards and rho(w)^2 are unchanged;
+the earlier closed 1/1024 instance still supplies them.
+
+NEXT CAUSAL FRONTIER: construct the actual completed squared distance and
+its dense-approximation bound, then limits of Type-supplied Cauchy rows on
+this same carrier. Reuse the existing ThermodynamicCompletedApproximation /
+ThermodynamicCauchyRows argument generically with a proved old-instance pin,
+instead of copying another completion tower. A concrete subsequent consumer
+is the SAME two-step transfer's reduced resolvent, as in the existing
+ThermodynamicResolvent template: its partial-sum representatives are computed
+from a supplied original representative, so arbitrary quotient-sequence
+lifting is unnecessary for that construction. The old numerical series-tail
+estimate must be rechecked against the actual rho(w)^2; no stronger nome guard
+or old carrier can be silently substituted. This is a source-reviewed plan,
+not a constructed union row limit or resolvent.
+
+Unrestricted real scalar structure, arbitrary quotient-sequence metric
+completeness, full gauge observable coverage/spatial translations, Hilbert/OS/
+QFT, physical scaling, controlled continuum nontriviality and all compact
+simple groups remain open. The AF small-nome-guard obstruction is unchanged;
+this algebraic step supplies no new same-action scale/volume estimate.
+
+Six narrow serialized one-worker/20 GiB checks passed all 114 public gates
+within {propext, Quot.sound}. Six new modules/root imports; root/full-tree/
+full audit unrun. No existing proof, canonical field, sorry, axiom, analytic
+premise or safety limit changed. Independent source review checked separation,
+same-object centering, stationary scope and the next represented-row consumer.
+CI remains manual-only; no literature scan. Evidence:
+`audits/AUDIT-SPATIAL-UNION-STATIONARY.md`.
+
+**Previous mathematical increment (PROVED one spatial union Cauchy carrier with positive-definite pairing, invariant strict unit complement and nonzero actual excitation, including a closed 1/1024 instance; OPEN completed linear/centering laws, full observable/Hilbert/OS/QFT and continuum passage at that checkpoint):**
 PROGRESS after `32bc192`. Each original finite presentation retains its own
 positive support base. Pairing and squared distance use the computed maximum
 base; the proved inclusion coherence removes the arbitrary common-box choice.

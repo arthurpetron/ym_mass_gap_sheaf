@@ -4716,6 +4716,12 @@ import YMGap.Continuum.BF4SpatialUnionUnitComplement
 import YMGap.Continuum.BF4SpatialUnionFixedBase
 import YMGap.Continuum.BF4SpatialUnionExcitation
 import YMGap.Continuum.BF4SpatialUnionSmallNome
+import YMGap.Continuum.BF4SpatialUnionLinear
+import YMGap.Continuum.BF4SpatialUnionBilinear
+import YMGap.Continuum.BF4SpatialUnionLinearLaws
+import YMGap.Continuum.BF4SpatialUnionUnitProjection
+import YMGap.Continuum.BF4SpatialUnionCentered
+import YMGap.Continuum.BF4SpatialUnionStationary
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison
