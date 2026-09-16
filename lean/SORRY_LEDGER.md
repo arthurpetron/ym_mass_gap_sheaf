@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual physical-lag covariance and completed unit-complement strict bound; OPEN reflected joint cutoff/time and spatial/spacing control (2026-09-16)
+## PROVED reflected scalar joint cutoff/time limit, SAME-partition connected pin and cutoff-removed strict centered scalar bound; OPEN limiting reflected carrier and spatial/spacing control (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialChartJointCauchy.lean`,
+  `BF4ExactSlabFixedSpatialChartJointLimits.lean`,
+  `BF4ExactSlabFixedSpatialJointCenteredForm.lean`, and
+  `BF4ExactSlabFixedSpatialJointConnectedCorrelator.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: cutoff-independent boundary-time control and the original
+  finite cutoff modulus at one computed depth give a three-hop late
+  rectangle. The diagonal QCauchy witness and actual representatives
+  identify both orders of limits. The existing stage-wise reflected
+  pairing converges to jointPairing, with explicit modulus and proved
+  common-chart independence. Its centered physical moment retains the
+  prefactor-free two-step bound and actual moment inequalities. A separately
+  constructed literal finite connected diagonal retains one action/Z and
+  realizes the SAME limiting moment; both geometric envelope bounds pass.
+- **consumer/open input**: removes scalar reflected joint cutoff/time
+  passage and preservation of the strict centered scalar inequality at
+  fixed width. Next: limiting sharp CS/radical and squared-seminorm laws,
+  then physical time on that SAME limiting carrier. Limit-null does not
+  imply stage-wise null, and the existing completed spaces depend on stage.
+  No cutoff-removed completed-operator convergence is claimed. Nonconstant
+  excitations, full Hilbert/OS, spatial/spacing control, physical mass
+  calibration, continuum QFT and all-group Clay closure remain open.
+  No canonical field, sorry, axiom or analytical premise changed.
+- **verification**: four focused serialized one-worker/20 GiB checks;
+  all 37 public gates within {propext, Quot.sound}. Four selective-root
+  imports; root/full-tree/full axiom audit unrun. Independent source review
+  checked the two independent parameters, same-action pin, constructive
+  moduli, strict-rate passage and raw connected diagonal. Evidence:
+  `audits/AUDIT-FIXED-SPATIAL-REFLECTED-JOINT-LIMIT.md`.
+
+## Previous PROVED actual physical-lag covariance and completed unit-complement strict bound; OPEN reflected joint cutoff/time and spatial/spacing control at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialReflectedSeparatedProbe.lean`,
   `BF4ExactSlabFixedSpatialCenteredMoments.lean`,

@@ -21,7 +21,22 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: strict contraction on the actual completed unit complement.**
+**Latest result: reflected correlators survive heat-cutoff removal, preserving the strict scalar bound.**
+At fixed spatial width and nome, the original reflected correlators now
+have a constructed joint heat-cutoff/time-boundary limit. Both orders of
+limits give the same scalar, with explicit moduli. The centered physical
+moment retains its geometric envelope and the prefactor-free inequality
+`M(2,x,x) <= q^2 * M(0,x,x)`. It is also identified with the limit of literal
+finite connected expectations sharing **one action and partition**.
+
+This is a cutoff-removed scalar result, not an identification of the
+cutoff-dependent completed spaces. Next: construct the limiting reflected
+seminorm and its own physical-time carrier. Spatial/spacing control,
+nonconstant excitations, full QFT reconstruction and the Clay theorem remain
+open. Four focused checks passed all 37 public axiom gates; no root/full-tree
+check was run. See the [reflected joint-limit audit](audits/AUDIT-FIXED-SPATIAL-REFLECTED-JOINT-LIMIT.md).
+
+**Previous result: strict contraction on the actual completed unit complement at fixed cutoff.**
 For fixed nome, spatial width and retained cutoff, the SAME physical-time
 map now satisfies `B(v,T_2 v) <= q^2 * B(v,v)` and
 `B(T_1 v,T_1 v) <= q^2 * B(v,v)` on the original unit-orthogonal carrier,

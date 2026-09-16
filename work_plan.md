@@ -133,7 +133,50 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED actual physical-lag covariance and completed unit-complement strict form bound; OPEN joint cutoff/time passage and spatial/spacing control):**
+**Latest mathematical increment (PROVED reflected scalar joint cutoff/time limit, SAME-partition connected pin and cutoff-removed strict centered scalar bound; OPEN limiting reflected carrier and spatial/spacing control):**
+PROGRESS after `3ad2187`. For the actual common-chart scalar S(k,t), the
+boundary-time modulus is independent of cutoff k. At the computed depth
+T=timeModulus(epsilon/4), the original finiteCauchy supplies the cutoff
+threshold K. Comparing S(k,t), S(k,T), S(j,T), S(j,u) gives the full late
+rectangle and a diagonal QCauchy witness with modulus max(T,K). No cutoff
+estimate uniform over all growing extents is assumed.
+
+CONTRACTION: actual QMhat representatives identify both iterated limits
+with the joint diagonal limit. The time-first pin gives cutoff convergence
+of the existing intrinsic pairing. Its computed maximum-radius chart defines
+jointPairing with explicit approximation QCauchy data; uniqueness proves
+chart independence. Scalar arithmetic constructs the actual joint centered
+moment, and the existing even-time positivity, dyadic inequality and
+prefactor-free q*q bound pass to that SAME scalar limit.
+
+The literal connected finite diagonal is constructed separately, with one
+chart/action/cutoff/partition for all three terms at every raw index. Its
+limit equals the joint centered physical moment. This is not an equality
+of independently regularized canonical approximants. Both sides of the
+geometric lag envelope survive. Width and nome remain fixed; q*q is still
+stage-independent, not width/spacing-uniform. No old stage-dependent
+completion is identified with another or with a new limiting carrier.
+
+NEXT CAUSAL FRONTIER: build the limiting reflected squared seminorm from
+jointPairing of the actual physical signed difference. Transfer the
+unconditional distance laws through scalar limits, prove limiting sharp CS,
+then derive the limiting radical/null-congruence law. Limit-null need not
+mean stage-wise null, so the old conditional null law cannot simply pass
+through the limit. Prove physical advance contractive in the SAME limiting
+distance before using CRealSeminormCompletion's existing choice-free carrier
+and semigroup descent. This is a source-reviewed next proof, not an already
+constructed cutoff-removed completed operator.
+
+Nonconstant excitations, the limiting completed pairing and strict bound,
+metric completeness/full Hilbert/OS and gauge algebra, spatial/spacing
+control, physical mass calibration, continuum QFT and all compact simple
+groups remain open. No canonical field, hole, axiom, analytical premise or
+resource limit changed. Four focused serialized one-worker/20 GiB checks
+passed all 37 public gates within {propext, Quot.sound}; four selective-root
+imports, root/full-tree/full audit unrun. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-REFLECTED-JOINT-LIMIT.md`.
+
+**Previous mathematical increment (PROVED actual physical-lag covariance and completed unit-complement strict form bound; OPEN joint cutoff/time passage and spatial/spacing control at that checkpoint):**
 PROGRESS after `e70f3b0`. Guarded reflected-distance geometry and padded
 polynomial lifts pin the actual time-n mixed probe and its two unit marginals
 to the SAME original finite chart, action and partition. In chart H=R+n,
