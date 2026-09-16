@@ -13,7 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original weighted star-normalizer bounds; OPEN conditional inverse and spatial control (2026-09-15)
+## PROVED weighted polynomial approximate division; OPEN completed conditional inverse and spatial control (2026-09-15)
+
+- **files**: new `lean/YMGap/Continuum/PositiveContractionResidual.lean`,
+  `BF4ExactSlabStarInsertedNumerator.lean`, and
+  `BF4ExactSlabStarInverseApproximation.lean` in the same directory.
+- **proof**: the actual inserted numerator has B-weighted squared norm
+  bounded by U times the original full-action input norm. The concrete
+  B-weighted form and D/U satisfy the proved residual-contraction theorem.
+  Explicit polynomial iterates a_0=0, a_(n+1)=a_n+(r-D*a_n)/U have
+  squared error <=(1-L/U)^(2n)||r||_B^2. A computed tolerance index works
+  at every later iterate, including the zero-rate case. The actual
+  conditional numerator is an instance; no replacement law is introduced.
+- **open residue**: Cauchy moduli for the PREIMAGES (the new modulus bounds
+  their division error), completed inverse/limit identity, original D*B
+  marginal and full-law lift/null compatibility, projection contraction,
+  and any claimed unit/positivity/Markov semantics. The completion review
+  identifies existing constructors but does not prove these statements.
+  Spatial decay, physical scaling, OS gap, continuum QFT and all-group
+  Clay remain open. No canonical field, analytic premise, axiom, legacy
+  flag or literal hole changed. Constants remain nome-dependent.
+- **verification**: all 30 public gates match exactly within
+  {propext, Quot.sound}; seven focused serialized safe one-worker/20 GiB
+  launches. Final logs clean; own/direct artifacts fresh. No raised limit.
+  Three root imports added; root/full-tree unrun. Log hashes in work_plan.
+
+## Previous PROVED original weighted star-normalizer bounds; OPEN conditional inverse and spatial control (2026-09-15)
 
 - **files**: new `lean/YMGap/Continuum/SU2QuaternionHaarHeadProbeTransport.lean`
   and `BF4ExactSlabStarNormalizer.lean` in the same directory; two added

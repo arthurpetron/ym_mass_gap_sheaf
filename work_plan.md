@@ -119,7 +119,71 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-15)
 
-**Latest mathematical increment (PROVED original weighted normalizer bounds; OPEN constructive conditional update/spatial control):**
+**Latest mathematical increment (PROVED weighted polynomial approximate division; OPEN completed conditional update/spatial control):**
+PROGRESS after `efe64fc`. Two bounded parallel proof branches and an
+independent completion-API review were integrated with the concrete parent
+application. All compilation remains serialized.
+
+`PositiveContractionResidual` proves that eta I<=P<=I in a positive rational
+form makes E=I-P symmetric, positive and norm-contractive with rate 1-eta.
+Natural iterates have the squared geometric rate; `geometricCutoff` retains
+an explicit tolerance index, including the zero-rate case.
+`BF4ExactSlabStarInsertedNumerator.insertedNormalizer_weighted_norm` proves
+H_tail(N_p^2 B)<=U(w) H_full(p^2 fullAction). Its proof uses the exact original
+test identity, the actual full-action Cauchy--Schwarz inequality, and rational
+positive-factor cancellation. No pointwise order or replacement law is used.
+
+`BF4ExactSlabStarInverseApproximation.exteriorData` is the actual B-weighted
+supported polynomial form, with positivity proved from the action.
+`scaledNormalizer_form_bounds` instantiates P=D/U with eta=L/U.
+The explicit iteration starts at zero and sends a to a+(r-D*a)/U.
+`approximateInverse_residual_norm` proves
+||r-D*a_n||_B^2 <= (1-L/U)^(2n) ||r||_B^2.
+`conditionalApproximation_defect_norm` applies it to the actual N_p with
+the original full-action input bound. `approximationCutoff` and
+`approximateInverse_error_le` compute and prove a requested squared residual
+tolerance. These are finite polynomial approximate preimages; no completed
+inverse is claimed. L,U and the geometric rate depend on w, independently
+of extent, selected link and K>=headCutoff(w). The tolerance index also
+depends on the actual input norm and requested tolerance.
+
+NEXT CAUSAL FRONTIER: turn these approximate preimages into a `CauchyGNS`
+in the SAME B form and prove the limiting division identity. A short proposed
+argument uses coercivity plus Cauchy--Schwarz to prove
+L^2 ||x||_B^2 <= ||D*x||_B^2, then applies it to a_m-a_n and the two
+already-controlled residuals. This is a next proof obligation, not a theorem
+claimed here. `GNSCompletion.CauchyGNS` supplies the existing data-bearing
+carrier; `HKConvGen.powBaseCutoff` supplies explicit geometric indices;
+`GNSDenseCompletionLaws.eq_of_dense_pairings` can consume proved limiting
+pairings. No new completion carrier or vector-series engine is needed.
+The reviewed `DenseMap` API is nonexpansive and same-form: the unscaled
+inverse bound 1/L does NOT directly satisfy it. Nor does scalar
+`ScaledGNSCompletion` establish equivalence for the variable weight D*B.
+Retain explicit lift/null-class compatibility and obtain the original-law
+L2 projection by the exact test identity and orthogonality. Positivity/unit/
+Markov semantics, if claimed, are still separate.
+
+The original decaying boundary-numerator premise of
+`BF4ExactSlabBoundaryLimitNormalization.expectationDifference_bound_of_prefix_eventually`
+remains open. No heat-bath or OS gap, spatial contraction, compatible physical
+scaling family, continuum QFT/nontriviality, other compact simple groups or
+Clay closure is supplied by local approximate division.
+
+Verification: seven focused serialized safe launches across three new modules,
+one worker/20 GiB. All 30 public declarations have exactly matching clean
+axiom output within {propext, Quot.sound}; own/direct artifacts are fresh.
+Proof-development repairs were notation/section-parameter handling and a
+namespace opening. No raised limit, new hole, axiom or canonical-field change.
+Three root imports added; root/full-tree unrun. CI remains manual-only.
+Final logs/hashes:
+- `/tmp/ym-positive-residual.log`:
+  `e2d1f06b2be94a7db42a2008dca378bd2710c7549f7b73a7c047dd46021fd07b`.
+- `/tmp/ym-star-numerator.log`:
+  `46e6d052314f5017c034a3593a6d98d67f507098abfc9df1aa697c1a49583e02`.
+- `/tmp/ym-star-inverse-approximation.log`:
+  `cbce99fdc9e3bc57e0e53a009f8c9d719dbd3d2cf289ab276ac60811c7efdbee`.
+
+**Previous mathematical increment (PROVED original weighted normalizer bounds; OPEN constructive conditional update/spatial control):**
 PROGRESS after `450bc08`. The preceding local-star comparison is now
 transported through actual one-link integration, retaining the original
 exterior marginal. Two bounded parallel proof tasks and an independent

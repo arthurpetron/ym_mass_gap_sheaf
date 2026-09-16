@@ -1,5 +1,50 @@
 # Actual T2, collar tests, and the missing range estimate
 
+## Weighted polynomial approximate division and completion review (2026-09-15)
+
+Follow-up after `efe64fc`. Parallel proof branches supply the residual
+contraction and actual numerator norm; the concrete application constructs
+finite approximate preimages in the actual B-weighted exterior form.
+
+| Result | Declaration and source | Scope |
+| --- | --- | --- |
+| Positive residual and geometric norm bound | `residual_norm`, `lean/YMGap/Continuum/PositiveContractionResidual.lean:83`; `residualIterate_norm`, :99 | eta I<=P<=I gives squared residual rate (1-eta)^2. |
+| Explicit geometric tolerance index | `geometricCutoff`, same module :119; `geometric_bound`, :126 | Handles zero rate and zero initial norm; does not divide by the norm. |
+| Original inserted numerator bound | `insertedNormalizer_weighted_norm`, `lean/YMGap/Continuum/BF4ExactSlabStarInsertedNumerator.lean:90` | H_tail(N_p^2 B)<=U H_full(p^2 fullAction), via actual full-law Cauchy--Schwarz. |
+| Concrete scaled multiplier | `exteriorData`, `lean/YMGap/Continuum/BF4ExactSlabStarInverseApproximation.lean:48`; `scaledNormalizer_form_bounds`, :105 | Actual B form, actual D/U, proved eta=L/U. |
+| Polynomial approximate division | `approximateInverse`, same module :137; `approximateInverse_residual_norm`, :160 | a_0=0; a_(n+1)=a_n+(r-D*a_n)/U; squared division error <=(1-L/U)^(2n)||r||_B^2. |
+| Actual conditional numerator consumer | `conditionalApproximation`, same module :188; `conditionalApproximation_defect_norm`, :195 | Approximation to N_p/D with error bounded by the ORIGINAL full-action input norm. |
+| Concrete residual tolerance | `approximationCutoff`, same module :213; `approximateInverse_error_le`, :217 | Computed iteration count for requested squared division error; NOT a preimage Cauchy modulus. |
+
+The independent read-only completion review identifies existing consumers:
+`CauchyGNS`, `lean/YMGap/Continuum/GNSCompletion.lean:364`, retains
+`seq`, rational `modulus`, and all-later-pairs squared-distance bounds.
+`CauchyNullModulus`, `lean/YMGap/Continuum/GNSModulusCompletion.lean:43`,
+retains the limiting identity's null modulus as data.
+`eq_of_dense_pairings`, `lean/YMGap/Continuum/GNSDenseCompletionLaws.lean:88`,
+can identify completed vectors through their literal dense pairings.
+These APIs were inspected, not newly compiled or instantiated here.
+
+Two interface limits matter: `DenseMap`,
+`lean/YMGap/Continuum/GNSDenseCompletionExtension.lean:53`, is same-form
+and nonexpansive, so a raw inverse bound 1/L does not directly qualify.
+`Normalization`, `lean/YMGap/Continuum/ScaledGNSCompletion.lean:30`,
+scales by one CReal scalar, not the variable normalizer D. It does not
+provide the B-to-D*B marginal completion equivalence.
+
+OPEN: Cauchy moduli for the preimages and limiting inverse identities;
+original marginal/full-law lift and null-class compatibility; L2 projection
+contraction; any unit/positivity/Markov semantics. No spatial, heat-bath,
+OS or physical gap follows from local division. The decaying original
+boundary-numerator premise remains unsupplied at
+`expectationDifference_bound_of_prefix_eventually`,
+`lean/YMGap/Continuum/BF4ExactSlabBoundaryLimitNormalization.lean:230`.
+
+Verification: 30 public gates in the three new proof modules match exactly
+within {propext, Quot.sound}; seven focused serialized safe checks, no raised
+limit. Final logs clean and own/direct artifacts fresh. Root imports added;
+root/full-tree unrun. No completion-API verification is implied by source review.
+
 ## Original weighted normalizer and conditional test identity (2026-09-15)
 
 Follow-up after `450bc08`. D is now controlled in form and multiplier norm,

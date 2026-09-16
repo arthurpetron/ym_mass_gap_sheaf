@@ -21,7 +21,20 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result:** [the actual one-link normalizer has strict weighted form bounds](lean/YMGap/Continuum/BF4ExactSlabStarNormalizer.lean#L196).
+**Latest result:** [explicit polynomial approximate division by the actual one-link normalizer](lean/YMGap/Continuum/BF4ExactSlabStarInverseApproximation.lean).
+In the actual complementary-action weighted norm, the iteration
+`a <- a + (r-D*a)/U` has squared residual bounded by
+`(1-L/U)^(2*n)` times the input norm, with a computed tolerance cutoff.
+[The actual inserted numerator is controlled by the original full-action norm](lean/YMGap/Continuum/BF4ExactSlabStarInsertedNumerator.lean),
+so these approximants apply to the original conditional ratio `N_p/D`.
+The constants depend on `w`, not volume or cutoff above `headCutoff(w)`.
+
+Two parallel proof branches and a completion-interface review were integrated;
+all 30 public gates passed serialized focused checks. **An approximate preimage is not yet
+a completed inverse or conditional projection.** Their Cauchy/limit identities,
+spatial decay, physical scaling and the Clay target remain open.
+
+**Previous result:** [the actual one-link normalizer has strict weighted form bounds](lean/YMGap/Continuum/BF4ExactSlabStarNormalizer.lean#L196).
 The original exterior marginal retains the boundary-dependent normalizer
 `D` and complementary action `B`: its weight is `D*B`, not `B`.
 Exact test-function identities preserve the original action and observables.
