@@ -133,7 +133,48 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED represented-row limits, same-carrier time/centering continuity and quantitative relaxation; OPEN reduced resolvent, full real/Hilbert/OS/QFT and changing-scale physical construction):**
+**Latest mathematical increment (PROVED bounded same-carrier reduced inverse, positive diagonal spatial symmetry and odd/even response comparison; OPEN positive-response transport, full real/Hilbert/OS/QFT and changing-scale physical construction):**
+PROGRESS after `405acc5`: the preceding represented-row/relaxation checkpoint
+was committed and pushed. The actual partial sums of `T_2` applied to the
+centered source now have the explicit common squared-norm budget
+`K(w)=(1-q(w))^(-2)` and a computed geometric tail modulus. Their represented
+limit descends independently of the source representative on the SAME union
+completion. The constructed `R` satisfies `(I-T_2)R=C=R(I-T_2)`, where `C` is
+the actual centering map. It is rational-linear, self-adjoint, commutes with
+actual time, and has squared-norm/distance bound `K(w)`. The solver returns its
+vector and tolerance modulus as data. No stronger guard or full Hilbert
+completeness assumption was needed.
+
+PARALLEL CONTRACTIONS: literal recentering identifies a positive diagonal
+spatial translation with a cofinal shift of the SAME finite pairing sequence.
+This gives an actual pairing-preserving natural semigroup commuting with time
+and fixing the unit, not a signed axiswise translation group. A second short
+argument gives `B(x,T_(2*n+1)x) <= B(x,T_(2*n)x)`; it does not assume one-step
+positivity. The excitation review corrected an important proposed join: the
+older positive response is at physical lag THREE, not two. Its comparison
+with the current lag-three diagonal remains unproved; the new inequality
+then transfers any supplied lower floor to lag two without loss.
+
+NEXT CAUSAL FRONTIER: formalize the explicit translated-full-box placement,
+selected-chain inclusion, omitted-face distance and original probe pins in
+`audits/AUDIT-UNION-POSITIVE-RESPONSE-FRONTIER.md`. These are the missing inputs
+to the existing signed boundary comparison and cutoff-uniform finite response
+floor; an assumption-only response wrapper would not remove them. In parallel,
+full real scalar structure and actual signed/axiswise spatial actions remain
+useful independent work. The physical changing-scale branch still needs an
+original-action estimate outside the obstructed small-nome AF chart. Mass
+calibration needs the SAME transfer/physical-length and finite-rate pins;
+all-group work needs actual global-form, representation/Haar/action producers,
+not duplicated scalar or completion compilers.
+
+Six focused module checks passed 92 public gates within {propext, Quot.sound},
+one monitored worker/20 GiB at a time. Root imports added, root/full-tree/full
+audit unrun. No old proof, canonical field, sorry, axiom, analytic assumption
+or safety limit changed. No literature scan; CI remains manual-only. The
+five-front map and precise verification boundary are recorded in
+`audits/AUDIT-SPATIAL-UNION-RESOLVENT.md`. Whole-project Clay goal remains OPEN.
+
+**Previous mathematical increment (PROVED represented-row limits, same-carrier time/centering continuity and quantitative relaxation; reduced resolvent was OPEN at that checkpoint):**
 PROGRESS after `b84fa5e`: the preceding checked centering/stationary milestone
 was committed and pushed. The actual squared distance is now identified with
 the limit of original union distances. Generic dense approximation and a

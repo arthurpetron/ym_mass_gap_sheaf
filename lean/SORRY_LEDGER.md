@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED same-union represented limits and quantitative relaxation; OPEN resolvent and full real/Hilbert/continuum passage (2026-09-16)
+## PROVED bounded same-union reduced inverse, diagonal spatial symmetry and odd/even response comparison; OPEN positive-response transport and physical continuum construction (2026-09-16)
+
+- **files**: `BF4SpatialUnionWeightedNorm.lean`,
+  `BF4SpatialUnionResolventPartial.lean`, `BF4SpatialUnionResolvent.lean`,
+  `BF4SpatialUnionResolventBound.lean`,
+  `BF4SpatialUnionDiagonalTranslation.lean`, and
+  `BF4SpatialUnionOddEvenResponse.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: an exact weighted-square identity gives the rate-dependent
+  partial-sum budget `(1-q(w))^(-2)`. Actual geometric Cauchy rows and their
+  explicit limit construct the same-carrier reduced inverse, with both inverse
+  identities, norm/distance bounds, rational linearity, self-adjointness and
+  actual-time commutation. The vector and approximation modulus remain data.
+  Literal recentering constructs positive diagonal spatial isometries; actual
+  norm contraction and difference positivity prove odd response is at most
+  the preceding even response, without assuming one-step positivity.
+- **consumer/open input**: removes the actual discrete reduced-resolvent
+  obligation, not a continuous-time Hamiltonian construction. Positive
+  diagonal translations do not supply signed/axiswise spatial group laws.
+  The older full-slab positive response has physical lag THREE; comparison
+  with the current selected-chain lag-three diagonal is still needed before
+  using the new lag-three-to-two inequality. Full real-module/Hilbert/OS/QFT,
+  original-algebra coverage, changing-scale original-action control, physical
+  time/mass calibration, continuum nontriviality and all compact simple groups
+  remain open. The AF small-nome-guard obstruction is unchanged.
+- **verification**: six focused serialized checks, 92 public gates within
+  {propext, Quot.sound}; one worker/20 GiB. Root imports added; root/full-tree/
+  full audit unrun. No prior proof, canonical field, sorry, axiom or stronger
+  analytic premise changed. Evidence, consumers and parallel disposition:
+  `audits/AUDIT-SPATIAL-UNION-RESOLVENT.md`.
+
+## Previous PROVED same-union represented limits and quantitative relaxation; resolvent and full real/Hilbert/continuum passage were OPEN at that checkpoint (2026-09-16)
 
 - **files**: `CRealSeminormCompletedApproximation.lean`,
   `CRealSeminormCauchyRows.lean`, `BF4ExactSlabThermodynamicGenericRowsPin.lean`,

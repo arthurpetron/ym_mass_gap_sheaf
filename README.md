@@ -21,7 +21,29 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: computed row limits and quantitative relaxation on the same spatial union carrier.**
+**Latest result: a constructive reduced inverse and spatial symmetry on the same completed carrier.**
+The actual two-step transfer now has a bounded inverse for `I-T_2` on the
+unit complement. Its geometric-series construction returns an approximation
+modulus; its squared-norm bound is explicitly `(1-q(w))^(-2)`. Rational
+linearity, self-adjointness and commutation with actual discrete time are
+proved. No stronger coupling guard or alternative carrier is used.
+
+Parallel work proves positive diagonal spatial translations preserve the
+actual pairing and commute with time. This is not yet the full spatial
+translation group. An odd/even comparison also transfers a supplied lag-three
+response floor to lag two; the required original-action comparison supplying
+that floor remains open. The old response has lag three, not lag two.
+
+This remains **fixed-spacing, small-nome SU(2)**. Full real/Hilbert/OS/QFT
+structure, changing-scale control, physical mass calibration and actual
+constructions for every compact simple group remain open. Six focused checks
+passed 92 public axiom gates within `{propext, Quot.sound}`; no root/full-tree
+check ran. See the [proof checkpoint and parallel-work map](audits/AUDIT-SPATIAL-UNION-RESOLVENT.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: computed row limits and quantitative relaxation on the same spatial union carrier.**
 Supplied Cauchy representatives now have a computed diagonal limit with an
 explicit outer modulus. Original physical time and centering commute with
 these limits; the existing unit complement is closed under them. The actual
@@ -40,9 +62,6 @@ small-nome SU(2)**, not a continuum mass-gap theorem.
 Six focused module checks passed all 78 public axiom gates within
 `{propext, Quot.sound}`; no root/full-tree check ran. See the
 [proof checkpoint and parallel dependency map](audits/AUDIT-PARALLEL-FRONTIERS-2026-09-16.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: exact centering and stationary-sector characterization on the same spatial union carrier.**
 Actual addition and rational scaling now descend with explicit moduli and

@@ -4729,6 +4729,13 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicGenericRowsPin
 import YMGap.Continuum.BF4SpatialUnionCompletedDistance
 import YMGap.Continuum.BF4SpatialUnionRelaxation
 import YMGap.Continuum.BF4SpatialUnionCauchyRows
+-- Actual reduced inverse, diagonal spatial isometries and odd/even response.
+import YMGap.Continuum.BF4SpatialUnionWeightedNorm
+import YMGap.Continuum.BF4SpatialUnionResolventPartial
+import YMGap.Continuum.BF4SpatialUnionResolvent
+import YMGap.Continuum.BF4SpatialUnionResolventBound
+import YMGap.Continuum.BF4SpatialUnionDiagonalTranslation
+import YMGap.Continuum.BF4SpatialUnionOddEvenResponse
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

@@ -127,16 +127,23 @@ There are two precise proof-search targets; neither is currently supplied:
   `lean/YMGap/Continuum/BF4ExactSlabOriginalResponseNumeratorFloor.lean:37`.
   `BF4ExactSlabThermodynamicPositiveResponse.original_response_floor`,
   `lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveResponse.lean:50`,
-  transports it to that older thermodynamic response. An equality of its
-  `responseRepresentative` with the union's centered moment at lag two would
-  suffice for this scalar consumer; a full isomorphism of completions is not
-  needed for the inequality. **That scalar equality is NOT FOUND** in
+  transports it to that older thermodynamic response. **Correction from the
+  subsequent geometry review:** the old response has endpoint separation
+  THREE, not two: `BF4ExactSlabShiftedProbeTubeGeometry.endpoint_separation`,
+  `lean/YMGap/Continuum/BF4ExactSlabShiftedProbeTubeGeometry.lean:77`.
+  Its bond-reflected norm already includes a one-link separation. A possible
+  comparison must therefore target union lag THREE, followed by a separate
+  actual-contraction inequality to reach lag two. An equality with the union's
+  lag-two scalar must not be assumed. A full isomorphism of completions is not
+  needed for this scalar consumer. **A corresponding lag-three scalar pin is NOT FOUND** in
   `BF4SpatialUnion*.lean`, `BF4ExactSlabFixedSpatial*.lean`,
   `BF4ExactSlabThermodynamicProbeResponse.lean`, or
   `BF4ExactSlabThermodynamicPositiveResponse.lean`. The original numerator theorem
   names `slabPhysicalFaceEdges`; the union diagonal names the selected chain.
   Treating the two as definitionally the same action would skip the missing
-  comparison.
+  comparison. The bounded constructive comparison plan, with explicit aligned
+  extents and probe coordinates, is recorded separately in
+  `audits/AUDIT-UNION-POSITIVE-RESPONSE-FRONTIER.md`.
 
 The finite crossing-coercivity estimate is not a ready uniform substitute:
 `BF4ExactSlabSelectedInterfaceCoercivity.selected_lower`,
