@@ -133,7 +133,49 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED selected-chain and same time-limit reflected positivity on finite signed spatial-probe spans; OPEN intrinsic reflected carrier and physical OS transfer):**
+**Latest mathematical increment (PROVED intrinsic reflected scalar pairing, signed-rational bilinearity, sharp CS and null-pairing annihilation; OPEN actual physical shift and completion):**
+PROGRESS after `035d097`. The actual sign-corrected reflection is involutive
+and preserves the selected chain action. Same-partition Haar symmetry and
+the original signed-span pin give mixed reflected symmetry. Existing window
+limit laws give bilinearity. A centered h->h+1, j->j+1 inclusion lifts the
+ENTIRE mixed polynomial once. Supported full-window Haar congruence, with
+both terminal messages and all action factors retained, then composes the
+proved right/left padding laws. No finite stationarity is assumed.
+
+CONTRACTION: finite signed-combination positivity constructs the actual
+rational quadratic form, giving sharp CS. Raw time-sequence convergence
+passes CS to the existing limits without aligning their polynomial caps or
+QMhat indices. An epsilon-squared argument proves null-pairing annihilation.
+Intrinsic observables record natural distances from the reflection plane;
+their finite maximum computes a common chart. Centered inclusion proves
+independence of any enclosing chart. Addition/scaling, symmetry, positivity,
+CS and the radical law all pass to this SAME intrinsic scalar pairing.
+
+NEXT CAUSAL FRONTIER: increment intrinsic distances to define the genuine
+physical shift S, and prove B(SX,Y)=B(X,SY) by a literal mixed-product
+translation pin and `windowLimit_shift`. This is NOT centered inclusion.
+Prove a lag-independent scalar cap using coefficient-list invariance of
+`polynomialCap` and the actual window bracket. Time balance and RP then
+feed `bounded_midpointDoubling_leEv_anchor` (a_n=B(S^n X,S^n X)) to give
+contraction without first demanding a strict-gap envelope. These proposed
+physical-shift premises remain unproved. Site RP supplies two-step
+positivity after time balance, not automatic one-step positivity.
+
+The scalar presentation has not yet been quotiented or completed; the
+concrete squared-seminorm, actual nonexpansive shift and stationary vacuum
+remain to be supplied. Gauge-observable completeness, joint cutoff/time
+passage, width/spacing-uniform control, physical Hamiltonian gap, continuum
+QFT and every compact simple group remain open. Fixed nome, width and
+retained cutoff are explicit. No old canonical field, hole or axiom changed.
+
+Verification: six focused serialized one-worker/20 GiB checks; all 73 public
+gates within {propext, Quot.sound}, with axiom-free radius/chart computations.
+Six selective-root imports; root/full-tree/full axiom audit unrun. Independent
+review checked physical guards, same partition, signed cross terms and
+common-chart transport of both diagonals. Evidence and the next consumer:
+`audits/AUDIT-FIXED-SPATIAL-INTRINSIC-REFLECTED-FORM.md`.
+
+**Previous mathematical increment (PROVED selected-chain and same time-limit reflected positivity on finite signed spatial-probe spans; OPEN intrinsic reflected carrier and physical OS transfer at that checkpoint):**
 PROGRESS after `9c4cc0a`. The centered selected chain, not the full ambient
 action, is preserved by the actual plaquette reflection. Its lower/fixed/
 upper factors split the unchanged action; the lower factor is one-sided and

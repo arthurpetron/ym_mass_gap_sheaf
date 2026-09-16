@@ -13,7 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED selected-chain and same time-limit reflected positivity on signed spatial-probe spans; OPEN intrinsic reflected carrier and physical OS transfer (2026-09-16)
+## PROVED intrinsic reflected pairing, sharp CS and null-pairing annihilation; OPEN actual physical shift and completion (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialCenteredWindowShift.lean`,
+  `BF4ExactSlabFixedSpatialWindowPaddedCongruence.lean`,
+  `BF4ExactSlabFixedSpatialReflectedSymmetry.lean`,
+  `BF4ExactSlabFixedSpatialReflectedForm.lean`,
+  `BF4ExactSlabFixedSpatialReflectedCauchySchwarz.lean`, and
+  `BF4ExactSlabFixedSpatialIntrinsicReflectedForm.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: actual sign-corrected reflection involution and selected-action
+  invariance give same-partition mixed symmetry. Exact signed-span algebra
+  gives bilinearity. One common polynomial lift, supported full-window Haar
+  congruence and existing padding laws give centered inclusion. Actual finite
+  quadratic positivity gives sharp CS; raw-sequence convergence, not matched
+  representative indices, passes it to the existing limits. Epsilon squared
+  proves null-pairing annihilation. Computed natural-distance radii give a
+  window-independent scalar pairing with all these laws.
+- **consumer/open input**: removes mixed symmetry, bilinearity, chart
+  compatibility, sharp CS and null-pairing annihilation for this actual
+  fixed-width spatial-probe family. Next: literal physical time-shift balance
+  and a lag-independent coefficient cap, then contraction via the existing
+  bounded-midpoint theorem. The squared-seminorm quotient/completion, actual
+  transfer and stationary vacuum remain open. Centered inclusion is not
+  physical translation; site RP does not automatically prove one-step
+  positivity. Nome, width and retained cutoff stay fixed; joint limit and
+  spacing control, complete gauge algebra, physical Hamiltonian gap,
+  continuum QFT and all-group Clay closure remain open. No canonical field,
+  literal hole, axiom or analytic premise changed.
+- **verification**: six focused serialized one-worker/20 GiB checks; all
+  73 public gates within {propext, Quot.sound}. Six selective-root imports;
+  root/full-tree/full axiom audit unrun. Independent mathematical review
+  checked physical guards and same-object/common-chart limit passage.
+  Evidence: `audits/AUDIT-FIXED-SPATIAL-INTRINSIC-REFLECTED-FORM.md`.
+
+## Previous PROVED selected-chain and same time-limit reflected positivity on signed spatial-probe spans; OPEN intrinsic reflected carrier and physical OS transfer at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabSiteSelectedHeatAction.lean`,
   `BF4ExactSlabFixedSpatialChainReflection.lean`,
