@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED recentered original plaquette variance with a volume-independent positive floor; OPEN spatial comparison, uniform decay and continuum passage (2026-09-16)
+## PROVED original chart plaquette cross-width comparison under small-nome guards; OPEN general moments, spatial limits and continuum passage (2026-09-16)
+
+- **files**: `BF4ExactSlabTranslatedHaarEmbedding.lean`,
+  `BF4ExactSlabTranslatedSelectedAction.lean`,
+  `BF4ExactSlabFixedSpatialTranslatedChain.lean`,
+  `BF4ExactSlabFixedSpatialAlignedBoxes.lean`,
+  `BF4ExactSlabFixedSpatialAlignedAction.lean`,
+  `BF4ExactSlabFixedSpatialPlaquetteBoundary.lean`, and
+  `BF4ExactSlabFixedSpatialPlaquetteComparison.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: generic actual Haar/action translation retains the exact
+  selected numerator and partition. Spatial d/time 2*d alignment preserves
+  both temporal endpoints; omitted target factors are spatially separated
+  by r+1. Singleton locality and interval data produce the original signed
+  determinant estimate, with both original partitions. Normalization and
+  exact filtered-action transport prove actual cross-width finite means
+  differ by at most A(w,spin)*rho(w)^(r+1), uniformly in cutoff, time buffer,
+  base size and extra padding. The same coefficient passes to cutoff limits.
+  The explicit small-nome guards have a proved instance at w=1/1024.
+- **consumer/open input**: removes the actual one-plaquette small-nome
+  cross-width estimate, not the general reflected-product estimate or the
+  spatial limiting-state construction. Fixed-support general probe data,
+  unrestricted-nome spatial control, width-independent connected decay,
+  full Hilbert/OS/QFT, spacing and physical mass calibration, continuum
+  nontriviality and all-group Clay closure remain open. No canonical field,
+  sorry, axiom or analytic premise changed.
+- **verification**: seven narrow serialized one-worker/20 GiB checks,
+  78 public gates within {propext, Quot.sound}; seven root imports, root/full-
+  tree/full audit unrun. Independent source review found no action,
+  normalization, endpoint or uniformity mismatch. Evidence:
+  `audits/AUDIT-ALIGNED-SPATIAL-PLAQUETTE-COMPARISON.md`.
+
+## Previous PROVED recentered original plaquette variance with a volume-independent positive floor; OPEN spatial comparison, uniform decay and continuum passage at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabSelectedStarVariance.lean`,
   `BF4ExactSlabFixedSpatialFaceCharacter.lean`,

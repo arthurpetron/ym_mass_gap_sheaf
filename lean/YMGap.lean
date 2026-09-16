@@ -4661,6 +4661,14 @@ import YMGap.Continuum.BF4ExactSlabSelectedStarVariance
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFaceCharacter
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialRecenter
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalVariance
+-- Exact aligned original actions and small-nome one-plaquette spatial comparison.
+import YMGap.Continuum.BF4ExactSlabTranslatedHaarEmbedding
+import YMGap.Continuum.BF4ExactSlabTranslatedSelectedAction
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTranslatedChain
+import YMGap.Continuum.BF4ExactSlabFixedSpatialAlignedBoxes
+import YMGap.Continuum.BF4ExactSlabFixedSpatialAlignedAction
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteBoundary
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteComparison
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

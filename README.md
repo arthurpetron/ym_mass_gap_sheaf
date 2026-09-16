@@ -21,7 +21,29 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: recentered plaquette excitations retain a positive variance floor independent of box size.**
+**Latest result: original plaquette means in different spatial boxes have a geometric comparison bound.**
+Translate the smaller action into the larger Haar carrier, keeping its exact
+partition. A spatial shift by `d` and time shift by `2*d` align both time
+boundaries. Every omitted factor is then spatially distant, including
+temporal plaquettes outside the smaller spatial box. The signed boundary
+estimate gives an error `A(w,spin) * rho(w)^(r+1)`, uniform in heat cutoff,
+time buffer, base size and further outer padding. The same bound survives
+heat-cutoff removal. Its small-nome conditions are explicit and proved at
+the existing `w=1/1024` pilot.
+
+This is a **one-plaquette cross-width estimate**, not general reflected
+correlation decay or a continuum gap. Next: extend comparison to the actual
+reflected probe products and combine it with the fixed-width joint limits.
+Unrestricted-nome spatial control, a width-independent decay rate, spacing
+control, full Hilbert/OS/QFT reconstruction and the all-group target remain
+open. Seven focused checks passed the constructive axiom gates; no root or
+full-tree check ran. See the
+[aligned-box comparison audit](audits/AUDIT-ALIGNED-SPATIAL-PLAQUETTE-COMPARISON.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: recentered plaquette excitations retain a positive variance floor independent of box size.**
 The proof compares only the at-most-six heat factors touching one actual
 link, retaining every other action factor and the original partition.
 Exact SU(2) character cancellation then bounds the interacting variance
@@ -38,9 +60,6 @@ control, full Hilbert/OS/QFT reconstruction and the continuum/all-group
 target remain open. Four focused module checks passed all 39 public gates;
 no root/full-tree check ran. See the
 [local-variance audit](audits/AUDIT-RECENTERED-LOCAL-VARIANCE.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: the actual completed unit complement has a strict form bound and a nonzero excitation.**
 Rational approximations to the original plaquette mean construct an actual

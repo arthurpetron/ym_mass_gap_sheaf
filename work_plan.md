@@ -133,7 +133,43 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED recentered original plaquette variance with a volume-independent positive floor; OPEN cross-width state comparison, width-independent decay and continuum/physical-scale control):**
+**Latest mathematical increment (PROVED geometric cross-width comparison of ORIGINAL chart plaquette means under explicit small-nome guards; OPEN general reflected-product comparison, spatial limits and physical gap control):**
+PROGRESS after `6ea3deb`. A computed injective translation preserves the
+original complete link carrier, ordered plaquette words, selected heat
+product, numerator and actual partition. For padded width W_r=base+2*r+2,
+translate from r to r+d by d spatially and 2*d temporally. Both selected
+time windows coincide, including their orientation-dependent endpoints.
+Inside the larger chain, translated membership is exactly the smaller
+spatial base box. All omitted faces are at L-infinity distance >= r+1
+from a recentered base face, independent of time buffer or root time.
+
+CONTRACTION: the actual singleton core-size floor feeds the existing signed
+mixed-numerator estimate. Its TWO original partitions cancel before any
+limit. Exact filtered-action transport then gives the actual smaller/larger
+chart means at the same stage and time buffer an error at most
+A(w,spin)*rho(w)^(r+1). Heat-cutoff passage preserves this coefficient.
+There is no volume/time/cutoff dependence in A or rho; coupling and spin
+remain explicit. The guards heatRatio<=1/2, heatRemainderBound<1 and
+entropyRate(625,adjustedCoreRate)<1 are all supplied at w=1/1024.
+No general-nome or connected-correlation estimate is inferred.
+
+NEXT ANALYTIC FRONTIER: generalize the actual insertion comparison to the
+reflected signed probe products used by chartScalar, with fixed-support
+interval/locality data. Then compose spatial comparison with the existing
+fixed-width joint cutoff/time modulus to construct spatial limiting moments.
+The current one-character estimate alone does not construct that state or
+its completed norm. Unrestricted-nome signed response, width-independent
+connected decay, full Hilbert/OS/QFT, spacing/physical mass calibration,
+continuum nontriviality and all-group Clay closure remain open.
+
+Seven focused serialized one-worker/20 GiB checks passed all 78 public gates
+within {propext, Quot.sound}; seven root imports added, root/full-tree/full
+audit unrun. Independent read-only review checked the actual actions,
+partitions, temporal endpoints and all stated uniformities. No canonical
+field, hole, axiom, analytic premise or safety limit changed; no literature
+scan. Evidence: `audits/AUDIT-ALIGNED-SPATIAL-PLAQUETTE-COMPARISON.md`.
+
+**Previous mathematical increment (PROVED recentered original plaquette variance with a volume-independent positive floor; OPEN cross-width state comparison, width-independent decay and continuum/physical-scale control at that checkpoint):**
 PROGRESS after `c7729d4`. Partition any duplicate-free physical selected
 action into the heat factors incident to one chosen plaquette link and
 their exact complement. Four-dimensional geometry bounds the former by
