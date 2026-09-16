@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual completed rational linear/bilinear laws, sharp CS, squared-distance geometry and linear nonexpansive physical time; OPEN real scaling, centering and metric completeness (2026-09-16)
+## PROVED actual unit projection, centered physical time and SAME-partition connected correlators; OPEN separation decay, strict reflected-norm bound and metric completeness (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialRealScalarCauchy.lean`,
+  `BF4ExactSlabFixedSpatialCompletedRealScalar.lean`,
+  `BF4ExactSlabFixedSpatialUnitProjection.lean`,
+  `BF4ExactSlabFixedSpatialCenteredCompletion.lean`,
+  `BF4ExactSlabFixedSpatialCenteredPhysicalTime.lean`,
+  `BF4ExactSlabFixedSpatialCommonChartCorrelator.lean`, and
+  `BF4ExactSlabFixedSpatialOriginalConnectedCorrelator.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: explicit-modulus scalar streams construct actual scaling;
+  same-form pairing separation proves descent. The actual unit coefficient
+  and its constructed QCauchy data give a choice-free projection. Subtraction
+  gives orthogonal centering and exact mixed Pythagoras. The SAME physical
+  time restricts to the unit complement, with centered pairing equal to the
+  original connected pairing. One common finite chart makes the joint and
+  both unit-marginal expectations share action/cutoff/partition. Generic
+  scalar QCauchy arithmetic combines the raw streams before regularization;
+  their constructed connected limit equals the centered time correlator.
+- **consumer/open input**: removes actual modulus-bearing real scaling,
+  unit projection/centering, unit-complement time restriction and the
+  same-partition connected finite-limit identity. Next is exact two-window
+  contraction/factorization and physical-separation decay, not another
+  boundary-forgetting estimate. No strict reflected-norm bound is supplied
+  by the existing transfer brackets alone. Nome, width and cutoff stay fixed;
+  q=mixRate depends on nome/width. Metric completeness, full Hilbert/OS and
+  gauge algebra, nonconstant excitations, isolated vacuum, strict gap,
+  joint limits, continuum QFT, physical Hamiltonian gap and all-group Clay
+  closure remain open. No canonical field, hole, axiom or premise changed.
+- **verification**: seven focused serialized one-worker/20 GiB checks;
+  all 97 public gates within {propext, Quot.sound}. Seven selective-root
+  imports; root/full-tree/full axiom audit unrun. Independent source review
+  checked all constructive and same-object boundaries. Evidence:
+  `audits/AUDIT-FIXED-SPATIAL-CENTERED-CORRELATORS.md`.
+
+## Previous PROVED actual completed rational linear/bilinear laws, sharp CS, squared-distance geometry and linear nonexpansive physical time; OPEN real scaling, centering and metric completeness at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialIntrinsicLinear.lean`,
   `BF4ExactSlabFixedSpatialCompletionLinear.lean`,

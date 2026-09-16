@@ -133,7 +133,61 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED actual completed rational linear/bilinear laws, sharp CS, squared-distance geometry and linear nonexpansive physical time; OPEN real scaling, centering and metric completeness):**
+**Latest mathematical increment (PROVED modulus-bearing real scaling, actual unit projection/centering, physical time on the unit complement and SAME-partition connected finite-correlator limit; OPEN separation decay, strict reflected-norm bound and metric completeness):**
+PROGRESS after `7a8bfc5`. The scalar stream (s.approx n)*X.seq n is Cauchy
+in the actual reflected squared distance, with an explicit rate computed
+from the supplied scalar modulus and actual vector norm ceiling. Pairing
+homogeneity and positive definiteness descend real scaling without selecting
+scalar or vector representatives. The action takes CReal plus QCauchy data;
+an unrestricted bare-RC action is not asserted.
+
+The unit coefficient is the SAME representativeInner against the constant
+original unit, with its already constructed representativeInnerCauchy data.
+It now constructs a self-adjoint, idempotent, norm-contractive projection P.
+C=I-P is the actual unit-orthogonal centering map, with exact mixed
+Pythagorean decomposition and constant-one distance contraction. The unit
+is fixed by physical time; that fact does not prove uniqueness or isolation.
+
+CONTRACTION: time balance and the fixed unit give P*T=T*P=P and T*C=C*T.
+The existing physical map therefore restricts to the actual UnitComplement,
+retaining its semigroup laws. For every completed x,y,
+B(Cx,T_n Cy)=B(x,T_n y)-B(x,u)*B(u,y). Even-time positivity and non-strict
+diagonal comparison remain valid; no strict rate is assumed.
+
+For the original finite pin, use one supplied chart H containing both
+presentations. At buffer t, the joint and both unit-marginal expectations
+have IDENTICAL extent, selected chain action, retained cutoff and partition.
+Their literal same-index difference joint-left*right has constructed QCauchy
+data, using generic scalar arithmetic on the raw streams before reindexing.
+Its returned limit equals the actual centered pairing. Advancing the second
+presentation gives the centered physical-time correlator, with physical lag
+n independent of t. No separately minimized charts or limit interchange.
+
+NEXT CAUSAL FRONTIER: prove the exact contraction/factorization identity for
+two separated observation windows on the SAME chain, then a normalized
+connected covariance estimate in their physical separation. The existing
+windowBracket_width gives 2*C*q^g and inputNumerator_abs_le controls a signed
+second window against a certified residual, including zero residual mass.
+These are ingredients, not an already-proved two-window covariance theorem.
+Retain the common unobserved partition; do not divide by a signed insertion
+or residual mass. Existing windowRatio_*_commonTail results compare receding
+boundaries for a fixed insertion, not separation between two insertions.
+The subsequent reflected-norm upgrade and completed strict bound are still
+separate obligations. q=mixRate depends on nome and width, may be zero,
+and is not asserted uniformly below one as width or spacing varies.
+
+Metric completeness, full gauge algebra and Hilbert/OS reconstruction,
+nonconstant excitations, isolated vacuum, strict gap, joint cutoff/time and
+spatial/spacing control, physical Hamiltonian gap, continuum QFT and all
+compact simple groups remain open. No canonical field, literal hole, axiom
+or analytic premise changed. Seven focused serialized one-worker/20 GiB
+checks passed all 97 public gates within {propext, Quot.sound}. Seven
+selective-root imports; root/full-tree/full axiom audit unrun. Independent
+review checked rates, no-choice projection, same-partition centering and
+the actual time restriction. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-CENTERED-CORRELATORS.md`.
+
+**Previous mathematical increment (PROVED actual completed rational linear/bilinear laws, sharp CS, squared-distance geometry and linear nonexpansive physical time; OPEN real scaling, centering and metric completeness at that checkpoint):**
 PROGRESS after `db24c1a6`. Original signed presentations retain physical-face
 guards under append and rational scaling. Equality tested against every
 physical presentation is equivalent to zero original reflected distance;

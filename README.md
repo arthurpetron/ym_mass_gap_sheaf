@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: rational linear structure and actual squared-distance geometry on the original completed carrier.**
+**Latest result: actual unit projection, centered physical time and same-partition connected correlators.**
+Real scaling with explicit Cauchy data now constructs projection onto the
+original fixed unit. Subtracting that projection gives its orthogonal
+complement and an exact norm decomposition. The SAME physical-time map
+preserves this complement and commutes with centering. Its centered pairing
+equals the constructed limit of a **finite connected expectation with one
+shared action and partition** for the joint moment and both marginals.
+
+This is **fixed-nome, fixed-width, fixed-cutoff SU(2) progress**, not a
+strict-gap theorem. The next estimate must control separation between two
+observables; existing receding-boundary estimates alone do not do that.
+Metric completeness, full Hilbert/OS reconstruction, nonconstant excitations,
+vacuum isolation, the reflected-norm strict bound, joint limits and continuum
+Clay closure remain open. Seven focused checks passed all 97 public axiom
+gates; no root/full-tree check was run. See the
+[centering and connected-correlator audit](audits/AUDIT-FIXED-SPATIAL-CENTERED-CORRELATORS.md).
+
+**Previous result: rational linear structure and actual squared-distance geometry on the original completed carrier.**
 Addition and rational scaling now act on the SAME physical Cauchy carrier,
 with explicit moduli and proved algebraic laws. Its original pairing is
 bilinear, positive definite and satisfies sharp Cauchy--Schwarz. The
@@ -30,8 +47,8 @@ zero exactly at equal states. The SAME physical-time map is rational-linear
 and contracts that distance with constant **one**.
 
 This remains **fixed-nome, fixed-width, fixed-cutoff SU(2) progress**.
-The next producer is real scaling with supplied Cauchy moduli, for an actual
-projection onto the fixed unit and centered correlations. Metric completeness,
+The latest result supplies real scaling with Cauchy data, projection onto
+the fixed unit and actual centered correlations. Metric completeness,
 full Hilbert/OS reconstruction, nonconstant excitations, vacuum isolation,
 a strict gap, joint limits and continuum Clay closure remain open. Five
 modules passed focused checks with all 77 public gates inside the
