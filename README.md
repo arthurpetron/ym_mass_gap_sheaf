@@ -21,7 +21,22 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: reflected correlators survive heat-cutoff removal, preserving the strict scalar bound.**
+**Latest result: the cutoff-removed reflected Cauchy carrier has actual physical time.**
+Limiting Cauchy--Schwarz proves that zero-norm presentations pair to zero;
+the original reflected squared distance therefore supplies a well-defined
+new Cauchy quotient. The SAME physical advance acts on it as a discrete
+semigroup, preserving each supplied Cauchy modulus exactly. The original
+constant unit is fixed and distinct from zero.
+
+This remains **fixed-spatial-width SU(2) progress**, not a complete Hilbert/OS
+theory. Its completed pairing and strict unit-complement bound, a nonconstant
+excitation, spatial/spacing control and the continuum Clay target remain open.
+Next: extend the actual pairing on this carrier and investigate an explicit
+central-face positive-variance witness. Three focused checks passed all 44
+public axiom gates; no root/full-tree check was run. See the
+[joint-carrier audit](audits/AUDIT-FIXED-SPATIAL-JOINT-CARRIER.md).
+
+**Previous result: reflected correlators survive heat-cutoff removal, preserving the strict scalar bound.**
 At fixed spatial width and nome, the original reflected correlators now
 have a constructed joint heat-cutoff/time-boundary limit. Both orders of
 limits give the same scalar, with explicit moduli. The centered physical

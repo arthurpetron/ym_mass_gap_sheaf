@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED reflected scalar joint cutoff/time limit, SAME-partition connected pin and cutoff-removed strict centered scalar bound; OPEN limiting reflected carrier and spatial/spacing control (2026-09-16)
+## PROVED cutoff-removed reflected squared seminorm and physical-time Cauchy carrier; OPEN completed joint pairing/strict gap, nonconstant excitation and spatial/spacing control (2026-09-16)
+
+- **files**: `BF4ExactSlabFixedSpatialJointPairingLaws.lean`,
+  `BF4ExactSlabFixedSpatialJointSeminorm.lean`, and
+  `BF4ExactSlabFixedSpatialJointPhysicalTime.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: limiting sharp CS gives the genuine limiting radical law by
+  an epsilon-squared argument, without assuming finite-stage nullity.
+  The exact signed-difference expansion and unconditional limiting distance
+  laws supply every existing SquaredSeminorm field. Physical advance is
+  nonexpansive in the SAME distance, so the existing explicit-modulus Cauchy
+  quotient carries its discrete semigroup with unchanged supplied moduli.
+  Scalar time balance/even positivity survive; original unit normalization
+  gives a fixed completed vector distinct from zero.
+- **consumer/open input**: removes the limiting reflected seminorm,
+  radical/null-congruence and actual physical-time carrier construction.
+  Next: completed pairing with quantitative continuity and original
+  correlator pin, then its strict bound; separately prove a nonconstant
+  positive-variance observable. The new carrier is not identified with any
+  fixed-stage completion. Completed joint linear/Hilbert/OS structure,
+  nonconstant excitations, spatial/spacing control, physical mass calibration,
+  continuum QFT and all-group Clay closure remain open. No canonical field,
+  sorry, axiom or analytic premise changed.
+- **verification**: three focused serialized one-worker/20 GiB checks;
+  all 44 public gates within {propext, Quot.sound}. Three selective-root
+  imports; root/full-tree/full axiom audit unrun. Independent source review
+  checked the actual limiting radical and null-congruence argument.
+  Evidence: `audits/AUDIT-FIXED-SPATIAL-JOINT-CARRIER.md`.
+
+## Previous PROVED reflected scalar joint cutoff/time limit, SAME-partition connected pin and cutoff-removed strict centered scalar bound; OPEN limiting reflected carrier and spatial/spacing control at that checkpoint (2026-09-16)
 
 - **files**: `BF4ExactSlabFixedSpatialChartJointCauchy.lean`,
   `BF4ExactSlabFixedSpatialChartJointLimits.lean`,

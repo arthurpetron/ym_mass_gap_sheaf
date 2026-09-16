@@ -133,7 +133,45 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-16)
 
-**Latest mathematical increment (PROVED reflected scalar joint cutoff/time limit, SAME-partition connected pin and cutoff-removed strict centered scalar bound; OPEN limiting reflected carrier and spatial/spacing control):**
+**Latest mathematical increment (PROVED cutoff-removed reflected squared seminorm, Cauchy carrier and discrete physical-time semigroup; OPEN completed joint pairing/strict bound, nonconstant excitation and spatial/spacing control):**
+PROGRESS after `cef8cde`. Actual jointPairing inherits symmetry, signed-
+rational bilinearity, normalization, positivity and sharp CS. LIMIT CS,
+not finite-stage nullity, gives the radical law by an epsilon-squared
+argument. The literal physical difference and its exact four-term expansion
+then give pairing/distance null congruence. Unconditional distance laws pass
+through the proved scalar limits, supplying every SquaredSeminorm field.
+
+CONTRACTION: actual physical advance contracts that SAME joint distance.
+The existing choice-free explicit-modulus completion constructs its Cauchy
+carrier and descends the time semigroup. Each supplied Cauchy modulus is
+preserved verbatim; the embedded-probe pin is literal. Scalar time balance,
+time-sum, diagonal contraction and even-time positivity also pass to the
+joint limit. Original unit normalization proves the fixed completed unit
+distinct from zero, not a non-vacuum excitation or isolated vacuum.
+
+NEXT CAUSAL FRONTIERS: extend the actual mixed pairing to this new carrier,
+using constructive anchor bounds, quantitative CS continuity and the existing
+generic scalar completion machinery; retain its original correlator pin
+before extending the already proved strict scalar bound. In parallel,
+investigate a concrete central-face positive-variance witness. Source review
+found actual transfer floor/cap certificates, the central ratio and original
+bare-Haar character moments, but no checked central-character variance
+producer. Prove its same-state pin and depth/cutoff-independent lower bound;
+do not mistake the fixed unit for an excitation. Prefer this explicit
+mathematical witness to multiplying completed-space wrappers without a new
+consumer. See the detailed source pointers in the audit.
+
+No fixed-stage completion is identified with the new carrier. Its completed
+pairing/linear structure/centering and strict gap, metric completeness/full
+Hilbert/OS and gauge algebra, nonconstant excitations, spatial/spacing control,
+physical mass calibration, continuum QFT and all groups remain open. Nome
+and width remain fixed, with no new width-uniform estimate. No canonical
+field, hole, axiom, analytic premise or resource limit changed. Three focused
+serialized one-worker/20 GiB checks passed all 44 public gates within
+{propext, Quot.sound}; three selective-root imports, root/full-tree/full
+audit unrun. Evidence: `audits/AUDIT-FIXED-SPATIAL-JOINT-CARRIER.md`.
+
+**Previous mathematical increment (PROVED reflected scalar joint cutoff/time limit, SAME-partition connected pin and cutoff-removed strict centered scalar bound; OPEN limiting reflected carrier and spatial/spacing control at that checkpoint):**
 PROGRESS after `3ad2187`. For the actual common-chart scalar S(k,t), the
 boundary-time modulus is independent of cutoff k. At the computed depth
 T=timeModulus(epsilon/4), the original finiteCauchy supplies the cutoff
