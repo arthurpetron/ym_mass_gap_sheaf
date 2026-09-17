@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original temporal defect/conditional covariance pin; OPEN signed cross estimate (2026-09-17 UTC)
+## PROVED original-face Haar variance obstruction; OPEN full weighted estimate (2026-09-17 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabHeatHaarVarianceObstruction.lean`.
+  Two existing helpers in `BF4ExactSlabHeatHaarGuardObstruction.lean`
+  were made public with unchanged statements/bodies and added axiom gates.
+- **construction**: the actual positive-spin remainder has original Haar
+  mean zero and fundamental-character moment 2*w^3 for every K>=1. The
+  original prefix has mean one. `remainderVariance_lower` uses the actual
+  supported Haar pairing to prove H[(h_K-1)^2]>=4*w^6.
+  `remainderVariance_gt_one` and `no_eventual_small_variance` exclude cap
+  one at w>=7/8 for all K>=1, including arbitrarily late cutoffs.
+- **route ruled out**: replacing the old full-face small-Interval input
+  with individual-face bare-Haar L2 variance<=1 near w=1. The old Interval
+  obstruction did not itself exclude this weaker input.
+- **remaining**: this is NOT a variance theorem for full V*T^n1, its
+  conditional Haar law or shared-heat reweighting. The full signed temporal
+  determinant, weighted decomposition, spatial/scaling control and physical
+  mass/QFT/every-group obligations remain open. No canonical atom closes.
+  A probability-density interpretation still requires the original prefix
+  positivity certificate; no late-cutoff guard is weakened.
+- **verification**: two final focused monitored one-worker/20 GiB checks;
+  seven new-module and 21 shared-module printed gates within
+  {propext, Quot.sound}, no final errors/warnings/sorryAx. Independent review
+  passed. No new sorry/axiom or frontier/resource change. Root import added;
+  root/full-tree/full-audit/guard unrun. Evidence:
+  `audits/AUDIT-HEAT-HAAR-VARIANCE-OBSTRUCTION.md`.
+
+## Previous PROVED original temporal defect/conditional covariance pin; OPEN signed cross estimate (2026-09-17 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialClearedCovariance.lean`.
 - **construction**: `clearedDefect_pairing` identifies the SAME original

@@ -348,7 +348,14 @@ are preserved; neither supplies a route through the incompatible AF guard.
    Pairwise covariance bounds do not remove the third connected term.
    A small relative variance mu((b-Z)^2)/Z^2 would be one sufficient avenue,
    not a necessary new frontier field and not an available theorem. Test its
-   scaling before formalizing a Cauchy--Schwarz consequence. Likewise defer
+   scaling before formalizing a Cauchy--Schwarz consequence. The individual
+   original face is now tested: `BF4ExactSlabHeatHaarVarianceObstruction`
+   proves H[(h_K-1)^2]>=4*w^6 for every K>=1, hence >1 at w>=7/8.
+   Thus weakening the old small-Interval requirement to an individual-face
+   bare-Haar L2 cap one does not repair the near-one route, even eventually
+   in cutoff. This does NOT settle the variance of full Vg, its conditional
+   law or a shared-heat reference; do not generalize the obstruction to them.
+   Do not build an estimate requiring this refuted per-face input. Likewise defer
    the sharp unweighted covariance-matrix bound unless a full-source estimate
    actually consumes it. Existing connected-response and cutoff-tail identities
    are reusable inputs, not new work or proof of small background response.
@@ -385,7 +392,38 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest checkpoint (PROVED original temporal defect/conditional covariance pin; OPEN quantitative signed estimate):**
+**Latest checkpoint (PROVED original-face Haar variance obstruction; OPEN full weighted estimate):**
+`BF4ExactSlabHeatHaarVarianceObstruction` tests the weaker mean-square
+smallness avenue, not another generic finite model. For R_K=h_K-1 on any
+actual physical plaquette it proves
+
+    H[R_K]=0, H[h_K]=1, H[chi_1*R_K]=2*w^3  (K>=1),
+    H[R_K^2]>=4*w^6.
+
+The normalized fundamental-character Haar square is one, so the bound is
+ordinary Haar Cauchy--Schwarz with the exact SU(2) heat coefficient. For
+w>=7/8 it gives H[R_K^2]>1 at EVERY K>=1, hence excludes an eventual cap
+one after any proposed cutoff threshold. The former Interval obstruction
+alone did not imply this weaker-L2 obstruction. All nome dependence stays
+explicit. Prefix positivity is not needed for the norm theorem; probability
+density use still requires the original positivity guard.
+
+This removes an individual-face small-Haar-perturbation avenue near w=1.
+It does NOT prove large variance for the full endpoint V*T^n1, its conditional
+Haar law or the shared-heat reference. The live target remains the full
+conditional determinant against combinedTest from the previous checkpoint,
+with signed cross control, decomposition and spatial/scaling budget OPEN.
+No completed-gap rate, continuum statement or every-group atom improves here.
+
+Two final focused serialized one-worker/20 GiB checks passed: seven gates
+in the new module and 21 in the shared helper module, all within
+{propext, Quot.sound}, no final errors/warnings/sorryAx. Two helpers were
+exposed with unchanged statements/bodies, not counted as new mathematics.
+Independent source review passed. No new sorry/axiom, frontier/guard change
+or resource increase. Root import added; root/full-tree/full-audit/guard
+unrun. Evidence: `audits/AUDIT-HEAT-HAAR-VARIANCE-OBSTRUCTION.md`.
+
+**Previous checkpoint (PROVED original temporal defect/conditional covariance pin; OPEN quantitative signed estimate):**
 `BF4ExactSlabFixedSpatialClearedCovariance.clearedDefect_pairing` proves
 
     C_delta(r,s) = H[(V*g)*r*F_s],

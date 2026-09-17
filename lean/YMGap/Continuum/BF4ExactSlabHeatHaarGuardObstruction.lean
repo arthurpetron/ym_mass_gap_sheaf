@@ -203,7 +203,7 @@ private theorem first_character_mul_succ (p : RatPoly) (n : Nat) :
     (fun i => if i = 0 then a else b)).trans
     (((RatPolyCoeffEqv.refl a).add (cap_mul_left (-1) b)).add (RatPolyCoeffEqv.refl b))
 
-private theorem first_character_pair {extent id : Nat}
+theorem first_character_pair {extent id : Nat}
     (hi : id ∈ slabPhysicalFaceEdges extent) (n : Nat) :
     quaternionHaar (boundaryCompleteSlabLinks extent).length
       (polyMul (characterPolynomial (faceScalar extent id) 1)
@@ -260,7 +260,7 @@ private theorem test_heatTerm_high (w : Q') {extent id : Nat}
       (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _ (test_square_character_haar_high hi (n+1)))
         (Q'.mul_zero_eqv _)))
 
-private theorem inserted_sum_zero (blocks : Nat) (p : RatPoly) (f : Nat → RatPoly) :
+theorem inserted_sum_zero (blocks : Nat) (p : RatPoly) (f : Nat → RatPoly) :
     ∀ ids : List Nat, (∀ i, i ∈ ids → quaternionHaar blocks (polyMul p (f i)) ≈ 0) →
       quaternionHaar blocks (polyMul p (finitePolySum f ids)) ≈ 0
   | [], _ => haar_of_coeff (RatPolyCoeffEqv.mul_zero_right p)
@@ -382,6 +382,8 @@ def afObstructionWitness (family : MatchedBlockFamily) (law : CubicMarginLaw fam
 end YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction
 
 #print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.face_character_haar_zero
+#print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.first_character_pair
+#print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.inserted_sum_zero
 #print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.testPolynomial
 #print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.test_supported
 #print axioms YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction.test_square_haar

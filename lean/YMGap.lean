@@ -4471,6 +4471,7 @@ import YMGap.Continuum.BF4ExactSlabThermodynamicDerivativeDomain
 import YMGap.Continuum.BF4ExactSlabThermodynamicGraphTimeTransport
 import YMGap.Continuum.BF4SmallNomeAFGuardObstruction
 import YMGap.Continuum.BF4ExactSlabHeatHaarGuardObstruction
+import YMGap.Continuum.BF4ExactSlabHeatHaarVarianceObstruction
 import YMGap.Continuum.BF4ExactSlabAllNomeTailInterval
 import YMGap.Continuum.BF4ExactSlabAllNomeProductTail
 import YMGap.Continuum.BF4ExactSlabJacobiDeficitInterval
