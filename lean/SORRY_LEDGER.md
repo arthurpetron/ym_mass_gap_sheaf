@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED concrete centered seeds with per-piece error moduli; OPEN aggregate/signed budget (2026-09-17 UTC)
+## PROVED actual corrected-family approximation; OPEN uniform signed cost (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialSeedFamily.lean`,
+  `BF4ExactSlabFixedSpatialSeedFamilyApproximation.lean`,
+  `BF4ExactSlabFixedSpatialCorrectionApproximation.lean`,
+  `BF4ExactSlabFixedSpatialCorrectionFamilyApproximation.lean`,
+  `BF4ExactSlabFixedSpatialCenteredFamilyApproximation.lean`,
+  `QuaternionHaarFiniteSquareBudget.lean`, and
+  `QuaternionHaarWeightedSquareTriangle.lean`, under `lean/YMGap/Continuum/`.
+- **construction**: the active-plus-fringe family covers every retained
+  coordinate. The actual density-multiplied defects sum to nu*(sum q_i-Phi)
+  under Haar insertions. Positive-floor cancellation gives a finite geometric
+  bound in the SAME nu norm. Active corrections have an independent finite
+  degree with a cap computed from the already chosen seed polynomials.
+  `approximationDegrees` (CenteredFamilyApproximation:86),
+  `approximation_bound` (:94), and `approximationCertificate` (:118) return
+  and certify degrees (k,l) with H[nu*(S(k,l)-Phi)^2]<=epsilon.
+  `approximant_energy` (:129) instantiates the original temporal-energy
+  inequality on exactly these polynomials, leaving signed D+2h*R visible.
+- **input removed**: aggregate approximation and active correction degrees
+  are constructed, not assumed. No changed measure, dynamics, classical
+  selection, inverse observable, or degree-to-physical-time identification.
+- **remaining**: uniform signed-cost control for this particular family;
+  associated approximation/order passage; spatial and spacing control,
+  physical mass calibration, full same-theory continuum QFT, and every
+  compact simple group. The finite approximation constants may depend on
+  all regulators and do not themselves bound the signed cost uniformly.
+- **verification**: seven final focused serialized one-worker/20 GiB checks,
+  52 gates within {propext, Quot.sound}; no final warnings/errors/sorryAx.
+  Seven root imports; root/full-tree/full-audit/guard NOT run. No sorry added
+  or discharged; no canonical field, CI, or safety limit changed. Evidence:
+  `audits/AUDIT-CENTERED-FAMILY-APPROXIMATION.md`.
+
+## Previous PROVED concrete centered seeds with per-piece error moduli; aggregate then OPEN (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialActualMarginalWindow.lean`,
   `BF4ExactSlabFixedSpatialActualSeedWindow.lean`,

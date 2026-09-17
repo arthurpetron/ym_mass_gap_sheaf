@@ -495,7 +495,42 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current construction (PROVED actual centered polynomial seeds; OPEN aggregate approximation/signed budget):**
+**Current construction (PROVED actual corrected-family approximation; OPEN uniform signed cost):**
+`approximationDegrees`, `approximation_bound`, and `approximationCertificate`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCenteredFamilyApproximation.lean:86`,
+`:94`, `:118`, now compute and certify two finite degrees with
+H[nu*(S(k,l)-Phi)^2]<=epsilon for every supported original f and positive
+rational tolerance. The second degree uses the actual seeds chosen by the
+first. `approximant_energy` (:129) places precisely these tests in the
+existing original temporal-energy inequality, retaining D+2h*R explicitly.
+No stable-decomposition budget is assumed. The first finite-family bound
+uses the Haar-carrier telescope pin, not false raw coefficient equality;
+one additional density floor is lost in the SAME nu norm.
+
+**Next mathematical target:** bound D+2h*R on this constructed family by
+the original centered norm with the spatial/depth/cutoff control required
+by the limiting route. Increasing inverse degrees pays approximation error,
+not this signed cost. Do not continue adding approximation wrappers now
+that the actual two-degree witness and energy consumer are connected.
+The parallel mathematical review isolates an inverse interacting-density
+quadratic form on the actual Haar increments. Its coefficients are not
+constant, so ordinary Haar Pythagoras does not pay the budget. The positive
+finite window alone introduces regulator-dependent conditioning.
+For fringe coordinates, `terminal_inactive_independent`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeDual.lean:65`, removes
+terminal-message dependence from the conditional calculation; the spatial
+potential remains. Investigate this actual spatial-star pairing and the
+active-message oscillation, retaining signed cross terms. This review is
+not a proved inverse identity, uniform estimate, or counterexample.
+
+Seven focused serialized one-worker/20 GiB checks passed; all 52 printed
+gates use only {propext, Quot.sound}, with no final errors/warnings/sorryAx.
+Seven root imports added; root/full-tree/full-audit/guard NOT run. No sorry,
+canonical frontier, CI, or safety-limit changes. Full continuum/QFT/physical
+calibration/every-group obligations remain open. Source map and audit:
+`audits/AUDIT-CENTERED-FAMILY-APPROXIMATION.md`.
+
+**Previous checkpoint (PROVED actual centered polynomial seeds; aggregate approximation then OPEN):**
 The direct construction uses the original Z=H[nu] and Phi=Z*f-H[nu*f].
 `source_mean_zero` and `pieceSum_source`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCenteredHaarTelescope.lean:99`,
