@@ -4,7 +4,35 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual finite width-one fringe lower bound (2026-09-17)
+## Current increment: original one-vertex charged-sector coercivity (2026-09-17)
+
+PROGRESS after 6746672. Full-star spatial symmetry and actual partial-Haar
+equivariance produce symmetry of the ORIGINAL transfer and messages T^n1.
+The star includes fringe links; only at most six active kinetic factors
+change under a lower-end flip. Erase precisely those factors, retain both
+full V*g_n endpoint weights and every other factor, and prove the mixed
+integral zero for a star-odd f. Exact original energy/norm identities give
+
+    headFloor(w)^6 * H[nu*f^2] <= prefixCap(w)^6 * E_n(f),
+    nu=V*g_n*g_(n+1),         H[nu*f]=0.
+
+The constants depend on nome, not width, vertex, depth or admissible late K.
+This is restricted to one charged sector. It supplies no physical center-even
+coercivity: closed plaquette characters are even. Explicit even/odd polynomials
+and exact original-marginal norm splitting are proved; the odd-part bound uses
+its own energy. No energy split or general-input energy comparison is claimed.
+NEXT: the existing signed clearedDefect on retained center-even plaquette
+combinations, with original
+active-energy rejoin and spatial/depth/cofinal-cutoff control. Stop this
+auxiliary branch at one parity decomposition, not an all-charge compiler.
+Physical mass calibration, same-theory QFT and every group remain open.
+
+Verification: six focused module checks; 65 gates within {propext, Quot.sound},
+two axiom-free; final logs clean. No new sorry, analytic premise or canonical
+field change. No options/limits/CI changed; full-root/audit/guard/progress
+NOT run. Evidence: `audits/AUDIT-VERTEX-STAR-COERCIVITY.md`.
+
+## Previous increment: actual finite width-one fringe lower bound (2026-09-17)
 
 PROGRESS after 5ab2524. The complete original three-face packet has exact
 fundamental moment w^9/2, proved by symbolic Schur contraction. Original

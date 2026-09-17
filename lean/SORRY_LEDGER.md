@@ -13,7 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED full-action width-one moment and actual finite fringe lower bound; active estimate OPEN (2026-09-17 UTC)
+## PROVED original one-star charged-sector coercivity; center-even interaction OPEN (2026-09-17 UTC)
+
+- **files**: `SU2QuaternionWeightedProductBlockErasure.lean`,
+  `BF4ExactSlabFixedSpatialVertexStar.lean`, `SU2QuaternionProductHeatCenterSign.lean`,
+  `BF4ExactSlabFixedSpatialVertexStarTransfer.lean`,
+  `BF4ExactSlabFixedSpatialVertexStarEnergy.lean`, and
+  `BF4ExactSlabFixedSpatialVertexStarParity.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: full original spatial vertex-star symmetry, including fringe,
+  and at most six affected active kinetic factors. Actual partial Haar and
+  product-map sign equivariance produce original transfer and terminal-message
+  symmetry. Erasing just those factors gives a zero mixed integral for a
+  vertex-odd polynomial, retaining full V*g_n on both endpoints and every
+  other heat factor. `terminal_starOdd_mean_zero` (VertexStarEnergy:156)
+  centers it in the original nu=V*g_n*g_(n+1), and
+  `terminal_starOdd_six_energy_floor` (:234) proves
+  headFloor(w)^6*H[nu*f^2] <= prefixCap(w)^6*E_n(f).
+  `decomposition` (VertexStarParity:81), `marginal_norm_split` (:152) and
+  `oddPart_six_energy_floor` (:179) construct the one-star pieces and give
+  exact original-norm splitting with a bound on the odd piece's OWN energy.
+- **scope**: constants are explicit and nome-dependent, not width-, vertex-,
+  depth- or K-dependent once headCutoff(w)<=K and 0<w<1. This is the ORIGINAL
+  transfer energy, not a link heat-bath gap. No stationary replacement is used.
+- **consumer / open residue**: the stronger arbitrary-polynomial active route
+  admits charged pieces, but physical closed plaquette characters are
+  center-even (`character_starSign`, VertexStar:313). No improved physical
+  fraction, center-even gap or complete arbitrary-polynomial coercivity is
+  claimed. No original-energy splitting or E(oddPart f)<=E(f) is asserted;
+  full coercivity is not reduced to an even-part bound by norm splitting alone.
+  Cap this branch at the one-star decomposition; prioritize signed
+  nonnegativity of the existing clearedDefect on retained physical plaquette
+  combinations with spatial/depth/cofinal-cutoff control. Physical calibration,
+  same-theory continuum/QFT and every compact simple group remain OPEN.
+- **verification**: six focused serialized one-worker/20 GiB module checks;
+  65 gates within {propext, Quot.sound}, two axiom-free; clean final logs.
+  Independent mathematical/source review passed. No sorry added/discharged,
+  analytic premise or canonical field changed; limits and CI unchanged.
+  Six root imports; full-root build/audit/guard/progress NOT run. Exact evidence:
+  `audits/AUDIT-VERTEX-STAR-COERCIVITY.md`.
+
+## Previous PROVED full-action width-one moment and actual finite fringe lower bound; active estimate OPEN (2026-09-17 UTC)
 
 - **files**: seven new modules under `lean/YMGap/Continuum/`:
   `BF4ExactSlabWidthOneGeometry.lean`, `SU2QuaternionCornerFundamentalMoment.lean`,

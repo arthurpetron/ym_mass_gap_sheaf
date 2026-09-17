@@ -495,7 +495,60 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current result (PROVED actual finite fringe lower bound):** the requested
+**Current result (PROVED original one-vertex charged-sector coercivity):**
+the full spatial vertex star includes every incident retained link, including
+fringe links. Its exact sign change preserves the original spatial action,
+the original kinetic map under simultaneous endpoint signs, and the actual
+terminal messages g_n=T^n1. Erasing only its incident ACTIVE kinetic factors
+kills the mixed integral for a vertex-odd observable. Both full endpoint
+weights V*g_n and all other kinetic factors remain in the calculation.
+The checked result is
+
+    headFloor(w)^6 * ||f||_nu^2 <= prefixCap(w)^6 * E_n(f),
+    nu = V*g_n*g_(n+1),       f(star-flipped links) = -f(links).
+
+`terminal_starOdd_six_energy_floor` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialVertexStarEnergy.lean`
+uses the SAME original energy and marginal. The finite marginal mean is
+also exactly zero (`terminal_starOdd_mean_zero`). The constants depend on
+the rational nome 0<w<1, but not width, vertex, terminal depth, or cutoff
+K beyond headCutoff(w). `activeStar_length_le_six` in
+`BF4ExactSlabFixedSpatialVertexStar.lean` proves the six-factor count even
+at the boundary. This is not a bound uniform in bare coupling or spacing.
+
+**Consumer audit and branch cap:** the active input in
+`BF4ExactSlabFixedSpatialCenteredFringeExtraction.centered_extracted_energy_split`
+accepts arbitrary supported polynomials. `evenPart`, `oddPart`,
+`decomposition`, `marginal_norm_split` and `oddPart_six_energy_floor` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialVertexStarParity.lean` now
+construct the one-star pieces, split the ORIGINAL marginal norm exactly,
+and bound the odd piece using ITS OWN energy. No energy splitting or
+E(oddPart f)<=E(f) is asserted in this increment; full coercivity is not
+reduced to a supplied even-part estimate by these declarations alone.
+This isolates a controlled auxiliary sector. It does NOT control the physical
+interaction: original closed plaquette characters are center-even, as proved
+by `BF4ExactSlabFixedSpatialVertexStar.character_starSign`. Do not expand
+this into an all-charge compiler merely to finish the stronger auxiliary
+route. Center-even is not synonymous with gauge-invariant. The center-even
+estimate, the full all-polynomial estimate, and the physical gap remain OPEN.
+No canonical field or analytic guard was weakened.
+
+**Next mathematical proposition and existing consumer:** return to the
+retained center-even interaction. Seek an explicit positive delta(w), with
+width/depth/cofinal-cutoff control, proving nonnegativity of the ORIGINAL
+`BF4ExactSlabFixedSpatialClearedCovariance.clearedDefect` on centered finite
+combinations of retained plaquette characters. Its proved
+`clearedDefect_diagonal_nonnegative_iff` is the exact energy/variance consumer;
+`terminal_existing_fraction_nonnegative` currently supplies only the
+width-dependent `mixFraction`. Retain signed cross terms and shared partition
+factors. Any reduced-active calculation must rejoin the original objects
+through `BF4ExactSlabFixedSpatialActiveEnergy`, not rename the terminal law.
+Do not repeat charged-sector estimates or local physical variance floors:
+neither supplies the missing signed interacting comparison. Physical scaling,
+same-theory OS/QFT reconstruction and every compact simple group remain open.
+Evidence and verification boundary: `audits/AUDIT-VERTEX-STAR-COERCIVITY.md`.
+
+**Previous diagnostic (PROVED actual finite fringe lower bound):** the requested
 original-source test is now complete at width one and depth zero. Retain all
 24 coordinates, all three original spatial heat factors, the actual terminal
 messages and the numeric projection order. For f=q4.scalar, Phi=f and
@@ -529,7 +582,7 @@ previous coupled-degree compiler can enlarge its seed floor and recompute
 the correction degree; no exact inverse or old fixed correction is used.
 Evidence and full checked scope: `audits/AUDIT-WIDTH-ONE-FRINGE-SOURCE.md`.
 
-**Next mathematical work after this diagnostic:** prioritize the retained
+**Retained rejoin after the fringe diagnostic:** prioritize the retained
 active interaction, using the ALREADY PROVED original mean/norm/energy
 rejoin in `BF4ExactSlabFixedSpatialActiveEnergy.marginal_mean_active`,
 `marginal_pair_active`, `energy_active`
