@@ -21,7 +21,26 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: reflected positivity for original multi-time Wilson expressions.**
+**Latest result: original Wilson expectations after joint lattice-regulator removal.**
+Signed multi-time Wilson expressions now have an explicit CReal limit as
+spatial margin, heat cutoff and external time depth recede. Exact translation,
+a placement-independent ordered-word cap and literal fixed-box locality give
+the original-action spatial comparison. A computed pivot combines it with
+the time/cutoff modulus; no mixing estimate uniform across widths is assumed.
+The previous joint expectations converge to this SAME limit, and complete
+signed reflected products remain nonnegative.
+
+This is **fixed-spacing, small-nome SU(2)**. The enlarged reflected form's
+algebra, quotient/completion and strict bound, full OS/QFT identification,
+physical scaling and the every-group continuum theorem remain open. Seven
+focused serialized checks passed all 65 public axiom gates within
+`{propext, Quot.sound}`; no root/full-tree check ran. See the
+[three-regulator proof and next mathematical join](audits/AUDIT-WILSON-THREE-REGULATOR-LIMIT.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: reflected positivity for original multi-time Wilson expressions.**
 Finite signed sums and products of closed spatial loop characters now have
 an exact common-window realization in the original action. Literal reflection
 and one-sided support connect the complete reflected product to the existing
@@ -37,9 +56,6 @@ every-group continuum theorem remain open. Five focused checks passed all
 35 public axiom gates within `{propext, Quot.sound}`. Checks were serialized
 under the safe-build procedure; no root/full-tree check ran. See the
 [proof and parallel-front map](audits/AUDIT-WILSON-WINDOW-REFLECTED-POSITIVITY.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: original spatial Wilson loops, with exact action and time-limit realization.**
 Arbitrary closed ordered spatial Wilson words now pass through the same

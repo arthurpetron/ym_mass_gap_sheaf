@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original multi-time Wilson realization and time-limit reflected positivity; OPEN enlarged carrier, cutoff/spatial limits and strict bound (2026-09-17 UTC)
+## PROVED original Wilson three-regulator limits and reflected positivity; OPEN enlarged form algebra, completion and strict bound (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialWilsonWindowJointCauchy.lean`,
+  `BF4ExactSlabTranslatedWilsonWord.lean`,
+  `BF4ExactSlabFixedSpatialWilsonRecenter.lean`,
+  `BF4ExactSlabSpatialWilsonControl.lean`,
+  `BF4ExactSlabFixedSpatialWilsonBoxLocality.lean`,
+  `BF4ExactSlabFixedSpatialWilsonSpatialComparison.lean`, and
+  `BF4ExactSlabFixedSpatialWilsonSpatialLimit.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: an explicit time pivot and fixed-time cutoff modulus give joint
+  Cauchy data for actual original Wilson scalars. Unit-Haar-norm multiplication
+  gives a placement-independent character cap, including repeated/shared
+  links. Literal source recentering and prefix translation retain the whole
+  expression; a fixed box with the extra fringe layer supplies LinkLocal.
+  These inputs discharge the existing original-action spatial comparison.
+  One computed spatial pivot selects one row's time/cutoff modulus; the
+  literal three-index diagonal has QCauchy data and a CReal. Existing original
+  joint limits converge to that SAME scalar; signed reflected products remain
+  nonnegative. No width-uniform time modulus is assumed.
+- **consumer/open input**: removes the concrete Wilson cutoff/time/spatial
+  scalar-limit join, at fixed spacing under explicit small-nome and positive-
+  base guards. Next prove the SAME functional's rational laws and mixed-form
+  symmetry, followed by radical descent and centered chart compatibility.
+  Positivity alone does not supply those fields or an enlarged completion.
+  The old completed-carrier strict bound is not extended. Full coverage,
+  canonical OS/QFT realization, changing scale, physical mass, continuum
+  survival and actual every-group producers remain open. No canonical fields
+  or AF obstructions were changed.
+- **verification**: seven focused serialized one-worker/20 GiB checks, all
+  65 public gates within {propext, Quot.sound}. Root imports added; root/full-
+  tree/full audit unrun. No new or changed sorry, axiom, old proof, analytic
+  guard or safety limit. Independent reviews and exact evidence:
+  `audits/AUDIT-WILSON-THREE-REGULATOR-LIMIT.md`.
+
+## Previous PROVED original multi-time Wilson realization and time-limit reflected positivity; OPEN enlarged carrier, cutoff/spatial limits and strict bound (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialWilsonWindow.lean`,
   `BF4ExactSlabSpatialWilsonReflection.lean`,

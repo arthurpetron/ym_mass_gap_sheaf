@@ -133,7 +133,53 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED multi-time original Wilson-window realization and reflected positivity of its existing time limit; OPEN enlarged carrier, cutoff/spatial limits and its strict bound):**
+**Latest mathematical increment (PROVED actual Wilson spatial/time/cutoff limits and reflected positivity; OPEN enlarged reflected-form algebra, completion and strict bound):**
+PROGRESS after `42ff5fa`: the preceding Wilson-window positivity checkpoint
+was committed and pushed. The proposed parallel inputs now contract into an
+actual three-regulator limit, not merely additional conditional interfaces.
+
+EXPANSION: the original fixed-width scalar has joint time/cutoff Cauchy data
+by comparison at one computed time pivot. Independently, the literal ordered
+Wilson word has an actual unit-Haar-norm proof; its scalar square certificate
+gives the existing arbitrary-spin interval cap `2*16^spin`. Signed expression
+caps depend only on spins, coefficients and operations. Recentered loops retain
+their endpoints, repeated links and inverses; their entire placed expression
+has the PREFIX identity required by the aligned-action theorem. Literal link
+locality uses the corrected fixed box `max(base+1,2*H+1)`, retaining inclusive
+source fringe coordinates rather than copying the old face-only box.
+
+CONTRACTION: actual cap, locality and translation discharge the existing
+signed original-action spatial comparison at every heat stage and external
+time depth. Both original partitions remain. A computed spatial pivot then
+uses that one row's joint modulus to construct the unmodified diagonal
+`chartScalar n n n`, its explicit QCauchy data and a CReal. Previous original
+joint time/cutoff limits converge to this SAME spatial limit. Independent
+spatial, heat, time and representative indices have an explicit estimate.
+Complete signed reflected products remain nonnegative after all three lattice
+regulators. The spatial theorem retains positive source base and the existing
+small-nome/core/entropy guards. No physical spacing or nome is varied.
+
+NEXT CAUSAL FRONTIER: establish rational linearity, normalization and
+representation congruence of THIS spatial functional at common H; define its
+mixed reflected form and prove symmetry. Those laws feed limiting
+Cauchy--Schwarz and `SquaredSeminorm.null_congr`, not another assumption-only
+completion. Intrinsic chart compatibility must move H AND offsets together;
+changing H alone changes reflected separations. Only then pursue the actual
+enlarged quotient/completion/time and SAME-carrier strict bound. Full observable
+coverage, canonical OS scalar realization, spatial symmetry, changing-scale
+control outside the obstructed small-nome AF chart, physical calibration,
+continuum nontriviality and actual all-group producers remain open.
+
+Parent plus three agents separated translation, caps, box geometry,
+time/spatial integration and independent reviews. Seven focused serialized
+one-worker/20 GiB checks passed all 65 public gates within {propext, Quot.sound}.
+Root imports added; root/full-tree/full audit unrun. No old proof, sorry,
+axiom, analytic guard, canonical field or safety limit changed. CI stays
+manual-only; no routine literature scan. The hourly ASCII map preserves the
+whole-project goal and distinguishes proved arrows from the remaining joins.
+Evidence: `audits/AUDIT-WILSON-THREE-REGULATOR-LIMIT.md`. Clay target OPEN.
+
+**Previous mathematical increment (PROVED multi-time original Wilson-window realization and reflected positivity of its existing time limit; OPEN enlarged carrier, cutoff/spatial limits and its strict bound):**
 PROGRESS after `9f5a36f`: the preceding original-Wilson checkpoint was committed
 and pushed. The missing common-window join is now supplied for finite signed
 expressions of actual closed spatial loop characters. No existing completion,
