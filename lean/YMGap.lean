@@ -4604,6 +4604,7 @@ import YMGap.Continuum.SU2QuaternionWeightedProductDualEnergy
 import YMGap.Continuum.QuaternionHaarTwoFactorDual
 import YMGap.Continuum.QuaternionHaarFiniteFamilyDual
 import YMGap.Continuum.QuaternionHaarFamilyErasure
+import YMGap.Continuum.QuaternionHaarFamilySquare
 import YMGap.Continuum.SU2QuaternionWeightedProductTwoLinkDual
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLocalDirichletCoercivity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialClearedCovariance
@@ -4619,6 +4620,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFringeDual
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyFlow
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyErasure
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyMarginals
+import YMGap.Continuum.BF4ExactSlabFixedSpatialDiagonalCost
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFringeCross
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCost
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWindowBracket
 import YMGap.Continuum.RationalPositiveResidualRatio
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWindowInput

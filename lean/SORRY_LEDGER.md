@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED full-family erased-marginal energy; OPEN signed budget/decomposition (2026-09-17 UTC)
+## PROVED full finite-degree actual-marginal cost; OPEN controlled decomposition/signed budget (2026-09-17 UTC)
+
+- **files**: `QuaternionHaarFamilySquare.lean`,
+  `BF4ExactSlabFixedSpatialDiagonalCost.lean`,
+  `BF4ExactSlabFixedSpatialFringeCross.lean`,
+  `BF4ExactSlabFixedSpatialFamilyCost.lean`, under `lean/YMGap/Continuum/`.
+- **construction**: `flow_actual_pin` (FamilyCost:178), `cost_actual_split`
+  (:206), `diagonalRemainder_bounds` (:264), and
+  `actualResidual_corrected_energy` (:294) give the full same-nu bound
+  h*H[nu*f*S]^2 <= energy(T^n1,f)*(h*H[nu*S^2]+D+2h*R).
+  S is a finite sum of explicit corrected polynomials, D has actual lower
+  and upper certificates, and R retains signed active--active determinants.
+  Fringe determinant corrections are proved zero; their ordinary signed
+  pairings remain inside the norm of S. No exact inverse or limit is assumed.
+- **input removed**: full-family transport from the erased marginals to the
+  SAME actual nu and exact signed cost decomposition are now checked.
+  Diagonal nonnegativity and its component-norm cap are constructed.
+- **remaining**: choose an admissible stable centered approximation with
+  explicit moduli, and prove its combined D+2h*R upper budget with the
+  required spatial/depth/cutoff control. The cap by component norms is not
+  a uniform cap by the centered observable's norm. Nested-filtration
+  martingale centering is not the required all-other-coordinate centering.
+  No global gap, beta-uniform margin, continuum/QFT/physical-mass or
+  every-group closure; no canonical field or existing sorry changed.
+- **verification**: four final focused serialized one-worker/20 GiB checks,
+  11+9+9+12 gates within {propext, Quot.sound}, no final errors/warnings/sorryAx.
+  Independent mathematical reviews passed. Four root imports added;
+  root/full-tree/full-audit/guard NOT run. Evidence:
+  `audits/AUDIT-SAME-MARGINAL-FAMILY-COST.md`.
+
+## Previous PROVED full-family erased-marginal energy; OPEN signed budget/decomposition (2026-09-17 UTC)
 
 - **files**: `QuaternionHaarFamilyErasure.lean`,
   `BF4ExactSlabFixedSpatialFamilyErasure.lean`,

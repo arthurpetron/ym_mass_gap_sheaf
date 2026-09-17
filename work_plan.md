@@ -406,18 +406,27 @@ are preserved; neither supplies a route through the incompatible AF guard.
    `actualResidual_family_energy` (:374) supplies the tests from actual-nu
    residuals and finite polynomial reciprocals, not an assumed centering.
    This is NOT a bound of the signed cost by the centered variance.
-   **NEXT:** work at finite reciprocal degrees. Expose the cost as
-   h*||S_k||_nu^2 + D_k + 2h*R_k, with corrected tests S_k and the explicit
-   nonnegative diagonal cost D_k; R_k retains the active--active determinants.
-   This proposed split is source-reviewed algebra, NOT a checked declaration
-   yet. Do not discard D_k for an upper bound or ask for a bound valid for
-   every decomposition. Construct a controlled decomposition of the ACTUAL
+   **PROVED finite-degree SAME-MARGINAL energy/cost estimate:** `flow_actual_pin`,
+   `cost_actual_split`, and `actualResidual_corrected_energy` in
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCost.lean:178`,
+   `:206`, `:294` give
+   h*<f,S_k>_nu^2 <= energy(g,f)*(h*||S_k||_nu^2+D_k+2h*R_k).
+   `diagonalRemainder_bounds` (:264) proves D_k>=0 and its precise
+   component-norm cap. R_k is signed and active--active only: the fringe
+   determinant is exactly zero, but ordinary fringe cross pairings remain.
+   No reciprocal limit or different measure is used in this identity.
+   **NEXT:** construct a controlled decomposition of the ACTUAL
    centered observable and bound its combined D_k+2h*R_k, with explicit
    spatial/depth/cutoff control on this SAME marginal sufficient for
    `clearedDefect_diagonal_nonnegative_iff`.
-   The two-link theorem retains finite reciprocal degrees k,l; its new cross
-   terms have not been passed through a collective limit. Prove the needed
-   budget before adding a compiler that assumes it. No terminal-message
+   Do not discard positive D_k in an upper bound or demand a bound for
+   every decomposition. Tests must be centered conditionally on ALL OTHER
+   coordinates, P_i(nu*q_i)=0; ordinary nested-filtration martingale
+   differences do not automatically supply that condition. Existing
+   unweighted Haar decomposition and full-slab star projection results are
+   not this actual-nu construction. Choose seeds/degrees with an explicit
+   corrected-sum approximation and prove its signed budget before adding
+   any compiler that assumes it. No terminal-message
    locality or nonneighbor determinant vanishing has been proved here.
    Preserve its original mean correction and both partition factors. Do not
    replace this task by summing the new local bound over links: that incurs
@@ -429,7 +438,8 @@ are preserved; neither supplies a route through the incompatible AF guard.
    `audits/AUDIT-ACTUAL-MARGINAL-DUAL-ENERGY.md` and
    `audits/AUDIT-TWO-LINK-SIGNED-DUAL.md` and
    `audits/AUDIT-FINITE-FAMILY-FRINGE.md` and
-   `audits/AUDIT-FINITE-FAMILY-MARGINALS.md`.
+   `audits/AUDIT-FINITE-FAMILY-MARGINALS.md` and
+   `audits/AUDIT-SAME-MARGINAL-FAMILY-COST.md`.
    **Coverage audit:** inactive kinetic coordinates are averaged, not frozen.
    `terminal_energy_variance_floor` already covers all supported f with its
    width-dependent positive fraction. Nevertheless, active-only residuals
@@ -473,7 +483,43 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest checkpoint (PROVED exact full-family marginal energy; OPEN signed budget/decomposition):**
+**Latest checkpoint (PROVED finite-degree actual-marginal cost split; OPEN controlled decomposition/signed budget):**
+For actual-nu residuals q_i and explicit polynomial reciprocal degrees k_i,
+let v_i=d_i*G_i,k_i*q_i on active links, v_i=q_i on fringe, S=sum_i v_i.
+`actualResidual_corrected_energy`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCost.lean:294`, proves
+
+    h*H[nu*f*S]^2 <= energy(T^n1,f)*(h*H[nu*S^2]+D+2h*R).
+
+Both flow and cost now live on the SAME nu=(V*T^n1)*T^(n+1)1, by
+`flow_actual_pin` (:178) and `cost_actual_split` (:206). The exact D is
+sum_active H[nu*d_i*(t-h*d_i)*(q_i*G_i)^2] plus
+(1-h)*sum_fringe H[nu*q_i^2]. Its nonnegativity and component-norm ceiling
+are certified by `diagonalRemainder_bounds` (:264), not assumed. R keeps the
+signed active--active message determinants; `determinant_zero_if_either_inactive`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeCross.lean:104`, proves
+their fringe corrections vanish. Ordinary fringe cross pairings stay in
+H[nu*S^2]. No exact inverse, artificial heat factor, conditional centering
+field, changed energy, or limit premise is inserted.
+
+**Next is analytic, not another identification compiler:** construct suitable
+seeds/degrees so S_m approximates Phi=Z*f-H[nu*f] with explicit moduli and
+control D_m+2h*R_m on that chosen family, with the required regulator
+dependence. The proved component-norm cap is not a cap by ||S_m||^2.
+Do not replace all-other-coordinate centering by ordinary Doob centering,
+or actual nu by Haar/full-slab star weight. No admissible stable actual-nu
+decomposition was found in the bounded source review. Preserve the original
+mean and partition factors in `clearedDefect_diagonal_nonnegative_iff`.
+No improved uniform gap, spacing/physical mass, continuum/QFT or every-group
+closure follows. Source map and remaining task:
+`audits/AUDIT-SAME-MARGINAL-FAMILY-COST.md`.
+
+Four focused serialized one-worker/20 GiB checks passed; 11+9+9+12 printed
+gates lie within {propext, Quot.sound}; no final errors/warnings/sorryAx.
+Independent reviews passed. Four root imports added; root/full-tree/
+full-audit/guard NOT run. No canonical atom, sorry, CI or memory limit changed.
+
+**Previous checkpoint (PROVED exact full-family marginal energy; OPEN signed budget/decomposition):**
 With g=T^n1, a=Vg, actual one/two-erasure messages d_i,d_ij, and
 P_i(a*r_i)=0 at every retained coordinate, the checked theorem is
 
