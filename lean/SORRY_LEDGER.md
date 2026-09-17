@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED actual kinetic PSD and original interacting quadratic; Wilson-form pin OPEN (2026-09-17 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionCoordinateColumnLift.lean`,
+  `SU2QuaternionProductHeatPositive.lean`,
+  `BF4ExactSlabFixedSpatialTransferPositive.lean` in the same directory.
+- **proved**: `coordinateColumn_supported` (:138) and
+  `coordinateColumn_lift` (:292) retain both complex components at every
+  representation degree. `heat_preserves_quadratic` (Positive:202) derives
+  the genuine Gram insertion step, and `productMap_nonnegative` (:243)
+  proves PSD of the ACTUAL finite kernel map for nonnegative nome, every
+  cutoff and any list of valid link pairs, including repetitions.
+  `transferStep_eq_productMap` (TransferPositive:48) and
+  `original_quadratic_pin` (:56) retain full V in both arguments;
+  `transferStep_quadratic_nonnegative` (:67) gives H[V*f*T f]>=0 for every
+  supported signed f. No fringe-independence or positive-f premise.
+- **residue / consumer**: finite one-step positivity is now supplied.
+  Observed-window reversal adjointness and the balanced odd-window pin to
+  the CURRENT Wilson form remain open. Its displayed padded finite diagonal
+  trims to unequal boundary depths; use proved limiting stationarity, not
+  false finite stationarity. The resulting completed one-step positivity,
+  primary strict generated-orbit estimate, changing-spacing control,
+  continuum survival, physical generator/mass, full QFT and every-group
+  construction remain open. No canonical atom closes. At arbitrary cutoff
+  the theorem does not separately assert positivity of H[V*f^2].
+- **verification**: three final focused checks, serialized one worker with
+  explicit 20 GiB cap; all ten printed gates within {propext, Quot.sound}.
+  Column leaf passed first check. Initial product/transfer checks exposed
+  missing namespace opens/import only; corrected final sources passed.
+  Parent full source inspection and independent mathematical reviews passed.
+  No sorry introduced/discharged, analytic oracle, canonical statement, CI
+  or resource change. Three root imports added; full-root/full-tree/audit/
+  guard/progress NOT run. Evidence and hashes:
+  `audits/AUDIT-ORIGINAL-KINETIC-POSITIVITY-2026-09-17.md`.
+
 ## PROVED current Wilson complex algebra and SAME-rate bounds; full QFT OPEN (2026-09-17 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionComplexification.lean`

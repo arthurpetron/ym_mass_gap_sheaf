@@ -192,18 +192,39 @@ generated-Wilson-orbit estimate remains open. The plaquette coefficient
 energy floor does not prove that its span is invariant under original T.
 The available full-source dual estimate retains the signed D+2*h*R term;
 its proved nonnegative lower bound is not the upper budget needed for decay.
-Do not relabel generated states as local plaquette families. In parallel,
-an independent backward subgoal is actual product-heat positive
-semidefiniteness at every cutoff: expand its genuine character Gram channels
-and induct over selected link pairs, retaining the complete spatial weight
-inside both arguments. Existing exact pairing, Gram and Haar-factorization
-lemmas support this argument, but coordinate-column lift/support, the
-insertion expansion and final induction have NOT yet been implemented.
-Its subsequent pin to the CURRENT Wilson one-step form is also open; the
-older plaquette completion's positivity theorem does not supply that pin.
-This finite kinetic positivity is neither the missing strict interacting
-estimate nor a physical mass calibration. The cited audit records the exact
-source dependencies and residue for the next forward/backward join.
+Do not relabel generated states as local plaquette families.
+
+**Actual kinetic positivity and interacting quadratic, checked 2026-09-17:**
+`SU2QuaternionCoordinateColumnLift` proves the needed all-degree coordinate
+support and literal upper-half lift. `SU2QuaternionProductHeatPositive`
+now proves PSD of the ACTUAL productMap at every cutoff and every
+nonnegative rational nome, for any list of valid link pairs (repetitions
+allowed). The proof expands genuine character Gram channels and inducts
+over link pairs; the base is a square of an ordinary Haar integral.
+`BF4ExactSlabFixedSpatialTransferPositive.transferStep_quadratic_nonnegative`
+then proves H[V*f*T f]>=0 for EVERY supported signed f, by the exact
+identity T f=P(V*f). The complete original V occurs in BOTH PSD arguments.
+No fringe independence or replacement spatial action is used. This removes
+the finite kinetic-positivity input from the backward path, not the primary
+strict interacting estimate or physical mass calibration. At arbitrary
+cutoff it does not additionally prove positivity of H[V*f^2] as a state norm.
+Three final focused serialized one-worker/20 GiB checks passed with all ten
+printed gates within {propext, Quot.sound}; independent mathematical review
+passed. No new sorry, analytic input, canonical field or guard. Three root
+imports added; full-root/full-tree/audit/guard/progress NOT run. Evidence:
+`audits/AUDIT-ORIGINAL-KINETIC-POSITIVITY-2026-09-17.md`.
+
+**Next exact same-carrier join:** observed-window adjointness under reversal
+of its slice offsets. Existing whole-window Fubini, kernel symmetry and
+separated-window contraction support the identity with all action factors
+retained. It would identify the balanced odd-window one-step numerator as
+H[V*F*T F], with F the ACTUAL earlier observed message. The CURRENT intrinsic
+form displays an extra unused slice; its raw finite diagonal has unequal
+trimmed boundary depths and must NOT be called this square. Prove the
+balanced odd-window positivity first, then use the existing unequal-padding
+limit theorem to pass to the displayed form, spatial limit and completion.
+That adjoint identity and the current completed positivity pin remain open;
+the older plaquette completion's positivity theorem is not their substitute.
 
 ### Classical methods: review aid, not a changed proof substrate
 

@@ -4576,6 +4576,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialOriginalJointLimits
 import YMGap.Continuum.SU2QuaternionTwoSliceSwap
 import YMGap.Continuum.BF4ExactSlabFixedSpatialKineticSymmetry
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSymmetry
+-- Actual all-cutoff kinetic PSD and the full original V-weighted quadratic.
+import YMGap.Continuum.SU2QuaternionCoordinateColumnLift
+import YMGap.Continuum.SU2QuaternionProductHeatPositive
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferPositive
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalBracket
 import YMGap.Continuum.SU2QuaternionHeadChainMiddleInsertion
 import YMGap.Continuum.BF4ExactSlabFixedSpatialMiddlePairing
