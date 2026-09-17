@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED signed two-link original-energy bound; OPEN collective determinant budget (2026-09-17 UTC)
+## PROVED finite-family edge flow and actual fringe control; OPEN marginal budget/decomposition (2026-09-17 UTC)
+
+- **files**: `QuaternionHaarFiniteFamilyDual.lean`,
+  `BF4ExactSlabFixedSpatialFringeDual.lean`,
+  `BF4ExactSlabFixedSpatialFamilyFlow.lean`, under `lean/YMGap/Continuum/`.
+- **construction**: a recursive positive polynomial certificate for arbitrary
+  finite families, with one CS application and every cross term signed.
+  The actual active-plus-fringe factor family leaves kineticWeight unchanged;
+  `original_family_flow_energy` (FamilyFlow:186) proves
+  h*flowPair^2 <= (2*energy(T^n1,f))*signedCost, with no explicit family-size
+  factor. Units at inactive coordinates are polynomial units, not heatAt.
+  `fringeResidual_dual_energy` (FringeDual:163) supplies coefficient-one
+  control of actual nu-residuals there, using exact terminal independence,
+  a-centering, and the unchanged full kernel. No inverse is required.
+- **input reduced**: finite-family EDGE positivity/energy combination is
+  constructed, not assumed or inferred by adding pairwise bounds. Concrete
+  fringe directions have their own original-energy bound. Coordinate
+  coverage/disjointness is checked, but is not observable decomposition.
+- **remaining**: full erased-marginal flow/cost pins; signed determinant
+  summability and actual-marginal cost control; stable centered decomposition
+  with fringe retained; necessary reciprocal cross-limits. No improved global
+  gap, beta-uniform positive floor, physical/scaling/QFT or every-group closure.
+  No canonical atom, guard, existing sorry or axiom contract changed.
+- **verification**: three focused serialized one-worker/20 GiB final checks,
+  6+6+12 gates within {propext, Quot.sound}; no final errors/warnings/sorryAx.
+  Independent source review passed. Certificates are selected by explicit
+  finite decidable search, not Prop-to-Type witness extraction. Three root
+  imports added; root/full-tree/full-audit/guard NOT run. Evidence:
+  `audits/AUDIT-FINITE-FAMILY-FRINGE.md`.
+
+## Previous PROVED signed two-link original-energy bound; OPEN collective determinant budget (2026-09-17 UTC)
 
 - **files**: `QuaternionHaarTwoFactorDual.lean`,
   `SU2QuaternionWeightedProductTwoLinkDual.lean`,

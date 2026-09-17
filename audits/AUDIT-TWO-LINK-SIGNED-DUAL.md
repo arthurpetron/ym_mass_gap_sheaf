@@ -2,6 +2,10 @@
 
 Date: 2026-09-17 UTC. Base revision: `2dc9443eafa2003c798959159b92bf455797591d`.
 
+Follow-up: `audits/AUDIT-FINITE-FAMILY-FRINGE.md` records the subsequently
+proved raw finite-family edge estimate and actual fringe-residual control.
+The full marginal cost/decomposition and global gap remain open.
+
 Whole-project goal: for every compact simple G, construct nontrivial continuum
 Yang--Mills on R^4 with same-theory QFT axioms, isolated vacuum, and a positive
 finite physical Hamiltonian mass gap, within the constructive axiom gate.

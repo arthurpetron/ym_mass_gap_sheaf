@@ -392,8 +392,16 @@ are preserved; neither supplies a route through the incompatible AF guard.
    file:179) splits it into the corrected nu-pairing and the exact determinant
    remainder Delta_ij=t*d_ij-d_i*d_j. The latter, not the whole off-diagonal
    Gram entry, is the action-dependent correction to investigate.
-   **NEXT:** prove a controlled finite-family energy estimate and bound its
-   signed determinant contributions collectively, with
+   **PROVED finite-family EDGE estimate:** `original_family_flow_energy`
+   (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyFlow.lean:186`) now
+   controls the entire signed flow with ONE original energy and no explicit
+   family-size coefficient. Its family includes the active heat factors and
+   polynomial units at every fringe coordinate; `family_product_pin` (:109)
+   proves the kinetic weight unchanged. This is not yet the finite-family
+   MARGINAL norm estimate. Its raw flow and signed cost must still be pinned
+   to the centered one-/two-erasure pairings, including all fringe cross terms.
+   **NEXT:** prove those exact family pins, then bound the signed determinant
+   contributions collectively, with
    explicit spatial/depth/cutoff control, and construct a stable decomposition
    on this SAME marginal sufficient for `clearedDefect_diagonal_nonnegative_iff`.
    The two-link theorem retains finite reciprocal degrees k,l; its new cross
@@ -408,13 +416,18 @@ are preserved; neither supplies a route through the incompatible AF guard.
    it controls. This local result does not assert C_delta>=0 globally or close
    the original interacting uniform-gap problem. See
    `audits/AUDIT-ACTUAL-MARGINAL-DUAL-ENERGY.md` and
-   `audits/AUDIT-TWO-LINK-SIGNED-DUAL.md`.
+   `audits/AUDIT-TWO-LINK-SIGNED-DUAL.md` and
+   `audits/AUDIT-FINITE-FAMILY-FRINGE.md`.
    **Coverage audit:** inactive kinetic coordinates are averaged, not frozen.
    `terminal_energy_variance_floor` already covers all supported f with its
    width-dependent positive fraction. Nevertheless, active-only residuals
-   need not span the whole centered sector. Retain a fringe-averaging remainder
-   or prove a sufficient domain reduction; do not assume support implies gauge
-   invariance. See the source citations in the new two-link audit.
+   need not span the whole centered sector. `fringeResidual_dual_energy`
+   (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeDual.lean:163`) now
+   pays actual nu-residuals at inactive coordinates with coefficient one,
+   no reciprocal and the unchanged kernel. The new family indexes all
+   retained coordinates, but this is NOT a constructed stable decomposition.
+   Retain the fringe in that decomposition; do not assume support implies
+   gauge invariance. See the source citations in the family/fringe audit.
 4. **Finite tests must exercise the actual kinetic geometry and legal cutoff.**
    Source inspection shows that width one has three spatial plaquettes but
    none has all four links in `activeBlocks`; width two is the first width
@@ -448,7 +461,45 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest checkpoint (PROVED signed two-link estimate; OPEN determinant budget and collective coverage):**
+**Latest checkpoint (PROVED finite-family edge flow and actual fringe control; OPEN marginal cost/decomposition):**
+The two-link positive cells extend by a single constructive recurrence.
+For a factor A and test x, the product P, flow L, and signed cost Q obey
+
+    P'=A*P,   L'=P*x+A*L,   Q'=P*x^2+A*Q+2*h*x*L.
+    F_list(z,b)=P*z^2+2*h*L*z*b+h*Q*b^2,
+    F_cons(z,b)=(A-h)*F_tail(z,b)+h*F_tail(z+x*b,b).
+
+`QuaternionHaarFiniteFamilyDual.quadraticCertificate` constructs the
+certificate for every finite list, retaining signed cross terms. Its
+`finite_family_dual` (:165) uses one Cauchy--Schwarz application, not a
+sum of pairwise estimates. The actual active-plus-fringe family has
+polynomial unit factors at inactive coordinates, not fictitious heat
+kernels. `family_product_pin`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyFlow.lean:109`, pins
+its product to the unchanged kineticWeight. `original_family_flow_energy`
+(:186) proves h*flowPair^2 <= (2*energy(T^n1,f))*signedCost with no explicit
+link-count coefficient. The raw signedCost is NOT a supplied or proved
+uniform marginal-norm budget.
+
+Separately, `fringeResidual_dual_energy`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeDual.lean:163`, proves
+H[nu*f*q]^2 <= energy(T^n1,f)*H[nu*q^2] for the actual inactive-coordinate
+nu-residual q. Literal terminal independence gives its a-centering; no
+inverse or changed kernel is used. `retained_coordinate_partition`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyFlow.lean:70`, proves
+exhaustive/disjoint coordinate membership, not observable decomposition.
+
+NEXT: identify the family flow/cost with the full erased-marginal signed
+Gram sum, retaining fringe terms; construct the actual centered observable's
+stable decomposition and action-dependent signed cost bound with explicit
+moduli. The determinant sum and reciprocal cross-limits remain OPEN.
+No improved global gap, physical/scaling/QFT or every-group closure follows.
+Three focused serialized one-worker/20 GiB checks passed; 6+6+12 printed
+gates lie within {propext, Quot.sound}, with no final errors/warnings/sorryAx.
+Independent source reviews passed. Three root imports added; root/full-tree/
+full-audit/guard checks NOT run. Evidence: `audits/AUDIT-FINITE-FAMILY-FRINGE.md`.
+
+**Previous checkpoint (PROVED signed two-link estimate; OPEN determinant budget and collective coverage):**
 For g=T^n1, a=Vg, t=Tg, and distinct active i,j, let d_i,d_j,d_ij be the
 actual one/two-factor-erased messages. With P_i(a*r)=P_j(a*s)=0,
 
