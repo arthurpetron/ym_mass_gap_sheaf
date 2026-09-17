@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED original fringe-face transfer/correlation cancellation; active core OPEN (2026-09-17 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFaceHeatMoment.lean`,
+  `BF4ExactSlabFixedSpatialFringeFaceTransfer.lean`, and
+  `BF4ExactSlabFixedSpatialFringeFaceCorrelations.lean` in the same directory.
+- **proved**: `heatFace_character_moment` (FaceHeatMoment:149) retains the
+  complete prefix and an arbitrary spectator independent of one original
+  face link. `spatial_fringe_face_moment` (FringeFaceTransfer:133) restores
+  the FULL original spatial product. `inactive_fundamental_transfer_pair`
+  (:155) gives H[s*T(g_n*chi_p)]=coeffW(w,1)*H[s*Tg_n] for any supported s
+  and a physical non-fully-active face. `inactive_fundamental_iterate_pair`
+  (FringeFaceCorrelations:75) propagates the tested equality through every
+  positive transfer power. `inactive_input_numerator` (:139) and
+  `inactive_input_partition` (:153) retain both original boundary messages.
+  `window_connected_zero` (:166) proves exact connected covariance zero in
+  the ORIGINAL normalized window law against any supported endpoint probe.
+- **scope**: all spatial widths, boundary depths and positive temporal gaps.
+  Raw identities hold for all rational w and K>=1. Normalized covariance
+  uses the existing 0<w<1 and K>=headCutoff(w) partition-positivity guards,
+  additionally K>=1. The unique inactive leaf is absent from every OTHER
+  spatial factor, the actual g_n, and the kinetic image of the output test.
+  No source-dependent factor is discarded; no tested equality is upgraded
+  to coefficient equality, and no observed mass is inverted.
+- **remaining**: fully active bulk plaquettes and their interacting transfer
+  orbit, arbitrary Wilson products/spins, improved regulator-uniform decay
+  and limiting form, physical calibration, same-theory continuum/QFT and
+  every compact simple group. The face's inactive membership depends on
+  width; this is not a fixed-observable thermodynamic-limit statement or
+  proof of a nonzero completed excitation. No canonical frontier is closed.
+- **verification**: three focused serialized one-worker/20 GiB checks; all
+  eight printed gates within {propext, Quot.sound}. No new sorry, axiom or
+  analytic premise. Three semantic-root imports added; root/full-tree/full
+  audit/guard/progress NOT run. CI and resource limits unchanged. Evidence:
+  `audits/AUDIT-FRINGE-FACE-TRANSFER-CANCELLATION.md`.
+
 ## PROVED original response-null direction; third-moment/variance control OPEN (2026-09-17 UTC)
 
 - **files**: four new modules under `lean/YMGap/Continuum/`:

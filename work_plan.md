@@ -344,12 +344,24 @@ not any theorem, guard, canonical field, or the whole-project goal.
    control; it cannot simply instantiate the present completed carrier at an
    excluded nome. Preserve the completed small-nome result unchanged.
 
-**Engaged checkpoint:** the first pair and its common-partition consumer have
-been traced to the existing source. No improved width-uniform bound on that
-pair was found or proved by this review. Next supply an action-specific
-estimate on it, or a concrete failure of a proposed estimate on the actual
-action, before implementing further compilers. This planning/source checkpoint
-is not a new Lean proof or closure of an analytic input.
+**Engaged checkpoint (updated 21:50 UTC):** the first action-specific pair
+reduction is now PROVED for an inactive spatial face p:
+H[s*T(g_n*chi_p)]=coeffW(w,1)*H[s*Tg_n] for every supported test s, all
+rational w and K>=1. Its literal private fringe link integrates against the
+FULL remaining action and terminal message. The equality propagates by the
+original weighted transfer symmetry, and `window_connected_zero` proves exact
+zero connected covariance against any supported endpoint probe at every
+positive temporal separation, under the SAME original window partition.
+See `audits/AUDIT-FRINGE-FACE-TRANSFER-CANCELLATION.md`. No coefficient-level
+replacement, norm comparison or observed-mass inverse is used.
+
+**NEXT:** control the retained fully-active face/core pair. The boundary
+identity does not handle those faces, products of boundary insertions, or
+the full Wilson algebra. Inactive-face membership depends on width; no
+fixed-observable thermodynamic or continuum conclusion follows. Do not
+extend the zero-correlation result to the active cubical core or count it
+as a nonzero completed excitation. A new bulk analytic estimate remains
+necessary before further gap compilers are useful.
 
 ### Audit response: next execution checkpoint (2026-09-17 UTC)
 
@@ -575,6 +587,27 @@ record precisely why the alternate signed-response producer is needed.
 Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
+
+**Current iterated step (PROVED original fringe-face cancellation):**
+`inactive_fundamental_transfer_pair`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeFaceTransfer.lean:155`,
+retains the full original action and proves the observed first message is
+coeffW(w,1)=2*w^3 times its unobserved partner under every supported Haar
+test, for a physical face that is not fully active. The all-time consequence
+is `window_connected_zero`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeFaceCorrelations.lean:166`:
+every positive separation and every supported endpoint probe have exactly
+zero connected covariance with that insertion in the original finite window.
+Its two marginal and joint ratios use the SAME positive partition. The
+normalized result retains 0<w<1, K>=headCutoff(w), and K>=1; the raw identities
+need only K>=1. All widths and terminal depths are quantified.
+
+This is a boundary reduction for the actual iterated pair, not a strict
+bound for fully active bulk faces, a changing-observable limit, or a full
+Wilson-sector gap. Three focused serialized checks pass all eight printed
+gates within {propext, Quot.sound}; no new sorry or analytic assumption.
+Full-root build/audit/guard/progress NOT run. Evidence:
+`audits/AUDIT-FRINGE-FACE-TRANSFER-CANCELLATION.md`.
 
 **Current physical step (PROVED signed-family ORIGINAL temporal energy):**
 for every duplicate-free finite family qs of physical spatial plaquettes,
