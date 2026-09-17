@@ -8,6 +8,151 @@ with the required QFT axioms, isolated vacuum and strictly positive finite
 physical Hamiltonian mass gap, for EVERY compact simple gauge group,
 within the constructive axiom gate. **The Clay target remains OPEN.**
 
+## Real action, vacuum projection and all-vector relaxation
+
+2026-09-17 UTC, after pushed `435a3ee`: **PROGRESS**. The new estimate is
+`d(a*x,b*x)=(a-b)^2 B(x,x)` on the ORIGINAL Wilson stages. Together with
+the existing scalar-square distance law and quadratic triangle, it gives
+an explicit modulus for `s.approx(n)*X.seq(n)`. The actual pairing limit
+identifies this stream's form with scalar multiplication of the old form.
+Pairing separation proves quotient independence, including independence
+of the supplied scalar modulus. This constructs the real action without
+choosing representatives for bare quotient scalars.
+
+The actual unit coefficient of each supplied vector stream has its own
+computed scalar Cauchy data. Applying that scalar to the original unit
+constructs P; subtracting P from the identity constructs C. The resulting
+projection/centering are self-adjoint and idempotent, obey mixed Pythagoras,
+and commute with original time. The existing strict complement bound proves
+`T_2 x=x` iff `x=P x`.
+
+The causal contraction is now an ALL-vector theorem:
+
+```text
+same completed real action + actual unit coefficient with modulus
+    -> P x and C x = x-P x, with B(C x,U)=0
+    + original time fixes P x and commutes with C
+    + checked norm decay on the same orthogonal complement
+    -> d(T_n x,P x) = B(T_n Cx,T_n Cx) <= q(w)^n B(Cx,Cx)
+    -> computed tail certificate and original time-orbit limit = P x
+
+same centered-vector time pairing = existing connected scalar
+    + same-carrier Cauchy-Schwarz and norm decay
+    -> K_n(x,y)^2 <= B(Cx,Cx) q(w)^n B(Cy,Cy)
+```
+
+Here d is squared distance and `q(w)=twoStepRate w hd`, not a
+beta-independent or physically calibrated mass. The time orbit in the last
+limit is the original UNcentered orbit of x, not an inserted surrogate.
+
+All table paths are under `lean/YMGap/Continuum/`.
+
+| Checked edge | Declaration and module:line |
+| --- | --- |
+| Original coefficient change -> squared error | `distSq_scalar_difference`, `BF4WilsonSpatialUnionScalarDistance.lean:61`; `scalar_change_bound`, :74 |
+| Two error legs -> explicit stream modulus | `realScalarRate`, `BF4WilsonSpatialUnionRealScalarCauchy.lean:56`; `realScalar_bound`, :64; `realScalarCauchy`, :123 |
+| Same mixed limit -> quotient real action | `representativeInner_realScalar_left`, `BF4WilsonSpatialUnionCompletedRealScalar.lean:45`; `realScalarCauchy_congr`, :64; `completedRealSmul`, :74 |
+| Actual form homogeneity and scalar-independence | `completedInner_realSmul_left`, same file:84; `completedRealSmul_congr`, :96 |
+| Computed scalar sums/products -> real laws | `completedRealSmul_addScalar`, `BF4WilsonSpatialUnionRealScalarAlgebra.lean:45`; `completedRealSmul_mul`, :56 |
+| Original time and distance -> real compatibility | `completedTime_realSmul`, same file:99; `completedDist_realSmul`, :107 |
+| Actual mixed pairing -> coefficient with modulus | `unitCoefficient`, `BF4WilsonSpatialUnionVacuumProjection.lean:69`; `unitCoefficientCauchy`, :73; `unitCoefficient_pin`, :77 |
+| Coefficient times original unit -> actual projection | `unitProjectionCauchy`, same file:82; `unitProjection`, :104; `unitProjection_pairing`, :114 |
+| Same projection -> centering and orthogonality | `center`, same file:167; `centerCauchy`, :169; `center_orthogonal`, :187 |
+| Exact decomposition -> contractive centering | `orthogonal_decomposition_inner`, same file:239; `center_norm_le`, :243; `center_nonexpansive`, :249 |
+| Same original time -> scalar and fixed-space pins | `centered_time_pairing`, same file:261; `fixed_twoStep_iff`, :268 |
+| Complement norm decay -> all-vector distance decay | `distance_to_projection`, `BF4WilsonSpatialUnionVacuumRelaxation.lean:63`; `distance_to_projection_decay`, :68 |
+| Connected scalar -> norm-controlled decay and original dense pin | `connected_sq_decay`, same file:74; `connected_embedStage`, :82 |
+| Actual centered representative -> data-valued tail certificate | `vacuumModulus`, same file:94; `distance_to_projection_small`, :97; `vacuumCertificate`, :108 |
+| Original uncentered time rows -> computed projection limit | `vacuumRows`, same file:116; `vacuumRows_modulus`, :135; `vacuumRows_limit`, :140 |
+
+The real-scalar rate is the maximum of the scalar and vector tail anchors,
+the vector modulus at `scalarTolerance(A,epsilon/4)`, and the scalar modulus
+at `coefficientTolerance(B,epsilon)`, with A/B the computed scalar/norm
+ceilings. Each of the two squared-distance legs costs epsilon/4 before
+the triangle doubles them. For vacuum relaxation, the direct distance
+cutoff is `relaxationModulus(centerCauchy X,epsilon)`; the outer Cauchy-row
+cutoff uses epsilon/4. Both inner and outer moduli remain Type-level data.
+
+### Boundary and next consumer
+
+The scope remains fixed-spacing, small-nome SU(2). This removes the
+modulus-bearing real-action and actual projection/centering joins; it does
+not construct an unrestricted legacy RC-module or representatives for
+arbitrary quotient-valued Cauchy sequences. Full Hilbert and canonical
+OS/QFT realization, state/observable pins, normalized positive-time response
+on THIS carrier, spatial symmetry, changing-spacing original-action control,
+finite physical mass, continuum survival and every compact simple group
+remain open. No analytic guard or canonical frontier statement changed.
+
+The next useful analytic join is a scalar equality, not an isomorphism of
+entire carriers: compare the actual Wilson plaquette connected moment at
+lag THREE with the old original selected-chain scalar bounded by
+`spatial_response_floor`, `BF4SpatialUnionPositiveResponse.lean:105`.
+That existing theorem preserves the original full-action response floor
+through a proved finite-action comparison and the unchanged diagonal limit.
+It is not automatically a theorem on the new Wilson completion. The new
+`centered_time_pairing` and `connected_embedStage` are its intended
+same-object consumers after the scalar pin; actual contraction can then
+relate lag three to lag two. Positive zero-time variance alone is insufficient.
+
+A parallel source review identifies a bounded proof plan for the missing
+scalar pin (PLAN, not a new theorem). At radius zero, compare the two
+separated plaquette probes coefficient-wise using
+`recentered_fundamental_placedSpan`,
+`BF4ExactSlabFixedSpatialWilsonPlaquette.lean:182`, and `recenter_faceSpan`,
+`BF4ExactSlabFixedSpatialLocalVariance.lean:155`. The two
+`connectedScalar_selected_pin` declarations,
+`BF4ExactSlabFixedSpatialWilsonUniformConnectedDecay.lean:127` and
+`BF4ExactSlabFixedSpatialUniformConnectedDecay.lean:135`, name the same
+extent, selected action and cutoff. After proving the probe pins,
+`finiteValue_coeff_congr`, `BF4ExactSlabSelectedTwoProbeCovariance.lean:52`,
+can compare their joint and two marginal values. The unchanged diagonal
+limit consumers are `connectedScalar_time_converges`,
+`BF4ExactSlabFixedSpatialWilsonOriginalConnectedCorrelator.lean:81`, and
+`originalConnected_diagonal_converges`,
+`BF4ExactSlabFixedSpatialSpatialCenteredForm.lean:127`.
+
+To retain the already constructed `BF4WilsonSpatialUnionSmallNomeGap.vector`,
+use `completionMap_time` / `completedInner_map`,
+`BF4WilsonSpatialUnionFixedBase.lean:117` / :110, and
+`centeredVector_time_pairing`,
+`BF4ExactSlabFixedSpatialWilsonCenteredTimeMoments.lean:155`.
+The desired lag-three scalar equality was NOT FOUND in the reviewed Wilson
+plaquette, plaquette-moment, intrinsic-form, centered-time or response modules.
+This review is a source-backed next action, not a positive-response closure.
+
+### Focused verification
+
+All six new modules passed on the first attempt: exit 0, all 78 public gates
+within {propext, Quot.sound}, no warning/error or forbidden axiom. Main alone
+compiled serially through `scripts/safe_lean_build.py --jobs 1
+--check-worker-limit-gib 20 --check <file> --check-output <its olean>`.
+Fresh process/swap checks found no competing Lean/test/runner and swap
+stable at 6845.19 MiB. Root imports added; root/full-tree/full audit/guard
+NOT run. No old proof, sorry, axiom, guard or safety limit changed. CI
+stays manual and no literature scan ran.
+
+A parallel agent implemented the projection module and independently
+source-reviewed the all-vector relaxation, original-orbit pin and
+quarter-tolerance budget. Main read the entire contributed source and
+performed all compiler checks. The older scalar-action modules supplied
+proof templates; only carrier-independent scalar estimates were reused
+directly, and all Wilson-specific estimates were checked on the Wilson data.
+
+Final `/tmp/` logs and SHA-256 hashes:
+
+| Log | Gates | SHA-256 |
+| --- | ---: | --- |
+| `ym-wilson-union-scalar-distance-20260917.log` | 2 | `25a04b57fe42bd24448dc443134e3cea98d27b7e0758d7c2bfdc519145dde338` |
+| `ym-wilson-union-real-scalar-cauchy-20260917.log` | 5 | `693c3ea0e7b5fe3b0337caf5b0597d2c9b540b3088b36b972633fa08ecc88d55` |
+| `ym-wilson-union-completed-real-scalar-20260917.log` | 12 | `39f08f427620d61b9d3f8b1aff6d738bae72ec4a42f7d57eb6f498cb0b0c4c0a` |
+| `ym-wilson-union-real-scalar-algebra-20260917.log` | 9 | `7503e30dd73fb6aa7be365d5ccaa3a876a4afc6185f00c9c46706b7d85e7d13c` |
+| `ym-wilson-union-vacuum-projection-20260917.log` | 39 | `1f291db5d1bfebc295647216b57f438008af3b66bcf588d4f2a0e7e43e894191` |
+| `ym-wilson-union-vacuum-relaxation-20260917.log` | 11 | `83e4b0d9d61f19d5b07ca74f8135f3b3cf0df6b2ba62bacc9280f9f9bd79256f` |
+
+The sections below are historical checkpoints; use this follow-up for the
+current scalar-action, projection and all-vector relaxation status.
+
 ## Rational linear geometry and represented limits follow-up
 
 2026-09-17 UTC, after pushed `0bf2c0c`: **PROGRESS**. On the SAME Wilson

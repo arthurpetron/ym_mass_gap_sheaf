@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: rational linear geometry and represented limits on the SAME Wilson carrier.**
+**Latest result: actual vacuum projection and all-vector relaxation on the SAME Wilson carrier.**
+Real scalar multiplication with supplied explicit moduli now constructs the
+unit projection and orthogonal centering. Each supplied vector representative
+gives a computed rate for its original time orbit to converge to its projection;
+the two-step fixed space is exactly the image of that projection. Connected
+scalar moments are exactly
+the time pairings of these same centered vectors, with geometric squared
+correlation decay and the original dense Wilson-moment pin.
+
+These are **fixed-spacing, small-nome SU(2)** results. No representatives or
+moduli are selected from arbitrary quotient reals. Full Hilbert and canonical
+OS/QFT realization, positive nonzero-time response on this Wilson carrier,
+changing-spacing control, finite physical mass and every-group continuum
+construction remain open. Six focused checks passed the constructive axiom
+gate; no root/full-tree audit ran. See the
+[proof and remaining joins](audits/AUDIT-WILSON-SPATIAL-UNION.md#real-action-vacuum-projection-and-all-vector-relaxation).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: rational linear geometry and represented limits on the SAME Wilson carrier.**
 Addition and signed rational scaling now act on the actual Wilson union
 completion, with computed moduli. Its completed form is bilinear and
 separates vectors; the original time maps are rational-linear. The squared
@@ -37,9 +57,6 @@ identification, changing-spacing control, finite physical mass and every-group
 continuum construction remain open. Five focused checks passed the
 constructive axiom gate; no root/full-tree audit ran. See the
 [proof and next joins](audits/AUDIT-WILSON-SPATIAL-UNION.md#rational-linear-geometry-and-represented-limits-follow-up).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: quantitative time decay on the SAME Wilson spatial union.**
 Original time balance now passes through the actual union pairing limits,

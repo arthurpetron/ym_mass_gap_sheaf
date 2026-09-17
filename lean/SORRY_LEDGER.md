@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED SAME-Wilson rational linear geometry, actual distance and represented limits; OPEN real Hilbert and canonical OS/QFT realization (2026-09-17 UTC)
+## PROVED SAME-Wilson real action, vacuum projection and all-vector relaxation; OPEN full Hilbert/OS/QFT and positive-time response (2026-09-17 UTC)
+
+- **files**: `BF4WilsonSpatialUnionScalarDistance.lean`,
+  `BF4WilsonSpatialUnionRealScalarCauchy.lean`,
+  `BF4WilsonSpatialUnionCompletedRealScalar.lean`,
+  `BF4WilsonSpatialUnionRealScalarAlgebra.lean`,
+  `BF4WilsonSpatialUnionVacuumProjection.lean`, and
+  `BF4WilsonSpatialUnionVacuumRelaxation.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: the original coefficient-square distance identity and computed
+  scalar/vector ceilings give `realScalarCauchy`. Pairing separation descends
+  `completedRealSmul` without selecting quotient representatives or moduli.
+  The actual unit coefficient and its scalar Cauchy data construct
+  `unitProjection` and `center`. Mixed Pythagoras and time compatibility are
+  proved; `fixed_twoStep_iff` identifies the two-step fixed space. Actual
+  `centered_time_pairing` gives the existing connected scalar, and
+  `connected_sq_decay` / `connected_embedStage` retain its original norm and
+  observable pins. `vacuumCertificate` computes an all-vector tail bound;
+  `vacuumRows_limit` identifies the original time orbit's computed limit with
+  its existing projection.
+- **consumer/open input**: the real-action/projection/centering joins are
+  removed for modulus-bearing scalars on this SAME Wilson union. No arbitrary
+  quotient-sequence completeness or unrestricted legacy RC-module is claimed.
+  Next: original plaquette correlator comparison at positive lag, using the
+  already proved older scalar response only after a same-action scalar pin.
+  Normalized positive-time response on this carrier, canonical state/observable
+  identification, full Hilbert/OS/QFT, spacing/physical-mass control, continuum
+  survival and every compact simple group remain open. No Clay atom closes.
+- **verification**: six first-attempt focused serial one-worker/20 GiB checks,
+  all 78 public gates within {propext, Quot.sound}; no warning or error.
+  Root imports added; root/full-tree/full audit/guard unrun. No sorry, axiom,
+  analytic guard, canonical frontier field or safety limit changed.
+  Evidence: `audits/AUDIT-WILSON-SPATIAL-UNION.md`, real-action follow-up.
+
+## Previous PROVED SAME-Wilson rational linear geometry, actual distance and represented limits; OPEN real Hilbert and canonical OS/QFT realization at that checkpoint (2026-09-17 UTC)
 
 - **files**: `BF4WilsonSpatialUnionLinear.lean`,
   `BF4WilsonSpatialUnionBilinear.lean`, `BF4WilsonSpatialUnionLinearLaws.lean`,

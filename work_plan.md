@@ -133,7 +133,47 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED SAME-Wilson rational linear geometry, actual completed distance and represented limits; OPEN real Hilbert and canonical OS/QFT realization):**
+**Latest mathematical increment (PROVED SAME-Wilson real action, actual vacuum projection and all-vector relaxation; OPEN full Hilbert/OS/QFT and positive-time response):**
+PROGRESS after pushed `435a3ee`: the exact coefficient-change identity and
+computed scalar/vector ceilings give a Cauchy modulus for `s_n*X_n` on the
+SAME Wilson union. Pairing separation descends the real action for supplied
+CReal/QCauchy data and proves independence of both representations and moduli.
+The actual unit coefficient, with its computed modulus, constructs projection
+P and centering C. Mixed Pythagoras, nonexpansiveness and time compatibility
+are proved; `T_2 x=x` iff `x=P x`. No new analytic hypothesis is used.
+
+EXPANSION exposes the scalar stream, its two error budgets and its actual
+pairing coefficient. CONTRACTION now gives
+`d(T_n x,P x)=B(T_n Cx,T_n Cx)<=q(w)^n B(Cx,Cx)` for EVERY vector, plus
+the connected squared-correlator bound with actual centered norm prefactors.
+For a supplied representative, `vacuumCertificate` computes its tolerance
+cutoff and `vacuumRows_limit` identifies the original uncentered orbit's
+computed diagonal limit with P x. The connected scalar is exactly the
+pairing of the same centered vectors and retains its original dense Wilson pin.
+
+NEXT CAUSAL FRONTIER: a positive nonzero-time response on this Wilson carrier.
+The older `BF4SpatialUnionPositiveResponse.spatial_response_floor` already
+bounds an ORIGINAL selected-chain centered plaquette scalar at lag THREE.
+Prove its equality with the Wilson plaquette connected scalar before reusing
+that floor, then use actual contraction for lag two. Do not demand an
+unnecessary isomorphism of whole completions or equate the old bond-reflected
+lag-three response with lag two. This supplies the positive-response input
+for normalization/Rayleigh data; it is not yet canonical OS reconstruction.
+Full Hilbert/OS/QFT and rational GNSData/state/observable pins, full spatial
+symmetry, changing-scale original-action control, finite physical mass,
+continuum survival and every-group producers remain open. No legacy RC
+representative/modulus is selected, no one-step positivity or beta-uniform
+gap is asserted, and the AF obstruction and canonical fields are unchanged.
+
+Six first-attempt focused serial one-worker/20 GiB checks passed all 78
+public gates within {propext, Quot.sound}, with no warning/error. Main alone
+compiled; a parallel agent implemented the projection and source-reviewed the
+all-vector convergence and quarter-tolerance argument. Root imports added;
+root/full-tree/full audit/guard unrun. No prior proof, sorry, axiom, guard or
+safety limit changed. CI stays manual; no literature scan. Evidence:
+`audits/AUDIT-WILSON-SPATIAL-UNION.md#real-action-vacuum-projection-and-all-vector-relaxation`.
+
+**Previous mathematical increment (PROVED SAME-Wilson rational linear geometry, actual completed distance and represented limits; OPEN real Hilbert and canonical OS/QFT realization at that checkpoint):**
 PROGRESS after pushed `0bf2c0c`: common-base dense bilinearity and positivity
 give the parallelogram addition bound and exact scalar-square distance law.
 Their explicit moduli construct addition and rational scaling on the SAME
