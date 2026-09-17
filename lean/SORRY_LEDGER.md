@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED shared-link SU(2) two-channel identity and scalar cancellation bounds; OPEN full-action signed estimate (2026-09-17 UTC)
+## PROVED original temporal defect/conditional covariance pin; OPEN signed cross estimate (2026-09-17 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialClearedCovariance.lean`.
+- **construction**: `clearedDefect_pairing` identifies the SAME original
+  polarized energy/variance defect with H[(Vg)*r*F_s], where
+  F_s=Z*(1-delta)*(Tg)*s-Z*T(g*s)+delta*B(s)*(Tg).
+  The marginal mean correction and shared Z=m(g*Tg) are retained.
+  `terminalResidual_clearedDefect` gives the conditional Haar covariance
+  determinant for the ACTUAL g=T^n1 and residual P_i(Vg)*f-P_i(Vg*f).
+  Only i<N is needed; no false independent-spectator or marginal-centering
+  premise occurs.
+- **consumer**: `clearedDefect_diagonal_nonnegative_iff` is exactly the
+  existing cleared temporal energy/variance inequality at arbitrary delta.
+  `terminal_existing_fraction_nonnegative` recovers its existing physical
+  instance with the unchanged width-dependent mixFraction.
+- **remaining**: a quantitative estimate on the full-weight determinant
+  against its full transfer test, a stable weighted decomposition and the
+  spatially uniform signed budget. The reference is conditional Haar with
+  weight Vg, not an isolated heat kernel with two fundamental probes; that
+  optional shared-heat reduction remains unproved. No global rate improves.
+  Same-theory scaling/QFT, physical mass and every-group realization remain
+  open. No canonical atom or existing sorry closes.
+- **verification**: final focused monitored one-worker/20 GiB check; all six
+  printed declarations within {propext, Quot.sound}, no errors/warnings or
+  sorryAx. Independent mathematical/source review passed. No new sorry,
+  axiom, frontier/guard change or resource increase. Root import added;
+  root/full-tree/full-audit/guard unrun. Evidence:
+  `audits/AUDIT-ORIGINAL-TEMPORAL-CLEARED-COVARIANCE.md`.
+
+## Previous PROVED shared-link SU(2) two-channel identity and scalar cancellation bounds; OPEN full-action signed estimate (2026-09-17 UTC)
 
 - **files**: `SU2QuaternionQuadraticHeatProduct.lean`,
   `SU2QuaternionHeatCovarianceRates.lean`, `SU2QuaternionAdjacentPlaquetteHeat.lean`,

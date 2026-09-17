@@ -309,12 +309,22 @@ are preserved; neither supplies a route through the incompatible AF guard.
    `SU2QuaternionAdjacentPlaquetteHeat.adjacent_shared_defect` resolves the
    shared-link heat of two literal SU(2) plaquette words into its signed
    quadratic and rectangle channels. It does NOT yet include the full
-   spatial weight or the terminal message. Use this structure to investigate
-   the complete incident star and its source-dependent remainder; do not
-   classify that remainder as a head-independent spectator. Embedding the
-   literal word calculation in the fixed-spatial physical carrier and a
-   quantitative full-action remainder bound remain required.
+   spatial weight or the terminal message. If using this shared-heat branch,
+   investigate the complete incident star and its source-dependent remainder;
+   do not classify that remainder as a head-independent spectator. That branch
+   still requires embedding the literal word calculation in the fixed-spatial
+   physical carrier and a quantitative full-action remainder bound.
 3. **NEXT: estimate the full-source remainder, not more unweighted channels.**
+   The exact ORIGINAL temporal-form target is now checked by
+   `BF4ExactSlabFixedSpatialClearedCovariance.terminalResidual_clearedDefect`:
+   a conditional HAAR covariance determinant with full weight a=V*T^n1
+   and the constructed test F_s retaining T(g*s), Tg and the marginal-mean
+   correction. `clearedDefect_diagonal_nonnegative_iff` pins its diagonal
+   to the actual energy/variance consumer for an arbitrary candidate delta.
+   Estimate this determinant with its full F_s. It is NOT a covariance of
+   two fundamental traces under an isolated shared heat kernel. A shared-heat
+   comparison is only a possible producer after a further proved reduction;
+   the new identity does not supply that reduction or a quantitative bound.
    The follow-up audit at `806bf5d` is recorded in
    `audits/AUDIT-FULL-ACTION-REJOIN-2026-09-17.md`. The algebraic reweighting
    identity already exists as `RationalConnectedResponse.connected_response_identity`
@@ -330,8 +340,10 @@ are preserved; neither supplies a route through the incompatible AF guard.
    it; do not change the conditional reference functional silently. Identify
    the precise original temporal-form term to which the comparison applies;
    generic response algebra is not itself the bridge to C_delta. The
-   primary next proposition is a quantitative bound on this SIGNED remainder
-   for the actual action, sufficient for the same C_delta diagonal budget.
+   primary next proposition is a quantitative signed bound on the actual
+   conditional determinant, sufficient for the same C_delta diagonal budget.
+   If using the reweighting route, control its displayed remainder as part of
+   that SAME-object bound, not as a substitute target.
    No such bound or summation budget has been found in the reviewed source.
    Pairwise covariance bounds do not remove the third connected term.
    A small relative variance mu((b-Z)^2)/Z^2 would be one sufficient avenue,
@@ -373,7 +385,38 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest checkpoint (PROVED shared-link two-channel SU(2) identity and explicit scalar cancellation bounds; OPEN full-action cross control):**
+**Latest checkpoint (PROVED original temporal defect/conditional covariance pin; OPEN quantitative signed estimate):**
+`BF4ExactSlabFixedSpatialClearedCovariance.clearedDefect_pairing` proves
+
+    C_delta(r,s) = H[(V*g)*r*F_s],
+    F_s = Z*(1-delta)*(Tg)*s - Z*T(g*s) + delta*B(s)*(Tg),
+    Z=m(g*Tg), B(s)=m(g*Tg*s), m(f)=H[V*f].
+
+`terminalResidual_clearedDefect` proves that for the actual
+g=T^n1 and R_i=P_i(Vg)*f-P_i(Vg*f), this is the Haar integral of
+
+    P_i(Vg)*P_i(Vg*f*F_s) - P_i(Vg*f)*P_i(Vg*F_s).
+
+Only i<N is needed for the conditional integration; no temporal marginal
+centering, link independence or positivity is assumed for these identities.
+Every source-dependent factor is retained. This closes the previously
+prose-only same-temporal-form pin. It does not identify that determinant
+with the two-fundamental-trace shared-heat calculation.
+`clearedDefect_diagonal_nonnegative_iff` gives EXACT equivalence to the
+original cleared energy/variance inequality. The known width-dependent
+fraction is recovered by `terminal_existing_fraction_nonnegative`, not
+improved. Signed cross control and the weighted global decomposition remain
+open, as do the spacing/mass, continuum QFT and every-group joins.
+
+Focused monitored one-worker/20 GiB source check passed; all six printed
+declarations use only {propext, Quot.sound}. The final log has no warnings,
+errors or sorryAx. Initial syntax/namespace repairs changed no statement or
+resource limit. Independent mathematical and source review passed. No new
+sorry, axiom or canonical frontier change. Root import added; root/full-tree/
+full-audit/guard unrun. Evidence:
+`audits/AUDIT-ORIGINAL-TEMPORAL-CLEARED-COVARIANCE.md`.
+
+**Previous checkpoint (PROVED shared-link two-channel SU(2) identity and explicit scalar cancellation bounds; OPEN full-action cross control):**
 `SU2QuaternionQuadraticHeatProduct.linear_product_transmission` computes
 the output of the original full relative heat prefix on two head-linear
 inputs: w^8 times their retained product plus (1-w^8) times their Haar
