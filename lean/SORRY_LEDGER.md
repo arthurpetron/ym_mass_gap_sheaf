@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual corrected-family approximation; OPEN uniform signed cost (2026-09-17 UTC)
+## PROVED grouped actual fringe-kernel estimate; OPEN active/mixed stable cost (2026-09-17 UTC)
+
+- **files**: `SU2QuaternionAbsentHeatFamily.lean` and
+  `BF4ExactSlabFixedSpatialFringeKernel.lean`, under `lean/YMGap/Continuum/`.
+- **construction**: the full signed sum r of actual-nu fringe residuals
+  obeys H[p*T(g_n*r)]=0 for every Haar test p. Its original edge-jump
+  pairing is exactly 2*H[nu*f*r]. Thus E_gn(r)=H[nu*r^2], and one edge
+  Cauchy--Schwarz estimate proves H[nu*f*r]^2<=E_gn(f)*H[nu*r^2], with all
+  signed fringe crosses retained and no component-count factor.
+  `fringeSum_transfer_pair_zero` (FringeKernel:100), `fringeSum_energy_eq`
+  (:140), `fringeSum_dual_energy` (:152), and the concrete seed instance
+  `actualFamily_fringe_dual_energy` (:187) are proved.
+  `correctedSum_partition` (:198) identifies r as the existing corrected
+  family's unchanged inactive part.
+- **input removed**: a separate componentwise fringe charge is unnecessary
+  for this grouped dual estimate. No per-summand norm budget or new
+  centering assumption is required for the actual constructed seeds.
+- **remaining**: combined active/grouped-fringe flow control and uniform
+  stability relative to the original centered norm. No orthogonality of
+  active remainder and fringe sum, global gap or completed OS-kernel
+  identification is asserted. The annihilated expression is T(g_n*r),
+  not T(r). The physical/continuum/QFT/every-group obligations remain open.
+- **verification**: two final focused serialized one-worker/20 GiB checks;
+  all ten gates within {propext, Quot.sound}; no final warnings/errors/
+  sorryAx. Independent mathematical review passed. Two root imports;
+  root/full-tree/full-audit/guard NOT run. No sorry added/discharged;
+  canonical statements, CI and safety limits unchanged. Evidence:
+  `audits/AUDIT-GROUPED-FRINGE-KERNEL.md`.
+
+## Previous PROVED actual corrected-family approximation; OPEN uniform signed cost (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialSeedFamily.lean`,
   `BF4ExactSlabFixedSpatialSeedFamilyApproximation.lean`,

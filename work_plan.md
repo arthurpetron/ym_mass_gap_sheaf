@@ -495,7 +495,39 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current construction (PROVED actual corrected-family approximation; OPEN uniform signed cost):**
+**Current result (PROVED one grouped fringe test; OPEN active/mixed stable cost):**
+`fringeSum_transfer_pair_zero`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeKernel.lean:100`, proves
+H[p*T(g_n*r)]=0 for every Haar test p, where r is the full signed sum of
+actual-nu residuals at inactive coordinates. This is T(g_n*r), not T(r),
+and not raw coefficient-zero or a completed OS-kernel identification.
+`fringeSum_energy_eq` (:140) proves E_gn(r)=H[nu*r^2];
+`fringeSum_dual_energy` (:152) applies Cauchy--Schwarz once to give
+H[nu*f*r]^2<=E_gn(f)*H[nu*r^2]. All signed fringe cross terms are retained,
+with coefficient one and no component-count factor.
+`actualFamily_fringe_dual_energy` (:187) supplies the already constructed
+seeds, and `correctedSum_partition` (:198) pins r to the inactive part of
+the existing corrected sum without changing its active part or degrees.
+
+**Next:** group actual transfer-kernel modes before estimating the remaining
+active/mixed flow. Use the new exact jump pairing to charge the fringe as
+one test; do not force a separate uniform bound on its component diagonals.
+The old FamilyCost identity is preserved, but it need not be the optimal
+flow representation. Prove the combined active/grouped-fringe bound and
+its stability relative to the original centered norm. Do not infer that
+an active-labelled test is outside the kernel, or that the grouped fringe
+is orthogonal to the active remainder. Those claims have not been proved.
+The parallel review's unused-coordinate/inverse-density amplification test
+is an unformalized diagnostic, not a new actual-action no-go theorem.
+
+Two focused serialized one-worker/20 GiB checks passed, ten axiom gates
+within {propext, Quot.sound}, no final errors/warnings/sorryAx. Independent
+mathematical review passed. Two root imports; root/full-tree/full-audit/
+guard NOT run. No sorry, canonical field, CI or safety limit changed.
+The uniform full-sector estimate and continuum/physical/QFT/every-group
+joins remain open. See `audits/AUDIT-GROUPED-FRINGE-KERNEL.md`.
+
+**Previous checkpoint (PROVED actual corrected-family approximation; OPEN uniform signed cost):**
 `approximationDegrees`, `approximation_bound`, and `approximationCertificate`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCenteredFamilyApproximation.lean:86`,
 `:94`, `:118`, now compute and certify two finite degrees with
@@ -507,7 +539,7 @@ No stable-decomposition budget is assumed. The first finite-family bound
 uses the Haar-carrier telescope pin, not false raw coefficient equality;
 one additional density floor is lost in the SAME nu norm.
 
-**Next mathematical target:** bound D+2h*R on this constructed family by
+**Remaining analytic budget:** bound D+2h*R on this constructed family by
 the original centered norm with the spatial/depth/cutoff control required
 by the limiting route. Increasing inverse degrees pays approximation error,
 not this signed cost. Do not continue adding approximation wrappers now
