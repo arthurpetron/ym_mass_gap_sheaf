@@ -495,8 +495,44 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current result (PROVED actual finite-degree seed and diagonal norm budget;
-OPEN regulator-controlled JOINT signed cost):**
+**Current result (PROVED JOINT signed-cost nonnegativity and unavoidable
+fringe norm cost; OPEN regulator-controlled UPPER budget):** write
+J(q)=D(q)+2hR(q) for the existing original-marginal family cost. The new
+`joint_remainder_nonnegative` and `fringe_norm_cost_lower_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSignedCostPositive.lean:108`, `:131`,
+prove, for arbitrary supported tests and finite correction degrees,
+
+    0 <= J(q),
+    (1-h) * sum_{i in fringe} ||q_i||_nu^2 <= J(q).
+
+The proof completes the existing certified quadratic using one-sided tests,
+whose exact flow and product-square pairings both equal ||S||_nu^2. It
+requires neither conditional centering nor strict positivity of that norm,
+and introduces no exact reciprocal or limiting producer. The exact split is
+J(q)=J(activeTests q)+(1-h)*sum_fringe||q_i||_nu^2. Only fringe DETERMINANT
+crosses vanish; ordinary cross pairings need not vanish. Therefore signed
+active cancellation cannot pay for this fringe cost. This proves neither
+growth of the actual fringe sum nor failure of the approximation schedule.
+Deleting fringe tests is still not an active approximation theorem.
+Evidence: `audits/AUDIT-JOINT-SIGNED-COST-POSITIVITY.md`.
+
+**Next producer test:** before investing in another determinant-cancellation
+compiler, test the unavoidable fringe cost on the ACTUAL `familyTests` along
+the constructed `approximationDegrees`, relative to ||Phi||_nu^2 with the
+required width/depth/cofinal-cutoff control. This fringe cost depends on the
+first (seed) degree only: `corrected`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCost.lean:66`, leaves fringe
+tests unchanged, so increasing the second correction degree cannot reduce it.
+A finite-degree, source-pinned
+obstruction would require its own proof; the lower bound alone is not one.
+If that producer fails the necessary budget, reassess a grouped-fringe or
+weighted-projection producer with original centering/transfer/approximation
+pins. Do not infer that such an alternative already exists. A successful
+fringe budget is only necessary, not sufficient: the active JOINT upper
+cost remains to be controlled. Do not reopen completion or transfer-PSD
+machinery merely to reprove the now-checked nonnegativity.
+
+**Preserved result (PROVED actual finite-degree seed and diagonal norm budget):**
 `BF4ExactSlabFixedSpatialSeedNormBudget.family_norm_budget` and
 `diagonal_family_norm_budget`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSeedNormBudget.lean:149`, `:247`,
@@ -540,8 +576,9 @@ locality or decay of these messages. All these identities hold at every
 rational nome and finite cutoff, with no positivity assumption. They
 supply no uniform lower bound or physical mass rate.
 
-**Next quantitative target:** use this exact retained interaction to
-bound the signed active cost, not to launch another round of inverse,
+**Next quantitative target:** test the actual unavoidable fringe budget,
+then use this exact retained interaction to bound the signed active cost,
+not to launch another round of inverse,
 carrier or completion wrappers. The existing consumer remains
 `actualResidual_corrected_energy`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCost.lean:294`.
@@ -591,7 +628,13 @@ determinant bound alone introduces a family-size loss.
 The reduced-cube coefficient-one obstruction suggested by the reviewer is
 not a checked counterexample and is not used as a theorem.
 
-Current verification: four focused serialized one-worker/20 GiB checks,
+Current joint-cost verification: four focused serialized one-worker/20 GiB
+checks, 21 gates (15 new, six existing) within {propext, Quot.sound}; no
+final warnings/errors/sorryAx. Independent mathematical/source review passed.
+Three root imports and one shared algebra theorem; no new sorry, analytic
+premise, canonical-field change, full-root build/audit/guard, CI or safety change.
+
+Previous norm-budget verification: four focused serialized one-worker/20 GiB checks,
 15 gates within {propext, Quot.sound}, no final warnings/errors/sorryAx.
 Independent mathematical/source review passed. Four root imports; no new
 sorry, canonical-field change, full-root build/audit/guard, CI or safety change.

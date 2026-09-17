@@ -190,6 +190,44 @@ theorem finite_family_dual {n : Nat} {h : Q'} (hh : (0 : Q') < h)
   exact Q'.le_of_mul_le_mul_left
     (Q'.le_trans' _ _ _ (Q'.ge_of_eqv hl) (Q'.le_trans' _ _ _ hcs (Q'.le_of_eqv hr))) hh
 
+/-- Completing the SAME certified quadratic at z=-h*z0, b=1 gives a
+nonnegative cost remainder when the flow pairing matches the product norm.
+There is no strict-norm assumption or division by that norm. The consumer
+uses one-sided tests, not jumps, to obtain its joint signed marginal cost. -/
+theorem finite_family_completed_square {n : Nat} {h : Q'} (hh : (0 : Q') < h)
+    (ps : List (RatPoly × RatPoly))
+    (C : ∀ p, p ∈ ps → Certificate n (polyAdd p.1 (polyNeg (cap h))))
+    (hx : ∀ p, p ∈ ps → SupportedQuaternionBlocks n p.2)
+    {mu z : RatPoly} (M : Certificate n mu) (hz : SupportedQuaternionBlocks n z)
+    (hmatch : H n (polyMul mu (polyMul (flow ps) z)) ≈
+      H n (polyMul mu (polyMul (product ps) (polyMul z z)))) :
+    h * H n (polyMul mu (polyMul (product ps) (polyMul z z))) ≤
+      H n (polyMul mu (cost h ps)) := by
+  let J := H n (polyMul mu (polyMul (product ps) (polyMul z z)))
+  let L := H n (polyMul mu (polyMul (flow ps) z))
+  let Q := H n (polyMul mu (cost h ps))
+  have hn : (0 : Q') ≤ (-h)*(-h)*J+(2 : Q')*((-h)*1)*(h*L)+1*1*(h*Q) :=
+    Q'.le_trans' _ _ _
+      (M.mul (quadraticCertificate h (Q'.le_of_lt hh) ps C hx
+        (polyMul (cap (-h)) z) (cap 1)
+        (supported_polyMul (cap_supported n (-h)) hz) (cap_supported n 1))).haar_nonnegative
+      (Q'.le_of_eqv (quadratic_haar n h (-h) 1 mu ps z))
+  have he : (-h)*(-h)*J+(2 : Q')*((-h)*1)*(h*L)+1*1*(h*Q) ≈ h*(Q + -(h*J)) :=
+    Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr'
+        (Q'.add_eqv_congr' (Q'.eqv_refl _)
+          (Q'.mul_eqv_congr_left _ _ _ (Q'.mul_eqv_congr_left _ _ _ hmatch)))
+        (Q'.eqv_refl _))
+      (poly_identity_of_normal_eq
+        (.add (.add (.mul (.mul (.neg (.var 0)) (.neg (.var 0))) (.var 1))
+          (.mul (.mul (.const 2) (.mul (.neg (.var 0)) (.const 1))) (.mul (.var 0) (.var 1))))
+          (.mul (.mul (.const 1) (.const 1)) (.mul (.var 0) (.var 2))))
+        (.mul (.var 0) (.add (.var 2) (.neg (.mul (.var 0) (.var 1)))))
+        (by decide) (fun | 0 => h | 1 => J | _ => Q))
+  exact Q'.le_of_sub_nonneg (Q'.le_of_mul_le_mul_left
+    (Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_zero_eqv h))
+      (Q'.le_trans' _ _ _ hn (Q'.le_of_eqv he))) hh)
+
 end YMGap.Continuum.QuaternionHaarFiniteFamilyDual
 
 #print axioms YMGap.Continuum.QuaternionHaarFiniteFamilyDual.product
@@ -198,3 +236,4 @@ end YMGap.Continuum.QuaternionHaarFiniteFamilyDual
 #print axioms YMGap.Continuum.QuaternionHaarFiniteFamilyDual.quadratic_cons
 #print axioms YMGap.Continuum.QuaternionHaarFiniteFamilyDual.quadraticCertificate
 #print axioms YMGap.Continuum.QuaternionHaarFiniteFamilyDual.finite_family_dual
+#print axioms YMGap.Continuum.QuaternionHaarFiniteFamilyDual.finite_family_completed_square

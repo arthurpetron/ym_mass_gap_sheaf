@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual finite-degree seed/diagonal norm budget; JOINT signed cost OPEN (2026-09-17 UTC)
+## PROVED JOINT signed-cost nonnegativity/fringe lower bound; UPPER budget OPEN (2026-09-17 UTC)
+
+- **files**: `QuaternionHaarFiniteFamilyDual.lean` (one added theorem),
+  `BF4ExactSlabFixedSpatialOneSidedFamily.lean`,
+  `BF4ExactSlabFixedSpatialCostFringeSplit.lean`, and
+  `BF4ExactSlabFixedSpatialSignedCostPositive.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: one-sided lifts of the original finite tests pin the full-product
+  square, one-erasure flow and signed cost to the SAME original odd marginal.
+  Complete the existing certified quadratic at z=-h*S, b=1 to prove
+  marginalCost>=h*||S||_nu^2 (`corrected_cost_norm_floor`, SignedCostPositive:63).
+  The exact old cost split gives J=D+2hR>=0 (`joint_remainder_nonnegative`, :108).
+  Zeroing fringe tests leaves R unchanged and removes exactly
+  (1-h)*sum_fringe||q_i||_nu^2 from D. Apply nonnegativity to that active family
+  to obtain `fringe_norm_cost_lower_bound` (:131). All supported q_i and arbitrary
+  finite correction degrees are admitted; no centering or strict norm premise.
+- **input removed**: sign of the JOINT cost is now a theorem, not an assumption.
+  Active determinant cancellation cannot pay for fringe marginal norms.
+  Individual active determinant terms remain signed. No division by a norm,
+  exact reciprocal, transfer-PSD assumption or limiting producer is used.
+- **open residue / plan correction**: first test the ACTUAL constructed family's
+  unavoidable fringe cost against the required regulator-controlled target-norm
+  budget; then bound the remaining active joint cost. The lower bound itself
+  proves no width growth, failed schedule or active-only approximation.
+  The desired JOINT upper bound, physical scaling, same-theory continuum/QFT
+  and all-group obligations remain open. No new uniform mass-gap claim follows.
+- **verification**: four focused serialized one-worker/20 GiB checks; all 21
+  gates (15 new and six existing) within {propext, Quot.sound}; no final
+  errors/warnings/sorryAx. Independent mathematical/source review passed.
+  Three new root imports. No sorry added/discharged or analytic assumption
+  added; canonical fields, CI and safety limits unchanged. Root/full-tree/
+  full-audit/guard NOT run. Evidence:
+  `audits/AUDIT-JOINT-SIGNED-COST-POSITIVITY.md`.
+
+## Previous PROVED actual finite-degree seed/diagonal norm budget; JOINT upper cost OPEN (2026-09-17 UTC)
 
 - **files**: `SU2QuaternionWeightedResidualNorm.lean`,
   `SU2QuaternionHaarBlockTelescopeNorm.lean`,
