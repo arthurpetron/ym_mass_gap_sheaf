@@ -13,7 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original-action signed-family coercivity; temporal/variance joins OPEN (2026-09-17 UTC)
+## PROVED signed-family original temporal energy; spatial variance upper bound OPEN (2026-09-17 UTC)
+
+- **files**: three new modules under `lean/YMGap/Continuum/`:
+  `BF4ExactSlabFixedSpatialPlaquetteFamilyLabels.lean`,
+  `BF4ExactSlabFixedSpatialPlaquetteFamilySchedule.lean`,
+  `BF4ExactSlabFixedSpatialPlaquetteFamilyEnergy.lean`.
+- **proved**: `family_energy_floor` (Energy:174) gives
+  L(w)*sum(c_p^2)<=600*U(w)*normalizedEnergy(f), f=sum(c_p*chi_p),
+  in the original temporal Dirichlet energy with its SAME odd-chain mass.
+  `normalized_family_coercivity` (Energy:77) uses the original positive
+  partition; `doubledLabels_nodup` (Labels:83), `doubled_square_sum`
+  (Labels:114), `difference_source` and `difference_placed`
+  (Schedule:194, :209) prove the literal signed two-time specialization.
+  The two coefficient copies and doubled energy cancel exactly.
+- **scope**: physical/nodup finite fundamental spatial plaquette families,
+  arbitrary rational signs, every width and terminal depth, 0<w<1 and
+  K>=headCutoff(w). No final width/depth/family-size/late-cutoff factor.
+  L and U depend on nome; there is no coupling- or spacing-uniform mass claim.
+- **remaining input / plan**: prove the original spatial variance UPPER
+  comparison Z*A-B^2<=C(w)*Z^2*sum(c_p^2) with Z=oddMass,
+  A=m(g_n*Tg_n*f^2), B=m(g_n*Tg_n*f), on a justified coupling domain/scaling
+  trajectory with the required regulator control. This feeds the EXISTING
+  `BF4ExactSlabFixedSpatialClearedCovariance.clearedDefect_diagonal_nonnegative_iff`
+  (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialClearedCovariance.lean:175`)
+  at fraction L/(600*U*C). Single-face caps retain family-size loss;
+  original covariances are not proved sparse by the dual Gram estimate.
+  Products, transfer orbit, full dense sector beyond the small-nome branch,
+  physical calibration, same-theory continuum/QFT and all compact simple
+  groups remain OPEN. Preserve the proved small-nome completed gap/excitation.
+- **verification**: three focused serialized one-worker/20 GiB checks;
+  all 17 printed gates within {propext, Quot.sound}, four axiom-free. Independent
+  source review passed action, partition, signs, factor two and zero cases.
+  No sorry added/discharged, analytic premise or canonical field changed;
+  no resource or CI changes. Three root imports added, full-root
+  build/audit/guard/progress NOT run. Evidence/log hashes:
+  `audits/AUDIT-PLAQUETTE-FAMILY-TEMPORAL-ENERGY.md`.
+
+## Previous PROVED original-action signed-family coercivity; temporal/variance joins then OPEN (2026-09-17 UTC)
 
 - **files**: appended three partition/norm comparisons to
   `BF4ExactSlabPlaquetteBoundaryDual.lean`; five new modules:

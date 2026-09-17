@@ -190,11 +190,12 @@ Execution order:
    use its SAME odd-chain marginal. The current physical branch now has a
    bounded-overlap signed-family estimate under the FULL selected action:
    L(w)*Z*sum(c_p^2) <= 600*U(w)*H[A*F^2]. The coefficients have either sign;
-   the final constant has no volume or family-size dependence. Next identify
-   F with the original two-time jump of a signed spatial plaquette sum;
-   separately supply the original spatial variance upper bound. Neither
-   the raw square bound nor the temporal specialization replaces that upper
-   bound. The precise checked
+   the final constant has no volume or family-size dependence. Its original
+   two-time specialization is now PROVED: L(w)*sum(c_p^2) <=
+   600*U(w)*normalizedEnergy(sum(c_p*chi_p)), with the SAME odd-chain mass.
+   Next supply the original spatial variance upper bound on the justified
+   coupling domain/scaling trajectory. The temporal lower bound does not
+   replace that upper bound. The precise checked
    identities and next consumers are in the current frontier subsection below.
    Preserve the completed small-nome branch above; these are steps beyond its
    guards, not missing completion work in that branch.
@@ -512,7 +513,30 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current physical step (PROVED full-action signed-family coercivity):**
+**Current physical step (PROVED signed-family ORIGINAL temporal energy):**
+for every duplicate-free finite family qs of physical spatial plaquettes,
+arbitrary signed rational c, 0<w<1, K>=headCutoff(w), width and terminal
+depth n, the actual fixed-slice polynomial f=sum(c_p*chi_p) satisfies
+
+    L(w)*sum(c_p^2) <= 600*U(w)*normalizedEnergy(f).
+
+This is `family_energy_floor`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteFamilyEnergy.lean:174`.
+The denominator is the SAME odd-chain mass, not a product-Haar law or
+even-chain marginal. Distinct lower/upper labels carry c/-c; their square
+sum doubles. The literal signed schedule is the original jump and the
+original window identity doubles the normalized energy. Only the positive
+factor two is cancelled; no observable norm or coefficient is inverted.
+Thus the constants depend on nome, not width, depth, family size or late K.
+
+The three new modules pass focused serialized one-worker/20 GiB checks;
+all 17 printed gates are within {propext, Quot.sound}, four axiom-free.
+Independent review passed the action/partition pins, signs, factor two and
+zero cases. No sorry, analytic premise, canonical field, resource or CI change.
+Full-root build/audit/guard/progress NOT run. Evidence and the path-specific
+variance audit: `audits/AUDIT-PLAQUETTE-FAMILY-TEMPORAL-ENERGY.md`.
+
+**Previous physical step (PROVED full-action signed-family coercivity):**
 for any duplicate-free finite list of physical fundamental plaquette labels,
 arbitrary signed rational coefficients c_p, and the original selected action
 A with partition Z=H[A], define F=sum(c_p*chi_p). The checked estimate is
@@ -594,18 +618,20 @@ volume-uniform bound.
 
 **Next causal work, still OPEN:**
 
-1. The overlap, Gram, summed norm and finite-error removal steps are now
-   PROVED above. Do not repeat their geometry or add an assumed frame field.
-   Apply the proved family estimate to the signed adjacent-time plaquette
-   jump, using the original signed-window rejoin and its factor-two energy
-   identity. Prove distinct lower/upper labels and coefficient-square doubling;
-   retain the same action and partition through the normalization.
-2. Independently prove a spatial variance/susceptibility UPPER bound
-   in the SAME actual marginal and combined coefficients, with the parameter
-   control required beyond the small-nome guard or on a justified trajectory.
-   A coefficient-square energy lower bound alone does not give a variance
-   fraction. Do not infer locality of terminal messages from locality of V.
-3. Only after both bounds, consume the EXISTING clearedDefect equivalence
+1. The full-action coercivity AND its signed adjacent-time energy join are
+   PROVED above. Do not repeat their geometry, normalization or add an assumed
+   frame field. Preserve their literal same-action and same-partition pins.
+2. Prove a spatial variance/susceptibility UPPER bound in the SAME actual
+   marginal and combined coefficients. With Z=oddMass, A=m(g_n*Tg_n*f^2),
+   B=m(g_n*Tg_n*f), and S=sum(c_p^2), the required path-specific comparison is
+   Z*A-B^2 <= C(w)*Z^2*S, uniform in width, n and cofinal K on a justified
+   coupling domain/physical scaling trajectory. An all-nome bound is sufficient,
+   not required by the unchanged Clay target. Existing single-face cap four
+   plus ordinary Cauchy--Schwarz retains family size; the sparse DUAL Gram
+   estimate does not imply sparse original covariances. The currently proved
+   spatial covariance producer retains small-nome guards. Do not infer
+   locality of terminal messages from locality of V.
+3. Only after the variance bound, consume the EXISTING clearedDefect equivalence
    below. Signed fundamental sums still do not cover products, the physical
    transfer orbit or the full dense sector; those joins remain explicit.
    Preserve the already proved small-nome completed gap and normalized
