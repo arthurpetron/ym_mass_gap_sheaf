@@ -4843,6 +4843,8 @@ import YMGap.Continuum.BF4WilsonSpatialUnionVacuumRelaxation
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonPlaquetteTimePin
 import YMGap.Continuum.BF4WilsonSpatialUnionPositiveResponse
 import YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
+-- Exact original polynomial identities descend to this SAME completed state space.
+import YMGap.Continuum.BF4WilsonSpatialUnionObservableDescent
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

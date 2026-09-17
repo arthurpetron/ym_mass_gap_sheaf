@@ -133,7 +133,45 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED normalized SAME-Wilson excitation and positive strict Rayleigh interval; OPEN canonical observable/state and Hilbert/OS/QFT joins):**
+**Latest mathematical increment (PROVED original-polynomial identities descend to SAME-Wilson states; OPEN source-identity transport and canonical OS/QFT):**
+PROGRESS after pushed `0730bef`: padded coefficient equality of the two
+actual lower observables on the unchanged regulator diagonal preserves
+their finite mixed reflected scalars. The upper test and full selected
+action have proved support in the same carrier, and the partition is
+unchanged. The two existing convergence witnesses give right-slot equality
+of the original limiting form. Take the upper test to be their difference:
+bilinearity gives zero difference norm and the EXISTING completion embedding
+identifies their states. No equality of reflected polynomials is assumed.
+
+EXPANSION exposes the original lower polynomials, fixed upper/action
+factors, support and separate limit witnesses. CONTRACTION is literal
+`embedStage` equality on the current union, not a new quotient. The
+concrete `embedStage_mul_comm` application needs only the existing
+within-window guards. This is coefficient-polynomial semantics, not a
+claim that all functions equal on the quaternion sphere have been
+identified, or that multiplication descends through arbitrary OS-nullity.
+
+NEXT CAUSAL FRONTIER: transport source-observable identities through the
+actual recentering and chronological placement to supply the new diagonal
+polynomial-equality premise. Existing `expression_pin` identifies each
+source expression with its placed polynomial, but this checkpoint does
+not supply a general source-identity/recentering compiler. Canonical
+state/representative coverage and the Q'-valued GNSData/CReal-form
+interface remain separate. The normalized positive-response certificate
+from `0730bef` is retained; no canonical field is weakened. Full Hilbert/
+OS/QFT, spatial symmetry, changing-scale original-action control, finite
+physical mass, continuum survival and every-group producers remain open.
+
+The focused serial one-worker/20 GiB check passed all 6 public gates
+within {propext, Quot.sound}, with no warning/error in the final log.
+One development check needed the support predicate's namespace opened.
+A parallel agent implemented the proof; main read it fully and compiled.
+Root import added; root/full-tree/full audit/guard unrun. No sorry, axiom,
+guard, frontier field or safety limit changed. CI stays manual; no
+literature scan. Evidence:
+`audits/AUDIT-WILSON-SPATIAL-UNION.md#original-polynomial-identities-descend-to-the-same-states`.
+
+**Previous mathematical increment (PROVED normalized SAME-Wilson excitation and positive strict Rayleigh interval; OPEN canonical observable/state and Hilbert/OS/QFT joins at that checkpoint):**
 PROGRESS after pushed `11cecc3`: the exact scalar pin at lag zero gives
 the actual norm N and its explicit Cauchy data. The existing positive
 star floor and original geometric prefactor bound N from below and above.

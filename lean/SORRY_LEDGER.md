@@ -13,7 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED normalized SAME-Wilson excitation and positive strict Rayleigh interval; OPEN canonical observable/state and Hilbert/OS/QFT joins (2026-09-17 UTC)
+## PROVED original-polynomial identities descend to SAME-Wilson states; OPEN source-identity transport and canonical OS/QFT (2026-09-17 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionObservableDescent.lean`.
+- **proof**: `chartScalar_reflected_padded_right` keeps the fixed upper
+  test, full action and partition, with supported polynomial factors.
+  `form_padded_diagonal_right` passes equality through the original
+  diagonal convergence witnesses. `window_distSq_zero_of_padded_diagonal`
+  applies it to the upper difference; bilinearity gives zero norm.
+  `intrinsic_distSq_zero_of_padded_diagonal` and
+  `embedStage_eq_of_padded_diagonal` use the existing intrinsic/union
+  distance and completion embedding. `embedStage_mul_comm` supplies a
+  concrete application with only within-window guards.
+- **consumer/open input**: exact placed polynomial equality now gives
+  literal equality of actual states. Source identities still need
+  transport through original recentering/placement to supply that
+  diagonal premise. Equality only on the quaternion sphere, arbitrary
+  OS-null multiplication, canonical state/representative coverage,
+  rational GNSData compatibility, full Hilbert/OS/QFT, spatial symmetry,
+  changing-scale control, physical mass, continuum survival and every
+  compact simple group are not discharged. No Clay atom closes.
+- **verification**: focused serial one-worker/20 GiB check, all 6 public
+  gates within {propext, Quot.sound}, no warning/error in final log.
+  Root import added; root/full-tree/full audit/guard unrun. No sorry,
+  axiom, analytic guard, canonical frontier field or safety limit changed.
+  Evidence: `audits/AUDIT-WILSON-SPATIAL-UNION.md`, observable-descent follow-up.
+
+## Previous PROVED normalized SAME-Wilson excitation and positive strict Rayleigh interval; OPEN canonical observable/state and Hilbert/OS/QFT joins at that checkpoint (2026-09-17 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionNormalizedExcitation.lean`.
 - **proof**: `originalNorm_pin` identifies the actual norm of the EXISTING

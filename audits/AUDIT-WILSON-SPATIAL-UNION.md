@@ -8,6 +8,86 @@ with the required QFT axioms, isolated vacuum and strictly positive finite
 physical Hamiltonian mass gap, for EVERY compact simple gauge group,
 within the constructive axiom gate. **The Clay target remains OPEN.**
 
+## Original polynomial identities descend to the same states
+
+2026-09-17 UTC, after pushed `0730bef`: **PROGRESS**. Padded coefficient
+equality of the actual lower observable polynomials is needed only along
+the existing three-regulator diagonal. Multiplication by the fixed upper
+test and the SAME full action preserves that equality. All factors have
+proved support in the original carrier, so padding removes no variables;
+the normalization uses the unchanged original partition.
+
+The existing two convergence witnesses give equality in the right slot
+of the limiting reflected form. Taking the upper test to be the literal
+difference gives zero difference norm by bilinearity. The existing
+intrinsic/union distance pins and seminorm embedding then prove literal
+equality in the SAME completed carrier. This avoids any need to prove
+equality of the reflected polynomials separately.
+
+All declarations in this table are in
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionObservableDescent.lean`.
+
+| Checked edge | Declaration and line |
+| --- | --- |
+| Lower polynomial equality + fixed supported upper/action -> same finite scalar | `chartScalar_reflected_padded_right`, :74 |
+| Equal diagonal scalars + unchanged convergence witnesses -> same limiting right slot | `form_padded_diagonal_right`, :104 |
+| Upper difference + bilinearity -> zero window distance | `window_distSq_zero_of_padded_diagonal`, :125 |
+| Actual common chart -> zero intrinsic distance | `intrinsic_distSq_zero_of_padded_diagonal`, :140 |
+| Existing union distance and null embedding -> literal state equality | `embedStage_eq_of_padded_diagonal`, :151 |
+| Concrete polynomial product commutativity -> actual state equality | `embedStage_mul_comm`, :165 |
+
+`embedStage_mul_comm` has no semantic-equality assumption: it supplies the
+polynomial identity directly and retains only the within-window guards.
+The general theorem accepts the existing padded coefficient relation;
+ordinary coefficient and prefix equalities can feed it through `of_coeff`
+and `of_prefix` in
+`lean/YMGap/Continuum/SU2QuaternionTranslationPolynomialImages.lean:51`
+and :54. It does not add a parallel equivalence/scorecard structure.
+
+### Boundary and next consumer
+
+This is exact coefficient-polynomial equality, not a proof identifying
+all functions equal only on the quaternion sphere. It does not assert
+that products are well defined on arbitrary OS-null classes or completed
+vectors. Full gauge-observable coverage, canonical state/representative
+surjectivity and the rational GNSData/CReal-form interface remain open.
+So do full Hilbert/OS/QFT, spatial symmetry, changing-scale original-action
+control, finite physical mass, continuum survival and every-group producers.
+The normalized response on this carrier from the preceding checkpoint
+is retained, not replaced by a new vector or form.
+
+Next: supply the diagonal premise from source-observable identities,
+through actual source recentering and chronological placement.
+`expression_pin` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonWindow.lean:172`
+identifies each source polynomial's chronological embedding with its
+placed polynomial. `recenterExpression` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonRecenter.lean:92`
+is the actual source-box recentering used by `centeredExpression` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonSpatialComparison.lean:49`.
+This checkpoint does not prove a general source-identity transport lemma
+through those operations. No canonical field or analytic guard changes.
+
+### Focused verification
+
+The module passed the monitored serial one-worker/20 GiB check; all 6
+public gates report only `{propext, Quot.sound}` and the final log has
+no warning/error. The first check found only a missing namespace open
+for `SupportedQuaternionBlocks`; its recovery output is not verification.
+No proof statement, estimate or resource limit was changed to fix it.
+Fresh process checks found no competing compiler/test/runner; swap
+stayed at 6837.19 MiB. Root import added; root/full-tree/full audit/guard
+NOT run. No sorry, axiom, previous proof or frontier field changed.
+CI stays manual and no literature scan ran.
+
+The final log is `/tmp/ym-wilson-observable-descent-20260917-final.log`,
+SHA-256 `25e99c656feaf1c1c68ce008395c64e70391d4047017f6ece14f94178a1cb10d`.
+A parallel agent implemented the new file; main read its complete source,
+checked the support/quotient APIs and performed both compiler checks.
+
+The sections below are historical checkpoints; their open descent
+claims describe the status then.
+
 ## Normalized same-vector response
 
 2026-09-17 UTC, after pushed `11cecc3`: **PROGRESS**. The exact scalar
