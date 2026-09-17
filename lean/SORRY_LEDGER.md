@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED the current all-nome comparison rate has no common strict width-uniform bound; OPEN a stronger spatially uniform changing-scale estimate (2026-09-17 UTC)
+## PROVED original one-link heat contracts all centered polynomials at every nome; OPEN actual product-kinetic and interacting OS joins (2026-09-17 UTC)
+
+- **files**: `SU2QuaternionHaarMarkovContraction.lean`,
+  `SU2QuaternionRelativeHeatMarkovData.lean`, and
+  `SU2QuaternionRelativeHeatContraction.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: subtract the certified constant floor before weighted
+  Cauchy--Schwarz. Both exact marginals give the residual diagonal factors
+  1-h; the Haar-centered input kills the constant cross term.
+  `kernelMap_centered_square_bound` bounds the actual output, handling zero
+  norm without division. `relativeHeat_floorCertificate` and the two
+  `relativeHeat_*_marginal` theorems supply every kernel hypothesis for the
+  original full finite packet. `heatMap_mean`, `heatMap_square_contraction`,
+  and `heatMap_centered_square_bound` concern arbitrary supported one-block
+  polynomials. `squaredHeatRate_lt_one` proves the explicit rate is strict.
+- **consumer/open input**: supplies the one-link analytic input to an actual
+  product-kinetic tensorization argument, not a full-layer theorem yet. The
+  actual layer has unused fringe links requiring Haar projections. Spatial
+  potential weights and physical OS/vacuum identification are not dropped.
+  The rate depends on w; cutoff guard is K>=headCutoff(w). No uniform physical
+  mass, changing-scale interacting estimate or continuum/every-group result
+  follows. No canonical atom or existing hole closes; no new open analytic
+  field is introduced by the instantiated generic estimate.
+- **verification**: all 21 gates pass in three final focused serial checks,
+  one worker/20 GiB, within {propext, Quot.sound}. Six total launches with
+  three elaboration repairs; final logs have no warning/error. Root imports
+  added; root/full-tree/full audit/guard unrun. No sorry, axiom, guard, frontier
+  statement or safety limit changed. Independent source review passed.
+  Evidence: `audits/AUDIT-ONE-LINK-HEAT-CONTRACTION.md`.
+
+## Previous PROVED the current all-nome comparison rate has no common strict width-uniform bound; OPEN a stronger spatially uniform changing-scale estimate (2026-09-17 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRateWidthObstruction.lean`.
 - **proof**: `width_le_temporalFaces_length` injects a literal row of faces;

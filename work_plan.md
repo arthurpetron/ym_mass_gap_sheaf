@@ -247,7 +247,46 @@ to inhabit by unrelated models.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED degeneration of the current all-nome comparison rate with spatial width; OPEN a stronger spatially uniform changing-scale estimate):**
+**Latest mathematical increment (PROVED original one-link all-nome heat contraction on EVERY centered polynomial; OPEN actual kinetic-layer tensorization and interacting OS comparison):**
+PROGRESS after `00eca87`: use exact Haar marginals rather than the absolute
+heat cap. For a positive kernel W with both marginals one, subtract its
+certified constant floor h before Cauchy--Schwarz. On a centered input the
+constant kernel contributes zero, while both residual diagonal pairings
+are exactly (1-h) times the original Haar square norm. Testing against the
+actual output and treating zero norm separately gives squared contraction
+(1-h)^2, with no division by a potentially zero norm.
+
+`SU2QuaternionRelativeHeatMarkovData` supplies the actual full finite SU(2)
+packet's two marginals and residual certificate. The concrete theorem
+`SU2QuaternionRelativeHeatContraction.heatMap_centered_square_bound` covers
+EVERY supported one-block centered polynomial, not just class functions or
+fundamental coordinates. `heatMap_mean` preserves the original mean;
+`heatMap_square_contraction` gives norm contraction without a prefix-cap
+penalty. All 0<w<1 are allowed, with the unchanged nome-dependent
+headCutoff and rate (1-headFloor(w))^2<1. No coupling-uniform margin or
+interacting Yang--Mills/OS gap is claimed.
+
+NEXT MATHEMATICAL TARGET: tensorize this actual one-link estimate across
+`BF4ExactSlabFixedSpatialKineticHeat.kineticWeight`, preserving Haar
+averaging on unused fringe links. No original-layer tensorized norm theorem
+was found in the reviewed source; it is a new mathematical lemma to prove,
+not a supplied analytic field. Its intended role is a width-independent
+KINETIC reference estimate, not replacement of the interacting operator.
+The actual transfer retains its spatial potential; that comparison and
+the spatially uniform changing-scale original-action estimate remain open.
+Do not equate ordinary Haar centering/norm with the physical vacuum/OS norm.
+Retained-head tail smallness alone only controls cutoff corrections, since
+the retained background can still connect regions with no active tail.
+
+Three final focused serialized one-worker/20 GiB checks pass all 21 public
+gates within `{propext, Quot.sound}`. Six launches included two namespace/
+section-variable corrections and one missing definitional reflexivity step;
+the final logs have no warnings/errors. No sorry, axiom, guard, frontier
+statement or safety limit changed. Root imports added; root/full-tree/full
+audit/guard unrun. Independent source review passed. Evidence and remaining
+physical joins: `audits/AUDIT-ONE-LINK-HEAT-CONTRACTION.md`.
+
+**Previous mathematical increment (PROVED degeneration of the current all-nome comparison rate with spatial width; OPEN a stronger spatially uniform changing-scale estimate):**
 Following the direction audit at `8d6a89f`, the existing kinetic floor/cap
 fraction is at most `32^(-numberOfTemporalFaces)`. A literal injective row
 of temporal plaquettes proves that count is at least the spatial width.
@@ -265,7 +304,7 @@ limit changed. Root import added; root/full-tree/full audit/guard unrun.
 Independent source review agrees on the boundary. Evidence:
 `audits/AUDIT-FIXED-SPATIAL-RATE-WIDTH.md`.
 
-NEXT: find a substantive spatially uniform signed original-action estimate,
+At that checkpoint, the next target was a spatially uniform signed original-action estimate,
 with an explicit changing-nome budget, for the determinant/covariance consumers
 above. Do not rebuild their cancellation, rounded heat windows or fixed-width
 decay. A proposed doubled-Haar difference identity is deferred until there is
