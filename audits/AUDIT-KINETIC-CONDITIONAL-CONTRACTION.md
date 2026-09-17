@@ -6,6 +6,10 @@ simple group, with the required same-theory QFT structure and positive
 physical Hamiltonian gap, constructively within {propext, Quot.sound}.
 That goal remains OPEN.
 
+Successor checkpoint: `AUDIT-PRODUCT-HEAT-TENSORIZATION.md` closes the
+strict pure-kinetic join listed below and records its original weighted
+transfer consumer. This report preserves the earlier verification boundary.
+
 ## Proved on the original kinetic layer
 
 All Lean paths below are relative to `lean/YMGap/Continuum/`.

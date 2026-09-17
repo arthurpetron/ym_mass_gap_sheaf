@@ -247,7 +247,59 @@ to inhabit by unrelated models.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED actual full kinetic nonexpansivity, spectator-retaining local strict contraction, and exact conditional Pythagoras; OPEN strict full-product tensorization and interacting OS comparison):**
+**Latest mathematical increment (PROVED width-independent strict contraction of the actual full kinetic layer; OPEN spatial-action comparison and interacting OS gap beyond the small-nome guard):**
+PROGRESS after `889c75d`: `SU2QuaternionProductHeatTensorization.kineticMap_centered_square_bound`
+proves H[(K f)^2] <= squaredHeatRate(w) H[f^2] for every supported
+Haar-centered polynomial, every original spatial width (including zero),
+every 0<w<1 and every Kcut>=headCutoff(w). The squared rate is the SAME
+one-link (1-headFloor(w))^2<1, not a product over links. It is independent
+of width, polynomial degree and late cutoff, but remains nome-dependent.
+This is the actual original kinetic kernel and original Haar carrier,
+not a character-diagonal replacement or an assumed mixing interface.
+
+The proof is shorter than the previously planned sequence of local-map
+recodings. `SU2QuaternionProductHeatMarginals` supplies exact marginals,
+supported-Haar head removal and output orthogonality on arbitrary valid
+NODUP active lists. `SU2QuaternionProductHeatContraction` uses residual
+(heat_i-headFloor)*productHeat(rest), retaining EVERY other factor.
+Both residual diagonal pairings are exactly (1-headFloor) times the
+original norms. Conditional centering kills the removed cross term.
+Exact input/output Pythagoras then closes the finite active-list induction.
+The empty list integrates all lower variables; fringe links remain Haar
+averages. No coefficientwise sphere normalization is assumed. This closes
+the strict pure-kinetic tensorization task; do not reopen its abandoned
+coordinate-map scaffolding merely to complete a historical outline.
+
+The direct physical consumer is
+`BF4ExactSlabFixedSpatialCenteredKineticBound.centered_transfer_square_bound`:
+with the ORIGINAL V, m(f)=H[V f], and F=m(g)f-m(f)g, construct H[V F]=0
+and bound H[(m(g)T f-m(f)T g)^2] by squaredHeatRate(w) H[(V F)^2].
+No division or positive reference mass is needed. All spatial factors
+remain twice on the right-hand side; this is not an interacting OS norm
+comparison or centering by the stationary physical vacuum.
+
+NEXT MATHEMATICAL TARGET: preserve cancellation while controlling the actual
+spatial action. Use `BF4ExactSlabConnectedFaceResponse.response_identity`
+and `finite_response_bound` on their original signed response and BOTH
+partition factors; seek actual insertion coefficients summable over the
+required spatial faces with nome/support dependence explicit. The existing
+consumer remains `BF4ExactSlabAllNomeFaceSetComparison.insertion_bound_eventually`.
+Do not infer a width-uniform comparison of H[(V F)^2] with H[V F^2]
+from positivity alone, replace V by its product cap, or identify either
+norm with the physical OS norm without a theorem. The fixed-spacing
+small-nome completed branch is preserved, but its AF guard obstruction
+is not removed by this kinetic result. Physical mass calibration,
+same-theory continuum QFT and every compact simple group remain OPEN.
+
+Five focused serialized one-worker/20 GiB checks pass; all 46 public gates
+stay within {propext, Quot.sound}, with no final warnings/errors.
+Independent mathematical source review passed. Verification and exact
+source map: `audits/AUDIT-PRODUCT-HEAT-TENSORIZATION.md`.
+No canonical frontier statement, old guard, sorry, new axiom or machine
+safety limit is changed; no canonical Clay atom is declared closed.
+Root imports added; root/full-tree/full audit/guard unrun.
+
+**Previous mathematical increment (PROVED actual full kinetic nonexpansivity, spectator-retaining local strict contraction, and exact conditional Pythagoras; strict full-product tensorization was OPEN at that checkpoint):**
 PROGRESS after `50a2190`: the original temporal faces select a proved NODUP
 list `BF4ExactSlabFixedSpatialKineticMarginals.activeBlocks`. The literal
 `kineticWeight_eq_indexedProduct` keeps the original heat factors and paired

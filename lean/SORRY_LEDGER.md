@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original full kinetic nonexpansivity and local conditional strict contraction; OPEN strict product and interacting OS joins (2026-09-17 UTC)
+## PROVED strict full-product kinetic contraction independent of spatial width; OPEN spatial-action cancellation and interacting OS comparison (2026-09-17 UTC)
+
+- **files**: `SU2QuaternionHaarBlockConditionalAlgebra.lean`,
+  `SU2QuaternionProductHeatMarginals.lean`,
+  `SU2QuaternionProductHeatContraction.lean`,
+  `SU2QuaternionProductHeatTensorization.lean`, and
+  `BF4ExactSlabFixedSpatialCenteredKineticBound.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: retain the full rest product while subtracting the certified
+  floor from one heat factor. Exact marginals supply both residual diagonal
+  identities; conditional Haar centering kills the removed cross pairing.
+  Supported-Haar head removal and exact Pythagoras tensorize the one-link
+  squared rate without multiplying it over the active links. Empty active
+  lists and unused fringe coordinates are actual Haar averages. All
+  positivity and marginal premises are constructed, with no analytic input
+  field left unsupplied. No false coefficientwise heat normalization is used.
+- **actual consumer**: `kineticMap_centered_square_bound` concerns the
+  ORIGINAL kinetic map at every width, all 0<w<1 and K>=headCutoff(w).
+  Its rate (1-headFloor(w))^2<1 depends on w, not width, degree or late K.
+  `centered_transfer_square_bound` consumes it with the original spatial
+  multiplier V and F=m(g)f-m(f)g, m(f)=H[V f]. It proves
+  H[(m(g)T f-m(f)T g)^2]<=squaredHeatRate(w) H[(V F)^2].
+  This is division-free weighted centering, not the stationary OS projection.
+- **remaining**: the actual V-squared norm/spatial cancellation estimate,
+  a same-object interacting OS comparison beyond the excluded small-nome
+  guard, changing-scale control, physical calibration and continuum/QFT/
+  every-group completion. Next use the existing signed connected-face
+  response with both original partition factors. The kinetic bound does
+  not remove the AF obstruction of the older interacting bound. No canonical
+  atom or existing sorry closes; no new open analytic field is introduced.
+- **verification**: five focused serial one-worker/20 GiB checks pass,
+  all 46 public gates within {propext, Quot.sound}; final logs have no
+  warnings/errors. Independent mathematical source review passed. See
+  `audits/AUDIT-PRODUCT-HEAT-TENSORIZATION.md` for exact checks and scope.
+  Root imports added; root/full-tree/full audit/guard are unrun.
+  No old guard, frontier statement, sorry, new axiom or safety limit changed.
+
+## Previous PROVED original full kinetic nonexpansivity and local conditional strict contraction; strict product was OPEN at that checkpoint (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialKineticMarginals.lean`,
   `BF4ExactSlabFixedSpatialKineticContraction.lean`,
