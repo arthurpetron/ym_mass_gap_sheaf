@@ -193,9 +193,15 @@ Execution order:
    the final constant has no volume or family-size dependence. Its original
    two-time specialization is now PROVED: L(w)*sum(c_p^2) <=
    600*U(w)*normalizedEnergy(sum(c_p*chi_p)), with the SAME odd-chain mass.
-   Next supply the original spatial variance upper bound on the justified
-   coupling domain/scaling trajectory. The temporal lower bound does not
-   replace that upper bound. The response investigation now has a checked
+   Before expanding the spatial variance branch, test its extension to the
+   ACTUAL transported pair (T(g_n*chi_p), T(g_n)) and then finite Wilson
+   expressions at all separation times. A plaquette-span variance upper bound
+   would close only a sector inequality; no transfer invariance or density of
+   that span has been established. The orbit-consumer audit below therefore
+   makes original-action iterated connected decay the primary target, with
+   susceptibility as a subordinate possible producer. The temporal lower
+   bound does not replace a variance upper bound. The response investigation
+   now has a checked
    limitation: one insertion's subtractive square vanishes on a computed
    nonconstant, positive-original-norm two-plaquette direction. A per-insertion
    upper estimate must handle the remaining third cumulant there; alternatively
@@ -292,6 +298,58 @@ proof of the continuum theory, its physical mass gap and the every-group
 quantifier remains OPEN. Preserve refuted/defective frontier statements until
 an explicit reviewed change is authorized; their existing fields are not goals
 to inhabit by unrelated models.
+
+### Transfer-orbit audit: revised immediate priority (2026-09-17 21:33 UTC)
+
+The parallel source review is recorded in
+`audits/AUDIT-TRANSFER-ORBIT-CONSUMER.md`. It changes the execution order,
+not any theorem, guard, canonical field, or the whole-project goal.
+
+1. **Test the first actual transported pair before more isolated sector work.**
+   With g_n=T^n(1), retain (T(g_n*chi_p), T(g_n)), the original T=K(V*.),
+   both external weights and the SAME partition. The conditional observable
+   is represented by the numerator/denominator pair; its numerator alone is
+   not the observable in the old marginal. Work division-free using the
+   existing `observedMessage`, `separatedMessage` and input-covariance APIs.
+   The original `combinedTest` already contains the transferred numerator,
+   denominator and marginal-mean correction. Do not add another wrapper for it.
+2. **Demand the iteration needed by the full Wilson consumer.** The useful
+   analytic target is a common q(w)<1 connected-decay estimate for
+   (T^r observedMessage(m,L,p), T^r g_(m+L)), with p the source polynomial
+   of any finite Wilson expression, and with the original right test and
+   common partition retained. An explicit expression-dependent prefactor
+   independent of r is allowed; the rate and the prefactor must have the
+   regulator control needed for the chosen limits. No common numerical rate
+   over every bare coupling is required by Clay. The existing fixed-width
+   estimate has the right objects but a width-dependent rate. A direct signed
+   connected-numerator estimate is allowed; do not impose uniform pointwise
+   message brackets if the weaker integrated estimate suffices.
+3. **Do not reverse the dyadic implication.** `evenMoment_dyadic` bounds
+   M(k)^2 by M(2k)*M(0), not M(2k) from above. The existing gap argument
+   removes an expression-dependent prefactor from an ALL-TIME geometric
+   estimate. A first-step bound on unpropagated fundamental sums does not
+   supply that estimate. Products, arbitrary loop spins and time offsets
+   occur in the actual Wilson syntax. A density theorem for fundamental
+   plaquette orbits was NOT FOUND in the audited modules.
+4. **Keep local estimates subordinate to a proved join.** The signed-family
+   energy floor remains useful on its stated sector. Its susceptibility
+   upper bound remains open, but is not a mandatory predecessor of every
+   full-gap route. Defer further isolated own-face moment/floor-cap modules
+   until their estimate controls the actual transferred pair or its signed
+   full-source remainder. The scalar radial rate's quadratic smallness does
+   not control the transverse term or a growing local comparison multiplier.
+5. **Reconstruct the limiting form on the improved domain as well.** The
+   current `intrinsicForm` itself takes the small-nome guards. A new all-time
+   estimate beyond those guards must supply the needed same-theory limit
+   control; it cannot simply instantiate the present completed carrier at an
+   excluded nome. Preserve the completed small-nome result unchanged.
+
+**Engaged checkpoint:** the first pair and its common-partition consumer have
+been traced to the existing source. No improved width-uniform bound on that
+pair was found or proved by this review. Next supply an action-specific
+estimate on it, or a concrete failure of a proposed estimate on the actual
+action, before implementing further compilers. This planning/source checkpoint
+is not a new Lean proof or closure of an analytic input.
 
 ### Audit response: next execution checkpoint (2026-09-17 UTC)
 
@@ -652,7 +710,9 @@ volume-uniform bound.
 1. The full-action coercivity AND its signed adjacent-time energy join are
    PROVED above. Do not repeat their geometry, normalization or add an assumed
    frame field. Preserve their literal same-action and same-partition pins.
-2. Prove a spatial variance/susceptibility UPPER bound in the SAME actual
+2. FIRST test the actual transferred-pair route in the transfer-orbit audit
+   above. For the subordinate plaquette-sector route, a spatial
+   variance/susceptibility UPPER bound is still needed in the SAME actual
    marginal and combined coefficients. With Z=oddMass, A=m(g_n*Tg_n*f^2),
    B=m(g_n*Tg_n*f), and S=sum(c_p^2), the required path-specific comparison is
    Z*A-B^2 <= C(w)*Z^2*S, uniform in width, n and cofinal K on a justified
@@ -668,9 +728,11 @@ volume-uniform bound.
    estimate remains an alternative. Do not require summable absolute rows
    when the signed quadratic estimate is sufficient. Fixed-r point-moment
    bounds retaining r do not supply family-size-independent susceptibility.
-3. Only after the variance bound, consume the EXISTING clearedDefect equivalence
-   below. Signed fundamental sums still do not cover products, the physical
-   transfer orbit or the full dense sector; those joins remain explicit.
+3. If that sector variance bound is obtained, consume the EXISTING
+   clearedDefect equivalence below only on its proved observable class.
+   Signed fundamental sums still do not cover products, the physical
+   transfer orbit or the full dense sector. Establish iteration/coverage
+   before treating isolated susceptibility as the primary full-gap path.
    Preserve the already proved small-nome completed gap and normalized
    excitation, without presenting them as an AF/scaling theorem.
 
