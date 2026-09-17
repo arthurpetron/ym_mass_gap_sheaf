@@ -133,7 +133,37 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED bounded time-zero Wilson multiplication on the SAME completion; OPEN representation laws and canonical OS/QFT joins):**
+**Latest mathematical increment (PROVED symmetric linear Wilson observables and SAME vacuum correlations; OPEN general observable realization and canonical OS/QFT joins):**
+PROGRESS after pushed `169a236`: the reflection-fixed character moves between
+the two slots of the original form. Common-base coherence and the original
+pairing limits give `completedInner_multiplier_balance` for the existing
+bounded multiplier. The separating completed pairing then proves zero
+preservation, additivity and rational/witnessed-real linearity without
+duplicating polynomial algebra. The existing distance cap becomes the actual
+squared-norm cap. `completedMultiply_unit` identifies the operator-created
+vacuum state with the original radius-zero loop state by polynomial descent.
+`vacuumCorrelation_original` and `vacuumConnected_original` pin actual
+operator matrix elements to the SAME original dense Wilson scalars;
+`vacuumConnected_sq_decay` inherits the proved connected decay with the actual
+centered norm prefactors. No new mixing or operator hypothesis is supplied.
+
+The next mathematical consumer is general ordered multi-time Wilson-window
+realization by these operators and the existing time maps, followed by full
+observable/state coverage and the canonical Hilbert/OS join. This increment
+does not construct `CanonicalOSRoot.PositiveTimeOSRoot`: its limiting ambient
+algebra, essentially-surjective realization and rational-GNSData/CReal-form
+compatibility remain unsupplied. No canonical field is weakened. Continuous
+time/generator, spatial symmetry, changing-scale original-action control,
+finite positive physical mass, continuum survival and every compact simple
+group remain open. These are fixed-spacing, small-nome SU(2) results.
+
+Four final focused serialized one-worker/20 GiB checks pass all 24 public
+gates within `{propext, Quot.sound}`. No sorry, axiom, analytic guard,
+canonical frontier field or safety limit changed. Root imports added;
+root/full-tree/full audit/guard unrun; CI remains manual. Final evidence:
+`audits/AUDIT-WILSON-SPATIAL-UNION.md`, symmetric-operator/correlation follow-up.
+
+**Previous mathematical increment (PROVED bounded time-zero Wilson multiplication on the SAME completion; OPEN representation laws and canonical OS/QFT joins at that checkpoint):**
 PROGRESS after pushed `b429d2a`: fixed-slice square certificates and conditional
 reflection positivity retain the complete selected heat action and prove
 `OSnorm(a*p)^2 <= characterBound spin * OSnorm(p)^2`. The actual Wilson

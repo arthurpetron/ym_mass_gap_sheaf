@@ -8,6 +8,96 @@ with the required QFT axioms, isolated vacuum and strictly positive finite
 physical Hamiltonian mass gap, for EVERY compact simple gauge group,
 within the constructive axiom gate. **The Clay target remains OPEN.**
 
+## Symmetric linear observables and the SAME vacuum correlations
+
+2026-09-17 UTC, after pushed `169a236`: **PROGRESS**. The previously
+constructed multiplier is now a bounded symmetric linear observable map
+on the SAME completion. Its vacuum-created state and time correlations
+are pinned to the original Wilson states and scalars, not an auxiliary model.
+
+### Short mathematical argument
+
+Reflection fixes the loop at the common center. Commutation and associativity
+of the scalar character polynomials therefore move this multiplier between
+the two slots of the actual reflected form. The original common-base and
+pairing-limit theorems preserve that identity. Because the completed pairing
+already separates vectors, symmetry and bilinearity imply zero preservation,
+additivity and scalar linearity. The prior distance bound, evaluated against
+the actual zero, becomes the actual squared-norm bound.
+
+All paths below are under `lean/YMGap/Continuum/`.
+
+| Checked edge | Declaration and path:line |
+| --- | --- |
+| Fixed-center reflection + coefficient algebra -> original window balance | `form_timeZero_multiplier_balance`, `BF4WilsonTimeZeroIntrinsicSymmetry.lean:46` |
+| One common time horizon -> original intrinsic balance | `intrinsicForm_multiplier_balance`, `BF4WilsonTimeZeroIntrinsicSymmetry.lean:74` |
+| One common spatial base -> original dense union balance | `pairing_multiplier_balance`, `BF4WilsonSpatialUnionTimeZeroOperator.lean:63` |
+| Original pairing convergence -> completed multiplier symmetry | `representativeInner_multiplier_balance`, `BF4WilsonSpatialUnionTimeZeroOperator.lean:79`; `completedInner_multiplier_balance`, :89 |
+| Separating original form -> zero, addition, rational and witnessed-real linearity | `completedMultiply_zero`, `BF4WilsonSpatialUnionTimeZeroOperator.lean:95`; `completedMultiply_add`, :101; `completedMultiply_smul`, :109; `completedMultiply_realSmul`, :119 |
+| Existing zero + proved distance cap -> actual squared-norm cap | `completedInner_multiplier_bound`, `BF4WilsonSpatialUnionTimeZeroOperator.lean:129` |
+| Symmetry -> square observable has norm-square pairing and is nonnegative | `completedInner_multiplier_square`, `BF4WilsonSpatialUnionTimeZeroOperator.lean:138`; `completedInner_multiplier_square_nonnegative`, :142 |
+| Literal loop at radius zero -> original staged/embedded loop state | `loopExpression`, `BF4WilsonTimeZeroVacuum.lean:45`; `loopStage`, :49; `loopState`, :71 |
+| Polynomial a*1=a + original null descent -> multiplier creates THAT state | `completedMultiply_unit`, `BF4WilsonTimeZeroVacuum.lean:90` |
+| Original time map -> existing radius-advanced loop state | `completedTime_multiply_unit`, `BF4WilsonTimeZeroVacuum.lean:112` |
+| Symmetry + vacuum-state pin -> actual operator correlation equals original dense pairing | `vacuumCorrelation_original`, `BF4WilsonTimeZeroCorrelations.lean:78` |
+| Same vacuum means -> original connected Wilson scalar | `vacuumConnected_original`, `BF4WilsonTimeZeroCorrelations.lean:90` |
+| Existing connected decay -> actual observable vacuum correlation decay | `vacuumConnected_sq_decay`, `BF4WilsonTimeZeroCorrelations.lean:102` |
+
+`vacuumCorrelation`, `BF4WilsonTimeZeroCorrelations.lean:52`, is literally
+`B U (M_L (T_n (M_K U)))`; `vacuumConnected`, :56, subtracts the two actual
+vacuum expectations. The right-hand original scalar retains the existing
+explicit Cauchy data `centeredMomentCauchy`,
+`BF4WilsonSpatialUnionCenteredForm.lean:49`. The inherited bound concerns
+the SQUARED connected correlator, with rate `twoStepRate w hd` to power n
+and the actual two centered norm prefactors. It neither proves one-step
+positivity nor introduces a new coupling-uniform estimate.
+
+### Remaining consumer and boundary
+
+The next constructive realization problem is the general ordered multi-time
+Wilson expression, using these actual multipliers and the original time
+maps. This would address more than the single-loop vacuum state; full
+gauge-observable coverage remains a separate requirement. The canonical
+`PositiveTimeOSRoot`, `CanonicalOSRoot.lean:268`, still requires its limiting
+ambient algebra, positive-time support and essentially-surjective state
+realization (:296), in addition to its rational-GNSData interface. This
+increment neither inhabits that root nor rationalizes the actual CReal form.
+No canonical field was changed. Full Hilbert/OS/QFT, continuous time and its
+generator, spatial symmetry, changing-scale original-action estimates,
+finite positive physical mass, continuum survival and every compact simple
+group remain open. The fixed-spacing small-nome strict bound remains a
+separate already proved input, not a new conclusion of symmetry.
+
+### Focused verification
+
+Four final monitored serial one-worker/20 GiB checks passed all 24 public
+gates within `{propext, Quot.sound}`, with no final warning/error. The
+vacuum proof needed an explicit same-base loop-inclusion equality; its
+recovery log is not verification. Source review also identified namespace
+qualification and a needed specialization of the expectation-factor rewrite,
+both resolved before the relevant successful check. Main read every module
+and alone compiled. Parallel work supplied the intrinsic symmetry and
+vacuum identification; an independent bounded review found no mathematical
+action, pairing, modulus or decay-application mismatch.
+
+No source sorry, axiom, analytic guard, canonical frontier field or resource
+limit changed. Fresh preflights found no competing compiler/test/runner;
+swap remained 6813.19 MiB. Root imports added; root/full-tree/full audit/
+guard unrun; CI remains manual. Final logs and SHA-256:
+
+- `/tmp/ym-wilson-timezero-intrinsic-symmetry-20260917.log`:
+  `11345d4ff4d89180f235b30741b0dc022736a41a6a3768245efb20e252320c37`
+- `/tmp/ym-wilson-timezero-completed-operator-20260917.log`:
+  `793f68b8591d6a8573576fa9013e9621dd92673816724275d2b9705b5884d1eb`
+- `/tmp/ym-wilson-timezero-vacuum-20260917-final.log`:
+  `5cf9dc2bf8fc07708645d01ab1888334938665dd132ff7a9fc852d54d363e211`
+- `/tmp/ym-wilson-timezero-correlations-20260917.log`:
+  `47ef40e9032c7f69f3e754038a3241a67ee647a8edb9042af81a2c2b94a770fe`
+
+Earlier sections below retain their then-open boundaries; the operator
+laws and single-loop vacuum/correlation joins above supersede those specific
+earlier open consumers.
+
 ## Bounded time-zero Wilson multiplication on the SAME completion
 
 2026-09-17 UTC, after pushed `b429d2a`: **PROGRESS**. A supplied finite

@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED bounded time-zero Wilson multiplication on SAME completion; OPEN representation laws and canonical OS/QFT joins (2026-09-17 UTC)
+## PROVED symmetric linear Wilson observables and SAME vacuum correlations; OPEN general observable realization and canonical OS/QFT joins (2026-09-17 UTC)
+
+- **files**: `BF4WilsonTimeZeroIntrinsicSymmetry.lean`,
+  `BF4WilsonSpatialUnionTimeZeroOperator.lean`, `BF4WilsonTimeZeroVacuum.lean`,
+  and `BF4WilsonTimeZeroCorrelations.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: fixed-center reflection, coefficient commutation and the original
+  spatial limit give `intrinsicForm_multiplier_balance`; the actual common
+  base and pairing convergence give `completedInner_multiplier_balance`.
+  The separating completed form proves `completedMultiply_zero`,
+  `completedMultiply_add`, `completedMultiply_smul` and
+  `completedMultiply_realSmul`. The last retains supplied scalar QCauchy data.
+  The actual distance bound then gives `completedInner_multiplier_bound`.
+  Polynomial multiplication by one and original observable descent prove
+  `completedMultiply_unit` and its original time-orbit pin. The operator
+  matrix element and its vacuum-centered scalar are identified with the
+  original dense Wilson quantities by `vacuumCorrelation_original` and
+  `vacuumConnected_original`; `vacuumConnected_sq_decay` reuses the existing
+  SAME-state connected estimate with actual centered norm prefactors.
+- **consumer/open input**: removes linearity/symmetry, zero/norm and
+  single-loop vacuum/matrix-element joins for these actual bounded operators.
+  General ordered multi-time Wilson realization and full observable coverage
+  are subsequent consumers. Canonical reflected-root realization, its scalar
+  interface, full Hilbert/OS/QFT, continuous time/generator, spatial symmetry,
+  changing-scale control, physical mass, continuum survival and every-group
+  construction remain open. No one-step positivity or Clay closure asserted.
+- **verification**: four final serial one-worker/20 GiB focused checks, all
+  24 public gates within {propext, Quot.sound}, no final warning/error.
+  Root imports added; root/full-tree/full audit/guard unrun. No sorry,
+  axiom, analytic guard, canonical frontier field or resource limit changed.
+  Evidence: `audits/AUDIT-WILSON-SPATIAL-UNION.md`, symmetric-operator follow-up.
+
+## Previous PROVED bounded time-zero Wilson multiplication on SAME completion; OPEN representation laws and canonical OS/QFT joins at that checkpoint (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabSiteMultiplierBound.lean`,
   `BF4WilsonTimeZeroChart.lean`, `BF4WilsonTimeZeroMultiplierBound.lean`,

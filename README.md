@@ -21,7 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: time-zero Wilson multiplication acts on the SAME OS completion.**
+**Latest result: bounded Wilson observables recover the SAME vacuum correlations.**
+Time-zero multiplication is now proved symmetric and linear on the existing
+completion, including real scalars supplied with explicit moduli. Applying
+it to the existing vacuum gives the original loop state. Consequently
+`<U, M_L T_n M_K U>` is exactly the original Wilson time correlation;
+subtracting its vacuum means gives the existing connected scalar and decay
+bound. The action, state space, time operator and vacuum are unchanged.
+
+This remains fixed-spacing, small-nome SU(2). General multi-time observable
+realization, full coverage, canonical Hilbert/OS/QFT, changing-spacing control,
+physical mass calibration and every-group continuum construction remain open.
+Four focused checks passed all 24 public axiom gates within
+`{propext, Quot.sound}`; no root/full-tree audit ran. See the
+[proof and remaining boundary](audits/AUDIT-WILSON-SPATIAL-UNION.md#symmetric-linear-observables-and-the-same-vacuum-correlations).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: time-zero Wilson multiplication acts on the SAME OS completion.**
 For every supplied finite spatial loop and spin, multiplication now has a
 proved bound in the original reflected form, retaining the full heat action.
 It descends to the existing spatial-union completion, including streams with
@@ -36,9 +54,6 @@ control, finite physical mass and every-group continuum construction remain
 open. Five focused checks passed all 35 public axiom gates within
 `{propext, Quot.sound}`; no root/full-tree audit ran. See the
 [proof and remaining boundary](audits/AUDIT-WILSON-SPATIAL-UNION.md#bounded-time-zero-wilson-multiplication-on-the-same-completion).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: genuine quaternion Haar identities identify the SAME Wilson states.**
 A finite source identity tested against supported Haar insertions now
