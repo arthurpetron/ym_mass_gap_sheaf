@@ -192,6 +192,16 @@ Execution order:
    Test this join before formalizing it: the residuals are not proved
    mutually orthogonal, marginal-centered or transfer-invariant. Neither
    free-Haar tensorization nor summing linkwise bounds supplies the join.
+   This failure is now explicit: `RationalWeightedProductGapObstruction`
+   exhibits two weighted-centered residuals whose individual 1/3 bounds
+   hold but whose sum violates that bound through negative cross terms.
+   It is not a Yang--Mills counterexample and does not exclude a smaller rate.
+   The actual terminal messages now have one-coordinate floor/cap control
+   via `BF4ExactSlabFixedSpatialConditionalMessage`; use it as normalization
+   control, not as a bound on cross influence. The next estimate must retain
+   the combined signed transfer test and the SAME marginal mean correction,
+   targeting the cleared covariance defect below rather than unnecessarily
+   requiring a raw-norm estimate on arbitrary sector sums.
    This bypasses the unproved V-squared norm comparison without deleting V;
    it does not bypass the volume-uniform analytic problem. The signed spatial-face
    response remains an alternative producer, not a separate checklist to fill.
@@ -262,7 +272,66 @@ to inhabit by unrelated models.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED width-independent conditional-sector estimate in the SAME temporal norm; OPEN global weighted comparison):**
+**Latest mathematical increment (PROVED cross-term obstruction and actual conditional-message control; OPEN signed covariance-defect estimate):**
+PROGRESS after `bbaab3e`: the explicit four-state positive product model in
+`RationalWeightedProductGapObstruction.no_universal_singleFactor_gap`
+refutes preserving its one-factor 1/3 bound under arbitrary positive endpoint
+weights. More strongly, its ACTUAL division-free residuals sum to a centered
+probe, each satisfies the bound, and both are marginal-centered; nevertheless
+the sum has E/N=1/4. The mixed gap defect is -90 against diagonal defects
+171/2 each. Decomposition and centering alone therefore do not supply the
+signed cross control. This is a finite logical obstruction, NOT the actual
+Yang--Mills action, a refutation of smaller rates, or a continuum conclusion.
+
+Positive progress on the ORIGINAL produced messages:
+`SU2QuaternionProductHeatConditionalMessage.productMap_conditional_pin`
+identifies a selected output conditional average with the message obtained
+by erasing just its matching kinetic factor, against supported Haar tests.
+Its two certificate producers integrate (K_i-h)*K_rest*input and
+(U-K_i)*K_rest*input, retaining all other factors. In
+`BF4ExactSlabFixedSpatialConditionalMessage`, the actual input is V*T^n1;
+`conditionalMessage_pin`, `conditionalMessage_lowerCertificate` and
+`conditionalMessage_capCertificate` give an explicit i-independent r_i with
+
+    P_i(u_(n+1)) = r_i  [supported-Haar equality],
+    headFloor(w)*r_i <= u_(n+1) <= prefixCap(w)*r_i.
+
+Constants depend on w, not width, depth n or late K. These bounds concern
+u_(n+1), NOT V*u_(n+1), do not assert a reciprocal, and do not make the
+terminal weight local or bound its sensitivity to exterior coordinates.
+They supply conditional normalization control, not the missing cross bound.
+
+NEXT MATHEMATICAL TARGET: on actual g=T^n1 and a=Vg, control the signed
+off-diagonal CLEARED COVARIANCE defect for an actual decomposition modulo
+constants. Write N_g(r,s)=m(g*Tg*r*s), B_g(r)=m(g*Tg*r), Z=m(g*Tg), and
+E_g(r,s)=N_g(r,s)-m((g*r)*T(g*s)). The consumer needs
+
+    C_delta(r,s)=Z*E_g(r,s)-delta*(Z*N_g(r,s)-B_g(r)*B_g(s)).
+
+For first argument R_i(a,f), the existing weightedResidual_pairing reduces
+this to a conditional covariance with the COMBINED signed test
+
+    Z*((1-delta)*(Tg)*s-T(g*s)) + delta*B_g(s)*(Tg).
+
+This is the analytic target, not a new proved inequality or assumed field.
+Do not drop the mean correction, assume marginal centering, divide by an
+unproved pointwise denominator, or estimate the two transfer terms separately
+and lose their cancellation. Prove actual cross control with the required
+spatial/depth/cutoff bounds and explicit nome/group dependence, possibly at
+a smaller delta, or rule out the proposed comparison. More normalization
+wrappers alone do not supply this estimate. The existing global fraction
+still collapses with width; completed OS/scaling, physical calibration,
+nontrivial continuum survival, full QFT and all compact simple groups remain OPEN.
+
+Four focused serialized one-worker/20 GiB checks pass, with all 70 public
+gates within {propext, Quot.sound}, no final warnings/errors. Five existing
+private helpers were exposed unchanged for reuse; this is not five new
+mathematical results. Independent source review passed. Evidence:
+`audits/AUDIT-WEIGHTED-CROSS-DEFECT.md`. Root imports added; root/full-tree/
+full audit/guard unrun. No sorry, new axiom, old guard, frontier statement or
+safety limit changes; no canonical Clay atom closes.
+
+**Previous mathematical increment (PROVED width-independent conditional-sector estimate in the SAME temporal norm; OPEN global weighted comparison):**
 PROGRESS after `6b09535`: `SU2QuaternionWeightedBlockCentering.weightedResidual`
 constructs R_i=P_i(a)*f-P_i(a*f), with coefficientwise P_i(a*R_i)=0.
 Its pairing and quadratic identities retain the conditional mass P_i(a);

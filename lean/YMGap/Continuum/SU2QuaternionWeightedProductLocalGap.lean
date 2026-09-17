@@ -72,7 +72,8 @@ private theorem heatAt_eq_prefix (a b : Nat) (w : Q') (K : Nat) :
   intro spin hspin
   rw [coeffAt_heatKernelPacket (List.mem_range.mp hspin)]
 
-private def heatInterval {blocks a b : Nat} (ha : a < blocks) (hb : b < blocks)
+/-- The single relative heat factor's explicit all-nome interval. -/
+def heatInterval {blocks a b : Nat} (ha : a < blocks) (hb : b < blocks)
     {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K : Nat) :
     Interval blocks (heatAt a b w K) (prefixCap w) := by
   let word := PolyQuaternion.mul (PolyQuaternion.coordinateVariable a)
@@ -261,11 +262,12 @@ theorem local_energy_floor (n : Nat) {w : Q'}
 
 -- The standard perm_cons_erase carries Classical.choice in this tree.
 -- Selecting a Nat index needs only the explicit finite equality decision.
-private def eraseIndex (target : Nat) : List Nat → List Nat
+/-- Constructive first-occurrence erasure, also used by conditional messages. -/
+def eraseIndex (target : Nat) : List Nat → List Nat
   | [] => []
   | head::tail => if head = target then tail else head::eraseIndex target tail
 
-private theorem select_perm (target : Nat) : ∀ {ids : List Nat},
+theorem select_perm (target : Nat) : ∀ {ids : List Nat},
     target ∈ ids → ids.Perm (target::eraseIndex target ids)
   | [], h => False.elim (List.not_mem_nil h)
   | head::tail, h => by
@@ -278,7 +280,7 @@ private theorem select_perm (target : Nat) : ∀ {ids : List Nat},
         exact (List.Perm.cons head (select_perm target ht)).trans
           (List.Perm.swap target head (eraseIndex target tail))
 
-private theorem mem_of_mem_erase (target : Nat) : ∀ {ids : List Nat} {j : Nat},
+theorem mem_of_mem_erase (target : Nat) : ∀ {ids : List Nat} {j : Nat},
     j ∈ eraseIndex target ids → j ∈ ids
   | [], _, h => False.elim (List.not_mem_nil h)
   | head::tail, j, h => by
@@ -290,7 +292,7 @@ private theorem mem_of_mem_erase (target : Nat) : ∀ {ids : List Nat} {j : Nat}
         · exact List.mem_cons.mpr (Or.inl hj)
         · exact List.mem_cons_of_mem head (mem_of_mem_erase target ht)
 
-private theorem not_mem_erase (target : Nat) : ∀ {ids : List Nat},
+theorem not_mem_erase (target : Nat) : ∀ {ids : List Nat},
     ids.Nodup → target ∉ eraseIndex target ids
   | [], _ => List.not_mem_nil
   | head::tail, hn => by
@@ -334,7 +336,12 @@ theorem local_energy_floor_of_mem (n : Nat) {w : Q'}
 end YMGap.Continuum.SU2QuaternionWeightedProductLocalGap
 
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.edgeWeight
+#print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.heatInterval
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.erased_cross_zero
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.erased_jump_eq_diagonal
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.local_energy_floor
+#print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.eraseIndex
+#print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.select_perm
+#print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.mem_of_mem_erase
+#print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.not_mem_erase
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.local_energy_floor_of_mem

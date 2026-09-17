@@ -13,7 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED width-independent local sector estimate in the SAME temporal norm; OPEN global weighted comparison (2026-09-17 UTC)
+## PROVED finite cross-term obstruction and ORIGINAL conditional-message control; OPEN signed covariance-defect bound (2026-09-17 UTC)
+
+- **files**: `RationalWeightedProductGapObstruction.lean`,
+  `SU2QuaternionProductHeatConditionalMessage.lean`,
+  `BF4ExactSlabFixedSpatialConditionalMessage.lean`, under `lean/YMGap/Continuum/`.
+  Five unchanged private helpers in `SU2QuaternionWeightedProductLocalGap.lean`
+  were made public with gates for reuse, without changing their statements.
+- **obstruction**: the finite positive k-tensor-k model with endpoint
+  (9,1,1,9) has actual marginal (54,4,4,54). Two genuine weighted residuals
+  sum to the centered probe, each satisfies the 1/3 sector bound, and both
+  are marginal-centered. Their diagonal gap defects are 171/2, but the
+  mixed defect is -90 and the sum's defect is -9. Thus decomposition alone
+  does not preserve the one-factor rate. This is NOT the YM action and
+  does not exclude smaller constants or the actual SU(2) rate.
+- **actual construction**: erase only one active kinetic factor from the
+  last step of u_(n+1)=K(V*u_n). The explicit `conditionalMessage` r_i
+  retains every other factor, is independent of i, and equals P_i(u_(n+1))
+  against all supported Haar tests. Its lower/cap certificates prove
+  headFloor(w)*r_i<=u_(n+1)<=prefixCap(w)*r_i. Constants have no width,
+  depth or late-cutoff dependence. No output V is included or deleted;
+  no pointwise reciprocal, stationary vector or locality claim is made.
+- **remaining**: actual signed off-diagonal control for the SAME cleared
+  covariance defect Z*E_g(r,s)-delta*(Z*N_g(r,s)-B_g(r)*B_g(s)), not an
+  unnecessarily stronger raw-norm condition. The residual-pairing identity
+  points to the combined signed test
+  Z*((1-delta)*(Tg)*s-T(g*s))+delta*B_g(s)*(Tg). Retain its cancellation
+  and mean correction; conditional normalization is not an influence bound.
+  The old all-observable rate still collapses with width. Completed OS/scaling,
+  physical mass/nontrivial continuum survival, full QFT and every compact
+  simple group remain open. No old sorry/canonical atom closes; no new
+  unsupplied analytic field is introduced.
+- **verification**: four final focused serial checks, one worker/20 GiB;
+  70 public gates within {propext, Quot.sound}, no final errors/warnings.
+  Independent mathematical review passed. Evidence:
+  `audits/AUDIT-WEIGHTED-CROSS-DEFECT.md`. Root imports added; root/full-tree/
+  full audit/guard unrun. No sorry, new axiom, old guard, frontier statement
+  or safety limit changed.
+
+## Previous PROVED width-independent local sector estimate in the SAME temporal norm; OPEN global weighted comparison (2026-09-17 UTC)
 
 - **files**: `SU2QuaternionWeightedBlockCentering.lean`,
   `SU2QuaternionWeightedProductLocalGap.lean`,
