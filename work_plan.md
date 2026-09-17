@@ -390,8 +390,8 @@ and do not infer signs of weighted responses from positive coefficients.
 Do not prescribe delta=1-w^12, a coupling-independent delta, or a polynomial
 weak-coupling margin without the needed estimate and physical calibration.
 
-The first bounded proof target is to remove the fusion cutoff-boundary
-remainder under the ORIGINAL partition, not to assume the bulk estimate.
+The first bounded proof target is to control the fusion cutoff-boundary
+remainder relative to the ORIGINAL partition squared, not to assume the bulk estimate.
 For Gamma_j=Z*J(v_j)-J(u)*Zfun(v_j), with u=P(V*g),
 v_j=P(V_rest*g*chi_j), Z=Zfun(u), and J/Zfun the original right-window
 numerator/partition, seek
@@ -403,7 +403,8 @@ The sharp character interval and one-face heat floor suggest a width- and
 boundary-depth-independent bound, with an explicit all-nome tail cutoff.
 This remains an UNPROVED target, to be implemented together with the exact
 full-source fusion identity, not as a detached scalar tail compiler. Its
-success would leave the signed bulk harmonic sum open, not prove decay.
+success would leave the signed bulk harmonic sum open, not prove decay
+or vanishing of the unnormalized remainder as the partition changes.
 The remainder's terminal messages and normalizer may depend on K; the
 bound must handle that dependence rather than pass them through a fixed-test
 limit. The proof must construct positivity of the full retained product

@@ -73,7 +73,7 @@ Here `energy` is
 Its existing physical consumer is `clearedDefect_diagonal_nonnegative_iff`
 in the latter file at line 175. The exact full-source pairing and mean
 correction already exist as `combinedTest` at line 71 and
-`clearedDefect_pairing` at line 99. Do not create another wrapper for them.
+`clearedDefect_pairing` at line 96. Do not create another wrapper for them.
 
 The missing estimate is the SIGNED upper bound
 
@@ -161,7 +161,9 @@ The proof must construct the retained-product positivity and comparison
 h*Zfun(P(V_rest*g))<=Z on the original carrier; neither is a new hypothesis
 to assume. Cutoff-dependent messages and normalizers remain inside this
 finite-regulator estimate. An explicit all-nome tail modulus must accompany
-any claimed vanishing boundary, with its dependence on w and tolerance.
+any claimed vanishing boundary RELATIVE TO THE ORIGINAL Z(K)^2, with its
+dependence on w and tolerance. No vanishing of the unnormalized boundary
+is implied when the partition varies with K.
 
 In particular, v_j is signed: `inputNumerator_abs_le` cannot be applied
 directly to it. With v_0=P(V_rest*g), construct certificates for
