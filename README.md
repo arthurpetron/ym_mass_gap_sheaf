@@ -21,7 +21,24 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: positive nonzero-time response of the EXISTING Wilson excitation.**
+**Latest result: a norm-one excitation with positive, strictly bounded response on the SAME Wilson carrier.**
+An explicitly constructed inverse square root of the actual norm now
+normalizes the existing vector. Its two-step response has a proved rational
+lower bound above zero and upper bound below one. The certificate returns
+the vector, orthogonality, norm one, the original time-operator equality,
+both bounds and the scalar Cauchy modulus as data.
+
+This is **fixed-spacing SU(2) at nome 1/1024**, not a continuum mass gap.
+Canonical observable/state identification, full Hilbert/OS/QFT realization,
+changing-spacing control, finite physical mass and every-group continuum
+construction remain open. The focused check passed all 25 public axiom
+gates within `{propext, Quot.sound}`; no root/full-tree audit ran. See the
+[proof and next interface](audits/AUDIT-WILSON-SPATIAL-UNION.md#normalized-same-vector-response).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: positive nonzero-time response of the EXISTING Wilson excitation.**
 Exact comparison of the two separated plaquette probes identifies their
 connected scalars under the same original action and partition, then through
 their unchanged regulator limits. The existing Wilson vector therefore
@@ -37,9 +54,6 @@ every-group continuum construction remain open. Two focused checks passed
 all 12 public axiom gates within `{propext, Quot.sound}`; no root/full-tree
 audit ran. See the
 [proof and remaining joins](audits/AUDIT-WILSON-SPATIAL-UNION.md#positive-response-of-the-existing-wilson-excitation).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: actual vacuum projection and all-vector relaxation on the SAME Wilson carrier.**
 Real scalar multiplication with supplied explicit moduli now constructs the

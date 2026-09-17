@@ -13,7 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED positive nonzero-time response of the EXISTING Wilson excitation; OPEN normalization and full Hilbert/OS/QFT (2026-09-17 UTC)
+## PROVED normalized SAME-Wilson excitation and positive strict Rayleigh interval; OPEN canonical observable/state and Hilbert/OS/QFT joins (2026-09-17 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionNormalizedExcitation.lean`.
+- **proof**: `originalNorm_pin` identifies the actual norm of the EXISTING
+  vector; `originalNormCauchy`, `originalNorm_floor` and
+  `originalNorm_ceiling` provide its modulus and rational bounds.
+  `normalizer` and `normalizerCauchy` use the constructive inverse-root
+  stream. `unitExcitation_norm` and `unitExcitation_orthogonal` concern
+  the actual Wilson real-scaled vector. `normalizedResponse_pin` retains
+  its original completed two-step map. `normalizedResponse_floor` and
+  `normalizedResponse_ceiling` give the interval
+  `[responseFloor/normCeiling, twoStepRate(nome)]`, with positive lower
+  and strictly subunit upper endpoint. `normalizedCertificate` returns
+  this vector, response, modulus and all these proofs as data.
+- **consumer/open input**: removes normalization of the positive response
+  on this SAME carrier at fixed nome 1/1024. Next: semantic observable
+  equality descending to equality of actual embedded states. Canonical
+  Q'-valued GNSData/state identification, full Hilbert/OS/QFT, spatial
+  symmetry, changing-scale control, finite physical mass, continuum
+  survival and every compact simple group remain open. No Clay atom closes.
+- **verification**: first-attempt focused single-worker/20 GiB check,
+  all 25 public gates within {propext, Quot.sound}, no warning/error.
+  Root import added; root/full-tree/full audit/guard unrun. No sorry,
+  axiom, analytic guard, canonical frontier field or safety limit changed.
+  Evidence: `audits/AUDIT-WILSON-SPATIAL-UNION.md`, normalized-response follow-up.
+
+## Previous PROVED positive nonzero-time response of the EXISTING Wilson excitation; OPEN normalization and full Hilbert/OS/QFT at that checkpoint (2026-09-17 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonPlaquetteTimePin.lean`
   and `lean/YMGap/Continuum/BF4WilsonSpatialUnionPositiveResponse.lean`.

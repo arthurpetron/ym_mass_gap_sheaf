@@ -4842,6 +4842,7 @@ import YMGap.Continuum.BF4WilsonSpatialUnionVacuumRelaxation
 -- Same-action scalar pin and positive response of the EXISTING Wilson excitation.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonPlaquetteTimePin
 import YMGap.Continuum.BF4WilsonSpatialUnionPositiveResponse
+import YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

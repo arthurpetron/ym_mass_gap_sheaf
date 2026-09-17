@@ -8,6 +8,88 @@ with the required QFT axioms, isolated vacuum and strictly positive finite
 physical Hamiltonian mass gap, for EVERY compact simple gauge group,
 within the constructive axiom gate. **The Clay target remains OPEN.**
 
+## Normalized same-vector response
+
+2026-09-17 UTC, after pushed `11cecc3`: **PROGRESS**. The exact scalar
+pin at lag zero identifies the actual Wilson norm N and supplies its
+existing scalar Cauchy data. Its positive local-star floor and the
+original geometric prefactor give rational lower and upper bounds.
+The existing clamped inverse-square-root construction returns s and a
+modulus with `s*(s*N)=1`. The actual Wilson real action scales the
+existing vector, preserving orthogonality and its original time map.
+
+The resulting vector has norm one, with the same two-step response r
+satisfying `0 < responseFloor/normCeiling <= r <= twoStepRate(nome) < 1`.
+The lower bound uses the norm ceiling, not an uncomputed sample of the
+norm stream. The upper bound is the universal bound on THIS Wilson
+unit complement. Neither bound changes the carrier, observable or time.
+
+All declarations in this table are in
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionNormalizedExcitation.lean`.
+
+| Checked edge | Declaration and line |
+| --- | --- |
+| Original lag-zero scalar and modulus -> actual Wilson norm | `originalNorm`, :60; `originalNormCauchy`, :64; `originalNorm_pin`, :68 |
+| Existing star floor and geometric bound -> rational norm bounds | `originalNorm_floor`, :73; `normCeiling`, :79; `originalNorm_ceiling`, :84 |
+| Witnessed positive norm -> computed inverse-root scalar and modulus | `normalizer`, :92; `normalizerCauchy`, :96 |
+| Actual real action -> same-carrier unit vector | `unitExcitation`, :101; `unitExcitation_orthogonal`, :103; `unitExcitation_norm`, :107 |
+| Original positive two-step response -> scalar floor and modulus | `responseRepresentative`, :115; `responseCauchy`, :119; `response_floor`, :123 |
+| Actual time/scalar compatibility -> normalized response pin | `normalizedResponseCauchy`, :130; `normalizedResponse_pin`, :134 |
+| Norm ceiling and original response -> positive rational lower endpoint | `rayleighFloor`, :141; `rayleighFloor_positive`, :143; `normalizedResponse_floor`, :151 |
+| Universal same-carrier strict bound -> subunit upper endpoint | `rayleighCeiling`, :146; `rayleighCeiling_lt_one`, :148; `normalizedResponse_ceiling`, :157 |
+| Vector, response, bounds, modulus and pins returned as data | `normalizedCertificate`, :165 |
+
+### Scope and next source-backed proposition
+
+This is fixed-spacing SU(2) at nome 1/1024. Normalized positive-time
+response on the same Wilson carrier is now supplied. Full Hilbert and
+canonical OS/QFT realization, full observable coverage and spatial
+symmetry, changing-scale original-action control, finite physical mass,
+continuum survival and every-group producers remain open. The interval
+is not a spectral resolution or a physical mass calibration.
+
+A parallel read-only review identified semantic observable descent as
+a bounded next proposition. `spatialLimit_congr` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonSpatialFunctionalLaws.lean:90`
+currently transports coefficient equality of the entire placed chart
+insertion. The next equality must instead start from the actual lower
+observable, retain the same upper test and selected heat factors, and
+give mixed-pairing equality through the original diagonal limits.
+Zero-distance separation then has an existing consumer:
+`completedDist_embedStage` and `completedDist_zero_iff` in
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionCompletedDistance.lean:83`
+and :94. This paragraph is a proof plan, not a new descent theorem.
+
+The canonical scalar mismatch is explicit in current source:
+`GNSData.B`, `lean/YMGap/Continuum/GNSQuotient.lean:102`, returns Q';
+actual `pairing`, `lean/YMGap/Continuum/BF4WilsonSpatialUnion.lean:113`,
+returns CReal; actual `completedInner`,
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionPairingData.lean:132`, returns RC.
+No rational-valued factorization is supplied by this normalization.
+This does NOT infer that the individual values are irrational or that
+such a factorization is impossible. No canonical field is changed.
+
+### Focused verification
+
+The new module passed on the first attempt through
+`scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --check
+lean/YMGap/Continuum/BF4WilsonSpatialUnionNormalizedExcitation.lean
+--check-output <its olean>`. All 25 public gates report only
+`{propext, Quot.sound}`, with no warning/error. Preflight found no
+competing compiler/test/runner; swap was 6837.19 MiB. Root import added;
+root/full-tree/full audit/guard NOT run. No sorry, axiom, prior proof,
+analytic guard, canonical frontier field or safety limit changed.
+Main alone compiled; CI stays manual and no literature scan ran.
+
+The final log is `/tmp/ym-wilson-normalized-excitation-20260917.log`,
+SHA-256 `b6fd17e44189bf06dda280bca8596f0d71eb8f948379a68158a043c9ce65a836`.
+The older normalization module was a proof template; its vector was not
+substituted for the Wilson vector. The scalar inverse-root machinery
+was reused with the now-proved actual norm and response pins.
+
+The sections below are historical checkpoints; their open normalization
+and next-step claims describe the status then.
+
 ## Positive response of the existing Wilson excitation
 
 2026-09-17 UTC, after pushed `2d466ff`: **PROGRESS**. The previously missing

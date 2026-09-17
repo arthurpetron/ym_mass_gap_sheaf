@@ -133,7 +133,43 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED positive nonzero-time response of the EXISTING Wilson excitation; OPEN normalization and full Hilbert/OS/QFT):**
+**Latest mathematical increment (PROVED normalized SAME-Wilson excitation and positive strict Rayleigh interval; OPEN canonical observable/state and Hilbert/OS/QFT joins):**
+PROGRESS after pushed `11cecc3`: the exact scalar pin at lag zero gives
+the actual norm N and its explicit Cauchy data. The existing positive
+star floor and original geometric prefactor bound N from below and above.
+The constructed inverse square root, with its modulus, scales the EXISTING
+Wilson vector by the actual Wilson real action. It is unit-orthogonal
+and has norm one. No scalar representative or modulus is chosen.
+
+EXPANSION keeps the norm, inverse-root stream and response Cauchy data
+explicit. CONTRACTION gives an actual two-step pairing r with
+`0 < responseFloor/normCeiling <= r <= twoStepRate(nome) < 1`.
+`normalizedCertificate` returns the vector, bounds, response, modulus,
+orthogonality, norm-one proof and SAME-operator pin as Type-level data.
+This is fixed-spacing SU(2) at nome 1/1024, not a physical mass calibration.
+
+NEXT CAUSAL FRONTIER: semantic observable descent on the actual Wilson
+carrier. Prove that equivalent placed original polynomial observables
+give the same embedded state, by retaining the upper probe and action,
+passing exact mixed-pairing equality to the original limit, then applying
+the existing zero-distance separation. This is a bounded source-backed
+next proposition, not yet a new theorem or a canonical OS instance.
+The canonical `GNSData.B` still returns Q', whereas the actual dense form
+is CReal and completed form RC; no rational-valued factorization has
+been supplied, and no impossibility/irrationality claim is inferred.
+Full Hilbert/OS/QFT, full observable coverage and spatial symmetry,
+changing-scale original-action control, finite physical mass, continuum
+survival and every-group producers remain open.
+
+One focused single-worker/20 GiB check passed on the first attempt, all
+25 public gates within {propext, Quot.sound}. Root import added;
+root/full-tree/full audit/guard unrun. No sorry, axiom, guard, frontier
+field or safety limit changed. A parallel agent reviewed the next
+observable/canonical interface; main alone compiled. CI stays manual;
+no literature scan. Evidence:
+`audits/AUDIT-WILSON-SPATIAL-UNION.md#normalized-same-vector-response`.
+
+**Previous mathematical increment (PROVED positive nonzero-time response of the EXISTING Wilson excitation; OPEN normalization and full Hilbert/OS/QFT at that checkpoint):**
 PROGRESS after pushed `2d466ff`: the two separated radius-zero Wilson
 plaquette probes are coefficient-equivalent to the old face-character
 probes at every lag. Joint and marginal expectations use the SAME original
