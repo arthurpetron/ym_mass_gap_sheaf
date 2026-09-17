@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original odd-marginal coercivity and positive local energy; OPEN spatially uniform fraction (2026-09-17 UTC)
+## PROVED width-independent local sector estimate in the SAME temporal norm; OPEN global weighted comparison (2026-09-17 UTC)
+
+- **files**: `SU2QuaternionWeightedBlockCentering.lean`,
+  `SU2QuaternionWeightedProductLocalGap.lean`,
+  `BF4ExactSlabFixedSpatialLocalDirichletCoercivity.lean`, and the added
+  `edge_diagonal_identity` in `BF4ExactSlabFixedSpatialDirichletForm.lean`,
+  under `lean/YMGap/Continuum/`.
+- **proof**: the explicit scaled residual R=P_i(a)*f-P_i(a*f) satisfies
+  P_i(a*R)=0 coefficientwise, without division. Erasing ONE actual kinetic
+  factor kills the mixed term while retaining the entire remaining product
+  and both endpoint weights. Its heat floor and cap compare erased jump
+  and diagonal norms with the original edge. Constructive finite selection
+  plus Nodup ensures that the selected factor occurs exactly once.
+- **actual consumer**: `local_sector_coercivity` uses actual activeBlocks,
+  a=V*g, the original diagonal and squared-jump identities, cancelling 2:
+  headFloor(w)*m(g*Tg*f^2)<=prefixCap(w)*energy(g,f), on P_i(V*g*f)=0.
+  `terminalResidual_coercivity` supplies this condition and the positivity
+  certificate for ACTUAL g=T^n1. Constants depend on nome, not width, n
+  or late K; the residual itself keeps full K/width/n dependence.
+- **remaining**: a controlled weighted decomposition/cross-energy or
+  signed comparison for arbitrary observables under the same odd marginal.
+  These conditional sectors are not proved marginal-centered, mutually
+  orthogonal or transfer-invariant. Residuals may vanish. Their changing
+  cutoff/depth dependence needs its own limit control. Free-Haar tensorization
+  and naive summation do not discharge the global comparison. The previous
+  all-observable fraction still collapses in width. Completed OS/scaling,
+  physical mass/nontrivial continuum survival, full QFT and every compact
+  simple group remain open. No canonical atom or old sorry closes; no new
+  unsupplied analytic field is introduced.
+- **verification**: four final focused serial checks, one worker/20 GiB;
+  24 public gates (15 new), within {propext, Quot.sound}, no final errors
+  or warnings. Independent mathematical review passed. Evidence:
+  `audits/AUDIT-LOCAL-TEMPORAL-SECTOR.md`. Root imports added; root/full-tree/
+  full audit/guard unrun. No sorry, new axiom, old guard, frontier statement
+  or safety limit changed.
+
+## Previous PROVED original odd-marginal coercivity and positive local energy; OPEN spatially uniform fraction (2026-09-17 UTC)
 
 - **files**: `RationalVarianceCapComparison.lean`,
   `BF4ExactSlabFixedSpatialDirichletFloor.lean`,

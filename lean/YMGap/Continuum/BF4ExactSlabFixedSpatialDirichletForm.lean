@@ -176,6 +176,39 @@ private theorem product_reorder (a b c : RatPoly) :
     (.mul (.mul (.var 0) (.var 2)) (.var 1)) (by decide)
     (fun | 0 => a | 1 => b | _ => c)
 
+/-- The two edge diagonals are twice the SAME original temporal marginal.
+This is an identity, not a change to the endpoint weight or an invariant law. -/
+theorem edge_diagonal_identity (w : Q') (K width : Nat) {g f : RatPoly}
+    (hg : SupportedQuaternionBlocks (N width) g)
+    (hf : SupportedQuaternionBlocks (N width) f) :
+    quaternionHaar (N width+N width)
+      (polyMul (edgeDensity w K width g)
+        (polyAdd (polyMul f f)
+          (polyMul (liftBoundary (N width) f) (liftBoundary (N width) f)))) ≈
+      (2 : Q') * weightedMass w K width
+        (polyMul (polyMul g (transferStep w K width g)) (polyMul f f)) := by
+  let d := weightedMass w K width
+    (polyMul (polyMul g (transferStep w K width g)) (polyMul f f))
+  have hd : weightedMass w K width
+      (polyMul (polyMul g (polyMul f f)) (transferStep w K width g)) ≈ d :=
+    weightedMass_congr w K width (product_reorder g (polyMul f f) (transferStep w K width g))
+  have hl : quaternionHaar (N width+N width)
+      (polyMul (edgeDensity w K width g) (polyMul f f)) ≈ d :=
+    Q'.eqv_trans _ _ _ (lower_pairing w K width g (polyMul f f))
+      (Q'.eqv_trans _ _ _
+        (transferStep_weighted_symmetric w K width (supported_polyMul hg (supported_polyMul hf hf)) hg) hd)
+  have hr : quaternionHaar (N width+N width)
+      (polyMul (edgeDensity w K width g)
+        (polyMul (liftBoundary (N width) f) (liftBoundary (N width) f))) ≈ d := by
+    rw [← lift_product]
+    exact Q'.eqv_trans _ _ _ (upper_pairing w K width g (polyMul f f)) hd
+  exact Q'.eqv_trans _ _ _
+    (haar_of_coeff (RatPolyCoeffEqv.mul_add_right _ _ _))
+    (Q'.eqv_trans _ _ _ (quaternionHaar_append _ _ _)
+      (Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' hl hr)
+        (poly_identity_of_normal_eq (.add (.var 0) (.var 0))
+          (.mul (.const 2) (.var 0)) (by decide) (fun _ => d))))
+
 private theorem square_difference (e a b : RatPoly) :
     RatPolyCoeffEqv (polyMul e (polyMul (polyAdd a (polyNeg b)) (polyAdd a (polyNeg b))))
       (polyAdd (polyMul e (polyMul a a))
@@ -279,6 +312,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.edgeDensity_supported
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.jump_supported
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.edge_pairing
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.edge_diagonal_identity
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.energy_identity
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.edgeCertificate
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletForm.energy_nonnegative

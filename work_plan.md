@@ -185,6 +185,13 @@ Execution order:
    cutoff and boundary depth is now supplied by `terminal_normalized_energy_variance_floor`,
    but it is the existing width-dependent floor/cap ratio. Seek a stronger
    fraction with the spatial control needed along the scaling route.
+   The new `terminalResidual_coercivity` supplies a one-factor bound on
+   explicit weighted conditional residuals of that SAME edge. Its next
+   missing join is a weighted stable decomposition/cross-energy estimate
+   for arbitrary observables, not another local floor or completion wrapper.
+   Test this join before formalizing it: the residuals are not proved
+   mutually orthogonal, marginal-centered or transfer-invariant. Neither
+   free-Haar tensorization nor summing linkwise bounds supplies the join.
    This bypasses the unproved V-squared norm comparison without deleting V;
    it does not bypass the volume-uniform analytic problem. The signed spatial-face
    response remains an alternative producer, not a separate checklist to fill.
@@ -255,7 +262,57 @@ to inhabit by unrelated models.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED same-odd-marginal coercivity and positive plaquette energy; OPEN spatially uniform fraction):**
+**Latest mathematical increment (PROVED width-independent conditional-sector estimate in the SAME temporal norm; OPEN global weighted comparison):**
+PROGRESS after `6b09535`: `SU2QuaternionWeightedBlockCentering.weightedResidual`
+constructs R_i=P_i(a)*f-P_i(a*f), with coefficientwise P_i(a*R_i)=0.
+Its pairing and quadratic identities retain the conditional mass P_i(a);
+there is no inverse, selected minimizer or substitution of the weight.
+
+`SU2QuaternionWeightedProductLocalGap.erased_cross_zero` deletes exactly
+one selected kinetic heat factor and proves the mixed term vanishes, with
+ALL other factors and both full endpoint weights still present.
+`local_energy_floor_of_mem` compares the erased jump/diagonal through
+that single factor's headFloor(w) and prefixCap(w), on the original list.
+Constructive selection and Nodup exclude a hidden duplicate of the factor.
+
+`BF4ExactSlabFixedSpatialLocalDirichletCoercivity.local_sector_coercivity`
+pins this to actual activeBlocks and a=V*g. The original edge diagonal
+and energy identities cancel the SAME positive scalar 2, giving
+
+    headFloor(w)*m(g*Tg*f^2) <= prefixCap(w)*energy(g,f)
+    when P_i(V*g*f)=0.
+
+`terminalResidual_coercivity` constructs the residual for ACTUAL g=T^n1
+and supplies its support, message certificate and conditional centering.
+The one-factor constants depend explicitly on nome, not width, depth n
+or late cutoff K. Unlike the older global bound, no width power appears.
+This is an estimate on an explicitly specified sector, not a replacement
+of mixFraction by a common constant for every observable.
+
+NEXT MATHEMATICAL TARGET: a controlled weighted decomposition/cross-energy
+or signed-response estimate for arbitrary observables in the SAME odd-chain
+marginal, sufficient to improve `terminal_normalized_energy_variance_floor`.
+The sector residual need not have zero marginal mean, be nonzero, or be
+orthogonal to another sector. No sector transfer-invariance is proved,
+so the local form inequality cannot simply be iterated into decay.
+The residual changes with K and n; fixed-observable limit theorems cannot
+be applied without compatibility/control. In particular, V*T^n1 is not
+made local by the locality of V. Do not sum local losses into a purported
+width-independent bound or import the pure-Haar tensorization unchanged.
+Seek the next actual weighted cancellation estimate, or rule out a proposed
+join on explicit finite data before building an interface that assumes it.
+The completed OS/scaling, physical calibration, continuum QFT and all-group
+joins remain OPEN. The fixed-spacing small-nome branch remains unchanged.
+
+Four focused serialized one-worker/20 GiB checks pass, covering 24 public
+axiom gates (15 new), all within {propext, Quot.sound}, without final
+warnings/errors. Independent mathematical review passed, including the
+actual terminal consumer. Evidence: `audits/AUDIT-LOCAL-TEMPORAL-SECTOR.md`.
+Root imports added; root/full-tree/full audit/guard unrun. No old guard,
+canonical frontier statement, sorry, new axiom or safety limit changes.
+No canonical Clay atom closes.
+
+**Previous mathematical increment (PROVED same-odd-marginal coercivity and positive plaquette energy; OPEN spatially uniform fraction):**
 PROGRESS after `4d7bc5e`: `BF4ExactSlabFixedSpatialDirichletFloor.energy_floor`
 retains both complete Vg endpoint weights in the positive residual K-L and
 proves E>=L*(m(g)*m(g*f^2)-m(g*f)^2). Centering at the explicit Vg mean,
