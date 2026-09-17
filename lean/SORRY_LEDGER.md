@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original one-link heat contracts all centered polynomials at every nome; OPEN actual product-kinetic and interacting OS joins (2026-09-17 UTC)
+## PROVED original full kinetic nonexpansivity and local conditional strict contraction; OPEN strict product and interacting OS joins (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialKineticMarginals.lean`,
+  `BF4ExactSlabFixedSpatialKineticContraction.lean`,
+  `SU2QuaternionHaarBlockProjection.lean`, and
+  `SU2QuaternionRelativeHeatConditionalContraction.lean`, all under
+  `lean/YMGap/Continuum/`.
+- **proof**: distinct original temporal faces select distinct paired link
+  indices. Both full-kinetic marginals are exact for arbitrary endpoint
+  polynomials, with no discarded fringe variable. The existing positive
+  kinetic certificate then proves squared-norm bound one at every width and
+  every late cutoff. Exact conditional Haar projections commute and split
+  the full square norm orthogonally. Residual-kernel Cauchy--Schwarz with
+  shared spectators gives the same strict one-link rate on the explicitly
+  constructed conditional fluctuation; ordinary local contraction is also
+  proved. All data and all analytic kernel premises are supplied.
+- **actual consumer**: `transferStep_square_le_spatialSquare` proves
+  H[(T f)^2]<=H[(V f)^2] for the SAME original T=K(V f). The kinetic cap
+  penalty is removed; every original spatial factor stays in V. Ordinary
+  Haar centering/norm is not silently equated with the physical OS ones.
+- **remaining**: literal coordinate-map product identification and
+  heat/projection commutation plus finite orthogonal induction for a strict
+  globally centered product bound; then interacting spatial comparison,
+  changing-scale uniform estimates, physical calibration and continuum/QFT/
+  every-group completion. The local strict rate depends on w, with the old
+  K>=headCutoff(w) threshold. No canonical atom or existing hole closes;
+  no new open analytic field is introduced.
+- **verification**: four final focused serial checks, one worker/20 GiB;
+  44 public gates and one private regression gate pass within
+  {propext, Quot.sound}. A development-time classical tactic dependency was
+  traced to the impossible zero-block goal and removed by explicit ex falso.
+  Final logs have no errors/warnings. Root imports added; root/full-tree/
+  full audit/guard unrun. No sorry, new axiom, old guard, frontier statement
+  or safety limit changed. Independent source review passed. Evidence:
+  `audits/AUDIT-KINETIC-CONDITIONAL-CONTRACTION.md`.
+
+## Previous PROVED original one-link heat contracts all centered polynomials at every nome; OPEN actual product-kinetic and interacting OS joins (2026-09-17 UTC)
 
 - **files**: `SU2QuaternionHaarMarkovContraction.lean`,
   `SU2QuaternionRelativeHeatMarkovData.lean`, and

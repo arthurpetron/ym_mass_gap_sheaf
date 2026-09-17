@@ -247,7 +247,54 @@ to inhabit by unrelated models.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED original one-link all-nome heat contraction on EVERY centered polynomial; OPEN actual kinetic-layer tensorization and interacting OS comparison):**
+**Latest mathematical increment (PROVED actual full kinetic nonexpansivity, spectator-retaining local strict contraction, and exact conditional Pythagoras; OPEN strict full-product tensorization and interacting OS comparison):**
+PROGRESS after `50a2190`: the original temporal faces select a proved NODUP
+list `BF4ExactSlabFixedSpatialKineticMarginals.activeBlocks`. The literal
+`kineticWeight_eq_indexedProduct` keeps the original heat factors and paired
+indices; omitted fringe links remain Haar averages, not identity channels.
+Both `kineticWeight_*_marginal` identities hold for every supported endpoint
+polynomial at every cutoff, including zero. They and the existing positive
+certificate prove `BF4ExactSlabFixedSpatialKineticContraction.kineticMap_square_contraction`:
+the complete actual kinetic map has squared-norm bound ONE for all widths,
+all 0<w<1, and K>=headCutoff(w). This is nonexpansivity, not strictness.
+
+The same module's `transferStep_kineticMap` and
+`transferStep_square_le_spatialSquare` already consume it on the original
+weighted transfer: T f=K(V f), hence H[(T f)^2]<=H[(V f)^2]. Every original
+spatial action factor remains in V. The kinetic cap penalty disappears;
+no width-uniform estimate for V or interacting OS norm is inferred.
+
+`SU2QuaternionHaarBlockProjection` constructs actual conditional projections
+and complements, proves coefficientwise idempotence/commutation, exact
+conditional centering, orthogonality and square-norm splitting.
+`SU2QuaternionRelativeHeatConditionalContraction` retains arbitrarily many
+shared spectator variables in its local heat map. It proves ordinary
+nonexpansivity and strict contraction with rate (1-headFloor(w))^2 on the
+CONDITIONALLY centered input. `conditionalHeat_fluctuation_square_bound`
+applies this to the constructed complement; no centering certificate is
+left to the caller. The rate is independent of spectator count, degree and
+late cutoff, but depends on w. Global centering alone is not substituted.
+
+NEXT MATHEMATICAL TARGET: connect the proved local map to the indexed actual
+kinetic product under literal coordinate recodings; prove the heat/projection
+commutation needed to preserve orthogonality; perform the finite product
+induction for globally centered inputs, retaining fringe projections. The
+intended squared rate is the one-link rate, not its width-dependent product.
+That strict full-product theorem is NOT proved by the present nonexpansivity
+or local theorem. Spatial potential comparison, the physical OS vacuum/norm,
+changing-scale spatial uniformity and physical mass calibration remain open.
+
+All four new modules pass focused serialized one-worker/20 GiB checks:
+44 public gates plus a retained private regression gate are within
+`{propext, Quot.sound}`. The gate caught `omega` inserting classical
+contradiction into an impossible non-arithmetic zero-block goal; explicit
+constructive ex falso removes it. No classical axiom remains in the final
+checks. No sorry, new axiom, old guard, frontier statement or safety limit
+changed. Root imports added; root/full-tree/full audit/guard unrun.
+Independent mathematical source review passed. Evidence and remaining joins:
+`audits/AUDIT-KINETIC-CONDITIONAL-CONTRACTION.md`.
+
+**Previous mathematical increment (PROVED original one-link all-nome heat contraction on EVERY centered polynomial; OPEN actual kinetic-layer tensorization and interacting OS comparison):**
 PROGRESS after `00eca87`: use exact Haar marginals rather than the absolute
 heat cap. For a positive kernel W with both marginals one, subtract its
 certified constant floor h before Cauchy--Schwarz. On a centered input the
@@ -266,7 +313,7 @@ penalty. All 0<w<1 are allowed, with the unchanged nome-dependent
 headCutoff and rate (1-headFloor(w))^2<1. No coupling-uniform margin or
 interacting Yang--Mills/OS gap is claimed.
 
-NEXT MATHEMATICAL TARGET: tensorize this actual one-link estimate across
+At that checkpoint the next target was to tensorize this actual one-link estimate across
 `BF4ExactSlabFixedSpatialKineticHeat.kineticWeight`, preserving Haar
 averaging on unused fringe links. No original-layer tensorized norm theorem
 was found in the reviewed source; it is a new mathematical lemma to prove,
