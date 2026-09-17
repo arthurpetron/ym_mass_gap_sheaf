@@ -415,7 +415,17 @@ are preserved; neither supplies a route through the incompatible AF guard.
    component-norm cap. R_k is signed and active--active only: the fringe
    determinant is exactly zero, but ordinary fringe cross pairings remain.
    No reciprocal limit or different measure is used in this identity.
-   **NEXT:** construct a controlled decomposition of the ACTUAL
+   **Construction route selected after parallel mathematical review:** use
+   the ordinary Haar telescope of nu*Phi, Phi=Z*f-H[nu*f], then explicit
+   polynomial approximants J_i to 1/(nu*P_i nu). The tests are
+   q_i=weightedResidual_i(nu,J_i*tau_i), so P_i(nu*q_i)=0 exactly at
+   every finite degree. This avoids proving an auxiliary Richardson or
+   heat-bath spectral gap just to choose tests. The original temporal
+   energy remains the one in `actualResidual_corrected_energy`.
+   The finite positive window and uncleared per-piece geometric error are now
+   constructed, not supplied as analytic hypotheses. The approximation
+   rate depends on nome, cutoff, width and depth and is NOT a physical gap.
+   **NEXT:** finish the finite-family corrected-sum approximation to the ACTUAL
    centered observable and bound its combined D_k+2h*R_k, with explicit
    spatial/depth/cutoff control on this SAME marginal sufficient for
    `clearedDefect_diagonal_nonnegative_iff`.
@@ -424,7 +434,9 @@ are preserved; neither supplies a route through the incompatible AF guard.
    coordinates, P_i(nu*q_i)=0; ordinary nested-filtration martingale
    differences do not automatically supply that condition. Existing
    unweighted Haar decomposition and full-slab star projection results are
-   not this actual-nu construction. Choose seeds/degrees with an explicit
+   not this actual-nu construction on their own. The new weighted-residual
+   seed construction supplies the missing exact centering. Choose degrees
+   with an explicit
    corrected-sum approximation and prove its signed budget before adding
    any compiler that assumes it. No terminal-message
    locality or nonneighbor determinant vanishing has been proved here.
@@ -483,7 +495,53 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest checkpoint (PROVED finite-degree actual-marginal cost split; OPEN controlled decomposition/signed budget):**
+**Current construction (PROVED actual centered polynomial seeds; OPEN aggregate approximation/signed budget):**
+The direct construction uses the original Z=H[nu] and Phi=Z*f-H[nu*f].
+`source_mean_zero` and `pieceSum_source`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCenteredHaarTelescope.lean:99`,
+`:164`, prove the exact centering and a finite ordinary-Haar telescope of
+nu*Phi. `BF4ExactSlabFixedSpatialActualMarginalWindow.lowerCertificate`
+and `upperCertificate` (same directory, file:111 and :145) construct
+0<ell<=nu<=u with all nome/cutoff/width/depth dependence retained.
+`project_certificate`, `SU2QuaternionHaarBlockCertificate.lean:136`,
+preserves positivity while retaining every spectator. This supplies a
+positive window on nu*(P_i nu), not a factorized substitute for nu.
+
+`seed` and `test_centered`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActualSeed.lean:109`, `:125`,
+choose seed_i=J_i*tau_i and prove P_i(nu*q_i)=0 at every finite degree.
+`clearedDefectInterval` (:146) bounds (P_i nu)*(nu*q_i-tau_i) by
+2*u*B_i*rho^k, rho=1-ell^2/u^2<1. `cancelSquareBound`,
+`lean/YMGap/Continuum/QuaternionHaarPositiveFloorCancellation.lean:117`,
+constructively removes the positive conditional multiplier at a cost
+of ell^(-2); `weighted_norm_floor` (:103) retains nu when removing its
+multiplier. Neither rate nor floor is claimed uniform in the regulators.
+No auxiliary dynamics or gap theorem was needed to select these seeds.
+
+`pieceDefectSquareBound`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSeedApproximation.lean:150`,
+now supplies the actual per-piece certificate with cap
+rho^(2*k)*4*u^2*B_i^2/ell^2. `pieceApproximationCutoff` (:159) returns the
+degree as data; `piece_defect_haar_square_le` (:162) proves
+H[(nu*q_i,k-tau_i)^2]<=epsilon beyond that computed degree, for every
+supported original f. No source-centering or approximation budget is
+assumed. This endpoint is the density-multiplied per-piece defect, not yet
+the full corrected-sum approximation in the nu norm.
+
+**Next:** finish explicit finite-family and active-correction moduli on the
+same nu carrier, then investigate the combined signed D+2h*R budget for
+that chosen family. Finite approximation constants may be large; they do
+not pay the uniform analytic budget. No canonical/sorry/continuum/QFT/
+physical-mass/every-group closure is asserted. See
+`audits/AUDIT-ACTUAL-CENTERED-SEEDS.md` for the source map and focused
+verification boundary.
+
+Eleven focused serialized one-worker/20 GiB checks passed; all 91 printed
+gates use only {propext, Quot.sound}, with no final errors/warnings/sorryAx.
+Independent source reviews passed. Eleven root imports added;
+root/full-tree/full-audit/guard NOT run. CI and safety limits unchanged.
+
+**Previous checkpoint (PROVED finite-degree actual-marginal cost split; OPEN controlled decomposition/signed budget):**
 For actual-nu residuals q_i and explicit polynomial reciprocal degrees k_i,
 let v_i=d_i*G_i,k_i*q_i on active links, v_i=q_i on fringe, S=sum_i v_i.
 `actualResidual_corrected_energy`,

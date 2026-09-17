@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED full finite-degree actual-marginal cost; OPEN controlled decomposition/signed budget (2026-09-17 UTC)
+## PROVED concrete centered seeds with per-piece error moduli; OPEN aggregate/signed budget (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialActualMarginalWindow.lean`,
+  `BF4ExactSlabFixedSpatialActualSeedWindow.lean`,
+  `BF4ExactSlabFixedSpatialActualSeed.lean`,
+  `BF4ExactSlabFixedSpatialCenteredHaarTelescope.lean`,
+  `BF4ExactSlabFixedSpatialSeedApproximation.lean`, and their six generic
+  certificate/telescope/inverse/error helpers, under `lean/YMGap/Continuum/`.
+- **construction**: the original Phi=H[nu]*f-H[nu*f] gives an explicitly
+  Haar-centered source nu*Phi and finite conditional-Haar pieces tau_i.
+  Actual positive certificates supply ell<=nu<=u and
+  ell^2<=nu*(P_i nu)<=u^2. Finite polynomial reciprocals J_i,k give
+  q_i,k=weightedResidual_i(nu,J_i,k*tau_i), with P_i(nu*q_i,k)=0 exactly.
+  `pieceDefectSquareBound` (SeedApproximation:150) bounds
+  H[(nu*q_i,k-tau_i)^2] by rho^(2*k)*4*u^2*B_i^2/ell^2.
+  `pieceApproximationCutoff` (:159) and `piece_defect_haar_square_le`
+  (:162) return and certify a rational-tolerance degree. All constants
+  retain nome/cutoff/width/depth dependence; rho is an approximation rate,
+  not physical time decay. Full-projection aliases are handled by proved
+  supported-Haar equality, not false raw coefficient equality.
+- **input removed**: actual per-coordinate finite seeds, exact conditional
+  centering and their quantitative density-multiplied approximation error
+  are constructed. No inverse observable, assumed approximation budget,
+  auxiliary Markov gap or classical input is introduced.
+- **remaining**: aggregate the finite family in the SAME nu norm and choose
+  active correction degrees, then establish the combined D+2h*R budget
+  with the required regulator control. Finite per-piece constants are not
+  a spatially uniform stable-decomposition estimate. The physical/continuum/
+  QFT/every-group obligations and canonical statements remain unchanged.
+- **verification**: eleven final focused serialized one-worker/20 GiB
+  checks, 91 gates within {propext, Quot.sound}, no final warnings/errors/
+  sorryAx. Independent mathematical reviews passed. Eleven root imports;
+  root/full-tree/full-audit/guard NOT run. No sorry added or discharged.
+  Evidence and gate diagnostic: `audits/AUDIT-ACTUAL-CENTERED-SEEDS.md`.
+
+## Previous PROVED full finite-degree actual-marginal cost; OPEN controlled decomposition/signed budget (2026-09-17 UTC)
 
 - **files**: `QuaternionHaarFamilySquare.lean`,
   `BF4ExactSlabFixedSpatialDiagonalCost.lean`,
