@@ -4340,6 +4340,11 @@ import YMGap.Continuum.SU2QuaternionHeadLinearHaar
 import YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing
 import YMGap.Continuum.SU2PlaquetteCharacterNonseparation
 import YMGap.Continuum.SU2QuaternionQuadraticHeatTransmission
+import YMGap.Continuum.SU2QuaternionQuadraticHeatProduct
+import YMGap.Continuum.SU2QuaternionHeatCovarianceRates
+-- Both shared-link channels of literal adjacent SU(2) plaquettes; not a
+-- full-action signed cross estimate or a thermodynamic/continuum gap.
+import YMGap.Continuum.SU2QuaternionAdjacentPlaquetteHeat
 import YMGap.Continuum.BF4ExactSlabDressedDualTestBound
 import YMGap.Continuum.BF4ExactSlabDressedDualTestCutoffLimit
 import YMGap.Continuum.BF4ExactSlabAllNomeDressedDualTest

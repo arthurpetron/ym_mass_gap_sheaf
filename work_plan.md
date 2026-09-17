@@ -305,6 +305,15 @@ are preserved; neither supplies a route through the incompatible AF guard.
    and the weighted decomposition are OPEN, not supplied fields. Do not
    apply Cauchy--Schwarz to C_delta itself: its positivity is the missing
    assertion. Nor does locality of factors of V make T^n1 local.
+   The first action-specific calculation is now checked:
+   `SU2QuaternionAdjacentPlaquetteHeat.adjacent_shared_defect` resolves the
+   shared-link heat of two literal SU(2) plaquette words into its signed
+   quadratic and rectangle channels. It does NOT yet include the full
+   spatial weight or the terminal message. Use this structure to investigate
+   the complete incident star and its source-dependent remainder; do not
+   classify that remainder as a head-independent spectator. Embedding the
+   literal word calculation in the fixed-spatial physical carrier and a
+   quantitative full-action remainder bound remain required.
 3. **Parallel work has bounded outputs, not parallel promises of closure.**
    Independently review the finite falsification test, seek action-specific
    cross-control in the existing source, and check the consumer/normalization.
@@ -321,7 +330,53 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest checkpoint (PROVED produced-message obstruction; plan repointed to actual-action cross control):**
+**Latest checkpoint (PROVED shared-link two-channel SU(2) identity and explicit scalar cancellation bounds; OPEN full-action cross control):**
+`SU2QuaternionQuadraticHeatProduct.linear_product_transmission` computes
+the output of the original full relative heat prefix on two head-linear
+inputs: w^8 times their retained product plus (1-w^8) times their Haar
+contraction, for every cutoff K>=2. All retained coefficients remain
+symbolic and may use the target head. Radius=1 is used only under Haar.
+
+`SU2QuaternionAdjacentPlaquetteHeat.adjacent_heat_transmission` applies
+this to the literal ordered adjacent plaquettes sharing one link with
+opposite orientations. It keeps the shared heat factor, giving
+
+    heat_shared(PQ) = w^8*PQ + (1-w^8)*R/2,
+    shared defect  = (w^8-w^6)*PQ + (1-w^8)*R/2,
+
+as equalities against arbitrary RETAINED polynomial tests; R is the
+outer rectangle trace. `adjacent_shared_defect` preserves the negative
+coefficient for 0<w<1. It is NOT a globally connected correlation.
+The rate parametrization is pinned to this same polynomial. The proved
+`SU2QuaternionHeatCovarianceRates` bounds are
+
+    b=1-w^8, a=1+3w^8-4w^6=(1-w^2)^2*(1+2w^2+3w^4),
+    0<=a<=b,  b<=8*(1-w),  a<=24*(1-w)^2.
+
+This supplies an exact local interaction calculation, not a nonnegative
+cross pairing or a uniform bound for the full V*T^n1. Other factors using
+the source link cannot enter the retained test. The full six-other-link
+heat composition, physical embedding into the complete fixed-spatial action,
+and quantitative signed remainder control are not supplied by this result.
+K>=2 suffices for these harmonic identities, not for positivity of the
+entire truncated heat kernel. No old positivity guard is removed.
+
+NEXT: retain the complete incident star and terminal dependence while
+turning these channels into a signed weighted estimate for C_delta. The
+existing `terminal_normalized_energy_variance_floor` consumer still has
+its width-dependent rate. A pointwise bound or an exact selected-spin
+identity is not yet this same-measure all-observable estimate. The OS/scaling,
+physical-mass, continuum nontriviality, QFT and all-group joins stay OPEN.
+
+Four final focused serial one-worker/20 GiB checks pass; all 48 public
+printed gates (27 in new modules, 21 shared algebra) stay within
+{propext, Quot.sound}, with no final errors/warnings. Eight existing private
+helpers were exposed unchanged for reuse, not counted as new mathematical
+results. Independent source review passed. No sorry, new axiom, guard,
+frontier statement or resource change. Root imports added; root/full-tree/
+full audit/guard unrun. Evidence: `audits/AUDIT-ADJACENT-PLAQUETTE-HEAT.md`.
+
+**Previous checkpoint (PROVED produced-message obstruction; plan repointed to actual-action cross control):**
 The bounded test above is checked in Lean. It supplies V=(3,1,1,3),
 T(f)=K(V*f), g=T1 and a=Vg, not an arbitrary endpoint supplied as data.
 Although both conditional message windows hold, multiplication by V violates

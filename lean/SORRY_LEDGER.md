@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED finite produced-message obstruction; OPEN action-specific signed pair estimate (2026-09-17 UTC)
+## PROVED shared-link SU(2) two-channel identity and scalar cancellation bounds; OPEN full-action signed estimate (2026-09-17 UTC)
+
+- **files**: `SU2QuaternionQuadraticHeatProduct.lean`,
+  `SU2QuaternionHeatCovarianceRates.lean`, `SU2QuaternionAdjacentPlaquetteHeat.lean`,
+  under `lean/YMGap/Continuum/`. Eight unchanged private helpers in
+  `SU2QuaternionAdjacentPlaquetteGluing.lean` were exposed with public gates.
+- **construction**: the full relative heat prefix, K>=2, acts on products
+  of two head-linear inputs by a w^8 quadratic channel and a (1-w^8)
+  conditional Haar contraction. Tail coefficients may use the target head.
+  `adjacent_heat_transmission` specializes this to literal adjacent ordered
+  SU(2) plaquette words, with the original shared kinetic factor retained.
+  Its output is w^8*PQ+(1-w^8)*R/2, R the outer rectangle trace.
+- **signed cancellation**: `adjacent_shared_defect` subtracts the two
+  degree-one multipliers on the SAME retained pairing. It keeps
+  (w^8-w^6)*PQ+(1-w^8)*R/2, not the product of global means. The same
+  polynomial is parametrized by b=1-w^8 and a=1+3w^8-4w^6. Exact
+  factorization yields 0<=a<=b, b<=8*(1-w), a<=24*(1-w)^2 for 0<w<1.
+- **remaining**: no complete V*T^n1 is inserted as a false spectator.
+  Physical embedding into the full fixed-spatial action, all other
+  source-dependent plaquette/terminal factors, weighted cross control and
+  a spatially summable budget remain open. No full seven-link heat
+  composition, pointwise matrix bound, global connected correlation or
+  full-action gap follows just from these identities. K>=2 is a harmonic
+  guard, not positivity of the whole truncated kernel. Existing positivity
+  guards, original global consumer and its width-dependent rate are unchanged.
+  OS/scaling, physical mass, nontrivial continuum survival, full QFT and all
+  compact simple groups stay open. No canonical atom or old sorry closes.
+- **verification**: four final focused serialized one-worker/20 GiB checks;
+  all 48 printed gates within {propext, Quot.sound}, no final warnings/errors.
+  Independent source review passed. No new sorry/axiom, frontier/guard change
+  or resource increase. Root imports added; root/full-tree/full audit/guard
+  unrun. Evidence: `audits/AUDIT-ADJACENT-PLAQUETTE-HEAT.md`.
+
+## Previous PROVED finite produced-message obstruction; OPEN action-specific signed pair estimate (2026-09-17 UTC)
 
 - **file**: `lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean`.
 - **construction**: positive finite-model V=(3,1,1,3), actual T(f)=K(V*f),

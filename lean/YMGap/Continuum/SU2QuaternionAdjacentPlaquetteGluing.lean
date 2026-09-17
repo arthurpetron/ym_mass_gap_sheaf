@@ -52,10 +52,10 @@ theorem lift_conj (q : PolyQuaternion) :
     liftQuaternion (PolyQuaternion.conj q) = PolyQuaternion.conj (liftQuaternion q) := by
   simp only [liftQuaternion, PolyQuaternion.conj, lift_neg]
 
-private def components (q : PolyQuaternion) (i : Fin 4) : RatPoly :=
+def components (q : PolyQuaternion) (i : Fin 4) : RatPoly :=
   match i.val with | 0 => q.scalar | 1 => q.iPart | 2 => q.jPart | _ => q.kPart
 
-private def signedComponents (q : PolyQuaternion) (i : Fin 4) : RatPoly :=
+def signedComponents (q : PolyQuaternion) (i : Fin 4) : RatPoly :=
   if i.val = 0 then q.scalar else polyNeg (components q i)
 
 private theorem linear_slim (p : Fin 4 → RatPoly) :
@@ -70,7 +70,7 @@ private def environment (q : PolyQuaternion) (i : Nat) : RatPoly :=
   | 2 => liftHead q.jPart | 3 => liftHead q.kPart
   | 4 => polyVar 0 | 5 => polyVar 1 | 6 => polyVar 2 | _ => polyVar 3
 
-private theorem left_linear (q : PolyQuaternion) :
+theorem left_linear (q : PolyQuaternion) :
     RatPolyCoeffEqv
       (PolyQuaternion.mul (liftQuaternion q) (PolyQuaternion.coordinateVariable 0)).scalar
       (linear (four (signedComponents q))) := by
@@ -87,7 +87,7 @@ private theorem left_linear (q : PolyQuaternion) :
         (.add (.mul (.var 6) (.neg (.var 2))) (.mul (.var 7) (.neg (.var 3))))))
       (by decide) (environment q))
 
-private theorem right_linear (q : PolyQuaternion) :
+theorem right_linear (q : PolyQuaternion) :
     RatPolyCoeffEqv
       (PolyQuaternion.mul (PolyQuaternion.conj (PolyQuaternion.coordinateVariable 0))
         (liftQuaternion q)).scalar
@@ -153,13 +153,13 @@ theorem path_schur (p q : PolyQuaternion) :
 
 local infixl:70 " ⋄ " => PolyQuaternion.mul
 
-private theorem first_cycle (a s c d : PolyQuaternion) :
+theorem first_cycle (a s c d : PolyQuaternion) :
     RatPolyCoeffEqv (((a ⋄ s) ⋄ c) ⋄ d).scalar (((c ⋄ d) ⋄ a) ⋄ s).scalar :=
   (PolyQuaternionCoeffEqv.mul_assoc (a ⋄ s) c d).scalar.trans
     ((polyQuaternion_mul_scalar_cyclic (a ⋄ s) (c ⋄ d)).trans
       (PolyQuaternionCoeffEqv.mul_assoc (c ⋄ d) a s).scalar.symm)
 
-private theorem outer_cycle (a b e f c d : PolyQuaternion) :
+theorem outer_cycle (a b e f c d : PolyQuaternion) :
     RatPolyCoeffEqv (((c ⋄ d) ⋄ a) ⋄ ((b ⋄ e) ⋄ f)).scalar
       (((((a ⋄ b) ⋄ e) ⋄ f) ⋄ c) ⋄ d).scalar := by
   have h := (PolyQuaternionCoeffEqv.mul_assoc a (b ⋄ e) f).symm.trans
@@ -169,12 +169,12 @@ private theorem outer_cycle (a b e f c d : PolyQuaternion) :
       ((h.mul (PolyQuaternionCoeffEqv.refl (c ⋄ d))).scalar.trans
         (PolyQuaternionCoeffEqv.mul_assoc (((a ⋄ b) ⋄ e) ⋄ f) c d).scalar.symm))
 
-private def leftPath : PolyQuaternion :=
+def leftPath : PolyQuaternion :=
   (PolyQuaternion.conj (PolyQuaternion.coordinateVariable 4) ⋄
     PolyQuaternion.conj (PolyQuaternion.coordinateVariable 5)) ⋄
     PolyQuaternion.coordinateVariable 0
 
-private def rightPath : PolyQuaternion :=
+def rightPath : PolyQuaternion :=
   (PolyQuaternion.coordinateVariable 1 ⋄ PolyQuaternion.coordinateVariable 2) ⋄
     PolyQuaternion.conj (PolyQuaternion.coordinateVariable 3)
 
@@ -273,3 +273,11 @@ end YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing
 #print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.adjacent_boundary_haar
 #print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.selectedHeatFactor
 #print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.selectedHeatFactor_pin
+#print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.components
+#print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.signedComponents
+#print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.left_linear
+#print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.right_linear
+#print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.first_cycle
+#print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.outer_cycle
+#print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.leftPath
+#print axioms YMGap.Continuum.SU2QuaternionAdjacentPlaquetteGluing.rightPath
