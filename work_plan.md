@@ -187,11 +187,14 @@ Execution order:
 1. **Primary mathematical work: a cancellation-preserving original-action
    estimate with spatial uniformity beyond the small-nome guard.** The active
    route is now the original finite temporal Dirichlet energy described below:
-   use its SAME odd-chain marginal. The current physical branch now has finite
-   four-link boundary duals that detect signed plaquette coefficients under
-   the FULL selected action, with original-norm error control. Next prove their
-   bounded-overlap summed estimate; separately supply the original spatial
-   variance upper bound. Neither one replaces the other. The precise checked
+   use its SAME odd-chain marginal. The current physical branch now has a
+   bounded-overlap signed-family estimate under the FULL selected action:
+   L(w)*Z*sum(c_p^2) <= 600*U(w)*H[A*F^2]. The coefficients have either sign;
+   the final constant has no volume or family-size dependence. Next identify
+   F with the original two-time jump of a signed spatial plaquette sum;
+   separately supply the original spatial variance upper bound. Neither
+   the raw square bound nor the temporal specialization replaces that upper
+   bound. The precise checked
    identities and next consumers are in the current frontier subsection below.
    Preserve the completed small-nome branch above; these are steps beyond its
    guards, not missing completion work in that branch.
@@ -509,7 +512,45 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current physical step (PROVED finite signed boundary-dual detection):**
+**Current physical step (PROVED full-action signed-family coercivity):**
+for any duplicate-free finite list of physical fundamental plaquette labels,
+arbitrary signed rational coefficients c_p, and the original selected action
+A with partition Z=H[A], define F=sum(c_p*chi_p). The checked estimate is
+
+    L(w)*Z*sum(c_p^2) <= 600*U(w)*H[A*F^2].
+
+`family_partition_coercivity`,
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteBoundaryDualFamily.lean:374`,
+has no final extent, selected-volume, family-size or late-cutoff factor.
+It retains 0<w<1, K>=headCutoff(w), physical/nodup selected action labels,
+and physical/nodup observable labels. Constants depend explicitly on nome.
+Shared-link and closed families are permitted. Repeated labels must first
+be combined, as the preceding `coefficientAt` construction records; the new
+family theorem does not treat duplicate copies as independent coefficients.
+`sourceEnergy` in this module is the RAW square H[A*F^2], not yet the original
+temporal Dirichlet energy and not a spatial variance upper estimate.
+
+The concrete interference graph has at most 600 candidate occurrences per
+row (`candidates_length`, `interferenceRow_length_le`,
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteBoundaryOverlap.lean:122`, `:154`).
+The actual finite duals have a geometrically controlled Gram residual
+(`fullAction_gram_square_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteBoundaryDualGram.lean:211`).
+The family norm, signed pairing and error estimates in BoundaryDualFamily
+`:198`, `:222`, `:273` feed `coercivity_of_finite_tests`,
+`lean/YMGap/Continuum/GNSFiniteDualCoercivity.lean:76`. Positivity of the
+weighted SQUARE of 600*F-L*dualFamily_k gives
+L*sum(c_p^2*H[R_p])<=600*H[A*F^2]. The explicit
+geometric modulus removes the family-size residual; no limiting dual or
+division by an observable norm is needed. The local partition comparison
+then gives the displayed SAME-action bound.
+
+All six changed/new modules passed focused serialized one-worker/20 GiB
+checks; all 62 printed gates are within {propext, Quot.sound}. No new sorry,
+analytic premise or canonical field. Full-root build/audit/guard/progress
+NOT run. Evidence: `audits/AUDIT-PLAQUETTE-FAMILY-COERCIVITY.md`.
+
+**Previous physical step (PROVED finite signed boundary-dual detection):**
 erase all selected heat factors touching ANY boundary link of a chosen
 plaquette p. Write the SAME full selected action as A=S_p*R_p. At most 24
 factors occur in S_p, and R_p is free of every boundary link of p. For each
@@ -553,15 +594,13 @@ volume-uniform bound.
 
 **Next causal work, still OPEN:**
 
-1. Prove the original-action Gram cross terms of these duals are controlled
-   by local overlap, with explicit finite-degree residual errors. Construct
-   and bound the overlap relation from actual selected physical faces; then
-   sum with no final factor growing with the number of observables or volume.
-   Pairing with a single dual is not this family theorem. Keep any finite
-   family-size dependence confined to an explicitly vanishing error budget.
-2. Apply that proved family estimate to the signed adjacent-time plaquette
+1. The overlap, Gram, summed norm and finite-error removal steps are now
+   PROVED above. Do not repeat their geometry or add an assumed frame field.
+   Apply the proved family estimate to the signed adjacent-time plaquette
    jump, using the original signed-window rejoin and its factor-two energy
-   identity. Independently prove a spatial variance/susceptibility UPPER bound
+   identity. Prove distinct lower/upper labels and coefficient-square doubling;
+   retain the same action and partition through the normalization.
+2. Independently prove a spatial variance/susceptibility UPPER bound
    in the SAME actual marginal and combined coefficients, with the parameter
    control required beyond the small-nome guard or on a justified trajectory.
    A coefficient-square energy lower bound alone does not give a variance
@@ -666,9 +705,10 @@ a closed six-face cube:
 shows two faces at every touched link. For combinations, the remaining lower
 faces enter the predictor; their locality away from the selected link must
 be proved, not inferred from upper-time separation. The new four-link erasure
-above now resolves coefficient detection without that common-link premise;
-it does not yet bound the summed dual Gram form or the spatial variance.
-Prioritize those two estimates over a sequence of isolated diagonal bounds. Any
+above resolves coefficient detection without that common-link premise, and
+the new bounded-overlap argument controls the summed dual norm. The temporal
+jump specialization and spatial variance upper estimate remain open.
+Prioritize those joins over a sequence of isolated diagonal bounds. Any
 reduced-active calculation must rejoin the original objects
 through `BF4ExactSlabFixedSpatialActiveEnergy`, not rename the terminal law.
 Do not repeat charged-sector estimates or local physical variance floors:

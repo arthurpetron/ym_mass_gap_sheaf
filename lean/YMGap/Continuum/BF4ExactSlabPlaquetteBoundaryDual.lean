@@ -173,6 +173,60 @@ def residualApproximationInterval {w : Q'}
       (PositiveContractionResidual.geometric_bound (rate_nonnegative hw0 hw1)
         (rate_lt_one hw0 hw1) Q'.zero_le_one hepsilon k hk))
 
+/-- Compare the retained mass with the ORIGINAL selected partition using only
+the local star floor. Neither mass is replaced by a vacuum reference. -/
+theorem lower_rest_mass_le_full_mass {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K extent : Nat) (hK : headCutoff w ≤ K) (ids : List Nat)
+    (hids : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent)
+    (hnodup : ids.Nodup) (face : Z4Plaq) :
+    lower w * quaternionHaar (B extent) (restHeat w K extent ids face) ≤
+      quaternionHaar (B extent) (polynomialProduct (faceHeatPolynomial w K extent) ids) := by
+  have Rpos := headProduct_certificate hw0 hw1 K extent hK (boundaryRest extent ids face)
+    (fun id hi => hids id (boundaryRest_mem hi).1)
+  have h := QuaternionHaarPositiveFloorCancellation.floor_insertion Rpos
+    (starLowerCertificate hw0 hw1 K extent hK ids hids hnodup face)
+  exact Q'.le_trans' _ _ _ h (Q'.le_of_eqv (haar_of_coeff
+    ((RatPolyCoeffEqv.mul_comm _ _).trans (selected_heat_partition w K extent ids face).symm)))
+
+/-- The reverse partition comparison also pays only for the local star. -/
+theorem full_mass_le_upper_rest_mass {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K extent : Nat) (hK : headCutoff w ≤ K) (ids : List Nat)
+    (hids : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent)
+    (hnodup : ids.Nodup) (face : Z4Plaq) :
+    quaternionHaar (B extent) (polynomialProduct (faceHeatPolynomial w K extent) ids) ≤
+      upper w * quaternionHaar (B extent) (restHeat w K extent ids face) := by
+  have Rpos := headProduct_certificate hw0 hw1 K extent hK (boundaryRest extent ids face)
+    (fun id hi => hids id (boundaryRest_mem hi).1)
+  have Spos := headProduct_certificate hw0 hw1 K extent hK (boundaryStar extent ids face)
+    (fun id hi => hids id (boundaryStar_mem hi).1)
+  have I : Interval (B extent) (starHeat w K extent ids face) (upper w) :=
+    ⟨starHeat_supported w K extent ids face, Q'.le_of_lt (upper_positive hw0),
+      starUpperCertificate hw0 hw1 K extent ids hids hnodup face,
+      (Certificate.constant _ _ (Q'.le_of_lt (upper_positive hw0))).add Spos⟩
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (haar_of_coeff
+    ((selected_heat_partition w K extent ids face).trans (RatPolyCoeffEqv.mul_comm _ _))))
+    (Q'.le_trans' _ _ _ (Q'.le_abs_self _) (I.weighted_haar_bound Rpos))
+
+/-- A norm estimate relative to the same full selected partition; the stronger
+retained-mass estimate remains available for weighted family summation. -/
+theorem fullAction_norm_partition_bound {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K extent : Nat) (hK : headCutoff w ≤ K) (ids : List Nat)
+    (hids : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent)
+    (hnodup : ids.Nodup) {face : Z4Plaq}
+    (hf : face ∈ boundaryCompleteSlabPlaquettes extent) (k : Nat) :
+    (lower w * lower w) * quaternionHaar (B extent)
+      (polyMul (polynomialProduct (faceHeatPolynomial w K extent) ids)
+        (polyMul (dualTest hw0 K extent ids face k) (dualTest hw0 K extent ids face k))) ≤
+      quaternionHaar (B extent) (polynomialProduct (faceHeatPolynomial w K extent) ids) :=
+  Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.mul_assoc_eqv _ _ _))
+    (Q'.le_trans' _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ _
+      (fullAction_norm_bound hw0 hw1 K extent hK ids hids hnodup hf k)
+      (Q'.le_of_lt (lower_positive hw0 hw1)))
+      (lower_rest_mass_le_full_mass hw0 hw1 K extent hK ids hids hnodup face))
+
 #print axioms dualTest
 #print axioms dualTest_supported
 #print axioms residualPolynomial
@@ -184,5 +238,8 @@ def residualApproximationInterval {w : Q'}
 #print axioms residualInterval
 #print axioms approximationCutoff
 #print axioms residualApproximationInterval
+#print axioms lower_rest_mass_le_full_mass
+#print axioms full_mass_le_upper_rest_mass
+#print axioms fullAction_norm_partition_bound
 
 end YMGap.Continuum.BF4ExactSlabPlaquetteBoundaryDual

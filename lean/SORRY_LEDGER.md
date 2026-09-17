@@ -13,7 +13,49 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original-action finite signed boundary-dual detection; summed estimate OPEN (2026-09-17 UTC)
+## PROVED original-action signed-family coercivity; temporal/variance joins OPEN (2026-09-17 UTC)
+
+- **files**: appended three partition/norm comparisons to
+  `BF4ExactSlabPlaquetteBoundaryDual.lean`; five new modules:
+  `BF4ExactSlabPlaquetteBoundaryOverlap.lean`, `RationalFiniteSparseGram.lean`,
+  `BF4ExactSlabPlaquetteBoundaryDualGram.lean`, `GNSFiniteDualCoercivity.lean`,
+  `BF4ExactSlabPlaquetteBoundaryDualFamily.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: a concrete symmetric original-face interference relation with
+  at most 600 row candidates (BoundaryOverlap:122, :154); locality and finite
+  original-action Gram residual bounds (BoundaryDualGram:58, :66, :211, :309);
+  sparse signed Gram summation (RationalFiniteSparseGram:172); finite-test
+  coercivity using an explicit geometric modulus (GNSFiniteDualCoercivity:76).
+  Actual family norm/pairing/error estimates (BoundaryDualFamily:198, :222,
+  :273) give `family_coercivity` (:310): L*sum(c_p^2*H[R_p])<=600*H[A*F^2].
+  The local comparison Z<=U*H[R_p] gives `family_partition_coercivity`
+  (:374): L(w)*Z*sum(c_p^2)<=600*U(w)*H[A*F^2], on the SAME full selected
+  action and partition. No volume/family-size factor remains; cardinality
+  enters only the explicitly vanishing finite-degree residual budget.
+- **scope**: finite signed SU(2) fundamental plaquette spans. Both selected
+  action labels and observable labels have their stated physical/nodup guards;
+  coefficients are unrestricted in sign. Repeated labels must be combined,
+  not counted independently. Constants depend on 0<w<1; every extent and
+  K>=headCutoff(w) is quantified. No coupling- or spacing-uniform mass is
+  claimed. `sourceEnergy` is the RAW square H[A*F^2], not automatically a
+  temporal Dirichlet energy, marginal variance or OS form.
+- **remaining input / plan**: specialize to the original signed two-time
+  plaquette jump, preserving partition and factor-two energy normalization.
+  Separately provide the actual spatial variance UPPER bound beyond the
+  small-nome guards or on a justified physical scaling trajectory. Only
+  their combination can supply the existing clearedDefect fraction. Products,
+  transfer orbit and full dense sector remain beyond the signed fundamental
+  span. Preserve the proved small-nome completed gap and excitation; physical
+  calibration, same-theory continuum/QFT and all compact simple groups remain
+  OPEN. No canonical statement or analytic guard changed.
+- **verification**: six focused serialized one-worker/20 GiB checks; all 62
+  printed gates within {propext, Quot.sound}; final logs clean. Independent
+  mathematical reviews passed original A/Z, signed coefficients, nodup guards,
+  constant 600, finite residual removal and zero cases. No sorry added or
+  discharged, resource limits/options or CI changes. Five semantic-root
+  imports; full-root build/audit/guard/progress NOT run. Evidence/log hashes:
+  `audits/AUDIT-PLAQUETTE-FAMILY-COERCIVITY.md`.
+
+## Previous PROVED original-action finite signed boundary-dual detection; summed estimate then OPEN (2026-09-17 UTC)
 
 - **files**: `QuaternionHaarLocalDualNorm.lean`,
   `BF4ExactSlabPlaquetteBoundaryErasure.lean`,
