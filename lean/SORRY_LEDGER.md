@@ -13,7 +13,31 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED coherent Wilson spatial-union completion, nonvacuous strict bound and norm separation; OPEN full Hilbert/OS/QFT and continuum passage (2026-09-17 UTC)
+## PROVED SAME-Wilson union time balance, invariant complement and quantitative decay; OPEN completed linear/Hilbert and canonical OS/QFT realization (2026-09-17 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionTimeForm.lean` and
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionRelaxation.lean`.
+- **proof**: `completedInner_time_sum`, `completedInner_time_balance` and
+  `completedTime_preserves_orthogonal` descend original common-base identities
+  through actual pairing limits. `oneStep_norm_gap` uses the SAME strict
+  two-step form bound; `norm_decay` iterates it to q(w)^n squared-norm decay.
+  `mixed_correlator_sq_decay` uses actual sharp CS, requiring orthogonality
+  only of the propagated vector. `relaxationCertificate` returns a computed
+  tolerance threshold for a supplied Cauchy representative, not a chosen
+  quotient representative or a hidden modulus.
+- **consumer/open input**: supplies the time/form compatibility and invariant
+  unit-complement decay of this exact union. Completed linear operations and
+  form laws are next. Full Hilbert completeness, canonical observable/state
+  pins, OS/QFT realization, nonzero positive-time response, changing spacing,
+  finite physical mass, continuum survival and every-group producers remain
+  open. Existing nome guards, AF obstruction and canonical fields unchanged;
+  no one-step positivity, beta-uniform gap or Clay-atom closure is claimed.
+- **verification**: two focused serialized one-worker/20 GiB checks exited 0;
+  all 23 public gates within {propext, Quot.sound}. Root imports added;
+  root/full-tree/full audit unrun. No new/changed sorry, axiom or guard.
+  Evidence: `audits/AUDIT-WILSON-SPATIAL-UNION.md`, follow-up section.
+
+## Previous PROVED coherent Wilson spatial-union completion, nonvacuous strict bound and norm separation; OPEN full Hilbert/OS/QFT and continuum passage at that checkpoint (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialBaseBoundaryComparison.lean`,
   `BF4ExactSlabFixedSpatialWilsonBaseInclusion.lean`,

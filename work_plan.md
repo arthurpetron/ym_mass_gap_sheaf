@@ -133,7 +133,39 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED coherent Wilson spatial-union completion, nonvacuous universal strict bound, norm separation and no stationary orthogonal vector; OPEN full Hilbert/OS/QFT and physical continuum passage):**
+**Latest mathematical increment (PROVED SAME-Wilson union time balance, invariant unit complement and quantitative decay; OPEN completed linear/Hilbert and canonical OS/QFT realization):**
+PROGRESS after pushed `699bff9`: each pair's computed common base transports
+the original time-sum law to the actual union pairing. The actual pairing
+limits give `B(T_m x,T_n y)=B(x,T_(m+n) y)`. Together with the SAME fixed
+unit, this proves invariance of its orthogonal complement. The strict
+two-step form bound is therefore a one-step squared-norm bound; induction
+gives `B(T_n x,T_n x) <= q(w)^n B(x,x)` on that complement. Here
+`q(w)=timeRate(w)^2`, and n counts original one-step time. Sharp CS gives
+squared mixed-correlator decay with arbitrary test vector. The scalar
+Cauchy data of a supplied representative compute its norm ceiling and an
+explicit late-time tolerance certificate; no quotient representative is chosen.
+
+EXPANSION exposes the common-base identity, actual pairing limits and unit
+invariance. CONTRACTION composes them with the existing strict form bound
+into geometric decay, without constructing a spectral resolution or adding
+an analytic hypothesis. Both focused one-worker/20 GiB checks passed all
+23 public gates within {propext, Quot.sound}. Root imports added; root/full-tree/
+full audit unrun. No old proof, sorry, axiom, guard or safety limit changed.
+CI remains manual; no literature scan. Evidence:
+`audits/AUDIT-WILSON-SPATIAL-UNION.md#time-balance-and-quantitative-decay-follow-up`.
+
+NEXT CAUSAL FRONTIER: completed linear operations and form laws on this exact
+Wilson union, using its existing dense sum/scalar operations and quantitative
+distance estimates. Their consumer is an actual constructive Hilbert/OS
+realization, not another uninhabited wrapper. Canonical observable/state pins
+remain separate: do not replace rational GNSData fields silently with this
+CReal form. Full observable coverage, Hilbert completeness, positive-time
+nonzero response/normalization, spatial symmetry, changing-scale action
+control, finite physical mass, continuum survival and every-group producers
+remain open. No one-step positivity, beta-uniform gap, continuum Hamiltonian
+or Clay-atom closure is asserted; the AF obstruction is unchanged.
+
+**Previous mathematical increment (PROVED coherent Wilson spatial-union completion, nonvacuous universal strict bound, norm separation and no stationary orthogonal vector; OPEN full Hilbert/OS/QFT and physical continuum passage at that checkpoint):**
 PROGRESS after pushed `2dc4201`: the separate positive-base Wilson forms now
 agree under literal source-box inclusion. A source-sized boundary estimate,
 with both original partitions retained, identifies their actual three-regulator

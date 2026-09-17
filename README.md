@@ -21,7 +21,26 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: one coherent Wilson spatial-union completion with a nonvacuous strict bound.**
+**Latest result: quantitative time decay on the SAME Wilson spatial union.**
+Original time balance now passes through the actual union pairing limits,
+so time preserves the unit complement. The existing two-step form bound
+becomes a one-step squared-norm bound and iterates:
+`B(T_n x,T_n x) <= q(w)^n B(x,x)` whenever `B(x,U)=0`.
+Sharp Cauchy--Schwarz also gives squared mixed-correlator decay. A supplied
+Cauchy representative computes an explicit tolerance threshold, with no
+choice of quotient representative and no whole-stream support bound.
+
+These are **fixed-spacing, small-nome SU(2)** results, not a continuum
+Hamiltonian gap or a one-step positivity theorem. The rate depends on nome;
+full linear/Hilbert structure, canonical OS/QFT realization, changing-spacing
+control, physical mass calibration and every-group construction remain open.
+Both focused checks passed the constructive axiom gate; no root/full-tree
+check ran. See the [proof and remaining joins](audits/AUDIT-WILSON-SPATIAL-UNION.md#time-balance-and-quantitative-decay-follow-up).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: one coherent Wilson spatial-union completion with a nonvacuous strict bound.**
 Enlarging a source box now provably preserves the original limiting Wilson
 form and distance. This constructs one completion of the existing finite-base
 Wilson windows, allowing Cauchy streams with unbounded support bases and time
@@ -37,9 +56,6 @@ physical mass calibration and every-group construction remain open.
 Eleven focused serialized checks passed all 152 public axiom gates within
 `{propext, Quot.sound}`; no root/full-tree check ran. See the
 [spatial-union proof and remaining joins](audits/AUDIT-WILSON-SPATIAL-UNION.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: a strict two-step form bound on the SAME Wilson completion.**
 Original time-separated Wilson correlations now have a geometric bound with

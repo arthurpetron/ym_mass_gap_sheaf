@@ -4823,6 +4823,9 @@ import YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
 import YMGap.Continuum.BF4WilsonSpatialUnionFixedBase
 import YMGap.Continuum.BF4WilsonSpatialUnionSmallNomeGap
 import YMGap.Continuum.BF4WilsonSpatialUnionPosdef
+-- Original time balance and quantitative decay on this SAME Wilson union.
+import YMGap.Continuum.BF4WilsonSpatialUnionTimeForm
+import YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

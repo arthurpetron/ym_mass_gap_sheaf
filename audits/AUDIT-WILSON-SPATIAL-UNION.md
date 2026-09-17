@@ -8,7 +8,83 @@ with the required QFT axioms, isolated vacuum and strictly positive finite
 physical Hamiltonian mass gap, for EVERY compact simple gauge group,
 within the constructive axiom gate. **The Clay target remains OPEN.**
 
-## Result and causal argument
+## Time balance and quantitative decay follow-up
+
+2026-09-17 UTC, after pushed `699bff9`: **PROGRESS**. The original
+time-sum identity now passes through each pair's computed common base and
+the actual completed pairing limits. Thus `B(T_m x,T_n y)=B(x,T_(m+n) y)`.
+The fixed unit implies `B(T_n x,U)=B(x,U)`, so its orthogonal complement
+is invariant. The existing two-step form bound then gives
+`B(T_1 x,T_1 x)<=q(w) B(x,x)`, and induction proves
+`B(T_n x,T_n x)<=q(w)^n B(x,x)` on that SAME complement.
+
+This removes the time/form compatibility join listed at the preceding
+checkpoint below. No spectral model, eigenbasis, one-step positivity or
+new analytic hypothesis is used. Sharp CS gives
+`B(x,T_n y)^2 <= B(x,x) * (q(w)^n B(y,y))`; x is arbitrary and only y
+must be orthogonal to U. Original dense correlators retain the literal
+time advance. The result applies to the prior actual nonzero vector,
+`vector_orthogonal` in `lean/YMGap/Continuum/BF4WilsonSpatialUnionSmallNomeGap.lean:69`.
+It does not prove a nonzero positive-time response.
+
+All paths in the following table are under `lean/YMGap/Continuum/`.
+
+| Proved edge | Declaration and module:line |
+| --- | --- |
+| Computed common base -> original time-sum identity | `pairing_time_sum`, `BF4WilsonSpatialUnionTimeForm.lean:51` |
+| Actual pairing limits -> completed time balance | `representativeInner_time_sum`, same file:74; `completedInner_time_sum`, :85; `completedInner_time_balance`, :92 |
+| Same fixed unit -> invariant complement | `completedUnitCoefficient_time`, same file:129; `completedTime_preserves_orthogonal`, :132 |
+| Actual completed time -> original dense correlator | `completedTime_correlator`, same file:137 |
+| Strict two-step form -> one-step squared-norm bound -> iteration | `oneStep_norm_gap`, `BF4WilsonSpatialUnionRelaxation.lean:58`; `norm_decay`, :64 |
+| Half-time diagonal / sharp CS -> correlator bounds | `even_autocorrelation_decay`, same file:79; `mixed_correlator_sq_decay`, :85 |
+| Supplied scalar Cauchy data -> norm ceiling | `normCap`, same file:93; `norm_le_cap`, :108 |
+| Explicit geometric cutoff -> late-tail tolerance certificate | `relaxationModulus`, same file:113; `norm_small`, :116; `relaxationCertificate`, :132 |
+
+The rate is exactly the existing `twoStepRate`,
+`BF4ExactSlabFixedSpatialSpatialDenseGap.lean:65`: the square of
+`timeRate(w)=entropyRate(625,adjustedCoreRate(w,hd))` (:48). Its strict
+positivity and upper bound use the original nome guards (:68, :72).
+n counts original ONE-step advances, so the squared-norm exponent is n,
+not 2n. The bound is vector/base independent at fixed w, not uniform in
+bare coupling or physical spacing.
+
+For supplied X, let s be its actual representative diagonal and cs its
+computed rational Cauchy data. `normCap(X)=abs(s.approx(cs.M 1))+1`, using
+`scalarCeiling`, `BF4ExactSlabPlaquetteRealScalarCauchy.lean:52`.
+The threshold is `geometricCutoff(q(w),normCap(X),epsilon)`, defined in
+`PositiveContractionResidual.lean:119` and certified by `geometric_bound`
+(:126). It depends on nome, the supplied stream and tolerance. It is not
+asserted equal for different representatives, nor selected from a quotient.
+
+Next: completed linear operations and form laws on this Wilson union.
+Full Hilbert completeness and the canonical observable/state realization
+remain open, as do positive-time response/normalization, full spatial
+symmetry, changing-spacing control, finite physical mass calibration,
+continuum survival and the every-group theorem. Canonical frontier fields
+and the AF obstruction are unchanged. No Clay atom closes.
+
+Both focused checks exited 0, all 23 public axiom gates within
+{propext, Quot.sound}, with no warnings/errors. Main alone compiled with
+one monitored worker and a 20 GiB ceiling after fresh process/swap checks;
+no competing build/test/runner, swap stable at 6869.19 MiB. Root imports
+were added; root/full-tree/full audit/guard checks were NOT run. No prior
+proof, sorry, axiom, analytic guard or safety limit changed. CI remains
+manual and no literature scan ran. Independent read-only review confirmed
+time normalization, complement invariance and the mixed bound's one-vector
+orthogonality condition; it did not run a build.
+
+Final logs under `/tmp/`:
+
+| Log | Gates | SHA-256 |
+| --- | ---: | --- |
+| `ym-wilson-union-time-form-20260917.log` | 13 | `c9695db120023807438d09bb43bfd6a18bc713e50c42582d0c524350ced8084b` |
+| `ym-wilson-union-relaxation-20260917.log` | 10 | `5b20ae21fa53dc45117938111f72be129c79b9e5f1ef0df117e23e9530abad5e` |
+
+The remaining sections record the preceding coherent-union checkpoint;
+their next-step language is historical. Use the follow-up above for the
+current time/form and decay status.
+
+## Original checkpoint: result and causal argument
 
 The actual original Wilson limiting form and distance are independent of
 enlarging the source-base guard. The proof retains the literal oriented loop
