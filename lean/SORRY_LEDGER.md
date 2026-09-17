@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED same-Wilson centered vectors, connected pairings, norm separation and concrete nonzero excitation; OPEN original time and enlarged strict bound (2026-09-17 UTC)
+## PROVED original discrete time on the SAME Wilson completion; OPEN enlarged strict bound and continuum theory (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialWilsonIntrinsicCap.lean`,
+  `BF4ExactSlabFixedSpatialWilsonPhysicalTime.lean`,
+  `BF4ExactSlabFixedSpatialWilsonWindowStationarity.lean`,
+  `BF4ExactSlabFixedSpatialWilsonLimitStationarity.lean`,
+  `BF4ExactSlabFixedSpatialWilsonPhysicalTimeForm.lean`,
+  `BF4ExactSlabFixedSpatialWilsonPhysicalTimeContraction.lean`, and
+  `BF4ExactSlabFixedSpatialWilsonCompletedTime.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: unequal finite padding preserves original action/partition;
+  existing explicit boundary and spatial moduli give actual same-window
+  stationarity. Literal reflected-product geometry supplies form time balance.
+  Positivity of a signed difference and a lag-independent original-action cap
+  give nonexpansiveness through bounded midpoint doubling. Actual distance
+  contraction descends to the EXISTING Wilson completion, retaining stream
+  moduli. Completed time obeys zero/addition laws, fixes the embedded unit,
+  preserves its orthogonal sector and retains original dense correlators.
+  Separate actual mixed-pairing limits give norm contraction, time balance
+  and even-time positivity. No one-step positivity is asserted.
+- **consumer/open input**: the actual original time/nonexpansive-semigroup
+  fields are filled, not supplied as hypotheses. The enlarged strict bound
+  still needs Wilson-specific separated placement, a connected finite
+  covariance pin and a lag-uniform geometric envelope on these SAME moments.
+  Existing generic covariance/dyadic-moment machinery is reusable, not an
+  automatic transfer of the older plaquette gap. Full linear/Hilbert and
+  observable/OS/QFT realization, base/spatial symmetry, changing scale,
+  physical mass, continuum survival and all-group producers remain open.
+  Small-nome guards, AF obstruction and canonical fields are unchanged;
+  no canonical Clay atom is declared closed.
+- **verification**: seven focused serialized one-worker/20 GiB checks;
+  all 70 public gates within {propext, Quot.sound}. Root imports added;
+  root/full-tree/full audit unrun. No new/changed sorry, axiom, old proof,
+  analytic guard or safety limit. Evidence and independent review:
+  `audits/AUDIT-WILSON-ORIGINAL-COMPLETED-TIME.md`.
+
+## Previous PROVED same-Wilson centered vectors, connected pairings, norm separation and concrete nonzero excitation; OPEN original time and enlarged strict bound at that checkpoint (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialWilsonIntrinsicAlgebra.lean`,
   `BF4ExactSlabFixedSpatialWilsonCompletedPosdef.lean`,

@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: an actual nonzero centered vector on the Wilson completion.**
+**Latest result: original discrete time on the SAME Wilson completion.**
+Exact window stationarity, reflected positivity and a lag-independent scalar
+cap now prove nonexpansiveness of the actual Wilson time advance. It descends
+to the existing completion, retaining every supplied Cauchy modulus. The
+completed maps obey the time-addition law, fix the embedded original unit,
+preserve its orthogonal sector, and retain the original dense correlators.
+Even-time quadratic forms are nonnegative and bounded by the original squared norm.
+
+This is **fixed-spacing, small-nome SU(2)**, not a strict gap or continuum
+theory. One-step positivity is not asserted. The next strict-gap task is a
+decay estimate for this carrier's own time-separated connected Wilson
+correlations; the older plaquette-only gap is not silently transferred.
+Full Hilbert/OS/QFT realization, changing-scale control, physical mass and
+every-group continuum construction remain open. Seven focused serialized
+checks passed all 70 public gates within `{propext, Quot.sound}`; no root/
+full-tree check ran. See the [proof, five-front parallel map and next join](audits/AUDIT-WILSON-ORIGINAL-COMPLETED-TIME.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: an actual nonzero centered vector on the Wilson completion.**
 Rational approximations of the original mean now construct a vector in the
 SAME enlarged Wilson completion, with an explicit Cauchy modulus. Its pairing
 with the embedded unit is zero; its mixed pairings are exactly the connected
@@ -37,9 +57,6 @@ carrier, changing scale, physical mass, full OS/QFT and every-group continuum
 construction remain open. Six focused serialized checks passed all 59 public
 gates within `{propext, Quot.sound}`; no root/full-tree check ran. See the
 [same-carrier excitation proof and next obstruction](audits/AUDIT-WILSON-CENTERED-EXCITATION.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: the same Wilson completion pairing and a positive plaquette variance.**
 The original limiting reflected form now supplies an actual squared seminorm,

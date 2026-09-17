@@ -133,7 +133,49 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED actual centered Wilson vectors, connected pairings, completed norm separation and concrete nonzero excitation; OPEN original time and enlarged strict bound):**
+**Latest mathematical increment (PROVED original discrete time and nonexpansiveness on the SAME Wilson completion; OPEN enlarged strict bound):**
+PROGRESS after `7d01193`: the preceding nonzero-excitation checkpoint was
+committed and pushed. Three parallel source/cap/stationarity branches join
+into actual time evolution on the existing enlarged carrier.
+
+EXPANSION: literal advance retains the source expression and increases its
+distance from the reflection plane. Independent left/right padding preserves
+the original finite action and partition. The existing explicit boundary
+modulus identifies the actual joint limits; their spatial convergence gives
+same-window stationarity. An absolute original-action form cap depends only
+on expression syntax, not lag, radius or regulators.
+
+CONTRACTION: the exact reflected-product shift gives sum-of-times for the
+SAME limiting form. Positivity of a signed difference supplies midpoint
+doubling; the cap removes itself through the existing bounded-midpoint
+theorem, giving genuine norm and distance nonexpansiveness. The existing
+completion descent retains stream moduli, satisfies zero/addition laws,
+fixes the actual embedded unit and preserves its orthogonal sector. Actual
+mixed-pairing limits retain time balance, even-time positivity and dense
+original correlators. No one-step positivity or strict rate is inferred.
+
+NEXT CAUSAL FRONTIER: prove a separated-placement/connected-covariance pin
+and lag-uniform geometric envelope for arbitrary intrinsic Wilson expressions.
+Reuse `BF4ExactSlabSelectedTwoProbeCovariance.finite_covariance_distance_bound`
+with the actual Wilson interval and locality certificates, then pass the
+SAME connected moments to the existing limit. The generic
+`dyadic_geometric_first_le` can remove the observable-dependent prefactor
+only after that envelope and its actual moment laws are supplied. Do not
+import the older plaquette-only bound or enclose the growing gap in a
+growing support box. Original small-nome guards and fixed-spacing scope
+remain unchanged. Full completed linear/Hilbert and observable/OS/QFT
+realization, base inclusions/spatial symmetry, changing-scale control,
+physical mass, continuum nontriviality and every-group producers remain open.
+The AF obstruction and canonical fields are unchanged; no Clay atom closes.
+
+Seven focused serialized one-worker/20 GiB checks passed all 70 public gates
+within {propext, Quot.sound}. Parent plus three agents developed and reviewed
+the independent branches; main alone compiled. Root imports added; root/
+full-tree/full audit unrun. No sorry, axiom, old proof, analytic guard or
+safety limit changed. CI remains manual; no routine literature scan.
+Evidence: `audits/AUDIT-WILSON-ORIGINAL-COMPLETED-TIME.md`. Clay target OPEN.
+
+**Previous mathematical increment (PROVED actual centered Wilson vectors, connected pairings, completed norm separation and concrete nonzero excitation; OPEN original time and enlarged strict bound at that checkpoint):**
 PROGRESS after `f069204`: the preceding seminorm/variance checkpoint was
 committed and pushed. A shorter direct construction removes the scalar-to-
 vector obstruction without first requiring a full completed module interface.
