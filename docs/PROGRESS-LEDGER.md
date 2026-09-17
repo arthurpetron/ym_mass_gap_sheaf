@@ -4,7 +4,31 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: represented original Bernstein carrier limits (2026-09-14)
+## Current increment: actual finite width-one fringe lower bound (2026-09-17)
+
+PROGRESS after 5ab2524. The complete original three-face packet has exact
+fundamental moment w^9/2, proved by symbolic Schur contraction. Original
+source/terminal pins give H[tau2*(chi-2)*f]=w^9/2 and ||f||_nu^2=1/4.
+The shifted tester has original squared norm <=2*(1-w^9). A computed
+finite inverse degree preserves pairing>=w^9/4, so the actual seed obeys
+||q2||_nu^2*2*(1-w^9)>=w^18/16. No ideal inverse is substituted.
+
+This is a width-one, depth-zero diagnostic of an auxiliary non-gauge-invariant
+producer, not a physical gap, width-growth obstruction or exclusion of C(w).
+NEXT: prioritize the reduced-edge active estimate with the existing proved
+original mean/norm/energy rejoin. Retained interactions and the required
+spatial/depth/cutoff control remain open, as do physical calibration,
+same-theory continuum/QFT and all compact simple groups. Do not feed reduced
+residuals to a full-density consumer without proving the corresponding pins.
+
+Verification: eight focused serialized checks; 79 gates (69 new, ten existing;
+14 axiom-free) within {propext, Quot.sound}; clean final logs. Seven root imports,
+no new sorry, analytic input or canonical-field change. Fixed-geometry
+maxRecDepth=10000 is section-local; one worker/20 GiB limits and CI unchanged.
+No full-root build/audit/guard/progress run. Exact declarations and log hashes:
+`audits/AUDIT-WIDTH-ONE-FRINGE-SOURCE.md`.
+
+## Previous increment: represented original Bernstein carrier limits (2026-09-14)
 
 PROGRESS after e284003. `vector_sub` and `probe_distance_bound` identify
 the SAME polynomial differences and original squared distances.

@@ -148,6 +148,91 @@ theorem any_slot_zero {blocks : Nat} (hb : 3 < blocks) (a b c d : Fin blocks)
           (selected_zero hb (fourBlockExposure hb d a b c (Ne.symm had) (Ne.symm hbd) (Ne.symm hcd) hab hac hbc)
             r3 r0 r1 r2 spin hs q hq hd)))
 
+/-- Higher-spin selection for every orientation, with the entire independent
+spectator retained. The bound sees only the fixed insertion after exposure. -/
+theorem selected_product_zero {blocks : Nat} (hb : 3 < blocks) {a b c d : Fin blocks}
+    (e : FourBlockExposure a b c d) (r0 r1 r2 r3 : Bool) (spin : Nat) (p q : RatPoly)
+    (hp : SupportedQuaternionBlocks blocks p) (hq : SupportedQuaternionBlocks blocks q)
+    (hd : HasQuaternionBlockDegree a.val 0 q) (hs : selectionBound e p < spin) :
+    quaternionHaar blocks (polyMul
+      (characterPolynomial (word a.val b.val c.val d.val r0 r1 r2 r3).scalar spin)
+      (polyMul p q)) ≈ 0 := by
+  have hc := word_supported a.isLt b.isLt c.isLt d.isLt r0 r1 r2 r3 spin
+  have hcan := word_supported (blocks := blocks) (by omega : 0 < blocks) (by omega : 1 < blocks)
+    (by omega : 2 < blocks) hb r0 r1 r2 r3 spin
+  have htp := applyQuaternionBlockSwapChain_supported e.steps p hp
+  have htq := applyQuaternionBlockSwapChain_supported e.steps q hq
+  refine Q'.eqv_trans _ _ _ (Q'.eqv_symm (quaternionHaar_applyQuaternionBlockSwapChain e.steps _
+    (supported_polyMul hc (supported_polyMul hp hq)))) ?_
+  rw [chain_mul, chain_mul]
+  refine Q'.eqv_trans _ _ _ (quaternionHaar_prefixPolynomialEqv blocks
+    ((character_prefix hb e r0 r1 r2 r3 spin).mul (QuaternionPrefixPolynomialEqv.refl blocks _))
+    (supported_polyMul (applyQuaternionBlockSwapChain_supported e.steps _ hc) (supported_polyMul htp htq))
+    (supported_polyMul hcan (supported_polyMul htp htq))) ?_
+  apply SU2QuaternionAllCarrierExposedSelection.exposedCharacter_independent_product_zero
+    hb r0 r1 r2 r3 spin _ _ _ hs
+  apply chain_degree e.steps (by omega)
+  rw [e.source_zero]
+  exact hd
+
+private theorem head_bound_le_of_degree : ∀ (p : RatPoly) (degree : Nat),
+    HasQuaternionBlockDegree 0 degree p → headDegreeBound p ≤ degree
+  | [], _, _ => Nat.zero_le _
+  | t::p, degree, h => by
+    change max (quaternionBlockDegree t.1 0) (headDegreeBound p) ≤ degree
+    exact Nat.max_le.mpr ⟨Nat.le_of_eq (h t List.mem_cons_self),
+      head_bound_le_of_degree p degree (fun s hs => h s (List.mem_cons_of_mem t hs))⟩
+
+private theorem selected_homogeneous_product_zero {blocks : Nat} (hb : 3 < blocks)
+    {a b c d : Fin blocks} (e : FourBlockExposure a b c d) (r0 r1 r2 r3 : Bool)
+    (spin degree : Nat) (p q : RatPoly)
+    (hp : SupportedQuaternionBlocks blocks p) (hq : SupportedQuaternionBlocks blocks q)
+    (hdp : HasQuaternionBlockDegree a.val degree p) (hdq : HasQuaternionBlockDegree a.val 0 q)
+    (hs : degree < spin) :
+    quaternionHaar blocks (polyMul
+      (characterPolynomial (word a.val b.val c.val d.val r0 r1 r2 r3).scalar spin)
+      (polyMul p q)) ≈ 0 := by
+  apply selected_product_zero hb e r0 r1 r2 r3 spin p q hp hq hdq
+  apply Nat.lt_of_le_of_lt (head_bound_le_of_degree _ degree ?_) hs
+  apply chain_degree e.steps (by omega)
+  rw [e.source_zero]
+  exact hdp
+
+/-- Select at any physical slot without commuting the quaternion factors.
+The insertion may have arbitrary degree at every other coordinate; the
+spectator may share all of those coordinates and all remaining variables. -/
+theorem any_slot_product_zero {blocks : Nat} (hb : 3 < blocks) (a b c d : Fin blocks)
+    (hab : a.val ≠ b.val) (hac : a.val ≠ c.val) (had : a.val ≠ d.val)
+    (hbc : b.val ≠ c.val) (hbd : b.val ≠ d.val) (hcd : c.val ≠ d.val)
+    (r0 r1 r2 r3 : Bool) (spin : Nat) (p q : RatPoly)
+    (hp : SupportedQuaternionBlocks blocks p) (hq : SupportedQuaternionBlocks blocks q)
+    (slot degree : Nat)
+    (hm : slot = a.val ∨ slot = b.val ∨ slot = c.val ∨ slot = d.val)
+    (hdp : HasQuaternionBlockDegree slot degree p) (hdq : HasQuaternionBlockDegree slot 0 q)
+    (hs : degree < spin) :
+    quaternionHaar blocks (polyMul
+      (characterPolynomial (word a.val b.val c.val d.val r0 r1 r2 r3).scalar spin)
+      (polyMul p q)) ≈ 0 := by
+  rcases hm with rfl | rfl | rfl | rfl
+  · exact selected_homogeneous_product_zero hb
+      (fourBlockExposure hb a b c d hab hac had hbc hbd hcd)
+      r0 r1 r2 r3 spin degree p q hp hq hdp hdq hs
+  · exact Q'.eqv_trans _ _ _ (haar_cyclic blocks _ _ _ _ r0 r1 r2 r3 spin (polyMul p q))
+      (selected_homogeneous_product_zero hb
+        (fourBlockExposure hb b c d a hbc hbd (Ne.symm hab) hcd (Ne.symm hac) (Ne.symm had))
+        r1 r2 r3 r0 spin degree p q hp hq hdp hdq hs)
+  · exact Q'.eqv_trans _ _ _ (haar_cyclic blocks _ _ _ _ r0 r1 r2 r3 spin (polyMul p q))
+      (Q'.eqv_trans _ _ _ (haar_cyclic blocks _ _ _ _ r1 r2 r3 r0 spin (polyMul p q))
+        (selected_homogeneous_product_zero hb
+          (fourBlockExposure hb c d a b hcd (Ne.symm hac) (Ne.symm hbc) (Ne.symm had) (Ne.symm hbd) hab)
+          r2 r3 r0 r1 spin degree p q hp hq hdp hdq hs))
+  · exact Q'.eqv_trans _ _ _ (haar_cyclic blocks _ _ _ _ r0 r1 r2 r3 spin (polyMul p q))
+      (Q'.eqv_trans _ _ _ (haar_cyclic blocks _ _ _ _ r1 r2 r3 r0 spin (polyMul p q))
+        (Q'.eqv_trans _ _ _ (haar_cyclic blocks _ _ _ _ r2 r3 r0 r1 spin (polyMul p q))
+          (selected_homogeneous_product_zero hb
+            (fourBlockExposure hb d a b c (Ne.symm had) (Ne.symm hbd) (Ne.symm hcd) hab hac hbc)
+            r3 r0 r1 r2 spin degree p q hp hq hdp hdq hs)))
+
 end YMGap.Continuum.SU2QuaternionOrientedWordSelection
 
 #print axioms YMGap.Continuum.SU2QuaternionOrientedWordSelection.word
@@ -160,3 +245,5 @@ end YMGap.Continuum.SU2QuaternionOrientedWordSelection
 #print axioms YMGap.Continuum.SU2QuaternionOrientedWordSelection.selected_zero
 #print axioms YMGap.Continuum.SU2QuaternionOrientedWordSelection.haar_cyclic
 #print axioms YMGap.Continuum.SU2QuaternionOrientedWordSelection.any_slot_zero
+#print axioms YMGap.Continuum.SU2QuaternionOrientedWordSelection.selected_product_zero
+#print axioms YMGap.Continuum.SU2QuaternionOrientedWordSelection.any_slot_product_zero

@@ -495,7 +495,63 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current result (PROVED finite budget sharpness and coupled degrees):**
+**Current result (PROVED actual finite fringe lower bound):** the requested
+original-source test is now complete at width one and depth zero. Retain all
+24 coordinates, all three original spatial heat factors, the actual terminal
+messages and the numeric projection order. For f=q4.scalar, Phi=f and
+||f||_nu^2=1/4. With chi the literal six-link boundary character and
+r=(chi-2)*f, the checked identities/estimate give
+
+    H[tau2*r] = w^9/2,       ||r||_nu^2 <= 2*(1-w^9).
+
+`packet_moment`, `lean/YMGap/Continuum/BF4ExactSlabWidthOnePacketMoment.lean:408`,
+selects the fundamental terms inside the FULL three-face packet using
+symbolic Schur contractions, without expanding its arbitrary heat cutoff.
+`shifted_source_pair`, `lean/YMGap/Continuum/BF4ExactSlabWidthOneFringeMoment.lean:87`,
+pins the actual source. `shiftedTester_marginal_square_le`,
+`lean/YMGap/Continuum/BF4ExactSlabWidthOneShiftedTestBound.lean:171`,
+proves the norm bound with the original positivity guard.
+
+`pairingDegree`, `lean/YMGap/Continuum/BF4ExactSlabWidthOneActualFringePairing.lean:162`,
+computes a finite inverse degree using tolerance w^18/256. At EVERY later
+degree, `fringeTest_pairing_lower` (:165) and `fringeTest_norm_product_lower`
+(:197) prove for the ACTUAL original-marginal seed q2
+
+    <q2,r>_nu >= w^9/4,
+    ||q2||_nu^2 * 2*(1-w^9) >= w^18/16.
+
+The finite-degree witness retains coupling and heat-cutoff dependence;
+K must satisfy both headCutoff(w)<=K and K>=1. This is a necessary
+coupling-dependent cost for this auxiliary numeric-order producer, NOT
+width growth, failure of an allowed C(w), a gauge-invariant counterexample,
+or a physical/Clay obstruction. The probe is NOT gauge-invariant. The
+previous coupled-degree compiler can enlarge its seed floor and recompute
+the correction degree; no exact inverse or old fixed correction is used.
+Evidence and full checked scope: `audits/AUDIT-WIDTH-ONE-FRINGE-SOURCE.md`.
+
+**Next mathematical work after this diagnostic:** prioritize the retained
+active interaction, using the ALREADY PROVED original mean/norm/energy
+rejoin in `BF4ExactSlabFixedSpatialActiveEnergy.marginal_mean_active`,
+`marginal_pair_active`, `energy_active`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveEnergy.lean:69`, `:93`, `:129`).
+Seek a quantitative coercive/signed-cost estimate on the reduced edge with
+nu_A=V_A*g_n*g_(n+1), keeping the SAME original terminal messages and
+explicit width/depth/cofinal-cutoff control. It must then be transported
+through those equalities to the original energy. This is a priority choice,
+not a new proved reduced-producer theorem or a weakened canonical field.
+Reduced residuals cannot enter the old full-nu centering/cost theorem unchanged.
+The centered extraction's proved joint norm/energy control is the existing
+consumer; the interacting active estimate remains open.
+
+Do not add further general inverse wrappers or demand nome-independent
+control of the now-tested auxiliary fringe family. Reordering active links
+first is only an alternative proof design: at width one it would need a
+new conditional parity identity, not merely mean zero. No such reordered
+producer is claimed here, and the odd scalar probe does not resolve the
+width>=2 interacting/gauge-invariant case. Physical scaling, SAME-theory
+continuum/QFT and all compact simple groups remain open.
+
+**Previous result (PROVED finite budget sharpness and coupled degrees):**
 the retained budget B_I is now compared in BOTH directions with the
 ACTUAL uncorrected family norm N_I, not with an ideal inverse-density limit.
 For the existing tau_i, conditional centering gives the exact identity
@@ -521,38 +577,11 @@ lists are admitted; only the certified positive density floor is inverted.
 All three focused kernel checks passed. Evidence and exact parameter scope:
 `audits/AUDIT-RECIPROCAL-BUDGET-SHARPNESS.md`.
 
-**Next mathematical test, not another generic budget wrapper:** estimate the
-action-carrying B_fringe relative to ||Phi||_nu^2 on this coupled schedule,
-or construct an actual source-pinned finite lower example with a certified
-error smaller than its claimed slack. Keep the FULL nu, original numeric
-projection order, actual terminal messages and named regulator dependence.
-Do not expand a large physical polynomial before identifying a short exact
-conditional-integral calculation on these objects. A product-density analogy
-alone is not a counterexample to this producer. The comparison concerns
-UNCORRECTED component norms; corrections are the identity on fringe entries,
-but no reverse bound on corrected active norms is asserted. Neither width
-growth nor a regulator-uniform target-norm bound has been proved.
-After this necessary fringe test, the active JOINT upper cost remains the
-analytic join. Physical scaling, same-theory continuum/QFT and all compact
-simple groups remain open; the whole-project goal above is unchanged.
-
-**Bounded next source calculation (parallel review proposal, NOT PROVED):**
-start at width one and depth zero, using the scalar of the origin x2 link
-as an auxiliary supported probe. First check the literal numeric indices
-from `baseLinks` (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceCarrier.lean:44`),
-then pin the terminal message and centered source under the ORIGINAL Haar
-pairings. `spatialFaces_mem_iff` and `spatialWeight`
-(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFacePlacement.lean:98`,
-`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70`)
-specify the complete three-face packet. Test one fundamental-channel moment
-of its early fringe source, retaining all three heat factors, before seeking
-a full convolution formula. Shared active links prevent treating these as
-independent original plaquette densities. The index, source, terminal and
-moment pins are not yet proved. This probe is NOT gauge-invariant: a negative
-result would concern the current arbitrary-supported-polynomial producer,
-not a gauge-invariant-only replacement or the Clay gap. A positive cost
-alone is not a width-growth obstruction; reassess its quantitative use before
-extending this diagnostic into further machinery.
+The comparison concerns UNCORRECTED component norms; corrections are the
+identity on fringe entries, but no reverse bound on corrected active norms
+is asserted. The new finite lower test above supplies an actual source pin
+and explicit slack. It still supplies neither width growth nor the required
+regulator-controlled target-norm UPPER budget.
 
 **Preserved result (PROVED retained reciprocal-source budget; uniform comparison
 OPEN):** for the ACTUAL finite family, put M_i=P_i(nu), let J_i,k be its
@@ -668,8 +697,8 @@ locality or decay of these messages. All these identities hold at every
 rational nome and finite cutoff, with no positivity assumption. They
 supply no uniform lower bound or physical mass rate.
 
-**Next quantitative target:** test the actual unavoidable fringe budget,
-then use this exact retained interaction to bound the signed active cost,
+**Quantitative target after the width-one diagnostic:** use this exact
+retained interaction to bound the signed active cost,
 not to launch another round of inverse,
 carrier or completion wrappers. The existing consumer remains
 `actualResidual_corrected_energy`,
@@ -720,7 +749,16 @@ determinant bound alone introduces a family-size loss.
 The reduced-cube coefficient-one obstruction suggested by the reviewer is
 not a checked counterexample and is not used as a theorem.
 
-Current sharpness/coupled-degree verification: three focused serialized
+Current width-one source/lower-bound verification: eight focused serialized
+one-worker/20 GiB checks; all 79 gates (69 new, ten existing; 14 axiom-free)
+within {propext, Quot.sound}, no final warnings/errors/sorryAx. Seven new
+root imports and two appended oriented-selection theorems. Independent
+mathematical/source reviews passed. No sorry, analytic premise or canonical
+field changed. The fixed-geometry enumeration alone uses section-local
+maxRecDepth=10000; no new heartbeat or machine-safety limit. Root/full-tree
+build, full audit/guard NOT run; CI unchanged. Logs/hashes in the source audit.
+
+Previous sharpness/coupled-degree verification: three focused serialized
 one-worker/20 GiB checks; all 25 gates (18 new, seven existing) within
 {propext, Quot.sound}; no final warnings/errors/sorryAx. Independent
 mathematical/source review passed. Two new root imports, one appended

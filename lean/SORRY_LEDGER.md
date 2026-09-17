@@ -13,7 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED finite budget sharpness and coupled approximation degrees; uniform cost OPEN (2026-09-17 UTC)
+## PROVED full-action width-one moment and actual finite fringe lower bound; active estimate OPEN (2026-09-17 UTC)
+
+- **files**: seven new modules under `lean/YMGap/Continuum/`:
+  `BF4ExactSlabWidthOneGeometry.lean`, `SU2QuaternionCornerFundamentalMoment.lean`,
+  `BF4ExactSlabWidthOneSource.lean`, `BF4ExactSlabWidthOnePacketMoment.lean`,
+  `BF4ExactSlabWidthOneFringeMoment.lean`, `BF4ExactSlabWidthOneShiftedTestBound.lean`,
+  `BF4ExactSlabWidthOneActualFringePairing.lean`; two appended theorems in
+  `SU2QuaternionOrientedWordSelection.lean`.
+- **proved**: retain all 24 original coordinates, three heat faces, original
+  terminal and numeric source order. `probe_norm` (WidthOneSource:168) gives
+  1/4 and `centered_probe` (:174) identifies Phi=f=q4.scalar. The full-packet
+  `packet_moment` (WidthOnePacketMoment:408) is w^9/2 for every K>=1;
+  `bare_moment_extended` (CornerFundamentalMoment:369) gives its symbolic
+  fundamental integral 1/16 with arbitrary unused coordinates retained.
+  `shifted_source_pair` (WidthOneFringeMoment:87) gives
+  H[tau2*(chi-2)*f]=w^9/2. `shiftedTester_marginal_square_le`
+  (WidthOneShiftedTestBound:171) bounds its original norm by 2*(1-w^9).
+  `pairingDegree` (WidthOneActualFringePairing:162) computes a finite seed
+  degree from tolerance w^18/256. Every later actual finite seed satisfies
+  pairing>=w^9/4 (`fringeTest_pairing_lower`, :165) and
+  ||q2||_nu^2*2*(1-w^9)>=w^18/16 (`fringeTest_norm_product_lower`, :197).
+- **input removed / scope**: the necessary fringe diagnostic is now pinned
+  to the actual original source and finite approximation, not a loose upper
+  estimate or ideal reciprocal. All quantitative positivity statements retain
+  0<w<1 and headCutoff(w)<=K as well as K>=1. The degree depends on w,K.
+- **open residue / direction**: this concerns an auxiliary non-gauge-invariant
+  probe at width one and depth zero. No width-growth theorem, exclusion of
+  permitted C(w), joint UPPER budget, physical excitation or Clay obstruction
+  is claimed. Prioritize a reduced-edge active estimate with a proved rejoin
+  via the existing original mean/norm/energy identities; reduced residuals
+  cannot silently enter full-nu centering/cost machinery. Spatial/depth/cutoff
+  control, physical scaling, same-theory continuum/QFT and every group remain open.
+- **verification**: eight focused serialized one-worker/20 GiB checks;
+  79 gates (69 new, ten existing; 14 axiom-free) within {propext, Quot.sound};
+  no final warnings/errors/sorryAx. Independent mathematical/source review passed.
+  Seven root imports; no sorry added/discharged, analytic premise or canonical
+  field changed. Only fixed-geometry enumeration uses section-local
+  maxRecDepth=10000. Machine-safety limits and CI unchanged; full-root build,
+  full audit/guard NOT run. Evidence: `audits/AUDIT-WIDTH-ONE-FRINGE-SOURCE.md`.
+
+## Previous PROVED finite budget sharpness and coupled approximation degrees; uniform cost OPEN (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialActualSeedBudgetError.lean`,
   `BF4ExactSlabFixedSpatialReciprocalBudgetApproximation.lean`, and appended
