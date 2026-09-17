@@ -13,7 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED retained reciprocal-source norm/cost budget; uniform comparison OPEN (2026-09-17 UTC)
+## PROVED finite budget sharpness and coupled approximation degrees; uniform cost OPEN (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialActualSeedBudgetError.lean`,
+  `BF4ExactSlabFixedSpatialReciprocalBudgetApproximation.lean`, and appended
+  degree-extension declarations in `BF4ExactSlabFixedSpatialCenteredFamilyApproximation.lean`,
+  all under `lean/YMGap/Continuum/`.
+- **proved**: conditional centering pins B_i=H[tau_i*q_i] and
+  B_i-||q_i||_nu^2=H[(1-nu*M_i*J_i,k)*tau_i*q_i]
+  (`budget_pairing_pin`, ActualSeedBudgetError:217; `budget_error_pin`, :227).
+  `budget_error_le_geometric` (:251) bounds the error by
+  rho^k*H[tau_i^2]/ell, retaining the actual finite polynomial inverse and
+  full original marginal. No source norm or geometric factor is inverted.
+  `normSum_le_sourceCost` and `sourceCost_le_normSum_add_geometric`
+  (ReciprocalBudgetApproximation:83, :91) give
+  N_I<=B_I<=N_I+rho^k*sum_I H[tau_i^2]/ell on every valid finite index list.
+  `gapCutoff` (:107) is explicit and `sourceCost_le_normSum_add` (:111)
+  proves the tolerance for every later seed degree. `coupledCertificate`
+  (:129) returns one degree pair meeting both this tolerance and original
+  weighted approximation: `approximationDegreesAfter` and
+  `approximation_bound_after` (CenteredFamilyApproximation:145, :159)
+  enlarge the seed degree and recompute the correction degree from it.
+- **input removed**: a late finite retained budget is now additively sharp
+  for the ACTUAL uncorrected norm sum. This supports a source-pinned fringe
+  cost test with explicit slack while preserving an adequate approximation.
+  Corrections leave fringe tests unchanged; no reverse estimate for
+  corrected ACTIVE component norms is claimed.
+- **open residue**: establish regulator-controlled target-norm control or
+  an actual finite obstruction for the action-carrying fringe budget.
+  No width growth, degree monotonicity, uniform bound, or failed producer
+  has been proved. The active JOINT upper cost, physical scaling, same-theory
+  continuum/QFT and every compact simple group remain open.
+- **verification**: three focused serialized one-worker/20 GiB checks;
+  25 gates (18 new, seven existing) within {propext, Quot.sound}; no final
+  warnings/errors/sorryAx. Independent review passed. Two root imports,
+  no sorry added/discharged, new analytic premise, or canonical-field change.
+  Final elaboration options, CI and safety limits unchanged. Root/full-tree/
+  full-audit/guard NOT run. Evidence: `audits/AUDIT-RECIPROCAL-BUDGET-SHARPNESS.md`.
+
+## Previous PROVED retained reciprocal-source norm/cost budget; uniform comparison OPEN (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialActualSeedReciprocalNorm.lean` and
   `BF4ExactSlabFixedSpatialReciprocalSourceBudget.lean`, under `lean/YMGap/Continuum/`.

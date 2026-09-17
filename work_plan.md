@@ -495,7 +495,66 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current result (PROVED retained reciprocal-source budget; uniform comparison
+**Current result (PROVED finite budget sharpness and coupled degrees):**
+the retained budget B_I is now compared in BOTH directions with the
+ACTUAL uncorrected family norm N_I, not with an ideal inverse-density limit.
+For the existing tau_i, conditional centering gives the exact identity
+
+    B_i - ||q_i||_nu^2 = H[(1-nu*M_i*J_i,k)*tau_i*q_i].
+
+The inverse-error interval and Haar Cauchy--Schwarz give the checked bound
+
+    N_I <= B_I <= N_I + rho^k * sum_{i in I} H[tau_i^2]/ell.
+
+`budget_error_pin` and `budget_error_le_geometric`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActualSeedBudgetError.lean:227`, `:251`,
+supply the local argument. `sourceCost_le_normSum_add` and `coupledCertificate`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialReciprocalBudgetApproximation.lean:111`, `:129`,
+construct a finite degree for any positive additive cost tolerance. Enlarge the seed degree
+to satisfy BOTH that tolerance and the original approximation tolerance,
+then recompute the correction degree from the enlarged seeds. This last
+order matters: keeping the old correction degree is not justified.
+The new `approximationDegreesAfter` and `approximation_bound_after`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCenteredFamilyApproximation.lean:145`, `:159`,
+preserve that schedule. Zero source, zero geometric factor and empty index
+lists are admitted; only the certified positive density floor is inverted.
+All three focused kernel checks passed. Evidence and exact parameter scope:
+`audits/AUDIT-RECIPROCAL-BUDGET-SHARPNESS.md`.
+
+**Next mathematical test, not another generic budget wrapper:** estimate the
+action-carrying B_fringe relative to ||Phi||_nu^2 on this coupled schedule,
+or construct an actual source-pinned finite lower example with a certified
+error smaller than its claimed slack. Keep the FULL nu, original numeric
+projection order, actual terminal messages and named regulator dependence.
+Do not expand a large physical polynomial before identifying a short exact
+conditional-integral calculation on these objects. A product-density analogy
+alone is not a counterexample to this producer. The comparison concerns
+UNCORRECTED component norms; corrections are the identity on fringe entries,
+but no reverse bound on corrected active norms is asserted. Neither width
+growth nor a regulator-uniform target-norm bound has been proved.
+After this necessary fringe test, the active JOINT upper cost remains the
+analytic join. Physical scaling, same-theory continuum/QFT and all compact
+simple groups remain open; the whole-project goal above is unchanged.
+
+**Bounded next source calculation (parallel review proposal, NOT PROVED):**
+start at width one and depth zero, using the scalar of the origin x2 link
+as an auxiliary supported probe. First check the literal numeric indices
+from `baseLinks` (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceCarrier.lean:44`),
+then pin the terminal message and centered source under the ORIGINAL Haar
+pairings. `spatialFaces_mem_iff` and `spatialWeight`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFacePlacement.lean:98`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70`)
+specify the complete three-face packet. Test one fundamental-channel moment
+of its early fringe source, retaining all three heat factors, before seeking
+a full convolution formula. Shared active links prevent treating these as
+independent original plaquette densities. The index, source, terminal and
+moment pins are not yet proved. This probe is NOT gauge-invariant: a negative
+result would concern the current arbitrary-supported-polynomial producer,
+not a gauge-invariant-only replacement or the Clay gap. A positive cost
+alone is not a width-growth obstruction; reassess its quantitative use before
+extending this diagnostic into further machinery.
+
+**Preserved result (PROVED retained reciprocal-source budget; uniform comparison
 OPEN):** for the ACTUAL finite family, put M_i=P_i(nu), let J_i,k be its
 existing reciprocal polynomial for nu*M_i, and let tau_i be the existing
 ordinary-Haar piece of nu*Phi. With B_I=sum_{i in I} H[M_i*J_i,k*tau_i^2],
@@ -515,7 +574,7 @@ unavoidable fringe cost by (1-h)*B_fringe; `diagonal_cost_le_sourceCost`
 The budget still uses FULL nu and the actual finite degree and global
 window inside J. There is no claimed regulator-uniform target-norm bound.
 
-**Next mathematical test:** estimate this retained B_fringe on the actual
+**Earlier sufficient-budget test (now sharpened above):** estimate B_fringe on the actual
 approximation schedule relative to ||Phi||_nu^2, using the original source
 and conditional spatial action, with explicit width/depth/cofinal-cutoff
 dependence. This is a sufficient route for bounding fringe cost; failure
@@ -661,7 +720,16 @@ determinant bound alone introduces a family-size loss.
 The reduced-cube coefficient-one obstruction suggested by the reviewer is
 not a checked counterexample and is not used as a theorem.
 
-Current reciprocal-source verification: two focused serialized one-worker/20 GiB
+Current sharpness/coupled-degree verification: three focused serialized
+one-worker/20 GiB checks; all 25 gates (18 new, seven existing) within
+{propext, Quot.sound}; no final warnings/errors/sorryAx. Independent
+mathematical/source review passed. Two new root imports, one appended
+degree-extension API; no sorry, analytic premise or canonical-field change.
+The temporary elaboration-limit change was removed after abstracting scalar
+algebra from physical expressions; final options and safety limits are unchanged.
+Root/full-tree build, full-audit/guard NOT run; CI unchanged.
+
+Previous reciprocal-source verification: two focused serialized one-worker/20 GiB
 checks; all 11 gates within {propext, Quot.sound}; no final warnings/errors/sorryAx.
 Independent mathematical/source review passed. Two new root imports; no new
 sorry, analytic premise or canonical-field change. Root/full-tree build,

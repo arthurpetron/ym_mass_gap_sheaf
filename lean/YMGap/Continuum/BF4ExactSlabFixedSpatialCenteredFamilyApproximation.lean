@@ -139,6 +139,47 @@ theorem approximant_energy (k l : Nat) {f : RatPoly}
     (familySeeds hw0 hw1 K width hK n k f) (fun _ => l)
     (fun i _ => familySeeds_supported hw0 hw1 K width hK n k i hf) hf
 
+/-- Enforce a supplied lower seed degree while preserving the original
+approximation. The correction degree is recomputed from the enlarged seeds,
+not reused from the old degree pair. -/
+def approximationDegreesAfter (seedFloor : Nat) (f : RatPoly) (epsilon : Q') : Nat × Nat :=
+  let k := max seedFloor
+    (BF4ExactSlabFixedSpatialSeedFamilyApproximation.approximationCutoff
+      hw0 hw1 K width hK n f (quarter epsilon))
+  let l := BF4ExactSlabFixedSpatialCorrectionFamilyApproximation.approximationCutoff
+    hw0 hw1 K width hK n (familyTests hw0 hw1 K width hK n k f) (quarter epsilon)
+  (k, l)
+
+theorem approximationDegreesAfter_seedFloor_le (seedFloor : Nat) (f : RatPoly) (epsilon : Q') :
+    seedFloor ≤ (approximationDegreesAfter hw0 hw1 K width hK n seedFloor f epsilon).1 :=
+  Nat.le_max_left _ _
+
+/-- The same original-marginal error tolerance holds after any prescribed
+seed floor. No monotonicity of the corrected approximants is assumed. -/
+theorem approximation_bound_after (seedFloor : Nat)
+    {f : RatPoly} (hf : SupportedQuaternionBlocks (N width) f)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon) :
+    let d := approximationDegreesAfter hw0 hw1 K width hK n seedFloor f epsilon
+    quaternionHaar (N width) (polyMul (marginalWeight w K width n)
+      (polyMul (error hw0 hw1 K width hK n d.1 d.2 f)
+        (error hw0 hw1 K width hK n d.1 d.2 f))) ≤ epsilon := by
+  let k := (approximationDegreesAfter hw0 hw1 K width hK n seedFloor f epsilon).1
+  let l := (approximationDegreesAfter hw0 hw1 K width hK n seedFloor f epsilon).2
+  let qs := familyTests hw0 hw1 K width hK n k f
+  have hq := fun i (_ : i ∈ BF4ExactSlabFixedSpatialFamilyErasure.labels width) =>
+    familyTests_supported hw0 hw1 K width hK n k i hf
+  have hc := correctionError_weighted_square_le hw0 hw1 K width hK n qs hq
+    (quarter epsilon) (quarter_positive hepsilon) l (Nat.le_refl _)
+  have hr := BF4ExactSlabFixedSpatialSeedFamilyApproximation.rawError_weighted_square_le
+    hw0 hw1 K width hK n hf (quarter epsilon) (quarter_positive hepsilon) k (Nat.le_max_right _ _)
+  have hb := weighted_square_add_bound (marginalCertificate hw0 hw1 K width hK n)
+    (correctionError_supported hw0 hw1 K width hK n qs l hq)
+    (rawError_supported hw0 hw1 K width hK n k hf) hc hr
+  have he := error_split hw0 hw1 K width hK n k l f
+  have hs := haar_of_coeff (blocks := N width) ((he.mul he).mul_left (marginalWeight w K width n))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hs)
+    (Q'.le_trans' _ _ _ hb (Q'.le_of_eqv (quarter_budget epsilon)))
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFamilyApproximation
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFamilyApproximation.approximant
@@ -148,3 +189,6 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFamilyApproximation
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFamilyApproximation.approximation_bound
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFamilyApproximation.approximationCertificate
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFamilyApproximation.approximant_energy
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFamilyApproximation.approximationDegreesAfter
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFamilyApproximation.approximationDegreesAfter_seedFloor_le
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFamilyApproximation.approximation_bound_after
