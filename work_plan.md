@@ -314,9 +314,52 @@ are preserved; neither supplies a route through the incompatible AF guard.
    classify that remainder as a head-independent spectator. Embedding the
    literal word calculation in the fixed-spatial physical carrier and a
    quantitative full-action remainder bound remain required.
-3. **Parallel work has bounded outputs, not parallel promises of closure.**
-   Independently review the finite falsification test, seek action-specific
-   cross-control in the existing source, and check the consumer/normalization.
+3. **NEXT: estimate the full-source remainder, not more unweighted channels.**
+   The follow-up audit at `806bf5d` is recorded in
+   `audits/AUDIT-FULL-ACTION-REJOIN-2026-09-17.md`. The algebraic reweighting
+   identity already exists as `RationalConnectedResponse.connected_response_identity`
+   (`lean/YMGap/Continuum/RationalConnectedResponse.lean:26`). For a normalized
+   positive shared-link heat functional mu, full source-dependent weight b,
+   Z=mu(b)>0, and centered probes p0=P-mu(P), q0=Q-mu(Q), the missing term is
+
+       R_b = Z^2 * (Cov_(b*mu/Z)(P,Q) - Cov_mu(P,Q))
+           = Z*mu((b-Z)*p0*q0) - mu((b-Z)*p0)*mu((b-Z)*q0).
+
+   This is a specialization of existing algebra, not a new proved physical
+   instance. Pin b to the actual remaining factors of V*T^n1 before using
+   it; do not change the conditional reference functional silently. Identify
+   the precise original temporal-form term to which the comparison applies;
+   generic response algebra is not itself the bridge to C_delta. The
+   primary next proposition is a quantitative bound on this SIGNED remainder
+   for the actual action, sufficient for the same C_delta diagonal budget.
+   No such bound or summation budget has been found in the reviewed source.
+   Pairwise covariance bounds do not remove the third connected term.
+   A small relative variance mu((b-Z)^2)/Z^2 would be one sufficient avenue,
+   not a necessary new frontier field and not an available theorem. Test its
+   scaling before formalizing a Cauchy--Schwarz consequence. Likewise defer
+   the sharp unweighted covariance-matrix bound unless a full-source estimate
+   actually consumes it. Existing connected-response and cutoff-tail identities
+   are reusable inputs, not new work or proof of small background response.
+4. **Finite tests must exercise the actual kinetic geometry and legal cutoff.**
+   Source inspection shows that width one has three spatial plaquettes but
+   none has all four links in `activeBlocks`; width two is the first width
+   admitting one. Thus width one is not a test of a fully propagated bulk
+   plaquette. These are membership deductions, not a newly proved transfer
+   degeneracy theorem. Use a factorized symbolic contraction retaining all
+   incident factors, or a bounded certificate calculation on the actual
+   width-two action; do not expand the complete action naively. K>=2 in the
+   shared-link identity is a harmonic guard, not the `headCutoff w <= K`
+   hypothesis of the positive-prefix certificates. Any smaller numerical
+   cutoff needs its own proved positivity certificate, with unchanged
+   original action (existing small-nome certificates are already available).
+   Reuse the factor-list Haar contraction; preserve repeated weight factors
+   introduced by the weighted residuals instead of doing vacuum-only fringe
+   elimination. A finite test cannot establish the late-cutoff/depth/
+   spatially uniform inequality by itself.
+5. **Parallel work has bounded outputs, not parallel promises of closure.**
+   The source-dependence and finite-geometry reviews are now complete. Reuse
+   their findings; the next independent review should check a concrete proposed
+   inequality and its normalization, not repeat the same source scan.
    Keep spacing/mass, full OS/QFT and all-group joins visible in the execution
    order above. Do not reopen their proved fixed-spacing components or edit
    defective canonical statements without the required reviewed sign-off.
