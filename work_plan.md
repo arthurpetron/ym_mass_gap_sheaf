@@ -495,7 +495,64 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current result (PROVED centered original-energy split and error control;
+**Current result (PROVED exact active spatial action, transfer and energy;
+OPEN signed active-sector coercivity):** `fringeFaceLeaf`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeFaceGeometry.lean:165`,
+constructs an original fringe link incident to no other spatial face for
+every face that is not fully active. With all other factors retained,
+`spatialWeight_haar_active`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveSpatialWeight.lean:130`,
+removes precisely these face factors under fringe-independent insertions.
+V_A is the UNCHANGED heat product on fully-active spatial faces.
+`spatialFringeMass_haar_active` (:140) identifies P_F(V) with V_A under
+every supported Haar test; this is not raw coefficient equality.
+
+`original_transfer_haar_active`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveTransfer.lean:87`,
+pins the ORIGINAL transfer on supported fringe-independent inputs to K V_A.
+The Haar test need not be fringe-independent. The actual kinetic map's
+adjoint supplies that independence; no link-update operator is substituted.
+For an active b, `energy_active`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveEnergy.lean:129`, gives
+
+    E_gn(b) = H[V_A*g_n*g_(n+1)*b^2]
+              - H[V_A*(g_n*b)*activeTransfer(g_n*b)].
+
+The same module pins the original mean and pairing (:69, :93). The
+terminal messages are still the actual T^n1; locality of V_A is NOT
+locality or decay of these messages. All these identities hold at every
+rational nome and finite cutoff, with no positivity assumption. They
+supply no uniform lower bound or physical mass rate.
+
+**Next quantitative target:** use this exact retained interaction to
+bound the signed active cost, not to launch another round of inverse,
+carrier or completion wrappers. The existing consumer remains
+`actualResidual_corrected_energy`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCost.lean:294`.
+For constructed ORIGINAL-marginal centered tests S approximating the
+active b, seek D+2hR<=C(w)*||b||_nu^2 with controlled width/depth/cofinal
+cutoff dependence; retain the signed actual message determinant and
+explicit nome dependence. Neither this budget nor its required stable
+active test family is proved by face cancellation. Do not insert
+reduced-marginal tests into that consumer without its centering/transfer
+pins. A different valid producer of the same active lower bound is allowed.
+The old whole-product floor has a proved width obstruction, not a
+spatially uniform estimate. The parallel geometry review identifies the
+retained action as a cubical core (width two already has a closed cube),
+so continued unique-free-link peeling is not a proposed gap proof. Its
+cardinality/no-further-leaf claims have not been formalized here.
+
+Six final focused serialized one-worker/20 GiB checks passed, with all 31
+gates within {propext, Quot.sound}; no final errors/warnings/sorryAx.
+Independent review passed the peeling/transfer argument. The final
+original-energy consumer was additionally kernel-checked. Six root
+imports; root/full-tree/full-audit/guard NOT run. No sorry, canonical
+field, CI or safety limit changed. Evidence:
+`audits/AUDIT-ACTIVE-SPATIAL-ACTION.md`. Active coercivity, completed
+full-sector extension beyond the small-nome branch, physical scaling,
+continuum/QFT and every-group joins remain OPEN.
+
+**Previous result (PROVED centered original-energy split and error control;
 OPEN active-sector coercivity):** for the stable fringe r_k and active b_k
 defined below, construct b0_k by subtracting its SAME nu-normalized mean.
 The positive rational partition is explicit; r_k is already mean zero and
@@ -530,21 +587,15 @@ energy triangle alone does not preserve a proposed sharp coefficient.
 Do not rebuild centering, finite reciprocal approximation or completion
 machinery. Do not treat fringe independence as original per-link
 conditional centering or charge the global spatial floor as a spatially
-uniform coercivity constant. Any reduced-action route still needs an
-exact original-transfer pin.
+uniform coercivity constant. The reduced-action route then still needed
+the exact original-transfer pin now proved in the current checkpoint above.
 
-**Bounded next producer test (UNPROVED):** check the actual open-box geometry
-before treating the active marginal as nonlocal or adding a new interface.
-The proposed constructive lemma gives every fringe-touching spatial face
-a fringe link contained in no other spatial face (candidate far link B,
-otherwise C). Its consumer is all-spin Haar cancellation, with the original
-spectator retained, to identify P_F(V) under supported Haar tests with
-the unchanged product over fully-active spatial faces. Then pin the ORIGINAL
-transfer on fringe-independent inputs to that product. The witness,
-cancellation and transfer pin are not yet checked; none supplies coercivity.
-Source references and exact scope are recorded in
-`audits/AUDIT-CENTERED-FRINGE-ENERGY.md`. This is the next action-specific
-calculation, not permission to assume locality of a general marginal.
+**Producer test at that checkpoint (now PROVED above):** actual unique
+fringe-link incidence, all-spin face cancellation, the tested conditional
+spatial mass and ORIGINAL transfer pins. The witness is selected by finite
+decidable search through the original face edges. This proves locality
+of this particular spatial marginal; it does not assume locality of a
+general marginal or of the terminal messages.
 
 Five final focused serialized one-worker/20 GiB checks passed, with 33
 printed gates within {propext, Quot.sound}, no final errors/warnings/sorryAx.

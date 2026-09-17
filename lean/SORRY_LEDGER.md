@@ -13,7 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED centered original-energy split; OPEN active coercivity (2026-09-17 UTC)
+## PROVED active spatial action and original-energy pin; OPEN signed coercivity (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialFringeFaceGeometry.lean`,
+  `BF4ExactSlabFixedSpatialFaceIndependence.lean`,
+  `BF4ExactSlabFixedSpatialFaceSelection.lean`,
+  `BF4ExactSlabFixedSpatialActiveSpatialWeight.lean`,
+  `BF4ExactSlabFixedSpatialActiveTransfer.lean`, and
+  `BF4ExactSlabFixedSpatialActiveEnergy.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: construct a unique-incident fringe-link witness for every
+  non-fully-active spatial face. All positive-spin channels of its heat
+  factor cancel with the COMPLETE other action factors and independent
+  insertion retained. `spatialWeight_haar_active` (ActiveSpatialWeight:130)
+  identifies the original spatial action under fringe-independent tests
+  with the unchanged fully-active face product V_A;
+  `spatialFringeMass_haar_active` (:140) pins P_F(V) under all supported tests.
+  `original_transfer_haar_active` (ActiveTransfer:87) pins T on the active
+  subspace to the same kinetic map with V_A. `energy_active`
+  (ActiveEnergy:129) and `marginal_mean_active`/`marginal_pair_active`
+  (:69/:93) express the original active energy, norm and mean with V_A,
+  retaining the actual original terminal messages T^n1.
+- **input removed**: locality of this particular fringe-integrated spatial
+  action and its same-original-transfer/energy identification no longer
+  need assumptions. Equalities are finite supported Haar identities, not
+  raw coefficient equality or a completed reduced-operator assertion.
+- **open residue**: signed active-sector coercivity/stable cost with the
+  regulator control needed by the limiting route. All rational nome and
+  finite cutoff are admitted by these identities, but no coupling-uniform
+  gap or width/depth-uniform estimate follows. Terminal messages remain
+  interacting. The old global floor's width obstruction is unchanged;
+  completed full-sector/scaling/continuum/QFT/every-group joins remain open.
+- **verification**: six final focused serialized one-worker/20 GiB checks;
+  31 gates within {propext, Quot.sound}; no final errors/warnings/sorryAx.
+  An intermediate geometric omega proof had a classical dependency; explicit
+  decidable coordinate cases removed it, and the final dependency checks
+  pass. No sorry added/discharged. Independent source review passed peeling
+  and transfer; the final energy consumer additionally kernel-checked.
+  Six root imports; root/full-tree/full-audit/guard NOT run. No canonical
+  field, CI or safety limit changed. Evidence:
+  `audits/AUDIT-ACTIVE-SPATIAL-ACTION.md`.
+
+## Previous PROVED centered original-energy split; active coercivity OPEN (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialKernelEnergySplit.lean`,
   `BF4ExactSlabFixedSpatialFringeProjectionEnergy.lean`,
