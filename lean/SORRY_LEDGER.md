@@ -13,6 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED all-even Wilson response lower bound; scale survival OPEN (2026-09-17 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionResponseLower.lean`.
+- **proved**: `evenResponse_second_difference` (:86) expands positivity
+  of the ACTUAL vector T(n+2)x-rho*T(n)x. `evenResponse_step_lower` (:106)
+  propagates a supplied initial two-step Rayleigh floor, and
+  `evenResponse_geometric_lower` (:121) gives rho^n*B(x,x)<=B(x,T(2*n)x).
+  No division, spectral theorem or one-step positivity assumption is used.
+- **inhabited instance**: `unitExcitation_even_lower`, `_upper`, `_band`
+  (:150, :163, :175) retain the existing normalized vector, actual completed
+  pairing and transfer, and its proved rational floor/ceiling, at nome
+  1/1024. The band holds for EVERY n, not only dyadic n. No degradation of
+  the old floor is paid. `unitExcitation_time_norm_floor` (:183) and
+  `unitExcitation_time_ne_zero` (:196) give an explicit positive squared-norm
+  floor and nonzero image at every finite integer time.
+- **open / actual consumer**: these are fixed-spacing SU(2) response and
+  survival inputs. Changing-spacing observable families, controlled floors
+  at fixed physical time, same-limit survival, actual generator calibration,
+  full QFT and every compact simple group remain open. No canonical atom
+  closes. The forward review additionally distinguishes fusion insertion
+  from the existing same-observable separated temporal channel; its improved
+  spatial/regulator-controlled bound is still unsupplied. Fusion is an
+  optional analysis tool, not a mandatory compiler. See
+  `audits/AUDIT-FUSION-TEMPORAL-CONSUMER-2026-09-17.md`.
+- **verification**: final focused one-worker/20 GiB check passed, all eight
+  public gates within {propext, Quot.sound}. The first check found only a
+  redundant rewrite after simplification; it and the unused helper were
+  removed before the passing check. No sorry introduced/discharged, new
+  analytic oracle, canonical statement, CI or resource change. Parent full
+  source inspection and independent review passed. One semantic-root import
+  added; full-root/full-tree/audit/guard/progress NOT run. Evidence and hash:
+  `audits/AUDIT-ALL-EVEN-WILSON-RESPONSE-2026-09-17.md`.
+
 ## PROVED signed observed-source fusion error; coupled bulk OPEN (2026-09-17 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialObservedFusionSource.lean`

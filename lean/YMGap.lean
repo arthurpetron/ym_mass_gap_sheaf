@@ -4991,6 +4991,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonPlaquetteTimePin
 import YMGap.Continuum.BF4WilsonSpatialUnionPositiveResponse
 import YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
 import YMGap.Continuum.BF4WilsonSpatialUnionDyadicResponse
+import YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
 -- Exact original polynomial identities descend to this SAME completed state space.
 import YMGap.Continuum.BF4WilsonSpatialUnionObservableDescent
 -- One finite source identity supplies every actual placed-chart identity.

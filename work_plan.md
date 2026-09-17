@@ -141,9 +141,33 @@ All three new modules passed focused serialized checks; their 24 printed
 gates lie within {propext, Quot.sound}. Root imports were added; a full root,
 full-tree build, audit, guard or progress run was NOT performed. Existing
 canonical fields, analytic guards and the whole-project goal are unchanged.
-The primary forward frontier remains the original interacting signed bulk
-estimate and its Wilson-orbit/scaling joins described below. Parallel success
-must not be substituted for that missing analytic estimate.
+The primary forward frontier remains a spatially/regulator-controlled
+estimate on the original interacting separated Wilson orbit and its scaling
+join, described below. The coupled fusion bulk is a candidate analysis tool,
+not a mandatory intermediate target. Parallel success must not be substituted
+for the missing analytic estimate.
+
+**Stronger survival input, checked 2026-09-17:**
+`BF4WilsonSpatialUnionResponseLower.unitExcitation_even_band` now proves
+rho^n <= B(v,T(2*n)v) <= q^n for EVERY natural n, with the SAME existing
+normalized Wilson excitation and the original rho and q. This strictly
+extends the dyadic lower bound without degrading rho. The short proof uses
+the squared norm of T(n+2)x - rho*T(n)x: if r_n=B(x,T(2*n)x), positivity
+gives e_(n+1)>=rho*e_n for e_n=r_(n+1)-rho*r_n. The initial two-step floor
+propagates by induction, without division or a spectral theorem.
+`unitExcitation_time_norm_floor` gives rho^n<=||T(n)v||^2, and
+`unitExcitation_time_ne_zero` excludes the actual completed zero at every
+finite time. The general theorem consumes an explicit initial floor; the
+fixed-nome excitation supplies it. All small-nome guards are unchanged.
+The forward/backward meeting point is a genuine discrete-time survival
+estimate, NOT continuum survival or physical mass calibration. An actual
+changing-spacing family with scale-controlled floors, observable comparison,
+same-limit nontriviality and generator identification remains open. This
+parallel result does not replace the primary signed-orbit estimate above.
+One focused serialized 20 GiB check passed with eight public gates within
+{propext, Quot.sound}; no sorry or analytic oracle added. Independent review
+passed. One root import added; full-root/full-tree/audit/guard/progress NOT
+run. Evidence: `audits/AUDIT-ALL-EVEN-WILSON-RESPONSE-2026-09-17.md`.
 
 ### Classical methods: review aid, not a changed proof substrate
 
@@ -459,9 +483,10 @@ Six focused serialized checks passed with 39 printed gates inside
 Root imports are added; full-root/full-tree/audit/guard/progress NOT run.
 No sorry, analytic premise or canonical frontier field is added or changed.
 
-**NEXT:** estimate the retained SIGNED bulk determinant on the original
-interacting action, then obtain the all-time Wilson-orbit estimate with
-the required spatial and regulator control. The cutoff-boundary result
+**NEXT:** obtain the same-observable separated Wilson-orbit estimate on the
+original interacting action, with the required spatial and regulator control.
+Estimate the retained SIGNED fusion bulk only where its actual orbit consumer
+is demonstrated; it is not a mandatory intervening compiler. The cutoff-boundary result
 removes only that artefact; it supplies no bulk contraction or temporal
 decay. No new completion, cube surrogate, isolated scalar-factor compiler,
 or group-generalization wrapper is a prerequisite. An elementary-face test
@@ -479,7 +504,7 @@ unobserved reference g=g_(m+Lleft). The existing window certificates supply
 a*g plus or minus f; the two-cell product identity propagates these through
 the signed fusion edge and full remaining action without independence.
 With U=Tg, A=Tf, F=T(f*chi_1), and D(h,U)=J(h)*Z(U)-Z(h)*J(U), the exact
-coupled recurrence is
+coupled insertion identity is
 
     D(F,U) = c_1*D(A,U) + D(B,U) + D(E,U).
 
@@ -498,6 +523,27 @@ bulk on the original partition, keeping their cancellations; c_1 is not
 assumed to be a contraction rate. Both focused checks passed, nine printed
 gates within {propext, Quot.sound}. Evidence:
 `audits/AUDIT-OBSERVED-FUSION-BOUNDARY.md`. No canonical frontier is closed.
+
+**Temporal-consumer refinement (source review, 2026-09-17):** fusion inserts
+another character; it is NOT a temporal recurrence for one unchanged
+observable. An arbitrary right window may already observe its first slice,
+so increasing its length alone is not increasing separation. The existing
+`BF4ExactSlabFixedSpatialSeparatedWindowPins.separatedMessage` instead
+propagates the SAME left observation across an explicit empty gap d, and
+`separatedMessage_one` propagates its reference to g_(m+L+d). Its three
+`windowRatio_separated_*` pins retain the original common partition.
+The primary estimate must improve this actual separated-channel bound with
+the needed spatial/regulator control. `separated_input_bound` already
+supplies it with a width-dependent rate; the proved width obstruction
+prevents simply promoting that particular rate. Fusion remains a possible
+tool inside this estimate, not an additional mandatory proof chain.
+Timed Wilson WORD pairs (arbitrary loops, spins, finite products and offsets)
+are sufficient for the current syntax via `BF4WilsonExpressionExpansion`;
+fundamental plaquettes alone are not the full carrier. The existing
+`WilsonDenseGap.evenMoment_first_le` consumes same-object ALL-time moment
+decay and removes the expression-dependent prefactor. Neither improved
+decay nor the larger-domain limiting form has been constructed by this
+review. See `audits/AUDIT-FUSION-TEMPORAL-CONSUMER-2026-09-17.md`.
 
 ### Audit response: next execution checkpoint (2026-09-17 UTC)
 
