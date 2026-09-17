@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED combined active/grouped-fringe estimate; OPEN uniform stable cost (2026-09-17 UTC)
+## PROVED stable full-fringe polynomial extraction; OPEN active coercivity (2026-09-17 UTC)
+
+- **files**: `SU2QuaternionHaarFamilyProjection.lean`,
+  `SU2QuaternionProductHeatFamilyNull.lean`,
+  `BF4ExactSlabFixedSpatialFringeProjection.lean`,
+  `BF4ExactSlabFixedSpatialFringeProjectionWindow.lean`, and
+  `BF4ExactSlabFixedSpatialFringeProjectionNorm.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: integrate the full fringe in the ORIGINAL spatial weight V.
+  m=P_F(V), M=P_F(V*f), R=m*f-M; the exact conditional mass/numerator
+  retain both terminal factors. For the constructed finite polynomial J_k,
+  r_k=J_k*R and b_k=J_k*M are orthogonal on the SAME nu, jointly satisfy
+  ||r_k||_nu^2+||b_k||_nu^2<=||f||_nu^2, and approximate f with squared
+  error <=rho^(2k)*||f||_nu^2. See `scaled_pieces_pythagoras` (Norm:101),
+  `reciprocal_pieces_norm_le` (:142), `reciprocal_error_norm_le` (:178).
+  `relativeApproximationCutoff` (:202) computes a relative-tolerance degree,
+  certified for every later degree by `reciprocal_error_norm_le_tolerance`
+  (:205), with no depth/observable dependence. Nome/cutoff/width dependence
+  remains. `spatialFringeResidual_scaled_transfer_zero` (Projection:174)
+  proves H[p*T(g_n*r_k)]=0 under arbitrary Haar testing.
+- **input removed**: norm-controlled fringe extraction is now constructed
+  with coefficient one and an explicit relative modulus, not supplied as
+  a stable-decomposition hypothesis. This does not establish stability of
+  the previous seed-derived fringeSum or active FamilyCost remainder.
+- **open residue**: exact original-energy split for the two pieces, followed
+  by regulator-controlled active-sector coercivity and same-carrier
+  energy/centering passage. No completed projection, original per-link
+  centering of reduced tests, physical rate, full-sector gap, continuum/QFT
+  or every-group closure is asserted.
+- **verification**: five final focused serialized one-worker/20 GiB checks,
+  56 gates within {propext, Quot.sound}, no final errors/warnings/sorryAx.
+  Independent review passed core identities; tolerance consumer separately
+  kernel-checked. Five root imports; root/full-tree/full-audit/guard NOT run.
+  No sorry added/discharged, canonical field, CI or safety limit changed.
+  Evidence: `audits/AUDIT-STABLE-FRINGE-PROJECTION.md`.
+
+## Previous PROVED combined active/grouped-fringe estimate; uniform stable cost then OPEN (2026-09-17 UTC)
 
 - **files**: `QuaternionHaarUnitFamily.lean`,
   `BF4ExactSlabFixedSpatialActiveSeeds.lean`,

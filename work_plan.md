@@ -495,7 +495,56 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current result (PROVED combined active/grouped-fringe bound; OPEN uniform stability):**
+**Current result (PROVED stable full-fringe extraction; OPEN active-sector coercivity):**
+`reciprocal_pieces_norm_le`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeProjectionNorm.lean:142`,
+constructs two finite polynomial pieces with a joint coefficient-one budget
+in the SAME original odd marginal nu. Set F=fringeBlocks, m=P_F(V),
+M=P_F(V*f), R=m*f-M, J_k the certified spatial reciprocal polynomial,
+r_k=J_k*R and b_k=J_k*M. Then
+
+    <r_k,b_k>_nu = 0,
+    ||r_k||_nu^2 + ||b_k||_nu^2 <= ||f||_nu^2,
+    ||f-(r_k+b_k)||_nu^2 <= rho^(2k)*||f||_nu^2.
+
+The error estimate is `reciprocal_error_norm_le` (:178). The explicit
+`relativeApproximationCutoff` (:202) and
+`reciprocal_error_norm_le_tolerance` (:205) supply a degree for any positive
+relative squared-error tolerance. Neither J_k, rho nor this modulus has a
+terminal-depth or observable parameter; nome/cutoff/width dependence remains.
+The unnormalized norm itself still depends on depth. This is relative
+approximation control, not a physical decay rate or a uniform absolute error.
+
+`marginal_fringe_mass_pin` and `marginal_fringe_mean_pin`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeProjection.lean:115`, :125,
+retain both terminal factors, including g_0=1. The same module's
+`spatialFringeResidual_scaled_transfer_zero` (:174) proves
+H[p*T(g_n*r_k)]=0, not raw coefficient-zero or T(r_k)=0. This is a new
+specified decomposition of f; it does not assert that the old fringeSum
+or its seed-derived diagonal budget is stable.
+
+**Next exact consumer (OPEN):** prove
+E_gn(r_k+b_k)=||r_k||_nu^2+E_gn(b_k) using the checked orthogonality,
+weighted transfer nullity and `transferStep_weighted_symmetric`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferSymmetry.lean:97`.
+This pays the extracted fringe in the ORIGINAL temporal energy and isolates
+the needed coercivity on the actual fringe-independent b_k. Then prove
+that active-sector estimate with the required regulator control, together
+with energy/centering approximation passage on this same carrier. Do not
+rebuild approximation scaffolding now that the relative modulus is explicit.
+Do not treat fringe independence as original per-link conditional centering.
+A reduced-action route, if used, still requires an exact original-transfer pin.
+
+Five final focused serialized one-worker/20 GiB checks passed; all 56 gates
+are within {propext, Quot.sound}, with no final errors/warnings/sorryAx.
+Independent mathematical review passed the core projection/norm identities;
+the explicit tolerance consumer was additionally kernel-checked. Five root
+imports; root/full-tree/full-audit/guard NOT run. No sorry, canonical field,
+CI or safety limit changed. Full-sector completed strict bound, physical
+calibration, continuum/QFT and every-group joins remain open. Evidence:
+`audits/AUDIT-STABLE-FRINGE-PROJECTION.md`.
+
+**Previous checkpoint (PROVED combined active/grouped-fringe bound; uniform stability then OPEN):**
 `actualResidual_grouped_energy`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGroupedFringeCost.lean:114`,
 now proves, for the SAME original corrected sum S=A+r,
