@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original-energy dual estimate; OPEN actual-marginal and collective joins (2026-09-17 UTC)
+## PROVED actual-marginal local dual energy; OPEN collective spatial join (2026-09-17 UTC)
+
+- **files**: `QuaternionHaarMonotoneGeometricInverse.lean`,
+  `BF4ExactSlabFixedSpatialErasedMessageWindow.lean`,
+  `BF4ExactSlabFixedSpatialErasedMessageInverse.lean`,
+  `BF4ExactSlabFixedSpatialActualMarginalDual.lean`, all under
+  `lean/YMGap/Continuum/`.
+- **construction**: actual d_i window, independent polynomial reciprocal
+  with explicit modulus, certified unit square cap for d_i*G_k, exact
+  conditional centering and a single positive norm-defect identity. The
+  original nu=(V*T^n1)*T^(n+1)1 pairing error vanishes by constructive
+  rational order closure. `actual_marginal_dual_energy` at line 274 proves
+  h(w)*H[nu*f*q]^2 <= U(w)*energy(T^n1,f)*H[nu*q^2] for supported arbitrary
+  f and conditionally centered q: P_i(nu*q)=0, NOT only H[nu*q]=0.
+  `actualResidual_dual_energy` at line 289 supplies these tests from s.
+- **input removed**: the previous checkpoint's actual-marginal reciprocal
+  and norm/limit join is now constructed, not assumed. Its width/depth
+  dependent normalization constants do not survive in the final coefficient.
+  The theorem is for each 0<w<1, all K>=headCutoff(w), width/depth and active
+  i. h and U remain explicitly nome-dependent; no beta-uniform floor is claimed.
+- **remaining**: collective weighted decomposition and signed cross-energy
+  control toward the SAME C_delta diagonal. Summing this local result alone
+  loses #active links. No improved global spatially uniform gap, continuum
+  passage, OS/physical-Hamiltonian calibration or every-group result follows.
+  No canonical atom closes; no existing sorry or analytic guard changes.
+- **verification**: four final focused serialized one-worker/20 GiB checks,
+  7+7+13+10 printed gates within {propext, Quot.sound}; no final errors,
+  warnings or sorryAx. Independent source review passed. Four root imports
+  added; root/full-tree/full-audit/guard NOT run. Evidence:
+  `audits/AUDIT-ACTUAL-MARGINAL-DUAL-ENERGY.md`.
+
+## Previous PROVED original-energy dual estimate; actual-marginal join since closed above (2026-09-17 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionWeightedProductDualEnergy.lean`
   and `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDualDirichlet.lean`.

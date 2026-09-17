@@ -370,24 +370,30 @@ are preserved; neither supplies a route through the incompatible AF guard.
    Both full endpoint weights and every unremoved kinetic factor remain.
    `terminalResidual_dual_energy` (same file:107) supplies actual polynomial
    dual tests. This is proved with the erased marginal a*d_i, NOT a*Tg.
-   **NEXT:** transfer this bound to nu=a*Tg using i-independent polynomial
-   approximants G_k to 1/d_i. For P_i(nu*q)=0, test with
-   r_k=(Tg)*q*G_k; prove exact a-centering, pairing convergence and the norm
-   budget using Tg<=U*d_i. The intended final local bound is
+   **DONE:** transfer this bound to nu=a*Tg using constructed i-independent
+   polynomial approximants G_k to 1/d_i. For P_i(nu*q)=0, the actual
+   r_k=(Tg)*q*G_k has exact a-centering, a one-U norm budget and geometric
+   pairing convergence. Rational order closure now proves
 
        h * H[nu*f*q]^2 <= U * energy(T^n1,f) * H[nu*q^2].
 
-   This final bound is NOT yet a declaration. Reciprocal construction must
-   carry explicit moduli; do not treat a rational function as a polynomial.
-   Finite width/depth-dependent inverse bounds may control only the modulus,
-   not silently become the desired spatially uniform rate. The existing full
-   slab star projection has a DIFFERENT weight/conditioning algebra and is
-   not a direct instance for nu. Generic inverse/completion tools are reusable.
-   Even after the local bound is proved, ordinary approximate tensorization
-   plus a separate bound for each link loses #active links. A genuinely
-   collective weighted decomposition/cross-energy budget remains necessary.
-   This is a concrete local producer toward C_delta, not global positivity
-   of C_delta or completion of the original interacting gap estimate.
+   `BF4ExactSlabFixedSpatialActualMarginalDual.actual_marginal_dual_energy`
+   (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActualMarginalDual.lean:274`).
+   `actualResidual_dual_energy` (same file:289) constructs conditionally
+   centered tests in nu itself. The reciprocal has explicit moduli; no
+   rational function is promoted to a polynomial. Its finite width/depth
+   constants disappear from the final coefficient. The full-slab star
+   projection is not used as a substitute conditioning algebra.
+   **NEXT:** a collective weighted decomposition/signed cross-energy budget
+   on this SAME marginal, sufficient for `clearedDefect_diagonal_nonnegative_iff`.
+   Preserve its original mean correction and both partition factors. Do not
+   replace this task by summing the new local bound over links: that incurs
+   #active links and does not improve the required spatial uniformity.
+   Before formalizing another compiler, identify a concrete action-dependent
+   estimate for the remaining signed terms and the exact C_delta contribution
+   it controls. This local result does not assert C_delta>=0 globally or close
+   the original interacting uniform-gap problem. See
+   `audits/AUDIT-ACTUAL-MARGINAL-DUAL-ENERGY.md`.
 4. **Finite tests must exercise the actual kinetic geometry and legal cutoff.**
    Source inspection shows that width one has three spatial plaquettes but
    none has all four links in `activeBlocks`; width two is the first width
@@ -421,7 +427,42 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest checkpoint (PROVED original-energy dual estimate for arbitrary observables; OPEN actual-marginal and collective joins):**
+**Latest checkpoint (PROVED local dual bound in the ACTUAL marginal; OPEN collective spatial join):**
+For g=T^n1, a=Vg, t=Tg and nu=a*t, the actual temporal energy now obeys
+
+    h(w) * H[nu*f*q]^2 <= U(w) * energy(g,f) * H[nu*q^2],
+
+for every supported f and supported q with P_i(nu*q)=0 at an active link.
+`BF4ExactSlabFixedSpatialActualMarginalDual.actual_marginal_dual_energy`
+is the proved original-weight instance, not a supplied inverse hypothesis.
+`actualResidual_dual_energy` supplies q=P_i(nu)*s-P_i(nu*s) for every
+supported s. Global centering alone is NOT the theorem's hypothesis.
+
+The proof constructs ell<=d_i<=C from the original transfer/message
+certificates, then alpha=1/C, rho=1-alpha*ell in [0,1), and polynomial
+G_k=alpha*corrector(alpha*d_i-1,k). The exact cancellation, independence,
+unit square certificate for d_i*G_k and explicit tolerance cutoff are
+proved. For r_k=t*q*G_k the whole norm defect is a sum of two certified
+positive products. Geometric pairing error and rational order closure
+remove every inverse-window/mass/radius/presentation constant from the
+displayed coefficient. All normalization factors use the original action.
+
+Uniformity boundary: h=headFloor(w) and U=prefixCap(w) depend explicitly on
+nome; for each 0<w<1 the statement quantifies all K>=headCutoff(w), all
+width/depth values and active links. It is a local dual estimate in the
+original temporal energy, not a width-uniform global vacuum-complement
+gap, a beta-uniform positive floor, an OS/Hamiltonian identification or a
+physical mass calibration. The collective C_delta budget, scaling/QFT and
+every-group obligations remain OPEN; no canonical frontier atom closes.
+
+Four final focused serialized one-worker/20 GiB checks passed; their
+7+7+13+10 printed gates use only {propext, Quot.sound}. Final logs contain
+no errors/warnings/sorryAx. Independent mathematical source review passed.
+No new sorry/axiom, canonical statement/guard or resource-limit change.
+Four root imports added; root/full-tree/full-audit/guard unrun. Evidence:
+`audits/AUDIT-ACTUAL-MARGINAL-DUAL-ENERGY.md`.
+
+**Previous checkpoint (PROVED original-energy dual estimate for arbitrary observables; actual-marginal join since closed above):**
 `SU2QuaternionWeightedProductDualEnergy` proves slice symmetry for every
 actual selected kinetic list, including a list with one factor removed.
 Both mixed terms vanish against a test r with P_i(a*r)=0. Consequently

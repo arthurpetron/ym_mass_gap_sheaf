@@ -4607,6 +4607,9 @@ import YMGap.Continuum.RationalWeightedProductGapObstruction
 import YMGap.Continuum.SU2QuaternionProductHeatConditionalMessage
 import YMGap.Continuum.BF4ExactSlabFixedSpatialConditionalMessage
 import YMGap.Continuum.BF4ExactSlabFixedSpatialDualDirichlet
+import YMGap.Continuum.BF4ExactSlabFixedSpatialErasedMessageWindow
+import YMGap.Continuum.BF4ExactSlabFixedSpatialErasedMessageInverse
+import YMGap.Continuum.BF4ExactSlabFixedSpatialActualMarginalDual
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWindowBracket
 import YMGap.Continuum.RationalPositiveResidualRatio
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWindowInput
@@ -5014,6 +5017,7 @@ import YMGap.Continuum.BF4ExactSlabAllSpinSpectatorIntegralLimit
 -- These change the insertion; OS quotient/limit/separation compatibility
 -- is not supplied by the positive-background integral estimates.
 import YMGap.Continuum.QuaternionHaarPolynomialGeometricInverse
+import YMGap.Continuum.QuaternionHaarMonotoneGeometricInverse
 import YMGap.Continuum.BF4ExactSlabSpectatorCollarCorrection
 import YMGap.Continuum.BF4ExactSlabPlaquetteCollarCorrection
 -- The corrections are actual original plaquette expressions, and the

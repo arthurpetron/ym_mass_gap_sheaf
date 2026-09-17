@@ -2,6 +2,10 @@
 
 Date: 2026-09-17 UTC. Base revision: `e941bcd`.
 
+Follow-up: the reciprocal/actual-marginal join labelled open in this dated
+checkpoint is now proved in `AUDIT-ACTUAL-MARGINAL-DUAL-ENERGY.md`.
+The collective spatial and continuum/physical-gap obligations remain open.
+
 Whole-project goal: nontrivial continuum Yang--Mills on R^4 for every compact
 simple gauge group, with the same-theory QFT and positive physical Hamiltonian
 gap, constructively within {propext, Quot.sound}. OPEN.
