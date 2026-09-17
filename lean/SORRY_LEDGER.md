@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual-marginal local dual energy; OPEN collective spatial join (2026-09-17 UTC)
+## PROVED signed two-link original-energy bound; OPEN collective determinant budget (2026-09-17 UTC)
+
+- **files**: `QuaternionHaarTwoFactorDual.lean`,
+  `SU2QuaternionWeightedProductTwoLinkDual.lean`,
+  `BF4ExactSlabFixedSpatialTwoLinkDual.lean`, under `lean/YMGap/Continuum/`.
+- **construction**: four positive cells give one energy budget for two
+  centered dual tests, retaining their signed twice-erased cross pairing.
+  `terminal_two_link_dual_energy` (physical file:78) is the actual V*T^n1
+  instance. `dualTest_cross_pin` (:179) splits that pairing exactly into
+  the corrected actual nu-pairing and the remainder with
+  Delta_ij=t*d_ij-d_i*d_j. `actual_signed_two_link_bound` (:200) consumes
+  this pin and the existing constructed one-U norm budgets at every finite
+  reciprocal degree k,l. No cross-term sign/smallness hypothesis is added.
+- **input reduced**: the two-link original-energy combination is now
+  proved, rather than inferred from separately bounded local tests.
+  The action-dependent correction to the ordinary marginal pairing is
+  identified exactly; the ordinary off-diagonal pairing is not discarded.
+- **remaining**: controlled finite-family energy estimate, signed determinant
+  summability, stable decomposition with fringe coverage, and necessary
+  cross-limit control toward the SAME C_delta diagonal. Pairwise summation
+  alone loses multiplicity. h and U are explicitly nome-dependent; no
+  beta-uniform positive margin, global spatial gap, continuum/QFT, physical
+  calibration or every-group closure is claimed. No existing sorry, guard,
+  canonical statement or frontier atom changes.
+- **verification**: three final focused serialized one-worker/20 GiB checks,
+  1+2+10 gates within {propext, Quot.sound}; no final errors/warnings/sorryAx.
+  Two independent mathematical reviews passed. Three root imports added;
+  root/full-tree/full-audit/guard NOT run. Evidence and audit-driven plan:
+  `audits/AUDIT-TWO-LINK-SIGNED-DUAL.md`.
+
+## Previous PROVED actual-marginal local dual energy; OPEN collective spatial join (2026-09-17 UTC)
 
 - **files**: `QuaternionHaarMonotoneGeometricInverse.lean`,
   `BF4ExactSlabFixedSpatialErasedMessageWindow.lean`,

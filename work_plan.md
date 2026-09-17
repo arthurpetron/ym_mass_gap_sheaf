@@ -384,8 +384,22 @@ are preserved; neither supplies a route through the incompatible AF guard.
    rational function is promoted to a polynomial. Its finite width/depth
    constants disappear from the final coefficient. The full-slab star
    projection is not used as a substitute conditioning algebra.
-   **NEXT:** a collective weighted decomposition/signed cross-energy budget
-   on this SAME marginal, sufficient for `clearedDefect_diagonal_nonnegative_iff`.
+   **PROVED two-link increment:** the four-cell positive form now gives
+   `terminal_two_link_dual_energy` and `actual_signed_two_link_bound`
+   (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoLinkDual.lean:78`, `:200`).
+   They share the ORIGINAL energy of f between two distinct active-link tests,
+   retaining the twice-erased signed pairing. `dualTest_cross_pin` (same
+   file:179) splits it into the corrected nu-pairing and the exact determinant
+   remainder Delta_ij=t*d_ij-d_i*d_j. The latter, not the whole off-diagonal
+   Gram entry, is the action-dependent correction to investigate.
+   **NEXT:** prove a controlled finite-family energy estimate and bound its
+   signed determinant contributions collectively, with
+   explicit spatial/depth/cutoff control, and construct a stable decomposition
+   on this SAME marginal sufficient for `clearedDefect_diagonal_nonnegative_iff`.
+   The two-link theorem retains finite reciprocal degrees k,l; its new cross
+   terms have not been passed through a collective limit. Prove the needed
+   budget before adding a compiler that assumes it. No terminal-message
+   locality or nonneighbor determinant vanishing has been proved here.
    Preserve its original mean correction and both partition factors. Do not
    replace this task by summing the new local bound over links: that incurs
    #active links and does not improve the required spatial uniformity.
@@ -393,7 +407,14 @@ are preserved; neither supplies a route through the incompatible AF guard.
    estimate for the remaining signed terms and the exact C_delta contribution
    it controls. This local result does not assert C_delta>=0 globally or close
    the original interacting uniform-gap problem. See
-   `audits/AUDIT-ACTUAL-MARGINAL-DUAL-ENERGY.md`.
+   `audits/AUDIT-ACTUAL-MARGINAL-DUAL-ENERGY.md` and
+   `audits/AUDIT-TWO-LINK-SIGNED-DUAL.md`.
+   **Coverage audit:** inactive kinetic coordinates are averaged, not frozen.
+   `terminal_energy_variance_floor` already covers all supported f with its
+   width-dependent positive fraction. Nevertheless, active-only residuals
+   need not span the whole centered sector. Retain a fringe-averaging remainder
+   or prove a sufficient domain reduction; do not assume support implies gauge
+   invariance. See the source citations in the new two-link audit.
 4. **Finite tests must exercise the actual kinetic geometry and legal cutoff.**
    Source inspection shows that width one has three spatial plaquettes but
    none has all four links in `activeBlocks`; width two is the first width
@@ -427,7 +448,39 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest checkpoint (PROVED local dual bound in the ACTUAL marginal; OPEN collective spatial join):**
+**Latest checkpoint (PROVED signed two-link estimate; OPEN determinant budget and collective coverage):**
+For g=T^n1, a=Vg, t=Tg, and distinct active i,j, let d_i,d_j,d_ij be the
+actual one/two-factor-erased messages. With P_i(a*r)=P_j(a*s)=0,
+
+    h * (H[a*d_i*f*r] + H[a*d_j*f*s])^2
+      <= energy(g,f) * (H[a*d_i*r^2] + H[a*d_j*s^2] + 2*h*H[a*d_ij*r*s]).
+
+`terminal_two_link_dual_energy`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoLinkDual.lean:78`, proves
+this on the ORIGINAL action. Its four positive cells preserve the signed
+cross term; no factor-two estimate on separate tests is substituted.
+For the constructed r=t*q_i*G_i,k and s=t*q_j*G_j,l, the actual norm budgets
+are paid by U, and `dualTest_cross_pin` (:179) gives the exact split
+
+    H[a*d_ij*r*s]
+      = H[nu*q_i*q_j*(d_i*G_i,k)*(d_j*G_j,l)]
+        + H[nu*(t*d_ij-d_i*d_j)*q_i*q_j*G_i,k*G_j,l].
+
+`actual_signed_two_link_bound` (:200) consumes both results, with exact
+actual conditional centering and every finite k,l. This closes a genuine
+two-link energy estimate, not the remaining signed summability, complete
+decomposition/fringe coverage, reciprocal cross-limit or global C_delta bound.
+h and U depend on nome; the cutoff guard is explicit. No beta-uniform positive
+floor, new physical calibration, continuum or every-group result is claimed.
+
+Three focused serialized one-worker/20 GiB checks passed; 1+2+10 printed
+gates use only {propext, Quot.sound}, with no final errors/warnings/sorryAx.
+Two independent read-only mathematical source reviews passed.
+Three root imports added; root/full-tree/full-audit/guard checks unrun.
+No canonical frontier, sorry, guard, CI setting or resource limit changed.
+Evidence and audit-driven next steps: `audits/AUDIT-TWO-LINK-SIGNED-DUAL.md`.
+
+**Previous checkpoint (PROVED local dual bound in the ACTUAL marginal; OPEN collective spatial join):**
 For g=T^n1, a=Vg, t=Tg and nu=a*t, the actual temporal energy now obeys
 
     h(w) * H[nu*f*q]^2 <= U(w) * energy(g,f) * H[nu*q^2],

@@ -2,6 +2,11 @@
 
 Date: 2026-09-17 UTC. Base revision: `24928e9`.
 
+Follow-up: `audits/AUDIT-TWO-LINK-SIGNED-DUAL.md` records the subsequently
+proved two-link energy estimate and exact signed determinant split. The
+finite-family budget, complete decomposition and global gap remain open;
+the single-link result recorded here is unchanged.
+
 Whole-project goal: for every compact simple G, construct nontrivial
 continuum Yang--Mills on R^4 with same-theory QFT axioms, isolated vacuum
 and positive finite physical Hamiltonian mass gap, within the project's
