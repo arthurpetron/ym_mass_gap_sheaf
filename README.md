@@ -21,7 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest results: normalized positive response and observable identities on the SAME Wilson carrier.**
+**Latest result: one finite source identity identifies states on the SAME Wilson carrier.**
+An exact coefficient-polynomial identity on the finite chronological source
+now transports through the actual placements to every centered chart.
+The previously proved observable descent then gives literal equality of
+the existing embedded states. Both source support guards are retained;
+no separate equality at every regulator is assumed.
+
+This removes the source-identity transport obligation, not all identities
+valid only on the unit-quaternion sphere. Arbitrary OS-null multiplication,
+canonical observable/state coverage, full Hilbert/OS/QFT realization,
+changing-spacing control, finite physical mass and every-group continuum
+construction remain open. Two focused checks passed all 8 public axiom
+gates within `{propext, Quot.sound}`; no root/full-tree audit ran. See the
+[proof and remaining boundary](audits/AUDIT-WILSON-SPATIAL-UNION.md#one-finite-source-identity-reaches-the-same-completed-states).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous results: normalized positive response and observable identities on the SAME Wilson carrier.**
 An explicitly constructed inverse square root of the actual norm now
 normalizes the existing vector. Its two-step response has a proved rational
 lower bound above zero and upper bound below one. The certificate returns
@@ -41,9 +59,6 @@ construction remain open. The two focused checks passed 25 normalization
 and 6 observable-descent axiom gates within `{propext, Quot.sound}`;
 no root/full-tree audit ran. See the
 [proof and next interface](audits/AUDIT-WILSON-SPATIAL-UNION.md#original-polynomial-identities-descend-to-the-same-states).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: positive nonzero-time response of the EXISTING Wilson excitation.**
 Exact comparison of the two separated plaquette probes identifies their

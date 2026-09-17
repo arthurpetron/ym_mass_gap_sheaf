@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original-polynomial identities descend to SAME-Wilson states; OPEN source-identity transport and canonical OS/QFT (2026-09-17 UTC)
+## PROVED one finite source identity reaches SAME-Wilson states; OPEN sphere-relation descent and canonical OS/QFT (2026-09-17 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionHaarBlockEmbeddingCongruence.lean`
+  and `lean/YMGap/Continuum/BF4WilsonSpatialUnionSourceIdentity.lean`.
+- **proof**: `polynomial_coeff_congr` pulls coefficient probes back through
+  the monomial map. `polynomial_identityReindex` preserves every supported
+  source exponent, including sentinel reads; `polynomial_padded_congr`
+  retains both support guards. `placed_source_congr` and
+  `chartInsertion_source_congr` compose the original chronological and
+  translated placement pins. `sourcePlacement` supplies all room guards.
+  `embedStage_eq_of_source_identity` and
+  `embedWindow_eq_of_source_identity` feed the existing observable descent.
+- **consumer/open input**: removes the need to supply separate diagonal
+  placed-polynomial identities: one finite source identity suffices for
+  equality of actual embedded states. This is free-polynomial equality,
+  not all identities on the quaternion sphere or arbitrary OS-null
+  multiplication. Canonical observable/state coverage, rational GNSData
+  compatibility, full Hilbert/OS/QFT, spatial symmetry, changing-scale
+  control, physical mass, continuum survival and every compact simple
+  group remain open. No new obligation is hidden; no Clay atom closes.
+- **verification**: both first-attempt focused serial one-worker/20 GiB
+  checks passed, all 8 public gates within {propext, Quot.sound}, no
+  warning/error. Root imports added; root/full-tree/full audit/guard
+  unrun. No sorry, axiom, analytic guard, canonical frontier field or
+  safety limit changed. Evidence: `audits/AUDIT-WILSON-SPATIAL-UNION.md`,
+  finite-source-identity follow-up.
+
+## Previous PROVED original-polynomial identities descend to SAME-Wilson states; OPEN source-identity transport and canonical OS/QFT at that checkpoint (2026-09-17 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionObservableDescent.lean`.
 - **proof**: `chartScalar_reflected_padded_right` keeps the fixed upper

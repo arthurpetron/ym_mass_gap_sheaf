@@ -8,6 +8,88 @@ with the required QFT axioms, isolated vacuum and strictly positive finite
 physical Hamiltonian mass gap, for EVERY compact simple gauge group,
 within the constructive axiom gate. **The Clay target remains OPEN.**
 
+## One finite source identity reaches the same completed states
+
+2026-09-17 UTC, after pushed `2247bd7`: **PROGRESS**. A single padded
+coefficient identity on the finite chronological source now supplies all
+the diagonal identities required by the preceding observable-descent
+theorem. The result is literal equality in the EXISTING Wilson completion.
+
+The generic embedding argument pulls arbitrary coefficient probes back
+along its monomial map. Padded equality needs BOTH source support guards:
+they also control the sentinel source coordinate read for unused target
+blocks. No out-of-source variable is silently discarded.
+
+All three declarations below are in
+`lean/YMGap/Continuum/SU2QuaternionHaarBlockEmbeddingCongruence.lean`.
+
+| Checked edge | Declaration and line |
+| --- | --- |
+| Source coefficient equality -> embedded coefficient equality | `polynomial_coeff_congr`, :71 |
+| Supported source -> identity padding leaves its embedding unchanged | `polynomial_identityReindex`, :91 |
+| Both supported sources + padded equality -> target padded equality | `polynomial_padded_congr`, :104 |
+
+Chronological placement at time zero in extent `base+H` first gives the
+same finite-slab insertion. The literal translation has spatial offset
+`r+1` and time offset `paddedWidth base r+1+t`. Existing chronological
+and translated expression pins identify its output with the actual
+centered chart insertion. The auxiliary slab is only a coordinate
+carrier; no equality of its action with the target action is needed.
+
+All five declarations below are in
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionSourceIdentity.lean`.
+
+| Checked edge | Declaration and line |
+| --- | --- |
+| One supported source identity -> actual chronological placement equality | `placed_source_congr`, :52 |
+| Source/base and chart indices -> explicit placement with room proofs | `sourcePlacement`, :65 |
+| Chronological placement + literal translation -> actual centered-chart equality | `chartInsertion_source_congr`, :75 |
+| One source identity -> all diagonal premises -> actual intrinsic state equality | `embedStage_eq_of_source_identity`, :100 |
+| Original signed windows -> direct same-state interface | `embedWindow_eq_of_source_identity`, :111 |
+
+### Boundary and next consumer
+
+This discharges source-identity transport for free-polynomial coefficient
+equality. It does not identify all expressions equal only on the unit
+quaternion sphere. The existing `HaarCarrierEqv` in
+`lean/YMGap/Continuum/SU2QuaternionFactorizedHaarContraction.lean:191`
+is equality of integrals against every polynomial insertion, not merely
+equality of one expectation. Transport of that relation to the supported
+original-action insertions and descent to these same states is a separate
+next proposition, not proved by these files.
+
+Arbitrary OS-null multiplication, full gauge-observable coverage,
+canonical state/representative identification, rational GNSData/CReal-form
+compatibility, full Hilbert/OS/QFT, spatial symmetry, changing-scale control,
+finite physical mass, continuum survival and every-group construction
+remain open. The original action, partition, completion and normalized
+positive-response certificate are unchanged. No Clay atom closes.
+
+### Focused verification
+
+Both new modules passed their first focused monitored serial checks with
+one worker and a 20 GiB ceiling. All 8 public gates lie within
+`{propext, Quot.sound}`; the logs contain no warning/error. The first
+coefficient-congruence theorem uses only `propext`. Fresh preflights found
+no competing compiler/test/runner; swap stayed at 6837.19 MiB. Root imports
+added; root/full-tree/full audit/guard NOT run. No sorry, axiom, prior
+proof, analytic guard, canonical frontier field or safety limit changed.
+CI stays manual; no literature scan ran.
+
+Final logs and SHA-256:
+
+- `/tmp/ym-block-embedding-congruence-20260917.log`:
+  `f92cf477f932a23d9a6e7af52338eaee91fe89ee4ae3ff6e6421981298d4497e`.
+- `/tmp/ym-wilson-source-identity-20260917.log`:
+  `9ae14d0e44ddf96005afe05d4652a11f4b8a4f8a143ab2774967f96211b36fdd`.
+
+A parallel agent implemented the generic embedding congruence and
+source-reviewed the placement proof. Main read both complete files,
+implemented the same-state consumer and alone performed the Lean checks.
+
+The following sections are historical checkpoints; their open transport
+claims describe the status then.
+
 ## Original polynomial identities descend to the same states
 
 2026-09-17 UTC, after pushed `0730bef`: **PROGRESS**. Padded coefficient

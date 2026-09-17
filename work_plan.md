@@ -133,7 +133,42 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED original-polynomial identities descend to SAME-Wilson states; OPEN source-identity transport and canonical OS/QFT):**
+**Latest mathematical increment (PROVED one finite source identity reaches SAME-Wilson states; OPEN sphere-relation descent and canonical OS/QFT):**
+PROGRESS after pushed `2247bd7`: coefficient probes pull back through the
+original quaternion block embedding. With BOTH source support guards,
+padded coefficient equality transports as well, including the sentinel
+coordinates read for unused target blocks. Chronological placement into
+the auxiliary slab of extent `base+H`, followed by the literal spatial/time
+translation, gives the actual centered chart insertion. Existing expression
+pins identify both endpoints; the auxiliary slab supplies coordinates,
+not a replacement action.
+
+EXPANSION exposes support and placement room. CONTRACTION supplies every
+regulator-diagonal premise from ONE finite source identity and then applies
+the existing same-state theorem. `embedStage_eq_of_source_identity` and
+`embedWindow_eq_of_source_identity` give literal equality in the existing
+completion. No new quotient or recentering algebra is required.
+
+NEXT CAUSAL FRONTIER: identities valid only on the unit-quaternion sphere,
+using the existing Haar-carrier relation and supported original-action
+insertions. Their transport and descent are not supplied by coefficient
+equality. Canonical observable/state coverage, arbitrary OS-null
+multiplication, the rational GNSData/CReal-form interface, full Hilbert/
+OS/QFT, spatial symmetry, changing-scale original-action control, finite
+physical mass, continuum survival and every-group producers remain open.
+The existing normalized positive response is unchanged; no Clay atom closes.
+
+Both focused serial one-worker/20 GiB checks passed on their first attempts:
+all 8 public gates lie within {propext, Quot.sound}, with no warning/error.
+Root imports added; root/full-tree/full audit/guard unrun. No sorry, axiom,
+analytic guard, canonical frontier field or safety limit changed. CI stays
+manual; no literature scan. Evidence:
+`audits/AUDIT-WILSON-SPATIAL-UNION.md#one-finite-source-identity-reaches-the-same-completed-states`.
+
+The following increments are historical; their next-frontier statements
+describe their respective checkpoints.
+
+**Previous mathematical increment (PROVED original-polynomial identities descend to SAME-Wilson states; OPEN source-identity transport and canonical OS/QFT at that checkpoint):**
 PROGRESS after pushed `0730bef`: padded coefficient equality of the two
 actual lower observables on the unchanged regulator diagonal preserves
 their finite mixed reflected scalars. The upper test and full selected

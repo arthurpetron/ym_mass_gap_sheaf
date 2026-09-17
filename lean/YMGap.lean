@@ -4845,6 +4845,9 @@ import YMGap.Continuum.BF4WilsonSpatialUnionPositiveResponse
 import YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
 -- Exact original polynomial identities descend to this SAME completed state space.
 import YMGap.Continuum.BF4WilsonSpatialUnionObservableDescent
+-- One finite source identity supplies every actual placed-chart identity.
+import YMGap.Continuum.SU2QuaternionHaarBlockEmbeddingCongruence
+import YMGap.Continuum.BF4WilsonSpatialUnionSourceIdentity
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison
