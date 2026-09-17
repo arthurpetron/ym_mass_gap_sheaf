@@ -13,6 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED original-partition fusion cutoff error; signed bulk OPEN (2026-09-17 UTC)
+
+- **files**: six new modules under `lean/YMGap/Continuum/`:
+  `BF4ExactSlabFixedSpatialSignedInputBound.lean`,
+  `BF4ExactSlabFixedSpatialFaceRemainder.lean`,
+  `SU2QuaternionHeatFusionResidual.lean`,
+  `SU2QuaternionHeatFusionBoundaryTail.lean`,
+  `BF4ExactSlabFixedSpatialFusionIdentity.lean`,
+  `BF4ExactSlabFixedSpatialFusionBoundary.lean`.
+- **proved**: `heat_fusion_residual` (HeatFusionResidual:137) retains both
+  cutoff edges, including K=0. `originalFusion_message` and
+  `originalFusion_determinant` (FusionIdentity:113, :159) give the exact
+  full-source first-pair and original connected determinant splits.
+  `inputCovariance_relative_bound` (SignedInputBound:168) cancels the
+  auxiliary comparison mass using two signed-input certificates and a
+  reference floor. Their physical instances are constructed in FaceRemainder.
+  `fusionBoundary_bound`, `relativeBoundaryCutoff`, `fusionBoundary_small`
+  and `originalFusion_bulk_error` (FusionBoundary:72, :117, :151, :188)
+  bound the original determinant minus its signed bulk term by
+  epsilon*Z_original(K)^2 with an explicit cutoff witness.
+- **scope**: any physical spatial face, including fully active faces;
+  every rational 0<w<1; fixed certified right-probe cap. The cutoff depends
+  only on w, cap and epsilon, not width, either boundary depth or right-window
+  length. No w-uniform estimate, raw unnormalized convergence, signed bulk
+  contraction, temporal decay or full Wilson-orbit coverage is asserted.
+  The original action, messages and partition may all vary with K.
+- **remaining / consumer**: bound the signed bulk determinant with the
+  spatial/regulator control needed by original-action iterated connected
+  decay. Arbitrary Wilson products/spins/offsets, improved-domain limiting
+  form, physical calibration, same-theory continuum/QFT and every compact
+  simple group remain OPEN. No canonical frontier is closed.
+- **verification**: six focused serialized one-worker/20 GiB checks;
+  all 39 printed gates within {propext, Quot.sound}, five axiom-free.
+  Independent source review passed source retention, signs, original
+  normalization, factor two and explicit modulus. No sorry introduced or
+  discharged; no new analytic oracle, resource or CI change. Six root
+  imports added; root/full-tree/full audit/guard/progress NOT run.
+  Evidence and log hashes: `audits/AUDIT-ORIGINAL-FUSION-BOUNDARY.md`.
+
 ## PROVED original fringe-face transfer/correlation cancellation; active core OPEN (2026-09-17 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFaceHeatMoment.lean`,

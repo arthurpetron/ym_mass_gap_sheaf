@@ -390,36 +390,49 @@ and do not infer signs of weighted responses from positive coefficients.
 Do not prescribe delta=1-w^12, a coupling-independent delta, or a polynomial
 weak-coupling margin without the needed estimate and physical calibration.
 
-The first bounded proof target is to control the fusion cutoff-boundary
-remainder relative to the ORIGINAL partition squared, not to assume the bulk estimate.
+**PROVED checkpoint (2026-09-17):** the first bounded target now controls
+the fusion cutoff-boundary remainder relative to the ORIGINAL partition
+squared, without assuming the bulk estimate.
 For Gamma_j=Z*J(v_j)-J(u)*Zfun(v_j), with u=P(V*g),
 v_j=P(V_rest*g*chi_j), Z=Zfun(u), and J/Zfun the original right-window
-numerator/partition, seek
+numerator/partition, `fusionBoundary_bound` proves
 
     headFloor(w)*abs(c_K*Gamma_(K+1)-c_(K+1)*Gamma_K)
       <= 2*probeCap*Z^2*((K+2)*c_K+(K+1)*c_(K+1)).
 
-The sharp character interval and one-face heat floor suggest a width- and
-boundary-depth-independent bound, with an explicit all-nome tail cutoff.
-This remains an UNPROVED target, to be implemented together with the exact
-full-source fusion identity, not as a detached scalar tail compiler. Its
-success would leave the signed bulk harmonic sum open, not prove decay
-or vanishing of the unnormalized remainder as the partition changes.
-The remainder's terminal messages and normalizer may depend on K; the
-bound must handle that dependence rather than pass them through a fixed-test
-limit. The proof must construct positivity of the full retained product
-and its actual transfer/right-window comparison, not assume those fields.
+The exact source identity `originalFusion_message` and original connected
+determinant identity `originalFusion_determinant` retain every remaining
+action factor, the actual left terminal message and the original right
+window. Both finite-cutoff edge terms are present. Positivity of the
+retained source, the two signed-message comparison certificates and the
+single-face partition comparison are constructed, not assumed as new
+analytic inputs. The auxiliary comparison partition cancels.
 
-Parallel work is bounded to (a) the full-source fusion identity/tail bound
-and (b) its original iterated-Wilson/limiting-form consumer and normalization
-review. No new completion, cube surrogate, isolated scalar-factor compiler,
+`relativeBoundaryCutoff(w,probeCap,epsilon)` is an explicit Nat witness.
+For 0<w<1 and every K beyond it, `originalFusion_bulk_error` bounds the
+difference between the ORIGINAL determinant and its signed bulk harmonic
+determinant by epsilon*Z(K)^2. For a fixed certified probe cap the cutoff
+is independent of width, both boundary depths and right-window length.
+It depends on w; no uniformity as w tends to 1 is asserted. The action,
+messages and original normalizer may all vary with K: this is a relative
+error bound, not convergence of the raw unnormalized remainder.
+See `audits/AUDIT-ORIGINAL-FUSION-BOUNDARY.md` for declarations and logs.
+Six focused serialized checks passed with 39 printed gates inside
+{propext, Quot.sound}; independent mathematical/source review passed.
+Root imports are added; full-root/full-tree/audit/guard/progress NOT run.
+No sorry, analytic premise or canonical frontier field is added or changed.
+
+**NEXT:** estimate the retained SIGNED bulk determinant on the original
+interacting action, then obtain the all-time Wilson-orbit estimate with
+the required spatial and regulator control. The cutoff-boundary result
+removes only that artefact; it supplies no bulk contraction or temporal
+decay. No new completion, cube surrogate, isolated scalar-factor compiler,
 or group-generalization wrapper is a prerequisite. An elementary-face test
-still needs a demonstrated extension to the full Wilson observable class.
-Require a proved estimate with the stated cutoff, boundary-depth, width and
-coupling dependence before declaring the next analytic milestone. The
-small-nome completed gap/excitation and all open continuum/all-group joins
-above are unchanged. This checkpoint changes documentation only; no Lean
-file, hypothesis, canonical field or ledgered obligation is changed.
+still needs a demonstrated extension to products, arbitrary spins and time
+offsets. Parallel review should test cancellation, original normalization
+and the actual iteration/limiting-form consumer. The small-nome completed
+gap/excitation and all open scaling, continuum and every-group joins above
+are unchanged.
 
 ### Audit response: next execution checkpoint (2026-09-17 UTC)
 

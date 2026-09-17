@@ -9,6 +9,12 @@ isolated vacuum and strictly positive finite physical Hamiltonian mass gap.
 That goal remains OPEN. This is a source/mathematical planning review, not
 a new Lean proof, axiom audit or analytic closure.
 
+Follow-up, 2026-09-17: the prospective full-source fusion identity and
+original-partition cutoff-boundary estimate in sections 3--4 are now
+proved in `audits/AUDIT-ORIGINAL-FUSION-BOUNDARY.md`, with explicit cutoff
+and focused axiom gates. The historical planning review below is retained
+as written. Its signed bulk, iteration and continuum obligations remain open.
+
 ## 1. Decision: retain both endpoint action weights
 
 `transferStep`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferStep.lean:51`,
