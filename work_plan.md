@@ -133,7 +133,42 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED SAME-Wilson real action, actual vacuum projection and all-vector relaxation; OPEN full Hilbert/OS/QFT and positive-time response):**
+**Latest mathematical increment (PROVED positive nonzero-time response of the EXISTING Wilson excitation; OPEN normalization and full Hilbert/OS/QFT):**
+PROGRESS after pushed `2d466ff`: the two separated radius-zero Wilson
+plaquette probes are coefficient-equivalent to the old face-character
+probes at every lag. Joint and marginal expectations use the SAME original
+selected action and partition, giving exact finite covariance equality.
+Their separate existing convergence witnesses identify the limiting scalars
+without changing the regulator diagonal or equating whole carriers.
+
+EXPANSION exposes the two probe identities and three same-action expectations.
+CONTRACTION pins each actual time correlator of the EXISTING
+`BF4WilsonSpatialUnionSmallNomeGap.vector` to that scalar. At nome 1/1024,
+the proved older lag-three floor therefore holds for this Wilson vector.
+Difference positivity and original time contraction prove odd response is
+bounded by the preceding even response. `positiveResponse` returns this
+same unit-orthogonal vector and the explicit positive lag-two floor
+`(1/16)*(1/1024)^36`, with no one-step positivity assumption.
+
+NEXT CAUSAL FRONTIER: normalize this actual vector using its scalar norm
+pin, explicit Cauchy data and positive norm floor; combine its positive
+lag-two floor with the existing strict form bound into normalized Rayleigh
+data on the SAME carrier. The existing `PositiveCRealNormalizationScalar`
+supplies scalar machinery, not an already instantiated Wilson theorem.
+Full Hilbert/OS/QFT and canonical state/observable pins, spatial symmetry,
+changing-scale original-action control, finite physical mass, continuum
+survival and every-group producers remain open. No beta-uniform mass,
+one-step positivity or Clay-atom closure is asserted.
+
+Two focused serial one-worker/20 GiB checks passed all 12 public gates
+within {propext, Quot.sound}, with no warning/error in final logs. Main
+checked both files; a parallel agent implemented the same-vector consumer.
+Root imports added; root/full-tree/full audit/guard unrun. No sorry, axiom,
+analytic guard, frontier field or safety limit changed. CI stays manual;
+no literature scan. Evidence:
+`audits/AUDIT-WILSON-SPATIAL-UNION.md#positive-response-of-the-existing-wilson-excitation`.
+
+**Previous mathematical increment (PROVED SAME-Wilson real action, actual vacuum projection and all-vector relaxation; OPEN full Hilbert/OS/QFT and positive-time response at that checkpoint):**
 PROGRESS after pushed `435a3ee`: the exact coefficient-change identity and
 computed scalar/vector ceilings give a Cauchy modulus for `s_n*X_n` on the
 SAME Wilson union. Pairing separation descends the real action for supplied

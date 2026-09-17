@@ -13,7 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED SAME-Wilson real action, vacuum projection and all-vector relaxation; OPEN full Hilbert/OS/QFT and positive-time response (2026-09-17 UTC)
+## PROVED positive nonzero-time response of the EXISTING Wilson excitation; OPEN normalization and full Hilbert/OS/QFT (2026-09-17 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonPlaquetteTimePin.lean`
+  and `lean/YMGap/Continuum/BF4WilsonSpatialUnionPositiveResponse.lean`.
+- **proof**: `upperProbe_plaquette` and `lowerProbe_plaquette` preserve the
+  literal separated observables. `connectedScalar_plaquette_pin` compares
+  the joint and two marginal expectations under the SAME original action
+  and partition. `centeredTimeMoment_plaquette_pin` uses the unchanged
+  regulator diagonal. `vector_correlator_pin` and
+  `vector_spatial_correlator_pin` retain the EXISTING Wilson excitation.
+  Its `lagThree_floor` follows from the proved original scalar response;
+  difference positivity and original time contraction give `lagTwo_floor`.
+  `positiveResponse` returns that vector and its positive rational floor.
+- **consumer/open input**: supplies positive nonzero-time response on this
+  SAME carrier, at fixed nome 1/1024 and fixed spacing. Normalization with
+  explicit scalar data is next. Full Hilbert/canonical OS/QFT, spatial
+  symmetry, changing-scale original-action control, finite physical mass,
+  continuum survival and every compact simple group remain open. Neither
+  one-step positivity nor an identification of whole carriers is assumed;
+  no Clay atom closes.
+- **verification**: two focused serial one-worker/20 GiB checks passed all
+  12 public gates within {propext, Quot.sound}. Root imports added;
+  root/full-tree/full audit/guard unrun. No sorry, axiom, analytic guard,
+  canonical frontier field or safety limit changed. Evidence:
+  `audits/AUDIT-WILSON-SPATIAL-UNION.md`, positive-response follow-up.
+
+## Previous PROVED SAME-Wilson real action, vacuum projection and all-vector relaxation; OPEN full Hilbert/OS/QFT and positive-time response at that checkpoint (2026-09-17 UTC)
 
 - **files**: `BF4WilsonSpatialUnionScalarDistance.lean`,
   `BF4WilsonSpatialUnionRealScalarCauchy.lean`,

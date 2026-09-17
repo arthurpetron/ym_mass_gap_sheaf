@@ -8,6 +8,91 @@ with the required QFT axioms, isolated vacuum and strictly positive finite
 physical Hamiltonian mass gap, for EVERY compact simple gauge group,
 within the constructive axiom gate. **The Clay target remains OPEN.**
 
+## Positive response of the existing Wilson excitation
+
+2026-09-17 UTC, after pushed `2d466ff`: **PROGRESS**. The previously missing
+scalar pin is proved. At radius zero, both literal separated Wilson
+plaquette probes are coefficient-equivalent to the old face-character
+probes at every lag. The joint expectation and each mean have the SAME
+extent, original selected action, heat stage and partition. Their finite
+connected scalars therefore agree. Uniqueness of limits compares their
+unchanged three-regulator diagonals using the separately supplied
+convergence witnesses; no moduli are equated and no limits interchanged.
+
+The existing fixed-base completion map then identifies the time correlator
+of `BF4WilsonSpatialUnionSmallNomeGap.vector` with this original scalar.
+The older lag-THREE floor applies to this actual Wilson vector. Positivity
+of `x-T_n x` and original time contraction give `B(x,T_n x)<=B(x,x)`.
+Time balance applied to `T_n x` gives the odd/even comparison, so the full
+lag-three floor also bounds lag two from below. This does not assume
+one-step positivity or identify the two completions.
+
+All paths in the table are under `lean/YMGap/Continuum/`.
+
+| Checked edge | Declaration and module:line |
+| --- | --- |
+| Both literal separated probes agree coefficient-wise | `upperProbe_plaquette`, `BF4ExactSlabFixedSpatialWilsonPlaquetteTimePin.lean:54`; `lowerProbe_plaquette`, :66 |
+| Same joint and marginal action/partition -> finite covariance equality | `connectedScalar_plaquette_pin`, same file:81 |
+| Unchanged regulator diagonals -> limiting scalar equality | `centeredTimeMoment_plaquette_pin`, same file:117 |
+| Actual difference positivity and time contraction -> response upper bound | `completedTime_form_le`, `BF4WilsonSpatialUnionPositiveResponse.lean:87` |
+| Same time balance -> odd response bounded by preceding even response | `odd_response_le_even`, same file:101; `lagTwo_floor_of_lagThree`, :109 |
+| Existing vector and original time -> Wilson scalar pin | `vector_correlator_pin`, same file:125 |
+| Exact scalar equality -> old original-action scalar pin | `vector_spatial_correlator_pin`, same file:134 |
+| Original scalar response floor -> actual lag-three and lag-two floors | `lagThree_floor`, same file:143; `lagTwo_floor`, :149 |
+| Existing vector and positive rational floor returned as data | `positiveResponse`, same file:154 |
+
+The inherited constant is `responseFloor = (1/16)*(1/1024)^36`, defined
+by `responseFloor` in
+`lean/YMGap/Continuum/BF4ExactSlabOriginalResponseNumeratorFloor.lean:37`;
+its strict positivity is `responseFloor_positive`, same file:39.
+The limit floor used here is `spatial_response_floor` in
+`lean/YMGap/Continuum/BF4SpatialUnionPositiveResponse.lean:105`.
+
+### Scope and next consumer
+
+The scope is fixed-spacing SU(2) at nome 1/1024. This removes the missing
+positive-time-response input on the SAME Wilson carrier, not continuum
+survival or physical mass calibration. Next: use the actual norm scalar
+pin, explicit Cauchy data and positive norm floor with
+`PositiveCRealNormalizationScalar`, then combine normalized positive
+lag-two response with the existing strict form bound. That Wilson
+normalization has NOT been implemented in this checkpoint.
+
+Full Hilbert and canonical OS/QFT realization, rational GNSData/state/
+observable pins, spatial symmetry, changing-scale original-action control,
+finite physical mass, continuum survival and every-group producers remain
+open. No canonical frontier statement or analytic guard changed; no
+beta-uniform gap, one-step positivity or Clay-atom closure is claimed.
+
+### Focused verification
+
+Both files passed focused serialized one-worker/20 GiB checks through
+`scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 --check
+<file> --check-output <its olean>`. All 12 public gates report only
+`{propext, Quot.sound}`; final logs have no warning/error. Fresh process
+checks found no competing compiler/test/runner and swap stayed at
+6845.19 MiB. Root imports added; root/full-tree/full audit/guard NOT run.
+No sorry, axiom, prior proof, guard, frontier field or safety limit changed.
+CI stays manual; no literature scan ran.
+
+Development checks of the scalar pin required a defining-module import,
+the correct coefficient-equivalence namespace, local opacity and an
+explicit second limit sequence. Failed development logs are not evidence
+of verification. The response consumer passed its first compiler check.
+One parallel agent implemented that consumer; main read both complete
+sources and ran all checks serially.
+
+Final `/tmp/` logs and SHA-256 hashes:
+
+| Log | Gates | SHA-256 |
+| --- | ---: | --- |
+| `ym-wilson-plaquette-time-pin-20260917-final.log` | 4 | `e840a37025bc9aff808d06079f9cc115f7502b6e067e5185d03ef9401b30c6c9` |
+| `ym-wilson-positive-response-20260917.log` | 8 | `7650c22ca5c2f379f2ab137f0e13d505216be65300d25d6d42dd514a28956643` |
+
+The remaining sections are historical checkpoints. Their open joins and
+source-search results describe the status then, not this positive-response
+closure.
+
 ## Real action, vacuum projection and all-vector relaxation
 
 2026-09-17 UTC, after pushed `435a3ee`: **PROGRESS**. The new estimate is

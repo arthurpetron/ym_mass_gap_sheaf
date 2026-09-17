@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: actual vacuum projection and all-vector relaxation on the SAME Wilson carrier.**
+**Latest result: positive nonzero-time response of the EXISTING Wilson excitation.**
+Exact comparison of the two separated plaquette probes identifies their
+connected scalars under the same original action and partition, then through
+their unchanged regulator limits. The existing Wilson vector therefore
+inherits the positive lag-three response floor. Original time contraction
+gives the same floor at lag two, without assuming one-step positivity.
+The certificate returns this vector and the explicit floor
+`(1/16)*(1/1024)^36` as data.
+
+This is **fixed-spacing SU(2) at nome 1/1024**, not a continuum mass gap.
+Normalized positive-response data on this carrier, full Hilbert/canonical
+OS/QFT realization, changing-spacing control, finite physical mass and
+every-group continuum construction remain open. Two focused checks passed
+all 12 public axiom gates within `{propext, Quot.sound}`; no root/full-tree
+audit ran. See the
+[proof and remaining joins](audits/AUDIT-WILSON-SPATIAL-UNION.md#positive-response-of-the-existing-wilson-excitation).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: actual vacuum projection and all-vector relaxation on the SAME Wilson carrier.**
 Real scalar multiplication with supplied explicit moduli now constructs the
 unit projection and orthogonal centering. Each supplied vector representative
 gives a computed rate for its original time orbit to converge to its projection;
@@ -37,9 +57,6 @@ changing-spacing control, finite physical mass and every-group continuum
 construction remain open. Six focused checks passed the constructive axiom
 gate; no root/full-tree audit ran. See the
 [proof and remaining joins](audits/AUDIT-WILSON-SPATIAL-UNION.md#real-action-vacuum-projection-and-all-vector-relaxation).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: rational linear geometry and represented limits on the SAME Wilson carrier.**
 Addition and signed rational scaling now act on the actual Wilson union
