@@ -8,6 +8,130 @@ with the required QFT axioms, isolated vacuum and strictly positive finite
 physical Hamiltonian mass gap, for EVERY compact simple gauge group,
 within the constructive axiom gate. **The Clay target remains OPEN.**
 
+## Source Haar identities and an actual backtracking loop
+
+2026-09-17 UTC, after pushed `d985bb7`: **PROGRESS**. The existing
+supported Haar relation now transports from one finite source certificate
+through the actual charts to literal equality in the SAME Wilson completion.
+The physical base-one backtracking loop gives a concrete sphere-dependent
+application: its fundamental character state equals the constant-two state.
+
+### Short mathematical argument
+
+`SupportedHaarEqv`,
+`lean/YMGap/Continuum/SU2QuaternionAuxiliaryLiftAlgebra.lean:119`, tests
+equality against every supported polynomial insertion. Testing by the
+supported difference d gives Haar(d*d)=0. The converse uses the genuine
+unit-weight finite Haar form and its already proved radical descent.
+The block embedding preserves both the difference square and its Haar
+integral. Hence equality transports to EVERY supported target insertion,
+not only those localized to the embedding image.
+
+All three new declarations below are in
+`lean/YMGap/Continuum/SU2QuaternionHaarBlockEmbeddingSupportedEquality.lean`.
+
+| Checked edge | Declaration and line |
+| --- | --- |
+| Supported Haar equality -> zero difference square | `difference_square_zero`, :46 |
+| Zero difference square + actual Haar positivity -> supported Haar equality | `supportedHaarEqv_of_difference_square_zero`, :61 |
+| Original embedding preserves the supported square -> target supported Haar equality | `polynomial_supportedHaar_congr`, :92 |
+
+The target test is the fixed upper observable TIMES the full selected
+heat action; it is supported on the original carrier. All interacting
+factors and the common reciprocal partition remain present. The original
+two convergence witnesses give equal limiting right slots. Testing by
+the upper difference gives zero reflected distance and thus equality of
+the original embedded states. Ordinary Haar positivity is used only to
+transport observable identities; it is never identified with OS positivity.
+
+All five new declarations below are in
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionHaarObservableDescent.lean`.
+
+| Checked edge | Declaration and line |
+| --- | --- |
+| Supported insertion equality + full original action -> same finite scalar | `chartScalar_reflected_haar_right`, :80 |
+| Original diagonal convergence -> same limiting reflected right slot | `form_haar_diagonal_right`, :109 |
+| Upper difference -> zero original window distance | `window_distSq_zero_of_haar_diagonal`, :130 |
+| Actual common chart -> zero intrinsic distance | `intrinsic_distSq_zero_of_haar_diagonal`, :145 |
+| Existing union distance/null embedding -> same completed state | `embedStage_eq_of_haar_diagonal`, :156 |
+
+### Source transport and concrete sphere identity
+
+The old chronological and translated polynomial pins feed the existing
+`SupportedHaarEqv.of_padded`; both endpoint support proofs are supplied.
+The auxiliary slab again supplies coordinates, not a replacement action.
+
+All five new declarations below are in
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionHaarSourceIdentity.lean`.
+
+| Checked edge | Declaration and line |
+| --- | --- |
+| Source certificate + chronological embedding -> placed Haar identity | `placed_source_haar_congr`, :54 |
+| Literal translated embedding -> actual centered-chart Haar identity | `chartInsertion_source_haar_congr`, :71 |
+| One source certificate -> all diagonal premises -> intrinsic state equality | `embedStage_eq_of_haar_source_identity`, :100 |
+| Direct signed-window source consumer | `embedWindow_eq_of_haar_source_identity`, :111 |
+| Explicit physical backtrack -> actual constant-two state | `embed_backtrack_eq_constant`, :123 |
+
+The concrete certificate is in
+`lean/YMGap/Continuum/BF4WilsonBacktrackSourceIdentity.lean`:
+`backtrackLink_physical`, :46, proves that the origin-x0 link really
+belongs to `baseLinks 1`, excluding the off-carrier identity fallback.
+`sourceLoop`, :52, has the two opposite traversals, with proved
+compatibility and closure. `backtrack`, :62, and `constant`, :64, are
+the actual window expressions; their `Within 0` proofs are :66 and :68.
+`sourceWord_haar`, :71, uses `haarNorm_coordinate`
+(`lean/YMGap/Continuum/BF4ExactSlabSymmetricPowerHaarTrace.lean:92`)
+and `haarUnit_mul_conj`
+(`lean/YMGap/Continuum/SU2QuaternionHaarGaugeCancellation.lean:55`).
+`source_haar`, :88, then gives the original source-polynomial identity
+under arbitrary insertions; `source_supported_haar`, :95, supplies the
+checked completed-state consumer. No source-identity hypothesis is
+assumed in this example. Original small-nome guards remain on its
+completed-state theorem.
+
+### Boundary and next join
+
+The general result consumes supplied supported Haar certificates; it
+does not prove complete representation of all gauge observables or
+all pointwise functional identities. It does not define multiplication
+on arbitrary OS-null classes. Canonical state/representative coverage,
+the rational GNSData/CReal-form interface, full Hilbert/OS/QFT, spatial
+symmetry, changing-scale original-action control, finite physical mass,
+continuum survival and every-group construction remain open. None of
+the canonical frontier fields or earlier physical guards is changed.
+
+### Focused verification
+
+Four final monitored serial one-worker/20 GiB checks passed all 23 public
+gates within `{propext, Quot.sound}`, with no final warning/error. The
+generic module needed namespace resolution; the concrete example needed
+explicit local decidability and controlled unfolding instead of eager
+reduction of the closed carrier. Recovery logs are not verification.
+No resource limit was raised. Fresh preflights found no competing
+compiler/test/runner; swap remained 6837.19 MiB. Main alone compiled.
+
+The generic embedding proof and final source consumer were implemented
+by main; parallel agents implemented the reflected-form consumer and
+concrete source certificate. Main read all files, repaired elaboration
+issues and checked the actual endpoints. A separate source review of
+the generic/source transport found no support or pinning defect.
+
+Final logs and SHA-256:
+
+- `/tmp/ym-block-supported-equality-20260917-checked.log`:
+  `1331b4fa6fdf761e22e40aa1d6872607ce5b391f6507f417e46e735bbe3c1622`.
+- `/tmp/ym-wilson-haar-observable-descent-20260917.log`:
+  `175c03d6442e343d91405d5fec98c05062d276f9e595640044bf79ee0b220d7c`.
+- `/tmp/ym-wilson-backtrack-source-20260917-final.log`:
+  `f28ded866c022482ae9cec528a2304b01a97215920db9492651b9b2b25fefb65`.
+- `/tmp/ym-wilson-haar-source-identity-20260917-final.log`:
+  `8991347a742d2804052cf68d83b9e8b4dc767b28e34aefa5daa4fdb2104bf3cc`.
+
+Root imports added; root/full-tree/full audit/guard NOT run. No sorry,
+axiom, prior proof, analytic guard, canonical frontier field or safety
+limit changed. CI stays manual; no literature scan ran. No Clay atom
+closes. The following sections are historical checkpoints.
+
 ## One finite source identity reaches the same completed states
 
 2026-09-17 UTC, after pushed `2247bd7`: **PROGRESS**. A single padded

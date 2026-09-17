@@ -4848,6 +4848,11 @@ import YMGap.Continuum.BF4WilsonSpatialUnionObservableDescent
 -- One finite source identity supplies every actual placed-chart identity.
 import YMGap.Continuum.SU2QuaternionHaarBlockEmbeddingCongruence
 import YMGap.Continuum.BF4WilsonSpatialUnionSourceIdentity
+-- Genuine source Haar identities, including a physical backtrack, reach SAME states.
+import YMGap.Continuum.SU2QuaternionHaarBlockEmbeddingSupportedEquality
+import YMGap.Continuum.BF4WilsonSpatialUnionHaarObservableDescent
+import YMGap.Continuum.BF4WilsonBacktrackSourceIdentity
+import YMGap.Continuum.BF4WilsonSpatialUnionHaarSourceIdentity
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

@@ -21,7 +21,25 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: one finite source identity identifies states on the SAME Wilson carrier.**
+**Latest result: genuine quaternion Haar identities identify the SAME Wilson states.**
+A finite source identity tested against supported Haar insertions now
+transports to the actual centered charts and descends to equality in the
+existing completion. The proof retains the full interacting action and
+partition. As a concrete sphere-dependent application, following a physical
+link and immediately returning along it gives the same state as constant two.
+
+This extends the preceding coefficient-polynomial result; it does not
+identify ordinary Haar L2 with the reflected OS space or define products
+on arbitrary OS-null states. Full observable coverage, canonical Hilbert/
+OS/QFT realization, changing-spacing control, finite physical mass and
+every-group continuum construction remain open. Four focused checks passed
+all 23 public axiom gates within `{propext, Quot.sound}`; no root/full-tree
+audit ran. See the [proof and remaining boundary](audits/AUDIT-WILSON-SPATIAL-UNION.md#source-haar-identities-and-an-actual-backtracking-loop).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: one finite source identity identifies states on the SAME Wilson carrier.**
 An exact coefficient-polynomial identity on the finite chronological source
 now transports through the actual placements to every centered chart.
 The previously proved observable descent then gives literal equality of
@@ -35,9 +53,6 @@ changing-spacing control, finite physical mass and every-group continuum
 construction remain open. Two focused checks passed all 8 public axiom
 gates within `{propext, Quot.sound}`; no root/full-tree audit ran. See the
 [proof and remaining boundary](audits/AUDIT-WILSON-SPATIAL-UNION.md#one-finite-source-identity-reaches-the-same-completed-states).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous results: normalized positive response and observable identities on the SAME Wilson carrier.**
 An explicitly constructed inverse square root of the actual norm now

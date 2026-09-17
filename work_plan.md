@@ -133,7 +133,41 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED one finite source identity reaches SAME-Wilson states; OPEN sphere-relation descent and canonical OS/QFT):**
+**Latest mathematical increment (PROVED source Haar identities reach SAME-Wilson states, including an actual backtrack; OPEN canonical observable/state and OS/QFT joins):**
+PROGRESS after pushed `d985bb7`: reuse the existing `SupportedHaarEqv`
+relation. Testing by the supported difference gives zero Haar square norm.
+Conversely, the actual finite unit-weight positive Haar form makes every
+supported insertion pair to zero with that difference. The original block
+embedding preserves its square and integral, transporting the identity
+without requiring target spectators to be image-local or independent.
+
+EXPANSION exposes both source supports, the difference square, actual
+placement pins, and the full upper-observable/action insertion. CONTRACTION
+composes source Haar identity -> all actual charts -> unchanged finite
+reflected scalars -> unchanged limit -> literal equality in the EXISTING
+completion. `embedWindow_eq_of_haar_source_identity` is the general consumer.
+The explicit physical base-one loop following a link and its reverse
+supplies a sphere-dependent source certificate; `embed_backtrack_eq_constant`
+identifies its actual state with the constant-two state. No source equality
+is assumed for this concrete example.
+
+The next canonical observable/state and Hilbert/OS interfaces must still
+match the actual CReal/RC-valued form; its Haar-identity descent does not
+supply rational-valued `GNSData` or full gauge-observable coverage. Arbitrary
+OS-null multiplication is not claimed. Full OS/QFT, spatial symmetry,
+changing-scale original-action control, finite physical mass, continuum
+survival and every compact simple group remain open. No Clay atom closes.
+
+Four final focused serial one-worker/20 GiB checks passed all 23 public
+gates within {propext, Quot.sound}; no warning/error in the final logs.
+Development repairs were namespace resolution, local decidability and
+avoiding eager reduction of the closed source carrier, not new assumptions
+or raised limits. Root imports added; root/full-tree/full audit/guard unrun.
+No sorry, axiom, analytic guard or canonical frontier field changed. CI
+stays manual; no literature scan. Evidence:
+`audits/AUDIT-WILSON-SPATIAL-UNION.md#source-haar-identities-and-an-actual-backtracking-loop`.
+
+**Previous mathematical increment (PROVED one finite source identity reaches SAME-Wilson states; OPEN sphere-relation descent and canonical OS/QFT at that checkpoint):**
 PROGRESS after pushed `2247bd7`: coefficient probes pull back through the
 original quaternion block embedding. With BOTH source support guards,
 padded coefficient equality transports as well, including the sentinel

@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED one finite source identity reaches SAME-Wilson states; OPEN sphere-relation descent and canonical OS/QFT (2026-09-17 UTC)
+## PROVED source Haar identities and a physical backtrack descend to SAME-Wilson states; OPEN canonical observable/state and OS/QFT joins (2026-09-17 UTC)
+
+- **files**: `SU2QuaternionHaarBlockEmbeddingSupportedEquality.lean`,
+  `BF4WilsonSpatialUnionHaarObservableDescent.lean`,
+  `BF4WilsonBacktrackSourceIdentity.lean`, and
+  `BF4WilsonSpatialUnionHaarSourceIdentity.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: `difference_square_zero` and
+  `supportedHaarEqv_of_difference_square_zero` use the actual positive
+  finite Haar form to characterize the existing supported-insertion
+  equality. `polynomial_supportedHaar_congr` transports it through the
+  original embedding with both support guards. `chartScalar_reflected_haar_right`
+  retains the complete upper/action insertion and partition; the original
+  diagonal limits and seminorm give `embedStage_eq_of_haar_diagonal`.
+  Actual chronological and translated expression pins supply all those
+  premises from one source certificate in
+  `embedWindow_eq_of_haar_source_identity`. A concrete base-one physical
+  backtrack supplies `source_supported_haar`, and the checked endpoint
+  `embed_backtrack_eq_constant` identifies its state with constant two.
+- **consumer/open input**: removes source Haar-identity transport and
+  descent for supplied certificates, with a concrete sphere-dependent
+  instance. No ordinary-Haar/OS identification, arbitrary OS-null product,
+  full observable coverage or rationalization of the original form is
+  supplied. Canonical Hilbert/OS/QFT, spatial symmetry, changing-scale
+  original-action control, finite physical mass, continuum survival and
+  every compact simple group remain open. No Clay atom closes.
+- **verification**: four final focused serial one-worker/20 GiB checks,
+  all 23 public gates within {propext, Quot.sound}, no final warning/error.
+  Root imports added; root/full-tree/full audit/guard unrun. No sorry,
+  axiom, analytic guard, canonical frontier field or resource limit changed.
+  Evidence: `audits/AUDIT-WILSON-SPATIAL-UNION.md`, Haar/backtrack follow-up.
+
+## Previous PROVED one finite source identity reaches SAME-Wilson states; OPEN sphere-relation descent and canonical OS/QFT at that checkpoint (2026-09-17 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionHaarBlockEmbeddingCongruence.lean`
   and `lean/YMGap/Continuum/BF4WilsonSpatialUnionSourceIdentity.lean`.
