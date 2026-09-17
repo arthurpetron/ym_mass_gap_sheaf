@@ -13,7 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED stable full-fringe polynomial extraction; OPEN active coercivity (2026-09-17 UTC)
+## PROVED centered original-energy split; OPEN active coercivity (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialKernelEnergySplit.lean`,
+  `BF4ExactSlabFixedSpatialFringeProjectionEnergy.lean`,
+  `QuaternionHaarNormalizedCenter.lean`,
+  `BF4ExactSlabFixedSpatialEnergyNormBound.lean`, and
+  `BF4ExactSlabFixedSpatialCenteredFringeExtraction.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: weighted transfer nullity and symmetry give the exact SAME
+  original-energy split E_gn(r+b)=||r||_nu^2+E_gn(b). The actual extracted
+  fringe r has zero mean. Subtract the active polynomial's nu-normalized
+  mean to construct b0, preserving fringe independence, orthogonality and
+  ||r||_nu^2+||b0||_nu^2<=||f||_nu^2. For centered input f, the original
+  relative approximation modulus supplies e=f-r-b0 with
+  ||e||_nu^2<=epsilon*||f||_nu^2 and E_gn(e)<=2*epsilon*||f||_nu^2.
+  `centered_extracted_energy_split` (CenteredFringeExtraction:139),
+  `centered_error_norm_le_tolerance` (:121), and
+  `centered_error_energy_le_tolerance` (:152) are concrete consumers.
+  `energy_le_two_norm` (EnergyNormBound:83) and `energy_add_le` (:134)
+  concern the original temporal edge measure, not link-update dynamics.
+- **input removed**: exact fringe energy payment, scalar centering of
+  the remaining active polynomial, and finite approximation-error energy
+  control no longer require construction or extra analytic hypotheses.
+  No multiplicative factor is lost in the centered norm/error budget.
+- **open residue**: regulator-controlled coercivity on the actual centered,
+  fringe-independent active sector and its eventual full-gap transfer.
+  The fixed-factor energy triangle does not preserve a sharp coefficient
+  by itself. The approximation modulus retains nome/cutoff/width dependence;
+  b0 and nu depend on depth. No active determinant estimate, original
+  per-link centering of reduced tests, completed full-sector gap beyond
+  the preserved small-nome branch, physical rate or continuum/all-group
+  closure is supplied.
+- **verification**: five final focused serialized one-worker/20 GiB checks;
+  33 gates within {propext, Quot.sound}; no final warnings/errors/sorryAx.
+  Independent mathematical review passed; the final concrete error-energy
+  consumer additionally kernel-checked. Five root imports; root/full-tree/
+  full-audit/guard NOT run. No sorry added/discharged, canonical field,
+  CI setting or safety limit changed. Evidence:
+  `audits/AUDIT-CENTERED-FRINGE-ENERGY.md`.
+
+## Previous PROVED stable full-fringe polynomial extraction; active coercivity OPEN (2026-09-17 UTC)
 
 - **files**: `SU2QuaternionHaarFamilyProjection.lean`,
   `SU2QuaternionProductHeatFamilyNull.lean`,

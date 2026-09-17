@@ -495,7 +495,68 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current result (PROVED stable full-fringe extraction; OPEN active-sector coercivity):**
+**Current result (PROVED centered original-energy split and error control;
+OPEN active-sector coercivity):** for the stable fringe r_k and active b_k
+defined below, construct b0_k by subtracting its SAME nu-normalized mean.
+The positive rational partition is explicit; r_k is already mean zero and
+is left unchanged. `centered_extracted_energy_split`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCenteredFringeExtraction.lean:139`,
+now proves
+
+    E_gn(r_k+b0_k) = ||r_k||_nu^2 + E_gn(b0_k).
+
+The pieces are orthogonal, both mean zero, and have the joint budget
+||r_k||_nu^2+||b0_k||_nu^2<=||f||_nu^2. For centered f and every degree
+at least the already constructed relativeApproximationCutoff(epsilon),
+`centered_error_norm_le_tolerance` (:121) and
+`centered_error_energy_le_tolerance` (:152) give, with e=f-r_k-b0_k,
+
+    ||e||_nu^2 <= epsilon*||f||_nu^2,
+    E_gn(e) <= 2*epsilon*||f||_nu^2.
+
+No new analytic assumption is used. Scalar centering costs no multiplicative
+norm/error factor, and the same relative modulus has no depth/observable
+parameter. The active polynomial b0_k itself DOES depend on depth through
+its normalized mean. The energy bounds are for the original finite T=K V,
+not for an auxiliary link heat-bath dynamics.
+
+**Next mathematical target (OPEN):** prove a quantitative lower bound on
+E_gn(b) for the actual supported, centered, fringe-independent active
+polynomials b, with explicit nome/cutoff/depth/width dependence adequate
+for the scaling route. The exact consumer is the energy split above;
+the checked error-energy estimate supplies approximation control. A sharp
+gap-transfer argument is not yet formalized: the available factor-two
+energy triangle alone does not preserve a proposed sharp coefficient.
+Do not rebuild centering, finite reciprocal approximation or completion
+machinery. Do not treat fringe independence as original per-link
+conditional centering or charge the global spatial floor as a spatially
+uniform coercivity constant. Any reduced-action route still needs an
+exact original-transfer pin.
+
+**Bounded next producer test (UNPROVED):** check the actual open-box geometry
+before treating the active marginal as nonlocal or adding a new interface.
+The proposed constructive lemma gives every fringe-touching spatial face
+a fringe link contained in no other spatial face (candidate far link B,
+otherwise C). Its consumer is all-spin Haar cancellation, with the original
+spectator retained, to identify P_F(V) under supported Haar tests with
+the unchanged product over fully-active spatial faces. Then pin the ORIGINAL
+transfer on fringe-independent inputs to that product. The witness,
+cancellation and transfer pin are not yet checked; none supplies coercivity.
+Source references and exact scope are recorded in
+`audits/AUDIT-CENTERED-FRINGE-ENERGY.md`. This is the next action-specific
+calculation, not permission to assume locality of a general marginal.
+
+Five final focused serialized one-worker/20 GiB checks passed, with 33
+printed gates within {propext, Quot.sound}, no final errors/warnings/sorryAx.
+Independent read-only review passed the centered split and scope; the
+concrete error-energy consumer was additionally kernel-checked. Five root
+imports; root/full-tree/full-audit/guard NOT run. No sorry, canonical field,
+CI or safety limit changed. Evidence:
+`audits/AUDIT-CENTERED-FRINGE-ENERGY.md`.
+Full-sector completed strict bound beyond the preserved small-nome branch,
+physical calibration, continuum/QFT and every-group joins remain OPEN.
+
+**Previous result (PROVED stable full-fringe extraction):**
 `reciprocal_pieces_norm_le`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeProjectionNorm.lean:142`,
 constructs two finite polynomial pieces with a joint coefficient-one budget
@@ -523,17 +584,13 @@ H[p*T(g_n*r_k)]=0, not raw coefficient-zero or T(r_k)=0. This is a new
 specified decomposition of f; it does not assert that the old fringeSum
 or its seed-derived diagonal budget is stable.
 
-**Next exact consumer (OPEN):** prove
+**Consumer at that checkpoint (now PROVED above):**
 E_gn(r_k+b_k)=||r_k||_nu^2+E_gn(b_k) using the checked orthogonality,
 weighted transfer nullity and `transferStep_weighted_symmetric`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferSymmetry.lean:97`.
-This pays the extracted fringe in the ORIGINAL temporal energy and isolates
-the needed coercivity on the actual fringe-independent b_k. Then prove
-that active-sector estimate with the required regulator control, together
-with energy/centering approximation passage on this same carrier. Do not
-rebuild approximation scaffolding now that the relative modulus is explicit.
-Do not treat fringe independence as original per-link conditional centering.
-A reduced-action route, if used, still requires an exact original-transfer pin.
+The current checkpoint also centers the active piece and controls the
+approximation error in this original energy. Active-sector coercivity and
+the eventual gap-transfer argument remain open as specified above.
 
 Five final focused serialized one-worker/20 GiB checks passed; all 56 gates
 are within {propext, Quot.sound}, with no final errors/warnings/sorryAx.
