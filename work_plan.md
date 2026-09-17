@@ -133,7 +133,46 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED actual Wilson spatial/time/cutoff limits and reflected positivity; OPEN enlarged reflected-form algebra, completion and strict bound):**
+**Latest mathematical increment (PROVED actual limiting Wilson form algebra, Cauchy--Schwarz, radical descent and centered chart compatibility; OPEN enlarged completion and strict bound):**
+PROGRESS after `4c0242c`: the preceding three-regulator-limit checkpoint was
+committed and pushed. Parallel branches now join into a normalized symmetric
+positive rational-bilinear form on the actual Wilson window expressions.
+
+EXPANSION: exact finite normalization/additivity/signed scaling preserve the
+original selected action and reciprocal partition. Literal reflected symmetry
+and positivity of signed combinations supply an actual rational PreInnerForm,
+not a caller-supplied one. Independently, whole-expression source lifts and
+left/right padding preserve the complete finite chain when BOTH offsets and
+reflection center move. None of these tasks assumes the enlarged strict bound.
+
+CONTRACTION: the expressions' separate existing convergence witnesses transport
+these identities and sharp Cauchy--Schwarz to the SAME spatial limit. An
+epsilon-squared argument proves radical zero; difference expansions give null
+replacement in both arguments. Centered padding first identifies the original
+joint limits at each fixed width, then their already proved spatial convergence
+identifies the spatial forms. No matching CReal reindexings or time modulus
+uniform over widths is assumed. Nome, spacing and small-nome guards are fixed.
+
+NEXT CAUSAL FRONTIER: use these actual laws to construct the enlarged squared
+seminorm and its intrinsic chart/base inclusions, then consume existing
+quotient/completion machinery. Original time and the strict bound must be
+proved on this SAME carrier. In parallel, an explicit plaquette SourceLoop
+and word-association pin can connect old first/second moment limits to the
+Wilson form, before reusing the old positive centered norm. Neither that
+cross-family pin nor a completed isometry is supplied here. Full observable
+coverage, canonical OS scalar realization, full spatial symmetry,
+changing-scale control, physical calibration, continuum survival and actual
+all-group producers remain open; existing canonical fields and AF obstructions
+are unchanged. Do not re-prove old excitation or completion machinery.
+
+Parent plus three agents developed/reviewed the finite and limiting branches.
+Six focused serialized one-worker/20 GiB checks passed all 38 public gates
+within {propext, Quot.sound}. Root imports added; root/full-tree/full audit
+unrun. No old proof, sorry, axiom, analytic guard, canonical field or safety
+limit changed. CI remains manual-only; no routine literature scan. Evidence:
+`audits/AUDIT-WILSON-LIMITING-REFLECTED-FORM.md`. Clay target OPEN.
+
+**Previous mathematical increment (PROVED actual Wilson spatial/time/cutoff limits and reflected positivity; OPEN enlarged reflected-form algebra, completion and strict bound):**
 PROGRESS after `42ff5fa`: the preceding Wilson-window positivity checkpoint
 was committed and pushed. The proposed parallel inputs now contract into an
 actual three-regulator limit, not merely additional conditional interfaces.

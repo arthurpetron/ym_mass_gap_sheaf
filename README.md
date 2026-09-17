@@ -21,7 +21,26 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: original Wilson expectations after joint lattice-regulator removal.**
+**Latest result: a consistent limiting reflected form for original Wilson windows.**
+The SAME three-regulator Wilson limit is now normalized and rational-linear.
+Its mixed reflected form is symmetric, positive on the diagonal and satisfies
+sharp Cauchy--Schwarz. Null differences can be replaced in either argument.
+Exact centered-window compatibility survives both the joint time/cutoff and
+spatial limits: both observable offsets move with the reflection plane.
+
+Parallel finite algebra, reflection, positivity and window-padding proofs
+thus join into laws of one actual limiting form. This is **fixed-spacing,
+small-nome SU(2)**, not the enlarged carrier's completion or strict bound.
+Full observable coverage, canonical OS/QFT realization, physical scaling,
+continuum nontriviality and the every-group theorem remain open. Six focused
+serialized checks passed all 38 public axiom gates within
+`{propext, Quot.sound}`; no root/full-tree check ran. See the
+[proof, next joins and five-front parallel map](audits/AUDIT-WILSON-LIMITING-REFLECTED-FORM.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: original Wilson expectations after joint lattice-regulator removal.**
 Signed multi-time Wilson expressions now have an explicit CReal limit as
 spatial margin, heat cutoff and external time depth recede. Exact translation,
 a placement-independent ordered-word cap and literal fixed-box locality give
@@ -36,9 +55,6 @@ physical scaling and the every-group continuum theorem remain open. Seven
 focused serialized checks passed all 65 public axiom gates within
 `{propext, Quot.sound}`; no root/full-tree check ran. See the
 [three-regulator proof and next mathematical join](audits/AUDIT-WILSON-THREE-REGULATOR-LIMIT.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: reflected positivity for original multi-time Wilson expressions.**
 Finite signed sums and products of closed spatial loop characters now have

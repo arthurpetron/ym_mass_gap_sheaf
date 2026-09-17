@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original Wilson three-regulator limits and reflected positivity; OPEN enlarged form algebra, completion and strict bound (2026-09-17 UTC)
+## PROVED same-limit Wilson form algebra, Cauchy--Schwarz, radical descent and centered chart compatibility; OPEN enlarged completion and strict bound (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialWilsonSpatialFunctionalLaws.lean`,
+  `BF4ExactSlabFixedSpatialWilsonReflectedSymmetry.lean`,
+  `BF4ExactSlabFixedSpatialWilsonReflectedCauchySchwarz.lean`,
+  `BF4ExactSlabFixedSpatialWilsonCenteredWindow.lean`,
+  `BF4ExactSlabFixedSpatialWilsonReflectedFormLaws.lean`, and
+  `BF4ExactSlabFixedSpatialWilsonCenteredLimit.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: finite normalization, coefficient congruence, additivity and
+  signed rational scaling retain the original selected action and partition.
+  Actual reflected symmetry and signed quadratic positivity give sharp
+  finite Cauchy--Schwarz. The separate original diagonal convergences yield
+  a normalized symmetric positive rational-bilinear limiting form, sharp CS,
+  radical zero and null replacement. Whole-expression centered padding keeps
+  the same finite chain; its shifted time sequence is controlled by the
+  existing joint modulus. Rowwise joint-limit equality then gives spatial
+  and reflected-form chart compatibility, shifting BOTH operands with H.
+- **consumer/open input**: supplies actual algebra/radical inputs to
+  `CRealSeminormCompletion.SquaredSeminorm`, not an enlarged completion or
+  strict bound. Next fill the actual seminorm, intrinsic chart/base inclusions
+  and original-time laws. The old nonzero excitation needs a literal
+  plaquette-word and limiting-moment pin before reuse; no cross-family
+  completed isometry follows. Full gauge-observable coverage, canonical OS
+  scalar realization, full spatial symmetry, physical spacing/mass,
+  continuum survival and actual all-group producers remain open. No
+  canonical field, old completed bound or AF obstruction was changed.
+- **verification**: six focused serialized one-worker/20 GiB checks, all
+  38 public gates within {propext, Quot.sound}. Root imports added;
+  root/full-tree/full audit unrun. No new or changed sorry, axiom, old
+  proof, analytic guard or safety limit. Evidence and independent review:
+  `audits/AUDIT-WILSON-LIMITING-REFLECTED-FORM.md`.
+
+## Previous PROVED original Wilson three-regulator limits and reflected positivity; OPEN enlarged form algebra, completion and strict bound (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialWilsonWindowJointCauchy.lean`,
   `BF4ExactSlabTranslatedWilsonWord.lean`,
