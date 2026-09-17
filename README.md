@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: quantitative time decay on the SAME Wilson spatial union.**
+**Latest result: rational linear geometry and represented limits on the SAME Wilson carrier.**
+Addition and signed rational scaling now act on the actual Wilson union
+completion, with computed moduli. Its completed form is bilinear and
+separates vectors; the original time maps are rational-linear. The squared
+norm of the actual difference is proved to be the limit of the original
+distances, supplying constructive limits for Cauchy rows whose representatives
+and moduli are given. Time commutes with those limits, and the unit-orthogonal
+time orbit converges to the existing zero vector at a computed geometric rate.
+
+This is **fixed-spacing, small-nome SU(2)** infrastructure. It does not choose
+representatives for arbitrary quotient-valued sequences or establish full
+real Hilbert/OS/QFT structure. Real scalar action, canonical observable/state
+identification, changing-spacing control, finite physical mass and every-group
+continuum construction remain open. Five focused checks passed the
+constructive axiom gate; no root/full-tree audit ran. See the
+[proof and next joins](audits/AUDIT-WILSON-SPATIAL-UNION.md#rational-linear-geometry-and-represented-limits-follow-up).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: quantitative time decay on the SAME Wilson spatial union.**
 Original time balance now passes through the actual union pairing limits,
 so time preserves the unit complement. The existing two-step form bound
 becomes a one-step squared-norm bound and iterates:
@@ -36,9 +56,6 @@ full linear/Hilbert structure, canonical OS/QFT realization, changing-spacing
 control, physical mass calibration and every-group construction remain open.
 Both focused checks passed the constructive axiom gate; no root/full-tree
 check ran. See the [proof and remaining joins](audits/AUDIT-WILSON-SPATIAL-UNION.md#time-balance-and-quantitative-decay-follow-up).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: one coherent Wilson spatial-union completion with a nonvacuous strict bound.**
 Enlarging a source box now provably preserves the original limiting Wilson

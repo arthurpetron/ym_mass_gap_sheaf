@@ -133,7 +133,47 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED SAME-Wilson union time balance, invariant unit complement and quantitative decay; OPEN completed linear/Hilbert and canonical OS/QFT realization):**
+**Latest mathematical increment (PROVED SAME-Wilson rational linear geometry, actual completed distance and represented limits; OPEN real Hilbert and canonical OS/QFT realization):**
+PROGRESS after pushed `0bf2c0c`: common-base dense bilinearity and positivity
+give the parallelogram addition bound and exact scalar-square distance law.
+Their explicit moduli construct addition and rational scaling on the SAME
+Wilson union completion. Actual pairing limits prove completed bilinearity.
+Zero difference norm constructs closeness of the original streams, so
+pairing separation gives rational linear laws and time-linearity.
+
+EXPANSION exposes actual dense operations, their quantitative distance bounds
+and stream moduli. CONTRACTION supplies the original norm-of-difference
+distance on the completion and every field of the existing DistanceData.
+The generic diagonal construction therefore applies to supplied Cauchy rows.
+Original time preserves their outer modulus and commutes with their computed
+limit. The orthogonal time orbit is Cauchy with the computed quarter-tolerance
+rate, and its limit equals the existing zero vector. No arbitrary quotient
+representatives are selected and no completeness field is assumed.
+
+NEXT CAUSAL FRONTIER: prove the coefficient-change identity
+`d(a*x,b*x)=(a-b)^2 B(x,x)` for the actual Wilson stages, then construct
+`s.approx(n)*X.seq(n)` with an explicit modulus for a supplied real s and
+QCauchy datum. The existing older `BF4SpatialUnionRealScalarCauchy` and
+`BF4SpatialUnionCompletedRealScalar` are templates for this scalar-action
+consumer, not already proved operations on the Wilson union. This feeds
+real linear geometry and an actual unit projection/centering operation.
+Canonical observable/state pins, full real Hilbert/OS/QFT realization,
+positive-time nonzero response/normalization, full spatial symmetry,
+changing-scale original-action control, finite physical mass, continuum
+survival and every-group producers remain open. The rational GNSData
+canonical fields are not silently replaced. No one-step positivity,
+beta-uniform gap, continuum Hamiltonian or Clay-atom closure is asserted.
+
+Five focused serial one-worker/20 GiB checks passed all 89 public gates
+within {propext, Quot.sound}. Root imports added; root/full-tree/full audit
+unrun. Development fixes supplied explicit common-base rewrite arguments
+and kept a computed modulus locally opaque; no bound or resource limit
+changed. No prior proof, sorry, axiom or guard changed. One parallel agent
+implemented/reviewed independent algebra and distance pieces; main alone
+compiled. CI stays manual, no literature scan. Evidence:
+`audits/AUDIT-WILSON-SPATIAL-UNION.md#rational-linear-geometry-and-represented-limits-follow-up`.
+
+**Previous mathematical increment (PROVED SAME-Wilson union time balance, invariant unit complement and quantitative decay; OPEN completed linear/Hilbert and canonical OS/QFT realization at that checkpoint):**
 PROGRESS after pushed `699bff9`: each pair's computed common base transports
 the original time-sum law to the actual union pairing. The actual pairing
 limits give `B(T_m x,T_n y)=B(x,T_(m+n) y)`. Together with the SAME fixed

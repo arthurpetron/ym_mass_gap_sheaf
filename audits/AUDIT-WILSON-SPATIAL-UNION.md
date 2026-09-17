@@ -8,6 +8,88 @@ with the required QFT axioms, isolated vacuum and strictly positive finite
 physical Hamiltonian mass gap, for EVERY compact simple gauge group,
 within the constructive axiom gate. **The Clay target remains OPEN.**
 
+## Rational linear geometry and represented limits follow-up
+
+2026-09-17 UTC, after pushed `0bf2c0c`: **PROGRESS**. On the SAME Wilson
+union, common-base dense bilinearity and positivity prove the parallelogram
+bound `d(x+y,x'+y') <= 2d(x,x')+2d(y,y')` and exact scalar identity
+`d(c*x,c*y)=c^2 d(x,y)`. No new physical estimate is assumed. Their computed
+moduli lift addition and signed rational scaling to the existing completion.
+The actual pairing limits prove bilinearity. Zero difference norm constructs
+closeness of the original streams; testing pairings therefore proves vector
+equality, rational linear laws and linearity of the original time maps.
+
+The squared norm of this actual completed difference is the scalar limit
+of the ORIGINAL stage distances. It supplies positivity, separation,
+symmetry, the quadratic triangle bound and physical-time contraction.
+Every field of the existing generic DistanceData is proved, not assumed.
+Thus the generic diagonal limit works for supplied Cauchy rows, retaining
+their representatives and both layers of moduli. Time commutes with those
+limits. The previously proved orthogonal norm decay constructs its actual
+time orbit as such rows, and the computed limit is the existing zero vector.
+
+All table paths are under `lean/YMGap/Continuum/`.
+
+| Proved edge | Declaration and module:line |
+| --- | --- |
+| Common-base original bilinearity | `pairing_add_left`, `BF4WilsonSpatialUnionLinear.lean:50`; `pairing_smul_left`, :71 |
+| Positivity -> addition/scalar distance control | `pairing_sum_bound`, same file:136; `distSq_add`, :182; `distSq_smul`, :209 |
+| Explicit moduli -> operations on SAME completion | `addCauchy_modulus`, same file:246; `smulCauchy_modulus`, :250; `completedAdd`, :253; `completedSmul`, :254 |
+| Actual mixed limits -> bilinearity | `completedInner_add_left`, `BF4WilsonSpatialUnionBilinear.lean:68`; `completedInner_smul_left`, :78 |
+| Zero difference norm -> computed closeness -> equality | `closeOfDifferenceZero`, same file:128; its modulus, :149; `completedSub_norm_zero_iff`, :156; `completed_eq_of_pairings`, :167 |
+| Separation -> rational/time-linear laws | `completedTime_addition`, same file:197; `completedSmul_mul`, `BF4WilsonSpatialUnionLinearLaws.lean:79`; `completedTime_smul`, :112 |
+| Original distances -> actual completed distance | `representativeDist_converges`, `BF4WilsonSpatialUnionCompletedDistance.lean:67`; `distanceData`, :161 |
+| Same time -> completed-distance contraction | `completedDist_time_contraction`, same file:154 |
+| Supplied rows -> time-compatible computed limit | `timeRows`, `BF4WilsonSpatialUnionCauchyRows.lean:51`; `timeRows_modulus`, :62; `rowLimit_time`, :65 |
+| Geometric norm decay -> actual Cauchy orbit -> zero limit | `relaxationRows`, same file:84; `relaxationRows_modulus`, :105; `relaxationRows_limit`, :111 |
+
+Addition uses `max(M_X(epsilon/4),M_Y(epsilon/4))`; scalar multiplication
+uses `M_X(epsilon/(c*c+1))`, with the positive denominator supplied by
+`scalarTolerance`, `BF4ExactSlabPlaquetteCompletionLinear.lean:55`.
+The actual difference's pairing rate is the explicit zero-norm closeness
+modulus. For represented outer rows R, the diagonal rate is
+`max(R.modulus(quarter(quarter epsilon)),(quarter(quarter epsilon)).den)`,
+`CRealSeminormCauchyRows.diagonalRate`, :66; `diagonalCauchy`, :98, and
+`rowLimit_bound`, :109, construct and bound the limit. The decaying orbit
+uses the prior `relaxationModulus(X,quarter epsilon)` to pay for the
+quadratic triangle. Its direct distance-to-zero rate remains
+`relaxationModulus(X,epsilon)`. All supplied moduli remain data.
+
+This is not arbitrary quotient-sequence completeness: the rows must carry
+their representatives. No real scalar is selected from a bare quotient,
+and no full real Hilbert or canonical OS/QFT instance is claimed. Next is
+the actual coefficient-change estimate and modulus-bearing real scalar
+action, feeding unit projection/centering. Full observable coverage,
+canonical state/representative pins, positive-time response/normalization,
+spatial symmetry, changing-scale action control, finite physical mass,
+continuum survival and every compact simple group remain open. No canonical
+field, small-nome guard or AF obstruction changed; no Clay atom closes.
+
+Five focused serial checks exited 0, all 89 public gates within
+{propext, Quot.sound}, with no final warning/error. Main alone compiled
+with the monitored one-worker/20 GiB policy and fresh process/swap checks;
+no competing Lean/test/runner and swap at 6845.19 MiB. Root imports were
+added; root/full-tree/full audit/guard checks were NOT run. Development
+checks required explicit common-base rewrite arguments and local opacity
+of a computed modulus; no estimate or resource limit was weakened.
+Failed development logs are not verification evidence. A parallel agent
+implemented the bilinear/linear-law/distance modules and independently
+reviewed the row limit's same-carrier and quarter-tolerance arguments;
+main read all contributed source and compiled. CI stays manual; no scan.
+
+Final logs under `/tmp/`:
+
+| Log | Gates | SHA-256 |
+| --- | ---: | --- |
+| `ym-wilson-union-linear-20260917-pins.log` | 27 | `bc699832d68991f7b5ac146cbd1d71fa762dd526d7d6574954cfa6aadd1b1f55` |
+| `ym-wilson-union-bilinear-20260917.log` | 25 | `5fdc50d5b05dd5ae97029e533298fbf9a3f67a89fff7ade87e8fd79f2150ee00` |
+| `ym-wilson-union-linear-laws-20260917.log` | 11 | `8a14f51f7d397a878f0609e0ecd7a5eae9f704e8af8ea8e03677035bd8345e8f` |
+| `ym-wilson-union-completed-distance-20260917.log` | 17 | `361fea2188820d60569f55cb1493accb9956bb2fef583d415fad7296b22a12bf` |
+| `ym-wilson-union-cauchy-rows-20260917-opaque.log` | 9 | `8d7ab864083f1db9c7e5d0c27f26290d15f4f3512190bc39ed27ed9285a8ce55` |
+
+The sections below are historical checkpoints; use this follow-up for
+the current algebra, distance and represented-limit status.
+
 ## Time balance and quantitative decay follow-up
 
 2026-09-17 UTC, after pushed `699bff9`: **PROGRESS**. The original

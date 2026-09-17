@@ -4826,6 +4826,12 @@ import YMGap.Continuum.BF4WilsonSpatialUnionPosdef
 -- Original time balance and quantitative decay on this SAME Wilson union.
 import YMGap.Continuum.BF4WilsonSpatialUnionTimeForm
 import YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
+-- Actual rational operations, separating form, distance and supplied-row limits.
+import YMGap.Continuum.BF4WilsonSpatialUnionLinear
+import YMGap.Continuum.BF4WilsonSpatialUnionBilinear
+import YMGap.Continuum.BF4WilsonSpatialUnionLinearLaws
+import YMGap.Continuum.BF4WilsonSpatialUnionCompletedDistance
+import YMGap.Continuum.BF4WilsonSpatialUnionCauchyRows
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

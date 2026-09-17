@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED SAME-Wilson union time balance, invariant complement and quantitative decay; OPEN completed linear/Hilbert and canonical OS/QFT realization (2026-09-17 UTC)
+## PROVED SAME-Wilson rational linear geometry, actual distance and represented limits; OPEN real Hilbert and canonical OS/QFT realization (2026-09-17 UTC)
+
+- **files**: `BF4WilsonSpatialUnionLinear.lean`,
+  `BF4WilsonSpatialUnionBilinear.lean`, `BF4WilsonSpatialUnionLinearLaws.lean`,
+  `BF4WilsonSpatialUnionCompletedDistance.lean`, and
+  `BF4WilsonSpatialUnionCauchyRows.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: original dense bilinearity and parallelogram positivity give
+  `distSq_add` and `distSq_smul`, constructing `completedAdd` and
+  `completedSmul` with explicit moduli. Actual limits give completed
+  bilinearity; `closeOfDifferenceZero` and `completed_eq_of_pairings`
+  prove separation and rational linear/time laws. `distanceData` supplies
+  actual norm-of-difference distance, separation and quadratic triangle.
+  `rowLimit_time` commutes physical time with computed limits of supplied
+  Cauchy rows. `relaxationRows_limit` identifies the actual unit-orthogonal
+  time orbit's represented limit with the existing zero vector.
+- **consumer/open input**: removes the rational-linear and completed-distance
+  joins and supplies represented-limit machinery for this SAME carrier.
+  Next: coefficient-change control and modulus-bearing real scalar action,
+  then actual projection/centering. No arbitrary quotient representatives
+  are chosen. Full real Hilbert/OS/QFT and canonical observable/state pins,
+  positive-time response, physical scaling, finite physical mass, continuum
+  survival and every-group construction remain open. Original guards,
+  AF obstruction and canonical frontier fields unchanged; no Clay atom closes.
+- **verification**: five focused serial one-worker/20 GiB checks, all 89
+  public gates within {propext, Quot.sound}. Root imports added;
+  root/full-tree/full audit unrun. No new/changed sorry, axiom or guard.
+  Evidence: `audits/AUDIT-WILSON-SPATIAL-UNION.md`, rational-linear follow-up.
+
+## Previous PROVED SAME-Wilson union time balance, invariant complement and quantitative decay; OPEN completed linear/Hilbert and canonical OS/QFT realization at that checkpoint (2026-09-17 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionTimeForm.lean` and
   `lean/YMGap/Continuum/BF4WilsonSpatialUnionRelaxation.lean`.
