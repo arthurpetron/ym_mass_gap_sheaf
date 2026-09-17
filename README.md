@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: the same Wilson completion pairing and a positive plaquette variance.**
+**Latest result: an actual nonzero centered vector on the Wilson completion.**
+Rational approximations of the original mean now construct a vector in the
+SAME enlarged Wilson completion, with an explicit Cauchy modulus. Its pairing
+with the embedded unit is zero; its mixed pairings are exactly the connected
+original reflected form. The plaquette vector's squared norm inherits the
+positive local-star floor. A concrete certificate discharges all guards at
+nome `1/1024` and source base one, returning a nonzero unit-orthogonal vector.
+
+The completed pairing also separates zero: zero squared norm is equivalent
+to equality with the actual completed zero. This is **fixed-spacing SU(2)**,
+not a continuum excitation or a physical-vacuum identification. Full completed
+linear/Hilbert structure, original time and the strict bound on this enlarged
+carrier, changing scale, physical mass, full OS/QFT and every-group continuum
+construction remain open. Six focused serialized checks passed all 59 public
+gates within `{propext, Quot.sound}`; no root/full-tree check ran. See the
+[same-carrier excitation proof and next obstruction](audits/AUDIT-WILSON-CENTERED-EXCITATION.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: the same Wilson completion pairing and a positive plaquette variance.**
 The original limiting reflected form now supplies an actual squared seminorm,
 with a proved triangle estimate and null replacement. Explicit common-window
 embeddings give its intrinsic carrier. Quantitative pairing continuity then
@@ -40,9 +60,6 @@ full OS/QFT realization, changing scale, physical mass and every-group
 continuum construction remain open. Seven focused serialized checks passed
 all 86 public gates within `{propext, Quot.sound}`; no root/full-tree check ran.
 See the [proof and five-front parallel joins](audits/AUDIT-WILSON-COMPLETION-AND-PLAQUETTE-VARIANCE.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: a consistent limiting reflected form for original Wilson windows.**
 The SAME three-regulator Wilson limit is now normalized and rational-linear.

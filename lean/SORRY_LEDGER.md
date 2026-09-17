@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED same-Wilson seminorm, represented completion pairing and positive scalar variance; OPEN completed Hilbert structure, original time and enlarged strict bound (2026-09-17 UTC)
+## PROVED same-Wilson centered vectors, connected pairings, norm separation and concrete nonzero excitation; OPEN original time and enlarged strict bound (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialWilsonIntrinsicAlgebra.lean`,
+  `BF4ExactSlabFixedSpatialWilsonCompletedPosdef.lean`,
+  `BF4ExactSlabFixedSpatialWilsonPlaquetteForm.lean`,
+  `BF4ExactSlabFixedSpatialWilsonCenterAlgebra.lean`,
+  `BF4ExactSlabFixedSpatialWilsonCenteredVector.lean`, and
+  `BF4ExactSlabFixedSpatialWilsonExcitation.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: common charts give actual rational form laws, dense zero and
+  distance-to-zero. Generic separation proves zero completed norm iff equal
+  to the actual zero, with explicit close-zero modulus. Rational centering
+  has exact coefficient-square distance; the actual mean QCauchy witness
+  constructs centered streams in the SAME completion. Their mixed pairing is
+  the original connected form and their unit pairing is zero. The actual
+  plaquette form/moment pins identify the norm with the known positive
+  variance. `concreteCertificate` supplies a nonzero unit-orthogonal vector
+  at nome 1/1024, base one with all guards discharged. Norm representative
+  and QCauchy data remain explicit separate declarations.
+- **consumer/open input**: removes the scalar-to-completed-vector join; no
+  completed real scalar action was needed for that consumer. Does not identify
+  the unit with a physical stationary vacuum or construct original time,
+  a normalized vector, positive-time response or the enlarged strict bound.
+  Full completed linear/Hilbert structure, base inclusions, full observable/
+  OS/QFT realization, spatial symmetry, changing scale, physical mass,
+  continuum survival and actual all-group producers remain open. Original
+  guards, AF obstruction and canonical fields are unchanged; no Clay atom
+  is declared closed.
+- **verification**: six focused serialized one-worker/20 GiB checks passed
+  first attempt; all 59 public gates within {propext, Quot.sound}. Root
+  imports added; root/full-tree/full audit unrun. No new/changed sorry,
+  axiom, old proof, analytic guard or safety limit. Evidence and independent
+  review: `audits/AUDIT-WILSON-CENTERED-EXCITATION.md`.
+
+## Previous PROVED same-Wilson seminorm, represented completion pairing and positive scalar variance; OPEN completed Hilbert structure, original time and enlarged strict bound (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialWilsonWindowSeminorm.lean`,
   `BF4ExactSlabFixedSpatialWilsonIntrinsicForm.lean`,

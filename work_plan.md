@@ -133,7 +133,46 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED actual Wilson seminorm, represented completion pairing and same-action positive scalar variance; OPEN completed linear/Hilbert structure, original time and enlarged strict bound):**
+**Latest mathematical increment (PROVED actual centered Wilson vectors, connected pairings, completed norm separation and concrete nonzero excitation; OPEN original time and enlarged strict bound):**
+PROGRESS after `f069204`: the preceding seminorm/variance checkpoint was
+committed and pushed. A shorter direct construction removes the scalar-to-
+vector obstruction without first requiring a full completed module interface.
+
+EXPANSION: intrinsic rational algebra supplies literal centering by q times
+the original unit. Its squared distance at two coefficients is exactly
+`(q-r)^2`. The actual mean's QCauchy modulus at `min(epsilon,1)` constructs
+the centering stream in the EXISTING Wilson completion. In parallel, the
+dense-zero/distance identity instantiates generic completed norm separation,
+and exact plaquette form pins connect the original scalar variance.
+
+CONTRACTION: the existing mixed-pairing limit of those explicit streams is
+`F(x,y)-F(x,unit)*F(y,unit)`, and their unit pairing is zero. The original
+positive plaquette variance therefore bounds the norm of an actual nonzero
+completed vector. Its norm representative and QCauchy data are exported.
+The concrete certificate at nome 1/1024, base one discharges all analytic and
+geometric guards. Unit-orthogonality is not physical-vacuum identification,
+normalization, a nonzero positive-time response or a continuum particle.
+
+NEXT CAUSAL FRONTIER: construct original discrete time on this SAME enlarged
+carrier and prove its form compatibility/nonexpansiveness before using
+`SquaredSeminorm.NonexpansiveSemigroup` and its completion descent
+(`CRealSeminormCompletion.lean:519`). The strict bound must then be proved
+on this domain; the older plaquette-only bound cannot be imported without a
+proved bridge. Reuse the existing completed linear arguments where the actual
+time/gap consumer needs them. Base inclusions, full Hilbert completeness,
+full gauge-observable/canonical OS realization, spatial symmetry, changing
+scale, physical mass, continuum nontriviality and every-group producers
+remain open. The original small-nome guards, AF obstruction, canonical fields
+and whole-project Clay target are unchanged; no canonical atom is closed.
+
+Six focused serialized one-worker/20 GiB checks passed on the first attempt,
+all 59 public gates within {propext, Quot.sound}. Parent plus three agents
+developed/reviewed independent branches; main alone compiled. Root imports
+added; root/full-tree/full audit unrun. No sorry, axiom, old proof, analytic
+guard or safety limit changed. CI remains manual; no routine literature scan.
+Evidence: `audits/AUDIT-WILSON-CENTERED-EXCITATION.md`. Clay target OPEN.
+
+**Previous mathematical increment (PROVED actual Wilson seminorm, represented completion pairing and same-action positive scalar variance; OPEN completed linear/Hilbert structure, original time and enlarged strict bound):**
 PROGRESS after `0c7cf21`: the preceding limiting-form checkpoint was committed
 and pushed. Parallel seminorm, common-window, continuity and plaquette branches
 now supply actual constructions, not caller-supplied analytic fields.
