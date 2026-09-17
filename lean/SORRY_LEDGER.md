@@ -13,7 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED active spatial action and original-energy pin; OPEN signed coercivity (2026-09-17 UTC)
+## PROVED actual finite-degree seed/diagonal norm budget; JOINT signed cost OPEN (2026-09-17 UTC)
+
+- **files**: `SU2QuaternionWeightedResidualNorm.lean`,
+  `SU2QuaternionHaarBlockTelescopeNorm.lean`,
+  `BF4ExactSlabFixedSpatialActualSeedNorm.lean`, and
+  `BF4ExactSlabFixedSpatialSeedNormBudget.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: on the ACTUAL original odd marginal nu and its existing
+  partition-cleared source Phi=H[nu]*f-H[nu*f], every finite seed degree
+  satisfies ell*sum_i||q_i||_nu^2 <= H[(nu*Phi)^2] <= u*||Phi||_nu^2.
+  `family_norm_budget` (SeedNormBudget:149) uses ordinary Haar telescope
+  Pythagoras BEFORE inverse-density conjugation, not weighted orthogonality
+  of the residuals. Each second-stage correction contracts the original
+  marginal norm (`corrected_norm_le`, :160), so arbitrary finite component
+  degrees satisfy the same bound. `diagonal_family_norm_budget` (:247)
+  gives ell*D <= (U-h)*(u*||Phi||_nu^2) for the existing signed-cost consumer.
+- **input removed**: a finite-degree aggregate norm/diagonal estimate for
+  this concrete full-nu producer no longer needs an assumed family budget.
+  There is no coordinate-count factor or approximation-degree factor.
+  The explicit density contrast u/ell retains nome/cutoff/width/depth;
+  this is NOT the required regulator-uniform bound.
+- **open residue and plan correction**: control JOINT D+2hR along a
+  constructed approximating schedule with the required regulator dependence.
+  Do not demand separate uniformity of the coarse contrast or replace signed
+  cancellation by absolute determinant sums. Current seeds use full nu;
+  active-action marginalization does not rebuild their source, and deleting
+  fringe entries has no proved active approximation theorem. The same-theory
+  physical/scaling/continuum/all-group obligations remain open.
+- **verification**: four focused serialized one-worker/20 GiB checks;
+  all 15 new gates within {propext, Quot.sound}; no final errors, warnings,
+  sorryAx or new analytic premises. Independent mathematical/source review
+  passed. Four root imports; root/full-tree/full-audit/guard NOT run.
+  No sorry added/discharged, canonical field, CI or safety limit changed.
+  Evidence: `audits/AUDIT-ACTUAL-SEED-NORM-BUDGET.md`.
+
+## Previous PROVED active spatial action and original-energy pin; OPEN signed coercivity (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialFringeFaceGeometry.lean`,
   `BF4ExactSlabFixedSpatialFaceIndependence.lean`,

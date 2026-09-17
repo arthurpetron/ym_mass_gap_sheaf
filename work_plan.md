@@ -495,8 +495,24 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current result (PROVED exact active spatial action, transfer and energy;
-OPEN signed active-sector coercivity):** `fringeFaceLeaf`,
+**Current result (PROVED actual finite-degree seed and diagonal norm budget;
+OPEN regulator-controlled JOINT signed cost):**
+`BF4ExactSlabFixedSpatialSeedNormBudget.family_norm_budget` and
+`diagonal_family_norm_budget`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSeedNormBudget.lean:149`, `:247`,
+now prove, on the ACTUAL full original marginal and family,
+
+    ell * sum_i ||q_i||_nu^2 <= H[(nu*Phi)^2] <= u*||Phi||_nu^2,
+    ell * D <= (U-h) * (u*||Phi||_nu^2).
+
+Here Phi=H[nu]*f-H[nu*f]. All finite seed degrees and arbitrary finite
+component correction degrees are allowed. The proof has no coordinate-count
+factor, but u/ell retains width, cutoff, depth and nome. The joint signed
+cost D+2hR, not an independently uniform bound on this coarse contrast,
+is the next analytic target. Evidence and exact scope:
+`audits/AUDIT-ACTUAL-SEED-NORM-BUDGET.md`.
+
+**Preserved exact active-action reduction:** `fringeFaceLeaf`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeFaceGeometry.lean:165`,
 constructs an original fringe link incident to no other spatial face for
 every face that is not fully active. With all other factors retained,
@@ -542,7 +558,46 @@ retained action as a cubical core (width two already has a closed cube),
 so continued unique-free-link peeling is not a proposed gap proof. Its
 cardinality/no-further-leaf claims have not been formalized here.
 
-Six final focused serialized one-worker/20 GiB checks passed, with all 31
+**Producer-review correction (2026-09-17; norm estimate now checked):**
+`BF4ExactSlabFixedSpatialSeedFamily.familyTests` still uses the FULL
+nu=V*g_n*g_(n+1), even on fringe-independent inputs. `activeSeeds` deletes
+inactive entries; its sum identity is not an approximation theorem after
+that deletion. The tested active-energy identity does not identify these
+source-dependent polynomials with seeds rebuilt from V_A. Do not substitute
+either family silently into the existing signed-cost consumer.
+
+The checked quantitative estimate concerns the ACTUAL finite-degree family:
+ell*sum_i H[nu*q_i^2] <= H[(nu*Phi)^2] <= u*H[nu*Phi^2], where
+ell and u are the existing explicit original-marginal window and
+Phi=H[nu]*f-H[nu*f]. Ordinary Haar telescope Pythagoras is applied BEFORE
+inverse-density conjugation; it does not make q_i weighted-orthogonal.
+The existing reciprocal-multiplier certificate also bounds the
+corrected component norms. This estimate avoids a coordinate-count
+factor and is independent of both approximation degrees, but retains the
+full density contrast u/ell, including width, cutoff and depth. It is NOT
+the required uniform signed budget. Next, bound the JOINT D+2hR along the
+actual constructed approximation schedule, retaining its signed cancellations.
+`BF4ExactSlabFixedSpatialCenteredFamilyApproximation.approximant_energy`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCenteredFamilyApproximation.lean:129`)
+is the direct consumer. Its sum approximates Phi, NOT f; keep the partition
+scaling or explicitly normalize before comparing with an active b. Seek a
+bound C(w)*||Phi||_nu^2 with an explicitly vanishing approximation remainder,
+where C(w) has the needed width/depth/cofinal-cutoff control. Uniformity in
+every approximation degree is not required if a sufficient constructed
+schedule exists. Do not require separate uniformity of this crude u/ell
+estimate, or replace the signed sum by absolute pair bounds: either can
+discard cancellations needed by a shorter proof. A pairwise absolute
+determinant bound alone introduces a family-size loss.
+The reduced-cube coefficient-one obstruction suggested by the reviewer is
+not a checked counterexample and is not used as a theorem.
+
+Current verification: four focused serialized one-worker/20 GiB checks,
+15 gates within {propext, Quot.sound}, no final warnings/errors/sorryAx.
+Independent mathematical/source review passed. Four root imports; no new
+sorry, canonical-field change, full-root build/audit/guard, CI or safety change.
+
+Previous active-action verification: six focused serialized one-worker/20 GiB
+checks passed, with all 31
 gates within {propext, Quot.sound}; no final errors/warnings/sorryAx.
 Independent review passed the peeling/transfer argument. The final
 original-energy consumer was additionally kernel-checked. Six root
