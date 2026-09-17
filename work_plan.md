@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-16)
+## Whole-project goal and live completion map (updated 2026-09-17)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -131,9 +131,151 @@ are also established. Classical subsequence selection would therefore not remove
 the same-theory QFT and physical-gap obligations, even without our extra demand
 for explicit moduli.
 
+### Direction-audit decisions and execution order (2026-09-17)
+
+User-approved planning update after the parallel direction audit at
+`8d6a89f12d5e4da995f8f2ea5f01dde011eebfba`. This updates priorities, not the
+Clay goal, axiom gate, analytic guards or canonical frontier statements.
+
+**Preserve the proved fixed-spacing branch; do not confuse it with a scaling
+trajectory.** `BF4WilsonSpatialUnionCompletedGap.completed_twoStep_form_gap`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionCompletedGap.lean:153`) bounds the
+actual two-step transfer on the completed spatial union's vacuum complement.
+`BF4WilsonSpatialUnionNormalizedExcitation.normalizedCertificate`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionNormalizedExcitation.lean:165`)
+supplies a nonzero normalized excitation with positive two-step response at
+the specified small nome. `BF4WilsonWindowRealization.compileWindow_pin` and
+`approximationCertificate`
+(`lean/YMGap/Continuum/BF4WilsonWindowRealization.lean:76`, `:122`) give exact
+finite Wilson-program realization and approximation from supplied Cauchy
+representatives. These are completed-carrier results, not merely finite-volume
+checks, but retain their fixed-spacing small-nome hypotheses and Wilson syntax.
+
+**The present decay estimate cannot be followed into the existing AF chart.**
+`BF4SmallNomeAFGuardObstruction.guard_forces_small_nome`,
+`no_fine_guard_on_chart` and `no_blocked_guard_on_chart`
+(`lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean:51`, `:126`, `:133`)
+prove the guard incompatibility. This is an obstruction to that estimate,
+not a refutation of the interacting theory. Repeating completion/density
+work does not remove it. The exact dyadic square-time bridge is separately
+refuted by `BF4MatchedDyadicHeatObstruction.matchedDyadicSameActionAFBridge_uninhabited`
+(`lean/YMGap/Continuum/BF4MatchedDyadicHeatObstruction.lean:55`). Use the already
+constructed rounded windows (`BF4RoundedPositiveAFWindows.windowFamily`,
+`lean/YMGap/Continuum/BF4RoundedPositiveAFWindows.lean:119`) only with their
+actual scope; they do not identify an interacting OS transfer.
+
+**The all-nome fixed-width branch also has a precise boundary.**
+`BF4ExactSlabFixedSpatialSeparatedCovariance.windowRatio_covariance_bound`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSeparatedCovariance.lean:95`)
+already gives signed original-action covariance decay with the shared partition
+cancelled, at every rational nome in (0,1). Its computed rate depends on width.
+The new `BF4ExactSlabFixedSpatialRateWidthObstruction.no_width_uniform_computed_rate`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRateWidthObstruction.lean:132`)
+rules out direct volume-uniform promotion USING THAT RATE: its margin is at
+most `32^(-width)`, with an explicit violating width for every proposed q<1.
+This does not rule out stronger actual correlation bounds. The separate
+small-nome width-uniform estimate remains proved and unchanged.
+
+Execution order:
+
+1. **Primary mathematical work: a cancellation-preserving original-action
+   estimate with spatial uniformity beyond the small-nome guard.** The immediate
+   existing consumer is
+   `BF4ExactSlabAllNomeFaceSetComparison.insertion_bound_eventually`
+   (`lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetComparison.lean:86`): bound
+   the signed insertion determinant before division, retaining BOTH original
+   partition factors. The two-probe alternative consumes a bound on the
+   original connected numerator divided by its SAME partition squared.
+   The current distance-decay producer
+   `BF4ExactSlabTwoProbeDistanceDecay.full_connectedNumerator_distance_bound`
+   (`lean/YMGap/Continuum/BF4ExactSlabTwoProbeDistanceDecay.lean:79`) still needs
+   the excluded guards. First seek a missing estimate or decisive obstruction
+   on these exact quantities, not another structure assuming the desired bound.
+   Existing all-nome heat certificates, rounded windows, star comparison,
+   boundary marginals, Haar-kernel iteration and fixed-width all-nome covariance
+   decay are inputs, not new tasks.
+   An exact identity is useful only if it removes a named obstacle to that
+   estimate; cancellation-free whole-volume bounds do not count as uniform
+   decay. No claim that this analytic problem has been solved is made here.
+2. **Physical calibration is a separate necessary join.** Any new changing-scale
+   rate must concern the same action, completion, observable and time step.
+   Record dependence on coupling, spacing, cutoff, volume and support explicitly.
+   Supply both a positive physical lower bound and finite-energy nontrivial
+   continuum survival; a fixed dimensionless contraction is not sufficient.
+   `BF4PhysicalDynamicVacuumSectorCompletedFamily.DynamicVacuumSectorPhysicalRateBand`
+   (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorCompletedFamily.lean:121`)
+   is existing conditional calibration machinery on an older carrier, not a
+   supplied family on the current Wilson union. If using the proved positive
+   TWO-step operator, its physical time is two lattice steps, not one.
+3. **Parallel review/preparation, with explicit mathematical joins.** Full
+   gauge-observable coverage, the canonical OS/Hilbert scalar interface,
+   continuous time/generator, spatial symmetry and every compact simple group
+   remain necessary. Work on them independently only where there is a concrete
+   theorem and consumer. Do not rationalize the actual CReal-valued form to fit
+   `CanonicalOSRoot.PositiveTimeOSRoot.positive` or treat finite Wilson-program
+   density as an exact supported-observable representative for every completed
+   state (`lean/YMGap/Continuum/CanonicalOSRoot.lean:272`, `:296`). Group
+   generalization must construct its actual action and representation descent;
+   relabelling the SU(2) fundamental probe does not supply another global form.
+4. **Specification repairs require reviewed statement changes, not proof tricks.**
+   The audit found that `FourDExistence.O4RestorationContent`,
+   `GaugeGeneratedContent`, `UVAsymptoticFreedomContent` and
+   `NontrivialityContent` ignore their continuum-measure argument
+   (`lean/YMGap/Continuum/FourDExistence.lean:173`, `:186`, `:158`, `:200`).
+   The weak O(4) predicate is still exported as `fullO4Restoration` by
+   `ContinuumSelectedExactMassDecayTarget` and `ContinuumCorrectedExactMassTarget`
+   (`lean/YMGap/Continuum/ContinuumSelectedExactMassDecayTarget.lean:71`,
+   `lean/YMGap/Continuum/ContinuumCorrectedExactMassTarget.lean:102`). Likewise
+   `LocalCurvatureFields.OPE` has no field tying its remainder to actual field
+   products (`lean/YMGap/Continuum/LocalCurvatureFields.lean:242`), and
+   `SelfAdjointHamiltonian.BoundedFunctionalCalculusResidual` does not assert
+   the exponential/generator relation
+   (`lean/YMGap/Continuum/SelfAdjointHamiltonian.lean:437`). Do not count
+   inhabitants of these predicates as the corresponding physical obligations.
+   Prepare explicit same-theory corrections for review before editing frontier
+   statements. `SingleStepDefectReduction.SingleStepDefectBound`
+   (`lean/YMGap/Continuum/SingleStepDefectReduction.lean:284`) is a scalar
+   recursion with a free margin, not by itself the whole Clay residue.
+
+**Checkpoint criterion:** identify the actual analytic input removed, or the
+proposed route ruled out, and name the surviving physical obligations. Source
+review and this plan update are planning progress, not new Lean theorems. A
+proof of the continuum theory, its physical mass gap and the every-group
+quantifier remains OPEN. Preserve refuted/defective frontier statements until
+an explicit reviewed change is authorized; their existing fields are not goals
+to inhabit by unrelated models.
+
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED finite-program realization of EVERY original Wilson window and quantitative completion approximation; OPEN full gauge-observable coverage and canonical OS/QFT joins):**
+**Latest mathematical increment (PROVED degeneration of the current all-nome comparison rate with spatial width; OPEN a stronger spatially uniform changing-scale estimate):**
+Following the direction audit at `8d6a89f`, the existing kinetic floor/cap
+fraction is at most `32^(-numberOfTemporalFaces)`. A literal injective row
+of temporal plaquettes proves that count is at least the spatial width.
+`mixFraction_le_width_power` gives the resulting explicit geometric ceiling;
+`widthModulus` makes the existing margin arbitrarily small, and
+`violatingWidth` supplies an actual positive width defeating every proposed
+common computed rate below one. `no_width_uniform_computed_rate` therefore
+rules out a specific promotion of the existing fixed-width covariance bound,
+not a physical mass gap or a better correlation estimate.
+
+One focused serialized one-worker/20 GiB check passes all 10 public gates
+within `{propext, Quot.sound}`; the base, modulus and width witness are
+axiom-free. No sorry, axiom, analytic guard, frontier statement or safety
+limit changed. Root import added; root/full-tree/full audit/guard unrun.
+Independent source review agrees on the boundary. Evidence:
+`audits/AUDIT-FIXED-SPATIAL-RATE-WIDTH.md`.
+
+NEXT: find a substantive spatially uniform signed original-action estimate,
+with an explicit changing-nome budget, for the determinant/covariance consumers
+above. Do not rebuild their cancellation, rounded heat windows or fixed-width
+decay. A proposed doubled-Haar difference identity is deferred until there is
+an analytic argument that consumes it; algebraic exposure alone does not
+remove either parameter obstruction. Do not extend the present obstruction
+into repeated weaker no-go corollaries. Canonical specification corrections
+remain a separate reviewed task; all continuum and every-group obligations
+listed above remain open.
+
+**Previous mathematical increment (PROVED finite-program realization of EVERY original Wilson window and quantitative completion approximation; OPEN full gauge-observable coverage and canonical OS/QFT joins):**
 PROGRESS after pushed `de89e75`: expand the original signed expression into
 finite scalar-character words and sort their time offsets, preserving its
 source polynomial and every internal nonabelian edge order. The actual

@@ -13,7 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED every original Wilson window has finite operator code and quantitative completion approximation; OPEN full gauge-observable coverage and canonical OS/QFT joins (2026-09-17 UTC)
+## PROVED the current all-nome comparison rate has no common strict width-uniform bound; OPEN a stronger spatially uniform changing-scale estimate (2026-09-17 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRateWidthObstruction.lean`.
+- **proof**: `width_le_temporalFaces_length` injects a literal row of faces;
+  `mixFraction_le_face_power` retains the existing kinetic floor/cap constants;
+  `mixFraction_le_width_power` gives the ceiling `32^(-width)` on their
+  ratio. `widthModulus` and `mixFraction_le_epsilon` supply effective
+  degeneration of that computed margin. `violatingWidth` returns a positive
+  width, and `rate_not_le_at_violatingWidth` refutes any proposed common q<1.
+  `no_width_uniform_computed_rate` excludes its use for all positive widths.
+- **consumer/open input**: rules out direct promotion of
+  `BF4ExactSlabFixedSpatialSeparatedCovariance.windowRatio_covariance_bound`
+  using this computed rate. No lower bound on actual correlations or optimal
+  spectral radius is asserted. The distinct proved small-nome completed
+  spatial-union gap is unchanged. Stronger spatially uniform original-action
+  estimates along a changing-scale trajectory, full OS/QFT, physical mass,
+  continuum survival and every-group construction remain open. No Clay atom
+  or existing hole closes; no new named analytic input is introduced.
+- **verification**: one focused serialized one-worker/20 GiB check passes
+  all 10 public gates within {propext, Quot.sound}; the numerical base,
+  modulus and returned width are axiom-free. No sorry, axiom, frontier
+  statement, guard or safety limit changed. Root import added; root/full-tree/
+  full audit/guard unrun. Independent source review passed. Evidence and log
+  hash: `audits/AUDIT-FIXED-SPATIAL-RATE-WIDTH.md`.
+
+## Previous PROVED every original Wilson window has finite operator code and quantitative completion approximation; OPEN full gauge-observable coverage and canonical OS/QFT joins (2026-09-17 UTC)
 
 - **files**: `BF4WilsonTimedWord.lean`, `BF4WilsonTimedWordOrder.lean`,
   `BF4WilsonExpressionExpansion.lean`, `BF4WilsonWindowOperatorPins.lean`,
