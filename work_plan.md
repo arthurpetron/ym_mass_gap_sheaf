@@ -133,7 +133,46 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED actual limiting Wilson form algebra, Cauchy--Schwarz, radical descent and centered chart compatibility; OPEN enlarged completion and strict bound):**
+**Latest mathematical increment (PROVED actual Wilson seminorm, represented completion pairing and same-action positive scalar variance; OPEN completed linear/Hilbert structure, original time and enlarged strict bound):**
+PROGRESS after `0c7cf21`: the preceding limiting-form checkpoint was committed
+and pushed. Parallel seminorm, common-window, continuity and plaquette branches
+now supply actual constructions, not caller-supplied analytic fields.
+
+EXPANSION: positivity of the signed difference and a parallelogram identity
+give the sqrt-free triangle estimate. Centered-window compatibility transports
+the form and distances to one computed common horizon. Actual Cauchy--Schwarz
+gives quantitative pairing continuity. Independently, quaternion associativity
+identifies the original plaquette with the ordered Wilson word, including
+placement/recentering and all spins, without commuting factors.
+
+CONTRACTION: these proved fields instantiate the existing squared-seminorm and
+explicit-modulus completion machinery on the SAME intrinsic Wilson carrier.
+The completed pairing is symmetric, nonnegative, normalized on the embedded
+unit and satisfies CS; its dense pin is the original form. Separate old/new
+first- and second-moment convergence witnesses identify the original plaquette
+variances, retaining the positive `starRatio w` floor. Neither a completed
+centered excitation nor an old/new isometry or strict-gap transfer is inferred.
+
+NEXT CAUSAL FRONTIER: reuse existing completion arguments and instantiate the
+generic separation consumer on this actual seminorm; realize the scalar
+variance as the norm of a centered vector on the SAME completion. Original
+time, base inclusions and the enlarged
+strict bound remain to be proved there. Full metric/Hilbert completeness,
+gauge-observable coverage, canonical OS scalar realization, full spatial
+symmetry, changing-scale original-action control, physical mass, continuum
+nontriviality and actual every-group producers remain open. Nome, spacing,
+source base and the original analytic guards are unchanged. The AF obstruction
+and canonical scorecard fields are unchanged; no Clay atom is declared closed.
+
+Parent plus three agents developed/reviewed the independent branches; all
+compilation was serialized and paused during user pytest activity. Seven
+focused one-worker/20 GiB checks passed all 86 public gates within
+{propext, Quot.sound}. Root imports added; root/full-tree/full audit unrun.
+No sorry, axiom, old proof, analytic guard or safety limit changed. CI remains
+manual-only; no routine literature scan. Evidence:
+`audits/AUDIT-WILSON-COMPLETION-AND-PLAQUETTE-VARIANCE.md`. Clay target OPEN.
+
+**Previous mathematical increment (PROVED actual limiting Wilson form algebra, Cauchy--Schwarz, radical descent and centered chart compatibility; OPEN enlarged completion and strict bound):**
 PROGRESS after `4c0242c`: the preceding three-regulator-limit checkpoint was
 committed and pushed. Parallel branches now join into a normalized symmetric
 positive rational-bilinear form on the actual Wilson window expressions.

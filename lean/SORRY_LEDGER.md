@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED same-limit Wilson form algebra, Cauchy--Schwarz, radical descent and centered chart compatibility; OPEN enlarged completion and strict bound (2026-09-17 UTC)
+## PROVED same-Wilson seminorm, represented completion pairing and positive scalar variance; OPEN completed Hilbert structure, original time and enlarged strict bound (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialWilsonWindowSeminorm.lean`,
+  `BF4ExactSlabFixedSpatialWilsonIntrinsicForm.lean`,
+  `BF4ExactSlabFixedSpatialWilsonIntrinsicSeminorm.lean`,
+  `BF4ExactSlabFixedSpatialWilsonWindowPairingContinuity.lean`,
+  `BF4ExactSlabFixedSpatialWilsonCompletedInner.lean`,
+  `BF4ExactSlabFixedSpatialWilsonPlaquette.lean`, and
+  `BF4ExactSlabFixedSpatialWilsonPlaquetteMoments.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: the actual limiting form gives squared distances, the sqrt-free
+  triangle estimate and null replacement. Centered common-window charts give
+  an intrinsic seminorm. Actual CS supplies pairing continuity and stream
+  bounds; generic explicit-modulus machinery constructs the mixed pairing on
+  this SAME represented Cauchy completion, with the dense pin, symmetry,
+  nonnegativity, unit normalization and CS. Original ordered plaquette
+  reassociation/placement pins hold at all spins. Exact same-action first and
+  second moments identify old/new scalar variances and transfer `starRatio w`.
+- **consumer/open input**: actual `SquaredSeminorm` and `PairingData` fields
+  are filled, not assumed. This is not full metric/Hilbert completeness or
+  completed linear structure. The positive scalar variance is not yet a
+  centered vector on the enlarged completion. Original time, base inclusions,
+  the enlarged strict bound and any old/new completed isometry remain open.
+  Full observable/OS/QFT realization, spatial symmetry, changing scale,
+  physical mass, continuum survival and actual all-group producers remain
+  open. All guards and canonical fields, including the AF obstruction, are
+  unchanged; no canonical Clay atom is declared closed.
+- **verification**: seven focused serialized one-worker/20 GiB checks, all
+  86 public gates within {propext, Quot.sound}. Paused during user pytest.
+  Root imports added; root/full-tree/full audit unrun. No new or changed
+  sorry, axiom, old proof, analytic guard or safety limit. Evidence and review:
+  `audits/AUDIT-WILSON-COMPLETION-AND-PLAQUETTE-VARIANCE.md`.
+
+## Previous PROVED same-limit Wilson form algebra, Cauchy--Schwarz, radical descent and centered chart compatibility; OPEN enlarged completion and strict bound (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialWilsonSpatialFunctionalLaws.lean`,
   `BF4ExactSlabFixedSpatialWilsonReflectedSymmetry.lean`,

@@ -21,7 +21,30 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: a consistent limiting reflected form for original Wilson windows.**
+**Latest result: the same Wilson completion pairing and a positive plaquette variance.**
+The original limiting reflected form now supplies an actual squared seminorm,
+with a proved triangle estimate and null replacement. Explicit common-window
+embeddings give its intrinsic carrier. Quantitative pairing continuity then
+constructs the pairing on its represented Cauchy completion, preserving the
+original form on embedded expressions, symmetry, nonnegativity, the unit norm
+and Cauchy--Schwarz.
+
+In parallel, the original ordered plaquette is identified with a Wilson loop
+at every spin. Exact first/second moment pins transfer its existing positive,
+nome-dependent variance floor to the SAME Wilson scalar limit. This is not
+yet a centered vector on the enlarged completion or a transfer of the old gap.
+
+These are **fixed-spacing, small-nome SU(2)** results. Full completed linear/
+Hilbert structure, original time and the strict bound on this enlarged carrier,
+full OS/QFT realization, changing scale, physical mass and every-group
+continuum construction remain open. Seven focused serialized checks passed
+all 86 public gates within `{propext, Quot.sound}`; no root/full-tree check ran.
+See the [proof and five-front parallel joins](audits/AUDIT-WILSON-COMPLETION-AND-PLAQUETTE-VARIANCE.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: a consistent limiting reflected form for original Wilson windows.**
 The SAME three-regulator Wilson limit is now normalized and rational-linear.
 Its mixed reflected form is symmetric, positive on the diagonal and satisfies
 sharp Cauchy--Schwarz. Null differences can be replaced in either argument.
@@ -36,9 +59,6 @@ continuum nontriviality and the every-group theorem remain open. Six focused
 serialized checks passed all 38 public axiom gates within
 `{propext, Quot.sound}`; no root/full-tree check ran. See the
 [proof, next joins and five-front parallel map](audits/AUDIT-WILSON-LIMITING-REFLECTED-FORM.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: original Wilson expectations after joint lattice-regulator removal.**
 Signed multi-time Wilson expressions now have an explicit CReal limit as
@@ -3588,6 +3608,10 @@ useful theorems exist but a required bridge is missing.
 
 ## Current frontier
 
+For the live frontier, use the latest result at the top of this page and
+the [current work plan](work_plan.md#current-original-action-gap-and-continuum-frontier-2026-09-17-utc).
+The route correction and resolvent account below are historical checkpoints.
+
 **Route correction: the literal exact-Haar/positive-law identity is
 refuted, not an open identity to prove.** The preceding roadmap mislabeled
 `ExactHaarPhysicalPerronSameActionAt` as an available next bridge. The
@@ -3597,7 +3621,7 @@ The canonical `[BF4-exact-physical-Perron]` ledger entry already records
 this obstruction. The completed conditional gap remains valid for its
 own operator; it cannot cross that refuted identity.
 
-**Latest result: a bounded constructive inverse on the original unit complement.**
+**Historical result: a bounded constructive inverse on the original unit complement.**
 The [finite geometric series](lean/YMGap/Continuum/BF4ExactSlabThermodynamicResolventPartial.lean)
 is `S_n x = sum_{j<n} T_(2j)(center x)`. The existing decay gives
 `||T_2 v||^2 <= (1/4)||v||^2` on the complement. The squared-norm triangle
