@@ -107,6 +107,43 @@ decay is infrastructure, not completion.
    not before 21:54 UTC that day. A direct request to inspect a specific
    paper is separate from routine listing polling. Prefer proof work when
    no new literature check is due.
+9. **Use forward-backward / bidirectional construction (user request,
+   2026-09-17).** Maintain two explicit proof fronts: actual constructions
+   from the original lattice data, and sufficient typed obligations derived
+   backward from the unchanged Clay requirements. For each parallel task,
+   record its input declarations, the exact output proposition/object and
+   the downstream obligation it fills. A join must preserve the SAME group,
+   action, carrier, observable algebra, normalization and physical time;
+   similarly named legacy objects do not meet automatically. Distinguish
+   constructed inputs, conditional consumers, genuinely missing analytic
+   producers, and inadequate statements requiring reviewed repair. Prove
+   independent consequences now when their inputs exist. Do not add another
+   structure that merely assumes an unavailable conclusion, or treat a
+   backward specification as an inhabited certificate. Keep useful tasks
+   bounded and proofs parallel, with Lean verification serialized under the
+   existing safety contract. Meeting the fronts is a theorem to prove, not
+   a promise that the remaining mathematics is small.
+
+### Bidirectional parallel checkpoint (2026-09-17)
+
+The backward input map is `audits/AUDIT-BIDIRECTIONAL-FRONTIERS-2026-09-17.md`,
+with detailed QFT sources in `audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.
+The following independent forward constructions now fill specific algebraic
+or fixed-spacing subgoals. They do not fill the continuum endpoint fields.
+
+| Backward requirement | New proved forward input | Still missing join |
+| --- | --- | --- |
+| Nontrivial survival and finite physical mass | `BF4WilsonSpatialUnionDyadicResponse.unitExcitation_dyadic_band`: rho^(2^k) <= B(v,T(2*2^k)v) <= q^(2^k) for the SAME normalized vector, at the fixed small nome. | Actual changing-spacing Wilson family, cross-scale comparison/moduli, positive limiting norm and fixed-physical-time survival; same-generator calibration using physical time 2*a for a two-step rate. |
+| Same-theory QFT observable algebra | `BF4WilsonSpatialUnionTimeZeroCommutation.completedMultiply_comm`: existing equal-time Wilson multipliers commute on EVERY state of the current completion. | Changing-spacing OS/field reconstruction, complex Hilbert/scalar interface, full Euclidean covariance, continuous-time generator and spacelike continuum locality. |
+| Every compact simple group, including global forms | `RationalQuaternion.UnitNorm.signLocatedQuotientPresentation`, `signCoset_iff`, `descendSignRepresentation`: exact central-sign quotient and descent on the FULL rational unit-quaternion carrier, with a nontrivial witness. | Compact/topological realization, actual per-group representations and Haar/action data, their analytic estimates and continuum construction. This is not yet compact SO(3). |
+
+All three new modules passed focused serialized checks; their 24 printed
+gates lie within {propext, Quot.sound}. Root imports were added; a full root,
+full-tree build, audit, guard or progress run was NOT performed. Existing
+canonical fields, analytic guards and the whole-project goal are unchanged.
+The primary forward frontier remains the original interacting signed bulk
+estimate and its Wilson-orbit/scaling joins described below. Parallel success
+must not be substituted for that missing analytic estimate.
 
 ### Classical methods: review aid, not a changed proof substrate
 

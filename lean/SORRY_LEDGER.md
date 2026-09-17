@@ -13,6 +13,48 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED three bidirectional inputs; continuum meeting points OPEN (2026-09-17 UTC)
+
+- **survival/calibration branch**: new
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionDyadicResponse.lean`.
+  `unitExcitation_response_square` (:56), `unitExcitation_dyadic_lower`
+  (:69), `_upper` (:105), `_band` (:121) prove
+  rho^(2^k) <= B(v,T(2*2^k)v) <= q^(2^k) on the existing normalized
+  Wilson excitation at nome 1/1024. This is a genuine lower and upper
+  discrete-time response estimate, NOT continuum survival, a Hamiltonian
+  construction or physical mass calibration. Actual spacing-family/cross-scale
+  comparison and same-limit nontriviality remain open.
+- **QFT algebra branch**: new
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionTimeZeroCommutation.lean`.
+  `form_multiplier_comm` (:63), `intrinsicForm_multiplier_comm` (:90),
+  `pairing_multiplier_comm` (:112), `representativeInner_multiplier_comm`
+  (:143), `completedInner_multiplier_comm` (:151), `completedMultiply_comm`
+  (:160), `completedInner_multiplier_product_balance` (:171) descend
+  literal scalar-character commutativity to equality of the two composed
+  actual operators on EVERY current completed vector, and symmetry of their
+  product. Arbitrary source loops/spins/bases, existing small-nome guards.
+  No multiplication of arbitrary null representatives is introduced.
+  Continuum spacelike locality and full same-theory QFT structure remain open.
+- **global-form branch**: new
+  `lean/YMGap/RepTheory/RationalQuaternionSignQuotient.lean`.
+  `signCentralSubgroup` (:111), `signLocator` (:119),
+  `signLocatedQuotientPresentation` (:128), `signCoset_iff` (:134),
+  `signQuotientWitness_ne_one` (:153), `descendSignRepresentation` (:165)
+  and its pin (:176) supply an actual central quotient and descent consumer
+  on ALL rational unit-quaternion points. No compact topology, SO(3)
+  realization, rational-rotation surjectivity, Haar or all-group Yang--Mills
+  data are claimed. Those physical/group-specific joins remain open.
+- **verification**: all three focused final checks passed at one worker and
+  20 GiB, with 24 public gates within {propext, Quot.sound}, three axiom-free.
+  The quotient required a dependency-complete target first; its initial
+  invocation inherited the existing 32 GiB Lake ceiling and ended with
+  elaboration errors, without a pressure stop. The corrected final check
+  used an explicit 20 GiB cap. No configuration/resource limit or CI changed.
+  Three root imports added; root/full-tree/full audit/guard/progress NOT run.
+  No sorry introduced/discharged, canonical field weakened or new analytic
+  oracle. Reports and hashes: `audits/AUDIT-BIDIRECTIONAL-FRONTIERS-2026-09-17.md`
+  and `audits/AUDIT-PARALLEL-QFT-INPUTS-2026-09-17.md`.
+
 ## PROVED original-partition fusion cutoff error; signed bulk OPEN (2026-09-17 UTC)
 
 - **files**: six new modules under `lean/YMGap/Continuum/`:
