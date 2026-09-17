@@ -49,7 +49,7 @@ private theorem support_pair {blocks : Nat} {p : RatPoly}
 
 /-- Finite polynomial change of variables for one symmetric kernel.
 The inserted lower/upper polynomials may themselves share all slice links. -/
-private theorem kernel_pairing_swap {blocks : Nat} {kernel lower upper : RatPoly}
+theorem kernel_pairing_swap {blocks : Nat} {kernel lower upper : RatPoly}
     (hk : SupportedQuaternionBlocks (blocks+blocks) kernel)
     (hl : SupportedQuaternionBlocks blocks lower)
     (hu : SupportedQuaternionBlocks blocks upper)
@@ -155,6 +155,8 @@ theorem iterateStep_weighted_symmetric (w : Q') (K width count : Nat) {f g : Rat
       exact he
 
 end YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSymmetry
+
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSymmetry.kernel_pairing_swap
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSymmetry.transferStep_weighted_symmetric
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSymmetry.iterateStep_weighted_symmetric

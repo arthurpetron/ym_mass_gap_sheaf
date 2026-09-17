@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original-face Haar variance obstruction; OPEN full weighted estimate (2026-09-17 UTC)
+## PROVED original-energy dual estimate; OPEN actual-marginal and collective joins (2026-09-17 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionWeightedProductDualEnergy.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDualDirichlet.lean`.
+  Three existing helpers in TransferSymmetry/WeightedProductLocalGap are
+  exposed with unchanged statements and bodies.
+- **construction**: actual selected-list slice swap, both erased mixed
+  cancellations, exact factors of two, supported weighted Haar CS and the
+  single heat floor yield
+  h*H[a*d_i*f*r]^2 <= energy(T^n1,f)*H[a*d_i*r^2], a=V*T^n1.
+  The observable f is arbitrary; only the dual test satisfies P_i(a*r)=0.
+  `terminalResidual_dual_energy` produces such tests without a new field.
+  The RHS retains the original energy of f, not energy(r) or energy(A*f).
+- **remaining**: d_i is the one-kinetic-factor-erased message, NOT Tg.
+  Passing to the actual temporal marginal requires a constructive independent
+  reciprocal approximation and the proved Tg<=prefixCap(w)*d_i comparison.
+  The actual-marginal dual bound, collective cross-energy/decomposition budget,
+  spatial/scaling control and physical mass/QFT/every-group joins remain open.
+  Summing individual-link estimates alone retains a #active-links loss.
+  No canonical atom closes and no positivity/late-cutoff guard changes.
+- **verification**: four final serialized focused monitored one-worker/20 GiB
+  checks; new-module printed gates 4+3, shared-module gates 3+12, all within
+  {propext, Quot.sound} or axiom-free, no final errors/warnings/sorryAx.
+  Independent source review passed. No new sorry/axiom or resource change.
+  Two root imports added; root/full-tree/full-audit/guard unrun. Evidence:
+  `audits/AUDIT-ERASED-DUAL-ENERGY.md`.
+
+## Previous PROVED original-face Haar variance obstruction; OPEN full weighted estimate (2026-09-17 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabHeatHaarVarianceObstruction.lean`.
   Two existing helpers in `BF4ExactSlabHeatHaarGuardObstruction.lean`

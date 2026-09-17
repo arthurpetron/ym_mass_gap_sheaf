@@ -314,7 +314,7 @@ are preserved; neither supplies a route through the incompatible AF guard.
    do not classify that remainder as a head-independent spectator. That branch
    still requires embedding the literal word calculation in the fixed-spatial
    physical carrier and a quantitative full-action remainder bound.
-3. **NEXT: estimate the full-source remainder, not more unweighted channels.**
+3. **Primary target: full-source control, not more unweighted channels.**
    The exact ORIGINAL temporal-form target is now checked by
    `BF4ExactSlabFixedSpatialClearedCovariance.terminalResidual_clearedDefect`:
    a conditional HAAR covariance determinant with full weight a=V*T^n1
@@ -359,6 +359,35 @@ are preserved; neither supplies a route through the incompatible AF guard.
    the sharp unweighted covariance-matrix bound unless a full-source estimate
    actually consumes it. Existing connected-response and cutoff-tail identities
    are reusable inputs, not new work or proof of small background response.
+   **New proved local estimate:**
+   `BF4ExactSlabFixedSpatialDualDirichlet.terminal_dual_energy`
+   (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDualDirichlet.lean:75`)
+   controls the ORIGINAL energy of arbitrary f, not energy of a multiplied
+   observable. For a=V*T^n1, d_i=conditionalMessage and P_i(a*r)=0,
+
+       h * H[a*d_i*f*r]^2 <= energy(T^n1,f) * H[a*d_i*r^2].
+
+   Both full endpoint weights and every unremoved kinetic factor remain.
+   `terminalResidual_dual_energy` (same file:107) supplies actual polynomial
+   dual tests. This is proved with the erased marginal a*d_i, NOT a*Tg.
+   **NEXT:** transfer this bound to nu=a*Tg using i-independent polynomial
+   approximants G_k to 1/d_i. For P_i(nu*q)=0, test with
+   r_k=(Tg)*q*G_k; prove exact a-centering, pairing convergence and the norm
+   budget using Tg<=U*d_i. The intended final local bound is
+
+       h * H[nu*f*q]^2 <= U * energy(T^n1,f) * H[nu*q^2].
+
+   This final bound is NOT yet a declaration. Reciprocal construction must
+   carry explicit moduli; do not treat a rational function as a polynomial.
+   Finite width/depth-dependent inverse bounds may control only the modulus,
+   not silently become the desired spatially uniform rate. The existing full
+   slab star projection has a DIFFERENT weight/conditioning algebra and is
+   not a direct instance for nu. Generic inverse/completion tools are reusable.
+   Even after the local bound is proved, ordinary approximate tensorization
+   plus a separate bound for each link loses #active links. A genuinely
+   collective weighted decomposition/cross-energy budget remains necessary.
+   This is a concrete local producer toward C_delta, not global positivity
+   of C_delta or completion of the original interacting gap estimate.
 4. **Finite tests must exercise the actual kinetic geometry and legal cutoff.**
    Source inspection shows that width one has three spatial plaquettes but
    none has all four links in `activeBlocks`; width two is the first width
@@ -392,7 +421,39 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest checkpoint (PROVED original-face Haar variance obstruction; OPEN full weighted estimate):**
+**Latest checkpoint (PROVED original-energy dual estimate for arbitrary observables; OPEN actual-marginal and collective joins):**
+`SU2QuaternionWeightedProductDualEnergy` proves slice symmetry for every
+actual selected kinetic list, including a list with one factor removed.
+Both mixed terms vanish against a test r with P_i(a*r)=0. Consequently
+the erased jump pairing is exactly 2*H[a*d_i*f*r]. Haar Cauchy--Schwarz
+and the one-factor heat floor give the dual bound without centering f.
+`BF4ExactSlabFixedSpatialDualDirichlet.terminal_dual_energy` specializes to
+the original a=V*T^n1 and energy(T^n1,f):
+
+    h * H[a*d_i*f*r]^2 <= energy(T^n1,f) * H[a*d_i*r^2].
+
+The coefficient h=headFloor(w) has explicit nome dependence, with no
+width, depth or late-cutoff power. The law and test retain those parameters.
+`terminalResidual_dual_energy` constructs the dual test from any supported
+polynomial, so this is not merely an assumption-only interface. The energy
+is that of the original arbitrary f, unlike the earlier local-sector bound.
+The reference is the ERASED marginal a*d_i. Its transfer to nu=a*Tg by
+constructive polynomial reciprocal approximation remains open, followed by
+the collective spatial budget. Individual local bounds plus ordinary
+approximate tensorization do not themselves yield a width-uniform gap.
+No near-one rate, physical calibration, continuum/QFT or every-group atom
+closes. The same-temporal C_delta target and its mean correction remain.
+
+Four final focused serialized one-worker/20 GiB checks passed. The two new
+modules print four and three gates; the two shared-helper modules print
+three and twelve. All are within {propext, Quot.sound}, or axiom-free;
+final logs contain no errors/warnings/sorryAx. Three existing helpers were
+exposed with unchanged statements/bodies. Independent review passed.
+No new sorry/axiom, frontier/guard change or resource increase. Two root
+imports added; root/full-tree/full-audit/guard unrun. Evidence and the
+precise next mathematical join: `audits/AUDIT-ERASED-DUAL-ENERGY.md`.
+
+**Previous checkpoint (PROVED original-face Haar variance obstruction; OPEN full weighted estimate):**
 `BF4ExactSlabHeatHaarVarianceObstruction` tests the weaker mean-square
 smallness avenue, not another generic finite model. For R_K=h_K-1 on any
 actual physical plaquette it proves

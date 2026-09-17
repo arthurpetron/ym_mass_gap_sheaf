@@ -170,7 +170,7 @@ private theorem cap_haar (n : Nat) (c : Q') (s : RatPoly) :
     quaternionHaar n (polyMul (cap c) s) ≈ c*quaternionHaar n s :=
   Q'.eqv_trans _ _ _ (haar_of_coeff (cap_mul_left c s)) (quaternionHaar_polySmul n c s)
 
-private theorem certified_floor {n : Nat} {k s : RatPoly} {c : Q'}
+theorem certified_floor {n : Nat} {k s : RatPoly} {c : Q'}
     (K : Certificate n (polyAdd k (polyNeg (cap c)))) (S : Certificate n s) :
     c*quaternionHaar n s ≤ quaternionHaar n (polyMul k s) :=
   Q'.le_of_sub_nonneg (Q'.le_trans' _ _ _ (K.mul S).haar_nonnegative
@@ -192,7 +192,7 @@ private theorem factor_algebra (k r a b s : RatPoly) :
     (.mul (.var 0) (.mul (.mul (.mul (.var 1) (.var 2)) (.var 3)) (.var 4)))
     (by decide) (fun | 0 => k | 1 => r | 2 => a | 3 => b | _ => s)
 
-private theorem factor_pairing (n : Nat) (w : Q') (K i : Nat) (ids : List Nat) (a s : RatPoly) :
+theorem factor_pairing (n : Nat) (w : Q') (K i : Nat) (ids : List Nat) (a s : RatPoly) :
     quaternionHaar (n+n) (polyMul (edgeWeight n w K (i::ids) a) s) ≈
       quaternionHaar (n+n)
         (polyMul (heatAt i (n+i) w K) (polyMul (edgeWeight n w K ids a) s)) :=
@@ -334,6 +334,9 @@ theorem local_energy_floor_of_mem (n : Nat) {w : Q'}
       (Q'.le_of_eqv (Q'.mul_eqv_congr_left _ _ _ (haar_of_coeff (he.symm.mul_right _)))))
 
 end YMGap.Continuum.SU2QuaternionWeightedProductLocalGap
+
+#print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.certified_floor
+#print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.factor_pairing
 
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.edgeWeight
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.heatInterval
