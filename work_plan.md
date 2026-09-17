@@ -133,7 +133,48 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED SAME-Wilson connected decay, universal completed strict two-step form bound and concrete nonvacuity; OPEN full Hilbert/OS/QFT and physical continuum passage):**
+**Latest mathematical increment (PROVED coherent Wilson spatial-union completion, nonvacuous universal strict bound, norm separation and no stationary orthogonal vector; OPEN full Hilbert/OS/QFT and physical continuum passage):**
+PROGRESS after pushed `2dc4201`: the separate positive-base Wilson forms now
+agree under literal source-box inclusion. A source-sized boundary estimate,
+with both original partitions retained, identifies their actual three-regulator
+limits through an explicit modulus independent of the larger base.
+
+EXPANSION: actual loop-word inclusion, original action comparison, common-base
+pairing/distance and quantitative continuity are separate proved inputs.
+CONTRACTION: they construct one Cauchy quotient of the union of finite-base
+Wilson windows, not a union of completions. No common support base, radius
+or expression cap is imposed on a whole stream. Original time preserves each
+supplied modulus. Its unit is fixed by proved null distance, not raw syntax.
+The stagewise prefactor-free bound passes through actual pairing limits,
+giving the same nome-dependent strict bound on every completed unit-orthogonal
+vector. Fixed-base completion maps preserve form, time, unit, zero and moduli;
+the original nome-1/1024 excitation retains its positive norm floor and is
+nonzero in this SAME union. Distance-to-zero equals the form diagonal, proving
+completed positive definiteness constructively; a two-step fixed orthogonal
+vector therefore vanishes.
+
+NEXT CAUSAL FRONTIER: complete the linear and time/form compatibility laws on
+this exact union, then resolve its canonical OS observable-algebra realization.
+The existing syntax is signed windows of spatial Wilson loops, not a proved
+exhaustion of every gauge observable or loops traversing several time slices.
+Full Hilbert completeness requires its actual constructive data, not the name
+Completion. Do not silently substitute the CReal-valued union form for the
+canonical rational GNSData fields or weaken representative/state inverse pins.
+Positive-time nonzero response/normalization, full spatial symmetry,
+changing-scale original-action estimates, finite physical mass calibration,
+continuum survival and every-group producers remain open. No one-step
+positivity, continuum Hamiltonian or beta-uniform gap is asserted. The AF
+obstruction and canonical frontier fields remain unchanged; no Clay atom closes.
+
+Eleven focused serial one-worker/20 GiB checks passed all 152 public gates
+within {propext, Quot.sound}. Root imports added; root/full-tree/full audit
+unrun. No old proof, sorry, axiom, analytic guard or safety limit changed.
+Parent plus three agents developed and source-reviewed the independent
+branches; main compiled and finished the norm-separation consequence locally.
+CI stays manual; no routine literature scan. Evidence:
+`audits/AUDIT-WILSON-SPATIAL-UNION.md`. Clay target OPEN.
+
+**Previous mathematical increment (PROVED SAME-Wilson connected decay, universal completed strict two-step form bound and concrete nonvacuity; OPEN full Hilbert/OS/QFT and physical continuum passage at that checkpoint):**
 PROGRESS after `10ffadb`: the preceding original-time checkpoint was committed
 and pushed. The new proof supplies the actual covariance envelope rather than
 transferring the old plaquette-only gap to a larger domain.

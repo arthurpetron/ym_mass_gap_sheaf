@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: a strict two-step form bound on the SAME Wilson completion.**
+**Latest result: one coherent Wilson spatial-union completion with a nonvacuous strict bound.**
+Enlarging a source box now provably preserves the original limiting Wilson
+form and distance. This constructs one completion of the existing finite-base
+Wilson windows, allowing Cauchy streams with unbounded support bases and time
+radii. Its actual time maps retain the supplied moduli, and the strict bound
+`B(x,T_2 x) <= q(w) B(x,x)` holds throughout its unit complement.
+
+The original positive-norm excitation maps into this SAME carrier. Its form
+is positive definite, and a unit-orthogonal vector fixed by two time steps
+must be zero. These are **fixed-spacing, small-nome SU(2)** results, not a
+continuum Hamiltonian gap. Full linear/Hilbert structure, full gauge-observable
+coverage, canonical OS/QFT realization, changing-spacing control, finite
+physical mass calibration and every-group construction remain open.
+Eleven focused serialized checks passed all 152 public axiom gates within
+`{propext, Quot.sound}`; no root/full-tree check ran. See the
+[spatial-union proof and remaining joins](audits/AUDIT-WILSON-SPATIAL-UNION.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: a strict two-step form bound on the SAME Wilson completion.**
 Original time-separated Wilson correlations now have a geometric bound with
 one shared action and partition. Fixed-size probe supports keep the amplitude
 independent of time separation and lattice regulators. The actual centered
@@ -38,9 +58,6 @@ changing-scale control, physical mass calibration and every-group construction
 remain open. Seven focused serialized checks passed all 61 public gates within
 `{propext, Quot.sound}`; no root/full-tree check ran. See the
 [same-carrier proof and remaining causal joins](audits/AUDIT-WILSON-COMPLETED-STRICT-BOUND.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: original discrete time on the SAME Wilson completion.**
 Exact window stationarity, reflected positivity and a lag-independent scalar

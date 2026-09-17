@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED SAME-Wilson universal completed strict two-step bound and concrete nonvacuity; OPEN full Hilbert/OS/QFT and physical continuum passage (2026-09-17 UTC)
+## PROVED coherent Wilson spatial-union completion, nonvacuous strict bound and norm separation; OPEN full Hilbert/OS/QFT and continuum passage (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialBaseBoundaryComparison.lean`,
+  `BF4ExactSlabFixedSpatialWilsonBaseInclusion.lean`,
+  `BF4ExactSlabFixedSpatialWilsonBaseCoherence.lean`,
+  `BF4WilsonSpatialUnion.lean`, `BF4WilsonSpatialUnionSeminorm.lean`,
+  `BF4WilsonSpatialUnionPairingData.lean`,
+  `BF4WilsonSpatialUnionCenteredForm.lean`,
+  `BF4WilsonSpatialUnionCompletedGap.lean`,
+  `BF4WilsonSpatialUnionFixedBase.lean`,
+  `BF4WilsonSpatialUnionSmallNomeGap.lean`, and
+  `BF4WilsonSpatialUnionPosdef.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: literal original Wilson inclusion and signed original-action
+  comparison yield `intrinsicForm_inclusion` and `distSq_inclusion`. Finite
+  common-base comparisons supply one actual union seminorm, pairing and
+  Cauchy completion with original time. Arbitrary streams may have growing
+  bases/radii/caps. `completed_twoStep_form_gap` holds universally on its
+  unit complement; the actual fixed-base map retains the original nonzero
+  excitation and positive norm floor in `concreteGapCertificate`.
+  `completedInner_posdef` gives norm separation using computed closeness,
+  and `fixed_orthogonal_eq_zero` rules out a two-step stationary vector in
+  the unit complement.
+- **consumer/open input**: removes the Wilson base-coherence and spatial-union
+  joins; it does not exhaust all gauge observables or instantiate a canonical
+  continuum OS root. Next: full completed linear and time/form laws on this
+  exact union, with canonical representation/state pins still separate.
+  Full Hilbert completeness, positive-time response/normalization, full spatial
+  symmetry, changing spacing, finite physical mass calibration, continuum
+  survival and every-group producers remain open. Existing nome guards,
+  AF obstruction and canonical frontier fields are unchanged; no Clay atom closes.
+- **verification**: eleven focused serial one-worker/20 GiB checks; all 152
+  public gates within {propext, Quot.sound}. Root imports added; root/full-tree/
+  full audit unrun. No new/changed sorry, axiom, old proof, analytic guard or
+  safety limit. Evidence: `audits/AUDIT-WILSON-SPATIAL-UNION.md`.
+
+## Previous PROVED SAME-Wilson universal completed strict two-step bound and concrete nonvacuity; OPEN full Hilbert/OS/QFT and physical continuum passage at that checkpoint (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialWilsonOriginalConnectedCorrelator.lean`,
   `BF4ExactSlabFixedSpatialWilsonSeparatedProbeControl.lean`,
