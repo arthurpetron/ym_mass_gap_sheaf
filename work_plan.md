@@ -181,10 +181,12 @@ Execution order:
 1. **Primary mathematical work: a cancellation-preserving original-action
    estimate with spatial uniformity beyond the small-nome guard.** The active
    route is now the original finite temporal Dirichlet energy described below:
-   use its SAME odd-chain marginal and seek a positive controlled fraction of
-   that marginal variance. This bypasses the unproved V-squared norm comparison
-   without deleting V. Neither positivity of this energy nor the proved pure
-   kinetic contraction supplies that fraction. The signed spatial-face
+   use its SAME odd-chain marginal. A positive fraction independent of late
+   cutoff and boundary depth is now supplied by `terminal_normalized_energy_variance_floor`,
+   but it is the existing width-dependent floor/cap ratio. Seek a stronger
+   fraction with the spatial control needed along the scaling route.
+   This bypasses the unproved V-squared norm comparison without deleting V;
+   it does not bypass the volume-uniform analytic problem. The signed spatial-face
    response remains an alternative producer, not a separate checklist to fill.
    Its immediate existing consumer is
    `BF4ExactSlabAllNomeFaceSetComparison.insertion_bound_eventually`
@@ -253,7 +255,52 @@ to inhabit by unrelated models.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED exact positive original temporal energy and its finite-chain normalization; OPEN same-marginal coercivity):**
+**Latest mathematical increment (PROVED same-odd-marginal coercivity and positive plaquette energy; OPEN spatially uniform fraction):**
+PROGRESS after `4d7bc5e`: `BF4ExactSlabFixedSpatialDirichletFloor.energy_floor`
+retains both complete Vg endpoint weights in the positive residual K-L and
+proves E>=L*(m(g)*m(g*f^2)-m(g*f)^2). Centering at the explicit Vg mean,
+`RationalVarianceCapComparison.variance_cap_of_centered_test` and
+`BF4ExactSlabFixedSpatialDirichletCoercivity.marginal_variance_cap` give the
+matching upper bound for the SAME odd marginal. No stationary vector is used.
+
+`terminal_energy_variance_floor` proves
+mixFraction(w,width)*(Z*A-B^2)<=Z*E for actual g=T^n1, and
+`terminal_normalized_energy_variance_floor` proves the normalized inequality
+on the EXISTING middleRatio(n+1,n) and normalizedEnergy. This supplies a
+positive fraction independent of boundary depth and late cutoff, with ONE
+kineticFloor/kineticCap loss rather than its square. It depends explicitly
+on nome and width. No desired coercivity premise is left unsupplied.
+
+In parallel, `BF4ExactSlabFixedSpatialOddLocalVariance.odd_variance_floor`
+pins the actual local-star estimate directly to this unequal-depth original
+chain, not the earlier even-chain density. Its starRatio(w)>0 floor for any
+valid fundamental plaquette is independent of width, depth and late cutoff.
+`plaquette_energy_floor` and `plaquette_energy_positive` combine these two
+results on the SAME measure, giving normalizedEnergy(chi_1)>=
+mixFraction(w,width)*starRatio(w)>0. Physical face membership is required;
+there is no fictitious empty-width excitation or continuum survival claim.
+
+NEXT MATHEMATICAL TARGET: improve the fraction for that SAME marginal at
+the nomes required by the scaling route. The present fraction is bounded
+above by 32^(-width), as already proved by
+`BF4ExactSlabFixedSpatialRateWidthObstruction.mixFraction_le_width_power`.
+It cannot supply a common spatially positive fraction. This obstructs the
+computed comparison, not the actual optimal energy or spectral gap.
+Seek a cancellation-preserving local comparison or signed-response estimate
+that avoids the full kinetic-product floor/cap loss. A local plaquette
+variance floor is not an all-observable coercivity estimate; do not replace
+mixFraction by starRatio without a proof. Do not add further normalization
+wrappers or re-prove the known fixed-width completed gap as a substitute.
+The same-object completed OS/scaling, physical-time calibration, continuum
+QFT and every-compact-simple-group joins remain OPEN.
+
+Four focused serialized one-worker/20 GiB final checks pass, all 12 public
+gates within {propext, Quot.sound}, without final warnings/errors. Independent
+source review passed. See `audits/AUDIT-ODD-CHAIN-COERCIVITY.md`. Root imports
+added; root/full-tree/full audit/guard unrun. No old guard, frontier statement,
+sorry, new axiom or safety limit changes; no canonical Clay atom closes.
+
+**Previous mathematical increment (PROVED exact positive original temporal energy and its finite-chain normalization; same-marginal coercivity was OPEN at that checkpoint):**
 PROGRESS after `a903434`: `BF4ExactSlabFixedSpatialDirichletForm.energy_identity`
 proves 2E=H_2[K*V_0*V_1*g_0*g_1*(f_0-f_1)^2], with
 E=m(g*Tg*f^2)-m((g*f)*T(g*f)) and the ORIGINAL T=K V, m(p)=H[V p].
@@ -281,14 +328,13 @@ No old guard, canonical frontier statement, sorry, new axiom or resource
 limit changes. Root imports added; root/full-tree/full audit/guard unrun.
 No canonical Clay atom is declared closed.
 
-NEXT MATHEMATICAL TARGET (updated after independent same-object review):
+The then-open target, now partially supplied by the width-dependent theorem above:
 take g=T^n1, Z=m(g*Tg), A=m(g*Tg*f^2), B=m(g*Tg*f), and
-E=A-m((g*f)*T(g*f)). Using the now-proved original-window identity,
-normalization and marginal, seek epsilon*(Z*A-B^2) <= Z*E.
+E=A-m((g*f)*T(g*f)), with epsilon*(Z*A-B^2) <= Z*E.
 The required positive fraction must be controlled in spatial width, late
 cutoff and boundary depth, with nome/spacing dependence explicit. It is
 not supplied by the pure-Haar kinetic estimate.
-The marginal is V*T^n1*T^(n+1)1, NOT the V*(T^(t+1)1)^2 density of
+The marginal remains V*T^n1*T^(n+1)1, NOT the V*(T^(t+1)1)^2 density of
 `BF4ExactSlabFixedSpatialCentralVariance.centralVariance_floor`; that old
 floor cannot be reused without a same-density proof. This is an original
 ONE-step finite temporal identity, not a heat-bath generator or stationary

@@ -13,7 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original temporal Dirichlet identity and SAME finite-window normalization; OPEN same-marginal coercivity (2026-09-17 UTC)
+## PROVED original odd-marginal coercivity and positive local energy; OPEN spatially uniform fraction (2026-09-17 UTC)
+
+- **files**: `RationalVarianceCapComparison.lean`,
+  `BF4ExactSlabFixedSpatialDirichletFloor.lean`,
+  `BF4ExactSlabFixedSpatialOddLocalVariance.lean`, and
+  `BF4ExactSlabFixedSpatialDirichletCoercivity.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: K-L, both complete Vg endpoint factors and the squared jump
+  form an actual positive certificate. Exact product Haar variance gives
+  E>=L*D, D=m(g)*m(g*f^2)-m(g*f)^2. Test the original marginal cap at
+  the division-free center m(g)*f-m(g*f); discard the explicit correction
+  square and cancel only the positive input mass squared. This yields
+  Z*A-B^2<=U*Z*D. The existing positive mixFraction=L/U gives ONE loss,
+  not its square, and all terminal-message premises are constructed.
+- **actual consumers**: `terminal_energy_variance_floor` proves
+  mixFraction*(Z*A-B^2)<=Z*E for the ORIGINAL g=T^n1 and marginal VgTg.
+  `terminal_normalized_energy_variance_floor` uses the EXISTING odd-chain
+  middleRatio and normalizedEnergy with the SAME denominator. The fraction
+  is independent of depth n and late K, but depends on w and width.
+  `odd_variance_floor` and `odd_marginal_variance_floor` separately join
+  the existing local-star comparison to the actual unequal-depth chain;
+  no old even-chain variance floor is used. `plaquette_energy_floor` gives
+  normalizedEnergy(chi_1)>=mixFraction(w,width)*starRatio(w)>0 for any
+  actual spatial face; `plaquette_energy_positive` proves strict positivity.
+- **remaining**: spatial uniformity beyond the excluded small-nome guard.
+  The existing theorem mixFraction_le_width_power bounds this COMPUTED
+  fraction by 32^(-width); it does not refute a stronger actual estimate.
+  The width-independent local variance floor is not an all-observable
+  energy comparison. Same-object completed OS/scaling limits, physical-time
+  and mass calibration, nontrivial continuum survival, full QFT and every
+  compact simple group remain open. No old sorry or canonical atom closes;
+  no new unsupplied analytic field is introduced.
+- **verification**: four final focused serial checks, one worker/20 GiB;
+  12 public gates within {propext, Quot.sound}, no final errors/warnings.
+  Independent source review passed. Evidence:
+  `audits/AUDIT-ODD-CHAIN-COERCIVITY.md`. Root imports added; root/full-tree/
+  full audit/guard unrun. No sorry, new axiom, old guard, frontier statement
+  or safety limit changed.
+
+## Previous PROVED original temporal Dirichlet identity and SAME finite-window normalization; same-marginal coercivity was OPEN at that checkpoint (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialDirichletForm.lean`,
   `BF4ExactSlabFixedSpatialDirichletWindowPairing.lean`, and

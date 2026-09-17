@@ -2,6 +2,11 @@
 
 Date: 2026-09-17 UTC. Base revision: `a903434`.
 
+Successor: `AUDIT-ODD-CHAIN-COERCIVITY.md` supplies the same-marginal
+positive fraction at fixed width, uniformly in boundary depth and late
+cutoff, and an actual positive plaquette energy. Spatially uniform
+coercivity remains open; the old width-loss obstruction still applies.
+
 Whole-project goal: construct nontrivial continuum Yang--Mills on R^4 for
 every compact simple gauge group, with the required same-theory QFT structure
 and positive physical Hamiltonian gap, within the constructive axiom gate
