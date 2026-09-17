@@ -363,6 +363,63 @@ extend the zero-correlation result to the active cubical core or count it
 as a nonzero completed excitation. A new bulk analytic estimate remains
 necessary before further gap compilers are useful.
 
+**Active-core review and engaged work order (2026-09-17 22:05 UTC):**
+`audits/AUDIT-ACTIVE-CORE-TRANSFER-REMAINDER.md` records two independent
+reviews of the next calculation. Do not promote the free kinetic factor
+w^12 to an interacting transfer rate: the original pairing has spatial
+weights at BOTH endpoints. The proposed bare-output-Haar detector omits
+the target weight and is therefore deferred, together with its otherwise
+reusable four-active-link propagation pin. The old cube multiplicity
+activity also cannot replace the full quaternion heat action; its missing
+Schur normalization is already recorded in the source.
+
+The immediate mathematical test is now explicit. Write M(h)=H[V*h],
+g=T^n(1), t=Tg, Z=M(g*t), B=M(g*t*f), C=M(g*t*f^2), and
+R=T(g*f)-lambda*f*t. Weighted symmetry gives M(g*R)=(1-lambda)*B.
+The existing diagonal cleared defect is, by algebra,
+
+    (1-lambda-delta)*(Z*C-B^2) - M[g*(Z*f-B)*R].
+
+This is a working derivation, NOT a new Lean theorem or supplied bound.
+First seek control of this SIGNED, centered, full-source remainder (or
+directly the existing iterated connected numerator), retaining its actual
+partition. Merely formalizing the displayed rearrangement closes no input.
+For a fundamental active face, SU(2) character fusion offers an exact
+harmonic expansion of the source; retain both finite-cutoff boundary terms
+and do not infer signs of weighted responses from positive coefficients.
+Do not prescribe delta=1-w^12, a coupling-independent delta, or a polynomial
+weak-coupling margin without the needed estimate and physical calibration.
+
+The first bounded proof target is to remove the fusion cutoff-boundary
+remainder under the ORIGINAL partition, not to assume the bulk estimate.
+For Gamma_j=Z*J(v_j)-J(u)*Zfun(v_j), with u=P(V*g),
+v_j=P(V_rest*g*chi_j), Z=Zfun(u), and J/Zfun the original right-window
+numerator/partition, seek
+
+    headFloor(w)*abs(c_K*Gamma_(K+1)-c_(K+1)*Gamma_K)
+      <= 2*probeCap*Z^2*((K+2)*c_K+(K+1)*c_(K+1)).
+
+The sharp character interval and one-face heat floor suggest a width- and
+boundary-depth-independent bound, with an explicit all-nome tail cutoff.
+This remains an UNPROVED target, to be implemented together with the exact
+full-source fusion identity, not as a detached scalar tail compiler. Its
+success would leave the signed bulk harmonic sum open, not prove decay.
+The remainder's terminal messages and normalizer may depend on K; the
+bound must handle that dependence rather than pass them through a fixed-test
+limit. The proof must construct positivity of the full retained product
+and its actual transfer/right-window comparison, not assume those fields.
+
+Parallel work is bounded to (a) the full-source fusion identity/tail bound
+and (b) its original iterated-Wilson/limiting-form consumer and normalization
+review. No new completion, cube surrogate, isolated scalar-factor compiler,
+or group-generalization wrapper is a prerequisite. An elementary-face test
+still needs a demonstrated extension to the full Wilson observable class.
+Require a proved estimate with the stated cutoff, boundary-depth, width and
+coupling dependence before declaring the next analytic milestone. The
+small-nome completed gap/excitation and all open continuum/all-group joins
+above are unchanged. This checkpoint changes documentation only; no Lean
+file, hypothesis, canonical field or ledgered obligation is changed.
+
 ### Audit response: next execution checkpoint (2026-09-17 UTC)
 
 The whole-project target above is unchanged. The current bottleneck is an
