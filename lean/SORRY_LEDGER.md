@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED original response-null direction; third-moment/variance control OPEN (2026-09-17 UTC)
+
+- **files**: four new modules under `lean/YMGap/Continuum/`:
+  `RationalOrthogonalPair.lean`, `BF4ExactSlabConnectedResponseLinear.lean`,
+  `BF4ExactSlabTwoPlaquettePositiveNorm.lean`,
+  `BF4ExactSlabResponseNullDirection.lean`.
+- **proved**: a computable nonzero pair orthogonal to any two rationals,
+  including both-zero input (`pair`, `pair_dot_zero`, `pair_square_positive`,
+  RationalOrthogonalPair:23, :42, :56). Original connected-numerator linearity
+  (ConnectedResponseLinear:122) applies it to two fundamental physical faces.
+  `probe_connected_zero`, `probe_norm_positive`, `probe_not_constant`,
+  `probe_response_eq_third` and `no_positive_square_fraction`
+  (ResponseNullDirection:72, :81, :95, :104, :115) construct a literal
+  nonconstant probe of positive FULL original weighted norm with exactly zero
+  subtractive square. Its entire third-cumulant response remains.
+- **scope / non-closure**: any 0<w<1, cofinal K, physical/nodup selected
+  action and distinct physical faces for the positive-norm theorem. The
+  algebraic null identities need no positivity. No sign or nonzero-value
+  claim for the third cumulant; no refutation of a Yang--Mills variance
+  estimate or multi-insertion cancellation. The computed observable depends
+  on the action and cutoff; no fixed-probe limit or OS norm is asserted.
+- **remaining input / plan**: the original spatial variance UPPER bound
+  remains open. A per-insertion response proof must control the third term
+  on these directions; alternatively retain cancellations in a combined
+  response estimate. Single-factor floor/cap comparisons and local erasure
+  do not remove the changed exterior normalizer. Targeted paper review found
+  an insertion-count loss, not a family-uniform substitute. No new analytic
+  premise or canonical field is introduced. Existing small-nome completed
+  gap and excitation remain proved; physical scaling/continuum/all groups OPEN.
+- **verification**: four focused serialized one-worker/20 GiB checks; all
+  23 printed gates within {propext, Quot.sound}, one axiom-free. Independent
+  source review passed. No sorry introduced/discharged, resource or CI change.
+  Four root imports added; full-root build/audit/guard/progress NOT run.
+  Evidence/log hashes: `audits/AUDIT-RESPONSE-NULL-DIRECTION.md`.
+
 ## PROVED signed-family original temporal energy; spatial variance upper bound OPEN (2026-09-17 UTC)
 
 - **files**: three new modules under `lean/YMGap/Continuum/`:

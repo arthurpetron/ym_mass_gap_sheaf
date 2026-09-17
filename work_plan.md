@@ -195,7 +195,12 @@ Execution order:
    600*U(w)*normalizedEnergy(sum(c_p*chi_p)), with the SAME odd-chain mass.
    Next supply the original spatial variance upper bound on the justified
    coupling domain/scaling trajectory. The temporal lower bound does not
-   replace that upper bound. The precise checked
+   replace that upper bound. The response investigation now has a checked
+   limitation: one insertion's subtractive square vanishes on a computed
+   nonconstant, positive-original-norm two-plaquette direction. A per-insertion
+   upper estimate must handle the remaining third cumulant there; alternatively
+   estimate combined insertion responses while retaining their cancellations.
+   Do not assume the single square pays every coefficient direction. The precise checked
    identities and next consumers are in the current frontier subsection below.
    Preserve the completed small-nome branch above; these are steps beyond its
    guards, not missing completion work in that branch.
@@ -536,6 +541,32 @@ zero cases. No sorry, analytic premise, canonical field, resource or CI change.
 Full-root build/audit/guard/progress NOT run. Evidence and the path-specific
 variance audit: `audits/AUDIT-PLAQUETTE-FAMILY-TEMPORAL-ENERGY.md`.
 
+**Response-route contraction (PROVED nonzero null direction):** for any
+original selected action at 0<w<1 and cofinal K, two distinct physical
+fundamental faces p,q, and an inserted heat h, compute their original
+connected numerators u=C_A(chi_p,h), v=C_A(chi_q,h). Choose (a,b)=(1,0)
+when u is semantically zero and (v,-u) otherwise. The resulting literal
+F=a*chi_p+b*chi_q has a positive coefficient-square budget, positive
+FULL original weighted square norm, is not a constant polynomial, and
+C_A(F,h)=0. Thus its diagonal response is EXACTLY M_A(h)*third_A(F,F,h).
+
+These are `probe_connected_zero`, `probe_norm_positive`, `probe_not_constant`,
+`probe_response_eq_third`, and `no_positive_square_fraction`,
+`lean/YMGap/Continuum/BF4ExactSlabResponseNullDirection.lean:72`, :81, :95,
+:104 and :115. This excludes coefficient coercivity by one subtractive
+square alone; it does NOT assert the remaining third term is nonzero or
+positive, refute a Yang--Mills variance bound, or exclude cancellation among
+multiple insertion responses. The probe depends on the finite action and
+cutoff, so it cannot be passed through a fixed-observable limit without
+additional control. Its norm is an original weighted square, not an OS norm.
+
+Four new modules pass focused serialized one-worker/20 GiB checks; all 23
+printed gates lie within {propext, Quot.sound}, one axiom-free. Independent
+review passed nonvacuity and scope. No sorry, analytic input or canonical
+field changed; no full-root build/audit/guard/progress run. The local-erasure,
+gauge-symmetry and targeted literature checks did not supply the missing
+spatial upper bound. Evidence: `audits/AUDIT-RESPONSE-NULL-DIRECTION.md`.
+
 **Previous physical step (PROVED full-action signed-family coercivity):**
 for any duplicate-free finite list of physical fundamental plaquette labels,
 arbitrary signed rational coefficients c_p, and the original selected action
@@ -631,6 +662,12 @@ volume-uniform bound.
    estimate does not imply sparse original covariances. The currently proved
    spatial covariance producer retains small-nome guards. Do not infer
    locality of terminal messages from locality of V.
+   For the insertion-response route, use the checked nonconstant null
+   direction above as a necessary test of any claimed per-insertion upper
+   estimate. Its third-cumulant term survives unchanged; a joint response
+   estimate remains an alternative. Do not require summable absolute rows
+   when the signed quadratic estimate is sufficient. Fixed-r point-moment
+   bounds retaining r do not supply family-size-independent susceptibility.
 3. Only after the variance bound, consume the EXISTING clearedDefect equivalence
    below. Signed fundamental sums still do not cover products, the physical
    transfer orbit or the full dense sector; those joins remain explicit.
