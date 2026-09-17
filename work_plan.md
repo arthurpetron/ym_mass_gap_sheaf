@@ -471,6 +471,34 @@ and the actual iteration/limiting-form consumer. The small-nome completed
 gap/excitation and all open scaling, continuum and every-group joins above
 are unchanged.
 
+**Forward extension, signed observations on both sides (2026-09-17):**
+`BF4ExactSlabFixedSpatialObservedFusionSource` and
+`BF4ExactSlabFixedSpatialObservedFusionBoundary` now retain an arbitrary
+earlier observed window f=observedMessage(m,Lleft,p), with its SAME
+unobserved reference g=g_(m+Lleft). The existing window certificates supply
+a*g plus or minus f; the two-cell product identity propagates these through
+the signed fusion edge and full remaining action without independence.
+With U=Tg, A=Tf, F=T(f*chi_1), and D(h,U)=J(h)*Z(U)-Z(h)*J(U), the exact
+coupled recurrence is
+
+    D(F,U) = c_1*D(A,U) + D(B,U) + D(E,U).
+
+The previous unobserved special case could cancel c_1*D(U,U); this observed
+case CANNOT drop c_1*D(A,U). `observedFusion_small` bounds the remaining
+error by epsilon*Z(U)^2 with `relativeBoundaryCutoff(w,a*c,epsilon)`, where
+a and c are the certified left/right caps. For fixed caps and nome, the
+cutoff has no width, boundary-depth or window-length dependence. Both signs
+of both observations and their shared variables are permitted.
+
+This is new LEFT-source coverage. Merely absorbing future unobserved steps
+into the already arbitrary right window would not by itself be a new
+analytic milestone. No repeated-fusion contraction or full Wilson-orbit
+decay is supplied. The NEXT estimate must control the coupled baseline and
+bulk on the original partition, keeping their cancellations; c_1 is not
+assumed to be a contraction rate. Both focused checks passed, nine printed
+gates within {propext, Quot.sound}. Evidence:
+`audits/AUDIT-OBSERVED-FUSION-BOUNDARY.md`. No canonical frontier is closed.
+
 ### Audit response: next execution checkpoint (2026-09-17 UTC)
 
 The whole-project target above is unchanged. The current bottleneck is an

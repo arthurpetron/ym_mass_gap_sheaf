@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED signed observed-source fusion error; coupled bulk OPEN (2026-09-17 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialObservedFusionSource.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialObservedFusionBoundary.lean`.
+- **proved**: `retainedMessage_comparison` and `observedMessage_comparison`
+  (Source:136, :175) construct the two signed source/edge comparisons from
+  the ACTUAL earlier observed window and full retained spatial action.
+  `signedSource_fusion` (Source:219) subtracts c_1*T f, not c_1*T g.
+  `observedFusion_error_pin` (Boundary:103) retains the resulting
+  c_1*D(T f,T g) connected term. `observedFusion_bound` (:153) and
+  `observedFusion_small` (:234) give the explicit ORIGINAL-partition error
+  bound with both signed observations present and arbitrary shared variables.
+- **scope**: f=observedMessage(m,Lleft,p), g=g_(m+Lleft), U=Tg;
+  |D(T(f*chi_1),U)-[c_1*D(Tf,U)+D(B,U)]|<=epsilon*Z(U)^2.
+  The explicit cutoff uses nome and the product of the two certified caps;
+  for fixed caps it has no width, either boundary depth or window length
+  dependence. Zero caps are included. No raw unnormalized limit, uniformity
+  as nome tends to one, repeated-fusion decay or full Wilson coverage is
+  inferred. No positivity or independence is assumed of the observed source.
+- **remaining / actual consumer**: cancellation-preserving control of the
+  COUPLED original baseline and signed bulk, then regulator-controlled
+  all-time Wilson decay and same-theory scaling. Existing cutoff-error
+  freedom in the right window is not itself new mixing. Continuum survival,
+  physical mass, full QFT and every-group joins remain open; no canonical
+  frontier is closed or weakened.
+- **verification**: two focused serialized one-worker/20 GiB checks;
+  all nine printed gates within {propext, Quot.sound}. No sorry added or
+  discharged; independent mathematical/source review passed. No new analytic
+  oracle, resource or CI change. Two semantic
+  root imports added; root/full-tree/full audit/guard/progress NOT run.
+  Source map and logs: `audits/AUDIT-OBSERVED-FUSION-BOUNDARY.md`.
+
 ## PROVED three bidirectional inputs; continuum meeting points OPEN (2026-09-17 UTC)
 
 - **survival/calibration branch**: new
