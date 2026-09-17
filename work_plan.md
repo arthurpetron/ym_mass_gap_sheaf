@@ -495,7 +495,40 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current result (PROVED JOINT signed-cost nonnegativity and unavoidable
+**Current result (PROVED retained reciprocal-source budget; uniform comparison
+OPEN):** for the ACTUAL finite family, put M_i=P_i(nu), let J_i,k be its
+existing reciprocal polynomial for nu*M_i, and let tau_i be the existing
+ordinary-Haar piece of nu*Phi. With B_I=sum_{i in I} H[M_i*J_i,k*tau_i^2],
+`family_norm_le_sourceCost` and `sourceCost_scaled_le_pieceSquares`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialReciprocalSourceBudget.lean:73`, `:86`,
+prove
+
+    sum_{i in I} ||q_i||_nu^2 <= B_I,
+    ell * B_I <= sum_{i in I} H[tau_i^2].
+
+The second inequality proves this retained finite budget is no worse than
+the old global lower-window estimate. Nonnegative certificates for J and
+1-nu*M*J plus weighted Pythagoras prove the first. No exact reciprocal or
+new analytic input is used. `fringe_cost_le_sourceCost` (:118) bounds the
+unavoidable fringe cost by (1-h)*B_fringe; `diagonal_cost_le_sourceCost`
+(:131) bounds D by (U-h)*B_labels after arbitrary finite corrections.
+The budget still uses FULL nu and the actual finite degree and global
+window inside J. There is no claimed regulator-uniform target-norm bound.
+
+**Next mathematical test:** estimate this retained B_fringe on the actual
+approximation schedule relative to ||Phi||_nu^2, using the original source
+and conditional spatial action, with explicit width/depth/cofinal-cutoff
+dependence. This is a sufficient route for bounding fringe cost; failure
+of a bound on B alone would NOT prove growth of the actual fringe norm.
+Do not select k=0 (zero inverse) without the already required approximation
+guarantee. Changing the correction degree does not change fringe entries.
+The current telescope is numeric; reordering the final active-plus-fringe
+sum does not change its pieces. A different projection order or producer
+needs its own source, centering and approximation pins. No such change is
+made here. The joint active upper cost and continuum/all-group joins remain
+open. Evidence: `audits/AUDIT-RECIPROCAL-SOURCE-BUDGET.md`.
+
+**Preserved result (PROVED JOINT signed-cost nonnegativity and unavoidable
 fringe norm cost; OPEN regulator-controlled UPPER budget):** write
 J(q)=D(q)+2hR(q) for the existing original-marginal family cost. The new
 `joint_remainder_nonnegative` and `fringe_norm_cost_lower_bound`,
@@ -628,7 +661,13 @@ determinant bound alone introduces a family-size loss.
 The reduced-cube coefficient-one obstruction suggested by the reviewer is
 not a checked counterexample and is not used as a theorem.
 
-Current joint-cost verification: four focused serialized one-worker/20 GiB
+Current reciprocal-source verification: two focused serialized one-worker/20 GiB
+checks; all 11 gates within {propext, Quot.sound}; no final warnings/errors/sorryAx.
+Independent mathematical/source review passed. Two new root imports; no new
+sorry, analytic premise or canonical-field change. Root/full-tree build,
+full-audit/guard NOT run; CI and safety limits unchanged.
+
+Previous joint-cost verification: four focused serialized one-worker/20 GiB
 checks, 21 gates (15 new, six existing) within {propext, Quot.sound}; no
 final warnings/errors/sorryAx. Independent mathematical/source review passed.
 Three root imports and one shared algebra theorem; no new sorry, analytic

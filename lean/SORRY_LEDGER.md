@@ -13,7 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED JOINT signed-cost nonnegativity/fringe lower bound; UPPER budget OPEN (2026-09-17 UTC)
+## PROVED retained reciprocal-source norm/cost budget; uniform comparison OPEN (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialActualSeedReciprocalNorm.lean` and
+  `BF4ExactSlabFixedSpatialReciprocalSourceBudget.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: actual finite J_i,k and 1-nu*(P_i nu)*J_i,k have nonnegative
+  certificates (`inverseCertificate`, ActualSeedReciprocalNorm:76;
+  `inverseResidualCertificate`, :89). Weighted conditional Pythagoras and
+  M*J*(1-nu*M*J)*tau^2>=0 give H[nu*q_i^2]<=H[M*J*tau_i^2]
+  (`test_norm_le_reciprocal_source`, :118). The retained budget also obeys
+  ell*H[M*J*tau_i^2]<=H[tau_i^2] (`reciprocal_source_le_scaled_square`, :148).
+  `sourceCost` (ReciprocalSourceBudget:65) sums these actual polynomials on
+  any supplied valid coordinate list. `family_norm_le_sourceCost` (:73),
+  `sourceCost_scaled_le_pieceSquares` (:86) and
+  `corrected_family_norm_le_sourceCost` (:103) retain that refinement for
+  the actual family and arbitrary finite second-stage degrees. The same
+  source sums bound fringe cost by (1-h)*B_fringe (:118) and D by
+  (U-h)*B_labels (:131), in the original marginal.
+- **input removed / refinement**: the next budget need not replace 1/nu
+  by the global minimum loss before estimating the original source. This
+  is a proved sharper finite upper estimate, not a renamed assumed bound.
+- **open residue**: compare B_fringe with the same target norm along a
+  sufficient actual approximation schedule with regulator control. J still
+  depends on its finite degree and original global window. Failure of a
+  bound on this upper estimate alone does not refute the actual fringe
+  budget. Neither uniformity nor an inverse limit/modified producer is
+  claimed. The active joint signed upper cost, physical scaling, same-theory
+  continuum/QFT and every-group obligations remain open.
+- **verification**: two focused serialized one-worker/20 GiB checks; all
+  11 gates within {propext, Quot.sound}; no final warnings/errors/sorryAx.
+  Independent mathematical/source review passed. Two root imports, no
+  sorry added/discharged, new analytic premise or canonical-field change.
+  Root/full-tree/full-audit/guard NOT run; CI and safety limits unchanged.
+  Evidence: `audits/AUDIT-RECIPROCAL-SOURCE-BUDGET.md`.
+
+## Previous PROVED JOINT signed-cost nonnegativity/fringe lower bound; UPPER budget OPEN (2026-09-17 UTC)
 
 - **files**: `QuaternionHaarFiniteFamilyDual.lean` (one added theorem),
   `BF4ExactSlabFixedSpatialOneSidedFamily.lean`,
