@@ -77,6 +77,12 @@ decay is infrastructure, not completion.
    shared partition factors before taking absolute values. Do not pass changing
    observables through a fixed-observable limit. A physical mass claim requires
    the actual time/spacing calibration, not just a dimensionless rate below one.
+   Demand a rate on an explicitly justified scaling trajectory when that is
+   sufficient; do not turn an all-bare-coupling theorem into an unnecessary
+   prerequisite. A rounded heat-window budget is not an interacting-transfer
+   estimate: prove its SAME-operator join before using it for physical scaling.
+   This is an execution priority, not authorization to weaken any canonical
+   field or replace the current original Wilson carrier by a legacy carrier.
 5. **Keep a bounded useful frontier.** Each checkpoint should supply an actual
    object/estimate consumed by the route, reduce a named open input, or rule out
    a proposed route. State the residue. Stop extending a branch when its intended
@@ -495,7 +501,28 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current result (PROVED original one-vertex charged-sector coercivity):**
+**Current physical result (PROVED one-plaquette original temporal fraction):**
+the literal fundamental spatial plaquette c satisfies
+
+    starRatio(w) <= 2*normalizedEnergy(c),
+    clearedDefect(w, starRatio(w)/8, K, width, g_n, c, c) >= 0.
+
+`plaquette_energy_floor` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteEnergyFloor.lean:257`
+removes the whole-volume mixFraction from this observable's energy floor.
+`plaquette_clearedDefect_nonnegative` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteDefect.lean:168`
+then supplies the EXISTING cleared energy/variance consumer on this ONE
+physical diagonal, using the exact original character-square cap four.
+The action, actual messages g_n=T^n1, odd marginal nu=V*g_n*g_(n+1),
+and shared partition are unchanged. Constants depend explicitly on 0<w<1,
+not width, terminal depth or K>=headCutoff(w). All three new modules pass
+focused serialized checks; all eleven gates are within {propext, Quot.sound},
+one axiom-free. No full-root build/audit/guard/progress run or canonical
+field change. This is not a signed-span, time-orbit or completed physical gap.
+Evidence: `audits/AUDIT-PHYSICAL-PLAQUETTE-ENERGY.md`.
+
+**Previous controlled auxiliary result (PROVED one-vertex charged sector):**
 the full spatial vertex star includes every incident retained link, including
 fringe links. Its exact sign change preserves the original spatial action,
 the original kinetic map under simultaneous endpoint signs, and the actual
@@ -533,19 +560,47 @@ route. Center-even is not synonymous with gauge-invariant. The center-even
 estimate, the full all-polynomial estimate, and the physical gap remain OPEN.
 No canonical field or analytic guard was weakened.
 
-**Next mathematical proposition and existing consumer:** return to the
-retained center-even interaction. Seek an explicit positive delta(w), with
-width/depth/cofinal-cutoff control, proving nonnegativity of the ORIGINAL
+**Checked causal argument for the physical increment:**
+`BF4ExactSlabSelectedStarPredictionError.polynomial_square_floor` proves
+starRatio(w)*H[A] <= H[A*(p-q)^2] for the original selected action A,
+fundamental plaquette character p, and any supported polynomial q localized
+away from one link of p. All remaining action factors are retained. The
+constructed original adjacent-time plaquette jump takes q to be the
+upper-time character, and
+`BF4ExactSlabFixedSpatialDirichletWindow.normalizedEnergy_window` pins the
+normalized jump square to TWICE the original transfer energy. The existing
+`BF4ExactSlabFixedSpatialWindowProbeSpan.windowRatio_span_mul_originalFiniteValue`
+provides the original signed-window rejoin, not a substituted endpoint law.
+
+**Next full-sector proposition and existing consumer:** retain the
+center-even interaction and seek explicit positive delta_s along a justified
+nome/spacing trajectory (a fixed-w theorem may be useful but is not itself
+the Clay scaling theorem). With the required width/depth/cofinal-cutoff
+control, prove nonnegativity of the ORIGINAL
 `BF4ExactSlabFixedSpatialClearedCovariance.clearedDefect` on centered finite
 combinations of retained plaquette characters. Its proved
 `clearedDefect_diagonal_nonnegative_iff` is the exact energy/variance consumer;
 `terminal_existing_fraction_nonnegative` currently supplies only the
 width-dependent `mixFraction`. Retain signed cross terms and shared partition
-factors. Any reduced-active calculation must rejoin the original objects
+factors. A single plaquette's energy floor does NOT prove this estimate for
+signed combinations, products or the physical transfer orbit. The private-link
+argument does not automatically extend even to a closed six-face cube:
+`Z4CoarseUnitCubeBlockGeometry.unitCube_geometricIncidentPlaquettes_length_eq_two`
+shows two faces at every touched link. For combinations, the remaining lower
+faces enter the predictor; their locality away from the selected link must
+be proved, not inferred from upper-time separation. Prioritize this shared-link
+cancellation problem over a sequence of isolated diagonal bounds. Any
+reduced-active calculation must rejoin the original objects
 through `BF4ExactSlabFixedSpatialActiveEnergy`, not rename the terminal law.
 Do not repeat charged-sector estimates or local physical variance floors:
 neither supplies the missing signed interacting comparison. Physical scaling,
 same-theory OS/QFT reconstruction and every compact simple group remain open.
+`BF4RoundedPositiveAFWindows.retainedHarnack` does not identify its supplied
+heat product with the original interacting transfer. The scale-indexed
+`BF4PhysicalDynamicVacuumSectorCompletedFamily.DynamicVacuumSectorCompletedFamily`
+uses a different legacy completed carrier; it is not the missing original
+Wilson join. No current concrete trajectory/blocked-window closure of that
+join was found by the source audit. No canonical statement has been changed.
 Evidence and verification boundary: `audits/AUDIT-VERTEX-STAR-COERCIVITY.md`.
 
 **Previous diagnostic (PROVED actual finite fringe lower bound):** the requested

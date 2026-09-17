@@ -13,7 +13,45 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original one-star charged-sector coercivity; center-even interaction OPEN (2026-09-17 UTC)
+## PROVED original physical one-plaquette fraction; signed sector OPEN (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabSelectedStarPredictionError.lean`,
+  `BF4ExactSlabFixedSpatialPlaquetteEnergyFloor.lean`,
+  `BF4ExactSlabFixedSpatialPlaquetteDefect.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: `polynomial_square_floor` (PredictionError:164) bounds the
+  prediction error of an actual fundamental plaquette against any supported
+  polynomial localized away from one selected link. Erase only incident
+  selected action factors; retain the complete complement and restore at
+  most six factors. The exact retained error is H[R]+H[R*q^2]. The existing
+  signed-window span pin applies this to the actual adjacent-time difference,
+  preserving its original partition. `plaquette_energy_floor`
+  (PlaquetteEnergyFloor:257) gives starRatio(w)<=2*normalizedEnergy(c),
+  removing this physical observable's previous whole-volume mixFraction.
+  The actual raw character-square cap four then gives
+  `plaquette_clearedDefect_nonnegative` (PlaquetteDefect:168), with the explicit
+  positive fraction starRatio(w)/8 in the EXISTING original cleared defect.
+- **scope**: ONE literal fundamental spatial plaquette. Original action,
+  transfer, terminal messages and odd marginal nu=V*g_n*g_(n+1) retained.
+  Constants depend on 0<w<1, not width, depth or K>=headCutoff(w). No
+  nome-, bare-coupling- or spacing-uniform positive physical rate is claimed.
+- **remaining input / plan**: signed combinations, products and the physical
+  transfer orbit are NOT controlled. The private-link argument does not
+  automatically apply to a closed six-face cube, whose touched links each
+  meet two faces. Prioritize shared-link cancellations in the original
+  clearedDefect over further isolated diagonal bounds. Require rate control
+  along an explicitly justified physical scaling trajectory, not every bare
+  coupling as an unnecessary prerequisite; no canonical statement is changed.
+  Physical calibration, same-theory continuum/QFT and every compact simple
+  group remain OPEN. Legacy rounded heat windows do not supply the current
+  original-operator join.
+- **verification**: three focused serialized one-worker/20 GiB checks;
+  eleven gates within {propext, Quot.sound}, one axiom-free; final logs clean.
+  No sorry added/discharged, analytic premise or canonical field changed;
+  no resource options/limits or CI changes. Three semantic-root imports;
+  full-root build/audit/guard/progress NOT run. Evidence and exact log hashes:
+  `audits/AUDIT-PHYSICAL-PLAQUETTE-ENERGY.md`.
+
+## Previous PROVED original one-star charged-sector coercivity; center-even interaction OPEN (2026-09-17 UTC)
 
 - **files**: `SU2QuaternionWeightedProductBlockErasure.lean`,
   `BF4ExactSlabFixedSpatialVertexStar.lean`, `SU2QuaternionProductHeatCenterSign.lean`,

@@ -4,7 +4,36 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original one-vertex charged-sector coercivity (2026-09-17)
+## Current increment: physical one-plaquette original variance fraction (2026-09-17)
+
+PROGRESS after 1e99e71. The selected-star prediction theorem now permits a
+polynomial predictor independent of one plaquette link, not merely a rational
+constant. Its exact retained-action identity and at-most-six factor comparison
+feed the original adjacent-time signed-window pin, with the shared partition.
+For an actual fundamental spatial plaquette c:
+
+    starRatio(w) <= 2*normalizedEnergy(c),
+    clearedDefect(w, starRatio(w)/8, K, width, g_n, c, c) >= 0.
+
+The second statement uses the exact character-square cap four in the original
+odd marginal. This removes the whole-volume mixFraction for this ONE physical
+diagonal. Constants depend explicitly on nome, not width, terminal depth or
+admissible late heat cutoff. No full signed-span, time-orbit or completed-gap
+claim. A closed six-face cube already has no private face edge; the next
+mathematical obstruction is shared-link cancellation in combinations.
+
+The plan also permits the physically sufficient chosen scaling trajectory,
+without changing canonical fields or pretending legacy rounded heat windows
+are the current original interacting operator. Physical calibration,
+same-theory continuum/QFT and every compact simple group remain open.
+
+Verification: three focused serialized one-worker/20 GiB checks; eleven gates
+within {propext, Quot.sound}, one axiom-free; final logs clean. No sorry,
+analytic premise, canonical field, resource limit or CI change. Three root
+imports; full-root build/audit/guard/progress NOT run. Evidence:
+`audits/AUDIT-PHYSICAL-PLAQUETTE-ENERGY.md`.
+
+## Previous increment: original one-vertex charged-sector coercivity (2026-09-17)
 
 PROGRESS after 6746672. Full-star spatial symmetry and actual partial-Haar
 equivariance produce symmetry of the ORIGINAL transfer and messages T^n1.
