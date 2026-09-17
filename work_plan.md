@@ -169,6 +169,42 @@ One focused serialized 20 GiB check passed with eight public gates within
 passed. One root import added; full-root/full-tree/audit/guard/progress NOT
 run. Evidence: `audits/AUDIT-ALL-EVEN-WILSON-RESPONSE-2026-09-17.md`.
 
+**Complex algebra and SAME-rate consumer, checked 2026-09-17:**
+`BF4WilsonSpatialUnionComplexification` constructs the direct pair of the
+CURRENT real Wilson completion, with exact real embedding, positive-definite
+Hermitian pairing and sesquilinearity for two explicitly supplied scalar
+moduli. The original time maps and commuting Wilson multipliers extend
+componentwise. `BF4WilsonSpatialUnionComplexBounds.complex_orthogonal_iff`
+retains BOTH real vacuum-complement conditions. Summing the existing real
+estimates proves `complexTime_norm_decay` and `complex_even_form_decay` with
+the SAME q^n for every complex vector orthogonal to the embedded original
+unit; multiplier caps also remain unchanged. This fills an actual algebraic
+backward requirement without a new analytic hypothesis. It does not supply
+unrestricted quotient-complex scalar-field/module packaging, arbitrary
+quotient-sequence completeness, one-step form positivity or continuum QFT.
+The two final focused serialized 20 GiB checks passed; all 51 printed gates
+lie within {propext, Quot.sound}. Independent source reviews passed. Two
+semantic-root imports added; full-root/full-tree/audit/guard/progress NOT run.
+Evidence and hashes: `audits/AUDIT-COMPLEX-WILSON-AND-KINETIC-JOIN-2026-09-17.md`.
+
+**Next mathematical joins, not new assumption bundles:** the primary
+generated-Wilson-orbit estimate remains open. The plaquette coefficient
+energy floor does not prove that its span is invariant under original T.
+The available full-source dual estimate retains the signed D+2*h*R term;
+its proved nonnegative lower bound is not the upper budget needed for decay.
+Do not relabel generated states as local plaquette families. In parallel,
+an independent backward subgoal is actual product-heat positive
+semidefiniteness at every cutoff: expand its genuine character Gram channels
+and induct over selected link pairs, retaining the complete spatial weight
+inside both arguments. Existing exact pairing, Gram and Haar-factorization
+lemmas support this argument, but coordinate-column lift/support, the
+insertion expansion and final induction have NOT yet been implemented.
+Its subsequent pin to the CURRENT Wilson one-step form is also open; the
+older plaquette completion's positivity theorem does not supply that pin.
+This finite kinetic positivity is neither the missing strict interacting
+estimate nor a physical mass calibration. The cited audit records the exact
+source dependencies and residue for the next forward/backward join.
+
 ### Classical methods: review aid, not a changed proof substrate
 
 The word "constructive" in constructive quantum field theory is not itself a

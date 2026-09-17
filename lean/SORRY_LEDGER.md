@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED current Wilson complex algebra and SAME-rate bounds; full QFT OPEN (2026-09-17 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionComplexification.lean`
+  and `lean/YMGap/Continuum/BF4WilsonSpatialUnionComplexBounds.lean`.
+- **proved algebra**: the actual real pair carrier (`ComplexCarrier`, :199),
+  Hermitian form (`inner`, :210), scalar action with two supplied QCauchy
+  moduli (:214), exact real embedding (:258), positive definiteness (:285),
+  sesquilinearity (:321, :331) and modulus/value congruence (:337).
+  Componentwise original time and Wilson multipliers retain linearity,
+  symmetry, time composition and equal-time commutation (:348--393).
+- **actual consumer**: `complex_orthogonal_iff` (Bounds:68) retains both
+  real components. `complexTime_norm_decay` (:97) and
+  `complex_even_form_decay` (:105) give the original q^n bound on EVERY
+  complex vector in that vacuum complement; `complexMultiply_norm_bound`
+  (:116) preserves the original cap. No new analytic hypothesis or constant.
+- **open**: full quotient-complex scalar-field/module packaging and
+  arbitrary quotient-sequence completeness; current one-step form positivity;
+  changing-spacing same-theory OS/field construction, survival, physical
+  generator calibration and every compact simple group. No canonical atom
+  is closed or weakened. Product kinetic PSD has a reviewed finite Gram
+  argument but its local lift/support/expansion/induction declarations and
+  current-Wilson-form pin are NOT yet supplied. The primary generated-orbit
+  signed-cost upper budget remains open; a nonnegative lower bound is not it.
+- **verification**: both final focused checks passed, serialized one-worker
+  explicit 20 GiB cap, all 51 public gates within {propext, Quot.sound}.
+  The initial complexification check found pattern-layout and quotient-goal
+  elaboration errors, corrected before the final clean run. The bounds
+  target passed its first check after a namespace fix from source review.
+  Parent full source inspection and independent mathematical reviews passed.
+  No sorry introduced/discharged, new analytic oracle, canonical statement,
+  CI or resource change. Two root imports added; full-root/full-tree/audit/
+  guard/progress NOT run. Evidence:
+  `audits/AUDIT-COMPLEX-WILSON-AND-KINETIC-JOIN-2026-09-17.md`.
+
 ## PROVED all-even Wilson response lower bound; scale survival OPEN (2026-09-17 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionResponseLower.lean`.

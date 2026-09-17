@@ -5012,6 +5012,9 @@ import YMGap.Continuum.BF4WilsonSpatialUnionTimeZeroMultiplier
 import YMGap.Continuum.BF4WilsonTimeZeroIntrinsicSymmetry
 import YMGap.Continuum.BF4WilsonSpatialUnionTimeZeroOperator
 import YMGap.Continuum.BF4WilsonSpatialUnionTimeZeroCommutation
+-- Direct complexification preserves the original pairing, maps and gap rate.
+import YMGap.Continuum.BF4WilsonSpatialUnionComplexification
+import YMGap.Continuum.BF4WilsonSpatialUnionComplexBounds
 import YMGap.Continuum.BF4WilsonTimeZeroVacuum
 import YMGap.Continuum.BF4WilsonTimeZeroCorrelations
 -- Every original signed Wilson window has exact finite code on this SAME carrier.
