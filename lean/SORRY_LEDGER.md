@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED strict full-product kinetic contraction independent of spatial width; OPEN spatial-action cancellation and interacting OS comparison (2026-09-17 UTC)
+## PROVED original temporal Dirichlet identity and SAME finite-window normalization; OPEN same-marginal coercivity (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialDirichletForm.lean`,
+  `BF4ExactSlabFixedSpatialDirichletWindowPairing.lean`, and
+  `BF4ExactSlabFixedSpatialDirichletWindow.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: weighted symmetry and exact Fubini retain K(x,y)V(x)V(y)g(x)g(y).
+  Twice E=m(g*Tg*f^2)-m((g*f)*T(g*f)) is its squared-difference integral.
+  Constructed positive certificates imply E>=0; generic g is not assumed
+  to have positive mass. For the actual g=T^n1, terminalPair_positive
+  supplies the strictly positive SAME denominator Z=m(T^(n+1)1*T^n1).
+- **actual consumer**: `edge_window_pairing` pins this edge to the existing
+  original one-step window with n boundary steps on both sides.
+  `oddMass_compactPartition` gives exactly 2*n+1 original transitions.
+  `normalizedEnergy_window` proves 2E/Z equals that window's squared jump
+  expectation; `marginal_middleRatio` pins its diagonal moments to the
+  SAME odd-chain measure. No stationary vector or new probability law.
+- **remaining**: with A=m(g*Tg*f^2) and B=m(g*Tg*f), prove a positive
+  controlled fraction epsilon*(Z*A-B^2)<=Z*E, uniformly in the needed
+  width, late cutoff and boundary depth, with explicit nome/spacing
+  dependence. Pure kinetic contraction and E>=0 do not prove this.
+  The earlier centralVariance_floor concerns V*(T^(t+1)1)^2, not V*g*Tg;
+  do not reuse it without a same-density proof. Temporal-limit/completed
+  OS, physical time/mass calibration, same-theory continuum/QFT and
+  every compact simple group remain open. This is a finite ONE-step
+  temporal energy, not a link-update heat-bath gap. No old hole or
+  canonical atom closes; no new open analytic field is introduced.
+- **verification**: three focused serial checks, one worker/20 GiB;
+  all 19 public gates within {propext, Quot.sound}, no final errors/warnings.
+  Independent mathematical source review passed. Exact evidence in
+  `audits/AUDIT-ORIGINAL-TEMPORAL-ENERGY.md`. Root imports added;
+  root/full-tree/full audit/guard unrun. No sorry, new axiom, old guard,
+  canonical frontier statement or safety limit changed.
+
+## Previous PROVED strict full-product kinetic contraction independent of spatial width; OPEN spatial-action cancellation and interacting OS comparison (2026-09-17 UTC)
 
 - **files**: `SU2QuaternionHaarBlockConditionalAlgebra.lean`,
   `SU2QuaternionProductHeatMarginals.lean`,

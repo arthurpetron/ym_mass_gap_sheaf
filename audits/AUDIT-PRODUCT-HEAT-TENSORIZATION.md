@@ -2,6 +2,10 @@
 
 Date: 2026-09-17 UTC. Base revision: `889c75d`.
 
+Successor: `AUDIT-ORIGINAL-TEMPORAL-ENERGY.md` constructs the SAME
+original finite-window energy and marginal, avoiding the V-squared norm
+comparison on that route. Its uniform positive variance fraction remains open.
+
 Whole-project goal: construct nontrivial continuum Yang--Mills on R^4 for
 every compact simple gauge group, with the required same-theory QFT structure
 and positive physical Hamiltonian gap, within the constructive axiom gate

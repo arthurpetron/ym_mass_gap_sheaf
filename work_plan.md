@@ -179,8 +179,14 @@ small-nome width-uniform estimate remains proved and unchanged.
 Execution order:
 
 1. **Primary mathematical work: a cancellation-preserving original-action
-   estimate with spatial uniformity beyond the small-nome guard.** The immediate
-   existing consumer is
+   estimate with spatial uniformity beyond the small-nome guard.** The active
+   route is now the original finite temporal Dirichlet energy described below:
+   use its SAME odd-chain marginal and seek a positive controlled fraction of
+   that marginal variance. This bypasses the unproved V-squared norm comparison
+   without deleting V. Neither positivity of this energy nor the proved pure
+   kinetic contraction supplies that fraction. The signed spatial-face
+   response remains an alternative producer, not a separate checklist to fill.
+   Its immediate existing consumer is
    `BF4ExactSlabAllNomeFaceSetComparison.insertion_bound_eventually`
    (`lean/YMGap/Continuum/BF4ExactSlabAllNomeFaceSetComparison.lean:86`): bound
    the signed insertion determinant before division, retaining BOTH original
@@ -247,7 +253,55 @@ to inhabit by unrelated models.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED width-independent strict contraction of the actual full kinetic layer; OPEN spatial-action comparison and interacting OS gap beyond the small-nome guard):**
+**Latest mathematical increment (PROVED exact positive original temporal energy and its finite-chain normalization; OPEN same-marginal coercivity):**
+PROGRESS after `a903434`: `BF4ExactSlabFixedSpatialDirichletForm.energy_identity`
+proves 2E=H_2[K*V_0*V_1*g_0*g_1*(f_0-f_1)^2], with
+E=m(g*Tg*f^2)-m((g*f)*T(g*f)) and the ORIGINAL T=K V, m(p)=H[V p].
+`energy_nonnegative` constructs the full positive edge certificate from
+the existing K/V certificates and a supported nonnegative message. No
+inverse, eigenvector, stationary law or desired gap is assumed.
+
+`BF4ExactSlabFixedSpatialDirichletWindowPairing.edge_window_pairing`
+sets g=T^n1 and pins the full edge to the existing one-step window.
+`BF4ExactSlabFixedSpatialDirichletWindow.oddMass_compactPartition`
+identifies its positive denominator with the original partition having
+2*n+1 transitions. `normalizedEnergy_window` identifies twice E/Z with
+the existing normalized squared-difference window; `marginal_middleRatio`
+pins diagonal moments to that SAME odd-chain marginal. Thus this route
+avoids the V-squared norm comparison without dropping spatial factors.
+All finite identities allow every width (including zero) and boundary
+depth. Positivity requires the explicit 0<w<1 and K>=headCutoff(w).
+No uniform positive variance fraction is proved or hidden as an input.
+
+Three focused serialized one-worker/20 GiB checks pass; all 19 public gates
+stay within {propext, Quot.sound}, with no final warnings/errors. Independent
+same-object source review passed. See `audits/AUDIT-ORIGINAL-TEMPORAL-ENERGY.md`
+for the exact missing inequality, rejected density substitution and evidence.
+No old guard, canonical frontier statement, sorry, new axiom or resource
+limit changes. Root imports added; root/full-tree/full audit/guard unrun.
+No canonical Clay atom is declared closed.
+
+NEXT MATHEMATICAL TARGET (updated after independent same-object review):
+take g=T^n1, Z=m(g*Tg), A=m(g*Tg*f^2), B=m(g*Tg*f), and
+E=A-m((g*f)*T(g*f)). Using the now-proved original-window identity,
+normalization and marginal, seek epsilon*(Z*A-B^2) <= Z*E.
+The required positive fraction must be controlled in spatial width, late
+cutoff and boundary depth, with nome/spacing dependence explicit. It is
+not supplied by the pure-Haar kinetic estimate.
+The marginal is V*T^n1*T^(n+1)1, NOT the V*(T^(t+1)1)^2 density of
+`BF4ExactSlabFixedSpatialCentralVariance.centralVariance_floor`; that old
+floor cannot be reused without a same-density proof. This is an original
+ONE-step finite temporal identity, not a heat-bath generator or stationary
+OS gap. The later two-step OS and physical-time joins remain necessary.
+
+Retain `BF4ExactSlabConnectedFaceResponse.response_identity` and
+`finite_response_bound` as an alternative quantitative route on their
+original signed response and BOTH partition factors. Its existing consumer
+is `BF4ExactSlabAllNomeFaceSetComparison.insertion_bound_eventually`.
+Review found free-link and singleton cancellation already proved; another
+wrapper around them does not supply the missing summable insertion estimate.
+
+**Previous mathematical increment (PROVED width-independent strict contraction of the actual full kinetic layer; OPEN spatial-action comparison and interacting OS gap beyond the small-nome guard):**
 PROGRESS after `889c75d`: `SU2QuaternionProductHeatTensorization.kineticMap_centered_square_bound`
 proves H[(K f)^2] <= squaredHeatRate(w) H[f^2] for every supported
 Haar-centered polynomial, every original spatial width (including zero),
@@ -278,12 +332,6 @@ No division or positive reference mass is needed. All spatial factors
 remain twice on the right-hand side; this is not an interacting OS norm
 comparison or centering by the stationary physical vacuum.
 
-NEXT MATHEMATICAL TARGET: preserve cancellation while controlling the actual
-spatial action. Use `BF4ExactSlabConnectedFaceResponse.response_identity`
-and `finite_response_bound` on their original signed response and BOTH
-partition factors; seek actual insertion coefficients summable over the
-required spatial faces with nome/support dependence explicit. The existing
-consumer remains `BF4ExactSlabAllNomeFaceSetComparison.insertion_bound_eventually`.
 Do not infer a width-uniform comparison of H[(V F)^2] with H[V F^2]
 from positivity alone, replace V by its product cap, or identify either
 norm with the physical OS norm without a theorem. The fixed-spacing
