@@ -495,7 +495,53 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current result (PROVED one grouped fringe test; OPEN active/mixed stable cost):**
+**Current result (PROVED combined active/grouped-fringe bound; OPEN uniform stability):**
+`actualResidual_grouped_energy`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGroupedFringeCost.lean:114`,
+now proves, for the SAME original corrected sum S=A+r,
+
+    h*H[nu*f*S]^2 <= E_gn(f) *
+      (h*H[nu*S^2] + D_active + 2*h*R_active + (1-h)*H[nu*r^2]).
+
+Here the old family uses active-only seeds, while r is the whole signed
+fringe sum. The original action, endpoint weights, energy and finite degrees
+are unchanged. `correctedSum_split`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveSeeds.lean:149`, pins
+the new representation to the original S; `approximant_grouped_energy`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialGroupedFringeCost.lean:154`,
+supplies the already constructed approximation seeds. The mixed term is
+the old family flow evaluated at r, not a discarded or assumed-zero term.
+All active--fringe crosses enter H[nu*S^2]; the determinant cost stays signed.
+
+**Audit-driven contraction:** prepend ONE unit factor with jump(r) and
+reuse the existing family flow/marginal pins. No duplicate erased-kernel
+compiler or separate componentwise fringe budget is needed. The new cost
+is not asserted to be smaller for every test: the difference from the old
+fringe charge is (1-h)*(||sum q_i||_nu^2-sum ||q_i||_nu^2), of either sign.
+
+**Next mathematical proposition (OPEN, not an assumed budget):** investigate
+a stable choice of fringe part by integrating all inactive coordinates F
+in the SAME action. With P_F the finite Haar projection and m_F=P_F V,
+prove the exact depth-factor pins P_F(nu)=(g_n*t)*m_F and
+P_F(nu*f)=(g_n*t)*P_F(V*f), then prove that the division-free residual
+m_F*f-P_F(V*f) is weighted-transfer-null and orthogonal to F-independent
+tests. These are proposed statements, not results for the current r.
+Their consumer is a norm-controlled fringe projection, removing the
+remaining grouped-fringe cost obstruction before estimating active modes.
+An alternative decomposition would require a new same-observable pin.
+Do not silently insert reduced-marginal active tests into FamilyCost:
+reduced centering does not imply its original conditional-centering premise.
+Any reduced-operator route first needs an exact original transfer pin.
+
+Four focused serialized one-worker/20 GiB checks passed; all 19 gates use
+only {propext, Quot.sound}, with no final errors/warnings/sorryAx. Independent
+mathematical review passed. Four root imports; root/full-tree/full-audit/
+guard NOT run. No sorry, canonical field, CI or safety limit changed.
+Uniform active/mixed cost, the completed full-sector gap, physical calibration,
+continuum/QFT and every-group joins remain open. Evidence:
+`audits/AUDIT-GROUPED-FRINGE-COST.md`.
+
+**Previous checkpoint (PROVED one grouped fringe test; combined flow was then OPEN):**
 `fringeSum_transfer_pair_zero`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFringeKernel.lean:100`, proves
 H[p*T(g_n*r)]=0 for every Haar test p, where r is the full signed sum of
@@ -509,7 +555,7 @@ with coefficient one and no component-count factor.
 seeds, and `correctedSum_partition` (:198) pins r to the inactive part of
 the existing corrected sum without changing its active part or degrees.
 
-**Next:** group actual transfer-kernel modes before estimating the remaining
+**Next at that checkpoint (combined bound now proved above):** group actual transfer-kernel modes before estimating the remaining
 active/mixed flow. Use the new exact jump pairing to charge the fringe as
 one test; do not force a separate uniform bound on its component diagonals.
 The old FamilyCost identity is preserved, but it need not be the optimal

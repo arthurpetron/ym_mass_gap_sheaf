@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED grouped actual fringe-kernel estimate; OPEN active/mixed stable cost (2026-09-17 UTC)
+## PROVED combined active/grouped-fringe estimate; OPEN uniform stable cost (2026-09-17 UTC)
+
+- **files**: `QuaternionHaarUnitFamily.lean`,
+  `BF4ExactSlabFixedSpatialActiveSeeds.lean`,
+  `BF4ExactSlabFixedSpatialGroupedFringeFlow.lean`, and
+  `BF4ExactSlabFixedSpatialGroupedFringeCost.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: `grouped_fringe_marginal_energy` (GroupedFringeFlow:73)
+  joins the old centered family and one whole fringe jump in ONE original
+  temporal-energy inequality. Its exact mixed cost is the old flow at r.
+  `grouped_cost_split` (GroupedFringeCost:79) and
+  `actualResidual_grouped_energy` (:114) give
+  h*<f,S>_nu^2 <= E_gn(f)*(h*||S||_nu^2 + D_active + 2h*R_active
+  + (1-h)*||r||_nu^2), with the SAME original corrected sum S.
+  `correctedSum_split` (ActiveSeeds:149) pins that sum;
+  `approximant_grouped_energy` (GroupedFringeCost:154) supplies the
+  existing approximation seeds without a new centering premise.
+- **input removed**: the combined active/grouped-fringe inequality no
+  longer needs construction. No active--fringe term is discarded; no
+  component-count factor or duplicated fringe diagonals are charged.
+  This is an exact alternative cost, not a universal comparison with
+  the old cost or an assertion of orthogonality.
+- **open residue**: regulator-controlled stability of the combined cost
+  relative to the original centered norm. A full-fringe weighted
+  conditional projection is the next proposed producer, not a supplied
+  input or a theorem about the present r. Reduced-marginal centering
+  cannot replace original centering without a proved transfer pin.
+  The completed full-sector, physical/continuum/QFT/every-group joins
+  remain open.
+- **verification**: four final focused serialized one-worker/20 GiB checks;
+  19 gates within {propext, Quot.sound}; no final warnings/errors/sorryAx.
+  Independent mathematical review passed. Four root imports; root/full-tree/
+  full-audit/guard NOT run. No sorry added/discharged, no canonical field,
+  CI setting or safety limit changed. Evidence:
+  `audits/AUDIT-GROUPED-FRINGE-COST.md`.
+
+## Previous PROVED grouped actual fringe-kernel estimate; combined flow then OPEN (2026-09-17 UTC)
 
 - **files**: `SU2QuaternionAbsentHeatFamily.lean` and
   `BF4ExactSlabFixedSpatialFringeKernel.lean`, under `lean/YMGap/Continuum/`.
