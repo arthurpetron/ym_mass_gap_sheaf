@@ -209,6 +209,120 @@ theorem residual_gap_defects :
 theorem probe_gap_defect :
     energy endpoint probe + -(singleFactorRatio * norm endpoint probe) ≈ -9 := by decide
 
+/- The final test uses an ACTUALLY PRODUCED finite-model endpoint V*T^1(1),
+where T(f)=K(V*f) and V=(3,1,1,3). The terminal message satisfies both
+one-coordinate lower/upper windows, but multiplication by V does not
+preserve them and the centered probe has energy/norm=4/13<1/3.
+Thus imposing this iteration and its message windows does not repair the
+proposed generic inference. This finite-model V is NOT the SU(2) action.
+-/
+/-- A positive interacting potential in this finite model, NOT a YM action. -/
+def spatialPotential (x : State) : Q' := if x.1 = x.2 then 3 else 1
+
+/-- The same transfer orientation as K V, retaining the entire input potential. -/
+def transfer (v f : State → Q') : State → Q' :=
+  applyKernel (fun x => v x * f x)
+
+def terminal (v : State → Q') : Nat → State → Q'
+  | 0 => fun _ => 1
+  | n+1 => transfer v (terminal v n)
+
+def terminalEndpoint (v : State → Q') (n : Nat) (x : State) : Q' :=
+  v x * terminal v n x
+
+theorem spatialPotential_positive (x : State) : (0 : Q') < spatialPotential x := by
+  rcases x with ⟨x0, x1⟩
+  cases x0 <;> cases x1 <;> decide
+
+theorem terminal_one_values (x : State) :
+    terminal spatialPotential 1 x ≈
+      if x.1 = x.2 then Q'.mkPos 9 4 (by decide) else Q'.mkPos 7 4 (by decide) := by
+  rcases x with ⟨x0, x1⟩
+  cases x0 <;> cases x1 <;> decide
+
+theorem terminalEndpoint_one_values (x : State) :
+    terminalEndpoint spatialPotential 1 x ≈
+      if x.1 = x.2 then Q'.mkPos 27 4 (by decide) else Q'.mkPos 7 4 (by decide) := by
+  rcases x with ⟨x0, x1⟩
+  cases x0 <;> cases x1 <;> decide
+
+theorem terminalEndpoint_one_positive (x : State) :
+    (0 : Q') < terminalEndpoint spatialPotential 1 x := by
+  rcases x with ⟨x0, x1⟩
+  cases x0 <;> cases x1 <;> decide
+
+theorem terminal_one_coordinate_means (x : State) :
+    projectFirst (terminal spatialPotential 1) x ≈ 2 ∧
+      projectSecond (terminal spatialPotential 1) x ≈ 2 := by
+  rcases x with ⟨x0, x1⟩
+  cases x0 <;> cases x1 <;> decide
+
+/-- Relative to coordinate Haar probability, the kernel density is 2*k:
+its floor/cap are 1/2 and 3/2, with the SAME ratio 1/3. Both conditional
+message windows hold; this is not a window for V times the message. -/
+theorem terminal_one_coordinate_windows (x : State) :
+    let g := terminal spatialPotential 1
+    Q'.mkPos 1 2 (by decide) * projectFirst g x ≤ g x ∧
+      g x ≤ Q'.mkPos 3 2 (by decide) * projectFirst g x ∧
+      Q'.mkPos 1 2 (by decide) * projectSecond g x ≤ g x ∧
+      g x ≤ Q'.mkPos 3 2 (by decide) * projectSecond g x := by
+  rcases x with ⟨x0, x1⟩
+  cases x0 <;> cases x1 <;> decide
+
+/-- The endpoint V*g violates BOTH sides of that same window. -/
+theorem terminalEndpoint_one_window_fails :
+    let a := terminalEndpoint spatialPotential 1
+    ¬ (Q'.mkPos 1 2 (by decide) * projectFirst a (false, true) ≤ a (false, true)) ∧
+      ¬ (a (false, false) ≤ Q'.mkPos 3 2 (by decide) * projectFirst a (false, false)) := by
+  decide
+
+theorem produced_mean_zero : mean (terminalEndpoint spatialPotential 1) probe ≈ 0 := by decide
+
+theorem produced_mass :
+    sum4 (marginal (terminalEndpoint spatialPotential 1)) ≈ Q'.mkPos 157 2 (by decide) := by
+  decide
+
+theorem produced_norm :
+    norm (terminalEndpoint spatialPotential 1) probe ≈ Q'.mkPos 1053 16 (by decide) := by
+  decide
+
+theorem produced_energy :
+    energy (terminalEndpoint spatialPotential 1) probe ≈ Q'.mkPos 81 4 (by decide) := by
+  decide
+
+theorem produced_energy_ratio :
+    energy (terminalEndpoint spatialPotential 1) probe ≈
+      Q'.mkPos 4 13 (by decide) * norm (terminalEndpoint spatialPotential 1) probe := by
+  decide
+
+theorem produced_gap_defect :
+    energy (terminalEndpoint spatialPotential 1) probe +
+      -(singleFactorRatio * norm (terminalEndpoint spatialPotential 1) probe) ≈
+        -(Q'.mkPos 27 16 (by decide)) := by
+  decide
+
+/-- The same failure with the shared partition and mean correction retained. -/
+theorem produced_cleared_covariance_defect :
+    let a := terminalEndpoint spatialPotential 1
+    let Z := sum4 (marginal a)
+    Z * energy a probe +
+      -(singleFactorRatio * (Z * norm a probe + -(mean a probe * mean a probe))) ≈
+        -(Q'.mkPos 4239 32 (by decide)) := by
+  decide
+
+/-- Requiring a positive potential and an ACTUAL finite terminal iterate still
+does not preserve the one-factor ratio. The witness additionally satisfies
+`terminal_one_coordinate_windows`; this does not refute smaller fractions. -/
+theorem no_universal_terminal_singleFactor_gap :
+    ¬ (∀ (v : State → Q') (n : Nat) (f : State → Q'),
+      (∀ x, (0 : Q') < v x) → mean (terminalEndpoint v n) f ≈ 0 →
+        singleFactorRatio * norm (terminalEndpoint v n) f ≤
+          energy (terminalEndpoint v n) f) := by
+  intro h
+  exact (by decide : ¬ (singleFactorRatio * norm (terminalEndpoint spatialPotential 1) probe ≤
+    energy (terminalEndpoint spatialPotential 1) probe))
+    (h spatialPotential 1 probe spatialPotential_positive produced_mean_zero)
+
 end YMGap.Continuum.RationalWeightedProductGapObstruction
 
 #print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.State
@@ -262,3 +376,22 @@ end YMGap.Continuum.RationalWeightedProductGapObstruction
 #print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.residual_mixed_energy
 #print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.residual_gap_defects
 #print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.probe_gap_defect
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.spatialPotential
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.transfer
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.terminal
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.terminalEndpoint
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.spatialPotential_positive
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.terminal_one_values
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.terminalEndpoint_one_values
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.terminalEndpoint_one_positive
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.terminal_one_coordinate_means
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.terminal_one_coordinate_windows
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.terminalEndpoint_one_window_fails
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.produced_mean_zero
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.produced_mass
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.produced_norm
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.produced_energy
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.produced_energy_ratio
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.produced_gap_defect
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.produced_cleared_covariance_defect
+#print axioms YMGap.Continuum.RationalWeightedProductGapObstruction.no_universal_terminal_singleFactor_gap

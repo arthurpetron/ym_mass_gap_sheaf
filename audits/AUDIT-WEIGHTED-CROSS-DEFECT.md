@@ -176,3 +176,112 @@ Final log paths and SHA-256:
   `b10b5fc49bfd4c91d3c2f4d9aa096828f308f30c99ee3da9cdce875513eb1e40`
 - `/tmp/ym-actual-conditional-message-20260917.log`:
   `dccd3d785692dcc1ed542b3cabeabcd4e2b761ebf8e95e04094c72277a9aa483`
+
+## Produced-message follow-up: execution after the direction audit
+
+Date: 2026-09-17 UTC. Base revision: `5f84102`.
+
+The earlier endpoint was arbitrary. The bounded next test asks whether
+requiring an actual positive-potential transfer iterate and the proved kind
+of conditional-message windows repairs the one-factor-rate inference.
+It does not. This is still a finite model, NOT the Yang--Mills action.
+
+`spatialPotential`, `transfer`, `terminal` and `terminalEndpoint`
+(`lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean:220`,
+`:223`, `:226`, `:230`) construct, rather than assume,
+
+    V=(3,1,1,3), T(f)=K(V*f), g=T1=(9,7,7,9)/4,
+    a=Vg=(27,7,7,27)/4.
+
+Positivity and the values are checked by `spatialPotential_positive`,
+`terminal_one_values`, `terminalEndpoint_one_values` and
+`terminalEndpoint_one_positive` in that file at `:233`, `:237`, `:243`, `:249`.
+These definitions keep both endpoint factors in the existing edge energy.
+
+**Normalization matters.** The stochastic matrix k has entries 1/4 and 3/4;
+its density against coordinate Haar probability is 2k, with floor 1/2 and
+cap 3/2. Their ratio is still 1/3. `terminal_one_coordinate_means`
+(`lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean:254`)
+computes P_i g=2 for both coordinates. `terminal_one_coordinate_windows`
+(same file:263) proves both corresponding lower/upper inequalities.
+But `terminalEndpoint_one_window_fails` (same file:273) proves failure of
+both sides after multiplying by V. In particular, the new message control
+cannot silently be reused as an endpoint-weight comparison.
+
+For the same probe f=(1,0,0,-1), the kernel checks:
+
+| Quantity | Exact result | Declaration and source |
+|---|---:|---|
+| B(f) | 0 | `produced_mean_zero`, `lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean:279` |
+| Z | 157/2 | `produced_mass`, `lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean:281` |
+| N(f,f) | 1053/16 | `produced_norm`, `lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean:285` |
+| E(f,f) | 81/4 | `produced_energy`, `lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean:289` |
+| E relative to N | E=(4/13)N | `produced_energy_ratio`, `lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean:293` |
+| E-(1/3)N | -27/16 | `produced_gap_defect`, `lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean:298` |
+| ZE-(1/3)(ZN-B^2) | -4239/32 | `produced_cleared_covariance_defect`, `lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean:305` |
+
+`no_universal_terminal_singleFactor_gap`
+(`lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean:316`)
+refutes the universal claim using this explicit positive V at depth one.
+Together with its constructed message windows, the witness excludes the
+proposed generic repair at the stated ratio. It does NOT exclude every
+smaller fraction, the actual SU(2) constants, or a spatially uniform bound
+using additional structure of the actual gauge action.
+
+### Plan consequence and next actual-action task
+
+The first bounded test in the updated `work_plan.md` is complete. Stop
+extending the generic positivity/normalization shortcut at this ratio.
+The next task is an actual signed pair estimate for weighted residuals at
+links sharing an original spatial plaquette, with the full V*T^n1 retained.
+Any coefficients must be derived, and ultimately admit a width-independent
+summation budget. Neither that estimate nor its stable decomposition is
+proved here. Cauchy--Schwarz for C_delta itself would assume the missing
+positivity; reserving diagonal slack is not a proof of cross control.
+
+The exact source boundaries were independently reviewed:
+
+- `spatialWeight`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSliceHeat.lean:70`,
+  is the plaquette product. `terminalMessage` and `terminalMessage_supported`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalBracket.lean:118`, `:121`,
+  supply the full iterate and full-carrier support, not a finite-range
+  assertion for its effective interaction.
+- `conditionalMessage_lowerCertificate` and `conditionalMessage_capCertificate`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialConditionalMessage.lean:103`, `:117`,
+  control the actual message, not the endpoint V*g or its cross influence.
+- `conditionalProjection_commute`,
+  `lean/YMGap/Continuum/BF4ExactSlabStarNonneighborCommutation.lean:131`,
+  concerns full-action conditional projections. It is not vanishing of the
+  terminal temporal-form cross defect.
+- `weightedResidual_pairing`,
+  `lean/YMGap/Continuum/SU2QuaternionWeightedBlockCentering.lean:77`, exposes
+  the combined conditional covariance test already displayed above.
+- The existing global consumer remains `terminal_normalized_energy_variance_floor`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDirichletCoercivity.lean:284`,
+  with its currently width-dependent fraction.
+
+An action-specific signed cross estimate was NOT FOUND in the reviewed
+`BF4ExactSlabFixedSpatial*.lean`, `SU2QuaternionProductHeat*.lean`,
+`SU2QuaternionWeightedBlockCentering.lean`,
+`BF4ExactSlabStarLocalInfluence.lean`,
+`BF4ExactSlabStarNonneighborCommutation.lean`, and shared-star/locality modules.
+This is a source-review finding, not a nonexistence theorem.
+The full OS/scaling, physical-mass, continuum nontriviality, QFT and all-group
+obligations remain open. No canonical Clay atom closes.
+
+### Follow-up verification
+
+One focused check of `RationalWeightedProductGapObstruction.lean` passed
+through the monitored launcher, one worker and the mandatory 20 GiB ceiling,
+after process/swap preflight (6669.00 MiB swap; no competing compiler).
+All 70 printed declarations, including the 19 new declarations, are axiom-free
+or use only propext. No final warnings/errors, sorryAx, Classical dependency,
+new axiom or resource-limit change. An independent read-only source review
+confirmed the normalization, actual iteration and exact cleared defect.
+The explanatory comment was subsequently relocated within the same file to
+preserve earlier declaration line references; no checked term changed.
+No root/full-tree/full-audit/guard run; no new root import was needed.
+CI remains manual-only and no literature scan occurred.
+
+Log: `/tmp/ym-produced-terminal-gap-obstruction-20260917.log`.
+SHA-256: `e294ebc98039064f40b491ff45e32d2b1978591e601feb4f5592a1ed60fb3c34`.

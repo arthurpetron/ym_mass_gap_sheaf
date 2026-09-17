@@ -270,9 +270,72 @@ quantifier remains OPEN. Preserve refuted/defective frontier statements until
 an explicit reviewed change is authorized; their existing fields are not goals
 to inhabit by unrelated models.
 
+### Audit response: next execution checkpoint (2026-09-17 UTC)
+
+The whole-project target above is unchanged. The current bottleneck is an
+analytic estimate on the ORIGINAL interacting measure, not construction of
+another completed carrier. The existing small-nome completed gap and excitation
+are preserved; neither supplies a route through the incompatible AF guard.
+
+1. **DONE: test the proposed use of terminal-message control first.**
+   `RationalWeightedProductGapObstruction.no_universal_terminal_singleFactor_gap`
+   (`lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean:316`)
+   now excludes preservation of the one-factor 1/3 rate even for an ACTUAL
+   finite-model endpoint V*T^1(1). Its message satisfies both coordinate
+   windows (`terminal_one_coordinate_windows`, same file:263), but the
+   centered probe has E/N=4/13 (`produced_energy_ratio`, same file:293).
+   This is a bounded falsification test, not a substitute Yang--Mills theory
+   or a refutation of smaller constants. The proposed generic shortcut is
+   excluded at this rate; stop adding positivity/normalization wrappers to it.
+2. **Primary analytic target: signed cross control, with an explicit rejoin.**
+   Retain C_delta, its mean correction and the shared partition, as displayed
+   below. Investigate the actual spatial action and terminal propagation for
+   a quantitative cancellation estimate. The immediate downstream consumer
+   is `BF4ExactSlabFixedSpatialDirichletCoercivity.terminal_energy_variance_floor`
+   (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDirichletCoercivity.lean:242`),
+   followed by `terminal_normalized_energy_variance_floor` at line 284.
+   Success requires a proved bound on this SAME marginal with stated width,
+   depth, cutoff and nome dependence; a new field assuming that bound does
+   not qualify. Do not require beta-uniformity if the scaling route only
+   needs an explicitly calibrated changing-coupling rate.
+   Start with residuals at a pair of links sharing an actual spatial
+   plaquette, retaining the full terminal weight. Seek a proved signed
+   pair estimate with coefficients derived from that action and a budget
+   that could be summed without width loss. This pair estimate, its budget
+   and the weighted decomposition are OPEN, not supplied fields. Do not
+   apply Cauchy--Schwarz to C_delta itself: its positivity is the missing
+   assertion. Nor does locality of factors of V make T^n1 local.
+3. **Parallel work has bounded outputs, not parallel promises of closure.**
+   Independently review the finite falsification test, seek action-specific
+   cross-control in the existing source, and check the consumer/normalization.
+   Keep spacing/mass, full OS/QFT and all-group joins visible in the execution
+   order above. Do not reopen their proved fixed-spacing components or edit
+   defective canonical statements without the required reviewed sign-off.
+
+**Stop/replan rule:** a negative test excludes only its stated implication
+and constants. A surviving candidate is not a theorem. Do not generate a
+succession of assumption-only interfaces or generic toy counterexamples once
+the proposed shortcut is excluded. Move to an action-specific estimate, or
+record precisely why the alternate signed-response producer is needed.
+Compile only a new mathematical result, using serialized focused checks.
+
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED cross-term obstruction and actual conditional-message control; OPEN signed covariance-defect estimate):**
+**Latest checkpoint (PROVED produced-message obstruction; plan repointed to actual-action cross control):**
+The bounded test above is checked in Lean. It supplies V=(3,1,1,3),
+T(f)=K(V*f), g=T1 and a=Vg, not an arbitrary endpoint supplied as data.
+Although both conditional message windows hold, multiplication by V violates
+both sides of that same window (`terminalEndpoint_one_window_fails`,
+`lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean:273`).
+The SAME cleared covariance defect is -4239/32
+(`produced_cleared_covariance_defect`, same file:305). Thus the failure
+persists after adding produced-message structure; it is not repaired by
+keeping the normalization alone. No actual SU(2) estimate or smaller rate
+is refuted. The next task is the actual signed pair estimate in item 2,
+not another generic finite model. Evidence and verification boundary:
+`audits/AUDIT-WEIGHTED-CROSS-DEFECT.md`, produced-message follow-up.
+
+**Previous mathematical increment (PROVED cross-term obstruction and actual conditional-message control; OPEN signed covariance-defect estimate):**
 PROGRESS after `bbaab3e`: the explicit four-state positive product model in
 `RationalWeightedProductGapObstruction.no_universal_singleFactor_gap`
 refutes preserving its one-factor 1/3 bound under arbitrary positive endpoint

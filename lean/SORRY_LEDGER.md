@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED finite cross-term obstruction and ORIGINAL conditional-message control; OPEN signed covariance-defect bound (2026-09-17 UTC)
+## PROVED finite produced-message obstruction; OPEN action-specific signed pair estimate (2026-09-17 UTC)
+
+- **file**: `lean/YMGap/Continuum/RationalWeightedProductGapObstruction.lean`.
+- **construction**: positive finite-model V=(3,1,1,3), actual T(f)=K(V*f),
+  g=T1 and endpoint a=Vg. This uses the existing four-state kernel, not
+  the actual SU(2) action. `terminal_one_coordinate_windows` proves both
+  message windows with Haar-density floor 1/2 and cap 3/2.
+  `terminalEndpoint_one_window_fails` proves that multiplying by V does
+  not preserve those same bounds.
+- **obstruction**: `produced_energy_ratio` gives E=(4/13)N for the SAME
+  marginal-centered probe; `produced_cleared_covariance_defect` gives
+  ZE-(1/3)(ZN-B^2)=-4239/32. Thus
+  `no_universal_terminal_singleFactor_gap` excludes preserving the
+  one-factor 1/3 rate even for a produced terminal endpoint. It does not
+  exclude smaller rates or any action-specific Yang--Mills estimate.
+- **plan consequence**: stop the generic positivity/iteration/message-window
+  shortcut at this rate. Seek a derived signed pair estimate under the
+  actual plaquette and terminal action, with eventual spatial summability,
+  feeding the SAME `terminal_normalized_energy_variance_floor` consumer.
+  Do not assume positivity of C_delta to invoke Cauchy--Schwarz, or infer
+  locality of T^n1 from locality of V. Cross control and decomposition
+  remain open, as do OS/scaling, physical mass, continuum nontriviality,
+  full QFT and every compact simple group. No canonical atom closes and
+  no new analytic hypothesis field is added.
+- **verification**: one focused serialized one-worker/20 GiB check;
+  all 70 printed gates (19 new) are axiom-free or use only propext.
+  Independent source review passed. No errors/warnings, sorry or new
+  axiom; no frontier/guard/resource changes. An explanatory comment was
+  relocated after checking; no checked term changed. Root/full-tree/full
+  audit/guard unrun. Evidence: `audits/AUDIT-WEIGHTED-CROSS-DEFECT.md`,
+  produced-message follow-up. The plan update is not itself a proof node.
+
+## Previous PROVED finite cross-term obstruction and ORIGINAL conditional-message control; OPEN signed covariance-defect bound (2026-09-17 UTC)
 
 - **files**: `RationalWeightedProductGapObstruction.lean`,
   `SU2QuaternionProductHeatConditionalMessage.lean`,
