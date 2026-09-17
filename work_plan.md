@@ -133,7 +133,34 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED source Haar identities reach SAME-Wilson states, including an actual backtrack; OPEN canonical observable/state and OS/QFT joins):**
+**Latest mathematical increment (PROVED bounded time-zero Wilson multiplication on the SAME completion; OPEN representation laws and canonical OS/QFT joins):**
+PROGRESS after pushed `b429d2a`: fixed-slice square certificates and conditional
+reflection positivity retain the complete selected heat action and prove
+`OSnorm(a*p)^2 <= characterBound spin * OSnorm(p)^2`. The actual Wilson
+character is proved fixed-local on the original chart; the same partition
+and the existing regulator limits preserve the inequality. Common-horizon
+distributivity gives the intrinsic distance bound, and literal zero-shift
+base inclusion gives the SAME union distance bound for any supplied source
+loop. The computed tolerance `epsilon/(characterBound spin+1)` constructs
+`completedMultiply`; `completedDist_multiply_bound` proves its actual
+completed squared-distance cap. No bound is assumed as a new input.
+
+The cap is spin-only (four for the fundamental character); the limiting
+carrier retains every existing small-nome guard. The next mathematical
+consumers are linearity/symmetry and observable action on the existing
+vacuum, followed by the canonical observable/state/Hilbert/OS joins. The
+existing fixed-spacing two-step strict bound is not reopened; this observable
+bound is not a spacing-uniform spectral or physical mass estimate. Full QFT,
+spatial symmetry, changing-scale original-action control, finite positive
+physical mass, continuum survival and every compact simple group remain open.
+
+Five final focused serial one-worker/20 GiB checks pass all 35 public gates
+within `{propext, Quot.sound}`. No sorry, axiom, analytic guard, canonical
+frontier field or safety limit changed. Root imports added; root/full-tree/
+full audit/guard unrun; CI remains manual. Full causal proof and final log
+hashes: `audits/AUDIT-WILSON-SPATIAL-UNION.md`, time-zero multiplier follow-up.
+
+**Previous mathematical increment (PROVED source Haar identities reach SAME-Wilson states, including an actual backtrack; OPEN canonical observable/state and OS/QFT joins at that checkpoint):**
 PROGRESS after pushed `d985bb7`: reuse the existing `SupportedHaarEqv`
 relation. Testing by the supported difference gives zero Haar square norm.
 Conversely, the actual finite unit-weight positive Haar form makes every

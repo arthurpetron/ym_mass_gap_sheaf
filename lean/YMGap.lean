@@ -4853,6 +4853,12 @@ import YMGap.Continuum.SU2QuaternionHaarBlockEmbeddingSupportedEquality
 import YMGap.Continuum.BF4WilsonSpatialUnionHaarObservableDescent
 import YMGap.Continuum.BF4WilsonBacktrackSourceIdentity
 import YMGap.Continuum.BF4WilsonSpatialUnionHaarSourceIdentity
+-- Actual time-zero Wilson multipliers are bounded on this SAME OS completion.
+import YMGap.Continuum.BF4ExactSlabSiteMultiplierBound
+import YMGap.Continuum.BF4WilsonTimeZeroChart
+import YMGap.Continuum.BF4WilsonTimeZeroMultiplierBound
+import YMGap.Continuum.BF4WilsonTimeZeroIntrinsicMultiplier
+import YMGap.Continuum.BF4WilsonSpatialUnionTimeZeroMultiplier
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

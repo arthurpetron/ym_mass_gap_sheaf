@@ -8,6 +8,99 @@ with the required QFT axioms, isolated vacuum and strictly positive finite
 physical Hamiltonian mass gap, for EVERY compact simple gauge group,
 within the constructive axiom gate. **The Clay target remains OPEN.**
 
+## Bounded time-zero Wilson multiplication on the SAME completion
+
+2026-09-17 UTC, after pushed `b429d2a`: **PROGRESS**. A supplied finite
+spatial loop and spin now define multiplication on the existing Wilson
+union completion. Its actual squared distance is bounded by
+`characterBound spin` times the original squared distance. This is an
+observable bound, not a new strict transfer or physical mass estimate.
+
+### Causal mathematical argument
+
+The multiplier lies on the reflection-fixed slice. The certificate for
+`c-a*a` is multiplied by the RETAINED fixed heat weight; conditional
+reflection positivity applies to the lower-action-dressed original probe.
+This gives nonnegative full-action reflected weight for `c-a*a`, hence
+the multiplier estimate. It does not infer an OS bound from ordinary L2.
+
+All paths below are under `lean/YMGap/Continuum/`.
+
+| Checked edge | Declaration and path:line |
+| --- | --- |
+| Fixed-local certificate + actual action dressing -> nonnegative reflected weight | `selectedAction_fixed_weight_nonnegative`, `BF4ExactSlabSiteMultiplierBound.lean:76` |
+| Certificate for c-a*a -> full-action multiplier estimate | `selectedAction_multiplier_bound`, `BF4ExactSlabSiteMultiplierBound.lean:119` |
+| Literal source placement -> original fixed slice | `chartInsertion_loop`, `BF4WilsonTimeZeroChart.lean:89`; `chart_fixed_local`, :96 |
+| Actual Haar-unit word + character recurrence -> spin cap certificate | `chart_squareBound`, `BF4WilsonTimeZeroChart.lean:102` |
+| Same positive reciprocal partition -> normalized finite estimate | `chartScalar_timeZero_multiplier_bound`, `BF4WilsonTimeZeroMultiplierBound.lean:99` |
+| Original diagonal convergence -> original limiting OS bound | `form_timeZero_multiplier_bound`, `BF4WilsonTimeZeroMultiplierBound.lean:144` |
+| Radius-preserving insertion + common chart -> intrinsic norm bound | `intrinsicForm_multiplier_bound`, `BF4WilsonTimeZeroIntrinsicMultiplier.lean:113` |
+| Distributivity in BOTH form slots -> intrinsic squared-distance bound | `distSq_multiplier_bound`, `BF4WilsonTimeZeroIntrinsicMultiplier.lean:143` |
+| Literal zero-shift inclusion -> common-base compatibility | `inclusion_multiply`, `BF4WilsonTimeZeroIntrinsicMultiplier.lean:68`; `atBase_multiply`, `BF4WilsonSpatialUnionTimeZeroMultiplier.lean:53` |
+| Computed maximum support base -> SAME union distance bound | `distance_multiply_bound`, `BF4WilsonSpatialUnionTimeZeroMultiplier.lean:96` |
+| Positive epsilon/(c+1) -> actual Cauchy map and explicit modulus | `multiplierTolerance`, `BF4WilsonSpatialUnionTimeZeroMultiplier.lean:70`; `multiplierContinuous`, :114; `multiplyCauchy_modulus`, :134 |
+| Existing completion quotient -> actual observable map and dense pin | `completedMultiply`, `BF4WilsonSpatialUnionTimeZeroMultiplier.lean:140`; `completedMultiply_embedStage`, :148 |
+| Original distance convergence -> SAME completed squared-distance cap | `completedDist_multiply_bound`, `BF4WilsonSpatialUnionTimeZeroMultiplier.lean:167` |
+
+The cap is computed solely from spin; the fundamental cap is four by
+`characterBound`, `QuaternionHaarPolynomialSquareBound.lean:196`.
+It is independent of loop length, base, radius, nome and finite regulators.
+The finite selected-action estimate retains its physical face, reflection,
+support, cutoff and `0<w<1` guards. The limiting carrier still requires
+`hsmall`, `hd`, `hs`; no all-coupling or changing-spacing claim follows.
+Each stream term gets its own computed common support base, not a chosen
+uniform bound for the stream. `loopAt` has spatial shift zero, whereas
+the actual centered chart has its original placement by `r+1`.
+
+### Boundary and next mathematical consumer
+
+Zero preservation, norm bound about the existing zero, add/scalar linearity,
+reflection symmetry and observable-vacuum pins are subsequent consumers.
+Full gauge-observable coverage and canonical Hilbert/OS/QFT realization
+are not proved by this multiplication map. No arbitrary positive-time
+multiplier is asserted. The existing fixed-spacing two-step strict bound
+remains `completed_twoStep_form_gap`,
+`BF4WilsonSpatialUnionCompletedGap.lean:153`; it is not reopened or replaced
+by the cap above. Spatial symmetry, changing-scale original-action control,
+finite positive physical mass, continuum survival and every compact simple
+group remain open. No canonical frontier field or original guard changed.
+
+### Focused verification
+
+Five final serialized one-worker/20 GiB monitored checks passed all 35
+public axiom gates within `{propext, Quot.sound}`, with no final warning,
+error or `sorryAx`. The limiting form proof needed explicit coefficient-
+equality method resolution; the intrinsic norm proof needed dependent-safe
+`simp only` instead of `rw`. Those recovery logs are not verification.
+No source sorry was added or discharged. No resource limit was raised.
+Fresh preflights found no competing compiler/test/runner; swap was stable
+or decreasing, 6821.19 to 6813.19 MiB for the final intrinsic/union checks.
+Root imports were added; root/full-tree/full audit/guard checks were not run.
+CI remains manual. Main alone compiled.
+
+Parallel agents supplied finite action positivity, chart geometry and
+intrinsic transport. Main read all files, supplied normalized limiting
+control and the union/completion consumer, repaired elaboration issues,
+and checked the actual endpoints. A bounded independent source review
+found no action, normalization, zero-recenter, modulus or carrier mismatch.
+
+Final logs and SHA-256:
+
+- `/tmp/ym-site-multiplier-bound-20260917.log`:
+  `9c3aea05fe2522fa9670887bdabe5922779bae75ffc0aae60b3fdfc8e5014861`
+- `/tmp/ym-wilson-timezero-chart-20260917.log`:
+  `70fa7c69f3dd76986db544a36ebf331357fcd6798223aa94487f17118ba3a5e3`
+- `/tmp/ym-wilson-timezero-multiplier-bound-20260917-final.log`:
+  `c9f713a7698f82ef0fde7a342683169e25b89ef65f9ff61a00c936018474227b`
+- `/tmp/ym-wilson-timezero-intrinsic-multiplier-20260917-final.log`:
+  `df576162d39f5043fbac1a5e48a2dd041daf01934a3a315f00ea9d05764605f8`
+- `/tmp/ym-wilson-union-timezero-multiplier-20260917.log`:
+  `98ca40b880e7c174b98b041a47b2a92da67a52382779fdd9c716887feae63715`
+
+The following sections preserve earlier checkpoints and their then-open
+boundaries; the time-zero multiplier result above supersedes that specific
+earlier open multiplication obligation.
+
 ## Source Haar identities and an actual backtracking loop
 
 2026-09-17 UTC, after pushed `d985bb7`: **PROGRESS**. The existing

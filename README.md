@@ -21,7 +21,26 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: genuine quaternion Haar identities identify the SAME Wilson states.**
+**Latest result: time-zero Wilson multiplication acts on the SAME OS completion.**
+For every supplied finite spatial loop and spin, multiplication now has a
+proved bound in the original reflected form, retaining the full heat action.
+It descends to the existing spatial-union completion, including streams with
+unbounded support, with explicit tolerance `epsilon/(characterBound spin+1)`.
+The squared-distance cap depends only on spin (four for the fundamental
+character). No ordinary Haar norm is substituted for the OS norm.
+
+This is fixed-spacing, small-nome SU(2), alongside the already proved
+two-step strict bound and nonzero excitation on this carrier. Full observable
+representation laws, canonical Hilbert/OS/QFT realization, changing-spacing
+control, finite physical mass and every-group continuum construction remain
+open. Five focused checks passed all 35 public axiom gates within
+`{propext, Quot.sound}`; no root/full-tree audit ran. See the
+[proof and remaining boundary](audits/AUDIT-WILSON-SPATIAL-UNION.md#bounded-time-zero-wilson-multiplication-on-the-same-completion).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: genuine quaternion Haar identities identify the SAME Wilson states.**
 A finite source identity tested against supported Haar insertions now
 transports to the actual centered charts and descends to equality in the
 existing completion. The proof retains the full interacting action and
@@ -35,9 +54,6 @@ OS/QFT realization, changing-spacing control, finite physical mass and
 every-group continuum construction remain open. Four focused checks passed
 all 23 public axiom gates within `{propext, Quot.sound}`; no root/full-tree
 audit ran. See the [proof and remaining boundary](audits/AUDIT-WILSON-SPATIAL-UNION.md#source-haar-identities-and-an-actual-backtracking-loop).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: one finite source identity identifies states on the SAME Wilson carrier.**
 An exact coefficient-polynomial identity on the finite chronological source

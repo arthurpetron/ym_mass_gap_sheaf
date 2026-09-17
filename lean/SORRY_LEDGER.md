@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED source Haar identities and a physical backtrack descend to SAME-Wilson states; OPEN canonical observable/state and OS/QFT joins (2026-09-17 UTC)
+## PROVED bounded time-zero Wilson multiplication on SAME completion; OPEN representation laws and canonical OS/QFT joins (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabSiteMultiplierBound.lean`,
+  `BF4WilsonTimeZeroChart.lean`, `BF4WilsonTimeZeroMultiplierBound.lean`,
+  `BF4WilsonTimeZeroIntrinsicMultiplier.lean`, and
+  `BF4WilsonSpatialUnionTimeZeroMultiplier.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: `selectedAction_fixed_weight_nonnegative` retains the full
+  action dressing and fixed heat weight. A fixed-local square certificate
+  supplies `selectedAction_multiplier_bound`. `chart_fixed_local` and
+  `chart_squareBound` prove the premises for the actual Wilson insertion;
+  `form_timeZero_multiplier_bound` passes through the original normalized
+  charts and limits. Common-horizon distributivity gives
+  `distSq_multiplier_bound`; actual base inclusion gives
+  `distance_multiply_bound`. The explicit `multiplierTolerance` constructs
+  `completedMultiply`, and `completedDist_multiply_bound` retains the spin
+  cap on the SAME completed distance, without a whole-stream support bound.
+- **consumer/open input**: time-zero character multiplication now respects
+  OS-null replacement and Cauchy completion by proof, not a new analytic
+  hypothesis. Linearity/symmetry, observable-vacuum pins, full observable
+  coverage and canonical Hilbert/OS/QFT remain next consumers. No arbitrary
+  positive-time multiplier bound, ordinary-Haar/OS identification, changing-
+  spacing gap, finite physical mass, continuum survival or every-group
+  construction is supplied. The existing small-nome two-step strict bound
+  remains proved; no Clay atom closes.
+- **verification**: five final focused serial one-worker/20 GiB checks,
+  all 35 public gates within {propext, Quot.sound}, no final warning/error.
+  Root imports added; root/full-tree/full audit/guard unrun. No sorry,
+  axiom, analytic guard, canonical frontier field or resource limit changed.
+  Evidence: `audits/AUDIT-WILSON-SPATIAL-UNION.md`, time-zero follow-up.
+
+## Previous PROVED source Haar identities and a physical backtrack descend to SAME-Wilson states; OPEN canonical observable/state and OS/QFT joins at that checkpoint (2026-09-17 UTC)
 
 - **files**: `SU2QuaternionHaarBlockEmbeddingSupportedEquality.lean`,
   `BF4WilsonSpatialUnionHaarObservableDescent.lean`,
