@@ -13,7 +13,44 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original discrete time on the SAME Wilson completion; OPEN enlarged strict bound and continuum theory (2026-09-17 UTC)
+## PROVED SAME-Wilson universal completed strict two-step bound and concrete nonvacuity; OPEN full Hilbert/OS/QFT and physical continuum passage (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialWilsonOriginalConnectedCorrelator.lean`,
+  `BF4ExactSlabFixedSpatialWilsonSeparatedProbeControl.lean`,
+  `BF4ExactSlabFixedSpatialWilsonUniformConnectedDecay.lean`,
+  `BF4ExactSlabFixedSpatialWilsonCenteredTimeMoments.lean`,
+  `BF4ExactSlabFixedSpatialWilsonDenseGap.lean`,
+  `BF4ExactSlabFixedSpatialWilsonCompletedGap.lean`, and
+  `BF4ExactSlabFixedSpatialWilsonSmallNomeGap.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: exact fixed-support Wilson placement retains original words,
+  interval caps and locality. The connected original finite scalar uses one
+  action and partition; the generic signed covariance estimate cancels that
+  partition square. The regulator/lag-independent amplitude survives the
+  actual three-regulator limit. Same-completion centered time moments satisfy
+  even positivity, contraction and sharp dyadic CS, removing the prefactor.
+  The resulting bound passes through every supplied Cauchy stream without
+  cap/radius uniformity or orthogonal approximants. `completed_twoStep_form_gap`
+  covers every actual unit-orthogonal completion vector with positive strict
+  rate q(w), independent of vector and positive base. `concreteGapCertificate`
+  discharges all guards at nome 1/1024/base one and reuses the exact prior
+  nonzero excitation with its positive norm floor and this SAME bound.
+- **consumer/open input**: removes the Wilson covariance-envelope and enlarged
+  completed strict-form-bound joins. It does not identify a full continuum
+  Hamiltonian or prove a mass calibrated to physical spacing. Next: literal
+  base inclusion and original-form coherence, then the all-finite-support
+  Wilson carrier. Full linear/Hilbert structure, gauge-observable coverage,
+  canonical OS/QFT realization, positive-time response/normalization,
+  changing scale, physical mass, continuum survival and actual all-group
+  producers remain open. Original small-nome guards, AF obstruction and
+  canonical fields are unchanged; no canonical Clay atom closes.
+- **verification**: seven focused serialized one-worker/20 GiB checks;
+  all 61 public gates within {propext, Quot.sound}. Root imports added;
+  root/full-tree/full audit unrun. No new/changed sorry, axiom, old proof,
+  analytic guard or safety limit. Evidence and independent review:
+  `audits/AUDIT-WILSON-COMPLETED-STRICT-BOUND.md`.
+
+## Previous PROVED original discrete time on the SAME Wilson completion; OPEN enlarged strict bound and continuum theory at that checkpoint (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabFixedSpatialWilsonIntrinsicCap.lean`,
   `BF4ExactSlabFixedSpatialWilsonPhysicalTime.lean`,

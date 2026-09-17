@@ -133,7 +133,52 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED original discrete time and nonexpansiveness on the SAME Wilson completion; OPEN enlarged strict bound):**
+**Latest mathematical increment (PROVED SAME-Wilson connected decay, universal completed strict two-step form bound and concrete nonvacuity; OPEN full Hilbert/OS/QFT and physical continuum passage):**
+PROGRESS after `10ffadb`: the preceding original-time checkpoint was committed
+and pushed. The new proof supplies the actual covariance envelope rather than
+transferring the old plaquette-only gap to a larger domain.
+
+EXPANSION: exact placement gives two fixed-size Wilson probe boxes, with
+literal ordered words, interval caps and link-locality certificates. The same
+original joint term and both marginals form one selected-action covariance;
+its partition square cancels before estimation. The amplitude is independent
+of physical lag and all three regulators. Separately, rational centering
+streams identify actual completed centered-time correlators and supply even
+positivity, contraction and sharp dyadic CS.
+
+CONTRACTION: the SAME connected scalar converges along the existing spatial/
+heat/boundary diagonal. A computed prefactor absorbs the finite support loss;
+the constructive dyadic-moment theorem removes it entirely. This prefactor-
+free estimate passes through each arbitrary vector Cauchy stream, with no
+uniform cap/radius premise and no orthogonal-approximant assumption. The actual
+completed unit coefficient then gives `B(x,T_2 x) <= q(w)*B(x,x)` throughout
+its orthogonal complement. `q(w)=entropyRate(625,adjustedCoreRate(w,hd))^2`
+is positive and strictly below one under the original guards, independent of
+the positive base and vector. At nome 1/1024/base one, all guards are discharged
+and the exact previous nonzero excitation has this SAME bound and norm floor.
+
+NEXT CAUSAL FRONTIER: make the original Wilson limits coherent under literal
+spatial-base inclusion, then construct one carrier for arbitrary finite
+spatial supports without assuming a common support bound for whole Cauchy
+streams. Reuse the selected-action inclusion comparison and generic completion
+machinery, proving the Wilson-specific pins first; the older PhysicalSpan
+union is not automatically this domain. Completed rational/real linear laws,
+full Hilbert completeness, full observable coverage and canonical OS/QFT
+realization remain separate. Positive-time response/normalization are not
+inferred from the nonzero zero-time norm. Changing-scale original-action
+control, physical mass, continuum survival and every-group producers remain
+open. No one-step positivity, continuum Hamiltonian or beta-uniform gap is
+asserted. The AF obstruction and canonical fields are unchanged; no Clay atom
+is declared closed.
+
+Seven focused serialized one-worker/20 GiB checks passed all 61 public gates
+within {propext, Quot.sound}. Parent plus three agents developed and reviewed
+the independent branches; main alone compiled. Root imports added; root/
+full-tree/full audit unrun. No sorry, axiom, old proof, analytic guard or
+safety limit changed. CI remains manual; no routine literature scan.
+Evidence: `audits/AUDIT-WILSON-COMPLETED-STRICT-BOUND.md`. Clay target OPEN.
+
+**Previous mathematical increment (PROVED original discrete time and nonexpansiveness on the SAME Wilson completion; OPEN enlarged strict bound at that checkpoint):**
 PROGRESS after `7d01193`: the preceding nonzero-excitation checkpoint was
 committed and pushed. Three parallel source/cap/stationarity branches join
 into actual time evolution on the existing enlarged carrier.

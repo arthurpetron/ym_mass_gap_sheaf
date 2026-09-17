@@ -21,7 +21,28 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: original discrete time on the SAME Wilson completion.**
+**Latest result: a strict two-step form bound on the SAME Wilson completion.**
+Original time-separated Wilson correlations now have a geometric bound with
+one shared action and partition. Fixed-size probe supports keep the amplitude
+independent of time separation and lattice regulators. The actual centered
+moment inequalities remove that amplitude before passage to arbitrary
+Cauchy streams, proving `B(x,T_2 x) <= q(w) B(x,x)` for EVERY vector
+orthogonal to the embedded unit, with `0 < q(w) < 1` under the stated guards.
+
+The rate depends on nome but not the vector or positive source base. A concrete
+certificate at nome `1/1024`, base one, joins this bound to the existing
+nonzero centered excitation and its positive norm floor. This is a
+**fixed-spacing, small-nome SU(2) strict form bound**, not a continuum
+Hamiltonian mass gap. Base-union coherence, full Hilbert/OS/QFT realization,
+changing-scale control, physical mass calibration and every-group construction
+remain open. Seven focused serialized checks passed all 61 public gates within
+`{propext, Quot.sound}`; no root/full-tree check ran. See the
+[same-carrier proof and remaining causal joins](audits/AUDIT-WILSON-COMPLETED-STRICT-BOUND.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: original discrete time on the SAME Wilson completion.**
 Exact window stationarity, reflected positivity and a lag-independent scalar
 cap now prove nonexpansiveness of the actual Wilson time advance. It descends
 to the existing completion, retaining every supplied Cauchy modulus. The
@@ -37,9 +58,6 @@ Full Hilbert/OS/QFT realization, changing-scale control, physical mass and
 every-group continuum construction remain open. Seven focused serialized
 checks passed all 70 public gates within `{propext, Quot.sound}`; no root/
 full-tree check ran. See the [proof, five-front parallel map and next join](audits/AUDIT-WILSON-ORIGINAL-COMPLETED-TIME.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: an actual nonzero centered vector on the Wilson completion.**
 Rational approximations of the original mean now construct a vector in the
