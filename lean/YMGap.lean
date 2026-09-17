@@ -4864,6 +4864,13 @@ import YMGap.Continuum.BF4WilsonTimeZeroIntrinsicSymmetry
 import YMGap.Continuum.BF4WilsonSpatialUnionTimeZeroOperator
 import YMGap.Continuum.BF4WilsonTimeZeroVacuum
 import YMGap.Continuum.BF4WilsonTimeZeroCorrelations
+-- Every original signed Wilson window has exact finite code on this SAME carrier.
+import YMGap.Continuum.BF4WilsonTimedWord
+import YMGap.Continuum.BF4WilsonTimedWordOrder
+import YMGap.Continuum.BF4WilsonExpressionExpansion
+import YMGap.Continuum.BF4WilsonWindowOperatorPins
+import YMGap.Continuum.BF4WilsonChronologicalProgram
+import YMGap.Continuum.BF4WilsonWindowRealization
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

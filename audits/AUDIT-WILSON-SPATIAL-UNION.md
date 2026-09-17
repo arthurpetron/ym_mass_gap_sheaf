@@ -8,6 +8,102 @@ with the required QFT axioms, isolated vacuum and strictly positive finite
 physical Hamiltonian mass gap, for EVERY compact simple gauge group,
 within the constructive axiom gate. **The Clay target remains OPEN.**
 
+## Every original Wilson window has a finite operator program
+
+2026-09-17 UTC, after pushed `de89e75`: **PROGRESS**. Every signed expression
+in the existing finite Wilson-window syntax now has exact operator code on
+the SAME completion. A supplied Cauchy representative's original modulus
+also computes a finite program within any supplied positive squared-distance
+tolerance. These are actual realization results, not new analytic premises.
+
+### Short mathematical argument
+
+Distribute the signed expression into scalar-character words. Sort the
+offsets in each word in descending order; commutativity of the scalar
+polynomial factors preserves the source polynomial. No internal edge order
+of a nonabelian loop is changed. For a head at offset t in horizon H,
+recursively realize the tail at horizon t, multiply by that character on
+the current reflection plane, then advance by H-t. The proved descending
+and within-window bounds give t+(H-t)=H, so truncated subtraction does not
+change the time geometry. Exact original source-to-state descent removes
+the sorting and expansion. Addition and rational scaling assemble all signed
+terms, yielding equality with the original embedded window.
+
+All paths below are under `lean/YMGap/Continuum/`.
+
+| Checked edge | Declaration and path:line |
+| --- | --- |
+| Original loop/spin/offset data -> finite timed word with explicit horizon | `TimedLoop`, `BF4WilsonTimedWord.lean:21`; `WordWithin`, :30; `wordExpression_within`, :49 |
+| Finite word -> descending word retaining source polynomial and time bounds | `orderWord_descending`, `BF4WilsonTimedWordOrder.lean:68`; `orderWord_within`, :74; `orderWord_source`, :111 |
+| EVERY original expression -> signed words with the SAME source polynomial | `expand`, `BF4WilsonExpressionExpansion.lean:36`; `expand_source`, :143; `expand_within`, :178 |
+| Existing embedded windows -> original vacuum, sum and scalar operations | `embedWindow_one`, `BF4WilsonWindowOperatorPins.lean:78`; `completedAdd_embedWindow`, :88; `completedSmul_embedWindow`, :105; `embedWindow_zero`, :110 |
+| Actual bounded multiplier -> character at current reflection plane | `completedMultiply_embedWindow`, `BF4WilsonWindowOperatorPins.lean:116` |
+| Actual time map -> advanced horizon, UNCHANGED original source expression | `completedTime_embedWindow`, `BF4WilsonWindowOperatorPins.lean:130` |
+| Descending word -> literal program of SAME completed operations | `Program`, `BF4WilsonChronologicalProgram.lean:42`; `evaluate`, :65; `orderedProgram_pin`, :76 |
+| Source identity -> unordered word realized by its chronological program | `wordProgram_pin`, `BF4WilsonChronologicalProgram.lean:94` |
+| Signed expansion + exact original descent -> EVERY bounded window realized | `compileWindow`, `BF4WilsonWindowRealization.lean:49`; `compileWindow_pin`, :76; `windowCertificate`, :88 |
+| Arbitrary dense union stage -> finite code and exact state equality | `stageProgram_pin`, `BF4WilsonWindowRealization.lean:97`; `stageCertificate`, :103 |
+| SUPPLIED Cauchy representative + original modulus -> finite-program approximation in actual squared distance | `approximationProgram_bound`, `BF4WilsonWindowRealization.lean:112`; `approximationCertificate`, :122 |
+
+`approximationCertificate` returns Type-level data: the base of the actual
+sample `X.seq (X.modulus epsilon)`, its finite program, and the bound by
+epsilon in `completedDist`. It applies the existing
+`constantApproximation_bound`, `CRealSeminormCompletedApproximation.lean:84`, after the
+exact stage pin. No quotient representative is chosen; no uniform support
+bound for the Cauchy stream is assumed. The finite compiler itself is axiom-free.
+
+### Remaining consumer and boundary
+
+This closes operator realization for the ENTIRE existing Wilson-window syntax
+and quantitative generation for supplied representatives of its completion.
+It does not prove that this syntax contains every gauge observable or inhabit
+`PositiveTimeOSRoot`, `CanonicalOSRoot.lean:268`. The limiting ambient algebra,
+essentially-surjective canonical realization (:296) and scalar interface
+remain unsupplied; the original CReal form has not been replaced by a rational
+one. No canonical field is weakened. Full Hilbert/OS/QFT, continuous time and
+its generator, spatial symmetry, changing-scale original-action control,
+finite positive physical mass, continuum survival and every compact simple
+group remain open. The existing fixed-spacing small-nome strict bound remains
+proved; finite-program generation is not another mass estimate.
+
+### Focused verification
+
+Six final monitored serial one-worker/20 GiB checks passed all 46 public
+gates within `{propext, Quot.sound}`, with no final warning/error. Main read
+every module and alone compiled. Parallel work supplied word ordering and
+signed expansion. Independent source reviews checked the chronological
+geometry, original-operation evaluation, coefficient descent and final
+approximation certificate; neither found a mathematical mismatch.
+
+The operation-pin proof initially failed on dependent same-base rewriting;
+the final proof uses explicit original common-base identities and the
+existing null-distance consumer. The chronological evaluator initially
+repeated captured section parameters in recursive calls; this was corrected.
+Those failed recovery logs are not verification evidence. The final logs
+below checked the finished sources, including the approximation endpoint.
+
+No source sorry, axiom, analytic guard, canonical frontier field or resource
+limit changed. Fresh preflights found no competing compiler/test/runner;
+swap did not grow (6813.19 to 6797.19 MiB). Root imports added; root/full-tree/
+full audit/guard unrun; CI remains manual. Final logs and SHA-256:
+
+- `/tmp/ym-wilson-timed-word-20260917.log`:
+  `9fc403b05084e863eb0e5b1a3cbdba7fbdcebbbc70a86c70ac7761d6e68606a8`
+- `/tmp/ym-wilson-timed-word-order-20260917.log`:
+  `07c129d8dee57d9e9ba75f6372c120a643c92d26419f0f88d55820b626477da6`
+- `/tmp/ym-wilson-expression-expansion-20260917.log`:
+  `28eafb171e03373e42f8ba647794470481d34e4cbe4edad58c2c624c40969a7d`
+- `/tmp/ym-wilson-window-operator-pins-20260917-checked.log`:
+  `029891e0fd309733ad60fabfb147d899aaefaf987b5278e3a08efde2c32f3ccf`
+- `/tmp/ym-wilson-chronological-program-20260917-final.log`:
+  `8e4e0db3f7729ecaed573edca4431f4c487b4c0614a49ae2968e4021c24f571d`
+- `/tmp/ym-wilson-window-realization-20260917-final.log`:
+  `d97a38c98187572306de2ef2b07d2901751a95e9da6677edd7357f121fa9252f`
+
+Earlier sections retain their then-open boundaries; the finite-window
+realization and supplied-representative approximation above supersede those
+specific earlier open consumers, not the full canonical or continuum joins.
+
 ## Symmetric linear observables and the SAME vacuum correlations
 
 2026-09-17 UTC, after pushed `169a236`: **PROGRESS**. The previously

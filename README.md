@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: bounded Wilson observables recover the SAME vacuum correlations.**
+**Latest result: every finite Wilson window has an exact operator realization.**
+Every signed multi-time expression in the existing Wilson-window syntax now
+compiles to a finite program of vacuum, bounded time-zero multipliers, time
+translations and linear operations. Its evaluation equals the original state
+on the SAME completed carrier. For any supplied Cauchy representative and
+positive tolerance, its existing modulus computes a finite program within
+that completed squared-distance tolerance, without choosing a representative
+or imposing a support bound on the whole stream.
+
+This closes finite-window realization for the existing syntax, not coverage
+of all gauge observables. Canonical Hilbert/OS/QFT, continuous time, spatial
+symmetry, changing-spacing control, finite positive physical mass and
+every-group continuum construction remain open. Six focused checks passed
+all 46 public axiom gates within `{propext, Quot.sound}`; no root/full-tree
+audit ran. See the
+[proof and remaining boundary](audits/AUDIT-WILSON-SPATIAL-UNION.md#every-original-wilson-window-has-a-finite-operator-program).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: bounded Wilson observables recover the SAME vacuum correlations.**
 Time-zero multiplication is now proved symmetric and linear on the existing
 completion, including real scalars supplied with explicit moduli. Applying
 it to the existing vacuum gives the original loop state. Consequently
@@ -35,9 +55,6 @@ physical mass calibration and every-group continuum construction remain open.
 Four focused checks passed all 24 public axiom gates within
 `{propext, Quot.sound}`; no root/full-tree audit ran. See the
 [proof and remaining boundary](audits/AUDIT-WILSON-SPATIAL-UNION.md#symmetric-linear-observables-and-the-same-vacuum-correlations).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: time-zero Wilson multiplication acts on the SAME OS completion.**
 For every supplied finite spatial loop and spin, multiplication now has a

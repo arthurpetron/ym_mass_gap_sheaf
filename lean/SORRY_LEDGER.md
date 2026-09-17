@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED symmetric linear Wilson observables and SAME vacuum correlations; OPEN general observable realization and canonical OS/QFT joins (2026-09-17 UTC)
+## PROVED every original Wilson window has finite operator code and quantitative completion approximation; OPEN full gauge-observable coverage and canonical OS/QFT joins (2026-09-17 UTC)
+
+- **files**: `BF4WilsonTimedWord.lean`, `BF4WilsonTimedWordOrder.lean`,
+  `BF4WilsonExpressionExpansion.lean`, `BF4WilsonWindowOperatorPins.lean`,
+  `BF4WilsonChronologicalProgram.lean`, and `BF4WilsonWindowRealization.lean`,
+  under `lean/YMGap/Continuum/`.
+- **proof**: `expand_source` and `orderWord_source` preserve the actual source
+  polynomial while exposing signed timed words; `orderWord_descending` and
+  `expand_within` retain the required time bounds. The SAME completed operations
+  obey `completedMultiply_embedWindow` and `completedTime_embedWindow`.
+  `orderedProgram_pin` composes these identities; `wordProgram_pin` removes
+  ordering through source identity. `compileWindow_pin` realizes every original
+  bounded expression, and `stageCertificate` returns code and exact state
+  equality for every dense union stage. `approximationCertificate` uses a
+  supplied Cauchy representative's original modulus to return a spatial base,
+  finite program and bound in the actual completed squared distance.
+- **consumer/open input**: finite-window generation and quantitative density
+  for the existing Wilson syntax are proved, not assumed. There is no claim
+  that this syntax covers every gauge observable or that a representative can
+  be selected from the quotient. Canonical reflected-root realization and its
+  scalar interface, full Hilbert/OS/QFT, continuous time/generator, spatial
+  symmetry, changing-scale control, finite physical mass, continuum survival
+  and every-group construction remain open. No Clay atom closes.
+- **verification**: six final serial one-worker/20 GiB focused checks, all
+  46 public gates within {propext, Quot.sound}, no final warning/error.
+  Root imports added; root/full-tree/full audit/guard unrun. No sorry,
+  axiom, analytic guard, canonical frontier field or resource limit changed.
+  Evidence: `audits/AUDIT-WILSON-SPATIAL-UNION.md`, finite-program follow-up.
+
+## Previous PROVED symmetric linear Wilson observables and SAME vacuum correlations; OPEN general observable realization and canonical OS/QFT joins at that checkpoint (2026-09-17 UTC)
 
 - **files**: `BF4WilsonTimeZeroIntrinsicSymmetry.lean`,
   `BF4WilsonSpatialUnionTimeZeroOperator.lean`, `BF4WilsonTimeZeroVacuum.lean`,

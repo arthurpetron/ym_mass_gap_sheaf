@@ -133,7 +133,40 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED symmetric linear Wilson observables and SAME vacuum correlations; OPEN general observable realization and canonical OS/QFT joins):**
+**Latest mathematical increment (PROVED finite-program realization of EVERY original Wilson window and quantitative completion approximation; OPEN full gauge-observable coverage and canonical OS/QFT joins):**
+PROGRESS after pushed `de89e75`: expand the original signed expression into
+finite scalar-character words and sort their time offsets, preserving its
+source polynomial and every internal nonabelian edge order. The actual
+completed multiplier inserts a character at the current reflection plane;
+the existing time map advances that plane without changing the source
+expression. Descending offsets make every intervening time increment
+nonnegative. `wordProgram_pin` composes these original operator identities;
+`compileWindow_pin` adds the signed terms and uses the existing source-to-state
+descent to recover EVERY original bounded Wilson window exactly.
+
+`stageCertificate` returns actual finite code for every dense union stage.
+`approximationCertificate` samples a SUPPLIED original Cauchy representative
+at its existing modulus, returning the sampled spatial base, finite code and
+an actual completed squared-distance bound by the supplied positive tolerance.
+No quotient representative or global stream support bound is selected.
+
+This removes the finite-window realization/density consumer for the existing
+Wilson syntax. Full gauge-observable coverage and the canonical Hilbert/OS
+join remain open: `CanonicalOSRoot.PositiveTimeOSRoot` still requires its
+limiting ambient algebra, essentially-surjective realization and compatible
+scalar interface. The actual CReal form is not rationalized and no canonical
+field is changed. Continuous time/generator, spatial symmetry, changing-scale
+original-action control, finite positive physical mass, continuum survival
+and every compact simple group remain open. The fixed-spacing small-nome
+strict bound is an already proved input, not a new physical mass estimate.
+
+Six final focused serialized one-worker/20 GiB checks pass all 46 public gates
+within `{propext, Quot.sound}`. No sorry, axiom, analytic guard, canonical
+frontier field or safety limit changed. Root imports added; root/full-tree/
+full audit/guard unrun; CI remains manual. Final evidence and independent
+source reviews: `audits/AUDIT-WILSON-SPATIAL-UNION.md`, finite-program follow-up.
+
+**Previous mathematical increment (PROVED symmetric linear Wilson observables and SAME vacuum correlations; OPEN general observable realization and canonical OS/QFT joins at that checkpoint):**
 PROGRESS after pushed `169a236`: the reflection-fixed character moves between
 the two slots of the original form. Common-base coherence and the original
 pairing limits give `completedInner_multiplier_balance` for the existing
