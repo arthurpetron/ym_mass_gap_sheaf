@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED witnessed real-scalar action and normalized strict positive response on the SAME spatial union; OPEN full Hilbert/OS/QFT and physical continuum construction (2026-09-16)
+## PROVED original closed spatial Wilson algebra, same-action sweep and single-loop time realization; OPEN enlarged reflected carrier and strict bound (2026-09-17 UTC)
+
+- **files**: `SU2QuaternionHaarGaugeWord.lean`,
+  `BF4ExactSlabTemporalGaugeWilsonWord.lean`,
+  `BF4ExactSlabTemporalInvariantSweep.lean`,
+  `BF4ExactSlabSpatialWilsonAlgebra.lean`,
+  `BF4ExactSlabSpatialWilsonRectangle.lean`,
+  `BF4ExactSlabFixedSpatialWilsonProbe.lean`,
+  `BF4ExactSlabFixedSpatialWilsonTimeLimit.lean`, and
+  `BF4ExactSlabFixedSpatialSpanProduct.lean`, under `lean/YMGap/Continuum/`.
+- **proof**: arbitrary ordered gauge-word telescoping is pinned to the actual
+  original-link temporal ledger. Finite signed loop expressions preserve
+  every supported spectator through the common action sweep. The six-link
+  rectangle has a coefficient pin to the existing pointwise nonrecoding
+  example, not an OS-nondensity conclusion. Width-only source loops receive
+  literal physical placements and character pins; original numerator and
+  reciprocal identities yield the SAME pre-existing polynomial time state.
+  Original finiteValue diagonal Cauchy data carries the computed modulus,
+  uniform in retained stage but dependent on nome, width and source cap.
+  Dense products of the existing face presentations preserve original
+  source/placed semantics, time and base inclusion.
+- **consumer/open input**: supplies the original-loop interpretation of these
+  polynomial expectations, not an embedding into the existing spatial union.
+  Common multi-time source/limit and reflected-form pins for the full Wilson
+  expression algebra, cutoff/spatial limits and the strict bound on the SAME
+  enlarged carrier remain open. No radical-ideal, completed multiplier, full
+  gauge-observable density, canonical OS scalar bridge, physical calibration,
+  continuum survival or actual every-group construction is inferred. Existing
+  canonical fields, analytic guards and AF obstructions are unchanged.
+- **verification**: eight focused serialized one-worker/20 GiB checks, all
+  78 public gates within {propext, Quot.sound}. Root imports added; root/full-
+  tree/full audit unrun. No new or changed sorry, axiom, old proof, analytic
+  guard or safety limit. Independent mathematical review and exact evidence:
+  `audits/AUDIT-ORIGINAL-SPATIAL-WILSON-REALIZATION.md`.
+
+## Previous PROVED witnessed real-scalar action and normalized strict positive response on the SAME spatial union; full Hilbert/OS/QFT and physical continuum construction remain OPEN (2026-09-16)
 
 - **files**: `BF4SpatialUnionScalarDistance.lean`,
   `BF4SpatialUnionRealScalarCauchy.lean`,

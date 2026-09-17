@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-> **Research status (2026-09-16): this repository does not prove the Clay
+> **Research status (2026-09-17 UTC): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
@@ -21,7 +21,31 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: an actual unit-norm excitation with a positive strict response interval.**
+**Latest result: original spatial Wilson loops, with exact action and time-limit realization.**
+Arbitrary closed ordered spatial Wilson words now pass through the same
+temporal gauge sweep as the complete original action. Signed products of
+such loop characters retain every shared link and action factor. A concrete
+six-link rectangle is pinned to the existing plaquette-only nonrecoding
+example; this is a pointwise obstruction, not a claim about OS-norm density.
+
+Literal source placement and cancellation of the same partition identify
+original loop expectations with the existing fixed-width polynomial time
+state, with an explicit Cauchy modulus. That modulus is uniform in the late
+heat stage, **not** in nome, spatial width or observable. The existing dense
+plaquette presentations also have an explicit product preserving their source
+polynomials, placement, time and base inclusion.
+
+This is not an extension of the strict bound to the larger Wilson carrier.
+The reflected carrier/limit join, full Hilbert/OS/QFT identification, changing
+scale, physical mass and every-group continuum construction remain open.
+Eight focused checks passed all 78 public axiom gates within
+`{propext, Quot.sound}`; no root/full-tree check ran. See the
+[original-Wilson proof and five-front parallel map](audits/AUDIT-ORIGINAL-SPATIAL-WILSON-REALIZATION.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: an actual unit-norm excitation with a positive strict response interval.**
 Real scaling by a supplied constructive real and its explicit Cauchy modulus
 now acts on the same spatial union carrier. Scalar/vector representative
 independence, the scalar algebra laws, and compatibility with original time,
@@ -39,9 +63,6 @@ construction remain open. No modulus for an arbitrary legacy quotient real
 is selected. Six focused checks passed all 56 public axiom gates within
 `{propext, Quot.sound}`; no root/full-tree check ran. See the
 [normalized-excitation checkpoint](audits/AUDIT-SPATIAL-UNION-NORMALIZED-EXCITATION.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: a positive nonzero-time response on the same completed carrier.**
 The original centered plaquette now has an explicit positive connected-response

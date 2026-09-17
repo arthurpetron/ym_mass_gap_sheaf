@@ -4751,6 +4751,15 @@ import YMGap.Continuum.BF4SpatialUnionCompletedRealScalar
 import YMGap.Continuum.BF4SpatialUnionRealScalarAlgebra
 import YMGap.Continuum.BF4SpatialUnionRealLinearOperators
 import YMGap.Continuum.BF4SpatialUnionNormalizedExcitation
+-- Original closed Wilson words, full-action invariance and fixed-width time realization.
+import YMGap.Continuum.SU2QuaternionHaarGaugeWord
+import YMGap.Continuum.BF4ExactSlabTemporalGaugeWilsonWord
+import YMGap.Continuum.BF4ExactSlabTemporalInvariantSweep
+import YMGap.Continuum.BF4ExactSlabSpatialWilsonAlgebra
+import YMGap.Continuum.BF4ExactSlabSpatialWilsonRectangle
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonProbe
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonTimeLimit
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSpanProduct
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

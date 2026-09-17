@@ -131,9 +131,56 @@ are also established. Classical subsequence selection would therefore not remove
 the same-theory QFT and physical-gap obligations, even without our extra demand
 for explicit moduli.
 
-### Current original-action gap and continuum frontier (2026-09-16)
+### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED witnessed real-scalar action, original operator homogeneity and normalized positive strict response on the SAME spatial union; OPEN full Hilbert/OS/QFT and physical continuum construction):**
+**Latest mathematical increment (PROVED original closed spatial Wilson algebra, same-action sweep and single-loop time realization; OPEN enlarged reflected carrier and its strict bound):**
+PROGRESS after `eac824a`: the preceding normalized-excitation checkpoint was
+committed and pushed. The source review identified an actual original-observable
+join: scheduled products of individual plaquette characters are not a proved
+presentation of every Wilson loop. The existing pointwise nonrecoding example
+is not an OS-norm or dynamical nondensity theorem. No completion or
+Cauchy--Schwarz construction was repeated.
+
+EXPANSION: arbitrary finite oriented quaternion words now carry their shared
+endpoint data and telescope under one vertex gauge. Actual same-slice closed
+spatial loops have the image of the literal complete temporal ledger, with
+support, inverses and every spectator retained. Finite signed expressions in
+these loops, including products at different times, survive the common sweep
+of the entire selected original action. The concrete six-link rectangle is
+coefficient-pinned to the old nonrecoding example. Separately, the existing
+PhysicalSpan has an explicit product with exact source/placed polynomial
+semantics and time/base compatibility; no completed multiplier is inferred.
+
+CONTRACTION: a width-only source loop has an explicit physical placement and
+coefficient-sensitive character pin. The same-action identity then gives the
+existing middle-message numerator; the two reciprocal constructions cancel
+the SAME partition at the SAME retained cutoff. The original finiteValue
+stream at extent `width+2*t`, loop time `t`, converges to the already constructed
+polynomial expectation. Its QCauchy modulus is the computed
+`geometricCutoff(mixRate(w,width),4*polynomialCap(source),epsilon)`, independent
+of retained stage but not nome, width or observable. This time theorem covers
+one arbitrary closed source-loop character at every spin, not yet a common
+multi-time limit pin for the full new expression algebra.
+
+NEXT CAUSAL FRONTIER: extend source and reflection pins to actual positive-time
+loop products, then use the existing finite original-chain reflection positivity.
+Cutoff/spatial limits and the strict estimate must concern the SAME enlarged
+reflected carrier. The old plaquette-generated union bound does not transfer
+by syntax alone. Full OS scalar/coverage identification, full spatial symmetry,
+changing-scale control outside the obstructed small-nome AF chart, physical
+time/mass calibration, continuum survival and all-group producers remain open.
+Reuse existing generic analysis and actual physical inputs; no new assumption-only
+scorecard or canonical field change was made.
+
+Parent plus three agents worked on independent algebra, physical placement,
+integration and reviews. Eight focused one-worker/20 GiB checks passed all
+78 public gates within {propext, Quot.sound}. An unrelated host test caused a
+temporary verification pause; it was not altered. Root imports added, root/
+full-tree/full audit unrun. No old proof, sorry, axiom, guard or safety limit
+changed. CI stays manual-only; no literature scan. Evidence and five-front map:
+`audits/AUDIT-ORIGINAL-SPATIAL-WILSON-REALIZATION.md`. Whole-project Clay goal OPEN.
+
+**Previous mathematical increment (PROVED witnessed real-scalar action, original operator homogeneity and normalized positive strict response on the SAME spatial union; full Hilbert/OS/QFT and physical continuum construction remain OPEN):**
 PROGRESS after `d18fd1d`: the preceding positive-response transport checkpoint
 was committed and pushed. Scalar multiplication is now constructed from the
 literal dense stream `s.approx n * X.seq n`, using the supplied scalar QCauchy
