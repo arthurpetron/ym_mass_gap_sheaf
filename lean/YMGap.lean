@@ -4760,6 +4760,12 @@ import YMGap.Continuum.BF4ExactSlabSpatialWilsonRectangle
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonProbe
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonTimeLimit
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSpanProduct
+-- Actual multi-time Wilson windows and their same-action reflected positivity.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonWindow
+import YMGap.Continuum.BF4ExactSlabSpatialWilsonReflection
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonWindowReflection
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonWindowTimeLimit
+import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonWindowReflectionPositive
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

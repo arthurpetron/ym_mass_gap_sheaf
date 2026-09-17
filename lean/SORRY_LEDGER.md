@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original closed spatial Wilson algebra, same-action sweep and single-loop time realization; OPEN enlarged reflected carrier and strict bound (2026-09-17 UTC)
+## PROVED original multi-time Wilson realization and time-limit reflected positivity; OPEN enlarged carrier, cutoff/spatial limits and strict bound (2026-09-17 UTC)
+
+- **files**: `BF4ExactSlabFixedSpatialWilsonWindow.lean`,
+  `BF4ExactSlabSpatialWilsonReflection.lean`,
+  `BF4ExactSlabFixedSpatialWilsonWindowReflection.lean`,
+  `BF4ExactSlabFixedSpatialWilsonWindowTimeLimit.lean`, and
+  `BF4ExactSlabFixedSpatialWilsonWindowReflectionPositive.lean`, under
+  `lean/YMGap/Continuum/`.
+- **proof**: finite signed multi-time loop expressions have explicit source
+  support, actual physical placement and one coefficient-sensitive embedding.
+  The common full-action sweep and same-partition reciprocal cancellation
+  identify their original scalar with the existing window ratio. Actual
+  original finiteValue time streams have a computed modulus independent of
+  heat stage, but dependent on nome, width and source cap. Literal even-site
+  reflection and original-coordinate one-sidedness give finite selected-action
+  positivity of the complete signed reflected expression. The existing
+  fixed-width/fixed-cutoff polynomialWindowLimit inherits that positivity.
+- **consumer/open input**: removes the multi-time source/reflection/time-form
+  join, not the cutoff/spatial limit, full gauge-observable coverage or the
+  larger carrier's quotient/completion. Next use generic finiteCauchy at a
+  computed time pivot; independently prove the Wilson spatial translation,
+  fixed-box locality and common-cap inputs to generic spatial comparison.
+  No old completed-gap extension, ordinary-L2/OS identification, canonical
+  scalar bridge, physical calibration, continuum survival or actual all-group
+  producer is inferred. Existing canonical fields and AF obstructions remain.
+- **verification**: five focused serialized one-worker/20 GiB checks, all
+  35 public gates within {propext, Quot.sound}. Root imports added; root/full-
+  tree/full audit unrun. No new or changed sorry, axiom, old proof, analytic
+  guard or safety limit. Evidence and independent review:
+  `audits/AUDIT-WILSON-WINDOW-REFLECTED-POSITIVITY.md`.
+
+## Previous PROVED original closed spatial Wilson algebra, same-action sweep and single-loop time realization; OPEN enlarged reflected carrier and strict bound (2026-09-17 UTC)
 
 - **files**: `SU2QuaternionHaarGaugeWord.lean`,
   `BF4ExactSlabTemporalGaugeWilsonWord.lean`,

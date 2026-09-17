@@ -21,7 +21,27 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: original spatial Wilson loops, with exact action and time-limit realization.**
+**Latest result: reflected positivity for original multi-time Wilson expressions.**
+Finite signed sums and products of closed spatial loop characters now have
+an exact common-window realization in the original action. Literal reflection
+and one-sided support connect the complete reflected product to the existing
+finite-chain positivity theorem. The SAME fixed-width, fixed-cutoff time limit
+inherits that positivity, with an explicit time modulus independent of the
+cutoff stage but dependent on nome, width and observable.
+
+This supplies a larger reflected observable domain, **not** an extension of
+the old completed-carrier strict bound. Joint time/cutoff removal and the
+concrete spatial placement/locality/cap proofs are the next separable tasks;
+full OS/QFT identification, changing-scale control, physical mass and the
+every-group continuum theorem remain open. Five focused checks passed all
+35 public axiom gates within `{propext, Quot.sound}`. Checks were serialized
+under the safe-build procedure; no root/full-tree check ran. See the
+[proof and parallel-front map](audits/AUDIT-WILSON-WINDOW-REFLECTED-POSITIVITY.md).
+
+The entries below are historical checkpoints. Their next steps and open
+items describe the status then; use the latest result above for current status.
+
+**Previous result: original spatial Wilson loops, with exact action and time-limit realization.**
 Arbitrary closed ordered spatial Wilson words now pass through the same
 temporal gauge sweep as the complete original action. Signed products of
 such loop characters retain every shared link and action factor. A concrete
@@ -41,9 +61,6 @@ scale, physical mass and every-group continuum construction remain open.
 Eight focused checks passed all 78 public axiom gates within
 `{propext, Quot.sound}`; no root/full-tree check ran. See the
 [original-Wilson proof and five-front parallel map](audits/AUDIT-ORIGINAL-SPATIAL-WILSON-REALIZATION.md).
-
-The entries below are historical checkpoints. Their next steps and open
-items describe the status then; use the latest result above for current status.
 
 **Previous result: an actual unit-norm excitation with a positive strict response interval.**
 Real scaling by a supplied constructive real and its explicit Cauchy modulus

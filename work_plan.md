@@ -133,7 +133,49 @@ for explicit moduli.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest mathematical increment (PROVED original closed spatial Wilson algebra, same-action sweep and single-loop time realization; OPEN enlarged reflected carrier and its strict bound):**
+**Latest mathematical increment (PROVED multi-time original Wilson-window realization and reflected positivity of its existing time limit; OPEN enlarged carrier, cutoff/spatial limits and its strict bound):**
+PROGRESS after `9f5a36f`: the preceding original-Wilson checkpoint was committed
+and pushed. The missing common-window join is now supplied for finite signed
+expressions of actual closed spatial loop characters. No existing completion,
+excitation or strict-bound proof was repeated.
+
+EXPANSION: one fixed source syntax retains every loop, time offset, spin,
+coefficient and algebra operation. Its common chronological embedding is
+coefficient-pinned to literal physical placement. Actual loop reflection
+preserves oriented multiplication order; original coordinate locality proves
+one-sidedness, including the central slice. These are actual geometric
+witnesses, not a hypothesized OS image or replacement weighted-L2 norm.
+
+CONTRACTION: the common full-action sweep and SAME-partition reciprocal
+cancellation give the original multi-time scalar's existing message pairing.
+Original finiteValue streams have explicit stage-independent time Cauchy
+data and converge to the existing polynomialWindowLimit. On a reflection-
+centered original chart, finite selected-action positivity applies to the
+COMPLETE signed reflected product; its actual CReal representatives inherit
+positivity. Nome, width, window, expression and heat cutoff remain fixed.
+No cutoff/time interchange or spatial/spacing-uniform estimate is claimed.
+
+NEXT CAUSAL FRONTIER: construct the Wilson joint cutoff/time limit using
+arbitrary-polynomial finiteCauchy at one computed time pivot and the new
+stage-independent time modulus. This can run beside the exact Wilson
+spatial translation, fixed-box locality and common-cap proofs needed by the
+existing generic spatial comparison. Their later join must construct the
+SAME enlarged reflected form and transfer; the old plaquette-generated
+completed gap does not extend by syntax. Full observable coverage, canonical
+OS scalar realization, full spatial symmetry, changing-scale control outside
+the obstructed small-nome AF chart, physical mass calibration, continuum
+survival and actual all-group producers remain open.
+
+Parent plus three agents separated source placement, reflection, integration
+and independent reviews. Five focused serialized one-worker/20 GiB checks
+passed all 35 public gates within {propext, Quot.sound}; root imports added,
+root/full-tree/full audit unrun. Unrelated host tests caused verification
+pauses and were not altered. No old proof, sorry, axiom, guard, canonical
+field or safety limit changed. CI remains manual-only; no literature scan.
+Evidence: `audits/AUDIT-WILSON-WINDOW-REFLECTED-POSITIVITY.md`.
+Whole-project Clay goal OPEN.
+
+**Previous mathematical increment (PROVED original closed spatial Wilson algebra, same-action sweep and single-loop time realization; OPEN enlarged reflected carrier and its strict bound):**
 PROGRESS after `eac824a`: the preceding normalized-excitation checkpoint was
 committed and pushed. The source review identified an actual original-observable
 join: scheduled products of individual plaquette characters are not a proved
