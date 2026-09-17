@@ -187,7 +187,15 @@ Execution order:
 1. **Primary mathematical work: a cancellation-preserving original-action
    estimate with spatial uniformity beyond the small-nome guard.** The active
    route is now the original finite temporal Dirichlet energy described below:
-   use its SAME odd-chain marginal. A positive fraction independent of late
+   use its SAME odd-chain marginal. The current physical branch now has finite
+   four-link boundary duals that detect signed plaquette coefficients under
+   the FULL selected action, with original-norm error control. Next prove their
+   bounded-overlap summed estimate; separately supply the original spatial
+   variance upper bound. Neither one replaces the other. The precise checked
+   identities and next consumers are in the current frontier subsection below.
+   Preserve the completed small-nome branch above; these are steps beyond its
+   guards, not missing completion work in that branch.
+   A positive fraction independent of late
    cutoff and boundary depth is now supplied by `terminal_normalized_energy_variance_floor`,
    but it is the existing width-dependent floor/cap ratio. Seek a stronger
    fraction with the spatial control needed along the scaling route.
@@ -501,7 +509,75 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Current physical result (PROVED one-plaquette original temporal fraction):**
+**Current physical step (PROVED finite signed boundary-dual detection):**
+erase all selected heat factors touching ANY boundary link of a chosen
+plaquette p. Write the SAME full selected action as A=S_p*R_p. At most 24
+factors occur in S_p, and R_p is free of every boundary link of p. For each
+different plaquette q, `missingLink` constructs a boundary link of p absent
+from q; the chosen link may depend on q. Consequently
+
+    H[R_p*chi_p*chi_q] = 0 (p != q),   H[R_p*chi_p^2] = H[R_p].
+
+These are `rest_distinct_character_zero` and `rest_square_moment`,
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteBoundaryErasure.lean:198`, `:220`.
+They need no common private edge and therefore remove that restriction from
+coefficient detection even for closed plaquette families. This does not make
+the original interacting plaquettes orthogonal under A.
+
+The explicit positive local window is L(w)=min(headFloor(w),1)^24 and
+U(w)=(1+prefixCap(w))^24 (`lower`, `upper` and the two certificates in
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteBoundaryWindow.lean:45`, `:46`,
+`:127`, `:141`). Its finite reciprocal G_p,k gives d_p,k=chi_p*G_p,k and
+S_p*G_p,k+e_p,k=1. With D_p=H[R_p], rho(w)=1-L(w)/U(w), and any finite
+signed fundamental-plaquette sum F, the checked statements are
+
+    L(w)*H[A*d_p,k^2] <= D_p,
+    H[A*d_p,k*F] + err_p,k(F) = coefficientAt(p,F)*D_p,
+    L(w)*err_p,k(F)^2 <= rho(w)^(2k)*D_p*H[A*F^2],
+    err_p,k(F) = H[R_p*chi_p*e_p,k*F].
+
+`fullAction_norm_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteBoundaryDual.lean:91`, and
+`fullAction_signed_pairing`, `fullAction_signed_pairing_error`,
+`lean/YMGap/Continuum/BF4ExactSlabPlaquetteBoundaryDualPairing.lean:143`, `:175`,
+retain the full selected action. `coefficientAt` (:53) sums repeated labels
+with their signs; it does not replace multiplicities by set membership.
+`approximationCutoff` and `residualApproximationInterval` (BoundaryDual:159,
+:163) provide an explicit finite degree for each positive residual tolerance.
+The constants depend on 0<w<1, not extent, selected-factor count, dual label
+or K>=headCutoff(w). Error control is in the original weighted norm, not a
+coefficient l1 cap. No limiting inverse, full marginal reciprocal or new
+original-state realization is assumed. D_p and H[A*F^2] still depend on the
+selected action and regulators; the error bound is not an absolute
+volume-uniform bound.
+
+**Next causal work, still OPEN:**
+
+1. Prove the original-action Gram cross terms of these duals are controlled
+   by local overlap, with explicit finite-degree residual errors. Construct
+   and bound the overlap relation from actual selected physical faces; then
+   sum with no final factor growing with the number of observables or volume.
+   Pairing with a single dual is not this family theorem. Keep any finite
+   family-size dependence confined to an explicitly vanishing error budget.
+2. Apply that proved family estimate to the signed adjacent-time plaquette
+   jump, using the original signed-window rejoin and its factor-two energy
+   identity. Independently prove a spatial variance/susceptibility UPPER bound
+   in the SAME actual marginal and combined coefficients, with the parameter
+   control required beyond the small-nome guard or on a justified trajectory.
+   A coefficient-square energy lower bound alone does not give a variance
+   fraction. Do not infer locality of terminal messages from locality of V.
+3. Only after both bounds, consume the EXISTING clearedDefect equivalence
+   below. Signed fundamental sums still do not cover products, the physical
+   transfer orbit or the full dense sector; those joins remain explicit.
+   Preserve the already proved small-nome completed gap and normalized
+   excitation, without presenting them as an AF/scaling theorem.
+
+All five new modules pass focused serialized one-worker/20 GiB checks;
+all 47 printed gates lie within {propext, Quot.sound}, three axiom-free.
+No sorry or canonical field changed. Full-root build/audit/guard/progress
+NOT run. Evidence: `audits/AUDIT-PLAQUETTE-BOUNDARY-DUAL.md`.
+
+**Previous physical result (PROVED one-plaquette original temporal fraction):**
 the literal fundamental spatial plaquette c satisfies
 
     starRatio(w) <= 2*normalizedEnergy(c),
@@ -583,13 +659,16 @@ combinations of retained plaquette characters. Its proved
 `terminal_existing_fraction_nonnegative` currently supplies only the
 width-dependent `mixFraction`. Retain signed cross terms and shared partition
 factors. A single plaquette's energy floor does NOT prove this estimate for
-signed combinations, products or the physical transfer orbit. The private-link
-argument does not automatically extend even to a closed six-face cube:
+signed combinations, products or the physical transfer orbit. The earlier
+one-private-link prediction argument does not automatically extend even to
+a closed six-face cube:
 `Z4CoarseUnitCubeBlockGeometry.unitCube_geometricIncidentPlaquettes_length_eq_two`
 shows two faces at every touched link. For combinations, the remaining lower
 faces enter the predictor; their locality away from the selected link must
-be proved, not inferred from upper-time separation. Prioritize this shared-link
-cancellation problem over a sequence of isolated diagonal bounds. Any
+be proved, not inferred from upper-time separation. The new four-link erasure
+above now resolves coefficient detection without that common-link premise;
+it does not yet bound the summed dual Gram form or the spatial variance.
+Prioritize those two estimates over a sequence of isolated diagonal bounds. Any
 reduced-active calculation must rejoin the original objects
 through `BF4ExactSlabFixedSpatialActiveEnergy`, not rename the terminal law.
 Do not repeat charged-sector estimates or local physical variance floors:

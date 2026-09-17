@@ -13,7 +13,52 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original physical one-plaquette fraction; signed sector OPEN (2026-09-17 UTC)
+## PROVED original-action finite signed boundary-dual detection; summed estimate OPEN (2026-09-17 UTC)
+
+- **files**: `QuaternionHaarLocalDualNorm.lean`,
+  `BF4ExactSlabPlaquetteBoundaryErasure.lean`,
+  `BF4ExactSlabPlaquetteBoundaryWindow.lean`,
+  `BF4ExactSlabPlaquetteBoundaryDual.lean`,
+  `BF4ExactSlabPlaquetteBoundaryDualPairing.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: retain the complete selected action A=S_p*R_p, erasing only
+  factors touching any of p's four boundary links. There are at most 24 such
+  factors (`boundaryStar_length_le_twentyFour`, BoundaryErasure:93).
+  `missingLink` (:157) supplies a separate missing link for every distinct
+  other face; `rest_distinct_character_zero` (:198) and `rest_square_moment`
+  (:220) give exact coefficient selection against R_p, even for closed/shared
+  link families. `lower`, `upper`, `starLowerCertificate`, `starUpperCertificate`
+  (BoundaryWindow:45, :46, :127, :141) construct the local positive window.
+  Finite reciprocal tests d_p,k obey L*H[A*d_p,k^2]<=H[R_p]
+  (`fullAction_norm_bound`, BoundaryDual:91). `fullAction_signed_pairing`
+  (BoundaryDualPairing:143) detects the signed combined coefficient with an
+  exact residual; `fullAction_signed_pairing_error` (:175) bounds its square
+  by rho^(2k)*H[R_p]*H[A*F^2]/L, in the ORIGINAL input norm.
+  `coefficientAt` (:53) retains repeated labels and their cancellations.
+  `approximationCutoff` and `residualApproximationInterval` (BoundaryDual:159,
+  :163) return explicit finite residual approximation data.
+- **scope**: SU(2) fundamental plaquettes, with original quaternion Haar and
+  heat polynomials. Positive L(w), U(w) and rho(w)<1 depend explicitly on
+  0<w<1; they do not depend on extent, selected-factor count, dual label or
+  K>=headCutoff(w). No bare-coupling/spacing-uniform rate is claimed. The
+  errors are under the full unintegrated selected action, not a replaced
+  terminal law. No limiting inverse or orthogonality under A is asserted.
+- **remaining input / plan**: construct and control the original dual Gram
+  overlap, then prove a summed estimate without a final volume/family-size
+  loss. Separately supply the original spatial variance UPPER bound beyond
+  the small-nome guard or along a justified scaling trajectory. Both are
+  needed before the existing clearedDefect consumer receives a signed-span
+  fraction. Products, transfer orbit and dense-sector coverage remain OPEN.
+  The preserved completed small-nome Wilson gap/normalized excitation are
+  already proved, but do not close this scaling route. Physical calibration,
+  same-theory continuum/QFT and every compact simple group remain OPEN.
+- **verification**: five focused serialized one-worker/20 GiB checks;
+  all 47 gates within {propext, Quot.sound}, three axiom-free; final logs clean.
+  No sorry added/discharged, analytic premise or canonical field changed;
+  no resource options/limits or CI changes. Five semantic-root imports;
+  full-root build/audit/guard/progress NOT run. Evidence and exact log hashes:
+  `audits/AUDIT-PLAQUETTE-BOUNDARY-DUAL.md`.
+
+## Previous PROVED original physical one-plaquette fraction; signed sector OPEN (2026-09-17 UTC)
 
 - **files**: `BF4ExactSlabSelectedStarPredictionError.lean`,
   `BF4ExactSlabFixedSpatialPlaquetteEnergyFloor.lean`,
