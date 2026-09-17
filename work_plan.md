@@ -397,13 +397,24 @@ are preserved; neither supplies a route through the incompatible AF guard.
    controls the entire signed flow with ONE original energy and no explicit
    family-size coefficient. Its family includes the active heat factors and
    polynomial units at every fringe coordinate; `family_product_pin` (:109)
-   proves the kinetic weight unchanged. This is not yet the finite-family
-   MARGINAL norm estimate. Its raw flow and signed cost must still be pinned
-   to the centered one-/two-erasure pairings, including all fringe cross terms.
-   **NEXT:** prove those exact family pins, then bound the signed determinant
-   contributions collectively, with
-   explicit spatial/depth/cutoff control, and construct a stable decomposition
-   on this SAME marginal sufficient for `clearedDefect_diagonal_nonnegative_iff`.
+   proves the kinetic weight unchanged. The exact MARGINAL pins are now also
+   PROVED: `flowPair_pin`, `signedCost_pin` and
+   `original_family_marginal_energy` in
+   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyMarginals.lean:188`,
+   `:270`, `:303`. They give h*(sum Li)^2 <= energy(g,f)*(sum Ri+2h*sum Cij),
+   with each distinct pair once and all fringe cross terms retained.
+   `actualResidual_family_energy` (:374) supplies the tests from actual-nu
+   residuals and finite polynomial reciprocals, not an assumed centering.
+   This is NOT a bound of the signed cost by the centered variance.
+   **NEXT:** work at finite reciprocal degrees. Expose the cost as
+   h*||S_k||_nu^2 + D_k + 2h*R_k, with corrected tests S_k and the explicit
+   nonnegative diagonal cost D_k; R_k retains the active--active determinants.
+   This proposed split is source-reviewed algebra, NOT a checked declaration
+   yet. Do not discard D_k for an upper bound or ask for a bound valid for
+   every decomposition. Construct a controlled decomposition of the ACTUAL
+   centered observable and bound its combined D_k+2h*R_k, with explicit
+   spatial/depth/cutoff control on this SAME marginal sufficient for
+   `clearedDefect_diagonal_nonnegative_iff`.
    The two-link theorem retains finite reciprocal degrees k,l; its new cross
    terms have not been passed through a collective limit. Prove the needed
    budget before adding a compiler that assumes it. No terminal-message
@@ -417,7 +428,8 @@ are preserved; neither supplies a route through the incompatible AF guard.
    the original interacting uniform-gap problem. See
    `audits/AUDIT-ACTUAL-MARGINAL-DUAL-ENERGY.md` and
    `audits/AUDIT-TWO-LINK-SIGNED-DUAL.md` and
-   `audits/AUDIT-FINITE-FAMILY-FRINGE.md`.
+   `audits/AUDIT-FINITE-FAMILY-FRINGE.md` and
+   `audits/AUDIT-FINITE-FAMILY-MARGINALS.md`.
    **Coverage audit:** inactive kinetic coordinates are averaged, not frozen.
    `terminal_energy_variance_floor` already covers all supported f with its
    width-dependent positive fraction. Nevertheless, active-only residuals
@@ -461,7 +473,45 @@ Compile only a new mathematical result, using serialized focused checks.
 
 ### Current original-action gap and continuum frontier (2026-09-17 UTC)
 
-**Latest checkpoint (PROVED finite-family edge flow and actual fringe control; OPEN marginal cost/decomposition):**
+**Latest checkpoint (PROVED exact full-family marginal energy; OPEN signed budget/decomposition):**
+With g=T^n1, a=Vg, actual one/two-erasure messages d_i,d_ij, and
+P_i(a*r_i)=0 at every retained coordinate, the checked theorem is
+
+    h*(sum_i H[a*d_i*f*r_i])^2
+      <= energy(g,f)*(sum_i H[a*d_i*r_i^2]
+                      +2h*sum_{i<j} H[a*d_ij*r_i*r_j]).
+
+`original_family_marginal_energy`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyMarginals.lean:303`,
+follows from the exact pins `flowPair_pin` (:188) and `signedCost_pin`
+(:270). Positional erasure identities preserve repeated polynomial factors;
+the active-plus-fringe label list is constructively duplicate-free. Fringe
+labels erase units, not new heat factors. The sum retains all signed cross
+pairings, with one original energy and no explicit cardinality coefficient.
+`residualTests` (:338), `residualTests_centered` (:358) and
+`actualResidual_family_energy` (:374) construct admissible tests from
+q_i=weightedResidual i nu seed_i: active t*q_i*G_i,k, fringe q_i directly.
+Every degree is explicit finite data; no exact rational inverse is inserted.
+
+**Audit-driven next mathematical task:** for these finite polynomial tests,
+derive the division-free split C_k=h*||S_k||_nu^2+D_k+2h*R_k, then construct
+a controlled approximation to Phi=Z*f-H[nu*f] and bound D_k+2h*R_k on that
+chosen decomposition. D_k is a nonnegative COST, not a term removable from
+an upper estimate. Single-coordinate ratios control sums of component norms,
+not the norm of their sum. Preserve all original mean/partition factors in
+the existing `clearedDefect_diagonal_nonnegative_iff` consumer. The full
+split, stable decomposition, signed budget and necessary limit control
+remain OPEN; details and exact candidate formulas are in
+`audits/AUDIT-FINITE-FAMILY-MARGINALS.md`. No new assumption-only compiler.
+
+Three focused serialized one-worker/20 GiB checks passed; 11+20+11 printed
+gates lie within {propext, Quot.sound}, with no final errors/warnings/sorryAx.
+Independent mathematical source review passed, including the actual residual
+instance. Three root imports added; root/full-tree/full-audit/guard NOT run.
+No canonical frontier, sorry, memory ceiling, CI setting, global gap,
+physical/scaling/QFT or every-group result changes.
+
+**Previous checkpoint (PROVED finite-family edge flow and actual fringe control; OPEN marginal cost/decomposition at that checkpoint):**
 The two-link positive cells extend by a single constructive recurrence.
 For a factor A and test x, the product P, flow L, and signed cost Q obey
 

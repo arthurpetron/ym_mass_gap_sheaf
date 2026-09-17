@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED finite-family edge flow and actual fringe control; OPEN marginal budget/decomposition (2026-09-17 UTC)
+## PROVED full-family erased-marginal energy; OPEN signed budget/decomposition (2026-09-17 UTC)
+
+- **files**: `QuaternionHaarFamilyErasure.lean`,
+  `BF4ExactSlabFixedSpatialFamilyErasure.lean`,
+  `BF4ExactSlabFixedSpatialFamilyMarginals.lean`, under `lean/YMGap/Continuum/`.
+- **construction**: exact positional single/pair erasure expansions; duplicate-free
+  actual active-plus-fringe labels; canonical one-/two-erased message pins.
+  `flowPair_pin` (FamilyMarginals:188) and `signedCost_pin` (:270) identify
+  the full edge flow/cost with twice the signed marginal flow/cost.
+  `original_family_marginal_energy` (:303) proves
+  h*(sum Li)^2 <= energy(T^n1,f)*(sum Ri+2h*sum Cij), with each pair once,
+  all fringe pairings, no changed action and no explicit link-count factor.
+  `actualResidual_family_energy` (:374) supplies actual-nu residual tests
+  using finite polynomial reciprocals only at active links; centerings are
+  proved, not new assumptions. Degrees remain explicit data.
+- **input removed**: the missing full-family flow/cost identification is
+  now checked. This does not identify a stable decomposition or pay its cost.
+- **remaining**: same-marginal finite-degree cost split; controlled centered
+  decomposition with fringe; collective signed determinant/diagonal upper
+  budget and explicit limit control. No improved spatially uniform gap,
+  beta-uniform positive floor, physical/scaling/QFT or every-group closure.
+  No existing sorry, canonical field or frontier guard changes.
+- **verification**: three final focused serialized one-worker/20 GiB checks,
+  11+20+11 gates within {propext, Quot.sound}, no final errors/warnings/sorryAx.
+  Independent source review passed. Three root imports added;
+  root/full-tree/full-audit/guard NOT run. Evidence and next analytic target:
+  `audits/AUDIT-FINITE-FAMILY-MARGINALS.md`.
+
+## Previous PROVED finite-family edge flow and actual fringe control; OPEN marginal budget/decomposition (2026-09-17 UTC)
 
 - **files**: `QuaternionHaarFiniteFamilyDual.lean`,
   `BF4ExactSlabFixedSpatialFringeDual.lean`,
