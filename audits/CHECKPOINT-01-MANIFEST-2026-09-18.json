@@ -1,0 +1,51 @@
+{
+  "status": "Python and both focused Lean certificates verified; original cube-to-transfer pin remains open; Dropbox originals unchanged",
+  "scope": "Only the listed new project-relative files are in the archive",
+  "files": [
+    {
+      "path": "computations/cube_cutoff_one_checkpoint.py",
+      "sha256": "92b115cfea6c556ef0eed6f35fcf7f17afcbcacce81fdfec06d79b9828fbb918",
+      "size_bytes": 11044
+    },
+    {
+      "path": "scripts/generate_cube_checkpoint.py",
+      "sha256": "e6563ab319a7c87f1444f781b9d4c2ed9e570f60e9331d14d66830dcf4773e08",
+      "size_bytes": 6754
+    },
+    {
+      "path": "tests/test_cube_cutoff_one_checkpoint.py",
+      "sha256": "5dc80f1d42595854b4dbfa24f42ba9cd1c0de78041b9463eab85a2b70a231cba",
+      "size_bytes": 8090
+    },
+    {
+      "path": "lean/YMGap/Continuum/SU2FundamentalHaarCheckpoint.lean",
+      "sha256": "8fe9151c300ef73058b651c5687249fc4a58eed108e49acfb3e55c19b3ffb442",
+      "size_bytes": 6486
+    },
+    {
+      "path": "lean/YMGap/Continuum/BF4CubeNormalizedPairEscapeCheck.lean",
+      "sha256": "7314b4845837633ef4c84a71f4a2331f9995220bdaa62b9118b4f731bc9aaec5",
+      "size_bytes": 6101
+    },
+    {
+      "path": "audits/CHECKPOINT-01-CUBE-TRANSFER-2026-09-18.json",
+      "sha256": "17e960a810f271556a9aea79fc0096d345da53b1e7cd06af0132f56ec8cff7a3",
+      "size_bytes": 57855
+    },
+    {
+      "path": "audits/CHECKPOINT-01-TEST-RESULTS-2026-09-18.json",
+      "sha256": "744c263b9dc4bdf9b0688e56b024fa7eda3105771411e5a9544e8f6aded807b7",
+      "size_bytes": 476
+    },
+    {
+      "path": "audits/CHECKPOINT-01-PYTHON-2026-09-18.log",
+      "sha256": "dd569c83397c3d7ff3157ceb0f2ba2a8cb6eb4f0464a11b79b0cb5247a32c1ee",
+      "size_bytes": 1539
+    },
+    {
+      "path": "audits/CHECKPOINT-01-NORMALIZED-PAIR-2026-09-18.md",
+      "sha256": "512e94d51ad1a6b1cc55eae5b9c3a3d5e1ca48824c165a7e226b0d85d46f49ef",
+      "size_bytes": 11716
+    }
+  ]
+}

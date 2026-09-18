@@ -13,6 +13,23 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
+
+- `lean/YMGap/Continuum/RationalProductSourceBudgetObstruction.lean`:
+  the finite Boolean product model has a SAME-transfer generated source orbit,
+  exact ordinary-Haar last-piece/source pin, and squared weighted-norm
+  amplification `(588/335)^M`. Focused serialized check passed; 16 public
+  gates lie within `{propext, Quot.sound}`. This is a generic
+  source-decomposition obstruction only; it is not an SU(2) Wilson or
+  Yang--Mills theorem and does not close the actual upper-budget obligation.
+- `lean/YMGap/Continuum/SU2FundamentalHaarCheckpoint.lean` and
+  `lean/YMGap/Continuum/BF4CubeNormalizedPairEscapeCheck.lean`:
+  finite cutoff-one fundamental tensor and integer normalized-pair
+  certificates. Focused checks passed with 17 and 14 public gates,
+  respectively, within `{propext, Quot.sound}`. The original cube-to-transfer
+  source pin remains open; no continuum, uniform-gap or canonical frontier
+  atom is closed.
+
 ## PROVED one-step positivity on the SAME current Wilson completion (2026-09-18 UTC)
 
 - **files**: `SU2QuaternionSliceReversal.lean`, `SU2QuaternionHeadWindowReversal.lean`,

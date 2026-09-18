@@ -1,0 +1,17 @@
+{
+  "tests_run": 11,
+  "failures": 0,
+  "errors": 0,
+  "success": true,
+  "runtime_seconds": 2.733505966000166,
+  "independent_one_link_moment_comparisons": 4160,
+  "cube_automorphisms": 48,
+  "arithmetic": "exact signed int64 with overflow guard and fractions.Fraction",
+  "arithmetic_rounding_error": "0",
+  "cutoff_and_continuum_approximation_error": "not bounded by this checkpoint",
+  "lean_verification": {
+    "SU2FundamentalHaarCheckpoint": "PASS; focused serialized check; 17 public gates within {propext, Quot.sound}; log /tmp/ym-su2-fundamental-haar-checkpoint-retry5-20260918.log",
+    "BF4CubeNormalizedPairEscapeCheck": "PASS; focused serialized check; 14 public gates within {propext, Quot.sound}; log /tmp/ym-cube-normalized-pair-check-20260918.log"
+  },
+  "original_source_to_matrix_pin": "NOT FORMALIZED"
+}

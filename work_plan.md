@@ -254,6 +254,59 @@ Do not port a large conditional functional calculus before finding the
 missing current analytic producer and its actual consumer. Physical-time
 calibration and changing-spacing survival remain separate requirements.
 
+**Backward join review, 2026-09-18:** the legacy inward-test argument
+does not literally extend to all current Wilson windows. The legacy
+bond-reflected lower algebra can move a test onto the adjacent site plane;
+the current algebra ALREADY includes site-plane generators, whose matching
+inward shift crosses the next bond plane. Common-chart padding does not
+change this distance. This is a source/geometry diagnosis, not a theorem
+that the desired dual bound is false. Existing full chronological-program
+density includes time-zero multipliers and therefore does not supply density
+of strictly-past tests. A local quadratic inverse-heat theorem also exists,
+but does not absorb the source-dependent spatial action or construct a
+current completed dual test. Keep the next input small: a quantitative
+current-carrier estimate on the needed residual orbit suffices; neither an
+exact inverse nor an original-state realization of an auxiliary dual test
+is required. Do not transfer the legacy dense-range conclusion or add its
+conditional functional calculus before supplying this join. Evidence and
+exact declaration/search map:
+`audits/AUDIT-BIDIRECTIONAL-JOIN-OBSTRUCTIONS-2026-09-18.md`.
+
+**Generic source-budget obstruction, verified 2026-09-18:**
+`RationalProductSourceBudgetObstruction.lean` defines an explicit finite
+Boolean product carrier, positive product transfer, generated unit/source
+orbit, original density, ordinary-Haar last source piece and its explicit
+reciprocal-conjugated test. The kernel-checked identities
+`transfer_unit`, `transfer_source`, `observed_centered`,
+`lastSourcePiece_value`, `lastTest_source_pin`, `observed_norm`,
+`lastTest_norm`, `lastTest_norm_amplification` and
+`lastDiagonal_amplification` pass one focused serialized check; 16 printed
+public gates lie within `{propext, Quot.sound}`. The exact amplification is
+`(588/335)^M` in squared weighted norm for M spectators. This is a finite
+product-model obstruction to promoting this particular ordinary-Haar /
+reciprocal source decomposition by a generic support-only budget. It is not
+an SU(2) Wilson instance, not a Yang--Mills counterexample, and not a claim
+about the full signed cost: the full-action SU(2) upper budget remains open.
+Evidence and scope boundary:
+`audits/AUDIT-BIDIRECTIONAL-JOIN-OBSTRUCTIONS-2026-09-18.md`.
+
+**Cutoff-one normalized-pair checkpoint, verified 2026-09-18:** an exact
+finite six-face SU(2) cube diagnostic now has 11 passing Python tests
+(4,160 independent degree-two/four Haar-entry comparisons and 48 cube
+automorphisms), plus two focused Lean certificate checks. The local tensor
+file `SU2FundamentalHaarCheckpoint.lean` passes 17 public gates and the
+integer normalized-pair checker `BF4CubeNormalizedPairEscapeCheck.lean`
+passes 14 public gates; all printed dependencies lie within
+`{propext, Quot.sound}`. The stored certificate proves weighted
+orthogonality, positive dual norm, and positive source pairing inequalities
+for the finite diagnostic. It does NOT prove the original width-two cube
+matrix/source pin to `transferStep`, and it has no cutoff-, volume-, spacing-,
+continuum-, or mass-gap conclusion. Keep it as an obstruction test for the
+untransported plaquette-span shortcut; the next mathematical join is the
+original integral/source pin, not another generic toy model. Evidence:
+`audits/CHECKPOINT-01-NORMALIZED-PAIR-2026-09-18.md` and the recorded focused
+logs under `/tmp/`.
+
 ### Classical methods: review aid, not a changed proof substrate
 
 The word "constructive" in constructive quantum field theory is not itself a
