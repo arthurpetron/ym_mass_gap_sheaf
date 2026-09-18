@@ -181,7 +181,8 @@ the SAME q^n for every complex vector orthogonal to the embedded original
 unit; multiplier caps also remain unchanged. This fills an actual algebraic
 backward requirement without a new analytic hypothesis. It does not supply
 unrestricted quotient-complex scalar-field/module packaging, arbitrary
-quotient-sequence completeness, one-step form positivity or continuum QFT.
+quotient-sequence completeness or continuum QFT. One-step form positivity
+has subsequently been supplied by the 2026-09-18 join below.
 The two final focused serialized 20 GiB checks passed; all 51 printed gates
 lie within {propext, Quot.sound}. Independent source reviews passed. Two
 semantic-root imports added; full-root/full-tree/audit/guard/progress NOT run.
@@ -214,17 +215,44 @@ passed. No new sorry, analytic input, canonical field or guard. Three root
 imports added; full-root/full-tree/audit/guard/progress NOT run. Evidence:
 `audits/AUDIT-ORIGINAL-KINETIC-POSITIVITY-2026-09-17.md`.
 
-**Next exact same-carrier join:** observed-window adjointness under reversal
-of its slice offsets. Existing whole-window Fubini, kernel symmetry and
-separated-window contraction support the identity with all action factors
-retained. It would identify the balanced odd-window one-step numerator as
-H[V*F*T F], with F the ACTUAL earlier observed message. The CURRENT intrinsic
-form displays an extra unused slice; its raw finite diagonal has unequal
-trimmed boundary depths and must NOT be called this square. Prove the
-balanced odd-window positivity first, then use the existing unequal-padding
-limit theorem to pass to the displayed form, spatial limit and completion.
-That adjoint identity and the current completed positivity pin remain open;
-the older plaquette completion's positivity theorem is not their substitute.
+**SAME-carrier one-step positivity, checked 2026-09-18:**
+`SU2QuaternionHeadWindowReversal.windowMessage_reversal` proves actual
+signed-window adjointness by reversing every slice of the full K/V chain.
+The literal Wilson source compiler and separated-window identity identify
+the balanced odd-window numerator as H[V*F*T F] with its ACTUAL signed F
+and original positive partition.
+`BF4ExactSlabFixedSpatialWilsonOddWindow.oddJointLimits_oneStep_converge`
+removes the extra displayed slice only after the original joint limit;
+finite (t,t) and (t,t+1) boundaries are never equated. The current intrinsic
+form is positive at ONE step, and
+`BF4WilsonSpatialUnionTimePositive.completedInner_oneStep_nonnegative`
+covers every vector of the current real completion. Its complex counterpart
+has nonnegative real part and zero imaginary part. No legacy completion
+or supplied positivity assumption is used. All current small-nome guards
+remain. This closes the exact positivity join, not a strict analytic rate.
+
+Seven final focused serialized 20 GiB checks passed with 31 public and
+seven internal gates in {propext, Quot.sound}. The gate caught the core
+toolchain's classical `List.nodup_range`; the existing constructive
+`CayleyParentInj.range_nodup` is used in the final proof. Independent
+review passed. Seven root imports added; full-root/full-tree/audit/guard/
+progress NOT run. No sorry, canonical field, analytic guard, CI or resource
+policy changed. Evidence:
+`audits/AUDIT-CURRENT-WILSON-ONE-STEP-POSITIVITY-2026-09-18.md`.
+
+**Next backward input, in parallel with the primary strict-estimate task:**
+same-operator dense range / approximate preimages on the CURRENT Wilson
+completion. Positivity does not exclude transfer-kernel vectors. Seek an
+explicit residual-decay modulus for (I-T^2)^n on each dense Wilson stage,
+or another sufficient current-carrier estimate. The finite geometric sum
+then supplies approximate preimages; do not demand an exact bounded inverse.
+The legacy `BF4ExactSlabThermodynamicRangeApproximation.partialPreimage_identity`
+and `FullSpaceZeroContinuity.rangeApproximationData` are useful proof
+prototypes, not current Wilson instances. Current represented row limits
+already commute with time (`BF4WilsonSpatialUnionCauchyRows.rowLimit_time`).
+Do not port a large conditional functional calculus before finding the
+missing current analytic producer and its actual consumer. Physical-time
+calibration and changing-spacing survival remain separate requirements.
 
 ### Classical methods: review aid, not a changed proof substrate
 

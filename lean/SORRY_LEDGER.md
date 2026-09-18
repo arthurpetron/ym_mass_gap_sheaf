@@ -13,7 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual kinetic PSD and original interacting quadratic; Wilson-form pin OPEN (2026-09-17 UTC)
+## PROVED one-step positivity on the SAME current Wilson completion (2026-09-18 UTC)
+
+- **files**: `SU2QuaternionSliceReversal.lean`, `SU2QuaternionHeadWindowReversal.lean`,
+  `BF4ExactSlabFixedSpatialWilsonOddWindow.lean`,
+  `BF4ExactSlabFixedSpatialWilsonSourceReversal.lean`,
+  `BF4ExactSlabFixedSpatialOddWindowPositive.lean`,
+  `BF4ExactSlabFixedSpatialWilsonTimePositive.lean`,
+  `BF4WilsonSpatialUnionTimePositive.lean`, all under `lean/YMGap/Continuum/`.
+- **proved join**: `windowMessage_reversal` (HeadWindowReversal:415) reverses
+  the complete signed observed window with every original K/V factor intact.
+  `source_reverse` (SourceReversal:66) pins literal Wilson offset reversal.
+  `reversed_input_quadratic_pin` (OddWindowPositive:55) identifies the
+  balanced odd-window numerator with H[V*F*T F] for its ACTUAL signed F.
+  The existing positive original partition and kinetic PSD then apply.
+- **same object through limits**: `oddJointLimits_oneStep_converge`
+  (OddWindow:156) removes the extra chart slice only AFTER the time/cutoff
+  limit. It does not equate finite (t,t) and (t,t+1) boundaries.
+  `intrinsicForm_oneStep_nonnegative` (WilsonTimePositive:114) passes
+  positivity to the current intrinsic form. `completedInner_oneStep_nonnegative`
+  (UnionTimePositive:80) covers EVERY current real completion vector,
+  including streams of growing spatial bases/time radii. The complex
+  `inner_oneStep_nonnegative` (:88) has nonnegative real part and zero
+  imaginary part. No assumed positivity bundle or legacy-carrier substitution.
+- **residue**: same-operator constructive dense range/zero-time continuity,
+  primary scale-controlled strict generated-orbit estimate, changing-spacing
+  survival, physical generator/mass calibration, full QFT and every compact
+  simple group remain open. This is fixed-spacing, small-nome SU(2)
+  positivity, not a new strict rate or canonical atom closure.
+- **verification**: seven final focused serialized one-worker/20 GiB checks
+  passed; 31 public plus seven internal gates within {propext, Quot.sound}.
+  Initial drafts had local elaboration fixes. The axiom gate rejected the
+  core toolchain's classical `List.nodup_range`; replacing it with existing
+  constructive `CayleyParentInj.range_nodup` removed that dependency. All
+  final downstream gates passed. Parent source inspection and independent
+  mathematical review passed. No sorry introduced/discharged, retained
+  classical dependency, new analytic input, canonical field or guard change.
+  Seven root imports added; full-root/full-tree/audit/guard/progress NOT run.
+  CI and resource policy unchanged. Evidence and hashes:
+  `audits/AUDIT-CURRENT-WILSON-ONE-STEP-POSITIVITY-2026-09-18.md`.
+
+## PROVED actual kinetic PSD and original interacting quadratic; Wilson-form pin OPEN at this checkpoint (2026-09-17 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionCoordinateColumnLift.lean`,
   `SU2QuaternionProductHeatPositive.lean`,
