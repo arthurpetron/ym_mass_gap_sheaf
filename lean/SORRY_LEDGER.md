@@ -15,6 +15,15 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialClearedCovarianceCauchy.lean`:
+  `combinedTest_supported` and
+  `terminalResidual_clearedDefect_square_le` keep the actual combined signed
+  test and terminal residual on the original finite carrier and derive the
+  same-action squared Cauchy bound from the original spatial/terminal square
+  certificate. Focused serialized check passed; both public gates lie within
+  `{propext, Quot.sound}`. This does not bound either remaining weighted norm
+  uniformly and does not close the signed covariance or continuum gap.
+
 - `lean/YMGap/Continuum/RationalProductSourceBudgetObstruction.lean`:
   the finite Boolean product model has a SAME-transfer generated source orbit,
   exact ordinary-Haar last-piece/source pin, and squared weighted-norm

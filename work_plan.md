@@ -307,6 +307,25 @@ original integral/source pin, not another generic toy model. Evidence:
 `audits/CHECKPOINT-01-NORMALIZED-PAIR-2026-09-18.md` and the recorded focused
 logs under `/tmp/`.
 
+**Same-action Cauchy reduction, verified 2026-09-18:**
+`BF4ExactSlabFixedSpatialClearedCovarianceCauchy.combinedTest_supported`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialClearedCovarianceCauchy.lean:57`)
+keeps the exact combined signed test on the original finite carrier. The new
+`terminalResidual_clearedDefect_square_le` (`:102`) composes the existing
+`clearedDefect_pairing` identity with the original spatial/terminal square
+certificate and constructive weighted Cauchy--Schwarz. For the actual
+terminal residual `r` and combined test `F`, it proves
+
+    C_delta(r,s)^2 <= H[(V*g)*r^2] * H[(V*g)*F^2]
+
+with the SAME action, carrier, cutoff, width and terminal message. This is a
+finite signed-norm reduction, not the required width-uniform upper budget: the
+two displayed norms still need action-specific estimates and the physical
+scaling join. One focused serialized check passed with both public gates inside
+`{propext, Quot.sound}`; no sorry, classical axiom, canonical field or
+continuum claim was added. The next forward target is to control these two
+same-action norms without replacing `V*g` by a conditional or product model.
+
 ### Classical methods: review aid, not a changed proof substrate
 
 The word "constructive" in constructive quantum field theory is not itself a
