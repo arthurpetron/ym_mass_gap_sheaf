@@ -13,6 +13,22 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED physical Perron/cross-tail to completed-quarter join (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4BoundaryMessagePerronCrossTailQuarter.lean`.
+- **proved**: `MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows.toRowwiseEighthEstimates`
+  composes the existing Perron/cross-tail certificate through the computed
+  finite positive floor and terminal perturbation route; the companion
+  `physical_quarter_uniform` theorem exposes the resulting completed physical
+  quarter contraction at every matched scale.
+- **boundary**: every terminal spread, AF/Faraut depth, cross-tail error,
+  coupling-window, and spacing field remains a supplied witness. This is a
+  consumer compiler only; it does not construct the physical analytic
+  producer, a cofinal same-object bound, a continuum limit, QFT axioms, an
+  all-group theorem, or the Clay result.
+- **verification**: `/tmp/ym-perron-quarter-check3.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED finite cutoff-two non-vacuity endpoint (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteCutoffTwoNontrivialEndpoint.lean`.

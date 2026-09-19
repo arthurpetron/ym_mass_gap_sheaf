@@ -66,6 +66,25 @@ all-vector transfer decay and the literal moving cube's same-object
 autocorrelation bound at the supplied squared rate.  The remaining frontier
 is the inhabited cofinal factorization/power-budget producer itself.
 
+### Current forward/backward join: physical Perron/cross-tail reaches the completed quarter (2026-09-19)
+
+`BF4BoundaryMessagePerronCrossTailQuarter.lean` now names the direct
+consumer path from the physical terminal Perron/cross-tail interface. Its
+`toRowwiseEighthEstimates` declaration composes the existing Perron spread
+budget, division-free cross-tail estimate, computed finite positive floor,
+and relative terminal perturbation compiler. Its
+`physical_quarter_uniform` theorem then applies the already checked
+completed-carrier quarter consumer at every matched scale. No analytic
+producer field is synthesized: terminal positivity, the AF/Faraut depth
+estimate, the cross-tail error tail, coupling chart, and spacing envelope
+remain explicit inputs. The route advances the consumer side of the
+meet-in-the-middle plan while leaving the producer, same-object cofinality,
+spacing variation, OS/continuum passage, QFT axioms, and all-group Clay
+endpoint open.
+
+Focused check: `/tmp/ym-perron-quarter-check3.log`; the new declarations use
+only `{propext, Quot.sound}` and introduce no `sorryAx`.
+
 ### Current forward/backward join: quarter slices compile to a depth budget (2026-09-19)
 
 The older sector-local slice route now has an explicit backward adapter in

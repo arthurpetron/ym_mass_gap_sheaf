@@ -41,6 +41,17 @@ This is a checked compiler, not an inhabited cofinal producer;
 thermodynamic/continuum passage, full QFT structure, all-group construction,
 and the Clay endpoint remain open.
 
+**Physical Perron/cross-tail join (2026-09-19):**
+`BF4BoundaryMessagePerronCrossTailQuarter.lean` makes the next
+forward/backward seam explicit. A supplied physical terminal
+Perron/cross-tail certificate now compiles, without changing its fields, to
+the literal rowwise `1/8` estimates and the completed physical quarter
+contraction. The exact path is terminal Perron spread and cross-tail error
+`->` computed finite positive floor `->` half-amplitude projective rows `->`
+completed-carrier quarter bound. This does not inhabit the terminal/error
+producer or assert a cofinal, thermodynamic, continuum, QFT, every-group, or
+Clay result.
+
 The forward/backward seam has also been sharpened on the sector-local branch:
 `FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.ofLocalSlice` compiles a
 supplied quarter-rate cofinal slice family to the fixed `1/16` depth budget by
