@@ -126,6 +126,25 @@ thermodynamic, continuum, full-QFT, or every-group Clay joins.  Focused check:
 `/tmp/ym-pulled-vacuum-complement-dichotomy2.log`; the axiom gate remains
 `{propext, Quot.sound}`.
 
+### Current forward/backward join: inhabited completed vacuum complement (2026-09-19)
+
+The preceding nonzero and orthogonality landmarks now meet in the exact
+completed subtype.  `BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement`
+defines
+`centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement` by pairing
+`centralPhysicalVacuumSectorMovingCenteredGlobalVector_vacuumOrthogonal` with
+`centralPhysicalCutoffOneCubeMovingCenteredGlobalVector_ne_zero`; its
+`..._ne_zero` theorem retains the nonzero conclusion in the ambient completed
+physical carrier.  This is the first explicit nonzero element of the actual
+fixed-cutoff completed vacuum complement on this moving-centered route.
+
+The backward consumer is still the completed transfer/same-object edge: no
+transfer moment has yet been identified for this exact witness, and no
+cofinal capacity comparison, same-family variation budget, thermodynamic or
+continuum passage, QFT axioms, or all-group construction follows.  Focused
+check: `/tmp/ym-pulled-vacuum-complement-witness2.log`; only
+`{propext, Quot.sound}` were reported.
+
 ### Current forward/backward join: same-mass spacing order (2026-09-18)
 
 The current fixed-spacing physical calibration now has an actual trajectory-

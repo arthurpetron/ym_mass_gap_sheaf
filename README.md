@@ -143,6 +143,18 @@ and Clay endpoint remain open.  Focused check:
 `/tmp/ym-pulled-vacuum-complement-dichotomy2.log`; only
 `{propext, Quot.sound}` were permitted.
 
+**Concrete completed vacuum-complement witness, checked 2026-09-19:**
+`BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement` contracts the
+actual moving-centered cutoff-one cube vector with its independently proved
+completed vacuum-orthogonality into
+`centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement`.  The companion
+`..._ne_zero` theorem proves that this subtype witness is not the completed
+zero vector.  This is a fixed-nome, fixed-half-extent SU(2) witness in the
+actual completed physical carrier; it does not identify a transfer moment,
+provide cofinal variation, or construct a thermodynamic/continuum QFT.  The
+focused check was `/tmp/ym-pulled-vacuum-complement-witness2.log`, with only
+`{propext, Quot.sound}` reported.
+
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
 contracts the explicit dense physical-to-strong lift certificate directly to

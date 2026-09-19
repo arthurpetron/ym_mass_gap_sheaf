@@ -80,6 +80,21 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: `/tmp/ym-pulled-vacuum-complement-dichotomy2.log`; only
   `{propext, Quot.sound}` were permitted and no `sorryAx` was introduced.
 
+## PROVED concrete completed vacuum-complement witness (2026-09-19 UTC)
+
+- **file**: `BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.lean`.
+- **proved**: `centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement`
+  packages the actual moving-centered cutoff-one cube vector with its proved
+  completed vacuum-orthogonality, and
+  `centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_ne_zero` proves
+  that the resulting subtype witness is not the completed zero vector.
+- **boundary**: this is a fixed-nome, fixed-half-extent SU(2) witness in the
+  actual completed physical carrier.  It does not identify a transfer moment,
+  supply cofinal physical-gap variation, or construct the thermodynamic,
+  continuum, QFT, or Clay endpoint.
+- **verification**: `/tmp/ym-pulled-vacuum-complement-witness2.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4MatchedPhysicalAFTwoSidedMarginCompiler.lean`.
