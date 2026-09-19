@@ -504,6 +504,25 @@ The direct consumers `exactLogRateCauchy_of_normalizedStrengthAndReciprocalSpaci
 and `DynamicVacuumSectorContinuumHandoff.ofNormalizedStrengthAndReciprocalSpacing`
 now make this join observable in the exact-log and continuum-handoff paths.
 
+### Current forward/backward join: primitive exact-gap input package (2026-09-19)
+
+`BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.lean` now adds
+`DynamicVacuumSectorObservablePin.PhysicalGapPrimitiveVariationInput` and its
+`toPhysicalGapVariation` compiler.  This is the smallest backward-facing
+package for the exact same-family physical gap: it asks for independent
+summable two-sided rational variations of `family.latticeMargin` and the
+actual spacing stream, plus one explicit positive spacing floor, and then
+applies the generic positive-ratio compiler directly to
+`family.physicalGap`.  The declaration therefore meets the existing exact-log
+consumer without introducing an auxiliary rate or changing the family.
+
+This is an interface compiler, not a producer: the three analytic inputs are
+still uninhabited here, and the positive-floor branch cannot be the spacing-to-
+zero continuum route.  It does not add a continuum measure, OS/GNS
+reconstruction, QFT axioms, an all-group construction, or the Clay endpoint.
+The focused check is `/tmp/ym-gap-variation-compiler-check2.log`; the printed
+axioms are only `{propext, Quot.sound}`.
+
 ### Current forward/backward join: residual strength factors (2026-09-19)
 
 `BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler` exposes

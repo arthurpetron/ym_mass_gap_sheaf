@@ -67,6 +67,18 @@ limit inputs (except for the canonical terminal-positivity compiler); no
 Cauchy modulus, continuum field, OS/QFT structure, or Clay mass gap is
 inferred.
 
+**Exact physical-gap input package (2026-09-19):**
+`BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.lean` now
+defines `PhysicalGapPrimitiveVariationInput` and
+`PhysicalGapPrimitiveVariationInput.toPhysicalGapVariation`.  Independent
+summable variations of the same completed family’s lattice margin and spacing,
+together with an explicit positive spacing floor, compile directly to variation
+of the exact `latticeMargin / spacing` physical-gap stream.  This is a checked
+forward/backward interface to the existing exact-log consumer; those producer
+inputs remain uninhabited, and no continuum, OS/QFT, all-group, or Clay claim
+is made.  Focused verification is `/tmp/ym-gap-variation-compiler-check2.log`
+under the `{propext, Quot.sound}` gate.
+
 **Completed-carrier attachment (2026-09-19):**
 `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSCompletedCarrier.lean`
 now connects the conditional all-source inward-mate Poincare estimate to the

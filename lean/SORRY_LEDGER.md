@@ -13,6 +13,23 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED primitive exact-gap input package (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.lean`.
+- **proved**: `DynamicVacuumSectorObservablePin.PhysicalGapPrimitiveVariationInput`
+  packages independent `SummableRationalStepVariation` witnesses for the
+  completed family’s lattice margin and spacing, together with a positive
+  spacing floor; `PhysicalGapPrimitiveVariationInput.toPhysicalGapVariation`
+  compiles those fields to variation of the definitionally same-family
+  `family.physicalGap` using the generic positive-ratio compiler.
+- **boundary**: this is a backward interface compiler only.  The margin and
+  spacing variation witnesses and the positive floor remain producer inputs;
+  the floor branch cannot provide the spacing-to-zero continuum route.  No
+  continuum measure, OS/GNS reconstruction, QFT axioms, all-group theorem,
+  physical mass calibration, or Clay result is claimed.
+- **verification**: `/tmp/ym-gap-variation-compiler-check2.log`; the printed
+  axioms are only `{propext, Quot.sound}`, with no `sorryAx`.
+
 ## PROVED physical Perron/cross-tail to completed-quarter join (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4BoundaryMessagePerronCrossTailQuarter.lean`.

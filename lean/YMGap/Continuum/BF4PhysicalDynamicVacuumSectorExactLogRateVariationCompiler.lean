@@ -34,6 +34,7 @@ import YMGap.Continuum.DirectLogQuadraticRemainder
 import YMGap.Continuum.EventualCRealRationalProxyTracking
 import YMGap.Continuum.FullLogRateInnerRegularity
 import YMGap.Continuum.QuadraticRateErrorTailControl
+import YMGap.Continuum.SummableRationalPositiveRatioDebtVariation
 import YMGap.Continuum.SummableRationalStepVariation
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
@@ -62,11 +63,52 @@ open YMGap.Continuum.PhysicalSeparatorFullLogRate
 open YMGap.Continuum.PhysicalSeparatorLinearTail
 open YMGap.Continuum.ProjectiveOSCorrelationHandoff
 open YMGap.Continuum.QuadraticRateErrorTailControl
+open YMGap.Continuum.SummableRationalPositiveRatioDebtVariation
 open YMGap.Continuum.SummableRationalStepVariation
 
 local infix:50 " ≈ " => Q'.eqv
 
 namespace DynamicVacuumSectorObservablePin
+
+/-! ## 0. Forward primitive budgets meet the backward physical-gap input -/
+
+/-- Primitive variation data for the exact physical gap of one completed
+family.  The numerator and denominator budgets are deliberately independent;
+the explicit positive spacing floor is the only noncollapse input needed by
+the ratio compiler. -/
+structure PhysicalGapPrimitiveVariationInput
+    {half : Nat}
+    (family : DynamicVacuumSectorCompletedFamily half) : Type 1 where
+  spacingFloor : Q'
+  spacingFloor_pos : (0 : Q') < spacingFloor
+  spacingFloor_le : ∀ scale,
+    spacingFloor ≤ family.transferSpacing.spacing scale
+  marginVariation :
+    SummableRationalStepVariation family.latticeMargin
+  spacingVariation :
+    SummableRationalStepVariation family.transferSpacing.spacing
+
+namespace PhysicalGapPrimitiveVariationInput
+
+/-- The two primitive step budgets compile to the exact same-family physical
+gap stream.  No auxiliary rate or spacing schedule is introduced. -/
+def toPhysicalGapVariation
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (input : PhysicalGapPrimitiveVariationInput family) :
+    SummableRationalStepVariation family.physicalGap :=
+  positiveRatioVariationOfPrimitiveComponents
+    family.latticeMargin
+    family.transferSpacing.spacing
+    (fun scale => Q'.le_of_lt (family.latticeMargin_pos scale))
+    family.transferSpacing.spacing_pos
+    input.spacingVariation
+    input.marginVariation
+    input.spacingFloor
+    input.spacingFloor_pos
+    input.spacingFloor_le
+
+end PhysicalGapPrimitiveVariationInput
 
 /-! ## 1. Same-family logarithmic tail data -/
 
@@ -230,6 +272,8 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
 
 /-! ## Dependency gates -/
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.PhysicalGapPrimitiveVariationInput.toPhysicalGapVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.exactLogLinearMarginTail
 #print axioms
