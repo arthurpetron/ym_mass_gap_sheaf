@@ -101,6 +101,15 @@ continuum limit, or Clay result is inferred.  Focused check:
 `e8ba82112ad6a4f8f7533c755590d82efa13d9d1bdc06fc05d13bf4e87a2c697`.
 Only `{propext, Quot.sound}` were reported.
 
+**Type-modulated endpoint cross-check, verified 2026-09-18:**
+`BF4PhysicalModulatedDenseEndpointComparison.ModulatedBF4DenseEndpointData`
+has the same five dense laws on the Type-modulated physical completion, with
+direct null-modulus transport and the same conditional strict endpoint gap.
+Its focused check passed with only `{propext, Quot.sound}`; no five-law
+inhabitant or continuum/Clay result is present.  Evidence:
+`/tmp/ym-modulated-dense-endpoint-current.log`; source SHA-256
+`323b00b49a0f0bdb4c93d011d1ac52fa8a09b87a9f8d56c195b512e70a926138`.
+
 The reverse finite-stage edge is now named explicitly as
 `CurrentStagePairingSeparationCertificate`.  Its checked consumer,
 `CurrentStagePairingSeparationCertificate.stageClass_eq_iff_current_eq`,

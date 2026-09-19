@@ -688,6 +688,20 @@ Focused check: `/tmp/ym-dense-endpoint-recovered-modulus.log`; source SHA-256
 `e8ba82112ad6a4f8f7533c755590d82efa13d9d1bdc06fc05d13bf4e87a2c697`.
 Only `{propext, Quot.sound}` were reported.
 
+**Type-modulated endpoint cross-check, verified 2026-09-18:**
+`BF4PhysicalModulatedDenseEndpointComparison.ModulatedBF4DenseEndpointData`
+provides the same five dense analytic laws on the Type-modulated physical
+completion.  Its `mapNullModulus` is direct because the modulated carrier
+stores the modulus, and its `physicalModulatedMacroVacuumNormGap` imports the
+same strict endpoint estimate.  The focused check confirms that this parallel
+presentation also uses only `{propext, Quot.sound}` and contains no inhabitant
+of the five analytic laws.  Thus the legacy recovery and the modulated route
+agree on the current missing frontier rather than introducing two different
+obligations.
+
+Focused check: `/tmp/ym-modulated-dense-endpoint-current.log`; source SHA-256
+`323b00b49a0f0bdb4c93d011d1ac52fa8a09b87a9f8d56c195b512e70a926138`.
+
 **Dense-stage dynamic consumer, checked 2026-09-18:**
 `CurrentStageDenseTwoStepCertificate` isolates the next dynamic input at the
 smallest useful scope: exact two-step intertwining only for canonical classes
