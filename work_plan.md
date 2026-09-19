@@ -524,6 +524,17 @@ all-vector density, changing-spacing control, continuum limit, or Clay claim is
 added. Focused check log: `/tmp/ym-canonical-bridge-factor.log`; SHA-256
 `cba7b3a9d4adc0abbec731171fdd0a788130b56a2c62b9f8d8ca28853db64c14`.
 
+**Bridge-map injectivity consequence, checked 2026-09-18:**
+`CurrentCarrierBridge.map_injective` proves that any supplied exact form
+certificate is automatically injective: equality of two canonical images is
+pulled back to equality of all current pairings, and the completed current
+pairing separates vectors. This strengthens the static bridge residual toward
+the eventual dense/surjective comparison without adding an injectivity field,
+choice, or a representative selector. It remains conditional on the same
+uninhabited bridge and supplies no surjectivity or continuum conclusion.
+Focused check log: `/tmp/ym-canonical-bridge-injective.log`; SHA-256
+`23dbe7c89d4f13e7f3c148f49a807ce6018d468b8315a3d6d1fe4799502654e3`.
+
 **Concrete current physical SU(2) sector, checked 2026-09-18:**
 `BF4WilsonSpatialUnionCurrentSector.lean` packages the already checked
 same-carrier data as `CompletedPhysicalSU2Sector.currentSector`: the discrete

@@ -42,6 +42,8 @@ open YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 open YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
 open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
   (mixed_correlator_sq_decay)
+open YMGap.Continuum.BF4WilsonSpatialUnionBilinear
+  (completed_eq_of_pairings)
 open YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
   (completed_twoStep_form_gap)
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
@@ -145,6 +147,21 @@ def CurrentCarrierBridge.ofCertificates
   form_preserving := F.form_preserving
   twoStep_intertwines := D.twoStep_intertwines
   probe_vacuum_orthogonal := O.probe_vacuum_orthogonal
+
+/-- Exact form preservation makes the bridge map injective.  The proof uses the
+separating completed current pairing, so injectivity is not an extra field and
+does not require a representative choice or classical quotient reasoning. -/
+theorem CurrentCarrierBridge.map_injective
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+    (J : CurrentCarrierBridge P) {x y : V}
+    (h : J.map x = J.map y) : x = y := by
+  apply completed_eq_of_pairings nome_pos nome_lt_one hsmall hd hs x y
+  intro z
+  rw [← J.form_preserving x z, ← J.form_preserving y z]
+  exact congrArg (fun u => W.toGNSData.cinnerCompl u (J.map z)) h
 
 /-- The canonical probe data produced by a supplied carrier bridge. -/
 structure CanonicalProbeData
@@ -330,6 +347,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.ofCertificates
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.map_injective
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonical_resolvent_norm_floor
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_norm_floor
