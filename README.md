@@ -192,6 +192,12 @@ bound.  This is a genuine forward/backward connection, but the sector-local
 family itself remains an unconstructed analytic producer, so thermodynamic,
 continuum, QFT, every-group, and Clay closure remain open.
 
+The same module also exposes
+`...StrictContractionData_of_compatibleTimeFactorization`: the existing
+sector-conditioned direct-power bundle is an alternate producer input, with
+strictness required only after vacuum-sector restriction and no false
+full-carrier strictness claim.
+
 **Primitive physical-gap variation compiler, checked 2026-09-19:**
 `BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler` constructs
 `SummableRationalStepVariation family.physicalGap` from summable variation of

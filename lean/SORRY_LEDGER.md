@@ -130,6 +130,10 @@ Cauchy--Schwarz law at the sector-local rate `1/16`; the companion
 all-vector and concrete same-object consequences.  This does not construct
 the sector-local family or the canonical capacity estimate, and it does not
 close thermodynamic, continuum, QFT, every-group, or Clay obligations.
+The same module also exposes
+`...StrictContractionData_of_compatibleTimeFactorization`, which consumes the
+existing sector-conditioned direct-power bundle while preserving the
+non-strict full-carrier boundary.
 
 ## PROVED primitive physical-gap variation compiler (2026-09-19 UTC)
 

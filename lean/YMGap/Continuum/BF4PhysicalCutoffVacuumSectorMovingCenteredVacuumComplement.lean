@@ -21,6 +21,7 @@ import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 import YMGap.Continuum.BF4PhysicalCutoffLinearMarkovJointAdaptiveCauchySchwarz
 import YMGap.Continuum.BF4PhysicalCutoffCofinalCenteredRowGap
 import YMGap.Continuum.BF4PhysicalCutoffCofinalLocalSliceGap
+import YMGap.Continuum.BF4PhysicalVacuumSectorDirectPowerBudgetGap
 import YMGap.Continuum.BF4PhysicalVacuumSectorLocalContractionGluing
 
 namespace YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
@@ -46,6 +47,7 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumOrthogonal
+open YMGap.Continuum.BF4PhysicalVacuumSectorDirectPowerBudgetGap
 open YMGap.Continuum.BF4PhysicalVacuumSectorLocalContractionGluing
 open YMGap.Continuum.RCStrictPositivity
 
@@ -432,6 +434,20 @@ theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_de
     (centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_sectorLocalSlice
       hw0 hw1 family) n
 
+/-- The alternate full-factorization producer route reaches the same completed
+operator contraction through its sector-conditioned power budget.  This keeps
+the full-carrier factorization non-strict while requiring strictness only on
+the canonical vacuum component. -/
+def centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_compatibleTimeFactorization
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {rate : Q'}
+    (family : FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget
+      w (Q'.le_of_lt hw0) 0 rate) :
+    CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
+      hw0 hw1 0 :=
+  centralPhysicalVacuumSectorCylinderCompletedStrictContractionDataAtSectorRate
+    hw0 hw1 0 family.toVacuumSectorCenteredStrictGap
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
 /-! ## Axiom-dependency gates -/
@@ -468,3 +484,5 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedVacuumTransferPower_norm_decay_of_sectorLocalSlice
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay_of_sectorLocalSlice
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_compatibleTimeFactorization

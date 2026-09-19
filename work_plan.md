@@ -188,6 +188,13 @@ input, not an inhabitant; the canonical sector capacity estimate,
 thermodynamic/continuum passage, QFT axioms, every-group route, and Clay
 endpoint remain open.
 
+The same module also exposes
+`...StrictContractionData_of_compatibleTimeFactorization`, so the existing
+`FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget` bundle is an
+alternate forward input.  It keeps the full-carrier factorization
+non-strict and asks for strictness only after conditioning on the canonical
+vacuum component.
+
 ### Current forward/backward join: primitive physical-gap variation (2026-09-19)
 
 `BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler` now compiles
