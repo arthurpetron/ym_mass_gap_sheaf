@@ -96,12 +96,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   exposes conditional squared decay under one explicit strict-contraction
   certificate.  The direct cofinal specialization consumes exactly a
   `FixedNomeCofinalCenteredStrictGap w hw 0 q` and returns the same concrete
-  squared-correlation bound at rate `q`.
+  squared-correlation bound at rate `q`.  The transfer-power specialization
+  gives the exact global adaptive-transfer image at every natural power.
 - **boundary**: this is a fixed-nome, fixed-half-extent SU(2) witness in the
   actual completed physical carrier.  The strict-contraction certificate is
   still an input; no cofinal capacity/variation, thermodynamic or continuum,
   QFT, or Clay endpoint is constructed.
-- **verification**: `/tmp/ym-pulled-vacuum-complement-cofinal-specialization2.log`; only
+- **verification**: `/tmp/ym-pulled-vacuum-complement-transfer-power.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)

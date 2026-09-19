@@ -162,7 +162,9 @@ certificate still needed for geometric decay.  The direct
 the named `FixedNomeCofinalCenteredStrictGap` at the same fixed nome and
 half-extent.  It does not provide that certificate or construct a
 thermodynamic/continuum QFT.  The focused check was
-`/tmp/ym-pulled-vacuum-complement-cofinal-specialization2.log`, with only
+`centralPhysicalCutoffOneCubeMovingCenteredCompletedTransferPower_eq_global`
+also exposes the typed equality for every transfer power.  The focused check
+was `/tmp/ym-pulled-vacuum-complement-transfer-power.log`, with only
 `{propext, Quot.sound}` reported.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**

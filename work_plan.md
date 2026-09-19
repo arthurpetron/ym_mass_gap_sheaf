@@ -155,7 +155,9 @@ an input; it does not manufacture that certificate.  The direct
 `FixedNomeCofinalCenteredStrictGap w hw 0 q` input.  Thus the remaining
 frontier is cofinal strictness/capacity and its same-family variation, followed
 by thermodynamic or continuum passage, QFT axioms, and all-group construction.
-Focused check: `/tmp/ym-pulled-vacuum-complement-cofinal-specialization2.log`; only
+The companion `...CompletedTransferPower_eq_global` theorem gives the exact
+global image of every transfer power on this witness.  Focused check:
+`/tmp/ym-pulled-vacuum-complement-transfer-power.log`; only
 `{propext, Quot.sound}` were reported.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)

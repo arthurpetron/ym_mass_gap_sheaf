@@ -132,6 +132,26 @@ theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_eq_gl
     (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
       hw0 hw1).1
 
+/-- Every natural power of the inhabited sector transfer on this witness has
+the corresponding global adaptive-transfer image. -/
+theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedTransferPower_eq_global
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (n : Nat) :
+    centralPhysicalVacuumSectorCylinderCompletionToGlobal
+        (centralPhysicalVacuumSectorCylinderCompletedTransferPower
+          hw0 hw1 0 n
+          (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
+            hw0 hw1).1) =
+      centralPhysicalConcreteAdaptiveCompletedMarkovPower
+        hw0 hw1 0 n
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+          (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
+            hw0 hw1).1) := by
+  exact centralPhysicalVacuumSectorCylinderCompletedTransferPower_intertwines
+    hw0 hw1 0 n
+    (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
+      hw0 hw1).1
+
 /-- The exact zero-time same-object channel is strictly positive. -/
 theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_zero_isPositive
     {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
@@ -226,6 +246,8 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_inner_isPositive
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_eq_global
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedTransferPower_eq_global
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_zero_isPositive
 #print axioms
