@@ -85,12 +85,14 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `globalInwardMateParityCompletedCorrelationCertificate` package the
   explicit completed parity carrier together with coefficient nonnegativity,
   the rate-squared same-object correlation estimate, and the strictly
-  positive Rayleigh deficit.
+  positive Rayleigh deficit.  The companion theorem
+  `globalInwardMateCenteredParityCompletedObservable_deficit_ge_marginSquare`
+  retains the explicit lower bound by the square of the finite parity margin.
 - **boundary**: the certificate is one-observable fixed-anchor data.  It does
   not inhabit endpoint coverage, an all-vector completed gap, a cofinal
   family, a thermodynamic/continuum passage, QFT axioms, an all-group
   construction, or the Clay theorem.
-- **verification**: `/tmp/ym-parity-certificate-check.log`; only
+- **verification**: `/tmp/ym-parity-margin-square-check.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
 ## PROVED parity same-object correlation-square handoff (2026-09-19 UTC)

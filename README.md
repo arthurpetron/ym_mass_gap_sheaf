@@ -144,7 +144,10 @@ coefficient positivity, the rate-squared same-object estimate, and a positive
 Rayleigh deficit.  The fields are all proved for the explicit parity vector;
 the package is intentionally not an all-vector/cofinal certificate and does
 not alter the open thermodynamic, continuum, QFT, all-group, or Clay
-frontiers.  The focused check is `/tmp/ym-parity-certificate-check.log`.
+frontiers.  It now retains the stronger quantitative field that the deficit
+is at least the explicit square of the finite parity margin, rather than only
+its positivity projection.  The focused check is
+`/tmp/ym-parity-margin-square-check.log`.
 
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms

@@ -80,8 +80,15 @@ single-observable boundary explicit.  It does not provide endpoint coverage,
 an all-vector vacuum-complement gap, a cofinal family, or any
 thermodynamic/continuum/QFT/all-group/Clay conclusion.
 
+The certificate also exports
+`globalInwardMateCenteredParityCompletedObservable_deficit_ge_marginSquare`:
+the completed deficit is bounded below by the explicit square of the finite
+parity margin.  This preserves a usable quantitative witness when a later
+compiler consumes the handoff instead of projecting immediately to
+`RCIsPositive`.
+
 The focused monitored check is
-`/tmp/ym-parity-certificate-check.log`; the module reports only
+`/tmp/ym-parity-margin-square-check.log`; the module reports only
 `[propext, Quot.sound]`.  The next causal edge is to use this certificate as
 an input to a genuine multi-observable or cofinality compiler, rather than
 mistaking the package for that compiler.
