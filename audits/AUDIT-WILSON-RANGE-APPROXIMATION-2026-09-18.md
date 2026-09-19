@@ -129,7 +129,7 @@ the current Wilson transfer and pairing.
   distance bounds.
 
 Focused serialized checks passed with no `sorryAx`, `Classical.*`, or
-`native_decide`; every printed gate in the three modules depends only on
+`native_decide`; every printed gate in the four modules depends only on
 `{propext, Quot.sound}`. Evidence logs and hashes:
 
 | target | log | SHA-256 |
