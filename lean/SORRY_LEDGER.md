@@ -150,6 +150,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `(1-q)` residual margin from bridge-image vectors to every canonical
   vacuum-orthogonal vector. These are image rewrites only: no section,
   surjectivity, density, limit interchange, or continuum claim is supplied.
+  `...twoStep_fixed_eq_zero` additionally transports the image-level
+  two-step fixed-point exclusion to the whole canonical completion under the
+  same explicit section.
 - **residue**: the bridge structure is intentionally uninhabited in this
   milestone. It is a named OS/GNS carrier-and-dynamics obligation, not a
   covert identification of the current carrier with canonical GNSData.
@@ -173,8 +176,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `/tmp/ym-canonical-bridge-contraction1.log` (SHA-256
   `54983149e9660e7af3264d2dd90097b929c57aa4a8a2298884482dd8e9754dd6`).
   The canonical-range consumer check is
-  `/tmp/ym-canonical-range-consumer4.log` (SHA-256
-  `89a20fa05f8afb5a1e6e6c5fb98b8e5327a7ead9e567d91fd3df08bab055c692`).
+  `/tmp/ym-canonical-range-consumer5.log` (SHA-256
+  `c01c798aff2623055cfb741fb07d5d15b47ac2433341955c8fc9427621f141e6`).
   The earlier bridge log was `/tmp/ym-wilson-canonical-bridge-20260918c.log`;
   SHA-256
   `7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`.

@@ -704,6 +704,35 @@ theorem twoStep_defect_form_bound
   rw [← hyclass] at himage
   exact himage
 
+/-- A supplied canonical range section upgrades the image-level fixed-point
+exclusion to the whole canonical completion: a vacuum-orthogonal canonical
+two-step fixed vector is the canonical zero. -/
+theorem twoStep_fixed_eq_zero
+    (D : CanonicalRangeSectionCertificate P J)
+    (X : CauchyGNS W.toGNSData)
+    (hx : W.toGNSData.cinnerCompl (canonicalClass X) P.op.vacuum = RCzero)
+    (hfixed : P.op.T (P.op.T (canonicalClass X)) = canonicalClass X) :
+    canonicalClass X = embedV W.toGNSData W.toGNSData.zero := by
+  let Y := D.preimage X
+  let y := currentClass Y
+  have hyclass : canonicalClass X = J.map y := by
+    simpa only [canonicalClass, y, currentClass, Y] using (D.class_eq X)
+  have hyorth : B y U = RCzero := by
+    calc
+      B y U = W.toGNSData.cinnerCompl (J.map y) (J.map U) :=
+        (J.form_preserving y U).symm
+      _ = W.toGNSData.cinnerCompl (J.map y) P.op.vacuum := by
+        rw [J.vacuum_preserving]
+      _ = W.toGNSData.cinnerCompl (canonicalClass X) P.op.vacuum := by
+        rw [hyclass]
+      _ = RCzero := hx
+  have hfixed_image : P.op.T (P.op.T (J.map y)) = J.map y := by
+    rw [← hyclass]
+    exact hfixed
+  have hzero := J.image_twoStep_fixed_eq_zero hyorth hfixed_image
+  rw [hyclass]
+  exact hzero
+
 end CanonicalRangeSectionCertificate
 
 end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
@@ -712,6 +741,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_defect_form_bound
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_fixed_eq_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate.toFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate

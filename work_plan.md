@@ -538,10 +538,12 @@ the canonical class with its bridge image. Given that explicit section,
 `CanonicalRangeSectionCertificate.twoStep_form_bound` and
 `...twoStep_defect_form_bound` transport the strict `q` form estimate and the
 `1-q` residual coercivity margin to every canonical vacuum-orthogonal vector.
+`...twoStep_fixed_eq_zero` also transports the image-level fixed-point
+exclusion to the whole canonical completion under the same section.
 The consumer is a pure image rewrite and introduces no density, choice,
 surjectivity, or limit interchange; the section itself is deliberately not
 inhabited. Focused check log: `/tmp/ym-canonical-range-consumer4.log`; SHA-256
-`89a20fa05f8afb5a1e6e6c5fb98b8e5327a7ead9e567d91fd3df08bab055c692`. The
+`c01c798aff2623055cfb741fb07d5d15b47ac2433341955c8fc9427621f141e6`. The
 new declarations use only `{propext, Quot.sound}`.
 
 **Bridge residual factorization, checked 2026-09-18:**
