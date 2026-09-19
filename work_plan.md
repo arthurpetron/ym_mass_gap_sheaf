@@ -88,6 +88,23 @@ continuum, QFT, all-group, and Clay joins remain open.
 Focused check: `/tmp/ym-local-power-adapter2.log`; the new declaration and
 existing exports use only `{propext, Quot.sound}`.
 
+### Current forward/backward join: posterior variance meets the completed carrier (2026-09-19)
+
+The separate posterior-variance route now has an explicit completed-carrier
+consumer in
+`BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier.lean`.
+`completedStrictContractionData_of_fraction` reuses the existing
+`FixedNomeCofinalVacuumSectorConditionalVarianceFraction.toCompletedStrictContractionData`,
+and the two exported theorems give all-vector transfer-power decay and
+same-object autocorrelation decay at the exact rate
+`(1 - fraction)^2`.  This is the backward half of the route: it makes the
+consumer type explicit while preserving the variance fraction and matched
+scaling certificates as producer inputs.  It does not construct those inputs,
+physical-gap variation, the OS/continuum passage, or the Clay endpoint.
+
+Focused check: `/tmp/ym-variance-completed-bridge3.log`; all three exports use
+only `{propext, Quot.sound}`.
+
 ### Current forward/backward join: cutoff-two finite non-vacuity (2026-09-19)
 
 The forward finite carrier now has a named concrete endpoint at the explicit

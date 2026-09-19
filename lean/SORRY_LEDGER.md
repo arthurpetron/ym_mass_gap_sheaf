@@ -45756,6 +45756,26 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### [BF4-conditional-variance-completed-carrier] Posterior variance meets the completed carrier — PROVED 2026-09-19
+
+- **milestone**: attach the cofinal conditional-variance strict form route to
+  the actual completed vacuum-sector transfer and same-object autocorrelation.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier.lean`.
+- **declarations**:
+  `completedStrictContractionData_of_fraction`,
+  `transferPower_norm_decay_of_fraction`, and
+  `autocorrelation_sq_decay_of_fraction`.
+- **proof content**: the bridge reuses
+  `FixedNomeCofinalVacuumSectorConditionalVarianceFraction.toCompletedStrictContractionData`
+  and applies the existing completed-carrier iteration and Cauchy--Schwarz
+  theorems.  The displayed rate is the exact `family.rate = 1 - fraction`.
+- **boundary**: the cofinal variance fraction, matched trajectory, physical
+  scaling, gap variation, OS/continuum handoff, QFT axioms, all-group
+  construction, and Clay conclusion remain explicit open inputs.
+- **verification**: `/tmp/ym-variance-completed-bridge3.log`; all three new
+  declarations use only `{propext, Quot.sound}` and no `sorryAx`.
+
 #### [BF4-sector-quarter-slice-to-local-power-budget] Quarter slices meet the depth-budget interface — PROVED 2026-09-19
 
 - **milestone**: compile the existing sector-local quarter-rate slice route
