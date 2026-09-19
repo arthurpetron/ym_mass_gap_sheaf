@@ -588,6 +588,18 @@ to changing spacing. Focused check log:
 `/tmp/ym-canonical-bridge-image-correlation.log`; SHA-256
 `b9e18ecaf0065cca61c3973f66858c901601b69ce3be8010de95761b2d50ce02`.
 
+**All-image canonical defect coercivity, checked 2026-09-18:**
+`CurrentCarrierBridge.image_twoStep_defect_form_bound` transports the new
+same-carrier `(1-q)` residual margin through form preservation and
+two-step intertwining. For every bridge-image vector orthogonal to the current
+unit, the canonical transfer defect has the explicit lower bound
+`RCscale (1 - twoStepRate nome hd) ||J x||²`; the proof uses only the current
+residual theorem and completed-pairing symmetry. This is conditional on the
+uninhabited bridge and remains image-level/fixed-spacing; it is not a dense
+canonical spectral-gap theorem. Focused check log:
+`/tmp/ym-canonical-bridge-defect4.log`; SHA-256
+`5a45c00ebef6e58c0e3e1ba13a1b436de54d037b685c37f9fd032f4cee483686`.
+
 **Concrete current physical SU(2) sector, checked 2026-09-18:**
 `BF4WilsonSpatialUnionCurrentSector.lean` packages the already checked
 same-carrier data as `CompletedPhysicalSU2Sector.currentSector`: the discrete

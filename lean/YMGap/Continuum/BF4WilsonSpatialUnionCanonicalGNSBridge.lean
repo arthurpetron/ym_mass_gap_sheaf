@@ -17,6 +17,7 @@ OS/GNS carrier obligation for this route.
 -/
 
 import YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
+import YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation
 import YMGap.Continuum.WilsonGNSTransferUnderdetermination
 
 namespace YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
@@ -43,8 +44,10 @@ open YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 open YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
 open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
   (mixed_correlator_sq_decay)
+open YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation
+  (evenOrbitResidual evenOrbitResidual_strict_form_bound)
 open YMGap.Continuum.BF4WilsonSpatialUnionBilinear
-  (completed_eq_of_pairings)
+  (completed_eq_of_pairings completedInner_sub_right)
 open YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
   (completed_twoStep_form_gap)
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
@@ -242,6 +245,32 @@ theorem image_twoStep_form_bound
   rw [hsym]
   exact hgap
 
+/-! The stronger same-carrier residual margin also transports through the
+conditional bridge. This is still image-level: no density or canonical
+completed-space coercivity is inferred. -/
+
+theorem image_twoStep_defect_form_bound
+    (J : CurrentCarrierBridge P) {x : V}
+    (hx : B x U = RCzero) :
+    RCle
+      (CReal.RCscale (1 - twoStepRate nome hd)
+        (W.toGNSData.cinnerCompl (J.map x) (J.map x)))
+      (CReal.RCsub
+        (W.toGNSData.cinnerCompl (J.map x) (J.map x))
+        (W.toGNSData.cinnerCompl
+          (P.op.T (P.op.T (J.map x))) (J.map x))) := by
+  have hcurrent := evenOrbitResidual_strict_form_bound
+    nome_pos nome_lt_one hsmall hd hs x hx
+  unfold evenOrbitResidual at hcurrent
+  rw [completedInner_sub_right] at hcurrent
+  have hsym :
+      B (T 2 x) x = B x (T 2 x) :=
+    completedInner_symm nome_pos nome_lt_one hsmall hd hs (T 2 x) x
+  rw [← J.twoStep_intertwines x]
+  rw [J.form_preserving x x, J.form_preserving (T 2 x) x]
+  rw [hsym]
+  exact hcurrent
+
 /-- A canonical two-step fixed vector cannot be a nonzero vector in the
 bridge image.  Intertwining and the already-proved bridge injectivity pull the
 fixed-point equation back to the current carrier, where the current strict
@@ -421,6 +450,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_vacuum_orthogonal
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_twoStep_correlation_eq_current
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_twoStep_form_bound
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_twoStep_defect_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_twoStep_fixed_eq_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonical_resolvent_norm_floor
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe
