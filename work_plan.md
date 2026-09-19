@@ -148,7 +148,7 @@ positive-time transfer moment has yet been identified for this exact witness,
 and no
 cofinal capacity comparison, same-family variation budget, thermodynamic or
 continuum passage, QFT axioms, or all-group construction follows.  Focused
-check: `/tmp/ym-pulled-vacuum-complement-witness3.log`; only
+check: `/tmp/ym-pulled-vacuum-complement-witness-fresh.log`; only
 `{propext, Quot.sound}` were reported.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)

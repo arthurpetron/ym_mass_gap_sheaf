@@ -95,7 +95,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   actual completed physical carrier.  It does not identify a positive-time
   transfer moment, supply cofinal physical-gap variation, or construct the
   thermodynamic, continuum, QFT, or Clay endpoint.
-- **verification**: `/tmp/ym-pulled-vacuum-complement-witness3.log`; only
+- **verification**: `/tmp/ym-pulled-vacuum-complement-witness-fresh.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)

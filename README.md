@@ -155,7 +155,7 @@ actual completed physical carrier.  The companion
 to its ambient completed norm square, which is the quantitative same-object
 zero-time currency.  It does not identify a positive-time transfer moment,
 provide cofinal variation, or construct a thermodynamic/continuum QFT.  The
-focused check was `/tmp/ym-pulled-vacuum-complement-witness3.log`, with only
+focused check was `/tmp/ym-pulled-vacuum-complement-witness-fresh.log`, with only
 `{propext, Quot.sound}` reported.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**
