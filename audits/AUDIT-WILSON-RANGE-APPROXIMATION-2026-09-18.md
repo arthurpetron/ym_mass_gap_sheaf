@@ -322,7 +322,52 @@ same-theory producer must couple the transfer separator to the changing
 spacing (or supply an equivalent renormalization), while preserving the
 original action, observable, and OS carrier.
 
+`fixedMass_no_finite_physical_ceiling` strengthens this from a cofinality
+diagnostic to a contradiction: for every positive proposed ceiling `C`, the
+assumption `currentRateMargin ≤ C * S.a j` at every schedule index contradicts
+`currentRateFloor_cofinal` at the threshold `1 + C`. Thus the fixed current
+carrier cannot inhabit the two-sided physical-rate band required by a
+continuum schedule.
+
 Focused check:
-`/tmp/ym-wilson-physical-calibration-cofinal2.log`; SHA-256
-`354c39ffd1ee5a0d501021388f9843869055534f857c2ffeffb24a68f1c48f58`.
-The added declarations use only `{propext, Quot.sound}`.
+`/tmp/ym-wilson-physical-calibration-noceiling4.log`; SHA-256
+`85bcb5f7d6023daf6c8cf1c61e9c3cb64ad6f95084c83892eef38334194199f1`.
+The added declarations, including
+`fixedMass_no_finite_physical_ceiling`, use only `{propext, Quot.sound}`.
+
+## Forward/backward carrier-join audit, checked 2026-09-18
+
+The current forward package is `CompletedPhysicalSU2Sector.currentSector`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionCurrentSector.lean:142`), whose
+completion is the Wilson `UnionCompletion` of `Stage` (`BF4WilsonSpatialUnionSeminorm.lean:98,139`).
+The backward physical-family consumer instead requires
+`DynamicVacuumSectorCompletedFamily.completedGap`
+(`BF4PhysicalDynamicVacuumSectorCompletedFamily.lean:53`), built from
+`CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData` and the
+separate cylinder presentation (`BF4PhysicalCutoffVacuumSectorCylinderCompletion.lean:51,93`).
+These carriers are not definitionally equal.
+
+The existing matched-AF route is conditional: its
+`MatchedPhysicalRootCoercivityGapProducer.offRay` and `.ray`
+(`BF4PhysicalMatchedAFRootCoercivityGapPath.lean:53`) require scale-indexed
+rooted coercivity/capacity witnesses, and `toCompletedFamily` (:111) produces
+the separate dynamic cylinder family. Its `FractionScaling` (:138) further
+requires explicit two-sided comparisons with the changing spacing. The
+`BF4QuarterPhysicalSeparatorProducer`
+(`BF4PhysicalSeparatorProducer.lean:179`) additionally requires a local-gluing
+certificate, a rational `CorrInterface`, and a same-object/rate-sharpness pin;
+the current Wilson correlators are `RC`-valued
+(`BF4WilsonSpatialUnionCurrentSector.lean:198,204`) and do not supply those
+rational pins.
+
+An unconditional same-current-carrier spacing-dependent producer was not found
+after searching `BF4WilsonSpatialUnion*.lean`,
+`BF4PhysicalSeparatorProducer.lean`,
+`BF4PhysicalMatchedAFRootCoercivityGapPath.lean`,
+`BF4PhysicalMatchedAFConditionalVarianceGapPath.lean`,
+`BF4PhysicalMatchedAFDynamicFamilyCompiler.lean`,
+`BF4PhysicalDynamicVacuumSectorCompletedFamily.lean`, and
+`BF4PhysicalDynamicVacuumSectorObservablePath.lean`. The existing
+`CurrentCarrierBridge` (`BF4WilsonSpatialUnionCanonicalGNSBridge.lean:65`)
+is also conditional and targets a canonical `WilsonTimeTranslationPin`; it
+does not repair this dynamic-family mismatch.

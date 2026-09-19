@@ -187,15 +187,17 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **proved**: `CurrentSpacingSchedule` records a positive spacing sequence
   with an explicit spacing-to-zero modulus; `currentRateFloorAt` gives its
   rational fixed-mass floor; and `currentRateFloor_cofinal` proves that these
-  floors are cofinal above every nonnegative rational threshold.
+  floors are cofinal above every nonnegative rational threshold;
+  `fixedMass_no_finite_physical_ceiling` converts that cofinality into the
+  direct contradiction with any proposed finite physical-rate ceiling.
 - **residue**: the current fixed dimensionless rate therefore cannot itself
   be the finite physical-rate input for a continuum schedule with `a → 0`.
   The required next producer must make the dimensionless transfer rate shrink
   with spacing (or otherwise renormalize the same theory); this theorem does
   not construct that producer or any continuum limit.
 - **verification**: the focused serialized check uses only
-  `{propext, Quot.sound}`. Evidence: `/tmp/ym-wilson-physical-calibration-cofinal2.log`
-  (SHA-256 `354c39ffd1ee5a0d501021388f9843869055534f857c2ffeffb24a68f1c48f58`).
+  `{propext, Quot.sound}`. Evidence: `/tmp/ym-wilson-physical-calibration-noceiling4.log`
+  (SHA-256 `85bcb5f7d6023daf6c8cf1c61e9c3cb64ad6f95084c83892eef38334194199f1`).
 
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 

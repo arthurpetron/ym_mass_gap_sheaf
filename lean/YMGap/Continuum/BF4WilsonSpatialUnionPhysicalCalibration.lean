@@ -231,6 +231,42 @@ theorem currentRateFloor_cofinal
       (Q'.le_of_eqv (Q'.add_comm_eqv U 1))
   exact ⟨j, Q'.le_trans' _ _ _ hUtarget htarget_floor⟩
 
+/-- A fixed positive dimensionless transfer mass cannot satisfy a finite
+physical-rate ceiling on any positive spacing-to-zero schedule.  This is the
+direct backward obstruction for the fixed-carrier branch: a genuine continuum
+trajectory must make the dimensionless margin scale with the spacing (or use an
+explicit same-theory renormalization), rather than merely divide the current
+mass by a vanishing spacing. -/
+theorem fixedMass_no_finite_physical_ceiling
+    (S : CurrentSpacingSchedule) (ceiling : Q')
+    (hceiling : (0 : Q') < ceiling)
+    (hupper : ∀ j, currentRateMargin ≤ ceiling * S.a j) :
+    False := by
+  let target : Q' := (1 : Q') + ceiling
+  have htarget : (0 : Q') ≤ target :=
+    Q'.le_of_lt (Q'.pos_add_nonneg (by decide) (Q'.le_of_lt hceiling))
+  obtain ⟨j, hj⟩ := currentRateFloor_cofinal S target htarget
+  have hfloor_le : currentRateFloorAt S j ≤ ceiling := by
+    unfold currentRateFloorAt
+    exact Q'.divPos_le_of_le_mul
+      currentRateMargin (S.a j) (S.a_pos j) (hupper j)
+  have htarget_le : target ≤ ceiling :=
+    Q'.le_trans' _ _ _ hj hfloor_le
+  have hstrict : ceiling < target := by
+    show ceiling.num * (target.den : Int) < target.num * (ceiling.den : Int)
+    unfold target
+    rw [Q'.add_num_cast, Q'.add_den_cast]
+    change ceiling.num * (1 * (ceiling.den : Int)) <
+      (1 * (ceiling.den : Int) + ceiling.num * 1) * (ceiling.den : Int)
+    simp only [Int.one_mul, Int.mul_one]
+    rw [Int.add_comm]
+    have hden : (0 : Int) < (ceiling.den : Int) := by
+      exact_mod_cast ceiling.den_pos
+    have hstep : ceiling.num < ceiling.num + (ceiling.den : Int) := by
+      omega
+    exact Int.mul_lt_mul_of_pos_right hstep hden
+  exact (Int.not_lt_of_ge htarget_le) hstrict
+
 /- A smaller positive spacing gives a larger dimensionful rate for the SAME
    dimensionless transfer mass.  This is a genuine trajectory-comparison
    lemma; it does not supply the missing spacing family or a uniform floor. -/
@@ -279,4 +315,5 @@ end YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.CurrentSpacingSchedule
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentRateFloorAt
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentRateFloor_cofinal
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.fixedMass_no_finite_physical_ceiling
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentPhysicalRate_log_pin

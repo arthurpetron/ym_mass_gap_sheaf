@@ -79,8 +79,17 @@ make the dimensionless transfer separator itself scale with spacing, or supply
 an equivalent same-theory renormalization.  This is an obstruction to the
 current branch, not to Yang--Mills or to the Clay target.
 
-Focused check: `/tmp/ym-wilson-physical-calibration-cofinal2.log`, SHA-256
-`354c39ffd1ee5a0d501021388f9843869055534f857c2ffeffb24a68f1c48f58`.
+The branch-pruning theorem is now explicit rather than only diagnostic:
+`fixedMass_no_finite_physical_ceiling` derives `False` from any finite positive
+ceiling satisfying `currentRateMargin ≤ C * a_j` at every index of a positive
+spacing-to-zero schedule.  The backward consumer is the two-sided
+`DynamicVacuumSectorPhysicalRateBand`; the current fixed carrier cannot fill
+its upper-rate field.  The next producer must therefore vary the dimensionless
+separator with spacing (or provide an explicit same-theory renormalization),
+and must still be joined to the current action, observable and OS carrier.
+
+Focused check: `/tmp/ym-wilson-physical-calibration-noceiling4.log`, SHA-256
+`85bcb5f7d6023daf6c8cf1c61e9c3cb64ad6f95084c83892eef38334194199f1`.
 
 ### Goal-mode execution instructions (user-requested review, 2026-09-15)
 
