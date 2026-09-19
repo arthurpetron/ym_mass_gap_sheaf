@@ -148,6 +148,12 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   the strict `q` estimate on vacuum-orthogonal dense stages. No continuity on
   arbitrary canonical Cauchy limits, full range, or completed canonical gap is
   asserted; the stronger stream-level dynamic certificate remains open.
+- **proved**: `CurrentStageCauchyFormCertificate.stageClass_eq_of_current_eq`
+  descends equality from the current completed carrier to the corresponding
+  canonical dense-stage classes through the source completion quotient and
+  finite-stage null transport. The reverse pullback direction is deliberately
+  not claimed: it needs a genuine density/separation theorem not present in
+  the finite-stage form pins.
 - **proved**: `CurrentCarrierCauchyTwoStepCertificate` isolates the dynamic
   bridge obligation at the explicit current-stream level, and
   `...toTwoStepCertificate` descends it through the current completion quotient

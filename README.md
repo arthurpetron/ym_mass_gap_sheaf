@@ -49,7 +49,9 @@ uninhabited.  `CurrentStageCauchyTransportCertificate` and
 stream/null descent from finite-stage metric data and expose the remaining
 Gram/zero/unit pins.  `CurrentStageDenseTwoStepCertificate` handles exact
 two-step transport only on finite-stage canonical images; arbitrary-limit
-dynamics and probe pins remain open.  Changing-spacing control,
+dynamics and probe pins remain open. Current completed equality descends to
+canonical dense-stage equality, but the reverse density/separation direction
+is still unproved. Changing-spacing control,
 physical mass calibration, continuum
 QFT construction and every-group Yang--Mills remain open.  The focused check
 used only `{propext, Quot.sound}` and produced no `sorryAx`; the detailed

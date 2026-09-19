@@ -643,6 +643,17 @@ completed canonical gap; those remain the stronger
 `117117d34a5838bf4066d0a5649534c19ed77f9921c6238f7c8d22a1a141d977`.
 The four new declarations use only `{propext, Quot.sound}`.
 
+**Dense-stage quotient compatibility, checked 2026-09-18:**
+`CurrentStageCauchyFormCertificate.stageClass_eq_of_current_eq` proves the
+strongest unconditional direction available from the finite-stage compiler:
+equality already established in the current completed carrier descends to
+equality of its canonical dense-stage classes. The proof uses only the source
+completion quotient and the compiler's null transport. The reverse implication
+would require a genuine finite-stage density/separation theorem and is not
+claimed. Focused check log: `/tmp/ym-stage-current-eq8.log`; SHA-256
+`b120d50e2f06cc6305f749cc22d8b2071439090ee472389304b8120fc96573dc`.
+The new declaration uses only `{propext, Quot.sound}`.
+
 **Dynamic bridge stream factorization, checked 2026-09-18:**
 `CurrentCarrierCauchyTwoStepCertificate` isolates the remaining time
 intertwining at the same explicit stream level: the image of the current

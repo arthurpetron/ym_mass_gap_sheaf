@@ -284,6 +284,33 @@ theorem stageClass_vacuum_orthogonal
   rw [← F.stageClass_unit, F.stageClass_pairing]
   exact hx
 
+/-- The finite-stage transport respects equality already proved in the current
+completion.  This is intentionally one-way: finite-stage Gram data alone does
+not provide a density/separation theorem allowing canonical equality to be
+pulled back from arbitrary completed vectors. -/
+theorem stageClass_eq_of_current_eq
+    (F : CurrentStageCauchyFormCertificate P)
+    {x y : BF4WilsonSpatialUnion.Stage}
+    (hxy : BF4WilsonSpatialUnionSeminorm.embedStage
+      nome_pos nome_lt_one hsmall hd hs x =
+      BF4WilsonSpatialUnionSeminorm.embedStage
+        nome_pos nome_lt_one hsmall hd hs y) :
+    F.stageClass x = F.stageClass y := by
+  apply Quotient.sound
+  have hrel :
+      (unionSeminorm nome_pos nome_lt_one hsmall hd hs).CompletionRel
+        ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant x)
+        ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant y) := by
+    change Quotient.mk
+        (unionSeminorm nome_pos nome_lt_one hsmall hd hs).completionSetoid
+        ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant x) =
+      Quotient.mk
+        (unionSeminorm nome_pos nome_lt_one hsmall hd hs).completionSetoid
+        ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant y) at hxy
+    exact Quotient.exact hxy
+  rcases hrel with ⟨hclose⟩
+  exact F.transport.mapCauchy_null hclose
+
 end CurrentStageCauchyFormCertificate
 
 /-! A dense-stage dynamic pin is deliberately weaker than the arbitrary
@@ -1162,6 +1189,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.stageClass_pairing
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.stageClass_unit
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.stageClass_vacuum_orthogonal
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.stageClass_eq_of_current_eq
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_correlation_eq_current
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_form_bound
