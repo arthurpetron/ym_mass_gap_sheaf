@@ -112,12 +112,18 @@ coefficientwise `coefficient_centered_gap_split` packages this as a genuine
 constructive sum, retaining the witness instead of collapsing it to
 `Nonempty`.
 
+The branch is now inhabited concretely: the constant-one coefficient has a
+non-root coordinate because the cutoff-two rooted list is nodup and has at
+least three entries.  `cutoffTwoPulledConstantOne_nonRootWitness` records that
+data, and `cutoffTwoPulledConstantOne_strict_form_gap` proves strict
+contraction for its moving-centered form at every later certified cutoff.
+
 This is the strongest current finite vacuum/complement consequence on the
 fixed pulled carrier.  It does not provide the missing recoding and finite
 variation budget needed by the cofinal moving-form bridge, nor does it identify
 the carrier with the completed matched physical family or construct the
 thermodynamic, continuum, full-QFT, or every-group Clay joins.  Focused check:
-`/tmp/ym-pulled-vacuum-complement-dichotomy.log`; the axiom gate remains
+`/tmp/ym-pulled-vacuum-complement-dichotomy2.log`; the axiom gate remains
 `{propext, Quot.sound}`.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)

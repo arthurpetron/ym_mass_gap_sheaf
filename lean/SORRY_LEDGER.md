@@ -70,10 +70,14 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `nonRoot_strict_form_gap` proves strict contraction for every explicit
   non-root coordinate witness; and `coefficient_centered_gap_split` packages
   the constructive two-branch split while retaining its data-bearing witness.
+  The constant-one coefficient supplies the inhabited witness
+  `cutoffTwoPulledConstantOne_nonRootWitness`, and
+  `cutoffTwoPulledConstantOne_strict_form_gap` gives a concrete centered
+  excitation with strict contraction.
 - **boundary**: this is a fixed 65-state SU(2) pulled-carrier result.  It does
   not supply the cofinal recoding/variation budget, matched physical carrier,
   thermodynamic or continuum passage, QFT axioms, or Clay theorem.
-- **verification**: `/tmp/ym-pulled-vacuum-complement-dichotomy.log`; only
+- **verification**: `/tmp/ym-pulled-vacuum-complement-dichotomy2.log`; only
   `{propext, Quot.sound}` were permitted and no `sorryAx` was introduced.
 
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)

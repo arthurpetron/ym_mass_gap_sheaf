@@ -133,10 +133,14 @@ finite form bound.  `rootSupported_centered_forms_eqv_zero` records that the
 root-supported branch is annihilated by moving centering, while
 `nonRoot_strict_form_gap` proves strict contraction for every explicit
 non-root witness.  `coefficient_centered_gap_split` packages the two branches
-without erasing the witness.  This remains a fixed finite SU(2) statement;
+without erasing the witness.  The constant-one coefficient now supplies an
+explicit inhabited non-root witness via
+`cutoffTwoPulledConstantOne_nonRootWitness`, and
+`cutoffTwoPulledConstantOne_strict_form_gap` gives a concrete centered
+excitation with strict contraction.  This remains a fixed finite SU(2) statement;
 the cofinal matched carrier, physical-gap variation, OS/continuum passage,
 and Clay endpoint remain open.  Focused check:
-`/tmp/ym-pulled-vacuum-complement-dichotomy.log`; only
+`/tmp/ym-pulled-vacuum-complement-dichotomy2.log`; only
 `{propext, Quot.sound}` were permitted.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**

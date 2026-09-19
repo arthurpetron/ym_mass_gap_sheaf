@@ -31,6 +31,8 @@ open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledConstructedUniformCRealGa
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledEntryPerturbation
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledFinitePrefixIncrementExistence
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledRelativeRecentering
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
+open YMGap.Continuum.BF4PhysicalSpinCubeVacuumSectorGrowth
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -109,6 +111,80 @@ theorem coefficient_centered_gap_split
       exact Sum.inr (fun selected later hlater =>
         nonRoot_strict_form_gap selected later hlater)
 
+/-! ## A concrete non-root excitation -/
+
+def cutoffTwoPulledConstantOneCoefficient : Nat → Q' :=
+  fun _index => 1
+
+private theorem length_le_one_of_all_zero_nodup
+    (states : List Nat)
+    (hnodup : states.Nodup)
+    (hall : ∀ index, index ∈ states → index = 0) :
+    states.length ≤ 1 := by
+  cases states with
+  | nil => simp
+  | cons head tail =>
+      cases tail with
+      | nil => simp
+      | cons next rest =>
+          have hhead : head = 0 := hall head (by simp)
+          have hnext : next = 0 := hall next (by simp)
+          have hnot : head ∉ next :: rest := hnodup.1
+          exfalso
+          apply hnot
+          simp [hhead, hnext]
+
+private theorem exists_nonroot_index_in_cutoffTwoPulledStates :
+    ∃ index, index ∈ cutoffTwoPulledStates ∧ index ≠ 0 := by
+  have hlength : 3 ≤ cutoffTwoPulledStates.length := by
+    unfold cutoffTwoPulledStates
+    exact centralPhysicalFiniteVacuumSectorIndices_length_ge_cutoff_succ
+      (by decide : (0 : Q') < cutoffTwoHalfCoupling) 2
+  by_contra hnone
+  have hall : ∀ index, index ∈ cutoffTwoPulledStates → index = 0 := by
+    intro index hindex
+    by_contra hne
+    exact hnone ⟨index, hindex, hne⟩
+  have hle := length_le_one_of_all_zero_nodup
+    cutoffTwoPulledStates
+    (centralPhysicalFiniteVacuumSectorIndices_nodup
+      cutoffTwoHalfCoupling (by decide) 2 0)
+    hall
+  omega
+
+/-- The constant-one coefficient has a concrete non-root witness on the
+cutoff-two pulled carrier. -/
+theorem cutoffTwoPulledConstantOne_nonRootWitness :
+    CutoffTwoNonRootCoefficientWitness
+      cutoffTwoPulledConstantOneCoefficient := by
+  cases cutoffTwoRootSupported_orNonRootData
+      cutoffTwoPulledConstantOneCoefficient with
+  | inl rootSupported =>
+      obtain ⟨index, hindex, hne⟩ :=
+        exists_nonroot_index_in_cutoffTwoPulledStates
+      have hzero := rootSupported.supported index hindex hne
+      have hone : (1 : Q') ≈ 0 := by
+        simpa [cutoffTwoPulledConstantOneCoefficient] using hzero
+      have hnot : ¬ ((1 : Q') ≈ 0) := by decide
+      exact False.elim (hnot hone)
+  | inr witness =>
+      exact witness
+
+/-- The explicit constant-one excitation is strictly contracted after moving
+root centering at every later cutoff covered by the fixed certificate. -/
+theorem cutoffTwoPulledConstantOne_strict_form_gap
+    (later : Nat)
+    (hlater : cutoffTwoPulledUniformBasePositiveEdgeFloor.start ≤ later) :
+    Q'.abs
+        (cutoffTwoPulledMatrixAt later
+          (cutoffTwoPulledMovingCenteredCoefficientAt later
+            cutoffTwoPulledConstantOneCoefficient)) <
+      cutoffTwoPulledDiagonalAt later
+        (cutoffTwoPulledMovingCenteredCoefficientAt later
+          cutoffTwoPulledConstantOneCoefficient) := by
+  exact nonRoot_strict_form_gap
+    cutoffTwoPulledConstantOne_nonRootWitness later hlater
+
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledVacuumComplementDichotomy
 
 /-! ## Dependency gates -/
@@ -119,3 +195,7 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledVacuumComplementDichotomy
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledVacuumComplementDichotomy.nonRoot_strict_form_gap
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledVacuumComplementDichotomy.coefficient_centered_gap_split
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledVacuumComplementDichotomy.cutoffTwoPulledConstantOne_nonRootWitness
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledVacuumComplementDichotomy.cutoffTwoPulledConstantOne_strict_form_gap
