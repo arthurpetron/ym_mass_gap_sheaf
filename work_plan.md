@@ -254,6 +254,24 @@ Do not port a large conditional functional calculus before finding the
 missing current analytic producer and its actual consumer. Physical-time
 calibration and changing-spacing survival remain separate requirements.
 
+**Same-operator finite range approximation, checked 2026-09-18:**
+`BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum` is an explicit finite
+sum of the ACTUAL current completed Wilson orbit. The theorem
+`evenOrbitSum_sub_twoStep` proves the exact identity
+
+    (I - T^2) (sum_{k<n} T^(2k) x) = x - T^(2n) x
+
+on that same carrier. For vectors already in the proved vacuum complement,
+`evenOrbitSum_residual_bound` bounds the squared residual by the current
+triangle estimate plus the existing `q^(2*n)` decay, with q named explicitly
+by `twoStepRate w hd`. One focused serialized one-worker/20 GiB check passed;
+all three public gates lie within `{propext, Quot.sound}`. This supplies a
+constructive approximate-preimage witness and a residual modulus at fixed
+spacing. It does not prove a bounded inverse, strict completed gap beyond
+the existing estimate, density of the strictly-past observable algebra,
+changing-spacing control, physical mass calibration, or continuum QFT.
+Evidence: `audits/AUDIT-WILSON-RANGE-APPROXIMATION-2026-09-18.md`.
+
 **Backward join review, 2026-09-18:** the legacy inward-test argument
 does not literally extend to all current Wilson windows. The legacy
 bond-reflected lower algebra can move a test onto the adjacent site plane;
