@@ -123,6 +123,26 @@ thermodynamic/continuum passage, QFT axioms, all-group theorem, or Clay mass
 gap is claimed.  Focused check: `/tmp/ym-inward-completed-carrier-check4.log`;
 only `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
+### Current forward/backward join: one inward-mate parity vector reaches the completed carrier (2026-09-19)
+
+`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCarrier.lean`
+attaches the already-proved centered central-face parity observable to the
+literal completed SU(2) GNS carrier.  The declarations
+`globalInwardMateCenteredParityCompletedObservable_vacuumOrthogonal`,
+`..._norm_floor`, and `..._norm_positive` prove that it is a genuine
+vacuum-orthogonal nonzero completed vector.  The exact same-object coefficient
+is identified with the finite joint quadratic, and
+`..._strict_form` transports the finite rate bound through self-adjointness and
+the dense-completion equalities.
+
+This is the strongest non-vacuous one-observable meet currently available.
+It is not an all-vector Poincare inequality or completed operator gap: the
+analytic endpoint-coverage producer is still unavailable, as are cofinal
+thermodynamic/continuum control, QFT reconstruction, physical mass
+calibration, and the all-compact-simple-group Clay endpoint.  Focused check:
+`/tmp/ym-parity-completed-check3.log`; only `{propext, Quot.sound}` were
+reported and no `sorryAx` was introduced.
+
 ### Current forward/backward join: quarter slices compile to a depth budget (2026-09-19)
 
 The older sector-local slice route now has an explicit backward adapter in

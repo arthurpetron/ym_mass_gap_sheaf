@@ -63,6 +63,21 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: `/tmp/ym-inward-completed-carrier-check4.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
+## PROVED one-observable inward-mate parity completed carrier (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCarrier.lean`.
+- **proved**: the centered central-face parity observable is embedded in the
+  completed physical GNS carrier with vacuum orthogonality, a cutoff-independent
+  norm floor and constructive strict positivity; its same-object completed
+  coefficient is exactly the finite joint quadratic, and its finite strict form
+  bound is transported to the completed carrier.
+- **boundary**: this is one explicit finite, fixed-anchor SU(2) vector.  It is
+  not an all-vector vacuum-complement gap and supplies no cofinal producer,
+  thermodynamic/continuum passage, QFT axioms, physical mass calibration,
+  all-group construction, or Clay theorem.
+- **verification**: `/tmp/ym-parity-completed-check3.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED finite cutoff-two non-vacuity endpoint (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteCutoffTwoNontrivialEndpoint.lean`.

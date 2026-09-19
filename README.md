@@ -97,6 +97,17 @@ not an inhabited cofinal fraction or a Clay proof.  The same module now
 exposes the matched-scale forms of both decay statements, so the dynamic
 trajectory meets the completed operator before the spacing/continuum passage.
 
+**Latest finite forward/backward meet:**
+`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCarrier.lean`
+embeds the centered central-face parity witness into the completed physical
+SU(2) GNS carrier.  It proves vacuum orthogonality, a cutoff-independent
+positive norm floor, the exact same-object joint coefficient, and the strict
+completed form inequality for that one vector.  This is a genuine non-vacuous
+carrier attachment, not an all-vector gap: endpoint coverage, cofinal limits,
+continuum QFT structure, physical mass calibration, and the all-group Clay
+endpoint remain open.  Focused verification is recorded in
+`/tmp/ym-parity-completed-check3.log` under the `{propext, Quot.sound}` gate.
+
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.
