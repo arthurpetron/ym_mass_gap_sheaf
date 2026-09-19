@@ -569,6 +569,18 @@ canonical transfer or stream encoder is fabricated. Focused check log:
 `dd84b1b42d2a984b06cb3dcd9ae29718f65a20632f831456ccdf7f57a96aaeb8`.
 Both declarations use only `{propext, Quot.sound}`.
 
+**Probe bridge stream factorization, checked 2026-09-18:**
+`CurrentCarrierCauchyProbeCertificate` makes the probe-side representative
+choice explicit: it supplies a current Cauchy stream, its equality to the
+completed normalized resolvent, and the canonical vacuum-orthogonality of its
+mapped class. `...toProbeCertificate` descends that data to the existing
+completed-space probe certificate. This is the smallest constructive probe
+producer interface; it does not select a representative from a quotient and
+does not inhabit the bridge. Focused check log:
+`/tmp/ym-canonical-bridge-probe-stream1.log`; SHA-256
+`bb31825c87d97c6d2f680cd2737d75354cee5e1ca205272c354a0c8754207196`.
+Both declarations use only `{propext, Quot.sound}`.
+
 **Bridge-map injectivity consequence, checked 2026-09-18:**
 `CurrentCarrierBridge.map_injective` proves that any supplied exact form
 certificate is automatically injective: equality of two canonical images is

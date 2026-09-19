@@ -172,6 +172,26 @@ structure CurrentCarrierCauchyTwoStepCertificate
       P.op.T (P.op.T
         (Quotient.mk (cauchySetoid W.toGNSData) (C.mapCauchy X)))
 
+/-! The probe stream certificate keeps quotient representative choice explicit.
+The completed resolvent is not destructed to obtain a representative; a
+producer must supply the Cauchy stream and its class equation. -/
+
+structure CurrentCarrierCauchyProbeCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W)
+    (C : CurrentCarrierCauchyFormCertificate P) : Type 2 where
+  probeCauchy : (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Cauchy
+  probeCauchy_class :
+    Quotient.mk
+        (unionSeminorm nome_pos nome_lt_one hsmall hd hs).completionSetoid
+        probeCauchy = R unitExcitation
+  probe_vacuum_orthogonal :
+    W.toGNSData.cinnerCompl
+      (Quotient.mk (cauchySetoid W.toGNSData) (C.mapCauchy probeCauchy))
+      P.op.vacuum = RCzero
+
 /-- The dynamic part of the carrier handoff.  It is deliberately separate from
 the static form certificate so a producer can establish time intertwining
 without silently supplying a form identification. -/
@@ -214,6 +234,18 @@ structure CurrentCarrierProbeCertificate
     (F : CurrentCarrierFormCertificate P) : Type 2 where
   probe_vacuum_orthogonal :
     W.toGNSData.cinnerCompl (F.map (R unitExcitation)) P.op.vacuum = RCzero
+
+def CurrentCarrierCauchyProbeCertificate.toProbeCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+    (C : CurrentCarrierCauchyFormCertificate P)
+    (O : CurrentCarrierCauchyProbeCertificate P C) :
+    CurrentCarrierProbeCertificate P C.toFormCertificate where
+  probe_vacuum_orthogonal := by
+    rw [← O.probeCauchy_class]
+    exact O.probe_vacuum_orthogonal
 
 /-- The named OS/GNS carrier bridge still required by the current Wilson route.
 
@@ -552,6 +584,8 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate.toFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate.toTwoStepCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyProbeCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyProbeCertificate.toProbeCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.ofCertificates
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.map_injective
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_vacuum_orthogonal
