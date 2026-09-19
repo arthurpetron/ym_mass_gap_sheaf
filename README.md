@@ -181,6 +181,9 @@ also exposes the same-object autocorrelation-square form for later handoffs.
 The inhabited correlation certificate now additionally carries strict
 zero-time same-object positivity, witnessed by the explicit completed parity
 norm floor; positive-time decay remains conditional on the all-vector input.
+The same certificate exposes the one-step coefficient bound directly in the
+primitive `1 - globalInwardMateParityFormMargin` form, retaining the physical
+margin for later calibration.
 
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms

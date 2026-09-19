@@ -289,6 +289,25 @@ theorem globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_no
     (CReal.RCscale globalInwardMateParityFormRate norm) at hstrict
   exact hstrict
 
+/-- The same strict one-vector estimate with the primitive parity margin
+exposed: the rate is definitionally `1 - margin`. -/
+theorem globalInwardMateCenteredParityCompletedObservable_coefficient_le_one_sub_margin_norm
+    (K : Nat) (hK : 1 <= K) :
+    let w := anchorCoupling
+    let hw : (0 : Q') <= w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    let coefficient :=
+      D.cinnerCompl vector
+        (centralPhysicalCompletedMarkovTransfer w hw K 0 vector)
+    CReal.RCle coefficient
+      (CReal.RCscale
+        (1 + -globalInwardMateParityFormMargin)
+        (D.cinnerCompl vector vector)) := by
+  simpa only [globalInwardMateParityFormRate] using
+    (globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_norm
+      K hK)
+
 /-- Every finite power of the concrete transfer keeps the explicit parity
 observable in the physical vacuum complement.  This is an invariant-sector
 fact only; no strict power decay is inferred without an all-vector form gap. -/
@@ -563,6 +582,17 @@ structure GlobalInwardMateParityCompletedCorrelationCertificate
     CReal.RCle coefficient
       (CReal.RCscale globalInwardMateParityFormRate
         (D.cinnerCompl vector vector))
+  coefficient_le_one_sub_margin_norm :
+    let w := anchorCoupling
+    let hw : (0 : Q') <= w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    let coefficient :=
+      D.cinnerCompl vector
+        (centralPhysicalCompletedMarkovTransfer w hw K 0 vector)
+    CReal.RCle coefficient
+      (CReal.RCscale (1 + -globalInwardMateParityFormMargin)
+        (D.cinnerCompl vector vector))
   power_vacuum_orthogonal :
     ∀ n : Nat,
       CentralPhysicalCompletedVacuumOrthogonal anchorCoupling (by decide) K 0
@@ -614,6 +644,9 @@ def globalInwardMateParityCompletedCorrelationCertificate
     coefficient_le_rate_norm :=
       globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_norm
         K hK
+    coefficient_le_one_sub_margin_norm :=
+      globalInwardMateCenteredParityCompletedObservable_coefficient_le_one_sub_margin_norm
+        K hK
     power_vacuum_orthogonal :=
       globalInwardMateCenteredParityCompletedObservable_power_vacuumOrthogonal
         K
@@ -646,6 +679,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityComp
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_rateSquare_normSquare
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_norm
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_coefficient_le_one_sub_margin_norm
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_power_vacuumOrthogonal
 #print axioms

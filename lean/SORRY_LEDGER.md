@@ -154,6 +154,9 @@ is a rate-sensitive one-vector moment bound, not an all-vector operator gap.
   The inhabited correlation certificate also now carries
   `globalInwardMateCenteredParityCompletedObservable_power_zero_autocorrelation_positive`,
   making strict zero-time same-object positivity explicit.
+  It also exports
+  `globalInwardMateCenteredParityCompletedObservable_coefficient_le_one_sub_margin_norm`,
+  the same one-vector strict bound with the primitive parity margin exposed.
 - **boundary**: the input record is not inhabited by the one-observable
   parity certificate.  This milestone therefore adds no uniform
   vacuum-complement gap, cofinal producer, thermodynamic/continuum passage,

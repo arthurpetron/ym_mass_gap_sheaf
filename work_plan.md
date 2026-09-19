@@ -134,6 +134,12 @@ It exposes the same-object autocorrelation-square shape for later handoffs,
 while still requiring the named all-vector form-gap input.  This removes a
 downstream rewiring step without weakening the producer obligation.
 
+The inhabited correlation certificate also exports
+`globalInwardMateCenteredParityCompletedObservable_coefficient_le_one_sub_margin_norm`.
+The one-vector strictness is therefore available in the primitive
+`1 - globalInwardMateParityFormMargin` currency needed by later physical-gap
+calibration, rather than only through the derived rate name.
+
 The inhabited correlation certificate now also carries an explicit positive
 zero-time same-object autocorrelation witness, obtained by reducing the
 zeroth transfer power to the completed parity norm.  This is non-vacuous
