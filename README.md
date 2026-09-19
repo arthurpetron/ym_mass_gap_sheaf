@@ -73,7 +73,7 @@ a separately named two-step compatibility witness.  Thus the current
 two-step gap node is not obtained by relabelling a one-step law.  Both
 compatibility witnesses remain explicit, uninhabited inputs; no
 current-to-canonical map or physical continuum bridge is inferred.  Focused
-check: `/tmp/ym-forward-backward-corrected.log`; the source hash is recorded
+check: `/tmp/ym-forward-backward-corrected3.log`; the source hash is recorded
 in `lean/SORRY_LEDGER.md`.  The declarations use only
 `{propext, Quot.sound}`.
 

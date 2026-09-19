@@ -655,7 +655,7 @@ current `time 1` agrees in the selected canonical carrier with canonical
 the one-macro-step finite BF4 transfer law, while
 `stageTransfer_square_intertwines` produces the honest two-macro-step law.
 Neither theorem inhabits the stage encoder, either compatibility field, or
-the continuum bridge.  Focused check: `/tmp/ym-forward-backward-corrected.log`.
+the continuum bridge.  Focused check: `/tmp/ym-forward-backward-corrected3.log`.
 Only `{propext, Quot.sound}` were reported.
 
 **Concrete physical endpoint, checked 2026-09-18:**
