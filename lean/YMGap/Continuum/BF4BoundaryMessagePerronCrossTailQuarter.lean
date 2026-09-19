@@ -38,6 +38,7 @@ open YMGap.Continuum.BF4BoundaryMessageComputedFloorQuarter
 open YMGap.Continuum.BF4BoundaryMessagePhysicalTerminalFloorAdapter
 open YMGap.Continuum.BF4BoundaryMessageProjectiveRefresh
 open YMGap.Continuum.BF4BoundaryMessageQuarterLimitTransfer
+open YMGap.Continuum.BF4CanonicalFiniteNumeratorPartitionBudget
 open YMGap.Continuum.BF4PhysicalBoundarySelfSmoothingPerronCrossTail
 open YMGap.Continuum.BF4PhysicalHalfAmplitudeRelativeTerminalPerturbation
 open YMGap.Continuum.BF4PhysicallyRecenteredMatchedEighth
@@ -45,6 +46,8 @@ open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
+open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
 
 namespace MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows
 
@@ -63,6 +66,51 @@ def toUniformBoundaryMessageQuarterCertificate
         nonlinearRate) :=
   YMGap.Continuum.BF4BoundaryMessageComputedFloorQuarter.MatchedPhysicalHalfAmplitudeComputedFloorErrorRows.toUniformBoundaryMessageQuarterCertificate
     data.toComputedFloorErrorRows
+
+/-! ## A canonical terminal positivity compiler -/
+
+/-- The existing Perron terminal certificate supplies a canonical positive
+terminal message by fixing the distinguished zero boundary channel as its
+source.  This discharges the terminal-positivity half of the generic limit
+interface; denominator positivity remains a separate source-wise obligation.
+-/
+def physicalTerminal
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    {halfExtent diagonalOrder bits depth : Nat → Nat}
+    {nonlinearRate : Nat → Q'}
+    (producer :
+      MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows
+        family law spacing coupling halfExtent diagonalOrder bits depth
+        nonlinearRate) : Nat → PhysicalEdgeLabelling → Q' :=
+  fun scale target => producer.terminal scale zeroEdgeLabelling target
+
+theorem physicalTerminal_pos
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    {halfExtent diagonalOrder bits depth : Nat → Nat}
+    {nonlinearRate : Nat → Q'}
+    (producer :
+      MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows
+        family law spacing coupling halfExtent diagonalOrder bits depth
+        nonlinearRate) :
+    ∀ scale target,
+      target ∈ physicalBoundaryMessageTargets family coupling halfExtent scale →
+        (0 : Q') < physicalTerminal producer scale target := by
+  intro scale target target_mem
+  change target ∈
+    centralBoundaryChannels
+      (matchedAllSpinCutoff family coupling scale) (halfExtent scale) at target_mem
+  change (0 : Q') < producer.terminal scale zeroEdgeLabelling target
+  exact (producer.terminalCertificate scale).strictlyPositive
+    zeroEdgeLabelling
+    (zeroEdgeLabelling_mem_centralBoundaryChannels
+      (matchedAllSpinCutoff family coupling scale) (halfExtent scale))
+    target target_mem
 
 /-! ## The backward limit-input bundle -/
 
@@ -201,6 +249,10 @@ end YMGap.Continuum.BF4BoundaryMessagePerronCrossTailQuarter
 
 #print axioms
   YMGap.Continuum.BF4BoundaryMessagePerronCrossTailQuarter.MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows.toUniformBoundaryMessageQuarterCertificate
+#print axioms
+  YMGap.Continuum.BF4BoundaryMessagePerronCrossTailQuarter.MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows.physicalTerminal
+#print axioms
+  YMGap.Continuum.BF4BoundaryMessagePerronCrossTailQuarter.MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows.physicalTerminal_pos
 #print axioms
   YMGap.Continuum.BF4BoundaryMessagePerronCrossTailQuarter.MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows.QuarterLimitInputs.toQuarterContractionLimitData
 #print axioms

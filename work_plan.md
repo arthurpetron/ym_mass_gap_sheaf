@@ -89,14 +89,16 @@ only `{propext, Quot.sound}` and introduce no `sorryAx`.
 
 The same module now adds the exact backward cutoff-removal bundle
 `MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows.QuarterLimitInputs`.
-It keeps terminal positivity, denominator positivity, equal-mass laws, and
-the two effective `ModCauchyEv` moduli as explicit fields, then compiles them
-with `QuarterLimitInputs.continuum_l1_quarter_contraction` to the completed
-`CReal` quarter contraction.  This is the first direct producer-to-limit
-consumer join on this branch; it remains conditional because no such
-`QuarterLimitInputs` inhabitant is present.  The same-object OS/GNS map,
-spacing/thermodynamic control, continuum QFT axioms, and all-group step are
-still open.
+The declarations `physicalTerminal` and `physicalTerminal_pos` compile the
+existing Perron terminal certificate to a canonical positive message.  The
+bundle then keeps denominator positivity, equal-mass laws, and the two
+effective `ModCauchyEv` moduli as explicit fields, and
+`QuarterLimitInputs.continuum_l1_quarter_contraction` compiles them to the
+completed `CReal` quarter contraction.  This is the first direct
+producer-to-limit consumer join on this branch; it remains conditional
+because no such denominator/Cauchy bundle inhabitant is present.  The
+same-object OS/GNS map, spacing/thermodynamic control, continuum QFT axioms,
+and all-group step are still open.
 
 Focused check after this extension: `/tmp/ym-perron-quarter-check7.log`;
 only `{propext, Quot.sound}` were reported.
