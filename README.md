@@ -66,14 +66,16 @@ execution record is in [`work_plan.md`](work_plan.md).
 
 **Forward/backward physical meet, checked 2026-09-18:**
 `CurrentStageMatchedPhysicalTransferJoin.stageTransfer_intertwines` composes
-the existing physical dense-stage transfer law with the current
-stage-to-canonical two-step time-compatibility witness.  It produces the
-literal matched finite BF4 transfer law for the composed stage observable.
-The compatibility witness remains an explicit, uninhabited input; no
+the existing physical dense-stage transfer law with an explicit one-step
+current-to-canonical compatibility witness.  The companion
+`stageTransfer_square_intertwines` composes two forward macro transfers using
+a separately named two-step compatibility witness.  Thus the current
+two-step gap node is not obtained by relabelling a one-step law.  Both
+compatibility witnesses remain explicit, uninhabited inputs; no
 current-to-canonical map or physical continuum bridge is inferred.  Focused
-check: `/tmp/ym-forward-backward-join-final.log`; source SHA-256
-`8bad70c17a3efdda3d7d1222a6f28fe83b6be9e40d92e1cbf4ace8f87219d570`.
-The declarations use only `{propext, Quot.sound}`.
+check: `/tmp/ym-forward-backward-corrected.log`; the source hash is recorded
+in `lean/SORRY_LEDGER.md`.  The declarations use only
+`{propext, Quot.sound}`.
 
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages

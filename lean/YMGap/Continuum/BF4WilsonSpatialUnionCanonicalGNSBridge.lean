@@ -290,12 +290,19 @@ structure CurrentStageMatchedPhysicalTransferJoin
     (D : WilsonSelectedOSGNSData H)
     (K : CurrentStageCauchyStagePairingCertificate D.timeTranslation)
     (data : BF4WilsonDenseStageMapData producer D) : Type 2 where
-  /-- The backward-facing current two-step shift agrees in the canonical
+  /-- The backward-facing current one-step shift agrees in the canonical
   carrier with the time shift consumed by the forward physical compiler. -/
   stage_time : ∀ x : Stage,
     D.wilson.toGNSData.veq
-      (K.transport.mapStage (time 2 x))
+      (K.transport.mapStage (time 1 x))
       (D.timeTranslation.tau (K.transport.mapStage x))
+  /-- The independently supplied two-step current shift agrees with the
+  square of the canonical one-step shift.  This is kept explicit because the
+  finite physical transfer is a one-macro-step operator. -/
+  stage_two_time : ∀ x : Stage,
+    D.wilson.toGNSData.veq
+      (K.transport.mapStage (time 2 x))
+      (D.timeTranslation.tau (D.timeTranslation.tau (K.transport.mapStage x)))
 
 namespace CurrentStageMatchedPhysicalTransferJoin
 
@@ -321,7 +328,7 @@ def stageObservable
     (MatchedPhysicalStageGNSData family coupling scale).V :=
   data.stageObservable scale (K.transport.mapStage x)
 
-/-- The two-step current-stage advance is now an exact finite physical
+/-- The one-step current-stage advance is now an exact finite physical
 transfer intertwining law.  This theorem is the constructive contraction of
 the two independently typed directions; its only new premise is `stage_time`.
 -/
@@ -334,13 +341,47 @@ theorem stageTransfer_intertwines
         (matchedAllSpinWeight_nonnegative family coupling scale)
         (matchedAllSpinCutoff family coupling scale) 0
         (J.stageObservable scale x))
-      (J.stageObservable scale (time 2 x)) := by
+      (J.stageObservable scale (time 1 x)) := by
   have hphysical := data.stageTransfer_intertwines scale
     (K.transport.mapStage x)
   have htime := data.stageObservable_congr scale (J.stage_time x)
   exact (MatchedPhysicalStageGNSData family coupling scale).veq_trans
     hphysical
     ((MatchedPhysicalStageGNSData family coupling scale).veq_symm htime)
+
+/-! The square theorem is the honest two-step contraction used by the current
+stage gap node.  It is not obtained by relabelling the one-step theorem: the
+`stage_two_time` field records the separate two-step compatibility required by
+the forward physical compiler. -/
+
+theorem stageTransfer_square_intertwines
+    (J : CurrentStageMatchedPhysicalTransferJoin producer D K data)
+    (scale : Nat) (x : Stage) :
+    (MatchedPhysicalStageGNSData family coupling scale).veq
+      (centralPhysicalMarkovApply
+        (matchedAllSpinWeight family coupling scale)
+        (matchedAllSpinWeight_nonnegative family coupling scale)
+        (matchedAllSpinCutoff family coupling scale) 0
+        (centralPhysicalMarkovApply
+          (matchedAllSpinWeight family coupling scale)
+          (matchedAllSpinWeight_nonnegative family coupling scale)
+          (matchedAllSpinCutoff family coupling scale) 0
+          (J.stageObservable scale x)))
+      (J.stageObservable scale (time 2 x)) := by
+  have h₁ := data.stageTransfer_intertwines scale
+    (K.transport.mapStage x)
+  have h₁apply := centralPhysicalMarkovApply_congr
+    (matchedAllSpinWeight family coupling scale)
+    (matchedAllSpinWeight_nonnegative family coupling scale)
+    (matchedAllSpinCutoff family coupling scale) 0 h₁
+  have h₂ := data.stageTransfer_intertwines scale
+    (D.timeTranslation.tau (K.transport.mapStage x))
+  have h₂time := data.stageObservable_congr scale (J.stage_two_time x)
+  exact (MatchedPhysicalStageGNSData family coupling scale).veq_trans
+    h₁apply
+    ((MatchedPhysicalStageGNSData family coupling scale).veq_trans
+      h₂
+      ((MatchedPhysicalStageGNSData family coupling scale).veq_symm h₂time))
 
 end CurrentStageMatchedPhysicalTransferJoin
 
@@ -1522,6 +1563,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageMatchedPhysicalTransferJoin
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageMatchedPhysicalTransferJoin.stageObservable
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageMatchedPhysicalTransferJoin.stageTransfer_intertwines
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageMatchedPhysicalTransferJoin.stageTransfer_square_intertwines
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.toCauchyFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.stageClass

@@ -209,19 +209,19 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `d553685e1bfc35119ee2cdceb9615e9b956d7ac74cb01bfba9b5b263ba3b1034`).
 - **proved**: `CurrentStageMatchedPhysicalTransferJoin.stageTransfer_intertwines`
   composes the backward current-stage-to-canonical route with the forward
-  `BF4WilsonDenseStageMapData.stageTransfer_intertwines` route.  Given the
-  named `stage_time` equality between current `time 2` and canonical `tau`, it
-  produces the exact matched finite BF4 transfer law for the composed stage
-  observable.  The stage encoder and `stage_time` remain explicit producer
-  inputs; neither is fabricated by this theorem.
+  `BF4WilsonDenseStageMapData.stageTransfer_intertwines` route for one macro
+  step.  The separate
+  `CurrentStageMatchedPhysicalTransferJoin.stageTransfer_square_intertwines`
+  theorem composes two such transfers and uses the explicitly named
+  `stage_two_time` field for current `time 2` versus canonical `tau²`.
 - **residue**: the actual current-to-canonical encoder, its distance/pairing
-  pins, and the `stage_time` compatibility witness are still uninhabited.
-  This is a causal forward/backward composition lemma, not a continuum or
-  Clay closure.
+  pins, and both one-step/two-step compatibility witnesses are still
+  uninhabited.  This is a causal forward/backward composition lemma, not a
+  continuum or Clay closure.
 - **verification**: focused serialized source check passed with only
   `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
-  Evidence: `/tmp/ym-forward-backward-join-final.log` (source SHA-256
-  `8bad70c17a3efdda3d7d1222a6f28fe83b6be9e40d92e1cbf4ace8f87219d570`).
+  Evidence: `/tmp/ym-forward-backward-corrected3.log`; source SHA-256
+  `005972ce0db57f9af756ed60703a509a115f06281c11305b51b5d75a8491b1ea`.
 - **proved**: `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting`
   constructs one concrete finite matched-stage SU(2) endpoint certificate.
   Its fields expose the actual completed GNS carrier, macro transfer,
