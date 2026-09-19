@@ -321,9 +321,10 @@ actual Wilson completion. `BF4WilsonSpatialUnionWeightedNorm.budget` and
 `seriesRows` construct the finite sums with supplied cutoffs;
 `BF4WilsonSpatialUnionResolvent.resolvent` is the diagonal-limit operator, with
 `resolvent_equation`, `resolvent_right_inverse`, `resolvent_left_inverse`, and
-`resolvent_sub`; `resolvent_add` and `resolvent_time` now provide additive and
-physical-time commutation; `defect_selfAdjoint` and `resolvent_selfAdjoint`
-tie that inverse to the SAME completed pairing; and
+`resolvent_sub`; `resolvent_add`, `defect_smul`, `resolvent_smul`, and
+`resolvent_time` now provide additive, rational-scalar, and physical-time
+commutation; `defect_selfAdjoint` and `resolvent_selfAdjoint` tie that inverse
+to the SAME completed pairing; and
 `BF4WilsonSpatialUnionResolventBound.resolvent_norm_bound`/
 `resolvent_distance_bound` give the same-carrier explicit bounds. Three
 focused serialized one-worker/20 GiB checks passed with only

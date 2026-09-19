@@ -56,6 +56,7 @@ local notation "V" => UnionCompletion hw0 hw1 hsmall hd hs
 local notation "T" => completedTime hw0 hw1 hsmall hd hs
 local notation "C" => center hw0 hw1 hsmall hd hs
 local notation "A" => completedAdd hw0 hw1 hsmall hd hs
+local notation "S" => completedSmul hw0 hw1 hsmall hd hs
 local notation "Sub" => completedSub hw0 hw1 hsmall hd hs
 local notation "Z" => completedZero hw0 hw1 hsmall hd hs
 
@@ -276,6 +277,32 @@ theorem resolvent_add (x y : V) :
   rw [sub_add_right_cancel, completedSub_add_cancel] at h
   exact h.symm
 
+theorem defect_smul (s : Q') (x : V) :
+    defect hw0 hw1 hsmall hd hs (S s x) =
+      S s (defect hw0 hw1 hsmall hd hs x) := by
+  unfold defect
+  rw [completedTime_smul]
+  apply completed_eq_of_pairings hw0 hw1 hsmall hd hs
+  intro z
+  simp only [completedInner_sub_left, completedInner_smul_left]
+  refine Quotient.inductionOn₂
+    (completedInner hw0 hw1 hsmall hd hs x z)
+    (completedInner hw0 hw1 hsmall hd hs (T 2 x) z) ?_
+  intro X Y
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    Q'.eqv_symm (Q'.eqv_trans _ _ _
+      (Q'.mul_add_eqv s (X.approx n) (-(Y.approx n)))
+      (Q'.add_eqv_congr_left _ _ _ (Q'.mul_neg_eqv s (Y.approx n))))))
+
+theorem resolvent_smul (s : Q') (x : V) :
+    resolvent hw0 hw1 hsmall hd hs (S s x) =
+      S s (resolvent hw0 hw1 hsmall hd hs x) := by
+  apply centered_eq_of_defect_eq hw0 hw1 hsmall hd hs _ _
+    (resolvent_centered hw0 hw1 hsmall hd hs _)
+  · rw [center_smul, resolvent_centered]
+  rw [resolvent_right_inverse, defect_smul, resolvent_right_inverse,
+    center_smul]
+
 theorem defect_time (n : Nat) (x : V) :
     defect hw0 hw1 hsmall hd hs (T n x) =
       T n (defect hw0 hw1 hsmall hd hs x) := by
@@ -341,6 +368,8 @@ end YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.defect_sub
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_sub
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_add
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.defect_smul
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_smul
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.defect_time
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_time
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.defect_selfAdjoint
