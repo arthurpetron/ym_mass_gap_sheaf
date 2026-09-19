@@ -182,15 +182,16 @@ check is constructed here.
 
 **Primitive physical-gap variation compiler, checked 2026-09-19:**
 `BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler` constructs
-`SummableRationalStepVariation family.physicalGap` from two explicit
-same-family primitive streams: summable variation of `family.latticeMargin`,
-and summable variation of the positive spacing together with a uniform positive
-spacing floor.  Its `exactLogRateCauchy_of_primitiveComponents` declaration
-feeds that result directly into the existing exact-log Cauchy compiler.  This
-splits the mass-calibration frontier into named numerator, denominator-floor,
-and spacing-tail inputs; none of those analytic inputs is inhabited by this
-module.  Focused check: `/tmp/ym-physical-gap-variation-compiler4.log`, with
-only `{propext, Quot.sound}` reported.
+`SummableRationalStepVariation family.physicalGap` from summable variation of
+the same-family `latticeMargin` and of the reciprocal spacing stream.  Its
+`exactLogRateCauchy_of_marginAndReciprocalSpacing` declaration feeds that
+continuum-compatible result directly into the existing exact-log Cauchy
+compiler.  A separate `...of_primitiveComponents` adapter derives reciprocal
+variation from a positive spacing floor when such a finite-regulator floor is
+available; that shortcut is not compatible with a spacing stream tending to
+zero.  None of the primitive variation inputs is inhabited by this module.
+Focused check: `/tmp/ym-physical-gap-variation-compiler5.log`, with only
+`{propext, Quot.sound}` reported.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`

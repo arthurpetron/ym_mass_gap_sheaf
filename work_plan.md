@@ -175,15 +175,17 @@ that family, and the alternate exact canonical capacity check, remain open.
 ### Current forward/backward join: primitive physical-gap variation (2026-09-19)
 
 `BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler` now compiles
-summable variation of the dimensionless `latticeMargin` and positive spacing
-streams, plus an explicit uniform spacing floor, into the exact same-family
-`SummableRationalStepVariation family.physicalGap`.  The reciprocal and product
-compilers are constructive and the final equality is definitionally the
-family’s `Q'.divPos` gap.  `exactLogRateCauchy_of_primitiveComponents` consumes
-that result in the existing exact-log rate compiler.  This is a backward
-interface decomposition, not a construction of the primitive variation,
-spacing floor, physical rate band, or continuum handoff.  Focused check:
-`/tmp/ym-physical-gap-variation-compiler4.log`; only `{propext, Quot.sound}`
+summable variation of the dimensionless `latticeMargin` and reciprocal spacing
+streams into the exact same-family `SummableRationalStepVariation
+family.physicalGap`.  The reciprocal and product compilers are constructive and
+the final equality is definitionally the family’s `Q'.divPos` gap.
+`exactLogRateCauchy_of_marginAndReciprocalSpacing` consumes this
+continuum-compatible result in the existing exact-log rate compiler.  The
+separate positive-floor adapter is retained only as a finite-regulator
+shortcut; it cannot serve a spacing stream tending to zero.  This is a
+backward interface decomposition, not a construction of the primitive
+variation, physical rate band, or continuum handoff.  Focused check:
+`/tmp/ym-physical-gap-variation-compiler5.log`; only `{propext, Quot.sound}`
 were reported.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)

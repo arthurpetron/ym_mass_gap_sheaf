@@ -122,16 +122,20 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 ## PROVED primitive physical-gap variation compiler (2026-09-19 UTC)
 
 - **file**: `BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.lean`.
-- **proved**: `physicalGapVariationOfPrimitiveComponents` compiles summable
-  variation of the same completed family’s `latticeMargin` and positive
-  spacing streams, with an explicit uniform spacing floor, into
-  `SummableRationalStepVariation family.physicalGap`.  The
-  `exactLogRateCauchy_of_primitiveComponents` declaration feeds this exact
-  result into the existing exact-log Cauchy compiler.
-- **boundary**: this is a primitive variation adapter only.  It does not
-  construct margin variation, spacing variation, the spacing floor, a
-  physical rate band, a continuum handoff, or the Clay theorem.
-- **verification**: `/tmp/ym-physical-gap-variation-compiler4.log`; only
+- **proved**: `physicalGapVariationOfMarginAndReciprocalSpacing` compiles
+  summable variation of the same completed family’s `latticeMargin` and
+  reciprocal spacing streams into `SummableRationalStepVariation
+  family.physicalGap`.  The `exactLogRateCauchy_of_marginAndReciprocalSpacing`
+  declaration feeds this continuum-compatible result into the existing
+  exact-log Cauchy compiler.  The separate
+  `physicalGapVariationOfPrimitiveComponents` adapter derives reciprocal
+  variation from a positive spacing floor for finite-regulator use.
+- **boundary**: these are primitive variation adapters only.  They do not
+  construct margin variation, reciprocal-spacing variation, the optional
+  spacing floor, a physical rate band, a continuum handoff, or the Clay
+  theorem.  A fixed positive spacing floor cannot be the continuum route when
+  the spacing tends to zero.
+- **verification**: `/tmp/ym-physical-gap-variation-compiler5.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)

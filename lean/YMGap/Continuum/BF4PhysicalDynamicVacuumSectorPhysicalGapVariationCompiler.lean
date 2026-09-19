@@ -5,11 +5,13 @@ The dynamic completed-family path defines
 
   `physicalGap = latticeMargin / transferSpacing`.
 
-This module compiles two explicit primitive variation witnesses into the exact
+This module compiles explicit primitive variation witnesses into the exact
 same-family `SummableRationalStepVariation family.physicalGap`: one witness
-for the dimensionless lattice margin and one for the positive spacing, with a
-uniform positive spacing floor.  The reciprocal and product steps are the
-generic constructive compilers; the final pointwise equality is only the
+for the dimensionless lattice margin and one for the reciprocal spacing.  A
+finite-regulator shortcut can build the reciprocal witness from positive
+spacing variation and a fixed floor, but a continuum spacing tends to zero, so
+the direct reciprocal witness is the honest continuum-facing interface.  The
+product step is generic and the final pointwise equality is only the
 definition of `Q'.divPos`.
 
 The result is a backward-facing mass-calibration interface.  It does not
@@ -46,6 +48,38 @@ open YMGap.Continuum.SummableRationalStepVariationAlgebra
 
 /-! ## 1. Exact same-family variation -/
 
+/-- Margin variation and direct reciprocal-spacing variation meet at the exact
+completed-family physical gap.  This is the continuum-compatible interface:
+it does not assume a positive lower floor for a spacing stream that tends to
+zero. -/
+def physicalGapVariationOfMarginAndReciprocalSpacing
+    {half : Nat}
+    (family : DynamicVacuumSectorCompletedFamily half)
+    (marginVariation :
+      SummableRationalStepVariation family.latticeMargin)
+    (reciprocalSpacingVariation :
+      SummableRationalStepVariation
+        (fun scale =>
+          Q'.recipPos
+            (family.transferSpacing.spacing scale)
+            (family.transferSpacing.spacing_pos scale))) :
+    SummableRationalStepVariation family.physicalGap := by
+  let productVariation := mul marginVariation reciprocalSpacingVariation
+    (fun scale => Q'.le_of_lt (family.latticeMargin_pos scale))
+    (fun scale =>
+      Q'.le_of_lt
+        (Q'.recipPos_pos
+          (family.transferSpacing.spacing scale)
+          (family.transferSpacing.spacing_pos scale)))
+  exact ofPointwiseEqv productVariation (fun scale => by
+    change family.latticeMargin scale *
+        Q'.recipPos
+          (family.transferSpacing.spacing scale)
+          (family.transferSpacing.spacing_pos scale) ≈
+      family.physicalGap scale
+    unfold DynamicVacuumSectorCompletedFamily.physicalGap
+    exact Q'.eqv_refl _)
+
 /-- Margin variation and positive-spacing variation meet at the exact
 completed-family physical gap.  The positive spacing floor is the explicit
 noncollapse witness needed by the reciprocal compiler. -/
@@ -65,23 +99,34 @@ def physicalGapVariationOfPrimitiveComponents
   let reciprocalSpacingVariation := reciprocal
     (fun scale => family.transferSpacing.spacing_pos scale)
     spacingVariation spacingFloor spacingFloor_pos spacingFloor_le
-  let productVariation := mul marginVariation reciprocalSpacingVariation
-    (fun scale => Q'.le_of_lt (family.latticeMargin_pos scale))
-    (fun scale =>
-      Q'.le_of_lt
-        (Q'.recipPos_pos
-          (family.transferSpacing.spacing scale)
-          (family.transferSpacing.spacing_pos scale)))
-  exact ofPointwiseEqv productVariation (fun scale => by
-    change family.latticeMargin scale *
-        Q'.recipPos
-          (family.transferSpacing.spacing scale)
-          (family.transferSpacing.spacing_pos scale) ≈
-      family.physicalGap scale
-    unfold DynamicVacuumSectorCompletedFamily.physicalGap
-    exact Q'.eqv_refl _)
+  exact physicalGapVariationOfMarginAndReciprocalSpacing
+    family marginVariation reciprocalSpacingVariation
 
 /-! ## 2. Explicit join to the exact-log backward target -/
+
+/-- The continuum-compatible reciprocal-spacing compiler feeds the existing
+exact-log Cauchy compiler without changing the completed family, observable
+pin, or spacing tail. -/
+def exactLogRateCauchy_of_marginAndReciprocalSpacing
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    (marginVariation :
+      SummableRationalStepVariation family.latticeMargin)
+    (reciprocalSpacingVariation :
+      SummableRationalStepVariation
+        (fun scale =>
+          Q'.recipPos
+            (family.transferSpacing.spacing scale)
+            (family.transferSpacing.spacing_pos scale)))
+    (spacingTail : InverseSquareSpacingTail family.transferSpacing 0) :
+    CReal.ModCauchyEv ((fullRangeRateFamily pin).rate) :=
+  DynamicVacuumSectorObservablePin.exactLogRateCauchy
+    pin band
+    (physicalGapVariationOfMarginAndReciprocalSpacing
+      family marginVariation reciprocalSpacingVariation)
+    spacingTail
 
 /-- The primitive variation compiler feeds the existing exact-log Cauchy
 compiler without changing the completed family, observable pin, or spacing
@@ -115,5 +160,9 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler
 
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.physicalGapVariationOfPrimitiveComponents
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.physicalGapVariationOfMarginAndReciprocalSpacing
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.exactLogRateCauchy_of_marginAndReciprocalSpacing
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.exactLogRateCauchy_of_primitiveComponents
