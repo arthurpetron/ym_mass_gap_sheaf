@@ -38,6 +38,7 @@ Finite lists and exact `Q'` arithmetic only.  No `Classical.*`,
 
 import YMGap.Continuum.BF4ExactCorrectedSlabHaarNetwork
 import YMGap.Continuum.BF4LocalContractionGluing
+import YMGap.Continuum.BF4PhysicalLocalGluingAFCertificate
 import YMGap.Continuum.BF4SymmetricReferenceOperatorComparison
 
 namespace YMGap.Continuum.BF4ExactPhysicalPerronReroute
@@ -51,6 +52,7 @@ open YMGap.Continuum.BF4CanonicalFiniteMehlerGramSpectralBudget
 open YMGap.Continuum.BF4CommonRankOneRowTriangle
 open YMGap.Continuum.BF4LocalContractionGluing
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
+open YMGap.Continuum.BF4PhysicalLocalGluingAFCertificate
 open YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.BF4SU2FixedMagneticPositiveKernelConvergence
@@ -646,6 +648,41 @@ structure ExactHaarPhysicalLocalGluingAFQuarterCertificate
               source (depth scale) oneStep
               (localRate scale))
 
+/-! ## 4a. Forward/backward carrier-preserving join -/
+
+/-- The already-constructed physical AF local-slice certificate and a
+same-action identification compose directly into the exact-slab local-gluing
+consumer.  The local slice is reused on its original retained physical
+carrier; no existential row is reindexed and no exact-Haar field is inferred
+from the slice.  Thus this is the typed forward/backward meeting edge, with
+the still-open analytic producers remaining explicit in its two inputs. -/
+def ExactHaarPhysicalLocalGluingAFQuarterCertificate.ofPhysicalLocalGluing
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    (physical :
+      PhysicalLocalGluingAFCertificate family law spacing coupling)
+    (sameAction :
+      ∀ scale,
+        ExactHaarPhysicalPerronSameActionAt
+          (matchedAllSpinWeight family coupling scale)
+          (matchedAllSpinWeight_nonnegative
+            family coupling scale)
+          (matchedAllSpinCutoff family coupling scale)) :
+    ExactHaarPhysicalLocalGluingAFQuarterCertificate
+      family law spacing coupling where
+  coupling_pos := physical.coupling_pos
+  coupling_le_window := physical.coupling_le_window
+  sameAction := sameAction
+  depth := physical.depth
+  localRate := physical.localRate
+  localRate_le_quarter := physical.localRate_le_quarter
+  localRow_exists := by
+    intro scale source hsource
+    exact ⟨⟨physical.oneStep scale,
+      (physical.localSlice scale).toRow source hsource⟩⟩
+
 namespace ExactHaarPhysicalLocalGluingAFQuarterCertificate
 
 /-- The AF direct route gives a literal exact-slab sixteenth at every
@@ -728,6 +765,7 @@ end YMGap.Continuum.BF4ExactPhysicalPerronReroute
 
 #print axioms YMGap.Continuum.BF4ExactPhysicalPerronReroute.centralPhysicalJointQuadratic_eq_normalizedFull
 #print axioms YMGap.Continuum.BF4ExactPhysicalPerronReroute.ExactHaarPhysicalPerronSameActionAt.exact_eq_physicalJoint
+#print axioms YMGap.Continuum.BF4ExactPhysicalPerronReroute.ExactHaarPhysicalLocalGluingAFQuarterCertificate.ofPhysicalLocalGluing
 #print axioms YMGap.Continuum.BF4ExactPhysicalPerronReroute.ExactHaarPhysicalPerronSameActionAt.exact_quadratic_nonnegative
 #print axioms YMGap.Continuum.BF4ExactPhysicalPerronReroute.ExactHaarPhysicalPerronSameActionAt.exact_quadratic_one
 #print axioms YMGap.Continuum.BF4ExactPhysicalPerronReroute.ExactHaarPhysicalPerronSameActionAt.exact_quadratic_abs_le_quarter_of_physicalPerron

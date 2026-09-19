@@ -91,6 +91,20 @@ and must still be joined to the current action, observable and OS carrier.
 Focused check: `/tmp/ym-wilson-physical-calibration-noceiling4.log`, SHA-256
 `85bcb5f7d6023daf6c8cf1c61e9c3cb64ad6f95084c83892eef38334194199f1`.
 
+The exact forward/backward local-gluing meeting edge is now explicit in
+`BF4ExactPhysicalPerronReroute.lean`:
+`ExactHaarPhysicalLocalGluingAFQuarterCertificate.ofPhysicalLocalGluing`
+consumes a `PhysicalLocalGluingAFCertificate` and a separately supplied
+same-action family, preserving the matched coupling, literal physical
+positive carrier, one-step kernel, depth and quarter rate. It constructs the
+per-source rows by `PhysicalBF4LocalSliceGluing.toRow`; it does not infer
+same-action or local gluing. Thus the backward exact-slab consumer is now
+typed against the forward physical certificate, while both analytic producer
+leaves remain open.
+
+Focused check: `/tmp/ym-exact-physical-perron-join2.log`, SHA-256
+`ac36d3406b94fa561ad858c4dd71bb4de8ec291a00806db0e79363700709f17f`.
+
 ### Goal-mode execution instructions (user-requested review, 2026-09-15)
 
 1. **Work backward from a real obstruction.** Before opening a new proof branch,

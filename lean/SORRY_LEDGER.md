@@ -13,6 +13,24 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED forward/backward exact-slab local-gluing join (2026-09-18 UTC)
+
+- **file**: `BF4ExactPhysicalPerronReroute.lean`.
+- **proved**: `ExactHaarPhysicalLocalGluingAFQuarterCertificate.ofPhysicalLocalGluing`
+  composes an existing `PhysicalLocalGluingAFCertificate` with an explicitly
+  supplied `ExactHaarPhysicalPerronSameActionAt` family. It reuses the same
+  scale-indexed `oneStep`, retained physical carrier, depth and quarter rate,
+  and constructs the required per-source existential rows by
+  `PhysicalBF4LocalSliceGluing.toRow`.
+- **residue**: neither input is inhabited by this constructor. In particular,
+  it does not prove the exact-Haar fusion/same-action identification or the
+  physical local-slice estimate; it only makes their carrier-preserving join
+  kernel-checkable for the existing exact-slab consumer.
+- **verification**: focused serialized check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
+  Evidence: `/tmp/ym-exact-physical-perron-join2.log` (SHA-256
+  `ac36d3406b94fa561ad858c4dd71bb4de8ec291a00806db0e79363700709f17f`).
+
 ## PROVED current-Wilson represented resolvent (2026-09-18 UTC)
 
 - **files**: `BF4WilsonSpatialUnionWeightedNorm.lean`,
