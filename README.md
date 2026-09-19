@@ -180,6 +180,18 @@ genuine local-slice/gluing family as a direct forward producer at the checked
 rate `1/16`.  Neither that local-slice family nor the exact canonical capacity
 check is constructed here.
 
+**Sector-normalized local-slice forward/backward join, checked 2026-09-19:**
+`BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement` now consumes the
+sector-normalized `FixedNomeCofinalVacuumSectorLocalSliceGluing` interface
+directly.  Its `...StrictContractionData_of_sectorLocalSlice` adapter uses the
+already inhabited joint-adaptive Markov-form Cauchy--Schwarz law and the
+sector-local compiler's exact rate `1/16`; the companion norm-decay theorem
+gives every completed sector vector geometric squared-norm decay, and the
+same-object theorem gives the explicit moving-centered cube autocorrelation
+bound.  This is a genuine forward/backward connection, but the sector-local
+family itself remains an unconstructed analytic producer, so thermodynamic,
+continuum, QFT, every-group, and Clay closure remain open.
+
 **Primitive physical-gap variation compiler, checked 2026-09-19:**
 `BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler` constructs
 `SummableRationalStepVariation family.physicalGap` from summable variation of

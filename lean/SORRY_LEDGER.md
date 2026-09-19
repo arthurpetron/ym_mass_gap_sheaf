@@ -119,6 +119,18 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   rate `1/16`.  Neither that family nor the exact canonical capacity check is
   constructed here.
 
+**Sector-normalized local-slice forward/backward join, checked 2026-09-19:**
+`BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement` now consumes
+`FixedNomeCofinalVacuumSectorLocalSliceGluing` directly.  The new
+`...StrictContractionData_of_sectorLocalSlice` adapter reaches the completed
+operator contraction through the inhabited joint-adaptive Markov-form
+Cauchy--Schwarz law at the sector-local rate `1/16`; the companion
+`...VacuumTransferPower_norm_decay_of_sectorLocalSlice` and
+`...Autocorrelation_sq_decay_of_sectorLocalSlice` declarations give the
+all-vector and concrete same-object consequences.  This does not construct
+the sector-local family or the canonical capacity estimate, and it does not
+close thermodynamic, continuum, QFT, every-group, or Clay obligations.
+
 ## PROVED primitive physical-gap variation compiler (2026-09-19 UTC)
 
 - **file**: `BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.lean`.

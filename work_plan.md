@@ -172,6 +172,22 @@ all-vector geometric norm decay.  The further
 cofinal local-slice/gluing family the direct forward producer at rate `1/16`;
 that family, and the alternate exact canonical capacity check, remain open.
 
+### Current forward/backward join: sector-normalized local slices (2026-09-19)
+
+`BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement` now joins the
+sector-normalized local-slice producer interface to the completed transfer.
+`...StrictContractionData_of_sectorLocalSlice` consumes
+`FixedNomeCofinalVacuumSectorLocalSliceGluing.toVacuumSectorCenteredStrictGap`
+at the exact checked rate `1/16`, while the joint adaptive Markov-form
+Cauchy--Schwarz construction supplies the required completed positive-form
+law.  The resulting `...VacuumTransferPower_norm_decay_of_sectorLocalSlice`
+proves geometric squared-norm decay for every completed sector vector, and
+`...Autocorrelation_sq_decay_of_sectorLocalSlice` specializes it to the
+concrete moving-centered cube.  The local-slice family remains a Type-valued
+input, not an inhabitant; the canonical sector capacity estimate,
+thermodynamic/continuum passage, QFT axioms, every-group route, and Clay
+endpoint remain open.
+
 ### Current forward/backward join: primitive physical-gap variation (2026-09-19)
 
 `BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler` now compiles
