@@ -213,7 +213,9 @@ The package also retains the current-carrier resolvent probe's centeredness,
 non-erasure, and explicit `1/4` squared-norm floor.
 
 The public projection lemmas are
-`CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower` and
+`CompletedPhysicalSU2Sector.current_twoStep_strict_form_bound`,
+`CompletedPhysicalSU2Sector.current_time_decay`,
+`CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower`, and
 `CompletedPhysicalSU2Sector.current_resolvent_probe_floor`. This closes a
 forward landmark for the backward spectral/OS consumer while preserving the
 carrier boundary: it is fixed-spacing, small-nome SU(2) data, not a canonical
@@ -222,5 +224,5 @@ continuum limit, or Clay theorem.
 
 Focused serialized check:
 `/tmp/ym-wilson-current-sector-20260918c.log`, SHA-256
-`0177671f0704ea6314c55f3204e107d5b5096d190d99c2b1d1bd194fb29e12e9`.
+`0ca72d8747f547cb664be13c620615b749233366c0b2fa187850f26ce155e856`.
 The printed gates use only `{propext, Quot.sound}`.

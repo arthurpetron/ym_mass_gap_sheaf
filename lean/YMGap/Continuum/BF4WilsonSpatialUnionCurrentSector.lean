@@ -17,6 +17,7 @@ canonical-carrier and spacing-control compilers.
 import YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
 import YMGap.Continuum.BF4WilsonSpatialUnionTimePositive
 import YMGap.Continuum.BF4WilsonSpatialUnionTimeForm
+import YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
 import YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
 
 namespace YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
@@ -33,6 +34,7 @@ open YMGap.Continuum.BF4WilsonSpatialUnionTimeForm
 open YMGap.Continuum.BF4WilsonSpatialUnionTimePositive
 open YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
   (completed_twoStep_form_gap)
+open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation (norm_decay)
 open YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
 open YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
 open YMGap.Continuum.BF4WilsonSpatialUnionResolvent
@@ -87,6 +89,11 @@ structure CompletedPhysicalSU2Sector : Type 2 where
       RCle (B x (twoStep x))
         (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
           (B x x))
+  /-- Explicit fixed-spacing time decay on the full current vacuum complement. -/
+  time_decay :
+    ∀ x, B x vacuum = RCzero → ∀ n : Nat,
+      RCle (B (T n x) (T n x))
+        (RCscale (twoStepRate nome hd ^ n) (B x x))
   /-- The existing normalized excitation. -/
   probe : V
   /-- The probe is nonzero on the current completed carrier. -/
@@ -130,6 +137,7 @@ def currentSector : CompletedPhysicalSU2Sector where
       (completedTime_add nome_pos nome_lt_one hsmall hd hs 1 1 x)
   twoStep_strict_form_bound :=
     completed_twoStep_form_gap nome_pos nome_lt_one hsmall hd hs
+  time_decay := norm_decay nome_pos nome_lt_one hsmall hd hs
   probe := unitExcitation
   probe_ne_zero := unitExcitation_ne_zero
   probe_vacuum_orthogonal := unitExcitation_orthogonal
@@ -142,6 +150,21 @@ def currentSector : CompletedPhysicalSU2Sector where
   resolvent_probe_norm_floor := unitExcitation_resolvent_norm_floor
 
 namespace CompletedPhysicalSU2Sector
+
+/-- The packaged sector exposes the uniform strict form bound directly. -/
+theorem current_twoStep_strict_form_bound (x : V)
+    (hx : B x currentSector.vacuum = RCzero) :
+    RCle (B x (currentSector.twoStep x))
+      (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
+        (B x x)) :=
+  currentSector.twoStep_strict_form_bound x hx
+
+/-- The packaged sector exposes the all-vector fixed-spacing decay directly. -/
+theorem current_time_decay (x : V)
+    (hx : B x currentSector.vacuum = RCzero) (n : Nat) :
+    RCle (B (T n x) (T n x))
+      (RCscale (twoStepRate nome hd ^ n) (B x x)) :=
+  currentSector.time_decay x hx n
 
 /-- The packaged probe has a strict positive two-step response floor. -/
 theorem current_probe_twoStep_strict_lower :
@@ -161,5 +184,7 @@ end CompletedPhysicalSU2Sector
 end YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.currentSector
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_twoStep_strict_form_bound
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_time_decay
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_resolvent_probe_floor

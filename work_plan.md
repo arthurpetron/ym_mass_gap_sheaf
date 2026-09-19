@@ -388,15 +388,17 @@ every current-carrier vector orthogonal to that vacuum, with rate
 `twoStepRate nome hd`.
 The normalized Wilson excitation is retained as a nonzero probe with its
 vacuum orthogonality and the existing same-object two-step lower/upper response
-band. The resolvent probe remains centered, nonzero, and has the checked `1/4`
-squared-norm floor.
+band. Public projections `current_twoStep_strict_form_bound` and
+`current_time_decay` expose the full-complement strict form bound and its
+all-vector fixed-spacing decay. The resolvent probe remains centered, nonzero,
+and has the checked `1/4` squared-norm floor.
 This is the concrete forward landmark for the backward spectral/OS consumer,
 but it is fixed-spacing, small-nome SU(2) data on the current
 `UnionCompletion`; it does not inhabit the conditional canonical bridge and
 does not establish a uniform gap, continuum survival, physical mass, or Clay
 closure. Focused check log:
 `/tmp/ym-wilson-current-sector-20260918c.log`; SHA-256
-`0177671f0704ea6314c55f3204e107d5b5096d190d99c2b1d1bd194fb29e12e9`.
+`0ca72d8747f547cb664be13c620615b749233366c0b2fa187850f26ce155e856`.
 
 **Backward join review, 2026-09-18:** the legacy inward-test argument
 does not literally extend to all current Wilson windows. The legacy
