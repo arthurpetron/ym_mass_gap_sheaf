@@ -250,7 +250,10 @@ floor `1`, without imposing a false uniform positive floor on a strength stream
 that may vanish with the spacing.  `physicalGapVariationOfNormalizedStrengthAndReciprocalSpacing`
 joins that margin stream to reciprocal-spacing variation on the same completed
 family.  Focused check:
-`/tmp/ym-strength-ratio-gap4.log`, with only `{propext, Quot.sound}` reported.
+`exactLogRateCauchy_of_normalizedStrengthAndReciprocalSpacing` and
+`DynamicVacuumSectorContinuumHandoff.ofNormalizedStrengthAndReciprocalSpacing`
+now consume that joined witness directly.  Focused check:
+`/tmp/ym-strength-ratio-gap5.log`, with only `{propext, Quot.sound}` reported.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`

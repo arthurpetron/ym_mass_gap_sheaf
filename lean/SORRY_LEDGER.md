@@ -198,6 +198,10 @@ The same file also proves `latticeMarginVariationOfNormalizedStrength` and
 constructive `strength/(1+strength)` ratio compiler with denominator floor `1`;
 they do not assume a uniform positive strength floor.  They remain adapters,
 not inhabitants of the strength-variation or reciprocal-spacing producers.
+The direct consumers `exactLogRateCauchy_of_normalizedStrengthAndReciprocalSpacing`
+and `DynamicVacuumSectorContinuumHandoff.ofNormalizedStrengthAndReciprocalSpacing`
+carry this same-family witness into the exact-log and continuum-handoff
+constructors without weakening their semantic inputs.
 
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)
 

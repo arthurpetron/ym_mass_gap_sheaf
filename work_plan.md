@@ -298,6 +298,9 @@ invalid assumption that the numerator has a scale-uniform positive floor.
 stream with reciprocal-spacing variation on the definitionally same completed
 family.  This exposes the exact input shape needed by the local route while
 leaving both primitive variation producers uninhabited.
+The direct consumers `exactLogRateCauchy_of_normalizedStrengthAndReciprocalSpacing`
+and `DynamicVacuumSectorContinuumHandoff.ofNormalizedStrengthAndReciprocalSpacing`
+now make this join observable in the exact-log and continuum-handoff paths.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)
 

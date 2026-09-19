@@ -143,6 +143,67 @@ def physicalGapVariationOfNormalizedStrengthAndReciprocalSpacing
     family (latticeMarginVariationOfNormalizedStrength law strengthVariation)
     reciprocalSpacingVariation
 
+/-! ## 1b. Direct exact-log consumer -/
+
+/-- The normalized-strength and reciprocal-spacing lanes feed the existing
+exact-log compiler without changing the completed family or its spacing tail. -/
+def exactLogRateCauchy_of_normalizedStrengthAndReciprocalSpacing
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    (law : DynamicVacuumSectorNormalizedStrengthLaw family)
+    (strengthVariation :
+      SummableRationalStepVariation law.strength)
+    (reciprocalSpacingVariation :
+      SummableRationalStepVariation
+        (fun scale =>
+          Q'.recipPos
+            (family.transferSpacing.spacing scale)
+            (family.transferSpacing.spacing_pos scale)))
+    (spacingTail : InverseSquareSpacingTail family.transferSpacing 0) :
+    CReal.ModCauchyEv ((fullRangeRateFamily pin).rate) :=
+  DynamicVacuumSectorObservablePin.exactLogRateCauchy
+    pin band
+    (physicalGapVariationOfNormalizedStrengthAndReciprocalSpacing
+      family law strengthVariation reciprocalSpacingVariation)
+    spacingTail
+
+/-- The direct normalized-strength consumer packages the same exact-log
+compiler into the existing observable-connected continuum handoff. -/
+def DynamicVacuumSectorContinuumHandoff.ofNormalizedStrengthAndReciprocalSpacing
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {pin : DynamicVacuumSectorObservablePin family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {ceiling : FullRangeLogRateCeiling (fullRangeRateFamily pin)}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (law : DynamicVacuumSectorNormalizedStrengthLaw family)
+    (strengthVariation :
+      SummableRationalStepVariation law.strength)
+    (reciprocalSpacingVariation :
+      SummableRationalStepVariation
+        (fun scale =>
+          Q'.recipPos
+            (family.transferSpacing.spacing scale)
+            (family.transferSpacing.spacing_pos scale)))
+    (spacingTail : InverseSquareSpacingTail family.transferSpacing 0)
+    (projectiveOS : ProjectiveOSCorrelationHandoff pin.toPhysicalSeparator
+      existence osGNS pin.physicalSampling)
+    (spectralChannel :
+      ProjectiveOSCorrelationHandoff.ReconstructionSpectralChannelHandoff
+        projectiveOS osGNS.reconstruction)
+    (exactRate : ExactRateReconstructionHandoff
+      (exactCertificate pin band ceiling) osGNS.reconstruction) :
+    DynamicVacuumSectorContinuumHandoff
+      pin band ceiling existence osGNS :=
+  DynamicVacuumSectorContinuumHandoff.ofExactLogVariations
+    (physicalGapVariationOfNormalizedStrengthAndReciprocalSpacing
+      family law strengthVariation reciprocalSpacingVariation)
+    spacingTail projectiveOS spectralChannel exactRate
+
 /-- Margin variation and positive-spacing variation meet at the exact
 completed-family physical gap.  The positive spacing floor is the explicit
 noncollapse witness needed by the reciprocal compiler. -/
@@ -264,6 +325,10 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.latticeMarginVariationOfNormalizedStrength
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.physicalGapVariationOfNormalizedStrengthAndReciprocalSpacing
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.exactLogRateCauchy_of_normalizedStrengthAndReciprocalSpacing
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.DynamicVacuumSectorContinuumHandoff.ofNormalizedStrengthAndReciprocalSpacing
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.exactLogRateCauchy_of_marginAndReciprocalSpacing
 #print axioms
