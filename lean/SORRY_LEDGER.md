@@ -13,19 +13,22 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED forward/backward exact-slab local-gluing join (2026-09-18 UTC)
+## PROVED forward/backward exact-slab local-gluing joins (2026-09-18 UTC)
 
-- **file**: `BF4ExactPhysicalPerronReroute.lean`.
+- **files**: `BF4ExactPhysicalPerronReroute.lean` and
+  `BF4ExactPhysicalPerronCenteredReroute.lean`.
 - **proved**: `ExactHaarPhysicalLocalGluingAFQuarterCertificate.ofPhysicalLocalGluing`
-  composes an existing `PhysicalLocalGluingAFCertificate` with an explicitly
-  supplied `ExactHaarPhysicalPerronSameActionAt` family. It reuses the same
+  and the centered analogue
+  `ExactHaarPhysicalCenteredLocalGluingAFCertificate.ofPhysicalLocalGluing`
+  compose an existing `PhysicalLocalGluingAFCertificate` with an explicitly
+  supplied full or centered same-action family. Each reuses the same
   scale-indexed `oneStep`, retained physical carrier, depth and quarter rate,
   and constructs the required per-source existential rows by
   `PhysicalBF4LocalSliceGluing.toRow`.
 - **residue**: neither input is inhabited by this constructor. In particular,
   it does not prove the exact-Haar fusion/same-action identification or the
-  physical local-slice estimate; it only makes their carrier-preserving join
-  kernel-checkable for the existing exact-slab consumer. The full seam is
+  physical local-slice estimate; it only makes their carrier-preserving joins
+  kernel-checkable for the existing exact-slab consumers. The full seam is
   separately fenced at cutoff one by
   `BF4ExactPhysicalPerronSameActionFence.exactHaarPhysicalPerronSameActionAt_cutoffOne_uninhabited`;
   a viable route must use the centered seam or a nonzero-error comparison.
@@ -33,6 +36,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
   Evidence: `/tmp/ym-exact-physical-perron-join2.log` (SHA-256
   `ac36d3406b94fa561ad858c4dd71bb4de8ec291a00806db0e79363700709f17f`).
+  The centered join check is `/tmp/ym-exact-centered-physical-perron-join.log`
+  (SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`).
 
 ## PROVED current-Wilson represented resolvent (2026-09-18 UTC)
 

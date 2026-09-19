@@ -91,7 +91,7 @@ and must still be joined to the current action, observable and OS carrier.
 Focused check: `/tmp/ym-wilson-physical-calibration-noceiling4.log`, SHA-256
 `85bcb5f7d6023daf6c8cf1c61e9c3cb64ad6f95084c83892eef38334194199f1`.
 
-The exact forward/backward local-gluing meeting edge is now explicit in
+The exact forward/backward local-gluing meeting edges are now explicit in
 `BF4ExactPhysicalPerronReroute.lean`:
 `ExactHaarPhysicalLocalGluingAFQuarterCertificate.ofPhysicalLocalGluing`
 consumes a `PhysicalLocalGluingAFCertificate` and a separately supplied
@@ -103,11 +103,16 @@ typed against the forward physical certificate, while both analytic producer
 leaves remain open. This is only a conditional transport edge: the full
 same-action seam is already fenced at cutoff one by
 `BF4ExactPhysicalPerronSameActionFence.exactHaarPhysicalPerronSameActionAt_cutoffOne_uninhabited`.
-The viable backward branch therefore remains the centered seam or an explicit
-nonzero-error comparison, together with a scale-indexed local producer.
+The viable centered branch now has the corresponding constructor
+`ExactHaarPhysicalCenteredLocalGluingAFCertificate.ofPhysicalLocalGluing` in
+`BF4ExactPhysicalPerronCenteredReroute.lean`; it still requires an inhabited
+centered seam and a scale-indexed local producer, and makes neither one
+implicit.
 
 Focused check: `/tmp/ym-exact-physical-perron-join2.log`, SHA-256
 `ac36d3406b94fa561ad858c4dd71bb4de8ec291a00806db0e79363700709f17f`.
+Centered-join check: `/tmp/ym-exact-centered-physical-perron-join.log`,
+SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
 
 ### Goal-mode execution instructions (user-requested review, 2026-09-15)
 
