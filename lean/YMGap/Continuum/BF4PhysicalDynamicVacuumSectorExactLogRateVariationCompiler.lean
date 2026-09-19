@@ -276,6 +276,29 @@ def exactRateCutoffRemovalOfVariations
     (exactLogRateCauchy pin band gapVariation spacingTail)).withSpacing
       family.transferSpacingToZero
 
+/-! ## 3a. Backward direct-rate interface -/
+
+/-- The backward-facing exact-rate interface for the same completed family.
+
+This constructor deliberately accepts the missing analytic datum directly:
+an eventual constructive-real Cauchy modulus for the exact full-log rate.
+It discharges only the already-proved finite rate band and the independently
+named spacing-to-zero modulus.  In particular, it does not manufacture a
+physical-gap variation certificate, a projective measure, an OS
+reconstruction, or a continuum mass gap.  The forward variation compiler
+above remains the route that can eliminate this input once a genuine
+same-family gap estimate is supplied. -/
+def exactRateCutoffRemovalOfRateCauchy
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    (ceiling : FullRangeLogRateCeiling (fullRangeRateFamily pin))
+    (rateCauchy : CReal.ModCauchyEv ((fullRangeRateFamily pin).rate)) :
+    ExactRateCutoffRemoval (exactCertificate pin band ceiling) :=
+  (ExactRateLimitData.ofRateCauchy rateCauchy).withSpacing
+    family.transferSpacingToZero
+
 /-- Constructor for the existing observable-connected continuum handoff with
 its formerly opaque exact-rate Cauchy field derived from the two explicit
 variation branches.  The projective/OS and reconstruction identifications
@@ -327,5 +350,7 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.exactLogRateConverges
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.exactRateCutoffRemovalOfVariations
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.exactRateCutoffRemovalOfRateCauchy
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff.ofExactLogVariations

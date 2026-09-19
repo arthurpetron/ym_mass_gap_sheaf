@@ -532,6 +532,16 @@ reconstruction, QFT axioms, an all-group construction, or the Clay endpoint.
 The focused check is `/tmp/ym-gap-variation-compiler-check4.log`; the printed
 axioms are only `{propext, Quot.sound}`.
 
+The same module now exposes `exactRateCutoffRemovalOfRateCauchy`, a direct
+backward interface accepting only a `CReal.ModCauchyEv` for the exact full-log
+rate and the already-named spacing-to-zero modulus.  This makes the true
+remaining analytic hole explicit: a future same-object estimate may target
+the exact rate modulus directly, while the variation compiler remains an
+independent forward route.  The adapter is only a packaging constructor; it
+does not construct the modulus or any continuum/OS/QFT object.  Its focused
+check is the same `/tmp/ym-gap-variation-compiler-check4.log` build, with the
+new declaration also under `{propext, Quot.sound}`.
+
 ### Current forward/backward join: residual strength factors (2026-09-19)
 
 `BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler` exposes

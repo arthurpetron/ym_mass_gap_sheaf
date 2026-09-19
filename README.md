@@ -84,6 +84,13 @@ renormalized variation notion.  No continuum, OS/QFT, all-group, or Clay claim
 is made.  Focused verification is `/tmp/ym-gap-variation-compiler-check4.log`
 under the `{propext, Quot.sound}` gate.
 
+The same compiler also exposes `exactRateCutoffRemovalOfRateCauchy`, the
+backward-facing interface for a direct same-object constructive-real Cauchy
+modulus of the exact full-log rate.  It packages that supplied modulus with
+the existing spacing-to-zero witness; it does not prove the modulus, and it
+does not add continuum, OS/QFT, all-group, or Clay content.  This separates
+the direct analytic target from the finite-regulator variation branch.
+
 **Completed-carrier attachment (2026-09-19):**
 `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSCompletedCarrier.lean`
 now connects the conditional all-source inward-mate Poincare estimate to the
