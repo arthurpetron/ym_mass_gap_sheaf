@@ -193,6 +193,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `CompletedPhysicalSU2Sector.current_probe_time_ne_zero`,
   `CompletedPhysicalSU2Sector.current_resolvent_probe_floor` expose the
   quantitative landmarks to later consumers.
+- **proved**: `CompletedPhysicalSU2Sector.current_twoStep_defect_strict_form_bound`
+  exposes the explicit same-carrier residual coercivity margin
+  `1 - twoStepRate nome hd` on every packaged-vacuum-orthogonal vector. This is
+  a concrete fixed-spacing producer for a future residual-inverse/range
+  consumer; it does not provide a canonical bridge or spacing/continuum input.
 - **residue**: this is a real fixed-spacing small-nome SU(2) sector package on
   the current `UnionCompletion`. It is not an inhabitant of the conditional
   canonical OS/GNS bridge, and it does not prove a spacing-uniform operator
@@ -202,6 +207,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
   Evidence: `/tmp/ym-current-probe-ne-zero.log` (SHA-256
   `bc372b3260f824c1eba61cb2f046f55f805f03341cef349d8ee7c7c3057f16ea`).
+  The additional residual-projection check is
+  `/tmp/ym-current-sector-defect2.log` (SHA-256
+  `f818007cadba53b1b5b5ecf0a3524afb3cb746bb02c87061ba26f5c91040357a`).
 
 ## PROVED fixed-spacing logarithmic transfer mass (2026-09-18 UTC)
 

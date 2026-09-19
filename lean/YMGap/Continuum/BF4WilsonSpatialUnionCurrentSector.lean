@@ -20,6 +20,7 @@ import YMGap.Continuum.BF4WilsonSpatialUnionTimeForm
 import YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
 import YMGap.Continuum.BF4WilsonSpatialUnionVacuumRelaxation
 import YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
+import YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation
 
 namespace YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
 
@@ -42,6 +43,9 @@ open YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
 open YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
 open YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 open YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
+open YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation
+  (evenOrbitResidual evenOrbitResidual_strict_form_bound)
+open YMGap.Continuum.BF4WilsonSpatialUnionBilinear (completedSub)
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumRelaxation
   (connected_embedStage connected_sq_decay)
 open YMGap.Continuum.BF4WilsonSpatialUnionCenteredForm (centeredMoment)
@@ -182,6 +186,17 @@ theorem current_twoStep_strict_form_bound (x : V)
         (B x x)) :=
   currentSector.twoStep_strict_form_bound x hx
 
+/-- The packaged sector exposes the strict coercivity margin of the actual
+same-carrier residual `(I - T²)`; this is still fixed-spacing SU(2) data. -/
+theorem current_twoStep_defect_strict_form_bound (x : V)
+    (hx : B x currentSector.vacuum = RCzero) :
+    RCle
+      (RCscale (1 - twoStepRate nome hd) (B x x))
+      (B x (completedSub nome_pos nome_lt_one hsmall hd hs x
+        (currentSector.twoStep x))) := by
+  simpa only [currentSector, evenOrbitResidual] using
+    (evenOrbitResidual_strict_form_bound nome_pos nome_lt_one hsmall hd hs x hx)
+
 /-- The packaged sector exposes the all-vector fixed-spacing decay directly. -/
 theorem current_time_decay (x : V)
     (hx : B x currentSector.vacuum = RCzero) (n : Nat) :
@@ -276,6 +291,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.currentSector
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_twoStep_strict_form_bound
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_twoStep_defect_strict_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_time_decay
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_same_object_correlator_pin
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_connected_correlator_pin

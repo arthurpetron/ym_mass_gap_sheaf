@@ -697,6 +697,18 @@ closure. Focused check log:
 `/tmp/ym-wilson-current-sector-20260918c.log`; SHA-256
 `6339d52f59db13669b7a17b2ec5901c93396a89ddf0c41a1553bf1c64e070dfe`.
 
+**Packaged current residual coercivity, checked 2026-09-18:**
+`CompletedPhysicalSU2Sector.current_twoStep_defect_strict_form_bound` exposes
+the same-carrier residual margin directly from the inhabited `currentSector`:
+for every current vector orthogonal to the packaged vacuum,
+`RCscale (1 - twoStepRate nome hd) ||x||²` is bounded by the pairing with
+`x - currentSector.twoStep x`. This is the concrete forward input for a future
+current residual-inverse/range consumer; it adds no canonical bridge, spacing
+uniformity, physical-mass conversion, continuum limit, or Clay conclusion.
+Focused check log: `/tmp/ym-current-sector-defect2.log`; SHA-256
+`f818007cadba53b1b5b5ecf0a3524afb3cb746bb02c87061ba26f5c91040357a`.
+The new projection uses only `{propext, Quot.sound}`.
+
 The logarithmic transfer-mass check used
 `/tmp/ym-wilson-discrete-log-gap-20260918a.log`; SHA-256
 `1f56b616c701aa71c2454415c884a3ec65b288deb729e53de44f2d7669944126`.
