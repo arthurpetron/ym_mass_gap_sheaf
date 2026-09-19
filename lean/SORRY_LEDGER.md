@@ -30,6 +30,19 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: `/tmp/ym-perron-quarter-check5.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
+- **extension**: `MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows.QuarterLimitInputs`
+  packages the finite producer with the explicit terminal/denominator
+  positivity, equal-mass, and input/output effective-Cauchy fields required
+  by the generic cutoff-removal theorem.  Its
+  `QuarterLimitInputs.continuum_l1_quarter_contraction` declaration reaches
+  the completed `CReal` quarter contraction for the same finite distance
+  streams.
+- **boundary**: this bundle is an interface, not an inhabitant.  No Cauchy
+  modulus, continuum operator, OS/QFT structure, all-group construction, or
+  Clay mass gap is supplied by the compiler.
+- **verification**: `/tmp/ym-perron-quarter-check7.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED finite cutoff-two non-vacuity endpoint (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteCutoffTwoNontrivialEndpoint.lean`.

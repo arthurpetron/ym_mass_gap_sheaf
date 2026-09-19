@@ -54,6 +54,16 @@ quarter consumers. This does not inhabit the terminal/error
 producer or assert a cofinal, thermodynamic, continuum, QFT, every-group, or
 Clay result.
 
+The same module now records the next backward interface explicitly:
+`MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows.QuarterLimitInputs`
+packages the producer's uniform certificate with terminal positivity,
+denominator positivity, equal source mass, and effective input/output
+`ModCauchyEv` moduli.  Its
+`continuum_l1_quarter_contraction` theorem reaches the completed `CReal`
+quarter contraction for the same distance streams.  These are still supplied
+limit inputs; no Cauchy modulus, continuum field, OS/QFT structure, or Clay
+mass gap is inferred.
+
 The forward/backward seam has also been sharpened on the sector-local branch:
 `FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.ofLocalSlice` compiles a
 supplied quarter-rate cofinal slice family to the fixed `1/16` depth budget by

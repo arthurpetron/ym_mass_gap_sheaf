@@ -87,6 +87,20 @@ endpoint open.
 Focused check: `/tmp/ym-perron-quarter-check5.log`; the new declarations use
 only `{propext, Quot.sound}` and introduce no `sorryAx`.
 
+The same module now adds the exact backward cutoff-removal bundle
+`MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows.QuarterLimitInputs`.
+It keeps terminal positivity, denominator positivity, equal-mass laws, and
+the two effective `ModCauchyEv` moduli as explicit fields, then compiles them
+with `QuarterLimitInputs.continuum_l1_quarter_contraction` to the completed
+`CReal` quarter contraction.  This is the first direct producer-to-limit
+consumer join on this branch; it remains conditional because no such
+`QuarterLimitInputs` inhabitant is present.  The same-object OS/GNS map,
+spacing/thermodynamic control, continuum QFT axioms, and all-group step are
+still open.
+
+Focused check after this extension: `/tmp/ym-perron-quarter-check7.log`;
+only `{propext, Quot.sound}` were reported.
+
 ### Current forward/backward join: quarter slices compile to a depth budget (2026-09-19)
 
 The older sector-local slice route now has an explicit backward adapter in
