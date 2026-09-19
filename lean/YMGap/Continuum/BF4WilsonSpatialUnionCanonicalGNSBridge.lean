@@ -42,6 +42,8 @@ open YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 open YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
 open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
   (mixed_correlator_sq_decay)
+open YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
+  (completed_twoStep_form_gap)
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
   (center_fixed_iff)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap
@@ -58,6 +60,7 @@ local notation "hd" => And.right existingNome_guards
 local notation "hs" => And.right existingNome_entropyRate
 local notation "V" => UnionCompletion nome_pos nome_lt_one hsmall hd hs
 local notation "B" => completedInner nome_pos nome_lt_one hsmall hd hs
+local notation "U" => completedUnit nome_pos nome_lt_one hsmall hd hs
 local notation "Z" => completedZero nome_pos nome_lt_one hsmall hd hs
 local notation "T" => completedTime nome_pos nome_lt_one hsmall hd hs
 local notation "R" => resolvent nome_pos nome_lt_one hsmall hd hs
@@ -235,6 +238,38 @@ theorem canonicalProbe_twoStep_sq_decay
   rw [hsq]
   exact hcurrent
 
+/-! ## The strict form-gap consumer -/
+
+/-- The transported canonical resolvent probe inherits the current carrier's
+strict two-step form bound.  The orientation change is only the completed
+pairing symmetry; the rate is still the literal fixed-spacing `twoStepRate`.
+-/
+theorem canonicalProbe_twoStep_form_bound
+    (J : CurrentCarrierBridge P) :
+    RCle
+      (W.toGNSData.cinnerCompl
+        (P.op.T (P.op.T (J.canonicalProbe.vector)))
+        (J.canonicalProbe.vector))
+      (CReal.RCmul
+        (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
+        (W.toGNSData.cinnerCompl
+          (J.canonicalProbe.vector) (J.canonicalProbe.vector))) := by
+  have horth : B (R unitExcitation) U = RCzero :=
+    (center_fixed_iff nome_pos nome_lt_one hsmall hd hs _).mp
+      unitExcitation_resolvent_centered
+  have hgap := completed_twoStep_form_gap
+    nome_pos nome_lt_one hsmall hd hs (R unitExcitation) horth
+  have hsym :
+      B (T 2 (R unitExcitation)) (R unitExcitation) =
+        B (R unitExcitation) (T 2 (R unitExcitation)) :=
+    completedInner_symm nome_pos nome_lt_one hsmall hd hs
+      (T 2 (R unitExcitation)) (R unitExcitation)
+  rw [canonicalProbe_twoStepCorrelation_eq_current J]
+  rw [canonicalProbe_vector J]
+  rw [J.form_preserving (R unitExcitation) (R unitExcitation)]
+  rw [hsym]
+  exact hgap
+
 end CurrentCarrierBridge
 
 end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
@@ -246,3 +281,4 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_ne_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_twoStepCorrelation_eq_current
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_twoStep_sq_decay
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_twoStep_form_bound

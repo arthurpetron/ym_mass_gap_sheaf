@@ -498,6 +498,20 @@ limit. Focused check log:
 `/tmp/ym-canonical-probe-two-step.log`; SHA-256
 `bd35bb742d18fcd5c180653e56e59609ca429f39f8fea28af6b6d8a0295b4cbc`.
 
+**Canonical strict form-gap consumer, checked 2026-09-18:**
+`CurrentCarrierBridge.canonicalProbe_twoStep_form_bound` now transports the
+actual completed two-step strict form inequality to the canonical resolvent
+probe. The proof obtains current-carrier orthogonality from the checked
+resolvent centering equivalence, applies `completed_twoStep_form_gap`, and
+uses only completed-pairing symmetry to match the bridge's transfer-first
+orientation. This is the precise probe-level operator-gap consumer required by
+the backward roadmap; it remains conditional on `CurrentCarrierBridge`, keeps
+the fixed-spacing `twoStepRate nome hd`, and does not provide the carrier
+bridge, a uniform spacing family, a physical mass calibration, a continuum
+limit, or the Clay theorem. Focused check log:
+`/tmp/ym-canonical-probe-form-gap.log`; SHA-256
+`d1aaa55687fba30f2308f04d772f71034fe4c6e53f65184fdc9ce1a0b7e07e06`.
+
 **Concrete current physical SU(2) sector, checked 2026-09-18:**
 `BF4WilsonSpatialUnionCurrentSector.lean` packages the already checked
 same-carrier data as `CompletedPhysicalSU2Sector.currentSector`: the discrete
