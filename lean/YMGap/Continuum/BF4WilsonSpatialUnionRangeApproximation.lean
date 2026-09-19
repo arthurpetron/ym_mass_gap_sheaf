@@ -5,7 +5,8 @@ The finite geometric sum of the actual two-step transfer orbit is an explicit
 constructive approximate preimage for `I - T^2`.  The identity is proved on
 the current completed Wilson carrier, with no inverse, choice, spectral
 theorem, or auxiliary transfer.  On the existing vacuum complement the
-residual is bounded by the already checked geometric norm decay.
+actual approximation error is bounded by the already checked geometric norm
+decay.
 
 This is a fixed-spacing SU(2) range approximation.  It is not a completed
 spectral-gap theorem, a changing-spacing estimate, a physical mass
@@ -86,6 +87,16 @@ private theorem rc_sub_add_exchange (a b c d : RC) :
       (fun | 0 => repA.approx n | 1 => repB.approx n
             | 2 => repC.approx n | _ => repD.approx n)))
 
+private theorem rc_sub_sub_left (a b : RC) :
+    RCsub a (RCsub a b) = b := by
+  refine Quotient.inductionOn₂ a b ?_
+  intro repA repB
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    RingNormaliser.poly_identity_of_normal_eq
+      (.add (.var 0) (.neg (.add (.var 0) (.neg (.var 1)))))
+      (.var 1) (by decide)
+      (fun | 0 => repA.approx n | _ => repB.approx n)))
+
 /-- The exact finite geometric resolvent identity on the current carrier. -/
 theorem evenOrbitSum_sub_twoStep (x : V) (n : Nat) :
     completedSub hw0 hw1 hsmall hd hs
@@ -115,32 +126,32 @@ theorem evenOrbitSum_sub_twoStep (x : V) (n : Nat) :
       rw [completedInner_sub_left, completedInner_sub_left]
       exact rc_telescope _ _ _
 
-/-- The residual of the explicit preimage has a directly quantified squared
-    norm bound on the same vacuum complement. -/
-theorem evenOrbitSum_residual_bound (x : V)
+/-- The actual error of the explicit preimage has a directly quantified
+    squared-norm bound on the same vacuum complement. -/
+theorem evenOrbitSum_error_bound (x : V)
     (hx : B x (completedUnit hw0 hw1 hsmall hd hs) = RCzero) (n : Nat) :
     RCle
-      (completedDist hw0 hw1 hsmall hd hs x (T (2*n) x))
-      (RCadd
-        (RCadd (B x x) (B x x))
-        (RCadd
-          (RCscale (q^(2*n)) (B x x))
-          (RCscale (q^(2*n)) (B x x)))) := by
-  have htri := completedDist_triangle hw0 hw1 hsmall hd hs x
-    (completedZero hw0 hw1 hsmall hd hs) (T (2*n) x)
-  have hxz := completedDist_zero_right hw0 hw1 hsmall hd hs x
-  have hzt : completedDist hw0 hw1 hsmall hd hs
-      (completedZero hw0 hw1 hsmall hd hs) (T (2*n) x) =
-      B (T (2*n) x) (T (2*n) x) := by
-    rw [completedDist_symm, completedDist_zero_right]
-  rw [hxz, hzt] at htri
-  have hnorm := norm_decay hw0 hw1 hsmall hd hs x hx (2*n)
-  exact RCle_trans htri
-    (RCadd_le_add (RCle_refl _)
-      (RCadd_le_add hnorm hnorm))
+    (completedDist hw0 hw1 hsmall hd hs x
+      (completedSub hw0 hw1 hsmall hd hs
+        (evenOrbitSum hw0 hw1 hsmall hd hs x n)
+        (T 2 (evenOrbitSum hw0 hw1 hsmall hd hs x n))))
+      (RCscale (q^(2*n)) (B x x)) := by
+  have herr : completedSub hw0 hw1 hsmall hd hs x
+      (completedSub hw0 hw1 hsmall hd hs
+        (evenOrbitSum hw0 hw1 hsmall hd hs x n)
+        (T 2 (evenOrbitSum hw0 hw1 hsmall hd hs x n))) =
+      T (2*n) x := by
+    rw [evenOrbitSum_sub_twoStep]
+    apply completed_eq_of_pairings hw0 hw1 hsmall hd hs
+    intro test
+    rw [completedInner_sub_left, completedInner_sub_left]
+    exact rc_sub_sub_left _ _
+  unfold completedDist
+  rw [herr]
+  exact norm_decay hw0 hw1 hsmall hd hs x hx (2*n)
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_sub_twoStep
-#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_residual_bound
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_error_bound
 
 end YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation

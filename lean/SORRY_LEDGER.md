@@ -19,8 +19,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `evenOrbitSum` is the explicit finite sum of the actual completed Wilson
   two-step orbit. `evenOrbitSum_sub_twoStep` proves the exact same-operator
   identity `(I-T^2) sum_{k<n} T^(2*k)x = x-T^(2*n)x`, and
-  `evenOrbitSum_residual_bound` gives a constructive squared-residual bound
-  on the existing vacuum complement using the already proved `q^(2*n)` decay.
+  `evenOrbitSum_error_bound` identifies the actual approximation error with
+  `T^(2*n)x` and gives its constructive squared-norm bound on the existing
+  vacuum complement using the already proved `q^(2*n)` decay.
   Focused serialized check passed; all three public gates lie within
   `{propext, Quot.sound}`. This is fixed-spacing approximate range data,
   not an inverse, strict continuum gap, or Clay closure.
