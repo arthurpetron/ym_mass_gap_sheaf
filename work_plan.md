@@ -74,7 +74,9 @@ consumer path from the physical terminal Perron/cross-tail interface. Its
 budget, division-free cross-tail estimate, computed finite positive floor,
 and relative terminal perturbation compiler. Its
 `physical_quarter_uniform` theorem then applies the already checked
-completed-carrier quarter consumer at every matched scale. No analytic
+completed-carrier quarter consumer at every matched scale; the companion
+`toUniformBoundaryMessageQuarterCertificate` exposes the same data to the
+finite local-refresh consumer. No analytic
 producer field is synthesized: terminal positivity, the AF/Faraut depth
 estimate, the cross-tail error tail, coupling chart, and spacing envelope
 remain explicit inputs. The route advances the consumer side of the
@@ -82,7 +84,7 @@ meet-in-the-middle plan while leaving the producer, same-object cofinality,
 spacing variation, OS/continuum passage, QFT axioms, and all-group Clay
 endpoint open.
 
-Focused check: `/tmp/ym-perron-quarter-check3.log`; the new declarations use
+Focused check: `/tmp/ym-perron-quarter-check5.log`; the new declarations use
 only `{propext, Quot.sound}` and introduce no `sorryAx`.
 
 ### Current forward/backward join: quarter slices compile to a depth budget (2026-09-19)

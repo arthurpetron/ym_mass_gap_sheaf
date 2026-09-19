@@ -46,9 +46,11 @@ and the Clay endpoint remain open.
 forward/backward seam explicit. A supplied physical terminal
 Perron/cross-tail certificate now compiles, without changing its fields, to
 the literal rowwise `1/8` estimates and the completed physical quarter
-contraction. The exact path is terminal Perron spread and cross-tail error
-`->` computed finite positive floor `->` half-amplitude projective rows `->`
-completed-carrier quarter bound. This does not inhabit the terminal/error
+contraction. It also exposes the uniform finite boundary-message quarter
+certificate for the local refresh route. The exact path is terminal Perron
+spread and cross-tail error `->` computed finite positive floor `->`
+half-amplitude projective rows `->` boundary-message/ completed-carrier
+quarter consumers. This does not inhabit the terminal/error
 producer or assert a cofinal, thermodynamic, continuum, QFT, every-group, or
 Clay result.
 

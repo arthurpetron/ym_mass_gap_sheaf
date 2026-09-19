@@ -44,9 +44,25 @@ open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 
 namespace MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows
 
+/-- The same producer also reaches the uniform finite boundary-message
+quarter certificate used by the local refresh route. -/
+def toUniformBoundaryMessageQuarterCertificate
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    {halfExtent diagonalOrder bits depth : Nat → Nat}
+    {nonlinearRate : Nat → Q'}
+    (data :
+      MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows
+        family law spacing coupling halfExtent diagonalOrder bits depth
+        nonlinearRate) :=
+  YMGap.Continuum.BF4BoundaryMessageComputedFloorQuarter.MatchedPhysicalHalfAmplitudeComputedFloorErrorRows.toUniformBoundaryMessageQuarterCertificate
+    data.toComputedFloorErrorRows
+
 /-- The Perron/cross-tail producer reaches the literal physical rowwise
 eighth interface after the finite positive floor is computed. -/
-  def toRowwiseEighthEstimates
+def toRowwiseEighthEstimates
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
     {spacing : PhysicalSpacingEnvelope law.g₁}
@@ -112,6 +128,8 @@ end MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows
 
 end YMGap.Continuum.BF4BoundaryMessagePerronCrossTailQuarter
 
+#print axioms
+  YMGap.Continuum.BF4BoundaryMessagePerronCrossTailQuarter.MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows.toUniformBoundaryMessageQuarterCertificate
 #print axioms
   YMGap.Continuum.BF4BoundaryMessagePerronCrossTailQuarter.MatchedPhysicalBoundarySelfSmoothingPerronCrossTailRows.toRowwiseEighthEstimates
 #print axioms
