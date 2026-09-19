@@ -266,13 +266,16 @@ on that same carrier. For vectors already in the proved vacuum complement,
 `T^(2*n)x` and bounds its squared norm by the existing `q^(2*n)` decay, with
 q named explicitly by `twoStepRate w hd`. One focused serialized one-worker/
 20 GiB check passed;
-all five public gates lie within `{propext, Quot.sound}`. The explicit
+all eight public gates lie within `{propext, Quot.sound}`. The explicit
 `evenOrbitSum_modulus X epsilon` uses the existing representative norm cap and
 `geometricCutoff (q*q)`; `evenOrbitSum_error_small` proves the error is below
 `epsilon` for every later index. This supplies a constructive
 approximate-preimage witness, a residual decay bound, and a fixed-spacing
 epsilon-to-index contract. The modulus is not uniform in the observable or
-spacing. It does not prove a bounded inverse, strict completed gap beyond the
+spacing. `evenOrbitSumCauchy` and `evenOrbitSumCauchy_pin` retain the
+preimage as supplied Cauchy data, and `evenOrbitSum_range_data` exposes the
+same-completion witness with vacuum-complement orthogonality explicit. It does
+not prove a bounded inverse, strict completed gap beyond the
 existing estimate, density of the strictly-past observable algebra,
 changing-spacing control, physical mass calibration, or continuum QFT.
 Evidence: `audits/AUDIT-WILSON-RANGE-APPROXIMATION-2026-09-18.md`.

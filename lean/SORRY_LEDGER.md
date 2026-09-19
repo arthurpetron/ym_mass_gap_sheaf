@@ -24,9 +24,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   vacuum complement using the already proved `q^(2*n)` decay.
   `evenOrbitSum_modulus` and `evenOrbitSum_error_small` then package the
   representative-dependent cutoff `geometricCutoff (q*q) (normCap X) epsilon`
-  and its late-tail estimate. Focused serialized check passed; all five public
-  gates lie within `{propext, Quot.sound}`. This is fixed-spacing approximate
-  range data, not an inverse, strict continuum gap, or Clay closure.
+  and its late-tail estimate. `evenOrbitSumCauchy` and
+  `evenOrbitSumCauchy_pin` retain the returned preimage as supplied Cauchy
+  data, and `evenOrbitSum_range_data` packages the same-completion witness
+  with vacuum-complement orthogonality explicit. Focused serialized check
+  passed; all eight public gates lie within `{propext, Quot.sound}`. This is
+  fixed-spacing approximate range data, not an inverse, strict continuum gap,
+  or Clay closure.
 
 - `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialClearedCovarianceCauchy.lean`:
   `combinedTest_supported` and

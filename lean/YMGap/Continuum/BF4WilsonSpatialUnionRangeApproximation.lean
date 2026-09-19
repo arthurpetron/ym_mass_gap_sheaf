@@ -24,6 +24,7 @@ set_option autoImplicit false
 open YMGap.Constructive
 open YMGap.Constructive.CReal
 open YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
+open YMGap.Continuum.BF4WilsonSpatialUnion (zeroStage)
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
 open YMGap.Continuum.BF4WilsonSpatialUnionPosdef
 open YMGap.Continuum.BF4WilsonSpatialUnionLinear
@@ -56,6 +57,27 @@ local notation "q" => twoStepRate w hd
 def evenOrbitSum (x : V) : Nat → V
   | 0 => Z
   | n + 1 => A (evenOrbitSum x n) (T (2*n) x)
+
+/-- A representative-level version of the finite orbit sum, retaining the
+    supplied Cauchy stream rather than choosing a quotient representative. -/
+def evenOrbitSumCauchy (X : (unionSeminorm hw0 hw1 hsmall hd hs).Cauchy) : Nat →
+    (unionSeminorm hw0 hw1 hsmall hd hs).Cauchy
+  | 0 => (unionSeminorm hw0 hw1 hsmall hd hs).constant zeroStage
+  | n + 1 =>
+      addCauchy hw0 hw1 hsmall hd hs (evenOrbitSumCauchy X n)
+        ((timeNonexpansive hw0 hw1 hsmall hd hs (2*n)).mapCauchy X)
+
+theorem evenOrbitSumCauchy_pin
+    (X : (unionSeminorm hw0 hw1 hsmall hd hs).Cauchy) (n : Nat) :
+    Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid
+        (evenOrbitSumCauchy hw0 hw1 hsmall hd hs X n) =
+      evenOrbitSum hw0 hw1 hsmall hd hs
+        (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X) n := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+      rw [evenOrbitSumCauchy, ← completedAdd_mk, ih]
+      rfl
 
 @[simp] theorem evenOrbitSum_zero (x : V) : evenOrbitSum hw0 hw1 hsmall hd hs x 0 = Z := rfl
 
@@ -247,10 +269,35 @@ theorem evenOrbitSum_error_small (X : (unionSeminorm hw0 hw1 hsmall hd hs).Cauch
   refine RCle_trans hbound ?_
   exact leEv_le_ofQ'_of_approx_le (fun _ => hgeom)
 
+/-- The current fixed-spacing range consumer, with its vacuum-complement input
+    retained explicitly.  The returned preimage is represented by supplied
+    Cauchy data in the original union completion. -/
+def evenOrbitSum_range_data
+    (X : (unionSeminorm hw0 hw1 hsmall hd hs).Cauchy)
+    (hX : B (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X)
+      (completedUnit hw0 hw1 hsmall hd hs) = RCzero)
+    (epsilon : Q') (he : (0 : Q') < epsilon) :
+    Σ' Y : (unionSeminorm hw0 hw1 hsmall hd hs).Cauchy, RCle
+      (completedDist hw0 hw1 hsmall hd hs
+        (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X)
+        (completedSub hw0 hw1 hsmall hd hs
+          (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid Y)
+          (completedTime hw0 hw1 hsmall hd hs 2
+            (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid Y))))
+      (Quotient.mk crealSetoid (ofQ' epsilon)) := by
+  let n := evenOrbitSum_modulus hw0 hw1 hsmall hd hs X epsilon
+  refine ⟨evenOrbitSumCauchy hw0 hw1 hsmall hd hs X n, ?_⟩
+  have h := evenOrbitSum_error_small hw0 hw1 hsmall hd hs X hX epsilon he n
+    (Nat.le_refl _)
+  simpa only [evenOrbitSumCauchy_pin] using h
+
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumCauchy
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumCauchy_pin
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_sub_twoStep
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_error_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_modulus
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_error_small
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_range_data
 
 end YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation
