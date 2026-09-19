@@ -126,6 +126,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `CurrentCarrierCauchyFormCertificate.toFormCertificate` constructs the
   existing static form certificate by quotient lifting. No stream encoder or
   bridge inhabitant is supplied.
+- **proved**: `CurrentCarrierCauchyTwoStepCertificate` isolates the dynamic
+  bridge obligation at the explicit current-stream level, and
+  `...toTwoStepCertificate` descends it through the current completion quotient
+  to the existing completed-space two-step certificate. The producer field is
+  uninhabited; no canonical transfer or stream encoder is fabricated.
 - **residue**: the bridge structure is intentionally uninhabited in this
   milestone. It is a named OS/GNS carrier-and-dynamics obligation, not a
   covert identification of the current carrier with canonical GNSData.
@@ -139,6 +144,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The additional stream-factorization check is
   `/tmp/ym-canonical-bridge-stream5.log` (SHA-256
   `d7d5899b55360ffc2069a64cf827e9e5102921e188efe931f721f3eaaf0b5c87`).
+  The dynamic stream-factorization check is
+  `/tmp/ym-canonical-bridge-dynamic-stream2.log` (SHA-256
+  `dd84b1b42d2a984b06cb3dcd9ae29718f65a20632f831456ccdf7f57a96aaeb8`).
   The earlier bridge log was `/tmp/ym-wilson-canonical-bridge-20260918c.log`;
   SHA-256
   `7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`.

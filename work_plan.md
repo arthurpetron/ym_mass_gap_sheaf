@@ -556,6 +556,19 @@ current form has a Q'-valued canonical representative. Focused check log:
 The two new declarations use only `{propext, Quot.sound}`; no stream encoder or
 canonical bridge inhabitant is supplied.
 
+**Dynamic bridge stream factorization, checked 2026-09-18:**
+`CurrentCarrierCauchyTwoStepCertificate` isolates the remaining time
+intertwining at the same explicit stream level: the image of the current
+two-step Cauchy stream must equal two applications of the selected canonical
+transfer to the mapped stream class. Its
+`toTwoStepCertificate` constructor descends this equality through the current
+completion quotient and produces the existing completed-space dynamic
+certificate. The field is still an uninhabited producer obligation; no
+canonical transfer or stream encoder is fabricated. Focused check log:
+`/tmp/ym-canonical-bridge-dynamic-stream2.log`; SHA-256
+`dd84b1b42d2a984b06cb3dcd9ae29718f65a20632f831456ccdf7f57a96aaeb8`.
+Both declarations use only `{propext, Quot.sound}`.
+
 **Bridge-map injectivity consequence, checked 2026-09-18:**
 `CurrentCarrierBridge.map_injective` proves that any supplied exact form
 certificate is automatically injective: equality of two canonical images is

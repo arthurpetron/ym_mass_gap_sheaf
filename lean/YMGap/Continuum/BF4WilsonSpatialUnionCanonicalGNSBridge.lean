@@ -155,6 +155,23 @@ def CurrentCarrierCauchyFormCertificate.toFormCertificate
     intro X Y
     exact C.mapCauchy_pairing X Y
 
+/-! The dynamic stream-level obligation is separated from the static Gram
+identity. It asks only for transport of the explicit current two-step stream
+through the already supplied canonical stream map. -/
+
+structure CurrentCarrierCauchyTwoStepCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W)
+    (C : CurrentCarrierCauchyFormCertificate P) : Type 2 where
+  mapCauchy_twoStep : ∀ X : (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Cauchy,
+    Quotient.mk (cauchySetoid W.toGNSData)
+        (C.mapCauchy
+          ((timeNonexpansive nome_pos nome_lt_one hsmall hd hs 2).mapCauchy X)) =
+      P.op.T (P.op.T
+        (Quotient.mk (cauchySetoid W.toGNSData) (C.mapCauchy X)))
+
 /-- The dynamic part of the carrier handoff.  It is deliberately separate from
 the static form certificate so a producer can establish time intertwining
 without silently supplying a form identification. -/
@@ -166,6 +183,25 @@ structure CurrentCarrierTwoStepCertificate
     (F : CurrentCarrierFormCertificate P) : Type 2 where
   twoStep_intertwines : ∀ x,
     F.map (T 2 x) = P.op.T (P.op.T (F.map x))
+
+def CurrentCarrierCauchyTwoStepCertificate.toTwoStepCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+    (C : CurrentCarrierCauchyFormCertificate P)
+    (D : CurrentCarrierCauchyTwoStepCertificate P C) :
+    CurrentCarrierTwoStepCertificate P C.toFormCertificate where
+  twoStep_intertwines := by
+    intro x
+    refine Quotient.inductionOn x ?_
+    intro X
+    change Quotient.mk (cauchySetoid W.toGNSData)
+        (C.mapCauchy
+          ((timeNonexpansive nome_pos nome_lt_one hsmall hd hs 2).mapCauchy X)) =
+      P.op.T (P.op.T
+        (Quotient.mk (cauchySetoid W.toGNSData) (C.mapCauchy X)))
+    exact D.mapCauchy_twoStep X
 
 /-- The probe-specific vacuum-complement certificate.  It is the smallest
 nontriviality-side input needed by the current resolvent consumer and is kept
@@ -514,6 +550,8 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate.toFormCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate.toTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.ofCertificates
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.map_injective
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_vacuum_orthogonal
