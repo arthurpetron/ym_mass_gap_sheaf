@@ -65,14 +65,15 @@ dependent carrier terms opaque while
 norm.  `cutoffTwo_same_object_coefficient_eq_joint` identifies the completed
 GNS inner product of the actual centered observable with the same joint form;
 `NontrivialSameObjectCorrelator.ofExisting` packages the complete finite
-witness.
+witness.  `cutoffTwo_same_object_coefficient_isPositive` additionally places
+the actual completed coefficient in the constructive `RCIsPositive` currency.
 
 This closes the finite “observable survives and is seen by the same transfer”
 edge, but it does not provide a uniform-in-cutoff observable, a cofinal exact
 capacity comparison, physical-gap variation, or any OS/thermodynamic/
 continuum/all-group conclusion.  The next backward consumer remains
 `MatchedPhysicalDynamicExplicitRayCanonicalCapacityCheckProducer.capacityCheck`.
-Focused check: `/tmp/ym-cutoff-two-correlator3.log`; only
+Focused check: `/tmp/ym-cutoff-two-correlator-positive2.log`; only
 `{propext, Quot.sound}` were reported.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)

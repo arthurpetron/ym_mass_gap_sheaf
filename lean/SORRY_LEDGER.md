@@ -36,13 +36,15 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   the existing joint/norm equivalence and positive norm;
   `cutoffTwo_same_object_coefficient_eq_joint` applies the actual completed
   endpoint's `dense_same_object` law; and
+  `cutoffTwo_same_object_coefficient_isPositive` supplies a constructive
+  `RCIsPositive` witness for that completed coefficient; and
   `NontrivialSameObjectCorrelator.ofExisting` packages endpoint, centered
   observable, mean-zero, positive norm, positive joint form, and exact
   same-object coefficient.
 - **boundary**: this is fixed cutoff, fixed volume, SU(2) data.  It does not
   supply uniform cutoff persistence, exact-ray capacity, physical-gap
   variation, thermodynamic/continuum passage, QFT axioms, or the Clay theorem.
-- **verification**: `/tmp/ym-cutoff-two-correlator3.log`; only
+- **verification**: `/tmp/ym-cutoff-two-correlator-positive2.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)

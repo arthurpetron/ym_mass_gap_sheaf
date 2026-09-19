@@ -8,6 +8,7 @@ aliases; no cofinal, thermodynamic, continuum, or Clay claim is made.
 -/
 
 import YMGap.Continuum.BF4PhysicalConcreteCutoffTwoNontrivialEndpoint
+import YMGap.Continuum.RCStrictPositivity
 
 namespace YMGap.Continuum.BF4PhysicalCutoffTwoNontrivialCorrelator
 
@@ -24,6 +25,7 @@ open YMGap.Continuum.BF4PhysicalConcreteCutoffTwoNontrivialEndpoint
 open YMGap.Continuum.BF4PhysicalMarkovGNSCompletion
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.BF4WeightedJointPerronPerturbation
+open YMGap.Continuum.RCStrictPositivity
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 
 abbrev cutoffTwoObservable : EdgeLabelling → Q' :=
@@ -59,6 +61,13 @@ theorem cutoffTwo_same_object_coefficient_eq_joint :
     cutoffTwoCoefficient = physicalConstantRC cutoffTwoJoint := by
   exact cutoffTwoConcreteEndpoint.dense_same_object cutoffTwoObservable
 
+theorem cutoffTwo_same_object_coefficient_isPositive :
+    RCIsPositive cutoffTwoCoefficient := by
+  rw [cutoffTwo_same_object_coefficient_eq_joint]
+  exact ⟨cutoffTwoJoint, cutoffTwo_joint_pos,
+    physicalConstantRC_le_of_rat (Q'.le_of_eqv
+      (Q'.eqv_refl cutoffTwoJoint))⟩
+
 structure NontrivialSameObjectCorrelator : Type 1 where
   endpoint : ConcreteEndpoint cutoffTwoWeight cutoffTwoWeightNonnegative 2 0
   observable : EdgeLabelling → Q'
@@ -83,6 +92,7 @@ structure NontrivialSameObjectCorrelator : Type 1 where
       physicalConstantRC
         (centralPhysicalJointQuadratic cutoffTwoWeight
           cutoffTwoWeightNonnegative 2 0 observable)
+  same_object_positive : RCIsPositive cutoffTwoCoefficient
 
 def NontrivialSameObjectCorrelator.ofExisting :
     NontrivialSameObjectCorrelator where
@@ -94,6 +104,7 @@ def NontrivialSameObjectCorrelator.ofExisting :
   joint_pos := cutoffTwo_joint_pos
   same_object_eq_joint := by
     exact cutoffTwoConcreteEndpoint.dense_same_object cutoffTwoObservable
+  same_object_positive := cutoffTwo_same_object_coefficient_isPositive
 
 end YMGap.Continuum.BF4PhysicalCutoffTwoNontrivialCorrelator
 
@@ -101,5 +112,7 @@ end YMGap.Continuum.BF4PhysicalCutoffTwoNontrivialCorrelator
   YMGap.Continuum.BF4PhysicalCutoffTwoNontrivialCorrelator.cutoffTwo_joint_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffTwoNontrivialCorrelator.cutoffTwo_same_object_coefficient_eq_joint
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffTwoNontrivialCorrelator.cutoffTwo_same_object_coefficient_isPositive
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffTwoNontrivialCorrelator.NontrivialSameObjectCorrelator.ofExisting

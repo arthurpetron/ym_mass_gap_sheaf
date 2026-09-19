@@ -106,11 +106,12 @@ existing joint-form equivalence and positive norm into a strict positive
 joint coefficient.  `cutoffTwo_same_object_coefficient_eq_joint` then uses the
 actual completed endpoint's `dense_same_object` field, and
 `NontrivialSameObjectCorrelator.ofExisting` packages endpoint, mean-zero,
-nonzero norm, positive joint form, and exact same-object realization.  This is
+nonzero norm, positive joint form, exact same-object realization, and a
+constructive `RCIsPositive` witness for the completed coefficient.  This is
 still a fixed finite SU(2) statement; the cofinal capacity, varying-spacing,
 OS/continuum, and all-group Clay bridges remain open.  Focused check:
-`/tmp/ym-cutoff-two-correlator3.log`; only `{propext, Quot.sound}` were
-reported.
+`/tmp/ym-cutoff-two-correlator-positive2.log`; only `{propext, Quot.sound}`
+were reported.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
