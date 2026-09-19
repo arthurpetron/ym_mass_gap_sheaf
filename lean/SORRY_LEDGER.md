@@ -25,9 +25,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `partial_tail_small` construct finite sums with explicit supplied moduli.
   `resolvent` is the diagonal-limit operator on that SAME carrier;
   `resolvent_equation`, `resolvent_right_inverse`, `resolvent_left_inverse`,
-  and `resolvent_sub` prove its Poisson/inverse identities. The bound module
-  proves `resolvent_norm_bound` and `resolvent_distance_bound` with the same
-  explicit budget.
+  and `resolvent_sub` prove its Poisson/inverse identities;
+  `defect_selfAdjoint` and `resolvent_selfAdjoint` tie the inverse to the same
+  completed pairing. The bound module proves `resolvent_norm_bound` and
+  `resolvent_distance_bound` with the same explicit budget.
 - **residue**: this is fixed-spacing, small-nome SU(2) infrastructure. It does
   not establish strict density of strictly-past observables, a changing-spacing
   uniform rate, physical-time/mass calibration, continuum survival, full QFT,

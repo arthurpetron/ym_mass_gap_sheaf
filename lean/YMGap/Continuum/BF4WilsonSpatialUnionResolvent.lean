@@ -266,6 +266,44 @@ theorem resolvent_sub (x y : V) :
   rw [resolvent_right_inverse, defect_sub, resolvent_right_inverse,
     resolvent_right_inverse, center_sub]
 
+theorem defect_selfAdjoint (x y : V) :
+    completedInner hw0 hw1 hsmall hd hs
+      (defect hw0 hw1 hsmall hd hs x) y =
+      completedInner hw0 hw1 hsmall hd hs x
+        (defect hw0 hw1 hsmall hd hs y) := by
+  unfold defect
+  rw [completedInner_sub_left, completedInner_sub_right,
+    completedInner_time_balance]
+
+theorem resolvent_selfAdjoint (x y : V) :
+    completedInner hw0 hw1 hsmall hd hs
+      (resolvent hw0 hw1 hsmall hd hs x) y =
+      completedInner hw0 hw1 hsmall hd hs x
+        (resolvent hw0 hw1 hsmall hd hs y) := by
+  calc
+    completedInner hw0 hw1 hsmall hd hs
+        (resolvent hw0 hw1 hsmall hd hs x) y =
+        completedInner hw0 hw1 hsmall hd hs
+          (resolvent hw0 hw1 hsmall hd hs x) (C y) := by
+      have h := center_selfAdjoint hw0 hw1 hsmall hd hs
+        (resolvent hw0 hw1 hsmall hd hs x) y
+      rw [resolvent_centered] at h
+      exact h
+    _ = completedInner hw0 hw1 hsmall hd hs
+          (resolvent hw0 hw1 hsmall hd hs x)
+          (defect hw0 hw1 hsmall hd hs (resolvent hw0 hw1 hsmall hd hs y)) := by
+      rw [resolvent_right_inverse]
+    _ = completedInner hw0 hw1 hsmall hd hs
+          (defect hw0 hw1 hsmall hd hs (resolvent hw0 hw1 hsmall hd hs x))
+          (resolvent hw0 hw1 hsmall hd hs y) :=
+      (defect_selfAdjoint hw0 hw1 hsmall hd hs _ _).symm
+    _ = completedInner hw0 hw1 hsmall hd hs (C x)
+          (resolvent hw0 hw1 hsmall hd hs y) := by
+      rw [resolvent_right_inverse]
+    _ = completedInner hw0 hw1 hsmall hd hs x
+          (resolvent hw0 hw1 hsmall hd hs y) := by
+      rw [center_selfAdjoint, resolvent_centered]
+
 end YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent
@@ -274,3 +312,5 @@ end YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_left_inverse
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.defect_sub
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_sub
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.defect_selfAdjoint
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_selfAdjoint

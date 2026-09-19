@@ -321,7 +321,8 @@ actual Wilson completion. `BF4WilsonSpatialUnionWeightedNorm.budget` and
 `seriesRows` construct the finite sums with supplied cutoffs;
 `BF4WilsonSpatialUnionResolvent.resolvent` is the diagonal-limit operator, with
 `resolvent_equation`, `resolvent_right_inverse`, `resolvent_left_inverse`, and
-`resolvent_sub`; and
+`resolvent_sub`; `defect_selfAdjoint` and `resolvent_selfAdjoint` now tie that
+inverse to the SAME completed pairing; and
 `BF4WilsonSpatialUnionResolventBound.resolvent_norm_bound`/
 `resolvent_distance_bound` give the same-carrier explicit bounds. Three
 focused serialized one-worker/20 GiB checks passed with only
