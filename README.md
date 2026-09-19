@@ -6,7 +6,8 @@
 > constructively yields an exact carrier inverse and bijectivity, but neither
 > the bridge nor its range section is inhabited yet.  Finite-stage Cauchy and
 > form compilers now isolate the producer's metric-transport, Gram, and
-> zero/unit pin inputs.
+> zero/unit pin inputs; a dense-stage two-step consumer now transports the
+> strict bound on finite-stage canonical images.
 > Changing-spacing control,
 > physical mass calibration, continuum QFT construction, and the all-group
 > Clay endpoint remain open.
@@ -46,7 +47,9 @@ This is a conditional consumer, not a fabricated OS/GNS identification:
 uninhabited.  `CurrentStageCauchyTransportCertificate` and
 `CurrentStageCauchyFormCertificate` construct only the canonical Cauchy
 stream/null descent from finite-stage metric data and expose the remaining
-Gram/zero/unit pins; dynamics and probe pins remain open.  Changing-spacing control,
+Gram/zero/unit pins.  `CurrentStageDenseTwoStepCertificate` handles exact
+two-step transport only on finite-stage canonical images; arbitrary-limit
+dynamics and probe pins remain open.  Changing-spacing control,
 physical mass calibration, continuum
 QFT construction and every-group Yang--Mills remain open.  The focused check
 used only `{propext, Quot.sound}` and produced no `sorryAx`; the detailed
