@@ -35,6 +35,8 @@ open YMGap.Continuum.BF4WilsonSpatialUnionTimeForm
 open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
 open YMGap.Continuum.BF4WilsonSpatialUnionCompletedDistance
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
+open YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
+  (completedCenteredScalar)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap (twoStepRate)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap
   (twoStepRate_positive twoStepRate_lt_one)
@@ -355,6 +357,37 @@ def evenOrbitCentered_range_data
     (centerCauchy hw0 hw1 hsmall hd hs X) hcenter epsilon he
   simpa only [center_mk] using h
 
+/-- The same-object defect pairing is exactly the difference of the existing
+    connected lag-zero and lag-two correlators. -/
+theorem evenOrbitResidual_centered_pairing (x y : V) :
+    B (center hw0 hw1 hsmall hd hs x)
+      (evenOrbitResidual hw0 hw1 hsmall hd hs
+        (center hw0 hw1 hsmall hd hs y)) =
+      RCsub
+        (completedCenteredScalar hw0 hw1 hsmall hd hs 0 x y)
+        (completedCenteredScalar hw0 hw1 hsmall hd hs 2 x y) := by
+  unfold evenOrbitResidual
+  rw [completedInner_sub_right]
+  calc
+    RCsub
+        (B (center hw0 hw1 hsmall hd hs x)
+          (center hw0 hw1 hsmall hd hs y))
+        (B (center hw0 hw1 hsmall hd hs x)
+          (completedTime hw0 hw1 hsmall hd hs 2
+            (center hw0 hw1 hsmall hd hs y))) =
+      RCsub
+        (B (center hw0 hw1 hsmall hd hs x)
+          (completedTime hw0 hw1 hsmall hd hs 0
+            (center hw0 hw1 hsmall hd hs y)))
+        (B (center hw0 hw1 hsmall hd hs x)
+          (completedTime hw0 hw1 hsmall hd hs 2
+            (center hw0 hw1 hsmall hd hs y))) := by
+            rw [completedTime_zero]
+    _ = RCsub
+        (completedCenteredScalar hw0 hw1 hsmall hd hs 0 x y)
+        (completedCenteredScalar hw0 hw1 hsmall hd hs 2 x y) := by
+          rw [centered_time_pairing, centered_time_pairing]
+
 /-- The stage-level cutoff obtained from the constant representative of a
     strict finite Wilson stage. -/
 def evenOrbitStage_modulus (x : Stage) (epsilon : Q') : Nat :=
@@ -412,6 +445,7 @@ def evenOrbitStage_range_data (x : Stage)
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_error_small
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_range_data
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitCentered_range_data
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_centered_pairing
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitStage_modulus
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitStage_error_small
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitStage_range_data
