@@ -345,10 +345,11 @@ is a rate-sensitive one-vector moment bound, not an all-vector operator gap.
 - **boundary**: the strict contraction remains an explicit producer input;
   this certificate does not construct a cofinal rate, thermodynamic or
   continuum limit, QFT axioms, an all-group theorem, or the Clay mass gap.
-- **verification**: dependency-complete safe build target
+- **verification**: source check `/tmp/BF4PhysicalConcreteSU2CompletedCarrierCertificate.check4.log`
+  and dependency-complete safe target
   `+YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate:olean`
-  and the module's printed axiom gates; expected trusted axioms are only
-  `{propext, Quot.sound}` and no `sorryAx`.
+  (1695 jobs) both completed; the module's printed axiom gates are exactly
+  `{propext, Quot.sound}`, with no `sorryAx`.
 
 **Sector-normalized local-slice forward/backward join, checked 2026-09-19:**
 `BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement` now consumes
