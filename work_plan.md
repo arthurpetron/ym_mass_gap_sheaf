@@ -394,6 +394,9 @@ all-vector fixed-spacing decay. The projections
 `current_same_object_correlator_pin` and
 `current_connected_correlator_pin` pin the completed and centered correlators
 to the original reflected pairing and centered moment on the same carrier.
+`current_connected_correlator_sq_decay` then gives the explicit squared
+connected-correlation decay with rate `twoStepRate nome hd` and the actual
+centered norm prefactors.
 The resolvent probe remains centered, nonzero, and has the checked `1/4`
 squared-norm floor.
 This is the concrete forward landmark for the backward spectral/OS consumer,
@@ -402,7 +405,7 @@ but it is fixed-spacing, small-nome SU(2) data on the current
 does not establish a uniform gap, continuum survival, physical mass, or Clay
 closure. Focused check log:
 `/tmp/ym-wilson-current-sector-20260918c.log`; SHA-256
-`5df3271c7308c78b5b4229df1e346aa5e0595ef4296906b9372ea595a7ed3940`.
+`bc27e2770295430ff620359e109c1146c86a38e7d7022010c2f8f682b5c8e33e`.
 
 **Backward join review, 2026-09-18:** the legacy inward-test argument
 does not literally extend to all current Wilson windows. The legacy

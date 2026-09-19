@@ -42,7 +42,7 @@ open YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
 open YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 open YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumRelaxation
-  (connected_embedStage)
+  (connected_embedStage connected_sq_decay)
 open YMGap.Continuum.BF4WilsonSpatialUnionCenteredForm (centeredMoment)
 open YMGap.Continuum.BF4WilsonSpatialUnionPosdef (completedZero)
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
@@ -64,6 +64,7 @@ local notation "R" => resolvent nome_pos nome_lt_one hsmall hd hs
 local notation "E" => embedStage nome_pos nome_lt_one hsmall hd hs
 local notation "P0" => pairing nome_pos nome_lt_one hsmall hd hs
 local notation "K" => completedCenteredScalar nome_pos nome_lt_one hsmall hd hs
+local notation "C" => center nome_pos nome_lt_one hsmall hd hs
 
 /-- A concrete `RC`-valued transfer/sector package on the current completed
 Wilson carrier.  The fields deliberately use the same carrier and same form
@@ -198,6 +199,13 @@ theorem current_connected_correlator_pin (n : Nat) (x y : Stage) :
       Quotient.mk crealSetoid (centeredMoment nome_pos nome_lt_one hsmall hd hs n x y) :=
   currentSector.connected_correlator_pin n x y
 
+/-- The connected same-object correlator inherits the explicit current decay. -/
+theorem current_connected_correlator_sq_decay (n : Nat) (x y : V) :
+    RCle (RCmul (K n x y) (K n x y))
+      (RCmul (B (C x) (C x))
+        (RCscale (twoStepRate nome hd ^ n) (B (C y) (C y)))) :=
+  connected_sq_decay nome_pos nome_lt_one hsmall hd hs n x y
+
 /-- The packaged probe has a strict positive two-step response floor. -/
 theorem current_probe_twoStep_strict_lower :
     RCle (Quotient.mk crealSetoid (ofQ' rayleighFloor))
@@ -220,5 +228,6 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_time_decay
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_same_object_correlator_pin
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_connected_correlator_pin
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_connected_correlator_sq_decay
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_resolvent_probe_floor

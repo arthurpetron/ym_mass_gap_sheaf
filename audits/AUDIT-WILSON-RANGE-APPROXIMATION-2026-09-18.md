@@ -217,6 +217,7 @@ The public projection lemmas are
 `CompletedPhysicalSU2Sector.current_time_decay`,
 `CompletedPhysicalSU2Sector.current_same_object_correlator_pin`,
 `CompletedPhysicalSU2Sector.current_connected_correlator_pin`,
+`CompletedPhysicalSU2Sector.current_connected_correlator_sq_decay`,
 `CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower`, and
 `CompletedPhysicalSU2Sector.current_resolvent_probe_floor`. This closes a
 forward landmark for the backward spectral/OS consumer while preserving the
@@ -226,5 +227,5 @@ continuum limit, or Clay theorem.
 
 Focused serialized check:
 `/tmp/ym-wilson-current-sector-20260918c.log`, SHA-256
-`5df3271c7308c78b5b4229df1e346aa5e0595ef4296906b9372ea595a7ed3940`.
+`bc27e2770295430ff620359e109c1146c86a38e7d7022010c2f8f682b5c8e33e`.
 The printed gates use only `{propext, Quot.sound}`.
