@@ -147,18 +147,27 @@ reused.
 ## Resolvent/excitation probe join, checked 2026-09-18
 
 `BF4WilsonSpatialUnionResolventResponse.unitExcitation_center_fixed`
-(`lean/YMGap/Continuum/BF4WilsonSpatialUnionResolventResponse.lean:41`) uses
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionResolventResponse.lean:121`) uses
 the existing normalized Wilson excitation's actual orthogonality. The module
-then derives `unitExcitation_ne_zero` (:45) from the existing fixed-spacing
+then derives `unitExcitation_ne_zero` (:125) from the existing fixed-spacing
 same-object response theorem and feeds it to
-`unitExcitation_resolvent_ne_zero` (:53), while
-`unitExcitation_resolvent_centered` (:57) retains the vacuum-complement
+`unitExcitation_resolvent_ne_zero` (:133), while
+`unitExcitation_resolvent_centered` (:137) retains the vacuum-complement
 property. This is the smallest checked probe certificate joining the
 current-carrier resolvent to a concrete same-object excitation.
 
-The focused check `/tmp/ym-wilson-resolvent-response-20260918b.log` passed
+The same module now proves `unitExcitation_resolvent_norm_floor` (:140). Its
+proof expands the squared-distance triangle for the resolvent defect, applies
+the existing two-step contraction to the centered resolvent image, and
+contracts the four-copy bound by the explicit rational factor `1/4`. Thus the
+resolvent image has a quantitative nonzero squared-norm floor on this one
+normalized probe, not merely a propositional non-erasure result. The estimate
+is still fixed-spacing and small-nome SU(2); it is not a spacing-uniform
+operator gap and does not cross the canonical `GNSData`/OS scalar bridge.
+
+The focused check `/tmp/ym-wilson-resolvent-response-20260918c.log` passed
 with SHA-256
-`35a747f2cdc7cf34c4ca16d13bff94cfe227aa993628f42f0aabb238bc91dc85`; all four
+`5a6f7e354791ccff0bd347a76760a805ff5b2d12ed33d99172d350c0ca182201`; all five
 gates use only `{propext, Quot.sound}`. The result remains fixed-spacing,
 small-nome SU(2) non-erasure, not a changing-spacing or continuum-survival
 certificate.

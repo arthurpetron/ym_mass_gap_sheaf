@@ -52,6 +52,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   nonzero response. `unitExcitation_resolvent_ne_zero` proves that the
   current-carrier resolvent preserves nonzero-ness of this concrete centered
   probe, and `unitExcitation_resolvent_centered` retains the vacuum complement.
+  `unitExcitation_resolvent_norm_floor` strengthens this to the explicit
+  squared-norm floor `1/4` on the same normalized probe, using only the
+  completed-distance triangle, the centered two-step contraction, and the
+  resolvent defect identity.
 - **residue**: fixed-spacing small-nome SU(2) only; no changing-spacing
   survival, physical mass, canonical OS/GNSData bridge, continuum QFT, or
   all-group conclusion is asserted.

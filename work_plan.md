@@ -350,6 +350,16 @@ continuum survival or physical mass calibration. The next backward join is
 still the canonical OS/GNSData scalar-and-support interface and its
 spacing-controlled producer.
 
+**Quantitative resolvent probe floor, checked 2026-09-18:** the same module now
+proves `unitExcitation_resolvent_norm_floor`. On the actual completed Wilson
+carrier, the defect identity identifies the resolvent-to-two-step distance with
+the original probe norm; the squared-distance triangle, centered two-step
+decay, and scalar monotonicity then give the explicit `1/4` lower floor for
+the resolvent image. This is a stronger fixed-spacing coercivity landmark for
+the forward/backward meet. It remains a single SU(2), small-nome, fixed-spacing
+probe and does not discharge the canonical `GNSData` adapter, changing-spacing
+uniformity, physical mass calibration, continuum survival, or full QFT route.
+
 **Backward join review, 2026-09-18:** the legacy inward-test argument
 does not literally extend to all current Wilson windows. The legacy
 bond-reflected lower algebra can move a test onto the adjacent site plane;
