@@ -252,6 +252,42 @@ def positiveRatioDebtVariationOfPrimitiveComponents
         sharedFloor numerator denominator numerator_pos denominator_pos
         offset))
 
+/-! ## 3. Positive normalized ratios without a numerator floor -/
+
+/-! A ratio `numerator / denominator` only needs a positive denominator.  The
+   previous debt compiler deliberately required a numerator floor because it
+   also varies the reciprocal ratio.  The normalized strength ratio
+
+       strength / (1 + strength)
+
+   has a denominator floor of one while its numerator may tend to zero with
+   the lattice spacing.  This direct product compiler keeps that case honest. -/
+
+def positiveRatioVariationOfPrimitiveComponents
+    (numerator denominator : Nat -> Q')
+    (numerator_nonnegative : forall offset, (0 : Q') <= numerator offset)
+    (denominator_pos : forall offset, (0 : Q') < denominator offset)
+    (denominatorVariation : SummableRationalStepVariation denominator)
+    (numeratorVariation : SummableRationalStepVariation numerator)
+    (denominatorFloor : Q')
+    (denominatorFloor_pos : (0 : Q') < denominatorFloor)
+    (denominatorFloor_le : forall offset,
+      denominatorFloor <= denominator offset) :
+    SummableRationalStepVariation
+      (positiveRatio numerator denominator denominator_pos) := by
+  let reciprocalVariation := reciprocal
+    denominator_pos denominatorVariation
+    denominatorFloor denominatorFloor_pos denominatorFloor_le
+  have productVariation := mul numeratorVariation reciprocalVariation
+    numerator_nonnegative
+    (fun offset =>
+      Q'.le_of_lt
+        (Q'.recipPos_pos
+          (denominator offset) (denominator_pos offset)))
+  exact ofPointwiseEqv productVariation (fun offset => by
+    unfold positiveRatio Q'.divPos
+    exact Q'.eqv_refl _)
+
 end YMGap.Continuum.SummableRationalPositiveRatioDebtVariation
 
 /-! ## Axiom-dependency gates -/
@@ -266,3 +302,5 @@ end YMGap.Continuum.SummableRationalPositiveRatioDebtVariation
   YMGap.Continuum.SummableRationalPositiveRatioDebtVariation.reciprocalPositiveRatioVariationOfPrimitiveComponents
 #print axioms
   YMGap.Continuum.SummableRationalPositiveRatioDebtVariation.positiveRatioDebtVariationOfPrimitiveComponents
+#print axioms
+  YMGap.Continuum.SummableRationalPositiveRatioDebtVariation.positiveRatioVariationOfPrimitiveComponents

@@ -287,8 +287,17 @@ variation, physical rate band, or semantic OS/reconstruction witnesses.
 `DynamicVacuumSectorContinuumHandoff.ofMarginAndReciprocalSpacing` now
 packages the same primitive result into the existing continuum handoff while
 keeping those semantic witnesses explicit.  Focused check:
-`/tmp/ym-physical-gap-variation-compiler8.log`; only `{propext, Quot.sound}`
-were reported.
+`/tmp/ym-strength-ratio-gap4.log`; only `{propext, Quot.sound}` were
+reported.
+
+The same compiler now also contains the next backward adapter:
+`latticeMarginVariationOfNormalizedStrength` varies the normalized strength
+through `strength/(1+strength)` with denominator floor `1`, avoiding the
+invalid assumption that the numerator has a scale-uniform positive floor.
+`physicalGapVariationOfNormalizedStrengthAndReciprocalSpacing` composes that
+stream with reciprocal-spacing variation on the definitionally same completed
+family.  This exposes the exact input shape needed by the local route while
+leaving both primitive variation producers uninhabited.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)
 

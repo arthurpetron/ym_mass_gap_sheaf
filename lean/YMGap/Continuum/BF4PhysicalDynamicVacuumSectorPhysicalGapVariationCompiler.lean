@@ -23,6 +23,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 -/
 
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
+import YMGap.Continuum.SummableRationalPositiveRatioDebtVariation
 import YMGap.Continuum.SummableRationalReciprocalStepVariation
 import YMGap.Continuum.SummableRationalStepVariationAlgebra
 
@@ -49,6 +50,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
 
 local infix:50 " ≈ " => Q'.eqv
 open YMGap.Continuum.SummableRationalReciprocalStepVariation
+open YMGap.Continuum.SummableRationalPositiveRatioDebtVariation
 open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.SummableRationalStepVariationAlgebra
 
@@ -85,6 +87,61 @@ def physicalGapVariationOfMarginAndReciprocalSpacing
       family.physicalGap scale
     unfold DynamicVacuumSectorCompletedFamily.physicalGap
     exact Q'.eqv_refl _)
+
+/-! ## 1a. Normalized strength to lattice-margin variation -/
+
+/-- A positive normalized strength stream has summable variation after the
+`strength/(1 + strength)` margin transform.  The denominator has the fixed
+floor `1`; no positive floor is imposed on the strength itself, so this
+compiler remains valid when the strength vanishes with the spacing. -/
+def latticeMarginVariationOfNormalizedStrength
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (law : DynamicVacuumSectorNormalizedStrengthLaw family)
+    (strengthVariation :
+      SummableRationalStepVariation law.strength) :
+    SummableRationalStepVariation family.latticeMargin := by
+  let oneVariation : SummableRationalStepVariation (fun _ : Nat => (1 : Q')) :=
+    SummableRationalStepVariation.ofPointwiseEqvConstant
+      (fun _ : Nat => (1 : Q')) (1 : Q')
+      (fun _ => Q'.eqv_refl _)
+  let denominatorVariation := add oneVariation strengthVariation
+  have denominator_pos : forall scale,
+      (0 : Q') < 1 + law.strength scale := by
+    intro scale
+    exact Q'.add_pos (by decide) (law.strength_pos scale)
+  have denominatorFloor_le : forall scale,
+      (1 : Q') <= 1 + law.strength scale := by
+    intro scale
+    exact Q'.add_le_add_left 1 0 (law.strength scale)
+      (Q'.le_of_lt (law.strength_pos scale))
+  let ratioVariation :=
+    positiveRatioVariationOfPrimitiveComponents
+      law.strength (fun scale => 1 + law.strength scale)
+      (fun scale => Q'.le_of_lt (law.strength_pos scale))
+      denominator_pos denominatorVariation strengthVariation
+      1 (by decide) denominatorFloor_le
+  exact ofPointwiseEqv ratioVariation (fun scale =>
+    Q'.eqv_symm (law.margin_eqv scale))
+
+/-- The normalized-strength compiler meets the reciprocal-spacing lane at the
+exact same completed family and produces variation of its physical gap. -/
+def physicalGapVariationOfNormalizedStrengthAndReciprocalSpacing
+    {half : Nat}
+    (family : DynamicVacuumSectorCompletedFamily half)
+    (law : DynamicVacuumSectorNormalizedStrengthLaw family)
+    (strengthVariation :
+      SummableRationalStepVariation law.strength)
+    (reciprocalSpacingVariation :
+      SummableRationalStepVariation
+        (fun scale =>
+          Q'.recipPos
+            (family.transferSpacing.spacing scale)
+            (family.transferSpacing.spacing_pos scale))) :
+    SummableRationalStepVariation family.physicalGap :=
+  physicalGapVariationOfMarginAndReciprocalSpacing
+    family (latticeMarginVariationOfNormalizedStrength law strengthVariation)
+    reciprocalSpacingVariation
 
 /-- Margin variation and positive-spacing variation meet at the exact
 completed-family physical gap.  The positive spacing floor is the explicit
@@ -203,6 +260,10 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.physicalGapVariationOfPrimitiveComponents
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.physicalGapVariationOfMarginAndReciprocalSpacing
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.latticeMarginVariationOfNormalizedStrength
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.physicalGapVariationOfNormalizedStrengthAndReciprocalSpacing
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.exactLogRateCauchy_of_marginAndReciprocalSpacing
 #print axioms

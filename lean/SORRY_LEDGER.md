@@ -190,8 +190,14 @@ close the thermodynamic, continuum, QFT, all-group, or Clay obligations.
   spacing floor, a physical rate band, a continuum handoff, or the Clay
   theorem.  A fixed positive spacing floor cannot be the continuum route when
   the spacing tends to zero.
-- **verification**: `/tmp/ym-physical-gap-variation-compiler8.log`; only
+- **verification**: `/tmp/ym-strength-ratio-gap4.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
+The same file also proves `latticeMarginVariationOfNormalizedStrength` and
+`physicalGapVariationOfNormalizedStrengthAndReciprocalSpacing`.  These use the
+constructive `strength/(1+strength)` ratio compiler with denominator floor `1`;
+they do not assume a uniform positive strength floor.  They remain adapters,
+not inhabitants of the strength-variation or reciprocal-spacing producers.
 
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)
 

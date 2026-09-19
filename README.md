@@ -244,9 +244,13 @@ zero.  `DynamicVacuumSectorContinuumHandoff.ofMarginAndReciprocalSpacing`
 packages the same result into the existing continuum handoff while retaining
 the projective OS, spectral-channel, and exact-rate witnesses as explicit
 inputs.  None of the primitive variation inputs or semantic handoff witnesses
-is inhabited by this module.  Focused check:
-`/tmp/ym-physical-gap-variation-compiler8.log`, with only
-`{propext, Quot.sound}` reported.
+is inhabited by this module.  `latticeMarginVariationOfNormalizedStrength`
+adds the backward adapter that varies `strength/(1+strength)` using denominator
+floor `1`, without imposing a false uniform positive floor on a strength stream
+that may vanish with the spacing.  `physicalGapVariationOfNormalizedStrengthAndReciprocalSpacing`
+joins that margin stream to reciprocal-spacing variation on the same completed
+family.  Focused check:
+`/tmp/ym-strength-ratio-gap4.log`, with only `{propext, Quot.sound}` reported.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
