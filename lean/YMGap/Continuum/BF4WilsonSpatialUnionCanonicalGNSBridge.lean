@@ -137,6 +137,32 @@ theorem canonicalProbe_norm_floor (J : CurrentCarrierBridge P) :
         (J.canonicalProbe).vector) :=
   J.canonicalProbe.norm_floor
 
+private theorem positive_constant_not_le_zero_local (q : Q')
+    (hq : (0 : Q') < q) :
+    ¬ RCle (Quotient.mk crealSetoid (ofQ' q)) RCzero := by
+  intro h
+  obtain ⟨N, hN⟩ := h (HalfPow.half * q) (ExpNeg.half_mul_pos q hq)
+  have hbad := hN N (Nat.le_refl N)
+  change q ≤ 0 + HalfPow.half * q at hbad
+  rw [Q'.zero_add'] at hbad
+  have hprod : q * 1 ≤ q * HalfPow.half := Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (Q'.mul_one_eqv _))
+    (Q'.le_trans' _ _ _ hbad (Q'.le_of_eqv (Q'.mul_comm_eqv _ _)))
+  exact (by decide : ¬ (1 : Q') ≤ HalfPow.half)
+    (Q'.le_of_mul_le_mul_left hprod hq)
+
+/-- The checked current-carrier floor makes the transported canonical probe
+genuinely nonzero.  This is a consequence of the supplied bridge, not a new
+OS/GNS identification or a replacement observable. -/
+theorem canonicalProbe_ne_zero (J : CurrentCarrierBridge P) :
+    (J.canonicalProbe).vector ≠
+      embedV W.toGNSData W.toGNSData.zero := by
+  intro hzero
+  have hfloor := J.canonicalProbe_norm_floor
+  rw [hzero, W.toGNSData.cinnerCompl_embedZero_left] at hfloor
+  exact positive_constant_not_le_zero_local
+    (Q'.mkPos 1 4 (by decide)) (by decide) hfloor
+
 end CurrentCarrierBridge
 
 end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
@@ -145,3 +171,4 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonical_resolvent_norm_floor
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_norm_floor
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_ne_zero

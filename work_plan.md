@@ -472,6 +472,18 @@ an explicit constructive residual for the next producer. Evidence log:
 `/tmp/ym-wilson-canonical-bridge-20260918c.log`; SHA-256
 `7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`.
 
+**Canonical non-erasure consequence, checked 2026-09-18:**
+`CurrentCarrierBridge.canonicalProbe_ne_zero` now contracts the transported
+`1/4` floor into a literal nonzero statement in the canonical GNS completion.
+The proof uses only the selected bridge's form-preservation field and the
+canonical embedded-zero pairing; it adds no bridge inhabitant, no choice of
+observable, and no new OS/GNS identification. The exact residual is therefore
+sharper: once a `CurrentCarrierBridge` is supplied, canonical nontriviality is
+automatic, while constructing that bridge and controlling it across spacing
+remain open. Focused check log:
+`/tmp/ym-canonical-probe-ne-zero.log`; SHA-256
+`67cef4dee9ed123c40b809d5344e7b74f470e5669300d9a5171e5d5c45d65071`.
+
 **Concrete current physical SU(2) sector, checked 2026-09-18:**
 `BF4WilsonSpatialUnionCurrentSector.lean` packages the already checked
 same-carrier data as `CompletedPhysicalSU2Sector.currentSector`: the discrete
