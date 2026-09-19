@@ -3,8 +3,8 @@
 
 The current BF4 construction already has one completed spatial-union carrier,
 the original discrete physical-time semigroup, the normalized Wilson probe,
-and a same-object response band.  This file packages those existing witnesses
-into one concrete sector datum.  It does not identify this `RC`-valued carrier
+and exact same-object correlator pins.  This file packages those existing
+witnesses into one concrete sector datum.  It does not identify this `RC`-valued carrier
 with the canonical `GNSData`/OS completion; that remains the separate bridge
 residual in `BF4WilsonSpatialUnionCanonicalGNSBridge`.
 
@@ -18,6 +18,7 @@ import YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
 import YMGap.Continuum.BF4WilsonSpatialUnionTimePositive
 import YMGap.Continuum.BF4WilsonSpatialUnionTimeForm
 import YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
+import YMGap.Continuum.BF4WilsonSpatialUnionVacuumRelaxation
 import YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
 
 namespace YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
@@ -27,18 +28,22 @@ set_option maxRecDepth 100000
 
 open YMGap.Constructive
 open YMGap.Constructive.CReal
+open YMGap.Continuum.BF4WilsonSpatialUnion
 open YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
   (completedInner completedUnit_norm_one)
 open YMGap.Continuum.BF4WilsonSpatialUnionTimeForm
 open YMGap.Continuum.BF4WilsonSpatialUnionTimePositive
 open YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
-  (completed_twoStep_form_gap)
+  (completed_twoStep_form_gap completedCenteredScalar)
 open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation (norm_decay)
 open YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
 open YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
 open YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 open YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
+open YMGap.Continuum.BF4WilsonSpatialUnionVacuumRelaxation
+  (connected_embedStage)
+open YMGap.Continuum.BF4WilsonSpatialUnionCenteredForm (centeredMoment)
 open YMGap.Continuum.BF4WilsonSpatialUnionPosdef (completedZero)
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap (twoStepRate)
@@ -56,6 +61,9 @@ local notation "U" => completedUnit nome_pos nome_lt_one hsmall hd hs
 local notation "Z" => completedZero nome_pos nome_lt_one hsmall hd hs
 local notation "T" => completedTime nome_pos nome_lt_one hsmall hd hs
 local notation "R" => resolvent nome_pos nome_lt_one hsmall hd hs
+local notation "E" => embedStage nome_pos nome_lt_one hsmall hd hs
+local notation "P0" => pairing nome_pos nome_lt_one hsmall hd hs
+local notation "K" => completedCenteredScalar nome_pos nome_lt_one hsmall hd hs
 
 /-- A concrete `RC`-valued transfer/sector package on the current completed
 Wilson carrier.  The fields deliberately use the same carrier and same form
@@ -94,6 +102,15 @@ structure CompletedPhysicalSU2Sector : Type 2 where
     ∀ x, B x vacuum = RCzero → ∀ n : Nat,
       RCle (B (T n x) (T n x))
         (RCscale (twoStepRate nome hd ^ n) (B x x))
+  /-- The completed pairing is pinned to the original same-object correlator. -/
+  same_object_correlator_pin :
+    ∀ (n : Nat) (x y : Stage),
+      B (E x) (T n (E y)) = Quotient.mk crealSetoid (P0 x (time n y))
+  /-- The centered completed correlator is pinned to the original centered moment. -/
+  connected_correlator_pin :
+    ∀ (n : Nat) (x y : Stage),
+      K n (E x) (E y) =
+        Quotient.mk crealSetoid (centeredMoment nome_pos nome_lt_one hsmall hd hs n x y)
   /-- The existing normalized excitation. -/
   probe : V
   /-- The probe is nonzero on the current completed carrier. -/
@@ -138,6 +155,10 @@ def currentSector : CompletedPhysicalSU2Sector where
   twoStep_strict_form_bound :=
     completed_twoStep_form_gap nome_pos nome_lt_one hsmall hd hs
   time_decay := norm_decay nome_pos nome_lt_one hsmall hd hs
+  same_object_correlator_pin :=
+    completedTime_correlator nome_pos nome_lt_one hsmall hd hs
+  connected_correlator_pin :=
+    connected_embedStage nome_pos nome_lt_one hsmall hd hs
   probe := unitExcitation
   probe_ne_zero := unitExcitation_ne_zero
   probe_vacuum_orthogonal := unitExcitation_orthogonal
@@ -166,6 +187,17 @@ theorem current_time_decay (x : V)
       (RCscale (twoStepRate nome hd ^ n) (B x x)) :=
   currentSector.time_decay x hx n
 
+/-- The packaged sector exposes the exact dense same-object correlator pin. -/
+theorem current_same_object_correlator_pin (n : Nat) (x y : Stage) :
+    B (E x) (T n (E y)) = Quotient.mk crealSetoid (P0 x (time n y)) :=
+  currentSector.same_object_correlator_pin n x y
+
+/-- The packaged sector exposes the exact connected same-object correlator pin. -/
+theorem current_connected_correlator_pin (n : Nat) (x y : Stage) :
+    K n (E x) (E y) =
+      Quotient.mk crealSetoid (centeredMoment nome_pos nome_lt_one hsmall hd hs n x y) :=
+  currentSector.connected_correlator_pin n x y
+
 /-- The packaged probe has a strict positive two-step response floor. -/
 theorem current_probe_twoStep_strict_lower :
     RCle (Quotient.mk crealSetoid (ofQ' rayleighFloor))
@@ -186,5 +218,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.currentSector
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_twoStep_strict_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_time_decay
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_same_object_correlator_pin
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_connected_correlator_pin
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_resolvent_probe_floor

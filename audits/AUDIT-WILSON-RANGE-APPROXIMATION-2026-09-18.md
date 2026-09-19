@@ -215,6 +215,8 @@ non-erasure, and explicit `1/4` squared-norm floor.
 The public projection lemmas are
 `CompletedPhysicalSU2Sector.current_twoStep_strict_form_bound`,
 `CompletedPhysicalSU2Sector.current_time_decay`,
+`CompletedPhysicalSU2Sector.current_same_object_correlator_pin`,
+`CompletedPhysicalSU2Sector.current_connected_correlator_pin`,
 `CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower`, and
 `CompletedPhysicalSU2Sector.current_resolvent_probe_floor`. This closes a
 forward landmark for the backward spectral/OS consumer while preserving the
@@ -224,5 +226,5 @@ continuum limit, or Clay theorem.
 
 Focused serialized check:
 `/tmp/ym-wilson-current-sector-20260918c.log`, SHA-256
-`0ca72d8747f547cb664be13c620615b749233366c0b2fa187850f26ce155e856`.
+`5df3271c7308c78b5b4229df1e346aa5e0595ef4296906b9372ea595a7ed3940`.
 The printed gates use only `{propext, Quot.sound}`.
