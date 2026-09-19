@@ -5429,6 +5429,7 @@ import YMGap.Continuum.BF4PhysicalConcreteCutoffTwoNontrivialEndpoint
 import YMGap.Continuum.BF4PhysicalCutoffTwoNontrivialCorrelator
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledNontrivialGapObservable
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledRootStrictFormGap
+import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledVacuumComplementDichotomy
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

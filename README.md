@@ -126,6 +126,19 @@ gap consumer; it is not a cofinal capacity comparison, a thermodynamic or
 continuum passage, an OS/QFT reconstruction, or an all-group result.
 Focused checks used only `{propext, Quot.sound}` and introduced no `sorryAx`.
 
+**Fixed pulled-carrier vacuum-complement split, checked 2026-09-19:**
+`BF4PhysicalBoundaryCutoffTwoPulledVacuumComplementDichotomy` now connects
+the existing constructive root/non-root coefficient split to the strict
+finite form bound.  `rootSupported_centered_forms_eqv_zero` records that the
+root-supported branch is annihilated by moving centering, while
+`nonRoot_strict_form_gap` proves strict contraction for every explicit
+non-root witness.  `coefficient_centered_gap_split` packages the two branches
+without erasing the witness.  This remains a fixed finite SU(2) statement;
+the cofinal matched carrier, physical-gap variation, OS/continuum passage,
+and Clay endpoint remain open.  Focused check:
+`/tmp/ym-pulled-vacuum-complement-dichotomy.log`; only
+`{propext, Quot.sound}` were permitted.
+
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
 contracts the explicit dense physical-to-strong lift certificate directly to

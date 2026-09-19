@@ -62,6 +62,20 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: focused safe checks passed with only
   `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
 
+## PROVED fixed pulled-carrier vacuum-complement dichotomy (2026-09-19 UTC)
+
+- **file**: `BF4PhysicalBoundaryCutoffTwoPulledVacuumComplementDichotomy.lean`.
+- **proved**: `rootSupported_centered_forms_eqv_zero` annihilates the
+  root-supported branch under moving centering;
+  `nonRoot_strict_form_gap` proves strict contraction for every explicit
+  non-root coordinate witness; and `coefficient_centered_gap_split` packages
+  the constructive two-branch split while retaining its data-bearing witness.
+- **boundary**: this is a fixed 65-state SU(2) pulled-carrier result.  It does
+  not supply the cofinal recoding/variation budget, matched physical carrier,
+  thermodynamic or continuum passage, QFT axioms, or Clay theorem.
+- **verification**: `/tmp/ym-pulled-vacuum-complement-dichotomy.log`; only
+  `{propext, Quot.sound}` were permitted and no `sorryAx` was introduced.
+
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4MatchedPhysicalAFTwoSidedMarginCompiler.lean`.
