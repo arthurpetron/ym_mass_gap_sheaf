@@ -13,6 +13,22 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4MatchedPhysicalAFTwoSidedMarginCompiler.lean`.
+- **proved**: `MatchedPhysicalDynamicScalarTrajectory.toBlockedMarginBand`
+  composes the matched cubic lower/upper square estimates with an explicit
+  positive lower quadratic spacing envelope.  It supplies the literal matched
+  `blockedMargin` floor `Λ/(2*C)` and ceiling `2*Λ/c` relative to the same
+  spacing chart.
+- **residue**: this is a scalar matched-chart result only.  It does not
+  identify `blockedMargin` with the completed family's `physicalGap`, produce
+  physical-gap variation, or construct an observable, OS/continuum, or Clay
+  witness.  The lower spacing envelope remains an explicit Type-valued input.
+- **verification**: `/tmp/ym-two-sided-margin-final.log`, source SHA-256
+  `cf72592bc487f808b7a80a9d1f010894d83394c4138e9607a43659b2530f2e54`;
+  only `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED forward/backward spacing compiler (2026-09-18 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicSpacingTailCompiler.lean`.

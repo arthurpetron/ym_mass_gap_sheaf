@@ -55,6 +55,43 @@ observable and physical time.
 Focused check: `/tmp/ym-wilson-physical-calibration-mono5.log`, SHA-256
 `ab31ffac1263ad323e8de12434565453be845c5457b8a09fd35e480be1d5e5e2`.
 
+### Current forward/backward join: literal matched margin band (2026-09-18)
+
+The scalar compiler
+`BF4MatchedPhysicalAFTwoSidedMarginCompiler.MatchedPhysicalDynamicScalarTrajectory.toBlockedMarginBand`
+now composes the matched cubic estimate
+`1/2 * g^2 ≤ blockedMargin(g) ≤ 2 * g^2` with a new explicit lower
+quadratic spacing envelope `c * g^2 ≤ a(g) * Λ`.  Its output is a positive
+floor `Λ/(2*C)` and ceiling `2*Λ/c` for the literal matched `blockedMargin`
+relative to `a(g)`.  The lower and upper estimates are proved by constructive
+`Q'` division and cancellation identities; the focused source check reports
+only `{propext, Quot.sound}`.
+
+This contracts one useful arithmetic edge but intentionally stops at the
+matched blocked scalar.  The dynamic completed family defines
+`physicalGap = latticeMargin / transferSpacing`; no declaration currently
+identifies that family rate with this `blockedMargin`, and no inhabited
+`SummableRationalStepVariation family.physicalGap` was found.  Therefore the
+exact-log, same-object OS/continuum, and Clay nodes remain open.  Evidence:
+`/tmp/ym-two-sided-margin-final.log`, source SHA-256
+`cf72592bc487f808b7a80a9d1f010894d83394c4138e9607a43659b2530f2e54`.
+
+### Parallel exact-ray product audit (2026-09-18)
+
+The finite-kernel positivity and routing declarations do not construct the
+exact `ExplicitTransitionProductExtension`.  The smallest missing field is
+the cofinal capacity comparison in
+`BF4PhysicalMatchedAFDynamicExplicitRayTransitionProductCompiler.lean`:
+`MatchedPhysicalDynamicExplicitRayCanonicalCapacityCheckProducer.capacityCheck`
+requires `canonicalFiniteCapacityMarginCheck (...) = true` for every cofinal
+cutoff.  Existing declarations prove positive routing, nonnegative routed
+loads, positive finite margins, and payment of each routed edge, but only for
+cutoff-dependent restricted capacities.  The proxy margin is below the exact
+finite margin, while persistence of a fixed compiled ray floor remains open;
+the global-edge-floor shortcut is separately ruled out.  This is the next
+explicit product-side analytic estimate, not an automatic consequence of
+finite-kernel positivity.
+
 The next arithmetic contraction is now also checked.  The generic
 `FullLogMarginLower.rationalMargin_le_hamiltonianGapRealAll` theorem proves
 the explicit full-range floor `1 - sep ≤ -log(sep)`.  On the current carrier,

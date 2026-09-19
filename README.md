@@ -122,6 +122,28 @@ and rate band remain open.  Focused check:
 `55cac7b3f1e8ef7f578a3873a9c6bd84f7ca012f49c99e167bce7b8b9326495e`.
 Only `{propext, Quot.sound}` were reported.
 
+**Forward/backward two-sided scalar margin compiler, checked 2026-09-18:**
+`BF4MatchedPhysicalAFTwoSidedMarginCompiler.MatchedPhysicalDynamicScalarTrajectory.toBlockedMarginBand`
+contracts the matched cubic bounds with an explicit Type-valued lower
+quadratic spacing envelope.  It produces an explicit positive floor and
+ceiling for the literal matched `blockedMargin` in units of the same spacing
+chart.  This is a scalar calibration of the matched blocked observable only:
+it does not identify that margin with the separately completed transfer's
+`physicalGap`, and it does not construct the missing gap-variation certificate,
+observable pin, OS/continuum handoff, or Clay endpoint.  Focused check:
+`/tmp/ym-two-sided-margin-final.log`; source SHA-256
+`cf72592bc487f808b7a80a9d1f010894d83394c4138e9607a43659b2530f2e54`.
+Only `{propext, Quot.sound}` were reported.
+
+**Parallel exact-ray product audit, checked 2026-09-18:** finite-kernel
+positivity, routing, and cutoff-dependent margin payment still do not produce
+the exact `ExplicitTransitionProductExtension`.  Its smallest missing field is
+the cofinal capacity comparison
+`MatchedPhysicalDynamicExplicitRayCanonicalCapacityCheckProducer.capacityCheck`;
+the restricted-capacity product cannot be lifted to the exact compiled ray
+capacity, and the global-edge-floor shortcut is ruled out.  This is the next
+product-side estimate, not a completed transition-product witness.
+
 **Forward/backward input audit, checked 2026-09-18:**
 The exact-log backward node
 `DynamicVacuumSectorObservablePin.exactLogRateCauchy` has two independent
