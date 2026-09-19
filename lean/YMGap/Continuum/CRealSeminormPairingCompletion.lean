@@ -74,6 +74,130 @@ theorem representativeInner_welldef {X X' Y Y' : D.Cauchy}
     Q'.le_trans' _ _ _ (hK k hk).2
       (Q'.add_le_add_left _ _ _ (Q'.le_of_eqv (ExpNeg.two_halves epsilon)))⟩
 
+/-! A Cauchy stream is a genuine dense approximation in the second pairing
+argument.  The proof keeps the stream's supplied modulus and uses the same
+finite `pairing_close` estimate as the mixed-limit construction; no quotient
+representative is selected and no completed continuity axiom is added. -/
+
+theorem representativeInner_right_stage_converges
+    (X Y : D.Cauchy) :
+    ConvergesTo
+      (fun n => representativeInner P X (D.constant (Y.seq n)))
+      (representativeInner P X Y) := by
+  intro epsilon hepsilon
+  let q : Q' := HalfPow.half * (HalfPow.half * epsilon)
+  have hqpos : (0 : Q') < q :=
+    ExpNeg.half_mul_pos _ (ExpNeg.half_mul_pos epsilon hepsilon)
+  let B : Q' := pairCeiling P X Y
+  have hB : (0 : Q') ≤ B := pairCeiling_nonnegative P X Y
+  let delta : Q' := pairDelta P X Y q
+  have hdelta : (0 : Q') < delta := pairingTolerance_pos B hB hqpos
+  let Nstage : Nat := max (normBase P Y) (Y.modulus delta)
+  refine ⟨Nstage, fun N hN => ?_⟩
+  have hNbase : normBase P Y ≤ N :=
+    Nat.le_trans (Nat.le_max_left _ _) hN
+  have hNmod : Y.modulus delta ≤ N :=
+    Nat.le_trans (Nat.le_max_right _ _) hN
+  obtain ⟨NstA, hstA⟩ :=
+    (pairSequence_converges P X (D.constant (Y.seq N))) q hqpos
+  obtain ⟨NstB, hstB⟩ :=
+    (pairSequence_converges P X Y) q hqpos
+  let m : Nat := max (max NstA NstB)
+    (max (max (normBase P X) (normBase P Y)) (Y.modulus delta))
+  have hmA : NstA ≤ m :=
+    Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _)
+  have hmB : NstB ≤ m :=
+    Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _)
+  have hmX : normBase P X ≤ m :=
+    Nat.le_trans
+      (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _))
+      (Nat.le_max_right _ _)
+  have hmY : normBase P Y ≤ m := by
+    exact Nat.le_trans
+      (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _))
+      (Nat.le_max_right _ _)
+  have hmDelta : Y.modulus delta ≤ m := by
+    exact Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_right _ _)
+  obtain ⟨NapxA, hclA⟩ := hstA m hmA
+  obtain ⟨NapxB, hclB⟩ := hstB m hmB
+  have hdistX :
+      leEv (D.distSq (X.seq m) (X.seq m)) (ofQ' delta) := by
+    exact leEv_trans (leEv_of_equiv (D.distSq_refl (X.seq m)))
+      (leEv_le_ofQ'_of_approx_le (fun _ => Q'.le_of_lt hdelta))
+  have hdistY :
+      leEv (D.distSq (Y.seq m) (Y.seq N)) (ofQ' delta) :=
+    Y.isCauchy delta hdelta m N hmDelta hNmod
+  have hnormX :
+      leEv (P.pairing (X.seq m) (X.seq m)) (ofQ' B) := by
+    exact leEv_trans (diagonal_le_normCeiling P X m hmX)
+      (leEv_of_le (ofQ'_le_ofQ'
+        (Q'.le_max'_left (normCeiling P X) (normCeiling P Y))))
+  have hnormY :
+      leEv (P.pairing (Y.seq m) (Y.seq m)) (ofQ' B) := by
+    exact leEv_trans (diagonal_le_normCeiling P Y m hmY)
+      (leEv_of_le (ofQ'_le_ofQ'
+        (Q'.le_max'_right (normCeiling P X) (normCeiling P Y))))
+  have hpair := P.pairing_close
+    (X.seq m) (X.seq m) (Y.seq m) (Y.seq N) B hB q hqpos
+    hdistX hdistY hnormY hnormX
+  obtain ⟨K, hK⟩ := evTwoSided_of_leRat hpair.1 hpair.2 hqpos
+  refine ⟨max (max NapxA NapxB) K, fun k hk => ?_⟩
+  have hkA : NapxA ≤ k :=
+    Nat.le_trans (Nat.le_trans (Nat.le_max_left _ _) (Nat.le_max_left _ _)) hk
+  have hkB : NapxB ≤ k :=
+    Nat.le_trans (Nat.le_trans (Nat.le_max_right _ _) (Nat.le_max_left _ _)) hk
+  obtain ⟨hA1, hA2⟩ := hclA k hkA
+  obtain ⟨hB1, hB2⟩ := hclB k hkB
+  have hkK : K ≤ k := by
+    exact Nat.le_trans (Nat.le_max_right _ _) hk
+  obtain ⟨hK1, hK2⟩ := hK k hkK
+  have hK1' :
+      (pairSequence P X (D.constant (Y.seq N)) m).approx k ≤
+        (pairSequence P X Y m).approx k + (q + q) := by
+    simpa [pairSequence] using hK2
+  have hK2' :
+      (pairSequence P X Y m).approx k ≤
+        (pairSequence P X (D.constant (Y.seq N)) m).approx k + (q + q) := by
+    simpa [pairSequence] using hK1
+  have hfour : ∀ u v w z : Q',
+      u ≤ v + q → v ≤ w + (q + q) →
+      w ≤ z + q → u ≤ z + epsilon := by
+    intro u v w z huv hvw hwz
+    have h1 : u ≤ (w + (q + q)) + q :=
+      Q'.le_trans' _ _ _ huv (Q'.add_le_add_right _ _ q hvw)
+    have hw : w + (q + q) ≤ (z + q) + (q + q) :=
+      Q'.add_le_add_right _ _ (q + q) hwz
+    have h2 : u ≤ ((z + q) + (q + q)) + q :=
+      Q'.le_trans' _ _ _ h1 (Q'.add_le_add_right _ _ q hw)
+    refine Q'.le_trans' _ _ _ h2 ?_
+    have hqq : (q + q).eqv (HalfPow.half * epsilon) :=
+      ExpNeg.two_halves (HalfPow.half * epsilon)
+    have htail : (q + ((q + q) + q)).eqv ((q + q) + (q + q)) := by
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_left q _ _ (Q'.add_assoc_eqv q q q)) ?_
+      exact Q'.eqv_symm (Q'.add_assoc_eqv q q (q + q))
+    have hsum : (((z + q) + (q + q)) + q).eqv
+        (z + epsilon) := by
+      refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv (z + q) (q + q) q) ?_
+      refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv z q ((q + q) + q)) ?_
+      refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr_left z _ _ htail) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr_left z _ _ (Q'.add_eqv_congr' hqq hqq)) ?_
+      exact Q'.add_eqv_congr_left z _ _ (ExpNeg.two_halves epsilon)
+    exact Q'.le_of_eqv hsum
+  exact ⟨hfour _ _ _ _ hA2 hK1' hB1,
+    hfour _ _ _ _ hB2 hK2' hA1⟩
+
+theorem representativeInner_eq_of_right_stage_pairings
+    (X X' Y : D.Cauchy)
+    (h : ∀ z : D.Carrier,
+      Equiv (representativeInner P X (D.constant z))
+        (representativeInner P X' (D.constant z))) :
+    Equiv (representativeInner P X Y) (representativeInner P X' Y) := by
+  apply Equiv_of_limit_of_equal (fun n => h (Y.seq n))
+  · exact representativeInner_right_stage_converges P X Y
+  · exact representativeInner_right_stage_converges P X' Y
+
 /-- Quotient descent on the SAME supplied squared-seminorm completion. -/
 def completedInner : D.Completion → D.Completion → RC :=
   Quotient.lift₂ (fun X Y => Quotient.mk crealSetoid (representativeInner P X Y))
@@ -148,6 +272,8 @@ end YMGap.Continuum.CRealSeminormPairingCompletion
 #print axioms YMGap.Continuum.CRealSeminormPairingCompletion.closeRate
 #print axioms YMGap.Continuum.CRealSeminormPairingCompletion.pairSequence_close
 #print axioms YMGap.Continuum.CRealSeminormPairingCompletion.representativeInner_welldef
+#print axioms YMGap.Continuum.CRealSeminormPairingCompletion.representativeInner_right_stage_converges
+#print axioms YMGap.Continuum.CRealSeminormPairingCompletion.representativeInner_eq_of_right_stage_pairings
 #print axioms YMGap.Continuum.CRealSeminormPairingCompletion.completedInner
 #print axioms YMGap.Continuum.CRealSeminormPairingCompletion.completedInner_mk
 #print axioms YMGap.Continuum.CRealSeminormPairingCompletion.representativeInner_constant

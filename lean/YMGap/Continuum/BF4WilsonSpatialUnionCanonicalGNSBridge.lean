@@ -32,11 +32,13 @@ open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.CRealSeminormCompletion
 open YMGap.Continuum.CRealSeminormCompletion.SquaredSeminorm
+open YMGap.Continuum.CRealSeminormPairingCompletion
+  (representativeInner_eq_of_right_stage_pairings)
 open YMGap.Continuum.MeasureLinkedOSReconstruction
 open YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
 open YMGap.Continuum.BF4WilsonSpatialUnion (zeroStage unitStage)
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
-  (completedInner_symm)
+  (completedInner_symm pairingData)
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
   (completedInner)
 open YMGap.Continuum.BF4WilsonSpatialUnionPosdef
@@ -378,6 +380,41 @@ theorem stageClass_eq_iff_current_eq
   · intro hxy
     exact F.stageClass_eq_of_current_eq hxy
 
+/-- The existing explicit Cauchy-stream pairing continuity constructs the
+finite-stage separation certificate.  This is the forward/backward meet:
+finite-stage equality is first extended along the supplied Cauchy modulus,
+then the already-proved completed Wilson pairing separation returns source
+carrier equality. -/
+def ofExistingPairingContinuity
+    (F : CurrentStageCauchyFormCertificate P) :
+    CurrentStagePairingSeparationCertificate P F where
+  separates := by
+    intro x y hxy
+    apply completed_eq_of_pairings nome_pos nome_lt_one hsmall hd hs
+      (BF4WilsonSpatialUnionSeminorm.embedStage
+        nome_pos nome_lt_one hsmall hd hs x)
+      (BF4WilsonSpatialUnionSeminorm.embedStage
+        nome_pos nome_lt_one hsmall hd hs y)
+    intro z
+    refine Quotient.inductionOn z ?_
+    intro Y
+    apply Quotient.sound
+    apply representativeInner_eq_of_right_stage_pairings
+      (pairingData nome_pos nome_lt_one hsmall hd hs)
+      ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant x)
+      ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant y) Y
+    intro s
+    have hstage := hxy s
+    change B (BF4WilsonSpatialUnionSeminorm.embedStage
+        nome_pos nome_lt_one hsmall hd hs x)
+        (BF4WilsonSpatialUnionSeminorm.embedStage
+          nome_pos nome_lt_one hsmall hd hs s) =
+      B (BF4WilsonSpatialUnionSeminorm.embedStage
+        nome_pos nome_lt_one hsmall hd hs y)
+        (BF4WilsonSpatialUnionSeminorm.embedStage
+          nome_pos nome_lt_one hsmall hd hs s) at hstage
+    exact Quotient.exact hstage
+
 end CurrentStagePairingSeparationCertificate
 
 /-! A dense-stage dynamic pin is deliberately weaker than the arbitrary
@@ -532,6 +569,19 @@ theorem twoStep_fixed_stage_eq_zero
           (F.transport.mapCauchy
             ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant zeroStage)) = _
       exact F.mapCauchy_zero
+
+theorem twoStep_fixed_stage_eq_zero_of_existing_pairing_continuity
+    (C : CurrentStageDenseTwoStepCertificate P F)
+    (x : BF4WilsonSpatialUnion.Stage)
+    (hx : B (BF4WilsonSpatialUnionSeminorm.embedStage
+      nome_pos nome_lt_one hsmall hd hs x)
+      (BF4WilsonSpatialUnionSeminorm.completedUnit
+        nome_pos nome_lt_one hsmall hd hs) = RCzero)
+    (hfixed : P.op.T (P.op.T (F.stageClass x)) = F.stageClass x) :
+    F.stageClass x = embedV W.toGNSData W.toGNSData.zero :=
+  C.twoStep_fixed_stage_eq_zero
+    (CurrentStagePairingSeparationCertificate.ofExistingPairingContinuity F)
+    x hx hfixed
 
 end CurrentStageDenseTwoStepCertificate
 
@@ -1302,10 +1352,12 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.stageClass_eq_of_current_eq
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStagePairingSeparationCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStagePairingSeparationCertificate.stageClass_eq_iff_current_eq
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStagePairingSeparationCertificate.ofExistingPairingContinuity
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_correlation_eq_current
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_fixed_stage_eq_zero
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_fixed_stage_eq_zero_of_existing_pairing_continuity
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate.toTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyProbeCertificate

@@ -49,9 +49,9 @@ uninhabited.  `CurrentStageCauchyTransportCertificate` and
 stream/null descent from finite-stage metric data and expose the remaining
 Gram/zero/unit pins.  `CurrentStageDenseTwoStepCertificate` handles exact
 two-step transport only on finite-stage canonical images; arbitrary-limit
-dynamics and probe pins remain open. Current completed equality descends to
-canonical dense-stage equality, but the reverse density/separation direction
-is still unproved. Changing-spacing control,
+dynamics and probe pins remain open. The finite-stage reverse separation edge
+is now constructed from explicit pairing continuity, while arbitrary-stream
+range/dynamics remain open. Changing-spacing control,
 physical mass calibration, continuum
 QFT construction and every-group Yang--Mills remain open.  The focused check
 used only `{propext, Quot.sound}` and produced no `sorryAx`; the detailed
@@ -61,15 +61,19 @@ The reverse finite-stage edge is now named explicitly as
 `CurrentStagePairingSeparationCertificate`.  Its checked consumer,
 `CurrentStagePairingSeparationCertificate.stageClass_eq_iff_current_eq`,
 proves the exact two-way compatibility for transported stage classes when
-that separation datum is supplied.  The datum itself is still uninhabited:
-it is the remaining density/continuity proof, not an assumed canonical
-identification.
+that separation datum is supplied.  The constructor
+`CurrentStagePairingSeparationCertificate.ofExistingPairingContinuity` now
+builds that datum from the generic Cauchy-stream pairing-continuity theorem;
+the remaining uninhabited inputs are the finite-stage transport/form pins and
+the arbitrary-stream canonical range/dynamics bridge.
 
-With that certificate and the finite-stage dynamic pin, the checked consumer
+With that constructed certificate and the finite-stage dynamic pin, the checked consumer
 `CurrentStageDenseTwoStepCertificate.twoStep_fixed_stage_eq_zero` now excludes
 canonical two-step fixed points among transported finite stages, assuming the
-same explicit current vacuum-orthogonality premise.  This remains conditional
-and finite-stage; arbitrary canonical Cauchy vectors still require the dynamic
+same explicit current vacuum-orthogonality premise.  The convenience theorem
+`twoStep_fixed_stage_eq_zero_of_existing_pairing_continuity` supplies the
+constructed separation automatically.  This remains conditional and
+finite-stage; arbitrary canonical Cauchy vectors still require the dynamic
 density/range bridge.
 
 The finite-window operator realization below is now a historical checkpoint.

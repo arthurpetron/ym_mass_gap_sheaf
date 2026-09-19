@@ -654,6 +654,17 @@ claimed. Focused check log: `/tmp/ym-stage-current-eq8.log`; SHA-256
 `b120d50e2f06cc6305f749cc22d8b2071439090ee472389304b8120fc96573dc`.
 The new declaration uses only `{propext, Quot.sound}`.
 
+**Generic Cauchy-stream pairing continuity, checked 2026-09-18:**
+`CRealSeminormPairingCompletion.representativeInner_right_stage_converges`
+constructs an explicit `ConvergesTo` modulus for pairing a fixed Cauchy stream
+against the finite terms of a second stream.  The proof uses the supplied
+stream modulus, `pairing_close`, and a four-quarter rational budget; it adds no
+completed continuity axiom.  The derived
+`representativeInner_eq_of_right_stage_pairings` theorem upgrades termwise
+finite-stage pairing equality to equality against the completed stream.
+Focused check log: `/tmp/ym-generic-stage-continuity-final.log`; the new
+declarations use only `{propext, Quot.sound}`.
+
 **Finite-stage reverse separation edge, checked 2026-09-18:**
 `CurrentStagePairingSeparationCertificate` now names the exact remaining
 backward-facing datum: equality of completed Wilson pairings against every
@@ -661,10 +672,12 @@ finite stage must separate the two source stages.  Its consumer,
 `CurrentStagePairingSeparationCertificate.stageClass_eq_iff_current_eq`,
 composes that datum with the existing forward null-descent theorem and proves
 two-way compatibility between transported canonical stage classes and the
-original completed Wilson stages.  The certificate is intentionally
-uninhabited; finite Gram pins do not themselves prove density/continuity or
-completed-carrier separation.  Focused check log:
-`/tmp/ym-stage-separation4.log`; the new declarations use only
+original completed Wilson stages.  The constructor
+`CurrentStagePairingSeparationCertificate.ofExistingPairingContinuity` now
+supplies the certificate from the generic continuity theorem.  The remaining
+open inputs are the finite-stage transport/form pins and the arbitrary-stream
+canonical range/dynamics bridge.  Focused check log:
+`/tmp/ym-bridge-real-separation2.log`; the new declarations use only
 `{propext, Quot.sound}` and introduce no `sorryAx`, classical axiom, or native
 computation.
 
@@ -674,10 +687,12 @@ the finite-stage two-step intertwining pin with the named reverse separation
 certificate and the inhabited current-carrier fixed-point exclusion.  It
 shows that any transported finite-stage canonical class that is two-step
 fixed and current-vacuum-orthogonal is canonical zero.  This is a genuine
-backward contraction on the finite dense image, but it remains conditional on
-the uninhabited transport/separation inputs and does not cover arbitrary
+backward contraction on the finite dense image.  The convenience theorem
+`twoStep_fixed_stage_eq_zero_of_existing_pairing_continuity` supplies the
+separation constructor automatically; only the finite-stage transport/form
+and dynamic certificates remain conditional.  It does not cover arbitrary
 canonical Cauchy vectors or a completed canonical spectral gap.  Focused check
-log: `/tmp/ym-stage-fixed-zero2.log`; the new theorem uses only
+log: `/tmp/ym-bridge-real-separation-consumer.log`; the new theorems use only
 `{propext, Quot.sound}`.
 
 **Dynamic bridge stream factorization, checked 2026-09-18:**
