@@ -154,6 +154,12 @@ and `..._correlationSquare_le_norm` give a literal same-object
 correlation-square estimate for the concrete parity vector, first against the
 transferred norm and then against the original completed norm.
 
+The same module now also proves
+`..._coefficient_nonnegative` from transfer positivity and self-adjointness,
+and `..._correlationSquare_le_normSquare` by composing completed
+Cauchy--Schwarz with transfer contraction.  Thus the realized coefficient has
+the standard nonnegative squared-norm control at the same completed object.
+
 This is a causal consumer-side meet: the forward carrier and coefficient are
 already constructed, while the backward correlation-square obligation is now
 discharged without inventing a uniform all-vector rate.  It remains fixed-

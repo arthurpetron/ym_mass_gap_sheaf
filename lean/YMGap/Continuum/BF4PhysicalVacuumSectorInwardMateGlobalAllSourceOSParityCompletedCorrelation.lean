@@ -96,9 +96,68 @@ theorem globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_n
     (globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_transferredNorm K)
     (centralPhysicalCompletedMarkovTransfer_contraction w hw K 0 vector)
 
+/-- The concrete parity same-object coefficient is nonnegative because the
+completed physical Markov transfer is positive and self-adjoint. -/
+theorem globalInwardMateCenteredParityCompletedObservable_coefficient_nonnegative
+    (K : Nat) :
+    let w := anchorCoupling
+    let hw : (0 : Q') ≤ w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    CReal.RCnonneg
+      (D.cinnerCompl vector
+        (centralPhysicalCompletedMarkovTransfer w hw K 0 vector)) := by
+  dsimp only
+  let w := anchorCoupling
+  let hw : (0 : Q') ≤ w := by decide
+  let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+  let vector := globalInwardMateCenteredParityCompletedObservable K
+  have hpositive := centralPhysicalCompletedMarkovTransfer_positive
+    w hw K 0 vector
+  rw [centralPhysicalCompletedMarkovTransfer_selfAdjoint] at hpositive
+  exact hpositive
+
+/-- Transfer contraction upgrades Cauchy--Schwarz to the usual squared
+same-object coefficient bound by the original completed norm square. -/
+theorem globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_normSquare
+    (K : Nat) :
+    let w := anchorCoupling
+    let hw : (0 : Q') ≤ w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    CReal.RCle
+      (CReal.RCmul
+        (physicalConstantRC
+          (centralPhysicalJointQuadratic w hw K 0
+            (globalInwardMateCenteredParity K)))
+        (physicalConstantRC
+          (centralPhysicalJointQuadratic w hw K 0
+            (globalInwardMateCenteredParity K))))
+      (CReal.RCmul (D.cinnerCompl vector vector)
+        (D.cinnerCompl vector vector)) := by
+  dsimp only
+  let w := anchorCoupling
+  let hw : (0 : Q') ≤ w := by decide
+  let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+  let vector := globalInwardMateCenteredParityCompletedObservable K
+  let transferred := centralPhysicalCompletedMarkovTransfer w hw K 0 vector
+  have hcs := D.RC_cauchy_schwarz vector transferred
+  have hcoefficient := globalInwardMateCenteredParityCompletedObservable_sameObjectCoefficient K
+  change D.cinnerCompl vector transferred = _ at hcoefficient
+  rw [hcoefficient] at hcs
+  have hcontract := centralPhysicalCompletedMarkovTransfer_contraction
+    w hw K 0 vector
+  have hnorm := D.cinner_self_nonneg vector
+  have hmul := physicalRCmul_mono_nonnegative_left hnorm hcontract
+  exact CReal.RCle_trans hcs hmul
+
 end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation
 
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_transferredNorm
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_norm
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_coefficient_nonnegative
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_normSquare

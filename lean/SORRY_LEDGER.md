@@ -85,6 +85,15 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **boundary**: this is a one-observable fixed-anchor finite carrier estimate.  It is not an all-vector strict gap and supplies no endpoint-coverage producer, thermodynamic/continuum passage, QFT axioms, physical mass calibration, all-group construction, or Clay theorem.
 - **verification**: `/tmp/ym-parity-correlation-check3.log`; only `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
+The same module now also proves coefficient nonnegativity from completed
+transfer positivity/self-adjointness and
+`globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_normSquare`
+by transfer contraction.  These are still one-observable consequences, not a
+uniform vacuum-complement gap or a continuum result.
+
+- **verification**: `/tmp/ym-parity-correlation-check4.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED finite cutoff-two non-vacuity endpoint (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteCutoffTwoNontrivialEndpoint.lean`.

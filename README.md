@@ -118,6 +118,11 @@ thermodynamic/continuum Yang--Mills theorem.  Focused verification is recorded
 in `/tmp/ym-parity-correlation-check3.log` under the `{propext, Quot.sound}`
 gate.
 
+The correlation module additionally records coefficient nonnegativity from
+transfer positivity/self-adjointness and bounds the coefficient square by the
+original completed norm square.  Focused verification of these extensions is
+in `/tmp/ym-parity-correlation-check4.log`, again under the constructive gate.
+
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.
