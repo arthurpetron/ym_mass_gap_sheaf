@@ -401,6 +401,11 @@ The probe response band is also transported through exact centering by
 `current_probe_connected_twoStep_lower` and
 `current_probe_connected_twoStep_upper`, so the nontrivial probe is witnessed
 as a connected observable rather than only as an uncentered form value.
+`BF4WilsonSpatialUnionDiscreteLogGap.lean` then computes the rational decay
+separator's binary range reduction and proves a genuine positive dimensionless
+transfer mass `currentTransferMass = -log(currentRate)`, with an exact
+`CReal.log` pin. The lattice-spacing conversion and any uniform physical-mass
+band remain explicit residuals.
 The resolvent probe remains centered, nonzero, and has the checked `1/4`
 squared-norm floor.
 This is the concrete forward landmark for the backward spectral/OS consumer,
@@ -410,6 +415,10 @@ does not establish a uniform gap, continuum survival, physical mass, or Clay
 closure. Focused check log:
 `/tmp/ym-wilson-current-sector-20260918c.log`; SHA-256
 `6339d52f59db13669b7a17b2ec5901c93396a89ddf0c41a1553bf1c64e070dfe`.
+
+The logarithmic transfer-mass check used
+`/tmp/ym-wilson-discrete-log-gap-20260918a.log`; SHA-256
+`1f56b616c701aa71c2454415c884a3ec65b288deb729e53de44f2d7669944126`.
 
 **Backward join review, 2026-09-18:** the legacy inward-test argument
 does not literally extend to all current Wilson windows. The legacy

@@ -231,3 +231,19 @@ Focused serialized check:
 `/tmp/ym-wilson-current-sector-20260918c.log`, SHA-256
 `6339d52f59db13669b7a17b2ec5901c93396a89ddf0c41a1553bf1c64e070dfe`.
 The printed gates use only `{propext, Quot.sound}`.
+
+## Fixed-spacing logarithmic transfer mass, checked 2026-09-18
+
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionDiscreteLogGap.lean` consumes the
+current strict rational rate `twoStepRate nome hd`. It constructs the genuine
+binary range reduction (`currentRateBinExp`, `currentRateMantissa`), defines
+`currentTransferMass` as the exact constructive `-log(currentRate)`, proves
+`currentTransferMass_pos`, and pins it through
+`currentTransferLogReduction` to `CReal.log`.
+
+This is the logarithmic conversion of the fixed discrete transfer rate only.
+No physical lattice spacing, canonical OS/GNS Hamiltonian, spacing-uniform
+rate band, or continuum mass theorem is inferred. Focused log:
+`/tmp/ym-wilson-discrete-log-gap-20260918a.log`; SHA-256
+`1f56b616c701aa71c2454415c884a3ec65b288deb729e53de44f2d7669944126`.
+All printed gates use only `{propext, Quot.sound}`.

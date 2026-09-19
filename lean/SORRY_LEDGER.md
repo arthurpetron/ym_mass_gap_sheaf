@@ -117,6 +117,23 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   Evidence: `/tmp/ym-wilson-current-sector-20260918c.log` (SHA-256
   `6339d52f59db13669b7a17b2ec5901c93396a89ddf0c41a1553bf1c64e070dfe`).
 
+## PROVED fixed-spacing logarithmic transfer mass (2026-09-18 UTC)
+
+- **file**: `BF4WilsonSpatialUnionDiscreteLogGap.lean`.
+- **proved**: `currentRate` is the existing rational strict decay separator;
+  `currentRateBinExp` and `currentRateMantissa` construct its binary
+  range-reduction data; `currentTransferMass` is the exact constructive
+  dimensionless quantity `-log(currentRate)`; `currentTransferMass_pos` proves
+  strict positivity; and `currentTransferMass_log_pin` supplies a genuine
+  `CReal.log` equivalence through `currentTransferLogReduction`.
+- **residue**: this is a fixed-spacing discrete transfer-mass certificate.
+  It does not divide by a physical lattice spacing, identify a canonical
+  OS/GNS Hamiltonian, or establish a uniform continuum mass gap.
+- **verification**: focused serialized check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
+  Evidence: `/tmp/ym-wilson-discrete-log-gap-20260918a.log` (SHA-256
+  `1f56b616c701aa71c2454415c884a3ec65b288deb729e53de44f2d7669944126`).
+
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 
 - `lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean`:
