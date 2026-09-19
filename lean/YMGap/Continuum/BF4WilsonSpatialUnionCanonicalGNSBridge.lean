@@ -67,6 +67,43 @@ local notation "R" => resolvent nome_pos nome_lt_one hsmall hd hs
 
 /-! ## The exact conditional carrier handoff -/
 
+/-- The static part of the carrier handoff: a map from the completed current
+carrier to the selected canonical completion, preserving zero and the full
+completed pairing.  This certificate contains no dynamics. -/
+structure CurrentCarrierFormCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W) : Type 2 where
+  map : V → GNSCompletionSpace W.toGNSData
+  map_zero : map Z = embedV W.toGNSData W.toGNSData.zero
+  form_preserving : ∀ x y,
+    W.toGNSData.cinnerCompl (map x) (map y) = B x y
+
+/-- The dynamic part of the carrier handoff.  It is deliberately separate from
+the static form certificate so a producer can establish time intertwining
+without silently supplying a form identification. -/
+structure CurrentCarrierTwoStepCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W)
+    (F : CurrentCarrierFormCertificate P) : Type 2 where
+  twoStep_intertwines : ∀ x,
+    F.map (T 2 x) = P.op.T (P.op.T (F.map x))
+
+/-- The probe-specific vacuum-complement certificate.  It is the smallest
+nontriviality-side input needed by the current resolvent consumer and is kept
+independent of the all-vector dynamic estimate. -/
+structure CurrentCarrierProbeCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W)
+    (F : CurrentCarrierFormCertificate P) : Type 2 where
+  probe_vacuum_orthogonal :
+    W.toGNSData.cinnerCompl (F.map (R unitExcitation)) P.op.vacuum = RCzero
+
 /-- The named OS/GNS carrier bridge still required by the current Wilson route.
 
 `map` is not assumed to be an identification: it is supplied together with
@@ -91,6 +128,23 @@ structure CurrentCarrierBridge
   /-- The transported normalized resolvent probe is in the canonical vacuum complement. -/
   probe_vacuum_orthogonal :
     W.toGNSData.cinnerCompl (map (R unitExcitation)) P.op.vacuum = RCzero
+
+/-- Reassemble the full bridge from its three independently producible
+certificates.  This is a structural constructor only: it does not create any
+of the certificates or weaken their carrier, form, or dynamics fields. -/
+def CurrentCarrierBridge.ofCertificates
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W)
+    (F : CurrentCarrierFormCertificate P)
+    (D : CurrentCarrierTwoStepCertificate P F)
+    (O : CurrentCarrierProbeCertificate P F) : CurrentCarrierBridge P where
+  map := F.map
+  map_zero := F.map_zero
+  form_preserving := F.form_preserving
+  twoStep_intertwines := D.twoStep_intertwines
+  probe_vacuum_orthogonal := O.probe_vacuum_orthogonal
 
 /-- The canonical probe data produced by a supplied carrier bridge. -/
 structure CanonicalProbeData
@@ -275,6 +329,7 @@ end CurrentCarrierBridge
 end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.ofCertificates
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonical_resolvent_norm_floor
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_norm_floor

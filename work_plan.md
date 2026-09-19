@@ -512,6 +512,18 @@ limit, or the Clay theorem. Focused check log:
 `/tmp/ym-canonical-probe-form-gap.log`; SHA-256
 `d1aaa55687fba30f2308f04d772f71034fe4c6e53f65184fdc9ce1a0b7e07e06`.
 
+**Bridge residual factorization, checked 2026-09-18:**
+`BF4WilsonSpatialUnionCanonicalGNSBridge.lean` now factors the uninhabited
+`CurrentCarrierBridge` into three independently producible certificates:
+`CurrentCarrierFormCertificate` (map, zero preservation, and exact completed
+pairing), `CurrentCarrierTwoStepCertificate` (two-step intertwining), and
+`CurrentCarrierProbeCertificate` (vacuum orthogonality of the transported
+resolvent probe). `CurrentCarrierBridge.ofCertificates` is only the structural
+reassembly of those fields. No certificate is inhabited by this change, and no
+all-vector density, changing-spacing control, continuum limit, or Clay claim is
+added. Focused check log: `/tmp/ym-canonical-bridge-factor.log`; SHA-256
+`cba7b3a9d4adc0abbec731171fdd0a788130b56a2c62b9f8d8ca28853db64c14`.
+
 **Concrete current physical SU(2) sector, checked 2026-09-18:**
 `BF4WilsonSpatialUnionCurrentSector.lean` packages the already checked
 same-carrier data as `CompletedPhysicalSU2Sector.currentSector`: the discrete
