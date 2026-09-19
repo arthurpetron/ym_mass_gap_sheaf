@@ -362,7 +362,7 @@ on that same carrier. For vectors already in the proved vacuum complement,
 `T^(2*n)x` and bounds its squared norm by the existing `q^(2*n)` decay, with
 q named explicitly by `twoStepRate w hd`. One focused serialized one-worker/
 20 GiB check passed;
-all twenty-two public gates lie within `{propext, Quot.sound}`. The explicit
+all twenty-three public gates lie within `{propext, Quot.sound}`. The explicit
 `evenOrbitSum_modulus X epsilon` uses the existing representative norm cap and
 `geometricCutoff (q*q)`; `evenOrbitSum_error_small` proves the error is below
 `epsilon` for every later index. This supplies a constructive
@@ -397,6 +397,21 @@ strict completed gap beyond the
 existing estimate, density of the strictly-past observable algebra,
 changing-spacing control, physical mass calibration, or continuum QFT.
 Evidence: `audits/AUDIT-WILSON-RANGE-APPROXIMATION-2026-09-18.md`.
+
+**Residual coercivity, checked 2026-09-18:**
+`BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_strict_form_bound`
+now converts the same strict two-step estimate into the explicit defect
+coercivity
+
+    (1 - q) * B(x,x) ≤ B(x, (I-T²)x)
+
+for every current-completion vector orthogonal to the current unit, with
+`q = twoStepRate w hd` named in the statement. The proof is an eventual-
+rational subtraction certificate on the SAME `UnionCompletion`; it adds no
+inverse, density, canonical GNS map, spacing schedule, or continuum claim.
+The focused serialized check `/tmp/ym-range-deficit4.log` passed with SHA-256
+`999bb855fc05e9c018be1aac0cb5cad0c89bbf267c81a0434837f73c725c5176` and the
+new theorem depends only on `{propext, Quot.sound}`.
 
 **Carrier-seam probe, checked 2026-09-18:** an attempted direct import of the
 older `BF4SpatialUnionResolvent` into the current Wilson range module was

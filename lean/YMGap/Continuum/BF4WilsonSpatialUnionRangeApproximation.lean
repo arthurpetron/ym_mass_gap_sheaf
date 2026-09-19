@@ -78,6 +78,28 @@ private theorem rc_sub_nonnegative_of_le {a b : RC} (h : RCle b a) :
   rw [rc_sub_self] at h'
   exact h'
 
+private theorem one_sub_mul (r a : Q') : Q'.eqv ((1 - r) * a) (a + -(r * a)) :=
+  Q'.eqv_trans _ _ _ (Q'.add_mul_eqv 1 (-r) a)
+    (Q'.add_eqv_congr' (Q'.one_mul_eqv a) (Q'.neg_mul_eqv r a))
+
+private theorem deficit_lower (r : Q') (norm form : RC)
+    (h : RCle form (RCscale r norm)) :
+    RCle (RCscale (1 - r) norm) (RCsub norm form) := by
+  revert h
+  refine Quotient.inductionOn₂ norm form ?_
+  intro N F h epsilon hepsilon
+  obtain ⟨index, hN⟩ := h epsilon hepsilon
+  refine ⟨index, fun n hn => ?_⟩
+  have hf := hN n hn
+  change F.approx n ≤ r * N.approx n + epsilon at hf
+  have hneg := Q'.neg_le_neg_add hf
+  have hsum := Q'.add_le_add_left (N.approx n) _ _ hneg
+  change (1 - r) * N.approx n ≤ (N.approx n + -F.approx n) + epsilon
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (one_sub_mul r (N.approx n)))
+    (Q'.le_trans' _ _ _ hsum
+      (Q'.ge_of_eqv (Q'.add_assoc_eqv _ _ _)))
+
 theorem evenOrbitResidual_kernel (x : V)
     (hx : B x (completedUnit hw0 hw1 hsmall hd hs) = RCzero)
     (hr : evenOrbitResidual hw0 hw1 hsmall hd hs x = Z) :
@@ -123,6 +145,21 @@ theorem evenOrbitResidual_form_nonnegative (x : V)
       (RCscale_mono_scalar (Q'.le_of_lt (twoStepRate_lt_one hw0 hd hs))
         (completedInner_nonnegative hw0 hw1 hsmall hd hs x))
   exact rc_sub_nonnegative_of_le (RCle_trans hgap hscale)
+
+/-! The strict two-step estimate pays the explicit margin `1-q` in the
+residual form. This is still a statement on the SAME completed carrier; it
+does not identify the residual with a canonical OS/GNS operator. -/
+
+theorem evenOrbitResidual_strict_form_bound (x : V)
+    (hx : B x (completedUnit hw0 hw1 hsmall hd hs) = RCzero) :
+    RCle
+      (RCscale (1 - q) (B x x))
+      (B x (evenOrbitResidual hw0 hw1 hsmall hd hs x)) := by
+  unfold evenOrbitResidual
+  rw [completedInner_sub_right]
+  have hgap := completed_twoStep_form_gap hw0 hw1 hsmall hd hs x hx
+  rw [rc_mul_ofQ'_eq_scale] at hgap
+  exact deficit_lower q (B x x) (B x (T 2 x)) hgap
 
 theorem evenOrbitCenteredResidual_form_nonnegative (x : V) :
     RCnonneg
@@ -489,6 +526,7 @@ def evenOrbitStage_range_data (x : Stage)
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_form_nonnegative
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_strict_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitCenteredResidual_form_nonnegative
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitCentered_correlator_difference_nonnegative
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_kernel

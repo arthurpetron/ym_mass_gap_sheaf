@@ -277,9 +277,19 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `evenOrbitCentered_correlator_difference_nonnegative` expresses it directly
   as nonnegativity of the connected lag-zero minus lag-two correlator
   difference. `evenOrbitResidual_selfAdjoint` proves symmetry of the actual
-  defect for the completed pairing. All twenty-two public gates lie within
+  defect for the completed pairing. All twenty-three public gates lie within
   `{propext, Quot.sound}`. This is fixed-spacing
   approximate range data, not an inverse, strict continuum gap, or Clay closure.
+
+  `evenOrbitResidual_strict_form_bound` now strengthens the same-carrier
+  residual result to the explicit coercivity
+  `(1 - twoStepRate w hd) * B(x,x) ≤ B(x,(I-T²)x)` on every supplied
+  vacuum-orthogonal vector. Its proof is an eventual-rational subtraction
+  argument and introduces no new carrier or hypothesis. The focused check
+  `/tmp/ym-range-deficit4.log` passed with SHA-256
+  `999bb855fc05e9c018be1aac0cb5cad0c89bbf267c81a0434837f73c725c5176`; the
+  theorem uses only `{propext, Quot.sound}`. This remains fixed-spacing SU(2)
+  data and does not provide the canonical OS/GNS bridge or continuum passage.
 
 - `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialClearedCovarianceCauchy.lean`:
   `combinedTest_supported` and
