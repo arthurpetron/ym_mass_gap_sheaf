@@ -59,9 +59,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **residue**: fixed-spacing small-nome SU(2) only; no changing-spacing
   survival, physical mass, canonical OS/GNSData bridge, continuum QFT, or
   all-group conclusion is asserted.
-- **verification**: focused serialized check passed; all four declarations
+- **verification**: focused serialized check passed; all five declarations
   use only `{propext, Quot.sound}`. Evidence:
-  `/tmp/ym-wilson-resolvent-response-20260918b.log`.
+  `/tmp/ym-wilson-resolvent-response-20260918c.log` (SHA-256
+  `5a6f7e354791ccff0bd347a76760a805ff5b2d12ed33d99172d350c0ca182201`).
 
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 
