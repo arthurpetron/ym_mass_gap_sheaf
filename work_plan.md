@@ -581,6 +581,17 @@ does not inhabit the bridge. Focused check log:
 `bb31825c87d97c6d2f680cd2737d75354cee5e1ca205272c354a0c8754207196`.
 Both declarations use only `{propext, Quot.sound}`.
 
+**Bridge contraction from stream certificates, checked 2026-09-18:**
+`CurrentCarrierCauchyFormCertificate.toBridge` is the explicit middle-out
+contraction: it composes the static quotient lift, dynamic two-step descent,
+and probe representative descent into `CurrentCarrierBridge.ofCertificates`.
+It is a structural composition only; the three producer certificates remain
+open and no canonical carrier identification, dense range, continuum limit, or
+Clay conclusion is added. Focused check log:
+`/tmp/ym-canonical-bridge-contraction1.log`; SHA-256
+`54983149e9660e7af3264d2dd90097b929c57aa4a8a2298884482dd8e9754dd6`.
+The constructor uses only `{propext, Quot.sound}`.
+
 **Bridge-map injectivity consequence, checked 2026-09-18:**
 `CurrentCarrierBridge.map_injective` proves that any supplied exact form
 certificate is automatically injective: equality of two canonical images is

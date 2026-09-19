@@ -137,6 +137,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   orthogonality. `...toProbeCertificate` descends this data to the existing
   completed-space probe certificate; no quotient representative is selected
   implicitly and the bridge remains uninhabited.
+- **proved**: `CurrentCarrierCauchyFormCertificate.toBridge` contracts the
+  static, dynamic, and probe stream certificates through their checked quotient
+  constructors into `CurrentCarrierBridge.ofCertificates`. This is structural
+  composition only; all three producer certificates and the bridge inhabitant
+  remain open.
 - **residue**: the bridge structure is intentionally uninhabited in this
   milestone. It is a named OS/GNS carrier-and-dynamics obligation, not a
   covert identification of the current carrier with canonical GNSData.
@@ -156,6 +161,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The probe stream-factorization check is
   `/tmp/ym-canonical-bridge-probe-stream1.log` (SHA-256
   `bb31825c87d97c6d2f680cd2737d75354cee5e1ca205272c354a0c8754207196`).
+  The stream-to-bridge contraction check is
+  `/tmp/ym-canonical-bridge-contraction1.log` (SHA-256
+  `54983149e9660e7af3264d2dd90097b929c57aa4a8a2298884482dd8e9754dd6`).
   The earlier bridge log was `/tmp/ym-wilson-canonical-bridge-20260918c.log`;
   SHA-256
   `7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`.

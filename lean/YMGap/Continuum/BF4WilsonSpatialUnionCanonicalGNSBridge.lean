@@ -292,6 +292,22 @@ def CurrentCarrierBridge.ofCertificates
   twoStep_intertwines := D.twoStep_intertwines
   probe_vacuum_orthogonal := O.probe_vacuum_orthogonal
 
+/-- Contract the three stream-level producer certificates into the named
+completed-space bridge. This is only composition of checked quotient descents;
+it does not construct any producer certificate. -/
+def CurrentCarrierCauchyFormCertificate.toBridge
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W)
+    (C : CurrentCarrierCauchyFormCertificate P)
+    (D : CurrentCarrierCauchyTwoStepCertificate P C)
+    (O : CurrentCarrierCauchyProbeCertificate P C) :
+    CurrentCarrierBridge P :=
+  CurrentCarrierBridge.ofCertificates P C.toFormCertificate
+    (CurrentCarrierCauchyTwoStepCertificate.toTwoStepCertificate C D)
+    (CurrentCarrierCauchyProbeCertificate.toProbeCertificate C O)
+
 /-- Exact form preservation makes the bridge map injective.  The proof uses the
 separating completed current pairing, so injectivity is not an extra field and
 does not require a representative choice or classical quotient reasoning. -/
@@ -587,6 +603,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyProbeCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyProbeCertificate.toProbeCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.ofCertificates
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate.toBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.map_injective
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_vacuum_orthogonal
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_twoStep_correlation_eq_current
