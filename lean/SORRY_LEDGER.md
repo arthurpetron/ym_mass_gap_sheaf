@@ -46109,6 +46109,38 @@ claimed by these checks.
   2214/2217 jobs, so a fresh dependency-complete pass remains pending.  The
   new declarations use only `{propext, Quot.sound}` and no `sorryAx`.
 
+#### [BF4-concrete-completed-carrier-realization] Concrete SU(2) carrier, transfer, vacuum, and correlator package — PROVED 2026-09-19
+
+- **milestone**: make the existing finite physical BF4/GNS objects meet in one
+  explicit SU(2) carrier realization and identify its same-object correlator.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCompletedCarrierRealization.lean`.
+- **declarations**:
+  `concretePhysicalSU2CompletedCarrier`,
+  `concrete_vacuum_inner_self_eq_one`, `concrete_transfer_selfAdjoint`,
+  `concrete_transfer_positive`, `concrete_transfer_contraction`,
+  `concrete_vacuum_fixed`, `concrete_vacuum_orthogonal_preserved`,
+  `concreteSameObjectCorrelation`,
+  `concreteSameObjectCorrelation_eq_physical`, and
+  `concrete_sameObjectCorrelationSq_decay_of_form_gap`.
+- **proof content**: the constructor records the literal physical completed
+  Markov transfer and normalized stationary vacuum at arbitrary finite
+  `(w,K,half)`.  Existing kernel-checked laws prove self-adjointness,
+  positivity, contraction, vacuum fixation, and preservation of the vacuum
+  complement.  The packaged correlator is definitionally the existing
+  `centralPhysicalCompletedMarkovPower` coefficient, and the final theorem
+  transports any separately supplied completed form-gap certificate to its
+  squared same-object decay.
+- **scope boundary**: this is finite and conditional on a strict form-gap
+  producer.  It does not construct the cofinal floor, a uniform producer, a
+  thermodynamic/continuum limit, QFT reconstruction, an all-group result, or
+  the Clay theorem.
+- **verification**: focused source check
+  `/tmp/BF4PhysicalCompletedCarrierRealization.check7.log` PASS; dependency
+  target `+YMGap.Continuum.BF4PhysicalCompletedCarrierRealization:olean` PASS
+  (1232 jobs).  All audited declarations use only `{propext, Quot.sound}` and
+  no `sorryAx`.
+
 #### [BF4-sector-quarter-slice-to-local-power-budget] Quarter slices meet the depth-budget interface — PROVED 2026-09-19
 
 - **milestone**: compile the existing sector-local quarter-rate slice route

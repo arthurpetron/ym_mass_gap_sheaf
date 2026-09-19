@@ -56498,6 +56498,29 @@ stopped after generated transport/coverage jobs had reached 2214/2217, so that
 cache-completion check is still pending and is not being presented as a proof
 milestone.
 
+## 237. Make the finite physical carrier/correlator meet explicit (2026-09-19)
+
+`BF4PhysicalCompletedCarrierRealization.lean` now packages the existing
+finite BF4/GNS construction as `concretePhysicalSU2CompletedCarrier`: its
+carrier is the literal completed physical GNS space, its transfer is the
+completed physical Markov transfer, and its vacuum is the normalized
+stationary vector.  Separate checked declarations expose self-adjointness,
+positivity, contraction, vacuum fixation, and preservation of the vacuum
+orthogonal complement.
+
+`concreteSameObjectCorrelation` is defined using the physical completed
+transfer power.  `concreteSameObjectCorrelation_eq_physical` is a definitional
+identification with the existing same-object coefficient, and
+`concrete_sameObjectCorrelationSq_decay_of_form_gap` consumes a named strict
+form-gap certificate without weakening the carrier or inventing a gap.
+
+This is the forward/backward meet for the finite SU(2) object.  The remaining
+causal producer is unchanged: construct a positive cofinal deficit floor (or
+equivalent uniform strict form bound), then perform physical scaling and the
+thermodynamic/continuum/QFT passage.  Focused source check
+`/tmp/BF4PhysicalCompletedCarrierRealization.check7.log` and dependency target
+(1232 jobs) pass under `{propext, Quot.sound}`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A
