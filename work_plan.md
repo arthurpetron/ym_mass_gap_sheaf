@@ -112,6 +112,22 @@ The focused monitored check is
 an input to a genuine multi-observable or cofinality compiler, rather than
 mistaking the package for that compiler.
 
+The next backward-facing seam is now named by
+`GlobalInwardMateParityCompletedPowerDecayInput`.  Its single field is the
+actual all-vector `CentralPhysicalCompletedVacuumFormGap` at the explicit
+parity rate.  The declarations
+`globalInwardMateCenteredParityCompletedObservable_power_norm_decay_of_form_gap_input`
+and
+`globalInwardMateCenteredParityCompletedObservable_matrixCoefficientSq_decay_of_form_gap_input`
+reuse the checked completed induction to compile that input into squared power
+decay and arbitrary-test-vector matrix-coefficient decay for the concrete
+parity observable.  This is a backward consumer scaffold, not an inhabitant:
+the existing one-vector strictness and power-vacuum-orthogonality facts do not
+prove the all-vector field.  The forward frontier is therefore the producer
+of that field (or a stronger multi-observable/cofinal replacement); spacing,
+thermodynamic/continuum control, QFT axioms, all compact simple groups, and
+the Clay endpoint remain open.
+
 ### Current forward/backward join: physical Perron/cross-tail reaches the completed quarter (2026-09-19)
 
 `BF4BoundaryMessagePerronCrossTailQuarter.lean` now names the direct

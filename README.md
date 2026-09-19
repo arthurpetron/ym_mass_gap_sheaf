@@ -167,6 +167,15 @@ invariant-sector prerequisite for later power-decay work; no power decay is
 claimed without the missing all-vector form gap.  Verification is in
 `/tmp/ym-parity-power-invariant-check2.log`.
 
+The same module now exposes the explicit backward certificate
+`GlobalInwardMateParityCompletedPowerDecayInput`.  Supplying its named
+all-vector completed form gap feeds the existing constructive power compiler,
+yielding squared-norm decay and arbitrary-test-vector matrix-coefficient decay
+for the concrete parity orbit.  The certificate is intentionally only an
+input: the one-observable parity estimate does not inhabit it, so no uniform
+vacuum-complement gap, thermodynamic/continuum passage, QFT structure,
+all-group result, or Clay theorem is claimed.
+
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.

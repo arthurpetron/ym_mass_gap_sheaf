@@ -302,6 +302,69 @@ theorem globalInwardMateCenteredParityCompletedObservable_power_vacuumOrthogonal
     (globalInwardMateCenteredParityCompletedObservable K)
     (globalInwardMateCenteredParityCompletedObservable_vacuumOrthogonal K)
 
+/-- Minimal backward input for geometric decay of the explicit parity orbit.
+
+The input is deliberately the completed all-vector form-gap contract.  The
+one-vector parity estimates proved above do not inhabit this record; the
+record isolates exactly the missing uniform analytic statement while the
+generic completed-operator compiler supplies the power and coefficient
+consequences. -/
+structure GlobalInwardMateParityCompletedPowerDecayInput
+    (K : Nat) (hK : 1 <= K) : Type where
+  form_gap :
+    CentralPhysicalCompletedVacuumFormGap
+      anchorCoupling (by decide) K 0 globalInwardMateParityFormRate
+
+/-- The backward form-gap input yields squared-norm decay for every power of
+the concrete completed parity observable. -/
+theorem globalInwardMateCenteredParityCompletedObservable_power_norm_decay_of_form_gap_input
+    (K : Nat) (hK : 1 <= K)
+    (input : GlobalInwardMateParityCompletedPowerDecayInput K hK)
+    (n : Nat) :
+    let w := anchorCoupling
+    let hw : (0 : Q') <= w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    CReal.RCle
+      (D.cinnerCompl
+        (centralPhysicalCompletedMarkovPower w hw K 0 n vector)
+        (centralPhysicalCompletedMarkovPower w hw K 0 n vector))
+      (CReal.RCscale
+        ((globalInwardMateParityFormRate * globalInwardMateParityFormRate) ^ n)
+        (D.cinnerCompl vector vector)) := by
+  dsimp only
+  exact centralPhysicalCompletedMarkovPower_norm_gap_of_form_gap
+    (by decide) K 0 input.form_gap n
+    (globalInwardMateCenteredParityCompletedObservable K)
+    (globalInwardMateCenteredParityCompletedObservable_vacuumOrthogonal K)
+
+/-- The same backward input yields squared matrix-coefficient decay against
+any test vector in the completed physical carrier. -/
+theorem globalInwardMateCenteredParityCompletedObservable_matrixCoefficientSq_decay_of_form_gap_input
+    (K : Nat) (hK : 1 <= K)
+    (input : GlobalInwardMateParityCompletedPowerDecayInput K hK)
+    (n : Nat)
+    (test : CentralPhysicalGNSCompletion anchorCoupling (by decide) K 0) :
+    let w := anchorCoupling
+    let hw : (0 : Q') <= w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    let propagated :=
+      centralPhysicalCompletedMarkovPower w hw K 0 n vector
+    CReal.RCle
+      (CReal.RCmul (D.cinnerCompl propagated test)
+        (D.cinnerCompl propagated test))
+      (CReal.RCmul
+        (CReal.RCscale
+          ((globalInwardMateParityFormRate * globalInwardMateParityFormRate) ^ n)
+          (D.cinnerCompl vector vector))
+        (D.cinnerCompl test test)) := by
+  dsimp only
+  exact centralPhysicalCompletedMarkovPower_matrixCoefficientSq_decay_of_form_gap
+    (by decide) K 0 input.form_gap n
+    (globalInwardMateCenteredParityCompletedObservable K) test
+    (globalInwardMateCenteredParityCompletedObservable_vacuumOrthogonal K)
+
 /-- The finite parity margin becomes a completed Rayleigh-deficit estimate for
 the same completed vector. -/
 theorem globalInwardMateCenteredParityCompletedObservable_margin_mul_norm_le_deficit
@@ -520,5 +583,9 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityComp
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_norm
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_power_vacuumOrthogonal
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_power_norm_decay_of_form_gap_input
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_matrixCoefficientSq_decay_of_form_gap_input
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateParityCompletedCorrelationCertificate

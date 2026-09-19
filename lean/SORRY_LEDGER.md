@@ -137,6 +137,26 @@ is a rate-sensitive one-vector moment bound, not an all-vector operator gap.
 - **verification**: `/tmp/ym-parity-rate-square-check3.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
+## PROVED conditional parity power-decay compiler (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.lean`.
+- **proved**: `GlobalInwardMateParityCompletedPowerDecayInput` names the exact
+  all-vector completed vacuum-form gap still needed on the anchor-coupling
+  carrier.  Its consumer theorems
+  `globalInwardMateCenteredParityCompletedObservable_power_norm_decay_of_form_gap_input`
+  and
+  `globalInwardMateCenteredParityCompletedObservable_matrixCoefficientSq_decay_of_form_gap_input`
+  feed that input to the existing constructive power compiler, yielding
+  squared-norm and arbitrary-test-vector matrix-coefficient decay for the
+  explicit parity observable.
+- **boundary**: the input record is not inhabited by the one-observable
+  parity certificate.  This milestone therefore adds no uniform
+  vacuum-complement gap, cofinal producer, thermodynamic/continuum passage,
+  QFT axioms, all-group construction, physical mass calibration, or Clay
+  theorem; it isolates the next producer obligation without weakening it.
+- **verification**: `/tmp/ym-parity-form-gap-input-check.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED finite cutoff-two non-vacuity endpoint (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteCutoffTwoNontrivialEndpoint.lean`.
