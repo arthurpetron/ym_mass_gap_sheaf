@@ -278,12 +278,15 @@ summable variation of the dimensionless `latticeMargin` and reciprocal spacing
 streams into the exact same-family `SummableRationalStepVariation
 family.physicalGap`.  The reciprocal and product compilers are constructive and
 the final equality is definitionally the family’s `Q'.divPos` gap.
-`exactLogRateCauchy_of_marginAndReciprocalSpacing` consumes this
-continuum-compatible result in the existing exact-log rate compiler.  The
-separate positive-floor adapter is retained only as a finite-regulator
-shortcut; it cannot serve a spacing stream tending to zero.  This is a
-backward interface decomposition, not a construction of the primitive
-variation, physical rate band, or semantic OS/reconstruction witnesses.
+`exactLogRateCauchy_of_marginAndReciprocalSpacing` consumes this algebraic
+result in the existing exact-log rate compiler.  The constructive
+`noSummableReciprocalSpacingVariation` theorem now proves that the bounded
+reciprocal-variation interface cannot coexist with a positive spacing stream
+tending to zero.  The separate positive-floor adapter is therefore retained
+only as a finite-regulator shortcut; it cannot serve continuum cutoff removal.
+This is a backward interface decomposition, not a construction of the
+primitive variation, physical rate band, or semantic OS/reconstruction
+witnesses.
 `DynamicVacuumSectorContinuumHandoff.ofMarginAndReciprocalSpacing` now
 packages the same primitive result into the existing continuum handoff while
 keeping those semantic witnesses explicit.  Focused check:
@@ -315,6 +318,17 @@ next producer interface, but both primitive variation inputs remain
 uninhabited.  Focused check:
 `/tmp/ym-strength-factor-variation4.log`; only `{propext, Quot.sound}` were
 reported.
+
+### Compatibility boundary: reciprocal spacing (2026-09-19)
+
+`SummableRationalReciprocalSpacingNoGo.noSummableReciprocalSpacingVariation`
+is a checked backward refutation: a `SummableRationalStepVariation` certificate
+for `1 / spacing` has a global ceiling, while `SpacingToZero` forces that
+reciprocal above the ceiling at a computable scale.  The direct reciprocal
+lane in the physical-gap compiler therefore remains a finite-regulator or
+separately justified interface.  The continuum path must instead produce a
+different unbounded-rate modulus, or a direct physical-gap variation witness;
+no such producer is currently present.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)
 

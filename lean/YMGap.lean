@@ -5434,6 +5434,7 @@ import YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoPulledVacuumComplementDichoto
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler
+import YMGap.Continuum.SummableRationalReciprocalSpacingNoGo
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

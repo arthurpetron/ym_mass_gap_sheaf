@@ -236,15 +236,18 @@ all-vector and concrete-cube consequences at the bundle's explicit rate.
 `SummableRationalStepVariation family.physicalGap` from summable variation of
 the same-family `latticeMargin` and of the reciprocal spacing stream.  Its
 `exactLogRateCauchy_of_marginAndReciprocalSpacing` declaration feeds that
-continuum-compatible result directly into the existing exact-log Cauchy
-compiler.  A separate `...of_primitiveComponents` adapter derives reciprocal
-variation from a positive spacing floor when such a finite-regulator floor is
-available; that shortcut is not compatible with a spacing stream tending to
-zero.  `DynamicVacuumSectorContinuumHandoff.ofMarginAndReciprocalSpacing`
-packages the same result into the existing continuum handoff while retaining
-the projective OS, spectral-channel, and exact-rate witnesses as explicit
-inputs.  None of the primitive variation inputs or semantic handoff witnesses
-is inhabited by this module.  `latticeMarginVariationOfNormalizedStrength`
+algebraic result directly into the existing exact-log Cauchy compiler.  The
+new `SummableRationalReciprocalSpacingNoGo.noSummableReciprocalSpacingVariation`
+theorem proves that this bounded reciprocal-variation interface cannot coexist
+with a positive spacing stream tending to zero, so it is not by itself a
+continuum certificate.  A separate `...of_primitiveComponents` adapter derives
+reciprocal variation from a positive spacing floor when such a finite-regulator
+floor is available; that shortcut is likewise not compatible with a spacing
+stream tending to zero.  `DynamicVacuumSectorContinuumHandoff.ofMarginAndReciprocalSpacing`
+packages the same explicit-input result into the existing handoff while
+retaining the projective OS, spectral-channel, and exact-rate witnesses as
+explicit inputs.  None of the primitive variation inputs or semantic handoff
+witnesses is inhabited by this module.  `latticeMarginVariationOfNormalizedStrength`
 adds the backward adapter that varies `strength/(1+strength)` using denominator
 floor `1`, without imposing a false uniform positive floor on a strength stream
 that may vanish with the spacing.  `physicalGapVariationOfNormalizedStrengthAndReciprocalSpacing`

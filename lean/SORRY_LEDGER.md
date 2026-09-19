@@ -177,8 +177,12 @@ close the thermodynamic, continuum, QFT, all-group, or Clay obligations.
   summable variation of the same completed family’s `latticeMargin` and
   reciprocal spacing streams into `SummableRationalStepVariation
   family.physicalGap`.  The `exactLogRateCauchy_of_marginAndReciprocalSpacing`
-  declaration feeds this continuum-compatible result into the existing
-  exact-log Cauchy compiler.  The separate
+  declaration feeds this algebraic result into the existing exact-log Cauchy
+  compiler.  The checked
+  `SummableRationalReciprocalSpacingNoGo.noSummableReciprocalSpacingVariation`
+  theorem shows that this bounded reciprocal interface cannot coexist with a
+  positive spacing stream tending to zero, so it is not a continuum
+  certificate.  The separate
   `physicalGapVariationOfPrimitiveComponents` adapter derives reciprocal
   variation from a positive spacing floor for finite-regulator use.
   `DynamicVacuumSectorContinuumHandoff.ofMarginAndReciprocalSpacing` packages
@@ -202,6 +206,20 @@ The direct consumers `exactLogRateCauchy_of_normalizedStrengthAndReciprocalSpaci
 and `DynamicVacuumSectorContinuumHandoff.ofNormalizedStrengthAndReciprocalSpacing`
 carry this same-family witness into the exact-log and continuum-handoff
 constructors without weakening their semantic inputs.
+
+## PROVED reciprocal-spacing compatibility boundary (2026-09-19 UTC)
+
+- **file**: `SummableRationalReciprocalSpacingNoGo.lean`.
+- **proved**: `noSummableReciprocalSpacingVariation` derives `False` from a
+  positive `PhysicalSpacing`, an explicit `SpacingToZero` modulus, and a
+  `SummableRationalStepVariation` certificate for its reciprocal.  The proof
+  uses the variation certificate's global ceiling and chooses the modulus at
+  `1 / (1 + ceiling)`.
+- **boundary**: this is a refutation of an incompatible interface, not a
+  continuum mass-gap result.  A future continuum route needs a different
+  unbounded-rate modulus or a direct physical-gap variation certificate.
+- **verification**: `/tmp/ym-recip-spacing-nogo.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
 ## PROVED primitive residual-strength variation compiler (2026-09-19 UTC)
 

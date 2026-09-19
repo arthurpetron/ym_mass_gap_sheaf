@@ -9,9 +9,11 @@ This module compiles explicit primitive variation witnesses into the exact
 same-family `SummableRationalStepVariation family.physicalGap`: one witness
 for the dimensionless lattice margin and one for the reciprocal spacing.  A
 finite-regulator shortcut can build the reciprocal witness from positive
-spacing variation and a fixed floor, but a continuum spacing tends to zero, so
-the direct reciprocal witness is the honest continuum-facing interface.  The
-product step is generic and the final pointwise equality is only the
+spacing variation and a fixed floor.  The direct reciprocal witness is kept as
+an explicit backward interface, but it is *not* a continuum certificate:
+`SummableRationalReciprocalSpacingNoGo.noSummableReciprocalSpacingVariation`
+proves that it cannot coexist with a positive spacing stream tending to zero.
+The product step is generic and the final pointwise equality is only the
 definition of `Q'.divPos`.
 
 The result is a backward-facing mass-calibration interface.  It does not
@@ -57,9 +59,10 @@ open YMGap.Continuum.SummableRationalStepVariationAlgebra
 /-! ## 1. Exact same-family variation -/
 
 /-- Margin variation and direct reciprocal-spacing variation meet at the exact
-completed-family physical gap.  This is the continuum-compatible interface:
-it does not assume a positive lower floor for a spacing stream that tends to
-zero. -/
+completed-family physical gap.  This is an algebraic backward interface only:
+the reciprocal witness remains an explicit input, and the no-go theorem for a
+spacing-to-zero trajectory rules out treating this declaration as a
+continuum-compatible producer. -/
 def physicalGapVariationOfMarginAndReciprocalSpacing
     {half : Nat}
     (family : DynamicVacuumSectorCompletedFamily half)
@@ -228,9 +231,11 @@ def physicalGapVariationOfPrimitiveComponents
 
 /-! ## 2. Explicit join to the exact-log backward target -/
 
-/-- The continuum-compatible reciprocal-spacing compiler feeds the existing
-exact-log Cauchy compiler without changing the completed family, observable
-pin, or spacing tail. -/
+/-- The direct reciprocal-spacing interface feeds the existing exact-log
+Cauchy compiler without changing the completed family, observable pin, or
+spacing tail.  The reciprocal witness is still an explicit finite-regulator
+or otherwise separately justified input; it is not supplied by
+`SpacingToZero`. -/
 def exactLogRateCauchy_of_marginAndReciprocalSpacing
     {half : Nat}
     {family : DynamicVacuumSectorCompletedFamily half}
