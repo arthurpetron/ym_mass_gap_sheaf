@@ -143,12 +143,17 @@ same-object currency rather than only a nonzero proposition.  This is the
 first explicit nonzero element of the actual fixed-cutoff completed vacuum
 complement on this moving-centered route.
 
-The backward consumer is still the completed transfer/same-object edge: no
-positive-time transfer moment has yet been identified for this exact witness,
-and no
-cofinal capacity comparison, same-family variation budget, thermodynamic or
-continuum passage, QFT axioms, or all-group construction follows.  Focused
-check: `/tmp/ym-pulled-vacuum-complement-witness-fresh.log`; only
+The exact same-object edge is now connected.  The sector-side witness
+`centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement` consumes
+the already inhabited adaptive recoding transfer, and
+`centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_eq_global`
+identifies every discrete-time moment with the global adaptive-transfer
+matrix coefficient.  The specialized `_sq_decay` theorem leaves only the
+named `CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData` as
+an input; it does not manufacture that certificate.  Thus the remaining
+frontier is cofinal strictness/capacity and its same-family variation, followed
+by thermodynamic or continuum passage, QFT axioms, and all-group construction.
+Focused check: `/tmp/ym-pulled-vacuum-complement-autocorrelation-fresh2.log`; only
 `{propext, Quot.sound}` were reported.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)

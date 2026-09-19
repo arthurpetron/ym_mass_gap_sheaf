@@ -153,9 +153,13 @@ zero vector.  This is a fixed-nome, fixed-half-extent SU(2) witness in the
 actual completed physical carrier.  The companion
 `..._inner_isPositive` theorem now transports the explicit coordinate floor
 to its ambient completed norm square, which is the quantitative same-object
-zero-time currency.  It does not identify a positive-time transfer moment,
-provide cofinal variation, or construct a thermodynamic/continuum QFT.  The
-focused check was `/tmp/ym-pulled-vacuum-complement-witness-fresh.log`, with only
+zero-time currency.  The witness is now also packaged on the inhabited
+completed sector transfer: `...CompletedAutocorrelation_eq_global` identifies
+every natural-time moment with the global adaptive-transfer matrix
+coefficient, while `..._sq_decay` exposes the single strict-contraction
+certificate still needed for geometric decay.  It does not provide that
+cofinal rate certificate or construct a thermodynamic/continuum QFT.  The
+focused check was `/tmp/ym-pulled-vacuum-complement-autocorrelation-fresh2.log`, with only
 `{propext, Quot.sound}` reported.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**

@@ -90,12 +90,16 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   that the resulting subtype witness is not the completed zero vector.
   `centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_inner_isPositive`
   transports the explicit coordinate floor to the ambient completed norm
-  square.
+  square.  The same file packages the witness on the inhabited completed
+  sector transfer, identifies every discrete-time autocorrelation with the
+  global adaptive-transfer coefficient, proves zero-time positivity, and
+  exposes conditional squared decay under one explicit strict-contraction
+  certificate.
 - **boundary**: this is a fixed-nome, fixed-half-extent SU(2) witness in the
-  actual completed physical carrier.  It does not identify a positive-time
-  transfer moment, supply cofinal physical-gap variation, or construct the
-  thermodynamic, continuum, QFT, or Clay endpoint.
-- **verification**: `/tmp/ym-pulled-vacuum-complement-witness-fresh.log`; only
+  actual completed physical carrier.  The strict-contraction certificate is
+  still an input; no cofinal capacity/variation, thermodynamic or continuum,
+  QFT, or Clay endpoint is constructed.
+- **verification**: `/tmp/ym-pulled-vacuum-complement-autocorrelation-fresh2.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)

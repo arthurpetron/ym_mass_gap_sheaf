@@ -17,6 +17,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
+import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 
 namespace YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
@@ -29,6 +30,9 @@ open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedAlgebra
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedVacuumComplement
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
@@ -80,6 +84,97 @@ theorem centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_inner_isPosit
   exact centralPhysicalCutoffOneCubeMovingCentered_completedInner_isPositive
     hw0 hw1
 
+/-! ## The same-object completed transfer channel -/
+
+/-- The concrete moving-centered cube completion, with its proved global
+vacuum orthogonality, as a sector-side vacuum-complement vector. -/
+def centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
+    CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement
+      hw0 hw1 0 :=
+  ⟨centralPhysicalVacuumSectorMovingCenteredCompletion
+      hw0 hw1 1 0
+      (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0), by
+    exact centralPhysicalVacuumSectorMovingCenteredGlobalVector_vacuumOrthogonal
+      hw0 hw1 1 0
+      (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0)⟩
+
+/-- The literal same-object autocorrelation of the concrete cube witness after
+`n` powers of the inhabited completed sector transfer. -/
+def centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (n : Nat) : CReal.RC :=
+  centralPhysicalVacuumSectorCylinderCompletedAutocorrelation
+    hw0 hw1 0 n
+    (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
+      hw0 hw1).1
+
+/-- The specialized autocorrelation is exactly the global physical
+adaptive-transfer matrix coefficient, with no change of vector or operator. -/
+theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_eq_global
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (n : Nat) :
+    centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+      hw0 hw1 n =
+      centralPhysicalCutoffCompletedInner hw0 hw1 0
+        (centralPhysicalConcreteAdaptiveCompletedMarkovPower
+          hw0 hw1 0 n
+          (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+            (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
+              hw0 hw1).1))
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+          (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
+            hw0 hw1).1) := by
+  unfold centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+  exact centralPhysicalVacuumSectorCylinderCompletedAutocorrelation_eq_global
+    hw0 hw1 0 n
+    (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
+      hw0 hw1).1
+
+/-- The exact zero-time same-object channel is strictly positive. -/
+theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_zero_isPositive
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
+    RCIsPositive
+      (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+        hw0 hw1 0) := by
+  unfold centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+    centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
+  exact centralPhysicalCutoffOneCubeMovingCentered_autocorrelation_zero_isPositive
+    hw0 hw1
+
+/-- Conditional same-object decay for this exact vector: the only analytic
+input is the existing completed-sector strict-contraction certificate. -/
+theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (gap : CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
+      hw0 hw1 0) (n : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+          hw0 hw1 n)
+        (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+          hw0 hw1 n))
+      (CReal.RCmul
+        (CReal.RCscale ((gap.rate * gap.rate) ^ n)
+          (centralPhysicalCutoffCompletedInner hw0 hw1 0
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))))
+        (centralPhysicalCutoffCompletedInner hw0 hw1 0
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0)))) := by
+  exact centralPhysicalVacuumSectorCylinderCompletedAutocorrelation_sq_decay
+    gap n
+    (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
+      hw0 hw1)
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
 /-! ## Axiom-dependency gates -/
@@ -90,3 +185,9 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_ne_zero
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_inner_isPositive
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_eq_global
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_zero_isPositive
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay
