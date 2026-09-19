@@ -46082,6 +46082,33 @@ claimed by these checks.
   dependency target `+YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction:olean`.
   The audited declarations use only `{propext, Quot.sound}` and no `sorryAx`.
 
+#### [BF4-cofinal-deficit-floor-adapter] Cofinal deficit floor compiles to the uniform-rate bridge — CONDITIONAL 2026-09-19
+
+- **milestone**: make the backward requirement for one positive cofinal
+  deficit explicit, and compile it into the existing uniform constructed-rate
+  bound.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.lean`.
+- **declarations**:
+  `FixedNomeCofinalFinitePrefixDeficitFloor` and
+  `FixedNomeCofinalFinitePrefixDeficitFloor.toUniformConstructedVacuumSectorRateBound`.
+- **proof content**: the structure takes a positive fraction `fraction` with
+  `fraction ≤ finitePrefixDeficitFraction ... bound` for every finite prefix.
+  Its adapter sets the uniform rate to `1 - fraction`, proves nonnegativity and
+  strictness constructively, and transports each fixed-base rate bound through
+  the finite-prefix estimate.
+- **scope boundary**: this is a typed consumer of a cofinal floor, not a
+  producer.  No inhabitant of `FixedNomeCofinalFinitePrefixDeficitFloor` is
+  constructed; therefore no completed uniform gap, thermodynamic/continuum
+  limit, QFT reconstruction, all-group result, or Clay conclusion follows.
+- **verification**: source check
+  `/tmp/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.check10.log`;
+  dependency target `+YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction:olean`.
+  The focused source check passed before the dependency replay was interrupted;
+  the replay was stopped after the generated transport/coverage chain reached
+  2214/2217 jobs, so a fresh dependency-complete pass remains pending.  The
+  new declarations use only `{propext, Quot.sound}` and no `sorryAx`.
+
 #### [BF4-sector-quarter-slice-to-local-power-budget] Quarter slices meet the depth-budget interface — PROVED 2026-09-19
 
 - **milestone**: compile the existing sector-local quarter-rate slice route

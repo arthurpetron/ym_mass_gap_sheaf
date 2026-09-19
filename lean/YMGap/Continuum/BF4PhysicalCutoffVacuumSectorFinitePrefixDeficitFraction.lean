@@ -19,6 +19,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 -/
 
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledConstructedUniformCRealGap
+import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorConstructedCofinalRateBridge
 
 namespace YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction
 
@@ -35,6 +36,7 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorHeadCentering
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledUniformCRealGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledConstructedUniformCRealGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledUniformPoincareGap
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorConstructedCofinalRateBridge
 open YMGap.Continuum.HKPos
 
 local infix:50 " ≈ " => Q'.eqv
@@ -315,6 +317,58 @@ def fixedCarrierPrefixDeficitFractionData
             (((1 : Q') + (-rate)) * diagonal) matrix)) htotal)
     exact hmargin
 
+/-! ## The missing cofinal floor as a minimal backward certificate -/
+
+/-- A single positive floor below every finite-prefix deficit.  This is the
+minimal cofinal input needed to turn the finite forward estimates into one
+carrier-independent strict rate; no producer for this structure is claimed. -/
+structure FixedNomeCofinalFinitePrefixDeficitFloor
+    (w : Q') (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (half : Nat) (fraction : Q') : Type 1 where
+  fraction_pos : (0 : Q') < fraction
+  fraction_le_one : fraction ≤ (1 : Q')
+  fraction_le_prefix : ∀ bound : Nat,
+    fraction ≤ finitePrefixDeficitFraction hw0 hw1 half bound
+
+namespace FixedNomeCofinalFinitePrefixDeficitFloor
+
+private theorem one_sub_lt_one_local (fraction : Q')
+    (hfraction : (0 : Q') < fraction) :
+    (1 : Q') + (-fraction) < (1 : Q') := by
+  have hnum : (0 : Int) < fraction.num := Q'.num_pos_of_pos hfraction
+  change (((1 : Int) * (fraction.den : Int) +
+      (-fraction.num) * (1 : Int)) * (1 : Int)) <
+    ((1 : Int) * (((1 : Nat) * fraction.den : Nat) : Int))
+  simp only [Nat.one_mul, Int.one_mul, Int.mul_one]
+  omega
+
+/-- The cofinal deficit floor is exactly the complementary uniform rate
+`q = 1 - fraction` required by the existing centered-rate bridge. -/
+def toUniformConstructedVacuumSectorRateBound
+    {w : Q'} {hw0 : (0 : Q') < w} {hw1 : w < (1 : Q')}
+    {half : Nat} {fraction : Q'}
+    (family : FixedNomeCofinalFinitePrefixDeficitFloor
+      w hw0 hw1 half fraction) :
+    FixedNomeUniformConstructedVacuumSectorRateBound
+      w hw0 hw1 half ((1 : Q') + (-fraction)) where
+  rate_nonnegative := Q'.sub_nonneg_of_le family.fraction_le_one
+  rate_lt_one := one_sub_lt_one_local fraction family.fraction_pos
+  constructedRate_le := by
+    intro base
+    have hprefix : finitePrefixRate hw0 hw1 half base ≤
+        (1 : Q') + (-fraction) := by
+      have hfloor := family.fraction_le_prefix base
+      unfold finitePrefixDeficitFraction at hfloor
+      exact Q'.le_trans' _ _ _
+        (Q'.ge_of_eqv
+          (Q'.neg_neg_eqv (finitePrefixRate hw0 hw1 half base)))
+        (Q'.neg_le_sub_of_le_add hfloor)
+    exact Q'.le_trans' _ _ _
+      (fixedBaseRate_le_finitePrefixRate
+        hw0 hw1 half base base (Nat.le_refl base)) hprefix
+
+end FixedNomeCofinalFinitePrefixDeficitFloor
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction
 
 /-! ## Axiom audit -/
@@ -325,3 +379,5 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.finitePrefixDeficitFraction_le_one
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.fixedCarrierPrefixDeficitFractionData
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.FixedNomeCofinalFinitePrefixDeficitFloor.toUniformConstructedVacuumSectorRateBound

@@ -56485,6 +56485,19 @@ single cofinal same-object fraction (or an equivalent uniform producer), then
 feed it through the completed-carrier bridge, physical scaling, and the still
 open thermodynamic/continuum/QFT layers.  No Clay conclusion is claimed.
 
+The backward face is now named by
+`FixedNomeCofinalFinitePrefixDeficitFloor`: a positive fraction bounded below
+by every finite-prefix deficit.  Its checked adapter
+`toUniformConstructedVacuumSectorRateBound` converts that input to the existing
+uniform constructed-rate interface with rate `1 - fraction`.  This is the
+forward/backward meeting interface, not a solution of the cofinal problem: no
+producer for the floor is present, and all completed-gap, physical-scale,
+thermodynamic/continuum, QFT, all-group, and Clay obligations remain open.
+The focused source check passed; the dependency-complete replay was deliberately
+stopped after generated transport/coverage jobs had reached 2214/2217, so that
+cache-completion check is still pending and is not being presented as a proof
+milestone.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A
