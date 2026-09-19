@@ -337,6 +337,19 @@ OS/range interface; the next forward producer is a current-carrier observable
 realization or a scale-controlled estimate. Evidence and hashes are recorded
 in `audits/AUDIT-WILSON-RANGE-APPROXIMATION-2026-09-18.md`.
 
+**Concrete excitation/resolvent probe, checked 2026-09-18:**
+`BF4WilsonSpatialUnionResolventResponse` joins the existing normalized Wilson
+excitation to the current-carrier resolvent. Its
+`unitExcitation_center_fixed` and `unitExcitation_ne_zero` facts are derived
+from the existing same-object response/finite-time nonzero certificate, and
+`unitExcitation_resolvent_ne_zero` proves that the new resolvent does not erase
+this concrete centered probe. `unitExcitation_resolvent_centered` retains the
+same vacuum complement. One focused serialized check passed with only
+`{propext, Quot.sound}`; this is fixed-spacing SU(2) non-erasure, not
+continuum survival or physical mass calibration. The next backward join is
+still the canonical OS/GNSData scalar-and-support interface and its
+spacing-controlled producer.
+
 **Backward join review, 2026-09-18:** the legacy inward-test argument
 does not literally extend to all current Wilson windows. The legacy
 bond-reflected lower algebra can move a test onto the adjacent site plane;

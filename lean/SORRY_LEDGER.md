@@ -44,6 +44,21 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   hashes are recorded in
   `audits/AUDIT-WILSON-RANGE-APPROXIMATION-2026-09-18.md`.
 
+## PROVED current-Wilson excitation/resolvent probe (2026-09-18 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionResolventResponse.lean`.
+- **proved**: `unitExcitation_center_fixed` and `unitExcitation_ne_zero` use
+  the existing normalized Wilson excitation and its same-object finite-time
+  nonzero response. `unitExcitation_resolvent_ne_zero` proves that the
+  current-carrier resolvent preserves nonzero-ness of this concrete centered
+  probe, and `unitExcitation_resolvent_centered` retains the vacuum complement.
+- **residue**: fixed-spacing small-nome SU(2) only; no changing-spacing
+  survival, physical mass, canonical OS/GNSData bridge, continuum QFT, or
+  all-group conclusion is asserted.
+- **verification**: focused serialized check passed; all four declarations
+  use only `{propext, Quot.sound}`. Evidence:
+  `/tmp/ym-wilson-resolvent-response-20260918b.log`.
+
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 
 - `lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean`:

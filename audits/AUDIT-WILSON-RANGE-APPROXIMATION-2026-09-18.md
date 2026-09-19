@@ -143,3 +143,22 @@ does not prove strict dense-observable range, a spacing-uniform rate, physical
 time/mass calibration, a continuum limit, QFT reconstruction, or the Clay
 theorem. The older legacy resolvent remains a separate carrier and was not
 reused.
+
+## Resolvent/excitation probe join, checked 2026-09-18
+
+`BF4WilsonSpatialUnionResolventResponse.unitExcitation_center_fixed`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionResolventResponse.lean:41`) uses
+the existing normalized Wilson excitation's actual orthogonality. The module
+then derives `unitExcitation_ne_zero` (:45) from the existing fixed-spacing
+same-object response theorem and feeds it to
+`unitExcitation_resolvent_ne_zero` (:53), while
+`unitExcitation_resolvent_centered` (:57) retains the vacuum-complement
+property. This is the smallest checked probe certificate joining the
+current-carrier resolvent to a concrete same-object excitation.
+
+The focused check `/tmp/ym-wilson-resolvent-response-20260918b.log` passed
+with SHA-256
+`35a747f2cdc7cf34c4ca16d13bff94cfe227aa993628f42f0aabb238bc91dc85`; all four
+gates use only `{propext, Quot.sound}`. The result remains fixed-spacing,
+small-nome SU(2) non-erasure, not a changing-spacing or continuum-survival
+certificate.
