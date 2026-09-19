@@ -105,6 +105,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   vacuum-complement predicate and strict two-step form bound to every vector
   in the supplied bridge image. These are conditional consumers only; no
   bridge inhabitant or canonical dense-range theorem is introduced.
+- **proved**: `CurrentCarrierBridge.image_twoStep_fixed_eq_zero` excludes a
+  nonzero canonical two-step fixed vector inside the supplied bridge image by
+  pulling it back through bridge injectivity to the current fixed-point
+  exclusion. This remains image-level and conditional on the uninhabited
+  bridge.
 - **residue**: the bridge structure is intentionally uninhabited in this
   milestone. It is a named OS/GNS carrier-and-dynamics obligation, not a
   covert identification of the current carrier with canonical GNSData.

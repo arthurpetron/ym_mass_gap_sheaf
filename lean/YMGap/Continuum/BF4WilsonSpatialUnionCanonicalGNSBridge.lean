@@ -35,7 +35,8 @@ open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
   (completedInner_symm)
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
   (completedInner)
-open YMGap.Continuum.BF4WilsonSpatialUnionPosdef (completedZero)
+open YMGap.Continuum.BF4WilsonSpatialUnionPosdef
+  (completedZero fixed_orthogonal_eq_zero)
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
 open YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
 open YMGap.Continuum.BF4WilsonSpatialUnionResolvent
@@ -231,6 +232,22 @@ theorem image_twoStep_form_bound
   rw [hsym]
   exact hgap
 
+/-- A canonical two-step fixed vector cannot be a nonzero vector in the
+bridge image.  Intertwining and the already-proved bridge injectivity pull the
+fixed-point equation back to the current carrier, where the current strict
+form gap kills every vacuum-complement fixed vector. -/
+theorem image_twoStep_fixed_eq_zero
+    (J : CurrentCarrierBridge P) {x : V}
+    (hx : B x U = RCzero)
+    (hfixed : P.op.T (P.op.T (J.map x)) = J.map x) :
+    J.map x = embedV W.toGNSData W.toGNSData.zero := by
+  have hmap : J.map (T 2 x) = J.map x := by
+    rw [J.twoStep_intertwines x, hfixed]
+  have hsource : T 2 x = x := J.map_injective hmap
+  have hzero : x = Z :=
+    fixed_orthogonal_eq_zero nome_pos nome_lt_one hsmall hd hs x hx hsource
+  rw [hzero, J.map_zero]
+
 /-- The checked current-carrier floor transported to the canonical completion. -/
 theorem canonical_resolvent_norm_floor (J : CurrentCarrierBridge P) :
   RCle (Quotient.mk crealSetoid
@@ -393,6 +410,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.map_injective
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_vacuum_orthogonal
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_twoStep_form_bound
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_twoStep_fixed_eq_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonical_resolvent_norm_floor
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_norm_floor

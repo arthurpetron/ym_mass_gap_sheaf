@@ -549,6 +549,16 @@ Clay conclusion. Focused check log:
 `/tmp/ym-canonical-bridge-image-gap.log`; SHA-256
 `a65154d8e51d3c7a36e1e0e62eeb287bf33515e1d075257d6eeb3b462bbd7a74`.
 
+**All-image fixed-point exclusion, checked 2026-09-18:**
+`CurrentCarrierBridge.image_twoStep_fixed_eq_zero` combines the bridge's
+two-step intertwining and the already-proved `fixed_orthogonal_eq_zero` with
+`map_injective`: a canonical two-step fixed vector in the supplied bridge
+image must be the canonical embedded zero. This is an image-level isolated-
+vacuum consequence, not a completed canonical spectral-gap theorem, because
+the bridge is still uninhabited and its image is not shown dense. Focused check
+log: `/tmp/ym-canonical-bridge-image-fixed.log`; SHA-256
+`9cd525d51403f5e269113281d7ccf0299442d7dd16a49f7f60c37109c29a644a`.
+
 **Concrete current physical SU(2) sector, checked 2026-09-18:**
 `BF4WilsonSpatialUnionCurrentSector.lean` packages the already checked
 same-carrier data as `CompletedPhysicalSU2Sector.currentSector`: the discrete
