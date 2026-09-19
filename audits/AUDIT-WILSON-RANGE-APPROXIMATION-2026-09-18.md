@@ -35,6 +35,8 @@ on the current completed SU(2) Wilson carrier. It is fixed-spacing data only.
   explicit modulus to that finite-stage carrier.
 - `evenOrbitStage_range_data` packages the cutoff, strict stage preimage, and
   error proof as one dependent witness.
+- `evenOrbitResidual_center` proves that the defect commutes with the existing
+  same-carrier vacuum-centering projection.
 
 The rate is explicit: `q = twoStepRate w hd`. No inverse, spectral theorem,
 choice, auxiliary transfer, or continuum/spacing hypothesis is introduced.
@@ -50,14 +52,14 @@ Command:
 python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
   --check lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean \
   --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.olean \
-  --log-file /tmp/ym-range-approx-20260918v.log
+  --log-file /tmp/ym-range-approx-20260918y.log
 ```
 
-Result: passed. The fifteen public declarations printed only
+Result: passed. The sixteen public declarations printed only
 `{propext, Quot.sound}`. No `sorryAx`, `Classical.*`, `native_decide`, or
 new axiom appears. Log SHA-256:
 
-`d8bc7b5ee4409f9cb11e72827f4504350dfd746c61351271e1f44f5d602e9df4`.
+`2305046c1724d83d22719cbb4577e446336d12b774994e71e339aba99294d3b7`.
 
 The full root, full-tree build, axiom audit, guard and progress runs were not
 performed. The result does not supply strict density of strictly-past

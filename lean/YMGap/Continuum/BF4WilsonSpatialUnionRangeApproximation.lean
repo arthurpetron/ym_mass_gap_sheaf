@@ -16,6 +16,7 @@ calibration, or a continuum Yang--Mills construction.
 import YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
 import YMGap.Continuum.BF4WilsonSpatialUnionCompletedDistance
 import YMGap.Continuum.BF4WilsonSpatialUnionLinearLaws
+import YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
 
 namespace YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation
 
@@ -33,6 +34,7 @@ open YMGap.Continuum.BF4WilsonSpatialUnionLinearLaws
 open YMGap.Continuum.BF4WilsonSpatialUnionTimeForm
 open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
 open YMGap.Continuum.BF4WilsonSpatialUnionCompletedDistance
+open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap (twoStepRate)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap
   (twoStepRate_positive twoStepRate_lt_one)
@@ -73,6 +75,14 @@ theorem evenOrbitResidual_kernel (x : V)
     apply (completedSub_norm_zero_iff hw0 hw1 hsmall hd hs x (T 2 x)).mp
     exact hnorm
   exact fixed_orthogonal_eq_zero hw0 hw1 hsmall hd hs x hx hfix.symm
+
+theorem evenOrbitResidual_center (x : V) :
+    evenOrbitResidual hw0 hw1 hsmall hd hs
+        (center hw0 hw1 hsmall hd hs x) =
+      center hw0 hw1 hsmall hd hs
+        (evenOrbitResidual hw0 hw1 hsmall hd hs x) := by
+  unfold evenOrbitResidual
+  rw [center_sub, completedTime_center]
 
 /-- A representative-level version of the finite orbit sum, retaining the
     supplied Cauchy stream rather than choosing a quotient representative. -/
@@ -353,20 +363,22 @@ def evenOrbitStage_range_data (x : Stage)
     (hx : B (embedStage hw0 hw1 hsmall hd hs x)
       (completedUnit hw0 hw1 hsmall hd hs) = RCzero)
     (epsilon : Q') (he : (0 : Q') < epsilon) :
-    Σ' n : Nat, Σ' y : Stage, RCle
-      (completedDist hw0 hw1 hsmall hd hs
-        (embedStage hw0 hw1 hsmall hd hs x)
-        (evenOrbitResidual hw0 hw1 hsmall hd hs
-          (embedStage hw0 hw1 hsmall hd hs y)))
-      (Quotient.mk crealSetoid (ofQ' epsilon)) := by
+    Σ' n : Nat, (n = evenOrbitStage_modulus hw0 hw1 hsmall hd hs x epsilon) ×'
+      Σ' y : Stage, RCle
+        (completedDist hw0 hw1 hsmall hd hs
+          (embedStage hw0 hw1 hsmall hd hs x)
+          (evenOrbitResidual hw0 hw1 hsmall hd hs
+            (embedStage hw0 hw1 hsmall hd hs y)))
+        (Quotient.mk crealSetoid (ofQ' epsilon)) := by
   let n := evenOrbitStage_modulus hw0 hw1 hsmall hd hs x epsilon
-  refine ⟨n, evenOrbitSumStage x n, ?_⟩
+  refine ⟨n, ⟨rfl, evenOrbitSumStage x n, ?_⟩⟩
   exact evenOrbitStage_error_small hw0 hw1 hsmall hd hs x hx epsilon he n
     (Nat.le_refl _)
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_kernel
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_center
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumCauchy
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumCauchy_pin
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumStage
