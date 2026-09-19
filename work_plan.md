@@ -143,6 +143,26 @@ calibration, and the all-compact-simple-group Clay endpoint.  Focused check:
 `/tmp/ym-parity-completed-check3.log`; only `{propext, Quot.sound}` were
 reported and no `sorryAx` was introduced.
 
+### Current forward/backward join: parity same-object correlation-square handoff (2026-09-19)
+
+`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.lean`
+combines the completed Cauchy--Schwarz theorem with the exact completed parity
+matrix coefficient, the finite centered-parity norm bound by one, and completed
+transfer contraction.  Its declarations
+`globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_transferredNorm`
+and `..._correlationSquare_le_norm` give a literal same-object
+correlation-square estimate for the concrete parity vector, first against the
+transferred norm and then against the original completed norm.
+
+This is a causal consumer-side meet: the forward carrier and coefficient are
+already constructed, while the backward correlation-square obligation is now
+discharged without inventing a uniform all-vector rate.  It remains fixed-
+anchor, finite-cutoff, and one-observable; endpoint coverage, a completed
+vacuum-complement gap, thermodynamic/continuum control, QFT axioms, physical
+mass calibration, and the all-group Clay endpoint remain open.  Focused check:
+`/tmp/ym-parity-correlation-check3.log`; only `{propext, Quot.sound}` were
+reported and no `sorryAx` was introduced.
+
 ### Current forward/backward join: quarter slices compile to a depth budget (2026-09-19)
 
 The older sector-local slice route now has an explicit backward adapter in

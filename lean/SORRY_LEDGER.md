@@ -78,6 +78,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: `/tmp/ym-parity-completed-check3.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
+## PROVED parity same-object correlation-square handoff (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.lean`.
+- **proved**: `globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_transferredNorm` combines completed Cauchy--Schwarz, the exact parity matrix coefficient, and the finite norm bound by one; `..._correlationSquare_le_norm` then applies completed transfer contraction.
+- **boundary**: this is a one-observable fixed-anchor finite carrier estimate.  It is not an all-vector strict gap and supplies no endpoint-coverage producer, thermodynamic/continuum passage, QFT axioms, physical mass calibration, all-group construction, or Clay theorem.
+- **verification**: `/tmp/ym-parity-correlation-check3.log`; only `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED finite cutoff-two non-vacuity endpoint (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteCutoffTwoNontrivialEndpoint.lean`.

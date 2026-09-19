@@ -108,6 +108,16 @@ continuum QFT structure, physical mass calibration, and the all-group Clay
 endpoint remain open.  Focused verification is recorded in
 `/tmp/ym-parity-completed-check3.log` under the `{propext, Quot.sound}` gate.
 
+The next consumer-side handoff is
+`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.lean`:
+completed Cauchy--Schwarz, the exact same-object coefficient, the finite
+centered-parity norm bound, and transfer contraction yield a concrete
+correlation-square bound for that same completed parity vector.  This is still
+one-observable fixed-anchor data, not a uniform vacuum-complement gap or a
+thermodynamic/continuum Yang--Mills theorem.  Focused verification is recorded
+in `/tmp/ym-parity-correlation-check3.log` under the `{propext, Quot.sound}`
+gate.
+
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.
