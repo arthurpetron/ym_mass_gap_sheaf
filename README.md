@@ -5,9 +5,11 @@
 > conditional canonical OS/GNS handoff.  The handoff's supplied range section
 > constructively yields an exact carrier inverse and bijectivity, but neither
 > the bridge nor its range section is inhabited yet.  Finite-stage Cauchy and
-> form compilers now isolate the producer's metric-transport, Gram, and
-> zero/unit pin inputs; a dense-stage two-step consumer now transports the
-> strict bound on finite-stage canonical images.
+> form compilers now isolate the producer's metric-transport, finite-stage
+> pairing, Gram, and zero/unit pin inputs.  Finite-stage pairing continuity
+> now constructs the arbitrary-stream Gram field from stagewise `CReal.Equiv`
+> data; a dense-stage two-step consumer transports the strict bound on
+> finite-stage canonical images.
 > Changing-spacing control,
 > physical mass calibration, continuum QFT construction, and the all-group
 > Clay endpoint remain open.
@@ -44,10 +46,14 @@ canonical vector *if* that bridge and range section are later inhabited.
 
 This is a conditional consumer, not a fabricated OS/GNS identification:
 `CurrentCarrierBridge` and `CanonicalRangeSectionCertificate` remain
-uninhabited.  `CurrentStageCauchyTransportCertificate` and
-`CurrentStageCauchyFormCertificate` construct only the canonical Cauchy
-stream/null descent from finite-stage metric data and expose the remaining
-Gram/zero/unit pins.  `CurrentStageDenseTwoStepCertificate` handles exact
+uninhabited.  `CurrentStageCauchyTransportCertificate` constructs only the
+canonical Cauchy stream/null descent from finite-stage metric data.  The new
+`CurrentStageCauchyStagePairingCertificate.mapCauchy_pairing` theorem lifts a
+finite-stage `CReal.Equiv` pairing law through the canonical and current
+Cauchy limits, and `...toFormCertificate` leaves only the stage map and
+zero/unit pins as producer data.  `CurrentStageCauchyFormCertificate` remains
+available for callers that already have a completed Gram field.
+`CurrentStageDenseTwoStepCertificate` handles exact
 two-step transport only on finite-stage canonical images; arbitrary-limit
 dynamics and probe pins remain open. The finite-stage reverse separation edge
 is now constructed from explicit pairing continuity, while arbitrary-stream

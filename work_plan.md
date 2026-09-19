@@ -627,6 +627,22 @@ spacing and continuum inputs remain separate. Focused check log:
 `735a9bda52a632e127c338c1354377f4243af2554f9a09b74f66ad50e722e63b`.
 The two new declarations use only `{propext, Quot.sound}`.
 
+**Finite-stage pairing-to-Gram contraction, checked 2026-09-18:**
+`CurrentStageCauchyStagePairingCertificate.mapCauchy_pairing` now proves the
+arbitrary-stream completed Gram identity from a finite-stage `CReal.Equiv`
+pairing law. The proof compares the canonical GNS `cinnerRep` limit with the
+current Wilson `representativeInner` limit using the existing Cauchy-limit
+constructors and no representative extraction. `...toFormCertificate`
+reassembles the existing form compiler, so its producer residue is reduced to
+the stage map/distance transport and literal zero/unit pins. This is a genuine
+forward/backward continuity join, not a canonical bridge inhabitant; dynamics,
+range, spacing, continuum and all-group inputs remain open.
+
+Focused check: `/tmp/ym-stage-pairing-compiler-final.log`; SHA-256
+`d553685e1bfc35119ee2cdceb9615e9b956d7ac74cb01bfba9b5b263ba3b1034`. The new
+declarations use only `{propext, Quot.sound}` and introduce no `sorryAx`,
+classical axiom or native computation.
+
 **Dense-stage dynamic consumer, checked 2026-09-18:**
 `CurrentStageDenseTwoStepCertificate` isolates the next dynamic input at the
 smallest useful scope: exact two-step intertwining only for canonical classes

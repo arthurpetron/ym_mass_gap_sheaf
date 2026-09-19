@@ -33,7 +33,7 @@ open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.CRealSeminormCompletion
 open YMGap.Continuum.CRealSeminormCompletion.SquaredSeminorm
 open YMGap.Continuum.CRealSeminormPairingCompletion
-  (representativeInner_eq_of_right_stage_pairings)
+  (representativeInner_eq_of_right_stage_pairings pairSequence_converges)
 open YMGap.Continuum.MeasureLinkedOSReconstruction
 open YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
 open YMGap.Continuum.BF4WilsonSpatialUnion (zeroStage unitStage)
@@ -71,6 +71,7 @@ local notation "hd" => And.right existingNome_guards
 local notation "hs" => And.right existingNome_entropyRate
 local notation "V" => UnionCompletion nome_pos nome_lt_one hsmall hd hs
 local notation "B" => completedInner nome_pos nome_lt_one hsmall hd hs
+local notation "PD" => pairingData nome_pos nome_lt_one hsmall hd hs
 local notation "U" => completedUnit nome_pos nome_lt_one hsmall hd hs
 local notation "Z" => completedZero nome_pos nome_lt_one hsmall hd hs
 local notation "T" => completedTime nome_pos nome_lt_one hsmall hd hs
@@ -185,6 +186,79 @@ theorem mapCauchy_null (K : CurrentStageCauchyTransportCertificate P)
 
 end CurrentStageCauchyTransportCertificate
 
+/-! A finite-stage pairing compiler can now close the completed Gram field
+constructively.  The canonical GNS representative pairing is the limit of
+the termwise `Q'` pairings, while the current Wilson pairing is the limit of
+the termwise `CReal` pairings.  A stage-level `CReal.Equiv` therefore suffices:
+the existing limit-uniqueness theorem lifts it to arbitrary source Cauchy
+streams.  The zero and unit pins remain explicit because they are observable
+identifications, not consequences of metric transport alone. -/
+
+structure CurrentStageCauchyStagePairingCertificate
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W) : Type 2 where
+  transport : CurrentStageCauchyTransportCertificate P
+  stagePairing : ∀ (x y : BF4WilsonSpatialUnion.Stage),
+    CReal.Equiv
+      (CReal.ofQ' (W.toGNSData.B (transport.mapStage x) (transport.mapStage y)))
+      (BF4WilsonSpatialUnion.pairing nome_pos nome_lt_one hsmall hd hs x y)
+  mapCauchy_zero :
+    Quotient.mk (cauchySetoid W.toGNSData)
+        (transport.mapCauchy
+          ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant zeroStage)) =
+      embedV W.toGNSData W.toGNSData.zero
+  mapCauchy_unit :
+    Quotient.mk (cauchySetoid W.toGNSData)
+        (transport.mapCauchy
+          ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant unitStage)) =
+      P.op.vacuum
+
+namespace CurrentStageCauchyStagePairingCertificate
+
+variable
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+
+local notation "D" => unionSeminorm nome_pos nome_lt_one hsmall hd hs
+
+/-- Finite-stage pairing equivalence plus the explicit transport compiler
+constructs the completed Gram identity for every pair of source Cauchy
+streams.  The proof uses no representative extraction: both sides are the
+canonical limits of their displayed termwise sequences. -/
+theorem mapCauchy_pairing
+    (K : CurrentStageCauchyStagePairingCertificate P)
+    (X Y : (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Cauchy) :
+    W.toGNSData.cinnerCompl
+      (Quotient.mk (cauchySetoid W.toGNSData) (K.transport.mapCauchy X))
+      (Quotient.mk (cauchySetoid W.toGNSData) (K.transport.mapCauchy Y)) =
+      B (Quotient.mk
+          (unionSeminorm nome_pos nome_lt_one hsmall hd hs).completionSetoid X)
+        (Quotient.mk
+          (unionSeminorm nome_pos nome_lt_one hsmall hd hs).completionSetoid Y) := by
+  change Quotient.mk CReal.crealSetoid
+      (W.toGNSData.cinnerRep (K.transport.mapCauchy X)
+        (K.transport.mapCauchy Y)) =
+    Quotient.mk CReal.crealSetoid
+      (CRealSeminormPairingCompletion.representativeInner PD X Y)
+  apply Quotient.sound
+  apply CReal.Equiv_of_limit_of_close
+    (CReal.convergesTo_ofQ'CauchySeq
+      (W.toGNSData.cInnerSeq (K.transport.mapCauchy X)
+        (K.transport.mapCauchy Y))
+      (W.toGNSData.cInnerQCauchy (K.transport.mapCauchy X)
+        (K.transport.mapCauchy Y)))
+    (pairSequence_converges PD X Y)
+  intro epsilon hepsilon
+  refine ⟨0, fun N _ => ?_⟩
+  obtain ⟨Npair, hNpair⟩ := K.stagePairing (X.seq N) (Y.seq N) epsilon hepsilon
+  exact ⟨Npair, fun n hn => hNpair n hn⟩
+
+end CurrentStageCauchyStagePairingCertificate
+
 /-! Once the finite-stage transport compiler is supplied, the only remaining
 static pins are its completed Gram identity and the images of the literal
 zero/unit streams.  Keeping these pins in a separate structure lets the
@@ -216,6 +290,20 @@ structure CurrentStageCauchyFormCertificate
         (transport.mapCauchy
           ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant unitStage)) =
       P.op.vacuum
+
+/-! Assemble the existing form compiler from the smaller finite-stage pairing
+compiler and its two distinguished stream pins. -/
+def CurrentStageCauchyStagePairingCertificate.toFormCertificate
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+    (K : CurrentStageCauchyStagePairingCertificate P) :
+    CurrentStageCauchyFormCertificate P where
+  transport := K.transport
+  mapCauchy_pairing := K.mapCauchy_pairing
+  mapCauchy_zero := K.mapCauchy_zero
+  mapCauchy_unit := K.mapCauchy_unit
 
 def CurrentStageCauchyFormCertificate.toCauchyFormCertificate
     {M : Nat -> Type} {mu : ContinuumMeasure M}
@@ -1343,6 +1431,9 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyTransportCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyTransportCertificate.mapCauchy
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyTransportCertificate.mapCauchy_null
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyStagePairingCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyStagePairingCertificate.mapCauchy_pairing
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyStagePairingCertificate.toFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.toCauchyFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.stageClass
