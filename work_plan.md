@@ -249,6 +249,18 @@ One focused serialized 20 GiB check passed with eight public gates within
 passed. One root import added; full-root/full-tree/audit/guard/progress NOT
 run. Evidence: `audits/AUDIT-ALL-EVEN-WILSON-RESPONSE-2026-09-17.md`.
 
+The same all-time survival band is now exposed directly by the concrete
+`CompletedPhysicalSU2Sector` package through
+`current_probe_even_band` and `current_probe_time_norm_floor` in
+`BF4WilsonSpatialUnionCurrentSector.lean`. These are non-vacuous consequences
+for the actual normalized Wilson probe on the completed carrier, not new
+assumptions. They still stop at fixed spacing and fixed small-nome SU(2): the
+changing-spacing family, fixed-physical-time survival, and continuum
+generator identification remain the backward residue.
+
+Focused check: `/tmp/ym-wilson-current-sector-all-time.log`, SHA-256
+`9e19c244266dd427028c1fef0a51112470b2c37b625cf3e1fad1a9486823eddc`.
+
 **Complex algebra and SAME-rate consumer, checked 2026-09-17:**
 `BF4WilsonSpatialUnionComplexification` constructs the direct pair of the
 CURRENT real Wilson completion, with exact real embedding, positive-definite

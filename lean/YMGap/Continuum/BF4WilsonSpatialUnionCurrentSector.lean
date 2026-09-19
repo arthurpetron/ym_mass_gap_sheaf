@@ -233,6 +233,28 @@ theorem current_probe_twoStep_strict_lower :
       (B currentSector.probe (currentSector.twoStep currentSector.probe)) :=
   currentSector.probe_twoStep_lower
 
+/-! ## All-time same-object survival consequences -/
+
+/-- The packaged normalized Wilson probe has the existing two-sided response
+band at every even discrete time, with the same explicit floor and ceiling.
+This is a current-carrier statement; it does not quantify over a changing
+spacing family. -/
+theorem current_probe_even_band (n : Nat) :
+    RCle (Quotient.mk crealSetoid (ofQ' (rayleighFloor ^ n)))
+        (B currentSector.probe (T (2 * n) currentSector.probe)) ∧
+      RCle (B currentSector.probe (T (2 * n) currentSector.probe))
+        (Quotient.mk crealSetoid (ofQ' (rayleighCeiling ^ n))) := by
+  simpa only [currentSector] using
+    (unitExcitation_even_band n)
+
+/-- The same probe remains quantitatively nonzero after every finite integer
+time step on the completed Wilson carrier. -/
+theorem current_probe_time_norm_floor (n : Nat) :
+    RCle (Quotient.mk crealSetoid (ofQ' (rayleighFloor ^ n)))
+      (B (T n currentSector.probe) (T n currentSector.probe)) := by
+  simpa only [currentSector] using
+    (unitExcitation_time_norm_floor n)
+
 /-- The packaged resolvent probe supplies a quantitative non-erasure witness. -/
 theorem current_resolvent_probe_floor :
     RCle (Quotient.mk crealSetoid
@@ -253,4 +275,6 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_probe_connected_twoStep_lower
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_probe_connected_twoStep_upper
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_probe_even_band
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_probe_time_norm_floor
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_resolvent_probe_floor
