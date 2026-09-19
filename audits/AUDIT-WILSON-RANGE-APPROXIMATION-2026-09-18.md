@@ -201,10 +201,11 @@ The forward fragment is now explicitly consumable as
 `CompletedPhysicalSU2Sector.currentSector` selects the existing completed
 Wilson carrier, `completedTime 1` as the physical discrete step,
 `completedUnit` as the current vacuum (fixed by that step), and
-`completedTime 2` as the selected two-step map. Its fields are discharged by the existing same-carrier
-time-balance, positivity, contraction, and semigroup declarations. The
-normalized Wilson excitation supplies the probe, its vacuum orthogonality,
-and the already checked same-object lower and upper two-step response bounds.
+`completedTime 2` as the selected two-step map. Its fields are discharged by
+the existing same-carrier time-balance, positivity, contraction, semigroup,
+vacuum-complement, and unit-norm declarations. The normalized Wilson
+excitation supplies a nonzero probe, its vacuum orthogonality, and the already
+checked same-object lower and upper two-step response bounds.
 The package also retains the current-carrier resolvent probe's centeredness,
 non-erasure, and explicit `1/4` squared-norm floor.
 

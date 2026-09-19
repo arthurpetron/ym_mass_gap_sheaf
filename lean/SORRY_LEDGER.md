@@ -90,9 +90,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **file**: `BF4WilsonSpatialUnionCurrentSector.lean`.
 - **proved**: `CompletedPhysicalSU2Sector.currentSector` packages one
   same-carrier fixed-spacing transfer step, its current vacuum and its fixed
-  vacuum law, self-adjoint time-form law, one-step positivity, squared-norm contraction, selected
-  two-step square, normalized Wilson probe, vacuum orthogonality, the existing
-  two-step response band, and the resolvent probe's centered/nonzero/
+  vacuum law, preservation of the vacuum complement, completed unit norm,
+  self-adjoint time-form law, one-step positivity, squared-norm contraction,
+  selected two-step square, normalized Wilson probe and its nonzero/
+  vacuum-orthogonality facts, the existing two-step response band, and the
+  resolvent probe's centered/nonzero/
   `1/4`-floor facts. The public projections
   `CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower` and
   `CompletedPhysicalSU2Sector.current_resolvent_probe_floor` expose the two

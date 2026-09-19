@@ -28,7 +28,7 @@ open YMGap.Constructive
 open YMGap.Constructive.CReal
 open YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
-  (completedInner)
+  (completedInner completedUnit_norm_one)
 open YMGap.Continuum.BF4WilsonSpatialUnionTimeForm
 open YMGap.Continuum.BF4WilsonSpatialUnionTimePositive
 open YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
@@ -62,6 +62,12 @@ structure CompletedPhysicalSU2Sector : Type 2 where
   vacuum : V
   /-- The selected transfer step fixes the current vacuum. -/
   step_vacuum : step vacuum = vacuum
+  /-- The selected step preserves the current vacuum complement. -/
+  step_preserves_vacuum_complement :
+    ∀ x, B x vacuum = RCzero → B (step x) vacuum = RCzero
+  /-- The current vacuum has the completed unit norm. -/
+  vacuum_norm_one :
+    B vacuum vacuum = Quotient.mk crealSetoid cone
   /-- Self-adjointness for the completed Wilson form. -/
   step_selfAdjoint : ∀ x y, B (step x) y = B x (step y)
   /-- One-step reflection positivity on every current-carrier vector. -/
@@ -74,6 +80,8 @@ structure CompletedPhysicalSU2Sector : Type 2 where
   twoStep_eq_step_sq : ∀ x, twoStep x = step (step x)
   /-- The existing normalized excitation. -/
   probe : V
+  /-- The probe is nonzero on the current completed carrier. -/
+  probe_ne_zero : probe ≠ Z
   /-- The probe is orthogonal to the current vacuum direction. -/
   probe_vacuum_orthogonal : B probe vacuum = RCzero
   /-- A positive same-object two-step lower response. -/
@@ -100,6 +108,9 @@ def currentSector : CompletedPhysicalSU2Sector where
   step := T 1
   vacuum := U
   step_vacuum := completedUnit_fixed nome_pos nome_lt_one hsmall hd hs 1
+  step_preserves_vacuum_complement :=
+    completedTime_preserves_orthogonal nome_pos nome_lt_one hsmall hd hs 1
+  vacuum_norm_one := completedUnit_norm_one nome_pos nome_lt_one hsmall hd hs
   step_selfAdjoint := completedInner_time_balance nome_pos nome_lt_one hsmall hd hs 1
   step_positive := completedInner_oneStep_nonnegative nome_pos nome_lt_one hsmall hd hs
   step_contraction := completedInner_time_contraction nome_pos nome_lt_one hsmall hd hs 1
@@ -109,6 +120,7 @@ def currentSector : CompletedPhysicalSU2Sector where
     simpa only [Nat.reduceAdd] using
       (completedTime_add nome_pos nome_lt_one hsmall hd hs 1 1 x)
   probe := unitExcitation
+  probe_ne_zero := unitExcitation_ne_zero
   probe_vacuum_orthogonal := unitExcitation_orthogonal
   probe_twoStep_lower := by
     exact unitExcitation_even_lower 1

@@ -380,11 +380,13 @@ an explicit constructive residual for the next producer. Evidence log:
 `BF4WilsonSpatialUnionCurrentSector.lean` packages the already checked
 same-carrier data as `CompletedPhysicalSU2Sector.currentSector`: the discrete
 step is `completedTime 1`, the vacuum is `completedUnit` and is fixed by that
-step, positivity and self-adjointness are inherited from the existing time-form laws, and the
-two-step map is selected as `completedTime 2`. The normalized Wilson
-excitation is retained as the probe with its vacuum orthogonality and the
-existing same-object two-step lower/upper response band. The resolvent probe
-remains centered, nonzero, and has the checked `1/4` squared-norm floor.
+step, and the step preserves its orthogonal complement. The vacuum has the
+completed unit norm; positivity and self-adjointness are inherited from the
+existing time-form laws, and the two-step map is selected as `completedTime 2`.
+The normalized Wilson excitation is retained as a nonzero probe with its
+vacuum orthogonality and the existing same-object two-step lower/upper response
+band. The resolvent probe remains centered, nonzero, and has the checked `1/4`
+squared-norm floor.
 This is the concrete forward landmark for the backward spectral/OS consumer,
 but it is fixed-spacing, small-nome SU(2) data on the current
 `UnionCompletion`; it does not inhabit the conditional canonical bridge and
