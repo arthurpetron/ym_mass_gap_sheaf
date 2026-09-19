@@ -661,6 +661,41 @@ theorem preimage_class_unique
   apply J.map_injective
   exact (D.class_eq X).symm.trans (hXY.trans (D.class_eq Y))
 
+/-- Descend the supplied canonical preimage map through the canonical Cauchy
+quotient.  The well-definedness proof uses `preimage_class_unique`, so no
+representative is extracted from a quotient and no choice principle is used. -/
+def currentOfCanonical
+    (D : CanonicalRangeSectionCertificate P J) :
+    GNSCompletionSpace W.toGNSData → V :=
+  Quotient.lift
+    (fun X => currentClass (D.preimage X))
+    (fun _ _ h => D.preimage_class_unique (Quotient.sound h))
+
+/-- The explicit inverse maps every canonical completion class back to its
+bridge image. -/
+theorem map_currentOfCanonical
+    (D : CanonicalRangeSectionCertificate P J)
+    (z : GNSCompletionSpace W.toGNSData) :
+    J.map (D.currentOfCanonical z) = z := by
+  refine Quotient.inductionOn z ?_
+  intro X
+  exact (D.class_eq X).symm
+
+/-- The supplied range section therefore identifies the current and canonical
+completed carriers in both directions. -/
+theorem currentOfCanonical_map
+    (D : CanonicalRangeSectionCertificate P J)
+    (x : V) :
+    D.currentOfCanonical (J.map x) = x := by
+  apply J.map_injective
+  exact D.map_currentOfCanonical (J.map x)
+
+theorem map_bijective
+    (D : CanonicalRangeSectionCertificate P J) :
+    (∀ x y, J.map x = J.map y → x = y) ∧
+      (∀ z, ∃ x, J.map x = z) :=
+  ⟨fun x y h => J.map_injective h, fun z => D.map_surjective z⟩
+
 /-- Every canonical vector orthogonal to the selected vacuum inherits the
 strict two-step form bound once the explicit range section is supplied. The
 proof is an image rewrite: the section supplies the current preimage, while
@@ -834,6 +869,10 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.map_surjective
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.preimage_class_unique
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.currentOfCanonical
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.map_currentOfCanonical
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.currentOfCanonical_map
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.map_bijective
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_defect_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_fixed_eq_zero

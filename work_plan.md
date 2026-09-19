@@ -549,6 +549,18 @@ section itself is deliberately not inhabited. Focused check log:
 `dbe3ac791655095cbc10d81da58886ccd9828edf08f6fcd660ea1315f35814c1`. The
 new declarations use only `{propext, Quot.sound}`.
 
+**Conditional canonical/current carrier equivalence, checked 2026-09-18:**
+The supplied range section now descends to an explicit quotient-level inverse
+`CanonicalRangeSectionCertificate.currentOfCanonical`. The checked laws
+`map_currentOfCanonical` and `currentOfCanonical_map` prove both-sided
+inversion, and `map_bijective` exposes the resulting exact carrier
+equivalence. This is stronger than a density statement but remains entirely
+conditional on the same uninhabited bridge and range-section producer; it
+does not construct a same-theory encoder, changing-spacing family, physical
+mass limit, or continuum/Clay result. Focused check log:
+`/tmp/ym-canonical-range-inverse4.log`; SHA-256
+`58815338d8f9a7bc9d8d41acaf26fc765e097f643faa582bf3c5793e872ff1d0`.
+
 **Contracted conditional canonical gap datum, checked 2026-09-18:**
 `CanonicalCompletedGapCertificate` packages the explicit rate positivity and
 strictness, the all-vector canonical vacuum-complement form bound, the

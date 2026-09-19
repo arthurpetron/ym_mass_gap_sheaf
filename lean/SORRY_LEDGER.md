@@ -155,6 +155,12 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   completion class for equal canonical classes. These remain conditional
   consumers: no section inhabitant, density limit, limit interchange, or
   continuum claim is supplied.
+- **proved**: `CanonicalRangeSectionCertificate.currentOfCanonical` descends
+  the supplied preimage map through the canonical Cauchy quotient without
+  choice. `...map_currentOfCanonical` and `...currentOfCanonical_map` prove
+  both-sided inversion, and `...map_bijective` packages the resulting exact
+  conditional carrier equivalence. The bridge and range-section producers
+  remain uninhabited.
   `...twoStep_fixed_eq_zero` additionally transports the image-level
   two-step fixed-point exclusion to the whole canonical completion under the
   same explicit section.
