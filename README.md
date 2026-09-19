@@ -67,6 +67,18 @@ limit inputs (except for the canonical terminal-positivity compiler); no
 Cauchy modulus, continuum field, OS/QFT structure, or Clay mass gap is
 inferred.
 
+**Completed-carrier attachment (2026-09-19):**
+`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSCompletedCarrier.lean`
+now connects the conditional all-source inward-mate Poincare estimate to the
+actual completed anchor-coupling SU(2) GNS carrier.  Its finite quadratic
+adapter, completed vacuum-form gap, operator norm bound, and same-object
+power-decay declarations are the backward half of the next meet-in-the-middle
+step.  They consume `GlobalInwardMateUniformEndpointCoverage` as an explicit
+producer input; that coverage remains uninhabited, so this adds no cofinal
+gap, continuum limit, QFT axioms, all-group construction, or Clay theorem.
+The focused check was `/tmp/ym-inward-completed-carrier-check4.log`, with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 The forward/backward seam has also been sharpened on the sector-local branch:
 `FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.ofLocalSlice` compiles a
 supplied quarter-rate cofinal slice family to the fixed `1/16` depth budget by

@@ -103,6 +103,26 @@ and all-group step are still open.
 Focused check after this extension: `/tmp/ym-perron-quarter-check14.log`;
 only `{propext, Quot.sound}` were reported.
 
+### Current forward/backward join: inward-mate certificate reaches the completed carrier (2026-09-19)
+
+`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSCompletedCarrier.lean`
+is the next explicit backward adapter.  Its
+`globalInwardMateUniformPoincare_finiteQuadraticGap` declaration converts the
+all-source inward-mate certificate's weighted Markov-form estimate into the
+joint quadratic form expected by the symmetric-reference completion bridge.
+`globalInwardMateUniformPoincare_completed_vacuum_form_gap` then supplies the
+completed vacuum-form contraction for the literal anchor-coupling physical
+GNS carrier.  The exported operator and same-object power theorems give the
+completed squared-rate norm bound and matrix-coefficient-square decay.
+
+This is a genuine causal meet: the forward finite carrier and GNS completion
+already exist, while the backward compiler now names exactly what the missing
+all-source endpoint-coverage producer must feed.  The coverage structure is
+still only a hypothesis; no coverage inhabitant, cofinal producer,
+thermodynamic/continuum passage, QFT axioms, all-group theorem, or Clay mass
+gap is claimed.  Focused check: `/tmp/ym-inward-completed-carrier-check4.log`;
+only `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ### Current forward/backward join: quarter slices compile to a depth budget (2026-09-19)
 
 The older sector-local slice route now has an explicit backward adapter in

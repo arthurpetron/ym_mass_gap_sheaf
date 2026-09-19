@@ -46,6 +46,23 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: `/tmp/ym-perron-quarter-check14.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
+## PROVED inward-mate certificate to completed-carrier adapter (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSCompletedCarrier.lean`.
+- **proved**: `globalInwardMateUniformPoincare_finiteQuadraticGap` translates
+  the conditional all-source inward-mate Markov-form bound to the joint
+  quadratic interface; `globalInwardMateUniformPoincare_completed_vacuum_form_gap`
+  passes it through the generic symmetric-reference completion bridge; and
+  `globalInwardMateUniformPoincare_completed_operator_norm_gap` together with
+  `...completed_power_autocorrelationSq_decay` expose the completed transfer
+  and same-object power consequences at the certificate's squared rate.
+- **boundary**: `GlobalInwardMateUniformEndpointCoverage` remains an explicit
+  analytic producer obligation with no inhabitant in this module.  The result
+  is therefore a consumer compiler for the fixed anchor-coupling SU(2) carrier,
+  not a cofinal, thermodynamic, continuum, QFT, all-group, or Clay theorem.
+- **verification**: `/tmp/ym-inward-completed-carrier-check4.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED finite cutoff-two non-vacuity endpoint (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteCutoffTwoNontrivialEndpoint.lean`.
