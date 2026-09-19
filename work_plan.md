@@ -573,6 +573,23 @@ transfer gap; the calibration, thermodynamic passage, continuum QFT package,
 all-group extension, and Clay endpoint remain open.  The source check now
 prints only `{propext, Quot.sound}` for both new declarations.
 
+### Current forward/backward join: one concrete completed SU(2) carrier (2026-09-19)
+
+`BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean` now packages the
+fixed-nome, half-extent-zero sector into
+`ConcreteSU2CompletedCarrierCertificate`.  The forward side is inhabited: it
+contains the normalized ambient vacuum, the explicit moving-centered cube
+vector with positive completed norm, its positive zero-time same-object
+moment, the exact global adaptive-transfer matrix-coefficient identity, and
+transfer-power intertwining.  The backward side is named separately by
+`CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData`; the
+conditional `..._autocorrelation_sq_decay` declaration consumes that input and
+does not manufacture it.  This is the current typed meeting point for the
+observable-connected path.  It remains fixed finite SU(2) data: the cofinal
+strict-rate producer, changing-spacing/physical calibration,
+thermodynamic-continuum passage, QFT axioms, all-group extension, and Clay
+mass gap remain open.
+
 ### Current forward/backward join: residual strength factors (2026-09-19)
 
 `BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler` exposes

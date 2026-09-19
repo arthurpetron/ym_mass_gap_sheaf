@@ -383,6 +383,21 @@ genuine local-slice/gluing family as a direct forward producer at the checked
 rate `1/16`.  Neither that local-slice family nor the exact canonical capacity
 check is constructed here.
 
+**Concrete SU(2) completed-carrier certificate, checked 2026-09-19:**
+`BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean` contracts the
+fixed-nome, half-extent-zero sector into one typed
+`ConcreteSU2CompletedCarrierCertificate`.  Its constructor packages the
+normalized ambient vacuum, the positive moving-centered cube vector, its
+positive zero-time same-object moment, the exact global matrix-coefficient
+identity, and transfer-power intertwining.  The companion
+`..._autocorrelation_sq_decay` theorem consumes (rather than constructs) the
+named completed-sector strict-contraction certificate.  This is the explicit
+forward/backward meeting point: the carrier and observable are inhabited on
+the forward side, while the uniform strict rate remains the backward-facing
+input.  It is still fixed finite SU(2) data; no cofinal producer,
+thermodynamic/continuum passage, QFT axioms, all-group theorem, or Clay mass
+gap is claimed.
+
 **Sector-normalized local-slice forward/backward join, checked 2026-09-19:**
 `BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement` now consumes the
 sector-normalized `FixedNomeCofinalVacuumSectorLocalSliceGluing` interface

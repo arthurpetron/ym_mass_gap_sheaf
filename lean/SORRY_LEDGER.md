@@ -331,6 +331,25 @@ is a rate-sensitive one-vector moment bound, not an all-vector operator gap.
   rate `1/16`.  Neither that family nor the exact canonical capacity check is
   constructed here.
 
+## PROVED concrete SU(2) completed-carrier certificate (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean`.
+- **proved**: `concreteSU2CompletedCarrierCertificate` packages the fixed-nome,
+  half-extent-zero completed sector, normalized ambient vacuum, positive
+  moving-centered cube vector, positive zero-time same-object moment, exact
+  global matrix-coefficient identity, and transfer-power intertwining into one
+  `ConcreteSU2CompletedCarrierCertificate`.  The companion
+  `concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay` consumes
+  a named `CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData`
+  and returns the concrete squared autocorrelation bound.
+- **boundary**: the strict contraction remains an explicit producer input;
+  this certificate does not construct a cofinal rate, thermodynamic or
+  continuum limit, QFT axioms, an all-group theorem, or the Clay mass gap.
+- **verification**: dependency-complete safe build target
+  `+YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate:olean`
+  and the module's printed axiom gates; expected trusted axioms are only
+  `{propext, Quot.sound}` and no `sorryAx`.
+
 **Sector-normalized local-slice forward/backward join, checked 2026-09-19:**
 `BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement` now consumes
 `FixedNomeCofinalVacuumSectorLocalSliceGluing` directly.  The new
