@@ -98,6 +98,13 @@ theorem evenOrbitResidual_center (x : V) :
   unfold evenOrbitResidual
   rw [center_sub, completedTime_center]
 
+theorem evenOrbitResidual_selfAdjoint (x y : V) :
+    B (evenOrbitResidual hw0 hw1 hsmall hd hs x) y =
+      B x (evenOrbitResidual hw0 hw1 hsmall hd hs y) := by
+  unfold evenOrbitResidual
+  rw [completedInner_sub_left, completedInner_sub_right,
+    completedInner_time_balance]
+
 /-! The two-step form gap has an immediate same-carrier energy consequence.
 The scalar conversion below is only the existing `RCscale` action; no inverse
 or spectral resolution is introduced. -/
@@ -486,6 +493,7 @@ def evenOrbitStage_range_data (x : Stage)
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitCentered_correlator_difference_nonnegative
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_kernel
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_center
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_selfAdjoint
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumCauchy
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumCauchy_pin
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumStage

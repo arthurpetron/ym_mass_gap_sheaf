@@ -30,6 +30,9 @@ on the current completed SU(2) Wilson carrier. It is fixed-spacing data only.
 - `evenOrbitResidual` names the actual `(I-T^2)` defect, and
   `evenOrbitResidual_kernel` proves its kernel is trivial on the completed
   vacuum complement.
+- `evenOrbitResidual_selfAdjoint` proves the defect is symmetric for the
+  completed pairing, which is the operator-side condition needed by a future
+  dense-range consumer.
 - `evenOrbitSumStage` and `evenOrbitSumStage_pin` retain the finite geometric
   preimage as a strict `Stage`, and `evenOrbitStage_error_small` transfers the
   explicit modulus to that finite-stage carrier.
@@ -64,14 +67,14 @@ Command:
 python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
   --check lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean \
   --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.olean \
-  --log-file /tmp/ym-range-approx-20260918ag.log
+  --log-file /tmp/ym-range-approx-20260918ah.log
 ```
 
-Result: passed. The twenty-one public declarations printed only
+Result: passed. The twenty-two public declarations printed only
 `{propext, Quot.sound}`. No `sorryAx`, `Classical.*`, `native_decide`, or
 new axiom appears. Log SHA-256:
 
-`4ae062835b1b734862337ef14d91b5c0d73cae6232d338d9fd40a421f6538ae1`.
+`9839a02f895377eceb39fd734e5c654667b24396d40f080346d2b77bcd243d1a`.
 
 The full root, full-tree build, axiom audit, guard and progress runs were not
 performed. The result does not supply strict density of strictly-past

@@ -47,7 +47,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   through the existing center projection, and
   `evenOrbitCentered_correlator_difference_nonnegative` expresses it directly
   as nonnegativity of the connected lag-zero minus lag-two correlator
-  difference. All twenty-one public gates lie within
+  difference. `evenOrbitResidual_selfAdjoint` proves symmetry of the actual
+  defect for the completed pairing. All twenty-two public gates lie within
   `{propext, Quot.sound}`. This is fixed-spacing
   approximate range data, not an inverse, strict continuum gap, or Clay closure.
 
