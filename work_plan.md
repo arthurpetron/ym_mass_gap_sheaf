@@ -87,8 +87,14 @@ parity margin.  This preserves a usable quantitative witness when a later
 compiler consumes the handoff instead of projecting immediately to
 `RCIsPositive`.
 
+It also exports
+`globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_norm`,
+the direct unsquared transfer-coefficient bound.  This is the preferred input
+shape for the next multi-observable compiler; the rate-square estimate is
+retained for correlation-moment consumers.
+
 The focused monitored check is
-`/tmp/ym-parity-margin-square-check.log`; the module reports only
+`/tmp/ym-parity-direct-rate-check.log`; the module reports only
 `[propext, Quot.sound]`.  The next causal edge is to use this certificate as
 an input to a genuine multi-observable or cofinality compiler, rather than
 mistaking the package for that compiler.

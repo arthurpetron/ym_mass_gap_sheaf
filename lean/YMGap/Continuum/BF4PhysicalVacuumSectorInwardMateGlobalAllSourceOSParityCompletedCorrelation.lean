@@ -256,6 +256,37 @@ theorem globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_r
   rw [rc_square_scale_eq_scale_square] at hsquare
   exact hsquare
 
+/-- The direct completed one-vector form-rate inequality, with the transfer
+coefficient written in the same-object orientation consumed by downstream
+correlation compilers. -/
+theorem globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_norm
+    (K : Nat) (hK : 1 <= K) :
+    let w := anchorCoupling
+    let hw : (0 : Q') ≤ w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    let coefficient :=
+      D.cinnerCompl vector
+        (centralPhysicalCompletedMarkovTransfer w hw K 0 vector)
+    CReal.RCle coefficient
+      (CReal.RCscale globalInwardMateParityFormRate
+        (D.cinnerCompl vector vector)) := by
+  dsimp only
+  let w := anchorCoupling
+  let hw : (0 : Q') ≤ w := by decide
+  let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+  let vector := globalInwardMateCenteredParityCompletedObservable K
+  let transferred := centralPhysicalCompletedMarkovTransfer w hw K 0 vector
+  let coefficient := D.cinnerCompl vector transferred
+  let norm := D.cinnerCompl vector vector
+  have hstrict :=
+    globalInwardMateCenteredParityCompletedObservable_strict_form K hK
+  dsimp only at hstrict
+  rw [centralPhysicalCompletedMarkovTransfer_selfAdjoint] at hstrict
+  change CReal.RCle coefficient
+    (CReal.RCscale globalInwardMateParityFormRate norm) at hstrict
+  exact hstrict
+
 /-- The finite parity margin becomes a completed Rayleigh-deficit estimate for
 the same completed vector. -/
 theorem globalInwardMateCenteredParityCompletedObservable_margin_mul_norm_le_deficit
@@ -385,6 +416,17 @@ structure GlobalInwardMateParityCompletedCorrelationCertificate
         (globalInwardMateParityFormRate * globalInwardMateParityFormRate)
         (CReal.RCmul (D.cinnerCompl vector vector)
           (D.cinnerCompl vector vector)))
+  coefficient_le_rate_norm :
+    let w := anchorCoupling
+    let hw : (0 : Q') ≤ w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    let coefficient :=
+      D.cinnerCompl vector
+        (centralPhysicalCompletedMarkovTransfer w hw K 0 vector)
+    CReal.RCle coefficient
+      (CReal.RCscale globalInwardMateParityFormRate
+        (D.cinnerCompl vector vector))
   deficit_positive :
     let w := anchorCoupling
     let hw : (0 : Q') ≤ w := by decide
@@ -418,6 +460,9 @@ def globalInwardMateParityCompletedCorrelationCertificate
     correlation_square_le_rateSquare_normSquare :=
       globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_rateSquare_normSquare
         K hK
+    coefficient_le_rate_norm :=
+      globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_norm
+        K hK
     deficit_positive :=
       globalInwardMateCenteredParityCompletedObservable_deficit_positive K hK
     deficit_ge_marginSquare :=
@@ -442,5 +487,7 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityComp
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_deficit_positive
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_rateSquare_normSquare
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_norm
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateParityCompletedCorrelationCertificate

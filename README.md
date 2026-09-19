@@ -149,6 +149,12 @@ is at least the explicit square of the finite parity margin, rather than only
 its positivity projection.  The focused check is
 `/tmp/ym-parity-margin-square-check.log`.
 
+The same certificate also exports the unsquared direct form-rate interface
+`globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_norm`.
+This is the most direct consumer form for a later multi-observable compiler;
+the squared estimate remains available as a consequence.  Verification is in
+`/tmp/ym-parity-direct-rate-check.log` under the same axiom gate.
+
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.
