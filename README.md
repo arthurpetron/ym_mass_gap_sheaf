@@ -92,11 +92,13 @@ Only `{propext, Quot.sound}` were reported.
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
 contracts the explicit dense physical-to-strong lift certificate directly to
 the existing uniform completed physical vacuum-complement norm gap.  The
-finite map, exact distance/inner laws, Type-valued null-modulus transport,
-macro radical law, and vacuum radical law remain explicit inputs; no dense
-analytic inhabitant, continuum limit, or Clay result is inferred.
-Focused check: `/tmp/ym-dense-endpoint-gap-consequence9.log`; source SHA-256
-`096a4bb8140ce04aebd499391b7b68d24e7acca3e0f19917aa050b60d83cf877`.
+finite map, exact distance/inner laws, macro radical law, and vacuum radical
+law remain explicit inputs.  The Type-valued null modulus is constructed from
+the physical representatives' two Cauchy moduli by
+`GNSNullModulusRecovery.recoverNullModulus`; no dense analytic inhabitant,
+continuum limit, or Clay result is inferred.  Focused check:
+`/tmp/ym-dense-endpoint-recovered-modulus.log`; source SHA-256
+`e8ba82112ad6a4f8f7533c755590d82efa13d9d1bdc06fc05d13bf4e87a2c697`.
 Only `{propext, Quot.sound}` were reported.
 
 The reverse finite-stage edge is now named explicitly as

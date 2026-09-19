@@ -6,18 +6,17 @@ completed carriers to explicit dense-stage analytic data.  A physical GNS
 Cauchy sequence is sent termwise to strict-cylinder stages; exact squared-
 distance and inner-form identities then provide the metric and norm laws.
 
-One constructive seam must remain visible.  `CauchyNull` in the physical GNS
-completion states `forall epsilon, exists N` in `Prop`, whereas the strict
-seminorm completion requires a Type-valued modulus `epsilon -> Nat`.  Lean
-cannot extract the latter from the former without choice.  The field
-`nullModulusTransport` records exactly this missing witness and nothing more.
-
-Given that witness plus dense inner, macro-time, and vacuum identifications,
-the module constructs the corrected four-field completed endpoint
+The physical GNS representatives already carry Cauchy moduli.  The
+constructive `GNSNullModulusRecovery.recoverNullModulus` theorem computes a
+Type-valued null modulus from those two moduli and the propositional null
+relation, so no Prop-to-Type choice field is needed here.  Given that derived
+modulus plus dense inner, macro-time, and vacuum identifications, the module
+constructs the corrected four-field completed endpoint
 intertwiner.  It does not construct the dense analytic data themselves.
 -/
 
 import YMGap.Continuum.BF4PhysicalCompletedMacroEndpointIntertwiner
+import YMGap.Continuum.GNSNullModulusRecovery
 
 namespace YMGap.Continuum.BF4PhysicalDenseMacroEndpointLift
 
@@ -37,6 +36,7 @@ open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.Z4CouplingParametricSignedGeometricClustering
 open YMGap.Continuum.CRealSeminormCompletion
 open YMGap.Continuum.GNSQuotient
+open YMGap.Continuum.GNSNullModulusRecovery
 open YMGap.Continuum.PhysicalSeparator
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedInner
@@ -54,9 +54,8 @@ open YMGap.Continuum.Z4StrongCouplingParametricAnchor
 /-- Dense-stage data sufficient to construct the completed physical-to-strong
 endpoint map.
 
-`nullModulusTransport` is deliberately a `Sigma` witness in `Type`: it is the
-constructive choice data needed to descend the termwise stage map through the
-two completions' differently packaged null relations. -/
+The physical Cauchy moduli construct the target null modulus via
+`recoverNullModulus`; no additional choice witness is stored. -/
 structure DenseBF4MacroEndpointLiftData
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -82,26 +81,6 @@ structure DenseBF4MacroEndpointLiftData
           (matchedAllSpinWeight_nonnegative family coupling scale)
           (matchedAllSpinCutoff family coupling scale) 0).toGNSData.distSqQ
           left right))
-  /-- Explicit transport of an asymptotically null physical representative
-  pair to the Type-valued modulus demanded by the strong completion. -/
-  nullModulusTransport : ∀ scale
-      (X Y : CauchyGNS
-        (centralPhysicalSmulGNS
-          (matchedAllSpinWeight family coupling scale)
-          (matchedAllSpinWeight_nonnegative family coupling scale)
-          (matchedAllSpinCutoff family coupling scale) 0).toGNSData),
-    CauchyNull
-        (centralPhysicalSmulGNS
-          (matchedAllSpinWeight family coupling scale)
-          (matchedAllSpinWeight_nonnegative family coupling scale)
-          (matchedAllSpinCutoff family coupling scale) 0).toGNSData X Y →
-      Σ' modulus : Q' → Nat,
-        ∀ epsilon, (0 : Q') < epsilon → ∀ n, modulus epsilon ≤ n →
-          CReal.leEv
-            (strictJointCylinderStageReflectionDistSq hendpoint hle
-              (toStrongStage scale (X.seq n))
-              (toStrongStage scale (Y.seq n)))
-            (CReal.ofQ' epsilon)
   /-- Exact dense identification of the full bilinear forms. -/
   innerIdentification : ∀ scale left right,
     CReal.Equiv
@@ -179,8 +158,8 @@ def mapPhysicalCauchy
         (CReal.ofQ'_le_ofQ'
           (X.isCauchy epsilon hepsilon m n hm hn)))
 
-/-- The explicit null-modulus field is precisely what is needed for quotient
-descent into the strong completion. -/
+/-- The source Cauchy moduli provide the target Type-valued modulus
+constructively; the exact distance identity transports its bound. -/
 theorem mapPhysicalCauchy_completionRel
     (data : DenseBF4MacroEndpointLiftData hendpoint hle producer)
     (scale : Nat)
@@ -197,15 +176,21 @@ theorem mapPhysicalCauchy_completionRel
     (strictJointCylinderStageSquaredSeminorm hendpoint hle).CompletionRel
       (data.mapPhysicalCauchy scale X)
       (data.mapPhysicalCauchy scale Y) := by
-  obtain ⟨modulus, hmodulus⟩ :=
-    data.nullModulusTransport scale X Y hXY
+  let sourceModulus := recoverNullModulus hXY
   exact ⟨{
-    modulus := modulus
-    close := hmodulus
+    modulus := sourceModulus.modulus
+    close := by
+      intro epsilon hepsilon n hn
+      exact CReal.leEv_trans
+        (CReal.leEv_of_equiv
+          (data.distSqIdentification scale (X.seq n) (Y.seq n)))
+        (CReal.leEv_of_le
+          (CReal.ofQ'_le_ofQ'
+            (sourceModulus.close epsilon hepsilon n hn)))
   }⟩
 
-/-- The completed map constructed from the dense stage map and its explicit
-null-modulus transport. -/
+/-- The completed map constructed from the dense stage map and the
+constructively recovered null modulus. -/
 def completedMap
     (data : DenseBF4MacroEndpointLiftData hendpoint hle producer)
     (scale : Nat) :
@@ -398,8 +383,8 @@ theorem completedMap_mapsVacuumOrthogonal
 
 /-! ## 5. Contraction to the corrected completed residual -/
 
-/-- Dense analytic comparison data plus the explicit null-modulus transport
-construct the entire corrected completed endpoint intertwiner. -/
+/-- Dense analytic comparison data plus the constructively recovered null
+modulus construct the entire corrected completed endpoint intertwiner. -/
 def toCompletedIntertwiner
     (data : DenseBF4MacroEndpointLiftData hendpoint hle producer) :
     CompletedBF4MacroEndpointIntertwiner hendpoint hle producer where

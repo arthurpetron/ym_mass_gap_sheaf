@@ -676,13 +676,16 @@ Only `{propext, Quot.sound}` were reported.
 is the direct forward contraction from the dense physical-to-strong lift data
 to the existing uniform completed physical vacuum-complement norm gap.  It
 adds no comparison assumption: the dense data already contain the finite
-stage map, exact squared-distance and inner identities, null-modulus transport,
-macro radical law, and vacuum radical law.  The result is still conditional on
-those dense analytic fields; it is not a construction of the fields, a
-thermodynamic/continuum limit, or the Clay theorem.
+stage map, exact squared-distance and inner identities, macro radical law, and
+vacuum radical law.  The Type-valued null modulus is constructed from the
+physical representatives' two Cauchy moduli by
+`GNSNullModulusRecovery.recoverNullModulus`, rather than stored as a separate
+choice-shaped field.  The result is still conditional on those dense analytic
+fields; it is not a construction of the fields, a thermodynamic/continuum
+limit, or the Clay theorem.
 
-Focused check: `/tmp/ym-dense-endpoint-gap-consequence9.log`; source SHA-256
-`096a4bb8140ce04aebd499391b7b68d24e7acca3e0f19917aa050b60d83cf877`.
+Focused check: `/tmp/ym-dense-endpoint-recovered-modulus.log`; source SHA-256
+`e8ba82112ad6a4f8f7533c755590d82efa13d9d1bdc06fc05d13bf4e87a2c697`.
 Only `{propext, Quot.sound}` were reported.
 
 **Dense-stage dynamic consumer, checked 2026-09-18:**
