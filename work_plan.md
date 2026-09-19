@@ -644,6 +644,21 @@ Focused check: `/tmp/ym-stage-pairing-compiler-final.log`; SHA-256
 declarations use only `{propext, Quot.sound}` and introduce no `sorryAx`,
 classical axiom or native computation.
 
+**Forward/backward physical meet, checked 2026-09-18:**
+`CurrentStageMatchedPhysicalTransferJoin` names the exact junction between
+the backward current-stage encoder and the forward physical dense-stage
+compiler.  Its `stage_time` field is the sole new compatibility input:
+current `time 2` must agree in the selected canonical carrier with canonical
+`tau`.  From that field and the existing
+`BF4WilsonDenseStageMapData.stageTransfer_intertwines`, the checked theorem
+`CurrentStageMatchedPhysicalTransferJoin.stageTransfer_intertwines` produces
+the literal matched finite BF4 transfer law for the composed observable.
+This removes composition bookkeeping but does not inhabit the stage encoder,
+the time-compatibility field, or the continuum bridge.  Focused check:
+`/tmp/ym-forward-backward-join-final.log`; source SHA-256
+`8bad70c17a3efdda3d7d1222a6f28fe83b6be9e40d92e1cbf4ace8f87219d570`.
+Only `{propext, Quot.sound}` were reported.
+
 **Dense-stage dynamic consumer, checked 2026-09-18:**
 `CurrentStageDenseTwoStepCertificate` isolates the next dynamic input at the
 smallest useful scope: exact two-step intertwining only for canonical classes

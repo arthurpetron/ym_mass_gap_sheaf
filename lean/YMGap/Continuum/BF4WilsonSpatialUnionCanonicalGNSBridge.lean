@@ -19,6 +19,7 @@ OS/GNS carrier obligation for this route.
 import YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
 import YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation
 import YMGap.Continuum.WilsonGNSTransferUnderdetermination
+import YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 
 namespace YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 
@@ -37,6 +38,7 @@ open YMGap.Continuum.CRealSeminormPairingCompletion
 open YMGap.Continuum.MeasureLinkedOSReconstruction
 open YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
 open YMGap.Continuum.BF4WilsonSpatialUnion (zeroStage unitStage)
+open YMGap.Continuum.BF4WilsonSpatialUnion (Stage time)
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
   (completedInner_symm pairingData)
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
@@ -65,6 +67,15 @@ open YMGap.Continuum.BF4ExactSlabSmallNomeHaarComparison (existingNome_guards)
 open YMGap.Continuum.BF4ExactSlabSummableCoreRate (existingNome_entropyRate)
 open YMGap.Continuum.WilsonGNSTransferUnderdetermination
 open YMGap.Continuum.WilsonGNS
+open YMGap.Continuum.WilsonMinimalBoundedMassGapHandoff
+open YMGap.Continuum.BF4MatchedPhysicalAFBridge
+open YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
+open YMGap.Continuum.BF4PhysicalMarkovGNSCompletion
+open YMGap.Continuum.BF4PhysicalModulatedGapLimitStability
+open YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
+open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
+open YMGap.Continuum.BF4PhysicalSeparatorProducer
+open YMGap.Continuum.PhysicalSeparator
 
 local notation "hsmall" => And.left existingNome_guards
 local notation "hd" => And.right existingNome_guards
@@ -258,6 +269,80 @@ theorem mapCauchy_pairing
   exact ⟨Npair, fun n hn => hNpair n hn⟩
 
 end CurrentStageCauchyStagePairingCertificate
+
+/-! The forward/backward meet with the physical matched-stage compiler.  The
+current bridge supplies `Stage -> W.V`; the physical compiler supplies
+`W.V -> (matched finite stage).V`.  Their composition is useful only after a
+named two-step time law identifies the current stage advance with the selected
+canonical observable shift.  The record below contains exactly that join; no
+physical witness is inferred from either side alone. -/
+
+structure CurrentStageMatchedPhysicalTransferJoin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    {separator : PhysicalSeparator}
+    (producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling separator)
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    (D : WilsonSelectedOSGNSData H)
+    (K : CurrentStageCauchyStagePairingCertificate D.timeTranslation)
+    (data : BF4WilsonDenseStageMapData producer D) : Type 2 where
+  /-- The backward-facing current two-step shift agrees in the canonical
+  carrier with the time shift consumed by the forward physical compiler. -/
+  stage_time : ∀ x : Stage,
+    D.wilson.toGNSData.veq
+      (K.transport.mapStage (time 2 x))
+      (D.timeTranslation.tau (K.transport.mapStage x))
+
+namespace CurrentStageMatchedPhysicalTransferJoin
+
+variable
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {coupling : Nat → Q'}
+    {separator : PhysicalSeparator}
+    {producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling separator}
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : FourDExistence.ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    {K : CurrentStageCauchyStagePairingCertificate D.timeTranslation}
+    {data : BF4WilsonDenseStageMapData producer D}
+
+/-- The observable obtained by composing the current stage encoder with the
+forward physical dense-stage map. -/
+def stageObservable
+    (J : CurrentStageMatchedPhysicalTransferJoin producer D K data)
+    (scale : Nat) (x : Stage) :
+    (MatchedPhysicalStageGNSData family coupling scale).V :=
+  data.stageObservable scale (K.transport.mapStage x)
+
+/-- The two-step current-stage advance is now an exact finite physical
+transfer intertwining law.  This theorem is the constructive contraction of
+the two independently typed directions; its only new premise is `stage_time`.
+-/
+theorem stageTransfer_intertwines
+    (J : CurrentStageMatchedPhysicalTransferJoin producer D K data)
+    (scale : Nat) (x : Stage) :
+    (MatchedPhysicalStageGNSData family coupling scale).veq
+      (centralPhysicalMarkovApply
+        (matchedAllSpinWeight family coupling scale)
+        (matchedAllSpinWeight_nonnegative family coupling scale)
+        (matchedAllSpinCutoff family coupling scale) 0
+        (J.stageObservable scale x))
+      (J.stageObservable scale (time 2 x)) := by
+  have hphysical := data.stageTransfer_intertwines scale
+    (K.transport.mapStage x)
+  have htime := data.stageObservable_congr scale (J.stage_time x)
+  exact (MatchedPhysicalStageGNSData family coupling scale).veq_trans
+    hphysical
+    ((MatchedPhysicalStageGNSData family coupling scale).veq_symm htime)
+
+end CurrentStageMatchedPhysicalTransferJoin
 
 /-! Once the finite-stage transport compiler is supplied, the only remaining
 static pins are its completed Gram identity and the images of the literal
@@ -1434,6 +1519,9 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyStagePairingCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyStagePairingCertificate.mapCauchy_pairing
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyStagePairingCertificate.toFormCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageMatchedPhysicalTransferJoin
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageMatchedPhysicalTransferJoin.stageObservable
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageMatchedPhysicalTransferJoin.stageTransfer_intertwines
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.toCauchyFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.stageClass

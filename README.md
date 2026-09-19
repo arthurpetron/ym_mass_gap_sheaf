@@ -64,6 +64,17 @@ QFT construction and every-group Yang--Mills remain open.  The focused check
 used only `{propext, Quot.sound}` and produced no `sorryAx`; the detailed
 execution record is in [`work_plan.md`](work_plan.md).
 
+**Forward/backward physical meet, checked 2026-09-18:**
+`CurrentStageMatchedPhysicalTransferJoin.stageTransfer_intertwines` composes
+the existing physical dense-stage transfer law with the current
+stage-to-canonical two-step time-compatibility witness.  It produces the
+literal matched finite BF4 transfer law for the composed stage observable.
+The compatibility witness remains an explicit, uninhabited input; no
+current-to-canonical map or physical continuum bridge is inferred.  Focused
+check: `/tmp/ym-forward-backward-join-final.log`; source SHA-256
+`8bad70c17a3efdda3d7d1222a6f28fe83b6be9e40d92e1cbf4ace8f87219d570`.
+The declarations use only `{propext, Quot.sound}`.
+
 The reverse finite-stage edge is now named explicitly as
 `CurrentStagePairingSeparationCertificate`.  Its checked consumer,
 `CurrentStagePairingSeparationCertificate.stageClass_eq_iff_current_eq`,
