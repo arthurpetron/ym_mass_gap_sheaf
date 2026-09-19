@@ -34,6 +34,7 @@ open YMGap.Continuum.BF4PhysicalMarkovGNSCompletion
 open YMGap.Continuum.BF4PhysicalSeparatorProducer
 open YMGap.Continuum.BF4ReflectedAllSpinAFRowRelative
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
+open YMGap.Continuum.Z4CouplingParametricSignedGeometricClustering
 open YMGap.Continuum.CRealSeminormCompletion
 open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.PhysicalSeparator
@@ -141,6 +142,12 @@ variable {family : MatchedBlockFamily}
     {hle : endpointCoupling ≤ anchorCoupling}
     {producer : BF4QuarterPhysicalSeparatorProducer
       family law spacing coupling P}
+
+abbrev AnchoredPhysicalMacroGap
+    (producer : BF4QuarterPhysicalSeparatorProducer
+      family law spacing coupling P) : Prop :=
+  CentralPhysicalCompletedMacroVacuumNormGap producer
+    anchorDecoratedDoubledTimeRate
 
 private theorem czero_le_ofQ'_of_pos {epsilon : Q'}
     (hepsilon : (0 : Q') < epsilon) :
@@ -402,6 +409,21 @@ def toCompletedIntertwiner
   macroTransferIntertwining := data.completedMap_macroTransferIntertwining
   mapsVacuumOrthogonal := data.completedMap_mapsVacuumOrthogonal
 
+/-! ## 6. The first completed physical consequence -/
+
+/-! The result type is inferred from the existing endpoint theorem.  Avoiding
+an expanded expected type keeps this thin contraction within the module's
+normal recursion budget. -/
+/-- The dense endpoint certificate contracts directly to the uniform completed
+physical vacuum-complement norm gap.  This theorem is intentionally a thin
+named edge: it adds no new comparison hypothesis and makes explicit that the
+only remaining input is the dense analytic lift data itself. -/
+theorem toCompletedIntertwiner_physicalMacroVacuumNormGap
+    (data : DenseBF4MacroEndpointLiftData hendpoint hle producer) :
+    AnchoredPhysicalMacroGap producer :=
+  CompletedBF4MacroEndpointIntertwiner.physicalMacroVacuumNormGap
+    (data.toCompletedIntertwiner)
+
 end DenseBF4MacroEndpointLiftData
 
 end YMGap.Continuum.BF4PhysicalDenseMacroEndpointLift
@@ -414,3 +436,4 @@ end YMGap.Continuum.BF4PhysicalDenseMacroEndpointLift
 #print axioms YMGap.Continuum.BF4PhysicalDenseMacroEndpointLift.DenseBF4MacroEndpointLiftData.completedMap_vacuum
 #print axioms YMGap.Continuum.BF4PhysicalDenseMacroEndpointLift.DenseBF4MacroEndpointLiftData.completedMap_mapsVacuumOrthogonal
 #print axioms YMGap.Continuum.BF4PhysicalDenseMacroEndpointLift.DenseBF4MacroEndpointLiftData.toCompletedIntertwiner
+#print axioms YMGap.Continuum.BF4PhysicalDenseMacroEndpointLift.DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap

@@ -671,6 +671,20 @@ obligation to the strong OS endpoint.  Focused check:
 `3ffec48af04abe58e7541c3d114ac252dd5de6d83dfb5f2be5aa3e17aed0c5f8`.
 Only `{propext, Quot.sound}` were reported.
 
+**Dense endpoint gap contraction, checked 2026-09-18:**
+`DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
+is the direct forward contraction from the dense physical-to-strong lift data
+to the existing uniform completed physical vacuum-complement norm gap.  It
+adds no comparison assumption: the dense data already contain the finite
+stage map, exact squared-distance and inner identities, null-modulus transport,
+macro radical law, and vacuum radical law.  The result is still conditional on
+those dense analytic fields; it is not a construction of the fields, a
+thermodynamic/continuum limit, or the Clay theorem.
+
+Focused check: `/tmp/ym-dense-endpoint-gap-consequence9.log`; source SHA-256
+`096a4bb8140ce04aebd499391b7b68d24e7acca3e0f19917aa050b60d83cf877`.
+Only `{propext, Quot.sound}` were reported.
+
 **Dense-stage dynamic consumer, checked 2026-09-18:**
 `CurrentStageDenseTwoStepCertificate` isolates the next dynamic input at the
 smallest useful scope: exact two-step intertwining only for canonical classes

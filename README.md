@@ -88,6 +88,17 @@ claim is added.  Focused check: `/tmp/ym-concrete-physical-endpoint2.log`;
 source SHA-256 `3ffec48af04abe58e7541c3d114ac252dd5de6d83dfb5f2be5aa3e17aed0c5f8`.
 Only `{propext, Quot.sound}` were reported.
 
+**Dense endpoint gap contraction, checked 2026-09-18:**
+`DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
+contracts the explicit dense physical-to-strong lift certificate directly to
+the existing uniform completed physical vacuum-complement norm gap.  The
+finite map, exact distance/inner laws, Type-valued null-modulus transport,
+macro radical law, and vacuum radical law remain explicit inputs; no dense
+analytic inhabitant, continuum limit, or Clay result is inferred.
+Focused check: `/tmp/ym-dense-endpoint-gap-consequence9.log`; source SHA-256
+`096a4bb8140ce04aebd499391b7b68d24e7acca3e0f19917aa050b60d83cf877`.
+Only `{propext, Quot.sound}` were reported.
+
 The reverse finite-stage edge is now named explicitly as
 `CurrentStagePairingSeparationCertificate`.  Its checked consumer,
 `CurrentStagePairingSeparationCertificate.stageClass_eq_iff_current_eq`,
