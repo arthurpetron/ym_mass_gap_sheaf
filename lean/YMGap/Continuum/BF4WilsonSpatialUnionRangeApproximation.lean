@@ -347,6 +347,23 @@ theorem evenOrbitStage_error_small (x : Stage)
     ((unionSeminorm hw0 hw1 hsmall hd hs).constant x) hx epsilon he n hn
   simpa only [evenOrbitResidual, evenOrbitSumStage_pin] using h
 
+/-- A finite strict-cylinder range certificate: cutoff, stage preimage, and
+    the same-carrier error proof are returned together. -/
+def evenOrbitStage_range_data (x : Stage)
+    (hx : B (embedStage hw0 hw1 hsmall hd hs x)
+      (completedUnit hw0 hw1 hsmall hd hs) = RCzero)
+    (epsilon : Q') (he : (0 : Q') < epsilon) :
+    Σ' n : Nat, Σ' y : Stage, RCle
+      (completedDist hw0 hw1 hsmall hd hs
+        (embedStage hw0 hw1 hsmall hd hs x)
+        (evenOrbitResidual hw0 hw1 hsmall hd hs
+          (embedStage hw0 hw1 hsmall hd hs y)))
+      (Quotient.mk crealSetoid (ofQ' epsilon)) := by
+  let n := evenOrbitStage_modulus hw0 hw1 hsmall hd hs x epsilon
+  refine ⟨n, evenOrbitSumStage x n, ?_⟩
+  exact evenOrbitStage_error_small hw0 hw1 hsmall hd hs x hx epsilon he n
+    (Nat.le_refl _)
+
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_kernel
@@ -361,5 +378,6 @@ theorem evenOrbitStage_error_small (x : Stage)
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_range_data
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitStage_modulus
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitStage_error_small
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitStage_range_data
 
 end YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation

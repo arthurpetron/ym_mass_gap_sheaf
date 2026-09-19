@@ -33,6 +33,8 @@ on the current completed SU(2) Wilson carrier. It is fixed-spacing data only.
 - `evenOrbitSumStage` and `evenOrbitSumStage_pin` retain the finite geometric
   preimage as a strict `Stage`, and `evenOrbitStage_error_small` transfers the
   explicit modulus to that finite-stage carrier.
+- `evenOrbitStage_range_data` packages the cutoff, strict stage preimage, and
+  error proof as one dependent witness.
 
 The rate is explicit: `q = twoStepRate w hd`. No inverse, spectral theorem,
 choice, auxiliary transfer, or continuum/spacing hypothesis is introduced.
@@ -48,14 +50,14 @@ Command:
 python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
   --check lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean \
   --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.olean \
-  --log-file /tmp/ym-range-approx-20260918u.log
+  --log-file /tmp/ym-range-approx-20260918v.log
 ```
 
-Result: passed. The fourteen public declarations printed only
+Result: passed. The fifteen public declarations printed only
 `{propext, Quot.sound}`. No `sorryAx`, `Classical.*`, `native_decide`, or
 new axiom appears. Log SHA-256:
 
-`73f31a6425d8ac0e9d71af57d9304b46f74c5074544fa74d0469bc2bd3c4963a`.
+`d8bc7b5ee4409f9cb11e72827f4504350dfd746c61351271e1f44f5d602e9df4`.
 
 The full root, full-tree build, axiom audit, guard and progress runs were not
 performed. The result does not supply strict density of strictly-past

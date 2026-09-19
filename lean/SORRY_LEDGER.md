@@ -32,8 +32,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `evenOrbitResidual_kernel` proves its vacuum-complement kernel is trivial.
   `evenOrbitSumStage` and `evenOrbitSumStage_pin` retain the approximant as a
   strict finite stage, and `evenOrbitStage_modulus`/
-  `evenOrbitStage_error_small` provide its explicit late-tail estimate. All
-  fourteen public gates lie within `{propext, Quot.sound}`. This is fixed-spacing
+  `evenOrbitStage_error_small` provide its explicit late-tail estimate.
+  `evenOrbitStage_range_data` packages the cutoff, stage, and proof as one
+  dependent witness. All fifteen public gates lie within `{propext, Quot.sound}`. This is fixed-spacing
   approximate range data, not an inverse, strict continuum gap, or Clay closure.
 
 - `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialClearedCovarianceCauchy.lean`:
