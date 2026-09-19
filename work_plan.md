@@ -172,6 +172,20 @@ all-vector geometric norm decay.  The further
 cofinal local-slice/gluing family the direct forward producer at rate `1/16`;
 that family, and the alternate exact canonical capacity check, remain open.
 
+### Current forward/backward join: primitive physical-gap variation (2026-09-19)
+
+`BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler` now compiles
+summable variation of the dimensionless `latticeMargin` and positive spacing
+streams, plus an explicit uniform spacing floor, into the exact same-family
+`SummableRationalStepVariation family.physicalGap`.  The reciprocal and product
+compilers are constructive and the final equality is definitionally the
+family’s `Q'.divPos` gap.  `exactLogRateCauchy_of_primitiveComponents` consumes
+that result in the existing exact-log rate compiler.  This is a backward
+interface decomposition, not a construction of the primitive variation,
+spacing floor, physical rate band, or continuum handoff.  Focused check:
+`/tmp/ym-physical-gap-variation-compiler4.log`; only `{propext, Quot.sound}`
+were reported.
+
 ### Current forward/backward join: same-mass spacing order (2026-09-18)
 
 The current fixed-spacing physical calibration now has an actual trajectory-

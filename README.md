@@ -180,6 +180,18 @@ genuine local-slice/gluing family as a direct forward producer at the checked
 rate `1/16`.  Neither that local-slice family nor the exact canonical capacity
 check is constructed here.
 
+**Primitive physical-gap variation compiler, checked 2026-09-19:**
+`BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler` constructs
+`SummableRationalStepVariation family.physicalGap` from two explicit
+same-family primitive streams: summable variation of `family.latticeMargin`,
+and summable variation of the positive spacing together with a uniform positive
+spacing floor.  Its `exactLogRateCauchy_of_primitiveComponents` declaration
+feeds that result directly into the existing exact-log Cauchy compiler.  This
+splits the mass-calibration frontier into named numerator, denominator-floor,
+and spacing-tail inputs; none of those analytic inputs is inhabited by this
+module.  Focused check: `/tmp/ym-physical-gap-variation-compiler4.log`, with
+only `{propext, Quot.sound}` reported.
+
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
 contracts the explicit dense physical-to-strong lift certificate directly to
