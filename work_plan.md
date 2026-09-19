@@ -397,6 +397,10 @@ to the original reflected pairing and centered moment on the same carrier.
 `current_connected_correlator_sq_decay` then gives the explicit squared
 connected-correlation decay with rate `twoStepRate nome hd` and the actual
 centered norm prefactors.
+The probe response band is also transported through exact centering by
+`current_probe_connected_twoStep_lower` and
+`current_probe_connected_twoStep_upper`, so the nontrivial probe is witnessed
+as a connected observable rather than only as an uncentered form value.
 The resolvent probe remains centered, nonzero, and has the checked `1/4`
 squared-norm floor.
 This is the concrete forward landmark for the backward spectral/OS consumer,
@@ -405,7 +409,7 @@ but it is fixed-spacing, small-nome SU(2) data on the current
 does not establish a uniform gap, continuum survival, physical mass, or Clay
 closure. Focused check log:
 `/tmp/ym-wilson-current-sector-20260918c.log`; SHA-256
-`bc27e2770295430ff620359e109c1146c86a38e7d7022010c2f8f682b5c8e33e`.
+`6339d52f59db13669b7a17b2ec5901c93396a89ddf0c41a1553bf1c64e070dfe`.
 
 **Backward join review, 2026-09-18:** the legacy inward-test argument
 does not literally extend to all current Wilson windows. The legacy

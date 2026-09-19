@@ -102,6 +102,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `CompletedPhysicalSU2Sector.current_same_object_correlator_pin`,
   `CompletedPhysicalSU2Sector.current_connected_correlator_pin`,
   `CompletedPhysicalSU2Sector.current_connected_correlator_sq_decay`,
+  `CompletedPhysicalSU2Sector.current_probe_connected_twoStep_lower`,
+  `CompletedPhysicalSU2Sector.current_probe_connected_twoStep_upper`,
   `CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower`, and
   `CompletedPhysicalSU2Sector.current_resolvent_probe_floor` expose the
   quantitative landmarks to later consumers.
@@ -113,7 +115,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: focused serialized check passed with only
   `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
   Evidence: `/tmp/ym-wilson-current-sector-20260918c.log` (SHA-256
-  `bc27e2770295430ff620359e109c1146c86a38e7d7022010c2f8f682b5c8e33e`).
+  `6339d52f59db13669b7a17b2ec5901c93396a89ddf0c41a1553bf1c64e070dfe`).
 
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 
