@@ -542,6 +542,20 @@ all-vector density, changing-spacing control, continuum limit, or Clay claim is
 added. Focused check log: `/tmp/ym-canonical-bridge-factor.log`; SHA-256
 `cba7b3a9d4adc0abbec731171fdd0a788130b56a2c62b9f8d8ca28853db64c14`.
 
+**Static bridge stream factorization, checked 2026-09-18:**
+`CurrentCarrierCauchyFormCertificate` refines the uninhabited static bridge
+form obligation into the actual current stream presentation: a map from
+explicit current CReal-Cauchy streams to canonical GNS Cauchy streams, a
+null-relation descent proof, the completed Gram pairing identity, and zero/unit
+pins. `CurrentCarrierCauchyFormCertificate.toFormCertificate` constructs the
+existing `CurrentCarrierFormCertificate` by quotient lifting that data. This
+exposes the first producer-side fields without pretending that a CReal-valued
+current form has a Q'-valued canonical representative. Focused check log:
+`/tmp/ym-canonical-bridge-stream5.log`; SHA-256
+`d7d5899b55360ffc2069a64cf827e9e5102921e188efe931f721f3eaaf0b5c87`.
+The two new declarations use only `{propext, Quot.sound}`; no stream encoder or
+canonical bridge inhabitant is supplied.
+
 **Bridge-map injectivity consequence, checked 2026-09-18:**
 `CurrentCarrierBridge.map_injective` proves that any supplied exact form
 certificate is automatically injective: equality of two canonical images is

@@ -120,6 +120,12 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   vacuum-orthogonal bridge-image vector. The proof uses the current
   `evenOrbitResidual_strict_form_bound`, the bridge form equation, and
   completed-pairing symmetry; it adds no density or surjectivity claim.
+- **proved**: `CurrentCarrierCauchyFormCertificate` factors the static bridge
+  form obligation into explicit current-stream to canonical-GNS-stream data,
+  null descent, the completed Gram identity, and zero/unit pins.
+  `CurrentCarrierCauchyFormCertificate.toFormCertificate` constructs the
+  existing static form certificate by quotient lifting. No stream encoder or
+  bridge inhabitant is supplied.
 - **residue**: the bridge structure is intentionally uninhabited in this
   milestone. It is a named OS/GNS carrier-and-dynamics obligation, not a
   covert identification of the current carrier with canonical GNSData.
@@ -130,6 +136,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `/tmp/ym-olean/YMGap/Continuum/BF4WilsonSpatialUnionResolventResponse.olean`.
   Bridge log: `/tmp/ym-canonical-bridge-defect4.log`; SHA-256
   `5a45c00ebef6e58c0e3e1ba13a1b436de54d037b685c37f9fd032f4cee483686`.
+  The additional stream-factorization check is
+  `/tmp/ym-canonical-bridge-stream5.log` (SHA-256
+  `d7d5899b55360ffc2069a64cf827e9e5102921e188efe931f721f3eaaf0b5c87`).
   The earlier bridge log was `/tmp/ym-wilson-canonical-bridge-20260918c.log`;
   SHA-256
   `7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`.

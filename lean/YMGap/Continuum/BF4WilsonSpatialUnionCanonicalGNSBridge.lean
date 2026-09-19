@@ -30,8 +30,11 @@ open YMGap.Continuum
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.GNSQuotient
+open YMGap.Continuum.CRealSeminormCompletion
+open YMGap.Continuum.CRealSeminormCompletion.SquaredSeminorm
 open YMGap.Continuum.MeasureLinkedOSReconstruction
 open YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
+open YMGap.Continuum.BF4WilsonSpatialUnion (zeroStage unitStage)
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
   (completedInner_symm)
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
@@ -70,6 +73,7 @@ local notation "U" => completedUnit nome_pos nome_lt_one hsmall hd hs
 local notation "Z" => completedZero nome_pos nome_lt_one hsmall hd hs
 local notation "T" => completedTime nome_pos nome_lt_one hsmall hd hs
 local notation "R" => resolvent nome_pos nome_lt_one hsmall hd hs
+local notation "S" => unionSeminorm nome_pos nome_lt_one hsmall hd hs
 
 /-! ## The exact conditional carrier handoff -/
 
@@ -87,6 +91,69 @@ structure CurrentCarrierFormCertificate
   vacuum_preserving : map U = P.op.vacuum
   form_preserving : ∀ x y,
     W.toGNSData.cinnerCompl (map x) (map y) = B x y
+
+/-! A producer-facing refinement of the static certificate. The current
+completion is presented by explicit CReal-Cauchy streams, so a genuine source
+must first map those streams into canonical GNS Cauchy streams and prove both
+null descent and the completed Gram identity. -/
+
+structure CurrentCarrierCauchyFormCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W) : Type 2 where
+  mapCauchy : (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Cauchy →
+    CauchyGNS W.toGNSData
+  mapCauchy_null : ∀ {X Y : (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Cauchy},
+    (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Close X Y →
+    CauchyNull W.toGNSData (mapCauchy X) (mapCauchy Y)
+  mapCauchy_pairing : ∀
+    (X Y : (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Cauchy),
+    W.toGNSData.cinnerCompl
+      (Quotient.mk (cauchySetoid W.toGNSData) (mapCauchy X))
+      (Quotient.mk (cauchySetoid W.toGNSData) (mapCauchy Y)) =
+      B (Quotient.mk
+        (unionSeminorm nome_pos nome_lt_one hsmall hd hs).completionSetoid X)
+        (Quotient.mk
+          (unionSeminorm nome_pos nome_lt_one hsmall hd hs).completionSetoid Y)
+  mapCauchy_zero :
+    Quotient.mk (cauchySetoid W.toGNSData)
+        (mapCauchy ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant zeroStage)) =
+      embedV W.toGNSData W.toGNSData.zero
+  mapCauchy_unit :
+    Quotient.mk (cauchySetoid W.toGNSData)
+        (mapCauchy ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant unitStage)) =
+      P.op.vacuum
+
+def CurrentCarrierCauchyFormCertificate.toFormCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+    (C : CurrentCarrierCauchyFormCertificate P) :
+    CurrentCarrierFormCertificate P where
+  map := Quotient.lift
+    (fun X => Quotient.mk (cauchySetoid W.toGNSData) (C.mapCauchy X))
+    (fun X Y h => by
+      rcases h with ⟨hclose⟩
+      exact Quotient.sound (C.mapCauchy_null (X := X) (Y := Y) hclose))
+  map_zero := by
+    change Quotient.mk (cauchySetoid W.toGNSData)
+        (C.mapCauchy
+          ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant zeroStage)) =
+      embedV W.toGNSData W.toGNSData.zero
+    exact C.mapCauchy_zero
+  vacuum_preserving := by
+    change Quotient.mk (cauchySetoid W.toGNSData)
+        (C.mapCauchy
+          ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant unitStage)) =
+      P.op.vacuum
+    exact C.mapCauchy_unit
+  form_preserving := by
+    intro x y
+    refine Quotient.inductionOn₂ x y ?_
+    intro X Y
+    exact C.mapCauchy_pairing X Y
 
 /-- The dynamic part of the carrier handoff.  It is deliberately separate from
 the static form certificate so a producer can establish time intertwining
@@ -445,6 +512,8 @@ end CurrentCarrierBridge
 end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate.toFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.ofCertificates
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.map_injective
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_vacuum_orthogonal
