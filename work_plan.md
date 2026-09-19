@@ -302,6 +302,36 @@ existing estimate, density of the strictly-past observable algebra,
 changing-spacing control, physical mass calibration, or continuum QFT.
 Evidence: `audits/AUDIT-WILSON-RANGE-APPROXIMATION-2026-09-18.md`.
 
+**Carrier-seam probe, checked 2026-09-18:** an attempted direct import of the
+older `BF4SpatialUnionResolvent` into the current Wilson range module was
+rejected by Lean. The current layer uses
+`BF4WilsonSpatialUnionSeminorm.UnionCompletion` (range module lines 27,53),
+whereas the older resolvent uses
+`BF4SpatialUnionSeminorm.UnionCompletion` (resolvent lines 23,40). Applications
+of its `resolvent_right_inverse` and `resolvent_left_inverse` therefore fail by
+type mismatch. The attempted bridge was removed; no coercion or definitional
+equality is assumed. The precise failed check is recorded in
+`audits/AUDIT-WILSON-RANGE-APPROXIMATION-2026-09-18.md`.
+
+**Current-carrier represented resolvent, checked 2026-09-18:** the forward
+finite-range landmark and the backward inverse obligation now meet on the
+actual Wilson completion. `BF4WilsonSpatialUnionWeightedNorm.budget` and
+`series_step_bound` provide the explicit `(1-q(w))⁻²` series budget;
+`BF4WilsonSpatialUnionResolventPartial.partialSum`, `partialCauchy`, and
+`seriesRows` construct the finite sums with supplied cutoffs;
+`BF4WilsonSpatialUnionResolvent.resolvent` is the diagonal-limit operator, with
+`resolvent_equation`, `resolvent_right_inverse`, `resolvent_left_inverse`, and
+`resolvent_sub`; and
+`BF4WilsonSpatialUnionResolventBound.resolvent_norm_bound`/
+`resolvent_distance_bound` give the same-carrier explicit bounds. Three
+focused serialized one-worker/20 GiB checks passed with only
+`{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
+This is a real fixed-spacing inverse certificate, not a spacing-uniform or
+physical mass gap. The next backward consumer is the strict dense-observable
+OS/range interface; the next forward producer is a current-carrier observable
+realization or a scale-controlled estimate. Evidence and hashes are recorded
+in `audits/AUDIT-WILSON-RANGE-APPROXIMATION-2026-09-18.md`.
+
 **Backward join review, 2026-09-18:** the legacy inward-test argument
 does not literally extend to all current Wilson windows. The legacy
 bond-reflected lower algebra can move a test onto the adjacent site plane;

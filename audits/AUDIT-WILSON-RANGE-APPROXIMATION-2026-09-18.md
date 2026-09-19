@@ -81,3 +81,58 @@ performed. The result does not supply strict density of strictly-past
 observables, a completed spectral gap beyond existing fixed-spacing decay,
 changing-spacing control, physical mass calibration, continuum survival, or
 the Clay theorem.
+
+## Existing-resolvent carrier seam
+
+An attempted direct bridge to the older named resolvent was rejected by Lean.
+The present module's `V` is
+`BF4WilsonSpatialUnionSeminorm.UnionCompletion`, declared through the Wilson
+namespace at `lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean:27,53`.
+The resolvent module's `V` is
+`BF4SpatialUnionSeminorm.UnionCompletion`, opened at
+`lean/YMGap/Continuum/BF4SpatialUnionResolvent.lean:23,40`.
+The failed focused attempt therefore produced type mismatches when applying
+`resolvent_right_inverse` and `resolvent_left_inverse`; it was removed rather
+than coerced. The failed log is `/tmp/ym-range-approx-20260918ai.log`.
+This is an unclosed carrier-identification obligation, not evidence that the
+two completions are definitionally equal.
+
+## Current-carrier resolvent join, checked 2026-09-18
+
+The carrier seam was closed by a port, not by coercion: the following modules
+all quantify over `BF4WilsonSpatialUnionSeminorm.UnionCompletion` and import
+the current Wilson transfer and pairing.
+
+- `BF4WilsonSpatialUnionWeightedNorm.budget` (`lean/YMGap/Continuum/BF4WilsonSpatialUnionWeightedNorm.lean:31`) defines the explicit
+  `K=(1-q)⁻²` budget; `norm_weighted_identity` (:122) and
+  `series_step_bound` (:146) prove the weighted square estimate.
+- `BF4WilsonSpatialUnionResolventPartial.partialSum`
+  (`lean/YMGap/Continuum/BF4WilsonSpatialUnionResolventPartial.lean:111`),
+  `partialCauchy` (:192), and `seriesRows` (:247) construct the finite sums
+  and their supplied Cauchy moduli. `partial_tail_small` (:214) is the explicit
+  cutoff consumer.
+- `BF4WilsonSpatialUnionResolvent.resolvent`
+  (`lean/YMGap/Continuum/BF4WilsonSpatialUnionResolvent.lean:85`) defines the
+  diagonal-limit operator. `resolvent_equation` (:152),
+  `resolvent_right_inverse` (:204), `resolvent_left_inverse` (:221), and
+  `resolvent_sub` (:259) prove its same-carrier Poisson and inverse identities.
+- `BF4WilsonSpatialUnionResolventBound.resolvent_norm_bound`
+  (`lean/YMGap/Continuum/BF4WilsonSpatialUnionResolventBound.lean:133`) and
+  `resolvent_distance_bound` (:139) give the explicit current-carrier norm and
+  distance bounds.
+
+Focused serialized checks passed with no `sorryAx`, `Classical.*`, or
+`native_decide`; every printed gate in the three modules depends only on
+`{propext, Quot.sound}`. Evidence logs and hashes:
+
+| target | log | SHA-256 |
+| --- | --- | --- |
+| `BF4WilsonSpatialUnionResolventPartial.lean` | `/tmp/ym-wilson-resolvent-partial-current4.log` | `e6b8d3b731bfc94086f1cd16ef3dee718dbf8f45dc5354982301002614b586cf` |
+| `BF4WilsonSpatialUnionResolvent.lean` | `/tmp/ym-wilson-resolvent-current5.log` | `ce68cec4bc417a54d682532b563ff1919cb12a16c01a38fa6379d4dc68386e9a` |
+| `BF4WilsonSpatialUnionResolventBound.lean` | `/tmp/ym-wilson-resolvent-bound-current2.log` | `c86a1e5349d5595fb626f90e786a8e811c5ee8efe73e99b9e437a8b50f7ed9f8` |
+
+This closes the fixed-spacing same-carrier represented resolvent branch. It
+does not prove strict dense-observable range, a spacing-uniform rate, physical
+time/mass calibration, a continuum limit, QFT reconstruction, or the Clay
+theorem. The older legacy resolvent remains a separate carrier and was not
+reused.

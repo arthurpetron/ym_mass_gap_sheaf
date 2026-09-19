@@ -4992,6 +4992,10 @@ import YMGap.Continuum.BF4WilsonSpatialUnionBilinear
 import YMGap.Continuum.BF4WilsonSpatialUnionLinearLaws
 import YMGap.Continuum.BF4WilsonSpatialUnionCompletedDistance
 import YMGap.Continuum.BF4WilsonSpatialUnionCauchyRows
+import YMGap.Continuum.BF4WilsonSpatialUnionWeightedNorm
+import YMGap.Continuum.BF4WilsonSpatialUnionResolventPartial
+import YMGap.Continuum.BF4WilsonSpatialUnionResolvent
+import YMGap.Continuum.BF4WilsonSpatialUnionResolventBound
 -- Modulus-bearing real action, actual vacuum projection and all-vector relaxation.
 import YMGap.Continuum.BF4WilsonSpatialUnionScalarDistance
 import YMGap.Continuum.BF4WilsonSpatialUnionRealScalarCauchy

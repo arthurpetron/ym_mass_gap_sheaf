@@ -13,6 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED current-Wilson represented resolvent (2026-09-18 UTC)
+
+- **files**: `BF4WilsonSpatialUnionWeightedNorm.lean`,
+  `BF4WilsonSpatialUnionResolventPartial.lean`,
+  `BF4WilsonSpatialUnionResolvent.lean`, and
+  `BF4WilsonSpatialUnionResolventBound.lean` under `lean/YMGap/Continuum/`.
+- **proved**: `budget`, `norm_weighted_identity`, and `series_step_bound`
+  provide the explicit `(1-q(w))⁻²` weighted-series budget on the current
+  Wilson completion. `partialSum`, `partialCauchy`, `seriesRows`, and
+  `partial_tail_small` construct finite sums with explicit supplied moduli.
+  `resolvent` is the diagonal-limit operator on that SAME carrier;
+  `resolvent_equation`, `resolvent_right_inverse`, `resolvent_left_inverse`,
+  and `resolvent_sub` prove its Poisson/inverse identities. The bound module
+  proves `resolvent_norm_bound` and `resolvent_distance_bound` with the same
+  explicit budget.
+- **residue**: this is fixed-spacing, small-nome SU(2) infrastructure. It does
+  not establish strict density of strictly-past observables, a changing-spacing
+  uniform rate, physical-time/mass calibration, continuum survival, full QFT,
+  or the all-compact-simple-group Clay theorem. The legacy resolver's carrier
+  remains distinct and is not silently identified with this one.
+- **verification**: focused serialized checks passed for all four modules;
+  every printed declaration depends only on `{propext, Quot.sound}` and no
+  `sorryAx`, `Classical.*`, or `native_decide` was introduced. Exact logs and
+  hashes are recorded in
+  `audits/AUDIT-WILSON-RANGE-APPROXIMATION-2026-09-18.md`.
+
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 
 - `lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean`:
