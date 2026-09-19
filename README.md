@@ -100,6 +100,18 @@ not a cofinal rate, thermodynamic/continuum construction, or Clay result.
 Focused check: `/tmp/ym-cutoff-two-nontrivial-final-check.log`; only
 `{propext, Quot.sound}` were reported.
 
+**Finite cutoff-two same-object correlator, checked 2026-09-19:**
+`BF4PhysicalCutoffTwoNontrivialCorrelator.cutoffTwo_joint_pos` converts the
+existing joint-form equivalence and positive norm into a strict positive
+joint coefficient.  `cutoffTwo_same_object_coefficient_eq_joint` then uses the
+actual completed endpoint's `dense_same_object` field, and
+`NontrivialSameObjectCorrelator.ofExisting` packages endpoint, mean-zero,
+nonzero norm, positive joint form, and exact same-object realization.  This is
+still a fixed finite SU(2) statement; the cofinal capacity, varying-spacing,
+OS/continuum, and all-group Clay bridges remain open.  Focused check:
+`/tmp/ym-cutoff-two-correlator3.log`; only `{propext, Quot.sound}` were
+reported.
+
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
 contracts the explicit dense physical-to-strong lift certificate directly to

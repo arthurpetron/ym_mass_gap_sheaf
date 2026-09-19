@@ -55,6 +55,26 @@ construction.  The exact next consumer remains the cofinal capacity check in
 Focused check: `/tmp/ym-cutoff-two-nontrivial-final-check.log`; only
 `{propext, Quot.sound}` were reported.
 
+### Current forward/backward join: finite same-object correlator (2026-09-19)
+
+The next finite contraction is now inhabited in
+`BF4PhysicalCutoffTwoNontrivialCorrelator.lean`.  Its local aliases keep the
+dependent carrier terms opaque while
+`cutoffTwo_joint_pos` proves strict positivity from
+`cutoffTwoCenteredSectorIndicator_joint_eqv_norm` and the existing positive
+norm.  `cutoffTwo_same_object_coefficient_eq_joint` identifies the completed
+GNS inner product of the actual centered observable with the same joint form;
+`NontrivialSameObjectCorrelator.ofExisting` packages the complete finite
+witness.
+
+This closes the finite “observable survives and is seen by the same transfer”
+edge, but it does not provide a uniform-in-cutoff observable, a cofinal exact
+capacity comparison, physical-gap variation, or any OS/thermodynamic/
+continuum/all-group conclusion.  The next backward consumer remains
+`MatchedPhysicalDynamicExplicitRayCanonicalCapacityCheckProducer.capacityCheck`.
+Focused check: `/tmp/ym-cutoff-two-correlator3.log`; only
+`{propext, Quot.sound}` were reported.
+
 ### Current forward/backward join: same-mass spacing order (2026-09-18)
 
 The current fixed-spacing physical calibration now has an actual trajectory-

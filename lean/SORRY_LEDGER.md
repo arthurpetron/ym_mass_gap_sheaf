@@ -29,6 +29,22 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: `/tmp/ym-cutoff-two-nontrivial-final-check.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
+## PROVED finite cutoff-two same-object correlator (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalCutoffTwoNontrivialCorrelator.lean`.
+- **proved**: `cutoffTwo_joint_pos` derives a strict positive joint form from
+  the existing joint/norm equivalence and positive norm;
+  `cutoffTwo_same_object_coefficient_eq_joint` applies the actual completed
+  endpoint's `dense_same_object` law; and
+  `NontrivialSameObjectCorrelator.ofExisting` packages endpoint, centered
+  observable, mean-zero, positive norm, positive joint form, and exact
+  same-object coefficient.
+- **boundary**: this is fixed cutoff, fixed volume, SU(2) data.  It does not
+  supply uniform cutoff persistence, exact-ray capacity, physical-gap
+  variation, thermodynamic/continuum passage, QFT axioms, or the Clay theorem.
+- **verification**: `/tmp/ym-cutoff-two-correlator3.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4MatchedPhysicalAFTwoSidedMarginCompiler.lean`.
