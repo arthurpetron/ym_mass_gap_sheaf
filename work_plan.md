@@ -659,6 +659,19 @@ the time-compatibility field, or the continuum bridge.  Focused check:
 `8bad70c17a3efdda3d7d1222a6f28fe83b6be9e40d92e1cbf4ace8f87219d570`.
 Only `{propext, Quot.sound}` were reported.
 
+**Concrete physical endpoint, checked 2026-09-18:**
+`BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint` packages the existing
+finite matched-stage physical carrier and its actual completed transfer,
+vacuum, vacuum-complement preservation, dense pairing, and same-object
+coefficient.  `ConcreteEndpoint.ofExisting` is a direct inhabitant at every
+finite physical stage; the package therefore confirms that this endpoint is
+not an uninhabited abstract carrier.  The separate
+`CompletedBF4MacroEndpointIntertwiner` remains the sole cross-model map
+obligation to the strong OS endpoint.  Focused check:
+`/tmp/ym-concrete-physical-endpoint2.log`; source SHA-256
+`3ffec48af04abe58e7541c3d114ac252dd5de6d83dfb5f2be5aa3e17aed0c5f8`.
+Only `{propext, Quot.sound}` were reported.
+
 **Dense-stage dynamic consumer, checked 2026-09-18:**
 `CurrentStageDenseTwoStepCertificate` isolates the next dynamic input at the
 smallest useful scope: exact two-step intertwining only for canonical classes

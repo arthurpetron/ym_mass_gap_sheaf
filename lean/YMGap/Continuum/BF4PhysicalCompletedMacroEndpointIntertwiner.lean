@@ -15,6 +15,7 @@ claimed here.
 -/
 
 import YMGap.Continuum.BF4PhysicalCompletedMacroCorrelator
+import YMGap.Continuum.BF4PhysicalConcreteCompletedEndpoint
 import YMGap.Continuum.BF4FarautPhysicalSeparatorProducer
 import YMGap.Continuum.Z4HalfTimeReflectionStrictJointCompletedOperatorNormGap
 

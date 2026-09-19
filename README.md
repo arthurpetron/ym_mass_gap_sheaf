@@ -75,6 +75,17 @@ check: `/tmp/ym-forward-backward-join-final.log`; source SHA-256
 `8bad70c17a3efdda3d7d1222a6f28fe83b6be9e40d92e1cbf4ace8f87219d570`.
 The declarations use only `{propext, Quot.sound}`.
 
+**Concrete physical endpoint, checked 2026-09-18:**
+`BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
+the actual matched-stage SU(2) completed GNS carrier, macro transfer,
+normalized vacuum, vacuum-complement preservation, dense inner product, and
+same-object matrix coefficient.  This certificate is inhabited directly from
+the finite physical constructions.  The remaining missing object is the
+cross-model comparison map to the strong OS endpoint; no continuum or Clay
+claim is added.  Focused check: `/tmp/ym-concrete-physical-endpoint2.log`;
+source SHA-256 `3ffec48af04abe58e7541c3d114ac252dd5de6d83dfb5f2be5aa3e17aed0c5f8`.
+Only `{propext, Quot.sound}` were reported.
+
 The reverse finite-stage edge is now named explicitly as
 `CurrentStagePairingSeparationCertificate`.  Its checked consumer,
 `CurrentStagePairingSeparationCertificate.stageClass_eq_iff_current_eq`,
