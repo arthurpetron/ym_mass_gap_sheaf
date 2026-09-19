@@ -22,6 +22,8 @@ on the current completed SU(2) Wilson carrier. It is fixed-spacing data only.
 
 The rate is explicit: `q = twoStepRate w hd`. No inverse, spectral theorem,
 choice, auxiliary transfer, or continuum/spacing hypothesis is introduced.
+The theorem supplies a decay bound in `n`; an epsilon-to-index modulus still
+remains to be packaged if a downstream consumer requires that stronger data.
 
 ## Verification boundary
 

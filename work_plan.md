@@ -267,7 +267,7 @@ on that same carrier. For vectors already in the proved vacuum complement,
 q named explicitly by `twoStepRate w hd`. One focused serialized one-worker/
 20 GiB check passed;
 all three public gates lie within `{propext, Quot.sound}`. This supplies a
-constructive approximate-preimage witness and a residual modulus at fixed
+constructive approximate-preimage witness and a residual decay bound at fixed
 spacing. It does not prove a bounded inverse, strict completed gap beyond
 the existing estimate, density of the strictly-past observable algebra,
 changing-spacing control, physical mass calibration, or continuum QFT.
