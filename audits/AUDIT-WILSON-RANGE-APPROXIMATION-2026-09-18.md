@@ -265,3 +265,22 @@ canonical OS/GNS bridge, or a continuum mass-gap theorem. Focused log:
 `/tmp/ym-wilson-physical-calibration-20260918d.log`; SHA-256
 `c0c18265f016c52434c0ccd51629777d0c1414063b3917c4d15c6199c502a412`.
 All printed gates use only `{propext, Quot.sound}`.
+
+## Same-mass spacing monotonicity, checked 2026-09-18
+
+The physical-calibration module now also proves
+`spacingReciprocal_antitone`: if `A.a ≤ B.a`, then the reciprocal of `B` is
+below the reciprocal of `A`, by direct positive-denominator cross multiplication.
+`currentTransferMass_nonnegative` converts the already proved strict current
+mass into the eventual nonnegative order needed by constructive-real
+multiplication.  The resulting
+`currentPhysicalRate_mono_spacing` compares
+`currentPhysicalRate B ≤ currentPhysicalRate A` on the SAME dimensionless
+transfer mass.  This is the exact spacing-order edge needed by a later
+trajectory compiler; it does not construct that trajectory, a uniform rational
+floor, or a continuum limit.
+
+Focused serialized check:
+`/tmp/ym-wilson-physical-calibration-mono5.log`; SHA-256
+`ab31ffac1263ad323e8de12434565453be845c5457b8a09fd35e480be1d5e5e2`.
+The added declarations use only `{propext, Quot.sound}`.

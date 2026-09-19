@@ -34,6 +34,27 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Current forward/backward join: same-mass spacing order (2026-09-18)
+
+The current fixed-spacing physical calibration now has an actual trajectory-
+comparison edge. In
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionPhysicalCalibration.lean`,
+`spacingReciprocal_antitone` proves the reciprocal order from an explicit
+positive-spacing inequality, `currentTransferMass_nonnegative` supplies the
+eventual nonnegative factor, and `currentPhysicalRate_mono_spacing` transports
+the order through the SAME current transfer mass. The forward landmark is
+therefore no longer just dimensional relabelling: any later spacing schedule
+that supplies the displayed order can consume this theorem.
+
+The backward residue is exact and unchanged: this theorem does not produce a
+Yang--Mills spacing trajectory, a rational uniform floor, a canonical OS/GNS
+identification, or a continuum limit. The next join must supply those data
+from the original changing-spacing Wilson family and preserve the same action,
+observable and physical time.
+
+Focused check: `/tmp/ym-wilson-physical-calibration-mono5.log`, SHA-256
+`ab31ffac1263ad323e8de12434565453be845c5457b8a09fd35e480be1d5e5e2`.
+
 ### Goal-mode execution instructions (user-requested review, 2026-09-15)
 
 1. **Work backward from a real obstruction.** Before opening a new proof branch,

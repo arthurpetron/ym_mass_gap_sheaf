@@ -139,18 +139,24 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **file**: `BF4WilsonSpatialUnionPhysicalCalibration.lean`.
 - **proved**: `CurrentSpacing` carries one explicit positive rational spacing;
   `spacingReciprocal` and `spacingReciprocal_pos` construct its reciprocal;
+  `spacingReciprocal_antitone` proves the reciprocal order by an explicit
+  positive-denominator cross-product calculation;
   `currentPhysicalRate` is the checked dimensionless transfer mass multiplied
   by that reciprocal; `currentPhysicalRate_posEv` proves eventual strict
-  positivity; and `currentPhysicalRate_log_pin` transports the exact
-  `CReal.log` pin through the dimensional calibration.
+  positivity; `currentTransferMass_nonnegative` supplies the eventual
+  nonnegative factor needed for order transport;
+  `currentPhysicalRate_mono_spacing` proves that a smaller positive spacing
+  increases the calibrated rate on the SAME transfer mass; and
+  `currentPhysicalRate_log_pin` transports the exact `CReal.log` pin through
+  the dimensional calibration.
 - **residue**: the spacing is a supplied finite-spacing datum, not a Yang--Mills
   spacing trajectory. The module does not extract a hidden `Prop` witness into
   a computational sigma type, and it does not establish a spacing-uniform floor,
   canonical OS/GNS identification, continuum survival, or the Clay theorem.
 - **verification**: focused serialized check passed with only
   `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
-  Evidence: `/tmp/ym-wilson-physical-calibration-20260918d.log` (SHA-256
-  `c0c18265f016c52434c0ccd51629777d0c1414063b3917c4d15c6199c502a412`).
+  Evidence: `/tmp/ym-wilson-physical-calibration-mono5.log` (SHA-256
+  `ab31ffac1263ad323e8de12434565453be845c5457b8a09fd35e480be1d5e5e2`).
 
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 
