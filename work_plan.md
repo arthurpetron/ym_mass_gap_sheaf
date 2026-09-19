@@ -258,8 +258,12 @@ assumptions. They still stop at fixed spacing and fixed small-nome SU(2): the
 changing-spacing family, fixed-physical-time survival, and continuum
 generator identification remain the backward residue.
 
-Focused check: `/tmp/ym-wilson-current-sector-all-time.log`, SHA-256
-`9e19c244266dd427028c1fef0a51112470b2c37b625cf3e1fad1a9486823eddc`.
+`current_probe_time_ne_zero` now exposes the corresponding finite-time
+non-erasure witness on the same packaged carrier. This remains a fixed-spacing
+statement and does not supply a changing-spacing or continuum limit.
+
+Focused check: `/tmp/ym-current-probe-ne-zero.log`, SHA-256
+`bc372b3260f824c1eba61cb2f046f55f805f03341cef349d8ee7c7c3057f16ea`.
 
 **Complex algebra and SAME-rate consumer, checked 2026-09-17:**
 `BF4WilsonSpatialUnionComplexification` constructs the direct pair of the
@@ -496,8 +500,10 @@ as a connected observable rather than only as an uncentered form value.
 The newer projections `current_probe_even_band` and
 `current_probe_time_norm_floor` expose the same probe's two-sided response
 band at every even discrete lag and its positive squared-norm floor at every
-finite integer lag. These strengthen fixed-spacing nontriviality without
-adding any changing-spacing or continuum premise.
+finite integer lag. `current_probe_time_ne_zero` contracts that floor into an
+explicit non-erasure proposition for every finite time. These strengthen
+fixed-spacing nontriviality without adding any changing-spacing or continuum
+premise.
 `BF4WilsonSpatialUnionDiscreteLogGap.lean` then computes the rational decay
 separator's binary range reduction and proves a genuine positive dimensionless
 transfer mass `currentTransferMass = -log(currentRate)`, with an exact

@@ -132,7 +132,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `CompletedPhysicalSU2Sector.current_probe_connected_twoStep_upper`,
   `CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower`, and
   `CompletedPhysicalSU2Sector.current_probe_even_band` and
-  `CompletedPhysicalSU2Sector.current_probe_time_norm_floor`,
+  `CompletedPhysicalSU2Sector.current_probe_time_norm_floor` and
+  `CompletedPhysicalSU2Sector.current_probe_time_ne_zero`,
   `CompletedPhysicalSU2Sector.current_resolvent_probe_floor` expose the
   quantitative landmarks to later consumers.
 - **residue**: this is a real fixed-spacing small-nome SU(2) sector package on
@@ -142,8 +143,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   theorem.
 - **verification**: focused serialized check passed with only
   `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
-  Evidence: `/tmp/ym-wilson-current-sector-all-time.log` (SHA-256
-  `9e19c244266dd427028c1fef0a51112470b2c37b625cf3e1fad1a9486823eddc`).
+  Evidence: `/tmp/ym-current-probe-ne-zero.log` (SHA-256
+  `bc372b3260f824c1eba61cb2f046f55f805f03341cef349d8ee7c7c3057f16ea`).
 
 ## PROVED fixed-spacing logarithmic transfer mass (2026-09-18 UTC)
 

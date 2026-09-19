@@ -255,6 +255,14 @@ theorem current_probe_time_norm_floor (n : Nat) :
   simpa only [currentSector] using
     (unitExcitation_time_norm_floor n)
 
+/-- No finite discrete-time image of the packaged current probe is the
+completed zero.  This is an explicit fixed-spacing non-erasure witness; it
+does not assert survival along a changing-spacing or continuum family. -/
+theorem current_probe_time_ne_zero (n : Nat) :
+    T n currentSector.probe ≠ completedZero nome_pos nome_lt_one hsmall hd hs := by
+  simpa only [currentSector] using
+    (unitExcitation_time_ne_zero n)
+
 /-- The packaged resolvent probe supplies a quantitative non-erasure witness. -/
 theorem current_resolvent_probe_floor :
     RCle (Quotient.mk crealSetoid
@@ -277,4 +285,5 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_probe_even_band
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_probe_time_norm_floor
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_probe_time_ne_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector.CompletedPhysicalSU2Sector.current_resolvent_probe_floor
