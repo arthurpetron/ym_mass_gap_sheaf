@@ -136,6 +136,16 @@ single-observable estimate; it does not supply the missing all-vector gap or
 any thermodynamic/continuum passage.  Focused verification is recorded in
 `/tmp/ym-parity-rate-square-check3.log`, with only `{propext, Quot.sound}`.
 
+The correlation module now exposes
+`GlobalInwardMateParityCompletedCorrelationCertificate` and its inhabited
+constructor `globalInwardMateParityCompletedCorrelationCertificate`.  This is
+the backward-facing handoff object: it bundles the completed carrier with
+coefficient positivity, the rate-squared same-object estimate, and a positive
+Rayleigh deficit.  The fields are all proved for the explicit parity vector;
+the package is intentionally not an all-vector/cofinal certificate and does
+not alter the open thermodynamic, continuum, QFT, all-group, or Clay
+frontiers.  The focused check is `/tmp/ym-parity-certificate-check.log`.
+
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.

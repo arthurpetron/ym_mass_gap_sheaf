@@ -66,6 +66,26 @@ all-vector transfer decay and the literal moving cube's same-object
 autocorrelation bound at the supplied squared rate.  The remaining frontier
 is the inhabited cofinal factorization/power-budget producer itself.
 
+### Current backward handoff: completed parity correlation certificate (2026-09-19)
+
+`BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.lean`
+now packages the checked one-observable forward landmark into
+`GlobalInwardMateParityCompletedCorrelationCertificate`.  Its inhabited
+constructor `globalInwardMateParityCompletedCorrelationCertificate` carries
+the completed carrier, coefficient nonnegativity, the
+`coefficient^2 <= rate^2 * norm^2` estimate, and a strictly positive
+same-object Rayleigh deficit.  This is the smallest backward-facing object
+needed by a later observable-to-global compiler, and its type makes the
+single-observable boundary explicit.  It does not provide endpoint coverage,
+an all-vector vacuum-complement gap, a cofinal family, or any
+thermodynamic/continuum/QFT/all-group/Clay conclusion.
+
+The focused monitored check is
+`/tmp/ym-parity-certificate-check.log`; the module reports only
+`[propext, Quot.sound]`.  The next causal edge is to use this certificate as
+an input to a genuine multi-observable or cofinality compiler, rather than
+mistaking the package for that compiler.
+
 ### Current forward/backward join: physical Perron/cross-tail reaches the completed quarter (2026-09-19)
 
 `BF4BoundaryMessagePerronCrossTailQuarter.lean` now names the direct

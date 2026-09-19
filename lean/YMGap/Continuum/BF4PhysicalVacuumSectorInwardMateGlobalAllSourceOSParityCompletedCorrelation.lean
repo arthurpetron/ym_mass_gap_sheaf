@@ -325,6 +325,65 @@ theorem globalInwardMateCenteredParityCompletedObservable_deficit_positive
     (globalInwardMateCenteredParityCompletedObservable_margin_mul_norm_le_deficit
       K hK)
 
+/--
+Backward-facing handoff for the completed parity observable.
+
+This packages the already constructed carrier with the three facts a later
+same-object compiler can consume: positivity of the coefficient, a
+rate-squared correlation estimate, and a strictly positive Rayleigh deficit.
+The package is intentionally one-observable data; it does not assert an
+all-vector gap or any thermodynamic/continuum passage.
+-/
+structure GlobalInwardMateParityCompletedCorrelationCertificate
+    (K : Nat) (hK : 1 <= K) : Type where
+  carrier :
+    GlobalInwardMateParityCompletedCarrierCertificate K hK
+  coefficient_nonnegative :
+    let w := anchorCoupling
+    let hw : (0 : Q') ≤ w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    CReal.RCnonneg
+      (D.cinnerCompl vector
+        (centralPhysicalCompletedMarkovTransfer w hw K 0 vector))
+  correlation_square_le_rateSquare_normSquare :
+    let w := anchorCoupling
+    let hw : (0 : Q') ≤ w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    let coefficient :=
+      D.cinnerCompl vector
+        (centralPhysicalCompletedMarkovTransfer w hw K 0 vector)
+    CReal.RCle
+      (CReal.RCmul coefficient coefficient)
+      (CReal.RCscale
+        (globalInwardMateParityFormRate * globalInwardMateParityFormRate)
+        (CReal.RCmul (D.cinnerCompl vector vector)
+          (D.cinnerCompl vector vector)))
+  deficit_positive :
+    let w := anchorCoupling
+    let hw : (0 : Q') ≤ w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    YMGap.Continuum.RCStrictPositivity.RCIsPositive
+      (CReal.RCsub
+        (D.cinnerCompl vector vector)
+        (D.cinnerCompl vector
+          (centralPhysicalCompletedMarkovTransfer w hw K 0 vector)))
+
+/-- The completed parity handoff is inhabited for every positive cutoff. -/
+def globalInwardMateParityCompletedCorrelationCertificate
+    (K : Nat) (hK : 1 <= K) :
+    GlobalInwardMateParityCompletedCorrelationCertificate K hK :=
+  { carrier := globalInwardMateParityCompletedCarrierCertificate K hK
+    coefficient_nonnegative :=
+      globalInwardMateCenteredParityCompletedObservable_coefficient_nonnegative K
+    correlation_square_le_rateSquare_normSquare :=
+      globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_rateSquare_normSquare
+        K hK
+    deficit_positive :=
+      globalInwardMateCenteredParityCompletedObservable_deficit_positive K hK }
+
 end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation
 
 #print axioms
@@ -341,3 +400,5 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityComp
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_deficit_positive
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_rateSquare_normSquare
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateParityCompletedCorrelationCertificate

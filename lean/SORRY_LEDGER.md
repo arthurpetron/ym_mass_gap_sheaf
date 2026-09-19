@@ -78,6 +78,21 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: `/tmp/ym-parity-completed-check3.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
+## PROVED backward handoff for completed parity correlation (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.lean`.
+- **proved**: `GlobalInwardMateParityCompletedCorrelationCertificate` and
+  `globalInwardMateParityCompletedCorrelationCertificate` package the
+  explicit completed parity carrier together with coefficient nonnegativity,
+  the rate-squared same-object correlation estimate, and the strictly
+  positive Rayleigh deficit.
+- **boundary**: the certificate is one-observable fixed-anchor data.  It does
+  not inhabit endpoint coverage, an all-vector completed gap, a cofinal
+  family, a thermodynamic/continuum passage, QFT axioms, an all-group
+  construction, or the Clay theorem.
+- **verification**: `/tmp/ym-parity-certificate-check.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED parity same-object correlation-square handoff (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.lean`.
