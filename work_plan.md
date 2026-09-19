@@ -66,6 +66,28 @@ all-vector transfer decay and the literal moving cube's same-object
 autocorrelation bound at the supplied squared rate.  The remaining frontier
 is the inhabited cofinal factorization/power-budget producer itself.
 
+### Current forward/backward join: quarter slices compile to a depth budget (2026-09-19)
+
+The older sector-local slice route now has an explicit backward adapter in
+`BF4PhysicalVacuumSectorLocalPowerBudgetGap.lean`:
+`FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.ofLocalSlice` turns any
+supplied cofinal family with `localRate ≤ 1/4` and depth at least three into
+the newer local-power-budget family at the fixed rate `1/16`.  The proof is
+the displayed constructive chain
+
+`localRate^depth ≤ localRate^3 ≤ (1/4)^3 ≤ 1/16`.
+
+This is a real forward/backward meet: the existing slice fields are reused,
+and the backward rate budget is discharged by exact `Q'` arithmetic.  It does
+not manufacture the missing conditioned density-power identity or a
+full-compatible factorization; the cofinal slice family itself remains an
+uninhabited analytic producer.  The completed vacuum-complement consumer is
+therefore reachable through two honest routes, while the thermodynamic,
+continuum, QFT, all-group, and Clay joins remain open.
+
+Focused check: `/tmp/ym-local-power-adapter2.log`; the new declaration and
+existing exports use only `{propext, Quot.sound}`.
+
 ### Current forward/backward join: cutoff-two finite non-vacuity (2026-09-19)
 
 The forward finite carrier now has a named concrete endpoint at the explicit

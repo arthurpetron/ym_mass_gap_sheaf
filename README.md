@@ -41,6 +41,14 @@ This is a checked compiler, not an inhabited cofinal producer;
 thermodynamic/continuum passage, full QFT structure, all-group construction,
 and the Clay endpoint remain open.
 
+The forward/backward seam has also been sharpened on the sector-local branch:
+`FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.ofLocalSlice` compiles a
+supplied quarter-rate cofinal slice family to the fixed `1/16` depth budget by
+the exact chain `localRate^depth ≤ localRate^3 ≤ (1/4)^3 ≤ 1/16`.  This
+reuses the displayed slice witness and does not invent the missing density
+power or cofinal producer, so it is a second honest route into the completed
+consumer rather than a claim of an unconditional gap.
+
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.

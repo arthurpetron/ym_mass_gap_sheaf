@@ -119,6 +119,53 @@ structure FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing
 
 namespace FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing
 
+/-! ## 3. Forward/backward join from the quarter-slice route -/
+
+/-- The older quarter-rate sector-slice interface is already strong enough to
+produce the newer depth-amplified budget at the fixed physical rate
+`1/16`.  The proof uses only the displayed local nonnegativity, the quarter
+cap, and the explicit depth lower bound; no density-power identity is added
+by this adapter.  Thus it joins the two producer interfaces without
+silently turning a local slice into a full factorization. -/
+def ofLocalSlice
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat}
+    (family : FixedNomeCofinalVacuumSectorLocalSliceGluing
+      w hw half) :
+    FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing
+      w hw half (Q'.mkPos 1 16 (by decide)) where
+  rate_nonnegative := by decide
+  rate_lt_one := by decide
+  anchor := family.anchor
+  anchor_ge := family.anchor_ge
+  depth := family.depth
+  localRate := family.localRate
+  oneStep := family.oneStep
+  localSlice := family.localSlice
+  powerBudget := by
+    intro base threshold
+    let slice := family.localSlice base threshold
+    have hq0 : (0 : Q') ≤ family.localRate base threshold :=
+      slice.qS_nonnegative
+    have hqQuarter : family.localRate base threshold ≤ quarter :=
+      family.localRate_le_quarter base threshold
+    have hqOne : family.localRate base threshold ≤ (1 : Q') :=
+      Q'.le_trans' _ _ _ hqQuarter (by decide)
+    have hdepth : 3 ≤ family.depth base threshold :=
+      slice.depth_at_least_three
+    have hpowDepth :
+        family.localRate base threshold ^ family.depth base threshold ≤
+          family.localRate base threshold ^ 3 :=
+      YMGap.Continuum.HKConvGen.pow_base_antitone hq0 hqOne hdepth
+    have hpowQuarter :
+        family.localRate base threshold ^ 3 ≤ quarter ^ 3 :=
+      pow_base_mono (family.localRate base threshold) quarter hq0
+        hqQuarter 3
+    have hquarterPow :
+        quarter ^ 3 ≤ Q'.mkPos 1 16 (by decide) := by
+      decide
+    exact Q'.le_trans' _ _ _ hpowDepth
+      (Q'.le_trans' _ _ _ hpowQuarter hquarterPow)
+
 /-- Compile the exact depth-amplified local budget to the corrected
 mass-normalized row-distance interface. -/
 def toMassNormalizedRowDistance
@@ -188,6 +235,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorLocalPowerBudgetGap
   YMGap.Continuum.BF4PhysicalVacuumSectorLocalPowerBudgetGap.localPowerCoefficient_eqv_pow
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorLocalPowerBudgetGap.PhysicalBF4VacuumSectorLocalSliceGluing.conditionedDensityCenteredRow_le_localPower
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorLocalPowerBudgetGap.FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.ofLocalSlice
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorLocalPowerBudgetGap.FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.toMassNormalizedRowDistance
 #print axioms

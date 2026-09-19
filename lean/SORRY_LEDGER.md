@@ -45756,6 +45756,26 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### [BF4-sector-quarter-slice-to-local-power-budget] Quarter slices meet the depth-budget interface — PROVED 2026-09-19
+
+- **milestone**: compile the existing sector-local quarter-rate slice route
+  into the newer depth-amplified local-power-budget interface at the fixed
+  strict rate `1/16`.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorLocalPowerBudgetGap.lean`.
+- **declaration**:
+  `FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.ofLocalSlice`.
+- **proof content**: from the supplied slice's explicit
+  `qS_nonnegative`, `qS ≤ 1/4`, and `3 ≤ depth`, exact `Q'` monotonicity gives
+  `qS^depth ≤ qS^3 ≤ (1/4)^3 ≤ 1/16`; all anchor, depth, kernel, and slice
+  fields are reused definitionally.
+- **boundary**: this is an adapter only.  It does not construct the cofinal
+  sector-local slice family, the conditioned density-power identity, a
+  compatible full factorization, a thermodynamic/continuum limit, QFT
+  reconstruction, an all-group result, or the Clay theorem.
+- **verification**: `/tmp/ym-local-power-adapter2.log`; the new declaration
+  and existing exports use only `{propext, Quot.sound}` and no `sorryAx`.
+
 #### Splice every all-source inward mate into common-channel OS geometry (2026-09-11)
 
 - **milestone**: literal two-edge Osterwalder--Schrader path geometry
