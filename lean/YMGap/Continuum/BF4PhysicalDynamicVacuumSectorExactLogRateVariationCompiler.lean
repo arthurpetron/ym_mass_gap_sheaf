@@ -193,6 +193,24 @@ def exactLogRateCauchy
     (shiftedTailControl gapVariation.tailControl start)
     errorControl
 
+namespace PhysicalGapPrimitiveVariationInput
+
+/-! ## 2a. Primitive package to exact-log consumer -/
+
+/-- The primitive same-family package feeds the exact-log Cauchy consumer
+without changing the observable pin, rate band, or spacing tail. -/
+def toExactLogRateCauchy
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (input : PhysicalGapPrimitiveVariationInput family)
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    (spacingTail : InverseSquareSpacingTail family.transferSpacing 0) :
+    CReal.ModCauchyEv ((fullRangeRateFamily pin).rate) :=
+  exactLogRateCauchy pin band input.toPhysicalGapVariation spacingTail
+
+end PhysicalGapPrimitiveVariationInput
+
 /-- The constructive exact physical mass selected by the joined variation
 data. -/
 def exactLogRateLimit
@@ -274,6 +292,8 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
 
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.PhysicalGapPrimitiveVariationInput.toPhysicalGapVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.PhysicalGapPrimitiveVariationInput.toExactLogRateCauchy
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.exactLogLinearMarginTail
 #print axioms

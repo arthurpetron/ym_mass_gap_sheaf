@@ -74,9 +74,11 @@ defines `PhysicalGapPrimitiveVariationInput` and
 summable variations of the same completed family’s lattice margin and spacing,
 together with an explicit positive spacing floor, compile directly to variation
 of the exact `latticeMargin / spacing` physical-gap stream.  This is a checked
-forward/backward interface to the existing exact-log consumer; those producer
+forward/backward interface to the existing exact-log consumer.  Its
+`toExactLogRateCauchy` declaration reaches the full-log `CReal.ModCauchyEv`
+once the independent inverse-square spacing tail is supplied.  Those producer
 inputs remain uninhabited, and no continuum, OS/QFT, all-group, or Clay claim
-is made.  Focused verification is `/tmp/ym-gap-variation-compiler-check2.log`
+is made.  Focused verification is `/tmp/ym-gap-variation-compiler-check3.log`
 under the `{propext, Quot.sound}` gate.
 
 **Completed-carrier attachment (2026-09-19):**

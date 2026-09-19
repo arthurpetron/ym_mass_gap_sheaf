@@ -516,11 +516,16 @@ applies the generic positive-ratio compiler directly to
 `family.physicalGap`.  The declaration therefore meets the existing exact-log
 consumer without introducing an auxiliary rate or changing the family.
 
+`PhysicalGapPrimitiveVariationInput.toExactLogRateCauchy` now names that
+consumer edge directly: once an inverse-square spacing tail is supplied, the
+package constructs the exact full-log `CReal.ModCauchyEv` for the same pinned
+observable and physical-rate band.
+
 This is an interface compiler, not a producer: the three analytic inputs are
 still uninhabited here, and the positive-floor branch cannot be the spacing-to-
 zero continuum route.  It does not add a continuum measure, OS/GNS
 reconstruction, QFT axioms, an all-group construction, or the Clay endpoint.
-The focused check is `/tmp/ym-gap-variation-compiler-check2.log`; the printed
+The focused check is `/tmp/ym-gap-variation-compiler-check3.log`; the printed
 axioms are only `{propext, Quot.sound}`.
 
 ### Current forward/backward join: residual strength factors (2026-09-19)

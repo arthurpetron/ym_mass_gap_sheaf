@@ -22,12 +22,15 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   spacing floor; `PhysicalGapPrimitiveVariationInput.toPhysicalGapVariation`
   compiles those fields to variation of the definitionally same-family
   `family.physicalGap` using the generic positive-ratio compiler.
+  `PhysicalGapPrimitiveVariationInput.toExactLogRateCauchy` then feeds that
+  exact same-family variation to the full-log `CReal.ModCauchyEv` consumer
+  when an inverse-square spacing tail is supplied.
 - **boundary**: this is a backward interface compiler only.  The margin and
   spacing variation witnesses and the positive floor remain producer inputs;
   the floor branch cannot provide the spacing-to-zero continuum route.  No
   continuum measure, OS/GNS reconstruction, QFT axioms, all-group theorem,
   physical mass calibration, or Clay result is claimed.
-- **verification**: `/tmp/ym-gap-variation-compiler-check2.log`; the printed
+- **verification**: `/tmp/ym-gap-variation-compiler-check3.log`; the printed
   axioms are only `{propext, Quot.sound}`, with no `sorryAx`.
 
 ## PROVED physical Perron/cross-tail to completed-quarter join (2026-09-19 UTC)
