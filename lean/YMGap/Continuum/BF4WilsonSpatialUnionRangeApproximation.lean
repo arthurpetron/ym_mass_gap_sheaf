@@ -332,6 +332,29 @@ def evenOrbitSum_range_data
     (Nat.le_refl _)
   simpa only [evenOrbitResidual, evenOrbitSumCauchy_pin] using h
 
+/-- Every supplied Cauchy representative has a centered same-carrier range
+    witness; the centering projection is the existing one, not a new quotient. -/
+def evenOrbitCentered_range_data
+    (X : (unionSeminorm hw0 hw1 hsmall hd hs).Cauchy)
+    (epsilon : Q') (he : (0 : Q') < epsilon) :
+    Σ' Y : (unionSeminorm hw0 hw1 hsmall hd hs).Cauchy, RCle
+      (completedDist hw0 hw1 hsmall hd hs
+        (center hw0 hw1 hsmall hd hs
+          (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X))
+        (evenOrbitResidual hw0 hw1 hsmall hd hs
+          (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid Y)))
+      (Quotient.mk crealSetoid (ofQ' epsilon)) := by
+  have hcenter : B
+      (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid
+        (centerCauchy hw0 hw1 hsmall hd hs X))
+      (completedUnit hw0 hw1 hsmall hd hs) = RCzero := by
+    rw [← center_mk]
+    exact center_orthogonal hw0 hw1 hsmall hd hs
+      (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X)
+  have h := evenOrbitSum_range_data hw0 hw1 hsmall hd hs
+    (centerCauchy hw0 hw1 hsmall hd hs X) hcenter epsilon he
+  simpa only [center_mk] using h
+
 /-- The stage-level cutoff obtained from the constant representative of a
     strict finite Wilson stage. -/
 def evenOrbitStage_modulus (x : Stage) (epsilon : Q') : Nat :=
@@ -388,6 +411,7 @@ def evenOrbitStage_range_data (x : Stage)
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_modulus
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_error_small
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_range_data
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitCentered_range_data
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitStage_modulus
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitStage_error_small
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitStage_range_data

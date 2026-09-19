@@ -266,7 +266,7 @@ on that same carrier. For vectors already in the proved vacuum complement,
 `T^(2*n)x` and bounds its squared norm by the existing `q^(2*n)` decay, with
 q named explicitly by `twoStepRate w hd`. One focused serialized one-worker/
 20 GiB check passed;
-all sixteen public gates lie within `{propext, Quot.sound}`. The explicit
+all seventeen public gates lie within `{propext, Quot.sound}`. The explicit
 `evenOrbitSum_modulus X epsilon` uses the existing representative norm cap and
 `geometricCutoff (q*q)`; `evenOrbitSum_error_small` proves the error is below
 `epsilon` for every later index. This supplies a constructive
@@ -283,7 +283,9 @@ cutoff, stage preimage, and proof as one dependent certificate.
 `evenOrbitResidual` names the actual `(I-T^2)` defect, and
 `evenOrbitResidual_kernel` rules out a nonzero vacuum-orthogonal vector in its
 kernel, and `evenOrbitResidual_center` shows the defect commutes with the
-existing vacuum-centering projection. This does not prove a bounded inverse,
+existing vacuum-centering projection. `evenOrbitCentered_range_data` applies
+the certificate to the center of any supplied representative. This does not
+prove a bounded inverse,
 strict completed gap beyond the
 existing estimate, density of the strictly-past observable algebra,
 changing-spacing control, physical mass calibration, or continuum QFT.

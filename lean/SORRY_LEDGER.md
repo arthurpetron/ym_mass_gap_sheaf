@@ -35,8 +35,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `evenOrbitStage_error_small` provide its explicit late-tail estimate.
   `evenOrbitStage_range_data` packages the cutoff, stage, and proof as one
   dependent witness. `evenOrbitResidual_center` proves compatibility with the
-  existing vacuum-centering projection. All sixteen public gates lie within
-  `{propext, Quot.sound}`. This is fixed-spacing
+  existing vacuum-centering projection, and `evenOrbitCentered_range_data`
+  applies the certificate to the center of any supplied representative. All
+  seventeen public gates lie within `{propext, Quot.sound}`. This is fixed-spacing
   approximate range data, not an inverse, strict continuum gap, or Clay closure.
 
 - `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialClearedCovarianceCauchy.lean`:
