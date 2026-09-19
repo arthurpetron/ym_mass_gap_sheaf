@@ -49,10 +49,14 @@ The cofinal conversion deliberately requires the explicit backward premise
 `∀ base threshold, localRate base threshold ≤ 1/4`.  A direct power budget with
 an arbitrary strict rate does not imply that quarter bound, so the next
 producer task is still to inhabit this rate-and-factorization data on the same
-cofinal physical family.  Once supplied, the new quarter adapter feeds the
-existing completed same-object `1/16` contraction route.  No cofinal producer,
-thermodynamic/continuum passage, QFT reconstruction, all-group construction,
-or Clay endpoint is claimed here.
+cofinal physical family.  Independently, the same exact join now produces the
+depth-amplified `FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing` at the
+family's original arbitrary strict rate, so the local power-budget compiler is
+available without that quarter cap.  Once a quarter bound is supplied, the
+specialized adapter feeds the existing completed same-object `1/16` contraction
+route; the same route now exposes the completed sector gap through that
+depth-amplified compiler.  No cofinal producer, thermodynamic/continuum passage, QFT
+reconstruction, all-group construction, or Clay endpoint is claimed here.
 
 ### Current forward/backward join: cutoff-two finite non-vacuity (2026-09-19)
 

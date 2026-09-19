@@ -31,11 +31,13 @@ part of the trusted proof.
 **Latest forward/backward join (2026-09-19):** the direct conditioned
 transfer-power presentation now meets the sector-local contraction presentation
 through an exact finite weighted-composition/depth identity.  The new adapter
-preserves the honest boundary: a cofinal compatible-factorization family reaches
-the exact sector `1/16` route only when it supplies the explicit local-rate
-premise `localRate ≤ 1/4`.  This is a checked compiler, not an inhabited
-cofinal producer; thermodynamic/continuum passage, full QFT structure,
-all-group construction, and the Clay endpoint remain open.
+preserves the honest boundary: it also emits the exact depth-amplified local
+power-budget interface at the supplied strict rate, while the specialized
+sector `1/16` route still requires the explicit local-rate premise
+`localRate ≤ 1/4`; both routes now expose the existing completed sector-gap
+consumer.  This is a checked compiler, not an inhabited cofinal producer;
+thermodynamic/continuum passage, full QFT structure, all-group construction,
+and the Clay endpoint remain open.
 
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms

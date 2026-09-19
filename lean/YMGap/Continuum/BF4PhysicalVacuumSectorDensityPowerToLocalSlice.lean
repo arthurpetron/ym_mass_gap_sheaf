@@ -14,6 +14,7 @@ is constructed here.
 
 import YMGap.Continuum.BF4PhysicalVacuumSectorTimeFactorizationAdapter
 import YMGap.Continuum.BF4PhysicalVacuumSectorLocalContractionGluing
+import YMGap.Continuum.BF4PhysicalVacuumSectorLocalPowerBudgetGap
 import YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerDecomposition
 import YMGap.Continuum.BF4PhysicalVacuumSectorDirectPowerBudgetGap
 
@@ -24,10 +25,13 @@ set_option maxHeartbeats 10000000
 
 open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCenteredLimitGap
+open YMGap.Continuum.BF4PhysicalVacuumSectorMassNormalizedRowGap
 open YMGap.Continuum.FiveHolonomyPerronCutoff
 open YMGap.Continuum.BF4PhysicalVacuumSectorMassNormalizedDensity
 open YMGap.Continuum.BF4PhysicalVacuumSectorTimeFactorizationAdapter
 open YMGap.Continuum.BF4PhysicalVacuumSectorLocalContractionGluing
+open YMGap.Continuum.BF4PhysicalVacuumSectorLocalPowerBudgetGap
 open YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerDecomposition
 open YMGap.Continuum.BF4PhysicalVacuumSectorDirectPowerBudgetGap
 
@@ -80,6 +84,38 @@ def FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toLocalSliceGluing
     PhysicalBF4VacuumSectorDensityPowerGluing.toLocalSliceGluing
       (family.densityPower base threshold)
 
+/-- The direct-power family also inhabits the exact depth-amplified local
+power-budget interface, retaining its supplied uniform rate without imposing
+the stronger one-step quarter cap. -/
+def FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toLocalPowerBudgetGluing
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat} {rate : Q'}
+    (family : FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing
+      w hw half rate) :
+    FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing
+      w hw half rate where
+  rate_nonnegative := family.rate_nonnegative
+  rate_lt_one := family.rate_lt_one
+  anchor := family.anchor
+  anchor_ge := family.anchor_ge
+  depth := family.depth
+  localRate := family.localRate
+  oneStep := family.oneStep
+  localSlice := fun base threshold =>
+    PhysicalBF4VacuumSectorDensityPowerGluing.toLocalSliceGluing
+      (family.densityPower base threshold)
+  powerBudget := family.powerBudget
+
+/-- The direct-power family reaches the existing completed sector gap through
+the local depth-amplified compiler as well as through its direct compiler. -/
+def FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toLocalPowerBudgetVacuumSectorCenteredStrictGap
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat} {rate : Q'}
+    (family : FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing
+      w hw half rate) :
+    FixedNomeCofinalVacuumSectorCenteredStrictGap w hw half rate :=
+  FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.toVacuumSectorCenteredStrictGap
+    (FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toLocalPowerBudgetGluing
+      family)
+
 /-- The compatible full-factorization route has the same exact local-slice
 join once its explicit sector quarter bound is supplied. -/
 def FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget.toLocalSliceGluing
@@ -92,6 +128,27 @@ def FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget.toLocalSliceGlu
   FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toLocalSliceGluing
     family.toDensityPowerBudgetGluing localRate_le_quarter
 
+/-- The compatible full-factorization route reaches the exact local
+power-budget compiler without requiring a one-step quarter cap. -/
+def FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget.toLocalPowerBudgetGluing
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat} {rate : Q'}
+    (family : FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget
+      w hw half rate) :
+    FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing
+      w hw half rate :=
+  FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toLocalPowerBudgetGluing
+    family.toDensityPowerBudgetGluing
+
+/-- The compatible full-factorization producer reaches the same completed
+sector gap through the exact local power-budget compiler. -/
+def FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget.toLocalPowerBudgetVacuumSectorCenteredStrictGap
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat} {rate : Q'}
+    (family : FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget
+      w hw half rate) :
+    FixedNomeCofinalVacuumSectorCenteredStrictGap w hw half rate :=
+  FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toLocalPowerBudgetVacuumSectorCenteredStrictGap
+    family.toDensityPowerBudgetGluing
+
 end YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice
 
 #print axioms
@@ -100,3 +157,11 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice
   YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice.FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toLocalSliceGluing
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice.FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget.toLocalSliceGluing
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice.FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toLocalPowerBudgetGluing
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice.FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget.toLocalPowerBudgetGluing
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice.FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toLocalPowerBudgetVacuumSectorCenteredStrictGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice.FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget.toLocalPowerBudgetVacuumSectorCenteredStrictGap

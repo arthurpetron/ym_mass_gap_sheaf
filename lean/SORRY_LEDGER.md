@@ -147,11 +147,18 @@ applies that identity to convert
 `PhysicalBF4VacuumSectorLocalSliceGluing`, and lifts the conversion to the
 cofinal compatible-factorization bundle when an explicit
 `localRate ≤ 1/4` premise is supplied.  The focused checks
-`/tmp/ym-density-power-decomp7.log` and `/tmp/ym-power-local-join6.log`
+`/tmp/ym-density-power-decomp7.log` and `/tmp/ym-power-local-power-join6.log`
 reported only `{propext, Quot.sound}` and no `sorryAx`.  The quarter-rate
 premise remains an open producer input; it is not inferred from an arbitrary
 direct power budget.  This join does not construct a cofinal producer,
 thermodynamic/continuum passage, QFT structure, or the Clay endpoint.
+
+The same adapter also produces
+`FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing` directly, retaining the
+original arbitrary strict rate and depth power budget.  Thus the exact
+depth-amplified local compiler is available without imposing a one-step
+quarter cap; the quarter route is only the specialization yielding the fixed
+`1/16` local-slice rate.
 
 ## PROVED primitive physical-gap variation compiler (2026-09-19 UTC)
 
