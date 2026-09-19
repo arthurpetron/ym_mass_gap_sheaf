@@ -100,7 +100,7 @@ because no such denominator/Cauchy bundle inhabitant is present.  The
 same-object OS/GNS map, spacing/thermodynamic control, continuum QFT axioms,
 and all-group step are still open.
 
-Focused check after this extension: `/tmp/ym-perron-quarter-check7.log`;
+Focused check after this extension: `/tmp/ym-perron-quarter-check14.log`;
 only `{propext, Quot.sound}` were reported.
 
 ### Current forward/backward join: quarter slices compile to a depth budget (2026-09-19)

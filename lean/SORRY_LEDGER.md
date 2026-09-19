@@ -43,7 +43,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   denominator/Cauchy bundle is still an interface, not an inhabitant.  No
   continuum operator, OS/QFT structure, all-group construction, or Clay mass
   gap is supplied by the compiler.
-- **verification**: `/tmp/ym-perron-quarter-check7.log`; only
+- **verification**: `/tmp/ym-perron-quarter-check14.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
 ## PROVED finite cutoff-two non-vacuity endpoint (2026-09-19 UTC)
