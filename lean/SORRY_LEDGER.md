@@ -104,6 +104,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   QFT, or Clay endpoint is constructed.
 - **verification**: `/tmp/ym-pulled-vacuum-complement-transfer-power.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+  The companion
+  `centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_cofinal_sq_decay_of_centeredRowDistance`
+  consumes a `FixedNomeCofinalPhysicalCenteredRowDistance` through its exact
+  `toCenteredStrictGap` adapter, exposing the literal row-distance family as
+  the next sufficient forward input.  No such family is constructed here.
 
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)
 

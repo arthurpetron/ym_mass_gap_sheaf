@@ -18,6 +18,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
+import YMGap.Continuum.BF4PhysicalCutoffCofinalCenteredRowGap
 
 namespace YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
@@ -30,6 +31,7 @@ open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedAlgebra
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedVacuumComplement
 open YMGap.Continuum.BF4PhysicalCutoffCofinalStrictGap
+open YMGap.Continuum.BF4PhysicalCutoffCofinalCenteredRowGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
@@ -234,6 +236,43 @@ theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_cofin
       (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
         hw0 hw1))
 
+/-- The literal physical centered-row certificate is a sufficient forward
+input for the same completed cube channel.  This is the explicit
+forward/backward join: a cofinal row-distance family is transported through
+the canonical strict-gap adapter and then consumed by the exact
+same-object autocorrelation theorem above. -/
+theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_cofinal_sq_decay_of_centeredRowDistance
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {q : Q'}
+    (family : FixedNomeCofinalPhysicalCenteredRowDistance
+      w (Q'.le_of_lt hw0) 0 q) (n : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+          hw0 hw1 n)
+        (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+          hw0 hw1 n))
+      (CReal.RCmul
+        (CReal.RCscale ((q * q) ^ n)
+          (centralPhysicalCutoffCompletedInner hw0 hw1 0
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))))
+        (centralPhysicalCutoffCompletedInner hw0 hw1 0
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0)))) := by
+  exact centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_cofinal_sq_decay
+    hw0 hw1
+    (FixedNomeCofinalPhysicalCenteredRowDistance.toCenteredStrictGap family)
+    n
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
 /-! ## Axiom-dependency gates -/
@@ -254,3 +293,5 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_cofinal_sq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_cofinal_sq_decay_of_centeredRowDistance

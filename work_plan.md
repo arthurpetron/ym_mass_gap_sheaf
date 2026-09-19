@@ -158,7 +158,11 @@ by thermodynamic or continuum passage, QFT axioms, and all-group construction.
 The companion `...CompletedTransferPower_eq_global` theorem gives the exact
 global image of every transfer power on this witness.  Focused check:
 `/tmp/ym-pulled-vacuum-complement-transfer-power.log`; only
-`{propext, Quot.sound}` were reported.
+`{propext, Quot.sound}` were reported.  The new
+`..._cofinal_sq_decay_of_centeredRowDistance` theorem joins the forward
+literal-row certificate to the backward same-object target through
+`FixedNomeCofinalPhysicalCenteredRowDistance.toCenteredStrictGap`; it is a
+transport theorem, not an inhabitant of the row family.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)
 

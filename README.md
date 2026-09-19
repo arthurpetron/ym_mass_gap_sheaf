@@ -165,7 +165,11 @@ thermodynamic/continuum QFT.  The focused check was
 `centralPhysicalCutoffOneCubeMovingCenteredCompletedTransferPower_eq_global`
 also exposes the typed equality for every transfer power.  The focused check
 was `/tmp/ym-pulled-vacuum-complement-transfer-power.log`, with only
-`{propext, Quot.sound}` reported.
+`{propext, Quot.sound}` reported.  The new
+`..._cofinal_sq_decay_of_centeredRowDistance` theorem makes the next
+forward/backward join explicit: a cofinal literal physical centered-row
+distance family is accepted by the existing strict-gap adapter and immediately
+feeds this exact same-object channel.  The row family itself remains open.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
