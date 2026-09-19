@@ -365,6 +365,31 @@ theorem globalInwardMateCenteredParityCompletedObservable_matrixCoefficientSq_de
     (globalInwardMateCenteredParityCompletedObservable K) test
     (globalInwardMateCenteredParityCompletedObservable_vacuumOrthogonal K)
 
+/-- Specialize the conditional matrix-coefficient compiler to the same
+object.  This is the exact autocorrelation-square shape consumed by later
+observable and continuum handoffs. -/
+theorem globalInwardMateCenteredParityCompletedObservable_autocorrelationSq_decay_of_form_gap_input
+    (K : Nat) (hK : 1 <= K)
+    (input : GlobalInwardMateParityCompletedPowerDecayInput K hK)
+    (n : Nat) :
+    let w := anchorCoupling
+    let hw : (0 : Q') <= w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    let propagated :=
+      centralPhysicalCompletedMarkovPower w hw K 0 n vector
+    CReal.RCle
+      (CReal.RCmul (D.cinnerCompl propagated vector)
+        (D.cinnerCompl propagated vector))
+      (CReal.RCmul
+        (CReal.RCscale
+          ((globalInwardMateParityFormRate * globalInwardMateParityFormRate) ^ n)
+          (D.cinnerCompl vector vector))
+        (D.cinnerCompl vector vector)) := by
+  exact
+    globalInwardMateCenteredParityCompletedObservable_matrixCoefficientSq_decay_of_form_gap_input
+      K hK input n (globalInwardMateCenteredParityCompletedObservable K)
+
 /-- The finite parity margin becomes a completed Rayleigh-deficit estimate for
 the same completed vector. -/
 theorem globalInwardMateCenteredParityCompletedObservable_margin_mul_norm_le_deficit
@@ -587,5 +612,7 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityComp
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_power_norm_decay_of_form_gap_input
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_matrixCoefficientSq_decay_of_form_gap_input
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_autocorrelationSq_decay_of_form_gap_input
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateParityCompletedCorrelationCertificate

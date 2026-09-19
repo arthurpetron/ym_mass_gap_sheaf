@@ -175,6 +175,9 @@ for the concrete parity orbit.  The certificate is intentionally only an
 input: the one-observable parity estimate does not inhabit it, so no uniform
 vacuum-complement gap, thermodynamic/continuum passage, QFT structure,
 all-group result, or Clay theorem is claimed.
+The direct specialization
+`globalInwardMateCenteredParityCompletedObservable_autocorrelationSq_decay_of_form_gap_input`
+also exposes the same-object autocorrelation-square form for later handoffs.
 
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms

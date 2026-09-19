@@ -148,7 +148,9 @@ is a rate-sensitive one-vector moment bound, not an all-vector operator gap.
   `globalInwardMateCenteredParityCompletedObservable_matrixCoefficientSq_decay_of_form_gap_input`
   feed that input to the existing constructive power compiler, yielding
   squared-norm and arbitrary-test-vector matrix-coefficient decay for the
-  explicit parity observable.
+  explicit parity observable.  The direct specialization
+  `globalInwardMateCenteredParityCompletedObservable_autocorrelationSq_decay_of_form_gap_input`
+  exposes the same-object autocorrelation-square consequence.
 - **boundary**: the input record is not inhabited by the one-observable
   parity certificate.  This milestone therefore adds no uniform
   vacuum-complement gap, cofinal producer, thermodynamic/continuum passage,

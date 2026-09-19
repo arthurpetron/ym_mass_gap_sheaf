@@ -128,6 +128,12 @@ of that field (or a stronger multi-observable/cofinal replacement); spacing,
 thermodynamic/continuum control, QFT axioms, all compact simple groups, and
 the Clay endpoint remain open.
 
+The same seam now has the direct specialization
+`globalInwardMateCenteredParityCompletedObservable_autocorrelationSq_decay_of_form_gap_input`.
+It exposes the same-object autocorrelation-square shape for later handoffs,
+while still requiring the named all-vector form-gap input.  This removes a
+downstream rewiring step without weakening the producer obligation.
+
 ### Current forward/backward join: physical Perron/cross-tail reaches the completed quarter (2026-09-19)
 
 `BF4BoundaryMessagePerronCrossTailQuarter.lean` now names the direct
