@@ -702,6 +702,25 @@ obligations.
 Focused check: `/tmp/ym-modulated-dense-endpoint-current.log`; source SHA-256
 `323b00b49a0f0bdb4c93d011d1ac52fa8a09b87a9f8d56c195b512e70a926138`.
 
+**Forward/backward regular-scaling meet, checked 2026-09-18:**
+`DynamicVacuumSectorObservablePin.toRegScalingBand` in
+`BF4PhysicalDynamicVacuumSectorObservablePath.lean` compiles the same
+observable-connected completed-transfer rate band through the named physical
+separator into the regular-real `RegScalingBand`.  The checked consumers
+`toRegScalingBand_physGapMin_pos`, `toRegScalingBand_gap_survives`, and
+`toRegScalingBand_gap_le_ceiling` expose the spacing-uniform lower/upper
+bounds without asserting a limit or changing the observable.  This is the
+backward consumer meeting the forward completed route; its pin and rate band
+remain uninhabited analytic inputs.  The bare heat-kernel separator is not
+substituted.  Focused check: `/tmp/ym-forward-backward-regband5.log`; source
+SHA-256 `89af408c6ad2c8210d700e962cae41edec41112ec60100e1ad3f8c2fec5b5c6b`.
+
+**Next frontier after the meet:** construct the observable pin and the
+two-sided physical rate band on the actual matched SU(2) completed family;
+then provide the same-theory projective/OS handoff and continuum existence.
+The regular-scaling bridge itself is now a checked compiler, not a new
+inhabitant of those open inputs.
+
 **Dense-stage dynamic consumer, checked 2026-09-18:**
 `CurrentStageDenseTwoStepCertificate` isolates the next dynamic input at the
 smallest useful scope: exact two-step intertwining only for canonical classes

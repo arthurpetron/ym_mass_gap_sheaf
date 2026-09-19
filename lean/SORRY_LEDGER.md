@@ -13,6 +13,24 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED forward/backward regular-scaling compiler (2026-09-18 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorObservablePath.lean`.
+- **proved**: `DynamicVacuumSectorObservablePin.toRegScalingBand` compiles the
+  same observable-connected physical rate band through
+  `PhysicalSeparator.toRGGapPersistence` and `RGGapPersistence.toScalingBand`.
+  The derived declarations `toRegScalingBand_physGapMin_pos`,
+  `toRegScalingBand_gap_survives`, and `toRegScalingBand_gap_le_ceiling`
+  expose the regular-real uniform lower/upper bounds at every spacing index.
+- **residue**: the observable pin and the two-sided physical rate band remain
+  explicit, uninhabited analytic inputs; this is a compiler only and does not
+  construct the changing-spacing family, continuum measure, QFT axioms, or
+  Clay theorem.  The named physical separator is retained; no bare
+  heat-kernel substitution is made.
+- **verification**: `/tmp/ym-forward-backward-regband5.log`, source SHA-256
+  `89af408c6ad2c8210d700e962cae41edec41112ec60100e1ad3f8c2fec5b5c6b`;
+  only `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED Cauchy-stream pairing continuity (2026-09-18 UTC)
 
 - **file**: `lean/YMGap/Continuum/CRealSeminormPairingCompletion.lean`.

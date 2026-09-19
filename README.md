@@ -110,6 +110,21 @@ inhabitant or continuum/Clay result is present.  Evidence:
 `/tmp/ym-modulated-dense-endpoint-current.log`; source SHA-256
 `323b00b49a0f0bdb4c93d011d1ac52fa8a09b87a9f8d56c195b512e70a926138`.
 
+**Forward/backward regular-scaling meet, checked 2026-09-18:**
+`DynamicVacuumSectorObservablePin.toRegScalingBand` now compiles the same
+observable-connected completed-transfer rate band through the named physical
+separator into `RegScalingBand`.  Its checked consequences
+`toRegScalingBand_physGapMin_pos`, `toRegScalingBand_gap_survives`, and
+`toRegScalingBand_gap_le_ceiling` preserve the same separator and expose the
+uniform regular-real lower/upper bounds at every spacing index.  This is a
+conditional bridge: the observable pin and two-sided physical rate band are
+still explicit uninhabited inputs, so no thermodynamic/continuum witness or
+Clay conclusion is claimed.  The compiler does not substitute the bare
+heat-kernel separator.  Focused check:
+`/tmp/ym-forward-backward-regband5.log`; source SHA-256
+`89af408c6ad2c8210d700e962cae41edec41112ec60100e1ad3f8c2fec5b5c6b`.
+Only `{propext, Quot.sound}` were reported.
+
 The reverse finite-stage edge is now named explicitly as
 `CurrentStagePairingSeparationCertificate`.  Its checked consumer,
 `CurrentStagePairingSeparationCertificate.stageClass_eq_iff_current_eq`,

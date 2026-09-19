@@ -52,7 +52,9 @@ open YMGap.Continuum.PhysicalSeparationSamplingOfSpacingToZero
 open YMGap.Continuum.PhysicalSeparator
 open YMGap.Continuum.PhysicalSeparatorContinuumRealization
 open YMGap.Continuum.PhysicalSeparatorLogRate
+open YMGap.Continuum.RegularContinuumPipeline
 open YMGap.Continuum.SpectralDiffBoundClose
+open YMGap.Constructive.RegularCReal
 
 /-! ## 1. The same-object observable pin -/
 
@@ -249,6 +251,68 @@ def toPhysicalGapFloor
     change family.physicalGap scale <= band.ceiling
     exact band.physicalGap_le_ceiling scale
 
+/-! ## 4. Forward/backward meet at the regular scaling band -/
+
+/-- The same observable-connected physical rate band feeds the regular-real
+continuum pipeline through the physical separator.  The per-spacing cluster
+bound is `physClusterBound pin.toPhysicalSeparator scale`; no bare heat-kernel
+separator is substituted. -/
+def toRegScalingBand
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family) :
+    RegScalingBand :=
+  RGGapPersistence.toScalingBand
+    (PhysicalSeparator.toRGGapPersistence
+      (pin.toPhysicalGapFloor band))
+
+@[simp] theorem toRegScalingBand_physGapMin
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family) :
+    (pin.toRegScalingBand band).physGapMin = band.floor := rfl
+
+/-- The forward completed estimate and the backward regular-real compiler
+meet in a strictly positive uniform physical floor. -/
+theorem toRegScalingBand_physGapMin_pos
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family) :
+    (0 : Q') < (pin.toRegScalingBand band).physGapMin :=
+  RGGapPersistence.physGapMin_pos_of_persistence
+    (PhysicalSeparator.toRGGapPersistence
+      (pin.toPhysicalGapFloor band))
+
+/-- The resulting regular-real gap is uniformly bounded below at every
+spacing index, still for the same separator and same completed transfer. -/
+theorem toRegScalingBand_gap_survives
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    (scale : Nat) :
+    ofQ' (pin.toRegScalingBand band).physGapMin ≤
+      ofQ' ((pin.toRegScalingBand band).physGap scale) :=
+  RGGapPersistence.continuum_gap_of_RGGapPersistence
+    (PhysicalSeparator.toRGGapPersistence
+      (pin.toPhysicalGapFloor band)) scale
+
+/-- The regular-real compiler also preserves the finite physical-rate ceiling. -/
+theorem toRegScalingBand_gap_le_ceiling
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    (scale : Nat) :
+    ofQ' ((pin.toRegScalingBand band).physGap scale) ≤
+      ofQ' (pin.toRegScalingBand band).physGapMax :=
+  RGGapPersistence.continuum_gap_le_ceiling_of_RGGapPersistence
+    (PhysicalSeparator.toRGGapPersistence
+      (pin.toPhysicalGapFloor band)) scale
+
 /-- The already-available spacing-to-zero modulus constructs the correct
 scheduled powers `n_j(t)` with `a_j n_j(t) -> t`; no fixed-one-step limit is
 used. -/
@@ -288,6 +352,14 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath.DynamicVacuumSectorObservablePin.toPhysicalSeparator
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath.DynamicVacuumSectorObservablePin.toPhysicalGapFloor
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath.DynamicVacuumSectorObservablePin.toRegScalingBand
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath.DynamicVacuumSectorObservablePin.toRegScalingBand_physGapMin_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath.DynamicVacuumSectorObservablePin.toRegScalingBand_gap_survives
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath.DynamicVacuumSectorObservablePin.toRegScalingBand_gap_le_ceiling
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath.DynamicVacuumSectorObservablePin.physicalSampling
 #print axioms
