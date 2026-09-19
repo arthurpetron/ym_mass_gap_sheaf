@@ -148,8 +148,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `CanonicalRangeSectionCertificate.twoStep_form_bound` and
   `...twoStep_defect_form_bound` transport the strict `q` estimate and the
   `(1-q)` residual margin from bridge-image vectors to every canonical
-  vacuum-orthogonal vector. These are image rewrites only: no section,
-  surjectivity, density, limit interchange, or continuum claim is supplied.
+  vacuum-orthogonal vector. The new
+  `CanonicalRangeSectionCertificate.map_surjective` theorem makes explicit
+  that the supplied class equation is an exact surjectivity witness for the
+  bridge map, and `...preimage_class_unique` proves uniqueness of the current
+  completion class for equal canonical classes. These remain conditional
+  consumers: no section inhabitant, density limit, limit interchange, or
+  continuum claim is supplied.
   `...twoStep_fixed_eq_zero` additionally transports the image-level
   two-step fixed-point exclusion to the whole canonical completion under the
   same explicit section.

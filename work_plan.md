@@ -540,10 +540,13 @@ the canonical class with its bridge image. Given that explicit section,
 `1-q` residual coercivity margin to every canonical vacuum-orthogonal vector.
 `...twoStep_fixed_eq_zero` also transports the image-level fixed-point
 exclusion to the whole canonical completion under the same section.
-The consumer is a pure image rewrite and introduces no density, choice,
-surjectivity, or limit interchange; the section itself is deliberately not
-inhabited. Focused check log: `/tmp/ym-canonical-range-consumer5.log`; SHA-256
-`c01c798aff2623055cfb741fb07d5d15b47ac2433341955c8fc9427621f141e6`. The
+The consumer is a pure image rewrite and introduces no choice or limit
+interchange. When supplied, the section's class equation is already an exact
+surjectivity witness for `J.map`; `CanonicalRangeSectionCertificate.map_surjective`
+and `...preimage_class_unique` expose that consequence constructively. The
+section itself is deliberately not inhabited. Focused check log:
+`/tmp/ym-canonical-range-surjective3.log`; SHA-256
+`dbe3ac791655095cbc10d81da58886ccd9828edf08f6fcd660ea1315f35814c1`. The
 new declarations use only `{propext, Quot.sound}`.
 
 **Contracted conditional canonical gap datum, checked 2026-09-18:**

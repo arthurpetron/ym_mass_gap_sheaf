@@ -600,7 +600,9 @@ from the current carrier. The next backward-facing obligation is therefore a
 constructive section of the canonical completion through the current carrier.
 The section is stated at the supplied Cauchy-stream level, so a future
 producer must return representatives and a kernel-checked class equation
-rather than invoking surjectivity or choice.
+rather than invoking choice. When supplied, that class equation is itself an
+exact surjectivity witness for the bridge map; no section inhabitant is
+constructed here.
 -/
 
 /-- A constructive section of the canonical completion through a supplied
@@ -637,6 +639,27 @@ def currentClass
     (Y : (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Cauchy) : V :=
   Quotient.mk
     (unionSeminorm nome_pos nome_lt_one hsmall hd hs).completionSetoid Y
+
+/-! A supplied section is stronger than a dense-range statement: because every
+canonical completion point is represented by a `CauchyGNS`, its class equation
+is an exact surjectivity witness for the bridge map.  We expose this only as a
+conditional consumer; no section inhabitant is constructed here. -/
+
+theorem map_surjective
+    (D : CanonicalRangeSectionCertificate P J) :
+    Function.Surjective J.map := by
+  intro z
+  refine Quotient.inductionOn z ?_
+  intro X
+  exact ⟨currentClass (D.preimage X), (D.class_eq X).symm⟩
+
+theorem preimage_class_unique
+    (D : CanonicalRangeSectionCertificate P J)
+    {X Y : CauchyGNS W.toGNSData}
+    (hXY : canonicalClass X = canonicalClass Y) :
+    currentClass (D.preimage X) = currentClass (D.preimage Y) := by
+  apply J.map_injective
+  exact (D.class_eq X).symm.trans (hXY.trans (D.class_eq Y))
 
 /-- Every canonical vector orthogonal to the selected vacuum inherits the
 strict two-step form bound once the explicit range section is supplied. The
@@ -809,6 +832,8 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.map_surjective
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.preimage_class_unique
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_defect_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_fixed_eq_zero
