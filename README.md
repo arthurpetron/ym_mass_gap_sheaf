@@ -105,6 +105,14 @@ identification is not inhabited, and no continuum or Clay claim is made.
 Focused verification is `/tmp/AFTrajectorySummableVariation.olean`, under the
 `{propext, Quot.sound}` gate.
 
+The backward identification is now factored through
+`PhysicalGapNumeratorCalibration`: a supplied numerator relation between the
+completed lattice margin and `shiftedTau * spacing` is reduced by explicit
+positive rational cancellation to the required same-object physical-gap
+identification.  `exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration`
+packages that conditional join.  The calibration remains uninhabited; this is
+not a continuum, QFT, all-group, or Clay result.
+
 **Completed-carrier attachment (2026-09-19):**
 `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSCompletedCarrier.lean`
 now connects the conditional all-source inward-mate Poincare estimate to the

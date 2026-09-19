@@ -288,6 +288,51 @@ structure PhysicalGapTrajectoryIdentification
     (C : AFTrajectoryCertificate) : Type 1 where
   pointwise : ∀ j, (shiftedTau C j).eqv (family.physicalGap j)
 
+/-! ## 3a. Backward decomposition of the same-object seam -/
+
+private theorem divPos_eqv_of_eqv_mul_local {p q c : Q'}
+    (hq : (0 : Q') < q) (h : p.eqv (c * q)) :
+    Q'.divPos p q hq ≈ c := by
+  unfold Q'.divPos
+  refine Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ h) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.mul_assoc_eqv c q (Q'.recipPos q hq)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left c _ _ (Q'.mul_recipPos_eqv q hq)) ?_
+  exact Q'.mul_one_eqv c
+
+/-- The minimal physical calibration behind the same-object identification.
+
+    The completed family defines its physical gap as
+    `latticeMargin / spacing`.  This certificate asks only that the AF
+    trajectory times that *same* positive spacing recovers the completed
+    lattice margin.  The quotient identification is then a local rational
+    cancellation, rather than an opaque equality field.  No inhabitant is
+    manufactured here: supplying this calibration remains the explicit
+    physical-mass bridge. -/
+structure PhysicalGapNumeratorCalibration
+    {half : Nat}
+    (family : DynamicVacuumSectorCompletedFamily half)
+    (C : AFTrajectoryCertificate) : Type 1 where
+  numerator_eqv : ∀ j,
+    (family.latticeMargin j).eqv
+      (shiftedTau C j * family.transferSpacing.spacing j)
+
+/-- Compile the numerator calibration into the pointwise physical-gap
+identification required by the AF variation handoff. -/
+def PhysicalGapNumeratorCalibration.toIdentification
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {C : AFTrajectoryCertificate}
+    (calibration : PhysicalGapNumeratorCalibration family C) :
+    PhysicalGapTrajectoryIdentification family C where
+  pointwise := by
+    intro j
+    unfold DynamicVacuumSectorCompletedFamily.physicalGap
+    exact Q'.eqv_symm
+      (divPos_eqv_of_eqv_mul_local
+        (family.transferSpacing.spacing_pos j)
+        (calibration.numerator_eqv j))
+
 /-- Transport the proved AF summable variation to the definitionally named
 completed-family physical gap once the same-object pointwise identification is
 supplied.  No spacing floor or reciprocal variation is introduced. -/
@@ -317,6 +362,20 @@ def exactLogRateCauchyOfAFTrajectory
   DynamicVacuumSectorObservablePin.exactLogRateCauchy
     pin band identification.toPhysicalGapVariation spacingTail
 
+/-- The same exact-log consequence with the backward seam decomposed into its
+minimal numerator calibration. -/
+def exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {C : AFTrajectoryCertificate}
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    (spacingTail : InverseSquareSpacingTail family.transferSpacing 0)
+    (calibration : PhysicalGapNumeratorCalibration family C) :
+    CReal.ModCauchyEv ((fullRangeRateFamily pin).rate) :=
+  exactLogRateCauchyOfAFTrajectory
+    pin band spacingTail calibration.toIdentification
+
 end YMGap.Continuum.AFTrajectorySummableVariation
 
 /-! ## Dependency gates -/
@@ -332,4 +391,8 @@ end YMGap.Continuum.AFTrajectorySummableVariation
 #print axioms
   YMGap.Continuum.AFTrajectorySummableVariation.PhysicalGapTrajectoryIdentification.toPhysicalGapVariation
 #print axioms
+  YMGap.Continuum.AFTrajectorySummableVariation.PhysicalGapNumeratorCalibration.toIdentification
+#print axioms
   YMGap.Continuum.AFTrajectorySummableVariation.exactLogRateCauchyOfAFTrajectory
+#print axioms
+  YMGap.Continuum.AFTrajectorySummableVariation.exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration

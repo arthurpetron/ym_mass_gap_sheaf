@@ -561,6 +561,18 @@ OS/GNS, QFT, all-group, or Clay claim is made.  Focused verification is
 `/tmp/AFTrajectorySummableVariation.olean`; every printed axiom set is only
 `{propext, Quot.sound}`.
 
+The backward seam is now decomposed rather than left as one opaque field:
+`PhysicalGapNumeratorCalibration` asks for the completed lattice-margin
+identity `family.latticeMargin j ≈ shiftedTau C j * spacing j`, and
+`PhysicalGapNumeratorCalibration.toIdentification` performs the positive
+quotient cancellation.  The derived
+`exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration` is therefore the
+smallest explicit physical-calibration handoff currently available.  This is
+still a Type-level input, not a proof that the AF trajectory is the completed
+transfer gap; the calibration, thermodynamic passage, continuum QFT package,
+all-group extension, and Clay endpoint remain open.  The source check now
+prints only `{propext, Quot.sound}` for both new declarations.
+
 ### Current forward/backward join: residual strength factors (2026-09-19)
 
 `BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler` exposes

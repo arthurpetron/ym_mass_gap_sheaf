@@ -24,8 +24,16 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   transports that certificate to the completed-family physical gap when an
   explicit same-object pointwise identification is supplied, and
   `exactLogRateCauchyOfAFTrajectory` feeds the existing exact-log consumer.
+- **backward decomposition**: `PhysicalGapNumeratorCalibration` isolates the
+  minimal physical numerator relation
+  `family.latticeMargin j ≈ shiftedTau C j * spacing j`;
+  `PhysicalGapNumeratorCalibration.toIdentification` proves the required
+  same-object quotient identification by constructive positive cancellation,
+  and `exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration` packages the
+  resulting exact-log handoff.
 - **boundary**: the AF-to-completed-family identification remains a Type-level
-  input; no inhabitant is claimed.  No physical rate band, continuum measure,
+  input (and the decomposed numerator calibration is likewise uninhabited); no
+  inhabitant is claimed.  No physical rate band, continuum measure,
   OS/GNS reconstruction, QFT axioms, all-group theorem, or Clay result is
   discharged by this scalar compiler.
 - **verification**: `/tmp/AFTrajectorySummableVariation.olean`; all printed
