@@ -122,6 +122,20 @@ and rate band remain open.  Focused check:
 `55cac7b3f1e8ef7f578a3873a9c6bd84f7ca012f49c99e167bce7b8b9326495e`.
 Only `{propext, Quot.sound}` were reported.
 
+**Forward/backward input audit, checked 2026-09-18:**
+The exact-log backward node
+`DynamicVacuumSectorObservablePin.exactLogRateCauchy` has two independent
+inputs.  The spacing input is now supplied conditionally by the matched-AF
+spacing-tail compiler above.  A repository-wide search found no inhabited
+producer for `SummableRationalStepVariation family.physicalGap`; the existing
+ratio/reciprocal algebra requires a positive floor on the denominator, while
+the physical spacing is precisely the quantity tending to zero.  Thus the
+next center frontier is a same-completed-family variation estimate for
+`latticeMargin / transferSpacing`, not a relabeling of the AF rate or a bare
+heat-kernel proxy.  The observable pin, rate band, projective/OS handoff,
+continuum measure, full QFT structure, and all-compact-simple-group route also
+remain explicit uninhabited inputs.
+
 **Forward/backward regular-scaling meet, checked 2026-09-18:**
 `DynamicVacuumSectorObservablePin.toRegScalingBand` now compiles the same
 observable-connected completed-transfer rate band through the named physical

@@ -716,6 +716,26 @@ Focused check: `/tmp/ym-spacing-tail-compiler.log`; source SHA-256
 `55cac7b3f1e8ef7f578a3873a9c6bd84f7ca012f49c99e167bce7b8b9326495e`.
 Only `{propext, Quot.sound}` were reported.
 
+**Forward/backward input audit, checked 2026-09-18:**
+The backward exact-log compiler requires
+`SummableRationalStepVariation family.physicalGap` and
+`InverseSquareSpacingTail family.transferSpacing 0`.  The latter is now
+constructed, conditionally and on the literal matched spacing, by
+`MatchedPhysicalDynamicScalarTrajectory.physicalSpacingInverseSquareOfAFTrajectory`.
+The former is **NOT FOUND** as an inhabited producer.  Existing reciprocal and
+positive-ratio variation compilers cannot close it generically because they
+need a positive floor on the denominator, whereas the physical spacing tends
+to zero.  The exact next frontier is therefore an analytic estimate on the
+same completed-family ratio
+`family.latticeMargin / family.transferSpacing.spacing`.
+
+The parallel backward audit also confirms that nontrivial continuum survival,
+the full continuum measure/OS/GNS/QFT bundle, physical mass calibration, and
+every compact simple group are currently conditional interfaces rather than
+inhabited Yang--Mills objects.  They remain valid parallel work lanes, but
+none can be contracted to the Clay theorem until the same-theory finite-to-
+continuum center is inhabited.
+
 **Forward/backward regular-scaling meet, checked 2026-09-18:**
 `DynamicVacuumSectorObservablePin.toRegScalingBand` in
 `BF4PhysicalDynamicVacuumSectorObservablePath.lean` compiles the same
