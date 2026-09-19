@@ -137,6 +137,22 @@ non-strict full-carrier boundary.
 The companion norm-decay and same-object declarations expose the all-vector
 and concrete-cube consequences at the bundle's explicit rate.
 
+**Direct-power to local-slice algebraic join, checked 2026-09-19:**
+`BF4PhysicalVacuumSectorDensityPowerDecomposition.lean` proves exact finite
+weighted-composition associativity and the depth identity
+`P (depth - 1) = oneStep ∘ (P (depth - 3) ∘ oneStep)` up to the repository's
+`Q'` equivalence.  `BF4PhysicalVacuumSectorDensityPowerToLocalSlice.lean`
+applies that identity to convert
+`PhysicalBF4VacuumSectorDensityPowerGluing` into
+`PhysicalBF4VacuumSectorLocalSliceGluing`, and lifts the conversion to the
+cofinal compatible-factorization bundle when an explicit
+`localRate ≤ 1/4` premise is supplied.  The focused checks
+`/tmp/ym-density-power-decomp7.log` and `/tmp/ym-power-local-join6.log`
+reported only `{propext, Quot.sound}` and no `sorryAx`.  The quarter-rate
+premise remains an open producer input; it is not inferred from an arbitrary
+direct power budget.  This join does not construct a cofinal producer,
+thermodynamic/continuum passage, QFT structure, or the Clay endpoint.
+
 ## PROVED primitive physical-gap variation compiler (2026-09-19 UTC)
 
 - **file**: `BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.lean`.

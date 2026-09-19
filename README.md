@@ -28,6 +28,15 @@ distinct; the former's gap is not a gap theorem for the latter. Existence
 statements carry witnesses and explicit moduli; numerical exploration is not
 part of the trusted proof.
 
+**Latest forward/backward join (2026-09-19):** the direct conditioned
+transfer-power presentation now meets the sector-local contraction presentation
+through an exact finite weighted-composition/depth identity.  The new adapter
+preserves the honest boundary: a cofinal compatible-factorization family reaches
+the exact sector `1/16` route only when it supplies the explicit local-rate
+premise `localRate ≤ 1/4`.  This is a checked compiler, not an inhabited
+cofinal producer; thermodynamic/continuum passage, full QFT structure,
+all-group construction, and the Clay endpoint remain open.
+
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.

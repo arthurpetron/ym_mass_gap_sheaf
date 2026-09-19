@@ -34,6 +34,26 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Current forward/backward join: direct power meets local slice (2026-09-19)
+
+The finite algebra seam between the two producer presentations is now closed.
+`BF4PhysicalVacuumSectorDensityPowerDecomposition.lean` proves the exact
+weighted-composition associativity and the depth decomposition from the direct
+conditioned power at index `depth - 1` to the two endpoint steps around the
+middle power at index `depth - 3`.  The adapter
+`BF4PhysicalVacuumSectorDensityPowerToLocalSlice.lean` applies that identity to
+the concrete sector structures and to the cofinal compatible-factorization
+bundle.
+
+The cofinal conversion deliberately requires the explicit backward premise
+`∀ base threshold, localRate base threshold ≤ 1/4`.  A direct power budget with
+an arbitrary strict rate does not imply that quarter bound, so the next
+producer task is still to inhabit this rate-and-factorization data on the same
+cofinal physical family.  Once supplied, the new quarter adapter feeds the
+existing completed same-object `1/16` contraction route.  No cofinal producer,
+thermodynamic/continuum passage, QFT reconstruction, all-group construction,
+or Clay endpoint is claimed here.
+
 ### Current forward/backward join: cutoff-two finite non-vacuity (2026-09-19)
 
 The forward finite carrier now has a named concrete endpoint at the explicit
