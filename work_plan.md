@@ -166,7 +166,11 @@ transport theorem, not an inhabitant of the row family.  The companion
 `...CompletedStrictContractionData_of_centeredRowDistance` and
 `...CompletedVacuumTransferPower_norm_decay_of_centeredRowDistance` declarations
 show that this same row input reaches the reusable completed operator gap and
-all-vector geometric norm decay.
+all-vector geometric norm decay.  The further
+`...CompletedStrictContractionData_of_localSlice` and
+`...Autocorrelation_sq_decay_of_localSlice` declarations make the genuine
+cofinal local-slice/gluing family the direct forward producer at rate `1/16`;
+that family, and the alternate exact canonical capacity check, remain open.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)
 

@@ -19,6 +19,7 @@ import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 import YMGap.Continuum.BF4PhysicalCutoffCofinalCenteredRowGap
+import YMGap.Continuum.BF4PhysicalCutoffCofinalLocalSliceGap
 
 namespace YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
@@ -32,6 +33,8 @@ open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedVacuumComplement
 open YMGap.Continuum.BF4PhysicalCutoffCofinalStrictGap
 open YMGap.Continuum.BF4PhysicalCutoffCofinalCenteredRowGap
+open YMGap.Continuum.BF4PhysicalCutoffCofinalLocalSliceGap
+open YMGap.Continuum.BF4PhysicalCutoffConnectedGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
@@ -311,6 +314,48 @@ theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedVacuumTransferPower_n
     (FixedNomeCofinalPhysicalCenteredRowDistance.toCenteredStrictGap family)
     n vector
 
+/-- The concrete local-slice producer interface is the direct forward input
+for the same completed operator channel: its existing row adapter fixes the
+rate to the checked physical sixteenth. -/
+def centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_localSlice
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (family : FixedNomeCofinalPhysicalLocalSliceGluing
+      w (Q'.le_of_lt hw0) 0) :
+    CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
+      hw0 hw1 0 :=
+  centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_centeredRowDistance
+    hw0 hw1 family.toCenteredRowDistance
+
+theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay_of_localSlice
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (family : FixedNomeCofinalPhysicalLocalSliceGluing
+      w (Q'.le_of_lt hw0) 0) (n : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+          hw0 hw1 n)
+        (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+          hw0 hw1 n))
+      (CReal.RCmul
+        (CReal.RCscale
+          ((physicalCutoffSixteenth * physicalCutoffSixteenth) ^ n)
+          (centralPhysicalCutoffCompletedInner hw0 hw1 0
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))))
+        (centralPhysicalCutoffCompletedInner hw0 hw1 0
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0)))) := by
+  exact centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_cofinal_sq_decay_of_centeredRowDistance
+    hw0 hw1 family.toCenteredRowDistance n
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
 /-! ## Axiom-dependency gates -/
@@ -337,3 +382,7 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_centeredRowDistance
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedVacuumTransferPower_norm_decay_of_centeredRowDistance
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_localSlice
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay_of_localSlice

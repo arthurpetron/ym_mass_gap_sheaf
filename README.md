@@ -173,7 +173,12 @@ feeds this exact same-object channel.  The companion
 `...CompletedStrictContractionData_of_centeredRowDistance` and
 `...CompletedVacuumTransferPower_norm_decay_of_centeredRowDistance` declarations
 carry that same input to the reusable completed operator gap and all-vector
-geometric decay.  The row family itself remains open.
+geometric decay.  The further
+`...CompletedStrictContractionData_of_localSlice` and
+`...Autocorrelation_sq_decay_of_localSlice` declarations identify a cofinal
+genuine local-slice/gluing family as a direct forward producer at the checked
+rate `1/16`.  Neither that local-slice family nor the exact canonical capacity
+check is constructed here.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`

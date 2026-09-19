@@ -112,7 +112,12 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `...CompletedStrictContractionData_of_centeredRowDistance` and
   `...CompletedVacuumTransferPower_norm_decay_of_centeredRowDistance`
   declarations transport the same input to the reusable completed operator
-  gap and all-vector geometric decay.  No such family is constructed here.
+  gap and all-vector geometric decay.  The further
+  `...CompletedStrictContractionData_of_localSlice` and
+  `...Autocorrelation_sq_decay_of_localSlice` declarations identify the
+  genuine cofinal local-slice/gluing family as a direct forward producer at
+  rate `1/16`.  Neither that family nor the exact canonical capacity check is
+  constructed here.
 
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)
 
