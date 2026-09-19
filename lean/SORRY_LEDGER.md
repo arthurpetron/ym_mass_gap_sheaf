@@ -47,6 +47,21 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: `/tmp/ym-cutoff-two-correlator-positive2.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
+## PROVED fixed pulled-carrier root observable strict contraction (2026-09-19 UTC)
+
+- **files**: `BF4PhysicalBoundaryCutoffTwoPulledNontrivialGapObservable.lean`
+  and `BF4PhysicalBoundaryCutoffTwoPulledRootStrictFormGap.lean`.
+- **proved**: `cutoffTwoPulledRootIndicator_diagonal_pos` gives strict positive
+  diagonal for the explicit vacuum-root indicator at every later cutoff, and
+  `cutoffTwoPulledRootIndicator_strict_form_gap` combines that witness with
+  the existing fixed pulled-carrier rate below one to prove the strict form
+  inequality for the same observable.
+- **boundary**: this is fixed 65-state SU(2) data.  It does not construct the
+  cofinal matched capacity family, physical-gap variation, thermodynamic or
+  continuum passage, QFT axioms, or the Clay theorem.
+- **verification**: focused safe checks passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
+
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4MatchedPhysicalAFTwoSidedMarginCompiler.lean`.

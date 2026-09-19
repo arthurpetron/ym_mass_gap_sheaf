@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-17)
+## Whole-project goal and live completion map (updated 2026-09-19)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -75,6 +75,28 @@ continuum/all-group conclusion.  The next backward consumer remains
 `MatchedPhysicalDynamicExplicitRayCanonicalCapacityCheckProducer.capacityCheck`.
 Focused check: `/tmp/ym-cutoff-two-correlator-positive2.log`; only
 `{propext, Quot.sound}` were reported.
+
+### Current forward/backward join: fixed pulled-carrier root contraction (2026-09-19)
+
+The forward fragment now has a concrete observable on the same fixed pulled
+carrier as the existing finite uniform certificate.  In
+`BF4PhysicalBoundaryCutoffTwoPulledNontrivialGapObservable.lean`,
+`cutoffTwoPulledRootIndicator` is the explicit indicator of the vacuum-root
+index and `cutoffTwoPulledRootIndicator_diagonal_pos` proves its diagonal is
+strictly positive at every later representation cutoff.  The backward strict
+consumer is met in
+`BF4PhysicalBoundaryCutoffTwoPulledRootStrictFormGap.lean`:
+`cutoffTwoPulledRootIndicator_strict_form_gap` composes that positivity with
+`CutoffTwoConstructedUniformGapData.rate_lt_one` and
+`...moving_abs_gap` to obtain the strict inequality for the same observable.
+
+This is a genuine finite SU(2) contraction on a fixed 65-state pulled
+carrier.  It does not identify that carrier with the cofinal matched physical
+family, discharge
+`MatchedPhysicalDynamicExplicitRayCanonicalCapacityCheckProducer.capacityCheck`,
+produce same-family physical-gap variation, or supply the OS/thermodynamic,
+continuum, full-QFT, or every-group Clay joins.  Focused checks passed under
+the constructive gate `{propext, Quot.sound}` with no `sorryAx`.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)
 

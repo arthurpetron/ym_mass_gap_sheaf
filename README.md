@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-> **Current frontier (2026-09-18 UTC):** the fixed-spacing SU(2) Wilson
+> **Current frontier (2026-09-19 UTC):** the fixed-spacing SU(2) Wilson
 > carrier now has a checked resolvent probe, strict two-step form gap, and a
 > conditional canonical OS/GNS handoff.  The handoff's supplied range section
 > constructively yields an exact carrier inverse and bijectivity, but neither
@@ -10,11 +10,12 @@
 > now constructs the arbitrary-stream Gram field from stagewise `CReal.Equiv`
 > data; a dense-stage two-step consumer transports the strict bound on
 > finite-stage canonical images.
-> Changing-spacing control,
+> The fixed pulled-carrier root observable also has a checked positive
+> diagonal and strict finite-stage contraction.  Changing-spacing control,
 > physical mass calibration, continuum QFT construction, and the all-group
 > Clay endpoint remain open.
 
-> **Research status (2026-09-18 UTC): this repository does not prove the Clay
+> **Research status (2026-09-19 UTC): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
@@ -112,6 +113,18 @@ still a fixed finite SU(2) statement; the cofinal capacity, varying-spacing,
 OS/continuum, and all-group Clay bridges remain open.  Focused check:
 `/tmp/ym-cutoff-two-correlator-positive2.log`; only `{propext, Quot.sound}`
 were reported.
+
+**Fixed pulled-carrier root observable contraction, checked 2026-09-19:**
+`BF4PhysicalBoundaryCutoffTwoPulledNontrivialGapObservable` defines the
+explicit vacuum-root indicator on the fixed pulled carrier and proves its
+diagonal is strictly positive at every later representation cutoff.
+`BF4PhysicalBoundaryCutoffTwoPulledRootStrictFormGap` composes that positive
+diagonal with the existing fixed-carrier rate certificate to prove a strict
+form inequality for the same observable whenever the certificate's start
+condition holds.  This is the forward finite landmark that meets the strict
+gap consumer; it is not a cofinal capacity comparison, a thermodynamic or
+continuum passage, an OS/QFT reconstruction, or an all-group result.
+Focused checks used only `{propext, Quot.sound}` and introduced no `sorryAx`.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
