@@ -167,13 +167,22 @@ deficit, and that deficit is strictly positive with witness
 `globalInwardMateParityFormMargin^2`.  This is a one-vector physical
 dissipation certificate, not an all-vector spectral gap.
 
+The new declaration
+`globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_rateSquare_normSquare`
+contracts the same strict form rate into a rate-squared bound on the completed
+same-object correlation square.  It uses transfer positivity, completed CReal
+product monotonicity, and an explicit scale/product identity; no division or
+classical cancellation is introduced.  This is the backward consumer
+obligation for the realized parity observable, not a uniform operator gap.
+
 This is a causal consumer-side meet: the forward carrier and coefficient are
 already constructed, while the backward correlation-square obligation is now
 discharged without inventing a uniform all-vector rate.  It remains fixed-
 anchor, finite-cutoff, and one-observable; endpoint coverage, a completed
 vacuum-complement gap, thermodynamic/continuum control, QFT axioms, physical
-mass calibration, and the all-group Clay endpoint remain open.  Focused check:
-`/tmp/ym-parity-correlation-check3.log`; only `{propext, Quot.sound}` were
+mass calibration, and the all-group Clay endpoint remain open.  Focused checks:
+`/tmp/ym-parity-correlation-check3.log` and
+`/tmp/ym-parity-rate-square-check3.log`; only `{propext, Quot.sound}` were
 reported and no `sorryAx` was introduced.
 
 ### Current forward/backward join: quarter slices compile to a depth budget (2026-09-19)

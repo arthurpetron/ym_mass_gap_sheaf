@@ -14,6 +14,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 -/
 
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCarrier
+import YMGap.Continuum.Z4HalfTimeReflectionStrictJointCompletedOperatorNormGap
 
 namespace YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation
 
@@ -26,6 +27,7 @@ open YMGap.Continuum
 open YMGap.Continuum.BF4PhysicalCompletedMacroCorrelator
 open YMGap.Continuum.BF4PhysicalMarkovGNSCompletion
 open YMGap.Continuum.BF4PhysicalMarkovTransferLaws
+open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCompletedOperatorNormGap
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCarrier
 open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityFormGap
 open YMGap.Continuum.BF4WeightedJointPerronPerturbation
@@ -62,6 +64,19 @@ private theorem physicalConstantRC_mul_eq_scale (factor value : Q') :
       CReal.RCscale factor (physicalConstantRC value) := by
   apply Quotient.sound
   exact YMGap.Constructive.CRealAlg.ofQ'_mul factor value
+
+private theorem rc_square_scale_eq_scale_square
+    (rate : Q') (norm : CReal.RC) :
+    CReal.RCmul (CReal.RCscale rate norm) (CReal.RCscale rate norm) =
+      CReal.RCscale (rate * rate) (CReal.RCmul norm norm) := by
+  refine Quotient.inductionOn norm ?_
+  intro N
+  apply Quotient.sound
+  exact YMGap.Constructive.SumOfSquares.Equiv_of_approx_eqv
+    (fun n => by
+      change ((rate * N.approx n) * (rate * N.approx n)).eqv
+        ((rate * rate) * (N.approx n * N.approx n))
+      ring_qeqv)
 
 /-- The completed parity coefficient squared is bounded by the transferred
 vector norm. -/
@@ -183,6 +198,64 @@ theorem globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_n
   have hmul := physicalRCmul_mono_nonnegative_left hnorm hcontract
   exact CReal.RCle_trans hcs hmul
 
+/-- The strict one-vector form rate contracts the same-object correlation
+square at the corresponding squared rate.  This is the first rate-sensitive
+same-object moment bound on the completed parity carrier; it remains a
+single-observable statement, not an all-vector operator gap. -/
+theorem globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_rateSquare_normSquare
+    (K : Nat) (hK : 1 <= K) :
+    let w := anchorCoupling
+    let hw : (0 : Q') ≤ w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    let coefficient :=
+      D.cinnerCompl vector
+        (centralPhysicalCompletedMarkovTransfer w hw K 0 vector)
+    CReal.RCle
+      (CReal.RCmul coefficient coefficient)
+      (CReal.RCscale
+        (globalInwardMateParityFormRate * globalInwardMateParityFormRate)
+        (CReal.RCmul (D.cinnerCompl vector vector)
+          (D.cinnerCompl vector vector))) := by
+  dsimp only
+  let w := anchorCoupling
+  let hw : (0 : Q') ≤ w := by decide
+  let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+  let vector := globalInwardMateCenteredParityCompletedObservable K
+  let transferred := centralPhysicalCompletedMarkovTransfer w hw K 0 vector
+  let coefficient := D.cinnerCompl vector transferred
+  let norm := D.cinnerCompl vector vector
+  let scaledNorm := CReal.RCscale globalInwardMateParityFormRate norm
+  have hstrict :=
+    globalInwardMateCenteredParityCompletedObservable_strict_form K hK
+  dsimp only at hstrict
+  rw [centralPhysicalCompletedMarkovTransfer_selfAdjoint] at hstrict
+  change CReal.RCle coefficient scaledNorm at hstrict
+  have hcoefficient :=
+    globalInwardMateCenteredParityCompletedObservable_coefficient_nonnegative K
+  change CReal.RCnonneg coefficient at hcoefficient
+  have hnorm : CReal.RCnonneg norm := D.cinner_self_nonneg vector
+  have hscaledNorm : CReal.RCnonneg scaledNorm := by
+    have hscaled := CReal.RCscale_mono
+      globalInwardMateParityFormRate_nonnegative hnorm
+    simpa only [scaledNorm, CReal.RCscale_RCzero] using hscaled
+  have hleft :
+      CReal.RCle (CReal.RCmul coefficient coefficient)
+        (CReal.RCmul coefficient scaledNorm) :=
+    YMGap.Continuum.Z4HalfTimeReflectionStrictJointCompletedOperatorNormGap.CReal.RCmul_mono_nonnegative_left_local
+      hcoefficient hstrict
+  have hright :
+      CReal.RCle (CReal.RCmul coefficient scaledNorm)
+        (CReal.RCmul scaledNorm scaledNorm) := by
+    rw [CReal.RCmul_comm coefficient scaledNorm,
+      CReal.RCmul_comm scaledNorm scaledNorm]
+    exact
+      YMGap.Continuum.Z4HalfTimeReflectionStrictJointCompletedOperatorNormGap.CReal.RCmul_mono_nonnegative_left_local
+        hscaledNorm hstrict
+  have hsquare := CReal.RCle_trans hleft hright
+  rw [rc_square_scale_eq_scale_square] at hsquare
+  exact hsquare
+
 /-- The finite parity margin becomes a completed Rayleigh-deficit estimate for
 the same completed vector. -/
 theorem globalInwardMateCenteredParityCompletedObservable_margin_mul_norm_le_deficit
@@ -266,3 +339,5 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityComp
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_margin_mul_norm_le_deficit
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_deficit_positive
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_rateSquare_normSquare

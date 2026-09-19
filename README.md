@@ -128,6 +128,14 @@ Rayleigh-deficit lower bound, with a strictly positive witness given by the
 margin square.  This remains one-vector fixed-anchor data, not an all-vector
 spectral gap.
 
+The same handoff now contracts the strict one-vector form rate into a
+rate-squared bound for the completed same-object correlation square.  The
+coefficient is first shown nonnegative, then completed CReal product
+monotonicity yields `coefficient^2 <= rate^2 * norm^2`.  This remains a
+single-observable estimate; it does not supply the missing all-vector gap or
+any thermodynamic/continuum passage.  Focused verification is recorded in
+`/tmp/ym-parity-rate-square-check3.log`, with only `{propext, Quot.sound}`.
+
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.

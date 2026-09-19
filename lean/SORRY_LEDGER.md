@@ -104,6 +104,16 @@ the all-vector gap or any thermodynamic/continuum obligation.
 - **verification**: `/tmp/ym-parity-deficit-check2.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
+The same module now proves
+`globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_rateSquare_normSquare`:
+the strict completed one-vector form rate and coefficient nonnegativity compose
+through completed CReal product monotonicity to bound the same-object
+correlation square by the squared rate times the squared completed norm.  This
+is a rate-sensitive one-vector moment bound, not an all-vector operator gap.
+
+- **verification**: `/tmp/ym-parity-rate-square-check3.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED finite cutoff-two non-vacuity endpoint (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteCutoffTwoNontrivialEndpoint.lean`.
