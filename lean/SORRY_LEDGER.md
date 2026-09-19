@@ -134,6 +134,24 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   Evidence: `/tmp/ym-wilson-discrete-log-gap-20260918a.log` (SHA-256
   `1f56b616c701aa71c2454415c884a3ec65b288deb729e53de44f2d7669944126`).
 
+## PROVED fixed-spacing physical calibration (2026-09-18 UTC)
+
+- **file**: `BF4WilsonSpatialUnionPhysicalCalibration.lean`.
+- **proved**: `CurrentSpacing` carries one explicit positive rational spacing;
+  `spacingReciprocal` and `spacingReciprocal_pos` construct its reciprocal;
+  `currentPhysicalRate` is the checked dimensionless transfer mass multiplied
+  by that reciprocal; `currentPhysicalRate_posEv` proves eventual strict
+  positivity; and `currentPhysicalRate_log_pin` transports the exact
+  `CReal.log` pin through the dimensional calibration.
+- **residue**: the spacing is a supplied finite-spacing datum, not a Yang--Mills
+  spacing trajectory. The module does not extract a hidden `Prop` witness into
+  a computational sigma type, and it does not establish a spacing-uniform floor,
+  canonical OS/GNS identification, continuum survival, or the Clay theorem.
+- **verification**: focused serialized check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
+  Evidence: `/tmp/ym-wilson-physical-calibration-20260918d.log` (SHA-256
+  `c0c18265f016c52434c0ccd51629777d0c1414063b3917c4d15c6199c502a412`).
+
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 
 - `lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean`:

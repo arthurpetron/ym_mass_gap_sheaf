@@ -420,6 +420,20 @@ The logarithmic transfer-mass check used
 `/tmp/ym-wilson-discrete-log-gap-20260918a.log`; SHA-256
 `1f56b616c701aa71c2454415c884a3ec65b288deb729e53de44f2d7669944126`.
 
+**Fixed-spacing physical calibration, checked 2026-09-18:**
+`BF4WilsonSpatialUnionPhysicalCalibration.lean` adds the smallest explicit
+dimensional datum to the current carrier: `CurrentSpacing` contains one
+positive rational spacing, `currentPhysicalRate` multiplies the checked
+dimensionless `currentTransferMass` by its constructive reciprocal, and
+`currentPhysicalRate_posEv` proves eventual strict positivity. The exact
+`currentPhysicalRate_log_pin` transports the existing `CReal.log` pin through
+that calibration. This is a finite-spacing calibration certificate only; no
+continuum spacing family, uniform floor, canonical OS/GNS map, or physical
+Clay gap is inferred.
+Focused check log:
+`/tmp/ym-wilson-physical-calibration-20260918d.log`; SHA-256
+`c0c18265f016c52434c0ccd51629777d0c1414063b3917c4d15c6199c502a412`.
+
 **Backward join review, 2026-09-18:** the legacy inward-test argument
 does not literally extend to all current Wilson windows. The legacy
 bond-reflected lower algebra can move a test onto the adjacent site plane;

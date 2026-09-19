@@ -247,3 +247,21 @@ rate band, or continuum mass theorem is inferred. Focused log:
 `/tmp/ym-wilson-discrete-log-gap-20260918a.log`; SHA-256
 `1f56b616c701aa71c2454415c884a3ec65b288deb729e53de44f2d7669944126`.
 All printed gates use only `{propext, Quot.sound}`.
+
+## Fixed-spacing physical calibration, checked 2026-09-18
+
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionPhysicalCalibration.lean` adds an
+explicit `CurrentSpacing` datum to the current fixed-spacing carrier. Its
+`currentPhysicalRate` is the checked dimensionless
+`currentTransferMass = -log(currentRate)` multiplied by the constructive
+reciprocal of that positive spacing. `currentPhysicalRate_posEv` proves the
+resulting dimensionful rate is eventually strictly positive, and
+`currentPhysicalRate_log_pin` transports the exact logarithm pin through the
+calibration.
+
+This is a finite-spacing dimensional certificate only. It does not construct
+the physical Yang--Mills spacing trajectory, a uniform `a → 0` floor, a
+canonical OS/GNS bridge, or a continuum mass-gap theorem. Focused log:
+`/tmp/ym-wilson-physical-calibration-20260918d.log`; SHA-256
+`c0c18265f016c52434c0ccd51629777d0c1414063b3917c4d15c6199c502a412`.
+All printed gates use only `{propext, Quot.sound}`.

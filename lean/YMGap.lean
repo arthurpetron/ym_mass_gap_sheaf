@@ -5000,6 +5000,7 @@ import YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
 import YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 import YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
 import YMGap.Continuum.BF4WilsonSpatialUnionDiscreteLogGap
+import YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration
 -- Modulus-bearing real action, actual vacuum projection and all-vector relaxation.
 import YMGap.Continuum.BF4WilsonSpatialUnionScalarDistance
 import YMGap.Continuum.BF4WilsonSpatialUnionRealScalarCauchy
