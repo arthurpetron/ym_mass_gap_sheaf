@@ -94,6 +94,16 @@ uniform vacuum-complement gap or a continuum result.
 - **verification**: `/tmp/ym-parity-correlation-check4.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
+The same module now transports the finite parity margin to the completed
+Rayleigh deficit via `..._margin_mul_norm_le_deficit`, and proves
+`..._deficit_positive` with witness
+`globalInwardMateParityFormMargin * globalInwardMateParityFormMargin`.
+This is explicitly one-vector fixed-anchor dissipation data; it does not close
+the all-vector gap or any thermodynamic/continuum obligation.
+
+- **verification**: `/tmp/ym-parity-deficit-check2.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED finite cutoff-two non-vacuity endpoint (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteCutoffTwoNontrivialEndpoint.lean`.

@@ -31,6 +31,38 @@ open YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityFor
 open YMGap.Continuum.BF4WeightedJointPerronPerturbation
 open YMGap.Continuum.Z4StrongCouplingParametricAnchor
 
+private theorem rc_deficit_lower
+    (rate : Q') (norm form : CReal.RC)
+    (h : CReal.RCle form (CReal.RCscale rate norm)) :
+    CReal.RCle
+      (CReal.RCscale (1 + -rate) norm)
+      (CReal.RCsub norm form) := by
+  revert h
+  refine Quotient.inductionOn₂ norm form ?_
+  intro N F h epsilon hepsilon
+  obtain ⟨index, hN⟩ := h epsilon hepsilon
+  refine ⟨index, fun n hn => ?_⟩
+  have hf := hN n hn
+  change F.approx n ≤ rate * N.approx n + epsilon at hf
+  have hneg := Q'.neg_le_neg_add hf
+  have hsum := Q'.add_le_add_left (N.approx n) _ _ hneg
+  change (1 + -rate) * N.approx n ≤
+    (N.approx n + -(F.approx n)) + epsilon
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv
+      (Q'.eqv_trans _ _ _ (Q'.add_mul_eqv 1 (-rate) (N.approx n))
+        (Q'.add_eqv_congr'
+          (Q'.one_mul_eqv (N.approx n))
+          (Q'.neg_mul_eqv rate (N.approx n)))))
+    (Q'.le_trans' _ _ _ hsum
+      (Q'.ge_of_eqv (Q'.add_assoc_eqv _ _ _)))
+
+private theorem physicalConstantRC_mul_eq_scale (factor value : Q') :
+    physicalConstantRC (factor * value) =
+      CReal.RCscale factor (physicalConstantRC value) := by
+  apply Quotient.sound
+  exact YMGap.Constructive.CRealAlg.ofQ'_mul factor value
+
 /-- The completed parity coefficient squared is bounded by the transferred
 vector norm. -/
 theorem globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_transferredNorm
@@ -151,6 +183,75 @@ theorem globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_n
   have hmul := physicalRCmul_mono_nonnegative_left hnorm hcontract
   exact CReal.RCle_trans hcs hmul
 
+/-- The finite parity margin becomes a completed Rayleigh-deficit estimate for
+the same completed vector. -/
+theorem globalInwardMateCenteredParityCompletedObservable_margin_mul_norm_le_deficit
+    (K : Nat) (hK : 1 <= K) :
+    let w := anchorCoupling
+    let hw : (0 : Q') ≤ w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    let transferred := centralPhysicalCompletedMarkovTransfer w hw K 0 vector
+    CReal.RCle
+      (CReal.RCscale globalInwardMateParityFormMargin
+        (D.cinnerCompl vector vector))
+      (CReal.RCsub
+        (D.cinnerCompl vector vector)
+        (D.cinnerCompl vector transferred)) := by
+  dsimp only
+  let w := anchorCoupling
+  let hw : (0 : Q') ≤ w := by decide
+  let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+  let vector := globalInwardMateCenteredParityCompletedObservable K
+  let transferred := centralPhysicalCompletedMarkovTransfer w hw K 0 vector
+  have hstrict := globalInwardMateCenteredParityCompletedObservable_strict_form K hK
+  dsimp only at hstrict
+  rw [centralPhysicalCompletedMarkovTransfer_selfAdjoint] at hstrict
+  exact rc_deficit_lower globalInwardMateParityFormRate
+    (D.cinnerCompl vector vector) (D.cinnerCompl vector transferred) hstrict
+
+/-- The completed parity vector has a strictly positive same-object Rayleigh
+deficit, witnessed constructively by the square of the finite margin. -/
+theorem globalInwardMateCenteredParityCompletedObservable_deficit_positive
+    (K : Nat) (hK : 1 <= K) :
+    let w := anchorCoupling
+    let hw : (0 : Q') ≤ w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    let transferred := centralPhysicalCompletedMarkovTransfer w hw K 0 vector
+    YMGap.Continuum.RCStrictPositivity.RCIsPositive
+      (CReal.RCsub
+        (D.cinnerCompl vector vector)
+        (D.cinnerCompl vector transferred)) := by
+  dsimp only
+  let w := anchorCoupling
+  let hw : (0 : Q') ≤ w := by decide
+  let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+  let vector := globalInwardMateCenteredParityCompletedObservable K
+  let transferred := centralPhysicalCompletedMarkovTransfer w hw K 0 vector
+  have hmargin := globalInwardMateParityFormMargin_positive
+  have hfloor := globalInwardMateCenteredParityCompletedObservable_norm_floor K hK
+  have hscale := CReal.RCscale_mono
+    (Q'.le_of_lt hmargin) hfloor
+  have hscaledFloor :
+      CReal.RCle
+        (physicalConstantRC
+          (globalInwardMateParityFormMargin *
+            globalInwardMateParityFormMargin))
+        (CReal.RCscale globalInwardMateParityFormMargin
+          (D.cinnerCompl vector vector)) := by
+    exact CReal.RCle_trans
+      (CReal.RCle_refl
+        (CReal.RCscale globalInwardMateParityFormMargin
+          (physicalConstantRC globalInwardMateParityFormMargin)))
+      hscale
+  rw [physicalConstantRC_mul_eq_scale] at hscaledFloor
+  refine ⟨globalInwardMateParityFormMargin * globalInwardMateParityFormMargin,
+    Q'.mul_pos hmargin hmargin, ?_⟩
+  exact CReal.RCle_trans hscaledFloor
+    (globalInwardMateCenteredParityCompletedObservable_margin_mul_norm_le_deficit
+      K hK)
+
 end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation
 
 #print axioms
@@ -161,3 +262,7 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityComp
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_coefficient_nonnegative
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_normSquare
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_margin_mul_norm_le_deficit
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_deficit_positive

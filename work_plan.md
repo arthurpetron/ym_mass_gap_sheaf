@@ -160,6 +160,13 @@ and `..._correlationSquare_le_normSquare` by composing completed
 Cauchy--Schwarz with transfer contraction.  Thus the realized coefficient has
 the standard nonnegative squared-norm control at the same completed object.
 
+The completed carrier now also exposes
+`..._margin_mul_norm_le_deficit` and `..._deficit_positive`: the finite parity
+margin times the completed norm is below the literal same-object Rayleigh
+deficit, and that deficit is strictly positive with witness
+`globalInwardMateParityFormMargin^2`.  This is a one-vector physical
+dissipation certificate, not an all-vector spectral gap.
+
 This is a causal consumer-side meet: the forward carrier and coefficient are
 already constructed, while the backward correlation-square obligation is now
 discharged without inventing a uniform all-vector rate.  It remains fixed-

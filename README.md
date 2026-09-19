@@ -123,6 +123,11 @@ transfer positivity/self-adjointness and bounds the coefficient square by the
 original completed norm square.  Focused verification of these extensions is
 in `/tmp/ym-parity-correlation-check4.log`, again under the constructive gate.
 
+It now also transports the finite parity margin to a completed same-object
+Rayleigh-deficit lower bound, with a strictly positive witness given by the
+margin square.  This remains one-vector fixed-anchor data, not an all-vector
+spectral gap.
+
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.
