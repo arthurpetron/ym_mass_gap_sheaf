@@ -35,7 +35,9 @@ preserves the honest boundary: it also emits the exact depth-amplified local
 power-budget interface at the supplied strict rate, while the specialized
 sector `1/16` route still requires the explicit local-rate premise
 `localRate ≤ 1/4`; both routes now expose the existing completed sector-gap
-consumer.  This is a checked compiler, not an inhabited cofinal producer;
+consumer, and the direct-power/local-power route is attached to the concrete
+completed SU(2) carrier with all-vector and same-object decay consequences.
+This is a checked compiler, not an inhabited cofinal producer;
 thermodynamic/continuum passage, full QFT structure, all-group construction,
 and the Clay endpoint remain open.
 

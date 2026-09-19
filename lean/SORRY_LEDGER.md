@@ -160,6 +160,16 @@ depth-amplified local compiler is available without imposing a one-step
 quarter cap; the quarter route is only the specialization yielding the fixed
 `1/16` local-slice rate.
 
+**Completed-carrier local-power consequence, checked 2026-09-19:**
+`BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement` now exposes the
+direct-power/local-power route on the actual completed carrier via
+`...StrictContractionData_of_compatibleTimeFactorization_localPower`, with
+all-vector norm decay and concrete same-object autocorrelation consequences.
+The focused check `/tmp/ym-moving-local-power-join.log` reports only
+`{propext, Quot.sound}`.  This still consumes the compatible cofinal
+factorization/power-budget producer; it does not construct that producer or
+close the thermodynamic, continuum, QFT, all-group, or Clay obligations.
+
 ## PROVED primitive physical-gap variation compiler (2026-09-19 UTC)
 
 - **file**: `BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.lean`.

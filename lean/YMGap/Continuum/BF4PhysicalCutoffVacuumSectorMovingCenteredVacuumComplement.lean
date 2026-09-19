@@ -23,6 +23,7 @@ import YMGap.Continuum.BF4PhysicalCutoffCofinalCenteredRowGap
 import YMGap.Continuum.BF4PhysicalCutoffCofinalLocalSliceGap
 import YMGap.Continuum.BF4PhysicalVacuumSectorDirectPowerBudgetGap
 import YMGap.Continuum.BF4PhysicalVacuumSectorLocalContractionGluing
+import YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice
 
 namespace YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
@@ -49,6 +50,7 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumOrthogonal
 open YMGap.Continuum.BF4PhysicalVacuumSectorDirectPowerBudgetGap
 open YMGap.Continuum.BF4PhysicalVacuumSectorLocalContractionGluing
+open YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice
 open YMGap.Continuum.RCStrictPositivity
 
 /-! ## The explicit completed complement witness -/
@@ -506,6 +508,80 @@ theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_de
     (centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_compatibleTimeFactorization
       hw0 hw1 family) n
 
+/-! ## Direct-power / local-power completed-carrier join -/
+
+/-- A direct conditioned-power budget reaches the completed carrier through
+the exact depth-amplified local-power compiler. -/
+def centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_compatibleTimeFactorization_localPower
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {rate : Q'}
+    (family : FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget
+      w (Q'.le_of_lt hw0) 0 rate) :
+    CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
+      hw0 hw1 0 :=
+  centralPhysicalVacuumSectorCylinderCompletedStrictContractionDataAtSectorRate
+    hw0 hw1 0
+    (FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget.toLocalPowerBudgetVacuumSectorCenteredStrictGap
+      family)
+
+/-- All completed sector vectors inherit the supplied direct-power rate after
+the local-power-budget join. -/
+theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedVacuumTransferPower_norm_decay_of_compatibleTimeFactorization_localPower
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {rate : Q'}
+    (family : FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget
+      w (Q'.le_of_lt hw0) 0 rate) (n : Nat)
+    (vector : CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement
+      hw0 hw1 0) :
+    CReal.RCle
+      (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          hw0 hw1 0 n vector).1
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          hw0 hw1 0 n vector).1)
+      (CReal.RCscale
+        ((rate * rate) ^ n)
+        (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+          vector.1 vector.1)) := by
+  exact centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower_norm_decay
+    (centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_compatibleTimeFactorization_localPower
+      hw0 hw1 family) n vector
+
+/-- The concrete completed cube has the same-object autocorrelation bound
+through the direct-power/local-power route. -/
+theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay_of_compatibleTimeFactorization_localPower
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {rate : Q'}
+    (family : FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget
+      w (Q'.le_of_lt hw0) 0 rate) (n : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+          hw0 hw1 n)
+        (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+          hw0 hw1 n))
+      (CReal.RCmul
+        (CReal.RCscale
+          ((rate * rate) ^ n)
+          (centralPhysicalCutoffCompletedInner hw0 hw1 0
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))))
+        (centralPhysicalCutoffCompletedInner hw0 hw1 0
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0)))) := by
+  exact centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay
+    hw0 hw1
+    (centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_compatibleTimeFactorization_localPower
+      hw0 hw1 family) n
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
 /-! ## Axiom-dependency gates -/
@@ -548,3 +624,9 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedVacuumTransferPower_norm_decay_of_compatibleTimeFactorization
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay_of_compatibleTimeFactorization
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_compatibleTimeFactorization_localPower
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedVacuumTransferPower_norm_decay_of_compatibleTimeFactorization_localPower
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay_of_compatibleTimeFactorization_localPower

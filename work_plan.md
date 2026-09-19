@@ -58,6 +58,14 @@ route; the same route now exposes the completed sector gap through that
 depth-amplified compiler.  No cofinal producer, thermodynamic/continuum passage, QFT
 reconstruction, all-group construction, or Clay endpoint is claimed here.
 
+The join is now attached to the concrete completed carrier in
+`BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.lean`:
+`...StrictContractionData_of_compatibleTimeFactorization_localPower` feeds
+the completed strict contraction, and its companion declarations give
+all-vector transfer decay and the literal moving cube's same-object
+autocorrelation bound at the supplied squared rate.  The remaining frontier
+is the inhabited cofinal factorization/power-budget producer itself.
+
 ### Current forward/backward join: cutoff-two finite non-vacuity (2026-09-19)
 
 The forward finite carrier now has a named concrete endpoint at the explicit
