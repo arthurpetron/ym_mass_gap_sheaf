@@ -13,6 +13,22 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED finite cutoff-two non-vacuity endpoint (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteCutoffTwoNontrivialEndpoint.lean`.
+- **proved**: `cutoffTwoConcreteEndpoint` specializes the inhabited finite
+  completed physical SU(2) endpoint to cutoff two; `centeredIndicator_meanZero`
+  and `centeredIndicator_norm_pos` record the explicit centered sector
+  observable's stationary mean-zero law and strictly positive weighted norm;
+  `NontrivialEndpoint.ofExisting` packages these witnesses.
+- **boundary**: the imported
+  `BF4PhysicalBoundaryCutoffTwoSectorReducibilityObstruction` supplies the
+  separate equality of the joint quadratic with this norm.  This endpoint is
+  finite and fixed-cutoff only, and does not construct a cofinal strict rate,
+  completed thermodynamic/continuum limit, QFT axioms, or the Clay theorem.
+- **verification**: `/tmp/ym-cutoff-two-nontrivial-final-check.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4MatchedPhysicalAFTwoSidedMarginCompiler.lean`.

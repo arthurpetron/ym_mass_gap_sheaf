@@ -5425,6 +5425,7 @@ import YMGap.Continuum.HarmonicLowerSixCubicDebtCoefficient1330Physical
 import YMGap.Continuum.HarmonicMassCrossLowerSixScaledCrossDriftQuadraticTaylorFluxPrefixMassReserveMomentRemainderSlopeSepticExactLowerHighCertificate
 import YMGap.Continuum.Z4HalfTimeReflectionAdjacentEvenReachableEndpointCompression
 import YMGap.Continuum.Z4OutwardSevenCubeGoodBackgroundSwitching
+import YMGap.Continuum.BF4PhysicalConcreteCutoffTwoNontrivialEndpoint
 
 -- Codynamic core: reusable error/defect + trajectory (Grönwall) tools,
 -- transposed from the machine-verified Agda `Codynamic.*` development.

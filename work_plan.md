@@ -34,6 +34,27 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Current forward/backward join: cutoff-two finite non-vacuity (2026-09-19)
+
+The forward finite carrier now has a named concrete endpoint at the explicit
+cutoff-two half-coupling sector:
+`BF4PhysicalConcreteCutoffTwoNontrivialEndpoint.cutoffTwoConcreteEndpoint`.
+`NontrivialEndpoint.ofExisting` adds the centered closed-sector indicator,
+its exact stationary mean-zero law, and its strictly positive weighted norm.
+The existing obstruction declaration
+`cutoffTwoCenteredSectorIndicator_joint_eqv_norm` identifies the associated
+joint quadratic with that norm, so the finite witness is non-vacuous without
+asserting a strict gap on the full reducible carrier.
+
+This is the next forward landmark, not the backward completion.  It is fixed
+cutoff, fixed volume and SU(2): it supplies no cofinal exact-capacity
+comparison, same-completed-family physical-gap variation, observable pin,
+thermodynamic/continuum passage, QFT axioms, or all-compact-simple-group
+construction.  The exact next consumer remains the cofinal capacity check in
+`MatchedPhysicalDynamicExplicitRayCanonicalCapacityCheckProducer.capacityCheck`.
+Focused check: `/tmp/ym-cutoff-two-nontrivial-final-check.log`; only
+`{propext, Quot.sound}` were reported.
+
 ### Current forward/backward join: same-mass spacing order (2026-09-18)
 
 The current fixed-spacing physical calibration now has an actual trajectory-

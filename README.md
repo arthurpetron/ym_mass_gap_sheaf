@@ -88,6 +88,18 @@ claim is added.  Focused check: `/tmp/ym-concrete-physical-endpoint2.log`;
 source SHA-256 `3ffec48af04abe58e7541c3d114ac252dd5de6d83dfb5f2be5aa3e17aed0c5f8`.
 Only `{propext, Quot.sound}` were reported.
 
+**Finite cutoff-two non-vacuity witness, checked 2026-09-19:**
+`BF4PhysicalConcreteCutoffTwoNontrivialEndpoint.cutoffTwoConcreteEndpoint`
+specializes that completed endpoint to the explicit cutoff-two half-coupling
+sector.  `NontrivialEndpoint.ofExisting` packages the centered closed-sector
+indicator together with its checked stationary mean-zero law and strictly
+positive weighted norm.  The imported
+`BF4PhysicalBoundaryCutoffTwoSectorReducibilityObstruction` identifies the
+corresponding joint quadratic with this norm; this is a finite SU(2) witness,
+not a cofinal rate, thermodynamic/continuum construction, or Clay result.
+Focused check: `/tmp/ym-cutoff-two-nontrivial-final-check.log`; only
+`{propext, Quot.sound}` were reported.
+
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
 contracts the explicit dense physical-to-strong lift certificate directly to
