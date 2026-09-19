@@ -55,6 +55,21 @@ observable and physical time.
 Focused check: `/tmp/ym-wilson-physical-calibration-mono5.log`, SHA-256
 `ab31ffac1263ad323e8de12434565453be845c5457b8a09fd35e480be1d5e5e2`.
 
+The next arithmetic contraction is now also checked.  The generic
+`FullLogMarginLower.rationalMargin_le_hamiltonianGapRealAll` theorem proves
+the explicit full-range floor `1 - sep ≤ -log(sep)`.  On the current carrier,
+`currentRateMargin`, `currentTransferMass_margin_floor`, and
+`currentPhysicalRate_floor_of_spacing_le` turn this into the rational physical
+floor `(1-currentRate)/ceiling` for every supplied spacing below a positive
+ceiling.  This is a real uniform lower estimate, but only for the fixed
+dimensionless current transfer mass.  The changing-spacing Wilson producer,
+finite upper rate bound, and same-theory OS/continuum joins remain open.
+
+Focused checks: `/tmp/ym-full-log-margin-lower-floor2.log` (SHA-256
+`01d124186e9362543764bb18e049d8b40f46a0a57e90eb177a13866c4e1e7e0c`) and
+`/tmp/ym-wilson-physical-calibration-floor3.log` (SHA-256
+`55412e321dfb1e84658047ad666c1f1921524a3b685536982726d70e5f9966f4`).
+
 ### Goal-mode execution instructions (user-requested review, 2026-09-15)
 
 1. **Work backward from a real obstruction.** Before opening a new proof branch,

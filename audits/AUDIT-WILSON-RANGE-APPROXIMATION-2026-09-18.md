@@ -284,3 +284,25 @@ Focused serialized check:
 `/tmp/ym-wilson-physical-calibration-mono5.log`; SHA-256
 `ab31ffac1263ad323e8de12434565453be845c5457b8a09fd35e480be1d5e5e2`.
 The added declarations use only `{propext, Quot.sound}`.
+
+## Explicit rational physical-rate floor, checked 2026-09-18
+
+`FullLogMarginLower.rationalMargin_le_hamiltonianGapRealAll` now closes the
+full-range arithmetic comparison: for any positive rational separator and its
+constructive binary reduction, `1 - sep` is below the exact `-log(sep)`.
+`BF4WilsonSpatialUnionPhysicalCalibration.currentTransferMass_margin_floor`
+specializes this to the actual current Wilson rate.  Given a positive rational
+spacing ceiling `c` and `A.a ≤ c`,
+`currentPhysicalRate_floor_of_spacing_le` proves the rational floor
+`(1-currentRate)/c` below the calibrated rate at `A`; its positivity is
+`currentPhysicalRate_floor_pos`.
+
+This is a genuine same-carrier uniform lower bound over an explicit spacing
+class. The spacing trajectory, upper rate control, canonical OS/GNS passage,
+and continuum construction remain unprovided.
+
+Focused logs:
+`/tmp/ym-full-log-margin-lower-floor2.log` (SHA-256
+`01d124186e9362543764bb18e049d8b40f46a0a57e90eb177a13866c4e1e7e0c`), and
+`/tmp/ym-wilson-physical-calibration-floor3.log` (SHA-256
+`55412e321dfb1e84658047ad666c1f1921524a3b685536982726d70e5f9966f4`).

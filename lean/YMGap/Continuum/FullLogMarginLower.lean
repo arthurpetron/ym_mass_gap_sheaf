@@ -308,6 +308,65 @@ theorem rationalMargin_le_binaryHalf_add_mantMargin
             (Q'.le_trans' _ _ _ hbin
               (Q'.add_le_self_of_nonneg _ _ hmm))
 
+/-! ## 4. Full-range rational margin floor -/
+
+/-- The binary reduction transports the elementary rational margin floor
+`1 - sep` through the full constructive logarithm.  This is the generic
+same-rate estimate used by the physical calibration consumer; it does not
+assume a direct artanh window for `sep` itself. -/
+theorem rationalMargin_le_hamiltonianGapRealAll
+    (sep : Q') (be : BinExpData sep) (hnum : 0 < sep.num) :
+    CReal.leEv
+      (CReal.ofQ' (rationalMargin sep))
+      (hamiltonianGapRealAll (mant sep be.k) be.k
+        (mant_pos sep be.k hnum) (mant_window sep be hnum)) := by
+  have hsep_pos : (0 : Q') < sep := by
+    show (0 : Int) * (sep.den : Int) < sep.num * (1 : Int)
+    simpa only [Int.zero_mul, Int.mul_one] using hnum
+  have hsep_nonneg : (0 : Q') ≤ sep := Q'.le_of_lt hsep_pos
+  let m := mant sep be.k
+  have hpow_pos : (0 : Q') < Q'.ofNat (2 ^ be.k) := by
+    show (0 : Int) * ((Q'.ofNat (2 ^ be.k)).den : Int) <
+      (Q'.ofNat (2 ^ be.k)).num * (1 : Int)
+    rw [Q'.ofNat_num_cast, Q'.ofNat_den_cast]
+    have hcast : (0 : Int) < (2 ^ be.k : Nat) := by
+      exact_mod_cast Nat.two_pow_pos be.k
+    simpa only [Int.zero_mul, Int.mul_one] using hcast
+  have hm_pos : (0 : Q') < m := by
+    exact Q'.mul_pos hsep_pos hpow_pos
+  have hm_nonneg : (0 : Q') ≤ m := Q'.le_of_lt hm_pos
+  have hrat : rationalMargin sep ≤
+      binaryHalfLower be.k + rationalMargin m := by
+    exact rationalMargin_le_binaryHalf_add_mantMargin sep hsep_nonneg be
+  have hconst :
+      CReal.leEv (CReal.ofQ' (rationalMargin sep))
+        (CReal.ofQ' (binaryHalfLower be.k + rationalMargin m)) := by
+    exact CReal.leEv_ofQ'_of_approx_ge (fun _ => hrat)
+  have hbinary :
+      CReal.leEv (CReal.ofQ' (binaryHalfLower be.k)) (kLog2 be.k) :=
+    binaryHalfLower_le_kLog2 be.k
+  have hmant :
+      CReal.leEv (CReal.ofQ' (rationalMargin m))
+        (CReal.neg (logRat m (mant_pos sep be.k hnum)
+          (mant_window sep be hnum))) := by
+    exact rationalMargin_le_negLogRat m
+      hm_nonneg
+      (mant_lt_one sep be.k be.hlt) (mant_pos sep be.k hnum)
+      (mant_window sep be hnum)
+  have hsum := CReal.leEv_add hbinary hmant
+  have hcombined :
+      CReal.leEv (CReal.ofQ' (binaryHalfLower be.k + rationalMargin m))
+        (hamiltonianGapRealAll m be.k
+          (mant_pos sep be.k hnum) (mant_window sep be hnum)) := by
+    change CReal.leEv
+      (CReal.add (CReal.ofQ' (binaryHalfLower be.k))
+        (CReal.ofQ' (rationalMargin m)))
+      (CReal.add (kLog2 be.k)
+        (CReal.neg (logRat m (mant_pos sep be.k hnum)
+          (mant_window sep be hnum))))
+    exact hsum
+  exact CReal.leEv_trans hconst hcombined
+
 end YMGap.Continuum.FullLogMarginLower
 
 #print axioms YMGap.Continuum.FullLogMarginLower.rationalMargin_le_neg_two_y
@@ -315,3 +374,4 @@ end YMGap.Continuum.FullLogMarginLower
 #print axioms YMGap.Continuum.FullLogMarginLower.half_le_log2
 #print axioms YMGap.Continuum.FullLogMarginLower.binaryHalfLower_le_kLog2
 #print axioms YMGap.Continuum.FullLogMarginLower.rationalMargin_le_binaryHalf_add_mantMargin
+#print axioms YMGap.Continuum.FullLogMarginLower.rationalMargin_le_hamiltonianGapRealAll

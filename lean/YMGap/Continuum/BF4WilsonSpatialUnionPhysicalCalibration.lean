@@ -18,6 +18,7 @@ certificate.
 -/
 
 import YMGap.Continuum.BF4WilsonSpatialUnionDiscreteLogGap
+import YMGap.Continuum.FullLogMarginLower
 import YMGap.Continuum.PhysicalSeparatorLogRate
 
 namespace YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration
@@ -28,6 +29,7 @@ open YMGap.Constructive
 open YMGap.Constructive.CReal
 open YMGap.Constructive.CRealLog
 open YMGap.Continuum.TuranPositivity
+open YMGap.Continuum.FullLogMarginLower
 open YMGap.Continuum.PhysicalSeparatorLogRate
 open YMGap.Continuum.BF4WilsonSpatialUnionDiscreteLogGap
 
@@ -106,6 +108,80 @@ theorem currentTransferMass_nonnegative :
     Q'.zero_le_add _ _ happrox0 (Q'.le_of_lt hδ)
   exact hzero
 
+/-! ## 4. Explicit current mass floor -/
+
+/-- The elementary rational margin of the current strict rate is an explicit
+constructive lower floor for its exact logarithmic transfer mass. -/
+def currentRateMargin : Q' := rationalMargin currentRate
+
+theorem currentRateMargin_pos : (0 : Q') < currentRateMargin := by
+  exact rationalMargin_pos currentRate currentRate_lt_one
+
+theorem currentTransferMass_margin_floor :
+    CReal.leEv (CReal.ofQ' currentRateMargin) currentTransferMass := by
+  unfold currentRateMargin currentTransferMass
+  exact rationalMargin_le_hamiltonianGapRealAll
+    currentRate currentRateBinExp currentRate_num_pos
+
+/-! ## 5. Uniform fixed-carrier floor under a spacing ceiling -/
+
+/-- A positive spacing ceiling produces a positive rational physical-rate
+floor for every current-carrier spacing below that ceiling. -/
+theorem currentPhysicalRate_floor_pos
+    (ceiling : Q') (hceiling : (0 : Q') < ceiling) :
+    (0 : Q') < currentRateMargin * Q'.recipPos ceiling hceiling := by
+  exact Q'.mul_pos currentRateMargin_pos
+    (Q'.recipPos_pos ceiling hceiling)
+
+/- The floor is uniform over the supplied spacing inequality, while retaining
+  the exact current transfer mass and the same completed carrier. -/
+theorem currentPhysicalRate_floor_of_spacing_le
+    (A : CurrentSpacing) (ceiling : Q') (hceiling : (0 : Q') < ceiling)
+    (hA : A.a ≤ ceiling) :
+    CReal.leEv
+      (CReal.ofQ' (currentRateMargin * Q'.recipPos ceiling hceiling))
+      (currentPhysicalRate A) := by
+  let C : CurrentSpacing := ⟨ceiling, hceiling⟩
+  have hrecip : spacingReciprocal C ≤ spacingReciprocal A := by
+    exact spacingReciprocal_antitone hA
+  have hrecipC :
+      CReal.leEv (CReal.ofQ' (spacingReciprocal C))
+        (CReal.ofQ' (spacingReciprocal A)) := by
+    exact CReal.leEv_ofQ'_of_approx_ge (fun _ => hrecip)
+  have hscaled := CReal.leEv_smul_nonneg
+    (Q'.le_of_lt (spacingReciprocal_pos C))
+    currentTransferMass_margin_floor
+  have hmassMon :
+      CReal.leEv
+        (CReal.mul currentTransferMass (CReal.ofQ' (spacingReciprocal C)))
+        (currentPhysicalRate A) := by
+    exact CReal.leEv_mul_nonneg_left currentTransferMass_nonnegative hrecipC
+  have hmassMon_swapped :
+      CReal.leEv
+        (CReal.mul (CReal.ofQ' (spacingReciprocal C)) currentTransferMass)
+        (currentPhysicalRate A) := by
+    exact CReal.leEv_trans
+      (CReal.leEv_of_equiv
+        (CRealAlg.cmul_comm (CReal.ofQ' (spacingReciprocal C))
+          currentTransferMass)) hmassMon
+  have htotal :
+      CReal.leEv
+        (CReal.mul (CReal.ofQ' (spacingReciprocal C))
+          (CReal.ofQ' currentRateMargin))
+        (currentPhysicalRate A) :=
+    CReal.leEv_trans hscaled hmassMon_swapped
+  have hleft :
+      CReal.Equiv
+        (CReal.ofQ' (currentRateMargin * Q'.recipPos ceiling hceiling))
+        (CReal.mul (CReal.ofQ' (spacingReciprocal C))
+          (CReal.ofQ' currentRateMargin)) := by
+    refine CReal.Equiv.trans ?_
+      (CRealAlg.cmul_comm (CReal.ofQ' currentRateMargin)
+        (CReal.ofQ' (spacingReciprocal C)))
+    exact CRealAlg.ofQ'_mul currentRateMargin
+      (Q'.recipPos ceiling hceiling)
+  exact (CReal.leEv_congr hleft (CReal.Equiv.refl _)).mpr htotal
+
 /- A smaller positive spacing gives a larger dimensionful rate for the SAME
    dimensionless transfer mass.  This is a genuine trajectory-comparison
    lemma; it does not supply the missing spacing family or a uniform floor. -/
@@ -125,7 +201,7 @@ theorem currentPhysicalRate_mono_spacing {A B : CurrentSpacing}
       (CReal.ofQ' (spacingReciprocal A)))
   exact CReal.leEv_mul_nonneg_left currentTransferMass_nonnegative hrecipC
 
-/-! ## 4. Exact log pin after calibration -/
+/-! ## 5. Exact log pin after calibration -/
 
 /-- Calibration preserves the exact logarithmic meaning of the current mass:
 the physical rate is the constructive `-log(currentRate)` multiplied by
@@ -148,4 +224,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentPhysicalRate_posEv
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentTransferMass_nonnegative
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentPhysicalRate_mono_spacing
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentRateMargin
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentRateMargin_pos
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentTransferMass_margin_floor
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentPhysicalRate_log_pin

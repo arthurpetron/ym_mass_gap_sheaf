@@ -158,6 +158,29 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   Evidence: `/tmp/ym-wilson-physical-calibration-mono5.log` (SHA-256
   `ab31ffac1263ad323e8de12434565453be845c5457b8a09fd35e480be1d5e5e2`).
 
+## PROVED current explicit physical-rate floor (2026-09-18 UTC)
+
+- **files**: `FullLogMarginLower.lean` and
+  `BF4WilsonSpatialUnionPhysicalCalibration.lean`.
+- **proved**: `rationalMargin_le_hamiltonianGapRealAll` transports the
+  elementary margin `1 - sep` through the full binary logarithm reduction;
+  `currentRateMargin` and `currentRateMargin_pos` specialize that margin to
+  the existing strict current rate; `currentTransferMass_margin_floor` gives
+  the exact rational floor below the same current transfer mass;
+  `currentPhysicalRate_floor_pos` proves positivity of the dimensionful floor;
+  and `currentPhysicalRate_floor_of_spacing_le` proves that every current
+  spacing below an explicit positive ceiling has that same rational physical-
+  rate floor.
+- **residue**: this is uniform only over the supplied fixed-carrier spacing
+  inequality. It does not construct a changing-spacing Wilson family, a
+  canonical OS/GNS bridge, a continuum limit, or the Clay theorem.
+- **verification**: focused serialized checks passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
+  Evidence: `/tmp/ym-full-log-margin-lower-floor2.log` (SHA-256
+  `01d124186e9362543764bb18e049d8b40f46a0a57e90eb177a13866c4e1e7e0c`) and
+  `/tmp/ym-wilson-physical-calibration-floor3.log` (SHA-256
+  `55412e321dfb1e84658047ad666c1f1921524a3b685536982726d70e5f9966f4`).
+
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 
 - `lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean`:
