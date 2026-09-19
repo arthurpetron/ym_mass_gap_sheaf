@@ -58,6 +58,22 @@ def evenOrbitSum (x : V) : Nat → V
   | 0 => Z
   | n + 1 => A (evenOrbitSum x n) (T (2*n) x)
 
+/-- The actual same-carrier defect operator whose range is approximated below. -/
+def evenOrbitResidual (x : V) : V :=
+  completedSub hw0 hw1 hsmall hd hs x (T 2 x)
+
+theorem evenOrbitResidual_kernel (x : V)
+    (hx : B x (completedUnit hw0 hw1 hsmall hd hs) = RCzero)
+    (hr : evenOrbitResidual hw0 hw1 hsmall hd hs x = Z) :
+    x = Z := by
+  have hnorm : B (evenOrbitResidual hw0 hw1 hsmall hd hs x)
+      (evenOrbitResidual hw0 hw1 hsmall hd hs x) = RCzero := by
+    rw [hr, completedInner_zero_left]
+  have hfix : x = T 2 x := by
+    apply (completedSub_norm_zero_iff hw0 hw1 hsmall hd hs x (T 2 x)).mp
+    exact hnorm
+  exact fixed_orthogonal_eq_zero hw0 hw1 hsmall hd hs x hx hfix.symm
+
 /-- A representative-level version of the finite orbit sum, retaining the
     supplied Cauchy stream rather than choosing a quotient representative. -/
 def evenOrbitSumCauchy (X : (unionSeminorm hw0 hw1 hsmall hd hs).Cauchy) : Nat →
@@ -292,6 +308,8 @@ def evenOrbitSum_range_data
   simpa only [evenOrbitSumCauchy_pin] using h
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_kernel
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumCauchy
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumCauchy_pin
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_sub_twoStep

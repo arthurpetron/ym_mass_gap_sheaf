@@ -28,9 +28,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `evenOrbitSumCauchy_pin` retain the returned preimage as supplied Cauchy
   data, and `evenOrbitSum_range_data` packages the same-completion witness
   with vacuum-complement orthogonality explicit. Focused serialized check
-  passed; all eight public gates lie within `{propext, Quot.sound}`. This is
-  fixed-spacing approximate range data, not an inverse, strict continuum gap,
-  or Clay closure.
+  passed; `evenOrbitResidual` names the actual `(I-T^2)` defect and
+  `evenOrbitResidual_kernel` proves its vacuum-complement kernel is trivial.
+  All ten public gates lie within `{propext, Quot.sound}`. This is fixed-spacing
+  approximate range data, not an inverse, strict continuum gap, or Clay closure.
 
 - `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialClearedCovarianceCauchy.lean`:
   `combinedTest_supported` and
