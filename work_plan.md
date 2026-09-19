@@ -194,6 +194,8 @@ The same module also exposes
 alternate forward input.  It keeps the full-carrier factorization
 non-strict and asks for strictness only after conditioning on the canonical
 vacuum component.
+The companion norm-decay and same-object declarations expose the corresponding
+all-vector and concrete-cube consequences at the bundle's explicit rate.
 
 ### Current forward/backward join: primitive physical-gap variation (2026-09-19)
 

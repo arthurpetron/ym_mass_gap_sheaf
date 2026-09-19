@@ -448,6 +448,64 @@ def centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_
   centralPhysicalVacuumSectorCylinderCompletedStrictContractionDataAtSectorRate
     hw0 hw1 0 family.toVacuumSectorCenteredStrictGap
 
+/-- The compatible full-factorization bundle gives geometric squared-norm
+decay on every completed sector vector at its supplied uniform rate. -/
+theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedVacuumTransferPower_norm_decay_of_compatibleTimeFactorization
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {rate : Q'}
+    (family : FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget
+      w (Q'.le_of_lt hw0) 0 rate) (n : Nat)
+    (vector : CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement
+      hw0 hw1 0) :
+    CReal.RCle
+      (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          hw0 hw1 0 n vector).1
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          hw0 hw1 0 n vector).1)
+      (CReal.RCscale
+        ((rate * rate) ^ n)
+        (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+          vector.1 vector.1)) := by
+  exact centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower_norm_decay
+    (centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_compatibleTimeFactorization
+      hw0 hw1 family) n vector
+
+/-- The concrete moving-centered cube inherits the same-object geometric
+correlation bound from the compatible full-factorization route. -/
+theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay_of_compatibleTimeFactorization
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {rate : Q'}
+    (family : FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget
+      w (Q'.le_of_lt hw0) 0 rate) (n : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+          hw0 hw1 n)
+        (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+          hw0 hw1 n))
+      (CReal.RCmul
+        (CReal.RCscale
+          ((rate * rate) ^ n)
+          (centralPhysicalCutoffCompletedInner hw0 hw1 0
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))))
+        (centralPhysicalCutoffCompletedInner hw0 hw1 0
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0)))) := by
+  exact centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay
+    hw0 hw1
+    (centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_compatibleTimeFactorization
+      hw0 hw1 family) n
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
 /-! ## Axiom-dependency gates -/
@@ -486,3 +544,7 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay_of_sectorLocalSlice
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_compatibleTimeFactorization
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedVacuumTransferPower_norm_decay_of_compatibleTimeFactorization
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay_of_compatibleTimeFactorization

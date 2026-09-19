@@ -197,6 +197,8 @@ The same module also exposes
 sector-conditioned direct-power bundle is an alternate producer input, with
 strictness required only after vacuum-sector restriction and no false
 full-carrier strictness claim.
+The companion norm-decay and same-object declarations expose the complete
+all-vector and concrete-cube consequences at the bundle's explicit rate.
 
 **Primitive physical-gap variation compiler, checked 2026-09-19:**
 `BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler` constructs

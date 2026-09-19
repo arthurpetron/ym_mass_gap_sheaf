@@ -134,6 +134,8 @@ The same module also exposes
 `...StrictContractionData_of_compatibleTimeFactorization`, which consumes the
 existing sector-conditioned direct-power bundle while preserving the
 non-strict full-carrier boundary.
+The companion norm-decay and same-object declarations expose the all-vector
+and concrete-cube consequences at the bundle's explicit rate.
 
 ## PROVED primitive physical-gap variation compiler (2026-09-19 UTC)
 
