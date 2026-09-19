@@ -162,7 +162,11 @@ global image of every transfer power on this witness.  Focused check:
 `..._cofinal_sq_decay_of_centeredRowDistance` theorem joins the forward
 literal-row certificate to the backward same-object target through
 `FixedNomeCofinalPhysicalCenteredRowDistance.toCenteredStrictGap`; it is a
-transport theorem, not an inhabitant of the row family.
+transport theorem, not an inhabitant of the row family.  The companion
+`...CompletedStrictContractionData_of_centeredRowDistance` and
+`...CompletedVacuumTransferPower_norm_decay_of_centeredRowDistance` declarations
+show that this same row input reaches the reusable completed operator gap and
+all-vector geometric norm decay.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)
 

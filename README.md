@@ -169,7 +169,11 @@ was `/tmp/ym-pulled-vacuum-complement-transfer-power.log`, with only
 `..._cofinal_sq_decay_of_centeredRowDistance` theorem makes the next
 forward/backward join explicit: a cofinal literal physical centered-row
 distance family is accepted by the existing strict-gap adapter and immediately
-feeds this exact same-object channel.  The row family itself remains open.
+feeds this exact same-object channel.  The companion
+`...CompletedStrictContractionData_of_centeredRowDistance` and
+`...CompletedVacuumTransferPower_norm_decay_of_centeredRowDistance` declarations
+carry that same input to the reusable completed operator gap and all-vector
+geometric decay.  The row family itself remains open.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`

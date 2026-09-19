@@ -273,6 +273,44 @@ theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_cofin
     (FixedNomeCofinalPhysicalCenteredRowDistance.toCenteredStrictGap family)
     n
 
+/-- The same literal row-distance family also supplies the reusable completed
+strict-contraction object for the entire sector vacuum complement.  Thus the
+forward row estimate reaches the operator-level gap interface, not only the
+single cube observable. -/
+def centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_centeredRowDistance
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {q : Q'}
+    (family : FixedNomeCofinalPhysicalCenteredRowDistance
+      w (Q'.le_of_lt hw0) 0 q) :
+    CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
+      hw0 hw1 0 :=
+  centralPhysicalVacuumSectorCylinderCompletedStrictContractionDataAtRate
+    hw0 hw1 0
+    (FixedNomeCofinalPhysicalCenteredRowDistance.toCenteredStrictGap family)
+
+/-- Every completed sector vector then has the geometric squared-norm decay
+at the same explicit rate. -/
+theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedVacuumTransferPower_norm_decay_of_centeredRowDistance
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {q : Q'}
+    (family : FixedNomeCofinalPhysicalCenteredRowDistance
+      w (Q'.le_of_lt hw0) 0 q) (n : Nat)
+    (vector : CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement
+      hw0 hw1 0) :
+    CReal.RCle
+      (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          hw0 hw1 0 n vector).1
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          hw0 hw1 0 n vector).1)
+      (CReal.RCscale ((q * q) ^ n)
+        (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+          vector.1 vector.1)) := by
+  exact centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower_cofinal_norm_decay
+    hw0 hw1 0
+    (FixedNomeCofinalPhysicalCenteredRowDistance.toCenteredStrictGap family)
+    n vector
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
 /-! ## Axiom-dependency gates -/
@@ -295,3 +333,7 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_cofinal_sq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_cofinal_sq_decay_of_centeredRowDistance
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_centeredRowDistance
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedVacuumTransferPower_norm_decay_of_centeredRowDistance
