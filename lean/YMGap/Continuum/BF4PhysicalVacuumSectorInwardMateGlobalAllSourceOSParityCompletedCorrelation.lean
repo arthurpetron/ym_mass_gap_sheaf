@@ -392,6 +392,10 @@ all-vector gap or any thermodynamic/continuum passage.
 -/
 structure GlobalInwardMateParityCompletedCorrelationCertificate
     (K : Nat) (hK : 1 <= K) : Type where
+  /-- The concrete completed physical transfer on this very GNS carrier. -/
+  transfer :
+    LinearTransferOperator
+      (centralPhysicalSmulGNS anchorCoupling (by decide) K 0)
   carrier :
     GlobalInwardMateParityCompletedCarrierCertificate K hK
   coefficient_nonnegative :
@@ -454,7 +458,9 @@ structure GlobalInwardMateParityCompletedCorrelationCertificate
 def globalInwardMateParityCompletedCorrelationCertificate
     (K : Nat) (hK : 1 <= K) :
     GlobalInwardMateParityCompletedCorrelationCertificate K hK :=
-  { carrier := globalInwardMateParityCompletedCarrierCertificate K hK
+  { transfer := centralPhysicalCompletedLinearTransfer
+      anchorCoupling (by decide) K 0
+    carrier := globalInwardMateParityCompletedCarrierCertificate K hK
     coefficient_nonnegative :=
       globalInwardMateCenteredParityCompletedObservable_coefficient_nonnegative K
     correlation_square_le_rateSquare_normSquare :=

@@ -155,6 +155,12 @@ This is the most direct consumer form for a later multi-observable compiler;
 the squared estimate remains available as a consequence.  Verification is in
 `/tmp/ym-parity-direct-rate-check.log` under the same axiom gate.
 
+The certificate now explicitly carries
+`centralPhysicalCompletedLinearTransfer` on the same completed GNS carrier.
+Thus the current non-vacuous object is a genuine carrier--transfer--vacuum--
+same-object package, while its strict gap remains only for the displayed parity
+observable and not for the full vacuum complement.
+
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.

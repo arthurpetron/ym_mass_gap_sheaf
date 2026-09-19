@@ -93,8 +93,15 @@ the direct unsquared transfer-coefficient bound.  This is the preferred input
 shape for the next multi-observable compiler; the rate-square estimate is
 retained for correlation-moment consumers.
 
+The certificate also carries the actual
+`centralPhysicalCompletedLinearTransfer` rather than merely referring to its
+pairing laws.  The carrier, transfer, normalized vacuum, and same-object
+parity vector are therefore one dependent package.  The remaining missing
+edge is still the multi-observable/cofinal estimate needed to promote this
+one-vector strictness to the completed vacuum complement.
+
 The focused monitored check is
-`/tmp/ym-parity-direct-rate-check.log`; the module reports only
+`/tmp/ym-parity-concrete-transfer-check.log`; the module reports only
 `[propext, Quot.sound]`.  The next causal edge is to use this certificate as
 an input to a genuine multi-observable or cofinality compiler, rather than
 mistaking the package for that compiler.
