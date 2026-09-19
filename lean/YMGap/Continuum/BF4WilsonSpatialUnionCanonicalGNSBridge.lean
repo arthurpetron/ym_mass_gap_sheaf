@@ -273,6 +273,17 @@ theorem stageClass_unit
       P.op.vacuum
     exact F.mapCauchy_unit
 
+theorem stageClass_vacuum_orthogonal
+    (F : CurrentStageCauchyFormCertificate P)
+    (x : BF4WilsonSpatialUnion.Stage)
+    (hx : B (BF4WilsonSpatialUnionSeminorm.embedStage
+      nome_pos nome_lt_one hsmall hd hs x)
+      (BF4WilsonSpatialUnionSeminorm.completedUnit
+        nome_pos nome_lt_one hsmall hd hs) = RCzero) :
+    W.toGNSData.cinnerCompl (F.stageClass x) P.op.vacuum = RCzero := by
+  rw [← F.stageClass_unit, F.stageClass_pairing]
+  exact hx
+
 end CurrentStageCauchyFormCertificate
 
 /-! A dense-stage dynamic pin is deliberately weaker than the arbitrary
@@ -1150,6 +1161,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.stageClass
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.stageClass_pairing
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.stageClass_unit
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.stageClass_vacuum_orthogonal
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_correlation_eq_current
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_form_bound
