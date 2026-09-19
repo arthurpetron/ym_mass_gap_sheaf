@@ -153,6 +153,12 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `...twoStep_fixed_eq_zero` additionally transports the image-level
   two-step fixed-point exclusion to the whole canonical completion under the
   same explicit section.
+- **proved**: `CanonicalCompletedGapCertificate` contracts the range-section
+  consumers into one conditional canonical gap datum carrying the explicit
+  positive rate, strict rate inequality, all-vector complement form bound,
+  residual coercivity, and fixed-point exclusion. Its constructor
+  `...ofRangeSection` is structural composition only; the range section,
+  canonical bridge, spacing family, and continuum limit remain open.
 - **residue**: the bridge structure is intentionally uninhabited in this
   milestone. It is a named OS/GNS carrier-and-dynamics obligation, not a
   covert identification of the current carrier with canonical GNSData.
@@ -178,6 +184,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The canonical-range consumer check is
   `/tmp/ym-canonical-range-consumer5.log` (SHA-256
   `c01c798aff2623055cfb741fb07d5d15b47ac2433341955c8fc9427621f141e6`).
+  The contracted-gap check is
+  `/tmp/ym-canonical-gap-package4.log` (SHA-256
+  `04266bc82f4906f237622bd8a0a3b3caf935b5925eee876910d1d6f6c015b1ca`).
   The earlier bridge log was `/tmp/ym-wilson-canonical-bridge-20260918c.log`;
   SHA-256
   `7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`.

@@ -56,7 +56,7 @@ open YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
   (center_fixed_iff)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap
-  (twoStepRate)
+  (twoStepRate twoStepRate_positive twoStepRate_lt_one)
 open YMGap.Continuum.BF4ExactSlabPlaquetteSmallNomeCertificate
   (nome nome_pos nome_lt_one)
 open YMGap.Continuum.BF4ExactSlabSmallNomeHaarComparison (existingNome_guards)
@@ -735,6 +735,76 @@ theorem twoStep_fixed_eq_zero
 
 end CanonicalRangeSectionCertificate
 
+/-! ## Contracted conditional canonical gap datum -/
+
+/-- The exact canonical completed-gap package produced by a supplied range
+section. Its rate and all three operator consequences remain fixed-spacing
+SU(2) data; the structure is a downstream interface, not an assertion that a
+range section or a continuum limit has been constructed. -/
+structure CanonicalCompletedGapCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W) : Type 2 where
+  rate_pos : (0 : Q') < twoStepRate nome hd
+  rate_lt_one : twoStepRate nome hd < (1 : Q')
+  form_bound : ∀ (X : CauchyGNS W.toGNSData),
+    W.toGNSData.cinnerCompl
+        (CanonicalRangeSectionCertificate.canonicalClass X) P.op.vacuum = RCzero →
+    RCle
+        (W.toGNSData.cinnerCompl
+          (P.op.T (P.op.T (CanonicalRangeSectionCertificate.canonicalClass X)))
+          (CanonicalRangeSectionCertificate.canonicalClass X))
+        (CReal.RCmul
+        (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
+        (W.toGNSData.cinnerCompl
+          (CanonicalRangeSectionCertificate.canonicalClass X)
+          (CanonicalRangeSectionCertificate.canonicalClass X)))
+  defect_form_bound : ∀ (X : CauchyGNS W.toGNSData),
+    W.toGNSData.cinnerCompl
+        (CanonicalRangeSectionCertificate.canonicalClass X) P.op.vacuum = RCzero →
+    RCle
+      (CReal.RCscale (1 - twoStepRate nome hd)
+        (W.toGNSData.cinnerCompl
+          (CanonicalRangeSectionCertificate.canonicalClass X)
+          (CanonicalRangeSectionCertificate.canonicalClass X)))
+      (CReal.RCsub
+        (W.toGNSData.cinnerCompl
+          (CanonicalRangeSectionCertificate.canonicalClass X)
+          (CanonicalRangeSectionCertificate.canonicalClass X))
+        (W.toGNSData.cinnerCompl
+          (P.op.T (P.op.T (CanonicalRangeSectionCertificate.canonicalClass X)))
+          (CanonicalRangeSectionCertificate.canonicalClass X)))
+  fixed_eq_zero : ∀ (X : CauchyGNS W.toGNSData),
+    W.toGNSData.cinnerCompl
+        (CanonicalRangeSectionCertificate.canonicalClass X) P.op.vacuum = RCzero →
+    P.op.T (P.op.T (CanonicalRangeSectionCertificate.canonicalClass X)) =
+      CanonicalRangeSectionCertificate.canonicalClass X →
+    CanonicalRangeSectionCertificate.canonicalClass X =
+      embedV W.toGNSData W.toGNSData.zero
+
+namespace CanonicalCompletedGapCertificate
+
+variable
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+    {J : CurrentCarrierBridge P}
+
+/-- Contract a supplied canonical range section into the complete conditional
+gap datum. Every field is obtained from a previously checked consumer. -/
+def ofRangeSection
+    (D : CanonicalRangeSectionCertificate P J) :
+    CanonicalCompletedGapCertificate P where
+  rate_pos := twoStepRate_positive nome_pos hd
+  rate_lt_one := twoStepRate_lt_one nome_pos hd hs
+  form_bound := fun X hx => D.twoStep_form_bound X hx
+  defect_form_bound := fun X hx => D.twoStep_defect_form_bound X hx
+  fixed_eq_zero := fun X hx hfixed => D.twoStep_fixed_eq_zero X hx hfixed
+
+end CanonicalCompletedGapCertificate
+
 end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge
@@ -742,6 +812,8 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_defect_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_fixed_eq_zero
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalCompletedGapCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalCompletedGapCertificate.ofRangeSection
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate.toFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate

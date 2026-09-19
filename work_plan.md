@@ -542,9 +542,22 @@ the canonical class with its bridge image. Given that explicit section,
 exclusion to the whole canonical completion under the same section.
 The consumer is a pure image rewrite and introduces no density, choice,
 surjectivity, or limit interchange; the section itself is deliberately not
-inhabited. Focused check log: `/tmp/ym-canonical-range-consumer4.log`; SHA-256
+inhabited. Focused check log: `/tmp/ym-canonical-range-consumer5.log`; SHA-256
 `c01c798aff2623055cfb741fb07d5d15b47ac2433341955c8fc9427621f141e6`. The
 new declarations use only `{propext, Quot.sound}`.
+
+**Contracted conditional canonical gap datum, checked 2026-09-18:**
+`CanonicalCompletedGapCertificate` packages the explicit rate positivity and
+strictness, the all-vector canonical vacuum-complement form bound, the
+`(1-q)` defect bound, and canonical two-step fixed-point exclusion.
+`CanonicalCompletedGapCertificate.ofRangeSection` constructs this package
+from `CanonicalRangeSectionCertificate` by structural composition of those
+checked consumers. The package remains conditional on the uninhabited
+same-carrier-to-canonical range section and is fixed-spacing SU(2) data; it is
+not yet the OS transfer gap, a physical mass statement, or a continuum/Clay
+result. Focused check log: `/tmp/ym-canonical-gap-package4.log`; SHA-256
+`04266bc82f4906f237622bd8a0a3b3caf935b5925eee876910d1d6f6c015b1ca`.
+Printed declarations use only `{propext, Quot.sound}`.
 
 **Bridge residual factorization, checked 2026-09-18:**
 `BF4WilsonSpatialUnionCanonicalGNSBridge.lean` now factors the uninhabited
