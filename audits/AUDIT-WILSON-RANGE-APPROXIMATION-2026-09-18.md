@@ -116,8 +116,10 @@ the current Wilson transfer and pairing.
   diagonal-limit operator. `resolvent_equation` (:152),
   `resolvent_right_inverse` (:204), `resolvent_left_inverse` (:221), and
   `resolvent_sub` (:259) prove its same-carrier Poisson and inverse identities;
-  `defect_selfAdjoint` (:269) and `resolvent_selfAdjoint` (:278) add the
-  completed-pairing symmetry needed by an operator-side consumer.
+  `resolvent_add` (:269) and `resolvent_time` (:286) prove additive and
+  physical-time commutation laws; `defect_selfAdjoint` (:297) and
+  `resolvent_selfAdjoint` (:306) add the completed-pairing symmetry needed by
+  an operator-side consumer.
 - `BF4WilsonSpatialUnionResolventBound.resolvent_norm_bound`
   (`lean/YMGap/Continuum/BF4WilsonSpatialUnionResolventBound.lean:133`) and
   `resolvent_distance_bound` (:139) give the explicit current-carrier norm and
@@ -130,7 +132,7 @@ Focused serialized checks passed with no `sorryAx`, `Classical.*`, or
 | target | log | SHA-256 |
 | --- | --- | --- |
 | `BF4WilsonSpatialUnionResolventPartial.lean` | `/tmp/ym-wilson-resolvent-partial-current4.log` | `e6b8d3b731bfc94086f1cd16ef3dee718dbf8f45dc5354982301002614b586cf` |
-| `BF4WilsonSpatialUnionResolvent.lean` | `/tmp/ym-wilson-resolvent-current6.log` | `8f416ac340b40b24aa3d356261686ccf16ae8e42bec581aa1cb362015c69af29` |
+| `BF4WilsonSpatialUnionResolvent.lean` | `/tmp/ym-wilson-resolvent-current8.log` | `f7cd32c273af5a430a03999e395a7ec089844a7c4581e09a66eb64f58d40b890` |
 | `BF4WilsonSpatialUnionResolventBound.lean` | `/tmp/ym-wilson-resolvent-bound-current2.log` | `c86a1e5349d5595fb626f90e786a8e811c5ee8efe73e99b9e437a8b50f7ed9f8` |
 
 This closes the fixed-spacing same-carrier represented resolvent branch. It

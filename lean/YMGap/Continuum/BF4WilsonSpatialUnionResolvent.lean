@@ -266,6 +266,34 @@ theorem resolvent_sub (x y : V) :
   rw [resolvent_right_inverse, defect_sub, resolvent_right_inverse,
     resolvent_right_inverse, center_sub]
 
+theorem resolvent_add (x y : V) :
+    resolvent hw0 hw1 hsmall hd hs (A x y) =
+      A (resolvent hw0 hw1 hsmall hd hs x)
+        (resolvent hw0 hw1 hsmall hd hs y) := by
+  have h := congrArg (fun a => A a (resolvent hw0 hw1 hsmall hd hs y))
+    (resolvent_sub hw0 hw1 hsmall hd hs (A x y) y)
+  dsimp only at h
+  rw [sub_add_right_cancel, completedSub_add_cancel] at h
+  exact h.symm
+
+theorem defect_time (n : Nat) (x : V) :
+    defect hw0 hw1 hsmall hd hs (T n x) =
+      T n (defect hw0 hw1 hsmall hd hs x) := by
+  unfold defect
+  rw [completedTime_sub, ← completedTime_add, ← completedTime_add,
+    Nat.add_comm 2 n]
+
+theorem resolvent_time (n : Nat) (x : V) :
+    resolvent hw0 hw1 hsmall hd hs (T n x) =
+      T n (resolvent hw0 hw1 hsmall hd hs x) := by
+  refine centered_eq_of_defect_eq hw0 hw1 hsmall hd hs
+    (resolvent hw0 hw1 hsmall hd hs (T n x))
+    (T n (resolvent hw0 hw1 hsmall hd hs x))
+    (resolvent_centered hw0 hw1 hsmall hd hs _) ?_ ?_
+  · rw [← completedTime_center, resolvent_centered]
+  rw [resolvent_right_inverse, defect_time, resolvent_right_inverse,
+    ← completedTime_center]
+
 theorem defect_selfAdjoint (x y : V) :
     completedInner hw0 hw1 hsmall hd hs
       (defect hw0 hw1 hsmall hd hs x) y =
@@ -312,5 +340,8 @@ end YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_left_inverse
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.defect_sub
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_sub
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_add
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.defect_time
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_time
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.defect_selfAdjoint
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_selfAdjoint
