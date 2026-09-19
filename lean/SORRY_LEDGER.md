@@ -64,6 +64,27 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `/tmp/ym-wilson-resolvent-response-20260918c.log` (SHA-256
   `5a6f7e354791ccff0bd347a76760a805ff5b2d12ed33d99172d350c0ca182201`).
 
+## PROVED conditional current-carrier to canonical OS/GNS handoff (2026-09-18 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean`.
+- **proved**: `CurrentCarrierBridge` records the exact map, form, zero,
+  two-step, and vacuum-orthogonality fields needed to move the current
+  `UnionCompletion` result into a selected `WilsonTimeTranslationPin` carrier.
+  Its `canonical_resolvent_norm_floor` theorem consumes the checked current
+  `unitExcitation_resolvent_norm_floor`; `canonicalProbe` packages the
+  transported vector, the same explicit `1/4` floor, vacuum orthogonality, and
+  two-step intertwining.
+- **residue**: the bridge structure is intentionally uninhabited in this
+  milestone. It is a named OS/GNS carrier-and-dynamics obligation, not a
+  covert identification of the current carrier with canonical GNSData.
+- **verification**: focused serialized check of the bridge and its imported
+  current response artifact passed. Printed declarations use only
+  `{propext, Quot.sound}`; no `sorryAx`, `Classical.*`, or `native_decide` was
+  introduced. The current response prerequisite was checked at
+  `/tmp/ym-olean/YMGap/Continuum/BF4WilsonSpatialUnionResolventResponse.olean`.
+  Bridge log: `/tmp/ym-wilson-canonical-bridge-20260918c.log`; SHA-256
+  `7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`.
+
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 
 - `lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean`:

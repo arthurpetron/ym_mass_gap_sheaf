@@ -360,6 +360,22 @@ the forward/backward meet. It remains a single SU(2), small-nome, fixed-spacing
 probe and does not discharge the canonical `GNSData` adapter, changing-spacing
 uniformity, physical mass calibration, continuum survival, or full QFT route.
 
+**Conditional canonical OS/GNS bridge, checked 2026-09-18:**
+`BF4WilsonSpatialUnionCanonicalGNSBridge.lean` names the exact backward
+interface still missing between the current `UnionCompletion` and a selected
+`WilsonTimeTranslationPin`. `CurrentCarrierBridge` requires an explicit
+form-preserving map, zero preservation, two-step intertwining, and vacuum
+orthogonality of the transported resolvent probe. Given that named bridge,
+`CurrentCarrierBridge.canonical_resolvent_norm_floor` transports the checked
+`unitExcitation_resolvent_norm_floor` into the canonical completion, and
+`canonicalProbe` packages the resulting vector, floor, orthogonality, and
+two-step relation. No bridge inhabitant is claimed. The focused check used the
+current response artifact and printed only `{propext, Quot.sound}` for the
+bridge structure, transport theorem, and probe constructor; the bridge remains
+an explicit constructive residual for the next producer. Evidence log:
+`/tmp/ym-wilson-canonical-bridge-20260918c.log`; SHA-256
+`7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`.
+
 **Backward join review, 2026-09-18:** the legacy inward-test argument
 does not literally extend to all current Wilson windows. The legacy
 bond-reflected lower algebra can move a test onto the adjacent site plane;

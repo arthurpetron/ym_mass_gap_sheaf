@@ -171,3 +171,25 @@ with SHA-256
 gates use only `{propext, Quot.sound}`. The result remains fixed-spacing,
 small-nome SU(2) non-erasure, not a changing-spacing or continuum-survival
 certificate.
+
+## Conditional canonical OS/GNS handoff, checked 2026-09-18
+
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean` now makes
+the backward meet explicit. `CurrentCarrierBridge` (lines 65--82) requires a
+map from the current `UnionCompletion` into a selected canonical
+`WilsonTimeTranslationPin` completion, exact `RC`-form preservation and zero
+preservation, two-step transfer intertwining, and vacuum orthogonality of the
+transported resolvent probe. It has no inhabitant in the repository and does
+not identify the carriers by definitional equality.
+
+Given this named bridge, `CurrentCarrierBridge.canonical_resolvent_norm_floor`
+(lines 109--117) rewrites the target canonical norm through the form-preserving
+field and consumes the checked
+`BF4WilsonSpatialUnionResolventResponse.unitExcitation_resolvent_norm_floor`.
+`canonicalProbe` (lines 119--124) packages the vector, `1/4` floor,
+orthogonality, and two-step relation. The focused serialized bridge check
+passed with only `{propext, Quot.sound}`; this is a conditional carrier
+handoff, not a completed OS/GNS realization, spacing-uniform gap, or continuum
+theorem. The bridge check log is
+`/tmp/ym-wilson-canonical-bridge-20260918c.log` (SHA-256
+`7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`).

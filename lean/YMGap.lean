@@ -4997,6 +4997,7 @@ import YMGap.Continuum.BF4WilsonSpatialUnionResolventPartial
 import YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 import YMGap.Continuum.BF4WilsonSpatialUnionResolventBound
 import YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
+import YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 -- Modulus-bearing real action, actual vacuum projection and all-vector relaxation.
 import YMGap.Continuum.BF4WilsonSpatialUnionScalarDistance
 import YMGap.Continuum.BF4WilsonSpatialUnionRealScalarCauchy
