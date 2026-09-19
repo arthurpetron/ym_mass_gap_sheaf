@@ -542,6 +542,25 @@ does not construct the modulus or any continuum/OS/QFT object.  Its focused
 check is `/tmp/ym-gap-rate-direct-interface-check.log`, with the new
 declaration under `{propext, Quot.sound}`.
 
+### Current forward/backward join: AF recurrence to summable scalar variation (2026-09-19)
+
+`AFTrajectorySummableVariation.lean` now proves the next non-vacuous scalar
+edge.  From the two-loop recurrence and the derived reciprocal AF rate,
+`shiftedTauSummableVariation` constructs a summable two-sided rational step
+budget for the shifted stream `j ↦ C.τ (C.k0 + j)`.  The step estimate is
+quadratic in `τ`; its tail is controlled by the existing inverse-square
+majorant, so `shiftedTauCauchy` produces a constructive-real Cauchy modulus.
+
+`PhysicalGapTrajectoryIdentification` is the explicit backward seam: only a
+same-object pointwise identification of that AF stream with
+`family.physicalGap` transports the proved budget via
+`toPhysicalGapVariation`.  With the independently supplied physical spacing
+tail, `exactLogRateCauchyOfAFTrajectory` then reaches the existing exact-log
+consumer.  No such identification is inhabited here, and no continuum,
+OS/GNS, QFT, all-group, or Clay claim is made.  Focused verification is
+`/tmp/AFTrajectorySummableVariation.olean`; every printed axiom set is only
+`{propext, Quot.sound}`.
+
 ### Current forward/backward join: residual strength factors (2026-09-19)
 
 `BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler` exposes

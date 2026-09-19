@@ -93,6 +93,18 @@ the direct analytic target from the finite-regulator variation branch.  The
 focused build log is `/tmp/ym-gap-rate-direct-interface-check.log`, under the
 `{propext, Quot.sound}` gate.
 
+**AF recurrence to summable scalar variation (2026-09-19):**
+`AFTrajectorySummableVariation.lean` derives a two-sided summable step budget
+for the shifted AF log-coupling stream from the certified two-loop recurrence
+and reciprocal rate.  `shiftedTauCauchy` is a constructive-real Cauchy modulus.
+The explicit `PhysicalGapTrajectoryIdentification` structure records the
+remaining same-object pointwise identification needed to transport this
+budget to `family.physicalGap`; only then does
+`exactLogRateCauchyOfAFTrajectory` feed the exact-log compiler.  The
+identification is not inhabited, and no continuum or Clay claim is made.
+Focused verification is `/tmp/AFTrajectorySummableVariation.olean`, under the
+`{propext, Quot.sound}` gate.
+
 **Completed-carrier attachment (2026-09-19):**
 `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSCompletedCarrier.lean`
 now connects the conditional all-source inward-mate Poincare estimate to the

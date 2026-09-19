@@ -13,6 +13,24 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED AF recurrence-to-variation compiler (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/AFTrajectorySummableVariation.lean`.
+- **proved**: `shiftedTauSummableVariation` converts the certified two-loop
+  `AFTrajectoryCertificate` recurrence and its derived reciprocal rate into a
+  `SummableRationalStepVariation` for the shifted log-coupling stream; the
+  inverse-square tail is explicit, and `shiftedTauCauchy` constructs its
+  `CReal.ModCauchyEv`.  `PhysicalGapTrajectoryIdentification.toPhysicalGapVariation`
+  transports that certificate to the completed-family physical gap when an
+  explicit same-object pointwise identification is supplied, and
+  `exactLogRateCauchyOfAFTrajectory` feeds the existing exact-log consumer.
+- **boundary**: the AF-to-completed-family identification remains a Type-level
+  input; no inhabitant is claimed.  No physical rate band, continuum measure,
+  OS/GNS reconstruction, QFT axioms, all-group theorem, or Clay result is
+  discharged by this scalar compiler.
+- **verification**: `/tmp/AFTrajectorySummableVariation.olean`; all printed
+  declarations use only `{propext, Quot.sound}`, with no `sorryAx`.
+
 ## PROVED primitive exact-gap input package (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.lean`.
