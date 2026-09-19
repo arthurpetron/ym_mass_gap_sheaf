@@ -38,8 +38,14 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
+open YMGap.Continuum.ContinuumMeasure
+open YMGap.Continuum.ExactRateReconstructionHandoff
+open YMGap.Continuum.FourDExistence
+open YMGap.Continuum.MeasureLinkedOSReconstruction
 open YMGap.Continuum.PhysicalSeparatorFullLogComparison
+open YMGap.Continuum.ProjectiveOSCorrelationHandoff
 open YMGap.Continuum.QuadraticRateErrorTailControl
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin
 
 local infix:50 " ≈ " => Q'.eqv
 open YMGap.Continuum.SummableRationalReciprocalStepVariation
@@ -128,6 +134,41 @@ def exactLogRateCauchy_of_marginAndReciprocalSpacing
       family marginVariation reciprocalSpacingVariation)
     spacingTail
 
+/-- The primitive variation inputs can be inserted into the existing
+continuum handoff without changing its same-theory observable, OS/GNS, or
+reconstruction fields.  Those semantic fields remain explicit arguments. -/
+def DynamicVacuumSectorContinuumHandoff.ofMarginAndReciprocalSpacing
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {pin : DynamicVacuumSectorObservablePin family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {ceiling : FullRangeLogRateCeiling (fullRangeRateFamily pin)}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (marginVariation :
+      SummableRationalStepVariation family.latticeMargin)
+    (reciprocalSpacingVariation :
+      SummableRationalStepVariation
+        (fun scale =>
+          Q'.recipPos
+            (family.transferSpacing.spacing scale)
+            (family.transferSpacing.spacing_pos scale)))
+    (spacingTail : InverseSquareSpacingTail family.transferSpacing 0)
+    (projectiveOS : ProjectiveOSCorrelationHandoff pin.toPhysicalSeparator
+      existence osGNS pin.physicalSampling)
+    (spectralChannel :
+      ProjectiveOSCorrelationHandoff.ReconstructionSpectralChannelHandoff
+        projectiveOS osGNS.reconstruction)
+    (exactRate : ExactRateReconstructionHandoff
+      (exactCertificate pin band ceiling) osGNS.reconstruction) :
+    DynamicVacuumSectorContinuumHandoff
+      pin band ceiling existence osGNS :=
+  DynamicVacuumSectorContinuumHandoff.ofExactLogVariations
+    (physicalGapVariationOfMarginAndReciprocalSpacing
+      family marginVariation reciprocalSpacingVariation)
+    spacingTail projectiveOS spectralChannel exactRate
+
 /-- The primitive variation compiler feeds the existing exact-log Cauchy
 compiler without changing the completed family, observable pin, or spacing
 tail. -/
@@ -164,5 +205,7 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.physicalGapVariationOfMarginAndReciprocalSpacing
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.exactLogRateCauchy_of_marginAndReciprocalSpacing
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.DynamicVacuumSectorContinuumHandoff.ofMarginAndReciprocalSpacing
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler.exactLogRateCauchy_of_primitiveComponents

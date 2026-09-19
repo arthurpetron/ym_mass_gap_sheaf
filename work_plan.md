@@ -184,8 +184,11 @@ continuum-compatible result in the existing exact-log rate compiler.  The
 separate positive-floor adapter is retained only as a finite-regulator
 shortcut; it cannot serve a spacing stream tending to zero.  This is a
 backward interface decomposition, not a construction of the primitive
-variation, physical rate band, or continuum handoff.  Focused check:
-`/tmp/ym-physical-gap-variation-compiler5.log`; only `{propext, Quot.sound}`
+variation, physical rate band, or semantic OS/reconstruction witnesses.
+`DynamicVacuumSectorContinuumHandoff.ofMarginAndReciprocalSpacing` now
+packages the same primitive result into the existing continuum handoff while
+keeping those semantic witnesses explicit.  Focused check:
+`/tmp/ym-physical-gap-variation-compiler8.log`; only `{propext, Quot.sound}`
 were reported.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)

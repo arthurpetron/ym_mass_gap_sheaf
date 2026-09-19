@@ -189,8 +189,12 @@ continuum-compatible result directly into the existing exact-log Cauchy
 compiler.  A separate `...of_primitiveComponents` adapter derives reciprocal
 variation from a positive spacing floor when such a finite-regulator floor is
 available; that shortcut is not compatible with a spacing stream tending to
-zero.  None of the primitive variation inputs is inhabited by this module.
-Focused check: `/tmp/ym-physical-gap-variation-compiler5.log`, with only
+zero.  `DynamicVacuumSectorContinuumHandoff.ofMarginAndReciprocalSpacing`
+packages the same result into the existing continuum handoff while retaining
+the projective OS, spectral-channel, and exact-rate witnesses as explicit
+inputs.  None of the primitive variation inputs or semantic handoff witnesses
+is inhabited by this module.  Focused check:
+`/tmp/ym-physical-gap-variation-compiler8.log`, with only
 `{propext, Quot.sound}` reported.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**

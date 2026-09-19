@@ -130,12 +130,16 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   exact-log Cauchy compiler.  The separate
   `physicalGapVariationOfPrimitiveComponents` adapter derives reciprocal
   variation from a positive spacing floor for finite-regulator use.
+  `DynamicVacuumSectorContinuumHandoff.ofMarginAndReciprocalSpacing` packages
+  the same exact result into the existing continuum handoff while retaining
+  the projective OS, spectral-channel, and exact-rate witnesses as explicit
+  inputs.
 - **boundary**: these are primitive variation adapters only.  They do not
   construct margin variation, reciprocal-spacing variation, the optional
   spacing floor, a physical rate band, a continuum handoff, or the Clay
   theorem.  A fixed positive spacing floor cannot be the continuum route when
   the spacing tends to zero.
-- **verification**: `/tmp/ym-physical-gap-variation-compiler5.log`; only
+- **verification**: `/tmp/ym-physical-gap-variation-compiler8.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)
