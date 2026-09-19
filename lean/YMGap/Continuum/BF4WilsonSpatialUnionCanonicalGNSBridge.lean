@@ -79,6 +79,8 @@ structure CurrentCarrierFormCertificate
     (P : WilsonTimeTranslationPin W) : Type 2 where
   map : V → GNSCompletionSpace W.toGNSData
   map_zero : map Z = embedV W.toGNSData W.toGNSData.zero
+  /-- The current vacuum is sent to the selected canonical vacuum. -/
+  vacuum_preserving : map U = P.op.vacuum
   form_preserving : ∀ x y,
     W.toGNSData.cinnerCompl (map x) (map y) = B x y
 
@@ -121,6 +123,8 @@ structure CurrentCarrierBridge
   map : V → GNSCompletionSpace W.toGNSData
   /-- The current zero is sent to the canonical GNS zero. -/
   map_zero : map Z = embedV W.toGNSData W.toGNSData.zero
+  /-- The current vacuum is sent to the selected canonical vacuum. -/
+  vacuum_preserving : map U = P.op.vacuum
   /-- The completed pairings are preserved exactly in `RC`. -/
   form_preserving : ∀ x y,
     W.toGNSData.cinnerCompl (map x) (map y) = B x y
@@ -144,6 +148,7 @@ def CurrentCarrierBridge.ofCertificates
     (O : CurrentCarrierProbeCertificate P F) : CurrentCarrierBridge P where
   map := F.map
   map_zero := F.map_zero
+  vacuum_preserving := F.vacuum_preserving
   form_preserving := F.form_preserving
   twoStep_intertwines := D.twoStep_intertwines
   probe_vacuum_orthogonal := O.probe_vacuum_orthogonal
@@ -187,6 +192,44 @@ variable
     {H : ContinuumYMExistence mu}
     {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
     {P : WilsonTimeTranslationPin W}
+
+/-! ## The all-image vacuum-complement consumer -/
+
+/-- A current vacuum-complement vector remains in the canonical vacuum
+complement under a supplied bridge.  This is the first all-vector consequence
+of the static vacuum identification; it is still restricted to the bridge
+image and therefore does not assert canonical density. -/
+theorem image_vacuum_orthogonal
+    (J : CurrentCarrierBridge P) {x : V}
+    (hx : B x U = RCzero) :
+    W.toGNSData.cinnerCompl (J.map x) P.op.vacuum = RCzero := by
+  rw [← J.vacuum_preserving, J.form_preserving x U]
+  exact hx
+
+/-- The current strict two-step form bound transports to every vector in the
+image of a supplied bridge, once that vector is known to be orthogonal to the
+current vacuum.  The remaining dense-range and completed-space steps are not
+assumed here. -/
+theorem image_twoStep_form_bound
+    (J : CurrentCarrierBridge P) {x : V}
+    (hx : B x U = RCzero) :
+    RCle
+      (W.toGNSData.cinnerCompl
+        (P.op.T (P.op.T (J.map x))) (J.map x))
+      (CReal.RCmul
+        (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
+        (W.toGNSData.cinnerCompl (J.map x) (J.map x))) := by
+  have hgap := completed_twoStep_form_gap
+    nome_pos nome_lt_one hsmall hd hs x hx
+  have hsym :
+      B (T 2 x) x = B x (T 2 x) :=
+    completedInner_symm nome_pos nome_lt_one hsmall hd hs
+      (T 2 x) x
+  rw [← J.twoStep_intertwines x]
+  rw [J.form_preserving (T 2 x) x]
+  rw [J.form_preserving x x]
+  rw [hsym]
+  exact hgap
 
 /-- The checked current-carrier floor transported to the canonical completion. -/
 theorem canonical_resolvent_norm_floor (J : CurrentCarrierBridge P) :
@@ -348,6 +391,8 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.ofCertificates
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.map_injective
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_vacuum_orthogonal
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_twoStep_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonical_resolvent_norm_floor
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_norm_floor

@@ -515,8 +515,8 @@ limit, or the Clay theorem. Focused check log:
 **Bridge residual factorization, checked 2026-09-18:**
 `BF4WilsonSpatialUnionCanonicalGNSBridge.lean` now factors the uninhabited
 `CurrentCarrierBridge` into three independently producible certificates:
-`CurrentCarrierFormCertificate` (map, zero preservation, and exact completed
-pairing), `CurrentCarrierTwoStepCertificate` (two-step intertwining), and
+`CurrentCarrierFormCertificate` (map, zero and vacuum preservation, and exact
+completed pairing), `CurrentCarrierTwoStepCertificate` (two-step intertwining), and
 `CurrentCarrierProbeCertificate` (vacuum orthogonality of the transported
 resolvent probe). `CurrentCarrierBridge.ofCertificates` is only the structural
 reassembly of those fields. No certificate is inhabited by this change, and no
@@ -534,6 +534,20 @@ choice, or a representative selector. It remains conditional on the same
 uninhabited bridge and supplies no surjectivity or continuum conclusion.
 Focused check log: `/tmp/ym-canonical-bridge-injective.log`; SHA-256
 `23dbe7c89d4f13e7f3c148f49a807ce6018d468b8315a3d6d1fe4799502654e3`.
+
+**All-image canonical gap consumer, checked 2026-09-18:**
+The static bridge certificate now also names `vacuum_preserving`, keeping the
+current `completedUnit` distinct from the selected canonical vacuum until an
+actual identification is supplied. `CurrentCarrierBridge.image_vacuum_orthogonal`
+then proves that every current vacuum-complement vector maps into the canonical
+vacuum complement, and `CurrentCarrierBridge.image_twoStep_form_bound`
+transports the checked strict two-step form bound to every such image vector.
+This is the first all-image (rather than probe-only) backward consumer. It is
+still conditional on the uninhabited bridge; it gives neither canonical dense
+range, a completed canonical gap, changing-spacing control, nor a continuum or
+Clay conclusion. Focused check log:
+`/tmp/ym-canonical-bridge-image-gap.log`; SHA-256
+`a65154d8e51d3c7a36e1e0e62eeb287bf33515e1d075257d6eeb3b462bbd7a74`.
 
 **Concrete current physical SU(2) sector, checked 2026-09-18:**
 `BF4WilsonSpatialUnionCurrentSector.lean` packages the already checked

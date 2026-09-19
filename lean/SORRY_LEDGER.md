@@ -94,12 +94,17 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 
 - **file**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean`.
 - **proved**: `CurrentCarrierBridge` records the exact map, form, zero,
-  two-step, and vacuum-orthogonality fields needed to move the current
+  vacuum, two-step, and vacuum-orthogonality fields needed to move the current
   `UnionCompletion` result into a selected `WilsonTimeTranslationPin` carrier.
   Its `canonical_resolvent_norm_floor` theorem consumes the checked current
   `unitExcitation_resolvent_norm_floor`; `canonicalProbe` packages the
   transported vector, the same explicit `1/4` floor, vacuum orthogonality, and
   two-step intertwining.
+- **proved**: `CurrentCarrierBridge.image_vacuum_orthogonal` and
+  `CurrentCarrierBridge.image_twoStep_form_bound` transport the current
+  vacuum-complement predicate and strict two-step form bound to every vector
+  in the supplied bridge image. These are conditional consumers only; no
+  bridge inhabitant or canonical dense-range theorem is introduced.
 - **residue**: the bridge structure is intentionally uninhabited in this
   milestone. It is a named OS/GNS carrier-and-dynamics obligation, not a
   covert identification of the current carrier with canonical GNSData.
