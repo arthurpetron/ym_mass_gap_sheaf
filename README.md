@@ -57,6 +57,14 @@ QFT construction and every-group Yang--Mills remain open.  The focused check
 used only `{propext, Quot.sound}` and produced no `sorryAx`; the detailed
 execution record is in [`work_plan.md`](work_plan.md).
 
+The reverse finite-stage edge is now named explicitly as
+`CurrentStagePairingSeparationCertificate`.  Its checked consumer,
+`CurrentStagePairingSeparationCertificate.stageClass_eq_iff_current_eq`,
+proves the exact two-way compatibility for transported stage classes when
+that separation datum is supplied.  The datum itself is still uninhabited:
+it is the remaining density/continuity proof, not an assumed canonical
+identification.
+
 The finite-window operator realization below is now a historical checkpoint.
 
 The entries below are historical checkpoints. Their next steps and open

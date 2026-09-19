@@ -13,6 +13,22 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED named reverse edge for dense-stage compatibility (2026-09-18 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean`.
+- **proved**: `CurrentStagePairingSeparationCertificate` isolates the finite-stage
+  pairing-separation datum, and
+  `CurrentStagePairingSeparationCertificate.stageClass_eq_iff_current_eq`
+  composes it with the existing `stageClass_eq_of_current_eq` theorem to give
+  the exact two-way compatibility between canonical transported stage classes
+  and the original completed Wilson stages.
+- **residue**: the certificate is not inhabited.  Its `separates` field is the
+  still-open density/continuity argument from finite-stage pairings to completed
+  carrier equality; no finite Gram identity is promoted to completed separation.
+- **verification**: focused serialized source check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
+  Evidence: `/tmp/ym-stage-separation4.log`.
+
 ## PROVED forward/backward exact-slab local-gluing joins (2026-09-18 UTC)
 
 - **files**: `BF4ExactPhysicalPerronReroute.lean` and

@@ -654,6 +654,20 @@ claimed. Focused check log: `/tmp/ym-stage-current-eq8.log`; SHA-256
 `b120d50e2f06cc6305f749cc22d8b2071439090ee472389304b8120fc96573dc`.
 The new declaration uses only `{propext, Quot.sound}`.
 
+**Finite-stage reverse separation edge, checked 2026-09-18:**
+`CurrentStagePairingSeparationCertificate` now names the exact remaining
+backward-facing datum: equality of completed Wilson pairings against every
+finite stage must separate the two source stages.  Its consumer,
+`CurrentStagePairingSeparationCertificate.stageClass_eq_iff_current_eq`,
+composes that datum with the existing forward null-descent theorem and proves
+two-way compatibility between transported canonical stage classes and the
+original completed Wilson stages.  The certificate is intentionally
+uninhabited; finite Gram pins do not themselves prove density/continuity or
+completed-carrier separation.  Focused check log:
+`/tmp/ym-stage-separation4.log`; the new declarations use only
+`{propext, Quot.sound}` and introduce no `sorryAx`, classical axiom, or native
+computation.
+
 **Dynamic bridge stream factorization, checked 2026-09-18:**
 `CurrentCarrierCauchyTwoStepCertificate` isolates the remaining time
 intertwining at the same explicit stream level: the image of the current
