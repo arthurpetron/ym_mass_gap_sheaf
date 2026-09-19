@@ -296,16 +296,14 @@ def evenOrbitSum_range_data
     Σ' Y : (unionSeminorm hw0 hw1 hsmall hd hs).Cauchy, RCle
       (completedDist hw0 hw1 hsmall hd hs
         (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X)
-        (completedSub hw0 hw1 hsmall hd hs
-          (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid Y)
-          (completedTime hw0 hw1 hsmall hd hs 2
-            (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid Y))))
+        (evenOrbitResidual hw0 hw1 hsmall hd hs
+          (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid Y)))
       (Quotient.mk crealSetoid (ofQ' epsilon)) := by
   let n := evenOrbitSum_modulus hw0 hw1 hsmall hd hs X epsilon
   refine ⟨evenOrbitSumCauchy hw0 hw1 hsmall hd hs X n, ?_⟩
   have h := evenOrbitSum_error_small hw0 hw1 hsmall hd hs X hX epsilon he n
     (Nat.le_refl _)
-  simpa only [evenOrbitSumCauchy_pin] using h
+  simpa only [evenOrbitResidual, evenOrbitSumCauchy_pin] using h
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual
