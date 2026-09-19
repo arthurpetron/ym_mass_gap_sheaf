@@ -39,8 +39,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   applies the certificate to the center of any supplied representative. The
   additional
   `evenOrbitResidual_centered_pairing` pin identifies its pairing with the
-  existing lag-zero/lag-two connected correlator difference. All eighteen
-  public gates lie within `{propext, Quot.sound}`. This is fixed-spacing
+  existing lag-zero/lag-two connected correlator difference.
+  `evenOrbitResidual_form_nonnegative` consumes the strict two-step form bound
+  to prove nonnegativity of the same-carrier defect pairing on the supplied
+  completed vacuum complement, and
+  `evenOrbitCenteredResidual_form_nonnegative` transports that positivity
+  through the existing center projection. All twenty public gates lie within
+  `{propext, Quot.sound}`. This is fixed-spacing
   approximate range data, not an inverse, strict continuum gap, or Clay closure.
 
 - `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialClearedCovarianceCauchy.lean`:

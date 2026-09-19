@@ -42,6 +42,10 @@ on the current completed SU(2) Wilson carrier. It is fixed-spacing data only.
   uncentered-decay claim.
 - `evenOrbitResidual_centered_pairing` identifies the defect pairing with the
   difference of the existing connected lag-zero and lag-two correlators.
+- `evenOrbitResidual_form_nonnegative` consumes the strict two-step form bound
+  to prove nonnegativity of the actual defect pairing on the supplied completed
+  vacuum complement, and `evenOrbitCenteredResidual_form_nonnegative` transports
+  the same conclusion through the existing center projection.
 
 The rate is explicit: `q = twoStepRate w hd`. No inverse, spectral theorem,
 choice, auxiliary transfer, or continuum/spacing hypothesis is introduced.
@@ -57,14 +61,14 @@ Command:
 python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
   --check lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean \
   --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.olean \
-  --log-file /tmp/ym-range-approx-20260918ab.log
+  --log-file /tmp/ym-range-approx-20260918ae.log
 ```
 
-Result: passed. The eighteen public declarations printed only
+Result: passed. The twenty public declarations printed only
 `{propext, Quot.sound}`. No `sorryAx`, `Classical.*`, `native_decide`, or
 new axiom appears. Log SHA-256:
 
-`f78aa699fb6ce2e8c86382b15bf4653b5960f7ef52cfcaaf985b4d920b97de67`.
+`79f77d69c631fd2dd37506c16664a1d214afddfb625ba8bef427aad7816c51cb`.
 
 The full root, full-tree build, axiom audit, guard and progress runs were not
 performed. The result does not supply strict density of strictly-past

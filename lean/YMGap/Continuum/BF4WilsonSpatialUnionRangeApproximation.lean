@@ -36,12 +36,12 @@ open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
 open YMGap.Continuum.BF4WilsonSpatialUnionCompletedDistance
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
 open YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
-  (completedCenteredScalar)
+  (completedCenteredScalar completed_twoStep_form_gap)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap (twoStepRate)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap
   (twoStepRate_positive twoStepRate_lt_one)
 open YMGap.Continuum.PositiveContractionResidual (geometricCutoff geometric_bound)
-open YMGap.Continuum.BF4SpatialUnionBilinear (rc_sub_self)
+open YMGap.Continuum.BF4SpatialUnionBilinear (rc_sub_self rc_sub_add)
 open YMGap.Continuum.BF4ExactSlabCollarAdjustedRate
 open YMGap.Continuum.FiniteSizeGeometricSum
 open YMGap.Continuum.QuaternionHaarCharacterInterval
@@ -66,6 +66,18 @@ def evenOrbitSum (x : V) : Nat → V
 def evenOrbitResidual (x : V) : V :=
   completedSub hw0 hw1 hsmall hd hs x (T 2 x)
 
+private theorem rc_mul_ofQ'_eq_scale (s : Q') (a : RC) :
+    RCmul (Quotient.mk crealSetoid (ofQ' s)) a = RCscale s a := by
+  refine Quotient.inductionOn a ?_
+  exact fun _ => rfl
+
+private theorem rc_sub_nonnegative_of_le {a b : RC} (h : RCle b a) :
+    RCnonneg (RCsub a b) := by
+  have h' := RCadd_le_add h (RCle_refl (RCneg b))
+  change RCle (RCsub b b) (RCsub a b) at h'
+  rw [rc_sub_self] at h'
+  exact h'
+
 theorem evenOrbitResidual_kernel (x : V)
     (hx : B x (completedUnit hw0 hw1 hsmall hd hs) = RCzero)
     (hr : evenOrbitResidual hw0 hw1 hsmall hd hs x = Z) :
@@ -85,6 +97,34 @@ theorem evenOrbitResidual_center (x : V) :
         (evenOrbitResidual hw0 hw1 hsmall hd hs x) := by
   unfold evenOrbitResidual
   rw [center_sub, completedTime_center]
+
+/-! The two-step form gap has an immediate same-carrier energy consequence.
+The scalar conversion below is only the existing `RCscale` action; no inverse
+or spectral resolution is introduced. -/
+
+theorem evenOrbitResidual_form_nonnegative (x : V)
+    (hx : B x (completedUnit hw0 hw1 hsmall hd hs) = RCzero) :
+    RCnonneg (B x (evenOrbitResidual hw0 hw1 hsmall hd hs x)) := by
+  unfold evenOrbitResidual
+  rw [completedInner_sub_right]
+  have hgap := completed_twoStep_form_gap hw0 hw1 hsmall hd hs x hx
+  have hscale : RCle
+      (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate w hd))) (B x x))
+      (B x x) := by
+    rw [rc_mul_ofQ'_eq_scale]
+    simpa only [RCscale_one] using
+      (RCscale_mono_scalar (Q'.le_of_lt (twoStepRate_lt_one hw0 hd hs))
+        (completedInner_nonnegative hw0 hw1 hsmall hd hs x))
+  exact rc_sub_nonnegative_of_le (RCle_trans hgap hscale)
+
+theorem evenOrbitCenteredResidual_form_nonnegative (x : V) :
+    RCnonneg
+      (B (center hw0 hw1 hsmall hd hs x)
+        (evenOrbitResidual hw0 hw1 hsmall hd hs
+          (center hw0 hw1 hsmall hd hs x))) := by
+  apply evenOrbitResidual_form_nonnegative hw0 hw1 hsmall hd hs
+    (center hw0 hw1 hsmall hd hs x)
+  exact center_orthogonal hw0 hw1 hsmall hd hs x
 
 /-- A representative-level version of the finite orbit sum, retaining the
     supplied Cauchy stream rather than choosing a quotient representative. -/
@@ -433,6 +473,8 @@ def evenOrbitStage_range_data (x : Stage)
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_form_nonnegative
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitCenteredResidual_form_nonnegative
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_kernel
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_center
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumCauchy
