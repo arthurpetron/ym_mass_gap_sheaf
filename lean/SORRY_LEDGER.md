@@ -181,6 +181,22 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `/tmp/ym-wilson-physical-calibration-floor3.log` (SHA-256
   `55412e321dfb1e84658047ad666c1f1921524a3b685536982726d70e5f9966f4`).
 
+## PROVED fixed-mass vanishing-spacing obstruction (2026-09-18 UTC)
+
+- **file**: `BF4WilsonSpatialUnionPhysicalCalibration.lean`.
+- **proved**: `CurrentSpacingSchedule` records a positive spacing sequence
+  with an explicit spacing-to-zero modulus; `currentRateFloorAt` gives its
+  rational fixed-mass floor; and `currentRateFloor_cofinal` proves that these
+  floors are cofinal above every nonnegative rational threshold.
+- **residue**: the current fixed dimensionless rate therefore cannot itself
+  be the finite physical-rate input for a continuum schedule with `a → 0`.
+  The required next producer must make the dimensionless transfer rate shrink
+  with spacing (or otherwise renormalize the same theory); this theorem does
+  not construct that producer or any continuum limit.
+- **verification**: the focused serialized check uses only
+  `{propext, Quot.sound}`. Evidence: `/tmp/ym-wilson-physical-calibration-cofinal2.log`
+  (SHA-256 `354c39ffd1ee5a0d501021388f9843869055534f857c2ffeffb24a68f1c48f58`).
+
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 
 - `lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean`:

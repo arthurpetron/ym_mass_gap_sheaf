@@ -70,6 +70,18 @@ Focused checks: `/tmp/ym-full-log-margin-lower-floor2.log` (SHA-256
 `/tmp/ym-wilson-physical-calibration-floor3.log` (SHA-256
 `55412e321dfb1e84658047ad666c1f1921524a3b685536982726d70e5f9966f4`).
 
+The fixed-mass limit test is now explicit.  `CurrentSpacingSchedule` and
+`currentRateFloorAt` expose a positive spacing-to-zero schedule and its
+rational floor, while `currentRateFloor_cofinal` proves those floors are
+cofinal above every nonnegative rational.  This prunes the false shortcut of
+dividing the fixed current mass by a vanishing spacing: the next producer must
+make the dimensionless transfer separator itself scale with spacing, or supply
+an equivalent same-theory renormalization.  This is an obstruction to the
+current branch, not to Yang--Mills or to the Clay target.
+
+Focused check: `/tmp/ym-wilson-physical-calibration-cofinal2.log`, SHA-256
+`354c39ffd1ee5a0d501021388f9843869055534f857c2ffeffb24a68f1c48f58`.
+
 ### Goal-mode execution instructions (user-requested review, 2026-09-15)
 
 1. **Work backward from a real obstruction.** Before opening a new proof branch,

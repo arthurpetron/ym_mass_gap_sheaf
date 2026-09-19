@@ -182,6 +182,55 @@ theorem currentPhysicalRate_floor_of_spacing_le
       (Q'.recipPos ceiling hceiling)
   exact (CReal.leEv_congr hleft (CReal.Equiv.refl _)).mpr htotal
 
+/-! ## 6. Fixed-mass obstruction at vanishing spacing -/
+
+/-- A positive spacing schedule with an explicit modulus of convergence to zero.
+This is only a schedule for the already fixed current transfer mass; it is not
+an original changing-coupling Wilson family. -/
+structure CurrentSpacingSchedule : Type where
+  a : Nat → Q'
+  a_pos : ∀ j, (0 : Q') < a j
+  spacingModulus : Q' → Nat
+  spacingTendsToZero : ∀ ε, (0 : Q') < ε → ∀ j,
+    spacingModulus ε ≤ j → a j ≤ ε
+
+/-- The explicit rational lower floor attached to one scheduled spacing. -/
+def currentRateFloorAt (S : CurrentSpacingSchedule) (j : Nat) : Q' :=
+  currentRateMargin * Q'.recipPos (S.a j) (S.a_pos j)
+
+/-- The fixed positive dimensionless mass makes the scheduled physical-rate
+floors cofinal as the spacing tends to zero.  Thus a fixed current rate cannot
+supply a finite continuum physical-mass ceiling along such a schedule. -/
+theorem currentRateFloor_cofinal
+    (S : CurrentSpacingSchedule) (U : Q') (hU : (0 : Q') ≤ U) :
+    ∃ j, U ≤ currentRateFloorAt S j := by
+  let target : Q' := (1 : Q') + U
+  have htarget : (0 : Q') < target := by
+    exact Q'.pos_add_nonneg (by decide) hU
+  let epsilon : Q' := Q'.divPos currentRateMargin target htarget
+  have hepsilon : (0 : Q') < epsilon := by
+    exact Q'.divPos_pos currentRateMargin target htarget currentRateMargin_pos
+  let j := S.spacingModulus epsilon
+  have hAj : S.a j ≤ epsilon := by
+    exact S.spacingTendsToZero epsilon hepsilon j (Nat.le_refl _)
+  have hmul : target * S.a j ≤ currentRateMargin := by
+    have hstep : target * S.a j ≤ target * epsilon :=
+      Q'.mul_le_mul_of_nonneg_left (S.a j) epsilon target hAj
+        (Q'.le_of_lt htarget)
+    have hEq : (target * epsilon).eqv currentRateMargin := by
+      exact Q'.eqv_trans _ _ _ (Q'.mul_comm_eqv target epsilon)
+        (Q'.divPos_mul_eqv currentRateMargin target htarget)
+    exact Q'.le_trans' _ _ _ hstep (Q'.le_of_eqv hEq)
+  have htarget_floor : target ≤ currentRateFloorAt S j := by
+    unfold currentRateFloorAt
+    exact Q'.le_divPos_of_mul_le currentRateMargin (S.a j)
+      (S.a_pos j) hmul
+  have hUtarget : U ≤ target := by
+    unfold target
+    exact Q'.le_trans' _ _ _ (Q'.add_le_self_of_nonneg U 1 (by decide))
+      (Q'.le_of_eqv (Q'.add_comm_eqv U 1))
+  exact ⟨j, Q'.le_trans' _ _ _ hUtarget htarget_floor⟩
+
 /- A smaller positive spacing gives a larger dimensionful rate for the SAME
    dimensionless transfer mass.  This is a genuine trajectory-comparison
    lemma; it does not supply the missing spacing family or a uniform floor. -/
@@ -227,4 +276,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentRateMargin
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentRateMargin_pos
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentTransferMass_margin_floor
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.CurrentSpacingSchedule
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentRateFloorAt
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentRateFloor_cofinal
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.currentPhysicalRate_log_pin

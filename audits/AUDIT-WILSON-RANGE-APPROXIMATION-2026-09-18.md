@@ -306,3 +306,23 @@ Focused logs:
 `01d124186e9362543764bb18e049d8b40f46a0a57e90eb177a13866c4e1e7e0c`), and
 `/tmp/ym-wilson-physical-calibration-floor3.log` (SHA-256
 `55412e321dfb1e84658047ad666c1f1921524a3b685536982726d70e5f9966f4`).
+
+## Fixed-mass vanishing-spacing obstruction, checked 2026-09-18
+
+`CurrentSpacingSchedule` packages only a positive spacing sequence and its
+explicit modulus of convergence to zero.  The theorem
+`currentRateFloor_cofinal` shows that the rational floors
+`currentRateFloorAt S j` eventually exceed every prescribed nonnegative
+rational threshold.  This is the exact constructive diagnosis for the current
+fixed-rate branch: dividing a fixed positive `-log(currentRate)` by a spacing
+that tends to zero cannot yield a finite continuum physical-rate band.
+
+The result is not a no-go theorem for Yang--Mills. It says that the next
+same-theory producer must couple the transfer separator to the changing
+spacing (or supply an equivalent renormalization), while preserving the
+original action, observable, and OS carrier.
+
+Focused check:
+`/tmp/ym-wilson-physical-calibration-cofinal2.log`; SHA-256
+`354c39ffd1ee5a0d501021388f9843869055534f857c2ffeffb24a68f1c48f58`.
+The added declarations use only `{propext, Quot.sound}`.
