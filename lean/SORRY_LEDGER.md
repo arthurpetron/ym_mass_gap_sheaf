@@ -22,9 +22,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `evenOrbitSum_error_bound` identifies the actual approximation error with
   `T^(2*n)x` and gives its constructive squared-norm bound on the existing
   vacuum complement using the already proved `q^(2*n)` decay.
-  Focused serialized check passed; all three public gates lie within
-  `{propext, Quot.sound}`. This is fixed-spacing approximate range data,
-  not an inverse, strict continuum gap, or Clay closure.
+  `evenOrbitSum_modulus` and `evenOrbitSum_error_small` then package the
+  representative-dependent cutoff `geometricCutoff (q*q) (normCap X) epsilon`
+  and its late-tail estimate. Focused serialized check passed; all five public
+  gates lie within `{propext, Quot.sound}`. This is fixed-spacing approximate
+  range data, not an inverse, strict continuum gap, or Clay closure.
 
 - `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialClearedCovarianceCauchy.lean`:
   `combinedTest_supported` and

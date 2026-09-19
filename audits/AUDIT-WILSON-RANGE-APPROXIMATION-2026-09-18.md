@@ -19,11 +19,16 @@ on the current completed SU(2) Wilson carrier. It is fixed-spacing data only.
 - `evenOrbitSum_error_bound` identifies the actual approximation error with
   `T^(2*n)x` and bounds its squared norm for an existing vacuum-complement
   vector by the existing `norm_decay` at exponent `2*n`.
+- `evenOrbitSum_modulus` packages the explicit cutoff
+  `geometricCutoff (q*q) (normCap X) epsilon`, and
+  `evenOrbitSum_error_small` proves the resulting late-tail estimate for
+  every `n` above that cutoff.
 
 The rate is explicit: `q = twoStepRate w hd`. No inverse, spectral theorem,
 choice, auxiliary transfer, or continuum/spacing hypothesis is introduced.
-The theorem supplies a decay bound in `n`; an epsilon-to-index modulus still
-remains to be packaged if a downstream consumer requires that stronger data.
+The modulus is representative-dependent through the existing `normCap X`;
+it is a fixed-spacing consumer contract, not a uniform-in-observable or
+continuum modulus.
 
 ## Verification boundary
 
@@ -33,14 +38,14 @@ Command:
 python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
   --check lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean \
   --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.olean \
-  --log-file /tmp/ym-range-approx-20260918e.log
+  --log-file /tmp/ym-range-approx-20260918j.log
 ```
 
-Result: passed. The three public declarations printed only
+Result: passed. The five public declarations printed only
 `{propext, Quot.sound}`. No `sorryAx`, `Classical.*`, `native_decide`, or
 new axiom appears. Log SHA-256:
 
-`5d334959cde2e4518261353659d82dfcdc9137c6e1c13cd648049602d73498f0`.
+`f97cee058f9e7169b632c96370154266f3f4b8425e882171a4c65d1a51492be6`.
 
 The full root, full-tree build, axiom audit, guard and progress runs were not
 performed. The result does not supply strict density of strictly-past

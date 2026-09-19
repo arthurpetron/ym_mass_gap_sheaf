@@ -33,6 +33,9 @@ open YMGap.Continuum.BF4WilsonSpatialUnionTimeForm
 open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
 open YMGap.Continuum.BF4WilsonSpatialUnionCompletedDistance
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap (twoStepRate)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap
+  (twoStepRate_positive twoStepRate_lt_one)
+open YMGap.Continuum.PositiveContractionResidual (geometricCutoff geometric_bound)
 open YMGap.Continuum.BF4SpatialUnionBilinear (rc_sub_self)
 open YMGap.Continuum.BF4ExactSlabCollarAdjustedRate
 open YMGap.Continuum.FiniteSizeGeometricSum
@@ -150,8 +153,104 @@ theorem evenOrbitSum_error_bound (x : V)
   rw [herr]
   exact norm_decay hw0 hw1 hsmall hd hs x hx (2*n)
 
+private theorem pow_add_eqv (a : Q') (m n : Nat) :
+    Q'.eqv (a^(m+n)) (a^m * a^n) := by
+  induction n with
+  | zero => exact Q'.eqv_symm (Q'.mul_one_eqv (a^m))
+  | succ n ih =>
+      show Q'.eqv (a^(m+n+1)) (a^m * a^(n+1))
+      rw [Q'.pow_succ, Q'.pow_succ]
+      refine Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left a _ _ ih) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv a (a^m) (a^n))) ?_
+      refine Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right _ _ _ (Q'.mul_comm_eqv a (a^m))) ?_
+      exact Q'.mul_assoc_eqv (a^m) a (a^n)
+
+private theorem pow_two_step (a : Q') : ∀ n : Nat, Q'.eqv (a^(2*n)) ((a*a)^n)
+  | 0 => Q'.eqv_refl _
+  | n+1 => by
+      have hidx : 2*(n+1) = (2*n)+2 := by omega
+      rw [hidx]
+      have htwo : Q'.eqv (a^2) (a*a) := by
+        rw [Q'.pow_succ, Q'.pow_succ]
+        exact Q'.mul_eqv_congr_left a _ _ (Q'.mul_one_eqv a)
+      have hpowone : Q'.eqv ((a*a)^1) (a*a) := by
+        rw [Q'.pow_succ, Q'.pow_zero]
+        exact Q'.mul_one_eqv (a*a)
+      have htail : Q'.eqv ((a*a)^n * (a*a)^1) ((a*a)^n * (a*a)) :=
+        Q'.mul_eqv_congr_left ((a*a)^n) ((a*a)^1) (a*a) hpowone
+      exact Q'.eqv_trans _ _ _ (pow_add_eqv a (2*n) 2)
+        (Q'.eqv_trans _ _ _
+          (Q'.mul_eqv_congr_right (a^(2*n)) ((a*a)^n) (a^2)
+            (pow_two_step a n))
+          (Q'.eqv_trans _ _ _
+            (Q'.mul_eqv_congr_left ((a*a)^n) (a^2) (a*a) htwo)
+            (Q'.eqv_trans _ _ _
+              (Q'.eqv_symm htail)
+              (Q'.eqv_symm (pow_add_eqv (a*a) n 1)))))
+
+private theorem rcscale_congr {a b : Q'} (h : Q'.eqv a b) (v : RC) :
+    RCscale a v = RCscale b v := by
+  refine Quotient.inductionOn v ?_
+  intro rep
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    Q'.mul_eqv_congr_right a b (rep.approx n) h))
+
+/-- The explicit fixed-spacing epsilon-to-index modulus for the finite
+    geometric preimage error, using the existing completed representative
+    norm cap. -/
+def evenOrbitSum_modulus (X : (unionSeminorm hw0 hw1 hsmall hd hs).Cauchy)
+    (epsilon : Q') : Nat :=
+  geometricCutoff (q*q) (normCap hw0 hw1 hsmall hd hs X) epsilon
+
+theorem evenOrbitSum_error_small (X : (unionSeminorm hw0 hw1 hsmall hd hs).Cauchy)
+    (hX : B (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X)
+      (completedUnit hw0 hw1 hsmall hd hs) = RCzero)
+    (epsilon : Q') (he : (0 : Q') < epsilon) (n : Nat)
+    (hn : evenOrbitSum_modulus hw0 hw1 hsmall hd hs X epsilon ≤ n) :
+    RCle
+      (completedDist hw0 hw1 hsmall hd hs
+        (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X)
+        (completedSub hw0 hw1 hsmall hd hs
+          (evenOrbitSum hw0 hw1 hsmall hd hs
+            (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X) n)
+          (completedTime hw0 hw1 hsmall hd hs 2
+            (evenOrbitSum hw0 hw1 hsmall hd hs
+              (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X) n))))
+      (Quotient.mk crealSetoid (ofQ' epsilon)) := by
+  have hq0 : (0 : Q') ≤ q := Q'.le_of_lt (twoStepRate_positive hw0 hd)
+  have hq1 : q < (1 : Q') := twoStepRate_lt_one hw0 hd hs
+  have hqq0 : (0 : Q') ≤ q*q := Q'.mul_nonneg q q hq0 hq0
+  have hqq1 : q*q < (1 : Q') := by
+    apply Q'.lt_of_le_of_lt
+      (Q'.le_trans' _ _ _
+        (Q'.mul_le_mul_of_nonneg_left _ _ _ (Q'.le_of_lt hq1) hq0)
+        (Q'.le_of_eqv (Q'.mul_one_eqv q)))
+      hq1
+  have hnorm := evenOrbitSum_error_bound hw0 hw1 hsmall hd hs
+    (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X) hX n
+  have hnormcap := norm_le_cap hw0 hw1 hsmall hd hs X
+  have hscale := RCscale_mono
+    (Q'.pow_nonneg (q*q) hqq0 n) hnormcap
+  have hpow := pow_two_step q n
+  have hscale' : RCscale (q^(2*n))
+      (B (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X)
+        (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X)) =
+      RCscale ((q*q)^n)
+        (B (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X)
+          (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid X)) := by
+    exact rcscale_congr hpow _
+  have hgeom := geometric_bound hqq0 hqq1
+    (normCap_nonnegative hw0 hw1 hsmall hd hs X) he n hn
+  have hbound := RCle_trans hnorm (hscale' ▸ hscale)
+  refine RCle_trans hbound ?_
+  exact leEv_le_ofQ'_of_approx_le (fun _ => hgeom)
+
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_sub_twoStep
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_error_bound
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_modulus
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_error_small
 
 end YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation
