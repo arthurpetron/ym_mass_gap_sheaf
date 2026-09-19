@@ -45765,7 +45765,10 @@ claimed by these checks.
 - **declarations**:
   `completedStrictContractionData_of_fraction`,
   `transferPower_norm_decay_of_fraction`, and
-  `autocorrelation_sq_decay_of_fraction`.
+  `autocorrelation_sq_decay_of_fraction`, together with the matched-scale
+  declarations `completedStrictContractionData_of_matchedScale`,
+  `transferPower_norm_decay_of_matchedScale`, and
+  `autocorrelation_sq_decay_of_matchedScale`.
 - **proof content**: the bridge reuses
   `FixedNomeCofinalVacuumSectorConditionalVarianceFraction.toCompletedStrictContractionData`
   and applies the existing completed-carrier iteration and Cauchy--Schwarz
@@ -45773,7 +45776,7 @@ claimed by these checks.
 - **boundary**: the cofinal variance fraction, matched trajectory, physical
   scaling, gap variation, OS/continuum handoff, QFT axioms, all-group
   construction, and Clay conclusion remain explicit open inputs.
-- **verification**: `/tmp/ym-variance-completed-bridge3.log`; all three new
+- **verification**: `/tmp/ym-variance-completed-bridge5.log`; all six new
   declarations use only `{propext, Quot.sound}` and no `sorryAx`.
 
 #### [BF4-sector-quarter-slice-to-local-power-budget] Quarter slices meet the depth-budget interface — PROVED 2026-09-19

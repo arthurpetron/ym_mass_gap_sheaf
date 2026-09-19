@@ -19,11 +19,13 @@ namespace YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrie
 set_option autoImplicit false
 
 open YMGap.Constructive
+open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
 open YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceGapPath
+open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 
 /-! ## 1. Completed consumer -/
 
@@ -85,6 +87,78 @@ theorem autocorrelation_sq_decay_of_fraction
   exact centralPhysicalVacuumSectorCylinderCompletedAutocorrelation_sq_decay
     (completedStrictContractionData_of_fraction hw0 hw1 family) n vector
 
+/-! ## 2. Matched dynamic scale -/
+
+/-- At a matched AF scale, the posterior-variance producer's completed gap is
+already the strict contraction datum consumed by the completed carrier. -/
+def completedStrictContractionData_of_matchedScale
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalConditionalVarianceGapProducer trajectory)
+    (scale : Nat) :
+    CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
+      (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 :=
+  producer.completedGapAt scale
+
+/-- The matched dynamic posterior-variance producer therefore gives
+all-vector completed transfer decay at each physical scale. -/
+theorem transferPower_norm_decay_of_matchedScale
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalConditionalVarianceGapProducer trajectory)
+    (scale n : Nat)
+    (vector : CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement
+      (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0) :
+    CReal.RCle
+      (centralPhysicalVacuumSectorCylinderCompletedInner
+        (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 n vector).1
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 n vector).1)
+      (CReal.RCscale
+        (((producer.completedGapAt scale).rate *
+          (producer.completedGapAt scale).rate) ^ n)
+        (centralPhysicalVacuumSectorCylinderCompletedInner
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0
+          vector.1 vector.1)) := by
+  exact centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower_norm_decay
+    (completedStrictContractionData_of_matchedScale producer scale) n vector
+
+/-- The matched dynamic producer also controls the same-object completed
+autocorrelation at each physical scale. -/
+theorem autocorrelation_sq_decay_of_matchedScale
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalConditionalVarianceGapProducer trajectory)
+    (scale n : Nat)
+    (vector : CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement
+      (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0) :
+    CReal.RCle
+      (CReal.RCmul
+        (centralPhysicalVacuumSectorCylinderCompletedAutocorrelation
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 n vector.1)
+        (centralPhysicalVacuumSectorCylinderCompletedAutocorrelation
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 n vector.1))
+      (CReal.RCmul
+        (CReal.RCscale
+          (((producer.completedGapAt scale).rate *
+            (producer.completedGapAt scale).rate) ^ n)
+          (centralPhysicalVacuumSectorCylinderCompletedInner
+            (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0
+            vector.1 vector.1))
+        (centralPhysicalVacuumSectorCylinderCompletedInner
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0
+          vector.1 vector.1)) := by
+  exact centralPhysicalVacuumSectorCylinderCompletedAutocorrelation_sq_decay
+    (completedStrictContractionData_of_matchedScale producer scale) n vector
+
 end YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier
 
 #print axioms
@@ -93,3 +167,9 @@ end YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier
   YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier.transferPower_norm_decay_of_fraction
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier.autocorrelation_sq_decay_of_fraction
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier.completedStrictContractionData_of_matchedScale
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier.transferPower_norm_decay_of_matchedScale
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier.autocorrelation_sq_decay_of_matchedScale

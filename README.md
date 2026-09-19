@@ -55,7 +55,9 @@ turns its cofinal conditional-variance fraction into completed all-vector
 transfer-power decay and same-object autocorrelation decay at the explicit
 rate `1 - fraction`.  This keeps the variance producer, matched scaling data,
 and continuum handoff as named inputs; it is an observable consumer bridge,
-not an inhabited cofinal fraction or a Clay proof.
+not an inhabited cofinal fraction or a Clay proof.  The same module now
+exposes the matched-scale forms of both decay statements, so the dynamic
+trajectory meets the completed operator before the spacing/continuum passage.
 
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms

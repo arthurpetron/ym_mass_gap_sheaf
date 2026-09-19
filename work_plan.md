@@ -97,12 +97,15 @@ consumer in
 `FixedNomeCofinalVacuumSectorConditionalVarianceFraction.toCompletedStrictContractionData`,
 and the two exported theorems give all-vector transfer-power decay and
 same-object autocorrelation decay at the exact rate
-`(1 - fraction)^2`.  This is the backward half of the route: it makes the
-consumer type explicit while preserving the variance fraction and matched
-scaling certificates as producer inputs.  It does not construct those inputs,
-physical-gap variation, the OS/continuum passage, or the Clay endpoint.
+`(1 - fraction)^2`.  The same file now has matched-scale versions that consume
+`MatchedPhysicalConditionalVarianceGapProducer.completedGapAt` directly, so
+the dynamic trajectory meets the completed operator before the spacing limit.
+This is the backward half of the route: it makes the consumer type explicit
+while preserving the variance fraction and matched scaling certificates as
+producer inputs.  It does not construct those inputs, physical-gap variation,
+the OS/continuum passage, or the Clay endpoint.
 
-Focused check: `/tmp/ym-variance-completed-bridge3.log`; all three exports use
+Focused check: `/tmp/ym-variance-completed-bridge5.log`; all six exports use
 only `{propext, Quot.sound}`.
 
 ### Current forward/backward join: cutoff-two finite non-vacuity (2026-09-19)
