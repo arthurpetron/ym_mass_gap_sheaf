@@ -56463,7 +56463,7 @@ declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
 
-## 218. Meet the finite forward and backward faces with an explicit deficit (2026-09-19)
+## 236. Meet the finite forward and backward faces with an explicit deficit (2026-09-19)
 
 `BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.lean` is the next
 finite-only bridge after the completed-carrier certificate.  It takes the
