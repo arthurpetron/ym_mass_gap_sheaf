@@ -493,6 +493,11 @@ The probe response band is also transported through exact centering by
 `current_probe_connected_twoStep_lower` and
 `current_probe_connected_twoStep_upper`, so the nontrivial probe is witnessed
 as a connected observable rather than only as an uncentered form value.
+The newer projections `current_probe_even_band` and
+`current_probe_time_norm_floor` expose the same probe's two-sided response
+band at every even discrete lag and its positive squared-norm floor at every
+finite integer lag. These strengthen fixed-spacing nontriviality without
+adding any changing-spacing or continuum premise.
 `BF4WilsonSpatialUnionDiscreteLogGap.lean` then computes the rational decay
 separator's binary range reduction and proves a genuine positive dimensionless
 transfer mass `currentTransferMass = -log(currentRate)`, with an exact
