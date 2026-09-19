@@ -193,3 +193,30 @@ handoff, not a completed OS/GNS realization, spacing-uniform gap, or continuum
 theorem. The bridge check log is
 `/tmp/ym-wilson-canonical-bridge-20260918c.log` (SHA-256
 `7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`).
+
+## Concrete current physical sector, checked 2026-09-18
+
+The forward fragment is now explicitly consumable as
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionCurrentSector.lean`.
+`CompletedPhysicalSU2Sector.currentSector` selects the existing completed
+Wilson carrier, `completedTime 1` as the physical discrete step,
+`completedUnit` as the current vacuum (fixed by that step), and
+`completedTime 2` as the selected two-step map. Its fields are discharged by the existing same-carrier
+time-balance, positivity, contraction, and semigroup declarations. The
+normalized Wilson excitation supplies the probe, its vacuum orthogonality,
+and the already checked same-object lower and upper two-step response bounds.
+The package also retains the current-carrier resolvent probe's centeredness,
+non-erasure, and explicit `1/4` squared-norm floor.
+
+The public projection lemmas are
+`CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower` and
+`CompletedPhysicalSU2Sector.current_resolvent_probe_floor`. This closes a
+forward landmark for the backward spectral/OS consumer while preserving the
+carrier boundary: it is fixed-spacing, small-nome SU(2) data, not a canonical
+OS/GNS identification, spacing-uniform gap, physical mass calibration,
+continuum limit, or Clay theorem.
+
+Focused serialized check:
+`/tmp/ym-wilson-current-sector-20260918c.log`, SHA-256
+`0177671f0704ea6314c55f3204e107d5b5096d190d99c2b1d1bd194fb29e12e9`.
+The printed gates use only `{propext, Quot.sound}`.

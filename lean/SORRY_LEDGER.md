@@ -85,6 +85,28 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   Bridge log: `/tmp/ym-wilson-canonical-bridge-20260918c.log`; SHA-256
   `7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`.
 
+## PROVED concrete current physical SU(2) sector (2026-09-18 UTC)
+
+- **file**: `BF4WilsonSpatialUnionCurrentSector.lean`.
+- **proved**: `CompletedPhysicalSU2Sector.currentSector` packages one
+  same-carrier fixed-spacing transfer step, its current vacuum and its fixed
+  vacuum law, self-adjoint time-form law, one-step positivity, squared-norm contraction, selected
+  two-step square, normalized Wilson probe, vacuum orthogonality, the existing
+  two-step response band, and the resolvent probe's centered/nonzero/
+  `1/4`-floor facts. The public projections
+  `CompletedPhysicalSU2Sector.current_probe_twoStep_strict_lower` and
+  `CompletedPhysicalSU2Sector.current_resolvent_probe_floor` expose the two
+  quantitative landmarks to later consumers.
+- **residue**: this is a real fixed-spacing small-nome SU(2) sector package on
+  the current `UnionCompletion`. It is not an inhabitant of the conditional
+  canonical OS/GNS bridge, and it does not prove a spacing-uniform operator
+  gap, physical mass calibration, continuum survival, full QFT, or the Clay
+  theorem.
+- **verification**: focused serialized check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
+  Evidence: `/tmp/ym-wilson-current-sector-20260918c.log` (SHA-256
+  `0177671f0704ea6314c55f3204e107d5b5096d190d99c2b1d1bd194fb29e12e9`).
+
 ## PROVED bounded diagnostics / route-pruning checkpoints (2026-09-18 UTC)
 
 - `lean/YMGap/Continuum/BF4WilsonSpatialUnionRangeApproximation.lean`:

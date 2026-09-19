@@ -376,6 +376,23 @@ an explicit constructive residual for the next producer. Evidence log:
 `/tmp/ym-wilson-canonical-bridge-20260918c.log`; SHA-256
 `7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`.
 
+**Concrete current physical SU(2) sector, checked 2026-09-18:**
+`BF4WilsonSpatialUnionCurrentSector.lean` packages the already checked
+same-carrier data as `CompletedPhysicalSU2Sector.currentSector`: the discrete
+step is `completedTime 1`, the vacuum is `completedUnit` and is fixed by that
+step, positivity and self-adjointness are inherited from the existing time-form laws, and the
+two-step map is selected as `completedTime 2`. The normalized Wilson
+excitation is retained as the probe with its vacuum orthogonality and the
+existing same-object two-step lower/upper response band. The resolvent probe
+remains centered, nonzero, and has the checked `1/4` squared-norm floor.
+This is the concrete forward landmark for the backward spectral/OS consumer,
+but it is fixed-spacing, small-nome SU(2) data on the current
+`UnionCompletion`; it does not inhabit the conditional canonical bridge and
+does not establish a uniform gap, continuum survival, physical mass, or Clay
+closure. Focused check log:
+`/tmp/ym-wilson-current-sector-20260918c.log`; SHA-256
+`0177671f0704ea6314c55f3204e107d5b5096d190d99c2b1d1bd194fb29e12e9`.
+
 **Backward join review, 2026-09-18:** the legacy inward-test argument
 does not literally extend to all current Wilson windows. The legacy
 bond-reflected lower algebra can move a test onto the adjacent site plane;
