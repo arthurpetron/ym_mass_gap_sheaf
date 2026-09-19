@@ -480,6 +480,18 @@ theorem evenOrbitCentered_correlator_difference_nonnegative (x : V) :
   rw [← evenOrbitResidual_centered_pairing hw0 hw1 hsmall hd hs x x]
   exact evenOrbitCenteredResidual_form_nonnegative hw0 hw1 hsmall hd hs x
 
+theorem evenOrbitCentered_correlator_difference_strict (x : V) :
+    RCle
+      (RCscale (1 - q)
+        (B (center hw0 hw1 hsmall hd hs x)
+          (center hw0 hw1 hsmall hd hs x)))
+      (RCsub
+        (completedCenteredScalar hw0 hw1 hsmall hd hs 0 x x)
+        (completedCenteredScalar hw0 hw1 hsmall hd hs 2 x x)) := by
+  rw [← evenOrbitResidual_centered_pairing hw0 hw1 hsmall hd hs x x]
+  exact evenOrbitResidual_strict_form_bound hw0 hw1 hsmall hd hs
+    (center hw0 hw1 hsmall hd hs x) (center_orthogonal hw0 hw1 hsmall hd hs x)
+
 /-- The stage-level cutoff obtained from the constant representative of a
     strict finite Wilson stage. -/
 def evenOrbitStage_modulus (x : Stage) (epsilon : Q') : Nat :=
@@ -529,6 +541,7 @@ def evenOrbitStage_range_data (x : Stage)
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_strict_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitCenteredResidual_form_nonnegative
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitCentered_correlator_difference_nonnegative
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitCentered_correlator_difference_strict
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_kernel
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_center
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_selfAdjoint

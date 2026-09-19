@@ -362,7 +362,7 @@ on that same carrier. For vectors already in the proved vacuum complement,
 `T^(2*n)x` and bounds its squared norm by the existing `q^(2*n)` decay, with
 q named explicitly by `twoStepRate w hd`. One focused serialized one-worker/
 20 GiB check passed;
-all twenty-three public gates lie within `{propext, Quot.sound}`. The explicit
+all twenty-four public gates lie within `{propext, Quot.sound}`. The explicit
 `evenOrbitSum_modulus X epsilon` uses the existing representative norm cap and
 `geometricCutoff (q*q)`; `evenOrbitSum_error_small` proves the error is below
 `epsilon` for every later index. This supplies a constructive
@@ -409,9 +409,12 @@ for every current-completion vector orthogonal to the current unit, with
 `q = twoStepRate w hd` named in the statement. The proof is an eventual-
 rational subtraction certificate on the SAME `UnionCompletion`; it adds no
 inverse, density, canonical GNS map, spacing schedule, or continuum claim.
-The focused serialized check `/tmp/ym-range-deficit4.log` passed with SHA-256
-`999bb855fc05e9c018be1aac0cb5cad0c89bbf267c81a0434837f73c725c5176` and the
-new theorem depends only on `{propext, Quot.sound}`.
+The focused serialized check `/tmp/ym-range-deficit5.log` passed with SHA-256
+`0ef5432700de0b62af7075a01985f619450f1cec4d76b3304d2895d91841997b`; both
+new theorems depend only on `{propext, Quot.sound}`. The centered consumer
+`evenOrbitCentered_correlator_difference_strict` exposes the same margin as a
+strict lower bound on the connected lag-zero minus lag-two correlator
+difference, with the centered norm on the left.
 
 **Carrier-seam probe, checked 2026-09-18:** an attempted direct import of the
 older `BF4SpatialUnionResolvent` into the current Wilson range module was
