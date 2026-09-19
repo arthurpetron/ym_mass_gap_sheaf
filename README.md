@@ -1,6 +1,14 @@
 # Constructive Yang--Mills mass-gap formalization
 
-> **Research status (2026-09-17 UTC): this repository does not prove the Clay
+> **Current frontier (2026-09-18 UTC):** the fixed-spacing SU(2) Wilson
+> carrier now has a checked resolvent probe, strict two-step form gap, and a
+> conditional canonical OS/GNS handoff.  The handoff's supplied range section
+> constructively yields an exact carrier inverse and bijectivity, but neither
+> the bridge nor its range section is inhabited yet.  Changing-spacing control,
+> physical mass calibration, continuum QFT construction, and the all-group
+> Clay endpoint remain open.
+
+> **Research status (2026-09-18 UTC): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
@@ -21,22 +29,23 @@ distinguish that target from the current SU(2) working case. Constructive
 requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
-**Latest result: every finite Wilson window has an exact operator realization.**
-Every signed multi-time expression in the existing Wilson-window syntax now
-compiles to a finite program of vacuum, bounded time-zero multipliers, time
-translations and linear operations. Its evaluation equals the original state
-on the SAME completed carrier. For any supplied Cauchy representative and
-positive tolerance, its existing modulus computes a finite program within
-that completed squared-distance tolerance, without choosing a representative
-or imposing a support bound on the whole stream.
+**Latest result: the conditional canonical carrier handoff is now an exact
+inverse.**  In
+[`BF4WilsonSpatialUnionCanonicalGNSBridge.lean`](lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean),
+the supplied range-section equation yields constructive surjectivity,
+preimage uniqueness, a quotient-defined inverse, both-sided inverse laws, and
+an explicit bijectivity conjunction for the completed carrier.  The current
+strict form gap and nonzero resolvent probe therefore transport to every
+canonical vector *if* that bridge and range section are later inhabited.
 
-This closes finite-window realization for the existing syntax, not coverage
-of all gauge observables. Canonical Hilbert/OS/QFT, continuous time, spatial
-symmetry, changing-spacing control, finite positive physical mass and
-every-group continuum construction remain open. Six focused checks passed
-all 46 public axiom gates within `{propext, Quot.sound}`; no root/full-tree
-audit ran. See the
-[proof and remaining boundary](audits/AUDIT-WILSON-SPATIAL-UNION.md#every-original-wilson-window-has-a-finite-operator-program).
+This is a conditional consumer, not a fabricated OS/GNS identification:
+`CurrentCarrierBridge` and `CanonicalRangeSectionCertificate` remain
+uninhabited.  Changing-spacing control, physical mass calibration, continuum
+QFT construction and every-group Yang--Mills remain open.  The focused check
+used only `{propext, Quot.sound}` and produced no `sorryAx`; the detailed
+execution record is in [`work_plan.md`](work_plan.md).
+
+The finite-window operator realization below is now a historical checkpoint.
 
 The entries below are historical checkpoints. Their next steps and open
 items describe the status then; use the latest result above for current status.
