@@ -25,12 +25,17 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `PhysicalGapPrimitiveVariationInput.toExactLogRateCauchy` then feeds that
   exact same-family variation to the full-log `CReal.ModCauchyEv` consumer
   when an inverse-square spacing tail is supplied.
-- **boundary**: this is a backward interface compiler only.  The margin and
-  spacing variation witnesses and the positive floor remain producer inputs;
-  the floor branch cannot provide the spacing-to-zero continuum route.  No
+  `noPhysicalGapPrimitiveVariationInput` proves that the package itself is
+  incompatible with the family’s `SpacingToZero` modulus, by composing the
+  positive-floor reciprocal compiler with the bounded-reciprocal no-go theorem.
+- **boundary**: this is a backward interface compiler plus a constructive
+  refutation of its finite-regulator floor branch.  The margin and spacing
+  variation witnesses remain producer inputs, and the viable continuum route
+  must avoid a global floor in favor of an unbounded or renormalized variation
+  notion.  No
   continuum measure, OS/GNS reconstruction, QFT axioms, all-group theorem,
   physical mass calibration, or Clay result is claimed.
-- **verification**: `/tmp/ym-gap-variation-compiler-check3.log`; the printed
+- **verification**: `/tmp/ym-gap-variation-compiler-check4.log`; the printed
   axioms are only `{propext, Quot.sound}`, with no `sorryAx`.
 
 ## PROVED physical Perron/cross-tail to completed-quarter join (2026-09-19 UTC)

@@ -35,6 +35,8 @@ import YMGap.Continuum.EventualCRealRationalProxyTracking
 import YMGap.Continuum.FullLogRateInnerRegularity
 import YMGap.Continuum.QuadraticRateErrorTailControl
 import YMGap.Continuum.SummableRationalPositiveRatioDebtVariation
+import YMGap.Continuum.SummableRationalReciprocalSpacingNoGo
+import YMGap.Continuum.SummableRationalReciprocalStepVariation
 import YMGap.Continuum.SummableRationalStepVariation
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
@@ -64,6 +66,8 @@ open YMGap.Continuum.PhysicalSeparatorLinearTail
 open YMGap.Continuum.ProjectiveOSCorrelationHandoff
 open YMGap.Continuum.QuadraticRateErrorTailControl
 open YMGap.Continuum.SummableRationalPositiveRatioDebtVariation
+open YMGap.Continuum.SummableRationalReciprocalSpacingNoGo
+open YMGap.Continuum.SummableRationalReciprocalStepVariation
 open YMGap.Continuum.SummableRationalStepVariation
 
 local infix:50 " ≈ " => Q'.eqv
@@ -109,6 +113,23 @@ def toPhysicalGapVariation
     input.spacingFloor_le
 
 end PhysicalGapPrimitiveVariationInput
+
+/-- The positive-floor primitive package is incompatible with the completed
+family's spacing-to-zero modulus.  It is therefore a finite-regulator
+interface only, not a possible continuum producer. -/
+theorem noPhysicalGapPrimitiveVariationInput
+    {half : Nat}
+    (family : DynamicVacuumSectorCompletedFamily half)
+    (input : PhysicalGapPrimitiveVariationInput family) :
+    False := by
+  exact noSummableReciprocalSpacingVariation
+    family.transferSpacing family.transferSpacingToZero
+    (reciprocal
+      family.transferSpacing.spacing_pos
+      input.spacingVariation
+      input.spacingFloor
+      input.spacingFloor_pos
+      input.spacingFloor_le)
 
 /-! ## 1. Same-family logarithmic tail data -/
 
@@ -292,6 +313,8 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
 
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.PhysicalGapPrimitiveVariationInput.toPhysicalGapVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.noPhysicalGapPrimitiveVariationInput
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.PhysicalGapPrimitiveVariationInput.toExactLogRateCauchy
 #print axioms
