@@ -24,7 +24,7 @@ namespace YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
 
 set_option autoImplicit false
 set_option maxRecDepth 100000
-set_option maxHeartbeats 5000000
+set_option maxHeartbeats 10000000
 
 open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
@@ -32,6 +32,9 @@ open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedVacuumComplement
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredCompletion
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 open YMGap.Continuum.RCStrictPositivity
@@ -127,7 +130,6 @@ def concreteSU2CompletedCarrierCertificate
 
 theorem concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay
     {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
-    (certificate : ConcreteSU2CompletedCarrierCertificate hw0 hw1)
     (gap : CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
       hw0 hw1 0) (n : Nat) :
     CReal.RCle
