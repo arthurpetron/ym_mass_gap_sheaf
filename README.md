@@ -161,6 +161,12 @@ Thus the current non-vacuous object is a genuine carrier--transfer--vacuum--
 same-object package, while its strict gap remains only for the displayed parity
 observable and not for the full vacuum complement.
 
+Its `power_vacuum_orthogonal` field also proves that every finite power of the
+concrete transfer remains in the physical vacuum complement.  This is the
+invariant-sector prerequisite for later power-decay work; no power decay is
+claimed without the missing all-vector form gap.  Verification is in
+`/tmp/ym-parity-power-invariant-check2.log`.
+
 The whole-project target remains the [Clay problem](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf):
 a nontrivial continuum quantum Yang--Mills theory with the required QFT axioms
 and a positive physical mass gap for each compact simple gauge group.

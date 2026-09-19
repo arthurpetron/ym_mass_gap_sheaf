@@ -100,8 +100,14 @@ parity vector are therefore one dependent package.  The remaining missing
 edge is still the multi-observable/cofinal estimate needed to promote this
 one-vector strictness to the completed vacuum complement.
 
+The package now additionally proves
+`globalInwardMateCenteredParityCompletedObservable_power_vacuumOrthogonal`:
+every finite power of the explicit transfer preserves the parity vector's
+vacuum orthogonality.  This supplies the invariant-sector premise for a future
+power-decay compiler without asserting decay itself.
+
 The focused monitored check is
-`/tmp/ym-parity-concrete-transfer-check.log`; the module reports only
+`/tmp/ym-parity-power-invariant-check2.log`; the module reports only
 `[propext, Quot.sound]`.  The next causal edge is to use this certificate as
 an input to a genuine multi-observable or cofinality compiler, rather than
 mistaking the package for that compiler.

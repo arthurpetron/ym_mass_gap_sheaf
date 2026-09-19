@@ -92,12 +92,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   exports the direct unsquared form-rate estimate.  The certificate also
   carries the concrete `centralPhysicalCompletedLinearTransfer` on the same
   completed GNS carrier, making the carrier/transfer/vacuum/same-object
-  realization explicit.
+  realization explicit.  Its `power_vacuum_orthogonal` field proves that all
+  finite powers preserve the explicit vector's vacuum-complement membership.
 - **boundary**: the certificate is one-observable fixed-anchor data.  It does
   not inhabit endpoint coverage, an all-vector completed gap, a cofinal
   family, a thermodynamic/continuum passage, QFT axioms, an all-group
   construction, or the Clay theorem.
-- **verification**: `/tmp/ym-parity-concrete-transfer-check.log`; only
+- **verification**: `/tmp/ym-parity-power-invariant-check2.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
 ## PROVED parity same-object correlation-square handoff (2026-09-19 UTC)

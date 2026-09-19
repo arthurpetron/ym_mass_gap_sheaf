@@ -14,6 +14,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 -/
 
 import YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCarrier
+import YMGap.Continuum.BF4PhysicalCompletedOperatorNormGap
 import YMGap.Continuum.Z4HalfTimeReflectionStrictJointCompletedOperatorNormGap
 
 namespace YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation
@@ -25,6 +26,7 @@ set_option maxHeartbeats 6000000
 open YMGap.Constructive
 open YMGap.Continuum
 open YMGap.Continuum.BF4PhysicalCompletedMacroCorrelator
+open YMGap.Continuum.BF4PhysicalCompletedOperatorNormGap
 open YMGap.Continuum.BF4PhysicalMarkovGNSCompletion
 open YMGap.Continuum.BF4PhysicalMarkovTransferLaws
 open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCompletedOperatorNormGap
@@ -287,6 +289,19 @@ theorem globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_no
     (CReal.RCscale globalInwardMateParityFormRate norm) at hstrict
   exact hstrict
 
+/-- Every finite power of the concrete transfer keeps the explicit parity
+observable in the physical vacuum complement.  This is an invariant-sector
+fact only; no strict power decay is inferred without an all-vector form gap. -/
+theorem globalInwardMateCenteredParityCompletedObservable_power_vacuumOrthogonal
+    (K : Nat) (n : Nat) :
+    CentralPhysicalCompletedVacuumOrthogonal anchorCoupling (by decide) K 0
+      (centralPhysicalCompletedMarkovPower anchorCoupling (by decide) K 0 n
+        (globalInwardMateCenteredParityCompletedObservable K)) := by
+  exact centralPhysicalCompletedMarkovPower_preserves_vacuumOrthogonal
+    anchorCoupling (by decide) K 0 n
+    (globalInwardMateCenteredParityCompletedObservable K)
+    (globalInwardMateCenteredParityCompletedObservable_vacuumOrthogonal K)
+
 /-- The finite parity margin becomes a completed Rayleigh-deficit estimate for
 the same completed vector. -/
 theorem globalInwardMateCenteredParityCompletedObservable_margin_mul_norm_le_deficit
@@ -431,6 +446,11 @@ structure GlobalInwardMateParityCompletedCorrelationCertificate
     CReal.RCle coefficient
       (CReal.RCscale globalInwardMateParityFormRate
         (D.cinnerCompl vector vector))
+  power_vacuum_orthogonal :
+    ∀ n : Nat,
+      CentralPhysicalCompletedVacuumOrthogonal anchorCoupling (by decide) K 0
+        (centralPhysicalCompletedMarkovPower anchorCoupling (by decide) K 0 n
+          (globalInwardMateCenteredParityCompletedObservable K))
   deficit_positive :
     let w := anchorCoupling
     let hw : (0 : Q') ≤ w := by decide
@@ -469,6 +489,9 @@ def globalInwardMateParityCompletedCorrelationCertificate
     coefficient_le_rate_norm :=
       globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_norm
         K hK
+    power_vacuum_orthogonal :=
+      globalInwardMateCenteredParityCompletedObservable_power_vacuumOrthogonal
+        K
     deficit_positive :=
       globalInwardMateCenteredParityCompletedObservable_deficit_positive K hK
     deficit_ge_marginSquare :=
@@ -495,5 +518,7 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityComp
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_correlationSquare_le_rateSquare_normSquare
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_coefficient_le_rate_norm
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_power_vacuumOrthogonal
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateParityCompletedCorrelationCertificate
