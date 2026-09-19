@@ -539,8 +539,8 @@ remaining analytic hole explicit: a future same-object estimate may target
 the exact rate modulus directly, while the variation compiler remains an
 independent forward route.  The adapter is only a packaging constructor; it
 does not construct the modulus or any continuum/OS/QFT object.  Its focused
-check is the same `/tmp/ym-gap-variation-compiler-check4.log` build, with the
-new declaration also under `{propext, Quot.sound}`.
+check is `/tmp/ym-gap-rate-direct-interface-check.log`, with the new
+declaration under `{propext, Quot.sound}`.
 
 ### Current forward/backward join: residual strength factors (2026-09-19)
 

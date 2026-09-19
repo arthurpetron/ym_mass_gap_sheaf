@@ -43,8 +43,9 @@ The same file also proves the packaging constructor
 direct `CReal.ModCauchyEv` for the exact full-log rate is combined with the
 existing family spacing-to-zero witness.  This is the explicit backward
 interface for a future direct same-object rate estimate, not a producer of
-that estimate; it adds no new existence or Clay claim and is checked under
-the same log.
+that estimate; it adds no new existence or Clay claim.  The focused build log
+is `/tmp/ym-gap-rate-direct-interface-check.log`, and the declaration uses
+only `{propext, Quot.sound}`.
 
 ## PROVED physical Perron/cross-tail to completed-quarter join (2026-09-19 UTC)
 

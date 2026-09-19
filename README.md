@@ -89,7 +89,9 @@ backward-facing interface for a direct same-object constructive-real Cauchy
 modulus of the exact full-log rate.  It packages that supplied modulus with
 the existing spacing-to-zero witness; it does not prove the modulus, and it
 does not add continuum, OS/QFT, all-group, or Clay content.  This separates
-the direct analytic target from the finite-regulator variation branch.
+the direct analytic target from the finite-regulator variation branch.  The
+focused build log is `/tmp/ym-gap-rate-direct-interface-check.log`, under the
+`{propext, Quot.sound}` gate.
 
 **Completed-carrier attachment (2026-09-19):**
 `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSCompletedCarrier.lean`
