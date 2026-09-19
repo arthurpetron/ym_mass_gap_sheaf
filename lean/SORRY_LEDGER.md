@@ -133,6 +133,12 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   Cauchy stream, and `...mapCauchy_null` derives null descent from the same
   finite-stage law. The completed Gram identity and zero/unit pins remain
   separate producer obligations; no canonical bridge inhabitant is supplied.
+- **proved**: `CurrentStageCauchyFormCertificate` adds only the finite-stage
+  completed Gram identity and literal zero/unit pins to that compiler.
+  `...toCauchyFormCertificate` constructs the existing stream-level form
+  certificate, including null descent, from those checked pieces. The Gram
+  identity itself remains an explicit uninhabited producer field; dynamics,
+  probe transport, range, spacing and continuum inputs are untouched.
 - **proved**: `CurrentCarrierCauchyTwoStepCertificate` isolates the dynamic
   bridge obligation at the explicit current-stream level, and
   `...toTwoStepCertificate` descends it through the current completion quotient

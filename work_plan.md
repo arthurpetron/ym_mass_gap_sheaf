@@ -614,6 +614,19 @@ data. Focused check log: `/tmp/ym-stage-transport-bridge2.log`; SHA-256
 `7443719770680ab1136e4f2eb07f7f6aa17ebc2723d213a59e285f8c3d57e918`.
 The new declarations use only `{propext, Quot.sound}`.
 
+**Finite-stage form compiler, checked 2026-09-18:**
+`CurrentStageCauchyFormCertificate` adds only the remaining finite-stage
+completed Gram identity and literal zero/unit class pins to the transport
+compiler. `...toCauchyFormCertificate` then constructs the existing
+`CurrentCarrierCauchyFormCertificate`, including its null descent, by applying
+the compiler's checked constructors. This removes the need for a producer to
+submit an already-assembled canonical stream map, while leaving the Gram
+identification itself explicit and unproved. Dynamics, probe transport, range,
+spacing and continuum inputs remain separate. Focused check log:
+`/tmp/ym-stage-form-compiler2.log`; SHA-256
+`735a9bda52a632e127c338c1354377f4243af2554f9a09b74f66ad50e722e63b`.
+The two new declarations use only `{propext, Quot.sound}`.
+
 **Dynamic bridge stream factorization, checked 2026-09-18:**
 `CurrentCarrierCauchyTwoStepCertificate` isolates the remaining time
 intertwining at the same explicit stream level: the image of the current

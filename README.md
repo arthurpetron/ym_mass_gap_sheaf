@@ -4,8 +4,9 @@
 > carrier now has a checked resolvent probe, strict two-step form gap, and a
 > conditional canonical OS/GNS handoff.  The handoff's supplied range section
 > constructively yields an exact carrier inverse and bijectivity, but neither
-> the bridge nor its range section is inhabited yet.  A finite-stage Cauchy
-> transport compiler now isolates the producer's metric-transport input.
+> the bridge nor its range section is inhabited yet.  Finite-stage Cauchy and
+> form compilers now isolate the producer's metric-transport, Gram, and
+> zero/unit pin inputs.
 > Changing-spacing control,
 > physical mass calibration, continuum QFT construction, and the all-group
 > Clay endpoint remain open.
@@ -42,9 +43,10 @@ canonical vector *if* that bridge and range section are later inhabited.
 
 This is a conditional consumer, not a fabricated OS/GNS identification:
 `CurrentCarrierBridge` and `CanonicalRangeSectionCertificate` remain
-uninhabited.  `CurrentStageCauchyTransportCertificate` constructs only the
-canonical Cauchy stream/null descent from a finite-stage metric law; its Gram,
-zero/unit, dynamics and probe pins remain open.  Changing-spacing control,
+uninhabited.  `CurrentStageCauchyTransportCertificate` and
+`CurrentStageCauchyFormCertificate` construct only the canonical Cauchy
+stream/null descent from finite-stage metric data and expose the remaining
+Gram/zero/unit pins; dynamics and probe pins remain open.  Changing-spacing control,
 physical mass calibration, continuum
 QFT construction and every-group Yang--Mills remain open.  The focused check
 used only `{propext, Quot.sound}` and produced no `sorryAx`; the detailed

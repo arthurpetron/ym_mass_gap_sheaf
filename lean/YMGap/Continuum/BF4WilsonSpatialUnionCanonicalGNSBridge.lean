@@ -183,6 +183,53 @@ theorem mapCauchy_null (K : CurrentStageCauchyTransportCertificate P)
 
 end CurrentStageCauchyTransportCertificate
 
+/-! Once the finite-stage transport compiler is supplied, the only remaining
+static pins are its completed Gram identity and the images of the literal
+zero/unit streams.  Keeping these pins in a separate structure lets the
+constructor below build the existing stream-level form certificate without
+reintroducing a completed-stream map as an input. -/
+
+structure CurrentStageCauchyFormCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W) : Type 2 where
+  transport : CurrentStageCauchyTransportCertificate P
+  mapCauchy_pairing : ∀
+    (X Y : (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Cauchy),
+    W.toGNSData.cinnerCompl
+      (Quotient.mk (cauchySetoid W.toGNSData) (transport.mapCauchy X))
+      (Quotient.mk (cauchySetoid W.toGNSData) (transport.mapCauchy Y)) =
+      B (Quotient.mk
+        (unionSeminorm nome_pos nome_lt_one hsmall hd hs).completionSetoid X)
+        (Quotient.mk
+          (unionSeminorm nome_pos nome_lt_one hsmall hd hs).completionSetoid Y)
+  mapCauchy_zero :
+    Quotient.mk (cauchySetoid W.toGNSData)
+        (transport.mapCauchy
+          ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant zeroStage)) =
+      embedV W.toGNSData W.toGNSData.zero
+  mapCauchy_unit :
+    Quotient.mk (cauchySetoid W.toGNSData)
+        (transport.mapCauchy
+          ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant unitStage)) =
+      P.op.vacuum
+
+def CurrentStageCauchyFormCertificate.toCauchyFormCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+    (F : CurrentStageCauchyFormCertificate P) :
+    CurrentCarrierCauchyFormCertificate P where
+  mapCauchy := F.transport.mapCauchy
+  mapCauchy_null := by
+    intro X Y hXY
+    exact F.transport.mapCauchy_null hXY
+  mapCauchy_pairing := F.mapCauchy_pairing
+  mapCauchy_zero := F.mapCauchy_zero
+  mapCauchy_unit := F.mapCauchy_unit
+
 def CurrentCarrierCauchyFormCertificate.toFormCertificate
     {M : Nat -> Type} {mu : ContinuumMeasure M}
     {H : ContinuumYMExistence mu}
@@ -941,6 +988,8 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyTransportCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyTransportCertificate.mapCauchy
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyTransportCertificate.mapCauchy_null
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyFormCertificate.toCauchyFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate.toTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyProbeCertificate
