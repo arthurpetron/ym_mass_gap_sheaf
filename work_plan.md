@@ -302,6 +302,20 @@ The direct consumers `exactLogRateCauchy_of_normalizedStrengthAndReciprocalSpaci
 and `DynamicVacuumSectorContinuumHandoff.ofNormalizedStrengthAndReciprocalSpacing`
 now make this join observable in the exact-log and continuum-handoff paths.
 
+### Current forward/backward join: residual strength factors (2026-09-19)
+
+`BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler` exposes
+the local route's exact strength factorization.  Its
+`strengthVariationOfRayDeltaAndMassFloor` compiler combines summable variation
+of the ray-capacity delta and finite-sector mass-floor streams into variation
+of the literal `family.strength`; the companion
+`physicalGapVariationOfRayDeltaMassFloorAndReciprocalSpacing` joins that result
+to reciprocal-spacing variation on `family.toCompletedFamily`.  This is the
+next producer interface, but both primitive variation inputs remain
+uninhabited.  Focused check:
+`/tmp/ym-strength-factor-variation4.log`; only `{propext, Quot.sound}` were
+reported.
+
 ### Current forward/backward join: same-mass spacing order (2026-09-18)
 
 The current fixed-spacing physical calibration now has an actual trajectory-

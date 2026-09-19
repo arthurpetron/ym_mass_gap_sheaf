@@ -203,6 +203,20 @@ and `DynamicVacuumSectorContinuumHandoff.ofNormalizedStrengthAndReciprocalSpacin
 carry this same-family witness into the exact-log and continuum-handoff
 constructors without weakening their semantic inputs.
 
+## PROVED primitive residual-strength variation compiler (2026-09-19 UTC)
+
+- **file**: `BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler.lean`.
+- **proved**: `strengthVariationOfRayDeltaAndMassFloor` combines explicit
+  summable variation of the ray-capacity delta and finite-sector mass-floor
+  streams into variation of the exact residual-family strength.
+  `physicalGapVariationOfRayDeltaMassFloorAndReciprocalSpacing` feeds that
+  strength into the same-family physical-gap compiler.
+- **boundary**: both primitive variation witnesses remain explicit inputs; no
+  cofinal capacity estimate, continuum limit, QFT reconstruction, or Clay
+  theorem is claimed.
+- **verification**: `/tmp/ym-strength-factor-variation4.log`; only
+  `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4MatchedPhysicalAFTwoSidedMarginCompiler.lean`.

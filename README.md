@@ -255,6 +255,17 @@ family.  Focused check:
 now consume that joined witness directly.  Focused check:
 `/tmp/ym-strength-ratio-gap5.log`, with only `{propext, Quot.sound}` reported.
 
+**Primitive residual-strength variation compiler, checked 2026-09-19:**
+`BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler` exposes
+the exact local factorization
+`(1/2 * rayCapacity.delta) * uniformSectorMassFloor`.
+`strengthVariationOfRayDeltaAndMassFloor` combines explicit variation
+witnesses for those two streams, and
+`physicalGapVariationOfRayDeltaMassFloorAndReciprocalSpacing` feeds the result
+into the same-family physical-gap compiler.  Neither primitive variation
+stream is inhabited here.  Focused check:
+`/tmp/ym-strength-factor-variation4.log`, with only `{propext, Quot.sound}`.
+
 **Dense endpoint gap contraction, checked 2026-09-18:**
 `DenseBF4MacroEndpointLiftData.toCompletedIntertwiner_physicalMacroVacuumNormGap`
 contracts the explicit dense physical-to-strong lift certificate directly to
