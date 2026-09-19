@@ -668,6 +668,18 @@ completed-carrier separation.  Focused check log:
 `{propext, Quot.sound}` and introduce no `sorryAx`, classical axiom, or native
 computation.
 
+**Finite-stage canonical fixed-point consumer, checked 2026-09-18:**
+`CurrentStageDenseTwoStepCertificate.twoStep_fixed_stage_eq_zero` now joins
+the finite-stage two-step intertwining pin with the named reverse separation
+certificate and the inhabited current-carrier fixed-point exclusion.  It
+shows that any transported finite-stage canonical class that is two-step
+fixed and current-vacuum-orthogonal is canonical zero.  This is a genuine
+backward contraction on the finite dense image, but it remains conditional on
+the uninhabited transport/separation inputs and does not cover arbitrary
+canonical Cauchy vectors or a completed canonical spectral gap.  Focused check
+log: `/tmp/ym-stage-fixed-zero2.log`; the new theorem uses only
+`{propext, Quot.sound}`.
+
 **Dynamic bridge stream factorization, checked 2026-09-18:**
 `CurrentCarrierCauchyTwoStepCertificate` isolates the remaining time
 intertwining at the same explicit stream level: the image of the current

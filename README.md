@@ -65,6 +65,13 @@ that separation datum is supplied.  The datum itself is still uninhabited:
 it is the remaining density/continuity proof, not an assumed canonical
 identification.
 
+With that certificate and the finite-stage dynamic pin, the checked consumer
+`CurrentStageDenseTwoStepCertificate.twoStep_fixed_stage_eq_zero` now excludes
+canonical two-step fixed points among transported finite stages, assuming the
+same explicit current vacuum-orthogonality premise.  This remains conditional
+and finite-stage; arbitrary canonical Cauchy vectors still require the dynamic
+density/range bridge.
+
 The finite-window operator realization below is now a historical checkpoint.
 
 The entries below are historical checkpoints. Their next steps and open

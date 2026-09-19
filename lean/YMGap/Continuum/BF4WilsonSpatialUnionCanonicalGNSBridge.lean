@@ -490,6 +490,49 @@ theorem twoStep_form_bound
     hcorr.trans hsym
   simpa only [hcorr', hnorm] using hcurrent
 
+/-! If the finite-stage reverse separation edge is supplied, the current
+fixed-point exclusion can already be consumed on canonical stage classes.
+This is still a finite-stage statement: it does not extend the conclusion to
+arbitrary canonical Cauchy classes. -/
+
+theorem twoStep_fixed_stage_eq_zero
+    (C : CurrentStageDenseTwoStepCertificate P F)
+    (sep : CurrentStagePairingSeparationCertificate P F)
+    (x : BF4WilsonSpatialUnion.Stage)
+    (hx : B (BF4WilsonSpatialUnionSeminorm.embedStage
+      nome_pos nome_lt_one hsmall hd hs x)
+      (BF4WilsonSpatialUnionSeminorm.completedUnit
+        nome_pos nome_lt_one hsmall hd hs) = RCzero)
+    (hfixed : P.op.T (P.op.T (F.stageClass x)) = F.stageClass x) :
+    F.stageClass x = embedV W.toGNSData W.toGNSData.zero := by
+  have hclass : F.stageClass (BF4WilsonSpatialUnion.time 2 x) = F.stageClass x := by
+    exact (C.twoStep_intertwines x).trans hfixed
+  have hcurrent_stage :=
+    (CurrentStagePairingSeparationCertificate.stageClass_eq_iff_current_eq sep).mp hclass
+  have hsource :
+      BF4WilsonSpatialUnionSeminorm.completedTime
+          nome_pos nome_lt_one hsmall hd hs 2
+          (BF4WilsonSpatialUnionSeminorm.embedStage
+            nome_pos nome_lt_one hsmall hd hs x) =
+        BF4WilsonSpatialUnionSeminorm.embedStage
+          nome_pos nome_lt_one hsmall hd hs x := by
+    simpa only [BF4WilsonSpatialUnionSeminorm.completedTime_embedStage] using hcurrent_stage
+  have hzero := fixed_orthogonal_eq_zero
+    nome_pos nome_lt_one hsmall hd hs
+    (BF4WilsonSpatialUnionSeminorm.embedStage
+      nome_pos nome_lt_one hsmall hd hs x) hx hsource
+  have hstagezero :
+      F.stageClass x = F.stageClass BF4WilsonSpatialUnion.zeroStage := by
+    apply F.stageClass_eq_of_current_eq
+    simpa only [completedZero] using hzero
+  calc
+    F.stageClass x = F.stageClass BF4WilsonSpatialUnion.zeroStage := hstagezero
+    _ = embedV W.toGNSData W.toGNSData.zero := by
+      change Quotient.mk (cauchySetoid W.toGNSData)
+          (F.transport.mapCauchy
+            ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant zeroStage)) = _
+      exact F.mapCauchy_zero
+
 end CurrentStageDenseTwoStepCertificate
 
 def CurrentCarrierCauchyFormCertificate.toFormCertificate
@@ -1262,6 +1305,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_correlation_eq_current
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_form_bound
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_fixed_stage_eq_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate.toTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyProbeCertificate
