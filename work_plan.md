@@ -383,6 +383,9 @@ step is `completedTime 1`, the vacuum is `completedUnit` and is fixed by that
 step, and the step preserves its orthogonal complement. The vacuum has the
 completed unit norm; positivity and self-adjointness are inherited from the
 existing time-form laws, and the two-step map is selected as `completedTime 2`.
+The package also exposes the existing uniform strict two-step form bound on
+every current-carrier vector orthogonal to that vacuum, with rate
+`twoStepRate nome hd`.
 The normalized Wilson excitation is retained as a nonzero probe with its
 vacuum orthogonality and the existing same-object two-step lower/upper response
 band. The resolvent probe remains centered, nonzero, and has the checked `1/4`

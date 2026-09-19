@@ -31,14 +31,17 @@ open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
   (completedInner completedUnit_norm_one)
 open YMGap.Continuum.BF4WilsonSpatialUnionTimeForm
 open YMGap.Continuum.BF4WilsonSpatialUnionTimePositive
+open YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
+  (completed_twoStep_form_gap)
 open YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
 open YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
 open YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 open YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
 open YMGap.Continuum.BF4WilsonSpatialUnionPosdef (completedZero)
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
+open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap (twoStepRate)
 open YMGap.Continuum.BF4ExactSlabPlaquetteSmallNomeCertificate
-  (nome_pos nome_lt_one)
+  (nome nome_pos nome_lt_one)
 open YMGap.Continuum.BF4ExactSlabSmallNomeHaarComparison (existingNome_guards)
 open YMGap.Continuum.BF4ExactSlabSummableCoreRate (existingNome_entropyRate)
 
@@ -78,6 +81,12 @@ structure CompletedPhysicalSU2Sector : Type 2 where
   twoStep : V → V
   /-- The two-step map is the square of the selected step. -/
   twoStep_eq_step_sq : ∀ x, twoStep x = step (step x)
+  /-- The uniform strict two-step form bound on this current vacuum complement. -/
+  twoStep_strict_form_bound :
+    ∀ x, B x vacuum = RCzero →
+      RCle (B x (twoStep x))
+        (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
+          (B x x))
   /-- The existing normalized excitation. -/
   probe : V
   /-- The probe is nonzero on the current completed carrier. -/
@@ -119,6 +128,8 @@ def currentSector : CompletedPhysicalSU2Sector where
     intro x
     simpa only [Nat.reduceAdd] using
       (completedTime_add nome_pos nome_lt_one hsmall hd hs 1 1 x)
+  twoStep_strict_form_bound :=
+    completed_twoStep_form_gap nome_pos nome_lt_one hsmall hd hs
   probe := unitExcitation
   probe_ne_zero := unitExcitation_ne_zero
   probe_vacuum_orthogonal := unitExcitation_orthogonal

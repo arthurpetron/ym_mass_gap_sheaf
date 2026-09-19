@@ -205,7 +205,10 @@ Wilson carrier, `completedTime 1` as the physical discrete step,
 the existing same-carrier time-balance, positivity, contraction, semigroup,
 vacuum-complement, and unit-norm declarations. The normalized Wilson
 excitation supplies a nonzero probe, its vacuum orthogonality, and the already
-checked same-object lower and upper two-step response bounds.
+checked same-object lower and upper two-step response bounds. The package also
+exposes the existing uniform strict two-step form bound for every current
+carrier vector orthogonal to the selected vacuum, with explicit rate
+`twoStepRate nome hd`.
 The package also retains the current-carrier resolvent probe's centeredness,
 non-erasure, and explicit `1/4` squared-norm floor.
 
