@@ -29,6 +29,7 @@ open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedAlgebra
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedVacuumComplement
+open YMGap.Continuum.BF4PhysicalCutoffCofinalStrictGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
@@ -175,6 +176,44 @@ theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_de
     (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
       hw0 hw1)
 
+/-- Directly expose the one remaining cofinal certificate required for this
+observable channel. -/
+theorem centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_cofinal_sq_decay
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {q : Q'}
+    (certificate : FixedNomeCofinalCenteredStrictGap
+      w (Q'.le_of_lt hw0) 0 q) (n : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+          hw0 hw1 n)
+        (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+          hw0 hw1 n))
+      (CReal.RCmul
+        (CReal.RCscale ((q * q) ^ n)
+          (centralPhysicalCutoffCompletedInner hw0 hw1 0
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))))
+        (centralPhysicalCutoffCompletedInner hw0 hw1 0
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0)))) := by
+  simpa only [centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation,
+    centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement,
+    centralPhysicalVacuumSectorCylinderCompletedInner,
+    centralPhysicalVacuumSectorMovingCenteredGlobalVector] using
+    (centralPhysicalVacuumSectorCylinderCompletedAutocorrelation_cofinal_sq_decay
+      hw0 hw1 0 certificate n
+      (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
+        hw0 hw1))
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
 /-! ## Axiom-dependency gates -/
@@ -191,3 +230,5 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_zero_isPositive
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_cofinal_sq_decay

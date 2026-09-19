@@ -150,10 +150,12 @@ the already inhabited adaptive recoding transfer, and
 identifies every discrete-time moment with the global adaptive-transfer
 matrix coefficient.  The specialized `_sq_decay` theorem leaves only the
 named `CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData` as
-an input; it does not manufacture that certificate.  Thus the remaining
+an input; it does not manufacture that certificate.  The direct
+`..._cofinal_sq_decay` theorem specializes this further to the exact
+`FixedNomeCofinalCenteredStrictGap w hw 0 q` input.  Thus the remaining
 frontier is cofinal strictness/capacity and its same-family variation, followed
 by thermodynamic or continuum passage, QFT axioms, and all-group construction.
-Focused check: `/tmp/ym-pulled-vacuum-complement-autocorrelation-fresh2.log`; only
+Focused check: `/tmp/ym-pulled-vacuum-complement-cofinal-specialization2.log`; only
 `{propext, Quot.sound}` were reported.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)

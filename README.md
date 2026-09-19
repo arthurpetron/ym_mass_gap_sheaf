@@ -157,9 +157,12 @@ zero-time currency.  The witness is now also packaged on the inhabited
 completed sector transfer: `...CompletedAutocorrelation_eq_global` identifies
 every natural-time moment with the global adaptive-transfer matrix
 coefficient, while `..._sq_decay` exposes the single strict-contraction
-certificate still needed for geometric decay.  It does not provide that
-cofinal rate certificate or construct a thermodynamic/continuum QFT.  The
-focused check was `/tmp/ym-pulled-vacuum-complement-autocorrelation-fresh2.log`, with only
+certificate still needed for geometric decay.  The direct
+`..._cofinal_sq_decay` specialization shows that the exact missing input is
+the named `FixedNomeCofinalCenteredStrictGap` at the same fixed nome and
+half-extent.  It does not provide that certificate or construct a
+thermodynamic/continuum QFT.  The focused check was
+`/tmp/ym-pulled-vacuum-complement-cofinal-specialization2.log`, with only
 `{propext, Quot.sound}` reported.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**
