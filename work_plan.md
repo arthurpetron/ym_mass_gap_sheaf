@@ -484,6 +484,20 @@ remain open. Focused check log:
 `/tmp/ym-canonical-probe-ne-zero.log`; SHA-256
 `67cef4dee9ed123c40b809d5344e7b74f470e5669300d9a5171e5d5c45d65071`.
 
+**Canonical same-object decay consumer, checked 2026-09-18:**
+`CurrentCarrierBridge.canonicalProbe_twoStepCorrelation_eq_current` and
+`CurrentCarrierBridge.canonicalProbe_twoStep_sq_decay` transport the current
+carrier's actual resolvent-probe two-step coefficient and squared decay through
+the bridge's form-preservation and two-step-intertwining fields. The bound keeps
+the original nome-dependent rate and the literal transported canonical norm;
+the proof uses symmetry only to align the current mixed-correlator orientation.
+Thus the bridge now exposes both canonical non-erasure and a genuine canonical
+same-object decay estimate once it is inhabited. It still does not construct
+the bridge, identify a changing-spacing family, or produce a continuum/QFT
+limit. Focused check log:
+`/tmp/ym-canonical-probe-two-step.log`; SHA-256
+`bd35bb742d18fcd5c180653e56e59609ca429f39f8fea28af6b6d8a0295b4cbc`.
+
 **Concrete current physical SU(2) sector, checked 2026-09-18:**
 `BF4WilsonSpatialUnionCurrentSector.lean` packages the already checked
 same-carrier data as `CompletedPhysicalSU2Sector.currentSector`: the discrete

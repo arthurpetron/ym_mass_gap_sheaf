@@ -32,14 +32,22 @@ open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.MeasureLinkedOSReconstruction
 open YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
+  (completedInner_symm)
+open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
   (completedInner)
 open YMGap.Continuum.BF4WilsonSpatialUnionPosdef (completedZero)
 open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
 open YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
 open YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 open YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
+open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
+  (mixed_correlator_sq_decay)
+open YMGap.Continuum.BF4WilsonSpatialUnionVacuumProjection
+  (center_fixed_iff)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap
+  (twoStepRate)
 open YMGap.Continuum.BF4ExactSlabPlaquetteSmallNomeCertificate
-  (nome_pos nome_lt_one)
+  (nome nome_pos nome_lt_one)
 open YMGap.Continuum.BF4ExactSlabSmallNomeHaarComparison (existingNome_guards)
 open YMGap.Continuum.BF4ExactSlabSummableCoreRate (existingNome_entropyRate)
 open YMGap.Continuum.WilsonGNSTransferUnderdetermination
@@ -163,6 +171,70 @@ theorem canonicalProbe_ne_zero (J : CurrentCarrierBridge P) :
   exact positive_constant_not_le_zero_local
     (Q'.mkPos 1 4 (by decide)) (by decide) hfloor
 
+/-! ## The first canonical same-object moment consumer -/
+
+/-- The canonical two-step matrix coefficient of the transported resolvent
+probe is exactly the current-carrier coefficient.  The equality uses only
+the bridge's form preservation and its explicit two-step intertwining field.
+-/
+theorem canonicalProbe_twoStepCorrelation_eq_current
+    (J : CurrentCarrierBridge P) :
+    W.toGNSData.cinnerCompl
+        (P.op.T (P.op.T (J.canonicalProbe.vector)))
+        (J.canonicalProbe.vector) =
+      B (T 2 (R unitExcitation)) (R unitExcitation) := by
+  change W.toGNSData.cinnerCompl
+      (P.op.T (P.op.T (J.map (R unitExcitation))))
+      (J.map (R unitExcitation)) =
+    B (T 2 (R unitExcitation)) (R unitExcitation)
+  rw [← J.twoStep_intertwines (R unitExcitation)]
+  exact J.form_preserving (T 2 (R unitExcitation)) (R unitExcitation)
+
+/-- The transported canonical probe inherits the fixed-spacing current
+same-object squared decay at the two-step lag.  This is conditional only on
+the named carrier bridge; it does not construct the OS/GNS bridge or change
+the observable. -/
+theorem canonicalProbe_twoStep_sq_decay
+    (J : CurrentCarrierBridge P) :
+    CReal.RCle
+      (CReal.RCmul
+        (W.toGNSData.cinnerCompl
+          (P.op.T (P.op.T (J.canonicalProbe.vector)))
+          (J.canonicalProbe.vector))
+        (W.toGNSData.cinnerCompl
+          (P.op.T (P.op.T (J.canonicalProbe.vector)))
+          (J.canonicalProbe.vector)))
+      (CReal.RCmul
+        (W.toGNSData.cinnerCompl
+          (J.canonicalProbe.vector) (J.canonicalProbe.vector))
+        (CReal.RCscale
+          (twoStepRate nome hd ^ 2)
+          (W.toGNSData.cinnerCompl
+            (J.canonicalProbe.vector) (J.canonicalProbe.vector)))) := by
+  have hcurrent := mixed_correlator_sq_decay
+    nome_pos nome_lt_one hsmall hd hs
+    (R unitExcitation) (R unitExcitation)
+    ((center_fixed_iff nome_pos nome_lt_one hsmall hd hs _).mp
+      (unitExcitation_resolvent_centered)) 2
+  rw [canonicalProbe_twoStepCorrelation_eq_current J]
+  rw [canonicalProbe_vector J]
+  rw [J.form_preserving (R unitExcitation) (R unitExcitation)]
+  have hcorr :
+      B (T 2 (R unitExcitation)) (R unitExcitation) =
+        B (R unitExcitation) (T 2 (R unitExcitation)) :=
+    completedInner_symm nome_pos nome_lt_one hsmall hd hs
+      (T 2 (R unitExcitation)) (R unitExcitation)
+  have hsq :
+      CReal.RCmul
+          (B (T 2 (R unitExcitation)) (R unitExcitation))
+          (B (T 2 (R unitExcitation)) (R unitExcitation)) =
+        CReal.RCmul
+          (B (R unitExcitation) (T 2 (R unitExcitation)))
+          (B (R unitExcitation) (T 2 (R unitExcitation))) :=
+    congrArg (fun z : CReal.RC => CReal.RCmul z z) hcorr
+  rw [hsq]
+  exact hcurrent
+
 end CurrentCarrierBridge
 
 end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
@@ -172,3 +244,5 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_norm_floor
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_ne_zero
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_twoStepCorrelation_eq_current
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_twoStep_sq_decay
