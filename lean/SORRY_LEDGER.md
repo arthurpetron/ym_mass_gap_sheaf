@@ -46053,6 +46053,35 @@ claimed by these checks.
 - **verification**: `/tmp/ym-variance-completed-bridge5.log`; all six new
   declarations use only `{propext, Quot.sound}` and no `sorryAx`.
 
+#### [BF4-finite-prefix-deficit-fraction] Finite forward/backward deficit meet — PROVED 2026-09-19
+
+- **milestone**: turn the finite-prefix maximum of the already-constructed
+  fixed-base strict rates into an explicit complementary fraction and an
+  equivalent moving diagonal-minus-transfer margin.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.lean`.
+- **declarations**:
+  `finitePrefixRate`, `finitePrefixDeficitFraction`,
+  `finitePrefixDeficitFraction_pos`,
+  `finitePrefixDeficitFraction_le_one`,
+  `finitePrefixDeficitFraction_complement_rate_eqv`, and
+  `fixedCarrierPrefixDeficitFractionData`.
+- **proof content**: for each finite prefix `0,...,bound`, the common rate is
+  `q_bound < 1`; the package records
+  `epsilon_bound = 1 - q_bound > 0`, `epsilon_bound ≤ 1`, and proves
+  `epsilon_bound * diagonal ≤ diagonal - matrix` for every included base and
+  every later cutoff admitted by its fixed-base start condition.
+- **forward/backward interpretation**: the forward fixed-base rate is met by
+  the backward complementary deficit at a finite bound.  This is a moving
+  form margin, not the original conditional pairwise-variance identity.
+- **scope boundary**: `epsilon_bound` is allowed to shrink as `bound` grows;
+  no cofinal fraction, completed uniform gap, thermodynamic/continuum limit,
+  QFT reconstruction, all-group result, or Clay conclusion is asserted.
+- **verification**: source check
+  `/tmp/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.check7.log`;
+  dependency target `+YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction:olean`.
+  The audited declarations use only `{propext, Quot.sound}` and no `sorryAx`.
+
 #### [BF4-sector-quarter-slice-to-local-power-budget] Quarter slices meet the depth-budget interface — PROVED 2026-09-19
 
 - **milestone**: compile the existing sector-local quarter-rate slice route

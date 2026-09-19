@@ -56463,6 +56463,28 @@ declaration uses only `[propext, Quot.sound]`; no `Classical`, choice,
 `sorry`, `admit`, `native_decide`, custom axiom, noncomputable
 declaration, or enlarged heartbeat budget is introduced.
 
+## 218. Meet the finite forward and backward faces with an explicit deficit (2026-09-19)
+
+`BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.lean` is the next
+finite-only bridge after the completed-carrier certificate.  It takes the
+running maximum `q_bound` of the checked fixed-base rates on
+`0,...,bound`, proves `q_bound < 1`, and defines the explicit complementary
+fraction `epsilon_bound = 1 - q_bound`.  The constructor
+`fixedCarrierPrefixDeficitFractionData` proves the moving estimate
+
+`epsilon_bound * diagonal <= diagonal - matrix`
+
+for every included base and every later cutoff covered by that base's start
+condition.  This is the precise finite meeting point of forward synthesis
+(the rate) and backward checking (the required deficit margin).
+
+The bound is intentionally not cofinal: `epsilon_bound` may shrink with
+`bound`, and the theorem does not identify it with the original conditional
+posterior variance.  The next causal frontier is therefore to construct a
+single cofinal same-object fraction (or an equivalent uniform producer), then
+feed it through the completed-carrier bridge, physical scaling, and the still
+open thermodynamic/continuum/QFT layers.  No Clay conclusion is claimed.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A
