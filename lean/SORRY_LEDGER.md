@@ -13,6 +13,20 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED forward/backward spacing compiler (2026-09-18 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicSpacingTailCompiler.lean`.
+- **proved**: `MatchedPhysicalDynamicScalarTrajectory.physicalSpacingInverseSquareOfAFTrajectory`
+  transports the AF inverse-square spacing-tail certificate to the literal
+  spacing in the matched dynamic trajectory.
+- **residue**: the AF schedule identification and quadratic physical-spacing
+  envelope remain explicit inputs; no physical-gap variation, local matched
+  producer, observable pin, rate band, continuum handoff, or Clay conclusion
+  is constructed.
+- **verification**: `/tmp/ym-spacing-tail-compiler.log`, source SHA-256
+  `55cac7b3f1e8ef7f578a3873a9c6bd84f7ca012f49c99e167bce7b8b9326495e`;
+  only `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
+
 ## PROVED forward/backward regular-scaling compiler (2026-09-18 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorObservablePath.lean`.

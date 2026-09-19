@@ -702,6 +702,20 @@ obligations.
 Focused check: `/tmp/ym-modulated-dense-endpoint-current.log`; source SHA-256
 `323b00b49a0f0bdb4c93d011d1ac52fa8a09b87a9f8d56c195b512e70a926138`.
 
+**Forward/backward spacing branch, checked 2026-09-18:**
+`BF4PhysicalMatchedAFDynamicSpacingTailCompiler.MatchedPhysicalDynamicScalarTrajectory.physicalSpacingInverseSquareOfAFTrajectory`
+transports `BF4AFPhysicalSpacingInverseSquare.spacingInverseSquareTailOfAFTrajectory`
+to the literal spacing carried by the matched dynamic trajectory.  The AF
+identification and quadratic envelope therefore provide a constructive
+inverse-square spacing tail for the same family consumed by the exact-log
+cutoff compiler.  This does not provide a physical-gap variation estimate;
+that ratio estimate, the matched local producer, the observable pin, and the
+two-sided rate band remain the next analytic leaves.
+
+Focused check: `/tmp/ym-spacing-tail-compiler.log`; source SHA-256
+`55cac7b3f1e8ef7f578a3873a9c6bd84f7ca012f49c99e167bce7b8b9326495e`.
+Only `{propext, Quot.sound}` were reported.
+
 **Forward/backward regular-scaling meet, checked 2026-09-18:**
 `DynamicVacuumSectorObservablePin.toRegScalingBand` in
 `BF4PhysicalDynamicVacuumSectorObservablePath.lean` compiles the same

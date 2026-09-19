@@ -110,6 +110,18 @@ inhabitant or continuum/Clay result is present.  Evidence:
 `/tmp/ym-modulated-dense-endpoint-current.log`; source SHA-256
 `323b00b49a0f0bdb4c93d011d1ac52fa8a09b87a9f8d56c195b512e70a926138`.
 
+**Forward/backward spacing branch, checked 2026-09-18:**
+`BF4PhysicalMatchedAFDynamicSpacingTailCompiler.MatchedPhysicalDynamicScalarTrajectory.physicalSpacingInverseSquareOfAFTrajectory`
+transports the existing AF inverse-square spacing estimate to the exact
+matched dynamic trajectory.  The target is the trajectory's literal spacing,
+so this discharges the spacing-tail input consumed by the exact-log compiler
+without changing the coupling, envelope, or completed family.  The
+same-family physical-gap variation, local matched producer, observable pin,
+and rate band remain open.  Focused check:
+`/tmp/ym-spacing-tail-compiler.log`; source SHA-256
+`55cac7b3f1e8ef7f578a3873a9c6bd84f7ca012f49c99e167bce7b8b9326495e`.
+Only `{propext, Quot.sound}` were reported.
+
 **Forward/backward regular-scaling meet, checked 2026-09-18:**
 `DynamicVacuumSectorObservablePin.toRegScalingBand` now compiles the same
 observable-connected completed-transfer rate band through the named physical
