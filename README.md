@@ -4,7 +4,9 @@
 > carrier now has a checked resolvent probe, strict two-step form gap, and a
 > conditional canonical OS/GNS handoff.  The handoff's supplied range section
 > constructively yields an exact carrier inverse and bijectivity, but neither
-> the bridge nor its range section is inhabited yet.  Changing-spacing control,
+> the bridge nor its range section is inhabited yet.  A finite-stage Cauchy
+> transport compiler now isolates the producer's metric-transport input.
+> Changing-spacing control,
 > physical mass calibration, continuum QFT construction, and the all-group
 > Clay endpoint remain open.
 
@@ -30,7 +32,7 @@ requirements are unchanged; classical mathematical review is encouraged as a
 review aid, not as a replacement for explicit witnesses or the axiom gate.
 
 **Latest result: the conditional canonical carrier handoff is now an exact
-inverse.**  In
+inverse, with a finite-stage transport compiler.**  In
 [`BF4WilsonSpatialUnionCanonicalGNSBridge.lean`](lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean),
 the supplied range-section equation yields constructive surjectivity,
 preimage uniqueness, a quotient-defined inverse, both-sided inverse laws, and
@@ -40,7 +42,10 @@ canonical vector *if* that bridge and range section are later inhabited.
 
 This is a conditional consumer, not a fabricated OS/GNS identification:
 `CurrentCarrierBridge` and `CanonicalRangeSectionCertificate` remain
-uninhabited.  Changing-spacing control, physical mass calibration, continuum
+uninhabited.  `CurrentStageCauchyTransportCertificate` constructs only the
+canonical Cauchy stream/null descent from a finite-stage metric law; its Gram,
+zero/unit, dynamics and probe pins remain open.  Changing-spacing control,
+physical mass calibration, continuum
 QFT construction and every-group Yang--Mills remain open.  The focused check
 used only `{propext, Quot.sound}` and produced no `sorryAx`; the detailed
 execution record is in [`work_plan.md`](work_plan.md).

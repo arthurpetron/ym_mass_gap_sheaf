@@ -600,6 +600,20 @@ current form has a Q'-valued canonical representative. Focused check log:
 The two new declarations use only `{propext, Quot.sound}`; no stream encoder or
 canonical bridge inhabitant is supplied.
 
+**Finite-stage Cauchy transport compiler, checked 2026-09-18:**
+`CurrentStageCauchyTransportCertificate` now isolates a smaller forward-facing
+producer input: one map from the original staged Wilson syntax to canonical
+GNSData representatives, together with a universal transport of every source
+`CReal` distance tolerance to the target rational squared-distance bound.
+`...mapCauchy` constructs the target Cauchy stream termwise and reuses the
+source modulus; `...mapCauchy_null` derives canonical null descent from the
+same finite-stage law. This is a genuine compiler toward the existing
+`CurrentCarrierCauchyFormCertificate`, not an inhabitant of it: the completed
+Gram identity and zero/unit pins remain separate, as do dynamics and probe
+data. Focused check log: `/tmp/ym-stage-transport-bridge2.log`; SHA-256
+`7443719770680ab1136e4f2eb07f7f6aa17ebc2723d213a59e285f8c3d57e918`.
+The new declarations use only `{propext, Quot.sound}`.
+
 **Dynamic bridge stream factorization, checked 2026-09-18:**
 `CurrentCarrierCauchyTwoStepCertificate` isolates the remaining time
 intertwining at the same explicit stream level: the image of the current

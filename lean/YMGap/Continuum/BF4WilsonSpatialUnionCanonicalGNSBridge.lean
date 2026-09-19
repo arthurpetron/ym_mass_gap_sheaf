@@ -125,6 +125,64 @@ structure CurrentCarrierCauchyFormCertificate
         (mapCauchy ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).constant unitStage)) =
       P.op.vacuum
 
+/-! A finite-stage metric transport is a genuine forward-facing producer
+compiler.  It is weaker than a completed carrier map: the producer supplies
+one map on the original staged Wilson syntax and proves that every source
+`CReal` tolerance transports to a rational `GNSData` tolerance.  The Cauchy
+stream map and its null descent are then constructed below, without choosing
+representatives of either quotient.  The completed Gram and distinguished
+zero/unit pins remain separate fields of
+`CurrentCarrierCauchyFormCertificate`; this compiler therefore does not hide
+the OS/GNS identification in a larger wrapper. -/
+
+structure CurrentStageCauchyTransportCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W) : Type 2 where
+  mapStage : BF4WilsonSpatialUnion.Stage → W.toGNSData.V
+  mapStage_distSq_le : ∀ (x y : BF4WilsonSpatialUnion.Stage) (ε : Q'),
+    CReal.leEv
+      ((unionSeminorm nome_pos nome_lt_one hsmall hd hs).distSq x y)
+      (CReal.ofQ' ε) →
+    W.toGNSData.distSqQ (mapStage x) (mapStage y) ≤ ε
+
+namespace CurrentStageCauchyTransportCertificate
+
+variable
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+
+local notation "D" => unionSeminorm nome_pos nome_lt_one hsmall hd hs
+
+/-- Map a current CReal-Cauchy stream termwise into a canonical rational GNS
+Cauchy stream, retaining the source modulus exactly. -/
+def mapCauchy (K : CurrentStageCauchyTransportCertificate P)
+    (X : (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Cauchy) :
+    CauchyGNS W.toGNSData where
+  seq := fun n => K.mapStage (X.seq n)
+  modulus := X.modulus
+  isCauchy := by
+    intro ε hε p q hp hq
+    exact K.mapStage_distSq_le (X.seq p) (X.seq q) ε
+      (X.isCauchy ε hε p q hp hq)
+
+/-- Source closeness transports constructively to canonical Cauchy-nullness;
+the source closing modulus is reused verbatim. -/
+theorem mapCauchy_null (K : CurrentStageCauchyTransportCertificate P)
+    {X Y : (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Cauchy}
+    (hXY : (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Close X Y) :
+    CauchyNull W.toGNSData (K.mapCauchy X) (K.mapCauchy Y) := by
+  intro ε hε
+  refine ⟨hXY.modulus ε, ?_⟩
+  intro n hn
+  exact K.mapStage_distSq_le (X.seq n) (Y.seq n) ε
+    (hXY.close ε hε n hn)
+
+end CurrentStageCauchyTransportCertificate
+
 def CurrentCarrierCauchyFormCertificate.toFormCertificate
     {M : Nat -> Type} {mu : ContinuumMeasure M}
     {H : ContinuumYMExistence mu}
@@ -880,6 +938,9 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalCompletedGapCertificate.ofRangeSection
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate.toFormCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyTransportCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyTransportCertificate.mapCauchy
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageCauchyTransportCertificate.mapCauchy_null
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate.toTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyProbeCertificate

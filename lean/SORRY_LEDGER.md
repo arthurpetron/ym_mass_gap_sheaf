@@ -126,6 +126,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `CurrentCarrierCauchyFormCertificate.toFormCertificate` constructs the
   existing static form certificate by quotient lifting. No stream encoder or
   bridge inhabitant is supplied.
+- **proved**: `CurrentStageCauchyTransportCertificate` isolates a finite-stage
+  producer compiler: a staged Wilson-to-canonical representative map plus a
+  universal CReal-to-rational distance transport law. Its
+  `...mapCauchy` constructor reuses each source modulus to build a canonical
+  Cauchy stream, and `...mapCauchy_null` derives null descent from the same
+  finite-stage law. The completed Gram identity and zero/unit pins remain
+  separate producer obligations; no canonical bridge inhabitant is supplied.
 - **proved**: `CurrentCarrierCauchyTwoStepCertificate` isolates the dynamic
   bridge obligation at the explicit current-stream level, and
   `...toTwoStepCertificate` descends it through the current completion quotient
