@@ -359,6 +359,22 @@ theorem resolvent_selfAdjoint (x y : V) :
           (resolvent hw0 hw1 hsmall hd hs y) := by
       rw [center_selfAdjoint, resolvent_centered]
 
+theorem defect_zero : defect hw0 hw1 hsmall hd hs Z = Z := by
+  unfold defect
+  rw [completedTime_zeroState, completedSub_zero]
+
+theorem resolvent_zero : resolvent hw0 hw1 hsmall hd hs Z = Z := by
+  have h := resolvent_left_inverse hw0 hw1 hsmall hd hs Z
+  rw [defect_zero, center_zero] at h
+  exact h
+
+theorem resolvent_ne_zero (x : V) (hx : C x = x) (hxn : x ≠ Z) :
+    resolvent hw0 hw1 hsmall hd hs x ≠ Z := by
+  intro h
+  have he := congrArg (defect hw0 hw1 hsmall hd hs) h
+  rw [resolvent_right_inverse, hx, defect_zero] at he
+  exact hxn he
+
 end YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent
@@ -374,3 +390,6 @@ end YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_time
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.defect_selfAdjoint
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_selfAdjoint
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.defect_zero
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_zero
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionResolvent.resolvent_ne_zero

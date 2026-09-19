@@ -29,7 +29,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `resolvent_add`, `defect_smul`, `resolvent_smul`, and `resolvent_time` prove
   additive, rational-scalar, and physical-time commutation;
   `defect_selfAdjoint` and `resolvent_selfAdjoint` tie the inverse to the same
-  completed pairing. The bound module proves
+  completed pairing; `defect_zero`, `resolvent_zero`, and `resolvent_ne_zero`
+  give fixed-spacing non-erasure for nonzero centered vectors. The bound module proves
   `resolvent_norm_bound` and `resolvent_distance_bound` with the same explicit
   budget.
 - **residue**: this is fixed-spacing, small-nome SU(2) infrastructure. It does

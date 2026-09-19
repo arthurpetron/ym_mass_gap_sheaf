@@ -324,7 +324,9 @@ actual Wilson completion. `BF4WilsonSpatialUnionWeightedNorm.budget` and
 `resolvent_sub`; `resolvent_add`, `defect_smul`, `resolvent_smul`, and
 `resolvent_time` now provide additive, rational-scalar, and physical-time
 commutation; `defect_selfAdjoint` and `resolvent_selfAdjoint` tie that inverse
-to the SAME completed pairing; and
+to the SAME completed pairing; `defect_zero`, `resolvent_zero`, and
+`resolvent_ne_zero` provide fixed-spacing non-erasure for nonzero centered
+vectors; and
 `BF4WilsonSpatialUnionResolventBound.resolvent_norm_bound`/
 `resolvent_distance_bound` give the same-carrier explicit bounds. Three
 focused serialized one-worker/20 GiB checks passed with only
