@@ -390,6 +390,35 @@ theorem globalInwardMateCenteredParityCompletedObservable_autocorrelationSq_deca
     globalInwardMateCenteredParityCompletedObservable_matrixCoefficientSq_decay_of_form_gap_input
       K hK input n (globalInwardMateCenteredParityCompletedObservable K)
 
+/-- At time zero, the explicit parity autocorrelation is the completed norm
+square of the same vector. -/
+theorem globalInwardMateCenteredParityCompletedObservable_power_zero_autocorrelation_eq_norm
+    (K : Nat) :
+    let w := anchorCoupling
+    let hw : (0 : Q') <= w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    D.cinnerCompl
+        (centralPhysicalCompletedMarkovPower w hw K 0 0 vector) vector =
+      D.cinnerCompl vector vector := by
+  dsimp only
+  rw [centralPhysicalCompletedMarkovPower_zero]
+
+/-- The explicit parity channel has a strictly positive zero-time
+same-object autocorrelation, with the finite parity margin as witness. -/
+theorem globalInwardMateCenteredParityCompletedObservable_power_zero_autocorrelation_positive
+    (K : Nat) (hK : 1 <= K) :
+    let w := anchorCoupling
+    let hw : (0 : Q') <= w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    YMGap.Continuum.RCStrictPositivity.RCIsPositive
+      (D.cinnerCompl
+        (centralPhysicalCompletedMarkovPower w hw K 0 0 vector) vector) := by
+  dsimp only
+  rw [centralPhysicalCompletedMarkovPower_zero]
+  exact globalInwardMateCenteredParityCompletedObservable_norm_positive K hK
+
 /-- The finite parity margin becomes a completed Rayleigh-deficit estimate for
 the same completed vector. -/
 theorem globalInwardMateCenteredParityCompletedObservable_margin_mul_norm_le_deficit
@@ -538,7 +567,15 @@ structure GlobalInwardMateParityCompletedCorrelationCertificate
     ∀ n : Nat,
       CentralPhysicalCompletedVacuumOrthogonal anchorCoupling (by decide) K 0
         (centralPhysicalCompletedMarkovPower anchorCoupling (by decide) K 0 n
-          (globalInwardMateCenteredParityCompletedObservable K))
+        (globalInwardMateCenteredParityCompletedObservable K))
+  zero_power_autocorrelation_positive :
+    let w := anchorCoupling
+    let hw : (0 : Q') <= w := by decide
+    let D := (centralPhysicalSmulGNS w hw K 0).toGNSData
+    let vector := globalInwardMateCenteredParityCompletedObservable K
+    YMGap.Continuum.RCStrictPositivity.RCIsPositive
+      (D.cinnerCompl
+        (centralPhysicalCompletedMarkovPower w hw K 0 0 vector) vector)
   deficit_positive :
     let w := anchorCoupling
     let hw : (0 : Q') ≤ w := by decide
@@ -580,6 +617,9 @@ def globalInwardMateParityCompletedCorrelationCertificate
     power_vacuum_orthogonal :=
       globalInwardMateCenteredParityCompletedObservable_power_vacuumOrthogonal
         K
+    zero_power_autocorrelation_positive :=
+      globalInwardMateCenteredParityCompletedObservable_power_zero_autocorrelation_positive
+        K hK
     deficit_positive :=
       globalInwardMateCenteredParityCompletedObservable_deficit_positive K hK
     deficit_ge_marginSquare :=
@@ -614,5 +654,9 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityComp
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_matrixCoefficientSq_decay_of_form_gap_input
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_autocorrelationSq_decay_of_form_gap_input
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_power_zero_autocorrelation_eq_norm
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateCenteredParityCompletedObservable_power_zero_autocorrelation_positive
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.globalInwardMateParityCompletedCorrelationCertificate

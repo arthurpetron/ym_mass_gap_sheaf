@@ -151,6 +151,9 @@ is a rate-sensitive one-vector moment bound, not an all-vector operator gap.
   explicit parity observable.  The direct specialization
   `globalInwardMateCenteredParityCompletedObservable_autocorrelationSq_decay_of_form_gap_input`
   exposes the same-object autocorrelation-square consequence.
+  The inhabited correlation certificate also now carries
+  `globalInwardMateCenteredParityCompletedObservable_power_zero_autocorrelation_positive`,
+  making strict zero-time same-object positivity explicit.
 - **boundary**: the input record is not inhabited by the one-observable
   parity certificate.  This milestone therefore adds no uniform
   vacuum-complement gap, cofinal producer, thermodynamic/continuum passage,

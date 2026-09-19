@@ -134,6 +134,12 @@ It exposes the same-object autocorrelation-square shape for later handoffs,
 while still requiring the named all-vector form-gap input.  This removes a
 downstream rewiring step without weakening the producer obligation.
 
+The inhabited correlation certificate now also carries an explicit positive
+zero-time same-object autocorrelation witness, obtained by reducing the
+zeroth transfer power to the completed parity norm.  This is non-vacuous
+finite carrier data and does not assert positive-time decay without the
+all-vector producer.
+
 ### Current forward/backward join: physical Perron/cross-tail reaches the completed quarter (2026-09-19)
 
 `BF4BoundaryMessagePerronCrossTailQuarter.lean` now names the direct
