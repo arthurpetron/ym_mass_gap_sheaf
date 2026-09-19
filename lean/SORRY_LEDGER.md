@@ -88,11 +88,14 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   completed vacuum-orthogonality, and
   `centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_ne_zero` proves
   that the resulting subtype witness is not the completed zero vector.
+  `centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_inner_isPositive`
+  transports the explicit coordinate floor to the ambient completed norm
+  square.
 - **boundary**: this is a fixed-nome, fixed-half-extent SU(2) witness in the
-  actual completed physical carrier.  It does not identify a transfer moment,
-  supply cofinal physical-gap variation, or construct the thermodynamic,
-  continuum, QFT, or Clay endpoint.
-- **verification**: `/tmp/ym-pulled-vacuum-complement-witness2.log`; only
+  actual completed physical carrier.  It does not identify a positive-time
+  transfer moment, supply cofinal physical-gap variation, or construct the
+  thermodynamic, continuum, QFT, or Clay endpoint.
+- **verification**: `/tmp/ym-pulled-vacuum-complement-witness3.log`; only
   `{propext, Quot.sound}` were reported and no `sorryAx` was introduced.
 
 ## PROVED forward/backward two-sided scalar margin compiler (2026-09-18 UTC)

@@ -135,14 +135,20 @@ defines
 `centralPhysicalVacuumSectorMovingCenteredGlobalVector_vacuumOrthogonal` with
 `centralPhysicalCutoffOneCubeMovingCenteredGlobalVector_ne_zero`; its
 `..._ne_zero` theorem retains the nonzero conclusion in the ambient completed
-physical carrier.  This is the first explicit nonzero element of the actual
-fixed-cutoff completed vacuum complement on this moving-centered route.
+physical carrier.  The new
+`centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_inner_isPositive`
+theorem transports the existing explicit coordinate floor to the ambient
+completed norm square, so this landmark carries quantitative zero-time
+same-object currency rather than only a nonzero proposition.  This is the
+first explicit nonzero element of the actual fixed-cutoff completed vacuum
+complement on this moving-centered route.
 
 The backward consumer is still the completed transfer/same-object edge: no
-transfer moment has yet been identified for this exact witness, and no
+positive-time transfer moment has yet been identified for this exact witness,
+and no
 cofinal capacity comparison, same-family variation budget, thermodynamic or
 continuum passage, QFT axioms, or all-group construction follows.  Focused
-check: `/tmp/ym-pulled-vacuum-complement-witness2.log`; only
+check: `/tmp/ym-pulled-vacuum-complement-witness3.log`; only
 `{propext, Quot.sound}` were reported.
 
 ### Current forward/backward join: same-mass spacing order (2026-09-18)

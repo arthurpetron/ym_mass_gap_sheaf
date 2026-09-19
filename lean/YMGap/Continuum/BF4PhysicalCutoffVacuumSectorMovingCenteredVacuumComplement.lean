@@ -16,6 +16,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 -/
 
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
+import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
 
 namespace YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
@@ -25,10 +26,14 @@ set_option autoImplicit false
 
 open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedAlgebra
+open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedVacuumComplement
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumOrthogonal
+open YMGap.Continuum.RCStrictPositivity
 
 /-! ## The explicit completed complement witness -/
 
@@ -54,6 +59,27 @@ theorem centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_ne_zero
   exact centralPhysicalCutoffOneCubeMovingCenteredGlobalVector_ne_zero
     hw0 hw1 hzero
 
+/-- The same explicit coordinate floor is a strict positive witness for the
+ambient completed inner product of the packaged vacuum-complement vector. -/
+theorem centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_inner_isPositive
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
+    RCIsPositive
+      (centralPhysicalCutoffCompletedInner hw0 hw1 0
+        (centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement
+          hw0 hw1).1
+        (centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement
+          hw0 hw1).1) := by
+  change RCIsPositive
+    (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+      (centralPhysicalVacuumSectorMovingCenteredCompletion
+        hw0 hw1 1 0
+        (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+      (centralPhysicalVacuumSectorMovingCenteredCompletion
+        hw0 hw1 1 0
+        (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0)))
+  exact centralPhysicalCutoffOneCubeMovingCentered_completedInner_isPositive
+    hw0 hw1
+
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 
 /-! ## Axiom-dependency gates -/
@@ -62,3 +88,5 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_ne_zero
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement.centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement_inner_isPositive

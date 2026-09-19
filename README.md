@@ -150,9 +150,12 @@ completed vacuum-orthogonality into
 `centralPhysicalCutoffOneCubeMovingCenteredVacuumComplement`.  The companion
 `..._ne_zero` theorem proves that this subtype witness is not the completed
 zero vector.  This is a fixed-nome, fixed-half-extent SU(2) witness in the
-actual completed physical carrier; it does not identify a transfer moment,
+actual completed physical carrier.  The companion
+`..._inner_isPositive` theorem now transports the explicit coordinate floor
+to its ambient completed norm square, which is the quantitative same-object
+zero-time currency.  It does not identify a positive-time transfer moment,
 provide cofinal variation, or construct a thermodynamic/continuum QFT.  The
-focused check was `/tmp/ym-pulled-vacuum-complement-witness2.log`, with only
+focused check was `/tmp/ym-pulled-vacuum-complement-witness3.log`, with only
 `{propext, Quot.sound}` reported.
 
 **Dense endpoint gap contraction, checked 2026-09-18:**
