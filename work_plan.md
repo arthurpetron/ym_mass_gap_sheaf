@@ -266,7 +266,7 @@ on that same carrier. For vectors already in the proved vacuum complement,
 `T^(2*n)x` and bounds its squared norm by the existing `q^(2*n)` decay, with
 q named explicitly by `twoStepRate w hd`. One focused serialized one-worker/
 20 GiB check passed;
-all ten public gates lie within `{propext, Quot.sound}`. The explicit
+all fourteen public gates lie within `{propext, Quot.sound}`. The explicit
 `evenOrbitSum_modulus X epsilon` uses the existing representative norm cap and
 `geometricCutoff (q*q)`; `evenOrbitSum_error_small` proves the error is below
 `epsilon` for every later index. This supplies a constructive
@@ -275,6 +275,10 @@ epsilon-to-index contract. The modulus is not uniform in the observable or
 spacing. `evenOrbitSumCauchy` and `evenOrbitSumCauchy_pin` retain the
 preimage as supplied Cauchy data, and `evenOrbitSum_range_data` exposes the
 same-completion witness with vacuum-complement orthogonality explicit.
+`evenOrbitSumStage` and `evenOrbitSumStage_pin` retain that approximant as a
+strict finite stage, while `evenOrbitStage_modulus` and
+`evenOrbitStage_error_small` transfer the same explicit late-tail estimate to
+the strict-cylinder carrier.
 `evenOrbitResidual` names the actual `(I-T^2)` defect, and
 `evenOrbitResidual_kernel` rules out a nonzero vacuum-orthogonal vector in its
 kernel. This does not prove a bounded inverse, strict completed gap beyond the

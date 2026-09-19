@@ -24,7 +24,7 @@ set_option autoImplicit false
 open YMGap.Constructive
 open YMGap.Constructive.CReal
 open YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
-open YMGap.Continuum.BF4WilsonSpatialUnion (zeroStage)
+open YMGap.Continuum.BF4WilsonSpatialUnion
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData
 open YMGap.Continuum.BF4WilsonSpatialUnionPosdef
 open YMGap.Continuum.BF4WilsonSpatialUnionLinear
@@ -93,6 +93,23 @@ theorem evenOrbitSumCauchy_pin
   | zero => rfl
   | succ n ih =>
       rw [evenOrbitSumCauchy, ← completedAdd_mk, ih]
+      rfl
+
+/-- The same finite orbit sum retained as a strict finite Wilson stage. -/
+def evenOrbitSumStage (x : Stage) : Nat → Stage
+  | 0 => zeroStage
+  | n + 1 => sumStage (evenOrbitSumStage x n) (time (2*n) x)
+
+theorem evenOrbitSumStage_pin (x : Stage) (n : Nat) :
+    embedStage hw0 hw1 hsmall hd hs
+        (evenOrbitSumStage x n) =
+      evenOrbitSum hw0 hw1 hsmall hd hs
+        (embedStage hw0 hw1 hsmall hd hs x) n := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+      rw [evenOrbitSumStage, ← completedAdd_embedStage, ih,
+        ← completedTime_embedStage]
       rfl
 
 @[simp] theorem evenOrbitSum_zero (x : V) : evenOrbitSum hw0 hw1 hsmall hd hs x 0 = Z := rfl
@@ -305,15 +322,44 @@ def evenOrbitSum_range_data
     (Nat.le_refl _)
   simpa only [evenOrbitResidual, evenOrbitSumCauchy_pin] using h
 
+/-- The stage-level cutoff obtained from the constant representative of a
+    strict finite Wilson stage. -/
+def evenOrbitStage_modulus (x : Stage) (epsilon : Q') : Nat :=
+  evenOrbitSum_modulus hw0 hw1 hsmall hd hs
+    ((unionSeminorm hw0 hw1 hsmall hd hs).constant x) epsilon
+
+theorem evenOrbitStage_error_small (x : Stage)
+    (hx : B (embedStage hw0 hw1 hsmall hd hs x)
+      (completedUnit hw0 hw1 hsmall hd hs) = RCzero)
+    (epsilon : Q') (he : (0 : Q') < epsilon) (n : Nat)
+    (hn : evenOrbitStage_modulus hw0 hw1 hsmall hd hs x epsilon ≤ n) :
+    RCle
+      (completedDist hw0 hw1 hsmall hd hs
+        (embedStage hw0 hw1 hsmall hd hs x)
+        (evenOrbitResidual hw0 hw1 hsmall hd hs
+          (embedStage hw0 hw1 hsmall hd hs
+            (evenOrbitSumStage x n))))
+      (Quotient.mk crealSetoid (ofQ' epsilon)) := by
+  change B (Quotient.mk (unionSeminorm hw0 hw1 hsmall hd hs).completionSetoid
+      ((unionSeminorm hw0 hw1 hsmall hd hs).constant x))
+      (completedUnit hw0 hw1 hsmall hd hs) = RCzero at hx
+  have h := evenOrbitSum_error_small hw0 hw1 hsmall hd hs
+    ((unionSeminorm hw0 hw1 hsmall hd hs).constant x) hx epsilon he n hn
+  simpa only [evenOrbitResidual, evenOrbitSumStage_pin] using h
+
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitResidual_kernel
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumCauchy
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumCauchy_pin
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumStage
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSumStage_pin
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_sub_twoStep
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_error_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_modulus
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_error_small
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitSum_range_data
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitStage_modulus
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation.evenOrbitStage_error_small
 
 end YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation
