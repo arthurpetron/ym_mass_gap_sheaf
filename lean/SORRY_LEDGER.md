@@ -110,6 +110,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   pulling it back through bridge injectivity to the current fixed-point
   exclusion. This remains image-level and conditional on the uninhabited
   bridge.
+- **proved**: `CurrentCarrierBridge.image_twoStep_correlation_eq_current`
+  identifies the canonical and current two-step same-object coefficients for
+  every vector in the supplied bridge image. This is conditional and
+  fixed-spacing; it is not a full canonical completion identification.
 - **residue**: the bridge structure is intentionally uninhabited in this
   milestone. It is a named OS/GNS carrier-and-dynamics obligation, not a
   covert identification of the current carrier with canonical GNSData.

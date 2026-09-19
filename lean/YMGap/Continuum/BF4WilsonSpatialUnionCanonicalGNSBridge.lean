@@ -207,6 +207,16 @@ theorem image_vacuum_orthogonal
   rw [← J.vacuum_preserving, J.form_preserving x U]
   exact hx
 
+/-- The canonical two-step same-object coefficient agrees exactly with the
+current completed coefficient for every vector in the bridge image. -/
+theorem image_twoStep_correlation_eq_current
+    (J : CurrentCarrierBridge P) (x : V) :
+    W.toGNSData.cinnerCompl
+        (P.op.T (P.op.T (J.map x))) (J.map x) =
+      B (T 2 x) x := by
+  rw [← J.twoStep_intertwines x]
+  exact J.form_preserving (T 2 x) x
+
 /-- The current strict two-step form bound transports to every vector in the
 image of a supplied bridge, once that vector is known to be orthogonal to the
 current vacuum.  The remaining dense-range and completed-space steps are not
@@ -409,6 +419,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.ofCertificates
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.map_injective
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_vacuum_orthogonal
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_twoStep_correlation_eq_current
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_twoStep_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.image_twoStep_fixed_eq_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonical_resolvent_norm_floor

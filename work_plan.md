@@ -559,6 +559,17 @@ the bridge is still uninhabited and its image is not shown dense. Focused check
 log: `/tmp/ym-canonical-bridge-image-fixed.log`; SHA-256
 `9cd525d51403f5e269113281d7ccf0299442d7dd16a49f7f60c37109c29a644a`.
 
+**All-image same-object correlation, checked 2026-09-18:**
+`CurrentCarrierBridge.image_twoStep_correlation_eq_current` identifies the
+canonical transfer-first two-step coefficient with the actual current
+completed coefficient for every vector in the supplied bridge image. The
+probe-specific correlation theorem is therefore a specialization of a
+general image-level same-object pin. This remains conditional on the bridge
+and fixed-spacing; it does not identify the full canonical completion or pass
+to changing spacing. Focused check log:
+`/tmp/ym-canonical-bridge-image-correlation.log`; SHA-256
+`b9e18ecaf0065cca61c3973f66858c901601b69ce3be8010de95761b2d50ce02`.
+
 **Concrete current physical SU(2) sector, checked 2026-09-18:**
 `BF4WilsonSpatialUnionCurrentSector.lean` packages the already checked
 same-carrier data as `CompletedPhysicalSU2Sector.currentSector`: the discrete
