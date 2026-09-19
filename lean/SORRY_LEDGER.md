@@ -25,7 +25,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **residue**: neither input is inhabited by this constructor. In particular,
   it does not prove the exact-Haar fusion/same-action identification or the
   physical local-slice estimate; it only makes their carrier-preserving join
-  kernel-checkable for the existing exact-slab consumer.
+  kernel-checkable for the existing exact-slab consumer. The full seam is
+  separately fenced at cutoff one by
+  `BF4ExactPhysicalPerronSameActionFence.exactHaarPhysicalPerronSameActionAt_cutoffOne_uninhabited`;
+  a viable route must use the centered seam or a nonzero-error comparison.
 - **verification**: focused serialized check passed with only
   `{propext, Quot.sound}` and no `sorryAx`, `Classical.*`, or `native_decide`.
   Evidence: `/tmp/ym-exact-physical-perron-join2.log` (SHA-256

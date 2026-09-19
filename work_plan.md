@@ -100,7 +100,11 @@ positive carrier, one-step kernel, depth and quarter rate. It constructs the
 per-source rows by `PhysicalBF4LocalSliceGluing.toRow`; it does not infer
 same-action or local gluing. Thus the backward exact-slab consumer is now
 typed against the forward physical certificate, while both analytic producer
-leaves remain open.
+leaves remain open. This is only a conditional transport edge: the full
+same-action seam is already fenced at cutoff one by
+`BF4ExactPhysicalPerronSameActionFence.exactHaarPhysicalPerronSameActionAt_cutoffOne_uninhabited`.
+The viable backward branch therefore remains the centered seam or an explicit
+nonzero-error comparison, together with a scale-indexed local producer.
 
 Focused check: `/tmp/ym-exact-physical-perron-join2.log`, SHA-256
 `ac36d3406b94fa561ad858c4dd71bb4de8ec291a00806db0e79363700709f17f`.
