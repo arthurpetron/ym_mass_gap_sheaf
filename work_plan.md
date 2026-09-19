@@ -634,7 +634,8 @@ pairing law. The proof compares the canonical GNS `cinnerRep` limit with the
 current Wilson `representativeInner` limit using the existing Cauchy-limit
 constructors and no representative extraction. `...toFormCertificate`
 reassembles the existing form compiler, so its producer residue is reduced to
-the stage map/distance transport and literal zero/unit pins. This is a genuine
+the stage map/distance transport, stagewise pairing law and literal zero/unit
+pins. This is a genuine
 forward/backward continuity join, not a canonical bridge inhabitant; dynamics,
 range, spacing, continuum and all-group inputs remain open.
 

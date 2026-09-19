@@ -199,8 +199,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   constructed Cauchy limits. `...toFormCertificate` assembles the existing
   form certificate while retaining the finite-stage transport and zero/unit
   pins.
-- **residue**: the stage map, its distance law, and the zero/unit
-  identifications remain producer data. This is still a conditional
+- **residue**: the stage map, its distance law, stagewise pairing law, and the
+  zero/unit identifications remain producer data. This is still a conditional
   same-carrier OS/GNS bridge; dynamics, range, spacing, continuum and Clay
   closure remain open.
 - **verification**: focused serialized source check passed with only

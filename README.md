@@ -50,8 +50,9 @@ uninhabited.  `CurrentStageCauchyTransportCertificate` constructs only the
 canonical Cauchy stream/null descent from finite-stage metric data.  The new
 `CurrentStageCauchyStagePairingCertificate.mapCauchy_pairing` theorem lifts a
 finite-stage `CReal.Equiv` pairing law through the canonical and current
-Cauchy limits, and `...toFormCertificate` leaves only the stage map and
-zero/unit pins as producer data.  `CurrentStageCauchyFormCertificate` remains
+Cauchy limits, and `...toFormCertificate` leaves only the stage map/distance
+law, stagewise pairing law, and zero/unit pins as producer data.
+`CurrentStageCauchyFormCertificate` remains
 available for callers that already have a completed Gram field.
 `CurrentStageDenseTwoStepCertificate` handles exact
 two-step transport only on finite-stage canonical images; arbitrary-limit
