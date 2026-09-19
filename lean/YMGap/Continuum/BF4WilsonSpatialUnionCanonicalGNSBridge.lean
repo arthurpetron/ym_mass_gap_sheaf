@@ -593,9 +593,125 @@ theorem canonicalProbe_twoStep_form_bound
 
 end CurrentCarrierBridge
 
+/-! ## The completed canonical-range consumer
+
+The image estimates above are conditional on a vector already known to come
+from the current carrier. The next backward-facing obligation is therefore a
+constructive section of the canonical completion through the current carrier.
+The section is stated at the supplied Cauchy-stream level, so a future
+producer must return representatives and a kernel-checked class equation
+rather than invoking surjectivity or choice.
+-/
+
+/-- A constructive section of the canonical completion through a supplied
+current-carrier bridge. This is an explicit producer interface, not an
+inhabited assertion: no canonical preimage is selected here. -/
+structure CanonicalRangeSectionCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W)
+    (J : CurrentCarrierBridge P) : Type 2 where
+  preimage : CauchyGNS W.toGNSData ->
+    (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Cauchy
+  class_eq : ∀ X : CauchyGNS W.toGNSData,
+    Quotient.mk (cauchySetoid W.toGNSData) X =
+      J.map (Quotient.mk
+        (unionSeminorm nome_pos nome_lt_one hsmall hd hs).completionSetoid
+        (preimage X))
+
+namespace CanonicalRangeSectionCertificate
+
+variable
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+    {J : CurrentCarrierBridge P}
+
+def canonicalClass (X : CauchyGNS W.toGNSData) :
+    GNSCompletionSpace W.toGNSData :=
+  Quotient.mk (cauchySetoid W.toGNSData) X
+
+def currentClass
+    (Y : (unionSeminorm nome_pos nome_lt_one hsmall hd hs).Cauchy) : V :=
+  Quotient.mk
+    (unionSeminorm nome_pos nome_lt_one hsmall hd hs).completionSetoid Y
+
+/-- Every canonical vector orthogonal to the selected vacuum inherits the
+strict two-step form bound once the explicit range section is supplied. The
+proof is an image rewrite: the section supplies the current preimage, while
+`CurrentCarrierBridge.image_twoStep_form_bound` supplies the estimate. No
+density, limit interchange, or spectral theorem is hidden in this consumer. -/
+theorem twoStep_form_bound
+    (D : CanonicalRangeSectionCertificate P J)
+    (X : CauchyGNS W.toGNSData)
+    (hx : W.toGNSData.cinnerCompl (canonicalClass X) P.op.vacuum = RCzero) :
+    RCle
+      (W.toGNSData.cinnerCompl
+        (P.op.T (P.op.T (canonicalClass X))) (canonicalClass X))
+      (CReal.RCmul
+        (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
+        (W.toGNSData.cinnerCompl (canonicalClass X) (canonicalClass X))) := by
+  let Y := D.preimage X
+  let y := currentClass Y
+  have hyclass : canonicalClass X = J.map y := by
+    simpa only [canonicalClass, y, currentClass, Y] using (D.class_eq X)
+  have hyorth : B y U = RCzero := by
+    calc
+      B y U = W.toGNSData.cinnerCompl (J.map y) (J.map U) :=
+        (J.form_preserving y U).symm
+      _ = W.toGNSData.cinnerCompl (J.map y) P.op.vacuum := by
+        rw [J.vacuum_preserving]
+      _ = W.toGNSData.cinnerCompl (canonicalClass X) P.op.vacuum := by
+        rw [hyclass]
+      _ = RCzero := hx
+  have himage := J.image_twoStep_form_bound hyorth
+  rw [← hyclass] at himage
+  exact himage
+
+/-! The residual version is kept alongside the strict form version because it
+is the form used by the current resolvent and by later inverse/range consumers.
+-/
+
+/-- The same explicit range section transports the `(1-q)` residual margin to
+every canonical vacuum-complement vector. -/
+theorem twoStep_defect_form_bound
+    (D : CanonicalRangeSectionCertificate P J)
+    (X : CauchyGNS W.toGNSData)
+    (hx : W.toGNSData.cinnerCompl (canonicalClass X) P.op.vacuum = RCzero) :
+    RCle
+      (CReal.RCscale (1 - twoStepRate nome hd)
+        (W.toGNSData.cinnerCompl (canonicalClass X) (canonicalClass X)))
+      (CReal.RCsub
+        (W.toGNSData.cinnerCompl (canonicalClass X) (canonicalClass X))
+        (W.toGNSData.cinnerCompl
+          (P.op.T (P.op.T (canonicalClass X))) (canonicalClass X))) := by
+  let Y := D.preimage X
+  let y := currentClass Y
+  have hyclass : canonicalClass X = J.map y := by
+    simpa only [canonicalClass, y, currentClass, Y] using (D.class_eq X)
+  have hyorth : B y U = RCzero := by
+    calc
+      B y U = W.toGNSData.cinnerCompl (J.map y) (J.map U) :=
+        (J.form_preserving y U).symm
+      _ = W.toGNSData.cinnerCompl (J.map y) P.op.vacuum := by
+        rw [J.vacuum_preserving]
+      _ = W.toGNSData.cinnerCompl (canonicalClass X) P.op.vacuum := by
+        rw [hyclass]
+      _ = RCzero := hx
+  have himage := J.image_twoStep_defect_form_bound hyorth
+  rw [← hyclass] at himage
+  exact himage
+
+end CanonicalRangeSectionCertificate
+
 end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_form_bound
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CanonicalRangeSectionCertificate.twoStep_defect_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyFormCertificate.toFormCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate

@@ -530,6 +530,20 @@ limit, or the Clay theorem. Focused check log:
 `/tmp/ym-canonical-probe-form-gap.log`; SHA-256
 `d1aaa55687fba30f2308f04d772f71034fe4c6e53f65184fdc9ce1a0b7e07e06`.
 
+**Canonical full-range consumer, checked 2026-09-18:**
+`CanonicalRangeSectionCertificate` names the exact remaining backward input
+after the image-level bridge estimates: for every canonical GNS Cauchy stream
+it must return a current Wilson Cauchy stream and a kernel-checked equality of
+the canonical class with its bridge image. Given that explicit section,
+`CanonicalRangeSectionCertificate.twoStep_form_bound` and
+`...twoStep_defect_form_bound` transport the strict `q` form estimate and the
+`1-q` residual coercivity margin to every canonical vacuum-orthogonal vector.
+The consumer is a pure image rewrite and introduces no density, choice,
+surjectivity, or limit interchange; the section itself is deliberately not
+inhabited. Focused check log: `/tmp/ym-canonical-range-consumer4.log`; SHA-256
+`89a20fa05f8afb5a1e6e6c5fb98b8e5327a7ead9e567d91fd3df08bab055c692`. The
+new declarations use only `{propext, Quot.sound}`.
+
 **Bridge residual factorization, checked 2026-09-18:**
 `BF4WilsonSpatialUnionCanonicalGNSBridge.lean` now factors the uninhabited
 `CurrentCarrierBridge` into three independently producible certificates:

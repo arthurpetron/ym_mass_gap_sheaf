@@ -142,6 +142,14 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   constructors into `CurrentCarrierBridge.ofCertificates`. This is structural
   composition only; all three producer certificates and the bridge inhabitant
   remain open.
+- **proved**: `CanonicalRangeSectionCertificate` names the explicit
+  Cauchy-stream section still required to cover the canonical completion from
+  the current-carrier bridge. Given that section,
+  `CanonicalRangeSectionCertificate.twoStep_form_bound` and
+  `...twoStep_defect_form_bound` transport the strict `q` estimate and the
+  `(1-q)` residual margin from bridge-image vectors to every canonical
+  vacuum-orthogonal vector. These are image rewrites only: no section,
+  surjectivity, density, limit interchange, or continuum claim is supplied.
 - **residue**: the bridge structure is intentionally uninhabited in this
   milestone. It is a named OS/GNS carrier-and-dynamics obligation, not a
   covert identification of the current carrier with canonical GNSData.
@@ -164,6 +172,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The stream-to-bridge contraction check is
   `/tmp/ym-canonical-bridge-contraction1.log` (SHA-256
   `54983149e9660e7af3264d2dd90097b929c57aa4a8a2298884482dd8e9754dd6`).
+  The canonical-range consumer check is
+  `/tmp/ym-canonical-range-consumer4.log` (SHA-256
+  `89a20fa05f8afb5a1e6e6c5fb98b8e5327a7ead9e567d91fd3df08bab055c692`).
   The earlier bridge log was `/tmp/ym-wilson-canonical-bridge-20260918c.log`;
   SHA-256
   `7e6d12d68eaa8dd390067aebf26b372d47e32337b1f5f98346f117eeb3fc1c2c`.
