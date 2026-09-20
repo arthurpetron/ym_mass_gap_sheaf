@@ -20,6 +20,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **boundary**: this is a finite K=1 SU(2) refresh identity, its induced finite multi-slab power debt, and a fixed-cutoff local-slice `1/16` compiler bound. It is not an OS transfer-matrix gap and does not construct a cutoff-uniform/cofinal rate, a spacing or thermodynamic modulus, continuum OS/QFT reconstruction, an all-compact-simple-group theorem, or the Clay result.
 - **verification**: `+YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge:olean` PASS (1555 dependency jobs, one worker); the six exported definitions/theorems use only `{propext, Quot.sound}`, with no `sorryAx`.
 
+## PROVED cutoff-one canonical row-distance compiler (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffOneCanonicalRowDistance.lean`.
+- **proved**: `cutoffOneCanonicalMassNormalizedRowDistanceCertificate` transports the exact K=1 zero centered conditioned row through the component-mass density identity into a genuine mass-normalized stationary-product row-distance certificate at rate `0` for the same indexed physical kernel. `cutoffOneCanonicalFiniteQuadratic_abs_le_zero` applies the existing symmetric-row compiler to obtain the corresponding centered finite quadratic bound.
+- **boundary**: this is a finite sector-level row-to-quadratic compiler edge. It is not the OS transfer-matrix spectral gap and does not construct a cofinal cutoff family, a common rate or modulus, spacing/thermodynamic or continuum passage, QFT axioms, an all-group theorem, or the Clay endpoint.
+- **verification**: `/tmp/BF4PhysicalBoundaryCutoffOneCanonicalRowDistance.olean` PASS; both printed declarations use only `{propext, Quot.sound}`, with no `sorryAx`.
+
 ## PROVED same-object weighted-entry bridge (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean`.

@@ -82,6 +82,28 @@ same-object finite witness but no cofinal family, parameter-uniform rate,
 spacing/thermodynamic modulus, continuum descent, full QFT axioms, all-group
 extension, or Clay conclusion.
 
+### Cutoff-one row-distance compiler (2026-09-20)
+
+`BF4PhysicalBoundaryCutoffOneCanonicalRowDistance.lean` closes the next
+finite representation seam.  The exact K=1 conditioned centered-row identity
+is transported through the component-mass normalization identity into
+`cutoffOneCanonicalMassNormalizedRowDistanceCertificate`, a genuine
+`FiniteCarrierMassNormalizedStationaryProductRowDistanceCertificate` at rate
+`0` for the same physical indexed kernel.  The existing symmetric-row
+compiler then yields `cutoffOneCanonicalFiniteQuadratic_abs_le_zero` for every
+exactly sector-centered coefficient.
+
+This is a finite row-to-quadratic compiler edge with an explicit witness and
+no hidden normalization.  It does not provide a cofinal producer: the
+unbounded-cutoff power debts, common rate/modulus, spacing and thermodynamic
+passage, continuum OS/QFT reconstruction, all-group extension, and Clay
+endpoint remain open.  In particular, the finite quadratic is a sector
+quadratic, not yet the OS transfer spectral gap.
+
+Focused check:
+`/tmp/BF4PhysicalBoundaryCutoffOneCanonicalRowDistance.olean` PASS; the two
+printed declarations use only `{propext, Quot.sound}` and no `sorryAx`.
+
 ### Current certificate gate: approximant, modulus, and same-object descent (2026-09-19)
 
 `BF4PhysicalDynamicVacuumSectorContinuumCertificate.lean` makes the

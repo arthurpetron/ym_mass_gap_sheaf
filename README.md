@@ -80,6 +80,21 @@ continuum route must consume a same-object approximant together with a
 stability/Cauchy modulus and a parameter-uniform bound; this K=1 identity is
 only a finite landmark for that forward/backward join.
 
+**Cutoff-one row-distance compiler (2026-09-20):**
+`BF4PhysicalBoundaryCutoffOneCanonicalRowDistance.lean` now converts the same
+K=1 zero centered conditioned row into the exact
+`FiniteCarrierMassNormalizedStationaryProductRowDistanceCertificate` consumed
+by the finite quadratic compiler.  The certificate retains the component mass,
+physical indexed kernel, and conditioned density, and has exact rate `0`.
+`cutoffOneCanonicalFiniteQuadratic_abs_le_zero` then gives the corresponding
+centered finite quadratic bound on that same component.  This is a checked
+finite row-to-quadratic compiler edge, not an OS transfer gap: it adds no
+cofinal schedule, uniform cutoff/spacing modulus, thermodynamic or continuum
+passage, QFT reconstruction, all-group extension, or Clay mass gap.
+Focused check:
+`/tmp/BF4PhysicalBoundaryCutoffOneCanonicalRowDistance.olean` PASS; both
+printed declarations use only `{propext, Quot.sound}` and no `sorryAx`.
+
 This project is a Mathlib-free Lean 4 formalization of a constructive route
 from four-dimensional lattice gauge theory to continuum quantum Yang--Mills.
 The active concrete data are SU(2) BF4 lattice data. The positive
