@@ -87,6 +87,23 @@ PASS (1492 dependency jobs, one worker).  All three printed declarations use
 only `{propext, Quot.sound}`; no `sorryAx`, classical axiom, or noncomputable
 declaration was introduced.
 
+### Zero-cutoff same-carrier seed (2026-09-20)
+
+`BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` supplies an
+inhabited finite witness for the exact multi-slab power debt at cutoff `K=0`
+and depth `3`. The bounded enumeration, positive carrier, and rooted vacuum
+component are proved to be the singleton `[0]`; the existing canonical row
+normalization then gives the two-step identity by constructive multiplication
+and transitivity. This is a real same-object seed for the forward lane, not a
+cofinal schedule or a continuum certificate. The cofinal producer still needs
+compatible debts at unbounded cutoffs, a uniform rate/modulus, spacing and
+thermodynamic control, and the OS/QFT/all-group/Clay passages.
+
+Focused check: `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt:olean`
+PASS (1491 dependency jobs, one worker). The five printed declarations use
+only `{propext, Quot.sound}`; no `sorryAx`, classical axiom, or noncomputable
+declaration was introduced.
+
 ### Current forward/backward join: direct power meets local slice (2026-09-19)
 
 The finite algebra seam between the two producer presentations is now closed.

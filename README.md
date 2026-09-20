@@ -31,6 +31,14 @@ completed same-object gap consumer.  The power-debt producer, comparison and
 stability moduli, spacing/thermodynamic passage, OS/QFT reconstruction,
 all-group extension, and Clay mass gap are still open.
 
+**Finite forward seed (2026-09-20):**
+`BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` now inhabits the
+same-carrier canonical power debt at the honest base case `K=0`, depth `3`.
+The proof reduces the physical carrier and rooted sector to `[0]` and derives
+the two-step identity from the checked row law. It is a seed for the
+unbounded producer, not evidence of a cofinal, thermodynamic, continuum, or
+Clay result; the required uniformity and moduli remain explicit debts.
+
 This project is a Mathlib-free Lean 4 formalization of a constructive route
 from four-dimensional lattice gauge theory to continuum quantum Yang--Mills.
 The active concrete data are SU(2) BF4 lattice data. The positive

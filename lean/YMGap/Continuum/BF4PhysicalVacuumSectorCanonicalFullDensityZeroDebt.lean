@@ -1,0 +1,191 @@
+/-
+# Exact zero-cutoff canonical power debt
+
+At cutoff `K = 0`, every bounded edge labelling is the all-zero labelling.
+The positive physical carrier and its rooted support component therefore both
+reduce constructively to the singleton index `[0]`.  The already-proved
+canonical row law then gives the exact two-step power identity required by
+`CanonicalFullDensityPowerDebt` at depth `3`.
+
+This is a genuine same-carrier finite witness.  It is not a cofinal producer,
+and it supplies no thermodynamic or continuum modulus.
+
+No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
+`noncomputable` declaration is used.
+-/
+
+import YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate
+
+namespace YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt
+
+set_option maxRecDepth 100000
+set_option maxHeartbeats 10000000
+
+open YMGap.Constructive
+open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
+open YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate
+open YMGap.Continuum.BF4CanonicalFiniteNumeratorPartitionBudget
+open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
+open YMGap.Continuum.FiniteBoolGraphRootComponent
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
+open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
+open YMGap.Continuum.BF4StationaryDensityBufferSplit
+open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
+
+local infix:50 " ≈ " => Q'.eqv
+
+private theorem setEdgeLabel_zero_zero (edge : Nat) :
+    setEdgeLabel zeroEdgeLabelling edge 0 = zeroEdgeLabelling := by
+  funext id
+  unfold setEdgeLabel zeroEdgeLabelling
+  split <;> rfl
+
+private theorem boundedEdgeLabellings_zero_eq_singleton :
+    ∀ ids : List Nat,
+      boundedEdgeLabellings 0 ids = [zeroEdgeLabelling]
+  | [] => rfl
+  | edge :: rest => by
+      unfold boundedEdgeLabellings
+      rw [boundedEdgeLabellings_zero_eq_singleton rest]
+      change (List.range (0 + 1)).flatMap
+        (fun spin => [setEdgeLabel zeroEdgeLabelling edge spin]) =
+        [zeroEdgeLabelling]
+      change [0].flatMap
+        (fun spin => [setEdgeLabel zeroEdgeLabelling edge spin]) =
+        [zeroEdgeLabelling]
+      simp only [List.flatMap_cons, List.flatMap_nil, List.append_nil]
+      rw [setEdgeLabel_zero_zero]
+
+theorem centralPositiveHalfStates_zero_eq_singleton
+    (w : Q') (hw : (0 : Q') ≤ w) (half : Nat) :
+    centralPositiveHalfStates w hw 0 half = [zeroEdgeLabelling] := by
+  unfold centralPositiveHalfStates centralHalfStates
+  rw [boundedEdgeLabellings_zero_eq_singleton]
+  simp only [List.filter_cons]
+  have hvacuum := centralPhysicalRowMarginal_vacuum_pos hw 0 half
+  simp only [hvacuum, decide_true, if_true, List.filter_nil]
+
+private theorem list_eq_singleton_of_nodup_mem_unique
+    {A : Type} {entries : List A} {target : A}
+    (hnodup : entries.Nodup) (htarget : target ∈ entries)
+    (hunique : ∀ entry, entry ∈ entries → entry = target) :
+    entries = [target] := by
+  cases entries with
+  | nil => cases htarget
+  | cons head tail =>
+      have hhead := hunique head List.mem_cons_self
+      subst head
+      cases tail with
+      | nil => rfl
+      | cons next rest =>
+          have hnext := hunique next
+            (List.mem_cons_of_mem target List.mem_cons_self)
+          subst next
+          exact ((List.nodup_cons.mp hnodup).1 List.mem_cons_self).elim
+
+theorem centralPhysicalFiniteIndexCarrier_zero_eq_singleton
+    (w : Q') (hw : (0 : Q') ≤ w) (half : Nat) :
+    centralPhysicalFiniteIndexCarrier w hw 0 half = [0] := by
+  unfold centralPhysicalFiniteIndexCarrier centralPhysicalFiniteCarrierSize
+  rw [centralPositiveHalfStates_zero_eq_singleton w hw half]
+  rfl
+
+theorem centralPhysicalFiniteVacuumSectorIndices_zero_eq_singleton
+    (w : Q') (hw : (0 : Q') ≤ w) (half : Nat) :
+    centralPhysicalFiniteVacuumSectorIndices w hw 0 half = [0] := by
+  let adj := centralPhysicalFiniteSupportAdjacentB w hw 0 half
+  have hcarrier :
+      centralPhysicalFiniteIndexCarrier w hw 0 half = [0] :=
+    centralPhysicalFiniteIndexCarrier_zero_eq_singleton w hw half
+  have hroot : (0 : Nat) ∈
+      centralPhysicalFiniteIndexCarrier w hw 0 half := by
+    rw [hcarrier]
+    exact List.mem_cons_self
+  have hmem : (0 : Nat) ∈
+      centralPhysicalFiniteVacuumSectorIndices w hw 0 half :=
+    zero_mem_centralPhysicalFiniteVacuumSectorIndices w hw 0 half
+  apply list_eq_singleton_of_nodup_mem_unique
+    (centralPhysicalFiniteVacuumSectorIndices_nodup w hw 0 half)
+    hmem
+  intro entry hentry
+  have hsubset := rootComponent_subset adj hroot hentry
+  rw [hcarrier] at hsubset
+  exact List.mem_singleton.mp hsubset
+
+private theorem singleton_power_two_eqv_of_row
+    {State : Type} (x : State) (weight : State → Q')
+    (kernel : State → State → Q')
+    (hrow : weight x * kernel x x ≈ 1) :
+    finiteWeightedDensityPower [x] weight kernel 2 x x ≈ kernel x x := by
+  simp only [finiteWeightedDensityPower, finiteWeightedDensityCompose,
+    YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm.listQSum]
+  change ((weight x * kernel x x) *
+      ((weight x * kernel x x) * kernel x x + 0)) + 0 ≈ kernel x x
+  have hinner :
+      (weight x * kernel x x) * kernel x x + 0 ≈
+        (weight x * kernel x x) * kernel x x :=
+    Q'.eqv_of_eq (Q'.add_zero' _)
+  have houter :
+      ((weight x * kernel x x) *
+          ((weight x * kernel x x) * kernel x x + 0)) + 0 ≈
+        (weight x * kernel x x) *
+          ((weight x * kernel x x) * kernel x x) := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.eqv_of_eq (Q'.add_zero' _)) ?_
+    exact Q'.mul_eqv_congr_left _ _ _ hinner
+  refine Q'.eqv_trans _ _ _ houter ?_
+  refine Q'.eqv_trans _
+      (1 * ((weight x * kernel x x) * kernel x x)) _ ?_ ?_
+  · exact Q'.mul_eqv_congr_right _ _ _ hrow
+  · refine Q'.eqv_trans _
+        ((weight x * kernel x x) * kernel x x) _
+        (Q'.one_mul_eqv _) ?_
+    refine Q'.eqv_trans _
+        (1 * kernel x x) _
+        (Q'.mul_eqv_congr_right _ _ _ hrow) ?_
+    exact Q'.one_mul_eqv _
+
+def canonicalFullDensityPowerDebt_zero
+    {w : Q'} {hw : (0 : Q') ≤ w} (half : Nat) :
+    CanonicalFullDensityPowerDebt w hw 0 half 3 := by
+  have hcarrier := centralPhysicalFiniteIndexCarrier_zero_eq_singleton
+    w hw half
+  have hsector := centralPhysicalFiniteVacuumSectorIndices_zero_eq_singleton
+    w hw half
+  refine {
+    depth_at_least_three := by decide
+    full_density_power := ?_ }
+  intro source target hsource htarget
+  have hsource_zero : source = 0 := by
+    rw [hsector] at hsource
+    exact List.mem_singleton.mp hsource
+  have htarget_zero : target = 0 := by
+    rw [hsector] at htarget
+    exact List.mem_singleton.mp htarget
+  subst source
+  subst target
+  let weight := centralPhysicalFiniteWeight w hw 0 half
+  let kernel := canonicalFullDensityOneStepIndex w hw 0 half
+  have hrow := canonicalFullDensityOneStepIndex_row
+    (w := w) (hw := hw) (cutoff := 0) (half := half) (row := 0)
+  have hrow_single : weight 0 * kernel 0 0 ≈ 1 := by
+    rw [hcarrier] at hrow
+    change weight 0 * kernel 0 0 + 0 ≈ 1 at hrow
+    exact Q'.eqv_trans _ _ _
+      (Q'.eqv_of_eq (Eq.symm (Q'.add_zero' _))) hrow
+  rw [hcarrier]
+  change kernel 0 0 ≈ finiteWeightedDensityPower
+      [0] weight kernel (3 - 1) 0 0
+  rw [show 3 - 1 = 2 by decide]
+  exact Q'.eqv_symm
+    (singleton_power_two_eqv_of_row 0 weight kernel hrow_single)
+
+#print axioms boundedEdgeLabellings_zero_eq_singleton
+#print axioms centralPositiveHalfStates_zero_eq_singleton
+#print axioms centralPhysicalFiniteIndexCarrier_zero_eq_singleton
+#print axioms centralPhysicalFiniteVacuumSectorIndices_zero_eq_singleton
+#print axioms canonicalFullDensityPowerDebt_zero
+
+end YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt
