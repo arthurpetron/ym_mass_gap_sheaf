@@ -25277,6 +25277,17 @@ composes that cancellation with the exact normalized-numerator/source-average
 identity, so the zero reaches the existing margin node without changing
 carriers.
 
+The follow-on module
+`Z4DyadicSpinFourFineCouplingCenteredMarginDebtCenteredContrast.lean` now
+packages the next exact recoding:
+`listQSum_mul_contrast_eqv_centered` and its concrete
+`fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_eqv_centered_contrast`
+subtract an arbitrary named constant from the literal four-cell output
+contrast while preserving the exact signed average.  The carrier, source
+debt, and centering remain in the type; only the residual nonconstant contrast
+is left for a future oscillation/modulus producer.  This compiler is not a
+uniform estimate.
+
 This identity does not prove the required uniform estimate.  The active
 analytic producers are a cutoff- and volume-uniform balanced blocking
 calibration and a cutoff- and volume-uniform estimate of the signed

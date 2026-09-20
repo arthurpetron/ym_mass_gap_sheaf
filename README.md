@@ -42,6 +42,18 @@ cutoff/volume modulus remain the active frontier.
 The companion normalized-numerator theorem carries the same exact zero to the
 existing centered margin node.
 
+**Centered-contrast compiler (2026-09-20):**
+`Z4DyadicSpinFourFineCouplingCenteredMarginDebtCenteredContrast.lean` adds the
+generic finite-list theorem
+`listQSum_mul_contrast_eqv_centered`: a zero-total signed source debt is
+unchanged when any named constant is subtracted from its output contrast.  Its
+concrete adapter
+`fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_eqv_centered_contrast`
+keeps the literal pushed source-pair carrier and the same output contrast.
+This is a checked recoding that exposes the nonconstant residual contrast as
+the only analytic term; it proves no oscillation estimate and no new
+cutoff/volume uniformity.
+
 **Causal project map (2026-09-20):**
 
 ```text
