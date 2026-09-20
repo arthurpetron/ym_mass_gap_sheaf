@@ -20,6 +20,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledConstructedUniformCRealGap
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorConstructedCofinalRateBridge
+import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCofinalPrefixRateBridge
 
 namespace YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction
 
@@ -37,6 +38,7 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledUniformCRealGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledConstructedUniformCRealGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledUniformPoincareGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorConstructedCofinalRateBridge
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCofinalPrefixRateBridge
 open YMGap.Continuum.HKPos
 
 local infix:50 " ≈ " => Q'.eqv
@@ -332,6 +334,61 @@ structure FixedNomeCofinalFinitePrefixDeficitFloor
 
 namespace FixedNomeCofinalFinitePrefixDeficitFloor
 
+private theorem finitePrefixRate_mono_local
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (half bound later : Nat) (hbound : bound ≤ later) :
+    finitePrefixRate hw0 hw1 half bound ≤
+      finitePrefixRate hw0 hw1 half later := by
+  induction later with
+  | zero =>
+      have hboundEq : bound = 0 := Nat.eq_zero_of_le_zero hbound
+      subst bound
+      exact Q'.le_refl' _
+  | succ later ih =>
+      by_cases hprevious : bound ≤ later
+      · exact Q'.le_trans' _ _ _ (ih hprevious)
+          (Q'.le_runningMax_succ _ later)
+      · have hboundEq : bound = later + 1 := by omega
+        subst bound
+        exact Q'.le_refl' _
+
+/-- A schedule-shaped cofinal strict rate ceiling is exactly a positive
+complementary deficit floor.  The schedule is used only to enlarge each
+requested finite prefix; no infinite supremum or new uniform estimate is
+constructed. -/
+def ofCofinalRateCeiling
+    {w : Q'} {hw0 : (0 : Q') < w} {hw1 : w < (1 : Q')}
+    {half : Nat} {q : Q'}
+    (family : FixedNomeCofinalFinitePrefixRateCeiling
+      w hw0 hw1 half q) :
+    FixedNomeCofinalFinitePrefixDeficitFloor
+      w hw0 hw1 half ((1 : Q') + (-q)) where
+  fraction_pos := by
+    exact HKPos.one_sub_pos family.rate_lt_one
+  fraction_le_one := by
+    have hneg : -q ≤ (0 : Q') :=
+      Q'.nonpos_neg_of_nonneg family.rate_nonnegative
+    exact Q'.le_trans' _ ((1 : Q') + 0) _
+      (Q'.add_le_add_left 1 _ _ hneg)
+      (Q'.le_of_eqv (Q'.eqv_of_eq (Q'.add_zero' 1)))
+  fraction_le_prefix := by
+    intro bound
+    unfold finitePrefixDeficitFraction
+    have hanchor : bound ≤ family.anchor bound :=
+      family.anchor_ge bound
+    have hmonotone := finitePrefixRate_mono_local
+      hw0 hw1 half bound (family.anchor bound) hanchor
+    have hceiling := family.prefixRate_le bound
+    change finitePrefixRate hw0 hw1 half (family.anchor bound) ≤ q at hceiling
+    have hq : (1 : Q') + (-q) ≤
+        (1 : Q') + (-(finitePrefixRate hw0 hw1 half (family.anchor bound))) :=
+      Q'.add_le_add_left 1 _ _ (Q'.neg_le_neg hceiling)
+    have hrequest : (1 : Q') +
+        (-(finitePrefixRate hw0 hw1 half (family.anchor bound))) ≤
+        (1 : Q') + (-(finitePrefixRate hw0 hw1 half bound)) :=
+      Q'.add_le_add_left 1 _ _ (Q'.neg_le_neg hmonotone)
+    exact Q'.le_trans' _ _ _ hq hrequest
+
 private theorem one_sub_lt_one_local (fraction : Q')
     (hfraction : (0 : Q') < fraction) :
     (1 : Q') + (-fraction) < (1 : Q') := by
@@ -379,5 +436,7 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.finitePrefixDeficitFraction_le_one
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.fixedCarrierPrefixDeficitFractionData
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.FixedNomeCofinalFinitePrefixDeficitFloor.ofCofinalRateCeiling
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.FixedNomeCofinalFinitePrefixDeficitFloor.toUniformConstructedVacuumSectorRateBound

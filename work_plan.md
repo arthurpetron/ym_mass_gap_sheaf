@@ -56498,6 +56498,16 @@ stopped after generated transport/coverage jobs had reached 2214/2217, so that
 cache-completion check is still pending and is not being presented as a proof
 milestone.
 
+The interface is now aligned with the existing schedule-shaped certificate:
+`FixedNomeCofinalFinitePrefixDeficitFloor.ofCofinalRateCeiling` converts any
+supplied `FixedNomeCofinalFinitePrefixRateCeiling` to the complementary floor
+`1 - q`.  The conversion proves finite running-maximum monotonicity and uses
+the schedule only to enlarge each requested prefix.  This removes an adapter
+mismatch but does not construct the schedule-shaped ceiling itself.  Focused
+source check `/tmp/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.check16.log`
+passes; the missing generated `Shard008.olean` was built by a 1608-job
+dependency target, but no broader root replay is claimed as complete.
+
 ## 237. Make the finite physical carrier/correlator meet explicit (2026-09-19)
 
 `BF4PhysicalCompletedCarrierRealization.lean` now packages the existing

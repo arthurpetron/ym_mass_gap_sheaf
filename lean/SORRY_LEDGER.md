@@ -46109,6 +46109,15 @@ claimed by these checks.
   2214/2217 jobs, so a fresh dependency-complete pass remains pending.  The
   new declarations use only `{propext, Quot.sound}` and no `sorryAx`.
 
+The bridge has since been strengthened by
+`FixedNomeCofinalFinitePrefixDeficitFloor.ofCofinalRateCeiling`: any supplied
+schedule-shaped `FixedNomeCofinalFinitePrefixRateCeiling` yields the exact
+complementary floor `1 - q`, using a proved finite running-maximum monotonicity
+lemma.  Focused source check `/tmp/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.check16.log`
+passes with only `{propext, Quot.sound}`.  The missing generated
+`Shard008.olean` was then built by a 1608-job dependency target; no broader
+root replay is claimed for this strengthened import graph.
+
 #### [BF4-concrete-completed-carrier-realization] Concrete SU(2) carrier, transfer, vacuum, and correlator package — PROVED 2026-09-19
 
 - **milestone**: make the existing finite physical BF4/GNS objects meet in one
