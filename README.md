@@ -140,6 +140,15 @@ certificate-encoding seam for that finite-to-volume channel; it does not turn
 the channel into a continuum OS observable, and the dynamic SU(2) rate,
 spacing, QFT, all-group, and Clay bridges remain open.
 
+`BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate.lean`
+now applies the same rule to the dynamic route's two rational Euler endpoint
+streams.  Its constructor requires explicit Type-level endpoint certificates
+indexed by the same completed family and scheduled rate-power limit, then
+projects them to the existing physical-exponential certificate.  This narrows
+the next analytic input to endpoint moduli plus the already named raw,
+normalization-debt, physical-gap, and scheduled-rate variation producers; it
+does not extract a modulus from a `Prop` proof or create any of those producers.
+
 **Finite forward seed (2026-09-20):**
 `BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` now inhabits the
 same-carrier canonical power debt at the honest base case `K=0`, depth `3`.
