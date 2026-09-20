@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-> **Current frontier (2026-09-19 UTC):** the fixed-spacing SU(2) Wilson
+> **Current frontier (2026-09-20 UTC):** the fixed-spacing SU(2) Wilson
 > carrier now has a checked resolvent probe, strict two-step form gap, and a
 > conditional canonical OS/GNS handoff.  The handoff's supplied range section
 > constructively yields an exact carrier inverse and bijectivity, but neither
@@ -91,6 +91,8 @@ centered finite quadratic bound on that same component.  This is a checked
 finite row-to-quadratic compiler edge, not an OS transfer gap: it adds no
 cofinal schedule, uniform cutoff/spacing modulus, thermodynamic or continuum
 passage, QFT reconstruction, all-group extension, or Clay mass gap.
+The module is now included in `lean/YMGap.lean`, so the root import graph
+retains this edge.
 Focused check:
 `/tmp/BF4PhysicalBoundaryCutoffOneCanonicalRowDistance.olean` PASS; both
 printed declarations use only `{propext, Quot.sound}` and no `sorryAx`.
