@@ -928,6 +928,23 @@ all-group extension, and Clay endpoint remain open.  Focused verification is
 `/tmp/ym-gap-exactlog-explicit-check.log`; the new declaration reports only
 `{propext, Quot.sound}`.
 
+### Uniformity gate for constructive convergence (2026-09-20)
+
+`CReal.UniformExplicitConvergenceCertificate` now makes the parameter range
+itself a Type-level argument and stores one common term modulus and one common
+approximation modulus over that range.  `UniformModCauchyEv` records the
+corresponding common outer and inner moduli while allowing the eventual
+per-pair approximation threshold to remain parameter-dependent.  Its
+`toExplicitConvergenceCertificate` compiler reuses the pointwise diagonal
+compiler only after the common-modulus equalities are supplied.
+
+This is a uniformity gate, not a uniformity theorem: the exact-log physical
+family has not yet been shown to inhabit this package uniformly in lattice
+spacing, volume, or coupling.  The parameter range, producer estimates, and
+the thermodynamic/continuum/QFT/Clay steps remain explicit open inputs.
+Focused verification is `/tmp/ym-gap-uniform-certificate-check.log`; the
+printed declarations report only `{propext}`.
+
 ### Current forward/backward join: AF recurrence to summable scalar variation (2026-09-19)
 
 `AFTrajectorySummableVariation.lean` now proves the next non-vacuous scalar

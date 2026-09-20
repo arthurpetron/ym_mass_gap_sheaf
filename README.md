@@ -337,6 +337,17 @@ OS/QFT passage, all compact simple groups, and the Clay endpoint remain open.
 Focused verification is `/tmp/ym-gap-exactlog-explicit-check.log`, under the
 `{propext, Quot.sound}` gate.
 
+**Uniformity gate for constructive convergence (2026-09-20):**
+`CReal.UniformExplicitConvergenceCertificate` makes the admissible parameter
+range a Type-level argument and stores one common term and approximation
+modulus for it.  `UniformModCauchyEv.toExplicitConvergenceCertificate` reaches
+that family certificate only when common outer and inner moduli are supplied;
+parameter-dependent eventual approximation thresholds remain explicit.  This
+is a gate against silently promoting pointwise convergence to cutoff-, volume-,
+or spacing-uniform convergence.  No such uniform physical input is currently
+inhabited, and no continuum or Clay claim follows.  Focused verification is
+`/tmp/ym-gap-uniform-certificate-check.log`, under the `{propext}` gate.
+
 **AF recurrence to summable scalar variation (2026-09-19):**
 `AFTrajectorySummableVariation.lean` derives a two-sided summable step budget
 for the shifted AF log-coupling stream from the certified two-loop recurrence
