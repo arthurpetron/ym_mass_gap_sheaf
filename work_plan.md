@@ -25286,7 +25286,7 @@ cancellation before taking an absolute value.  Bounding the full source-debt
 persistence, the interacting continuum measure, same-object OS/GNS
 reconstruction, the Hamiltonian gap, and Clay closure remain open.
 
-The monitored leaf target passes all 5,503 jobs.  All 17 printed
+The monitored leaf target passes all 5,503 jobs.  All 19 printed
 load-bearing declarations depend exactly on `[propext, Quot.sound]`.  No
 aggregate root pass is claimed, and no `Classical`, choice, `sorry`, new
 axiom, `native_decide`, noncomputable witness, or enlarged heartbeat budget
