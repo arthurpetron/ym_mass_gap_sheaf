@@ -5094,6 +5094,14 @@ import YMGap.Continuum.BF4WilsonChronologicalOperator
 import YMGap.Continuum.BF4WilsonChronologicalCompositionSyntax
 import YMGap.Continuum.BF4WilsonChronologicalOperatorAlgebra
 import YMGap.Continuum.BF4WilsonVacuumOperatorSeparation
+-- Duration-preserving kernels: original-input grafts and all-vector interval concatenation.
+import YMGap.Continuum.BF4WilsonSpatialUnionSpinZeroMultiplier
+import YMGap.Continuum.BF4WilsonChronologicalKernel
+import YMGap.Continuum.BF4WilsonKernelInclusionSyntax
+import YMGap.Continuum.BF4WilsonChronologicalBaseCoherence
+import YMGap.Continuum.BF4WilsonKernelOriginalInputs
+import YMGap.Continuum.BF4WilsonKernelConcatenation
+import YMGap.Continuum.BF4WilsonWindowCompilerDurationObstruction
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

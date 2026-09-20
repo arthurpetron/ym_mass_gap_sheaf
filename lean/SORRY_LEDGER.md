@@ -13,6 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED duration-preserving chronological kernels and original interval concatenation (2026-09-20 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionSpinZeroMultiplier.lean`,
+  `lean/YMGap/Continuum/BF4WilsonWindowCompilerDurationObstruction.lean`,
+  `lean/YMGap/Continuum/BF4WilsonChronologicalKernel.lean`,
+  `lean/YMGap/Continuum/BF4WilsonKernelInclusionSyntax.lean`,
+  `lean/YMGap/Continuum/BF4WilsonChronologicalBaseCoherence.lean`,
+  `lean/YMGap/Continuum/BF4WilsonKernelOriginalInputs.lean`, and
+  `lean/YMGap/Continuum/BF4WilsonKernelConcatenation.lean`.
+- **scope**: the new kernel preserves elapsed time in the empty word, retains
+  the old vacuum outputs/caps, and supplies all-finite-input common-base graft
+  action and an original-graft approximation for a supplied Cauchy input;
+  concatenation holds on all completed inputs with the exact sum of durations.
+- **boundary**: old `compileWindow` source recoding is not an all-input law:
+  the trivial spin-zero loop and `one` at `H = 2` have the same source
+  polynomial but act as `T²` and `I` on the constructed excitation. The new
+  path is only original spatial-loop syntax at guarded fixed spacing in SU(2);
+  it does not prove source/Haar presentation independence, continuum
+  OS/scaling/survival/calibration, full QFT, or all-groups/Clay closure.
+  Preserve the guarded-ceiling scaling obstruction; the next residue is actual
+  source/Haar identity descent for the new kernel.
+- **verification**: dependency-complete monitored targets
+  `+YMGap.Continuum.BF4WilsonKernelConcatenation:olean` and
+  `+YMGap.Continuum.BF4WilsonWindowCompilerDurationObstruction:olean` PASSed.
+  Direct checks of all seven files PASSed all 40 exported gates with at most
+  `{propext, Quot.sound}`, no warnings and no `sorryAx`; logs are
+  `/tmp/ym-gap-<module>-final.log` for each listed module. One worker, 20 GiB
+  ceiling; no full-root build/audit was run. No hole was introduced or
+  discharged, and no old compiler statement or canonical frontier field changed.
+
 ## PROVED same-carrier chronological operator algebra and vacuum separation (2026-09-20 UTC)
 
 - **files**:

@@ -4,6 +4,8 @@
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,
 > and an equality criterion using every finite vacuum-generated input.
+> Duration-preserving kernels also have original-window input semantics and
+> an exact interval-concatenation law on every completed input.
 > A new original-observable estimate compares two couplings after removing
 > the heat cutoff. Boundary localization makes its cost independent of
 > outer volume, under explicit small-nome guards; the inner-window cost
@@ -18,6 +20,23 @@
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
+
+**Original-window kernels with elapsed time retained (2026-09-20):**
+`BF4WilsonKernelConcatenation.compileKernel_concat` proves
+`K_H(e) K_K(f) = K_(H+K)((shift K e)*f)` on every completed input.
+`BF4WilsonKernelOriginalInputs` identifies these actions with literal original
+grafted windows, across arbitrary finite support bases, and computes finite
+output approximations from supplied Cauchy moduli. Vacuum outputs and the
+previous squared caps are preserved.
+The distinction from the old vacuum-state compiler matters: even identical
+source polynomials (a trivial-character loop and the constant one) can compile
+to different old operators, `T^2` and identity. That counterexample is checked;
+the old vacuum-state theorems remain valid. The new duration-preserving
+kernel passes the trivial-character test. General source/Haar presentation
+independence and canonical continuum OS/QFT remain open; no scaling,
+physical-mass or every-group conclusion follows.
+The targeted dependency builds and all 40 printed axiom checks passed with
+at most `{propext, Quot.sound}`; no full-root build/audit was run.
 
 **Same-carrier operator closure (2026-09-20):**
 `BF4WilsonChronologicalOperatorAlgebra.lean` proves product and adjoint laws,

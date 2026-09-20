@@ -34,6 +34,40 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Duration-preserving chronological kernel checkpoint (2026-09-20)
+
+The seven-module kernel path (`BF4WilsonSpatialUnionSpinZeroMultiplier`,
+`BF4WilsonWindowCompilerDurationObstruction`,
+`BF4WilsonChronologicalKernel`, `BF4WilsonKernelInclusionSyntax`,
+`BF4WilsonChronologicalBaseCoherence`, `BF4WilsonKernelOriginalInputs`, and
+`BF4WilsonKernelConcatenation`) retains elapsed time in the empty word of the
+new `compileKernel`. It gives the same old vacuum outputs and caps, while
+proving the graft action on all finite inputs at the computed common base and
+an explicit original-graft approximation for a supplied Cauchy input. The
+proved concatenation identity is
+`K_H(e) K_K(f) = K_(H+K)(shiftK e * f)` on all completed inputs.
+
+The old `compileWindow` remains a valid vacuum-vector compiler, but it cannot
+be promoted to an all-input source-recoding theorem: even identical original
+source polynomials (the trivial spin-zero loop and `one` at `H = 2`) compile
+to `T²` versus `I` on the constructed excitation. This is original spatial-loop
+syntax at guarded fixed-spacing SU(2), not source/Haar presentation
+independence, continuum OS/scaling/survival/calibration, full QFT, or
+all-groups/Clay closure. The next residue is source/Haar identity descent for
+the new kernel, not the refuted old-compiler recoding path; retain the guarded
+ceiling scaling constraints.
+
+**Verification:** dependency-complete monitored targets
+`+YMGap.Continuum.BF4WilsonKernelConcatenation:olean` and
+`+YMGap.Continuum.BF4WilsonWindowCompilerDurationObstruction:olean` PASSed.
+Direct checks of all seven modules PASSed all 40 exported gates with at most
+`{propext, Quot.sound}`, no warnings and no `sorryAx`. Each direct log is
+`/tmp/ym-gap-<module>-final.log` for the seven module names above. Checks used
+one worker and a 20 GiB ceiling; no full-root build/audit was run. No hole,
+old compiler statement, or canonical frontier field changed. Luna drafted
+the spin-zero and finite-inclusion helpers and documentation; the main agent
+repaired/integrated them and proved and verified the kernel/input/gluing laws.
+
 ### Same-carrier chronological operator algebra and vacuum-separation checkpoint (2026-09-20)
 
 `BF4WilsonChronologicalCompositionSyntax` adds finite-program composition and
