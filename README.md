@@ -80,6 +80,12 @@ rate-power producer: the fixed-ratio identification, cutoff variation,
 cofinal transition product, physical calibration, OS/QFT construction,
 all-group extension, and Clay mass gap remain open.
 
+`NormalizedMovingCubeContinuumCertificate.ofVariations` now assembles the
+raw representative, reciprocal normalization-debt, and scheduled rate-power
+variation streams into that one same-observable certificate.  The constructor
+consumes all three explicit variation witnesses and does not manufacture any
+of them; the fixed-ratio equality remains a named input.
+
 **Finite forward seed (2026-09-20):**
 `BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` now inhabits the
 same-carrier canonical power debt at the honest base case `K=0`, depth `3`.

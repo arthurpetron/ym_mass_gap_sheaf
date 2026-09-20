@@ -20,6 +20,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **boundary**: the fixed-ratio identification, normalized cutoff variation, cofinal transition product, physical-gap calibration, projective/OS/GNS reconstruction, full QFT structure, all-group extension, and Clay mass gap remain uninhabited. This is a same-object representation bridge, not a continuum existence or spectral-gap theorem.
 - **verification**: `+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel:olean` PASS and `/tmp/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.check.olean` PASS; the new declarations use only `{propext, Quot.sound}`, with no `sorryAx`.
 
+## PROVED normalized variation-stream certificate assembly (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.lean`.
+- **proved**: `NormalizedMovingCubeContinuumCertificate.ofVariations` converts the existing raw-representative, reciprocal-normalization-debt, and scheduled-rate-power summable-variation witnesses into their exact constructive limits and stores them together with the supplied fixed-ratio identification in one same-observable continuum certificate.
+- **boundary**: this constructor only assembles explicit producer inputs.  It does not prove any of the three variation estimates, identify a physical fixed rate, construct a cofinal transition product, calibrate a physical gap, or provide OS/QFT, all-group, or Clay closure.
+- **verification**: `+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering:olean` PASS (1667 dependency jobs, one worker); the constructor uses only `{propext, Quot.sound}`, with no `sorryAx`.
+
 ## PROVED positive cutoff-one conditioned/Markov bridge (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.lean`.

@@ -73,6 +73,23 @@ BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.lean PASS
 
 The exported bridge uses only `{propext, Quot.sound}` and no `sorryAx`.
 
+### Variation-stream assembly into the same-object certificate (2026-09-20)
+
+`NormalizedMovingCubeContinuumCertificate.ofVariations` joins the three
+parallel constructive inputs from
+`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler.lean`:
+raw same-observable representatives, reciprocal normalization debt, and the
+scheduled squared-rate power.  Each input is converted by its existing
+compiler and retained in the resulting certificate, so the clustering
+projection cannot silently switch to unrelated approximants.  This is an
+assembly edge only: no variation witness is constructed here, and the named
+fixed-ratio identification, cofinal transition-product control, physical
+calibration, and continuum/QFT passage remain open.
+
+Focused check:
+`+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering:olean`
+PASS; the constructor uses only `{propext, Quot.sound}` and no `sorryAx`.
+
 ### Same-object weighted-entry bridge (2026-09-20)
 
 `BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean` closes the

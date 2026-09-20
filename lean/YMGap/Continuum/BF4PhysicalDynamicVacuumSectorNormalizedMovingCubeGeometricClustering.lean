@@ -21,6 +21,7 @@ conclusion is inhabited here.  No `Classical.*`, choice, `native_decide`,
 -/
 
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
 import YMGap.Continuum.ContinuumSquaredClusteringHandoff
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
@@ -35,6 +36,7 @@ open YMGap.Continuum.ContinuumSquaredClusteringHandoff
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
 
 /-! ## 1. The missing fixed-ratio certificate -/
 
@@ -65,6 +67,24 @@ structure NormalizedMovingCubeContinuumCertificate
   ratePower : NormalizedMovingCubeSampledRatePowerLimit family
   geometricRate :
     NormalizedMovingCubeRatePowerGeometricIdentification family ratePower
+
+/-- Assemble the three explicit cross-cutoff variation certificates into one
+same-observable continuum certificate.  The raw representative, reciprocal
+normalization debt, and scheduled rate-power streams are converted to their
+constructive limits by the existing variation compilers; the supplied
+`geometricRate` is then checked against that exact rate-power limit. -/
+def NormalizedMovingCubeContinuumCertificate.ofVariations
+    (family : DynamicVacuumSectorCompletedFamily 0)
+    (raw : MovingCubeRawScheduledRepresentativeVariation family)
+    (normDebt : MovingCubeNormalizationNormDebtVariation family)
+    (ratePower : NormalizedMovingCubeSampledRatePowerVariation family)
+    (geometricRate :
+      NormalizedMovingCubeRatePowerGeometricIdentification family
+        (normalizedMovingCubeSampledRatePowerLimitOfVariation family ratePower)) :
+    NormalizedMovingCubeContinuumCertificate family where
+  limit := normalizedMovingCubeLimitOfVariations family raw normDebt
+  ratePower := normalizedMovingCubeSampledRatePowerLimitOfVariation family ratePower
+  geometricRate := geometricRate
 
 namespace NormalizedMovingCubeContinuumCertificate
 
@@ -114,5 +134,7 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricC
 
 /-! ## Axiom-dependency gates -/
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.NormalizedMovingCubeContinuumCertificate.ofVariations
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.NormalizedMovingCubeContinuumCertificate.toNontrivialRCSquaredGeometricClustering
