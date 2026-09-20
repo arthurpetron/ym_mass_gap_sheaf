@@ -37,6 +37,7 @@ open YMGap.Continuum.BF4PhysicalVacuumSectorTimeFactorizationAdapter
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.BF4StationaryDensityBufferSplit
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
+open YMGap.Continuum.FiniteSignedKernelL1
 open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 
@@ -168,6 +169,38 @@ theorem canonicalConditionedCenteredTransition_eqv_conditionalKernel_sub_weight
     (canonicalConditionedWeightedEntry_eqv_conditionalKernel
       hsource htarget)
 
+/-- The whole conditioned centered row can be read as the finite `L1`
+residual of the physical conditional kernel against the same conditioned
+stationary weights.  This is the row-level form of the entry bridge; it is
+still an identity, with no quantitative estimate asserted. -/
+theorem canonicalConditionedCenteredRowMass_eqv_conditionalResidualL1
+    {w : Q'} {hw : (0 : Q') ≤ w}
+    {cutoff half source : Nat}
+    (hsource : source ∈
+      centralPhysicalFiniteVacuumSectorIndices w hw cutoff half) :
+    finiteWeightedCenteredRowMass
+        (centralPhysicalFiniteVacuumSectorIndices w hw cutoff half)
+        (centralPhysicalFiniteVacuumSectorMassNormalizedWeight
+          w hw cutoff half)
+        (centralPhysicalFiniteVacuumSectorConditionedTimeStep
+          w hw cutoff half
+          (canonicalFullDensityOneStepIndex w hw cutoff half))
+        source ≈
+      finiteL1Norm
+        (centralPhysicalFiniteVacuumSectorIndices w hw cutoff half)
+        (fun target =>
+          centralPhysicalConditionalKernel w hw cutoff half
+            (centralPhysicalFiniteStateAt w hw cutoff half source)
+            (centralPhysicalFiniteStateAt w hw cutoff half target) +
+          (-(centralPhysicalFiniteVacuumSectorMassNormalizedWeight
+            w hw cutoff half target))) := by
+  unfold finiteWeightedCenteredRowMass finiteL1Norm
+  apply listQSum_congr_on
+  intro target htarget
+  exact Q'.abs_eqv_congr
+    (canonicalConditionedCenteredTransition_eqv_conditionalKernel_sub_weight
+      hsource htarget)
+
 end YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge
 
 /-! ## Axiom audit -/
@@ -176,3 +209,5 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge
   YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.canonicalConditionedWeightedEntry_eqv_conditionalKernel
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.canonicalConditionedCenteredTransition_eqv_conditionalKernel_sub_weight
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.canonicalConditionedCenteredRowMass_eqv_conditionalResidualL1

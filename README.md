@@ -52,8 +52,9 @@ certificate.
 the canonical finite sector, the conditioned target weight times the
 mass-scaled canonical one-step is exactly the literal physical conditional
 transition. The corresponding centered entry is the physical transition
-minus the conditioned stationary weight. This is an entrywise bridge for
-the later row estimate, not a strict contraction or a cutoff-uniform,
+minus the conditioned stationary weight, and the row-level declaration
+contracts these identities into a finite `L1` residual. This is the bridge
+for the later row estimate, not a strict contraction or a cutoff-uniform,
 thermodynamic, continuum, all-group, or Clay result.
 
 This project is a Mathlib-free Lean 4 formalization of a constructive route

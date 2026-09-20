@@ -42,8 +42,10 @@ literal physical Markov carrier. For every source and target in the
 canonical sector, the conditioned target weight times the mass-scaled
 one-step equals the physical conditional transition; its centered entry is
 therefore exactly the conditional transition minus the conditioned stationary
-weight. This is the correct input shape for a later row/L1 estimate, not a
-strict bound or a continuum claim.
+weight. `canonicalConditionedCenteredRowMass_eqv_conditionalResidualL1`
+contracts those entry identities into the finite row `L1` residual against
+the same conditioned stationary weights. This is the correct input shape for
+a later row/L1 estimate, not a strict bound or a continuum claim.
 
 Focused check:
 `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge:olean`

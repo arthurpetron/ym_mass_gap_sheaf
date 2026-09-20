@@ -16,7 +16,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 ## PROVED same-object weighted-entry bridge (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean`.
-- **proved**: `canonicalConditionedWeightedEntry_eqv_conditionalKernel` identifies the target-weighted, mass-scaled canonical conditioned one-step with the literal physical conditional transition on every canonical-sector pair. `canonicalConditionedCenteredTransition_eqv_conditionalKernel_sub_weight` gives the corresponding centered residual entry.
+- **proved**: `canonicalConditionedWeightedEntry_eqv_conditionalKernel` identifies the target-weighted, mass-scaled canonical conditioned one-step with the literal physical conditional transition on every canonical-sector pair. `canonicalConditionedCenteredTransition_eqv_conditionalKernel_sub_weight` gives the corresponding centered residual entry, and `canonicalConditionedCenteredRowMass_eqv_conditionalResidualL1` contracts those entries into the finite row `L1` residual.
 - **boundary**: this is an entrywise finite identity. It does not construct a row/L1 contraction, cofinal multi-slab debts, a uniform rate or modulus, spacing/thermodynamic control, continuum OS/QFT structure, an all-group theorem, or the Clay result.
 - **verification**: `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge:olean` PASS (1491 dependency jobs, one worker); both declarations use only `{propext, Quot.sound}`, with no `sorryAx`.
 
