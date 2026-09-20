@@ -91,8 +91,29 @@ structure ConcreteSU2CompletedCarrierCertificate
       (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
         (concreteVacuumComplementVector hw0 hw1).1
         (concreteVacuumComplementVector hw0 hw1).1)
+  /-- The same completed norm retains its explicit rational coordinate floor;
+  this is the witness-bearing nontriviality payload, not merely a positivity
+  proposition. -/
+  vector_inner_floor :
+    CReal.RCle
+      (Quotient.mk CReal.crealSetoid
+        (CReal.ofQ'
+          (centralPhysicalVacuumSectorCoordinateFloor
+            w (Q'.le_of_lt hw0) 1 0)))
+      (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+        (concreteVacuumComplementVector hw0 hw1).1
+        (concreteVacuumComplementVector hw0 hw1).1)
   autocorrelation_zero_positive :
     RCIsPositive (concreteSameObjectAutocorrelation hw0 hw1 0)
+  /-- The explicit floor is transported to the literal zero-time
+  same-object autocorrelation of the same completed observable. -/
+  autocorrelation_zero_floor :
+    CReal.RCle
+      (Quotient.mk CReal.crealSetoid
+        (CReal.ofQ'
+          (centralPhysicalVacuumSectorCoordinateFloor
+            w (Q'.le_of_lt hw0) 1 0)))
+      (concreteSameObjectAutocorrelation hw0 hw1 0)
   autocorrelation_eq_global : ∀ n,
     concreteSameObjectAutocorrelation hw0 hw1 n =
       centralPhysicalCutoffCompletedInner hw0 hw1 0
@@ -122,9 +143,20 @@ def concreteSU2CompletedCarrierCertificate
     unfold concreteVacuumComplementVector
     exact centralPhysicalCutoffOneCubeMovingCentered_completedInner_isPositive
       hw0 hw1
+  vector_inner_floor := by
+    unfold concreteVacuumComplementVector
+    exact centralPhysicalCutoffOneCubeMovingCentered_floor_le_completedInner
+      hw0 hw1
   autocorrelation_zero_positive := by
     unfold concreteSameObjectAutocorrelation
     exact centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_zero_isPositive
+      hw0 hw1
+  autocorrelation_zero_floor := by
+    unfold concreteSameObjectAutocorrelation
+    unfold centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation
+    unfold centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
+    rw [centralPhysicalCutoffOneCubeMovingCentered_autocorrelation_zero_eq_inner]
+    exact centralPhysicalCutoffOneCubeMovingCentered_floor_le_completedInner
       hw0 hw1
   autocorrelation_eq_global := by
     intro n

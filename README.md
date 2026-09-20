@@ -658,8 +658,10 @@ check is constructed here.
 fixed-nome, half-extent-zero sector into one typed
 `ConcreteSU2CompletedCarrierCertificate`.  Its constructor packages the
 normalized ambient vacuum, the positive moving-centered cube vector, its
-positive zero-time same-object moment, the exact global matrix-coefficient
-identity, and transfer-power intertwining.  The companion
+positive zero-time same-object moment, and now the explicit rational
+coordinate floor for both the completed norm and zero-time moment.  The exact
+global matrix-coefficient identity and transfer-power intertwining are also
+retained.  The companion
 `..._autocorrelation_sq_decay` theorem consumes (rather than constructs) the
 named completed-sector strict-contraction certificate.  This is the explicit
 forward/backward meeting point: the carrier and observable are inhabited on

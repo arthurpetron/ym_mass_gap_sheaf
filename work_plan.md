@@ -1014,8 +1014,9 @@ fixed-nome, half-extent-zero sector into
 `ConcreteSU2CompletedCarrierCertificate`.  The forward side is inhabited: it
 contains the normalized ambient vacuum, the explicit moving-centered cube
 vector with positive completed norm, its positive zero-time same-object
-moment, the exact global adaptive-transfer matrix-coefficient identity, and
-transfer-power intertwining.  The backward side is named separately by
+moment, and the explicit rational coordinate floor for both quantities.  The
+exact global adaptive-transfer matrix-coefficient identity and transfer-power
+intertwining are also retained.  The backward side is named separately by
 `CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData`; the
 conditional `..._autocorrelation_sq_decay` declaration consumes that input and
 does not manufacture it.  This is the current typed meeting point for the
