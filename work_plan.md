@@ -34,6 +34,42 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### AF physical-gap calibration obstruction (2026-09-20)
+
+**Progress: a proposed middle-out join is refuted, not discharged.**
+`AFTrajectoryPhysicalGapCalibrationObstruction.lean` constructs
+`calibrationObstructionScale band C = afScheduleCutoff C (band.floor / 2)`.
+At that scale and on its entire tail,
+`shiftedTau C j <= band.floor / 2 < band.floor <= family.physicalGap j`.
+`physicalGapCalibrationCounterexample` returns the offending scale as data.
+`noPhysicalGapTrajectoryIdentification_of_rateBand` and
+`noPhysicalGapNumeratorCalibration_of_rateBand` therefore rule out both
+proposed AF identifications in the presence of the required positive band.
+
+The affected consumers are `exactLogRateCauchyOfAFTrajectory`,
+`exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration`,
+`exactRateCauchyOfAFTrajectoryNumeratorCalibration`, and
+`DynamicVacuumSectorContinuumCertificate.ofAFTrajectoryNumeratorCalibration`.
+Their original types remain unchanged, but their joint producer inputs are
+incompatible. Do not spend another frontier step trying to inhabit them.
+The scalar AF variation theorem, the band by itself, and direct
+`SummableRationalStepVariation family.physicalGap` are not refuted.
+
+**Next physical-mass target:** estimate the normalized same-family gap
+itself, with its actual spacing and a compatible positive mass band; retain
+the existing exact-log consumer. Neither equality to the vanishing bare AF
+coupling nor a global positive spacing floor can supply this target. Any
+candidate estimate must preserve numerator/spacing cancellation and expose
+its scale-uniform error budget before introducing another compiler.
+
+Focused check: `/tmp/ym-gap-af-calibration-obstruction.log` PASS; all five
+exported declarations use only `{propext, Quot.sound}`, with no `sorryAx`.
+The dependency-complete monitored build of the obstruction module and
+`BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate` also passed
+(one worker, 20 GiB worker limit). No full-root audit was run for this checkpoint.
+No ledgered hole is closed or introduced. No continuum or Yang--Mills
+nonexistence claim follows.
+
 ### Certificate gate applied to the active normalized channel (2026-09-20)
 
 The attached constructive-certificate criterion is now a planning gate: every
@@ -262,7 +298,11 @@ generic “continuum limit” placeholder.
   conditionally from an AF trajectory, but no inhabitant producing the
   same-completed-family `physicalGap` variation was found.  The ratio/debt
   compilers require independent variation data for the lattice margin and
-  transfer spacing; they do not manufacture it.
+  transfer spacing; they do not manufacture it. The AF identification is
+  now ruled out with a positive physical band by
+  `noPhysicalGapTrajectoryIdentification_of_rateBand`, and the primitive
+  global spacing-floor route was already ruled out by
+  `noPhysicalGapPrimitiveVariationInput`.
 * **Forward transfer input:**
   `MatchedPhysicalDynamicExplicitRayCanonicalCapacityCheckProducer` in
   `BF4PhysicalMatchedAFDynamicExplicitRayTransitionProductCompiler.lean`
@@ -279,10 +319,10 @@ modulus forward to the completed vacuum-sector consumer; until then the
 cofinal gap, physical calibration, thermodynamic/continuum passage, QFT
 reconstruction, all-group extension, and Clay endpoint remain open.
 
-### AF-to-continuum certificate compiler (2026-09-20)
+### Historical AF-to-continuum compiler: incompatible inputs (2026-09-20)
 
-`BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.lean` closes
-the backward-facing packaging seam.  Its
+`BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.lean`
+retains a conditional packaging seam. Its
 `exactRateCauchyOfAFTrajectoryNumeratorCalibration` transports the proved AF
 summable variation through the explicit same-object numerator calibration
 `family.latticeMargin j ≈ shiftedTau C j * family.transferSpacing.spacing j`.
@@ -293,13 +333,15 @@ already typed projective OS, reconstructed spectral-channel, and exact-rate
 fields.  Thus every payload component remains attached to one completed
 observable pin and one exact-rate sequence.
 
-This is a conditional compiler, not an inhabitant of its calibration,
-spacing tail, continuum existence, OS/GNS reconstruction, spectral channel, or
-exact-rate comparison.  The forward cofinal transfer margin and the physical
-calibration are still the center frontier; no thermodynamic/continuum, full
-QFT, all-group, or Clay theorem is claimed.
+The positive band and numerator calibration required by both consumers are
+incompatible by `noPhysicalGapNumeratorCalibration_of_rateBand`. This route
+is refuted, not waiting for a calibration producer. The conditional code is
+retained without weakening any statement. The direct same-family physical
+gap variation, forward cofinal transfer margin, and independent continuum/OS
+inputs remain open; no thermodynamic/continuum, full QFT, all-group, or Clay
+theorem is claimed.
 
-Focused check:
+Historical focused check of the conditional compiler:
 `/tmp/BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.olean`
 PASS; both printed declarations use only `{propext, Quot.sound}` and no
 `sorryAx`.
@@ -961,7 +1003,7 @@ passage, QFT package, all-group extension, or Clay conclusion is inferred.
 Focused verification is `/tmp/ym-gap-concrete-carrier-local-gluing-check.log`;
 the declaration reports only `{propext, Quot.sound}`.
 
-### Current forward/backward join: AF recurrence to summable scalar variation (2026-09-19)
+### AF scalar variation checked; positive-mass identification refuted (2026-09-20)
 
 `AFTrajectorySummableVariation.lean` now proves the next non-vacuous scalar
 edge.  From the two-loop recurrence and the derived reciprocal AF rate,
@@ -970,31 +1012,31 @@ budget for the shifted stream `j ↦ C.τ (C.k0 + j)`.  The step estimate is
 quadratic in `τ`; its tail is controlled by the existing inverse-square
 majorant, so `shiftedTauCauchy` produces a constructive-real Cauchy modulus.
 
-`PhysicalGapTrajectoryIdentification` is the explicit backward seam: only a
-same-object pointwise identification of that AF stream with
-`family.physicalGap` transports the proved budget via
-`toPhysicalGapVariation`.  With the independently supplied physical spacing
-tail, `exactLogRateCauchyOfAFTrajectory` then reaches the existing exact-log
-consumer.  No such identification is inhabited here, and no continuum,
-OS/GNS, QFT, all-group, or Clay claim is made.  Focused verification is
+`PhysicalGapTrajectoryIdentification` records the proposed equality of that
+AF stream with `family.physicalGap`. Its conditional `toPhysicalGapVariation`
+transport remains checked, but `exactLogRateCauchyOfAFTrajectory` also asks
+for a positive band. `noPhysicalGapTrajectoryIdentification_of_rateBand`
+now refutes this joint input with an explicit witnessing scale. The AF
+scalar theorem is unaffected; it does not identify the physical mass.
+Historical focused verification is
 `/tmp/AFTrajectorySummableVariation.olean`; every printed axiom set is only
 `{propext, Quot.sound}`.
 
-The backward seam is now decomposed rather than left as one opaque field:
+The historical backward seam also has an equivalent numerator form:
 `PhysicalGapNumeratorCalibration` asks for the completed lattice-margin
 identity `family.latticeMargin j ≈ shiftedTau C j * spacing j`, and
 `PhysicalGapNumeratorCalibration.toIdentification` performs the positive
 quotient cancellation.  The derived
-`exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration` is therefore the
-smallest explicit physical-calibration handoff currently available.  This is
-still a Type-level input, not a proof that the AF trajectory is the completed
-transfer gap; the calibration, thermodynamic passage, continuum QFT package,
-all-group extension, and Clay endpoint remain open.  The source check now
-prints only `{propext, Quot.sound}` for the calibration bridge and the new
-same-family explicit convergence certificate.  The latter is
+`exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration` has the same
+incompatible joint input, now refuted by
+`noPhysicalGapNumeratorCalibration_of_rateBand`. The conditional source
+check prints only `{propext, Quot.sound}` for the algebraic bridge and the
+same-family explicit convergence certificate. The latter is
 `PhysicalGapTrajectoryIdentification.toPhysicalGapExplicitConvergenceCertificate`:
 it retains the exact stream `family.physicalGap` and its Type-level modulus;
-it does not construct the calibration or any continuum object.
+it does not remove the incompatibility or construct any continuum object.
+Direct same-family physical-gap variation, thermodynamic passage, continuum
+QFT, all-group extension, and the Clay endpoint remain open.
 
 The continuum certificate gate now exposes the same payload for the exact
 separator rate through `DynamicVacuumSectorContinuumCertificate.rateLimit` and

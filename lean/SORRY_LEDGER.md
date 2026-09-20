@@ -13,6 +13,31 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED AF physical-gap calibration obstruction (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/AFTrajectoryPhysicalGapCalibrationObstruction.lean`.
+- **proved**: `calibrationObstructionScale` returns the existing AF cutoff at
+  half the positive physical floor.
+  `shiftedTau_lt_physicalGap_of_obstructionScale_le` proves strict separation
+  on its whole tail, and `physicalGapCalibrationCounterexample` returns the
+  witnessing scale as data. `noPhysicalGapTrajectoryIdentification_of_rateBand`
+  and `noPhysicalGapNumeratorCalibration_of_rateBand` prove that the AF
+  identification and its numerator form cannot coexist with a positive band.
+- **pruned consumers**: `AFTrajectorySummableVariation.exactLogRateCauchyOfAFTrajectory`,
+  `AFTrajectorySummableVariation.exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration`,
+  `BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.exactRateCauchyOfAFTrajectoryNumeratorCalibration`,
+  and `DynamicVacuumSectorContinuumCertificate.ofAFTrajectoryNumeratorCalibration`
+  require these incompatible joint inputs. Their original types are retained.
+- **boundary**: this refutes a proposed calibration route, not the AF scalar
+  variation theorem, either input separately, direct physical-gap variation,
+  or Yang--Mills existence. No hole is closed or introduced; physical mass,
+  continuum/QFT construction, all compact simple groups, and Clay remain open.
+- **verification**: `/tmp/ym-gap-af-calibration-obstruction.log` PASS; all five
+  printed declarations use only `{propext, Quot.sound}`, with no `sorryAx`.
+  The dependency-complete monitored build of this module and
+  `BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate` also passed
+  (one worker, 20 GiB worker limit). This is not a full-root audit.
+
 ## PROVED same-object physical-exponential certificate (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate.lean`.
@@ -119,7 +144,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   PASS (1492 dependency jobs, one worker); all printed declarations use only
   `{propext, Quot.sound}`, with no `sorryAx`.
 
-## PROVED AF-to-continuum certificate compiler (2026-09-20 UTC)
+## Historical AF-to-continuum compiler: incompatible joint inputs (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.lean`.
 - **proved**: `exactRateCauchyOfAFTrajectoryNumeratorCalibration` transports
@@ -128,12 +153,15 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   for the fixed exact physical-rate approximant.  `DynamicVacuumSectorContinuumCertificate.ofAFTrajectoryNumeratorCalibration`
   packages that modulus with the compiled positive floor and the supplied
   projective OS, reconstructed spectral-channel, and exact-rate handoffs.
-- **boundary**: this is a conditional compiler.  It does not inhabit the
-  numerator calibration, inverse-square spacing tail, continuum measure,
-  OS/GNS reconstruction, spectral channel, or exact-rate comparison; the
-  cofinal transfer margin and physical calibration therefore remain open.
-  No thermodynamic/continuum, full QFT, all-group, or Clay theorem is claimed.
-- **verification**: `/tmp/BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.olean`
+- **boundary correction**: the required positive band and numerator
+  calibration cannot coexist, by
+  `AFTrajectoryPhysicalGapCalibrationObstruction.noPhysicalGapNumeratorCalibration_of_rateBand`.
+  This route is refuted, not merely awaiting analytic inputs. The unchanged
+  conditional compiler cannot produce an inhabited continuum certificate.
+  Direct same-family physical-gap variation and the independent continuum/OS
+  inputs remain open. No thermodynamic/continuum, full QFT, all-group, or Clay
+  theorem is claimed.
+- **historical verification**: `/tmp/BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.olean`
   PASS; both printed declarations use only `{propext, Quot.sound}`, with no
   `sorryAx`.
 
@@ -196,16 +224,18 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   transports that certificate to the completed-family physical gap when an
   explicit same-object pointwise identification is supplied, and
   `exactLogRateCauchyOfAFTrajectory` feeds the existing exact-log consumer.
-- **backward decomposition**: `PhysicalGapNumeratorCalibration` isolates the
-  minimal physical numerator relation
+- **historical backward decomposition**: `PhysicalGapNumeratorCalibration`
+  isolates the proposed numerator relation
   `family.latticeMargin j ≈ shiftedTau C j * spacing j`;
   `PhysicalGapNumeratorCalibration.toIdentification` proves the required
   same-object quotient identification by constructive positive cancellation,
   and `exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration` packages the
   resulting exact-log handoff.
-- **boundary**: the AF-to-completed-family identification remains a Type-level
-  input (and the decomposed numerator calibration is likewise uninhabited); no
-  inhabitant is claimed.  No physical rate band, continuum measure,
+- **boundary correction**: both identification forms are incompatible with
+  the positive band required by their exact-log consumers; see
+  `AFTrajectoryPhysicalGapCalibrationObstruction`. The scalar AF theorem
+  remains checked; direct same-family physical-gap variation is still open.
+  No physical rate band, continuum measure,
   OS/GNS reconstruction, QFT axioms, all-group theorem, or Clay result is
   discharged by this scalar compiler.
 - **verification**: `/tmp/AFTrajectorySummableVariation.olean`; all printed

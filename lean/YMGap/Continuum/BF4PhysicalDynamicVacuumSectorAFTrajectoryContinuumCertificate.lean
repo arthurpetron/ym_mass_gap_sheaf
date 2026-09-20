@@ -1,18 +1,22 @@
 /-
-# Compile the explicit AF/physical-gap bridge into the full continuum gate
+# Historical AF-to-continuum compiler with incompatible joint inputs
 
 The AF trajectory module already proves summable variation for its shifted
-coupling.  The completed BF4 family, however, uses its own physical gap.  The
-only honest bridge is the explicit numerator calibration
+coupling. The completed BF4 family, however, uses its own physical gap. The
+proposed numerator calibration was
 
   latticeMargin j ≈ shiftedTau C j * spacing j.
 
-This module consumes that calibration, the independently supplied inverse-
-square spacing tail, and the already named same-object OS/GNS handoff fields.
-It therefore constructs a `DynamicVacuumSectorContinuumCertificate` without
-manufacturing any of those open inputs.  In particular, this is a compiler
-from certificates, not a proof that the calibration, continuum existence, or
-OS reconstruction exists.
+Both consumers in this module require that calibration together with a
+positive `DynamicVacuumSectorPhysicalRateBand`. Those inputs cannot coexist:
+`AFTrajectoryPhysicalGapCalibrationObstruction` constructs a scale where the
+vanishing AF coupling is strictly below the physical gap's positive floor.
+The conditional declarations and their original types are preserved, but
+this route is refuted, not merely waiting for a calibration producer.
+
+The AF scalar variation result and the direct same-family physical-gap
+variation route are unaffected. No continuum or Yang--Mills nonexistence
+conclusion follows from this incompatibility.
 
 No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 `noncomputable` declaration is used.
@@ -46,10 +50,9 @@ open YMGap.Continuum.QuadraticRateErrorTailControl
 
 /-! ## The same-object forward/backward compiler -/
 
-/-- Compile the AF recurrence plus the explicit same-family numerator
-calibration into the exact logarithmic Cauchy field required by the full
-continuum certificate.  The target is the rate sequence of the *same* exact
-physical separator selected by `pin`, not a separately chosen AF sequence. -/
+/-- Historical exact-rate compiler on the same separator selected by `pin`.
+The implicit `band` and explicit `calibration` are incompatible by
+`AFTrajectoryPhysicalGapCalibrationObstruction`. -/
 def exactRateCauchyOfAFTrajectoryNumeratorCalibration
     {half : Nat}
     {family : DynamicVacuumSectorCompletedFamily half}
@@ -67,13 +70,10 @@ def exactRateCauchyOfAFTrajectoryNumeratorCalibration
     (exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration
       pin band spacingTail calibration)
 
-/-- The minimal conditional constructor for the full continuum certificate.
-
-The forward side contributes the fixed completed observable, physical rate
-band, and already supplied OS/projective fields.  The backward side
-contributes exactly the AF trajectory, inverse-square spacing tail, and
-same-object numerator calibration needed for the rate modulus.  No field is
-weakened to an unrelated bound, and no missing analytic witness is inferred. -/
+/-- Historical conditional constructor, retaining all same-object fields.
+Its positive `band` and AF `calibration` are incompatible by
+`AFTrajectoryPhysicalGapCalibrationObstruction`; this is not a viable
+producer path for a continuum certificate. -/
 def DynamicVacuumSectorContinuumCertificate.ofAFTrajectoryNumeratorCalibration
     {half : Nat}
     {family : DynamicVacuumSectorCompletedFamily half}

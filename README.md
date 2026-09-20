@@ -20,6 +20,19 @@
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
 
+**AF calibration route ruled out (2026-09-20):**
+`AFTrajectoryPhysicalGapCalibrationObstruction.lean` proves that the proposed
+identification `shiftedTau = family.physicalGap` cannot coexist with the
+positive physical rate band used by its consumers. At the explicit cutoff
+`afScheduleCutoff C (band.floor / 2)`,
+`shiftedTau <= band.floor / 2 < band.floor <= family.physicalGap`.
+The numerator calibration `latticeMargin = shiftedTau * spacing`
+together with that band is therefore ruled out as well. These were incompatible
+inputs, not merely unproved inputs. Direct variation of the normalized
+same-family physical gap remains open; the AF scalar theorem is unaffected.
+This does not refute Yang--Mills or the continuum target. The five new
+declarations pass the focused Lean check with only `{propext, Quot.sound}`.
+
 **Constructive certificate rule (2026-09-20):** a finite certificate informs
 the continuum route only when its approximating object, explicit modulus, and
 uniformity remain attached to the same theory through the limit.  The new
@@ -63,26 +76,35 @@ same-theory QFT axioms, isolated vacuum, and physical Delta > 0
                               |
           EXPAND: same-object witnesses + moduli + uniform estimates
                               v
-[CHECKED] finite SU(2) carrier -> completed transfer -> unit-floor
-          concrete completed SU(2) carrier certificate
-          normalized moving-cube channel -> finite squared decay
-          -> explicit-limit unit floor -> canonical clustering bridge*
-          -> same-object physical-exponential certificate*
+[CHECKED, scoped] fixed-spacing SU(2) carrier estimates
+          + normalized channel's finite-scale unit floor
                               |
-                 X current causal producer frontier
+          [OPEN] original-action / canonical OS carrier identification
+                              |
+                 +------------+-------------+
+                 v                          v
+[OPEN] cofinal and spatial       [OPEN] direct same-family gap variation
+       uniform estimates               with a compatible positive band
+                 |                          |
+                 +------------AND-----------+
                               v
-[OPEN] cofinal transition-product control
-       + physical-gap/rate calibration on that same completed family
-                              v
-[OPEN] cutoff/spacing limits -> projective measure -> OS/GNS/QFT
-                              v
-[OPEN] every compact simple group -> isolated vacuum -> Delta > 0
+[OPEN] controlled cutoff/spacing/volume limits on the SAME theory
+                              |
+                   +----------AND-----------+
+                   |                        |
+            [OPEN] full OS/QFT      [OPEN] nontrivial survival
+                   |                        |
+                   +----------AND-----------+
+                              |
+          [OPEN] construction for EVERY compact simple group
                               |
           CONTRACT: one kernel-checked theorem with all pins preserved
                               v
 WHOLE-PROJECT GOAL / CLAY TARGET
 
-*bridge conditional on the named fixed-ratio rate-power identification
+PRUNED JOIN [CHECKED contradiction]
+AF coupling -> 0 --X--> physicalGap >= fixed positive floor
+                  exact identification cannot supply this input
 ```
 
 The normalized channel's unit floor is an actual checked uniformity witness:
@@ -256,18 +278,17 @@ the exact routed finite capacity margin.  Positivity of each finite margin and
 an AF spacing tail are conditional ingredients, not substitutes for these two
 same-object uniformity witnesses.
 
-**AF-to-continuum certificate compiler (2026-09-20):**
-`BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.lean` now
-joins the two typed sides at their smallest honest interface.  Given an AF
-trajectory, the same-completed-family numerator calibration
-`latticeMargin ≈ shiftedTau * spacing`, an inverse-square spacing tail, and the
-already explicit projective/OS/GNS and exact-rate fields, it constructs the
-full `DynamicVacuumSectorContinuumCertificate`.  The compiler preserves the
-fixed exact-rate approximant, its constructive Cauchy modulus, the compiled
-positive floor, and all same-object descent fields.  It does not construct the
-calibration, continuum measure, OS reconstruction, spectral channel, or exact
-rate comparison; those remain the open producer inputs.
-Focused check:
+**Historical AF-to-continuum compiler; joint inputs refuted (2026-09-20):**
+`BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.lean`
+preserves a checked conditional assembly of the exact-rate modulus and
+OS/GNS handoffs. However, both of its consumers require the positive physical
+band together with `latticeMargin ≈ shiftedTau * spacing`.
+`noPhysicalGapNumeratorCalibration_of_rateBand` now proves those inputs
+incompatible. This compiler cannot produce an inhabited continuum
+certificate. Its original types are retained for provenance; direct
+same-family physical-gap variation and the independent continuum/OS inputs
+remain open.
+Historical focused check of the conditional compiler:
 `/tmp/BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.olean`
 PASS; both exported declarations use only `{propext, Quot.sound}` and no
 `sorryAx`.
@@ -386,25 +407,25 @@ inhabited, and no continuum or Clay claim follows.  Focused verification is
 `AFTrajectorySummableVariation.lean` derives a two-sided summable step budget
 for the shifted AF log-coupling stream from the certified two-loop recurrence
 and reciprocal rate.  `shiftedTauCauchy` is a constructive-real Cauchy modulus.
-The explicit `PhysicalGapTrajectoryIdentification` structure records the
-remaining same-object pointwise identification needed to transport this
-budget to `family.physicalGap`; only then does
-`exactLogRateCauchyOfAFTrajectory` feed the exact-log compiler.  The
-identification is not inhabited, and no continuum or Clay claim is made.
+The scalar theorem remains valid. The proposed
+`PhysicalGapTrajectoryIdentification` transports its budget to
+`family.physicalGap`, but it cannot coexist with the positive physical band
+required by `exactLogRateCauchyOfAFTrajectory`. The constructive obstruction
+above rules out that joint input, rather than leaving it as a producer task.
 Focused verification is `/tmp/AFTrajectorySummableVariation.olean`, under the
 `{propext, Quot.sound}` gate.
 
-The backward identification is now factored through
+The historical identification factors through
 `PhysicalGapNumeratorCalibration`: a supplied numerator relation between the
 completed lattice margin and `shiftedTau * spacing` is reduced by explicit
 positive rational cancellation to the required same-object physical-gap
 identification.  `exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration`
-packages that conditional join.  The calibration remains uninhabited; this is
-not a continuum, QFT, all-group, or Clay result.  The new
+packages that conditional join. The calibration is likewise incompatible
+with the positive band. The conditional
 `PhysicalGapTrajectoryIdentification.toPhysicalGapExplicitConvergenceCertificate`
-also promotes the transported same-family variation to a Type-level
-approximant/modulus certificate, so no convergence modulus is recovered from
-the legacy proposition.
+promotes the transported same-family variation to a Type-level
+approximant/modulus certificate; it does not remove the incompatibility or
+establish a continuum, QFT, all-group, or Clay result.
 
 **Completed-carrier attachment (2026-09-19):**
 `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSCompletedCarrier.lean`

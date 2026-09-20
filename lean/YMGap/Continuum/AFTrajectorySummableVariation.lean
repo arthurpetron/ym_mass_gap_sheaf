@@ -10,8 +10,12 @@ summable two-sided step budget for the shifted AF stream
 This module compiles that consequence into the common
 `SummableRationalStepVariation` interface.  It is an AF scalar result only:
 the stream is not silently identified with the completed BF4 physical gap.
-That identification remains the next same-object bridge needed by the
-exact-log continuum compiler.
+The proposed identification is incompatible with a positive physical rate
+band: `AFTrajectoryPhysicalGapCalibrationObstruction` supplies an explicit
+scale where the vanishing AF coupling is below the band's positive floor.
+The conditional transports below retain their original types, but their
+exact-log consumers require these incompatible inputs. Direct variation of
+the same completed family's physical gap remains a separate open input.
 
 No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 `noncomputable` declaration is used.
@@ -277,12 +281,12 @@ def shiftedTauCauchy
     CReal.ModCauchyEv (fun j => CReal.ofQ' (shiftedTau C j)) :=
   (shiftedTauSummableVariation C).toModCauchyEv
 
-/-! ## 3. The exact same-family bridge -/
+/-! ## 3. The proposed same-family identification -/
 
-/-- The minimal identification needed to move the AF scalar variation onto
-the completed BF4 family.  It is intentionally an explicit Type-level field:
-the AF recurrence alone does not identify `τ` with the completed transfer's
-physical gap. -/
+/-- A proposed identification transporting AF scalar variation onto the
+completed BF4 family. It cannot coexist with a positive physical rate band;
+see `AFTrajectoryPhysicalGapCalibrationObstruction`.
+The AF scalar result itself does not require this identification. -/
 structure PhysicalGapTrajectoryIdentification
     {half : Nat}
     (family : DynamicVacuumSectorCompletedFamily half)
@@ -301,15 +305,16 @@ private theorem divPos_eqv_of_eqv_mul_local {p q c : Q'}
     (Q'.mul_eqv_congr_left c _ _ (Q'.mul_recipPos_eqv q hq)) ?_
   exact Q'.mul_one_eqv c
 
-/-- The minimal physical calibration behind the same-object identification.
+/-- The numerator relation behind the proposed same-object identification.
 
     The completed family defines its physical gap as
     `latticeMargin / spacing`.  This certificate asks only that the AF
     trajectory times that *same* positive spacing recovers the completed
     lattice margin.  The quotient identification is then a local rational
-    cancellation, rather than an opaque equality field.  No inhabitant is
-    manufactured here: supplying this calibration remains the explicit
-    physical-mass bridge. -/
+    cancellation, rather than an opaque equality field. This relation is
+    incompatible with a positive physical rate band, as proved in
+    `AFTrajectoryPhysicalGapCalibrationObstruction`. It is not a remaining
+    producer target for the positive-mass route. -/
 structure PhysicalGapNumeratorCalibration
     {half : Nat}
     (family : DynamicVacuumSectorCompletedFamily half)
@@ -366,9 +371,9 @@ def PhysicalGapTrajectoryIdentification.toPhysicalGapExplicitConvergenceCertific
 
 /-! ## 4. Exact-log consequence -/
 
-/-- The AF recurrence, together with an explicit same-family gap
-identification, reaches the existing exact-log Cauchy compiler.  The spacing
-tail remains the independently supplied physical branch. -/
+/-- Historical conditional exact-log compiler. Its `band` and `identification`
+inputs are incompatible by `AFTrajectoryPhysicalGapCalibrationObstruction`;
+the original statement is preserved, not weakened into an inhabitable one. -/
 def exactLogRateCauchyOfAFTrajectory
     {half : Nat}
     {family : DynamicVacuumSectorCompletedFamily half}
@@ -381,8 +386,9 @@ def exactLogRateCauchyOfAFTrajectory
   DynamicVacuumSectorObservablePin.exactLogRateCauchy
     pin band identification.toPhysicalGapVariation spacingTail
 
-/-- The same exact-log consequence with the backward seam decomposed into its
-minimal numerator calibration. -/
+/-- Historical exact-log consequence with numerator calibration. Its `band`
+and `calibration` inputs cannot jointly be supplied; see
+`AFTrajectoryPhysicalGapCalibrationObstruction`. -/
 def exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration
     {half : Nat}
     {family : DynamicVacuumSectorCompletedFamily half}
