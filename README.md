@@ -70,6 +70,24 @@ completed same-object gap consumer.  The power-debt producer, comparison and
 stability moduli, spacing/thermodynamic passage, OS/QFT reconstruction,
 all-group extension, and Clay mass gap are still open.
 
+**Positive diagonal Wilson translation (2026-09-20):**
+`BF4WilsonDiagonalTranslationSyntax.lean`,
+`BF4WilsonDiagonalTranslationForm.lean`, and
+`BF4WilsonSpatialUnionDiagonalTranslation.lean` implement the literal shift
+by `s` in all three spatial coordinates, enlarging the source base from `b`
+to `b+2*s`. Recentring identifies the translated centered expression and box
+with the old one at margin `r+s`, yielding original limiting-form and
+squared-distance invariance. The current Wilson completion then receives
+positive diagonal maps preserving supplied Cauchy moduli, the vacuum,
+physical discrete time, mixed form, and connected scalar; zero/composition
+laws and injectivity are retained at this syntax/carrier level. This is a
+positive `Nat` semigroup only, not independent signed `Z^3` translations or
+inverses, continuum Euclidean covariance, changing-spacing/physical mass,
+full QFT, all-group, or Clay closure, and it does not substitute the old
+carrier. Spatial-separation decay is not proved by this invariance.
+All 40 exported axiom gates and the narrow dependency build passed;
+no full-root audit was run.
+
 **Exact centered-cross cancellation (2026-09-20):**
 `Z4DyadicSpinFourFineCouplingCenteredMarginDebtPullback.lean` now proves
 `fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_eqv_zero_of_contrast_constant`.

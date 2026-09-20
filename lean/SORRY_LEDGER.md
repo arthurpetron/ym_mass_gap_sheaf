@@ -34,6 +34,33 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   (one worker, 20 GiB worker limit). No hole was introduced or discharged;
   no full-root build or audit is claimed.
 
+## PROVED positive diagonal Wilson translation (2026-09-20 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/BF4WilsonDiagonalTranslationSyntax.lean`,
+  `lean/YMGap/Continuum/BF4WilsonDiagonalTranslationForm.lean`, and
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionDiagonalTranslation.lean`.
+- **proved**: literal translation by a common natural `s` in all three
+  spatial coordinates enlarges the source base from `b` to `b+2*s` and,
+  after recentering, is exactly the old centered expression and box at
+  margin `r+s`. The existing original limiting form and squared distance
+  are therefore invariant. The current Wilson completion receives maps
+  preserving supplied Cauchy moduli, the vacuum, physical discrete time,
+  mixed form, and connected scalar, with zero/composition laws, distance
+  preservation, and injectivity at the same level.
+- **boundary**: this is only a positive diagonal `Nat` semigroup. It does
+  not provide independent signed `Z^3` translations or inverses, continuum
+  Euclidean covariance, changing-spacing or physical-mass control, full
+  QFT, all-group construction, or the Clay result. No old carrier is
+  substituted, and spatial-separation decay is not inferred from invariance.
+- **verification**: the three direct checks
+  `/tmp/ym-gap-wilson-diagonal-{syntax,form,union}-final.log` PASSed all
+  40 exported gates with only `{propext, Quot.sound}` and no `sorryAx`.
+  The dependency-complete monitored target
+  `+YMGap.Continuum.BF4WilsonSpatialUnionDiagonalTranslation:olean` also
+  PASSed (one worker, 20 GiB worker limit). No hole was added or discharged;
+  no full-root build or audit is claimed.
+
 ## PROVED AF physical-gap calibration obstruction (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/AFTrajectoryPhysicalGapCalibrationObstruction.lean`.

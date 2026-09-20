@@ -34,6 +34,47 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Original Wilson diagonal spatial symmetry (2026-09-20)
+
+**Progress, geometric symmetry lane:**
+`BF4WilsonDiagonalTranslationSyntax.lean` shifts the actual ordered loops by
+a common natural `s` in all three spatial coordinates, with support base
+`b+2*s`. `BF4WilsonDiagonalTranslationForm.centered_translate` and
+`jointLimit_translate` prove the exact identity with the old centered box
+and expression at margin `r+s`. A cofinal shift of the EXISTING convergent
+sequence then proves `spatialLimit_translate`, `intrinsicForm_translate`,
+and `distSq_translate`. This is an original-action identity, not use of the
+older plaquette-only translation theorem or an assumed symmetry of the limit.
+
+The actual consumer is
+`BF4WilsonSpatialUnionDiagonalTranslation.translationNonexpansive`.
+`completedTranslation` now acts on the SAME Wilson Cauchy quotient;
+`translation_cauchy_modulus` retains every supplied modulus exactly.
+`completedTranslation_zero` and `completedTranslation_add` prove the natural
+semigroup laws. `completedInner_translate` and `completedDist_translate`
+prove exact form and squared-distance preservation; injectivity follows.
+The action fixes the actual vacuum, commutes with actual physical discrete
+time, and preserves the SAME connected scalar via
+`completedCenteredScalar_translate`.
+
+**Boundary and next geometric estimate:** positive diagonal translation is
+not a signed three-axis action. Independent axes require a comparison of
+differently placed boxes, which the exact `r+s` identity does not provide.
+No inverses, spatial-separation decay, continuum covariance, changing-spacing
+estimate, physical mass, full QFT or every-group result is inferred. The
+separate rescaled-strength variation producer remains open. No canonical
+frontier field is weakened or inhabited; no hole is added or discharged.
+
+**Verification:** the three direct checks
+`/tmp/ym-gap-wilson-diagonal-{syntax,form,union}-final.log` PASSed all
+40 exported gates with only `{propext, Quot.sound}` and no `sorryAx`.
+The dependency-complete monitored target
+`+YMGap.Continuum.BF4WilsonSpatialUnionDiagonalTranslation:olean` also
+PASSed (one worker, 20 GiB worker limit). Root imports were added; no
+full-root build/audit was run. Luna supplied the finite recentering syntax
+and reviewed scope; the main agent proved and checked the form, completion,
+semigroup and correlation consequences.
+
 ### Bounded chronological calculus on the original Wilson carrier (2026-09-20)
 
 **Progress, fixed-spacing observable lane:**

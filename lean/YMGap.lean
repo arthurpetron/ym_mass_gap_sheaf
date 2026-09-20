@@ -4991,6 +4991,10 @@ import YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
 import YMGap.Continuum.BF4WilsonSpatialUnionPairingData
 import YMGap.Continuum.BF4WilsonSpatialUnionCenteredForm
 import YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
+-- Exact cofinal-box spatial symmetry on this SAME original Wilson carrier.
+import YMGap.Continuum.BF4WilsonDiagonalTranslationSyntax
+import YMGap.Continuum.BF4WilsonDiagonalTranslationForm
+import YMGap.Continuum.BF4WilsonSpatialUnionDiagonalTranslation
 import YMGap.Continuum.BF4WilsonSpatialUnionFixedBase
 import YMGap.Continuum.BF4WilsonSpatialUnionSmallNomeGap
 import YMGap.Continuum.BF4WilsonSpatialUnionPosdef
