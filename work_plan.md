@@ -25261,6 +25261,17 @@ product-kernel output contrast has absolute value at most one for every fine
 source pair.  The prior normalized margin calibration is exactly equivalent
 to bounding this signed fine-source average, with no change of constant.
 
+The same module now exposes the first exact cancellation compiler at this
+source level:
+`fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_eqv_zero_of_contrast_constant`.
+If the literal four-cell output contrast is pointwise equal to one named
+constant on the pushed source-pair carrier, the source debt's already-proved
+zero total annihilates the complete cross-average.  This keeps the
+approximating source object and its centering in the theorem statement; it
+does not silently replace a signed average by an absolute-value bound.  The
+required nonconstant contrast control (and any modulus for it) remains an
+open producer.
+
 This identity does not prove the required uniform estimate.  The active
 analytic producers are a cutoff- and volume-uniform balanced blocking
 calibration and a cutoff- and volume-uniform estimate of the signed

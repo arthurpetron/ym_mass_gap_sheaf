@@ -679,8 +679,53 @@ def fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage
     (fun sourcePair =>
       fineCouplingPhysicalSourcePairCenteredMarginRawDebt S sourcePair *
         fineCouplingTwoReplicaFourCellOutputContrast
-          K root target sourcePair)
+        K root target sourcePair)
     (pushedPhysicalSourcePairs S)
+
+/-- A constant output contrast is annihilated by the centered source debt.
+
+This is the first exact meet-in-the-middle cancellation interface for the
+fine-source average: the same completed source object is retained, while
+the only extra input is an explicit pointwise contrast certificate.  It is
+an algebraic zero statement, not a uniform estimate; any later decay proof
+must still manufacture the contrast modulus on the actual source carrier.
+-/
+theorem fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_eqv_zero_of_contrast_constant
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (root target : Nat) (constant : Q')
+    (hconstant : ∀ sourcePair,
+      sourcePair ∈ pushedPhysicalSourcePairs S →
+        fineCouplingTwoReplicaFourCellOutputContrast
+            K root target sourcePair ≈ constant) :
+    fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage
+        K root target ≈ 0 := by
+  let sources := pushedPhysicalSourcePairs S
+  let debt := fineCouplingPhysicalSourcePairCenteredMarginRawDebt S
+  let contrast := fun sourcePair =>
+    fineCouplingTwoReplicaFourCellOutputContrast K root target sourcePair
+  have hpointwise :
+      listQSum (fun sourcePair => debt sourcePair * contrast sourcePair)
+          sources ≈
+        listQSum (fun sourcePair => debt sourcePair * constant) sources := by
+    apply listQSum_congr_on
+    intro sourcePair hsource
+    exact Q'.mul_eqv_congr_left (debt sourcePair) _ _
+      (hconstant sourcePair hsource)
+  have hfactor :
+      listQSum (fun sourcePair => debt sourcePair * constant) sources ≈
+        listQSum debt sources * constant := by
+    exact listQSum_mul_right debt constant sources
+  have hdebt : listQSum debt sources ≈ 0 := by
+    simpa only [sources, debt] using
+      (fineCouplingPhysicalSourcePairCenteredMarginRawDebt_total_eqv_zero S)
+  have hzero : listQSum debt sources * constant ≈ 0 := by
+    exact Q'.eqv_trans _ (0 * constant) _
+      (Q'.mul_eqv_congr_right _ _ constant hdebt)
+      (Q'.zero_mul_eqv constant)
+  change listQSum
+      (fun sourcePair => debt sourcePair * contrast sourcePair) sources ≈ 0
+  exact Q'.eqv_trans _ _ _ hpointwise
+    (Q'.eqv_trans _ _ _ hfactor hzero)
 
 private theorem targetPairDebt_sum_eqv_sourcePairOutputMass
     {S : SlabScalePair} (K : S.FiniteSlabKernel)
@@ -846,6 +891,7 @@ theorem fineUnitCouplingCenteredNormalizedMarginRawCalibration_iff_sourcePairAve
 #print axioms fineCouplingTwoReplicaFourCellOutputContrast
 #print axioms fineCouplingTwoReplicaFourCellOutputContrast_abs_le_one
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage
+#print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_eqv_zero_of_contrast_constant
 #print axioms fineCouplingPushedFourCellCenteredMarginRawDebtCross_eqv_sourcePairAverage
 #print axioms fineUnitCouplingCenteredNormalizedMarginNumerator_eqv_sourcePairAverage
 #print axioms FineUnitCouplingCenteredMarginSourcePairAverageCalibration

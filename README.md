@@ -31,6 +31,15 @@ completed same-object gap consumer.  The power-debt producer, comparison and
 stability moduli, spacing/thermodynamic passage, OS/QFT reconstruction,
 all-group extension, and Clay mass gap are still open.
 
+**Exact centered-cross cancellation (2026-09-20):**
+`Z4DyadicSpinFourFineCouplingCenteredMarginDebtPullback.lean` now proves
+`fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_eqv_zero_of_contrast_constant`.
+On the literal pushed fine source-pair carrier, any pointwise-constant
+four-cell output contrast is annihilated by the proved zero-total centered
+source debt.  This is an exact same-object cancellation interface with no
+uniform estimate hidden inside it; the nonconstant contrast producer and its
+cutoff/volume modulus remain the active frontier.
+
 **Causal project map (2026-09-20):**
 
 ```text
