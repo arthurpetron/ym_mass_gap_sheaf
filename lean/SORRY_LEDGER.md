@@ -22873,6 +22873,17 @@ passes with only `{propext, Quot.sound}` and no `sorryAx`.  This remains
 conditional on the cofinal scan; it does not produce that scan or a
 continuum/Clay conclusion.
 
+The same interface now composes with the completed sector autocorrelation
+theorem through
+`CutoffTwoCofinalNovelEdgeCapacityCheck.completedAutocorrelation_sq_decay`.
+Thus a supplied cofinal edge scan reaches a geometric decay statement for the
+same completed sector observable, with the rate carried by the constructed
+strict-contraction datum.  Focused source check
+`/tmp/BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.check3.log`
+passes with only `{propext, Quot.sound}` and no `sorryAx`.  This remains a
+conditional composition; the cofinal scan, physical calibration, and all
+thermodynamic/continuum obligations are still open.
+
 ### [BF4-cutoff-two-novel-flow-edge-expansion] Exact endpoint-pair load decomposition — **CLOSED 2026-08-23**
 
 - **milestone**: expose the generic flat-map edge-load identity; prove that

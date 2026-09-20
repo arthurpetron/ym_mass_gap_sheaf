@@ -56582,6 +56582,17 @@ passes with only `{propext, Quot.sound}` and no `sorryAx`.  The next real
 frontier is therefore the cofinal edge/load estimate itself, followed by the
 thermodynamic, continuum, QFT, and all-group obligations.
 
+The forward witness now also composes with the backward observable endpoint:
+`CutoffTwoCofinalNovelEdgeCapacityCheck.completedAutocorrelation_sq_decay`
+feeds the constructed completed strict-contraction datum into the existing
+same-sector autocorrelation theorem.  Consequently the exact rate carried by
+the supplied cofinal scan controls the square of the completed sector
+autocorrelation at every power.  This is a typed composition only; it does not
+construct the scan or close physical calibration, thermodynamic/continuum,
+QFT, all-group, or Clay obligations.  Focused source check
+`/tmp/BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.check3.log`
+passes with only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A

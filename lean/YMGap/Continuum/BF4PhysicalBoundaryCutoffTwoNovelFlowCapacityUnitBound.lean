@@ -46,9 +46,12 @@ open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoUniformSectorMassFloor
 open YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoVacuumLocalFactors
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
+open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorEdgeFloor
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPathCeiling
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
 
 /-! ## 1. Unit bounds for every factor of the fixed target -/
 
@@ -253,6 +256,34 @@ def toCompletedStrictContractionData
       (w := cutoffTwoHalfCoupling) (by decide) (by decide) 0 :=
   checked.toCofinalNovelFlowCapacityRatio.toCompletedStrictContractionData
 
+/-- Once the cofinal edge scan is supplied, the forward capacity witness
+feeds directly into the already completed same-sector autocorrelation decay.
+This is only a composition theorem: it introduces no new cofinal estimate. -/
+theorem completedAutocorrelation_sq_decay
+    (checked : CutoffTwoCofinalNovelEdgeCapacityCheck)
+    (n : Nat)
+    (vector :
+      CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement
+        (w := cutoffTwoHalfCoupling) (by decide) (by decide) 0) :
+    CReal.RCle
+      (CReal.RCmul
+        (centralPhysicalVacuumSectorCylinderCompletedAutocorrelation
+          (w := cutoffTwoHalfCoupling) (by decide) (by decide) 0 n vector.1)
+        (centralPhysicalVacuumSectorCylinderCompletedAutocorrelation
+          (w := cutoffTwoHalfCoupling) (by decide) (by decide) 0 n vector.1))
+      (CReal.RCmul
+        (CReal.RCscale
+          ((checked.toCompletedStrictContractionData.rate *
+              checked.toCompletedStrictContractionData.rate) ^ n)
+          (centralPhysicalVacuumSectorCylinderCompletedInner
+            (w := cutoffTwoHalfCoupling) (by decide) (by decide) 0
+            vector.1 vector.1))
+        (centralPhysicalVacuumSectorCylinderCompletedInner
+          (w := cutoffTwoHalfCoupling) (by decide) (by decide) 0
+          vector.1 vector.1)) := by
+  exact centralPhysicalVacuumSectorCylinderCompletedAutocorrelation_sq_decay
+    checked.toCompletedStrictContractionData n vector
+
 end CutoffTwoCofinalNovelEdgeCapacityCheck
 
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound
@@ -269,5 +300,7 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.inspectCutoffTwoNovelFlowCapacityDecisively
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.CutoffTwoCofinalNovelEdgeCapacityCheck.certifiedOutcomeAt
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.CutoffTwoCofinalNovelEdgeCapacityCheck.completedAutocorrelation_sq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.CutoffTwoCofinalNovelEdgeCapacityCheck.toCompletedStrictContractionData
