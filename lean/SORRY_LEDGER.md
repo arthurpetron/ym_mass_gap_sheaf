@@ -521,7 +521,8 @@ is a rate-sensitive one-vector moment bound, not an all-vector operator gap.
   and dependency-complete safe target
   `+YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate:olean`
   (1695 jobs) both completed; the module's printed axiom gates are exactly
-  `{propext, Quot.sound}`, with no `sorryAx`.
+  `{propext, Quot.sound}`, with no `sorryAx`.  The module is now also imported
+  by `lean/YMGap.lean`, promoting the certificate into the semantic root.
 
 **Sector-normalized local-slice forward/backward join, checked 2026-09-19:**
 `BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement` now consumes

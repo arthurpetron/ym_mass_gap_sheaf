@@ -41,6 +41,7 @@ same-theory QFT axioms, isolated vacuum, and physical Delta > 0
           EXPAND: same-object witnesses + moduli + uniform estimates
                               v
 [CHECKED] finite SU(2) carrier -> completed transfer -> unit-floor
+          concrete completed SU(2) carrier certificate
           normalized moving-cube channel -> finite squared decay
           -> explicit-limit unit floor -> canonical clustering bridge*
           -> same-object physical-exponential certificate*
@@ -124,6 +125,10 @@ not inhabit any variation input or
 uniform cofinal producer; physical-gap calibration, spacing/thermodynamic
 passage, OS/QFT reconstruction, all-group extension, and the Clay mass gap
 remain open.
+
+The concrete fixed-nome carrier certificate is now imported by the semantic
+root (`YMGap.lean`), so its completed-sector witness is visible to the
+authoritative audit environment rather than only to its standalone module.
 
 **Finite forward seed (2026-09-20):**
 `BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` now inhabits the

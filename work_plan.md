@@ -147,6 +147,14 @@ Focused check:
 PASS (one worker); the exported constructor uses only `{propext, Quot.sound}`
 and no `sorryAx`.
 
+The checked fixed-nome carrier certificate
+`BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean` is now promoted into
+the `YMGap.lean` semantic root.  This makes the inhabited completed SU(2)
+carrier, explicit vacuum-complement vector, transfer-power intertwining, and
+same-object correlation identity part of the authoritative root environment.
+The strict contraction field remains an explicit producer input; no continuum
+or Clay claim is added by this import promotion.
+
 ### Same-object weighted-entry bridge (2026-09-20)
 
 `BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean` closes the
