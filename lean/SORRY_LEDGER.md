@@ -27,6 +27,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **boundary**: this constructor only assembles explicit producer inputs.  It does not prove any of the three variation estimates, identify a physical fixed rate, construct a cofinal transition product, calibrate a physical gap, or provide OS/QFT, all-group, or Clay closure.
 - **verification**: `+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering:olean` PASS (1667 dependency jobs, one worker); the constructor uses only `{propext, Quot.sound}`, with no `sorryAx`.
 
+## PROVED exact fixed-ratio producer compiler (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeFixedRatioCompiler.lean`.
+- **proved**: `NormalizedMovingCubeFixedRatioData.toRatePowerLimit` converts pointwise equality of the actual scheduled rate-power stream with `ratio ^ time` into an explicit CReal limit and zero-stage convergence witness; `toGeometricIdentification` supplies the canonical fixed-ratio field; `NormalizedMovingCubeContinuumCertificate.ofFixedRatioData` assembles that rate object with the same-family raw and normalization-debt limits.
+- **boundary**: the pointwise fixed-ratio equality, raw variation, and normalization-debt variation remain explicit inputs.  This compiler does not identify a physical rate, prove cofinal transition control, calibrate mass, or construct OS/QFT, all-group, or Clay closure.
+- **verification**: `+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeFixedRatioCompiler:olean` PASS (1668 dependency jobs, one worker); exported declarations use only `{propext, Quot.sound}`, with no `sorryAx`.
+
 ## PROVED positive cutoff-one conditioned/Markov bridge (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.lean`.

@@ -86,6 +86,17 @@ variation streams into that one same-observable certificate.  The constructor
 consumes all three explicit variation witnesses and does not manufacture any
 of them; the fixed-ratio equality remains a named input.
 
+**Exact fixed-ratio compiler (2026-09-20):**
+`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeFixedRatioCompiler.lean`
+factors that remaining identification to
+`NormalizedMovingCubeFixedRatioData`: a rational `ratio`, its strict band, and
+pointwise equality of the actual scheduled rate-power stream with
+`ratio ^ time`.  From that exact same-stream equality it constructs the CReal
+rate-power limit with an explicit zero-stage convergence modulus and the
+geometric identification, then assembles the existing same-observable
+certificate.  The pointwise equality is still an open producer obligation;
+no physical rate or continuum theorem is asserted.
+
 **Finite forward seed (2026-09-20):**
 `BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` now inhabits the
 same-carrier canonical power debt at the honest base case `K=0`, depth `3`.

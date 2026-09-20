@@ -90,6 +90,23 @@ Focused check:
 `+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering:olean`
 PASS; the constructor uses only `{propext, Quot.sound}` and no `sorryAx`.
 
+### Exact fixed-ratio producer compiler (2026-09-20)
+
+`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeFixedRatioCompiler.lean`
+reduces the fixed-ratio field to the smallest honest same-stream input:
+`NormalizedMovingCubeFixedRatioData` names a rational rate, its strict band,
+and pointwise equality of the actual scheduled squared-rate stream to its
+integer powers.  The compiler turns that equality into a constant CReal limit,
+an explicit zero-stage convergence witness, and the existing geometric-rate
+identification; `ofFixedRatioData` then retains the raw and normalization-debt
+limits from the same completed family.  The pointwise equality is not proved
+here and remains the active analytic producer frontier.
+
+Focused check:
+`+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeFixedRatioCompiler:olean`
+PASS (1668 dependency jobs, one worker); exported declarations use only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 ### Same-object weighted-entry bridge (2026-09-20)
 
 `BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean` closes the
