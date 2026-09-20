@@ -47,6 +47,32 @@ actual completed vector and transfer. The focused module check remains under
 explicit cutoff-limit record; it does not construct that record, the cofinal
 transition product, physical-gap calibration, or any continuum/QFT object.
 
+### Same-object normalized clustering bridge (2026-09-20)
+
+`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel.lean` now exposes
+`NormalizedMovingCubeScheduledRCContinuumLimit.one_le_continuumConnectedAutocorrelation_zero`,
+so the exact rational unit floor is preserved after the explicit
+representative limit rather than only projected to an existential positivity
+predicate.  The new
+`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.lean`
+packages that limit, its scheduled rate-power modulus, and a named
+`NormalizedMovingCubeRatePowerGeometricIdentification` into the canonical
+`NontrivialRCSquaredGeometricClustering` interface.  The bridge is a genuine
+same-object contraction: the amplitude is the limit's own zero-time channel,
+the zero floor is exactly `1`, and the decay is inherited only after the
+fixed-ratio equality is supplied.  It does not construct the rate-power
+identification or any cutoff/cofinal variation, and therefore leaves the
+producer frontier unchanged.
+
+Focused checks:
+
+```text
++YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel:olean PASS
+BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.lean PASS
+```
+
+The exported bridge uses only `{propext, Quot.sound}` and no `sorryAx`.
+
 ### Same-object weighted-entry bridge (2026-09-20)
 
 `BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean` closes the

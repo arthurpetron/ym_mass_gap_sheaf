@@ -42,6 +42,7 @@ same-theory QFT axioms, isolated vacuum, and physical Delta > 0
                               v
 [CHECKED] finite SU(2) carrier -> completed transfer -> unit-floor
           normalized moving-cube channel -> finite squared decay
+          -> explicit-limit unit floor -> canonical clustering bridge*
                               |
                  X current causal producer frontier
                               v
@@ -55,6 +56,8 @@ same-theory QFT axioms, isolated vacuum, and physical Delta > 0
           CONTRACT: one kernel-checked theorem with all pins preserved
                               v
 WHOLE-PROJECT GOAL / CLAY TARGET
+
+*bridge conditional on the named fixed-ratio rate-power identification
 ```
 
 The normalized channel's unit floor is an actual checked uniformity witness:
@@ -63,6 +66,19 @@ The normalized channel's unit floor is an actual checked uniformity witness:
 `{propext, Quot.sound}`.  They establish finite-scale nontriviality and its
 conditional passage through an explicit limit; they do not supply that limit,
 the cofinal producer, or the continuum theory.
+
+**Normalized same-object clustering bridge (2026-09-20):**
+`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.lean`
+adds the missing typed adapter to the canonical
+`NontrivialRCSquaredGeometricClustering` interface.  The adapter retains the
+same normalized cutoff-limit record and its rate-power convergence modulus,
+and asks only for the explicit fixed-ratio identification
+`NormalizedMovingCubeRatePowerGeometricIdentification`.  Its output uses the
+actual continuum time-zero channel as amplitude and the proved unit floor as
+the nontriviality witness.  This closes a representation seam, not the
+rate-power producer: the fixed-ratio identification, cutoff variation,
+cofinal transition product, physical calibration, OS/QFT construction,
+all-group extension, and Clay mass gap remain open.
 
 **Finite forward seed (2026-09-20):**
 `BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` now inhabits the

@@ -478,15 +478,17 @@ def continuumConnectedAutocorrelation
     (time : Nat) : CReal.RC :=
   Quotient.mk CReal.crealSetoid (limit.limitRepresentative time)
 
-/-- If the reciprocal-normalized same-observable channel converges, its
-continuum zero-time value is automatically nonzero.  No separate uniform
-norm-floor hypothesis is needed: the floor one was proved before taking the
-limit.  Constructing this limit, and hence controlling the normalization
-debt, remains open. -/
-theorem continuumConnectedAutocorrelation_zero_isPositive
+/-- The explicit rational unit floor survives the same-observable cutoff
+limit.  Unlike the weaker `RCIsPositive` projection below, this theorem
+retains the actual floor witness needed by downstream clustering certificates.
+It is obtained only from the finite unit-floor estimate and the supplied
+representative convergence modulus. -/
+theorem one_le_continuumConnectedAutocorrelation_zero
     {family : DynamicVacuumSectorCompletedFamily 0}
     (limit : NormalizedMovingCubeScheduledRCContinuumLimit family) :
-    RCIsPositive (limit.continuumConnectedAutocorrelation 0) := by
+    CReal.RCle
+      (Quotient.mk CReal.crealSetoid (CReal.ofQ' 1))
+      (limit.continuumConnectedAutocorrelation 0) := by
   have hterm : forall scale,
       CReal.leEv (CReal.ofQ' 1) (limit.representative 0 scale) := by
     intro scale
@@ -504,7 +506,18 @@ theorem continuumConnectedAutocorrelation_zero_isPositive
       (CReal.convergesTo_const (CReal.ofQ' 1))
       (limit.converges 0)
     exact hterm
-  exact ⟨1, by decide, hlimit⟩
+  exact hlimit
+
+/-- If the reciprocal-normalized same-observable channel converges, its
+continuum zero-time value is automatically nonzero.  No separate uniform
+norm-floor hypothesis is needed: the floor one was proved before taking the
+limit.  Constructing this limit, and hence controlling the normalization
+debt, remains open. -/
+theorem continuumConnectedAutocorrelation_zero_isPositive
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    (limit : NormalizedMovingCubeScheduledRCContinuumLimit family) :
+    RCIsPositive (limit.continuumConnectedAutocorrelation 0) := by
+  exact ⟨1, by decide, limit.one_le_continuumConnectedAutocorrelation_zero⟩
 
 end NormalizedMovingCubeScheduledRCContinuumLimit
 
@@ -538,5 +551,7 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel.normalizedMovingCubeSampledConnectedAutocorrelation_zero_eq_normSq
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel.one_le_normalizedMovingCubeSampledConnectedAutocorrelation_zero
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel.NormalizedMovingCubeScheduledRCContinuumLimit.one_le_continuumConnectedAutocorrelation_zero
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel.NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation_zero_isPositive

@@ -13,6 +13,13 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED normalized same-object clustering bridge (2026-09-20 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel.lean` and `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.lean`.
+- **proved**: `NormalizedMovingCubeScheduledRCContinuumLimit.one_le_continuumConnectedAutocorrelation_zero` preserves the explicit unit floor through the representative-level cutoff limit. `NormalizedMovingCubeContinuumCertificate.toNontrivialRCSquaredGeometricClustering` then converts the same normalized limit and its scheduled rate-power modulus into the canonical nontrivial squared-geometric clustering interface, conditional only on the named fixed-ratio identification `NormalizedMovingCubeRatePowerGeometricIdentification`.
+- **boundary**: the fixed-ratio identification, normalized cutoff variation, cofinal transition product, physical-gap calibration, projective/OS/GNS reconstruction, full QFT structure, all-group extension, and Clay mass gap remain uninhabited. This is a same-object representation bridge, not a continuum existence or spectral-gap theorem.
+- **verification**: `+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel:olean` PASS and `/tmp/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.check.olean` PASS; the new declarations use only `{propext, Quot.sound}`, with no `sorryAx`.
+
 ## PROVED positive cutoff-one conditioned/Markov bridge (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.lean`.
