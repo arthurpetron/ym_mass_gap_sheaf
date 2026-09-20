@@ -1102,11 +1102,17 @@ certificate or the decidable scalar obstruction as a Type-level result.  The
 bridge is imported into `YMGap.lean` and is ready for finite certificate
 consumers, including independently kernel-checked computational tables.
 
+A canonical success family now also exposes `toFiniteCapacityMargin` and
+`toCompletedStrictContractionData`, preserving the same routing and scalar
+margin all the way to the completed consumer instead of erasing it at the
+transition-product projection.
+
 This closes only the finite decision-to-margin edge.  It does not construct
 the cofinal all-cutoff success family, compare the compiled ray floor to every
 cofinal margin, or produce the continuum/Clay objects.  Focused verification
-is `/tmp/ym-gap-canonical-capacity-decision-check.log`; all three declarations
-report only `{propext, Quot.sound}`.
+is `/tmp/ym-gap-canonical-capacity-decision-check-2.log`; the decision bridge
+and the two retained-certificate declarations report only `{propext,
+Quot.sound}`.
 
 The next arithmetic contraction is now also checked.  The generic
 `FullLogMarginLower.rationalMargin_le_hamiltonianGapRealAll` theorem proves

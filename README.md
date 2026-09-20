@@ -784,10 +784,14 @@ product-side estimate, not a completed transition-product witness.
 between the canonical Boolean check and the rational finite margin inequality.
 `inspectCanonicalFiniteCapacityMargin` returns either the finite capacity
 certificate or the explicit scalar obstruction for the same loop-erased
-routing.  This bridge is now imported by `YMGap.lean`; it does not turn finite
+routing.  The canonical success adapter now retains that exact finite margin
+through `toFiniteCapacityMargin` before exposing
+`toCompletedStrictContractionData`; the approximating routing, quantitative
+bound, and downstream consumer therefore remain attached as one certificate.
+This bridge is now imported by `YMGap.lean`; it does not turn finite
 decidability into cofinal success, and the global capacity comparison remains
 open.  Focused verification is
-`/tmp/ym-gap-canonical-capacity-decision-check.log`, with only
+`/tmp/ym-gap-canonical-capacity-decision-check-2.log`, with only
 `{propext, Quot.sound}` reported.
 
 **Forward/backward input audit, checked 2026-09-18:**

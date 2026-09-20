@@ -34,6 +34,7 @@ set_option autoImplicit false
 open YMGap.Constructive
 open YMGap.Continuum
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorEdgeFloor
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityMargin
@@ -285,6 +286,32 @@ def toAdaptiveConditionalTransitionProduct
       hw rayCapacity :=
   data.toAdaptiveCheckSuccess.toAdaptiveConditionalTransitionProduct
 
+/-- The canonical success path keeps the exact finite scalar margin as an
+intermediate certificate instead of erasing it behind the transition-product
+projection.  This is the same-object finite witness consumed by the
+completed strict-contraction compiler. -/
+def toFiniteCapacityMargin
+    {w : Q'} {hw : (0 : Q') < w}
+    {rayCapacity : FixedNomeCofinalSpinCubeRayCapacity hw}
+    (data :
+      FixedNomeCofinalSpinCubeOffRayResidualCanonicalFiniteCapacityCheckSuccess
+        hw rayCapacity) :
+    FixedNomeCofinalSpinCubeOffRayResidualAdaptiveFiniteCapacityMargin
+      hw rayCapacity :=
+  data.toAdaptiveCheckSuccess.toFiniteCapacityMargin
+
+/-- The retained canonical margin certificate reaches the existing completed
+strict-contraction consumer without changing its cutoff or its route. -/
+def toCompletedStrictContractionData
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {rayCapacity : FixedNomeCofinalSpinCubeRayCapacity hw0}
+    (data :
+      FixedNomeCofinalSpinCubeOffRayResidualCanonicalFiniteCapacityCheckSuccess
+        hw0 rayCapacity) :
+    CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
+      hw0 hw1 0 :=
+  data.toFiniteCapacityMargin.toCompletedStrictContractionData hw0 hw1
+
 end FixedNomeCofinalSpinCubeOffRayResidualCanonicalFiniteCapacityCheckSuccess
 
 end YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision
@@ -300,3 +327,5 @@ end YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecis
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.inspectCanonicalFiniteCapacityMargin
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.FixedNomeCofinalSpinCubeOffRayResidualAdaptiveFiniteCapacityCheckSuccess.toAdaptiveConditionalTransitionProduct
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.FixedNomeCofinalSpinCubeOffRayResidualCanonicalFiniteCapacityCheckSuccess.toAdaptiveConditionalTransitionProduct
+#print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.FixedNomeCofinalSpinCubeOffRayResidualCanonicalFiniteCapacityCheckSuccess.toFiniteCapacityMargin
+#print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.FixedNomeCofinalSpinCubeOffRayResidualCanonicalFiniteCapacityCheckSuccess.toCompletedStrictContractionData
