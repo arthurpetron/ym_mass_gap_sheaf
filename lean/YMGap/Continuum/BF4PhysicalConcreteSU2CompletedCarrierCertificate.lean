@@ -28,6 +28,7 @@ set_option maxHeartbeats 10000000
 
 open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalCutoffCofinalConnectedGap
+open YMGap.Continuum.BF4PhysicalCutoffCofinalCenteredRowGap
 open YMGap.Continuum.BF4PhysicalCutoffConnectedGap
 open YMGap.Continuum.BF4PhysicalCutoffCofinalStrictGap
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
@@ -36,6 +37,7 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCenteredLimitGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
@@ -160,6 +162,60 @@ theorem concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay
   exact centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay
     hw0 hw1 gap n
 
+/-! ## 2a. Expose the completed strict-contraction witness -/
+
+/-- The established generic cofinal local-gluing producer reaches the strict
+contraction data of this very completed vacuum-sector carrier.  The physical
+row adapter is the only conversion: no new rate, carrier, or transfer is
+chosen here. -/
+def concreteSU2CompletedStrictContractionData_of_localGluing
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (family : FixedNomeCofinalLocalGluing
+      w (Q'.le_of_lt hw0) 0) :
+    CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
+      hw0 hw1 0 :=
+  centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_localSlice
+    hw0 hw1 (FixedNomeCofinalLocalGluing.toPhysicalLocalSliceGluing family)
+
+/-- The strict-contraction witness above reproduces the literal same-object
+autocorrelation decay at the checked physical rate `1/16`. -/
+theorem concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_localGluing_viaGap
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (family : FixedNomeCofinalLocalGluing
+      w (Q'.le_of_lt hw0) 0) (n : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (concreteSameObjectAutocorrelation hw0 hw1 n)
+        (concreteSameObjectAutocorrelation hw0 hw1 n))
+      (CReal.RCmul
+      (CReal.RCscale
+          ((physicalCutoffSixteenth * physicalCutoffSixteenth) ^ n)
+          (centralPhysicalCutoffCompletedInner hw0 hw1 0
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))))
+        (centralPhysicalCutoffCompletedInner hw0 hw1 0
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0)))) := by
+  simpa only [concreteSU2CompletedStrictContractionData_of_localGluing,
+    centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_localSlice,
+    FixedNomeCofinalLocalGluing.toPhysicalLocalSliceGluing,
+    centralPhysicalCutoffOneCubeMovingCenteredCompletedStrictContractionData_of_centeredRowDistance,
+    FixedNomeCofinalPhysicalLocalSliceGluing.toCenteredRowDistance,
+    FixedNomeCofinalPhysicalCenteredRowDistance.toCenteredStrictGap,
+    FixedNomeCofinalPhysicalCenteredRowDistance.toVacuumSectorCenteredStrictGap]
+    using concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay
+      hw0 hw1
+      (concreteSU2CompletedStrictContractionData_of_localGluing hw0 hw1 family)
+      n
+
 /-- The same-object correlator reaches the explicit physical `1/16` rate when
 the existing cofinal local-slice certificate is supplied.  This is the
 smallest local-to-carrier join: the carrier, transfer, vacuum complement, and
@@ -203,5 +259,9 @@ end YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedStrictContractionData_of_localGluing
+#print axioms
+  YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_localGluing_viaGap
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_localGluing

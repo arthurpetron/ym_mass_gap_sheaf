@@ -1024,6 +1024,17 @@ strict-rate producer, changing-spacing/physical calibration,
 thermodynamic-continuum passage, QFT axioms, all-group extension, and Clay
 mass gap remain open.
 
+The same module now exposes
+`concreteSU2CompletedStrictContractionData_of_localGluing`, which compiles the
+existing generic `FixedNomeCofinalLocalGluing` producer through the physical
+row adapter into the strict-contraction data of this exact completed carrier.
+`..._autocorrelation_sq_decay_of_localGluing_viaGap` derives the literal
+same-object `1/16` bound through that shared gap witness.  The producer remains
+a Type-level input; no unconditional cofinal gap or continuum result is
+claimed.  Focused verification is
+`/tmp/ym-gap-concrete-carrier-gap-bridge-check.log`, under the
+`{propext, Quot.sound}` gate.
+
 ### Current forward/backward join: residual strength factors (2026-09-19)
 
 `BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler` exposes
