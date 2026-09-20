@@ -65,9 +65,11 @@ Gram-Markov kernel on the explicit vacuum/cube carrier. Consequently,
 source/target centered entry is exactly zero, and
 `cutoffOneCanonicalConditionedCenteredRowMass_eqv_zero` proves the entire
 canonical conditioned centered row is exactly zero at positive coupling. This
-`cutoffOneCanonicalFullDensityPowerDebt` now also supplies the corresponding
+module's `cutoffOneCanonicalFullDensityPowerDebt` now also supplies the corresponding
 same-carrier multi-slab power identity for every depth at least three. This
-is a checked finite SU(2) refresh identity: it supplies explicit witnesses
+`cutoffOneCanonicalFullDensityVacuumSectorDensityPowerGluing` packages that
+debt with the exact finite centered bound at `qS = 0`. These are checked finite
+SU(2) refresh identities: they supply explicit witnesses
 and finite equality moduli, but no cutoff/cofinal uniformity, spacing
 modulus, thermodynamic or continuum descent, QFT reconstruction, all-group
 extension, or Clay mass gap. In the constructive certificate sense, the

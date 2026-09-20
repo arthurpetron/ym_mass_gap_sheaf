@@ -533,6 +533,23 @@ theorem cutoffOneCanonicalConditionedCenteredRowMass_eqv_zero
     exact Q'.add_neg_self_eqv _
   exact Q'.abs_eqv_congr hresidual
 
+def cutoffOneCanonicalFullDensityVacuumSectorDensityPowerGluing
+    {w : Q'} (hw : (0 : Q') < w) (depth : Nat)
+    (hdepth : 3 ≤ depth) :
+    PhysicalBF4VacuumSectorDensityPowerGluing
+      w (Q'.le_of_lt hw) 1 0 depth
+      (centralPhysicalFiniteVacuumSectorConditionedTimeStep
+        w (Q'.le_of_lt hw) 1 0
+        (canonicalFullDensityOneStepIndex
+          w (Q'.le_of_lt hw) 1 0)) 0 := by
+  refine canonicalFullDensityVacuumSectorDensityPowerGluing
+    (cutoffOneCanonicalFullDensityPowerDebt hw depth hdepth)
+    (by decide) ?_
+  intro source hsource
+  exact Q'.le_of_eqv
+    (cutoffOneCanonicalConditionedCenteredRowMass_eqv_zero
+      hw hsource)
+
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge
 
 /-! ## Axiom audit -/
@@ -543,5 +560,7 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge
   YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalConditionedCenteredEntry_eqv_zero
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalFullDensityPowerDebt
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalFullDensityVacuumSectorDensityPowerGluing
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalConditionedCenteredRowMass_eqv_zero

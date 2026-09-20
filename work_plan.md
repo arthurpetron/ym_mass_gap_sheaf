@@ -66,7 +66,9 @@ target; summing those entries gives an exact zero centered row for every
 canonical-sector source. The same module now constructs
 `cutoffOneCanonicalFullDensityPowerDebt`, the full-density multi-slab identity
 for every depth `≥ 3` at cutoff one; it is the first non-vacuous finite power
-debt witness on this route.
+debt witness on this route. The companion
+`cutoffOneCanonicalFullDensityVacuumSectorDensityPowerGluing` packages that
+debt with the exact finite centered bound `qS = 0`.
 
 Focused check:
 `+YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge:olean`
