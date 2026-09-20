@@ -13,6 +13,24 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED canonical finite certificate to cofinal gap compiler (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCanonicalCofinalPowerProducer.lean`.
+- **proved**: `CanonicalCofinalCompatibleTimeFactorizationRateEnvelope.toRateEnvelope`
+  wires the same-carrier `CanonicalFullDensityPowerDebt`, canonical indexed
+  one-step density, and sector-centered bounds at every scheduled cutoff into
+  the existing compatible-factorization rate envelope. `toPowerBudget`
+  derives the depth-amplified budget from the single explicit uniform rate
+  envelope, and `toVacuumSectorCenteredStrictGap` reaches the completed
+  same-object gap consumer.
+- **boundary**: the power debts, cofinal schedule, and centered estimates are
+  still Type-level producer inputs. No comparison/stability modulus,
+  spacing-to-zero passage, thermodynamic/continuum limit, QFT axioms,
+  all-group theorem, or Clay result is constructed.
+- **verification**: `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalCofinalPowerProducer:olean`
+  PASS (1492 dependency jobs, one worker); all printed declarations use only
+  `{propext, Quot.sound}`, with no `sorryAx`.
+
 ## PROVED constructive certificate gate for the dynamic continuum route (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorContinuumCertificate.lean`.

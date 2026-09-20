@@ -20,6 +20,17 @@
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
 
+**Constructive certificate rule (2026-09-20):** a finite certificate informs
+the continuum route only when its approximating object, explicit modulus, and
+uniformity remain attached to the same theory through the limit.  The new
+`BF4PhysicalVacuumSectorCanonicalCofinalPowerProducer.lean` adapter applies
+that rule to the active SU(2) route: each scheduled cutoff retains its
+same-carrier multi-slab power debt and centered estimate, while one named rate
+envelope provides the finite cofinal uniformity.  It then reaches the checked
+completed same-object gap consumer.  The power-debt producer, comparison and
+stability moduli, spacing/thermodynamic passage, OS/QFT reconstruction,
+all-group extension, and Clay mass gap are still open.
+
 This project is a Mathlib-free Lean 4 formalization of a constructive route
 from four-dimensional lattice gauge theory to continuum quantum Yang--Mills.
 The active concrete data are SU(2) BF4 lattice data. The positive

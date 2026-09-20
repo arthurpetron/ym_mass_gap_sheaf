@@ -63,6 +63,30 @@ Focused check:
 `/tmp/BF4PhysicalDynamicVacuumSectorContinuumCertificate.check5.log`; the
 new declarations use only `{propext, Quot.sound}` and no `sorryAx`.
 
+### Canonical finite certificates meet the cofinal completed-gap compiler (2026-09-20)
+
+`BF4PhysicalVacuumSectorCanonicalCofinalPowerProducer.lean` adds the missing
+finite forward adapter.  `CanonicalCofinalCompatibleTimeFactorizationRateEnvelope`
+retains, at each explicit anchor and depth, the same-carrier
+`CanonicalFullDensityPowerDebt`, the canonical indexed one-step density, and
+the sector-centered bound.  Its one strict `rate` envelope is an explicit
+uniformity witness (`localRate_le_rate`), not a pointwise rate silently
+promoted to a cofinal one.
+
+`toRateEnvelope` fills the existing compatible-factorization record from those
+same dependent fields; `toPowerBudget` derives the depth-amplified budget by
+the checked power compiler; and `toVacuumSectorCenteredStrictGap` reaches the
+completed same-object gap consumer.  This is precisely the finite part of the
+constructive-certificate pattern: scheduled witnesses plus a uniform envelope.
+The multi-slab power debts, cofinal schedule, comparison/stability modulus,
+spacing-to-zero passage, thermodynamic limit, OS/QFT reconstruction, all-group
+extension, and Clay endpoint remain open.
+
+Focused check: `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalCofinalPowerProducer:olean`
+PASS (1492 dependency jobs, one worker).  All three printed declarations use
+only `{propext, Quot.sound}`; no `sorryAx`, classical axiom, or noncomputable
+declaration was introduced.
+
 ### Current forward/backward join: direct power meets local slice (2026-09-19)
 
 The finite algebra seam between the two producer presentations is now closed.
