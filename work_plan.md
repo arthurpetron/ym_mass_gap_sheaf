@@ -1036,6 +1036,18 @@ claimed.  Focused verification is
 `/tmp/ym-gap-concrete-carrier-gap-bridge-check.log`, under the
 `{propext, Quot.sound}` gate.
 
+The same carrier now exposes
+`concreteSU2CompletedStrictContractionData_of_canonicalFiniteCapacity`, which
+accepts the active canonical ray-capacity finite-success family and projects
+its existing completed strict-contraction datum onto this exact carrier.  The
+adapter preserves the routing, ray-capacity schedule, and supplied rate as
+data; it does not construct the missing cofinal success family.  This follows
+the constructive certificate rule: the approximating route and its quantitative
+control remain attached instead of being replaced by a pointwise existence
+claim.  Focused verification is
+`/tmp/ym-gap-concrete-carrier-ray-capacity-bridge-check.log`, under the
+`{propext, Quot.sound}` gate.
+
 ### Current forward/backward join: exact finite zero-cutoff seed (2026-09-20)
 
 `concreteSU2ZeroCutoffCanonicalLocalSlice` exposes the existing canonical

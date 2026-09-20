@@ -686,6 +686,16 @@ stages.  Focused verification is
 `/tmp/ym-gap-concrete-carrier-gap-bridge-check.log`; all declarations in that
 module report only `{propext, Quot.sound}`.
 
+The same carrier module now also exposes
+`concreteSU2CompletedStrictContractionData_of_canonicalFiniteCapacity`, which
+accepts the active canonical ray-capacity success certificate and projects its
+already-compiled strict datum onto this carrier.  This preserves the
+certificate's explicit ray capacity, routing, cutoff schedule, and rate as
+inputs; it does not assert that the cofinal success family exists.  The
+focused check is
+`/tmp/ym-gap-concrete-carrier-ray-capacity-bridge-check.log`, again under
+`{propext, Quot.sound}`.
+
 **Exact finite zero-cutoff seed, checked 2026-09-20:**
 `concreteSU2ZeroCutoffCanonicalLocalSlice` exposes the already-proved
 canonical full-density factorization at cutoff `0` through the same physical

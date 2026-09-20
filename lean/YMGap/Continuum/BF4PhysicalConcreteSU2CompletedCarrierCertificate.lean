@@ -20,6 +20,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 import YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt
+import YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision
 
 namespace YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
 
@@ -44,6 +45,8 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 open YMGap.Continuum.BF4PhysicalCutoffCofinalLocalSliceGap
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision
+open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
 open YMGap.Continuum.BF4LocalContractionGluing
 open YMGap.Continuum.BF4StationaryDensityBufferSplit
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
@@ -209,6 +212,22 @@ theorem concreteSU2ZeroCutoffCanonicalLocalSlice_centered_bound
   exact (concreteSU2ZeroCutoffCanonicalLocalSlice hw0 hw1).one_step_centered_bound
     source hsource
 
+/-! ## 2b. Active ray-capacity route to the same carrier -/
+
+/-- The canonical finite-capacity success interface from the active ray route
+reaches the strict-contraction datum of this same completed SU(2) carrier.
+The success family and its rate remain explicit inputs; this adapter neither
+constructs cofinal success nor changes the carrier. -/
+def concreteSU2CompletedStrictContractionData_of_canonicalFiniteCapacity
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {rayCapacity : FixedNomeCofinalSpinCubeRayCapacity hw0}
+    (data :
+      FixedNomeCofinalSpinCubeOffRayResidualCanonicalFiniteCapacityCheckSuccess
+        hw0 rayCapacity) :
+    CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
+      hw0 hw1 0 :=
+  data.toCompletedStrictContractionData hw0 hw1
+
 theorem concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay
     {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (gap : CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
@@ -329,6 +348,8 @@ end YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
 
 /-! ## Dependency gates -/
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedStrictContractionData_of_canonicalFiniteCapacity
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2ZeroCutoffCanonicalLocalSlice
 #print axioms
