@@ -5090,6 +5090,10 @@ import YMGap.Continuum.BF4WilsonChronologicalProgram
 import YMGap.Continuum.BF4WilsonWindowRealization
 -- The same finite programs act boundedly on every completed input, with explicit adjoints.
 import YMGap.Continuum.BF4WilsonChronologicalOperator
+-- Products/adjoints and dense-domain operator equality; vacuum equality alone fails.
+import YMGap.Continuum.BF4WilsonChronologicalCompositionSyntax
+import YMGap.Continuum.BF4WilsonChronologicalOperatorAlgebra
+import YMGap.Continuum.BF4WilsonVacuumOperatorSeparation
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison

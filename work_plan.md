@@ -34,6 +34,37 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Same-carrier chronological operator algebra and vacuum-separation checkpoint (2026-09-20)
+
+`BF4WilsonChronologicalCompositionSyntax` adds finite-program composition and
+dagger syntax with squared-cap identities. The operator algebra layer proves
+composition, associativity/unit, dagger reversal and involution, explicit cap
+bounds, supplied-modulus CReal linearity, and vacuum-product positivity on the
+existing `UnionCompletion`. The new program-pairing results use stage-program
+pins and pairing continuity to characterize equality on every finite program
+input and hence all completed vectors; they do not use finitely many tests or
+vacuum equality alone.
+
+`BF4WilsonVacuumOperatorSeparation` gives a concrete same-vacuum/different-
+operator witness: `.time 2 .vacuum` and `.vacuum` agree on the completed unit
+but differ on the constructed normalized `unitExcitation`. The current target
+has 28 printed declaration gates (4 syntax, 17 operator algebra, 7
+separation), all PASSing with at most `{propext, Quot.sound}`, no warnings
+and no `sorryAx`. The monitored dependency-complete target
+`+YMGap.Continuum.BF4WilsonVacuumOperatorSeparation:olean` PASSed, as did
+the direct checks logged at `/tmp/ym-gap-chronological-syntax-final.log`,
+`/tmp/ym-gap-chronological-algebra-final.log`, and
+`/tmp/ym-gap-vacuum-operator-separation-final.log`. Checks used one worker
+and a 20 GiB ceiling; no full-root build/audit was run. No hole or canonical
+frontier field changed.
+
+This remains fixed-spacing, guarded SU(2), same-carrier constructive real
+linearity and finite operator syntax. It does not construct canonical
+OS/full-QFT or continuum/physical-mass/all-group closure. The next residue is
+identification on the entire finite generated domain with original observable
+pins, not another vacuum-only identification. Preserve the scaling frontier
+and the fixed guarded-ceiling obstruction.
+
 ### Survival must escape each fixed guarded coupling ceiling (2026-09-20)
 
 **New estimate and SAME-object consumer:**

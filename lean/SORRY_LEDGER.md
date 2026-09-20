@@ -13,6 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED same-carrier chronological operator algebra and vacuum separation (2026-09-20 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/BF4WilsonChronologicalCompositionSyntax.lean`,
+  `lean/YMGap/Continuum/BF4WilsonChronologicalOperatorAlgebra.lean`, and
+  `lean/YMGap/Continuum/BF4WilsonVacuumOperatorSeparation.lean`.
+- **scope**: finite composition/dagger syntax, squared-cap identities,
+  all-vector composition and adjoint laws, supplied-modulus constructive
+  CReal linearity, operator equality on every completed input, and the
+  vacuum-product positivity consumer. The program-input equivalence uses
+  existing stage-program pins and pairing continuity; it is not a finite
+  test-set or vacuum-only criterion. The explicit `T 2` versus identity
+  witness separates the programs on constructed `unitExcitation` while their
+  vacuum outputs agree.
+- **boundary**: same-carrier fixed-spacing guarded SU(2) operator syntax only;
+  no canonical OS/full-QFT or continuum/physical-mass/all-group/Clay closure.
+  The remaining operator frontier is identification on the whole finite
+  generated domain with original observable pins, not vacuum equality.
+  Preserve the scaling frontier and guarded-ceiling obstruction.
+- **verification**: monitored dependency-complete target
+  `+YMGap.Continuum.BF4WilsonVacuumOperatorSeparation:olean` and the direct
+  checks logged at `/tmp/ym-gap-chronological-syntax-final.log`,
+  `/tmp/ym-gap-chronological-algebra-final.log`, and
+  `/tmp/ym-gap-vacuum-operator-separation-final.log` PASSed all 28 exported
+  gates with at most `{propext, Quot.sound}`, no warnings and no `sorryAx`.
+  One worker, 20 GiB ceiling; no full-root build/audit was run. No hole was
+  introduced or discharged and no canonical frontier field was changed.
+
 ## PROVED original-Wilson escape from each fixed guarded nome ceiling (2026-09-20 UTC)
 
 - **files**:

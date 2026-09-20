@@ -2,6 +2,8 @@
 
 > **Current frontier (2026-09-20 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
+> Its finite chronological operators now have checked composition, adjoints,
+> and an equality criterion using every finite vacuum-generated input.
 > A new original-observable estimate compares two couplings after removing
 > the heat cutoff. Boundary localization makes its cost independent of
 > outer volume, under explicit small-nome guards; the inner-window cost
@@ -16,6 +18,20 @@
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
+
+**Same-carrier operator closure (2026-09-20):**
+`BF4WilsonChronologicalOperatorAlgebra.lean` proves product and adjoint laws,
+supplied-modulus real linearity, cap bounds and vacuum-product positivity
+for the original finite operators. Agreement on **every** finite program
+input, across all spatial bases, implies agreement on the whole completion;
+this is not a finitely-many-tests procedure. The constructed counterexample
+in `BF4WilsonVacuumOperatorSeparation.lean` shows why agreement on the vacuum
+alone is insufficient: two-step time evolution and the identity share the
+vacuum but act differently on the original normalized excitation.
+The narrow dependency build and all 28 printed axiom checks passed with at
+most `{propext, Quot.sound}`; no full-root build/audit was run. This is a
+fixed-spacing guarded SU(2) operator calculus, not canonical OS/full QFT or
+continuum closure.
 
 **Coupling escape required for survival (2026-09-20):**
 `BF4WilsonGuardedCouplingEscape.nome_gt_of_sampled_response` proves that
