@@ -61,7 +61,9 @@ more concrete finite seam. On the explicit positive-coupling vacuum/cube
 carrier, the partition-normalized physical conditional kernel is equal (up to
 the constructive rational relation) to the row-normalized reflected Gram-Markov
 kernel. The existing Gram-Markov/refresh identity and the stationary posterior
-then give an exact zero centered row for every canonical-sector source.
+then give an exact zero centered entry for every canonical-sector source and
+target; summing those entries gives an exact zero centered row for every
+canonical-sector source.
 
 Focused check:
 `+YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge:olean`

@@ -61,6 +61,8 @@ thermodynamic, continuum, all-group, or Clay result.
 `BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.lean` now
 identifies the physical conditional kernel with the row-normalized genuine
 Gram-Markov kernel on the explicit vacuum/cube carrier. Consequently,
+`cutoffOneCanonicalConditionedCenteredEntry_eqv_zero` proves every canonical
+source/target centered entry is exactly zero, and
 `cutoffOneCanonicalConditionedCenteredRowMass_eqv_zero` proves the entire
 canonical conditioned centered row is exactly zero at positive coupling. This
 is a checked finite SU(2) refresh identity: it supplies an explicit witness

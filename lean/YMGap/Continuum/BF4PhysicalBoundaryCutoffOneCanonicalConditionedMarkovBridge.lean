@@ -197,6 +197,78 @@ theorem cutoffOneCanonicalConditionalKernel_eqv_gramMarkov
       exact Q'.eqv_trans _ _ _ hraw (Q'.eqv_refl _)
   exact hconditional
 
+/-! ## 2. Pointwise centered-entry annihilation -/
+
+/-- Every canonical vacuum/cube source-target entry has zero centered
+conditioned transition.  This is the pointwise form needed before attempting
+to recurse the finite weighted density power. -/
+theorem cutoffOneCanonicalConditionedCenteredEntry_eqv_zero
+    {w : Q'} (hw : (0 : Q') < w)
+    {source target : Nat}
+    (hsource : source ∈
+      centralPhysicalFiniteVacuumSectorIndices
+        w (Q'.le_of_lt hw) 1 0)
+    (htarget : target ∈
+      centralPhysicalFiniteVacuumSectorIndices
+        w (Q'.le_of_lt hw) 1 0) :
+    finiteWeightedCenteredTransition
+        (centralPhysicalFiniteVacuumSectorMassNormalizedWeight
+          w (Q'.le_of_lt hw) 1 0)
+        (centralPhysicalFiniteVacuumSectorConditionedTimeStep
+          w (Q'.le_of_lt hw) 1 0
+          (canonicalFullDensityOneStepIndex
+            w (Q'.le_of_lt hw) 1 0))
+        source target ≈ 0 := by
+  have hsourceStateMem :=
+    centralPhysicalFiniteVacuumSectorState_mem_of_index
+      w (Q'.le_of_lt hw) 1 0 hsource rfl
+  have hsourceBlock :=
+    (centralPhysicalFiniteVacuumSectorStates_cutoffOne_iff hw
+      (centralPhysicalFiniteStateAt
+        w (Q'.le_of_lt hw) 1 0 source)).mp hsourceStateMem
+  have htargetStateMem :=
+    centralPhysicalFiniteVacuumSectorState_mem_of_index
+      w (Q'.le_of_lt hw) 1 0 htarget rfl
+  have htargetBlock :=
+    (centralPhysicalFiniteVacuumSectorStates_cutoffOne_iff hw
+      (centralPhysicalFiniteStateAt
+        w (Q'.le_of_lt hw) 1 0 target)).mp htargetStateMem
+  have htargetCarrier :
+      centralPhysicalFiniteStateAt w (Q'.le_of_lt hw) 1 0 target ∈
+        cutoffOneVacuumColumnCarrier w hw :=
+    cutoffOneVacuumCubePhysicalSources_subset_carrier hw
+      (centralPhysicalFiniteStateAt w (Q'.le_of_lt hw) 1 0 target)
+      htargetBlock
+  have hkernel :=
+    cutoffOneCanonicalConditionalKernel_eqv_gramMarkov
+      hw
+      (centralPhysicalFiniteStateAt
+        w (Q'.le_of_lt hw) 1 0 source)
+      (centralPhysicalFiniteStateAt
+        w (Q'.le_of_lt hw) 1 0 target)
+      hsourceBlock htargetCarrier
+  have hrefresh :=
+    cutoffOneVacuumCubePhysicalGramMarkov_eqv_refresh
+      hw
+      (centralPhysicalFiniteStateAt
+        w (Q'.le_of_lt hw) 1 0 source)
+      hsourceBlock
+      (centralPhysicalFiniteStateAt
+        w (Q'.le_of_lt hw) 1 0 target)
+      htargetCarrier
+  have hweight :=
+    centralPhysicalFiniteVacuumSectorMassNormalizedWeight_cutoffOne_eqv_posterior
+      hw htarget
+  refine Q'.eqv_trans _ _ _
+    (canonicalConditionedCenteredTransition_eqv_conditionalKernel_sub_weight
+      hsource htarget) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr'
+      (Q'.eqv_trans _ _ _ hkernel hrefresh)
+      (Q'.neg_eqv_congr _ _ hweight)) ?_
+  unfold cutoffOneVacuumColumnRefreshKernel
+  exact Q'.add_neg_self_eqv _
+
 private theorem listQSum_eqv_zero_of_pointwise_local
     {A : Type} (value : A → Q') :
     ∀ items : List A,
@@ -212,7 +284,7 @@ private theorem listQSum_eqv_zero_of_pointwise_local
               hzero item (List.mem_cons_of_mem head hitem)))
       · exact Q'.eqv_of_eq (Q'.zero_add' 0)
 
-/-! ## 2. Exact zero centered row on the positive-cutoff canonical sector -/
+/-! ## 3. Exact zero centered row on the positive-cutoff canonical sector -/
 
 /-- The canonical conditioned one-step has zero centered row residual on the
 entire non-vacuous cutoff-one vacuum/cube sector.  This is exact finite
@@ -302,5 +374,7 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge
 
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalConditionalKernel_eqv_gramMarkov
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalConditionedCenteredEntry_eqv_zero
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalConditionedCenteredRowMass_eqv_zero
