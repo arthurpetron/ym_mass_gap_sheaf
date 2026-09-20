@@ -15059,6 +15059,10 @@ No full-tree build, root check, or full axiom audit is claimed.
 - **file**:
   `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCanonicalFullDensityCertificate.lean`.
 - **proved declarations**:
+  `canonicalFullDensityOneStepIndex_row` and
+  `canonicalFullDensityOneStepIndex_column` (the exact totalized finite-index
+  transports), `canonicalFullDensityOneStepIndex_outgoing_closed`,
+  `canonicalFullDensityOneStepIndex_incoming_closed`, together with
   `canonicalFullDensityOneStepState_row`,
   `canonicalFullDensityOneStepState_column`, and
   `canonicalFullDensityOneStepState_reconstructs_joint`.
@@ -15066,22 +15070,25 @@ No full-tree build, root check, or full axiom audit is claimed.
   exactly the existing reflected physical conditional density on the complete
   positive carrier.  Its weighted rows and columns normalize to one, and it
   reconstructs the normalized reflected joint from the two physical marginals.
-  These are direct kernel-checked transports of the existing finite physical
-  laws, not new factorization assumptions.
+  The indexed declarations additionally show that totalized natural indices
+  still land in the positive carrier and that the corresponding `List.range`
+  sums normalize exactly.  These are direct kernel-checked transports of the
+  existing finite physical laws, not new factorization assumptions.
 - **remaining named obligation**:
   `CanonicalFullDensityPowerDebt.full_density_power` must prove the exact
-  multi-slab power identity on the same physical carrier.  The indexed
-  factorization adapter also still needs its totalized-row and closure wiring;
-  one-step normalization does not discharge either obligation.
-- **constructive or propositional**: the three proved declarations use only
-  the existing finite state-level witnesses.  No `sorry`, new hypothesis,
+  multi-slab power identity on the same physical carrier.  The indexed row,
+  column, outgoing-closure, and incoming-closure seams are now closed;
+  one-step normalization and closure do not discharge the multi-slab identity.
+- **constructive or propositional**: the seven proved declarations use only
+  the existing finite state-level witnesses and reflected-kernel symmetry.  No
+  `sorry`, new hypothesis,
   classical axiom, custom axiom, `native_decide`, or `noncomputable`
   declaration was introduced.  The new debt is a `Type`-valued structure so
   an inhabitant must carry the missing witness rather than erase it.
 
 Verification: the focused monitored target
 `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate:olean`
-passed (1487 dependency jobs, one worker).  The three printed declarations
+passed (1487 dependency jobs, one worker).  The seven printed declarations
 report only `[propext, Quot.sound]`.  No full-root build or aggregate axiom
 audit is claimed here.
 

@@ -56683,29 +56683,35 @@ and no `sorryAx`.
 The supplied constructive-certificate criterion is now applied at the next
 finite carrier seam.  `BF4PhysicalVacuumSectorCanonicalFullDensityCertificate.lean`
 defines the canonical one-step state density by reusing the exact reflected
-physical conditional density, then proves
+physical conditional density.  It now also compiles that density through the
+exact finite-index bridge and proves
+`canonicalFullDensityOneStepIndex_row` and
+`canonicalFullDensityOneStepIndex_column` for all totalized natural indices.
+The state-level laws are
 `canonicalFullDensityOneStepState_row`,
 `canonicalFullDensityOneStepState_column`, and
 `canonicalFullDensityOneStepState_reconstructs_joint`.  Thus the positive
-physical carrier has exact weighted row/column normalization and exact
-reconstruction of the normalized reflected joint from its two marginals.
+physical carrier has exact weighted row/column normalization both at the
+state level and through the totalized finite-index carrier, together with
+exact reconstruction of the normalized reflected joint from its two
+marginals.
 
 The same module introduces the Type-valued
 `CanonicalFullDensityPowerDebt`.  Its field
 `full_density_power` is the still-uninhabited exact multi-slab identity on the
-same physical carrier required by the indexed full-factorization adapter; the
-adapter's totalized-row and closure wiring remain separately open.  This is an
-honest certificate boundary: one-step normalization is not silently promoted
-to multi-slab factorization, and no factorization, cofinal rate, continuum
-limit, QFT axiom package, all-group theorem, or Clay conclusion is claimed.
+same physical carrier required by the indexed full-factorization adapter; its
+totalized row/column normalization and both outgoing/incoming closure seams
+are now checked.  This is an honest certificate boundary: one-step
+normalization and closure are not silently promoted to multi-slab
+factorization, and no factorization, cofinal rate, continuum limit, QFT axiom
+package, all-group theorem, or Clay conclusion is claimed.
 
 Focused monitored target
 `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate:olean`
-passed with 1487 dependency jobs and one worker.  The three checked
-declarations report only `{propext, Quot.sound}`; no full-root audit is
-claimed.  The next causal producer is the same-carrier multi-slab witness,
-followed by indexed totalization/closure and an explicit uniform scale/error
-modulus for the continuum-facing rate.
+passed with 1487 dependency jobs and one worker.  The seven checked declarations
+report only `{propext, Quot.sound}`; no full-root audit is claimed.  The next
+causal producer is the same-carrier multi-slab witness, followed by the
+explicit uniform scale/error modulus for the continuum-facing rate.
 
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
