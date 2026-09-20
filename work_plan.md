@@ -945,6 +945,22 @@ the thermodynamic/continuum/QFT/Clay steps remain explicit open inputs.
 Focused verification is `/tmp/ym-gap-uniform-certificate-check.log`; the
 printed declarations report only `{propext}`.
 
+### Concrete-carrier local-gluing join (2026-09-20)
+
+`concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_localGluing`
+now composes the existing `FixedNomeCofinalLocalGluing` adapter with the
+inhabited fixed-nome, half-extent-zero completed SU(2) carrier.  Its conclusion
+is the literal same-object moving-centered autocorrelation bound at the
+physical rate `1/16`, with the same completed inner product and the same
+observable already stored by `ConcreteSU2CompletedCarrierCertificate`.
+
+This is a causal local-to-carrier join, not a new analytic estimate: the
+cofinal local-slice/gluing family remains the sole strictness input.  No
+cofinal producer, exact physical-gap calibration, thermodynamic/continuum
+passage, QFT package, all-group extension, or Clay conclusion is inferred.
+Focused verification is `/tmp/ym-gap-concrete-carrier-local-gluing-check.log`;
+the declaration reports only `{propext, Quot.sound}`.
+
 ### Current forward/backward join: AF recurrence to summable scalar variation (2026-09-19)
 
 `AFTrajectorySummableVariation.lean` now proves the next non-vacuous scalar

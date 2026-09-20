@@ -27,6 +27,9 @@ set_option maxRecDepth 100000
 set_option maxHeartbeats 10000000
 
 open YMGap.Constructive
+open YMGap.Continuum.BF4PhysicalCutoffCofinalConnectedGap
+open YMGap.Continuum.BF4PhysicalCutoffConnectedGap
+open YMGap.Continuum.BF4PhysicalCutoffCofinalStrictGap
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedVacuumComplement
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
@@ -37,6 +40,8 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
+open YMGap.Continuum.BF4PhysicalCutoffCofinalLocalSliceGap
+open YMGap.Continuum.BF4PhysicalVacuumSectorLocalContractionGluing
 open YMGap.Continuum.RCStrictPositivity
 
 /-! ## 1. One fixed-nome observable-connected object -/
@@ -155,6 +160,41 @@ theorem concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay
   exact centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay
     hw0 hw1 gap n
 
+/-- The same-object correlator reaches the explicit physical `1/16` rate when
+the existing cofinal local-slice certificate is supplied.  This is the
+smallest local-to-carrier join: the carrier, transfer, vacuum complement, and
+observable remain the concrete same objects above, while the local gluing
+family is the sole strictness input. -/
+theorem concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_localGluing
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (family : FixedNomeCofinalLocalGluing
+      w (Q'.le_of_lt hw0) 0) (n : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (concreteSameObjectAutocorrelation hw0 hw1 n)
+        (concreteSameObjectAutocorrelation hw0 hw1 n))
+      (CReal.RCmul
+      (CReal.RCscale
+          ((physicalCutoffSixteenth * physicalCutoffSixteenth) ^ n)
+          (centralPhysicalCutoffCompletedInner hw0 hw1 0
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))))
+        (centralPhysicalCutoffCompletedInner hw0 hw1 0
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+          (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0)))) := by
+  simpa only [concreteSameObjectAutocorrelation] using
+    (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay_of_localSlice
+      hw0 hw1
+      (FixedNomeCofinalLocalGluing.toPhysicalLocalSliceGluing family) n)
+
 end YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
 
 /-! ## Dependency gates -/
@@ -163,3 +203,5 @@ end YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_localGluing

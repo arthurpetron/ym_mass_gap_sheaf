@@ -653,6 +653,17 @@ input.  It is still fixed finite SU(2) data; no cofinal producer,
 thermodynamic/continuum passage, QFT axioms, all-group theorem, or Clay mass
 gap is claimed.
 
+**Concrete-carrier local-gluing join, checked 2026-09-20:**
+`concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_localGluing`
+now composes the existing `FixedNomeCofinalLocalGluing` adapter with the
+concrete completed SU(2) carrier.  Given that single named local-slice
+producer, the same carrier, vacuum complement, transfer, and moving-centered
+observable satisfy the explicit physical `1/16` squared-correlation decay.
+The local-gluing family remains an input; this theorem does not construct it
+or advance the thermodynamic, continuum, QFT, all-group, or Clay stages.
+Focused verification is `/tmp/ym-gap-concrete-carrier-local-gluing-check.log`;
+the new declaration reports only `{propext, Quot.sound}`.
+
 **Sector-normalized local-slice forward/backward join, checked 2026-09-19:**
 `BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement` now consumes the
 sector-normalized `FixedNomeCofinalVacuumSectorLocalSliceGluing` interface
