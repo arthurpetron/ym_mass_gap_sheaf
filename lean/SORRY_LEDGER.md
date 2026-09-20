@@ -13,6 +13,13 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED same-object physical-exponential certificate (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate.lean`.
+- **proved**: `NormalizedMovingCubePhysicalExponentialCertificate.ofRationalVariations` contracts the same completed-family normalized limit, exact CReal scheduled-rate limit, direct rate-power clustering witness, positive-rate data, same-object squared decay, and both rational Euler endpoint convergence moduli into one typed certificate.
+- **boundary**: the constructor consumes explicit raw, normalization-debt, physical-gap, and scheduled-rate variation inputs.  It does not prove those inputs, a cofinal uniform gap, spacing/thermodynamic passage, OS/QFT reconstruction, all-group extension, or the Clay mass gap.
+- **verification**: `+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate:olean` PASS; the exported constructor uses only `{propext, Quot.sound}`, with no `sorryAx`.
+
 ## PROVED normalized same-object clustering bridge (2026-09-20 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel.lean` and `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.lean`.

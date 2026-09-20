@@ -43,6 +43,7 @@ same-theory QFT axioms, isolated vacuum, and physical Delta > 0
 [CHECKED] finite SU(2) carrier -> completed transfer -> unit-floor
           normalized moving-cube channel -> finite squared decay
           -> explicit-limit unit floor -> canonical clustering bridge*
+          -> same-object physical-exponential certificate*
                               |
                  X current causal producer frontier
                               v
@@ -106,6 +107,20 @@ cutoff-independent rational ratio, so it is the compatible consumer for the
 physical-exponential route.  The bundled certificate has a wrapper for this
 projection; raw/normalization variation and a uniform completed gap remain
 open.
+
+**Same-object physical-exponential certificate (2026-09-20):**
+`BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate.lean` contracts
+the forward and backward payloads into
+`NormalizedMovingCubePhysicalExponentialCertificate.ofRationalVariations`.
+The certificate retains one completed-family normalized limit, one exact CReal
+scheduled-rate limit, the direct rate-power clustering witness, the supplied
+positive-rate data, the same-object squared-decay bound, and both rational Euler
+endpoint convergence moduli.  This is the certificate shape demanded by the
+constructive continuum rule: object, modulus, and comparison data remain
+dependent on the same observable.  It does not inhabit any variation input or
+uniform cofinal producer; physical-gap calibration, spacing/thermodynamic
+passage, OS/QFT reconstruction, all-group extension, and the Clay mass gap
+remain open.
 
 **Finite forward seed (2026-09-20):**
 `BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` now inhabits the

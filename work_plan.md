@@ -125,6 +125,25 @@ Focused check:
 PASS (1667 dependency jobs, one worker); the new projection uses only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+### Same-object physical-exponential certificate (2026-09-20)
+
+`BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate.lean` adds
+`NormalizedMovingCubePhysicalExponentialCertificate.ofRationalVariations`.
+It contracts the exact normalized limit, exact scheduled CReal rate-power
+limit, direct rate-power clustering consumer, positive-rate witness, the
+same-object squared-decay estimate, and both rational Euler endpoint
+convergence moduli.  The constructor consumes the existing raw,
+normalization-debt, physical-gap, and scheduled-rate variation certificates;
+it proves no new producer estimate and does not assert a cutoff-uniform gap.
+The remaining center gap is still the construction of those same-family
+variation/cofinal inputs, followed by spacing/thermodynamic passage and the
+OS/QFT/all-group/Clay layers.
+
+Focused check:
+`+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate:olean`
+PASS (one worker); the exported constructor uses only `{propext, Quot.sound}`
+and no `sorryAx`.
+
 ### Same-object weighted-entry bridge (2026-09-20)
 
 `BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean` closes the
