@@ -137,6 +137,59 @@ theorem rateFloor_pos
     (0 : Q') < certificate.rateFloor.floor :=
   certificate.rateFloor.floor_pos
 
+/-- The positive floor in the certificate is the physical-rate-band floor
+compiled through the same exact logarithmic separator. -/
+theorem rateFloor_floor_eq_band_floor
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {pin : DynamicVacuumSectorObservablePin family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {ceiling : FullRangeLogRateCeiling
+      (DynamicVacuumSectorObservablePin.fullRangeRateFamily pin)}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (certificate : DynamicVacuumSectorContinuumCertificate
+      pin band ceiling existence osGNS) :
+    certificate.rateFloor.floor = band.floor := by
+  have hfloor := congrArg UniformSpacingFloor.floor certificate.rateFloor_eq_compiled
+  exact hfloor
+
+/-- The explicit scale/error modulus inherited by the certificate gate for
+the dimensionless lattice margin. -/
+def marginModulus
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {pin : DynamicVacuumSectorObservablePin family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {ceiling : FullRangeLogRateCeiling
+      (DynamicVacuumSectorObservablePin.fullRangeRateFamily pin)}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (_certificate : DynamicVacuumSectorContinuumCertificate
+      pin band ceiling existence osGNS)
+    (epsilon : Q') : Nat :=
+  band.marginModulus epsilon
+
+theorem margin_le_epsilon
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {pin : DynamicVacuumSectorObservablePin family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {ceiling : FullRangeLogRateCeiling
+      (DynamicVacuumSectorObservablePin.fullRangeRateFamily pin)}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (certificate : DynamicVacuumSectorContinuumCertificate
+      pin band ceiling existence osGNS)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (scale : Nat)
+    (hscale : certificate.marginModulus epsilon ≤ scale) :
+    family.latticeMargin scale ≤ epsilon := by
+  exact band.latticeMargin_le_epsilon epsilon hepsilon scale hscale
+
 /-- Forgetting only the named floor payload reconstructs the existing
 same-object handoff.  No correlator, rate sequence, or reconstruction can be
 changed by this contraction. -/

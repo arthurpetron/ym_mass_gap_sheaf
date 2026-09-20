@@ -48,6 +48,10 @@ provenance-preserving contraction to the existing same-object realization;
 compiled physical certificate. `spacingModulus` exposes the dynamic family's
 explicit zero-spacing modulus at the same gate.
 
+The gate also exports `rateFloor_floor_eq_band_floor` and `margin_le_epsilon`:
+the positive exact-log floor is definitionally the physical band floor, and
+the explicit band modulus controls the same completed lattice margin.
+
 This is a checked certificate interface, not an inhabited continuum proof:
 the rate modulus, projective/OS handoff, spectral identification, exact-rate
 comparison, continuum measure, and reconstruction remain supplied inputs.
@@ -56,7 +60,7 @@ forward producer is still a scale-dependent cofinal Harnack/capacity estimate
 with a compatible modulus and stability map. The thermodynamic passage, full
 QFT axioms, all compact simple groups, and the Clay endpoint remain open.
 Focused check:
-`/tmp/BF4PhysicalDynamicVacuumSectorContinuumCertificate.check3.log`; the
+`/tmp/BF4PhysicalDynamicVacuumSectorContinuumCertificate.check5.log`; the
 new declarations use only `{propext, Quot.sound}` and no `sorryAx`.
 
 ### Current forward/backward join: direct power meets local slice (2026-09-19)

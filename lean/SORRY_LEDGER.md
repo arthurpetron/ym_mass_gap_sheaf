@@ -23,13 +23,14 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   convergence. `toHandoff` contracts the payload to the existing
   `DynamicVacuumSectorContinuumHandoff`; `ofHandoff` re-expands any such
   handoff with the compiled physical floor; `spacingModulus` exposes the
-  family zero-spacing modulus.
+  family zero-spacing modulus; `rateFloor_floor_eq_band_floor` and
+  `margin_le_epsilon` expose the exact floor identity and scale/error modulus.
 - **boundary**: this is a certificate interface and provenance check, not an
   inhabitant of the analytic inputs. The rate modulus, projective OS handoff,
   spectral identification, exact-rate comparison, continuum measure,
   thermodynamic/continuum construction, QFT axioms, all-group theorem, and
   Clay result remain open.
-- **verification**: `/tmp/BF4PhysicalDynamicVacuumSectorContinuumCertificate.check3.log`;
+- **verification**: `/tmp/BF4PhysicalDynamicVacuumSectorContinuumCertificate.check5.log`;
   all printed declarations use only `{propext, Quot.sound}`, with no
   `sorryAx`.
 
