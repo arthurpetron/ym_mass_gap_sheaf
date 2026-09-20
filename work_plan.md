@@ -56713,9 +56713,16 @@ It therefore exposes the exact meet-in-the-middle seam: only the same-carrier
 multi-slab identity remains to inhabit this finite adapter (before any strict
 rate or continuum passage).
 
+`canonicalFullDensityVacuumSectorDensityPowerGluing` then consumes that
+adapter together with an explicit nonnegative sector-centered one-step bound,
+and produces the existing finite density-power gluing interface.  This is the
+strongest new finite consequence: the local-slice and completed-gap compilers
+can now consume the canonical physical carrier once the two named analytic
+inputs (multi-slab power and strict centered rate) are supplied.
+
 Focused monitored target
 `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate:olean`
-passed with 1490 dependency jobs and one worker.  The eight checked declarations
+passed with 1490 dependency jobs and one worker.  The nine checked declarations
 report only `{propext, Quot.sound}`; no full-root audit is claimed.  The next
 causal producer is the same-carrier multi-slab witness, followed by the
 explicit uniform scale/error modulus for the continuum-facing rate.

@@ -15061,6 +15061,8 @@ No full-tree build, root check, or full axiom audit is claimed.
 - **proved declarations**:
   `canonicalFullDensityCompatibleTimeFactorization` (which contracts the
   adapter interface to the explicit power debt),
+  `canonicalFullDensityVacuumSectorDensityPowerGluing` (which additionally
+  consumes an explicit sector-centered one-step bound),
   `canonicalFullDensityOneStepIndex_row` and
   `canonicalFullDensityOneStepIndex_column` (the exact totalized finite-index
   transports), `canonicalFullDensityOneStepIndex_outgoing_closed`,
@@ -15081,7 +15083,7 @@ No full-tree build, root check, or full axiom audit is claimed.
   multi-slab power identity on the same physical carrier.  The indexed row,
   column, outgoing-closure, and incoming-closure seams are now closed;
   one-step normalization and closure do not discharge the multi-slab identity.
-- **constructive or propositional**: the eight proved declarations use only
+- **constructive or propositional**: the nine proved declarations use only
   the existing finite state-level witnesses and reflected-kernel symmetry.  No
   `sorry`, new hypothesis,
   classical axiom, custom axiom, `native_decide`, or `noncomputable`
@@ -15090,7 +15092,7 @@ No full-tree build, root check, or full axiom audit is claimed.
 
 Verification: the focused monitored target
 `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate:olean`
-passed (1490 dependency jobs, one worker).  The eight printed declarations
+passed (1490 dependency jobs, one worker).  The nine printed declarations
 report only `[propext, Quot.sound]`.  No full-root build or aggregate axiom
 audit is claimed here.
 

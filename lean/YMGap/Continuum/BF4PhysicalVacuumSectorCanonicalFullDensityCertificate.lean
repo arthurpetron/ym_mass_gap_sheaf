@@ -28,6 +28,7 @@ open YMGap.Continuum.BF4PhysicalConditionalDensity
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalVacuumSectorConditionedDensityPower
+open YMGap.Continuum.BF4PhysicalVacuumSectorMassNormalizedDensity
 open YMGap.Continuum.BF4PhysicalVacuumSectorTimeFactorizationAdapter
 open YMGap.Continuum.BF4SU2FixedMagneticPositiveKernelConvergence
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
@@ -367,10 +368,42 @@ def canonicalFullDensityCompatibleTimeFactorization
       hsource houtside htarget
   full_density_power := powerDebt.full_density_power
 
+/-- The canonical finite carrier reaches the sector density-power gluing
+interface once the explicit power debt and a genuine centered one-step bound
+are supplied.  The rate bound remains an input; this definition does not
+manufacture strict contraction. -/
+def canonicalFullDensityVacuumSectorDensityPowerGluing
+    {w : Q'} {hw : (0 : Q') ≤ w} {cutoff half depth : Nat}
+    {qS : Q'}
+    (powerDebt : CanonicalFullDensityPowerDebt
+      w hw cutoff half depth)
+    (qS_nonnegative : (0 : Q') ≤ qS)
+    (sector_centered_bound : ∀ source,
+      source ∈ centralPhysicalFiniteVacuumSectorIndices
+          w hw cutoff half →
+        finiteWeightedCenteredRowMass
+            (centralPhysicalFiniteVacuumSectorIndices
+              w hw cutoff half)
+            (centralPhysicalFiniteVacuumSectorMassNormalizedWeight
+              w hw cutoff half)
+            (centralPhysicalFiniteVacuumSectorConditionedTimeStep
+              w hw cutoff half
+              (canonicalFullDensityOneStepIndex w hw cutoff half))
+            source ≤ qS) :
+    PhysicalBF4VacuumSectorDensityPowerGluing
+      w hw cutoff half depth
+      (centralPhysicalFiniteVacuumSectorConditionedTimeStep
+        w hw cutoff half
+        (canonicalFullDensityOneStepIndex w hw cutoff half)) qS :=
+  (canonicalFullDensityCompatibleTimeFactorization powerDebt).toVacuumSectorDensityPowerGluing
+    qS_nonnegative sector_centered_bound
+
 /-! ## Axiom audit -/
 
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate.canonicalFullDensityCompatibleTimeFactorization
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate.canonicalFullDensityVacuumSectorDensityPowerGluing
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate.canonicalFullDensityOneStepIndex_row
 #print axioms
