@@ -5,7 +5,8 @@
 > Its finite chronological operators now have checked composition, adjoints,
 > and an equality criterion using every finite vacuum-generated input.
 > Duration-preserving kernels also have original-window input semantics and
-> an exact interval-concatenation law on every completed input.
+> an exact interval-concatenation law on every completed input. A single
+> finite source-Haar identity now determines the same completed operator.
 > A new original-observable estimate compares two couplings after removing
 > the heat cutoff. Boundary localization makes its cost independent of
 > outer volume, under explicit small-nome guards; the inner-window cost
@@ -21,6 +22,20 @@
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
 
+**Kernel well-definedness modulo supported source-Haar identities (2026-09-20):**
+`BF4WilsonKernelHaarIdentity.compileKernel_haar_congr` shows that one finite
+`SupportedHaarEqv` certificate on the original source window gives the same
+duration-preserving operator on **every** completed input. The concrete
+`completedMultiply_backtrack` and `kernel_backtrack_constant` consumers show
+that the genuine original forward/reverse loop acts as twice the identity at
+duration zero and agrees with the constant-two kernel at every duration. This
+is fixed-spacing guarded SU(2) Wilson-window algebra modulo the supplied
+source relation; full gauge-observable coverage, canonical continuum OS,
+scaling/survival/calibration, full QFT, and all-groups closure remain open.
+The narrow dependency build and all 16 printed gates across the three new
+modules and the updated concatenation module passed with at most
+`{propext, Quot.sound}`. No full-root build/audit was run.
+
 **Original-window kernels with elapsed time retained (2026-09-20):**
 `BF4WilsonKernelConcatenation.compileKernel_concat` proves
 `K_H(e) K_K(f) = K_(H+K)((shift K e)*f)` on every completed input.
@@ -32,11 +47,11 @@ The distinction from the old vacuum-state compiler matters: even identical
 source polynomials (a trivial-character loop and the constant one) can compile
 to different old operators, `T^2` and identity. That counterexample is checked;
 the old vacuum-state theorems remain valid. The new duration-preserving
-kernel passes the trivial-character test. General source/Haar presentation
-independence and canonical continuum OS/QFT remain open; no scaling,
-physical-mass or every-group conclusion follows.
-The targeted dependency builds and all 40 printed axiom checks passed with
-at most `{propext, Quot.sound}`; no full-root build/audit was run.
+kernel passes the trivial-character test; source-Haar descent is now proved
+by the newer result above. No scaling, physical-mass or every-group conclusion
+follows. The original targeted dependency builds and all 40 printed axiom
+checks passed with at most `{propext, Quot.sound}`; no full-root build/audit
+was run.
 
 **Same-carrier operator closure (2026-09-20):**
 `BF4WilsonChronologicalOperatorAlgebra.lean` proves product and adjoint laws,

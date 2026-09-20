@@ -13,6 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED source-Haar identity descent to SAME completed Wilson kernels (2026-09-20 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/BF4WilsonShiftedInclusionPlacement.lean`,
+  `lean/YMGap/Continuum/BF4WilsonGraftHaarTransport.lean`,
+  `lean/YMGap/Continuum/BF4WilsonKernelHaarIdentity.lean`, and updated
+  `lean/YMGap/Continuum/BF4WilsonKernelConcatenation.lean`.
+- **scope**: `compileKernel_haar_congr` turns one finite supported source-Haar
+  certificate into equality of the original duration-preserving kernels on
+  every completed input. Computed placements and chart identities transport
+  that certificate through arbitrary larger graft inputs, retaining the
+  entire interacting insertion. Reflected-form null descent and dense-stage
+  operator determination supply the SAME-carrier consumer. The genuine
+  forward/reverse loop's sphere certificate proves
+  `completedMultiply_backtrack` and `kernel_backtrack_constant`, not merely
+  vacuum equality or a free-polynomial identity.
+- **boundary**: well-definedness modulo `SupportedHaarEqv` on fixed-spacing
+  guarded SU(2) Wilson-window syntax only. Full gauge-observable coverage,
+  canonical SAME-theory OS/QFT, changing-spacing/coupling control, survival,
+  physical mass, all groups and Clay closure remain open. The old vacuum
+  compiler's all-input recoding remains refuted; guarded-ceiling scaling
+  constraints remain. No new analytic hypothesis family is introduced.
+- **verification**: monitored dependency-complete target
+  `+YMGap.Continuum.BF4WilsonKernelHaarIdentity:olean` and direct checks of all
+  four listed files PASSed all 16 printed gates with at most
+  `{propext, Quot.sound}`, no warnings and no `sorryAx`. Direct logs are
+  `/tmp/ym-gap-<module>-final.log`. One worker, 20 GiB ceiling; no full-root
+  build/audit was run. No hole was introduced or discharged and no canonical
+  frontier field changed.
+
 ## PROVED duration-preserving chronological kernels and original interval concatenation (2026-09-20 UTC)
 
 - **files**:
@@ -31,10 +61,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   the trivial spin-zero loop and `one` at `H = 2` have the same source
   polynomial but act as `T²` and `I` on the constructed excitation. The new
   path is only original spatial-loop syntax at guarded fixed spacing in SU(2);
-  it does not prove source/Haar presentation independence, continuum
-  OS/scaling/survival/calibration, full QFT, or all-groups/Clay closure.
-  Preserve the guarded-ceiling scaling obstruction; the next residue is actual
-  source/Haar identity descent for the new kernel.
+  it does not prove continuum OS/scaling/survival/calibration, full QFT, or
+  all-groups/Clay closure. Source/Haar identity descent for the new kernel is
+  now proved by the newer entry above. Preserve the guarded-ceiling scaling
+  obstruction and the refutation of old-compiler recoding.
 - **verification**: dependency-complete monitored targets
   `+YMGap.Continuum.BF4WilsonKernelConcatenation:olean` and
   `+YMGap.Continuum.BF4WilsonWindowCompilerDurationObstruction:olean` PASSed.

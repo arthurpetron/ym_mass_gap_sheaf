@@ -81,7 +81,9 @@ private theorem eq_of_stage_pairings (x y : V)
   intro stage
   exact Quotient.exact (h stage)
 
-private theorem operatorEq_of_stage_inputs {base : Nat} (p q : Program base)
+/-- Agreement on all original finite stages determines the completed operator;
+also consumed by finite source-Haar identity descent. -/
+theorem operatorEq_of_stage_inputs {base : Nat} (p q : Program base)
     (h : ∀ z : Stage, Op p (E z) = Op q (E z)) :
     OperatorEq hw0 hw1 hsmall hd hs p q := by
   have hadj (test : V) : Adj p test = Adj q test := by
@@ -139,5 +141,6 @@ end YMGap.Continuum.BF4WilsonKernelConcatenation
 
 #print axioms YMGap.Continuum.BF4WilsonKernelConcatenation.includeExpression_graft
 #print axioms YMGap.Continuum.BF4WilsonKernelConcatenation.graft_assoc_source
+#print axioms YMGap.Continuum.BF4WilsonKernelConcatenation.operatorEq_of_stage_inputs
 #print axioms YMGap.Continuum.BF4WilsonKernelConcatenation.compileKernel_concat_onWindow
 #print axioms YMGap.Continuum.BF4WilsonKernelConcatenation.compileKernel_concat

@@ -34,6 +34,47 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Finite source-Haar certificate to SAME completed operator (2026-09-20)
+
+`BF4WilsonKernelHaarIdentity.compileKernel_haar_congr` proves that ONE
+`SupportedHaarEqv` certificate at the original finite source window determines
+the same duration-preserving kernel on EVERY completed input. This is
+well-definedness modulo the specified source relation, not equality only on
+the vacuum and not a supplied family of regulator-indexed identities.
+
+The causal chain is explicit: `BF4WilsonShiftedInclusionPlacement` supplies
+the literal chart identities; `BF4WilsonGraftHaarTransport` constructs the
+placement and transports the certificate through any larger original input
+chart. Multiplication retains the whole input as a supported insertion, and
+existing reflected-form descent retains the original interacting action.
+`graftStage_haar_congr` and the original-input kernel pin give agreement on
+every finite stage; `operatorEq_of_stage_inputs` gives the completed result.
+The concrete `completedMultiply_backtrack` proves that the genuine original
+forward/reverse SU(2) loop acts as twice the identity; `kernel_backtrack_constant`
+retains that equality at every elapsed duration. Its finite certificate uses
+the quaternion sphere law, not free coefficient equality.
+
+**Boundary and next consumer:** these operators are now independent of the
+chosen Wilson-window presentation modulo supported source-Haar identities,
+at fixed spacing under the existing SU(2) guards. Full gauge-observable
+coverage and the canonical SAME-theory OS/QFT identification remain open.
+The analytic path still needs a justified changing-spacing/coupling family,
+surviving observables and physical mass calibration; the guarded-ceiling
+obstruction is unchanged. Do not replace that work with further vacuum-only
+identifications or another unconnected frontier bundle. Every compact simple
+group and the Clay target remain open.
+
+**Verification:** monitored dependency-complete target
+`+YMGap.Continuum.BF4WilsonKernelHaarIdentity:olean` and direct checks of
+`BF4WilsonShiftedInclusionPlacement`, `BF4WilsonGraftHaarTransport`,
+`BF4WilsonKernelHaarIdentity`, and the updated `BF4WilsonKernelConcatenation`
+PASSed all 16 printed gates with at most `{propext, Quot.sound}`, no warnings
+and no `sorryAx`. Direct logs are `/tmp/ym-gap-<module>-final.log`. Checks used
+one worker and a 20 GiB ceiling; no full-root build/audit was run. No hole or
+canonical frontier field changed. Luna drafted the finite placement helper
+and landing-page text; the main agent integrated/repaired them and proved and
+verified the transport and completed-operator consumers.
+
 ### Duration-preserving chronological kernel checkpoint (2026-09-20)
 
 The seven-module kernel path (`BF4WilsonSpatialUnionSpinZeroMultiplier`,
@@ -51,11 +92,11 @@ The old `compileWindow` remains a valid vacuum-vector compiler, but it cannot
 be promoted to an all-input source-recoding theorem: even identical original
 source polynomials (the trivial spin-zero loop and `one` at `H = 2`) compile
 to `T²` versus `I` on the constructed excitation. This is original spatial-loop
-syntax at guarded fixed-spacing SU(2), not source/Haar presentation
-independence, continuum OS/scaling/survival/calibration, full QFT, or
-all-groups/Clay closure. The next residue is source/Haar identity descent for
-the new kernel, not the refuted old-compiler recoding path; retain the guarded
-ceiling scaling constraints.
+syntax at guarded fixed-spacing SU(2), not continuum
+OS/scaling/survival/calibration, full QFT, or all-groups/Clay closure.
+Source/Haar identity descent for the new kernel is now proved by the newer
+checkpoint above; the old-compiler recoding path remains refuted. Retain the
+guarded ceiling scaling constraints.
 
 **Verification:** dependency-complete monitored targets
 `+YMGap.Continuum.BF4WilsonKernelConcatenation:olean` and

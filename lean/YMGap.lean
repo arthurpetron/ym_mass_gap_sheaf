@@ -5102,6 +5102,10 @@ import YMGap.Continuum.BF4WilsonChronologicalBaseCoherence
 import YMGap.Continuum.BF4WilsonKernelOriginalInputs
 import YMGap.Continuum.BF4WilsonKernelConcatenation
 import YMGap.Continuum.BF4WilsonWindowCompilerDurationObstruction
+-- One finite source-Haar identity descends to the actual kernel on every completed input.
+import YMGap.Continuum.BF4WilsonShiftedInclusionPlacement
+import YMGap.Continuum.BF4WilsonGraftHaarTransport
+import YMGap.Continuum.BF4WilsonKernelHaarIdentity
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison
