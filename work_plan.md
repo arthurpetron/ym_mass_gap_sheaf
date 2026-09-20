@@ -996,6 +996,17 @@ same-family explicit convergence certificate.  The latter is
 it retains the exact stream `family.physicalGap` and its Type-level modulus;
 it does not construct the calibration or any continuum object.
 
+The continuum certificate gate now exposes the same payload for the exact
+separator rate through `DynamicVacuumSectorContinuumCertificate.rateLimit` and
+`rateExplicit`.  These are direct projections from the stored
+`ModCauchyEv` to the term-stage/approximation-stage certificate for
+`rateApproximant`; they preserve the approximating object and do not promote
+pointwise data to a parameter-uniform bound.  The cofinal comparison,
+physical calibration, and continuum construction remain uninhabited.
+Focused checks are `/tmp/ym-gap-continuum-certificate-explicit-check.log` and
+`/tmp/ym-gap-af-continuum-explicit-projection-check.log`; the new projections
+and downstream compiler remain under the `{propext, Quot.sound}` gate.
+
 ### Current forward/backward join: one concrete completed SU(2) carrier (2026-09-19)
 
 `BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean` now packages the

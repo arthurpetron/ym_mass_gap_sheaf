@@ -22,6 +22,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 `noncomputable` declaration is used.
 -/
 
+import YMGap.Constructive.CRealModCauchyExplicitConvergenceCertificate
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumCertificate
@@ -102,6 +103,67 @@ structure DynamicVacuumSectorContinuumCertificate
     osGNS.reconstruction
 
 namespace DynamicVacuumSectorContinuumCertificate
+
+/-! ## 2. The explicit same-stream convergence payload -/
+
+/-- Expose the exact CReal limit selected by the certificate's own Cauchy
+modulus.  The sequence is the fixed physical-separator approximant named by
+`rateApproximant`; no replacement stream or independently chosen limit is
+introduced. -/
+def rateLimit
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {pin : DynamicVacuumSectorObservablePin family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {ceiling : FullRangeLogRateCeiling
+      (DynamicVacuumSectorObservablePin.fullRangeRateFamily pin)}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (certificate : DynamicVacuumSectorContinuumCertificate
+      pin band ceiling existence osGNS) : CReal :=
+  CReal.completeLimitCauchy
+    (rateApproximant (pin := pin) (band := band) (ceiling := ceiling))
+    certificate.rateCauchy
+
+/-- Convert the stored eventual Cauchy witness into an explicit term-stage
+and approximation-stage modulus for that same exact-rate stream.  This is the
+certificate payload consumed by an epsilon/3 cutoff or spacing passage; it
+does not infer a uniform parameter bound that is absent from `rateCauchy`. -/
+def rateExplicit
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {pin : DynamicVacuumSectorObservablePin family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {ceiling : FullRangeLogRateCeiling
+      (DynamicVacuumSectorObservablePin.fullRangeRateFamily pin)}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (certificate : DynamicVacuumSectorContinuumCertificate
+      pin band ceiling existence osGNS) :
+    CReal.ExplicitConvergenceCertificate
+      (rateApproximant (pin := pin) (band := band) (ceiling := ceiling))
+      certificate.rateLimit :=
+  CReal.ModCauchyEv.toExplicitConvergenceCertificate
+    certificate.rateCauchy
+
+theorem rateExplicit_toConvergesTo
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {pin : DynamicVacuumSectorObservablePin family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {ceiling : FullRangeLogRateCeiling
+      (DynamicVacuumSectorObservablePin.fullRangeRateFamily pin)}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (certificate : DynamicVacuumSectorContinuumCertificate
+      pin band ceiling existence osGNS) :
+    CReal.ConvergesTo
+      (rateApproximant (pin := pin) (band := band) (ceiling := ceiling))
+      certificate.rateLimit :=
+  certificate.rateExplicit.toConvergesTo
 
 /-! ## 2. Certificate projections and the existing commuting square -/
 
@@ -261,6 +323,12 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumCertificate
 
 /-! ## Dependency gates -/
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumCertificate.DynamicVacuumSectorContinuumCertificate.rateLimit
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumCertificate.DynamicVacuumSectorContinuumCertificate.rateExplicit
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumCertificate.DynamicVacuumSectorContinuumCertificate.rateExplicit_toConvergesTo
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumCertificate.DynamicVacuumSectorContinuumCertificate.toHandoff
 #print axioms

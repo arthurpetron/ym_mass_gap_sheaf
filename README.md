@@ -249,6 +249,17 @@ Focused check:
 PASS; both exported declarations use only `{propext, Quot.sound}` and no
 `sorryAx`.
 
+The continuum gate also exposes `rateLimit` and `rateExplicit`: the stored
+same-object `ModCauchyEv` is converted directly into its term-stage and
+approximation-stage modulus for the exact rate stream.  This makes the
+certificate payload consumable by an epsilon/3 passage without recovering a
+modulus from a proposition.  It is only a representation-preserving
+projection; it does not supply the missing cofinal, spacing, thermodynamic,
+OS/QFT, or physical-calibration witnesses.
+Focused checks: `/tmp/ym-gap-continuum-certificate-explicit-check.log` and
+`/tmp/ym-gap-af-continuum-explicit-projection-check.log`; the new declarations
+and the downstream compiler pass with only `{propext, Quot.sound}`.
+
 This project is a Mathlib-free Lean 4 formalization of a constructive route
 from four-dimensional lattice gauge theory to continuum quantum Yang--Mills.
 The active concrete data are SU(2) BF4 lattice data. The positive
