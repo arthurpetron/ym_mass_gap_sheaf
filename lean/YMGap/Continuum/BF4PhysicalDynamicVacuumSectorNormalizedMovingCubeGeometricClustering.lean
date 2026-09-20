@@ -68,6 +68,25 @@ structure NormalizedMovingCubeContinuumCertificate
   geometricRate :
     NormalizedMovingCubeRatePowerGeometricIdentification family ratePower
 
+/-- Same-object squared clustering with the exact CReal rate-power stream.
+Unlike `NontrivialRCSquaredGeometricClustering`, this contract does not force
+a cutoff-independent rational ratio; it is the direct interface consumed by
+the physical-exponential route. -/
+structure NontrivialRCSquaredRatePowerClustering
+    (corr : Nat -> RC) : Type 1 where
+  amplitude : RC
+  ratePower : Nat -> RC
+  amplitude_nonneg : RCnonneg amplitude
+  decay : forall time : Nat,
+    RCle
+      (RCmul (corr time) (corr time))
+      (RCmul (RCmul (ratePower time) amplitude) amplitude)
+  zeroFloor : Q'
+  zeroFloor_pos : (0 : Q') < zeroFloor
+  zeroFloor_le : RCle
+    (Quotient.mk CReal.crealSetoid (CReal.ofQ' zeroFloor))
+    (corr 0)
+
 /-- Assemble the three explicit cross-cutoff variation certificates into one
 same-observable continuum certificate.  The raw representative, reciprocal
 normalization debt, and scheduled rate-power streams are converted to their
@@ -85,6 +104,8 @@ def NormalizedMovingCubeContinuumCertificate.ofVariations
   limit := normalizedMovingCubeLimitOfVariations family raw normDebt
   ratePower := normalizedMovingCubeSampledRatePowerLimitOfVariation family ratePower
   geometricRate := geometricRate
+
+/-! ## 3. Direct rate-power clustering projection -/
 
 namespace NormalizedMovingCubeContinuumCertificate
 
@@ -128,6 +149,27 @@ def toNontrivialRCSquaredGeometricClustering
   zeroFloor_pos := by decide
   zeroFloor_le := certificate.limit.one_le_continuumConnectedAutocorrelation_zero
 
+/-- Project the same certificate directly to a nontrivial clustering contract
+whose rate is the exact CReal limit of the scheduled finite powers.  This
+preserves the physical rate stream without imposing a fixed rational ratio. -/
+def toNontrivialRCSquaredRatePowerClustering
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    (certificate : NormalizedMovingCubeContinuumCertificate family) :
+    NontrivialRCSquaredRatePowerClustering
+      certificate.limit.continuumConnectedAutocorrelation where
+  amplitude := certificate.limit.continuumConnectedAutocorrelation 0
+  ratePower := fun time =>
+    Quotient.mk CReal.crealSetoid
+      (certificate.ratePower.limitRepresentative time)
+  amplitude_nonneg := continuum_zero_nonneg certificate
+  decay := by
+    intro time
+    exact normalizedMovingCubeContinuumConnectedAutocorrelationSq_decay
+      family certificate.limit certificate.ratePower time
+  zeroFloor := 1
+  zeroFloor_pos := by decide
+  zeroFloor_le := certificate.limit.one_le_continuumConnectedAutocorrelation_zero
+
 end NormalizedMovingCubeContinuumCertificate
 
 end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
@@ -138,3 +180,5 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricC
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.NormalizedMovingCubeContinuumCertificate.ofVariations
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.NormalizedMovingCubeContinuumCertificate.toNontrivialRCSquaredGeometricClustering
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.NormalizedMovingCubeContinuumCertificate.toNontrivialRCSquaredRatePowerClustering

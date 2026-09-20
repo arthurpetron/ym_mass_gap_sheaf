@@ -34,6 +34,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **boundary**: the pointwise fixed-ratio equality, raw variation, and normalization-debt variation remain explicit inputs.  This compiler does not identify a physical rate, prove cofinal transition control, calibrate mass, or construct OS/QFT, all-group, or Clay closure.
 - **verification**: `+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeFixedRatioCompiler:olean` PASS (1668 dependency jobs, one worker); exported declarations use only `{propext, Quot.sound}`, with no `sorryAx`.
 
+## PROVED direct CReal rate-power clustering consumer (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.lean`.
+- **proved**: `NontrivialRCSquaredRatePowerClustering` records squared decay against an exact CReal rate-power stream, and `NormalizedMovingCubeContinuumCertificate.toNontrivialRCSquaredRatePowerClustering` projects the same normalized continuum limit, rate-power representatives, decay inequality, and unit zero-time floor into that contract.
+- **boundary**: this avoids a fixed-ratio assumption but does not construct raw or normalization-debt variation, the physical rate calibration, a uniform completed gap, OS/QFT reconstruction, an all-group theorem, or the Clay result.
+- **verification**: `+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering:olean` PASS (1667 dependency jobs, one worker); the projection uses only `{propext, Quot.sound}`, with no `sorryAx`.
+
 ## PROVED positive cutoff-one conditioned/Markov bridge (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.lean`.

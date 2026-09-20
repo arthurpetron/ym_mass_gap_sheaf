@@ -107,6 +107,22 @@ Focused check:
 PASS (1668 dependency jobs, one worker); exported declarations use only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+### Direct CReal rate-power clustering consumer (2026-09-20)
+
+`NormalizedMovingCubeContinuumCertificate.toNontrivialRCSquaredRatePowerClustering`
+adds the direct same-object consumer for a cutoff-dependent or
+physical-exponential rate-power stream.  Its rate field is the exact quotient
+of `certificate.ratePower.limitRepresentative`; the decay is inherited from
+the normalized continuum inequality, and the unit zero-time floor is retained
+unchanged.  This avoids imposing a fixed rational ratio when the physical rate
+is obtained only after spacing normalization.  It is a consumer-side bridge,
+not an inhabitant of the raw/debt variation producers or the completed gap.
+
+Focused check:
+`+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering:olean`
+PASS (1667 dependency jobs, one worker); the new projection uses only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 ### Same-object weighted-entry bridge (2026-09-20)
 
 `BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean` closes the
