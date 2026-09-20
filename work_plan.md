@@ -34,6 +34,55 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Observable survival derives a quantitative rate ceiling (2026-09-20)
+
+**New estimate, not a separately assumed ceiling:**
+`PhysicalSamplingSurvivalMargin.steps_margin_mul_floor_le` reuses the existing
+multiplicative Bernoulli theorem: `f <= C*q^n` implies `n*(1-q)*f <= C`.
+The exact floor sampler satisfies `a*floor(t/a) >= t/2` once `a <= t/2`.
+`marginRate_le_ceiling` therefore derives
+`(1-q)/a <= C/(f*(t/2))`, retaining the positive denominator and all constants
+as rational data. The positive integer time, response floor and norm cap are
+explicit; no spacing-independent ceiling is assumed.
+
+**Same-object consumer:**
+`BF4WilsonSurvivalPhysicalRateCeiling.response_power_floor` obtains the
+rational premise from the ACTUAL original completed pairing of a centered
+vector with its original even-time translate, plus its squared-norm cap.
+`margin_le_of_sampled_response` and `marginRate_le_of_sampled_response`
+then prove the linear spacing estimate for the actual `twoStepRate`.
+`transferLogMass_log_pin` identifies the computed binary logarithm of that
+same certified rate. `logRate_le_of_sampled_response` derives the finite
+ceiling `(9/4)*C/(f*(t/2))` for `-log(twoStepRate)/a` after the explicit
+`survivalRateThreshold`. Its logarithm window follows from the response;
+it is not an extra supplied hypothesis. This is pointwise in the nome and
+completed vector, so common response/norm data give the same ceiling across
+a varying family without identifying its different completed carriers.
+
+**Producer gap and stopping boundary for this algebraic branch:**
+`BF4WilsonSpatialUnionPositiveResponse.lagTwo_floor` supplies a fixed-nome
+lag-two response, while `BF4WilsonSpatialUnionResponseLower.unitExcitation_even_lower`
+supplies `rayleighFloor^n`. Neither supplies a fixed positive floor at
+`n=floor(t/a_j)` along a shrinking-spacing, changing-nome family. Producing
+that SAME-observable survival and its cross-scale comparison is still open.
+Do not add another rate-band wrapper in place of that estimate. The spacing
+is supplied as the duration of TWO original steps; physical normalization is
+not constructed. The certified rate is not an identified spectral edge, and
+no canonical physical-mass ceiling field is claimed discharged without its
+same-theory pin. A positive uniform physical lower mass, canonical OS/full
+QFT, continuum control and every-group construction remain open.
+
+**Verification:** the dependency-complete monitored target
+`+YMGap.Continuum.BF4WilsonSurvivalPhysicalRateCeiling:olean` and direct logs
+`/tmp/ym-gap-survival-margin-final.log`,
+`/tmp/ym-gap-direct-log-margin-final.log`,
+`/tmp/ym-gap-survival-ceiling-final.log` PASSed. All 23 exported gates use
+only `{propext, Quot.sound}`, with no warnings or `sorryAx`. Checks were
+serialized at one worker and a 20 GiB ceiling. No full-root build/audit was
+run, no hole was added or discharged, and no frontier statement was changed.
+Luna drafted the generic logarithm helper, reviewed consumers and wrote the
+documentation draft; the main agent integrated and checked the estimates.
+
 ### Same-observable scaling obstruction and necessary rate control (2026-09-20)
 
 **Forward/backward join, nontrivial survival lane:**

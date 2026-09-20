@@ -39,6 +39,34 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   also PASSed; no full-root build/audit is claimed.
   No hole or frontier field was introduced or changed.
 
+## PROVED conditional original-Wilson survival ceiling (2026-09-20 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/PhysicalSamplingSurvivalMargin.lean`,
+  `lean/YMGap/Continuum/DirectLogMarginUpper.lean`, and
+  `lean/YMGap/Continuum/BF4WilsonSurvivalPhysicalRateCeiling.lean`.
+- **scope**: conditional on a same-state sampled positive response floor `f`
+  and squared-norm cap `C`, the original-Wilson estimate is
+  `(1-q)/a ≤ C/(f*(t/2))` once `a ≤ t/2`. At the computed `survivalRateThreshold`, the exact
+  binary logarithm additionally satisfies
+  `-log(q)/a ≤ (9/4)*C/(f*(t/2))`, with explicit `C`, `f`, and positive
+  integer `t`. `a` is the supplied duration of TWO original lattice steps;
+  `q` is the certified upper rate, not a spectral edge.
+- **boundary**: the ceiling is derived conditionally, not separately assumed;
+  the response floor remains an input, not a constructed survival theorem. Existing
+  same-carrier finite-time lower bounds `rayleighFloor^n` do not provide a
+  uniform sampled floor. Same-operator cross-scale estimates, physical
+  normalization, a positive physical mass floor, continuum OS/QFT, and
+  all-group closure remain open.
+- **verification**: the dependency target
+  `+YMGap.Continuum.BF4WilsonSurvivalPhysicalRateCeiling:olean` PASSed.
+  Direct logs `/tmp/ym-gap-survival-margin-final.log`,
+  `/tmp/ym-gap-direct-log-margin-final.log`, and
+  `/tmp/ym-gap-survival-ceiling-final.log` PASSed all 23 exported gates with
+  only `{propext, Quot.sound}`, no warnings and no `sorryAx`. Checks were
+  serialized with one worker and a 20 GiB ceiling; no full-root build/audit
+  was run. No hole or frontier field was introduced or changed.
+
 ## PROVED finite chronological Wilson action (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4WilsonChronologicalOperator.lean`.

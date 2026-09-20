@@ -28,6 +28,22 @@ All 17 exported declarations passed direct axiom checks with only
 `{propext, Quot.sound}` and no `sorryAx`. Changing-coupling variation,
 physical normalization, continuum QFT, and all-group closure remain open.
 
+**Original-Wilson survival ceiling checkpoint (2026-09-20):**
+`PhysicalSamplingSurvivalMargin.lean`, `DirectLogMarginUpper.lean`, and
+`BF4WilsonSurvivalPhysicalRateCeiling.lean` prove conditionally that a
+same-state sampled positive response floor `f` and squared-norm cap `C` give
+`(1-q)/a ≤ C/(f*(t/2))` once `a ≤ t/2`; after the computed tail threshold, the
+exact binary logarithm obeys `-log(q)/a ≤ (9/4)*C/(f*(t/2))`. Here `C`, `f`,
+and positive integer `t` are explicit inputs, `a` is the supplied duration of
+TWO original lattice steps, and `q` is the actual certified upper rate, not a
+spectral edge. No upper ceiling is assumed; the response floor remains an
+input, not a constructed survival theorem. Existing
+same-carrier finite-time lower bounds `rayleighFloor^n` do not supply a
+uniform sampled floor. Cross-scale same-operator estimates, physical
+normalization, positive physical mass, continuum OS/QFT, and all-group closure
+remain open. The narrow build and all 23 direct axiom gates passed with only
+`{propext, Quot.sound}`, no warnings and no `sorryAx`; no full audit was run.
+
 > **Read `AGENTS.md` before contributing.** It contains both the
 > non-negotiable constructivity rules and the host-safety contract. They are
 > easy to violate accidentally; in particular, do not start a bare or broad

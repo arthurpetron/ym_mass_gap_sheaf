@@ -2074,6 +2074,8 @@ import YMGap.Continuum.ContinuumSelectedExactMassDecayTarget
 import YMGap.Continuum.ContinuumSelectedTheoryPins
 import YMGap.Continuum.PhysicalSeparationSamplingOfSpacingToZero
 import YMGap.Continuum.PhysicalSeparationSamplingEscape
+import YMGap.Continuum.PhysicalSamplingSurvivalMargin
+import YMGap.Continuum.DirectLogMarginUpper
 import YMGap.Continuum.BF4FarautSpectralMarginInputContinuumRealization
 import YMGap.Continuum.NetDriftInvSqBudget
 import YMGap.Continuum.AFDeepUVSummability
@@ -5022,6 +5024,7 @@ import YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
 import YMGap.Continuum.BF4WilsonSpatialUnionDiscreteLogGap
 import YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration
 import YMGap.Continuum.BF4WilsonUniformLatticeRateScalingObstruction
+import YMGap.Continuum.BF4WilsonSurvivalPhysicalRateCeiling
 -- Modulus-bearing real action, actual vacuum projection and all-vector relaxation.
 import YMGap.Continuum.BF4WilsonSpatialUnionScalarDistance
 import YMGap.Continuum.BF4WilsonSpatialUnionRealScalarCauchy
