@@ -990,7 +990,11 @@ smallest explicit physical-calibration handoff currently available.  This is
 still a Type-level input, not a proof that the AF trajectory is the completed
 transfer gap; the calibration, thermodynamic passage, continuum QFT package,
 all-group extension, and Clay endpoint remain open.  The source check now
-prints only `{propext, Quot.sound}` for both new declarations.
+prints only `{propext, Quot.sound}` for the calibration bridge and the new
+same-family explicit convergence certificate.  The latter is
+`PhysicalGapTrajectoryIdentification.toPhysicalGapExplicitConvergenceCertificate`:
+it retains the exact stream `family.physicalGap` and its Type-level modulus;
+it does not construct the calibration or any continuum object.
 
 ### Current forward/backward join: one concrete completed SU(2) carrier (2026-09-19)
 

@@ -366,7 +366,11 @@ completed lattice margin and `shiftedTau * spacing` is reduced by explicit
 positive rational cancellation to the required same-object physical-gap
 identification.  `exactLogRateCauchyOfAFTrajectoryOfNumeratorCalibration`
 packages that conditional join.  The calibration remains uninhabited; this is
-not a continuum, QFT, all-group, or Clay result.
+not a continuum, QFT, all-group, or Clay result.  The new
+`PhysicalGapTrajectoryIdentification.toPhysicalGapExplicitConvergenceCertificate`
+also promotes the transported same-family variation to a Type-level
+approximant/modulus certificate, so no convergence modulus is recovered from
+the legacy proposition.
 
 **Completed-carrier attachment (2026-09-19):**
 `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSCompletedCarrier.lean`

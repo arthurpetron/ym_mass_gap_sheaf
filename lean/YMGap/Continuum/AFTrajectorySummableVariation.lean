@@ -22,6 +22,7 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompil
 import YMGap.Continuum.InverseSquareAntitoneTailControl
 import YMGap.Continuum.QuadraticRateErrorTailControl
 import YMGap.Continuum.SummabilityCapstone
+import YMGap.Continuum.SummableCRealExplicitConvergenceCertificate
 import YMGap.Continuum.SummableRationalStepVariation
 import YMGap.Continuum.SummableRationalStepVariationAlgebra
 
@@ -345,6 +346,24 @@ def PhysicalGapTrajectoryIdentification.toPhysicalGapVariation
   SummableRationalStepVariationAlgebra.ofPointwiseEqv
     (shiftedTauSummableVariation C) identification.pointwise
 
+/-! ## 3b. Keep the same-family modulus explicit -/
+
+/-- The AF-to-physical-gap transport retains the exact completed-family
+approximant and promotes its summable variation to a Type-level convergence
+certificate.  The numerator calibration remains an explicit input; this
+declaration only exposes the modulus already carried by the transported
+variation. -/
+def PhysicalGapTrajectoryIdentification.toPhysicalGapExplicitConvergenceCertificate
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {C : AFTrajectoryCertificate}
+    (identification : PhysicalGapTrajectoryIdentification family C) :
+    CReal.ExplicitConvergenceCertificate
+      (fun j => CReal.ofQ' (family.physicalGap j))
+      identification.toPhysicalGapVariation.limit :=
+  YMGap.Continuum.SummableCRealStepVariation.toExplicitConvergenceCertificate
+    identification.toPhysicalGapVariation.toSummableCRealStepVariation
+
 /-! ## 4. Exact-log consequence -/
 
 /-- The AF recurrence, together with an explicit same-family gap
@@ -392,6 +411,8 @@ end YMGap.Continuum.AFTrajectorySummableVariation
   YMGap.Continuum.AFTrajectorySummableVariation.PhysicalGapTrajectoryIdentification.toPhysicalGapVariation
 #print axioms
   YMGap.Continuum.AFTrajectorySummableVariation.PhysicalGapNumeratorCalibration.toIdentification
+#print axioms
+  YMGap.Continuum.AFTrajectorySummableVariation.PhysicalGapTrajectoryIdentification.toPhysicalGapExplicitConvergenceCertificate
 #print axioms
   YMGap.Continuum.AFTrajectorySummableVariation.exactLogRateCauchyOfAFTrajectory
 #print axioms
