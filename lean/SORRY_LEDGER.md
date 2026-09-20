@@ -22862,6 +22862,17 @@ reported below are the current verification evidence.
   loaded edges, the completed gap inhabitant, continuum QFT, and Clay theorem
   remain open.
 
+The cofinal interface has since been made explicitly witness-producing at its
+selected anchors by
+`CutoffTwoCofinalNovelEdgeCapacityCheck.certifiedOutcomeAt`.  Given the
+Boolean edge scan in the Type-valued cofinal certificate, this returns the
+`certified` branch of the finite certificate-or-overload outcome with its
+literal floor inequality.  Focused source check
+`/tmp/BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.check2.log`
+passes with only `{propext, Quot.sound}` and no `sorryAx`.  This remains
+conditional on the cofinal scan; it does not produce that scan or a
+continuum/Clay conclusion.
+
 ### [BF4-cutoff-two-novel-flow-edge-expansion] Exact endpoint-pair load decomposition — **CLOSED 2026-08-23**
 
 - **milestone**: expose the generic flat-map edge-load identity; prove that

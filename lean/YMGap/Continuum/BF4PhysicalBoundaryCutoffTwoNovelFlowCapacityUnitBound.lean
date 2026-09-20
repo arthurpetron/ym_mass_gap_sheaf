@@ -226,6 +226,18 @@ structure CutoffTwoCofinalNovelEdgeCapacityCheck : Type 1 where
 
 namespace CutoffTwoCofinalNovelEdgeCapacityCheck
 
+/-- A cofinal edge scan supplies an explicit certified branch of the finite
+capacity-or-overload decision at every selected anchor.  The overloaded branch
+is not hidden or discarded: it is excluded here by the supplied Boolean scan
+certificate itself. -/
+def certifiedOutcomeAt
+    (checked : CutoffTwoCofinalNovelEdgeCapacityCheck)
+    (request : Nat) :
+    CutoffTwoNovelFlowCapacityDecisiveOutcome (checked.anchor request) :=
+  CutoffTwoNovelFlowCapacityDecisiveOutcome.certified
+    (cutoffTwoNovelEdgeCapacityCheck_sound
+      (checked.anchor request) (checked.check request))
+
 def toCofinalNovelFlowCapacityRatio
     (checked : CutoffTwoCofinalNovelEdgeCapacityCheck) :
     CutoffTwoCofinalNovelFlowCapacityRatio where
@@ -255,5 +267,7 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.cutoffTwoNovelEdgeCapacityCheck_sound
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.inspectCutoffTwoNovelFlowCapacityDecisively
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.CutoffTwoCofinalNovelEdgeCapacityCheck.certifiedOutcomeAt
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.CutoffTwoCofinalNovelEdgeCapacityCheck.toCompletedStrictContractionData

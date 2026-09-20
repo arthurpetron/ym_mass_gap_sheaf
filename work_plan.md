@@ -56567,6 +56567,21 @@ multiscale Poincare control, or a direct completed-operator proof.  It prevents
 the campaign from treating the impossible global path ceiling as the missing
 uniform producer.
 
+## 239. Expose certified anchors for the localized capacity route (2026-09-19)
+
+`CutoffTwoCofinalNovelEdgeCapacityCheck.certifiedOutcomeAt` now turns each
+selected Boolean edge scan into an explicit `certified` branch of the existing
+Type-valued finite certificate-or-overload decision.  The returned witness is
+the literal finite capacity-floor inequality, so the overloaded branch is not
+silently erased.  The cofinal scan remains the sole analytic input and still
+feeds `toCompletedStrictContractionData`; no cofinal producer is constructed.
+
+Focused source check
+`/tmp/BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.check2.log`
+passes with only `{propext, Quot.sound}` and no `sorryAx`.  The next real
+frontier is therefore the cofinal edge/load estimate itself, followed by the
+thermodynamic, continuum, QFT, and all-group obligations.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A
