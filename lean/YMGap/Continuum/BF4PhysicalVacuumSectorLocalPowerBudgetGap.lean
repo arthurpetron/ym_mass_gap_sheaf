@@ -119,7 +119,54 @@ structure FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing
 
 namespace FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing
 
-/-! ## 3. Forward/backward join from the quarter-slice route -/
+/-! ## 3. Uniform local-rate envelope -/
+
+/-- A uniform envelope for the cutoff-dependent one-step rates supplies the
+depth-amplified power budget automatically.  The only input used here is the
+actual local slice, its nonnegative rate, the strict envelope `rate < 1`, and
+the already-required depth lower bound.  Thus this removes a redundant
+producer field without constructing the still-open local slices. -/
+def ofUniformLocalRateBound
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat} {rate : Q'}
+    (family : FixedNomeCofinalVacuumSectorLocalSliceGluing
+      w hw half)
+    (rate_nonnegative : (0 : Q') ≤ rate)
+    (rate_lt_one : rate < (1 : Q'))
+    (localRate_le_rate : ∀ base threshold,
+      family.localRate base threshold ≤ rate) :
+    FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing
+      w hw half rate where
+  rate_nonnegative := rate_nonnegative
+  rate_lt_one := rate_lt_one
+  anchor := family.anchor
+  anchor_ge := family.anchor_ge
+  depth := family.depth
+  localRate := family.localRate
+  oneStep := family.oneStep
+  localSlice := family.localSlice
+  powerBudget := by
+    intro base threshold
+    let slice := family.localSlice base threshold
+    have hlocal0 : (0 : Q') ≤ family.localRate base threshold :=
+      slice.qS_nonnegative
+    have hlocal1 : family.localRate base threshold ≤ (1 : Q') :=
+      Q'.le_trans' _ _ _ (localRate_le_rate base threshold)
+        (Q'.le_of_lt rate_lt_one)
+    have hdepth : 1 ≤ family.depth base threshold :=
+      Nat.le_trans (by decide : 1 ≤ 3) slice.depth_at_least_three
+    have hdepth_eq : family.depth base threshold =
+        (family.depth base threshold - 1) + 1 := by
+      omega
+    have hpow :
+        family.localRate base threshold ^ family.depth base threshold ≤
+          family.localRate base threshold := by
+      rw [hdepth_eq]
+      exact YMGap.Continuum.HKPos.pow_succ_le_self
+        hlocal0 hlocal1 (family.depth base threshold - 1)
+    exact Q'.le_trans' _ _ _ hpow
+      (localRate_le_rate base threshold)
+
+/-! ## 4. Forward/backward join from the quarter-slice route -/
 
 /-- The older quarter-rate sector-slice interface is already strong enough to
 produce the newer depth-amplified budget at the fixed physical rate
@@ -233,6 +280,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorLocalPowerBudgetGap
 
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorLocalPowerBudgetGap.localPowerCoefficient_eqv_pow
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorLocalPowerBudgetGap.FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.ofUniformLocalRateBound
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorLocalPowerBudgetGap.PhysicalBF4VacuumSectorLocalSliceGluing.conditionedDensityCenteredRow_le_localPower
 #print axioms

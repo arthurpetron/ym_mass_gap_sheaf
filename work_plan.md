@@ -95,6 +95,16 @@ all-vector transfer decay and the literal moving cube's same-object
 autocorrelation bound at the supplied squared rate.  The remaining frontier
 is the inhabited cofinal factorization/power-budget producer itself.
 
+`BF4PhysicalVacuumSectorLocalPowerBudgetGap.lean` now closes one redundant
+producer obligation with
+`FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.ofUniformLocalRateBound`.
+Given the actual cofinal local slices, a nonnegative strict envelope
+`localRate ≤ rate < 1` and the existing depth `≥ 3` imply the required
+`localRate^depth ≤ rate` by the constructive power lemma. This is a genuine
+forward reduction into the completed same-object gap compiler; it does not
+construct the local slices, their cofinal envelope, spacing control, or any
+continuum/Clay endpoint.
+
 ### Current backward handoff: completed parity correlation certificate (2026-09-19)
 
 `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.lean`

@@ -34,6 +34,20 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   all printed declarations use only `{propext, Quot.sound}`, with no
   `sorryAx`.
 
+## PROVED local-rate envelope reduction (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorLocalPowerBudgetGap.lean`.
+- **proved**: `FixedNomeCofinalVacuumSectorLocalPowerBudgetGluing.ofUniformLocalRateBound`
+  constructs the depth-amplified local power-budget certificate from the
+  existing cofinal local slices, a nonnegative strict envelope, and the
+  pointwise bound `localRate ≤ rate`; it uses `depth ≥ 3` to prove
+  `localRate^depth ≤ rate` constructively.
+- **boundary**: the local slices, their cofinal envelope, the physical
+  spacing/rate calibration, continuum passage, QFT axioms, all-group theorem,
+  and Clay result remain open.
+- **verification**: `/tmp/BF4PhysicalVacuumSectorLocalPowerBudgetGap.check_uniform2.log`;
+  the module uses only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## PROVED AF recurrence-to-variation compiler (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/AFTrajectorySummableVariation.lean`.
