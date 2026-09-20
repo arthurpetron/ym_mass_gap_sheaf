@@ -57,6 +57,20 @@ contracts these identities into a finite `L1` residual. This is the bridge
 for the later row estimate, not a strict contraction or a cutoff-uniform,
 thermodynamic, continuum, all-group, or Clay result.
 
+**Positive cutoff-one same-object Markov bridge (2026-09-20):**
+`BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.lean` now
+identifies the physical conditional kernel with the row-normalized genuine
+Gram-Markov kernel on the explicit vacuum/cube carrier. Consequently,
+`cutoffOneCanonicalConditionedCenteredRowMass_eqv_zero` proves the entire
+canonical conditioned centered row is exactly zero at positive coupling. This
+is a checked finite SU(2) refresh identity: it supplies an explicit witness
+and its finite equality modulus, but no cutoff/cofinal uniformity, spacing
+modulus, thermodynamic or continuum descent, QFT reconstruction, all-group
+extension, or Clay mass gap. In the constructive certificate sense, the
+continuum route must consume a same-object approximant together with a
+stability/Cauchy modulus and a parameter-uniform bound; this K=1 identity is
+only a finite landmark for that forward/backward join.
+
 This project is a Mathlib-free Lean 4 formalization of a constructive route
 from four-dimensional lattice gauge theory to continuum quantum Yang--Mills.
 The active concrete data are SU(2) BF4 lattice data. The positive

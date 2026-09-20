@@ -13,6 +13,13 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED positive cutoff-one conditioned/Markov bridge (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.lean`.
+- **proved**: `cutoffOneCanonicalConditionalKernel_eqv_gramMarkov` identifies the physical conditional kernel with the row-normalized reflected Gram-Markov row on the explicit positive-coupling vacuum/cube carrier. `cutoffOneCanonicalConditionedCenteredRowMass_eqv_zero` contracts this identity with the stationary posterior and proves the complete canonical conditioned centered row is exactly zero.
+- **boundary**: this is a finite K=1 SU(2) refresh identity. It is not an OS transfer-matrix gap and does not construct a cutoff-uniform/cofinal rate, a spacing or thermodynamic modulus, continuum OS/QFT reconstruction, an all-compact-simple-group theorem, or the Clay result.
+- **verification**: `+YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge:olean` PASS (1555 dependency jobs, one worker); both declarations use only `{propext, Quot.sound}`, with no `sorryAx`.
+
 ## PROVED same-object weighted-entry bridge (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean`.

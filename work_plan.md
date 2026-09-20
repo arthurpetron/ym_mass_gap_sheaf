@@ -54,6 +54,24 @@ PASS (1491 dependency jobs, one worker). Both declarations use only
 uniform rate/modulus, spacing and thermodynamic passage, continuum OS/QFT
 reconstruction, all-group extension, and Clay endpoint remain open.
 
+### Positive cutoff-one conditioned/Markov bridge (2026-09-20)
+
+`BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.lean` closes a
+more concrete finite seam. On the explicit positive-coupling vacuum/cube
+carrier, the partition-normalized physical conditional kernel is equal (up to
+the constructive rational relation) to the row-normalized reflected Gram-Markov
+kernel. The existing Gram-Markov/refresh identity and the stationary posterior
+then give an exact zero centered row for every canonical-sector source.
+
+Focused check:
+`+YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge:olean`
+PASS (1555 dependency jobs, one worker); the exported declarations use only
+`{propext, Quot.sound}` and no `sorryAx`. This is a finite K=1 SU(2) refresh
+identity, not the Osterwalder--Schrader transfer spectral gap. It provides a
+same-object finite witness but no cofinal family, parameter-uniform rate,
+spacing/thermodynamic modulus, continuum descent, full QFT axioms, all-group
+extension, or Clay conclusion.
+
 ### Current certificate gate: approximant, modulus, and same-object descent (2026-09-19)
 
 `BF4PhysicalDynamicVacuumSectorContinuumCertificate.lean` makes the
