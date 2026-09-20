@@ -130,6 +130,16 @@ The concrete fixed-nome carrier certificate is now imported by the semantic
 root (`YMGap.lean`), so its completed-sector witness is visible to the
 authoritative audit environment rather than only to its standalone module.
 
+**Explicit modulus promotion (2026-09-20):**
+`CReal.ExplicitConvergenceCertificate` now keeps a term-stage modulus and a
+uniform approximation-stage modulus as Type-level data before projecting to
+the legacy `CReal.ConvergesTo` proposition.  The receding-volume literal
+same-object face observable instantiates this certificate with its executable
+dyadic outer modulus and zero approximation-stage modulus.  This closes the
+certificate-encoding seam for that finite-to-volume channel; it does not turn
+the channel into a continuum OS observable, and the dynamic SU(2) rate,
+spacing, QFT, all-group, and Clay bridges remain open.
+
 **Finite forward seed (2026-09-20):**
 `BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` now inhabits the
 same-carrier canonical power debt at the honest base case `K=0`, depth `3`.

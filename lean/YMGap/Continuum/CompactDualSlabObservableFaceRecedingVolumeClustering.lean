@@ -27,6 +27,7 @@ declaration, or enlarged heartbeat budget.
 -/
 
 import YMGap.Continuum.CompactDualSlabObservableFaceSameObjectOSBridge
+import YMGap.Constructive.CRealConvergenceCertificate
 
 namespace YMGap.Continuum.CompactDualSlabObservableFaceRecedingVolumeClustering
 
@@ -320,17 +321,32 @@ theorem anchorCentralBottomFaceConnectedAutocorrelation_after_modulus
         (Q'.ge_of_eqv (Q'.eqv_of_eq (Q'.zero_add' epsilon))))
   · exact Q'.zero_le_add _ _ hinterval.1 (Q'.le_of_lt hepsilon)
 
+/-! ## 4. The explicit certificate consumed by the limit -/
+
+/-- The receding-volume same-object observable carries its outer-stage
+modulus as data.  The approximation-stage modulus is zero because the bound
+above holds for every rational approximation index.  This is the constructive
+certificate needed by a later thermodynamic/continuum handoff; the certificate
+does not manufacture an OS reconstruction or a physical mass gap. -/
+def anchorCentralBottomFaceConnectedAutocorrelation_certificate :
+    CReal.ExplicitConvergenceCertificate
+      anchorCentralBottomFaceConnectedAutocorrelation CReal.czero where
+  modulus := centralBottomFaceClusteringModulus
+  approximationModulus := fun _ => 0
+  bound := by
+    intro epsilon hepsilon half hhalf cutoff hcutoff
+    exact anchorCentralBottomFaceConnectedAutocorrelation_after_modulus
+      epsilon hepsilon half hhalf cutoff
+
 /-- **Constructive receding-volume clustering.**  After removing the
 representation cutoff at every finite slab, the literal same-object connected
 face moment tends to zero as the reflected boundary recedes. -/
 theorem anchorCentralBottomFaceConnectedAutocorrelation_converges_zero :
     CReal.ConvergesTo anchorCentralBottomFaceConnectedAutocorrelation
       CReal.czero := by
-  intro epsilon hepsilon
-  refine ⟨centralBottomFaceClusteringModulus epsilon,
-    fun half hhalf => ⟨0, fun cutoff _ => ?_⟩⟩
-  exact anchorCentralBottomFaceConnectedAutocorrelation_after_modulus
-    epsilon hepsilon half hhalf cutoff
+  exact
+    CReal.ExplicitConvergenceCertificate.toConvergesTo
+      anchorCentralBottomFaceConnectedAutocorrelation_certificate
 
 #print axioms centralBottomSpatialFaceId
 #print axioms centralBottomSpatialFaceId_lower
@@ -345,6 +361,7 @@ theorem anchorCentralBottomFaceConnectedAutocorrelation_converges_zero :
 #print axioms anchorCentralBottomFaceConnectedAutocorrelation_dyadic_interval
 #print axioms centralBottomFaceClusteringModulus
 #print axioms anchorCentralBottomFaceConnectedAutocorrelation_after_modulus
+#print axioms anchorCentralBottomFaceConnectedAutocorrelation_certificate
 #print axioms anchorCentralBottomFaceConnectedAutocorrelation_converges_zero
 
 end YMGap.Continuum.CompactDualSlabObservableFaceRecedingVolumeClustering
