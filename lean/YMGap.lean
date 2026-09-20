@@ -5039,6 +5039,10 @@ import YMGap.Continuum.BF4WilsonSpatialUnionDiscreteLogGap
 import YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration
 import YMGap.Continuum.BF4WilsonUniformLatticeRateScalingObstruction
 import YMGap.Continuum.BF4WilsonSurvivalPhysicalRateCeiling
+-- A fixed guarded nome ceiling DERIVES a common strict rate. Bounded-norm
+-- positive-time survival must escape every such ceiling, at a computed scale.
+import YMGap.Continuum.BF4ExactSlabCouplingRateMonotonicity
+import YMGap.Continuum.BF4WilsonGuardedCouplingEscape
 -- Modulus-bearing real action, actual vacuum projection and all-vector relaxation.
 import YMGap.Continuum.BF4WilsonSpatialUnionScalarDistance
 import YMGap.Continuum.BF4WilsonSpatialUnionRealScalarCauchy

@@ -13,6 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED original-Wilson escape from each fixed guarded nome ceiling (2026-09-20 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/BF4ExactSlabCouplingRateMonotonicity.lean` and
+  `lean/YMGap/Continuum/BF4WilsonGuardedCouplingEscape.lean`.
+- **scope**: monotonicity of the actual `twoStepRate` derives the common
+  strict rate from `w_j <= W` and the fixed ceiling's displayed guards.
+  `nome_gt_of_sampled_response` forces `W < w_j` at `escapeThreshold` from
+  a positive SAME completed response and a squared-norm cap. The zero-limit
+  consumer retains the original pairings, and the no-persistent-floor
+  theorem returns a violating index `max start escapeThreshold`.
+  The pilot `W=1/1024` has proved guards.
+- **boundary**: only each fixed guarded subinterval is excluded for
+  bounded-norm survival; the entire open guard region is not excluded.
+  Approaching its entropy boundary or allowing divergent lattice norms
+  is not ruled out. No physical critical point or `w_j -> 1` is identified.
+  Positive integer time uses supplied TWO-step spacing. Scaling, physical
+  normalization, same-theory OS/QFT, every group and Clay remain open.
+- **verification**: monitored target
+  `+YMGap.Continuum.BF4WilsonGuardedCouplingEscape:olean` and direct logs
+  `/tmp/ym-gap-rate-monotonicity-final.log` and
+  `/tmp/ym-gap-guarded-coupling-escape-final.log` PASSed all 14 exported
+  gates with at most `{propext, Quot.sound}`, no warnings and no `sorryAx`.
+  One worker, 20 GiB ceiling; no full-root build/audit was run. No hole was
+  introduced or discharged and no canonical frontier field changed.
+
 ## PROVED localized two-nome original-observable coupling path (2026-09-20 UTC)
 
 - **files**:

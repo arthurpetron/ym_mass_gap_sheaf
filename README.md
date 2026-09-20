@@ -6,6 +6,8 @@
 > the heat cutoff. Boundary localization makes its cost independent of
 > outer volume, under explicit small-nome guards; the inner-window cost
 > and coupling dependence remain. This is not continuum scaling control.
+> A checked obstruction now shows that bounded-norm positive-time survival
+> must escape every fixed guarded coupling ceiling, even for varying couplings.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
@@ -14,6 +16,18 @@
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
+
+**Coupling escape required for survival (2026-09-20):**
+`BF4WilsonGuardedCouplingEscape.nome_gt_of_sampled_response` proves that
+a positive original Wilson response at sampled physical time forces the
+nome above any fixed guarded ceiling `W`, after a computed scale threshold.
+Monotonicity of the actual certified rate supplies the common-rate bound;
+it is not an extra assumption. Below that ceiling, bounded centered states
+have zero positive-time response limits. This does **not** exclude approaching
+the open guard region's boundary or renormalizations with diverging lattice
+norms, and does not identify a physical critical point. The spacing remains
+supplied as the duration of two original steps. All 14 exported axiom checks
+and the narrow dependency build passed; no full-root audit was run.
 
 **Localized coupling comparison (2026-09-20):**
 `BF4ExactSlabLocalizedCouplingBound.localized_coupling_bound` compares the

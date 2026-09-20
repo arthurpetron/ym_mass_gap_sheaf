@@ -34,6 +34,47 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Survival must escape each fixed guarded coupling ceiling (2026-09-20)
+
+**New estimate and SAME-object consumer:**
+`BF4ExactSlabCouplingRateMonotonicity.twoStepRate_mono` proves monotonicity
+of the actual certified rate, including its heat, reciprocal collar, and
+entropy factors. Consequently `w_j <= W` with one fixed guarded `W` derives
+the common strict rate required by the existing Wilson scaling obstruction;
+that rate is no longer an additional assumption.
+`BF4WilsonGuardedCouplingEscape.nome_gt_of_sampled_response` proves
+`W < w_j` whenever the original completed centered response has a positive
+floor at the computed `escapeThreshold`, with the stated squared-norm cap.
+`sampledLimit_zero_of_nome_le` pins every supplied limit below that ceiling
+to zero; `no_persistent_response_below_ceiling` computes a violating index
+beyond any requested start. The `W=1/1024` specialization uses the existing
+proved pilot guards, not new supplied guards.
+
+**Causal consequence:** a coupling-continuity modulus confined below one
+fixed guarded ceiling cannot supply bounded-norm positive-time survival.
+Do not extend that branch as though it closes the scaling input. The next
+analytic producer must justify a trajectory and its changing original
+observables/normalization, with estimates valid along that trajectory.
+The existing AF-chart guard obstruction remains relevant: its weak-coupling
+nomes are not covered by the old perturbative boundary estimate.
+
+**Exact boundary:** this does NOT exclude all families in the open guarded
+region, approaching its entropy boundary, or renormalizations with growing
+lattice norms. No physical critical point or `w_j -> 1` is identified.
+Positive integer time is sampled using a supplied TWO-step physical spacing;
+no time calibration or scaling family is constructed. Physical mass,
+same-theory OS/full QFT, all groups and the Clay target remain open.
+
+**Verification:** the dependency-complete monitored target
+`+YMGap.Continuum.BF4WilsonGuardedCouplingEscape:olean` and direct logs
+`/tmp/ym-gap-rate-monotonicity-final.log` and
+`/tmp/ym-gap-guarded-coupling-escape-final.log` PASSed all 14 exported gates
+with at most `{propext, Quot.sound}`, no warnings and no `sorryAx`. Checks
+used one worker and a 20 GiB ceiling; no full-root build/audit was run.
+No hole or canonical frontier field changed. Luna drafted the monotonicity
+helper and reviewed the consumer; the main agent integrated, proved and
+verified the original-response consequences.
+
 ### Localized two-nome original-observable coupling path (2026-09-20)
 
 `BF4ExactSlabFiniteCouplingPath.weighted_difference_bound` constructs the

@@ -44,6 +44,18 @@ normalization, positive physical mass, continuum OS/QFT, and all-group closure
 remain open. The narrow build and all 23 direct axiom gates passed with only
 `{propext, Quot.sound}`, no warnings and no `sorryAx`; no full audit was run.
 
+**Guarded coupling escape checkpoint (2026-09-20):**
+`BF4ExactSlabCouplingRateMonotonicity.lean` derives rate monotonicity from
+the existing heat and collar formulas. `BF4WilsonGuardedCouplingEscape.lean`
+then proves that bounded-norm survival of the same original positive-time
+response forces the nome above every fixed guarded ceiling at a computed
+threshold. A family remaining below one such ceiling has zero response
+limits; the `W=1/1024` guard instance is already proved. This excludes
+neither approaching the open entropy-guard boundary nor diverging lattice
+norms, and constructs no physical calibration or continuum theory.
+The narrow target and all 14 exported axiom gates passed within
+`{propext, Quot.sound}`; no full-root audit or frontier closure is claimed.
+
 > **Read `AGENTS.md` before contributing.** It contains both the
 > non-negotiable constructivity rules and the host-safety contract. They are
 > easy to violate accidentally; in particular, do not start a bare or broad
