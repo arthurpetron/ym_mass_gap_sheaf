@@ -168,6 +168,87 @@ structure FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget
   powerBudget : ∀ base threshold,
     localRate base threshold ^ depth base threshold ≤ rate
 
+/-! ## 3. Factorization envelope reduction -/
+
+/-- A compatible full-factorization producer with the power-budget field
+factored into the simpler uniform local-rate envelope.  This is the minimal
+honest input shape for the factorization route: the factorization itself,
+sector-centered one-step estimate, and `localRate ≤ rate < 1` remain explicit;
+the depth-amplified budget is derived below. -/
+structure FixedNomeCofinalVacuumCompatibleTimeFactorizationRateEnvelope
+    (w : Q') (hw : (0 : Q') ≤ w) (half : Nat) (rate : Q') : Type 1 where
+  rate_nonnegative : (0 : Q') ≤ rate
+  rate_lt_one : rate < (1 : Q')
+  anchor : Nat → Nat → Nat
+  anchor_ge : ∀ base threshold,
+    max base threshold ≤ anchor base threshold
+  depth : Nat → Nat → Nat
+  localRate : Nat → Nat → Q'
+  fullOneStep : Nat → Nat → Nat → Nat → Q'
+  factorization : ∀ base threshold,
+    PhysicalBF4FiniteVacuumCompatibleTimeFactorization
+      w hw (anchor base threshold) half (depth base threshold)
+      (fullOneStep base threshold)
+  localRate_nonnegative : ∀ base threshold,
+    (0 : Q') ≤ localRate base threshold
+  sector_centered_bound : ∀ base threshold source,
+    source ∈ centralPhysicalFiniteVacuumSectorIndices
+        w hw (anchor base threshold) half →
+      finiteWeightedCenteredRowMass
+          (centralPhysicalFiniteVacuumSectorIndices
+            w hw (anchor base threshold) half)
+          (centralPhysicalFiniteVacuumSectorMassNormalizedWeight
+            w hw (anchor base threshold) half)
+          (centralPhysicalFiniteVacuumSectorConditionedTimeStep
+            w hw (anchor base threshold) half
+            (fullOneStep base threshold)) source ≤
+        localRate base threshold
+  localRate_le_rate : ∀ base threshold,
+    localRate base threshold ≤ rate
+
+namespace FixedNomeCofinalVacuumCompatibleTimeFactorizationRateEnvelope
+
+/-- The envelope's strict local rate automatically supplies the power budget
+required by the existing compatible-factorization compiler. -/
+def toPowerBudget
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat} {rate : Q'}
+    (family : FixedNomeCofinalVacuumCompatibleTimeFactorizationRateEnvelope
+      w hw half rate) :
+    FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget
+      w hw half rate where
+  rate_nonnegative := family.rate_nonnegative
+  rate_lt_one := family.rate_lt_one
+  anchor := family.anchor
+  anchor_ge := family.anchor_ge
+  depth := family.depth
+  localRate := family.localRate
+  fullOneStep := family.fullOneStep
+  factorization := family.factorization
+  localRate_nonnegative := family.localRate_nonnegative
+  sector_centered_bound := family.sector_centered_bound
+  powerBudget := by
+    intro base threshold
+    have hlocal0 := family.localRate_nonnegative base threshold
+    have hlocal1 : family.localRate base threshold ≤ (1 : Q') :=
+      Q'.le_trans' _ _ _ (family.localRate_le_rate base threshold)
+        (Q'.le_of_lt family.rate_lt_one)
+    have hdepth : 1 ≤ family.depth base threshold := by
+      have hfactor := family.factorization base threshold
+      exact Nat.le_trans (by decide : 1 ≤ 3) hfactor.depth_at_least_three
+    have hdepth_eq : family.depth base threshold =
+        (family.depth base threshold - 1) + 1 := by
+      omega
+    have hpow :
+        family.localRate base threshold ^ family.depth base threshold ≤
+          family.localRate base threshold := by
+      rw [hdepth_eq]
+      exact YMGap.Continuum.HKPos.pow_succ_le_self
+        hlocal0 hlocal1 (family.depth base threshold - 1)
+    exact Q'.le_trans' _ _ _ hpow
+      (family.localRate_le_rate base threshold)
+
+end FixedNomeCofinalVacuumCompatibleTimeFactorizationRateEnvelope
+
 namespace FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget
 
 /-- Restrict every compatible full factorization to the canonical component,
@@ -225,6 +306,8 @@ end YMGap.Continuum.BF4PhysicalVacuumSectorDirectPowerBudgetGap
   YMGap.Continuum.BF4PhysicalVacuumSectorDirectPowerBudgetGap.FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toMassNormalizedRowDistance
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorDirectPowerBudgetGap.FixedNomeCofinalVacuumSectorDensityPowerBudgetGluing.toVacuumSectorCenteredStrictGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorDirectPowerBudgetGap.FixedNomeCofinalVacuumCompatibleTimeFactorizationRateEnvelope.toPowerBudget
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorDirectPowerBudgetGap.FixedNomeCofinalVacuumCompatibleTimeFactorizationPowerBudget.toDensityPowerBudgetGluing
 #print axioms

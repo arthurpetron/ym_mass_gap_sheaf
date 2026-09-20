@@ -48,6 +48,19 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: `/tmp/BF4PhysicalVacuumSectorLocalPowerBudgetGap.check_uniform2.log`;
   the module uses only `{propext, Quot.sound}` and no `sorryAx`.
 
+## PROVED compatible-factorization envelope reduction (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorDirectPowerBudgetGap.lean`.
+- **proved**: `FixedNomeCofinalVacuumCompatibleTimeFactorizationRateEnvelope`
+  records the literal full factorization, centered conditioned-step estimate,
+  and pointwise `localRate ≤ rate < 1`; `toPowerBudget` derives the required
+  depth-amplified power budget and feeds the existing same-object compiler.
+- **boundary**: no compatible factorization, local envelope, physical spacing
+  calibration, continuum passage, QFT axioms, all-group theorem, or Clay result
+  is constructed.
+- **verification**: `/tmp/BF4PhysicalVacuumSectorDirectPowerBudgetGap.check_envelope3.log`;
+  the printed declaration uses only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## PROVED AF recurrence-to-variation compiler (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/AFTrajectorySummableVariation.lean`.

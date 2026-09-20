@@ -105,6 +105,14 @@ forward reduction into the completed same-object gap compiler; it does not
 construct the local slices, their cofinal envelope, spacing control, or any
 continuum/Clay endpoint.
 
+The compatible full-factorization branch now has the matching minimal input
+shape in `BF4PhysicalVacuumSectorDirectPowerBudgetGap.lean`:
+`FixedNomeCofinalVacuumCompatibleTimeFactorizationRateEnvelope` and its
+`toPowerBudget` compiler retain the literal factorization and centered
+one-step estimate while deriving the power budget from the same uniform rate
+envelope. This exposes the two forward producer presentations with the same
+obligation boundary rather than maintaining an unnecessary duplicate field.
+
 ### Current backward handoff: completed parity correlation certificate (2026-09-19)
 
 `BF4PhysicalVacuumSectorInwardMateGlobalAllSourceOSParityCompletedCorrelation.lean`
