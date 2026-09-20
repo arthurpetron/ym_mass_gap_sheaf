@@ -1092,6 +1092,22 @@ the global-edge-floor shortcut is separately ruled out.  This is the next
 explicit product-side analytic estimate, not an automatic consequence of
 finite-kernel positivity.
 
+### Canonical finite-capacity decision bridge (2026-09-20)
+
+`canonicalFiniteCapacityMarginCheck_sound` and
+`canonicalFiniteCapacityMarginCheck_complete` expose the exact Boolean/scalar
+equivalence for the loop-erased canonical routing.  The accompanying
+`inspectCanonicalFiniteCapacityMargin` retains either the finite margin
+certificate or the decidable scalar obstruction as a Type-level result.  The
+bridge is imported into `YMGap.lean` and is ready for finite certificate
+consumers, including independently kernel-checked computational tables.
+
+This closes only the finite decision-to-margin edge.  It does not construct
+the cofinal all-cutoff success family, compare the compiled ray floor to every
+cofinal margin, or produce the continuum/Clay objects.  Focused verification
+is `/tmp/ym-gap-canonical-capacity-decision-check.log`; all three declarations
+report only `{propext, Quot.sound}`.
+
 The next arithmetic contraction is now also checked.  The generic
 `FullLogMarginLower.rationalMargin_le_hamiltonianGapRealAll` theorem proves
 the explicit full-range floor `1 - sep ≤ -log(sep)`.  On the current carrier,

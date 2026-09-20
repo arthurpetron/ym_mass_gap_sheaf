@@ -778,6 +778,18 @@ the restricted-capacity product cannot be lifted to the exact compiled ray
 capacity, and the global-edge-floor shortcut is ruled out.  This is the next
 product-side estimate, not a completed transition-product witness.
 
+**Canonical finite-capacity decision bridge, checked 2026-09-20:**
+`canonicalFiniteCapacityMarginCheck_sound` and
+`canonicalFiniteCapacityMarginCheck_complete` expose the exact equivalence
+between the canonical Boolean check and the rational finite margin inequality.
+`inspectCanonicalFiniteCapacityMargin` returns either the finite capacity
+certificate or the explicit scalar obstruction for the same loop-erased
+routing.  This bridge is now imported by `YMGap.lean`; it does not turn finite
+decidability into cofinal success, and the global capacity comparison remains
+open.  Focused verification is
+`/tmp/ym-gap-canonical-capacity-decision-check.log`, with only
+`{propext, Quot.sound}` reported.
+
 **Forward/backward input audit, checked 2026-09-18:**
 The exact-log backward node
 `DynamicVacuumSectorObservablePin.exactLogRateCauchy` has two independent

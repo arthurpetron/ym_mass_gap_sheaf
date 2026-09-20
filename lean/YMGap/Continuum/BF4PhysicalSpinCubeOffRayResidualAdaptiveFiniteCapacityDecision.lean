@@ -209,6 +209,48 @@ def canonicalFiniteCapacityMarginCheck
     (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
       w (Q'.le_of_lt hw) K)
 
+/-- The canonical Boolean check is sound for the exact loop-erased routing;
+the adaptive alias is unfolded only through its already checked finite
+margin theorem. -/
+theorem canonicalFiniteCapacityMarginCheck_sound
+    {w : Q'} {hw : (0 : Q') < w} {K : Nat}
+    (rayCapacity : CentralLowerExcitedSpinCubeFiniteRayCapacityAt hw K)
+    (hcheck : canonicalFiniteCapacityMarginCheck rayCapacity = true) :
+    centralLowerExcitedSpinCubeSharedCoercivityFloor rayCapacity <=
+      centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductFiniteCapacityMargin
+        (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+          w (Q'.le_of_lt hw) K) := by
+  exact adaptiveFiniteCapacityMarginCheck_sound rayCapacity
+    (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+      w (Q'.le_of_lt hw) K) hcheck
+
+/-- Conversely, the exact canonical scalar margin comparison computes to a
+successful Boolean check. -/
+theorem canonicalFiniteCapacityMarginCheck_complete
+    {w : Q'} {hw : (0 : Q') < w} {K : Nat}
+    (rayCapacity : CentralLowerExcitedSpinCubeFiniteRayCapacityAt hw K)
+    (hmargin :
+      centralLowerExcitedSpinCubeSharedCoercivityFloor rayCapacity <=
+        centralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductFiniteCapacityMargin
+          (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+            w (Q'.le_of_lt hw) K)) :
+    canonicalFiniteCapacityMarginCheck rayCapacity = true := by
+  exact adaptiveFiniteCapacityMarginCheck_complete rayCapacity
+    (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+      w (Q'.le_of_lt hw) K) hmargin
+
+/-- Inspecting the canonical routing returns either its exact finite margin
+certificate or the decidable scalar obstruction, with no erased branch. -/
+def inspectCanonicalFiniteCapacityMargin
+    {w : Q'} {hw : (0 : Q') < w} {K : Nat}
+    (rayCapacity : CentralLowerExcitedSpinCubeFiniteRayCapacityAt hw K) :
+    AdaptiveFiniteCapacityMarginOutcome rayCapacity
+      (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+        w (Q'.le_of_lt hw) K) :=
+  inspectAdaptiveFiniteCapacityMargin rayCapacity
+    (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+      w (Q'.le_of_lt hw) K)
+
 /-- The shortest cofinal route: every exact canonical finite check succeeds. -/
 structure FixedNomeCofinalSpinCubeOffRayResidualCanonicalFiniteCapacityCheckSuccess
     {w : Q'} (hw : (0 : Q') < w)
@@ -253,5 +295,8 @@ end YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecis
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.adaptiveFiniteCapacityMarginCheck_sound
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.adaptiveFiniteCapacityMarginCheck_complete
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.inspectAdaptiveFiniteCapacityMargin
+#print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.canonicalFiniteCapacityMarginCheck_sound
+#print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.canonicalFiniteCapacityMarginCheck_complete
+#print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.inspectCanonicalFiniteCapacityMargin
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.FixedNomeCofinalSpinCubeOffRayResidualAdaptiveFiniteCapacityCheckSuccess.toAdaptiveConditionalTransitionProduct
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.FixedNomeCofinalSpinCubeOffRayResidualCanonicalFiniteCapacityCheckSuccess.toAdaptiveConditionalTransitionProduct
