@@ -39,6 +39,8 @@ four-cell output contrast is annihilated by the proved zero-total centered
 source debt.  This is an exact same-object cancellation interface with no
 uniform estimate hidden inside it; the nonconstant contrast producer and its
 cutoff/volume modulus remain the active frontier.
+The companion normalized-numerator theorem carries the same exact zero to the
+existing centered margin node.
 
 **Causal project map (2026-09-20):**
 

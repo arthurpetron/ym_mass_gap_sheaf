@@ -833,6 +833,23 @@ theorem fineUnitCouplingCenteredNormalizedMarginNumerator_eqv_sourcePairAverage
     (fineCouplingPushedFourCellCenteredMarginRawDebtCross_eqv_sourcePairAverage
       K root target)
 
+/-- The same constant-contrast cancellation reaches the normalized margin
+numerator without changing the pushed source-pair object. -/
+theorem fineUnitCouplingCenteredNormalizedMarginNumerator_eqv_zero_of_contrast_constant
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (M : SlabFaceBlockMap S) (constant : Q')
+    (hconstant : ∀ sourcePair,
+      sourcePair ∈ pushedPhysicalSourcePairs S →
+        fineCouplingTwoReplicaFourCellOutputContrast
+            K M.coarseRoot M.coarseTarget sourcePair ≈ constant) :
+    fineUnitCouplingCenteredNormalizedMarginNumerator
+        K M.coarseRoot M.coarseTarget ≈ 0 := by
+  exact Q'.eqv_trans _ _ _
+    (fineUnitCouplingCenteredNormalizedMarginNumerator_eqv_sourcePairAverage
+      K M.coarseRoot M.coarseTarget)
+    (fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_eqv_zero_of_contrast_constant
+      K M.coarseRoot M.coarseTarget constant hconstant)
+
 /-! ## 4. No-loss calibration interface at the fine-source level -/
 
 /-- The open volume-uniform margin estimate stated directly on the signed
@@ -892,6 +909,7 @@ theorem fineUnitCouplingCenteredNormalizedMarginRawCalibration_iff_sourcePairAve
 #print axioms fineCouplingTwoReplicaFourCellOutputContrast_abs_le_one
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_eqv_zero_of_contrast_constant
+#print axioms fineUnitCouplingCenteredNormalizedMarginNumerator_eqv_zero_of_contrast_constant
 #print axioms fineCouplingPushedFourCellCenteredMarginRawDebtCross_eqv_sourcePairAverage
 #print axioms fineUnitCouplingCenteredNormalizedMarginNumerator_eqv_sourcePairAverage
 #print axioms FineUnitCouplingCenteredMarginSourcePairAverageCalibration

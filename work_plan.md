@@ -25272,6 +25272,11 @@ does not silently replace a signed average by an absolute-value bound.  The
 required nonconstant contrast control (and any modulus for it) remains an
 open producer.
 
+The companion `fineUnitCouplingCenteredNormalizedMarginNumerator_eqv_zero_of_contrast_constant`
+composes that cancellation with the exact normalized-numerator/source-average
+identity, so the zero reaches the existing margin node without changing
+carriers.
+
 This identity does not prove the required uniform estimate.  The active
 analytic producers are a cutoff- and volume-uniform balanced blocking
 calibration and a cutoff- and volume-uniform estimate of the signed
