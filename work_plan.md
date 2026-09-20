@@ -1036,6 +1036,22 @@ claimed.  Focused verification is
 `/tmp/ym-gap-concrete-carrier-gap-bridge-check.log`, under the
 `{propext, Quot.sound}` gate.
 
+### Current forward/backward join: exact finite zero-cutoff seed (2026-09-20)
+
+`concreteSU2ZeroCutoffCanonicalLocalSlice` exposes the existing canonical
+full-density zero-cutoff factorization through the same physical local-slice
+interface as the completed SU(2) carrier.  Its companion
+`concreteSU2ZeroCutoffCanonicalLocalSlice_centered_bound` carries the exact
+centered-row estimate `≤ 0`.  This is a finite witness with its carrier and
+bound retained, matching the constructive certificate rule that a useful
+certificate must carry an object and quantitative control together.  The
+zero-cutoff carrier is a singleton, however, so it has no non-vacuum direction;
+this seed is not a strict gap and does not construct the missing cofinal
+producer.  Spacing, thermodynamic/continuum passage, QFT, all-group, and Clay
+obligations remain open.  Focused verification is
+`/tmp/ym-gap-concrete-carrier-zero-debt-seed-check.log`, with only
+`{propext, Quot.sound}` reported.
+
 ### Current forward/backward join: residual strength factors (2026-09-19)
 
 `BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler` exposes

@@ -19,6 +19,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 -/
 
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
+import YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt
 
 namespace YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
 
@@ -43,7 +44,15 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 open YMGap.Continuum.BF4PhysicalCutoffCofinalLocalSliceGap
+open YMGap.Continuum.BF4LocalContractionGluing
+open YMGap.Continuum.BF4StationaryDensityBufferSplit
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
+open YMGap.Continuum.BF4PhysicalVacuumSectorMassNormalizedDensity
 open YMGap.Continuum.BF4PhysicalVacuumSectorLocalContractionGluing
+open YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate
+open YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt
+open YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice
+open YMGap.Continuum.BF4PhysicalVacuumSectorTimeFactorizationAdapter
 open YMGap.Continuum.RCStrictPositivity
 
 /-! ## 1. One fixed-nome observable-connected object -/
@@ -167,6 +176,39 @@ def concreteSU2CompletedCarrierCertificate
     exact centralPhysicalCutoffOneCubeMovingCenteredCompletedTransferPower_eq_global
       hw0 hw1 n
 
+/-! ## 2a. Exact finite zero-cutoff seed -/
+
+/-- The canonical full-density factorization at cutoff `0` is exposed on the
+same physical SU(2) local-slice interface used by the completed carrier.
+This is an exact finite seed only: its singleton carrier has no non-vacuum
+direction, so it is not itself a strict gap or a cofinal producer. -/
+def concreteSU2ZeroCutoffCanonicalLocalSlice
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) :
+    PhysicalBF4VacuumSectorLocalSliceGluing
+      w (Q'.le_of_lt hw0) 0 0 3
+      (centralPhysicalFiniteVacuumSectorConditionedTimeStep
+        w (Q'.le_of_lt hw0) 0 0
+        (canonicalFullDensityOneStepIndex
+          w (Q'.le_of_lt hw0) 0 0)) 0 :=
+  PhysicalBF4VacuumSectorDensityPowerGluing.toLocalSliceGluing
+    (canonicalFullDensityVacuumSectorDensityPowerGluing_zero
+      (w := w) (hw := Q'.le_of_lt hw0) 0)
+
+theorem concreteSU2ZeroCutoffCanonicalLocalSlice_centered_bound
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (source : Nat)
+    (hsource :
+      source ∈ centralPhysicalFiniteVacuumSectorIndices w (Q'.le_of_lt hw0) 0 0) :
+    finiteWeightedCenteredRowMass
+      (centralPhysicalFiniteVacuumSectorIndices w (Q'.le_of_lt hw0) 0 0)
+      (centralPhysicalFiniteVacuumSectorMassNormalizedWeight w (Q'.le_of_lt hw0) 0 0)
+      (centralPhysicalFiniteVacuumSectorConditionedTimeStep
+        w (Q'.le_of_lt hw0) 0 0
+        (canonicalFullDensityOneStepIndex w (Q'.le_of_lt hw0) 0 0))
+      source ≤ 0 := by
+  exact (concreteSU2ZeroCutoffCanonicalLocalSlice hw0 hw1).one_step_centered_bound
+    source hsource
+
 theorem concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay
     {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (gap : CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
@@ -287,6 +329,10 @@ end YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
 
 /-! ## Dependency gates -/
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2ZeroCutoffCanonicalLocalSlice
+#print axioms
+  YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2ZeroCutoffCanonicalLocalSlice_centered_bound
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate
 #print axioms

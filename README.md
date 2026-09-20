@@ -686,6 +686,19 @@ stages.  Focused verification is
 `/tmp/ym-gap-concrete-carrier-gap-bridge-check.log`; all declarations in that
 module report only `{propext, Quot.sound}`.
 
+**Exact finite zero-cutoff seed, checked 2026-09-20:**
+`concreteSU2ZeroCutoffCanonicalLocalSlice` exposes the already-proved
+canonical full-density factorization at cutoff `0` through the same physical
+local-slice interface.  Its companion
+`concreteSU2ZeroCutoffCanonicalLocalSlice_centered_bound` projects the exact
+centered-row bound `≤ 0` onto that interface.  This is a genuine finite
+certificate, retaining the carrier and its exact bound, but the carrier is a
+singleton and therefore has no non-vacuum direction.  It is not a strict gap,
+not a cofinal producer, and supplies no spacing, thermodynamic, continuum,
+QFT, all-group, or Clay conclusion.  The focused check is
+`/tmp/ym-gap-concrete-carrier-zero-debt-seed-check.log`; the new declarations
+report only `{propext, Quot.sound}`.
+
 **Sector-normalized local-slice forward/backward join, checked 2026-09-19:**
 `BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement` now consumes the
 sector-normalized `FixedNomeCofinalVacuumSectorLocalSliceGluing` interface
