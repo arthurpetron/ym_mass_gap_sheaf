@@ -13,6 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED cutoff-independent original one-face coupling estimate (2026-09-20 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/BoundedNomePowerDifference.lean`,
+  `lean/YMGap/Continuum/SU2HeatQuarticPrefixBound.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCouplingVariationInterval.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabOneFaceCouplingStability.lean`.
+- **scope**: `weighted_qpow_difference`, `prefix_bound`,
+  `faceDifferenceInterval`/`faceDifference_pin`, and
+  `normalized_difference_bound` give the original shared-link Haar one-face
+  estimate
+  `2*c*prefixBudget(W)*|v-u|/(W*headFloor(v))` for
+  `0<u≤v≤W<1` and cutoffs beyond both positive-head thresholds. The
+  `original_background_normalized` consumer retains the spectator product at
+  its own nome `w` and cutoff `J`, with constructed positivity; no cutoff,
+  extent, or background-volume factor appears.
+- **boundary**: the cap is coupling-dependent and not uniform as `W→1`.
+  Summing over all faces still needs a summable spatial response estimate.
+  This is not survival, OS scaling, physical normalization, continuum QFT,
+  all-group closure, or a Clay result; the next task is a cross-scale
+  original-observable comparison rather than another rate wrapper.
+- **verification**: the monitored dependency-complete target
+  `+YMGap.Continuum.BF4ExactSlabOneFaceCouplingStability:olean` and direct logs
+  `/tmp/ym-gap-coupling-{power,quartic,interval,normalized}-final.log` PASSed.
+  All 32 exported gates use at most `{propext, Quot.sound}`, with no warnings
+  or `sorryAx`. Checks used one worker and a 20 GiB ceiling; no full-root
+  build/audit was run. No hole was introduced or discharged and no frontier
+  field was changed.
+
 ## PROVED same-observable lattice-rate scaling obstruction (2026-09-20 UTC)
 
 - **files**:

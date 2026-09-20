@@ -1,24 +1,30 @@
 # Constructive Yang--Mills mass-gap formalization
 
 > **Current frontier (2026-09-20 UTC):** the fixed-spacing SU(2) Wilson
-> carrier now has a checked resolvent probe, strict two-step form gap, and a
-> conditional canonical OS/GNS handoff.  The handoff's supplied range section
-> constructively yields an exact carrier inverse and bijectivity, but neither
-> the bridge nor its range section is inhabited yet.  Finite-stage Cauchy and
-> form compilers now isolate the producer's metric-transport, finite-stage
-> pairing, Gram, and zero/unit pin inputs.  Finite-stage pairing continuity
-> now constructs the arbitrary-stream Gram field from stagewise `CReal.Equiv`
-> data; a dense-stage two-step consumer transports the strict bound on
-> finite-stage canonical images.
-> The fixed pulled-carrier root observable also has a checked positive
-> diagonal and strict finite-stage contraction.  Changing-spacing control,
-> physical mass calibration, continuum QFT construction, and the all-group
-> Clay endpoint remain open.
+> carrier has a checked strict two-step form gap and nonzero excitations.
+> A new original-Haar estimate compares two couplings on one face, with no
+> representation-cutoff or background-volume factor and explicit coupling
+> dependence. This is local control, not a whole-lattice scaling theorem.
+> Positive-time continuum survival, spatially summable response, physical
+> mass calibration, canonical OS/full QFT, and the every-group construction
+> remain open.
 
 > **Research status (2026-09-19 UTC): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
+
+**Original one-face coupling comparison (2026-09-20):**
+`BF4ExactSlabOneFaceCouplingStability.original_background_normalized`
+compares normalized expectations after changing one face's heat nome from
+`u` to `v`, for `0<u<=v<=W<1`. The bound is
+`2*c*prefixBudget(W)*|v-u|/(W*headFloor(v))`; the cutoff must exceed both
+computed positive-head thresholds. All shared links and the actual
+partitions are retained. The bound is cutoff/volume independent for fixed
+displayed parameters, **not uniform as W approaches one**. Changing all
+faces still requires spatial-response control to avoid a face-count loss.
+The targeted build and all 32 axiom checks passed with at most
+`{propext, Quot.sound}`; no full-root build/audit was run.
 
 **AF calibration route ruled out (2026-09-20):**
 `AFTrajectoryPhysicalGapCalibrationObstruction.lean` proves that the proposed

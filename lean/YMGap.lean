@@ -4496,6 +4496,12 @@ import YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison
 -- retained interacting head has a nonzero connected baseline, not decay.
 import YMGap.Continuum.RationalRelativePerturbation
 import YMGap.Continuum.BF4ExactSlabOneFaceCutoffStability
+-- Changing one actual face coupling has a cutoff-independent Haar bound
+-- with explicit nome dependence. Whole-lattice spatial summability is open.
+import YMGap.Continuum.BoundedNomePowerDifference
+import YMGap.Continuum.SU2HeatQuarticPrefixBound
+import YMGap.Continuum.BF4ExactSlabCouplingVariationInterval
+import YMGap.Continuum.BF4ExactSlabOneFaceCouplingStability
 import YMGap.Continuum.BF4ExactSlabRetainedHeadCorrelation
 import YMGap.Continuum.RationalConnectedResponse
 import YMGap.Continuum.RationalConnectedResponsePerturbation

@@ -34,6 +34,35 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Cutoff-independent one-face coupling stability (2026-09-20)
+
+`BoundedNomePowerDifference.weighted_qpow_difference` retains the `W^n`
+damping; `SU2HeatQuarticPrefixBound.prefix_bound` sums the quartic tail;
+`BF4ExactSlabCouplingVariationInterval.faceDifferenceInterval` and
+`faceDifference_pin` give the original shared-link Haar interval and exact
+polynomial pin. `BF4ExactSlabOneFaceCouplingStability.normalized_difference_bound`
+then bounds the normalized one-face change by
+`2*c*prefixBudget(W)*|v-u|/(W*headFloor(v))`, for
+`0<u≤v≤W<1` and cutoffs beyond both head cutoffs. The
+`original_background_normalized` consumer retains the spectator background at
+its own `(w,J)` and constructs its positivity; no cutoff, extent, or
+background-volume factor remains.
+
+This is not uniform as `W→1`; all-face telescoping still needs a summable
+spatial response estimate. It supplies no survival, OS scaling, full-QFT,
+all-group, or continuum closure. The next physical task is a genuine
+cross-scale original-observable comparison, not another rate-band wrapper.
+
+**Verification:** the dependency-complete monitored target
+`+YMGap.Continuum.BF4ExactSlabOneFaceCouplingStability:olean` and direct logs
+`/tmp/ym-gap-coupling-{power,quartic,interval,normalized}-final.log` PASSed.
+All 32 exported gates use at most `{propext, Quot.sound}`, with no warnings
+or `sorryAx`. Checks were serialized at one worker and a 20 GiB ceiling.
+No full-root build/audit was run, no hole was introduced or discharged, and
+no frontier field was changed. Luna drafted the bounded-power helper,
+reviewed scope and drafted the documentation; the main agent integrated,
+proved and verified the original-polynomial and normalized consumers.
+
 ### Observable survival derives a quantitative rate ceiling (2026-09-20)
 
 **New estimate, not a separately assumed ceiling:**
