@@ -63,7 +63,10 @@ the constructive rational relation) to the row-normalized reflected Gram-Markov
 kernel. The existing Gram-Markov/refresh identity and the stationary posterior
 then give an exact zero centered entry for every canonical-sector source and
 target; summing those entries gives an exact zero centered row for every
-canonical-sector source.
+canonical-sector source. The same module now constructs
+`cutoffOneCanonicalFullDensityPowerDebt`, the full-density multi-slab identity
+for every depth `≥ 3` at cutoff one; it is the first non-vacuous finite power
+debt witness on this route.
 
 Focused check:
 `+YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge:olean`

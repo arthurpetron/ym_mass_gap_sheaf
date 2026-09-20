@@ -20,6 +20,7 @@ import YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorPresentation
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorStationaryPosterior
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffOneVacuumGramMarkov
+import YMGap.Continuum.BF4PhysicalVacuumSectorCenteredGramPosterior
 
 namespace YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge
 
@@ -39,11 +40,17 @@ open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPositiveConnectivity
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorGramPositivity
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorPairwiseVariance
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorStationaryLaws
 open YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate
 open YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge
+open YMGap.Continuum.BF4PhysicalVacuumSectorCenteredGramPosterior
+open YMGap.Continuum.BF4PhysicalVacuumSectorConditionedDensityPower
+open YMGap.Continuum.BF4PhysicalVacuumSectorDensityMassDefect
 open YMGap.Continuum.BF4PhysicalVacuumSectorMassNormalizedDensity
 open YMGap.Continuum.BF4PhysicalVacuumSectorTimeFactorizationAdapter
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
+open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteSignedKernelL1
 open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.Z4HalfTimeReflectionPartition
@@ -269,6 +276,164 @@ theorem cutoffOneCanonicalConditionedCenteredEntry_eqv_zero
   unfold cutoffOneVacuumColumnRefreshKernel
   exact Q'.add_neg_self_eqv _
 
+private theorem finiteWeightedDensityPower_eqv_one_of_kernel_eqv_one_local
+    {State : Type}
+    (states : List State) (weight : State → Q')
+    (kernel : State → State → Q')
+    (hweight : listQSum weight states ≈ 1)
+    (hkernel : ∀ source target, source ∈ states → target ∈ states →
+      kernel source target ≈ 1) :
+    ∀ steps source target, source ∈ states → target ∈ states →
+      finiteWeightedDensityPower states weight kernel steps source target ≈ 1
+  | 0, source, target, hsource, htarget =>
+      hkernel source target hsource htarget
+  | steps + 1, source, target, hsource, htarget => by
+      unfold finiteWeightedDensityPower finiteWeightedDensityCompose
+      refine Q'.eqv_trans _ (listQSum weight states) _ ?_ hweight
+      apply listQSum_congr_on
+      intro middle hmiddle
+      have hleft := hkernel source middle hsource hmiddle
+      have hright :=
+        finiteWeightedDensityPower_eqv_one_of_kernel_eqv_one_local
+          states weight kernel hweight hkernel steps middle target hmiddle htarget
+      refine Q'.eqv_trans _ ((weight middle * 1) * 1) _ ?_ ?_
+      · refine Q'.eqv_trans _ ((weight middle * 1) *
+            finiteWeightedDensityPower states weight kernel steps middle target) _ ?_ ?_
+        · exact Q'.mul_eqv_congr_right _ _ _
+            (Q'.mul_eqv_congr_left _ _ _ hleft)
+        · exact Q'.mul_eqv_congr_left _ _ _ hright
+      · refine Q'.eqv_trans _ (weight middle * 1) _
+          (Q'.mul_one_eqv _) (Q'.mul_one_eqv _)
+
+private theorem q_eqv_one_of_add_neg_one_eqv_zero_local
+    {a : Q'} (h : a + (-1) ≈ 0) : a ≈ 1 := by
+  refine Q'.eqv_trans _ (1 + (a + (-1))) _
+    (Q'.add_sub_cancel_eqv a 1) ?_
+  refine Q'.eqv_trans _ (1 + 0) _
+    (Q'.add_eqv_congr_left 1 (a + (-1)) 0 h) ?_
+  exact Q'.eqv_of_eq (Q'.add_zero' 1)
+
+private theorem cutoffOneCanonicalConditionedDensity_eqv_one_local
+    {w : Q'} (hw : (0 : Q') < w)
+    {source target : Nat}
+    (hsource : source ∈
+      centralPhysicalFiniteVacuumSectorIndices
+        w (Q'.le_of_lt hw) 1 0)
+    (htarget : target ∈
+      centralPhysicalFiniteVacuumSectorIndices
+        w (Q'.le_of_lt hw) 1 0) :
+    centralPhysicalFiniteVacuumSectorMassNormalizedDensity
+        w (Q'.le_of_lt hw) 1 0 source target ≈ 1 := by
+  have hentry := cutoffOneCanonicalConditionedCenteredEntry_eqv_zero
+    hw hsource htarget
+  have hweightPos := centralPhysicalFiniteVacuumSectorMassNormalizedWeight_pos
+    htarget
+  have hcenteredStep :
+      finiteCenteredDensity
+        (centralPhysicalFiniteVacuumSectorConditionedTimeStep
+          w (Q'.le_of_lt hw) 1 0
+          (canonicalFullDensityOneStepIndex
+            w (Q'.le_of_lt hw) 1 0))
+        source target ≈ 0 := by
+    unfold finiteWeightedCenteredTransition at hentry
+    apply Q'.mul_left_cancel_of_pos hweightPos
+    exact Q'.eqv_trans _ _ _ hentry
+      (Q'.eqv_symm (Q'.mul_zero_eqv _))
+  have hstep :
+      centralPhysicalFiniteVacuumSectorConditionedTimeStep
+          w (Q'.le_of_lt hw) 1 0
+          (canonicalFullDensityOneStepIndex
+            w (Q'.le_of_lt hw) 1 0)
+          source target ≈
+        centralPhysicalFiniteVacuumSectorMass
+          w (Q'.le_of_lt hw) 1 0 *
+          centralPhysicalFiniteFullDensity
+            w (Q'.le_of_lt hw) 1 0 source target := by
+    exact finiteComponentConditionedKernelExtension_eqv_of_mem
+      hsource htarget
+  have hdensityStep :
+      centralPhysicalFiniteVacuumSectorMassNormalizedDensity
+          w (Q'.le_of_lt hw) 1 0 source target ≈
+        centralPhysicalFiniteVacuumSectorConditionedTimeStep
+          w (Q'.le_of_lt hw) 1 0
+          (canonicalFullDensityOneStepIndex
+            w (Q'.le_of_lt hw) 1 0)
+          source target := by
+    refine Q'.eqv_trans _
+      (centralPhysicalFiniteVacuumSectorMass
+          w (Q'.le_of_lt hw) 1 0 *
+        centralPhysicalFiniteFullDensity
+          w (Q'.le_of_lt hw) 1 0 source target) _ ?_ ?_
+    · exact centralPhysicalFiniteVacuumSectorMassNormalizedDensity_eqv_mass_mul_fullDensity
+        hsource htarget
+    · exact Q'.eqv_symm hstep
+  have hstepOne :
+      centralPhysicalFiniteVacuumSectorConditionedTimeStep
+          w (Q'.le_of_lt hw) 1 0
+          (canonicalFullDensityOneStepIndex
+            w (Q'.le_of_lt hw) 1 0)
+          source target ≈ 1 := by
+    unfold finiteCenteredDensity at hcenteredStep
+    exact q_eqv_one_of_add_neg_one_eqv_zero_local hcenteredStep
+  exact Q'.eqv_trans _ _ _ hdensityStep hstepOne
+
+def cutoffOneCanonicalFullDensityPowerDebt
+    {w : Q'} (hw : (0 : Q') < w) (depth : Nat)
+    (hdepth : 3 ≤ depth) :
+    CanonicalFullDensityPowerDebt
+      w (Q'.le_of_lt hw) 1 0 depth := by
+  let full := centralPhysicalFiniteIndexCarrier w (Q'.le_of_lt hw) 1 0
+  let sector := centralPhysicalFiniteVacuumSectorIndices
+    w (Q'.le_of_lt hw) 1 0
+  let weight := centralPhysicalFiniteWeight w (Q'.le_of_lt hw) 1 0
+  let mass := centralPhysicalFiniteVacuumSectorMass
+    w (Q'.le_of_lt hw) 1 0
+  let normalizedWeight := centralPhysicalFiniteVacuumSectorMassNormalizedWeight
+    w (Q'.le_of_lt hw) 1 0
+  let fullDensity := centralPhysicalFiniteFullDensity
+    w (Q'.le_of_lt hw) 1 0
+  let conditionedDensity := centralPhysicalFiniteVacuumSectorMassNormalizedDensity
+    w (Q'.le_of_lt hw) 1 0
+  refine {
+    depth_at_least_three := hdepth
+    full_density_power := ?_ }
+  intro source target hsource htarget
+  have hweightTotal : listQSum normalizedWeight sector ≈ 1 := by
+    exact centralPhysicalFiniteVacuumSectorMassNormalizedWeight_total_one
+      w (Q'.le_of_lt hw) 1 0
+  have hconditionedOne : ∀ left right, left ∈ sector → right ∈ sector →
+      conditionedDensity left right ≈ 1 := by
+    intro left right hleft hright
+    exact cutoffOneCanonicalConditionedDensity_eqv_one_local
+      hw hleft hright
+  have hconditionedPower :=
+    finiteWeightedDensityPower_eqv_one_of_kernel_eqv_one_local
+      sector normalizedWeight conditionedDensity hweightTotal hconditionedOne
+      (depth - 1) source target hsource htarget
+  have hmassPos : (0 : Q') < mass := by
+    unfold mass centralPhysicalFiniteVacuumSectorMass
+    exact centralPhysicalFiniteVacuumSectorWeightSum_pos
+      w (Q'.le_of_lt hw) 1 0
+  have hmassDensity :=
+    centralPhysicalFiniteVacuumSectorMassNormalizedDensity_eqv_mass_mul_fullDensity
+      hsource htarget
+  have hfullDensityMass : mass * fullDensity source target ≈ 1 := by
+    refine Q'.eqv_trans _ _ _ (Q'.eqv_symm hmassDensity) ?_
+    exact hconditionedOne source target hsource htarget
+  have hfullPowerMass :=
+    centralPhysicalFiniteVacuumSectorConditionedDensityPower_eqv_mass_mul_fullPower
+      (w := w) (hw := Q'.le_of_lt hw) (cutoff := 1) (half := 0)
+      (steps := depth - 1) (source := source) (target := target)
+      hsource htarget
+  have hfullPowerMass' :
+      mass * finiteWeightedDensityPower full weight fullDensity
+          (depth - 1) source target ≈ 1 := by
+    refine Q'.eqv_trans _ _ _ (Q'.eqv_symm hfullPowerMass) ?_
+    exact hconditionedPower
+  apply Q'.mul_left_cancel_of_pos hmassPos
+  exact Q'.eqv_trans _ _ _ hfullDensityMass
+    (Q'.eqv_symm hfullPowerMass')
+
 private theorem listQSum_eqv_zero_of_pointwise_local
     {A : Type} (value : A → Q') :
     ∀ items : List A,
@@ -376,5 +541,7 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge
   YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalConditionalKernel_eqv_gramMarkov
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalConditionedCenteredEntry_eqv_zero
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalFullDensityPowerDebt
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalConditionedCenteredRowMass_eqv_zero
