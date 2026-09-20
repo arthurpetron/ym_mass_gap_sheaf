@@ -2037,6 +2037,7 @@ import YMGap.Continuum.OSCanonicalMarginGap
 import YMGap.Continuum.ExactRateReconstructionHandoff
 import YMGap.Continuum.MeasureLinkedOSReconstruction
 import YMGap.Continuum.SummableCRealStepVariation
+import YMGap.Continuum.SummableCRealExplicitConvergenceCertificate
 import YMGap.Continuum.SummableCRealEventualStepVariation
 import YMGap.Continuum.CRealRationalProxyTracking
 import YMGap.Continuum.DirectLogQuadraticRemainder

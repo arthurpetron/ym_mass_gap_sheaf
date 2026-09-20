@@ -149,6 +149,15 @@ the next analytic input to endpoint moduli plus the already named raw,
 normalization-debt, physical-gap, and scheduled-rate variation producers; it
 does not extract a modulus from a `Prop` proof or create any of those producers.
 
+**Summable-variation modulus compiler (2026-09-20):**
+`SummableCRealExplicitConvergenceCertificate.lean` compiles any supplied
+`SummableCRealStepVariation` into a Type-level term-stage and
+approximation-stage certificate for its existing diagonal limit.  The
+`ConnectedMomentVariation` interface now exports this certificate for its
+same-observable rational moment stream.  This is a witness-preserving
+encoding upgrade only: it does not create the missing physical-gap variation,
+cofinal capacity comparison, or any continuum/QFT/all-group conclusion.
+
 **Finite forward seed (2026-09-20):**
 `BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` now inhabits the
 same-carrier canonical power debt at the honest base case `K=0`, depth `3`.

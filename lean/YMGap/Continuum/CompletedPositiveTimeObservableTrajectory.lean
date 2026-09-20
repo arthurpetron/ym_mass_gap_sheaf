@@ -25,6 +25,7 @@ noncomputable declaration is used.
 
 import YMGap.Continuum.SU2QuaternionCanonicalEightCompletedPositiveTimeSector
 import YMGap.Continuum.SummableRationalStepVariation
+import YMGap.Continuum.SummableCRealExplicitConvergenceCertificate
 
 namespace YMGap.Continuum.CompletedPositiveTimeObservableTrajectory
 
@@ -242,6 +243,20 @@ exact same-observable stage moments. -/
 def limit : CReal :=
   variation.rational.limit
 
+/-- The same-observable cutoff variation carries an explicit Type-level
+convergence certificate.  The certificate is compiled from the variation
+field itself, so it retains the trajectory's rational moment stream and its
+selected constructive-real limit rather than recovering a modulus from the
+legacy propositional convergence theorem. -/
+def explicitCertificate :
+    CReal.ExplicitConvergenceCertificate
+      (fun scale => CReal.ofQ'
+        (trajectory.rationalMoment time scale))
+      variation.limit := by
+  exact
+    SummableCRealStepVariation.toExplicitConvergenceCertificate
+      variation.rational.toSummableCRealStepVariation
+
 /-- The exact rational stage moments converge to the selected constructive
 real limit. -/
 theorem converges :
@@ -331,6 +346,7 @@ end YMGap.Continuum.CompletedPositiveTimeObservableTrajectory
 #print axioms YMGap.Continuum.CompletedPositiveTimeObservableTrajectory.CompletedPositiveTimeObservableTrajectory.connectedMoment_exact
 #print axioms YMGap.Continuum.CompletedPositiveTimeObservableTrajectory.CompletedPositiveTimeObservableTrajectory.connectedMoment_eq_rationalMoment
 #print axioms YMGap.Continuum.CompletedPositiveTimeObservableTrajectory.ConnectedMomentVariation.converges
+#print axioms YMGap.Continuum.CompletedPositiveTimeObservableTrajectory.ConnectedMomentVariation.explicitCertificate
 #print axioms YMGap.Continuum.CompletedPositiveTimeObservableTrajectory.canonicalEmbeddedPositiveTimeObservableSector
 #print axioms YMGap.Continuum.CompletedPositiveTimeObservableTrajectory.canonicalConstant_connectedMoment_exact
 #print axioms YMGap.Continuum.CompletedPositiveTimeObservableTrajectory.canonicalConstantConnectedMomentVariation

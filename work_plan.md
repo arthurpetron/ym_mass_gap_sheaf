@@ -155,6 +155,30 @@ same-object correlation identity part of the authoritative root environment.
 The strict contraction field remains an explicit producer input; no continuum
 or Clay claim is added by this import promotion.
 
+### Summable-variation explicit-modulus compiler (2026-09-20)
+
+`SummableCRealExplicitConvergenceCertificate.lean` now compiles every
+`SummableCRealStepVariation` witness into a Type-level
+`CReal.ExplicitConvergenceCertificate` for the same sequence and the same
+diagonal limit.  The term modulus is the supplied tail rate at `ε/4`; the
+approximation modulus is the supplied inner rate at `ε/4` together with the
+corresponding rational denominator.  The proof is the kernel-checked
+three-step diagonal estimate, so no modulus is recovered from a
+`Prop`-level `ConvergesTo` witness.
+
+`ConnectedMomentVariation.explicitCertificate` applies this compiler to the
+same-observable trajectory interface, and `YMGap.lean` imports the compiler
+into the semantic root.  This closes the generic variation-to-explicit-modulus
+encoding seam for every already-supplied variation witness.  It does not
+inhabit the missing same-completed-family physical-gap variation or cofinal
+transition-product capacity comparison; those remain the two causal producer
+gaps before the thermodynamic/continuum, QFT, all-group, and Clay stages.
+
+Focused check:
+`+YMGap.Continuum.CompletedPositiveTimeObservableTrajectory:olean` PASS
+(442 dependency jobs, one worker); the new declarations use only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 ### Same-object weighted-entry bridge (2026-09-20)
 
 `BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean` closes the
