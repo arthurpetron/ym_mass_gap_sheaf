@@ -7,6 +7,8 @@
 > Duration-preserving kernels also have original-window input semantics and
 > an exact interval-concatenation law on every completed input. A single
 > finite source-Haar identity now determines the same completed operator.
+> Original-window time reflection also gives its adjoint, with a checked
+> reflected-product identity on every completed input.
 > A new original-observable estimate compares two couplings after removing
 > the heat cutoff. Boundary localization makes its cost independent of
 > outer volume, under explicit small-nome guards; the inner-window cost
@@ -35,6 +37,20 @@ scaling/survival/calibration, full QFT, and all-groups closure remain open.
 The narrow dependency build and all 16 printed gates across the three new
 modules and the updated concatenation module passed with at most
 `{propext, Quot.sound}`. No full-root build/audit was run.
+
+**Same-carrier kernel reflection and adjoint (2026-09-20):**
+`BF4WilsonKernelReflection.compileKernel_adjoint` identifies reversal of the
+original offsets `t ↦ H-t` with the actual adjoint. The companion
+`kernel_reflected_product` and `kernel_reflected_pairing` theorems identify
+the literal duration-`2H` original reflected window `theta(e) * f` with
+`K_H(e)^* K_H(f)` on every completed input, and
+`kernel_reflected_square_nonnegative` gives reflected-square positivity on the
+same actual carrier and action, not merely vacuum or formal syntax. This
+remains fixed-spacing guarded SU(2) Wilson-window algebra: the canonical
+OS/GNS carrier map, full gauge-observable coverage, continuum
+scaling/survival/calibration, full QFT, and all-groups closure remain open.
+The narrow dependency target and all 16 printed axiom checks passed with at
+most `{propext, Quot.sound}`; no full-root build/audit was run.
 
 **Original-window kernels with elapsed time retained (2026-09-20):**
 `BF4WilsonKernelConcatenation.compileKernel_concat` proves

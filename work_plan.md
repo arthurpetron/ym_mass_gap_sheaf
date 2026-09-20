@@ -34,6 +34,54 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Original reflected windows are SAME-operator Gram kernels (2026-09-20)
+
+`BF4WilsonKernelReflection.compileKernel_adjoint` proves
+`K_H(reverseWindow H e) = K_H(e)^*` on EVERY completed input, for the
+original bounded Wilson expression. Its finite reversal is `t -> H-t`,
+retaining the source loops, real SU(2) characters, and signed coefficients.
+The proof reverses ordered words by the existing interval-concatenation law,
+uses source recoding to remove the sorting presentation, and extends through
+the actual finite signed expansion. No vacuum-only identification is used.
+
+The immediate consumer is `kernel_reflected_product`:
+`K_(2H)((mirror H e)*f) = K_H(e)^* K_H(f)`. Consequently
+`kernel_reflected_pairing` identifies its pairing with the actual completed
+Gram pairing on arbitrary left/right inputs, and
+`kernel_reflected_square_nonnegative` proves positivity for the literal
+original reflected square. `BF4WilsonKernelReflectionSyntax` supplies the
+finite offset/expansion identities and bounded reversal involution. These
+are same-carrier reflection laws, not a canonical OS reconstruction.
+
+**Backward review and remaining producer:** the inspected
+`BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge` still needs
+a map with exact form/vacuum/zero pins and two-step intertwining. Its type
+already takes `H : FourDExistence.ContinuumYMExistence mu`; it cannot itself
+construct that missing continuum-existence input. The optional
+`CurrentStageCauchyStagePairingCertificate` also demands exact rational
+finite-stage pairings, whereas the present Wilson form is CReal-valued.
+Do not silently cast the present carrier into that interface or infer that
+an all-input reflection law inhabits a cross-carrier field. The current
+reflection join removes the original-observable identification gap in the
+formal star-product calculus, but closes NO canonical bridge field.
+
+Further operator wrappers are not the missing analytic producer. The open
+path still needs justified changing-spacing/coupling control with surviving
+original observables, physical mass calibration, full observable/QFT
+structure, and every compact simple group. Retain the proved guarded-ceiling
+survival obstruction and the independent backward requirements.
+
+**Verification:** dependency-complete monitored target
+`+YMGap.Continuum.BF4WilsonKernelReflection:olean` and direct checks of both
+new modules PASSed all 16 printed gates with at most `{propext, Quot.sound}`,
+no warnings and no `sorryAx`. Logs are
+`/tmp/ym-gap-BF4WilsonKernelReflectionSyntax-final.log` and
+`/tmp/ym-gap-BF4WilsonKernelReflection-final.log`. One worker, 20 GiB ceiling;
+no full-root build/audit was run. No hole or canonical frontier field changed.
+Luna drafted finite syntax, reviewed canonical inputs, and updated the
+landing-page text; the main agent repaired/integrated the helper and proved
+and verified the actual adjoint and reflected-product consumers.
+
 ### Finite source-Haar certificate to SAME completed operator (2026-09-20)
 
 `BF4WilsonKernelHaarIdentity.compileKernel_haar_congr` proves that ONE

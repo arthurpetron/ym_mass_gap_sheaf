@@ -13,6 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED original-window reflection to SAME completed adjoint/Gram kernels (2026-09-20 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4WilsonKernelReflectionSyntax.lean` and
+  `lean/YMGap/Continuum/BF4WilsonKernelReflection.lean`.
+- **scope**: `compileKernel_adjoint` proves that reversing actual bounded
+  offsets gives the adjoint of the original duration-preserving kernel on
+  every completed input. `kernel_reflected_product` identifies the literal
+  original reflected product with the SAME mixed adjoint product;
+  `kernel_reflected_pairing` and `kernel_reflected_square_nonnegative` give
+  its Gram identity and positivity on arbitrary completion inputs. The proof
+  consumes interval concatenation and source-polynomial descent, retaining
+  signed coefficients and every internal loop word.
+- **boundary**: fixed-spacing guarded SU(2) Wilson-window reflection only.
+  No canonical OS/GNS map is constructed or canonical field discharged.
+  `CurrentCarrierBridge` still presupposes a continuum-existence bundle and
+  an exact form-preserving map. Full observable coverage, justified scaling,
+  nontrivial continuum survival, physical mass, full QFT and every-group/Clay
+  closure remain open. Guarded-ceiling scaling constraints are unchanged.
+- **verification**: monitored dependency-complete target
+  `+YMGap.Continuum.BF4WilsonKernelReflection:olean` and direct checks of both
+  files PASSed all 16 printed gates with at most `{propext, Quot.sound}`, no
+  warnings and no `sorryAx`. Direct logs:
+  `/tmp/ym-gap-BF4WilsonKernelReflectionSyntax-final.log` and
+  `/tmp/ym-gap-BF4WilsonKernelReflection-final.log`. One worker, 20 GiB ceiling;
+  no full-root build/audit was run. No hole was introduced/discharged and no
+  canonical frontier field changed.
+
 ## PROVED source-Haar identity descent to SAME completed Wilson kernels (2026-09-20 UTC)
 
 - **files**:

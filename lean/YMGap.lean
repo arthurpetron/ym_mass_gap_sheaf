@@ -5106,6 +5106,9 @@ import YMGap.Continuum.BF4WilsonWindowCompilerDurationObstruction
 import YMGap.Continuum.BF4WilsonShiftedInclusionPlacement
 import YMGap.Continuum.BF4WilsonGraftHaarTransport
 import YMGap.Continuum.BF4WilsonKernelHaarIdentity
+-- Original offset reflection gives the adjoint and literal reflected-window Gram kernels.
+import YMGap.Continuum.BF4WilsonKernelReflectionSyntax
+import YMGap.Continuum.BF4WilsonKernelReflection
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison
