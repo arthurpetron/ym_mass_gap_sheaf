@@ -61,6 +61,31 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   PASSed (one worker, 20 GiB worker limit). No hole was added or discharged;
   no full-root build or audit is claimed.
 
+## PROVED diagonal translation of chronological Wilson operators (2026-09-20 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/BF4WilsonDiagonalTranslationLinear.lean`,
+  `lean/YMGap/Continuum/BF4WilsonDiagonalTranslationMultiplierSyntax.lean`,
+  and `lean/YMGap/Continuum/BF4WilsonChronologicalSpatialCovariance.lean`.
+- **scope**: literal positive diagonal translation intertwines the original
+  time-zero multipliers and all finite chronological operators on arbitrary
+  inputs of the same completed carrier, preserving coefficients, spins, and
+  discrete time delays. The explicit reversed adjoint actions, squared caps,
+  input tolerances, translated-window vacuum pin, mixed matrix elements, and
+  connected scalars are included.
+- **boundary**: fixed small nome and positive diagonal `Nat` shifts only; no
+  inverses, full signed `Z^3`, spatial-separation decay, continuum, physical
+  mass, QFT, all-group, or Clay conclusion. Vacuum equality is not promoted
+  to operator-presentation independence.
+- **verification**: the dependency-complete monitored target
+  `+YMGap.Continuum.BF4WilsonChronologicalSpatialCovariance:olean` PASSed.
+  The three direct logs
+  `/tmp/ym-gap-wilson-covariance-{linear,multiplier,chronological}-final.log`
+  PASSed all 22 printed declarations with only `{propext, Quot.sound}`
+  and no `sorryAx`. One worker, 20 GiB ceiling; no full-root build/audit.
+  No hole was introduced or discharged, and no existing frontier field
+  was changed.
+
 ## PROVED AF physical-gap calibration obstruction (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/AFTrajectoryPhysicalGapCalibrationObstruction.lean`.

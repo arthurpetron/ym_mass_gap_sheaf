@@ -59,6 +59,23 @@ continuum, all-group, and Clay conclusions remain open.
 The direct check and narrow dependency build passed; all 19 exported
 declarations stay within `{propext, Quot.sound}`. No full-root audit was run.
 
+**Chronological Wilson spatial intertwining (2026-09-20):**
+`BF4WilsonDiagonalTranslationLinear.lean`,
+`BF4WilsonDiagonalTranslationMultiplierSyntax.lean`, and
+`BF4WilsonChronologicalSpatialCovariance.lean` extend the positive diagonal
+shift to the original completed carrier: literal source loops are shifted,
+while coefficients, spins, and discrete time delays are preserved. The translation intertwines
+time-zero multipliers, finite chronological actions, and their explicit
+reversed adjoint actions on arbitrary inputs from the same completion; caps
+and input tolerances are unchanged. It also gives the literal translated
+window vacuum pin, mixed matrix elements, and connected scalars. The narrow
+dependency build and all 22 printed axiom checks passed with only
+`{propext, Quot.sound}`; no full-root audit was run.
+This remains only the fixed-small-nome diagonal
+`Nat` semigroup: no inverses, full signed `Z^3`, spatial-separation decay,
+continuum, physical mass, QFT, all-group, or Clay result is claimed, and
+vacuum equality does not imply operator-presentation independence.
+
 **Constructive certificate rule (2026-09-20):** a finite certificate informs
 the continuum route only when its approximating object, explicit modulus, and
 uniformity remain attached to the same theory through the limit.  The new

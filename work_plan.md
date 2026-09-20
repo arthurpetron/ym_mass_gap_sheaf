@@ -34,6 +34,53 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Original chronological Wilson spatial covariance (2026-09-20)
+
+**Forward/backward join, same-operator covariance:** the previous spatial
+isometry acts on states; a QFT observable representation additionally needs
+compatibility with its actual operators. The new
+`BF4WilsonDiagonalTranslationMultiplierSyntax.stageTranslate_multiplyStage`
+is a literal finite identity: shift the source loop and input together, and
+the original time-zero insertion is unchanged by the order of these steps.
+`BF4WilsonDiagonalTranslationLinear` proves rational linearity on the SAME
+completion. Their consumer
+`BF4WilsonChronologicalSpatialCovariance.completedTranslation_multiply`
+descends the identity using the original Cauchy quotient, without any new
+analytic input or common bound on a stream's spatial supports.
+
+Structural induction then proves `act_translate` and `adjointAct_translate`
+on EVERY original completed vector, not merely on the vacuum. The computed
+`translateProgram` retains coefficients, spins and discrete time lengths;
+`squaredCap_translate` and `inputTolerance_translate` retain the existing
+quantitative bounds exactly. `matrixElement_translate` and
+`connectedPrograms_translate` preserve the original mixed/connected scalars.
+`translatedCompileWindow_pin` connects this code to the literally translated
+source window. No equality of arbitrary operators is inferred merely from
+equality of their vacuum outputs.
+
+**Geometric inventory and residue:** the read-only parallel inventory found
+only scalar spatial shifts on this original-Wilson path:
+`BF4ExactSlabBulkEmbeddingGeometry.shiftVertex`,
+`BF4ExactSlabFixedSpatialWilsonRecenter.placed_pin`, and
+`BF4ExactSlabFixedSpatialWilsonSpatialComparison.aligned_chartInsertion_pin`
+all move the three coordinates together. Independent axes need vector-valued
+placement, physical-link/selected-action transport, and a boundary comparison
+for differently positioned boxes. That input is NOT supplied by the new
+operator covariance. Inverses, spatial-separation decay, continuum covariance,
+changing-spacing control, physical mass, canonical OS/full QFT and all-group
+construction remain open. The rescaled-strength variation producer remains
+a separate primary analytic frontier; these symmetry lemmas do not supply it.
+
+**Verification:** the monitored dependency target
+`+YMGap.Continuum.BF4WilsonChronologicalSpatialCovariance:olean` PASSed.
+The direct logs `/tmp/ym-gap-wilson-covariance-{linear,multiplier,chronological}-final.log`
+PASSed all 22 printed declarations with only `{propext, Quot.sound}` and no
+`sorryAx`. Checks were serialized with one worker and a 20 GiB ceiling.
+Root imports were added; no full-root build or audit was run. No hole was
+added or discharged and no frontier field was changed. Luna supplied the
+bounded source inventory, finite multiplier syntax and scope review; the
+main agent integrated and verified the completion/operator proofs.
+
 ### Original Wilson diagonal spatial symmetry (2026-09-20)
 
 **Progress, geometric symmetry lane:**
