@@ -13,6 +13,26 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED constructive certificate gate for the dynamic continuum route (2026-09-19 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorContinuumCertificate.lean`.
+- **proved**: `DynamicVacuumSectorContinuumCertificate` fixes the exact
+  same-object logarithmic-rate sequence as its approximant and packages an
+  explicit `CReal.ModCauchyEv`, positive `CRealFloor`, sampled-to-stage
+  comparison/projective descent, spectral-channel descent, and exact-rate
+  convergence. `toHandoff` contracts the payload to the existing
+  `DynamicVacuumSectorContinuumHandoff`; `ofHandoff` re-expands any such
+  handoff with the compiled physical floor; `spacingModulus` exposes the
+  family zero-spacing modulus.
+- **boundary**: this is a certificate interface and provenance check, not an
+  inhabitant of the analytic inputs. The rate modulus, projective OS handoff,
+  spectral identification, exact-rate comparison, continuum measure,
+  thermodynamic/continuum construction, QFT axioms, all-group theorem, and
+  Clay result remain open.
+- **verification**: `/tmp/BF4PhysicalDynamicVacuumSectorContinuumCertificate.check3.log`;
+  all printed declarations use only `{propext, Quot.sound}`, with no
+  `sorryAx`.
+
 ## PROVED AF recurrence-to-variation compiler (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/AFTrajectorySummableVariation.lean`.

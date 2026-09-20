@@ -34,6 +34,31 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Current certificate gate: approximant, modulus, and same-object descent (2026-09-19)
+
+`BF4PhysicalDynamicVacuumSectorContinuumCertificate.lean` makes the
+continuum-facing payload explicit rather than leaving it distributed across
+the generic handoff records. `DynamicVacuumSectorContinuumCertificate` fixes
+the exact logarithmic rate sequence attached to the completed separator as
+its approximant, carries its `ModCauchyEv` and positive `CRealFloor`, and
+retains the sampled-stage comparison, projective OS descent, reconstructed
+spectral-channel descent, and exact-rate convergence. `toHandoff` is a
+provenance-preserving contraction to the existing same-object realization;
+`ofHandoff` proves the reverse packaging with the floor inherited from the
+compiled physical certificate. `spacingModulus` exposes the dynamic family's
+explicit zero-spacing modulus at the same gate.
+
+This is a checked certificate interface, not an inhabited continuum proof:
+the rate modulus, projective/OS handoff, spectral identification, exact-rate
+comparison, continuum measure, and reconstruction remain supplied inputs.
+The fixed-rate Harnack shortcut remains formally impossible, so the next
+forward producer is still a scale-dependent cofinal Harnack/capacity estimate
+with a compatible modulus and stability map. The thermodynamic passage, full
+QFT axioms, all compact simple groups, and the Clay endpoint remain open.
+Focused check:
+`/tmp/BF4PhysicalDynamicVacuumSectorContinuumCertificate.check3.log`; the
+new declarations use only `{propext, Quot.sound}` and no `sorryAx`.
+
 ### Current forward/backward join: direct power meets local slice (2026-09-19)
 
 The finite algebra seam between the two producer presentations is now closed.
