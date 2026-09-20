@@ -35,7 +35,7 @@ all-group extension, and Clay mass gap are still open.
 `BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` now inhabits the
 same-carrier canonical power debt at the honest base case `K=0`, depth `3`.
 The proof reduces the physical carrier and rooted sector to `[0]` and derives
-the two-step identity from the checked row law. It is a seed for the
+every depth `depth ≥ 3` identity by induction from the checked row law. It is a seed for the
 unbounded producer, not evidence of a cofinal, thermodynamic, continuum, or
 Clay result; the required uniformity and moduli remain explicit debts.
 

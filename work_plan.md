@@ -91,16 +91,16 @@ declaration was introduced.
 
 `BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` supplies an
 inhabited finite witness for the exact multi-slab power debt at cutoff `K=0`
-and depth `3`. The bounded enumeration, positive carrier, and rooted vacuum
-component are proved to be the singleton `[0]`; the existing canonical row
-normalization then gives the two-step identity by constructive multiplication
-and transitivity. This is a real same-object seed for the forward lane, not a
+at every depth `depth ≥ 3`. The bounded enumeration, positive carrier, and
+rooted vacuum component are proved to be the singleton `[0]`; the existing
+canonical row normalization then gives every singleton power by constructive
+induction. This is a real same-object seed for the forward lane, not a
 cofinal schedule or a continuum certificate. The cofinal producer still needs
 compatible debts at unbounded cutoffs, a uniform rate/modulus, spacing and
 thermodynamic control, and the OS/QFT/all-group/Clay passages.
 
 Focused check: `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt:olean`
-PASS (1491 dependency jobs, one worker). The five printed declarations use
+PASS (1491 dependency jobs, one worker). The six printed declarations use
 only `{propext, Quot.sound}`; no `sorryAx`, classical axiom, or noncomputable
 declaration was introduced.
 

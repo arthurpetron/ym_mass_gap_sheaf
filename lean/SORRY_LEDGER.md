@@ -16,10 +16,12 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 ## PROVED zero-cutoff same-carrier power seed (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean`.
-- **proved**: `canonicalFullDensityPowerDebt_zero` inhabits
-  `CanonicalFullDensityPowerDebt w hw 0 half 3`; the finite positive carrier
-  and rooted vacuum sector are constructively reduced to `[0]`, and the
-  canonical one-step row law yields the exact depth-two power identity.
+- **proved**: `canonicalFullDensityPowerDebt_zero_of_depth` inhabits
+  `CanonicalFullDensityPowerDebt w hw 0 half depth` for every explicit
+  `3 ≤ depth`; the finite positive carrier and rooted vacuum sector are
+  constructively reduced to `[0]`, and singleton power induction from the
+  canonical one-step row law yields the exact identity. The depth-3 witness
+  `canonicalFullDensityPowerDebt_zero` is its specialization.
 - **boundary**: this is one fixed cutoff and does not supply cofinal debts,
   a uniform rate or modulus, spacing/thermodynamic passage, continuum
   reconstruction, all compact simple groups, or the Clay endpoint.

@@ -114,48 +114,41 @@ theorem centralPhysicalFiniteVacuumSectorIndices_zero_eq_singleton
   rw [hcarrier] at hsubset
   exact List.mem_singleton.mp hsubset
 
-private theorem singleton_power_two_eqv_of_row
+private theorem singleton_power_eqv_of_row
     {State : Type} (x : State) (weight : State → Q')
     (kernel : State → State → Q')
     (hrow : weight x * kernel x x ≈ 1) :
-    finiteWeightedDensityPower [x] weight kernel 2 x x ≈ kernel x x := by
-  simp only [finiteWeightedDensityPower, finiteWeightedDensityCompose,
-    YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm.listQSum]
-  change ((weight x * kernel x x) *
-      ((weight x * kernel x x) * kernel x x + 0)) + 0 ≈ kernel x x
-  have hinner :
-      (weight x * kernel x x) * kernel x x + 0 ≈
-        (weight x * kernel x x) * kernel x x :=
-    Q'.eqv_of_eq (Q'.add_zero' _)
-  have houter :
-      ((weight x * kernel x x) *
-          ((weight x * kernel x x) * kernel x x + 0)) + 0 ≈
-        (weight x * kernel x x) *
-          ((weight x * kernel x x) * kernel x x) := by
-    refine Q'.eqv_trans _ _ _
-      (Q'.eqv_of_eq (Q'.add_zero' _)) ?_
-    exact Q'.mul_eqv_congr_left _ _ _ hinner
-  refine Q'.eqv_trans _ _ _ houter ?_
-  refine Q'.eqv_trans _
-      (1 * ((weight x * kernel x x) * kernel x x)) _ ?_ ?_
-  · exact Q'.mul_eqv_congr_right _ _ _ hrow
-  · refine Q'.eqv_trans _
-        ((weight x * kernel x x) * kernel x x) _
-        (Q'.one_mul_eqv _) ?_
-    refine Q'.eqv_trans _
-        (1 * kernel x x) _
-        (Q'.mul_eqv_congr_right _ _ _ hrow) ?_
-    exact Q'.one_mul_eqv _
+    ∀ steps, finiteWeightedDensityPower [x] weight kernel steps x x ≈
+      kernel x x
+  | 0 => Q'.eqv_refl _
+  | steps + 1 => by
+      simp only [finiteWeightedDensityPower, finiteWeightedDensityCompose,
+        YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm.listQSum]
+      change (weight x * kernel x x) *
+          finiteWeightedDensityPower [x] weight kernel steps x x + 0 ≈
+        kernel x x
+      have hstep := singleton_power_eqv_of_row x weight kernel hrow steps
+      refine Q'.eqv_trans _
+          ((weight x * kernel x x) *
+            finiteWeightedDensityPower [x] weight kernel steps x x) _ ?_ ?_
+      · exact Q'.eqv_of_eq (Q'.add_zero' _)
+      refine Q'.eqv_trans _
+          (1 * finiteWeightedDensityPower [x] weight kernel steps x x) _
+          (Q'.mul_eqv_congr_right _ _ _ hrow) ?_
+      refine Q'.eqv_trans _
+          (finiteWeightedDensityPower [x] weight kernel steps x x) _
+          (Q'.one_mul_eqv _) hstep
 
-def canonicalFullDensityPowerDebt_zero
-    {w : Q'} {hw : (0 : Q') ≤ w} (half : Nat) :
-    CanonicalFullDensityPowerDebt w hw 0 half 3 := by
+def canonicalFullDensityPowerDebt_zero_of_depth
+    {w : Q'} {hw : (0 : Q') ≤ w} (half depth : Nat)
+    (hdepth : 3 ≤ depth) :
+    CanonicalFullDensityPowerDebt w hw 0 half depth := by
   have hcarrier := centralPhysicalFiniteIndexCarrier_zero_eq_singleton
     w hw half
   have hsector := centralPhysicalFiniteVacuumSectorIndices_zero_eq_singleton
     w hw half
   refine {
-    depth_at_least_three := by decide
+    depth_at_least_three := hdepth
     full_density_power := ?_ }
   intro source target hsource htarget
   have hsource_zero : source = 0 := by
@@ -177,15 +170,20 @@ def canonicalFullDensityPowerDebt_zero
       (Q'.eqv_of_eq (Eq.symm (Q'.add_zero' _))) hrow
   rw [hcarrier]
   change kernel 0 0 ≈ finiteWeightedDensityPower
-      [0] weight kernel (3 - 1) 0 0
-  rw [show 3 - 1 = 2 by decide]
+      [0] weight kernel (depth - 1) 0 0
   exact Q'.eqv_symm
-    (singleton_power_two_eqv_of_row 0 weight kernel hrow_single)
+    (singleton_power_eqv_of_row 0 weight kernel hrow_single (depth - 1))
+
+def canonicalFullDensityPowerDebt_zero
+    {w : Q'} {hw : (0 : Q') ≤ w} (half : Nat) :
+    CanonicalFullDensityPowerDebt w hw 0 half 3 := by
+  exact canonicalFullDensityPowerDebt_zero_of_depth half 3 (by decide)
 
 #print axioms boundedEdgeLabellings_zero_eq_singleton
 #print axioms centralPositiveHalfStates_zero_eq_singleton
 #print axioms centralPhysicalFiniteIndexCarrier_zero_eq_singleton
 #print axioms centralPhysicalFiniteVacuumSectorIndices_zero_eq_singleton
+#print axioms canonicalFullDensityPowerDebt_zero_of_depth
 #print axioms canonicalFullDensityPowerDebt_zero
 
 end YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt
