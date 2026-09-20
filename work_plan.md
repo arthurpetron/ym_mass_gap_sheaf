@@ -56706,9 +56706,16 @@ normalization and closure are not silently promoted to multi-slab
 factorization, and no factorization, cofinal rate, continuum limit, QFT axiom
 package, all-group theorem, or Clay conclusion is claimed.
 
+The new `canonicalFullDensityCompatibleTimeFactorization` constructor
+contracts the adapter's finite row, column, outgoing-closure, incoming-closure,
+and power fields to that single explicit `CanonicalFullDensityPowerDebt`.
+It therefore exposes the exact meet-in-the-middle seam: only the same-carrier
+multi-slab identity remains to inhabit this finite adapter (before any strict
+rate or continuum passage).
+
 Focused monitored target
 `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate:olean`
-passed with 1487 dependency jobs and one worker.  The seven checked declarations
+passed with 1490 dependency jobs and one worker.  The eight checked declarations
 report only `{propext, Quot.sound}`; no full-root audit is claimed.  The next
 causal producer is the same-carrier multi-slab witness, followed by the
 explicit uniform scale/error modulus for the continuum-facing rate.

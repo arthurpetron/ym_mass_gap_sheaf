@@ -16,6 +16,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 
 import YMGap.Continuum.BF4PhysicalVacuumSectorConditionedDensityPower
 import YMGap.Continuum.BF4StationaryDensityBufferSplit
+import YMGap.Continuum.BF4PhysicalVacuumSectorTimeFactorizationAdapter
 
 namespace YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate
 
@@ -27,6 +28,7 @@ open YMGap.Continuum.BF4PhysicalConditionalDensity
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalVacuumSectorConditionedDensityPower
+open YMGap.Continuum.BF4PhysicalVacuumSectorTimeFactorizationAdapter
 open YMGap.Continuum.BF4SU2FixedMagneticPositiveKernelConvergence
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.BF4StationaryDensityBufferSplit
@@ -337,8 +339,38 @@ structure CanonicalFullDensityPowerDebt
         (centralPhysicalFiniteFullDensity w hw cutoff half)
         (depth - 1) source target
 
+/-- Once the same-carrier multi-slab identity is supplied, all finite
+factorization-adapter fields are discharged by the canonical indexed laws.
+This is a contraction of the adapter interface, not a construction of the
+power debt itself. -/
+def canonicalFullDensityCompatibleTimeFactorization
+    {w : Q'} {hw : (0 : Q') ≤ w} {cutoff half depth : Nat}
+    (powerDebt : CanonicalFullDensityPowerDebt
+      w hw cutoff half depth) :
+    PhysicalBF4FiniteVacuumCompatibleTimeFactorization
+      w hw cutoff half depth
+      (canonicalFullDensityOneStepIndex w hw cutoff half) where
+  depth_at_least_three := powerDebt.depth_at_least_three
+  full_oneStep_row := by
+    intro row
+    exact canonicalFullDensityOneStepIndex_row
+  full_oneStep_column := by
+    intro column
+    exact canonicalFullDensityOneStepIndex_column
+  outgoing_closed := by
+    intro source target hsource htarget houtside
+    exact canonicalFullDensityOneStepIndex_outgoing_closed
+      hsource htarget houtside
+  incoming_closed := by
+    intro source target hsource houtside htarget
+    exact canonicalFullDensityOneStepIndex_incoming_closed
+      hsource houtside htarget
+  full_density_power := powerDebt.full_density_power
+
 /-! ## Axiom audit -/
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate.canonicalFullDensityCompatibleTimeFactorization
 #print axioms
   YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate.canonicalFullDensityOneStepIndex_row
 #print axioms
