@@ -13,6 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED same-observable lattice-rate scaling obstruction (2026-09-20 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/PhysicalSeparationSamplingEscape.lean` and
+  `lean/YMGap/Continuum/BF4WilsonUniformLatticeRateScalingObstruction.lean`.
+- **scope**: an explicit spacing escape modulus makes the original
+  `floorLatticeSteps` reach any fixed count at positive integer physical
+  time. For varying nomes, original completed carriers, and states, a common
+  certified upper rate `q < 1` plus a common finite squared-norm cap forces
+  the same original even-time autocorrelation to zero under two-step physical
+  sampling. A positive response floor forces the actual certified rate above
+  every fixed test `q`; `q` is not asserted to be an exact spectrum.
+  The concrete fixed-current-nome normalized excitation has zero-time norm
+  one, but no positive late-tail response floor.
+- **boundary**: `PhysicalSpacing` is supplied as the duration of two original
+  lattice time steps; no one-step identification is constructed. This does
+  not construct changing-coupling variation, physical normalization,
+  continuum QFT, all-group closure, or a counterexample to Yang--Mills.
+- **verification**: `/tmp/ym-gap-sampling-escape-final.log` and
+  `/tmp/ym-gap-wilson-scaling-obstruction-final.log` PASSed all 17 exported
+  gates with only `{propext, Quot.sound}` and no `sorryAx`. Checks were
+  serialized with one worker and a 20 GiB ceiling. The corrected target
+  `+YMGap.Continuum.BF4WilsonUniformLatticeRateScalingObstruction:olean`
+  also PASSed; no full-root build/audit is claimed.
+  No hole or frontier field was introduced or changed.
+
 ## PROVED finite chronological Wilson action (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4WilsonChronologicalOperator.lean`.

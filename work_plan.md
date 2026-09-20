@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-19)
+## Whole-project goal and live completion map (updated 2026-09-20)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -33,6 +33,60 @@ common numerical gap for all G or every bare lattice coupling. Any uniformity
 needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
+
+### Same-observable scaling obstruction and necessary rate control (2026-09-20)
+
+**Forward/backward join, nontrivial survival lane:**
+`PhysicalSeparationSamplingEscape.stepEscapeModulus` computes the scale
+threshold `Z.modulus (t / (N+1))` at which the existing physical-time sampler
+reaches at least `N` lattice intervals. Its consumer
+`BF4WilsonUniformLatticeRateScalingObstruction.sampledAutocorrelation_small`
+composes this threshold with `geometricCutoff q C epsilon` to control the
+ACTUAL original Wilson pairing `B_j(x_j, T_j(2*floor(t/A_j)) x_j)`.
+The nome, completed carrier and centered state may vary with `j`; the required
+hypotheses are a common certified upper rate `q<1`, a common squared-norm
+cap `C`, and supplied spacing-to-zero data. Every positive integer physical
+time has an explicit late-tail decay modulus. Supplied representatives
+converge to zero, and `sampledLimit_zero` proves uniqueness of that value.
+
+`rate_gt_of_response_floor` gives the necessary condition in the other
+direction: a positive SAME-correlator floor and the norm cap force the actual
+certified `twoStepRate` above every fixed test `q<1` once its computed scale
+threshold is reached. This is a constraint on a successful scaling family,
+not a proof that the family or a surviving response exists. The certified
+rate is an upper bound, not an identified exact spectral radius.
+
+**Concrete nonvacuous test:** the existing original norm-one excitation at
+nome `1/1024` supplies all analytic guards for
+`currentSampledAutocorrelation_zero` and `currentResponse_not_above_floor`.
+Its zero-time pairing stays one, but for ANY supplied shrinking spacing
+schedule, every positive-time positive floor fails at an explicitly computed
+scale beyond any requested start. A zero-time norm floor alone therefore
+does not certify this channel's nontrivial continuum survival. This concerns
+the original operator and observable, not merely a freely assigned scalar
+mass; it is not a Yang--Mills counterexample.
+
+**Boundary and next analytic work:** `A` is supplied as the physical duration
+of TWO original lattice steps. No identification with an independently
+constructed one-step physical spacing is proved. The varying-family theorem
+does not assert all-coupling rate or norm uniformity. Construct the missing
+original-action cross-scale comparison and positive-time survival, with a
+rate approaching one; an abstract family wrapper does not supply them.
+Variation of the rescaled strength, physical normalization and finite mass,
+canonical OS/full QFT and every-group construction remain open. No frontier
+field or hypothesis is weakened and no hole is added or discharged.
+
+**Verification:** the two final direct logs
+`/tmp/ym-gap-sampling-escape-final.log` and
+`/tmp/ym-gap-wilson-scaling-obstruction-final.log` PASSed all 17 exported
+gates with only `{propext, Quot.sound}`, no warnings and no `sorryAx`.
+An intermediate check caught synthetic proof placeholders in the dependent
+carrier shorthand; explicit proof arguments removed them before acceptance.
+Checks used one worker and a 20 GiB ceiling. The corrected dependency-complete
+target `+YMGap.Continuum.BF4WilsonUniformLatticeRateScalingObstruction:olean`
+also PASSed. Root imports were added; no full-root build/audit is claimed.
+Luna supplied the finite sampler draft, source inventory, scope review and
+documentation draft; the main agent integrated and checked the proofs.
 
 ### Original chronological Wilson spatial covariance (2026-09-20)
 

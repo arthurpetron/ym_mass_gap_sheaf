@@ -12,6 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Uniform lattice-rate scaling checkpoint (2026-09-20):**
+`PhysicalSeparationSamplingEscape.lean` gives an explicit spacing escape
+modulus: at positive integer physical time, `floorLatticeSteps` eventually
+reaches every prescribed step count. `BF4WilsonUniformLatticeRateScalingObstruction.lean`
+then proves that the original even-time Wilson autocorrelation, with nome,
+carrier, and state allowed to vary, tends to zero when one certified upper
+rate `q < 1` and one finite squared-norm cap `C` hold uniformly. A surviving
+positive response floor forces the actual certified rate above every fixed
+test `q`; `q` is an upper bound, not an exact spectrum. The concrete current
+fixed-nome normalized Wilson excitation has zero-time norm one, while no
+positive late-tail floor survives this scaling. Here `PhysicalSpacing` is the
+duration of two original lattice steps; no one-step identification is built.
+All 17 exported declarations passed direct axiom checks with only
+`{propext, Quot.sound}` and no `sorryAx`. Changing-coupling variation,
+physical normalization, continuum QFT, and all-group closure remain open.
+
 > **Read `AGENTS.md` before contributing.** It contains both the
 > non-negotiable constructivity rules and the host-safety contract. They are
 > easy to violate accidentally; in particular, do not start a bare or broad
