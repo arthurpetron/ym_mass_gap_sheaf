@@ -33,6 +33,18 @@ same-family physical gap remains open; the AF scalar theorem is unaffected.
 This does not refute Yang--Mills or the continuum target. The five new
 declarations pass the focused Lean check with only `{propext, Quot.sound}`.
 
+**Rescaled-strength tracking (2026-09-20):**
+`BF4PhysicalDynamicVacuumSectorRescaledStrengthTracking.lean` defines the
+actual same-family proxy `r = strength / spacing` and proves
+`physicalGap <= r <= physicalGap + U^2 * spacing`, with an explicit spacing
+modulus for the normalization error. Its exact-log consumer requires only a
+variation certificate for this `r` stream and the inverse-square spacing tail;
+it does not request reciprocal-spacing variation or AF identification. The
+combined normalization/logarithm error is bounded by `4 * U^2 * spacing`.
+The family, normalized-strength law, positive band, observable pin, and `r`
+variation remain open inputs. No Wilson/OS, continuum, all-group, or Clay
+claim follows.
+
 **Constructive certificate rule (2026-09-20):** a finite certificate informs
 the continuum route only when its approximating object, explicit modulus, and
 uniformity remain attached to the same theory through the limit.  The new

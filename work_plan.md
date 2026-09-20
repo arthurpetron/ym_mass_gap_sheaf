@@ -55,12 +55,32 @@ incompatible. Do not spend another frontier step trying to inhabit them.
 The scalar AF variation theorem, the band by itself, and direct
 `SummableRationalStepVariation family.physicalGap` are not refuted.
 
-**Next physical-mass target:** estimate the normalized same-family gap
-itself, with its actual spacing and a compatible positive mass band; retain
-the existing exact-log consumer. Neither equality to the vanishing bare AF
-coupling nor a global positive spacing floor can supply this target. Any
-candidate estimate must preserve numerator/spacing cancellation and expose
-its scale-uniform error budget before introducing another compiler.
+**Next physical-mass target:** the rescaled-strength route now supplies an
+error-aware alternative in
+`BF4PhysicalDynamicVacuumSectorRescaledStrengthTracking.lean`. For the actual
+same-family proxy `r = strength / spacing`, it proves
+`physicalGap <= r <= physicalGap + U^2 * spacing`; the normalization error has
+an explicit spacing modulus and the exact-log consumer needs only variation of
+`r` plus the inverse-square spacing tail. This avoids reciprocal-spacing
+variation and AF identification, but does not prove variation of `r` or
+construct the family, strength law, band, or observable pin. The AF-to-gap
+identification remains pruned. Neither equality to the vanishing bare AF coupling nor
+a global positive spacing floor can supply the physical-mass target.
+
+For the local residual route the exact next stream is
+`((1/2) * rayCapacity.delta * uniformSectorMassFloor) / transferSpacing.spacing`,
+using `DynamicSpinCubeOffRayResidualCoercivityFamily.strength` in
+`BF4PhysicalDynamicSpinCubeOffRayResidualFamily.lean`. Prove variation of that
+stream before adding another factorization wrapper. Its family, band and
+original-action/OS identification remain separate inputs; a scalar
+variation estimate alone does not construct them.
+
+Rescaled-strength verification: `/tmp/ym-gap-rescaled-strength-final.log`
+PASS; all eleven printed declarations use only `{propext, Quot.sound}`.
+The narrow dependency-complete target also passed with one worker and a
+20 GiB worker limit. The exact-log error bound is `4 * U^2 * spacing`; the
+normalization modulus asks the existing spacing modulus for `epsilon / U^2`.
+No new or discharged `sorry`, and no full-root audit for this checkpoint.
 
 Focused check: `/tmp/ym-gap-af-calibration-obstruction.log` PASS; all five
 exported declarations use only `{propext, Quot.sound}`, with no `sorryAx`.
@@ -302,7 +322,10 @@ generic “continuum limit” placeholder.
   now ruled out with a positive physical band by
   `noPhysicalGapTrajectoryIdentification_of_rateBand`, and the primitive
   global spacing-floor route was already ruled out by
-  `noPhysicalGapPrimitiveVariationInput`.
+  `noPhysicalGapPrimitiveVariationInput`. The checked error-aware alternative
+  `exactLogRateCauchyOfRescaledStrength` now accepts variation of the actual
+  `strength / spacing` stream, with normalization error at most `U^2 * spacing`;
+  that variation remains an open producer input.
 * **Forward transfer input:**
   `MatchedPhysicalDynamicExplicitRayCanonicalCapacityCheckProducer` in
   `BF4PhysicalMatchedAFDynamicExplicitRayTransitionProductCompiler.lean`

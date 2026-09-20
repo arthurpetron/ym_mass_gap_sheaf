@@ -38,6 +38,29 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate` also passed
   (one worker, 20 GiB worker limit). This is not a full-root audit.
 
+## PROVED spacing-uniform rescaled-strength error bound (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorRescaledStrengthTracking.lean`.
+- **proved**: the actual proxy `r = strength / spacing` satisfies
+  `physicalGap <= r <= physicalGap + U^2 * spacing`; the normalization error
+  has an explicit spacing modulus and the exact-log consumer accepts variation
+  of `r` together with the inverse-square spacing tail.
+  `rescaledStrength_eqv_gap_add` proves the exact cancellation;
+  `rescaledStrength_le_gap_add_normalizationError` supplies the uniform estimate;
+  `normalizationErrorModulus` and `normalizationError_le_epsilon` retain its
+  computable scale. `rescaledStrengthLogError_le_spacing` bounds the combined
+  error by `4 * U^2 * spacing`; `rescaledStrengthLogApproximation` and
+  `exactLogRateCauchyOfRescaledStrength` feed the same-separator rate consumer.
+- **boundary**: this avoids reciprocal-spacing variation and AF
+  identification, but does not construct the completed family, normalized
+  strength law, positive band, observable pin, or variation of `r`. No Wilson,
+  OS, continuum, all-group, or Clay conclusion is claimed.
+- **verification**: direct monitored check `/tmp/ym-gap-rescaled-strength-final.log`
+  PASS; all eleven printed declarations use only `{propext, Quot.sound}`,
+  with no `sorryAx`. The narrow dependency-complete target also passed
+  (one worker, 20 GiB worker limit). No holes were introduced or discharged;
+  no full-root audit is claimed.
+
 ## PROVED same-object physical-exponential certificate (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate.lean`.
