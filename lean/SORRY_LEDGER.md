@@ -22884,6 +22884,17 @@ passes with only `{propext, Quot.sound}` and no `sorryAx`.  This remains a
 conditional composition; the cofinal scan, physical calibration, and all
 thermodynamic/continuum obligations are still open.
 
+The new
+`BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityHarnackBridge.lean` module
+proves that the executable predicate
+`cutoffTwoNovelEdgeCapacityCheck` is equivalent, at each cutoff, to the
+explicit conditional-Harnack path-incidence inequalities.  Its two transport
+definitions convert cofinal Harnack bounds to Boolean edge scans and back,
+preserving the anchor schedule.  Focused source check
+`/tmp/BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityHarnackBridge.check3.log`
+passes with only `{propext, Quot.sound}` and no `sorryAx`.  This narrows the
+open analytic input but does not inhabit it.
+
 ### [BF4-cutoff-two-novel-flow-edge-expansion] Exact endpoint-pair load decomposition — **CLOSED 2026-08-23**
 
 - **milestone**: expose the generic flat-map edge-load identity; prove that

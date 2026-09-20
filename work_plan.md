@@ -56593,6 +56593,24 @@ QFT, all-group, or Clay obligations.  Focused source check
 `/tmp/BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityUnitBound.check3.log`
 passes with only `{propext, Quot.sound}` and no `sorryAx`.
 
+## 240. Identify the cofinal center as one conditional-Harnack certificate (2026-09-19)
+
+`BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityHarnackBridge.lean` closes the
+finite presentation gap between the executable edge scan and the explicit
+conditional-Harnack target.  At every cutoff,
+`cutoffTwoNovelEdgeCapacityCheck = true` is equivalent to the full family of
+conditional path-incidence inequalities.  Cofinal Harnack bounds and cofinal
+Boolean edge scans are transported in both directions, with the same anchor
+schedule and no erased overload branch.
+
+This is a genuine forward/backward contraction of the analytic frontier: the
+remaining producer is one named cofinal conditional-Harnack estimate, not an
+unrelated collection of capacity predicates.  The estimate itself remains
+open, as do physical calibration, thermodynamic/continuum passage, QFT
+axioms, all-group generalization, and the Clay conclusion.  Focused source
+check `/tmp/BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityHarnackBridge.check3.log`
+passes with only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A
