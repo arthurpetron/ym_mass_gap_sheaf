@@ -25,6 +25,8 @@ open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate
+open YMGap.Continuum.BF4PhysicalVacuumSectorTimeFactorizationAdapter
+open YMGap.Continuum.BF4PhysicalVacuumSectorMassNormalizedDensity
 open YMGap.Continuum.BF4CanonicalFiniteNumeratorPartitionBudget
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.FiniteBoolGraphRootComponent
@@ -32,9 +34,23 @@ open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.BF4StationaryDensityBufferSplit
+open YMGap.Continuum.FiniteSignedKernelL1
 open YMGap.Continuum.Z4HalfTimeReflectionPhysicalGram
 
 local infix:50 " ≈ " => Q'.eqv
+
+private theorem neg_num_cast_local (a : Q') :
+    (-a).num = -(a.num) := rfl
+
+local macro "q_ring" : tactic =>
+  `(tactic| (show _ * (_ : Int) = _ * (_ : Int);
+             simp only [Q'.add_num_cast, Q'.add_den_cast, Q'.mul_num_cast,
+               Q'.mul_den_cast, Q'.neg_den, neg_num_cast_local,
+               Q'.mkPos_num, Q'.mkPos_den,
+               Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg,
+               Int.neg_add, Int.neg_neg, Int.one_mul, Int.mul_one,
+               Int.zero_mul, Int.mul_zero, Int.add_zero, Int.zero_add];
+             try ac_rfl))
 
 private theorem setEdgeLabel_zero_zero (edge : Nat) :
     setEdgeLabel zeroEdgeLabelling edge 0 = zeroEdgeLabelling := by
@@ -139,6 +155,36 @@ private theorem singleton_power_eqv_of_row
           (finiteWeightedDensityPower [x] weight kernel steps x x) _
           (Q'.one_mul_eqv _) hstep
 
+private theorem singleton_centered_row_mass_zero
+    {State : Type} [DecidableEq State]
+    (x : State) (weight : State → Q') (kernel : State → State → Q')
+    (hweight : weight x ≈ 1)
+    (hrow : weight x * kernel x x ≈ 1) :
+    finiteWeightedCenteredRowMass [x] weight kernel x ≤ 0 := by
+  have hcentered :
+      weight x * (kernel x x + (-1)) ≈ 0 := by
+    refine Q'.eqv_trans _
+        (weight x * kernel x x + weight x * (-1)) _ ?_ ?_
+    · q_ring
+    refine Q'.eqv_trans _
+        (1 + weight x * (-1)) _
+        (Q'.add_eqv_congr_right _ _ _ hrow) ?_
+    refine Q'.eqv_trans _
+        (1 + (1 : Q') * (-1)) _
+        (Q'.add_eqv_congr_left _ _ _
+          (Q'.mul_eqv_congr_right _ _ _ hweight)) ?_
+    q_ring
+  have habs : Q'.abs (weight x * (kernel x x + (-1))) ≈ 0 :=
+    Q'.eqv_trans _ _ _ (Q'.abs_eqv_congr hcentered)
+      (Q'.eqv_of_eq (by decide))
+  unfold finiteWeightedCenteredRowMass finiteL1Norm
+    finiteWeightedCenteredTransition finiteCenteredDensity
+  simp only [YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm.listQSum]
+  change Q'.abs (weight x * (kernel x x + (-1))) + 0 ≤ 0
+  exact Q'.le_trans' _ _ _
+    (Q'.add_le_add_right _ _ 0 (Q'.le_of_eqv habs))
+    (Q'.le_of_eqv (Q'.eqv_of_eq (Q'.add_zero' _)))
+
 def canonicalFullDensityPowerDebt_zero_of_depth
     {w : Q'} {hw : (0 : Q') ≤ w} (half depth : Nat)
     (hdepth : 3 ≤ depth) :
@@ -179,11 +225,70 @@ def canonicalFullDensityPowerDebt_zero
     CanonicalFullDensityPowerDebt w hw 0 half 3 := by
   exact canonicalFullDensityPowerDebt_zero_of_depth half 3 (by decide)
 
+/-! At the zero cutoff the same singleton carrier also discharges the finite
+centered-row input to the gluing interface, with the exact rate `qS = 0`.
+This is a finite seed only: the carrier has no non-vacuum direction, so it is
+not a strict gap and supplies no cofinal or continuum modulus. -/
+def canonicalFullDensityVacuumSectorDensityPowerGluing_zero_of_depth
+    {w : Q'} {hw : (0 : Q') ≤ w} (half depth : Nat)
+    (hdepth : 3 ≤ depth) :
+    PhysicalBF4VacuumSectorDensityPowerGluing
+      w hw 0 half depth
+      (centralPhysicalFiniteVacuumSectorConditionedTimeStep
+        w hw 0 half
+        (canonicalFullDensityOneStepIndex w hw 0 half)) 0 := by
+  let powerDebt :=
+    canonicalFullDensityPowerDebt_zero_of_depth
+      (w := w) (hw := hw) half depth hdepth
+  let data := canonicalFullDensityCompatibleTimeFactorization powerDebt
+  refine canonicalFullDensityVacuumSectorDensityPowerGluing
+    powerDebt (by decide) ?_
+  intro source hsource
+  have hsector := centralPhysicalFiniteVacuumSectorIndices_zero_eq_singleton
+    w hw half
+  have hsource_zero : source = 0 := by
+    rw [hsector] at hsource
+    exact List.mem_singleton.mp hsource
+  subst source
+  let weight := centralPhysicalFiniteVacuumSectorMassNormalizedWeight
+    w hw 0 half
+  let oneStep := centralPhysicalFiniteVacuumSectorConditionedTimeStep
+    w hw 0 half (canonicalFullDensityOneStepIndex w hw 0 half)
+  have hweight_total :=
+    centralPhysicalFiniteVacuumSectorMassNormalizedWeight_total_one
+      w hw 0 half
+  rw [hsector] at hweight_total
+  change weight 0 + 0 ≈ 1 at hweight_total
+  have hweight : weight 0 ≈ 1 :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_of_eq (Eq.symm (Q'.add_zero' _)))
+      hweight_total
+  have hrow :=
+    PhysicalBF4FiniteVacuumCompatibleTimeFactorization.conditionedOneStep_row
+      data 0
+  rw [hsector] at hrow
+  change weight 0 * oneStep 0 0 + 0 ≈ 1 at hrow
+  have hprod : weight 0 * oneStep 0 0 ≈ 1 :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_of_eq (Eq.symm (Q'.add_zero' _))) hrow
+  rw [hsector]
+  exact singleton_centered_row_mass_zero 0 weight oneStep hweight hprod
+
+def canonicalFullDensityVacuumSectorDensityPowerGluing_zero
+    {w : Q'} {hw : (0 : Q') ≤ w} (half : Nat) :
+    PhysicalBF4VacuumSectorDensityPowerGluing
+      w hw 0 half 3
+      (centralPhysicalFiniteVacuumSectorConditionedTimeStep
+        w hw 0 half
+        (canonicalFullDensityOneStepIndex w hw 0 half)) 0 := by
+  exact canonicalFullDensityVacuumSectorDensityPowerGluing_zero_of_depth
+    half 3 (by decide)
+
 #print axioms boundedEdgeLabellings_zero_eq_singleton
 #print axioms centralPositiveHalfStates_zero_eq_singleton
 #print axioms centralPhysicalFiniteIndexCarrier_zero_eq_singleton
 #print axioms centralPhysicalFiniteVacuumSectorIndices_zero_eq_singleton
 #print axioms canonicalFullDensityPowerDebt_zero_of_depth
 #print axioms canonicalFullDensityPowerDebt_zero
+#print axioms canonicalFullDensityVacuumSectorDensityPowerGluing_zero_of_depth
+#print axioms canonicalFullDensityVacuumSectorDensityPowerGluing_zero
 
 end YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt

@@ -29,6 +29,21 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   PASS (1491 dependency jobs, one worker); all printed declarations use only
   `{propext, Quot.sound}`, with no `sorryAx`.
 
+## PROVED zero-cutoff finite gluing seed (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean`.
+- **proved**: `canonicalFullDensityVacuumSectorDensityPowerGluing_zero_of_depth`
+  and its depth-3 specialization inhabit the finite density-power gluing
+  interface at cutoff `K=0`, with the same singleton carrier and exact centered
+  rate `qS = 0`.
+- **boundary**: the estimate is degenerate because the rooted sector is the
+  whole singleton carrier; it is not a strict non-vacuum gap and supplies no
+  unbounded-cutoff, spacing, thermodynamic, continuum, QFT, all-group, or Clay
+  witness.
+- **verification**: `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt:olean`
+  PASS (1491 dependency jobs, one worker); both printed declarations use only
+  `{propext, Quot.sound}`, with no `sorryAx`.
+
 ## PROVED canonical finite certificate to cofinal gap compiler (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCanonicalCofinalPowerProducer.lean`.

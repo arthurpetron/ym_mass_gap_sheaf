@@ -39,6 +39,14 @@ every depth `depth ≥ 3` identity by induction from the checked row law. It is 
 unbounded producer, not evidence of a cofinal, thermodynamic, continuum, or
 Clay result; the required uniformity and moduli remain explicit debts.
 
+The same module also provides
+`canonicalFullDensityVacuumSectorDensityPowerGluing_zero_of_depth`: the
+singleton normalized row has centered mass bounded by the exact rate `qS = 0`,
+so it inhabits the finite density-power gluing interface at every
+`depth ≥ 3`. Because this is the empty-complement `K=0` sector, it is a
+degenerate finite certificate, not a strict non-vacuum gap or a continuum
+certificate.
+
 This project is a Mathlib-free Lean 4 formalization of a constructive route
 from four-dimensional lattice gauge theory to continuum quantum Yang--Mills.
 The active concrete data are SU(2) BF4 lattice data. The positive

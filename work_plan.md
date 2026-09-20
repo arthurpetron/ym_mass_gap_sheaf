@@ -99,6 +99,12 @@ cofinal schedule or a continuum certificate. The cofinal producer still needs
 compatible debts at unbounded cutoffs, a uniform rate/modulus, spacing and
 thermodynamic control, and the OS/QFT/all-group/Clay passages.
 
+The same module now discharges the finite centered-row premise at this seed:
+`canonicalFullDensityVacuumSectorDensityPowerGluing_zero_of_depth` packages the
+power debt and singleton centered-row estimate with `qS = 0`. This is
+deliberately a degenerate empty-complement certificate; it does not provide
+the strict non-vacuum contraction required at positive cutoff.
+
 Focused check: `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt:olean`
 PASS (1491 dependency jobs, one worker). The six printed declarations use
 only `{propext, Quot.sound}`; no `sorryAx`, classical axiom, or noncomputable
