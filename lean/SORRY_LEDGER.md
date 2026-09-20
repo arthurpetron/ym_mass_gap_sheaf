@@ -22895,6 +22895,17 @@ preserving the anchor schedule.  Focused source check
 passes with only `{propext, Quot.sound}` and no `sorryAx`.  This narrows the
 open analytic input but does not inhabit it.
 
+The new `BF4PhysicalDynamicNovelHarnackFixedRateNoGo.lean` module packages a
+fixed-nome cofinal Harnack certificate into a dynamic completed-gap family and
+proves `noPhysicalRateBand_of_fixedHarnack`.  The family has a constant
+lattice margin, while `DynamicVacuumSectorPhysicalRateBand` together with
+spacing-to-zero forces that margin below every positive epsilon; the named
+contradiction therefore rejects fixed-rate reuse at the continuum interface.
+This is route pruning only, not a Yang--Mills or continuum no-go theorem.  The
+focused source check (monitored with an 8 GiB reserve) passed as
+`BF4PhysicalDynamicNovelHarnackFixedRateNoGo.lean`; both declarations report
+only `{propext, Quot.sound}` and no `sorryAx`.
+
 ### [BF4-cutoff-two-novel-flow-edge-expansion] Exact endpoint-pair load decomposition — **CLOSED 2026-08-23**
 
 - **milestone**: expose the generic flat-map edge-load identity; prove that

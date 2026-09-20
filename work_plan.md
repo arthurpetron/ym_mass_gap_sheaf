@@ -56611,6 +56611,26 @@ axioms, all-group generalization, and the Clay conclusion.  Focused source
 check `/tmp/BF4PhysicalBoundaryCutoffTwoNovelFlowCapacityHarnackBridge.check3.log`
 passes with only `{propext, Quot.sound}` and no `sorryAx`.
 
+## 241. Reject fixed-rate Harnack reuse at the continuum interface (2026-09-19)
+
+`BF4PhysicalDynamicNovelHarnackFixedRateNoGo.lean` defines
+`fixedHarnackDynamicFamily`, which reuses one completed strict-contraction
+certificate at every dynamic scale, and proves
+`noPhysicalRateBand_of_fixedHarnack`.  Its lattice margin is constant in the
+scale index, whereas the existing physical-rate band and spacing-to-zero
+modulus require that margin to be below every positive epsilon.  Thus the
+fixed-rate reuse route is formally pruned.  The next producer must expose a
+scale-dependent cofinal Harnack/capacity witness together with its modulus.
+This follows the constructive certificate gate: a continuum-facing witness
+must carry the approximating object, an explicit scale/error modulus, and a
+parameter-uniform stability estimate.  A per-scale gap without those payloads
+cannot be contracted into one physical gap.  This does not close physical
+calibration, thermodynamic/continuum passage, QFT axioms, all-group
+generalization, or the Clay target.  Focused check:
+`BF4PhysicalDynamicNovelHarnackFixedRateNoGo.lean` passed under the monitored
+runner (8 GiB reserve); both declarations report only `{propext, Quot.sound}`
+and no `sorryAx`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A
