@@ -70,7 +70,10 @@ same-carrier multi-slab power identity for every depth at least three. This
 `cutoffOneCanonicalFullDensityVacuumSectorDensityPowerGluing` packages that
 debt with the exact finite centered bound at `qS = 0`. These are checked finite
 SU(2) refresh identities: they supply explicit witnesses
-and finite equality moduli, but no cutoff/cofinal uniformity, spacing
+and finite equality moduli. The local-slice adapter
+`cutoffOneCanonicalFullDensityLocalSliceGluing` consequently exposes the
+conditioned row bound `≤ 1/16` at this fixed cutoff, but there is still no
+cutoff/cofinal uniformity, spacing
 modulus, thermodynamic or continuum descent, QFT reconstruction, all-group
 extension, or Clay mass gap. In the constructive certificate sense, the
 continuum route must consume a same-object approximant together with a

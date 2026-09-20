@@ -68,7 +68,10 @@ canonical-sector source. The same module now constructs
 for every depth `≥ 3` at cutoff one; it is the first non-vacuous finite power
 debt witness on this route. The companion
 `cutoffOneCanonicalFullDensityVacuumSectorDensityPowerGluing` packages that
-debt with the exact finite centered bound `qS = 0`.
+debt with the exact finite centered bound `qS = 0`, and
+`cutoffOneCanonicalFullDensityLocalSliceGluing` transports it through the
+local-slice compiler, yielding a checked conditioned row bound `≤ 1/16` at
+this fixed cutoff.
 
 Focused check:
 `+YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge:olean`

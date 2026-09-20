@@ -21,6 +21,7 @@ import YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorPresenta
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalVacuumSectorStationaryPosterior
 import YMGap.Continuum.BF4PhysicalBoundaryCutoffOneVacuumGramMarkov
 import YMGap.Continuum.BF4PhysicalVacuumSectorCenteredGramPosterior
+import YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice
 
 namespace YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge
 
@@ -47,6 +48,8 @@ open YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge
 open YMGap.Continuum.BF4PhysicalVacuumSectorCenteredGramPosterior
 open YMGap.Continuum.BF4PhysicalVacuumSectorConditionedDensityPower
 open YMGap.Continuum.BF4PhysicalVacuumSectorDensityMassDefect
+open YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice
+open YMGap.Continuum.BF4PhysicalVacuumSectorLocalContractionGluing
 open YMGap.Continuum.BF4PhysicalVacuumSectorMassNormalizedDensity
 open YMGap.Continuum.BF4PhysicalVacuumSectorTimeFactorizationAdapter
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
@@ -550,6 +553,36 @@ def cutoffOneCanonicalFullDensityVacuumSectorDensityPowerGluing
     (cutoffOneCanonicalConditionedCenteredRowMass_eqv_zero
       hw hsource)
 
+def cutoffOneCanonicalFullDensityLocalSliceGluing
+    {w : Q'} (hw : (0 : Q') < w) (depth : Nat)
+    (hdepth : 3 ≤ depth) :
+    PhysicalBF4VacuumSectorLocalSliceGluing
+      w (Q'.le_of_lt hw) 1 0 depth
+      (centralPhysicalFiniteVacuumSectorConditionedTimeStep
+        w (Q'.le_of_lt hw) 1 0
+        (canonicalFullDensityOneStepIndex
+          w (Q'.le_of_lt hw) 1 0)) 0 :=
+  PhysicalBF4VacuumSectorDensityPowerGluing.toLocalSliceGluing
+    (cutoffOneCanonicalFullDensityVacuumSectorDensityPowerGluing
+      hw depth hdepth)
+
+theorem cutoffOneCanonicalConditionedDensityCenteredRow_le_sixteenth
+    {w : Q'} (hw : (0 : Q') < w) (depth : Nat)
+    (hdepth : 3 ≤ depth) {source : Nat}
+    (hsource : source ∈
+      centralPhysicalFiniteVacuumSectorIndices
+        w (Q'.le_of_lt hw) 1 0) :
+    finiteWeightedCenteredRowMass
+        (centralPhysicalFiniteVacuumSectorIndices
+          w (Q'.le_of_lt hw) 1 0)
+        (centralPhysicalFiniteVacuumSectorMassNormalizedWeight
+          w (Q'.le_of_lt hw) 1 0)
+        (centralPhysicalFiniteVacuumSectorMassNormalizedDensity
+          w (Q'.le_of_lt hw) 1 0)
+        source ≤ Q'.mkPos 1 16 (by decide) :=
+  (cutoffOneCanonicalFullDensityLocalSliceGluing hw depth hdepth)
+    |>.conditionedDensityCenteredRow_le_sixteenth (by decide) source hsource
+
 end YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge
 
 /-! ## Axiom audit -/
@@ -562,5 +595,9 @@ end YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge
   YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalFullDensityPowerDebt
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalFullDensityVacuumSectorDensityPowerGluing
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalFullDensityLocalSliceGluing
+#print axioms
+  YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalConditionedDensityCenteredRow_le_sixteenth
 #print axioms
   YMGap.Continuum.BF4PhysicalBoundaryCutoffOneCanonicalConditionedMarkovBridge.cutoffOneCanonicalConditionedCenteredRowMass_eqv_zero
