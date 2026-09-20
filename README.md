@@ -322,6 +322,21 @@ the direct analytic target from the finite-regulator variation branch.  The
 focused build log is `/tmp/ym-gap-rate-direct-interface-check.log`, under the
 `{propext, Quot.sound}` gate.
 
+**Explicit exact-log convergence certificate (2026-09-20):**
+`CReal.ModCauchyEv.toExplicitConvergenceCertificate` preserves the existing
+eventual-outer Cauchy witness as a Type-level certificate with an explicit
+term modulus and approximation modulus.  The new
+`BF4PhysicalDynamicVacuumSectorExactLogExplicitConvergenceCertificate.lean`
+wrapper exposes this data for the exact full-log rate of the same completed
+physical family through
+`DynamicVacuumSectorObservablePin.exactLogRateExplicitCertificate`.  It uses
+the same physical-gap variation and inverse-square spacing-tail inputs and
+the same `completeLimitCauchy` limit; it adds no uniformity claim and does not
+construct either producer input.  Cofinal capacity, thermodynamic/continuum
+OS/QFT passage, all compact simple groups, and the Clay endpoint remain open.
+Focused verification is `/tmp/ym-gap-exactlog-explicit-check.log`, under the
+`{propext, Quot.sound}` gate.
+
 **AF recurrence to summable scalar variation (2026-09-19):**
 `AFTrajectorySummableVariation.lean` derives a two-sided summable step budget
 for the shifted AF log-coupling stream from the certified two-loop recurrence

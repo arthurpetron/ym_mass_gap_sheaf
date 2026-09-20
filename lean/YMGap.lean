@@ -2038,6 +2038,7 @@ import YMGap.Continuum.ExactRateReconstructionHandoff
 import YMGap.Continuum.MeasureLinkedOSReconstruction
 import YMGap.Continuum.SummableCRealStepVariation
 import YMGap.Continuum.SummableCRealExplicitConvergenceCertificate
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogExplicitConvergenceCertificate
 import YMGap.Continuum.SummableCRealEventualStepVariation
 import YMGap.Continuum.CRealRationalProxyTracking
 import YMGap.Continuum.DirectLogQuadraticRemainder

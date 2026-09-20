@@ -906,6 +906,28 @@ does not construct the modulus or any continuum/OS/QFT object.  Its focused
 check is `/tmp/ym-gap-rate-direct-interface-check.log`, with the new
 declaration under `{propext, Quot.sound}`.
 
+### Current forward/backward join: explicit exact-log convergence certificate (2026-09-20)
+
+`CReal.ModCauchyEv.toExplicitConvergenceCertificate` compiles the existing
+eventual-outer Cauchy witness into the Type-level
+`CReal.ExplicitConvergenceCertificate`.  Its term modulus is the stored
+outer modulus at `ε/4`; its approximation modulus is the maximum of the
+stored inner regularity threshold and the denominator stage needed by the
+diagonal completion.  The proof keeps the per-pair approximation bridge
+`boundK` explicit and uses the same `completeLimitCauchy` limit.
+
+`BF4PhysicalDynamicVacuumSectorExactLogExplicitConvergenceCertificate.lean`
+exports that compiler for the exact full-log rate of the same completed
+physical family through
+`DynamicVacuumSectorObservablePin.exactLogRateExplicitCertificate`.  It
+consumes exactly the existing same-family physical-gap variation and
+inverse-square spacing-tail inputs; it introduces no new physical estimate
+and no parameter-uniformity claim.  The physical-gap variation, cofinal
+capacity comparison, thermodynamic/continuum passage, QFT package,
+all-group extension, and Clay endpoint remain open.  Focused verification is
+`/tmp/ym-gap-exactlog-explicit-check.log`; the new declaration reports only
+`{propext, Quot.sound}`.
+
 ### Current forward/backward join: AF recurrence to summable scalar variation (2026-09-19)
 
 `AFTrajectorySummableVariation.lean` now proves the next non-vacuous scalar
