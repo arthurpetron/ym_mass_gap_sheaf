@@ -47,6 +47,15 @@ so it inhabits the finite density-power gluing interface at every
 degenerate finite certificate, not a strict non-vacuum gap or a continuum
 certificate.
 
+**Same-object weighted-entry bridge (2026-09-20):**
+`BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean` proves that, on
+the canonical finite sector, the conditioned target weight times the
+mass-scaled canonical one-step is exactly the literal physical conditional
+transition. The corresponding centered entry is the physical transition
+minus the conditioned stationary weight. This is an entrywise bridge for
+the later row estimate, not a strict contraction or a cutoff-uniform,
+thermodynamic, continuum, all-group, or Clay result.
+
 This project is a Mathlib-free Lean 4 formalization of a constructive route
 from four-dimensional lattice gauge theory to continuum quantum Yang--Mills.
 The active concrete data are SU(2) BF4 lattice data. The positive

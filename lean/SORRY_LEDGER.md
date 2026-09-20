@@ -13,6 +13,13 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED same-object weighted-entry bridge (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean`.
+- **proved**: `canonicalConditionedWeightedEntry_eqv_conditionalKernel` identifies the target-weighted, mass-scaled canonical conditioned one-step with the literal physical conditional transition on every canonical-sector pair. `canonicalConditionedCenteredTransition_eqv_conditionalKernel_sub_weight` gives the corresponding centered residual entry.
+- **boundary**: this is an entrywise finite identity. It does not construct a row/L1 contraction, cofinal multi-slab debts, a uniform rate or modulus, spacing/thermodynamic control, continuum OS/QFT structure, an all-group theorem, or the Clay result.
+- **verification**: `+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge:olean` PASS (1491 dependency jobs, one worker); both declarations use only `{propext, Quot.sound}`, with no `sorryAx`.
+
 ## PROVED zero-cutoff same-carrier power seed (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean`.

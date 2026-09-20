@@ -34,6 +34,24 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Same-object weighted-entry bridge (2026-09-20)
+
+`BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean` closes the
+entrywise seam between the canonical indexed conditioned density and the
+literal physical Markov carrier. For every source and target in the
+canonical sector, the conditioned target weight times the mass-scaled
+one-step equals the physical conditional transition; its centered entry is
+therefore exactly the conditional transition minus the conditioned stationary
+weight. This is the correct input shape for a later row/L1 estimate, not a
+strict bound or a continuum claim.
+
+Focused check:
+`+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge:olean`
+PASS (1491 dependency jobs, one worker). Both declarations use only
+`{propext, Quot.sound}` and no `sorryAx`. The cofinal multi-slab debt,
+uniform rate/modulus, spacing and thermodynamic passage, continuum OS/QFT
+reconstruction, all-group extension, and Clay endpoint remain open.
+
 ### Current certificate gate: approximant, modulus, and same-object descent (2026-09-19)
 
 `BF4PhysicalDynamicVacuumSectorContinuumCertificate.lean` makes the
