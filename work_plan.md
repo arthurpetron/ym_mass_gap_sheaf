@@ -34,6 +34,19 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Certificate gate applied to the active normalized channel (2026-09-20)
+
+The attached constructive-certificate criterion is now a planning gate: every
+continuum-facing join must retain the same approximant, a constructive modulus,
+and the parameter range of every uniform estimate. The normalized moving-cube
+branch passes the finite uniformity part: reciprocal-floor rescaling proves
+`one_le_normalizedMovingCubeNormSq` and
+`one_le_normalizedMovingCubeSampledConnectedAutocorrelation_zero` for the
+actual completed vector and transfer. The focused module check remains under
+`{propext, Quot.sound}`. This is a finite-scale witness and a consumer for an
+explicit cutoff-limit record; it does not construct that record, the cofinal
+transition product, physical-gap calibration, or any continuum/QFT object.
+
 ### Same-object weighted-entry bridge (2026-09-20)
 
 `BF4PhysicalVacuumSectorCanonicalWeightedEntryBridge.lean` closes the

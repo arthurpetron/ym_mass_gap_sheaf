@@ -31,6 +31,39 @@ completed same-object gap consumer.  The power-debt producer, comparison and
 stability moduli, spacing/thermodynamic passage, OS/QFT reconstruction,
 all-group extension, and Clay mass gap are still open.
 
+**Causal project map (2026-09-20):**
+
+```text
+WHOLE-PROJECT GOAL [OPEN]
+Constructive continuum Yang--Mills on R^4 for every compact simple G,
+same-theory QFT axioms, isolated vacuum, and physical Delta > 0
+                              |
+          EXPAND: same-object witnesses + moduli + uniform estimates
+                              v
+[CHECKED] finite SU(2) carrier -> completed transfer -> unit-floor
+          normalized moving-cube channel -> finite squared decay
+                              |
+                 X current causal producer frontier
+                              v
+[OPEN] cofinal transition-product control
+       + physical-gap/rate calibration on that same completed family
+                              v
+[OPEN] cutoff/spacing limits -> projective measure -> OS/GNS/QFT
+                              v
+[OPEN] every compact simple group -> isolated vacuum -> Delta > 0
+                              |
+          CONTRACT: one kernel-checked theorem with all pins preserved
+                              v
+WHOLE-PROJECT GOAL / CLAY TARGET
+```
+
+The normalized channel's unit floor is an actual checked uniformity witness:
+`one_le_normalizedMovingCubeNormSq` and
+`one_le_normalizedMovingCubeSampledConnectedAutocorrelation_zero` use only
+`{propext, Quot.sound}`.  They establish finite-scale nontriviality and its
+conditional passage through an explicit limit; they do not supply that limit,
+the cofinal producer, or the continuum theory.
+
 **Finite forward seed (2026-09-20):**
 `BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` now inhabits the
 same-carrier canonical power debt at the honest base case `K=0`, depth `3`.
