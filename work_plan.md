@@ -34,6 +34,45 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Bounded chronological calculus on the original Wilson carrier (2026-09-20)
+
+**Progress, fixed-spacing observable lane:**
+`BF4WilsonChronologicalOperator.lean` extends the existing `Program` to an
+actual map `act` on every vector of the SAME Wilson completion. Its vacuum
+leaf is the identity operator, and `act_unit` recovers the old `evaluate`
+exactly. `adjoint_balance` proves that the explicitly reversed composition
+`adjointAct` is its adjoint in the original completed pairing;
+`adjoint_square_nonnegative` proves positivity of its actual operator square.
+
+The new analytic estimate is `act_norm_bound`, with computable `squaredCap`:
+identity costs 1, zero costs 0, a sum costs twice the sum of its two caps,
+rational scaling costs the coefficient square, time costs no new factor,
+and a character insertion costs the existing `characterBound spin`.
+`act_distance_bound` controls every pair of completed inputs.
+`inputTolerance p epsilon = epsilon / (squaredCap p + 1)` gives an explicit
+tolerance, including for a zero program. `act_approximationProgram_bound`
+uses the EXISTING finite approximation at that tolerance and the supplied
+Cauchy modulus. `compiledWindow_norm_bound` is the other immediate consumer:
+every original finite signed spatial-loop window receives its computed cap.
+
+**Boundary:** this is presentation-dependent bounded operator calculus, not
+an inference from equal vacuum outputs to equal operators. Finite products
+of spatial loops at different times are not all loops involving temporal
+links. Full gauge-observable coverage, canonical reflected OS identification,
+the changing-spacing original-action estimates, physical mass, continuum QFT,
+and every compact simple group remain open. No canonical frontier field is
+weakened or inhabited; no `sorry` is introduced or discharged.
+
+**Parallel review:** Luna inventoried the existing finite-window construction
+and reviewed the operator definitions and scope; the main agent proved and
+checked the new estimate. The final direct check
+`/tmp/ym-gap-chronological-operator-final.log` PASSed all 19 exported gates;
+`squaredCap` is axiom-free and the remaining declarations use only
+`{propext, Quot.sound}`. The narrow dependency-complete target
+`+YMGap.Continuum.BF4WilsonChronologicalOperator:olean` also PASSed
+(one worker, 20 GiB worker limit). The semantic-root import was added; no
+full-root build or audit was run or inferred from a historical build.
+
 ### AF physical-gap calibration obstruction (2026-09-20)
 
 **Progress: a proposed middle-out join is refuted, not discharged.**
@@ -74,6 +113,19 @@ using `DynamicSpinCubeOffRayResidualCoercivityFamily.strength` in
 stream before adding another factorization wrapper. Its family, band and
 original-action/OS identification remain separate inputs; a scalar
 variation estimate alone does not construct them.
+
+Read-only producer check (2026-09-20):
+`MatchedPhysicalDynamicScalarTrajectory` in
+`BF4PhysicalMatchedAFDynamicFamilyCompiler.lean` provides positive/windowed
+couplings and spacing-to-zero data, but no coupling recurrence or step bound.
+The uniform sector mass floor also uses a nome-dependent finite cutoff and
+finite minimum; the searched route exports no continuity/variation estimate
+for this composite. `PhysicalSpacingEnvelope` in
+`BF4MatchedPhysicalAFBridge.lean` bounds spacing from ABOVE by a quadratic
+coupling expression, not from below. Hence the explicit row-capacity decay
+alone is not a proved obstruction for the rescaled strength. Construct the
+missing cross-scale comparison; do not claim either variation or its failure
+from the present pointwise hypotheses.
 
 Rescaled-strength verification: `/tmp/ym-gap-rescaled-strength-final.log`
 PASS; all eleven printed declarations use only `{propext, Quot.sound}`.

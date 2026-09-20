@@ -13,6 +13,27 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED finite chronological Wilson action (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4WilsonChronologicalOperator.lean`.
+- **proved**: `act` gives the existing finite signed spatial-loop syntax an
+  actual action on every vector of the same completed carrier;
+  `adjointAct` reverses compositional nodes and satisfies the completed-form
+  balance law.  The recursive `squaredCap` supplies the all-vector bound,
+  `inputTolerance` is the explicit `epsilon / (squaredCap + 1)` tolerance,
+  and `act_approximationProgram_bound` and `compiledWindow_norm_bound` give
+  the approximation and compiled-window consumers.
+- **boundary**: this is fixed-spacing, small-nome SU(2) and presentation
+  dependent.  It does not provide full gauge-observable coverage (including
+  temporal-link loops), canonical OS/QFT reconstruction, changing-spacing or
+  physical-mass control, continuum/all-group construction, or any Clay result.
+- **verification**: `/tmp/ym-gap-chronological-operator-final.log` PASS;
+  all 19 exported gates use at most `{propext, Quot.sound}` (`squaredCap`
+  is axiom-free), with no `sorryAx`. The dependency-complete monitored target
+  `+YMGap.Continuum.BF4WilsonChronologicalOperator:olean` also PASSed
+  (one worker, 20 GiB worker limit). No hole was introduced or discharged;
+  no full-root build or audit is claimed.
+
 ## PROVED AF physical-gap calibration obstruction (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/AFTrajectoryPhysicalGapCalibrationObstruction.lean`.

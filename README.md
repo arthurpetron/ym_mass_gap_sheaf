@@ -45,6 +45,20 @@ The family, normalized-strength law, positive band, observable pin, and `r`
 variation remain open inputs. No Wilson/OS, continuum, all-group, or Clay
 claim follows.
 
+**Finite chronological Wilson action (2026-09-20):**
+`BF4WilsonChronologicalOperator.lean` extends the existing finite signed
+spatial-loop syntax to an actual all-vector action on the same completed
+carrier. Reversing the compositional nodes supplies `adjointAct`; the
+recursive `squaredCap` gives the completed-form bound, and
+`inputTolerance = epsilon / (squaredCap + 1)` feeds
+`act_approximationProgram_bound`. `compiledWindow_norm_bound` transfers the
+cap to every compiled finite window. This is fixed-spacing, small-nome SU(2)
+and presentation-dependent: full gauge-observable coverage (including
+temporal-link loops), canonical OS/QFT, changing-spacing/physical mass,
+continuum, all-group, and Clay conclusions remain open.
+The direct check and narrow dependency build passed; all 19 exported
+declarations stay within `{propext, Quot.sound}`. No full-root audit was run.
+
 **Constructive certificate rule (2026-09-20):** a finite certificate informs
 the continuum route only when its approximating object, explicit modulus, and
 uniformity remain attached to the same theory through the limit.  The new
@@ -956,8 +970,9 @@ it to the existing vacuum gives the original loop state. Consequently
 subtracting its vacuum means gives the existing connected scalar and decay
 bound. The action, state space, time operator and vacuum are unchanged.
 
-This remains fixed-spacing, small-nome SU(2). General multi-time observable
-realization, full coverage, canonical Hilbert/OS/QFT, changing-spacing control,
+This remains fixed-spacing, small-nome SU(2). Finite signed spatial-loop
+window realization is now available, while full gauge-observable coverage
+(including temporal-link loops), canonical Hilbert/OS/QFT, changing-spacing control,
 physical mass calibration and every-group continuum construction remain open.
 Four focused checks passed all 24 public axiom gates within
 `{propext, Quot.sound}`; no root/full-tree audit ran. See the

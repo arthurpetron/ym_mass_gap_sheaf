@@ -5058,6 +5058,8 @@ import YMGap.Continuum.BF4WilsonExpressionExpansion
 import YMGap.Continuum.BF4WilsonWindowOperatorPins
 import YMGap.Continuum.BF4WilsonChronologicalProgram
 import YMGap.Continuum.BF4WilsonWindowRealization
+-- The same finite programs act boundedly on every completed input, with explicit adjoints.
+import YMGap.Continuum.BF4WilsonChronologicalOperator
 import YMGap.Continuum.BF4ExactSlabPairwiseResponseObstruction
 import YMGap.Continuum.RationalPositiveRatioComparison
 import YMGap.Continuum.RationalVarianceComparison
