@@ -15051,6 +15051,40 @@ target check hit the default elaboration budget; explicit typed intermediate
 arguments resolved it without increasing heartbeats.  The final checks pass.
 No full-tree build, root check, or full axiom audit is claimed.
 
+## Canonical one-step density laws and explicit multi-slab power debt (2026-09-19)
+
+- **milestone**: package the exact physical one-step density laws while
+  preserving the missing same-carrier multi-slab identity as a constructive
+  Type-level obligation.
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalVacuumSectorCanonicalFullDensityCertificate.lean`.
+- **proved declarations**:
+  `canonicalFullDensityOneStepState_row`,
+  `canonicalFullDensityOneStepState_column`, and
+  `canonicalFullDensityOneStepState_reconstructs_joint`.
+- **closed sub-obligation**: the canonical state-level conditional density is
+  exactly the existing reflected physical conditional density on the complete
+  positive carrier.  Its weighted rows and columns normalize to one, and it
+  reconstructs the normalized reflected joint from the two physical marginals.
+  These are direct kernel-checked transports of the existing finite physical
+  laws, not new factorization assumptions.
+- **remaining named obligation**:
+  `CanonicalFullDensityPowerDebt.full_density_power` must prove the exact
+  multi-slab power identity on the same physical carrier.  The indexed
+  factorization adapter also still needs its totalized-row and closure wiring;
+  one-step normalization does not discharge either obligation.
+- **constructive or propositional**: the three proved declarations use only
+  the existing finite state-level witnesses.  No `sorry`, new hypothesis,
+  classical axiom, custom axiom, `native_decide`, or `noncomputable`
+  declaration was introduced.  The new debt is a `Type`-valued structure so
+  an inhabitant must carry the missing witness rather than erase it.
+
+Verification: the focused monitored target
+`+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate:olean`
+passed (1487 dependency jobs, one worker).  The three printed declarations
+report only `[propext, Quot.sound]`.  No full-root build or aggregate axiom
+audit is claimed here.
+
 ## Current status (2026-05-28; updated 2026-08-31)
 
 **The entire `YMGap` library is now sorry-free (`lake build` reports 0

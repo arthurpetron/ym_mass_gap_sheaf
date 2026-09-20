@@ -56678,6 +56678,35 @@ generalization, or the Clay target.  Focused check:
 runner (8 GiB reserve); both declarations report only `{propext, Quot.sound}`
 and no `sorryAx`.
 
+## 242. Package canonical density laws and expose the multi-slab power debt (2026-09-19)
+
+The supplied constructive-certificate criterion is now applied at the next
+finite carrier seam.  `BF4PhysicalVacuumSectorCanonicalFullDensityCertificate.lean`
+defines the canonical one-step state density by reusing the exact reflected
+physical conditional density, then proves
+`canonicalFullDensityOneStepState_row`,
+`canonicalFullDensityOneStepState_column`, and
+`canonicalFullDensityOneStepState_reconstructs_joint`.  Thus the positive
+physical carrier has exact weighted row/column normalization and exact
+reconstruction of the normalized reflected joint from its two marginals.
+
+The same module introduces the Type-valued
+`CanonicalFullDensityPowerDebt`.  Its field
+`full_density_power` is the still-uninhabited exact multi-slab identity on the
+same physical carrier required by the indexed full-factorization adapter; the
+adapter's totalized-row and closure wiring remain separately open.  This is an
+honest certificate boundary: one-step normalization is not silently promoted
+to multi-slab factorization, and no factorization, cofinal rate, continuum
+limit, QFT axiom package, all-group theorem, or Clay conclusion is claimed.
+
+Focused monitored target
+`+YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityCertificate:olean`
+passed with 1487 dependency jobs and one worker.  The three checked
+declarations report only `{propext, Quot.sound}`; no full-root audit is
+claimed.  The next causal producer is the same-carrier multi-slab witness,
+followed by indexed totalization/closure and an explicit uniform scale/error
+modulus for the continuum-facing rate.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A
