@@ -332,7 +332,7 @@ def anchorCentralBottomFaceConnectedAutocorrelation_certificate :
     CReal.ExplicitConvergenceCertificate
       anchorCentralBottomFaceConnectedAutocorrelation CReal.czero where
   modulus := centralBottomFaceClusteringModulus
-  approximationModulus := fun _ => 0
+  approximationModulus := fun _ _ => 0
   bound := by
     intro epsilon hepsilon half hhalf cutoff hcutoff
     exact anchorCentralBottomFaceConnectedAutocorrelation_after_modulus

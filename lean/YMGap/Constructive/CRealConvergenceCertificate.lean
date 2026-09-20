@@ -30,18 +30,18 @@ namespace CReal
 /-- A convergence witness with executable term and approximation moduli.
 
 `modulus ε` selects a term stage after which the estimate holds, while
-`approximationModulus ε` selects one approximation stage that works uniformly
-for every later term.  The latter is intentionally independent of the term
-index: it is the shape needed for a certificate to survive a discrete-to-
-continuous passage without reopening a hidden existential.
+`approximationModulus ε N` selects the approximation stage for each later term.
+Keeping this second threshold as data is the constructive replacement for the
+inner existential in the legacy proposition; it may depend on the term stage,
+as it does for a diagonal CReal completion.
 -/
 structure ExplicitConvergenceCertificate
     (s : Nat → CReal) (limit : CReal) : Type 1 where
   modulus : Q' → Nat
-  approximationModulus : Q' → Nat
+  approximationModulus : Q' → Nat → Nat
   bound : ∀ ε : Q', (0 : Q') < ε →
     ∀ N : Nat, modulus ε ≤ N →
-      ∀ n : Nat, approximationModulus ε ≤ n →
+      ∀ n : Nat, approximationModulus ε N ≤ n →
         (s N).approx n ≤ limit.approx n + ε ∧
           limit.approx n ≤ (s N).approx n + ε
 
@@ -56,7 +56,7 @@ def toConvergesTo
     CReal.ConvergesTo s limit := by
   intro ε hε
   refine ⟨certificate.modulus ε, fun N hN =>
-    ⟨certificate.approximationModulus ε, fun n hn =>
+    ⟨certificate.approximationModulus ε N, fun n hn =>
       certificate.bound ε hε N hN n hn⟩⟩
 
 end ExplicitConvergenceCertificate
