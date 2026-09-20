@@ -134,6 +134,31 @@ modulus forward to the completed vacuum-sector consumer; until then the
 cofinal gap, physical calibration, thermodynamic/continuum passage, QFT
 reconstruction, all-group extension, and Clay endpoint remain open.
 
+### AF-to-continuum certificate compiler (2026-09-20)
+
+`BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.lean` closes
+the backward-facing packaging seam.  Its
+`exactRateCauchyOfAFTrajectoryNumeratorCalibration` transports the proved AF
+summable variation through the explicit same-object numerator calibration
+`family.latticeMargin j ≈ shiftedTau C j * family.transferSpacing.spacing j`.
+The constructor
+`DynamicVacuumSectorContinuumCertificate.ofAFTrajectoryNumeratorCalibration`
+then combines that rate modulus with the compiled physical floor and the
+already typed projective OS, reconstructed spectral-channel, and exact-rate
+fields.  Thus every payload component remains attached to one completed
+observable pin and one exact-rate sequence.
+
+This is a conditional compiler, not an inhabitant of its calibration,
+spacing tail, continuum existence, OS/GNS reconstruction, spectral channel, or
+exact-rate comparison.  The forward cofinal transfer margin and the physical
+calibration are still the center frontier; no thermodynamic/continuum, full
+QFT, all-group, or Clay theorem is claimed.
+
+Focused check:
+`/tmp/BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.olean`
+PASS; both printed declarations use only `{propext, Quot.sound}` and no
+`sorryAx`.
+
 ### Current certificate gate: approximant, modulus, and same-object descent (2026-09-19)
 
 `BF4PhysicalDynamicVacuumSectorContinuumCertificate.lean` makes the

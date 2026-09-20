@@ -83,6 +83,24 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   PASS (1492 dependency jobs, one worker); all printed declarations use only
   `{propext, Quot.sound}`, with no `sorryAx`.
 
+## PROVED AF-to-continuum certificate compiler (2026-09-20 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.lean`.
+- **proved**: `exactRateCauchyOfAFTrajectoryNumeratorCalibration` transports
+  the AF trajectory's constructive summable variation through the explicit
+  same-completed-family numerator calibration and yields the Cauchy modulus
+  for the fixed exact physical-rate approximant.  `DynamicVacuumSectorContinuumCertificate.ofAFTrajectoryNumeratorCalibration`
+  packages that modulus with the compiled positive floor and the supplied
+  projective OS, reconstructed spectral-channel, and exact-rate handoffs.
+- **boundary**: this is a conditional compiler.  It does not inhabit the
+  numerator calibration, inverse-square spacing tail, continuum measure,
+  OS/GNS reconstruction, spectral channel, or exact-rate comparison; the
+  cofinal transfer margin and physical calibration therefore remain open.
+  No thermodynamic/continuum, full QFT, all-group, or Clay theorem is claimed.
+- **verification**: `/tmp/BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.olean`
+  PASS; both printed declarations use only `{propext, Quot.sound}`, with no
+  `sorryAx`.
+
 ## PROVED constructive certificate gate for the dynamic continuum route (2026-09-19 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorContinuumCertificate.lean`.

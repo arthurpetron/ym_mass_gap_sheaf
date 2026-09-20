@@ -106,6 +106,22 @@ the exact routed finite capacity margin.  Positivity of each finite margin and
 an AF spacing tail are conditional ingredients, not substitutes for these two
 same-object uniformity witnesses.
 
+**AF-to-continuum certificate compiler (2026-09-20):**
+`BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.lean` now
+joins the two typed sides at their smallest honest interface.  Given an AF
+trajectory, the same-completed-family numerator calibration
+`latticeMargin ≈ shiftedTau * spacing`, an inverse-square spacing tail, and the
+already explicit projective/OS/GNS and exact-rate fields, it constructs the
+full `DynamicVacuumSectorContinuumCertificate`.  The compiler preserves the
+fixed exact-rate approximant, its constructive Cauchy modulus, the compiled
+positive floor, and all same-object descent fields.  It does not construct the
+calibration, continuum measure, OS reconstruction, spectral channel, or exact
+rate comparison; those remain the open producer inputs.
+Focused check:
+`/tmp/BF4PhysicalDynamicVacuumSectorAFTrajectoryContinuumCertificate.olean`
+PASS; both exported declarations use only `{propext, Quot.sound}` and no
+`sorryAx`.
+
 This project is a Mathlib-free Lean 4 formalization of a constructive route
 from four-dimensional lattice gauge theory to continuum quantum Yang--Mills.
 The active concrete data are SU(2) BF4 lattice data. The positive
