@@ -132,9 +132,12 @@ PASS (1667 dependency jobs, one worker); the new projection uses only
 It contracts the exact normalized limit, exact scheduled CReal rate-power
 limit, direct rate-power clustering consumer, positive-rate witness, the
 same-object squared-decay estimate, and both rational Euler endpoint
-convergence moduli.  The constructor consumes the existing raw,
+convergence contracts.  The constructor consumes the existing raw,
 normalization-debt, physical-gap, and scheduled-rate variation certificates;
 it proves no new producer estimate and does not assert a cutoff-uniform gap.
+Those endpoint fields use the repository's current `ConvergesTo` interface,
+whose threshold is still `Prop`-level; a Type-level modulus refinement remains
+an explicit follow-on obligation.
 The remaining center gap is still the construction of those same-family
 variation/cofinal inputs, followed by spacing/thermodynamic passage and the
 OS/QFT/all-group/Clay layers.

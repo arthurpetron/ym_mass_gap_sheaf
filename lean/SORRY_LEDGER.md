@@ -16,8 +16,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 ## PROVED same-object physical-exponential certificate (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate.lean`.
-- **proved**: `NormalizedMovingCubePhysicalExponentialCertificate.ofRationalVariations` contracts the same completed-family normalized limit, exact CReal scheduled-rate limit, direct rate-power clustering witness, positive-rate data, same-object squared decay, and both rational Euler endpoint convergence moduli into one typed certificate.
+- **proved**: `NormalizedMovingCubePhysicalExponentialCertificate.ofRationalVariations` contracts the same completed-family normalized limit, exact CReal scheduled-rate limit, direct rate-power clustering witness, positive-rate data, same-object squared decay, and both rational Euler endpoint convergence contracts into one typed certificate.
 - **boundary**: the constructor consumes explicit raw, normalization-debt, physical-gap, and scheduled-rate variation inputs.  It does not prove those inputs, a cofinal uniform gap, spacing/thermodynamic passage, OS/QFT reconstruction, all-group extension, or the Clay mass gap.
+- **modulus note**: the endpoint fields use the repository's existing `ConvergesTo` interface, whose threshold is `Prop`-level; a Type-level modulus refinement remains open under the constructive certificate rule.
 - **verification**: `+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate:olean` PASS; the exported constructor uses only `{propext, Quot.sound}`, with no `sorryAx`.
 
 ## PROVED normalized same-object clustering bridge (2026-09-20 UTC)

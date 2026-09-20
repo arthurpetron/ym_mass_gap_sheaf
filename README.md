@@ -115,9 +115,12 @@ the forward and backward payloads into
 The certificate retains one completed-family normalized limit, one exact CReal
 scheduled-rate limit, the direct rate-power clustering witness, the supplied
 positive-rate data, the same-object squared-decay bound, and both rational Euler
-endpoint convergence moduli.  This is the certificate shape demanded by the
-constructive continuum rule: object, modulus, and comparison data remain
-dependent on the same observable.  It does not inhabit any variation input or
+endpoint convergence contracts.  This is the certificate shape demanded by the
+constructive continuum rule at the current interface: object, convergence
+contract, and comparison data remain dependent on the same observable.  The
+repository's legacy `ConvergesTo` encoding still stores its threshold in a
+`Prop`-level existential; a Type-level modulus refinement remains open.  It does
+not inhabit any variation input or
 uniform cofinal producer; physical-gap calibration, spacing/thermodynamic
 passage, OS/QFT reconstruction, all-group extension, and the Clay mass gap
 remain open.

@@ -49,7 +49,8 @@ open YMGap.Continuum.SummableRationalStepVariation
 
 /-- A physical-exponential certificate keeps the normalized continuum limit,
 the exact scheduled CReal rate-power limit, the direct clustering witness, and
-the endpoint comparison moduli in one dependent object.  The `sameObjectSqDecay`
+the endpoint comparison contracts in one dependent object.  The
+`sameObjectSqDecay`
 field records the stronger rational-variation compiler output rather than
 reconstructing it from an unrelated correlation stream. -/
 structure NormalizedMovingCubePhysicalExponentialCertificate
