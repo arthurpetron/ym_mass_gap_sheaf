@@ -34,6 +34,38 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Localized two-nome original-observable coupling path (2026-09-20)
+
+`BF4ExactSlabFiniteCouplingPath.weighted_difference_bound` constructs the
+mixed positive densities one face at a time. `BF4ExactSlabTwoNomeExpectationBound`
+uses the common cutoff `max (headCutoff u) (headCutoff v)` and compares the
+unchanged existing CReal expectations, with an all-nome finite-volume cost
+linear in the inner face count. `BF4ExactSlabLocalizedCouplingBound` combines
+that middle estimate with the instantiated geometric boundary localization,
+giving `localized_coupling_bound` uniformly in every outer padding: the cap is
+`B_v(m) + #innerFaces * oneFaceCap + B_u(m)`, with both explicit coupling-
+dependent rates/amplitudes and `W` retained.
+
+The boundary terms use the existing small-nome guards; no new spatial
+hypothesis is introduced. This is an actual changing-coupling observable
+path, not a same-OS cross-scale identification, uniform physical calibration,
+positive-time survival result, full QFT, or all-group closure.
+
+**Next residue:** control this budget along a justified changing-spacing
+family. The small-nome guards are not established on a continuum trajectory;
+neither a uniform coupling modulus nor positive-time survival follows yet.
+Further packaging of a supplied rate band is not a substitute for that input.
+
+**Verification:** the dependency-complete monitored target
+`+YMGap.Continuum.BF4ExactSlabLocalizedCouplingBound:olean` and direct logs
+`/tmp/ym-gap-coupling-{congruence,common,path,states,localized}-final.log`
+PASSed. All 19 exported gates use at most `{propext, Quot.sound}`, with no
+warnings or `sorryAx`. Checks were serialized at one worker and a 20 GiB
+ceiling. No full-root build/audit was run, no hole was introduced or
+discharged, and no frontier field was changed. Luna drafted the normalized
+congruence and common-cutoff helpers and reviewed scope/documentation; the
+main agent integrated, proved and checked the finite path and consumers.
+
 ### Cutoff-independent one-face coupling stability (2026-09-20)
 
 `BoundedNomePowerDifference.weighted_qpow_difference` retains the `W^n`
@@ -48,8 +80,9 @@ then bounds the normalized one-face change by
 its own `(w,J)` and constructs its positivity; no cutoff, extent, or
 background-volume factor remains.
 
-This is not uniform as `W→1`; all-face telescoping still needs a summable
-spatial response estimate. It supplies no survival, OS scaling, full-QFT,
+This is not uniform as `W→1`; direct all-face telescoping incurs a face-count
+cost (localized by the subsequent milestone above, under small-nome guards).
+It supplies no survival, OS scaling, full-QFT,
 all-group, or continuum closure. The next physical task is a genuine
 cross-scale original-observable comparison, not another rate-band wrapper.
 

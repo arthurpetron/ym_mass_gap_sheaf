@@ -4502,6 +4502,14 @@ import YMGap.Continuum.BoundedNomePowerDifference
 import YMGap.Continuum.SU2HeatQuarticPrefixBound
 import YMGap.Continuum.BF4ExactSlabCouplingVariationInterval
 import YMGap.Continuum.BF4ExactSlabOneFaceCouplingStability
+-- A constructed finite coupling path reaches the existing cutoff-removed
+-- states; boundary localization removes the OUTER face-count dependence.
+-- Small-nome guards and inner-window costs remain explicit, not continuum control.
+import YMGap.Continuum.QuaternionHaarNormalizedMomentCongruence
+import YMGap.Continuum.BF4ExactSlabFiniteCouplingPath
+import YMGap.Continuum.BF4ExactSlabCommonCutoffExpectations
+import YMGap.Continuum.BF4ExactSlabTwoNomeExpectationBound
+import YMGap.Continuum.BF4ExactSlabLocalizedCouplingBound
 import YMGap.Continuum.BF4ExactSlabRetainedHeadCorrelation
 import YMGap.Continuum.RationalConnectedResponse
 import YMGap.Continuum.RationalConnectedResponsePerturbation

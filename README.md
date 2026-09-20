@@ -2,10 +2,11 @@
 
 > **Current frontier (2026-09-20 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
-> A new original-Haar estimate compares two couplings on one face, with no
-> representation-cutoff or background-volume factor and explicit coupling
-> dependence. This is local control, not a whole-lattice scaling theorem.
-> Positive-time continuum survival, spatially summable response, physical
+> A new original-observable estimate compares two couplings after removing
+> the heat cutoff. Boundary localization makes its cost independent of
+> outer volume, under explicit small-nome guards; the inner-window cost
+> and coupling dependence remain. This is not continuum scaling control.
+> Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
@@ -14,6 +15,20 @@
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.
 
+**Localized coupling comparison (2026-09-20):**
+`BF4ExactSlabLocalizedCouplingBound.localized_coupling_bound` compares the
+existing original expectations at nomes `0<u<=v<=W<1`. A constructed
+finite path changes the actual heat factors, and a common cutoff reaches
+the existing CReal limits. For a finite plaquette expression, the bound is
+`B_v(m) + #innerFaces * oneFaceCap + B_u(m)` for **every outer padding**.
+The boundary errors decay geometrically under the displayed small-nome
+guards; their coupling-dependent rates and amplitudes remain explicit.
+This removes the exterior face count, not the inner-window cost or the
+need for a justified continuum trajectory. It does not prove positive-time
+survival, physical calibration, or full OS/QFT reconstruction.
+The targeted build and all 19 exported axiom checks passed with at most
+`{propext, Quot.sound}`; no full-root build/audit was run.
+
 **Original one-face coupling comparison (2026-09-20):**
 `BF4ExactSlabOneFaceCouplingStability.original_background_normalized`
 compares normalized expectations after changing one face's heat nome from
@@ -21,8 +36,9 @@ compares normalized expectations after changing one face's heat nome from
 `2*c*prefixBudget(W)*|v-u|/(W*headFloor(v))`; the cutoff must exceed both
 computed positive-head thresholds. All shared links and the actual
 partitions are retained. The bound is cutoff/volume independent for fixed
-displayed parameters, **not uniform as W approaches one**. Changing all
-faces still requires spatial-response control to avoid a face-count loss.
+displayed parameters, **not uniform as W approaches one**. Direct all-face
+telescoping has a face-count loss; the newer localization above restricts
+that loss to the inner window under its small-nome guards.
 The targeted build and all 32 axiom checks passed with at most
 `{propext, Quot.sound}`; no full-root build/audit was run.
 

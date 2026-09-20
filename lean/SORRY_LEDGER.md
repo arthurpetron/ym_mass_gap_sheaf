@@ -13,6 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED localized two-nome original-observable coupling path (2026-09-20 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/QuaternionHaarNormalizedMomentCongruence.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabFiniteCouplingPath.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCommonCutoffExpectations.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabTwoNomeExpectationBound.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabLocalizedCouplingBound.lean`.
+- **scope**: the finite path constructs mixed intermediate positive densities;
+  the two-nome bound uses the common cutoff
+  `max (headCutoff u) (headCutoff v)` and preserves the existing CReal states.
+  The all-nome finite-volume estimate is linear in the inner face count.
+  Instantiated geometric boundary localization then gives a cap
+  `B_v(m)+#innerFaces*oneFaceCap+B_u(m)`, uniform in outer padding, with both
+  coupling-dependent rates/amplitudes and `W` explicit.
+- **boundary**: the boundary estimates retain their small-nome guards and
+  introduce no new spatial hypothesis. This is a changing-coupling original
+  observable path, not a same-OS cross-scale identification, uniform physical
+  calibration, positive-time survival, full QFT, all-group closure, or a Clay
+  result.
+- **residue**: budget control along a justified changing-spacing family,
+  including the validity of the spatial guards there, remains unproved.
+  No uniform coupling modulus or positive-time survival is claimed.
+- **verification**: the monitored dependency-complete target
+  `+YMGap.Continuum.BF4ExactSlabLocalizedCouplingBound:olean` and direct logs
+  `/tmp/ym-gap-coupling-{congruence,common,path,states,localized}-final.log`
+  PASSed all 19 exported gates with at most `{propext, Quot.sound}`, no
+  warnings and no `sorryAx`. Checks used one worker and a 20 GiB ceiling;
+  no full-root build/audit was run. No hole was introduced or discharged
+  and no frontier field was changed.
+
 ## PROVED cutoff-independent original one-face coupling estimate (2026-09-20 UTC)
 
 - **files**:
@@ -30,7 +61,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   its own nome `w` and cutoff `J`, with constructed positivity; no cutoff,
   extent, or background-volume factor appears.
 - **boundary**: the cap is coupling-dependent and not uniform as `W→1`.
-  Summing over all faces still needs a summable spatial response estimate.
+  Direct all-face summation incurs a face-count cost; the subsequent
+  localized milestone above controls outer padding under small-nome guards.
   This is not survival, OS scaling, physical normalization, continuum QFT,
   all-group closure, or a Clay result; the next task is a cross-scale
   original-observable comparison rather than another rate wrapper.
