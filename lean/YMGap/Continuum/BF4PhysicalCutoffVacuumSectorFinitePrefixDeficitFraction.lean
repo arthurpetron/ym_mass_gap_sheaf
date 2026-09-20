@@ -389,6 +389,20 @@ def ofCofinalRateCeiling
       Q'.add_le_add_left 1 _ _ (Q'.neg_le_neg hmonotone)
     exact Q'.le_trans' _ _ _ hq hrequest
 
+/-- The same conversion can be driven directly by the existing all-base
+uniform-rate certificate.  The identity schedule is supplied by the
+cofinal-rate bridge; this definition adds no new estimate. -/
+def ofUniformConstructedVacuumSectorRateBound
+    {w : Q'} {hw0 : (0 : Q') < w} {hw1 : w < (1 : Q')}
+    {half : Nat} {q : Q'}
+    (family : FixedNomeUniformConstructedVacuumSectorRateBound
+      w hw0 hw1 half q) :
+    FixedNomeCofinalFinitePrefixDeficitFloor
+      w hw0 hw1 half ((1 : Q') + (-q)) :=
+  ofCofinalRateCeiling
+    (YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCofinalPrefixRateBridge.FixedNomeUniformConstructedVacuumSectorRateBound.toCofinalFinitePrefixRateCeiling
+      family)
+
 private theorem one_sub_lt_one_local (fraction : Q')
     (hfraction : (0 : Q') < fraction) :
     (1 : Q') + (-fraction) < (1 : Q') := by
@@ -424,6 +438,20 @@ def toUniformConstructedVacuumSectorRateBound
       (fixedBaseRate_le_finitePrefixRate
         hw0 hw1 half base base (Nat.le_refl base)) hprefix
 
+/-- A cofinal deficit floor can be returned to the schedule-shaped rate
+certificate with the identity schedule.  Together with
+`ofCofinalRateCeiling`, this exposes the exact typed forward/backward
+interface between the two certificates. -/
+def toCofinalFinitePrefixRateCeiling
+    {w : Q'} {hw0 : (0 : Q') < w} {hw1 : w < (1 : Q')}
+    {half : Nat} {fraction : Q'}
+    (family : FixedNomeCofinalFinitePrefixDeficitFloor
+      w hw0 hw1 half fraction) :
+    FixedNomeCofinalFinitePrefixRateCeiling
+      w hw0 hw1 half ((1 : Q') + (-fraction)) :=
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCofinalPrefixRateBridge.FixedNomeUniformConstructedVacuumSectorRateBound.toCofinalFinitePrefixRateCeiling
+    family.toUniformConstructedVacuumSectorRateBound
+
 end FixedNomeCofinalFinitePrefixDeficitFloor
 
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction
@@ -439,4 +467,8 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.FixedNomeCofinalFinitePrefixDeficitFloor.ofCofinalRateCeiling
 #print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.FixedNomeCofinalFinitePrefixDeficitFloor.ofUniformConstructedVacuumSectorRateBound
+#print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.FixedNomeCofinalFinitePrefixDeficitFloor.toUniformConstructedVacuumSectorRateBound
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.FixedNomeCofinalFinitePrefixDeficitFloor.toCofinalFinitePrefixRateCeiling

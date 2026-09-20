@@ -46118,6 +46118,13 @@ passes with only `{propext, Quot.sound}`.  The missing generated
 `Shard008.olean` was then built by a 1608-job dependency target; no broader
 root replay is claimed for this strengthened import graph.
 
+The typed interface is now bidirectional: `ofUniformConstructedVacuumSectorRateBound`
+composes the existing identity-schedule ceiling with the new floor adapter, and
+`toCofinalFinitePrefixRateCeiling` returns a floor to the schedule-shaped rate
+certificate.  Focused source check
+`/tmp/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.check20.log`
+passes with only `{propext, Quot.sound}` and no `sorryAx`.
+
 #### [BF4-concrete-completed-carrier-realization] Concrete SU(2) carrier, transfer, vacuum, and correlator package — PROVED 2026-09-19
 
 - **milestone**: make the existing finite physical BF4/GNS objects meet in one

@@ -56508,6 +56508,13 @@ source check `/tmp/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.chec
 passes; the missing generated `Shard008.olean` was built by a 1608-job
 dependency target, but no broader root replay is claimed as complete.
 
+The adapter is now explicitly bidirectional: `ofUniformConstructedVacuumSectorRateBound`
+composes the existing identity-schedule ceiling with the floor conversion, and
+`toCofinalFinitePrefixRateCeiling` returns a cofinal floor to the
+schedule-shaped rate certificate.  Focused source check
+`/tmp/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.check20.log`
+passes with only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## 237. Make the finite physical carrier/correlator meet explicit (2026-09-19)
 
 `BF4PhysicalCompletedCarrierRealization.lean` now packages the existing
