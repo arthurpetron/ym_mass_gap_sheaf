@@ -98,14 +98,14 @@ certificate.  The pointwise equality is still an open producer obligation;
 no physical rate or continuum theorem is asserted.
 
 **Direct CReal rate-power clustering (2026-09-20):**
-The normalized certificate now also projects to
-`NontrivialRCSquaredRatePowerClustering` in
-`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.lean`.
-This retains the exact CReal limit of the scheduled rate-power stream and the
-same-observable unit floor without forcing a cutoff-independent rational ratio.
-It is the compatible consumer for the physical-exponential route; it still
-requires the raw/normalization variation certificate and does not construct a
-uniform completed gap or the continuum theory.
+`toNontrivialRCSquaredRatePowerClusteringOfLimits` in
+`BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.lean`
+takes only the exact normalized continuum limit and exact CReal rate-power
+limit.  It retains the same-observable unit floor without forcing a
+cutoff-independent rational ratio, so it is the compatible consumer for the
+physical-exponential route.  The bundled certificate has a wrapper for this
+projection; raw/normalization variation and a uniform completed gap remain
+open.
 
 **Finite forward seed (2026-09-20):**
 `BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt.lean` now inhabits the

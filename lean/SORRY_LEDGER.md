@@ -37,7 +37,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 ## PROVED direct CReal rate-power clustering consumer (2026-09-20 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering.lean`.
-- **proved**: `NontrivialRCSquaredRatePowerClustering` records squared decay against an exact CReal rate-power stream, and `NormalizedMovingCubeContinuumCertificate.toNontrivialRCSquaredRatePowerClustering` projects the same normalized continuum limit, rate-power representatives, decay inequality, and unit zero-time floor into that contract.
+- **proved**: `NontrivialRCSquaredRatePowerClustering` records squared decay against an exact CReal rate-power stream, and `toNontrivialRCSquaredRatePowerClusteringOfLimits` projects an exact normalized continuum limit plus exact rate-power limit—without a fixed-ratio field—while retaining the decay inequality and unit zero-time floor.  The bundled certificate projection is a wrapper.
 - **boundary**: this avoids a fixed-ratio assumption but does not construct raw or normalization-debt variation, the physical rate calibration, a uniform completed gap, OS/QFT reconstruction, an all-group theorem, or the Clay result.
 - **verification**: `+YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering:olean` PASS (1667 dependency jobs, one worker); the projection uses only `{propext, Quot.sound}`, with no `sorryAx`.
 
