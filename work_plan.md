@@ -56515,6 +56515,20 @@ schedule-shaped rate certificate.  Focused source check
 `/tmp/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.check20.log`
 passes with only `{propext, Quot.sound}` and no `sorryAx`.
 
+The half-zero global-path route is now formally pruned.  The declarations
+`no_halfZero_cofinalDeficitFloor`,
+`no_halfZero_cofinalDeficitFloor_nonempty`, and
+`no_halfZero_cofinalRateCeiling` transport the existing cutoff-growth
+contradiction through the bidirectional interface.  Thus a positive cofinal
+floor cannot be obtained from the global all-pairs path ceiling and global
+edge floor at half-extent zero.  The next producer must use localized
+posterior/capacity control, a multiscale Poincare estimate, or a direct
+completed-operator argument.  Focused source check
+`/tmp/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.check21.log`
+passes with only `{propext, Quot.sound}` and no `sorryAx`; the broader
+dependency replay was stopped during generated-shard expansion and is not
+claimed complete.
+
 ## 237. Make the finite physical carrier/correlator meet explicit (2026-09-19)
 
 `BF4PhysicalCompletedCarrierRealization.lean` now packages the existing
@@ -56537,6 +56551,21 @@ equivalent uniform strict form bound), then perform physical scaling and the
 thermodynamic/continuum/QFT passage.  Focused source check
 `/tmp/BF4PhysicalCompletedCarrierRealization.check7.log` and dependency target
 (1232 jobs) pass under `{propext, Quot.sound}`.
+
+## 238. Prune the half-zero global path ceiling (2026-09-19)
+
+The finite-prefix deficit module now imports the existing constructive no-go
+for the global path-ceiling/global positive-edge-floor compiler.  At
+half-extent zero, any inhabited `FixedNomeCofinalFinitePrefixDeficitFloor`
+would compile to a strict all-cutoff constructed-rate bound and hence to the
+explicit cutoff-growth contradiction.  The schedule-shaped ceiling is ruled
+out identically through the same adapter.
+
+This is a causal pruning result: it does not weaken the Clay target, and it
+does not rule out localized posterior estimates, capacity-weighted routing,
+multiscale Poincare control, or a direct completed-operator proof.  It prevents
+the campaign from treating the impossible global path ceiling as the missing
+uniform producer.
 
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 

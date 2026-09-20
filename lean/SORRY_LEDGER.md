@@ -46125,6 +46125,17 @@ certificate.  Focused source check
 `/tmp/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.check20.log`
 passes with only `{propext, Quot.sound}` and no `sorryAx`.
 
+The same interface now records the obstruction at the half-zero global-path
+route: `no_halfZero_cofinalDeficitFloor` and
+`no_halfZero_cofinalRateCeiling` reduce any such witness to the existing
+cutoff-growth contradiction in
+`BF4PhysicalCutoffVacuumSectorConstructedRateNoGo.lean`.  The witness-boundary
+form `no_halfZero_cofinalDeficitFloor_nonempty` is also proved.  Focused source
+check `/tmp/BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.check21.log`
+passes with only `{propext, Quot.sound}` and no `sorryAx`.  This is a pruned
+route, not a continuum or Clay result; it forces the next producer to be
+localized/capacity-weighted or genuinely operator-level.
+
 #### [BF4-concrete-completed-carrier-realization] Concrete SU(2) carrier, transfer, vacuum, and correlator package — PROVED 2026-09-19
 
 - **milestone**: make the existing finite physical BF4/GNS objects meet in one

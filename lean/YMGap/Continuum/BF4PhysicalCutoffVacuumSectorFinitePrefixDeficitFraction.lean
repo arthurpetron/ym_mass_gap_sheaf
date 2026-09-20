@@ -21,6 +21,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledConstructedUniformCRealGap
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorConstructedCofinalRateBridge
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCofinalPrefixRateBridge
+import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorConstructedRateNoGo
 
 namespace YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction
 
@@ -39,6 +40,7 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledConstructedUniformCRealG
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledUniformPoincareGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorConstructedCofinalRateBridge
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCofinalPrefixRateBridge
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorConstructedRateNoGo
 open YMGap.Continuum.HKPos
 
 local infix:50 " ≈ " => Q'.eqv
@@ -452,6 +454,41 @@ def toCofinalFinitePrefixRateCeiling
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCofinalPrefixRateBridge.FixedNomeUniformConstructedVacuumSectorRateBound.toCofinalFinitePrefixRateCeiling
     family.toUniformConstructedVacuumSectorRateBound
 
+/-! ## The half-zero global-path obstruction -/
+
+/-- At half-extent zero, the existing global path-ceiling/global edge-floor
+compiler makes a positive cofinal deficit floor impossible. -/
+theorem no_halfZero_cofinalDeficitFloor
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {fraction : Q'}
+    (floor : FixedNomeCofinalFinitePrefixDeficitFloor
+      w hw0 hw1 0 fraction) : False := by
+  exact
+    FixedNomeUniformConstructedVacuumSectorRateBound.impossible
+      floor.toUniformConstructedVacuumSectorRateBound
+
+/-- The same obstruction stated at the witness boundary. -/
+theorem no_halfZero_cofinalDeficitFloor_nonempty
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {fraction : Q'} :
+    Not (Nonempty
+      (FixedNomeCofinalFinitePrefixDeficitFloor
+        w hw0 hw1 0 fraction)) := by
+  intro hfloor
+  rcases hfloor with ⟨floor⟩
+  exact no_halfZero_cofinalDeficitFloor hw0 hw1 floor
+
+/-- The schedule-shaped half-zero ceiling is ruled out by the same
+ceiling-to-floor conversion. -/
+theorem no_halfZero_cofinalRateCeiling
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {q : Q'}
+    (ceiling : FixedNomeCofinalFinitePrefixRateCeiling
+      w hw0 hw1 0 q) : False := by
+  exact
+    FixedNomeUniformConstructedVacuumSectorRateBound.impossible
+      ceiling.toUniformConstructedVacuumSectorRateBound
+
 end FixedNomeCofinalFinitePrefixDeficitFloor
 
 end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction
@@ -472,3 +509,9 @@ end YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.FixedNomeCofinalFinitePrefixDeficitFloor.toUniformConstructedVacuumSectorRateBound
 #print axioms
   YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.FixedNomeCofinalFinitePrefixDeficitFloor.toCofinalFinitePrefixRateCeiling
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.FixedNomeCofinalFinitePrefixDeficitFloor.no_halfZero_cofinalDeficitFloor
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.FixedNomeCofinalFinitePrefixDeficitFloor.no_halfZero_cofinalDeficitFloor_nonempty
+#print axioms
+  YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFinitePrefixDeficitFraction.FixedNomeCofinalFinitePrefixDeficitFloor.no_halfZero_cofinalRateCeiling
