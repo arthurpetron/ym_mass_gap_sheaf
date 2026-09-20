@@ -97,6 +97,15 @@ Focused check:
 `/tmp/BF4PhysicalBoundaryCutoffOneCanonicalRowDistance.olean` PASS; both
 printed declarations use only `{propext, Quot.sound}` and no `sorryAx`.
 
+**Active producer frontier (2026-09-20):** the backward mass-calibration lane
+still needs a same-completed-family
+`SummableRationalStepVariation family.physicalGap` for
+`DynamicVacuumSectorObservablePin.exactLogRateCauchy`; the forward transfer
+lane still needs the cofinal scalar comparison between the fixed ray floor and
+the exact routed finite capacity margin.  Positivity of each finite margin and
+an AF spacing tail are conditional ingredients, not substitutes for these two
+same-object uniformity witnesses.
+
 This project is a Mathlib-free Lean 4 formalization of a constructive route
 from four-dimensional lattice gauge theory to continuum quantum Yang--Mills.
 The active concrete data are SU(2) BF4 lattice data. The positive

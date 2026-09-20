@@ -104,6 +104,36 @@ Focused check:
 `/tmp/BF4PhysicalBoundaryCutoffOneCanonicalRowDistance.olean` PASS; the two
 printed declarations use only `{propext, Quot.sound}` and no `sorryAx`.
 
+### Active forward/backward meet: two typed producer gaps (2026-09-20)
+
+The certificate rule now points to two exact center obligations rather than a
+generic “continuum limit” placeholder.
+
+* **Backward physical-mass input:**
+  `DynamicVacuumSectorObservablePin.exactLogRateCauchy` in
+  `BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.lean` requires
+  `SummableRationalStepVariation family.physicalGap` together with the
+  inverse-square spacing tail.  The spacing branch can be supplied
+  conditionally from an AF trajectory, but no inhabitant producing the
+  same-completed-family `physicalGap` variation was found.  The ratio/debt
+  compilers require independent variation data for the lattice margin and
+  transfer spacing; they do not manufacture it.
+* **Forward transfer input:**
+  `MatchedPhysicalDynamicExplicitRayCanonicalCapacityCheckProducer` in
+  `BF4PhysicalMatchedAFDynamicExplicitRayTransitionProductCompiler.lean`
+  requires an exact finite Boolean capacity check at every cofinal cutoff.
+  The routed finite capacity margin is positive and pays every edge, but its
+  comparison with the fixed compiled ray floor is not uniform in the cutoff.
+  The smallest missing field is the cofinal scalar margin comparison, not a
+  new positivity lemma.
+
+These are same-object producer obligations: neither may be replaced by the
+cutoff-one row certificate or by a different Markov/heat-bath operator.  Once
+one producer is inhabited, the existing adapters carry its witness and
+modulus forward to the completed vacuum-sector consumer; until then the
+cofinal gap, physical calibration, thermodynamic/continuum passage, QFT
+reconstruction, all-group extension, and Clay endpoint remain open.
+
 ### Current certificate gate: approximant, modulus, and same-object descent (2026-09-19)
 
 `BF4PhysicalDynamicVacuumSectorContinuumCertificate.lean` makes the
