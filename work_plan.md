@@ -34,7 +34,60 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Actual selected-link face derivative input is constructed (2026-09-21 UTC)
+### Actual six-face Ward score cost is bounded (2026-09-21 UTC)
+
+**PROGRESS -- the original score cost now has a constructed cap:**
+`BF4ExactSlabLocalWardScoreBound.incidentAngularBound` combines the ACTUAL
+reindexed incident factors, their original heat intervals and their proved
+angular-derivative intervals. `incidentIds_length_le_six` gives a bound
+independent of extent and cutoff at each strict nome. The computable budgets are
+
+    B = prefixCap w + 1, C = faceAngularCap w,
+    V_0=1, V_(n+1)=B*V_n,
+    D_0=0, D_(n+1)=C*V_n+B*D_n.
+
+`AngularProductBudget` proves nonnegativity and monotonicity, so V_6 and
+D_6 bound every incident star, including an empty one. The added one in B
+ensures B>=1. `QuaternionHaarAngularProductList.reindexedProductBound`
+retains the literal ordered product; the empty product's padded constant
+is transported by original Haar-carrier equality, not raw polynomial equality.
+
+**Same-action normalized consumer:** for an actual test certificate with
+value/derivative caps G,DG, `localScoreInterval` constructs
+
+    scoreCap = V_6*DG + 2*(D_6*G),
+    E_(R*A)[S^2] <= scoreCap^2,
+    normalizedResponse^2 <= Var_(R*A)(f)*scoreCap^2.
+
+The last two statements are `normalizedScoreSquare_le` and
+`normalizedResponse_squared_le_variance_cap`. The full W=R*A, its actual
+positive partition, and the entire signed f remain unchanged. The
+positivity guard is the existing `headCutoff w <= K`. For arbitrary tests,
+cutoff/extent independence requires G,DG to be fixed independently;
+`coordinateLocalScoreInterval` constructs such a case with caps (1,2).
+There is no new analytic assumption or frontier-field change.
+
+**Next producer / boundary:** choose useful original tests and observables
+and prove a response lower estimate, or a stronger relative score estimate,
+with enough spatial/nome control for the changing-spacing one-step/variance
+comparison. These conservative caps are nome-dependent and NOT uniform as
+w approaches one. No variance lower bound follows without a response floor.
+Continuum survival, physical mass, canonical OS/full QFT and every compact
+simple group remain open. Do not add more normalization wrappers in place
+of these missing estimates.
+
+**Verification / delegation:** the dependency-complete score target and
+three final direct checks passed all 15 gates within `{propext, Quot.sound}`,
+without warnings or `sorryAx`. Sol supplied the scalar recurrence proofs
+and independently reviewed product/normalization pins and uniformity;
+main supplied the actual Haar and Ward consumers. One monitored 20 GiB
+worker, no full-root build/audit. Logs:
+
+- `/tmp/ym-gap-AngularProductBudget-final.log`
+- `/tmp/ym-gap-QuaternionHaarAngularProductList-final.log`
+- `/tmp/ym-gap-BF4ExactSlabLocalWardScoreBound-final.log`
+
+### Actual selected-link face derivative input is constructed (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the former DX hypothesis is now supplied by the actual face:**
 `BF4ExactSlabPlaquetteAngularInterval.selectedPlaquetteAngularInterval`
@@ -75,10 +128,10 @@ original positive-certificate background, with cap `(faceAngularCap w)^2`.
 No late-cutoff positivity guard is required for the derivative interval
 itself. The background's positivity remains an explicit certificate.
 
-**Next consumer / honest boundary:** use the actual at-most-six incident
-faces and their value/derivative certificates to bound D A and the local
-Ward score, and choose a useful test/observable family with a response
-floor. The nome-dependent cap is NOT uniform as w approaches one; a
+**Next consumer at this checkpoint (now constructed above):** use the
+actual at-most-six incident faces to bound D A and the local Ward score.
+A useful test/observable family with a response floor is still missing.
+The nome-dependent cap is NOT uniform as w approaches one; a
 finite cost bound alone does not give the changing-spacing one-step to
 variance comparison. Useful spatial/nome control, continuum survival,
 physical mass, canonical OS/full QFT and every compact simple group remain

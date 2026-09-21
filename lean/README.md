@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Actual selected-link face derivatives (2026-09-21 UTC):**
+**Actual six-face Ward score cost (2026-09-21 UTC):**
+`BF4ExactSlabLocalWardScoreBound.lean` now bounds the actual incident
+product and its derivative using the at-most-six physical faces. Explicit
+Leibniz recurrences give a score cap and hence
+`normalizedResponse^2 <= Var_(R*A)(f)*scoreCap^2`, with the SAME full action,
+partition and signed observable. The cap is independent of cutoff/extent
+at fixed nome and fixed test caps; coordinate tests construct caps (1,2).
+It is not uniform near nome one. Useful response floors and spatial/scaling
+relative control remain open. Three final narrow checks passed all 15 gates
+within `{propext, Quot.sound}`; Sol supplied scalar proofs and independent
+review. No hole/field changes or full-root audit.
+
+**Actual selected-link face derivatives (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabPlaquetteAngularInterval.lean` constructs the previously
 missing scalar-derivative input, retaining the exact ordered quaternion
 word in the Ward frame. Tangential integration by parts transports
@@ -21,8 +33,8 @@ derivatives through original Haar-carrier equalities, including padding.
 reindexed face heat derivative by `4096*prefixBudget w`, independently
 of cutoff and extent at each strict nome. Squared costs retain arbitrary
 positive original backgrounds. The cap is not nome-uniform near one;
-incident-product/score estimates, response floors and spatial/scaling
-control remain open. Five final narrow checks passed all 31 gates within
+the incident-product/score cap is now supplied above, while response floors
+and spatial/scaling control remain open. Five final narrow checks passed all 31 gates within
 `{propext, Quot.sound}`; no hole/field changes or full-root audit.
 
 **Original character/heat angular derivatives (earlier checkpoint, 2026-09-21 UTC):**

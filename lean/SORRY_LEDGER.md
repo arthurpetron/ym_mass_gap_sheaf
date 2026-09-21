@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual selected-link plaquette and heat derivative certificates (2026-09-21 UTC)
+## PROVED original six-face Ward score cap (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/AngularProductBudget.lean`,
+  `QuaternionHaarAngularProductList.lean`, and
+  `BF4ExactSlabLocalWardScoreBound.lean`, in the same directory.
+- **scope**: `incidentAngularBound` constructs value and angular-derivative
+  intervals for the actual selected-link incident product using at most
+  six original face factors. The explicit recurrences start at (1,0)
+  and use B=prefixCap(w)+1 and C=faceAngularCap(w). Monotonicity justifies
+  the six-factor cap, including empty stars; reindexed constants are pinned
+  in Haar order. `localScoreInterval` bounds S=A*Dg+2*(DA)*g by
+  `wardScoreCap w G DG`. `normalizedScoreSquare_le` and
+  `normalizedResponse_squared_le_variance_cap` retain full W=R*A and
+  its actual positive partition, with the existing late-cutoff guard.
+  `coordinateLocalScoreInterval` constructs the test caps (1,2).
+- **uniformity / residue**: incident caps are independent of K and extent
+  at fixed strict nome. General score uniformity additionally requires fixed
+  test caps G,DG; coordinate tests supply them. The caps are not uniform
+  as w approaches one. Useful response floors, spatial/nome scaling control,
+  the relative energy/variance estimate, continuum survival, physical mass,
+  canonical OS/QFT and all groups remain open. No hole, axiom, canonical
+  field or analytic-input bundle was changed or introduced.
+- **verification**: dependency-complete target plus three final direct
+  checks passed all 15 gates within `{propext, Quot.sound}`, without
+  warnings or `sorryAx`. Sol supplied scalar proofs and independent review.
+  One monitored 20 GiB worker; no full-root build/audit. Logs in `work_plan.md`.
+
+## PROVED actual selected-link plaquette and heat derivative certificates (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarAngularCarrier.lean`,
   `QuaternionHaarCoordinateAngularInterval.lean`,

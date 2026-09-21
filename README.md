@@ -68,21 +68,36 @@
 > conditional on a bound for its scalar derivative. That input is now
 > constructed for the actual selected-face scalar, giving a heat-derivative
 > cap independent of cutoff and extent. The cap still depends on the nome.
-> Useful response floors and score-cost estimates are still open.
+> The at-most-six incident factors now give an explicit local Ward score
+> cap under the SAME full action. With fixed test caps it is independent
+> of cutoff and extent, but remains nome-dependent. Useful response floors
+> and sufficiently strong spatial/nome-relative estimates are still open.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Actual selected-link heat derivatives (2026-09-21 UTC):**
+**Original six-face Ward score cost (2026-09-21 UTC):**
+The actual local score now has an explicit bound, retaining every incident
+face and the full original probability weight. It gives
+`normalizedResponse^2 <= actualVariance * scoreCap^2`.
+The cap is independent of cutoff and slab extent at fixed nome and fixed
+test caps; coordinate tests have constructed caps (1,2). It is not uniform
+as the nome approaches one, and no variance floor follows without a useful
+response lower bound. That response and its spatial/scaling control are
+the next analytic work. Sol supplied scalar recurrence proofs and an
+independent review. All 15 gates passed three final narrow checks;
+no full-root audit or canonical frontier closure.
+
+**Actual selected-link heat derivatives (earlier checkpoint, 2026-09-21 UTC):**
 The formerly missing scalar-derivative certificate is now constructed for
 the literal four-link plaquette in the Ward frame. This gives the actual
 face heat derivative a bound of `4096*prefixBudget w`, independent of
 cutoff and slab extent at each strict nome. Original Haar integration by
 parts makes the coordinate-padding transport exact. The bound is
-conservative and remains nome-dependent, not uniform near one. Next are
-the incident-product/score cost and a useful response floor; the
-spatial/scaling passage remains open. Sol supplied coordinate certificates
+conservative and remains nome-dependent, not uniform near one. The
+incident-product/score cap is now supplied above; a useful response floor and
+the spatial/scaling passage remain open. Sol supplied coordinate certificates
 and independent review. All 31 printed gates passed five final narrow
 checks; no full-root audit or canonical frontier closure.
 
