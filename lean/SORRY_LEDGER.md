@@ -13,6 +13,30 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED original connected spatial decay for heterogeneous face parameters (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabLocalFactorProduct.lean`,
+  `BF4ExactSlabHeterogeneousHeatComparison.lean`,
+  `BF4ExactSlabHeterogeneousConnectedExpansion.lean`,
+  `BF4ExactSlabHeterogeneousRootedResummation.lean`, and
+  `BF4ExactSlabHeterogeneousDistanceDecay.lean`, all in the same directory.
+- **scope**: `connectedNumerator_distance_bound` proves the geometric
+  distance budget at an explicit guarded ceiling `W` for the actual action
+  with independent face nomes and cutoffs. It retains the SAME heterogeneous
+  partition square. Relative collar-removal bounds, signed coefficient
+  cancellation/resummation and the existing physical core count supply the
+  estimate; no spatial-mixing input is assumed.
+- **boundary**: nomes must lie in `[0,W]` and `W` must satisfy the displayed
+  small-nome heat and entropy guards. Probe caps, supports and separation
+  remain explicit. Normalized heterogeneous score/path consumption and its
+  location sum remain to be joined. No scaling trajectory, survival,
+  physical mass, continuum OS/QFT or all-group closure follows. No canonical
+  field or hole changed.
+- **verification**: the narrow dependency-complete distance target and five
+  final direct checks passed all 36 printed gates within `{propext, Quot.sound}`,
+  without warnings or `sorryAx`. Log paths are in the newest `work_plan.md`
+  checkpoint. One monitored worker, 20 GiB ceiling; no full-root build/audit.
+
 ## PROVED volume-independent isolated-defect sum and spatial tail modulus (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/Z4LinfShellCount.lean`,

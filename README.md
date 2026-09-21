@@ -90,6 +90,15 @@ original slab; this is NOT a simultaneous many-face coupling change. Existing
 small-coupling guards and explicit probe/coupling constants remain. The
 narrow build and 23 direct axiom checks passed; no full-root audit was run.
 
+**Varying-background spatial decay (2026-09-21 UTC):**
+`BF4ExactSlabHeterogeneousDistanceDecay.connectedNumerator_distance_bound`
+now allows a separate nome and cutoff at every face, under one explicit
+small-nome ceiling. Signed cancellations retain the actual varying-action
+partition square; the distance budget has no volume or cutoff factor.
+The normalized coupling-path consumer remains to be connected. This is
+guarded finite-lattice control, not a continuum scaling or mass-gap theorem.
+The narrow build and 36 direct axiom checks passed; no full-root audit was run.
+
 > **Research status (2026-09-21 UTC): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an

@@ -96,6 +96,17 @@ The sum is not a heterogeneous path or a simultaneous many-face change.
 All 23 direct gates and the narrow build passed within `{propext, Quot.sound}`;
 no full-root audit was run. Continuum/OS and all-group closure remain open.
 
+**Heterogeneous-background checkpoint (2026-09-21 UTC):**
+`BF4ExactSlabHeterogeneousDistanceDecay.lean` proves the original connected
+distance bound with independent face nomes and cutoffs. Constructed local
+certificates, relative partition bounds and signed spectator resummation
+feed the existing physical core count. The SAME varying-action partition
+square is retained; one explicit small-nome ceiling and probe constants
+control the budget. Normalized coupling-path consumption remains open, as
+do viable continuum scaling, survival, calibration, OS/QFT and every group.
+The narrow build and 36 direct gates passed within `{propext, Quot.sound}`;
+no full-root audit was run.
+
 > **Read `AGENTS.md` before contributing.** It contains both the
 > non-negotiable constructivity rules and the host-safety contract. They are
 > easy to violate accidentally; in particular, do not start a bare or broad

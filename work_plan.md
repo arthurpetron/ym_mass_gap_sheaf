@@ -34,6 +34,65 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Spatial decay for actual heterogeneous backgrounds (2026-09-21 UTC)
+
+**New analytic producer:**
+`BF4ExactSlabHeterogeneousDistanceDecay.connectedNumerator_distance_bound`
+extends the original signed connected estimate to an independent nome `w(id)`
+and representation cutoff `K(id)` on every physical face. With one explicit
+ceiling `0<=w(id)<=W<=1`, the heat-remainder and entropy guards at `W`, and
+the displayed probe interval/locality/carrier witnesses, it proves
+
+    |N_w(pq)*Z_w - N_w(p)*N_w(q)| <= distanceBudget(P,Q,W,c,d)*Z_w^2.
+
+The partition is the SAME varying-action partition on both sides. The
+existing distance budget contains geometric separation decay and no ambient
+face-count or individual-cutoff factor. It depends on `W`, both probe bounds,
+support sizes and separation. This is not uniform over all bare couplings.
+
+**Short causal argument:** `BF4ExactSlabHeterogeneousHeatComparison` constructs
+the actual shared-link product certificates and per-selection remainder
+intervals. It proves a relative removal floor `(1-delta(W))^|removed|` and
+its square, charging only removed faces, not the spectator volume.
+`BF4ExactSlabLocalFactorProduct` supplies generic literal-support factorization.
+`BF4ExactSlabHeterogeneousConnectedExpansion` proves separated-support
+cancellation, the coefficient bound `2*c*d*(2*delta+delta^2)^|core|`, and
+signed spectator resummation to the exact heterogeneous `Z^2`.
+`BF4ExactSlabHeterogeneousRootedResummation` instantiates the existing generic
+rooted-functional theorem, reusing the SAME `connectingAnchors` enumeration.
+The new distance module absorbs the collar cost into the existing rate at
+`W`, then consumes the existing geometric count and distance-to-size floor.
+No new mixing field is assumed, and no component geometry is duplicated.
+
+**Next consumer and honest residue:** the heterogeneous connected-numerator
+estimate needed by the previous checkpoint is now constructed in this guarded
+region. Next normalize it against the same positive heterogeneous partition
+and apply the already constructed mean-zero `faceScore`, `scoreInterval`,
+`faceScore_local` and `face_response_pin`. Then prove that the intermediate
+densities of `BF4ExactSlabFiniteCouplingPath` are exactly those backgrounds
+before using the spatial location sum to remove its face-count loss. The
+homogeneous `BF4ExactSlabCouplingSpatialResponse` is not silently treated as
+that consumer. A simultaneous/path comparison is not yet proved here.
+The fixed-guarded-ceiling survival obstruction still applies: these estimates
+do not construct a viable scaling trajectory, nontrivial continuum survival,
+physical mass calibration, same-theory OS/QFT or every-group/Clay closure.
+No canonical field or hole changed.
+
+**Verification:** the dependency-complete narrow target
+`+YMGap.Continuum.BF4ExactSlabHeterogeneousDistanceDecay:olean` passed.
+All five final direct checks passed 36 printed gates within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Logs:
+`/tmp/ym-gap-BF4ExactSlabLocalFactorProduct-final.log`,
+`/tmp/ym-gap-BF4ExactSlabHeterogeneousHeatComparison-final.log`,
+`/tmp/ym-gap-BF4ExactSlabHeterogeneousConnectedExpansion-final.log`,
+`/tmp/ym-gap-BF4ExactSlabHeterogeneousRootedResummation-final.log`, and
+`/tmp/ym-gap-BF4ExactSlabHeterogeneousDistanceDecay-final.log`.
+One monitored worker, 20 GiB ceiling. Luna drafted
+the generic locality/factorization and rooted-resummation adapters and reviewed
+scope; the main agent repaired/integrated them, proved the varying-background
+comparison, connected coefficients and spatial estimate, and serialized all
+verification. No full-root build/audit was run.
+
 ### Summed isolated defects with a computed spatial tail (2026-09-21 UTC)
 
 **New physical estimate:**
@@ -65,9 +124,11 @@ injectively to lattice plaquettes before applying this count.
 isolated-defect estimate. It does NOT identify the sum with a simultaneous
 change of all face couplings, a derivative, or the successive differences in
 `BF4ExactSlabFiniteCouplingPath`. Those differences use intermediate
-heterogeneous backgrounds. The next analytic producer must preserve the
-locality, signed connected cancellation and SAME partition comparison for
-those varying face factors. Do not obtain a full coupling-path estimate by
+heterogeneous backgrounds. The newer checkpoint above proves locality,
+signed connected cancellation, SAME partition comparison and spatial decay
+for those varying face factors under one explicit guarded ceiling. The
+normalized score and path consumer remain to be joined. Do not obtain a full
+coupling-path estimate by
 silently replacing its intermediate measures by the original homogeneous one.
 The small-nome spatial guards on `w`, the local `0<w<=v<=W<1` and explicit
 late cutoffs remain. This supplies no weak-coupling/trajectory estimate,
@@ -78,8 +139,8 @@ OS/QFT or every-group/Clay closure. No canonical field or hole changed.
 the main agent checked `BF4ExactSlabDisconnectedHaarCancellation` and
 `BF4ExactSlabRelativePartitionBound` against source. Their
 `partition_factorizes`, `mixed_moment_factorizes`, `relative_floor` and
-`relative_square_floor` use the same `w` at every face. The next step is to
-prove the corresponding actual varying-face-factor statements, retaining
+`relative_square_floor` use the same `w` at every face. The newer checkpoint
+proves the corresponding varying-face-factor statements, retaining
 the original background partition. Generic product permutation and Haar
 factorization algebra is reusable. Do not replace this work by a structure
 whose fields simply assume heterogeneous mixing.
