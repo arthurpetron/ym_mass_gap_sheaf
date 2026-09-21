@@ -12,7 +12,23 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Relative Jacobi control of the ORIGINAL terminal source (2026-09-21 UTC):**
+**All-label local angular Casimir (2026-09-21 UTC):**
+`QuaternionHaarAngularCasimir.lean` proves the six-plane identity
+`L = radius*Delta - secondEulerSum - 3*Euler`, hence `L p = -n(n+2)p`
+for every harmonic homogeneous degree n on the SAME quaternion Haar
+carrier. `SU2QuaternionHeadDerivativeEuler.lean` supplies the active-
+derivative Euler calculation. `QuaternionHaarExposedHeatCasimir.lean`
+uses existing harmonicity and degree producers to reach every ordinary
+exposed character, then the actual finite heat prefix with its individual
+label Casimir factors. Arbitrary Haar insertions remain; no coefficient
+equality between solid and ordinary representatives is claimed.
+Three focused checks passed ten gates within `{propext, Quot.sound}`.
+This is not a heat semigroup or interacting transfer-energy comparison.
+The small SAME-variance temporal bound, scaling survival, physical mass,
+full QFT and every-group construction remain open. No full-root audit.
+See `audits/AUDIT-ALL-LABEL-ANGULAR-CASIMIR-2026-09-21.md`.
+
+**Relative Jacobi control of the ORIGINAL terminal source (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialTerminalJacobiAngularBound.lean` now proves
 `B(w)*g +/- Dg >= 0` and `H[R(Dg)^2] <= B(w)^2 H[Rg^2]` for the actual
 `g=T^(n+1)1`, every active link rotation and every certified positive R.

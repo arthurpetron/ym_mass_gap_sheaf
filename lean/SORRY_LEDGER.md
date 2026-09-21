@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED Jacobi relative control of the ORIGINAL terminal source (2026-09-21 UTC)
+## PROVED all-label local angular Casimir (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionHeadDerivativeEuler.lean`,
+  `QuaternionHaarAngularCasimir.lean`, and
+  `QuaternionHaarExposedHeatCasimir.lean` in that directory.
+- **producer**: `angularLaplacian_euler` proves the exact six-plane
+  differential identity. `harmonic_angularLaplacian` gives `-n(n+2)`
+  for every head-homogeneous harmonic degree, including zero; no
+  derivative-commutation or analytic hypothesis is added.
+- **concrete consumer**: existing exposed-solid degree and harmonicity
+  proofs feed `exposedSolid_angularCasimir`. Arbitrary-insertion Haar
+  transport yields `exposedCharacter_angularCasimir`, and
+  `exposedHeatPrefix_angularCasimir` gives the labelwise Casimir-weighted
+  original finite sum. This uses the existing 116-block exposed carrier,
+  not an assumed eigenvector of the interacting transfer.
+- **residue**: original-weight heat-generator/energy comparison and a
+  useful SAME-variance one-step rate along a justified spatial/scaling
+  family remain open. No semigroup, physical Hamiltonian identification,
+  continuum survival, QFT or every-group construction is supplied.
+  No hole, analytic premise, canonical field or axiom was introduced,
+  removed or weakened.
+- **verification**: three focused checks passed ten printed gates within
+  `{propext, Quot.sound}`, with one capped 20 GiB worker. No full-root
+  audit. Sol supplied bounded drafts and reviewed the general proof;
+  main integrated and checked. Exact map and build boundary:
+  `audits/AUDIT-ALL-LABEL-ANGULAR-CASIMIR-2026-09-21.md`.
+
+## PROVED Jacobi relative control of the ORIGINAL terminal source (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarRelativeAngularBound.lean`,
   `JacobiShiftedRelativeSlope.lean`, `JacobiHeatRelativeAngularBound.lean`,

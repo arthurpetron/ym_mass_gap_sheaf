@@ -34,7 +34,38 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Relative Jacobi estimate reaches the ORIGINAL terminal source (2026-09-21 UTC)
+### All-label local angular Casimir reaches the finite heat prefix (2026-09-21 UTC)
+
+**PROGRESS -- local generator algebra, not the interacting energy join:**
+`QuaternionHaarAngularCasimir.harmonic_angularLaplacian` now proves
+`L p = -n(n+2) p` on the same quaternion Haar carrier for every
+head-homogeneous harmonic degree n, including zero. The six-plane identity
+is `L = radius*Delta - secondEulerSum - 3*Euler`; active derivatives give
+the exact falling-factorial Euler coefficient without misclassifying
+zero-coefficient terms. The existing exposed solid modes supply both
+degree and harmonicity, and tangential carrier transport reaches every
+ordinary exposed character. `QuaternionHaarExposedHeatCasimir` then proves
+the exact Casimir-weighted finite `heatPrefix` identity for all labels,
+orientations, rational nomes and cutoffs on the existing 116-block carrier.
+No common heat-prefix eigenvalue or semigroup identity is asserted.
+
+**Next mathematical join:** the original-product heat-generator/energy
+comparison is still missing. It must retain both `V*g` endpoint weights,
+the original normalization, signed observable and cutoff errors. The
+small one-step energy relative to the SAME variance, justified spatial/
+nome/spacing family, nontrivial continuum survival, finite positive
+physical mass, full QFT and every compact simple group remain open.
+Do not infer that the local angular Laplacian is the physical Hamiltonian
+or the interacting transfer generator.
+
+Three focused checks passed ten printed gates within
+`{propext, Quot.sound}`. Sol supplied bounded Euler and concrete-consumer
+drafts and reviewed the general Casimir proof; main supplied the six-plane
+argument, integration fixes and serialized verification. No new hole,
+analytic premise or canonical-field change. Source and check boundary:
+`audits/AUDIT-ALL-LABEL-ANGULAR-CASIMIR-2026-09-21.md`.
+
+### Relative Jacobi estimate reaches the ORIGINAL terminal source (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- no global heat-floor reciprocal in the new relative constant:**
 `BF4ExactSlabFixedSpatialTerminalJacobiAngularBound.terminalMessageRelativeBound`

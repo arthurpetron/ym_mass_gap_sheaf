@@ -155,6 +155,10 @@
 > no global heat-floor reciprocal in B. The floor controls only the later
 > cutoff; the ORIGINAL unweighted kernel and full action are retained.
 > B still depends on the nome. [Proof and boundary](audits/AUDIT-JACOBI-RELATIVE-ANGULAR-BOUND-2026-09-21.md).
+> The local six-direction angular operator now has its checked Casimir
+> identity at EVERY character label, and on the original finite heat sum
+> label by label. This is not yet an interacting transfer-energy comparison.
+> [Local proof and missing join](audits/AUDIT-ALL-LABEL-ANGULAR-CASIMIR-2026-09-21.md).
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
