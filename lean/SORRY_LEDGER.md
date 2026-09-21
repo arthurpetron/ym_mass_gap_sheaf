@@ -13,7 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED constructive real scalars and vacuum projection on the actual joint carrier (2026-09-21 UTC)
+## PROVED actual all-nome one-step positivity and whole-state temporal energy (2026-09-21 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSpanReversal.lean`,
+  `BF4ExactSlabFixedSpatialJointTimePositive.lean`, and
+  `BF4ExactSlabFixedSpatialJointTemporalEnergy.lean` in the same directory.
+- **source and carrier pin**: arbitrary physical signed spans are reversed
+  coefficient-sensitively into the existing odd kinetic product. The extra
+  common-chart slice is removed only by the proved boundary-limit padding
+  identity. The resulting original-action positivity passes through the
+  cutoff limit, supplied Cauchy representatives, and quotient descent to the
+  SAME fixed-width `JointCompletion`; no small-nome spatial or legacy carrier
+  is substituted.
+- **completed conclusions**: `B(x,T x)` and every integer autocorrelation
+  `B(x,T^n x)` are nonnegative for every completed state. For
+  `r_n=B(x,T^n x)`, the pairing of `x-Tx` with its time-`n` image is exactly
+  `r_n-2*r_(n+1)+r_(n+2)`. Hence the response is convex and the whole-state
+  temporal energy satisfies
+  `E_n(x)=B(x,x)-B(x,T^n x) <= n*E_1(x)`, including for every finite signed
+  `orbitSum`. The existing center gives nonnegative connected scalars, and
+  `centered_relative_energy` propagates any supplied SAME-variance one-step
+  relative estimate without splitting the state into absolute summand bounds.
+- **honest boundary**: no quantitative one-step rate is produced. In
+  particular, there is no new near-one response, changing-width/nome/spacing
+  survival, full Hilbert/Hamiltonian, all-group, or continuum-QFT theorem. A
+  retained-weight double-commutator/carre-du-champ comparison is only a
+  candidate for the missing analytic producer, not a proved equivalent
+  bridge. No new hole, analytic assumption, or canonical field is introduced.
+- **verification**: the dependency-complete
+  `+YMGap.Continuum.BF4ExactSlabFixedSpatialJointTemporalEnergy:olean` target
+  and three final serialized direct checks passed all 21 printed gates
+  (5 span reversal, 6 time positivity, 10 temporal energy), within
+  `{propext, Quot.sound}`, without warnings or `sorryAx`. One 20 GiB-capped
+  worker was used; no full-root audit was run. Logs:
+  `/tmp/ym-gap-joint-temporal-build.log`,
+  `/tmp/ym-gap-joint-span-reversal-check.log`,
+  `/tmp/ym-gap-joint-time-positive-final.log`, and
+  `/tmp/ym-gap-joint-temporal-energy-final.log`.
+
+## PROVED constructive real scalars and vacuum projection on the actual joint carrier (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**:
   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointRealScalarCauchy.lean`,

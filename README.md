@@ -136,12 +136,42 @@
 > with supplied moduli and a vacuum projection on every state. Its
 > two-step fixed states are exactly the range of this unit projection.
 > This remains a fixed-width discrete-time result.
+> Original-action one-step positivity now reaches that SAME completed
+> operator. Every completed state, including a signed time sum, satisfies
+> `B(x,x)-B(x,T^n x) <= n*(B(x,x)-B(x,T x))` with all cancellations retained.
+> The missing quantitative input is still a sufficiently small relative
+> one-step energy along a justified spatial/scaling family.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Actual vacuum decomposition on the all-nome carrier (2026-09-21 UTC):**
+**Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
+The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
+signed source with its odd reflection window. The extra chart slice is
+removed only through the proved boundary-limit padding law. Thus
+`BF4ExactSlabFixedSpatialJointTimePositive.lean` transfers the original
+finite-action positive quadratic to the SAME all-nome fixed-width
+`JointCompletion`: `B(x,T x) >= 0`, and likewise at every integer lag.
+
+`BF4ExactSlabFixedSpatialJointTemporalEnergy.lean` applies this positivity
+to the actual signed difference `x-Tx`. Its exact pairing is the second
+difference of the original autocorrelation. Consequently, for EVERY
+completed state (including signed time sums),
+
+    E_n(x) = B(x,x)-B(x,T^n x) <= n*E_1(x).
+
+The earlier vacuum projection identifies the centered version with the
+existing connected scalar. The conditional consumer keeps the SAME
+variance: `E_1(Cx) <= delta*B(Cx,Cx)` implies
+`E_n(Cx) <= n*delta*B(Cx,Cx)`. A quantitatively sufficient delta along a
+justified spatial/nome/spacing family is still missing. No nonzero-filter,
+near-one response, physical-time survival, Hamiltonian or continuum theorem
+is claimed. The dependency-complete energy target and three serialized
+direct checks passed all 21 printed gates within `{propext, Quot.sound}`,
+without warnings or `sorryAx`. One capped 20 GiB worker; no full-root audit.
+
+**Actual vacuum decomposition on the all-nome carrier (earlier checkpoint, 2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialJointRealScalarCauchy.lean` and
 `BF4ExactSlabFixedSpatialJointRealScalar.lean` construct scaling by a
 constructive real with supplied modulus on the existing `JointCompletion`.

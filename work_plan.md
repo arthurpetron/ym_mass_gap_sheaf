@@ -34,7 +34,69 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Actual all-nome vacuum decomposition and fixed space (2026-09-21 UTC)
+### Actual one-step positivity and whole-state temporal energy (2026-09-21 UTC)
+
+**PROGRESS -- finite original positivity reaches the SAME completed operator:**
+`BF4ExactSlabFixedSpatialSpanReversal` identifies the complete signed source
+with its chronological reversal. The common chart of x and its one-step
+advance has an extra unobserved right slice. `JointTimePositive` uses the
+existing supported padded congruence and actual boundary-limit padding law
+to remove it; it does NOT assume finite stationarity. The original balanced
+odd-window numerator is the already proved positive quadratic of the FULL
+kinetic/spatial transfer with its original partition. Cutoff convergence
+and representative pairing limits then prove, on the actual `JointCompletion`,
+
+    B(x,T x) >= 0,                 B(x,T^n x) >= 0 for every n.
+
+**Actual analytic consumer:** `BF4ExactSlabFixedSpatialJointTemporalEnergy`
+applies this positivity to the actual vector d=x-Tx. Exact bilinearity and
+time balance retain both signed cross terms:
+
+    B(d,T^n d) = r_n - 2*r_(n+1) + r_(n+2) >= 0,
+    r_n = B(x,T^n x),
+    E_n(x) = r_0-r_n <= n*(r_0-r_1) = n*E_1(x).
+
+This holds for EVERY state on this completion, not only a finite time-zero
+Wilson presentation. In particular it applies to the already constructed
+finite signed time sums without replacing their energy by separate absolute
+budgets. The supplied representative defines the entire CReal response
+sequence explicitly; no quotient representative or modulus is selected.
+The prior actual vacuum projection identifies centered responses with the
+existing connected scalars, which are now nonnegative at odd as well as even
+lags. `centered_relative_energy` proves the precise conditional consumer:
+
+    E_1(Cx) <= delta*B(Cx,Cx)
+       ==> E_n(Cx) <= n*delta*B(Cx,Cx).
+
+**Boundary / next producer:** the antecedent is NOT supplied with a useful
+spatial/nome/spacing family. The missing task remains a quantitatively
+sufficient SAME-original-action relative one-step estimate, retaining the
+endpoint factors `K(x,y)*(V*g)(x)*(V*g)(y)` and the whole signed observable.
+A weighted gradient/double-commutator comparison is a candidate producer,
+not a currently established replacement by the static Ward form. Do not
+substitute more coarse-floor transport or finite filter availability for
+this estimate. Fixed nome/width positivity and the factor n do not prove
+changing-spacing survival, positive physical mass, full Hilbert/OS/QFT,
+continuum existence or the every-group target. No canonical field, analytic
+assumption or hole changed.
+
+**Verification / delegation:** the dependency-complete
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialJointTemporalEnergy:olean` target
+and three serialized direct checks passed all 21 printed gates (5 source
+reversal, 6 completed positivity, 10 temporal energy), within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Sol supplied source
+algebra, independent review and supporting documentation; main supplied the
+limit/completion join, energy consumer and serialized checks. One explicitly
+capped 20 GiB worker; no full-root audit was run. Logs:
+`/tmp/ym-gap-joint-temporal-build.log`,
+`/tmp/ym-gap-joint-span-reversal-check.log`,
+`/tmp/ym-gap-joint-time-positive-final.log`,
+`/tmp/ym-gap-joint-temporal-energy-final.log`.
+Latest user-facing causal ASCII chart: approximately 2026-09-21 16:32 UTC, including the
+whole-project goal, the checked vacuum lane, the then-pending one-step
+positivity join (now checked), and the open quantitative/scaling branches.
+
+### Actual all-nome vacuum decomposition and fixed space (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- a SAME-carrier Hilbert/OS input is constructed:**
 `BF4ExactSlabFixedSpatialJointRealScalarCauchy` constructs the stream
@@ -95,7 +157,7 @@ checks. One explicitly capped 20 GiB worker; no full-root audit was run.
 Final logs: `/tmp/ym-gap-joint-vacuum-final-build.log`,
 `/tmp/ym-gap-joint-real-cauchy-final.log`, `/tmp/ym-gap-joint-real-final.log`,
 `/tmp/ym-gap-joint-vacuum-final.log`.
-Latest user-facing causal ASCII chart: 2026-09-21 11:25 UTC, including the
+Earlier user-facing causal ASCII chart: 2026-09-21 11:25 UTC, including the
 whole-project goal, the checked vacuum-decomposition lane, and the missing
 weighted temporal comparison and remaining continuum/all-group joins.
 

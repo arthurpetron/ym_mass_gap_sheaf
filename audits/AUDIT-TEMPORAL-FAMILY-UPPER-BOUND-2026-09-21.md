@@ -77,3 +77,22 @@ The searched scope is the modules named above, the fixed-spatial kinetic
 alignment/marginal/Dirichlet modules, and the all-nome Wilson time- and
 mixed-increment modules. Absence in this inventory is not a proof that the
 desired estimate is false.
+
+## Later SAME-carrier consumer (2026-09-21)
+
+`completedInner_oneStep_nonnegative`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointTimePositive.lean:116`,
+now passes the original odd-window positive quadratic through the actual
+padding, cutoff and representative limits to the existing all-nome
+fixed-width `JointCompletion`. It is not a bare-product-map surrogate.
+
+`temporalEnergy_linear`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointTemporalEnergy.lean:102`,
+applies positivity to x-Tx and proves
+`B(x,x)-B(x,T^n x) <= n*(B(x,x)-B(x,T x))` for every actual completed state.
+The constructed signed orbit sums are included. This strengthens the
+available consumer beyond time-zero presentations, not the missing
+relative one-step producer. `centered_relative_energy`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointTemporalEnergy.lean:128`,
+keeps an explicitly SUPPLIED one-step bound relative to the SAME centered
+variance; it does not produce a scaling family or prove survival.

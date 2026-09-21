@@ -12,7 +12,42 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Constructive real scalars and vacuum projection on the actual joint carrier (2026-09-21 UTC):**
+**Actual all-nome one-step positivity and whole-state temporal energy (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the common chart of an
+arbitrary physical signed span and its one-step advance with the existing odd
+kinetic product. Every signed coefficient and ordered face product is retained.
+`BF4ExactSlabFixedSpatialJointTimePositive.lean` uses the original finite
+kinetic/spatial quadratic and removes the chart's one extra slice only through
+the proved boundary-limit padding law. It follows that the actual fixed-width
+one-step map is positive semidefinite on the SAME `JointCompletion`, and every
+integer-time autocorrelation `B(x,T^n x)` is nonnegative.
+
+`BF4ExactSlabFixedSpatialJointTemporalEnergy.lean` applies this positivity to
+the exact signed difference `x-Tx`. Its pairing is the discrete curvature
+`r_n-2*r_(n+1)+r_(n+2)`, so the autocorrelation is convex and
+`E_n(x)=B(x,x)-B(x,T^n x) <= n*E_1(x)` for every completed state, including
+every finite signed `orbitSum`. Existing centering identifies the corresponding
+connected scalar as nonnegative. `centered_relative_energy` is a conditional
+consumer of a supplied SAME-variance one-step estimate; it does not produce
+that estimate.
+
+This milestone adds no near-one rate, changing-width/nome/spacing survival,
+full Hilbert/Hamiltonian construction, all-group result, or continuum QFT
+claim. A retained-weight double-commutator/carre-du-champ estimate is one
+candidate route to the still-missing quantitative producer, not a proved
+equivalent bridge. No hole, analytic assumption, or canonical field changed.
+The dependency-complete
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialJointTemporalEnergy:olean` target
+and three serialized direct checks passed all 21 printed gates (5 span
+reversal, 6 time positivity, 10 temporal energy), within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Checks used one
+20 GiB-capped worker; no full-root audit was run. Logs:
+`/tmp/ym-gap-joint-temporal-build.log`,
+`/tmp/ym-gap-joint-span-reversal-check.log`,
+`/tmp/ym-gap-joint-time-positive-final.log`, and
+`/tmp/ym-gap-joint-temporal-energy-final.log`.
+
+**Constructive real scalars and vacuum projection on the actual joint carrier (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialJointRealScalarCauchy.lean` uses a supplied
 constructive-real rational stream and its supplied `QCauchy` modulus to scale
 a supplied representative of the existing fixed-width `JointCompletion`.
