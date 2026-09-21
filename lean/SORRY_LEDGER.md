@@ -13,6 +13,28 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED volume-independent isolated-defect sum and spatial tail modulus (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/Z4LinfShellCount.lean`,
+  `lean/YMGap/Continuum/Z4LinfGeometricSum.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabSummedCouplingDefects.lean`.
+- **scope**: finite nodup ball counts and a computed blocking length with
+  `16*r^N<=1/2` sum the actual geometric location weights for every `0<=r<1`.
+  `full_isolated_defect_sum_bound` bounds the sum of absolute ORIGINAL
+  single-face changes over the entire slab without a cutoff/volume factor.
+  `responseRadius` and `isolated_defect_tail_small` provide an explicit
+  epsilon-tail modulus, also independent of cutoff and extent.
+- **boundary**: each defect starts separately from the homogeneous original
+  law. The sum is not a simultaneous coupling change or a heterogeneous path.
+  Existing small-nome spatial guards, local coupling/probe dependencies and
+  late cutoffs remain explicit. Heterogeneous-background control, justified
+  scaling, changing-score limits, survival, calibration, OS/QFT and all-group
+  closure remain open. No hole or canonical frontier field changed.
+- **verification**: narrow dependency-complete target and three direct checks
+  PASSed 23 printed gates within `{propext, Quot.sound}`, no warnings or
+  `sorryAx`. Exact log paths are in the newest `work_plan.md` checkpoint.
+  One monitored worker, 20 GiB ceiling; no full-root build/audit was run.
+
 ## PROVED spatial decay of an isolated ORIGINAL coupling defect (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarSignedInterval.lean`,

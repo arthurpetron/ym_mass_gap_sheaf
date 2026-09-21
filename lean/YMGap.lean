@@ -4514,6 +4514,9 @@ import YMGap.Continuum.QuaternionHaarIntervalSecondMoment
 import YMGap.Continuum.QuaternionHaarSignedInterval
 import YMGap.Continuum.BF4ExactSlabCouplingScoreBound
 import YMGap.Continuum.BF4ExactSlabCouplingSpatialResponse
+import YMGap.Continuum.Z4LinfShellCount
+import YMGap.Continuum.Z4LinfGeometricSum
+import YMGap.Continuum.BF4ExactSlabSummedCouplingDefects
 import YMGap.Continuum.BF4ExactSlabFiniteCouplingPath
 import YMGap.Continuum.BF4ExactSlabCommonCutoffExpectations
 import YMGap.Continuum.BF4ExactSlabTwoNomeExpectationBound

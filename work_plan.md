@@ -34,6 +34,68 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Summed isolated defects with a computed spatial tail (2026-09-21 UTC)
+
+**New physical estimate:**
+`BF4ExactSlabSummedCouplingDefects.full_isolated_defect_sum_bound` bounds
+the sum over ALL physical faces of the absolute single-face expectation
+changes, with no heat-cutoff or slab-volume factor. Each term changes one
+factor from `w` to `v` in the SAME original homogeneous full slab. The
+constructed rational `responseBudget` retains the coupling, probe cap and
+support dependence. `isolated_defect_tail_small` proves that any finite
+collection of defects outside `responseRadius(epsilon)` has total absolute
+effect at most `epsilon`; the radius is executable data.
+
+**Mathematical argument:** the existing translated four-dimensional box has
+`6*(2*R+1)^4` faces. `Z4LinfShellCount` turns this into ball/shell fiber bounds
+for every finite duplicate-free face list. For any `0<=r<1`, choose the
+previously constructed `N=blockLength r 4`, so `16*r^N<=1/2`. Set
+
+    blockIndex(face) = (linfDist(root,face)-M)/N,
+    C = 16*6*(2*(M+N)+1)^4.
+
+The index-n fiber lies in radius `M+N*(n+1)` and has at most `C*16^n`
+faces. Meanwhile `r^(distance-M) <= (r^N)^blockIndex`. Thus finite geometric
+summation gives `C*(16*r^N)^d/(1-16*r^N)` beyond block distance `d`.
+`Z4LinfGeometricSum` proves this estimate and computes its tolerance radius.
+No extra `r<1/16` guard is introduced. Actual physical face IDs are mapped
+injectively to lattice plaquettes before applying this count.
+
+**Scope and next input:** this closes the location-summation gap for the
+isolated-defect estimate. It does NOT identify the sum with a simultaneous
+change of all face couplings, a derivative, or the successive differences in
+`BF4ExactSlabFiniteCouplingPath`. Those differences use intermediate
+heterogeneous backgrounds. The next analytic producer must preserve the
+locality, signed connected cancellation and SAME partition comparison for
+those varying face factors. Do not obtain a full coupling-path estimate by
+silently replacing its intermediate measures by the original homogeneous one.
+The small-nome spatial guards on `w`, the local `0<w<=v<=W<1` and explicit
+late cutoffs remain. This supplies no weak-coupling/trajectory estimate,
+changing-score cutoff limit, continuum survival, physical calibration,
+OS/QFT or every-group/Clay closure. No canonical field or hole changed.
+
+**Next-seam review:** Luna identified the homogeneous action specialization;
+the main agent checked `BF4ExactSlabDisconnectedHaarCancellation` and
+`BF4ExactSlabRelativePartitionBound` against source. Their
+`partition_factorizes`, `mixed_moment_factorizes`, `relative_floor` and
+`relative_square_floor` use the same `w` at every face. The next step is to
+prove the corresponding actual varying-face-factor statements, retaining
+the original background partition. Generic product permutation and Haar
+factorization algebra is reusable. Do not replace this work by a structure
+whose fields simply assume heterogeneous mixing.
+
+**Verification:** the dependency-complete monitored target
+`+YMGap.Continuum.BF4ExactSlabSummedCouplingDefects:olean` and direct checks
+of all three new modules PASSed 23 printed gates within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Logs:
+`/tmp/ym-gap-Z4LinfShellCount-final.log`,
+`/tmp/ym-gap-Z4LinfGeometricSum-final.log`, and
+`/tmp/ym-gap-BF4ExactSlabSummedCouplingDefects-final.log`.
+One worker, 20 GiB ceiling; no full-root build/audit was run. Luna drafted
+the finite shell count and reviewed the scope; the main agent repaired and
+extended it, proved the blocked summation/modulus and original-action consumer,
+and performed serialized verification.
+
 ### Spatial decay for an isolated ORIGINAL coupling defect (2026-09-21 UTC)
 
 **Proposition and consumer:**
@@ -78,17 +140,16 @@ face list, and restores the original old endpoint by a proved permutation.
 This closes the local-to-spatial join for an isolated defect, NOT for all
 heterogeneous backgrounds in `BF4ExactSlabFiniteCouplingPath`.
 
-**Next analytic steps:** sum the isolated-defect distance budgets using actual
-four-dimensional location counts, then establish the needed spatial bound
-for changing heterogeneous backgrounds before using a finite coupling path.
+**Next analytic steps (updated by the newer checkpoint above):** isolated-defect
+location summation is now proved. Establish the needed spatial bound for
+changing heterogeneous backgrounds before using a finite coupling path.
 The existing `Z4LinfFiniteRegion.mem_region_of_linf` and `region_length`
-give an explicit enclosing list of size `6*(2*r+1)^4`; the missing counting
-step is the nodup shell-fiber bound and its polynomial-geometric summation.
+give an explicit enclosing list of size `6*(2*r+1)^4`; the newer ball/shell
+fiber bound and blocked geometric summation now consume these witnesses.
 `BF4ExactSlabSelectedTwoProbeCovariance.distanceBudget_factor` already
 separates the distance factor from the explicit probe amplitude. These are
-concrete inputs for the next sum, not an already proved summed estimate.
-Neither a summed susceptibility nor that path-uniform estimate is claimed
-here. Weak-coupling/trajectory control, limits of changing scores, nontrivial
+concrete inputs to the proved isolated-defect sum, not to a path-uniform
+estimate. Weak-coupling/trajectory control, limits of changing scores, nontrivial
 continuum survival, physical calibration, same-theory OS/QFT and every-group
 closure remain open. Fixed guarded-ceiling scaling obstructions still apply.
 

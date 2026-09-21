@@ -81,9 +81,20 @@ with the existing connected-distance bound. The full-slab instance changes
 exactly one heat factor and proves its old endpoint is the original full
 expectation. Cutoff and ambient face count do not enter the final budget.
 The retained background is homogeneous and obeys explicit small-nome spatial
-guards; spatial summation, heterogeneous paths and continuum control are not
-proved. The narrow build and all 17 direct gates passed within
+guards. The later isolated-defect sum below closes location summation, but
+not heterogeneous paths or continuum control. The narrow build and all 17
+direct gates passed within
 `{propext, Quot.sound}`; no full-root audit was run.
+
+**Summed isolated-defect checkpoint (2026-09-21 UTC):**
+`Z4LinfShellCount.lean` and `Z4LinfGeometricSum.lean` combine explicit
+four-dimensional ball counts with a computed blocking length. For every
+`0<=r<1`, the finite location sum is bounded independently of volume, with
+an explicit tail radius. `BF4ExactSlabSummedCouplingDefects.lean` applies
+this to the actual isolated changes of the full original homogeneous slab.
+The sum is not a heterogeneous path or a simultaneous many-face change.
+All 23 direct gates and the narrow build passed within `{propext, Quot.sound}`;
+no full-root audit was run. Continuum/OS and all-group closure remain open.
 
 > **Read `AGENTS.md` before contributing.** It contains both the
 > non-negotiable constructivity rules and the host-safety contract. They are

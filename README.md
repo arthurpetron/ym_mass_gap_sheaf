@@ -76,10 +76,19 @@ one face's heat factor changes. The original full slab is the old endpoint;
 its actual normalization is retained. The bound is proportional to the
 coupling change and independent of cutoff and ambient face count, with
 explicit coupling/probe constants. The surrounding homogeneous background
-must satisfy the stated small-coupling spatial guards. Summing locations,
-heterogeneous-background control along a coupling path, and continuum/OS
-closure remain open. The narrow build and 17 direct axiom checks passed;
+must satisfy the stated small-coupling spatial guards. The subsequent result
+below sums locations; heterogeneous coupling paths and continuum/OS closure
+remain open. The narrow build and 17 direct axiom checks passed;
 no full-root audit was run.
+
+**Summed isolated defects (2026-09-21 UTC):**
+`BF4ExactSlabSummedCouplingDefects.full_isolated_defect_sum_bound` removes
+the face-count factor from the sum of absolute single-face changes. Its
+`responseRadius` gives a computed spatial epsilon-tail bound, independent of
+heat cutoff and slab extent. Each term starts from the same homogeneous
+original slab; this is NOT a simultaneous many-face coupling change. Existing
+small-coupling guards and explicit probe/coupling constants remain. The
+narrow build and 23 direct axiom checks passed; no full-root audit was run.
 
 > **Research status (2026-09-21 UTC): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
