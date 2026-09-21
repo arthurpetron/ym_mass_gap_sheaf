@@ -105,3 +105,15 @@ remainder uniformly in spin at any fixed strict nome. Its negative-square
 partner cancels the growing inverse terms. This prunes that separate-remainder
 estimate, not the full double commutator or the original weighted energy
 bound sought here. The latter remains open.
+
+## Later actual-source regularity
+
+`terminalMessage_angular_bounds`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalAngularBound.lean:89`,
+now constructs `C(w)g +/- h(w)Dg >= 0` for the actual `g=T^(n+1)1`.
+`terminalMessage_angular_weighted_square` in that file at line 166 gives
+the relative quadratic bound against every certified positive background.
+Width/depth/cutoff do not enter the constants; nome does. This supplies a
+source-specific derivative estimate, not a gradient-to-original-energy
+comparison or a sufficiently small SAME-variance energy rate. See
+`AUDIT-TERMINAL-ANGULAR-BOUND-2026-09-21.md` for the exact uniformity scope.

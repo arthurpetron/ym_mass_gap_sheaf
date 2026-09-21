@@ -114,6 +114,38 @@ def heatPrefixAngularInterval {blocks i j : Nat} {x : RatPoly} {d w : Q'}
     (Q'.mul_le_mul_of_nonneg_left _ _ _ (prefix_bound hw0 hw1 (K+1))
       (Q'.mul_nonneg _ _ (by decide) DX.nonnegative))
 
+/-- The one-term bound at arbitrary supported coordinates, including output
+coordinates above a collection of input blocks awaiting Haar integration. -/
+def heatDerivativeTermIntervalAt {blocks i j : Nat} {x : RatPoly} {d w : Q'}
+    (hi : i < 4 * blocks) (hj : j < 4 * blocks) (hw : (0 : Q') ≤ w)
+    (X : SquareBound blocks x 1) (DX : Interval blocks (angularDerivative i j x) d)
+    (n : Nat) :
+    Interval blocks (angularDerivative i j (heatTerm w x n)) ((2*d)*tailTerm w 4 n) :=
+  (Interval.ofCoeff
+    (angularDerivative_supported_at hi hj
+      (((sharpCharacterInterval X n).smul (coeffW w n) (coeffW_nonneg hw n)).support))
+    (angularDerivative_smul i j (coeffW w n) (characterPolynomial x n))
+    ((angularDerivativeCharacterIntervalAt hi hj X DX n).smul
+      (coeffW w n) (coeffW_nonneg hw n))).changeCap (heat_derivative_budget_pin w d n)
+
+/-- Cutoff-independent heat derivative certificates at any supported pair of
+coordinates. The nome dependence is still the explicit quartic prefix budget. -/
+def heatPrefixAngularIntervalAt {blocks i j : Nat} {x : RatPoly} {d w : Q'}
+    (hi : i < 4 * blocks) (hj : j < 4 * blocks)
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (X : SquareBound blocks x 1) (DX : Interval blocks (angularDerivative i j x) d)
+    (K : Nat) :
+    Interval blocks (angularDerivative i j (heatPrefix w K x)) (heatDerivativeCap w d) := by
+  refine Interval.ofCoeff
+    (angularDerivative_supported_at hi hj (prefixInterval hw0 hw1 X K).support)
+    (angularDerivative_finitePolySum i j (heatTerm w x) (List.range (K+1))) ?_
+  refine (Interval.finiteRange (fun n => angularDerivative i j (heatTerm w x n))
+    (fun n => (2*d)*tailTerm w 4 n)
+    (heatDerivativeTermIntervalAt hi hj (Q'.le_of_lt hw0) X DX) (K+1)).weaken ?_
+  exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv (const_mul_finSum (tailTerm w 4) (2*d) (K+1)))
+    (Q'.mul_le_mul_of_nonneg_left _ _ _ (prefix_bound hw0 hw1 (K+1))
+      (Q'.mul_nonneg _ _ (by decide) DX.nonnegative))
+
 /-- The cutoff-independent cap is valid against any original positive
 background, including backgrounds sharing every variable of the prefix. -/
 theorem heatPrefix_angular_weighted_bound {blocks i j : Nat} {x r : RatPoly} {d w : Q'}
@@ -132,4 +164,6 @@ end YMGap.Continuum.QuaternionHaarHeatAngularDerivative
 #print axioms YMGap.Continuum.QuaternionHaarHeatAngularDerivative.heatDerivativeTermInterval
 #print axioms YMGap.Continuum.QuaternionHaarHeatAngularDerivative.heatDerivativeCap
 #print axioms YMGap.Continuum.QuaternionHaarHeatAngularDerivative.heatPrefixAngularInterval
+#print axioms YMGap.Continuum.QuaternionHaarHeatAngularDerivative.heatDerivativeTermIntervalAt
+#print axioms YMGap.Continuum.QuaternionHaarHeatAngularDerivative.heatPrefixAngularIntervalAt
 #print axioms YMGap.Continuum.QuaternionHaarHeatAngularDerivative.heatPrefix_angular_weighted_bound

@@ -145,6 +145,11 @@
 > inverse-heat remainder uniformly in spin, at every strict nome.
 > This prunes that shortcut, not the original interacting energy estimate;
 > [the audit](audits/AUDIT-INVERSE-HEAT-REMAINDER-2026-09-21.md) records the distinction.
+> The actual positive terminal message now has a checked local derivative
+> bound with constants independent of width, depth and admissible cutoff:
+> `h(w)^2 H[R(Dg)^2] <= C(w)^2 H[Rg^2]`, retaining any certified positive
+> background R. The nome dependence is explicit, not uniformly controlled.
+> [Source and scope](audits/AUDIT-TERMINAL-ANGULAR-BOUND-2026-09-21.md).
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction

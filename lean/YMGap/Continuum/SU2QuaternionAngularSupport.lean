@@ -72,6 +72,28 @@ private theorem polyVar_supported {blocks coordinate : Nat}
   simp [varMono]
   omega
 
+/-- Coordinate rotations anywhere in the supplied finite carrier preserve
+support. The two coordinates need not be in its first quaternion block. -/
+theorem angularDerivative_supported_at {blocks i j : Nat} {p : RatPoly}
+    (hi : i < 4 * blocks) (hj : j < 4 * blocks)
+    (hp : SupportedQuaternionBlocks blocks p) :
+    SupportedQuaternionBlocks blocks (angularDerivative i j p) := by
+  unfold angularDerivative
+  exact polyAdd_supported
+    (supported_polyMul (polyVar_supported hi) (ratDerivative_supported hp))
+    (polySmul_supported
+      (supported_polyMul (polyVar_supported hj) (ratDerivative_supported hp)) (-1))
+
+/-- The constant polynomial has zero angular derivative at any coordinates. -/
+theorem angularDerivative_one (i j : Nat) :
+    RatPolyCoeffEqv (angularDerivative i j polyOne) polyZero := by
+  have h (k : Nat) : RatPolyCoeffEqv (ratDerivative k polyOne) polyZero := by
+    cases k <;> exact RatPolyCoeffEqv.zero_smul polyOne
+  exact ((((h j).mul_left (polyVar i)).trans (RatPolyCoeffEqv.mul_zero_right _)).add
+    ((((h i).mul_left (polyVar j)).trans (RatPolyCoeffEqv.mul_zero_right _)).smul (-1))).trans
+      (((RatPolyCoeffEqv.refl _).add (RatPolyCoeffEqv.smul_zero (-1))).trans
+        (RatPolyCoeffEqv.add_zero _))
+
 /-- A head angular derivative preserves support in every nonempty block
 carrier. -/
 theorem angularDerivative_supported {blocks i j : Nat} {p : RatPoly}
@@ -136,5 +158,7 @@ end YMGap.Continuum.SU2QuaternionAngularSupport
 #print axioms YMGap.Continuum.SU2QuaternionAngularSupport.polySmul_supported
 #print axioms YMGap.Continuum.SU2QuaternionAngularSupport.polyAdd_supported
 #print axioms YMGap.Continuum.SU2QuaternionAngularSupport.angularDerivative_supported
+#print axioms YMGap.Continuum.SU2QuaternionAngularSupport.angularDerivative_supported_at
+#print axioms YMGap.Continuum.SU2QuaternionAngularSupport.angularDerivative_one
 #print axioms YMGap.Continuum.SU2QuaternionAngularSupport.angularDerivative_smul
 #print axioms YMGap.Continuum.SU2QuaternionAngularSupport.angularDerivative_centered

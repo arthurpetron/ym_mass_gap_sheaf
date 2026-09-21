@@ -13,7 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED coefficient-level inverse-heat remainder obstruction (2026-09-21 UTC)
+## PROVED original terminal-message relative angular control (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionHaarTailDerivative.lean`,
+  `SU2QuaternionRelativeHeatAngularBound.lean`,
+  `SU2QuaternionProductHeatAngularMessage.lean`, and
+  `BF4ExactSlabFixedSpatialTerminalAngularBound.lean` in that directory;
+  arbitrary-coordinate extensions in the existing angular support,
+  character derivative and heat derivative modules preserve their old APIs.
+- **actual producer**: `terminalMessage_angular_bounds` constructs both
+  `C(w)*g +/- h(w)*Dg` certificates, where g is the original `T^(n+1)1`,
+  D rotates any active link, h is `headFloor w`, and C is
+  `heatDerivativeCap w 32`. The full positive input `spatialWeight*g_n`
+  and all other heat factors remain in the original partial Haar integral.
+- **consumer**: `terminalMessage_angular_weighted_square` proves
+  `h^2 H[R(Dg)^2] <= C^2 H[Rg^2]` for every certified positive background R.
+  Constants are independent of width, depth, selected link and late cutoff;
+  nome and `headCutoff w <= K` remain explicit. No reciprocal of g is used.
+- **remaining obligation**: the sufficiently small SAME-variance one-step
+  energy bound along a justified spatial/nome/spacing family is still open.
+  No completed angular operator, continuum survival, physical mass or QFT
+  construction is asserted. No hole, analytic premise or canonical field
+  was added, removed or weakened.
+- **verification**: dependency-complete terminal consumer and seven direct
+  checks, 38 printed gates within `{propext, Quot.sound}`, no warnings or
+  `sorryAx`; one 20 GiB worker, no full-root audit. Exact source/log map:
+  `audits/AUDIT-TERMINAL-ANGULAR-BOUND-2026-09-21.md`.
+
+## PROVED coefficient-level inverse-heat remainder obstruction (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2InverseHeatRemainderObstruction.lean`
   and `SU2InverseHeatRemainderUnbounded.lean` in the same directory.

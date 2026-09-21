@@ -181,19 +181,18 @@ private theorem chain_step (x a b u d : RatPoly) :
 
 /-- Chain rule at coefficient equality, with the constructed positive
 lower-character expansion. No rational evaluation or changed measure is used. -/
-theorem angularDerivative_character {i j : Nat} (hi : i < 4) (hj : j < 4)
+theorem angularDerivative_character_at (i j : Nat)
     (x : RatPoly) : ∀ n : Nat,
     RatPolyCoeffEqv (angularDerivative i j (characterPolynomial x n))
       (polyMul (derivativePolynomial x n) (angularDerivative i j x))
-  | 0 => (angularDerivative_independent_zero hi hj polyOne
-      (hasQuaternionBlockDegree_one 0)).trans
+  | 0 => (angularDerivative_one i j).trans
         ((cap_mul_left 0 (angularDerivative i j x)).trans
           (RatPolyCoeffEqv.zero_smul _)).symm
   | 1 => (angularDerivative_smul i j 2 x).trans (cap_mul_left 2 _).symm
   | n+2 => by
       let d := angularDerivative i j x
-      have hnext := angularDerivative_character hi hj x (n+1)
-      have hprev := angularDerivative_character hi hj x n
+      have hnext := angularDerivative_character_at i j x (n+1)
+      have hprev := angularDerivative_character_at i j x n
       refine (angularDerivative_add i j
         (polyMul (polySmul 2 x) (characterPolynomial x (n+1)))
         (polySmul (-1) (characterPolynomial x n))).trans ?_
@@ -205,6 +204,13 @@ theorem angularDerivative_character {i j : Nat} (hi : i < 4) (hj : j < 4)
             ((hprev.smul (-1)).trans (cap_mul_left (-1) _).symm) |>.trans ?_
       exact (chain_step x (derivativePolynomial x n) (derivativePolynomial x (n+1))
         (characterPolynomial x (n+1)) d).trans ((derivative_recurrence x n).mul_right d)
+
+/-- Head-coordinate specialization of the arbitrary-coordinate chain rule. -/
+theorem angularDerivative_character {i j : Nat} (_hi : i < 4) (_hj : j < 4)
+    (x : RatPoly) (n : Nat) :
+    RatPolyCoeffEqv (angularDerivative i j (characterPolynomial x n))
+      (polyMul (derivativePolynomial x n) (angularDerivative i j x)) :=
+  angularDerivative_character_at i j x n
 
 /-- The positive parity recurrence, now pinned to the actual angular derivative. -/
 theorem angularDerivative_character_step {i j : Nat} (hi : i < 4) (hj : j < 4)
@@ -239,6 +245,14 @@ def angularDerivativeCharacterInterval {blocks i j : Nat} {x : RatPoly} {d : Q'}
   Interval.ofCoeff (angularDerivative_supported hb hi hj (character_squareBound X n).support)
     (angularDerivative_character hi hj x n) ((derivativePolynomialInterval X n).mul DX)
 
+/-- The same cubic character budget for rotations at any supported coordinates. -/
+def angularDerivativeCharacterIntervalAt {blocks i j : Nat} {x : RatPoly} {d : Q'}
+    (hi : i < 4 * blocks) (hj : j < 4 * blocks) (X : SquareBound blocks x 1)
+    (DX : Interval blocks (angularDerivative i j x) d) (n : Nat) :
+    Interval blocks (angularDerivative i j (characterPolynomial x n)) (cubicBudget n * d) :=
+  Interval.ofCoeff (angularDerivative_supported_at hi hj (character_squareBound X n).support)
+    (angularDerivative_character_at i j x n) ((derivativePolynomialInterval X n).mul DX)
+
 /-- Derivative control against any original positive-certificate background;
 shared variables are retained, and no independence is required. -/
 theorem angularDerivative_character_weighted_bound {blocks i j : Nat} {x r : RatPoly} {d : Q'}
@@ -253,7 +267,9 @@ end YMGap.Continuum.QuaternionHaarCharacterDerivative
 
 #print axioms YMGap.Continuum.QuaternionHaarCharacterDerivative.derivativePolynomial
 #print axioms YMGap.Continuum.QuaternionHaarCharacterDerivative.angularDerivative_character
+#print axioms YMGap.Continuum.QuaternionHaarCharacterDerivative.angularDerivative_character_at
 #print axioms YMGap.Continuum.QuaternionHaarCharacterDerivative.angularDerivative_character_step
 #print axioms YMGap.Continuum.QuaternionHaarCharacterDerivative.derivativePolynomialInterval
 #print axioms YMGap.Continuum.QuaternionHaarCharacterDerivative.angularDerivativeCharacterInterval
+#print axioms YMGap.Continuum.QuaternionHaarCharacterDerivative.angularDerivativeCharacterIntervalAt
 #print axioms YMGap.Continuum.QuaternionHaarCharacterDerivative.angularDerivative_character_weighted_bound

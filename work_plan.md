@@ -34,7 +34,45 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Tested inverse-heat shortcut: preserve the cancellation (2026-09-21 UTC)
+### Actual positive-source derivative control (2026-09-21 UTC)
+
+**PROGRESS -- a missing source estimate is constructed:**
+`BF4ExactSlabFixedSpatialTerminalAngularBound.terminalMessage_angular_bounds`
+proves, for g=T^(n+1)1 on the original finite action and any active link D,
+
+    C(w)*g - h(w)*Dg >= 0,    C(w)*g + h(w)*Dg >= 0,
+    h(w)^2 H[R*(Dg)^2] <= C(w)^2 H[R*g^2].
+
+Here h=`headFloor w`, C=`heatDerivativeCap w 32`, and R is any certified
+positive background on the same carrier. The entire input `V*g_n` and all
+unselected kinetic factors remain inside the Haar integral. Tail derivative
+commutation plus exact block independence isolate just one kinetic factor.
+Its two-sided derivative interval and the already proved conditional-message
+floor eliminate the erased normalizer by positive addition. Multiplication
+then retains the negative derivative square, without any inverse-heat bound.
+
+**Uniformity / next join:** no width, terminal-depth or cutoff power occurs
+in h or C; the late-cutoff guard and strict nome are explicit. These constants
+have no proved nome-uniform control. Next use this actual source regularity only in
+a proved original-weight gradient/energy comparison, and check whether its
+nome dependence is sufficient on a justified spacing trajectory. That
+comparison and the small SAME-variance relative one-step producer remain
+open. Do not infer them from this derivative bound or introduce a replacement
+Hamiltonian/action. Completed derivatives, changing-width/spacing survival,
+physical mass calibration, full QFT and every compact simple group remain open.
+
+**Verification / delegation:** the dependency-complete terminal consumer
+and seven serialized direct checks passed 38 printed gates, all within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Sol supplied the
+tail-Haar derivative draft and independent scope review; main supplied the source estimates, consumers,
+final elaboration fixes and checks. One 20 GiB worker; no full-root audit,
+new hole, analytic premise or canonical-field change. Source/log map:
+`audits/AUDIT-TERMINAL-ANGULAR-BOUND-2026-09-21.md`.
+Latest user-facing causal ASCII chart: approximately 2026-09-21 17:32 UTC,
+including the WHOLE-PROJECT GOAL, the new source-regularity join and the open
+physical/scaling/QFT/all-group requirements. Next chart around 18:32 UTC.
+
+### Tested inverse-heat shortcut: preserve the cancellation (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- a candidate estimate is ruled out, not a physical theorem:**
 `SU2InverseHeatRemainderObstruction.rawAdjacentRemainder_eq_factorized`
@@ -128,7 +166,7 @@ capped 20 GiB worker; no full-root audit was run. Logs:
 `/tmp/ym-gap-joint-span-reversal-check.log`,
 `/tmp/ym-gap-joint-time-positive-final.log`,
 `/tmp/ym-gap-joint-temporal-energy-final.log`.
-Latest user-facing causal ASCII chart: approximately 2026-09-21 16:32 UTC, including the
+Earlier user-facing causal ASCII chart: approximately 2026-09-21 16:32 UTC, including the
 whole-project goal, the checked vacuum lane, the then-pending one-step
 positivity join (now checked), and the open quantitative/scaling branches.
 

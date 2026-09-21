@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Coefficient-level shortcut obstruction (2026-09-21 UTC):**
+**Actual terminal-message angular control (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialTerminalAngularBound.lean` constructs both
+`C(w)*g +/- h(w)*Dg` positivity certificates for the ORIGINAL `g=T^(n+1)1`.
+Here D rotates any active link, `h=headFloor`, and
+`C=heatDerivativeCap w 32`. Differentiation passes through the original
+input Haar integral and hits only the matching kinetic factor; the entire
+spatial action and terminal history remain. Multiplying the two certificates
+gives `h^2 H[R(Dg)^2] <= C^2 H[Rg^2]` for any certified positive R.
+The constants have no width, depth or cutoff power; the guard
+`headCutoff w <= K` and all nome dependence are explicit. No near-one-nome
+energy bound, completed derivative, spacing survival or continuum theorem
+follows yet. The consumer target and seven direct checks passed 38 printed
+gates within `{propext, Quot.sound}`. No new hole or canonical field.
+See `audits/AUDIT-TERMINAL-ANGULAR-BOUND-2026-09-21.md`.
+
+**Coefficient-level shortcut obstruction (earlier checkpoint, 2026-09-21 UTC):**
 `SU2InverseHeatRemainderObstruction.lean` pins the four adjacent heat-weight
 ratios to `(1-w^2)*(w^(-(2*j+3))+w^(2*j+1))` for physical labels j>=1.
 `SU2InverseHeatRemainderUnbounded.lean` computes an escaping spin for every
