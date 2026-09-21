@@ -163,6 +163,10 @@
 > energy to the bare kinetic form. At the local differential level it
 > cancels all weight-derivative terms; the finite-time comparison remains
 > open. [Identity and operator boundary](audits/AUDIT-ENDPOINT-WEIGHT-CANCELLATION-2026-09-21.md).
+> The actual two-link heat packet now has checked all-label harmonic
+> selection and exact Casimir nome dependence. Its diagonal reproducing
+> normalization is still open; nome one is not assumed to give the identity.
+> [New local result and remaining join](audits/AUDIT-ALL-LABEL-TWO-LINK-SELECTION-2026-09-21.md).
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction

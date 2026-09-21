@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Exact original endpoint-weight cancellation (2026-09-21 UTC):**
+**All-label two-link selection (2026-09-21 UTC):**
+`SU2QuaternionRelativeHarmonicSelection.lean` proves that the actual full
+heat packet paired with any homogeneous harmonic of degree d retains
+only its label-d pairing (or zero when K<d), with all boundary variables
+retained. It also proves exact `w^(d*(d+2))` dependence relative to the
+same finite packet at nome one. The all-degree diagonal reproducing
+normalization remains OPEN; nome one is not assumed to be the identity.
+The supporting differential specialization and this consumer passed eight
+axiom gates within `{propext, Quot.sound}` and a dependency-complete target.
+No new hole/axiom or full-root audit. Source/remaining join:
+`audits/AUDIT-ALL-LABEL-TWO-LINK-SELECTION-2026-09-21.md`.
+
+**Exact original endpoint-weight cancellation (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialGroundStateEnergy.lean` writes the actual energy
 for a=V*g as `H[(a*f)^2]-H[(a*f)*P(a*f)] + H[a*f^2*(P(a)-a)]`,
 keeping the sign-indefinite correction and full original product kernel.

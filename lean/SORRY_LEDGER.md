@@ -13,7 +13,30 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED full endpoint-weight cancellation (2026-09-21 UTC)
+## PROVED all-label two-link selection (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionTailEvaluationDifferential.lean`
+  and `SU2QuaternionRelativeHarmonicSelection.lean` in that directory.
+- **producer**: retained-prefix evaluation commutes with derivatives and
+  the head Laplacian and preserves syntactic homogeneous degree. Only
+  auxiliary coefficients are specialized, not the physical link variables.
+- **actual kernel consumer**: `relativeSolid_harmonic_offDiagonal` removes
+  both lower and higher labels against arbitrary homogeneous harmonics;
+  `heat_harmonic_diagonal` retains exactly the full packet's label-d
+  pairing, or zero if K<d. `heat_harmonic_nome_scaling` proves the exact
+  Casimir power relative to the finite nome-one packet.
+- **residue**: all-degree diagonal reproduction/dimension normalization,
+  padding-aware substitution, product-map and changing-source cutoff
+  control, and a useful SAME-variance weighted finite-time rate remain
+  open. No identity-at-nome-one, physical gap, continuum survival, QFT or
+  other-group construction is asserted. No named field or premise was
+  weakened and no new hole or axiom was introduced.
+- **verification**: two focused checks passed eight axiom gates within
+  `{propext, Quot.sound}`; the dependency-complete consumer target passed.
+  One capped 20 GiB worker, no full-root audit. Source/log/review map:
+  `audits/AUDIT-ALL-LABEL-TWO-LINK-SELECTION-2026-09-21.md`.
+
+## PROVED full endpoint-weight cancellation (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarWeightedAngularCancellation.lean`
   and `BF4ExactSlabFixedSpatialGroundStateEnergy.lean` in that directory.

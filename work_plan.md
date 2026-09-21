@@ -34,7 +34,38 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Full endpoint-weight cancellation is exact (2026-09-21 UTC)
+### All-label two-link selection and exact nome dependence (2026-09-21 UTC)
+
+**PROGRESS -- the unequal-label terms are discharged:**
+`SU2QuaternionRelativeHarmonicSelection.heat_harmonic_diagonal` reduces
+the FULL original two-link heat packet against any head-homogeneous
+harmonic of degree d to its explicit same-degree character pairing, or
+zero if K<d. All tail coefficients and an arbitrary retained boundary
+remain. The short argument applies the existing harmonic orthogonality
+in both degree orders; a proved differential specialization transports
+the original four-word harmonic mode without fixing either physical link.
+`heat_harmonic_nome_scaling` additionally proves the exact factor
+`w^(d*(d+2))` relative to the SAME finite packet at nome one.
+
+**Next mathematical join:** prove the remaining all-degree DIAGONAL
+reproducing identity with the exact dimension normalization and explicit
+head-to-retained-link substitution. Account for zero padding with the
+existing prefix/Haar carrier. The finite nome-one packet is NOT assumed
+to be the identity. Then join the actual product map, cutoff control and
+finite-time weighted comparison; V_K*g_K*f changes with K, so fixed-test
+selection is not a uniform bound for that family. Reuse the existing
+`ActiveEnergy.energy_active` and its marginal identities for the concrete
+terminal-source fringe reduction. The SAME-variance small rate and all
+continuum/physical-mass/QFT/every-group obligations remain open.
+
+Two focused checks passed eight gates within `{propext, Quot.sound}`;
+the dependency-complete consumer target also passed. Sol supplied the
+bounded specialization draft, independent review and source inventory;
+main supplied the selection/packet proofs and verification. No new hole,
+analytic premise, canonical-field change or full-root audit. Details:
+`audits/AUDIT-ALL-LABEL-TWO-LINK-SELECTION-2026-09-21.md`.
+
+### Full endpoint-weight cancellation is exact (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- preserve the correction before estimating:** with the
 original a=V*g and actual product kinetic map P,
