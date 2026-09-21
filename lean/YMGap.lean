@@ -4852,6 +4852,9 @@ import YMGap.Continuum.SU2QuaternionGroupedHarmonicNorm
 import YMGap.Continuum.SU2HeatCutoffCasimirBound
 import YMGap.Continuum.QuaternionHaarHarmonicAngularEnergy
 import YMGap.Continuum.SU2QuaternionGroupedHeatComparison
+import YMGap.Continuum.SU2QuaternionGroupedAngularEnergy
+import YMGap.Continuum.SU2QuaternionSpareHeadCopy
+import YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
 import YMGap.Continuum.SU2QuaternionHeatFusionBoundaryTail
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFusionIdentity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFusionBoundary

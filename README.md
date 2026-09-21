@@ -184,6 +184,14 @@
 > not the missing weighted energy estimate. Its fixed-input cutoff does
 > not control the changing source family uniformly.
 > [Constructive decomposition and remaining estimate](audits/AUDIT-CONSTRUCTIVE-HARMONIC-DECOMPOSITION-2026-09-21.md).
+> A quantitative local estimate is now proved for the actual conditional
+> one-link heat operator: `H[p^2]-H[p*P_K p] <= (1-w)*H[angularSquare p]`.
+> It accepts every supported signed p, keeps spectator variables shared,
+> and uses a computed sufficient cutoff with no input-degree restriction.
+> Equal-degree contributions are grouped before squaring, so their signed
+> cross terms survive. Composition into the full product operator and the
+> original signed endpoint correction remain open; this is not an OS gap.
+> [Actual local operator, proof and remaining joins](audits/AUDIT-ACTUAL-LOCAL-HEAT-DEFECT-2026-09-21.md).
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction

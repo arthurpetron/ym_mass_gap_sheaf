@@ -34,7 +34,52 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Grouped harmonic norms and cutoff/Casimir budget (2026-09-21 UTC)
+### Actual one-link kinetic defect on the original signed input (2026-09-21 UTC)
+
+**PROGRESS -- the grouped budget now reaches an actual local operator:**
+`SU2QuaternionHeadHeatDiagonal.headMap_defect_le_angular` proves
+
+    H[p^2] - H[p * headMap(w,K,p)] <= (1-w) * H[angularSquare(p)]
+
+for EVERY supported signed polynomial p, every 0<=w<1, and every
+`K >= sufficientCutoff w`. There is no input-degree restriction. The
+right-hand side is the complete angular energy of the ORIGINAL p, not
+an assumed surrogate energy or a sum with same-degree cross terms removed.
+The local quadratic form is nonnegative and no greater than H[p^2] for
+0<=w<=1 at every cutoff, without a pointwise heat-positivity premise.
+
+`headMap` reuses the existing `conditionalHeat` on a constructed input
+copy. On (x,y,z), that copy is p(x,z); the upper test is q(y,z). Retained
+substitution is PROVED to return p(y,z), with every spectator z intact.
+The copy preserves harmonicity and Haar-carrier equalities with explicit
+support/padding guards. `polynomial_diagonal` then identifies the actual
+two-link integral with the computed complete-group attenuation sum.
+Sol's `polynomial_angular_energy` reconstructs the original angular cost.
+The local operator's support, normalized mean and original pairing are
+proved. No diagonal identification is supplied as a premise.
+
+**Next mathematical join:** compose these actual conditional link updates
+into the original product kinetic operator (or prove an equivalent exact
+hybrid telescope), respecting active slots and the original inactive Haar
+projections. A singleton `productMap` is NOT this conditional update:
+it Haar-averages the other lower slots, whereas `headMap` shares spectators.
+`productMap_pairing`, `productMap_selected_expansion`, and
+`ActiveEnergy.energy_active` are the existing actual-product/endpoint
+consumers; none supplies the missing local-update composition theorem.
+Do not discard the remaining product factors or the signed endpoint
+correction in `GroundStateEnergy.energy_eq_bare_add_correction`.
+
+The multi-factor comparison, interacting finite-time endpoint cancellation,
+SAME-variance small rate, spatial/scaling survival, finite physical mass,
+full QFT and every compact simple group remain OPEN. This local ordinary-
+Haar kinetic inequality is not an OS transfer gap or continuum closure.
+No canonical field, hole or axiom was changed. Source and verification:
+`audits/AUDIT-ACTUAL-LOCAL-HEAT-DEFECT-2026-09-21.md`.
+Three focused checks passed 28 gates within `{propext, Quot.sound}` and
+the dependency-complete consumer passed. One capped 20 GiB worker; no
+full-root build/audit or frontier guard.
+
+### Grouped harmonic norms and cutoff/Casimir budget (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the same-degree cross-term obstruction is handled exactly:**
 `SU2QuaternionGroupedHarmonicNorm.polynomial_norm` proves that the original

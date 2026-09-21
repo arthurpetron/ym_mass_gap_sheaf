@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED grouped harmonic norms and explicit cutoff/Casimir budget (2026-09-21 UTC)
+## PROVED actual local heat-defect bound with shared spectators (2026-09-21 UTC)
+
+- **files**: `SU2QuaternionGroupedAngularEnergy.lean`,
+  `SU2QuaternionSpareHeadCopy.lean`, and `SU2QuaternionHeadHeatDiagonal.lean`,
+  under `lean/YMGap/Continuum/`.
+- **proved operator input**: a concrete spare-link copy sends p(x,z) into
+  the actual relative heat packet, and retained substitution returns the
+  SAME p(y,z). Support, padding, harmonicity and arbitrary-insertion
+  Haar-carrier transport are proved rather than supplied as assumptions.
+- **quantitative result**: `headMap_defect_le_angular` bounds the actual
+  conditional one-link defect by `(1-w)*H[angularSquare p]` for every
+  supported signed p, 0<=w<1 and K above the computed sufficient cutoff.
+  Complete harmonic groups retain all same-degree cross terms, and
+  `polynomial_angular_energy` reassembles the original signed source's
+  angular cost. Positivity/upper norm bounds hold for the local quadratic
+  form at every cutoff when 0<=w<=1. No input-degree bound is assumed.
+- **reuse**: `headMap` is the existing `conditionalHeat` applied to the
+  explicit copy, with proved support, mean and original-pairing pins.
+- **residue**: composition into the actual product kinetic map and the
+  original signed endpoint correction remain open. The local update
+  preserves spectators; singleton `productMap` instead averages inactive
+  lower slots. They have NOT been identified. No full-product,
+  interacting-transfer, OS gap, physical mass or continuum closure is
+  claimed. Spatial/scaling survival, full QFT and every group stay open.
+- **scope**: no canonical premise or frontier field changed; no `sorry`
+  or axiom introduced/discharged. Three focused checks passed 28 gates
+  within `{propext, Quot.sound}` and the dependency-complete consumer
+  passed. No full-root audit. Verification and source map:
+  `audits/AUDIT-ACTUAL-LOCAL-HEAT-DEFECT-2026-09-21.md`.
+
+## PROVED grouped harmonic norms and explicit cutoff/Casimir budget (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `SU2QuaternionGroupedHarmonicNorm.lean`,
   `SU2HeatCutoffCasimirBound.lean`, `QuaternionHaarHarmonicAngularEnergy.lean`,
