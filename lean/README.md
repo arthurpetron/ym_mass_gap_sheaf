@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**All-nome original kinetic alignment (2026-09-21 UTC):**
+`SU2HeatNeighborConvexity.lean` and `SU2HeatFusionCoefficientPositive.lean`
+prove nonnegative bulk coefficients using the original dimensions/Casimirs.
+`SU2HeatFusionCutoffError.lean` computes a modulus for the remaining error
+`(K+2)(K+1)*w^((K+1)(K+3))`.
+`SU2QuaternionHeatFusionQuadratic.lean` uses SAME-endpoint quadratic
+positivity, not pointwise character positivity.
+`BF4ExactSlabFixedSpatialKineticAlignment.lean` supplies the actual product
+kernel, `a=V*T^n1`, and existing positive odd-window partition, proving
+`2*w^3 <= alignmentMean + epsilon` at an explicit late cutoff. Its constants
+and threshold are independent of spatial width and terminal depth, but
+depend on nome; there is no arbitrary-observable spatial variance bound.
+Eight final narrow checks passed all 45 printed gates within
+`{propext, Quot.sound}`. No hole or frontier field changed; no full-root audit.
+
 **Original signed cross-term reduction (2026-09-21 UTC):**
 `SU2QuaternionWeightedResidualOrthogonality.lean` proves that an actual
 weighted residual annihilates link-independent tests.

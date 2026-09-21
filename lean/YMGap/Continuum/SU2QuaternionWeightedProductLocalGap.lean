@@ -65,7 +65,7 @@ private theorem sum_congr (f g : Nat → RatPoly) : ∀ xs : List Nat,
       simp only [finitePolySum, h i List.mem_cons_self,
         sum_congr f g xs (fun j hj => h j (List.mem_cons_of_mem i hj))]
 
-private theorem heatAt_eq_prefix (a b : Nat) (w : Q') (K : Nat) :
+theorem heatAt_eq_prefix (a b : Nat) (w : Q') (K : Nat) :
     heatAt a b w K = heatPrefix w K (scalarAt a b) := by
   unfold heatAt heatPrefix
   apply sum_congr
@@ -339,6 +339,7 @@ end YMGap.Continuum.SU2QuaternionWeightedProductLocalGap
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.factor_pairing
 
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.edgeWeight
+#print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.heatAt_eq_prefix
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.heatInterval
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.erased_cross_zero
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductLocalGap.erased_jump_eq_diagonal

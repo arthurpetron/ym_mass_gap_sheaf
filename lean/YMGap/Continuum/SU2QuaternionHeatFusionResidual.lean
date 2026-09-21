@@ -117,7 +117,7 @@ private theorem step_recombine (a b c d : Q') (s x y z : RatPoly) :
   exact h.trans (((RatPolyCoeffEqv.refl s).add (combine_coefficient a c (d*b) y)).add
     (RatPolyCoeffEqv.refl _))
 
-private theorem prefix_step (w : Q') (K : Nat) (x : RatPoly) :
+theorem prefix_step (w : Q') (K : Nat) (x : RatPoly) :
     RatPolyCoeffEqv (heatPrefix w (K+1) x)
       (polyAdd (heatPrefix w K x) (polySmul (coeffW w (K+1)) (characterPolynomial x (K+1)))) := by
   unfold heatPrefix
@@ -181,4 +181,5 @@ end YMGap.Continuum.SU2QuaternionHeatFusionResidual
 #print axioms YMGap.Continuum.SU2QuaternionHeatFusionResidual.fusionCoeff
 #print axioms YMGap.Continuum.SU2QuaternionHeatFusionResidual.bulkResidual
 #print axioms YMGap.Continuum.SU2QuaternionHeatFusionResidual.boundaryResidual
+#print axioms YMGap.Continuum.SU2QuaternionHeatFusionResidual.prefix_step
 #print axioms YMGap.Continuum.SU2QuaternionHeatFusionResidual.heat_fusion_residual

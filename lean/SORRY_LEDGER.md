@@ -13,6 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED all-nome original kinetic alignment with an explicit cutoff error (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2HeatNeighborConvexity.lean`,
+  `SU2HeatFusionCoefficientPositive.lean`, `SU2HeatFusionCutoffError.lean`,
+  `SU2QuaternionHeatFusionQuadratic.lean`, and
+  `BF4ExactSlabFixedSpatialKineticAlignment.lean`, all in the same directory.
+  Three existing modules only expose already-proved helper declarations.
+- **scope**: `adjacent_heat_coefficients` proves `c_1*c_j <= c_(j-1)+c_(j+1)`
+  for positive spins using the literal SU(2) dimensions and Casimir exponents.
+  `product_alignment` controls the complete original heat product with the
+  SAME certified endpoint source on both copies. The adverse boundary term
+  remains `cutoffError w K = (K+2)(K+1)*w^((K+1)(K+3))` times the same edge
+  mass. `alignment_cleared` instantiates `a=V*T^n1`; `alignment_normalized`
+  uses only the existing positive `oddMass`; `alignment_tolerance` gives
+  `c_1 <= alignmentMean + epsilon` for every active temporal link, width and
+  terminal depth, at the computed nome/tolerance-dependent cutoff.
+- **boundary**: no pointwise fusion-residual positivity, arbitrary-observable
+  variance bound, aggregate signed spatial estimate, completed gap outside
+  the old guard, scaling survival or continuum/Clay closure. No cutoff
+  uniformity as `w` approaches one is claimed. No sorry, axiom, canonical
+  field or existing open obligation changed.
+- **verification**: the narrow original-slab target and eight final direct
+  checks passed all 45 printed gates within `{propext, Quot.sound}`, without
+  warnings or `sorryAx`. One monitored 20 GiB worker; no full-root audit.
+  Sol drafted the bounded arithmetic and scalar-error modules and reviewed
+  the quadratic argument; the main agent proved the same-object consumers.
+
 ## PROVED exact cancellation and non-increasing signed cross-term budget (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionWeightedResidualOrthogonality.lean`,

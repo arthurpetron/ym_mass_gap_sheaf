@@ -34,6 +34,71 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### All-nome original kinetic alignment, with a computed cutoff error (2026-09-21 UTC)
+
+**PROGRESS -- a genuine original-action local estimate, not a spatial gap:**
+`BF4ExactSlabFixedSpatialKineticAlignment.alignment_tolerance` proves, for
+every `0<w<1`, every spatial width, terminal depth and active temporal link,
+
+    c_1 = 2*w^3 <= alignmentMean + epsilon,
+    K >= max(headCutoff(w), cutoffErrorCutoff(w,epsilon)).
+
+Here `alignmentMean` is the fundamental relative-character insertion in
+the ORIGINAL edge `K(x,y)V(x)V(y)g(x)g(y)`, `g=T^n1`, normalized by its
+EXISTING positive `oddMass`. No original action factor, message or
+partition has been replaced. The coefficient and cutoff threshold are
+independent of width and depth; nome and tolerance remain explicit.
+
+**Short mathematical argument:** write `c_j=(j+1)*w^(j*(j+2))`. The actual
+dimension and Casimir formulas give `c_(j-1)+c_(j+1)>=c_1*c_j` for `j>=1`.
+After extracting a nonnegative power and setting `x=w^2`, this reduces to
+
+    G_j = j+(j+2)*x^(2*j+2)-2*(j+1)*x^(j+2) >= 0,
+    G_0 = 0,
+    G_(j+1) = x^2*G_j + (x-x^(j+2))^2
+              + (j+1)*(1-x)*(1+x-2*x^(j+3)).
+
+Every summand is nonnegative for `0<=x<=1`. The exact finite heat-fusion
+identity, already proved, then has nonnegative bulk CHARACTER QUADRATICS
+against the same endpoint source and remaining product kernel. This uses
+global positive semidefiniteness of that remaining kernel, separately from
+the source's positive certificate; pointwise character positivity is NOT
+asserted. Keep the negative boundary term, use `|chi_K|<=K+1`, and retain
+the vacuum coefficient to obtain
+
+    c_1*Z <= J + error(w,K)*Z,
+    error(w,K) = (K+2)(K+1)*w^((K+1)*(K+3)).
+
+The actual positive original partition allows relative normalization.
+`SU2HeatFusionCutoffError.cutoffError_small` supplies the explicit cutoff
+modulus from the existing all-nome tail. This is not an absolute error
+estimate on an uncontrolled partition. At `w=1` the endpoint error grows;
+the small-error theorem correctly requires `w<1`.
+
+**Next consumer and remaining obstruction:** this supplies one original
+local kinetic input for estimates on time increments in the SAME finite
+Dirichlet form. Turning it into a controlled observable-increment bound,
+and then a changing-spacing survival estimate, still requires proofs.
+It does not control arbitrary-observable variance or the signed aggregate
+cross-term budget, and it does not bound the spatial gap. The primary
+spatial/scaling producer remains open. Do not substitute this temporal
+character mean for a completed operator contraction. SAME-theory OS/full
+QFT, finite positive physical mass, every compact simple group and Clay
+remain OPEN. No canonical field or existing analytic obligation changed.
+
+**Verification and delegation:** Sol handled the bounded rational-power
+lemma, cutoff-error proof and mathematical scope review. The main agent
+proved the coefficient join, quadratic estimate and actual-slab consumer.
+The target
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialKineticAlignment:olean`
+passed, followed by eight direct final checks and all 45 printed gates
+within `{propext, Quot.sound}`, with no warnings or `sorryAx`.
+Logs are `/tmp/ym-gap-<Module>-final.log` for the five new modules and
+`SU2QuaternionHeatFusionResidual`, `SU2QuaternionProductHeatPositive`,
+`SU2QuaternionWeightedProductLocalGap`. One monitored 20 GiB worker;
+no full-root build/audit. One root import now reaches the original fusion
+module through the new physical consumer. No hole or axiom added.
+
 ### Exact cancellation reduces the original signed cross-term budget (2026-09-21 UTC)
 
 **PROGRESS -- finite inequality, not a new uniform rate:**

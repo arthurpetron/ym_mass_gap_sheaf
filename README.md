@@ -23,9 +23,23 @@
 > Exact conditional cancellation now also gives a computed cross-term
 > Cauchy budget no larger than the old one, with the original weight retained.
 > Its size and aggregate spatial control remain open; the gain can be zero.
+> An all-nome local kinetic alignment bound now retains the full original
+> edge and partition, with a computable cutoff error independent of width
+> and terminal depth. It is not an arbitrary-observable variance bound.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
+
+**Original kinetic alignment (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialKineticAlignment.alignment_tolerance` proves
+`2*w^3 <= mean(chi_1) + epsilon` for every active temporal link in the
+original finite slab. It retains both full endpoint weights `V*T^n1` and
+normalizes by the existing positive odd-window partition. The computed
+cutoff depends on `w` and `epsilon`, not spatial width or terminal depth.
+The proof uses the actual SU(2) dimensions and Casimir exponents, without
+a small-nome guard. Spatial gap, changing-spacing survival and continuum
+closure remain open. Sol handled bounded arithmetic and review tasks;
+serialized narrow checks passed, with no full-root audit.
 
 **Original signed cross-term reduction (2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialClearedCovarianceReduction` subtracts a computed

@@ -64,7 +64,8 @@ private def pairSource (blocks : Nat) (f : RatPoly) : RatPoly :=
 def haarQuadratic (blocks : Nat) (W f : RatPoly) : Q' :=
   quaternionHaar (blocks+blocks) (polyMul W (pairSource blocks f))
 
-private def insertion (blocks : Nat) (W f p : RatPoly) : Q' :=
+/-- A literal polynomial insertion in the same-endpoint kernel quadratic. -/
+def insertion (blocks : Nat) (W f p : RatPoly) : Q' :=
   quaternionHaar (blocks+blocks) (polyMul (polyMul W (pairSource blocks f)) p)
 
 private theorem support_twice {blocks : Nat} {p : RatPoly}
@@ -76,16 +77,16 @@ private theorem pairSource_supported {blocks : Nat} {p : RatPoly}
     SupportedQuaternionBlocks (blocks+blocks) (pairSource blocks p) :=
   supported_polyMul (support_twice hp) (lift_supported hp blocks)
 
-private theorem insertion_coeff (blocks : Nat) (W f : RatPoly) {p q : RatPoly}
+theorem insertion_coeff (blocks : Nat) (W f : RatPoly) {p q : RatPoly}
     (h : RatPolyCoeffEqv p q) : insertion blocks W f p ≈ insertion blocks W f q :=
   haar_of_coeff (h.mul_left _)
 
-private theorem insertion_add (blocks : Nat) (W f p q : RatPoly) :
+theorem insertion_add (blocks : Nat) (W f p q : RatPoly) :
     insertion blocks W f (polyAdd p q) ≈ insertion blocks W f p + insertion blocks W f q :=
   Q'.eqv_trans _ _ _ (haar_of_coeff (RatPolyCoeffEqv.mul_add_right _ p q))
     (quaternionHaar_append _ _ _)
 
-private theorem insertion_smul (blocks : Nat) (W f p : RatPoly) (c : Q') :
+theorem insertion_smul (blocks : Nat) (W f p : RatPoly) (c : Q') :
     insertion blocks W f (polySmul c p) ≈ c * insertion blocks W f p :=
   Q'.eqv_trans _ _ _ (haar_of_coeff (RatPolyCoeffEqv.polyMul_smul_right c _ p))
     (quaternionHaar_polySmul _ _ _)
@@ -169,7 +170,9 @@ private theorem gram_insertion_nonnegative {blocks slot : Nat} (hslot : slot < b
       (coordinateColumn_lift blocks slot degree k)))
     (Q'.ge_of_eqv (insertion_smul blocks W f _ _))
 
-private theorem character_insertion_nonnegative {blocks slot : Nat} (hslot : slot < blocks)
+/-- Relative characters preserve the SAME kernel quadratic's positivity.
+This is not pointwise positivity of a character. -/
+theorem character_insertion_nonnegative {blocks slot : Nat} (hslot : slot < blocks)
     {W f : RatPoly} (hW : SupportedQuaternionBlocks (blocks+blocks) W)
     (hpositive : ∀ g, SupportedQuaternionBlocks blocks g → (0 : Q') ≤ haarQuadratic blocks W g)
     (hf : SupportedQuaternionBlocks blocks f) (degree : Nat) :
@@ -187,7 +190,7 @@ private theorem character_insertion_nonnegative {blocks slot : Nat} (hslot : slo
   exact Q'.le_trans' _ _ _ (gram_insertion_nonnegative hslot hW hpositive hf degree)
     (Q'.ge_of_eqv he)
 
-private theorem sum_insertion_nonnegative {A : Type} (blocks : Nat) (W f : RatPoly)
+theorem sum_insertion_nonnegative {A : Type} (blocks : Nat) (W f : RatPoly)
     (p : A → RatPoly) : ∀ (xs : List A),
       (∀ a, a ∈ xs → (0 : Q') ≤ insertion blocks W f (p a)) →
       (0 : Q') ≤ insertion blocks W f (finitePolySum p xs)
@@ -250,6 +253,12 @@ theorem productMap_nonnegative (blocks : Nat) (w : Q') (hw : (0 : Q') ≤ w)
 end YMGap.Continuum.SU2QuaternionProductHeatPositive
 
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatPositive.haarQuadratic
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatPositive.insertion
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatPositive.insertion_coeff
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatPositive.insertion_add
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatPositive.insertion_smul
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatPositive.character_insertion_nonnegative
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatPositive.sum_insertion_nonnegative
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatPositive.heat_preserves_quadratic
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatPositive.productHeat_quadratic_nonnegative
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatPositive.productMap_nonnegative
