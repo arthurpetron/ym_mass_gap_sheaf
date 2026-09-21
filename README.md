@@ -69,7 +69,19 @@ bridge. The narrow dependency build and all 11 direct declaration gates
 passed within `{propext, Quot.sound}`, with no warnings or `sorryAx`.
 No full-root audit was run.
 
-> **Research status (2026-09-19 UTC): this repository does not prove the Clay
+**Spatial response of one original coupling defect (2026-09-21 UTC):**
+`BF4ExactSlabCouplingSpatialResponse.full_slab_single_defect_bound` proves
+geometric distance decay for the change in an observable's expectation when
+one face's heat factor changes. The original full slab is the old endpoint;
+its actual normalization is retained. The bound is proportional to the
+coupling change and independent of cutoff and ambient face count, with
+explicit coupling/probe constants. The surrounding homogeneous background
+must satisfy the stated small-coupling spatial guards. Summing locations,
+heterogeneous-background control along a coupling path, and continuum/OS
+closure remain open. The narrow build and 17 direct axiom checks passed;
+no full-root audit was run.
+
+> **Research status (2026-09-21 UTC): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an
 > honest ledger of the bridges that remain open.

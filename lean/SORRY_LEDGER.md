@@ -13,6 +13,31 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED spatial decay of an isolated ORIGINAL coupling defect (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarSignedInterval.lean`,
+  `lean/YMGap/Continuum/BF4ExactSlabCouplingScoreBound.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabCouplingSpatialResponse.lean`.
+- **scope**: `scoreInterval` constructs an O(|v-u|) two-sided polynomial
+  interval, stronger than the earlier second-moment bound. `faceScore_local`
+  retains exactly the changed face's link support. `centered_distance_bound`
+  uses the actual zero mean to cancel the SAME background partition square.
+  `original_background_distance_bound` produces spatial distance decay;
+  `full_slab_single_defect_bound` pins its old endpoint to the full original
+  homogeneous slab and constructs the one-face-erased spectator background.
+- **boundary**: homogeneous retained nome `w` satisfying explicit small-nome
+  spatial guards; local defect `0<u<=v<=W<1` and computed late cutoffs. No
+  cutoff or ambient-volume factor in the resulting distance budget. The
+  coupling and probe dependencies remain explicit. No sum over defect
+  locations, heterogeneous-background/path estimate, weak-coupling-uniformity,
+  changing-score limit, continuum survival, physical calibration or OS/QFT/
+  all-group/Clay closure follows. No hole or canonical field changed.
+- **verification**: dependency-complete spatial-response target and three
+  direct checks PASSed 17 printed gates within `{propext, Quot.sound}`, no
+  warnings or `sorryAx`. Logs are the signed-interval, score-bound-spatial,
+  and coupling-spatial-response final logs recorded in `work_plan.md`.
+  One monitored worker, 20 GiB ceiling; no full-root build/audit was run.
+
 ## PROVED cutoff/background-independent local coupling-score cost (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarIntervalSecondMoment.lean` and

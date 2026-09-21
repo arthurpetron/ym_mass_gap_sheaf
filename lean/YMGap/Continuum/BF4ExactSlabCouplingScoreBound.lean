@@ -13,6 +13,7 @@ spatial decay, limit of changing scores, or continuum survival follows here.
 -/
 import YMGap.Continuum.BF4ExactSlabCouplingCenteredResponse
 import YMGap.Continuum.QuaternionHaarIntervalSecondMoment
+import YMGap.Continuum.QuaternionHaarSignedInterval
 
 namespace YMGap.Continuum.BF4ExactSlabCouplingScoreBound
 
@@ -107,6 +108,32 @@ def scoreVarianceCap (W u v : Q') : Q' :=
     (((relativeVariation W u v*inverseHead u)*(relativeVariation W u v*inverseHead u))*
       (prefixCap u*prefixCap u))
 
+/-- Linear coupling budget for the score as an ORIGINAL polynomial interval.
+Its spatial-correlation consumer needs this stronger certificate, not merely
+the score's second moment. Both terms vanish with the heat variation. -/
+def scoreCap (W u v : Q') : Q' :=
+  inverseHead v*variationCap W u v +
+    (relativeVariation W u v*inverseHead u)*prefixCap u
+
+theorem scoreCap_formula {v : Q'} (hv0 : (0 : Q') < v) (hv1 : v < (1 : Q'))
+    (W u : Q') :
+    scoreCap W u v ≈ relativeVariation W u v*(1+inverseHead u*prefixCap u) := by
+  let eta := relativeVariation W u v
+  let iv := inverseHead v
+  have hf : iv*variationCap W u v ≈ eta :=
+    Q'.eqv_trans _ _ _
+      (Q'.mul_eqv_congr_left _ _ _ (Q'.eqv_symm (relativeVariation_floor hv0 hv1)))
+      (Q'.eqv_trans _ _ _
+        (poly_identity_of_normal_eq (.mul (.var 0) (.mul (.var 1) (.var 2)))
+          (.mul (.var 1) (.mul (.var 0) (.var 2))) (by decide)
+          (fun | 0 => iv | 1 => eta | _ => headFloor v))
+        (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _ (inverseHead_pin hv0 hv1))
+          (Q'.mul_one_eqv _)))
+  exact Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' hf (Q'.eqv_refl _))
+    (poly_identity_of_normal_eq (.add (.var 0) (.mul (.mul (.var 0) (.var 1)) (.var 2)))
+      (.mul (.var 0) (.add (.const 1) (.mul (.var 1) (.var 2)))) (by decide)
+      (fun | 0 => eta | 1 => inverseHead u | _ => prefixCap u))
+
 /-- Human-readable factorization: 2*(delta/headFloor(v))^2 times
 1+(prefixCap(u)/headFloor(u))^2. All coupling dependence remains explicit. -/
 theorem scoreVarianceCap_formula {v : Q'} (hv0 : (0 : Q') < v) (hv1 : v < (1 : Q'))
@@ -191,6 +218,24 @@ theorem score_decomposition : RatPolyCoeffEqv score
   exact hmain.trans (horder.trans ((RatPolyCoeffEqv.refl _).add
     (RatPolyCoeffEqv.add_smul_same alphaV (-alphaU) F)))
 
+/-- A cutoff/background-independent interval for the SAME centered score.
+No absolute-value estimate is taken on the two endpoint factors separately. -/
+def scoreInterval : Interval (blocks extent) score (scoreCap W u v) := by
+  let P := faceDifferenceInterval (Q'.le_of_lt hu0) huv hvW hW0 hW1 K extent id hi
+  let Q := facePrefixInterval hu0 hu1 K extent id hi
+  have hgain0 : (0 : Q') ≤ alphaV :=
+    Q'.mul_nonneg _ _ (Q'.le_of_lt hB) (Q'.le_of_lt (Q'.recipPos_pos _ hV))
+  let first := (P.smul alphaV hgain0).weaken
+    (Q'.mul_le_mul_of_nonneg_right _ _ _
+      (gainV_bound hu0 huv hvW hW1 K extent id hi hKv HB hB) P.nonnegative)
+  let second := (QuaternionHaarSignedInterval.Interval.smul_abs (alphaV + -alphaU) Q).weaken
+    (Q'.mul_le_mul_of_nonneg_right _ _ _
+      (gainChange_bound hu0 huv hvW hW1 K extent id hi hKu hKv HB hB) Q.nonnegative)
+  exact Interval.ofCoeff (responsePolynomial_supported hU hV Q.support
+    (facePrefixInterval hv0 hv1 K extent id hi).support)
+    (score_decomposition hu0 huv hvW hW1 K extent id hi hKu hKv HB hB)
+    (first.add second)
+
 /-- The centered score's actual second moment is bounded with NO cutoff,
 extent, spectator-volume or background-mass factor in the explicit budget. -/
 theorem score_secondMoment_bound :
@@ -264,8 +309,11 @@ end YMGap.Continuum.BF4ExactSlabCouplingScoreBound
 #print axioms YMGap.Continuum.BF4ExactSlabCouplingScoreBound.inverseHead
 #print axioms YMGap.Continuum.BF4ExactSlabCouplingScoreBound.inverseHead_nonnegative
 #print axioms YMGap.Continuum.BF4ExactSlabCouplingScoreBound.scoreVarianceCap
+#print axioms YMGap.Continuum.BF4ExactSlabCouplingScoreBound.scoreCap
+#print axioms YMGap.Continuum.BF4ExactSlabCouplingScoreBound.scoreCap_formula
 #print axioms YMGap.Continuum.BF4ExactSlabCouplingScoreBound.scoreVarianceCap_formula
 #print axioms YMGap.Continuum.BF4ExactSlabCouplingScoreBound.score_decomposition
+#print axioms YMGap.Continuum.BF4ExactSlabCouplingScoreBound.scoreInterval
 #print axioms YMGap.Continuum.BF4ExactSlabCouplingScoreBound.score_secondMoment_bound
 #print axioms YMGap.Continuum.BF4ExactSlabCouplingScoreBound.face_response_variance_bound
 #print axioms YMGap.Continuum.BF4ExactSlabCouplingScoreBound.original_background_variance_bound

@@ -74,6 +74,17 @@ OS-norm identification or continuum closure is proved. The four touched
 centered-response modules' 28 direct axiom gates and narrow dependency build
 passed within `{propext, Quot.sound}`; no full-root audit was run.
 
+**Isolated-defect spatial checkpoint (2026-09-21 UTC):**
+`BF4ExactSlabCouplingSpatialResponse.lean` combines a constructed linear
+score interval, its four-link locality, and exact background-mean cancellation
+with the existing connected-distance bound. The full-slab instance changes
+exactly one heat factor and proves its old endpoint is the original full
+expectation. Cutoff and ambient face count do not enter the final budget.
+The retained background is homogeneous and obeys explicit small-nome spatial
+guards; spatial summation, heterogeneous paths and continuum control are not
+proved. The narrow build and all 17 direct gates passed within
+`{propext, Quot.sound}`; no full-root audit was run.
+
 > **Read `AGENTS.md` before contributing.** It contains both the
 > non-negotiable constructivity rules and the host-safety contract. They are
 > easy to violate accidentally; in particular, do not start a bare or broad

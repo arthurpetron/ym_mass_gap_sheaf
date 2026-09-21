@@ -34,6 +34,76 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Spatial decay for an isolated ORIGINAL coupling defect (2026-09-21 UTC)
+
+**Proposition and consumer:**
+`BF4ExactSlabCouplingSpatialResponse.full_slab_single_defect_bound` now bounds
+the change of the FULL original normalized slab expectation when exactly one
+plaquette's nome changes from `w` to `v`. The old endpoint is proved equal to
+the unmodified full heat-product expectation. No replacement law or supplied
+spatial-response hypothesis enters this instance.
+
+The short argument uses the preceding centered score, but strengthens its
+second-moment estimate to a polynomial interval:
+
+    |s| <= scoreCap(W,u,v)
+         = (variationCap(W,u,v)/headFloor(v))
+             * (1+prefixCap(u)/headFloor(u)).
+
+Here `|s| <= ...` denotes the two explicit Haar square certificates, not a
+new pointwise-evaluation assumption. `scoreInterval` constructs them and
+`scoreCap_formula` proves the scalar factorization. `faceScore_local` proves
+that scalar partition normalization introduces no variables outside the
+changed plaquette's four links. `centered_distance_bound` cancels the SAME
+background partition square in the existing connected-distance estimate,
+using the score's exactly zero original-background mean.
+
+`original_background_distance_bound` therefore gives
+
+    |E_v[p]-E_u[p]|
+      <= distanceBudget(P, singleton(face), w, c, scoreCap(W,u,v)).
+
+This budget contains the existing geometric factor
+`s(w)^(linfDist(P.root,face)+1-totalProbeSize)` and is linear in
+`scoreCap`, hence in `|v-u|`. Probe support size, its interval cap, and all
+coupling dependence remain explicit. The spectator heat cutoff `J` and changed
+face cutoff `K` are independent and absent from the final budget, as is the
+ambient face count. Actual positivity of the retained product is constructed.
+
+**Precise boundary:** the retained faces have ONE homogeneous nome `w` with
+the displayed heat-remainder and entropy-rate smallness guards. The local
+defect nomes may satisfy any `0<u<=v<=W<1`, with the computed late cutoffs.
+The full-slab consumer takes `u=w` and `J=K`, constructs the complementary
+face list, and restores the original old endpoint by a proved permutation.
+This closes the local-to-spatial join for an isolated defect, NOT for all
+heterogeneous backgrounds in `BF4ExactSlabFiniteCouplingPath`.
+
+**Next analytic steps:** sum the isolated-defect distance budgets using actual
+four-dimensional location counts, then establish the needed spatial bound
+for changing heterogeneous backgrounds before using a finite coupling path.
+The existing `Z4LinfFiniteRegion.mem_region_of_linf` and `region_length`
+give an explicit enclosing list of size `6*(2*r+1)^4`; the missing counting
+step is the nodup shell-fiber bound and its polynomial-geometric summation.
+`BF4ExactSlabSelectedTwoProbeCovariance.distanceBudget_factor` already
+separates the distance factor from the explicit probe amplitude. These are
+concrete inputs for the next sum, not an already proved summed estimate.
+Neither a summed susceptibility nor that path-uniform estimate is claimed
+here. Weak-coupling/trajectory control, limits of changing scores, nontrivial
+continuum survival, physical calibration, same-theory OS/QFT and every-group
+closure remain open. Fixed guarded-ceiling scaling obstructions still apply.
+
+**Verification:** the dependency-complete monitored target
+`+YMGap.Continuum.BF4ExactSlabCouplingSpatialResponse:olean` passed. Direct
+checks of the three touched modules passed all 17 printed gates within
+`{propext, Quot.sound}`, with no warnings or `sorryAx`. Logs:
+`/tmp/ym-gap-QuaternionHaarSignedInterval-final.log`,
+`/tmp/ym-gap-BF4ExactSlabCouplingScoreBound-spatial-final.log`, and
+`/tmp/ym-gap-BF4ExactSlabCouplingSpatialResponse-final.log`.
+One worker, 20 GiB ceiling; no full-root build/audit was run. No canonical
+frontier field or hole changed. Luna supplied the small signed-interval draft
+and reviewed scope; the main agent repaired/integrated it and proved the
+score interval, exact normalization cancellation and physical spatial consumer.
+
 ### Quantitative local score cost, independent of cutoff and background (2026-09-21 UTC)
 
 `BF4ExactSlabCouplingScoreBound.score_secondMoment_bound` now supplies the
@@ -71,9 +141,10 @@ the displayed score budget is independent of them.
 **Remaining analytic work:** the local score-cost gap is closed at the stated
 couplings, not uniformly as the nome ceiling approaches one. No spatial
 decay or summability follows from this bound, and summing its absolute local
-costs can still pay a face count. The next response estimate must address
-spatially separated insertions with changing retained backgrounds, preserving
-their signed cancellations. Any use along a scaling trajectory also needs
+costs can still pay a face count. The newer spatial checkpoint above addresses
+isolated defects in homogeneous retained backgrounds. Heterogeneous-background
+control and spatial summation still require their own estimates, preserving
+signed cancellations. Any use along a scaling trajectory also needs
 control of the displayed coupling-dependent factors. No changing-score
 cutoff/volume limit, continuum survival, physical normalization, OS-norm or
 spectral identification, full QFT, or every-group/Clay conclusion is proved.
