@@ -4527,6 +4527,16 @@ import YMGap.Continuum.BF4ExactSlabTwoNomeFaceSchedule
 import YMGap.Continuum.BF4ExactSlabSpatialCouplingPath
 import YMGap.Continuum.BF4ExactSlabSummedCouplingPath
 import YMGap.Continuum.BF4ExactSlabSpatialTwoNomeExpectationBound
+-- Descent-only counting preserves the original core decoder and improves
+-- the SAME completed transfer bound throughout the old 625-entropy guard.
+-- Polynomially bounded positive-time responses vanish in that entire region.
+import YMGap.Continuum.FiniteRootedAnimalPaddedDescentCode
+import YMGap.Continuum.BF4ExactSlabDescentCoreCount
+import YMGap.Continuum.BF4ExactSlabDescentDistanceDecay
+import YMGap.Continuum.BF4ExactSlabDescentSelectedCovariance
+import YMGap.Continuum.BF4WilsonDescentUniformConnectedDecay
+import YMGap.Continuum.BF4WilsonDescentCompletedGap
+import YMGap.Continuum.BF4WilsonOldGuardScalingObstruction
 import YMGap.Continuum.BF4ExactSlabFiniteCouplingPath
 import YMGap.Continuum.BF4ExactSlabCommonCutoffExpectations
 import YMGap.Continuum.BF4ExactSlabTwoNomeExpectationBound

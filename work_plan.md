@@ -34,6 +34,78 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Descent count closes the old-guard boundary escape route (2026-09-21 UTC)
+
+**PROGRESS -- sharper SAME-object estimate and a pruned scaling route:**
+the old full-tour count `625^m` is replaced by `96^m`, using the existing
+binary tree-shape/descent encoding at actual neighbor degree 24. The new
+`FiniteRootedAnimalPaddedDescentCode.inflate_paddedCode` proves equality to
+the EXISTING padded tour, not a replacement decoder. The resulting
+`BF4ExactSlabDescentCoreCount.connectingAtSize_length_le` bounds the same
+physical connecting-core family by `2^M * 96^(M+n)`. Carrier-image duplicates
+are harmless: this is an upper count, with the original code recovery and
+injection retained. No core geometry, action or normalized expectation changes.
+
+**Causal analytic join:** the existing signed core estimates and spectator
+resummation now use that smaller count. Under the OLD guard
+`625 * adjustedCoreRate(w) < 1`, the core rate is at most `1/384`, so the
+new entropy rate is `96/384 = 1/4`. Heat guards remain explicit.
+`BF4ExactSlabDescentDistanceDecay.oldGuard_distance_bound` retains the actual
+heterogeneous partition square; `BF4ExactSlabDescentSelectedCovariance`
+cancels the SAME partition and reaches the existing cutoff-removed covariance.
+`BF4WilsonDescentUniformConnectedDecay.connectedScalar_uniform_bound`
+applies to the original Wilson scalar with explicit probe/coupling amplitude.
+The existing same-object moment inequalities remove that amplitude, and
+the existing union/completion pairing limits give
+
+    B(x, T(2)x) <= (1/16) * B(x,x),  B(x,U) = 0,
+    B(x, T(2*n)x) <= (1/16)^n * B(x,x).
+
+These are `BF4WilsonDescentCompletedGap.completed_twoStep_form_gap` and
+`even_autocorrelation_decay` on the EXISTING `UnionCompletion`, inner
+product, time maps and unit. The constant is uniform throughout the old
+625-entropy guarded nome region, not throughout all couplings.
+
+**Scaling consequence:**
+`BF4WilsonOldGuardScalingObstruction.sampled_polynomial_small` supplies a
+computed `scaleModulus` for the original centered response at positive
+INTEGER physical time. It needs only the old guards at each changing nome,
+a fixed squared-norm envelope `C * a_j^(-p)`, and the supplied two-step
+spacing's vanishing modulus. There is NO fixed nome ceiling `W` or additional
+common-rate assumption. `sampled_floor_impossible` contradicts a positive
+response floor after that threshold; `sampledLimit_zero` identifies any
+supplied same-response limit with zero. In particular, merely approaching
+the OLD open entropy boundary cannot preserve this response under a fixed
+polynomial squared-norm envelope. The older ceiling obstructions below are
+strictly weaker statements, not conflicting results.
+
+**Repointed next producer:** do not seek a surviving polynomially bounded
+original response by approaching that old boundary. The next analytic work
+must reach beyond the old guarded region, or justify a normalization outside
+the proved envelope and its continuum meaning. The actual changing-spacing
+response-floor input to
+`BF4WilsonSurvivalPhysicalRateCeiling.logRate_le_of_sampled_response` remains
+unconstructed. Existing all-nome finite positivity, centered-response and
+Dirichlet estimates are not such a floor or an all-nome completed carrier.
+No physical critical point, trajectory, mass calibration, surviving continuum
+observable, canonical OS/full QFT or every-group construction is supplied.
+This is an obstruction to a specified scaling route, NOT a Yang--Mills
+counterexample. The whole-project goal stays OPEN and unchanged.
+
+**Verification and delegation:** the narrow dependency-complete target
+`+YMGap.Continuum.BF4WilsonOldGuardScalingObstruction:olean` passed. All seven
+new modules passed their final direct checks and 60 printed axiom gates
+within `{propext, Quot.sound}`, with no warnings or `sorryAx`. Logs are
+`/tmp/ym-gap-<module>-final.log` for the seven modules named above, including
+`FiniteRootedAnimalPaddedDescentCode`, `BF4ExactSlabDescentCoreCount`,
+`BF4ExactSlabDescentDistanceDecay`, `BF4ExactSlabDescentSelectedCovariance`,
+`BF4WilsonDescentUniformConnectedDecay`, `BF4WilsonDescentCompletedGap`, and
+`BF4WilsonOldGuardScalingObstruction`. Luna drafted bounded encoding and
+covariance adapters and reviewed the scope; the main agent repaired and
+integrated them, proved the analytic/completion/scaling joins and serialized
+verification. One monitored worker, 20 GiB ceiling; no full-root build/audit.
+No `sorry`, axiom, canonical field or existing obligation was changed.
+
 ### Actual spatial coupling path without face-count loss (2026-09-21 UTC)
 
 **PROGRESS -- new original-action estimate:**
@@ -76,9 +148,10 @@ is introduced. Thus the representation cutoff is removed in this comparison;
 the physical spacing and thermodynamic/scaling passage are not.
 
 **Main-route boundary:** these estimates retain a fixed guarded ceiling.
-They do not evade `BF4WilsonPolynomialScalingObstruction`: a surviving
+The newer `BF4WilsonOldGuardScalingObstruction` above shows that a surviving
 positive-physical-time family with a fixed polynomial squared-norm cap
-cannot remain below that ceiling. The missing analytic producer is still
+cannot remain anywhere in the old guarded region, even approaching its
+entropy boundary. The missing analytic producer is still
 an actual changing-spacing original-Wilson survival estimate with justified
 coupling/normalization control. For example,
 `BF4WilsonSurvivalPhysicalRateCeiling.logRate_le_of_sampled_response` consumes
@@ -445,10 +518,12 @@ not an extra hypothesis.
 not reopen survival below a fixed guarded coupling ceiling. Direct the next
 analytic work toward justified trajectories and original observables beyond
 such fixed subintervals, retaining the independent backward requirements.
-The result does NOT exclude approaching the entire open guard boundary or
-faster-than-polynomial norm growth. It identifies no physical critical point,
-does not prove `w_j -> 1`, and constructs no scaling trajectory. It is not a
-Yang--Mills counterexample. Physical calibration, surviving continuum
+This older result alone does NOT exclude approaching the open guard boundary;
+the newer descent-count checkpoint above excludes that route within the OLD
+625 guard under a fixed polynomial squared-norm cap. Faster-than-polynomial
+norm growth remains outside both conclusions. Neither identifies a physical
+critical point, proves `w_j -> 1`, or constructs a scaling trajectory. These
+are not Yang--Mills counterexamples. Physical calibration, surviving continuum
 observables, canonical SAME-theory OS/full QFT, every group and Clay remain
 open; no canonical bridge field is discharged.
 
@@ -640,9 +715,10 @@ observables/normalization, with estimates valid along that trajectory.
 The existing AF-chart guard obstruction remains relevant: its weak-coupling
 nomes are not covered by the old perturbative boundary estimate.
 
-**Exact boundary:** this does NOT exclude all families in the open guarded
-region, approaching its entropy boundary, or faster-than-polynomial norm
-growth. Fixed polynomial growth is excluded by the newer checkpoint above.
+**Exact boundary of this older result:** it does NOT exclude all families
+approaching the open entropy boundary. The newer descent-count checkpoint
+above excludes that route throughout the OLD 625 guard under fixed polynomial
+squared-norm growth. Faster-than-polynomial norm growth remains outside scope.
 No physical critical point or `w_j -> 1` is identified.
 Positive integer time is sampled using a supplied TWO-step physical spacing;
 no time calibration or scaling family is constructed. Physical mass,

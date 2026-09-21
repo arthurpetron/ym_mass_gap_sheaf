@@ -13,6 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED descent count, SAME completed gap and whole-old-guard scaling obstruction (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/FiniteRootedAnimalPaddedDescentCode.lean`,
+  `BF4ExactSlabDescentCoreCount.lean`, `BF4ExactSlabDescentDistanceDecay.lean`,
+  `BF4ExactSlabDescentSelectedCovariance.lean`,
+  `BF4WilsonDescentUniformConnectedDecay.lean`,
+  `BF4WilsonDescentCompletedGap.lean`, and
+  `BF4WilsonOldGuardScalingObstruction.lean`, all in the same directory.
+- **scope**: `inflate_paddedCode` preserves the original padded tour;
+  `connectingAtSize_length_le` improves the count of the SAME cores to
+  `2^M*96^(M+n)`. The signed expansion and SAME-partition cancellation
+  give constant spatial rate `1/4` under the OLD 625-entropy guard.
+  Original Wilson scalar limits, dyadic moments and completion give
+  `completed_twoStep_form_gap` with rate `1/16` on the EXISTING carrier/time
+  map. `sampled_polynomial_small` supplies an executable response modulus
+  with no fixed nome ceiling or extra common-rate input; `sampledLimit_zero`
+  pins every supplied same-response limit to zero under the stated cap.
+- **boundary**: all old heat/entropy guards, same-carrier orthogonality,
+  a fixed polynomial squared-norm envelope and supplied vanishing TWO-step
+  spacing are explicit. Positive INTEGER physical times are covered, even
+  when nomes approach the OLD guard boundary. Leaving the guard,
+  faster-than-polynomial growth, physical calibration, continuum survival,
+  canonical OS/full QFT and every compact simple group remain outside the
+  proved conclusion. This is not a Yang--Mills counterexample. No `sorry`,
+  axiom, canonical field or existing obligation was added or discharged.
+- **verification**: narrow dependency-complete old-guard scaling target
+  and all seven final direct checks passed 60 printed gates within
+  `{propext, Quot.sound}`, without warnings or `sorryAx`. Logs and delegation
+  are recorded in the newest `work_plan.md` checkpoint. One monitored worker,
+  20 GiB ceiling; no full-root build/audit was run.
+
 ## PROVED actual spatial coupling path and volume-free full-slab comparison (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabHeterogeneousCouplingResponse.lean`,
@@ -193,9 +224,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `renormalizedResponse_small` supplies its explicit tolerance tail.
 - **boundary**: fixed polynomial degree/amplitude and positive INTEGER
   physical time, with supplied vanishing TWO-step spacing. No uniformity as
-  the strict rate tends to one. Approaching the open guard boundary and
-  faster-than-polynomial growth are not excluded; no critical point,
-  `w_j -> 1`, trajectory, or Yang--Mills counterexample is proved. Survival,
+  the strict rate tends to one in this older statement. The newer descent
+  count above excludes approaching the OLD 625 guard boundary under this
+  polynomial envelope. Faster-than-polynomial growth is not excluded; no
+  critical point, `w_j -> 1`, trajectory, or Yang--Mills counterexample is proved. Survival,
   physical calibration, SAME-theory canonical OS/QFT, every compact simple
   group and Clay closure remain open. No canonical bridge field is closed.
 - **verification**: monitored dependency-complete target
@@ -334,11 +366,12 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   consumer retains the original pairings, and the no-persistent-floor
   theorem returns a violating index `max start escapeThreshold`.
   The pilot `W=1/1024` has proved guards.
-- **boundary**: only each fixed guarded subinterval is excluded for
-  bounded-norm survival; the entire open guard region is not excluded.
-  Approaching its entropy boundary or allowing faster-than-polynomial norm
-  growth is not ruled out. Fixed polynomial growth is excluded by the newer
-  entry above. No physical critical point or `w_j -> 1` is identified.
+- **boundary of this older result**: only each fixed guarded subinterval
+  is excluded for bounded-norm survival. The newer descent-count entry above
+  excludes the entire OLD 625 guard, including approaches to its entropy
+  boundary, under fixed polynomial squared-norm growth. Faster-than-polynomial
+  growth remains outside scope. No physical critical point or `w_j -> 1`
+  is identified.
   Positive integer time uses supplied TWO-step spacing. Scaling, physical
   normalization, same-theory OS/QFT, every group and Clay remain open.
 - **verification**: monitored target

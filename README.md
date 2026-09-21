@@ -13,11 +13,33 @@
 > expectations with no face-count loss, under explicit small-nome guards.
 > The same bound holds for their existing cutoff-removed CReal limits.
 > Coupling and probe dependence remain. This is not continuum scaling control.
-> Positive-time survival must escape every fixed guarded coupling ceiling,
-> even with any fixed polynomial squared-norm growth in inverse spacing.
+> A tighter count now gives a two-step rate of 1/16 on the SAME completed
+> carrier throughout the OLD 625-entropy guarded region. With any fixed
+> polynomial squared-norm growth in inverse spacing, positive-time responses
+> vanish even when the coupling approaches that old guard's boundary.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
+
+**Sharper counting rules out the old-guard boundary route (2026-09-21 UTC):**
+The component count improves from `625^m` to `96^m` by recording neighbor
+choices only on tree descents. The original core encoder, decoder and action
+are unchanged. Signed resummation, cancellation of the same partition, and
+the existing Wilson moment/completion limits turn this into
+`B(x,T(2)x) <= (1/16)*B(x,x)` for every completed vector orthogonal to the
+unit, throughout the OLD `625*adjustedCoreRate(w)<1` guard with its heat
+guards retained. `BF4WilsonOldGuardScalingObstruction.sampled_polynomial_small`
+then computes a vanishing-response modulus with NO fixed nome ceiling and
+NO additional common-rate assumption. A fixed cap `C*a_j^(-p)` on the
+original squared norm forces the centered response at every positive
+integer physical time to vanish; `a_j` is supplied two-step spacing tending
+to zero. Approaching that old guard boundary cannot provide survival under
+this envelope. Leaving the guard, faster-than-polynomial normalization,
+physical calibration, continuum OS/QFT and every group remain open.
+All seven new modules passed narrow verification and 60 direct axiom gates
+within `{propext, Quot.sound}`, with no warnings or `sorryAx`; no full-root
+audit was run. This prunes a scaling route; it does not solve or refute the
+Yang--Mills existence and mass-gap problem.
 
 **Polynomial norm-envelope obstruction (2026-09-21 UTC):**
 `BF4WilsonPolynomialScalingObstruction.sampled_polynomial_small` gives a
@@ -32,9 +54,11 @@ condition, while `sampledLimit_zero_of_polynomial_norm` packages the vanishing
 limit. The concrete `renormalizedExcitation := a_j^(-p) * unitExcitation`
 has squared norm `a_j^(-2p)` and receives the same small-response bound.
 The supplied spacing `a_j` is the duration of two original time steps.
-This covers fixed polynomial growth only: approaching the open guard boundary,
-arbitrary faster-than-polynomial renormalization, critical-point selection,
-physical normalization, continuum OS/QFT, and all-group closure remain open.
+This older theorem covers each fixed guarded ceiling. The newer descent-count
+result above also excludes approaching the OLD 625 guard boundary under the
+same polynomial envelope. Faster-than-polynomial renormalization,
+critical-point selection, physical normalization, continuum OS/QFT, and
+all-group closure remain open.
 The narrow dependency build and all 19 printed declaration gates passed with
 at most `{propext, Quot.sound}`, no warnings and no `sorryAx`; no full-root
 audit was run.
@@ -183,10 +207,11 @@ a positive original Wilson response at sampled physical time forces the
 nome above any fixed guarded ceiling `W`, after a computed scale threshold.
 Monotonicity of the actual certified rate supplies the common-rate bound;
 it is not an extra assumption. Below that ceiling, bounded centered states
-have zero positive-time response limits. This does **not** exclude approaching
-the open guard region's boundary or arbitrary faster-than-polynomial
-renormalizations; fixed polynomial growth is covered by the newer obstruction
-above. It does not identify a physical critical point. The spacing remains
+have zero positive-time response limits. This older theorem alone does not
+exclude approaching the guard boundary. The newer descent-count obstruction
+above excludes that route within the OLD 625 guard under fixed polynomial
+squared-norm growth; faster-than-polynomial growth remains outside scope.
+Neither identifies a physical critical point. The spacing remains
 supplied as the duration of two original steps. All 14 exported axiom checks
 and the narrow dependency build passed; no full-root audit was run.
 

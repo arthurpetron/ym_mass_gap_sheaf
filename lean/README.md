@@ -12,6 +12,30 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Descent-count / whole-old-guard scaling checkpoint (2026-09-21 UTC):**
+`FiniteRootedAnimalPaddedDescentCode.lean` preserves the existing padded tour
+and decoder while recording neighbor choices only on descent. The same
+physical core family receives the smaller `96^m` count instead of `625^m`.
+`BF4ExactSlabDescentDistanceDecay.lean` retains signed cancellation and the
+actual partition square; its selected-covariance consumer cancels that same
+normalization. `BF4WilsonDescentUniformConnectedDecay.lean` reaches the
+original Wilson scalar, and `BF4WilsonDescentCompletedGap.lean` proves the
+two-step form bound with constant `1/16` on the EXISTING `UnionCompletion`,
+inner product, time map and unit complement. All old heat and 625-entropy
+guards remain; no carrier or action is substituted.
+
+`BF4WilsonOldGuardScalingObstruction.lean` now supplies an explicit
+`scaleModulus` without a fixed nome ceiling or an extra common-rate input.
+Throughout that OLD guarded region, a fixed polynomial squared-norm cap
+`C*a_j^(-p)` forces the original centered response at positive INTEGER
+physical time to vanish as the supplied TWO-step spacing tends to zero.
+Thus approaching the old guard boundary cannot supply this survival.
+Leaving that region and faster-than-polynomial norm growth are outside the
+conclusion. Physical calibration, canonical continuum OS/full QFT, every
+group and the Clay target remain open. All seven modules passed narrow
+verification and 60 printed axiom gates within `{propext, Quot.sound}`,
+without warnings or `sorryAx`; no full-root build/audit was run.
+
 **Uniform lattice-rate scaling checkpoint (2026-09-20):**
 `PhysicalSeparationSamplingEscape.lean` gives an explicit spacing escape
 modulus: at positive integer physical time, `floorLatticeSteps` eventually
@@ -50,12 +74,13 @@ the existing heat and collar formulas. `BF4WilsonGuardedCouplingEscape.lean`
 then proves that bounded-norm survival of the same original positive-time
 response forces the nome above every fixed guarded ceiling at a computed
 threshold. A family remaining below one such ceiling has zero response
-limits; the `W=1/1024` guard instance is already proved. This excludes
-neither approaching the open entropy-guard boundary nor faster-than-polynomial
-norm growth. The subsequent `BF4WilsonPolynomialScalingObstruction.lean`
-excludes every fixed polynomial squared-norm cap below a fixed guarded
-ceiling, with an explicit modulus. Neither result constructs physical
-calibration or a continuum theory.
+limits; the `W=1/1024` guard instance is already proved. This older result
+alone does not exclude approaching the entropy-guard boundary. The newer
+`BF4WilsonOldGuardScalingObstruction.lean` above excludes that route
+throughout the OLD 625 guard under any fixed polynomial squared-norm cap,
+with an explicit modulus. Faster-than-polynomial growth remains outside
+scope. None of these results constructs physical calibration or a continuum
+theory.
 The narrow target and all 14 exported axiom gates passed within
 `{propext, Quot.sound}`; no full-root audit or frontier closure is claimed.
 
