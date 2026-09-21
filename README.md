@@ -47,11 +47,27 @@ identity
 `s = F_v/E_B[F_v] - F_u/E_B[F_u]`. Consequently the squared response obeys
 `ΔE² ≤ Var_B(p) * E_B[s²]`, using the actual shared-link background and both
 positive partition masses. The construction applies for every `0<u,v<1` at
-the explicit late cutoffs, without a small-nome restriction. It does not yet
-provide a cutoff-, coupling-, or spatial-uniform bound on `E_B[s²]`, nor any
-continuum/OS closure. The narrow dependency build and all 28 printed gates
+the explicit late cutoffs, without a small-nome restriction. A later score
+certificate supplies a cutoff-, extent-, and retained-background-independent
+cap on `E_B[s²]`; coupling-uniform control and spatial summability remain open,
+as does continuum/OS closure. The narrow dependency build and all 28 printed gates
 across the four touched modules passed within `{propext, Quot.sound}`, without
 warnings or `sorryAx`. No full-root audit was run.
+
+**Centered score variance cap (2026-09-21 UTC):**
+`BF4ExactSlabCouplingScoreBound.scoreVarianceCap_formula` and
+`score_secondMoment_bound` give the explicit budget
+`C = 2*(delta/headFloor(v))^2*(1+(prefixCap(u)/headFloor(u))^2)`, where
+`delta = variationCap W u v` is proportional to `|v-u|`. The resulting
+`face_response_variance_bound` and
+`original_background_variance_bound` apply for `0<u<=v<=W<1` with both
+explicit late cutoffs; the cost is independent of cutoff, extent, and the
+whole positive retained background, while the response still carries the
+observable factor `Var_B(p)`. This supplies no weak-coupling-uniform estimate, does not
+provide spatial decay/summability, and does not close the continuum or OS
+bridge. The narrow dependency build and all 11 direct declaration gates
+passed within `{propext, Quot.sound}`, with no warnings or `sorryAx`.
+No full-root audit was run.
 
 > **Research status (2026-09-19 UTC): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked

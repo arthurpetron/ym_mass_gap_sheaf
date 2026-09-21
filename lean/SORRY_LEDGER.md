@@ -13,6 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED cutoff/background-independent local coupling-score cost (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarIntervalSecondMoment.lean` and
+  `lean/YMGap/Continuum/BF4ExactSlabCouplingScoreBound.lean`.
+- **scope**: `score_decomposition` retains the difference of the original
+  heat factors and the change of their actual partition gains separately.
+  Head floors and relative mass perturbation bound these gains; constructed
+  square certificates give `score_secondMoment_bound` on the SAME normalized
+  retained background. `scoreVarianceCap_formula` identifies the explicit
+  cost as `2*(variationCap/headFloor(v))^2*(1+(prefixCap(u)/headFloor(u))^2)`.
+  It depends on `W,u,v`, not on late cutoff, extent, spectator count or
+  background mass. `face_response_variance_bound` multiplies this cost by the
+  observable's actual retained-background variance; the original spectator
+  product supplies positivity in `original_background_variance_bound`.
+- **boundary**: `0<u<=v<=W<1`, cutoffs beyond both computed head thresholds.
+  This closes the previous local score-cost estimate, not spatial decay or
+  summability. No bound uniform near weak coupling, scaling trajectory,
+  changing-score limit, continuum survival, physical normalization or OS/gap
+  identification is supplied. Full QFT, all groups and Clay remain open.
+- **verification**: monitored dependency-complete target
+  `+YMGap.Continuum.BF4ExactSlabCouplingScoreBound:olean` and direct checks of
+  both files PASSed all 11 printed gates with at most `{propext, Quot.sound}`,
+  no warnings and no `sorryAx`. Logs:
+  `/tmp/ym-gap-QuaternionHaarIntervalSecondMoment-final.log` and
+  `/tmp/ym-gap-BF4ExactSlabCouplingScoreBound-final.log`. One worker, 20 GiB
+  ceiling; no full-root build/audit was run. No hole or canonical field changed.
+
 ## PROVED centered two-nome response on the ORIGINAL retained Haar background (2026-09-21 UTC)
 
 - **files**: new `lean/YMGap/Continuum/QuaternionHaarNormalizedMomentLinear.lean`,
@@ -32,9 +59,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   its independent nome/cutoff. No missing variance estimate is assumed.
 - **boundary**: finite cutoff, all `0<u,v<1` beyond their explicit head
   thresholds. The score variance depends on the actual background, cutoff,
-  geometry and couplings; no uniform bound on it or spatially summable
-  response is proved. This is an ordinary retained-background covariance,
-  not an OS norm or spectral gap. Changing-score limit control, a justified
+  geometry and couplings; the newer entry above now bounds it independently
+  of cutoff/background, with explicit coupling dependence. Spatially
+  summable response remains open. This is an ordinary retained-background
+  covariance, not an OS norm or spectral gap. Changing-score limit control, a justified
   scaling trajectory and survival, physical calibration, canonical OS/QFT,
   every group and Clay remain open. No canonical input is closed.
 - **verification**: monitored dependency-complete target

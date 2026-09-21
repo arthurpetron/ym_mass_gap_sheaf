@@ -34,6 +34,62 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Quantitative local score cost, independent of cutoff and background (2026-09-21 UTC)
+
+`BF4ExactSlabCouplingScoreBound.score_secondMoment_bound` now supplies the
+missing local bound for the previously constructed centered score. Let
+`delta = variationCap W u v`, `ell(w) = headFloor(w)` and
+`P(u) = prefixCap(u)`. For `0<u<=v<=W<1`, at every common cutoff beyond
+both explicit head thresholds, the actual retained-background score satisfies
+
+    E_B[s^2] <= C(W,u,v),
+    C(W,u,v) = 2*(delta/ell(v))^2 * (1+(P(u)/ell(u))^2).
+
+`scoreVarianceCap_formula` proves the factorization of this computed rational
+budget. The factor `|v-u|^2` is explicit through `delta`; the remaining
+coefficient still depends on the couplings. There is NO heat-cutoff, extent,
+spectator-face count, or background-partition factor in `C`. The background
+itself is any actual positive square-certified polynomial, with shared links
+fully retained.
+
+**Mathematical argument:** `score_decomposition` first writes
+`s = gain_v*(F_v-F_u)+(gain_v-gain_u)*F_u`. The actual head floors bound the
+partition gains; the proved relative mass difference bounds their change
+without an absolute full-volume partition floor. The existing heat-change
+interval and heat-prefix interval then produce square certificates for both
+terms. `QuaternionHaarIntervalSecondMoment` constructs interval-to-square
+certificates and normalized second-moment bounds; the retained background
+mass cancels exactly. This supplies the bound, not a new analytic hypothesis.
+
+**SAME-object consumer:** `face_response_variance_bound` gives
+`(E_v[p]-E_u[p])^2 <= Var_B(p)*C(W,u,v)` for the same original normalized
+face moments. `original_background_variance_bound` constructs the positivity
+for the full spectator heat product at its own nome/cutoff. The variance
+factor still depends on the observable and its retained background; only
+the displayed score budget is independent of them.
+
+**Remaining analytic work:** the local score-cost gap is closed at the stated
+couplings, not uniformly as the nome ceiling approaches one. No spatial
+decay or summability follows from this bound, and summing its absolute local
+costs can still pay a face count. The next response estimate must address
+spatially separated insertions with changing retained backgrounds, preserving
+their signed cancellations. Any use along a scaling trajectory also needs
+control of the displayed coupling-dependent factors. No changing-score
+cutoff/volume limit, continuum survival, physical normalization, OS-norm or
+spectral identification, full QFT, or every-group/Clay conclusion is proved.
+The fixed guarded-ceiling obstruction and canonical open fields remain.
+
+**Verification:** dependency-complete monitored target
+`+YMGap.Continuum.BF4ExactSlabCouplingScoreBound:olean` and direct checks of both
+new modules PASSed all 11 printed gates with at most `{propext, Quot.sound}`,
+no warnings and no `sorryAx`. Logs are
+`/tmp/ym-gap-QuaternionHaarIntervalSecondMoment-final.log` and
+`/tmp/ym-gap-BF4ExactSlabCouplingScoreBound-final.log`. One worker, 20 GiB
+ceiling; no full-root build/audit was run. No hole or canonical frontier field
+changed. Luna drafted the small certificate helper and landing-page text;
+the main agent repaired/integrated them and proved and verified the partition
+gain estimates, score decomposition, uniform local cost and physical consumer.
+
 ### Centered original coupling response before absolute-value losses (2026-09-21 UTC)
 
 **Next proposition and actual consumer:** the earlier
@@ -71,11 +127,12 @@ reweighting statements from the existing square-certified Haar form.
 three existing centering declarations in `QuaternionHaarDensityVariance`
 are exported unchanged so their proofs are reused.
 
-**Open analytic producer and stopping boundary:** the score variance is an
-explicit original finite quantity, NOT a supplied analytic estimate and NOT
-yet bounded uniformly in heat cutoff, coupling or volume. Cauchy--Schwarz
-alone supplies no spatial decay, and applying a triangle inequality to a
-facewise sum can still incur a face count. The next response analysis must
+**Open analytic producer and stopping boundary:** the newer checkpoint above
+now bounds the original score variance independently of cutoff and retained
+background, with explicit coupling dependence. Coupling-uniform control and
+spatial summability remain open. Cauchy--Schwarz alone supplies no spatial
+decay, and applying a triangle inequality to a facewise sum can still incur
+a face count. The next response analysis must
 control the actual signed spatial responses and changing backgrounds along
 a justified scaling trajectory. Passing these changing scores through
 cutoff/volume limits requires their own estimates. Do not call this a

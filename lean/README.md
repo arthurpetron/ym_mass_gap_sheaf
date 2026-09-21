@@ -65,11 +65,14 @@ heat-factor contrast under the retained original background. The exact
 two-nome expectation change is its centered covariance with the observable,
 and its square is bounded by observable variance times contrast second
 moment. Positivity is constructed for all `0<u,v<1` at explicit late heat
-cutoffs, including the actual shared-link spectator product. No uniform
-bound on the contrast variance, spatial summability, changing-score limit,
+cutoffs, including the actual shared-link spectator product. The subsequent
+`BF4ExactSlabCouplingScoreBound.lean` now bounds the contrast variance with
+an explicit coupling-dependent budget independent of cutoff, extent and
+retained background. Its narrow build and all 11 direct gates passed.
+No weak-coupling-uniform estimate, spatial summability, changing-score limit,
 OS-norm identification or continuum closure is proved. The four touched
-modules' 28 direct axiom gates and narrow dependency build passed within
-`{propext, Quot.sound}`; no full-root audit was run.
+centered-response modules' 28 direct axiom gates and narrow dependency build
+passed within `{propext, Quot.sound}`; no full-root audit was run.
 
 > **Read `AGENTS.md` before contributing.** It contains both the
 > non-negotiable constructivity rules and the host-safety contract. They are
