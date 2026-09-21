@@ -44,12 +44,30 @@
 > padded width. Its positive lower bound is now independent of cutoff and
 > terminal depth at fixed nome/width. That floor now survives both limits
 > on the SAME existing completed vector and one-step time operator.
+> Cauchy--Schwarz now gives a positive two-step response and a relative
+> Rayleigh lower bound on that vector. A checked limitation matters:
+> this particular relative witness is at most 1/25, so it cannot provide
+> near-one, linear-spacing calibration. This does not bound the actual
+> Rayleigh quotient from above or refute survival.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Positive response on the existing completion (2026-09-21 UTC):**
+**Two-step response and a checked scaling limitation (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialPlaquetteTwoStepResponse` proves
+`delta^2/P <= B(v,T(2)v)` and `(delta^2/P^2)*B(v,v) <= B(v,T(2)v)`
+for the SAME existing vector, with an explicit positive norm cap P.
+`BF4ExactSlabFixedSpatialResponseFloorCeiling` proves that this particular
+relative lower witness is at most `1/25`; an explicit spacing threshold
+rules out an `O(a)` defect for it. The actual response may be much larger.
+The next missing estimate is same-observable survival at fixed PHYSICAL
+time along a justified scaling family, not just positivity at two lattice
+steps. Sol supplied completed Cauchy--Schwarz, witness ceilings and
+independent review. Three final narrow checks passed all 20 printed gates;
+no full-root build/audit or continuum closure.
+
+**Positive response on the existing completion (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialPlaquetteCompletedResponse` proves
 `0 < delta(w,width) <= B(v,T(1)v)` for the existing centered plaquette
 excitation, at every strict nome and strictly padded width. The proof

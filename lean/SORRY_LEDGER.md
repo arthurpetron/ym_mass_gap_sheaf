@@ -13,6 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED two-step response and coarse-witness scaling obstruction (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointCauchySchwarz.lean`,
+  `BF4ExactSlabFixedSpatialPlaquetteTwoStepResponse.lean`, and
+  `BF4ExactSlabFixedSpatialResponseFloorCeiling.lean`, all in the same directory.
+- **scope**: sharp completed CS and actual time balance give
+  `delta^2 <= B(v,v)*B(v,T(2)v)` on the EXISTING fixed-width all-nome
+  completion. `faceExcitation_norm_ceiling` supplies P from the original
+  lag-zero covariance cap. `twoStepFloor=delta^2/P` is strictly positive;
+  `faceExcitation_twoStep_floor` proves its actual original response bound,
+  and `positiveResponse` returns the witness as data. The homogeneous
+  coefficient `relativeFloor=delta^2/P^2` obeys
+  `relativeFloor*B(v,v)<=B(v,T(2)v)`.
+- **checked limitation**: `uniformFloor_le_oneFifth`,
+  `twoStepFloor_le_oneTwentyFifth`, and `relativeFloor_le_oneTwentyFifth`
+  bound ONLY the chosen lower-witness numbers. The actual responses and
+  Rayleigh quotients are not upper-bounded by these numbers.
+  `relativeFloor_defect_ge` gives `24/25<=1-relativeFloor` and
+  `relativeFloor_no_linear_defect` refutes `1-relativeFloor<=M*a_j`
+  after the explicit `SpacingToZero` modulus at `(1/2)/M`. Thus this
+  particular witness cannot provide near-one calibration; actual survival
+  is NOT refuted.
+- **parameters / residue**: nome, width and face remain explicit. Padding
+  discharges activity; cutoff and external depth were already removed.
+  No scale-indexed physical observable family or spatial-union identification
+  is constructed. Fixed-physical-time survival, two-sided physical margin
+  control, full SAME-theory QFT and all groups remain open. No canonical
+  atom, hole, axiom, field or existing analytic obligation changed.
+- **verification**: the dependency-complete ceiling target and three final
+  direct checks passed all 20 printed gates within `{propext, Quot.sound}`,
+  without warnings or `sorryAx`. Sol supplied CS and coefficient ceilings
+  and independently reviewed all joins and the obstruction interpretation.
+  Main proved the norm/response consumers, reciprocal normalization and
+  spacing obstruction. One monitored 20 GiB worker; no full-root build/audit.
+  Exact logs and the next analytic producer are recorded in `work_plan.md`.
+
 ## PROVED positive plaquette response on the existing all-nome completion (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowEndpointMean.lean`,

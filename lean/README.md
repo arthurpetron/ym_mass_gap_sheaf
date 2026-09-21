@@ -12,7 +12,24 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Positive response on the SAME existing completion (2026-09-21 UTC):**
+**Two-step response; coarse-witness scaling obstruction (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialJointCauchySchwarz.lean` proves sharp CS on the
+existing bespoke completion, using its actual pairing limits.
+`BF4ExactSlabFixedSpatialPlaquetteTwoStepResponse.lean` combines this with
+time balance, the proved one-step floor delta and a computed positive norm
+cap P. It returns `twoStepFloor=delta^2/P>0`, its actual response bound,
+and the homogeneous lower coefficient `relativeFloor=delta^2/P^2`.
+`BF4ExactSlabFixedSpatialResponseFloorCeiling.lean` bounds the witness
+numbers by `delta<=1/5`, `twoStepFloor<=1/25`, `relativeFloor<=1/25`.
+`relativeFloor_no_linear_defect` gives an explicit spacing threshold
+beyond which this witness cannot have defect at most `M*a`. These ceilings
+do NOT upper-bound actual responses or Rayleigh quotients. They rule out
+calibrating this particular coarse lower witness, not physical survival.
+All three final checks passed 20 printed gates within `{propext, Quot.sound}`.
+No holes/fields changed; no full-root audit. Spatial/scaling estimates,
+physical mass, canonical OS/full QFT and all-group closure remain open.
+
+**Positive response on the SAME existing completion (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialWindowEndpointMean.lean` and
 `BF4ExactSlabFixedSpatialWindowCenteredProduct.lean` replace the varying
 finite centered product by the two-point value minus its endpoint means'

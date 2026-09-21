@@ -34,7 +34,85 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Positive ORIGINAL response on the EXISTING all-nome completion (2026-09-21 UTC)
+### TWO-step response, and the coarse lower witness cannot supply scaling (2026-09-21 UTC)
+
+**PROGRESS -- an actual response bound AND a checked pruning decision:**
+`BF4ExactSlabFixedSpatialPlaquetteTwoStepResponse.faceExcitation_twoStep_floor`
+proves a positive two-step floor for the SAME `faceExcitation`,
+`completedInner` and `jointCompletedTime`. Writing delta for the preceding
+one-step witness, and `P=1+separationCap width x.val x.val`, the new bounds are
+
+    delta^2 <= B(v,v)*B(v,T(2)v),
+    0 < c2=delta^2/P <= B(v,T(2)v),
+    0 < rho=delta^2/P^2,   rho*B(v,v) <= B(v,T(2)v).
+
+`JointCauchySchwarz.completedInner_cauchySchwarz` descends the actual
+dense CS inequality through the existing scalar limits, without a new
+carrier. Time balance identifies `B(T(1)v,T(1)v)=B(v,T(2)v)`, so the
+needed nonnegativity is a squared norm, not an assumption that the entire
+one-step operator is positive. The original lag-zero covariance estimate
+gives P; reciprocal cancellation constructs c2. `positiveResponse` returns
+the positive witness as data, and strict padding proves link activity.
+Every strict nome is allowed, but width/nome dependence remains.
+
+**A proved stop for THIS bound, not for the physical route:**
+`BF4ExactSlabFixedSpatialResponseFloorCeiling` proves
+
+    delta <= 1/5,   c2 <= 1/25,   rho <= 1/25,
+    24/25 <= 1-rho.
+
+These are ceilings on the computed LOWER-WITNESS NUMBERS, never upper
+bounds on actual responses or Rayleigh quotients. For any positive M and
+any supplied physical spacing-to-zero modulus Z, once
+
+    j >= Z.modulus ((1/2)/M),
+
+`relativeFloor_no_linear_defect` refutes `1-rho<=M*a_j`. The bound is
+universal in nome/width/face, so retuning those parameters cannot turn this
+particular rho into a near-one lower certificate. Actual survival is not
+refuted. Do not extend this coarse witness through more normalization,
+dyadic iteration or logarithm wrappers as if that supplied scaling control.
+
+**Backward consumer and genuinely missing estimate:**
+`BF4WilsonSurvivalPhysicalRateCeiling.margin_le_of_sampled_response` and
+`logRate_le_of_sampled_response` require a common positive response floor
+at fixed PHYSICAL time, hence growing lattice lag
+`2*floorLatticeSteps A j t`, with a common norm cap. Those declarations
+belong to the guarded spatial-union carrier; there is NO automatic pin
+from the present all-nome fixed-width completion. Their generic numerical
+core is `PhysicalSamplingSurvivalMargin.margin_le_spacing_mul_ceiling`.
+The independent `DynamicVacuumSectorPhysicalRateBand` in
+`BF4PhysicalDynamicVacuumSectorCompletedFamily.lean` requires BOTH
+`floor*a_j<=1-q_j` and `1-q_j<=ceiling*a_j` on its own pinned family.
+The current result inhabits none of those changing-spacing inputs.
+
+**Next mathematical work:** seek a sharper ORIGINAL-action relative
+time-loss estimate on an explicitly identified physical observable family,
+or a direct fixed-physical-time response lower bound with its norm control.
+The already proved `BF4AllNomeCompletedPlaquetteIncrement.completed_loss_nome_bound`
+is an ABSOLUTE loss bound `192*n*(1-w)`. Its conversion to the required
+relative/scaling estimate needs the actual observable schedule and a
+sufficient variance comparison; neither follows from the coarse floor
+above. Inspect and preserve the interacting endpoint weights and spatial
+comparison before choosing the next local estimate. Do not invent a new
+field that assumes survival, or substitute a favorable unrelated vector.
+Spatial/spacing passage, physical mass, canonical OS/full QFT and every
+compact simple group remain OPEN. No canonical atom was closed.
+
+**Verification and delegation:** the dependency-complete target
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialResponseFloorCeiling:olean` and
+three final direct checks passed all 20 printed gates within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Exact final logs:
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialJointCauchySchwarz-final.log`,
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialPlaquetteTwoStepResponse-final.log`, and
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialResponseFloorCeiling-final.log`.
+Sol supplied bounded CS/ceiling proofs and independent reviews; main
+proved the actual norm/response consumers and explicit spacing obstruction.
+One monitored 20 GiB worker; no full-root build/audit. No hole, axiom,
+canonical field or existing analytic obligation changed.
+Last whole-project causal ASCII chart: 2026-09-21 05:37 UTC.
+
+### Positive ORIGINAL response on the EXISTING all-nome completion (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the changing-center limit join is proved:**
 `BF4ExactSlabFixedSpatialPlaquetteCompletedResponse.padded_faceExcitation_response_floor`
