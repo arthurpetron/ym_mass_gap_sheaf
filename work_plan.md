@@ -34,7 +34,74 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### TWO-step response, and the coarse lower witness cannot supply scaling (2026-09-21 UTC)
+### Mixed ordinary increments: a checked cross-term estimate (2026-09-21 UTC)
+
+**PROGRESS -- actual mixed control, not an assumed family estimate:**
+for the existing original joint state J, define `Da=chi_a(0)-chi_a(n)`
+and `Db=chi_b(0)-chi_b(n)`. The new
+`BF4WilsonAllNomeMixedTimeIncrement.mixedTimeIncrement_squared_nome_bound`
+proves
+
+    J[Da*Db]^2 <= J[Da^2]*J[Db^2] <= B_a*B_b,
+    B_a = 24*n*length(a)^2*(1-w).
+
+`BF4WilsonJointOrdinaryCauchySchwarz.joint_cauchySchwarz` obtains the
+first inequality from positivity of the ORIGINAL finite normalized window
+functional, then passes its three fixed expressions through their existing
+joint cutoff/time limits. It does not identify ordinary and reflected
+pairings. The preceding single-loop bounds give the second inequality;
+nonnegativity justifies both multiplications. No sign is assigned to the
+cross term. Strict padding proves both active-link premises, with no
+width factor in the displayed budget and no cross-width state equality.
+
+**Signed consumer:** `combinedTimeIncrement_expand` proves exactly
+
+    J[(c*Da+d*Db)^2] = c^2*J[Da^2] + 2*c*d*J[Da*Db] + d^2*J[Db^2].
+
+The SAME action, partition, nome, width and window occur in all terms.
+`combinedTimeIncrement_cancel` proves zero for the same loop with
+opposite coefficients. This retains cancellation in the identity; the
+subsequent CS magnitude bound does NOT capture its spatial benefit.
+No useful coefficient-l2 bound for a growing family is inferred.
+
+**Source-based route selection:**
+`BF4ExactSlabFixedSpatialPlaquetteFamilyEnergy.family_energy_floor`
+is a LOWER energy/coefficient estimate, not the required upper time-loss
+estimate. `BF4ExactSlabFixedSpatialEnergyNormBound.energy_le_two_norm`
+is an upper estimate but uses the whole SAME marginal norm, without a
+small nome-defect coefficient. The exact
+`BF4ExactSlabFixedSpatialPlaquetteFamilySchedule.difference_source`
+retains the full signed family jump. Local
+`BF4ExactSlabSelectedStarPredictionError.polynomial_square_floor` gives
+a norm floor against a predictor missing one selected link; it does not
+control a general interacting family's off-diagonal time increments.
+None of these declarations supplies spatial aggregation by itself.
+
+**Next mathematical work / backward consumer:** analyze the dependence
+of the signed-family increment Gram form AND equal-time covariance Gram
+form on spatial separation and nome, seeking a sufficient relative
+time-loss estimate on an explicitly justified changing-spacing observable
+family. Pairwise CS alone cannot supply this. The existing completed
+single-plaquette loss pin supplies a consumer on that excitation; this
+increment proves no arbitrary signed-family completed pin or
+fixed-physical-time survival. The coarse
+relative witness below remains ruled out for linear-spacing calibration.
+Spatial/scaling passage, two-sided physical mass control, canonical
+OS/full QFT and every compact simple group remain OPEN.
+
+**Verification and delegation:** the dependency-complete target
+`+YMGap.Continuum.BF4WilsonAllNomeMixedTimeIncrement:olean` and both
+final direct checks passed 12 printed gates within `{propext, Quot.sound}`,
+without warnings or `sorryAx`. Final logs:
+`/tmp/ym-gap-BF4WilsonJointOrdinaryCauchySchwarz-final.log` and
+`/tmp/ym-gap-BF4WilsonAllNomeMixedTimeIncrement-final.log`.
+Sol supplied the bounded ordinary-CS producer, source inventory and an
+independent mathematical review; main implemented the actual mixed and
+signed consumers. One monitored 20 GiB worker; no full-root build/audit.
+No hole, axiom, canonical field or existing analytic obligation changed.
+Last whole-project causal ASCII chart: 2026-09-21 05:37 UTC.
+
+### TWO-step response, and the coarse lower witness cannot supply scaling (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- an actual response bound AND a checked pruning decision:**
 `BF4ExactSlabFixedSpatialPlaquetteTwoStepResponse.faceExcitation_twoStep_floor`

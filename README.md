@@ -49,12 +49,30 @@
 > this particular relative witness is at most 1/25, so it cannot provide
 > near-one, linear-spacing calibration. This does not bound the actual
 > Rayleigh quotient from above or refute survival.
+> Mixed increments of two loops now have a checked squared Cauchy bound
+> in the SAME original state, with an explicit nome/lag/length budget.
+> Signed combinations retain their cross term exactly; opposite copies
+> of the same loop cancel. Spatial decay and relative variance control
+> do not follow from this pairwise estimate.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Two-step response and a checked scaling limitation (2026-09-21 UTC):**
+**Mixed-increment control with signed cross terms (2026-09-21 UTC):**
+`BF4WilsonAllNomeMixedTimeIncrement` proves
+`E[Da*Db]^2 <= E[Da^2]*E[Db^2] <= B_a*B_b`, where
+`B_a=24*n*length(a)^2*(1-w)`, in the existing original joint state.
+It also proves the exact quadratic formula for a signed two-loop
+combination and its same-loop cancellation case. Ordinary state positivity
+is not substituted for an OS inner product. Bounds have no ambient-width
+factor once both loops are active (strict padding proves this).
+They do not give spatial-separation decay, a growing-family coefficient
+bound or continuum survival. Sol supplied ordinary CS and independent
+review; two final narrow checks passed all 12 printed axiom gates.
+No full-root build/audit or canonical frontier closure.
+
+**Two-step response and a checked scaling limitation (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialPlaquetteTwoStepResponse` proves
 `delta^2/P <= B(v,T(2)v)` and `(delta^2/P^2)*B(v,v) <= B(v,T(2)v)`
 for the SAME existing vector, with an explicit positive norm cap P.

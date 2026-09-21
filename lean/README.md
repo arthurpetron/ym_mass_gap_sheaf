@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Two-step response; coarse-witness scaling obstruction (2026-09-21 UTC):**
+**Mixed ordinary increments; exact signed combination (2026-09-21 UTC):**
+`BF4WilsonJointOrdinaryCauchySchwarz.lean` proves square positivity, sharp
+ordinary CS and rational homogeneity for the SAME original joint limit.
+`BF4WilsonAllNomeMixedTimeIncrement.lean` applies these to two literal
+time differences and bounds the squared cross moment by the product of
+their explicit nome/lag/path-length budgets. The exact signed quadratic
+expansion keeps `2*c*d*mixedTimeIncrement`; opposite copies of the same
+loop cancel to zero. Neither ordinary/reflected pairing identification
+nor spatial decay is assumed. Strict padding discharges both active-link
+premises, without identifying states at different widths. The missing
+spatially aggregated, relative-to-variance estimate and actual scaling
+family remain open. Two final checks passed 12 printed gates within
+`{propext, Quot.sound}`; no hole/field changes or full-root audit.
+
+**Two-step response; coarse-witness scaling obstruction (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialJointCauchySchwarz.lean` proves sharp CS on the
 existing bespoke completion, using its actual pairing limits.
 `BF4ExactSlabFixedSpatialPlaquetteTwoStepResponse.lean` combines this with

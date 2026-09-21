@@ -13,6 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED mixed ordinary time increments and exact signed expansion (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4WilsonJointOrdinaryCauchySchwarz.lean`
+  and `lean/YMGap/Continuum/BF4WilsonAllNomeMixedTimeIncrement.lean`.
+- **scope**: `joint_cauchySchwarz` passes the positive ORIGINAL normalized
+  window form through its existing joint time/cutoff limits. It is ordinary
+  square positivity, not reflected OS positivity. The consumer proves
+  `mixedTimeIncrement_cauchySchwarz` and
+  `mixedTimeIncrement_squared_nome_bound`, with rational data
+  `incrementBudget w n L = 24*n*L^2*(1-w)` (up to associativity).
+  `combinedTimeIncrement_expand` keeps every signed cross term;
+  `combinedTimeIncrement_cancel` checks cancellation for opposite copies
+  of the same loop. The mixed term is not assumed positive or discarded.
+- **parameters / residue**: fixed nome, width, loops and lattice lag during
+  the limit; budget independent of ambient width subject to active links.
+  Strict padding proves activity for both loops. The CS upper bound does
+  not exploit spatial cancellation: no spatial-separation decay, useful
+  growing-family coefficient norm, relative variance estimate, cross-width
+  state comparison or changing-spacing observable family is constructed.
+  Physical-time survival, physical mass, SAME-theory QFT and all groups
+  remain open. No canonical atom, hole, axiom, field or prior analytic
+  obligation changed.
+- **verification**: dependency-complete mixed-increment target and two
+  final direct checks passed all 12 printed gates within
+  `{propext, Quot.sound}`, without warnings or `sorryAx`. Sol supplied the
+  bounded ordinary-CS proof and independently reviewed the consumers;
+  main proved the mixed budget, padding, signed expansion and cancellation.
+  One monitored 20 GiB worker; no full-root build/audit. Exact logs and the
+  next missing mathematical input are recorded in `work_plan.md`.
+
 ## PROVED two-step response and coarse-witness scaling obstruction (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointCauchySchwarz.lean`,
