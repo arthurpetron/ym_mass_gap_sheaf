@@ -13,6 +13,30 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED computed dual lower bound for the original finite response (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionProductHeatDualForm.lean`
+  and `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialResponseDual.lean`.
+- **scope**: the actual PSD kinetic form satisfies sharp Cauchy--Schwarz
+  on signed supported polynomials. `response_numerator_pin` keeps the
+  entire source `V*(T^n1*h)` and identifies its quadratic with the
+  original one-step window numerator. `responseFloor` constructs
+  D^2/((1+C)*Z), with C the actual kinetic test cost and Z the SAME
+  positive odd partition. `responseFloor_nonnegative` and
+  `responseFloor_le_window` prove its nonnegative lower-bound property.
+- **boundary**: finite cutoff/depth/width; strict nome and the existing
+  late-cutoff guard in the normalized consumer. The detector may vanish.
+  An actual detecting plaquette test, limit-stable positive lower bound,
+  completed-response passage, spatial/scaling survival, physical mass,
+  full QFT and all groups remain open. No kinetic injectivity, nonzero
+  response or uniform constant is asserted. No hole, axiom, canonical
+  field or existing analytic obligation changed.
+- **verification**: narrow dependency-complete target and both final direct
+  checks passed all 14 gates within `{propext, Quot.sound}`, without
+  warnings or `sorryAx`. Sol supplied the bounded form helper and reviewed
+  the same-action/partition proof. One monitored 20 GiB worker; no full-root
+  audit/build. Exact logs and next producer are in `work_plan.md`.
+
 ## PROVED all-nome completed plaquette loss and displacement bounds (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4WilsonPlaquetteSourcePin.lean`,

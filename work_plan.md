@@ -34,6 +34,56 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Computed dual lower bounds for the ORIGINAL finite response (2026-09-21 UTC)
+
+**PROGRESS -- a finite estimate, not proved non-erasure:**
+`BF4ExactSlabFixedSpatialResponseDual.responseFloor_le_window` constructs,
+for every supported signed source h and supported polynomial test b,
+
+    0 <= D^2 / ((1+C)*Z) <= windowRatio(n,1,n, h(x)*h(y)),
+    u = V*(T^n 1*h),  D = H[u*P(b)],  C = H[b*P(b)].
+
+The lower bound is explicit rational data (`responseFloor`), not an assumed
+positive-response field. Here P is the literal active-link kinetic map,
+V the entire original spatial potential, and Z the existing `oddMass`.
+`response_numerator_pin` identifies H[u*P(u)] with the original observed
+window numerator using `original_quadratic_pin`, `edge_pairing`, and
+`edge_window_pairing`. Z is the SAME original partition with 2*n+1
+transitions. No action factor is discarded or declared independent.
+Sol's `SU2QuaternionProductHeatDualForm.kineticPair_cauchySchwarz` proves
+the sharp PSD bound D^2 <= H[u*P(u)]*C, with arbitrary signed inputs,
+nonnegative nome, arbitrary cutoff and valid indices (no Nodup premise).
+The normalized consumer requires `0<w<1` and the existing late-cutoff
+guard for Z>0. Adding one to C handles kinetic null tests constructively.
+
+**Next producer and exact consumer:** supply an actual detecting test b
+to `responseFloor`, then prove a strictly positive lower bound stable
+through the ORIGINAL time/cutoff limits. The current lower bound can be
+zero; no such test or uniform lower estimate was proved here. Source review
+supports checking the low-degree candidate b=w^(-12)*f-m for the actual
+centered plaquette h=f-m. The missing eigen-pin P(f)=w^12*f must use the
+four distinct active physical links on the actual width carrier, and P(1)=1
+must be proved at the supported-Haar level. The consecutive-coordinate
+`FullHeatTubeLayer.one_layer` cannot consume V*T^n1 as an independent
+spectator; keep that entire weight inside u instead. Exact Haar moments,
+the actual marginal mean bound, common-mass endpoint sandwiches and the
+same-partition normalization must then all be joined. This is a proposed
+argument, not a new kernel theorem. A global product-floor route would
+retain nome/width dependence and by itself give no spatial or scaling
+survival. The continuum/QFT/physical-mass/every-group target remains OPEN.
+
+**Verification and delegation:** the narrow dependency-complete target
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialResponseDual:olean` and both final
+direct checks passed all 14 public gates within `{propext, Quot.sound}`,
+without warnings or `sorryAx`. Final logs:
+`/tmp/ym-gap-SU2QuaternionProductHeatDualForm-final.log` and
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialResponseDual-final.log`.
+Sol implemented the bounded kinetic-form helper and independently reviewed
+the original-action and normalization pins; main proved the finite response
+consumer. One monitored 20 GiB worker; no full-root audit/build. No hole,
+axiom, canonical field or existing analytic obligation changed. The last
+hourly whole-project ASCII chart remains 2026-09-21 04:41 UTC.
+
 ### All-nome time control on the EXISTING completed plaquette carrier (2026-09-21 UTC)
 
 **PROGRESS -- a proved same-object join, not a replacement completion:**

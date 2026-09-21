@@ -38,9 +38,22 @@
 > completion: centered correlation loss is at most `192*n*(1-w)`, and
 > the embedded literal time-difference norm squared at most `384*n*(1-w)`.
 > Physical-time control still needs the actual scaling/observable schedule.
+> A computed dual-test lower bound now targets the original finite response,
+> retaining its full interaction and partition. A nonzero test with bounds
+> stable through the required limits is still missing.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
+
+**Finite response lower bounds (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialResponseDual.responseFloor_le_window` proves
+`D^2/((1+C)*Z) <=` the original one-step response for every supported
+signed polynomial test, using the kinetic positive form and the exact
+original partition. The bound is computed but may be zero. A detecting
+plaquette test and limit-stable positivity remain open; no survival or
+continuum theorem is claimed. Sol supplied the kinetic Cauchy--Schwarz
+helper and independent review. Both final narrow checks passed all 14
+axiom gates; no full-root audit.
 
 **Time control on the existing completed plaquette carrier (2026-09-21 UTC):**
 `BF4AllNomeCompletedPlaquetteIncrement` proves

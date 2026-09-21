@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Computed original finite-response floors (2026-09-21 UTC):**
+`SU2QuaternionProductHeatDualForm.lean` proves sharp Cauchy--Schwarz for
+the actual kinetic product-map form and arbitrary signed supported inputs.
+`BF4ExactSlabFixedSpatialResponseDual.lean` retains the full endpoint
+`V*(T^n1*h)` and pins its quadratic to the existing original one-step
+window numerator. Its computed `responseFloor` is nonnegative and no
+greater than that SAME normalized response. It can be zero; a detecting
+test, cutoff/time-uniform positive floor and all spatial/scaling joins
+remain open. Both final checks passed all 14 gates within
+`{propext, Quot.sound}`. No holes/fields changed or full audit.
+
 **All-nome completed plaquette time control (2026-09-21 UTC):**
 `BF4WilsonPlaquetteSourcePin.lean` and `BF4WilsonAllNomePlaquetteTimePin.lean`
 identify the actual fixed-width joint plaquette pairing with the literal
