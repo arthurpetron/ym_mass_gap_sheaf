@@ -34,7 +34,56 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Computed arbitrary-input harmonic decomposition and actual product-map join (2026-09-21 UTC)
+### Grouped harmonic norms and cutoff/Casimir budget (2026-09-21 UTC)
+
+**PROGRESS -- the same-degree cross-term obstruction is handled exactly:**
+`SU2QuaternionGroupedHarmonicNorm.polynomial_norm` proves that the original
+supported polynomial's Haar square norm is the sum of the squares of its
+COMPUTED equal-degree harmonic groups. All signed summands of one degree
+are combined BEFORE squaring. Only unequal degrees are orthogonal. The
+stronger partial-Haar identity retains every tail coefficient.
+
+`polynomial_grouped_heat_pairing` consumes these same groups in the actual
+original heat packet with the arbitrary head-independent insertion retained.
+`retained_harmonic_energy` identifies each complete group's six-plane
+angular square with its SU(2) Casimir times its norm. The quantitative join
+`grouped_defect_le_angular` then proves
+
+    sum_d (1-a_K(d))*H[h_d^2] <= (1-w)*sum_d H[angularSquare h_d]
+
+for 0<=w<=1 and the explicit scalar cutoff guard
+`1 <= (1-w)*(K+1)*(K+3)`. It applies also to omitted degrees d>K; no premise
+`degree(input)<=K` is used. Below cutoff it is Bernoulli's inequality;
+above cutoff the first omitted Casimir pays the whole unit defect. This
+is a quantitative GROUPED norm/energy budget, not yet an interacting
+product-transfer energy estimate or a nome-uniform physical gap.
+For every strict nome w<1, `sufficientCutoff w := (1-w).den` constructs
+a sufficient cutoff as data. `cutoff_guard_of_le` proves the guard for
+every larger K, and `grouped_defect_le_angular_of_cutoff` consumes it.
+The cutoff is elementary rather than sharp and depends explicitly on w.
+
+**Next mathematical join:** identify the original bare product-kinetic
+quadratic form with the required grouped attenuations on its actual
+carrier, and reassemble the angular cost for the same signed source.
+Keep the support and retained-substitution compatibility explicit when
+iterating factors; a scalar semigroup identity is not that operator join.
+Then retain the original endpoint correction through
+`GroundStateEnergy.energy_eq_bare_add_correction`, using the already proved
+differential endpoint cancellation only where its hypotheses apply.
+The interacting finite-time comparison, SAME-variance small rate,
+spatial/scaling survival, finite positive physical mass, canonical full QFT
+and every compact simple group remain OPEN. No canonical field was changed,
+and no hole or axiom was introduced or removed.
+
+Sol supplied the bounded scalar and all-degree angular identities; main
+supplied the grouped norm and actual-packet consumers and serialized checks.
+All 22 focused axiom gates passed within `{propext, Quot.sound}`; the
+dependency-complete consumer target passed. Sol's scope review passed.
+One 20 GiB worker; no full-root build/audit or frontier guard.
+Verification and source map:
+`audits/AUDIT-GROUPED-HARMONIC-ENERGY-2026-09-21.md`.
+
+### Computed arbitrary-input harmonic decomposition and actual product-map join (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- input harmonicity is no longer an assumption:**
 `SU2QuaternionProductHeatHarmonicExpansion.productMap_selected_expansion`

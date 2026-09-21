@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED computed finite harmonic decomposition and arbitrary-input product-map expansion (2026-09-21 UTC)
+## PROVED grouped harmonic norms and explicit cutoff/Casimir budget (2026-09-21 UTC)
+
+- **files**: `SU2QuaternionGroupedHarmonicNorm.lean`,
+  `SU2HeatCutoffCasimirBound.lean`, `QuaternionHaarHarmonicAngularEnergy.lean`,
+  and `SU2QuaternionGroupedHeatComparison.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: computed equal-degree grouping, polynomial-valued cross-degree
+  orthogonality and Pythagoras, original supported-input Haar norm equality,
+  original heat-packet pairing on those groups, and the exact all-degree
+  retained angular-energy/Casimir identity. Equal-degree signed cross terms
+  remain inside the grouped square.
+- **quantitative output**: for the explicit guard
+  `1 <= (1-w)*(K+1)*(K+3)`, the all-degree cutoff attenuation defect is
+  bounded by `(1-w)*d*(d+2)`. Positivity of each actual grouped square yields
+  `grouped_defect_le_angular`, including omitted modes. There is no input-
+  degree cutoff premise and no parameter-free uniformity claim.
+  For strict w<1, `sufficientCutoff w := (1-w).den` computes a sufficient
+  cutoff; its guard is proved for every larger K and consumed by
+  `grouped_defect_le_angular_of_cutoff`.
+- **residue**: the grouped norm budget is NOT yet the actual product-
+  kinetic form. Its same-carrier operator and total-angular-cost joins,
+  original signed endpoint correction, finite-time interacting comparison,
+  SAME-variance small rate and spatial/scaling control remain open. Full
+  QFT, finite positive physical mass and every group remain open.
+- **scope**: no frontier field or analytic premise was changed; no `sorry`
+  or axiom introduced or discharged. Four focused checks passed 22 gates
+  within `{propext, Quot.sound}` and the dependency-complete consumer
+  target passed. No full-root audit. Source and exact verification boundary:
+  `audits/AUDIT-GROUPED-HARMONIC-ENERGY-2026-09-21.md`.
+
+## PROVED computed finite harmonic decomposition and arbitrary-input product-map expansion (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `SU2QuaternionHeadHomogeneousComponents.lean`,
   `SU2QuaternionFischerRadial.lean`, `SU2QuaternionFischerDecomposition.lean`,
