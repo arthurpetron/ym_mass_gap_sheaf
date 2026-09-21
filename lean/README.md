@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Actual six-face Ward score cost (2026-09-21 UTC):**
+**Exact original Ward-score orthogonality (2026-09-21 UTC):**
+`BF4ExactSlabOriginalWardLocality.lean` puts different selected-link scores
+in common original coordinates and proves their cross moment is zero when
+one selected link is excluded from the other score's entire star/test source.
+Angular differentiation preserves that proved source support. The normalized
+two-score cost is bounded by the sum of the diagonal cap-squares, with no
+generic factor two and the SAME full action and partition. Distinct links
+alone do not suffice. Bounded-overlap family aggregation, useful response
+floors and spatial/nome scaling control remain open; this is not spatial
+clustering or an OS gap. Three final checks passed all 15 gates within
+`{propext, Quot.sound}`; no hole/field changes or full-root audit.
+
+**Actual six-face Ward score cost (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabLocalWardScoreBound.lean` now bounds the actual incident
 product and its derivative using the at-most-six physical faces. Explicit
 Leibniz recurrences give a score cap and hence

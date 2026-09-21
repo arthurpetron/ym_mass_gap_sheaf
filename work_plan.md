@@ -34,7 +34,81 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Actual six-face Ward score cost is bounded (2026-09-21 UTC)
+### Exact off-source Ward-score cancellation under the original action (2026-09-21 UTC)
+
+**PROGRESS -- a spatial cross-term is removed by an exact identity:**
+`BF4ExactSlabOriginalWardLocality.originalScore` pulls the local Ward score
+back through the SAME head-link swap, so every selected link's score lives
+in common original coordinates. `originalScore_pair_pin` retains the
+literal full product W of all slab heat factors and checks the padded
+double-reindex equality under arbitrary Haar insertion.
+`originalScore_pair_zero_of_local` proves
+
+    H[(f*S_link)*W] = 0
+    whenever f is supported on a link list not containing link.
+
+No factor of W is removed. This is conditional score cancellation, not
+independence of interacting link variables. It holds for every rational
+nome and finite cutoff, without a positivity premise. The zero original
+mean is also checked as `originalScore_mean_zero`.
+
+**The second score's locality is constructed:**
+`SU2QuaternionAngularLocality` proves formal and angular differentiation
+cannot introduce forbidden blocks (with the differentiated head allowed).
+`originalScore_local` bounds the actual source by
+
+    link :: (faceLinks extent (incidentIds extent link) ++ testLinks).
+
+Consequently `separated_scores_pair_zero` proves exact orthogonality when
+the first selected link is absent from the second score's entire source.
+Distinctness of the two links alone is NOT sufficient. The one-sided
+source exclusion is enough for this symmetric scalar cross moment.
+
+**Same-action cost consumer:** `QuaternionHaarOrthogonalPairCost` proves
+the exact normalized Pythagorean identity from a zero mixed numerator.
+`separated_scores_cost_le` constructs its orthogonality input for the
+actual pair of scores and proves
+
+    E_W[(S_other+S_link)^2] <= cap_other^2 + cap_link^2.
+
+Both score intervals, the full positive W and its actual partition are
+retained. Positivity uses the existing late-cutoff guard. There is no
+generic factor two, but no general-family estimate is claimed yet.
+Caps remain nome-dependent; cutoff/extent uniformity still requires
+uniform test caps. No new analytic assumption, hole or canonical field.
+
+**Next producer / existing consumer:** reuse
+`RationalFiniteSparseGram.sparse_gram_bound` with far-pair error r=0.
+The missing joins are the normalized full-sum-square/ordered-Gram pin and
+a symmetric bounded-overlap relation for a chosen actual test family.
+`incidentIds_length_le_six` and `BF4ExactSlabCollarDegreeBound.faceLinks_length`
+already give at most 24 raw incident-star link occurrences. Arbitrary
+varying test supports can spoil a bounded row count; control them explicitly.
+Useful total response lower bounds, spatial/nome relative control,
+changing-spacing survival, physical mass, canonical OS/full QFT and every
+compact simple group remain open. Ordinary score orthogonality is not an
+OS transfer gap or spatial decay of arbitrary observables.
+
+**Pruned duplication:** `BF4ExactSlabSelectedStarVariance` already gives
+an extent-independent single-plaquette variance floor at each strict nome.
+Reconstructing a weaker isolated Ward floor would not fill the aggregate
+one-step/variance obstruction. This checkpoint instead supplies actual
+off-source cancellations for the spatial sum route.
+
+**Verification / delegation:** dependency-complete locality target and
+three final direct checks passed all 15 gates within `{propext, Quot.sound}`,
+without warnings or `sorryAx`. Sol supplied derivative-locality and
+two-score algebra, independently reviewed original action/source pins,
+and located the existing sparse Gram consumer. Main supplied the actual
+scores and consumers. One monitored 20 GiB worker; the lock refused one
+premature next check, which was rerun after the preceding handle completed.
+No full-root build/audit. Final logs:
+
+- `/tmp/ym-gap-SU2QuaternionAngularLocality-final.log`
+- `/tmp/ym-gap-QuaternionHaarOrthogonalPairCost-final.log`
+- `/tmp/ym-gap-BF4ExactSlabOriginalWardLocality-final.log`
+
+### Actual six-face Ward score cost is bounded (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the original score cost now has a constructed cap:**
 `BF4ExactSlabLocalWardScoreBound.incidentAngularBound` combines the ACTUAL

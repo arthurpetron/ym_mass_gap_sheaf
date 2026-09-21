@@ -72,12 +72,28 @@
 > cap under the SAME full action. With fixed test caps it is independent
 > of cutoff and extent, but remains nome-dependent. Useful response floors
 > and sufficiently strong spatial/nome-relative estimates are still open.
+> Local Ward scores now also have checked exact zero cross moments when
+> their selected links and star/test sources satisfy a proved exclusion.
+> The two-score cost is additive under the unchanged full action.
+> Bounded-overlap spatial aggregation and its useful response remain open.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Original six-face Ward score cost (2026-09-21 UTC):**
+**Exact local-score cancellation (2026-09-21 UTC):**
+Different selected-link Ward scores now live in the same original
+coordinates and full interacting action. If one selected link is absent
+from the other score's entire star/test support, their cross moment is
+exactly zero. Their normalized sum-square cost is therefore bounded by
+the sum of the diagonal cap-squares, without the generic factor two.
+This is not independence of the interacting measure or spatial clustering.
+Next is a bounded-overlap spatial sum, using the existing sparse Gram
+estimate, together with a useful response lower bound. Nome/scaling control
+remains open. Sol supplied bounded proofs and independent review;
+all 15 gates passed three final checks, with no full-root audit.
+
+**Original six-face Ward score cost (earlier checkpoint, 2026-09-21 UTC):**
 The actual local score now has an explicit bound, retaining every incident
 face and the full original probability weight. It gives
 `normalizedResponse^2 <= actualVariance * scoreCap^2`.

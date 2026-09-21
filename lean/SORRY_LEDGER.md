@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original six-face Ward score cap (2026-09-21 UTC)
+## PROVED original off-source Ward-score cancellation and pair cost (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionAngularLocality.lean`,
+  `QuaternionHaarOrthogonalPairCost.lean`, and
+  `BF4ExactSlabOriginalWardLocality.lean`, in the same directory.
+- **scope**: `originalScore_pair_pin` places each constructed score in the
+  common original coordinates and full action W. `originalScore_pair_zero_of_local`
+  proves exact pairing cancellation against a supported observable whose
+  link list excludes the selected link. `originalScore_local` constructs
+  the score's star/test support using angular locality; hence
+  `separated_scores_pair_zero` supplies actual off-source orthogonality.
+  `originalScore_mean_zero` proves the original zero mean.
+  `separated_scores_cost_le` combines the exact normalized Pythagorean
+  identity with actual score intervals, full weight positivity and its
+  original partition: E_W[(S_other+S_link)^2] <= cap_other^2+cap_link^2.
+- **residue**: source exclusion is stronger than link distinctness.
+  No independence of the interacting measure, arbitrary-observable spatial
+  decay, general-family overlap estimate or response floor is proved.
+  The next consumer is the existing sparse Gram bound at r=0; the full
+  sum-square pin, test-family overlap count and useful response remain
+  to be supplied. Nome-dependent costs are not uniform near one. All
+  continuum/scaling, physical mass, full QFT and every-group obligations
+  remain open. No hole, axiom, analytic-input bundle or canonical field changed.
+- **verification**: dependency-complete target and three final direct
+  checks passed all 15 gates within `{propext, Quot.sound}`, without warnings
+  or `sorryAx`. Sol supplied bounded proofs and independent review.
+  One monitored 20 GiB worker; no full-root build/audit. Logs in `work_plan.md`.
+
+## PROVED original six-face Ward score cap (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/AngularProductBudget.lean`,
   `QuaternionHaarAngularProductList.lean`, and
