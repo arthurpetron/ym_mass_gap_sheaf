@@ -12,7 +12,38 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Checked limitation of the affine calibration route (2026-09-21 UTC):**
+**All-nome fixed-width plaquette-orbit non-erasure (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialJointQuadraticForm.lean` proves positivity of the
+scaled difference `x-rho*y` directly through the existing
+`JointCompletion` pairing, without constructing new completed linear
+operations. `BF4ExactSlabFixedSpatialJointOrbitResponse.lean` combines that
+quadratic form with the existing time semigroup, time-balance identity and
+sharp Cauchy--Schwarz inequality. It proves adjacent even-moment
+log-convexity, propagation of any supplied nonnegative rational relative
+two-step floor under pure time translates, and the corresponding even-time
+geometric lower bound. These are time powers/translates, not finite-sum time
+smearing or a spectral filter.
+
+For the actual centered fundamental-plaquette excitation,
+`BF4ExactSlabFixedSpatialPlaquetteOrbitResponse.lean` retains the existing
+active-edge premise and its strict-padding discharge and proves
+`timeNormFloor(n) = relativeFloor^n*starRatio` below the squared norm of the literal
+time-`n` image. Since this rational floor is positive at every finite `n`, the
+actual image is not the completed zero. Nome and width remain fixed, the
+carrier and original pairing are unchanged, and no legacy thermodynamic or
+spatial-union carrier is identified with them. This is finite-time
+non-erasure, not fixed-physical-time survival or near-one calibration: the
+proved coarse ceiling `relativeFloor <= 1/25` remains in force, and the
+missing useful relative analytic producer is unchanged. No hypothesis,
+canonical field or hole changed. The dependency-complete
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteOrbitResponse:olean`
+target and three final serialized direct checks passed all 17 printed gates
+(3 quadratic-form, 7 orbit, 7 consumer), within `{propext, Quot.sound}`,
+without warnings or `sorryAx`. Sol supplied the quadratic-form proof and
+independent review; main supplied the orbit and concrete consumer proofs.
+One monitored 20 GiB worker; no full-root audit.
+
+**Checked limitation of the affine calibration route (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabHeadFloorNomeCeiling` bounds the retained heat-head witness by
 `(1-w)^2`. `BF4ExactSlabPlaquetteAffineCalibrationObstruction` consequently
 proves `600*varianceFloor <= ((1-w)^2)^24` and

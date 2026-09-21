@@ -120,12 +120,38 @@
 > A checked limitation now rules out paying the existing `192*(1-w)`
 > one-step loss budget with this particular floor: their computed ratio is
 > at least 115200 at every strict nome. This is not an actual-response bound.
+> Independently, the SAME all-nome fixed-width plaquette excitation now has
+> a positive squared-norm floor after every finite time advance:
+> `||T^n v||^2 >= relativeFloor^n*starRatio > 0`, with its active-edge guard.
+> This bound may decay with n; it is not fixed-physical-time survival.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Calibration route pruned (2026-09-21 UTC):**
+**All-nome finite-time non-erasure (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialJointQuadraticForm.lean` passes positivity of the
+literal dense `x-rho*y` form to the existing completed pairing, without
+constructing another carrier or assuming completed linear operations.
+`BF4ExactSlabFixedSpatialJointOrbitResponse.lean` combines this with physical
+time balance: for `r_n=B(v,T^(2*n)v)`, it proves adjacent log-convexity and
+propagates any supplied nonnegative rational two-step floor rho to
+`rho^n*B(v,v) <= r_n`.
+
+`BF4ExactSlabFixedSpatialPlaquetteOrbitResponse.lean` supplies the already
+proved actual plaquette floor at EVERY strict nome. Its explicit witness
+`timeNormFloor = relativeFloor^n*starRatio` bounds the SAME translated
+vector's squared norm and excludes the actual completed zero. Strict spatial
+padding supplies the active-edge premise. These are time translates, not
+finite-sum smearing or a new spectral calculus. The lower witness can decay
+with n and depends on nome/width; its known coarse ceiling is unchanged.
+No near-one certificate, spatial/scaling limit, physical mass, or continuum
+QFT follows. The relative analytic estimate identified below remains open.
+The dependency-complete plaquette-orbit target and three final serialized
+checks passed all 17 printed gates within `{propext, Quot.sound}`, without
+warnings or `sorryAx`; no full-root audit was run.
+
+**Calibration route pruned (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabHeadFloorNomeCeiling.lean` and
 `BF4ExactSlabPlaquetteAffineCalibrationObstruction.lean` prove that the
 particular affine floor `f(w)` below obeys `600*f(w) <= ((1-w)^2)^24`.

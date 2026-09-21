@@ -34,7 +34,66 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Affine floor / absolute loss is quantitatively insufficient (2026-09-21 UTC)
+### All-nome actual orbit moments and finite-time non-erasure (2026-09-21 UTC)
+
+**PROGRESS -- positive orbit norms on the SAME fixed-width joint carrier:**
+the current `JointCompletion` was not silently identified with either the
+small-nome Wilson spatial union or the legacy thermodynamic completion.
+`BF4ExactSlabFixedSpatialJointQuadraticForm` applies dense reflection
+positivity to `differenceSpan x (smulSpan rho y)`, expands all four terms,
+and passes them through the actual representative pairing limits. This
+supplies the needed completed scalar quadratic inequality without adding
+completed linear operations or a new analytic hypothesis.
+
+For `r_n=B(x,T^(2*n)x)`, `BF4ExactSlabFixedSpatialJointOrbitResponse` proves
+
+    r_(n+1)^2 <= r_n*r_(n+2),
+    rho*(r_(n+1)-rho*r_n) <= r_(n+2)-rho*r_(n+1).
+
+Thus a supplied `rho>=0` and `rho*B(x,x)<=B(x,T^2 x)` imply
+`rho*r_n<=r_(n+1)` and `rho^n*B(x,x)<=r_n` at every natural n. The initial
+relative certificate also holds on every actual time translate `T^n x`.
+No division by a moment, spectral measure or one-step positivity is assumed.
+The adjacent log-convexity statement remains valid even for zero vectors.
+
+**Constructed consumer:** `BF4ExactSlabFixedSpatialPlaquetteOrbitResponse`
+uses the existing `faceExcitation_relative_floor`, with the ACTUAL
+`relativeFloor` and the independent time-zero `starRatio` norm floor:
+
+    timeNormFloor(w,width,face,n) = relativeFloor^n * starRatio > 0,
+    timeNormFloor <= B(v,T^(2*n)v) = B(T^n v,T^n v).
+
+`faceExcitation_time_ne_zero` excludes the actual embedded zero at every
+finite n. The original active-link premise is retained and
+`padded_faceExcitation_time_norm_floor` discharges it by strict padding.
+The existing invariant unit complement contains these time translates.
+
+**Boundary / next producer:** this is all-nome finite-time non-erasure, not
+fixed-physical-time survival or an approach to a near-one Rayleigh quotient.
+The old particular `relativeFloor<=1/25` ceiling still holds; propagating it
+does not solve calibration. Finite sums/time smearing were inspected, not
+constructed: they cannot manufacture low-energy spectral support from the
+present form facts. The missing direct relative one-step/scaling estimate
+identified by the previous calibration audit remains the analytic frontier.
+The signed-family norm theorem is unchanged; a positive-lag floor for that
+whole arbitrary family is not asserted here. Spatial and changing-spacing
+limits, physical mass, full QFT and every compact simple group remain OPEN.
+No canonical field, hole or analytic assumption changed.
+Latest user-facing causal ASCII chart: 2026-09-21 10:38 UTC; it included
+the whole-project goal and labeled this concrete consumer as under check.
+
+**Verification / delegation:** the dependency-complete
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteOrbitResponse:olean`
+target and three final serialized direct checks passed all 17 printed gates
+(3 quadratic-form, 7 orbit, 7 consumer), within `{propext, Quot.sound}`,
+without warnings or `sorryAx`. Sol supplied the quadratic-form proof,
+source inventory, independent review and supporting documentation; main
+supplied the orbit recurrence, concrete consumer and serialized verification.
+One monitored 20 GiB worker; no full-root audit. Final direct-check logs:
+`/tmp/ym-gap-joint-quadratic-final.log`, `/tmp/ym-gap-joint-orbit-final.log`,
+and `/tmp/ym-gap-plaquette-orbit-final.log`.
+
+### Affine floor / absolute loss is quantitatively insufficient (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- a tested calibration shortcut is now ruled out:** the new
 completed norm floor is positive at fixed nome, but that does not make it

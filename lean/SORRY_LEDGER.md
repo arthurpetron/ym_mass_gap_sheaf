@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED limitation of affine-floor / absolute-loss calibration (2026-09-21 UTC)
+## PROVED all-nome fixed-width plaquette-orbit non-erasure (2026-09-21 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointQuadraticForm.lean`,
+  `BF4ExactSlabFixedSpatialJointOrbitResponse.lean`, and
+  `BF4ExactSlabFixedSpatialPlaquetteOrbitResponse.lean`, in the same directory.
+- **scope**: scaled-difference positivity is proved directly in the existing
+  `JointCompletion` pairing, with no new completed subtraction or scalar
+  operation. The actual discrete time semigroup then gives adjacent
+  even-moment log-convexity, preservation of a supplied nonnegative rational
+  two-step relative floor under pure time translates, and an even-time
+  geometric lower bound. For the actual centered fundamental-plaquette
+  excitation the checked rational squared-norm witness is
+  `timeNormFloor n = relativeFloor^n*starRatio`. It is positive for every
+  finite `n`, so the literal time-`n` image is not the existing completed
+  zero.
+- **guards / carrier**: the original active-edge guard is explicit and the
+  strict-padding theorem supplies it. Nome and width remain fixed throughout;
+  the original completed pairing, time map and carrier are retained. No
+  legacy thermodynamic or spatial-union carrier is identified with this one,
+  and no analytic hypothesis was introduced.
+- **honest boundary**: these are time powers/translates, not finite-sum
+  smearing or spectral filtering. The conclusion is fixed-spacing,
+  fixed-spatial-width, finite-time non-erasure, not fixed-physical-time survival, a near-one
+  Rayleigh witness, or continuum persistence. The earlier coarse ceiling
+  `relativeFloor <= 1/25` still applies, so the missing useful relative
+  analytic producer is unchanged. The affine calibration obstruction below
+  remains valid. No hole or canonical frontier field changed.
+- **verification**: the dependency-complete plaquette-orbit target and three
+  final serialized direct checks passed all 17 printed gates (3, 7, 7), within
+  `{propext, Quot.sound}`, without warnings or `sorryAx`. Sol supplied the
+  quadratic-form proof and independent review; main supplied the actual
+  orbit recurrence, concrete consumer and serialized checks. One monitored
+  20 GiB worker; no full-root audit.
+
+## PROVED limitation of affine-floor / absolute-loss calibration (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabHeadFloorNomeCeiling.lean`
   and `BF4ExactSlabPlaquetteAffineCalibrationObstruction.lean`.
