@@ -12,16 +12,39 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Exact original Ward-score orthogonality (2026-09-21 UTC):**
+**Bounded-overlap original Ward-score family cost (2026-09-21 UTC):**
+`QuaternionHaarSparseFamilyCost.lean` proves the exact normalized
+full-sum-square/ordered-signed-Gram identity and a sparse-family bound.
+`BF4ExactSlabWardStarGeometry.lean` defines the symmetric relation “equal or
+contained in a common original physical face” and proves the conservative
+row bound `25 = 1+6*4`. `BF4ExactSlabWardFamilyCost.lean` applies these facts
+to a Nodup list of witnessed physical links with tests supported on their
+complete stars. Off-star original-W covariances vanish, and the checked
+bounds are
+`E_W[(sum S_l)^2] <= 25*sum E_W[S_l^2]` and
+`E_W[F*sum S_l]^2 <= Var_W(F)*(25*sum E_W[S_l^2])`.
+The full interacting weight and actual positive partition are unchanged.
+The coefficient 25 is independent of family, extent, cutoff and nome; the
+diagonal sum can grow with the family, diagonal score bounds are nome-dependent,
+and arbitrary test caps may depend on cutoff or extent. No response lower
+bound, scaling ratio, OS gap or continuum closure is proved. The next useful
+producer is an actual incident-gradient test family for the whole signed
+plaquette observable, with exact energy response and diagonal control.
+The dependency-complete target and three final direct checks passed all
+21 printed gates within `{propext, Quot.sound}`, without warnings or
+`sorryAx`, on one monitored 20 GiB worker. No full-root audit was run.
+
+**Exact original Ward-score orthogonality (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabOriginalWardLocality.lean` puts different selected-link scores
 in common original coordinates and proves their cross moment is zero when
 one selected link is excluded from the other score's entire star/test source.
 Angular differentiation preserves that proved source support. The normalized
 two-score cost is bounded by the sum of the diagonal cap-squares, with no
 generic factor two and the SAME full action and partition. Distinct links
-alone do not suffice. Bounded-overlap family aggregation, useful response
-floors and spatial/nome scaling control remain open; this is not spatial
-clustering or an OS gap. Three final checks passed all 15 gates within
+alone do not suffice. The bounded-overlap aggregation for the explicit
+star-local Nodup family is now supplied above; unrestricted test families
+are not covered. Useful response floors and spatial/nome scaling control remain open.
+This is not spatial clustering or an OS gap. Three final checks passed all 15 gates within
 `{propext, Quot.sound}`; no hole/field changes or full-root audit.
 
 **Actual six-face Ward score cost (earlier checkpoint, 2026-09-21 UTC):**

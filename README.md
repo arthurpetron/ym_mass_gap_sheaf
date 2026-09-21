@@ -74,23 +74,52 @@
 > and sufficiently strong spatial/nome-relative estimates are still open.
 > Local Ward scores now also have checked exact zero cross moments when
 > their selected links and star/test sources satisfy a proved exclusion.
-> The two-score cost is additive under the unchanged full action.
-> Bounded-overlap spatial aggregation and its useful response remain open.
+> Their normalized full sum-square now has an exact ordered signed-Gram
+> expansion. For a Nodup family of witnessed physical links with star-local
+> tests, the symmetric equal-or-common-plaquette relation has rows of size
+> at most 25, off-star covariances vanish under the unchanged full action,
+> and `E_W[(sum S_l)^2] <= 25*sum E_W[S_l^2]`. Weighted Cauchy--Schwarz also
+> gives `E_W[F*sum S_l]^2 <= Var_W(F)*(25*sum E_W[S_l^2])` with the actual
+> positive partition. The coefficient 25 is independent of family, extent,
+> cutoff and nome. The diagonal sum may grow with the family; diagonal score
+> caps remain nome-dependent, and arbitrary test caps may depend on cutoff
+> or extent. A useful response lower bound is still open.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Exact local-score cancellation (2026-09-21 UTC):**
+**Bounded-overlap original Ward-score family cost (2026-09-21 UTC):**
+`QuaternionHaarSparseFamilyCost.lean` identifies the normalized square of
+a finite score sum with its full ordered signed Gram sum and bounds it from
+symmetric sparse rows. `BF4ExactSlabWardStarGeometry.lean` constructs the
+equal-or-common-physical-plaquette relation and proves the conservative row
+bound `25 = 1+6*4`. `BF4ExactSlabWardFamilyCost.lean` applies this to a Nodup
+family of witnessed physical links and star-local tests. It proves off-star
+zero covariance, the factor-25 total cost bound, and the corresponding
+variance-times-cost response bound under the SAME full interacting W and
+actual positive partition. The geometric 25 is uniform in family, extent,
+cutoff and nome. This does not supply a uniform bound on the diagonal sum;
+existing score caps depend on nome, and arbitrary test caps can depend on
+cutoff or extent. No response floor, scaling ratio,
+OS gap or continuum closure follows. Next is to choose actual
+incident-gradient tests for the whole signed plaquette observable and prove
+their exact energy response and diagonal control. The dependency-complete
+target and three final direct checks passed all 21 printed gates within
+`{propext, Quot.sound}`, without warnings or `sorryAx`, on one monitored
+20 GiB worker. No full-root audit was run.
+
+**Exact local-score cancellation (earlier checkpoint, 2026-09-21 UTC):**
 Different selected-link Ward scores now live in the same original
 coordinates and full interacting action. If one selected link is absent
 from the other score's entire star/test support, their cross moment is
 exactly zero. Their normalized sum-square cost is therefore bounded by
 the sum of the diagonal cap-squares, without the generic factor two.
 This is not independence of the interacting measure or spatial clustering.
-Next is a bounded-overlap spatial sum, using the existing sparse Gram
-estimate, together with a useful response lower bound. Nome/scaling control
-remains open. Sol supplied bounded proofs and independent review;
+The bounded-overlap spatial sum for the explicit star-local Nodup family is
+now supplied above; unrestricted test families are not covered. This paragraph
+records the earlier two-score checkpoint. A useful response lower bound and
+nome/scaling control remain open. Sol supplied bounded proofs and independent review;
 all 15 gates passed three final checks, with no full-root audit.
 
 **Original six-face Ward score cost (earlier checkpoint, 2026-09-21 UTC):**

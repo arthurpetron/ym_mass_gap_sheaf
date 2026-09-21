@@ -13,7 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original off-source Ward-score cancellation and pair cost (2026-09-21 UTC)
+## PROVED bounded-overlap original Ward-score family cost (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarSparseFamilyCost.lean`,
+  `BF4ExactSlabWardStarGeometry.lean`, and
+  `BF4ExactSlabWardFamilyCost.lean`, in the same directory.
+- **scope**: `normalized_sum_square` identifies the normalized square of a
+  finite polynomial sum with its full ordered signed Gram sum.
+  `near_iff`, `near_symm`, and `row_count_injective` construct the symmetric
+  equal-or-common-physical-plaquette relation with row size at most 25, using
+  the conservative raw count `1+6*4`. For a Nodup family of witnessed
+  `PhysicalLink`s and tests supported on their full stars,
+  `off_star_pair_zero` removes every far covariance under the original full
+  W. `totalScore_cost_le` and `totalScore_response_bound` prove
+  E_W[(sum S_l)^2] <= 25*sum E_W[S_l^2] and
+  E_W[F*sum S_l]^2 <= Var_W(F)*(25*sum E_W[S_l^2]), respectively, with the
+  same actual positive partition. Empty families remain covered.
+- **uniformity / residue**: 25 is independent of the family, extent, cutoff
+  and nome, so there is no extra family-cardinality multiplier beyond the
+  diagonal sum itself. That diagonal sum may be extensive. Its score bounds
+  remain nome-dependent, and arbitrary test caps may depend on cutoff or
+  extent. Unrestricted test supports are not covered. No response lower
+  bound, scaling ratio, OS gap, continuum closure, new analytic assumption,
+  hole, axiom or canonical-field change is supplied. The next producer is a
+  choice of actual incident-gradient tests for the whole signed plaquette F,
+  with exact energy response and diagonal control.
+- **verification**: the dependency-complete
+  `+YMGap.Continuum.BF4ExactSlabWardFamilyCost:olean` target and three final
+  direct checks passed all 21 printed gates (5, 8, 8) exactly within
+  `{propext, Quot.sound}`, without warnings or `sorryAx`. One monitored
+  20 GiB worker; no full-root build/audit. Final logs are recorded in
+  `work_plan.md`.
+
+## PROVED original off-source Ward-score cancellation and pair cost (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionAngularLocality.lean`,
   `QuaternionHaarOrthogonalPairCost.lean`, and
@@ -30,10 +62,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   original partition: E_W[(S_other+S_link)^2] <= cap_other^2+cap_link^2.
 - **residue**: source exclusion is stronger than link distinctness.
   No independence of the interacting measure, arbitrary-observable spatial
-  decay, general-family overlap estimate or response floor is proved.
-  The next consumer is the existing sparse Gram bound at r=0; the full
-  sum-square pin, test-family overlap count and useful response remain
-  to be supplied. Nome-dependent costs are not uniform near one. All
+  decay or response floor is proved. The bounded-star family estimate is now
+  supplied above; unrestricted varying test supports remain outside it.
+  Nome-dependent costs are not uniform near one. All
   continuum/scaling, physical mass, full QFT and every-group obligations
   remain open. No hole, axiom, analytic-input bundle or canonical field changed.
 - **verification**: dependency-complete target and three final direct

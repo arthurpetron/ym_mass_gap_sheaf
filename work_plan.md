@@ -34,7 +34,66 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Exact off-source Ward-score cancellation under the original action (2026-09-21 UTC)
+### Bounded-overlap Ward-score family cost under the original action (2026-09-21 UTC)
+
+**PROGRESS -- the full signed family square is now controlled without an
+extra family-cardinality multiplier:**
+`QuaternionHaarSparseFamilyCost.normalized_sum_square` proves the exact
+identity
+
+    E_W[(sum_l S_l)^2] = sum_l sum_k E_W[S_l*S_k],
+
+as an ordered signed Gram sum, so no cross term or sign is discarded.
+`sparse_family_cost` combines this equality with exact far-pair zeros and a
+symmetric finite-row relation. It does not replace the full weight or its
+normalization.
+
+**The required original geometry is constructed:**
+`BF4ExactSlabWardStarGeometry.Near` means equality or membership in a common
+original physical face, as characterized by `near_iff`; `near_symm` proves
+symmetry. `starLinks_length_le_25` uses the raw conservative count
+`1+6*4`, and `row_count_injective` transports that row bound through an
+injective family labelling. Thus the geometric coefficient 25 is independent
+of the family, slab extent, cutoff and nome.
+
+**Actual full-action consumer:** `BF4ExactSlabWardFamilyCost` indexes scores
+by the witnessed subtype of physical slab links and requires a Nodup family.
+Each test is supported on its complete star. `score_local` preserves that
+support, and `off_star_pair_zero` gives the asymmetric source exclusion
+needed by the symmetric sparse relation. With the SAME full interacting W
+and its actual positive partition, `totalScore_cost_le` and
+`totalScore_response_bound` prove
+
+    E_W[(sum_l S_l)^2] <= 25 * sum_l E_W[S_l^2],
+    E_W[F*sum_l S_l]^2 <= Var_W(F) * (25 * sum_l E_W[S_l^2]).
+
+The empty family is included. There is no extra family-size multiplier, but
+the diagonal sum itself can grow extensively with the family. Diagonal score
+bounds remain nome-dependent, and arbitrary test value/derivative caps may
+depend on cutoff or extent. Unrestricted varying-support tests are not
+covered by the star-local statement.
+
+**Next producer / honest boundary:** choose actual incident-gradient tests
+for the whole signed plaquette observable F and establish their exact energy
+response and diagonal control. No such lower response, scaling ratio,
+spatial/nome survival estimate, OS gap, continuum closure or all-group result
+is claimed here. No new analytic assumption, hole or canonical field was
+introduced.
+
+**Verification / delegation:** the dependency-complete
+`+YMGap.Continuum.BF4ExactSlabWardFamilyCost:olean` target passed. Three
+final direct checks then passed all 21 printed gates (5, 8, 8) exactly within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Sol supplied the
+star geometry and independently reviewed both the sparse-family algebra and
+the actual family consumer; main supplied that algebra, the consumer and the
+final root import.
+One monitored 20 GiB worker; no full-root build/audit. Final logs:
+
+- `/tmp/ym-gap-QuaternionHaarSparseFamilyCost-final.log`
+- `/tmp/ym-gap-BF4ExactSlabWardStarGeometry-final.log`
+- `/tmp/ym-gap-BF4ExactSlabWardFamilyCost-final.log`
+
+### Exact off-source Ward-score cancellation under the original action (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- a spatial cross-term is removed by an exact identity:**
 `BF4ExactSlabOriginalWardLocality.originalScore` pulls the local Ward score
@@ -73,17 +132,17 @@ actual pair of scores and proves
 
 Both score intervals, the full positive W and its actual partition are
 retained. Positivity uses the existing late-cutoff guard. There is no
-generic factor two, but no general-family estimate is claimed yet.
+generic factor two. The bounded-star family estimate is now supplied above;
+unrestricted varying-support tests remain outside it.
 Caps remain nome-dependent; cutoff/extent uniformity still requires
 uniform test caps. No new analytic assumption, hole or canonical field.
 
-**Next producer / existing consumer:** reuse
-`RationalFiniteSparseGram.sparse_gram_bound` with far-pair error r=0.
-The missing joins are the normalized full-sum-square/ordered-Gram pin and
-a symmetric bounded-overlap relation for a chosen actual test family.
-`incidentIds_length_le_six` and `BF4ExactSlabCollarDegreeBound.faceLinks_length`
-already give at most 24 raw incident-star link occurrences. Arbitrary
-varying test supports can spoil a bounded row count; control them explicitly.
+**Subsequent consumer:** the normalized full-sum-square/ordered-Gram pin and
+symmetric bounded-star relation described here are now supplied by the
+current milestone above. `incidentIds_length_le_six` and
+`BF4ExactSlabCollarDegreeBound.faceLinks_length` give the 24 raw
+incident-star link occurrences used there. Arbitrary varying test supports
+can still spoil a bounded row count and are not silently included.
 Useful total response lower bounds, spatial/nome relative control,
 changing-spacing survival, physical mass, canonical OS/full QFT and every
 compact simple group remain open. Ordinary score orthogonality is not an
