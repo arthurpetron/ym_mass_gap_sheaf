@@ -34,6 +34,65 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Original joint-limit Wilson time increments with an explicit nome modulus (2026-09-21 UTC)
+
+**PROGRESS -- an actual limiting-state consumer of the finite estimate:**
+`BF4WilsonAllNomeKineticIncrement.joint_increment_bound` proves
+
+    0 <= E_joint[(chi(loop,0)-chi(loop,1))^2]
+      <= 4*L^2*(2-2*w^3) <= 24*L^2*(1-w).
+
+The expression is the literal signed fundamental Wilson loop at offsets
+zero and one, squared in the EXISTING Wilson algebra. `finite_increment_pin`
+identifies its original finite scalar with twice the original normalized
+Dirichlet energy at `K=headCutoff(w)+stage`, with the SAME action, messages,
+partition and source character. `incrementCutoffStage(w,L,epsilon)` is
+computed from the previous cutoff-error modulus and the existing positive
+`scaleTolerance(4*L^2,epsilon)`. `finite_increment_eventual` holds at every
+external depth. Its specialization `depth=stage` is exactly the sequence
+whose limit is the EXISTING `originalJointLimit`; arbitrary positive
+tolerance removes the cutoff error. No new state or convergence hypothesis
+is introduced.
+
+The scalar identity `1-w^3=(1-w)*(1+w+w^2)` supplies the endpoint-linear
+bound. `nomeTolerance(L,epsilon)` returns positive rational data;
+`padded_joint_increment_small` proves the requested epsilon bound whenever
+`1-w <= nomeTolerance(L,epsilon)`, for every width strictly larger than the
+fixed source-loop base. Source edges remain literal and the path length
+does not grow under inclusion. No division by path length is used, so the
+empty-loop case is covered correctly.
+
+**Quantifiers and residue:** this is a width-independent bound on each
+separately constructed fixed-width, fixed-nome joint limit. The convergence
+modulus constructing the limits still depends on width/nome; there is no
+asserted spatial limit, cross-nome state equality, or limit at `w=1`.
+One adjacent lattice-time increment does NOT control a fixed physical-time
+interval as spacing vanishes. The next time-side consumer is a multi-step
+bound on this SAME original joint state, preferably linear in elapsed
+lattice steps via reflection-positive moment convexity. Its actual
+declarations/guards must be checked before composition. The primary
+same-variance relative energy estimate and signed spatial aggregate remain
+open: source review found the observed fusion identity retains an
+uncontrolled signed bulk/coupled baseline, while its cutoff boundary is
+already controlled. `energy_le_two_norm` bounds by a raw second moment,
+not centered variance; the existing variance coercivity has the opposite
+inequality direction. Do not relabel either as the needed relative upper
+bound. Nontrivial continuum survival, physical mass, SAME-theory OS/full
+QFT, every compact simple group and Clay remain OPEN.
+
+**Verification and delegation:** Sol supplied `SU2FundamentalNomeDisplacement`
+and independently reviewed the original-state/cutoff/limit pins. Main
+proved the signed expression pin, computed finite threshold and joint-limit
+consumer. The narrow target
+`+YMGap.Continuum.BF4WilsonAllNomeKineticIncrement:olean` and both final
+direct checks passed all 21 gates within `{propext, Quot.sound}`, without
+warnings or `sorryAx`. Logs:
+`/tmp/ym-gap-SU2FundamentalNomeDisplacement-final.log` and
+`/tmp/ym-gap-BF4WilsonAllNomeKineticIncrement-final.log`. One monitored
+20 GiB worker; no full-root audit/build. One semantic-root import now
+reaches the finite increment theorem through this limit consumer. No hole,
+axiom, canonical field or existing analytic obligation changed.
+
 ### Original Wilson-loop upper energy bound, uniform in width and depth (2026-09-21 UTC)
 
 **PROGRESS -- the preceding local estimate now has its actual observable

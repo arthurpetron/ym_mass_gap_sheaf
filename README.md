@@ -30,9 +30,24 @@
 > energy by an explicit squared path-length cost, uniformly in width and
 > terminal depth after strict spatial padding. A sufficiently strong
 > variance-to-energy comparison and changing-spacing survival remain open.
+> The existing joint time/cutoff limit now inherits the adjacent-increment
+> bound `E[(chi(0)-chi(1))^2] <= 24*L^2*(1-w)`, with an explicit nome
+> tolerance. This does not yet control a fixed physical-time interval.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
+
+**Wilson increments after time/cutoff removal (2026-09-21 UTC):**
+`BF4WilsonAllNomeKineticIncrement.padded_joint_increment_small` gives a
+computed positive nome tolerance making the SAME original Wilson
+adjacent-time squared increment smaller than a requested epsilon. For a
+fixed loop of length `L` at every strictly larger width, the existing joint
+limit obeys `0 <= E[(chi(0)-chi(1))^2] <= 24*L^2*(1-w)`. The cutoff error
+has been removed, not assumed zero. Each limit still fixes its width and
+nome; no spatial convergence, cross-nome state comparison, physical-time
+continuity, or surviving variance is inferred. Sol supplied the scalar
+estimate and reviewed the limit passage. Both final narrow checks passed
+all 21 axiom gates; no full-root audit was run.
 
 **Original Wilson-loop time increments (2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialWilsonKineticIncrement.padded_wilson_energy_tolerance`

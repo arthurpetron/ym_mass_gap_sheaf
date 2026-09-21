@@ -13,6 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED joint-limit Wilson increment bound with a nome modulus (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2FundamentalNomeDisplacement.lean` and
+  `lean/YMGap/Continuum/BF4WilsonAllNomeKineticIncrement.lean`.
+- **scope**: `finite_increment_pin` identifies the literal original Wilson
+  squared difference at offsets zero and one with twice the EXISTING
+  normalized Dirichlet energy. `incrementCutoffStage` is explicit data;
+  `finite_increment_eventual` is uniform in external depth and ambient
+  width for a fixed loop length. `joint_increment_bound` passes this bound
+  through the already-constructed time/cutoff diagonal, removing the error.
+  `padded_joint_increment_nome_bound` gives `0 <= E[(chi(0)-chi(1))^2] <=
+  24*L^2*(1-w)` (nonnegativity separately in `joint_increment_nonnegative`).
+  `nomeTolerance` and `padded_joint_increment_small` give uniform smallness
+  in all strictly larger widths, with no unfilled activity premise.
+- **boundary**: every joint limit still fixes width and strict `0<w<1`.
+  The bound is uniform in width, not the convergence modulus constructing
+  each state. No state identification across nomes/widths, spatial limit,
+  fixed physical-time continuity, lower centered norm, relative variance
+  estimate, new spectral gap, or continuum/Clay atom is supplied.
+  No hole, axiom, canonical field or existing analytic obligation changed.
+- **verification**: narrow dependency-complete target and two final direct
+  checks passed all 21 gates within `{propext, Quot.sound}`, without
+  warnings or `sorryAx`. Sol supplied scalar algebra and independent review;
+  main supplied the original-expression pin and limit join. One monitored
+  20 GiB worker; no full-root audit. Final log paths are in `work_plan.md`.
+
 ## PROVED original Wilson-loop upper energy bound after spatial padding (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarFiniteCauchyCertificate.lean`,

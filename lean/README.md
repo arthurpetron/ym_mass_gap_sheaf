@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original Wilson joint-limit kinetic increment (2026-09-21 UTC):**
+`BF4WilsonAllNomeKineticIncrement.lean` pins the literal adjacent-time
+Wilson squared difference to twice the existing normalized Dirichlet
+energy, then passes its bound through the EXISTING `originalJointLimit`.
+`incrementCutoffStage` pays the signed expression's exact `4*L^2` cost
+with a computed heat threshold independent of external depth and width.
+`joint_increment_bound` removes the cutoff error. The scalar factorization
+in `SU2FundamentalNomeDisplacement.lean` yields the bound `24*L^2*(1-w)`;
+`nomeTolerance` and `padded_joint_increment_small` return its explicit
+positive nome-defect tolerance. Fixed padded loops have the same bound at
+every larger width, but their states are not identified across widths.
+This is adjacent lattice time, not a fixed physical-time interval or a
+variance floor. Both final narrow checks passed all 21 axiom gates within
+`{propext, Quot.sound}`; no holes/fields changed, and no full-root audit.
+
 **Original Wilson-loop kinetic increment (2026-09-21 UTC):**
 `QuaternionHaarFiniteCauchyCertificate.lean`, `QuaternionHaarWordDifference.lean`,
 `QuaternionHaarChordalDifference.lean`, and `QuaternionHaarWordLift.lean`
