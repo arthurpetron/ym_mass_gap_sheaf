@@ -12,6 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original all-nome multi-step Wilson increments (2026-09-21 UTC):**
+`BF4WilsonJointFunctionalLaws.lean` proves signed linearity on the existing
+original joint limits. `BF4WilsonAllNomeMomentConvexity.lean` combines their
+padding stationarity with site and bond reflection positivity to prove
+discrete convexity at every lag. `CRealDiscreteConvexity.lean` supplies the
+constructive finite telescope, and `BF4WilsonAllNomeTimeIncrement.lean`
+pins the literal squared difference to `2*(r(0)-r(n))`. The actual result is
+`0 <= D(n) <= n*D(1) <= 24*n*L^2*(1-w)` for every `0<w<1`, fixed base loop
+and strictly padded width. No new probability carrier, physical-time
+calibration, spatial limit or variance floor is inferred. Four final
+narrow checks passed all 35 public gates within `{propext, Quot.sound}`;
+no holes/fields changed, and no full-root audit. Sol handled bounded
+telescoping and independent scope/pinning reviews.
+
 **Original Wilson joint-limit kinetic increment (2026-09-21 UTC):**
 `BF4WilsonAllNomeKineticIncrement.lean` pins the literal adjacent-time
 Wilson squared difference to twice the existing normalized Dirichlet

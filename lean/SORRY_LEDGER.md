@@ -13,6 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED linear all-nome Wilson lattice-time increments (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/CRealDiscreteConvexity.lean`,
+  `BF4WilsonJointFunctionalLaws.lean`, `BF4WilsonAllNomeMomentConvexity.lean`
+  and `BF4WilsonAllNomeTimeIncrement.lean`, all in the same directory.
+- **scope**: `joint_difference_product` retains all four signed terms of
+  the SAME original functional. `pair_lag` identifies them via the existing
+  joint-limit padding law. Site/bond reflections of the adjacent difference
+  prove `lagMoment_convex` at both parities, with no small-nome guard.
+  `endpoint_drop_le_nat_mul_first` telescopes without a first-drop sign
+  assumption. `timeIncrement_pin` supplies exact polarization;
+  `timeIncrement_linear` proves `D(n)<=n*D(1)` for the actual original
+  squared increment, including n=0. `timeIncrement_one` identifies the
+  existing adjacent object. `padded_timeIncrement_nome_bound` composes its
+  bound to `24*n*L^2*(1-w)` at every strictly larger width of a fixed loop.
+  `timeIncrement_nonnegative` separately proves square positivity.
+- **boundary**: strict `0<w<1`, natural lattice lag, fixed-spacing SU(2).
+  Width/nome states are not identified with each other. No new probability
+  carrier, spatial limit, scaling schedule, fixed-physical-time continuity,
+  lower centered norm, relative energy/variance bound, physical mass or
+  continuum/Clay atom is supplied. No hole, axiom, canonical field or
+  existing analytic obligation changed.
+- **verification**: narrow dependency-complete target and four final direct
+  checks passed all 35 gates within `{propext, Quot.sound}`, without
+  warnings or `sorryAx`. Sol supplied the bounded telescope and independent
+  reviews; main supplied the original-functional/reflection/increment joins.
+  One monitored 20 GiB worker; no full-root audit. Logs in `work_plan.md`.
+
 ## PROVED joint-limit Wilson increment bound with a nome modulus (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2FundamentalNomeDisplacement.lean` and

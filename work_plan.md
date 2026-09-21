@@ -34,6 +34,63 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Linear multi-step increments from original reflection positivity (2026-09-21 UTC)
+
+**PROGRESS -- the adjacent bound now controls every lattice-time lag:**
+`BF4WilsonAllNomeTimeIncrement.padded_timeIncrement_nome_bound` proves
+
+    0 <= D(n) = E_joint[(chi(loop,0)-chi(loop,n))^2]
+      <= n*D(1) <= 24*n*L^2*(1-w).
+
+Nonnegativity and the middle inequality are separately proved by
+`timeIncrement_nonnegative` and `timeIncrement_linear`. They hold for every
+source loop at every fixed width and every natural n. The final explicit
+nome bound uses active edges, discharged for a fixed base loop of length L
+included at every strictly larger width. All results require only strict
+`0<w<1`, not the old small-nome guard.
+
+**Short causal argument:** `BF4WilsonJointFunctionalLaws` transports signed
+linearity from the original finite window ratio to its existing diagonal
+limit. `BF4WilsonAllNomeMomentConvexity.pair_lag` uses the existing padding
+identity to identify each two-point expression with `r(n)=E_joint[X_n X_0]`.
+Site reflection of `X_0-X_1` gives nonnegative second differences at even
+lags; bond reflection gives odd lags. The SAME action, normalization,
+fundamental loop and fixed width/nome are retained. Sol's
+`CRealDiscreteConvexity.endpoint_drop_le_nat_mul_first` telescopes the
+decreasing first drops, without assuming their sign. The exact polarization
+`timeIncrement_pin` gives `D(n)=2*(r(0)-r(n))`; `timeIncrement_one` identifies
+the first increment with the previous kinetic-limit object. This composes
+the actual original-state bound, not an abstract convexity assumption.
+
+**Boundary and next mathematical obstruction:** the original joint scalar
+limits form a padding-consistent family; no infinite-time probability
+carrier is newly constructed. Each limit fixes width and nome. The bound
+is independent of padded width for a fixed literal loop, not a spatial
+limit or equality between widths. Lattice lag n is not physical time.
+A scaling consumer must retain the full budget `n*L^2*(1-w)` along its
+actual spacing/nome/observable schedule; fixed lattice length cannot be
+silently substituted for a growing continuum observable. No lower centered
+norm, useful relative energy/variance bound, or actual physical-time
+calibration has been supplied. The signed spatial aggregate, nontrivial
+continuum survival, physical mass, SAME-theory OS/full QFT and every compact
+simple group remain OPEN. The all-nome variance floor already exists but
+the previous crude energy/floor comparison is quantitatively inadequate;
+do not replace that obstacle by another assumption wrapper.
+
+**Verification and delegation:** Sol supplied the bounded CReal telescoping
+lemma and independently reviewed both original-state joins; main proved
+signed functional laws, both reflection parities and the literal increment
+consumer. The narrow dependency-complete target
+`+YMGap.Continuum.BF4WilsonAllNomeTimeIncrement:olean` and four final direct
+checks passed all 35 public gates within `{propext, Quot.sound}`, without
+warnings or `sorryAx`. Final logs: `/tmp/ym-gap-CRealDiscreteConvexity-final.log`,
+`/tmp/ym-gap-BF4WilsonJointFunctionalLaws-final.log`,
+`/tmp/ym-gap-BF4WilsonAllNomeMomentConvexity-final.log` and
+`/tmp/ym-gap-BF4WilsonAllNomeTimeIncrement-final.log`. One monitored 20 GiB
+worker, no full-root audit/build. The semantic-root import now reaches the
+previous adjacent-increment theorem through the multi-step consumer. No
+hole, axiom, canonical field or existing analytic obligation changed.
+
 ### Original joint-limit Wilson time increments with an explicit nome modulus (2026-09-21 UTC)
 
 **PROGRESS -- an actual limiting-state consumer of the finite estimate:**
@@ -67,10 +124,9 @@ separately constructed fixed-width, fixed-nome joint limit. The convergence
 modulus constructing the limits still depends on width/nome; there is no
 asserted spatial limit, cross-nome state equality, or limit at `w=1`.
 One adjacent lattice-time increment does NOT control a fixed physical-time
-interval as spacing vanishes. The next time-side consumer is a multi-step
-bound on this SAME original joint state, preferably linear in elapsed
-lattice steps via reflection-positive moment convexity. Its actual
-declarations/guards must be checked before composition. The primary
+interval as spacing vanishes. The subsequent checkpoint above proves the
+linear multi-step consumer using both reflection parities and the SAME
+original joint limits; physical-time scaling remains open. The primary
 same-variance relative energy estimate and signed spatial aggregate remain
 open: source review found the observed fusion identity retains an
 uncontrolled signed bulk/coupled baseline, while its cutoff boundary is

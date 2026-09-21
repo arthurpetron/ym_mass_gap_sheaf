@@ -32,10 +32,24 @@
 > variance-to-energy comparison and changing-spacing survival remain open.
 > The existing joint time/cutoff limit now inherits the adjacent-increment
 > bound `E[(chi(0)-chi(1))^2] <= 24*L^2*(1-w)`, with an explicit nome
-> tolerance. This does not yet control a fixed physical-time interval.
+> tolerance. Site and bond reflection positivity now extend it to
+> `E[(chi(0)-chi(n))^2] <= 24*n*L^2*(1-w)` for every lattice lag n.
+> Physical-time control still needs the actual scaling/observable schedule.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
+
+**Linear multi-step Wilson increments (2026-09-21 UTC):**
+`BF4WilsonAllNomeTimeIncrement.padded_timeIncrement_nome_bound` proves
+`0 <= D(n) <= n*D(1) <= 24*n*L^2*(1-w)` in the existing original Wilson
+joint scalar limits. The argument is short: site and bond reflection
+positivity give discrete convexity at both parities; stationarity and exact
+polarization turn finite telescoping into the increment bound. It holds at
+every `0<w<1` for a fixed fundamental loop of length L included into any
+strictly larger width. This is natural lattice time, not physical time;
+spatial/scaling limits and a nonzero surviving variance remain open.
+Sol supplied the telescoping lemma and independent review. Four final
+narrow checks passed all 35 axiom gates; no full-root audit was run.
 
 **Wilson increments after time/cutoff removal (2026-09-21 UTC):**
 `BF4WilsonAllNomeKineticIncrement.padded_joint_increment_small` gives a
