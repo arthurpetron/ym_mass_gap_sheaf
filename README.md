@@ -59,12 +59,27 @@
 > stays inside F, with no additional family-size factor. The remaining
 > task is to bound that same one-step quantity relative to variance
 > along an actual spatial/scaling family.
+> A new exact Haar integration-by-parts identity now keeps the complete
+> original action and produces a local mean-zero polynomial score.
+> Its quantitative response and norm estimates are still open.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Whole-observable time control (2026-09-21 UTC):**
+**Original-action local Haar identity (2026-09-21 UTC):**
+`BF4ExactSlabLocalHaarWard` proves an exact selected-link integration-by-parts
+identity, using the original quaternion Haar functional and every action
+factor. Only the incident heat product is differentiated; the full
+complement stays in the integral. A constructed local polynomial score
+has zero mean under that same action and an exact response identity,
+without division by a heat weight. The missing work is quantitative:
+response and score-norm estimates strong enough for the required
+variance/time-loss comparison. This closes no continuum or mass-gap
+obligation. All 15 printed gates passed three final narrow checks;
+no full-root build/audit or canonical frontier closure.
+
+**Whole-observable time control (earlier checkpoint, 2026-09-21 UTC):**
 `BF4WilsonTimeZeroMomentConvexity.timeIncrement_linear` extends the
 linear-in-lag bound to every signed time-zero Wilson expression, including
 sums and products. Reflection positivity acts on the entire adjacent

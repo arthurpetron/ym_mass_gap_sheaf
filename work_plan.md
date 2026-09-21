@@ -34,7 +34,78 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Whole signed observables: linear time control without componentwise loss (2026-09-21 UTC)
+### Original-action local Haar identity and polynomial score (2026-09-21 UTC)
+
+**PROGRESS -- a new exact analytic identity, not a uniform estimate:**
+`SU2QuaternionAngularDerivative` constructs the tangential rotation
+`D_ij = x_i partial_j - x_j partial_i` and proves its coefficient Leibniz
+rule and Gaussian cancellation. `SU2QuaternionHaarAngularIBP` transfers
+that cancellation to the ORIGINAL partial S^3 Haar functional. Even
+homogeneous terms use their explicit positive radial denominator; odd
+terms vanish directly; singleton additivity removes homogeneity. Every
+tail coefficient is retained. Gaussian measure is only a proved algebraic
+intermediary, never a substitute for the original Haar measure.
+
+**Actual finite consumer:** in `BF4ExactSlabLocalHaarWard`, move an actual
+selected physical link to block zero using `linkHeadSwap`. Let A be the
+reindexed `incidentHeat`, and R the ENTIRE reindexed `complementHeat`.
+`fullAction_pair_pin` identifies the original full-action numerator with
+the SAME R*A weight in this frame. `complement_angular_zero` uses the
+existing proved link-local independence, allowing dependence on every
+other shared link. `fullAction_local_ward` proves
+
+    H[R*((D A)*f + A*(D f))] = 0.
+
+There is no deletion of an action factor or division by a heat weight.
+The computable polynomial `localScore` is
+
+    S = A*(D g) + 2*(D A)*g.
+
+`fullAction_score_identity` and `fullAction_score_mean_zero` prove
+
+    H[R*A*(f*S + A*g*(D f))] = 0,
+    H[R*A*S] = 0.
+
+These hold for every rational nome and finite cutoff, as algebraic
+identities; that scope is NOT a uniform norm or variance bound. The
+extra weight in S is the local A, not the global R. No inverse or
+replacement conditional law is introduced. Tests are polynomials in
+the selected-link frame; the original supported numerator pin is explicit.
+
+**Next consumer and residue:** the existing original weighted CS theorem
+can consume this mean-zero score to compare variance with its response and
+score-square cost. The concrete quantitative task is to choose tests and
+estimate those SAME quantities with sufficient cutoff, spatial and nome
+control; no such useful uniform estimate is supplied here. In particular,
+the whole-observable time reduction below still lacks its required
+one-step/variance comparison on a justified changing-spacing family.
+No continuum survival, canonical OS/QFT, physical mass or all-group atom
+has been closed. Do not add time/scaling wrappers around an unbounded score.
+
+Sol's next-consumer inventory identifies `headProduct_certificate`
+with its explicit `0<w<1` and `headCutoff w<=K` guards,
+`reindex_certificate`, `Certificate.mul`, and `weighted_cauchySchwarz`
+as the existing finite-CS route on R*A. Support preservation under the
+new angular derivative is not yet exposed, and the response identity
+must be centered/reassociated before CS. More importantly,
+`facePrefixInterval` / `prefixInterval` bound heat VALUES by
+`prefixCap w`, not angular derivatives or score-square costs. No suitable
+cutoff-uniform angular-derivative estimate was found in this bounded
+inventory. The at-most-six incident-face count alone is not that estimate.
+
+**Verification:** the dependency-complete local Ward target and three
+final direct checks passed all 15 printed gates within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Final logs:
+`/tmp/ym-gap-SU2QuaternionAngularDerivative-final.log`,
+`/tmp/ym-gap-SU2QuaternionHaarAngularIBP-final.log`, and
+`/tmp/ym-gap-BF4ExactSlabLocalHaarWard-final.log`.
+Sol supplied bounded polynomial algebra and independently reviewed the
+Haar transfer, parity/degree-zero cases, and complete action retention;
+main proved the Haar passage and actual local/score consumers. One
+monitored 20 GiB worker; no full-root build/audit. No hole, axiom,
+canonical field or previous analytic obligation changed.
+
+### Whole signed observables: linear time control without componentwise loss (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- a cancellation-preserving time reduction:**
 `BF4WilsonTimeZeroMomentConvexity.timeIncrement_linear` now proves, for

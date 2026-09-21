@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Whole signed time-zero observable control (2026-09-21 UTC):**
+**Original-action local Haar identity (2026-09-21 UTC):**
+`SU2QuaternionAngularDerivative.lean` and `SU2QuaternionHaarAngularIBP.lean`
+prove exact tangential integration by parts for the original quaternion
+Haar functional, preserving every tail coefficient.
+`BF4ExactSlabLocalHaarWard.lean` pins the original full-action numerator
+to the selected-link frame and differentiates only the actual incident
+heat product A, retaining the entire complement R. The computed local
+score `S=A*(D g)+2*(D A)*g` has zero R*A mean and satisfies
+`H[R*A*(f*S+A*g*(D f))]=0`. No heat-weight inverse is used.
+Useful response/score-norm estimates, the required one-step/variance
+comparison and all spatial/scaling joins remain open. Three final narrow
+checks passed all 15 printed gates within `{propext, Quot.sound}`;
+no hole/field changes or full-root audit.
+
+**Whole signed time-zero observable control (earlier checkpoint, 2026-09-21 UTC):**
 `BF4WilsonTimeZeroOffsetLaws.lean` proves exact shift/reversal geometry
 for the entire signed syntax. `BF4WilsonTimeZeroMomentConvexity.lean`
 applies original site/bond reflection positivity to its adjacent difference,

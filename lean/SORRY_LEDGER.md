@@ -13,6 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED original-action local Haar Ward and mean-zero polynomial score (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionAngularDerivative.lean`,
+  `SU2QuaternionHaarAngularIBP.lean`, and `BF4ExactSlabLocalHaarWard.lean`,
+  in the same directory.
+- **scope**: constructive coefficient Leibniz and Gaussian angular
+  cancellation transfer degree-by-degree to the ORIGINAL partial Haar
+  functional, retaining all tail coefficients. `fullAction_pair_pin`
+  identifies the original slab numerator with R*A after the actual-link
+  Haar involution. Proved complement independence removes only its
+  derivative, not its factors. `fullAction_local_ward` gives
+  `H[R*((D A)*f+A*(D f))]=0`. The local polynomial score
+  `S=A*(D g)+2*(D A)*g` satisfies the checked response identity
+  `H[R*A*(f*S+A*g*(D f))]=0` and exact mean zero.
+- **parameters / residue**: arbitrary rational nome, finite cutoff and
+  extent, actual selected link, arbitrary polynomial tests in its head
+  frame. These are exact identities, not uniform estimates. Original
+  weighted CS is an available consumer, but useful quantitative response
+  and score-norm estimates, spatial/nome control, actual scaling family,
+  survival, physical mass, canonical OS/full QFT and all groups remain
+  open. No canonical atom, hole, axiom, field or existing obligation changed.
+- **verification**: dependency-complete target and three final direct
+  checks passed all 15 printed gates within `{propext, Quot.sound}`,
+  without warnings or `sorryAx`. Sol supplied bounded algebra and an
+  independent review; main supplied Haar and original-action consumers.
+  One monitored 20 GiB worker; no full-root build/audit. Exact logs and
+  the remaining quantitative task are in `work_plan.md`.
+
 ## PROVED whole-observable linear time control retaining signed cancellation (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4WilsonTimeZeroOffsetLaws.lean`,
