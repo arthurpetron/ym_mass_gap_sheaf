@@ -34,7 +34,88 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Mixed ordinary increments: a checked cross-term estimate (2026-09-21 UTC)
+### Whole signed observables: linear time control without componentwise loss (2026-09-21 UTC)
+
+**PROGRESS -- a cancellation-preserving time reduction:**
+`BF4WilsonTimeZeroMomentConvexity.timeIncrement_linear` now proves, for
+EVERY `WindowExpression width` F with `Within 0 F`,
+
+    I_n(F) = J[(F-shift(n,F))^2],
+    0 <= I_n(F) <= n*I_1(F).
+
+This includes arbitrary signed rational sums and products of the actual
+time-zero Wilson generators, not only a single fundamental loop. The
+right side is the one-step increment of the ENTIRE SAME F; no sum of
+absolute coefficients, family-size factor, or discarded mixed term enters.
+It is stronger for signed-family control than separately extending each
+single-loop budget and bounding every cross term by CS.
+
+**Existing signed consumer:**
+`BF4WilsonSignedPairTimeControl.timeIncrement_combined` proves equality
+with the preceding `combinedTimeIncrement`, by coefficient equality of
+the complete source square. `combinedTimeIncrement_linear` then gives
+`I_n(c*a+d*b)<=n*I_1(c*a+d*b)` for its original two-loop object, with
+arbitrary signed coefficients. This is not a replacement state or an
+assumed join. Both sides keep the mixed term in the proved Gram expansion.
+
+**Causal proof:** the elementary `BF4WilsonTimeZeroOffsetLaws` identifies
+the actual shifts/reversals of the complete signed syntax. Site and bond
+reflection positivity then apply to its complete adjacent difference.
+`secondDifference_pin` and the original joint-limit padding law identify
+both parity cases with curvature of the SAME lag-moment sequence.
+`lagMoment_convex`, the existing constructive discrete-convexity theorem,
+and `timeIncrement_pin` give the bound. No new stationary law, independent
+component law, or reflected/ordinary whole-carrier identification is assumed.
+Nome and width stay fixed during each joint limit; all strict nomes are
+allowed. This proves a time estimate, not a small one-step energy.
+
+**Spatial inventory / next genuinely missing producer:**
+the following are existing source results, not new estimates in this increment.
+
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSeparatedCovariance.lean:117`,
+  `polynomialWindow_covariance_bound`: the separation is a TEMPORAL block
+  offset, with `mixRate hw0 hw1 width`. Its all-strict-nome scope is not
+  an all-width spatial mixing result.
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialRateWidthObstruction.lean:132`,
+  `no_width_uniform_computed_rate`: this computed rate has no common
+  upper bound q<1 over positive widths. It does not bound the optimal
+  actual rate from below or refute an improved operator estimate.
+- `lean/YMGap/Continuum/BF4ExactSlabSelectedTwoProbeCovariance.lean:63`,
+  `distanceBudget_factor`, and `:86`, `finite_covariance_distance_bound`:
+  genuine Z4 L-infinity root-distance decay is available, but its rate
+  and amplitude require the explicit `heatRatio<=1/2`,
+  `heatRemainderBound<1`, and `entropyRate 625 (adjustedCoreRate w hd)<1`
+  guards. Its exponent loses the two probes' total support size.
+- `lean/YMGap/Continuum/BF4WilsonDescentUniformConnectedDecay.lean:92`,
+  `connectedScalar_uniform_bound`: the improved constant temporal rate
+  still requires all those old small-nome guards.
+
+The inspected spatial path therefore supplies no all-nome spatial estimate
+usable for a justified near-1 scaling family. The next mathematical input
+remains a one-step increment/variance comparison with sufficient spatial
+and nome control for an actual changing-spacing observable family.
+The new theorem removes componentwise loss in going from that ONE-step
+comparison to arbitrary lattice lag; it does not produce the comparison,
+limiting variance, cross-scale identification, or physical survival itself.
+Spatial/scaling passage, physical mass, canonical OS/full QFT, and every
+compact simple group remain OPEN. No canonical atom was closed.
+Last whole-project causal ASCII chart: 2026-09-21 06:37 UTC.
+
+**Verification:** dependency-complete moment and signed-pair targets plus
+three final direct checks passed all 16 printed gates within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Exact final logs:
+`/tmp/ym-gap-BF4WilsonTimeZeroOffsetLaws-final.log`,
+`/tmp/ym-gap-BF4WilsonTimeZeroMomentConvexity-final.log`, and
+`/tmp/ym-gap-BF4WilsonSignedPairTimeControl-final.log`.
+Sol supplied bounded syntax/consumer proofs and the spatial inventory;
+main proved the general moment/whole-increment argument. Sol's independent
+review confirmed both reflection parities, the stationarity indices,
+the factor two, and the absence of a family-size cost only in the time
+extension (not in the unbounded one-step input). One monitored
+20 GiB worker; no full-root build/audit. No hole, axiom, canonical field
+or existing analytic obligation changed.
+
+### Mixed ordinary increments: a checked cross-term estimate (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- actual mixed control, not an assumed family estimate:**
 for the existing original joint state J, define `Da=chi_a(0)-chi_a(n)`

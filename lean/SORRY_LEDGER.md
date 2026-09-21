@@ -13,6 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED whole-observable linear time control retaining signed cancellation (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4WilsonTimeZeroOffsetLaws.lean`,
+  `BF4WilsonTimeZeroMomentConvexity.lean`, and
+  `BF4WilsonSignedPairTimeControl.lean`, in the same directory.
+- **scope**: exact time-zero syntax/reversal laws let site and bond
+  reflection positivity act on the complete adjacent difference of ANY
+  `Within 0` Wilson expression F. The SAME original padding law identifies
+  both parity cases with lag-moment curvature. `lagMoment_convex` and
+  `timeIncrement_pin` prove `timeIncrement_linear`: `I_n(F)<=n*I_1(F)`.
+  Every signed cross term stays inside F. No coefficient norm or
+  family-size multiplier is inserted. `timeIncrement_combined` pins the
+  existing signed two-loop quantity to this generic original expression;
+  `combinedTimeIncrement_linear` proves its actual n-step bound.
+- **parameters / residue**: every strict nome, fixed width during the
+  joint time/cutoff limit, arbitrary time-zero signed sums/products,
+  every natural lag. The constant n has no nome or width dependence,
+  but the one-step increment on the right retains all such dependence.
+  No small one-step energy, spatial aggregation, relative variance bound,
+  scaling/observable schedule, positive limiting norm or continuum
+  survival is supplied. Existing spatial descent still has its explicit
+  small-nome guards, and the computed all-nome temporal mixing rate is
+  already proved not width-uniform. No canonical atom, hole, axiom,
+  field or existing analytic obligation changed.
+- **verification**: dependency-complete targets and three final direct
+  checks passed all 16 printed gates within `{propext, Quot.sound}`,
+  without warnings or `sorryAx`. Sol supplied bounded syntax and consumer
+  proofs plus the spatial source inventory; main proved general moment
+  convexity and the whole-observable increment bound. One monitored
+  20 GiB worker; no full-root build/audit. Exact logs and the next missing
+  one-step/spatial/scaling input are recorded in `work_plan.md`.
+
 ## PROVED mixed ordinary time increments and exact signed expansion (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4WilsonJointOrdinaryCauchySchwarz.lean`

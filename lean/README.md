@@ -12,7 +12,23 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Mixed ordinary increments; exact signed combination (2026-09-21 UTC):**
+**Whole signed time-zero observable control (2026-09-21 UTC):**
+`BF4WilsonTimeZeroOffsetLaws.lean` proves exact shift/reversal geometry
+for the entire signed syntax. `BF4WilsonTimeZeroMomentConvexity.lean`
+applies original site/bond reflection positivity to its adjacent difference,
+uses joint-limit padding to identify both parities with lag-moment
+curvature, and proves `timeIncrement_linear`: `I_n(F)<=n*I_1(F)` for
+every `Within 0` expression. No coefficientwise estimate or family-size
+factor is used. All strict nomes are allowed, at each fixed width.
+The one-step energy/variance comparison, actual scaling family and
+continuum survival remain open; ordinary and reflected whole carriers
+are not identified by this result.
+`BF4WilsonSignedPairTimeControl.lean` proves the exact source-square pin
+to the preceding `combinedTimeIncrement` and its whole-pair linear bound.
+Three final direct checks passed 16 printed gates within
+`{propext, Quot.sound}`; no holes/fields changed or full-root audit.
+
+**Mixed ordinary increments; exact signed combination (earlier checkpoint, 2026-09-21 UTC):**
 `BF4WilsonJointOrdinaryCauchySchwarz.lean` proves square positivity, sharp
 ordinary CS and rational homogeneity for the SAME original joint limit.
 `BF4WilsonAllNomeMixedTimeIncrement.lean` applies these to two literal

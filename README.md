@@ -54,12 +54,31 @@
 > Signed combinations retain their cross term exactly; opposite copies
 > of the same loop cancel. Spatial decay and relative variance control
 > do not follow from this pairwise estimate.
+> The complete signed time-zero Wilson observable F now satisfies
+> `E[(F(0)-F(n))^2] <= n*E[(F(0)-F(1))^2]`: every cancellation
+> stays inside F, with no additional family-size factor. The remaining
+> task is to bound that same one-step quantity relative to variance
+> along an actual spatial/scaling family.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Mixed-increment control with signed cross terms (2026-09-21 UTC):**
+**Whole-observable time control (2026-09-21 UTC):**
+`BF4WilsonTimeZeroMomentConvexity.timeIncrement_linear` extends the
+linear-in-lag bound to every signed time-zero Wilson expression, including
+sums and products. Reflection positivity acts on the entire adjacent
+difference; no cross term is dropped and no component-count cost is added.
+This reduces long-time increment control to the actual one-step increment
+of the same observable. It does not supply the missing spatially controlled
+energy/variance comparison or a justified scaling family. The source review
+distinguishes all-nome temporal decay at fixed width from the existing
+small-nome-guarded spatial decay; neither is promoted to continuum control.
+The preceding signed-pair increment is explicitly identified with this
+generic expression and inherits the bound. All 16 printed gates passed
+three final narrow checks; no full-root build/audit or frontier closure.
+
+**Mixed-increment control with signed cross terms (earlier checkpoint, 2026-09-21 UTC):**
 `BF4WilsonAllNomeMixedTimeIncrement` proves
 `E[Da*Db]^2 <= E[Da^2]*E[Db^2] <= B_a*B_b`, where
 `B_a=24*n*length(a)^2*(1-w)`, in the existing original joint state.
