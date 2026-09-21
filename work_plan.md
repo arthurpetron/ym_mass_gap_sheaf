@@ -34,7 +34,52 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Actual one-link kinetic defect on the original signed input (2026-09-21 UTC)
+### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
+
+**PROGRESS -- the operator-composition identity is now checked:**
+`SU2QuaternionProductHeatHybridSweep.hybridMap_carrier` identifies the
+computed conditional-link sweep with the ORIGINAL `productMap`, against
+EVERY surviving polynomial insertion. Each update clears only its lower
+link against its original upper partner. All other coordinates remain on
+the doubled carrier. Final ordered-head integration keeps the inactive
+Haar projections; an empty schedule is not the identity operator.
+
+The short proof is finite Fubini: move a conditional projection onto its
+independent test, retain the current weight in that test, and recurse.
+`weightedUpdate_comm` proves coefficientwise commutation of local updates
+under explicit cross-independence. Original distinct-pair geometry supplies
+these premises. Intermediate support, cleared lower slots and unused upper
+partners are proved. `head_update_eq` pins the head-chart step literally to
+the existing `headMap` after dropping the cleared source coordinates.
+
+`BF4ExactSlabFixedSpatialHybridEnergy.energy_eq_hybrid_add_correction`
+consumes the sweep in the original energy, on the SAME signed source
+`u = V*g*f`, with the correction involving `P(V*g)-V*g` UNCHANGED.
+This proves an equality, not a sign or a bound for that correction.
+
+**Next mathematical estimate:** use the checked commutation and hybrid
+independence to telescope the actual kinetic quadratic defect with a
+controlled angular cost. On a fully active carrier the intended bound is
+`H[p^2]-H[p*P p] <= (1-w)*sum_i H[angularSquare_i p]`, for the already
+computed cutoff. For a proper active subset, inactive Haar projections
+must be treated separately or removed by a PROVED active-carrier reduction;
+their defect does not become small just because w approaches one.
+Reuse `BF4ExactSlabFixedSpatialActiveEnergy.energy_active` with its actual
+guards. Do not assume that every hybrid input automatically has the needed
+energy bound, or turn the differential endpoint cancellation into a
+finite-time cancellation. Retain every signed cross term and endpoint weight.
+
+Quantitative product tensorization, the interacting finite-time comparison,
+SAME-variance small rate, spatial/scaling survival, finite physical mass,
+canonical full QFT and every compact simple group remain OPEN.
+No canonical field, hole or axiom changed. Sol supplied the bounded sweep
+algebra; main supplied the actual-product and original-energy joins.
+Three focused checks passed 16 gates within `{propext, Quot.sound}`.
+The dependency-complete original-energy consumer passed; no full-root audit.
+Source map and verification scope:
+`audits/AUDIT-PRODUCT-HEAT-HYBRID-SWEEP-2026-09-21.md`.
+
+### Actual one-link kinetic defect on the original signed input (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the grouped budget now reaches an actual local operator:**
 `SU2QuaternionHeadHeatDiagonal.headMap_defect_le_angular` proves

@@ -13,7 +13,29 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual local heat-defect bound with shared spectators (2026-09-21 UTC)
+## PROVED actual-product conditional sweep and original-energy join (2026-09-21 UTC)
+
+- **files**: `SU2QuaternionWeightedProjectionSweep.lean`,
+  `SU2QuaternionProductHeatHybridSweep.lean`, and
+  `BF4ExactSlabFixedSpatialHybridEnergy.lean`, under `lean/YMGap/Continuum/`.
+- **proved**: exact finite weighted-projection pairing, coefficientwise
+  local-update commutation, intermediate support/independence, and
+  `hybridMap_carrier` identifying the computed sweep with the ORIGINAL
+  product map against every surviving insertion. Final integration keeps
+  all inactive Haar projections. The head step is literally `headMap`.
+- **actual consumer**: `energy_eq_hybrid_add_correction` keeps the SAME
+  original source V*g*f and leaves the signed endpoint correction intact.
+  Original geometry supplies schedule validity and distinctness.
+- **residue**: quantitative tensorization on the hybrid inputs, proper
+  treatment of inactive projections, finite-time endpoint cancellation,
+  SAME-variance small rate and spatial/scaling control remain open.
+  No OS, physical mass, QFT, continuum or every-group closure is claimed.
+- **scope**: no canonical field/premise changed; no hole or axiom was
+  introduced/discharged. Three focused checks passed 16 gates within
+  `{propext, Quot.sound}`. No full-root audit. Source and verification:
+  `audits/AUDIT-PRODUCT-HEAT-HYBRID-SWEEP-2026-09-21.md`.
+
+## PROVED actual local heat-defect bound with shared spectators (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `SU2QuaternionGroupedAngularEnergy.lean`,
   `SU2QuaternionSpareHeadCopy.lean`, and `SU2QuaternionHeadHeatDiagonal.lean`,

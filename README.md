@@ -189,9 +189,15 @@
 > It accepts every supported signed p, keeps spectator variables shared,
 > and uses a computed sufficient cutoff with no input-degree restriction.
 > Equal-degree contributions are grouped before squaring, so their signed
-> cross terms survive. Composition into the full product operator and the
-> original signed endpoint correction remain open; this is not an OS gap.
+> cross terms survive. This is not an OS gap.
 > [Actual local operator, proof and remaining joins](audits/AUDIT-ACTUAL-LOCAL-HEAT-DEFECT-2026-09-21.md).
+> The conditional updates now compose into the ORIGINAL product map,
+> with an exact identity against every surviving polynomial insertion.
+> Intermediate spectators remain, and inactive links are explicitly
+> Haar-averaged at the end. The original weighted energy consumes this
+> same sweep with its signed endpoint correction unchanged.
+> Quantitative tensorization and finite-time endpoint control remain open.
+> [Exact sweep, original-energy join and remaining estimate](audits/AUDIT-PRODUCT-HEAT-HYBRID-SWEEP-2026-09-21.md).
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction

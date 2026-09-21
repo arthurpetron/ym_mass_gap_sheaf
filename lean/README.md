@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Computed arbitrary-input harmonic decomposition (2026-09-21 UTC):**
+**Original product map as a conditional-link sweep (2026-09-21 UTC):**
+`SU2QuaternionProductHeatHybridSweep.hybridMap_carrier` proves the actual
+operator join with every surviving insertion. The sweep retains all
+spectators and its final integration includes inactive Haar projections.
+Support, cleared lower slots, unused upper partners and pair commutation
+are checked; the head step is literally the existing `headMap`.
+`BF4ExactSlabFixedSpatialHybridEnergy.energy_eq_hybrid_add_correction`
+retains the complete original signed source and endpoint correction.
+This is an exact identity, not quantitative tensorization or a weighted
+energy bound. SAME-variance, scaling, physical mass, QFT and every-group
+obligations remain open. Three focused checks passed 16 permitted gates;
+no new hole, axiom or full-root audit. See
+`audits/AUDIT-PRODUCT-HEAT-HYBRID-SWEEP-2026-09-21.md`.
+
+**Computed arbitrary-input harmonic decomposition (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionFischerDecomposition.decomposeHomogeneous` returns actual
 finite radial-harmonic modes by degree recursion, with the explicit
 positive denominator 4(k+1)(d+k+2) and signed coefficient reassembly.
