@@ -13,6 +13,34 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED cutoff/depth-uniform original plaquette response floor (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteDualCost.lean`,
+  `BF4ExactSlabFixedSpatialResponseMassBounds.lean`, and
+  `BF4ExactSlabFixedSpatialPlaquetteUniformResponse.lean`, all in the same directory.
+- **scope**: the exact inverse-heat test cost is `w^(-12)+m^2`. A sharp
+  interval against the ORIGINAL positive two-message marginal proves its
+  actual mean is in [-2,2]. `detector_common_mass` and
+  `partition_common_mass` retain the same M=`H[V*T^n1]`, giving `ell*M<=D`
+  and `Z<=U*M^2`. `uniformFloor` constructs `ell^2/((w^(-12)+5)*U)` and
+  `uniformFloor_positive` proves positivity. `uniformFloor_le_responseFloor`
+  cancels the common scale; `window_response_floor` and the actual-mean,
+  strictly padded consumer prove the SAME original one-step response floor.
+- **parameters / boundary**: the floor depends on nome and width, not
+  cutoff `K>=max(headCutoff w,1)` or external terminal depth `n+1`.
+  It is not spatially or spacing uniform. The mean changes with the finite
+  regulators; its centered-expression limit and the SAME completed response
+  still require a proved join. No continuum survival, physical mass, full
+  QFT, every-group theorem or canonical atom is closed. No hole, axiom,
+  canonical field or existing analytic obligation changed.
+- **verification**: the narrow dependency-complete target and three final
+  direct checks passed all 23 printed gates within `{propext, Quot.sound}`,
+  without warnings or `sorryAx`. Sol supplied the cost/mean helpers and
+  independently reviewed the common-mass/depth/partition bookkeeping; main
+  proved common-mass cancellation and the original normalized consumer.
+  One monitored 20 GiB worker; no full-root build/audit. Exact logs and
+  next consumer are recorded in `work_plan.md`.
+
 ## PROVED detecting plaquette and positive original finite response (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionProductHeatConstant.lean`,
@@ -35,9 +63,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   arbitrary-center result; it does not add a separate mean-zero theorem.
 - **boundary**: all strict nomes, late finite cutoff with `K>=1`, every
   finite terminal depth, fixed base face at every larger width. The finite
-  positive lower witness still depends on cutoff/depth/width/nome. A
-  common positive bound through time/cutoff removal and the SAME completed
-  response passage remain open, as do spatial/scaling survival, physical
+  positive lower witness here depends on cutoff/depth/width/nome. The later
+  entry above now supplies a cutoff/depth-uniform bound. The SAME completed
+  response passage remains open, as do spatial/scaling survival, physical
   mass, full QFT and all groups. This is not an eigenidentity for the
   interacting transfer. No hole, axiom, canonical field or existing
   analytic obligation changed.

@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Positive original finite plaquette response (2026-09-21 UTC):**
+**Cutoff/depth-uniform original response floor (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialPlaquetteDualCost.lean` computes the test cost
+`w^(-12)+m^2` and bounds the actual marginal mean by [-2,2].
+`BF4ExactSlabFixedSpatialResponseMassBounds.lean` retains the same
+`M=H[V*T^n1]` in the detector floor `ell*M` and original partition cap
+`U*M^2`. `BF4ExactSlabFixedSpatialPlaquetteUniformResponse.lean` cancels
+that scale and constructs `ell^2/((w^(-12)+5)*U)>0`, independent of late
+cutoff and terminal depth at least one. Nome/width dependence remains.
+The SAME completed-response join, spatial/scaling survival and Clay target
+are still open. Three final narrow checks passed all 23 gates within
+`{propext, Quot.sound}`; no holes/fields changed or full-root audit.
+
+**Positive original finite plaquette response (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionProductHeatPlaquette.lean` and
 `BF4ExactSlabFixedSpatialPlaquetteKinetic.lean` prove the literal
 four-active-link kinetic eigenvalue `w^12`, with activity discharged by
@@ -23,9 +35,9 @@ floor, using two unchanged density-variance lemmas now publicly exposed.
 `BF4ExactSlabFixedSpatialPlaquetteResponsePositive.lean` constructs
 `b=w^(-12)*f-m`, proves `P(b)=f-m`, and obtains a positive original finite
 response from the preceding computed dual floor. The interacting endpoint
-`V*T^n1` and original odd partition remain intact. No cutoff/depth-uniform
-positive floor, completed-response passage or spatial/scaling survival is
-concluded. Six final narrow checks passed all 35 printed gates within
+`V*T^n1` and original odd partition remain intact. The later result above
+supplies the cutoff/depth-uniform floor; completed-response passage and
+spatial/scaling survival are not concluded. Six final narrow checks passed all 35 printed gates within
 `{propext, Quot.sound}`. No holes or canonical fields changed; no full-root audit.
 
 **Computed original finite-response floors (earlier checkpoint, 2026-09-21 UTC):**
@@ -35,9 +47,9 @@ the actual kinetic product-map form and arbitrary signed supported inputs.
 `V*(T^n1*h)` and pins its quadratic to the existing original one-step
 window numerator. Its computed `responseFloor` is nonnegative and no
 greater than that SAME normalized response. It can be zero for arbitrary
-tests; the next module above supplies a detecting plaquette test. A
-cutoff/time-uniform positive floor and all spatial/scaling joins remain
-open. Both final checks passed all 14 gates within
+tests; later modules above supply a detecting plaquette test and its
+cutoff/time-uniform positive floor. The completed and spatial/scaling joins
+remain open. Both final checks passed all 14 gates within
 `{propext, Quot.sound}`. No holes/fields changed or full audit.
 
 **All-nome completed plaquette time control (2026-09-21 UTC):**

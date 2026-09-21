@@ -34,6 +34,75 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### A cutoff/depth-uniform positive ORIGINAL plaquette response floor (2026-09-21 UTC)
+
+**PROGRESS -- the shared terminal mass now cancels:**
+`BF4ExactSlabFixedSpatialPlaquetteUniformResponse.padded_centered_window_response_floor`
+proves one positive rational lower bound for the original one-step response,
+at every cutoff `K >= max (headCutoff w) 1` and every external terminal
+depth `n+1`. The nome `0<w<1` and spatial width are fixed. A fixed base
+plaquette may be included at any strictly larger width, but each width has
+its own constant; there is NO width- or spacing-uniform claim.
+
+**Constructed constants and cancellation:** write F and C for the original
+`kineticFloor` and `kineticCap`, s=`headFloor(w)^#spatialFaces`, and
+c=`prefixCap(w)^#spatialFaces`. The new witness is
+
+    ell = F*s,       U = 1 + C*(C*c)^2,
+    delta(w,width) = ell^2 / ((w^(-12)+5)*U) > 0.
+
+For the actual M=`H[V*T^n1]`, `detector_common_mass` gives `ell*M<=D`
+at depth n+1, and `partition_common_mass` gives `Z<=U*M^2` for that SAME
+odd partition. The explicit test's exact cost is `w^(-12)+m^2`; the
+original marginal mean obeys `-2<=m<=2`, proved by weighting the sharp
+character interval with the actual positive two-message density. Therefore
+`uniformFloor_le_responseFloor` and `window_response_floor` give
+
+    0 < delta(w,width) <= responseFloor(h,b)
+      <= original windowRatio(n+1,1,n+1,h(x)*h(y)).
+
+This holds for every rational center in [-2,2], and hence for the original
+finite odd marginal mean. All interactions and the original denominator
+remain present. No absolute lower bound on M is substituted: its square
+cancels in the normalized comparison. The result is an actual estimate,
+not a newly assumed uniform-response field.
+
+**Next exact consumer / boundary:** pass this floor to
+`BF4ExactSlabFixedSpatialLocalVariance.faceExcitation_correlator_pin` on the EXISTING all-nome
+completion. The mean depends on the finite regulators, so fixed-observable
+convergence alone is not that join; the centered finite expression and its
+limit must be identified. No completed-response lower theorem is proved
+in this increment. Spatial/spacing-uniform survival, physical mass,
+full SAME-theory QFT and all compact simple groups remain OPEN.
+
+**Source-reviewed next argument, not a new theorem:** on the standard
+diagonal take K=`headCutoff w+j`, external depth j>=1, and theorem index
+n=j-1. Expand the finite shifted product first into three FIXED terms:
+the two-point value minus the product of its endpoint means. The missing
+finite endpoint-window pins should identify those means with
+`middleRatio (j+1) j f` and `middleRatio j (j+1) f`; the existing
+`BF4ExactSlabFixedSpatialMiddleRatioPins.middleRatio_swap` equates them.
+`windowRatio_add/smul/one`, `sourceCharacter_plaquette`, and
+`originalWindowScalar_pin` supply the existing algebraic interfaces.
+Then `BF4ExactSlabFixedSpatialWilsonWindowJointCauchy.originalJoint_diagonal_converges`
+applies termwise, and `BF4WilsonAllNomePlaquetteTimePin.jointPairing_lag`
+supplies the cross-term limit. Prove the finite pins and mean-limit join;
+do not pass a changing source through a fixed-source convergence theorem.
+
+**Verification and delegation:** the narrow dependency-complete target
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteUniformResponse:olean`
+and three final direct checks passed all 23 printed gates within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Logs:
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialPlaquetteDualCost-final.log`,
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialResponseMassBounds-final.log`,
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialPlaquetteUniformResponse-final.log`.
+Sol supplied the exact dual-cost and actual-mean bounds and independently
+reviewed the mass/depth/partition bookkeeping; main proved the common-mass
+estimates and normalized consumer. One monitored 20 GiB
+worker; no full-root build/audit. No hole, axiom, canonical field or
+existing analytic obligation changed.
+Whole-project causal ASCII chart shown at 2026-09-21 05:37 UTC.
+
 ### An actual detecting plaquette and positive ORIGINAL finite response (2026-09-21 UTC)
 
 **PROGRESS -- finite strict positivity, not limit-stable non-erasure:**
@@ -67,7 +136,8 @@ discarded. The kinetic identity is NOT an eigenidentity for `T=P(V*-)`.
 `plaquette_active_after_padding` discharges all four activity premises from
 literal base-face membership and strict spatial padding.
 
-**Next producer:** cancel the common terminal mass against the SAME
+**Next producer at this earlier checkpoint** (the uniform finite estimate
+is now proved above): cancel the common terminal mass against the SAME
 partition before taking time/cutoff limits. The present detector floor
 still depends on cutoff and depth. The exact test cost and actual marginal
 mean bound must be joined to endpoint upper/lower certificates to obtain a
@@ -94,7 +164,8 @@ also passed. Final logs:
 `/tmp/ym-gap-BF4ExactSlabFixedSpatialPlaquetteResponsePositive-final.log`.
 One monitored 20 GiB worker; no full-root audit/build. No hole, axiom,
 canonical field or analytic obligation changed.
-The last hourly whole-project ASCII chart remains 2026-09-21 04:41 UTC.
+At this earlier checkpoint the last whole-project ASCII chart was
+2026-09-21 04:41 UTC; the newer chart is recorded above.
 
 ### Computed dual lower bounds for the ORIGINAL finite response (2026-09-21 UTC)
 
