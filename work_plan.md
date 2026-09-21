@@ -34,6 +34,64 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Exact cancellation reduces the original signed cross-term budget (2026-09-21 UTC)
+
+**PROGRESS -- finite inequality, not a new uniform rate:**
+`BF4ExactSlabFixedSpatialClearedCovarianceReduction.terminalResidual_reduced_square_le`
+strengthens the existing one-residual Cauchy bound without changing its
+original defect, action, terminal message or transfer. Write
+`a=V*g`, `r=R_i(f)`, `F=combinedTest(s)` and `h=P_i(F)`. The actual
+conditional centering `P_i(a*r)=0` gives `<r,h>_a=0`. Compute
+
+    t = <F,h>_a / <h,h>_a if <h,h>_a > 0; otherwise t = 0,
+    F' = F - t*h.
+
+The exact signed identity and Pythagorean norm accounting now prove
+
+    C_delta(r,s) = <r,F'>_a,
+    ||F'||_a^2 + t^2*||h||_a^2 = ||F||_a^2,
+    C_delta(r,s)^2 <= ||r||_a^2*||F'||_a^2
+                   <= ||r||_a^2*||F||_a^2.
+
+The last comparison is `reduced_square_budget_le`. The coefficient is
+finite rational data, including the null-direction branch; no classical
+projection or division by zero is used. `P_i(F)` is only an auxiliary test
+direction. It is NOT substituted for an original state, a conditional
+weight, or a transfer map. All three terms of the original `combinedTest`,
+including its original marginal-mean correction, remain before this exact
+cancellation. A free Haar subtraction with coefficient one is NOT claimed
+contractive under the interacting weight.
+
+**Boundary and next producer:** the gain can vanish. The remaining norms
+and coefficient still depend on nome, cutoff, width, terminal depth, block
+and observables. For `0<w<1`, `K>=headCutoff(w)` and an actual block
+`i<N(width)`, the result is a proved pointwise improvement in the sense of
+non-increase, not a strictly positive uniform gain. The missing analytic
+producer is still a spatially controlled, cancellation-preserving estimate
+for the original signed terms and aggregate decomposition along a justified
+changing-coupling/spacing trajectory. The generic projection algebra itself
+does not supply non-Abelian quantitative control. Do not count this as a
+uniform completed gap or continue adding projection wrappers without such
+a consumer. Continuum survival, physical mass, SAME-theory OS/full QFT,
+every compact simple group and Clay remain OPEN.
+
+**Verification and delegation:** Sol performed the bounded source inventory,
+drafted `SU2QuaternionWeightedResidualOrthogonality.lean`, and reviewed the
+mathematics/scope. The main agent supplied
+`QuaternionHaarWeightedTestReduction.lean`, the actual-defect consumer,
+namespace integration fixes and serialized verification. The narrow target
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialClearedCovarianceReduction:olean`
+and final direct checks of the three new files and existing Cauchy file
+passed all 16 printed axiom gates within `{propext, Quot.sound}`, without
+warnings or `sorryAx`. Logs:
+`/tmp/ym-gap-QuaternionHaarWeightedTestReduction-final.log`,
+`/tmp/ym-gap-SU2QuaternionWeightedResidualOrthogonality-final.log`,
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialClearedCovarianceCauchy-final.log`, and
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialClearedCovarianceReduction-final.log`.
+One monitored worker, 20 GiB ceiling; no full-root build/audit. No hole,
+axiom, canonical field or existing open obligation changed. One root import
+now reaches the Cauchy module through this actual consumer.
+
 ### All-nome coupling comparison of existing Wilson time limits (2026-09-21 UTC)
 
 **PROGRESS -- original-action estimate beyond the old guard:**

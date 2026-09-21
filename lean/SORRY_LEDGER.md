@@ -13,6 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED exact cancellation and non-increasing signed cross-term budget (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionWeightedResidualOrthogonality.lean`,
+  `QuaternionHaarWeightedTestReduction.lean`, and
+  `BF4ExactSlabFixedSpatialClearedCovarianceReduction.lean`, in the same directory.
+  The existing `BF4ExactSlabFixedSpatialClearedCovarianceCauchy.lean` now
+  exports its exact weighted-pair identity.
+- **scope**: `weightedResidual_pair_independent_zero` proves exact
+  orthogonality to every selected-block-independent test. With `a=V*g`,
+  `F=combinedTest(s)` and `h=P_i(F)`, the computed coefficient
+  `t=<F,h>_a/<h,h>_a` (zero in the nonpositive branch) gives `F'=F-t*h`.
+  `terminalResidual_reduced_pairing` retains the SAME original defect;
+  `reducedTest_pythagoras` accounts for its removed squared norm;
+  `terminalResidual_reduced_square_le` bounds it by the reduced test norm.
+  `reduced_square_budget_le` proves the full new budget is at most the old
+  one, without a small-nome guard beyond `0<w<1` and the late cutoff.
+- **boundary**: the gain may be zero. No uniform norm, aggregate signed
+  decomposition budget or original-action spatial/scaling estimate is
+  supplied. No conditional weight, state, operator or marginal-mean term
+  is substituted. No global gap, physical mass or continuum/Clay atom is
+  closed. No hole, axiom, canonical field or existing obligation changed.
+- **verification**: narrow dependency target and all four final direct
+  checks passed 16 printed axiom gates within `{propext, Quot.sound}`, with
+  no warnings or `sorryAx`. Sol drafted/reviewed the bounded algebraic
+  helper; the main agent integrated/proved the actual consumer. Logs are
+  recorded in `work_plan.md`. One monitored 20 GiB worker; no full-root audit.
+
 ## PROVED all-nome coupling comparison after Wilson time/cutoff removal (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabWilsonFiniteWindowCoupling.lean`

@@ -67,7 +67,8 @@ theorem combinedTest_supported (w delta : Q') (K width : Nat) (g s : RatPoly)
         (transferStep_supported w K width (supported_polyMul hg hs)) _
   · exact support_smul (transferStep_supported w K width hg) _
 
-private theorem clearedDefect_pairing_weightedPair
+/-- The exact defect in the certified weighted-pair interface. -/
+theorem clearedDefect_pairing_weightedPair
     (w delta : Q') (K width : Nat) (g r s : RatPoly) :
     clearedDefect w delta K width g r s ≈
       weightedPair (N width) (polyMul (spatialWeight w K width) g) r
@@ -140,4 +141,5 @@ theorem terminalResidual_clearedDefect_square_le
 end YMGap.Continuum.BF4ExactSlabFixedSpatialClearedCovarianceCauchy
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialClearedCovarianceCauchy.combinedTest_supported
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialClearedCovarianceCauchy.clearedDefect_pairing_weightedPair
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialClearedCovarianceCauchy.terminalResidual_clearedDefect_square_le

@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original signed cross-term reduction (2026-09-21 UTC):**
+`SU2QuaternionWeightedResidualOrthogonality.lean` proves that an actual
+weighted residual annihilates link-independent tests.
+`QuaternionHaarWeightedTestReduction.lean` computes a scalar subtraction
+with exact Pythagorean accounting, including null directions.
+`BF4ExactSlabFixedSpatialClearedCovarianceReduction.lean` applies both to
+the SAME original temporal defect. Its full Cauchy budget is no larger
+than the preceding raw-test bound. The gain can be zero; the remaining
+norm and aggregate spatial/scaling control are still open. No original
+weight, transfer or mean correction is removed. Four narrow final checks
+passed all 16 axiom gates within `{propext, Quot.sound}`; no full-root audit.
+
 **All-nome Wilson time-limit coupling checkpoint (2026-09-21 UTC):**
 `BF4ExactSlabWilsonFiniteWindowCoupling.lean` and
 `BF4WilsonAllNomeTimeCoupling.lean` compare the EXISTING original Wilson

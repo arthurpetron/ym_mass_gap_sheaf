@@ -20,9 +20,21 @@
 > Beyond that guard, a new bound compares the existing fixed-width Wilson
 > infinite-time expectations at any two nomes in `(0,1)`. It uses a finite
 > time pivot and two geometric tail errors; spatial uniformity is still open.
+> Exact conditional cancellation now also gives a computed cross-term
+> Cauchy budget no larger than the old one, with the original weight retained.
+> Its size and aggregate spatial control remain open; the gain can be zero.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
+
+**Original signed cross-term reduction (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialClearedCovarianceReduction` subtracts a computed
+link-independent component from the signed test. Exact weighted centering
+leaves the original defect unchanged; a checked Pythagorean identity makes
+its Cauchy budget no larger. This works at every `0<w<1` and late cutoff,
+but supplies neither a uniform positive gain nor spatially uniform control.
+The narrow target and all 16 direct axiom gates passed. Sol handled the
+bounded source review and orthogonality helper; no full-root audit was run.
 
 **All-nome Wilson time-limit comparison (2026-09-21 UTC):**
 `BF4WilsonAllNomeTimeCoupling.joint_coupling_bound` compares the SAME
