@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Actual normalized Ward variance comparison (2026-09-21 UTC):**
+**Original character/heat angular derivatives (2026-09-21 UTC):**
+`QuaternionHaarCharacterDerivative.lean` proves the exact coefficient
+chain rule using a positive lower-character expansion and constructs its
+cubic Haar interval cap. `QuaternionHaarHeatAngularDerivative.lean`
+then bounds the literal original heat-prefix derivative independently of
+cutoff by `2*d*prefixBudget w`, given a certificate of cap d for the
+original scalar derivative. That selected-link plaquette certificate is
+still missing; the cap is nome-dependent, not uniform as w approaches one.
+Useful Ward response/score estimates and spatial/scaling joins remain
+open. Three final narrow checks passed all 17 gates within
+`{propext, Quot.sound}`; no hole/field changes or full-root audit.
+
+**Actual normalized Ward variance comparison (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionAngularSupport.lean` supplies support and centering laws.
 `BF4ExactSlabLocalWardVariance.lean` constructs positivity of the SAME
 full W=R*A at the explicit late cutoff and proves
@@ -20,8 +32,9 @@ full W=R*A at the explicit late cutoff and proves
 and S=A*(D g)+2*(D A)*g. Explicit partition, moment and variance pins
 identify the selected-link frame with the original supported observable
 and full action. Response floors and score-cost estimates, including
-their spatial/nome control, remain open. Existing scalar heat-label budgets
-do not yet bound angular derivatives. Both final narrow checks passed
+their spatial/nome control, remain open. The character/heat derivative
+join added above still needs the actual face derivative certificate.
+Both final narrow checks passed
 all 15 printed gates within `{propext, Quot.sound}`; no hole/field change
 or full-root audit.
 

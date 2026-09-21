@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED normalized original-action Ward variance comparison (2026-09-21 UTC)
+## PROVED character chain rule and conditional original heat derivative cap (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2CharacterDerivativeCubicBudget.lean`,
+  `QuaternionHaarCharacterDerivative.lean`, and
+  `QuaternionHaarHeatAngularDerivative.lean`, in the same directory.
+- **scope**: `angularDerivative_character` proves the coefficient chain
+  rule using the constructed positive lower-character recurrence.
+  `derivativePolynomialInterval` constructs the cubic cap `2*(n+1)^3`
+  from the existing original Haar character certificates.
+  `heat_derivative_budget_pin` includes the actual heat-coefficient
+  dimension and pins the result to twice the quartic Gaussian majorant.
+  `heatPrefixAngularInterval` constructs a cutoff-independent certificate
+  for the LITERAL original heat-prefix derivative with cap
+  `2*d*prefixBudget w`, given an actual scalar-derivative interval of cap d.
+  `heatPrefix_angular_weighted_bound` retains arbitrary positive original
+  backgrounds and all shared variables.
+- **residue**: the selected-link actual plaquette derivative certificate
+  is NOT supplied. The cap depends explicitly on w and d, and is not
+  nome-uniform as w approaches one. Incident-product/score costs, useful
+  response floors, the changing-spacing one-step/variance comparison,
+  spatial/scaling survival, physical mass, canonical OS/QFT and all groups
+  remain open. No new frontier bundle, hypothesis obligation, hole, axiom
+  or weakened field was introduced; the generic DX argument is not a
+  claimed discharge of the actual plaquette input.
+- **verification**: dependency-complete target and three final direct
+  checks passed all 17 printed gates within `{propext, Quot.sound}`,
+  without warnings or `sorryAx`. Sol implemented the bounded scalar
+  arithmetic and independently reviewed the consumers. Main supplied the
+  coefficient/Haar proofs. One monitored 20 GiB worker; no full-root audit.
+  Exact logs and the next causal input are in `work_plan.md`.
+
+## PROVED normalized original-action Ward variance comparison (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionAngularSupport.lean` and
   `lean/YMGap/Continuum/BF4ExactSlabLocalWardVariance.lean`.

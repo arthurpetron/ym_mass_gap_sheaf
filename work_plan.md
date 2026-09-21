@@ -34,7 +34,63 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Actual normalized variance consumes the local Ward score (2026-09-21 UTC)
+### Actual heat derivatives now consume the quartic budget (2026-09-21 UTC)
+
+**PROGRESS -- the missing character-derivative certificate is constructed:**
+`QuaternionHaarCharacterDerivative.derivativePolynomial` uses the finite
+positive-coefficient recurrence
+
+    P_0=0, P_1=2, P_(n+2)=P_n+2(n+2)U_(n+1).
+
+Two elementary simultaneous recurrence identities prove
+`angularDerivative_character`: D(U_n(x)) = P_n(x)*D(x), at coefficient
+equality on the ORIGINAL multivariate RatPoly carrier. This is not an
+evaluation-only claim, and positivity of the expansion coefficients is
+not positivity of the characters. `derivativePolynomialInterval` combines
+the existing sharp character certificates with the explicit rational
+`SU2CharacterDerivativeCubicBudget.cubicBudget n = 2*(n+1)^3`.
+The resulting two-sided bound retains every shared quaternion variable.
+
+**Actual consumer, with its remaining input visible:**
+`QuaternionHaarHeatAngularDerivative.heatPrefixAngularInterval` proves
+
+    Interval blocks (D (heatPrefix w K x)) (2*d*prefixBudget w),
+
+from `SquareBound blocks x 1`, an actual
+`Interval blocks (D x) d`, a nonempty carrier, head-coordinate guards and
+`0<w<1`. The heat coefficient's representation dimension turns the cubic
+bound into EXACTLY twice the existing quartic Gaussian majorant. The
+finite-sum derivative pin targets the literal original prefix at labels
+0 through K; `prefix_bound` removes K from its cap. The weighted bound
+holds against any positive-certificate background, without independence
+or replacement of the measure. The explicit cap depends on w and d;
+it is NOT uniform as w approaches one.
+
+**Next producer / unchanged gap:** construct the input derivative
+certificate for the actual selected-link plaquette scalar after the
+proved head swap. Then use the actual at-most-six incident factors to
+estimate D A and the Ward score. Useful response floors and sufficiently
+strong score-cost control, including spatial/nome dependence, are still
+open. This removes the character/heat-series algebraic obstruction; it
+does not prove the one-step/variance comparison on a changing-spacing
+family, continuum survival, physical mass, canonical OS/QFT or all groups.
+Do not replace those estimates with further normalization/time wrappers.
+
+**Verification and delegation:** Sol supplied the small scalar budget
+module and independently reviewed the positive recurrence, chain-rule
+orientation, dimension factor, cutoff indexing and remaining DX input.
+Main supplied the coefficient proof and original Haar/heat consumers.
+The dependency-complete heat-derivative target and three final direct
+checks passed all 17 printed gates within `{propext, Quot.sound}`, with
+no warnings or `sorryAx`. One monitored 20 GiB worker; no full-root
+build/audit. No hole, axiom, canonical field or analytic obligation was
+changed. Exact final logs:
+
+- `/tmp/ym-gap-SU2CharacterDerivativeCubicBudget-final.log`
+- `/tmp/ym-gap-QuaternionHaarCharacterDerivative-final.log`
+- `/tmp/ym-gap-QuaternionHaarHeatAngularDerivative-final.log`
+
+### Actual normalized variance consumes the local Ward score (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- an original-action inequality, with its costs still explicit:**
 `BF4ExactSlabLocalWardVariance.normalizedResponse_squared_le_variance_cost`
@@ -71,9 +127,10 @@ The bounded derivative inventory identifies a concrete route for the cost:
 `QuaternionHaarSharpCharacterInterval.sharpCharacterInterval` supplies
 actual Haar certificates at the representation dimension, and
 `SU2HeatQuarticPrefixBound.prefix_bound` supplies a cutoff-independent
-quartic-label sum at each strict nome. The missing exact inputs are a
-RatPoly character-derivative/chain-rule expansion and a square/interval
-certificate for the selected-link derivative of the actual face scalar.
+quartic-label sum at each strict nome. The missing exact inputs at that
+checkpoint were a RatPoly character-derivative/chain-rule expansion (now
+proved above) and a square/interval certificate for the selected-link
+derivative of the actual face scalar (still open).
 The existing `ChebOrthoWeightedFTC.Uderiv` and
 `ChebOrthoLegAssembly.Uderiv_abs_le` are rational evaluation statements,
 not those polynomial/Haar certificates. The quartic budget is nome-dependent

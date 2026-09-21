@@ -63,13 +63,29 @@
 > original action and produces a local mean-zero polynomial score.
 > Its squared response is now bounded by the actual normalized variance
 > times its score cost, with proved original-observable and partition pins.
+> Exact character differentiation now gives a cubic Haar certificate,
+> and the original heat-prefix derivative has a cutoff-independent cap
+> conditional on a bound for its scalar derivative. The actual selected-face
+> derivative certificate is still missing; the cap depends on the nome.
 > Useful response floors and score-cost estimates are still open.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Original-action variance comparison (2026-09-21 UTC):**
+**Original character/heat derivative certificates (2026-09-21 UTC):**
+An exact polynomial chain rule now connects a positive lower-character
+expansion to the actual angular derivative. Its cubic Haar certificate,
+together with the existing quartic heat-series budget, bounds the literal
+original heat-prefix derivative independently of cutoff. The bound is
+`2*d*prefixBudget w`: the nome w and the supplied scalar-derivative cap d
+remain explicit. The actual selected-link plaquette derivative certificate,
+useful Ward score/response estimates and the spatial/scaling passage remain
+open. Sol handled bounded scalar arithmetic and independent review. All
+17 printed gates passed three final narrow checks; no full-root audit or
+canonical frontier closure.
+
+**Original-action variance comparison (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabLocalWardVariance` proves a quantitative relation between
 the constructed score's response, the observable's actual variance and
 the score's cost. The mean and partition are computed from the same full
