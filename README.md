@@ -167,6 +167,11 @@
 > selection and exact Casimir nome dependence. Its diagonal reproducing
 > normalization is still open; nome one is not assumed to give the identity.
 > [New local result and remaining join](audits/AUDIT-ALL-LABEL-TWO-LINK-SELECTION-2026-09-21.md).
+> An exact harmonic recurrence now computes the original `(x.y)^n` Haar
+> pairing by n explicit degree-lowering steps, with every retained
+> coefficient and the radial denominator preserved. The remaining
+> factorial/substitution and character normalization are still open.
+> [Calculation and residue](audits/AUDIT-HARMONIC-LOWERING-2026-09-21.md).
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction

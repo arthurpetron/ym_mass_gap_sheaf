@@ -34,7 +34,37 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### All-label two-link selection and exact nome dependence (2026-09-21 UTC)
+### Terminating actual-kernel harmonic recurrence (2026-09-21 UTC)
+
+**PROGRESS -- an exact all-degree calculation, not a new premise:**
+`SU2QuaternionRelativeHarmonicLowering.haar_pairing_lowerIter` computes
+the original partial Haar pairing of a head-homogeneous harmonic p of
+degree n with `(x.y)^n`. Multiplying by the explicit positive radial
+denominator gives `dropHeadPolynomial (lowerIter n p)`, where
+`lower p = sum_i y_i*activeDerivative_i p` and each step lowers degree
+by one while preserving harmonicity. Every tail coefficient remains.
+The proof joins exact Gaussian Euler/IBP, positive-integer cancellation,
+commuting derivatives and the ACTUAL relative quaternion scalar.
+
+**Next mathematical join:** identify that explicit degree-zero result
+with factorial times head-to-retained-link substitution, in a padding-
+aware carrier; combine the radial recurrence and character leading
+coefficient with already-checked lower-degree annihilation. The
+all-degree diagonal reproducing normalization remains OPEN. No identity
+at nome one or product-heat propagation is assumed. The subsequent
+changing-source cutoff control, original-weight finite-time estimate,
+SAME-variance small rate, continuum/physical mass/QFT/every-group
+obligations remain open. No canonical field, analytic input or hole
+was changed. Reuse the established original terminal-source reduction.
+
+Three focused checks passed 17 gates within `{propext, Quot.sound}`;
+the dependency-complete concrete consumer target passed. Sol drafted
+derivative commutation and performed a bounded source inventory; main
+supplied the recurrence, concrete iteration, integration and checks.
+No full-root audit. Source, exact residue and verification:
+`audits/AUDIT-HARMONIC-LOWERING-2026-09-21.md`.
+
+### All-label two-link selection and exact nome dependence (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the unequal-label terms are discharged:**
 `SU2QuaternionRelativeHarmonicSelection.heat_harmonic_diagonal` reduces

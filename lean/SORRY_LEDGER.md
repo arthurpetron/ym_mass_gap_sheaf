@@ -13,7 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED all-label two-link selection (2026-09-21 UTC)
+## PROVED terminating actual-kernel harmonic recurrence (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionDerivativeCommutation.lean`,
+  `SU2QuaternionGaussianHarmonicPowerRecursion.lean`, and
+  `SU2QuaternionRelativeHarmonicLowering.lean` in that directory.
+- **producer**: formal derivatives commute; active derivatives preserve
+  harmonicity. Gaussian Euler/IBP and the power rule cancel the positive
+  degree exactly, without dividing on the polynomial carrier.
+- **concrete consumer**: `haar_pairing_lowerIter` proves the original
+  partial Haar pairing with `(x.y)^n`, multiplied by its explicit radial
+  denominator, equals `dropHeadPolynomial (lowerIter n p)`. The actual
+  relative scalar is pinned, each step lowers degree and preserves
+  harmonicity, and the computed result is head-independent. No tail
+  variable or signed coefficient is discarded.
+- **residue**: factorial/substitution identification with padding-aware
+  semantics and exact character dimension normalization remain open.
+  So do product propagation, changing-source cutoff control, a useful
+  SAME-variance weighted finite-time rate and all continuum/physical-
+  mass/QFT/every-group obligations. No existing field or premise was
+  weakened and no new hole or axiom was introduced.
+- **verification**: three focused checks passed 17 printed gates within
+  `{propext, Quot.sound}`; the dependency-complete concrete consumer
+  target passed. One capped 20 GiB worker, no full-root audit. Source,
+  logs and division of work: `audits/AUDIT-HARMONIC-LOWERING-2026-09-21.md`.
+
+## PROVED all-label two-link selection (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionTailEvaluationDifferential.lean`
   and `SU2QuaternionRelativeHarmonicSelection.lean` in that directory.

@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**All-label two-link selection (2026-09-21 UTC):**
+**Terminating actual-kernel harmonic recurrence (2026-09-21 UTC):**
+`SU2QuaternionRelativeHarmonicLowering.lean` computes the original
+partial Haar pairing with `(x.y)^n`, multiplied by its explicit radial
+denominator, as the head-independent polynomial obtained by n applications
+of `sum_i y_i*partial_(x_i)`. Degree drops and harmonicity survives each
+step; all retained coefficients remain. The proof consumes the new
+derivative-commutation and Gaussian harmonic-power recurrence modules.
+Identifying that output with normalized substitution, hence the full
+diagonal character reproduction, remains OPEN; no identity-at-nome-one
+or finite-time interacting estimate is assumed. Three focused checks
+passed 17 gates within `{propext, Quot.sound}` and the dependency-complete
+consumer target passed. No new hole/axiom or full-root audit. See
+`audits/AUDIT-HARMONIC-LOWERING-2026-09-21.md`.
+
+**All-label two-link selection (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionRelativeHarmonicSelection.lean` proves that the actual full
 heat packet paired with any homogeneous harmonic of degree d retains
 only its label-d pairing (or zero when K<d), with all boundary variables
