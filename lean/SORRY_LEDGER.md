@@ -13,6 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED all-nome completed plaquette loss and displacement bounds (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4WilsonPlaquetteSourcePin.lean`,
+  `BF4WilsonAllNomePlaquetteTimePin.lean`,
+  `BF4AllNomeCompletedPlaquetteIncrement.lean` and
+  `BF4AllNomePlaquetteDisplacement.lean`, all in the same directory.
+- **scope**: `mixedProduct_lag` pins the literal original source;
+  `jointPairing_lag` identifies its actual joint scalar with the Wilson lag
+  moment through identical finite window ratios and right padding.
+  `timeIncrement_centered_pin` cancels the SAME mean product, and
+  `completed_loss_pin` reaches the existing centered `faceExcitation`.
+  `padded_completed_loss_nome_bound` gives loss <=192*n*(1-w).
+  `displacementVector` embeds the actual physical signed difference;
+  `displacement_orthogonal` is exact. `displacement_norm_le_increment`
+  uses original diagonal contraction, not equality of ordinary and
+  reflected squared norms. `padded_displacement_nome_bound` gives its
+  squared-norm bound 384*n*(1-w).
+- **boundary**: all strict nomes, natural lattice lag, fixed-spacing SU(2),
+  fixed base plaquette and strictly larger widths with separate states.
+  The already proved norm floor is unchanged and quantitatively insufficient
+  for positive-time survival via this crude loss bound. No completed
+  subtraction operation, whole-carrier identification, scaling calibration,
+  spatial/continuum limit, physical mass, QFT or Clay atom is supplied.
+  No hole, axiom, canonical field or existing analytic obligation changed.
+- **verification**: narrow dependency-complete target plus four final direct
+  checks passed all 15 public gates within `{propext, Quot.sound}`, without
+  warnings or `sorryAx`. Sol supplied the finite-source helper and reviewed
+  the same-object/norm arguments. One monitored 20 GiB worker; no full-root
+  audit/build. Exact logs are recorded in `work_plan.md`.
+
 ## PROVED linear all-nome Wilson lattice-time increments (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/CRealDiscreteConvexity.lean`,

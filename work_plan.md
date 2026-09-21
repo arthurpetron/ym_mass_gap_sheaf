@@ -34,6 +34,72 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### All-nome time control on the EXISTING completed plaquette carrier (2026-09-21 UTC)
+
+**PROGRESS -- a proved same-object join, not a replacement completion:**
+the Wilson increment bound now controls the existing all-nome, fixed-width
+`JointCompletion`, `completedInner`, `jointCompletedTime` and
+`LocalVariance.faceExcitation`. For that actual centered nonzero vector v,
+`BF4AllNomeCompletedPlaquetteIncrement` proves
+
+    0 <= B(v,v)-B(v,T(n)v) <= 192*n*(1-w).
+
+`BF4AllNomePlaquetteDisplacement` also embeds the literal physical-span
+difference `x-physicalTime(n,x)` as a vector d(n) on the SAME completion:
+
+    B(d(n),unit) = 0,
+    0 <= B(d(n),d(n)) <= D(n) <= 384*n*(1-w).
+
+Both nome bounds hold for strict `0<w<1`, all natural n, and a fixed base
+plaquette at every strictly larger width. Activity is proved from that
+padding, not supplied as an analytic assumption. Every width retains its
+own state, vector and completed operator. Lattice spacing is fixed.
+
+**Exact joins:** Sol's `BF4WilsonPlaquetteSourcePin.mixedProduct_lag`
+identifies the original reflected face source in chart H=n with the literal
+Wilson two-time polynomial. `BF4WilsonAllNomePlaquetteTimePin.jointPairing_lag`
+compares each actual finite diagonal through the SAME window ratio at
+L=2n, then removes the unused right padding using the existing limit law.
+Each limit keeps its own convergence witness. `centered_loss_pin` cancels
+the identical lag-independent mean product; `timeIncrement_centered_pin`
+gives exactly twice that loss. Existing completed correlator pins then
+prove `completed_loss_pin`. No whole-carrier isomorphism is claimed.
+
+The displacement proof explicitly distinguishes the reflected norm from
+the ordinary two-time square. Four-term expansion and symmetry give
+`a-2*b+c`, where `c=J(T(n)x,T(n)x)`. The ORIGINAL diagonal contraction
+gives `c<=a`, so the norm is at most `2*(a-b)=D(n)`, not equal to it.
+Unit orthogonality follows from time balance and the fixed original unit.
+No completed subtraction operation or equality
+`d(n)=v-T(n)v` is postulated.
+
+**Boundary / next analytic producer:** the positive time-zero norm floor
+was already proved in `LocalVariance.faceExcitation_norm_floor`; it has
+not been strengthened here. The earlier source-level feasibility review
+finds `starRatio(w)<=1-w`, so subtracting `192*n*(1-w)` cannot yield a
+positive floor at n>=1. There is NO certified near-one survival region
+from these crude estimates. A useful relative energy/variance comparison
+or another quantitative non-erasure argument on the actual scaling family
+is still needed, alongside signed spatial/spacing control. No physical
+time calibration, spatial limit, continuum survival, full SAME-theory QFT,
+every-group construction or Clay atom is closed. Do not repackage the
+missing positive comparison as a hypothesis wrapper.
+
+**Verification:** the narrow dependency-complete target
+`+YMGap.Continuum.BF4AllNomePlaquetteDisplacement:olean` and four final
+direct checks passed all 15 public axiom gates within
+`{propext, Quot.sound}`, with no warnings or `sorryAx`. Logs:
+`/tmp/ym-gap-BF4WilsonPlaquetteSourcePin-final.log`,
+`/tmp/ym-gap-BF4WilsonAllNomePlaquetteTimePin-final.log`,
+`/tmp/ym-gap-BF4AllNomeCompletedPlaquetteIncrement-final.log`,
+`/tmp/ym-gap-BF4AllNomePlaquetteDisplacement-final.log`.
+Sol supplied the bounded finite-source helper and independent pinning/norm
+reviews; main proved the limit and completed consumers. One monitored
+20 GiB worker; no full-root audit/build. Root import now reaches the
+preceding increments through this consumer. No hole, axiom, canonical
+field or existing analytic obligation changed. Hourly causal chart shown
+at 2026-09-21 04:41 UTC; the whole-project target remains OPEN.
+
 ### Linear multi-step increments from original reflection positivity (2026-09-21 UTC)
 
 **PROGRESS -- the adjacent bound now controls every lattice-time lag:**

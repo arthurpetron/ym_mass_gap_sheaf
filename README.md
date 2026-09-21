@@ -34,10 +34,26 @@
 > bound `E[(chi(0)-chi(1))^2] <= 24*L^2*(1-w)`, with an explicit nome
 > tolerance. Site and bond reflection positivity now extend it to
 > `E[(chi(0)-chi(n))^2] <= 24*n*L^2*(1-w)` for every lattice lag n.
+> Exact plaquette pins now put this on the existing all-nome fixed-width
+> completion: centered correlation loss is at most `192*n*(1-w)`, and
+> the embedded literal time-difference norm squared at most `384*n*(1-w)`.
 > Physical-time control still needs the actual scaling/observable schedule.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
+
+**Time control on the existing completed plaquette carrier (2026-09-21 UTC):**
+`BF4AllNomeCompletedPlaquetteIncrement` proves
+`0 <= B(v,v)-B(v,T(n)v) <= 192*n*(1-w)` for the already constructed
+centered nonzero plaquette excitation. `BF4AllNomePlaquetteDisplacement`
+embeds the literal time difference and bounds its reflected squared norm
+by `384*n*(1-w)`. Exact source/limit identities preserve the original
+action, partition and operator; diagonal contraction supplies an inequality,
+not an identification of ordinary and reflected norms. The bounds hold
+at every `0<w<1` and strictly padded width. The known variance floor is
+too weak to infer positive-time survival; spatial/scaling limits remain
+open. Sol supplied the finite-source helper and reviewed the joins.
+Four final narrow checks passed all 15 gates; no full-root audit.
 
 **Linear multi-step Wilson increments (2026-09-21 UTC):**
 `BF4WilsonAllNomeTimeIncrement.padded_timeIncrement_nome_bound` proves

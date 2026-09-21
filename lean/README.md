@@ -12,6 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**All-nome completed plaquette time control (2026-09-21 UTC):**
+`BF4WilsonPlaquetteSourcePin.lean` and `BF4WilsonAllNomePlaquetteTimePin.lean`
+identify the actual fixed-width joint plaquette pairing with the literal
+Wilson lag moment, using the same finite window ratio and proved padding.
+`BF4AllNomeCompletedPlaquetteIncrement.lean` gives completed centered loss
+`0 <= B(v,v)-B(v,T(n)v) <= 192*n*(1-w)` on the existing `faceExcitation`.
+`BF4AllNomePlaquetteDisplacement.lean` constructs the embedded literal
+time-difference vector, proves unit orthogonality, and bounds its squared
+norm by `384*n*(1-w)` via the original time contraction. Every strict nome
+and padded width is allowed; no state equality across widths or carriers
+is inferred. The existing variance floor does not imply positive-time
+survival from these bounds. All four final checks passed the 15 public
+gates within `{propext, Quot.sound}`; no holes/fields changed or full audit.
+
 **Original all-nome multi-step Wilson increments (2026-09-21 UTC):**
 `BF4WilsonJointFunctionalLaws.lean` proves signed linearity on the existing
 original joint limits. `BF4WilsonAllNomeMomentConvexity.lean` combines their
