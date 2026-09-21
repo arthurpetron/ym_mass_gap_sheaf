@@ -13,6 +13,41 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED detecting plaquette and positive original finite response (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionProductHeatConstant.lean`,
+  `SU2QuaternionProductHeatPlaquette.lean`,
+  `BF4ExactSlabFixedSpatialPlaquetteKinetic.lean`,
+  `BF4ExactSlabFixedSpatialPlaquetteHaar.lean`,
+  `BF4ExactSlabFixedSpatialPlaquetteResponsePositive.lean`, and two unchanged
+  lemmas exposed publicly in `QuaternionHaarDensityVariance.lean`, all in
+  the same directory.
+- **scope**: the actual fundamental face has kinetic eigenvalue `w^12`
+  under supported Haar tests. Constants are fixed. `dualTest` constructs
+  `b=w^(-12)*f-m`; `dualTest_preimage` proves `P(b)=f-m` in that tested
+  sense. `detector_pin` keeps the full original endpoint and identifies
+  the detector with `H[V*T^n1*(f-m)^2]`. Bare mean zero/second moment one
+  and original density/message certificates give `detector_floor` and
+  `responseFloor_positive`. `window_response_positive` applies the
+  existing same-partition dual bound. The final padded theorem chooses
+  the existing original odd marginal mean, and proves link activity from
+  strict spatial padding instead of assuming it. It specializes the
+  arbitrary-center result; it does not add a separate mean-zero theorem.
+- **boundary**: all strict nomes, late finite cutoff with `K>=1`, every
+  finite terminal depth, fixed base face at every larger width. The finite
+  positive lower witness still depends on cutoff/depth/width/nome. A
+  common positive bound through time/cutoff removal and the SAME completed
+  response passage remain open, as do spatial/scaling survival, physical
+  mass, full QFT and all groups. This is not an eigenidentity for the
+  interacting transfer. No hole, axiom, canonical field or existing
+  analytic obligation changed.
+- **verification**: the narrow dependency-complete target and six final
+  direct checks passed all 35 printed gates within `{propext, Quot.sound}`,
+  without warnings or `sorryAx`. Sol supplied bounded helper proofs and
+  independently reviewed geometry, centering interpretation and the
+  same-action/partition argument. One monitored 20 GiB worker; no full-root
+  audit/build. Exact logs and next producer are in `work_plan.md`.
+
 ## PROVED computed dual lower bound for the original finite response (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionProductHeatDualForm.lean`
@@ -26,11 +61,12 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `responseFloor_le_window` prove its nonnegative lower-bound property.
 - **boundary**: finite cutoff/depth/width; strict nome and the existing
   late-cutoff guard in the normalized consumer. The detector may vanish.
-  An actual detecting plaquette test, limit-stable positive lower bound,
+  At this earlier checkpoint an actual detecting plaquette test was open;
+  the entry above now supplies it. A limit-stable positive lower bound,
   completed-response passage, spatial/scaling survival, physical mass,
-  full QFT and all groups remain open. No kinetic injectivity, nonzero
-  response or uniform constant is asserted. No hole, axiom, canonical
-  field or existing analytic obligation changed.
+  full QFT and all groups remain open. This generic-test result by itself
+  asserts no kinetic injectivity, nonzero response or uniform constant.
+  No hole, axiom, canonical field or existing analytic obligation changed.
 - **verification**: narrow dependency-complete target and both final direct
   checks passed all 14 gates within `{propext, Quot.sound}`, without
   warnings or `sorryAx`. Sol supplied the bounded form helper and reviewed

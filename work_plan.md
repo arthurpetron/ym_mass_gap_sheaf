@@ -34,6 +34,68 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### An actual detecting plaquette and positive ORIGINAL finite response (2026-09-21 UTC)
+
+**PROGRESS -- finite strict positivity, not limit-stable non-erasure:**
+`BF4ExactSlabFixedSpatialPlaquetteResponsePositive.padded_centered_window_response_positive`
+proves positive original one-step response for a fixed base plaquette at every
+strictly larger width, every terminal depth, every strict nome `0<w<1`, and
+cutoff `K >= max (headCutoff w) 1`. It uses the already computed original
+odd marginal mean m, not a bare Haar center.
+`BF4ExactSlabFixedSpatialDirichletWindow.marginal_middleRatio`
+pins this number to the existing odd marginal; the positivity theorem
+specializes the arbitrary-center result and does not itself prove a new
+mean-zero identity. Each finite response has its own positive rational
+lower witness; no common positive lower bound over
+these parameters is claimed.
+
+**Short mathematical argument and actual consumer:** for the literal
+fundamental plaquette f, construct `b = w^(-12)*f - m`. Four distinct
+active-link integrations prove `P(f)=w^12*f` under every supported Haar
+test; the exact product marginal proves `P(1)=1`. Thus `P(b)=f-m=h`.
+`detector_pin` retains the ENTIRE interacting endpoint and gives
+
+    D = H[V*T^n1*h*P(b)] = H[V*T^n1*h^2],
+    0 < messageFloor(w,K,width,n)*headFloor(w)^#spatialFaces <= D,
+    0 < responseFloor(h,b) <= original windowRatio(n,1,n,h(x)*h(y)).
+
+Bare Haar mean zero and second moment one give `H[(f-m)^2]>=1` for
+every rational m. Actual spatial and terminal-message certificates supply
+the detector floor. The preceding `responseFloor_le_window` consumes this
+constructed test with the SAME odd partition; no interaction factor is
+discarded. The kinetic identity is NOT an eigenidentity for `T=P(V*-)`.
+`plaquette_active_after_padding` discharges all four activity premises from
+literal base-face membership and strict spatial padding.
+
+**Next producer:** cancel the common terminal mass against the SAME
+partition before taking time/cutoff limits. The present detector floor
+still depends on cutoff and depth. The exact test cost and actual marginal
+mean bound must be joined to endpoint upper/lower certificates to obtain a
+positive normalized floor independent of those two regulators at fixed
+nome/width. No such uniform estimate or completed-response passage is
+proved here. Even that fixed-width result would leave spatial/spacing
+survival, physical mass calibration, full SAME-theory QFT, and every compact
+simple group OPEN. This is a direct producer for the existing dual bound,
+not a new assumed non-erasure interface or closure of a canonical atom.
+
+**Delegation and verification:** Sol supplied the constant/Haar/physical-link
+helpers and independent pinning and geometry reviews; main proved four-link
+transmission and the positive original-response consumer. Six changed/new
+modules passed final direct checks, with all 35 printed gates within
+`{propext, Quot.sound}` and no warnings or `sorryAx` (including two existing
+density lemmas exposed without changing their proofs). The dependency-complete
+target `+YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteResponsePositive:olean`
+also passed. Final logs:
+`/tmp/ym-gap-SU2QuaternionProductHeatConstant-final.log`,
+`/tmp/ym-gap-SU2QuaternionProductHeatPlaquette-final.log`,
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialPlaquetteKinetic-final.log`,
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialPlaquetteHaar-final.log`,
+`/tmp/ym-gap-QuaternionHaarDensityVariance-final.log`,
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialPlaquetteResponsePositive-final.log`.
+One monitored 20 GiB worker; no full-root audit/build. No hole, axiom,
+canonical field or analytic obligation changed.
+The last hourly whole-project ASCII chart remains 2026-09-21 04:41 UTC.
+
 ### Computed dual lower bounds for the ORIGINAL finite response (2026-09-21 UTC)
 
 **PROGRESS -- a finite estimate, not proved non-erasure:**
@@ -56,7 +118,9 @@ nonnegative nome, arbitrary cutoff and valid indices (no Nodup premise).
 The normalized consumer requires `0<w<1` and the existing late-cutoff
 guard for Z>0. Adding one to C handles kinetic null tests constructively.
 
-**Next producer and exact consumer:** supply an actual detecting test b
+**Next producer and exact consumer at this earlier checkpoint** (the
+detecting-test part is now supplied by the checkpoint above): supply an
+actual detecting test b
 to `responseFloor`, then prove a strictly positive lower bound stable
 through the ORIGINAL time/cutoff limits. The current lower bound can be
 zero; no such test or uniform lower estimate was proved here. Source review

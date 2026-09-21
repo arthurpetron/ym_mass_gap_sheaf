@@ -39,19 +39,33 @@
 > the embedded literal time-difference norm squared at most `384*n*(1-w)`.
 > Physical-time control still needs the actual scaling/observable schedule.
 > A computed dual-test lower bound now targets the original finite response,
-> retaining its full interaction and partition. A nonzero test with bounds
-> stable through the required limits is still missing.
+> retaining its full interaction and partition. An explicit plaquette test
+> now proves finite positive centered response at every strict nome and
+> padded width. A positive lower bound stable through the limits is missing.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Finite response lower bounds (2026-09-21 UTC):**
+**Positive original finite plaquette response (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialPlaquetteResponsePositive` constructs the test
+`b=w^(-12)*f-m` for the actual centered plaquette `h=f-m`. Four-link Haar
+integration proves `P(b)=h`, so its detector is the positive square
+`H[V*T^n1*h^2]`, with the full original interaction retained. The computed
+dual lower bound is now strictly positive for this test. Strict spatial
+padding proves link activity. This holds at every strict nome and late
+finite cutoff/depth, but does not yet supply a common positive lower bound
+through time/cutoff removal, let alone spatial/scaling survival. Sol handled
+bounded helpers and independent review. Six final narrow checks passed all
+35 printed axiom gates; no full-root build or audit was run.
+
+**Finite response lower bounds (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialResponseDual.responseFloor_le_window` proves
 `D^2/((1+C)*Z) <=` the original one-step response for every supported
 signed polynomial test, using the kinetic positive form and the exact
-original partition. The bound is computed but may be zero. A detecting
-plaquette test and limit-stable positivity remain open; no survival or
-continuum theorem is claimed. Sol supplied the kinetic Cauchy--Schwarz
+original partition. For an arbitrary test the bound may be zero; the
+checkpoint above now supplies a detecting plaquette test. Limit-stable
+positivity remains open; no survival or continuum theorem is claimed.
+Sol supplied the kinetic Cauchy--Schwarz
 helper and independent review. Both final narrow checks passed all 14
 axiom gates; no full-root audit.
 

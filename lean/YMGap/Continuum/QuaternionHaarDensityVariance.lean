@@ -75,7 +75,8 @@ private def densityCertificate {blocks : Nat} {W : RatPoly} {delta : Q'}
     (D.add (.constant blocks (delta*quaternionHaar blocks W)
       (Q'.mul_nonneg _ _ hd (Q'.le_of_lt hZ))))
 
-private theorem raw_square_floor {blocks : Nat} {W p : RatPoly} {c : Q'}
+/-- An actual density-floor certificate dominates every supported square. -/
+theorem raw_square_floor {blocks : Nat} {W p : RatPoly} {c : Q'}
     (D : Certificate blocks (polyAdd W (polyNeg (cap c))))
     (hp : SupportedQuaternionBlocks blocks p) :
     c * quaternionHaar blocks (polyMul p p) ≤
@@ -174,7 +175,8 @@ private theorem shifted_square_pin {blocks : Nat} {W p : RatPoly}
         | 2 => quaternionHaar blocks W
         | _ => c)))
 
-private theorem bare_variance_le_shifted {blocks : Nat} {p : RatPoly}
+/-- Any rational center has bare squared norm at least the bare variance. -/
+theorem bare_variance_le_shifted {blocks : Nat} {p : RatPoly}
     (hp : SupportedQuaternionBlocks blocks p) (c : Q') :
     quaternionHaar blocks (polyMul p p) +
         -(quaternionHaar blocks p * quaternionHaar blocks p) ≤
@@ -256,6 +258,8 @@ theorem normalized_variance_floor {blocks : Nat} {W : RatPoly} {delta : Q'}
 
 end YMGap.Continuum.QuaternionHaarDensityVariance
 
+#print axioms YMGap.Continuum.QuaternionHaarDensityVariance.raw_square_floor
+#print axioms YMGap.Continuum.QuaternionHaarDensityVariance.bare_variance_le_shifted
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.normalizedMoment
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.normalizedVariance
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.shifted
