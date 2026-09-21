@@ -13,7 +13,31 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED selected-action affine and completed signed-family variance floor (2026-09-21 UTC)
+## PROVED limitation of affine-floor / absolute-loss calibration (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabHeadFloorNomeCeiling.lean`
+  and `BF4ExactSlabPlaquetteAffineCalibrationObstruction.lean`.
+- **scope**: `sixHundred_floor_le_defect_power` proves
+  `600*varianceFloor <= ((1-w)^2)^24`; `computedLossRatio_ge` proves
+  `115200 <= 192*(1-w)/varianceFloor` at every strict nome.
+  `subtraction_floor_nonpositive` and
+  `computedLossRatio_no_linear_scaling` rule out the corresponding direct
+  positive-response and linear-spacing certificates; the latter uses the
+  existing explicit `SpacingToZero` modulus.
+- **honest boundary**: only this computed lower witness / upper budget
+  combination is ruled out. Actual response, actual variance and physical
+  survival are not refuted. The available completed plaquette loss theorem
+  has an active-edge guard; strict padding supplies it. The existing
+  completed-family norm/nonzero theorems are unchanged. A sufficiently strong
+  SAME-action relative estimate remains open. No hole, canonical field or
+  analytic assumption changed.
+- **verification**: the dependency-complete calibration-obstruction target
+  and two final serialized direct checks passed ten printed gates (3, 7)
+  within `{propext, Quot.sound}`, without warnings or `sorryAx`. Sol supplied
+  the heat-head helper and independent review; main supplied the floor/ratio
+  and spacing consumers. One monitored 20 GiB worker; no full-root audit.
+
+## PROVED selected-action affine and completed signed-family variance floor (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteAffinePairing.lean`,
   `BF4ExactSlabPlaquetteAffineCoercivity.lean`,

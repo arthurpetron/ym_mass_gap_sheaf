@@ -117,12 +117,35 @@
 > `||v_F||^2 >= lower(w)/(600*upper(w))*sum_f c_f^2`.
 > The constant is independent of width and family size at fixed nome;
 > the coefficient budget may grow, and different widths have different carriers.
+> A checked limitation now rules out paying the existing `192*(1-w)`
+> one-step loss budget with this particular floor: their computed ratio is
+> at least 115200 at every strict nome. This is not an actual-response bound.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Selected-action variance and SAME completed-family norm floor (2026-09-21 UTC):**
+**Calibration route pruned (2026-09-21 UTC):**
+`BF4ExactSlabHeadFloorNomeCeiling.lean` and
+`BF4ExactSlabPlaquetteAffineCalibrationObstruction.lean` prove that the
+particular affine floor `f(w)` below obeys `600*f(w) <= ((1-w)^2)^24`.
+Consequently `192*(1-w)/f(w) >= 115200`, and direct subtraction of the
+available one-step loss budget from this floor never gives a positive number.
+An explicit spacing-modulus theorem rules out linear-spacing smallness of
+this computed ratio, even with a new strict nome at each index.
+
+This does NOT bound actual variance from above or actual loss from below.
+The completed nonzero-vector theorem remains valid. The actual plaquette
+loss estimate requires active edges (available after strict spatial padding).
+The next useful producer is a cancellation-preserving relative estimate of
+one-step loss against the SAME actual variance, with sufficient spatial and
+trajectory control. More wrappers around this pair of absolute bounds will
+not supply it. See [the source-backed audit](audits/AUDIT-AFFINE-VARIANCE-CALIBRATION-2026-09-21.md).
+The dependency-complete obstruction target and two final serialized checks
+passed ten printed gates within `{propext, Quot.sound}`, without warnings or
+`sorryAx`; no full-root audit was run.
+
+**Selected-action variance and SAME completed-family norm floor (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabPlaquetteAffinePairing.lean` proves that subtracting any rational
 constant leaves the retained-background coefficient detection unchanged.
 `BF4ExactSlabPlaquetteAffineCoercivity.lean` therefore reuses the existing

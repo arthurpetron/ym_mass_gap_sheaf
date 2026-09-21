@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Selected-action affine and completed signed-family variance floor (2026-09-21 UTC):**
+**Checked limitation of the affine calibration route (2026-09-21 UTC):**
+`BF4ExactSlabHeadFloorNomeCeiling` bounds the retained heat-head witness by
+`(1-w)^2`. `BF4ExactSlabPlaquetteAffineCalibrationObstruction` consequently
+proves `600*varianceFloor <= ((1-w)^2)^24` and
+`computedLossRatio >= 115200`, where the numerator is the existing
+single-plaquette `192*(1-w)` loss budget. Direct subtraction cannot certify
+positivity, and a computed spacing threshold excludes a linear-spacing
+bound for this ratio. These conclusions concern the certificates, not the
+actual variance or response. Completed-family nontriviality is unchanged;
+a useful SAME-action relative one-step estimate remains open. No canonical
+field, hole or analytic assumption changed.
+The dependency-complete obstruction target and two final direct checks passed
+ten printed gates (3, 7) within `{propext, Quot.sound}`, warning-free and
+without `sorryAx`. One monitored 20 GiB worker; no full-root audit.
+
+**Selected-action affine and completed signed-family variance floor (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabPlaquetteAffinePairing.lean` and
 `BF4ExactSlabPlaquetteAffineCoercivity.lean` extend the boundary-dual
 coefficient detector to every rational center while retaining the arbitrary

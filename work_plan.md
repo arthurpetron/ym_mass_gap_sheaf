@@ -34,7 +34,61 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Selected-action affine floor on the SAME completed family (2026-09-21 UTC)
+### Affine floor / absolute loss is quantitatively insufficient (2026-09-21 UTC)
+
+**PROGRESS -- a tested calibration shortcut is now ruled out:** the new
+completed norm floor is positive at fixed nome, but that does not make it
+useful for changing-spacing survival. `BF4ExactSlabHeadFloorNomeCeiling`
+uses the first Euler factor to prove `headFloor w <= (1-w)^2`.
+`BF4ExactSlabPlaquetteAffineCalibrationObstruction` propagates this through
+the ACTUAL twenty-four-face window and its positive denominator:
+
+    f(w) = BF4ExactSlabPlaquetteAffineCoercivity.varianceFloor w hw0,
+    600*f(w) <= ((1-w)*(1-w))^24 <= 1-w,
+    115200 <= computedLossRatio(w) = 192*(1-w)/f(w).
+
+`subtraction_floor_nonpositive` proves `f(w)-192*(1-w)<=0`.
+`computedLossRatio_no_linear_scaling` uses
+`SpacingToZero.modulus (1/M)` to refute a bound of this computed ratio by
+`M*a_j` at every subsequent index. Nome is arbitrary pointwise, so changing
+it at each index does not evade this certificate limitation.
+
+**Important scope:** f is an AVAILABLE lower witness, not the actual
+variance; `192*(1-w)` is an AVAILABLE upper budget, not actual loss.
+The actual `BF4AllNomeCompletedPlaquetteIncrement.completed_loss_nome_bound`
+requires active plaquette edges, supplied after strict padding by its
+`padded_completed_loss_nome_bound`. The norm theorem and possible physical
+survival are NOT refuted. No mathematical target or canonical field changes.
+
+**Repointed next producer:** prove a direct SAME-original-action relative
+one-step comparison against the WHOLE signed observable's actual variance,
+or a quantitatively sufficient equivalent conditional/fusion identity.
+It must preserve cancellation and have justified spatial and coupling/
+spacing dependence. `BF4WilsonTimeZeroMomentConvexity.timeIncrement_linear`
+already extends a useful one-step estimate to arbitrary integer lag without
+a family-count loss. The inspected sources do not supply the relative
+estimate. The componentwise CS fallback introduces a family-count loss and,
+even for one plaquette, the present absolute floor/loss combination is
+insufficient. Do not spend another branch merely transporting that failed
+budget. The previous floor remains useful for fixed-nome nontriviality.
+Source inventory and status boundaries are in
+`audits/AUDIT-AFFINE-VARIANCE-CALIBRATION-2026-09-21.md`.
+Continuum survival, physical mass, full QFT and every compact simple group
+remain OPEN.
+
+**Verification / delegation:** the dependency-complete
+`+YMGap.Continuum.BF4ExactSlabPlaquetteAffineCalibrationObstruction:olean`
+target and two final serialized direct checks passed all ten printed gates
+(3 helper, 7 consumer), within `{propext, Quot.sound}`, without warnings or
+`sorryAx`. Sol supplied the scalar heat-head helper, source inventory,
+independent review and audit report; main supplied the exact floor/ratio
+and spacing-obstruction proofs and serialized verification. One monitored
+20 GiB worker; no full-root audit. No existing Lean proof, canonical field,
+hole or analytic assumption was altered. Final logs:
+`/tmp/ym-gap-BF4ExactSlabHeadFloorNomeCeiling-final.log` and
+`/tmp/ym-gap-BF4ExactSlabPlaquetteAffineCalibrationObstruction-final.log`.
+
+### Selected-action affine floor on the SAME completed family (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the restricted ordinary-to-completed norm join is now proved:**
 the full-cube Ward theorem below is not a theorem about the selected chain
