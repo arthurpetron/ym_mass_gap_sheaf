@@ -34,7 +34,73 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Actual centered variance coercivity for signed plaquette sums (2026-09-21 UTC)
+### Selected-action affine floor on the SAME completed family (2026-09-21 UTC)
+
+**PROGRESS -- the restricted ordinary-to-completed norm join is now proved:**
+the full-cube Ward theorem below is not a theorem about the selected chain
+action. Rather than assume that identification, the shorter route observes
+that every retained-background plaquette detector kills constants.
+`BF4ExactSlabPlaquetteAffinePairing.rest_shifted_pairing` proves this for
+every rational center. `fullAction_shifted_pairing` and the supported-source
+`fullAction_pairing_error` retain the SAME arbitrary selected action.
+The existing finite dual norm and geometric residual elimination therefore
+apply unchanged to `F-m`.
+
+`BF4ExactSlabPlaquetteAffineCoercivity.affine_partition_coercivity` proves
+
+    L(w)*Z*sum_{p in qs} c_p^2 <= 600*U(w)*H[W*(F-m)^2],
+
+where `F=sourceSpan extent c qs`, W is the original selected weight,
+`L(w)=BF4ExactSlabPlaquetteBoundaryWindow.lower w`, and U is its `upper`.
+The actual interacting mean supplies m; cancellation of this SAME positive
+Z then gives `normalized_variance_floor` and `finiteValue_variance_floor`:
+
+    varianceFloor(w,hw0)*sum_{p in qs} c_p^2 <= Var_W(F),
+    varianceFloor(w,hw0) = L(w)/(600*U(w)) > 0.
+
+The selected action ids and source faces are duplicate-free physical lists,
+with `0<w<1` and `headCutoff w <= K`; the lists need not coincide. No
+cardinality-dependent partition lower bound is introduced.
+
+**Actual consumer:** `BF4ExactSlabFixedSpatialPlaquetteFamily` constructs
+the signed spatial family in the existing `PhysicalSpan` and proves its
+radius-zero mean/square pins to the literal shifted source under
+`chainIds E width (width+1) (t+t)`. The reflected square is identified here,
+not assumed. `BF4ExactSlabFixedSpatialPlaquetteFamilyVariance` then proves
+`chart_variance_floor`, `family_joint_variance_floor`, and
+`familyExcitation_norm_floor` using the existing joint regulator limits and
+centering stream. `familyExcitation_ne_zero` excludes the actual completed
+zero for a positive coefficient budget; `familyExcitation_correlator_pin`
+uses the SAME existing completed time and original connected correlator.
+
+**Uniformity / next obstruction:** at each fixed strict nome, the floor
+constant is independent of spatial width, family size, cutoff and boundary
+time. The budget itself may grow, and different widths still have different
+carriers. No changing-nome floor or positive-lag survival estimate is proved.
+The next causal estimate is a sufficiently strong upper bound for the
+WHOLE signed family's one-step time increment relative to this actual norm,
+along an explicit spatial/coupling/spacing family. The existing signed
+lag bound can consume such an estimate; a correlator equality cannot supply
+it. Higher Wilson products, spatial carrier comparison, physical mass,
+continuum QFT and all compact simple groups remain open. No canonical field
+or hole is closed. The prior angular proof is valid but unnecessary for this
+restricted norm join; angular energy is still not OS transfer energy.
+
+**Verification / delegation:** the dependency-complete
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteFamilyVariance:olean`
+target and six serialized final direct checks passed. All 53 printed gates
+(18, 9, 3, 11, 5, 7), including existing gates in the two edited support
+modules, are within `{propext, Quot.sound}`, without warnings or `sorryAx`.
+The two support edits only export and gate three unchanged proofs:
+`pair_sum_left`, `error_young`, and `normalizedMoment_finiteValue`.
+Sol supplied the affine pairing and literal family pins, independent source
+review and supporting documentation. Main supplied the actual coercivity
+and completed-limit consumers, root import and serialized verification.
+One monitored 20 GiB worker; no full-root audit. Final logs use
+`/tmp/ym-gap-<ModuleBaseName>-final.log` for the four new modules and
+`BF4ExactSlabPlaquetteBoundaryDualFamily` / `BF4ExactSlabSelectedStarVariance`.
+
+### Actual centered variance coercivity for signed plaquette sums (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the actual original-action centered variance now has an
 explicit fixed-nome coefficient-square floor:**

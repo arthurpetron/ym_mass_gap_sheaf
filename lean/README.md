@@ -12,7 +12,41 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Actual centered variance coercivity for signed plaquette sums (2026-09-21 UTC):**
+**Selected-action affine and completed signed-family variance floor (2026-09-21 UTC):**
+`BF4ExactSlabPlaquetteAffinePairing.lean` and
+`BF4ExactSlabPlaquetteAffineCoercivity.lean` extend the boundary-dual
+coefficient detector to every rational center while retaining the arbitrary
+Nodup physical selected-action list and its own partition.  For every Nodup
+physical plaquette family, at every finite stage with the late-cutoff guard,
+the checked finite statement is
+`L(w)/(600*U(w))*sum_p c_p^2 <= Var_W(sum_p c_p chi_p)`.
+`BF4ExactSlabFixedSpatialPlaquetteFamily.lean` realizes the same signed family
+as an exact radius-zero physical span and pins its first and diagonal second
+chart moments to those literal finite selected-action moments.
+`BF4ExactSlabFixedSpatialPlaquetteFamilyVariance.lean` passes the common
+cutoff/boundary-time stream to the existing joint pairing and completed
+carrier.  Its `familyExcitation_norm_floor` gives the same coefficient-square
+floor for the completed centered-vector norm,
+`familyExcitation_ne_zero` excludes zero when the budget is positive, and
+`familyExcitation_correlator_pin` uses the existing completed physical time
+and connected correlator for that same vector.
+
+The constant has no additional width or family-cardinality factor at fixed
+strict nome; the coefficient-square budget itself may grow, and different
+widths still have different carriers.  No uniform bound as the nome changes,
+spacing-limit survival, one-step/variance scaling comparison, full observable
+algebra, continuum QFT, or extension to all compact simple groups is supplied.
+No canonical field, analytic assumption or hole changed. The dependency-complete
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteFamilyVariance:olean`
+target and six serialized final direct checks passed all 53 printed gates
+(18, 9, 3, 11, 5, 7), including existing gates in the two edited support
+modules, within `{propext, Quot.sound}` and without warnings or `sorryAx`.
+Only three unchanged support proofs were exported and gated in those two
+modules. Sol supplied the affine pairing, literal family pins, independent
+review and supporting documentation; main supplied the coercivity and
+completed-limit consumers. One monitored 20 GiB worker; no full-root audit.
+
+**Actual centered variance coercivity for signed plaquette sums (earlier checkpoint, 2026-09-21 UTC):**
 The new angular-family chain keeps the literal signed observable
 `F = sum_f c_f chi_f`, the full interacting weight W, and the original
 partition. Incident head-linearity and source pins reduce each selected-link

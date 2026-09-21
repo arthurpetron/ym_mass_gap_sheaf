@@ -349,7 +349,9 @@ theorem normalizedVariance_floor {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q
       (Q'.mul_le_mul_of_nonneg_right _ _ r hraw (Q'.le_of_lt (Q'.recipPos_pos z hz)))
       (Q'.le_of_eqv hpin))
 
-private theorem normalizedMoment_finiteValue {w : Q'}
+/-- The generic polynomial moment uses exactly the existing selected-action
+finiteValue numerator and reciprocal, not a replacement normalization. -/
+theorem normalizedMoment_finiteValue {w : Q'}
     (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (extent : Nat) (ids : List Nat)
     (hids : ∀ id, id ∈ ids → id ∈ slabPhysicalFaceEdges extent) (p : RatPoly) (stage : Nat) :
     normalizedMoment (B extent)
@@ -391,3 +393,4 @@ end YMGap.Continuum.BF4ExactSlabSelectedStarVariance
 #print axioms YMGap.Continuum.BF4ExactSlabSelectedStarVariance.shifted_square_floor
 #print axioms YMGap.Continuum.BF4ExactSlabSelectedStarVariance.normalizedVariance_floor
 #print axioms YMGap.Continuum.BF4ExactSlabSelectedStarVariance.finiteValue_variance_floor
+#print axioms YMGap.Continuum.BF4ExactSlabSelectedStarVariance.normalizedMoment_finiteValue

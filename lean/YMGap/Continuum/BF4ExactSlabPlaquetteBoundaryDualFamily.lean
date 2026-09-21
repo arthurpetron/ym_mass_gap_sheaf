@@ -140,7 +140,8 @@ private theorem pair_smul (blocks : Nat) (A : RatPoly) (c : Q') (p q : RatPoly) 
   Q'.eqv_trans _ _ _ (haar_of_coeff ((RatPolyCoeffEqv.polyMul_smul_left c p q).mul_left A))
     (quaternionHaar_polyMul_smul_right blocks c A (polyMul p q))
 
-private theorem pair_sum_left {I : Type} (blocks : Nat) (A : RatPoly)
+/-- Weighted Haar pairing is linear in the literal finite signed dual sum. -/
+theorem pair_sum_left {I : Type} (blocks : Nat) (A : RatPoly)
     (c : I → Q') (f : I → RatPoly) (q : RatPoly) : ∀ xs,
     pair blocks A (finitePolySum (fun p => polySmul (c p) (f p)) xs) q ≈
       listQSum (fun p => c p*pair blocks A (f p) q) xs
@@ -242,7 +243,8 @@ theorem family_pairing {w : Q'} (hw0 : (0 : Q') < w) (K extent : Nat) (ids : Lis
     (Q'.eqv_trans _ _ _ (qmul (Q'.eqv_refl _) hc)
       (Q'.eqv_symm (Q'.mul_assoc_eqv (c p) (c p) _)))
 
-private theorem error_young {L r D E x : Q'} (c : Q')
+/-- Signed residual payment from its squared bound, for any nonnegative energy. -/
+theorem error_young {L r D E x : Q'} (c : Q')
     (hL : (0 : Q') ≤ L) (hr : (0 : Q') ≤ r) (hD : (0 : Q') ≤ D) (hE : (0 : Q') ≤ E)
     (hx : L*(x*x) ≤ (r*r*D)*E) : 2*L*(c*x) ≤ r*(L*(c*c*D)+E) := by
   have he : (L*c*x)*(L*c*x) ≈ (L*(c*c))*(L*(x*x)) :=
@@ -415,5 +417,7 @@ theorem family_partition_coercivity {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 
 #print axioms family_coercivity
 #print axioms partition_coefficient_budget
 #print axioms family_partition_coercivity
+#print axioms pair_sum_left
+#print axioms error_young
 
 end YMGap.Continuum.BF4ExactSlabPlaquetteBoundaryDualFamily

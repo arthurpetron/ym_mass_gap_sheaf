@@ -110,12 +110,58 @@
 > introduces no extent or family-cardinality factor. Its checked divided form
 > gives a literal positive rational `varianceFloor(w)*B <= Var_W(F)` at every
 > fixed strict nome.
+> A shorter affine dual argument now handles arbitrary duplicate-free
+> selected physical action lists, including the actual finite chains.
+> For signed time-zero spatial plaquette families, the resulting floor
+> survives both regulators on the SAME existing completed carrier:
+> `||v_F||^2 >= lower(w)/(600*upper(w))*sum_f c_f^2`.
+> The constant is independent of width and family size at fixed nome;
+> the coefficient budget may grow, and different widths have different carriers.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Actual centered variance coercivity for signed plaquette sums (2026-09-21 UTC):**
+**Selected-action variance and SAME completed-family norm floor (2026-09-21 UTC):**
+`BF4ExactSlabPlaquetteAffinePairing.lean` proves that subtracting any rational
+constant leaves the retained-background coefficient detection unchanged.
+`BF4ExactSlabPlaquetteAffineCoercivity.lean` therefore reuses the existing
+finite dual norm bound for the centered source, under any duplicate-free
+physical selected action list. With `L(w) = lower w`, `U(w) = upper w`, and
+`B = sum_f c_f^2`, it proves
+
+`L(w)/(600*U(w))*B <= Var_W(sum_f c_f*chi_f)`.
+
+The actual interacting mean and the SAME positive partition are used;
+`0<w<1`, `headCutoff w <= K`, and duplicate-free physical source faces are
+required. This also covers the selected chain action used by the current
+completed carrier, without replacing it by the surrounding full cube.
+`BF4ExactSlabFixedSpatialPlaquetteFamily.lean` proves the literal radius-zero
+mean/square chart pins. `BF4ExactSlabFixedSpatialPlaquetteFamilyVariance.lean`
+then passes both cutoff and boundary-time limits, obtains the same floor on
+the existing centered completed vector, excludes zero when `B>0`, and pins
+its completed-time pairing to the original connected correlator.
+
+The floor is positive and independent of width, source count, cutoff and
+boundary time at each fixed strict nome. The coefficient budget may itself
+grow; no identification between different-width carriers or uniform bound
+as the nome changes is supplied. The correlator pin is an equality, not a
+positive-lag lower bound. One-step/variance scaling control, the full Wilson
+algebra, spatial/spacing limits, physical mass, continuum QFT and every
+compact simple group remain open. The earlier angular-energy theorem remains
+valid, but it is not needed for this restricted completed norm join.
+
+Verification used the dependency-complete
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteFamilyVariance:olean`
+target and six serialized final direct checks: all 53 printed gates
+(18, 9, 3, 11, 5, 7), including existing gates in the two edited support
+modules, are within `{propext, Quot.sound}`, without warnings or `sorryAx`.
+One monitored 20 GiB worker was used; no full-root audit was run. Sol supplied
+the affine pairing and literal family pins, independent review and supporting
+documentation; main supplied the coercivity and completed-limit consumers.
+No canonical field, analytic assumption or hole was changed.
+
+**Actual centered variance coercivity for signed plaquette sums (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabPlaquetteIncidentLinear.lean` pins the signed incident observable
 to a head-linear source without dropping its coefficients.
 `QuaternionHaarLinearAngularEnergy.lean` supplies the exact six-direction

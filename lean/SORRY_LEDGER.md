@@ -13,7 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual centered variance coercivity for signed plaquette sums (2026-09-21 UTC)
+## PROVED selected-action affine and completed signed-family variance floor (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteAffinePairing.lean`,
+  `BF4ExactSlabPlaquetteAffineCoercivity.lean`,
+  `BF4ExactSlabFixedSpatialPlaquetteFamily.lean`, and
+  `BF4ExactSlabFixedSpatialPlaquetteFamilyVariance.lean`, in the same
+  directory.
+- **scope**: affine boundary-dual detection retains every rational center,
+  signed coefficient and cross term under an arbitrary Nodup physical
+  selected-action list and its actual positive partition.  At every finite
+  stage under the late-cutoff guard, the normalized coercivity is
+  `L(w)/(600*U(w))*sum_p c_p^2 <= Var_W(sum_p c_p chi_p)` for a Nodup physical
+  source family.  The radius-zero family span then pins the first and diagonal
+  second chart moments to those same finite moments.  The existing joint limit
+  and centering stream give the identical floor for the norm of
+  `familyExcitation` in the existing completed carrier.  Positive coefficient
+  budget proves this vector is nonzero, and its time pairing is exactly the
+  existing connected correlator.
+- **uniformity / residue**: at fixed strict nome the coefficient introduces no
+  extra width or family-cardinality factor and is uniform over the selected
+  physical action, late cutoff and boundary time.  The budget itself may grow,
+  and carriers at different widths are not identified.  No changing-nome or
+  spacing-limit survival, one-step/variance scaling join, full observable
+  algebra, canonical QFT field, continuum construction, or all-group theorem
+  follows.  No canonical field or hole changed.
+- **support exports**: the unchanged `pair_sum_left` and `error_young` proofs
+  in `BF4ExactSlabPlaquetteBoundaryDualFamily.lean` and
+  `normalizedMoment_finiteValue` in `BF4ExactSlabSelectedStarVariance.lean`
+  were made public and given axiom gates; no analytic assumption was added.
+- **verification**: the dependency-complete
+  `+YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteFamilyVariance:olean`
+  target passed. Six serialized final direct checks passed all 53 printed
+  gates (18, 9, 3, 11, 5, 7), including existing gates in the two edited
+  support modules, within `{propext, Quot.sound}`, without warnings or
+  `sorryAx`. Sol supplied the affine pairing, literal family pins,
+  independent review and supporting documentation; main supplied the
+  coercivity and completed-limit consumers. One monitored 20 GiB worker;
+  no full-root audit. Final logs use `/tmp/ym-gap-<ModuleBaseName>-final.log`
+  for the four new modules and two support modules above.
+
+## PROVED actual centered variance coercivity for signed plaquette sums (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarLinearAngularEnergy.lean`,
   `BF4ExactSlabPlaquetteIncidentLinear.lean`,
