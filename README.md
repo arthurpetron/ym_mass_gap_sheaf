@@ -127,13 +127,39 @@
 > Rational linear operations and finite signed time sums now act on that
 > SAME all-nome completion, with explicit Cauchy moduli. Their pairings are
 > exact double sums of the original correlator, retaining all cross terms.
-> These constructions do not prove a nonzero or near-one filtered response.
+> Arbitrary signed filters need not be nonzero or have near-one response.
+> A particular finite even-time sum now gives an explicit approximate
+> preimage of `I-T^2`, with a computable squared-error cutoff. For the
+> plaquette source it is nonzero below the existing variance floor.
+> This is not an exact inverse or a near-one response estimate.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Actual signed time sums on the all-nome carrier (2026-09-21 UTC):**
+**Constructive approximate preimages on the SAME carrier (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialJointGeometry.lean` proves positive definiteness
+and separation by the actual completed pairing, with an explicit
+zero-norm closeness modulus. For `R=I-T^2`,
+`BF4ExactSlabFixedSpatialJointRangeApproximation.lean` constructs
+`S_N(x)=sum_{k<N} T^(2*k)x` and proves the actual vector identity
+`x-R(S_N(x))=T^(2*N)x`. The existing vacuum-complement contraction gives
+`||x-R(S_N(x))||^2 <= q^(2*N)*||x||^2`.
+
+Each supplied Cauchy representative provides a computed norm ceiling and
+hence an explicit positive-tolerance cutoff; no representative is chosen
+from a quotient. The plaquette's existing centering stream supplies a
+concrete instance, nonzero when the squared-error tolerance is below its
+positive `starRatio` variance floor. This is finite approximate range,
+not an exact inverse, convergence of the preimages, or a complete Hilbert
+construction. Nome/width dependence remains, and the original-action
+relative scaling estimate and continuum requirements remain open.
+The dependency-complete consumer target and two final serialized direct
+checks passed all 29 printed gates within `{propext, Quot.sound}`, without
+warnings or `sorryAx`. Final checks used one explicit 20 GiB worker cap;
+no full-root audit was run.
+
+**Actual signed time sums on the all-nome carrier (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialJointLinear.lean` constructs rational addition,
 scaling and subtraction on the existing `JointCompletion`, with explicit
 moduli. `BF4ExactSlabFixedSpatialJointBilinearTime.lean` proves bilinearity

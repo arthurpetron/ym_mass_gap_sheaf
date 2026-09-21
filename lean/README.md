@@ -12,7 +12,31 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Actual all-nome rational linear joint carrier and finite orbit sums (2026-09-21 UTC):**
+**Actual joint geometry and finite approximate range for `I-T^2` (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialJointGeometry.lean` proves positive definiteness and
+pairing extensionality on the existing all-nome fixed-width
+`JointCompletion`. A zero completed diagonal constructs an explicit closeness
+witness using the actual `pairRate`; subtraction pairings and equality from
+all pairing tests therefore require neither quotient representative choice
+nor identification with a stage-indexed carrier. Each supplied Cauchy
+representative also carries its computed `normCeiling` bound.
+
+`BF4ExactSlabFixedSpatialJointRangeApproximation.lean` constructs the finite
+sum `x+T^2x+...+T^(2*(n-1))x`. Its approximation error after applying
+`I-T^2` is exactly the tail `T^(2*n)x`; the existing strict unit-complement
+norm contraction and the supplied representative's ceiling give a computable
+epsilon cutoff, including the zero-rate branch. For the actual centered plaquette stream,
+`plaquettePreimage` has the same explicit error and orthogonality pins, and is
+nonzero whenever `0<epsilon<starRatio`. This is a finite approximate preimage,
+not an exact inverse or a convergence theorem for the preimages. It supplies
+no continuous generator, changing-width/nome/spacing control, physical mass,
+or continuum QFT conclusion. No hole, canonical field or analytic assumption
+changed. The dependency-complete consumer target and two final serialized
+direct checks passed all 29 printed gates (13 geometry, 16 range/consumer)
+within `{propext, Quot.sound}`, without warnings or `sorryAx`. Final checks
+used one explicitly capped 20 GiB worker; no full-root audit was run.
+
+**Actual all-nome rational linear joint carrier and finite orbit sums (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialJointLinear.lean` constructs addition, rational
 scaling, zero, negation and subtraction directly on the existing
 fixed-width `JointCompletion`. The finite-stage squared-distance estimates

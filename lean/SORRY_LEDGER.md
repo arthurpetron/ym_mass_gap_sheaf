@@ -13,7 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual all-nome rational joint operations and finite orbit sums (2026-09-21 UTC)
+## PROVED actual joint geometry and finite approximate range for `I-T^2` (2026-09-21 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointGeometry.lean` and
+  `BF4ExactSlabFixedSpatialJointRangeApproximation.lean` in the same directory.
+- **scope**: the existing all-nome fixed-width `JointCompletion` pairing is
+  positive definite and separates vectors. Zero diagonal produces an explicit
+  closeness witness with the actual `pairRate`, while each supplied Cauchy
+  representative has its computed `normCeiling`; no quotient representative
+  is selected. The finite geometric sum
+  `x+T^2x+...+T^(2*(n-1))x` is an explicit approximate preimage under
+  `I-T^2`, whose error is exactly `T^(2*n)x`. The unit-complement contraction
+  gives a computable epsilon cutoff from the supplied representative data,
+  including the zero-rate branch.
+- **concrete consumer**: the existing centered plaquette stream supplies the
+  representative and orthogonality data. `plaquettePreimage_error` retains the
+  explicit squared-error tolerance, and `plaquettePreimage_ne_zero` proves the
+  constructed finite preimage nonzero when `0<epsilon<starRatio` by comparison
+  with the already proved plaquette norm floor.
+- **honest boundary**: no exact inverse, convergence or Cauchy theorem for the
+  preimages, representative-independent inverse map, continuous generator,
+  changing-width/nome/spacing survival, physical mass, or continuum QFT claim
+  follows. No legacy or stage-indexed carrier is substituted, and no hole,
+  canonical field or analytic assumption changed.
+- **verification**: the dependency-complete
+  `+YMGap.Continuum.BF4ExactSlabFixedSpatialJointRangeApproximation:olean`
+  target and two final serialized direct checks passed all 29 printed gates
+  (13 geometry, 16 range/consumer) within `{propext, Quot.sound}`, without
+  warnings or `sorryAx`. Final checks used one explicitly capped 20 GiB
+  worker; no full-root audit was run. Logs:
+  `/tmp/ym-gap-joint-geometry-final.log`,
+  `/tmp/ym-gap-joint-range-final.log`.
+
+## PROVED actual all-nome rational joint operations and finite orbit sums (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**:
   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointLinear.lean` and

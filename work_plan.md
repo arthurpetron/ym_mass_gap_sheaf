@@ -34,7 +34,70 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Actual all-nome linear carrier and signed time smearing (2026-09-21 UTC)
+### SAME-carrier separation and finite approximate range (2026-09-21 UTC)
+
+**PROGRESS -- constructive operator input, with an actual consumer:**
+`BF4ExactSlabFixedSpatialJointGeometry` uses the existing joint-pairing
+rate to construct closeness to the literal zero from zero completed norm.
+This proves positive definiteness and separation on the actual all-nome
+fixed-width `JointCompletion`, not an identification with a legacy carrier.
+The same supplied representative has a computed `normCeiling`.
+
+`BF4ExactSlabFixedSpatialJointRangeApproximation` combines that separation
+with the preceding rational/time operations. For the ACTUAL time map T,
+it constructs finite even-orbit sums and proves vector equalities:
+
+    S_N(x) = sum_{k<N} T^(2*k)x,       R(x) = x-T^2 x,
+    R(S_N(x)) = x-T^(2*N)x,
+    x-R(S_N(x)) = T^(2*N)x.
+
+On the existing unit complement, iteration of the existing one-step
+squared-norm contraction yields
+
+    ||x-R(S_N(x))||^2 <= q^(2*N)*||x||^2,
+    q = twoStepRate(w,width),   0 <= q < 1.
+
+`approximationModulus X epsilon` applies the already proved rational
+geometric cutoff to q and the SUPPLIED Cauchy representative X's norm
+ceiling. It bounds every subsequent error, including the zero-rate case;
+`approximatePreimage` returns the actual finite state and preserves unit
+orthogonality. There is no quotient representative selection and no new
+analytic norm-bound hypothesis. A representative-independent selected
+epsilon-preimage map is not asserted.
+
+**Concrete consumer:** `plaquettePreimage` uses the existing plaquette
+centering stream, so all approximation data are constructed from the
+original face. `plaquettePreimage_ne_zero` combines its error bound with
+the existing `faceExcitation_norm_floor`: for `0<epsilon<starRatio(w)`,
+the approximate preimage is not the actual completed zero. No active-edge
+premise is needed for this time-zero variance argument. This is a specific
+nonzero finite filter, not non-erasure of arbitrary signed filters.
+
+**Boundary / next producer:** this is finite approximate range of I-T^2,
+not exact surjectivity, convergence of the preimages, metric completeness,
+real scalars, or a full Hilbert/QFT construction. Do not build an exact
+inverse without identifying a consumer that needs it. Rates/cutoffs retain
+nome/width dependence. The primary analytic frontier remains the direct
+SAME-original-action relative temporal estimate for a justified observable
+and spatial/scaling family, as recorded by the temporal-family audit below.
+No near-one response, spatial/spacing passage, physical mass, continuum
+survival or every-group conclusion follows. No canonical field, hole or
+analytic assumption changed.
+
+**Verification / delegation:** the dependency-complete
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialJointRangeApproximation:olean`
+target and two final serialized direct checks passed all 29 printed gates
+(13 geometry, 16 range/consumer), within `{propext, Quot.sound}`, without
+warnings or `sorryAx`. Sol supplied the separation/norm-ceiling proof,
+independent consumer review and supporting documentation; main supplied
+the finite approximation and concrete plaquette consumer. Final checks
+used one explicitly capped 20 GiB worker; no full-root audit was run.
+The first target invocation used the repository's configured 32 GiB ceiling;
+the target was then rerun with `--lake-worker-limit-gib 20`. Final logs:
+`/tmp/ym-gap-joint-range-final-build.log`,
+`/tmp/ym-gap-joint-geometry-final.log`, `/tmp/ym-gap-joint-range-final.log`.
+
+### Actual all-nome linear carrier and signed time smearing (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- independent Hilbert/OS input constructed:** the previous
 checkpoint supplied scalar form laws and pure time translates, but no
