@@ -34,7 +34,74 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### A cutoff/depth-uniform positive ORIGINAL plaquette response floor (2026-09-21 UTC)
+### Positive ORIGINAL response on the EXISTING all-nome completion (2026-09-21 UTC)
+
+**PROGRESS -- the changing-center limit join is proved:**
+`BF4ExactSlabFixedSpatialPlaquetteCompletedResponse.padded_faceExcitation_response_floor`
+proves, for the already constructed centered plaquette vector v,
+
+    0 < delta(w,width) <= completedInner v (jointCompletedTime 1 v).
+
+Here delta is the explicit `uniformFloor` constructed at the previous
+checkpoint. The theorem holds at every strict nome `0<w<1`, for a base
+plaquette at every strictly larger width. Each width has its OWN constant
+and completion. Both heat cutoff and external time depth have been removed;
+no spatial or lattice-spacing limit is taken.
+
+**Exact causal argument:** `lower_endpoint_mean`, `upper_endpoint_mean`
+and `endpoint_means_eqv` identify both endpoint expectations in the SAME
+original one-step window with its two-message marginal mean. Then
+`WindowCenteredProduct.centered_product_pin` proves
+
+    W[(f-m)(lift(f)-m)] = W[f*lift(f)] - W[f]*W[lift(f)].
+
+The lifted unit uses supported padded equality, not false unrestricted
+coefficient equality. On the standard diagonal j>=1, K=`headCutoff w+j`
+and theorem index n=j-1 supply the existing finite floor. The three sources
+on the right are FIXED. `connected_diagonal_converges` applies the
+existing `originalJoint_diagonal_converges` separately to them and uses
+the proved padding stationarity for both endpoint means.
+`connected_response_floor` passes the lower bound to the original connected
+Wilson scalar. `mixedProduct_mean`/`jointPairing_mean`, the existing
+`jointPairing_lag`, and `faceExcitation_correlator_pin` then identify this
+scalar with the SAME completed pairing and operator. No analytic input
+or new completion was assumed.
+
+**Next bounded proposition / boundary:** the existing calibration pipeline
+uses a TWO-step response, not this one-step scalar. On this fixed-width
+all-nome carrier, prove `delta^2 <= B(v,v)*B(v,T(2)v)` and use the explicit
+cap `1+separationCap width x.val x.val` to construct a two-step floor.
+Source review found the required dense theorem
+`JointPairingLaws.jointPairing_cauchySchwarz`, the generic limit proof
+`CRealSeminormPairingCompletion.representativeInner_cauchySchwarz` in
+`CRealSeminormPairingPosdef.lean`, and the exact time-balance/semigroup
+identities. The bespoke `JointCompletion` still needs its own checked
+completed-CS theorem. Its norm cap follows from `jointCenteredMoment_le`
+at lag zero and the existing correlator pin. This is the next argument
+to prove, not a theorem in this increment; no new analytic premise is
+identified by this source review.
+Do not identify this carrier with the guarded spatial-union current sector.
+Even a fixed-width two-step bound leaves spatial/spacing-uniform survival,
+the actual scaling/observable schedule, physical mass, canonical OS/full
+QFT and every compact simple group OPEN. No canonical atom was closed.
+
+**Verification and delegation:** the dependency-complete target
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteCompletedResponse:olean`
+and six final direct checks passed all 14 printed gates within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Final logs:
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialWindowEndpointMean-final.log`,
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialWindowCenteredProduct-final.log`,
+`/tmp/ym-gap-BF4WilsonPlaquetteSourcePin-final.log`,
+`/tmp/ym-gap-BF4WilsonAllNomePlaquetteMeanPin-final.log`,
+`/tmp/ym-gap-BF4WilsonAllNomePlaquetteConnectedFloor-final.log`, and
+`/tmp/ym-gap-BF4ExactSlabFixedSpatialPlaquetteCompletedResponse-final.log`.
+Sol supplied bounded endpoint/mean helpers and an independent review;
+main proved the finite centering identity, limit inequality and completed
+consumer. One monitored 20 GiB worker; no full-root build/audit. No hole,
+axiom, canonical field or existing analytic obligation changed.
+Last whole-project causal ASCII chart: 2026-09-21 05:37 UTC.
+
+### A cutoff/depth-uniform positive ORIGINAL plaquette response floor (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the shared terminal mass now cancels:**
 `BF4ExactSlabFixedSpatialPlaquetteUniformResponse.padded_centered_window_response_floor`

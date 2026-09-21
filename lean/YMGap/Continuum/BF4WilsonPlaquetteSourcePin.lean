@@ -9,6 +9,7 @@ the partition, and asserts no positive-time lower bound or limiting survival.
 -/
 
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCompletedPhysicalTime
+import YMGap.Continuum.BF4ExactSlabFixedSpatialReflectedSeparatedProbe
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonPlaquette
 import YMGap.Continuum.BF4WilsonAllNomeMomentConvexity
 
@@ -30,9 +31,13 @@ open YMGap.Continuum.BF4ExactSlabFixedSpatialWindowProbeSpan (sourceSpan)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialWindowReflection (mirrorSchedule)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialWindowReflectionPositive (mirrorSpan)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialReflectedForm (mixedProduct)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialReflectedSeparatedProbe
+  (mirrorSpan_encodeChart)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialIntrinsicReflectedForm (encodeChart encodeSchedule radius)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialIntrinsicUnit
+  (unitSpan encodeChart_unit sourceSpan_unit)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialPhysicalTimeShift
-  (advanceSchedule advanceSpan radius_advance_le)
+  (advanceSchedule advanceSpan advanceSpan_zero radius_advance_le)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialCompletedPhysicalTime (physicalTime)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialFaceCharacter (facePresentation faceSpan faceSpan_radius)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonProbe (sourceCharacter)
@@ -87,6 +92,31 @@ theorem face_time_radius (width : Nat) (face : Z4Plaq)
   rw [faceSpan_radius, Nat.zero_add] at h
   exact h
 
+/-- The mixed radius-zero chart polynomial for a plaquette against the unit
+is the fixed Wilson singleton source.  This is the finite coefficient pin
+used to identify the completed mean; it changes neither action nor partition. -/
+theorem mixedProduct_mean (width : Nat) (face : Z4Plaq)
+    (hf : face ∈ spatialFaces width) :
+    RatPolyCoeffEqv
+      (mixedProduct width 0
+        (encodeChart 0 (faceSpan width face hf).val)
+        (encodeChart 0 unitSpan))
+      (sourcePolynomial (.loop 0 (plaquetteLoop face hf) 1)) := by
+  have hx : radius (faceSpan width face hf).val ≤ 0 := by
+    rw [faceSpan_radius]
+    exact Nat.le_refl 0
+  rw [mixedProduct, mirrorSpan_encodeChart 0 (faceSpan width face hf).val hx,
+    advanceSpan_zero, encodeChart_unit, sourceSpan_unit]
+  change RatPolyCoeffEqv
+    (polyMul (sourceSpan width (faceSpan width face hf).val) polyOne)
+    (liftBoundary (0*(N width))
+      (sourceCharacter width (plaquetteLoop face hf).edges 1))
+  have hs := singleton_span width 0 face
+  have hw := lift_coeff (0*(N width))
+    (sourceCharacter_plaquette width face 1).symm
+  exact ((hs.mul (RatPolyCoeffEqv.refl polyOne)).trans
+    (RatPolyCoeffEqv.mul_one _)).trans hw
+
 /-- The mixed intrinsic polynomial for a plaquette and its `n`-step physical
 advance is the SAME finite two-time Wilson source used by `lagExpression`.
 The statement is coefficient-sensitive and has no nome or positivity guard. -/
@@ -128,6 +158,7 @@ theorem mixedProduct_lag (width : Nat) (face : Z4Plaq)
     ((hwilson n).mul (hwilson 0))
 
 #print axioms face_time_radius
+#print axioms mixedProduct_mean
 #print axioms mixedProduct_lag
 
 end YMGap.Continuum.BF4WilsonPlaquetteSourcePin

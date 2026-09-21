@@ -42,20 +42,32 @@
 > retaining its full interaction and partition. An explicit plaquette test
 > now proves finite positive centered response at every strict nome and
 > padded width. Its positive lower bound is now independent of cutoff and
-> terminal depth at fixed nome/width. The join to the completed response
-> and spatial/scaling survival remain open.
+> terminal depth at fixed nome/width. That floor now survives both limits
+> on the SAME existing completed vector and one-step time operator.
+> Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Cutoff/depth-uniform positive response (2026-09-21 UTC):**
+**Positive response on the existing completion (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialPlaquetteCompletedResponse` proves
+`0 < delta(w,width) <= B(v,T(1)v)` for the existing centered plaquette
+excitation, at every strict nome and strictly padded width. The proof
+eliminates the changing finite center before taking limits, then identifies
+all three fixed-observable limits with the SAME completed pairing.
+The constant still depends on nome and width. This is not spatial/scaling
+survival or a physical mass bound. Sol supplied the endpoint and mean pins
+and independently reviewed the limit argument. Six final narrow checks
+passed all 14 printed gates; no full-root build or audit was run.
+
+**Cutoff/depth-uniform positive response (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialPlaquetteUniformResponse` proves a computed
 positive floor for the SAME original one-step plaquette response at every
 late cutoff and terminal depth at least one. The argument retains and
 cancels the common terminal mass against the original partition, then
 uses the exact dual-test cost and the proved bound on the actual mean.
-The constant still depends on nome and spatial width. Its passage to the
-existing completed response, and all spatial/scaling claims, remain open.
+The constant still depends on nome and spatial width. Its completed-response
+passage is now proved above; spatial/scaling claims remain open.
 Sol supplied bounded cost/mean helpers. Three final narrow checks passed
 all 23 axiom gates; no full-root build or audit was run.
 
@@ -67,7 +79,7 @@ integration proves `P(b)=h`, so its detector is the positive square
 dual lower bound is now strictly positive for this test. Strict spatial
 padding proves link activity. This holds at every strict nome and late
 finite cutoff/depth. The newer checkpoint above supplies a cutoff/depth-uniform
-floor; its completed-limit passage and spatial/scaling survival remain open. Sol handled
+floor and its completed-limit passage; spatial/scaling survival remains open. Sol handled
 bounded helpers and independent review. Six final narrow checks passed all
 35 printed axiom gates; no full-root build or audit was run.
 
@@ -77,7 +89,7 @@ bounded helpers and independent review. Six final narrow checks passed all
 signed polynomial test, using the kinetic positive form and the exact
 original partition. For an arbitrary test the bound may be zero; the
 later checkpoints above supply a detecting plaquette test and a cutoff/depth-uniform
-floor. Its completed-limit passage remains open; no continuum theorem is claimed.
+floor and its completed-limit passage. No continuum theorem is claimed.
 Sol supplied the kinetic Cauchy--Schwarz
 helper and independent review. Both final narrow checks passed all 14
 axiom gates; no full-root audit.

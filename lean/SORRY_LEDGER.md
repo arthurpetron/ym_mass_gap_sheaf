@@ -13,6 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED positive plaquette response on the existing all-nome completion (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowEndpointMean.lean`,
+  `BF4ExactSlabFixedSpatialWindowCenteredProduct.lean`,
+  `BF4WilsonPlaquetteSourcePin.lean`, `BF4WilsonAllNomePlaquetteMeanPin.lean`,
+  `BF4WilsonAllNomePlaquetteConnectedFloor.lean`, and
+  `BF4ExactSlabFixedSpatialPlaquetteCompletedResponse.lean`, in the same directory.
+- **scope**: `centered_product_pin` eliminates the regulator-dependent
+  finite center using exact equal endpoint means, without changing the
+  original action or partition. `connected_diagonal_converges` takes the
+  existing joint cutoff/time limit termwise on three FIXED observables.
+  `connected_response_floor` retains the positive `uniformFloor`.
+  `mixedProduct_mean` and `jointPairing_mean` identify the completed mean;
+  the existing lag pin identifies the two-point term.
+  `faceExcitation_response_floor` proves the resulting lower bound on
+  `completedInner v (jointCompletedTime 1 v)` for the EXISTING centered
+  vector. The padded theorem discharges all active-link premises.
+- **parameters / boundary**: every strict nome and padded width; cutoff
+  and terminal depth have been removed. The floor STILL depends on nome
+  and width. This does not prove spatial/scaling survival, finite physical
+  mass, canonical OS/full QFT, or the all-group target. No canonical atom,
+  hole, axiom, field or existing analytic obligation was changed. In
+  particular this is not a spatial-union two-step calibration certificate.
+- **verification**: the dependency-complete completed-response target and
+  six final direct checks passed all 14 printed gates within
+  `{propext, Quot.sound}`, without warnings or `sorryAx`. Sol supplied the
+  bounded endpoint/mean pins and independently reviewed centering,
+  orientation and uniformity. Main supplied the finite expansion, limit
+  inequality and completed consumer. One monitored 20 GiB worker; no
+  full-root build/audit. Exact logs are recorded in `work_plan.md`.
+
 ## PROVED cutoff/depth-uniform original plaquette response floor (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteDualCost.lean`,
@@ -29,8 +60,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **parameters / boundary**: the floor depends on nome and width, not
   cutoff `K>=max(headCutoff w,1)` or external terminal depth `n+1`.
   It is not spatially or spacing uniform. The mean changes with the finite
-  regulators; its centered-expression limit and the SAME completed response
-  still require a proved join. No continuum survival, physical mass, full
+  regulators; its centered-expression limit and SAME completed response
+  required the join now proved in the newer entry above. No continuum survival, physical mass, full
   QFT, every-group theorem or canonical atom is closed. No hole, axiom,
   canonical field or existing analytic obligation changed.
 - **verification**: the narrow dependency-complete target and three final
@@ -65,7 +96,7 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   finite terminal depth, fixed base face at every larger width. The finite
   positive lower witness here depends on cutoff/depth/width/nome. The later
   entry above now supplies a cutoff/depth-uniform bound. The SAME completed
-  response passage remains open, as do spatial/scaling survival, physical
+  response passage is now proved above; still open are spatial/scaling survival, physical
   mass, full QFT and all groups. This is not an eigenidentity for the
   interacting transfer. No hole, axiom, canonical field or existing
   analytic obligation changed.

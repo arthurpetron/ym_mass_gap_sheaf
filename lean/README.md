@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Cutoff/depth-uniform original response floor (2026-09-21 UTC):**
+**Positive response on the SAME existing completion (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialWindowEndpointMean.lean` and
+`BF4ExactSlabFixedSpatialWindowCenteredProduct.lean` replace the varying
+finite centered product by the two-point value minus its endpoint means'
+product. `BF4WilsonAllNomePlaquetteConnectedFloor.lean` applies the existing
+fixed-source joint convergence and stationarity to those three terms.
+`BF4WilsonPlaquetteSourcePin.mixedProduct_mean` and
+`BF4WilsonAllNomePlaquetteMeanPin.lean` identify the same completed mean.
+`BF4ExactSlabFixedSpatialPlaquetteCompletedResponse.lean` concludes
+`delta(w,width) <= B(v,T(1)v)` on the already constructed `faceExcitation`.
+The existing explicit delta is positive; strict padding proves activity.
+Nome/width dependence remains. No spatial/scaling survival or physical-mass
+claim follows. All six final narrow checks passed the 14 printed gates
+within `{propext, Quot.sound}`; no holes/fields changed or full-root audit.
+
+**Cutoff/depth-uniform original response floor (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialPlaquetteDualCost.lean` computes the test cost
 `w^(-12)+m^2` and bounds the actual marginal mean by [-2,2].
 `BF4ExactSlabFixedSpatialResponseMassBounds.lean` retains the same
@@ -20,8 +35,8 @@ genuinely constructive.
 `U*M^2`. `BF4ExactSlabFixedSpatialPlaquetteUniformResponse.lean` cancels
 that scale and constructs `ell^2/((w^(-12)+5)*U)>0`, independent of late
 cutoff and terminal depth at least one. Nome/width dependence remains.
-The SAME completed-response join, spatial/scaling survival and Clay target
-are still open. Three final narrow checks passed all 23 gates within
+The SAME completed-response join is now proved above; spatial/scaling
+survival and the Clay target remain open. Three final narrow checks passed all 23 gates within
 `{propext, Quot.sound}`; no holes/fields changed or full-root audit.
 
 **Positive original finite plaquette response (earlier checkpoint, 2026-09-21 UTC):**
@@ -36,8 +51,8 @@ floor, using two unchanged density-variance lemmas now publicly exposed.
 `b=w^(-12)*f-m`, proves `P(b)=f-m`, and obtains a positive original finite
 response from the preceding computed dual floor. The interacting endpoint
 `V*T^n1` and original odd partition remain intact. The later result above
-supplies the cutoff/depth-uniform floor; completed-response passage and
-spatial/scaling survival are not concluded. Six final narrow checks passed all 35 printed gates within
+supplies the cutoff/depth-uniform floor and completed-response passage;
+spatial/scaling survival is not concluded. Six final narrow checks passed all 35 printed gates within
 `{propext, Quot.sound}`. No holes or canonical fields changed; no full-root audit.
 
 **Computed original finite-response floors (earlier checkpoint, 2026-09-21 UTC):**
@@ -48,8 +63,8 @@ the actual kinetic product-map form and arbitrary signed supported inputs.
 window numerator. Its computed `responseFloor` is nonnegative and no
 greater than that SAME normalized response. It can be zero for arbitrary
 tests; later modules above supply a detecting plaquette test and its
-cutoff/time-uniform positive floor. The completed and spatial/scaling joins
-remain open. Both final checks passed all 14 gates within
+cutoff/time-uniform positive floor and completed passage. The spatial/scaling
+join remains open. Both final checks passed all 14 gates within
 `{propext, Quot.sound}`. No holes/fields changed or full audit.
 
 **All-nome completed plaquette time control (2026-09-21 UTC):**
