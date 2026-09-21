@@ -13,7 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED all-nome fixed-width plaquette-orbit non-erasure (2026-09-21 UTC)
+## PROVED actual all-nome rational joint operations and finite orbit sums (2026-09-21 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointLinear.lean` and
+  `BF4ExactSlabFixedSpatialJointBilinearTime.lean` in the same directory.
+- **scope**: addition, rational scaling, zero, negation and subtraction are
+  constructed on the existing fixed-width `JointCompletion`. Their explicit
+  completion moduli and dense embedding pins are retained, and the rational
+  additive/scalar laws follow by passing finite-stage pairing equality through
+  the actual joint distance limit. The existing `completedInner` is bilinear
+  for these operations and completed physical time respects them.
+  `orbitSum` constructs every finite rational signed sum of time translates,
+  while `orbitSum_pairing` identifies its pairing with the complete double
+  signed sum of the original correlators at lag `m+n`, retaining every cross
+  term. Unit orthogonality and the existing strict two-step form bound pass to
+  the resulting vector.
+- **honest boundary**: empty or cancelling filters are permitted, and no
+  arbitrary filtered vector is proved nonzero. No near-one Rayleigh witness,
+  metric/Hilbert completeness, real-scalar extension, full Hilbert-space or
+  QFT construction, or changing-width/nome/spacing survival follows. No
+  stage-indexed or legacy carrier is identified with `JointCompletion`; no
+  hole, canonical field or analytic assumption changed.
+- **verification**: the dependency-complete `JointBilinearTime:olean` target
+  and two final serialized direct checks passed all 48 printed gates
+  (28 linear, 20 consumer), within `{propext, Quot.sound}`, without warnings
+  or `sorryAx`. Sol supplied the linear construction and independent review;
+  main supplied the actual pairing/time/smearing consumer and serialized
+  verification. One monitored 20 GiB worker; no full-root audit.
+
+## PROVED all-nome fixed-width plaquette-orbit non-erasure (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**:
   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointQuadraticForm.lean`,

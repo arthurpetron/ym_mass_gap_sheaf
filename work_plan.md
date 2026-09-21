@@ -34,7 +34,62 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### All-nome actual orbit moments and finite-time non-erasure (2026-09-21 UTC)
+### Actual all-nome linear carrier and signed time smearing (2026-09-21 UTC)
+
+**PROGRESS -- independent Hilbert/OS input constructed:** the previous
+checkpoint supplied scalar form laws and pure time translates, but no
+linear operations on the actual all-nome `JointCompletion`.
+`BF4ExactSlabFixedSpatialJointLinear` now passes the finite-stage addition
+and scaling distance estimates through the joint limits and applies the
+existing explicit-modulus completion machinery. Its rational operations
+obey the additive/scalar laws and preserve the literal dense embedding.
+No fixed-stage, small-nome union, or legacy thermodynamic completion is
+identified with this carrier. The addition modulus uses both quarter-
+tolerance input moduli; scaling uses the existing `scalarTolerance`.
+
+**Actual consumer:** `BF4ExactSlabFixedSpatialJointBilinearTime` proves
+completed bilinearity and time compatibility. Its `orbitSum x cs` is an
+actual finite signed sum of time translates, with the exact identity
+
+    B(sum_i c_i*T^(n_i)x, sum_j d_j*T^(m_j)y)
+      = sum_i sum_j c_i*d_j*B(x,T^(n_i+m_j)y).
+
+Repeated lags and signed coefficients are allowed; no cross term is lost.
+`orbitSum_orthogonal` and `orbitSum_twoStep_form_gap` keep the sum in the
+same vacuum complement and under its existing strict form bound. Empty
+and cancelling filters are allowed, so nonzero filtered response is not
+claimed. Finite smearing is now constructed, unlike at the preceding
+checkpoint; it does not manufacture a near-one certificate or low-energy
+support. This is rational linear structure, not real-scalar extension,
+metric completeness, a full Hilbert/QFT package, or a spatial/scaling limit.
+No canonical field, hole or analytic assumption changed.
+
+**Analytic lane / next producer remains open:** Sol's source inventory
+confirms that the actual edge is `K(x,y)*(V*g)(x)*(V*g)(y)`, with
+`g=terminalMessage`. Bare product-map character diagonalization and static
+Ward-score off-star cancellation do not establish temporal cross-term
+cancellation under that weight. The available signed-family temporal
+energy theorem is a LOWER bound, not the required upper bound. The current
+source evidence is in `audits/AUDIT-TEMPORAL-FAMILY-UPPER-BOUND-2026-09-21.md`.
+The next estimate must control the actual whole signed increment relative
+to its actual variance along a justified observable/spatial/scaling family.
+The new finite-smearing identity makes changing the observable an actual
+same-carrier operation; quantitative non-erasure/calibration for a useful
+choice is still a proof to supply. Do not substitute arbitrary filter
+availability or more transported coarse floors for that estimate.
+
+**Verification / delegation:** the dependency-complete
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialJointBilinearTime:olean`
+target and two final serialized direct checks passed all 48 printed gates
+(28 linear, 20 consumer), within `{propext, Quot.sound}`, without warnings
+or `sorryAx`. Sol supplied the linear construction, source inventory,
+independent review and supporting documentation; main supplied the
+pairing/time/smearing consumer and serialized verification. One monitored
+20 GiB worker; no full-root audit. Final logs:
+`/tmp/ym-gap-joint-linear-final.log` and
+`/tmp/ym-gap-joint-bilinear-time-final.log`.
+
+### All-nome actual orbit moments and finite-time non-erasure (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- positive orbit norms on the SAME fixed-width joint carrier:**
 the current `JointCompletion` was not silently identified with either the

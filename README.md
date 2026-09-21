@@ -124,12 +124,35 @@
 > a positive squared-norm floor after every finite time advance:
 > `||T^n v||^2 >= relativeFloor^n*starRatio > 0`, with its active-edge guard.
 > This bound may decay with n; it is not fixed-physical-time survival.
+> Rational linear operations and finite signed time sums now act on that
+> SAME all-nome completion, with explicit Cauchy moduli. Their pairings are
+> exact double sums of the original correlator, retaining all cross terms.
+> These constructions do not prove a nonzero or near-one filtered response.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**All-nome finite-time non-erasure (2026-09-21 UTC):**
+**Actual signed time sums on the all-nome carrier (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialJointLinear.lean` constructs rational addition,
+scaling and subtraction on the existing `JointCompletion`, with explicit
+moduli. `BF4ExactSlabFixedSpatialJointBilinearTime.lean` proves bilinearity
+and compatibility with the existing physical time map. For actual vectors
+`v_c = sum_i c_i*T^(n_i)x`, its `orbitSum_pairing` identifies
+`B(v_c,v_d) = sum_i sum_j c_i*d_j*B(x,T^(n_i+m_j)y)` on this same carrier.
+No signed cross term is dropped. The unit complement is preserved and its
+existing strict two-step bound still applies, including to cancelling sums.
+
+This constructs finite time smearing, not a nonzero filtered state, near-one
+response, real-scalar/complete Hilbert package, or continuum limit.
+The source review found no available passage from bare product-heat
+diagonalization to the needed original Gibbs-weighted family estimate;
+see [the temporal-family audit](audits/AUDIT-TEMPORAL-FAMILY-UPPER-BOUND-2026-09-21.md).
+The dependency-complete consumer target and two final serialized checks
+passed all 48 printed gates within `{propext, Quot.sound}`, without warnings
+or `sorryAx`; no full-root audit was run.
+
+**All-nome finite-time non-erasure (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialJointQuadraticForm.lean` passes positivity of the
 literal dense `x-rho*y` form to the existing completed pairing, without
 constructing another carrier or assuming completed linear operations.

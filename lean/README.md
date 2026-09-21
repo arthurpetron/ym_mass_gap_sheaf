@@ -12,7 +12,36 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**All-nome fixed-width plaquette-orbit non-erasure (2026-09-21 UTC):**
+**Actual all-nome rational linear joint carrier and finite orbit sums (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialJointLinear.lean` constructs addition, rational
+scaling, zero, negation and subtraction directly on the existing
+fixed-width `JointCompletion`. The finite-stage squared-distance estimates
+are passed through `distSq_converges_joint`, and the generic completion maps
+retain their explicit addition and scalar moduli. Finite-stage pairing
+equalities at every cutoff give joint-limit nullity, so the rational additive
+and scalar laws and the dense embedding pins descend without identifying
+this carrier with a stage-indexed or legacy completion.
+
+`BF4ExactSlabFixedSpatialJointBilinearTime.lean` proves bilinearity of the
+existing `completedInner`, compatibility of completed physical time with
+these rational operations, and constructs finite signed `orbitSum`s of time
+translates. `orbitSum_pairing` is the exact double signed correlator sum
+`sum_m c_m sum_n d_n B(x,T^(m+n)y)`, with every cross term retained in the
+same original pairing. Unit orthogonality is preserved, so the existing
+strict two-step form bound applies to each such filtered vector. Empty and
+cancelling coefficient lists are allowed: no theorem says an arbitrary
+filter is nonzero or produces a near-one Rayleigh witness. Metric/Hilbert
+completeness, real-scalar extension, a full Hilbert-space/QFT construction,
+and changing-width/nome/spacing survival remain open. No hole, canonical
+field or analytic assumption changed. The dependency-complete
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialJointBilinearTime:olean`
+target and two final serialized direct checks passed all 48 printed gates
+(28 linear, 20 consumer), within `{propext, Quot.sound}`, without warnings
+or `sorryAx`. Sol supplied the linear construction, source inventory and
+independent review; main supplied the pairing/time/smearing consumer and
+serialized verification. One monitored 20 GiB worker; no full-root audit.
+
+**All-nome fixed-width plaquette-orbit non-erasure (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialJointQuadraticForm.lean` proves positivity of the
 scaled difference `x-rho*y` directly through the existing
 `JointCompletion` pairing, without constructing new completed linear
