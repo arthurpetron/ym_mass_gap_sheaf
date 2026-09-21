@@ -141,6 +141,10 @@
 > `B(x,x)-B(x,T^n x) <= n*(B(x,x)-B(x,T x))` with all cancellations retained.
 > The missing quantitative input is still a sufficiently small relative
 > one-step energy along a justified spatial/scaling family.
+> A checked coefficient obstruction rules out bounding a separated
+> inverse-heat remainder uniformly in spin, at every strict nome.
+> This prunes that shortcut, not the original interacting energy estimate;
+> [the audit](audits/AUDIT-INVERSE-HEAT-REMAINDER-2026-09-21.md) records the distinction.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction

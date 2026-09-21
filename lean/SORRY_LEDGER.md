@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual all-nome one-step positivity and whole-state temporal energy (2026-09-21 UTC)
+## PROVED coefficient-level inverse-heat remainder obstruction (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2InverseHeatRemainderObstruction.lean`
+  and `SU2InverseHeatRemainderUnbounded.lean` in the same directory.
+- **pin and witness**: `rawAdjacentRemainder_eq_factorized` uses the literal
+  adjacent `physLinkWeight` ratios and exact SU(2) Casimir increments.
+  `escapeIndex` is a computable natural from the existing geometric cutoff;
+  `raw_escapeIndex_bound` gives a raw coefficient value at least `1+abs C`
+  for every proposed rational cap C and each fixed `0<w<1`.
+  `no_raw_spin_uniform_cap` rules out a spin-uniform cap on that remainder.
+  The dyadic specialization has the explicit lower bound `6*4^j`.
+- **scope**: this is not an arbitrary-spin eigenvector pin for the original
+  interacting `productMap`. The signed character inputs are not identified
+  with its positive endpoint source `V*terminalMessage`. The checked
+  `full_diagonal_cancellation` retains the negative-square diagonal; the
+  remainder lower bound is NOT a lower bound for the full double commutator
+  or the actual energy. The factorized expression at zero is auxiliary:
+  its four-ratio interpretation starts at physical label one.
+- **consumer / residue**: prunes discarding the negative square and then
+  bounding the remainder independently of spin. The quantitatively useful
+  SAME-original-action one-step estimate remains open. No analytic premise,
+  canonical frontier field, or hole changed; no continuum claim follows.
+- **verification**: the dependency-complete unbounded-consumer target and
+  both direct checks passed 15 printed gates, all within
+  `{propext, Quot.sound}`, without warnings or `sorryAx`; `escapeIndex` and
+  its positivity are axiom-free. One monitored 20 GiB worker, no full-root
+  audit. Logs: `/tmp/ym-gap-inverse-heat-obstruction-check2.log`,
+  `/tmp/ym-gap-inverse-heat-unbounded-check.log`,
+  `/tmp/ym-gap-inverse-heat-final-build.log`.
+
+## PROVED actual all-nome one-step positivity and whole-state temporal energy (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**:
   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSpanReversal.lean`,

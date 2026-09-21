@@ -34,7 +34,43 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Actual one-step positivity and whole-state temporal energy (2026-09-21 UTC)
+### Tested inverse-heat shortcut: preserve the cancellation (2026-09-21 UTC)
+
+**PROGRESS -- a candidate estimate is ruled out, not a physical theorem:**
+`SU2InverseHeatRemainderObstruction.rawAdjacentRemainder_eq_factorized`
+pins the four adjacent `physLinkWeight` ratios at physical label j>=1 to
+
+    R_j(w) = (1-w^2)*(w^(-(2*j+3)) + w^(2*j+1)).
+
+`SU2InverseHeatRemainderUnbounded.raw_escapeIndex_bound` constructs a spin
+from any strict nome and proposed rational cap C where `R_j >= 1+|C|`.
+Thus even an arbitrarily nome-dependent C(w) cannot bound this scalar
+remainder uniformly in spin. The negative-square diagonal cancels the growing
+inverse terms in the full expression (`full_diagonal_cancellation`); its
+removal is not a quantitatively usable uniform estimate.
+
+**Repointing:** stop the branch that drops that square and separately bounds
+the remainder by a spin-independent operator constant. Retain the whole
+signed energy and actual endpoint factors in the next analytic attempt.
+This is a coefficient-level test, not an arbitrary-spin eigenvector pin for
+the original interacting `productMap`, and not a refutation of the full
+double commutator or any actual Yang--Mills response. No new analytic field,
+canonical field or hole was introduced. The missing producer below is
+unchanged: a sufficiently small SAME-variance one-step estimate along a
+justified spatial/nome/spacing family. Source details and exact scope:
+`audits/AUDIT-INVERSE-HEAT-REMAINDER-2026-09-21.md`.
+
+**Verification / delegation:** the dependency-complete unbounded-consumer
+target and both direct checks passed 15 printed gates, all within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. The index and its
+positivity are axiom-free. Sol supplied the coefficient draft and independent
+algebra/scope review; main supplied the all-nome escaping witness, raw-ratio
+consumer and serialized checks. One 20 GiB-capped worker; no full-root audit.
+Logs: `/tmp/ym-gap-inverse-heat-obstruction-check2.log`,
+`/tmp/ym-gap-inverse-heat-unbounded-check.log`,
+`/tmp/ym-gap-inverse-heat-final-build.log`.
+
+### Actual one-step positivity and whole-state temporal energy (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- finite original positivity reaches the SAME completed operator:**
 `BF4ExactSlabFixedSpatialSpanReversal` identifies the complete signed source

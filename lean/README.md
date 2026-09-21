@@ -12,7 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Actual all-nome one-step positivity and whole-state temporal energy (2026-09-21 UTC):**
+**Coefficient-level shortcut obstruction (2026-09-21 UTC):**
+`SU2InverseHeatRemainderObstruction.lean` pins the four adjacent heat-weight
+ratios to `(1-w^2)*(w^(-(2*j+3))+w^(2*j+1))` for physical labels j>=1.
+`SU2InverseHeatRemainderUnbounded.lean` computes an escaping spin for every
+strict nome and rational cap, so this separated remainder has no spin-uniform
+bound even with nome-dependent constants. The full diagonal retains a
+cancelling negative-square term. This is not an interacting `productMap`
+eigenvector theorem or a Yang--Mills energy counterexample. It prunes the
+separate-remainder estimate, not the original relative-energy frontier.
+The consumer target and both direct checks passed 15 printed gates within
+`{propext, Quot.sound}`; the index construction is axiom-free. One 20 GiB
+worker; no full-root audit, new hole, analytic assumption or canonical-field
+change. See `audits/AUDIT-INVERSE-HEAT-REMAINDER-2026-09-21.md`.
+
+**Actual all-nome one-step positivity and whole-state temporal energy (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the common chart of an
 arbitrary physical signed span and its one-step advance with the existing odd
 kinetic product. Every signed coefficient and ordered face product is retained.

@@ -96,3 +96,12 @@ relative one-step producer. `centered_relative_energy`,
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointTemporalEnergy.lean:128`,
 keeps an explicitly SUPPLIED one-step bound relative to the SAME centered
 variance; it does not produce a scaling family or prove survival.
+
+## Tested inverse-heat shortcut
+
+The later [coefficient audit](AUDIT-INVERSE-HEAT-REMAINDER-2026-09-21.md)
+records a checked obstruction to bounding the separated inverse-heat
+remainder uniformly in spin at any fixed strict nome. Its negative-square
+partner cancels the growing inverse terms. This prunes that separate-remainder
+estimate, not the full double commutator or the original weighted energy
+bound sought here. The latter remains open.
