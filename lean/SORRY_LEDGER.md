@@ -13,6 +13,40 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED polynomial norm-growth obstruction on SAME sampled Wilson responses (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/PolynomialGeometricDecay.lean`,
+  `lean/YMGap/Continuum/PhysicalSamplingPolynomialEnvelope.lean`,
+  `lean/YMGap/Continuum/BF4WilsonPolynomialScalingObstruction.lean`, and
+  `lean/YMGap/Continuum/BF4WilsonPolynomialRenormalizedExcitation.lean`.
+- **scope**: `polynomial_bound` computes a cutoff for
+  `q^n * C*(n+1)^p <= epsilon`, with fixed `0 <= q < 1`, `C >= 0` and natural
+  `p`, using a computed geometric block length and the existing natural-power
+  majorant. `inverseSpacing_power_le` bounds inverse-spacing powers by the
+  actual sampled step count. `sampled_polynomial_small` consumes those bounds
+  for the SAME centered original Wilson response with squared-norm cap
+  `C*a_j^(-p)`. `nome_gt_of_polynomial_response` derives escape from every
+  fixed guarded nome ceiling at its computed threshold; the common rate is
+  supplied by actual rate monotonicity, not assumed in this consumer.
+  `sampledLimit_zero_of_polynomial_norm` pins any supplied response limit
+  below that ceiling to zero. `renormalizedExcitation_norm` computes the
+  power-scaled unit excitation's squared norm exactly, and
+  `renormalizedResponse_small` supplies its explicit tolerance tail.
+- **boundary**: fixed polynomial degree/amplitude and positive INTEGER
+  physical time, with supplied vanishing TWO-step spacing. No uniformity as
+  the strict rate tends to one. Approaching the open guard boundary and
+  faster-than-polynomial growth are not excluded; no critical point,
+  `w_j -> 1`, trajectory, or Yang--Mills counterexample is proved. Survival,
+  physical calibration, SAME-theory canonical OS/QFT, every compact simple
+  group and Clay closure remain open. No canonical bridge field is closed.
+- **verification**: monitored dependency-complete target
+  `+YMGap.Continuum.BF4WilsonPolynomialRenormalizedExcitation:olean` and direct
+  checks of all four files PASSed all 19 printed gates with at most
+  `{propext, Quot.sound}`, no warnings and no `sorryAx`. Direct logs:
+  `/tmp/ym-gap-<module>-final.log` for each listed module. One worker, 20 GiB
+  ceiling; no full-root build/audit was run. No hole was introduced/discharged
+  and no canonical frontier field changed.
+
 ## PROVED original-window reflection to SAME completed adjoint/Gram kernels (2026-09-20 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4WilsonKernelReflectionSyntax.lean` and
@@ -143,8 +177,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The pilot `W=1/1024` has proved guards.
 - **boundary**: only each fixed guarded subinterval is excluded for
   bounded-norm survival; the entire open guard region is not excluded.
-  Approaching its entropy boundary or allowing divergent lattice norms
-  is not ruled out. No physical critical point or `w_j -> 1` is identified.
+  Approaching its entropy boundary or allowing faster-than-polynomial norm
+  growth is not ruled out. Fixed polynomial growth is excluded by the newer
+  entry above. No physical critical point or `w_j -> 1` is identified.
   Positive integer time uses supplied TWO-step spacing. Scaling, physical
   normalization, same-theory OS/QFT, every group and Clay remain open.
 - **verification**: monitored target

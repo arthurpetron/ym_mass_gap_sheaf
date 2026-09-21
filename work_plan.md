@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-20)
+## Whole-project goal and live completion map (updated 2026-09-21 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -33,6 +33,55 @@ common numerical gap for all G or every bare lattice coupling. Any uniformity
 needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
+
+### Polynomial norm growth cannot rescue fixed guarded scaling (2026-09-21 UTC)
+
+`BF4WilsonPolynomialScalingObstruction.sampled_polynomial_small` proves an
+explicit tolerance tail for the SAME centered Wilson autocorrelation when
+its original squared norm is at most `C * a_j^(-p)`, with fixed `C >= 0`,
+`p : Nat`, and a common strict actual two-step rate `q < 1`. The family may
+change coupling, carrier and vector at every scale. Positive INTEGER physical
+time is sampled at `2*floor(t/a_j)` original steps, where supplied `a_j` is the
+duration of TWO original steps and has a vanishing modulus.
+
+The constructive estimate uses `PolynomialGeometricDecay.blockLength` to
+choose `N >= 1` with `2^p * q^N <= 1/2`. The existing natural-power bound then
+gives a geometric majorant in `floor(n/N)` for `q^n*(n+1)^p`, with the explicit
+`polynomialCutoff`. `PhysicalSamplingPolynomialEnvelope.inverseSpacing_power_le`
+proves `a_j^(-p) <= (floor(t/a_j)+1)^p`; composing with the spacing escape
+modulus gives `polynomialPhysicalModulus`. No roots, logarithms, classical
+choice, new analytic certificate, or surrogate response is used.
+
+For a fixed guarded ceiling `W`, actual rate monotonicity DERIVES the common
+strict rate. `nome_gt_of_polynomial_response` forces `W < w_j` from a positive
+response floor at the computed threshold, and
+`sampledLimit_zero_of_polynomial_norm` identifies any supplied pinned limit
+below `W` with zero. The concrete consumer in
+`BF4WilsonPolynomialRenormalizedExcitation` power-rescales the already proved
+`unitExcitation` by `a_j^(-p)`, computes its original squared norm exactly as
+`a_j^(-2p)`, and proves the same small-response tail. Its norm cap is proved,
+not an extra hypothesis.
+
+**Causal consequence and boundary:** fixed polynomial renormalization does
+not reopen survival below a fixed guarded coupling ceiling. Direct the next
+analytic work toward justified trajectories and original observables beyond
+such fixed subintervals, retaining the independent backward requirements.
+The result does NOT exclude approaching the entire open guard boundary or
+faster-than-polynomial norm growth. It identifies no physical critical point,
+does not prove `w_j -> 1`, and constructs no scaling trajectory. It is not a
+Yang--Mills counterexample. Physical calibration, surviving continuum
+observables, canonical SAME-theory OS/full QFT, every group and Clay remain
+open; no canonical bridge field is discharged.
+
+**Verification:** dependency-complete monitored target
+`+YMGap.Continuum.BF4WilsonPolynomialRenormalizedExcitation:olean` and direct
+checks of all four new modules PASSed all 19 printed gates with at most
+`{propext, Quot.sound}`, no warnings and no `sorryAx`. Direct logs are
+`/tmp/ym-gap-<module>-final.log` for each named module. One worker, 20 GiB
+ceiling; no full-root build/audit was run. No hole was introduced/discharged
+and no canonical frontier field changed. Luna drafted the sampling helper
+and landing-page text; the main agent repaired/integrated the helper and
+proved and verified the scalar blocking and actual-response consumers.
 
 ### Original reflected windows are SAME-operator Gram kernels (2026-09-20)
 
@@ -213,8 +262,9 @@ The existing AF-chart guard obstruction remains relevant: its weak-coupling
 nomes are not covered by the old perturbative boundary estimate.
 
 **Exact boundary:** this does NOT exclude all families in the open guarded
-region, approaching its entropy boundary, or renormalizations with growing
-lattice norms. No physical critical point or `w_j -> 1` is identified.
+region, approaching its entropy boundary, or faster-than-polynomial norm
+growth. Fixed polynomial growth is excluded by the newer checkpoint above.
+No physical critical point or `w_j -> 1` is identified.
 Positive integer time is sampled using a supplied TWO-step physical spacing;
 no time calibration or scaling family is constructed. Physical mass,
 same-theory OS/full QFT, all groups and the Clay target remain open.

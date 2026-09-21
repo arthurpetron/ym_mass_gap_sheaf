@@ -5043,6 +5043,11 @@ import YMGap.Continuum.BF4WilsonSurvivalPhysicalRateCeiling
 -- positive-time survival must escape every such ceiling, at a computed scale.
 import YMGap.Continuum.BF4ExactSlabCouplingRateMonotonicity
 import YMGap.Continuum.BF4WilsonGuardedCouplingEscape
+-- Fixed polynomial norm growth cannot rescue survival below a guarded ceiling.
+import YMGap.Continuum.PolynomialGeometricDecay
+import YMGap.Continuum.PhysicalSamplingPolynomialEnvelope
+import YMGap.Continuum.BF4WilsonPolynomialScalingObstruction
+import YMGap.Continuum.BF4WilsonPolynomialRenormalizedExcitation
 -- Modulus-bearing real action, actual vacuum projection and all-vector relaxation.
 import YMGap.Continuum.BF4WilsonSpatialUnionScalarDistance
 import YMGap.Continuum.BF4WilsonSpatialUnionRealScalarCauchy

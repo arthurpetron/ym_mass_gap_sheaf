@@ -13,11 +13,31 @@
 > the heat cutoff. Boundary localization makes its cost independent of
 > outer volume, under explicit small-nome guards; the inner-window cost
 > and coupling dependence remain. This is not continuum scaling control.
-> A checked obstruction now shows that bounded-norm positive-time survival
-> must escape every fixed guarded coupling ceiling, even for varying couplings.
+> Positive-time survival must escape every fixed guarded coupling ceiling,
+> even with any fixed polynomial squared-norm growth in inverse spacing.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
+
+**Polynomial norm-envelope obstruction (2026-09-21 UTC):**
+`BF4WilsonPolynomialScalingObstruction.sampled_polynomial_small` gives a
+computed vanishing-response modulus under a common strict lattice rate.
+Below one fixed guarded nome ceiling `W<1`, rate monotonicity derives that
+common rate: a fixed polynomial squared-norm cap `C * a_j^(-p)` still forces
+the same original centered Wilson positive-integer-time responses to vanish as
+`a_j -> 0`. The scalar blocking modulus chooses `N` with
+`2^p * q^N <= 1/2` and absorbs the polynomial factor through the sampled
+step count. `nome_gt_of_polynomial_response` gives the corresponding escape
+condition, while `sampledLimit_zero_of_polynomial_norm` packages the vanishing
+limit. The concrete `renormalizedExcitation := a_j^(-p) * unitExcitation`
+has squared norm `a_j^(-2p)` and receives the same small-response bound.
+The supplied spacing `a_j` is the duration of two original time steps.
+This covers fixed polynomial growth only: approaching the open guard boundary,
+arbitrary faster-than-polynomial renormalization, critical-point selection,
+physical normalization, continuum OS/QFT, and all-group closure remain open.
+The narrow dependency build and all 19 printed declaration gates passed with
+at most `{propext, Quot.sound}`, no warnings and no `sorryAx`; no full-root
+audit was run.
 
 > **Research status (2026-09-19 UTC): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
@@ -90,8 +110,9 @@ nome above any fixed guarded ceiling `W`, after a computed scale threshold.
 Monotonicity of the actual certified rate supplies the common-rate bound;
 it is not an extra assumption. Below that ceiling, bounded centered states
 have zero positive-time response limits. This does **not** exclude approaching
-the open guard region's boundary or renormalizations with diverging lattice
-norms, and does not identify a physical critical point. The spacing remains
+the open guard region's boundary or arbitrary faster-than-polynomial
+renormalizations; fixed polynomial growth is covered by the newer obstruction
+above. It does not identify a physical critical point. The spacing remains
 supplied as the duration of two original steps. All 14 exported axiom checks
 and the narrow dependency build passed; no full-root audit was run.
 
