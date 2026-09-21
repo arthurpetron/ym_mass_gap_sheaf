@@ -34,7 +34,40 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### All-label local angular Casimir reaches the finite heat prefix (2026-09-21 UTC)
+### Full endpoint-weight cancellation is exact (2026-09-21 UTC)
+
+**PROGRESS -- preserve the correction before estimating:** with the
+original a=V*g and actual product kinetic map P,
+`BF4ExactSlabFixedSpatialGroundStateEnergy.energy_eq_bare_add_correction`
+proves
+
+    E_g(f) = H[(a*f)^2] - H[(a*f)*P(a*f)]
+             + H[a*f^2*(P(a)-a)].
+
+No sign or eigenvector condition is imposed on the correction.
+`QuaternionHaarWeightedAngularCancellation.weighted_angular_cancellation`
+constructs the flux `a*f^2*D(a)` and uses exact Haar divergence to prove
+`H[Gamma(a*f)] + H[a*f^2*L(a)] = H[a^2*Gamma(f)]` for all signed
+polynomials. Its original-source consumer retains the entire V*g.
+Weight derivatives cancel rather than becoming separate positive costs.
+
+**Next mathematical join:** a finite-time original-weight comparison is
+still open. The source audit also confirms that inactive kinetic slots
+are Haar projections, not angular heat evolution on the whole carrier.
+Check exact endpoint-source fringe reduction for active observables,
+then the all-label retained-boundary two-link operator pin and cutoff
+control; do not replace these by the four-word local Casimir theorem.
+The small SAME-variance one-step rate and all continuum/physical-mass/
+QFT/every-group obligations remain open. No new bound is claimed here.
+
+Both focused checks and the dependency-complete original-source target
+passed eight gates within `{propext, Quot.sound}`. Sol supplied a bounded
+finite-split draft and read-only reviews; main supplied the differential
+argument, actual-source consumer and integration checks. No new hole,
+analytic premise, canonical-field change or full-root audit. Details:
+`audits/AUDIT-ENDPOINT-WEIGHT-CANCELLATION-2026-09-21.md`.
+
+### All-label local angular Casimir reaches the finite heat prefix (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- local generator algebra, not the interacting energy join:**
 `QuaternionHaarAngularCasimir.harmonic_angularLaplacian` now proves

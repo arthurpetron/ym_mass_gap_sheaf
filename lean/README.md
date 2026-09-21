@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**All-label local angular Casimir (2026-09-21 UTC):**
+**Exact original endpoint-weight cancellation (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialGroundStateEnergy.lean` writes the actual energy
+for a=V*g as `H[(a*f)^2]-H[(a*f)*P(a*f)] + H[a*f^2*(P(a)-a)]`,
+keeping the sign-indefinite correction and full original product kernel.
+`QuaternionHaarWeightedAngularCancellation.lean` proves the local
+differential identity `H[Gamma(a*f)]+H[a*f^2*L(a)]=H[a^2*Gamma(f)]`
+by an explicit flux and Haar divergence cancellation. This holds for
+signed a,f and is instantiated on the original source. It is not yet a
+finite-time energy comparison. Inactive slots are Haar projections, so
+the local angular L is not automatically the generator of the whole P.
+The dependency-complete target and two focused checks passed eight gates
+within `{propext, Quot.sound}`. No new hole, axiom or canonical field;
+no full-root audit. See
+`audits/AUDIT-ENDPOINT-WEIGHT-CANCELLATION-2026-09-21.md`.
+
+**All-label local angular Casimir (earlier checkpoint, 2026-09-21 UTC):**
 `QuaternionHaarAngularCasimir.lean` proves the six-plane identity
 `L = radius*Delta - secondEulerSum - 3*Euler`, hence `L p = -n(n+2)p`
 for every harmonic homogeneous degree n on the SAME quaternion Haar

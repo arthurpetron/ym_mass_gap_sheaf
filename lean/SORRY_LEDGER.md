@@ -13,7 +13,31 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED all-label local angular Casimir (2026-09-21 UTC)
+## PROVED full endpoint-weight cancellation (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarWeightedAngularCancellation.lean`
+  and `BF4ExactSlabFixedSpatialGroundStateEnergy.lean` in that directory.
+- **finite original producer**: `energy_eq_bare_add_correction` expresses
+  the actual energy as the bare kinetic energy of a*f, a=V*g, plus
+  `H[a*f^2*(P(a)-a)]`. The correction is retained without a sign or
+  eigenvector premise; V, g, P and Haar normalization remain original.
+- **differential producer/consumer**: `angular_weight_divergence` gives
+  the explicit flux `a*f^2*D(a)`; `weighted_angular_cancellation` sums
+  exact Haar divergence cancellation to remove the weight derivatives.
+  `endpoint_angular_cancellation` applies it to the full original source.
+- **residue**: no finite-time original-weight energy bound follows yet.
+  Inactive/fringe slots of P are Haar projections, not unproved angular
+  heat evolution. Endpoint-source reduction, the all-label two-link
+  operator pin, cutoff control and a useful SAME-variance rate remain
+  to be joined. Continuum survival, physical mass, full QFT and every
+  compact simple group remain open. No existing field or premise was
+  weakened and no new hole or axiom was introduced.
+- **verification**: dependency-complete consumer target and two focused
+  checks passed eight gates within `{propext, Quot.sound}`, with one
+  capped 20 GiB worker and no full-root audit. Source/review/log map:
+  `audits/AUDIT-ENDPOINT-WEIGHT-CANCELLATION-2026-09-21.md`.
+
+## PROVED all-label local angular Casimir (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionHeadDerivativeEuler.lean`,
   `QuaternionHaarAngularCasimir.lean`, and

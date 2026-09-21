@@ -159,6 +159,10 @@
 > identity at EVERY character label, and on the original finite heat sum
 > label by label. This is not yet an interacting transfer-energy comparison.
 > [Local proof and missing join](audits/AUDIT-ALL-LABEL-ANGULAR-CASIMIR-2026-09-21.md).
+> An exact endpoint-weight correction now connects the original finite
+> energy to the bare kinetic form. At the local differential level it
+> cancels all weight-derivative terms; the finite-time comparison remains
+> open. [Identity and operator boundary](audits/AUDIT-ENDPOINT-WEIGHT-CANCELLATION-2026-09-21.md).
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
