@@ -12,7 +12,29 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Bounded-overlap original Ward-score family cost (2026-09-21 UTC):**
+**Whole signed plaquette Ward-gradient energy (2026-09-21 UTC):**
+`BF4ExactSlabPlaquetteGradient.lean` constructs
+`F = sum_f c_f chi_f`, its incident part at each witnessed physical link,
+and the original-coordinate pulled-back angular-gradient test. It proves
+support, complete-star locality, and the coefficient identity
+`D_l F = D_l F_inc`, retaining every signed coefficient.
+`BF4ExactSlabWardGradientEnergy.lean` then proves under the SAME original
+full action and common partition that one score response is the negative of
+`H[R_l*A_l^2*(D F_l)^2]/H[W]`, where F_l is the whole F in link l's head
+frame. The additional incident factor `A_l` is essential because the frame
+weight is `R_l*A_l`.
+`BF4ExactSlabPlaquetteWardEnergy.lean` sums this identity and proves
+`energySum >= 0` and
+`energySum^2 <= Var_W(F)*(25*sum_l E_W[S_l^2])` for Nodup witnessed
+physical links. This does not give a strict response floor. A quantitative
+diagonal bound for this gradient family still needs an actual second angular
+derivative estimate and local coefficient/incidence accounting. No scaling
+ratio, OS gap or continuum closure is proved. The dependency-complete target
+and three final direct checks passed all 14 gates (6, 4, 4) exactly within
+`{propext, Quot.sound}`, without warnings or `sorryAx`, on one monitored
+20 GiB worker using default heartbeats. No full-root audit was run.
+
+**Bounded-overlap original Ward-score family cost (earlier checkpoint, 2026-09-21 UTC):**
 `QuaternionHaarSparseFamilyCost.lean` proves the exact normalized
 full-sum-square/ordered-signed-Gram identity and a sparse-family bound.
 `BF4ExactSlabWardStarGeometry.lean` defines the symmetric relation “equal or
@@ -27,9 +49,9 @@ The full interacting weight and actual positive partition are unchanged.
 The coefficient 25 is independent of family, extent, cutoff and nome; the
 diagonal sum can grow with the family, diagonal score bounds are nome-dependent,
 and arbitrary test caps may depend on cutoff or extent. No response lower
-bound, scaling ratio, OS gap or continuum closure is proved. The next useful
-producer is an actual incident-gradient test family for the whole signed
-plaquette observable, with exact energy response and diagonal control.
+bound, scaling ratio, OS gap or continuum closure is proved. The actual
+incident-gradient family and exact energy response are now supplied above;
+its quantitative diagonal control remains open.
 The dependency-complete target and three final direct checks passed all
 21 printed gates within `{propext, Quot.sound}`, without warnings or
 `sorryAx`, on one monitored 20 GiB worker. No full-root audit was run.

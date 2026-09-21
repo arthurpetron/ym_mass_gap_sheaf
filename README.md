@@ -83,13 +83,48 @@
 > positive partition. The coefficient 25 is independent of family, extent,
 > cutoff and nome. The diagonal sum may grow with the family; diagonal score
 > caps remain nome-dependent, and arbitrary test caps may depend on cutoff
-> or extent. A useful response lower bound is still open.
+> or extent. The actual whole signed plaquette observable
+> `F = sum_f c_f chi_f` now has constructed star-local tests: at each
+> witnessed physical link, the pulled-back angular derivative of its incident
+> part equals the derivative of the whole F, with every signed coefficient
+> retained. Under the unchanged full W and common original partition,
+> `E_W[F*sum_l S_l] = -sum_l e_l`, where
+> `e_l = H[R_l*A_l^2*(D F_l)^2]/H[W]` in link l's head frame.
+> Here `F_l` is the reindexed whole F; the extra incident factor `A_l`
+> is part of the proved Ward identity. The summed energy is nonnegative,
+> and its square is at most
+> `Var_W(F)*(25*sum_l E_W[S_l^2])` for a Nodup physical-link family.
+> No strict energy/response floor or quantitative diagonal bound for these
+> gradient tests is yet proved; the latter still requires control of `D_l^2 F`.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Bounded-overlap original Ward-score family cost (2026-09-21 UTC):**
+**Whole signed plaquette Ward-gradient energy (2026-09-21 UTC):**
+`BF4ExactSlabPlaquetteGradient.lean` constructs the literal signed observable
+over all physical faces, its incident part at each physical link, and the
+original-coordinate pulled-back angular-gradient test. It proves exact
+locality/support and `D_l F = D_l F_inc` at coefficient level, so nonincident
+faces vanish without absolutizing coefficients. `BF4ExactSlabWardGradientEnergy.lean`
+proves that one test's normalized response under the SAME original full action
+is the negative of its nonnegative link energy, with the essential extra
+incident factor `A_l` and the common original partition. Finally,
+`BF4ExactSlabPlaquetteWardEnergy.lean` sums the exact identity and combines it
+with the earlier bounded-star family estimate:
+`energySum >= 0` and
+`energySum^2 <= Var_W(F)*(25*sum_l E_W[S_l^2])` for a Nodup family of
+witnessed physical links. This is a constructed nonnegative energy response,
+not a strict response floor. No quantitative diagonal bound for this new
+gradient family is supplied yet: it requires an actual second angular-
+derivative estimate, followed by a local coefficient-square and incidence
+sum. No scaling ratio, OS gap or continuum closure follows. The dependency-
+complete target and three final direct checks passed all 14 printed gates
+(6, 4, 4) exactly within `{propext, Quot.sound}`, without warnings or
+`sorryAx`, on one monitored 20 GiB worker using default heartbeats. No
+full-root audit was run.
+
+**Bounded-overlap original Ward-score family cost (earlier checkpoint, 2026-09-21 UTC):**
 `QuaternionHaarSparseFamilyCost.lean` identifies the normalized square of
 a finite score sum with its full ordered signed Gram sum and bounds it from
 symmetric sparse rows. `BF4ExactSlabWardStarGeometry.lean` constructs the
@@ -102,9 +137,9 @@ actual positive partition. The geometric 25 is uniform in family, extent,
 cutoff and nome. This does not supply a uniform bound on the diagonal sum;
 existing score caps depend on nome, and arbitrary test caps can depend on
 cutoff or extent. No response floor, scaling ratio,
-OS gap or continuum closure follows. Next is to choose actual
-incident-gradient tests for the whole signed plaquette observable and prove
-their exact energy response and diagonal control. The dependency-complete
+OS gap or continuum closure follows. The actual incident-gradient tests and
+their exact energy response are now supplied above; quantitative diagonal
+control remains open. The dependency-complete
 target and three final direct checks passed all 21 printed gates within
 `{propext, Quot.sound}`, without warnings or `sorryAx`, on one monitored
 20 GiB worker. No full-root audit was run.

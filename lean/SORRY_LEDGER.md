@@ -13,7 +13,42 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED bounded-overlap original Ward-score family cost (2026-09-21 UTC)
+## PROVED whole signed plaquette Ward-gradient energy (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteGradient.lean`,
+  `BF4ExactSlabWardGradientEnergy.lean`, and
+  `BF4ExactSlabPlaquetteWardEnergy.lean`, in the same directory.
+- **scope**: `observable` is the literal signed sum of fundamental characters
+  over all original physical faces. `incidentObservable_local`,
+  `test_local`, and `observable_derivative_incident` construct its actual
+  selected-link test and prove that the angular derivative of the whole
+  observable equals that of its incident part, with all coefficients kept.
+  `test_gradient_pin` transports that derivative through the arbitrary-
+  insertion double reindex. `normalized_pair_energy` and `response_energy`
+  prove, under the unchanged full W and common original partition,
+  E_W[F*sum_l S_l] = -sum_l e_l, with
+  e_l = H[R_l*A_l^2*(D F_l)^2]/H[W] and F_l the reindexed whole F.
+  The extra A_l is retained; the frame weight is R_l*A_l. At strict nome and late head cutoff,
+  `energySum_nonnegative` and `energySum_squared_le_variance_cost` prove
+  nonnegativity and
+  energySum^2 <= Var_W(F)*(25*sum_l E_W[S_l^2]) for a Nodup list of
+  witnessed physical links.
+- **residue**: this is not a strict response or energy floor. There is no
+  quantitative diagonal bound yet for these constructed gradient tests;
+  that requires an actual second angular-derivative interval, a local
+  coefficient-square budget, and the four-links-per-face incidence sum.
+  A useful energy lower bound also remains open. No scaling ratio, OS gap,
+  continuum closure, new assumption, hole, axiom or carrier change is supplied.
+- **verification**: the dependency-complete
+  `+YMGap.Continuum.BF4ExactSlabPlaquetteWardEnergy:olean` target and three
+  final direct checks passed all 14 printed gates (6, 4, 4) exactly within
+  `{propext, Quot.sound}`, without warnings or `sorryAx`. One monitored
+  20 GiB worker, default heartbeats, no full-root build/audit. A transient
+  elaboration timeout was removed by explicitly typing intermediate functions,
+  not by retaining a larger heartbeat limit. Logs are recorded in
+  `work_plan.md`.
+
+## PROVED bounded-overlap original Ward-score family cost (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarSparseFamilyCost.lean`,
   `BF4ExactSlabWardStarGeometry.lean`, and
@@ -35,9 +70,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   remain nome-dependent, and arbitrary test caps may depend on cutoff or
   extent. Unrestricted test supports are not covered. No response lower
   bound, scaling ratio, OS gap, continuum closure, new analytic assumption,
-  hole, axiom or canonical-field change is supplied. The next producer is a
-  choice of actual incident-gradient tests for the whole signed plaquette F,
-  with exact energy response and diagonal control.
+  hole, axiom or canonical-field change is supplied. The actual incident-
+  gradient tests and exact energy response are now supplied above;
+  quantitative diagonal control remains open.
 - **verification**: the dependency-complete
   `+YMGap.Continuum.BF4ExactSlabWardFamilyCost:olean` target and three final
   direct checks passed all 21 printed gates (5, 8, 8) exactly within

@@ -34,7 +34,87 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Bounded-overlap Ward-score family cost under the original action (2026-09-21 UTC)
+### Whole signed plaquette gradient response under the original action (2026-09-21 UTC)
+
+**PROGRESS -- the abstract star-local family now has a constructed
+whole-observable gradient specialization:**
+`BF4ExactSlabPlaquetteGradient.observable` is the literal signed sum
+
+    F = sum_{f in physical faces} c_f * chi_f.
+
+For each witnessed physical link l, `incidentObservable` retains precisely
+the incident face summands and `test` pulls its head angular derivative back
+to original coordinates. `observable_supported`, `incidentObservable_local`,
+`test_local`, and `test_supported` prove the needed carrier and complete-star
+pins. Most importantly, `observable_derivative_incident` proves
+
+    D_l(reindex_l F) = D_l(reindex_l F_inc)
+
+as a coefficient equality. Nonincident faces are killed by proved angular
+independence; no sign or cancellation in the coefficients is discarded.
+
+**Exact original-action energy identity:**
+`BF4ExactSlabWardGradientEnergy.originalScore_energy_pair` and
+`normalized_pair_energy` keep the original full product W and its common
+partition. The frame weight is `R_l*A_l`, while the score contribution is
+`A_l*g_l*D_l F`; hence the proved energy necessarily contains the extra
+incident factor. Writing F_l for the whole F in link l's head frame,
+the precise numerator and ORIGINAL normalizer are
+
+    e_l = H[R_l*A_l^2*(D F_l)^2] / H[W],
+    E_W[F*S_l] = -e_l.
+
+This is not a deleted-action or differently normalized expectation.
+`energyNumerator_nonnegative` and `linkEnergy_nonnegative` certify its
+nonnegativity for `0<w<1` and `headCutoff w <= K`.
+
+**Whole signed family consumer:**
+`BF4ExactSlabPlaquetteWardEnergy.test_gradient_pin` supplies the arbitrary-
+insertion double-reindex carrier equality for the constructed tests.
+`response_energy` sums the exact signed identity for any finite physical-link
+list, including repetitions. For a Nodup list, `energySum_nonnegative` and
+`energySum_squared_le_variance_cost` combine it with the proved row-25 family
+bound to obtain
+
+    energySum >= 0,
+    energySum^2 <= Var_W(F) * (25 * sum_l E_W[S_l^2]).
+
+All terms use the SAME signed F, full interacting W, and common original Z.
+There is no extra family-cardinality multiplier beyond the diagonal sum.
+
+**Next producer / honest boundary:** nonnegativity is not a useful strict
+energy or response floor. A quantitative bound for the diagonal cost of this
+new gradient family is still missing because `D_l g_l = D_l^2 F` must be
+controlled. A concrete next route is to construct an actual second
+angular-derivative interval using
+`QuaternionHaarAngularProductBounds.AngularBound.mul` and `.ofCarrier`,
+the first-derivative pin
+`BF4ExactSlabPlaquetteAngularInterval.selectedPlaquetteAngularInterval`,
+and `QuaternionHaarCharacterDerivative.angularDerivative_character`.
+Then use
+`BF4PhysicalFiniteVacuumSectorPathLengthEnergy.listQSum_square_le_length_mul_squareSum`
+with `BF4ExactSlabLinkStarGeometry.incidentIds_length_le_six` for the local
+coefficient l1-to-l2 payment, followed by a still-missing finite incidence
+join using the four links of each face (`Z4UnitCubeIncidenceParity.edgesOf_nodup`
+and `Z4SpinDependentIncidenceProductBound.edgesOf_length`). A useful lower
+bound on the resulting energy remains open. No scaling ratio, spatial/nome
+survival estimate, OS gap, continuum closure or all-group result is claimed.
+
+**Verification / delegation:** the dependency-complete
+`+YMGap.Continuum.BF4ExactSlabPlaquetteWardEnergy:olean` target and the three
+final direct checks passed all 14 printed gates (6, 4, 4) exactly within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. The final source uses
+default heartbeats; a transient elaboration timeout was resolved by explicitly
+typing intermediate functions. Sol supplied the gradient localization and
+independent reviews/inventory; main supplied the Ward energy identity, actual
+family consumer, root import, and serialized verification. One monitored
+20 GiB worker; no full-root build/audit. Final logs:
+
+- `/tmp/ym-gap-BF4ExactSlabPlaquetteGradient-final.log`
+- `/tmp/ym-gap-BF4ExactSlabWardGradientEnergy-final.log`
+- `/tmp/ym-gap-BF4ExactSlabPlaquetteWardEnergy-final.log`
+
+### Bounded-overlap Ward-score family cost under the original action (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the full signed family square is now controlled without an
 extra family-cardinality multiplier:**
@@ -73,9 +153,9 @@ bounds remain nome-dependent, and arbitrary test value/derivative caps may
 depend on cutoff or extent. Unrestricted varying-support tests are not
 covered by the star-local statement.
 
-**Next producer / honest boundary:** choose actual incident-gradient tests
-for the whole signed plaquette observable F and establish their exact energy
-response and diagonal control. No such lower response, scaling ratio,
+**Later status / honest boundary:** the actual incident-gradient tests and
+their exact energy response are now supplied above. Their quantitative
+diagonal control and any strict lower response remain open. No scaling ratio,
 spatial/nome survival estimate, OS gap, continuum closure or all-group result
 is claimed here. No new analytic assumption, hole or canonical field was
 introduced.
