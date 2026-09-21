@@ -132,12 +132,40 @@
 > preimage of `I-T^2`, with a computable squared-error cutoff. For the
 > plaquette source it is nonzero below the existing variance floor.
 > This is not an exact inverse or a near-one response estimate.
+> The actual all-nome completion now also has constructive-real scaling
+> with supplied moduli and a vacuum projection on every state. Its
+> two-step fixed states are exactly the range of this unit projection.
+> This remains a fixed-width discrete-time result.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Constructive approximate preimages on the SAME carrier (2026-09-21 UTC):**
+**Actual vacuum decomposition on the all-nome carrier (2026-09-21 UTC):**
+The new `BF4ExactSlabFixedSpatialJointRealScalarCauchy.lean` and
+`BF4ExactSlabFixedSpatialJointRealScalar.lean` construct scaling by a
+constructive real with supplied modulus on the existing `JointCompletion`.
+The scalar-stream estimate keeps both explicit rates and the actual
+joint norm ceiling; the result is independent of equivalent representatives.
+
+`BF4ExactSlabFixedSpatialJointVacuumProjection.lean` uses the actual
+coefficient `B(x,U)` and its computed scalar modulus to construct the
+vacuum projection P. Every state decomposes as `x=Cx+Px`, where `C=I-P`
+is orthogonal to U. The projections are self-adjoint and idempotent,
+commute with physical time, and retain the exact mixed Pythagoras identity.
+The new centering agrees with the earlier dense centering and realizes
+the pre-existing connected scalars on the SAME carrier.
+
+The strict form bound now proves `T^2 x=x` iff `x=Px`. For a supplied
+fixed representative, `fixedScalarWitness` returns its scalar and modulus;
+coefficient one singles out U. This is a discrete fixed-space theorem,
+not a continuous Hamiltonian, complete Hilbert/QFT package, or physical
+mass statement. The original-action relative scaling estimate remains open.
+The dependency-complete projection target and three final serialized direct
+checks passed all 62 printed gates within `{propext, Quot.sound}`, without
+warnings or `sorryAx`. One explicitly capped 20 GiB worker; no full-root audit.
+
+**Constructive approximate preimages on the SAME carrier (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialJointGeometry.lean` proves positive definiteness
 and separation by the actual completed pairing, with an explicit
 zero-norm closeness modulus. For `R=I-T^2`,

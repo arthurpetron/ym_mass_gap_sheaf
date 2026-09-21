@@ -12,7 +12,36 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Actual joint geometry and finite approximate range for `I-T^2` (2026-09-21 UTC):**
+**Constructive real scalars and vacuum projection on the actual joint carrier (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialJointRealScalarCauchy.lean` uses a supplied
+constructive-real rational stream and its supplied `QCauchy` modulus to scale
+a supplied representative of the existing fixed-width `JointCompletion`.
+Its explicit rate uses that representative's actual joint `normCeiling`;
+neither a scalar nor vector representative is selected from a quotient.
+`BF4ExactSlabFixedSpatialJointRealScalar.lean` descends this construction by
+pairing separation, proves independence from equivalent scalar streams and
+vector representatives, and proves compatibility with the existing completed
+pairing, rational scaling, addition and physical time.
+
+`BF4ExactSlabFixedSpatialJointVacuumProjection.lean` applies that real action
+to the constructed coefficient `B(x,U)`. The resulting projection is
+self-adjoint and idempotent on the SAME carrier, its complementary `center`
+is orthogonal to the existing unit, and `centered_time_pairing` identifies its
+time pairing with the pre-existing `completedCenteredScalar`.
+`center_embedSpan` agrees with the earlier literal dense centering. The actual
+strict two-step form bound proves `T^2 x=x` exactly when `x` lies in the unit
+projection; `fixedScalarWitness` returns the scalar and its QCauchy data for
+a supplied fixed representative, and coefficient one singles out U.
+This is a discrete two-step fixed-space theorem, not a continuous
+Hamiltonian or physical-mass statement. It adds no choice of representatives,
+metric/Hilbert completeness, scaling limit, continuum QFT conclusion, new
+analytic assumption, canonical field or hole. The dependency-complete
+projection target and three final serialized direct checks passed all 62
+printed gates (7 scalar-Cauchy, 11 real-scalar, 44 projection) within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. One explicitly
+capped 20 GiB worker; no full-root audit was run.
+
+**Actual joint geometry and finite approximate range for `I-T^2` (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialJointGeometry.lean` proves positive definiteness and
 pairing extensionality on the existing all-nome fixed-width
 `JointCompletion`. A zero completed diagonal constructs an explicit closeness

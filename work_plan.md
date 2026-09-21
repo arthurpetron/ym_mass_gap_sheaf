@@ -34,7 +34,72 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### SAME-carrier separation and finite approximate range (2026-09-21 UTC)
+### Actual all-nome vacuum decomposition and fixed space (2026-09-21 UTC)
+
+**PROGRESS -- a SAME-carrier Hilbert/OS input is constructed:**
+`BF4ExactSlabFixedSpatialJointRealScalarCauchy` constructs the stream
+`s_n*X_n` in the actual joint seminorm. The coefficient-change estimate
+uses the SAME diagonal norm ceiling, and its explicit modulus combines
+the supplied scalar QCauchy rate, vector rate and both tail anchors.
+`BF4ExactSlabFixedSpatialJointRealScalar` descends this operation by
+pairing separation, independently of equivalent scalar streams/moduli and
+vector representatives. It agrees with rational scaling, is additive,
+and commutes with the existing physical time. It takes a CReal WITH
+QCauchy data; it does not select a modulus for a bare quotient real.
+
+**Actual consumer:** the previous carrier had an orthogonal-complement
+subtype and dense centered streams, but no projection defined on every
+completed state. `BF4ExactSlabFixedSpatialJointVacuumProjection` constructs
+the unit coefficient from the actual mixed-pairing representative and its
+computed modulus, scales the original unit U, and proves quotient descent.
+For this actual P and C=I-P:
+
+    B(Px,y) = B(x,U)*B(U,y),       P^2=P,       C^2=C,
+    x = Cx + Px,                  B(Cx,U)=0,
+    B(Cx,Cy) + B(Px,Py) = B(x,y),
+    T^n(Px)=Px,                   T^n(Cx)=C(T^n x),
+    B(Cx,T^n(Cy)) = completedCenteredScalar(n,x,y).
+
+Both parts have norm at most that of x. `center_embedSpan` proves that
+the new projection agrees with the pre-existing original dense centering;
+it is not a second surrogate centering. The existing strict form bound,
+combined with actual positive definiteness, now gives
+
+    T^2 x=x  <=>  x=Px.
+
+`fixedScalarWitness` returns the fixed represented state's CReal scalar
+and its QCauchy data. `fixed_unitCoefficient_one` identifies the actual U
+as the sole two-step fixed state with coefficient one. This is a discrete
+fixed-space conclusion, not a continuous Hamiltonian spectral theorem.
+
+**Boundary / repointing:** nome and width stay fixed. This removes the
+missing all-state vacuum-projection construction, not metric completeness,
+the full real/complex Hilbert/QFT package, or the scaling estimate. Sol's
+additional source review found no weighted temporal gradient/double-
+commutator comparison under the actual `K*(V*g)(x)*(V*g)(y)` edge density;
+bare kinetic eigenrelations and static Ward estimates remain distinct.
+The original-action relative temporal estimate for a justified observable
+and spatial/scaling family remains the analytic producer to build. No
+spatial or changing-spacing survival, physical mass or every-group result
+follows. No canonical field, analytic assumption or hole changed.
+
+**Verification / delegation:** the dependency-complete
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialJointVacuumProjection:olean`
+target and three final serialized direct checks passed all 62 printed
+gates (7 scalar-Cauchy, 11 real-scalar, 44 projection), within
+`{propext, Quot.sound}`, without warnings or `sorryAx`.
+Sol supplied the scalar Cauchy construction, bounded analytic inventory,
+independent review and supporting documentation; main supplied the
+descended action, actual projection/fixed-space/dense pins and serialized
+checks. One explicitly capped 20 GiB worker; no full-root audit was run.
+Final logs: `/tmp/ym-gap-joint-vacuum-final-build.log`,
+`/tmp/ym-gap-joint-real-cauchy-final.log`, `/tmp/ym-gap-joint-real-final.log`,
+`/tmp/ym-gap-joint-vacuum-final.log`.
+Latest user-facing causal ASCII chart: 2026-09-21 11:25 UTC, including the
+whole-project goal, the checked vacuum-decomposition lane, and the missing
+weighted temporal comparison and remaining continuum/all-group joins.
+
+### SAME-carrier separation and finite approximate range (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- constructive operator input, with an actual consumer:**
 `BF4ExactSlabFixedSpatialJointGeometry` uses the existing joint-pairing

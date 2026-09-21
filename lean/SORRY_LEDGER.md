@@ -13,7 +13,43 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual joint geometry and finite approximate range for `I-T^2` (2026-09-21 UTC)
+## PROVED constructive real scalars and vacuum projection on the actual joint carrier (2026-09-21 UTC)
+
+- **files**:
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointRealScalarCauchy.lean`,
+  `BF4ExactSlabFixedSpatialJointRealScalar.lean`, and
+  `BF4ExactSlabFixedSpatialJointVacuumProjection.lean` in the same directory.
+- **scope**: a supplied constructive-real rational stream with its supplied
+  `QCauchy` modulus acts on a supplied representative of the existing
+  fixed-width `JointCompletion`, with an explicit modulus computed from the
+  actual joint `normCeiling`. Pairing separation makes the descended action
+  independent of equivalent scalar streams and vector representatives. It is
+  compatible with the existing completed pairing, rational action, addition
+  and discrete physical time; no legacy carrier is substituted.
+- **projection consumer**: the actual coefficient `B(x,U)` and its constructed
+  pairing modulus define a choice-free unit projection on that same carrier.
+  The projection is self-adjoint and idempotent, the complementary `center`
+  is unit-orthogonal, and `centered_time_pairing` is the existing
+  `completedCenteredScalar`. The already proved strict two-step form bound
+  gives `T^2 x=x` iff `x` equals its unit projection. `center_embedSpan` pins
+  this center to the prior literal dense centering. `fixedScalarWitness`
+  returns the scalar and its QCauchy data for a supplied fixed representative;
+  `fixed_unitCoefficient_one` identifies U when that coefficient is one.
+- **honest boundary**: the fixed-space result concerns the existing discrete
+  two-step map. It is not a continuous Hamiltonian, generator, physical-mass,
+  changing-width/nome/spacing, continuum-QFT or every-group theorem. No
+  arbitrary quotient-real modulus, metric/Hilbert completeness, new analytic
+  assumption, canonical field or hole is introduced.
+- **verification**: the dependency-complete
+  `+YMGap.Continuum.BF4ExactSlabFixedSpatialJointVacuumProjection:olean`
+  target and three final serialized direct checks passed all 62 printed
+  gates (7 scalar-Cauchy, 11 real-scalar, 44 projection), within
+  `{propext, Quot.sound}`, without warnings or `sorryAx`. One explicitly
+  capped 20 GiB worker; no full-root audit was run. Final direct logs:
+  `/tmp/ym-gap-joint-real-cauchy-final.log`, `/tmp/ym-gap-joint-real-final.log`,
+  `/tmp/ym-gap-joint-vacuum-final.log`.
+
+## PROVED actual joint geometry and finite approximate range for `I-T^2` (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**:
   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointGeometry.lean` and
