@@ -102,14 +102,58 @@
 > `energySum^2 <= Var_W(F)*(25*(24*C(w)^2*sum_f c_f^2))`.
 > The cap is independent of cutoff and extent at fixed nome under the late-
 > cutoff guard, but no uniform near-one nome bound is supplied; the
-> coefficient-square sum itself can grow. No strict energy/response floor
-> is yet proved.
+> coefficient-square sum itself can grow. The all-six-direction Casimir
+> identity and exact four-edge coverage now also give the actual centered
+> variance coercivity
+> `(4*alpha(w))^2*B <= beta(w)^2*(21600*C(w)^2)*Var_W(F)`, where
+> `B = sum_f c_f^2`. This reuses the existing full-square coercivity and
+> introduces no extent or family-cardinality factor. Its checked divided form
+> gives a literal positive rational `varianceFloor(w)*B <= Var_W(F)` at every
+> fixed strict nome.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Explicit whole-plaquette gradient score cost (2026-09-21 UTC):**
+**Actual centered variance coercivity for signed plaquette sums (2026-09-21 UTC):**
+`BF4ExactSlabPlaquetteIncidentLinear.lean` pins the signed incident observable
+to a head-linear source without dropping its coefficients.
+`QuaternionHaarLinearAngularEnergy.lean` supplies the exact six-direction
+angular Casimir identity. `BF4ExactSlabWardAngularEnergyFloor.lean` and
+`BF4ExactSlabPlaquetteAngularCoercivity.lean` reuse the existing full-square
+coercivity to compare the actual original-action angular energy with the
+incident coefficient square sum. `BF4ExactSlabWardIncidenceCover.lean` then
+counts every physical face through exactly four physical links, with no
+extra extent factor. Finally, `BF4ExactSlabPlaquetteAngularFamily.variance_coercivity`
+proves, for `0<w<1` and `headCutoff w <= K`,
+
+`(4*alpha(w))^2*B <= beta(w)^2*(21600*Cscore(w)^2)*Var_W(F)`,
+
+where `B = sum_f c_f^2`, `alpha = floorCoefficient`,
+`beta = costCoefficient`, and `Cscore = scoreCoefficient`. All six angular
+directions, the whole signed fundamental-plaquette observable, the unchanged
+full interacting weight W, and its original partition are retained. The
+coefficients depend only on the fixed nome, not on the cutoff or extent;
+`B` itself may of course grow with the observable. This is an original-action
+centered-variance comparison, not an OS-transfer estimate. The checked
+positive rational witness
+`varianceFloor(w,hw0) = (4*alpha(w))^2 /
+ (beta(w)^2*(21600*Cscore(w)^2))` also gives
+`varianceFloor(w,hw0)*B <= Var_W(F)` at every extent and late cutoff.
+The angular-to-SAME-completed-transfer
+one-step/variance scaling join, observables beyond the fundamental plaquette
+span, changing-nome control, continuum construction, and all compact simple
+groups remain open. No canonical field or hole is closed. The dependency-
+complete `+YMGap.Continuum.BF4ExactSlabPlaquetteAngularFamily:olean` target
+and seven serialized final direct checks passed all 40 gates
+(9, 7, 4, 6, 5, 1, 8), each within `{propext, Quot.sound}`, without warnings,
+errors or `sorryAx` in the new-file logs. One monitored 20 GiB worker was
+used; no full-root audit was run. Main supplied the generic Casimir and actual
+coercivity/variance consumers; Sol supplied incident head-linearity and
+source pins, the exact all-link incidence cover, scalar elimination support,
+and independent review.
+
+**Explicit whole-plaquette gradient score cost (earlier checkpoint, 2026-09-21 UTC):**
 `QuaternionHaarSecondAngularBounds.lean` constructs second angular-derivative
 bounds from coordinate caps, Leibniz product bounds and Haar-carrier transport.
 `BF4ExactSlabPlaquetteSecondAngularInterval.lean` specializes them to the
@@ -128,13 +172,12 @@ and
 There is no extra multiplier by the number of links, although the displayed
 coefficient-square sum can itself be extensive. `C(w)` is independent of
 cutoff and extent at fixed nome, with `headCutoff w <= K`, but no uniform
-near-one nome bound is supplied. This is an upper cost bound, not an
+near-one nome bound is supplied. This is an upper cost bound, not by itself an
 angular-energy lower bound, response floor, OS transfer estimate or continuum
-claim. A useful next producer must choose nondegenerate angular directions and
-sufficient link coverage: no positive floor can hold for all choices, since
-`i=j` or an empty link family gives zero. A bounded-collar gradient-Gram comparison is only a
-candidate, not a proved result. Existing `family_partition_coercivity` controls
-an uncentered full square, not this gradient energy or variance.
+claim. The current milestone above subsequently supplies the required
+nondegenerate six-direction energy comparison and complete physical-link
+coverage by reusing `family_partition_coercivity`; arbitrary fixed directions
+or empty link families remain outside that coercive conclusion.
 
 The dependency-complete `+YMGap.Continuum.BF4ExactSlabPlaquetteGradientCost:olean`
 target and five final direct checks passed all 32 printed gates (4, 16, 2, 4,
@@ -158,8 +201,10 @@ with the earlier bounded-star family estimate:
 `energySum^2 <= Var_W(F)*(25*sum_l E_W[S_l^2])` for a Nodup family of
 witnessed physical links. This is a constructed nonnegative energy response,
 not a strict response floor. Its explicit diagonal cost is now supplied
-above; a useful lower bound on the angular energy remains open. No scaling
-ratio, OS gap or continuum closure follows. The dependency-
+above; the current milestone now supplies its six-direction, all-physical-link
+angular lower comparison and centered-variance coercivity. The SAME completed-
+transfer scaling join remains open. No scaling ratio, OS gap or continuum
+closure follows. The dependency-
 complete target and three final direct checks passed all 14 printed gates
 (6, 4, 4) exactly within `{propext, Quot.sound}`, without warnings or
 `sorryAx`, on one monitored 20 GiB worker using default heartbeats. No
@@ -180,7 +225,8 @@ existing score caps depend on nome, and arbitrary test caps can depend on
 cutoff or extent. No response floor, scaling ratio,
 OS gap or continuum closure follows. The actual incident-gradient tests,
 their exact energy response and their quantitative diagonal control are now
-supplied above; a strict angular-energy lower bound remains open. The dependency-complete
+supplied above; the current milestone supplies the corresponding six-direction
+coercivity only for the constructed complete physical-link family. The dependency-complete
 target and three final direct checks passed all 21 printed gates within
 `{propext, Quot.sound}`, without warnings or `sorryAx`, on one monitored
 20 GiB worker. No full-root audit was run.
@@ -241,9 +287,11 @@ the constructed score's response, the observable's actual variance and
 the score's cost. The mean and partition are computed from the same full
 action, and exact reindexing lemmas identify the variance with the original
 observable. No response floor or score-cost bound is assumed by that theorem.
-The actual gradient-family score-cost bound is now supplied above, while a
-useful response/angular-energy floor remains open. This does not yet give
-the required spatial/scaling energy-versus-variance bound. All 15 printed
+The actual gradient-family score-cost bound is now supplied above, and the
+current six-direction complete-link milestone supplies the angular coercivity
+and original-action centered-variance floor. This still does not give the
+required SAME completed-transfer spatial/scaling one-step-versus-variance
+bound. All 15 printed
 gates passed two final narrow checks; no full-root build/audit or canonical
 frontier closure.
 

@@ -12,7 +12,40 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Explicit whole-plaquette gradient score cost (2026-09-21 UTC):**
+**Actual centered variance coercivity for signed plaquette sums (2026-09-21 UTC):**
+The new angular-family chain keeps the literal signed observable
+`F = sum_f c_f chi_f`, the full interacting weight W, and the original
+partition. Incident head-linearity and source pins reduce each selected-link
+observable to its genuine degree-one head dependence. The exact six-direction
+angular Casimir identity then reuses the existing full-square coercivity;
+the all-physical-link incidence theorem counts each face through exactly four
+edges. With `B = sum_f c_f^2`, `alpha = floorCoefficient`,
+`beta = costCoefficient`, and `Cscore = scoreCoefficient`,
+`BF4ExactSlabPlaquetteAngularFamily.variance_coercivity` proves
+
+`(4*alpha(w))^2*B <= beta(w)^2*(21600*Cscore(w)^2)*Var_W(F)`
+
+for `0<w<1` and `headCutoff w <= K`. All six angular directions are included,
+and no extra extent or family-cardinality factor appears. The coefficients are
+cutoff- and extent-independent at fixed nome, while `B` may itself grow. No
+uniform bound as the nome changes is supplied. The positive rational
+`varianceFloor(w,hw0) = (4*alpha(w))^2 /
+ (beta(w)^2*(21600*Cscore(w)^2))` is checked and satisfies
+`varianceFloor(w,hw0)*B <= Var_W(F)` at every extent and late cutoff. This is
+centered variance under the original action, not an OS-transfer or continuum
+estimate. The dependency-complete
+`+YMGap.Continuum.BF4ExactSlabPlaquetteAngularFamily:olean` target and seven
+serialized final direct checks passed all 40 gates (9, 7, 4, 6, 5, 1, 8), each within
+`{propext, Quot.sound}`, with no warnings, errors or `sorryAx` in the new-file
+logs. One monitored 20 GiB worker was used; no full-root audit was run. Main supplied the generic
+Casimir and actual coercivity/variance consumers; Sol supplied incident
+head-linearity/source pins, exact all-link incidence coverage, scalar support,
+and independent review. No canonical field or hole changed. The
+angular-to-SAME-completed-transfer one-step/variance scaling join, observables
+beyond the fundamental plaquette span, changing-nome control, continuum
+construction, and all compact simple groups remain open.
+
+**Explicit whole-plaquette gradient score cost (earlier checkpoint, 2026-09-21 UTC):**
 `QuaternionHaarSecondAngularBounds.lean` constructs coordinate, product and
 Haar-carrier second angular-derivative bounds.
 `BF4ExactSlabPlaquetteSecondAngularInterval.lean` gives the actual ordered
@@ -28,12 +61,12 @@ gradient tests under the SAME original full W and partition. For
 `energySum^2 <= Var_W(F)*(25*(24*C(w)^2*sum_f c_f^2))` for a Nodup family.
 There is no extra family-cardinality multiplier; the coefficient-square sum
 itself may grow. At fixed nome, `C(w)` is independent of cutoff and extent
-under `headCutoff w <= K`, but no uniform near-one nome bound is supplied. This is not a
-strict angular-energy/response floor or an OS/scaling result. Nondegenerate
-directions and link coverage are indispensable (`i=j` and an empty family
-cannot yield a positive floor); a bounded-collar gradient-Gram comparison is
-only a candidate. Existing `family_partition_coercivity` concerns an
-uncentered full square, not gradient energy or variance.
+under `headCutoff w <= K`, but no uniform near-one nome bound is supplied. By
+itself this is not a strict angular-energy/response floor or an OS/scaling
+result. The current milestone above subsequently combines all six
+nondegenerate directions and complete physical-link coverage with the existing
+`family_partition_coercivity`; arbitrary fixed directions and empty families
+remain outside that coercive statement.
 The dependency-complete target and five final direct checks passed all 32
 printed gates (4, 16, 2, 4, 6) within `{propext, Quot.sound}`, warning-free
 and without `sorryAx`, on one monitored 20 GiB worker. In the existing
@@ -56,8 +89,10 @@ weight is `R_l*A_l`.
 `energySum >= 0` and
 `energySum^2 <= Var_W(F)*(25*sum_l E_W[S_l^2])` for Nodup witnessed
 physical links. This does not give a strict response floor. The quantitative
-diagonal bound is now supplied above; a useful angular-energy lower bound
-remains open. No scaling ratio, OS gap or continuum closure is proved. The
+diagonal bound is now supplied above; the current milestone supplies the
+six-direction all-link angular lower comparison and centered-variance
+coercivity. The SAME completed-transfer scaling join remains open. No scaling
+ratio, OS gap or continuum closure is proved. The
 dependency-complete target
 and three final direct checks passed all 14 gates (6, 4, 4) exactly within
 `{propext, Quot.sound}`, without warnings or `sorryAx`, on one monitored
@@ -80,8 +115,8 @@ diagonal sum can grow with the family, diagonal score bounds are nome-dependent,
 and arbitrary test caps may depend on cutoff or extent. No response lower
 bound, scaling ratio, OS gap or continuum closure is proved. The actual
 incident-gradient family, exact energy response and quantitative diagonal
-control are now supplied above; a strict angular-energy lower bound remains
-open.
+control are now supplied above; the current milestone supplies the resulting
+six-direction coercivity for the complete physical-link family.
 The dependency-complete target and three final direct checks passed all
 21 printed gates within `{propext, Quot.sound}`, without warnings or
 `sorryAx`, on one monitored 20 GiB worker. No full-root audit was run.
@@ -145,8 +180,9 @@ and S=A*(D g)+2*(D A)*g. Explicit partition, moment and variance pins
 identify the selected-link frame with the original supported observable
 and full action. The explicit score-cost estimate for the constructed whole-
 plaquette gradient family is now supplied above, with its nome dependence
-visible. A useful response/angular-energy floor and the required spatial/nome
-relative control remain open.
+visible. The current six-direction complete-link milestone also supplies the
+angular coercivity and original-action centered-variance floor; the required
+SAME completed-transfer spatial/nome-relative control remains open.
 Both final narrow checks passed
 all 15 printed gates within `{propext, Quot.sound}`; no hole/field change
 or full-root audit.

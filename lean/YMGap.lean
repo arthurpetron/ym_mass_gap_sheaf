@@ -4805,6 +4805,7 @@ import YMGap.Continuum.BF4ExactSlabOriginalWardLocality
 import YMGap.Continuum.BF4ExactSlabWardFamilyCost
 import YMGap.Continuum.BF4ExactSlabPlaquetteWardEnergy
 import YMGap.Continuum.BF4ExactSlabPlaquetteGradientCost
+import YMGap.Continuum.BF4ExactSlabPlaquetteAngularFamily
 import YMGap.Continuum.SU2QuaternionHeatFusionBoundaryTail
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFusionIdentity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFusionBoundary

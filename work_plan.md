@@ -34,7 +34,73 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Explicit whole-plaquette gradient score cost (2026-09-21 UTC)
+### Actual centered variance coercivity for signed plaquette sums (2026-09-21 UTC)
+
+**PROGRESS -- the actual original-action centered variance now has an
+explicit fixed-nome coefficient-square floor:**
+`BF4ExactSlabPlaquetteIncidentLinear` identifies the signed incident
+observable with a head-linear source while retaining every coefficient.
+`QuaternionHaarLinearAngularEnergy.retained_linear_energy` supplies the exact
+six-direction Casimir identity for that source. The local comparison in
+`BF4ExactSlabWardAngularEnergyFloor` keeps both incident-action factors, and
+`BF4ExactSlabPlaquetteAngularCoercivity` reuses the already proved
+`BF4ExactSlabPlaquetteBoundaryDualFamily.family_partition_coercivity` rather
+than introducing a new collar hypothesis. Finally,
+`BF4ExactSlabWardIncidenceCover.coefficient_square_incidence_eq_four` counts
+each physical face through exactly its four physical links.
+`RationalWardResponseCoercivity.response_coercivity` eliminates the common
+coefficient budget from the lower and squared-upper energy estimates.
+
+Write
+
+    B = coefficientSquares extent c = sum_{physical faces f} c_f^2,
+    alpha(w) = floorCoefficient w,
+    beta(w) = costCoefficient w,
+    Cscore(w) = scoreCoefficient w.
+
+For `0<w<1` and `headCutoff w <= K`, all six angular directions and all
+witnessed physical links combine in
+`BF4ExactSlabPlaquetteAngularFamily.variance_coercivity` to prove
+
+    (4*alpha(w))^2 * B
+      <= beta(w)^2 * (21600*Cscore(w)^2) * Var_W(F).
+
+Here F is the literal whole signed fundamental-plaquette sum, W is the
+unchanged full interacting weight, and the normalization is the original
+partition. The factor 4 is exact edge coverage; 21600 is the explicit
+six-direction response-cost coefficient. There is no extra extent or
+family-cardinality multiplier. The positive rational
+
+    varianceFloor(w,hw0)
+      = (4*alpha(w))^2 / (beta(w)^2*(21600*Cscore(w)^2))
+
+is checked, is strictly positive, and `variance_floor` proves
+`varianceFloor(w,hw0)*B <= Var_W(F)` at every extent and every cutoff above
+`headCutoff w`.
+
+**Uniformity / honest boundary:** this is cutoff- and extent-independent at
+each fixed strict nome. No uniform bound as the nome changes is supplied, and
+B itself may grow with the chosen signed observable. It is an original-action centered
+variance statement, not an OS-transfer energy estimate. The
+angular-to-SAME-completed-transfer one-step/variance scaling join remains
+open. So do observables beyond the fundamental plaquette span, changing-nome
+control, continuum construction and all compact simple groups. No canonical
+field or hole is closed.
+
+**Verification / delegation:** the dependency-complete
+`+YMGap.Continuum.BF4ExactSlabPlaquetteAngularFamily:olean` target passed at
+the explicit 20 GiB ceiling. Seven serialized final direct checks passed all
+40 printed gates (9, 7, 4, 6, 5, 1, 8), each within
+`{propext, Quot.sound}`, with no warnings, errors or `sorryAx` in the new-file
+logs. Main supplied the generic Casimir proof and the actual local/global
+coercivity and variance consumers. Sol supplied the incident head-linearity
+and source pins, exact all-link incidence coverage, the constructive rational
+elimination lemma, and independent source review. Root import and serialized
+verification were owned by main. One monitored 20 GiB worker; no full-root
+audit. Final logs use `/tmp/ym-gap-<ModuleBaseName>-final.log` for the seven
+modules named above.
+
+### Explicit whole-plaquette gradient score cost (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the constructed gradient family now has an explicit diagonal
 cost with no extra family-cardinality multiplier:**
@@ -73,19 +139,15 @@ extensive.
 
 **Uniformity / honest boundary:** at fixed strict nome, `C(w)` is independent
 of cutoff and extent under `headCutoff w <= K`. No uniform near-one nome bound
-is supplied. These are upper bounds on score cost, not a lower bound on the
-angular energy or response. Any positive angular-energy result must select
-nondegenerate directions and sufficient link coverage: `i=j` makes the
-derivative zero, and the theorem permits an arbitrary or empty link family.
-A bounded-collar local Haar gradient-Gram/heat comparison is a candidate, not
-a proved lemma. In particular,
-`BF4ExactSlabPlaquetteBoundaryDualFamily.family_partition_coercivity` controls
-an uncentered full-action square; it does not lower-bound gradient energy or
-variance. The existing selected-star single-character floor likewise does not
-supply the summed signed angular Gram floor. Even a future floor must still be
-joined to the SAME completed-transfer one-step/variance scaling statement:
-angular energy is not OS transfer energy. No scaling ratio, positive OS gap,
-continuum closure or all-group result follows here.
+is supplied. These are upper bounds on score cost, not by themselves a lower
+bound on angular energy or response: `i=j` and an empty link family still give
+zero. The current milestone subsequently combines all six nondegenerate
+directions and complete physical-link coverage, and reuses
+`family_partition_coercivity`, to prove the centered-variance comparison.
+That result still must be joined to the SAME completed-transfer one-step/
+variance scaling statement; angular energy is not OS transfer energy. No
+scaling ratio, positive OS gap, continuum closure or all-group result follows
+here.
 
 **Verification / delegation:** the dependency-complete
 `+YMGap.Continuum.BF4ExactSlabPlaquetteGradientCost:olean` target passed.
@@ -157,9 +219,10 @@ There is no extra family-cardinality multiplier beyond the diagonal sum.
 energy or response floor. The actual second angular-derivative interval,
 local coefficient-square budget, four-links-per-face incidence join and
 explicit diagonal cost are now supplied by the current milestone above.
-A useful lower bound on the resulting angular energy remains open. No scaling
-ratio, spatial/nome survival estimate, OS gap, continuum closure or all-group
-result is claimed.
+The current milestone now supplies the resulting six-direction all-link
+angular lower comparison and centered-variance coercivity. The SAME completed-
+transfer scaling join remains open. No scaling ratio, spatial/nome survival
+estimate, OS gap, continuum closure or all-group result is claimed.
 
 **Verification / delegation:** the dependency-complete
 `+YMGap.Continuum.BF4ExactSlabPlaquetteWardEnergy:olean` target and the three
@@ -216,7 +279,8 @@ covered by the star-local statement.
 
 **Later status / honest boundary:** the actual incident-gradient tests, their
 exact energy response and quantitative diagonal control are now supplied
-above. A strict angular-energy lower bound remains open. No scaling ratio,
+above. The current milestone supplies the corresponding six-direction
+coercivity for the complete physical-link family. No scaling ratio,
 spatial/nome survival estimate, OS gap, continuum closure or all-group result
 is claimed here. No new analytic assumption, hole or canonical field was
 introduced.
@@ -462,8 +526,10 @@ certificate for the actual selected-link plaquette scalar after the
 proved head swap. Next use the actual at-most-six incident factors to
 estimate D A and the Ward score. Those derivative and score-cost steps are
 now supplied above for the actual whole-plaquette gradient family, with
-explicit nome dependence. A useful response/angular-energy floor and the
-needed relative spatial/nome control remain open. This removes the
+explicit nome dependence. The current six-direction complete-link milestone
+also supplies angular coercivity and the original-action centered-variance
+floor; the needed SAME completed-transfer relative spatial/nome control
+remains open. This removes the
 character/heat-series algebraic obstruction; it
 does not prove the one-step/variance comparison on a changing-spacing
 family, continuum survival, physical mass, canonical OS/QFT or all groups.

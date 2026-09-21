@@ -13,7 +13,47 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED explicit whole-plaquette gradient score cost (2026-09-21 UTC)
+## PROVED actual centered variance coercivity for signed plaquette sums (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarLinearAngularEnergy.lean`,
+  `BF4ExactSlabPlaquetteIncidentLinear.lean`,
+  `BF4ExactSlabWardAngularEnergyFloor.lean`,
+  `BF4ExactSlabPlaquetteAngularCoercivity.lean`,
+  `BF4ExactSlabWardIncidenceCover.lean`,
+  `RationalWardResponseCoercivity.lean`, and
+  `BF4ExactSlabPlaquetteAngularFamily.lean`, in the same directory.
+- **scope**: incident head-linearity retains the literal signed coefficients;
+  the exact six-direction Casimir identity reuses the existing original-action
+  full-square coercivity; and exact all-physical-link coverage counts every
+  face through four edges. Writing `B = coefficientSquares extent c`,
+  `alpha = floorCoefficient w`, `beta = costCoefficient w`, and
+  `Cscore = scoreCoefficient w`, `variance_coercivity` proves
+  `(4*alpha)^2*B <= beta^2*(21600*Cscore^2)*Var_W(F)` for `0<w<1` and
+  `headCutoff w <= K`. The checked positive rational
+  `varianceFloor w hw0 = (4*alpha)^2 /
+  (beta^2*(21600*Cscore^2))` satisfies
+  `varianceFloor w hw0*B <= Var_W(F)` at every extent and late cutoff.
+  The whole signed fundamental-plaquette observable, full interacting W and
+  original partition are unchanged.
+- **uniformity / residue**: no extra extent or family-cardinality factor is
+  introduced. The floor is cutoff- and extent-independent at fixed strict
+  nome; no uniform bound as the nome changes is supplied, and `B` may grow. This is
+  original centered variance, not OS transfer energy. The angular-to-SAME-
+  completed-transfer one-step/variance scaling join, observables beyond the
+  fundamental plaquette span, changing-nome control, continuum construction,
+  and all compact simple groups remain open. No canonical field or hole is
+  closed.
+- **verification**: the dependency-complete
+  `+YMGap.Continuum.BF4ExactSlabPlaquetteAngularFamily:olean` target passed at
+  the explicit 20 GiB ceiling. Seven serialized final direct checks passed
+  all 40 printed gates (9, 7, 4, 6, 5, 1, 8), each within
+  `{propext, Quot.sound}`, with no warnings, errors or `sorryAx` in the
+  new-file logs. Main supplied the generic Casimir and actual
+  coercivity/variance consumers. Sol supplied incident head-linearity/source
+  pins, exact incidence coverage, scalar support, and independent review.
+  One monitored 20 GiB worker; no full-root audit.
+
+## PROVED explicit whole-plaquette gradient score cost (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/QuaternionHaarCoordinateAngularInterval.lean`,
   `QuaternionHaarSecondAngularBounds.lean`,
@@ -35,14 +75,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **uniformity / residue**: there is no extra family-cardinality multiplier,
   although `sum_f c_f^2` can itself be extensive. `C(w)` is independent of
   cutoff and extent at fixed nome under `headCutoff w <= K`, but no uniform
-  near-one nome bound is supplied. This upper cost estimate supplies no
-  strict angular-energy lower bound valid for all choices: fixed `i=j` or
-  an empty link family gives zero. A bounded-collar
-  gradient-Gram/heat comparison is only a candidate. Existing
-  `family_partition_coercivity` is an uncentered full-square estimate, not a
-  gradient-energy or variance lower bound. Even a future angular-energy floor
-  still needs the completed-transfer one-step/variance scaling join; angular
-  energy is not OS transfer energy. No scaling, continuum or all-group claim.
+  near-one nome bound is supplied. This upper cost estimate alone supplies no
+  angular-energy lower bound: fixed `i=j` or an empty link family gives zero.
+  The current milestone subsequently combines all six directions, complete
+  physical-link coverage and the existing `family_partition_coercivity` to
+  prove centered-variance coercivity. It still needs the completed-transfer
+  one-step/variance scaling join; angular energy is not OS transfer energy.
+  No scaling, continuum or all-group claim.
 - **verification**: the dependency-complete
   `+YMGap.Continuum.BF4ExactSlabPlaquetteGradientCost:olean` target and five
   final direct checks passed all 32 printed gates (4, 16, 2, 4, 6) within
@@ -74,8 +113,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   witnessed physical links.
 - **residue**: this is not a strict response or energy floor. The explicit
   second-derivative, local coefficient-square and four-links-per-face
-  diagonal bound is now supplied above. A useful angular-energy lower bound
-  remains open. No scaling ratio, OS gap,
+  diagonal bound is now supplied above. The current milestone supplies its
+  six-direction all-link angular lower comparison and centered-variance
+  coercivity. The SAME completed-transfer scaling join remains open. No scaling ratio, OS gap,
   continuum closure, new assumption, hole, axiom or carrier change is supplied.
 - **verification**: the dependency-complete
   `+YMGap.Continuum.BF4ExactSlabPlaquetteWardEnergy:olean` target and three
@@ -110,7 +150,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   bound, scaling ratio, OS gap, continuum closure, new analytic assumption,
   hole, axiom or canonical-field change is supplied. The actual incident-
   gradient tests, exact energy response and quantitative diagonal control
-  are now supplied above; a strict angular-energy lower bound remains open.
+  are now supplied above; the current milestone supplies the resulting
+  six-direction coercivity for the complete physical-link family.
 - **verification**: the dependency-complete
   `+YMGap.Continuum.BF4ExactSlabWardFamilyCost:olean` target and three final
   direct checks passed all 21 printed gates (5, 8, 8) exactly within
