@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original Wilson-loop kinetic increment (2026-09-21 UTC):**
+`QuaternionHaarFiniteCauchyCertificate.lean`, `QuaternionHaarWordDifference.lean`,
+`QuaternionHaarChordalDifference.lean`, and `QuaternionHaarWordLift.lean`
+preserve ordered products and the full shared weight, giving squared
+path-length control. `BF4ExactSlabFixedSpatialWilsonActivePadding.lean`
+proves activity of each literal source edge at strictly larger width.
+`BF4ExactSlabFixedSpatialWilsonKineticIncrement.padded_wilson_energy_tolerance`
+then proves `2*normalizedEnergy <= 4*L^2*(2-2*w^3+epsilon)` for the SAME
+fundamental Wilson character, original transfer, terminal messages and
+existing odd partition. The computed cutoff depends on nome and tolerance,
+not width or terminal depth. No variance lower bound, inter-width state
+identification, new spectral gap, or continuum survival is supplied.
+Seven final narrow checks passed all 44 gates within `{propext, Quot.sound}`;
+no hole or frontier field changed, and no full-root audit was run.
+
 **All-nome original kinetic alignment (2026-09-21 UTC):**
 `SU2HeatNeighborConvexity.lean` and `SU2HeatFusionCoefficientPositive.lean`
 prove nonnegative bulk coefficients using the original dimensions/Casimirs.

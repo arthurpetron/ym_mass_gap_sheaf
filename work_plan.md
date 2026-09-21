@@ -34,6 +34,93 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Original Wilson-loop upper energy bound, uniform in width and depth (2026-09-21 UTC)
+
+**PROGRESS -- the preceding local estimate now has its actual observable
+consumer:** `BF4ExactSlabFixedSpatialWilsonKineticIncrement.padded_wilson_energy_tolerance`
+proves, for any fixed `SourceLoop base` of length `L`, every `width>base`,
+every terminal depth, `0<w<1`, positive epsilon and computed late cutoff,
+
+    2*normalizedEnergy(original fundamental Wilson character)
+      <= 4*L^2*(2-2*w^3+epsilon),
+    K >= max(headCutoff(w), cutoffErrorCutoff(w,epsilon)).
+
+The energy is the EXISTING `DirichletWindow.normalizedEnergy` for the
+original transfer, `g=T^depth 1`, and positive `oddMass`. Its existing
+`normalizedEnergy_window` identifies twice this energy with the actual
+adjacent-slice squared difference in the original odd window. No action
+factor, endpoint message, observable, or partition is replaced. The fixed
+literal loop is included by the EXISTING zero-translation `recenterLoop`;
+strict padding proves every edge active. No state equality across widths
+is inferred from this syntactic inclusion.
+
+**Short argument:** an ordered noncommutative telescope expresses the
+word difference as `L` unit-prefix/link-difference/unit-suffix terms.
+Unit-quaternion norm identities remain valid under the FULL shared weight,
+without spectator independence. The sum-of-squares certificate
+`L*sum(t_i^2)-(sum t_i)^2 >= 0` gives the squared length cost `L^2` rather
+than an iterated exponential cost. The exact chordal identity is
+`|p-q|^2 = 2-chi_1(q*conj(p))`; the preceding original kinetic alignment
+bounds its integral by `(2-2*w^3+cutoffError)*oddMass`. The factor four is
+the square of the unnormalized fundamental trace's factor two. Divide
+only by the SAME proved-positive partition, then apply the computed error
+modulus. `wilson_energy_cleared` retains the pre-normalization statement.
+
+**Boundary and next producer:** width and depth do not enter this upper
+bound for a fixed loop length, nome and tolerance; the cutoff threshold
+still depends on nome and is not uniform as `w` approaches one. This is
+fundamental-spin control of time increments, NOT arbitrary-observable
+variance coercivity or a new completed gap. The SAME odd-window marginal
+already has a positive plaquette floor:
+`BF4ExactSlabFixedSpatialOddLocalVariance.odd_marginal_variance_floor`
+proves `starRatio(w) <= Var_odd(plaquette)` at every nome, independently
+of width, late cutoff and depth. The floor is NOT missing; quantitative
+dominance over the energy upper bound is. For a four-edge plaquette the
+naive sufficient comparison would be `32*displacementRate < starRatio`.
+A source-level feasibility review below rules out this particular comparison.
+A useful relative energy/variance estimate along the same changing-coupling/
+spacing trajectory is required: sharpen the observable-energy estimate or
+the original variance lower bound, rather than add an assumption wrapper.
+Small energy alone can describe a constant or vanishing observable; an
+arbitrary SourceLoop can be constant through exact backtracking.
+The original spatial signed aggregate estimate, changing-width/spacing
+comparison and survival, physical mass calibration, SAME-theory OS/full
+QFT and every compact simple group remain OPEN. No canonical field or
+existing analytic obligation changed.
+
+**Scalar feasibility review (source argument, NOT a newly checked Lean
+theorem):** `EulerProductStrictFloor.floor_le_euler` at `N=1` gives
+`e <= 1-w`, where `e` is the Euler floor. The definitions in
+`ThetaProductStrictFloor`, `SU2PointwiseHeatStrictFloor`, and
+`BF4ExactSlabRetainedHeatHeadComparison` give `headFloor=e^2/8`.
+In `BF4ExactSlabLocalStarComparison`, `localFloor=min(headFloor,1)`,
+`lowerFactor=localFloor^6`, and `one_le_localCap` makes `upperFactor>=1`.
+Consequently `starRatio<=localFloor<=1-w`. Since `w^3<=w` for `0<w<1`,
+
+    starRatio(w) <= 1-w < 32*(2-2*w^3) <= 32*displacementRate(w,K).
+
+The last step uses `SU2HeatFusionCutoffError.cutoffError_nonnegative`.
+Thus these two certified estimates cannot by themselves give a positive
+plaquette response at ANY nome. This concerns their numerical budgets,
+not the actual variance or response, and is not a counterexample to
+continuum survival. Sol independently checked the source chain. Do not
+spend a new proof branch trying to inhabit the impossible scalar guard.
+
+**Verification and delegation:** Sol supplied the finite Cauchy certificate,
+coordinate-lift and active-padding helpers and independently reviewed the
+mathematics/scope. Main proved the ordered-word, chordal and original-energy
+joins. The dependency-complete target
+`+YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement:olean`
+and seven final direct checks passed all 44 printed axiom gates within
+`{propext, Quot.sound}`, with no warnings or `sorryAx`. The final logs are
+`/tmp/ym-gap-<Module>-final.log` for `QuaternionHaarFiniteCauchyCertificate`,
+`QuaternionHaarWordDifference`, `QuaternionHaarChordalDifference`,
+`QuaternionHaarWordLift`, `SU2QuaternionCoordinateColumnLift`,
+`BF4ExactSlabFixedSpatialWilsonActivePadding`, and
+`BF4ExactSlabFixedSpatialWilsonKineticIncrement`. One monitored 20 GiB
+worker; no full-root build/audit. The semantic-root import now reaches the
+alignment through its new energy consumer. No hole or axiom added.
+
 ### All-nome original kinetic alignment, with a computed cutoff error (2026-09-21 UTC)
 
 **PROGRESS -- a genuine original-action local estimate, not a spatial gap:**
@@ -77,8 +164,9 @@ the small-error theorem correctly requires `w<1`.
 
 **Next consumer and remaining obstruction:** this supplies one original
 local kinetic input for estimates on time increments in the SAME finite
-Dirichlet form. Turning it into a controlled observable-increment bound,
-and then a changing-spacing survival estimate, still requires proofs.
+Dirichlet form. The checkpoint above now proves the corresponding
+fundamental Wilson-loop increment bound; the changing-spacing survival
+estimate still requires a same-object lower norm/variance input and proofs.
 It does not control arbitrary-observable variance or the signed aggregate
 cross-term budget, and it does not bound the spatial gap. The primary
 spatial/scaling producer remains open. Do not substitute this temporal

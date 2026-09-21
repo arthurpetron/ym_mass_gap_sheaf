@@ -143,11 +143,13 @@ theorem coordinateColumn_supported {blocks slot : Nat} (hslot : slot < blocks)
 private def LiftImage (blocks : Nat) (lower upper : RatPoly) : Prop :=
   PaddedPolynomialCoeffEqv (blocks + blocks) (liftBoundary blocks lower) upper
 
-private theorem lift_zero : ∀ blocks, liftBoundary blocks polyZero = polyZero
+/-- Adjoining quaternion blocks preserves the zero polynomial exactly. -/
+theorem lift_zero : ∀ blocks, liftBoundary blocks polyZero = polyZero
   | 0 => rfl
   | blocks + 1 => by rw [liftBoundary, lift_zero blocks]; rfl
 
-private theorem lift_neg : ∀ (blocks : Nat) (p : RatPoly),
+/-- Adjoining quaternion blocks commutes exactly with polynomial negation. -/
+theorem lift_neg : ∀ (blocks : Nat) (p : RatPoly),
     liftBoundary blocks (polyNeg p) = polyNeg (liftBoundary blocks p)
   | 0, _ => rfl
   | blocks + 1, p => by
@@ -155,7 +157,9 @@ private theorem lift_neg : ∀ (blocks : Nat) (p : RatPoly),
       simp only [liftHead, polyNeg, List.map_map]
       rfl
 
-private theorem lift_var : ∀ (blocks coordinate : Nat),
+/-- Adjoining `blocks` quaternion variables shifts a scalar coordinate by
+exactly `4 * blocks`. -/
+theorem lift_var : ∀ (blocks coordinate : Nat),
     liftBoundary blocks (polyVar coordinate) = polyVar (4 * blocks + coordinate)
   | 0, _ => by simp only [liftBoundary, Nat.mul_zero, Nat.zero_add]
   | blocks + 1, coordinate => by
@@ -299,5 +303,8 @@ theorem coordinateColumn_lift (blocks slot degree k : Nat) :
 end YMGap.Continuum.SU2QuaternionCoordinateColumnLift
 
 #print axioms YMGap.Continuum.SU2QuaternionCoordinateColumnLift.coordinateColumn_supported
+#print axioms YMGap.Continuum.SU2QuaternionCoordinateColumnLift.lift_zero
+#print axioms YMGap.Continuum.SU2QuaternionCoordinateColumnLift.lift_neg
+#print axioms YMGap.Continuum.SU2QuaternionCoordinateColumnLift.lift_var
 #print axioms YMGap.Continuum.SU2QuaternionCoordinateColumnLift.TensorLiftImage
 #print axioms YMGap.Continuum.SU2QuaternionCoordinateColumnLift.coordinateColumn_lift

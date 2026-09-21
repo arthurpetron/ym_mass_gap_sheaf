@@ -13,6 +13,36 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED original Wilson-loop upper energy bound after spatial padding (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarFiniteCauchyCertificate.lean`,
+  `QuaternionHaarWordDifference.lean`, `QuaternionHaarChordalDifference.lean`,
+  `QuaternionHaarWordLift.lean`, `BF4ExactSlabFixedSpatialWilsonActivePadding.lean`,
+  and `BF4ExactSlabFixedSpatialWilsonKineticIncrement.lean`, in the same directory.
+  `SU2QuaternionCoordinateColumnLift.lean` exposes three already-proved helpers.
+- **scope**: `word_scalar_square_bound` uses an ordered-product telescope
+  and finite sum-of-squares Cauchy certificate under the full shared weight.
+  `wilson_energy_normalized` gives `2*E <= 4*L^2*displacementRate(w,K)` for
+  the original fundamental Wilson character and its existing normalized
+  Dirichlet energy. `includedLoop_edges_active` proves the activity premise
+  for zero-translation inclusion at every strictly larger width.
+  `padded_wilson_energy_tolerance` therefore gives
+  `2*E <= 4*L^2*(2-2*w^3+epsilon)` with no unfilled activity premise, for
+  every `0<w<1` and computed late cutoff, uniformly in width and depth.
+  The SAME original edge, terminal messages and positive `oddMass` remain.
+- **boundary**: fundamental character only; loop length, nome, tolerance,
+  strict spatial padding and cutoff conditions stay explicit. No cutoff
+  threshold uniform as `w` approaches one, variance floor, inter-width
+  state identification, aggregate signed spatial bound, new completed gap,
+  scaling survival or continuum/Clay closure. No hole, axiom, canonical
+  field or existing analytic obligation changed.
+- **verification**: narrow dependency-complete consumer build and seven
+  final direct checks passed all 44 printed gates within
+  `{propext, Quot.sound}`, without warnings or `sorryAx`. Sol supplied the
+  finite Cauchy, lift and padding helpers and reviewed the mathematics;
+  main supplied the ordered-word estimate and original-energy consumer.
+  One monitored 20 GiB worker; no full-root audit. Logs in `work_plan.md`.
+
 ## PROVED all-nome original kinetic alignment with an explicit cutoff error (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2HeatNeighborConvexity.lean`,

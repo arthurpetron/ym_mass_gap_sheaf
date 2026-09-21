@@ -26,9 +26,26 @@
 > An all-nome local kinetic alignment bound now retains the full original
 > edge and partition, with a computable cutoff error independent of width
 > and terminal depth. It is not an arbitrary-observable variance bound.
+> That alignment now bounds the original fundamental Wilson-loop Dirichlet
+> energy by an explicit squared path-length cost, uniformly in width and
+> terminal depth after strict spatial padding. A sufficiently strong
+> variance-to-energy comparison and changing-spacing survival remain open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
+
+**Original Wilson-loop time increments (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialWilsonKineticIncrement.padded_wilson_energy_tolerance`
+proves `2*E <= 4*L^2*(2-2*w^3+epsilon)` for a fixed fundamental Wilson loop
+of length `L`, at every strictly larger spatial width and terminal depth.
+`E` is the EXISTING normalized finite Dirichlet energy; the original action,
+both endpoint messages and positive odd-window partition are unchanged.
+An ordered noncommutative telescope and finite Cauchy certificate supply
+the `L^2` cost. The cutoff threshold is computed from nome and tolerance;
+it is not uniform as `w` approaches one. This is an upper energy bound,
+not a variance floor, an identification of states across widths, or a
+continuum survival theorem. Sol supplied bounded helpers and scope review.
+Seven final narrow checks passed all 44 axiom gates; no full-root audit.
 
 **Original kinetic alignment (2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialKineticAlignment.alignment_tolerance` proves
