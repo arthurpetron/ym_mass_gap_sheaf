@@ -34,7 +34,64 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Original-action local Haar identity and polynomial score (2026-09-21 UTC)
+### Actual normalized variance consumes the local Ward score (2026-09-21 UTC)
+
+**PROGRESS -- an original-action inequality, with its costs still explicit:**
+`BF4ExactSlabLocalWardVariance.normalizedResponse_squared_le_variance_cost`
+proves, writing W=R*A in the preceding selected-link frame,
+
+    E_W[A*g*(D f)]^2 <= Var_W(f) * E_W[S^2],
+    S = A*(D g) + 2*(D A)*g.
+
+The positive certificate for W is CONSTRUCTED from the actual incident
+and complementary heat products under `0<w<1` and `headCutoff w<=K`.
+`SU2QuaternionAngularSupport` proves derivative/score support, rational
+homogeneity and exact removal of a rational center. The raw comparison
+holds at EVERY rational center; the normalized theorem then chooses the
+computed full-action mean and uses `own_mean_pin`. The response squared
+and the product of the variance/cost both use exactly two factors of the
+SAME partition reciprocal. No response floor or cost bound is assumed.
+
+**SAME-object join, proved rather than left to a naming convention:**
+`framePartition_pin` equates the complete original finite partition with
+H[R*A]. `originalMoment_frame_pin` and `originalVariance_frame_pin` prove
+that reindexing an original supported observable gives exactly its original
+normalized moments and variance. Thus this is not a comparison with a
+star-deleted measure or a variance assigned independently of the observable.
+The entire signed f remains inside the variance and response; no component
+count or coefficientwise absolute-value estimate is inserted.
+
+**Next producer:** choose an actual observable/test family and prove a
+useful lower bound on its Ward response and upper bound on its score cost.
+Those quantities retain cutoff, extent, nome and test dependence. This
+inequality alone is NOT the needed uniform one-step/variance estimate,
+and it closes no scaling, survival, OS/QFT, physical mass or all-group atom.
+
+The bounded derivative inventory identifies a concrete route for the cost:
+`QuaternionHaarSharpCharacterInterval.sharpCharacterInterval` supplies
+actual Haar certificates at the representation dimension, and
+`SU2HeatQuarticPrefixBound.prefix_bound` supplies a cutoff-independent
+quartic-label sum at each strict nome. The missing exact inputs are a
+RatPoly character-derivative/chain-rule expansion and a square/interval
+certificate for the selected-link derivative of the actual face scalar.
+The existing `ChebOrthoWeightedFTC.Uderiv` and
+`ChebOrthoLegAssembly.Uderiv_abs_le` are rational evaluation statements,
+not those polynomial/Haar certificates. The quartic budget is nome-dependent
+and is not uniform as w approaches one. Do not mistake its existence for
+a proved angular derivative or score bound.
+
+**Verification:** the dependency-complete Ward-variance target and two
+final direct checks passed all 15 printed gates within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Exact final logs:
+`/tmp/ym-gap-SU2QuaternionAngularSupport-final.log` and
+`/tmp/ym-gap-BF4ExactSlabLocalWardVariance-final.log`.
+Sol supplied bounded support/centering lemmas, the derivative inventory,
+and independent reviews of the signs, guards, normalization and original
+moment/variance pins; main proved the comparison and same-object joins.
+One monitored 20 GiB worker; no full-root build/audit. No hole, axiom,
+canonical field or previous analytic obligation changed.
+
+### Original-action local Haar identity and polynomial score (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- a new exact analytic identity, not a uniform estimate:**
 `SU2QuaternionAngularDerivative` constructs the tangential rotation

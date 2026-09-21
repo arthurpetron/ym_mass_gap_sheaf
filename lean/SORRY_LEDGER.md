@@ -13,6 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED normalized original-action Ward variance comparison (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionAngularSupport.lean` and
+  `lean/YMGap/Continuum/BF4ExactSlabLocalWardVariance.lean`.
+- **scope**: support/centering lemmas make the constructed local score a
+  legal test of original weighted CS. `scoreResponse_squared_le_centered_cost`
+  holds at any rational center, with the correct Ward minus sign squared.
+  `normalizedResponse_squared_le_variance_cost` chooses the computed own
+  mean and proves `E_W[A*g*(D f)]^2 <= Var_W(f)*E_W[S^2]` for the SAME
+  W=R*A and S=A*(D g)+2*(D A)*g. Weight positivity and positive partition
+  are constructed under strict nome and the explicit late-cutoff guard.
+  `framePartition_pin`, `originalMoment_frame_pin`, and
+  `originalVariance_frame_pin` identify the reindexed quantities with
+  the ORIGINAL complete action, supported observable and normalization.
+- **residue**: useful response floors, score-cost bounds and their
+  cutoff/spatial/nome control are NOT supplied. No uniform energy/variance
+  comparison, changing-spacing family, continuum survival, physical mass,
+  canonical OS/QFT or all-group atom is closed. Character value intervals
+  and the quartic heat-label budget do not yet bound angular derivatives;
+  the exact missing polynomial inputs are recorded in `work_plan.md`.
+  No hole, axiom, canonical field or existing analytic obligation changed.
+- **verification**: dependency-complete target and two final direct checks
+  passed all 15 printed gates within `{propext, Quot.sound}`, without
+  warnings or `sorryAx`. Sol supplied bounded algebra and independent
+  review; main supplied the variance and normalization proofs. One
+  monitored 20 GiB worker; no full-root build/audit. Logs in `work_plan.md`.
+
 ## PROVED original-action local Haar Ward and mean-zero polynomial score (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionAngularDerivative.lean`,

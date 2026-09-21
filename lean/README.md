@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original-action local Haar identity (2026-09-21 UTC):**
+**Actual normalized Ward variance comparison (2026-09-21 UTC):**
+`SU2QuaternionAngularSupport.lean` supplies support and centering laws.
+`BF4ExactSlabLocalWardVariance.lean` constructs positivity of the SAME
+full W=R*A at the explicit late cutoff and proves
+`E_W[A*g*(D f)]^2 <= Var_W(f)*E_W[S^2]`, with the actual computed mean
+and S=A*(D g)+2*(D A)*g. Explicit partition, moment and variance pins
+identify the selected-link frame with the original supported observable
+and full action. Response floors and score-cost estimates, including
+their spatial/nome control, remain open. Existing scalar heat-label budgets
+do not yet bound angular derivatives. Both final narrow checks passed
+all 15 printed gates within `{propext, Quot.sound}`; no hole/field change
+or full-root audit.
+
+**Original-action local Haar identity (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionAngularDerivative.lean` and `SU2QuaternionHaarAngularIBP.lean`
 prove exact tangential integration by parts for the original quaternion
 Haar functional, preserving every tail coefficient.

@@ -61,13 +61,26 @@
 > along an actual spatial/scaling family.
 > A new exact Haar integration-by-parts identity now keeps the complete
 > original action and produces a local mean-zero polynomial score.
-> Its quantitative response and norm estimates are still open.
+> Its squared response is now bounded by the actual normalized variance
+> times its score cost, with proved original-observable and partition pins.
+> Useful response floors and score-cost estimates are still open.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Original-action local Haar identity (2026-09-21 UTC):**
+**Original-action variance comparison (2026-09-21 UTC):**
+`BF4ExactSlabLocalWardVariance` proves a quantitative relation between
+the constructed score's response, the observable's actual variance and
+the score's cost. The mean and partition are computed from the same full
+action, and exact reindexing lemmas identify the variance with the original
+observable. No response floor or score-cost bound is assumed, but useful
+estimates for those quantities remain to be proved. This does not yet give
+the required spatial/scaling energy-versus-variance bound. All 15 printed
+gates passed two final narrow checks; no full-root build/audit or canonical
+frontier closure.
+
+**Original-action local Haar identity (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabLocalHaarWard` proves an exact selected-link integration-by-parts
 identity, using the original quaternion Haar functional and every action
 factor. Only the incident heat product is differentiated; the full
