@@ -17,9 +17,22 @@
 > carrier throughout the OLD 625-entropy guarded region. With any fixed
 > polynomial squared-norm growth in inverse spacing, positive-time responses
 > vanish even when the coupling approaches that old guard's boundary.
+> Beyond that guard, a new bound compares the existing fixed-width Wilson
+> infinite-time expectations at any two nomes in `(0,1)`. It uses a finite
+> time pivot and two geometric tail errors; spatial uniformity is still open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
+
+**All-nome Wilson time-limit comparison (2026-09-21 UTC):**
+`BF4WilsonAllNomeTimeCoupling.joint_coupling_bound` compares the SAME
+Wilson expression in the existing original-action joint time/cutoff limits
+at every `0<u<=v<=W<1`, without the small-nome guard. The error is two
+geometric time tails plus a coupling cost on one finite pivot chain.
+`comparisonDepth` makes each tail smaller than a requested tolerance;
+the finite coupling cost and width dependence remain explicit. This is not
+a spatial-uniform or changing-spacing survival estimate. The narrow build
+and all 11 direct axiom gates passed; no full-root audit was run.
 
 **Sharper counting rules out the old-guard boundary route (2026-09-21 UTC):**
 The component count improves from `625^m` to `96^m` by recording neighbor

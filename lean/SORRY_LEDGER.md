@@ -13,6 +13,28 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED all-nome coupling comparison after Wilson time/cutoff removal (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabWilsonFiniteWindowCoupling.lean`
+  and `lean/YMGap/Continuum/BF4WilsonAllNomeTimeCoupling.lean`.
+- **scope**: `finiteWindow_difference_bound` compares the original
+  finite-chain cutoff limits at a chosen time pivot. `finiteWindow_tail_bound`
+  controls their distance to the EXISTING `originalJointLimit` using the
+  proved two-boundary geometric error. `joint_coupling_bound` composes these
+  estimates for every `0<u<=v<=W<1`, without the old small-nome guards.
+  `comparisonDepth` makes the two tail errors at most a supplied epsilon;
+  `joint_coupling_tolerance_bound` retains the explicit finite-pivot path cost.
+- **boundary**: width, expression, both nomes and pivot dependence remain.
+  No unbounded external-time face count remains, but no spatial-uniform
+  estimate or coupling-uniform continuity modulus is proved. No changing-
+  spacing survival, physical mass, OS/full QFT or every-group conclusion
+  follows. No carrier or operator is replaced. No `sorry`, new axiom,
+  canonical field or existing obligation was added or discharged.
+- **verification**: narrow dependency target and both final direct checks
+  passed all 11 printed gates within `{propext, Quot.sound}`, without
+  warnings or `sorryAx`. Logs/delegation are in the newest `work_plan.md`
+  checkpoint. One monitored worker, 20 GiB ceiling; no full-root build/audit.
+
 ## PROVED descent count, SAME completed gap and whole-old-guard scaling obstruction (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/FiniteRootedAnimalPaddedDescentCode.lean`,

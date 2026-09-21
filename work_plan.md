@@ -34,6 +34,63 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### All-nome coupling comparison of existing Wilson time limits (2026-09-21 UTC)
+
+**PROGRESS -- original-action estimate beyond the old guard:**
+`BF4WilsonAllNomeTimeCoupling.joint_coupling_bound` compares the EXISTING
+`BF4ExactSlabFixedSpatialWilsonWindowJointCauchy.originalJointLimit` at
+two nomes, for every `0<u<=v<=W<1`. It keeps the same fixed spatial width,
+Wilson expression and window. There are no small-nome heat or entropy
+guards. Both heat cutoff and external time boundaries are already removed
+in the quantities being compared. For every chosen depth `s`, the bound is
+
+    |J_v(e) - J_u(e)| <= B_v(e,s) + F(W,u,v,e,s+1) + B_u(e,s),
+    B_w(e,s) = mixRate(w,width)^s * windowTimeCap(w,width,sourceCap(e)),
+    F = #chainIds(at pivot s+1) * 2*windowCap(e)*relativeVariation(W,u,v).
+
+`BF4ExactSlabWilsonFiniteWindowCoupling.finiteWindowExpectation` names the
+pre-existing all-nome finite-chain expectation at the pivot, not a new
+state. Its cutoff stream is exactly `originalWindowScalar` at that fixed
+time placement. `finiteWindow_difference_bound` uses the existing finite
+face-by-face coupling path with the constructed `placed_interval`.
+`finiteWindow_tail_bound` passes the ORIGINAL two-boundary geometric bound
+through cutoff convergence at the pivot and joint convergence at infinity.
+The final inequality is their three-term triangle bound. Normalization and
+all original action factors are retained throughout; no completed carrier
+or transfer map is replaced.
+
+**Computed budget and actual boundary:** `comparisonDepth` makes both
+boundary terms at most any supplied positive epsilon, yielding
+`joint_coupling_tolerance_bound`. Only a finite pivot's face count remains,
+not the unbounded time-volume count. The pivot depends on BOTH nomes,
+width and expression; the finite coupling cost remains explicit and is not
+automatically small. This is NOT a coupling-uniform continuity modulus or
+a changing-width/spacing estimate. In particular, the already checked
+`BF4ExactSlabFixedSpatialRateWidthObstruction.no_width_uniform_computed_rate`
+still prevents promoting this particular mixing rate directly to a common
+strict spatial-volume rate.
+
+**Next actual input:** spatial control along a justified changing-coupling
+and changing-spacing route, together with nontrivial original observable
+normalization/survival, remains missing. The new estimate closes the
+all-nome infinite-time coupling comparison, not that joint analytic input.
+Do not substitute the older restricted spatial-probe `JointCompletion` or
+ordinary-Haar completion for the current Wilson union carrier. The source
+does contain those all-nome fixed-width constructions; their existence is
+not the unresolved spatially uniform Wilson/continuum join. Physical mass,
+canonical SAME-theory OS/full QFT, every group and Clay remain OPEN.
+
+**Verification and delegation:** the narrow dependency-complete target
+`+YMGap.Continuum.BF4WilsonAllNomeTimeCoupling:olean` and both final direct
+checks passed all 11 printed axiom gates within `{propext, Quot.sound}`,
+without warnings or `sorryAx`. Logs:
+`/tmp/ym-gap-BF4ExactSlabWilsonFiniteWindowCoupling-final.log` and
+`/tmp/ym-gap-BF4WilsonAllNomeTimeCoupling-final.log`. Luna checked for duplicate
+work, drafted the finite adapter and reviewed the final scope; the main
+agent repaired/integrated the adapter and proved the geometric limit and
+two-nome comparison. One monitored worker, 20 GiB ceiling; no full-root
+build/audit. No hole, axiom, canonical field or existing obligation changed.
+
 ### Descent count closes the old-guard boundary escape route (2026-09-21 UTC)
 
 **PROGRESS -- sharper SAME-object estimate and a pruned scaling route:**
@@ -86,7 +143,9 @@ the proved envelope and its continuum meaning. The actual changing-spacing
 response-floor input to
 `BF4WilsonSurvivalPhysicalRateCeiling.logRate_le_of_sampled_response` remains
 unconstructed. Existing all-nome finite positivity, centered-response and
-Dirichlet estimates are not such a floor or an all-nome completed carrier.
+Dirichlet estimates are not such a floor or an all-nome extension of the
+current Wilson union carrier. Older fixed-width all-nome completions are
+separate constructions, not the missing spatially uniform join.
 No physical critical point, trajectory, mass calibration, surviving continuum
 observable, canonical OS/full QFT or every-group construction is supplied.
 This is an obstruction to a specified scaling route, NOT a Yang--Mills

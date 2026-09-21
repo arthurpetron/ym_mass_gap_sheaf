@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**All-nome Wilson time-limit coupling checkpoint (2026-09-21 UTC):**
+`BF4ExactSlabWilsonFiniteWindowCoupling.lean` and
+`BF4WilsonAllNomeTimeCoupling.lean` compare the EXISTING original Wilson
+`originalJointLimit` at two nomes throughout `0<u<=v<=W<1`. A finite time
+pivot carries the original finite-face coupling estimate; two proved
+geometric errors connect it to the infinite-time, cutoff-removed states.
+There is no small-nome/entropy guard and no replacement carrier or operator.
+The computed `comparisonDepth` makes both tail errors small, but width,
+coupling and finite-pivot cost remain explicit. No spatial-uniform modulus,
+continuum survival, physical calibration or OS/QFT closure is supplied.
+The narrow target and 11 final direct axiom gates passed within
+`{propext, Quot.sound}`, without warnings or `sorryAx`; no full-root audit.
+
 **Descent-count / whole-old-guard scaling checkpoint (2026-09-21 UTC):**
 `FiniteRootedAnimalPaddedDescentCode.lean` preserves the existing padded tour
 and decoder while recording neighbor choices only on descent. The same

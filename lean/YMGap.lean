@@ -4537,6 +4537,10 @@ import YMGap.Continuum.BF4ExactSlabDescentSelectedCovariance
 import YMGap.Continuum.BF4WilsonDescentUniformConnectedDecay
 import YMGap.Continuum.BF4WilsonDescentCompletedGap
 import YMGap.Continuum.BF4WilsonOldGuardScalingObstruction
+-- All-nome coupling comparison on EXISTING fixed-width Wilson joint limits:
+-- finite time pivot plus two geometric tails; no spatial-uniform claim.
+import YMGap.Continuum.BF4ExactSlabWilsonFiniteWindowCoupling
+import YMGap.Continuum.BF4WilsonAllNomeTimeCoupling
 import YMGap.Continuum.BF4ExactSlabFiniteCouplingPath
 import YMGap.Continuum.BF4ExactSlabCommonCutoffExpectations
 import YMGap.Continuum.BF4ExactSlabTwoNomeExpectationBound
