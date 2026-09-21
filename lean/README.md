@@ -12,7 +12,23 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Actual product-kernel selected-factor join (2026-09-21 UTC):**
+**Computed arbitrary-input harmonic decomposition (2026-09-21 UTC):**
+`SU2QuaternionFischerDecomposition.decomposeHomogeneous` returns actual
+finite radial-harmonic modes by degree recursion, with the explicit
+positive denominator 4(k+1)(d+k+2) and signed coefficient reassembly.
+`SU2QuaternionPolynomialHarmonicExpansion` splits arbitrary supported
+input, respects padding and consumes the result in the original heat
+pairing. `SU2QuaternionProductHeatHarmonicExpansion.productMap_selected_expansion`
+reaches the ACTUAL product map without assuming input harmonicity; every
+unselected factor remains. A computed fixed-input mode cutoff is not
+uniform control of V_K*g_K*f. Signed weighted energy, spatial/scaling,
+physical mass, full QFT and every-group joins remain open. Five focused
+checks passed 54 gates within `{propext, Quot.sound}` and the dependency-
+complete consumer target passed. No new hole/axiom or full-root audit.
+Source, scope and next estimate:
+`audits/AUDIT-CONSTRUCTIVE-HARMONIC-DECOMPOSITION-2026-09-21.md`.
+
+**Actual product-kernel selected-factor join (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionSelectedHarmonicHeatTransmission.lean` transports all-degree
 reproduction to arbitrary original block pairs and consumes it in the
 actual `productMap` pairing. All untouched kinetic factors and an arbitrary

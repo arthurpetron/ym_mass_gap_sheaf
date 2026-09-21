@@ -174,9 +174,16 @@
 > The all-label identity now passes through an arbitrary selected factor
 > of the actual product kinetic map, with all other factors retained and
 > a computed, support-checked output in the original coordinate order.
-> Decomposition of the interacting weighted source and signed energy
-> control remain open; that source is not assumed to be a harmonic mode.
+> At this checkpoint input harmonicity was still required; signed energy
+> control remained open.
 > [Actual product-map join](audits/AUDIT-SELECTED-HARMONIC-TRANSMISSION-2026-09-21.md).
+> The finite decomposition is now constructed: exact-degree splitting and
+> a terminating radial/Laplacian recursion supply the harmonic modes for
+> **arbitrary supported signed input**, and the original product map consumes
+> them with every other factor retained. This removes an input assumption,
+> not the missing weighted energy estimate. Its fixed-input cutoff does
+> not control the changing source family uniformly.
+> [Constructive decomposition and remaining estimate](audits/AUDIT-CONSTRUCTIVE-HARMONIC-DECOMPOSITION-2026-09-21.md).
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction

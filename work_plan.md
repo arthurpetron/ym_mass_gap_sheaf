@@ -34,7 +34,50 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Actual product-kernel selected-factor transmission (2026-09-21 UTC)
+### Computed arbitrary-input harmonic decomposition and actual product-map join (2026-09-21 UTC)
+
+**PROGRESS -- input harmonicity is no longer an assumption:**
+`SU2QuaternionProductHeatHarmonicExpansion.productMap_selected_expansion`
+accepts an arbitrary supported signed input and returns the exact finite
+sum of its COMPUTED harmonic contributions through one original product-
+heat factor. Every remaining factor and upper test survives in the
+selected chart on the same doubled carrier.
+
+The constructive argument is short: split exact degree; recursively
+decompose Delta(p); explicitly integrate each radial-harmonic term with
+the positive denominator 4(k+1)(d+k+2); subtract their sum from p to get
+the harmonic remainder. `decomposeHomogeneous` returns the finite modes
+and exact signed reassembly. Identity reindexing supplies raw padding
+without losing supported tail variables; radius powers disappear only
+through the established arbitrary-insertion Haar identity. Existing
+`HeadDegreeDifferential.activeLaplacian` is reused, not reconstructed.
+
+**Next mathematical join:** use this actual-mode expansion and harmonic
+norm/orthogonality identities for a quantitative kinetic/Casimir
+comparison, then retain the original endpoint correction in the weighted
+energy comparison. First group equal-degree harmonic parts: multiple
+computed modes can share that degree, so their signed cross terms do NOT
+vanish merely by cross-degree orthogonality. Reuse
+`HarmonicDegreeSelection.partialHaarHead_harmonic_lower_degree`.
+A useful proposed scalar target is
+`1-a_K(d) <= (1-w)*d*(d+2)` for every degree d under
+`1 <= (1-w)*(K+1)*(K+3)`, where `a_K(d)` is the actual cutoff attenuation.
+This target is NOT yet proved here; it may pay for omitted modes without
+requiring `K >= degree(V_K*g_K*f)`. The new `modeCutoff` only controls a
+fixed input, not the changing weighted family. Repeated-factor/norm joins,
+signed cross-term control, the SAME-variance small rate, spatial/scaling
+survival, physical mass, full QFT and every group remain OPEN. Reuse
+`ActiveEnergy.energy_active` and `GroundStateEnergy.energy_eq_bare_add_correction`.
+No canonical field/premise was changed and no hole/axiom was introduced.
+
+Five focused checks passed 54 gates within `{propext, Quot.sound}` and
+the dependency-complete original product-map consumer passed. Sol supplied
+the bounded splitter/product consumer and independently reviewed the
+radial recursion; main supplied the Fischer and arbitrary-input joins,
+integration and serialized verification. No full-root audit. Source/scope:
+`audits/AUDIT-CONSTRUCTIVE-HARMONIC-DECOMPOSITION-2026-09-21.md`.
+
+### Actual product-kernel selected-factor transmission (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the all-label selected-factor join is now proved:**
 `SU2QuaternionSelectedHarmonicHeatTransmission.productMap_selected_harmonic`

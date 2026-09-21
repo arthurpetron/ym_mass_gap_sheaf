@@ -13,7 +13,37 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED actual product-kernel selected-factor transmission (2026-09-21 UTC)
+## PROVED computed finite harmonic decomposition and arbitrary-input product-map expansion (2026-09-21 UTC)
+
+- **files**: `SU2QuaternionHeadHomogeneousComponents.lean`,
+  `SU2QuaternionFischerRadial.lean`, `SU2QuaternionFischerDecomposition.lean`,
+  `SU2QuaternionPolynomialHarmonicExpansion.lean`, and
+  `SU2QuaternionProductHeatHarmonicExpansion.lean`, all under
+  `lean/YMGap/Continuum/`.
+- **constructed input**: exact-degree filters and finite Fischer recursion
+  return explicit supported modes, their signed coefficients, harmonicity
+  and reassembly. The recursive radial lift divides by the proved positive
+  integer 4(k+1)(d+k+2). It uses the existing active Laplacian and degree
+  drop. No decomposition, harmonicity or propagation premise is assumed
+  for the arbitrary original input.
+- **same carrier**: identity padding uses both original support guards;
+  raw coefficient equality is only claimed on padded representatives.
+  Radius factors are removed by the proved Haar relation with arbitrary
+  insertions. `productMap_selected_expansion` keeps all other original
+  kinetic factors and the upper test in its exposed doubled-carrier sum.
+- **residue**: finite mode construction is closed, but repeated-factor
+  norm/energy comparison, signed endpoint correction, changing-source
+  cutoff control and the SAME-variance small rate remain open. The
+  computed `modeCutoff` of one input is not a uniform family bound.
+  Spatial/scaling survival, physical calibration, canonical full QFT and
+  every compact simple group remain open. No frontier field was weakened,
+  and no hole, axiom or analytic premise was introduced or removed.
+- **verification**: five focused checks passed 54 gates within
+  `{propext, Quot.sound}` and the dependency-complete original product
+  consumer target passed. One capped 20 GiB worker; no full-root audit.
+  Source/logs: `audits/AUDIT-CONSTRUCTIVE-HARMONIC-DECOMPOSITION-2026-09-21.md`.
+
+## PROVED actual product-kernel selected-factor transmission (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionBlockSwapChainInverse.lean`,
   `SU2QuaternionHarmonicHeatInsertion.lean`, and
