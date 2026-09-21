@@ -34,6 +34,76 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Actual spatial coupling path without face-count loss (2026-09-21 UTC)
+
+**PROGRESS -- new original-action estimate:**
+`BF4ExactSlabSummedCouplingPath.full_slab_original_change_bound` bounds the
+change of the ORIGINAL full-slab normalized expectation when every physical
+face nome changes from `u` to `v`. For `0<u<=v<=W<1`, the explicit heat and
+entropy guards at `W`, a fixed probe interval/locality/carrier, and every
+`K >= max(headCutoff u, headCutoff v)`, the proved bound is
+
+    |E_(v,K,extent)[p] - E_(u,K,extent)[p]|
+      <= A(P,W,u,v,c) * tailCap(r(W), |support(P)|, 0),
+
+where `A` is the existing singleton spatial amplitude evaluated at the
+constructed `scoreCap W u v`. `pathBudget` names this rational expression.
+No heat cutoff, extent or number of changed faces occurs in the budget;
+couplings, probe interval/support and the guarded ceiling do occur.
+`path_tail_small` and the executable `pathRadius` control ONE simultaneous
+change on any finite nodup set of distant faces by an arbitrary positive
+epsilon. This is stronger than summing isolated changes against a fixed law.
+
+**Causal proof:**
+`BF4ExactSlabHeterogeneousCouplingResponse.centered_distance_bound` cancels
+the SAME actual heterogeneous partition square. Its
+`background_response_bound` applies the already constructed centered score
+and four-link interval/locality certificates. The two-nome face schedule
+pins each actual intermediate density and both homogeneous endpoints;
+duplicate-freeness ensures that adding an index changes exactly one factor.
+`BF4ExactSlabSpatialCouplingPath.path_bound` telescopes the actual normalized
+values, not isolated responses from an unchanged reference law. Finally the
+existing proved four-dimensional geometric location sum removes the
+face-count factor. No new mixing or convergence field is assumed.
+
+**Existing-limit consumer:**
+`BF4ExactSlabSpatialTwoNomeExpectationBound.expectation_difference_bound`
+passes the same volume-free cap to the pre-existing CReal full-slab
+expectations at `u` and `v`. It uses the existing common-cutoff streams and
+their proved convergence, retaining the SAME fixed observable at both
+endpoints. No changing-score limit, new expectation or convergence premise
+is introduced. Thus the representation cutoff is removed in this comparison;
+the physical spacing and thermodynamic/scaling passage are not.
+
+**Main-route boundary:** these estimates retain a fixed guarded ceiling.
+They do not evade `BF4WilsonPolynomialScalingObstruction`: a surviving
+positive-physical-time family with a fixed polynomial squared-norm cap
+cannot remain below that ceiling. The missing analytic producer is still
+an actual changing-spacing original-Wilson survival estimate with justified
+coupling/normalization control. For example,
+`BF4WilsonSurvivalPhysicalRateCeiling.logRate_le_of_sampled_response` consumes
+a positive sampled response floor but does not construct it. The new scalar
+coupling bound is not that floor or an OS-norm bound. No canonical field,
+existing obligation, physical calibration or continuum/all-group endpoint
+has been changed or closed. Do not extend this finite-path branch with
+wrappers in place of addressing the survival/scaling obstruction.
+
+**Verification and delegation:** the narrow dependency-complete target
+`+YMGap.Continuum.BF4ExactSlabSpatialTwoNomeExpectationBound:olean` passed.
+All five final direct checks passed their 21 printed gates within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Logs:
+`/tmp/ym-gap-BF4ExactSlabHeterogeneousCouplingResponse-final.log`,
+`/tmp/ym-gap-BF4ExactSlabTwoNomeFaceSchedule-final.log`,
+`/tmp/ym-gap-BF4ExactSlabSpatialCouplingPath-final.log`,
+`/tmp/ym-gap-BF4ExactSlabSummedCouplingPath-final.log`, and
+`/tmp/ym-gap-BF4ExactSlabSpatialTwoNomeExpectationBound-final.log`.
+Luna drafted the finite schedule and existing-limit adapter and inventoried
+documentation anchors. The main agent repaired/integrated those drafts,
+proved the normalized spatial estimate, telescope and summed path, and
+serialized verification. One monitored worker, 20 GiB ceiling; no full-root
+build/audit was run. The build lock rejected one premature check launch;
+it was rerun successfully after the previous check exited.
+
 ### Spatial decay for actual heterogeneous backgrounds (2026-09-21 UTC)
 
 **New analytic producer:**
@@ -64,15 +134,12 @@ The new distance module absorbs the collar cost into the existing rate at
 `W`, then consumes the existing geometric count and distance-to-size floor.
 No new mixing field is assumed, and no component geometry is duplicated.
 
-**Next consumer and honest residue:** the heterogeneous connected-numerator
-estimate needed by the previous checkpoint is now constructed in this guarded
-region. Next normalize it against the same positive heterogeneous partition
-and apply the already constructed mean-zero `faceScore`, `scoreInterval`,
-`faceScore_local` and `face_response_pin`. Then prove that the intermediate
-densities of `BF4ExactSlabFiniteCouplingPath` are exactly those backgrounds
-before using the spatial location sum to remove its face-count loss. The
-homogeneous `BF4ExactSlabCouplingSpatialResponse` is not silently treated as
-that consumer. A simultaneous/path comparison is not yet proved here.
+**Consumer update:** the checkpoint above now normalizes this estimate
+against the SAME positive heterogeneous partition and applies the existing
+mean-zero score. A literal two-nome schedule supplies the actual intermediate
+densities, and the location sum removes the path's face-count loss.
+The homogeneous `BF4ExactSlabCouplingSpatialResponse` was not silently
+treated as the heterogeneous consumer.
 The fixed-guarded-ceiling survival obstruction still applies: these estimates
 do not construct a viable scaling trajectory, nontrivial continuum survival,
 physical mass calibration, same-theory OS/QFT or every-group/Clay closure.

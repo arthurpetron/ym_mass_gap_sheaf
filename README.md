@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-> **Current frontier (2026-09-20 UTC):** the fixed-spacing SU(2) Wilson
+> **Current frontier (2026-09-21 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,
 > and an equality criterion using every finite vacuum-generated input.
@@ -9,10 +9,10 @@
 > finite source-Haar identity now determines the same completed operator.
 > Original-window time reflection also gives its adjoint, with a checked
 > reflected-product identity on every completed input.
-> A new original-observable estimate compares two couplings after removing
-> the heat cutoff. Boundary localization makes its cost independent of
-> outer volume, under explicit small-nome guards; the inner-window cost
-> and coupling dependence remain. This is not continuum scaling control.
+> A new spatially summed coupling path compares the actual full-slab
+> expectations with no face-count loss, under explicit small-nome guards.
+> The same bound holds for their existing cutoff-removed CReal limits.
+> Coupling and probe dependence remain. This is not continuum scaling control.
 > Positive-time survival must escape every fixed guarded coupling ceiling,
 > even with any fixed polynomial squared-norm growth in inverse spacing.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
@@ -49,8 +49,8 @@ identity
 positive partition masses. The construction applies for every `0<u,v<1` at
 the explicit late cutoffs, without a small-nome restriction. A later score
 certificate supplies a cutoff-, extent-, and retained-background-independent
-cap on `E_B[s²]`; coupling-uniform control and spatial summability remain open,
-as does continuum/OS closure. The narrow dependency build and all 28 printed gates
+cap on `E_B[s²]`; later checkpoints below supply guarded spatial summability.
+Weak-coupling-uniform control and continuum/OS closure remain open. The narrow dependency build and all 28 printed gates
 across the four touched modules passed within `{propext, Quot.sound}`, without
 warnings or `sorryAx`. No full-root audit was run.
 
@@ -77,8 +77,8 @@ its actual normalization is retained. The bound is proportional to the
 coupling change and independent of cutoff and ambient face count, with
 explicit coupling/probe constants. The surrounding homogeneous background
 must satisfy the stated small-coupling spatial guards. The subsequent result
-below sums locations; heterogeneous coupling paths and continuum/OS closure
-remain open. The narrow build and 17 direct axiom checks passed;
+below sums locations, and the later heterogeneous path uses the actual
+intermediate measures. Continuum/OS closure remains open. The narrow build and 17 direct axiom checks passed;
 no full-root audit was run.
 
 **Summed isolated defects (2026-09-21 UTC):**
@@ -95,9 +95,23 @@ narrow build and 23 direct axiom checks passed; no full-root audit was run.
 now allows a separate nome and cutoff at every face, under one explicit
 small-nome ceiling. Signed cancellations retain the actual varying-action
 partition square; the distance budget has no volume or cutoff factor.
-The normalized coupling-path consumer remains to be connected. This is
+The normalized coupling-path consumer is now connected below. This is
 guarded finite-lattice control, not a continuum scaling or mass-gap theorem.
 The narrow build and 36 direct axiom checks passed; no full-root audit was run.
+
+**Actual spatial coupling path (2026-09-21 UTC):**
+`BF4ExactSlabSummedCouplingPath.full_slab_original_change_bound` compares
+the original full-slab expectations at two nomes with a cutoff- and
+volume-independent budget. The argument changes each selected face once,
+retains the actual intermediate background, and sums its geometric spatial
+cost. `pathRadius` controls simultaneous distant changes with an explicit
+epsilon modulus. The small-nome ceiling and probe/coupling constants remain
+explicit. `BF4ExactSlabSpatialTwoNomeExpectationBound.expectation_difference_bound`
+passes the same cap to the existing cutoff-removed expectations of the SAME
+fixed observable. The narrow build and all 21 direct gates passed within
+`{propext, Quot.sound}`; no full-root audit was run.
+This closes the guarded path and cutoff-limit joins, not continuum survival,
+physical mass calibration, OS/QFT or the every-group target.
 
 > **Research status (2026-09-21 UTC): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked

@@ -69,8 +69,9 @@ cutoffs, including the actual shared-link spectator product. The subsequent
 `BF4ExactSlabCouplingScoreBound.lean` now bounds the contrast variance with
 an explicit coupling-dependent budget independent of cutoff, extent and
 retained background. Its narrow build and all 11 direct gates passed.
-No weak-coupling-uniform estimate, spatial summability, changing-score limit,
-OS-norm identification or continuum closure is proved. The four touched
+This checkpoint alone gives no spatial summability; later entries below
+construct it in a guarded region. No weak-coupling-uniform estimate,
+changing-score limit, OS-norm identification or continuum closure is proved. The four touched
 centered-response modules' 28 direct axiom gates and narrow dependency build
 passed within `{propext, Quot.sound}`; no full-root audit was run.
 
@@ -102,10 +103,28 @@ distance bound with independent face nomes and cutoffs. Constructed local
 certificates, relative partition bounds and signed spectator resummation
 feed the existing physical core count. The SAME varying-action partition
 square is retained; one explicit small-nome ceiling and probe constants
-control the budget. Normalized coupling-path consumption remains open, as
-do viable continuum scaling, survival, calibration, OS/QFT and every group.
+control the budget. The next checkpoint supplies normalized coupling-path
+consumption; viable continuum scaling, survival, calibration, OS/QFT and
+every group remain open.
 The narrow build and 36 direct gates passed within `{propext, Quot.sound}`;
 no full-root audit was run.
+
+**Actual spatial coupling-path checkpoint (2026-09-21 UTC):**
+`BF4ExactSlabHeterogeneousCouplingResponse.lean` cancels the actual
+partition and applies the existing mean-zero local score. The literal
+two-nome schedule and `BF4ExactSlabSpatialCouplingPath.lean` telescope
+through the true intermediate products. `BF4ExactSlabSummedCouplingPath.lean`
+uses the proved four-dimensional location sum to bound the ONE simultaneous
+change independently of cutoff and ambient face count. Its endpoints are
+the original homogeneous full-slab expectations; its `pathRadius` is an
+explicit modulus for selected distant changes. All coupling, probe, and
+small-nome guards remain explicit; no scaling or continuum closure follows.
+`BF4ExactSlabSpatialTwoNomeExpectationBound.lean` transfers the cap to the
+pre-existing CReal expectations with the SAME fixed observable and no new
+convergence assumption. All 21 printed gates across the five new modules
+and the narrow dependency-complete target passed within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. No full-root audit
+was run, and no canonical field or existing proof obligation changed.
 
 > **Read `AGENTS.md` before contributing.** It contains both the
 > non-negotiable constructivity rules and the host-safety contract. They are

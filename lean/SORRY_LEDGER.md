@@ -13,6 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED actual spatial coupling path and volume-free full-slab comparison (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/BF4ExactSlabHeterogeneousCouplingResponse.lean`,
+  `BF4ExactSlabTwoNomeFaceSchedule.lean`, `BF4ExactSlabSpatialCouplingPath.lean`,
+  `BF4ExactSlabSummedCouplingPath.lean`, and
+  `BF4ExactSlabSpatialTwoNomeExpectationBound.lean`, all in the same directory.
+- **scope**: `background_response_bound` constructs normalized spatial
+  control in the actual intermediate heat background. `path_bound` telescopes
+  these changes along the literal finite schedule. `path_tail_bound` uses
+  the existing lattice sum, and `full_slab_original_change_bound` pins both
+  endpoints to the original homogeneous full-slab expectations. The budget
+  has no extent, cutoff or changed-face count. `pathRadius` and
+  `path_tail_small` give an explicit epsilon modulus for simultaneous
+  distant changes, not merely a sum of isolated reference-law defects.
+  The new `expectation_difference_bound` preserves the same cap in the
+  pre-existing cutoff-removed CReal full-slab states of the fixed probe.
+- **boundary**: `0<u<=v<=W<1`, the heat/entropy guards at `W`, probe
+  interval/locality/carrier witnesses and both late-cutoff thresholds are
+  explicit. Coupling/probe dependence is not removed. No surviving scaling
+  family, OS-norm estimate, physical calibration, continuum QFT or every-group
+  result follows. No canonical field or `sorry` was added or discharged.
+- **verification**: the narrow dependency-complete expectation target and
+  all five final direct checks passed 21 printed gates within
+  `{propext, Quot.sound}`, without warnings or `sorryAx`. Log paths and
+  delegation are recorded in the newest `work_plan.md` checkpoint. One
+  monitored worker, 20 GiB ceiling; no full-root build/audit was run.
+
 ## PROVED original connected spatial decay for heterogeneous face parameters (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabLocalFactorProduct.lean`,
@@ -28,8 +55,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   estimate; no spatial-mixing input is assumed.
 - **boundary**: nomes must lie in `[0,W]` and `W` must satisfy the displayed
   small-nome heat and entropy guards. Probe caps, supports and separation
-  remain explicit. Normalized heterogeneous score/path consumption and its
-  location sum remain to be joined. No scaling trajectory, survival,
+  remain explicit. The newer checkpoint above supplies normalized
+  heterogeneous score/path consumption and its location sum. No scaling trajectory, survival,
   physical mass, continuum OS/QFT or all-group closure follows. No canonical
   field or hole changed.
 - **verification**: the narrow dependency-complete distance target and five
