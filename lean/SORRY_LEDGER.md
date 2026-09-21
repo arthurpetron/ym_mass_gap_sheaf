@@ -13,7 +13,46 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED whole signed plaquette Ward-gradient energy (2026-09-21 UTC)
+## PROVED explicit whole-plaquette gradient score cost (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarCoordinateAngularInterval.lean`,
+  `QuaternionHaarSecondAngularBounds.lean`,
+  `BF4ExactSlabPlaquetteSecondAngularInterval.lean`,
+  `BF4ExactSlabWardIncidenceSum.lean`, and
+  `BF4ExactSlabPlaquetteGradientCost.lean`, in the same directory.
+- **scope**: coordinate/product/carrier bounds construct a genuine second
+  angular-derivative interval for the actual ordered plaquette scalar, with
+  caps 2048 and 16384, and hence value/derivative caps 4096 and 32768 for
+  the fundamental character gradient. For
+  `L_l = sum_{f incident to l}|c_f|` and
+  `C(w) = wardScoreCap w 4096 32768`, `gradient_score_square_le`,
+  `diagonal_cost_le`, and `energy_squared_le_explicit_cost` prove
+  E_W[S_l^2] <= 6*C(w)^2*sum_{f incident to l}c_f^2,
+  sum_l E_W[S_l^2] <= 24*C(w)^2*sum_f c_f^2, and
+  energySum^2 <= Var_W(F)*(25*(24*C(w)^2*sum_f c_f^2)), respectively.
+  The whole signed coefficients, double-reindex gradient pin, original full
+  W and common partition are retained.
+- **uniformity / residue**: there is no extra family-cardinality multiplier,
+  although `sum_f c_f^2` can itself be extensive. `C(w)` is independent of
+  cutoff and extent at fixed nome under `headCutoff w <= K`, but no uniform
+  near-one nome bound is supplied. This upper cost estimate supplies no
+  strict angular-energy lower bound valid for all choices: fixed `i=j` or
+  an empty link family gives zero. A bounded-collar
+  gradient-Gram/heat comparison is only a candidate. Existing
+  `family_partition_coercivity` is an uncentered full-square estimate, not a
+  gradient-energy or variance lower bound. Even a future angular-energy floor
+  still needs the completed-transfer one-step/variance scaling join; angular
+  energy is not OS transfer energy. No scaling, continuum or all-group claim.
+- **verification**: the dependency-complete
+  `+YMGap.Continuum.BF4ExactSlabPlaquetteGradientCost:olean` target and five
+  final direct checks passed all 32 printed gates (4, 16, 2, 4, 6) within
+  `{propext, Quot.sound}`, warning-free and without `sorryAx`. In the existing
+  coordinate module, only two private helpers were exported and gated; their
+  proofs are unchanged. No canonical field or hole changed. One monitored
+  20 GiB worker; no full-root audit.
+  Final logs are recorded in `work_plan.md`.
+
+## PROVED whole signed plaquette Ward-gradient energy (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/BF4ExactSlabPlaquetteGradient.lean`,
   `BF4ExactSlabWardGradientEnergy.lean`, and
@@ -33,11 +72,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   nonnegativity and
   energySum^2 <= Var_W(F)*(25*sum_l E_W[S_l^2]) for a Nodup list of
   witnessed physical links.
-- **residue**: this is not a strict response or energy floor. There is no
-  quantitative diagonal bound yet for these constructed gradient tests;
-  that requires an actual second angular-derivative interval, a local
-  coefficient-square budget, and the four-links-per-face incidence sum.
-  A useful energy lower bound also remains open. No scaling ratio, OS gap,
+- **residue**: this is not a strict response or energy floor. The explicit
+  second-derivative, local coefficient-square and four-links-per-face
+  diagonal bound is now supplied above. A useful angular-energy lower bound
+  remains open. No scaling ratio, OS gap,
   continuum closure, new assumption, hole, axiom or carrier change is supplied.
 - **verification**: the dependency-complete
   `+YMGap.Continuum.BF4ExactSlabPlaquetteWardEnergy:olean` target and three
@@ -71,8 +109,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   extent. Unrestricted test supports are not covered. No response lower
   bound, scaling ratio, OS gap, continuum closure, new analytic assumption,
   hole, axiom or canonical-field change is supplied. The actual incident-
-  gradient tests and exact energy response are now supplied above;
-  quantitative diagonal control remains open.
+  gradient tests, exact energy response and quantitative diagonal control
+  are now supplied above; a strict angular-energy lower bound remains open.
 - **verification**: the dependency-complete
   `+YMGap.Continuum.BF4ExactSlabWardFamilyCost:olean` target and three final
   direct checks passed all 21 printed gates (5, 8, 8) exactly within

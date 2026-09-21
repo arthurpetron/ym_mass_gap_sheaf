@@ -12,7 +12,36 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Whole signed plaquette Ward-gradient energy (2026-09-21 UTC):**
+**Explicit whole-plaquette gradient score cost (2026-09-21 UTC):**
+`QuaternionHaarSecondAngularBounds.lean` constructs coordinate, product and
+Haar-carrier second angular-derivative bounds.
+`BF4ExactSlabPlaquetteSecondAngularInterval.lean` gives the actual ordered
+four-link scalar caps 2048 and 16384, hence fundamental-character caps 4096
+and 32768. `BF4ExactSlabWardIncidenceSum.lean` supplies the local six-face
+coefficient budget and global four-links-per-face incidence count.
+`BF4ExactSlabPlaquetteGradientCost.lean` applies them to the exact signed
+gradient tests under the SAME original full W and partition. For
+`L_l = sum_{f incident to l}|c_f|` and
+`C(w) = wardScoreCap w 4096 32768`, the checked bounds are
+`E_W[S_l^2] <= 6*C(w)^2*sum_{f incident to l}c_f^2`,
+`sum_l E_W[S_l^2] <= 24*C(w)^2*sum_f c_f^2`, and
+`energySum^2 <= Var_W(F)*(25*(24*C(w)^2*sum_f c_f^2))` for a Nodup family.
+There is no extra family-cardinality multiplier; the coefficient-square sum
+itself may grow. At fixed nome, `C(w)` is independent of cutoff and extent
+under `headCutoff w <= K`, but no uniform near-one nome bound is supplied. This is not a
+strict angular-energy/response floor or an OS/scaling result. Nondegenerate
+directions and link coverage are indispensable (`i=j` and an empty family
+cannot yield a positive floor); a bounded-collar gradient-Gram comparison is
+only a candidate. Existing `family_partition_coercivity` concerns an
+uncentered full square, not gradient energy or variance.
+The dependency-complete target and five final direct checks passed all 32
+printed gates (4, 16, 2, 4, 6) within `{propext, Quot.sound}`, warning-free
+and without `sorryAx`, on one monitored 20 GiB worker. In the existing
+coordinate module, only two private helpers were exported and gated; their
+proofs are unchanged. No canonical field or hole changed. No full-root audit
+was run.
+
+**Whole signed plaquette Ward-gradient energy (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabPlaquetteGradient.lean` constructs
 `F = sum_f c_f chi_f`, its incident part at each witnessed physical link,
 and the original-coordinate pulled-back angular-gradient test. It proves
@@ -26,10 +55,10 @@ weight is `R_l*A_l`.
 `BF4ExactSlabPlaquetteWardEnergy.lean` sums this identity and proves
 `energySum >= 0` and
 `energySum^2 <= Var_W(F)*(25*sum_l E_W[S_l^2])` for Nodup witnessed
-physical links. This does not give a strict response floor. A quantitative
-diagonal bound for this gradient family still needs an actual second angular
-derivative estimate and local coefficient/incidence accounting. No scaling
-ratio, OS gap or continuum closure is proved. The dependency-complete target
+physical links. This does not give a strict response floor. The quantitative
+diagonal bound is now supplied above; a useful angular-energy lower bound
+remains open. No scaling ratio, OS gap or continuum closure is proved. The
+dependency-complete target
 and three final direct checks passed all 14 gates (6, 4, 4) exactly within
 `{propext, Quot.sound}`, without warnings or `sorryAx`, on one monitored
 20 GiB worker using default heartbeats. No full-root audit was run.
@@ -50,8 +79,9 @@ The coefficient 25 is independent of family, extent, cutoff and nome; the
 diagonal sum can grow with the family, diagonal score bounds are nome-dependent,
 and arbitrary test caps may depend on cutoff or extent. No response lower
 bound, scaling ratio, OS gap or continuum closure is proved. The actual
-incident-gradient family and exact energy response are now supplied above;
-its quantitative diagonal control remains open.
+incident-gradient family, exact energy response and quantitative diagonal
+control are now supplied above; a strict angular-energy lower bound remains
+open.
 The dependency-complete target and three final direct checks passed all
 21 printed gates within `{propext, Quot.sound}`, without warnings or
 `sorryAx`, on one monitored 20 GiB worker. No full-root audit was run.
@@ -113,10 +143,10 @@ full W=R*A at the explicit late cutoff and proves
 `E_W[A*g*(D f)]^2 <= Var_W(f)*E_W[S^2]`, with the actual computed mean
 and S=A*(D g)+2*(D A)*g. Explicit partition, moment and variance pins
 identify the selected-link frame with the original supported observable
-and full action. Response floors and score-cost estimates, including
-their spatial/nome control, remain open. The character/heat derivative
-join now has its actual face derivative input; the score cost and response
-estimates remain open.
+and full action. The explicit score-cost estimate for the constructed whole-
+plaquette gradient family is now supplied above, with its nome dependence
+visible. A useful response/angular-energy floor and the required spatial/nome
+relative control remain open.
 Both final narrow checks passed
 all 15 printed gates within `{propext, Quot.sound}`; no hole/field change
 or full-root audit.

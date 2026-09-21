@@ -34,7 +34,78 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Whole signed plaquette gradient response under the original action (2026-09-21 UTC)
+### Explicit whole-plaquette gradient score cost (2026-09-21 UTC)
+
+**PROGRESS -- the constructed gradient family now has an explicit diagonal
+cost with no extra family-cardinality multiplier:**
+`QuaternionHaarSecondAngularBounds.SecondBound.coordinate`, `.mul`, and
+`.ofCarrier` propagate first/second angular caps through coordinates,
+noncommutative products and the original Haar carrier.
+`BF4ExactSlabPlaquetteSecondAngularInterval.selectedPlaquetteSecondAngularInterval`
+specializes this to the actual ordered four-link scalar, with conservative
+caps 2048 and 16384, including the identity-start and fallback cases. Thus
+`BF4ExactSlabPlaquetteGradientCost.faceGradientBound` obtains the actual
+fundamental-character caps 4096 and 32768, and `testAngularBound` retains the
+arbitrary-insertion double-reindex gradient pin.
+
+For
+
+    L_l = sum_{f in incidentIds(l)} |c_f|,
+    C(w) = wardScoreCap w 4096 32768,
+
+`gradientScoreInterval` gives the actual selected-link score its cap
+`C(w)*L_l`. The constructive scalar lemmas
+`BF4ExactSlabWardIncidenceSum.incident_abs_sum_square_le_six` and
+`coefficient_square_incidence_le_four` respectively pay for the at-most-six
+incident faces and count every physical face through at most its four links.
+Consequently `gradient_score_square_le`, `diagonal_cost_le`, and
+`energy_squared_le_explicit_cost` prove
+
+    E_W[S_l^2] <= 6*C(w)^2*sum_{f incident to l} c_f^2,
+    sum_l E_W[S_l^2] <= 24*C(w)^2*sum_f c_f^2,
+    energySum^2 <= Var_W(F)*(25*(24*C(w)^2*sum_f c_f^2)).
+
+All statements use the SAME signed F, full interacting W and original
+partition. Absolute values enter only the cap; the polynomial and exact
+response retain every signed coefficient. The link family is Nodup. There is
+no further multiplier by its cardinality, while `sum_f c_f^2` may itself be
+extensive.
+
+**Uniformity / honest boundary:** at fixed strict nome, `C(w)` is independent
+of cutoff and extent under `headCutoff w <= K`. No uniform near-one nome bound
+is supplied. These are upper bounds on score cost, not a lower bound on the
+angular energy or response. Any positive angular-energy result must select
+nondegenerate directions and sufficient link coverage: `i=j` makes the
+derivative zero, and the theorem permits an arbitrary or empty link family.
+A bounded-collar local Haar gradient-Gram/heat comparison is a candidate, not
+a proved lemma. In particular,
+`BF4ExactSlabPlaquetteBoundaryDualFamily.family_partition_coercivity` controls
+an uncentered full-action square; it does not lower-bound gradient energy or
+variance. The existing selected-star single-character floor likewise does not
+supply the summed signed angular Gram floor. Even a future floor must still be
+joined to the SAME completed-transfer one-step/variance scaling statement:
+angular energy is not OS transfer energy. No scaling ratio, positive OS gap,
+continuum closure or all-group result follows here.
+
+**Verification / delegation:** the dependency-complete
+`+YMGap.Continuum.BF4ExactSlabPlaquetteGradientCost:olean` target passed.
+Five final direct checks then passed all 32 printed gates (4, 16, 2, 4, 6)
+within `{propext, Quot.sound}`, without warnings or `sorryAx`. The deprecated
+`Subtype.eq` uses in the incidence proof were replaced by `Subtype.ext` before
+the final checks. In the existing coordinate module, only two private helpers
+were exported and gated; their proofs are unchanged. No canonical structure
+field or hole changed. Sol supplied the
+incidence/local Cauchy--Schwarz proof and independent reviews; main supplied
+the second-derivative and actual-cost modules, root import and serialized
+verification. One monitored 20 GiB worker; no full-root audit. Final logs:
+
+- `/tmp/ym-gap-QuaternionHaarCoordinateAngularInterval-final.log`
+- `/tmp/ym-gap-QuaternionHaarSecondAngularBounds-final.log`
+- `/tmp/ym-gap-BF4ExactSlabPlaquetteSecondAngularInterval-final.log`
+- `/tmp/ym-gap-BF4ExactSlabWardIncidenceSum-final.log`
+- `/tmp/ym-gap-BF4ExactSlabPlaquetteGradientCost-final.log`
+
+### Whole signed plaquette gradient response under the original action (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the abstract star-local family now has a constructed
 whole-observable gradient specialization:**
@@ -82,23 +153,13 @@ bound to obtain
 All terms use the SAME signed F, full interacting W, and common original Z.
 There is no extra family-cardinality multiplier beyond the diagonal sum.
 
-**Next producer / honest boundary:** nonnegativity is not a useful strict
-energy or response floor. A quantitative bound for the diagonal cost of this
-new gradient family is still missing because `D_l g_l = D_l^2 F` must be
-controlled. A concrete next route is to construct an actual second
-angular-derivative interval using
-`QuaternionHaarAngularProductBounds.AngularBound.mul` and `.ofCarrier`,
-the first-derivative pin
-`BF4ExactSlabPlaquetteAngularInterval.selectedPlaquetteAngularInterval`,
-and `QuaternionHaarCharacterDerivative.angularDerivative_character`.
-Then use
-`BF4PhysicalFiniteVacuumSectorPathLengthEnergy.listQSum_square_le_length_mul_squareSum`
-with `BF4ExactSlabLinkStarGeometry.incidentIds_length_le_six` for the local
-coefficient l1-to-l2 payment, followed by a still-missing finite incidence
-join using the four links of each face (`Z4UnitCubeIncidenceParity.edgesOf_nodup`
-and `Z4SpinDependentIncidenceProductBound.edgesOf_length`). A useful lower
-bound on the resulting energy remains open. No scaling ratio, spatial/nome
-survival estimate, OS gap, continuum closure or all-group result is claimed.
+**Later status / honest boundary:** nonnegativity is not a useful strict
+energy or response floor. The actual second angular-derivative interval,
+local coefficient-square budget, four-links-per-face incidence join and
+explicit diagonal cost are now supplied by the current milestone above.
+A useful lower bound on the resulting angular energy remains open. No scaling
+ratio, spatial/nome survival estimate, OS gap, continuum closure or all-group
+result is claimed.
 
 **Verification / delegation:** the dependency-complete
 `+YMGap.Continuum.BF4ExactSlabPlaquetteWardEnergy:olean` target and the three
@@ -153,9 +214,9 @@ bounds remain nome-dependent, and arbitrary test value/derivative caps may
 depend on cutoff or extent. Unrestricted varying-support tests are not
 covered by the star-local statement.
 
-**Later status / honest boundary:** the actual incident-gradient tests and
-their exact energy response are now supplied above. Their quantitative
-diagonal control and any strict lower response remain open. No scaling ratio,
+**Later status / honest boundary:** the actual incident-gradient tests, their
+exact energy response and quantitative diagonal control are now supplied
+above. A strict angular-energy lower bound remains open. No scaling ratio,
 spatial/nome survival estimate, OS gap, continuum closure or all-group result
 is claimed here. No new analytic assumption, hole or canonical field was
 introduced.
@@ -399,9 +460,11 @@ it is NOT uniform as w approaches one.
 **Next producer at that checkpoint (now constructed above):** the input derivative
 certificate for the actual selected-link plaquette scalar after the
 proved head swap. Next use the actual at-most-six incident factors to
-estimate D A and the Ward score. Useful response floors and sufficiently
-strong score-cost control, including spatial/nome dependence, are still
-open. This removes the character/heat-series algebraic obstruction; it
+estimate D A and the Ward score. Those derivative and score-cost steps are
+now supplied above for the actual whole-plaquette gradient family, with
+explicit nome dependence. A useful response/angular-energy floor and the
+needed relative spatial/nome control remain open. This removes the
+character/heat-series algebraic obstruction; it
 does not prove the one-step/variance comparison on a changing-spacing
 family, continuum survival, physical mass, canonical OS/QFT or all groups.
 Do not replace those estimates with further normalization/time wrappers.
@@ -447,9 +510,10 @@ star-deleted measure or a variance assigned independently of the observable.
 The entire signed f remains inside the variance and response; no component
 count or coefficientwise absolute-value estimate is inserted.
 
-**Next producer:** choose an actual observable/test family and prove a
-useful lower bound on its Ward response and upper bound on its score cost.
-Those quantities retain cutoff, extent, nome and test dependence. This
+**Later status / next producer:** the whole signed plaquette observable,
+incident-gradient tests, exact response identity and explicit upper score
+cost are now constructed above. A useful lower bound on their angular energy
+or Ward response remains open. This
 inequality alone is NOT the needed uniform one-step/variance estimate,
 and it closes no scaling, survival, OS/QFT, physical mass or all-group atom.
 

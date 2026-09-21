@@ -45,7 +45,7 @@ def coordinateInterval {blocks coordinate : Nat}
     Interval blocks (polyVar coordinate) 1 :=
   unitSquareInterval (coordinateSquareBound blocks coordinate hc)
 
-private theorem ratDerivative_polyVar_ne (i j : Nat) (hij : i ≠ j) :
+theorem ratDerivative_polyVar_ne (i j : Nat) (hij : i ≠ j) :
     RatPolyCoeffEqv (ratDerivative i (polyVar j)) polyZero := by
   intro weight
   change
@@ -66,7 +66,7 @@ private theorem ratDerivative_polyVar_ne (i j : Nat) (hij : i ≠ j) :
     (Q'.add_eqv_congr' hterm (Q'.eqv_refl 0))
     (QPoly.q_add_zero_eqv 0)
 
-private theorem derivativeFactor_self_carrier
+theorem derivativeFactor_self_carrier
     (blocks factor derivative : Nat) (hb : 0 < blocks)
     (hf : factor < 4) (hd : derivative < 4) :
     HaarCarrierEqv blocks
@@ -136,4 +136,6 @@ def coordinateAngularInterval {blocks i j coordinate : Nat}
 end YMGap.Continuum.QuaternionHaarCoordinateAngularInterval
 
 #print axioms YMGap.Continuum.QuaternionHaarCoordinateAngularInterval.coordinateInterval
+#print axioms YMGap.Continuum.QuaternionHaarCoordinateAngularInterval.ratDerivative_polyVar_ne
+#print axioms YMGap.Continuum.QuaternionHaarCoordinateAngularInterval.derivativeFactor_self_carrier
 #print axioms YMGap.Continuum.QuaternionHaarCoordinateAngularInterval.coordinateAngularInterval

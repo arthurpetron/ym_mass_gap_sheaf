@@ -94,14 +94,56 @@
 > is part of the proved Ward identity. The summed energy is nonnegative,
 > and its square is at most
 > `Var_W(F)*(25*sum_l E_W[S_l^2])` for a Nodup physical-link family.
-> No strict energy/response floor or quantitative diagonal bound for these
-> gradient tests is yet proved; the latter still requires control of `D_l^2 F`.
+> Writing `L_l = sum_{f incident to l}|c_f|` and
+> `C(w) = wardScoreCap w 4096 32768`, the actual gradient tests now satisfy
+> `E_W[S_l^2] <= 6*C(w)^2*sum_{f incident to l}c_f^2`. Consequently,
+> `sum_l E_W[S_l^2] <= 24*C(w)^2*sum_f c_f^2` for a Nodup physical-link
+> family, with no extra family-size multiplier, and
+> `energySum^2 <= Var_W(F)*(25*(24*C(w)^2*sum_f c_f^2))`.
+> The cap is independent of cutoff and extent at fixed nome under the late-
+> cutoff guard, but no uniform near-one nome bound is supplied; the
+> coefficient-square sum itself can grow. No strict energy/response floor
+> is yet proved.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Whole signed plaquette Ward-gradient energy (2026-09-21 UTC):**
+**Explicit whole-plaquette gradient score cost (2026-09-21 UTC):**
+`QuaternionHaarSecondAngularBounds.lean` constructs second angular-derivative
+bounds from coordinate caps, Leibniz product bounds and Haar-carrier transport.
+`BF4ExactSlabPlaquetteSecondAngularInterval.lean` specializes them to the
+actual ordered four-link plaquette scalar with caps 2048 and 16384; the
+fundamental character therefore has caps 4096 and 32768.
+`BF4ExactSlabWardIncidenceSum.lean` proves the local six-face coefficient
+square budget and the global four-links-per-face incidence count.
+`BF4ExactSlabPlaquetteGradientCost.lean` combines these facts with the exact
+double-reindex gradient pin and the unchanged original full action. With
+`L_l = sum_{f incident to l}|c_f|` and
+`C(w) = wardScoreCap w 4096 32768`, it proves
+`E_W[S_l^2] <= 6*C(w)^2*sum_{f incident to l}c_f^2`,
+`sum_l E_W[S_l^2] <= 24*C(w)^2*sum_f c_f^2` for a Nodup physical-link family,
+and
+`energySum^2 <= Var_W(F)*(25*(24*C(w)^2*sum_f c_f^2))`.
+There is no extra multiplier by the number of links, although the displayed
+coefficient-square sum can itself be extensive. `C(w)` is independent of
+cutoff and extent at fixed nome, with `headCutoff w <= K`, but no uniform
+near-one nome bound is supplied. This is an upper cost bound, not an
+angular-energy lower bound, response floor, OS transfer estimate or continuum
+claim. A useful next producer must choose nondegenerate angular directions and
+sufficient link coverage: no positive floor can hold for all choices, since
+`i=j` or an empty link family gives zero. A bounded-collar gradient-Gram comparison is only a
+candidate, not a proved result. Existing `family_partition_coercivity` controls
+an uncentered full square, not this gradient energy or variance.
+
+The dependency-complete `+YMGap.Continuum.BF4ExactSlabPlaquetteGradientCost:olean`
+target and five final direct checks passed all 32 printed gates (4, 16, 2, 4,
+6) within `{propext, Quot.sound}`, warning-free and without `sorryAx`, on one
+monitored 20 GiB worker. In the existing coordinate module, only two private
+helpers were exported and gated; their proofs are unchanged. No canonical
+field or hole changed. No full-root audit was run.
+
+**Whole signed plaquette Ward-gradient energy (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabPlaquetteGradient.lean` constructs the literal signed observable
 over all physical faces, its incident part at each physical link, and the
 original-coordinate pulled-back angular-gradient test. It proves exact
@@ -115,10 +157,9 @@ with the earlier bounded-star family estimate:
 `energySum >= 0` and
 `energySum^2 <= Var_W(F)*(25*sum_l E_W[S_l^2])` for a Nodup family of
 witnessed physical links. This is a constructed nonnegative energy response,
-not a strict response floor. No quantitative diagonal bound for this new
-gradient family is supplied yet: it requires an actual second angular-
-derivative estimate, followed by a local coefficient-square and incidence
-sum. No scaling ratio, OS gap or continuum closure follows. The dependency-
+not a strict response floor. Its explicit diagonal cost is now supplied
+above; a useful lower bound on the angular energy remains open. No scaling
+ratio, OS gap or continuum closure follows. The dependency-
 complete target and three final direct checks passed all 14 printed gates
 (6, 4, 4) exactly within `{propext, Quot.sound}`, without warnings or
 `sorryAx`, on one monitored 20 GiB worker using default heartbeats. No
@@ -137,9 +178,9 @@ actual positive partition. The geometric 25 is uniform in family, extent,
 cutoff and nome. This does not supply a uniform bound on the diagonal sum;
 existing score caps depend on nome, and arbitrary test caps can depend on
 cutoff or extent. No response floor, scaling ratio,
-OS gap or continuum closure follows. The actual incident-gradient tests and
-their exact energy response are now supplied above; quantitative diagonal
-control remains open. The dependency-complete
+OS gap or continuum closure follows. The actual incident-gradient tests,
+their exact energy response and their quantitative diagonal control are now
+supplied above; a strict angular-energy lower bound remains open. The dependency-complete
 target and three final direct checks passed all 21 printed gates within
 `{propext, Quot.sound}`, without warnings or `sorryAx`, on one monitored
 20 GiB worker. No full-root audit was run.
@@ -199,8 +240,9 @@ canonical frontier closure.
 the constructed score's response, the observable's actual variance and
 the score's cost. The mean and partition are computed from the same full
 action, and exact reindexing lemmas identify the variance with the original
-observable. No response floor or score-cost bound is assumed, but useful
-estimates for those quantities remain to be proved. This does not yet give
+observable. No response floor or score-cost bound is assumed by that theorem.
+The actual gradient-family score-cost bound is now supplied above, while a
+useful response/angular-energy floor remains open. This does not yet give
 the required spatial/scaling energy-versus-variance bound. All 15 printed
 gates passed two final narrow checks; no full-root build/audit or canonical
 frontier closure.
