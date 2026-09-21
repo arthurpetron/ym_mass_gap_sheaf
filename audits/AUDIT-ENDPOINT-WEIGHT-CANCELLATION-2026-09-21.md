@@ -77,6 +77,41 @@ splits constructed *observable* pieces in the actual marginal. This is not
 by itself an equality integrating fringe coordinates out of the endpoint
 source a while preserving an active observable.
 
+### Inventory correction: concrete terminal-source reduction already exists
+
+The bounded search above did not exhaust the pre-existing active-subspace
+modules. For the actual terminal source, the required fringe integration is
+already proved with the original messages and action retained:
+
+- `spatialWeight_haar_active`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveSpatialWeight.lean:130`,
+  replaces the original spatial weight by the active-face product under every
+  supported Haar test independent of all fringe blocks. This is a tested Haar
+  equality, not a free-polynomial equality.
+- `original_transfer_haar_active`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveTransfer.lean:87`,
+  identifies the original transfer with `activeTransfer` under supported Haar
+  tests on the fringe-independent subspace; its test need not itself be
+  fringe-independent.
+- `activeTransfer_fringe_independent`, `marginal_mean_active`, and
+  `marginal_pair_active`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActiveEnergy.lean:59`, `:69`,
+  and `:93`, retain the original `terminalMessage n` and
+  `terminalMessage (n+1)` while integrating inactive coordinates.
+- `energy_active`, same file at line 129, gives the checked equality for the
+  full original temporal energy of every supported observable independent of
+  the fringe blocks. It keeps the diagonal and transfer terms together and
+  supplies no gap or rate.
+
+This concrete terminal-source theorem is the result needed here and should be
+reused. A more general identity projecting an arbitrary signed endpoint source
+`a` in one inactive block is suggested by the existing conditional-projection
+and absent-pairing APIs, but no such generic theorem is claimed or checked in
+this audit, and it is not needed for the present consumer. The observation
+that projection of the *bare* term alone leaves a conditional-variance
+remainder does not contradict `energy_active`: the complete original energy
+retains both terms, where that remainder is accounted for.
+
 The bounded source inventory found no all-label retained-boundary Schur/
 addition theorem for the two-link polynomial kernel in the relative-character,
 relative-heat, quadratic-transmission or product-heat modules. The vacuum,
@@ -86,6 +121,10 @@ specializes the four-word solid, but the inspected
 `SU2QuaternionTailEvaluation.lean` has no derivative/Laplacian commutation
 theorem. These are separate missing operator identifications, not new
 assumed fields or proofs of failure of Yang--Mills.
+
+Accordingly, the remaining local operator seam is still the all-label
+two-link propagation/addition theorem and its cutoff/finite-time comparison
+to the SAME variance, not fringe reduction of the concrete terminal source.
 
 ## Remaining frontier and verification
 

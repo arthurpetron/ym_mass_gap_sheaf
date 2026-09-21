@@ -54,9 +54,13 @@ Weight derivatives cancel rather than becoming separate positive costs.
 **Next mathematical join:** a finite-time original-weight comparison is
 still open. The source audit also confirms that inactive kinetic slots
 are Haar projections, not angular heat evolution on the whole carrier.
-Check exact endpoint-source fringe reduction for active observables,
-then the all-label retained-boundary two-link operator pin and cutoff
-control; do not replace these by the four-word local Casimir theorem.
+The follow-up inventory found the concrete reduction already proved:
+`BF4ExactSlabFixedSpatialActiveEnergy.energy_active` and its marginal
+mean/pair identities retain the original terminal messages while exactly
+integrating the fringe for supported active observables. REUSE these
+declarations; no generic source-projection detour is needed. Proceed to
+the all-label retained-boundary two-link operator pin and cutoff control;
+do not replace these by the four-word local Casimir theorem.
 The small SAME-variance one-step rate and all continuum/physical-mass/
 QFT/every-group obligations remain open. No new bound is claimed here.
 

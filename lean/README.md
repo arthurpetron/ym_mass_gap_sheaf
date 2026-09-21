@@ -24,7 +24,10 @@ finite-time energy comparison. Inactive slots are Haar projections, so
 the local angular L is not automatically the generator of the whole P.
 The dependency-complete target and two focused checks passed eight gates
 within `{propext, Quot.sound}`. No new hole, axiom or canonical field;
-no full-root audit. See
+no full-root audit. The follow-up inventory locates the already-proved
+concrete fringe reduction in `BF4ExactSlabFixedSpatialActiveEnergy`:
+reuse its energy and marginal identities for the original terminal
+messages, then address the missing all-label two-link operator pin. See
 `audits/AUDIT-ENDPOINT-WEIGHT-CANCELLATION-2026-09-21.md`.
 
 **All-label local angular Casimir (earlier checkpoint, 2026-09-21 UTC):**

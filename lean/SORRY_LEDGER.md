@@ -27,11 +27,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `endpoint_angular_cancellation` applies it to the full original source.
 - **residue**: no finite-time original-weight energy bound follows yet.
   Inactive/fringe slots of P are Haar projections, not unproved angular
-  heat evolution. Endpoint-source reduction, the all-label two-link
-  operator pin, cutoff control and a useful SAME-variance rate remain
-  to be joined. Continuum survival, physical mass, full QFT and every
-  compact simple group remain open. No existing field or premise was
-  weakened and no new hole or axiom was introduced.
+  heat evolution. The existing `ActiveEnergy.energy_active` and marginal
+  mean/pair identities already perform the concrete terminal-source
+  fringe reduction for supported active observables; reuse them. The
+  all-label two-link operator pin, cutoff control and a useful
+  SAME-variance rate remain to be joined. Continuum survival, physical
+  mass, full QFT and every compact simple group remain open. No existing
+  field or premise was weakened and no new hole or axiom was introduced.
 - **verification**: dependency-complete consumer target and two focused
   checks passed eight gates within `{propext, Quot.sound}`, with one
   capped 20 GiB worker and no full-root audit. Source/review/log map:
