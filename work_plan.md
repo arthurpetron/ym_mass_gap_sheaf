@@ -34,7 +34,45 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Exact all-degree original heat-packet reproduction (2026-09-21 UTC)
+### Actual product-kernel selected-factor transmission (2026-09-21 UTC)
+
+**PROGRESS -- the all-label selected-factor join is now proved:**
+`SU2QuaternionSelectedHarmonicHeatTransmission.productMap_selected_harmonic`
+removes one actual selected heat factor from the original product-map
+pairing. It keeps every untouched kernel factor and arbitrary supported
+upper test, supplies `w^(d*(d+2))` when d<=K, and zero otherwise. The
+output polynomial is constructed by exposing the pair, substituting the
+retained link and reversing the explicit swaps. Support is proved, not
+assumed; padding is respected through prefix equality. Degree is at the
+original selected block; zero Laplacian is required in its explicit
+selected-pair chart. No propagation identity is supplied as a premise.
+
+**Next mathematical join:** construct the finite homogeneous/harmonic
+decomposition needed for the actual signed weighted input, and its
+compatibility with repeated selected-factor use. The small rate still
+requires an original-weight finite-time comparison, not just diagonal
+kinetic algebra. Reuse the checked derivative/Euler/radial machinery
+and `ActiveEnergy.energy_active`; retain V_K*g_K*f and every cross term.
+Start with exact-degree splitting and a finite constructive Fischer
+recursion with reassembly/support proofs. The existing radius-based
+homogenization preserves Haar pairings, and `headSector` splits parity;
+neither already supplies the needed harmonic decomposition.
+Neither treating that input as one harmonic nor ignoring its growing
+cutoff-dependent degree is justified. Uniform cutoff/trajectory control,
+the SAME-variance small rate, spatial/scaling survival, physical mass,
+canonical full QFT and every group remain OPEN. No canonical field or
+analytic premise changed, and no new hole or axiom was introduced.
+
+Three focused checks passed 15 gates within `{propext, Quot.sound}`;
+the dependency-complete original product-map consumer target passed.
+Sol supplied the bounded inverse-swap proof; main supplied the actual
+support, selected-pair and product-map joins and serialized checks.
+Sol's independent scope review passed and identified the reusable
+polynomial identities for the next decomposition step.
+No full-root audit. Source/scope:
+`audits/AUDIT-SELECTED-HARMONIC-TRANSMISSION-2026-09-21.md`.
+
+### Exact all-degree original heat-packet reproduction (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the missing diagonal normalization is now proved:**
 `SU2QuaternionRelativeHarmonicReproduction.heat_harmonic_reproduction`

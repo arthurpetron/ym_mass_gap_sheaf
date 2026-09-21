@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Exact all-degree original heat reproduction (2026-09-21 UTC):**
+**Actual product-kernel selected-factor join (2026-09-21 UTC):**
+`SU2QuaternionSelectedHarmonicHeatTransmission.lean` transports all-degree
+reproduction to arbitrary original block pairs and consumes it in the
+actual `productMap` pairing. All untouched kinetic factors and an arbitrary
+supported upper test remain. The substituted image is computed in the
+original coordinate order with proved support; the cutoff guard stays
+explicit. Degree is at the selected original block; harmonicity is tested
+in its explicit exposing chart. This is not a harmonic decomposition of
+V*g*f or a weighted energy estimate. Three focused checks passed 15 gates
+within `{propext, Quot.sound}` and the dependency-complete consumer target
+passed. No new hole/axiom or full-root audit. Scope and next mathematical
+input: `audits/AUDIT-SELECTED-HARMONIC-TRANSMISSION-2026-09-21.md`.
+
+**Exact all-degree original heat reproduction (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionRelativeHarmonicReproduction.lean` now proves the missing
 dimension-normalized diagonal identity and combines it with all-label
 selection. The FULL original two-link packet acts on a degree-n head

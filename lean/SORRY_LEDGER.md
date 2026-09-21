@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED all-degree original heat-packet reproduction (2026-09-21 UTC)
+## PROVED actual product-kernel selected-factor transmission (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionBlockSwapChainInverse.lean`,
+  `SU2QuaternionHarmonicHeatInsertion.lean`, and
+  `SU2QuaternionSelectedHarmonicHeatTransmission.lean` in that directory.
+- **constructed transport**: the original substitution retains finite
+  support, its empty head is reinserted, and the reversed swap list
+  restores original coordinate order at prefix/padded strength. No
+  variable truncation or unproved support field is used.
+- **actual consumer**: `selected_pair_harmonic` gives arbitrary distinct
+  block-pair reproduction under a supported insertion independent only
+  of the integrated block. `productHeat_selected_harmonic` retains all
+  unselected factors; `productMap_selected_harmonic` consumes this on
+  the original product kinetic map. Degree is at the original block and
+  harmonicity at its explicit selected-pair chart. The computed image
+  remains in the original doubled integral when it mixes lower/upper
+  variables; it is not mislabeled a lower-only source.
+- **residue**: constructive decomposition of the actual weighted input,
+  repeated-factor compatibility, signed cross-term/finite-time comparison
+  and changing-source cutoff control remain open. No useful SAME-variance
+  small rate, spatial/scaling survival, physical mass, full QFT or every-
+  group construction follows. No existing field/premise was weakened;
+  no new hole or axiom was introduced.
+- **verification**: three focused checks passed 15 gates within
+  `{propext, Quot.sound}`; the dependency-complete original product-map
+  target passed. One capped 20 GiB worker, no full-root audit. Source/log
+  map: `audits/AUDIT-SELECTED-HARMONIC-TRANSMISSION-2026-09-21.md`.
+
+## PROVED all-degree original heat-packet reproduction (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionDroppedHeadSubstitution.lean`,
   `SU2QuaternionHarmonicPowerSubstitution.lean`,

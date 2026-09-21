@@ -169,9 +169,14 @@
 > and zero otherwise, with computed retained-link substitution and an
 > arbitrary boundary. The normalization follows from Euler substitution,
 > radial cancellation and the character recurrence, not an assumed
-> identity-at-nome-one. The arbitrary-source product kinetic join and
-> weighted finite-time comparison remain open.
+> identity-at-nome-one. The weighted finite-time comparison remains open.
 > [Local proof and remaining join](audits/AUDIT-HARMONIC-REPRODUCTION-2026-09-21.md).
+> The all-label identity now passes through an arbitrary selected factor
+> of the actual product kinetic map, with all other factors retained and
+> a computed, support-checked output in the original coordinate order.
+> Decomposition of the interacting weighted source and signed energy
+> control remain open; that source is not assumed to be a harmonic mode.
+> [Actual product-map join](audits/AUDIT-SELECTED-HARMONIC-TRANSMISSION-2026-09-21.md).
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
