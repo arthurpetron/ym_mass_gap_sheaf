@@ -12,14 +12,27 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original character/heat angular derivatives (2026-09-21 UTC):**
+**Actual selected-link face derivatives (2026-09-21 UTC):**
+`BF4ExactSlabPlaquetteAngularInterval.lean` constructs the previously
+missing scalar-derivative input, retaining the exact ordered quaternion
+word in the Ward frame. Tangential integration by parts transports
+derivatives through original Haar-carrier equalities, including padding.
+`BF4ExactSlabHeatAngularInterval.lean` consequently bounds the ACTUAL
+reindexed face heat derivative by `4096*prefixBudget w`, independently
+of cutoff and extent at each strict nome. Squared costs retain arbitrary
+positive original backgrounds. The cap is not nome-uniform near one;
+incident-product/score estimates, response floors and spatial/scaling
+control remain open. Five final narrow checks passed all 31 gates within
+`{propext, Quot.sound}`; no hole/field changes or full-root audit.
+
+**Original character/heat angular derivatives (earlier checkpoint, 2026-09-21 UTC):**
 `QuaternionHaarCharacterDerivative.lean` proves the exact coefficient
 chain rule using a positive lower-character expansion and constructs its
 cubic Haar interval cap. `QuaternionHaarHeatAngularDerivative.lean`
 then bounds the literal original heat-prefix derivative independently of
 cutoff by `2*d*prefixBudget w`, given a certificate of cap d for the
-original scalar derivative. That selected-link plaquette certificate is
-still missing; the cap is nome-dependent, not uniform as w approaches one.
+original scalar derivative. The selected-link plaquette certificate is
+now constructed above; the cap remains nome-dependent, not uniform as w approaches one.
 Useful Ward response/score estimates and spatial/scaling joins remain
 open. Three final narrow checks passed all 17 gates within
 `{propext, Quot.sound}`; no hole/field changes or full-root audit.
@@ -33,7 +46,8 @@ and S=A*(D g)+2*(D A)*g. Explicit partition, moment and variance pins
 identify the selected-link frame with the original supported observable
 and full action. Response floors and score-cost estimates, including
 their spatial/nome control, remain open. The character/heat derivative
-join added above still needs the actual face derivative certificate.
+join now has its actual face derivative input; the score cost and response
+estimates remain open.
 Both final narrow checks passed
 all 15 printed gates within `{propext, Quot.sound}`; no hole/field change
 or full-root audit.

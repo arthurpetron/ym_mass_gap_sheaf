@@ -4799,6 +4799,7 @@ import YMGap.Continuum.BF4WilsonSignedPairTimeControl
 import YMGap.Continuum.BF4ExactSlabLocalHaarWard
 import YMGap.Continuum.BF4ExactSlabLocalWardVariance
 import YMGap.Continuum.QuaternionHaarHeatAngularDerivative
+import YMGap.Continuum.BF4ExactSlabHeatAngularInterval
 import YMGap.Continuum.SU2QuaternionHeatFusionBoundaryTail
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFusionIdentity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFusionBoundary

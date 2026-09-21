@@ -34,7 +34,71 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Actual heat derivatives now consume the quartic budget (2026-09-21 UTC)
+### Actual selected-link face derivative input is constructed (2026-09-21 UTC)
+
+**PROGRESS -- the former DX hypothesis is now supplied by the actual face:**
+`BF4ExactSlabPlaquetteAngularInterval.selectedPlaquetteAngularInterval`
+constructs an original Haar interval of cap 2048 for the angular derivative
+of the literal corrected-slab plaquette scalar after `linkHeadSwap`.
+This deliberately conservative constant is independent of face, extent,
+selected link, cutoff and nome; it is not asserted sharp. The exact
+ordered word is still `1*e0*e1*e2*e3`, with orientations false, false,
+true, true. Starting at value/derivative caps (1,0), each coordinate
+quaternion has caps (1,2), and Hamilton multiplication gives the checked
+sequence (4,8), (16,64), (64,384), (256,2048). No commuting of quaternion
+factors, incidence assumption or deletion of shared variables is used.
+
+**The short causal bridge is integration by parts, not a new rotation API:**
+`QuaternionHaarAngularCarrier.angularDerivative_carrier` proves that
+equality under EVERY original Haar insertion is preserved by D_ij:
+H[r*D p] = -H[(D r)*p]. This allows existing padded coordinate identities
+to transport derivative certificates honestly. `carrierOfPrefix` checks
+both support guards. `QuaternionHaarCoordinateAngularInterval` constructs
+the coordinate bases, and `QuaternionHaarAngularProductBounds` constructs
+actual value/derivative intervals by addition, negation and Leibniz.
+These are certificate witnesses, not new analytic frontier assumptions.
+
+**Joined to the original heat factor:**
+`BF4ExactSlabHeatAngularInterval.selectedFaceHeatAngularInterval` proves
+
+    Interval B (D (reindex swap (faceHeatPolynomial w K extent id)))
+      (faceAngularCap w),
+    faceAngularCap w = 4096 * SU2HeatQuarticPrefixBound.prefixBudget w.
+
+The physical-face membership supplies the unit-square scalar certificate;
+selected-link membership supplies the nonempty carrier. Reindexing the
+literal finite prefix is pinned to the prefix of the reindexed scalar
+BEFORE differentiating, including its padded constant. For every `0<w<1`
+and every finite K, the cap is independent of K and extent. The squared
+derivative bound `selectedFaceHeatAngularSquare_bound` holds against ANY
+original positive-certificate background, with cap `(faceAngularCap w)^2`.
+No late-cutoff positivity guard is required for the derivative interval
+itself. The background's positivity remains an explicit certificate.
+
+**Next consumer / honest boundary:** use the actual at-most-six incident
+faces and their value/derivative certificates to bound D A and the local
+Ward score, and choose a useful test/observable family with a response
+floor. The nome-dependent cap is NOT uniform as w approaches one; a
+finite cost bound alone does not give the changing-spacing one-step to
+variance comparison. Useful spatial/nome control, continuum survival,
+physical mass, canonical OS/full QFT and every compact simple group remain
+open. No canonical frontier field or existing analytic obligation changed.
+
+**Verification:** dependency-complete face-heat target and five final
+direct checks passed all 31 printed gates within `{propext, Quot.sound}`,
+without warnings or `sorryAx`. Sol handled coordinate base certificates,
+bounded source inventories and independent reviews; main supplied the
+carrier, product and actual-face consumers. A large dependent equality was
+factored through generic opaque lemmas without raising heartbeat or memory
+limits. One monitored 20 GiB worker; no full-root build/audit. Final logs:
+
+- `/tmp/ym-gap-QuaternionHaarAngularCarrier-final.log`
+- `/tmp/ym-gap-QuaternionHaarCoordinateAngularInterval-final.log`
+- `/tmp/ym-gap-QuaternionHaarAngularProductBounds-final.log`
+- `/tmp/ym-gap-BF4ExactSlabPlaquetteAngularInterval-final.log`
+- `/tmp/ym-gap-BF4ExactSlabHeatAngularInterval-final.log`
+
+### Actual heat derivatives now consume the quartic budget (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the missing character-derivative certificate is constructed:**
 `QuaternionHaarCharacterDerivative.derivativePolynomial` uses the finite
@@ -66,9 +130,9 @@ holds against any positive-certificate background, without independence
 or replacement of the measure. The explicit cap depends on w and d;
 it is NOT uniform as w approaches one.
 
-**Next producer / unchanged gap:** construct the input derivative
+**Next producer at that checkpoint (now constructed above):** the input derivative
 certificate for the actual selected-link plaquette scalar after the
-proved head swap. Then use the actual at-most-six incident factors to
+proved head swap. Next use the actual at-most-six incident factors to
 estimate D A and the Ward score. Useful response floors and sufficiently
 strong score-cost control, including spatial/nome dependence, are still
 open. This removes the character/heat-series algebraic obstruction; it
@@ -130,7 +194,7 @@ actual Haar certificates at the representation dimension, and
 quartic-label sum at each strict nome. The missing exact inputs at that
 checkpoint were a RatPoly character-derivative/chain-rule expansion (now
 proved above) and a square/interval certificate for the selected-link
-derivative of the actual face scalar (still open).
+derivative of the actual face scalar (also now constructed above).
 The existing `ChebOrthoWeightedFTC.Uderiv` and
 `ChebOrthoLegAssembly.Uderiv_abs_le` are rational evaluation statements,
 not those polynomial/Haar certificates. The quartic budget is nome-dependent

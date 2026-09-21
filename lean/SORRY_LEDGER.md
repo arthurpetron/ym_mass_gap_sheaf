@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED character chain rule and conditional original heat derivative cap (2026-09-21 UTC)
+## PROVED actual selected-link plaquette and heat derivative certificates (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarAngularCarrier.lean`,
+  `QuaternionHaarCoordinateAngularInterval.lean`,
+  `QuaternionHaarAngularProductBounds.lean`,
+  `BF4ExactSlabPlaquetteAngularInterval.lean`, and
+  `BF4ExactSlabHeatAngularInterval.lean`, in the same directory.
+- **scope**: `angularDerivative_carrier` derives tangential congruence
+  under every original Haar insertion from integration by parts.
+  Support-guarded prefix transport, coordinate certificates and Leibniz
+  construct `selectedPlaquetteAngularInterval` on the literal ordered
+  four-link scalar in the SAME `linkHeadSwap` frame, at conservative cap
+  2048. `selectedFaceHeatAngularInterval` supplies the former DX input,
+  preserves the literal finite-prefix reindex pin, and gives cap
+  `4096*SU2HeatQuarticPrefixBound.prefixBudget w` for the ACTUAL reindexed
+  `faceHeatPolynomial` derivative. `selectedFaceHeatAngularSquare_bound`
+  retains any positive original background and bounds its squared cost.
+- **uniformity / residue**: the heat cap is independent of K and extent
+  for every strict nome, physical face and selected physical link. It is
+  nome-dependent, NOT uniform as w approaches one. Incident-product/score
+  costs, useful response floors, spatial/scaling relative variance
+  control, continuum survival, physical mass, canonical OS/QFT and all
+  groups remain open. No new hole, axiom, analytic frontier assumption,
+  canonical-field change or surrogate substitution.
+- **verification**: dependency-complete target and five final direct
+  checks passed all 31 printed gates within `{propext, Quot.sound}`,
+  without warnings or `sorryAx`. Sol implemented the coordinate bases
+  and independently reviewed all actual consumers. One monitored 20 GiB
+  worker, unchanged heartbeat limits, no full-root build/audit. Logs in
+  `work_plan.md`.
+
+## PROVED character chain rule and conditional original heat derivative cap (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2CharacterDerivativeCubicBudget.lean`,
   `QuaternionHaarCharacterDerivative.lean`, and

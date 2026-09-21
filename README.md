@@ -65,23 +65,37 @@
 > times its score cost, with proved original-observable and partition pins.
 > Exact character differentiation now gives a cubic Haar certificate,
 > and the original heat-prefix derivative has a cutoff-independent cap
-> conditional on a bound for its scalar derivative. The actual selected-face
-> derivative certificate is still missing; the cap depends on the nome.
+> conditional on a bound for its scalar derivative. That input is now
+> constructed for the actual selected-face scalar, giving a heat-derivative
+> cap independent of cutoff and extent. The cap still depends on the nome.
 > Useful response floors and score-cost estimates are still open.
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
-**Original character/heat derivative certificates (2026-09-21 UTC):**
+**Actual selected-link heat derivatives (2026-09-21 UTC):**
+The formerly missing scalar-derivative certificate is now constructed for
+the literal four-link plaquette in the Ward frame. This gives the actual
+face heat derivative a bound of `4096*prefixBudget w`, independent of
+cutoff and slab extent at each strict nome. Original Haar integration by
+parts makes the coordinate-padding transport exact. The bound is
+conservative and remains nome-dependent, not uniform near one. Next are
+the incident-product/score cost and a useful response floor; the
+spatial/scaling passage remains open. Sol supplied coordinate certificates
+and independent review. All 31 printed gates passed five final narrow
+checks; no full-root audit or canonical frontier closure.
+
+**Original character/heat derivative certificates (earlier checkpoint, 2026-09-21 UTC):**
 An exact polynomial chain rule now connects a positive lower-character
 expansion to the actual angular derivative. Its cubic Haar certificate,
 together with the existing quartic heat-series budget, bounds the literal
 original heat-prefix derivative independently of cutoff. The bound is
 `2*d*prefixBudget w`: the nome w and the supplied scalar-derivative cap d
-remain explicit. The actual selected-link plaquette derivative certificate,
-useful Ward score/response estimates and the spatial/scaling passage remain
-open. Sol handled bounded scalar arithmetic and independent review. All
+remain explicit. The actual selected-link plaquette certificate is now
+constructed above; useful Ward score/response estimates and the
+spatial/scaling passage remain open. Sol handled bounded scalar arithmetic
+and independent review. All
 17 printed gates passed three final narrow checks; no full-root audit or
 canonical frontier closure.
 
