@@ -120,7 +120,8 @@ theorem normalized_square_floor {blocks : Nat} {W : RatPoly} {delta : Q'}
     (Q'.mul_le_mul_of_nonneg_right _ _ r (raw_square_floor D hp)
       (Q'.le_of_lt (Q'.recipPos_pos Z hZ)))
 
-private def shifted (p : RatPoly) (c : Q') : RatPoly :=
+/-- Subtract a rational constant without changing the original polynomial carrier. -/
+def shifted (p : RatPoly) (c : Q') : RatPoly :=
   polyAdd (polySmul 1 p) (polySmul (-c) polyOne)
 
 private theorem supported_smul {blocks : Nat} {p : RatPoly}
@@ -130,7 +131,7 @@ private theorem supported_smul {blocks : Nat} {p : RatPoly}
   obtain ⟨s, hs, rfl⟩ := List.mem_map.mp ht
   exact hp s hs
 
-private theorem shifted_supported {blocks : Nat} {p : RatPoly}
+theorem shifted_supported {blocks : Nat} {p : RatPoly}
     (hp : SupportedQuaternionBlocks blocks p) (c : Q') :
     SupportedQuaternionBlocks blocks (shifted p c) :=
   supported_add (supported_smul hp 1) (supported_smul (supported_one blocks) (-c))
@@ -200,7 +201,8 @@ private theorem bare_variance_le_shifted {blocks : Nat} {p : RatPoly}
       (RationalVarianceComparison.variance_le_quadratic 1 a b 1 c (by decide))
       (Q'.le_of_eqv hquad))
 
-private theorem own_mean_pin {blocks : Nat} {W p : RatPoly}
+/-- The original centered square is exactly its normalized variance. -/
+theorem own_mean_pin {blocks : Nat} {W p : RatPoly}
     (P : Certificate blocks W) (hp : SupportedQuaternionBlocks blocks p)
     (hZ : (0 : Q') < quaternionHaar blocks W) :
     normalizedMoment blocks W
@@ -256,6 +258,9 @@ end YMGap.Continuum.QuaternionHaarDensityVariance
 
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.normalizedMoment
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.normalizedVariance
+#print axioms YMGap.Continuum.QuaternionHaarDensityVariance.shifted
+#print axioms YMGap.Continuum.QuaternionHaarDensityVariance.shifted_supported
+#print axioms YMGap.Continuum.QuaternionHaarDensityVariance.own_mean_pin
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.normalized_square_floor
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.normalized_variance_comparison
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.normalized_variance_floor

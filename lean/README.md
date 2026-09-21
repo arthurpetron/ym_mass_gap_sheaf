@@ -51,10 +51,25 @@ then proves that bounded-norm survival of the same original positive-time
 response forces the nome above every fixed guarded ceiling at a computed
 threshold. A family remaining below one such ceiling has zero response
 limits; the `W=1/1024` guard instance is already proved. This excludes
-neither approaching the open entropy-guard boundary nor diverging lattice
-norms, and constructs no physical calibration or continuum theory.
+neither approaching the open entropy-guard boundary nor faster-than-polynomial
+norm growth. The subsequent `BF4WilsonPolynomialScalingObstruction.lean`
+excludes every fixed polynomial squared-norm cap below a fixed guarded
+ceiling, with an explicit modulus. Neither result constructs physical
+calibration or a continuum theory.
 The narrow target and all 14 exported axiom gates passed within
 `{propext, Quot.sound}`; no full-root audit or frontier closure is claimed.
+
+**Centered coupling-response checkpoint (2026-09-21 UTC):**
+`BF4ExactSlabCouplingCenteredResponse.lean` constructs a zero-mean normalized
+heat-factor contrast under the retained original background. The exact
+two-nome expectation change is its centered covariance with the observable,
+and its square is bounded by observable variance times contrast second
+moment. Positivity is constructed for all `0<u,v<1` at explicit late heat
+cutoffs, including the actual shared-link spectator product. No uniform
+bound on the contrast variance, spatial summability, changing-score limit,
+OS-norm identification or continuum closure is proved. The four touched
+modules' 28 direct axiom gates and narrow dependency build passed within
+`{propext, Quot.sound}`; no full-root audit was run.
 
 > **Read `AGENTS.md` before contributing.** It contains both the
 > non-negotiable constructivity rules and the host-safety contract. They are

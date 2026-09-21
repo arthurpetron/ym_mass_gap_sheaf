@@ -39,6 +39,20 @@ The narrow dependency build and all 19 printed declaration gates passed with
 at most `{propext, Quot.sound}`, no warnings and no `sorryAx`; no full-root
 audit was run.
 
+**Centered two-nome face response (2026-09-21 UTC):**
+`QuaternionHaarCenteredResponse` and
+`BF4ExactSlabCouplingCenteredResponse` construct the exact retained-background
+identity
+`ΔE = E_B[(p - E_B[p]) s]`, with
+`s = F_v/E_B[F_v] - F_u/E_B[F_u]`. Consequently the squared response obeys
+`ΔE² ≤ Var_B(p) * E_B[s²]`, using the actual shared-link background and both
+positive partition masses. The construction applies for every `0<u,v<1` at
+the explicit late cutoffs, without a small-nome restriction. It does not yet
+provide a cutoff-, coupling-, or spatial-uniform bound on `E_B[s²]`, nor any
+continuum/OS closure. The narrow dependency build and all 28 printed gates
+across the four touched modules passed within `{propext, Quot.sound}`, without
+warnings or `sorryAx`. No full-root audit was run.
+
 > **Research status (2026-09-19 UTC): this repository does not prove the Clay
 > Yang--Mills existence and mass-gap theorem.** It contains kernel-checked
 > finite-lattice and strong-coupling results, explicit proof compilers, and an

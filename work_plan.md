@@ -34,6 +34,68 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Centered original coupling response before absolute-value losses (2026-09-21 UTC)
+
+**Next proposition and actual consumer:** the earlier
+`BF4ExactSlabOneFaceCouplingStability.normalized_difference_bound` estimates
+the two changed moments separately. Its finite coupling-path consumer then
+pays a face count. The new
+`BF4ExactSlabCouplingCenteredResponse.face_centered_response_pin` first retains
+the exact cancellation: for the actual positive background `B`, with original
+heat factors `F_u,F_v`, construct the finite polynomial
+
+    s = F_v/E_B[F_v] - F_u/E_B[F_u],
+    E_B[s] = 0,
+    E_(B*F_v)[p] - E_(B*F_u)[p] = E_B[(p-E_B[p])*s].
+
+Only positive SCALAR Haar masses are inverted; no configuration-valued
+reciprocal, derivative limit, independence, or replacement probability law
+is used. `face_response_pin` pins this expression to the very same
+`faceMoment * recipPos(faceMass)` endpoints used by the existing coupling
+path. The retained background may share every relevant link with the face.
+
+**Proved estimate:** `face_response_square_bound` gives
+
+    (E_(B*F_v)[p] - E_(B*F_u)[p])^2 <= Var_B(p) * E_B[s^2].
+
+The second moment is a variance because `faceScore_centered` proves the actual
+zero mean. This retains the signed normalized contrast and observable mean
+correction; it is not a claim that its numerical right side always improves
+the old sup-norm bound. `original_background_response_bound` constructs the
+background positivity and both face masses from the original spectator heat
+product at its own nome/cutoff. All `0<u,v<1` are admitted after their explicit
+head-cutoff thresholds; no small-nome spatial guard is required. The generic
+`QuaternionHaarCenteredResponse` proves the normalized Cauchy--Schwarz and
+reweighting statements from the existing square-certified Haar form.
+`QuaternionHaarNormalizedMomentLinear` supplies exact linearity/reweighting;
+three existing centering declarations in `QuaternionHaarDensityVariance`
+are exported unchanged so their proofs are reused.
+
+**Open analytic producer and stopping boundary:** the score variance is an
+explicit original finite quantity, NOT a supplied analytic estimate and NOT
+yet bounded uniformly in heat cutoff, coupling or volume. Cauchy--Schwarz
+alone supplies no spatial decay, and applying a triangle inequality to a
+facewise sum can still incur a face count. The next response analysis must
+control the actual signed spatial responses and changing backgrounds along
+a justified scaling trajectory. Passing these changing scores through
+cutoff/volume limits requires their own estimates. Do not call this a
+trajectory, positive-time survival, OS-norm comparison, or completed/physical
+gap. The fixed guarded-ceiling obstruction remains, and physical calibration,
+canonical SAME-theory OS/full QFT, every group and Clay remain open. No
+canonical frontier input is claimed discharged.
+
+**Verification:** dependency-complete monitored target
+`+YMGap.Continuum.BF4ExactSlabCouplingCenteredResponse:olean` and direct checks
+of all four touched modules PASSed all 28 printed gates (including the five
+previous density-variance gates), with at most `{propext, Quot.sound}`, no
+warnings and no `sorryAx`. Logs are `/tmp/ym-gap-<module>-final.log` for the
+three new modules and `/tmp/ym-gap-QuaternionHaarDensityVariance-response-final.log`.
+One worker, 20 GiB ceiling; no full-root build/audit was run. No hole or
+canonical frontier field changed. Luna supplied the bounded source inventory,
+linearity helper draft, scope review and landing-page text; the main agent
+repaired/integrated the helper and proved and verified the centered response
+and original-action consumer.
+
 ### Polynomial norm growth cannot rescue fixed guarded scaling (2026-09-21 UTC)
 
 `BF4WilsonPolynomialScalingObstruction.sampled_polynomial_small` proves an

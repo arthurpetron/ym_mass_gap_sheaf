@@ -4506,6 +4506,10 @@ import YMGap.Continuum.BF4ExactSlabOneFaceCouplingStability
 -- states; boundary localization removes the OUTER face-count dependence.
 -- Small-nome guards and inner-window costs remain explicit, not continuum control.
 import YMGap.Continuum.QuaternionHaarNormalizedMomentCongruence
+-- Exact centered coupling response; variance cost retains the interacting background.
+import YMGap.Continuum.QuaternionHaarNormalizedMomentLinear
+import YMGap.Continuum.QuaternionHaarCenteredResponse
+import YMGap.Continuum.BF4ExactSlabCouplingCenteredResponse
 import YMGap.Continuum.BF4ExactSlabFiniteCouplingPath
 import YMGap.Continuum.BF4ExactSlabCommonCutoffExpectations
 import YMGap.Continuum.BF4ExactSlabTwoNomeExpectationBound

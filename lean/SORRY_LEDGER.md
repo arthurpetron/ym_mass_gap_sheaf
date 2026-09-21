@@ -13,6 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED centered two-nome response on the ORIGINAL retained Haar background (2026-09-21 UTC)
+
+- **files**: new `lean/YMGap/Continuum/QuaternionHaarNormalizedMomentLinear.lean`,
+  `lean/YMGap/Continuum/QuaternionHaarCenteredResponse.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabCouplingCenteredResponse.lean`; updated
+  `lean/YMGap/Continuum/QuaternionHaarDensityVariance.lean` exports the existing
+  `shifted`, `shifted_supported`, and `own_mean_pin` proofs unchanged.
+- **scope**: `responsePolynomial` constructs the difference of original local
+  factors normalized in the same retained background. `response_centered`
+  proves its zero mean; `response_pin` gives the exact normalized difference.
+  Normalized Cauchy--Schwarz and the original centered-square identity prove
+  `reweighting_variance_bound`. The physical `face_centered_response_pin`
+  retains the SAME `faceMoment/faceMass` endpoints, and
+  `face_response_square_bound` gives squared response at most
+  `Var_B(p) * E_B[s^2]`. `original_background_response_bound` constructs all
+  positivity from the actual spectator product, retaining shared links and
+  its independent nome/cutoff. No missing variance estimate is assumed.
+- **boundary**: finite cutoff, all `0<u,v<1` beyond their explicit head
+  thresholds. The score variance depends on the actual background, cutoff,
+  geometry and couplings; no uniform bound on it or spatially summable
+  response is proved. This is an ordinary retained-background covariance,
+  not an OS norm or spectral gap. Changing-score limit control, a justified
+  scaling trajectory and survival, physical calibration, canonical OS/QFT,
+  every group and Clay remain open. No canonical input is closed.
+- **verification**: monitored dependency-complete target
+  `+YMGap.Continuum.BF4ExactSlabCouplingCenteredResponse:olean` and direct checks
+  of all four files PASSed all 28 printed gates, including five prior
+  density-variance gates, within `{propext, Quot.sound}`, no warnings and no
+  `sorryAx`. Logs are `/tmp/ym-gap-<module>-final.log` for the three new files
+  and `/tmp/ym-gap-QuaternionHaarDensityVariance-response-final.log`. One
+  worker, 20 GiB ceiling; no full-root build/audit was run. No hole was
+  introduced/discharged and no canonical frontier field changed.
+
 ## PROVED polynomial norm-growth obstruction on SAME sampled Wilson responses (2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/PolynomialGeometricDecay.lean`,
