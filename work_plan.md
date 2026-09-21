@@ -34,7 +34,45 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Terminating actual-kernel harmonic recurrence (2026-09-21 UTC)
+### Exact all-degree original heat-packet reproduction (2026-09-21 UTC)
+
+**PROGRESS -- the missing diagonal normalization is now proved:**
+`SU2QuaternionRelativeHarmonicReproduction.heat_harmonic_reproduction`
+proves that the FULL original two-link heat packet, paired with a head-
+homogeneous harmonic p of degree n and an arbitrary retained boundary,
+equals `w^(n*(n+2))` times the Haar pairing of the computed retained-link
+substitution, when n<=K, and zero otherwise. The intermediate ordinary-
+character identity has the exact dimension factor n+1. Neither diagonal
+reproduction nor identity-at-nome-one is supplied as a premise.
+
+The short argument substitutes into the existing Euler identity to get
+the factor n at each lowering step. Dropping the padded head first makes
+this coefficient-exact. The explicit factorial cancels against the proved
+radial factor `2^n*(n+1)*n!`; harmonic orthogonality and the actual character
+recurrence remove every lower power. Arbitrary tail coefficients survive.
+
+**Next mathematical join:** prove the all-label selected-factor pairing
+for the ACTUAL product kinetic map: expose one `heatAt`, transport the
+harmonic/substitution through its proved block reindexing and retain all
+untouched kernel factors in the boundary. Reuse `productMap_pairing` and
+`heat_exposed`; the fundamental plaquette case already exists in
+`productMap_plaquette_of_perm`. Then join a sufficient polynomial/harmonic
+decomposition and the original-weight finite-time comparison with regulator control.
+Retain full V_K*g_K*f: its degree changes with K, so a fixed-polynomial
+identity does not establish uniform control of that family. Reuse the
+existing `ActiveEnergy.energy_active` terminal-source fringe reduction;
+inactive slots remain Haar projections. The SAME-variance small rate,
+spatial/scaling survival, physical calibration, full QFT and every-group
+construction are still OPEN. No new analytic premise, hole, axiom or
+canonical-field change was introduced.
+
+Four focused checks passed 19 gates within `{propext, Quot.sound}` and
+the dependency-complete reproduction target passed. Sol supplied the
+bounded dropped-substitution draft and independent review (PASS); main supplied the Euler/radial,
+character and packet joins and serialized checks. No full-root audit.
+Source/scope: `audits/AUDIT-HARMONIC-REPRODUCTION-2026-09-21.md`.
+
+### Terminating actual-kernel harmonic recurrence (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- an exact all-degree calculation, not a new premise:**
 `SU2QuaternionRelativeHarmonicLowering.haar_pairing_lowerIter` computes

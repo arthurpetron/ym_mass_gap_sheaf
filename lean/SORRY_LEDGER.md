@@ -13,7 +13,35 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED terminating actual-kernel harmonic recurrence (2026-09-21 UTC)
+## PROVED all-degree original heat-packet reproduction (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/SU2QuaternionDroppedHeadSubstitution.lean`,
+  `SU2QuaternionHarmonicPowerSubstitution.lean`,
+  `SU2QuaternionHarmonicCharacterLeading.lean`, and
+  `SU2QuaternionRelativeHarmonicReproduction.lean` in that directory.
+- **normalization producer**: after dropping the padded head, substitute
+  into Euler to identify each lowering with the degree factor. The
+  resulting factorial cancels against the explicit positive radial
+  denominator. The ordinary character recurrence plus lower-degree
+  harmonic annihilation supplies the exact leading coefficient 2^n.
+- **actual packet consumer**: `character_harmonic_reproduction` proves
+  the exact n+1 dimension factor with coefficient-retaining substitution;
+  `heat_harmonic_reproduction` joins this to the FULL original packet,
+  giving the multiplier `w^(n*(n+2))` when n<=K and zero otherwise,
+  with arbitrary retained boundary. The previously recorded diagonal
+  normalization residue is discharged, not assumed in a new field.
+- **residue**: local harmonic reproduction is not an arbitrary-source
+  product kinetic estimate. Polynomial decomposition, actual product-map
+  transport, changing-source cutoff control and a useful original-weight
+  finite-time/SAME-variance rate still need to be joined. Spatial/scaling
+  survival, physical mass, QFT and every group remain open. No existing
+  field or premise was weakened and no new hole or axiom was introduced.
+- **verification**: four focused checks passed 19 gates within
+  `{propext, Quot.sound}`; the dependency-complete reproduction target
+  passed. One capped 20 GiB worker, no full-root audit. Source/log map:
+  `audits/AUDIT-HARMONIC-REPRODUCTION-2026-09-21.md`.
+
+## PROVED terminating actual-kernel harmonic recurrence (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionDerivativeCommutation.lean`,
   `SU2QuaternionGaussianHarmonicPowerRecursion.lean`, and

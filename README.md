@@ -163,15 +163,15 @@
 > energy to the bare kinetic form. At the local differential level it
 > cancels all weight-derivative terms; the finite-time comparison remains
 > open. [Identity and operator boundary](audits/AUDIT-ENDPOINT-WEIGHT-CANCELLATION-2026-09-21.md).
-> The actual two-link heat packet now has checked all-label harmonic
-> selection and exact Casimir nome dependence. Its diagonal reproducing
-> normalization is still open; nome one is not assumed to give the identity.
-> [New local result and remaining join](audits/AUDIT-ALL-LABEL-TWO-LINK-SELECTION-2026-09-21.md).
-> An exact harmonic recurrence now computes the original `(x.y)^n` Haar
-> pairing by n explicit degree-lowering steps, with every retained
-> coefficient and the radial denominator preserved. The remaining
-> factorial/substitution and character normalization are still open.
-> [Calculation and residue](audits/AUDIT-HARMONIC-LOWERING-2026-09-21.md).
+> The actual two-link heat packet now has checked all-degree harmonic
+> reproduction with the exact dimension normalization. It gives the
+> Casimir multiplier `w^(n*(n+2))` on a degree-n harmonic when n<=K,
+> and zero otherwise, with computed retained-link substitution and an
+> arbitrary boundary. The normalization follows from Euler substitution,
+> radial cancellation and the character recurrence, not an assumed
+> identity-at-nome-one. The arbitrary-source product kinetic join and
+> weighted finite-time comparison remain open.
+> [Local proof and remaining join](audits/AUDIT-HARMONIC-REPRODUCTION-2026-09-21.md).
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction

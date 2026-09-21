@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Terminating actual-kernel harmonic recurrence (2026-09-21 UTC):**
+**Exact all-degree original heat reproduction (2026-09-21 UTC):**
+`SU2QuaternionRelativeHarmonicReproduction.lean` now proves the missing
+dimension-normalized diagonal identity and combines it with all-label
+selection. The FULL original two-link packet acts on a degree-n head
+harmonic by `w^(n*(n+2))` times its computed retained-link substitution,
+or zero when K<n, with every retained coefficient and arbitrary boundary.
+Euler substitution, exact radial/factorial cancellation and the character
+recurrence supply the normalization; it is not an input. Four focused
+checks passed 19 gates within `{propext, Quot.sound}` and the dependency-
+complete consumer target passed. This is a local kinetic identity, not
+yet arbitrary-polynomial product propagation, changing-source cutoff
+control or a weighted finite-time/SAME-variance estimate. The continuum/
+physical-mass/QFT/every-group goal remains open. No new hole/axiom or
+full-root audit. See `audits/AUDIT-HARMONIC-REPRODUCTION-2026-09-21.md`.
+
+**Terminating actual-kernel harmonic recurrence (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionRelativeHarmonicLowering.lean` computes the original
 partial Haar pairing with `(x.y)^n`, multiplied by its explicit radial
 denominator, as the head-independent polynomial obtained by n applications
