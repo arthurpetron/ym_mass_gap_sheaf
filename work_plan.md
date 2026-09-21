@@ -34,7 +34,44 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
-### Actual positive-source derivative control (2026-09-21 UTC)
+### Relative Jacobi estimate reaches the ORIGINAL terminal source (2026-09-21 UTC)
+
+**PROGRESS -- no global heat-floor reciprocal in the new relative constant:**
+`BF4ExactSlabFixedSpatialTerminalJacobiAngularBound.terminalMessageRelativeBound`
+constructs `B(w)*g +/- Dg >= 0` for the actual `g=T^(n+1)1`, and
+`terminalMessageRelativeWeightedSquare` gives
+
+    H[R*(Dg)^2] <= B(w)^2 * H[R*g^2],
+    B(w) = 32 * JacobiShiftedRelativeSlope.budget w + 1.
+
+The mathematical argument adds relative slope costs along the positive
+Jacobi product and its Leibniz derivative. A new explicit quartic-tail
+modulus removes the Jacobi weights AFTER differentiation. Value and
+derivative errors are absorbed by the existing ORIGINAL heat floor, so
+that floor enters `relativeCutoff w 32` but not B. The actual heat prefix,
+whole spatial action, terminal history and shared-variable positive
+background remain. The weighted approximant is not substituted for the
+original action. Old bounds and guards are preserved.
+
+**Next mathematical join:** B has no width, depth or cutoff dependence,
+but still depends explicitly on the nome. No near-one uniformity or
+useful physical rate follows yet. The missing original-weight
+gradient/energy comparison and small SAME-variance one-step estimate
+remain the frontier; assess this new explicit budget inside that actual
+comparison, not as a stand-alone survival argument. Completed derivative
+operators, changing-width/spacing survival, physical mass calibration,
+full same-theory QFT and every compact simple group remain open.
+
+**Verification / delegation:** the dependency-complete terminal target
+and eight serialized direct checks passed 54 printed gates within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Sol supplied three
+bounded scalar/deficit drafts and an independent scope review (PASS);
+main supplied the product argument, original-kernel absorption, terminal
+consumers and final checks. One 20 GiB worker; no full-root audit, new
+hole, analytic premise or canonical-field change. Source/log map:
+`audits/AUDIT-JACOBI-RELATIVE-ANGULAR-BOUND-2026-09-21.md`.
+
+### Actual positive-source derivative control (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- a missing source estimate is constructed:**
 `BF4ExactSlabFixedSpatialTerminalAngularBound.terminalMessage_angular_bounds`

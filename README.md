@@ -150,6 +150,11 @@
 > `h(w)^2 H[R(Dg)^2] <= C(w)^2 H[Rg^2]`, retaining any certified positive
 > background R. The nome dependence is explicit, not uniformly controlled.
 > [Source and scope](audits/AUDIT-TERMINAL-ANGULAR-BOUND-2026-09-21.md).
+> A positive Jacobi-product argument and explicit differentiated weight
+> removal now improve this form to `H[R(Dg)^2] <= B(w)^2 H[Rg^2]`, with
+> no global heat-floor reciprocal in B. The floor controls only the later
+> cutoff; the ORIGINAL unweighted kernel and full action are retained.
+> B still depends on the nome. [Proof and boundary](audits/AUDIT-JACOBI-RELATIVE-ANGULAR-BOUND-2026-09-21.md).
 > Spatial/scaling survival remains open.
 > Positive-time continuum survival, trajectory-uniform estimates, physical
 > mass calibration, canonical OS/full QFT, and the every-group construction

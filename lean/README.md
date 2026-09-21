@@ -12,7 +12,23 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Actual terminal-message angular control (2026-09-21 UTC):**
+**Relative Jacobi control of the ORIGINAL terminal source (2026-09-21 UTC):**
+`BF4ExactSlabFixedSpatialTerminalJacobiAngularBound.lean` now proves
+`B(w)*g +/- Dg >= 0` and `H[R(Dg)^2] <= B(w)^2 H[Rg^2]` for the actual
+`g=T^(n+1)1`, every active link rotation and every certified positive R.
+Here `B=32*JacobiShiftedRelativeSlope.budget w+1`. Positive-product
+relative costs add; explicit differentiated Jacobi-weight removal reaches
+the SAME original unweighted heat prefix. Its heat floor absorbs only
+the approximation errors and enters the late cutoff, not B. Full spatial
+action and terminal history remain in the message. B is independent of
+width, depth and admissible cutoff but explicitly nome-dependent.
+The dependency-complete target and eight direct checks passed 54 gates
+within `{propext, Quot.sound}`; no new hole or canonical field. This is
+source regularity, not the missing SAME-variance temporal energy bound,
+changing-spacing survival or continuum theorem. No full-root audit.
+See `audits/AUDIT-JACOBI-RELATIVE-ANGULAR-BOUND-2026-09-21.md`.
+
+**Actual terminal-message angular control (earlier checkpoint, 2026-09-21 UTC):**
 `BF4ExactSlabFixedSpatialTerminalAngularBound.lean` constructs both
 `C(w)*g +/- h(w)*Dg` positivity certificates for the ORIGINAL `g=T^(n+1)1`.
 Here D rotates any active link, `h=headFloor`, and

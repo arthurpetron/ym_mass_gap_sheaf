@@ -117,3 +117,16 @@ Width/depth/cutoff do not enter the constants; nome does. This supplies a
 source-specific derivative estimate, not a gradient-to-original-energy
 comparison or a sufficiently small SAME-variance energy rate. See
 `AUDIT-TERMINAL-ANGULAR-BOUND-2026-09-21.md` for the exact uniformity scope.
+
+## Later relative Jacobi refinement
+
+`terminalMessageRelativeWeightedSquare`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalJacobiAngularBound.lean:123`,
+now gives `H[R(Dg)^2] <= B(w)^2 H[Rg^2]` for the same original source,
+with `B(w)=32*JacobiShiftedRelativeSlope.budget w+1`. Differentiated
+weight removal reaches the original unweighted heat prefix; the global
+heat floor pays only approximation precision, not the relative constant.
+The guard is `relativeCutoff w 32 <= K`; active links and positive depth
+are explicit. The new bound still does not identify this derivative-square
+quantity with the temporal energy or produce a useful SAME-variance rate.
+See `AUDIT-JACOBI-RELATIVE-ANGULAR-BOUND-2026-09-21.md` for the checked path.

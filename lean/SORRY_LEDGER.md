@@ -13,7 +13,38 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
-## PROVED original terminal-message relative angular control (2026-09-21 UTC)
+## PROVED Jacobi relative control of the ORIGINAL terminal source (2026-09-21 UTC)
+
+- **files**: `lean/YMGap/Continuum/QuaternionHaarRelativeAngularBound.lean`,
+  `JacobiShiftedRelativeSlope.lean`, `JacobiHeatRelativeAngularBound.lean`,
+  `SU2HeatQuarticTailCutoff.lean`, `QuaternionHaarHeatAngularDeficit.lean`,
+  `QuaternionHaarHeatRelativeAngularBound.lean`,
+  `SU2QuaternionProductHeatRelativeAngularMessage.lean`, and
+  `BF4ExactSlabFixedSpatialTerminalJacobiAngularBound.lean` in that directory.
+- **actual estimate**: `terminalMessageRelativeBound` constructs
+  `B(w)*g +/- Dg` certificates for the original `g=T^(n+1)1`, with
+  `B(w)=32*JacobiShiftedRelativeSlope.budget w+1`. The product/derivative
+  induction adds relative costs; explicit value and angular-deficit
+  cutoffs remove the Jacobi weights. The original positive heat floor
+  pays approximation errors and enters only the late cutoff, not B.
+- **consumer**: `terminalMessageRelativeWeightedSquare` proves
+  `H[R(Dg)^2] <= B(w)^2 H[Rg^2]` for any certified positive background R,
+  with all original spatial factors and terminal history retained. The
+  strict nome and `relativeCutoff w 32 <= K` remain explicit; no width,
+  depth, cutoff or selected-active-link factor enters B.
+- **residue**: source regularity does not prove the original temporal
+  Dirichlet/gradient comparison or a small SAME-variance one-step energy
+  rate along a justified spatial/nome/spacing family. Nome-uniformity,
+  completed derivatives, scaling survival, physical mass, full QFT and
+  the every-group target remain open. No hole, new analytic premise,
+  canonical field or axiom was added, removed or weakened.
+- **verification**: dependency-complete terminal target and eight direct
+  checks, 54 printed gates within `{propext, Quot.sound}`, no warnings or
+  `sorryAx`; one 20 GiB worker, no full-root audit. Sol supplied bounded
+  drafts and independent review; main integrated and verified. Exact map:
+  `audits/AUDIT-JACOBI-RELATIVE-ANGULAR-BOUND-2026-09-21.md`.
+
+## PROVED original terminal-message relative angular control (earlier checkpoint, 2026-09-21 UTC)
 
 - **files**: `lean/YMGap/Continuum/SU2QuaternionHaarTailDerivative.lean`,
   `SU2QuaternionRelativeHeatAngularBound.lean`,
