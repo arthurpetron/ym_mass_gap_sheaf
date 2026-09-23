@@ -31,6 +31,7 @@ open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
 open YMGap.Continuum.SU2HeatCutoffCasimirBound
 open YMGap.Continuum.QuaternionHaarLinearAngularEnergy
+open YMGap.Continuum.QuaternionHaarSquareCertificate
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -44,6 +45,54 @@ def conjugatedHeadMap
     (w : Q') (K : Nat) (polynomial : RatPoly) : RatPoly :=
   reindexQuaternionPolynomial s
     (headMap w K (reindexQuaternionPolynomial s polynomial))
+
+theorem conjugatedHeadMap_pairing
+    (tail : Nat) (w : Q') (K : Nat)
+    (s : QuaternionBlockInvolution (tail + 1)) (polynomial : RatPoly)
+    (hpolynomial : SupportedQuaternionBlocks (tail + 1) polynomial) :
+    quaternionHaar (tail + 1)
+        (polyMul polynomial (conjugatedHeadMap s w K polynomial)) ≈
+      heatPair tail w K
+        (reindexQuaternionPolynomial s polynomial)
+        (reindexQuaternionPolynomial s polynomial) := by
+  let recoded := reindexQuaternionPolynomial s polynomial
+  have hrecoded : SupportedQuaternionBlocks (tail + 1) recoded :=
+    reindex_supported s polynomial
+  have hcross :
+      quaternionHaar (tail + 1)
+          (polyMul polynomial
+            (reindexQuaternionPolynomial s (headMap w K recoded))) ≈
+        quaternionHaar (tail + 1)
+          (polyMul recoded (headMap w K recoded)) := by
+    exact reindex_pair s polynomial (headMap w K recoded)
+      hpolynomial (headMap_supported tail w K hrecoded)
+  have hcomm :
+      quaternionHaar (tail + 1)
+          (polyMul recoded (headMap w K recoded)) ≈
+        quaternionHaar (tail + 1)
+          (polyMul (headMap w K recoded) recoded) :=
+    haar_of_coeff (RatPolyCoeffEqv.mul_comm recoded (headMap w K recoded))
+  exact Q'.eqv_trans _ _ _
+    (by simpa [conjugatedHeadMap, recoded] using hcross)
+    (Q'.eqv_trans _ _ _ hcomm
+      (headMap_pairing tail w K recoded recoded))
+
+theorem conjugatedHeadMap_mean
+    (tail : Nat) (w : Q') (K : Nat)
+    (s : QuaternionBlockInvolution (tail + 1)) (polynomial : RatPoly)
+    (hpolynomial : SupportedQuaternionBlocks (tail + 1) polynomial) :
+    quaternionHaar (tail + 1) (conjugatedHeadMap s w K polynomial) ≈
+      quaternionHaar (tail + 1) polynomial := by
+  let recoded := reindexQuaternionPolynomial s polynomial
+  have hrecoded : SupportedQuaternionBlocks (tail + 1) recoded :=
+    reindex_supported s polynomial
+  have hhead := headMap_mean tail w K hrecoded
+  have hmap := quaternionHaar_reindex s
+    (headMap w K recoded) (headMap_supported tail w K hrecoded)
+  have hpoly := quaternionHaar_reindex s polynomial hpolynomial
+  exact Q'.eqv_trans _ _ _
+    (by simpa [conjugatedHeadMap, recoded] using hmap)
+    (Q'.eqv_trans _ _ _ hhead hpoly)
 
 theorem conjugatedHeadMap_supported
     {blocks : Nat} (s : QuaternionBlockInvolution blocks)
@@ -110,5 +159,7 @@ theorem conjugatedHeadMap_defect_le_angular
 end YMGap.Continuum.SU2QuaternionConjugatedHeadHeat
 
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeat.conjugatedHeadMap
+#print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeat.conjugatedHeadMap_pairing
+#print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeat.conjugatedHeadMap_mean
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeat.conjugatedHeadMap_supported
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeat.conjugatedHeadMap_defect_le_angular

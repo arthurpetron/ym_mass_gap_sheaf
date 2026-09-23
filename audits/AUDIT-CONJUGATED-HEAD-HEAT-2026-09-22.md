@@ -13,6 +13,9 @@ continuum theorem.
 Source: `lean/YMGap/Continuum/SU2QuaternionConjugatedHeadHeat.lean`
 
 - `conjugatedHeadMap` defines the conjugated update.
+- `conjugatedHeadMap_pairing` identifies its same-carrier Haar pairing with
+  the existing `heatPair` applied to the recoded polynomial.
+- `conjugatedHeadMap_mean` proves preservation of the finite Haar mean.
 - `conjugatedHeadMap_supported` preserves finite block support.
 - `conjugatedHeadMap_defect_le_angular` proves
 
@@ -34,7 +37,7 @@ python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \\
   --check lean/YMGap/Continuum/SU2QuaternionConjugatedHeadHeat.lean
 ```
 
-Result: exit 0.  The source-level `#print axioms` commands for the three
+Result: exit 0.  The source-level `#print axioms` commands for the five
 public declarations report only `{propext, Quot.sound}`.  No `sorry`,
 `admit`, `Classical`, `choice`, or `native_decide` was added.
 

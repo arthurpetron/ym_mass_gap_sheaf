@@ -111,6 +111,10 @@ and the existing `headMap_defect_le_angular` theorem.  Its right-hand energy
 is explicitly the angular energy of the recoded polynomial, so no unproved
 derivative/reindex commutation is hidden in the statement.
 
+The same module also proves `conjugatedHeadMap_pairing` (the transported
+pairing is exactly the existing `heatPair` on the recoded input) and
+`conjugatedHeadMap_mean` (finite Haar mean preservation).
+
 This closes a finite recoded local-operator bridge, not the identification of
 the conjugated update with the interacting selected-link kernel.  The
 multi-factor SAME-object estimate, signed endpoint control, OS/GNS passage,

@@ -59,7 +59,9 @@ head conditional update by an explicit quaternion-block involution, and
 angular defect bound to that recoded carrier.  Support, reindex
 multiplicativity, and Haar invariance are explicit; the right-hand side is
 the angular energy of the recoded polynomial.  This does not identify the
-conjugated map with the physical interacting selected-link kernel, and does
+module's `conjugatedHeadMap_pairing` and `conjugatedHeadMap_mean` also expose
+the exact recoded `heatPair` and finite mean preservation.  This does not
+identify the conjugated map with the physical interacting selected-link kernel, and does
 not provide the missing product tensorization, SAME-object OS/GNS passage,
 continuum survival, physical mass, QFT axioms, or every-group construction.
 See `audits/AUDIT-CONJUGATED-HEAD-HEAT-2026-09-22.md`.
