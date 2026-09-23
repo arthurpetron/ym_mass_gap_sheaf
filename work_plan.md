@@ -25,6 +25,25 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Persistent endpoint energy on arbitrary completed vectors (2026-09-23 UTC)
+
+`BF4PhysicalCutoffVacuumSectorCompletedEndpointEnergy.fixedBaseFloor_mul_completedEndpointSq_le_completedDirichlet`
+extends the checked dense estimate to every vector of the actual completed
+sector carrier. The reindexed outer-matrix Cauchy stream is proved close to
+the original representative: its coordinates and norm represent the same vector,
+and its matrix limit is the original completed transfer form. The positive
+edge floor is still constructed for each retained finite base. No new analytic
+estimate is assumed and no representative is selected by choice.
+
+This closes the outer endpoint-energy passage. Its next consumer is constancy
+of persistent coordinates for a fixed vector. Coordinate-to-dense-pairing
+identification, separation and the correct sector-vacuum identification remain
+separate; none of these qualitative steps supplies a uniform strict gap.
+The same-theory, physical-mass, continuum/QFT and every-group joins remain open.
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-completed-endpoint-energy-check-2.log`; both printed gates contain
+only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
+
 ### Dense physical pairings separate completed zero (2026-09-23 UTC)
 
 `BF4PhysicalCutoffPairingCompletionAdapter.physicalPairingData` constructs the
@@ -57,9 +76,9 @@ completed transfer form, and
 inequality directly in that completed form. The retained endpoints may belong
 to a different finite base from the cylinder presentation.
 
-The inequality is proved for dense embedded cylinders, not yet arbitrary
-completed vectors. That outer-limit passage and the separate coordinate
-separation/sector-vacuum argument remain open; no uniform spectral gap or
+This milestone proves the inequality for dense embedded cylinders; the
+arbitrary-vector extension is now checked in the milestone above. The separate
+coordinate-separation/sector-vacuum argument remains open; no uniform spectral gap or
 physical/continuum conclusion follows. Verification: monitored 20 GiB leaf
 check, `/tmp/ym-gap-persistent-path-energy-limit-check-2.log`; all four printed
 gates contain only `{propext, Quot.sound}`, no warnings or `sorryAx`. The first
@@ -81,8 +100,8 @@ without warnings or `sorryAx`. Local transparency controls avoid re-enumerating
 the lattice while checking this abstract carrier argument; no budget increase
 or mathematical statement change was needed. No full-root audit.
 
-The dense Dirichlet endpoint passage is now checked in the milestone above;
-its arbitrary-completed-vector extension remains open.
+The dense and arbitrary-completed-vector Dirichlet endpoint passages are now
+checked in the subsequent milestones above.
 Moreover, coordinate constancy alone is not yet a completed-vector equality:
 the qualitative rigidity route needs a proved separation/tail argument and
 the correct sector-vacuum identification. Orthogonality to the global vacuum
@@ -105,9 +124,8 @@ and path ceiling depend on the selected fixed base, not on the presentation.
 
 This supplies a finite endpoint-energy estimate for the proposed completed
 zero-energy rigidity argument, not another finite Poincare-rate construction.
-Completed coordinate descent is now checked in the milestone above; passage
-of the endpoint estimate to arbitrary completed vectors remains open (its
-dense completed-form version is checked above).
+Completed coordinate descent and passage of the endpoint estimate to arbitrary
+completed vectors are now checked in the subsequent milestones above.
 Fixed-vector uniqueness, a common strict
 gap and every physical/continuum join remain open. No canonical frontier is
 weakened. Verification: monitored 20 GiB leaf check,

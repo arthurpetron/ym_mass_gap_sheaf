@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## Proved completed estimate: persistent endpoint energy (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCompletedEndpointEnergy.lean`.
+- **consumer**: `fixedBaseFloor_mul_completedEndpointSq_le_completedDirichlet`
+  bounds any retained endpoint difference of an arbitrary completed sector vector
+  by its actual completed norm-minus-transfer form. Constructed representative
+  closeness preserves the same vector throughout the outer-limit passage.
+- **residue**: fixed-vector coordinate constancy, coordinate-to-pairing
+  identification, separation and sector-vacuum identification. Fixed-base
+  constants are not a uniform strict gap; physical/continuum joins remain open.
+  No canonical field, hole or axiom changed.
+- **verification**: monitored 20 GiB leaf check,
+  `/tmp/ym-gap-completed-endpoint-energy-check-2.log`; both gates contain only
+  `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
 ## Proved physical separation: dense pairings detect completed zero (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffPairingCompletionAdapter.lean`.

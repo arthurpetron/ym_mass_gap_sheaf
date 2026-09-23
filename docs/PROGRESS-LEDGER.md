@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: dense physical tests detect completed zero (2026-09-23)
+## Current increment: endpoint energy on arbitrary completed vectors (2026-09-23)
+
+`BF4PhysicalCutoffVacuumSectorCompletedEndpointEnergy` extends the dense endpoint
+estimate to the actual sector completion. Coordinate convergence, constructed
+closeness of the outer-matrix input, and the existing completed-form identities
+keep both sides attached to the same vector. This removes the outer-limit
+obligation before fixed-vector coordinate rigidity; it does not supply
+coordinate separation, vacuum identification or a uniform spectral gap.
+Physical, continuum and every-group obligations remain open.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-completed-endpoint-energy-check-2.log`; both printed gates contain
+only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
+## Previous increment: dense physical tests detect completed zero (2026-09-23)
 
 `BF4PhysicalCutoffPairingCompletionAdapter` constructs the generic quantitative
 pairing interface from existing physical estimates and identifies its completion
