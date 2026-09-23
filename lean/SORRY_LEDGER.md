@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## Proved rigidity: one persistent coordinate for completed fixed vectors (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFixedCoordinate.lean`.
+- **consumer**: `completedCoordinates_eq_across_bases_of_fixed` proves that a
+  fixed vector of the literal sector transfer has the same coordinate at every
+  retained state, even across different finite bases. It uses the checked
+  completed endpoint energy and exact root-state coherence.
+- **residue**: completed coordinate-to-test proportionality before the proposed
+  global-vacuum-orthogonal zero-vector argument. No vacuum uniqueness, uniform
+  strict gap, physical identification or continuum conclusion is claimed.
+  No analytic hypothesis beyond the fixed-vector premise, or new hole/axiom.
+- **verification**: monitored 20 GiB leaf check,
+  `/tmp/ym-gap-sector-fixed-coordinate-check-2.log`; all four gates contain only
+  `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
 ## Proved separation: dense sector tests detect sector zero (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPairingSeparation.lean`.

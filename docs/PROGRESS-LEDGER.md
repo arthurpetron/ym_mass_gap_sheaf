@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: dense sector tests detect sector zero (2026-09-23)
+## Current increment: one common coordinate for completed fixed vectors (2026-09-23)
+
+`BF4PhysicalCutoffVacuumSectorFixedCoordinate` proves zero Dirichlet energy for
+a literal completed-sector fixed vector, cancels the positive fixed-base floor,
+and uses root-state coherence to identify its coordinates across all finite
+bases. This closes coordinate rigidity without assuming a gap. The next
+consumer is the finite-test pairing identity and its completed passage;
+coordinate constancy is not itself vector uniqueness or quantitative strictness.
+All original-theory and physical/continuum joins remain open.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-fixed-coordinate-check-2.log`; all four gates contain only
+`{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
+## Previous increment: dense sector tests detect sector zero (2026-09-23)
 
 `BF4PhysicalCutoffVacuumSectorPairingSeparation` identifies the inherited
 generic sector pairing with the existing physical form and proves zero-vector

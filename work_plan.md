@@ -25,6 +25,25 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Completed fixed vectors have one common persistent coordinate (2026-09-23 UTC)
+
+`BF4PhysicalCutoffVacuumSectorFixedCoordinate.completedDirichlet_eq_zero_of_fixed`
+uses the literal sector transfer fixed-point equality to cancel the completed
+Dirichlet form. `completedCoordinates_eq_of_fixed` then cancels the constructed
+positive endpoint floor without real division or a zero/positive case split.
+The root state is the same physical labelling at every cutoff, giving
+`completedRootCoordinate_eq_across_bases`; the consumer
+`completedCoordinates_eq_across_bases_of_fixed` proves one common coordinate
+across every retained finite base and index.
+
+This is actual qualitative coordinate rigidity, not completed fixed-vector
+uniqueness: the coordinate-to-dense-pairing passage below remains open. It neither
+identifies a sector vacuum nor supplies a common strict spectral rate. No
+same-theory, continuum, physical-mass or every-group obligation is closed.
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-fixed-coordinate-check-2.log`; all four gates contain only
+`{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
+
 ### Dense sector tests separate the actual completed sector zero (2026-09-23 UTC)
 
 `BF4PhysicalCutoffVacuumSectorPairingSeparation.sectorCompleted_eq_zero_of_dense_pairings_zero`
