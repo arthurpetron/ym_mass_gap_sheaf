@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## Proved lossless cancellation and actual local normalized heat score (2026-09-23)
+
+- **constructed**: `haar_nonnegative_of_positive_multiplier` removes a positive
+  kernel factor in the SAME Haar integral through finite reciprocal polynomials
+  with explicit errors; no completed inverse observable or certificate-level
+  division is assumed. The dual square-completion/discriminant theorem follows.
+- **actual instance**: `relativeHeat_normalized_dual_score_bound` retains one
+  original relative heat, both copies of a supported certificate-positive
+  source, an arbitrary supported signed test, and the same positive edge mass.
+  Its curvature and integrated Hessian sign are constructed for that heat.
+- **scope**: `(H[R*(Dh)*f]/Z)^2 <= C(w)*H[R*h*f^2]/Z` at explicit late cutoff.
+  C(w) is nome-dependent and still contains its original inverse-floor cost;
+  cancellation introduces no additional floor loss. The homogeneous theorem
+  permits zero source without inventing a normalized law.
+- **next input reduced**: exact product curvature and signed first/second
+  Leibniz rules are checked. Whole-product localization with grouped
+  coefficient-square costs and multiplicities is NOT yet constructed.
+- **remaining**: whole original Wilson temporal form/SAME centered variance,
+  finite-P correction, scaling-sufficient estimates, physical time, spatial/
+  continuum passage, nontrivial survival, finite positive physical mass,
+  full same-theory QFT/YM fields and every compact simple group.
+- **verification**: seven serialized 8 GiB leaves; twenty permitted gates,
+  no warning/error/sorryAx/Classical.choice in accepted logs. No new hole/axiom
+  or field weakening, canonical atom closure, full-root build/audit/guard.
+  See `audits/AUDIT-ORIGINAL-HEAT-DUAL-SCORE-2026-09-23.md`.
+
 ## Proved original relative-heat mixed curvature producer (2026-09-23)
 
 - **constructed**: `SU2QuaternionHeatLogCurvature.heatLogHessianBounds` gives

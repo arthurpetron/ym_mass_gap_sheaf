@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: construct original mixed heat curvature (2026-09-23)
+## Current increment: cancel the multiplier and normalize actual local score (2026-09-23)
+
+Finite positive reciprocal polynomials now reflect positivity through a
+strictly positive multiplier in the same Haar integral, with explicit error
+control. Completion of a square and the constructive rational discriminant
+then prove the dual curvature estimate without an additional inverse-floor
+loss. No completed reciprocal observable is needed by this consumer.
+
+The concrete relative-heat instance constructs its curvature and integrated
+Hessian sign, retaining arbitrary supported positive endpoint source, signed
+test and SAME positive edge mass. Its normalized score square is bounded by
+the explicit C(w) times the original normalized test square. It is a ONE-factor
+estimate; C(w) retains its original nome/floor dependence. Exact product
+curvature for actual signed directions is checked, but whole-product grouped
+coefficient-square localization and the Wilson SAME-variance join remain open.
+
+Seven focused leaves passed twenty permitted gates. No full-root build/audit/
+guard or progress-metric script; no canonical physical/continuum/Clay closure.
+See `audits/AUDIT-ORIGINAL-HEAT-DUAL-SCORE-2026-09-23.md`.
+
+## Previous increment: construct original mixed heat curvature (2026-09-23)
 
 The missing LOCAL curvature producer is now constructed: for actual relative
 heat h, `heatLogHessianBounds` bounds both signs of

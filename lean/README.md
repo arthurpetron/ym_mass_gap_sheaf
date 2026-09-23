@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Actual normalized local dual score (2026-09-23):**
+`SU2QuaternionRelativeHeatDualScore.relativeHeat_normalized_dual_score_bound`
+constructs the single relative-heat estimate with the same positive endpoint
+source, same edge normalization, and arbitrary signed supported test. Positive
+finite reciprocal polynomials plus an explicit vanishing-error modulus remove
+the extra multiplier only after Haar integration; no completed reciprocal
+observable is needed. Curvature and the integrated Hessian sign are supplied
+by actual heat theorems. Cancellation adds no inverse-floor loss beyond the
+existing nome-dependent C(w). The whole-product grouped coefficient-square
+estimate, SAME centered variance, scaling and physical/continuum/all-group
+obligations remain open. Exact signed-derivative product curvature is checked
+as its next algebraic input. Seven focused leaves, twenty permitted gates;
+root imports added but no full-root build/audit/guard. Evidence:
+`audits/AUDIT-ORIGINAL-HEAT-DUAL-SCORE-2026-09-23.md`.
+
 **Actual local heat curvature (2026-09-23):**
 `SU2QuaternionHeatLogCurvature.heatLogHessianBounds` constructs both
 denominator-cleared mixed log-Hessian bounds for the original relative heat.
@@ -19,8 +34,9 @@ The actual second derivative is bounded using a positive character recurrence,
 explicit degree-six/four Gaussian prefix budgets, and the relative scalar's
 mixed cap 64. All block/plane overlap is allowed. The local curvature constant
 is computed from w, not supplied; it has no cutoff or ambient-size factor.
-Its nome dependence and cutoff onset remain explicit. The joint reciprocal/
-score join, SAME normalized Wilson variance and scaling behavior remain open.
+Its nome dependence and cutoff onset remain explicit. Local normalized dual
+score is now checked above; whole-family assembly, SAME normalized Wilson
+variance and scaling behavior remain open.
 Five serialized leaves passed twenty-one permitted gates; no full-root
 build/audit/guard. Evidence:
 `audits/AUDIT-ORIGINAL-HEAT-LOG-CURVATURE-2026-09-23.md`.

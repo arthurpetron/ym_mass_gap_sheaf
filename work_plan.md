@@ -25,6 +25,46 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Positive-factor cancellation and actual local normalized score (2026-09-23 UTC)
+
+`QuaternionHaarPositiveWindowOrderReflection.haar_nonnegative_of_positive_multiplier`
+now cancels a certified strictly positive polynomial in the SAME Haar
+expectation. Finite positive reciprocal approximants and an explicit error
+modulus suffice; a completed reciprocal observable is unnecessary.
+`QuaternionHaarCurvatureDualBound.curvature_dual_bound` combines this with
+the exact square completion and a rational discriminant argument to obtain
+`H[R*d*f]^2 <= H[R*W*f^2] * (lambda*H[R*W])` from the denominator-cleared
+curvature certificate and the original integrated Hessian sign. No extra W
+remains in that sign premise, and cancellation adds no inverse-floor cost.
+
+The actual consumer is now inhabited:
+`SU2QuaternionRelativeHeatDualScore.relativeHeat_normalized_dual_score_bound`
+uses h=`heatAt i (n+i) w K`, R=`a(x)*a(y)`, the computed local C(w),
+positive supported a, and arbitrary supported signed f. The actual heat
+curvature and Hessian sign are constructed, not assumed. With the SAME
+positive mass Z, it gives `(H[R*(D h)*f]/Z)^2 <= C(w)*H[R*h*f^2]/Z`.
+The homogeneous version also handles zero source. The source can depend on
+all n blocks; the estimate still concerns ONE selected relative-heat factor.
+C(w) retains its existing floor/nome dependence and cutoff onset.
+
+**Next causal frontier:** instantiate product-curvature composition with
+the grouped local angular coefficients for the ACTUAL whole selected heat
+product. The exact signed-direction product rules and curvature tensorization
+are now checked in `SU2QuaternionSignedAngularAlgebra`. Preserve repeated
+generator aggregation and repeated heat-factor multiplicities; do not infer
+a raw-list coefficient-square estimate. The six canonical planes suggest the
+sufficient cost `6*C(w)*sum(groupedCoefficient^2)` for distinct selected links;
+THIS LOCALIZATION/ASSEMBLY IS NOT YET PROVED. Use the existing general dual
+consumer and whole-product Hessian sign with a certified positive complete
+source; do not sum separate local dual bounds and discard their mixed terms.
+Then prove the actual Wilson-jump/SAME-centered-variance comparison and
+quantitatively sufficient behavior on a justified spatial/spacing family.
+
+Seven serialized 8 GiB leaves passed twenty gates, only {propext, Quot.sound}.
+No new hole, axiom, weakened frontier field, or physical/continuum/all-group
+closure. Root imports added but no full-root build/audit/guard. Evidence:
+`audits/AUDIT-ORIGINAL-HEAT-DUAL-SCORE-2026-09-23.md`.
+
 ### Original relative-heat local mixed curvature is constructed (2026-09-23 UTC)
 
 `SU2QuaternionHeatLogCurvature.heatLogHessianBounds` now constructs BOTH
@@ -38,7 +78,7 @@ second derivative at EVERY finite cutoff. The positive character derivative
 recurrence, its quintic label bound, arbitrary-degree Gaussian summation and
 the actual relative scalar's mixed cap 64 are all constructed, not assumed.
 
-**Next causal join:** combine this local producer with the whole original
+**Next causal join at that checkpoint (local score now proved above):** combine this local producer with the whole original
 kernel Hessian sign below through genuine factorwise reciprocal/score
 approximants with explicit errors. Do NOT multiply a denominator-cleared
 inequality by the product kernel and apply the Hessian sign with an extra W;

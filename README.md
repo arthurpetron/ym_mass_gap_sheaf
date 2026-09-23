@@ -7,14 +7,29 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The latest [normalized local score result](audits/AUDIT-ORIGINAL-HEAT-DUAL-SCORE-2026-09-23.md)
+removes an unnecessary reciprocal-observable construction. Finite positive
+reciprocal polynomials cancel a positive kernel factor AFTER Haar integration,
+with explicit errors. Completing a square then gives, for the ACTUAL single
+relative heat h and positive supported source a,
+`(H[a(x)*a(y)*(D h)*f]/Z)^2 <= C(w)*H[a(x)*a(y)*h*f^2]/Z`,
+where `Z=H[a(x)*a(y)*h]>0`. The source may depend on its whole slice and f
+may be any supported signed two-slice test. Curvature and the integrated
+Hessian sign are constructed for h; no additional inverse-floor loss is
+introduced by cancellation (C(w) itself still contains floor dependence).
+Exact product-curvature composition for the actual signed derivative is also
+checked. Whole-product grouped coefficient-square control, the original
+Wilson SAME-centered-variance comparison, and scaling usefulness remain OPEN.
+Seven focused leaves passed twenty permitted axiom gates; no full-root audit.
+
 The latest [local curvature result](audits/AUDIT-ORIGINAL-HEAT-LOG-CURVATURE-2026-09-23.md)
 constructs both original-Haar positivity certificates for
 `-C(w)*h^2 <= h*D1(D2 h)-(D1 h)*(D2 h) <= C(w)*h^2`, where h is the
 ACTUAL relative SU(2) heat kernel. Mixed directions may overlap. The computed
 constant is independent of carrier size and cutoff beyond an explicit onset,
 but depends on the nome w; no useful scaling asymptotics are asserted.
-This supplies a local input for the whole-direction score argument below,
-not its still-open reciprocal/normalization join or SAME-variance estimate.
+This supplies the local input used by the normalized score result above;
+the whole-direction assembly and SAME-variance estimate remain open.
 Five focused leaf checks passed twenty-one permitted axiom gates.
 
 The preceding [whole-direction result](audits/AUDIT-SIGNED-KINETIC-ANGULAR-HESSIAN-2026-09-23.md)
