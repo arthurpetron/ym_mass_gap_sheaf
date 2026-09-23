@@ -41,10 +41,12 @@ projection through an explicit block involution.  The companion theorem
 identifies the doubly recoded selected projection with the literal head
 projection of `exposeTranslationPairPolynomial`, retaining all spectator
 coefficients.  The focused check reports only `{propext, Quot.sound}` for all
-four public declarations, including `reindex_project_haar` and
+five public declarations, including `reindex_project_haar` and
 `reindex_project_pairing`, which make the transport usable under the finite
-Haar functional and with an arbitrary right insertion.  This is a finite
-carrier identity only: the angular
+Haar functional and with an arbitrary right insertion.  The supported-carrier
+form `reindex_project_pairing_carrier` also moves a supported original pairing
+to the recoded selected block while reindexing its insertion.  This is a
+finite carrier identity only: the angular
 telescope, inactive-projection control, signed endpoint estimate, SAME-object
 OS/GNS passage, continuum survival, physical mass, QFT axioms and every-group
 construction remain open.  See

@@ -18,6 +18,7 @@ construction, a thermodynamic or continuum limit, or a physical mass gap.
 | `YMGap.Continuum.SU2QuaternionSelectedProjectionReindex.exposeTranslationPair_project` | Composition of the head and tail block permutations, identifying the doubly recoded selected projection with the literal head projection of `exposeTranslationPairPolynomial`. |
 | `YMGap.Continuum.SU2QuaternionSelectedProjectionReindex.reindex_project_haar` | Haar-functional consequence of the coefficient transport. |
 | `YMGap.Continuum.SU2QuaternionSelectedProjectionReindex.reindex_project_pairing` | Haar-functional consequence with an arbitrary right insertion. |
+| `YMGap.Continuum.SU2QuaternionSelectedProjectionReindex.reindex_project_pairing_carrier` | Supported original pairing transported to the recoded selected block, with the insertion reindexed by the same involution. |
 
 The proof uses the explicit `clearQuaternionBlock` mask, the constructive
 `QuaternionBlockInvolution`, `Nat.div_add_mod`, and
@@ -42,9 +43,10 @@ reindex_integrateQuaternionBlock depends on [propext, Quot.sound]
 exposeTranslationPair_project depends on [propext, Quot.sound]
 reindex_project_haar depends on [propext, Quot.sound]
 reindex_project_pairing depends on [propext, Quot.sound]
+reindex_project_pairing_carrier depends on [propext, Quot.sound]
 ```
 
-The four-declaration axiom print was obtained by the same focused command
+The five-declaration axiom print was obtained by the same focused command
 with temporary `#print axioms` lines; those diagnostic lines were removed from
 the committed source.  The final focused source check also exited 0.
 

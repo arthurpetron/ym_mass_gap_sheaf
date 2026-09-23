@@ -23,6 +23,7 @@ set_option maxRecDepth 100000
 set_option maxHeartbeats 6000000
 
 open YMGap.Constructive
+open YMGap.Continuum.BF4CompactActionCPOrder
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.BF4CompactActionSphereShift
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
@@ -308,5 +309,29 @@ theorem reindex_project_pairing
             (reindexQuaternionPolynomial s polynomial)) test) := by
   exact haar_of_coeff
     ((reindex_integrateQuaternionBlock s selected hselected polynomial).mul_right test)
+
+/-- A supported original pairing can be moved to the recoded selected block.
+The support hypotheses belong only to the existing Haar change-of-variables
+theorem; the projection transport itself remains coefficient-level. -/
+theorem reindex_project_pairing_carrier
+    {blocks : Nat} (s : QuaternionBlockInvolution blocks)
+    (selected : Nat) (hselected : selected < blocks)
+    (polynomial test : RatPoly)
+    (hpolynomial : SupportedQuaternionBlocks blocks polynomial)
+    (htest : SupportedQuaternionBlocks blocks test) :
+    quaternionHaar blocks
+        (polyMul (project selected polynomial) test) ≈
+      quaternionHaar blocks
+        (polyMul
+          (project (s.map selected)
+            (reindexQuaternionPolynomial s polynomial))
+          (reindexQuaternionPolynomial s test)) := by
+  have hchange := quaternionHaar_reindex s
+    (polyMul (project selected polynomial) test)
+    (supported_polyMul (project_supported selected hpolynomial) htest)
+  rw [reindexQuaternionPolynomial_mul] at hchange
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm hchange)
+    (reindex_project_pairing s selected hselected polynomial
+      (reindexQuaternionPolynomial s test))
 
 end YMGap.Continuum.SU2QuaternionSelectedProjectionReindex

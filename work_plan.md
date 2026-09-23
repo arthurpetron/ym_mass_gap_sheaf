@@ -91,7 +91,9 @@ The focused check of
 all four public declarations report only `{propext, Quot.sound}`.  The
 `reindex_project_haar` and `reindex_project_pairing` consequences expose the
 transport under the finite Haar functional and with an arbitrary right
-insertion.  This is a finite algebraic carrier bridge.  It does not prove the angular telescope,
+insertion.  The supported-carrier `reindex_project_pairing_carrier` form also
+moves a supported original pairing to the recoded selected block while
+reindexing its insertion.  This is a finite algebraic carrier bridge.  It does not prove the angular telescope,
 inactive-projection removal, signed endpoint bound, SAME-object variance
 estimate, OS/GNS passage, continuum survival, physical mass calibration,
 or the Clay theorem.  The next estimate consumes this recoding to transport
