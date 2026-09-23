@@ -305,6 +305,16 @@ the local budget controls only the defect half, while the cross-term half
 still needs a genuine bound and the final inactive `partialHaarHeads` passage
 still needs to be handled.
 
+**Conditional endpoint compiler with explicit cross budget (2026-09-22 UTC):**
+`hybridSweepStageCrossTerms` now names the signed residuals separately, and
+`HybridSweepSignedCrossTermBudget` is the minimal Type-level input for a bound
+on their finite sum.  The theorem
+`hybridSweep_endpoint_bound_of_exposed_and_crossBudget` composes that input
+with the exposed-pairing family and the checked local defect budget, yielding
+an explicit endpoint-square bound.  No cross-term budget inhabitant is
+constructed; the theorem is a compiler for the missing estimate and still
+does not pass through inactive projections or to OS/continuum/Clay closure.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is

@@ -183,6 +183,27 @@ Monitored focused verification passed; both printed declarations use only
   thermodynamic/continuum passage, physical-mass, full-QFT, or every-group
   conclusion.
 
+## PROVED conditional hybrid endpoint compiler (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean`.
+- **proved declarations**: `hybridSweepStageCrossTerms`,
+  `hybridSweepStageTelescopeTerms_sum_eq_defect_add_cross`,
+  `HybridSweepSignedCrossTermBudget`, and
+  `hybridSweep_endpoint_bound_of_exposed_and_crossBudget`.
+- **proof content**: names the signed cross-term list, proves the exact split
+  of telescope terms into local defects plus cross terms, and compiles an
+  explicit cross-term budget together with the exposed-pairing local defect
+  budget into an endpoint-square inequality.
+- **open obligation**: construct a uniform cross-term budget and populate the
+  exposed-pairing family; inactive projection removal and OS/GNS,
+  thermodynamic/continuum, physical-mass, full-QFT, and every-group closure
+  remain open.
+- **constructive status**: focused monitored check passed; the printed
+  declarations use only `{propext, Quot.sound}` and introduce no `sorry` or
+  new axiom.
+- **scope**: finite conditional SU(2) compiler only, not a strict spectral or
+  Clay mass-gap theorem.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.

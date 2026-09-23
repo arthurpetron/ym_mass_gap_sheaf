@@ -210,6 +210,17 @@ inactive final `partialHaarHeads` projection, exposed-pairing population,
 OS/GNS passage, continuum, physical-mass, and every-group obligations remain
 open.
 
+**PROGRESS -- explicit cross-term compiler:**
+`hybridSweepStageCrossTerms` separates the signed residual from each local
+defect.  The Type-level `HybridSweepSignedCrossTermBudget` records only a
+nonnegative finite budget and its required cross-sum inequality.  The theorem
+`hybridSweep_endpoint_bound_of_exposed_and_crossBudget` composes this budget
+with `hybridSweep_defect_budget_of_exposed` and the exact endpoint identity,
+producing the strongest current finite endpoint estimate.  The budget and
+the exposed pairing family remain uninhabited inputs; uniformity, inactive
+projection removal, OS/GNS, continuum, physical-mass, and every-group work
+remain open.
+
 ### Conjugated finite head defect (2026-09-22 UTC)
 
 **PROGRESS -- the checked local angular defect is now transportable by an

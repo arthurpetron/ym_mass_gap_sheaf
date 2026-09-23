@@ -224,6 +224,20 @@ theorem hybridSweep_defect_budget_of_exposed
               (blockAngularSquare i (hybridSweep n w K ids p)))
           (qListSum (hybridSweepStageAngularEnergies n w K ids p)))))
 
+/-- The signed cross-term at each changing stage, kept as a separate list so
+that a future uniform cross-term estimate can be supplied independently. -/
+def hybridSweepStageCrossTerms
+    (n : Nat) (w : Q') (K : Nat) : List Nat → RatPoly → List Q'
+  | [], _ => []
+  | i :: ids, p =>
+      (quaternionHaar (n+n)
+          (polyMul (hybridSweep n w K ids p)
+            (hybridSweep n w K (i :: ids) p)) -
+        quaternionHaar (n+n)
+          (polyMul (hybridSweep n w K (i :: ids) p)
+            (hybridSweep n w K (i :: ids) p))) ::
+        hybridSweepStageCrossTerms n w K ids p
+
 /-- The exact signed endpoint/cross-term contribution of one changing stage.
 The first parenthesis is the local defect already bounded above; the second
 is retained with its sign because no positivity or cancellation theorem is
@@ -296,6 +310,101 @@ theorem hybridSweep_defect_cross_terms_eq_endpoint
           (.add (.var 2) (.neg (.var 1))) (by decide)
           (fun | 0 => a | 1 => c | _ => d)
       exact Q'.eqv_trans _ _ _ hsum hcancel
+
+private theorem split_four (a b c d : Q') :
+    (a + b) + (c + d) ≈ (a + c) + (b + d) := by
+  exact poly_identity_of_normal_eq
+    (.add (.add (.var 0) (.var 1)) (.add (.var 2) (.var 3)))
+    (.add (.add (.var 0) (.var 2)) (.add (.var 1) (.var 3)))
+    (by decide) (fun | 0 => a | 1 => b | 2 => c | _ => d)
+
+/-- The telescope list is exactly the pointwise sum of the defect list and
+the separately displayed cross-term list. -/
+theorem hybridSweepStageTelescopeTerms_sum_eq_defect_add_cross
+    (n : Nat) (w : Q') (K : Nat) (ids : List Nat) (p : RatPoly) :
+    qListSum (hybridSweepStageTelescopeTerms n w K ids p) ≈
+      qListSum (hybridSweepStageDefects n w K ids p) +
+        qListSum (hybridSweepStageCrossTerms n w K ids p) := by
+  induction ids generalizing p with
+  | nil =>
+      simp only [hybridSweepStageTelescopeTerms, hybridSweepStageDefects,
+        hybridSweepStageCrossTerms, qListSum]
+      exact Q'.eqv_symm (Q'.eqv_of_eq (Q'.zero_add' 0))
+  | cons i ids ih =>
+      have htail := ih p
+      simp only [hybridSweepStageTelescopeTerms, hybridSweepStageDefects,
+        hybridSweepStageCrossTerms, qListSum]
+      let d : Q' := quaternionHaar (n+n)
+        (polyMul (hybridSweep n w K ids p) (hybridSweep n w K ids p)) -
+          quaternionHaar (n+n)
+            (polyMul (hybridSweep n w K ids p)
+              (hybridSweep n w K (i :: ids) p))
+      let c : Q' := quaternionHaar (n+n)
+        (polyMul (hybridSweep n w K ids p)
+          (hybridSweep n w K (i :: ids) p)) -
+        quaternionHaar (n+n)
+          (polyMul (hybridSweep n w K (i :: ids) p)
+            (hybridSweep n w K (i :: ids) p))
+      let dt := qListSum (hybridSweepStageDefects n w K ids p)
+      let ct := qListSum (hybridSweepStageCrossTerms n w K ids p)
+      let tt := qListSum (hybridSweepStageTelescopeTerms n w K ids p)
+      change (d + c) + tt ≈ (d + dt) + (c + ct)
+      have htail' : tt ≈ dt + ct := by
+        simpa only [tt, dt, ct] using htail
+      exact Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr' (Q'.eqv_refl _) htail')
+        (split_four d c dt ct)
+
+/-- A minimal honest interface for the still-open signed cross-term estimate.
+The field is intentionally Type-level data and is not inhabited here. -/
+structure HybridSweepSignedCrossTermBudget
+    (n : Nat) (w : Q') (K : Nat) (ids : List Nat) (p : RatPoly) : Type where
+  budget : Q'
+  budget_nonneg : (0 : Q') ≤ budget
+  cross_sum_le :
+    qListSum (hybridSweepStageCrossTerms n w K ids p) ≤ budget
+
+/-- Compose the checked local defect budget with an explicit signed cross-term
+budget.  This is the strongest current finite endpoint compiler; it remains
+conditional on both certificate families and does not remove inactive Haar
+projections. -/
+theorem hybridSweep_endpoint_bound_of_exposed_and_crossBudget
+    (n : Nat) (ids : List Nat) (hn : 2 ≤ n)
+    (hids : ∀ i, i ∈ ids → i < n)
+    {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : sufficientCutoff w ≤ K)
+    (p : RatPoly)
+    (hp : SupportedQuaternionBlocks (n+n) p)
+    (exposed : ∀ (i : Nat) (hmem : i ∈ ids),
+      SelectedLinkExposedHeadPairing
+        (n+n-1) i (n+i)
+        (by omega)
+        (by have := hids i hmem; omega)
+        (by have := hids i hmem; omega)
+        (by have := hids i hmem; omega) w K)
+    (crossBudget : HybridSweepSignedCrossTermBudget n w K ids p) :
+    quaternionHaar (n+n) (polyMul p p) -
+        quaternionHaar (n+n)
+          (polyMul (hybridSweep n w K ids p)
+            (hybridSweep n w K ids p)) ≤
+      ((1 : Q') - w) *
+        qListSum (hybridSweepStageAngularEnergies n w K ids p) +
+      crossBudget.budget := by
+  have hendpoint := hybridSweep_defect_cross_terms_eq_endpoint n w K ids p
+  have hsplit := hybridSweepStageTelescopeTerms_sum_eq_defect_add_cross
+    n w K ids p
+  have hdefect := hybridSweep_defect_budget_of_exposed
+    n ids hn hids hw0 hw1 K hK p hp exposed
+  have hcross := crossBudget.cross_sum_le
+  have hsum :
+      qListSum (hybridSweepStageTelescopeTerms n w K ids p) ≤
+        ((1 : Q') - w) *
+            qListSum (hybridSweepStageAngularEnergies n w K ids p) +
+          crossBudget.budget := by
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv hsplit)
+      (Q'.add_le_add hdefect hcross)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm hendpoint)) hsum
 
 /-- The final integration explicitly retains the inactive Haar projections.
 In particular an empty schedule is Haar averaging, not the identity map. -/
@@ -469,3 +578,7 @@ end YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweep_defect_budget_of_exposed
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweepStageTelescopeTerms
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweep_defect_cross_terms_eq_endpoint
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweepStageCrossTerms
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweepStageTelescopeTerms_sum_eq_defect_add_cross
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.HybridSweepSignedCrossTermBudget
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweep_endpoint_bound_of_exposed_and_crossBudget
