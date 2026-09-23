@@ -27566,3 +27566,19 @@ The monitored dependency-complete target passed 1,242 jobs with only
 arbitrary-vector density/range witness, so no unconditional completed joint
 gap, OS/scaling identification, thermodynamic/continuum result, physical mass
 calibration, all-group theorem, or Clay conclusion follows.
+
+## Joint Cauchy mean convergence (2026-09-23)
+
+`BF4PhysicalJointCauchyMean.lean` proves
+`physicalJointCauchyMeanSeq_converges_zero`: the stagewise joint-vacuum pairing
+of an arbitrary completed joint Cauchy representative converges to zero when
+the representative has the explicit `PhysicalJointVacuumOrthogonal`
+hypothesis.  This is the scalar correction prerequisite for an eventual
+stagewise exact-centering construction.
+
+The monitored dependency-complete target passed 1,243 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  No arbitrary-vector centered
+representative or `ExactPhysicalJointVacuumComplementDensity` witness is
+constructed here; hence the completed gap, OS/scaling identification,
+thermodynamic/continuum passage, physical mass calibration, all-group theorem,
+and Clay target remain open.

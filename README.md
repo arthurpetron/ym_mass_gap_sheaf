@@ -56,6 +56,15 @@ fragment, not the missing arbitrary-vector density/range theorem, and it does
 not close OS/scaling, thermodynamic/continuum, physical-mass, all-group, or
 Clay obligations.
 
+The next scalar prerequisite is checked in `BF4PhysicalJointCauchyMean.lean`.
+`physicalJointCauchyMeanSeq_converges_zero` proves that the stagewise pairing
+of any completed joint Cauchy representative with the joint vacuum converges to
+zero under the explicit vacuum-orthogonality hypothesis.  The focused target
+passed 1,243 jobs with only `{propext, Quot.sound}` and no `sorryAx`.  This is
+only the scalar correction needed before a stagewise centering construction; it
+does not provide that construction, arbitrary-vector density, a completed gap,
+OS/scaling, thermodynamic/continuum, physical-mass, all-group, or Clay closure.
+
 The preceding regulator milestone, `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`,
 still carries an explicit constructive Cauchy modulus for the literal
 three-regulator connected spatial diagonal and pins its CReal limit to the

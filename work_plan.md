@@ -91,6 +91,22 @@ the full reflected-joint completion gap, OS/scaling identification,
 thermodynamic/continuum passage, physical mass, all-group theorem, and Clay
 target remain open.
 
+### Joint Cauchy mean convergence (2026-09-23 UTC)
+
+`BF4PhysicalJointCauchyMean.lean` now proves
+`physicalJointCauchyMeanSeq_converges_zero`: for every completed reflected-joint
+Cauchy representative carrying the explicit `PhysicalJointVacuumOrthogonal`
+hypothesis, its stagewise pairing with the joint vacuum converges to zero in
+`CReal`.  This is the scalar correction prerequisite for stagewise exact
+centering.  The monitored dependency-complete target passed 1,243 jobs with
+only `{propext, Quot.sound}` and no `sorryAx`.
+
+The result does not construct a centered Cauchy representative for an arbitrary
+joint vector and therefore does not supply
+`ExactPhysicalJointVacuumComplementDensity`; the completed gap, OS/scaling,
+thermodynamic/continuum, physical-mass, all-group, and Clay obligations remain
+open.
+
 ### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
 The companion reference-transport module now proves the exact finite identity
