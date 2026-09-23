@@ -13,6 +13,7 @@ or a continuum limit.
 -/
 
 import YMGap.Continuum.SU2QuaternionHaarBlockProjection
+import YMGap.Continuum.SU2QuaternionHaarCertificateReindex
 import YMGap.Continuum.SU2QuaternionSelectedHaarTranslation
 import YMGap.Continuum.SU2QuaternionRatPolyDifferential
 
@@ -32,6 +33,7 @@ open YMGap.Continuum.SU2QuaternionFiniteProductHaarCarrier
 open YMGap.Continuum.SU2QuaternionArbitraryHaarBlockReflection
 open YMGap.Continuum.SU2QuaternionHaarHeadFubini
 open YMGap.Continuum.SU2QuaternionHaarBlockProjection
+open YMGap.Continuum.SU2QuaternionHaarCertificateReindex
 open YMGap.Continuum.SU2QuaternionSelectedHaarTranslation
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionHaarRationalCanonicalizer
@@ -276,6 +278,72 @@ theorem exposeTranslationPair_project
     simpa only [project, exposeTranslationPairPolynomial, htailZero] using htail
   exact hfirst.trans hsecond
 
+/-- The selected projection transport is valid under an arbitrary supported
+insertion.  This is the one-step Haar-pairing bridge from an original
+selected block to the literal head chart; no heat factor is transported here.
+-/
+theorem exposeTranslationPair_project_pairing
+    (blocks selected multiplier : Nat)
+    (hblocks : 1 < blocks)
+    (hselected : selected < blocks)
+    (hmultiplier : multiplier < blocks)
+    (hdistinct : selected ≠ multiplier)
+    (p r : RatPoly)
+    (hp : SupportedQuaternionBlocks blocks p)
+    (hr : SupportedQuaternionBlocks blocks r) :
+    quaternionHaar blocks
+      (polyMul
+        (project 0
+          (exposeTranslationPairPolynomial blocks selected multiplier
+            hblocks hselected hmultiplier p))
+        (reindexQuaternionPolynomial
+          (translationPairTailPermutation blocks selected multiplier
+            hblocks hselected hmultiplier)
+          (reindexQuaternionPolynomial
+            (translationPairHeadPermutation blocks selected hselected) r)))
+      ≈
+    quaternionHaar blocks (polyMul (project selected p) r) := by
+  let head := translationPairHeadPermutation blocks selected hselected
+  let tail := translationPairTailPermutation blocks selected multiplier
+    hblocks hselected hmultiplier
+  let A := reindexQuaternionPolynomial head (project selected p)
+  let B := reindexQuaternionPolynomial head r
+  have hproject := exposeTranslationPair_project blocks selected multiplier
+    hblocks hselected hmultiplier hdistinct p
+  have hproject_pair : RatPolyCoeffEqv
+      (polyMul (project 0 (exposeTranslationPairPolynomial blocks selected multiplier
+        hblocks hselected hmultiplier p)) (reindexQuaternionPolynomial tail B))
+      (polyMul (reindexQuaternionPolynomial tail A) (reindexQuaternionPolynomial tail B)) := by
+    exact hproject.symm.mul_right _
+  have hA : SupportedQuaternionBlocks blocks A := by
+    exact reindex_supported head (project selected p)
+  have hB : SupportedQuaternionBlocks blocks B := by
+    exact reindex_supported head r
+  have htail_mul : RatPolyCoeffEqv
+      (polyMul (reindexQuaternionPolynomial tail A)
+        (reindexQuaternionPolynomial tail B))
+      (reindexQuaternionPolynomial tail (polyMul A B)) := by
+    rw [reindexQuaternionPolynomial_mul]
+    exact RatPolyCoeffEqv.refl _
+  have htail_haar : quaternionHaar blocks
+      (reindexQuaternionPolynomial tail (polyMul A B)) ≈
+      quaternionHaar blocks (polyMul A B) :=
+    quaternionHaar_reindex tail (polyMul A B) (supported_polyMul hA hB)
+  have hAB : SupportedQuaternionBlocks blocks (polyMul (project selected p) r) :=
+    supported_polyMul (project_supported selected hp) hr
+  have hhead_mul : RatPolyCoeffEqv (polyMul A B)
+      (reindexQuaternionPolynomial head (polyMul (project selected p) r)) := by
+    rw [reindexQuaternionPolynomial_mul]
+    exact RatPolyCoeffEqv.refl _
+  have hhead_haar : quaternionHaar blocks
+      (reindexQuaternionPolynomial head (polyMul (project selected p) r)) ≈
+      quaternionHaar blocks (polyMul (project selected p) r) :=
+    quaternionHaar_reindex head (polyMul (project selected p) r) hAB
+  exact Q'.eqv_trans _ _ _ (haar_of_coeff hproject_pair)
+    (Q'.eqv_trans _ _ _ (haar_of_coeff htail_mul)
+      (Q'.eqv_trans _ _ _ htail_haar
+        (Q'.eqv_trans _ _ _ (haar_of_coeff hhead_mul) hhead_haar)))
+
 /-! ## 4. Haar-carrier consequences -/
 
 /-- The coefficient-level projection transport is immediately consumable by
@@ -335,3 +403,5 @@ theorem reindex_project_pairing_carrier
       (reindexQuaternionPolynomial s test))
 
 end YMGap.Continuum.SU2QuaternionSelectedProjectionReindex
+
+#print axioms YMGap.Continuum.SU2QuaternionSelectedProjectionReindex.exposeTranslationPair_project_pairing

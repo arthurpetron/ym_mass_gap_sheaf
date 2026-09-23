@@ -13,6 +13,23 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.
+- **proved declaration**: `exposeTranslationPair_project_pairing`.
+- **proof content**: the explicit head/tail involutions transport a selected
+  block projection to the literal head projection under an arbitrary supported
+  insertion. Haar invariance and coefficientwise recoding return the original
+  selected pairing without dropping spectator coordinates.
+- **remaining obligation**: identify the recoded selected heat factor with the
+  literal head/relative-heat operator before applying the local angular defect
+  bound and recursing over a multi-factor sweep.
+- **scope**: finite SU(2) carrier only; no signed endpoint estimate, completed
+  OS gap, continuum passage, physical mass, or every-group conclusion.
+
+Monitored focused verification passed; the printed declaration uses only
+`{propext, Quot.sound}`.
+
 ## PROVED actual-product conditional sweep and original-energy join (2026-09-21 UTC)
 
 - **files**: `SU2QuaternionWeightedProjectionSweep.lean`,

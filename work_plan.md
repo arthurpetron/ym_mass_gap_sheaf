@@ -86,9 +86,16 @@ transport.  It identifies the doubly recoded selected projection with the
 literal head projection of `exposeTranslationPairPolynomial`, retaining every
 spectator coefficient.
 
+**PROGRESS -- the selected projection now transports under an arbitrary
+supported insertion:** `exposeTranslationPair_project_pairing` carries the
+same recoding through the full Haar pairing and returns the original selected
+projection pairing.  This is the one-step carrier bridge needed before a
+selected local heat factor can be compared with the literal head update; it
+does not yet transport the heat weight itself.
+
 The focused check of
 `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean` passed, and
-all four public declarations report only `{propext, Quot.sound}`.  The
+the new pairing declaration reports only `{propext, Quot.sound}`.  The
 `reindex_project_haar` and `reindex_project_pairing` consequences expose the
 transport under the finite Haar functional and with an arbitrary right
 insertion.  The supported-carrier `reindex_project_pairing_carrier` form also
