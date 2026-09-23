@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## Closed machinery/open producer: dense-vacuum rigidity (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorDenseVacuumRigidity.lean`.
+- **consumer**: `sector_eq_zero_of_orthogonal_and_dense_vacuum_proportional`
+  passes dense proportionality along the vector's own Cauchy stages, then uses
+  ambient vacuum orthogonality and sector positive-definiteness to prove zero.
+- **explicit open argument**: `hdense` is the exact coordinate-to-test
+  proportionality identity for every dense sector presentation. Its producer
+  from fixed-coordinate rigidity and the finite test formula is not supplied.
+  This narrows the existing coordinate/pairing join; it does not assume a gap,
+  a continuity law, or membership of the global vacuum in the sector.
+- **scope**: conditional theorem, not actual fixed-vector exclusion or uniform
+  strictness. No canonical frontier weakening, new axiom or `sorry`.
+- **verification**: monitored 20 GiB leaf check,
+  `/tmp/ym-gap-sector-dense-vacuum-rigidity-check-3.log`; the gate contains only
+  `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
 ## Proved identity: finite sector-test coordinate formula (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFiniteTestPairing.lean`.

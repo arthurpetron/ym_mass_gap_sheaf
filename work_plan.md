@@ -25,6 +25,29 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Dense proportionality suffices for vacuum-complement rigidity (2026-09-23 UTC)
+
+`BF4PhysicalCutoffVacuumSectorDenseVacuumRigidity.sector_eq_zero_of_orthogonal_and_dense_vacuum_proportional`
+proves the selected conditional consumer on the actual sector completion.
+Given `<x,p> = c <Omega_global,embed p>` for every dense sector test and
+global-vacuum orthogonality, it passes along the same representative's dense
+stages to obtain `||x||^2 = c <Omega_global,embed x> = 0`, then uses the actual
+sector positive-definiteness theorem. The ambient vacuum need not belong to
+the sector. No independent moving-tail or sector-indicator construction is
+required by this argument.
+
+The producer is still open: pass the checked finite coordinate-to-test
+identity first through the cutoff limit, then the completion limit, and use
+the checked common-coordinate theorem for fixed vectors. The explicit dense
+proportionality argument is not supplied for those vectors here, so actual
+vacuum-complement fixed-vector exclusion is not yet claimed. Even that
+qualitative result would not establish a uniform spectral gap or the
+physical/continuum/every-group joins.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-dense-vacuum-rigidity-check-3.log`; the public gate contains
+only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
+
 ### Exact finite sector-test pairing reads retained coordinates (2026-09-23 UTC)
 
 `BF4PhysicalCutoffVacuumSectorFiniteTestPairing.weightedInner_linearObservable_eqv_coordinateSum`
@@ -77,8 +100,9 @@ The exact finite identity is now checked above; its completed passage remains op
 For vacuum-complement rigidity the selected next argument is to prove
 `<x,p> = c <Omega_global,embed p>` for every dense sector test, then let those
 tests approach `x`. This would give `||x||^2 = c <Omega_global,embed x>` and
-avoid constructing a sector constant-one vector. The dense proportionality
-and its consumer remain open here; no vacuum uniqueness or uniform gap is claimed.
+avoid constructing a sector constant-one vector. Its conditional consumer is
+now checked above; dense proportionality remains open, so no vacuum uniqueness
+or uniform gap is claimed.
 
 Verification: monitored 20 GiB leaf check,
 `/tmp/ym-gap-sector-pairing-separation-check-5.log`; all four printed gates

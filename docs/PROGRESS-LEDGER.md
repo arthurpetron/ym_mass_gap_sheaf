@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact finite coordinate-to-test pairing (2026-09-23)
+## Current increment: conditional dense-vacuum rigidity (2026-09-23)
+
+`BF4PhysicalCutoffVacuumSectorDenseVacuumRigidity` proves that dense
+proportionality to the ambient vacuum functional, together with ambient vacuum
+orthogonality, forces sector zero. The vector's own dense stages supply the
+limit passage; a sector-indicator construction is unnecessary for this consumer.
+The dense proportionality identity remains an explicit unsupplied argument.
+Its intended producer is the cutoff/completion passage of the checked finite
+test formula combined with common-coordinate rigidity. No actual fixed-vector
+exclusion, uniform strict gap or physical/continuum result is yet claimed.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-dense-vacuum-rigidity-check-3.log`; the public gate contains
+only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
+## Previous increment: exact finite coordinate-to-test pairing (2026-09-23)
 
 `BF4PhysicalCutoffVacuumSectorFiniteTestPairing` proves the actual weighted
 pairing with a fixed sector cylinder is a finite sum of retained coordinates,

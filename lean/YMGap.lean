@@ -3821,6 +3821,7 @@ import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCompletedEndpointEnergy
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPairingSeparation
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFixedCoordinate
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFiniteTestPairing
+import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorDenseVacuumRigidity
 -- Actual cutoff-removed normalization of the raw all-spin reflected form.
 import YMGap.Continuum.BF4PhysicalCubeNormalizedKernelLimit
 -- Same cutoff-removed conditional P contracts its positive one-step RC form.
