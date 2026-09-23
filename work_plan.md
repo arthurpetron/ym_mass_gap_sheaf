@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
+
+`Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1.lean` now proves the first
+unconditional absolute-value estimate on the same fine-source object exposed
+by the centered pullback.  `fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_sourcePairDebtL1`
+uses the literal four-cell contrast bound to dominate the signed average by
+the explicit finite source-pair L1 debt.  Positivity of the finite physical
+summands and the exact source-pair total identities then give
+`fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_partition_two_term`,
+with the displayed bound
+`squareMargin * actualPartition^2 + actualPartition^2 * squareMargin`.
+The normalized-numerator consequence is
+`fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term`.
+
+This is a finite, cancellation-preserving envelope; its margin factor is not
+claimed uniform in cutoff or volume, and it does not inhabit the open sharp
+calibration.  The focused dependency-complete safe target passed 5504 jobs
+with one worker.  All three exported declarations report only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 ### Iterated completed finite transfer decay (2026-09-23 UTC)
 
 `SU2QuaternionFiniteHaarCompletedTransferContraction.lean` now carries the

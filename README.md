@@ -203,6 +203,22 @@ passed 5072 dependency jobs with only `{propext, Quot.sound}` and no
 `sorryAx`.  The next analytic edge is the same floor-vs-margin comparison at
 nonzero cutoffs and, ultimately, a scale-dependent cofinal producer.
 
+The centered fine-source margin debt now has its first unconditional finite
+absolute-value envelope in
+`Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1.lean`:
+`fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_sourcePairDebtL1`
+uses the literal four-cell contrast bound to dominate the signed average by
+the explicit source-pair L1 debt.  Exact source-pair totals and positivity then
+give the two-term partition envelope
+`fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_partition_two_term`,
+with the exact normalized-numerator consequence
+`fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term`.
+This is finite and cancellation-preserving, but its margin factor is not
+claimed cutoff- or volume-uniform; the sharp calibration, OS/continuum passage,
+physical mass, all-group construction, and Clay target remain open.  The
+focused dependency-complete target passed 5504 jobs with one worker, with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

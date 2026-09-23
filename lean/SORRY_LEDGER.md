@@ -13,6 +13,30 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED centered fine-source margin debt L1 envelope (2026-09-23 UTC)
+
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1.lean`.
+- **proved declarations**:
+  `fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_sourcePairDebtL1`,
+  `fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_partition_two_term`,
+  and `fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term`.
+- **proof content**: the literal four-cell output contrast is bounded by one;
+  a constructive finite-sum triangle inequality therefore bounds the signed
+  source-pair average by its explicit L1 debt.  Nonnegative physical summands
+  and the exact source-pair total identities collapse that L1 debt to the
+  displayed two-term partition envelope.
+- **scope**: finite rational source-pair data for an arbitrary supplied finite
+  slab kernel.  The margin factor is not shown cutoff- or volume-uniform, and
+  no sharp calibration, OS transfer identification, thermodynamic/continuum
+  limit, physical mass gap, all-group construction, or Clay conclusion follows.
+- **constructive or propositional**: constructive finite inequalities; no
+  `sorry`, classical axiom, or new named analytic hypothesis is introduced.
+- **verification**: focused dependency-complete safe build of
+  `+YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1:olean`
+  passed 5504 jobs with one worker.  All three declarations report only
+  `{propext, Quot.sound}` and no `sorryAx`.
+
 ## PROVED iterated completed finite transfer decay (2026-09-23 UTC)
 
 - **file**:
