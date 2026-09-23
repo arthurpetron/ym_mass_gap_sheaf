@@ -316,6 +316,10 @@ The matched-Casimir specialization
 hypotheses from the existing finite perturbation estimate using floor `1`.
 The resulting ceiling still contains the literal Casimir moment and therefore
 remains volume- and parameter-dependent.
+The remaining analytic input is now named explicitly as
+`FineUnitCouplingPhysicalCasimirMomentBound`; its consumer,
+`centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling`, compiles any
+supplied same-carrier moment ceiling into the finite estimate.
 
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.

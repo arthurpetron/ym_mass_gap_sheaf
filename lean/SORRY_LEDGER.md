@@ -39,7 +39,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `centeredCylinderRemainder_abs_le_of_relative_balanced_carrier` in
   `Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1.lean`; its matched-Casimir
   specialization is
-  `centeredCylinderRemainder_abs_le_of_matched_casimir_loss`.
+  `centeredCylinderRemainder_abs_le_of_matched_casimir_loss`; the explicit
+  moment-certificate interface and consumer are
+  `FineUnitCouplingPhysicalCasimirMomentBound` and
+  `centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling`.
 - **proof content**: inject the four-cell source and target pair lists into
   complete positive coarse and coupling-one two-replica carriers, use the
   exact finite carrier mass totals, and apply constructive triangle and
@@ -70,6 +73,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `fineUnitCouplingPhysicalPartition_sub_actual_le_two_square_mul_moment` and
   uses the finite partition lower bound `1`; its exposed Casimir moment is
   still not uniformly bounded.
+  The named `FineUnitCouplingPhysicalCasimirMomentBound` is the remaining
+  same-carrier analytic certificate; its consumer only composes a supplied
+  ceiling and does not prove that ceiling.
   The result does not identify an OS transfer matrix, pass to a thermodynamic
   or continuum limit, construct the QFT, calibrate a physical mass, cover all
   compact simple groups, or prove the Clay theorem; it does not close

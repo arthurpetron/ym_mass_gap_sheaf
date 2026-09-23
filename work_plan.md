@@ -141,6 +141,10 @@ The matched-Casimir specialization
 floor with `1` and the margin with the existing explicit Casimir moment.  This
 is the strongest current finite consequence, while the moment's uniform
 control remains open.
+That remaining input is isolated as the proposition
+`FineUnitCouplingPhysicalCasimirMomentBound`; the compiler
+`centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling` consumes it
+without changing the carrier or hiding its parameter dependence.
 The focused safe target passed 5498 jobs with one worker and the new exports
 have only `{propext, Quot.sound}`; its centered-margin consumer passed 5506
 jobs with the same axiom gate.

@@ -1037,6 +1037,69 @@ theorem centeredCylinderRemainder_abs_le_of_matched_casimir_loss
     exact Q'.le_trans' _ _ _ hloss₀
       (Q'.le_of_eqv (Q'.eqv_symm (Q'.mul_one_eqv _)))
   simpa only [margin] using
+      (centeredCylinderRemainder_abs_le_of_relative_balanced_carrier
+      S hfineCutoff hcoarseCoupling hfineCoupling_le_one M family law
+      g hg hgle hcoupling margin (1 : Q') hmargin hfloor hfloor_le hloss)
+
+/-- A single explicit certificate for bounding the coupling-one Casimir moment
+on the same fine carrier.  A uniform instance of this proposition is the
+remaining analytic input needed by the preceding finite compiler. -/
+def FineUnitCouplingPhysicalCasimirMomentBound
+    (S : SlabScalePair) (momentCeiling : Q') : Prop :=
+  fineUnitCouplingPhysicalCasimirMoment S ≤ momentCeiling
+
+/-- Compile an explicit same-carrier Casimir-moment ceiling into the complete
+finite centered-cylinder estimate.  The ceiling is parameterized by the
+supplied moment certificate; no uniformity is inferred from its existence at
+one slab. -/
+theorem centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g momentCeiling : Q') (hg : (0 : Q') < g)
+    (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g)
+    (hmomentCeiling : (0 : Q') ≤ momentCeiling)
+    (hcasimir : FineUnitCouplingPhysicalCasimirMomentBound
+      S momentCeiling) :
+    Q'.abs
+        (centeredCylinderRemainder
+          (physicalKernel S hfineCutoff hcoarseCoupling) M) ≤
+      (fineUnitCouplingBalancedCarrierRatioCeiling g
+          ((1 + (Q'.ofNat 2 * (g * g)) * momentCeiling) *
+            (1 + (Q'.ofNat 2 * (g * g)) * momentCeiling)) hg +
+        Q'.ofNat 2 * finiteMarginEnvelopeCeiling S) * (g * g) := by
+  let margin :=
+    (Q'.ofNat 2 * (g * g)) * momentCeiling
+  have hcoef0 : (0 : Q') ≤ Q'.ofNat 2 * (g * g) := by
+    exact Q'.mul_nonneg _ _ (by decide)
+      (Q'.le_of_lt (Q'.mul_pos hg hg))
+  have hmargin : (0 : Q') ≤ margin := by
+    unfold margin
+    exact Q'.mul_nonneg _ _ hcoef0 hmomentCeiling
+  have hfloor : (0 : Q') < 1 := by decide
+  have hfloor_le : (1 : Q') ≤ S.fine.physicalPartition := by
+    unfold SlabPhysicalData.physicalPartition
+    exact slabParametricKPhysicalPartition_one_le
+      S.fine.coupling_nonnegative S.fine.cutoff S.fine.extent
+  have hcasimir' : fineUnitCouplingPhysicalCasimirMoment S ≤ momentCeiling :=
+    hcasimir
+  have hloss₀ :=
+    fineUnitCouplingPhysicalPartition_sub_actual_le_two_square_mul_moment
+      S hfineCoupling_le_one family law g hg hgle hcoupling
+  have hlossBound : fineUnitCouplingPhysicalPartition S -
+      S.fine.physicalPartition ≤ margin := by
+    unfold margin
+    exact Q'.le_trans' _ _ _ hloss₀
+      (Q'.mul_le_mul_of_nonneg_left _ _ _ hcasimir' hcoef0)
+  have hloss : fineUnitCouplingPhysicalPartition S -
+      S.fine.physicalPartition ≤ margin * (1 : Q') := by
+    exact Q'.le_trans' _ _ _ hlossBound
+      (Q'.le_of_eqv (Q'.eqv_symm (Q'.mul_one_eqv margin)))
+  simpa only [margin] using
     (centeredCylinderRemainder_abs_le_of_relative_balanced_carrier
       S hfineCutoff hcoarseCoupling hfineCoupling_le_one M family law
       g hg hgle hcoupling margin (1 : Q') hmargin hfloor hfloor_le hloss)
@@ -1134,6 +1197,8 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
 #print axioms centeredCylinderRemainder_abs_le_of_finite_balanced_carrier
 #print axioms centeredCylinderRemainder_abs_le_of_relative_balanced_carrier
+#print axioms FineUnitCouplingPhysicalCasimirMomentBound
+#print axioms centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling
 #print axioms centeredCylinderRemainder_abs_le_of_matched_casimir_loss
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
