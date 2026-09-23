@@ -12,6 +12,23 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original full-product angular defect (2026-09-23):**
+`SU2QuaternionProductHeatAngularDefect.productMap_range_defect_le_two_angular`
+now gives `H(p*p)-H(p*P p) <= 2*(1-w)*sum_i H(blockAngularSquare i p)`
+on the actual fully active n-block product, n>0, for supported signed inputs,
+`0 <= w < 1`, and `sufficientCutoff w <= K`. The prefactor is independent
+of n and K. `PositiveContractionProductDefect` uses a quadratic potential;
+`SU2QuaternionCyclicRotationPeriod` and `SU2QuaternionCyclicAngularEnergy`
+return the rotating reference and all local costs to the original carrier.
+No inter-step commutation, spectral theorem or realization assumption.
+The sharper factor-one target stays open, as do proper-active-set projections,
+the signed interacting correction, physical-time/scaling and all continuum
+obligations. Four narrow checks passed sixteen permitted gates. Evidence:
+`audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`.
+
+The entries below record preceding checkpoints; their open product-defect
+claims are superseded by the factor-two estimate above, not by a physical gap.
+
 **Original product map as a conditional-link sweep (2026-09-21 UTC):**
 **All-cutoff actual norm bounds (2026-09-23):**
 `SU2QuaternionHeadHeatPositiveContraction` proves bilinear symmetry of the

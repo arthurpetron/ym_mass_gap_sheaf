@@ -25,6 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original full-product angular defect: factor two, no commutation (2026-09-23 UTC)
+
+`SU2QuaternionProductHeatAngularDefect.productMap_range_defect_le_two_angular`
+now proves, for n=tail+1 and supported signed p,
+`H(p*p)-H(p*productMap n w K (range n) p)
+ <= 2*(1-w)*sum_i H(blockAngularSquare i p)`.
+The guards are `0 <= w < 1` and `sufficientCutoff w <= K`. The prefactor
+is independent of n and K; the sum itself still runs over n original blocks.
+This is an actual angular DEFECT estimate on the original full product,
+not another operator-realization certificate or the prior rate-one norm bound.
+
+The shorter proof avoids inter-step commutation. For a positive contraction P,
+the potential `Phi_x(y)=<y,y>-4<x,y>+3<x,x>` obeys
+`Phi_x(Py)<=Phi_x(y)+4<x,(I-P)x>` by positivity of I-P at 2x-y and
+`<Py,Py><=<y,Py>`. Also `2*(<x,x>-<x,y>)<=Phi_x(y)`.
+`PositiveContractionProductDefect` proves this and the moving-reference
+telescope. The actual cyclic path uses the reference R^i p; the proved
+rotation period returns it to p, and exact angular transport identifies its
+costs with the original block energies. No square root or spectral theorem.
+
+The factor-one target is preserved and OPEN; commutation/joint modes are an
+optional sharpening route, not prerequisites for this factor-two estimate.
+NEXT: handle the actual proper active list and its inactive Haar-projection
+residual, then consume the bound in
+`BF4ExactSlabFixedSpatialGroundStateEnergy.energy_eq_bare_add_correction`
+with the full `V*g*f` source and signed correction. No cancellation of that
+correction follows merely by doubling the bare angular bound. Spatial/scaling,
+original-action/time, full QFT/local fields, continuum survival, finite positive
+physical mass, every group and the Clay target remain OPEN.
+
+Verification: four serialized 8 GiB leaf checks, sixteen public gates within
+`{propext, Quot.sound}`, no warning or `sorryAx`. Sol supplied rotation and
+angular-transport drafts; Luna reviewed the inequality and scope. Root checked
+and integrated the actual consumer. No full-root build/audit/guard. Evidence:
+`audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`.
+
 ### All-cutoff positive head map and original-product norm bound (2026-09-23 UTC)
 
 `SU2QuaternionHeadHeatPositiveContraction` proves bilinear `heatPair_symm`
@@ -53,9 +89,9 @@ focused checks passed seven permitted gates; an earlier draft's classical
 impossible-branch proof was rejected and replaced with explicit False.elim.
 See `audits/AUDIT-HEAD-HEAT-SPECTATOR-EQUIVARIANCE-2026-09-23.md`.
 
-NEXT remains the full-product angular DEFECT estimate, not norm nonexpansion.
-Distinct selected-update commutation and an actual product-defect argument
-must still be proved, or a positive joint-mode proof used.
+The full-product angular DEFECT is now bounded with factor two above.
+Distinct selected-update commutation and a positive joint-mode argument remain
+unproved possible routes to the sharper factor-one estimate.
 Proper active subsets retain inactive projections; the interacting consumer
 retains `V*g*f` and the signed correction. Physical OS/time, spatial/scaling,
 continuum survival, finite physical mass, full QFT and every group stay OPEN.
@@ -81,13 +117,12 @@ The input follows the explicit coordinate rotation. Neither R=id nor a
 positive/self-adjoint cyclic intermediate map nor an unrotated defect is
 asserted. This is a quantitative theorem about the actual cyclic step.
 
-NEXT: prove the rotation-separated multi-step composition estimate for the
-original full product endpoint identified below. This requires more than
-summing the new local inequalities: commuting smoothing maps or positive
-joint modes and their angular control still need proof. Spectator equivariance
-and B headMap B=headMap are now proved above. Distinct selected
-head maps then need a proved commutation/product-defect argument, not an
-assumed selected-link realization. The downstream
+The rotation-separated multi-step composition is now proved with factor two
+by the potential argument above, not by simply summing local inequalities.
+Commuting smoothing maps or positive joint modes could sharpen the constant.
+Spectator equivariance and B headMap B=headMap are now proved above.
+A factor-one sharpening via distinct selected head maps would still need a
+proved commutation/product-defect argument, not an assumed realization. The downstream
 consumer remains `BF4ExactSlabFixedSpatialGroundStateEnergy.energy_eq_bare_add_correction`,
 with the original `V*g*f`, inactive projections for proper active subsets,
 and signed correction retained. The original-action/time, spatial/scaling,

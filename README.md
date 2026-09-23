@@ -32,6 +32,19 @@ groups remain open. The literal identity-on-observables exact-Haar bridge is
 [refuted](lean/YMGap/Continuum/BF4PhysicalCubeExactActionFence.lean).
 See the [live plan](work_plan.md) for the exact current frontier.
 
+The original fully active SU(2) heat product now has a checked
+[angular defect bound](lean/YMGap/Continuum/SU2QuaternionProductHeatAngularDefect.lean):
+`H(f*f)-H(f*P f) <= 2*(1-w)*sum_i H(blockAngularSquare i f)`.
+It holds for arbitrary supported signed inputs, `0 <= w < 1`, and the explicit
+`sufficientCutoff w <= K` guard. The prefactor does not grow with the number
+of blocks. A positive quadratic potential composes the actual cyclic steps
+without assuming inter-step commutation; exact rotation-period and angular
+transport proofs return the result to the original operator and coordinates.
+This is factor two, not the sharper factor-one target or a strict gap.
+Proper active subsets, inactive projections and the signed interacting
+correction are next. No physical/continuum obligation is closed. See the
+[verification and mathematical argument](audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md).
+
 A separate proposed original-action shortcut is now
 [refuted](lean/YMGap/Continuum/SU2QuaternionSelectedLinkHeadObstruction.lean):
 integrating a link against its existing neighbor is not the same operator
@@ -45,10 +58,11 @@ the fully active original `productMap` equals n cyclic steps, each appending
 one fresh output and integrating the first source. After n steps the output
 order is the original one. The equality retains every signed insertion;
 supported inputs remain on the n-block carrier and their Haar mean is
-preserved. This proves an operator join, **not** the angular defect bound:
+preserved. This identity alone proves an operator join, **not** the angular defect bound:
 the intermediate cyclic maps include a rotation and are not asserted positive
-or self-adjoint. The sum-of-angular-energies estimate, inactive-link residuals,
-and interacting signed correction remain open. See the
+or self-adjoint. The sum-of-angular-energies estimate is now proved with factor
+two above; inactive-link residuals and the interacting signed correction
+remain open. See the
 [proof and verification boundary](audits/AUDIT-PRODUCT-HEAT-CYCLIC-FOLD-2026-09-23.md).
 
 The cyclic rotation is now [explicitly separated from heat smoothing](lean/YMGap/Continuum/SU2QuaternionProductHeatCyclicRotation.lean).
@@ -57,21 +71,22 @@ local estimate is `H(p*p)-H(R(p)*C(p)) <= (1-w)*H(blockAngularSquare 0 p)`.
 It follows from an exact derotation identity with the computed head update,
 not an assumed operator comparison. The rotated input matters: this is not
 an unrotated intermediate-step bound or the full-product inequality.
-Composition across all blocks, inactive-link residuals and the signed
-interacting correction remain open. See the
+Composition across all blocks is now proved with factor two above;
+inactive-link residuals and the signed interacting correction remain open. See the
 [local estimate and next consumer](audits/AUDIT-PRODUCT-HEAT-CYCLIC-ROTATION-2026-09-23.md).
 
 The actual head map is now proved symmetric and positive, and its image norm
 is bounded by its same-input pairing. Consequently the original fully active
 product map is [nonexpansive at every finite cutoff](lean/YMGap/Continuum/SU2QuaternionProductHeatCyclicContraction.lean)
 for every rational `0 <= w <= 1`, without centering or a pointwise heat-floor
-guard. This has rate **1**, not a strict gap; it does not yet bound the
-full-product angular defect. See the
+guard. This has rate **1**, not a strict gap; the separate potential argument
+above now bounds the full-product angular defect. See the
 [all-cutoff norm proof](audits/AUDIT-HEAD-HEAT-ALL-CUTOFF-CONTRACTION-2026-09-23.md).
 Spectator equivariance now also removes the remaining conjugation:
 the actual cyclic step is exactly coordinate rotation followed by the
 ordinary head map on the original input. This [checked factorization](audits/AUDIT-HEAD-HEAT-SPECTATOR-EQUIVARIANCE-2026-09-23.md)
-leaves distinct-update commutation and the angular product estimate open.
+is consumed by the factor-two angular estimate above. Distinct-update
+commutation and the sharper factor-one estimate remain unproved.
 
 ## Earlier checkpoints (historical; later results may supersede open steps)
 

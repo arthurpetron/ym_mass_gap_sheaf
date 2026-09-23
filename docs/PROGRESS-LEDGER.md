@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-cutoff actual head/product norm control (2026-09-23)
+## Current increment: actual full-product angular defect (2026-09-23)
+
+The original `productMap` on all n blocks now obeys
+`H(p*p)-H(p*P p) <= 2*(1-w)*sum_i H(blockAngularSquare i p)`.
+This is a substantive quantitative advance beyond norm nonexpansion and
+operator identities. The prefactor is independent of n,K, with explicit
+`0 <= w < 1`, `sufficientCutoff w <= K`, and supported signed p.
+
+A short positive-form potential replaces the proposed commutation detour:
+`Phi_x(y)=<y,y>-4<x,y>+3<x,x>`. Positivity of I-P at 2x-y and the checked
+head square/form estimate control each step; the rotating reference returns
+exactly after n steps, and its angular costs are those of the original blocks.
+No assumed realization or uninhabited certificate was added.
+
+The original factor-one sharpening remains unproved. Next are proper active
+subsets/inactive projection residuals and the interacting `V*g*f` plus signed
+correction in `energy_eq_bare_add_correction`. The latter does not disappear
+merely because the bare angular estimate has been proved. All physical-time,
+spatial/scaling, continuum, QFT, mass and every-group joins stay open.
+Four monitored leaves passed sixteen permitted gates; no full-root guard.
+Evidence: `audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`.
+
+## Previous increment: all-cutoff actual head/product norm control (2026-09-23)
 
 The parallel spectator-equivariance proof is now checked and consumed:
 `cycleStep_headMap_carrier` and `cycleReturn_step_headMap_carrier` remove the

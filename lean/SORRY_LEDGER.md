@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Proved original full-product angular defect with factor two (2026-09-23)
+
+- **actual estimate**: `SU2QuaternionProductHeatAngularDefect.productMap_range_defect_le_two_angular`
+  bounds the ORIGINAL fully active product defect by
+  `2*(1-w)*sum_i H(blockAngularSquare i p)`, for arbitrary supported signed p,
+  n>0, `0 <= w < 1`, and `sufficientCutoff w <= K`.
+- **proof**: `PositiveContractionProductDefect` uses a nonnegative quadratic
+  potential, not inter-step commutation. `SU2QuaternionCyclicRotationPeriod`
+  returns the rotating reference to p; `SU2QuaternionCyclicAngularEnergy`
+  identifies its costs with the original block energies. These are consumed
+  in the original-product theorem, not new uninhabited certificates.
+- **residue**: factor-one sharpening stays open; proper active-set projection
+  residual, original `V*g*f` and signed correction, physical time, scaling,
+  continuum survival, QFT, finite positive physical mass and every group.
+  No canonical atom is closed or statement weakened.
+- **verification**: four serialized 8 GiB leaves, sixteen permitted gates,
+  no warning or `sorryAx`; no full-root build/audit/guard. Evidence:
+  `audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`.
+
 ## Proved spectator equivariance and ordinary-head factorization (2026-09-23)
 
 - **file**: `YMGap/Continuum/SU2QuaternionHeadHeatSpectatorEquivariance.lean`.

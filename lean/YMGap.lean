@@ -3801,6 +3801,7 @@ import YMGap.Continuum.BF4PhysicalCubeCompletion
 -- Same conditional action on the finite reflected form; cofinal/time pins remain open.
 import YMGap.Continuum.PositiveContractionOneStepForm
 import YMGap.Continuum.PositiveContractionResidual
+import YMGap.Continuum.PositiveContractionProductDefect
 import YMGap.Continuum.PositiveCoerciveForm
 import YMGap.Continuum.GNSPairingNormBound
 import YMGap.Continuum.PositiveContractionOneStepCompletion
@@ -4902,6 +4903,9 @@ import YMGap.Continuum.SU2QuaternionProductHeatCyclicRotation
 import YMGap.Continuum.SU2QuaternionHeadHeatPositiveContraction
 import YMGap.Continuum.SU2QuaternionHeadHeatSpectatorEquivariance
 import YMGap.Continuum.SU2QuaternionProductHeatCyclicContraction
+import YMGap.Continuum.SU2QuaternionCyclicRotationPeriod
+import YMGap.Continuum.SU2QuaternionCyclicAngularEnergy
+import YMGap.Continuum.SU2QuaternionProductHeatAngularDefect
 import YMGap.Continuum.SU2QuaternionAngularReindex
 import YMGap.Continuum.SU2QuaternionConjugatedHeadHeatBlockEnergy
 import YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy
