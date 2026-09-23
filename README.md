@@ -14,6 +14,13 @@ class, exact same-object pairing, positive definiteness, and sharp
 Cauchy--Schwarz.  This is a finite GNS/carrier bridge only; it does not close
 the selected-link identification, completed uniform gap, or continuum target.
 
+The next finite descent certificate is also checked:
+`SU2QuaternionFiniteHaarProductMapRadical.lean` proves that the finite
+product heat map sends an ordinary-Haar-null supported input to an ordinary-
+Haar-null output.  It is the representative-level prerequisite for a
+quotient-level transfer map; the quotient lift, completed gap, and continuum
+construction remain open.
+
 > **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

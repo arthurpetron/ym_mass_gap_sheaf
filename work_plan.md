@@ -58,6 +58,15 @@ base for later transfer descent; it does not identify the open selected-link
 relative pairing or supply a completed uniform gap, thermodynamic/continuum
 passage, physical mass, QFT axioms, or the all-group result.
 
+### Finite product-map radical annihilation (2026-09-22 UTC)
+
+`SU2QuaternionFiniteHaarProductMapRadical.lean` proves
+`productMap_radical_zero`: the checked centered finite product-map square bound
+maps an ordinary-Haar-null supported polynomial to another ordinary-Haar-null
+supported polynomial.  This is the representative-level input for the next
+quotient-lift construction; it is not itself a quotient transfer, completed
+operator, spectral gap, or continuum statement.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

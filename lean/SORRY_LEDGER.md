@@ -32,6 +32,21 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 Monitored focused verification built the dependency-complete target; all
 printed declarations use only `{propext, Quot.sound}` and introduce no `sorry`.
 
+## PROVED finite product-map annihilation of the ordinary-Haar radical (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarProductMapRadical.lean`.
+- **proved declaration**: `productMap_radical_zero`.
+- **proof content**: combines the centered finite product-map square bound,
+  the ordinary-Haar radical-to-mean-zero implication, output support and
+  nonnegativity, and rational order antisymmetry to show that a Haar-null
+  supported input has Haar-null product-map output.
+- **scope**: this is the representative-level prerequisite for quotient
+  descent.  It is not yet a well-defined quotient map, transfer operator,
+  spectral gap, thermodynamic/continuum passage, or Clay conclusion.
+
+Monitored focused verification passed; the printed declaration uses only
+`{propext, Quot.sound}` and introduces no `sorry`.
+
 ## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`.
