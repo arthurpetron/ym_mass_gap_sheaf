@@ -3807,6 +3807,8 @@ import YMGap.Continuum.PositiveContractionOneStepCompletion
 import YMGap.Continuum.PositiveContractionReverseComparison
 import YMGap.Continuum.BF4PhysicalJointFormTransfer
 import YMGap.Continuum.BF4PhysicalJointReverseComparison
+-- Constructed same-carrier centered density; a strict form estimate is still an input.
+import YMGap.Continuum.BF4PhysicalJointCenteredDensity
 -- Actual cutoff-removed normalization of the raw all-spin reflected form.
 import YMGap.Continuum.BF4PhysicalCubeNormalizedKernelLimit
 -- Same cutoff-removed conditional P contracts its positive one-step RC form.

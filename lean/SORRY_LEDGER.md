@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Closed named input: physical joint centered density (2026-09-23)
+
+- **files**: `YMGap/Continuum/GNSUnitVacuumProjection.lean`,
+  `YMGap/Continuum/GNSUnitVacuumCenteredCauchy.lean`,
+  `YMGap/Continuum/BF4PhysicalJointCenteredDensity.lean`.
+- **constructed witness**: `exactPhysicalJointCenteredDensity` inhabits the
+  unchanged `ExactPhysicalJointCenteredDensity` interface. Nonexpansive
+  unit-vacuum centering retains the input Cauchy modulus; vanishing vacuum
+  pairing gives null-closeness. `centeredNullModulus` carries a Type-level
+  rate, explicitly `X.modulus(epsilon/10)`, before forgetting it at the
+  legacy `CauchyNull` consumer boundary. No choice is used.
+- **consequence**: `physicalJointCompletedVacuumFormGap_of_central_form_gap`
+  removes the separate density assumption, not the strict central bound.
+- **residue**: actual sector-appropriate strict estimates, same-theory
+  identifications, thermodynamic/continuum limits, physical mass, full QFT
+  and every compact simple group. The existing cutoff-two full-carrier
+  no-go is not circumvented.
+- **verification**: narrow monitored builds and eleven current printed
+  public axiom gates, all within `{propext, Quot.sound}`; no `sorryAx`, new
+  hole, canonical-field change, or full-root audit.
+
 This ledger lists every `sorry` in the Lean formalization, per
 `AGENTS.md` Rule 6.
 

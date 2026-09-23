@@ -25,6 +25,58 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Constructed centered density on the physical joint completion (2026-09-23 UTC)
+
+`BF4PhysicalJointCenteredDensity.exactPhysicalJointCenteredDensity` now
+inhabits the previously missing exact-centered density certificate on the
+SAME reflected-joint carrier. The generic `GNSUnitVacuumProjection` proves
+that `C(a) = a - B(a,Omega)*Omega` is nonexpansive and that
+`distSq(a,C(a)) = B(a,Omega)^2` for a unit vacuum. The
+`GNSUnitVacuumCenteredCauchy.centeredCauchy` construction therefore retains
+the original Type-level Cauchy modulus. On the vacuum complement, the
+already-proved mean convergence supplies null-closeness;
+`centeredNullModulus` returns the explicit null rate
+`X.modulus(epsilon/10)`, as proved by `centeredNullModulus_modulus`.
+Only at the legacy replacement boundary is that data forgotten to its
+propositional `CauchyNull` proof.
+
+The actual consumer
+`physicalJointCompletedVacuumFormGap_of_central_form_gap` now requires only
+the central strict form bound: arbitrary-vector joint density is no longer
+an additional analytic input. No reverse comparison, inverse transfer, or
+lower-coercivity certificate is assumed. This closes the density residue
+recorded in the earlier centered-replacement milestones below.
+
+The generic and physical targets passed monitored one-worker builds; all
+eleven public axiom diagnostics in the current build traces are within
+`{propext, Quot.sound}`, with no `sorryAx` or warnings in these three modules.
+No full-root build/audit was run. The strict physical estimate, appropriate
+sector/theory identification, scaling limits, physical mass, QFT axioms,
+every-group construction and Clay target are not supplied by this result.
+
+### Full-carrier routing correction from the existing counterexample (2026-09-23 UTC)
+
+The full-carrier strict-bound box must not be read as an unrestricted
+inhabitable target. At the explicit finite test `w = 1/2`, `K = 2`,
+`half = 0`,
+`BF4PhysicalBoundaryCutoffTwoSectorReducibilityObstruction.no_cutoffTwo_fullCarrier_strict_upper_gap`
+rules out every strict rate: its centered sector indicator has positive norm
+and transfer eigenvalue one. The checked
+`BF4PhysicalFullCarrierLocalSliceObstruction.no_cutoffTwo_fullCarrier_localSlice_of_localPower_lt_one`
+likewise excludes any strict full-carrier depth-amplified local slice there.
+This is a finite obstruction, not a statement about every coupling, cutoff,
+or the Yang--Mills continuum theory.
+
+Centering/density is a separate, valid construction, but cannot remove that
+additional fixed mode. Subsequent quantitative work must distinguish the
+canonical vacuum communicating sector from the full carrier, and prove any
+required same-theory/observable identifications. Existing sector-native
+consumers permit general strict rates, not only `1/16`; no all-bare-coupling
+estimate is imposed when a justified scaling trajectory suffices. A local
+slice depth cannot be changed independently of its exact physical
+density-power identity. No canonical frontier type is weakened by this
+execution correction.
+
 ### Kernel-certificate normalization repair (2026-09-23 UTC)
 
 `BF4CompactActionDiagonalSOS.lean` now reads the action coefficients from

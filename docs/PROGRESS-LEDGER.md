@@ -4,6 +4,30 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: constructed joint centered density (2026-09-23)
+
+`BF4PhysicalJointCenteredDensity.exactPhysicalJointCenteredDensity` is an
+actual inhabitant of the previously open density input, not another
+conditional compiler. The generic unit-vacuum projection is nonexpansive,
+so the centered representative keeps the original Cauchy modulus. Its
+distance from the original stage is exactly the squared vacuum pairing.
+For a vacuum-orthogonal completed class that pairing tends to zero, and
+the explicit `centeredNullModulus` rate is `X.modulus(epsilon/10)`.
+The legacy replacement certificate stores the resulting null proof; the
+generic construction separately retains the Type-level rate data.
+
+The checked consumer
+`physicalJointCompletedVacuumFormGap_of_central_form_gap` consequently
+needs no separate density/range/coercivity input. The central strict bound
+is still assumed. In particular, the existing cutoff-two full-carrier
+fixed-mode obstruction is not removed by a completion theorem; subsequent
+quantitative work must respect the sector and physical-identification issues.
+
+Verification: the three new modules passed narrow monitored builds. All
+eleven printed public gates in their current build traces are within
+`{propext, Quot.sound}`, without warnings or `sorryAx`. No full-root audit,
+continuum construction, physical mass, or all-group theorem is claimed.
+
 ## Verification repair: sparse compact-action coefficient lookup (2026-09-23)
 
 `BF4CompactActionDiagonalSOS.lean` no longer recomputes the full quadratic
