@@ -170,6 +170,19 @@ uniform physical gap, spacing/thermodynamic/continuum passage, QFT axioms,
 and every-group/Clay closure remain open.  Focused safe verification passed
 the dependency-complete target (1907 jobs) with only `{propext, Quot.sound}`.
 
+### Strict midpoint coefficient (2026-09-23 UTC)
+
+`midpointRate_lt_one` in
+`SU2QuaternionFiniteHaarMidpointFormRate.lean` now proves by direct
+cross-multiplication in `Q'` that
+`midpointRate q < 1` whenever `q < 1`.  Applied to the existing
+`squaredHeatRate_lt_one`, this makes the completed same-object coefficient
+strict at every fixed admissible nome.  The rate still depends on the nome,
+so this is not beta/spacing-uniformity and is not a physical OS spectral gap.
+The focused dependency-complete check passed with only
+`{propext, Quot.sound}`.  The next bridge remains the selected-link/OS
+identification and a parameter-uniform estimate on the same completed theory.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

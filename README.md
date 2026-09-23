@@ -72,8 +72,11 @@ order-valued completed-carrier interfaces.
 This is a completed representative-level same-object statement, still for
 the finite ordinary-Haar SU(2) carrier and still nome-dependent.  It is not an
 OS identification, a beta/spacing-uniform physical gap, or a continuum/Clay
-theorem.  The focused dependency-complete check passed all 1907 jobs with
-only `{propext, Quot.sound}`.
+theorem.  `midpointRate_lt_one` now also proves directly that this explicit
+midpoint coefficient is strictly below one whenever its squared input rate is
+strictly below one.  The strictness remains nome-dependent and is not a
+uniform physical gap.  The focused dependency-complete check passed all 1907
+jobs with only `{propext, Quot.sound}`.
 
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.

@@ -13,6 +13,20 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED strict midpoint-rate consequence (2026-09-23 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarMidpointFormRate.lean`.
+- **proved declaration**: `midpointRate_lt_one`.
+- **proof content**: from `q < 1`, direct cross-multiplication on the
+  constructive rational representation proves
+  `(1 + q) / 2 < 1`; no square-root, real-order, or choice principle is used.
+- **scope**: this makes the finite completed-carrier rate explicitly strict
+  whenever `squaredHeatRate w < 1`.  It is still nome-dependent and does not
+  provide beta/spacing uniformity, an interacting OS identification, or a
+  continuum mass gap.
+- **verification**: focused safe build passed `1907/1907`; the declaration
+  reports only `{propext}` and introduces no `sorry` or classical axiom.
+
 ## PROVED exact completed CReal midpoint form bound (2026-09-23 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarMidpointFormRate.lean`.

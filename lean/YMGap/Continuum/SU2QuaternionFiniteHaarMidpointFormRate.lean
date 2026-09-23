@@ -174,6 +174,22 @@ local macro "q_ring" : tactic =>
 def midpointRate (q : Q') : Q' :=
   Q'.mkPos 1 2 (by decide) * ((1 : Q') + q)
 
+theorem midpointRate_lt_one {q : Q'} (hq : q < (1 : Q')) :
+    midpointRate q < (1 : Q') := by
+  unfold midpointRate
+  change
+    (Q'.mkPos 1 2 _ * ((1 : Q') + q)).num * (1 : Int) <
+      (1 : Int) * (Q'.mkPos 1 2 _ * ((1 : Q') + q)).den
+  simp only [Q'.mul_num_cast, Q'.mul_den_cast, Q'.add_num_cast,
+    Q'.add_den_cast, Q'.mkPos_num, Q'.mkPos_den,
+    Int.mul_one, Int.one_mul]
+  have hq' : q.num < (q.den : Int) := by
+    change q.num * (1 : Int) < (1 : Int) * (q.den : Int) at hq
+    simpa using hq
+  change (1 : Int) * (q.den : Int) + q.num * 1 <
+    2 * ((1 : Int) * (q.den : Int))
+  omega
+
 private theorem midpointRate_nonnegative {q : Q'}
     (hq : (0 : Q') ≤ q) :
     (0 : Q') ≤ midpointRate q := by
@@ -470,6 +486,7 @@ theorem centeredCompletionTwoStepMoment_RCle_exact
     n hw0 hw1 K hK ids hnodup hids X
 
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate_lt_one
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate_sq_ge
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.productMapQuotient_transfer_form_midpoint_le_add
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_leEv
