@@ -361,9 +361,18 @@ into `SelectedLinkExposedProjectionPairing` and
 projection-compatible use of the padded heat equivalence; its known heat
 kernel field is filled from `exposeTranslationPair_heat`.  The second isolates
 the independent exposed `heatPair`/`headMap` comparison.  The checked
-`selectedLinkExposedHeadPairing_of_bridges` composes them, but neither pairing
-field is inhabited: conditional projection compatibility and the
-`copy`/`liftHead` comparison remain genuine finite SU(2) obligations.
+`selectedLinkExposedHeadPairing_of_bridges` composes them.  At the earlier
+checkpoint neither field was inhabited; conditional projection compatibility
+remains a genuine finite SU(2) obligation.
+
+**Heat/head bridge discharged (2026-09-22 UTC):**
+`selectedLinkExposedHeatHeadPairing_of_headMap` constructs the exposed
+`heatPair`/`headMap` field by symmetry of the existing `headMap_pairing`
+theorem on the same recoded test and polynomial.  Consequently
+`selectedLinkExposedHeadPairing_of_projection` reduces the remaining exposed
+head certificate to the single projection/product pairing field; no separate
+`copy`/`liftHead` axiom is needed.  The projection/product field itself is
+still open.
 
 **Padded projection transport (2026-09-22 UTC):**
 `SU2QuaternionPaddedProjectionPairing.project_padded_pairing` proves the
@@ -372,8 +381,8 @@ conditional projection and a supported Haar insertion.  It explicitly
 commutes the identity reindex with block integration before applying the
 existing padded Haar-insertion theorem.  The companion
 `exposed_heat_projected_pairing` applies this transport to the actual
-selected heat packet.  Neither theorem constructs the exposed selected-link
-pairing or identifies the exposed relative heat kernel with `headMap`.
+selected heat packet.  These lemmas still do not construct the exposed
+selected-link projection/product pairing.
 
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original

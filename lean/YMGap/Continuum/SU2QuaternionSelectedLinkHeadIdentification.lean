@@ -260,12 +260,55 @@ def selectedLinkExposedHeadPairing_of_bridges
         hdistinct w K) :
     SelectedLinkExposedHeadPairing
       tailBlocks selected multiplier hblocks hselected hmultiplier
-        hdistinct w K := by
+      hdistinct w K := by
   refine ⟨?_⟩
   intro polynomial test hpolynomial htest
   exact Q'.eqv_trans _ _ _
     (projection.pairing polynomial test hpolynomial htest)
     (heatHead.pairing polynomial test hpolynomial htest)
+
+/-! The exposed heat/head-map bridge is not an additional analytic input:
+`headMap_pairing` already states the same equality in the opposite direction
+for the recoded test and polynomial. -/
+def selectedLinkExposedHeatHeadPairing_of_headMap
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat) :
+    SelectedLinkExposedHeatHeadPairing
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K := by
+  refine ⟨?_⟩
+  intro polynomial test hpolynomial htest
+  exact Q'.eqv_symm (headMap_pairing tailBlocks w K
+    (applyQuaternionBlockSwapChain
+      (selectedPairSteps tailBlocks selected multiplier
+        hblocks hselected hmultiplier) test)
+    (applyQuaternionBlockSwapChain
+      (selectedPairSteps tailBlocks selected multiplier
+        hblocks hselected hmultiplier) polynomial))
+
+def selectedLinkExposedHeadPairing_of_projection
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat)
+    (projection : SelectedLinkExposedProjectionPairing
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K) :
+    SelectedLinkExposedHeadPairing
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K :=
+  selectedLinkExposedHeadPairing_of_bridges
+    tailBlocks selected multiplier hblocks hselected hmultiplier
+      hdistinct w K projection
+    (selectedLinkExposedHeatHeadPairing_of_headMap
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K)
 
 /-- The reduced exposed-chart certificate is sufficient for the original
 same-carrier selected-link identification. -/
@@ -480,6 +523,8 @@ end YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedProjectionPairing_of_pairing
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkExposedHeatHeadPairing
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedHeadPairing_of_bridges
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedHeatHeadPairing_of_headMap
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedHeadPairing_of_projection
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkHeadIdentification_of_exposed
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedHeatProjection_defect_le_selected_block_energy
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedFiniteDefect_sum_le_selectedBlockEnergy

@@ -137,10 +137,11 @@ Monitored focused verification passed; both printed declarations use only
   `exposeTranslationPair_heat` theorem fills the known heat-kernel field, and
   the two remaining fields compose into the prior
   `SelectedLinkExposedHeadPairing` interface.
-- **open obligation**: inhabit both pairing fields on the same supported
-  finite carrier.  The available padded Haar-insertion theorem does not
-  commute with conditional `project`, and no existing `copy`/`liftHead`
-  identification closes the second field.
+- **open obligation**: inhabit the projection/product pairing field on the
+  same supported finite carrier.  The heat/head field is now constructed by
+  symmetry of `headMap_pairing`; the available padded Haar-insertion theorem
+  still does not by itself commute with the full exposed product through
+  conditional `project`.
 - **constructive status**: focused monitored check passed (1951 dependency
   jobs); all new declarations use only `{propext, Quot.sound}` and introduce
   no `sorry` or new axiom.  Final log: `/tmp/ym-selected-link-factorized-final2.log`.
@@ -159,14 +160,32 @@ Monitored focused verification passed; both printed declarations use only
   `PaddedPolynomialCoeffEqv.haar_insert`; the companion specializes this
   transport to the exposed selected heat packet.
 - **remaining obligation**: specialize this generic transport to the exposed
-  selected heat/product and separately prove the exposed `heatPair`/`headMap`
-  comparison; the full selected-link pairing remains open.
+  selected heat/product; the `heatPair`/`headMap` comparison is now proved
+  separately in the exposed-head module, while the full selected-link pairing
+  remains open.
 - **constructive status**: focused monitored check passed; the declaration
   uses only `{propext, Quot.sound}` and introduces no `sorry` or new axiom.
   Log: `/tmp/ym-padded-projection-pairing-current4.log`.
 - **scope**: finite supported SU(2) projection algebra only; no interacting
   selected-link inhabitant, OS gap, continuum, physical mass, full-QFT, or
   every-group conclusion.
+
+## PROVED exposed heat/head bridge (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedLinkHeadIdentification.lean`.
+- **proved declarations**:
+  `selectedLinkExposedHeatHeadPairing_of_headMap` and
+  `selectedLinkExposedHeadPairing_of_projection`.
+- **proof content**: the exposed `heatPair`/`headMap` pairing is the symmetric
+  orientation of the existing `headMap_pairing` theorem applied to the same
+  recoded test and polynomial.  The second declaration composes this
+  canonical field with any supplied exposed projection/product pairing.
+- **remaining obligation**: inhabit the exposed projection/product pairing;
+  the full selected-link identification, OS gap, continuum, physical mass,
+  full-QFT, and every-group conclusions remain open.
+- **constructive status**: focused monitored check passed; both declarations
+  use only `{propext, Quot.sound}` and introduce no `sorry` or new axiom.
+  Log: `/tmp/ym-selected-link-identification-headmap.log`.
 
 ## PROVED conditional hybrid-stage bridge (2026-09-22 UTC)
 

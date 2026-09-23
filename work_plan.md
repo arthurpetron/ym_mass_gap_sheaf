@@ -170,9 +170,11 @@ by `selectedLinkExposedProjectionPairing_of_pairing` from the already proved
 `selectedLinkExposedHeatHeadPairing` separately names the comparison from the
 common exposed `heatPair` middle object to the inverse-chain `headMap`
 pairing.  `selectedLinkExposedHeadPairing_of_bridges` composes these two
-fields into the existing exposed-head certificate.  No inhabitant of either
-bridge is claimed; this is a sharper, causal decomposition of the same
-finite interacting obligation.
+fields into the existing exposed-head certificate.  The heat/head field is
+now inhabited by `selectedLinkExposedHeatHeadPairing_of_headMap`, which is the
+symmetry of `headMap_pairing` on the recoded pair.  Thus
+`selectedLinkExposedHeadPairing_of_projection` leaves only the projection /
+product pairing as the finite interacting obligation.
 
 **PROGRESS -- padded equivalence now survives conditional projection:**
 `SU2QuaternionPaddedProjectionPairing.project_padded_pairing` proves that a
