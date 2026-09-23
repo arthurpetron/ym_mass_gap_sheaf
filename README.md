@@ -101,6 +101,8 @@ spectral-gap theorem.  The focused dependency-complete check passed 2121 jobs
 with only `{propext, Quot.sound}`.
 
 The concrete physical carrier now has one further fixed-nome consequence:
+`concreteSU2CompletedCarrierCertificate_positive_vector_not_fixed` proves the
+generic positive-norm version on that carrier, and
 `concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed` proves that
 the literal moving-centered cube excitation is not fixed by the completed
 physical sector transfer.  It combines the inhabited marginal contraction

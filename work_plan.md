@@ -234,7 +234,11 @@ with only `{propext, Quot.sound}`.
 ### Physical completed-carrier fixed-point exclusion (2026-09-23 UTC)
 
 `BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean` now proves
-`concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed`.  For
+`concreteSU2CompletedCarrierCertificate_positive_vector_not_fixed`: any
+explicitly positive-norm vector on this completed physical sector cannot be a
+fixed point of a strict contraction.  Its concrete specialization,
+`concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed`, shows that
+the literal moving-centered cube vector is not fixed.  For
 `0 < w ≤ 1/2`, the literal moving-centered cube vector in the actual
 completed physical SU(2) vacuum complement cannot be fixed by the completed
 sector transfer.  Assuming a fixed point turns the existing marginal

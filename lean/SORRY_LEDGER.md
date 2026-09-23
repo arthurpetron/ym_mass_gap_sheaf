@@ -16,13 +16,16 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 ## PROVED physical completed-carrier fixed-point exclusion (2026-09-23 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean`.
-- **proved declaration**: `concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed`.
-- **proof content**: specializes the inhabited marginal completed-sector
-  contraction to the literal moving-centered cube vector.  A hypothetical
-  transfer fixed point gives the norm inequality `a ≤ (q*q)·a`; the rational
-  inequality `q*q < 1` and constructive `scalar_contraction_zero` force
-  `a = 0`.  The carrier certificate's explicit positive coordinate floor then
-  contradicts `a = 0` by a direct eventual-order witness.
+- **proved declarations**:
+  `concreteSU2CompletedCarrierCertificate_positive_vector_not_fixed` and
+  `concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed`.
+- **proof content**: the generic declaration takes an explicit positive norm
+  witness on the completed sector and a strict contraction datum.  A
+  hypothetical transfer fixed point gives the norm inequality `a ≤ (q*q)·a`;
+  the rational inequality `q*q < 1` and constructive
+  `scalar_contraction_zero` force `a = 0`, contradicting the carried positive
+  witness.  The concrete declaration supplies the literal moving-centered
+  cube vector and its positive coordinate floor through the carrier package.
 - **scope**: fixed nome with `0 < w ≤ 1/2`, extent one, and the one explicit
   physical observable.  This does not establish a carrier-wide uniform gap,
   OS identification, thermodynamic or continuum passage, QFT axioms, an

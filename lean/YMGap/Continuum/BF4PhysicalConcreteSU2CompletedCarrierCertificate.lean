@@ -344,19 +344,19 @@ private theorem square_rate_lt_one {q : Q'}
     (Q'.le_of_eqv (Q'.mul_one_eqv q))
   exact Q'.lt_of_le_of_lt hsq_le_q hq1
 
-/-- The literal moving-centered observable is not fixed by the completed
-  marginal transfer.  The proof uses only the displayed fixed-nome strict
-  contraction and the explicit positive norm floor of this same vector. -/
-theorem concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed
+/-- Any vector carrying an explicit positive completed norm cannot be fixed by
+the completed physical sector transfer when a strict contraction datum is
+available.  The positivity hypothesis is intentionally explicit: this lemma
+does not silently identify nonzero vectors with positive norms. -/
+theorem concreteSU2CompletedCarrierCertificate_positive_vector_not_fixed
     {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
-    (hw : w ≤ HalfPow.half) :
-    concreteSectorTransfer hw0 hw1
-        (concreteVacuumComplementVector hw0 hw1) ≠
-      concreteVacuumComplementVector hw0 hw1 := by
-  let package := concreteSU2CompletedMarginalCarrierCertificate hw0 hw1 hw
-  let carrier := package.1
-  let gap := package.2
-  let vector := concreteVacuumComplementVector hw0 hw1
+    (gap : CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
+      hw0 hw1 0)
+    (vector : SectorVacuumComplement hw0 hw1)
+    (hpositive : RCIsPositive
+      (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+        vector.1 vector.1)) :
+    concreteSectorTransfer hw0 hw1 vector ≠ vector := by
   intro hfixed
   have hcontract := gap.contraction vector
   change CReal.RCle
@@ -391,14 +391,25 @@ theorem concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed
     (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
       vector.1 vector.1)
     hnormNonnegative hcontract'
-  have hfloor := carrier.vector_inner_floor
+  obtain ⟨epsilon, hepsilon, hfloor⟩ := hpositive
   rw [hzero] at hfloor
-  exact positive_constant_not_le_zero
-    (centralPhysicalVacuumSectorCoordinateFloor
-      w (Q'.le_of_lt hw0) 1 0)
-    (centralPhysicalVacuumSectorCoordinateFloor_pos
-      w (Q'.le_of_lt hw0) 1 0)
-    hfloor
+  exact positive_constant_not_le_zero epsilon hepsilon hfloor
+
+/-- The literal moving-centered observable is not fixed by the completed
+  marginal transfer.  The proof uses only the displayed fixed-nome strict
+  contraction and the explicit positive norm floor of this same vector. -/
+theorem concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (hw : w ≤ HalfPow.half) :
+    concreteSectorTransfer hw0 hw1
+        (concreteVacuumComplementVector hw0 hw1) ≠
+      concreteVacuumComplementVector hw0 hw1 := by
+  let package := concreteSU2CompletedMarginalCarrierCertificate hw0 hw1 hw
+  let carrier := package.1
+  let gap := package.2
+  let vector := concreteVacuumComplementVector hw0 hw1
+  exact concreteSU2CompletedCarrierCertificate_positive_vector_not_fixed
+    hw0 hw1 gap vector carrier.vector_inner_positive
 
 /-! ## 2a. Expose the completed strict-contraction witness -/
 
@@ -507,6 +518,8 @@ end YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_marginalGap
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedMarginalCarrierCertificate
+#print axioms
+  YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_positive_vector_not_fixed
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed
 #print axioms
