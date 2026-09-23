@@ -485,6 +485,34 @@ theorem centeredCompletionTwoStepMoment_RCle_exact
   exact centeredCompletionTwoStepMoment_leEv_exact
     n hw0 hw1 K hK ids hnodup hids X
 
+/-! ## Explicit fixed-parameter strict-rate witness -/
+
+/-- A constructive fixed-parameter strict form-rate certificate for the whole
+completed centered carrier.  The sigma witness exposes the coefficient, its
+strict `< 1` proof, and the same-object `RCle` estimate for every completed
+vector.  The witness is uniform only over `x` at the displayed `n`, `w`,
+`K`, and `ids`; it makes no beta, spacing, cutoff, or thermodynamic claim.
+-/
+def centeredCompletionStrictRateCertificate
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n) :
+    Σ' r : Q',
+      (r < (1 : Q')) ∧
+        (∀ x : CenteredCompletionSpace n,
+          CReal.RCle
+            (centeredCompletionTwoStepMoment n hw0 hw1 K hK ids hnodup hids x)
+            (CReal.RCmul
+              (Quotient.mk CReal.crealSetoid (CReal.ofQ' r))
+              (centeredCompletionInner n x x))) := by
+  refine ⟨midpointRate (squaredHeatRate w),
+    midpointRate_lt_one (squaredHeatRate_lt_one hw0 hw1), ?_⟩
+  intro x
+  exact centeredCompletionTwoStepMoment_RCle_exact
+    n hw0 hw1 K hK ids hnodup hids x
+
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate_lt_one
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate_sq_ge
@@ -492,5 +520,6 @@ theorem centeredCompletionTwoStepMoment_RCle_exact
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_leEv
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_leEv_exact
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_RCle_exact
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionStrictRateCertificate
 
 end YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate

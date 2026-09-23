@@ -183,6 +183,12 @@ The focused dependency-complete check passed with only
 `{propext, Quot.sound}`.  The next bridge remains the selected-link/OS
 identification and a parameter-uniform estimate on the same completed theory.
 
+`centeredCompletionStrictRateCertificate` now packages the fixed-parameter
+coefficient, its strictness, and the completed same-object `RCle` form bound
+for every vector in one constructive sigma witness.  This is a genuine
+carrier-wide certificate at the displayed finite parameters, not a silently
+uniform-in-beta or spacing statement.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

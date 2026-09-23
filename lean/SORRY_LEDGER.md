@@ -27,6 +27,20 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: focused safe build passed `1907/1907`; the declaration
   reports only `{propext}` and introduces no `sorry` or classical axiom.
 
+## PROVED fixed-parameter completed strict-rate certificate (2026-09-23 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarMidpointFormRate.lean`.
+- **proved declaration**: `centeredCompletionStrictRateCertificate`.
+- **proof content**: returns a sigma witness containing the explicit midpoint
+  coefficient, its strict `< 1` proof, and the completed `RCle` same-object
+  bound for every vector in the displayed centered completion.
+- **scope**: uniform over vectors only at the displayed finite `n`, nome `w`,
+  cutoff `K`, and index list.  It is not beta/spacing-uniform and does not
+  identify the interacting OS carrier or prove a spectral/continuum gap.
+- **verification**: focused safe build passed `1907/1907`; the declaration
+  reports only `{propext, Quot.sound}` and introduces no `sorry` or classical
+  axiom.
+
 ## PROVED exact completed CReal midpoint form bound (2026-09-23 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarMidpointFormRate.lean`.
