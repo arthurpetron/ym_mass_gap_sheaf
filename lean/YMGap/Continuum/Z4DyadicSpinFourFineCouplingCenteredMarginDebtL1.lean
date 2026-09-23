@@ -946,6 +946,53 @@ theorem centeredCylinderRemainder_abs_le_of_finite_balanced_carrier
     (fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier
       S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget g hg)
 
+/-- The relative-loss carrier compiler supplies the balanced premise to the
+complete centered-cylinder estimate.  The relative loss, floor, and
+floor-to-actual comparison remain explicit hypotheses; this theorem does not
+promote them to cutoff-, volume-, or beta-uniform data. -/
+theorem centeredCylinderRemainder_abs_le_of_relative_balanced_carrier
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g)
+    (margin floor : Q')
+    (hmargin : (0 : Q') ≤ margin)
+    (hfloor : (0 : Q') < floor)
+    (hfloor_le : floor ≤ S.fine.physicalPartition)
+    (hloss : fineUnitCouplingPhysicalPartition S -
+        S.fine.physicalPartition ≤ margin * floor) :
+    Q'.abs
+        (centeredCylinderRemainder
+          (physicalKernel S hfineCutoff hcoarseCoupling) M) ≤
+      (fineUnitCouplingBalancedCarrierRatioCeiling
+          g ((1 + margin) * (1 + margin)) hg +
+        Q'.ofNat 2 * finiteMarginEnvelopeCeiling S) * (g * g) := by
+  have hscale : (0 : Q') < 1 + margin :=
+    Q'.pos_add_nonneg (by decide) hmargin
+  have hratio : (0 : Q') < (1 + margin) * (1 + margin) :=
+    Q'.mul_pos hscale hscale
+  have hcarrierBound :
+      FineUnitCouplingBalancedCarrierRatioBound S
+        ((1 + margin) * (1 + margin)) :=
+    fineUnitCouplingBalancedCarrierRatioBound_of_relative_loss
+      S margin floor hmargin hfloor hfloor_le hloss
+  have hbalanced :=
+    fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_carrier_ratio
+      S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget g
+        ((1 + margin) * (1 + margin)) hg hcarrierBound
+  exact centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
+    S hfineCutoff hcoarseCoupling hfineCoupling_le_one M family law
+    g (fineUnitCouplingBalancedCarrierRatioCeiling
+      g ((1 + margin) * (1 + margin)) hg)
+    hg hgle hcoupling
+    (fineUnitCouplingBalancedCarrierRatioCeiling_nonnegative
+      g ((1 + margin) * (1 + margin)) hg hratio)
+    hbalanced
+
 /-- The reciprocal envelope reaches the complete finite centered-cylinder
 bound once the independent balanced scale-defect calibration is supplied. -/
 theorem centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
@@ -1038,6 +1085,7 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 #print axioms fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
 #print axioms centeredCylinderRemainder_abs_le_of_finite_balanced_carrier
+#print axioms centeredCylinderRemainder_abs_le_of_relative_balanced_carrier
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 

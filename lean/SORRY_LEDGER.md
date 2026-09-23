@@ -30,10 +30,13 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier`,
   `FineUnitCouplingBalancedCarrierRatioBound`,
   `fineUnitCouplingBalancedCarrierRatioCeiling`,
-  `fineUnitCouplingBalancedCarrierRatioCeiling_nonnegative`, and
+  `fineUnitCouplingBalancedCarrierRatioCeiling_nonnegative`,
+  `fineUnitCouplingBalancedCarrierRatioBound_of_relative_loss`, and
   `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_carrier_ratio`;
   the downstream finite centered-cylinder compiler is
-  `centeredCylinderRemainder_abs_le_of_finite_balanced_carrier` in
+  `centeredCylinderRemainder_abs_le_of_finite_balanced_carrier` and the
+  relative-loss consumer is
+  `centeredCylinderRemainder_abs_le_of_relative_balanced_carrier` in
   `Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1.lean`.
 - **proof content**: inject the four-cell source and target pair lists into
   complete positive coarse and coupling-one two-replica carriers, use the
@@ -55,7 +58,12 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The ratio compiler factors the missing uniformity into the single named
   premise `FineUnitCouplingBalancedCarrierRatioBound`; if a common positive
   ratio is later supplied, its ceiling depends only on that ratio and `g`.
-  No such common ratio is proved here.
+  The relative-loss compiler reduces that premise further to a positive
+  floor, a floor-to-actual comparison, and a relative additive loss bound;
+  the relative additive loss itself is not proved uniformly here.
+  The downstream relative-loss consumer only composes these explicit
+  hypotheses with the finite margin envelope; it does not discharge the
+  relative-loss obligation or create a uniform strict form bound.
   The result does not identify an OS transfer matrix, pass to a thermodynamic
   or continuum limit, construct the QFT, calibrate a physical mass, cover all
   compact simple groups, or prove the Clay theorem; it does not close

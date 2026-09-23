@@ -127,7 +127,15 @@ The uniformity debt is now factored into the single proposition
 `FineUnitCouplingBalancedCarrierRatioBound`; under that named bound,
 `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_carrier_ratio`
 produces a ratio- and coupling-dependent ceiling.  The common ratio itself
-remains an open analytic input.
+remains an open analytic input.  The new
+`fineUnitCouplingBalancedCarrierRatioBound_of_relative_loss` reduces it to a
+positive floor, a floor-to-actual comparison, and a relative additive loss
+bound; that relative loss is the next analytic certificate to seek.
+The downstream
+`centeredCylinderRemainder_abs_le_of_relative_balanced_carrier` now consumes
+that certificate interface and returns the complete finite centered-cylinder
+bound with the ratio ceiling.  The three relative-loss inputs remain explicit;
+no uniformity or continuum passage is inferred from this compiler.
 The focused safe target passed 5498 jobs with one worker and the new exports
 have only `{propext, Quot.sound}`; its centered-margin consumer passed 5506
 jobs with the same axiom gate.

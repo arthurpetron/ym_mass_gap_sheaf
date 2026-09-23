@@ -39,7 +39,10 @@ the displayed finite parameters is part of the statement.
 The separate `FineUnitCouplingBalancedCarrierRatioBound` proposition factors
 the remaining normalization debt: a common positive carrier ratio would
 compile the finite defect into a ratio-dependent calibration, but no common
-ratio is asserted here.
+ratio is asserted here.  The theorem
+`fineUnitCouplingBalancedCarrierRatioBound_of_relative_loss` further reduces
+that ratio to a positive floor, a floor-to-actual comparison, and a relative
+additive loss bound; this is a certificate interface, not a uniformity claim.
 
 Constructive contract: finite rational sums, monotonicity, and exact rational
 algebra only; no `Classical`, choice, `native_decide`, proof hole,
@@ -1152,6 +1155,102 @@ private theorem four_ratio_carrier_regroup_local
     (coarseSquare * actualSquare)
     (Q'.mul_comm_eqv carrierRatio (Q'.ofNat 4))
 
+private theorem scale_square_regroup_local (scale actual : Q') :
+    (scale * actual) * (scale * actual) ≈
+      (scale * scale) * (actual * actual) := by
+  refine Q'.eqv_trans _ _ _
+    (nested_product_swap_local scale actual scale actual) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_comm_eqv (scale * (actual * actual)) scale) ?_
+  exact Q'.eqv_symm (Q'.mul_assoc_eqv
+    scale scale (actual * actual))
+
+/-- A relative additive partition-loss certificate is sufficient for the
+carrier-ratio premise.  It is the natural backward-facing subgoal for the
+existing matched-AF loss estimate: the loss must be small relative to a
+positive floor, not merely absolutely bounded by a growing global moment. -/
+theorem fineUnitCouplingBalancedCarrierRatioBound_of_relative_loss
+    (S : SlabScalePair) (margin floor : Q')
+    (hmargin : (0 : Q') ≤ margin)
+    (hfloor : (0 : Q') < floor)
+    (hfloor_le : floor ≤ S.fine.physicalPartition)
+    (hloss : fineUnitCouplingPhysicalPartition S -
+        S.fine.physicalPartition ≤ margin * floor) :
+    FineUnitCouplingBalancedCarrierRatioBound S
+      ((1 + margin) * (1 + margin)) := by
+  let actualSquare :=
+    S.fine.physicalPartition * S.fine.physicalPartition
+  let unitSquare :=
+    fineUnitCouplingPhysicalPartition S *
+      fineUnitCouplingPhysicalPartition S
+  let scale := 1 + margin
+  have hactual0 : (0 : Q') ≤ S.fine.physicalPartition :=
+    physicalPartition_nonnegative S.fine
+  have hunit0 : (0 : Q') ≤ fineUnitCouplingPhysicalPartition S :=
+    fineUnitCouplingPhysicalPartition_nonnegative S
+  have hmarginFloor0 : (0 : Q') ≤ margin * floor :=
+    Q'.mul_nonneg margin floor hmargin (Q'.le_of_lt hfloor)
+  have hmarginActual : margin * floor ≤
+      margin * S.fine.physicalPartition :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hfloor_le hmargin
+  have hupper :
+      S.fine.physicalPartition + margin * floor ≤
+        S.fine.physicalPartition +
+          margin * S.fine.physicalPartition :=
+    Q'.add_le_add_left _ _ _ hmarginActual
+  have hscale :
+      S.fine.physicalPartition +
+          margin * S.fine.physicalPartition ≤
+        scale * S.fine.physicalPartition := by
+    unfold scale
+    refine Q'.le_of_eqv ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right
+        S.fine.physicalPartition
+        (1 * S.fine.physicalPartition)
+        (margin * S.fine.physicalPartition)
+        (Q'.eqv_symm (Q'.one_mul_eqv S.fine.physicalPartition))) ?_
+    exact Q'.eqv_symm (Q'.add_mul_eqv 1 margin
+      S.fine.physicalPartition)
+  have hscale0 : (0 : Q') ≤ scale * S.fine.physicalPartition := by
+    have hupper0 : (0 : Q') ≤
+        S.fine.physicalPartition + margin * floor :=
+      Q'.zero_le_add _ _ hactual0 hmarginFloor0
+    exact Q'.le_trans' _ _ _ hupper0
+      (Q'.le_trans' _ _ _ hupper hscale)
+  have hunit_le :
+      fineUnitCouplingPhysicalPartition S ≤
+        scale * S.fine.physicalPartition := by
+    have hsum := Q'.add_le_add_left
+      S.fine.physicalPartition
+      (fineUnitCouplingPhysicalPartition S - S.fine.physicalPartition)
+      (margin * floor) hloss
+    have hsum' := Q'.le_trans' _ _ _ hsum hupper
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv
+        (Q'.add_sub_cancel_eqv
+          (fineUnitCouplingPhysicalPartition S)
+          S.fine.physicalPartition))
+      (Q'.le_trans' _ _ _ hsum' hscale)
+  have hfirst : unitSquare ≤
+      (scale * S.fine.physicalPartition) *
+        fineUnitCouplingPhysicalPartition S := by
+    unfold unitSquare
+    exact Q'.mul_le_mul_of_nonneg_right _ _ _ hunit_le hunit0
+  have hsecond :
+      (scale * S.fine.physicalPartition) *
+          fineUnitCouplingPhysicalPartition S ≤
+        (scale * S.fine.physicalPartition) *
+          (scale * S.fine.physicalPartition) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hunit_le hscale0
+  unfold FineUnitCouplingBalancedCarrierRatioBound
+  simpa only [unitSquare, actualSquare, scale] using
+    (Q'.le_trans' _ _ _ hfirst
+      (Q'.le_trans' _ _ _ hsecond
+        (Q'.le_of_eqv
+          (scale_square_regroup_local scale
+            S.fine.physicalPartition))))
+
 /-- Conditional uniformity compiler: a positive carrier-ratio certificate
 turns the finite balanced defect ceiling into the existing balanced-calibration
 interface with a ceiling depending only on `g` and that ratio. -/
@@ -1242,6 +1341,7 @@ def FineUnitCouplingGlobalPartitionCasimirNormalization
 #print axioms FineUnitCouplingBalancedCarrierRatioBound
 #print axioms fineUnitCouplingBalancedCarrierRatioCeiling
 #print axioms fineUnitCouplingBalancedCarrierRatioCeiling_nonnegative
+#print axioms fineUnitCouplingBalancedCarrierRatioBound_of_relative_loss
 #print axioms fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_carrier_ratio
 #print axioms fineUnitCouplingPhysicalPartition_nonnegative
 #print axioms fineUnitCouplingPhysicalPartitionSquareLoss

@@ -302,7 +302,15 @@ The remaining normalization step is isolated as
 `FineUnitCouplingBalancedCarrierRatioBound`: under a common positive carrier
 ratio, `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_carrier_ratio`
 would supply a ceiling depending only on that ratio and `g`.  The existence
-of such a uniform ratio is still open.
+of such a uniform ratio is still open.  The theorem
+`fineUnitCouplingBalancedCarrierRatioBound_of_relative_loss` factors that
+requirement into a positive partition floor, a floor-to-actual bound, and a
+relative additive loss estimate; the latter remains the next analytic input.
+The centered-margin consumer
+`centeredCylinderRemainder_abs_le_of_relative_balanced_carrier` now wires that
+factorization through the complete finite centered-cylinder estimate.  Its
+relative-loss, floor, and coupling hypotheses remain explicit, so this is a
+conditional finite compiler rather than a uniform strict form bound.
 
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
