@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## Proved completed identity: dense tests read persistent coordinates (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCompletedTestPairing.lean`.
+- **consumer**: `completedInner_embedRep_eq_completedDenseTestCoordinateSum`
+  identifies the actual completed sector/dense-test pairing with the finite
+  sum of completed coordinates, coefficients and pulled-weight limits.
+- **scope**: the same Cauchy stream is used for coordinate convergence and
+  physical pairing convergence; no new analytic hypothesis is assumed.
+- **residue**: common-coordinate factorization for a fixed vector and the
+  ambient-vacuum identification before actual vacuum-complement exclusion.
+  No uniform strict rate or physical/continuum claim; no new hole or axiom.
+- **verification**: monitored 20 GiB leaf check,
+  `/tmp/ym-gap-sector-completed-test-pairing-check-2.log`; all eight gates contain
+  only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
 ## Proved cutoff-limit identity: dense sector-test coordinate sum (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorDenseTestPairingLimit.lean`.

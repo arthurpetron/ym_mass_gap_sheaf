@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: coordinate-to-test cutoff-limit identity (2026-09-23)
+## Current increment: actual completed coordinate-to-test identity (2026-09-23)
+
+`BF4PhysicalCutoffVacuumSectorCompletedTestPairing` proves that the original
+completed pairing against a fixed dense test is the finite sum of completed
+persistent coordinates, coefficients and pulled-weight limits. The same
+representative stream controls both coordinate and pairing convergence; the
+statement uses quotient-descended coordinates, not a selected representative.
+This closes the outer formula join. Common-coordinate factorization and ambient
+vacuum identification remain before actual fixed-vector exclusion; quantitative
+strictness and physical/continuum joins remain open.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-completed-test-pairing-check-2.log`; all eight gates contain
+only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
+## Previous increment: coordinate-to-test cutoff-limit identity (2026-09-23)
 
 `BF4PhysicalCutoffVacuumSectorDenseTestPairingLimit` passes the finite formula
 to the actual dense cutoff-removed pairing by eventual equality of rational

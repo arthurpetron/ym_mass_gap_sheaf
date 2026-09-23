@@ -25,6 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual completed pairing is the finite coordinate-to-test sum (2026-09-23 UTC)
+
+`BF4PhysicalCutoffVacuumSectorCompletedTestPairing.completedInner_embedRep_eq_completedDenseTestCoordinateSum`
+proves the formula on the actual completed sector vector. The RHS is a finite
+sum of quotient-descended persistent coordinates, test coefficients and the
+constructed pulled-weight limits. The proof passes the checked dense formula
+along the same Cauchy stream as the existing physical pairing limit. Finite-sum
+convergence is required only on the test's actual sector index list, not at
+irrelevant totalized indices.
+
+This closes the outer coordinate-to-test passage without a new analytic input.
+The remaining qualitative composition is to factor a fixed vector's checked
+common coordinate out of this sum, identify the residual functional with the
+ambient vacuum pairing, and invoke the checked dense-vacuum consumer. Actual
+fixed-vector exclusion is not yet claimed here. Uniform strictness and every
+same-theory/physical/continuum/group join remain separate and open.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-completed-test-pairing-check-2.log`; all eight public gates
+contain only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
+
 ### Coordinate-to-test identity survives cutoff removal (2026-09-23 UTC)
 
 `BF4PhysicalCutoffVacuumSectorDenseTestPairingLimit.innerLimit_equiv_denseTestCoordinateSum`
@@ -34,8 +55,9 @@ coordinates, test coefficients and the constructed pulled-weight limits.
 The proof uses equality of approximants once the cutoff reaches the test's
 base; it needs no new estimate or tail modulus.
 
-Only the outer completion passage of this formula remains before applying
-common-coordinate rigidity and the checked dense-vacuum consumer. In that
+The outer completion passage of this formula is now checked above; the
+common-coordinate/ambient-vacuum factorization remains before applying the
+checked dense-vacuum consumer. In the completed passage the
 passage the pairing sequence is literally `innerLimit (X.seq n) test`, so the
 existing physical pairing convergence and coordinate convergence concern the
 same Cauchy stream. Actual fixed-vector exclusion, a uniform strict gap and all
