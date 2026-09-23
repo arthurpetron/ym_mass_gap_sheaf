@@ -16,6 +16,7 @@ thermodynamic/continuum result.
 
 import YMGap.Constructive.Sqrt
 import YMGap.Constructive.ExpNeg
+import YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz
 import YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 
 namespace YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate
@@ -24,6 +25,8 @@ set_option autoImplicit false
 set_option maxHeartbeats 8000000
 
 open YMGap.Constructive
+open YMGap.Continuum.GNSQuotient
+open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz
 open YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.SU2HeatCutoffCasimirBound
@@ -304,8 +307,84 @@ theorem productMapQuotient_transfer_form_midpoint_le_add
     (Q'.le_of_eqv (Q'.add_comm_eqv ε
       (midpointRate (squaredHeatRate w) * finiteHaarPair n p.val p.val)))
 
+/-! ## Passage to the completed CReal representative form -/
+
+/-- The finite midpoint estimate survives the constructive GNS inner-product
+limit.  This is deliberately stated at the `CReal` representative level:
+`cinnerRep` is the genuine completed limit, while the `RC` quotient currently
+has no separately declared order/operation interface.  The theorem therefore
+gives an actual completed-real bound without smuggling in an order on `RC`.
+
+This remains an ordinary-Haar finite-volume SU(2) statement.  It does not
+identify the carrier with the interacting OS completion or supply any
+thermodynamic/continuum uniformity.
+-/
+theorem centeredCompletionTwoStepMoment_leEv
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x : CenteredCauchyGNS n)
+    (ε : Q') (hε : (0 : Q') < ε) :
+    CReal.leEv
+      ((finiteHaarGNSData n).cinnerRep x.seq
+        (productMap_centeredCauchy n hw0 hw1 K hK ids hnodup hids x))
+      (CReal.add
+        (CReal.mul (CReal.ofQ' (midpointRate (squaredHeatRate w)))
+          ((finiteHaarGNSData n).cinnerRep x.seq x.seq))
+        (CReal.ofQ' ε)) := by
+  let D := finiteHaarGNSData n
+  let y : CauchyGNS D :=
+    productMap_centeredCauchy n hw0 hw1 K hK ids hnodup hids x
+  have hleft : CReal.ConvergesTo
+      (fun k => CReal.ofQ' (D.cInnerSeq x.seq y k))
+      (D.cinnerRep x.seq y) :=
+    CReal.convergesTo_ofQ'CauchySeq _ _
+  have hnorm : CReal.ConvergesTo
+      (fun k => CReal.ofQ' (D.cInnerSeq x.seq x.seq k))
+      (D.cinnerRep x.seq x.seq) :=
+    CReal.convergesTo_ofQ'CauchySeq _ _
+  have hconst : CReal.ConvergesTo
+      (fun _ : Nat => CReal.ofQ' (midpointRate (squaredHeatRate w)))
+      (CReal.ofQ' (midpointRate (squaredHeatRate w))) := by
+    simpa using
+      (CReal.convergesTo_self
+        (CReal.ofQ' (midpointRate (squaredHeatRate w))))
+  have hmul : CReal.ConvergesTo
+      (fun k => CReal.mul
+        (CReal.ofQ' (midpointRate (squaredHeatRate w)))
+        (CReal.ofQ' (D.cInnerSeq x.seq x.seq k)))
+      (CReal.mul (CReal.ofQ' (midpointRate (squaredHeatRate w)))
+        (D.cinnerRep x.seq x.seq)) :=
+    CReal.convergesTo_mul_general hconst hnorm
+  have heps : CReal.ConvergesTo
+      (fun _ : Nat => CReal.ofQ' ε) (CReal.ofQ' ε) := by
+    simpa using (CReal.convergesTo_self (CReal.ofQ' ε))
+  have hright : CReal.ConvergesTo
+      (fun k => CReal.add
+        (CReal.mul (CReal.ofQ' (midpointRate (squaredHeatRate w)))
+          (CReal.ofQ' (D.cInnerSeq x.seq x.seq k)))
+        (CReal.ofQ' ε))
+      (CReal.add
+        (CReal.mul (CReal.ofQ' (midpointRate (squaredHeatRate w)))
+          (D.cinnerRep x.seq x.seq))
+        (CReal.ofQ' ε)) :=
+    CReal.convergesTo_add hmul heps
+  apply CReal.leEv_of_convergesTo_le hleft hright
+  intro k
+  apply CReal.leEv_ofQ'_of_approx_ge
+  intro j
+  have hfinite := productMapQuotient_transfer_form_midpoint_le_add
+    n hw0 hw1 K hK ids hnodup hids (x.seq.seq k)
+    (x.centered k) ε hε
+  change D.cInnerSeq x.seq y k ≤
+    midpointRate (squaredHeatRate w) * D.cInnerSeq x.seq x.seq k + ε
+  exact hfinite
+
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate_sq_ge
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.productMapQuotient_transfer_form_midpoint_le_add
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_leEv
 
 end YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate
