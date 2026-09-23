@@ -92,7 +92,9 @@ with `κ * dist²_original ≤ dist²_one_step`.  From that explicit input,
 `reverseComparison` descends the reverse map to the completed carriers.
 `reverseComparison_comparison` and `comparison_reverseComparison` prove both
 quotient-level round trips, because the maps retain the same representative
-sequence.  The focused monitored target passed 84 jobs with only
+sequence.  `reverseComparison_intertwines` also transports the diagonal
+transfer action through the reverse map.  The focused monitored target passed
+84 jobs with only
 `{propext, Quot.sound}` and no `sorryAx`.  This is an honest conditional bridge:
 no BF4 coercivity
 witness, density theorem, strict physical gap, OS/scaling passage, continuum

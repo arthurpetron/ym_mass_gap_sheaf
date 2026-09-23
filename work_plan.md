@@ -163,7 +163,9 @@ then descends this transport through the quotient completion, with
 round-trip theorems `reverseComparison_comparison` and
 `comparison_reverseComparison` show that the two maps are inverse at the
 level of completion classes because both retain the same representative
-sequence; this is not a norm-isometry claim.
+sequence; this is not a norm-isometry claim.  The theorem
+`reverseComparison_intertwines` additionally transports the diagonal transfer
+action through the reverse map.
 
 The focused dependency-complete target passed 84 jobs with only
 `{propext, Quot.sound}` and no `sorryAx`.  This milestone does not prove the

@@ -150,6 +150,35 @@ theorem comparison_reverseComparison
       ((oneStepSmulGNSData D S.Dv hsa hpos).toGNSData.rad_refl (Y.seq n)))
     (Q'.le_of_lt hε)
 
+/-- The reverse map also intertwines the same diagonal action.  This is the
+operator-level form of the round-trip bridge and again uses only the shared
+representative sequence, not a spectral or norm argument. -/
+theorem reverseComparison_intertwines
+    {D : SmulGNSData} {S : DiagonalTransferSymbol D}
+    {hsub : ∀ a b, D.toGNSData.veq (S.Dv (D.toGNSData.sub a b))
+      (D.toGNSData.sub (S.Dv a) (S.Dv b))}
+    {hsa : ∀ a b, D.toGNSData.B a (S.Dv b) ≈ D.toGNSData.B (S.Dv a) b}
+    {hpos : ∀ a, (0 : Q') ≤ D.toGNSData.B a (S.Dv a)}
+    {hupper : ∀ a, D.toGNSData.B a (S.Dv a) ≤ D.toGNSData.B a a}
+    (certificate : ReverseComparisonCoercivity D S hsa hpos)
+    (x : GNSCompletionSpace (oneStepSmulGNSData D S.Dv hsa hpos).toGNSData) :
+    reverseComparison certificate
+        ((oneStepSymbol D S hsub hsa hpos hupper).TqSymb x) =
+      S.TqSymb (reverseComparison certificate x) := by
+  refine Quotient.inductionOn x ?_
+  intro Y
+  apply Quotient.sound
+  change CauchyNull D.toGNSData
+    (reverseComparisonCauchy certificate
+      ((oneStepSymbol D S hsub hsa hpos hupper).cDiagCauchy Y))
+    (S.cDiagCauchy (reverseComparisonCauchy certificate Y))
+  intro ε hε
+  refine ⟨0, fun n _ => ?_⟩
+  change D.toGNSData.distSqQ (S.Dv (Y.seq n)) (S.Dv (Y.seq n)) ≤ ε
+  exact Q'.le_trans' _ 0 ε
+    (Q'.le_of_eqv (D.toGNSData.rad_refl (S.Dv (Y.seq n))))
+    (Q'.le_of_lt hε)
+
 end YMGap.Continuum.PositiveContractionReverseComparison
 
 #print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparisonCauchy
@@ -158,3 +187,4 @@ end YMGap.Continuum.PositiveContractionReverseComparison
 #print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparison_embed
 #print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparison_comparison
 #print axioms YMGap.Continuum.PositiveContractionReverseComparison.comparison_reverseComparison
+#print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparison_intertwines

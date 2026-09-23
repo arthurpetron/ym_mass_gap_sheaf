@@ -27638,6 +27638,8 @@ embedded-representative identity is `reverseComparison_embed`.  The two
 quotient round trips are checked by
 `reverseComparison_comparison` and `comparison_reverseComparison`; they use
 only same-sequence nullity and do not assert norm isometry.
+`reverseComparison_intertwines` transports the diagonal transfer action
+through the reverse map by the same representative-sequence argument.
 
 The focused monitored target passed 84 jobs with only
 `{propext, Quot.sound}` and no `sorryAx`.  The BF4 coercivity witness itself
