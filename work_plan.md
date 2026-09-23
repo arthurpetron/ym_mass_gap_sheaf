@@ -167,6 +167,13 @@ sequence; this is not a norm-isometry claim.  The theorem
 `reverseComparison_intertwines` additionally transports the diagonal transfer
 action through the reverse map.
 
+`PositiveContractionReverseComparison` also offers
+`ReverseComparisonLeftInverse.toCoercivity`: a supplied explicit left inverse
+and a checked one-step-form distance bound compile to the required lower field
+with `κ = 1/C`.  This narrows a potential finite computational certificate to
+data Lean can independently verify; no such inverse is currently claimed for
+the BF4 operator.
+
 The focused dependency-complete target passed 84 jobs with only
 `{propext, Quot.sound}` and no `sorryAx`.  This milestone does not prove the
 coercivity certificate for BF4, and therefore does not construct centered

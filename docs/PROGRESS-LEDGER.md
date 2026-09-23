@@ -27641,6 +27641,11 @@ only same-sequence nullity and do not assert norm isometry.
 `reverseComparison_intertwines` transports the diagonal transfer action
 through the reverse map by the same representative-sequence argument.
 
+The computationally oriented `ReverseComparisonLeftInverse` structure and its
+`toCoercivity` compiler reduce the lower field to an explicit left inverse and
+one-step distance bound, with `κ = 1/C`; this is an available certificate
+format, not a BF4 inhabitant.
+
 The focused monitored target passed 84 jobs with only
 `{propext, Quot.sound}` and no `sorryAx`.  The BF4 coercivity witness itself
 is not constructed here.  Thus this milestone supplies a conditional bridge

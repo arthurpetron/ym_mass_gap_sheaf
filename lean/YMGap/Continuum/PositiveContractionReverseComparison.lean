@@ -23,6 +23,7 @@ set_option autoImplicit false
 open YMGap.Constructive
 open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.HamiltonianScalar
+open YMGap.Continuum.OSReconstructionProgress
 open YMGap.Continuum.PositiveContractionOneStepForm
 open YMGap.Continuum.PositiveContractionOneStepCompletion
 
@@ -40,6 +41,71 @@ structure ReverseComparisonCoercivity
   lower : ∀ a b : D.toGNSData.V,
     κ * D.toGNSData.distSqQ a b ≤
       (oneStepSmulGNSData D S.Dv hsa hpos).toGNSData.distSqQ a b
+
+/-- A more computationally oriented sufficient certificate for reverse
+coercivity.  An explicit left inverse of the one-step action, together with a
+finite distance bound for that inverse, produces the lower comparison with
+`κ = 1/C`.  This is useful for finite matrix or Rust-generated certificates:
+the inverse and its bound are data, while Lean checks the resulting
+inequality. -/
+structure ReverseComparisonLeftInverse
+    (D : SmulGNSData) (S : DiagonalTransferSymbol D)
+    (hsa : ∀ a b, D.toGNSData.B a (S.Dv b) ≈ D.toGNSData.B (S.Dv a) b)
+    (hpos : ∀ a, (0 : Q') ≤ D.toGNSData.B a (S.Dv a)) : Type where
+  R : D.toGNSData.V → D.toGNSData.V
+  left_inverse : ∀ a, D.toGNSData.veq (R (S.Dv a)) a
+  C : Q'
+  C_pos : (0 : Q') < C
+  dist_bound : ∀ a b,
+    D.toGNSData.distSqQ (R (S.Dv a)) (R (S.Dv b)) ≤
+      C * (oneStepSmulGNSData D S.Dv hsa hpos).toGNSData.distSqQ a b
+
+/-- Compile a bounded explicit left inverse into the lower comparison consumed
+by the reverse completion bridge. -/
+def ReverseComparisonLeftInverse.toCoercivity
+    {D : SmulGNSData} {S : DiagonalTransferSymbol D}
+    {hsa : ∀ a b, D.toGNSData.B a (S.Dv b) ≈ D.toGNSData.B (S.Dv a) b}
+    {hpos : ∀ a, (0 : Q') ≤ D.toGNSData.B a (S.Dv a)}
+    (certificate : ReverseComparisonLeftInverse D S hsa hpos) :
+    ReverseComparisonCoercivity D S hsa hpos where
+  κ := Q'.recipPos certificate.C certificate.C_pos
+  κ_pos := Q'.recipPos_pos certificate.C certificate.C_pos
+  lower := by
+    intro a b
+    let E := (oneStepSmulGNSData D S.Dv hsa hpos).toGNSData
+    have hleft : D.toGNSData.distSqQ a b ≤
+        certificate.C * E.distSqQ a b := by
+      have hbound := certificate.dist_bound a b
+      have hsub : D.toGNSData.veq
+          (D.toGNSData.sub (certificate.R (S.Dv a))
+            (certificate.R (S.Dv b)))
+          (D.toGNSData.sub a b) :=
+        D.toGNSData.add_congr (certificate.left_inverse a)
+          (D.toGNSData.neg_congr (certificate.left_inverse b))
+      have heq : (D.toGNSData.distSqQ
+          (certificate.R (S.Dv a)) (certificate.R (S.Dv b))).eqv
+            (D.toGNSData.distSqQ a b) := by
+        exact D.toGNSData.B_diag_congr hsub
+      exact le_of_eqv_le (Q'.eqv_symm heq) hbound
+    have hscaled := Q'.mul_le_mul_of_nonneg_left _ _
+      (Q'.recipPos certificate.C certificate.C_pos) hleft
+      (Q'.le_of_lt (Q'.recipPos_pos certificate.C certificate.C_pos))
+    have hright :
+        Q'.recipPos certificate.C certificate.C_pos *
+            (certificate.C * E.distSqQ a b) ≈ E.distSqQ a b := by
+      refine Q'.eqv_trans _ _ _
+        (Q'.eqv_symm
+          (Q'.mul_assoc_eqv (Q'.recipPos certificate.C certificate.C_pos)
+            certificate.C (E.distSqQ a b))) ?_
+      have hrecip :
+          (Q'.recipPos certificate.C certificate.C_pos * certificate.C).eqv 1 :=
+        Q'.eqv_trans _ _ _
+          (Q'.mul_comm_eqv _ _)
+          (Q'.mul_recipPos_eqv certificate.C certificate.C_pos)
+      refine Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right _ _ _ hrecip) ?_
+      exact Q'.one_mul_eqv _
+    exact le_of_le_eqv hscaled hright
 
 /-- Reverse transport of a one-step-form Cauchy sequence.  Its modulus is
 rescaled by the supplied coercivity constant. -/
@@ -182,6 +248,7 @@ theorem reverseComparison_intertwines
 end YMGap.Continuum.PositiveContractionReverseComparison
 
 #print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparisonCauchy
+#print axioms YMGap.Continuum.PositiveContractionReverseComparison.ReverseComparisonLeftInverse.toCoercivity
 #print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparisonCauchy_null
 #print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparison
 #print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparison_embed

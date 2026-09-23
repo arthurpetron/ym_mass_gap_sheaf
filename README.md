@@ -101,6 +101,12 @@ witness, density theorem, strict physical gap, OS/scaling passage, continuum
 theory, physical-mass calibration, all-group construction, or Clay conclusion
 is claimed.
 
+The same module also provides the computationally oriented
+`ReverseComparisonLeftInverse` certificate.  An explicit left inverse with a
+checked finite bound compiles constructively to the lower certificate using
+`κ = 1/C`; this is a possible finite-matrix or Rust-certificate producer, not
+an assertion that the BF4 operator already has such an inverse.
+
 The generic bridge is now attached to the actual BF4 reflected-joint carrier in
 `BF4PhysicalJointReverseComparison.lean`.  Its
 `PhysicalJointReverseComparisonCertificate` has only the missing finite BF4
