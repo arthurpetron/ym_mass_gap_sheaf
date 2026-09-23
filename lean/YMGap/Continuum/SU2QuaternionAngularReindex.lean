@@ -353,7 +353,7 @@ def blockAngularSquare (block : Nat) (polynomial : RatPoly) : RatPoly :=
     polyMul (blockAngularDerivative block i j polynomial)
       (blockAngularDerivative block i j polynomial))
 
-private theorem blockAngularSquare_supported
+theorem blockAngularSquare_supported
     {blocks block : Nat} (hblock : block < blocks)
     {polynomial : RatPoly} (hpolynomial : SupportedQuaternionBlocks blocks polynomial) :
     SupportedQuaternionBlocks blocks (blockAngularSquare block polynomial) := by
@@ -425,4 +425,5 @@ theorem reindex_blockAngularSquare_haar
 end YMGap.Continuum.SU2QuaternionAngularReindex
 
 #print axioms YMGap.Continuum.SU2QuaternionAngularReindex.reindex_ratDerivative
+#print axioms YMGap.Continuum.SU2QuaternionAngularReindex.blockAngularSquare_supported
 #print axioms YMGap.Continuum.SU2QuaternionAngularReindex.reindex_blockAngularSquare_haar

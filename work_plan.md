@@ -146,6 +146,21 @@ selected-link map, signed cross-covariance/telescoping estimate, uniform
 SAME-object gap, OS/GNS passage, continuum survival, physical mass, full QFT,
 and every-group route remain open.
 
+### Selected-block defect corollary (2026-09-22 UTC)
+
+**PROGRESS -- the two finite transport layers now compose:**
+`conjugatedHeadMap_defect_le_selected_block_energy` consumes
+`conjugatedHeadMap_defect_le_angular` and
+`reindex_blockAngularSquare_haar` to state the defect against the original
+selected block `s.map 0`.  The proof retains the explicit support guard and
+uses only the nonnegative factor `1 - w` to transport the Haar equality.
+
+This is still a local finite SU(2) estimate.  The interacting selected-link
+identification, signed multi-factor/telescoping estimate, uniform
+SAME-object variance bound, completed vacuum-complement gap, OS/GNS and
+scaling passage, continuum survival, physical mass, full QFT structure, and
+every-group route remain open.
+
 **Next mathematical estimate:** use the checked commutation and hybrid
 independence to telescope the actual kinetic quadratic defect with a
 controlled angular cost. On a fully active carrier the intended bound is

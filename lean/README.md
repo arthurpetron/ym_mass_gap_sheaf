@@ -80,6 +80,18 @@ continuum survival, physical mass, QFT axioms, and every-group construction
 remain open.  See
 `audits/AUDIT-ANGULAR-REINDEX-2026-09-22.md`.
 
+**Selected-block defect corollary (2026-09-22 UTC):**
+`SU2QuaternionConjugatedHeadHeatBlockEnergy.conjugatedHeadMap_defect_le_selected_block_energy`
+joins the preceding two finite results: the conjugated head defect is bounded
+by the Haar angular energy of the original block `s.map 0`, not merely by an
+unidentified recoded energy.  The support guard is explicit and the proof
+uses only nonnegative multiplication and equality transport.  This still
+does not identify the conjugated map with the physical interacting
+selected-link update, control signed multi-factor cross terms, or establish
+the SAME-object gap, OS/GNS passage, continuum survival, physical mass, full
+QFT axioms, or every-group construction.  See
+`audits/AUDIT-SELECTED-BLOCK-DEFECT-2026-09-22.md`.
+
 **Computed arbitrary-input harmonic decomposition (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionFischerDecomposition.decomposeHomogeneous` returns actual
 finite radial-harmonic modes by degree recursion, with the explicit
