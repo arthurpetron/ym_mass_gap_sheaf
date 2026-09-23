@@ -251,6 +251,29 @@ Monitored focused verification passed; both printed declarations use only
   completed OS/GNS gap, thermodynamic/continuum passage, physical-mass,
   full-QFT, every-group, or Clay conclusion.
 
+## PROVED finite projected-endpoint residual budget compiler (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridBudget.lean`.
+- **proved declarations**: `HybridInactiveResidualBudget`,
+  `hybridInactiveResidualBudget_of_abs`,
+  `hybridInactiveResidualBudget_of_square`,
+  `hybridMap_endpoint_bound_of_sweep_and_inactiveBudget`, and
+  `hybridMap_endpoint_bound_of_exposed_and_budgets`.
+- **proof content**: packages a nonnegative upper bound for the retained
+  inactive-projection square, constructs finite absolute and supported-square
+  inhabitants, and adds that budget to the exact sweep endpoint estimate to
+  obtain an actual projected `hybridMap` endpoint bound.
+- **open obligation**: replace the finite presentation-dependent residual
+  budget by a bound uniform in volume, cutoff, spacing, nome, and admissible
+  state family; populate the exposed-link pairing and uniform signed
+  cross-term inputs.
+- **constructive status**: focused monitored check passed; all five printed
+  declarations use only `{propext, Quot.sound}` and introduce no `sorry` or
+  new axiom.  Log: `/tmp/ym-gap-hybrid-budget-final.log`.
+- **scope**: finite ordinary-Haar SU(2) endpoint bookkeeping only; no
+  completed OS/GNS gap, thermodynamic/continuum passage, physical-mass,
+  full-QFT, every-group, or Clay conclusion.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.

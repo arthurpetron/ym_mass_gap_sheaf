@@ -344,6 +344,16 @@ uniform/compressible residual estimate is still required; this result does not
 close the signed cross-term, OS/GNS, continuum, physical-mass, or every-group
 frontiers.
 
+**Finite projected-endpoint budget compiler (2026-09-22 UTC):**
+`SU2QuaternionProductHeatHybridBudget.lean` packages the retained residual
+square in `HybridInactiveResidualBudget`.  The file supplies both a finite
+absolute-value inhabitant and a supported-square inhabitant, then proves that
+any sweep endpoint estimate transfers to `hybridMap` after adding the residual
+budget.  The combined compiler keeps the exposed-link and signed cross-term
+budgets explicit.  These values remain presentation-dependent and are not a
+uniform volume/cutoff/spacing/nome estimate, so the OS/GNS, continuum,
+physical-mass, and every-group frontiers remain open.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is

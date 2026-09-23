@@ -246,6 +246,18 @@ residual estimate; inactive projection has not been silently discarded, and
 the exposed-pairing, uniform cross-term, SAME-object OS/GNS, continuum,
 physical-mass, and every-group obligations remain open.
 
+**PROGRESS -- finite projected-endpoint budget compiler:**
+`SU2QuaternionProductHeatHybridBudget.lean` factors the retained residual into
+the minimal Type-level `HybridInactiveResidualBudget`.  Both an unconditional
+absolute-value inhabitant and a sharper supported-square inhabitant are
+available.  `hybridMap_endpoint_bound_of_sweep_and_inactiveBudget` adds this
+budget to any sweep-deficit bound, and
+`hybridMap_endpoint_bound_of_exposed_and_budgets` composes it with the checked
+exposed-stage/cross-term compiler.  The budget remains explicitly dependent
+on the displayed finite carrier, schedule, cutoff, and polynomial; no
+uniform residual estimate, exposed-link inhabitant, OS/GNS gap, continuum,
+physical-mass, or every-group conclusion is claimed.
+
 ### Conjugated finite head defect (2026-09-22 UTC)
 
 **PROGRESS -- the checked local angular defect is now transportable by an
