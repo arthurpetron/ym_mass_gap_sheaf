@@ -26,6 +26,13 @@ obligations remain open. Three focused checks passed 16 permitted gates;
 no new hole, axiom or full-root audit. See
 `audits/AUDIT-PRODUCT-HEAT-HYBRID-SWEEP-2026-09-21.md`.
 
+The same module now also proves `hybridMap_square` and
+`hybridMap_centered_square_bound`: the all-insertion carrier identity
+transfers the existing width-independent ordinary-Haar product contraction
+to the explicit conditional-link sweep, with its `squaredHeatRate w` and
+`headCutoff w ≤ K` guard unchanged. This is still not an OS/interacting
+spectral gap or a continuum statement.
+
 **Computed arbitrary-input harmonic decomposition (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionFischerDecomposition.decomposeHomogeneous` returns actual
 finite radial-harmonic modes by degree recursion, with the explicit

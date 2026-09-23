@@ -15,6 +15,7 @@ It proves no interacting, OS, physical-mass, or continuum gap.
 
 import YMGap.Continuum.SU2QuaternionWeightedProjectionSweep
 import YMGap.Continuum.SU2QuaternionProductHeatMarginals
+import YMGap.Continuum.SU2QuaternionProductHeatTensorization
 import YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
 
 namespace YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
@@ -35,7 +36,10 @@ open YMGap.Continuum.SU2QuaternionHeadChainComposition
 open YMGap.Continuum.SU2QuaternionHaarBlockProjection
 open YMGap.Continuum.SU2QuaternionHaarBlockConditionalAlgebra
 open YMGap.Continuum.SU2QuaternionRelativeHeatPairGeometry
+open YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison (headCutoff)
+open YMGap.Continuum.SU2QuaternionRelativeHeatContraction (squaredHeatRate)
 open YMGap.Continuum.SU2QuaternionProductHeatMarginals
+open YMGap.Continuum.SU2QuaternionProductHeatTensorization
 open YMGap.Continuum.SU2QuaternionWeightedProjectionSweep
 open YMGap.Continuum.SU2QuaternionSpareHeadCopy
 open YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
@@ -174,6 +178,40 @@ theorem hybridMap_quadratic (n : Nat) (w : Q') (K : Nat) (ids : List Nat)
       quaternionHaar n (polyMul p (productMap n w K ids p)) :=
   hybridMap_carrier n w K ids hn hids p p
 
+/- The carrier equality also identifies the square norm of the local sweep
+with the square norm of the original product operator. This uses the carrier
+identity twice, with the two possible insertions, and then only the
+coefficient commutativity of the polynomial product. -/
+theorem hybridMap_square (n : Nat) (w : Q') (K : Nat) (ids : List Nat)
+    (hn : ids.Nodup) (hids : ∀ i, i ∈ ids → i < n) (p : RatPoly) :
+    quaternionHaar n
+        (polyMul (hybridMap n w K ids p) (hybridMap n w K ids p)) ≈
+      quaternionHaar n
+        (polyMul (productMap n w K ids p) (productMap n w K ids p)) := by
+  have hleft := hybridMap_carrier n w K ids hn hids p
+    (hybridMap n w K ids p)
+  have hright := hybridMap_carrier n w K ids hn hids p
+    (productMap n w K ids p)
+  exact Q'.eqv_trans _ _ _ hleft
+    (Q'.eqv_trans _ _ _
+      (haar_of_coeff (RatPolyCoeffEqv.mul_comm
+        (hybridMap n w K ids p) (productMap n w K ids p))) hright)
+
+/- Consequently the checked, width-independent centered product contraction
+transfers verbatim to the explicit local-update sweep. This remains an
+ordinary-Haar finite estimate; it is not an OS or interacting-transfer gap. -/
+theorem hybridMap_centered_square_bound (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (K : Nat)
+    (hK : headCutoff w ≤ K) (ids : List Nat) (hn : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n) {f : RatPoly}
+    (hf : SupportedQuaternionBlocks n f) (hc : quaternionHaar n f ≈ 0) :
+    quaternionHaar n
+        (polyMul (hybridMap n w K ids f) (hybridMap n w K ids f)) ≤
+      squaredHeatRate w * quaternionHaar n (polyMul f f) := by
+  have hsq := hybridMap_square n w K ids hn hids f
+  have hprod := productMap_centered_square_bound n hw0 hw1 K hK ids hn hids hf hc
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hsq) hprod
+
 /-- A single selected update is exactly the local `headMap` after dropping
 its cleared source coordinates. All copied spectator coordinates survive. -/
 theorem head_update_eq (w : Q') (K : Nat) (p : RatPoly) :
@@ -193,3 +231,5 @@ end YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweep_pairing
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridMap_carrier
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridMap_quadratic
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridMap_square
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridMap_centered_square_bound

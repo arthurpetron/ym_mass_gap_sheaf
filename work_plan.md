@@ -57,6 +57,17 @@ consumes the sweep in the original energy, on the SAME signed source
 `u = V*g*f`, with the correction involving `P(V*g)-V*g` UNCHANGED.
 This proves an equality, not a sign or a bound for that correction.
 
+**PROGRESS -- the local sweep now inherits the checked product contraction:**
+`hybridMap_square` applies the all-insertion carrier identity twice and uses
+only coefficient commutativity to identify the hybrid output square with the
+original `productMap` output square. Consequently
+`hybridMap_centered_square_bound` transfers the existing
+`productMap_centered_square_bound` to the explicit conditional-link sweep,
+with the same width-independent `squaredHeatRate w` and the same explicit
+`headCutoff w ≤ K` guard. The result is a finite ordinary-Haar estimate on
+the actual local-update representation; it is not a new interacting or OS
+gap and it does not bound the signed endpoint correction.
+
 **Next mathematical estimate:** use the checked commutation and hybrid
 independence to telescope the actual kinetic quadratic defect with a
 controlled angular cost. On a fully active carrier the intended bound is
@@ -74,7 +85,9 @@ SAME-variance small rate, spatial/scaling survival, finite physical mass,
 canonical full QFT and every compact simple group remain OPEN.
 No canonical field, hole or axiom changed. Sol supplied the bounded sweep
 algebra; main supplied the actual-product and original-energy joins.
-Three focused checks passed 16 gates within `{propext, Quot.sound}`.
+The original milestone's three focused checks passed 16 gates within
+`{propext, Quot.sound}`; the follow-up square-norm check passed 12 printed
+declarations (10 repeated plus the 2 new theorems), with the same axiom set.
 The dependency-complete original-energy consumer passed; no full-root audit.
 Source map and verification scope:
 `audits/AUDIT-PRODUCT-HEAT-HYBRID-SWEEP-2026-09-21.md`.

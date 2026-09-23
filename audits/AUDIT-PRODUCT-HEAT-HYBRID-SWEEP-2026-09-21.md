@@ -27,20 +27,23 @@ All paths below are relative to the repository root.
 | `weightedSweep_supported`, `weightedSweep_independent` | `lean/YMGap/Continuum/SU2QuaternionWeightedProjectionSweep.lean:43`, `lean/YMGap/Continuum/SU2QuaternionWeightedProjectionSweep.lean:56` | Finite support and spectator independence persist. |
 | `weightedUpdate_comm` | `lean/YMGap/Continuum/SU2QuaternionWeightedProjectionSweep.lean:71` | Coefficientwise weighted-update commutation under the stated cross-independence premises. |
 | `pairing` | `lean/YMGap/Continuum/SU2QuaternionWeightedProjectionSweep.lean:107` | Exact original-Haar pairing with the full signed product and independent test. |
-| `heads_project_carrier` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:48` | Early lower integration preserves every surviving insertion. |
-| `hybrid_updates_comm` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:73` | Distinct original lower/upper pair updates commute coefficientwise. |
-| `hybridSweep_supported`, `hybridMap_supported` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:86`, `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:94` | Intermediate doubled-carrier and final one-slice support. |
-| `hybridSweep_lower_independent` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:103` | A processed lower coordinate stays cleared. |
-| `hybridSweep_unused_upper` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:123` | Unprocessed upper partners remain absent from the original lower-supported input. |
-| `hybridSweep_pairing` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:141` | Exact full original product-heat pairing before lower drop. |
-| `hybridMap_carrier`, `hybridMap_quadratic` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:159`, `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:171` | Original product-map equality with every surviving insertion, hence the same signed-input quadratic. |
-| `head_update_eq` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:179` | Literal head-chart pin to `headMap` after dropping the cleared lower coordinates. |
+| `heads_project_carrier` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:52` | Early lower integration preserves every surviving insertion. |
+| `hybrid_updates_comm` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:77` | Distinct original lower/upper pair updates commute coefficientwise. |
+| `hybridSweep_supported`, `hybridMap_supported` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:90`, `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:98` | Intermediate doubled-carrier and final one-slice support. |
+| `hybridSweep_lower_independent` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:107` | A processed lower coordinate stays cleared. |
+| `hybridSweep_unused_upper` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:127` | Unprocessed upper partners remain absent from the original lower-supported input. |
+| `hybridSweep_pairing` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:145` | Exact full original product-heat pairing before lower drop. |
+| `hybridMap_carrier`, `hybridMap_quadratic` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:163`, `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:175` | Original product-map equality with every surviving insertion, hence the same signed-input quadratic. |
+| `hybridMap_square`, `hybridMap_centered_square_bound` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:185`, `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:203` | The carrier identity identifies the hybrid output square with the original product output square, then transfers the existing length-independent centered `squaredHeatRate w` bound under the explicit `headCutoff w ≤ K` guard. |
+| `head_update_eq` | `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean:217` | Literal head-chart pin to `headMap` after dropping the cleared lower coordinates. |
 | `transferStep_hybrid_carrier` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialHybridEnergy.lean:39` | Original interacting transfer, including V, equals the hybrid map on the original Haar carrier. |
 | `energy_eq_hybrid_add_correction` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialHybridEnergy.lean:49` | Original energy consumes the hybrid kinetic quadratic of V*g*f; the signed endpoint correction is unchanged. |
 
 ## Boundary and next estimate
 
-The quantitative local theorem remains
+The stronger local theorem now also has an explicit ordinary-Haar centered
+square consequence for the hybrid representation. The quantitative
+interacting/OS theorem remains
 `headMap_defect_le_angular` at
 `lean/YMGap/Continuum/SU2QuaternionHeadHeatDiagonal.lean:271`.
 The new identities do not themselves telescope its bound over changing
@@ -70,7 +73,10 @@ product/energy joins and ran all verification serially. Sol's independent
 read-only scope review passed: spectators, inactive links, operator identity
 strength and the signed correction are represented faithfully.
 
-Three focused checks passed **16 printed gates**, all within
+Three focused checks for the original sweep/energy milestone passed **16
+printed gates**. A follow-up focused check for the two new square-norm
+theorems passed **12 printed declarations** (10 repeated plus the 2 new
+theorems). All were within
 `{propext, Quot.sound}`. The dependency-complete target
 `+YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy:olean` also passed.
 One capped 20 GiB worker, 12 GiB reserve and monitored swap limits were used.
@@ -82,6 +88,7 @@ were added; this does not imply full-root verification.
 | `/tmp/ym-gap-weighted-projection-sweep-check.log` | `546005d1822cae9fb95d328150be89fbaf082ebdbdecbd8bf0c1967d0e6dfaa8` |
 | `/tmp/ym-gap-product-heat-hybrid-sweep-check.log` | `9a0e651be286548e98a02786f0691a4c62754710fd4955f560078ad1fddcc419` |
 | `/tmp/ym-gap-fixed-spatial-hybrid-energy-check.log` | `300c77f6872ac887423708c19d24e1691fdda2f0545e69e28f0fceeae3cce2c1` |
+| `/tmp/ym_hybrid_square_check3.log` | `7313ab4677d4c2a427d6f9bd0def065605e1d0d720744bd38741f6036fa0fef3` |
 
 The final target log `/tmp/ym-gap-fixed-spatial-hybrid-energy-build.log`
 is empty under the quiet launcher; its monitored command completed with
