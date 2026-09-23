@@ -69,6 +69,10 @@ The quotient module also exposes `productMapQuotient_qInner_mk`,
 pairing and norm-square have explicit finite-Haar representatives, and the
 centered representative satisfies the existing squared-rate estimate.
 
+It also proves `productMapQuotient_qAdd_mk` and
+`productMapQuotient_qNeg_mk`, so the descended map respects the quotient's
+addition and negation on representatives.
+
 ## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`.

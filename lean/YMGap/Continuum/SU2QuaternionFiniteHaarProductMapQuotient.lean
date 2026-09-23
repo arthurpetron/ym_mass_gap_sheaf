@@ -122,6 +122,55 @@ theorem productMapQuotient_mk
         ((finiteHaarGNSData n).qmk p) =
       (finiteHaarGNSData n).qmk (productMapRep n w K ids hids p) := rfl
 
+private theorem rad_of_veq {D : GNSData} {a b : D.V}
+    (h : D.veq a b) : D.rad a b := by
+  have hz : D.veq (D.sub a b) D.zero :=
+    D.veq_trans (D.add_congr h (D.veq_refl (D.neg b)))
+      (D.veq_trans (D.add_comm b (D.neg b)) (D.neg_add b))
+  exact Q'.eqv_trans _ _ _ (D.B_diag_congr hz) (D.B_zero_left D.zero)
+
+theorem productMapQuotient_qAdd_mk
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (p q : (finiteHaarGNSData n).V) :
+    productMapQuotient n hw0 hw1 K hK ids hnodup hids
+        ((finiteHaarGNSData n).qAdd
+          ((finiteHaarGNSData n).qmk p) ((finiteHaarGNSData n).qmk q)) =
+      (finiteHaarGNSData n).qAdd
+        (productMapQuotient n hw0 hw1 K hK ids hnodup hids
+          ((finiteHaarGNSData n).qmk p))
+        (productMapQuotient n hw0 hw1 K hK ids hnodup hids
+          ((finiteHaarGNSData n).qmk q)) := by
+  apply Quotient.sound
+  apply rad_of_veq
+  change RatPolyCoeffEqv
+    (productMap n w K ids (polyAdd p.val q.val))
+    (polyAdd (productMap n w K ids p.val)
+      (productMap n w K ids q.val))
+  exact productMap_add n w K ids p.val q.val
+
+theorem productMapQuotient_qNeg_mk
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (p : (finiteHaarGNSData n).V) :
+    productMapQuotient n hw0 hw1 K hK ids hnodup hids
+        ((finiteHaarGNSData n).qNeg ((finiteHaarGNSData n).qmk p)) =
+      (finiteHaarGNSData n).qNeg
+        (productMapQuotient n hw0 hw1 K hK ids hnodup hids
+          ((finiteHaarGNSData n).qmk p)) := by
+  apply Quotient.sound
+  apply rad_of_veq
+  change RatPolyCoeffEqv
+    (productMap n w K ids (polySmul (-1) p.val))
+    (polySmul (-1) (productMap n w K ids p.val))
+  exact productMap_smul n w K ids (-1) p.val
+
 /-! ## Same-object pairing and finite centered estimate -/
 
 theorem productMapQuotient_qInner_mk
@@ -180,6 +229,8 @@ end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapRep_rad_congr
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_mk
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qAdd_mk
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qNeg_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qInner_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qNormSq_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_centered_square_bound

@@ -84,6 +84,11 @@ the finite centered squared-rate estimate as
 representative-level finite bound; it is not an order or contraction theorem
 on the completed Hilbert space.
 
+The map also commutes with quotient addition and negation on representatives
+(`productMapQuotient_qAdd_mk`, `productMapQuotient_qNeg_mk`), giving the finite
+quotient transfer candidate its expected additive structure.  Scalar descent
+and an ordered completed-space contraction remain separate obligations.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**
