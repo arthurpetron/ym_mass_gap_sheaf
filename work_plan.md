@@ -216,6 +216,14 @@ square times the weighted square of the explicit defect
 uniform argument must control; it does not turn the defect into a uniform
 constant and still requires the strict finite spatial-certificate hypotheses.
 
+**NEW FACTORIZED FINITE CAP --**
+`correction_square_le_factorized_intervalCap` bounds the two weighted squares
+separately by their own polynomial-interval caps times the same spatial Haar
+mass.  The correction budget is therefore exposed as
+`(sourceCap² · H[V]) · (defectCap² · H[V])`, rather than one cap for the
+combined correction polynomial.  The caps remain presentation-, width-, and
+cutoff-dependent; this is a finite compiler, not the missing uniform estimate.
+
 This does **not** provide the needed uniform correction estimate.  The
 presentation cap can grow with width, cutoff, coupling, and source degree;
 producing a volume-/cutoff-controlled bound for the actual endpoint source
@@ -228,7 +236,8 @@ for the same source and parameters.
 
 Focused monitored verification of
 `BF4ExactSlabFixedSpatialHybridEnergy.lean` passed; all printed declarations,
-including the new weighted defect-square estimate and the finite consequences, use only
+including the weighted defect-square estimate, its factorized interval-cap
+consequence, and the finite consequences, use only
 `{propext, Quot.sound}`.  No dependency-complete or full-root audit is
 claimed.
 

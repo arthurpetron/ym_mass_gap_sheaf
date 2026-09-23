@@ -143,7 +143,7 @@ private theorem endpointCorrectionPolynomial_supported
         (activeBlocks_lt width) ha)
       (supported_polyNeg_local ha))
 
-private def endpointDefect (w : Q') (K width : Nat) (g : RatPoly) : RatPoly :=
+def endpointDefect (w : Q') (K width : Nat) (g : RatPoly) : RatPoly :=
   polyAdd
     (productMap (N width) w K (activeBlocks width)
       (endpointSource w K width g))
@@ -179,6 +179,22 @@ private theorem qmul {a b c d : Q'} (h : a ≈ b) (k : c ≈ d) :
   Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ h)
     (Q'.mul_eqv_congr_left _ _ _ k)
 
+private theorem weightedPair_square_le_intervalCap
+    {blocks : Nat} {W p : RatPoly} {c : Q'}
+    (hW : Certificate blocks W) (P : Interval blocks p c) :
+    weightedPair blocks W p p ≤ c*c * quaternionHaar blocks W := by
+  have hbound := P.mul P |>.weighted_haar_bound hW
+  have hpair : weightedPair blocks W p p ≈
+      quaternionHaar blocks (polyMul W (polyMul p p)) := by
+    unfold weightedPair
+    exact haar_of_coeff (coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.var 0) (.var 0)) (.var 1))
+      (.mul (.var 1) (.mul (.var 0) (.var 0)))
+      (by decide) (fun | 0 => p | _ => W))
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hpair)
+    (Q'.le_trans' _ _ _ (Q'.le_abs_self _)
+      hbound)
+
 /-- Weighted Cauchy–Schwarz exposes the actual endpoint-defect norm.  This is
 finite, keeps the original spatial action, and does not replace the signed
 correction by a coefficient cap. -/
@@ -203,8 +219,58 @@ theorem correction_square_le_weightedEndpointDefect
   have hcs := weighted_cauchySchwarz (N width) (spatialWeight w K width)
     (polyMul g (polyMul f f)) (endpointDefect w K width g) hV hp hd
   exact Q'.le_trans' _ _ _
-    (Q'.le_of_eqv (qmul (correction_eq_weightedEndpointPair w K width g f)
+      (Q'.le_of_eqv (qmul (correction_eq_weightedEndpointPair w K width g f)
       (correction_eq_weightedEndpointPair w K width g f))) hcs
+
+/-- Factor the finite correction budget into separate source and defect caps.
+
+The two caps come from intervals for the same weighted source and the explicit
+endpoint defect.  This is still presentation-dependent finite data, but it
+keeps the action mass and the two distinct analytic quantities visible instead
+of hiding them in one interval for the whole correction polynomial. -/
+theorem correction_square_le_factorized_intervalCap
+    (w : Q') (K width : Nat) (g f : RatPoly)
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (hK : headCutoff w ≤ K)
+    (hg : SupportedQuaternionBlocks (N width) g)
+    (hf : SupportedQuaternionBlocks (N width) f) :
+    correction w K width g f * correction w K width g f ≤
+      (polynomialCap (polyMul g (polyMul f f)) *
+          polynomialCap (polyMul g (polyMul f f)) *
+          quaternionHaar (N width) (spatialWeight w K width)) *
+        (polynomialCap (endpointDefect w K width g) *
+          polynomialCap (endpointDefect w K width g) *
+          quaternionHaar (N width) (spatialWeight w K width)) := by
+  have hV : Certificate (N width) (spatialWeight w K width) :=
+    spatialCertificate hw0 hw1 K width (N width) (Nat.le_refl _) hK
+  have hp : SupportedQuaternionBlocks (N width)
+      (polyMul g (polyMul f f)) :=
+    supported_polyMul hg (supported_polyMul hf hf)
+  have hd : SupportedQuaternionBlocks (N width)
+      (endpointDefect w K width g) := endpointDefect_supported w K width g hg
+  have hsrc := weightedPair_square_le_intervalCap hV
+    (polynomialInterval (N width) (polyMul g (polyMul f f)) hp)
+  have hdef := weightedPair_square_le_intervalCap hV
+    (polynomialInterval (N width) (endpointDefect w K width g) hd)
+  have hsrc0 : (0 : Q') ≤ weightedPair (N width) (spatialWeight w K width)
+      (polyMul g (polyMul f f)) (polyMul g (polyMul f f)) := by
+    unfold weightedPair
+    exact hV.square_insertion_nonnegative _ hp
+  have hdef0 : (0 : Q') ≤ weightedPair (N width) (spatialWeight w K width)
+      (endpointDefect w K width g) (endpointDefect w K width g) := by
+    unfold weightedPair
+    exact hV.square_insertion_nonnegative _ hd
+  have hsrcCap0 : (0 : Q') ≤
+      polynomialCap (polyMul g (polyMul f f)) *
+        polynomialCap (polyMul g (polyMul f f)) *
+        quaternionHaar (N width) (spatialWeight w K width) := by
+    exact Q'.mul_nonneg _ _
+      (Q'.mul_nonneg _ _ (polynomialCap_nonnegative _) (polynomialCap_nonnegative _))
+      hV.haar_nonnegative
+  have hmul := Q'.mul_le_mul_of_nonneg hsrc hdef hsrcCap0 hdef0
+  exact Q'.le_trans' _ _ _
+    (correction_square_le_weightedEndpointDefect w K width g f hw0 hw1 hK hg hf)
+    hmul
 
 /-- A finite, explicit (presentation-dependent) inhabitant of the correction
 budget interface.  It is obtained from the repository's polynomial interval
@@ -340,6 +406,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.transferStep_hybrid_carrier
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.energy_eq_hybrid_add_correction
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.correction_square_le_weightedEndpointDefect
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.correction_square_le_factorized_intervalCap
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.bareEnergy_le_endpointSquare
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.energy_le_endpointSquare_add_signedCorrectionBudget
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.finiteSignedEndpointCorrectionBudget

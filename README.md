@@ -174,6 +174,9 @@
 > Cauchy--Schwarz bounds its square by the weighted source square times the
 > weighted square of the explicit defect `P(V*g) - V*g`. This finite estimate
 > identifies the next uniform quantity without asserting that it is bounded.
+> A second checked consequence factors the finite cap into separate source and
+> defect interval caps, each multiplied by the same spatial Haar mass. This
+> keeps the two prospective uniform inputs visible; neither cap is uniform yet.
 > The actual two-link heat packet now has checked all-degree harmonic
 > reproduction with the exact dimension normalization. It gives the
 > Casimir multiplier `w^(n*(n+2))` on a degree-n harmonic when n<=K,
