@@ -34,6 +34,34 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   passed 6077 jobs; both declarations report only `{propext, Quot.sound}` and
   introduce no `sorryAx` or classical axiom.
 
+## PROVED inhabited marginal/geometric completed-family staging object (2026-09-23 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalMarginalGeometricCompletedFamily.lean`.
+- **proved declarations**:
+  `marginalHalfGeometricCompletedFamily`,
+  `marginalHalfGeometricCompletedFamily_spacing_to_zero`,
+  `marginalHalfGeometricCompletedFamily_rate`,
+  `marginalHalfGeometricCompletedFamily_rate_pos`,
+  `marginalHalfGeometricCompletedFamily_rate_lt_one`, and
+  `marginalHalfGeometricCompletedFamily_autocorrelation_sq_decay`, and
+  `marginalHalfGeometricCompletedFamily_concrete_cube_autocorrelation_sq_decay`.
+- **proof content**: the family uses the already inhabited marginal
+  contraction at `w = 1/2` at every scale and the explicit geometric spacing
+  modulus.  Its rate identity and same-object decay are inherited from the
+  existing completed-sector declarations without changing carrier or
+  observable.
+- **scope**: this is an inhabited staging family only.  Because the lattice
+  margin is fixed while spacing tends to zero, it supplies no physical-rate
+  band or physical-gap variation and does not establish thermodynamic,
+  continuum, OS/QFT, all-group, or Clay closure.
+- **observable join**: the final declaration specializes the family decay to
+  the literal moving-centered cube and the same completed inner product stored
+  by the concrete SU(2) carrier certificate; no surrogate observable is used.
+- **verification**: focused dependency-complete safe build of
+  `+YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily:olean`
+  passed 6078 jobs; all printed declarations report only
+  `{propext, Quot.sound}` and introduce no `sorryAx`.
+
 ## PROVED physical completed-carrier fixed-point exclusion (2026-09-23 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean`.

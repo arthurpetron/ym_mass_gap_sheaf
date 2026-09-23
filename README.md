@@ -125,6 +125,28 @@ semigroup, beta/spacing-uniform, thermodynamic, continuum, QFT, all-group, or
 Clay theorem.  The focused dependency-complete check passed with only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+The fixed-nome result now also has an inhabited dynamic staging object:
+`BF4PhysicalMarginalGeometricCompletedFamily.lean` constructs
+`marginalHalfGeometricCompletedFamily`, which retains the actual completed
+SU(2) marginal carrier and transfer at every scale while attaching the
+explicit geometric spacing `(1/2)^scale` and its constructive zero modulus.
+Its rate is exactly the fixed `cutoffUniformRate 1/2`, with positivity,
+strictness, and same-object decay exported separately.  This is deliberately
+not a physical-rate-band or continuum construction: the lattice margin is
+fixed as the spacing vanishes, so physical-gap variation, thermodynamic/OS/QFT
+passage, all groups, and the Clay target remain open.  The focused
+dependency-complete check passed 6078 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
+The same staging module now specializes that family-level law to the literal
+moving-centered cube through
+`marginalHalfGeometricCompletedFamily_concrete_cube_autocorrelation_sq_decay`.
+The specialization is definitionally the existing concrete carrier's
+`concreteSameObjectAutocorrelation` and completed inner product; it introduces
+no replacement observable or transfer.  This closes the observable-connection
+seam for the geometric staging object only.  It remains distinct from a
+physical-rate-band, thermodynamic, continuum, QFT, all-group, or Clay result.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

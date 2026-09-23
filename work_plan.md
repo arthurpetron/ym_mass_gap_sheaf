@@ -25,6 +25,23 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Literal observable join for the geometric staging family (2026-09-23 UTC)
+
+`BF4PhysicalMarginalGeometricCompletedFamily.lean` now exports
+`marginalHalfGeometricCompletedFamily_concrete_cube_autocorrelation_sq_decay`.
+It specializes the scale-zero member of the inhabited geometric staging family
+to the existing literal moving-centered cube via the same
+`concreteSameObjectAutocorrelation` and completed cylinder inner product. Thus
+the family-level decay law is now explicitly observable-connected without
+changing the carrier, transfer, or vector.
+
+This is still a staging result: the nome is fixed at `1/2` while the attached
+spacing tends to zero. No physical-rate band, beta/spacing variation,
+thermodynamic or continuum passage, OS/QFT reconstruction, all-group theorem,
+or Clay conclusion follows. The focused dependency-complete target passed
+6078 jobs; the new declaration uses only `{propext, Quot.sound}` and no
+`sorryAx`.
+
 ### Original connected spatial diagonal now has explicit Cauchy data (2026-09-22 UTC)
 
 `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean` now exposes
@@ -272,6 +289,25 @@ physical SU(2) carrier.  It is not a generator-spectrum theorem, an OS
 semigroup statement, a beta/spacing-uniform gap, or a thermodynamic,
 continuum, QFT, all-group, or Clay result.  The focused dependency-complete
 target passed with only `{propext, Quot.sound}` and no `sorryAx`.
+
+### Inhabited marginal/geometric completed-family staging object (2026-09-23 UTC)
+
+`BF4PhysicalMarginalGeometricCompletedFamily.lean` now constructs
+`marginalHalfGeometricCompletedFamily`, an inhabited
+`DynamicVacuumSectorCompletedFamily 0`.  At every scale it retains the actual
+completed SU(2) marginal sector at the fixed nome `w = 1/2`, while attaching
+the explicit geometric spacing `(1/2)^scale` and its constructive
+`SpacingToZero` modulus.  The exact rate is pinned to
+`cutoffUniformRate 1/2`; its positivity, strict subunit bound, and the
+same-object completed autocorrelation decay are exported as separate
+declarations.
+
+This is a staging family, not a continuum mass-gap certificate: its lattice
+margin is fixed while its spacing vanishes, so no finite two-sided physical
+rate band, physical-gap variation, thermodynamic/continuum passage, OS/QFT
+reconstruction, all-group theorem, or Clay conclusion is claimed.  The
+focused dependency-complete target passed 6078 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.
 
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
