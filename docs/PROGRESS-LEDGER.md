@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: endpoint bound on dense completed vectors (2026-09-23)
+## Current increment: dense physical tests detect completed zero (2026-09-23)
+
+`BF4PhysicalCutoffPairingCompletionAdapter` constructs the generic quantitative
+pairing interface from existing physical estimates and identifies its completion
+with the original physical pairing. Its zero-separation consumer now proves that
+vanishing against every dense finite-linear observable implies a zero vector in
+the global physical cutoff completion. This reuses generic analytic machinery
+without assuming a new continuity, pairing or separation law. It does not yet
+turn persistent sector coordinates into those dense pairings or prove vacuum
+uniqueness, a uniform gap or any physical/continuum join.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-physical-pairing-adapter-check-2.log`; all four public gates contain
+only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
+## Previous increment: endpoint bound on dense completed vectors (2026-09-23)
 
 `BF4PhysicalCutoffVacuumSectorPersistentPathEnergyLimit` passes the existing
 finite bound to the explicit pulled twice-deficit and identifies it with twice

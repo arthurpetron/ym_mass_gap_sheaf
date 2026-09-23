@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## Proved physical separation: dense pairings detect completed zero (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCutoffPairingCompletionAdapter.lean`.
+- **construction**: `physicalPairingData` uses existing physical estimates and
+  Type-level regularity data; `completedInner_eq_centralPhysicalCutoffCompletedInner`
+  identifies the generic construction with the original completed pairing.
+- **consumer**: `completed_eq_zero_of_dense_pairings_zero` proves zero-vector
+  separation by all dense finite-linear tests on the global physical completion.
+- **residue**: a sector-coordinate/pairing formula or alternative tail proof,
+  sector-vacuum identification and arbitrary-vector endpoint-energy control.
+  No coordinate-separation, fixed-vector uniqueness, uniform gap or continuum
+  result is claimed. No canonical field, hole or axiom changed.
+- **verification**: monitored 20 GiB leaf check; all four public axiom gates
+  contain only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
 ## Proved dense completed-form estimate: persistent endpoint energy (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPersistentPathEnergyLimit.lean`.

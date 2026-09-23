@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Dense physical pairings separate completed zero (2026-09-23 UTC)
+
+`BF4PhysicalCutoffPairingCompletionAdapter.physicalPairingData` constructs the
+generic quantitative pairing data from the existing physical limiting form,
+retaining its inner regularity rate as Type-level `QCauchy` data. The generic
+representative and completed pairings are proved equal to the existing physical
+ones, not substituted for them. The consumer
+`completed_eq_zero_of_dense_pairings_zero` then proves that a vector in the
+global physical cutoff completion pairing to zero against every dense
+finite-linear observable is itself zero. It uses convergence against dense
+stages and the generic positive-definiteness theorem; no new continuity or
+separation hypothesis is assumed.
+
+This does not identify persistent coordinates with dense pairings, or discharge
+sector-coordinate separation or the sector-vacuum issue. Those are still needed
+for the proposed fixed-vector argument. Verification: monitored 20 GiB leaf
+check, `/tmp/ym-gap-physical-pairing-adapter-check-2.log`; all four public gates
+contain only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root
+audit, common strict gap, same-Yang--Mills identification or continuum closure.
+
 ### Persistent endpoint bound reaches the dense completed Dirichlet form (2026-09-23 UTC)
 
 `BF4PhysicalCutoffVacuumSectorPersistentPathEnergyLimit.fixedBaseFloor_mul_endpoint_sq_leEv_pulledDirichletLimit`
@@ -68,8 +88,8 @@ the qualitative rigidity route needs a proved separation/tail argument and
 the correct sector-vacuum identification. Orthogonality to the global vacuum
 must not be confused with vanishing of the root coordinate, nor may the global
 vacuum silently be treated as a vector of the sector completion. The generic
-dense-test pairing machinery is a reusable route, but its physical adapter and
-coordinate-pairing identification are not yet checked. Uniform strictness and
+dense-test pairing machinery now has the checked physical adapter above, but
+the sector-coordinate/pairing identification remains open. Uniform strictness and
 all same-theory, physical-mass, continuum/QFT and every-group joins remain open.
 
 ### Persistent path energy for arbitrary cylinder presentations (2026-09-23 UTC)
