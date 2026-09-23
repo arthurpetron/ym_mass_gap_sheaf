@@ -74,6 +74,15 @@ The dependency-complete monitored target
 5,496 jobs with one worker.  The three new declarations report only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+The same module now consumes that comparison in
+`fineUnitCouplingPhysicalRawColumnCross_sub_receiver_abs_le_global_casimir`,
+which bounds the matched-AF receiver cross defect by
+`8 * g^2 * (physical partition * physical Casimir moment)`.  This is the next
+finite causal join from localized signed perturbation to a global carrier
+quantity.  The partition and Casimir moment remain slab-dependent, so the
+uniform strict form bound, completed spectral gap, OS/scaling passage,
+physical mass, QFT axioms, and all-group construction remain open.
+
 The same module now proves the fixed-coupling reciprocal refinements
 `fineCouplingPhysicalPartitionMarginSum_le_reciprocal` and
 `fineCouplingPhysicalPartitionSquareMargin_le_reciprocal`, using the explicit

@@ -35,6 +35,13 @@ the localized reference perturbation to the same global finite carrier, but its
 slab dependence is explicit; it is not a cutoff/volume/beta-uniform estimate,
 an OS transfer gap, a thermodynamic/continuum passage, or the Clay theorem.
 
+That carrier comparison is now consumed by
+`fineUnitCouplingPhysicalRawColumnCross_sub_receiver_abs_le_global_casimir`:
+the matched-AF receiver cross defect is bounded by the explicit finite scalar
+`8 * g^2 * (physical partition * physical Casimir moment)`.  The result is a
+same-carrier composition only; the global moment and partition still depend on
+the slab, so no uniform strict form bound or continuum conclusion follows.
+
 The finite ordinary-Haar carrier is now also explicit:
 `SU2QuaternionFiniteHaarGNSCarrier.lean` packages supported quaternion
 polynomials into one finite `GNSData` with a radical quotient, normalized unit

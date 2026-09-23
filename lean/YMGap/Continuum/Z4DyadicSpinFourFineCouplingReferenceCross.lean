@@ -1004,6 +1004,79 @@ theorem fineUnitCouplingPhysicalRawColumnCross_sub_receiver_abs_le_two_square_mu
     (fineUnitCouplingPushedRawColumnCross_sub_actual_abs_le_two_square_mul_moment
       K hfineCoupling_le_one family law g hg hgle hcoupling root target)
 
+/-! ## 5. Global finite Casimir payment -/
+
+/-- The matched-AF receiver cross defect is bounded by the global physical
+Casimir moment.  This is the finite same-carrier composition of the localized
+perturbation estimate with the Cartesian carrier comparison; its displayed
+partition and moment remain slab-dependent. -/
+theorem fineUnitCouplingPhysicalRawColumnCross_sub_receiver_abs_le_global_casimir
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (family : MatchedBlockFamily)
+    (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g)
+    (root target : Nat) :
+    Q'.abs
+        (fineUnitCouplingPushedRawColumnCross
+            (physicalKernel S hfineCutoff hcoarseCoupling) root target -
+          positiveExpandedAssignmentSaturatedReceiverRawColumnCross
+            S hfineCutoff hcoarseCoupling root target) ≤
+      (Q'.ofNat 8 * (g * g)) *
+        (fineUnitCouplingPhysicalPartition S *
+          fineUnitCouplingPhysicalCasimirMoment S) := by
+  let K := physicalKernel S hfineCutoff hcoarseCoupling
+  have hlocal :=
+    fineUnitCouplingPhysicalRawColumnCross_sub_receiver_abs_le_two_square_mul_moment
+      S hfineCutoff hcoarseCoupling hfineCoupling_le_one
+      family law g hg hgle hcoupling root target
+  have hmoment :=
+    fineUnitCouplingLocalizedFourCellCasimirMoment_le_global
+      K root target
+  have hscalar0 : (0 : Q') ≤ Q'.ofNat 2 * (g * g) :=
+    Q'.mul_nonneg _ _ (by decide)
+      (Q'.mul_nonneg _ _ (Q'.le_of_lt hg) (Q'.le_of_lt hg))
+  have hscaled := Q'.mul_le_mul_of_nonneg_left _ _
+    (Q'.ofNat 2 * (g * g)) hmoment hscalar0
+  refine Q'.le_trans' _ _ _ hlocal
+    (Q'.le_trans' _ _ _ hscaled (Q'.le_of_eqv ?_))
+  have hconst : Q'.ofNat 2 * Q'.ofNat 4 ≈ Q'.ofNat 8 := by
+    refine Q'.eqv_trans _ (Q'.ofNat 4 + Q'.ofNat 4) _ ?_ ?_
+    · exact Q'.eqv_symm (addSelf_eqv_twoMul (Q'.ofNat 4))
+    · exact Q'.eqv_symm (Q'.ofNat_add_eqv 4 4)
+  let x := g * g
+  let y := fineUnitCouplingPhysicalPartition S *
+    fineUnitCouplingPhysicalCasimirMoment S
+  have hprod :
+      (Q'.ofNat 2 * x) * (Q'.ofNat 4 * y) ≈
+        (Q'.ofNat 8 * x) * y := by
+    refine Q'.eqv_trans _ (Q'.ofNat 2 *
+        (x * (Q'.ofNat 4 * y))) _
+      (Q'.mul_assoc_eqv (Q'.ofNat 2) x (Q'.ofNat 4 * y)) ?_
+    refine Q'.eqv_trans _ (Q'.ofNat 2 * ((x * Q'.ofNat 4) * y)) _
+      (Q'.mul_eqv_congr_left (Q'.ofNat 2) _ _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv x (Q'.ofNat 4) y))) ?_
+    refine Q'.eqv_trans _ (Q'.ofNat 2 *
+        ((Q'.ofNat 4 * x) * y)) _ ?_ ?_
+    · exact Q'.mul_eqv_congr_left (Q'.ofNat 2) _ _
+        (Q'.mul_eqv_congr_right (x * Q'.ofNat 4)
+          (Q'.ofNat 4 * x) y
+          (Q'.mul_comm_eqv x (Q'.ofNat 4)))
+    · refine Q'.eqv_trans _ (Q'.ofNat 2 *
+          (Q'.ofNat 4 * (x * y))) _
+        (Q'.mul_eqv_congr_left (Q'.ofNat 2) _ _
+          (Q'.mul_assoc_eqv (Q'.ofNat 4) x y)) ?_
+      refine Q'.eqv_trans _ ((Q'.ofNat 2 * Q'.ofNat 4) * (x * y)) _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv
+          (Q'.ofNat 2) (Q'.ofNat 4) (x * y))) ?_
+      refine Q'.eqv_trans _ (Q'.ofNat 8 * (x * y)) _
+        (Q'.mul_eqv_congr_right _ _ (x * y) hconst) ?_
+      exact Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat 8) x y)
+  simpa only [x, y] using hprod
+
 #print axioms slabParametricKPhysicalTerm_le_atOne
 #print axioms pushedPhysicalTargetRawMass_nonnegative
 #print axioms fineUnitCouplingPushedTargetRawMass_nonnegative
@@ -1018,5 +1091,6 @@ theorem fineUnitCouplingPhysicalRawColumnCross_sub_receiver_abs_le_two_square_mu
 #print axioms fineUnitCouplingPushedRawColumnCross_sub_actual_abs_le_margin_mul_moment
 #print axioms fineUnitCouplingPushedRawColumnCross_sub_actual_abs_le_two_square_mul_moment
 #print axioms fineUnitCouplingPhysicalRawColumnCross_sub_receiver_abs_le_two_square_mul_moment
+#print axioms fineUnitCouplingPhysicalRawColumnCross_sub_receiver_abs_le_global_casimir
 
 end YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferenceCross
