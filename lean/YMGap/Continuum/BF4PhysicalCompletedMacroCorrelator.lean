@@ -79,6 +79,61 @@ def centralPhysicalCompletedObservable
     CentralPhysicalGNSCompletion w hw K half :=
   embedV (centralPhysicalSmulGNS w hw K half).toGNSData observable
 
+/-- A single finite physical SU(2) carrier certificate.  Every field refers to
+the same marginal-weighted GNS completion and the same already-composed BF4
+macro transfer.  The certificate deliberately carries finite parameters
+`(w,K,half)`; it is not a uniform spectral-gap or continuum package. -/
+structure CompletedPhysicalSU2CarrierCertificate
+    (w : Q') (hw : (0 : Q') ≤ w) (K half : Nat) : Type where
+  vacuum_norm :
+    (centralPhysicalSmulGNS w hw K half).toGNSData.cinnerCompl
+        (centralPhysicalCompletedVacuum w hw K half)
+        (centralPhysicalCompletedVacuum w hw K half) =
+      physicalConstantRC 1
+  transfer_vacuum_fixed :
+    centralPhysicalCompletedMarkovTransfer w hw K half
+        (centralPhysicalCompletedVacuum w hw K half) =
+      centralPhysicalCompletedVacuum w hw K half
+  transfer_self_adjoint :
+    ∀ x y : CentralPhysicalGNSCompletion w hw K half,
+      (centralPhysicalSmulGNS w hw K half).toGNSData.cinnerCompl
+          (centralPhysicalCompletedMarkovTransfer w hw K half x) y =
+        (centralPhysicalSmulGNS w hw K half).toGNSData.cinnerCompl
+          x (centralPhysicalCompletedMarkovTransfer w hw K half y)
+  transfer_positive :
+    ∀ x : CentralPhysicalGNSCompletion w hw K half,
+      CReal.RCnonneg
+        ((centralPhysicalSmulGNS w hw K half).toGNSData.cinnerCompl
+          (centralPhysicalCompletedMarkovTransfer w hw K half x) x)
+  transfer_contraction :
+    ∀ x : CentralPhysicalGNSCompletion w hw K half,
+      CReal.RCle
+        ((centralPhysicalSmulGNS w hw K half).toGNSData.cinnerCompl
+          (centralPhysicalCompletedMarkovTransfer w hw K half x)
+          (centralPhysicalCompletedMarkovTransfer w hw K half x))
+        ((centralPhysicalSmulGNS w hw K half).toGNSData.cinnerCompl x x)
+  vacuum_orthogonal_preserved :
+    ∀ {x : CentralPhysicalGNSCompletion w hw K half},
+      CentralPhysicalCompletedVacuumOrthogonal w hw K half x →
+        CentralPhysicalCompletedVacuumOrthogonal w hw K half
+          (centralPhysicalCompletedMarkovTransfer w hw K half x)
+  dense_pairing :
+    ∀ (left right : EdgeLabelling → Q'),
+      (centralPhysicalSmulGNS w hw K half).toGNSData.cinnerCompl
+          (centralPhysicalCompletedObservable w hw K half left)
+          (centralPhysicalCompletedObservable w hw K half right) =
+        physicalConstantRC
+          (centralPhysicalWeightedInner w hw K half left right)
+  same_object_coefficient :
+    ∀ (observable : EdgeLabelling → Q'),
+      (centralPhysicalSmulGNS w hw K half).toGNSData.cinnerCompl
+          (centralPhysicalCompletedObservable w hw K half observable)
+          (centralPhysicalCompletedMarkovTransfer w hw K half
+            (centralPhysicalCompletedObservable w hw K half observable)) =
+        physicalConstantRC
+          (centralPhysicalJointQuadratic w hw K half observable)
+
+
 /-- Pairing a finite observable with the constant vacuum is exactly its
 stationary mean. -/
 theorem centralPhysicalWeightedInner_vacuum_right
@@ -382,6 +437,29 @@ theorem completedRateProbe_correlationSquare_le_transferredNorm
   rw [physicalRCmul_constant_one_right] at hmul
   exact CReal.RCle_trans hcs hmul
 
+/-- Construct the finite same-theory carrier certificate from the checked
+physical BF4/GNS declarations above. -/
+def completedPhysicalSU2CarrierCertificate
+    (w : Q') (hw : (0 : Q') ≤ w) (K half : Nat) :
+    CompletedPhysicalSU2CarrierCertificate w hw K half where
+  vacuum_norm := by
+    simpa only [physicalConstantRC] using
+      centralPhysicalCompletedVacuum_inner_self_eq_one w hw K half
+  transfer_vacuum_fixed :=
+    centralPhysicalCompletedMarkovTransfer_vacuum_fixed w hw K half
+  transfer_self_adjoint :=
+    centralPhysicalCompletedMarkovTransfer_selfAdjoint w hw K half
+  transfer_positive :=
+    centralPhysicalCompletedMarkovTransfer_positive w hw K half
+  transfer_contraction :=
+    centralPhysicalCompletedMarkovTransfer_contraction w hw K half
+  vacuum_orthogonal_preserved :=
+    centralPhysicalCompletedVacuumOrthogonal_preserved w hw K half
+  dense_pairing :=
+    centralPhysicalCompletedObservable_inner w hw K half
+  same_object_coefficient :=
+    centralPhysicalCompletedObservable_macroCoefficient w hw K half
+
 end YMGap.Continuum.BF4PhysicalCompletedMacroCorrelator
 
 #print axioms YMGap.Continuum.BF4PhysicalCompletedMacroCorrelator.centralPhysicalWeightedInner_vacuum_right
@@ -394,3 +472,4 @@ end YMGap.Continuum.BF4PhysicalCompletedMacroCorrelator
 #print axioms YMGap.Continuum.BF4PhysicalCompletedMacroCorrelator.completedRateProbe_norm_le_one
 #print axioms YMGap.Continuum.BF4PhysicalCompletedMacroCorrelator.completedRateProbe_macroCorrelation
 #print axioms YMGap.Continuum.BF4PhysicalCompletedMacroCorrelator.completedRateProbe_correlationSquare_le_transferredNorm
+#print axioms YMGap.Continuum.BF4PhysicalCompletedMacroCorrelator.completedPhysicalSU2CarrierCertificate
