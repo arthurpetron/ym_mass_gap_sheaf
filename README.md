@@ -327,6 +327,23 @@ the uniform cross-term estimate needed for a spectral gap.  Inactive Haar
 projection removal, OS/GNS, continuum, physical mass, and every-group closure
 remain open.
 
+**Exact inactive-projection residual (2026-09-22 UTC):**
+`SU2QuaternionProductHeatHybridProjection.lean` exposes the residual
+`hybridInactiveResidual` between the doubled-carrier `hybridSweep` and the
+lifted final `hybridMap`.  Its square has an explicit support certificate and
+is nonnegative by the existing Haar square certificate.  The checked identity
+`hybridSweep_square_decomposition` gives
+
+    H(sweep²) = H(map²) + H(residual²).
+
+Consequently `hybridMap_square_le_sweep` is a genuine finite projection
+contraction, while
+`hybridMap_endpoint_eq_sweep_endpoint_add_inactive_square` records that the
+projected endpoint deficit contains the residual with a plus sign.  A
+uniform/compressible residual estimate is still required; this result does not
+close the signed cross-term, OS/GNS, continuum, physical-mass, or every-group
+frontiers.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is

@@ -231,6 +231,21 @@ volume, cutoff, spacing, nome, or polynomial syntax.  A uniform/compressible
 cross-term estimate, the exposed-pairing family, inactive projection passage,
 and the OS/GNS-to-continuum/physical-mass route remain open.
 
+**PROGRESS -- exact inactive-projection residual bridge:**
+`SU2QuaternionProductHeatHybridProjection.lean` defines the literal residual
+`hybridInactiveResidual = hybridSweep - liftBoundary(hybridMap)` on the SAME
+doubled carrier.  `partialHaarHeads_square_decomposition` proves the finite
+Pythagorean identity: the doubled-carrier sweep square is the projected
+`hybridMap` square plus the residual square.  The residual support theorem and
+`hybridInactiveResidual_squareCertificate` give a constructive Haar-square
+nonnegativity witness, so `hybridMap_square_le_sweep` is now checked without
+any nome, cutoff, or schedule-distinctness premise.  The endpoint theorem
+`hybridMap_endpoint_eq_sweep_endpoint_add_inactive_square` explicitly retains
+the residual with a PLUS sign.  Thus the sweep deficit still needs a uniform
+residual estimate; inactive projection has not been silently discarded, and
+the exposed-pairing, uniform cross-term, SAME-object OS/GNS, continuum,
+physical-mass, and every-group obligations remain open.
+
 ### Conjugated finite head defect (2026-09-22 UTC)
 
 **PROGRESS -- the checked local angular defect is now transportable by an

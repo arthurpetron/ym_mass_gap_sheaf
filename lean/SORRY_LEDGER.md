@@ -225,6 +225,32 @@ Monitored focused verification passed; both printed declarations use only
 - **scope**: finite SU(2) bookkeeping and inhabitation only; this is not a
   uniform strict form bound or a Clay mass-gap theorem.
 
+## PROVED inactive-projection Pythagorean residual bridge (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridProjection.lean`.
+- **proved declarations**: `partialHaarHeads_square_decomposition`,
+  `hybridInactiveResidual`, `hybridInactiveResidual_supported`,
+  `hybridInactiveResidual_squareCertificate`,
+  `hybridInactiveResidual_square_nonnegative`,
+  `hybridSweep_square_decomposition`, `hybridMap_square_le_sweep`, and
+  `hybridMap_endpoint_eq_sweep_endpoint_add_inactive_square`.
+- **proof content**: defines the literal residual between the doubled-carrier
+  sweep and the lifted final Haar projection; proves the exact finite
+  Pythagorean decomposition, supplies its supported square certificate and
+  Haar nonnegativity, derives projected square contraction, and rewrites the
+  endpoint deficit with the residual square retained.
+- **open obligation**: bound the retained residual uniformly/compressibly in
+  the actual volume, cutoff, spacing, nome, and admissible state family; the
+  signed cross-term budget and exposed-link pairing family are also still
+  open.
+- **constructive status**: focused monitored check passed with one worker and
+  a 20-GiB cap; the printed declarations use only `{propext, Quot.sound}` and
+  introduce no `sorry` or new axiom.  Log:
+  `/tmp/ym-hybrid-inactive-projection-20260922.log`.
+- **scope**: finite ordinary-Haar SU(2) projection bookkeeping only; no
+  completed OS/GNS gap, thermodynamic/continuum passage, physical-mass,
+  full-QFT, every-group, or Clay conclusion.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.
