@@ -88,6 +88,13 @@ uniform gap is claimed.
 the explicit `squaredHeatRate w < 1` witness.  Its rate is nome-dependent and
 finite; it is not a uniform beta-independent completed-space gap.
 
+`productMapQuotient_transfer_pairing_mk` identifies the quotient qInner against
+the finite selected product-heat form `kineticPair`.  Combining that pin with
+finite Cauchy--Schwarz yields
+`productMapQuotient_transfer_form_squared_bound`, an honest squared bound for
+the same-object transfer pairing.  It remains finite, centered, and
+nome-dependent; no OS transfer identification or continuum gap is claimed.
+
 ## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`.

@@ -10,6 +10,7 @@ completed transfer operator or prove a spectral or continuum gap.
 
 import YMGap.Continuum.SU2QuaternionFiniteHaarProductMapRadical
 import YMGap.Continuum.SU2QuaternionProductHeatConstant
+import YMGap.Continuum.SU2QuaternionProductHeatDualForm
 
 namespace YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 
@@ -28,6 +29,7 @@ open YMGap.Continuum.SU2QuaternionAuxiliaryLiftAlgebra
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionPartialFactorizedHaar
 open YMGap.Continuum.SU2QuaternionProductHeatConstant
+open YMGap.Continuum.SU2QuaternionProductHeatDualForm
 open YMGap.Continuum.SU2QuaternionProductHeatMarginals
 open YMGap.Continuum.SU2QuaternionProductHeatTensorization
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
@@ -309,9 +311,24 @@ theorem productMapQuotient_qInner_mk
         (productMapQuotient n hw0 hw1 K hK ids hnodup hids
           ((finiteHaarGNSData n).qmk q)) =
       Quotient.mk qSetoid
-        (finiteHaarPair n
+      (finiteHaarPair n
           (productMapRep n w K ids hids p).val
           (productMapRep n w K ids hids q).val) := by
+  rfl
+
+theorem productMapQuotient_transfer_pairing_mk
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (p q : (finiteHaarGNSData n).V) :
+    (finiteHaarGNSData n).qInner
+        ((finiteHaarGNSData n).qmk p)
+        (productMapQuotient n hw0 hw1 K hK ids hnodup hids
+          ((finiteHaarGNSData n).qmk q)) =
+      Quotient.mk qSetoid
+        (kineticPair n w K ids p.val q.val) := by
   rfl
 
 theorem productMapQuotient_qNormSq_mk
@@ -362,6 +379,47 @@ theorem productMapQuotient_centered_strict_bound
   exact ⟨productMapQuotient_centered_square_bound n hw0 hw1 K hK ids
       hnodup hids p hcenter, squaredHeatRate_lt_one hw0 hw1⟩
 
+theorem productMapQuotient_transfer_form_squared_bound
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (p : (finiteHaarGNSData n).V)
+    (hcenter : quaternionHaar n p.val ≈ 0) :
+    kineticPair n w K ids p.val p.val *
+        kineticPair n w K ids p.val p.val ≤
+      squaredHeatRate w *
+        (finiteHaarPair n p.val p.val * finiteHaarPair n p.val p.val) := by
+  have hm : SupportedQuaternionBlocks n
+      (productMap n w K ids p.val) :=
+    productMap_supported n w K ids hids p.property
+  have hcs := finiteHaar_cauchySchwarz n p.val
+    (productMap n w K ids p.val) p.property hm
+  have hbound := productMapQuotient_centered_square_bound n hw0 hw1 K hK ids
+    hnodup hids p hcenter
+  have hpp : (0 : Q') ≤ finiteHaarPair n p.val p.val :=
+    finiteHaarPair_nonnegative n p.val p.property
+  have hmul := Q'.mul_le_mul_of_nonneg_left _ _ _ hbound hpp
+  have htarget : finiteHaarPair n p.val p.val *
+      (squaredHeatRate w * finiteHaarPair n p.val p.val) ≈
+      squaredHeatRate w *
+        (finiteHaarPair n p.val p.val * finiteHaarPair n p.val p.val) := by
+    have h1 := Q'.eqv_symm (Q'.mul_assoc_eqv
+      (finiteHaarPair n p.val p.val) (squaredHeatRate w)
+      (finiteHaarPair n p.val p.val))
+    have h2 := Q'.mul_eqv_congr_right
+      (finiteHaarPair n p.val p.val * squaredHeatRate w)
+      (squaredHeatRate w * finiteHaarPair n p.val p.val)
+      (finiteHaarPair n p.val p.val)
+      (Q'.mul_comm_eqv (finiteHaarPair n p.val p.val) (squaredHeatRate w))
+    have h3 := Q'.mul_assoc_eqv (squaredHeatRate w)
+      (finiteHaarPair n p.val p.val) (finiteHaarPair n p.val p.val)
+    exact Q'.eqv_trans _ _ _ h1 (Q'.eqv_trans _ _ _ h2 h3)
+  simpa only [kineticPair, finiteHaarPair] using
+    (Q'.le_trans' _ _ _ hcs (Q'.le_trans' _ _ _ hmul
+      (Q'.le_of_eqv htarget)))
+
 end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapRep
@@ -375,5 +433,7 @@ end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMap_centered_preserved
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_centered_strict_bound
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qInner_mk
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_transfer_pairing_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qNormSq_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_centered_square_bound
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_transfer_form_squared_bound

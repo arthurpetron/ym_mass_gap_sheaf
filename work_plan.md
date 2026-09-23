@@ -104,6 +104,14 @@ bound with `squaredHeatRate w < 1`.  The strict rate is explicit but depends on
 the nome, so this is not yet the uniform physical OS form bound required by
 the Clay route.
 
+The quotient qInner against the descended map is now exactly pinned to the
+existing finite selected product-heat form by
+`productMapQuotient_transfer_pairing_mk`.  Finite Cauchy--Schwarz and the
+centered output estimate then prove
+`productMapQuotient_transfer_form_squared_bound`.  This is the current
+same-object transfer-form certificate; the physical OS identification,
+completion, and beta/spacing-uniform gap remain open.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

@@ -41,6 +41,10 @@ vacuum-complement gap remains open.
 The strict representative estimate is packaged with the explicit
 nome-dependent witness `squaredHeatRate w < 1`; beta-uniformity and completion
 are still open.
+The quotient qInner is also pinned to the existing finite selected
+product-heat form, and its centered same-object pairing has a checked squared
+bound via Cauchy--Schwarz.  This is not yet the completed physical OS transfer
+or a continuum spectral gap.
 
 > **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
