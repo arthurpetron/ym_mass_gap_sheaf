@@ -27600,3 +27600,21 @@ The monitored dependency-complete target passed 1,244 jobs with only
 witness or completed joint gap is constructed here, so OS/scaling,
 thermodynamic/continuum, physical mass calibration, all-group, and Clay
 obligations remain open.
+
+## Exact-centered representative certificate (2026-09-23)
+
+`BF4PhysicalJointCenteredReplacement.lean` defines the exact arbitrary-stage
+subtraction `physicalJointCenteredStage` and proves
+`physicalJointCenteredStage_vacuumOrthogonal`.  The Type-level
+`ExactPhysicalJointCenteredCauchyReplacement` records the missing Cauchy
+representative, `CauchyNull` close witness, and stagewise centering relation.
+Its conversion theorem
+`ExactPhysicalJointCenteredCauchyReplacement.toVacuumComplementReplacement`
+produces the existing exact-kernel replacement interface, so the conditional
+completed form-gap theorem can consume this certificate directly.
+
+The monitored dependency-complete target passed 1,245 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  The certificate is an explicit
+input, not a constructed density witness; consequently no unconditional
+completed joint gap, thermodynamic/continuum passage, physical mass
+calibration, all-group theorem, or Clay conclusion follows.

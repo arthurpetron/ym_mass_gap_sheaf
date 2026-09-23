@@ -125,6 +125,25 @@ joint Cauchy-representative centering/range witness, completed strict gap,
 OS/scaling identification, thermodynamic/continuum passage, physical-mass,
 all-group, or Clay conclusion.
 
+### Exact-centered representative certificate (2026-09-23 UTC)
+
+`BF4PhysicalJointCenteredReplacement.lean` factors the arbitrary-completion
+centering obligation.  The definition `physicalJointCenteredStage` gives the
+exact subtraction by the joint vacuum pairing, and
+`physicalJointCenteredStage_vacuumOrthogonal` proves its stagewise vacuum
+orthogonality.  The Type-level
+`ExactPhysicalJointCenteredCauchyReplacement` carries a candidate Cauchy
+representative, its `CauchyNull` close witness, and exact stagewise agreement;
+`ExactPhysicalJointCenteredCauchyReplacement.toVacuumComplementReplacement`
+converts it to the existing exact-kernel replacement consumed by the completed
+form-gap theorem.
+
+The monitored dependency-complete target passed 1,245 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  Constructing this certificate is
+still open; no arbitrary-vector density, completed joint gap,
+thermodynamic/continuum passage, physical-mass, all-group, or Clay result is
+inferred.
+
 ### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
 The companion reference-transport module now proves the exact finite identity

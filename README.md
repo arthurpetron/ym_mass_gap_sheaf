@@ -65,6 +65,20 @@ only the scalar correction needed before a stagewise centering construction; it
 does not provide that construction, arbitrary-vector density, a completed gap,
 OS/scaling, thermodynamic/continuum, physical-mass, all-group, or Clay closure.
 
+The arbitrary-representative seam is now factored in
+`BF4PhysicalJointCenteredReplacement.lean`.  `physicalJointCenteredStage` is
+the exact stagewise subtraction using the joint vacuum pairing, and
+`physicalJointCenteredStage_vacuumOrthogonal` proves each such stage is in the
+joint vacuum complement.  The Type-level
+`ExactPhysicalJointCenteredCauchyReplacement` records the still-missing
+representative, Cauchy-null close witness, and stagewise centering relation;
+`toVacuumComplementReplacement` converts that certificate into the existing
+exact-kernel replacement interface.  The focused target passed 1,245 jobs with
+only `{propext, Quot.sound}` and no `sorryAx`.  The certificate is not
+constructed here, so arbitrary-vector density, the completed gap,
+thermodynamic/continuum, physical-mass, all-group, and Clay obligations remain
+open.
+
 The exact finite joint-form algebra is now checked in
 `BF4PhysicalJointCenteredForm.lean`.  The declarations
 `physicalJoint_vacuum_unit` and `physicalJoint_vacuum_pairing_eq_stationaryMean`
