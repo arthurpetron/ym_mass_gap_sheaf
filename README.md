@@ -227,6 +227,15 @@ the local angular telescope.  It remains a finite SU(2) identity; inactive
 projections, signed cross-terms, the SAME-object gap, OS/GNS, continuum
 survival, physical mass, full QFT, and every-group/Clay closure remain open.
 
+**Chain-conjugated local defect (2026-09-22 UTC):**
+`SU2QuaternionConjugatedHeadHeatChain.chainConjugatedHeadMap` now applies the
+checked literal `headMap` in an arbitrary exposed block chart and transports
+it back through the reversed finite swap chain.  Its pairing and support
+lemmas, together with `chainConjugatedHeadMap_defect_le_angular`, give the
+explicit finite defect bound with factor `(1-w)` and exposed-chart angular
+energy.  This is not yet the interacting selected-link map, a multi-factor
+telescope, a completed OS gap, or a continuum/Clay result.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is

@@ -30,6 +30,25 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 Monitored focused verification passed; the printed declaration uses only
 `{propext, Quot.sound}`.
 
+## PROVED chain-conjugated local defect (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionConjugatedHeadHeatChain.lean`.
+- **proved declarations**: `chainConjugatedHeadMap`,
+  `chainConjugatedHeadMap_supported`, `chainConjugatedHeadMap_pairing`, and
+  `chainConjugatedHeadMap_defect_le_angular`.
+- **proof content**: the inverse-chain conjugate of the literal head update
+  preserves the finite supported carrier, has the exposed-chart Haar pairing,
+  and satisfies the explicit `(1-w)` angular defect bound for arbitrary finite
+  swap chains.
+- **remaining obligation**: identify this recoded operator with the actual
+  interacting selected-link update and telescope it over changing hybrid
+  inputs, including inactive projections and signed endpoint terms.
+- **scope**: finite SU(2) carrier only; no completed OS gap, continuum
+  passage, physical mass, or every-group conclusion.
+
+Monitored focused verification passed; all four printed declarations use only
+`{propext, Quot.sound}`.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.

@@ -4859,6 +4859,7 @@ import YMGap.Continuum.SU2QuaternionWeightedProjectionSweep
 import YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 import YMGap.Continuum.SU2QuaternionSelectedProjectionReindex
 import YMGap.Continuum.SU2QuaternionConjugatedHeadHeat
+import YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain
 import YMGap.Continuum.SU2QuaternionAngularReindex
 import YMGap.Continuum.SU2QuaternionConjugatedHeadHeatBlockEnergy
 import YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy

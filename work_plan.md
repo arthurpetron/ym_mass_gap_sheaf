@@ -116,6 +116,20 @@ multi-factor telescope, inactive-projection reduction, signed endpoint
 estimate, SAME-object gap, OS/GNS passage, continuum survival, physical mass,
 or the Clay theorem.
 
+### Chain-conjugated local defect (2026-09-22 UTC)
+
+**PROGRESS -- the two-step exposure now has its correct inverse-chain local
+operator:** `SU2QuaternionConjugatedHeadHeatChain.chainConjugatedHeadMap`
+applies the literal `headMap` in the exposed chart and transports it back by
+the reversed block-swap chain.  The module proves support preservation,
+pairing transport, and `chainConjugatedHeadMap_defect_le_angular` for every
+supported finite polynomial.  The estimate has the explicit factor `(1-w)`
+and the angular energy of the recoded input.  This is the finite local
+estimate needed before a multi-factor telescope; it does not identify the
+map with the interacting selected-link update, remove inactive projections,
+control signed endpoint cross-terms, or establish any OS/continuum/Clay
+conclusion.
+
 ### Conjugated finite head defect (2026-09-22 UTC)
 
 **PROGRESS -- the checked local angular defect is now transportable by an
