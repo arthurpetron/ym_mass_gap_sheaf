@@ -189,7 +189,11 @@ seam.  `exposed_heat_product_projected_pairing` now multiplies the kernel
 equivalence by an arbitrary state and transports the full exposed product
 through `project 0`, leaving a relative-heat conditional form against the
 same exposed test.  The remaining field is the arbitrary shared-spectator
-identification of that form with `heatPair`.
+identification of that form with `heatPair`.  The new
+`SelectedLinkExposedRelativePairing` type isolates exactly this obligation,
+and `selectedLinkExposedProjectionPairing_of_relative` plus
+`selectedLinkExposedHeadPairing_of_relative` reconstruct the prior interfaces
+from it.
 
 **PROGRESS -- the exposed input now reaches an actual hybrid stage:**
 `hybridSweep_cons_eq_selectedHeatProjection` identifies a schedule head with

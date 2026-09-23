@@ -11,6 +11,7 @@ every supported state/test pairing on the same carrier.
 
 import YMGap.Continuum.SU2QuaternionSelectedProjectionReindex
 import YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain
+import YMGap.Continuum.SU2QuaternionPaddedProjectionPairing
 
 namespace YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification
 
@@ -33,6 +34,7 @@ open YMGap.Continuum.SU2QuaternionRelativeHeatPairGeometry
 open YMGap.Continuum.SU2QuaternionRelativeHeatTransmission
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionSelectedProjectionReindex
+open YMGap.Continuum.SU2QuaternionPaddedProjectionPairing
 open YMGap.Continuum.SU2QuaternionSelectedHaarTranslation
 open YMGap.Continuum.SU2QuaternionFourBlockExposure
 open YMGap.Continuum.BF4ExactSpatialTreeGaugeRawCarrier
@@ -176,6 +178,31 @@ structure SelectedLinkExposedProjectionPairing
       selectedLinkExposedHeatPair tailBlocks selected multiplier
         hblocks hselected hmultiplier w K polynomial test
 
+/-! Minimal remaining input after the proved exposure and padded transport.
+This witness speaks only about the relative heat form on the exposed carrier;
+it does not repeat the heat-kernel recoding or the head-map symmetry. -/
+structure SelectedLinkExposedRelativePairing
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat) : Type where
+  pairing : ∀ (polynomial test : RatPoly),
+    SupportedQuaternionBlocks (tailBlocks + 1) polynomial →
+    SupportedQuaternionBlocks (tailBlocks + 1) test →
+    quaternionHaar (tailBlocks + 1)
+        (polyMul
+          (project 0
+            (polyMul (relativeHeat w K)
+              (exposeTranslationPairPolynomial (tailBlocks + 1)
+                selected multiplier (by omega) hselected hmultiplier
+                polynomial)))
+          (exposeTranslationPairPolynomial (tailBlocks + 1)
+            selected multiplier (by omega) hselected hmultiplier test)) ≈
+      selectedLinkExposedHeatPair tailBlocks selected multiplier
+        hblocks hselected hmultiplier w K polynomial test
+
 def selectedLinkExposedProjectionPairing_of_pairing
     (tailBlocks selected multiplier : Nat)
     (hblocks : 0 < tailBlocks)
@@ -309,6 +336,51 @@ def selectedLinkExposedHeadPairing_of_projection
     (selectedLinkExposedHeatHeadPairing_of_headMap
       tailBlocks selected multiplier hblocks hselected hmultiplier
         hdistinct w K)
+
+def selectedLinkExposedProjectionPairing_of_relative
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat)
+    (relative : SelectedLinkExposedRelativePairing
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K) :
+    SelectedLinkExposedProjectionPairing
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K := by
+  refine
+    { heat_kernel := exposeTranslationPair_heat
+        (tailBlocks + 1) selected multiplier (by omega)
+          hselected hmultiplier hdistinct w K
+      pairing := ?_ }
+  intro polynomial test hpolynomial htest
+  have hreduce := exposed_heat_product_projected_pairing
+    tailBlocks selected multiplier hblocks hselected hmultiplier
+      hdistinct w K polynomial test
+  exact Q'.eqv_trans _ _ _ hreduce
+    (relative.pairing polynomial test hpolynomial htest)
+
+def selectedLinkExposedHeadPairing_of_relative
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat)
+    (relative : SelectedLinkExposedRelativePairing
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K) :
+    SelectedLinkExposedHeadPairing
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K :=
+  selectedLinkExposedHeadPairing_of_projection
+    tailBlocks selected multiplier hblocks hselected hmultiplier
+      hdistinct w K
+    (selectedLinkExposedProjectionPairing_of_relative
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K relative)
 
 /-- The reduced exposed-chart certificate is sufficient for the original
 same-carrier selected-link identification. -/
@@ -520,11 +592,14 @@ end YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedHeatPair
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.project_coeff_pairing
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkExposedProjectionPairing
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkExposedRelativePairing
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedProjectionPairing_of_pairing
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkExposedHeatHeadPairing
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedHeadPairing_of_bridges
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedHeatHeadPairing_of_headMap
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedHeadPairing_of_projection
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedProjectionPairing_of_relative
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedHeadPairing_of_relative
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkHeadIdentification_of_exposed
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedHeatProjection_defect_le_selected_block_energy
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedFiniteDefect_sum_le_selectedBlockEnergy

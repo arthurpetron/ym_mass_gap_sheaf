@@ -189,6 +189,24 @@ Monitored focused verification passed; both printed declarations use only
   use only `{propext, Quot.sound}` and introduce no `sorry` or new axiom.
   Log: `/tmp/ym-selected-link-identification-headmap.log`.
 
+## PROVED minimal relative-form factoring (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedLinkHeadIdentification.lean`.
+- **proved declarations**: `SelectedLinkExposedRelativePairing`,
+  `selectedLinkExposedProjectionPairing_of_relative`, and
+  `selectedLinkExposedHeadPairing_of_relative`.
+- **proof content**: factors the open selected-link obligation through the
+  relative-heat conditional pairing left by
+  `exposed_heat_product_projected_pairing`; the constructors add the already
+  proved exposed heat kernel and canonical heat/head symmetry.
+- **remaining obligation**: inhabit the single relative-form witness for
+  arbitrary shared spectators.  No arbitrary-spectator `heatPair`/`headMap`
+  identification is asserted.
+- **constructive status**: focused monitored check passed after a monitored
+  narrow Lake dependency build; all printed declarations use only
+  `{propext, Quot.sound}` and introduce no `sorry` or new axiom.
+  Log: `/tmp/ym-selected-relative-witness2.log`.
+
 ## PROVED conditional hybrid-stage bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean`.

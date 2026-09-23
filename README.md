@@ -374,6 +374,15 @@ head certificate to the single projection/product pairing field; no separate
 `copy`/`liftHead` axiom is needed.  The projection/product field itself is
 still open.
 
+**Minimal relative-form interface (2026-09-22 UTC):**
+`SelectedLinkExposedRelativePairing` isolates that remaining field as the
+relative-heat conditional form produced by
+`exposed_heat_product_projected_pairing`.  The checked constructors
+`selectedLinkExposedProjectionPairing_of_relative` and
+`selectedLinkExposedHeadPairing_of_relative` show that any inhabitant of this
+single relative-form witness is sufficient for the original selected-link
+certificate.  No inhabitant of the relative-form witness is claimed.
+
 **Padded projection transport (2026-09-22 UTC):**
 `SU2QuaternionPaddedProjectionPairing.project_padded_pairing` proves the
 generic finite lemma that supported `PaddedPolynomialCoeffEqv` survives a
