@@ -139,6 +139,16 @@ selected-block energy for the two-link exposure.  This is still a bound for
 the recoded finite operator, not an identification with the interacting
 selected-link kernel or a multi-factor/SAME-object gap.
 
+**OPEN input factored explicitly -- selected-link identification:**
+`SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkHeadIdentification`
+is now the minimal Type-level bridge requiring the full-Haar pairing of the
+original `selectedHeatProjection` with the inverse-chain `headMap` for every
+supported state/test pair.  Given this named certificate,
+`selectedHeatProjection_defect_le_selected_block_energy` derives the finite
+selected-block `(1-w)` bound.  No certificate inhabitant is claimed; this is
+the exact remaining physical selected-link identification needed before the
+hybrid telescope.
+
 ### Conjugated finite head defect (2026-09-22 UTC)
 
 **PROGRESS -- the checked local angular defect is now transportable by an

@@ -243,6 +243,13 @@ the explicit source map, preserving the `(1-w)` finite defect bound.  The
 recoded operator still needs identification with the interacting selected-link
 kernel before it can enter the multi-factor telescope.
 
+That missing identification is now factored as the explicit Type-level
+`SelectedLinkHeadIdentification` certificate: it requires the full-Haar
+pairing of the original selected heat/projection update with the inverse-chain
+head operator for every supported state/test pair.  Its conditional consumer
+`selectedHeatProjection_defect_le_selected_block_energy` gives the selected
+block defect bound, but no inhabitant of the certificate is claimed.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is

@@ -67,6 +67,21 @@ Monitored focused verification passed; all four printed declarations use only
 Monitored focused verification passed; both printed declarations use only
 `{propext, Quot.sound}`.
 
+## OPEN named selected-link identification certificate (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedLinkHeadIdentification.lean`.
+- **named input**: `SelectedLinkHeadIdentification`.
+- **conditional consumer**: `selectedHeatProjection_defect_le_selected_block_energy`.
+- **obligation**: prove, on the same finite carrier and for every supported
+  state/test pair, the full-Haar pairing equality between the original
+  selected heat/projection update and the inverse-chain conjugate of `headMap`.
+- **status**: no inhabitant is constructed; the structure is a Type-level
+  analytic input, not a `Unit` or weakened proposition.  Given it, the
+  consumer inherits the checked finite selected-block `(1-w)` defect bound.
+- **scope**: this is the remaining selected-link/operator bridge before the
+  hybrid telescope; OS, continuum, physical mass, and all-group obligations
+  remain open.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.
