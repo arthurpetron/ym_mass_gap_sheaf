@@ -13,6 +13,17 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **Original product map as a conditional-link sweep (2026-09-21 UTC):**
+**Fresh-output replacement (2026-09-23):**
+`SU2QuaternionProductHeatCyclicFold.productMap_range_cycle_carrier` proves
+the fully active original product map is n computed cyclic steps: append a
+fresh last output, integrate/remove the first source, repeat. The all-prefix
+invariant uses n+m source variables and leaves n survivors; at m=n it returns
+the original upper-slice ordering. The join preserves arbitrary signed
+insertions, support, and (for n>0) the Haar mean. It assumes no selected-link
+identification. Cyclic rotations are not positive local smoothing maps; the
+angular defect estimate and the interacting/physical joins remain open.
+Focused verification: `audits/AUDIT-PRODUCT-HEAT-CYCLIC-FOLD-2026-09-23.md`.
+
 **Correction (2026-09-23):** The exact endpoint sweep identity below remains
 valid. The subsequent universal selected-link/head-map identification is
 refuted by `SU2QuaternionSelectedLinkHeadObstruction`, including admissible

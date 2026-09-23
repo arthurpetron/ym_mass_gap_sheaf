@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Proved original full-product fresh-output fold (2026-09-23)
+
+- **files**: `YMGap/Continuum/SU2QuaternionProductHeatPrefix.lean` and
+  `YMGap/Continuum/SU2QuaternionProductHeatCyclicFold.lean`.
+- **constructed join**: `productMap_range_cycle_carrier` proves the actual
+  fully active `productMap` is n computed cyclic fresh-output steps on the
+  original n-block output carrier, under every Haar insertion. Its prefix
+  invariant uses n+m variables, not a fixed doubled carrier for all m.
+- **consequences**: exact signed pairing and defect; supported inputs remain
+  supported and their mean is preserved for n>0. No identification premise.
+- **residue**: rotation-separated local smoothing/product angular bound,
+  inactive-link residual for proper active sets, interacting signed correction,
+  and all original-action/time, spatial/scaling, continuum/QFT/group joins.
+  Intermediate cyclic maps are NOT asserted positive or self-adjoint.
+- **honesty**: no new `sorry`, axiom, changed frontier field, or canonical
+  Clay closure. The refuted existing-neighbor certificates remain refuted.
+- **verification**: two 8 GiB focused checks; twelve permitted public gates,
+  no warnings or `sorryAx`. No root build/audit/guard. Exact evidence:
+  `audits/AUDIT-PRODUCT-HEAT-CYCLIC-FOLD-2026-09-23.md`.
+
 ## REFUTED universal selected-link/head identification (2026-09-23)
 
 - **file**: `YMGap/Continuum/SU2QuaternionSelectedLinkHeadObstruction.lean`.

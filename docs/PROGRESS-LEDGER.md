@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: refute the selected-link/head-map route (2026-09-23)
+## Current increment: construct the original full-product cyclic fold (2026-09-23)
+
+The replacement is now an actual operator identity, not an assumed local
+certificate. `productMap_range_cycle_carrier` identifies the fully active
+original product operator with n fresh-output cyclic steps, retaining all
+signed insertions and the original final coordinate order. Its finite Fubini
+invariant uses n+m variables for m steps. Support and mean are also checked.
+
+The remaining mathematical task is quantitative: remove the cyclic rotation
+from the local smoothing estimate and control the full product angular
+defect. Intermediate cyclic maps are not asserted positive/self-adjoint.
+Proper active subsets still require inactive projection control; the physical
+consumer still retains `V*g*f` and the signed endpoint correction. No
+canonical continuum/Clay atom is closed. Verification and exact declarations:
+`audits/AUDIT-PRODUCT-HEAT-CYCLIC-FOLD-2026-09-23.md`.
+The repository-wide progress guard was not run; only the two new leaves were
+checked, within the machine-safety and permitted-axiom gates.
+
+## Previous increment: refute the selected-link/head-map route (2026-09-23)
 
 `SU2QuaternionSelectedLinkHeadObstruction` distinguishes the actual
 existing-neighbor update from fresh-head heat smoothing. The two-coordinate

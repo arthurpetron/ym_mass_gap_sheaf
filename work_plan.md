@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original product map is an actual fresh-output cyclic fold (2026-09-23 UTC)
+
+`SU2QuaternionProductHeatPrefix.productHeat_prefix_succ_carrier` exposes
+the first heat factor and shifts every remaining one, retaining the full
+insertion carrier. `SU2QuaternionProductHeatCyclicFold` uses this to prove
+`productHeat_prefix_fold_carrier`: m source integrations on n+m variables
+are m actual cyclic steps on the n-block window. At m=n,
+`productMap_range_cycle_carrier` identifies the fully active ORIGINAL
+`productMap`, not a separately assumed realization. The corresponding
+pairing and quadratic-defect identities retain arbitrary signed insertions.
+Support persists at every step; for n>0 the original mean persists as well.
+
+This removes the full endpoint identification for this concrete cyclic
+implementation. It does NOT yet prove the desired angular inequality:
+each step rotates coordinates, so intermediate maps cannot be treated as
+positive/self-adjoint local updates. NEXT: separate that explicit rotation
+from heat smoothing, and prove the commuting-product angular estimate (or
+an equivalent positive joint-mode argument) on this now-pinned endpoint.
+For the physical proper active list, retain the inactive projection residual;
+the original `V*g*f` source and signed endpoint correction still need control.
+No physical gap, continuum/QFT/all-group or Clay atom is closed.
+
+Verification: two focused single-worker 8 GiB checks, twelve public axiom
+gates within `{propext, Quot.sound}`, no warnings or `sorryAx`. See
+`audits/AUDIT-PRODUCT-HEAT-CYCLIC-FOLD-2026-09-23.md` for exact logs.
+No full-root build/audit/guard was run.
+
 ### Original-action local-join obstruction (2026-09-23 UTC)
 
 The next selected-link identity was tested before further scaffolding.
@@ -48,8 +75,9 @@ target: for the fully active list `List.range n`, prove
 `H(f*f)-H(f*productMap f) <= (1-w)*sum_i H(blockAngularSquare i f)`.
 Retain `0 <= w < 1`, `sufficientCutoff w <= K`, and support of f.
 The exact `productMap_pairing`, one-factor `productMap_selected_expansion`,
-and local `headMap_defect_le_angular` are available; a positive joint-mode
-decomposition or a proved commuting same-carrier fold is still required.
+and local `headMap_defect_le_angular` are available. The fresh-output cyclic
+fold is now identified above; a positive joint-mode decomposition or a
+proved rotation-separated commuting-product estimate is still required.
 For a proper active subset, retain the inactive Haar-projection residual
 or prove the input independent of inactive blocks. Do not assert the
 active-only bound for an arbitrary subset. The interacting source `V*g*f`

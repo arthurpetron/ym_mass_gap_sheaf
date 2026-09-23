@@ -40,6 +40,17 @@ counterexample survives arbitrarily late cutoffs. The next local estimate
 must address the full original product operator on its proper carrier;
 the checked BF4 completed gap is unaffected.
 
+The replacement now has a checked [fresh-output composition identity](lean/YMGap/Continuum/SU2QuaternionProductHeatCyclicFold.lean):
+the fully active original `productMap` equals n cyclic steps, each appending
+one fresh output and integrating the first source. After n steps the output
+order is the original one. The equality retains every signed insertion;
+supported inputs remain on the n-block carrier and their Haar mean is
+preserved. This proves an operator join, **not** the angular defect bound:
+the intermediate cyclic maps include a rotation and are not asserted positive
+or self-adjoint. The sum-of-angular-energies estimate, inactive-link residuals,
+and interacting signed correction remain open. See the
+[proof and verification boundary](audits/AUDIT-PRODUCT-HEAT-CYCLIC-FOLD-2026-09-23.md).
+
 ## Earlier checkpoints (historical; later results may supersede open steps)
 
 Latest checked finite completed-carrier milestone:
