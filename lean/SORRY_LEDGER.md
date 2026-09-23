@@ -1,5 +1,18 @@
 # Sorry Ledger
 
+## Proved cutoff-limit identity: dense sector-test coordinate sum (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorDenseTestPairingLimit.lean`.
+- **theorem**: `innerLimit_equiv_denseTestCoordinateSum` identifies the
+  original cutoff-removed dense pairing with the finite constructed CReal sum
+  of retained coordinates, test coefficients and pulled-weight cutoff limits.
+- **residue**: outer passage for the same completed vector, then common-root
+  factorization and the checked conditional vacuum-orthogonality consumer.
+  No new analytic premise, canonical field, hole, gap or continuum result.
+- **verification**: monitored 20 GiB leaf check,
+  `/tmp/ym-gap-sector-dense-test-pairing-limit-check-2.log`; all four gates are
+  within `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
 ## Closed machinery/open producer: dense-vacuum rigidity (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorDenseVacuumRigidity.lean`.

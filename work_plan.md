@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Coordinate-to-test identity survives cutoff removal (2026-09-23 UTC)
+
+`BF4PhysicalCutoffVacuumSectorDenseTestPairingLimit.innerLimit_equiv_denseTestCoordinateSum`
+identifies the actual cutoff-removed pairing of any fixed finite-linear left
+observable and fixed sector test with a finite CReal sum of retained rational
+coordinates, test coefficients and the constructed pulled-weight limits.
+The proof uses equality of approximants once the cutoff reaches the test's
+base; it needs no new estimate or tail modulus.
+
+Only the outer completion passage of this formula remains before applying
+common-coordinate rigidity and the checked dense-vacuum consumer. In that
+passage the pairing sequence is literally `innerLimit (X.seq n) test`, so the
+existing physical pairing convergence and coordinate convergence concern the
+same Cauchy stream. Actual fixed-vector exclusion, a uniform strict gap and all
+physical/continuum/every-group joins remain open.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-dense-test-pairing-limit-check-2.log`; all four gates are
+within `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
+
 ### Dense proportionality suffices for vacuum-complement rigidity (2026-09-23 UTC)
 
 `BF4PhysicalCutoffVacuumSectorDenseVacuumRigidity.sector_eq_zero_of_orthogonal_and_dense_vacuum_proportional`
@@ -36,8 +56,8 @@ sector positive-definiteness theorem. The ambient vacuum need not belong to
 the sector. No independent moving-tail or sector-indicator construction is
 required by this argument.
 
-The producer is still open: pass the checked finite coordinate-to-test
-identity first through the cutoff limit, then the completion limit, and use
+The producer is still open: the cutoff-limit passage is now checked above;
+pass that identity through the completion limit, and use
 the checked common-coordinate theorem for fixed vectors. The explicit dense
 proportionality argument is not supplied for those vectors here, so actual
 vacuum-complement fixed-vector exclusion is not yet claimed. Even that

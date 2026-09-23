@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: conditional dense-vacuum rigidity (2026-09-23)
+## Current increment: coordinate-to-test cutoff-limit identity (2026-09-23)
+
+`BF4PhysicalCutoffVacuumSectorDenseTestPairingLimit` passes the finite formula
+to the actual dense cutoff-removed pairing by eventual equality of rational
+approximants. It constructs the finite CReal sum from existing pulled-weight
+limits. No new estimate is assumed. The outer same-vector completion passage
+is the remaining formula join before common-coordinate factorization and the
+checked conditional vacuum-rigidity consumer. Fixed-vector exclusion and all
+uniform-gap/physical/continuum conclusions remain open.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-dense-test-pairing-limit-check-2.log`; all four gates are
+within `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
+## Previous increment: conditional dense-vacuum rigidity (2026-09-23)
 
 `BF4PhysicalCutoffVacuumSectorDenseVacuumRigidity` proves that dense
 proportionality to the ambient vacuum functional, together with ambient vacuum
