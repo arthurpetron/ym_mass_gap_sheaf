@@ -55,6 +55,14 @@ uniform-in-cutoff/volume producer still required by the strict form-bound
 frontier.  The additional rational regrouping and denominator identity were
 checked in the same 5504-job build with only `{propext, Quot.sound}`.
 
+The ceiling's nonnegativity is explicit, and
+`fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term`
+now compiles it through the matched-AF bridge to the raw centered-change
+calibration with change ceiling `2 * finiteMarginEnvelopeCeiling S`.  This
+compiler consequence still carries the supplied `MatchedBlockFamily`,
+`CubicMarginLaw`, coupling match, and positive weak-coupling hypotheses; it
+does not manufacture those analytic inputs or make the ceiling uniform.
+
 ### Iterated completed finite transfer decay (2026-09-23 UTC)
 
 `SU2QuaternionFiniteHaarCompletedTransferContraction.lean` now carries the

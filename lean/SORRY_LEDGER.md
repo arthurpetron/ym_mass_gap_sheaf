@@ -43,7 +43,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `lean/YMGap/Continuum/Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1.lean`.
 - **proved declarations**:
   `finiteMarginEnvelopeCeiling_mul_denominator_eqv` (private support) and
-  `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term`.
+  `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term`,
+  together with
+  `fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term`.
 - **proof content**: divide the explicit two-term centered source-debt
   envelope by the strictly positive coupling-one partition square, regroup the
   two terms constructively, and obtain an inhabitant of the normalized raw
@@ -51,7 +53,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **scope**: the ceiling is an explicit function of `S`; no cutoff- or
   volume-uniform bound, strict physical contraction, OS identification,
   continuum limit, physical mass gap, all-group construction, or Clay theorem
-  is asserted.
+  is asserted.  The raw-change compiler additionally requires the existing
+  matched-AF family/law and coupling hypotheses; it does not construct them.
 - **constructive or propositional**: constructive finite rational quotient and
   equivalence identities; no `sorry`, classical axiom, or new analytic
   hypothesis is introduced.

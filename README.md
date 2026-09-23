@@ -229,6 +229,14 @@ form bound needed for the continuum mass-gap route.  The added declarations
 were checked in the same 5504-job constructive build with only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+The ceiling's nonnegativity is explicit, and
+`fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term`
+now compiles it through the matched-AF bridge to the raw centered-change
+calibration with change ceiling `2 * finiteMarginEnvelopeCeiling S`.  The
+compiler still requires the supplied matched family/law and weak-coupling
+hypotheses; it does not construct those analytic inputs or make the ceiling
+uniform.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

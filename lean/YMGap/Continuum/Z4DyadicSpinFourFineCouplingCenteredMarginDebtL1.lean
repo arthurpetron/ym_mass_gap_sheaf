@@ -33,6 +33,7 @@ open YMGap.Continuum.CompactDualFiniteBlockRemainder
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPaths
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.CompactDualSlabObservablePhysicalBlockingDefect
+open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.HeatKernelRGStep
@@ -374,6 +375,17 @@ private theorem finiteMarginEnvelopeCeiling_denominator_pos
     (fineUnitCouplingPhysicalPartition_pos S)
     (fineUnitCouplingPhysicalPartition_pos S)
 
+private theorem finiteMarginEnvelopeCeiling_nonnegative
+    (S : SlabScalePair) :
+    (0 : Q') ≤ finiteMarginEnvelopeCeiling S := by
+  unfold finiteMarginEnvelopeCeiling Q'.divPos
+  apply Q'.mul_nonneg
+  · exact Q'.mul_nonneg _ _
+      (by decide : (0 : Q') ≤ Q'.ofNat 2)
+      (fineCouplingPhysicalPartitionSquareMargin_nonnegative_local S)
+  · exact Q'.le_of_lt
+      (Q'.recipPos_pos _ (finiteMarginEnvelopeCeiling_denominator_pos S))
+
 private theorem finiteMarginEnvelopeCeiling_mul_unitSquare_eqv
     (S : SlabScalePair) :
     finiteMarginEnvelopeCeiling S *
@@ -443,10 +455,28 @@ theorem fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_
   refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hregroup) ?_
   exact Q'.le_of_eqv (Q'.eqv_symm hbudget)
 
+/-- Compile the explicit finite margin ceiling through the matched-AF bridge.
+This is still a finite, slab-dependent raw calibration; uniformity and the
+independent normalized-blocking residual remain separate obligations. -/
+theorem fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g) :
+    FineUnitCouplingCenteredNormalizedChangeRawCalibration
+      K M g (Q'.ofNat 2 * finiteMarginEnvelopeCeiling S) := by
+  exact fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_margin
+    K M family law g (finiteMarginEnvelopeCeiling S) hg hgle hcoupling
+    (finiteMarginEnvelopeCeiling_nonnegative S)
+    (fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term
+      K M)
+
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_sourcePairDebtL1
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term
 #print axioms finiteMarginEnvelopeCeiling_mul_denominator_eqv
 #print axioms fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term
+#print axioms fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term
 
 end YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1
