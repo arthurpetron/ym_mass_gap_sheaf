@@ -219,6 +219,19 @@ physical mass, all-group construction, and Clay target remain open.  The
 focused dependency-complete target passed 5504 jobs with one worker, with only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+The same module now proves a fixed-coupling reciprocal envelope.  The
+declarations `fineCouplingPhysicalPartitionMarginSum_le_reciprocal` and
+`fineCouplingPhysicalPartitionSquareMargin_le_reciprocal` use the explicit
+geometric tail bound under `0 < 1 - S.fine.coupling`; the resulting
+`fineCouplingReciprocalMarginCeiling` is semantically `4/(1-w)`, and
+`fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal`
+inhabits the normalized calibration for every supplied finite slab.  This is
+uniform only over the finite summands for the displayed fixed slab and strict
+coupling gap.  The ceiling diverges as `w` approaches one, so it is not a
+cutoff/volume/beta/continuum-uniform strict form bound.  The focused target
+passed 5506 jobs with one worker; the new declarations report only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 The same finite source envelope now yields an explicit
 `finiteMarginEnvelopeCeiling` and the theorem
 `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term`.

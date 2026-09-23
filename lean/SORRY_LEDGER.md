@@ -13,6 +13,31 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED fixed-coupling reciprocal margin envelope (2026-09-23 UTC)
+
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1.lean`.
+- **proved declarations**:
+  `fineCouplingPhysicalPartitionMarginSum_le_reciprocal`,
+  `fineCouplingPhysicalPartitionSquareMargin_le_reciprocal`,
+  `fineCouplingReciprocalMarginCeiling`, and
+  `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal`.
+- **proof content**: apply the explicit geometric-tail reciprocal bound to
+  each finite margin term, sum constructively, compare actual and unit
+  partitions, and regroup the resulting two-term envelope into the normalized
+  calibration with the displayed reciprocal ceiling.
+- **scope**: the strict condition `0 < 1 - S.fine.coupling` is an explicit
+  argument.  The ceiling is semantically `4/(1-w)` and therefore diverges as
+  `w` approaches one; no cutoff-, volume-, beta-, spacing-, OS-, continuum-,
+  physical-mass-, all-group-, or Clay-level uniformity is claimed.
+- **constructive or propositional**: constructive finite rational inequalities
+  and Type-level ceiling data; no `sorry`, classical axiom, or new named
+  analytic hypothesis is introduced.
+- **verification**: focused dependency-complete safe build of
+  `+YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1:olean`
+  passed 5506 jobs with one worker.  The new declarations report only
+  `{propext, Quot.sound}` and no `sorryAx`.
+
 ## PROVED centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
 - **file**:

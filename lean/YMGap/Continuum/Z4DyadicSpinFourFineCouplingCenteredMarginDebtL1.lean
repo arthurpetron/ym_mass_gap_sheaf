@@ -22,6 +22,7 @@ import YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtPullback
 import YMGap.Constructive.CRealAbs
 import YMGap.Continuum.TsumDeriv
 import YMGap.Continuum.Z4DyadicSpinFourFineCouplingNormalizedBalancedBridge
+import YMGap.Continuum.LargeFieldSuppression
 
 namespace YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1
 
@@ -319,6 +320,158 @@ private theorem sourcePairDebtL1_le_partition_two_term_local
           (fineCouplingPhysicalSourcePairActualRawMass_total S))
   exact Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv hcollapse)
 
+/-! ## A fixed-coupling reciprocal envelope -/
+
+private theorem fineCouplingPhysicalPartitionMarginSum_le_reciprocal_local
+    (S : SlabScalePair)
+    (hgap : (0 : Q') < 1 - S.fine.coupling) :
+    fineCouplingPhysicalPartitionMarginSum S ≤
+      Q'.divPos 1 (1 - S.fine.coupling) hgap *
+        fineUnitCouplingPhysicalPartition S := by
+  let reciprocal := Q'.divPos 1 (1 - S.fine.coupling) hgap
+  have hpointwise : ∀ source, source ∈ S.fine.physicalLabellings →
+      fineCouplingPhysicalMarginTerm S source ≤
+        reciprocal * fineUnitCouplingPhysicalTerm S source := by
+    intro source hsource
+    unfold fineCouplingPhysicalMarginTerm
+    exact Q'.mul_le_mul_of_nonneg_right _ _ _
+      (LargeFieldSuppression.geomSum_le_recip
+        S.fine.coupling_nonnegative hgap
+        (slabPhysicalCasimirExponent S.fine.extent source))
+      (fineUnitCouplingPhysicalTerm_nonnegative_local S source)
+  unfold fineCouplingPhysicalPartitionMarginSum
+  have hsum := listQSum_mono_local
+    (fineCouplingPhysicalMarginTerm S)
+    (fun source => reciprocal * fineUnitCouplingPhysicalTerm S source)
+    S.fine.physicalLabellings hpointwise
+  refine Q'.le_trans' _ _ _ hsum ?_
+  exact Q'.le_of_eqv (by
+    simpa only [fineUnitCouplingPhysicalPartition] using
+      (listQSum_mul_left reciprocal (fineUnitCouplingPhysicalTerm S)
+        S.fine.physicalLabellings))
+
+theorem fineCouplingPhysicalPartitionMarginSum_le_reciprocal
+    (S : SlabScalePair)
+    (hgap : (0 : Q') < 1 - S.fine.coupling) :
+    fineCouplingPhysicalPartitionMarginSum S ≤
+      Q'.divPos 1 (1 - S.fine.coupling) hgap *
+        fineUnitCouplingPhysicalPartition S := by
+  exact fineCouplingPhysicalPartitionMarginSum_le_reciprocal_local S hgap
+
+private theorem duplicated_nested_product_eqv_local (reciprocal unit : Q') :
+    unit * (reciprocal * unit) + unit * (reciprocal * unit) ≈
+      (Q'.ofNat 2 * reciprocal) * (unit * unit) := by
+  refine Q'.eqv_trans _ (Q'.ofNat 2 * (unit * (reciprocal * unit))) _
+    (Q'.eqv_symm (two_mul_eqv_local (unit * (reciprocal * unit)))) ?_
+  refine Q'.eqv_trans _ ((Q'.ofNat 2 * unit) * (reciprocal * unit)) _
+    (Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat 2) unit
+      (reciprocal * unit))) ?_
+  refine Q'.eqv_trans _ ((unit * Q'.ofNat 2) * (reciprocal * unit)) _
+    (Q'.mul_eqv_congr_right _ _ _
+      (Q'.mul_comm_eqv (Q'.ofNat 2) unit)) ?_
+  refine Q'.eqv_trans _ (unit * (Q'.ofNat 2 * (reciprocal * unit))) _
+    (Q'.mul_assoc_eqv unit (Q'.ofNat 2) (reciprocal * unit)) ?_
+  refine Q'.eqv_trans _ (unit * ((Q'.ofNat 2 * reciprocal) * unit)) _
+    (Q'.mul_eqv_congr_left unit _ _
+      (Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat 2) reciprocal unit))) ?_
+  refine Q'.eqv_trans _ ((unit * (Q'.ofNat 2 * reciprocal)) * unit) _
+    (Q'.eqv_symm (Q'.mul_assoc_eqv unit
+      (Q'.ofNat 2 * reciprocal) unit)) ?_
+  refine Q'.eqv_trans _ (((Q'.ofNat 2 * reciprocal) * unit) * unit) _
+    (Q'.mul_eqv_congr_right _ _ _
+      (Q'.mul_comm_eqv unit (Q'.ofNat 2 * reciprocal))) ?_
+  exact Q'.mul_assoc_eqv (Q'.ofNat 2 * reciprocal) unit unit
+
+theorem fineCouplingPhysicalPartitionSquareMargin_le_reciprocal
+    (S : SlabScalePair)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (hgap : (0 : Q') < 1 - S.fine.coupling) :
+    fineCouplingPhysicalPartitionSquareMargin S ≤
+      (Q'.ofNat 2 * Q'.divPos 1 (1 - S.fine.coupling) hgap) *
+        (fineUnitCouplingPhysicalPartition S *
+          fineUnitCouplingPhysicalPartition S) := by
+  let reciprocal := Q'.divPos 1 (1 - S.fine.coupling) hgap
+  let unitPartition := fineUnitCouplingPhysicalPartition S
+  let actualPartition := S.fine.physicalPartition
+  let marginSum := fineCouplingPhysicalPartitionMarginSum S
+  have hunit : (0 : Q') ≤ unitPartition := by
+    simpa only [unitPartition] using
+      (fineUnitCouplingPhysicalPartition_nonnegative_local S)
+  have hactual : (0 : Q') ≤ actualPartition := by
+    simpa only [actualPartition] using finePhysicalPartition_nonnegative_local S
+  have hmargin : (0 : Q') ≤ marginSum := by
+    simpa only [marginSum] using
+      (fineCouplingPhysicalPartitionMarginSum_nonnegative_local S)
+  have hpartition : actualPartition ≤ unitPartition := by
+    simpa only [actualPartition, unitPartition] using
+      (finePhysicalPartition_le_unitCoupling S hfineCoupling_le_one)
+  have hmarginBound : marginSum ≤ reciprocal * unitPartition := by
+    simpa only [marginSum, reciprocal] using
+      (fineCouplingPhysicalPartitionMarginSum_le_reciprocal S hgap)
+  have hfirst : unitPartition * marginSum ≤
+      unitPartition * (reciprocal * unitPartition) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ unitPartition hmarginBound hunit
+  have hactualMargin : actualPartition * marginSum ≤
+      unitPartition * marginSum :=
+    Q'.mul_le_mul_of_nonneg_right _ _ marginSum hpartition hmargin
+  have hsecond : actualPartition * marginSum ≤
+      unitPartition * (reciprocal * unitPartition) :=
+    Q'.le_trans' _ _ _ hactualMargin hfirst
+  have hadd : unitPartition * marginSum + actualPartition * marginSum ≤
+      unitPartition * (reciprocal * unitPartition) +
+        unitPartition * (reciprocal * unitPartition) :=
+    Q'.add_le_add hfirst hsecond
+  unfold fineCouplingPhysicalPartitionSquareMargin
+  refine Q'.le_trans' _ _ _ hadd ?_
+  exact Q'.le_of_eqv
+    (duplicated_nested_product_eqv_local reciprocal unitPartition)
+
+/-! ## The reciprocal-margin normalized calibration -/
+
+/-- A fixed-coupling ceiling for the normalized centered numerator.  It is
+semantically `4 / (1 - coupling)`, but the nested `ofNat 2` form keeps the
+constructive regrouping visible and avoids an opaque arithmetic normalization. -/
+def fineCouplingReciprocalMarginCeiling
+    (S : SlabScalePair)
+    (hgap : (0 : Q') < 1 - S.fine.coupling) : Q' :=
+  Q'.ofNat 2 *
+    (Q'.ofNat 2 * Q'.divPos 1 (1 - S.fine.coupling) hgap)
+
+private theorem fineCouplingReciprocalMarginCeiling_nonnegative
+    (S : SlabScalePair)
+    (hgap : (0 : Q') < 1 - S.fine.coupling) :
+    (0 : Q') ≤ fineCouplingReciprocalMarginCeiling S hgap := by
+  unfold fineCouplingReciprocalMarginCeiling
+  apply Q'.mul_nonneg
+  · exact Q'.le_of_lt (by decide : (0 : Q') < Q'.ofNat 2)
+  · apply Q'.mul_nonneg
+    · exact Q'.le_of_lt (by decide : (0 : Q') < Q'.ofNat 2)
+    · unfold Q'.divPos
+      exact Q'.mul_nonneg
+        _ _
+        (by decide : (0 : Q') ≤ (1 : Q'))
+        (Q'.le_of_lt
+          (Q'.recipPos_pos (1 - S.fine.coupling) hgap))
+
+private theorem reciprocal_scaled_budget_eqv_local
+    (reciprocal unitSquare actualSquare : Q') :
+    (Q'.ofNat 2 * ((Q'.ofNat 2 * reciprocal) * unitSquare)) *
+        actualSquare ≈
+      (Q'.ofNat 2 * (Q'.ofNat 2 * reciprocal)) *
+        (unitSquare * actualSquare) := by
+  refine Q'.eqv_trans _
+    (Q'.ofNat 2 * (((Q'.ofNat 2 * reciprocal) * unitSquare) *
+      actualSquare)) _ ?_ ?_
+  · exact Q'.mul_assoc_eqv (Q'.ofNat 2)
+        ((Q'.ofNat 2 * reciprocal) * unitSquare) actualSquare
+  refine Q'.eqv_trans _
+    (Q'.ofNat 2 * ((Q'.ofNat 2 * reciprocal) *
+      (unitSquare * actualSquare))) _ ?_ ?_
+  · exact Q'.mul_eqv_congr_left (Q'.ofNat 2) _ _
+      (Q'.mul_assoc_eqv (Q'.ofNat 2 * reciprocal) unitSquare actualSquare)
+  · exact Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat 2)
+      (Q'.ofNat 2 * reciprocal) (unitSquare * actualSquare))
+
 /-- The explicit finite two-term partition envelope for the centered
 source-pair average.  Its displayed margin factor is not claimed uniform in
 cutoff or volume. -/
@@ -355,6 +508,68 @@ theorem fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_t
     (Q'.le_of_eqv (YMGap.Constructive.Q'.abs_eqv_congr heq)) ?_
   exact fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_partition_two_term
     K M.coarseRoot M.coarseTarget
+
+/-- A fixed-coupling reciprocal envelope for the normalized centered
+numerator.  The proof is finite and explicit; its ceiling is allowed to
+depend on the strict gap `1 - coupling`. -/
+theorem fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (M : SlabFaceBlockMap S)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (hgap : (0 : Q') < 1 - S.fine.coupling) :
+    FineUnitCouplingCenteredNormalizedMarginRawCalibration
+      K M (fineCouplingReciprocalMarginCeiling S hgap) := by
+  let reciprocal := Q'.divPos 1 (1 - S.fine.coupling) hgap
+  let unitSquare :=
+    fineUnitCouplingPhysicalPartition S *
+      fineUnitCouplingPhysicalPartition S
+  let actualSquare := S.fine.physicalPartition * S.fine.physicalPartition
+  let squareMargin := fineCouplingPhysicalPartitionSquareMargin S
+  have hmarginSquare : squareMargin ≤
+      (Q'.ofNat 2 * reciprocal) * unitSquare := by
+    simpa only [squareMargin, reciprocal, unitSquare] using
+      (fineCouplingPhysicalPartitionSquareMargin_le_reciprocal
+        S hfineCoupling_le_one hgap)
+  have hnum := fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term
+    K M
+  have hregroup :
+      fineCouplingPhysicalPartitionSquareMargin S *
+            (S.fine.physicalPartition * S.fine.physicalPartition) +
+        (S.fine.physicalPartition * S.fine.physicalPartition) *
+          fineCouplingPhysicalPartitionSquareMargin S ≈
+      (Q'.ofNat 2 * fineCouplingPhysicalPartitionSquareMargin S) *
+        (S.fine.physicalPartition * S.fine.physicalPartition) := by
+    let margin := fineCouplingPhysicalPartitionSquareMargin S
+    let square := S.fine.physicalPartition * S.fine.physicalPartition
+    have hcomm : square * margin ≈ margin * square :=
+      Q'.mul_comm_eqv square margin
+    have hswap : margin * square + square * margin ≈
+        margin * square + margin * square :=
+      Q'.add_eqv_congr_left (margin * square) (square * margin)
+        (margin * square) hcomm
+    refine Q'.eqv_trans _ (margin * square + margin * square) _ hswap ?_
+    refine Q'.eqv_trans _ (Q'.ofNat 2 * (margin * square)) _
+      (Q'.eqv_symm (two_mul_eqv_local (margin * square))) ?_
+    exact Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat 2) margin square)
+  have hmarginScaled : (Q'.ofNat 2 * squareMargin) ≤
+      Q'.ofNat 2 * ((Q'.ofNat 2 * reciprocal) * unitSquare) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ (Q'.ofNat 2) hmarginSquare
+      (Q'.le_of_lt (by decide : (0 : Q') < Q'.ofNat 2))
+  have hactualSquare : (0 : Q') ≤ actualSquare := by
+    dsimp only [actualSquare]
+    exact Q'.mul_nonneg _ _
+      (finePhysicalPartition_nonnegative_local S)
+      (finePhysicalPartition_nonnegative_local S)
+  have hscaled : (Q'.ofNat 2 * squareMargin) * actualSquare ≤
+      (Q'.ofNat 2 * ((Q'.ofNat 2 * reciprocal) * unitSquare)) *
+        actualSquare :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ hmarginScaled hactualSquare
+  unfold FineUnitCouplingCenteredNormalizedMarginRawCalibration
+  refine Q'.le_trans' _ _ _ hnum ?_
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hregroup) ?_
+  refine Q'.le_trans' _ _ _ hscaled ?_
+  exact Q'.le_of_eqv
+    (reciprocal_scaled_budget_eqv_local reciprocal unitSquare actualSquare)
 
 /-! ## The finite normalized calibration ceiling -/
 
@@ -516,6 +731,7 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_sourcePairDebtL1
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term
+#print axioms fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal
 #print axioms finiteMarginEnvelopeCeiling_mul_denominator_eqv
 #print axioms fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term

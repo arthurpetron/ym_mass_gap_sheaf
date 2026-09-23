@@ -45,6 +45,20 @@ calibration.  The focused dependency-complete safe target passed 5504 jobs
 with one worker.  All three exported declarations report only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+The same module now proves the fixed-coupling reciprocal refinements
+`fineCouplingPhysicalPartitionMarginSum_le_reciprocal` and
+`fineCouplingPhysicalPartitionSquareMargin_le_reciprocal`, using the explicit
+geometric tail majorant under the supplied strict gap
+`0 < 1 - S.fine.coupling`.  The definition
+`fineCouplingReciprocalMarginCeiling` is semantically `4/(1-w)`, and
+`fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal`
+constructively inhabits the normalized calibration for each finite slab.  Its
+dependence on the coupling gap is explicit and it blows up as `w → 1`; this
+does not supply the cutoff/volume/beta-uniform bound, OS identification, or
+continuum mass-gap input.  The focused dependency-complete safe target passed
+5506 jobs with one worker; all new declarations report only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 The same module now defines `finiteMarginEnvelopeCeiling` and proves
 `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term`.
 The ceiling is the explicit positive-denominator quotient of the two-term
