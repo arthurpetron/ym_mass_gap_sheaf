@@ -25,6 +25,37 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Haar averaging contracts angular energy, with actual consumer (2026-09-23 UTC)
+
+`SU2QuaternionHaarFamilyAngularContraction.familyProject_angularSum_le`
+now proves `sum_i H(blockAngularSquare i (E_F f)) <=
+sum_i H(blockAngularSquare i f)` with coefficient ONE, for every in-range
+finite family F and supported signed input. Each block energy decreases:
+at an averaged block the derivative vanishes; at an unaveraged block it
+commutes coefficientwise with E_F and the actual Haar square contracts.
+`SU2QuaternionSelectedHaarDerivative.ratDerivative_project_of_ne` supplies
+the explicit monomial-level commutation; no spectral theorem is used.
+
+The proved consumer
+`BF4ExactSlabFixedSpatialProjectedAngularEnergy.energy_le_fringeResidual_add_angular_add_correction`
+therefore bounds the original energy by
+`H((u-E_F u)^2) + 2*(1-w)*sum_i H(blockAngularSquare i u) + correction`,
+for the COMPLETE `u=(V*g)*f`. Its support, positive block count, coupling and
+cutoff guards are unchanged. This eliminates projection from the angular
+cost, not source derivatives, the residual square or the signed correction.
+
+NEXT: quantitative control of these retained terms against the actual
+normalization, preserving any required cancellations. No sign of the
+correction is known; factor-two bare control does not cancel its f^2-weighted
+endpoint defect. The physical-time/scaling, continuum survival, finite
+positive mass, full QFT/local fields, every-group and Clay joins remain OPEN.
+
+Verification: four serialized 8 GiB leaf checks, thirteen permitted gates
+(including unchanged consumers), no warning or `sorryAx`; no full-root
+build/audit/guard. Sol drafted the monomial producer; root repaired/checked
+it and proved the angular and original-energy consequences; Luna reviewed
+scope. Evidence: `audits/AUDIT-HAAR-ANGULAR-CONTRACTION-2026-09-23.md`.
+
 ### Proper active product and original interacting energy (2026-09-23 UTC)
 
 The actual inactive-coordinate join and interacting consumer are now proved.
@@ -44,8 +75,8 @@ inactive residual square of u, the projected angular sum of u, and the
 UNCHANGED signed endpoint correction. Support of g,f and positive block count
 are explicit premises. No smallness or sign of these terms is asserted.
 
-NEXT: contract projected angular energy under Haar averaging, then control
-the source derivatives/residual and signed correction with the actual
+Angular contraction is now proved above. NEXT: control the source
+derivatives/residual and signed correction with the actual
 normalization. A defect UPPER bound is not a gap LOWER bound. Spatial/scaling,
 same-theory physical time, continuum survival, finite positive physical mass,
 full QFT/local fields, every group and the Clay target remain OPEN.

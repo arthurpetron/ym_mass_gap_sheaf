@@ -14,6 +14,7 @@ of the interacting source, or control the signed endpoint correction.
 import YMGap.Continuum.SU2QuaternionProductHeatInactiveProjection
 import YMGap.Continuum.SU2QuaternionHaarFamilyPythagoras
 import YMGap.Continuum.SU2QuaternionProductHeatAngularDefect
+import YMGap.Continuum.SU2QuaternionHaarFamilyAngularContraction
 
 namespace YMGap.Continuum.SU2QuaternionProductHeatInactiveAngularDefect
 
@@ -34,6 +35,7 @@ open YMGap.Continuum.SU2QuaternionHaarFamilyPythagoras
 open YMGap.Continuum.SU2QuaternionProductHeatMarginals
 open YMGap.Continuum.SU2QuaternionProductHeatInactiveProjection
 open YMGap.Continuum.SU2QuaternionProductHeatAngularDefect
+open YMGap.Continuum.SU2QuaternionHaarFamilyAngularContraction
 open YMGap.Continuum.SU2QuaternionAngularReindex
 open YMGap.Continuum.SU2HeatCutoffCasimirBound
 open YMGap.Continuum.QuaternionHaarSquareCertificate
@@ -106,8 +108,29 @@ theorem productMap_defect_le_angular_of_independent (tail : Nat) {w : Q'}
     (Q'.le_of_eqv (Q'.add_eqv_congr' (Q'.eqv_refl _) (Q'.neg_eqv_congr _ _ hp)))
     (productMap_range_defect_le_two_angular tail hw0 hw1 K hK f hf)
 
+/-- The original angular sum controls the projected cost with coefficient
+one. No independence of the original input is assumed; its residual remains. -/
+theorem productMap_defect_le_residual_add_angular (tail : Nat) {w : Q'}
+    (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q')) (K : Nat)
+    (hK : sufficientCutoff w ≤ K) (ids F : List Nat)
+    (hids : ∀ i, i ∈ ids → i < tail+1) (hF : ∀ i, i ∈ F → i < tail+1)
+    (hnot : ∀ i, i ∈ F → i ∉ ids) (hcover : (F++ids).Perm (List.range (tail+1)))
+    (f : RatPoly) (hf : SupportedQuaternionBlocks (tail+1) f) :
+    quaternionHaar (tail+1) (polyMul f f) +
+      -(quaternionHaar (tail+1) (polyMul f (productMap (tail+1) w K ids f))) ≤
+      quaternionHaar (tail+1) (polyMul (familyResidual F f) (familyResidual F f)) +
+        (2 * ((1 : Q')-w)) * finSum (fun i => quaternionHaar (tail+1)
+          (blockAngularSquare i f)) (tail+1) := by
+  have hc : (0 : Q') ≤ 2*((1 : Q')-w) :=
+    Q'.mul_nonneg _ _ (by decide) (Q'.sub_nonneg_of_le (Q'.le_of_lt hw1))
+  exact Q'.le_trans' _ _ _
+    (productMap_defect_le_projected_angular tail hw0 hw1 K hK ids F hids hF hnot hcover f hf)
+    (Q'.add_le_add_left _ _ _ (Q'.mul_le_mul_of_nonneg_left _ _ _
+      (familyProject_angularSum_le (tail+1) F hF f hf) hc))
+
 end YMGap.Continuum.SU2QuaternionProductHeatInactiveAngularDefect
 
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatInactiveAngularDefect.productMap_defect_eq_residual_add_full
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatInactiveAngularDefect.productMap_defect_le_projected_angular
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatInactiveAngularDefect.productMap_defect_le_angular_of_independent
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatInactiveAngularDefect.productMap_defect_le_residual_add_angular

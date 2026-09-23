@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Coefficient-one angular contraction under Haar averaging (2026-09-23):**
+`SU2QuaternionSelectedHaarDerivative.ratDerivative_project_of_ne` proves
+coefficientwise commutation on distinct original quaternion blocks.
+`SU2QuaternionHaarFamilyAngularContraction.familyProject_angularSum_le`
+combines it with Pythagoras to bound every projected block energy and their
+sum by the original energy, without a block-count factor. The actual
+`energy_le_fringeResidual_add_angular_add_correction` consumer uses the
+COMPLETE `u=(V*g)*f`, preserving its inactive residual and signed correction.
+No source derivative is removed. Relative source/residual/correction control
+and all physical/continuum joins remain open. Four serialized leaves passed
+thirteen permitted gates; no full-root build/audit/guard. Evidence:
+`audits/AUDIT-HAAR-ANGULAR-CONTRACTION-2026-09-23.md`.
+
 **Proper active product and original energy (2026-09-23):**
 `SU2QuaternionHaarFamilyPythagoras` and
 `SU2QuaternionProductHeatInactiveProjection` prove ordinary-Haar orthogonality

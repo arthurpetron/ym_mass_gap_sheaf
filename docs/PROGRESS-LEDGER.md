@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual inactive projection and interacting consumer (2026-09-23)
+## Current increment: remove projection from angular cost without loss (2026-09-23)
+
+Actual in-place Haar averaging now contracts every original block angular
+energy, and their total, with coefficient one. The proof is constructive
+conditional Jensen: derivative/projection commutation at distinct blocks,
+zero derivative at averaged blocks, and the checked ordinary-Haar Pythagoras.
+The commutation itself is proved termwise, not a supplied certificate.
+
+The actual interacting consumer now bounds its energy by the inactive
+residual square plus `2*(1-w)` times the original angular sum of `u=(V*g)*f`
+plus the unchanged signed correction. Thus the next task is a genuine
+estimate of the retained source/residual/correction terms relative to the
+original normalization. No f^2-weighted correction cancellation, physical
+gap, scaling limit or Clay clause follows yet.
+
+Four serialized 8 GiB leaves passed thirteen gates within the permitted set,
+including unchanged consumers; no full-root guard. Evidence:
+`audits/AUDIT-HAAR-ANGULAR-CONTRACTION-2026-09-23.md`.
+
+## Previous increment: actual inactive projection and interacting consumer (2026-09-23)
 
 The previous full-product bound now reaches the actual proper active set.
 The exact form identity is `defect_active(f)=H((f-E_F f)^2)+defect_full(E_F f)`.

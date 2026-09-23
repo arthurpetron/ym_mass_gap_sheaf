@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Proved coefficient-one angular contraction under Haar averaging (2026-09-23)
+
+- **producer**: `SU2QuaternionSelectedHaarDerivative.ratDerivative_project_of_ne`
+  follows from actual exponent-mask commutation and unchanged four-coordinate
+  Haar moment for distinct blocks. No coordinate-deleting surrogate.
+- **estimate**: `SU2QuaternionHaarFamilyAngularContraction.familyProject_blockAngularSquare_le`
+  and `familyProject_angularSum_le` give coefficient-one contraction on every
+  block and on the whole original finite angular sum. Averaged blocks have
+  zero derivative; the others use exact commutation and family Pythagoras.
+- **consumers**: `productMap_defect_le_residual_add_angular` and
+  `energy_le_fringeResidual_add_angular_add_correction` retain the original
+  input (respectively complete `u=(V*g)*f`), inactive residual square, and
+  signed endpoint correction. Support/coupling/cutoff guards are unchanged.
+- **remaining**: source derivatives, residual and signed correction relative
+  to actual normalization; physical-time, spatial/scaling, continuum survival,
+  finite positive mass, full QFT/local fields and every group. No gap lower
+  bound, uniform scaling estimate or canonical Clay atom is closed.
+- **verification**: four serialized 8 GiB leaves, thirteen gates including
+  unchanged consumers, only `{propext, Quot.sound}`, no warning or `sorryAx`.
+  No new hole/axiom/weakening or full-root build/audit/guard. Evidence:
+  `audits/AUDIT-HAAR-ANGULAR-CONTRACTION-2026-09-23.md`.
+
 ## Proved inactive projection and original interacting-energy estimate (2026-09-23)
 
 - **exact join**: `SU2QuaternionHaarFamilyPythagoras.family_square_decomposition`
@@ -13,7 +35,7 @@
   unchanged signed correction. Support, block count, coupling and cutoff
   guards remain explicit. The independence corollary requires independence
   of the COMPLETE input.
-- **remaining inputs**: projected angular contraction; source-derivative and
+- **remaining inputs**: projected angular contraction is now proved above; source-derivative and
   residual estimates; signed-correction control against actual normalization;
   spatial/scaling, physical OS/time, continuum survival, finite positive mass,
   full QFT/local fields and every group. No canonical atom is closed.

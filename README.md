@@ -58,6 +58,14 @@ control of these terms and the actual normalization. Four focused checks
 passed thirteen permitted axiom gates; see the
 [proof and remaining obligations](audits/AUDIT-INACTIVE-PROJECTED-ANGULAR-ENERGY-2026-09-23.md).
 
+The next simplification is also [checked](audits/AUDIT-HAAR-ANGULAR-CONTRACTION-2026-09-23.md):
+Haar averaging decreases every block's angular energy, hence its full sum,
+with coefficient **one**. The interacting estimate can now use the angular
+energy of the original complete source `u=(V*g)*f`, without a projected input
+or extra block-count loss. Source derivatives, the residual square and the
+signed correction remain; controlling them relative to the actual
+normalization is the next analytic task, not a discharged physical gap.
+
 A separate proposed original-action shortcut is now
 [refuted](lean/YMGap/Continuum/SU2QuaternionSelectedLinkHeadObstruction.lean):
 integrating a link against its existing neighbor is not the same operator
