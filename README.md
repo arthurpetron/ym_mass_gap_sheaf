@@ -279,6 +279,17 @@ bound with constant `balancedCeiling + 2 * finiteMarginEnvelopeCeiling S`.
 The remaining frontier is therefore the balanced scale-defect estimate and its
 uniform/continuum passage, not an unconnected algebraic seam.
 
+The next finite carrier step is now checked in
+`Z4DyadicSpinFourFineCouplingPartitionDrift.lean`: both coarse and coupling-one
+four-cell source/target raw masses are bounded by their positive partition
+squares, giving signed-cross bounds with factor `2` and the balanced defect
+ceiling `4 * Z_coarse^2 * Z_unit^2`.  This is an explicit finite envelope on
+the coupling-one reference carrier.  `Z_unit` is not the actual-fine
+normalized partition, so this does not yet provide the balanced blocking law,
+cutoff/volume/beta/spacing uniformity, OS identification, continuum passage,
+physical mass calibration, or the all-group Clay target.  The focused safe
+target passed 5498 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

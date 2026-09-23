@@ -106,6 +106,27 @@ the complete finite centered-cylinder estimate with constant
 producer is now isolated to balanced scale-defect control (and later its
 uniform/continuum passage), not a missing algebraic join.
 
+### Finite balanced carrier ceiling (2026-09-23 UTC)
+
+`Z4DyadicSpinFourFineCouplingPartitionDrift.lean` now proves finite positive
+carrier ceilings for both coarse and coupling-one four-cell source/target
+raw masses.  The resulting signed-cross bounds are
+`coarseObservableFourCellRawColumnCross_abs_le_two_partitionSquare` and
+`fineUnitCouplingPushedRawColumnCross_abs_le_two_partitionSquare`; the balanced
+coupling-one defect is bounded by
+`4 * Z_coarse^2 * Z_unit^2` through
+`fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares`.
+The focused safe target passed 5498 jobs with one worker and the new exports
+have only `{propext, Quot.sound}`.
+
+This is a finite carrier envelope, not the sought balanced calibration:
+`Z_unit` is the coupling-one reference partition rather than the actual-fine
+normalized partition, and no cutoff-, volume-, beta-, spacing-, OS-,
+thermodynamic-, continuum-, physical-mass-, or all-group uniformity follows.
+The next frontier is a genuine balanced-blocking estimate on the same
+completed carrier, with the finite envelope available as its explicit base
+case.
+
 ### Iterated completed finite transfer decay (2026-09-23 UTC)
 
 `SU2QuaternionFiniteHaarCompletedTransferContraction.lean` now carries the

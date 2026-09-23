@@ -13,6 +13,39 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED finite balanced carrier ceiling (2026-09-23 UTC)
+
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicSpinFourFineCouplingPartitionDrift.lean`.
+- **proved declarations**:
+  `coarseObservableFourCellSourceRawMass_le_partitionSquare`,
+  `coarseObservableFourCellTargetRawMass_le_partitionSquare`,
+  `fineUnitCouplingPushedFourCellSourceRawMass_le_partitionSquare`,
+  `fineUnitCouplingPushedFourCellTargetRawMass_le_partitionSquare`,
+  `coarseObservableFourCellRawColumnCross_abs_le_two_partitionSquare`,
+  `fineUnitCouplingPushedRawColumnCross_abs_le_two_partitionSquare`, and
+  `fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares`.
+- **proof content**: inject the four-cell source and target pair lists into
+  complete positive coarse and coupling-one two-replica carriers, use the
+  exact finite carrier mass totals, and apply constructive triangle and
+  absolute-product bounds.  The two signed crosses are bounded by twice their
+  partition squares, and the balanced defect is consequently bounded by
+  `4 * Z_coarse^2 * Z_unit^2`.
+- **scope**: this is a finite carrier ceiling at the coupling-one reference
+  scale.  `Z_unit` is not the actual-fine normalized partition, so no
+  cutoff-, volume-, beta-, spacing-, or blocking-uniform calibration follows.
+  The result does not identify an OS transfer matrix, pass to a thermodynamic
+  or continuum limit, construct the QFT, calibrate a physical mass, cover all
+  compact simple groups, or prove the Clay theorem; it does not close
+  `FineUnitCouplingBalancedRawColumnScaleDefectCalibration`.
+- **constructive or propositional**: constructive finite rational inequalities
+  and explicit Type-level bounds; no new `sorry`, classical axiom, or named
+  analytic hypothesis is introduced.
+- **verification**: focused dependency-complete safe build of
+  `+YMGap.Continuum.Z4DyadicSpinFourFineCouplingPartitionDrift:olean`
+  passed 5498 jobs with one worker.  The exported declarations report only
+  `{propext, Quot.sound}` and no `sorryAx`.
+
 ## PROVED fixed-coupling reciprocal margin envelope (2026-09-23 UTC)
 
 - **file**:

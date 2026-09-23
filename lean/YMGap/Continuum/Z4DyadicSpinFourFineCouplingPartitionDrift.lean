@@ -25,12 +25,20 @@ Nothing here proves that either residual has a volume-uniform ceiling, takes
 a cutoff or continuum limit, constructs the OS/GNS theory, or proves the
 Yang--Mills mass gap.
 
+The finite carrier layer is now made explicit: each coarse and coupling-one
+four-cell cross is bounded by twice the corresponding positive partition
+square, and the balanced coupling-one scale defect is bounded by
+`4 * Z_coarse^2 * Z_unit^2`.  This is a finite carrier envelope only.  The
+unit partition is not the actual-fine normalized partition, so the
+cutoff/volume-uniform balanced calibration remains open.
+
 Constructive contract: finite rational sums, monotonicity, and exact rational
 algebra only; no `Classical`, choice, `native_decide`, proof hole,
 noncomputable declaration, or new axiom.
 -/
 
 import YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferenceScaleDefect
+import YMGap.Continuum.CompactDualSlabObservablePairedSupportFiniteCoreReduction
 
 namespace YMGap.Continuum.Z4DyadicSpinFourFineCouplingPartitionDrift
 
@@ -42,11 +50,21 @@ open YMGap.Constructive
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.CompactDualCutoffOnePhysicalPushforward
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
+open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCell
 open YMGap.Continuum.CompactDualSlabObservableTwoReplicaSwitchReduction
+open YMGap.Continuum.CompactDualSlabObservablePairedSupportArbitraryCouplingContraction
+open YMGap.Continuum.CompactDualSlabObservablePairedSupportFiniteCoreReduction
+open YMGap.Continuum.CompactDualSlabObservableRemovalFiber
+open YMGap.Continuum.CompactDualSlabObservableRemovalPartition
+open YMGap.Continuum.CompactDualSlabObservableFiniteVolumeVacuumStrictness
+open YMGap.Continuum.CompactDualSlabObservableHighSpinCoreCarrier
+open YMGap.Continuum.CompactDualSlabExpandedSourceEnumeration
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
+open YMGap.Continuum.FiniteWeightedCartesianInjection
 open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
+open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
 open YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferenceCross
 open YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferencePerturbation
@@ -56,6 +74,51 @@ open YMGap.Continuum.Z4DyadicSpinFourReceiverRawColumnCrossCalibration
 local infix:50 " ≈ " => Q'.eqv
 
 private theorem neg_num_cast_local (a : Q') : (-a).num = -(a.num) := rfl
+
+private theorem two_mul_eqv_local (a : Q') :
+    (Q'.ofNat 2 * a).eqv (a + a) := by
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right (Q'.ofNat 2) (1 + 1) a (by decide)) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.add_mul_eqv 1 1 a) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right (1 * a) a (1 * a) (Q'.one_mul_eqv a)) ?_
+  exact Q'.add_eqv_congr_left a (1 * a) a (Q'.one_mul_eqv a)
+
+private theorem four_mul_eqv_local (a : Q') :
+    (Q'.ofNat 4 * a).eqv ((a + a) + (a + a)) := by
+  have hfour : (Q'.ofNat 4).eqv (Q'.ofNat 2 + Q'.ofNat 2) := by
+    decide
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right (Q'.ofNat 4)
+      (Q'.ofNat 2 + Q'.ofNat 2) a hfour) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_mul_eqv (Q'.ofNat 2) (Q'.ofNat 2) a) ?_
+  exact Q'.add_eqv_congr'
+    (two_mul_eqv_local a) (two_mul_eqv_local a)
+
+private theorem abs_nonnegative_factor_eqv_local
+    (a b : Q') (ha : (0 : Q') ≤ a) :
+    Q'.abs a * b ≈ a * b :=
+  Q'.mul_eqv_congr_right _ _ _
+    (YMGap.Continuum.TsumDeriv.Q'.abs_of_nonneg ha)
+
+private theorem abs_sub_le_abs_add_local (a b : Q') :
+    Q'.abs (a - b) ≤ Q'.abs a + Q'.abs b := by
+  change Q'.abs (a + (-b)) ≤ Q'.abs a + Q'.abs b
+  exact Q'.le_trans' _ _ _ (Q'.abs_add_le' a (-b))
+    (Q'.le_of_eqv
+      (Q'.add_eqv_congr'
+        (Q'.eqv_refl (Q'.abs a))
+        (YMGap.Continuum.TsumDeriv.Q'.abs_neg b)))
+
+private theorem two_cross_regroup_local (a b : Q') :
+    a * (Q'.ofNat 2 * b) + b * (Q'.ofNat 2 * a) ≈
+      ((b * a) + (b * a)) + ((b * a) + (b * a)) := by
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr'
+      (Q'.mul_eqv_congr_left _ _ _ (two_mul_eqv_local b))
+      (Q'.mul_eqv_congr_left _ _ _ (two_mul_eqv_local a))) ?_
+  ring_qeqv
 
 local macro "ring_qeqv" : tactic =>
   `(tactic| (try unfold Q'.sub;
@@ -166,6 +229,394 @@ private theorem physicalPartition_nonnegative (D : SlabPhysicalData) :
   Q'.le_of_lt
     (slabParametricKPhysicalPartition_pos
       D.coupling_nonnegative D.cutoff D.extent)
+
+private theorem abs_sub_nonnegative_le_add_local
+    {a b : Q'} (ha : (0 : Q') ≤ a) (hb : (0 : Q') ≤ b) :
+    Q'.abs (a - b) ≤ a + b := by
+  change Q'.abs (a + (-b)) ≤ a + b
+  refine Q'.le_trans' _ _ _ (Q'.abs_add_le' a (-b)) ?_
+  refine Q'.add_le_add ?_ ?_
+  · exact Q'.le_of_eqv
+      (YMGap.Continuum.TsumDeriv.Q'.abs_of_nonneg ha)
+  · exact Q'.le_of_eqv
+      (Q'.eqv_trans _ _ _
+        (YMGap.Continuum.TsumDeriv.Q'.abs_neg b)
+        (YMGap.Continuum.TsumDeriv.Q'.abs_of_nonneg hb))
+
+private theorem pushedSourcePair_components_mem_local
+    {S : SlabScalePair} {root target : Nat}
+    {pair : EdgeLabelling × EdgeLabelling}
+    (hpair : pair ∈ pushedFaceRawFourCellSourcePairs
+      (S := S) root target) :
+    pair.1 ∈ S.coarse.physicalLabellings ∧
+      pair.2 ∈ S.coarse.physicalLabellings := by
+  unfold pushedFaceRawFourCellSourcePairs at hpair
+  have hmembers := (mem_cartesian_iff _ _ pair).mp hpair
+  exact ⟨(List.mem_filter.mp hmembers.1).1,
+    (List.mem_filter.mp hmembers.2).1⟩
+
+private theorem pushedTargetPair_components_mem_local
+    {S : SlabScalePair} {root target : Nat}
+    {pair : EdgeLabelling × EdgeLabelling}
+    (hpair : pair ∈ pushedFaceRawFourCellTargetPairs
+      (S := S) root target) :
+    pair.1 ∈ S.coarse.physicalLabellings ∧
+      pair.2 ∈ S.coarse.physicalLabellings := by
+  unfold pushedFaceRawFourCellTargetPairs at hpair
+  have hmembers := (mem_cartesian_iff _ _ pair).mp hpair
+  exact ⟨(List.mem_filter.mp hmembers.1).1,
+    (List.mem_filter.mp hmembers.2).1⟩
+
+private theorem pushedFaceRawFourCellSourcePairs_nodup_local
+    (S : SlabScalePair) (root target : Nat) :
+    (pushedFaceRawFourCellSourcePairs (S := S) root target).Nodup := by
+  unfold pushedFaceRawFourCellSourcePairs
+  apply cartesian_nodup
+  · exact (List.filter_sublist.nodup
+      (slabPhysicalLabellings_nodup S.coarse))
+  · exact (List.filter_sublist.nodup
+      (slabPhysicalLabellings_nodup S.coarse))
+
+private theorem pushedFaceRawFourCellTargetPairs_nodup_local
+    (S : SlabScalePair) (root target : Nat) :
+    (pushedFaceRawFourCellTargetPairs (S := S) root target).Nodup := by
+  unfold pushedFaceRawFourCellTargetPairs
+  apply cartesian_nodup
+  · exact (List.filter_sublist.nodup
+      (slabPhysicalLabellings_nodup S.coarse))
+  · exact (List.filter_sublist.nodup
+      (slabPhysicalLabellings_nodup S.coarse))
+
+private theorem pushedTargetPairRawMass_nonnegative_local
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    {pair : EdgeLabelling × EdgeLabelling}
+    (hleft : pair.1 ∈ S.coarse.physicalLabellings)
+    (hright : pair.2 ∈ S.coarse.physicalLabellings) :
+    (0 : Q') ≤ fineUnitCouplingPushedTargetPairRawMass K pair := by
+  unfold fineUnitCouplingPushedTargetPairRawMass
+  exact Q'.mul_nonneg _ _
+    (fineUnitCouplingPushedTargetRawMass_nonnegative K hleft)
+    (fineUnitCouplingPushedTargetRawMass_nonnegative K hright)
+
+private theorem coarsePairRawMass_nonnegative_local
+    {D : SlabPhysicalData} {root : Nat}
+    (pair : SlabObservableTwoReplicaPair D root) :
+    (0 : Q') ≤ slabObservableTwoReplicaPairWeight D pair :=
+  slabObservableTwoReplicaPairWeight_nonnegative D root pair
+
+private theorem coarseSourcePair_mem_positiveTimesAll_local
+    (D : SlabPhysicalData) (root target : Nat)
+    (pair : SlabObservableTwoReplicaPair D root)
+    (hpair : pair ∈ slabObservableFourCellSourcePairs D root target) :
+    pair ∈ slabObservablePositiveTimesAllPairs D root := by
+  have hsource :=
+    (mem_cartesian_iff
+      (slabObservableRootTargetEntries D root target)
+      (slabObservableRootComplementTargetComplementEntries D root target)
+      pair).mp hpair
+  apply (mem_cartesian_iff
+    (slabObservablePositiveSourceEntries D root)
+    (slabExpandedFineSourceEntries D) pair).mpr
+  exact ⟨(List.mem_filter.mp hsource.1).1,
+    (List.mem_filter.mp hsource.2).1⟩
+
+private theorem coarseTargetPair_mem_positiveTimesAll_local
+    (D : SlabPhysicalData) (root target : Nat)
+    (pair : SlabObservableTwoReplicaPair D root)
+    (hpair : pair ∈ slabObservableFourCellTargetPairs D root target) :
+    pair ∈ slabObservablePositiveTimesAllPairs D root := by
+  have htarget :=
+    (mem_cartesian_iff
+      (slabObservableRootTargetComplementEntries D root target)
+      (slabObservableRootComplementTargetEntries D root target)
+      pair).mp hpair
+  apply (mem_cartesian_iff
+    (slabObservablePositiveSourceEntries D root)
+    (slabExpandedFineSourceEntries D) pair).mpr
+  exact ⟨(List.mem_filter.mp htarget.1).1,
+    (List.mem_filter.mp htarget.2).1⟩
+
+private theorem coarsePositiveTimesAllPairs_nodup_local
+    (D : SlabPhysicalData) (root : Nat) :
+    (slabObservablePositiveTimesAllPairs D root).Nodup := by
+  unfold slabObservablePositiveTimesAllPairs
+  apply cartesian_nodup
+  · unfold slabObservablePositiveSourceEntries
+    exact attach_nodup_of_nodup _
+      (slabObservablePositiveExpandedSources_nodup D root)
+  · exact slabExpandedFineSourceEntries_nodup D
+
+private theorem coarsePositiveSourceWeight_le_partition_local
+    (D : SlabPhysicalData) (root : Nat) :
+    slabObservablePositiveSourceWeight D root ≤ D.physicalPartition := by
+  have hpositiveAdd :=
+    slabObservablePositiveSourceWeight_add_one_le_partition D root
+  exact Q'.le_trans' _ _ _
+    (Q'.add_le_self_of_nonneg
+      (slabObservablePositiveSourceWeight D root) 1 (by decide))
+    hpositiveAdd
+
+private theorem coarsePositiveTimesAllPairs_weight_le_partitionSquare_local
+    (D : SlabPhysicalData) (root : Nat) :
+    listQSum (slabObservableTwoReplicaPairWeight D)
+        (slabObservablePositiveTimesAllPairs D root) ≤
+      D.physicalPartition * D.physicalPartition := by
+  have hpositive := coarsePositiveSourceWeight_le_partition_local D root
+  have hpartition0 : (0 : Q') ≤ D.physicalPartition :=
+    physicalPartition_nonnegative D
+  have hscaled := Q'.mul_le_mul_of_nonneg_right
+    (slabObservablePositiveSourceWeight D root)
+    D.physicalPartition D.physicalPartition hpositive hpartition0
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv
+      (slabObservablePositiveTimesAllPairs_weight_eqv D root))
+    hscaled
+
+/-! ## 1a. Finite carrier ceilings for the coarse and pushed crosses -/
+
+/- The two four-cell carriers are literal sublists of the complete positive
+   two-replica carrier.  This gives a finite `Z^2` ceiling without supplying
+   the still-open blocking law. -/
+theorem coarseObservableFourCellSourceRawMass_le_partitionSquare
+    (S : SlabScalePair) (root target : Nat) :
+    listQSum (slabObservableTwoReplicaPairWeight S.coarse)
+        (slabObservableFourCellSourcePairs S.coarse root target) ≤
+      S.coarse.physicalPartition * S.coarse.physicalPartition := by
+  have hsub :
+      listQSum (slabObservableTwoReplicaPairWeight S.coarse)
+          (slabObservableFourCellSourcePairs S.coarse root target) ≤
+        listQSum (slabObservableTwoReplicaPairWeight S.coarse)
+          (slabObservablePositiveTimesAllPairs S.coarse root) := by
+    apply listQSum_le_of_injective_nodup
+      (slabObservableFourCellSourcePairs S.coarse root target)
+      (slabObservablePositiveTimesAllPairs S.coarse root)
+      (slabObservableTwoReplicaPairWeight S.coarse)
+      (slabObservableTwoReplicaPairWeight S.coarse)
+      (fun pair => pair)
+      (slabObservableFourCellSourcePairs_nodup
+        S.coarse root target)
+      (coarsePositiveTimesAllPairs_nodup_local S.coarse root)
+    · intro pair hpair
+      exact coarseSourcePair_mem_positiveTimesAll_local
+        S.coarse root target pair hpair
+    · intro first _ second _ heq
+      exact heq
+    · intro pair _
+      exact Q'.le_refl' _
+    · intro pair _
+      exact coarsePairRawMass_nonnegative_local pair
+  exact Q'.le_trans' _ _ _ hsub
+    (coarsePositiveTimesAllPairs_weight_le_partitionSquare_local
+      S.coarse root)
+
+theorem coarseObservableFourCellTargetRawMass_le_partitionSquare
+    (S : SlabScalePair) (root target : Nat) :
+    listQSum (slabObservableTwoReplicaPairWeight S.coarse)
+        (slabObservableFourCellTargetPairs S.coarse root target) ≤
+      S.coarse.physicalPartition * S.coarse.physicalPartition := by
+  have hsub :
+      listQSum (slabObservableTwoReplicaPairWeight S.coarse)
+          (slabObservableFourCellTargetPairs S.coarse root target) ≤
+        listQSum (slabObservableTwoReplicaPairWeight S.coarse)
+          (slabObservablePositiveTimesAllPairs S.coarse root) := by
+    apply listQSum_le_of_injective_nodup
+      (slabObservableFourCellTargetPairs S.coarse root target)
+      (slabObservablePositiveTimesAllPairs S.coarse root)
+      (slabObservableTwoReplicaPairWeight S.coarse)
+      (slabObservableTwoReplicaPairWeight S.coarse)
+      (fun pair => pair)
+      (slabObservableFourCellTargetPairs_nodup
+        S.coarse root target)
+      (coarsePositiveTimesAllPairs_nodup_local S.coarse root)
+    · intro pair hpair
+      exact coarseTargetPair_mem_positiveTimesAll_local
+        S.coarse root target pair hpair
+    · intro first _ second _ heq
+      exact heq
+    · intro pair _
+      exact Q'.le_refl' _
+    · intro pair _
+      exact coarsePairRawMass_nonnegative_local pair
+  exact Q'.le_trans' _ _ _ hsub
+    (coarsePositiveTimesAllPairs_weight_le_partitionSquare_local
+      S.coarse root)
+
+theorem fineUnitCouplingPushedFourCellSourceRawMass_le_partitionSquare
+    (S : SlabScalePair) (K : S.FiniteSlabKernel)
+    (root target : Nat) :
+    fineUnitCouplingPushedFourCellSourceRawMass K root target ≤
+      fineUnitCouplingPhysicalPartition S *
+        fineUnitCouplingPhysicalPartition S := by
+  have hsub :
+      listQSum (fineUnitCouplingPushedTargetPairRawMass K)
+          (pushedFaceRawFourCellSourcePairs (S := S) root target) ≤
+        listQSum (fineUnitCouplingPushedTargetPairRawMass K)
+          (cartesian S.coarse.physicalLabellings
+            S.coarse.physicalLabellings) := by
+    apply listQSum_le_of_injective_nodup
+      (pushedFaceRawFourCellSourcePairs (S := S) root target)
+      (cartesian S.coarse.physicalLabellings
+        S.coarse.physicalLabellings)
+      (fineUnitCouplingPushedTargetPairRawMass K)
+      (fineUnitCouplingPushedTargetPairRawMass K)
+      (fun pair => pair)
+      (pushedFaceRawFourCellSourcePairs_nodup_local S root target)
+      (cartesian_nodup _ _
+        (slabPhysicalLabellings_nodup S.coarse)
+        (slabPhysicalLabellings_nodup S.coarse))
+    · intro pair hpair
+      exact (mem_cartesian_iff _ _ pair).mpr
+        (pushedSourcePair_components_mem_local hpair)
+    · intro first _ second _ heq
+      exact heq
+    · intro pair _
+      exact Q'.le_refl' _
+    · intro pair hpair
+      have hmembers := (mem_cartesian_iff _ _ pair).mp hpair
+      exact pushedTargetPairRawMass_nonnegative_local K
+        hmembers.1 hmembers.2
+  have hcart := listQSum_cartesian_product
+    (fineUnitCouplingPushedTargetRawMass K)
+    (fineUnitCouplingPushedTargetRawMass K)
+    S.coarse.physicalLabellings S.coarse.physicalLabellings
+  have htotal := fineUnitCouplingPushedTargetRawMass_total K
+  exact Q'.le_trans' _ _ _ hsub
+    (Q'.le_of_eqv
+      (Q'.eqv_trans _ _ _ hcart
+        (Q'.eqv_trans _ _ _
+          (Q'.mul_eqv_congr_right _ _ _ htotal)
+          (Q'.mul_eqv_congr_left _ _ _ htotal))))
+
+theorem fineUnitCouplingPushedFourCellTargetRawMass_le_partitionSquare
+    (S : SlabScalePair) (K : S.FiniteSlabKernel)
+    (root target : Nat) :
+    fineUnitCouplingPushedFourCellTargetRawMass K root target ≤
+      fineUnitCouplingPhysicalPartition S *
+        fineUnitCouplingPhysicalPartition S := by
+  have hsub :
+      listQSum (fineUnitCouplingPushedTargetPairRawMass K)
+          (pushedFaceRawFourCellTargetPairs (S := S) root target) ≤
+        listQSum (fineUnitCouplingPushedTargetPairRawMass K)
+          (cartesian S.coarse.physicalLabellings
+            S.coarse.physicalLabellings) := by
+    apply listQSum_le_of_injective_nodup
+      (pushedFaceRawFourCellTargetPairs (S := S) root target)
+      (cartesian S.coarse.physicalLabellings
+        S.coarse.physicalLabellings)
+      (fineUnitCouplingPushedTargetPairRawMass K)
+      (fineUnitCouplingPushedTargetPairRawMass K)
+      (fun pair => pair)
+      (pushedFaceRawFourCellTargetPairs_nodup_local S root target)
+      (cartesian_nodup _ _
+        (slabPhysicalLabellings_nodup S.coarse)
+        (slabPhysicalLabellings_nodup S.coarse))
+    · intro pair hpair
+      exact (mem_cartesian_iff _ _ pair).mpr
+        (pushedTargetPair_components_mem_local hpair)
+    · intro first _ second _ heq
+      exact heq
+    · intro pair _
+      exact Q'.le_refl' _
+    · intro pair hpair
+      have hmembers := (mem_cartesian_iff _ _ pair).mp hpair
+      exact pushedTargetPairRawMass_nonnegative_local K
+        hmembers.1 hmembers.2
+  have hcart := listQSum_cartesian_product
+    (fineUnitCouplingPushedTargetRawMass K)
+    (fineUnitCouplingPushedTargetRawMass K)
+    S.coarse.physicalLabellings S.coarse.physicalLabellings
+  have htotal := fineUnitCouplingPushedTargetRawMass_total K
+  exact Q'.le_trans' _ _ _ hsub
+    (Q'.le_of_eqv
+      (Q'.eqv_trans _ _ _ hcart
+        (Q'.eqv_trans _ _ _
+          (Q'.mul_eqv_congr_right _ _ _ htotal)
+          (Q'.mul_eqv_congr_left _ _ _ htotal))))
+
+theorem coarseObservableFourCellRawColumnCross_abs_le_two_partitionSquare
+    (S : SlabScalePair) (root target : Nat) :
+    Q'.abs (coarseObservableFourCellRawColumnCross S root target) ≤
+      Q'.ofNat 2 *
+        (S.coarse.physicalPartition * S.coarse.physicalPartition) := by
+  let source :=
+    listQSum (slabObservableTwoReplicaPairWeight S.coarse)
+      (slabObservableFourCellSourcePairs S.coarse root target)
+  let opposite :=
+    listQSum (slabObservableTwoReplicaPairWeight S.coarse)
+      (slabObservableFourCellTargetPairs S.coarse root target)
+  let coarseSquare :=
+    S.coarse.physicalPartition * S.coarse.physicalPartition
+  have hsource0 : (0 : Q') ≤ source := by
+    unfold source
+    apply listQSum_nonnegative_on
+    intro pair _
+    exact coarsePairRawMass_nonnegative_local pair
+  have hopposite0 : (0 : Q') ≤ opposite := by
+    unfold opposite
+    apply listQSum_nonnegative_on
+    intro pair _
+    exact coarsePairRawMass_nonnegative_local pair
+  have hsource :=
+    coarseObservableFourCellSourceRawMass_le_partitionSquare S root target
+  have hopposite :=
+    coarseObservableFourCellTargetRawMass_le_partitionSquare S root target
+  have habs : Q'.abs (source - opposite) ≤ source + opposite :=
+    abs_sub_nonnegative_le_add_local hsource0 hopposite0
+  have hsum : source + opposite ≤ coarseSquare + coarseSquare := by
+    exact Q'.add_le_add
+      (by simpa only [source, coarseSquare] using hsource)
+      (by simpa only [opposite, coarseSquare] using hopposite)
+  have hfinal : source + opposite ≤ Q'.ofNat 2 * coarseSquare :=
+    Q'.le_trans' _ _ _ hsum
+      (Q'.le_of_eqv (Q'.eqv_symm (two_mul_eqv_local coarseSquare)))
+  simpa only [coarseObservableFourCellRawColumnCross,
+    source, opposite, coarseSquare] using
+    (Q'.le_trans' _ _ _ habs hfinal)
+
+theorem fineUnitCouplingPushedRawColumnCross_abs_le_two_partitionSquare
+    (S : SlabScalePair) (K : S.FiniteSlabKernel)
+    (root target : Nat) :
+    Q'.abs (fineUnitCouplingPushedRawColumnCross K root target) ≤
+      Q'.ofNat 2 *
+        (fineUnitCouplingPhysicalPartition S *
+          fineUnitCouplingPhysicalPartition S) := by
+  let source := fineUnitCouplingPushedFourCellSourceRawMass K root target
+  let opposite := fineUnitCouplingPushedFourCellTargetRawMass K root target
+  let unitSquare :=
+    fineUnitCouplingPhysicalPartition S *
+      fineUnitCouplingPhysicalPartition S
+  have hsource0 : (0 : Q') ≤ source := by
+    unfold source fineUnitCouplingPushedFourCellSourceRawMass
+    apply listQSum_nonnegative_on
+    intro pair hpair
+    have hmembers := pushedSourcePair_components_mem_local hpair
+    exact pushedTargetPairRawMass_nonnegative_local K
+      hmembers.1 hmembers.2
+  have hopposite0 : (0 : Q') ≤ opposite := by
+    unfold opposite fineUnitCouplingPushedFourCellTargetRawMass
+    apply listQSum_nonnegative_on
+    intro pair hpair
+    have hmembers := pushedTargetPair_components_mem_local hpair
+    exact pushedTargetPairRawMass_nonnegative_local K
+      hmembers.1 hmembers.2
+  have hsource :=
+    fineUnitCouplingPushedFourCellSourceRawMass_le_partitionSquare
+      S K root target
+  have hopposite :=
+    fineUnitCouplingPushedFourCellTargetRawMass_le_partitionSquare
+      S K root target
+  have habs : Q'.abs (source - opposite) ≤ source + opposite :=
+    abs_sub_nonnegative_le_add_local hsource0 hopposite0
+  have hsum : source + opposite ≤ unitSquare + unitSquare := by
+    exact Q'.add_le_add
+      (by simpa only [source, unitSquare] using hsource)
+      (by simpa only [opposite, unitSquare] using hopposite)
+  have hfinal : source + opposite ≤ Q'.ofNat 2 * unitSquare :=
+    Q'.le_trans' _ _ _ hsum
+      (Q'.le_of_eqv (Q'.eqv_symm (two_mul_eqv_local unitSquare)))
+  simpa only [fineUnitCouplingPushedRawColumnCross,
+    source, opposite, unitSquare] using
+    (Q'.le_trans' _ _ _ habs hfinal)
 
 /-! ## 1. Monotone partition loss -/
 
@@ -420,6 +871,96 @@ def FineUnitCouplingBalancedRawColumnScaleDefectCalibration
       ((S.coarse.physicalPartition * S.coarse.physicalPartition) *
         (S.fine.physicalPartition * S.fine.physicalPartition))
 
+/-! The finite carrier ceiling now discharges both signed four-cell payments.
+   Its right side still uses the coupling-one fine partition, so it is not a
+   uniform balanced calibration in the actual fine partition. -/
+theorem fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat) :
+    Q'.abs
+        (fineUnitCouplingBalancedRawColumnScaleDefect
+          S hfineCutoff hcoarseCoupling root target) ≤
+      Q'.ofNat 4 *
+        ((S.coarse.physicalPartition * S.coarse.physicalPartition) *
+          (fineUnitCouplingPhysicalPartition S *
+            fineUnitCouplingPhysicalPartition S)) := by
+  let K := physicalKernel S hfineCutoff hcoarseCoupling
+  let coarseSquare :=
+    S.coarse.physicalPartition * S.coarse.physicalPartition
+  let unitSquare :=
+    fineUnitCouplingPhysicalPartition S *
+      fineUnitCouplingPhysicalPartition S
+  let coarseCross := coarseObservableFourCellRawColumnCross S root target
+  let pushedCross := fineUnitCouplingPushedRawColumnCross K root target
+  have hcoarseSquare0 : (0 : Q') ≤ coarseSquare := by
+    unfold coarseSquare
+    exact Q'.mul_nonneg _ _
+      (physicalPartition_nonnegative S.coarse)
+      (physicalPartition_nonnegative S.coarse)
+  have hunitSquare0 : (0 : Q') ≤ unitSquare := by
+    unfold unitSquare
+    exact Q'.mul_nonneg _ _
+      (fineUnitCouplingPhysicalPartition_nonnegative S)
+      (fineUnitCouplingPhysicalPartition_nonnegative S)
+  have hcoarse :=
+    coarseObservableFourCellRawColumnCross_abs_le_two_partitionSquare
+      S root target
+  have hpushed :=
+    fineUnitCouplingPushedRawColumnCross_abs_le_two_partitionSquare
+      S K root target
+  have hfirst :
+      Q'.abs (unitSquare * coarseCross) ≤
+        unitSquare * (Q'.ofNat 2 * coarseSquare) := by
+    refine Q'.le_trans' _ _ _
+      (YMGap.Continuum.TsumDeriv.Q'.abs_mul_le
+        unitSquare coarseCross) ?_
+    have hmul := Q'.mul_le_mul_of_nonneg_left _ _ _ hcoarse
+      (Q'.abs_nonneg unitSquare)
+    exact Q'.le_trans' _ _ _ hmul
+      (Q'.le_of_eqv
+        (abs_nonnegative_factor_eqv_local
+          unitSquare (Q'.ofNat 2 * coarseSquare) hunitSquare0))
+  have hsecond :
+      Q'.abs (coarseSquare * pushedCross) ≤
+        coarseSquare * (Q'.ofNat 2 * unitSquare) := by
+    refine Q'.le_trans' _ _ _
+      (YMGap.Continuum.TsumDeriv.Q'.abs_mul_le
+        coarseSquare pushedCross) ?_
+    have hmul := Q'.mul_le_mul_of_nonneg_left _ _ _ hpushed
+      (Q'.abs_nonneg coarseSquare)
+    exact Q'.le_trans' _ _ _ hmul
+      (Q'.le_of_eqv
+        (abs_nonnegative_factor_eqv_local
+          coarseSquare (Q'.ofNat 2 * unitSquare) hcoarseSquare0))
+  have hsplit :
+      Q'.abs (unitSquare * coarseCross - coarseSquare * pushedCross) ≤
+        Q'.abs (unitSquare * coarseCross) +
+          Q'.abs (coarseSquare * pushedCross) := by
+    exact abs_sub_le_abs_add_local
+      (unitSquare * coarseCross) (coarseSquare * pushedCross)
+  have hsum := Q'.add_le_add hfirst hsecond
+  have hcollapse :
+      unitSquare * (Q'.ofNat 2 * coarseSquare) +
+          coarseSquare * (Q'.ofNat 2 * unitSquare) ≈
+        ((coarseSquare * unitSquare) +
+          (coarseSquare * unitSquare)) +
+          ((coarseSquare * unitSquare) +
+            (coarseSquare * unitSquare)) := by
+    exact two_cross_regroup_local unitSquare coarseSquare
+  have hfinal :
+      Q'.abs (unitSquare * coarseCross - coarseSquare * pushedCross) ≤
+        Q'.ofNat 4 * (coarseSquare * unitSquare) := by
+    refine Q'.le_trans' _ _ _ hsplit
+      (Q'.le_trans' _ _ _ hsum ?_)
+    exact Q'.le_of_eqv
+      (Q'.eqv_trans _ _ _ hcollapse
+        (Q'.eqv_symm (four_mul_eqv_local (coarseSquare * unitSquare))))
+  unfold fineUnitCouplingBalancedRawColumnScaleDefect
+  simpa only [K, coarseSquare, unitSquare, coarseCross, pushedCross]
+    using hfinal
+
 /-- Explicit normalized global-moment input needed by the global
 coupling-one interpolation.  Unlike the receiver-local moment, this contains
 the Casimir exponent summed over the entire fine slab. -/
@@ -435,6 +976,13 @@ def FineUnitCouplingGlobalPartitionCasimirNormalization
         (S.fine.physicalPartition * S.fine.physicalPartition))
 
 #print axioms finePhysicalPartition_le_unitCoupling
+#print axioms coarseObservableFourCellSourceRawMass_le_partitionSquare
+#print axioms coarseObservableFourCellTargetRawMass_le_partitionSquare
+#print axioms fineUnitCouplingPushedFourCellSourceRawMass_le_partitionSquare
+#print axioms fineUnitCouplingPushedFourCellTargetRawMass_le_partitionSquare
+#print axioms coarseObservableFourCellRawColumnCross_abs_le_two_partitionSquare
+#print axioms fineUnitCouplingPushedRawColumnCross_abs_le_two_partitionSquare
+#print axioms fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares
 #print axioms fineUnitCouplingPhysicalPartition_nonnegative
 #print axioms fineUnitCouplingPhysicalPartitionSquareLoss
 #print axioms fineUnitCouplingPhysicalPartitionSquareLoss_eqv_factorized
