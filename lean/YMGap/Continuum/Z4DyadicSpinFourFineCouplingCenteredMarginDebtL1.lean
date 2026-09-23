@@ -993,6 +993,54 @@ theorem centeredCylinderRemainder_abs_le_of_relative_balanced_carrier
       g ((1 + margin) * (1 + margin)) hg hratio)
     hbalanced
 
+/-- The existing finite Casimir perturbation estimate supplies a concrete
+relative-loss instance with floor `1`.  The resulting centered-cylinder bound
+is still finite and its Casimir moment remains explicit; no uniformity is
+claimed. -/
+theorem centeredCylinderRemainder_abs_le_of_matched_casimir_loss
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g) :
+    Q'.abs
+        (centeredCylinderRemainder
+          (physicalKernel S hfineCutoff hcoarseCoupling) M) ≤
+      (fineUnitCouplingBalancedCarrierRatioCeiling g
+          ((1 + (Q'.ofNat 2 * (g * g)) *
+            fineUnitCouplingPhysicalCasimirMoment S) *
+            (1 + (Q'.ofNat 2 * (g * g)) *
+              fineUnitCouplingPhysicalCasimirMoment S)) hg +
+        Q'.ofNat 2 * finiteMarginEnvelopeCeiling S) * (g * g) := by
+  let margin :=
+    (Q'.ofNat 2 * (g * g)) * fineUnitCouplingPhysicalCasimirMoment S
+  have hmargin : (0 : Q') ≤ margin := by
+    unfold margin
+    exact Q'.mul_nonneg _ _
+      (Q'.mul_nonneg _ _ (by decide)
+        (Q'.le_of_lt (Q'.mul_pos hg hg)))
+      (fineUnitCouplingPhysicalCasimirMoment_nonnegative S)
+  have hfloor : (0 : Q') < 1 := by decide
+  have hfloor_le : (1 : Q') ≤ S.fine.physicalPartition := by
+    unfold SlabPhysicalData.physicalPartition
+    exact slabParametricKPhysicalPartition_one_le
+      S.fine.coupling_nonnegative S.fine.cutoff S.fine.extent
+  have hloss₀ :=
+    fineUnitCouplingPhysicalPartition_sub_actual_le_two_square_mul_moment
+      S hfineCoupling_le_one family law g hg hgle hcoupling
+  have hloss : fineUnitCouplingPhysicalPartition S -
+      S.fine.physicalPartition ≤ margin * (1 : Q') := by
+    unfold margin at *
+    exact Q'.le_trans' _ _ _ hloss₀
+      (Q'.le_of_eqv (Q'.eqv_symm (Q'.mul_one_eqv _)))
+  simpa only [margin] using
+    (centeredCylinderRemainder_abs_le_of_relative_balanced_carrier
+      S hfineCutoff hcoarseCoupling hfineCoupling_le_one M family law
+      g hg hgle hcoupling margin (1 : Q') hmargin hfloor hfloor_le hloss)
+
 /-- The reciprocal envelope reaches the complete finite centered-cylinder
 bound once the independent balanced scale-defect calibration is supplied. -/
 theorem centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
@@ -1086,6 +1134,7 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
 #print axioms centeredCylinderRemainder_abs_le_of_finite_balanced_carrier
 #print axioms centeredCylinderRemainder_abs_le_of_relative_balanced_carrier
+#print axioms centeredCylinderRemainder_abs_le_of_matched_casimir_loss
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 

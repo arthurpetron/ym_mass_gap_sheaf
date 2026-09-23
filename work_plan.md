@@ -136,6 +136,11 @@ The downstream
 that certificate interface and returns the complete finite centered-cylinder
 bound with the ratio ceiling.  The three relative-loss inputs remain explicit;
 no uniformity or continuum passage is inferred from this compiler.
+The matched-Casimir specialization
+`centeredCylinderRemainder_abs_le_of_matched_casimir_loss` instantiates the
+floor with `1` and the margin with the existing explicit Casimir moment.  This
+is the strongest current finite consequence, while the moment's uniform
+control remains open.
 The focused safe target passed 5498 jobs with one worker and the new exports
 have only `{propext, Quot.sound}`; its centered-margin consumer passed 5506
 jobs with the same axiom gate.

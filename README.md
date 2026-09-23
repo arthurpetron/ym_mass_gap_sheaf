@@ -311,6 +311,11 @@ The centered-margin consumer
 factorization through the complete finite centered-cylinder estimate.  Its
 relative-loss, floor, and coupling hypotheses remain explicit, so this is a
 conditional finite compiler rather than a uniform strict form bound.
+The matched-Casimir specialization
+`centeredCylinderRemainder_abs_le_of_matched_casimir_loss` now supplies those
+hypotheses from the existing finite perturbation estimate using floor `1`.
+The resulting ceiling still contains the literal Casimir moment and therefore
+remains volume- and parameter-dependent.
 
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
