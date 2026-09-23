@@ -13,6 +13,32 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED iterated completed finite transfer decay (2026-09-23 UTC)
+
+- **file**:
+  `lean/YMGap/Continuum/SU2QuaternionFiniteHaarCompletedTransferContraction.lean`.
+- **proved declarations**:
+  `centeredCompletionTransfer_norm_sq_le`,
+  `centeredCompletionTransferPower`,
+  `centeredCompletionTransferPower_norm_sq_decay`, and
+  `centeredCompletionTransferPower_autocorrelation_sq_decay`.
+- **proof content**: the finite centered squared-distance estimate is lifted
+  to the completed CReal-valued inner product, then iterated by induction.
+  Completed Cauchy--Schwarz and constructive nonnegative multiplication turn
+  the norm decay into same-object autocorrelation decay at the explicit rate
+  `(squaredHeatRate w)^k`.
+- **scope**: fixed finite `n`, nome `w`, cutoff `K`, and index list on the
+  ordinary-Haar SU(2) completed centered carrier.  This is not an OS
+  transfer-matrix identification, a beta/spacing-uniform gap, a physical
+  spectral theorem, a thermodynamic/continuum passage, a QFT package, an
+  all-group theorem, or a Clay conclusion.
+- **constructive or propositional**: constructive finite Type-level maps and
+  inequalities; no `sorry` or new analytic hypothesis is introduced.
+- **verification**: focused dependency-complete safe build of
+  `+YMGap.Continuum.SU2QuaternionFiniteHaarCompletedTransferContraction:olean`
+  passed 2122 jobs with one worker.  All four declarations report only
+  `{propext, Quot.sound}` and no `sorryAx`.
+
 ## PROVED one-cutoff canonical adaptive capacity witness (2026-09-23 UTC)
 
 - **file**:

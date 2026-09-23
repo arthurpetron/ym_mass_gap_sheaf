@@ -25,6 +25,25 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Iterated completed finite transfer decay (2026-09-23 UTC)
+
+`SU2QuaternionFiniteHaarCompletedTransferContraction.lean` now carries the
+finite centered transfer estimate through the genuine CReal completion.  The
+new `centeredCompletionTransferPower` is an explicit recursive power, while
+`centeredCompletionTransferPower_norm_sq_decay` proves completed squared-norm
+decay at the exact finite rate `(squaredHeatRate w)^k`.  A constructive
+Cauchy--Schwarz lift then proves
+`centeredCompletionTransferPower_autocorrelation_sq_decay` for the same
+completed object, with no replacement observable or carrier.
+
+This closes the iteration seam for the displayed finite `n`, nome `w`, cutoff
+`K`, and index list only.  It does not identify the map with an
+Osterwalder--Schrader transfer matrix, make the estimate beta/spacing-uniform,
+or provide thermodynamic/continuum limits, QFT axioms, physical mass
+calibration, an all-group construction, or the Clay theorem.  The focused
+dependency-complete target passed 2122 jobs with one worker; all four exported
+declarations report only `{propext, Quot.sound}` and no `sorryAx`.
+
 ### Literal observable join for the geometric staging family (2026-09-23 UTC)
 
 `BF4PhysicalMarginalGeometricCompletedFamily.lean` now exports

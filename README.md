@@ -1,11 +1,20 @@
 # Constructive Yang--Mills mass-gap formalization
 
-Latest checked regulator milestone: `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`
-now carries an explicit constructive Cauchy modulus for the literal
+Latest checked finite completed-carrier milestone:
+`SU2QuaternionFiniteHaarCompletedTransferContraction.lean` now transports the
+finite squared-distance estimate through the genuine CReal completion,
+iterates the completed centered transfer, and proves explicit power decay for
+the completed squared norm and same-object autocorrelation. The focused
+dependency-complete target passed 2122 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`. This remains finite ordinary-Haar
+SU(2) infrastructure: the interacting OS identification, beta/spacing-uniform
+gap, continuum passage, QFT axioms, physical mass calibration, and all-group
+Clay target remain open.
+
+The preceding regulator milestone, `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`,
+still carries an explicit constructive Cauchy modulus for the literal
 three-regulator connected spatial diagonal and pins its CReal limit to the
-existing `spatialCenteredMoment`. This is fixed-spacing SU(2) infrastructure;
-the same-object relative pairing, uniform strict gap, continuum passage, QFT
-axioms, physical mass calibration, and all-group Clay target remain open.
+existing `spatialCenteredMoment`.
 
 The finite ordinary-Haar carrier is now also explicit:
 `SU2QuaternionFiniteHaarGNSCarrier.lean` packages supported quaternion
@@ -99,6 +108,17 @@ zero, using the strict midpoint rate and positive-factor cancellation.  This
 is still a fixed-parameter ordinary-Haar SU(2) result, not an OS or physical
 spectral-gap theorem.  The focused dependency-complete check passed 2121 jobs
 with only `{propext, Quot.sound}`.
+
+The completed transfer iteration is now explicit in
+`SU2QuaternionFiniteHaarCompletedTransferContraction.lean`:
+`centeredCompletionTransferPower` defines finite powers,
+`centeredCompletionTransferPower_norm_sq_decay` proves their completed
+squared-norm decay at `squaredHeatRate w ^ k`, and
+`centeredCompletionTransferPower_autocorrelation_sq_decay` transfers that
+bound to the same-object correlation using constructive Cauchy--Schwarz.
+All finite parameters remain explicit; this is not an OS transfer-matrix
+identification, a beta/spacing-uniform estimate, or a continuum mass-gap
+theorem.
 
 The concrete physical carrier now has one further fixed-nome consequence:
 `concreteSU2CompletedCarrierCertificate_positive_vector_not_fixed` proves the
