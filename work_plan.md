@@ -212,6 +212,25 @@ thermodynamic limit, continuum QFT, or Clay conclusion follows yet.  Focused
 safe verification passed the dependency-complete target (1909 jobs), with only
 `{propext, Quot.sound}`.
 
+### Completed moment positivity and fixed-point exclusion (2026-09-23 UTC)
+
+`centeredCompletionTwoStepMoment_nonneg` transports the finite
+`productMap_nonnegative` diagonal estimate to the completed same-object moment
+by reducing every cofinal CReal approximation to the corresponding finite
+Haar/product-map diagonal.  The companion theorem
+`centeredCompletionTwoStepMoment_eq_inner_implies_zero` combines the exact
+completed midpoint bound, `midpointRate_lt_one`, and constructive positive
+factor cancellation to show that a centered vector whose moment equals its
+norm must be the explicit completed zero point.  This is the first
+non-vacuous completed transfer consequence that uses both positivity and the
+strict coefficient on the same carrier.
+
+The result remains fixed-parameter ordinary-Haar SU(2): it does not identify
+the map with an Osterwalder--Schrader transfer operator, provide parameter
+uniformity, or establish a physical, thermodynamic, continuum, or Clay gap.
+Focused safe verification passed the dependency-complete target (2121 jobs),
+with only `{propext, Quot.sound}`.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

@@ -32,6 +32,25 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   declarations report only `{propext, Quot.sound}` and introduce no `sorry` or
   classical axiom.
 
+## PROVED completed moment positivity and fixed-point exclusion (2026-09-23 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarMidpointFormRate.lean`.
+- **proved declarations**: `centeredCompletionTwoStepMoment_nonneg` and
+  `centeredCompletionTwoStepMoment_eq_inner_implies_zero`.
+- **proof content**: positivity is transported from the finite
+  `productMap_nonnegative` diagonal certificate through the CReal cofinal
+  approximants.  If the completed same-object moment equals the completed
+  norm, the strict midpoint bound gives `norm ≤ q · norm`; constructive
+  positive-factor cancellation then forces zero norm, and completed
+  positive-definiteness identifies the vector with `centeredCompletionZero`.
+- **scope**: this is a fixed finite ordinary-Haar SU(2) result at displayed
+  `n`, nome `w`, cutoff `K`, and index list.  It is not an OS transfer
+  identification, a physical spectral gap, a beta/spacing-uniform theorem,
+  or a thermodynamic/continuum result.
+- **verification**: focused safe build passed `2121/2121`; both declarations
+  report only `{propext, Quot.sound}` and introduce no `sorry` or classical
+  axiom.
+
 ## PROVED strict midpoint-rate consequence (2026-09-23 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarMidpointFormRate.lean`.

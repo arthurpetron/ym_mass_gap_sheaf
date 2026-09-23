@@ -18,6 +18,7 @@ import YMGap.Constructive.Sqrt
 import YMGap.Constructive.ExpNeg
 import YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz
 import YMGap.Continuum.GNSDenseCompletionLaws
+import YMGap.Continuum.CRealSeminormPairingPosdef
 import YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 
 namespace YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate
@@ -36,6 +37,7 @@ open YMGap.Continuum.SU2HeatCutoffCasimirBound
 open YMGap.Continuum.SU2QuaternionFiniteHaarGNSCarrier
 open YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 open YMGap.Continuum.SU2QuaternionProductHeatDualForm
+open YMGap.Continuum.SU2QuaternionProductHeatPositive
 open YMGap.Continuum.SU2QuaternionRelativeHeatContraction
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 
@@ -601,6 +603,76 @@ theorem centeredCompletionInner_posdef (n : Nat)
       (embedV (finiteHaarGNSData n) (finiteHaarGNSData n).zero) = _
     rw [(finiteHaarGNSData n).cinnerCompl_embedZero_left]
 
+/-! ## Positivity and fixed-point exclusion for the completed moment -/
+
+theorem centeredCompletionTwoStepMoment_nonneg
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x : CenteredCompletionSpace n) :
+    CReal.RCnonneg
+      (centeredCompletionTwoStepMoment n hw0 hw1 K hK ids hnodup hids x) := by
+  refine Quotient.inductionOn x ?_
+  intro X
+  let D := finiteHaarGNSData n
+  let y : CauchyGNS D :=
+    productMap_centeredCauchy n hw0 hw1 K hK ids hnodup hids X
+  change CReal.RCle CReal.RCzero
+    (Quotient.mk CReal.crealSetoid
+      (D.cinnerRep X.seq y))
+  change CReal.RCle (Quotient.mk CReal.crealSetoid CReal.czero)
+    (Quotient.mk CReal.crealSetoid
+      (D.cinnerRep X.seq y))
+  rw [CReal.RCle_mk]
+  apply CReal.leEv_ofQ'_of_approx_ge
+  intro k
+  change (0 : Q') ≤
+    D.cInnerSeq X.seq y
+      (CReal.QMhat (D.cInnerSeq X.seq y)
+        (D.cInnerQCauchy X.seq y) k)
+  change (0 : Q') ≤
+    finiteHaarPair n (X.seq.seq (CReal.QMhat
+      (D.cInnerSeq X.seq y) (D.cInnerQCauchy X.seq y) k)).val
+      (productMapRep n w K ids hids
+        (X.seq.seq (CReal.QMhat
+          (D.cInnerSeq X.seq y) (D.cInnerQCauchy X.seq y) k))).val
+  exact productMap_nonnegative n w (Q'.le_of_lt hw0) K ids hids
+    (X.seq.seq (CReal.QMhat
+      (D.cInnerSeq X.seq y) (D.cInnerQCauchy X.seq y) k)).val
+    (X.seq.seq _).property
+
+theorem centeredCompletionTwoStepMoment_eq_inner_implies_zero
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x : CenteredCompletionSpace n)
+    (hfixed : centeredCompletionTwoStepMoment n hw0 hw1 K hK ids hnodup hids x =
+      centeredCompletionInner n x x) :
+    x = centeredCompletionZero n := by
+  have hbound := centeredCompletionTwoStepMoment_RCle_exact
+    n hw0 hw1 K hK ids hnodup hids x
+  have hcontract : CReal.RCle
+      (centeredCompletionInner n x x)
+      (CReal.RCmul
+        (Quotient.mk CReal.crealSetoid
+          (CReal.ofQ' (midpointRate (squaredHeatRate w))))
+        (centeredCompletionInner n x x)) := by
+    rw [hfixed] at hbound
+    exact hbound
+  have hzero :=
+    CRealSeminormPairingCompletion.scalar_contraction_zero
+      (midpointRate (squaredHeatRate w))
+      (midpointRate_lt_one (squaredHeatRate_lt_one hw0 hw1))
+      (centeredCompletionInner n x x)
+      ((finiteHaarGNSData n).cinner_self_nonneg
+        (centeredCompletionToGNSCompletion n x))
+      hcontract
+  exact (centeredCompletionInner_posdef n x).mp hzero
+
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate_lt_one
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate_sq_ge
@@ -612,5 +684,7 @@ theorem centeredCompletionInner_posdef (n : Nat)
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionZero
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionZero_toGNS
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionInner_posdef
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_nonneg
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_eq_inner_implies_zero
 
 end YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate

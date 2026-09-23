@@ -91,6 +91,15 @@ separation only; it is not an interacting OS, physical, thermodynamic,
 continuum, or Clay mass-gap theorem.  Focused safe verification passed the
 dependency-complete target with 1909 jobs and only `{propext, Quot.sound}`.
 
+The completed same-object moment is also now proved nonnegative via the finite
+`productMap_nonnegative` certificate.  Moreover,
+`centeredCompletionTwoStepMoment_eq_inner_implies_zero` shows constructively
+that equality with the completed norm can occur only at the explicit centered
+zero, using the strict midpoint rate and positive-factor cancellation.  This
+is still a fixed-parameter ordinary-Haar SU(2) result, not an OS or physical
+spectral-gap theorem.  The focused dependency-complete check passed 2121 jobs
+with only `{propext, Quot.sound}`.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,
