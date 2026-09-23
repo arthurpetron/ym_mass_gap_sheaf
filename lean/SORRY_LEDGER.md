@@ -82,6 +82,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The finite witness uses the fold-right maximum of the displayed exponents
   and the same coupling-one partition; it is a finite slab-dependent bound,
   not a cutoff-, volume-, beta-, or spacing-uniform estimate.
+  The additional spatial/cutoff compiler
+  `fineUnitCouplingPhysicalCasimirMomentBound_spatial_cutoff` bounds the
+  exponent maximum by `faceEdges.length * c4(cutoff)` and retains that growth
+  explicitly; it does not discharge the uniform-moment obligation.
   The result does not identify an OS transfer matrix, pass to a thermodynamic
   or continuum limit, construct the QFT, calibrate a physical mass, cover all
   compact simple groups, or prove the Clay theorem; it does not close

@@ -38,12 +38,15 @@ open YMGap.Continuum.CompactDualSlabObservablePhysicalBlockingDefect
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.CompactDualCutoffOnePhysicalPushforward
 open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredRemainderExpansion
+open YMGap.Continuum.RGTransport
 open YMGap.Continuum.Z4DyadicSpinFourFineCouplingNormalizedBalancedBridge
 open YMGap.Continuum.Z4DyadicSpinFourFineCouplingPartitionDrift
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.HeatKernelRGStep
+open YMGap.Continuum.BondMovingMoment
 open YMGap.Continuum.SU2FiniteTrivalentPacketGraphFullSupportNorm
+open YMGap.Continuum.SU2FiniteTrivalentPacketGraphActualOperator
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
 open YMGap.Continuum.TsumDeriv
 open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
@@ -1059,12 +1062,68 @@ private theorem list_mem_le_foldr_max_local : ∀ (xs : List Nat) (n : Nat),
       · exact Nat.le_trans (list_mem_le_foldr_max_local xs n hn)
           (Nat.le_max_right _ _)
 
+private theorem foldr_max_le_local : ∀ (xs : List Nat) (bound : Nat),
+    (∀ n, n ∈ xs → n ≤ bound) → xs.foldr Nat.max 0 ≤ bound
+  | [], bound, _ => Nat.zero_le _
+  | head :: tail, bound, h => by
+      simp only [List.foldr]
+      exact (Nat.max_le).2 ⟨h head List.mem_cons_self,
+        foldr_max_le_local tail bound
+          (fun n hn => h n (List.mem_cons_of_mem head hn))⟩
+
+private theorem slabPhysicalCasimirExponentOn_le_face_count_mul_c4_local
+    (cutoff : Nat) (physical : EdgeLabelling) :
+    ∀ faces : List Nat,
+      (∀ face, face ∈ faces → physical face ≤ cutoff) →
+      slabPhysicalCasimirExponentOn physical faces ≤
+        faces.length * c4 cutoff
+  | [], _ => by
+      simp only [slabPhysicalCasimirExponentOn, List.length_nil, Nat.zero_mul]
+      exact Nat.zero_le _
+  | face :: rest, hfaces => by
+      change c4 (physical face) +
+          slabPhysicalCasimirExponentOn physical rest ≤
+        (face :: rest).length * c4 cutoff
+      have hface : physical face ≤ cutoff := hfaces face List.mem_cons_self
+      have hc4 : c4 (physical face) ≤ c4 cutoff :=
+        YMGap.Continuum.BondMovingMoment.c4_mono hface
+      have hrest :=
+        slabPhysicalCasimirExponentOn_le_face_count_mul_c4_local
+          cutoff physical rest
+          (fun id hid => hfaces id (List.mem_cons_of_mem face hid))
+      have hsum := Nat.add_le_add hc4 hrest
+      simpa only [List.length_cons, Nat.add_mul, Nat.one_mul,
+        Nat.add_comm] using hsum
+
 /-- The largest Casimir exponent on the displayed finite physical carrier. -/
 def fineUnitCouplingPhysicalCasimirExponentCeiling
     (S : SlabScalePair) : Nat :=
   (S.fine.physicalLabellings.map
     (fun source => slabPhysicalCasimirExponent S.fine.extent source)).foldr
       Nat.max 0
+
+theorem fineUnitCouplingPhysicalCasimirExponent_le_face_count_mul_c4
+    (S : SlabScalePair) {source : EdgeLabelling}
+    (hsource : source ∈ S.fine.physicalLabellings) :
+    slabPhysicalCasimirExponent S.fine.extent source ≤
+      S.fine.faceEdges.length * c4 S.fine.cutoff := by
+  unfold slabPhysicalCasimirExponent
+  apply slabPhysicalCasimirExponentOn_le_face_count_mul_c4_local
+  intro face hface
+  exact Nat.lt_succ_iff.mp
+    ((boundedEdgeLabellings_sound S.fine.cutoff S.fine.faceEdges
+      source hsource).1 face hface)
+
+theorem fineUnitCouplingPhysicalCasimirExponentCeiling_le_face_count_mul_c4
+    (S : SlabScalePair) :
+    fineUnitCouplingPhysicalCasimirExponentCeiling S ≤
+      S.fine.faceEdges.length * c4 S.fine.cutoff := by
+  unfold fineUnitCouplingPhysicalCasimirExponentCeiling
+  apply foldr_max_le_local
+  intro exponent hexponent
+  rcases List.mem_map.mp hexponent with ⟨source, hsource, rfl⟩
+  exact fineUnitCouplingPhysicalCasimirExponent_le_face_count_mul_c4
+    S hsource
 
 /-- A finite ceiling obtained by multiplying the largest displayed exponent
 by the coupling-one partition of the same carrier. -/
@@ -1114,6 +1173,48 @@ theorem fineUnitCouplingPhysicalCasimirMoment_le_finite_ceiling
         (Q'.ofNat (fineUnitCouplingPhysicalCasimirExponentCeiling S))
         (fineUnitCouplingPhysicalTerm S)
         S.fine.physicalLabellings))
+
+/-! ## 7. An explicit spatial/cutoff growth envelope -/
+
+def fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling
+    (S : SlabScalePair) : Q' :=
+  Q'.ofNat (S.fine.faceEdges.length * c4 S.fine.cutoff) *
+    fineUnitCouplingPhysicalPartition S
+
+theorem fineUnitCouplingPhysicalCasimirMomentFiniteCeiling_le_spatial_cutoff
+    (S : SlabScalePair) :
+    fineUnitCouplingPhysicalCasimirMomentFiniteCeiling S ≤
+      fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S := by
+  unfold fineUnitCouplingPhysicalCasimirMomentFiniteCeiling
+    fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling
+  exact Q'.mul_le_mul_of_nonneg_right _ _ _
+    (Q'.ofNat_le_ofNat
+      (fineUnitCouplingPhysicalCasimirExponentCeiling_le_face_count_mul_c4
+        S))
+    (fineUnitCouplingPhysicalPartition_nonnegative S)
+
+theorem fineUnitCouplingPhysicalCasimirMoment_le_spatial_cutoff_ceiling
+    (S : SlabScalePair) :
+    fineUnitCouplingPhysicalCasimirMoment S ≤
+      fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S := by
+  exact Q'.le_trans' _ _ _
+    (fineUnitCouplingPhysicalCasimirMoment_le_finite_ceiling S)
+    (fineUnitCouplingPhysicalCasimirMomentFiniteCeiling_le_spatial_cutoff S)
+
+theorem fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling_nonnegative
+    (S : SlabScalePair) :
+    (0 : Q') ≤ fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S := by
+  unfold fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling
+  exact Q'.mul_nonneg _ _
+    (zero_le_ofNat _)
+    (fineUnitCouplingPhysicalPartition_nonnegative S)
+
+theorem fineUnitCouplingPhysicalCasimirMomentBound_spatial_cutoff
+    (S : SlabScalePair) :
+    FineUnitCouplingPhysicalCasimirMomentBound S
+      (fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S) := by
+  unfold FineUnitCouplingPhysicalCasimirMomentBound
+  exact fineUnitCouplingPhysicalCasimirMoment_le_spatial_cutoff_ceiling S
 
 theorem fineUnitCouplingPhysicalCasimirMomentFiniteCeiling_nonnegative
     (S : SlabScalePair) :
@@ -1309,9 +1410,15 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 #print axioms centeredCylinderRemainder_abs_le_of_relative_balanced_carrier
 #print axioms FineUnitCouplingPhysicalCasimirMomentBound
 #print axioms fineUnitCouplingPhysicalCasimirExponentCeiling
+#print axioms fineUnitCouplingPhysicalCasimirExponent_le_face_count_mul_c4
+#print axioms fineUnitCouplingPhysicalCasimirExponentCeiling_le_face_count_mul_c4
 #print axioms fineUnitCouplingPhysicalCasimirMoment_le_finite_ceiling
 #print axioms fineUnitCouplingPhysicalCasimirMomentFiniteCeiling_nonnegative
 #print axioms fineUnitCouplingPhysicalCasimirMomentBound_finite
+#print axioms fineUnitCouplingPhysicalCasimirMomentFiniteCeiling_le_spatial_cutoff
+#print axioms fineUnitCouplingPhysicalCasimirMoment_le_spatial_cutoff_ceiling
+#print axioms fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling_nonnegative
+#print axioms fineUnitCouplingPhysicalCasimirMomentBound_spatial_cutoff
 #print axioms centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling
 #print axioms centeredCylinderRemainder_abs_le_of_finite_casimir_ceiling
 #print axioms centeredCylinderRemainder_abs_le_of_matched_casimir_loss

@@ -150,6 +150,10 @@ The proposition is now inhabited at every finite slab by
 maximum exponent, and the direct consumer
 `centeredCylinderRemainder_abs_le_of_finite_casimir_ceiling` closes the finite
 chain.  Uniform control of that ceiling remains open.
+The exponent maximum is also bounded constructively by
+`S.fine.faceEdges.length * c4 S.fine.cutoff`; the resulting
+`fineUnitCouplingPhysicalCasimirMomentBound_spatial_cutoff` makes the spatial
+and cutoff dependence explicit without claiming it is uniform.
 The focused safe target passed 5498 jobs with one worker and the new exports
 have only `{propext, Quot.sound}`; its centered-margin consumer passed 5506
 jobs with the same axiom gate.
