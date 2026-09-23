@@ -130,6 +130,15 @@ map with the interacting selected-link update, remove inactive projections,
 control signed endpoint cross-terms, or establish any OS/continuum/Clay
 conclusion.
 
+**PROGRESS -- the exposed energy is now returned to the selected original
+block:** `chain_blockAngularSquare_haar` transports angular square energy
+through any finite swap chain using the contravariant source map.  Its
+`translationPair_chain_defect_le_selected_block_energy` specialization uses
+`pair_zero` to state the explicit `(1-w)` defect bound in the original
+selected-block energy for the two-link exposure.  This is still a bound for
+the recoded finite operator, not an identification with the interacting
+selected-link kernel or a multi-factor/SAME-object gap.
+
 ### Conjugated finite head defect (2026-09-22 UTC)
 
 **PROGRESS -- the checked local angular defect is now transportable by an

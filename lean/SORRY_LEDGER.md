@@ -49,6 +49,24 @@ Monitored focused verification passed; the printed declaration uses only
 Monitored focused verification passed; all four printed declarations use only
 `{propext, Quot.sound}`.
 
+## PROVED chain angular-energy return (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionConjugatedHeadHeatChain.lean`.
+- **proved declarations**: `chain_blockAngularSquare_haar` and
+  `translationPair_chain_defect_le_selected_block_energy`.
+- **proof content**: transports the exposed-chart angular square through an
+  arbitrary finite swap chain using the contravariant source map, then uses
+  `pair_zero` to return the two-link defect estimate to the original selected
+  block.
+- **remaining obligation**: identify the inverse-chain conjugate with the
+  actual interacting selected-link update and telescope over changing hybrid
+  inputs.
+- **scope**: finite SU(2) carrier only; no inactive-projection, signed
+  endpoint, completed OS gap, continuum, physical-mass, or all-group result.
+
+Monitored focused verification passed; both printed declarations use only
+`{propext, Quot.sound}`.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.

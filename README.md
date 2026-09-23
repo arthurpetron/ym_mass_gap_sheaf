@@ -236,6 +236,13 @@ explicit finite defect bound with factor `(1-w)` and exposed-chart angular
 energy.  This is not yet the interacting selected-link map, a multi-factor
 telescope, a completed OS gap, or a continuum/Clay result.
 
+The chain module also proves `chain_blockAngularSquare_haar` and its
+`translationPair_chain_defect_le_selected_block_energy` specialization.  The
+exposed angular energy is transported back to the original selected block by
+the explicit source map, preserving the `(1-w)` finite defect bound.  The
+recoded operator still needs identification with the interacting selected-link
+kernel before it can enter the multi-factor telescope.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is

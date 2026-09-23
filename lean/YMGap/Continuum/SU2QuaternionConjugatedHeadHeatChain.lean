@@ -11,6 +11,8 @@ the operator with the interacting selected-link kernel or supply a telescope.
 import YMGap.Continuum.SU2QuaternionConjugatedHeadHeat
 import YMGap.Continuum.SU2QuaternionBlockSwapChainInverse
 import YMGap.Continuum.SU2QuaternionFourBlockSelection
+import YMGap.Continuum.SU2QuaternionAngularReindex
+import YMGap.Continuum.SU2QuaternionRelativeHeatPairGeometry
 
 namespace YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain
 
@@ -24,10 +26,13 @@ open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.BF4ExactSpatialTreeGaugeRawCarrier
 open YMGap.Continuum.SU2QuaternionArbitraryHaarBlockReflection
 open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
+open YMGap.Continuum.SU2QuaternionAngularReindex
 open YMGap.Continuum.SU2QuaternionBlockSwapChainInverse
 open YMGap.Continuum.SU2QuaternionConjugatedHeadHeat
 open YMGap.Continuum.SU2QuaternionFourBlockSelection
+open YMGap.Continuum.SU2QuaternionHaarCertificateReindex
 open YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
+open YMGap.Continuum.SU2QuaternionRelativeHeatPairGeometry
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.QuaternionHaarLinearAngularEnergy
 open YMGap.Continuum.SU2HeatCutoffCasimirBound
@@ -131,9 +136,85 @@ theorem chainConjugatedHeadMap_defect_le_angular
     (Q'.le_of_eqv hleft)
     (headMap_defect_le_angular tail hw0 hw1 K hK recoded hrecoded)
 
+/-- The exposed-chart angular energy can be transported back to the original
+source block of an arbitrary swap chain.  The source map is the same
+contravariant map used by the finite exposure certificates. -/
+theorem chain_blockAngularSquare_haar
+    {tail : Nat} :
+    ∀ (steps : List (QuaternionBlockInvolution (tail + 1)))
+      (block : Nat), block < tail + 1 → ∀ (polynomial : RatPoly),
+      SupportedQuaternionBlocks (tail + 1) polynomial →
+      quaternionHaar (tail + 1)
+          (blockAngularSquare block
+            (applyQuaternionBlockSwapChain steps polynomial)) ≈
+        quaternionHaar (tail + 1)
+          (blockAngularSquare
+            (quaternionBlockSwapChainSource steps block) polynomial)
+  | [], block, hblock, polynomial, hpolynomial => Q'.eqv_refl _
+  | swap :: rest, block, hblock, polynomial, hpolynomial => by
+      let recoded := reindexQuaternionPolynomial swap polynomial
+      have hsourceRest :
+          quaternionBlockSwapChainSource rest block < tail + 1 := by
+        exact quaternionBlockSwapChainSource_lt rest hblock
+      have hrecoded : SupportedQuaternionBlocks (tail + 1) recoded :=
+        reindex_supported swap polynomial
+      have hrest := chain_blockAngularSquare_haar rest block hblock recoded hrecoded
+      have hone := reindex_blockAngularSquare_haar swap hsourceRest polynomial
+      have hdrop := quaternionHaar_reindex swap
+        (blockAngularSquare
+          (swap.map (quaternionBlockSwapChainSource rest block)) polynomial)
+        (blockAngularSquare_supported
+          (swap.map_lt _ hsourceRest) hpolynomial)
+      exact Q'.eqv_trans _ _ _ hrest
+        (Q'.eqv_trans _ _ _ (Q'.eqv_symm hone) hdrop)
+
+/-- Specialize the chain estimate to the explicit selected/multiplier
+exposure.  The result is already expressed in the original selected-block
+energy; identifying this recoded map with the independently defined
+interacting selected-link update remains a separate bridge. -/
+theorem translationPair_chain_defect_le_selected_block_energy
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q')) (K : Nat)
+    (hK : sufficientCutoff w ≤ K) (polynomial : RatPoly)
+    (hpolynomial : SupportedQuaternionBlocks (tailBlocks + 1) polynomial) :
+    quaternionHaar (tailBlocks + 1) (polyMul polynomial polynomial) -
+        quaternionHaar (tailBlocks + 1)
+          (polyMul polynomial
+            (chainConjugatedHeadMap
+              (pairSteps (by omega)
+                ⟨selected, hselected⟩ ⟨multiplier, hmultiplier⟩)
+              w K polynomial)) ≤
+      ((1 : Q') - w) *
+        quaternionHaar (tailBlocks + 1)
+          (blockAngularSquare selected polynomial) := by
+  let steps := pairSteps (show 1 < tailBlocks + 1 by omega)
+    ⟨selected, hselected⟩ ⟨multiplier, hmultiplier⟩
+  have hdef := chainConjugatedHeadMap_defect_le_angular tailBlocks
+    hw0 hw1 K hK steps polynomial hpolynomial
+  have hangular := chain_blockAngularSquare_haar steps 0 (by omega)
+    polynomial hpolynomial
+  have hsource := pair_zero (show 1 < tailBlocks + 1 by omega)
+    ⟨selected, hselected⟩ ⟨multiplier, hmultiplier⟩ hdistinct
+  rw [hsource] at hangular
+  have hangular' :
+      quaternionHaar (tailBlocks + 1)
+          (angularSquare (applyQuaternionBlockSwapChain steps polynomial)) ≈
+        quaternionHaar (tailBlocks + 1)
+          (blockAngularSquare selected polynomial) := by
+    simpa [angularSquare] using hangular
+  exact Q'.le_trans' _ _ _ hdef
+    (Q'.le_of_eqv
+      (Q'.mul_eqv_congr_left ((1 : Q') - w) _ _ hangular'))
+
 end YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain
 
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.chainConjugatedHeadMap
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.chainConjugatedHeadMap_supported
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.chainConjugatedHeadMap_pairing
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.chainConjugatedHeadMap_defect_le_angular
+#print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.chain_blockAngularSquare_haar
+#print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.translationPair_chain_defect_le_selected_block_energy
