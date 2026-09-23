@@ -48225,11 +48225,15 @@ claimed by these checks.
   `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialHybridEnergy.lean`
 - **proved declarations**:
   `SignedEndpointCorrectionBudget` and
-  `energy_le_bare_add_signedCorrectionBudget`
+  `energy_le_bare_add_signedCorrectionBudget`,
+  `bareEnergy_le_endpointSquare`, and
+  `energy_le_endpointSquare_add_signedCorrectionBudget`
 - **closed obligation**: package a nonnegative Type-level budget for the exact
   correction `correction w K width g f`, and use its absolute-value bound with
   the checked `energy_eq_bare_add_correction` identity to derive
-  `energy <= bareEnergy + budget`.
+  `energy <= bareEnergy + budget`; use the proved positivity of the actual
+  product heat map to compile the bare term further into the explicit source
+  square `H[(V*g*f)^2]`.
 - **remaining named obligation**: construct such a budget uniformly for the
   actual endpoint source with its cutoff, width, and coupling parameters.  No
   sign, volume-uniform estimate, same-object variance bound, completed gap,
@@ -48245,8 +48249,8 @@ Monitored verification:
 BF4ExactSlabFixedSpatialHybridEnergy focused source check       PASS
 ```
 
-The new theorem reports only `[propext, Quot.sound]`; no dependency-complete
-or full-root audit is claimed by this focused check.
+The new declarations report only `[propext, Quot.sound]`; no
+dependency-complete or full-root audit is claimed by this focused check.
 
 #### [BF4-conditional-variance-completed-carrier] Posterior variance meets the completed carrier — PROVED 2026-09-19
 

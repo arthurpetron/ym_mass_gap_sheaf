@@ -193,12 +193,16 @@ budget for the exact signed correction
 `correction w K width g f`, while
 `energy_le_bare_add_signedCorrectionBudget` compiles that hypothesis with the
 checked split `energy_eq_bare_add_correction` into
-`energy <= bareEnergy + budget`.  The proof uses only the rational absolute
-value order and the original finite identity; it introduces no opaque rate,
-sign assumption, or erased witness.
+`energy <= bareEnergy + budget`.  The new
+`bareEnergy_le_endpointSquare` theorem then uses the proved positivity of the
+actual product heat map to obtain `bareEnergy <= H[(V*g*f)^2]`, and
+`energy_le_endpointSquare_add_signedCorrectionBudget` composes both facts.
+These proofs use only the rational absolute-value/order and finite Haar
+positivity; they introduce no opaque rate, sign assumption, or erased witness.
 
-This does **not** provide the budget.  Producing a volume-/cutoff-controlled
-bound for the actual endpoint source remains the next analytic obligation,
+This does **not** provide the correction budget.  Producing a
+volume-/cutoff-controlled bound for the actual endpoint source remains the
+next analytic obligation,
 followed by a same-object variance estimate, completed vacuum-complement gap,
 OS/GNS/scaling passage, continuum survival, physical mass, full QFT structure,
 and the every-compact-simple-group route.  The new interface is deliberately
@@ -207,8 +211,9 @@ for the same source and parameters.
 
 Focused monitored verification of
 `BF4ExactSlabFixedSpatialHybridEnergy.lean` passed; all printed declarations,
-including the new compiler theorem, use only `{propext, Quot.sound}`.  No
-dependency-complete or full-root audit is claimed.
+including the three new finite consequences, use only
+`{propext, Quot.sound}`.  No dependency-complete or full-root audit is
+claimed.
 
 ### Actual one-link kinetic defect on the original signed input (earlier checkpoint, 2026-09-21 UTC)
 
