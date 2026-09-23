@@ -571,6 +571,26 @@ theorem fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal
   exact Q'.le_of_eqv
     (reciprocal_scaled_budget_eqv_local reciprocal unitSquare actualSquare)
 
+/-- Compile the fixed-coupling reciprocal margin envelope through the matched
+AF bridge.  The resulting quadratic ceiling is explicit but still depends on
+the strict finite coupling gap. -/
+theorem fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_reciprocal
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (hgap : (0 : Q') < 1 - S.fine.coupling) :
+    FineUnitCouplingCenteredNormalizedChangeRawCalibration
+      K M g (Q'.ofNat 2 * fineCouplingReciprocalMarginCeiling S hgap) := by
+  exact fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_margin
+    K M family law g (fineCouplingReciprocalMarginCeiling S hgap)
+      hg hgle hcoupling
+      (fineCouplingReciprocalMarginCeiling_nonnegative S hgap)
+      (fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal
+        K M hfineCoupling_le_one hgap)
+
 /-! ## The finite normalized calibration ceiling -/
 
 /-- The explicit finite ceiling obtained by dividing the two-term source-debt
@@ -728,13 +748,52 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
     hg hgle hcoupling hbalancedCeiling
     (finiteMarginEnvelopeCeiling_nonnegative S) hbalanced hmargin
 
+/-- The reciprocal envelope reaches the complete finite centered-cylinder
+bound once the independent balanced scale-defect calibration is supplied. -/
+theorem centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g balancedCeiling : Q')
+    (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g)
+    (hgap : (0 : Q') < 1 - S.fine.coupling)
+    (hbalancedCeiling : (0 : Q') ≤ balancedCeiling)
+    (hbalanced :
+      FineUnitCouplingBalancedRawColumnScaleDefectCalibration
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+          g balancedCeiling) :
+    Q'.abs
+        (centeredCylinderRemainder
+          (physicalKernel S hfineCutoff hcoarseCoupling) M) ≤
+      (balancedCeiling +
+        Q'.ofNat 2 * fineCouplingReciprocalMarginCeiling S hgap) * (g * g) := by
+  have hmargin :
+      FineUnitCouplingCenteredNormalizedMarginRawCalibration
+        (physicalKernel S hfineCutoff hcoarseCoupling)
+        M (fineCouplingReciprocalMarginCeiling S hgap) :=
+    fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal
+      (physicalKernel S hfineCutoff hcoarseCoupling) M
+      hfineCoupling_le_one hgap
+  exact centeredCylinderRemainder_abs_le_of_balanced_and_margin
+    S hfineCutoff hcoarseCoupling hfineCoupling_le_one M family law
+    g balancedCeiling (fineCouplingReciprocalMarginCeiling S hgap)
+    hg hgle hcoupling hbalancedCeiling
+    (fineCouplingReciprocalMarginCeiling_nonnegative S hgap)
+    hbalanced hmargin
+
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_sourcePairDebtL1
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal
+#print axioms fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_reciprocal
 #print axioms finiteMarginEnvelopeCeiling_mul_denominator_eqv
 #print axioms fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
+#print axioms centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
 
 end YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1

@@ -232,6 +232,15 @@ cutoff/volume/beta/continuum-uniform strict form bound.  The focused target
 passed 5506 jobs with one worker; the new declarations report only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+That reciprocal ceiling now compiles through the matched-AF bridge via
+`fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_reciprocal`, and
+the balanced compiler
+`centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal` reaches the
+complete finite centered-cylinder estimate when the independent balanced
+scale-defect calibration is supplied.  Both results retain the explicit
+strict-gap dependence and do not create the missing balanced, spatial, or
+continuum-uniform producer.
+
 The same finite source envelope now yields an explicit
 `finiteMarginEnvelopeCeiling` and the theorem
 `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term`.

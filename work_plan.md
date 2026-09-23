@@ -59,6 +59,15 @@ continuum mass-gap input.  The focused dependency-complete safe target passed
 5506 jobs with one worker; all new declarations report only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+The reciprocal ceiling now also compiles through the matched-AF bridge via
+`fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_reciprocal`.
+Finally,
+`centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal` reaches the
+complete finite centered-cylinder estimate whenever the independent balanced
+scale-defect calibration is supplied.  These compilers preserve the explicit
+strict-coupling-gap dependence; they do not prove balanced control, spatial or
+cutoff/volume uniformity, or the continuum passage.
+
 The same module now defines `finiteMarginEnvelopeCeiling` and proves
 `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term`.
 The ceiling is the explicit positive-denominator quotient of the two-term

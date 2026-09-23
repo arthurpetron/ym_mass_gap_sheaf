@@ -21,11 +21,15 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `fineCouplingPhysicalPartitionMarginSum_le_reciprocal`,
   `fineCouplingPhysicalPartitionSquareMargin_le_reciprocal`,
   `fineCouplingReciprocalMarginCeiling`, and
-  `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal`.
+  `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal`,
+  `fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_reciprocal`,
+  and `centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal`.
 - **proof content**: apply the explicit geometric-tail reciprocal bound to
   each finite margin term, sum constructively, compare actual and unit
   partitions, and regroup the resulting two-term envelope into the normalized
-  calibration with the displayed reciprocal ceiling.
+  calibration with the displayed reciprocal ceiling.  The ceiling is then
+  compiled through the matched-AF bridge, and the balanced compiler composes
+  it with the independently supplied balanced scale-defect calibration.
 - **scope**: the strict condition `0 < 1 - S.fine.coupling` is an explicit
   argument.  The ceiling is semantically `4/(1-w)` and therefore diverges as
   `w` approaches one; no cutoff-, volume-, beta-, spacing-, OS-, continuum-,
