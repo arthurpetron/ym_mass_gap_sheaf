@@ -99,6 +99,30 @@ Monitored focused verification passed; both printed declarations use only
 - **scope**: finite SU(2) budget only; no SAME-object OS gap, continuum,
   physical-mass, full-QFT, or every-group conclusion.
 
+## PROVED bilinear chain pairing and reduced exposed-head certificate (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionConjugatedHeadHeatChain.lean`.
+- **proved declaration**: `chainConjugatedHeadMap_pairing_bilinear`.
+- **proof content**: extends inverse-chain Haar transport from diagonal to
+  arbitrary supported insertion/test pairings by transporting the test through
+  the reversed chain and cancelling the forward/reverse prefix.
+- **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedLinkHeadIdentification.lean`.
+- **proved declarations**: `SelectedLinkExposedHeadPairing` and
+  `selectedLinkHeadIdentification_of_exposed`.
+- **proof content**: factors the original selected-link identification through
+  a literal exposed-chart pairing field and reconstructs the full original
+  same-carrier pairing using the checked projection bridge, coefficient
+  commutativity, and the bilinear chain theorem.
+- **open obligation**: construct an inhabitant of
+  `SelectedLinkExposedHeadPairing`; this is the remaining interacting
+  selected-link/operator statement before the hybrid telescope.
+- **constructive status**: dependency-complete monitored build passed; all
+  printed declarations use only `{propext, Quot.sound}` and introduce no
+  `sorry` or new axiom.
+- **scope**: finite SU(2) certificate reduction only; inactive projections,
+  changing-state telescope, signed cross-terms, completed OS gap, continuum,
+  physical mass, full-QFT, and every-group obligations remain open.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.

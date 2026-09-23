@@ -250,6 +250,17 @@ head operator for every supported state/test pair.  Its conditional consumer
 `selectedHeatProjection_defect_le_selected_block_energy` gives the selected
 block defect bound, but no inhabitant of the certificate is claimed.
 
+**Reduced exposed-chart identification (2026-09-22 UTC):**
+`chainConjugatedHeadMap_pairing_bilinear` now proves the finite inverse-chain
+pairing for arbitrary supported insertion and test polynomials.  The new
+`SelectedLinkExposedHeadPairing` structure isolates the remaining interacting
+identity in the literal exposed head chart, and
+`selectedLinkHeadIdentification_of_exposed` reconstructs the original
+`SelectedLinkHeadIdentification` from it.  This is a constructive reduction of
+the open input, not an inhabitant of it: no selected-link identity, hybrid
+telescope, SAME-object gap, OS/GNS passage, continuum survival, physical mass,
+full-QFT, or every-group result is claimed.
+
 **Finite selected-link defect budget (2026-09-22 UTC):**
 `selectedFiniteDefect_sum_le_selectedBlockEnergy` now sums that conditional
 bound over any explicit list of supported same-carrier states, requiring the

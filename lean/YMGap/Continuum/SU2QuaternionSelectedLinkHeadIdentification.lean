@@ -25,11 +25,13 @@ open YMGap.Continuum.SU2QuaternionArbitraryHaarBlockReflection
 open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.SU2QuaternionAngularReindex
 open YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain
+open YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
 open YMGap.Continuum.SU2QuaternionHaarBlockProjection
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionRelativeHeatPairGeometry
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionSelectedProjectionReindex
+open YMGap.Continuum.SU2QuaternionSelectedHaarTranslation
 open YMGap.Continuum.SU2QuaternionFourBlockExposure
 open YMGap.Continuum.BF4ExactSpatialTreeGaugeRawCarrier
 open YMGap.Continuum.SU2QuaternionTranslationPolynomialImages
@@ -82,6 +84,111 @@ structure SelectedLinkHeadIdentification
           (chainConjugatedHeadMap
             (selectedPairSteps tailBlocks selected multiplier
               hblocks hselected hmultiplier) w K test))
+
+/-- Reduced open input in the exposed chart.  This asks only for the pairing
+of the literal head projection of the exposed selected heat factor with the
+recoded test, against the literal exposed `headMap` pairing.  The preceding
+finite recoding and bilinear inverse-chain theorem reconstruct the original
+selected-link identification from this field. -/
+structure SelectedLinkExposedHeadPairing
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat) : Type where
+  pairing : ∀ (polynomial test : RatPoly),
+    SupportedQuaternionBlocks (tailBlocks + 1) polynomial →
+    SupportedQuaternionBlocks (tailBlocks + 1) test →
+    quaternionHaar (tailBlocks + 1)
+        (polyMul
+          (project 0
+            (exposeTranslationPairPolynomial (tailBlocks + 1)
+              selected multiplier (by omega) hselected hmultiplier
+              (polyMul (heatAt selected multiplier w K) polynomial)))
+          (reindexQuaternionPolynomial
+            (translationPairTailPermutation (tailBlocks + 1)
+              selected multiplier (by omega) hselected hmultiplier)
+            (reindexQuaternionPolynomial
+              (translationPairHeadPermutation (tailBlocks + 1) selected hselected)
+              test))) ≈
+      quaternionHaar (tailBlocks + 1)
+        (polyMul
+          (headMap w K
+            (applyQuaternionBlockSwapChain
+              (selectedPairSteps tailBlocks selected multiplier
+                hblocks hselected hmultiplier) test))
+          (applyQuaternionBlockSwapChain
+            (selectedPairSteps tailBlocks selected multiplier
+              hblocks hselected hmultiplier) polynomial))
+
+/-- The reduced exposed-chart certificate is sufficient for the original
+same-carrier selected-link identification. -/
+def selectedLinkHeadIdentification_of_exposed
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat)
+    (exposed : SelectedLinkExposedHeadPairing
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K) :
+    SelectedLinkHeadIdentification
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K := by
+  refine ⟨?_⟩
+  intro polynomial test hpolynomial htest
+  let steps := selectedPairSteps tailBlocks selected multiplier
+    hblocks hselected hmultiplier
+  have hheat : SupportedQuaternionBlocks (tailBlocks + 1)
+      (heatAt selected multiplier w K) :=
+    heat_supported hselected hmultiplier w K
+  have hheatPolynomial : SupportedQuaternionBlocks (tailBlocks + 1)
+      (polyMul (heatAt selected multiplier w K) polynomial) :=
+    supported_polyMul hheat hpolynomial
+  have hprojection := exposeTranslationPair_project_pairing
+    (tailBlocks + 1) selected multiplier (by omega) hselected hmultiplier
+      hdistinct (polyMul (heatAt selected multiplier w K) polynomial) test
+      hheatPolynomial htest
+  have hprojection' :
+      quaternionHaar (tailBlocks + 1)
+          (polyMul
+            (project 0
+              (exposeTranslationPairPolynomial (tailBlocks + 1)
+                selected multiplier (by omega) hselected hmultiplier
+                (polyMul (heatAt selected multiplier w K) polynomial)))
+            (reindexQuaternionPolynomial
+              (translationPairTailPermutation (tailBlocks + 1)
+                selected multiplier (by omega) hselected hmultiplier)
+              (reindexQuaternionPolynomial
+                (translationPairHeadPermutation (tailBlocks + 1) selected hselected)
+                test))) ≈
+        quaternionHaar (tailBlocks + 1)
+          (polyMul
+            (selectedHeatProjection tailBlocks selected multiplier
+              hblocks hselected hmultiplier w K polynomial) test) := by
+    simpa [selectedHeatProjection] using hprojection
+  have hexposed := exposed.pairing polynomial test hpolynomial htest
+  have hbilinear := chainConjugatedHeadMap_pairing_bilinear
+    tailBlocks w K steps polynomial test hpolynomial htest
+  have horder :
+      quaternionHaar (tailBlocks + 1)
+          (polyMul
+            (headMap w K
+              (applyQuaternionBlockSwapChain steps test))
+            (applyQuaternionBlockSwapChain steps polynomial)) ≈
+        quaternionHaar (tailBlocks + 1)
+          (polyMul
+            (applyQuaternionBlockSwapChain steps polynomial)
+            (headMap w K
+              (applyQuaternionBlockSwapChain steps test))) :=
+    haar_of_coeff (RatPolyCoeffEqv.mul_comm
+      (headMap w K (applyQuaternionBlockSwapChain steps test))
+      (applyQuaternionBlockSwapChain steps polynomial))
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm hprojection')
+    (Q'.eqv_trans _ _ _ (by simpa [steps] using hexposed)
+      (Q'.eqv_trans _ _ _ horder (Q'.eqv_symm hbilinear)))
 
 /-- Conditional consequence of the named identification: the actual selected
 heat/projection update inherits the checked finite `(1-w)` defect bound in the
@@ -221,5 +328,7 @@ end YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedHeatProjection
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedPairSteps
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkHeadIdentification
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkExposedHeadPairing
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkHeadIdentification_of_exposed
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedHeatProjection_defect_le_selected_block_energy
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedFiniteDefect_sum_le_selectedBlockEnergy

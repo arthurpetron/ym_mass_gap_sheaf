@@ -92,6 +92,55 @@ theorem chainConjugatedHeadMap_pairing
   exact Q'.eqv_trans _ _ _ (Q'.eqv_symm hforward)
     (by simpa [recoded, head] using hcancel)
 
+/- The same finite change of variables is bilinear: the insertion and the
+   updated test need not be the same polynomial.  This is the form required
+   by a genuine operator pairing, while the preceding diagonal theorem is
+   retained for the defect consumer. -/
+theorem chainConjugatedHeadMap_pairing_bilinear
+    (tail : Nat) (w : Q') (K : Nat)
+    (steps : List (QuaternionBlockInvolution (tail + 1)))
+    (polynomial test : RatPoly)
+    (hpolynomial : SupportedQuaternionBlocks (tail + 1) polynomial)
+    (htest : SupportedQuaternionBlocks (tail + 1) test) :
+    quaternionHaar (tail + 1)
+        (polyMul polynomial (chainConjugatedHeadMap steps w K test)) ≈
+      quaternionHaar (tail + 1)
+        (polyMul (applyQuaternionBlockSwapChain steps polynomial)
+          (headMap w K (applyQuaternionBlockSwapChain steps test))) := by
+  let recodedPolynomial := applyQuaternionBlockSwapChain steps polynomial
+  let recodedTest := applyQuaternionBlockSwapChain steps test
+  let head := headMap w K recodedTest
+  let transportedTest := applyQuaternionBlockSwapChain steps.reverse head
+  have hrecodedPolynomial : SupportedQuaternionBlocks (tail + 1) recodedPolynomial :=
+    applyQuaternionBlockSwapChain_supported steps polynomial hpolynomial
+  have hrecodedTest : SupportedQuaternionBlocks (tail + 1) recodedTest :=
+    applyQuaternionBlockSwapChain_supported steps test htest
+  have hhead : SupportedQuaternionBlocks (tail + 1) head := by
+    exact headMap_supported tail w K hrecodedTest
+  have htransportedTest : SupportedQuaternionBlocks (tail + 1) transportedTest :=
+    reverse_chain_supported steps head hhead
+  have hleftSupport : SupportedQuaternionBlocks (tail + 1)
+      (polyMul polynomial transportedTest) :=
+    supported_polyMul hpolynomial htransportedTest
+  have hforward := quaternionHaar_applyQuaternionBlockSwapChain steps
+    (polyMul polynomial transportedTest) hleftSupport
+  rw [chain_mul] at hforward
+  have htransportedTestChain : SupportedQuaternionBlocks (tail + 1)
+      (applyQuaternionBlockSwapChain steps transportedTest) :=
+    applyQuaternionBlockSwapChain_supported steps transportedTest htransportedTest
+  have hcancel : quaternionHaar (tail + 1)
+      (polyMul recodedPolynomial
+        (applyQuaternionBlockSwapChain steps transportedTest)) ≈
+      quaternionHaar (tail + 1) (polyMul recodedPolynomial head) := by
+    exact quaternionHaar_prefixPolynomialEqv (tail + 1)
+      ((QuaternionPrefixPolynomialEqv.refl (tail + 1) recodedPolynomial).mul
+        (by simpa [transportedTest] using apply_reverse_inverse_prefix steps head))
+      (supported_polyMul hrecodedPolynomial
+        htransportedTestChain)
+      (supported_polyMul hrecodedPolynomial hhead)
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm hforward)
+    (Q'.eqv_trans _ _ _ hcancel (by rfl))
+
 /-- Finite local defect bound for an arbitrary exposing chain.  The energy is
 left in the exposed chart, where the existing angular theorem applies without
 assuming that differentiation commutes with a multi-step recoding. -/
@@ -215,6 +264,7 @@ end YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.chainConjugatedHeadMap
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.chainConjugatedHeadMap_supported
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.chainConjugatedHeadMap_pairing
+#print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.chainConjugatedHeadMap_pairing_bilinear
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.chainConjugatedHeadMap_defect_le_angular
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.chain_blockAngularSquare_haar
 #print axioms YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain.translationPair_chain_defect_le_selected_block_energy

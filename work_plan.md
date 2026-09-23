@@ -149,6 +149,18 @@ selected-block `(1-w)` bound.  No certificate inhabitant is claimed; this is
 the exact remaining physical selected-link identification needed before the
 hybrid telescope.
 
+**PROGRESS -- the open identification is reduced to an exposed-chart field:**
+`SU2QuaternionConjugatedHeadHeatChain.chainConjugatedHeadMap_pairing_bilinear`
+now proves the arbitrary-insertion/arbitrary-test finite Haar pairing for the
+inverse-chain conjugate, not only its diagonal specialization.  The new
+`SelectedLinkExposedHeadPairing` structure therefore isolates the remaining
+interacting statement in the literal exposed head chart; the constructive
+`selectedLinkHeadIdentification_of_exposed` theorem reconstructs the original
+`SelectedLinkHeadIdentification` from that field.  The reduced field still has
+no inhabitant: it is a sharper open certificate, not a hidden proof of the
+selected-link identity.  Both declarations are kernel-checked with only
+`{propext, Quot.sound}`.
+
 **PROGRESS -- finite selected-link defect budget:**
 `selectedFiniteDefect_sum_le_selectedBlockEnergy` sums the conditional
 selected-block `(1-w)` estimate over an explicit list of supported states.
