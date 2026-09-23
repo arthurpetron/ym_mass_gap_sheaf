@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## Proved qualitative exclusion: actual completed-sector fixed vectors (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFixedVacuumExclusion.lean`.
+- **producer**: `fixed_completed_pairing_is_vacuum_multiple` supplies the dense
+  proportionality identity from actual transfer fixedness, common persistent
+  coordinates, and the completed coordinate-to-test formula.
+- **consumer**: `fixed_eq_zero_of_global_vacuum_orthogonal` proves equality to
+  the genuine embedded sector zero for a fixed vector orthogonal to the ambient
+  global vacuum. No new analytic input or sector-vacuum membership is assumed.
+- **residue**: quantitative strictness; same original Yang--Mills identification;
+  spatial/spacing control, physical mass, continuum/QFT and every-group joins.
+  This is not a spectral gap or an isolated-vacuum theorem. No canonical field,
+  axiom or `sorry` changed; the dense-identity producer for fixed vectors is closed.
+- **verification**: monitored 20 GiB leaf check,
+  `/tmp/ym-gap-sector-fixed-vacuum-exclusion-check-2.log`; both gates contain only
+  `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
 ## Proved completed identity: dense tests read persistent coordinates (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCompletedTestPairing.lean`.
@@ -8,9 +25,9 @@
   sum of completed coordinates, coefficients and pulled-weight limits.
 - **scope**: the same Cauchy stream is used for coordinate convergence and
   physical pairing convergence; no new analytic hypothesis is assumed.
-- **residue**: common-coordinate factorization for a fixed vector and the
-  ambient-vacuum identification before actual vacuum-complement exclusion.
-  No uniform strict rate or physical/continuum claim; no new hole or axiom.
+- **subsequent closure**: common-coordinate factorization and actual
+  vacuum-complement fixed-vector exclusion are checked above. No uniform
+  strict rate or physical/continuum claim; no new hole or axiom.
 - **verification**: monitored 20 GiB leaf check,
   `/tmp/ym-gap-sector-completed-test-pairing-check-2.log`; all eight gates contain
   only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
@@ -21,24 +38,24 @@
 - **theorem**: `innerLimit_equiv_denseTestCoordinateSum` identifies the
   original cutoff-removed dense pairing with the finite constructed CReal sum
   of retained coordinates, test coefficients and pulled-weight cutoff limits.
-- **residue**: outer passage for the same completed vector, then common-root
-  factorization and the checked conditional vacuum-orthogonality consumer.
-  No new analytic premise, canonical field, hole, gap or continuum result.
+- **subsequent closure**: outer passage, common-root factorization and the
+  actual fixed-vector application are checked above. No new analytic premise,
+  canonical field, hole, gap or continuum result.
 - **verification**: monitored 20 GiB leaf check,
   `/tmp/ym-gap-sector-dense-test-pairing-limit-check-2.log`; all four gates are
   within `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
 
-## Closed machinery/open producer: dense-vacuum rigidity (2026-09-23)
+## Closed machinery; fixed-vector producer now supplied: dense-vacuum rigidity (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorDenseVacuumRigidity.lean`.
 - **consumer**: `sector_eq_zero_of_orthogonal_and_dense_vacuum_proportional`
   passes dense proportionality along the vector's own Cauchy stages, then uses
   ambient vacuum orthogonality and sector positive-definiteness to prove zero.
-- **explicit open argument**: `hdense` is the exact coordinate-to-test
-  proportionality identity for every dense sector presentation. Its producer
-  from fixed-coordinate rigidity and the finite test formula is not supplied.
-  This narrows the existing coordinate/pairing join; it does not assume a gap,
-  a continuity law, or membership of the global vacuum in the sector.
+- **explicit argument**: `hdense` is the exact coordinate-to-test
+  proportionality identity for every dense sector presentation. For actual
+  fixed vectors its producer is now supplied by
+  `FixedVacuumExclusion.fixed_completed_pairing_is_vacuum_multiple` above.
+  It assumes no gap, continuity law, or global-vacuum membership in the sector.
 - **scope**: conditional theorem, not actual fixed-vector exclusion or uniform
   strictness. No canonical frontier weakening, new axiom or `sorry`.
 - **verification**: monitored 20 GiB leaf check,
@@ -51,9 +68,9 @@
 - **theorem**: `weightedInner_linearObservable_eqv_coordinateSum` expresses
   the actual later-cutoff pairing of an arbitrary left observable with a fixed
   sector test as a finite retained-coordinate/coefficient/pulled-weight sum.
-- **residue**: cutoff and completed-vector passage before dense proportionality
-  and vacuum-complement rigidity. No tail bound, gap or continuum result is
-  supplied. No new analytic premise, canonical field, axiom or hole.
+- **subsequent closure**: cutoff/completed passage, dense proportionality and
+  vacuum-complement fixed-vector exclusion are checked above. No uniform gap
+  or continuum result is supplied; no new analytic premise, axiom or hole.
 - **verification**: monitored 20 GiB leaf check,
   `/tmp/ym-gap-sector-finite-test-pairing-check-4.log`; the gate contains only
   `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
@@ -65,9 +82,9 @@
   fixed vector of the literal sector transfer has the same coordinate at every
   retained state, even across different finite bases. It uses the checked
   completed endpoint energy and exact root-state coherence.
-- **residue**: completed coordinate-to-test proportionality before the proposed
-  global-vacuum-orthogonal zero-vector argument. No vacuum uniqueness, uniform
-  strict gap, physical identification or continuum conclusion is claimed.
+- **subsequent closure**: completed coordinate-to-test proportionality and the
+  global-vacuum-orthogonal zero-vector argument are checked above. No isolated
+  vacuum, uniform strict gap, physical identification or continuum claim.
   No analytic hypothesis beyond the fixed-vector premise, or new hole/axiom.
 - **verification**: monitored 20 GiB leaf check,
   `/tmp/ym-gap-sector-fixed-coordinate-check-2.log`; all four gates contain only
@@ -80,9 +97,9 @@
   quantitative data; `sectorCompletedInner_eq_existing` identifies the forms;
   `sectorCompleted_eq_zero_of_dense_pairings_zero` uses only sector dense tests
   and concludes equality to the actual embedded zero presentation.
-- **residue**: finite coordinate-to-test identity and its completed passage.
-  A proposed dense-test argument for global-vacuum-orthogonal fixed vectors
-  avoids assuming global-vacuum membership in the sector; it is not yet proved.
+- **subsequent closure**: the coordinate-to-test identity and the dense-test
+  argument for global-vacuum-orthogonal fixed vectors are now checked above,
+  without assuming global-vacuum membership in the sector.
   No new hypothesis, frontier field, axiom or hole is introduced.
 - **verification**: monitored 20 GiB leaf check,
   `/tmp/ym-gap-sector-pairing-separation-check-5.log`; all four gates contain
@@ -95,9 +112,10 @@
   bounds any retained endpoint difference of an arbitrary completed sector vector
   by its actual completed norm-minus-transfer form. Constructed representative
   closeness preserves the same vector throughout the outer-limit passage.
-- **residue**: fixed-vector coordinate constancy, coordinate-to-pairing
-  identification, separation and sector-vacuum identification. Fixed-base
-  constants are not a uniform strict gap; physical/continuum joins remain open.
+- **subsequent closure**: coordinate constancy, coordinate-to-pairing
+  identification and vacuum-complement fixed-vector exclusion are checked above
+  without a sector-vacuum membership assumption. Fixed-base constants are not
+  a uniform strict gap; physical/continuum joins remain open.
   No canonical field, hole or axiom changed.
 - **verification**: monitored 20 GiB leaf check,
   `/tmp/ym-gap-completed-endpoint-energy-check-2.log`; both gates contain only

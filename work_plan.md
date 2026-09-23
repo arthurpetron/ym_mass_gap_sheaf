@@ -25,6 +25,37 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual completed-sector fixed vectors vanish in the vacuum complement (2026-09-23 UTC)
+
+`BF4PhysicalCutoffVacuumSectorFixedVacuumExclusion.fixed_eq_zero_of_global_vacuum_orthogonal`
+proves that a vector fixed by the literal completed sector transfer and
+orthogonal to the actual ambient global vacuum is the genuine embedded sector
+zero. The producer `fixed_completed_pairing_is_vacuum_multiple` supplies the
+formerly open dense identity from the checked common-coordinate theorem and
+completed test formula. The ambient vacuum's dense functional is identified
+using the original physical pairing. No new analytic hypothesis or presumed
+sector-vacuum membership is used.
+
+This closes the qualitative fixed-vector exclusion route at fixed `w, half`.
+It does NOT prove existence of a completed sector constant-one vector, a
+strict uniform form rate, or isolation of the physical vacuum. Spectrum may
+approach one without a nonzero fixed vector. All same-Yang--Mills, spatial/
+spacing, physical-mass, continuum/QFT and every-group joins remain open.
+
+The next quantitative task must supply an actual common coercive estimate or
+another justified quantitative route, not infer it from uniqueness. The
+existing `centralPhysicalVacuumSectorAdaptiveRecodingTailRate` in
+`BF4PhysicalCutoffVacuumSectorCylinderAdaptiveRecodingTailInhabited.lean`
+depends on the input Cauchy stream; it is not a unit-ball operator-norm tail.
+The finite `EntrywiseNormalizedSameCarrierMehlerConvergence` in
+`BF4EntrywiseSameCarrierHSConvergence.lean` is likewise not an instantiated
+finite-rank approximation of this completed operator. No compactness-based
+strict rate is claimed from either construction.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-fixed-vacuum-exclusion-check-2.log`; both public gates
+contain only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
+
 ### Actual completed pairing is the finite coordinate-to-test sum (2026-09-23 UTC)
 
 `BF4PhysicalCutoffVacuumSectorCompletedTestPairing.completedInner_embedRep_eq_completedDenseTestCoordinateSum`
@@ -36,10 +67,9 @@ convergence is required only on the test's actual sector index list, not at
 irrelevant totalized indices.
 
 This closes the outer coordinate-to-test passage without a new analytic input.
-The remaining qualitative composition is to factor a fixed vector's checked
-common coordinate out of this sum, identify the residual functional with the
-ambient vacuum pairing, and invoke the checked dense-vacuum consumer. Actual
-fixed-vector exclusion is not yet claimed here. Uniform strictness and every
+The qualitative composition is now checked above: factor the fixed vector's
+common coordinate, identify the ambient vacuum functional, and invoke the
+dense-vacuum consumer. Uniform strictness and every
 same-theory/physical/continuum/group join remain separate and open.
 
 Verification: monitored 20 GiB leaf check,
@@ -56,11 +86,11 @@ The proof uses equality of approximants once the cutoff reaches the test's
 base; it needs no new estimate or tail modulus.
 
 The outer completion passage of this formula is now checked above; the
-common-coordinate/ambient-vacuum factorization remains before applying the
-checked dense-vacuum consumer. In the completed passage the
-passage the pairing sequence is literally `innerLimit (X.seq n) test`, so the
+common-coordinate/ambient-vacuum factorization and vacuum-complement exclusion
+are also checked in subsequent milestones above. In the completed passage the
+pairing sequence is literally `innerLimit (X.seq n) test`, so the
 existing physical pairing convergence and coordinate convergence concern the
-same Cauchy stream. Actual fixed-vector exclusion, a uniform strict gap and all
+same Cauchy stream. A uniform strict gap and all
 physical/continuum/every-group joins remain open.
 
 Verification: monitored 20 GiB leaf check,
@@ -78,13 +108,12 @@ sector positive-definiteness theorem. The ambient vacuum need not belong to
 the sector. No independent moving-tail or sector-indicator construction is
 required by this argument.
 
-The producer is still open: the cutoff-limit passage is now checked above;
-pass that identity through the completion limit, and use
-the checked common-coordinate theorem for fixed vectors. The explicit dense
-proportionality argument is not supplied for those vectors here, so actual
-vacuum-complement fixed-vector exclusion is not yet claimed. Even that
-qualitative result would not establish a uniform spectral gap or the
-physical/continuum/every-group joins.
+The fixed-vector producer is now supplied by the later
+`FixedVacuumExclusion.fixed_completed_pairing_is_vacuum_multiple` milestone
+above. This generic consumer remains conditional for arbitrary vectors, but
+its actual fixed-vector application is checked without an extra identity
+assumption. The qualitative result does not establish a uniform spectral gap
+or the physical/continuum/every-group joins.
 
 Verification: monitored 20 GiB leaf check,
 `/tmp/ym-gap-sector-dense-vacuum-rigidity-check-3.log`; the public gate contains

@@ -3824,6 +3824,7 @@ import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFiniteTestPairing
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorDenseVacuumRigidity
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorDenseTestPairingLimit
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCompletedTestPairing
+import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFixedVacuumExclusion
 -- Actual cutoff-removed normalization of the raw all-spin reflected form.
 import YMGap.Continuum.BF4PhysicalCubeNormalizedKernelLimit
 -- Same cutoff-removed conditional P contracts its positive one-step RC form.
