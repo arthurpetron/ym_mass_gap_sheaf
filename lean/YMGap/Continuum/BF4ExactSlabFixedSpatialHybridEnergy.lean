@@ -10,6 +10,8 @@ No small energy, variance comparison, OS gap, or scaling result is asserted.
 
 import YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 import YMGap.Continuum.BF4ExactSlabFixedSpatialGroundStateEnergy
+import YMGap.Continuum.QuaternionHaarSupportedPolynomialInterval
+import YMGap.Continuum.QuaternionHaarPolynomialIntervalProduct
 
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy
 
@@ -22,8 +24,12 @@ open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionFactorizedHaarContraction
 open YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 open YMGap.Continuum.SU2QuaternionProductHeatPositive (productMap_nonnegative)
-open YMGap.Continuum.SU2QuaternionProductHeatMarginals (productMap)
+open YMGap.Continuum.SU2QuaternionProductHeatMarginals
+  (productMap productMap_supported)
 open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
+open YMGap.Continuum.QuaternionHaarSupportedPolynomialInterval
+open YMGap.Continuum.QuaternionHaarPolynomialInterval
+open YMGap.Continuum.QuaternionHaarSquareCertificate (supported_add)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceCarrier (baseLinks)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceHeat
   (spatialWeight spatialWeight_supported)
@@ -89,6 +95,74 @@ structure SignedEndpointCorrectionBudget
   budget_nonneg : (0 : Q') ≤ budget
   correction_abs_le :
     Q'.abs (correction w K width g f) ≤ budget
+
+private theorem supported_polyNeg_local {blocks : Nat} {p : RatPoly}
+    (hp : SupportedQuaternionBlocks blocks p) :
+    SupportedQuaternionBlocks blocks (polyNeg p) := by
+  intro t ht
+  obtain ⟨s, hs, rfl⟩ := List.mem_map.mp ht
+  exact hp s hs
+
+private theorem endpointSource_supported
+    (w : Q') (K width : Nat) (g : RatPoly)
+    (hg : SupportedQuaternionBlocks (N width) g) :
+    SupportedQuaternionBlocks (N width) (endpointSource w K width g) := by
+  unfold endpointSource
+  exact supported_polyMul (spatialWeight_supported w K width) hg
+
+private def endpointCorrectionPolynomial
+    (w : Q') (K width : Nat) (g f : RatPoly) : RatPoly :=
+  polyMul
+    (polyMul (endpointSource w K width g) (polyMul f f))
+    (polyAdd
+      (productMap (N width) w K (activeBlocks width)
+        (endpointSource w K width g))
+      (polyNeg (endpointSource w K width g)))
+
+private theorem endpointCorrectionPolynomial_supported
+    (w : Q') (K width : Nat) (g f : RatPoly)
+    (hg : SupportedQuaternionBlocks (N width) g)
+    (hf : SupportedQuaternionBlocks (N width) f) :
+    SupportedQuaternionBlocks (N width)
+      (endpointCorrectionPolynomial w K width g f) := by
+  unfold endpointCorrectionPolynomial
+  have ha : SupportedQuaternionBlocks (N width)
+      (endpointSource w K width g) := endpointSource_supported w K width g hg
+  exact supported_polyMul
+    (supported_polyMul ha (supported_polyMul hf hf))
+    (supported_add
+      (productMap_supported (N width) w K (activeBlocks width)
+        (activeBlocks_lt width) ha)
+      (supported_polyNeg_local ha))
+
+/-- A finite, explicit (presentation-dependent) inhabitant of the correction
+budget interface.  It is obtained from the repository's polynomial interval
+certificate, so it is not an analytic or uniform estimate: its cap can grow
+with the displayed polynomial and carrier. -/
+def finiteSignedEndpointCorrectionBudget
+    (w : Q') (K width : Nat) (g f : RatPoly)
+    (hg : SupportedQuaternionBlocks (N width) g)
+    (hf : SupportedQuaternionBlocks (N width) f) :
+    SignedEndpointCorrectionBudget w K width g f := by
+  have hp : SupportedQuaternionBlocks (N width)
+      (endpointCorrectionPolynomial w K width g f) :=
+    endpointCorrectionPolynomial_supported w K width g f hg hf
+  have hcap : Q'.abs (quaternionHaar (N width)
+      (endpointCorrectionPolynomial w K width g f)) ≤
+      polynomialCap (endpointCorrectionPolynomial w K width g f) :=
+    Interval.haar_bound
+      (polynomialInterval (N width)
+        (endpointCorrectionPolynomial w K width g f) hp)
+  have heq : correction w K width g f ≈ quaternionHaar (N width)
+      (endpointCorrectionPolynomial w K width g f) := by
+    unfold correction endpointCorrectionPolynomial
+    exact Q'.eqv_refl _
+  refine
+    { budget := polynomialCap (endpointCorrectionPolynomial w K width g f)
+      budget_nonneg := polynomialCap_nonnegative _
+      correction_abs_le := ?_ }
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (Q'.abs_eqv_congr heq)) hcap
 
 /-- Compile a signed endpoint budget into an upper bound for the original
 finite temporal energy. -/
@@ -174,10 +248,28 @@ theorem energy_le_endpointSquare_add_signedCorrectionBudget
           (polyMul (endpointSource w K width g) f)))
       hbudget.budget hbare)
 
+/-- The finite polynomial-cap inhabitant gives a completely explicit bound at
+every supported finite input.  Its cap is presentation-dependent and is not
+claimed to be uniform in width, cutoff, coupling, or spacing. -/
+theorem energy_le_endpointSquare_add_finiteSignedCorrectionBudget
+    (w : Q') (K width : Nat) (g f : RatPoly)
+    (hw : (0 : Q') ≤ w)
+    (hg : SupportedQuaternionBlocks (N width) g)
+    (hf : SupportedQuaternionBlocks (N width) f) :
+    energy w K width g f ≤
+      quaternionHaar (N width)
+        (polyMul (polyMul (endpointSource w K width g) f)
+          (polyMul (endpointSource w K width g) f)) +
+        (finiteSignedEndpointCorrectionBudget w K width g f hg hf).budget :=
+  energy_le_endpointSquare_add_signedCorrectionBudget w K width g f hw hg hf
+    (finiteSignedEndpointCorrectionBudget w K width g f hg hf)
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.transferStep_hybrid_carrier
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.energy_eq_hybrid_add_correction
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.bareEnergy_le_endpointSquare
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.energy_le_endpointSquare_add_signedCorrectionBudget
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.finiteSignedEndpointCorrectionBudget
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.energy_le_endpointSquare_add_finiteSignedCorrectionBudget
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.energy_le_bare_add_signedCorrectionBudget

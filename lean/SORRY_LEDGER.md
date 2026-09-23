@@ -48227,16 +48227,20 @@ claimed by these checks.
   `SignedEndpointCorrectionBudget` and
   `energy_le_bare_add_signedCorrectionBudget`,
   `bareEnergy_le_endpointSquare`, and
-  `energy_le_endpointSquare_add_signedCorrectionBudget`
+  `energy_le_endpointSquare_add_signedCorrectionBudget`,
+  `finiteSignedEndpointCorrectionBudget`, and
+  `energy_le_endpointSquare_add_finiteSignedCorrectionBudget`
 - **closed obligation**: package a nonnegative Type-level budget for the exact
   correction `correction w K width g f`, and use its absolute-value bound with
   the checked `energy_eq_bare_add_correction` identity to derive
   `energy <= bareEnergy + budget`; use the proved positivity of the actual
   product heat map to compile the bare term further into the explicit source
-  square `H[(V*g*f)^2]`.
+  square `H[(V*g*f)^2]`.  The polynomial interval certificate now constructs
+  a finite presentation-dependent budget for every supported finite input.
 - **remaining named obligation**: construct such a budget uniformly for the
-  actual endpoint source with its cutoff, width, and coupling parameters.  No
-  sign, volume-uniform estimate, same-object variance bound, completed gap,
+  actual endpoint source with its cutoff, width, coupling, and source-degree
+  parameters.  The constructed cap may grow with those parameters, so no
+  volume-uniform estimate, same-object variance bound, completed gap,
   thermodynamic/continuum passage, or Clay conclusion is supplied here.
 - **constructive or propositional**: the budget is a Type-valued named input;
   the compiler is finite rational order arithmetic using `Q'.abs`.  No

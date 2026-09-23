@@ -200,9 +200,17 @@ actual product heat map to obtain `bareEnergy <= H[(V*g*f)^2]`, and
 These proofs use only the rational absolute-value/order and finite Haar
 positivity; they introduce no opaque rate, sign assumption, or erased witness.
 
-This does **not** provide the correction budget.  Producing a
-volume-/cutoff-controlled bound for the actual endpoint source remains the
-next analytic obligation,
+**NEW FINITE INHABITANT --** `finiteSignedEndpointCorrectionBudget` now
+constructs the named budget for every supported finite input from
+`polynomialInterval` and `Interval.haar_bound`.  The resulting
+`energy_le_endpointSquare_add_finiteSignedCorrectionBudget` is an explicit
+finite bound whose cap is the signed polynomial presentation cap of the exact
+endpoint correction.
+
+This does **not** provide the needed uniform correction estimate.  The
+presentation cap can grow with width, cutoff, coupling, and source degree;
+producing a volume-/cutoff-controlled bound for the actual endpoint source
+remains the next analytic obligation,
 followed by a same-object variance estimate, completed vacuum-complement gap,
 OS/GNS/scaling passage, continuum survival, physical mass, full QFT structure,
 and the every-compact-simple-group route.  The new interface is deliberately

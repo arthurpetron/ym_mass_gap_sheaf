@@ -166,8 +166,10 @@
 > A checked finite consumer now packages the remaining signed endpoint defect
 > as a Type-level absolute budget and derives
 > `energy <= H[(V*g*f)^2] + budget` from actual product-heat positivity.
-> Constructing a volume-/cutoff-uniform budget is still open; this is not an
-> OS, continuum, or Clay gap claim.
+> A polynomial-interval certificate now inhabits that budget at every finite
+> supported input. Its presentation cap is not uniform in width/cutoff, so
+> constructing the analytic uniform budget is still open; this is not an OS,
+> continuum, or Clay gap claim.
 > The actual two-link heat packet now has checked all-degree harmonic
 > reproduction with the exact dimension normalization. It gives the
 > Casimir multiplier `w^(n*(n+2))` on a degree-n harmonic when n<=K,
