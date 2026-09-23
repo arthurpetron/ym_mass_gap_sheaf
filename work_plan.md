@@ -195,6 +195,15 @@ and `selectedLinkExposedProjectionPairing_of_relative` plus
 `selectedLinkExposedHeadPairing_of_relative` reconstruct the prior interfaces
 from it.
 
+**PROGRESS -- the hybrid compiler consumes the minimal witness:**
+`hybridStep_defect_le_selected_block_energy_of_relative`,
+`hybridSweep_cons_defect_le_selected_block_energy_of_relative`, and
+`hybridSweep_defect_budget_of_relative` transport the existing finite bounds
+through a family of relative-form witnesses.  This removes the need for
+callers to manually construct the larger exposed head certificate; it does
+not discharge the relative pairing itself or any signed, uniform, OS,
+thermodynamic, or continuum obligation.
+
 **PROGRESS -- the exposed input now reaches an actual hybrid stage:**
 `hybridSweep_cons_eq_selectedHeatProjection` identifies a schedule head with
 the selected-link update on the literal doubled carrier, using

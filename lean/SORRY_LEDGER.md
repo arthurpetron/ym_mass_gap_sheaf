@@ -207,6 +207,23 @@ Monitored focused verification passed; both printed declarations use only
   `{propext, Quot.sound}` and introduce no `sorry` or new axiom.
   Log: `/tmp/ym-selected-relative-witness2.log`.
 
+## PROVED hybrid consequences of the minimal witness (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean`.
+- **proved declarations**:
+  `hybridStep_defect_le_selected_block_energy_of_relative`,
+  `hybridSweep_cons_defect_le_selected_block_energy_of_relative`, and
+  `hybridSweep_defect_budget_of_relative`.
+- **proof content**: composes the minimal relative-form witness with the
+  exposed-head compiler and transports the existing one-stage and ordered
+  changing-state finite defect bounds.
+- **remaining obligation**: provide the relative witness at every stage;
+  signed cross terms, inactive projections, uniformity, OS/GNS, continuum,
+  physical mass, full QFT, and every-group conclusions remain open.
+- **constructive status**: monitored narrow Lake target passed (1960 jobs),
+  with only `{propext, Quot.sound}` and no `sorry` or new axiom.
+  Log: `/tmp/ym-hybrid-relative-target.log`.
+
 ## PROVED conditional hybrid-stage bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean`.

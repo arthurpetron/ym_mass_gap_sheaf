@@ -383,6 +383,13 @@ relative-heat conditional form produced by
 single relative-form witness is sufficient for the original selected-link
 certificate.  No inhabitant of the relative-form witness is claimed.
 
+**Hybrid consequence of the minimal witness (2026-09-22 UTC):**
+`SU2QuaternionProductHeatHybridSweep` now exports relative-witness versions
+of the one-stage, changing-state, and ordered defect-budget bounds.  The
+hybrid telescope therefore depends only on a family of
+`SelectedLinkExposedRelativePairing` witnesses; signed cross terms, inactive
+projections, and all uniform/OS/continuum obligations remain separate.
+
 **Padded projection transport (2026-09-22 UTC):**
 `SU2QuaternionPaddedProjectionPairing.project_padded_pairing` proves the
 generic finite lemma that supported `PaddedPolynomialCoeffEqv` survives a
