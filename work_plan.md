@@ -89,6 +89,10 @@ The map also commutes with quotient addition and negation on representatives
 quotient transfer candidate its expected additive structure.  Scalar descent
 and an ordered completed-space contraction remain separate obligations.
 
+`productMapQuotient_unit` also fixes the normalized finite Haar unit class.
+This is a finite vacuum-seed statement only; it is not the isolated vacuum of
+the continuum theory and does not supply a mass gap.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

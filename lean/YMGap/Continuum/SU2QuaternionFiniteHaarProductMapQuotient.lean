@@ -19,10 +19,12 @@ open YMGap.Constructive
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 open YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection
+open YMGap.Continuum.BF4CompactActionCPOrder
 open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.SU2HeatCutoffCasimirBound
 open YMGap.Continuum.SU2QuaternionFiniteHaarGNSCarrier
 open YMGap.Continuum.SU2QuaternionFiniteHaarProductMapRadical
+open YMGap.Continuum.SU2QuaternionAuxiliaryLiftAlgebra
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionProductHeatConstant
 open YMGap.Continuum.SU2QuaternionProductHeatMarginals
@@ -34,6 +36,13 @@ open YMGap.Continuum.SU2QuaternionRelativeHeatContraction
 open YMGap.Continuum.QuaternionHaarSquareCertificate
 
 local infix:50 " ≈ " => Q'.eqv
+
+private theorem support_smul_local {n : Nat} {p : RatPoly}
+    (hp : SupportedQuaternionBlocks n p) (c : Q') :
+    SupportedQuaternionBlocks n (polySmul c p) := by
+  intro t ht
+  obtain ⟨s, hs, rfl⟩ := List.mem_map.mp ht
+  exact hp s hs
 
 /-! ## Representatives -/
 
@@ -171,6 +180,47 @@ theorem productMapQuotient_qNeg_mk
     (polySmul (-1) (productMap n w K ids p.val))
   exact productMap_smul n w K ids (-1) p.val
 
+theorem productMapQuotient_unit
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n) :
+    productMapQuotient n hw0 hw1 K hK ids hnodup hids
+        (finiteHaarUnitClass n) = finiteHaarUnitClass n := by
+  apply Quotient.sound
+  change finiteHaarPair n
+      (polyAdd (productMap n w K ids polyOne)
+        (polySmul (-1) polyOne))
+      (polyAdd (productMap n w K ids polyOne)
+        (polySmul (-1) polyOne)) ≈ 0
+  let m : RatPoly := productMap n w K ids polyOne
+  let d : RatPoly := polyAdd m (polySmul (-1) polyOne)
+  have hm : SupportedQuaternionBlocks n m := by
+    exact productMap_supported n w K ids hids (supported_one n)
+  have hd : SupportedQuaternionBlocks n d := by
+    exact supported_add hm (support_smul_local (supported_one n) (-1))
+  have htested : SupportedHaarEqv n d
+      (polyAdd polyOne (polySmul (-1) polyOne)) := by
+    exact SupportedHaarEqv.add
+      (productMap_one n w K ids hnodup hids)
+      (SupportedHaarEqv.smul (SupportedHaarEqv.refl n polyOne) (-1))
+  have hzero : RatPolyCoeffEqv
+      (polyAdd polyOne (polySmul (-1) polyOne)) polyZero :=
+    RatPolyCoeffEqv.add_neg_smul polyOne
+  have hright : quaternionHaar n
+      (polyMul d (polyAdd polyOne (polySmul (-1) polyOne))) ≈ 0 := by
+    have hcoeff : RatPolyCoeffEqv
+        (polyMul d (polyAdd polyOne (polySmul (-1) polyOne)))
+        polyZero :=
+      (hzero.mul_left d).trans (RatPolyCoeffEqv.mul_zero_right d)
+    exact Q'.eqv_trans _ _ _ (haar_of_coeff hcoeff) (by rfl)
+  have hdiag := htested d hd
+  change finiteHaarPair n d d ≈ 0
+  exact Q'.eqv_trans _ _ _ (by
+    unfold finiteHaarPair
+    exact hdiag) hright
+
 /-! ## Same-object pairing and finite centered estimate -/
 
 theorem productMapQuotient_qInner_mk
@@ -231,6 +281,7 @@ end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qAdd_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qNeg_mk
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_unit
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qInner_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qNormSq_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_centered_square_bound

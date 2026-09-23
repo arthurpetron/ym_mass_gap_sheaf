@@ -73,6 +73,11 @@ It also proves `productMapQuotient_qAdd_mk` and
 `productMapQuotient_qNeg_mk`, so the descended map respects the quotient's
 addition and negation on representatives.
 
+Finally, `productMapQuotient_unit` proves that the finite transfer fixes the
+normalized Haar unit class.  The proof uses the tested-Haar constant law on
+the explicit difference from the unit and does not identify this finite unit
+with a continuum vacuum.
+
 ## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`.

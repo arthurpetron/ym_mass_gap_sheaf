@@ -33,6 +33,8 @@ These connect the quotient map to its Haar representatives, but do not yet
 provide an ordered completed-space contraction or a spectral gap.
 The map also respects quotient addition and negation on representatives;
 scalar descent and the ordered completed-space estimate remain open.
+It fixes the normalized finite Haar unit class as well, which is only a
+finite vacuum-seed result and not a continuum isolated-vacuum theorem.
 
 > **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
