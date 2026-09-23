@@ -49,6 +49,12 @@ inequality at the spacing-to-zero modulus.  This is a constructive route-pruner
 only, not a no-go theorem for Yang--Mills: the next physical producer must make
 the completed transfer itself scale-dependent.
 
+The proof is now factored through the generic
+`noPhysicalRateBand_of_constantPositiveMargin`, so the route-pruning argument
+applies to any same-family completed transfer with a positive scale-constant
+lattice margin.  This prevents later rate-padding or reindexing from being
+mistaken for physical calibration.
+
 The same module now includes
 `FixedNomeCofinalVacuumSectorCenteredStrictGap.weakenRate`, a checked monotone
 finite-bound padding lemma.  It preserves the centered carrier while replacing

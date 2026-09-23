@@ -154,6 +154,13 @@ rate-band contract when the attached spacing tends to zero.  This is a
 constructive route-pruning result, not a Yang--Mills no-go theorem; a genuinely
 scale-dependent completed transfer family is still required.
 
+The route-pruning implication is now generic as
+`noPhysicalRateBand_of_constantPositiveMargin`: any same-family positive
+constant lattice margin is incompatible with a spacing-to-zero physical-rate
+band.  The SU(2) staging theorem is its concrete specialization.  This makes
+the distinction between a weakened finite bound and a physically changing
+transfer explicit for later producers.
+
 The same module also exports
 `FixedNomeCofinalVacuumSectorCenteredStrictGap.weakenRate`.  It reuses the
 same centered carrier and weakens a finite strict bound from `q₀` to any

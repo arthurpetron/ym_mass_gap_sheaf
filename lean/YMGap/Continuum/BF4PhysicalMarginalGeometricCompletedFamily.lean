@@ -161,12 +161,49 @@ theorem marginalHalfGeometricCompletedFamily_concrete_cube_autocorrelation_sq_de
       (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
         (by decide) (by decide)))
 
-/-! ## 4. The staging family cannot supply the physical-rate band -/
+/-! ## 4. Constant positive margins cannot supply the physical-rate band -/
+
+/-- Any completed family with a positive lattice margin that is constant
+across scales is incompatible with a physical-rate band when its attached
+spacing tends to zero.  This is a generic route-pruning consequence of the
+same-object scaling contract; it does not assume or identify a particular
+finite proof route. -/
+theorem noPhysicalRateBand_of_constantPositiveMargin
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (anchor : Nat)
+    (hmarginPos : (0 : Q') < family.latticeMargin anchor)
+    (hmargin_constant : ∀ scale,
+      family.latticeMargin scale ≈ family.latticeMargin anchor)
+    (band : DynamicVacuumSectorPhysicalRateBand family) :
+    False := by
+  let epsilon : Q' := HalfPow.half * family.latticeMargin anchor
+  have hepsilon : (0 : Q') < epsilon := by
+    unfold epsilon
+    exact ExpNeg.half_mul_pos _ hmarginPos
+  let hscale := band.marginModulus epsilon
+  have hsmall := band.latticeMargin_le_epsilon
+    epsilon hepsilon hscale (Nat.le_refl _)
+  have hle : family.latticeMargin anchor ≤ epsilon :=
+    Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.eqv_symm (hmargin_constant hscale))) hsmall
+  have hmul := Q'.mul_lt_mul_of_pos_left
+    hmarginPos (by decide : HalfPow.half < (1 : Q'))
+  have hstrict : epsilon < family.latticeMargin anchor * (1 : Q') := by
+    unfold epsilon
+    exact Q'.lt_of_le_of_lt
+      (Q'.le_of_eqv (Q'.mul_comm_eqv
+        HalfPow.half (family.latticeMargin anchor))) hmul
+  have hreverse : family.latticeMargin anchor * (1 : Q') ≤ epsilon :=
+    Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.mul_one_eqv (family.latticeMargin anchor))) hle
+  exact (Int.not_lt_of_ge hreverse) hstrict
 
 /-- The fixed completed lattice margin in the staging family is incompatible
 with the upper half of the physical-rate-band contract when the attached
 spacing tends to zero.  This prunes a false continuum shortcut; it does not
 refute a genuinely scale-dependent completed transfer family. -/
+
 theorem noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily
     (band :
       DynamicVacuumSectorPhysicalRateBand
@@ -175,32 +212,13 @@ theorem noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily
   let family := marginalHalfGeometricCompletedFamily
   have hmarginPos : (0 : Q') < family.latticeMargin 0 :=
     family.latticeMargin_pos 0
-  let epsilon : Q' := HalfPow.half * family.latticeMargin 0
-  have hepsilon : (0 : Q') < epsilon := by
-    unfold epsilon
-    exact ExpNeg.half_mul_pos _ hmarginPos
-  let hscale := band.marginModulus epsilon
-  have hsmall := band.latticeMargin_le_epsilon
-    epsilon hepsilon hscale (Nat.le_refl _)
-  have hfixed : family.latticeMargin hscale ≈
-      family.latticeMargin 0 := by
+  apply noPhysicalRateBand_of_constantPositiveMargin
+    (family := family) 0 hmarginPos
+  · intro scale
     unfold family marginalHalfGeometricCompletedFamily
       DynamicVacuumSectorCompletedFamily.latticeMargin
     exact Q'.eqv_refl _
-  have hle : family.latticeMargin 0 ≤ epsilon :=
-    Q'.le_trans' _ _ _
-      (Q'.le_of_eqv (Q'.eqv_symm hfixed)) hsmall
-  have hmul := Q'.mul_lt_mul_of_pos_left
-    hmarginPos (by decide : HalfPow.half < (1 : Q'))
-  have hstrict : epsilon < family.latticeMargin 0 * (1 : Q') := by
-    unfold epsilon
-    exact Q'.lt_of_le_of_lt
-      (Q'.le_of_eqv (Q'.mul_comm_eqv
-        HalfPow.half (family.latticeMargin 0))) hmul
-  have hreverse : family.latticeMargin 0 * (1 : Q') ≤ epsilon :=
-    Q'.le_trans' _ _ _
-      (Q'.le_of_eqv (Q'.mul_one_eqv (family.latticeMargin 0))) hle
-  exact (Int.not_lt_of_ge hreverse) hstrict
+  · exact band
 
 /-! ## 5. Explicit rate padding, kept separate from physical calibration -/
 
@@ -260,6 +278,8 @@ end YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
   YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily.marginalHalfGeometricCompletedFamily_autocorrelation_sq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily.marginalHalfGeometricCompletedFamily_concrete_cube_autocorrelation_sq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily.noPhysicalRateBand_of_constantPositiveMargin
 #print axioms
   YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily.noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily
 #print axioms

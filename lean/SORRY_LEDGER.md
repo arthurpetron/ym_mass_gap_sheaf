@@ -46,6 +46,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `marginalHalfGeometricCompletedFamily_autocorrelation_sq_decay`, and
   `marginalHalfGeometricCompletedFamily_concrete_cube_autocorrelation_sq_decay`.
 - **additional consequence**:
+  `noPhysicalRateBand_of_constantPositiveMargin` is the generic route-pruning
+  theorem; `noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily` is its
+  fixed SU(2) specialization.  A positive constant same-family lattice margin
+  cannot satisfy the upper physical-rate inequality when spacing tends to zero.
+- **additional consequence**:
   `noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily` proves that no
   `DynamicVacuumSectorPhysicalRateBand` can inhabit this family: its lattice
   margin is fixed and positive while its attached spacing has a zero modulus.
