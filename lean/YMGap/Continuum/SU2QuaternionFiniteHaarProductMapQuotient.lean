@@ -346,6 +346,22 @@ theorem productMapQuotient_centered_square_bound
     (productMap_centered_square_bound n hw0 hw1 K hK ids hnodup hids
       p.property hcenter)
 
+theorem productMapQuotient_centered_strict_bound
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (p : (finiteHaarGNSData n).V)
+    (hcenter : quaternionHaar n p.val ≈ 0) :
+    finiteHaarPair n
+        (productMapRep n w K ids hids p).val
+        (productMapRep n w K ids hids p).val ≤
+      squaredHeatRate w * finiteHaarPair n p.val p.val ∧
+      squaredHeatRate w < (1 : Q') := by
+  exact ⟨productMapQuotient_centered_square_bound n hw0 hw1 K hK ids
+      hnodup hids p hcenter, squaredHeatRate_lt_one hw0 hw1⟩
+
 end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapRep
@@ -357,6 +373,7 @@ end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_unit
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMap_mean_preserved
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMap_centered_preserved
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_centered_strict_bound
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qInner_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qNormSq_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_centered_square_bound

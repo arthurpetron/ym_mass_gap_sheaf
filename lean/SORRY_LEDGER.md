@@ -84,6 +84,10 @@ mean and therefore leaves the representative-level vacuum complement
 invariant.  This remains a finite statement; no completed complement or
 uniform gap is claimed.
 
+`productMapQuotient_centered_strict_bound` packages the centered estimate with
+the explicit `squaredHeatRate w < 1` witness.  Its rate is nome-dependent and
+finite; it is not a uniform beta-independent completed-space gap.
+
 ## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`.

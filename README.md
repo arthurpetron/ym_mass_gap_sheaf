@@ -38,6 +38,9 @@ finite vacuum-seed result and not a continuum isolated-vacuum theorem.
 The product-map pairing bridge also proves ordinary-Haar mean preservation and
 invariance of the representative-level centered sector; the completed
 vacuum-complement gap remains open.
+The strict representative estimate is packaged with the explicit
+nome-dependent witness `squaredHeatRate w < 1`; beta-uniformity and completion
+are still open.
 
 > **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.

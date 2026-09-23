@@ -99,6 +99,11 @@ Thus the finite representative transfer leaves its Haar-centered sector
 invariant, while the quotient/completion realization of the vacuum complement
 and any uniform strict gap remain open.
 
+`productMapQuotient_centered_strict_bound` now packages the representative
+bound with `squaredHeatRate w < 1`.  The strict rate is explicit but depends on
+the nome, so this is not yet the uniform physical OS form bound required by
+the Clay route.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**
