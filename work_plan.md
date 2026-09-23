@@ -25,7 +25,46 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Scope correction: a restricted same-sector quantitative gap already exists (2026-09-23 UTC)
+### All-subunit strict gap on the SAME completed sector (2026-09-23 UTC)
+
+`BF4PhysicalCubeSubunitCompletedGap.subunitCompletedSectorFormGap` and
+`subunitCompletedSectorContraction` now construct the actual completed-sector
+form gap and norm contraction for EVERY rational `0 < w < 1`, at `half = 0`.
+The finite estimate holds on every centered coefficient and every
+`K >= subunitHeadStart w`. Its explicit rate is
+`subunitCutoffUniformRate w = (1+6*C(w))/(2+6*C(w))`, strictly between zero
+and one. It is independent of K and the vector, not independent of w.
+`subunitCompletedSector_power_decay` and
+`concreteSameObjectAutocorrelation_sq_decay_subunit` consume the constructed
+gap on the literal completed carrier, transfer and existing concrete observable.
+No gap, head estimate or trace bound remains as an input to these theorems.
+
+The proof joins the checked adaptive quarter-tail with the constructed
+persistent rooted-head floor at the SAME finite base. `BF4PhysicalCubeTailAbsorption`
+now exposes its generic raw-trace absorption argument while preserving all old
+public theorem statements. `BF4PhysicalCubeSubunitCoercivity` supplies the full
+centered energy inequality; the existing cofinal completion machinery supplies
+the final completed bounds. This closes the selected all-subunit extension.
+
+NEXT: assess the original-action/geometric-time comparison and the actual
+spatial/scaling family, retaining their shared observables and norms. A theorem
+for each fixed w and this single geometry is not a uniform scaling estimate.
+The literal identity-on-observables exact-Haar bridge is refuted; a different
+transport/comparison is not supplied by this gap. Do not add further BF4 rate
+wrappers without an identified physical/spatial consumer. Nontrivial continuum
+survival, finite physical mass, full QFT and every compact simple group remain
+open; the Clay target is unchanged and OPEN.
+
+Verification: monitored 20 GiB leaf checks,
+`/tmp/ym-gap-generic-raw-tail-absorption-check-2.log`,
+`/tmp/ym-gap-subunit-coercivity-check-1.log`, and
+`/tmp/ym-gap-subunit-completed-gap-check-2.log`; forty-one printed gates are
+within `{propext, Quot.sound}`, no warnings or `sorryAx`. The old restricted
+completed-gap leaf also passed six gates in
+`/tmp/ym-gap-restricted-gap-regression-after-tail-generalization.log`.
+No full-root build or audit was run.
+
+### Earlier scope correction: restricted same-sector gap recovered (2026-09-23 UTC)
 
 The current quantitative frontier must not be described as wholly open.
 `BF4PhysicalCubeCompletedMarginalGap.completedSectorFormGap` and
@@ -43,8 +82,9 @@ estimate (`BF4PhysicalCubeTailAbsorption`, `BF4PhysicalCubeAnchoredHeadBound`).
 Do not rebuild that estimate or infer that the qualitative result below supplies it.
 The latter has the broader scope `0 < w < 1`, arbitrary `half`.
 
-Still open: quantitative control outside the proved range, spatial/scaling
-uniformity, and the original-action/geometric-time identification. In particular,
+The all-subunit extension is now checked above. Still open: larger-geometry
+quantitative control, spatial/scaling uniformity, and the original-action/
+geometric-time identification. In particular,
 `BF4PhysicalCubeExactActionFence.root_pairing_ne_exact_one` refutes the literal
 identity-on-observables bridge to the signed exact-Haar form at the anchor coupling;
 a valid different transport or controlled comparison would need proof. Physical
@@ -53,9 +93,8 @@ all subunit nomes is a useful analytic direction, not an additional prerequisite
 if a justified scaling trajectory suffices.
 
 The relative heat-tail, SAME full boundary-sum, adaptive radial tail and literal
-high-label trace extensions are now checked below. The next proposition is
-raw-tail absorption at the computed fixed head, then the already available
-persistent rooted-head energy bound. A small trace alone is not a full gap.
+high-label trace extensions are checked below; their raw absorption/rooted-head
+composition and the all-subunit completed gap are now checked above.
 
 Verification: fresh monitored 20 GiB leaf check of
 `BF4PhysicalCubeCompletedMarginalGap.lean`,
@@ -77,9 +116,8 @@ trace at this computed base, uniformly over every later admitting cutoff.
 `centered_newTail_le_subunit` then controls every new-tail vector by epsilon
 times its own stationary norm. Both w and epsilon are explicit cutoff inputs.
 
-Remaining quantitative step: raw Gram absorption plus the rooted-head bound at
-this adaptive finite base; existing completion consumers can then be reused.
-No broader completed gap is yet claimed. Original-YM/time, spatial/scaling,
+The raw Gram absorption/rooted-head composition and all-subunit completed gap
+are now checked above. Original-YM/time, spatial/scaling,
 physical mass, continuum/QFT and every-group obligations remain open.
 
 Verification: monitored 20 GiB leaf checks,
@@ -105,8 +143,8 @@ The shared partition is cancelled exactly; no replacement dynamics is used.
 
 This extends the quantitative Gaussian input beyond `w <= 1/2`, not the
 completed gap itself. The prefactor may deteriorate as w approaches one.
-The radius-shell sum and literal trace are now checked above; the remaining
-consumer is head/tail coercivity at the adaptive fixed base.
+The radius-shell sum, literal trace, head/tail coercivity and completed gap
+at this geometry are now checked above.
 Original-YM/geometric-time identification, spatial/scaling control, physical
 mass, continuum/QFT and every-group obligations remain open. No frontier field,
 `sorry` or axiom changed.
@@ -133,7 +171,7 @@ strict uniform form rate, or isolation of the physical vacuum. Spectrum may
 approach one without a nonzero fixed vector. All same-Yang--Mills, spatial/
 spacing, physical-mass, continuum/QFT and every-group joins remain open.
 
-Outside the restricted quantitative result recorded above, a common coercive
+Outside the half-zero quantitative result recorded above, a common coercive
 estimate or another justified quantitative route is still needed; it must not
 be inferred from uniqueness. The
 existing `centralPhysicalVacuumSectorAdaptiveRecodingTailRate` in

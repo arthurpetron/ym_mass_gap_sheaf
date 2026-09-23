@@ -8,20 +8,22 @@ positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
 The BF4 SU(2) candidate has a checked cutoff-removed completed sector, transfer,
-and same-object correlators. At half-extent zero and `0 < w <= 1/2`,
-[`completedSectorContraction`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedMarginalGap.lean)
-gives a genuine strict norm contraction, uniform over vectors and representation
-cutoff with an explicit nome-dependent rate. The broader recent
+and same-object correlators. At half-extent zero and every rational `0 < w < 1`,
+[`subunitCompletedSectorContraction`](lean/YMGap/Continuum/BF4PhysicalCubeSubunitCompletedGap.lean)
+gives a genuine strict norm contraction, with an explicit nome-dependent rate
+uniform over vectors and finite cutoffs beyond a computed onset. The same module proves power decay
+and decay of the concrete same-object autocorrelation. The recent
 [`fixed_eq_zero_of_global_vacuum_orthogonal`](lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFixedVacuumExclusion.lean)
 excludes nonzero fixed vectors at every `0 < w < 1` and fixed half-extent;
 that qualitative theorem alone does not give a strict gap.
 
-The next analytic extension now bounds the original full cube boundary sum and
+The analytic producer bounds the original full cube boundary sum and
 conditional self-return for every `0 < w < 1`, with an explicit
 [nome-dependent Gaussian envelope](lean/YMGap/Continuum/BF4PhysicalCubeSubunitBoundarySumBound.lean).
 Its [adaptive tail cutoff](lean/YMGap/Continuum/BF4PhysicalCubeSubunitHighLabelTrace.lean)
-now bounds the literal high-label trace and every centered new-tail vector
-in its own stationary norm. Extending the completed gap remains a separate step.
+bounds the literal high-label trace. Raw-tail absorption and the persistent
+rooted-head energy bound then give the completed gap above; no gap hypothesis
+is supplied. This extends the earlier `w <= 1/2` theorem, not spatial uniformity.
 
 These are conditional-dynamics results, not an identified Yang--Mills
 Hamiltonian gap. Original-action/geometric-time identification, spatial and

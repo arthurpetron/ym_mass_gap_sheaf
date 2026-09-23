@@ -108,23 +108,24 @@ private theorem raw_combination_eq_centered (w : Q') (hw : (0 : Q') ≤ w)
       rw [raw_combination_eq_centered w hw K f rest]
       rfl
 
-/-- Full UNCENTERED physical new-tail estimate, in the original stationary
-norm and uniformly over every later admitting cutoff. -/
-theorem matrix_newTail_le {w : Q'} (hw0 : (0 : Q') < w)
-    (hw : w ≤ HalfPow.half) (epsilon : Q') (he : (0 : Q') < epsilon)
-    (later : Nat) (hlater : newTailBase epsilon ≤ later) (f : Nat → Q') :
+/-- A raw self-return trace bound controls the full UNCENTERED physical
+new-tail form. This is the generic algebraic seam used by both the fixed-nome
+and coupling-adaptive trace estimates. -/
+theorem matrix_newTail_le_of_selfReturnTrace {w : Q'} (hw0 : (0 : Q') < w)
+    (base later : Nat) (_hbase : base ≤ later) (epsilon : Q')
+    (htrace : centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace
+      w (Q'.le_of_lt hw0) base later 0 ≤ epsilon) (f : Nat → Q') :
     let tail := centralPhysicalFiniteVacuumSectorNewTailCoefficient
-      w (Q'.le_of_lt hw0) (newTailBase epsilon) later 0 f
+      w (Q'.le_of_lt hw0) base later 0 f
     centralPhysicalFiniteVacuumSectorMatrixQuadratic w (Q'.le_of_lt hw0) later 0 tail ≤
       epsilon * centralPhysicalFiniteVacuumSectorDiagonalQuadratic
         w (Q'.le_of_lt hw0) later 0 tail := by
   let hw' := Q'.le_of_lt hw0
-  let base := newTailBase epsilon
   let D := rawGram w hw' later
   let indices := centralPhysicalFiniteVacuumSectorNewBlockIndices w hw' base later 0
   let tail := centralPhysicalFiniteVacuumSectorNewTailCoefficient w hw' base later 0 f
   let assembled := finiteLinearCombination D centralPhysicalFiniteVacuumSectorCoordinate f indices
-  have htrace := finiteLinearCombination_self_le_traceBudget D
+  have hgram := finiteLinearCombination_self_le_traceBudget D
     centralPhysicalFiniteVacuumSectorCoordinate (centralPhysicalFiniteWeight w hw' later 0)
     (centralPhysicalFiniteVacuumSectorSelfReturnProbability w hw' later 0) f indices
     (fun i hi => Q'.le_of_lt (centralPhysicalFiniteWeight_pos_of_vacuumSectorIndex
@@ -150,12 +151,25 @@ theorem matrix_newTail_le {w : Q'} (hw0 : (0 : Q') < w)
   have hbudget := centralPhysicalFiniteVacuumSectorDiagonalQuadratic_newTail_eqv_budget
     w hw' base later 0 f
   have hgrow := Q'.mul_le_mul_of_nonneg_right _ _ _
-    (newTailSelfReturnTrace_small hw0 hw epsilon he later hlater)
+    htrace
     (centralPhysicalFiniteVacuumSectorNewTailDiagonalBudget_nonnegative w hw' base later 0 f)
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (matrix_eq_rawGram w hw' later tail))
     (Q'.le_trans' _ _ _ (Q'.ge_of_eqv hform)
-      (Q'.le_trans' _ _ _ htrace (Q'.le_trans' _ _ _ hgrow
+      (Q'.le_trans' _ _ _ hgram (Q'.le_trans' _ _ _ hgrow
         (Q'.le_of_eqv (Q'.mul_eqv_congr_left epsilon _ _ (Q'.eqv_symm hbudget))))))
+
+/-- Full UNCENTERED physical new-tail estimate, in the original stationary
+norm and uniformly over every later admitting cutoff. -/
+theorem matrix_newTail_le {w : Q'} (hw0 : (0 : Q') < w)
+    (hw : w ≤ HalfPow.half) (epsilon : Q') (he : (0 : Q') < epsilon)
+    (later : Nat) (hlater : newTailBase epsilon ≤ later) (f : Nat → Q') :
+    let tail := centralPhysicalFiniteVacuumSectorNewTailCoefficient
+      w (Q'.le_of_lt hw0) (newTailBase epsilon) later 0 f
+    centralPhysicalFiniteVacuumSectorMatrixQuadratic w (Q'.le_of_lt hw0) later 0 tail ≤
+      epsilon * centralPhysicalFiniteVacuumSectorDiagonalQuadratic
+        w (Q'.le_of_lt hw0) later 0 tail :=
+  matrix_newTail_le_of_selfReturnTrace hw0 (newTailBase epsilon) later hlater epsilon
+    (newTailSelfReturnTrace_small hw0 hw epsilon he later hlater) f
 
 /-! ## Fixed-head absorption, without a head spectral-gap hypothesis -/
 
@@ -213,6 +227,37 @@ private theorem absorption_algebra (N P X Y E : Q')
       (Q'.le_trans' _ _ _ hneg (Q'.le_trans' _ _ _ (Q'.le_of_eqv hright)
         (Q'.ge_of_eqv (Q'.add_eqv_congr_right _ _ (3 * X) henergy)))))
 
+/-- Raw positivity bounds the full form using only head contractivity and an
+actual quarter bound for the self-return trace at the chosen base. -/
+theorem matrix_le_two_head_quarter_tail_of_selfReturnTrace {w : Q'}
+    (hw0 : (0 : Q') < w) (base later : Nat) (hbase : base ≤ later)
+    (htrace : centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace
+      w (Q'.le_of_lt hw0) base later 0 ≤ absorptionTailRate) (f : Nat → Q') :
+    centralPhysicalFiniteVacuumSectorMatrixQuadratic w (Q'.le_of_lt hw0) later 0 f ≤
+      2 * (centralPhysicalFiniteVacuumSectorDiagonalQuadratic w (Q'.le_of_lt hw0) later 0
+          (centralPhysicalFiniteVacuumSectorEmbeddedHeadCoefficient w (Q'.le_of_lt hw0) base later 0 f) +
+        absorptionTailRate * centralPhysicalFiniteVacuumSectorDiagonalQuadratic w (Q'.le_of_lt hw0) later 0
+          (centralPhysicalFiniteVacuumSectorNewTailCoefficient w (Q'.le_of_lt hw0) base later 0 f)) := by
+  let hw' := Q'.le_of_lt hw0
+  let head := centralPhysicalFiniteVacuumSectorEmbeddedHeadCoefficient w hw' base later 0 f
+  let tail := centralPhysicalFiniteVacuumSectorNewTailCoefficient w hw' base later 0 f
+  let X := centralPhysicalFiniteVacuumSectorDiagonalQuadratic w hw' later 0 head
+  let Y := centralPhysicalFiniteVacuumSectorDiagonalQuadratic w hw' later 0 tail
+  have hhead : centralPhysicalFiniteVacuumSectorMatrixQuadratic w hw' later 0 head ≤ 1 * X :=
+    Q'.le_trans' _ _ _ (centralPhysicalFiniteVacuumSectorMatrix_le_diagonal w hw' later 0 head)
+      (Q'.ge_of_eqv (Q'.one_mul_eqv X))
+  have htail : centralPhysicalFiniteVacuumSectorMatrixQuadratic w hw' later 0 tail ≤
+      1 * (absorptionTailRate * Y) :=
+    Q'.le_trans' _ _ _
+      (matrix_newTail_le_of_selfReturnTrace hw0 base later hbase absorptionTailRate htrace f)
+      (Q'.ge_of_eqv (Q'.one_mul_eqv _))
+  have hglue := centralPhysicalFiniteVacuumSectorMatrix_head_tail_bilinear_le
+    hw0 later 0 head tail 1 1 X (absorptionTailRate * Y) (by decide) (by decide) hhead htail
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (centralPhysicalFiniteVacuumSectorMatrixQuadratic_eqv_head_cross_tail hw0 base later 0 f))
+    (Q'.le_trans' _ _ _ hglue
+      (Q'.le_of_eqv (Q'.mul_eqv_congr_right _ _ (X + absorptionTailRate * Y) (by decide))))
+
 /-- Raw positivity bounds the full form using only head CONTRACTIVITY and
 the proved quarter-tail bound. No strict head rate is assumed. -/
 theorem matrix_le_two_head_quarter_tail {w : Q'} (hw0 : (0 : Q') < w)
@@ -221,25 +266,42 @@ theorem matrix_le_two_head_quarter_tail {w : Q'} (hw0 : (0 : Q') < w)
       2 * (centralPhysicalFiniteVacuumSectorDiagonalQuadratic w (Q'.le_of_lt hw0) later 0
           (centralPhysicalFiniteVacuumSectorEmbeddedHeadCoefficient w (Q'.le_of_lt hw0) 1404 later 0 f) +
         absorptionTailRate * centralPhysicalFiniteVacuumSectorDiagonalQuadratic w (Q'.le_of_lt hw0) later 0
-          (centralPhysicalFiniteVacuumSectorNewTailCoefficient w (Q'.le_of_lt hw0) 1404 later 0 f)) := by
+          (centralPhysicalFiniteVacuumSectorNewTailCoefficient w (Q'.le_of_lt hw0) 1404 later 0 f)) :=
+  matrix_le_two_head_quarter_tail_of_selfReturnTrace hw0 1404 later hlater
+    (by
+      rw [← absorption_base_eq]
+      exact newTailSelfReturnTrace_small hw0 hw absorptionTailRate absorptionTailRate_pos later
+        (by simpa [absorption_base_eq] using hlater)) f
+
+/-- Defective Poincare estimate at any base whose raw new-tail self-return
+trace is at most one quarter. -/
+theorem norm_le_energy_add_head_of_selfReturnTrace {w : Q'} (hw0 : (0 : Q') < w)
+    (base later : Nat) (hbase : base ≤ later)
+    (htrace : centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace
+      w (Q'.le_of_lt hw0) base later 0 ≤ absorptionTailRate) (f : Nat → Q') :
+    centralPhysicalFiniteVacuumSectorDiagonalQuadratic w (Q'.le_of_lt hw0) later 0 f ≤
+      finiteJointDirichletEnergy (centralPhysicalFiniteVacuumSectorIndices w (Q'.le_of_lt hw0) later 0)
+          f (centralPhysicalFiniteKernel w (Q'.le_of_lt hw0) later 0) +
+        3 * centralPhysicalFiniteVacuumSectorDiagonalQuadratic w (Q'.le_of_lt hw0) later 0
+          (centralPhysicalFiniteVacuumSectorEmbeddedHeadCoefficient w (Q'.le_of_lt hw0) base later 0 f) := by
   let hw' := Q'.le_of_lt hw0
-  let head := centralPhysicalFiniteVacuumSectorEmbeddedHeadCoefficient w hw' 1404 later 0 f
-  let tail := centralPhysicalFiniteVacuumSectorNewTailCoefficient w hw' 1404 later 0 f
-  let X := centralPhysicalFiniteVacuumSectorDiagonalQuadratic w hw' later 0 head
-  let Y := centralPhysicalFiniteVacuumSectorDiagonalQuadratic w hw' later 0 tail
-  have hhead : centralPhysicalFiniteVacuumSectorMatrixQuadratic w hw' later 0 head ≤ 1 * X :=
-    Q'.le_trans' _ _ _ (centralPhysicalFiniteVacuumSectorMatrix_le_diagonal w hw' later 0 head)
-      (Q'.ge_of_eqv (Q'.one_mul_eqv X))
-  have htail : centralPhysicalFiniteVacuumSectorMatrixQuadratic w hw' later 0 tail ≤
-      1 * (absorptionTailRate * Y) :=
-    Q'.le_trans' _ _ _ (matrix_newTail_le hw0 hw absorptionTailRate absorptionTailRate_pos later hlater f)
-      (Q'.ge_of_eqv (Q'.one_mul_eqv _))
-  have hglue := centralPhysicalFiniteVacuumSectorMatrix_head_tail_bilinear_le
-    hw0 later 0 head tail 1 1 X (absorptionTailRate * Y) (by decide) (by decide) hhead htail
-  exact Q'.le_trans' _ _ _
-    (Q'.le_of_eqv (centralPhysicalFiniteVacuumSectorMatrixQuadratic_eqv_head_cross_tail hw0 1404 later 0 f))
-    (Q'.le_trans' _ _ _ hglue
-      (Q'.le_of_eqv (Q'.mul_eqv_congr_right _ _ (X + absorptionTailRate * Y) (by decide))))
+  let N := centralPhysicalFiniteVacuumSectorDiagonalQuadratic w hw' later 0 f
+  let P := centralPhysicalFiniteVacuumSectorMatrixQuadratic w hw' later 0 f
+  let X := centralPhysicalFiniteVacuumSectorDiagonalQuadratic w hw' later 0
+    (centralPhysicalFiniteVacuumSectorEmbeddedHeadCoefficient w hw' base later 0 f)
+  let Y := centralPhysicalFiniteVacuumSectorDiagonalQuadratic w hw' later 0
+    (centralPhysicalFiniteVacuumSectorNewTailCoefficient w hw' base later 0 f)
+  let E := finiteJointDirichletEnergy (centralPhysicalFiniteVacuumSectorIndices w hw' later 0)
+    f (centralPhysicalFiniteKernel w hw' later 0)
+  have hsplit : N ≈ X + Y := centralPhysicalFiniteVacuumSectorDiagonal_eqv_head_add_tail w hw' base later 0 f
+  have he : E ≈ (N + N) + -(P + P) :=
+    centralPhysicalFiniteVacuumSectorDirichlet_eqv_twice_deficit w hw' later 0 f
+  have hp : 2 * P ≤ 4 * X + Y :=
+    Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left _ _ 2
+      (matrix_le_two_head_quarter_tail_of_selfReturnTrace hw0 base later hbase htrace f) (by decide))
+      (Q'.le_of_eqv (twice_quarter X Y))
+  exact absorption_algebra N P X Y E hsplit he hp
 
 /-- Unconditional defective Poincare estimate on EVERY coefficient vector.
 The head is fixed at 1404 while the outer cutoff is arbitrary. The energy
@@ -250,25 +312,10 @@ theorem norm_le_energy_add_head {w : Q'} (hw0 : (0 : Q') < w)
       finiteJointDirichletEnergy (centralPhysicalFiniteVacuumSectorIndices w (Q'.le_of_lt hw0) later 0)
           f (centralPhysicalFiniteKernel w (Q'.le_of_lt hw0) later 0) +
         3 * centralPhysicalFiniteVacuumSectorDiagonalQuadratic w (Q'.le_of_lt hw0) later 0
-          (centralPhysicalFiniteVacuumSectorEmbeddedHeadCoefficient w (Q'.le_of_lt hw0) 1404 later 0 f) := by
-  let hw' := Q'.le_of_lt hw0
-  let N := centralPhysicalFiniteVacuumSectorDiagonalQuadratic w hw' later 0 f
-  let P := centralPhysicalFiniteVacuumSectorMatrixQuadratic w hw' later 0 f
-  let X := centralPhysicalFiniteVacuumSectorDiagonalQuadratic w hw' later 0
-    (centralPhysicalFiniteVacuumSectorEmbeddedHeadCoefficient w hw' 1404 later 0 f)
-  let Y := centralPhysicalFiniteVacuumSectorDiagonalQuadratic w hw' later 0
-    (centralPhysicalFiniteVacuumSectorNewTailCoefficient w hw' 1404 later 0 f)
-  let E := finiteJointDirichletEnergy (centralPhysicalFiniteVacuumSectorIndices w hw' later 0)
-    f (centralPhysicalFiniteKernel w hw' later 0)
-  have hsplit : N ≈ X + Y := centralPhysicalFiniteVacuumSectorDiagonal_eqv_head_add_tail w hw' 1404 later 0 f
-  have he : E ≈ (N + N) + -(P + P) :=
-    centralPhysicalFiniteVacuumSectorDirichlet_eqv_twice_deficit w hw' later 0 f
-  have hp : 2 * P ≤ 4 * X + Y :=
-    Q'.le_trans' _ _ _
-      (Q'.mul_le_mul_of_nonneg_left _ _ 2
-        (matrix_le_two_head_quarter_tail hw0 hw later hlater f) (by decide))
-      (Q'.le_of_eqv (twice_quarter X Y))
-  exact absorption_algebra N P X Y E hsplit he hp
+          (centralPhysicalFiniteVacuumSectorEmbeddedHeadCoefficient w (Q'.le_of_lt hw0) 1404 later 0 f) :=
+  norm_le_energy_add_head_of_selfReturnTrace hw0 1404 later hlater
+    (newTailSelfReturnTrace_small hw0 hw absorptionTailRate absorptionTailRate_pos later
+      (by simpa [absorption_base_eq] using hlater)) f
 
 /-! ## Root anchoring: only a fixed-head energy comparison remains -/
 
@@ -337,6 +384,25 @@ theorem energy_rootShift_eqv (w : Q') (hw : (0 : Q') ≤ w) (K : Nat) (f : Nat �
   exact Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ h)
     (Q'.mul_eqv_congr_left _ _ _ h)
 
+/-- At any base with quarter-small raw trace, the full centered norm is
+controlled by the original energy plus the corresponding anchored head. -/
+theorem centered_norm_le_energy_add_anchored_head_of_selfReturnTrace {w : Q'}
+    (hw0 : (0 : Q') < w) (base later : Nat) (hbase : base ≤ later)
+    (htrace : centralPhysicalFiniteVacuumSectorExactNewTailSelfReturnTrace
+      w (Q'.le_of_lt hw0) base later 0 ≤ absorptionTailRate) (f : Nat → Q')
+    (hcenter : centralPhysicalFiniteVacuumSectorWeightedMean w (Q'.le_of_lt hw0) later 0 f ≈ 0) :
+    centralPhysicalFiniteVacuumSectorDiagonalQuadratic w (Q'.le_of_lt hw0) later 0 f ≤
+      finiteJointDirichletEnergy (centralPhysicalFiniteVacuumSectorIndices w (Q'.le_of_lt hw0) later 0)
+          f (centralPhysicalFiniteKernel w (Q'.le_of_lt hw0) later 0) +
+        3 * centralPhysicalFiniteVacuumSectorDiagonalQuadratic w (Q'.le_of_lt hw0) later 0
+          (centralPhysicalFiniteVacuumSectorEmbeddedHeadCoefficient
+            w (Q'.le_of_lt hw0) base later 0 (rootShift f)) :=
+  Q'.le_trans' _ _ _ (centered_norm_le_rootShift_norm w (Q'.le_of_lt hw0) later f hcenter)
+    (Q'.le_trans' _ _ _
+      (norm_le_energy_add_head_of_selfReturnTrace hw0 base later hbase htrace (rootShift f))
+      (Q'.le_of_eqv (Q'.add_eqv_congr_right _ _ _
+        (energy_rootShift_eqv w (Q'.le_of_lt hw0) later f))))
+
 /-- The full centered norm is controlled by the same original energy plus
 the norm on the FIXED head of the ROOT-ZERO coefficient. A finite-head
 rooted path estimate now suffices; no strict head spectral rate is needed. -/
@@ -349,22 +415,25 @@ theorem centered_norm_le_energy_add_anchored_head {w : Q'} (hw0 : (0 : Q') < w)
         3 * centralPhysicalFiniteVacuumSectorDiagonalQuadratic w (Q'.le_of_lt hw0) later 0
           (centralPhysicalFiniteVacuumSectorEmbeddedHeadCoefficient
             w (Q'.le_of_lt hw0) 1404 later 0 (rootShift f)) :=
-  Q'.le_trans' _ _ _ (centered_norm_le_rootShift_norm w (Q'.le_of_lt hw0) later f hcenter)
-    (Q'.le_trans' _ _ _ (norm_le_energy_add_head hw0 hw later hlater (rootShift f))
-      (Q'.le_of_eqv (Q'.add_eqv_congr_right _ _ _
-        (energy_rootShift_eqv w (Q'.le_of_lt hw0) later f))))
+  centered_norm_le_energy_add_anchored_head_of_selfReturnTrace hw0 1404 later hlater
+    (newTailSelfReturnTrace_small hw0 hw absorptionTailRate absorptionTailRate_pos later
+      (by simpa [absorption_base_eq] using hlater)) f hcenter
 
 end YMGap.Continuum.BF4PhysicalCubeTailAbsorption
 
 #print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.newTailSelfReturnTrace_small
+#print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.matrix_newTail_le_of_selfReturnTrace
 #print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.matrix_newTail_le
 #print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.absorptionTailRate
 #print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.absorptionTailRate_pos
 #print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.absorption_base_eq
+#print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.matrix_le_two_head_quarter_tail_of_selfReturnTrace
 #print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.matrix_le_two_head_quarter_tail
+#print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.norm_le_energy_add_head_of_selfReturnTrace
 #print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.norm_le_energy_add_head
 #print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.rootShift
 #print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.rootShift_at_root
 #print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.centered_norm_le_rootShift_norm
 #print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.energy_rootShift_eqv
+#print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.centered_norm_le_energy_add_anchored_head_of_selfReturnTrace
 #print axioms YMGap.Continuum.BF4PhysicalCubeTailAbsorption.centered_norm_le_energy_add_anchored_head

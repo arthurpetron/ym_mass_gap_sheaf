@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## Proved all-subunit SAME completed-sector gap (2026-09-23)
+
+- **files**: generalized `YMGap/Continuum/BF4PhysicalCubeTailAbsorption.lean`,
+  new `BF4PhysicalCubeSubunitCoercivity.lean` and
+  `BF4PhysicalCubeSubunitCompletedGap.lean` in the same directory.
+- **producer**: `centered_norm_le_subunitCoercivity_mul_energy` combines the
+  actual adaptive raw quarter-tail and constructed rooted-head edge floor.
+  No analytic premise is assumed; all old small-nome statements are preserved.
+- **closure**: `subunitCompletedSectorFormGap`,
+  `subunitCompletedSectorContraction`, `subunitCompletedSector_power_decay`,
+  and `concreteSameObjectAutocorrelation_sq_decay_subunit` on the existing
+  carrier, transfer, vacuum complement and concrete observable.
+- **scope**: SU(2), `half = 0`, every rational `0 < w < 1`. The explicit
+  rate `(1+6*C(w))/(2+6*C(w)) < 1` is uniform over vectors and representation
+  cutoff, not over w, spatial extent or spacing. This closes the selected
+  all-subunit extension, not a canonical continuum/Clay atom.
+- **residue**: original-YM/geometric-time identification (the literal
+  exact-Haar identity remains refuted), larger-geometry/spatial/scaling control,
+  continuum survival, finite positive physical mass, full QFT and every group.
+  No new `sorry`, axiom, or weakened frontier field.
+- **verification**: monitored 20 GiB leaves, logs
+  `/tmp/ym-gap-generic-raw-tail-absorption-check-2.log`,
+  `/tmp/ym-gap-subunit-coercivity-check-1.log`,
+  `/tmp/ym-gap-subunit-completed-gap-check-2.log`: forty-one gates within
+  `{propext, Quot.sound}`, no warnings or `sorryAx`. Six old restricted-gap
+  regression gates also passed; no full-root build/audit.
+
 ## Proved all-subunit radial tail and physical new-tail norm bound (2026-09-23)
 
 - **files**: `YMGap/Continuum/BF4PhysicalCubeSubunitRadialTail.lean`,
@@ -11,8 +38,8 @@
   use the existing sector, raw trace, centered Gram and stationary norm.
   For each `0 < w < 1`, epsilon > 0, the fixed-base bound holds at every
   later admitting cutoff. Neither the cutoff nor the gap is claimed uniform in w.
-- **residue**: raw-tail absorption and rooted-head coercivity at this adaptive
-  base before the broader completed gap. Same-YM/time, spatial/scaling,
+- **subsequent closure**: raw-tail absorption, rooted-head coercivity and the
+  all-subunit completed gap at this geometry are proved above. Same-YM/time, spatial/scaling,
   physical mass, continuum/QFT and all groups remain open. No hole/axiom added.
 - **verification**: `/tmp/ym-gap-subunit-radial-check-2.log` and
   `/tmp/ym-gap-subunit-high-label-check-2.log`, monitored 20 GiB leaf checks;
@@ -28,10 +55,10 @@
 - **actual consumer**: `vacuumSector_selfReturn_le_subunit_gaussian` bounds
   the literal conditional kernel diagonal, using its original joint kernel
   and marginal. Its bound is cutoff-independent but explicitly nome-dependent.
-- **residue**: the adaptive radial tail and high-label trace are now proved
-  above; head/tail coercivity beyond the existing restricted gap remains. No broader completed
-  gap, original-YM time bridge, spatial/scaling, continuum/QFT, physical-mass or
-  every-group closure is asserted. No new hypothesis, hole, or axiom.
+- **subsequent closure**: the adaptive radial tail, high-label trace, head/tail
+  coercivity and all-subunit completed gap at this geometry are proved above.
+  Original-YM time, spatial/scaling, continuum/QFT, physical-mass and every-group
+  obligations remain open. No new hypothesis, hole, or axiom.
 - **verification**: monitored 20 GiB leaf checks in
   `/tmp/ym-gap-subunit-relative-heat-tail-check-3.log` and
   `/tmp/ym-gap-subunit-boundary-check-2.log`; fourteen gates within
@@ -47,7 +74,8 @@
 - **correction**: the recent blanket description of quantitative strictness as
   open overlooked these existing inhabitants. Qualitative exclusion below is
   broader in `w, half`; it remains distinct from the quantitative theorem.
-- **residue**: broader quantitative/spatial/scaling estimates and original-action/
+- **residue**: the all-subunit quantitative extension is now proved above;
+  larger-geometry/spatial/scaling estimates and original-action/
   geometric-time pins; the literal exact-Haar identity is refuted by
   `BF4PhysicalCubeExactActionFence.root_pairing_ne_exact_one`. Continuum/QFT,
   physical mass and every-group obligations remain open. No hole or type changed.

@@ -4,7 +4,30 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-subunit adaptive physical tail control (2026-09-23)
+## Current increment: all-subunit SAME completed-sector strict gap (2026-09-23)
+
+The adaptive raw quarter-tail and persistent rooted-head floor now give a
+coefficient/cutoff-independent energy bound at each rational `0 < w < 1`,
+`half = 0`. `BF4PhysicalCubeSubunitCompletedGap` constructs the explicit
+strict rate, actual cofinal finite gap, SAME completed form gap/contraction,
+power decay and concrete same-object autocorrelation decay. No quantitative
+certificate is left as an assumption. This extends the earlier `w <= 1/2`
+theorem, while preserving its public API and regression check.
+
+Boundary: the rate and onset depend on w. The spatial/scaling family and
+original-YM/geometric-time comparison are separate open consumers; the
+literal exact-Haar identity is refuted. No continuum survival, physical mass,
+full QFT, every-group or Clay closure is inferred. Next work must address
+these joins rather than add more wrappers around this completed rate.
+
+Verification: monitored raw-absorption, coercivity and completed-gap leaf logs
+`/tmp/ym-gap-generic-raw-tail-absorption-check-2.log`,
+`/tmp/ym-gap-subunit-coercivity-check-1.log`,
+`/tmp/ym-gap-subunit-completed-gap-check-2.log`; forty-one permitted gates,
+no warnings or `sorryAx`. Six restricted-gap regression gates passed;
+no full-root build/audit.
+
+## Previous increment: all-subunit adaptive physical tail control (2026-09-23)
 
 The degree-twelve Gaussian shell sum now has a computed nome-dependent onset,
 actual seed budget and epsilon cutoff. `highLabelTrace_small_subunit` bounds
@@ -13,9 +36,8 @@ injection gives `newTailSelfReturnTrace_small_subunit`, and the existing
 centered Gram consumer gives `centered_newTail_le_subunit` for every tail vector
 in its own stationary norm. All hold for each rational `0 < w < 1`.
 
-Next: raw-tail absorption at this adaptive fixed head, then persistent rooted
-head coercivity and the existing completion consumers. The completed gap has
-not yet been extended; same-theory/physical/continuum/group obligations remain.
+The subsequent raw-tail/rooted-head composition and all-subunit completed gap
+are checked above; same-theory/physical/continuum/group obligations remain.
 
 Verification: radial and high-label leaves, logs
 `/tmp/ym-gap-subunit-radial-check-2.log` and
