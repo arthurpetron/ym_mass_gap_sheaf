@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## Proved obstruction: completed cutoff-two full carriers (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCompletedFullCarrierObstruction.lean`.
+- **theorems**: `no_cutoffTwo_completed_fullCarrier_vacuum_form_gap` and
+  `no_cutoffTwo_completed_joint_fullCarrier_vacuum_form_gap` rule out every
+  strict form-gap rate at `w = 1/2`, `K = 2`, `half = 0`, first by restriction
+  to the known finite counterexample and then by reverse gap comparison.
+- **scope**: full central and reflected-joint completions only. No restricted
+  vacuum-sector no-go, other-parameter claim, or continuum counterexample.
+  No frontier field is weakened or removed.
+- **verification**: monitored 20 GiB leaf check; both printed gates contain
+  only `{propext, Quot.sound}`, without warnings or `sorryAx`. No new hole or
+  full-root audit. The preceding interrupted dependency replay is not a pass.
+
 ## Proved comparison: central/joint completed gap equivalence (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalJointFormGapEquivalence.lean`.

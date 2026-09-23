@@ -25,6 +25,24 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Checked full-carrier obstruction survives both completions (2026-09-23 UTC)
+
+`BF4PhysicalCompletedFullCarrierObstruction.no_cutoffTwo_completed_fullCarrier_vacuum_form_gap`
+now rules out every central completed strict form rate at `w = 1/2`, `K = 2`,
+`half = 0`. Restricting a hypothetical completed estimate to literal embedded
+observables gives the previously refuted finite estimate. The same-rate reverse
+comparison then proves
+`no_cutoffTwo_completed_joint_fullCarrier_vacuum_form_gap` on the reflected-joint
+completion. Thus neither completion removes the finite non-vacuum fixed mode.
+
+This is not a vacuum-sector no-go, an assertion at other parameters, or a
+Yang--Mills continuum counterexample. Positive sector work and its original-
+theory identification remain separate. Verification: monitored 20 GiB leaf
+check, `/tmp/ym-gap-completed-obstruction-check-4.log`, both gates within
+`{propext, Quot.sound}`, no warnings or `sorryAx`. Missing dependency artifacts
+were repaired by monitored leaf checks; the broader dependency replay was
+interrupted and is not reported as a passed build or full audit.
+
 ### Same-rate equivalence of the two completed gap obligations (2026-09-23 UTC)
 
 `BF4PhysicalJointFormGapEquivalence.completedVacuumFormGap_iff` identifies
@@ -41,8 +59,8 @@ This closes an analytic comparison question; it constructs neither gap. In
 particular, changing from the central to the joint completion is not an escape
 from a full-carrier fixed-mode obstruction. The existing finite obstruction
 still requires its explicit finite test point; it is not a continuum no-go.
-The separate new completed cutoff-two corollary remains pending its dependency
-check and is not part of this verified milestone.
+The completed cutoff-two corollary is now checked in the following separate
+obstruction milestone above.
 
 Verification: monitored leaf check with a 20 GiB worker ceiling;
 `/tmp/ym-gap-joint-equivalence-check-3.log` reports both public gates within

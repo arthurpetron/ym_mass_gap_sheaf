@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: completed central/joint gap equivalence (2026-09-23)
+## Current increment: completed full-carrier obstruction (2026-09-23)
+
+`BF4PhysicalCompletedFullCarrierObstruction` proves
+`no_cutoffTwo_completed_fullCarrier_vacuum_form_gap` and
+`no_cutoffTwo_completed_joint_fullCarrier_vacuum_form_gap`. A central completed
+bound restricts to the finite embedded observables; the known centered
+fixed-mode contradiction then applies. The new reverse comparison transports
+that contradiction to the reflected-joint completion at the same rate.
+
+Scope: only `w = 1/2`, `K = 2`, `half = 0`, on the unrestricted full carrier.
+No conclusion about restricted vacuum sectors, other parameters, or continuum
+Yang--Mills follows. This prunes a false completion escape, not a Clay target.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-completed-obstruction-check-4.log`; both gates contain only
+`{propext, Quot.sound}`, without warnings or `sorryAx`. Two missing/interrupted
+dependency artifacts were repaired using monitored leaf checks. The larger
+dependency replay was interrupted; no full build or audit is claimed.
+
+## Previous increment: completed central/joint gap equivalence (2026-09-23)
 
 `BF4PhysicalJointFormGapEquivalence.centralCompletedVacuumFormGap_of_joint_form_gap`
 proves the previously missing reverse implication. The comparison-image
@@ -22,8 +41,8 @@ open; qualitative fixed-vector uniqueness is not a uniform spectral gap.
 Verification: monitored 20 GiB leaf check,
 `/tmp/ym-gap-joint-equivalence-check-3.log`; both public gates use only
 `{propext, Quot.sound}` and there are no warnings or `sorryAx`. The separate
-completed cutoff-two obstruction is awaiting missing dependency artifacts;
-no fresh full-root build or audit is claimed.
+completed cutoff-two obstruction was checked in the subsequent milestone
+above; no fresh full-root build or audit is claimed.
 
 ## Previous increment: constructed joint centered density (2026-09-23)
 
