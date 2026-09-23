@@ -25,6 +25,38 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Same-rate equivalence of the two completed gap obligations (2026-09-23 UTC)
+
+`BF4PhysicalJointFormGapEquivalence.completedVacuumFormGap_iff` identifies
+the central and reflected-joint completed vacuum-complement strict form-gap
+contracts at exactly the same coupling, cutoff, half-extent and rate. The new
+reverse direction uses the canonical comparison moments: a joint gap implies
+`||T x||^2 <= q * <T x,x>`. Ordinary completed Cauchy--Schwarz gives
+`<T x,x>^2 <= (q * ||x||^2) * <T x,x>`, and constructive nonnegative-factor
+cancellation recovers the central gap. No inverse, lower coercivity,
+zero-versus-positive real case split, or additional density assumption is
+used in that direction. The constructed centered density supplies the converse.
+
+This closes an analytic comparison question; it constructs neither gap. In
+particular, changing from the central to the joint completion is not an escape
+from a full-carrier fixed-mode obstruction. The existing finite obstruction
+still requires its explicit finite test point; it is not a continuum no-go.
+The separate new completed cutoff-two corollary remains pending its dependency
+check and is not part of this verified milestone.
+
+Verification: monitored leaf check with a 20 GiB worker ceiling;
+`/tmp/ym-gap-joint-equivalence-check-3.log` reports both public gates within
+`{propext, Quot.sound}`, no `sorryAx` or warnings. No full-root build/audit.
+
+Next positive sector work must not merely reconstruct another finite strict
+rate: those already exist. A bounded parallel task is the actual arbitrary-
+cylinder endpoint/Dirichlet-energy estimate using persistent base-edge floors.
+Its prospective consumer is qualitative completed fixed-vector rigidity,
+not a uniform gap: uniqueness of fixed vectors does not itself require or
+imply a uniform spectral gap. The common cofinal quantitative bound, same-theory
+identifications, physical calibration, continuum/QFT and all-group obligations
+remain open.
+
 ### Constructed centered density on the physical joint completion (2026-09-23 UTC)
 
 `BF4PhysicalJointCenteredDensity.exactPhysicalJointCenteredDensity` now

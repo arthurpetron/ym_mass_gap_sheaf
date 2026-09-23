@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: constructed joint centered density (2026-09-23)
+## Current increment: completed central/joint gap equivalence (2026-09-23)
+
+`BF4PhysicalJointFormGapEquivalence.centralCompletedVacuumFormGap_of_joint_form_gap`
+proves the previously missing reverse implication. The comparison-image
+identities turn the joint estimate into `||T x||^2 <= q * <T x,x>`; ordinary
+completed Cauchy--Schwarz and constructive nonnegative cancellation return
+`<T x,x> <= q * ||x||^2`. `completedVacuumFormGap_iff` combines this with the
+constructed-density direction. The parameters and rate are unchanged.
+
+No inverse transfer, lower-coercivity hypothesis or classical norm case split
+is used. This identifies two open analytic obligations, not an inhabitant of
+either. Full-carrier fixed modes cannot be avoided by this change of completion.
+Sector-appropriate uniform estimates and all physical/continuum joins remain
+open; qualitative fixed-vector uniqueness is not a uniform spectral gap.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-joint-equivalence-check-3.log`; both public gates use only
+`{propext, Quot.sound}` and there are no warnings or `sorryAx`. The separate
+completed cutoff-two obstruction is awaiting missing dependency artifacts;
+no fresh full-root build or audit is claimed.
+
+## Previous increment: constructed joint centered density (2026-09-23)
 
 `BF4PhysicalJointCenteredDensity.exactPhysicalJointCenteredDensity` is an
 actual inhabitant of the previously open density input, not another

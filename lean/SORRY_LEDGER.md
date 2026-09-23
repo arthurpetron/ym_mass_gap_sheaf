@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## Proved comparison: central/joint completed gap equivalence (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalJointFormGapEquivalence.lean`.
+- **theorems**: `centralCompletedVacuumFormGap_of_joint_form_gap` and
+  `completedVacuumFormGap_iff` preserve the exact coupling, cutoff, half-extent
+  and strict rate. Comparison moments, ordinary completed Cauchy--Schwarz and
+  nonnegative cancellation prove the reverse direction; constructed centered
+  density proves the forward direction.
+- **scope**: no gap witness, inverse/range hypothesis, lower coercivity or
+  zero-versus-positive real case split. This reduces duplicate analytic work;
+  strict sector bounds and physical/continuum identification are still open.
+- **verification**: narrow monitored 20 GiB check; both printed gates contain
+  only `{propext, Quot.sound}`, with no warnings or `sorryAx`. No new hole or
+  canonical field change; no full-root audit.
+
 ## Closed named input: physical joint centered density (2026-09-23)
 
 - **files**: `YMGap/Continuum/GNSUnitVacuumProjection.lean`,
