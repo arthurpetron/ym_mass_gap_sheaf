@@ -34,8 +34,11 @@ companion to the existing negative-error estimate. The declarations
 `finiteJointQuadratic_le_reference_rate_add_error` show constructively that a
 reference quadratic rate `rate` plus an explicit entrywise error `epsilon`
 produces the consumable rate `rate + epsilon`, with the coefficient `l^1`
-square carried in the type. The focused dependency-complete build passed 214
-jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+square carried in the type. The new
+`finiteJointQuadratic_lt_square_of_reference_rate_and_abs_error` additionally
+consumes `rate + epsilon < 1` and positive coefficient mass to produce a
+strict finite bound. The focused dependency-complete build passed 214 jobs
+with only `{propext, Quot.sound}` and no `sorryAx`.
 
 This is an interface compiler, not an action-comparison theorem: no small
 physical-law error has yet been constructed, and the exact-Haar comparison

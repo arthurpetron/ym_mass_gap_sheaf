@@ -368,6 +368,73 @@ theorem finiteJointQuadratic_le_reference_rate_add_error
     hreference
     hfinite'
 
+private theorem lt_of_lt_of_le_local {a b c : Q'}
+    (h1 : a < b) (h2 : b ≤ c) : a < c := by
+  have e1 : a.num * (b.den : Int) < b.num * (a.den : Int) := h1
+  have e2 : b.num * (c.den : Int) ≤ c.num * (b.den : Int) := h2
+  show a.num * (c.den : Int) < c.num * (a.den : Int)
+  have hbd : (0 : Int) < (b.den : Int) := by exact_mod_cast b.den_pos
+  have hcd : (0 : Int) < (c.den : Int) := by exact_mod_cast c.den_pos
+  have had : (0 : Int) ≤ (a.den : Int) := by exact_mod_cast Nat.zero_le _
+  have s1 : (a.num * (c.den : Int)) * (b.den : Int)
+          < (b.num * (a.den : Int)) * (c.den : Int) := by
+    have h := Int.mul_lt_mul_of_pos_right e1 hcd
+    have hr : (a.num * (b.den : Int)) * (c.den : Int) =
+        (a.num * (c.den : Int)) * (b.den : Int) := by
+      ac_rfl
+    rwa [hr] at h
+  have s2 : (b.num * (a.den : Int)) * (c.den : Int)
+          ≤ (c.num * (a.den : Int)) * (b.den : Int) := by
+    have h := Int.mul_le_mul_of_nonneg_right e2 had
+    have hl : (b.num * (c.den : Int)) * (a.den : Int) =
+        (b.num * (a.den : Int)) * (c.den : Int) := by
+      ac_rfl
+    have hr : (c.num * (b.den : Int)) * (a.den : Int) =
+        (c.num * (a.den : Int)) * (b.den : Int) := by
+      ac_rfl
+    rwa [hl, hr] at h
+  have schain : (a.num * (c.den : Int)) * (b.den : Int)
+          < (c.num * (a.den : Int)) * (b.den : Int) :=
+    Int.lt_of_lt_of_le s1 s2
+  exact Int.lt_of_mul_lt_mul_right schain (by exact_mod_cast Nat.zero_le _)
+
+private theorem mul_lt_mul_of_pos_right_local {a b c : Q'}
+    (hc : (0 : Q') < c) (hab : a < b) : a * c < b * c := by
+  have hleft : a * c < c * b :=
+    Q'.lt_of_le_of_lt
+      (Q'.le_of_eqv (Q'.mul_comm_eqv a c))
+      (Q'.mul_lt_mul_of_pos_left hc hab)
+  exact lt_of_lt_of_le_local hleft
+    (Q'.le_of_eqv (Q'.mul_comm_eqv c b))
+
+/-- If the accumulated reference rate plus explicit comparison error remains
+strictly below one, the same compiler produces a strict finite quadratic
+bound on every coefficient vector with positive `l^1` mass. -/
+theorem finiteJointQuadratic_lt_square_of_reference_rate_and_abs_error
+    {State : Type}
+    (states : List State) (coefficient : State → Q')
+    (comparedLaw referenceLaw : State → State → Q')
+    (epsilon rate : Q') (hepsilon : (0 : Q') ≤ epsilon)
+    (hreference :
+      finiteJointQuadratic states coefficient referenceLaw ≤
+        rate * (coefficientL1 states coefficient * coefficientL1 states coefficient))
+    (herror : ∀ left right, left ∈ states → right ∈ states →
+      Q'.abs (comparedLaw left right + (-referenceLaw left right)) ≤ epsilon)
+    (hstrict : rate + epsilon < (1 : Q'))
+    (hcoefficient : (0 : Q') < coefficientL1 states coefficient) :
+    finiteJointQuadratic states coefficient comparedLaw <
+      coefficientL1 states coefficient * coefficientL1 states coefficient := by
+  have hupper := finiteJointQuadratic_le_reference_rate_add_error
+    states coefficient comparedLaw referenceLaw epsilon rate hepsilon
+      hreference herror
+  let norm := coefficientL1 states coefficient * coefficientL1 states coefficient
+  have hnorm : (0 : Q') < norm := Q'.mul_pos hcoefficient hcoefficient
+  have hscaled : (rate + epsilon) * norm < (1 : Q') * norm :=
+    mul_lt_mul_of_pos_right_local hnorm hstrict
+  have hscaled' : (rate + epsilon) * norm < norm :=
+    lt_of_lt_of_le_local hscaled (Q'.le_of_eqv (Q'.one_mul_eqv norm))
+  exact Q'.lt_of_le_of_lt hupper hscaled'
+
 #print axioms abs_listQSum_sub_le
 #print axioms listQSum_mono
 #print axioms abs_common_mul_sub_le
@@ -379,5 +446,6 @@ theorem finiteJointQuadratic_le_reference_rate_add_error
 #print axioms le_reference_add_of_abs_sub_le
 #print axioms upper_rate_of_reference_gap_and_abs_error
 #print axioms finiteJointQuadratic_le_reference_rate_add_error
+#print axioms finiteJointQuadratic_lt_square_of_reference_rate_and_abs_error
 
 end YMGap.Continuum.Z4FiniteCylinderQuadraticStability

@@ -6,12 +6,15 @@ new angle). Run `bash computations/progress_metric.sh` each iteration.
 
 ## Current increment: finite quadratic upper-error compiler (2026-09-23)
 
-`Z4FiniteCylinderQuadraticStability.lean:298-369` now proves the upper-side
+`Z4FiniteCylinderQuadraticStability.lean:298-436` now proves the upper-side
 perturbation compiler. `le_reference_add_of_abs_sub_le` turns an absolute
 quadratic difference into an upper comparison;
 `upper_rate_of_reference_gap_and_abs_error` adds an explicit error rate to a
 reference rate; and `finiteJointQuadratic_le_reference_rate_add_error`
 specializes this to a finite cylinder with the coefficient `l^1` square.
+The companion `finiteJointQuadratic_lt_square_of_reference_rate_and_abs_error`
+consumes `rate + epsilon < 1` and positive coefficient mass to produce a
+strict finite bound.
 
 Verification: the dependency-complete monitored target passed 214 jobs with
 only `{propext, Quot.sound}` and no `sorryAx`. This supplies a clean consumer
