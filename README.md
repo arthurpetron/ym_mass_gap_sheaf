@@ -63,7 +63,16 @@ choice at the finite representative level, but the rate remains nome-
 dependent and the interacting OS carrier, uniform completed gap, physical
 mass calibration, continuum passage, QFT axioms, and Clay target remain open.
 
-> **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
+The same module now removes that arbitrary positive slack after the GNS
+inner-product limit: `centeredCompletionTwoStepMoment_leEv_exact` gives an
+exact eventual-order `CReal` form bound at the same explicit midpoint rate.
+This is a completed representative-level same-object statement, still for
+the finite ordinary-Haar SU(2) carrier and still nome-dependent.  It is not an
+OS identification, a beta/spacing-uniform physical gap, or a continuum/Clay
+theorem.  The focused dependency-complete check passed all 1907 jobs with
+only `{propext, Quot.sound}`.
+
+> **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,
 > and an equality criterion using every finite vacuum-generated input.

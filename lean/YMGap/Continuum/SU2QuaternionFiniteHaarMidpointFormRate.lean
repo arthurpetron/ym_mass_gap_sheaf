@@ -382,9 +382,64 @@ theorem centeredCompletionTwoStepMoment_leEv
     midpointRate (squaredHeatRate w) * D.cInnerSeq x.seq x.seq k + ε
   exact hfinite
 
+/-! ## Removal of the arbitrary positive rational slack -/
+
+/-- If a completed-real quantity is eventually bounded by `B + delta` for
+every positive rational `delta`, then it is eventually bounded by `B` itself.
+The proof spends half of the requested eventual-order tolerance on the
+displayed slack and half on the order witness.  This is the constructive
+Archimedean step that turns the representative-level `+ epsilon` estimate
+into an exact `leEv` form inequality; it does not invoke a choice of a real
+number or an order on the `RC` quotient.
+-/
+private theorem leEv_of_all_positive_add
+    {A B : CReal} (h : ∀ δ : Q', (0 : Q') < δ →
+      CReal.leEv A (CReal.add B (CReal.ofQ' δ))) :
+    CReal.leEv A B := by
+  intro ε hε
+  let δ : Q' := Q'.mkPos 1 2 (by decide) * ε
+  have hδ : (0 : Q') < δ := by
+    dsimp [δ]
+    exact ExpNeg.half_mul_pos ε hε
+  obtain ⟨N, hN⟩ := h δ hδ δ hδ
+  refine ⟨N, fun n hn => ?_⟩
+  have hraw := hN n hn
+  change A.approx n ≤ (B.approx n + δ) + δ at hraw
+  refine Q'.le_trans' _ _ _ hraw ?_
+  have hsum : ((B.approx n + δ) + δ).eqv
+      (B.approx n + ε) := by
+    refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv (B.approx n) δ δ) ?_
+    refine Q'.add_eqv_congr_left (B.approx n) (δ + δ) ε ?_
+    dsimp [δ]
+    exact ExpNeg.two_halves ε
+  exact Q'.le_of_eqv hsum
+
+/-- The finite midpoint estimate gives an exact completed CReal eventual-order
+bound after eliminating the arbitrary positive slack.  The rate remains
+`midpointRate (squaredHeatRate w)`, hence remains nome-dependent and finite;
+this theorem does not identify the carrier with the interacting OS space.
+-/
+theorem centeredCompletionTwoStepMoment_leEv_exact
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x : CenteredCauchyGNS n) :
+    CReal.leEv
+      ((finiteHaarGNSData n).cinnerRep x.seq
+        (productMap_centeredCauchy n hw0 hw1 K hK ids hnodup hids x))
+      (CReal.mul (CReal.ofQ' (midpointRate (squaredHeatRate w)))
+        ((finiteHaarGNSData n).cinnerRep x.seq x.seq)) := by
+  apply leEv_of_all_positive_add
+  intro δ hδ
+  exact centeredCompletionTwoStepMoment_leEv
+    n hw0 hw1 K hK ids hnodup hids x δ hδ
+
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate_sq_ge
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.productMapQuotient_transfer_form_midpoint_le_add
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_leEv
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_leEv_exact
 
 end YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate

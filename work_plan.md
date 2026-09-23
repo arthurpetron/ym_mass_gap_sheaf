@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-22 UTC)
+## Whole-project goal and live completion map (updated 2026-09-23 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -152,6 +152,21 @@ choice.  This is still an ordinary-Haar finite SU(2) certificate: `r` is
 nome-dependent, and the interacting OS identification, completed uniform
 gap, physical normalization, thermodynamic/continuum passage, QFT axioms,
 and all-group theorem remain open.
+
+### Exact completed CReal midpoint form bound (2026-09-23 UTC)
+
+`centeredCompletionTwoStepMoment_leEv_exact` in
+`SU2QuaternionFiniteHaarMidpointFormRate.lean` removes the arbitrary positive
+rational slack from the preceding completed representative estimate.  The
+proof uses a half-tolerance eventual-order argument, so it remains entirely
+constructive and introduces no square-root choice or order on the `RC`
+quotient.  It gives an exact `CReal.leEv` bound for the same-object completed
+representative form at
+`midpointRate (squaredHeatRate w)`.  The rate is still nome-dependent and the
+carrier is ordinary-Haar finite SU(2); the interacting OS identification,
+uniform physical gap, spacing/thermodynamic/continuum passage, QFT axioms,
+and every-group/Clay closure remain open.  Focused safe verification passed
+the dependency-complete target (1907 jobs) with only `{propext, Quot.sound}`.
 
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 

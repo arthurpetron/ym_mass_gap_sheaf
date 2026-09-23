@@ -13,6 +13,24 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED exact completed CReal midpoint form bound (2026-09-23 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarMidpointFormRate.lean`.
+- **proved declaration**: `centeredCompletionTwoStepMoment_leEv_exact`.
+- **proof content**: the finite positive-slack estimate is first transported
+  through the constructive GNS inner-product limit, then a half-tolerance
+  Archimedean argument removes the arbitrary positive rational slack.  The
+  result is an exact `CReal.leEv` bound at
+  `midpointRate (squaredHeatRate w)` for the completed representative-level
+  same-object form.
+- **verification**: focused safe build completed `1907/1907`; the declaration
+  reports only `{propext, Quot.sound}` and introduces no `sorry` or classical
+  axiom.
+- **scope**: finite ordinary-Haar SU(2) completion and nome-dependent rate
+  only.  It does not identify the interacting OS carrier, prove a
+  beta/spacing-uniform gap, or establish thermodynamic, continuum, QFT, or
+  Clay conclusions.
+
 ## PROVED finite ordinary-Haar SU(2) relaxed form-rate certificate (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarMidpointFormRate.lean`.
