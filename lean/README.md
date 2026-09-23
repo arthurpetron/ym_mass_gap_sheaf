@@ -12,6 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Proper active product and original energy (2026-09-23):**
+`SU2QuaternionHaarFamilyPythagoras` and
+`SU2QuaternionProductHeatInactiveProjection` prove ordinary-Haar orthogonality
+and the original partial/full-product pairing join. The resulting
+`productMap_defect_le_projected_angular` retains the inactive residual square
+and bounds the projected full-product defect. The actual consumer in
+`BF4ExactSlabFixedSpatialProjectedAngularEnergy` now bounds the original energy
+on `u=(V*g)*f`, retaining its signed correction. This is an upper bound with
+explicit support, positive block count, coupling and cutoff guards; residual
+smallness, derivative/correction control and all physical/continuum joins
+remain open. Four serialized leaves passed thirteen permitted gates; no
+full-root build/audit/guard. Evidence:
+`audits/AUDIT-INACTIVE-PROJECTED-ANGULAR-ENERGY-2026-09-23.md`.
+
 **Original full-product angular defect (2026-09-23):**
 `SU2QuaternionProductHeatAngularDefect.productMap_range_defect_le_two_angular`
 now gives `H(p*p)-H(p*P p) <= 2*(1-w)*sum_i H(blockAngularSquare i p)`
@@ -21,8 +35,8 @@ of n and K. `PositiveContractionProductDefect` uses a quadratic potential;
 `SU2QuaternionCyclicRotationPeriod` and `SU2QuaternionCyclicAngularEnergy`
 return the rotating reference and all local costs to the original carrier.
 No inter-step commutation, spectral theorem or realization assumption.
-The sharper factor-one target stays open, as do proper-active-set projections,
-the signed interacting correction, physical-time/scaling and all continuum
+The sharper factor-one target stays open, as do quantitative inactive-residual
+and signed-correction control, physical-time/scaling and all continuum
 obligations. Four narrow checks passed sixteen permitted gates. Evidence:
 `audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`.
 

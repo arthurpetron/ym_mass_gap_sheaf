@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## Proved inactive projection and original interacting-energy estimate (2026-09-23)
+
+- **exact join**: `SU2QuaternionHaarFamilyPythagoras.family_square_decomposition`
+  and `SU2QuaternionProductHeatInactiveProjection.productMap_inactive_to_full_pairing`
+  identify the original form defect as inactive residual square plus the
+  full-product defect on the projected input. The inactive coordinates are
+  genuinely averaged; no independence of arbitrary inputs is assumed.
+- **quantitative consumer**: `SU2QuaternionProductHeatInactiveAngularDefect.productMap_defect_le_projected_angular`,
+  then `BF4ExactSlabFixedSpatialProjectedAngularEnergy.energy_le_fringeResidual_add_projectedAngular_add_correction`
+  for the actual source `u=(V*g)*f`, actual active/fringe partition, and
+  unchanged signed correction. Support, block count, coupling and cutoff
+  guards remain explicit. The independence corollary requires independence
+  of the COMPLETE input.
+- **remaining inputs**: projected angular contraction; source-derivative and
+  residual estimates; signed-correction control against actual normalization;
+  spatial/scaling, physical OS/time, continuum survival, finite positive mass,
+  full QFT/local fields and every group. No canonical atom is closed.
+- **verification**: four serialized 8 GiB leaves, thirteen gates within
+  `{propext, Quot.sound}`; no warning or `sorryAx` in accepted logs, new hole,
+  axiom or weakened field. A draft's core `List.nodup_range` dependency on
+  `Classical.choice` was replaced by existing constructive `CayleyParentInj.range_nodup`.
+  No full-root build/audit/guard. Evidence:
+  `audits/AUDIT-INACTIVE-PROJECTED-ANGULAR-ENERGY-2026-09-23.md`.
+
 ## Proved original full-product angular defect with factor two (2026-09-23)
 
 - **actual estimate**: `SU2QuaternionProductHeatAngularDefect.productMap_range_defect_le_two_angular`

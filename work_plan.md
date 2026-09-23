@@ -25,6 +25,37 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Proper active product and original interacting energy (2026-09-23 UTC)
+
+The actual inactive-coordinate join and interacting consumer are now proved.
+For inactive F, `q=familyProject F f` and `r=f-q`,
+`SU2QuaternionProductHeatInactiveAngularDefect.productMap_defect_eq_residual_add_full`
+gives the exact ORIGINAL form split
+`H(f*f)-H(f*P_active f) = H(r*r) + H(q*q)-H(q*P_full q)`.
+Its `productMap_defect_le_projected_angular` bounds the second summand by
+`2*(1-w)*sum_i H(blockAngularSquare i q)`, under the existing supported-input,
+positive block-count, `0 <= w < 1` and `sufficientCutoff w <= K` guards.
+Missing heat factors are Haar averages, not identity channels.
+
+`BF4ExactSlabFixedSpatialProjectedAngularEnergy.energy_le_fringeResidual_add_projectedAngular_add_correction`
+consumes the estimate on the actual active/fringe partition and complete
+input `u=(V*g)*f`. It bounds the original finite energy by the ordinary-Haar
+inactive residual square of u, the projected angular sum of u, and the
+UNCHANGED signed endpoint correction. Support of g,f and positive block count
+are explicit premises. No smallness or sign of these terms is asserted.
+
+NEXT: contract projected angular energy under Haar averaging, then control
+the source derivatives/residual and signed correction with the actual
+normalization. A defect UPPER bound is not a gap LOWER bound. Spatial/scaling,
+same-theory physical time, continuum survival, finite positive physical mass,
+full QFT/local fields, every group and the Clay target remain OPEN.
+
+Verification: four serialized 8 GiB leaf checks, thirteen permitted public
+gates, no warning or `sorryAx` in accepted logs; no full-root build/audit/guard.
+Sol supplied Pythagoras and the consumer draft; root proved the operator join,
+composed and checked the estimates; Luna reviewed scope. Evidence:
+`audits/AUDIT-INACTIVE-PROJECTED-ANGULAR-ENERGY-2026-09-23.md`.
+
 ### Original full-product angular defect: factor two, no commutation (2026-09-23 UTC)
 
 `SU2QuaternionProductHeatAngularDefect.productMap_range_defect_le_two_angular`
@@ -47,8 +78,8 @@ costs with the original block energies. No square root or spectral theorem.
 
 The factor-one target is preserved and OPEN; commutation/joint modes are an
 optional sharpening route, not prerequisites for this factor-two estimate.
-NEXT: handle the actual proper active list and its inactive Haar-projection
-residual, then consume the bound in
+The proper-active-list join and residual-inclusive consumer are now checked
+above. Their analytic residual/source/correction control remains open in
 `BF4ExactSlabFixedSpatialGroundStateEnergy.energy_eq_bare_add_correction`
 with the full `V*g*f` source and signed correction. No cancellation of that
 correction follows merely by doubling the bare angular bound. Spatial/scaling,

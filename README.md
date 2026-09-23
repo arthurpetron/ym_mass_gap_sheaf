@@ -41,9 +41,22 @@ of blocks. A positive quadratic potential composes the actual cyclic steps
 without assuming inter-step commutation; exact rotation-period and angular
 transport proofs return the result to the original operator and coordinates.
 This is factor two, not the sharper factor-one target or a strict gap.
-Proper active subsets, inactive projections and the signed interacting
-correction are next. No physical/continuum obligation is closed. See the
+The proper-active-subset join is now proved below; controlling its residual
+and signed interacting correction remains open. No physical/continuum
+obligation is closed. See the
 [verification and mathematical argument](audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md).
+
+The [inactive-coordinate extension](lean/YMGap/Continuum/SU2QuaternionProductHeatInactiveAngularDefect.lean)
+now splits the original partial-product defect exactly into an inactive Haar
+residual square and the full-product defect of the projected input. The
+[interacting consumer](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialProjectedAngularEnergy.lean)
+applies this to the complete original source `u=(V*g)*f`, retaining the
+residual, projected angular cost and signed endpoint correction. All three
+terms remain explicit; none is silently discarded. This is a finite energy
+**upper bound**, not a physical spectral-gap lower bound. Next are quantitative
+control of these terms and the actual normalization. Four focused checks
+passed thirteen permitted axiom gates; see the
+[proof and remaining obligations](audits/AUDIT-INACTIVE-PROJECTED-ANGULAR-ENERGY-2026-09-23.md).
 
 A separate proposed original-action shortcut is now
 [refuted](lean/YMGap/Continuum/SU2QuaternionSelectedLinkHeadObstruction.lean):
