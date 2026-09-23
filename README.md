@@ -7,6 +7,13 @@ existing `spatialCenteredMoment`. This is fixed-spacing SU(2) infrastructure;
 the same-object relative pairing, uniform strict gap, continuum passage, QFT
 axioms, physical mass calibration, and all-group Clay target remain open.
 
+The finite ordinary-Haar carrier is now also explicit:
+`SU2QuaternionFiniteHaarGNSCarrier.lean` packages supported quaternion
+polynomials into one finite `GNSData` with a radical quotient, normalized unit
+class, exact same-object pairing, positive definiteness, and sharp
+Cauchy--Schwarz.  This is a finite GNS/carrier bridge only; it does not close
+the selected-link identification, completed uniform gap, or continuum target.
+
 > **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

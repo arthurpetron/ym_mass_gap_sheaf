@@ -48,6 +48,16 @@ needed by our chosen limiting route must instead be proved with its actual
 parameters and physical normalization explicit. Fixed-spacing or finite-cutoff
 decay is infrastructure, not completion.
 
+### Explicit ordinary-Haar finite GNS carrier (2026-09-22 UTC)
+
+`SU2QuaternionFiniteHaarGNSCarrier.lean` now packages the normalized finite
+Haar pairing on supported quaternion polynomials as one `GNSData`.  Its
+radical quotient has an explicit unit class, exact same-object `qInner` pin,
+positive definiteness, and sharp Cauchy--Schwarz.  This is the finite carrier
+base for later transfer descent; it does not identify the open selected-link
+relative pairing or supply a completed uniform gap, thermodynamic/continuum
+passage, physical mass, QFT axioms, or the all-group result.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

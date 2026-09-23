@@ -13,6 +13,25 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED explicit finite ordinary-Haar SU(2) GNS carrier (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarGNSCarrier.lean`.
+- **proved declarations**: `finiteHaarPair_symm`,
+  `finiteHaarPair_nonnegative`, `finiteHaarGNSData`,
+  `finiteHaar_qInner_mk`, `finiteHaar_qInner_posdef`, and
+  `finiteHaar_cauchySchwarz`.
+- **proof content**: packages the ordinary normalized finite Haar form on
+  supported quaternion polynomials into one `GNSData`, then exposes its
+  radical quotient, normalized unit class, exact same-object pairing, and
+  positive-definite quotient inner product with sharp Cauchy--Schwarz.
+- **scope**: finite SU(2) carrier/GNS stage only.  This does not inhabit the
+  selected-link relative pairing, construct the general completion, prove a
+  uniform transfer gap, or establish thermodynamic, continuum, QFT, or Clay
+  conclusions.
+
+Monitored focused verification built the dependency-complete target; all
+printed declarations use only `{propext, Quot.sound}` and introduce no `sorry`.
+
 ## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`.
