@@ -77,6 +77,13 @@ the finite quotient-map seam only; the next operator-level obligations are a
 qInner/transfer estimate and identification with the physical selected-link
 pairing, followed by completion and a uniform gap.
 
+The same module now pins the descended same-object pairing and norm-square
+(`productMapQuotient_qInner_mk`, `productMapQuotient_qNormSq_mk`) and exports
+the finite centered squared-rate estimate as
+`productMapQuotient_centered_square_bound`.  The estimate is still a
+representative-level finite bound; it is not an order or contraction theorem
+on the completed Hilbert space.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

@@ -18,6 +18,7 @@ set_option autoImplicit false
 open YMGap.Constructive
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 open YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison
+open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.GNSQuotient
 open YMGap.Continuum.SU2HeatCutoffCasimirBound
 open YMGap.Continuum.SU2QuaternionFiniteHaarGNSCarrier
@@ -25,7 +26,11 @@ open YMGap.Continuum.SU2QuaternionFiniteHaarProductMapRadical
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionProductHeatConstant
 open YMGap.Continuum.SU2QuaternionProductHeatMarginals
+open YMGap.Continuum.SU2QuaternionProductHeatTensorization
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
+open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
+open YMGap.Continuum.SU2QuaternionArbitraryHaarPolynomialPositivity
+open YMGap.Continuum.SU2QuaternionRelativeHeatContraction
 open YMGap.Continuum.QuaternionHaarSquareCertificate
 
 local infix:50 " ≈ " => Q'.eqv
@@ -117,9 +122,64 @@ theorem productMapQuotient_mk
         ((finiteHaarGNSData n).qmk p) =
       (finiteHaarGNSData n).qmk (productMapRep n w K ids hids p) := rfl
 
+/-! ## Same-object pairing and finite centered estimate -/
+
+theorem productMapQuotient_qInner_mk
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (p q : (finiteHaarGNSData n).V) :
+    (finiteHaarGNSData n).qInner
+        (productMapQuotient n hw0 hw1 K hK ids hnodup hids
+          ((finiteHaarGNSData n).qmk p))
+        (productMapQuotient n hw0 hw1 K hK ids hnodup hids
+          ((finiteHaarGNSData n).qmk q)) =
+      Quotient.mk qSetoid
+        (finiteHaarPair n
+          (productMapRep n w K ids hids p).val
+          (productMapRep n w K ids hids q).val) := by
+  rfl
+
+theorem productMapQuotient_qNormSq_mk
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (p : (finiteHaarGNSData n).V) :
+    (finiteHaarGNSData n).qNormSq
+        (productMapQuotient n hw0 hw1 K hK ids hnodup hids
+          ((finiteHaarGNSData n).qmk p)) =
+      Quotient.mk qSetoid
+          (finiteHaarPair n
+          (productMapRep n w K ids hids p).val
+          (productMapRep n w K ids hids p).val) := by
+  rfl
+
+theorem productMapQuotient_centered_square_bound
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (p : (finiteHaarGNSData n).V)
+    (hcenter : quaternionHaar n p.val ≈ 0) :
+    finiteHaarPair n
+        (productMapRep n w K ids hids p).val
+        (productMapRep n w K ids hids p).val ≤
+      squaredHeatRate w * finiteHaarPair n p.val p.val := by
+  simpa only [productMapRep, finiteHaarPair] using
+    (productMap_centered_square_bound n hw0 hw1 K hK ids hnodup hids
+      p.property hcenter)
+
 end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapRep
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapRep_rad_congr
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_mk
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qInner_mk
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qNormSq_mk
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_centered_square_bound

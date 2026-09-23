@@ -27,6 +27,11 @@ radical preservation define a genuine finite `Quotient.lift` named
 `productMapQuotient`.  This is still only a finite quotient map; no completed
 transfer contraction, spectral gap, or continuum/Clay conclusion follows yet.
 
+The quotient module also exposes exact same-object `qInner` and norm-square
+representative pins, together with the finite centered squared-rate estimate.
+These connect the quotient map to its Haar representatives, but do not yet
+provide an ordered completed-space contraction or a spectral gap.
+
 > **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

@@ -63,6 +63,12 @@ Monitored focused verification passed; the printed declaration uses only
 Monitored focused verification passed; all printed declarations use only
 `{propext, Quot.sound}` and introduce no `sorry`.
 
+The quotient module also exposes `productMapQuotient_qInner_mk`,
+`productMapQuotient_qNormSq_mk`, and
+`productMapQuotient_centered_square_bound`: the descended map's same-object
+pairing and norm-square have explicit finite-Haar representatives, and the
+centered representative satisfies the existing squared-rate estimate.
+
 ## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`.
