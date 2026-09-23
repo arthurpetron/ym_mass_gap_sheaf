@@ -48218,6 +48218,36 @@ enlarged heartbeat budget, Rust computation, or trusted external computation.
 The root aggregator imports the module.  No aggregate or full-root audit is
 claimed by these checks.
 
+#### Compile the signed endpoint correction budget (2026-09-22)
+
+- **milestone**: explicit finite consumer for the signed endpoint defect
+- **file**:
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialHybridEnergy.lean`
+- **proved declarations**:
+  `SignedEndpointCorrectionBudget` and
+  `energy_le_bare_add_signedCorrectionBudget`
+- **closed obligation**: package a nonnegative Type-level budget for the exact
+  correction `correction w K width g f`, and use its absolute-value bound with
+  the checked `energy_eq_bare_add_correction` identity to derive
+  `energy <= bareEnergy + budget`.
+- **remaining named obligation**: construct such a budget uniformly for the
+  actual endpoint source with its cutoff, width, and coupling parameters.  No
+  sign, volume-uniform estimate, same-object variance bound, completed gap,
+  thermodynamic/continuum passage, or Clay conclusion is supplied here.
+- **constructive or propositional**: the budget is a Type-valued named input;
+  the compiler is finite rational order arithmetic using `Q'.abs`.  No
+  `sorry`, new axiom, `Classical`, `native_decide`, Rust certificate, or
+  trusted external computation was introduced.
+
+Monitored verification:
+
+```text
+BF4ExactSlabFixedSpatialHybridEnergy focused source check       PASS
+```
+
+The new theorem reports only `[propext, Quot.sound]`; no dependency-complete
+or full-root audit is claimed by this focused check.
+
 #### [BF4-conditional-variance-completed-carrier] Posterior variance meets the completed carrier — PROVED 2026-09-19
 
 - **milestone**: attach the cofinal conditional-variance strict form route to

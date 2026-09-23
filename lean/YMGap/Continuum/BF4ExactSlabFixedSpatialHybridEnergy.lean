@@ -61,7 +61,49 @@ theorem energy_eq_hybrid_add_correction (w : Q') (K width : Nat) (g f : RatPoly)
       (Q'.add_eqv_congr' (Q'.eqv_refl _) (Q'.neg_eqv_congr _ _ h.symm))
       (Q'.eqv_refl _))
 
+/-! ### Signed correction budget
+
+The hybrid identity is useful only after the endpoint defect has an explicit
+finite budget.  Keep that missing estimate as a named Type-level input rather
+than hiding it in an opaque constant or asserting its sign.  The compiler
+below is the elementary order consequence that turns such a budget into an
+energy upper bound.  It is deliberately independent of any continuum,
+thermodynamic, or OS interpretation.
+-/
+
+/-- A constructive finite budget for the signed endpoint correction.
+
+This is a producer interface, not an inhabitant supplied by the current
+finite calculation.  A future geometric/covariance argument must provide the
+nonnegative `budget` and prove `correction_abs_le` for the same signed source
+and cutoff appearing in `energy_eq_hybrid_add_correction`.
+-/
+structure SignedEndpointCorrectionBudget
+    (w : Q') (K width : Nat) (g f : RatPoly) : Type where
+  budget : Q'
+  budget_nonneg : (0 : Q') ≤ budget
+  correction_abs_le :
+    Q'.abs (correction w K width g f) ≤ budget
+
+/-- Compile a signed endpoint budget into an upper bound for the original
+finite temporal energy. -/
+theorem energy_le_bare_add_signedCorrectionBudget
+    (w : Q') (K width : Nat) (g f : RatPoly)
+    (hbudget : SignedEndpointCorrectionBudget w K width g f) :
+    energy w K width g f ≤
+      bareEnergy w K width g f + hbudget.budget := by
+  have heq : energy w K width g f ≤
+      bareEnergy w K width g f + correction w K width g f :=
+    Q'.le_of_eqv (energy_eq_bare_add_correction w K width g f)
+  have hcorr : correction w K width g f ≤ hbudget.budget :=
+    Q'.le_trans' _ _ _ (Q'.le_abs_self (correction w K width g f))
+      hbudget.correction_abs_le
+  exact Q'.le_trans' _ _ _ heq
+    (Q'.add_le_add_left (bareEnergy w K width g f)
+      (correction w K width g f) hbudget.budget hcorr)
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.transferStep_hybrid_carrier
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.energy_eq_hybrid_add_correction
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.energy_le_bare_add_signedCorrectionBudget

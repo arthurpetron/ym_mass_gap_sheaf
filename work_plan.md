@@ -185,6 +185,31 @@ The dependency-complete original-energy consumer passed; no full-root audit.
 Source map and verification scope:
 `audits/AUDIT-PRODUCT-HEAT-HYBRID-SWEEP-2026-09-21.md`.
 
+### Signed endpoint correction budget compiler (2026-09-22 UTC)
+
+**PROGRESS -- the remaining endpoint term now has an explicit constructive
+consumer:** `SignedEndpointCorrectionBudget` records a nonnegative finite
+budget for the exact signed correction
+`correction w K width g f`, while
+`energy_le_bare_add_signedCorrectionBudget` compiles that hypothesis with the
+checked split `energy_eq_bare_add_correction` into
+`energy <= bareEnergy + budget`.  The proof uses only the rational absolute
+value order and the original finite identity; it introduces no opaque rate,
+sign assumption, or erased witness.
+
+This does **not** provide the budget.  Producing a volume-/cutoff-controlled
+bound for the actual endpoint source remains the next analytic obligation,
+followed by a same-object variance estimate, completed vacuum-complement gap,
+OS/GNS/scaling passage, continuum survival, physical mass, full QFT structure,
+and the every-compact-simple-group route.  The new interface is deliberately
+Type-valued so a future geometric or covariance certificate must inhabit it
+for the same source and parameters.
+
+Focused monitored verification of
+`BF4ExactSlabFixedSpatialHybridEnergy.lean` passed; all printed declarations,
+including the new compiler theorem, use only `{propext, Quot.sound}`.  No
+dependency-complete or full-root audit is claimed.
+
 ### Actual one-link kinetic defect on the original signed input (earlier checkpoint, 2026-09-21 UTC)
 
 **PROGRESS -- the grouped budget now reaches an actual local operator:**
