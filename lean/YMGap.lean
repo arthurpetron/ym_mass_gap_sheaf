@@ -3804,6 +3804,7 @@ import YMGap.Continuum.PositiveContractionResidual
 import YMGap.Continuum.PositiveCoerciveForm
 import YMGap.Continuum.GNSPairingNormBound
 import YMGap.Continuum.PositiveContractionOneStepCompletion
+import YMGap.Continuum.PositiveContractionReverseComparison
 import YMGap.Continuum.BF4PhysicalJointFormTransfer
 -- Actual cutoff-removed normalization of the raw all-spin reflected form.
 import YMGap.Continuum.BF4PhysicalCubeNormalizedKernelLimit

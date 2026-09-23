@@ -27624,3 +27624,21 @@ The all-class input is explicitly packaged as
 `ExactPhysicalJointCenteredDensity`, with
 `ExactPhysicalJointCenteredDensity.toVacuumComplementDensity` supplying the
 existing density interface by construction.
+
+## Reverse one-step comparison certificate (2026-09-23)
+
+`PositiveContractionReverseComparison.lean` records the missing reverse
+comparison as a constructive Type-level input
+`ReverseComparisonCoercivity`: a positive rational `κ` and the pointwise
+lower bound `κ * distSqQ_original ≤ distSqQ_one_step`.  From this supplied
+certificate, `reverseComparisonCauchy` rescales one-step Cauchy moduli,
+`reverseComparisonCauchy_null` transports Cauchy-null witnesses, and
+`reverseComparison` descends the result to the quotient completion; the
+embedded-representative identity is `reverseComparison_embed`.
+
+The focused monitored target passed 84 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  The BF4 coercivity witness itself
+is not constructed here.  Thus this milestone supplies a conditional bridge
+for the centered-density/completion route, not an unconditional density
+theorem, completed physical gap, OS/scaling or thermodynamic/continuum
+passage, physical mass calibration, all-group theorem, or Clay result.

@@ -149,6 +149,26 @@ consumer.  `ExactPhysicalJointCenteredDensity` packages this certificate for
 every vacuum-orthogonal class, while
 `toVacuumComplementDensity` converts it to the existing density interface.
 
+### Reverse one-step comparison certificate (2026-09-23 UTC)
+
+`PositiveContractionReverseComparison.lean` factors the missing reverse norm
+direction between the original GNS carrier and the positive one-step form.
+The Type-level `ReverseComparisonCoercivity` input contains a positive
+rational `κ` and the pointwise lower comparison
+`κ * distSqQ_original ≤ distSqQ_one_step`.  The checked constructions
+`reverseComparisonCauchy` and `reverseComparisonCauchy_null` transport Cauchy
+moduli and null witnesses back to the original carrier; `reverseComparison`
+then descends this transport through the quotient completion, with
+`reverseComparison_embed` fixing embedded representatives.
+
+The focused dependency-complete target passed 84 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  This milestone does not prove the
+coercivity certificate for BF4, and therefore does not construct centered
+density, a completed strict gap, OS/scaling or thermodynamic/continuum
+passage, physical mass, an all-group theorem, or the Clay conclusion.  Its
+purpose is to make the exact missing comparison input mechanically consumable
+by the density and completion layers.
+
 ### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
 The companion reference-transport module now proves the exact finite identity

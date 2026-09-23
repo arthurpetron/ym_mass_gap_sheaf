@@ -83,6 +83,19 @@ composes it with the existing conditional completed form-gap theorem.
 centered input, and `toVacuumComplementDensity` proves it is sufficient for the
 existing density interface.
 
+The next comparison seam is now factored in
+`PositiveContractionReverseComparison.lean`.  The Type-level
+`ReverseComparisonCoercivity` certificate supplies a positive rational `κ`
+with `κ * dist²_original ≤ dist²_one_step`.  From that explicit input,
+`reverseComparisonCauchy` rescales a one-step Cauchy modulus,
+`reverseComparisonCauchy_null` transports quotient-null data, and
+`reverseComparison` descends the reverse map to the completed carriers.  The
+focused monitored target passed 84 jobs with only `{propext, Quot.sound}` and
+no `sorryAx`.  This is an honest conditional bridge: no BF4 coercivity
+witness, density theorem, strict physical gap, OS/scaling passage, continuum
+theory, physical-mass calibration, all-group construction, or Clay conclusion
+is claimed.
+
 The exact finite joint-form algebra is now checked in
 `BF4PhysicalJointCenteredForm.lean`.  The declarations
 `physicalJoint_vacuum_unit` and `physicalJoint_vacuum_pairing_eq_stationaryMean`
