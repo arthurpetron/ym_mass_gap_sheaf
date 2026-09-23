@@ -231,6 +231,25 @@ uniformity, or establish a physical, thermodynamic, continuum, or Clay gap.
 Focused safe verification passed the dependency-complete target (2121 jobs),
 with only `{propext, Quot.sound}`.
 
+### Physical completed-carrier fixed-point exclusion (2026-09-23 UTC)
+
+`BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean` now proves
+`concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed`.  For
+`0 < w ≤ 1/2`, the literal moving-centered cube vector in the actual
+completed physical SU(2) vacuum complement cannot be fixed by the completed
+sector transfer.  Assuming a fixed point turns the existing marginal
+squared-norm contraction into `a ≤ (q*q)·a`; the constructive
+`scalar_contraction_zero` lemma forces the completed norm to zero, while the
+same certificate carries a positive rational coordinate floor.  Thus the
+contradiction is on the same physical carrier and same observable, with no
+carrier identification hidden in the proof.
+
+This is a fixed-nome, extent-one fixed-point exclusion only.  It does not
+construct a cutoff/volume/spacing-uniform rate, identify the transfer with an
+OS transfer matrix, or provide thermodynamic, continuum, QFT, all-group, or
+Clay closure.  The focused dependency-complete target passed with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

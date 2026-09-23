@@ -22,6 +22,7 @@ import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumCompleme
 import YMGap.Continuum.BF4PhysicalCubeCompletedMarginalGap
 import YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision
+import YMGap.Continuum.CRealSeminormPairingPosdef
 
 namespace YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
 
@@ -60,6 +61,8 @@ open YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt
 open YMGap.Continuum.BF4PhysicalVacuumSectorDensityPowerToLocalSlice
 open YMGap.Continuum.BF4PhysicalVacuumSectorTimeFactorizationAdapter
 open YMGap.Continuum.RCStrictPositivity
+open YMGap.Continuum.CRealSeminormPairingCompletion
+open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInnerLaws
 
 /-! ## 1. One fixed-nome observable-connected object -/
 
@@ -308,6 +311,95 @@ def concreteSU2CompletedMarginalCarrierCertificate
   ⟨concreteSU2CompletedCarrierCertificate hw0 hw1,
     completedSectorContraction hw0 hw1 hw⟩
 
+/-! ## 2b. The explicit observable is not a transfer fixed point -/
+
+private theorem positive_constant_not_le_zero (q : Q') (hq : (0 : Q') < q) :
+    ¬ CReal.leEv (CReal.ofQ' q) CReal.czero := by
+  intro h
+  obtain ⟨N, hN⟩ := h (HalfPow.half * q) (ExpNeg.half_mul_pos q hq)
+  have hbad := hN N (Nat.le_refl N)
+  change q ≤ 0 + HalfPow.half * q at hbad
+  rw [Q'.zero_add'] at hbad
+  have hprod : q * 1 ≤ q * HalfPow.half := Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (Q'.mul_one_eqv _))
+    (Q'.le_trans' _ _ _ hbad (Q'.le_of_eqv (Q'.mul_comm_eqv _ _)))
+  exact (by decide : ¬ (1 : Q') ≤ HalfPow.half)
+    (Q'.le_of_mul_le_mul_left hprod hq)
+
+private theorem rcScale_eq_rcMul_ofQ' (s : Q') (x : CReal.RC) :
+    CReal.RCscale s x =
+      CReal.RCmul
+        (Quotient.mk CReal.crealSetoid (CReal.ofQ' s)) x := by
+  refine Quotient.inductionOn x ?_
+  intro X
+  rfl
+
+private theorem square_rate_lt_one {q : Q'}
+    (hq0 : (0 : Q') ≤ q) (hq1 : q < (1 : Q')) :
+    q * q < (1 : Q') := by
+  have hqle : q ≤ (1 : Q') := Q'.le_of_lt hq1
+  have hsq_le : q * q ≤ q * (1 : Q') :=
+    Q'.mul_le_mul_of_nonneg_left q (1 : Q') q hqle hq0
+  have hsq_le_q : q * q ≤ q := Q'.le_trans' _ _ _ hsq_le
+    (Q'.le_of_eqv (Q'.mul_one_eqv q))
+  exact Q'.lt_of_le_of_lt hsq_le_q hq1
+
+/-- The literal moving-centered observable is not fixed by the completed
+  marginal transfer.  The proof uses only the displayed fixed-nome strict
+  contraction and the explicit positive norm floor of this same vector. -/
+theorem concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (hw : w ≤ HalfPow.half) :
+    concreteSectorTransfer hw0 hw1
+        (concreteVacuumComplementVector hw0 hw1) ≠
+      concreteVacuumComplementVector hw0 hw1 := by
+  let package := concreteSU2CompletedMarginalCarrierCertificate hw0 hw1 hw
+  let carrier := package.1
+  let gap := package.2
+  let vector := concreteVacuumComplementVector hw0 hw1
+  intro hfixed
+  have hcontract := gap.contraction vector
+  change CReal.RCle
+    (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+      (concreteSectorTransfer hw0 hw1 vector).1
+      (concreteSectorTransfer hw0 hw1 vector).1)
+    (CReal.RCscale (gap.rate * gap.rate)
+      (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+        vector.1 vector.1)) at hcontract
+  rw [hfixed] at hcontract
+  have hrateSq : gap.rate * gap.rate < (1 : Q') :=
+    square_rate_lt_one gap.rate_nonnegative gap.rate_lt_one
+  have hcontract' : CReal.RCle
+      (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+        vector.1 vector.1)
+      (CReal.RCmul
+        (Quotient.mk CReal.crealSetoid
+          (CReal.ofQ' (gap.rate * gap.rate)))
+        (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+          vector.1 vector.1)) := by
+    simpa only [rcScale_eq_rcMul_ofQ'] using hcontract
+  have hnormNonnegative : CReal.RCnonneg
+      (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+        vector.1 vector.1) := by
+    change CReal.RCnonneg
+      (centralPhysicalCutoffCompletedInner hw0 hw1 0
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal vector.1)
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal vector.1))
+    exact centralPhysicalCutoffCompletedInner_self_nonneg hw0 hw1 0 _
+  have hzero := scalar_contraction_zero
+    (gap.rate * gap.rate) hrateSq
+    (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+      vector.1 vector.1)
+    hnormNonnegative hcontract'
+  have hfloor := carrier.vector_inner_floor
+  rw [hzero] at hfloor
+  exact positive_constant_not_le_zero
+    (centralPhysicalVacuumSectorCoordinateFloor
+      w (Q'.le_of_lt hw0) 1 0)
+    (centralPhysicalVacuumSectorCoordinateFloor_pos
+      w (Q'.le_of_lt hw0) 1 0)
+    hfloor
+
 /-! ## 2a. Expose the completed strict-contraction witness -/
 
 /-- The established generic cofinal local-gluing producer reaches the strict
@@ -415,6 +507,8 @@ end YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_marginalGap
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedMarginalCarrierCertificate
+#print axioms
+  YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedStrictContractionData_of_localGluing
 #print axioms

@@ -100,6 +100,17 @@ is still a fixed-parameter ordinary-Haar SU(2) result, not an OS or physical
 spectral-gap theorem.  The focused dependency-complete check passed 2121 jobs
 with only `{propext, Quot.sound}`.
 
+The concrete physical carrier now has one further fixed-nome consequence:
+`concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed` proves that
+the literal moving-centered cube excitation is not fixed by the completed
+physical sector transfer.  It combines the inhabited marginal contraction
+with the same observable's explicit positive norm floor, using constructive
+positive-factor cancellation.  This is a physical-carrier fixed-point
+exclusion, not a uniform spectral gap, OS identification, thermodynamic or
+continuum passage, QFT construction, all-group result, or Clay theorem.
+The focused dependency-complete check passed with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,
