@@ -122,6 +122,30 @@ continuum survival, physical mass, full QFT structure, and every-group
 construction remain open.  Focused verification passed under the permitted
 axiom gate; see `audits/AUDIT-CONJUGATED-HEAD-HEAT-2026-09-22.md`.
 
+### Padded-safe angular block transport (2026-09-22 UTC)
+
+**PROGRESS -- block recoding now commutes with the formal angular energy at
+the finite Haar level:** `SU2QuaternionAngularReindex.reindex_ratDerivative`
+proves coefficientwise transport of `ratDerivative` through an explicit
+`QuaternionBlockInvolution`.  The module then defines
+`blockAngularDerivative` and `blockAngularSquare` and proves
+`reindex_blockAngularSquare_haar`: the six-plane energy of the source block
+`s.map block` integrates to the corresponding target-block energy after
+reindexing.  The proof deliberately uses `QuaternionPrefixPolynomialEqv` and
+the support-aware Haar theorem; it does not collapse padded and unpadded
+monomial lists into raw coefficient equality.
+
+Focused monitored verification passed with only `{propext, Quot.sound}` for
+both public declarations, and the module OLEAN target completed.  A
+dependency-complete `+YMGap:olean` traversal reached the late physical
+boundary modules but remains blocked by pre-existing missing declarations in
+`BF4PhysicalBoundaryCutoffTwoPulledRootStrictFormGap` and
+`BF4PhysicalBoundaryCutoffTwoPulledVacuumComplementDichotomy`; this is not an
+angular-reindex error.  This remains a finite carrier bridge.  The actual interacting
+selected-link map, signed cross-covariance/telescoping estimate, uniform
+SAME-object gap, OS/GNS passage, continuum survival, physical mass, full QFT,
+and every-group route remain open.
+
 **Next mathematical estimate:** use the checked commutation and hybrid
 independence to telescope the actual kinetic quadratic defect with a
 controlled angular cost. On a fully active carrier the intended bound is

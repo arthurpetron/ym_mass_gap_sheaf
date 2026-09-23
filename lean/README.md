@@ -66,6 +66,20 @@ not provide the missing product tensorization, SAME-object OS/GNS passage,
 continuum survival, physical mass, QFT axioms, or every-group construction.
 See `audits/AUDIT-CONJUGATED-HEAD-HEAT-2026-09-22.md`.
 
+**Padded-safe angular block transport (2026-09-22 UTC):**
+`SU2QuaternionAngularReindex.reindex_ratDerivative` proves that formal
+coordinate differentiation commutes with an explicit quaternion-block
+involution at coefficient level.  The stronger
+`reindex_blockAngularSquare_haar` transports the complete six-plane angular
+energy of any selected block through the recoding.  It uses prefix
+equivalence and the finite Haar support guards, so it does not identify
+trailing-zero-padded monomials by false raw list equality.  This is a finite
+SU(2) carrier identity only: the interacting selected-link identification,
+signed multi-factor covariance estimate, SAME-object OS/GNS passage,
+continuum survival, physical mass, QFT axioms, and every-group construction
+remain open.  See
+`audits/AUDIT-ANGULAR-REINDEX-2026-09-22.md`.
+
 **Computed arbitrary-input harmonic decomposition (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionFischerDecomposition.decomposeHomogeneous` returns actual
 finite radial-harmonic modes by degree recursion, with the explicit
