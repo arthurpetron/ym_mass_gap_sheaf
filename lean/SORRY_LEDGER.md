@@ -47,6 +47,22 @@ printed declarations use only `{propext, Quot.sound}` and introduce no `sorry`.
 Monitored focused verification passed; the printed declaration uses only
 `{propext, Quot.sound}` and introduces no `sorry`.
 
+## PROVED finite product-map descent through the Haar GNS quotient (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarProductMapQuotient.lean`.
+- **proved declarations**: `productMapRep`, `productMapRep_rad_congr`,
+  `productMapQuotient`, and `productMapQuotient_mk`.
+- **proof content**: uses coefficient-level additivity and scalar linearity
+  to identify the product-map image of a representative difference, then
+  applies `productMap_radical_zero` to prove radical preservation and defines
+  the resulting finite transfer map by `Quotient.lift`.
+- **scope**: finite ordinary-Haar SU(2) quotient only.  No completed
+  transfer operator, qInner contraction, spectral gap, thermodynamic/continuum
+  passage, or Clay conclusion is asserted.
+
+Monitored focused verification passed; all printed declarations use only
+`{propext, Quot.sound}` and introduce no `sorry`.
+
 ## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`.

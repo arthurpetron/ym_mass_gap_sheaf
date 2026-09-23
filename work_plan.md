@@ -67,6 +67,16 @@ supported polynomial.  This is the representative-level input for the next
 quotient-lift construction; it is not itself a quotient transfer, completed
 operator, spectral gap, or continuum statement.
 
+### Finite product-map descent through the GNS quotient (2026-09-22 UTC)
+
+`SU2QuaternionFiniteHaarProductMapQuotient.lean` now defines the supported
+representative map and proves `productMapRep_rad_congr`.  The radical-preserving
+map therefore descends by an explicit `Quotient.lift` as `productMapQuotient`,
+with the representative computation rule `productMapQuotient_mk`.  This closes
+the finite quotient-map seam only; the next operator-level obligations are a
+qInner/transfer estimate and identification with the physical selected-link
+pairing, followed by completion and a uniform gap.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

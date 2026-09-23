@@ -21,6 +21,12 @@ Haar-null output.  It is the representative-level prerequisite for a
 quotient-level transfer map; the quotient lift, completed gap, and continuum
 construction remain open.
 
+That descent is now explicit in
+`SU2QuaternionFiniteHaarProductMapQuotient.lean`: coefficient linearity plus
+radical preservation define a genuine finite `Quotient.lift` named
+`productMapQuotient`.  This is still only a finite quotient map; no completed
+transfer contraction, spectral gap, or continuum/Clay conclusion follows yet.
+
 > **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,
