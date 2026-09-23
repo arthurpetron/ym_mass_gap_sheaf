@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-subunit original boundary and return estimate (2026-09-23)
+## Current increment: all-subunit adaptive physical tail control (2026-09-23)
+
+The degree-twelve Gaussian shell sum now has a computed nome-dependent onset,
+actual seed budget and epsilon cutoff. `highLabelTrace_small_subunit` bounds
+the existing physical trace at every outer cutoff; the exact new-block
+injection gives `newTailSelfReturnTrace_small_subunit`, and the existing
+centered Gram consumer gives `centered_newTail_le_subunit` for every tail vector
+in its own stationary norm. All hold for each rational `0 < w < 1`.
+
+Next: raw-tail absorption at this adaptive fixed head, then persistent rooted
+head coercivity and the existing completion consumers. The completed gap has
+not yet been extended; same-theory/physical/continuum/group obligations remain.
+
+Verification: radial and high-label leaves, logs
+`/tmp/ym-gap-subunit-radial-check-2.log` and
+`/tmp/ym-gap-subunit-high-label-check-2.log`; twenty-four gates within
+`{propext, Quot.sound}`, no warnings or `sorryAx`; no full audit.
+
+## Previous increment: all-subunit original boundary and return estimate (2026-09-23)
 
 The explicit relative heat-tail ceiling now controls the SAME complete cube
 boundary sum for every rational `0 < w < 1`. The physical conditional diagonal

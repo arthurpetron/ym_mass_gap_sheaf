@@ -19,7 +19,9 @@ that qualitative theorem alone does not give a strict gap.
 The next analytic extension now bounds the original full cube boundary sum and
 conditional self-return for every `0 < w < 1`, with an explicit
 [nome-dependent Gaussian envelope](lean/YMGap/Continuum/BF4PhysicalCubeSubunitBoundarySumBound.lean).
-Summing its tail and extending the completed gap remain separate steps.
+Its [adaptive tail cutoff](lean/YMGap/Continuum/BF4PhysicalCubeSubunitHighLabelTrace.lean)
+now bounds the literal high-label trace and every centered new-tail vector
+in its own stationary norm. Extending the completed gap remains a separate step.
 
 These are conditional-dynamics results, not an identified Yang--Mills
 Hamiltonian gap. Original-action/geometric-time identification, spatial and

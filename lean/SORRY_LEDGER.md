@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## Proved all-subunit radial tail and physical new-tail norm bound (2026-09-23)
+
+- **files**: `YMGap/Continuum/BF4PhysicalCubeSubunitRadialTail.lean`,
+  `YMGap/Continuum/BF4PhysicalCubeSubunitHighLabelTrace.lean`.
+- **data**: `subunitRadialGain`, `subunitRadialOnset`, the actual
+  `subunitRadialSeedBudget`, and `subunitRadialTailCutoff w epsilon`.
+- **physical consumers**: `highLabelTrace_small_subunit`,
+  `newTailSelfReturnTrace_small_subunit`, and `centered_newTail_le_subunit`
+  use the existing sector, raw trace, centered Gram and stationary norm.
+  For each `0 < w < 1`, epsilon > 0, the fixed-base bound holds at every
+  later admitting cutoff. Neither the cutoff nor the gap is claimed uniform in w.
+- **residue**: raw-tail absorption and rooted-head coercivity at this adaptive
+  base before the broader completed gap. Same-YM/time, spatial/scaling,
+  physical mass, continuum/QFT and all groups remain open. No hole/axiom added.
+- **verification**: `/tmp/ym-gap-subunit-radial-check-2.log` and
+  `/tmp/ym-gap-subunit-high-label-check-2.log`, monitored 20 GiB leaf checks;
+  twenty-four permitted gates, no warnings or `sorryAx`; no full audit.
+
 ## Proved all-subunit boundary and conditional-return estimate (2026-09-23)
 
 - **files**: `YMGap/Continuum/BF4PhysicalSubunitHeatRelativeTail.lean`,
@@ -10,8 +28,8 @@
 - **actual consumer**: `vacuumSector_selfReturn_le_subunit_gaussian` bounds
   the literal conditional kernel diagonal, using its original joint kernel
   and marginal. Its bound is cutoff-independent but explicitly nome-dependent.
-- **residue**: adaptive radial onset/seed budget, high-label trace and
-  head/tail coercivity beyond the existing restricted gap. No broader completed
+- **residue**: the adaptive radial tail and high-label trace are now proved
+  above; head/tail coercivity beyond the existing restricted gap remains. No broader completed
   gap, original-YM time bridge, spatial/scaling, continuum/QFT, physical-mass or
   every-group closure is asserted. No new hypothesis, hole, or axiom.
 - **verification**: monitored 20 GiB leaf checks in

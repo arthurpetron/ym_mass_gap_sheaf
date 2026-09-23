@@ -52,15 +52,40 @@ mass, continuum/QFT and every-group closure remain open. Extending estimates to
 all subunit nomes is a useful analytic direction, not an additional prerequisite
 if a justified scaling trajectory suffices.
 
-The relative heat-tail and SAME full boundary-sum extensions are now checked
-below. The next proposition is an explicit coupling-dependent radial onset and
-seed budget, then the literal high-label trace bound. The general Gaussian
-bound alone is not an all-nome completed gap.
+The relative heat-tail, SAME full boundary-sum, adaptive radial tail and literal
+high-label trace extensions are now checked below. The next proposition is
+raw-tail absorption at the computed fixed head, then the already available
+persistent rooted-head energy bound. A small trace alone is not a full gap.
 
 Verification: fresh monitored 20 GiB leaf check of
 `BF4PhysicalCubeCompletedMarginalGap.lean`,
 `/tmp/ym-gap-existing-completed-sector-scope-check.log`; all six gates contain
 only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
+
+### All-subunit adaptive radial tail reaches the literal sector trace (2026-09-23 UTC)
+
+`BF4PhysicalCubeSubunitRadialTail` constructs the exponent gain with
+`powBaseCutoff w (1/8192)` and onset `max 1400 (36 * gain)`. Beyond this
+radius, the degree-twelve shell envelope contracts by one half per step.
+`subunitRadialTailCutoff w epsilon` retains the actual nome-dependent seed
+budget, rather than assuming it is at most one; its finite-tail bound is proved.
+
+`BF4PhysicalCubeSubunitHighLabelTrace.highLabelTrace_small_subunit` applies
+that bound to the EXISTING physical radius-shell trace at every representation
+cutoff. `newTailSelfReturnTrace_small_subunit` bounds the actual raw new-block
+trace at this computed base, uniformly over every later admitting cutoff.
+`centered_newTail_le_subunit` then controls every new-tail vector by epsilon
+times its own stationary norm. Both w and epsilon are explicit cutoff inputs.
+
+Remaining quantitative step: raw Gram absorption plus the rooted-head bound at
+this adaptive finite base; existing completion consumers can then be reused.
+No broader completed gap is yet claimed. Original-YM/time, spatial/scaling,
+physical mass, continuum/QFT and every-group obligations remain open.
+
+Verification: monitored 20 GiB leaf checks,
+`/tmp/ym-gap-subunit-radial-check-2.log` and
+`/tmp/ym-gap-subunit-high-label-check-2.log`; all twenty-four gates are within
+`{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
 
 ### All-subunit full boundary sum and actual conditional return (2026-09-23 UTC)
 
@@ -80,8 +105,8 @@ The shared partition is cancelled exactly; no replacement dynamics is used.
 
 This extends the quantitative Gaussian input beyond `w <= 1/2`, not the
 completed gap itself. The prefactor may deteriorate as w approaches one.
-Next: sum radius shells with a nome-dependent onset and actual seed budget,
-then transport that trace bound to the existing head/tail coercivity argument.
+The radius-shell sum and literal trace are now checked above; the remaining
+consumer is head/tail coercivity at the adaptive fixed base.
 Original-YM/geometric-time identification, spatial/scaling control, physical
 mass, continuum/QFT and every-group obligations remain open. No frontier field,
 `sorry` or axiom changed.

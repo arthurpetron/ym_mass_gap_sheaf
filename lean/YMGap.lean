@@ -3876,6 +3876,8 @@ import YMGap.Continuum.BF4PhysicalCubeBoundarySumBound
 import YMGap.Continuum.BF4PhysicalCubeGaussianReturn
 import YMGap.Continuum.BF4PhysicalSubunitHeatRelativeTail
 import YMGap.Continuum.BF4PhysicalCubeSubunitBoundarySumBound
+import YMGap.Continuum.BF4PhysicalCubeSubunitRadialTail
+import YMGap.Continuum.BF4PhysicalCubeSubunitHighLabelTrace
 import YMGap.Continuum.BF4PhysicalCubeHighLabelTrace
 import YMGap.Continuum.BF4PhysicalCubeNewTailTraceBound
 import YMGap.Continuum.BF4PhysicalCubeTailAbsorption
