@@ -13,6 +13,33 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED one-cutoff canonical adaptive capacity witness (2026-09-23 UTC)
+
+- **file**:
+  `lean/YMGap/Continuum/BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.lean`.
+- **proved declarations**:
+  `anchorCanonicalFiniteCapacityMarginCheck_zero`,
+  `anchorCanonicalFiniteCapacityMarginAt_zero`, and
+  `anchorCanonicalRoutedConditionalTransitionProductAt_zero`.
+- **proof content**: at the explicit anchor `anchorCoupling = 1/400` and
+  cutoff `K = 0`, kernel computation decides the canonical Boolean comparison
+  between the existing ray coercivity floor and the exact routed finite edge
+  capacity margin.  The successful Boolean is converted by the soundness
+  theorem into the exact scalar inequality and then into the existing routed
+  transition-product structure.
+- **scope**: one finite cutoff only.  The carrier, ray capacity, routing, and
+  transition-product witness are concrete, but no `forall K` success family,
+  cofinal producer, uniform scale-dependent margin, physical-rate band,
+  completed gap, thermodynamic/continuum limit, OS/QFT package, all-group
+  theorem, or Clay conclusion follows.
+- **constructive or propositional**: constructive Type-level finite data;
+  the Boolean decision uses kernel `decide`, not `native_decide` or classical
+  choice.  No new `sorry` or named analytic hypothesis is introduced.
+- **verification**: focused dependency-complete safe build of
+  `+YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision:olean`
+  passed 5072 jobs; all three declarations report only
+  `{propext, Quot.sound}` and no `sorryAx`.
+
 ## PROVED physical completed-carrier positive-period exclusion (2026-09-23 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean`.

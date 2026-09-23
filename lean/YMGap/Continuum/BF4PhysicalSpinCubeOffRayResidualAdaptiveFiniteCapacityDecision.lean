@@ -24,6 +24,7 @@ conclusion is constructed.  No `Classical.*`, choice, `native_decide`,
 -/
 
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityMargin
+import YMGap.Continuum.BF4CentralSpinCubeUniformRayCapacity
 
 namespace YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision
 
@@ -41,9 +42,11 @@ open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityMarg
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveRouting
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveTransitionProductTarget
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualFrontier
+open YMGap.Continuum.BF4CentralSpinCubeUniformRayCapacity
 open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
 open YMGap.Continuum.BF4PhysicalSpinCubeRayDirichletCoercivity
 open YMGap.Continuum.BF4PhysicalSpinCubeRayReturnFloor
+open YMGap.Continuum.Z4StrongCouplingParametricAnchor
 
 /-! ## 1. One exact finite margin certificate -/
 
@@ -210,6 +213,42 @@ def canonicalFiniteCapacityMarginCheck
     (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
       w (Q'.le_of_lt hw) K)
 
+/-- The first explicit anchor-cutoff check.  This is deliberately kept as a
+finite Boolean observation: it does not assert the cofinal success family. -/
+theorem anchorCanonicalFiniteCapacityMarginCheck_zero :
+    canonicalFiniteCapacityMarginCheck
+      (w := anchorCoupling) (hw := by decide) (K := 0)
+      (anchorCentralSpinCubeFiniteRayCapacityAt 0) = true := by
+  decide
+
+/-- The Boolean result retains its exact scalar witness at the same anchor
+cutoff.  This is the first concrete full-ray margin certificate, rather than
+merely a positivity statement for the located finite margin. -/
+def anchorCanonicalFiniteCapacityMarginAt_zero :
+    CentralLowerExcitedSpinCubeOffRayResidualRoutedFiniteCapacityMarginAt
+      (w := anchorCoupling) (hw := by decide) 0
+      (anchorCentralSpinCubeFiniteRayCapacityAt 0)
+      (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+        anchorCoupling (by decide) 0) where
+  margin_bound :=
+    adaptiveFiniteCapacityMarginCheck_sound
+      (w := anchorCoupling) (hw := by decide) (K := 0)
+      (anchorCentralSpinCubeFiniteRayCapacityAt 0)
+      (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+        anchorCoupling (by decide) 0)
+      anchorCanonicalFiniteCapacityMarginCheck_zero
+
+/-- The retained cutoff-0 scalar witness feeds the exact routed transition-
+product carrier.  No cofinal or continuum statement is made here. -/
+def anchorCanonicalRoutedConditionalTransitionProductAt_zero :
+    CentralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductAt
+      (w := anchorCoupling) (hw := by decide) 0
+      (anchorCentralSpinCubeFiniteRayCapacityAt 0)
+      (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+        anchorCoupling (by decide) 0) :=
+  CentralLowerExcitedSpinCubeOffRayResidualRoutedFiniteCapacityMarginAt.toRoutedConditionalTransitionProductAt
+    anchorCanonicalFiniteCapacityMarginAt_zero
+
 /-- The canonical Boolean check is sound for the exact loop-erased routing;
 the adaptive alias is unfolded only through its already checked finite
 margin theorem. -/
@@ -324,6 +363,9 @@ end YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecis
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.inspectAdaptiveFiniteCapacityMargin
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.canonicalFiniteCapacityMarginCheck_sound
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.canonicalFiniteCapacityMarginCheck_complete
+#print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.anchorCanonicalFiniteCapacityMarginCheck_zero
+#print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.anchorCanonicalFiniteCapacityMarginAt_zero
+#print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.anchorCanonicalRoutedConditionalTransitionProductAt_zero
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.inspectCanonicalFiniteCapacityMargin
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.FixedNomeCofinalSpinCubeOffRayResidualAdaptiveFiniteCapacityCheckSuccess.toAdaptiveConditionalTransitionProduct
 #print axioms YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.FixedNomeCofinalSpinCubeOffRayResidualCanonicalFiniteCapacityCheckSuccess.toAdaptiveConditionalTransitionProduct

@@ -168,6 +168,21 @@ same centered carrier and weakens a finite strict bound from `q₀` to any
 physical calibration: padding cannot turn the fixed-margin staging family into
 a physical-rate band or a mass-gap theorem.
 
+The localized adaptive-capacity decision now has its first concrete full-ray
+finite witness in
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.lean`:
+`anchorCanonicalFiniteCapacityMarginCheck_zero` kernel-computes the canonical
+anchor check at cutoff `K = 0` to `true`.  The exact scalar result is retained
+by `anchorCanonicalFiniteCapacityMarginAt_zero` and compiled into the routed
+transition-product witness
+`anchorCanonicalRoutedConditionalTransitionProductAt_zero`.  This is a
+single-cutoff finite certificate on the existing physical carrier; it does not
+construct the cofinal success family, a uniform adaptive bound, a physical-rate
+band, or any thermodynamic/continuum/Clay conclusion.  The focused target
+passed 5072 dependency jobs with only `{propext, Quot.sound}` and no
+`sorryAx`.  The next analytic edge is the same floor-vs-margin comparison at
+nonzero cutoffs and, ultimately, a scale-dependent cofinal producer.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

@@ -64,6 +64,32 @@ change the transfer or its actual margin.  The next real obligation therefore
 remains an inhabited scale-dependent adaptive transition-product certificate,
 with the physical margin tied to the vanishing spacing.
 
+### First concrete localized capacity witness (2026-09-23 UTC)
+
+`BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision.lean` now
+computes the canonical localized capacity comparison at the explicit anchor
+`anchorCoupling = 1/400` and cutoff `K = 0`:
+`anchorCanonicalFiniteCapacityMarginCheck_zero = true`.  The Boolean result is
+not discarded: `anchorCanonicalFiniteCapacityMarginAt_zero` retains the exact
+floor-vs-margin inequality, and
+`anchorCanonicalRoutedConditionalTransitionProductAt_zero` compiles it into
+the existing routed transition-product target on the same physical carrier.
+
+This is a genuine finite forward witness and a concrete meet-in-the-middle
+point for the adaptive route, but only at one cutoff.  It does not inhabit the
+cofinal `forall K` success structure, provide a scale-dependent margin modulus,
+or imply a completed uniform gap, physical calibration, thermodynamic/continuum
+passage, OS/QFT axioms, all-group construction, or the Clay theorem.  A direct
+`K = 1` kernel reduction was not retained because the monitored safety wrapper
+stopped that larger computation at its 12 GiB reserve; no claim is made about
+that cutoff.  The next safe finite step is to derive nonzero-cutoff checks from
+an explicit analytic reduction rather than escalating resource limits.
+
+Focused monitored target:
+`+YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision:olean`
+passed 5072 dependency jobs with one worker.  The three new declarations use
+only `{propext, Quot.sound}` and introduce no `sorryAx`.
+
 ### Original connected spatial diagonal now has explicit Cauchy data (2026-09-22 UTC)
 
 `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean` now exposes
