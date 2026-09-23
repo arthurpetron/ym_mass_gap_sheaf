@@ -164,6 +164,25 @@ Monitored focused verification passed; both printed declarations use only
   SAME-object OS gap, continuum, physical-mass, full-QFT, or every-group
   conclusion.
 
+## PROVED exact hybrid endpoint/cross-term expansion (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean`.
+- **proved declarations**: `hybridSweepStageTelescopeTerms` and
+  `hybridSweep_defect_cross_terms_eq_endpoint`.
+- **proof content**: expands each actual changing schedule stage into the
+  checked local defect plus its signed cross-term and proves by finite
+  induction that the sum equals the initial ordinary-Haar square minus the
+  final changing-schedule square.
+- **open obligation**: bound the cross-term sum uniformly, account for the
+  final inactive `partialHaarHeads` projection, and populate the exposed
+  selected-link pairing family.
+- **constructive status**: focused monitored check passed; the printed
+  declarations use only `{propext, Quot.sound}` and introduce no `sorry` or
+  new axiom.
+- **scope**: exact finite SU(2) bookkeeping only; no strict OS gap,
+  thermodynamic/continuum passage, physical-mass, full-QFT, or every-group
+  conclusion.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.

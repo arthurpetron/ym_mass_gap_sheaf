@@ -199,6 +199,17 @@ identification, remove inactive Haar projections, control signed cross-terms,
 populate the exposed family, or establish a SAME-object OS/GNS, continuum,
 physical-mass, or every-group result.
 
+**PROGRESS -- exact endpoint/cross-term expansion:**
+`hybridSweepStageTelescopeTerms` expands each changing suffix-state stage into
+the proved local defect and a separately signed cross-term.  The theorem
+`hybridSweep_defect_cross_terms_eq_endpoint` proves by finite induction that
+the sum of these terms is exactly the initial square minus the final
+`hybridSweep` square.  This closes the algebraic endpoint bookkeeping without
+claiming cancellation: the cross-term sum still has no uniform bound, and the
+inactive final `partialHaarHeads` projection, exposed-pairing population,
+OS/GNS passage, continuum, physical-mass, and every-group obligations remain
+open.
+
 ### Conjugated finite head defect (2026-09-22 UTC)
 
 **PROGRESS -- the checked local angular defect is now transportable by an

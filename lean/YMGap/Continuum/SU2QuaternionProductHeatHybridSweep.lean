@@ -24,6 +24,7 @@ namespace YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 set_option autoImplicit false
 
 open YMGap.Constructive
+open YMGap.Continuum.RingNormaliser
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.BF4ExactPhysicalCenteredVacuumTransmittedMarginal
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
@@ -221,7 +222,80 @@ theorem hybridSweep_defect_budget_of_exposed
           (Q'.mul_add_eqv ((1 : Q') - w)
             (quaternionHaar (n+n)
               (blockAngularSquare i (hybridSweep n w K ids p)))
-            (qListSum (hybridSweepStageAngularEnergies n w K ids p)))))
+          (qListSum (hybridSweepStageAngularEnergies n w K ids p)))))
+
+/-- The exact signed endpoint/cross-term contribution of one changing stage.
+The first parenthesis is the local defect already bounded above; the second
+is retained with its sign because no positivity or cancellation theorem is
+available for it. -/
+def hybridSweepStageTelescopeTerms
+    (n : Nat) (w : Q') (K : Nat) : List Nat → RatPoly → List Q'
+  | [], _ => []
+  | i :: ids, p =>
+      ((quaternionHaar (n+n)
+          (polyMul (hybridSweep n w K ids p) (hybridSweep n w K ids p)) -
+        quaternionHaar (n+n)
+          (polyMul (hybridSweep n w K ids p)
+            (hybridSweep n w K (i :: ids) p))) +
+       (quaternionHaar (n+n)
+          (polyMul (hybridSweep n w K ids p)
+            (hybridSweep n w K (i :: ids) p)) -
+        quaternionHaar (n+n)
+          (polyMul (hybridSweep n w K (i :: ids) p)
+            (hybridSweep n w K (i :: ids) p)))) ::
+        hybridSweepStageTelescopeTerms n w K ids p
+
+private theorem telescope_stage_cancel (a b c : Q') :
+    (a - b) + (b - c) ≈ a - c := by
+  exact poly_identity_of_normal_eq
+    (.add (.add (.var 0) (.neg (.var 1)))
+      (.add (.var 1) (.neg (.var 2))))
+    (.add (.var 0) (.neg (.var 2))) (by decide)
+    (fun | 0 => a | 1 => b | _ => c)
+
+/-- Exact finite endpoint decomposition for the actual changing hybrid
+schedule.  The local defect budget controls only the first term in each
+stage; the second, signed cross-term is displayed rather than discarded. -/
+theorem hybridSweep_defect_cross_terms_eq_endpoint
+    (n : Nat) (w : Q') (K : Nat) (ids : List Nat) (p : RatPoly) :
+    qListSum (hybridSweepStageTelescopeTerms n w K ids p) ≈
+      quaternionHaar (n+n) (polyMul p p) -
+        quaternionHaar (n+n)
+          (polyMul (hybridSweep n w K ids p)
+            (hybridSweep n w K ids p)) := by
+  induction ids generalizing p with
+  | nil =>
+      simp only [hybridSweepStageTelescopeTerms, qListSum, hybridSweep]
+      exact Q'.eqv_symm (Q'.add_neg_self_eqv
+        (quaternionHaar (n+n) (polyMul p p)))
+  | cons i ids ih =>
+      have htail := ih p
+      simp only [hybridSweepStageTelescopeTerms, qListSum]
+      let a := quaternionHaar (n+n)
+        (polyMul (hybridSweep n w K ids p) (hybridSweep n w K ids p))
+      let b := quaternionHaar (n+n)
+        (polyMul (hybridSweep n w K ids p)
+          (hybridSweep n w K (i :: ids) p))
+      let c := quaternionHaar (n+n)
+        (polyMul (hybridSweep n w K (i :: ids) p)
+          (hybridSweep n w K (i :: ids) p))
+      let d := quaternionHaar (n+n) (polyMul p p)
+      have hstage : (a - b) + (b - c) ≈ a - c :=
+        telescope_stage_cancel a b c
+      have htail' : qListSum (hybridSweepStageTelescopeTerms n w K ids p) ≈
+          d - a := by
+        simpa [a, d] using htail
+      have hsum : ((a - b) + (b - c)) +
+          qListSum (hybridSweepStageTelescopeTerms n w K ids p) ≈
+          (a - c) + (d - a) :=
+        Q'.add_eqv_congr' hstage htail'
+      have hcancel : (a - c) + (d - a) ≈ d - c := by
+        exact poly_identity_of_normal_eq
+          (.add (.add (.var 0) (.neg (.var 1)))
+            (.add (.var 2) (.neg (.var 0))))
+          (.add (.var 2) (.neg (.var 1))) (by decide)
+          (fun | 0 => a | 1 => c | _ => d)
+      exact Q'.eqv_trans _ _ _ hsum hcancel
 
 /-- The final integration explicitly retains the inactive Haar projections.
 In particular an empty schedule is Haar averaging, not the identity map. -/
@@ -393,3 +467,5 @@ end YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridStep_defect_le_selected_block_energy_of_exposed
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweep_cons_defect_le_selected_block_energy_of_exposed
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweep_defect_budget_of_exposed
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweepStageTelescopeTerms
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweep_defect_cross_terms_eq_endpoint

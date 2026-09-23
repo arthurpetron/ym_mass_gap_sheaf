@@ -295,6 +295,16 @@ sum with an endpoint/telescope form: inactive Haar projections, signed
 cross-terms, a populated exposed-pairing family, SAME-object OS/GNS, continuum
 survival, physical mass, and all-group/Clay closure remain open.
 
+**Exact schedule endpoint decomposition (2026-09-22 UTC):**
+`hybridSweepStageTelescopeTerms` now expands every changing stage into the
+checked local defect plus its explicit signed cross-term.  The theorem
+`hybridSweep_defect_cross_terms_eq_endpoint` proves that the finite sum is
+exactly the initial ordinary-Haar square minus the final changing-schedule
+square.  This is the missing algebraic bookkeeping seam, not a contraction:
+the local budget controls only the defect half, while the cross-term half
+still needs a genuine bound and the final inactive `partialHaarHeads` passage
+still needs to be handled.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is
