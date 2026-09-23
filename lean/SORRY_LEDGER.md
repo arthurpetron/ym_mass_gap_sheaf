@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## Proved whole signed-direction original kinetic Hessian sign (2026-09-23)
+
+- **actual estimate**: `SU2QuaternionProductHeatAngularHessian.productHeat_upperHessian_eq_neg_square`
+  and `productHeat_upperHessian_nonpositive` give
+  `H_2n[a(x)*a(y)*D_y^2 W] = -<D a,P(D a)> <= 0` for the original selected
+  product heat and `0 <= w`. The identity itself permits any rational w.
+- **inputs constructed**: arbitrary-block Haar IBP and lift differentiation;
+  simultaneous scalar/heat rotation on the original Haar carrier; actual
+  product-form skew identity; concrete finite signed angular directions with
+  in-range indices; twice-integrated original kernel/source join. No analytic
+  certificate is assumed. Repeated selected indices and all cutoffs are allowed.
+- **scope**: all mixed terms retained, no direction-count loss; arbitrary
+  supported signed source. This is not a coefficient-square Wilson-jump bound,
+  kinetic-score certificate, normalized SAME-variance comparison, finite-P
+  correction cancellation, or physical gap. All scaling/survival/QFT/all-group
+  joins remain open; no canonical frontier atom is closed.
+- **verification**: seven serialized 8 GiB leaves, twenty-four public gates,
+  only {propext, Quot.sound}, no warning/error/sorryAx in accepted logs.
+  A draft's iff-rewriting simplification introduced Classical.choice; explicit
+  decidable case splits removed it before acceptance. No new hole/axiom,
+  frontier weakening, full-root build/audit/guard. Evidence:
+  `audits/AUDIT-SIGNED-KINETIC-ANGULAR-HESSIAN-2026-09-23.md`.
+
 ## Proved full mixed temporal identity and finite locality fence (2026-09-23)
 
 - **identity**: `SU2QuaternionWeightedProductDualEnergy.full_jump_pairing`

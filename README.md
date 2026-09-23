@@ -7,6 +7,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The latest [whole-direction result](audits/AUDIT-SIGNED-KINETIC-ANGULAR-HESSIAN-2026-09-23.md)
+proves an exact sign for the ORIGINAL product-heat kernel W:
+`H[a(x)*a(y)*D_y^2 W] = -<D a, P(D a)> <= 0` for `w >= 0`.
+D is any finite signed angular direction; every mixed term and both complete
+sources remain. The result holds at every finite cutoff without a family-size
+loss. It is a finite integrated Hessian sign, **not** the still-missing
+normalized Wilson energy/variance estimate or a physical mass gap.
+
 The BF4 SU(2) candidate has a checked cutoff-removed completed sector, transfer,
 and same-object correlators. At half-extent zero and every rational `0 < w < 1`,
 [`subunitCompletedSectorContraction`](lean/YMGap/Continuum/BF4PhysicalCubeSubunitCompletedGap.lean)

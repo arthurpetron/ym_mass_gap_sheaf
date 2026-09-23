@@ -25,6 +25,44 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Whole signed-direction kinetic Hessian has a proved sign (2026-09-23 UTC)
+
+`SU2QuaternionProductHeatAngularHessian.productHeat_upperHessian_eq_neg_square`
+now proves, on the ACTUAL original selected product kernel P with kernel W,
+`H_2n[a(x)*a(y)*D_y^2 W] = -H_n[(D a)*P(D a)]`.
+Here D is any concrete finite rational signed sum of in-range quaternion
+angular generators, a is any supported signed source, and all mixed terms
+remain. The identity holds at every rational w and finite K, including repeated
+selected indices. For `0 <= w`, `productHeat_upperHessian_nonpositive` uses
+positive-semidefiniteness of that SAME product-map pairing to prove the left
+side is nonpositive. No pointwise heat floor, centering, source positivity,
+cardinality prefactor, spectral theorem or supplied analytic certificate is used.
+
+The proof is short mathematically: simultaneous endpoint rotations fix every
+relative heat factor; arbitrary-block original-Haar integration by parts
+makes the actual kinetic pairing skew for D; twice moving the upper derivative
+onto the retained source gives minus its kinetic square. The source-side
+identity `kineticPair_signedAngular_second_eq_neg_square` and upper-lift/source
+join are also proved. Coordinate identities use the original Haar carrier,
+not false raw equalities between trailing-zero exponent lists.
+
+**Next analytic action:** derive a useful quantitative, cancellation-preserving
+bound on the WHOLE original normalized temporal form, with complete a=V*g and
+the SAME centered variance. The present sign identity does not yet give a
+kinetic-score/reciprocal test, a Wilson-jump bound by a coefficient-square sum,
+or control of the finite-P source correction in
+`BF4ExactSlabFixedSpatialGroundStateEnergy.energy_eq_bare_add_correction`.
+Those joins must be proved before a scaling-family survival consequence can
+use this result. Do not replace the missing estimate by separate absolute
+cross-term bounds or repeat the already checked single-loop increment.
+
+Seven serialized 8 GiB leaf checks passed twenty-four public axiom gates,
+all within {propext, Quot.sound}. No new hole, axiom, weakened frontier field,
+full-root build/audit/guard, or canonical Clay closure. Spatial/scaling,
+nontrivial continuum survival, finite positive physical mass, full same-theory
+QFT/local fields and every group remain OPEN. Evidence:
+`audits/AUDIT-SIGNED-KINETIC-ANGULAR-HESSIAN-2026-09-23.md`.
+
 ### Retain the whole mixed temporal form; disjoint-locality shortcut pruned (2026-09-23 UTC)
 
 `SU2QuaternionWeightedProductDualEnergy.full_jump_pairing` now identifies

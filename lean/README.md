@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Whole signed-direction kinetic Hessian (2026-09-23):**
+`SU2QuaternionProductHeatAngularHessian.productHeat_upperHessian_eq_neg_square`
+identifies the upper second derivative of the actual selected product kernel,
+integrated with both complete sources, with minus the kinetic square of the
+full signed source derivative. `productHeat_upperHessian_nonpositive` proves
+its sign for `0 <= w`, at every finite cutoff and valid selected list.
+Simultaneous relative-heat invariance and arbitrary-block Haar IBP supply the
+proof, without deleting mixed terms or introducing a direction-count factor.
+The SAME normalized Wilson temporal/variance bound and all physical/continuum
+joins remain open. Seven focused leaves passed twenty-four permitted gates;
+no full-root build/audit/guard. Evidence:
+`audits/AUDIT-SIGNED-KINETIC-ANGULAR-HESSIAN-2026-09-23.md`.
+
 **Full mixed temporal form and finite locality fence (2026-09-23):**
 `SU2QuaternionWeightedProductDualEnergy.full_jump_pairing` keeps both sources
 in the actual mixed jump identity. `SU2QuaternionDisjointTemporalCrossTerm`

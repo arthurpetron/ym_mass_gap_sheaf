@@ -4897,6 +4897,7 @@ import YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain
 import YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification
 import YMGap.Continuum.SU2QuaternionSelectedLinkHeadObstruction
 import YMGap.Continuum.SU2QuaternionDisjointTemporalCrossTerm
+import YMGap.Continuum.SU2QuaternionProductHeatAngularHessian
 import YMGap.Continuum.SU2QuaternionProductHeatPrefix
 import YMGap.Continuum.SU2QuaternionProductHeatCyclicFold
 import YMGap.Continuum.SU2QuaternionBlockReversal

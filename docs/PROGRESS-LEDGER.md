@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: identify mixed temporal form and prune false locality (2026-09-23)
+## Current increment: a sign for the whole original kinetic Hessian (2026-09-23)
+
+The actual selected product kernel W now obeys
+`H_2n[a(x)*a(y)*D_y^2 W] = -H_n[(D a)*P(D a)] <= 0` for `0 <= w`,
+every finite cutoff and every finite rational signed angular direction D.
+Both endpoint sources and all cross terms remain. The proof constructs the
+simultaneous-rotation and twice-IBP joins, then uses the previously proved
+positive-semidefinite pairing of the SAME original product map.
+
+This supplies a collective sign instead of another estimate of individual
+mixed terms. It does not yet produce the quantitative normalized Wilson
+temporal bound, its SAME centered-variance comparison, or a justified scaling
+family. In particular the finite-P interacting correction is not silently
+identified with an angular Laplacian. Physical/continuum/Clay obligations
+remain open. Seven focused leaves passed twenty-four permitted gates, with
+no full-root build/audit/guard. See
+`audits/AUDIT-SIGNED-KINETIC-ANGULAR-HESSIAN-2026-09-23.md`.
+
+## Previous increment: identify mixed temporal form and prune false locality (2026-09-23)
 
 `full_jump_pairing` now retains both endpoint sources in an exact arbitrary-
 source mixed-energy identity. A positive two-block original SU(2) heat example
