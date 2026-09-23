@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## Proved dense completed-form estimate: persistent endpoint energy (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPersistentPathEnergyLimit.lean`.
+- **theorems**: `fixedBaseFloor_mul_endpoint_sq_leEv_pulledDirichletLimit`,
+  `pulledDirichletLimit_eq_completedDirichlet`, and
+  `fixedBaseFloor_mul_endpoint_sq_RCle_completedDirichlet` pass the finite
+  estimate to the cutoff limit and identify the actual dense completed
+  norm-minus-transfer form. The edge-floor witness is constructed, not assumed.
+- **residue**: arbitrary completed-vector passage, coordinate separation and
+  sector-vacuum identification before qualitative rigidity. Constants depend on
+  the retained base; no common strict rate, physical identification or continuum
+  result is supplied. No canonical field, axiom or hole changed.
+- **verification**: monitored 20 GiB leaf check; all four printed gates contain
+  only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
+
 ## Constructed data: persistent completed sector coordinates (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPersistentCoordinate.lean`.

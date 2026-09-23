@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: persistent completed sector coordinates (2026-09-23)
+## Current increment: endpoint bound on dense completed vectors (2026-09-23)
+
+`BF4PhysicalCutoffVacuumSectorPersistentPathEnergyLimit` passes the existing
+finite bound to the explicit pulled twice-deficit and identifies it with twice
+the actual dense completed norm-minus-transfer form. The positive fixed-base
+edge floor is constructed internally. The retained-coordinate base and cylinder
+presentation base may differ. This closes the inner cutoff-limit passage, not
+the outer passage to arbitrary Cauchy vectors, coordinate separation, vacuum
+uniqueness or a common strict gap. All physical/continuum joins remain open.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-persistent-path-energy-limit-check-2.log`; all four printed gates
+contain only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
+## Previous increment: persistent completed sector coordinates (2026-09-23)
 
 `BF4PhysicalCutoffVacuumSectorPersistentCoordinate` constructs actual coordinate
 functionals on the completed sector, using the original Cauchy modulus at
@@ -27,8 +41,8 @@ fixed-base path bound to the actual energy of arbitrary cylinder presentations.
 The old-old edge sum injects into the full later sector energy; no equality of
 the presentation base and selected coordinate base is assumed. Its prospective
 consumer is completed zero-Dirichlet rigidity, not an additional finite rate.
-Completed coordinates are now checked above; the energy-limit draft is not yet
-accepted, and vacuum
+Completed coordinates and the dense energy-limit passage are now checked above;
+arbitrary-vector passage and vacuum
 uniqueness, common strict gap and physical/continuum joins remain open.
 
 Verification: monitored 20 GiB leaf check,

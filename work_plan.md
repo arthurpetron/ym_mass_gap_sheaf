@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Persistent endpoint bound reaches the dense completed Dirichlet form (2026-09-23 UTC)
+
+`BF4PhysicalCutoffVacuumSectorPersistentPathEnergyLimit.fixedBaseFloor_mul_endpoint_sq_leEv_pulledDirichletLimit`
+passes the finite endpoint bound to the explicit cutoff-removed twice-deficit.
+The positive edge-floor certificate is constructed internally; no new analytic
+input is assumed. `pulledDirichletLimit_eq_completedDirichlet` identifies that
+limit with twice the actual dense completed inner product minus twice its
+completed transfer form, and
+`fixedBaseFloor_mul_endpoint_sq_RCle_completedDirichlet` states the resulting
+inequality directly in that completed form. The retained endpoints may belong
+to a different finite base from the cylinder presentation.
+
+The inequality is proved for dense embedded cylinders, not yet arbitrary
+completed vectors. That outer-limit passage and the separate coordinate
+separation/sector-vacuum argument remain open; no uniform spectral gap or
+physical/continuum conclusion follows. Verification: monitored 20 GiB leaf
+check, `/tmp/ym-gap-persistent-path-energy-limit-check-2.log`; all four printed
+gates contain only `{propext, Quot.sound}`, no warnings or `sorryAx`. The first
+failed check is not included as evidence. No full-root audit.
+
 ### Constructed persistent coordinates on the actual sector completion (2026-09-23 UTC)
 
 `BF4PhysicalCutoffVacuumSectorPersistentCoordinate.completedCoordinate`
@@ -41,7 +61,8 @@ without warnings or `sorryAx`. Local transparency controls avoid re-enumerating
 the lattice while checking this abstract carrier argument; no budget increase
 or mathematical statement change was needed. No full-root audit.
 
-The dense/completed Dirichlet endpoint passage is still being verified.
+The dense Dirichlet endpoint passage is now checked in the milestone above;
+its arbitrary-completed-vector extension remains open.
 Moreover, coordinate constancy alone is not yet a completed-vector equality:
 the qualitative rigidity route needs a proved separation/tail argument and
 the correct sector-vacuum identification. Orthogonality to the global vacuum
@@ -65,7 +86,8 @@ and path ceiling depend on the selected fixed base, not on the presentation.
 This supplies a finite endpoint-energy estimate for the proposed completed
 zero-energy rigidity argument, not another finite Poincare-rate construction.
 Completed coordinate descent is now checked in the milestone above; passage
-of the endpoint estimate through the completion remains unverified.
+of the endpoint estimate to arbitrary completed vectors remains open (its
+dense completed-form version is checked above).
 Fixed-vector uniqueness, a common strict
 gap and every physical/continuum join remain open. No canonical frontier is
 weakened. Verification: monitored 20 GiB leaf check,
