@@ -159,7 +159,11 @@ rational `κ` and the pointwise lower comparison
 `reverseComparisonCauchy` and `reverseComparisonCauchy_null` transport Cauchy
 moduli and null witnesses back to the original carrier; `reverseComparison`
 then descends this transport through the quotient completion, with
-`reverseComparison_embed` fixing embedded representatives.
+`reverseComparison_embed` fixing embedded representatives.  The quotient
+round-trip theorems `reverseComparison_comparison` and
+`comparison_reverseComparison` show that the two maps are inverse at the
+level of completion classes because both retain the same representative
+sequence; this is not a norm-isometry claim.
 
 The focused dependency-complete target passed 84 jobs with only
 `{propext, Quot.sound}` and no `sorryAx`.  This milestone does not prove the

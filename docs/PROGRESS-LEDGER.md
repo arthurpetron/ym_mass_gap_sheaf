@@ -27634,7 +27634,10 @@ lower bound `κ * distSqQ_original ≤ distSqQ_one_step`.  From this supplied
 certificate, `reverseComparisonCauchy` rescales one-step Cauchy moduli,
 `reverseComparisonCauchy_null` transports Cauchy-null witnesses, and
 `reverseComparison` descends the result to the quotient completion; the
-embedded-representative identity is `reverseComparison_embed`.
+embedded-representative identity is `reverseComparison_embed`.  The two
+quotient round trips are checked by
+`reverseComparison_comparison` and `comparison_reverseComparison`; they use
+only same-sequence nullity and do not assert norm isometry.
 
 The focused monitored target passed 84 jobs with only
 `{propext, Quot.sound}` and no `sorryAx`.  The BF4 coercivity witness itself

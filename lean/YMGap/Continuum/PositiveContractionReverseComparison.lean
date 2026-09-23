@@ -103,9 +103,58 @@ theorem reverseComparison_embed
         (embedV (oneStepSmulGNSData D S.Dv hsa hpos).toGNSData a) =
       embedV D.toGNSData a := rfl
 
+/-- Once both comparison certificates are supplied, the reverse and forward
+maps agree with the identity on the original quotient completion.  The proof
+uses only that both maps retain the same representative sequence; it does not
+claim an unproved norm equivalence. -/
+theorem reverseComparison_comparison
+    {D : SmulGNSData} {S : DiagonalTransferSymbol D}
+    {hsa : ∀ a b, D.toGNSData.B a (S.Dv b) ≈ D.toGNSData.B (S.Dv a) b}
+    {hpos : ∀ a, (0 : Q') ≤ D.toGNSData.B a (S.Dv a)}
+    {hupper : ∀ a, D.toGNSData.B a (S.Dv a) ≤ D.toGNSData.B a a}
+    (certificate : ReverseComparisonCoercivity D S hsa hpos)
+    (x : GNSCompletionSpace D.toGNSData) :
+    reverseComparison certificate
+        (comparison D S hsa hpos hupper x) = x := by
+  refine Quotient.inductionOn x ?_
+  intro X
+  apply Quotient.sound
+  change CauchyNull D.toGNSData X
+      (reverseComparisonCauchy certificate
+      (comparisonCauchy D S hsa hpos hupper X))
+  exact cauchyNull_refl D.toGNSData X
+
+/-- The same representative-sequence argument gives the identity on the
+one-step-form quotient completion. -/
+theorem comparison_reverseComparison
+    {D : SmulGNSData} {S : DiagonalTransferSymbol D}
+    {hsa : ∀ a b, D.toGNSData.B a (S.Dv b) ≈ D.toGNSData.B (S.Dv a) b}
+    {hpos : ∀ a, (0 : Q') ≤ D.toGNSData.B a (S.Dv a)}
+    {hupper : ∀ a, D.toGNSData.B a (S.Dv a) ≤ D.toGNSData.B a a}
+    (certificate : ReverseComparisonCoercivity D S hsa hpos)
+    (y : GNSCompletionSpace (oneStepSmulGNSData D S.Dv hsa hpos).toGNSData) :
+    comparison D S hsa hpos hupper
+        (reverseComparison certificate y) = y := by
+  refine Quotient.inductionOn y ?_
+  intro Y
+  apply Quotient.sound
+  change CauchyNull (oneStepSmulGNSData D S.Dv hsa hpos).toGNSData
+    (comparisonCauchy D S hsa hpos hupper
+      (reverseComparisonCauchy certificate Y)) Y
+  intro ε hε
+  refine ⟨0, fun n _ => ?_⟩
+  change (oneStepSmulGNSData D S.Dv hsa hpos).toGNSData.distSqQ
+      (Y.seq n) (Y.seq n) ≤ ε
+  exact Q'.le_trans' _ 0 ε
+    (Q'.le_of_eqv
+      ((oneStepSmulGNSData D S.Dv hsa hpos).toGNSData.rad_refl (Y.seq n)))
+    (Q'.le_of_lt hε)
+
 end YMGap.Continuum.PositiveContractionReverseComparison
 
 #print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparisonCauchy
 #print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparisonCauchy_null
 #print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparison
 #print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparison_embed
+#print axioms YMGap.Continuum.PositiveContractionReverseComparison.reverseComparison_comparison
+#print axioms YMGap.Continuum.PositiveContractionReverseComparison.comparison_reverseComparison
