@@ -47,7 +47,9 @@ bound via Cauchy--Schwarz.  This is not yet the completed physical OS transfer
 or a continuum spectral gap.
 The pairwise centered distance bound now transports centered Cauchy
 representatives with their explicit moduli, preserving the centered sector.
-Cauchy-null descent and the CReal inner product on the completion remain open.
+The Cauchy-null descent is now checked on the centered sector, yielding an
+explicit centered Cauchy quotient and descended transfer map.  This is not
+yet the full GNS Hilbert completion, OS transfer, or continuum theory.
 
 > **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.

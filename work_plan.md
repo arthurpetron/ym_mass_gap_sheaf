@@ -120,6 +120,13 @@ Cauchy sequences with the original modulus.  The remaining completion seam is
 descent through Cauchy-null equivalence and construction of the CReal-valued
 inner product; neither is claimed closed here.
 
+`productMap_centeredCauchy_null` now discharges the Cauchy-null seam.  The
+constructive `centeredCauchySetoid` and `centeredCompletionTransfer` therefore
+give a genuine transfer map on the centered Cauchy quotient, with an explicit
+representative rule.  This quotient still needs the CReal inner product,
+density/OS identification, and physical uniformity before it can serve as the
+completed Yang--Mills Hilbert space.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

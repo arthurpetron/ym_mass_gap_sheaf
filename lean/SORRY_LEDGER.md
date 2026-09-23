@@ -103,6 +103,14 @@ the same modulus and preserve centeredness.  This reaches the representative
 level of the existing completion machinery, but does not descend Cauchy-null
 sequences or construct the CReal inner product on the completion.
 
+The Cauchy-null bridge is now also explicit:
+`productMap_centeredCauchy_null` proves null preservation,
+`centeredCauchySetoid` packages the centered quotient, and
+`centeredCompletionTransfer` descends the transfer to that quotient with
+`centeredCompletionTransfer_mk`.  This is a centered Cauchy completion
+carrier, not yet the full GNS Hilbert completion or a physical OS/QFT
+construction.
+
 ## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`.

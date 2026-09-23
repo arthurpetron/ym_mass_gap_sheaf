@@ -530,6 +530,72 @@ def productMap_centeredCauchyData
     centered := fun k => productMap_centered_preserved n hw0 hw1 K hK ids
       hnodup hids (x.seq.seq k).val (x.seq.seq k).property (x.centered k) }
 
+theorem productMap_centeredCauchy_null
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x y : CenteredCauchyGNS n)
+    (hxy : CauchyNull (finiteHaarGNSData n) x.seq y.seq) :
+    CauchyNull (finiteHaarGNSData n)
+      (productMap_centeredCauchy n hw0 hw1 K hK ids hnodup hids x)
+      (productMap_centeredCauchy n hw0 hw1 K hK ids hnodup hids y) := by
+  intro ε hε
+  obtain ⟨N, hN⟩ := hxy ε hε
+  refine ⟨N, fun k hk => ?_⟩
+  have hdist := productMapRep_centered_distSq_bound n hw0 hw1 K hK ids
+    hnodup hids (x.seq.seq k) (y.seq.seq k)
+    (x.centered k) (y.centered k)
+  have hsrc := hN k hk
+  have hrate0 : (0 : Q') ≤ squaredHeatRate w :=
+    squaredHeatRate_nonnegative hw0 hw1
+  have hmul := Q'.mul_le_mul_of_nonneg_left _ _ _ hsrc hrate0
+  have hrate1 : squaredHeatRate w ≤ (1 : Q') :=
+    Q'.le_of_lt (squaredHeatRate_lt_one hw0 hw1)
+  have heps := Q'.mul_le_mul_of_nonneg_right _ _ _ hrate1
+    (Q'.le_of_lt hε)
+  exact Q'.le_trans' _ _ _ hdist
+    (Q'.le_trans' _ _ _ hmul
+      (le_of_le_eqv heps (Q'.one_mul_eqv ε)))
+
+def centeredCauchySetoid (n : Nat) : Setoid (CenteredCauchyGNS n) where
+  r := fun x y => CauchyNull (finiteHaarGNSData n) x.seq y.seq
+  iseqv := {
+    refl := fun x => cauchyNull_refl (finiteHaarGNSData n) x.seq
+    symm := fun h => cauchyNull_symm (finiteHaarGNSData n) h
+    trans := fun h₁ h₂ => cauchyNull_trans (finiteHaarGNSData n) h₁ h₂ }
+
+abbrev CenteredCompletionSpace (n : Nat) : Type :=
+  Quotient (centeredCauchySetoid n)
+
+def centeredCompletionTransfer
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n) :
+    CenteredCompletionSpace n → CenteredCompletionSpace n :=
+  Quotient.lift
+    (fun x => Quotient.mk (centeredCauchySetoid n)
+      (productMap_centeredCauchyData n hw0 hw1 K hK ids hnodup hids x))
+    (by
+      intro x y hxy
+      exact Quotient.sound (productMap_centeredCauchy_null n hw0 hw1 K hK ids
+        hnodup hids x y hxy))
+
+theorem centeredCompletionTransfer_mk
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x : CenteredCauchyGNS n) :
+    centeredCompletionTransfer n hw0 hw1 K hK ids hnodup hids
+        (Quotient.mk (centeredCauchySetoid n) x) =
+      Quotient.mk (centeredCauchySetoid n)
+        (productMap_centeredCauchyData n hw0 hw1 K hK ids hnodup hids x) := rfl
+
 end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapRep
@@ -550,3 +616,7 @@ end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.CenteredCauchyGNS
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMap_centeredCauchy
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMap_centeredCauchyData
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMap_centeredCauchy_null
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCauchySetoid
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionTransfer
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionTransfer_mk
