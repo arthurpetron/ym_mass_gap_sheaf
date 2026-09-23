@@ -35,6 +35,9 @@ The map also respects quotient addition and negation on representatives;
 scalar descent and the ordered completed-space estimate remain open.
 It fixes the normalized finite Haar unit class as well, which is only a
 finite vacuum-seed result and not a continuum isolated-vacuum theorem.
+The product-map pairing bridge also proves ordinary-Haar mean preservation and
+invariance of the representative-level centered sector; the completed
+vacuum-complement gap remains open.
 
 > **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.

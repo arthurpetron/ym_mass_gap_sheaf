@@ -93,6 +93,12 @@ and an ordered completed-space contraction remain separate obligations.
 This is a finite vacuum-seed statement only; it is not the isolated vacuum of
 the continuum theory and does not supply a mass gap.
 
+The product-map pairing bridge now proves mean preservation and centeredness
+preservation (`productMap_mean_preserved`, `productMap_centered_preserved`).
+Thus the finite representative transfer leaves its Haar-centered sector
+invariant, while the quotient/completion realization of the vacuum complement
+and any uniform strict gap remain open.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

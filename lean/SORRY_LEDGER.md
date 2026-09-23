@@ -78,6 +78,12 @@ normalized Haar unit class.  The proof uses the tested-Haar constant law on
 the explicit difference from the unit and does not identify this finite unit
 with a continuum vacuum.
 
+The same finite pairing bridge proves `productMap_mean_preserved` and
+`productMap_centered_preserved`: the product map preserves the ordinary-Haar
+mean and therefore leaves the representative-level vacuum complement
+invariant.  This remains a finite statement; no completed complement or
+uniform gap is claimed.
+
 ## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`.

@@ -26,10 +26,12 @@ open YMGap.Continuum.SU2QuaternionFiniteHaarGNSCarrier
 open YMGap.Continuum.SU2QuaternionFiniteHaarProductMapRadical
 open YMGap.Continuum.SU2QuaternionAuxiliaryLiftAlgebra
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
+open YMGap.Continuum.SU2QuaternionPartialFactorizedHaar
 open YMGap.Continuum.SU2QuaternionProductHeatConstant
 open YMGap.Continuum.SU2QuaternionProductHeatMarginals
 open YMGap.Continuum.SU2QuaternionProductHeatTensorization
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
+open YMGap.Continuum.SU2QuaternionTranslationPolynomialImages
 open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.SU2QuaternionArbitraryHaarPolynomialPositivity
 open YMGap.Continuum.SU2QuaternionRelativeHeatContraction
@@ -43,6 +45,12 @@ private theorem support_smul_local {n : Nat} {p : RatPoly}
   intro t ht
   obtain ⟨s, hs, rfl⟩ := List.mem_map.mp ht
   exact hp s hs
+
+private theorem support_weaken_local {small large : Nat} {p : RatPoly}
+    (hp : SupportedQuaternionBlocks small p) (hle : small ≤ large) :
+    SupportedQuaternionBlocks large p := by
+  intro t ht
+  exact Nat.le_trans (hp t ht) (Nat.mul_le_mul_left 4 hle)
 
 /-! ## Representatives -/
 
@@ -221,6 +229,71 @@ theorem productMapQuotient_unit
     unfold finiteHaarPair
     exact hdiag) hright
 
+theorem productMap_mean_preserved
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (f : RatPoly) (hf : SupportedQuaternionBlocks n f) :
+    quaternionHaar n (productMap n w K ids f) ≈ quaternionHaar n f := by
+  have hpair := productMap_pairing n w K ids f polyOne
+  have hleft : quaternionHaar n
+      (polyMul polyOne (productMap n w K ids f)) ≈
+      quaternionHaar n (productMap n w K ids f) :=
+    haar_of_coeff (RatPolyCoeffEqv.one_mul (productMap n w K ids f))
+  have hpad : PaddedPolynomialCoeffEqv (n+n)
+      (polyMul f (liftBoundary n polyOne))
+      (polyMul f polyOne) := by
+    exact (PaddedPolynomialCoeffEqv.of_coeff (RatPolyCoeffEqv.refl f)).mul
+      (lift_one (n+n) n)
+  have hf_lift : SupportedQuaternionBlocks (n+n)
+      (polyMul f (liftBoundary n polyOne)) :=
+    supported_polyMul (support_weaken_local hf (by omega))
+      (lift_supported (supported_one n) n)
+  have hf_one : SupportedQuaternionBlocks (n+n) (polyMul f polyOne) :=
+    supported_polyMul (support_weaken_local hf (by omega)) (supported_one (n+n))
+  have hpad_haar : quaternionHaar (n+n)
+      (polyMul f (liftBoundary n polyOne)) ≈
+      quaternionHaar (n+n) (polyMul f polyOne) :=
+    hpad.haar hf_lift hf_one
+  have hheat_haar : quaternionHaar (n+n)
+      (polyMul (productHeat n w K ids)
+        (polyMul f (liftBoundary n polyOne))) ≈
+      quaternionHaar (n+n)
+        (polyMul (productHeat n w K ids) (polyMul f polyOne)) := by
+    have hprod := (PaddedPolynomialCoeffEqv.of_coeff
+      (RatPolyCoeffEqv.refl (productHeat n w K ids))).mul hpad
+    exact hprod.haar
+      (supported_polyMul (productHeat_supported n w K ids hids) hf_lift)
+      (supported_polyMul (productHeat_supported n w K ids hids) hf_one)
+  have hone : RatPolyCoeffEqv (polyMul f polyOne) f :=
+    RatPolyCoeffEqv.mul_one f
+  have hheat_f : quaternionHaar (n+n)
+      (polyMul (productHeat n w K ids) (polyMul f polyOne)) ≈
+      quaternionHaar (n+n) (polyMul (productHeat n w K ids) f) :=
+    haar_of_coeff (hone.mul_left (productHeat n w K ids))
+  have hmarg : quaternionHaar (n+n)
+      (polyMul (productHeat n w K ids) f) ≈ quaternionHaar n f :=
+    productHeat_lower_marginal n w K ids hnodup hids f hf
+  exact Q'.eqv_trans _ _ _ (Q'.eqv_symm hleft)
+    (Q'.eqv_trans _ _ _ hpair
+      (Q'.eqv_trans _ _ _ hheat_haar
+      (Q'.eqv_trans _ _ _ hheat_f hmarg)))
+
+theorem productMap_centered_preserved
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (f : RatPoly) (hf : SupportedQuaternionBlocks n f)
+    (hcenter : quaternionHaar n f ≈ 0) :
+    quaternionHaar n (productMap n w K ids f) ≈ 0 :=
+  Q'.eqv_trans _ _ _
+    (productMap_mean_preserved n hw0 hw1 K hK ids hnodup hids f hf)
+    hcenter
+
 /-! ## Same-object pairing and finite centered estimate -/
 
 theorem productMapQuotient_qInner_mk
@@ -282,6 +355,8 @@ end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qAdd_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qNeg_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_unit
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMap_mean_preserved
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMap_centered_preserved
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qInner_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qNormSq_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_centered_square_bound
