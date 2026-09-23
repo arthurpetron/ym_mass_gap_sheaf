@@ -13,6 +13,17 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **Original product map as a conditional-link sweep (2026-09-21 UTC):**
+**All-cutoff actual norm bounds (2026-09-23):**
+`SU2QuaternionHeadHeatPositiveContraction` proves bilinear symmetry of the
+computed `headMap`, its positive form interval, and
+`headMap_square_le_pair`, using rational form Cauchy--Schwarz. For supported
+polynomials and rational `0 <= w <= 1`, no cutoff onset or pointwise heat
+floor is needed. `SU2QuaternionProductHeatCyclicContraction` transports the
+norm bound through actual cyclic steps to the ORIGINAL full-range product
+operator at every K. The multiplier is 1: no strict gap, angular defect
+telescope, interacting estimate or physical/continuum closure follows.
+See `audits/AUDIT-HEAD-HEAT-ALL-CUTOFF-CONTRACTION-2026-09-23.md`.
+
 **Rotation-separated local estimate (2026-09-23):**
 `SU2QuaternionProductHeatCyclicRotation.cycleReturn_step_carrier` identifies
 the derotation of the actual fresh-output step with a computed conjugated

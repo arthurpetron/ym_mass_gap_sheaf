@@ -249,10 +249,12 @@ theorem substitute_copy_carrier {blocks : Nat} (hb : 0 < blocks) {p : RatPoly}
   carrierOfPrefix (substituteRetained_supported blocks hb (copy_supported hb hp)) hp
     (substitute_copy_prefix blocks p)
 
-private def spareSwap (blocks : Nat) (hb : 0 < blocks) : QuaternionBlockInvolution (blocks+1) :=
+/-- Exchange the integrated source and spare retained head, fixing all spectators. -/
+def spareSwap (blocks : Nat) (hb : 0 < blocks) : QuaternionBlockInvolution (blocks+1) :=
   blockSwapInvolution (blocks+1) 0 1 (by omega) (by omega)
 
-private theorem copy_reindex_prefix (blocks : Nat) (hb : 0 < blocks) : ∀ p : RatPoly,
+/-- The spare-head copy is exactly the lifted input after this two-head swap. -/
+theorem copy_reindex_prefix (blocks : Nat) (hb : 0 < blocks) : ∀ p : RatPoly,
     QuaternionPrefixPolynomialEqv (blocks+1)
       (reindexQuaternionPolynomial (spareSwap blocks hb) (liftHead p)) (copy p)
   | [] => .nil
@@ -307,3 +309,5 @@ end YMGap.Continuum.SU2QuaternionSpareHeadCopy
 #print axioms YMGap.Continuum.SU2QuaternionSpareHeadCopy.substitute_copy_prefix
 #print axioms YMGap.Continuum.SU2QuaternionSpareHeadCopy.substitute_copy_carrier
 #print axioms YMGap.Continuum.SU2QuaternionSpareHeadCopy.copy_carrier
+#print axioms YMGap.Continuum.SU2QuaternionSpareHeadCopy.spareSwap
+#print axioms YMGap.Continuum.SU2QuaternionSpareHeadCopy.copy_reindex_prefix

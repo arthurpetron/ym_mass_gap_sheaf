@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Proved all-cutoff actual head and full-product norm bounds (2026-09-23)
+
+- **files**: new `YMGap/Continuum/SU2QuaternionHeadHeatPositiveContraction.lean`
+  and `SU2QuaternionProductHeatCyclicContraction.lean`; public promotion of
+  existing `spareSwap` and `copy_reindex_prefix` in `SU2QuaternionSpareHeadCopy`.
+- **constructed bounds**: actual head-map symmetry/positive form interval;
+  `headMap_square_le_pair` by rational form Cauchy--Schwarz; cyclic-prefix
+  nonexpansion and `productMap_range_square_contraction` for the ORIGINAL
+  fully active endpoint. Supported inputs, n>0, every K, rational 0<=w<=1.
+- **distinction**: multiplier 1, not a strict rate. No cutoff or pointwise
+  heat-floor premise; the earlier guarded centered strict estimate is unchanged.
+- **open**: full-product angular defect, inactive projections, interacting
+  signed correction, physical OS/time, spatial/scaling, nontrivial continuum,
+  physical mass, QFT and every group. No canonical Clay atom is closed.
+- **verification**: three narrow serialized 8 GiB checks, twenty-seven public
+  permitted gates, no warning or `sorryAx`; no new hole, axiom or changed
+  frontier field, and no full-root build/audit/guard. Exact evidence:
+  `audits/AUDIT-HEAD-HEAT-ALL-CUTOFF-CONTRACTION-2026-09-23.md`.
+
 ## Proved actual cyclic-step rotation and local angular bound (2026-09-23)
 
 - **files**: `YMGap/Continuum/SU2QuaternionBlockReversal.lean` and

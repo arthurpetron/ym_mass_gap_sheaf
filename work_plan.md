@@ -25,6 +25,36 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### All-cutoff positive head map and original-product norm bound (2026-09-23 UTC)
+
+`SU2QuaternionHeadHeatPositiveContraction` proves bilinear `heatPair_symm`
+and `headMap_symmetric` by exchanging the two head coordinates, retaining
+all spectators. The computed harmonic weights give 0<=H<=I, and rational
+positive-form Cauchy--Schwarz gives `headMap_square_le_pair` and
+`headMap_square_contraction` for every finite K and rational `0 <= w <= 1`.
+No pointwise heat floor, cutoff-onset premise or spectral theorem is used.
+
+`SU2QuaternionProductHeatCyclicContraction` consumes the actual cyclic/head
+join, Haar isometry of both reversals, and that norm bound. It proves
+nonexpansion of each cyclic step and every prefix, then
+`productMap_range_square_contraction` on the ORIGINAL fully active product
+for every n=tail+1 and supported input. This extends norm control to every K
+and the endpoint nomes; its multiplier is 1, not a strict gap. The existing
+floor-guarded centered estimate has a different, strictly stronger rate.
+
+NEXT remains the full-product angular DEFECT estimate, not norm nonexpansion.
+Spectator equivariance, distinct selected-update commutation and an actual
+product-defect argument must be joined, or a positive joint-mode proof used.
+Proper active subsets retain inactive projections; the interacting consumer
+retains `V*g*f` and the signed correction. Physical OS/time, spatial/scaling,
+continuum survival, finite physical mass, full QFT and every group stay OPEN.
+
+Verification: three serialized 8 GiB leaf checks, twenty-seven public axiom
+gates within `{propext, Quot.sound}`, no warning or `sorryAx`. This includes
+the unchanged-body promotion of two spare-copy helpers used by symmetry.
+No full-root build/audit/guard. Evidence:
+`audits/AUDIT-HEAD-HEAT-ALL-CUTOFF-CONTRACTION-2026-09-23.md`.
+
 ### Actual cyclic step has a rotation-separated angular bound (2026-09-23 UTC)
 
 `SU2QuaternionBlockReversal` constructs the full reversal A and head-fixing

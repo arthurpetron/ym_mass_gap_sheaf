@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: bound the actual cyclic step after rotation (2026-09-23)
+## Current increment: all-cutoff actual head/product norm control (2026-09-23)
+
+The two-head exchange proves symmetry of the actual head heat update. Its
+computed spectral form interval and existing rational Cauchy--Schwarz engine
+give the image-norm bound for every cutoff and rational 0<=w<=1. This removes
+the pointwise heat-floor/onset requirement for NONEXPANSION, not for a strict
+gap. The actual cyclic identity then propagates the bound through every
+prefix to the original full-range product operator on n>0 supported blocks.
+
+This has an actual endpoint consumer (`productMap_range_square_contraction`),
+not an uninhabited operator certificate. The multiplier is exactly 1; the
+full-product sum-of-angular-defects estimate is still open. Inactive-link
+residuals, signed interacting correction and all physical/continuum/Clay joins
+remain. Three narrow checks passed twenty-seven permitted public gates;
+no full-root build/audit/guard. Evidence:
+`audits/AUDIT-HEAD-HEAT-ALL-CUTOFF-CONTRACTION-2026-09-23.md`.
+
+## Previous increment: bound the actual cyclic step after rotation (2026-09-23)
 
 Two explicit block reversals identify the actual cyclic step C with
 A(headMap(B p)), under every supported-carrier insertion. Derotation B A

@@ -61,6 +61,14 @@ Composition across all blocks, inactive-link residuals and the signed
 interacting correction remain open. See the
 [local estimate and next consumer](audits/AUDIT-PRODUCT-HEAT-CYCLIC-ROTATION-2026-09-23.md).
 
+The actual head map is now proved symmetric and positive, and its image norm
+is bounded by its same-input pairing. Consequently the original fully active
+product map is [nonexpansive at every finite cutoff](lean/YMGap/Continuum/SU2QuaternionProductHeatCyclicContraction.lean)
+for every rational `0 <= w <= 1`, without centering or a pointwise heat-floor
+guard. This has rate **1**, not a strict gap; it does not yet bound the
+full-product angular defect. See the
+[all-cutoff norm proof](audits/AUDIT-HEAD-HEAT-ALL-CUTOFF-CONTRACTION-2026-09-23.md).
+
 ## Earlier checkpoints (historical; later results may supersede open steps)
 
 Latest checked finite completed-carrier milestone:
