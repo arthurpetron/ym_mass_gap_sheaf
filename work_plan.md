@@ -254,6 +254,25 @@ OS transfer matrix, or provide thermodynamic, continuum, QFT, all-group, or
 Clay closure.  The focused dependency-complete target passed with only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+### Physical completed-carrier positive-period exclusion (2026-09-23 UTC)
+
+The same module now proves
+`concreteSU2CompletedCarrierCertificate_positive_vector_power_not_fixed`:
+given a strict completed-sector contraction and an explicit positive completed
+norm, no positive natural power of the sector transfer fixes the vector.  The
+proof iterates the existing squared-norm decay, proves
+`(q*q)^n < 1` constructively for `0 < n` even when `q = 0`, and reuses
+`scalar_contraction_zero`.  The concrete specialization
+`concreteSU2CompletedCarrierCertificate_explicit_vector_power_not_fixed`
+applies this to the literal moving-centered cube excitation under the
+inhabited marginal package.
+
+This is a finite-period exclusion on the fixed-nome, extent-one completed
+physical SU(2) carrier.  It is not a generator-spectrum theorem, an OS
+semigroup statement, a beta/spacing-uniform gap, or a thermodynamic,
+continuum, QFT, all-group, or Clay result.  The focused dependency-complete
+target passed with only `{propext, Quot.sound}` and no `sorryAx`.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

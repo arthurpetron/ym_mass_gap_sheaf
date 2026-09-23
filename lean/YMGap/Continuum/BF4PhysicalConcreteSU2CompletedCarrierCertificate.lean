@@ -344,6 +344,18 @@ private theorem square_rate_lt_one {q : Q'}
     (Q'.le_of_eqv (Q'.mul_one_eqv q))
   exact Q'.lt_of_le_of_lt hsq_le_q hq1
 
+private theorem strict_power_lt_one {q : Q'}
+    (hq0 : (0 : Q') ≤ q) (hq1 : q < (1 : Q'))
+    {n : Nat} (hn : 0 < n) :
+    q ^ n < (1 : Q') := by
+  cases n with
+  | zero => cases hn
+  | succ k =>
+      simpa only [Nat.succ_eq_add_one] using
+        (YMGap.Continuum.HKPos.q_lt_of_le_of_lt
+          (YMGap.Continuum.HKPos.pow_succ_le_self hq0
+            (Q'.le_of_lt hq1) k) hq1)
+
 /-- Any vector carrying an explicit positive completed norm cannot be fixed by
 the completed physical sector transfer when a strict contraction datum is
 available.  The positivity hypothesis is intentionally explicit: this lemma
@@ -410,6 +422,85 @@ theorem concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed
   let vector := concreteVacuumComplementVector hw0 hw1
   exact concreteSU2CompletedCarrierCertificate_positive_vector_not_fixed
     hw0 hw1 gap vector carrier.vector_inner_positive
+
+/-- Any explicitly positive-norm completed-sector vector is not periodic under
+any positive power of a strict transfer.  This is the temporal strengthening
+of `...positive_vector_not_fixed`: it rules out a nontrivial finite orbit while
+retaining the same fixed-nome contraction and the same completed inner product.
+The statement is intentionally about the supplied completed transfer power; it
+does not identify a generator or a continuum time semigroup. -/
+theorem concreteSU2CompletedCarrierCertificate_positive_vector_power_not_fixed
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (gap : CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
+      hw0 hw1 0)
+    (vector : SectorVacuumComplement hw0 hw1)
+    (hpositive : RCIsPositive
+      (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+        vector.1 vector.1))
+    (n : Nat) (hn : 0 < n) :
+    centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+        hw0 hw1 0 n vector ≠ vector := by
+  intro hfixed
+  have hcontract :=
+    centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower_norm_decay
+      gap n vector
+  change CReal.RCle
+    (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+      (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+        hw0 hw1 0 n vector).1
+      (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+        hw0 hw1 0 n vector).1)
+    (CReal.RCscale ((gap.rate * gap.rate) ^ n)
+      (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+        vector.1 vector.1)) at hcontract
+  rw [hfixed] at hcontract
+  have hrateSq : gap.rate * gap.rate < (1 : Q') :=
+    square_rate_lt_one gap.rate_nonnegative gap.rate_lt_one
+  have hratePow : (gap.rate * gap.rate) ^ n < (1 : Q') :=
+    strict_power_lt_one
+      (Q'.mul_nonneg gap.rate gap.rate
+        gap.rate_nonnegative gap.rate_nonnegative)
+      hrateSq hn
+  have hcontract' : CReal.RCle
+      (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+        vector.1 vector.1)
+      (CReal.RCmul
+        (Quotient.mk CReal.crealSetoid
+          (CReal.ofQ' ((gap.rate * gap.rate) ^ n)))
+        (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+          vector.1 vector.1)) := by
+    simpa only [rcScale_eq_rcMul_ofQ'] using hcontract
+  have hnormNonnegative : CReal.RCnonneg
+      (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+        vector.1 vector.1) := by
+    change CReal.RCnonneg
+      (centralPhysicalCutoffCompletedInner hw0 hw1 0
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal vector.1)
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal vector.1))
+    exact centralPhysicalCutoffCompletedInner_self_nonneg hw0 hw1 0 _
+  have hzero := scalar_contraction_zero
+    ((gap.rate * gap.rate) ^ n) hratePow
+    (centralPhysicalVacuumSectorCylinderCompletedInner hw0 hw1 0
+      vector.1 vector.1)
+    hnormNonnegative hcontract'
+  obtain ⟨epsilon, hepsilon, hfloor⟩ := hpositive
+  rw [hzero] at hfloor
+  exact positive_constant_not_le_zero epsilon hepsilon hfloor
+
+/-- The literal moving-centered cube excitation has no positive-period orbit
+under the inhabited fixed-nome marginal transfer. -/
+theorem concreteSU2CompletedCarrierCertificate_explicit_vector_power_not_fixed
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (hw : w ≤ HalfPow.half) (n : Nat) (hn : 0 < n) :
+    centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+        hw0 hw1 0 n (concreteVacuumComplementVector hw0 hw1) ≠
+      concreteVacuumComplementVector hw0 hw1 := by
+  let package := concreteSU2CompletedMarginalCarrierCertificate hw0 hw1 hw
+  let carrier := package.1
+  let gap := package.2
+  let vector := concreteVacuumComplementVector hw0 hw1
+  exact concreteSU2CompletedCarrierCertificate_positive_vector_power_not_fixed
+    hw0 hw1 gap vector carrier.vector_inner_positive n hn
 
 /-! ## 2a. Expose the completed strict-contraction witness -/
 
@@ -522,6 +613,10 @@ end YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_positive_vector_not_fixed
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_explicit_vector_not_fixed
+#print axioms
+  YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_positive_vector_power_not_fixed
+#print axioms
+  YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_explicit_vector_power_not_fixed
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedStrictContractionData_of_localGluing
 #print axioms

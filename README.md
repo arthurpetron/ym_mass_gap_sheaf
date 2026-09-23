@@ -113,6 +113,18 @@ continuum passage, QFT construction, all-group result, or Clay theorem.
 The focused dependency-complete check passed with only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+The same carrier now also has a positive-period exclusion:
+`concreteSU2CompletedCarrierCertificate_positive_vector_power_not_fixed`
+proves that an explicitly positive-norm sector vector cannot be fixed by any
+positive power of a strict completed transfer, and
+`concreteSU2CompletedCarrierCertificate_explicit_vector_power_not_fixed`
+instantiates this for the literal moving-centered cube under the inhabited
+marginal package.  This iterates the checked squared-norm decay and remains a
+fixed-nome, extent-one orbit statement; it is not a generator-spectrum, OS
+semigroup, beta/spacing-uniform, thermodynamic, continuum, QFT, all-group, or
+Clay theorem.  The focused dependency-complete check passed with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

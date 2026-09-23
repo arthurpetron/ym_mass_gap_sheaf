@@ -13,6 +13,27 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED physical completed-carrier positive-period exclusion (2026-09-23 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean`.
+- **proved declarations**:
+  `concreteSU2CompletedCarrierCertificate_positive_vector_power_not_fixed` and
+  `concreteSU2CompletedCarrierCertificate_explicit_vector_power_not_fixed`.
+- **proof content**: the generic declaration combines the existing completed
+  transfer-power squared-norm decay with the strict rational inequality
+  `(q*q)^n < 1` for `0 < n`, then applies constructive
+  `scalar_contraction_zero` to a hypothetical positive-period fixed point.
+  The concrete declaration supplies the same moving-centered cube vector and
+  its explicit positive norm witness from the inhabited marginal package.
+- **scope**: fixed nome, extent one, positive natural period, and the one
+  explicit physical observable.  This is not a generator-spectrum, OS
+  semigroup, beta/spacing-uniform, thermodynamic, continuum, QFT, all-group,
+  or Clay theorem.
+- **verification**: focused dependency-complete safe build of
+  `+YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate:olean`
+  passed 6077 jobs; both declarations report only `{propext, Quot.sound}` and
+  introduce no `sorryAx` or classical axiom.
+
 ## PROVED physical completed-carrier fixed-point exclusion (2026-09-23 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean`.
