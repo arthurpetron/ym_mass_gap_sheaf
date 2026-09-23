@@ -66,6 +66,15 @@ or extra block-count loss. Source derivatives, the residual square and the
 signed correction remain; controlling them relative to the actual
 normalization is the next analytic task, not a discharged physical gap.
 
+The next [mixed-term check](audits/AUDIT-DISJOINT-TEMPORAL-CROSS-TERM-2026-09-23.md)
+rules out discarding temporal cross terms merely because observables have
+disjoint supports and zero mean. An exact full mixed-energy identity and a
+positive two-block SU(2) heat example retain the same source and normalization;
+the normalized mixed term is `98/4097`, not zero. This diagnostic source is
+not the physical `V*g`, and the result does not refute a joint family bound.
+The next estimate must control the whole signed temporal form relative to
+the original centered variance; static Ward locality alone does not supply it.
+
 A separate proposed original-action shortcut is now
 [refuted](lean/YMGap/Continuum/SU2QuaternionSelectedLinkHeadObstruction.lean):
 integrating a link against its existing neighbor is not the same operator

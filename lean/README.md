@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Full mixed temporal form and finite locality fence (2026-09-23):**
+`SU2QuaternionWeightedProductDualEnergy.full_jump_pairing` keeps both sources
+in the actual mixed jump identity. `SU2QuaternionDisjointTemporalCrossTerm`
+constructs a positive two-block heat example with disjoint observables already
+centered in the same marginal, but normalized mixed energy `98/4097`, not zero.
+This prunes automatic temporal orthogonality from static locality; it does not
+refute a joint coefficient-square estimate or identify the diagnostic source
+with physical V*g. The next producer must control the whole signed temporal
+form against actual normalization/variance. Two focused leaves passed
+twenty-eight permitted gates; no full-root build/audit/guard. Evidence:
+`audits/AUDIT-DISJOINT-TEMPORAL-CROSS-TERM-2026-09-23.md`.
+
 **Coefficient-one angular contraction under Haar averaging (2026-09-23):**
 `SU2QuaternionSelectedHaarDerivative.ratDerivative_project_of_ne` proves
 coefficientwise commutation on distinct original quaternion blocks.

@@ -238,6 +238,38 @@ private theorem jump_expansion (n : Nat) (e f r : RatPoly) :
         (Q'.eqv_trans _ _ _ (quaternionHaar_append _ _ _)
           (Q'.add_eqv_congr' (haar_neg _ _) (Q'.eqv_refl _)))))
 
+/-- The full mixed temporal form, with BOTH endpoint sources retained.
+No conditional-centering, positivity, or off-diagonal vanishing premise is
+used. This identifies the actual signed Gram entry that a collective estimate
+must control; disjoint supports alone do not remove its mixed kinetic term. -/
+theorem full_jump_pairing (n : Nat) (w : Q') (K : Nat) (ids : List Nat)
+    (hids : ∀ i, i ∈ ids → i < n) {a f r : RatPoly}
+    (ha : SupportedQuaternionBlocks n a) (hf : SupportedQuaternionBlocks n f)
+    (hr : SupportedQuaternionBlocks n r) :
+    weightedPair (n+n) (edgeWeight n w K ids a) (jump n f) (jump n r) ≈
+      (2 : Q') * (marginalPair n w K ids a f r +
+        -(H n (polyMul (polyMul a f) (productMap n w K ids (polyMul a r))))) := by
+  let C := H n (polyMul (polyMul a f) (productMap n w K ids (polyMul a r)))
+  have hc : weightedPair (n+n) (edgeWeight n w K ids a) r (liftBoundary n f) ≈ C :=
+    Q'.eqv_trans _ _ _ (edge_pair n w K ids a r f)
+      (Q'.eqv_trans _ _ _ (haar_of_coeff (RatPolyCoeffEqv.mul_assoc _ _ _))
+        (Q'.eqv_symm (productMap_pairing n w K ids (polyMul a r) (polyMul a f))))
+  have hc' : weightedPair (n+n) (edgeWeight n w K ids a) f (liftBoundary n r) ≈ C :=
+    Q'.eqv_trans _ _ _ (edge_pair n w K ids a f r)
+      (Q'.eqv_trans _ _ _
+        (kernel_pairing_swap (productHeat_supported n w K ids hids)
+          (supported_polyMul ha hf) (supported_polyMul ha hr) (productHeat_swap n w K ids hids))
+        (Q'.eqv_trans _ _ _ (Q'.eqv_symm (edge_pair n w K ids a r f)) hc))
+  exact Q'.eqv_trans _ _ _ (jump_expansion n _ f r)
+    (Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr'
+        (Q'.add_eqv_congr' (lower_pair n w K ids hids ha hf hr) (Q'.neg_eqv_congr _ _ hc'))
+        (Q'.add_eqv_congr' (Q'.neg_eqv_congr _ _ hc) (upper_pair n w K ids a f r)))
+      (poly_identity_of_normal_eq
+        (.add (.add (.var 0) (.neg (.var 1))) (.add (.neg (.var 1)) (.var 0)))
+        (.mul (.const 2) (.add (.var 0) (.neg (.var 1)))) (by decide)
+        (fun | 0 => marginalPair n w K ids a f r | _ => C)))
+
 /-- Only the dual test r is centered; the energy observable f is arbitrary. -/
 theorem erased_jump_pairing (n : Nat) (w : Q') (K i : Nat) (ids : List Nat)
     (hi : i < n) (hnot : i ∉ ids) (hids : ∀ j, j ∈ ids → j < n)
@@ -324,5 +356,6 @@ end YMGap.Continuum.SU2QuaternionWeightedProductDualEnergy
 
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductDualEnergy.productHeat_swap
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductDualEnergy.marginalPair
+#print axioms YMGap.Continuum.SU2QuaternionWeightedProductDualEnergy.full_jump_pairing
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductDualEnergy.erased_jump_pairing
 #print axioms YMGap.Continuum.SU2QuaternionWeightedProductDualEnergy.one_factor_dual_bound

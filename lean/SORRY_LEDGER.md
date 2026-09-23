@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Proved full mixed temporal identity and finite locality fence (2026-09-23)
+
+- **identity**: `SU2QuaternionWeightedProductDualEnergy.full_jump_pairing`
+  identifies the actual mixed jump pairing with twice the full corrected
+  marginal-minus-kinetic pairing. Both endpoint sources and all heat factors
+  remain; no centering or off-diagonal vanishing is assumed.
+- **checked test**: `SU2QuaternionDisjointTemporalCrossTerm` uses the actual
+  two-block SU(2) product at w=1/2,K=1. Source, kernel, edge and marginal have
+  constructive square certificates. The disjoint observables have zero mean
+  in the same marginal, but `normalizedMixed_value` is `98/4097`, not zero;
+  `energy_nonadditivity_value` is `49/1024` before normalization.
+- **scope**: prunes disjoint-support/centering-implies-zero-mixed-energy only.
+  The diagnostic source is not the physical V*g. No all-cutoff claim, failure
+  of a coefficient-square bound, physical gap or continuum conclusion.
+- **remaining**: joint signed-family temporal control relative to the original
+  normalization and centered variance, then unchanged spatial/scaling,
+  physical-time, survival, finite positive mass, full QFT and every-group joins.
+- **verification**: two serialized 8 GiB leaves, twenty-eight gates including
+  unchanged declarations, only {propext, Quot.sound}. No new hole/axiom,
+  changed frontier field or full-root build/audit/guard. See
+  `audits/AUDIT-DISJOINT-TEMPORAL-CROSS-TERM-2026-09-23.md`.
+
 ## Proved coefficient-one angular contraction under Haar averaging (2026-09-23)
 
 - **producer**: `SU2QuaternionSelectedHaarDerivative.ratDerivative_project_of_ne`

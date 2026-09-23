@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: remove projection from angular cost without loss (2026-09-23)
+## Current increment: identify mixed temporal form and prune false locality (2026-09-23)
+
+`full_jump_pairing` now retains both endpoint sources in an exact arbitrary-
+source mixed-energy identity. A positive two-block original SU(2) heat example
+then proves that disjoint, same-marginal-centered observables can have a
+nonzero normalized mixed energy (`98/4097`). The energy of their sum is not
+the sum of their energies. Positivity is witnessed by original-Haar square
+certificates, not assumed from a numerical experiment.
+
+This changes the next action: static Ward bounded overlap cannot justify
+discarding temporal cross terms. Seek a joint quadratic estimate with the
+actual source, partition and centered variance. The already proved normalized
+one-loop bound is not the missing producer. The counterexample does NOT use
+the actual physical V*g, refute coefficient-square domination, extend to all
+late cutoffs, or close any physical/continuum obligation.
+
+Two serialized 8 GiB leaves passed twenty-eight permitted gates, including
+unchanged declarations. No full-root build/audit/guard. Evidence:
+`audits/AUDIT-DISJOINT-TEMPORAL-CROSS-TERM-2026-09-23.md`.
+
+## Previous increment: remove projection from angular cost without loss (2026-09-23)
 
 Actual in-place Haar averaging now contracts every original block angular
 energy, and their total, with coefficient one. The proof is constructive

@@ -25,6 +25,45 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Retain the whole mixed temporal form; disjoint-locality shortcut pruned (2026-09-23 UTC)
+
+`SU2QuaternionWeightedProductDualEnergy.full_jump_pairing` now identifies
+the full mixed jump integral for any supported source a and observables f,r:
+`H_edge[(f(x)-f(y))*(r(x)-r(y))] =
+2*(H[a*(P a)*f*r] - H[(a*f)*P(a*r)])`.
+Every original kinetic factor and both endpoint sources remain. The exact
+identity needs support/index guards, not positivity, conditional centering,
+or an assumed zero mixed term.
+
+The original two-block SU(2) product at `w=1/2,K=1`, with
+`a=1+(1/2)*x*y`, supplies a checked test in
+`SU2QuaternionDisjointTemporalCrossTerm`. The source and both heat factors
+have certified Haar-order half floors; the complete edge and marginal have
+square certificates. The two disjoint coordinates are already centered in
+the SAME marginal, of mass `4097/4096`, yet the normalized mixed corrected
+energy is `98/4097`, not zero. The unnormalized energy of x+y exceeds the
+sum of their energies by `49/1024`. This is a finite diagnostic source, NOT
+an identification with the physical `V*g`; no late-cutoff or continuum
+counterexample is asserted.
+
+**Repointed next action:** bound the WHOLE original temporal Gram form for
+signed spatial families, retaining mixed terms and the SAME normalization
+and centered variance. Static Ward bounded overlap does not imply temporal
+off-star vanishing. Joint quadratic domination is the target; an absolute
+row-sum estimate would only be a stronger sufficient route, not a necessary
+replacement. The single-loop normalized increment is already proved in
+`BF4WilsonAllNomeKineticIncrement.joint_increment_nome_bound`; do not repeat
+it or attempt the impossible naive variance comparison recorded below.
+The angular upper-bound/source-correction approach remains available, but
+its missing collective cancellation must actually be proved.
+
+No coefficient-square bound is refuted, and no analytic or canonical Clay
+atom is closed. Spatial/scaling, nontrivial continuum survival, finite positive
+physical mass, full same-theory QFT/local fields and every group remain OPEN.
+Two serialized 8 GiB leaves passed twenty-eight permitted gates (including
+unchanged declarations); no full-root build/audit/guard. Exact evidence:
+`audits/AUDIT-DISJOINT-TEMPORAL-CROSS-TERM-2026-09-23.md`.
+
 ### Haar averaging contracts angular energy, with actual consumer (2026-09-23 UTC)
 
 `SU2QuaternionHaarFamilyAngularContraction.familyProject_angularSum_le`
