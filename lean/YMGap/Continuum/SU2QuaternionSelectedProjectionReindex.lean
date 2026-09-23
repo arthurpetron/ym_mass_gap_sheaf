@@ -34,6 +34,7 @@ open YMGap.Continuum.SU2QuaternionHaarBlockProjection
 open YMGap.Continuum.SU2QuaternionSelectedHaarTranslation
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionHaarRationalCanonicalizer
+open YMGap.Continuum.QuaternionHaarSquareCertificate
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -273,5 +274,39 @@ theorem exposeTranslationPair_project
             hblocks hselected hmultiplier polynomial)) := by
     simpa only [project, exposeTranslationPairPolynomial, htailZero] using htail
   exact hfirst.trans hsecond
+
+/-! ## 4. Haar-carrier consequences -/
+
+/-- The coefficient-level projection transport is immediately consumable by
+the full finite quaternion Haar functional.  No support or positivity premise
+is added: this is only the existing coefficient-probe elimination rule. -/
+theorem reindex_project_haar
+    {blocks : Nat} (s : QuaternionBlockInvolution blocks)
+    (selected : Nat) (hselected : selected < blocks)
+    (polynomial : RatPoly) :
+    quaternionHaar blocks
+        (reindexQuaternionPolynomial s (project selected polynomial)) ≈
+      quaternionHaar blocks
+        (project (s.map selected)
+          (reindexQuaternionPolynomial s polynomial)) := by
+  exact haar_of_coeff
+    (reindex_integrateQuaternionBlock s selected hselected polynomial)
+
+/-- The same transport remains valid with an arbitrary right insertion, so it
+can be used directly under a finite pairing before any support specialization.
+-/
+theorem reindex_project_pairing
+    {blocks : Nat} (s : QuaternionBlockInvolution blocks)
+    (selected : Nat) (hselected : selected < blocks)
+    (polynomial test : RatPoly) :
+    quaternionHaar blocks
+        (polyMul
+          (reindexQuaternionPolynomial s (project selected polynomial)) test) ≈
+      quaternionHaar blocks
+        (polyMul
+          (project (s.map selected)
+            (reindexQuaternionPolynomial s polynomial)) test) := by
+  exact haar_of_coeff
+    ((reindex_integrateQuaternionBlock s selected hselected polynomial).mul_right test)
 
 end YMGap.Continuum.SU2QuaternionSelectedProjectionReindex

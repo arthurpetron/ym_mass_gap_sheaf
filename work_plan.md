@@ -88,8 +88,10 @@ spectator coefficient.
 
 The focused check of
 `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean` passed, and
-both public declarations report only `{propext, Quot.sound}`.  This is a
-finite algebraic carrier bridge.  It does not prove the angular telescope,
+all four public declarations report only `{propext, Quot.sound}`.  The
+`reindex_project_haar` and `reindex_project_pairing` consequences expose the
+transport under the finite Haar functional and with an arbitrary right
+insertion.  This is a finite algebraic carrier bridge.  It does not prove the angular telescope,
 inactive-projection removal, signed endpoint bound, SAME-object variance
 estimate, OS/GNS passage, continuum survival, physical mass calibration,
 or the Clay theorem.  The next estimate consumes this recoding to transport

@@ -16,6 +16,8 @@ construction, a thermodynamic or continuum limit, or a physical mass gap.
 | --- | --- |
 | `YMGap.Continuum.SU2QuaternionSelectedProjectionReindex.reindex_integrateQuaternionBlock` | Coefficient-probe equivalence between selected-block integration followed by reindexing and reindexing followed by integration over the recoded block. |
 | `YMGap.Continuum.SU2QuaternionSelectedProjectionReindex.exposeTranslationPair_project` | Composition of the head and tail block permutations, identifying the doubly recoded selected projection with the literal head projection of `exposeTranslationPairPolynomial`. |
+| `YMGap.Continuum.SU2QuaternionSelectedProjectionReindex.reindex_project_haar` | Haar-functional consequence of the coefficient transport. |
+| `YMGap.Continuum.SU2QuaternionSelectedProjectionReindex.reindex_project_pairing` | Haar-functional consequence with an arbitrary right insertion. |
 
 The proof uses the explicit `clearQuaternionBlock` mask, the constructive
 `QuaternionBlockInvolution`, `Nat.div_add_mod`, and
@@ -38,7 +40,13 @@ The command exited 0.  The reported axiom dependencies were:
 ```text
 reindex_integrateQuaternionBlock depends on [propext, Quot.sound]
 exposeTranslationPair_project depends on [propext, Quot.sound]
+reindex_project_haar depends on [propext, Quot.sound]
+reindex_project_pairing depends on [propext, Quot.sound]
 ```
+
+The four-declaration axiom print was obtained by the same focused command
+with temporary `#print axioms` lines; those diagnostic lines were removed from
+the committed source.  The final focused source check also exited 0.
 
 The module is imported by `lean/YMGap.lean`; no full-root or continuum audit
 is claimed by this focused check.
