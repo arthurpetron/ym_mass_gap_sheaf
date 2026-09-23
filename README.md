@@ -44,6 +44,18 @@ The focused dependency-complete target passed 1,241 jobs with only
 not asserted or constructed here; OS/scaling, thermodynamic/continuum,
 physical-mass, all-group, and Clay obligations remain open.
 
+The first non-vacuous centered-cylinder fragment of that conditional passage is
+now checked in `BF4PhysicalJointCenteredKernel.lean`.  Exact rational
+stationary centering gives `physicalJointCenteredObservable_vacuumOrthogonal`;
+the constant Cauchy representative then supplies an explicit
+`ExactPhysicalJointVacuumComplementReplacement`, and
+`physicalJoint_centeredObservable_completed_form_gap` transports the conditional
+form bound to every finite centered cylinder.  The focused target passed 1,242
+jobs with only `{propext, Quot.sound}` and no `sorryAx`.  This is still a dense
+fragment, not the missing arbitrary-vector density/range theorem, and it does
+not close OS/scaling, thermodynamic/continuum, physical-mass, all-group, or
+Clay obligations.
+
 The preceding regulator milestone, `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`,
 still carries an explicit constructive Cauchy modulus for the literal
 three-regulator connected spatial diagonal and pins its CReal limit to the

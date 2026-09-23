@@ -27549,3 +27549,20 @@ The dependency-complete target passed 1,241 jobs with only
 constructed by this milestone; therefore no unconditional completed joint
 gap, OS transfer identification, thermodynamic/continuum result, physical
 mass calibration, all-group theorem, or Clay conclusion follows.
+
+## Exact centered-cylinder joint kernel (2026-09-23)
+
+`BF4PhysicalJointCenteredKernel.lean` supplies an explicit non-vacuous
+dense-cylinder fragment for the reflected-joint completion.  Exact rational
+stationary centering proves
+`physicalJointCenteredObservable_vacuumOrthogonal`; its constant Cauchy
+representative, closed by `cauchyNull_refl`, is an explicit
+`ExactPhysicalJointVacuumComplementReplacement`.  The declaration
+`physicalJoint_centeredObservable_completed_form_gap` therefore transports the
+conditional completed form bound to every finite centered cylinder.
+
+The monitored dependency-complete target passed 1,242 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  This does not construct the
+arbitrary-vector density/range witness, so no unconditional completed joint
+gap, OS/scaling identification, thermodynamic/continuum result, physical mass
+calibration, all-group theorem, or Clay conclusion follows.

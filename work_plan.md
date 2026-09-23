@@ -72,6 +72,25 @@ density witness.  The focused target passed 1,241 jobs with only
 OS/scaling, thermodynamic/continuum, physical-mass, all-group, and Clay steps,
 remain open.
 
+### Exact centered-cylinder joint kernel (2026-09-23 UTC)
+
+`BF4PhysicalJointCenteredKernel.lean` now inhabits the strongest concrete
+finite fragment of the conditional passage.  The exact rational centering
+`physicalJointCenteredObservable` has transported vacuum orthogonality
+(`physicalJointCenteredObservable_vacuumOrthogonal`) in the reflected-joint
+completion.  A constant Cauchy representative and `cauchyNull_refl` form an
+explicit `ExactPhysicalJointVacuumComplementReplacement`, and
+`physicalJoint_centeredObservable_completed_form_gap` gives the conditional
+completed form bound for every finite centered cylinder.  The focused
+dependency-complete target passed 1,242 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
+This does not construct the arbitrary Cauchy-representative centering/range
+witness required by `ExactPhysicalJointVacuumComplementDensity`; consequently
+the full reflected-joint completion gap, OS/scaling identification,
+thermodynamic/continuum passage, physical mass, all-group theorem, and Clay
+target remain open.
+
 ### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
 The companion reference-transport module now proves the exact finite identity
