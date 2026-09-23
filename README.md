@@ -20,6 +20,17 @@ same-object coefficient together. It is a finite `(w,K,half)` certificate;
 it is not yet a uniform strict gap, OS/scaling passage, continuum theory,
 physical-mass calibration, all-group result, or Clay proof.
 
+The next reflected-form bridge is checked in
+`BF4PhysicalJointFormGapBridge.lean`:
+`physicalJointComparison_form_gap_of_central_form_gap` transports the strict
+central completed form bound to every vector in the canonical reflected-joint
+comparison image, and
+`producer_physicalJointComparison_form_gap_sixteenth` instantiates it for the
+producer-selected finite BF4 rate.  The dependency-complete check passed
+1,235 jobs with only `{propext, Quot.sound}` and no `sorryAx`.  This is not yet
+a density/range extension to arbitrary joint-completion vectors, nor an
+OS/scaling, thermodynamic/continuum, physical-mass, all-group, or Clay result.
+
 The preceding regulator milestone, `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`,
 still carries an explicit constructive Cauchy modulus for the literal
 three-regulator connected spatial diagonal and pins its CReal limit to the

@@ -40,6 +40,22 @@ passage, physical-mass calibration, an all-group construction, or the Clay
 theorem. The next causal producer is a strict same-object estimate on this
 same carrier with the required cutoff/volume/beta/spacing uniformity.
 
+### Reflected-joint comparison form-gap bridge (2026-09-23 UTC)
+
+`BF4PhysicalJointFormGapBridge.lean` now proves
+`physicalJointComparison_form_gap_of_central_form_gap`: the exact
+`physicalJointComparison_moments` identity and central transfer
+self-adjointness transport the strict central completed form bound to the
+reflected-joint form on the canonical comparison image.  The declaration
+`producer_physicalJointComparison_form_gap_sixteenth` specializes this to the
+producer-selected physical BF4 rate at every matched finite scale.  The
+dependency-complete target passed 1,235 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  The statement intentionally does
+not extend the bound to arbitrary vectors of `PhysicalJointCompletion`: a
+density/range certificate is still required before this becomes a completed
+joint-space gap.  OS/scaling, thermodynamic/continuum, physical-mass,
+all-group, and Clay obligations remain open.
+
 ### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
 The companion reference-transport module now proves the exact finite identity
