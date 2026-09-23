@@ -16,13 +16,15 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 ## PROVED exact completed CReal midpoint form bound (2026-09-23 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarMidpointFormRate.lean`.
-- **proved declaration**: `centeredCompletionTwoStepMoment_leEv_exact`.
+- **proved declarations**: `centeredCompletionTwoStepMoment_leEv_exact` and
+  `centeredCompletionTwoStepMoment_RCle_exact`.
 - **proof content**: the finite positive-slack estimate is first transported
   through the constructive GNS inner-product limit, then a half-tolerance
   Archimedean argument removes the arbitrary positive rational slack.  The
   result is an exact `CReal.leEv` bound at
   `midpointRate (squaredHeatRate w)` for the completed representative-level
-  same-object form.
+  same-object form; the second declaration descends that inequality through
+  the `CReal/Equiv` quotient to the completed `RCle` order used by GNS forms.
 - **verification**: focused safe build completed `1907/1907`; the declaration
   reports only `{propext, Quot.sound}` and introduces no `sorry` or classical
   axiom.

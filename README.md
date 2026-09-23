@@ -66,6 +66,9 @@ mass calibration, continuum passage, QFT axioms, and Clay target remain open.
 The same module now removes that arbitrary positive slack after the GNS
 inner-product limit: `centeredCompletionTwoStepMoment_leEv_exact` gives an
 exact eventual-order `CReal` form bound at the same explicit midpoint rate.
+`centeredCompletionTwoStepMoment_RCle_exact` then descends the same inequality
+to the completed `RCle` order, so the result is consumable by the repository's
+order-valued completed-carrier interfaces.
 This is a completed representative-level same-object statement, still for
 the finite ordinary-Haar SU(2) carrier and still nome-dependent.  It is not an
 OS identification, a beta/spacing-uniform physical gap, or a continuum/Clay

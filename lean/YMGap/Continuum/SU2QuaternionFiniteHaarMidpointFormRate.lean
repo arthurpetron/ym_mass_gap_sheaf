@@ -436,10 +436,44 @@ theorem centeredCompletionTwoStepMoment_leEv_exact
   exact centeredCompletionTwoStepMoment_leEv
     n hw0 hw1 K hK ids hnodup hids x δ hδ
 
+/-- The exact representative bound descends to the completed `RC` form on the
+centered completion.  This is the first direct order-valued statement for the
+new ordinary-Haar completed carrier; it still carries the explicit
+nome-dependent midpoint rate and is not the interacting OS form.
+-/
+theorem centeredCompletionTwoStepMoment_RCle_exact
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x : CenteredCompletionSpace n) :
+    CReal.RCle
+      (centeredCompletionTwoStepMoment n hw0 hw1 K hK ids hnodup hids x)
+      (CReal.RCmul
+        (Quotient.mk CReal.crealSetoid
+          (CReal.ofQ' (midpointRate (squaredHeatRate w))))
+        (centeredCompletionInner n x x)) := by
+  refine Quotient.inductionOn x ?_
+  intro X
+  change CReal.RCle
+    (Quotient.mk CReal.crealSetoid
+      ((finiteHaarGNSData n).cinnerRep X.seq
+        (productMap_centeredCauchy n hw0 hw1 K hK ids hnodup hids X)))
+    (CReal.RCmul
+      (Quotient.mk CReal.crealSetoid
+        (CReal.ofQ' (midpointRate (squaredHeatRate w))))
+      (Quotient.mk CReal.crealSetoid
+        ((finiteHaarGNSData n).cinnerRep X.seq X.seq)))
+  rw [CReal.RCmul_mk, CReal.RCle_mk]
+  exact centeredCompletionTwoStepMoment_leEv_exact
+    n hw0 hw1 K hK ids hnodup hids X
+
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate_sq_ge
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.productMapQuotient_transfer_form_midpoint_le_add
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_leEv
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_leEv_exact
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_RCle_exact
 
 end YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate

@@ -163,7 +163,9 @@ constructive and introduces no square-root choice or order on the `RC`
 quotient.  It gives an exact `CReal.leEv` bound for the same-object completed
 representative form at
 `midpointRate (squaredHeatRate w)`.  The rate is still nome-dependent and the
-carrier is ordinary-Haar finite SU(2); the interacting OS identification,
+`centeredCompletionTwoStepMoment_RCle_exact` descends this bound to the actual
+`RCle` order consumed by completed GNS form interfaces.  The rate is still
+nome-dependent and the carrier is ordinary-Haar finite SU(2); the interacting OS identification,
 uniform physical gap, spacing/thermodynamic/continuum passage, QFT axioms,
 and every-group/Clay closure remain open.  Focused safe verification passed
 the dependency-complete target (1907 jobs) with only `{propext, Quot.sound}`.
