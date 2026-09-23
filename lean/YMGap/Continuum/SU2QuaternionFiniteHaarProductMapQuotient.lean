@@ -11,6 +11,7 @@ completed transfer operator or prove a spectral or continuum gap.
 import YMGap.Continuum.SU2QuaternionFiniteHaarProductMapRadical
 import YMGap.Continuum.SU2QuaternionProductHeatConstant
 import YMGap.Continuum.SU2QuaternionProductHeatDualForm
+import YMGap.Continuum.GNSCompletion
 
 namespace YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 
@@ -38,6 +39,7 @@ open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.SU2QuaternionArbitraryHaarPolynomialPositivity
 open YMGap.Continuum.SU2QuaternionRelativeHeatContraction
 open YMGap.Continuum.QuaternionHaarSquareCertificate
+open YMGap.Continuum.OSReconstructionProgress
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -53,6 +55,13 @@ private theorem support_weaken_local {small large : Nat} {p : RatPoly}
     SupportedQuaternionBlocks large p := by
   intro t ht
   exact Nat.le_trans (hp t ht) (Nat.mul_le_mul_left 4 hle)
+
+/-- A Cauchy representative whose every finite carrier vector is Haar-centered.
+This is the honest domain on which the nome-dependent strict estimate can be
+transported toward the constructive completion interface. -/
+structure CenteredCauchyGNS (n : Nat) where
+  seq : CauchyGNS (finiteHaarGNSData n)
+  centered : ∀ k : Nat, quaternionHaar n (seq.seq k).val ≈ 0
 
 /-! ## Representatives -/
 
@@ -420,6 +429,107 @@ theorem productMapQuotient_transfer_form_squared_bound
     (Q'.le_trans' _ _ _ hcs (Q'.le_trans' _ _ _ hmul
       (Q'.le_of_eqv htarget)))
 
+theorem productMapRep_centered_distSq_bound
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (p q : (finiteHaarGNSData n).V)
+    (hpcenter : quaternionHaar n p.val ≈ 0)
+    (hqcenter : quaternionHaar n q.val ≈ 0) :
+    (finiteHaarGNSData n).distSqQ
+        (productMapRep n w K ids hids p)
+        (productMapRep n w K ids hids q) ≤
+      squaredHeatRate w *
+        (finiteHaarGNSData n).distSqQ p q := by
+  let d : (finiteHaarGNSData n).V :=
+    (finiteHaarGNSData n).sub p q
+  have hdcenter : quaternionHaar n d.val ≈ 0 := by
+    change quaternionHaar n
+        (polyAdd p.val (polySmul (-1) q.val)) ≈ 0
+    have hmean : quaternionHaar n
+        (polyAdd p.val (polySmul (-1) q.val)) ≈
+        quaternionHaar n p.val + (-1) * quaternionHaar n q.val :=
+      Q'.eqv_trans _ _ _ (quaternionHaar_append n _ _)
+        (Q'.add_eqv_congr' (Q'.eqv_refl _)
+          (quaternionHaar_polySmul n (-1) q.val))
+    have hzero : quaternionHaar n p.val +
+        (-1) * quaternionHaar n q.val ≈ 0 := by
+      exact Q'.eqv_trans _ _ _
+        (Q'.add_eqv_congr' hpcenter
+          (Q'.mul_eqv_congr_left (-1) _ _ hqcenter))
+        (Q'.eqv_trans _ _ _ (QPoly.q_zero_add_eqv _)
+          (Q'.mul_zero_eqv (-1)))
+    exact Q'.eqv_trans _ _ _ hmean hzero
+  have hbound := productMapQuotient_centered_square_bound n hw0 hw1 K hK ids
+    hnodup hids d hdcenter
+  have hdiff : RatPolyCoeffEqv
+      (productMap n w K ids d.val)
+      (polyAdd (productMap n w K ids p.val)
+        (polySmul (-1) (productMap n w K ids q.val))) := by
+    exact (productMap_add n w K ids p.val
+      (polySmul (-1) q.val)).trans
+      ((RatPolyCoeffEqv.refl (productMap n w K ids p.val)).add
+        (productMap_smul n w K ids (-1) q.val))
+  have hdiag : finiteHaarPair n
+      (polyAdd (productMap n w K ids p.val)
+        (polySmul (-1) (productMap n w K ids q.val)))
+      (polyAdd (productMap n w K ids p.val)
+        (polySmul (-1) (productMap n w K ids q.val))) ≈
+      finiteHaarPair n (productMap n w K ids d.val)
+        (productMap n w K ids d.val) := by
+    unfold finiteHaarPair
+    exact Q'.eqv_symm (haar_of_coeff (hdiff.mul hdiff))
+  change finiteHaarPair n
+      (polyAdd (productMap n w K ids p.val)
+        (polySmul (-1) (productMap n w K ids q.val)))
+      (polyAdd (productMap n w K ids p.val)
+        (polySmul (-1) (productMap n w K ids q.val))) ≤
+    squaredHeatRate w * finiteHaarPair n
+      (polyAdd p.val (polySmul (-1) q.val))
+      (polyAdd p.val (polySmul (-1) q.val))
+  exact le_of_eqv_le hdiag (by simpa [d, finiteHaarPair] using hbound)
+
+def productMap_centeredCauchy
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x : CenteredCauchyGNS n) : CauchyGNS (finiteHaarGNSData n) := by
+  let D := finiteHaarGNSData n
+  refine {
+    seq := fun k => productMapRep n w K ids hids (x.seq.seq k)
+    modulus := x.seq.modulus
+    isCauchy := ?_ }
+  intro ε hε p q hp hq
+  have hdist := productMapRep_centered_distSq_bound n hw0 hw1 K hK ids
+    hnodup hids (x.seq.seq p) (x.seq.seq q)
+    (x.centered p) (x.centered q)
+  have hsrc := x.seq.isCauchy ε hε p q hp hq
+  have hrate0 : (0 : Q') ≤ squaredHeatRate w :=
+    squaredHeatRate_nonnegative hw0 hw1
+  have hmul := Q'.mul_le_mul_of_nonneg_left _ _ _ hsrc hrate0
+  have hrate1 : squaredHeatRate w ≤ (1 : Q') :=
+    Q'.le_of_lt (squaredHeatRate_lt_one hw0 hw1)
+  have heps := Q'.mul_le_mul_of_nonneg_right _ _ _ hrate1
+    (Q'.le_of_lt hε)
+  exact Q'.le_trans' _ _ _ hdist
+    (Q'.le_trans' _ _ _ hmul
+      (le_of_le_eqv heps (Q'.one_mul_eqv ε)))
+
+def productMap_centeredCauchyData
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x : CenteredCauchyGNS n) : CenteredCauchyGNS n :=
+  { seq := productMap_centeredCauchy n hw0 hw1 K hK ids hnodup hids x
+    centered := fun k => productMap_centered_preserved n hw0 hw1 K hK ids
+      hnodup hids (x.seq.seq k).val (x.seq.seq k).property (x.centered k) }
+
 end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapRep
@@ -437,3 +547,6 @@ end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_qNormSq_mk
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_centered_square_bound
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapQuotient_transfer_form_squared_bound
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.CenteredCauchyGNS
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMap_centeredCauchy
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMap_centeredCauchyData

@@ -95,6 +95,14 @@ finite Cauchy--Schwarz yields
 the same-object transfer pairing.  It remains finite, centered, and
 nome-dependent; no OS transfer identification or continuum gap is claimed.
 
+`productMapRep_centered_distSq_bound` upgrades the diagonal estimate to a
+pairwise bound for two centered representatives.  The explicit
+`CenteredCauchyGNS` wrapper and `productMap_centeredCauchy`/
+`productMap_centeredCauchyData` then transport a centered Cauchy modulus with
+the same modulus and preserve centeredness.  This reaches the representative
+level of the existing completion machinery, but does not descend Cauchy-null
+sequences or construct the CReal inner product on the completion.
+
 ## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`.

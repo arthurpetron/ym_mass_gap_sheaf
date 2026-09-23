@@ -112,6 +112,14 @@ centered output estimate then prove
 same-object transfer-form certificate; the physical OS identification,
 completion, and beta/spacing-uniform gap remain open.
 
+The pairwise theorem `productMapRep_centered_distSq_bound` now gives the
+strict-rate distance estimate for two centered representatives.  A
+`CenteredCauchyGNS` wrapper and the maps
+`productMap_centeredCauchy`/`productMap_centeredCauchyData` transport centered
+Cauchy sequences with the original modulus.  The remaining completion seam is
+descent through Cauchy-null equivalence and construction of the CReal-valued
+inner product; neither is claimed closed here.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

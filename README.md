@@ -45,6 +45,9 @@ The quotient qInner is also pinned to the existing finite selected
 product-heat form, and its centered same-object pairing has a checked squared
 bound via Cauchy--Schwarz.  This is not yet the completed physical OS transfer
 or a continuum spectral gap.
+The pairwise centered distance bound now transports centered Cauchy
+representatives with their explicit moduli, preserving the centered sector.
+Cauchy-null descent and the CReal inner product on the completion remain open.
 
 > **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
