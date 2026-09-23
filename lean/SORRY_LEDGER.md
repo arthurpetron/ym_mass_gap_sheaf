@@ -82,6 +82,23 @@ Monitored focused verification passed; both printed declarations use only
   hybrid telescope; OS, continuum, physical mass, and all-group obligations
   remain open.
 
+## PROVED finite selected-link defect budget (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedLinkHeadIdentification.lean`.
+- **proved declaration**: `selectedFiniteDefect_sum_le_selectedBlockEnergy`.
+- **proof content**: sums the conditional selected-block defect over an
+  explicit list of supported states, with a separate named identification
+  certificate for every state, and factors the common `(1-w)` coefficient
+  through the constructive finite `Q'` sum.
+- **remaining obligation**: instantiate the state list with the actual
+  changing `hybridSweep` stages and supply their identification certificates;
+  inactive-projection reduction and signed endpoint/cross-term control remain
+  open.
+- **constructive status**: focused monitored check passed; the declaration
+  uses only `{propext, Quot.sound}` and introduces no `sorry` or new axiom.
+- **scope**: finite SU(2) budget only; no SAME-object OS gap, continuum,
+  physical-mass, full-QFT, or every-group conclusion.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.

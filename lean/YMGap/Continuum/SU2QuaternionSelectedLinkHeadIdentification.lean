@@ -150,9 +150,76 @@ theorem selectedHeatProjection_defect_le_selected_block_energy
       (Q'.neg_eqv_congr _ _ hpair')
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft) hchain
 
+private theorem sum_le_sum {A : Type} (xs : List A) (f g : A → Q') :
+    (∀ x, x ∈ xs → f x ≤ g x) →
+      qListSum (xs.map f) ≤ qListSum (xs.map g) := by
+  induction xs with
+  | nil => intro _; exact Q'.le_refl' 0
+  | cons x xs ih =>
+      intro h
+      change f x + qListSum (xs.map f) ≤ g x + qListSum (xs.map g)
+      exact Q'.add_le_add (h x List.mem_cons_self)
+        (ih (fun y hy => h y (List.mem_cons_of_mem x hy)))
+
+private theorem sum_scale {A : Type} (xs : List A) (f : A → Q') (c : Q') :
+    qListSum (xs.map (fun x => c * f x)) ≈ c * qListSum (xs.map f) := by
+  induction xs with
+  | nil => exact Q'.eqv_symm (Q'.mul_zero_eqv c)
+  | cons x xs ih =>
+      exact Q'.eqv_trans _ _ _ (Q'.add_eqv_congr' (Q'.eqv_refl _) ih)
+        (Q'.eqv_symm (Q'.mul_add_eqv c (f x) (qListSum (xs.map f))))
+
+/-- A finite state-family budget obtained by summing the proved selected-link
+defect.  The states are explicit data and each state carries its own
+same-carrier identification certificate.  This is not yet the ordered hybrid
+sweep: no relation between successive states, no inactive-projection removal,
+and no continuum or OS conclusion is asserted here. -/
+theorem selectedFiniteDefect_sum_le_selectedBlockEnergy
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : sufficientCutoff w ≤ K)
+    (states : List RatPoly)
+    (hstates : ∀ p, p ∈ states →
+      SupportedQuaternionBlocks (tailBlocks + 1) p)
+    (identifications : ∀ p, p ∈ states →
+      SelectedLinkHeadIdentification
+        tailBlocks selected multiplier hblocks hselected hmultiplier
+          hdistinct w K) :
+    qListSum (states.map (fun p =>
+      quaternionHaar (tailBlocks + 1) (polyMul p p) -
+        quaternionHaar (tailBlocks + 1)
+          (polyMul p
+            (selectedHeatProjection tailBlocks selected multiplier
+              hblocks hselected hmultiplier w K p)))) ≤
+      ((1 : Q') - w) *
+        qListSum (states.map (fun p =>
+          quaternionHaar (tailBlocks + 1)
+            (blockAngularSquare selected p))) := by
+  let defect : RatPoly → Q' := fun p =>
+    quaternionHaar (tailBlocks + 1) (polyMul p p) -
+      quaternionHaar (tailBlocks + 1)
+        (polyMul p
+          (selectedHeatProjection tailBlocks selected multiplier
+            hblocks hselected hmultiplier w K p))
+  let energy : RatPoly → Q' := fun p =>
+    quaternionHaar (tailBlocks + 1) (blockAngularSquare selected p)
+  have hpoint : ∀ p, p ∈ states → defect p ≤ ((1 : Q') - w) * energy p := by
+    intro p hp
+    exact selectedHeatProjection_defect_le_selected_block_energy
+      tailBlocks selected multiplier hblocks hselected hmultiplier hdistinct
+      hw0 hw1 K hK p (hstates p hp) (identifications p hp)
+  have hsum := sum_le_sum states defect (fun p => ((1 : Q') - w) * energy p) hpoint
+  have hscale := sum_scale states energy ((1 : Q') - w)
+  exact Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv hscale)
+
 end YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification
 
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedHeatProjection
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedPairSteps
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkHeadIdentification
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedHeatProjection_defect_le_selected_block_energy
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedFiniteDefect_sum_le_selectedBlockEnergy

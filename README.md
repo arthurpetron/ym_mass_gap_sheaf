@@ -250,6 +250,15 @@ head operator for every supported state/test pair.  Its conditional consumer
 `selectedHeatProjection_defect_le_selected_block_energy` gives the selected
 block defect bound, but no inhabitant of the certificate is claimed.
 
+**Finite selected-link defect budget (2026-09-22 UTC):**
+`selectedFiniteDefect_sum_le_selectedBlockEnergy` now sums that conditional
+bound over any explicit list of supported same-carrier states, requiring the
+identification certificate separately at each state and factoring the common
+`(1-w)` coefficient through the exact `Q'` list sum.  This is a finite budget
+only: the list is not yet the changing `hybridSweep` state trace, and inactive
+projections, signed endpoint terms, SAME-object OS/GNS, continuum survival,
+physical mass, full QFT, and every-group/Clay closure remain open.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is

@@ -149,6 +149,19 @@ selected-block `(1-w)` bound.  No certificate inhabitant is claimed; this is
 the exact remaining physical selected-link identification needed before the
 hybrid telescope.
 
+**PROGRESS -- finite selected-link defect budget:**
+`selectedFiniteDefect_sum_le_selectedBlockEnergy` sums the conditional
+selected-block `(1-w)` estimate over an explicit list of supported states.
+Each state carries the named `SelectedLinkHeadIdentification` certificate, so
+the result is a genuine finite budget rather than an assertion that the
+certificate or the hybrid intermediate states already exist.  The theorem
+also factors the common `(1-w)` coefficient through the constructive `Q'`
+list sum.  It does not connect successive states, remove inactive Haar
+projections, bound signed endpoint cross-terms, or establish a SAME-object,
+OS, continuum, physical-mass, or every-group result.  The next causal seam is
+to construct the state-transition/identification bridge for the actual
+`hybridSweep` stages.
+
 ### Conjugated finite head defect (2026-09-22 UTC)
 
 **PROGRESS -- the checked local angular defect is now transportable by an
