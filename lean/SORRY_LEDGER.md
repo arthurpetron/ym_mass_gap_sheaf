@@ -2596,6 +2596,24 @@ is a rate-sensitive one-vector moment bound, not an all-vector operator gap.
   `{propext, Quot.sound}`, with no `sorryAx`.  The module is now also imported
   by `lean/YMGap.lean`, promoting the certificate into the semantic root.
 
+## PROVED inhabited marginal-gap join for the concrete SU(2) carrier (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4PhysicalConcreteSU2CompletedCarrierCertificate.lean`.
+- **proved declarations**:
+  `concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_marginalGap`
+  and `concreteSU2CompletedMarginalCarrierCertificate`.
+- **proof content**: specializes the inhabited
+  `completedSectorContraction` at `0 < w ≤ 1/2` to the literal completed
+  moving-centered SU(2) observable, replacing the abstract rate by the
+  explicit `cutoffUniformRate w * cutoffUniformRate w`; the package bundles
+  that strict-contraction witness with the concrete carrier certificate.
+- **constructive status**: dependency-complete monitored build passed (5531
+  jobs); printed declarations use only `{propext, Quot.sound}` and introduce
+  no `sorry` or new axiom.
+- **scope**: fixed-nome, extent-one SU(2) same-object decay only.  It does not
+  provide spacing-uniformity, thermodynamic/continuum passage, QFT axioms,
+  an all-group construction, or the Clay mass gap.
+
 **Sector-normalized local-slice forward/backward join, checked 2026-09-19:**
 `BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement` now consumes
 `FixedNomeCofinalVacuumSectorLocalSliceGluing` directly.  The new

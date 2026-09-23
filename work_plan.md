@@ -4840,6 +4840,18 @@ strict-rate producer, changing-spacing/physical calibration,
 thermodynamic-continuum passage, QFT axioms, all-group extension, and Clay
 mass gap remain open.
 
+The marginal-sector route is now also inhabited for `0 < w ≤ 1/2`:
+`concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_marginalGap`
+specializes the completed marginal contraction to the literal concrete
+moving-centered observable and gives its same-object autocorrelation square a
+fully explicit rate
+`cutoffUniformRate w * cutoffUniformRate w`.  The companion
+`concreteSU2CompletedMarginalCarrierCertificate` packages the concrete carrier
+certificate and that completed strict-contraction witness together.  This is
+the strongest current backward-facing join, but it is still extent-one,
+fixed-nome SU(2) data; no spacing-uniform rate, thermodynamic/continuum
+passage, QFT axioms, all-group extension, or Clay mass gap follows.
+
 The same module now exposes
 `concreteSU2CompletedStrictContractionData_of_localGluing`, which compiles the
 existing generic `FixedNomeCofinalLocalGluing` producer through the physical

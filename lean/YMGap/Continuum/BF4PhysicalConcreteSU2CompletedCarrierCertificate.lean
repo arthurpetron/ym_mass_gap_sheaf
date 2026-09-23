@@ -19,6 +19,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 -/
 
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
+import YMGap.Continuum.BF4PhysicalCubeCompletedMarginalGap
 import YMGap.Continuum.BF4PhysicalVacuumSectorCanonicalFullDensityZeroDebt
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision
 
@@ -29,6 +30,8 @@ set_option maxRecDepth 100000
 set_option maxHeartbeats 10000000
 
 open YMGap.Constructive
+open YMGap.Continuum.BF4PhysicalCubeCompletedMarginalGap
+open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
 open YMGap.Continuum.BF4PhysicalCutoffCofinalConnectedGap
 open YMGap.Continuum.BF4PhysicalCutoffCofinalCenteredRowGap
 open YMGap.Continuum.BF4PhysicalCutoffConnectedGap
@@ -255,6 +258,56 @@ theorem concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay
   exact centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay
     hw0 hw1 gap n
 
+/-! ## 2a. Inhabited marginal-gap specialization -/
+
+/-- The concrete completed SU(2) carrier and its literal same-object
+autocorrelation inherit the already inhabited marginal-sector contraction at
+the explicit nome-dependent rate `cutoffUniformRate w`.  This is a fixed-nome,
+extent-one result; it is not a spacing-uniform or continuum mass gap. -/
+theorem concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_marginalGap
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (hw : w ≤ HalfPow.half) (n : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (concreteSameObjectAutocorrelation hw0 hw1 n)
+        (concreteSameObjectAutocorrelation hw0 hw1 n))
+      (CReal.RCmul
+        (CReal.RCscale
+          ((cutoffUniformRate w (Q'.le_of_lt hw0) *
+              cutoffUniformRate w (Q'.le_of_lt hw0)) ^ n)
+          (centralPhysicalCutoffCompletedInner hw0 hw1 0
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+            (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+              hw0 hw1 1 0
+              (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))))
+        (centralPhysicalCutoffCompletedInner hw0 hw1 0
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0))
+          (centralPhysicalVacuumSectorMovingCenteredGlobalVector
+            hw0 hw1 1 0
+            (centralPhysicalCutoffOneCubeIndicatorCoefficient w hw0)))) := by
+  simpa only [concreteSameObjectAutocorrelation,
+    completedSectorContraction_rate] using
+    (centralPhysicalCutoffOneCubeMovingCenteredCompletedAutocorrelation_sq_decay
+      hw0 hw1
+      (completedSectorContraction hw0 hw1 hw)
+      n)
+
+/-- Package the inhabited concrete completed carrier together with the
+inhabited marginal strict-contraction witness used by the preceding decay
+theorem. -/
+def concreteSU2CompletedMarginalCarrierCertificate
+    {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (hw : w ≤ HalfPow.half) :
+    ConcreteSU2CompletedCarrierCertificate hw0 hw1 ×
+      CentralPhysicalVacuumSectorCylinderCompletedStrictContractionData
+        hw0 hw1 0 :=
+  ⟨concreteSU2CompletedCarrierCertificate hw0 hw1,
+    completedSectorContraction hw0 hw1 hw⟩
+
 /-! ## 2a. Expose the completed strict-contraction witness -/
 
 /-- The established generic cofinal local-gluing producer reaches the strict
@@ -358,6 +411,10 @@ end YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_marginalGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedMarginalCarrierCertificate
 #print axioms
   YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate.concreteSU2CompletedStrictContractionData_of_localGluing
 #print axioms

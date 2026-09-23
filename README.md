@@ -1813,6 +1813,18 @@ focused check is
 `/tmp/ym-gap-concrete-carrier-ray-capacity-bridge-check.log`, again under
 `{propext, Quot.sound}`.
 
+**Inhabited marginal-gap join (2026-09-22 UTC):**
+`concreteSU2CompletedCarrierCertificate_autocorrelation_sq_decay_of_marginalGap`
+now specializes the already inhabited completed marginal contraction to the
+literal concrete moving-centered SU(2) observable.  Its same-object
+autocorrelation square decays at the explicit nome-dependent rate
+`cutoffUniformRate w * cutoffUniformRate w` for `0 < w ≤ 1/2`.  The companion
+`concreteSU2CompletedMarginalCarrierCertificate` packages the concrete carrier
+certificate and the completed strict-contraction witness together.  This is
+fixed-nome, extent-one progress only: it does not supply a spacing-uniform
+rate, thermodynamic/continuum passage, QFT axioms, an all-group extension, or
+the Clay mass gap.
+
 **Exact finite zero-cutoff seed, checked 2026-09-20:**
 `concreteSU2ZeroCutoffCanonicalLocalSlice` exposes the already-proved
 canonical full-density factorization at cutoff `0` through the same physical
