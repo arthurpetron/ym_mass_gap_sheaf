@@ -27617,4 +27617,6 @@ The monitored dependency-complete target passed 1,245 jobs with only
 `{propext, Quot.sound}` and no `sorryAx`.  The certificate is an explicit
 input, not a constructed density witness; consequently no unconditional
 completed joint gap, thermodynamic/continuum passage, physical mass
-calibration, all-group theorem, or Clay conclusion follows.
+calibration, all-group theorem, or Clay conclusion follows.  The checked
+corollary `physicalJoint_completed_form_gap_of_centered_certificate` composes
+the certificate with the existing conditional completed form-gap theorem.

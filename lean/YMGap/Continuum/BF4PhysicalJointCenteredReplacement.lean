@@ -25,6 +25,7 @@ open YMGap.Continuum.BF4PhysicalJointFormTransfer
 open YMGap.Continuum.BF4PhysicalJointCenteredKernel
 open YMGap.Continuum.BF4PhysicalJointCenteredForm
 open YMGap.Continuum.BF4PhysicalJointFormGapExtension
+open YMGap.Continuum.BF4PhysicalCompletedOperatorNormGap
 open YMGap.Continuum.BF4PhysicalMarkovGNSCompletion
 open YMGap.Continuum.BF4SU2FixedMagneticPhysicalMarkov
 open YMGap.Continuum.SU2FundamentalPentagonFiniteGraph
@@ -104,8 +105,39 @@ def ExactPhysicalJointCenteredCauchyReplacement.toVacuumComplementReplacement
     rw [hembed]
     exact hstage
 
+/-- The centered-representative certificate feeds directly into the existing
+completed reflected-joint form-gap theorem. -/
+theorem physicalJoint_completed_form_gap_of_centered_certificate
+    {w rate : Q'} (hw : (0 : Q') ≤ w) (K half : Nat)
+    (gap : CentralPhysicalCompletedVacuumFormGap w hw K half rate)
+    (original : CauchyGNS
+      (physicalJointSmulGNS w hw K half).toGNSData)
+    (certificate : ExactPhysicalJointCenteredCauchyReplacement K half original) :
+    CReal.RCle
+      ((physicalJointSmulGNS w hw K half).toGNSData.cinnerCompl
+        (physicalJointTransfer w hw K half
+          (Quotient.mk
+            (cauchySetoid (physicalJointSmulGNS w hw K half).toGNSData)
+            original))
+        (Quotient.mk
+          (cauchySetoid (physicalJointSmulGNS w hw K half).toGNSData)
+          original))
+      (CReal.RCscale rate
+        ((physicalJointSmulGNS w hw K half).toGNSData.cinnerCompl
+          (Quotient.mk
+            (cauchySetoid (physicalJointSmulGNS w hw K half).toGNSData)
+            original)
+          (Quotient.mk
+            (cauchySetoid (physicalJointSmulGNS w hw K half).toGNSData)
+            original))) := by
+  exact physicalJoint_completed_form_gap_of_replacement
+    hw K half gap original
+    (ExactPhysicalJointCenteredCauchyReplacement.toVacuumComplementReplacement
+      K half original certificate)
+
 #print axioms physicalJointCenteredStage
 #print axioms physicalJointCenteredStage_vacuumOrthogonal
 #print axioms ExactPhysicalJointCenteredCauchyReplacement.toVacuumComplementReplacement
+#print axioms physicalJoint_completed_form_gap_of_centered_certificate
 
 end YMGap.Continuum.BF4PhysicalJointCenteredReplacement

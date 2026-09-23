@@ -142,7 +142,10 @@ The monitored dependency-complete target passed 1,245 jobs with only
 `{propext, Quot.sound}` and no `sorryAx`.  Constructing this certificate is
 still open; no arbitrary-vector density, completed joint gap,
 thermodynamic/continuum passage, physical-mass, all-group, or Clay result is
-inferred.
+inferred.  The corollary
+`physicalJoint_completed_form_gap_of_centered_certificate` shows that any such
+certificate immediately feeds the existing conditional completed form-gap
+consumer.
 
 ### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 

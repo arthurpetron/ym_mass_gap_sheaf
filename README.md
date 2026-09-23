@@ -77,7 +77,8 @@ exact-kernel replacement interface.  The focused target passed 1,245 jobs with
 only `{propext, Quot.sound}` and no `sorryAx`.  The certificate is not
 constructed here, so arbitrary-vector density, the completed gap,
 thermodynamic/continuum, physical-mass, all-group, and Clay obligations remain
-open.
+open.  When supplied, `physicalJoint_completed_form_gap_of_centered_certificate`
+composes it with the existing conditional completed form-gap theorem.
 
 The exact finite joint-form algebra is now checked in
 `BF4PhysicalJointCenteredForm.lean`.  The declarations
