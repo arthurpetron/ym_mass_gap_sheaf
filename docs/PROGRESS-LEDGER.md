@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current scope correction: recover the existing restricted quantitative result (2026-09-23)
+## Current increment: all-subunit original boundary and return estimate (2026-09-23)
+
+The explicit relative heat-tail ceiling now controls the SAME complete cube
+boundary sum for every rational `0 < w < 1`. The physical conditional diagonal
+is bounded by `H(w)^12 * (M+1)^6 * w^floor(M^2/72)` for M >= 1400, uniformly
+over representation cutoff but not over w. The exact original partition and
+marginal cancellation remain in the proof. This is a genuine extension of the
+small-nome analytic input, not an assumed or repackaged gap.
+
+Consumers: the literal radius-shell trace and existing head/tail coercivity.
+Still needed: coupling-dependent radial onset and seed control, then that
+trace/coercivity composition. No original-YM identity, spatial/scaling control,
+physical mass, continuum/QFT or every-group closure follows here.
+
+Verification: `BF4PhysicalSubunitHeatRelativeTail.lean` and
+`BF4PhysicalCubeSubunitBoundarySumBound.lean`, monitored leaf logs
+`/tmp/ym-gap-subunit-relative-heat-tail-check-3.log` and
+`/tmp/ym-gap-subunit-boundary-check-2.log`; fourteen gates within
+`{propext, Quot.sound}`, no warnings or `sorryAx`; no full audit.
+
+## Previous scope correction: recover the existing restricted quantitative result (2026-09-23)
 
 Read-only dependency review found that
 `BF4PhysicalCubeCompletedMarginalGap.completedSectorFormGap` and

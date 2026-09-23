@@ -52,16 +52,44 @@ mass, continuum/QFT and every-group closure remain open. Extending estimates to
 all subunit nomes is a useful analytic direction, not an additional prerequisite
 if a justified scaling trajectory suffices.
 
-Selected next proposition: replace the small-nome relative heat-tail constant
-in `BF4PhysicalCubeBoundarySumBound.coeffW_tail_le_twice` by an explicit
-nome-dependent constant valid for `0 < w < 1`, then apply it to the SAME full
-boundary sum. The Gaussian continuation also needs a coupling-dependent radial
-onset and seed budget; a general tail bound alone is not an all-nome completed gap.
+The relative heat-tail and SAME full boundary-sum extensions are now checked
+below. The next proposition is an explicit coupling-dependent radial onset and
+seed budget, then the literal high-label trace bound. The general Gaussian
+bound alone is not an all-nome completed gap.
 
 Verification: fresh monitored 20 GiB leaf check of
 `BF4PhysicalCubeCompletedMarginalGap.lean`,
 `/tmp/ym-gap-existing-completed-sector-scope-check.log`; all six gates contain
 only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
+
+### All-subunit full boundary sum and actual conditional return (2026-09-23 UTC)
+
+`BF4PhysicalSubunitHeatRelativeTail.coeffW_tail_le_relativeCeiling` bounds
+every finite shifted heat tail by its first coefficient times the explicit
+`relativeHeatTailCeiling w`, for each rational `0 < w < 1`. It uses the
+existing coefficient rectangle/log-concavity inequality and constructive
+decorated-face summability. No cutoff or source label enters this constant.
+
+`BF4PhysicalCubeSubunitBoundarySumBound` applies this to all twelve active
+faces of the literal boundary sum. `cubeBoundaryOverlap_le_subunit_difference`
+retains the complete boundary enumeration. The same raw joint kernel and
+its own marginal give `vacuumSector_selfReturn_le_subunit_gaussian`:
+for radius M >= 1400, the conditional diagonal is bounded by
+`relativeHeatTailCeiling(w)^12 * (M+1)^6 * w^floor(M^2/72)`.
+The shared partition is cancelled exactly; no replacement dynamics is used.
+
+This extends the quantitative Gaussian input beyond `w <= 1/2`, not the
+completed gap itself. The prefactor may deteriorate as w approaches one.
+Next: sum radius shells with a nome-dependent onset and actual seed budget,
+then transport that trace bound to the existing head/tail coercivity argument.
+Original-YM/geometric-time identification, spatial/scaling control, physical
+mass, continuum/QFT and every-group obligations remain open. No frontier field,
+`sorry` or axiom changed.
+
+Verification: two monitored 20 GiB leaf checks,
+`/tmp/ym-gap-subunit-relative-heat-tail-check-3.log` and
+`/tmp/ym-gap-subunit-boundary-check-2.log`; all fourteen printed gates are
+within `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
 
 ### Actual completed-sector fixed vectors vanish in the vacuum complement (2026-09-23 UTC)
 

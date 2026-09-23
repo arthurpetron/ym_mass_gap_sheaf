@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Proved all-subunit boundary and conditional-return estimate (2026-09-23)
+
+- **files**: `YMGap/Continuum/BF4PhysicalSubunitHeatRelativeTail.lean`,
+  `YMGap/Continuum/BF4PhysicalCubeSubunitBoundarySumBound.lean`.
+- **producers**: `coeffW_tail_le_relativeCeiling` and
+  `cubeBoundaryOverlap_le_subunit_difference`, with the explicit twelve-face
+  factor `subunitBoundaryFactor w` for every rational `0 < w < 1`.
+- **actual consumer**: `vacuumSector_selfReturn_le_subunit_gaussian` bounds
+  the literal conditional kernel diagonal, using its original joint kernel
+  and marginal. Its bound is cutoff-independent but explicitly nome-dependent.
+- **residue**: adaptive radial onset/seed budget, high-label trace and
+  head/tail coercivity beyond the existing restricted gap. No broader completed
+  gap, original-YM time bridge, spatial/scaling, continuum/QFT, physical-mass or
+  every-group closure is asserted. No new hypothesis, hole, or axiom.
+- **verification**: monitored 20 GiB leaf checks in
+  `/tmp/ym-gap-subunit-relative-heat-tail-check-3.log` and
+  `/tmp/ym-gap-subunit-boundary-check-2.log`; fourteen gates within
+  `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
 ## Status correction: existing restricted completed-sector gap (2026-09-23)
 
 - **existing producers**: `BF4PhysicalCubeCompletedMarginalGap.completedSectorFormGap`,

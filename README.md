@@ -16,6 +16,11 @@ cutoff with an explicit nome-dependent rate. The broader recent
 excludes nonzero fixed vectors at every `0 < w < 1` and fixed half-extent;
 that qualitative theorem alone does not give a strict gap.
 
+The next analytic extension now bounds the original full cube boundary sum and
+conditional self-return for every `0 < w < 1`, with an explicit
+[nome-dependent Gaussian envelope](lean/YMGap/Continuum/BF4PhysicalCubeSubunitBoundarySumBound.lean).
+Summing its tail and extending the completed gap remain separate steps.
+
 These are conditional-dynamics results, not an identified Yang--Mills
 Hamiltonian gap. Original-action/geometric-time identification, spatial and
 spacing control, continuum nontriviality, physical mass, full QFT and all
