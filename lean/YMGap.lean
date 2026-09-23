@@ -4857,6 +4857,7 @@ import YMGap.Continuum.SU2QuaternionSpareHeadCopy
 import YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
 import YMGap.Continuum.SU2QuaternionWeightedProjectionSweep
 import YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
+import YMGap.Continuum.SU2QuaternionSelectedProjectionReindex
 import YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy
 import YMGap.Continuum.SU2QuaternionHeatFusionBoundaryTail
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFusionIdentity

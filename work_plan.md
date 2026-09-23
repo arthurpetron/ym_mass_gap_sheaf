@@ -68,6 +68,33 @@ with the same width-independent `squaredHeatRate w` and the same explicit
 the actual local-update representation; it is not a new interacting or OS
 gap and it does not bound the signed endpoint correction.
 
+### Constructive selected-projection recoding (2026-09-22 UTC)
+
+**PROGRESS -- the conditional projection now transports through the explicit
+block recoding:** `SU2QuaternionSelectedProjectionReindex.reindex_integrateQuaternionBlock`
+proves coefficient-probe equivalence between integrating an arbitrary selected
+quaternion block and first reindexing the polynomial, with the selected block
+sent to its recoded image.  The proof keeps the raw finite carrier and uses
+the explicit exponent mask, the block involution, and the exact quaternion
+moment reindexing.  It does not identify raw list syntax by a classical
+extensionality theorem.
+
+**PROGRESS -- the selected pair can be exposed before the head projection:**
+`SU2QuaternionSelectedProjectionReindex.exposeTranslationPair_project` composes
+the head and tail block permutations with the preceding coefficient-probe
+transport.  It identifies the doubly recoded selected projection with the
+literal head projection of `exposeTranslationPairPolynomial`, retaining every
+spectator coefficient.
+
+The focused check of
+`lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean` passed, and
+both public declarations report only `{propext, Quot.sound}`.  This is a
+finite algebraic carrier bridge.  It does not prove the angular telescope,
+inactive-projection removal, signed endpoint bound, SAME-object variance
+estimate, OS/GNS passage, continuum survival, physical mass calibration,
+or the Clay theorem.  The next estimate consumes this recoding to transport
+the selected local angular defect into the literal head chart.
+
 **Next mathematical estimate:** use the checked commutation and hybrid
 independence to telescope the actual kinetic quadratic defect with a
 controlled angular cost. On a fully active carrier the intended bound is

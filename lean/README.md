@@ -33,6 +33,20 @@ to the explicit conditional-link sweep, with its `squaredHeatRate w` and
 `headCutoff w ≤ K` guard unchanged. This is still not an OS/interacting
 spectral gap or a continuum statement.
 
+**Selected projection recoding (2026-09-22 UTC):**
+`SU2QuaternionSelectedProjectionReindex.reindex_integrateQuaternionBlock`
+proves coefficient-probe transport of an arbitrary selected quaternion Haar
+projection through an explicit block involution.  The companion theorem
+`exposeTranslationPair_project` composes the head and tail permutations and
+identifies the doubly recoded selected projection with the literal head
+projection of `exposeTranslationPairPolynomial`, retaining all spectator
+coefficients.  The focused check reports only `{propext, Quot.sound}` for both
+public declarations.  This is a finite carrier identity only: the angular
+telescope, inactive-projection control, signed endpoint estimate, SAME-object
+OS/GNS passage, continuum survival, physical mass, QFT axioms and every-group
+construction remain open.  See
+`audits/AUDIT-SELECTED-PROJECTION-REINDEX-2026-09-22.md`.
+
 **Computed arbitrary-input harmonic decomposition (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionFischerDecomposition.decomposeHomogeneous` returns actual
 finite radial-harmonic modes by degree recursion, with the explicit
