@@ -25,6 +25,35 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original relative-heat local mixed curvature is constructed (2026-09-23 UTC)
+
+`SU2QuaternionHeatLogCurvature.heatLogHessianBounds` now constructs BOTH
+original-Haar positivity certificates for
+`-C(w)*h^2 <= h*A(B h)-(A h)*(B h) <= C(w)*h^2`, with the ACTUAL relative
+heat h and arbitrary supported within-block rotations A,B (overlap allowed).
+The cap is `C2(w)/headFloor(w)+relativeCap(w,32)^2`, under the explicit guard
+`relativeCutoff w 32 <= K`. Here
+`C2(w)=4096*prefixBudget(w,6)+128*prefixBudget(w,4)` bounds the actual mixed
+second derivative at EVERY finite cutoff. The positive character derivative
+recurrence, its quintic label bound, arbitrary-degree Gaussian summation and
+the actual relative scalar's mixed cap 64 are all constructed, not assumed.
+
+**Next causal join:** combine this local producer with the whole original
+kernel Hessian sign below through genuine factorwise reciprocal/score
+approximants with explicit errors. Do NOT multiply a denominator-cleared
+inequality by the product kernel and apply the Hessian sign with an extra W;
+that is a different weighted integral. Retain positive a=V*g, all cross terms,
+the SAME edge normalization, and grouped local directions when deriving a
+coefficient-square estimate. Then prove the Wilson-jump/SAME-variance join.
+
+The constants are independent of cutoff and ambient size, NOT nome-uniform;
+their scaling usefulness is unproved. This does not control the finite-P
+source correction, identify physical time, or close spatial/scaling survival,
+finite positive physical mass, full QFT/YM fields or any all-group/Clay atom.
+Five serialized 8 GiB leaves passed twenty-one gates, only {propext, Quot.sound}.
+No full-root build/audit/guard or new hole/axiom/field weakening. Evidence:
+`audits/AUDIT-ORIGINAL-HEAT-LOG-CURVATURE-2026-09-23.md`.
+
 ### Whole signed-direction kinetic Hessian has a proved sign (2026-09-23 UTC)
 
 `SU2QuaternionProductHeatAngularHessian.productHeat_upperHessian_eq_neg_square`

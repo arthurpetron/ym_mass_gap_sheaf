@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: a sign for the whole original kinetic Hessian (2026-09-23)
+## Current increment: construct original mixed heat curvature (2026-09-23)
+
+The missing LOCAL curvature producer is now constructed: for actual relative
+heat h, `heatLogHessianBounds` bounds both signs of
+`h*A(Bh)-(Ah)*(Bh)` by the explicit nome-dependent C(w)*h^2 in original
+Haar order. The actual mixed second derivative has a cutoff-independent
+degree-six/four Gaussian budget. No ambient-size factor or analytic hypothesis.
+
+The actual consumer is the route combining local curvature and the preceding
+whole-kernel Hessian sign. Its reciprocal/score approximation and normalized
+whole-family estimate remain OPEN; the new theorem does not compose that join
+or prove scaling-sufficient nome behavior. SAME Wilson variance, finite-P
+correction, physical time and all continuum/all-group obligations stay open.
+Five focused leaves passed twenty-one permitted gates; no full-root
+build/audit/guard or progress-metric script (which invokes the guard).
+See `audits/AUDIT-ORIGINAL-HEAT-LOG-CURVATURE-2026-09-23.md`.
+
+## Previous increment: a sign for the whole original kinetic Hessian (2026-09-23)
 
 The actual selected product kernel W now obeys
 `H_2n[a(x)*a(y)*D_y^2 W] = -H_n[(D a)*P(D a)] <= 0` for `0 <= w`,

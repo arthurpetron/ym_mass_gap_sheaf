@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Actual local heat curvature (2026-09-23):**
+`SU2QuaternionHeatLogCurvature.heatLogHessianBounds` constructs both
+denominator-cleared mixed log-Hessian bounds for the original relative heat.
+The actual second derivative is bounded using a positive character recurrence,
+explicit degree-six/four Gaussian prefix budgets, and the relative scalar's
+mixed cap 64. All block/plane overlap is allowed. The local curvature constant
+is computed from w, not supplied; it has no cutoff or ambient-size factor.
+Its nome dependence and cutoff onset remain explicit. The joint reciprocal/
+score join, SAME normalized Wilson variance and scaling behavior remain open.
+Five serialized leaves passed twenty-one permitted gates; no full-root
+build/audit/guard. Evidence:
+`audits/AUDIT-ORIGINAL-HEAT-LOG-CURVATURE-2026-09-23.md`.
+
 **Whole signed-direction kinetic Hessian (2026-09-23):**
 `SU2QuaternionProductHeatAngularHessian.productHeat_upperHessian_eq_neg_square`
 identifies the upper second derivative of the actual selected product kernel,

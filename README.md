@@ -7,7 +7,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-The latest [whole-direction result](audits/AUDIT-SIGNED-KINETIC-ANGULAR-HESSIAN-2026-09-23.md)
+The latest [local curvature result](audits/AUDIT-ORIGINAL-HEAT-LOG-CURVATURE-2026-09-23.md)
+constructs both original-Haar positivity certificates for
+`-C(w)*h^2 <= h*D1(D2 h)-(D1 h)*(D2 h) <= C(w)*h^2`, where h is the
+ACTUAL relative SU(2) heat kernel. Mixed directions may overlap. The computed
+constant is independent of carrier size and cutoff beyond an explicit onset,
+but depends on the nome w; no useful scaling asymptotics are asserted.
+This supplies a local input for the whole-direction score argument below,
+not its still-open reciprocal/normalization join or SAME-variance estimate.
+Five focused leaf checks passed twenty-one permitted axiom gates.
+
+The preceding [whole-direction result](audits/AUDIT-SIGNED-KINETIC-ANGULAR-HESSIAN-2026-09-23.md)
 proves an exact sign for the ORIGINAL product-heat kernel W:
 `H[a(x)*a(y)*D_y^2 W] = -<D a, P(D a)> <= 0` for `w >= 0`.
 D is any finite signed angular direction; every mixed term and both complete

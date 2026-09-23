@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Proved original relative-heat mixed curvature producer (2026-09-23)
+
+- **constructed**: `SU2QuaternionHeatLogCurvature.heatLogHessianBounds` gives
+  both signs of the actual mixed log-Hessian numerator bounded by C(w)*h^2
+  in original Haar order. C(w) and the late-cutoff onset are computed.
+- **analytic input removed**: the local mixed second derivative and curvature
+  certificates now follow from actual characters, polynomial-Gaussian prefix
+  sums and the relative scalar; no unavailable estimate is supplied as a field.
+- **scope**: constants independent of ambient block count and cutoff, but
+  explicitly nome-dependent. No useful w->1 asymptotics are claimed.
+- **remaining**: factorwise reciprocal/score approximation with explicit errors,
+  whole signed coefficient-square assembly, positive complete source and SAME
+  normalization/variance, justified scaling family and every physical/continuum
+  obligation. A denominator-cleared numerator is NOT yet the normalized score.
+- **verification**: five serialized 8 GiB leaves, twenty-one permitted gates,
+  no warning/error/sorryAx/Classical.choice in accepted logs. No new hole/axiom,
+  frontier weakening, full-root build/audit/guard or canonical atom closure.
+  See `audits/AUDIT-ORIGINAL-HEAT-LOG-CURVATURE-2026-09-23.md`.
+
 ## Proved whole signed-direction original kinetic Hessian sign (2026-09-23)
 
 - **actual estimate**: `SU2QuaternionProductHeatAngularHessian.productHeat_upperHessian_eq_neg_square`
