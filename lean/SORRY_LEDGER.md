@@ -108,8 +108,14 @@ The Cauchy-null bridge is now also explicit:
 `centeredCauchySetoid` packages the centered quotient, and
 `centeredCompletionTransfer` descends the transfer to that quotient with
 `centeredCompletionTransfer_mk`.  This is a centered Cauchy completion
-carrier, not yet the full GNS Hilbert completion or a physical OS/QFT
-construction.
+carrier.  The new `centeredCompletionToGNSCompletion` injection places it in
+the existing finite-Haar completion, while `centeredCompletionInner` and
+`centeredCompletionTwoStepMoment` pull back the checked `CReal.RC` inner
+product and descended transfer.  The dense rule
+`centeredCompletionTwoStepMoment_embedCenteredRep` identifies the result with
+the finite `kineticPair` after embedding its rational value into `CReal.RC`.
+This remains an ordinary-Haar SU(2) carrier certificate, not an interacting
+OS/QFT construction or a physical spectral gap.
 
 ## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
 

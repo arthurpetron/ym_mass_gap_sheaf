@@ -49,7 +49,11 @@ The pairwise centered distance bound now transports centered Cauchy
 representatives with their explicit moduli, preserving the centered sector.
 The Cauchy-null descent is now checked on the centered sector, yielding an
 explicit centered Cauchy quotient and descended transfer map.  This is not
-yet the full GNS Hilbert completion, OS transfer, or continuum theory.
+yet the interacting OS transfer or continuum theory.  The centered quotient is
+now injected into the existing finite-Haar GNS completion, with a pulled-back
+`CReal.RC` inner product and a same-object two-step moment whose dense rule is
+the finite `kineticPair`.  Physical uniformity and the OS/continuum bridge
+remain open.
 
 > **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.

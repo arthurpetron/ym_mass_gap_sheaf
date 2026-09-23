@@ -127,6 +127,17 @@ representative rule.  This quotient still needs the CReal inner product,
 density/OS identification, and physical uniformity before it can serve as the
 completed Yang--Mills Hilbert space.
 
+The centered quotient is now injected into the existing finite-Haar
+`GNSCompletionSpace` by `centeredCompletionToGNSCompletion`, with an explicit
+injectivity proof.  `centeredCompletionTransferIntoGNS` and
+`centeredCompletionInner` therefore expose the descended transfer and the
+already-checked `CReal.RC` inner product on one concrete completed carrier.
+`centeredCompletionTwoStepMoment` is the literal same-object correlator, and
+`centeredCompletionTwoStepMoment_embedCenteredRep` pins it to the finite
+`kineticPair` on dense centered representatives.  This does not identify the
+ordinary-Haar completion with the interacting OS carrier, nor provide a
+physical or continuum gap.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

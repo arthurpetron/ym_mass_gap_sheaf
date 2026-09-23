@@ -4,14 +4,19 @@
 The finite ordinary-Haar carrier has a genuine radical quotient.  The
 representative-level radical-annihilation theorem is enough, together with
 coefficient linearity of `productMap`, to descend that map through the
-quotient.  This module stops at the finite quotient: it does not define the
-completed transfer operator or prove a spectral or continuum gap.
+quotient.  The centered Cauchy sector is then completed constructively and
+embedded into the existing finite-Haar GNS completion.  The descended map is
+viewed there with the pulled-back `CReal.RC` inner product, and its literal
+same-object two-step moment is pinned on dense centered representatives.  This
+still does not identify the carrier with the interacting OS space or prove a
+physical spectral/continuum gap.
 -/
 
 import YMGap.Continuum.SU2QuaternionFiniteHaarProductMapRadical
 import YMGap.Continuum.SU2QuaternionProductHeatConstant
 import YMGap.Continuum.SU2QuaternionProductHeatDualForm
 import YMGap.Continuum.GNSCompletion
+import YMGap.Continuum.GNSHilbertSpace
 
 namespace YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 
@@ -596,6 +601,170 @@ theorem centeredCompletionTransfer_mk
       Quotient.mk (centeredCauchySetoid n)
         (productMap_centeredCauchyData n hw0 hw1 K hK ids hnodup hids x) := rfl
 
+/-! ## The centered carrier inside the genuine GNS completion -/
+
+/-- Forget the termwise centering witness and place the centered Cauchy class
+inside the already constructed full finite-Haar GNS completion.  This is a
+carrier inclusion only; it does not identify the ordinary-Haar completion with
+the BF4 interacting physical carrier. -/
+def centeredCompletionToGNSCompletion (n : Nat) :
+    CenteredCompletionSpace n → GNSCompletionSpace (finiteHaarGNSData n) :=
+  Quotient.lift
+    (fun x => Quotient.mk (cauchySetoid (finiteHaarGNSData n)) x.seq)
+    (by
+      intro x y hxy
+      exact Quotient.sound hxy)
+
+theorem centeredCompletionToGNSCompletion_mk
+    (n : Nat) (x : CenteredCauchyGNS n) :
+    centeredCompletionToGNSCompletion n
+        (Quotient.mk (centeredCauchySetoid n) x) =
+      Quotient.mk (cauchySetoid (finiteHaarGNSData n)) x.seq := rfl
+
+/-- No centered completion points are identified by forgetting their centering
+witness: both quotients use the same `CauchyNull` relation on the underlying
+sequences. -/
+theorem centeredCompletionToGNSCompletion_injective (n : Nat)
+    {x y : CenteredCompletionSpace n}
+    (h : centeredCompletionToGNSCompletion n x =
+      centeredCompletionToGNSCompletion n y) :
+    x = y := by
+  revert h
+  refine Quotient.inductionOn₂ x y ?_
+  intro X Y hXY
+  exact Quotient.sound
+    (Quotient.exact (s := cauchySetoid (finiteHaarGNSData n)) hXY)
+
+/-- The descended centered transfer, viewed in the genuine finite-Haar GNS
+completion. -/
+def centeredCompletionTransferIntoGNS
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x : CenteredCompletionSpace n) :
+    GNSCompletionSpace (finiteHaarGNSData n) :=
+  centeredCompletionToGNSCompletion n
+    (centeredCompletionTransfer n hw0 hw1 K hK ids hnodup hids x)
+
+/-- Representative rule for the completed transfer after inclusion into the
+full GNS completion. -/
+theorem centeredCompletionTransferIntoGNS_mk
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x : CenteredCauchyGNS n) :
+    centeredCompletionTransferIntoGNS n hw0 hw1 K hK ids hnodup hids
+        (Quotient.mk (centeredCauchySetoid n) x) =
+      Quotient.mk (cauchySetoid (finiteHaarGNSData n))
+        (productMap_centeredCauchy n hw0 hw1 K hK ids hnodup hids x) := rfl
+
+/-- The genuine completed `CReal.RC` inner product pulled back to the centered
+subcarrier. -/
+def centeredCompletionInner (n : Nat)
+    (x y : CenteredCompletionSpace n) : CReal.RC :=
+  (finiteHaarGNSData n).cinnerCompl
+    (centeredCompletionToGNSCompletion n x)
+    (centeredCompletionToGNSCompletion n y)
+
+/-- A literal same-object completed moment: the same centered completion point
+appears in the left slot and, after the descended product transfer, in the
+right slot.  The product map is the finite two-slice heat transfer; this name
+does not assert an OS Hamiltonian or a continuum time calibration. -/
+def centeredCompletionTwoStepMoment
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x : CenteredCompletionSpace n) : CReal.RC :=
+  (finiteHaarGNSData n).cinnerCompl
+    (centeredCompletionToGNSCompletion n x)
+    (centeredCompletionTransferIntoGNS n hw0 hw1 K hK ids hnodup hids x)
+
+/-- The same-object moment computes on a centered Cauchy representative using
+the original sequence and its pointwise product-map image. -/
+theorem centeredCompletionTwoStepMoment_mk
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (x : CenteredCauchyGNS n) :
+    centeredCompletionTwoStepMoment n hw0 hw1 K hK ids hnodup hids
+        (Quotient.mk (centeredCauchySetoid n) x) =
+      (finiteHaarGNSData n).cinnerCompl
+        (Quotient.mk (cauchySetoid (finiteHaarGNSData n)) x.seq)
+        (Quotient.mk (cauchySetoid (finiteHaarGNSData n))
+          (productMap_centeredCauchy n hw0 hw1 K hK ids hnodup hids x)) := rfl
+
+/-- A centered finite representative as a constant centered Cauchy stream. -/
+def centeredConstCauchy (n : Nat)
+    (p : (finiteHaarGNSData n).V)
+    (hcenter : quaternionHaar n p.val ≈ 0) : CenteredCauchyGNS n where
+  seq := constCauchy (finiteHaarGNSData n) p
+  centered := fun _ => hcenter
+
+/-- Dense centered representative in the centered completion. -/
+def embedCenteredRep (n : Nat)
+    (p : (finiteHaarGNSData n).V)
+    (hcenter : quaternionHaar n p.val ≈ 0) : CenteredCompletionSpace n :=
+  Quotient.mk (centeredCauchySetoid n) (centeredConstCauchy n p hcenter)
+
+theorem centeredCompletionToGNSCompletion_embedCenteredRep
+    (n : Nat) (p : (finiteHaarGNSData n).V)
+    (hcenter : quaternionHaar n p.val ≈ 0) :
+    centeredCompletionToGNSCompletion n (embedCenteredRep n p hcenter) =
+      embedQuot (finiteHaarGNSData n)
+        ((finiteHaarGNSData n).qmk p) := rfl
+
+/-- On dense centered representatives, the completion transfer is exactly the
+finite product map; there is no independently chosen completion operator. -/
+theorem centeredCompletionTransfer_embedCenteredRep
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (p : (finiteHaarGNSData n).V)
+    (hcenter : quaternionHaar n p.val ≈ 0) :
+    centeredCompletionTransfer n hw0 hw1 K hK ids hnodup hids
+        (embedCenteredRep n p hcenter) =
+      embedCenteredRep n (productMapRep n w K ids hids p)
+        (productMap_centered_preserved n hw0 hw1 K hK ids hnodup hids
+          p.val p.property hcenter) := by
+  apply Quotient.sound
+  exact cauchyNull_refl (finiteHaarGNSData n)
+    (constCauchy (finiteHaarGNSData n)
+      (productMapRep n w K ids hids p))
+
+/-- The completed same-object moment on a dense centered vector is the exact
+finite kinetic pairing, now embedded in the constructive real line. -/
+theorem centeredCompletionTwoStepMoment_embedCenteredRep
+    (n : Nat) {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : headCutoff w ≤ K)
+    (ids : List Nat) (hnodup : ids.Nodup)
+    (hids : ∀ i, i ∈ ids → i < n)
+    (p : (finiteHaarGNSData n).V)
+    (hcenter : quaternionHaar n p.val ≈ 0) :
+    centeredCompletionTwoStepMoment n hw0 hw1 K hK ids hnodup hids
+        (embedCenteredRep n p hcenter) =
+      Quotient.mk CReal.crealSetoid
+        (CReal.ofQ' (kineticPair n w K ids p.val p.val)) := by
+  unfold centeredCompletionTwoStepMoment centeredCompletionTransferIntoGNS
+  rw [centeredCompletionTransfer_embedCenteredRep n hw0 hw1 K hK ids hnodup hids
+    p hcenter]
+  change (finiteHaarGNSData n).cinnerCompl
+      (embedQuot (finiteHaarGNSData n) ((finiteHaarGNSData n).qmk p))
+      (embedQuot (finiteHaarGNSData n)
+        ((finiteHaarGNSData n).qmk (productMapRep n w K ids hids p))) = _
+  rw [(finiteHaarGNSData n).cinnerCompl_embed]
+  rfl
+
 end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.productMapRep
@@ -620,3 +789,16 @@ end YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCauchySetoid
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionTransfer
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionTransfer_mk
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionToGNSCompletion
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionToGNSCompletion_mk
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionToGNSCompletion_injective
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionTransferIntoGNS
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionTransferIntoGNS_mk
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionInner
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionTwoStepMoment
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionTwoStepMoment_mk
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredConstCauchy
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.embedCenteredRep
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionToGNSCompletion_embedCenteredRep
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionTransfer_embedCenteredRep
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient.centeredCompletionTwoStepMoment_embedCenteredRep
