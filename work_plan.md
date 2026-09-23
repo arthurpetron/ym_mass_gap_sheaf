@@ -53,6 +53,27 @@ calibration.  The focused dependency-complete safe target passed 5504 jobs
 with one worker.  All three exported declarations report only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+### Localized reference moment reaches the global carrier (2026-09-23 UTC)
+
+`Z4DyadicSpinFourFineCouplingReferenceCross.lean` now proves
+`fineUnitCouplingPushedFourCellSourceCasimirMoment_le_global` and
+`fineUnitCouplingPushedFourCellTargetCasimirMoment_le_global`.  Each finite
+four-cell Casimir moment is bounded by twice the product of the physical
+partition and the physical Casimir moment; the combined declaration
+`fineUnitCouplingLocalizedFourCellCasimirMoment_le_global` therefore gives the
+explicit same-carrier bound `4 * (partition * Casimir moment)`.  The proof uses
+finite carrier inclusion, a Cartesian pair sum, and the exact global
+row-normalized Casimir-moment identity.  This closes a finite localization
+bridge for the signed reference-vs-actual cross seam.  The bound remains
+slab-dependent and does not provide the required cutoff/volume/beta-uniform
+moment control, strict completed OS gap, thermodynamic/continuum passage,
+physical mass calibration, QFT axioms, or all-group construction.
+
+The dependency-complete monitored target
+`+YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferenceCross:olean` passed
+5,496 jobs with one worker.  The three new declarations report only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 The same module now proves the fixed-coupling reciprocal refinements
 `fineCouplingPhysicalPartitionMarginSum_le_reciprocal` and
 `fineCouplingPhysicalPartitionSquareMargin_le_reciprocal`, using the explicit

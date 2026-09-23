@@ -41,6 +41,7 @@ open YMGap.Continuum.CompactDualCutoffOnePhysicalPushforward
 open YMGap.Continuum.CompactDualFiniteBlockRemainder
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCell
 open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualRawKernel
+open YMGap.Continuum.CompactDualSlabExpandedSourceEnumeration
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteWeightedCartesianInjection
@@ -77,6 +78,12 @@ local macro "ring_qeqv" : tactic =>
 private theorem sub_eqv_both_local {a a' b b' : Q'}
     (ha : a ≈ a') (hb : b ≈ b') : a - b ≈ a' - b' :=
   Q'.add_eqv_congr' ha (Q'.neg_eqv_congr _ _ hb)
+
+private theorem mul_eqv_both_local {a a' b b' : Q'}
+    (ha : a ≈ a') (hb : b ≈ b') : a * b ≈ a' * b' :=
+  Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right _ _ _ ha)
+    (Q'.mul_eqv_congr_left _ _ _ hb)
 
 private theorem cross_sub_cross_eqv_loss_difference
     (referenceSource referenceTarget actualSource actualTarget : Q') :
@@ -450,6 +457,290 @@ theorem fineUnitCouplingPushedFourCellTargetCasimirMoment_nonnegative
   exact fineUnitCouplingPushedTargetPairCasimirMoment_nonnegative
     K hmembers.1 hmembers.2
 
+/-! ## 4. Finite localized-to-global Casimir carrier comparison -/
+
+private theorem pushedTargetPairCasimirMoment_eqv_regroup
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (pair : EdgeLabelling × EdgeLabelling) :
+    fineUnitCouplingPushedTargetPairCasimirMoment K pair ≈
+      fineUnitCouplingPushedTargetRawMass K pair.1 *
+          fineUnitCouplingPushedTargetCasimirMoment K pair.2 +
+        fineUnitCouplingPushedTargetRawMass K pair.2 *
+          fineUnitCouplingPushedTargetCasimirMoment K pair.1 := by
+  unfold fineUnitCouplingPushedTargetPairCasimirMoment
+  exact Q'.eqv_refl _
+
+private theorem pushedFourCellCasimirMoment_le_full_cartesian
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (pairs : List (EdgeLabelling × EdgeLabelling))
+    (hsource : pairs.Nodup)
+    (hmem : ∀ pair, pair ∈ pairs →
+      pair ∈ cartesian S.coarse.physicalLabellings
+        S.coarse.physicalLabellings) :
+    listQSum (fineUnitCouplingPushedTargetPairCasimirMoment K) pairs ≤
+      listQSum (fineUnitCouplingPushedTargetPairCasimirMoment K)
+        (cartesian S.coarse.physicalLabellings
+          S.coarse.physicalLabellings) := by
+  apply listQSum_le_of_injective_nodup
+    pairs
+    (cartesian S.coarse.physicalLabellings
+      S.coarse.physicalLabellings)
+    (fineUnitCouplingPushedTargetPairCasimirMoment K)
+    (fineUnitCouplingPushedTargetPairCasimirMoment K)
+    (fun pair => pair)
+  · exact hsource
+  · exact cartesian_nodup _ _
+      (slabPhysicalLabellings_nodup S.coarse)
+      (slabPhysicalLabellings_nodup S.coarse)
+  · intro pair hpair
+    simpa only using hmem pair hpair
+  · intro pair _hpair other _hother heq
+    exact heq
+  · intro pair hpair
+    exact Q'.le_refl' _
+  · intro pair hpair
+    have hmembers := (mem_cartesian_iff
+      S.coarse.physicalLabellings S.coarse.physicalLabellings pair).mp hpair
+    exact fineUnitCouplingPushedTargetPairCasimirMoment_nonnegative
+      K hmembers.1 hmembers.2
+
+
+private theorem pushedPairCasimirMoment_cartesian_split
+    {S : SlabScalePair} (K : S.FiniteSlabKernel) :
+    listQSum (fineUnitCouplingPushedTargetPairCasimirMoment K)
+        (cartesian S.coarse.physicalLabellings
+          S.coarse.physicalLabellings) ≈
+      listQSum
+          (fun pair : EdgeLabelling × EdgeLabelling =>
+            fineUnitCouplingPushedTargetRawMass K pair.1 *
+              fineUnitCouplingPushedTargetCasimirMoment K pair.2)
+          (cartesian S.coarse.physicalLabellings
+            S.coarse.physicalLabellings) +
+        listQSum
+          (fun pair : EdgeLabelling × EdgeLabelling =>
+            fineUnitCouplingPushedTargetRawMass K pair.2 *
+              fineUnitCouplingPushedTargetCasimirMoment K pair.1)
+          (cartesian S.coarse.physicalLabellings
+            S.coarse.physicalLabellings) := by
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun pair : EdgeLabelling × EdgeLabelling =>
+        fineUnitCouplingPushedTargetRawMass K pair.1 *
+            fineUnitCouplingPushedTargetCasimirMoment K pair.2 +
+          fineUnitCouplingPushedTargetRawMass K pair.2 *
+            fineUnitCouplingPushedTargetCasimirMoment K pair.1)
+      (cartesian S.coarse.physicalLabellings
+        S.coarse.physicalLabellings)) _ ?_ ?_
+  · apply listQSum_congr_on
+    intro pair _
+    exact pushedTargetPairCasimirMoment_eqv_regroup K pair
+  · exact listQSum_add
+      (fun pair : EdgeLabelling × EdgeLabelling =>
+        fineUnitCouplingPushedTargetRawMass K pair.1 *
+          fineUnitCouplingPushedTargetCasimirMoment K pair.2)
+      (fun pair : EdgeLabelling × EdgeLabelling =>
+        fineUnitCouplingPushedTargetRawMass K pair.2 *
+          fineUnitCouplingPushedTargetCasimirMoment K pair.1)
+      (cartesian S.coarse.physicalLabellings
+        S.coarse.physicalLabellings)
+
+private theorem pushedPairRawMoment_cartesian_eqv
+    {S : SlabScalePair} (K : S.FiniteSlabKernel) :
+    listQSum
+        (fun pair : EdgeLabelling × EdgeLabelling =>
+          fineUnitCouplingPushedTargetRawMass K pair.1 *
+            fineUnitCouplingPushedTargetCasimirMoment K pair.2)
+        (cartesian S.coarse.physicalLabellings
+          S.coarse.physicalLabellings) ≈
+      listQSum (fineUnitCouplingPushedTargetRawMass K)
+          S.coarse.physicalLabellings *
+        listQSum (fineUnitCouplingPushedTargetCasimirMoment K)
+          S.coarse.physicalLabellings := by
+  exact listQSum_cartesian_product _ _ _ _
+
+private theorem pushedPairMomentRaw_cartesian_eqv
+    {S : SlabScalePair} (K : S.FiniteSlabKernel) :
+    listQSum
+        (fun pair : EdgeLabelling × EdgeLabelling =>
+          fineUnitCouplingPushedTargetRawMass K pair.2 *
+            fineUnitCouplingPushedTargetCasimirMoment K pair.1)
+        (cartesian S.coarse.physicalLabellings
+          S.coarse.physicalLabellings) ≈
+      listQSum (fineUnitCouplingPushedTargetCasimirMoment K)
+          S.coarse.physicalLabellings *
+        listQSum (fineUnitCouplingPushedTargetRawMass K)
+          S.coarse.physicalLabellings := by
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun pair : EdgeLabelling × EdgeLabelling =>
+        fineUnitCouplingPushedTargetCasimirMoment K pair.1 *
+          fineUnitCouplingPushedTargetRawMass K pair.2)
+      (cartesian S.coarse.physicalLabellings
+        S.coarse.physicalLabellings)) _ ?_ ?_
+  · apply listQSum_congr_on
+    intro pair _
+    exact Q'.mul_comm_eqv _ _
+  · exact listQSum_cartesian_product _ _ _ _
+
+private theorem addSelf_eqv_twoMul (x : Q') :
+    x + x ≈ Q'.ofNat 2 * x := by
+  refine Q'.eqv_trans _
+      (Q'.ofNat 1 * x + Q'.ofNat 1 * x) _ ?_ ?_
+  · exact Q'.add_eqv_congr'
+      (Q'.eqv_symm (Q'.one_mul_eqv x))
+      (Q'.eqv_symm (Q'.one_mul_eqv x))
+  refine Q'.eqv_trans _
+      ((Q'.ofNat 1 + Q'.ofNat 1) * x) _ ?_ ?_
+  · exact Q'.eqv_symm (Q'.add_mul_eqv
+      (Q'.ofNat 1) (Q'.ofNat 1) x)
+  · exact Q'.mul_eqv_congr_right _ _ x
+      (Q'.eqv_symm (Q'.ofNat_add_eqv 1 1))
+
+private theorem pushedPairCasimirMoment_cartesian_eqv
+    {S : SlabScalePair} (K : S.FiniteSlabKernel) :
+    listQSum (fineUnitCouplingPushedTargetPairCasimirMoment K)
+        (cartesian S.coarse.physicalLabellings
+          S.coarse.physicalLabellings) ≈
+      Q'.ofNat 2 *
+        (listQSum (fineUnitCouplingPushedTargetRawMass K)
+            S.coarse.physicalLabellings *
+          listQSum (fineUnitCouplingPushedTargetCasimirMoment K)
+            S.coarse.physicalLabellings) := by
+  have hsplit := pushedPairCasimirMoment_cartesian_split K
+  have hleft := pushedPairRawMoment_cartesian_eqv K
+  have hright := pushedPairMomentRaw_cartesian_eqv K
+  refine Q'.eqv_trans _ _ _ hsplit ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr' hleft hright) ?_
+  let product :=
+    listQSum (fineUnitCouplingPushedTargetRawMass K)
+        S.coarse.physicalLabellings *
+      listQSum (fineUnitCouplingPushedTargetCasimirMoment K)
+        S.coarse.physicalLabellings
+  have hcomm :
+      listQSum (fineUnitCouplingPushedTargetCasimirMoment K)
+          S.coarse.physicalLabellings *
+        listQSum (fineUnitCouplingPushedTargetRawMass K)
+          S.coarse.physicalLabellings ≈ product := by
+    exact Q'.eqv_symm (Q'.mul_comm_eqv _ _)
+  refine Q'.eqv_trans _ (product + product) _ ?_ ?_
+  · exact Q'.add_eqv_congr' (Q'.eqv_refl _) hcomm
+  · exact addSelf_eqv_twoMul product
+
+/-- Each literal four-cell Casimir moment is bounded by the full coarse
+Cartesian carrier.  The factor two is the product-rule multiplicity of the
+pair Casimir moment; this is a finite carrier estimate, not a uniform bound. -/
+theorem fineUnitCouplingPushedFourCellSourceCasimirMoment_le_global
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (root target : Nat) :
+    fineUnitCouplingPushedFourCellSourceCasimirMoment K root target ≤
+      Q'.ofNat 2 *
+        (fineUnitCouplingPhysicalPartition S *
+          fineUnitCouplingPhysicalCasimirMoment S) := by
+  let pairs := pushedFaceRawFourCellSourcePairs (S := S) root target
+  have hpairs : pairs.Nodup := by
+    unfold pairs pushedFaceRawFourCellSourcePairs
+    apply cartesian_nodup
+    · exact List.filter_sublist.nodup
+        (slabPhysicalLabellings_nodup S.coarse)
+    · exact List.filter_sublist.nodup
+        (slabPhysicalLabellings_nodup S.coarse)
+  have hmem : ∀ pair, pair ∈ pairs →
+      pair ∈ cartesian S.coarse.physicalLabellings
+        S.coarse.physicalLabellings := by
+    intro pair hpair
+    have hmembers := (mem_cartesian_iff _ _ pair).mp (by
+      simpa only [pairs, pushedFaceRawFourCellSourcePairs] using hpair)
+    apply (mem_cartesian_iff _ _ pair).mpr
+    exact ⟨(List.mem_filter.mp hmembers.1).1,
+      (List.mem_filter.mp hmembers.2).1⟩
+  have hlocal := pushedFourCellCasimirMoment_le_full_cartesian
+    K pairs hpairs hmem
+  have hfull := pushedPairCasimirMoment_cartesian_eqv K
+  have hraw := fineUnitCouplingPushedTargetRawMass_total K
+  have hmoment := fineUnitCouplingPushedTargetCasimirMoment_total K
+  change listQSum (fineUnitCouplingPushedTargetPairCasimirMoment K)
+      pairs ≤
+    Q'.ofNat 2 *
+      (fineUnitCouplingPhysicalPartition S *
+        fineUnitCouplingPhysicalCasimirMoment S)
+  refine Q'.le_trans' _ _ _ hlocal
+    (Q'.le_trans' _ _ _
+      (Q'.le_of_eqv hfull)
+      (Q'.le_of_eqv
+        (Q'.mul_eqv_congr_left (Q'.ofNat 2) _ _
+          (mul_eqv_both_local hraw hmoment))))
+
+/-- The opposite four-cell Casimir moment satisfies the same finite global
+carrier bound. -/
+theorem fineUnitCouplingPushedFourCellTargetCasimirMoment_le_global
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (root target : Nat) :
+    fineUnitCouplingPushedFourCellTargetCasimirMoment K root target ≤
+      Q'.ofNat 2 *
+        (fineUnitCouplingPhysicalPartition S *
+          fineUnitCouplingPhysicalCasimirMoment S) := by
+  let pairs := pushedFaceRawFourCellTargetPairs (S := S) root target
+  have hpairs : pairs.Nodup := by
+    unfold pairs pushedFaceRawFourCellTargetPairs
+    apply cartesian_nodup
+    · exact List.filter_sublist.nodup
+        (slabPhysicalLabellings_nodup S.coarse)
+    · exact List.filter_sublist.nodup
+        (slabPhysicalLabellings_nodup S.coarse)
+  have hmem : ∀ pair, pair ∈ pairs →
+      pair ∈ cartesian S.coarse.physicalLabellings
+        S.coarse.physicalLabellings := by
+    intro pair hpair
+    have hmembers := (mem_cartesian_iff _ _ pair).mp (by
+      simpa only [pairs, pushedFaceRawFourCellTargetPairs] using hpair)
+    apply (mem_cartesian_iff _ _ pair).mpr
+    exact ⟨(List.mem_filter.mp hmembers.1).1,
+      (List.mem_filter.mp hmembers.2).1⟩
+  have hlocal := pushedFourCellCasimirMoment_le_full_cartesian
+    K pairs hpairs hmem
+  have hfull := pushedPairCasimirMoment_cartesian_eqv K
+  have hraw := fineUnitCouplingPushedTargetRawMass_total K
+  have hmoment := fineUnitCouplingPushedTargetCasimirMoment_total K
+  change listQSum (fineUnitCouplingPushedTargetPairCasimirMoment K)
+      pairs ≤
+    Q'.ofNat 2 *
+      (fineUnitCouplingPhysicalPartition S *
+        fineUnitCouplingPhysicalCasimirMoment S)
+  refine Q'.le_trans' _ _ _ hlocal
+    (Q'.le_trans' _ _ _
+      (Q'.le_of_eqv hfull)
+      (Q'.le_of_eqv
+        (Q'.mul_eqv_congr_left (Q'.ofNat 2) _ _
+          (mul_eqv_both_local hraw hmoment))))
+
+/-- The sum of the two localized four-cell moments is bounded by four times
+the global partition--Casimir product.  This remains cutoff- and volume-
+dependent through the displayed global moment. -/
+theorem fineUnitCouplingLocalizedFourCellCasimirMoment_le_global
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (root target : Nat) :
+    fineUnitCouplingPushedFourCellSourceCasimirMoment K root target +
+        fineUnitCouplingPushedFourCellTargetCasimirMoment K root target ≤
+      Q'.ofNat 4 *
+        (fineUnitCouplingPhysicalPartition S *
+          fineUnitCouplingPhysicalCasimirMoment S) := by
+  have hsource :=
+    fineUnitCouplingPushedFourCellSourceCasimirMoment_le_global
+      K root target
+  have htarget :=
+    fineUnitCouplingPushedFourCellTargetCasimirMoment_le_global
+      K root target
+  have hsum := Q'.add_le_add hsource htarget
+  refine Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv ?_)
+  let x := fineUnitCouplingPhysicalPartition S *
+    fineUnitCouplingPhysicalCasimirMoment S
+  refine Q'.eqv_trans _ ((Q'.ofNat 2 + Q'.ofNat 2) * x) _ ?_ ?_
+  · exact Q'.eqv_symm (Q'.add_mul_eqv
+      (Q'.ofNat 2) (Q'.ofNat 2) x)
+  · exact Q'.mul_eqv_congr_right _ _ x
+      (Q'.eqv_symm (Q'.ofNat_add_eqv 2 2))
+
 private theorem pushedFourCellSourceRawMass_le_fineUnitCoupling
     {S : SlabScalePair} (K : S.FiniteSlabKernel)
     (hfineCoupling_le_one : S.fine.coupling ≤ 1)
@@ -721,6 +1012,9 @@ theorem fineUnitCouplingPhysicalRawColumnCross_sub_receiver_abs_le_two_square_mu
 #print axioms fineUnitCouplingPushedTargetPairRawMass_sub_actual_le_margin_mul_moment
 #print axioms fineUnitCouplingPushedFourCellSourceCasimirMoment_nonnegative
 #print axioms fineUnitCouplingPushedFourCellTargetCasimirMoment_nonnegative
+#print axioms fineUnitCouplingPushedFourCellSourceCasimirMoment_le_global
+#print axioms fineUnitCouplingPushedFourCellTargetCasimirMoment_le_global
+#print axioms fineUnitCouplingLocalizedFourCellCasimirMoment_le_global
 #print axioms fineUnitCouplingPushedRawColumnCross_sub_actual_abs_le_margin_mul_moment
 #print axioms fineUnitCouplingPushedRawColumnCross_sub_actual_abs_le_two_square_mul_moment
 #print axioms fineUnitCouplingPhysicalRawColumnCross_sub_receiver_abs_le_two_square_mul_moment

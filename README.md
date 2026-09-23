@@ -24,6 +24,17 @@ Fubini/finite-carrier anchor for a future localized moment estimate; it is not
 yet a cutoff/volume/beta-uniform bound, an OS gap, a continuum construction,
 or a Clay theorem.
 
+The next finite bridge is now checked in
+`Z4DyadicSpinFourFineCouplingReferenceCross.lean`: the source and target
+four-cell Casimir moments are each bounded by
+`2 * (fineUnitCouplingPhysicalPartition S *
+fineUnitCouplingPhysicalCasimirMoment S)`, and
+`fineUnitCouplingLocalizedFourCellCasimirMoment_le_global` combines them into
+the explicit `4 * (partition * Casimir moment)` carrier bound.  This transports
+the localized reference perturbation to the same global finite carrier, but its
+slab dependence is explicit; it is not a cutoff/volume/beta-uniform estimate,
+an OS transfer gap, a thermodynamic/continuum passage, or the Clay theorem.
+
 The finite ordinary-Haar carrier is now also explicit:
 `SU2QuaternionFiniteHaarGNSCarrier.lean` packages supported quaternion
 polynomials into one finite `GNSData` with a radical quotient, normalized unit
