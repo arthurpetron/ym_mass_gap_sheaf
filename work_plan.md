@@ -25,6 +25,21 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Finite physical carrier certificate (2026-09-23 UTC)
+
+`BF4PhysicalCompletedMacroCorrelator.lean` now packages the finite physical
+SU(2) same-theory carrier as `completedPhysicalSU2CarrierCertificate`. Its
+single witness keeps the marginal-weighted GNS completion and the composed BF4
+transfer together with normalized vacuum, self-adjointness, positivity,
+contraction, vacuum-complement preservation, exact dense pairing, and the
+same-object joint coefficient. The dependency-complete target passed 1,142
+jobs with only `{propext, Quot.sound}` and no `sorryAx`. The parameters
+`(w,K,half)` remain explicit: this is not a uniform strict form bound, a
+completed physical spectral gap, an OS/scaling or thermodynamic/continuum
+passage, physical-mass calibration, an all-group construction, or the Clay
+theorem. The next causal producer is a strict same-object estimate on this
+same carrier with the required cutoff/volume/beta/spacing uniformity.
+
 ### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
 The companion reference-transport module now proves the exact finite identity

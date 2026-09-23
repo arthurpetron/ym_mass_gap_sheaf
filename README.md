@@ -11,6 +11,15 @@ SU(2) infrastructure: the interacting OS identification, beta/spacing-uniform
 gap, continuum passage, QFT axioms, physical mass calibration, and all-group
 Clay target remain open.
 
+The current physical finite carrier is now packaged by
+`BF4PhysicalCompletedMacroCorrelator.lean` as
+`completedPhysicalSU2CarrierCertificate`. One certificate keeps the same
+weighted GNS completion, BF4 transfer, normalized vacuum, self-adjointness,
+positivity, contraction, vacuum-complement preservation, dense pairing, and
+same-object coefficient together. It is a finite `(w,K,half)` certificate;
+it is not yet a uniform strict gap, OS/scaling passage, continuum theory,
+physical-mass calibration, all-group result, or Clay proof.
+
 The preceding regulator milestone, `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`,
 still carries an explicit constructive Cauchy modulus for the literal
 three-regulator connected spatial diagonal and pins its CReal limit to the
