@@ -65,6 +65,19 @@ only the scalar correction needed before a stagewise centering construction; it
 does not provide that construction, arbitrary-vector density, a completed gap,
 OS/scaling, thermodynamic/continuum, physical-mass, all-group, or Clay closure.
 
+The exact finite joint-form algebra is now checked in
+`BF4PhysicalJointCenteredForm.lean`.  The declarations
+`physicalJoint_vacuum_unit` and `physicalJoint_vacuum_pairing_eq_stationaryMean`
+prove the stationary vacuum normalization and pairing identification on the
+reflected-joint form.  `physicalJointCenteredObservable_veq_sub_smul` transports
+the literal centered observable into the joint GNS carrier, and
+`physicalJoint_centered_diag_eqv` proves the exact `raw - mean^2` diagonal
+identity.  The focused target passed 1,244 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  This remains a finite algebraic
+certificate: arbitrary-vector density, a completed joint gap, OS/scaling,
+thermodynamic/continuum, physical-mass, all-group, and Clay obligations remain
+open.
+
 The preceding regulator milestone, `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`,
 still carries an explicit constructive Cauchy modulus for the literal
 three-regulator connected spatial diagonal and pins its CReal limit to the

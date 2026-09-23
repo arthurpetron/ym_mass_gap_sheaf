@@ -107,6 +107,24 @@ joint vector and therefore does not supply
 thermodynamic/continuum, physical-mass, all-group, and Clay obligations remain
 open.
 
+### Exact finite joint centering algebra (2026-09-23 UTC)
+
+`BF4PhysicalJointCenteredForm.lean` closes the finite algebraic seam for the
+reflected-joint form.  `physicalJoint_vacuum_unit` proves that the stationary
+vacuum has unit joint-form norm, while
+`physicalJoint_vacuum_pairing_eq_stationaryMean` identifies the joint vacuum
+pairing with the central stationary mean.  The theorem
+`physicalJointCenteredObservable_veq_sub_smul` transports the literal centered
+observable to the joint GNS subtraction representative, and
+`physicalJoint_centered_diag_eqv` gives the exact diagonal identity with the
+subtracted squared mean.  The monitored dependency-complete target passed
+1,244 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+
+This is still a finite carrier identity; it does not construct the arbitrary
+joint Cauchy-representative centering/range witness, completed strict gap,
+OS/scaling identification, thermodynamic/continuum passage, physical-mass,
+all-group, or Clay conclusion.
+
 ### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
 The companion reference-transport module now proves the exact finite identity
