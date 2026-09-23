@@ -106,6 +106,16 @@ estimate, OS/GNS passage, continuum survival, physical mass calibration,
 or the Clay theorem.  The next estimate consumes this recoding to transport
 the selected local angular defect into the literal head chart.
 
+**PROGRESS -- the selected heat factor now transports through the same
+recoding:** `exposeTranslationPair_heat` identifies the generic `pairSteps`
+chain with the literal head/tail block involutions and transports
+`heatAt selected multiplier w K` to `relativeHeat w K` under
+`PaddedPolynomialCoeffEqv`.  This closes the exact one-pair heat-weight seam;
+it remains a finite SU(2) carrier identity and does not prove the
+multi-factor telescope, inactive-projection reduction, signed endpoint
+estimate, SAME-object gap, OS/GNS passage, continuum survival, physical mass,
+or the Clay theorem.
+
 ### Conjugated finite head defect (2026-09-22 UTC)
 
 **PROGRESS -- the checked local angular defect is now transportable by an

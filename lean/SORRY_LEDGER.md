@@ -13,6 +13,23 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED selected heat-weight recoding bridge (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.
+- **proved declaration**: `exposeTranslationPair_heat`.
+- **proof content**: identifies the generic `pairSteps` chain with the
+  explicit head/tail block involutions and transports the selected heat factor
+  `heatAt selected multiplier w K` to `relativeHeat w K` under
+  `PaddedPolynomialCoeffEqv`.
+- **remaining obligation**: consume this one-pair bridge in the actual
+  selected-link local defect telescope, including inactive projections and
+  signed cross-terms.
+- **scope**: finite SU(2) carrier only; no completed OS gap, continuum
+  passage, physical mass, or every-group conclusion.
+
+Monitored focused verification passed; the printed declaration uses only
+`{propext, Quot.sound}`.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.

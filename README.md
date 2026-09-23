@@ -217,6 +217,16 @@
 > mass calibration, canonical OS/full QFT, and the every-group construction
 > remain open.
 
+**Latest finite carrier bridge (2026-09-22 UTC):**
+`SU2QuaternionSelectedProjectionReindex.exposeTranslationPair_heat` now
+identifies the generic `pairSteps` exposure with the explicit head/tail
+recoding and transports `heatAt selected multiplier w K` to `relativeHeat w K`
+under `PaddedPolynomialCoeffEqv`.  Together with the checked projection
+pairing bridge, this closes the one-pair heat/projection seam needed before
+the local angular telescope.  It remains a finite SU(2) identity; inactive
+projections, signed cross-terms, the SAME-object gap, OS/GNS, continuum
+survival, physical mass, full QFT, and every-group/Clay closure remain open.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is

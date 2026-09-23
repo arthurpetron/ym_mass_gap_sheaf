@@ -15,6 +15,7 @@ or a continuum limit.
 import YMGap.Continuum.SU2QuaternionHaarBlockProjection
 import YMGap.Continuum.SU2QuaternionHaarCertificateReindex
 import YMGap.Continuum.SU2QuaternionSelectedHaarTranslation
+import YMGap.Continuum.SU2QuaternionRelativeHeatPairGeometry
 import YMGap.Continuum.SU2QuaternionRatPolyDifferential
 
 namespace YMGap.Continuum.SU2QuaternionSelectedProjectionReindex
@@ -35,6 +36,11 @@ open YMGap.Continuum.SU2QuaternionHaarHeadFubini
 open YMGap.Continuum.SU2QuaternionHaarBlockProjection
 open YMGap.Continuum.SU2QuaternionHaarCertificateReindex
 open YMGap.Continuum.SU2QuaternionSelectedHaarTranslation
+open YMGap.Continuum.SU2QuaternionRelativeHeatPairGeometry
+open YMGap.Continuum.SU2QuaternionRelativeHeatTransmission
+open YMGap.Continuum.SU2QuaternionFourBlockExposure
+open YMGap.Continuum.BF4ExactSpatialTreeGaugeRawCarrier
+open YMGap.Continuum.SU2QuaternionTranslationPolynomialImages
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionHaarRationalCanonicalizer
 open YMGap.Continuum.QuaternionHaarSquareCertificate
@@ -47,6 +53,60 @@ private theorem block_index_eq
     (hright : 4 * b + remainder < 4 * a + 4) :
     a = b := by
   omega
+
+private theorem blockSwap_zero_eq_head
+    (blocks selected : Nat) (hselected : selected < blocks) :
+    blockSwapInvolution blocks 0 selected (by omega) hselected =
+      headSwapBlockInvolution blocks selected hselected := by
+  have hmap : blockSwapMap 0 selected = headSwapBlockMap selected := by
+    funext block
+    rfl
+  cases hleft : blockSwapInvolution blocks 0 selected (by omega) hselected with
+  | mk left left_lt left_involutive =>
+      cases hright : headSwapBlockInvolution blocks selected hselected with
+      | mk right right_lt right_involutive =>
+          simp only [blockSwapInvolution, headSwapBlockInvolution] at hleft hright
+          cases hmap
+          cases hleft
+          cases hright
+          rfl
+
+private theorem pairSteps_eq_translationPairSteps
+    (blocks selected multiplier : Nat)
+    (hblocks : 1 < blocks)
+    (hselected : selected < blocks)
+    (hmultiplier : multiplier < blocks) :
+    pairSteps hblocks ⟨selected, hselected⟩ ⟨multiplier, hmultiplier⟩ =
+      [translationPairHeadPermutation blocks selected hselected,
+        translationPairTailPermutation blocks selected multiplier
+          hblocks hselected hmultiplier] := by
+  have hfirst :
+      blockSwapInvolution blocks 0 selected (by omega) hselected =
+        translationPairHeadPermutation blocks selected hselected := by
+    exact blockSwap_zero_eq_head blocks selected hselected
+  simp [pairSteps, extend, chainTarget, translationPairHeadPermutation,
+    translationPairTailPermutation, translationPairMultiplierLocation, hfirst]
+
+/-! ## 2. The selected heat factor becomes the relative heat factor -/
+
+theorem exposeTranslationPair_heat
+    (blocks selected multiplier : Nat)
+    (hblocks : 1 < blocks)
+    (hselected : selected < blocks)
+    (hmultiplier : multiplier < blocks)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat) :
+    PaddedPolynomialCoeffEqv blocks
+      (exposeTranslationPairPolynomial blocks selected multiplier
+        hblocks hselected hmultiplier
+        (heatAt selected multiplier w K))
+      (relativeHeat w K) := by
+  have h := heat_exposed hblocks
+    ⟨selected, hselected⟩ ⟨multiplier, hmultiplier⟩
+    hdistinct w K
+  rw [pairSteps_eq_translationPairSteps blocks selected multiplier
+    hblocks hselected hmultiplier] at h
+  simpa only [applyQuaternionBlockSwapChain, exposeTranslationPairPolynomial] using h
 
 /-! ## 1. The coordinate mask commutes with a block involution -/
 
@@ -405,3 +465,4 @@ theorem reindex_project_pairing_carrier
 end YMGap.Continuum.SU2QuaternionSelectedProjectionReindex
 
 #print axioms YMGap.Continuum.SU2QuaternionSelectedProjectionReindex.exposeTranslationPair_project_pairing
+#print axioms YMGap.Continuum.SU2QuaternionSelectedProjectionReindex.exposeTranslationPair_heat
