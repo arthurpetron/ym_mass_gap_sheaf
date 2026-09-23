@@ -241,6 +241,19 @@ scale-defect calibration is supplied.  Both results retain the explicit
 strict-gap dependence and do not create the missing balanced, spatial, or
 continuum-uniform producer.
 
+The reciprocal branch is now also uniform on any fixed strict corridor.  For
+an explicit endpoint `w₀` with `0 < 1-w₀` and supplied
+`S.fine.coupling ≤ w₀`,
+`fineCouplingPhysicalPartitionMarginSum_le_uniform_reciprocal` and
+`fineCouplingPhysicalPartitionSquareMargin_le_uniform_reciprocal` replace the
+slab-dependent reciprocal by `1/(1-w₀)`.  The resulting
+`fineCouplingUniformReciprocalMarginCeiling` gives uniform normalized-margin,
+raw-change, and balanced centered-cylinder compilers over the finite slab
+carrier, cutoff, and volume parameters in that corridor.  This is still a
+fixed-corridor finite estimate: no beta/spacing identification, OS transfer,
+thermodynamic/continuum passage, physical mass calibration, or all-group
+construction is supplied.
+
 The same finite source envelope now yields an explicit
 `finiteMarginEnvelopeCeiling` and the theorem
 `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term`.

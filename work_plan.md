@@ -68,6 +68,18 @@ scale-defect calibration is supplied.  These compilers preserve the explicit
 strict-coupling-gap dependence; they do not prove balanced control, spatial or
 cutoff/volume uniformity, or the continuum passage.
 
+The reciprocal branch now has a corridor-uniform refinement.  Given an
+explicit `w₀` with `0 < 1-w₀` and the named premise
+`S.fine.coupling ≤ w₀`,
+`fineCouplingPhysicalPartitionMarginSum_le_uniform_reciprocal` and
+`fineCouplingPhysicalPartitionSquareMargin_le_uniform_reciprocal` replace the
+slab-dependent reciprocal by the common endpoint reciprocal.  The resulting
+`fineCouplingUniformReciprocalMarginCeiling` compiles through normalized
+margin, matched-AF raw-change, and balanced centered-cylinder declarations
+uniformly over the finite slab/cutoff/volume parameters in that corridor.  It
+does not identify the corridor with beta or spacing, and it does not supply the
+OS, thermodynamic, continuum, physical-mass, or all-group gates.
+
 The same module now defines `finiteMarginEnvelopeCeiling` and proves
 `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term`.
 The ceiling is the explicit positive-denominator quotient of the two-term

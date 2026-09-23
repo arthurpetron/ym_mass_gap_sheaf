@@ -42,6 +42,35 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   passed 5506 jobs with one worker.  The new declarations report only
   `{propext, Quot.sound}` and no `sorryAx`.
 
+## PROVED corridor-uniform reciprocal calibration (2026-09-23 UTC)
+
+- **file**:
+  `lean/YMGap/Continuum/Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1.lean`.
+- **proved declarations**:
+  `fineCouplingReciprocal_le_of_coupling_le`,
+  `fineCouplingPhysicalPartitionMarginSum_le_uniform_reciprocal`,
+  `fineCouplingPhysicalPartitionSquareMargin_le_uniform_reciprocal`,
+  `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_uniform_reciprocal`,
+  `fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_uniform_reciprocal`,
+  and `centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal`.
+- **proof content**: monotonicity of the positive reciprocal converts the
+  slab-specific geometric envelope into a common endpoint envelope on the
+  named corridor `S.fine.coupling ≤ w₀ < 1`; the same finite source-pair
+  regrouping then compiles that bound through normalized margin, matched-AF
+  change, and balanced centered-cylinder estimates.
+- **scope**: the ceiling is uniform over the finite slab/cutoff/volume
+  parameters appearing in the supplied corridor, but `w₀` and the strict gap
+  are explicit inputs.  No beta/spacing identification, OS transfer,
+  thermodynamic/continuum passage, physical mass, all-group, or Clay-level
+  conclusion is claimed.
+- **constructive or propositional**: constructive finite rational
+  inequalities and Type-level endpoint data; no `sorry`, classical axiom, or
+  new named analytic hypothesis is introduced.
+- **verification**: focused dependency-complete safe build of
+  `+YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1:olean`
+  passed 5506 jobs with one worker.  All new declarations report only
+  `{propext, Quot.sound}` and no `sorryAx`.
+
 ## PROVED centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
 - **file**:

@@ -358,6 +358,54 @@ theorem fineCouplingPhysicalPartitionMarginSum_le_reciprocal
         fineUnitCouplingPhysicalPartition S := by
   exact fineCouplingPhysicalPartitionMarginSum_le_reciprocal_local S hgap
 
+/-- The reciprocal ceiling is antitone in the strict coupling parameter. -/
+theorem fineCouplingReciprocal_le_of_coupling_le
+    {w w₀ : Q'}
+    (hw₀gap : (0 : Q') < 1 - w₀)
+    (hw_le : w ≤ w₀)
+    (hwgap : (0 : Q') < 1 - w) :
+    Q'.divPos 1 (1 - w) hwgap ≤ Q'.divPos 1 (1 - w₀) hw₀gap := by
+  have hden : (1 : Q') - w₀ ≤ 1 - w := by
+    exact Q'.add_le_add_left 1 (-w₀) (-w) (Q'.neg_le_neg hw_le)
+  have hrecip0 : (0 : Q') ≤ Q'.divPos 1 (1 - w₀) hw₀gap :=
+    Q'.le_of_lt (Q'.divPos_pos 1 (1 - w₀) hw₀gap (by decide))
+  have hproduct :
+      Q'.divPos 1 (1 - w₀) hw₀gap * (1 - w₀) ≤
+        Q'.divPos 1 (1 - w₀) hw₀gap * (1 - w) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hden hrecip0
+  have hone :
+      (1 : Q') ≤ Q'.divPos 1 (1 - w₀) hw₀gap * (1 - w₀) :=
+    Q'.ge_of_eqv (Q'.divPos_mul_eqv 1 (1 - w₀) hw₀gap)
+  exact Q'.divPos_le_of_le_mul 1 (1 - w) hwgap
+    (Q'.le_trans' _ _ _ hone hproduct)
+
+/-- A reciprocal envelope uniform over all slabs whose fine coupling lies below
+the displayed strict corridor endpoint `w₀ < 1`. -/
+theorem fineCouplingPhysicalPartitionMarginSum_le_uniform_reciprocal
+    (S : SlabScalePair) (w₀ : Q')
+    (hcorridor : S.fine.coupling ≤ w₀)
+    (hgap₀ : (0 : Q') < 1 - w₀) :
+    fineCouplingPhysicalPartitionMarginSum S ≤
+      Q'.divPos 1 (1 - w₀) hgap₀ *
+        fineUnitCouplingPhysicalPartition S := by
+  have hden : (1 : Q') - w₀ ≤ 1 - S.fine.coupling := by
+    exact Q'.add_le_add_left 1 (-w₀) (-S.fine.coupling)
+      (Q'.neg_le_neg hcorridor)
+  have hgap : (0 : Q') < 1 - S.fine.coupling :=
+    HeatKernelRGStep.lt_of_lt_of_le hgap₀ hden
+  have hbase := fineCouplingPhysicalPartitionMarginSum_le_reciprocal S hgap
+  have hratio := fineCouplingReciprocal_le_of_coupling_le
+    hgap₀ hcorridor hgap
+  have hunit : (0 : Q') ≤ fineUnitCouplingPhysicalPartition S :=
+    fineUnitCouplingPhysicalPartition_nonnegative_local S
+  have hfactor :
+      Q'.divPos 1 (1 - S.fine.coupling) hgap *
+          fineUnitCouplingPhysicalPartition S ≤
+        Q'.divPos 1 (1 - w₀) hgap₀ *
+          fineUnitCouplingPhysicalPartition S :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ hratio hunit
+  exact Q'.le_trans' _ _ _ hbase hfactor
+
 private theorem duplicated_nested_product_eqv_local (reciprocal unit : Q') :
     unit * (reciprocal * unit) + unit * (reciprocal * unit) ≈
       (Q'.ofNat 2 * reciprocal) * (unit * unit) := by
@@ -425,6 +473,47 @@ theorem fineCouplingPhysicalPartitionSquareMargin_le_reciprocal
   refine Q'.le_trans' _ _ _ hadd ?_
   exact Q'.le_of_eqv
     (duplicated_nested_product_eqv_local reciprocal unitPartition)
+
+/-- The square-margin envelope is uniform over the same displayed strict
+coupling corridor. -/
+theorem fineCouplingPhysicalPartitionSquareMargin_le_uniform_reciprocal
+    (S : SlabScalePair) (w₀ : Q')
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (hcorridor : S.fine.coupling ≤ w₀)
+    (hgap₀ : (0 : Q') < 1 - w₀) :
+    fineCouplingPhysicalPartitionSquareMargin S ≤
+      (Q'.ofNat 2 * Q'.divPos 1 (1 - w₀) hgap₀) *
+        (fineUnitCouplingPhysicalPartition S *
+          fineUnitCouplingPhysicalPartition S) := by
+  have hden : (1 : Q') - w₀ ≤ 1 - S.fine.coupling := by
+    exact Q'.add_le_add_left 1 (-w₀) (-S.fine.coupling)
+      (Q'.neg_le_neg hcorridor)
+  have hgap : (0 : Q') < 1 - S.fine.coupling :=
+    HeatKernelRGStep.lt_of_lt_of_le hgap₀ hden
+  have hbase := fineCouplingPhysicalPartitionSquareMargin_le_reciprocal
+    S hfineCoupling_le_one hgap
+  have hratio := fineCouplingReciprocal_le_of_coupling_le
+    hgap₀ hcorridor hgap
+  have hcoef :
+      Q'.ofNat 2 * Q'.divPos 1 (1 - S.fine.coupling) hgap ≤
+        Q'.ofNat 2 * Q'.divPos 1 (1 - w₀) hgap₀ :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hratio
+      (Q'.le_of_lt (by decide : (0 : Q') < Q'.ofNat 2))
+  have hunitSquare : (0 : Q') ≤
+      fineUnitCouplingPhysicalPartition S *
+        fineUnitCouplingPhysicalPartition S :=
+    Q'.mul_nonneg _ _
+      (fineUnitCouplingPhysicalPartition_nonnegative_local S)
+      (fineUnitCouplingPhysicalPartition_nonnegative_local S)
+  have hscale :
+      (Q'.ofNat 2 * Q'.divPos 1 (1 - S.fine.coupling) hgap) *
+          (fineUnitCouplingPhysicalPartition S *
+            fineUnitCouplingPhysicalPartition S) ≤
+        (Q'.ofNat 2 * Q'.divPos 1 (1 - w₀) hgap₀) *
+          (fineUnitCouplingPhysicalPartition S *
+            fineUnitCouplingPhysicalPartition S) :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ hcoef hunitSquare
+  exact Q'.le_trans' _ _ _ hbase hscale
 
 /-! ## The reciprocal-margin normalized calibration -/
 
@@ -571,6 +660,24 @@ theorem fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal
   exact Q'.le_of_eqv
     (reciprocal_scaled_budget_eqv_local reciprocal unitSquare actualSquare)
 
+/-- A ceiling uniform over a prescribed strict coupling corridor `w ≤ w₀ < 1`.
+Its displayed value is semantically `4/(1-w₀)`. -/
+def fineCouplingUniformReciprocalMarginCeiling
+    (w₀ : Q') (hgap₀ : (0 : Q') < 1 - w₀) : Q' :=
+  Q'.ofNat 2 *
+    (Q'.ofNat 2 * Q'.divPos 1 (1 - w₀) hgap₀)
+
+private theorem fineCouplingUniformReciprocalMarginCeiling_nonnegative
+    (w₀ : Q') (hgap₀ : (0 : Q') < 1 - w₀) :
+    (0 : Q') ≤ fineCouplingUniformReciprocalMarginCeiling w₀ hgap₀ := by
+  unfold fineCouplingUniformReciprocalMarginCeiling
+  apply Q'.mul_nonneg
+  · exact Q'.le_of_lt (by decide : (0 : Q') < Q'.ofNat 2)
+  · apply Q'.mul_nonneg
+    · exact Q'.le_of_lt (by decide : (0 : Q') < Q'.ofNat 2)
+    · exact Q'.le_of_lt
+        (Q'.divPos_pos 1 (1 - w₀) hgap₀ (by decide))
+
 /-- Compile the fixed-coupling reciprocal margin envelope through the matched
 AF bridge.  The resulting quadratic ceiling is explicit but still depends on
 the strict finite coupling gap. -/
@@ -676,6 +783,72 @@ private theorem partition_two_term_eqv_regrouped
   refine Q'.eqv_trans _ (Q'.ofNat 2 * (margin * square)) _
     (Q'.eqv_symm (two_mul_eqv_local (margin * square))) ?_
   exact Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat 2) margin square)
+
+/-- A normalized margin calibration uniform over every supplied slab in the
+strict corridor `S.fine.coupling ≤ w₀ < 1`. -/
+theorem fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_uniform_reciprocal
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (M : SlabFaceBlockMap S) (w₀ : Q')
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (hcorridor : S.fine.coupling ≤ w₀)
+    (hgap₀ : (0 : Q') < 1 - w₀) :
+    FineUnitCouplingCenteredNormalizedMarginRawCalibration
+      K M (fineCouplingUniformReciprocalMarginCeiling w₀ hgap₀) := by
+  let reciprocal := Q'.divPos 1 (1 - w₀) hgap₀
+  let unitSquare :=
+    fineUnitCouplingPhysicalPartition S *
+      fineUnitCouplingPhysicalPartition S
+  let actualSquare := S.fine.physicalPartition * S.fine.physicalPartition
+  let squareMargin := fineCouplingPhysicalPartitionSquareMargin S
+  have hmarginSquare : squareMargin ≤
+      (Q'.ofNat 2 * reciprocal) * unitSquare := by
+    simpa only [squareMargin, reciprocal, unitSquare] using
+      (fineCouplingPhysicalPartitionSquareMargin_le_uniform_reciprocal
+        S w₀ hfineCoupling_le_one hcorridor hgap₀)
+  have hnum := fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term
+    K M
+  have hregroup := partition_two_term_eqv_regrouped S
+  have hmarginScaled : (Q'.ofNat 2 * squareMargin) ≤
+      Q'.ofNat 2 * ((Q'.ofNat 2 * reciprocal) * unitSquare) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ (Q'.ofNat 2) hmarginSquare
+      (Q'.le_of_lt (by decide : (0 : Q') < Q'.ofNat 2))
+  have hactualSquare : (0 : Q') ≤ actualSquare := by
+    dsimp only [actualSquare]
+    exact Q'.mul_nonneg _ _
+      (finePhysicalPartition_nonnegative_local S)
+      (finePhysicalPartition_nonnegative_local S)
+  have hscaled : (Q'.ofNat 2 * squareMargin) * actualSquare ≤
+      (Q'.ofNat 2 * ((Q'.ofNat 2 * reciprocal) * unitSquare)) *
+        actualSquare :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ hmarginScaled hactualSquare
+  unfold FineUnitCouplingCenteredNormalizedMarginRawCalibration
+  refine Q'.le_trans' _ _ _ hnum ?_
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hregroup) ?_
+  refine Q'.le_trans' _ _ _ hscaled ?_
+  exact Q'.le_of_eqv
+    (reciprocal_scaled_budget_eqv_local reciprocal unitSquare actualSquare)
+
+/-- Compile the corridor-uniform margin ceiling through the matched-AF bridge. -/
+theorem fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_uniform_reciprocal
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g)
+    (w₀ : Q') (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (hcorridor : S.fine.coupling ≤ w₀)
+    (hgap₀ : (0 : Q') < 1 - w₀) :
+    FineUnitCouplingCenteredNormalizedChangeRawCalibration
+      K M g
+        (Q'.ofNat 2 *
+          fineCouplingUniformReciprocalMarginCeiling w₀ hgap₀) := by
+  exact fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_margin
+    K M family law g
+      (fineCouplingUniformReciprocalMarginCeiling w₀ hgap₀)
+      hg hgle hcoupling
+      (fineCouplingUniformReciprocalMarginCeiling_nonnegative w₀ hgap₀)
+      (fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_uniform_reciprocal
+        K M w₀ hfineCoupling_le_one hcorridor hgap₀)
 
 /-- The preceding finite L¹ envelope supplies an actual inhabitant of the
 normalized margin-calibration proposition.  The ceiling is explicit and
@@ -785,15 +958,61 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
     (fineCouplingReciprocalMarginCeiling_nonnegative S hgap)
     hbalanced hmargin
 
+/-- The complete finite centered-cylinder estimate with a ceiling uniform over
+the prescribed strict coupling corridor. -/
+theorem centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g balancedCeiling w₀ : Q')
+    (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g)
+    (hcorridor : S.fine.coupling ≤ w₀)
+    (hgap₀ : (0 : Q') < 1 - w₀)
+    (hbalancedCeiling : (0 : Q') ≤ balancedCeiling)
+    (hbalanced :
+      FineUnitCouplingBalancedRawColumnScaleDefectCalibration
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+          g balancedCeiling) :
+    Q'.abs
+        (centeredCylinderRemainder
+          (physicalKernel S hfineCutoff hcoarseCoupling) M) ≤
+      (balancedCeiling + Q'.ofNat 2 *
+        fineCouplingUniformReciprocalMarginCeiling w₀ hgap₀) * (g * g) := by
+  have hmargin :
+      FineUnitCouplingCenteredNormalizedMarginRawCalibration
+        (physicalKernel S hfineCutoff hcoarseCoupling)
+        M (fineCouplingUniformReciprocalMarginCeiling w₀ hgap₀) :=
+    fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_uniform_reciprocal
+      (physicalKernel S hfineCutoff hcoarseCoupling) M w₀
+      hfineCoupling_le_one hcorridor hgap₀
+  exact centeredCylinderRemainder_abs_le_of_balanced_and_margin
+    S hfineCutoff hcoarseCoupling hfineCoupling_le_one M family law
+    g balancedCeiling
+      (fineCouplingUniformReciprocalMarginCeiling w₀ hgap₀)
+    hg hgle hcoupling hbalancedCeiling
+    (fineCouplingUniformReciprocalMarginCeiling_nonnegative w₀ hgap₀)
+    hbalanced hmargin
+
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_sourcePairDebtL1
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term
+#print axioms fineCouplingReciprocal_le_of_coupling_le
+#print axioms fineCouplingPhysicalPartitionMarginSum_le_uniform_reciprocal
+#print axioms fineCouplingPhysicalPartitionSquareMargin_le_uniform_reciprocal
+#print axioms fineCouplingUniformReciprocalMarginCeiling
 #print axioms fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_reciprocal
 #print axioms fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_reciprocal
+#print axioms fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_uniform_reciprocal
+#print axioms fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_uniform_reciprocal
 #print axioms finiteMarginEnvelopeCeiling_mul_denominator_eqv
 #print axioms fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
+#print axioms centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 
 end YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1
