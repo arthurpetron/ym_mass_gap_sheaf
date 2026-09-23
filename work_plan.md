@@ -27,6 +27,14 @@ formal statement would not solve the mathematical problem.
 
 ### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
+The companion reference-transport module now proves the exact finite identity
+`fineUnitCouplingPushedTargetCasimirMoment_total`: row normalization and finite
+sum exchange transport the Casimir-weighted reference mass to the physical
+Casimir moment.  This supplies the same-carrier global anchor needed before a
+localized four-cell moment comparison, but it does not bound that moment or
+provide any cutoff/volume/beta-uniform, OS, continuum, physical-mass, or
+all-group conclusion.
+
 `Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1.lean` now proves the first
 unconditional absolute-value estimate on the same fine-source object exposed
 by the centered pullback.  `fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_sourcePairDebtL1`

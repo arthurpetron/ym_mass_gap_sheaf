@@ -16,6 +16,14 @@ still carries an explicit constructive Cauchy modulus for the literal
 three-regulator connected spatial diagonal and pins its CReal limit to the
 existing `spatialCenteredMoment`.
 
+The current finite coupling compiler also checks the exact row-normalized
+Casimir-weighted transport identity
+`fineUnitCouplingPushedTargetCasimirMoment_total` in
+`Z4DyadicSpinFourFineCouplingReferencePerturbation.lean`.  This is a global
+Fubini/finite-carrier anchor for a future localized moment estimate; it is not
+yet a cutoff/volume/beta-uniform bound, an OS gap, a continuum construction,
+or a Clay theorem.
+
 The finite ordinary-Haar carrier is now also explicit:
 `SU2QuaternionFiniteHaarGNSCarrier.lean` packages supported quaternion
 polynomials into one finite `GNSData` with a radical quotient, normalized unit

@@ -452,6 +452,55 @@ theorem fineUnitCouplingPushedTargetRawMass_total
         (Q'.mul_one_eqv
           (fineUnitCouplingPhysicalTerm S source)))
 
+/-! The same row-normalization calculation also transports the Casimir-weighted
+reference mass.  This identity is the global anchor for any later localized
+four-cell moment estimate; it does not bound that moment uniformly. -/
+
+theorem fineUnitCouplingPushedTargetCasimirMoment_total
+    {S : SlabScalePair} (K : S.FiniteSlabKernel) :
+    listQSum (fineUnitCouplingPushedTargetCasimirMoment K)
+        S.coarse.physicalLabellings ≈
+      fineUnitCouplingPhysicalCasimirMoment S := by
+  unfold fineUnitCouplingPushedTargetCasimirMoment
+    fineUnitCouplingPhysicalCasimirMoment
+  refine Q'.eqv_trans _
+    (listQSum
+      (fun source =>
+        listQSum
+          (fun target =>
+            (Q'.ofNat
+                (slabPhysicalCasimirExponent S.fine.extent source) *
+              fineUnitCouplingPhysicalTerm S source) *
+              K.kernel source target)
+          S.coarse.physicalLabellings)
+      S.fine.physicalLabellings) _ ?_ ?_
+  · exact listQSum_swap
+      (fun source target =>
+        (Q'.ofNat
+            (slabPhysicalCasimirExponent S.fine.extent source) *
+          fineUnitCouplingPhysicalTerm S source) *
+          K.kernel source target)
+      S.fine.physicalLabellings S.coarse.physicalLabellings
+  · apply listQSum_congr_on
+    intro source hsource
+    let weighted : Q' :=
+      Q'.ofNat (slabPhysicalCasimirExponent S.fine.extent source) *
+        fineUnitCouplingPhysicalTerm S source
+    have hinner :
+        listQSum (fun target => weighted * K.kernel source target)
+            S.coarse.physicalLabellings ≈
+          weighted * listQSum (K.kernel source)
+            S.coarse.physicalLabellings := by
+      exact listQSum_mul_left weighted (K.kernel source)
+        S.coarse.physicalLabellings
+    have hrow :
+        weighted * listQSum (K.kernel source)
+            S.coarse.physicalLabellings ≈ weighted * 1 := by
+      exact Q'.mul_eqv_congr_left weighted _ _
+        (K.row_normalized source hsource)
+    exact Q'.eqv_trans _ _ _ hinner
+      (Q'.eqv_trans _ _ _ hrow (Q'.mul_one_eqv weighted))
+
 /-- Positivity of the literal kernel transports the first-order loss bound
 to each actual pushed receiver column. -/
 theorem fineUnitCouplingPushedTargetRawMass_sub_actual_le_margin_mul_moment
