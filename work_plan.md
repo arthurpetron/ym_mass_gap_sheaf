@@ -116,6 +116,10 @@ raw masses.  The resulting signed-cross bounds are
 coupling-one defect is bounded by
 `4 * Z_coarse^2 * Z_unit^2` through
 `fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares`.
+The explicit quotient `fineUnitCouplingBalancedCarrierCeiling` divides by
+`g^2 * actualPartition^2`, and
+`fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier`
+compiles the finite ceiling into the existing balanced-calibration interface.
 The focused safe target passed 5498 jobs with one worker and the new exports
 have only `{propext, Quot.sound}`.
 

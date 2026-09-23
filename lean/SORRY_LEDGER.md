@@ -24,7 +24,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `fineUnitCouplingPushedFourCellTargetRawMass_le_partitionSquare`,
   `coarseObservableFourCellRawColumnCross_abs_le_two_partitionSquare`,
   `fineUnitCouplingPushedRawColumnCross_abs_le_two_partitionSquare`, and
-  `fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares`.
+  `fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares`,
+  `fineUnitCouplingBalancedCarrierCeiling`, and
+  `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier`.
 - **proof content**: inject the four-cell source and target pair lists into
   complete positive coarse and coupling-one two-replica carriers, use the
   exact finite carrier mass totals, and apply constructive triangle and
@@ -34,6 +36,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **scope**: this is a finite carrier ceiling at the coupling-one reference
   scale.  `Z_unit` is not the actual-fine normalized partition, so no
   cutoff-, volume-, beta-, spacing-, or blocking-uniform calibration follows.
+  The explicit quotient ceiling
+  `fineUnitCouplingBalancedCarrierCeiling` divides by
+  `g^2 * actualPartition^2` and therefore compiles the finite bound into the
+  existing balanced-calibration interface, but its parameter dependence is
+  retained and no uniform constant is produced.
   The result does not identify an OS transfer matrix, pass to a thermodynamic
   or continuum limit, construct the QFT, calibrate a physical mass, cover all
   compact simple groups, or prove the Clay theorem; it does not close

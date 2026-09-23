@@ -289,6 +289,11 @@ normalized partition, so this does not yet provide the balanced blocking law,
 cutoff/volume/beta/spacing uniformity, OS identification, continuum passage,
 physical mass calibration, or the all-group Clay target.  The focused safe
 target passed 5498 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+The quotient `fineUnitCouplingBalancedCarrierCeiling` now divides that finite
+envelope by `g^2 * actualPartition^2`, and
+`fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier`
+compiles it into the existing calibration interface while retaining all
+parameter dependence; it is not a uniform blocking constant.
 
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.

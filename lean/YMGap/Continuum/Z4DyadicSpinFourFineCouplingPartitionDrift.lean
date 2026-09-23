@@ -30,7 +30,11 @@ four-cell cross is bounded by twice the corresponding positive partition
 square, and the balanced coupling-one scale defect is bounded by
 `4 * Z_coarse^2 * Z_unit^2`.  This is a finite carrier envelope only.  The
 unit partition is not the actual-fine normalized partition, so the
-cutoff/volume-uniform balanced calibration remains open.
+cutoff/volume-uniform balanced calibration remains open.  The explicit
+`fineUnitCouplingBalancedCarrierCeiling` divides this finite envelope by
+`g^2 * actualPartition^2` and compiles it into
+`FineUnitCouplingBalancedRawColumnScaleDefectCalibration`; its dependence on
+the displayed finite parameters is part of the statement.
 
 Constructive contract: finite rational sums, monotonicity, and exact rational
 algebra only; no `Classical`, choice, `native_decide`, proof hole,
@@ -961,6 +965,123 @@ theorem fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquare
   simpa only [K, coarseSquare, unitSquare, coarseCross, pushedCross]
     using hfinal
 
+/-- Explicit finite calibration ceiling obtained by dividing the carrier
+ceiling by the displayed positive factor `g^2 * actualPartition^2`.  The
+quotient is intentionally parameter-dependent: it is a compiler for the
+finite carrier estimate, not a cutoff- or volume-uniform blocking constant. -/
+def fineUnitCouplingBalancedCarrierCeiling
+    (S : SlabScalePair) (g : Q') (hg : (0 : Q') < g) : Q' :=
+  Q'.divPos
+    (Q'.ofNat 4 *
+      (fineUnitCouplingPhysicalPartition S *
+        fineUnitCouplingPhysicalPartition S))
+    ((g * g) *
+      (S.fine.physicalPartition * S.fine.physicalPartition))
+    (Q'.mul_pos
+      (Q'.mul_pos hg hg)
+      (Q'.mul_pos
+        (slabParametricKPhysicalPartition_pos
+          S.fine.coupling_nonnegative S.fine.cutoff S.fine.extent)
+        (slabParametricKPhysicalPartition_pos
+          S.fine.coupling_nonnegative S.fine.cutoff S.fine.extent)))
+
+private theorem nested_product_swap_local (a b c d : Q') :
+    (a * b) * (c * d) ≈ (a * (b * d)) * c := by
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_assoc_eqv a b (c * d)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left a (b * (c * d)) ((b * c) * d)
+      (Q'.eqv_symm (Q'.mul_assoc_eqv b c d))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left a ((b * c) * d) ((c * b) * d)
+      (Q'.mul_eqv_congr_right (b * c) (c * b) d
+        (Q'.mul_comm_eqv b c))) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left a ((c * b) * d) (c * (b * d))
+      (Q'.mul_assoc_eqv c b d)) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left a (c * (b * d)) ((b * d) * c)
+      (Q'.mul_comm_eqv c (b * d))) ?_
+  exact Q'.eqv_symm (Q'.mul_assoc_eqv a (b * d) c)
+
+private theorem four_unit_coarse_regroup_local (unit coarse : Q') :
+    (Q'.ofNat 4 * unit) * coarse ≈
+      Q'.ofNat 4 * (coarse * unit) := by
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_assoc_eqv (Q'.ofNat 4) unit coarse) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_left (Q'.ofNat 4)
+      (unit * coarse) (coarse * unit)
+      (Q'.mul_comm_eqv unit coarse)) ?_
+  exact Q'.eqv_refl _
+
+private theorem fineUnitCouplingBalancedCarrierCeiling_budget_mul_actualSquare_eqv
+    (S : SlabScalePair) (g : Q') (hg : (0 : Q') < g) :
+    (fineUnitCouplingBalancedCarrierCeiling S g hg * (g * g)) *
+        ((S.coarse.physicalPartition * S.coarse.physicalPartition) *
+          (S.fine.physicalPartition * S.fine.physicalPartition)) ≈
+      Q'.ofNat 4 *
+        ((S.coarse.physicalPartition * S.coarse.physicalPartition) *
+          (fineUnitCouplingPhysicalPartition S *
+            fineUnitCouplingPhysicalPartition S)) := by
+  let unitSquare :=
+    fineUnitCouplingPhysicalPartition S *
+      fineUnitCouplingPhysicalPartition S
+  let actualSquare :=
+    S.fine.physicalPartition * S.fine.physicalPartition
+  let coarseSquare :=
+    S.coarse.physicalPartition * S.coarse.physicalPartition
+  let gSquare := g * g
+  let numerator := Q'.ofNat 4 * unitSquare
+  let denominator := gSquare * actualSquare
+  have hactual : (0 : Q') < S.fine.physicalPartition :=
+    slabParametricKPhysicalPartition_pos
+      S.fine.coupling_nonnegative S.fine.cutoff S.fine.extent
+  have hdenominator : (0 : Q') < denominator := by
+    unfold denominator gSquare actualSquare
+    exact Q'.mul_pos
+      (Q'.mul_pos hg hg)
+      (Q'.mul_pos hactual hactual)
+  have hdivision :
+      Q'.divPos numerator denominator hdenominator * denominator ≈
+        numerator :=
+    Q'.divPos_mul_eqv numerator denominator hdenominator
+  unfold fineUnitCouplingBalancedCarrierCeiling
+  change
+    (Q'.divPos numerator denominator hdenominator * gSquare) *
+          (coarseSquare * actualSquare) ≈
+      Q'.ofNat 4 * (coarseSquare * unitSquare)
+  refine Q'.eqv_trans _ _ _
+    (nested_product_swap_local
+      (Q'.divPos numerator denominator hdenominator)
+      gSquare coarseSquare actualSquare) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right
+      (Q'.divPos numerator denominator hdenominator * denominator)
+      numerator coarseSquare hdivision) ?_
+  exact four_unit_coarse_regroup_local unitSquare coarseSquare
+
+/-- The finite carrier ceiling inhabits the existing balanced-calibration
+interface after an explicit actual-partition normalization.  Its dependence
+on `S` and `g` is exposed by `fineUnitCouplingBalancedCarrierCeiling`. -/
+theorem fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat) (g : Q') (hg : (0 : Q') < g) :
+    FineUnitCouplingBalancedRawColumnScaleDefectCalibration
+      S hfineCutoff hcoarseCoupling root target g
+      (fineUnitCouplingBalancedCarrierCeiling S g hg) := by
+  unfold FineUnitCouplingBalancedRawColumnScaleDefectCalibration
+  have hbase :=
+    fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares
+      S hfineCutoff hcoarseCoupling root target
+  have hbudget :=
+    fineUnitCouplingBalancedCarrierCeiling_budget_mul_actualSquare_eqv
+      S g hg
+  exact Q'.le_trans' _ _ _ hbase
+    (Q'.le_of_eqv (Q'.eqv_symm hbudget))
+
 /-- Explicit normalized global-moment input needed by the global
 coupling-one interpolation.  Unlike the receiver-local moment, this contains
 the Casimir exponent summed over the entire fine slab. -/
@@ -983,6 +1104,8 @@ def FineUnitCouplingGlobalPartitionCasimirNormalization
 #print axioms coarseObservableFourCellRawColumnCross_abs_le_two_partitionSquare
 #print axioms fineUnitCouplingPushedRawColumnCross_abs_le_two_partitionSquare
 #print axioms fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares
+#print axioms fineUnitCouplingBalancedCarrierCeiling
+#print axioms fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier
 #print axioms fineUnitCouplingPhysicalPartition_nonnegative
 #print axioms fineUnitCouplingPhysicalPartitionSquareLoss
 #print axioms fineUnitCouplingPhysicalPartitionSquareLoss_eqv_factorized
