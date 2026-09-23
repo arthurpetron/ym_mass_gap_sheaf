@@ -315,6 +315,18 @@ an explicit endpoint-square bound.  No cross-term budget inhabitant is
 constructed; the theorem is a compiler for the missing estimate and still
 does not pass through inactive projections or to OS/continuum/Clay closure.
 
+**Finite absolute cross-term budget (2026-09-22 UTC):**
+`hybridSweepSignedCrossTermBudget_of_abs` now inhabits the cross-term budget
+for every finite schedule and polynomial by taking the explicit sum of the
+absolute values of the displayed signed cross terms.  The companion theorem
+`hybridSweep_endpoint_bound_of_exposed_and_absCrossBudget` therefore gives a
+fully inhabited finite endpoint estimate once the exposed-pairing family is
+supplied.  This is deliberately presentation-dependent: it is not uniform in
+volume, cutoff, spacing, nome, or polynomial syntax, and it does not discharge
+the uniform cross-term estimate needed for a spectral gap.  Inactive Haar
+projection removal, OS/GNS, continuum, physical mass, and every-group closure
+remain open.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is

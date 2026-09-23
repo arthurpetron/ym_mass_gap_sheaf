@@ -364,6 +364,37 @@ structure HybridSweepSignedCrossTermBudget
   cross_sum_le :
     qListSum (hybridSweepStageCrossTerms n w K ids p) ≤ budget
 
+private theorem qListSum_abs_nonnegative : ∀ values : List Q',
+    (0 : Q') ≤ qListSum (values.map Q'.abs)
+  | [] => Q'.le_refl' 0
+  | value :: values => by
+      change (0 : Q') ≤ Q'.abs value + qListSum (values.map Q'.abs)
+      exact Q'.zero_le_add _ _ (Q'.abs_nonneg value)
+        (qListSum_abs_nonnegative values)
+
+private theorem qListSum_le_abs_sum : ∀ values : List Q',
+    qListSum values ≤ qListSum (values.map Q'.abs)
+  | [] => Q'.le_refl' 0
+  | value :: values => by
+      change value + qListSum values ≤
+        Q'.abs value + qListSum (values.map Q'.abs)
+      exact Q'.add_le_add (Q'.le_abs_self value)
+        (qListSum_le_abs_sum values)
+
+/-- Every finite signed cross-term list has an explicit absolute-value budget.
+This removes the purely finite inhabitation gap in
+`HybridSweepSignedCrossTermBudget`; it is deliberately presentation-dependent
+and supplies no volume-, cutoff-, spacing-, or nome-uniform estimate. -/
+def hybridSweepSignedCrossTermBudget_of_abs
+    (n : Nat) (w : Q') (K : Nat) (ids : List Nat) (p : RatPoly) :
+    HybridSweepSignedCrossTermBudget n w K ids p where
+  budget := qListSum
+    ((hybridSweepStageCrossTerms n w K ids p).map Q'.abs)
+  budget_nonneg := qListSum_abs_nonnegative
+    (hybridSweepStageCrossTerms n w K ids p)
+  cross_sum_le := qListSum_le_abs_sum
+    (hybridSweepStageCrossTerms n w K ids p)
+
 /-- Compose the checked local defect budget with an explicit signed cross-term
 budget.  This is the strongest current finite endpoint compiler; it remains
 conditional on both certificate families and does not remove inactive Haar
@@ -405,6 +436,34 @@ theorem hybridSweep_endpoint_bound_of_exposed_and_crossBudget
       (Q'.le_of_eqv hsplit)
       (Q'.add_le_add hdefect hcross)
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm hendpoint)) hsum
+
+/-- Finite endpoint compiler with the canonical absolute-value budget.  The
+cross-term estimate is now inhabited for every finite input, but its budget
+still grows with the displayed schedule and polynomial presentation. -/
+theorem hybridSweep_endpoint_bound_of_exposed_and_absCrossBudget
+    (n : Nat) (ids : List Nat) (hn : 2 ≤ n)
+    (hids : ∀ i, i ∈ ids → i < n)
+    {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : sufficientCutoff w ≤ K)
+    (p : RatPoly)
+    (hp : SupportedQuaternionBlocks (n+n) p)
+    (exposed : ∀ (i : Nat) (hmem : i ∈ ids),
+      SelectedLinkExposedHeadPairing
+        (n+n-1) i (n+i)
+        (by omega)
+        (by have := hids i hmem; omega)
+        (by have := hids i hmem; omega)
+        (by have := hids i hmem; omega) w K) :
+    quaternionHaar (n+n) (polyMul p p) -
+        quaternionHaar (n+n)
+          (polyMul (hybridSweep n w K ids p)
+            (hybridSweep n w K ids p)) ≤
+      ((1 : Q') - w) *
+        qListSum (hybridSweepStageAngularEnergies n w K ids p) +
+      qListSum ((hybridSweepStageCrossTerms n w K ids p).map Q'.abs) := by
+  exact hybridSweep_endpoint_bound_of_exposed_and_crossBudget
+    n ids hn hids hw0 hw1 K hK p hp exposed
+      (hybridSweepSignedCrossTermBudget_of_abs n w K ids p)
 
 /-- The final integration explicitly retains the inactive Haar projections.
 In particular an empty schedule is Haar averaging, not the identity map. -/
@@ -581,4 +640,6 @@ end YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweepStageCrossTerms
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweepStageTelescopeTerms_sum_eq_defect_add_cross
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.HybridSweepSignedCrossTermBudget
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweepSignedCrossTermBudget_of_abs
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweep_endpoint_bound_of_exposed_and_crossBudget
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweep_endpoint_bound_of_exposed_and_absCrossBudget

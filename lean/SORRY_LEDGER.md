@@ -204,6 +204,27 @@ Monitored focused verification passed; both printed declarations use only
 - **scope**: finite conditional SU(2) compiler only, not a strict spectral or
   Clay mass-gap theorem.
 
+## PROVED finite absolute hybrid cross-term budget (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean`.
+- **proved declarations**: `hybridSweepSignedCrossTermBudget_of_abs` and
+  `hybridSweep_endpoint_bound_of_exposed_and_absCrossBudget`.
+- **proof content**: the first declaration constructs the nonnegative budget
+  `qListSum ((hybridSweepStageCrossTerms ...).map Q'.abs)` and proves the
+  signed cross-term sum is below it by the rational absolute-value triangle
+  inequality.  The second feeds this inhabited finite budget into the exact
+  endpoint compiler.
+- **open obligation**: replace this presentation-dependent absolute budget by
+  a bound uniform in the actual volume, cutoff, spacing, nome, and admissible
+  state family; populate `SelectedLinkExposedHeadPairing`; remove inactive
+  projections; and establish the completed OS/GNS, continuum, physical-mass,
+  full-QFT, and every-group route.
+- **constructive status**: focused monitored check passed; the printed
+  declarations use only `{propext, Quot.sound}` and introduce no `sorry` or
+  new axiom.
+- **scope**: finite SU(2) bookkeeping and inhabitation only; this is not a
+  uniform strict form bound or a Clay mass-gap theorem.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.

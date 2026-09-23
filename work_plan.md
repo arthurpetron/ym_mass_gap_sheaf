@@ -221,6 +221,16 @@ the exposed pairing family remain uninhabited inputs; uniformity, inactive
 projection removal, OS/GNS, continuum, physical-mass, and every-group work
 remain open.
 
+**PROGRESS -- finite absolute cross-term inhabitation:**
+`hybridSweepSignedCrossTermBudget_of_abs` constructs an explicit budget for
+every finite schedule by summing `Q'.abs` of the named signed cross terms.
+`hybridSweep_endpoint_bound_of_exposed_and_absCrossBudget` consumes that
+inhabited budget in the endpoint compiler.  This closes only the finite
+presentation-level inhabitation seam; the resulting budget is not uniform in
+volume, cutoff, spacing, nome, or polynomial syntax.  A uniform/compressible
+cross-term estimate, the exposed-pairing family, inactive projection passage,
+and the OS/GNS-to-continuum/physical-mass route remain open.
+
 ### Conjugated finite head defect (2026-09-22 UTC)
 
 **PROGRESS -- the checked local angular defect is now transportable by an
