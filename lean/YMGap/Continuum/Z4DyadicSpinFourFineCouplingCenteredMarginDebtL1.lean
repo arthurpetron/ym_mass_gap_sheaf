@@ -1216,6 +1216,79 @@ theorem fineUnitCouplingPhysicalCasimirMomentBound_spatial_cutoff
   unfold FineUnitCouplingPhysicalCasimirMomentBound
   exact fineUnitCouplingPhysicalCasimirMoment_le_spatial_cutoff_ceiling S
 
+/-- The spatial/cutoff Casimir envelope supplies the carrier-ratio premise
+needed by the balanced blocking compiler.  Its growth remains explicit. -/
+theorem fineUnitCouplingBalancedCarrierRatioBound_of_spatial_casimir_ceiling
+    (S : SlabScalePair)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g) :
+    FineUnitCouplingBalancedCarrierRatioBound S
+      ((1 + (Q'.ofNat 2 * (g * g)) *
+        fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S) *
+        (1 + (Q'.ofNat 2 * (g * g)) *
+          fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S)) := by
+  let margin :=
+    (Q'.ofNat 2 * (g * g)) *
+      fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S
+  have hcoef0 : (0 : Q') ≤ Q'.ofNat 2 * (g * g) := by
+    exact Q'.mul_nonneg _ _ (by decide)
+      (Q'.le_of_lt (Q'.mul_pos hg hg))
+  have hmargin : (0 : Q') ≤ margin := by
+    unfold margin
+    exact Q'.mul_nonneg _ _ hcoef0
+      (fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling_nonnegative S)
+  have hfloor : (0 : Q') < 1 := by decide
+  have hfloor_le : (1 : Q') ≤ S.fine.physicalPartition := by
+    unfold SlabPhysicalData.physicalPartition
+    exact slabParametricKPhysicalPartition_one_le
+      S.fine.coupling_nonnegative S.fine.cutoff S.fine.extent
+  have hloss₀ :=
+    fineUnitCouplingPhysicalPartition_sub_actual_le_two_square_mul_moment
+      S hfineCoupling_le_one family law g hg hgle hcoupling
+  have hmoment :=
+    fineUnitCouplingPhysicalCasimirMoment_le_spatial_cutoff_ceiling S
+  have hlossBound : fineUnitCouplingPhysicalPartition S -
+      S.fine.physicalPartition ≤ margin := by
+    unfold margin
+    exact Q'.le_trans' _ _ _ hloss₀
+      (Q'.mul_le_mul_of_nonneg_left _ _ _ hmoment hcoef0)
+  have hloss : fineUnitCouplingPhysicalPartition S -
+      S.fine.physicalPartition ≤ margin * (1 : Q') := by
+    exact Q'.le_trans' _ _ _ hlossBound
+      (Q'.le_of_eqv (Q'.eqv_symm (Q'.mul_one_eqv margin)))
+  simpa only [margin] using
+    (fineUnitCouplingBalancedCarrierRatioBound_of_relative_loss
+      S margin (1 : Q') hmargin hfloor hfloor_le hloss)
+
+/-- Compile the spatial/cutoff carrier-ratio bound directly into the balanced
+raw scale-defect calibration interface. -/
+theorem fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_spatial_casimir_ceiling
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat) (g : Q') (hg : (0 : Q') < g)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g) :
+    FineUnitCouplingBalancedRawColumnScaleDefectCalibration
+      S hfineCutoff hcoarseCoupling root target g
+      (fineUnitCouplingBalancedCarrierRatioCeiling g
+        ((1 + (Q'.ofNat 2 * (g * g)) *
+          fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S) *
+          (1 + (Q'.ofNat 2 * (g * g)) *
+            fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S)) hg) := by
+  exact fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_carrier_ratio
+    S hfineCutoff hcoarseCoupling root target g
+    ((1 + (Q'.ofNat 2 * (g * g)) *
+      fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S) *
+      (1 + (Q'.ofNat 2 * (g * g)) *
+        fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S)) hg
+    (fineUnitCouplingBalancedCarrierRatioBound_of_spatial_casimir_ceiling
+      S hfineCoupling_le_one family law g hg hgle hcoupling)
+
 theorem fineUnitCouplingPhysicalCasimirMomentFiniteCeiling_nonnegative
     (S : SlabScalePair) :
     (0 : Q') ≤ fineUnitCouplingPhysicalCasimirMomentFiniteCeiling S := by
@@ -1446,6 +1519,8 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 #print axioms fineUnitCouplingPhysicalCasimirMoment_le_spatial_cutoff_ceiling
 #print axioms fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling_nonnegative
 #print axioms fineUnitCouplingPhysicalCasimirMomentBound_spatial_cutoff
+#print axioms fineUnitCouplingBalancedCarrierRatioBound_of_spatial_casimir_ceiling
+#print axioms fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_spatial_casimir_ceiling
 #print axioms centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling
 #print axioms centeredCylinderRemainder_abs_le_of_finite_casimir_ceiling
 #print axioms centeredCylinderRemainder_abs_le_of_spatial_cutoff_casimir_ceiling

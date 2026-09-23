@@ -88,6 +88,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   explicitly; its observable consumer is
   `centeredCylinderRemainder_abs_le_of_spatial_cutoff_casimir_ceiling`.
   Neither declaration discharges the uniform-moment obligation.
+  The same spatial/cutoff input also compiles through
+  `fineUnitCouplingBalancedCarrierRatioBound_of_spatial_casimir_ceiling` and
+  `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_spatial_casimir_ceiling`;
+  these remain finite parameter-dependent consequences and do not supply a
+  uniform balanced blocking constant.
   The result does not identify an OS transfer matrix, pass to a thermodynamic
   or continuum limit, construct the QFT, calibrate a physical mass, cover all
   compact simple groups, or prove the Clay theorem; it does not close

@@ -333,6 +333,10 @@ growth source rather than hiding it in a finite maximum.
 The direct consumer
 `centeredCylinderRemainder_abs_le_of_spatial_cutoff_casimir_ceiling` now carries
 that dependence all the way to the finite observable remainder.
+The same envelope now also compiles directly to
+`fineUnitCouplingBalancedCarrierRatioBound_of_spatial_casimir_ceiling` and
+`fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_spatial_casimir_ceiling`,
+so the balanced-blocking seam is explicit before the centered observable join.
 
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.

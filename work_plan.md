@@ -156,6 +156,12 @@ The exponent maximum is also bounded constructively by
 and cutoff dependence explicit without claiming it is uniform.
 `centeredCylinderRemainder_abs_le_of_spatial_cutoff_casimir_ceiling` composes
 this bound through the full finite centered-cylinder estimate.
+The same input now inhabits the explicit balanced carrier-ratio and raw
+scale-defect calibration compilers
+`fineUnitCouplingBalancedCarrierRatioBound_of_spatial_casimir_ceiling` and
+`fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_spatial_casimir_ceiling`.
+Thus the next missing producer is the uniform form of this ratio/moment bound,
+not another finite algebraic join.
 The focused safe target passed 5498 jobs with one worker and the new exports
 have only `{propext, Quot.sound}`; its centered-margin consumer passed 5506
 jobs with the same axiom gate.
