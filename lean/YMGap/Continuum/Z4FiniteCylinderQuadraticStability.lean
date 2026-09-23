@@ -435,6 +435,57 @@ theorem finiteJointQuadratic_lt_square_of_reference_rate_and_abs_error
     lt_of_lt_of_le_local hscaled (Q'.le_of_eqv (Q'.one_mul_eqv norm))
   exact Q'.lt_of_le_of_lt hupper hscaled'
 
+/-! ## Direct strictness consumers for an already-built absolute gap -/
+
+/-- An absolute rate bound becomes strict as soon as its comparison norm is
+positive.  This scalar form is deliberately independent of the finite
+carrier presentation, so physical diagonal forms can consume it directly. -/
+theorem abs_lt_of_abs_le_rate_mul_of_pos_norm
+    {value norm rate : Q'}
+    (hgap : Q'.abs value ≤ rate * norm)
+    (hstrict : rate < (1 : Q'))
+    (hnorm : (0 : Q') < norm) :
+    Q'.abs value < norm := by
+  have hscaled : rate * norm < (1 : Q') * norm :=
+    mul_lt_mul_of_pos_right_local hnorm hstrict
+  have hscaled' : rate * norm < norm :=
+    lt_of_lt_of_le_local hscaled (Q'.le_of_eqv (Q'.one_mul_eqv norm))
+  exact Q'.lt_of_le_of_lt hgap hscaled'
+
+/-- The signed quadratic itself is strictly below the same positive norm. -/
+theorem lt_of_abs_le_rate_mul_of_pos_norm
+    {value norm rate : Q'}
+    (hgap : Q'.abs value ≤ rate * norm)
+    (hstrict : rate < (1 : Q'))
+    (hnorm : (0 : Q') < norm) :
+    value < norm := by
+  exact Q'.lt_of_le_of_lt (Q'.le_abs_self _)
+    (abs_lt_of_abs_le_rate_mul_of_pos_norm hgap hstrict hnorm)
+
+/-- An entrywise comparison is not needed once a finite reflection quadratic
+already has an absolute rate bound.  If the rate is strictly below one and the
+coefficient `l¹` mass is positive, the quadratic is strictly below its
+coefficient square.  This is the direct consumer for physical finite-sector
+absolute-form certificates; it does not manufacture the absolute bound or any
+uniformity in its parameters. -/
+theorem finiteJointQuadratic_lt_square_of_abs_rate
+    {State : Type}
+    (states : List State) (coefficient : State → Q')
+    (comparedLaw : State → State → Q')
+    (rate : Q')
+    (hgap : Q'.abs (finiteJointQuadratic states coefficient comparedLaw) ≤
+      rate * (coefficientL1 states coefficient * coefficientL1 states coefficient))
+    (hstrict : rate < (1 : Q'))
+    (hcoefficient : (0 : Q') < coefficientL1 states coefficient) :
+    finiteJointQuadratic states coefficient comparedLaw <
+      coefficientL1 states coefficient * coefficientL1 states coefficient := by
+  let norm := coefficientL1 states coefficient * coefficientL1 states coefficient
+  have hnorm : (0 : Q') < norm :=
+    Q'.mul_pos hcoefficient hcoefficient
+  exact lt_of_abs_le_rate_mul_of_pos_norm
+    hgap
+    hstrict hnorm
+
 #print axioms abs_listQSum_sub_le
 #print axioms listQSum_mono
 #print axioms abs_common_mul_sub_le
@@ -447,5 +498,8 @@ theorem finiteJointQuadratic_lt_square_of_reference_rate_and_abs_error
 #print axioms upper_rate_of_reference_gap_and_abs_error
 #print axioms finiteJointQuadratic_le_reference_rate_add_error
 #print axioms finiteJointQuadratic_lt_square_of_reference_rate_and_abs_error
+#print axioms abs_lt_of_abs_le_rate_mul_of_pos_norm
+#print axioms lt_of_abs_le_rate_mul_of_pos_norm
+#print axioms finiteJointQuadratic_lt_square_of_abs_rate
 
 end YMGap.Continuum.Z4FiniteCylinderQuadraticStability

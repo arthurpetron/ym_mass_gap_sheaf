@@ -25,6 +25,22 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Positive-norm strictness compiler (2026-09-23 UTC)
+
+`Z4FiniteCylinderQuadraticStability.lean` now exposes the scalar
+`abs_lt_of_abs_le_rate_mul_of_pos_norm` and signed
+`lt_of_abs_le_rate_mul_of_pos_norm` consumers.  Given an explicit absolute
+rate bound, `rate < 1`, and `0 < norm`, they return strict absolute or signed
+contraction.  `finiteJointQuadratic_lt_square_of_abs_rate` is factored through
+this edge, keeping positivity visible in the type.  The focused monitored
+target passed 214 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+
+This is the reusable bridge for the existing physical diagonal estimates; it
+does not construct diagonal positivity, a uniform rate, a completed gap, an
+OS/scaling or thermodynamic/continuum passage, physical mass, an all-group
+theorem, or the Clay target.  A high-fanout physical leaf consumer was not
+retained after safe verification stopped at the 12 GiB reserve.
+
 ### Finite quadratic upper-error compiler (2026-09-23 UTC)
 
 `Z4FiniteCylinderQuadraticStability.lean` now adds the checked upper-side

@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: finite quadratic upper-error compiler (2026-09-23)
+## Current increment: positive-norm strictness compiler (2026-09-23)
+
+`Z4FiniteCylinderQuadraticStability.lean` now exposes the scalar
+`abs_lt_of_abs_le_rate_mul_of_pos_norm` and its signed companion
+`lt_of_abs_le_rate_mul_of_pos_norm`.  They consume an already-built absolute
+bound `|value| ≤ rate * norm`, an explicit `rate < 1`, and an explicit
+`0 < norm`, producing strict absolute or signed contraction.  The finite
+quadratic consumer `finiteJointQuadratic_lt_square_of_abs_rate` now factors
+through this scalar edge.  This is the minimal bridge for physical diagonal
+forms; positivity remains a named input and no nonzero observable is inferred.
+
+Verification: the dependency-complete monitored target passed 214 jobs with
+only `{propext, Quot.sound}` and no `sorryAx`.  A leaf physical consumer was
+attempted, but its high-fanout dependency replay was stopped by the safe
+12 GiB reserve before the target was checked; no unverified physical file was
+retained.  The existing checked concrete root-indicator strictness theorem
+remains the physical finite consumer.  Uniform completed gaps, OS/scaling,
+thermodynamic/continuum, physical-mass, all-group, and Clay obligations stay
+open.
+
+## Previous increment: finite quadratic upper-error compiler (2026-09-23)
 
 `Z4FiniteCylinderQuadraticStability.lean:298-436` now proves the upper-side
 perturbation compiler. `le_reference_add_of_abs_sub_le` turns an absolute
