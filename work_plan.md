@@ -25,6 +25,25 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Finite quadratic upper-error compiler (2026-09-23 UTC)
+
+`Z4FiniteCylinderQuadraticStability.lean` now adds the checked upper-side
+companion to the existing negative-error estimate. The declarations
+`le_reference_add_of_abs_sub_le`,
+`upper_rate_of_reference_gap_and_abs_error`, and
+`finiteJointQuadratic_le_reference_rate_add_error` show constructively that a
+reference quadratic rate `rate` plus an explicit entrywise error `epsilon`
+produces the consumable rate `rate + epsilon`, with the coefficient `l^1`
+square carried in the type. The focused dependency-complete build passed 214
+jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+
+This is an interface compiler, not an action-comparison theorem: no small
+physical-law error has yet been constructed, and the exact-Haar comparison
+route has a checked large-error obstruction. The same-object joint completion
+bridge, uniform beta/spacing/volume passage, OS/scaling,
+thermodynamic/continuum construction, physical-mass calibration, all-group
+theorem, and Clay target remain open.
+
 ### Finite physical carrier certificate (2026-09-23 UTC)
 
 `BF4PhysicalCompletedMacroCorrelator.lean` now packages the finite physical

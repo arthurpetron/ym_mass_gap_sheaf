@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: physical one-plaquette original variance fraction (2026-09-17)
+## Current increment: finite quadratic upper-error compiler (2026-09-23)
+
+`Z4FiniteCylinderQuadraticStability.lean:298-369` now proves the upper-side
+perturbation compiler. `le_reference_add_of_abs_sub_le` turns an absolute
+quadratic difference into an upper comparison;
+`upper_rate_of_reference_gap_and_abs_error` adds an explicit error rate to a
+reference rate; and `finiteJointQuadratic_le_reference_rate_add_error`
+specializes this to a finite cylinder with the coefficient `l^1` square.
+
+Verification: the dependency-complete monitored target passed 214 jobs with
+only `{propext, Quot.sound}` and no `sorryAx`. This supplies a clean consumer
+for a future explicit physical-law comparison estimate. It does not produce
+that estimate, does not overcome the checked exact-Haar large-error fence, and
+does not advance the uniform completed joint gap, OS/scaling,
+thermodynamic/continuum, physical-mass, all-group, or Clay obligations.
+
+## Previous increment: physical one-plaquette original variance fraction (2026-09-17)
 
 PROGRESS after 1e99e71. The selected-star prediction theorem now permits a
 polynomial predictor independent of one plaquette link, not merely a rational

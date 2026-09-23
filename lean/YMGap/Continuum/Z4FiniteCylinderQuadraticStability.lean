@@ -289,6 +289,85 @@ theorem finiteJointQuadratic_ge_neg_square_modulus
     (finiteJointQuadratic_abs_sub_le_square
       states coefficient comparedLaw referenceLaw epsilon hepsilon herror)
 
+/-! ## Upper-side perturbation compiler -/
+
+/-- An absolute difference bound gives the corresponding upper comparison.
+This is the one-sided companion to `ge_neg_of_reference_nonnegative`: it is
+the exact algebraic step needed when a physical law is only approximately
+identified with a reference law. -/
+theorem le_reference_add_of_abs_sub_le
+    {value reference modulus : Q'}
+    (hclose : Q'.abs (value + (-reference)) ≤ modulus) :
+    value ≤ reference + modulus := by
+  have hdiff : value + (-reference) ≤ modulus :=
+    Q'.le_trans' _ _ _
+      (Q'.le_abs_self (value + (-reference))) hclose
+  have hadd :
+      (value + (-reference)) + reference ≤ modulus + reference :=
+    Q'.add_le_add_right
+      (value + (-reference)) modulus reference hdiff
+  have hleft :
+      (value + (-reference)) + reference ≈ value := by
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_assoc_eqv value (-reference) reference) ?_
+    refine Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_left value ((-reference) + reference) 0
+        (Q'.neg_add_self_eqv reference)) ?_
+    exact Q'.eqv_of_eq (Q'.add_zero' value)
+  have hright : modulus + reference ≈ reference + modulus :=
+    Q'.add_comm_eqv modulus reference
+  exact Q'.le_trans' _ _ _
+    (Q'.ge_of_eqv hleft)
+    (Q'.le_trans' _ _ _ hadd (Q'.le_of_eqv hright))
+
+/-- A strict reference quadratic estimate and an absolute law-comparison
+error combine into a rate with the error added explicitly.  No positivity or
+completion hypothesis is hidden here; callers must provide the reference
+bound and the actual coefficient norm. -/
+theorem upper_rate_of_reference_gap_and_abs_error
+    {value reference norm rate error : Q'}
+    (hreference : reference ≤ rate * norm)
+    (herror : Q'.abs (value + (-reference)) ≤ error * norm) :
+    value ≤ (rate + error) * norm := by
+  have hadd := le_reference_add_of_abs_sub_le herror
+  have hrate : reference + error * norm ≤ rate * norm + error * norm :=
+    Q'.add_le_add_right reference (rate * norm) (error * norm) hreference
+  refine Q'.le_trans' _ _ _ hadd (Q'.le_trans' _ _ _ hrate ?_)
+  exact Q'.le_of_eqv (Q'.eqv_symm (Q'.add_mul_eqv rate error norm))
+
+/-- Finite-cylinder specialization of the perturbation compiler.  A common
+entrywise error `epsilon` changes a reference strict rate only by the
+coefficient `l^1` square times `epsilon`. -/
+theorem finiteJointQuadratic_le_reference_rate_add_error
+    {State : Type}
+    (states : List State) (coefficient : State → Q')
+    (comparedLaw referenceLaw : State → State → Q')
+    (epsilon rate : Q') (hepsilon : (0 : Q') ≤ epsilon)
+    (hreference :
+      finiteJointQuadratic states coefficient referenceLaw ≤
+        rate * (coefficientL1 states coefficient * coefficientL1 states coefficient))
+    (herror : ∀ left right, left ∈ states → right ∈ states →
+      Q'.abs (comparedLaw left right + (-referenceLaw left right)) ≤ epsilon) :
+    finiteJointQuadratic states coefficient comparedLaw ≤
+      (rate + epsilon) *
+        (coefficientL1 states coefficient * coefficientL1 states coefficient) := by
+  have hfinite := finiteJointQuadratic_abs_sub_le_square
+    states coefficient comparedLaw referenceLaw epsilon hepsilon herror
+  have hfinite' :
+      Q'.abs
+          (finiteJointQuadratic states coefficient comparedLaw +
+            (-finiteJointQuadratic states coefficient referenceLaw)) ≤
+        epsilon *
+          (coefficientL1 states coefficient * coefficientL1 states coefficient) :=
+    Q'.le_trans' _ _ _ hfinite
+      (Q'.le_of_eqv
+        (Q'.mul_comm_eqv
+          (coefficientL1 states coefficient * coefficientL1 states coefficient)
+          epsilon))
+  exact upper_rate_of_reference_gap_and_abs_error
+    hreference
+    hfinite'
+
 #print axioms abs_listQSum_sub_le
 #print axioms listQSum_mono
 #print axioms abs_common_mul_sub_le
@@ -297,5 +376,8 @@ theorem finiteJointQuadratic_ge_neg_square_modulus
 #print axioms finiteJointQuadratic_abs_sub_le_square
 #print axioms ge_neg_of_reference_nonnegative
 #print axioms finiteJointQuadratic_ge_neg_square_modulus
+#print axioms le_reference_add_of_abs_sub_le
+#print axioms upper_rate_of_reference_gap_and_abs_error
+#print axioms finiteJointQuadratic_le_reference_rate_add_error
 
 end YMGap.Continuum.Z4FiniteCylinderQuadraticStability
