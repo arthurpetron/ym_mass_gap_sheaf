@@ -68,6 +68,10 @@ for every rational `0 <= w <= 1`, without centering or a pointwise heat-floor
 guard. This has rate **1**, not a strict gap; it does not yet bound the
 full-product angular defect. See the
 [all-cutoff norm proof](audits/AUDIT-HEAD-HEAT-ALL-CUTOFF-CONTRACTION-2026-09-23.md).
+Spectator equivariance now also removes the remaining conjugation:
+the actual cyclic step is exactly coordinate rotation followed by the
+ordinary head map on the original input. This [checked factorization](audits/AUDIT-HEAD-HEAT-SPECTATOR-EQUIVARIANCE-2026-09-23.md)
+leaves distinct-update commutation and the angular product estimate open.
 
 ## Earlier checkpoints (historical; later results may supersede open steps)
 

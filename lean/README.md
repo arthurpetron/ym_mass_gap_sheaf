@@ -24,6 +24,17 @@ operator at every K. The multiplier is 1: no strict gap, angular defect
 telescope, interacting estimate or physical/continuum closure follows.
 See `audits/AUDIT-HEAD-HEAT-ALL-CUTOFF-CONTRACTION-2026-09-23.md`.
 
+**Ordinary-head factorization (2026-09-23):**
+`SU2QuaternionHeadHeatSpectatorEquivariance` proves the actual `headMap`
+commutes with any block involution fixing its active head. The concrete
+consumers `cycleReturn_step_headMap_carrier` and `cycleStep_headMap_carrier`
+remove the tail-reversal conjugation: C=R headMap under every Haar insertion
+on the supported carrier. These algebraic identities hold at every w,K.
+Two focused checks passed seven permitted gates; the remaining target is
+distinct-update commutation and the full-product angular defect, not another
+operator-realization assumption. Evidence:
+`audits/AUDIT-HEAD-HEAT-SPECTATOR-EQUIVARIANCE-2026-09-23.md`.
+
 **Rotation-separated local estimate (2026-09-23):**
 `SU2QuaternionProductHeatCyclicRotation.cycleReturn_step_carrier` identifies
 the derotation of the actual fresh-output step with a computed conjugated

@@ -10,6 +10,7 @@ sum-of-angular-defects estimate.
 
 import YMGap.Continuum.SU2QuaternionProductHeatCyclicRotation
 import YMGap.Continuum.SU2QuaternionHeadHeatPositiveContraction
+import YMGap.Continuum.SU2QuaternionHeadHeatSpectatorEquivariance
 
 namespace YMGap.Continuum.SU2QuaternionProductHeatCyclicContraction
 
@@ -27,6 +28,7 @@ open YMGap.Continuum.SU2QuaternionHaarCertificateReindex
 open YMGap.Continuum.SU2QuaternionBlockReversal
 open YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
 open YMGap.Continuum.SU2QuaternionHeadHeatPositiveContraction
+open YMGap.Continuum.SU2QuaternionHeadHeatSpectatorEquivariance
 open YMGap.Continuum.SU2QuaternionProductHeatMarginals
 open YMGap.Continuum.SU2QuaternionProductHeatCyclicFold
 open YMGap.Continuum.SU2QuaternionProductHeatCyclicRotation
@@ -82,8 +84,33 @@ theorem productMap_range_square_contraction (tail : Nat) {w : Q'}
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (haar_of_carrier (HaarCarrierEqv.mul h h)))
     (cycleIterate_square_contraction tail hw0 hw1 K (tail+1) p hp)
 
+/-- Spectator equivariance removes the last conjugation: the derotated
+actual cyclic step is the ORDINARY computed head map on the original input. -/
+theorem cycleReturn_step_headMap_carrier (tail : Nat) (w : Q') (K : Nat)
+    (p : RatPoly) (hp : SupportedQuaternionBlocks (tail+1) p) :
+    HaarCarrierEqv (tail+1) (cycleReturn (tail+1) (cycleStep (tail+1) w K p))
+      (headMap w K p) :=
+  HaarCarrierEqv.trans (cycleReturn_step_carrier tail w K p hp)
+    (conjugatedHeadMap_fix_zero_carrier (by omega) (reverseTailBlocks (tail+1))
+      (reverseTailBlocks_map_zero _) w K p hp)
+
+/-- The exact factorization C=R H uses the same original input and head map.
+The coordinate rotation is explicit, not replaced by the identity. -/
+theorem cycleStep_headMap_carrier (tail : Nat) (w : Q') (K : Nat)
+    (p : RatPoly) (hp : SupportedQuaternionBlocks (tail+1) p) :
+    HaarCarrierEqv (tail+1) (cycleStep (tail+1) w K p)
+      (cycleRotation (tail+1) (headMap w K p)) :=
+  HaarCarrierEqv.trans (cycleStep_rotation_carrier tail w K p hp)
+    (reindex_carrier (reverseBlocks (tail+1))
+      (headMap_supported tail w K (reindex_supported (reverseTailBlocks (tail+1)) p))
+      (reindex_supported (reverseTailBlocks (tail+1)) (headMap w K p))
+      (headMap_reindex_fix_zero_carrier (by omega) (reverseTailBlocks (tail+1))
+        (reverseTailBlocks_map_zero _) w K p hp))
+
 end YMGap.Continuum.SU2QuaternionProductHeatCyclicContraction
 
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatCyclicContraction.cycleStep_square_contraction
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatCyclicContraction.cycleIterate_square_contraction
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatCyclicContraction.productMap_range_square_contraction
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatCyclicContraction.cycleReturn_step_headMap_carrier
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatCyclicContraction.cycleStep_headMap_carrier

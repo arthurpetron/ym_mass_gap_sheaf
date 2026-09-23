@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Proved spectator equivariance and ordinary-head factorization (2026-09-23)
+
+- **file**: `YMGap/Continuum/SU2QuaternionHeadHeatSpectatorEquivariance.lean`.
+  Actual head heat commutes with every block involution fixing the active
+  head; conjugation by such an involution is the same original head map.
+- **actual consumers**: `cycleReturn_step_headMap_carrier` and
+  `cycleStep_headMap_carrier` in `SU2QuaternionProductHeatCyclicContraction`
+  give R^{-1}C=headMap and C=R headMap under every Haar insertion, n>0 and
+  supported input. No guard on w,K and no operator identification premise.
+- **residue**: distinct-update commutation/product angular defect; inactive
+  projections, interacting signed correction and all physical/continuum/Clay
+  obligations. The cyclic map itself is not asserted self-adjoint.
+- **gate**: an uncommitted draft's `omega` impossible branch introduced
+  `Classical.choice`; explicit False.elim from 0<0 removed it. Final two
+  serialized 8 GiB checks pass seven gates within `{propext, Quot.sound}`
+  with no warning, `sorryAx`, new axiom or changed frontier field. No full
+  root build/audit/guard. Evidence:
+  `audits/AUDIT-HEAD-HEAT-SPECTATOR-EQUIVARIANCE-2026-09-23.md`.
+
 ## Proved all-cutoff actual head and full-product norm bounds (2026-09-23)
 
 - **files**: new `YMGap/Continuum/SU2QuaternionHeadHeatPositiveContraction.lean`

@@ -6,6 +6,16 @@ new angle). Run `bash computations/progress_metric.sh` each iteration.
 
 ## Current increment: all-cutoff actual head/product norm control (2026-09-23)
 
+The parallel spectator-equivariance proof is now checked and consumed:
+`cycleStep_headMap_carrier` and `cycleReturn_step_headMap_carrier` remove the
+tail-reversal conjugation, giving C=R headMap on the original supported input,
+for every w,K. Thus ordinary local heat updates, not assumed recoded maps,
+are the next product-composition objects. Distinct-update commutation and
+the angular product defect remain open. Seven additional permitted gates
+passed; an uncommitted classical impossible-branch proof was replaced with
+explicit constructive elimination. Evidence:
+`audits/AUDIT-HEAD-HEAT-SPECTATOR-EQUIVARIANCE-2026-09-23.md`.
+
 The two-head exchange proves symmetry of the actual head heat update. Its
 computed spectral form interval and existing rational Cauchy--Schwarz engine
 give the image-norm bound for every cutoff and rational 0<=w<=1. This removes

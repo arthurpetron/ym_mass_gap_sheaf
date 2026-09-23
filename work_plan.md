@@ -42,9 +42,20 @@ for every n=tail+1 and supported input. This extends norm control to every K
 and the endpoint nomes; its multiplier is 1, not a strict gap. The existing
 floor-guarded centered estimate has a different, strictly stronger rate.
 
+The spectator-equivariance join is now also proved:
+`SU2QuaternionHeadHeatSpectatorEquivariance.headMap_reindex_fix_zero_carrier`
+commutes the actual head update with any block involution fixing zero.
+`conjugatedHeadMap_fix_zero_carrier` removes the spectator conjugation.
+`cycleStep_headMap_carrier` and `cycleReturn_step_headMap_carrier` in the
+cyclic-contraction module now give C=R headMap and R^{-1}C=headMap on the
+ORIGINAL supported input. These identities hold for every w,K. Two further
+focused checks passed seven permitted gates; an earlier draft's classical
+impossible-branch proof was rejected and replaced with explicit False.elim.
+See `audits/AUDIT-HEAD-HEAT-SPECTATOR-EQUIVARIANCE-2026-09-23.md`.
+
 NEXT remains the full-product angular DEFECT estimate, not norm nonexpansion.
-Spectator equivariance, distinct selected-update commutation and an actual
-product-defect argument must be joined, or a positive joint-mode proof used.
+Distinct selected-update commutation and an actual product-defect argument
+must still be proved, or a positive joint-mode proof used.
 Proper active subsets retain inactive projections; the interacting consumer
 retains `V*g*f` and the signed correction. Physical OS/time, spatial/scaling,
 continuum survival, finite physical mass, full QFT and every group stay OPEN.
@@ -73,9 +84,8 @@ asserted. This is a quantitative theorem about the actual cyclic step.
 NEXT: prove the rotation-separated multi-step composition estimate for the
 original full product endpoint identified below. This requires more than
 summing the new local inequalities: commuting smoothing maps or positive
-joint modes and their angular control still need proof. The next local
-algebra target is `headMap` equivariance under spectator permutations fixing
-block zero; this would reduce B headMap B to headMap. Distinct selected
+joint modes and their angular control still need proof. Spectator equivariance
+and B headMap B=headMap are now proved above. Distinct selected
 head maps then need a proved commutation/product-defect argument, not an
 assumed selected-link realization. The downstream
 consumer remains `BF4ExactSlabFixedSpatialGroundStateEnergy.energy_eq_bare_add_correction`,
