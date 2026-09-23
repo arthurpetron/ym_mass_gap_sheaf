@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-subunit SAME completed-sector strict gap (2026-09-23)
+## Current increment: refute the selected-link/head-map route (2026-09-23)
+
+`SU2QuaternionSelectedLinkHeadObstruction` distinguishes the actual
+existing-neighbor update from fresh-head heat smoothing. The two-coordinate
+relative-pairing test gives `1/32` versus zero. The four-block hybrid
+identification remains impossible at `w=1/2`, every `K>=1`, including the
+computed local-bound cutoff guard. The intended stagewise `(1-w)` defect
+estimate is itself false at `w=3/4`, every K (`1/4 > 3/16`).
+
+This eliminates a genuinely live candidate route, rather than adding a new
+conditional certificate. The full product-map identities, exact signed
+endpoint telescope, and completed BF4 gap remain intact. Original certificate
+statements are preserved and marked refuted. Next: the actual fully active
+endpoint product-map defect, with inactive projection residuals retained
+when the active list is proper; then the original signed `V*g*f` correction.
+
+Verification boundary and source evidence:
+`audits/AUDIT-SELECTED-LINK-HEAD-OBSTRUCTION-2026-09-23.md`.
+No canonical continuum/Clay obligation is claimed discharged. The historical
+`progress_metric.sh` is not run: it invokes a repository-wide guard requiring
+separate approval and its fixed frontier census is not this milestone's proof.
+
+## Previous increment: all-subunit SAME completed-sector strict gap (2026-09-23)
 
 The adaptive raw quarter-tail and persistent rooted-head floor now give a
 coefficient/cutoff-independent energy bound at each rational `0 < w < 1`,

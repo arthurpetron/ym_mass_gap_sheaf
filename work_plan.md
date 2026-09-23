@@ -25,6 +25,43 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original-action local-join obstruction (2026-09-23 UTC)
+
+The next selected-link identity was tested before further scaffolding.
+`SU2QuaternionSelectedLinkHeadObstruction` proves it is false: at `w=1/2`,
+`K=1`, the existing-neighbor relative pairing is `1/32`, while the proposed
+fresh-head pairing is zero. In the actual hybrid API geometry `n=2`, pair
+`0,2`, `hybrid_identification_uninhabited` rules out the full identification
+for EVERY `K>=1`. The exposed-head, projection and relative certificates
+are also refuted there; `hybrid_guardedRelativePairing_uninhabited` includes
+the downstream computed cutoff guard. Original statements are preserved.
+
+The obstruction is substantive, not only an overly strong interface:
+`existingNeighbor_defect_bound_false` proves that at `w=3/4`, every K, the
+doubled-stage coordinate defect is `1/4`, whereas the proposed `(1-w)`
+angular bound is `3/16`. This does not refute the original product operator,
+the completed BF4 gap below, or Yang--Mills.
+
+NEXT: estimate the ENDPOINT `productMap` on its original n-block carrier,
+not each existing-neighbor update on a doubled carrier. Candidate concrete
+target: for the fully active list `List.range n`, prove
+`H(f*f)-H(f*productMap f) <= (1-w)*sum_i H(blockAngularSquare i f)`.
+Retain `0 <= w < 1`, `sufficientCutoff w <= K`, and support of f.
+The exact `productMap_pairing`, one-factor `productMap_selected_expansion`,
+and local `headMap_defect_le_angular` are available; a positive joint-mode
+decomposition or a proved commuting same-carrier fold is still required.
+For a proper active subset, retain the inactive Haar-projection residual
+or prove the input independent of inactive blocks. Do not assert the
+active-only bound for an arbitrary subset. The interacting source `V*g*f`
+and signed endpoint correction must then be retained by the existing
+ground-state energy identity. This is a next proof target, not a new assumed
+certificate or a physical-gap conclusion.
+
+See `audits/AUDIT-SELECTED-LINK-HEAD-OBSTRUCTION-2026-09-23.md` for exact
+declarations and the verification boundary. Historical selected-link OPEN
+entries below are superseded by this refutation, not newly discharged
+physical inputs. The continuum/all-group Clay target remains OPEN.
+
 ### All-subunit strict gap on the SAME completed sector (2026-09-23 UTC)
 
 `BF4PhysicalCubeSubunitCompletedGap.subunitCompletedSectorFormGap` and
@@ -1401,7 +1438,15 @@ selected-block energy for the two-link exposure.  This is still a bound for
 the recoded finite operator, not an identification with the interacting
 selected-link kernel or a multi-factor/SAME-object gap.
 
-**OPEN input factored explicitly -- selected-link identification:**
+**Historical certificate branch -- REFUTED 2026-09-23:**
+The following selected-link identification, exposed-head, projection and
+relative-pairing inputs were subsequently refuted at admissible parameters
+by `SU2QuaternionSelectedLinkHeadObstruction`; their original statements
+and the historical reductions are retained. The padded projection algebra
+and heat/head symmetry remain valid. Do not resume construction of these
+universal certificates. See the live correction at the top of this plan.
+
+**Historical OPEN input factored explicitly -- selected-link identification:**
 `SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkHeadIdentification`
 is now the minimal Type-level bridge requiring the full-Haar pairing of the
 original `selectedHeatProjection` with the inverse-chain `headMap` for every

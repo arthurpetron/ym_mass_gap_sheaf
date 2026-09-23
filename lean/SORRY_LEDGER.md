@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## REFUTED universal selected-link/head identification (2026-09-23)
+
+- **file**: `YMGap/Continuum/SU2QuaternionSelectedLinkHeadObstruction.lean`.
+- **finite witness**: `counterRelativePairing_value` is `1/32`, whereas
+  `counterHeadPairing_value` is zero, for two supported coordinate probes
+  at `w=1/2`, `K=1`, pair `0,1`.
+- **cutoff-persistent obstruction**: `hybrid_identification_uninhabited`
+  refutes `SelectedLinkHeadIdentification` at `tailBlocks=3`, pair `0,2`,
+  `w=1/2`, EVERY `K>=1`. The exposed-head, projection and relative variants
+  are refuted by their existing constructors. The computed consumer guard
+  is explicitly covered by `hybrid_guardedRelativePairing_uninhabited`.
+- **bound itself**: `existingNeighbor_defect_bound_false` proves that at
+  `w=3/4`, every K, the coordinate's doubled-stage defect is `1/4`, exceeding
+  the proposed `(1-w)` angular budget `3/16`.
+- **supersedes**: the historical OPEN identification/exposed/projection/
+  relative-pairing entries below and their conditional hybrid consumers.
+  These are false universal-route inputs, not outstanding analytic
+  obligations. Their statements and conditional implications are retained;
+  no canonical field is changed or weakened. The separately constructed
+  heat/head symmetry and padded projection algebra remain valid.
+- **residue**: an estimate for the actual endpoint `productMap`, with all
+  active coordinates or explicit inactive-projection control, followed by
+  the interacting signed endpoint correction. No continuum, physical-mass,
+  QFT, all-group or Clay atom is closed. No new `sorry` or axiom.
+- **verification**: final monitored target/check results are recorded in
+  `audits/AUDIT-SELECTED-LINK-HEAD-OBSTRUCTION-2026-09-23.md`.
+
 ## Proved all-subunit SAME completed-sector gap (2026-09-23)
 
 - **files**: generalized `YMGap/Continuum/BF4PhysicalCubeTailAbsorption.lean`,
@@ -959,7 +986,11 @@ Monitored focused verification passed; all four printed declarations use only
 Monitored focused verification passed; both printed declarations use only
 `{propext, Quot.sound}`.
 
-## OPEN named selected-link identification certificate (2026-09-22 UTC)
+## Historical selected-link certificate: REFUTED (introduced 2026-09-22 UTC)
+
+Superseded by the 2026-09-23 obstruction above. The historical reductions
+through exposed/projection/relative certificates below remain valid
+implications, but their required universal inputs cannot be supplied.
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedLinkHeadIdentification.lean`.
 - **named input**: `SelectedLinkHeadIdentification`.

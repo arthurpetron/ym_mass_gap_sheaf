@@ -32,6 +32,14 @@ groups remain open. The literal identity-on-observables exact-Haar bridge is
 [refuted](lean/YMGap/Continuum/BF4PhysicalCubeExactActionFence.lean).
 See the [live plan](work_plan.md) for the exact current frontier.
 
+A separate proposed original-action shortcut is now
+[refuted](lean/YMGap/Continuum/SU2QuaternionSelectedLinkHeadObstruction.lean):
+integrating a link against its existing neighbor is not the same operator
+as heat-smoothing that link with the neighbor held as a spectator. The
+counterexample survives arbitrarily late cutoffs. The next local estimate
+must address the full original product operator on its proper carrier;
+the checked BF4 completed gap is unaffected.
+
 ## Earlier checkpoints (historical; later results may supersede open steps)
 
 Latest checked finite completed-carrier milestone:

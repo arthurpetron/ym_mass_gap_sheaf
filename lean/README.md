@@ -13,6 +13,15 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **Original product map as a conditional-link sweep (2026-09-21 UTC):**
+**Correction (2026-09-23):** The exact endpoint sweep identity below remains
+valid. The subsequent universal selected-link/head-map identification is
+refuted by `SU2QuaternionSelectedLinkHeadObstruction`, including admissible
+cutoff guards. Its existing-neighbor projection is not fresh-head smoothing
+with unchanged spectators. The corresponding conditional local-defect
+compilers are not usable estimates; preserve their statements as a record.
+The endpoint product operator, signed correction, and inactive projection
+residual are the next quantitative targets, not those refuted certificates.
+
 `SU2QuaternionProductHeatHybridSweep.hybridMap_carrier` proves the actual
 operator join with every surviving insertion. The sweep retains all
 spectators and its final integration includes inactive Haar projections.

@@ -1,5 +1,14 @@
 /-
-# Minimal selected-link/operator identification certificate
+# Refuted universal selected-link/operator identification certificate
+
+STATUS CORRECTION (2026-09-23): `SU2QuaternionSelectedLinkHeadObstruction`
+refutes the universal identification, exposed-head, projection-pairing and
+relative-pairing inputs below at `tailBlocks=3`, pair `0,2`, `w=1/2`, every
+`K>=1`, including the computed cutoff guard. Existing-neighbor integration
+is not fresh-head heat with the neighbor held as a spectator. The conditional
+implications are retained unchanged, not advertised as an available proof
+route. The separate `SelectedLinkExposedHeatHeadPairing` constructor is valid.
+No frontier field is weakened. See the obstruction audit for the precise scope.
 
 The finite recoding and inverse-chain defect estimate are proved, but the
 repository does not yet identify the independently defined selected-link
@@ -64,7 +73,7 @@ def selectedPairSteps
     List (QuaternionBlockInvolution (tailBlocks + 1)) :=
   pairSteps (by omega) ⟨selected, hselected⟩ ⟨multiplier, hmultiplier⟩
 
-/-- **Named open input.**  This is the exact same-carrier pairing bridge from
+/-- **Refuted as a universal route; statement retained.** This is the proposed same-carrier pairing bridge from
 the original selected heat/projection update to the inverse-chain conjugate
 of `headMap`.  No implementation is supplied here: any inhabitant must prove
 all supported state/test pairings, so this cannot be filled by `Unit` or a
@@ -89,7 +98,7 @@ structure SelectedLinkHeadIdentification
             (selectedPairSteps tailBlocks selected multiplier
               hblocks hselected hmultiplier) w K test))
 
-/-- Reduced open input in the exposed chart.  This asks only for the pairing
+/-- Refuted reduced input in the exposed chart; statement retained. This asks for the pairing
 of the literal head projection of the exposed selected heat factor with the
 recoded test, against the literal exposed `headMap` pairing.  The preceding
 finite recoding and bilinear inverse-chain theorem reconstruct the original
@@ -178,9 +187,11 @@ structure SelectedLinkExposedProjectionPairing
       selectedLinkExposedHeatPair tailBlocks selected multiplier
         hblocks hselected hmultiplier w K polynomial test
 
-/-! Minimal remaining input after the proved exposure and padded transport.
+/-! Refuted remaining input after the proved exposure and padded transport.
 This witness speaks only about the relative heat form on the exposed carrier;
-it does not repeat the heat-kernel recoding or the head-map symmetry. -/
+it does not repeat the heat-kernel recoding or the head-map symmetry. The
+obstruction module proves that this requested pairing is false at admissible
+parameters; it is not an outstanding analytic theorem. -/
 structure SelectedLinkExposedRelativePairing
     (tailBlocks selected multiplier : Nat)
     (hblocks : 0 < tailBlocks)

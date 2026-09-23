@@ -7,9 +7,15 @@ carrier. The final ordered-head integration averages every inactive lower
 slot and drops the already integrated ones. Equality is proved with EVERY
 surviving polynomial insertion, not just for the normalized mean.
 
-The head-chart update is literally the conditional operator used by the
-checked local kinetic bound. This file does not yet telescope that bound
-over the changing hybrid inputs, nor remove the signed endpoint correction.
+`head_update_eq` identifies the head update only on the explicitly copied
+input, after dropping its cleared source coordinates. It does not identify
+an arbitrary doubled-carrier stage with a spectator-preserving head map.
+STATUS CORRECTION (2026-09-23): `SU2QuaternionSelectedLinkHeadObstruction`
+refutes the `_of_exposed` / `_of_relative` identification premises at admissible
+four-block parameters and every later cutoff. Those conditional implications
+are retained, not available estimates for the actual sweep. The unconditional
+carrier, endpoint telescope, and ordinary-Haar contraction identities remain
+valid. This file does not remove the signed endpoint correction.
 It proves no interacting, OS, physical-mass, or continuum gap.
 -/
 
