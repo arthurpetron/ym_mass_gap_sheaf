@@ -25,6 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Dense sector tests separate the actual completed sector zero (2026-09-23 UTC)
+
+`BF4PhysicalCutoffVacuumSectorPairingSeparation.sectorCompleted_eq_zero_of_dense_pairings_zero`
+proves that vanishing against all sector-cylinder tests implies equality to
+the genuine embedded zero-coefficient sector presentation. `sectorPairingData`
+inherits the existing quantitative physical pairing estimates, and
+`sectorCompletedInner_eq_existing` identifies the generic completion with the
+actual pulled-back physical form. No global-vacuum membership is assumed.
+
+The remaining coordinate-to-test join has a finite-support route: a fixed
+sector test reads finitely many retained coordinates and pulled weights.
+That exact finite identity and its completed passage are not yet verified.
+For vacuum-complement rigidity the selected next argument is to prove
+`<x,p> = c <Omega_global,embed p>` for every dense sector test, then let those
+tests approach `x`. This would give `||x||^2 = c <Omega_global,embed x>` and
+avoid constructing a sector constant-one vector. The dense proportionality
+and its consumer remain open here; no vacuum uniqueness or uniform gap is claimed.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-pairing-separation-check-5.log`; all four printed gates
+contain only `{propext, Quot.sound}`, no warnings or `sorryAx`. Symbolic-base
+reasoning and local transparency controls avoid concrete lattice reduction;
+the initial interrupted check is not a pass. No full-root audit.
+
 ### Persistent endpoint energy on arbitrary completed vectors (2026-09-23 UTC)
 
 `BF4PhysicalCutoffVacuumSectorCompletedEndpointEnergy.fixedBaseFloor_mul_completedEndpointSq_le_completedDirichlet`

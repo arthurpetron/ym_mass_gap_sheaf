@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: endpoint energy on arbitrary completed vectors (2026-09-23)
+## Current increment: dense sector tests detect sector zero (2026-09-23)
+
+`BF4PhysicalCutoffVacuumSectorPairingSeparation` identifies the inherited
+generic sector pairing with the existing physical form and proves zero-vector
+separation using sector-cylinder tests alone. The zero is an actual
+zero-coefficient presentation, not a presumed sector vacuum. The next
+coordinate-to-test passage remains open. A fixed vector's putative common
+coordinate can be handled via dense proportionality to the global vacuum
+and testing against the vector itself; this proposed route avoids a separate
+sector-indicator construction but is not yet a verified rigidity theorem.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-pairing-separation-check-5.log`; all four gates contain
+only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
+## Previous increment: endpoint energy on arbitrary completed vectors (2026-09-23)
 
 `BF4PhysicalCutoffVacuumSectorCompletedEndpointEnergy` extends the dense endpoint
 estimate to the actual sector completion. Coordinate convergence, constructed

@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## Proved separation: dense sector tests detect sector zero (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPairingSeparation.lean`.
+- **construction/consumer**: `sectorPairingData` inherits the existing physical
+  quantitative data; `sectorCompletedInner_eq_existing` identifies the forms;
+  `sectorCompleted_eq_zero_of_dense_pairings_zero` uses only sector dense tests
+  and concludes equality to the actual embedded zero presentation.
+- **residue**: finite coordinate-to-test identity and its completed passage.
+  A proposed dense-test argument for global-vacuum-orthogonal fixed vectors
+  avoids assuming global-vacuum membership in the sector; it is not yet proved.
+  No new hypothesis, frontier field, axiom or hole is introduced.
+- **verification**: monitored 20 GiB leaf check,
+  `/tmp/ym-gap-sector-pairing-separation-check-5.log`; all four gates contain
+  only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
 ## Proved completed estimate: persistent endpoint energy (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorCompletedEndpointEnergy.lean`.
