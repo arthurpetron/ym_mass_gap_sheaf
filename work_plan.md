@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Persistent path energy for arbitrary cylinder presentations (2026-09-23 UTC)
+
+`BF4PhysicalCutoffVacuumSectorPersistentPathEnergy.restrictedPulledDirichlet_le_fullCylinderDirichlet`
+injects the fixed old carrier's pulled edge energy into the actual later
+vacuum-sector energy of an arbitrary cylinder observable. The cylinder's
+presentation base need not equal the selected old carrier: the proof evaluates
+the unchanged total observable at the retained states. The consumer
+`floor_mul_endpoint_sq_le_fullCylinderDirichlet` combines this injection with
+the existing persistent positive-edge floor and finite path bound. Its floor
+and path ceiling depend on the selected fixed base, not on the presentation.
+
+This supplies a finite endpoint-energy estimate for the proposed completed
+zero-energy rigidity argument, not another finite Poincare-rate construction.
+Completed coordinate descent and passage of the endpoint estimate through the
+completion remain unverified drafts; fixed-vector uniqueness, a common strict
+gap and every physical/continuum join remain open. No canonical frontier is
+weakened. Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-persistent-path-energy-check-2.log`; both printed gates are within
+`{propext, Quot.sound}`, with no warnings or `sorryAx`. No full-root audit.
+
 ### Checked full-carrier obstruction survives both completions (2026-09-23 UTC)
 
 `BF4PhysicalCompletedFullCarrierObstruction.no_cutoffTwo_completed_fullCarrier_vacuum_form_gap`

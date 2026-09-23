@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: completed full-carrier obstruction (2026-09-23)
+## Current increment: persistent cylinder endpoint energy (2026-09-23)
+
+`BF4PhysicalCutoffVacuumSectorPersistentPathEnergy` extends the persistent
+fixed-base path bound to the actual energy of arbitrary cylinder presentations.
+The old-old edge sum injects into the full later sector energy; no equality of
+the presentation base and selected coordinate base is assumed. Its prospective
+consumer is completed zero-Dirichlet rigidity, not an additional finite rate.
+The completed-coordinate and limit drafts are not yet accepted, and vacuum
+uniqueness, common strict gap and physical/continuum joins remain open.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-persistent-path-energy-check-2.log`; both public gates contain only
+`{propext, Quot.sound}`, with no warnings or `sorryAx`. No full-root audit.
+
+## Previous increment: completed full-carrier obstruction (2026-09-23)
 
 `BF4PhysicalCompletedFullCarrierObstruction` proves
 `no_cutoffTwo_completed_fullCarrier_vacuum_form_gap` and

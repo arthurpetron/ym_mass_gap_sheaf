@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## Proved finite estimate: persistent cylinder path energy (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPersistentPathEnergy.lean`.
+- **theorems**: `restrictedPulledDirichlet_le_fullCylinderDirichlet` and
+  `floor_mul_endpoint_sq_le_fullCylinderDirichlet` control a fixed old pair's
+  observable difference by the full later sector energy, for arbitrary
+  cylinder presentations, using the existing fixed-base edge-floor input.
+- **residue**: completed coordinates and endpoint-energy passage, then
+  qualitative fixed-vector rigidity. No common quantitative gap, same-theory
+  identification, physical mass or continuum result follows. Constants remain
+  fixed-base dependent; no frontier field, hole or axiom is changed.
+- **verification**: monitored 20 GiB leaf check; both public axiom diagnostics
+  contain only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
 ## Proved obstruction: completed cutoff-two full carriers (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCompletedFullCarrierObstruction.lean`.
