@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual completed vacuum-complement fixed-vector exclusion (2026-09-23)
+## Current scope correction: recover the existing restricted quantitative result (2026-09-23)
+
+Read-only dependency review found that
+`BF4PhysicalCubeCompletedMarginalGap.completedSectorFormGap` and
+`completedSectorContraction` already inhabit the SAME sector completion/transfer
+at `half = 0`, `0 < w <= 1/2`. The common explicit rate depends on `w`, not on
+the vector or representation cutoff. `completedSector_power_decay` and the
+concrete same-object autocorrelation consumer already use it. The opening
+blanket claim that quantitative strictness remains open was too broad.
+
+Fresh monitored leaf verification passed all six axiom gates in
+`/tmp/ym-gap-existing-completed-sector-scope-check.log`, only
+`{propext, Quot.sound}`, no warnings or `sorryAx`; no full audit. This is
+recovered evidence and a routing correction, NOT a new proof milestone.
+The next analytic extension is a nome-dependent relative heat-tail bound for
+the original boundary sum beyond `w <= 1/2`; neither that extension nor the
+existing conditional gap supplies original-YM/geometric-time identity,
+spatial/scaling uniformity, physical mass, continuum/QFT or every-group closure.
+
+## Previous increment: actual completed vacuum-complement fixed-vector exclusion (2026-09-23)
 
 `BF4PhysicalCutoffVacuumSectorFixedVacuumExclusion` supplies the formerly
 conditional dense identity from actual fixedness and proves that a fixed
@@ -13,8 +32,9 @@ zero. Both norm and vacuum functional belong to the original completed
 pairing. No sector constant-one vector, additional tail bound or assumed dense
 identity is used. This completes the selected qualitative rigidity route.
 
-Quantitative strictness remains open: absence of nonzero fixed vectors does
-not exclude spectrum approaching one. Existing adaptive recoding has an
+Quantitative strictness beyond the restricted scope above remains open:
+absence of nonzero fixed vectors does not exclude spectrum approaching one.
+Existing adaptive recoding has an
 input-dependent rate, not an operator-norm finite-rank approximation. No
 uniform gap, original-theory identification, physical mass or continuum/QFT/
 every-group conclusion follows from this increment.

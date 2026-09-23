@@ -25,6 +25,44 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Scope correction: a restricted same-sector quantitative gap already exists (2026-09-23 UTC)
+
+The current quantitative frontier must not be described as wholly open.
+`BF4PhysicalCubeCompletedMarginalGap.completedSectorFormGap` and
+`completedSectorContraction` already construct a strict form bound and norm
+contraction on the LITERAL `CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement`
+and `centralPhysicalVacuumSectorCylinderCompletedTransfer` used below, at
+`half = 0` and each rational `0 < w <= 1/2`. Their explicit rate
+`BF4PhysicalCubeCutoffUniformGap.cutoffUniformRate w` is independent of the
+representation cutoff and vector, but depends on `w`. `completedSector_power_decay`
+and the existing concrete-carrier autocorrelation specialization already consume it.
+This is recovered existing progress, not a new theorem or a carrier-comparison gap.
+
+The producer is actual raw-tail suppression plus a rooted fixed-head energy
+estimate (`BF4PhysicalCubeTailAbsorption`, `BF4PhysicalCubeAnchoredHeadBound`).
+Do not rebuild that estimate or infer that the qualitative result below supplies it.
+The latter has the broader scope `0 < w < 1`, arbitrary `half`.
+
+Still open: quantitative control outside the proved range, spatial/scaling
+uniformity, and the original-action/geometric-time identification. In particular,
+`BF4PhysicalCubeExactActionFence.root_pairing_ne_exact_one` refutes the literal
+identity-on-observables bridge to the signed exact-Haar form at the anchor coupling;
+a valid different transport or controlled comparison would need proof. Physical
+mass, continuum/QFT and every-group closure remain open. Extending estimates to
+all subunit nomes is a useful analytic direction, not an additional prerequisite
+if a justified scaling trajectory suffices.
+
+Selected next proposition: replace the small-nome relative heat-tail constant
+in `BF4PhysicalCubeBoundarySumBound.coeffW_tail_le_twice` by an explicit
+nome-dependent constant valid for `0 < w < 1`, then apply it to the SAME full
+boundary sum. The Gaussian continuation also needs a coupling-dependent radial
+onset and seed budget; a general tail bound alone is not an all-nome completed gap.
+
+Verification: fresh monitored 20 GiB leaf check of
+`BF4PhysicalCubeCompletedMarginalGap.lean`,
+`/tmp/ym-gap-existing-completed-sector-scope-check.log`; all six gates contain
+only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
+
 ### Actual completed-sector fixed vectors vanish in the vacuum complement (2026-09-23 UTC)
 
 `BF4PhysicalCutoffVacuumSectorFixedVacuumExclusion.fixed_eq_zero_of_global_vacuum_orthogonal`
@@ -42,8 +80,9 @@ strict uniform form rate, or isolation of the physical vacuum. Spectrum may
 approach one without a nonzero fixed vector. All same-Yang--Mills, spatial/
 spacing, physical-mass, continuum/QFT and every-group joins remain open.
 
-The next quantitative task must supply an actual common coercive estimate or
-another justified quantitative route, not infer it from uniqueness. The
+Outside the restricted quantitative result recorded above, a common coercive
+estimate or another justified quantitative route is still needed; it must not
+be inferred from uniqueness. The
 existing `centralPhysicalVacuumSectorAdaptiveRecodingTailRate` in
 `BF4PhysicalCutoffVacuumSectorCylinderAdaptiveRecodingTailInhabited.lean`
 depends on the input Cauchy stream; it is not a unit-ball operator-norm tail.

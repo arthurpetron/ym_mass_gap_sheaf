@@ -1,5 +1,30 @@
 # Constructive Yang--Mills mass-gap formalization
 
+## Current proof boundary (2026-09-23)
+
+The Clay target remains **open**: a nontrivial continuum Yang--Mills theory on
+R^4 for every compact simple group, with full same-theory QFT axioms and a
+positive physical Hamiltonian mass gap. This repository uses constructive,
+Mathlib-free Lean with explicit witnesses and moduli.
+
+The BF4 SU(2) candidate has a checked cutoff-removed completed sector, transfer,
+and same-object correlators. At half-extent zero and `0 < w <= 1/2`,
+[`completedSectorContraction`](lean/YMGap/Continuum/BF4PhysicalCubeCompletedMarginalGap.lean)
+gives a genuine strict norm contraction, uniform over vectors and representation
+cutoff with an explicit nome-dependent rate. The broader recent
+[`fixed_eq_zero_of_global_vacuum_orthogonal`](lean/YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFixedVacuumExclusion.lean)
+excludes nonzero fixed vectors at every `0 < w < 1` and fixed half-extent;
+that qualitative theorem alone does not give a strict gap.
+
+These are conditional-dynamics results, not an identified Yang--Mills
+Hamiltonian gap. Original-action/geometric-time identification, spatial and
+spacing control, continuum nontriviality, physical mass, full QFT and all
+groups remain open. The literal identity-on-observables exact-Haar bridge is
+[refuted](lean/YMGap/Continuum/BF4PhysicalCubeExactActionFence.lean).
+See the [live plan](work_plan.md) for the exact current frontier.
+
+## Earlier checkpoints (historical; later results may supersede open steps)
+
 Latest checked finite completed-carrier milestone:
 `SU2QuaternionFiniteHaarCompletedTransferContraction.lean` now transports the
 finite squared-distance estimate through the genuine CReal completion,

@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Status correction: existing restricted completed-sector gap (2026-09-23)
+
+- **existing producers**: `BF4PhysicalCubeCompletedMarginalGap.completedSectorFormGap`,
+  `completedSectorContraction`, and `completedSector_power_decay` apply to the
+  same cylinder completion and literal transfer as the recent fixed-vector work.
+- **scope**: SU(2), `half = 0`, each `0 < w <= 1/2`; explicit `cutoffUniformRate w`,
+  uniform over vectors and representation cutoff, not over coupling or volume.
+- **correction**: the recent blanket description of quantitative strictness as
+  open overlooked these existing inhabitants. Qualitative exclusion below is
+  broader in `w, half`; it remains distinct from the quantitative theorem.
+- **residue**: broader quantitative/spatial/scaling estimates and original-action/
+  geometric-time pins; the literal exact-Haar identity is refuted by
+  `BF4PhysicalCubeExactActionFence.root_pairing_ne_exact_one`. Continuum/QFT,
+  physical mass and every-group obligations remain open. No hole or type changed.
+- **verification**: fresh monitored leaf check,
+  `/tmp/ym-gap-existing-completed-sector-scope-check.log`, six allowed-axiom gates,
+  no warnings or `sorryAx`; no full audit. This entry records recovered evidence,
+  not a new mathematical closure.
+
 ## Proved qualitative exclusion: actual completed-sector fixed vectors (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFixedVacuumExclusion.lean`.
@@ -9,7 +28,8 @@
 - **consumer**: `fixed_eq_zero_of_global_vacuum_orthogonal` proves equality to
   the genuine embedded sector zero for a fixed vector orthogonal to the ambient
   global vacuum. No new analytic input or sector-vacuum membership is assumed.
-- **residue**: quantitative strictness; same original Yang--Mills identification;
+- **residue**: quantitative strictness beyond the restricted scope above;
+  same original Yang--Mills identification;
   spatial/spacing control, physical mass, continuum/QFT and every-group joins.
   This is not a spectral gap or an isolated-vacuum theorem. No canonical field,
   axiom or `sorry` changed; the dense-identity producer for fixed vectors is closed.
