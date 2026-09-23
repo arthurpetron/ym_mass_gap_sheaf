@@ -261,6 +261,19 @@ the open input, not an inhabitant of it: no selected-link identity, hybrid
 telescope, SAME-object gap, OS/GNS passage, continuum survival, physical mass,
 full-QFT, or every-group result is claimed.
 
+**Hybrid-stage bridge (2026-09-22 UTC):**
+`hybridSweep_cons_eq_selectedHeatProjection` identifies the head of the
+schedule with the selected-link update on the literal doubled carrier, with
+`tailBlocks = n+n-1` and an explicit proof that the carrier sizes agree.
+`hybridStep_defect_le_selected_block_energy_of_exposed` transports the checked
+finite `(1-w)` bound to one such stage, while
+`hybridSweep_cons_defect_le_selected_block_energy_of_exposed` applies it to the
+actual recursively produced tail state using the existing support compiler.
+These results still require `SelectedLinkExposedHeadPairing` as a named input;
+they do not yet construct that input, sum the changing stages, remove inactive
+projections, control signed cross-terms, or establish an OS/continuum/Clay
+result.
+
 **Finite selected-link defect budget (2026-09-22 UTC):**
 `selectedFiniteDefect_sum_le_selectedBlockEnergy` now sums that conditional
 bound over any explicit list of supported same-carrier states, requiring the

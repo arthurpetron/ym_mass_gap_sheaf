@@ -17,6 +17,7 @@ import YMGap.Continuum.SU2QuaternionWeightedProjectionSweep
 import YMGap.Continuum.SU2QuaternionProductHeatMarginals
 import YMGap.Continuum.SU2QuaternionProductHeatTensorization
 import YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
+import YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification
 
 namespace YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 
@@ -43,6 +44,9 @@ open YMGap.Continuum.SU2QuaternionProductHeatTensorization
 open YMGap.Continuum.SU2QuaternionWeightedProjectionSweep
 open YMGap.Continuum.SU2QuaternionSpareHeadCopy
 open YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
+open YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification
+open YMGap.Continuum.SU2HeatCutoffCasimirBound
+open YMGap.Continuum.SU2QuaternionAngularReindex
 open YMGap.Continuum.QuaternionHaarSquareCertificate
 
 local infix:50 " ≈ " => Q'.eqv
@@ -66,6 +70,87 @@ theorem heads_project_carrier (tail heads slot : Nat) (hs : slot < heads) (p : R
 The tail of the schedule is processed first, as in `weightedSweep`. -/
 def hybridSweep (n : Nat) (w : Q') (K : Nat) (ids : List Nat) (p : RatPoly) : RatPoly :=
   weightedSweep (fun i => heatAt i (n+i) w K) ids p
+
+/-! ## The exact selected-link stage bridge -/
+
+/-- A head of the hybrid schedule is definitionally the selected-link update
+on the doubled carrier.  The predecessor parameter in the selected-link
+certificate is chosen so that `tailBlocks + 1 = n+n`; no carrier cast or
+surrogate state is introduced. -/
+theorem hybridSweep_cons_eq_selectedHeatProjection
+    (n i : Nat) (hi : i < n) (ids : List Nat)
+    (w : Q') (K : Nat) (p : RatPoly) :
+    hybridSweep n w K (i :: ids) p =
+      selectedHeatProjection (n+n-1) i (n+i)
+        (by omega) (by omega) (by omega) w K
+          (hybridSweep n w K ids p) := by
+  rfl
+
+/-- Conditional finite defect bound for one actual hybrid stage.  The only
+open input is the exposed-chart pairing certificate at that stage; the
+remaining expression is the literal `hybridSweep` update on the same doubled
+carrier. -/
+theorem hybridStep_defect_le_selected_block_energy_of_exposed
+    (n i : Nat) (hi : i < n) (hn : 2 ≤ n)
+    {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : sufficientCutoff w ≤ K)
+    (p : RatPoly)
+    (hp : SupportedQuaternionBlocks (n+n) p)
+    (exposed :
+      SelectedLinkExposedHeadPairing
+        (n+n-1) i (n+i)
+        (by omega) (by omega) (by omega) (by omega) w K) :
+    quaternionHaar (n+n) (polyMul p p) -
+        quaternionHaar (n+n)
+          (polyMul p
+            (project i
+              (polyMul (heatAt i (n+i) w K) p))) ≤
+      ((1 : Q') - w) *
+        quaternionHaar (n+n) (blockAngularSquare i p) := by
+  let identification :=
+    selectedLinkHeadIdentification_of_exposed
+      (n+n-1) i (n+i)
+      (by omega) (by omega) (by omega) (by omega) w K exposed
+  have hcarrier : n+n-1+1 = n+n := by omega
+  have hp' : SupportedQuaternionBlocks (n+n-1+1) p := by
+    simpa [hcarrier] using hp
+  have h := selectedHeatProjection_defect_le_selected_block_energy
+    (n+n-1) i (n+i)
+    (by omega) (by omega) (by omega) (by omega)
+    hw0 hw1 K hK p hp' identification
+  simpa [selectedHeatProjection, hcarrier] using h
+
+/-- The preceding stage bound applies to the actual changing state produced by
+the hybrid schedule.  This is still conditional on the exposed certificate,
+but it is no longer an arbitrary-state restatement: the recursive tail state
+is supplied by `hybridSweep_supported`. -/
+theorem hybridSweep_cons_defect_le_selected_block_energy_of_exposed
+    (n i : Nat) (hi : i < n) (hn : 2 ≤ n) (ids : List Nat)
+    (hids : ∀ j, j ∈ ids → j < n)
+    {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : sufficientCutoff w ≤ K)
+    (p : RatPoly)
+    (hp : SupportedQuaternionBlocks (n+n) p)
+    (exposed :
+      SelectedLinkExposedHeadPairing
+        (n+n-1) i (n+i)
+        (by omega) (by omega) (by omega) (by omega) w K) :
+    quaternionHaar (n+n)
+        (polyMul (hybridSweep n w K ids p) (hybridSweep n w K ids p)) -
+      quaternionHaar (n+n)
+        (polyMul (hybridSweep n w K ids p)
+          (hybridSweep n w K (i :: ids) p)) ≤
+      ((1 : Q') - w) *
+        quaternionHaar (n+n)
+          (blockAngularSquare i (hybridSweep n w K ids p)) := by
+  have htail : SupportedQuaternionBlocks (n+n)
+      (hybridSweep n w K ids p) :=
+    weightedSweep_supported (fun j => heatAt j (n+j) w K) ids
+      (fun j hj => heat_supported (by have := hids j hj; omega)
+        (by have := hids j hj; omega) w K) hp
+  have h := hybridStep_defect_le_selected_block_energy_of_exposed
+    n i hi hn hw0 hw1 K hK (hybridSweep n w K ids p) htail exposed
+  simpa [hybridSweep, weightedSweep, selectedHeatProjection] using h
 
 /-- The final integration explicitly retains the inactive Haar projections.
 In particular an empty schedule is Haar averaging, not the identity map. -/
@@ -233,3 +318,6 @@ end YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridMap_quadratic
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridMap_square
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridMap_centered_square_bound
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweep_cons_eq_selectedHeatProjection
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridStep_defect_le_selected_block_energy_of_exposed
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatHybridSweep.hybridSweep_cons_defect_le_selected_block_energy_of_exposed

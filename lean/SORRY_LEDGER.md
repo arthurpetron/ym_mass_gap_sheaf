@@ -123,6 +123,25 @@ Monitored focused verification passed; both printed declarations use only
   changing-state telescope, signed cross-terms, completed OS gap, continuum,
   physical mass, full-QFT, and every-group obligations remain open.
 
+## PROVED conditional hybrid-stage bridge (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean`.
+- **proved declarations**: `hybridSweep_cons_eq_selectedHeatProjection`,
+  `hybridStep_defect_le_selected_block_energy_of_exposed`, and
+  `hybridSweep_cons_defect_le_selected_block_energy_of_exposed`.
+- **proof content**: identifies a schedule head with the selected-link update
+  on the same doubled carrier (`tailBlocks = n+n-1`), transports the checked
+  finite `(1-w)` defect bound from the exposed certificate, and applies it to
+  the actual recursive tail state using the finite support compiler.
+- **open obligation**: supply an inhabitant of
+  `SelectedLinkExposedHeadPairing` for each stage, then telescope the stages
+  while handling inactive projections and signed endpoint/cross terms.
+- **constructive status**: focused monitored check passed; all printed
+  declarations use only `{propext, Quot.sound}` and introduce no `sorry` or
+  new axiom.
+- **scope**: conditional finite SU(2) stage bridge only; no completed OS gap,
+  continuum, physical-mass, full-QFT, or every-group conclusion.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.

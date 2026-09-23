@@ -161,6 +161,18 @@ no inhabitant: it is a sharper open certificate, not a hidden proof of the
 selected-link identity.  Both declarations are kernel-checked with only
 `{propext, Quot.sound}`.
 
+**PROGRESS -- the exposed input now reaches an actual hybrid stage:**
+`hybridSweep_cons_eq_selectedHeatProjection` identifies a schedule head with
+the selected-link update on the literal doubled carrier, using
+`tailBlocks = n+n-1` and an explicit arithmetic carrier equality.  The
+conditional `hybridStep_defect_le_selected_block_energy_of_exposed` theorem
+then transports the finite `(1-w)` bound to that stage, and
+`hybridSweep_cons_defect_le_selected_block_energy_of_exposed` applies it to the
+changing recursive tail state with a checked support proof.  The exposed
+pairing certificate remains an explicit open input at each stage; inactive
+projections, the summed telescope, signed cross-terms, SAME-object OS/GNS,
+continuum survival, physical mass, and every-group/Clay closure remain open.
+
 **PROGRESS -- finite selected-link defect budget:**
 `selectedFiniteDefect_sum_le_selectedBlockEnergy` sums the conditional
 selected-block `(1-w)` estimate over an explicit list of supported states.
