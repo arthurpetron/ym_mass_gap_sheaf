@@ -162,6 +162,15 @@ scale-defect calibration compilers
 `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_spatial_casimir_ceiling`.
 Thus the next missing producer is the uniform form of this ratio/moment bound,
 not another finite algebraic join.
+The new
+`centeredCylinderRemainder_abs_le_of_spatial_casimir_and_uniform_reciprocal`
+now feeds that spatial carrier calibration through the strict coupling-corridor
+reciprocal compiler.  It makes the finite same-carrier bound observable-facing
+with an explicitly corridor-uniform reciprocal term; the carrier ceiling still
+depends on the displayed slab growth, so the uniform balanced producer remains
+the active frontier.  This remains cutoff-one and finite; the outer `g^2` is
+not an independent smallness claim because the balanced ceiling divides by
+`g^2`.
 The focused safe target passed 5498 jobs with one worker and the new exports
 have only `{propext, Quot.sound}`; its centered-margin consumer passed 5506
 jobs with the same axiom gate.

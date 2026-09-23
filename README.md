@@ -337,6 +337,14 @@ The same envelope now also compiles directly to
 `fineUnitCouplingBalancedCarrierRatioBound_of_spatial_casimir_ceiling` and
 `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_spatial_casimir_ceiling`,
 so the balanced-blocking seam is explicit before the centered observable join.
+The new
+`centeredCylinderRemainder_abs_le_of_spatial_casimir_and_uniform_reciprocal`
+composes that calibration with the strict coupling-corridor reciprocal
+envelope.  The reciprocal term is uniform over the named corridor, while the
+balanced carrier ceiling still displays its spatial/cutoff growth; this is a
+finite cutoff-one same-carrier consequence, not a uniform gap or continuum
+result.  The displayed outer `g^2` does not by itself give an `O(g^2)` bound,
+because the balanced ceiling contains the corresponding `g^2` denominator.
 
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.

@@ -93,6 +93,12 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_spatial_casimir_ceiling`;
   these remain finite parameter-dependent consequences and do not supply a
   uniform balanced blocking constant.
+  The additional
+  `centeredCylinderRemainder_abs_le_of_spatial_casimir_and_uniform_reciprocal`
+  composes the same carrier ceiling with the strict coupling-corridor
+  reciprocal envelope.  Only that reciprocal term is corridor-uniform; the
+  spatial/cutoff carrier growth remains explicit, the theorem is cutoff-one,
+  and no uniform gap or independent `O(g^2)` claim is made.
   The result does not identify an OS transfer matrix, pass to a thermodynamic
   or continuum limit, construct the QFT, calibrate a physical mass, cover all
   compact simple groups, or prove the Clay theorem; it does not close

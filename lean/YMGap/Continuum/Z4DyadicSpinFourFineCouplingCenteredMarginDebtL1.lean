@@ -1491,6 +1491,73 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
     (fineCouplingUniformReciprocalMarginCeiling_nonnegative w₀ hgap₀)
     hbalanced hmargin
 
+/-! The spatial/cutoff Casimir envelope can now be fed through the already
+uniform reciprocal corridor.  This is still a finite, parameter-dependent
+bound: only the reciprocal margin is uniform over the named coupling
+corridor; the balanced carrier ceiling retains its explicit slab growth.  The
+outer `g^2` is not an independent smallness claim, since that ceiling contains
+the corresponding `g^2` denominator. -/
+
+theorem centeredCylinderRemainder_abs_le_of_spatial_casimir_and_uniform_reciprocal
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g w₀ : Q')
+    (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g)
+    (hcorridor : S.fine.coupling ≤ w₀)
+    (hgap₀ : (0 : Q') < 1 - w₀) :
+    Q'.abs
+        (centeredCylinderRemainder
+          (physicalKernel S hfineCutoff hcoarseCoupling) M) ≤
+      (fineUnitCouplingBalancedCarrierRatioCeiling g
+          ((1 + (Q'.ofNat 2 * (g * g)) *
+            fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S) *
+            (1 + (Q'.ofNat 2 * (g * g)) *
+              fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S)) hg +
+        Q'.ofNat 2 * fineCouplingUniformReciprocalMarginCeiling w₀ hgap₀) *
+        (g * g) := by
+  let balancedCeiling :=
+    fineUnitCouplingBalancedCarrierRatioCeiling g
+      ((1 + (Q'.ofNat 2 * (g * g)) *
+        fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S) *
+        (1 + (Q'.ofNat 2 * (g * g)) *
+          fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S)) hg
+  have hcoef0 : (0 : Q') ≤ Q'.ofNat 2 * (g * g) := by
+    exact Q'.mul_nonneg _ _ (by decide)
+      (Q'.le_of_lt (Q'.mul_pos hg hg))
+  have hmargin : (0 : Q') ≤
+      (Q'.ofNat 2 * (g * g)) *
+        fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S := by
+    exact Q'.mul_nonneg _ _ hcoef0
+      (fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling_nonnegative S)
+  have hratio : (0 : Q') <
+      (1 + (Q'.ofNat 2 * (g * g)) *
+        fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S) *
+        (1 + (Q'.ofNat 2 * (g * g)) *
+          fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S) := by
+    apply Q'.mul_pos
+    · exact Q'.pos_add_nonneg (by decide) hmargin
+    · exact Q'.pos_add_nonneg (by decide) hmargin
+  have hbalancedCeiling : (0 : Q') ≤ balancedCeiling := by
+    unfold balancedCeiling
+    exact fineUnitCouplingBalancedCarrierRatioCeiling_nonnegative _ _ hg hratio
+  have hbalanced :
+      FineUnitCouplingBalancedRawColumnScaleDefectCalibration
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+          g balancedCeiling := by
+    unfold balancedCeiling
+    exact fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_spatial_casimir_ceiling
+      S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget g hg
+      hfineCoupling_le_one family law hgle hcoupling
+  exact centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
+    S hfineCutoff hcoarseCoupling hfineCoupling_le_one M family law
+    g balancedCeiling w₀ hg hgle hcoupling hcorridor hgap₀
+    hbalancedCeiling hbalanced
+
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_sourcePairDebtL1
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term
@@ -1527,5 +1594,6 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 #print axioms centeredCylinderRemainder_abs_le_of_matched_casimir_loss
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
+#print axioms centeredCylinderRemainder_abs_le_of_spatial_casimir_and_uniform_reciprocal
 
 end YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1
