@@ -120,8 +120,12 @@ The explicit quotient `fineUnitCouplingBalancedCarrierCeiling` divides by
 `g^2 * actualPartition^2`, and
 `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier`
 compiles the finite ceiling into the existing balanced-calibration interface.
+The downstream `centeredCylinderRemainder_abs_le_of_finite_balanced_carrier`
+then consumes this explicit balanced witness together with the finite L¹
+margin envelope, producing a complete finite centered-cylinder estimate.
 The focused safe target passed 5498 jobs with one worker and the new exports
-have only `{propext, Quot.sound}`.
+have only `{propext, Quot.sound}`; its centered-margin consumer passed 5506
+jobs with the same axiom gate.
 
 This is a finite carrier envelope, not the sought balanced calibration:
 `Z_unit` is the coupling-one reference partition rather than the actual-fine

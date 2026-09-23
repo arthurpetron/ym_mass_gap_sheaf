@@ -921,6 +921,31 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
     hg hgle hcoupling hbalancedCeiling
     (finiteMarginEnvelopeCeiling_nonnegative S) hbalanced hmargin
 
+/-- The finite balanced carrier ceiling now supplies the balanced premise to
+the complete centered-cylinder compiler.  The resulting constant remains
+explicitly slab- and coupling-dependent through the carrier quotient. -/
+theorem centeredCylinderRemainder_abs_le_of_finite_balanced_carrier
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g) :
+    Q'.abs
+        (centeredCylinderRemainder
+          (physicalKernel S hfineCutoff hcoarseCoupling) M) ≤
+      (fineUnitCouplingBalancedCarrierCeiling S g hg +
+        Q'.ofNat 2 * finiteMarginEnvelopeCeiling S) * (g * g) := by
+  exact centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
+    S hfineCutoff hcoarseCoupling hfineCoupling_le_one M family law
+    g (fineUnitCouplingBalancedCarrierCeiling S g hg)
+    hg hgle hcoupling
+    (fineUnitCouplingBalancedCarrierCeiling_nonnegative S g hg)
+    (fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier
+      S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget g hg)
+
 /-- The reciprocal envelope reaches the complete finite centered-cylinder
 bound once the independent balanced scale-defect calibration is supplied. -/
 theorem centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
@@ -1012,6 +1037,7 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 #print axioms fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
+#print axioms centeredCylinderRemainder_abs_le_of_finite_balanced_carrier
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 

@@ -26,7 +26,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `fineUnitCouplingPushedRawColumnCross_abs_le_two_partitionSquare`, and
   `fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares`,
   `fineUnitCouplingBalancedCarrierCeiling`, and
-  `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier`.
+  `fineUnitCouplingBalancedCarrierCeiling_nonnegative`, and
+  `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier`;
+  the downstream finite centered-cylinder compiler is
+  `centeredCylinderRemainder_abs_le_of_finite_balanced_carrier` in
+  `Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1.lean`.
 - **proof content**: inject the four-cell source and target pair lists into
   complete positive coarse and coupling-one two-replica carriers, use the
   exact finite carrier mass totals, and apply constructive triangle and
@@ -41,6 +45,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `g^2 * actualPartition^2` and therefore compiles the finite bound into the
   existing balanced-calibration interface, but its parameter dependence is
   retained and no uniform constant is produced.
+  The downstream centered-cylinder estimate consumes this quotient together
+  with the already proved finite margin envelope, yielding an explicit
+  finite remainder bound; it does not create a uniform strict form bound.
   The result does not identify an OS transfer matrix, pass to a thermodynamic
   or continuum limit, construct the QFT, calibrate a physical mass, cover all
   compact simple groups, or prove the Clay theorem; it does not close
@@ -51,7 +58,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **verification**: focused dependency-complete safe build of
   `+YMGap.Continuum.Z4DyadicSpinFourFineCouplingPartitionDrift:olean`
   passed 5498 jobs with one worker.  The exported declarations report only
-  `{propext, Quot.sound}` and no `sorryAx`.
+  `{propext, Quot.sound}` and no `sorryAx`.  The downstream target
+  `+YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1:olean`
+  also passed 5506 jobs with one worker, with the new compiler reporting only
+  `{propext, Quot.sound}`.
 
 ## PROVED fixed-coupling reciprocal margin envelope (2026-09-23 UTC)
 

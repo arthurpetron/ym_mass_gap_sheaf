@@ -293,7 +293,11 @@ The quotient `fineUnitCouplingBalancedCarrierCeiling` now divides that finite
 envelope by `g^2 * actualPartition^2`, and
 `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier`
 compiles it into the existing calibration interface while retaining all
-parameter dependence; it is not a uniform blocking constant.
+parameter dependence; it is not a uniform blocking constant.  The downstream
+`centeredCylinderRemainder_abs_le_of_finite_balanced_carrier` now combines this
+balanced witness with the finite L¹ margin envelope to produce the complete
+finite centered-cylinder estimate.  The consumer check passed 5506 jobs with
+only `{propext, Quot.sound}` and no `sorryAx`.
 
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.

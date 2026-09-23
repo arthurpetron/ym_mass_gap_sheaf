@@ -42,6 +42,7 @@ noncomputable declaration, or new axiom.
 -/
 
 import YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferenceScaleDefect
+import YMGap.Continuum.Z4DyadicSpinFourFineCouplingNormalizedRecentering
 import YMGap.Continuum.CompactDualSlabObservablePairedSupportFiniteCoreReduction
 
 namespace YMGap.Continuum.Z4DyadicSpinFourFineCouplingPartitionDrift
@@ -74,6 +75,7 @@ open YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferenceCross
 open YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferencePerturbation
 open YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferenceScaleDefect
 open YMGap.Continuum.Z4DyadicSpinFourReceiverRawColumnCrossCalibration
+open YMGap.Continuum.Z4DyadicSpinFourFineCouplingNormalizedRecentering
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -985,6 +987,18 @@ def fineUnitCouplingBalancedCarrierCeiling
         (slabParametricKPhysicalPartition_pos
           S.fine.coupling_nonnegative S.fine.cutoff S.fine.extent)))
 
+theorem fineUnitCouplingBalancedCarrierCeiling_nonnegative
+    (S : SlabScalePair) (g : Q') (hg : (0 : Q') < g) :
+    (0 : Q') ≤ fineUnitCouplingBalancedCarrierCeiling S g hg := by
+  unfold fineUnitCouplingBalancedCarrierCeiling
+  apply Q'.le_of_lt
+  apply Q'.divPos_pos
+  · exact Q'.mul_pos
+      (by decide : (0 : Q') < Q'.ofNat 4)
+      (Q'.mul_pos
+        (fineUnitCouplingPhysicalPartition_pos S)
+        (fineUnitCouplingPhysicalPartition_pos S))
+
 private theorem nested_product_swap_local (a b c d : Q') :
     (a * b) * (c * d) ≈ (a * (b * d)) * c := by
   refine Q'.eqv_trans _ _ _
@@ -1105,6 +1119,7 @@ def FineUnitCouplingGlobalPartitionCasimirNormalization
 #print axioms fineUnitCouplingPushedRawColumnCross_abs_le_two_partitionSquare
 #print axioms fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares
 #print axioms fineUnitCouplingBalancedCarrierCeiling
+#print axioms fineUnitCouplingBalancedCarrierCeiling_nonnegative
 #print axioms fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier
 #print axioms fineUnitCouplingPhysicalPartition_nonnegative
 #print axioms fineUnitCouplingPhysicalPartitionSquareLoss
