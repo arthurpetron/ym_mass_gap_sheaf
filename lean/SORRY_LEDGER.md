@@ -13,6 +13,22 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED finite ordinary-Haar SU(2) relaxed form-rate certificate (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarMidpointFormRate.lean`.
+- **proved declarations**: `midpointRate`, `midpointRate_sq_ge`, and
+  `productMapQuotient_transfer_form_midpoint_le_add`.
+- **proof content**: structurally proves the rational midpoint identity
+  `q + ((1-q)/2)^2 = ((1+q)/2)^2` in the constructive `Q'` equality, then
+  lifts the existing finite centered squared form estimate to an explicit
+  positive-slack form bound with `r = (1+q)/2`.
+- **scope**: finite ordinary-Haar SU(2) carrier only.  The rate still depends
+  on the nome, and no interacting OS identification, completed uniform gap,
+  thermodynamic/continuum passage, QFT axioms, or Clay conclusion is claimed.
+
+Monitored focused verification passed; the new declarations use only
+`{propext, Quot.sound}` and introduce no `sorry`.
+
 ## PROVED explicit finite ordinary-Haar SU(2) GNS carrier (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarGNSCarrier.lean`.

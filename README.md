@@ -55,6 +55,14 @@ now injected into the existing finite-Haar GNS completion, with a pulled-back
 the finite `kineticPair`.  Physical uniformity and the OS/continuum bridge
 remain open.
 
+The finite relaxed form-rate lift is now checked in
+`SU2QuaternionFiniteHaarMidpointFormRate.lean`.  Its structural rational
+identity gives `r = (1 + squaredHeatRate w) / 2` and proves a positive-slack
+bound for the same-object finite kinetic form.  This removes a square-root
+choice at the finite representative level, but the rate remains nome-
+dependent and the interacting OS carrier, uniform completed gap, physical
+mass calibration, continuum passage, QFT axioms, and Clay target remain open.
+
 > **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

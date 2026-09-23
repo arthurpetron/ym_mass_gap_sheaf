@@ -546,6 +546,7 @@ import YMGap.Continuum.GNSQuotient
 import YMGap.Continuum.SU2QuaternionFiniteHaarGNSCarrier
 import YMGap.Continuum.SU2QuaternionFiniteHaarProductMapRadical
 import YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
+import YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate
 import YMGap.Continuum.GNSCompletion
 import YMGap.Continuum.WilsonGNS
 import YMGap.Continuum.GNSHilbertSpace

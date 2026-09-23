@@ -138,6 +138,21 @@ already-checked `CReal.RC` inner product on one concrete completed carrier.
 ordinary-Haar completion with the interacting OS carrier, nor provide a
 physical or continuum gap.
 
+### Finite relaxed form-rate lift (2026-09-22 UTC)
+
+`SU2QuaternionFiniteHaarMidpointFormRate.lean` now proves the cancellation
+identity needed to pass from the existing squared finite centered estimate to
+an explicit positive-slack form estimate.  With
+`r = (1 + squaredHeatRate w) / 2`,
+`productMapQuotient_transfer_form_midpoint_le_add` bounds the finite
+same-object kinetic form by `r` times the finite Haar norm plus any positive
+rational slack.  The proof uses only structural `Q'` distributivity,
+additive cancellation, and `CReal.le_of_sq_le_sq`; it avoids a square-root
+choice.  This is still an ordinary-Haar finite SU(2) certificate: `r` is
+nome-dependent, and the interacting OS identification, completed uniform
+gap, physical normalization, thermodynamic/continuum passage, QFT axioms,
+and all-group theorem remain open.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**
