@@ -161,6 +161,19 @@ no inhabitant: it is a sharper open certificate, not a hidden proof of the
 selected-link identity.  Both declarations are kernel-checked with only
 `{propext, Quot.sound}`.
 
+**PROGRESS -- factor the exposed certificate into its two actual bridges:**
+`selectedLinkExposedProjectionPairing` now isolates the projection-compatible
+pairing that must carry the padded heat equivalence through `project 0` and
+the exposed test insertion.  Its `heat_kernel` field is filled constructively
+by `selectedLinkExposedProjectionPairing_of_pairing` from the already proved
+`exposeTranslationPair_heat`; only the pairing field remains open.
+`selectedLinkExposedHeatHeadPairing` separately names the comparison from the
+common exposed `heatPair` middle object to the inverse-chain `headMap`
+pairing.  `selectedLinkExposedHeadPairing_of_bridges` composes these two
+fields into the existing exposed-head certificate.  No inhabitant of either
+bridge is claimed; this is a sharper, causal decomposition of the same
+finite interacting obligation.
+
 **PROGRESS -- the exposed input now reaches an actual hybrid stage:**
 `hybridSweep_cons_eq_selectedHeatProjection` identifies a schedule head with
 the selected-link update on the literal doubled carrier, using

@@ -29,6 +29,7 @@ open YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
 open YMGap.Continuum.SU2QuaternionHaarBlockProjection
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionRelativeHeatPairGeometry
+open YMGap.Continuum.SU2QuaternionRelativeHeatTransmission
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionSelectedProjectionReindex
 open YMGap.Continuum.SU2QuaternionSelectedHaarTranslation
@@ -119,8 +120,137 @@ structure SelectedLinkExposedHeadPairing
               (selectedPairSteps tailBlocks selected multiplier
                 hblocks hselected hmultiplier) test))
           (applyQuaternionBlockSwapChain
+              (selectedPairSteps tailBlocks selected multiplier
+                hblocks hselected hmultiplier) polynomial))
+
+/-! The two genuinely separate obligations hidden by the reduced certificate.
+
+`SelectedLinkExposedProjectionPairing` is the place where a future
+projection-compatible use of `PaddedPolynomialCoeffEqv` must be supplied.
+`SelectedLinkExposedHeatHeadPairing` is the independent exposed-chart
+heat/head-map comparison.  Neither structure asserts that such a comparison
+has already been constructed. -/
+
+def selectedLinkExposedHeatPair
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (w : Q') (K : Nat) (polynomial test : RatPoly) : Q' :=
+  heatPair tailBlocks w K
+    (applyQuaternionBlockSwapChain
+      (selectedPairSteps tailBlocks selected multiplier
+        hblocks hselected hmultiplier) test)
+    (applyQuaternionBlockSwapChain
+      (selectedPairSteps tailBlocks selected multiplier
+        hblocks hselected hmultiplier) polynomial)
+
+structure SelectedLinkExposedProjectionPairing
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat) : Type where
+  /-- The kernel-level padded equivalence that this certificate must consume. -/
+  heat_kernel : PaddedPolynomialCoeffEqv (tailBlocks + 1)
+    (exposeTranslationPairPolynomial (tailBlocks + 1) selected multiplier
+      (by omega) hselected hmultiplier (heatAt selected multiplier w K))
+    (relativeHeat w K)
+  pairing : ∀ (polynomial test : RatPoly),
+    SupportedQuaternionBlocks (tailBlocks + 1) polynomial →
+    SupportedQuaternionBlocks (tailBlocks + 1) test →
+    quaternionHaar (tailBlocks + 1)
+        (polyMul
+          (project 0
+            (exposeTranslationPairPolynomial (tailBlocks + 1)
+              selected multiplier (by omega) hselected hmultiplier
+              (polyMul (heatAt selected multiplier w K) polynomial)))
+          (reindexQuaternionPolynomial
+            (translationPairTailPermutation (tailBlocks + 1)
+              selected multiplier (by omega) hselected hmultiplier)
+            (reindexQuaternionPolynomial
+              (translationPairHeadPermutation (tailBlocks + 1) selected hselected)
+              test))) ≈
+      selectedLinkExposedHeatPair tailBlocks selected multiplier
+        hblocks hselected hmultiplier w K polynomial test
+
+def selectedLinkExposedProjectionPairing_of_pairing
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat)
+    (pairing : ∀ (polynomial test : RatPoly),
+      SupportedQuaternionBlocks (tailBlocks + 1) polynomial →
+      SupportedQuaternionBlocks (tailBlocks + 1) test →
+      quaternionHaar (tailBlocks + 1)
+          (polyMul
+            (project 0
+              (exposeTranslationPairPolynomial (tailBlocks + 1)
+                selected multiplier (by omega) hselected hmultiplier
+                (polyMul (heatAt selected multiplier w K) polynomial)))
+            (reindexQuaternionPolynomial
+              (translationPairTailPermutation (tailBlocks + 1)
+                selected multiplier (by omega) hselected hmultiplier)
+              (reindexQuaternionPolynomial
+                (translationPairHeadPermutation (tailBlocks + 1) selected hselected)
+                test))) ≈
+        selectedLinkExposedHeatPair tailBlocks selected multiplier
+          hblocks hselected hmultiplier w K polynomial test) :
+    SelectedLinkExposedProjectionPairing
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K := by
+  exact
+    { heat_kernel := exposeTranslationPair_heat
+        (tailBlocks + 1) selected multiplier (by omega)
+          hselected hmultiplier hdistinct w K
+      pairing := pairing }
+
+structure SelectedLinkExposedHeatHeadPairing
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat) : Type where
+  pairing : ∀ (polynomial test : RatPoly),
+    SupportedQuaternionBlocks (tailBlocks + 1) polynomial →
+    SupportedQuaternionBlocks (tailBlocks + 1) test →
+    selectedLinkExposedHeatPair tailBlocks selected multiplier
+        hblocks hselected hmultiplier w K polynomial test ≈
+      quaternionHaar (tailBlocks + 1)
+        (polyMul
+          (headMap w K
+            (applyQuaternionBlockSwapChain
+              (selectedPairSteps tailBlocks selected multiplier
+                hblocks hselected hmultiplier) test))
+          (applyQuaternionBlockSwapChain
             (selectedPairSteps tailBlocks selected multiplier
               hblocks hselected hmultiplier) polynomial))
+
+def selectedLinkExposedHeadPairing_of_bridges
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat)
+    (projection : SelectedLinkExposedProjectionPairing
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K)
+    (heatHead : SelectedLinkExposedHeatHeadPairing
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K) :
+    SelectedLinkExposedHeadPairing
+      tailBlocks selected multiplier hblocks hselected hmultiplier
+        hdistinct w K := by
+  refine ⟨?_⟩
+  intro polynomial test hpolynomial htest
+  exact Q'.eqv_trans _ _ _
+    (projection.pairing polynomial test hpolynomial htest)
+    (heatHead.pairing polynomial test hpolynomial htest)
 
 /-- The reduced exposed-chart certificate is sufficient for the original
 same-carrier selected-link identification. -/
@@ -329,6 +459,11 @@ end YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedPairSteps
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkHeadIdentification
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkExposedHeadPairing
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedHeatPair
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkExposedProjectionPairing
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedProjectionPairing_of_pairing
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkExposedHeatHeadPairing
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedHeadPairing_of_bridges
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkHeadIdentification_of_exposed
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedHeatProjection_defect_le_selected_block_energy
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedFiniteDefect_sum_le_selectedBlockEnergy

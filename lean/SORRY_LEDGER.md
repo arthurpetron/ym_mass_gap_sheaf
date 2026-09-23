@@ -123,6 +123,31 @@ Monitored focused verification passed; both printed declarations use only
   changing-state telescope, signed cross-terms, completed OS gap, continuum,
   physical mass, full-QFT, and every-group obligations remain open.
 
+## OPEN factorized exposed selected-link bridges (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedLinkHeadIdentification.lean`.
+- **named inputs**: `SelectedLinkExposedProjectionPairing` and
+  `SelectedLinkExposedHeatHeadPairing`.
+- **proved declarations**: `selectedLinkExposedHeatPair`,
+  `selectedLinkExposedProjectionPairing_of_pairing`, and
+  `selectedLinkExposedHeadPairing_of_bridges`.
+- **proof content**: separates the exposed selected-link obligation into (1)
+  a projection-compatible pairing for the padded heat equivalence and (2) an
+  independent exposed `heatPair`/`headMap` pairing; the existing
+  `exposeTranslationPair_heat` theorem fills the known heat-kernel field, and
+  the two remaining fields compose into the prior
+  `SelectedLinkExposedHeadPairing` interface.
+- **open obligation**: inhabit both pairing fields on the same supported
+  finite carrier.  The available padded Haar-insertion theorem does not
+  commute with conditional `project`, and no existing `copy`/`liftHead`
+  identification closes the second field.
+- **constructive status**: focused monitored check passed (1951 dependency
+  jobs); all new declarations use only `{propext, Quot.sound}` and introduce
+  no `sorry` or new axiom.  Final log: `/tmp/ym-selected-link-factorized-final2.log`.
+- **scope**: finite SU(2) certificate factorization only; no selected-link
+  inhabitant, completed OS gap, continuum, physical-mass, full-QFT, or
+  every-group conclusion.
+
 ## PROVED conditional hybrid-stage bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean`.

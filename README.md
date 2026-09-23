@@ -354,6 +354,17 @@ budgets explicit.  These values remain presentation-dependent and are not a
 uniform volume/cutoff/spacing/nome estimate, so the OS/GNS, continuum,
 physical-mass, and every-group frontiers remain open.
 
+**Factorized selected-link frontier (2026-09-22 UTC):**
+The previously monolithic `SelectedLinkExposedHeadPairing` is now factored
+into `SelectedLinkExposedProjectionPairing` and
+`SelectedLinkExposedHeatHeadPairing`.  The first isolates the missing
+projection-compatible use of the padded heat equivalence; its known heat
+kernel field is filled from `exposeTranslationPair_heat`.  The second isolates
+the independent exposed `heatPair`/`headMap` comparison.  The checked
+`selectedLinkExposedHeadPairing_of_bridges` composes them, but neither pairing
+field is inhabited: conditional projection compatibility and the
+`copy`/`liftHead` comparison remain genuine finite SU(2) obligations.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is
