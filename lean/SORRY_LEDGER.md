@@ -13,6 +13,27 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED explicit original connected diagonal Cauchy witness (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`.
+- **proved declarations**: `originalConnectedDiagonalCauchy`,
+  `originalConnectedDiagonal_limit_converges`, and
+  `originalConnectedDiagonal_limit_pin`.
+- **proof content**: assembles the three same-chart spatial Cauchy streams
+  (joint moment and the two unit-inserted marginals) with constructive scalar
+  add/neg/multiply moduli.  The resulting CReal converges to the literal
+  original connected diagonal and is identified with the existing
+  `spatialCenteredMoment`.
+- **scope**: fixed base, observation chart, and physical lag; this supplies a
+  real modulus-bearing regulator certificate, not a common completed carrier,
+  uniform strict gap, thermodynamic/continuum passage, QFT axioms, or Clay
+  conclusion.
+
+Monitored focused verification passed; all three printed declarations use only
+`{propext, Quot.sound}`.  The unused `hy` warning records that the geometric
+guard is carried in the type of the presentation even though the raw scalar
+definition itself does not inspect its proof.
+
 ## PROVED selected heat-weight recoding bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.

@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-21 UTC)
+## Whole-project goal and live completion map (updated 2026-09-22 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -24,6 +24,20 @@ Legitimately inhabit the canonical pinned frontier bundles without `sorry`,
 a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
+
+### Original connected spatial diagonal now has explicit Cauchy data (2026-09-22 UTC)
+
+`BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean` now exposes
+`originalConnectedDiagonalCauchy` for the literal three-regulator diagonal
+already used by `originalConnected_diagonal_converges`.  Its three raw streams
+share the same recentered chart and are combined by the constructive scalar
+modulus constructors.  `originalConnectedDiagonal_limit_converges` pins that
+assembled CReal to the finite connected diagonal, and
+`originalConnectedDiagonal_limit_pin` identifies it with the existing
+`spatialCenteredMoment`.  This closes a modulus/bookkeeping seam only; it does
+not identify different completed carriers or supply the missing selected-link
+relative pairing, uniform strict form bound, thermodynamic/continuum passage,
+physical mass calibration, full QFT axioms, or all-group result.
 
 SU(2) at the fixed nome is the current working case, not a restriction of
 the whole-project quantifier. Other compact simple groups, including their

@@ -1,6 +1,13 @@
 # Constructive Yang--Mills mass-gap formalization
 
-> **Current frontier (2026-09-21 UTC):** the fixed-spacing SU(2) Wilson
+Latest checked regulator milestone: `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`
+now carries an explicit constructive Cauchy modulus for the literal
+three-regulator connected spatial diagonal and pins its CReal limit to the
+existing `spatialCenteredMoment`. This is fixed-spacing SU(2) infrastructure;
+the same-object relative pairing, uniform strict gap, continuum passage, QFT
+axioms, physical mass calibration, and all-group Clay target remain open.
+
+> **Current frontier (2026-09-22 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,
 > and an equality criterion using every finite vacuum-generated input.
