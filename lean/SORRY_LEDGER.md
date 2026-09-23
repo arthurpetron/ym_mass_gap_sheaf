@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## Constructed data: persistent completed sector coordinates (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPersistentCoordinate.lean`.
+- **construction**: `coordinateQCauchy` retains the explicit rate
+  `X.modulus(floor * epsilon^2)`; `coordinateCloseModulus` retains the analogous
+  representative-closeness rate. `completedCoordinate` is an actual quotient
+  lift, and `completedCoordinate_embedRep` recovers the original observable's
+  value at the retained state. No representative is chosen.
+- **residue**: completed endpoint-energy control and coordinate separation,
+  including sector-vacuum identification before a fixed-vector conclusion.
+  A coordinate floor is base-dependent, not a common gap. No canonical field,
+  axiom or hole changed; physical and continuum obligations remain open.
+- **verification**: monitored 20 GiB leaf check; all eight public gates contain
+  only `{propext, Quot.sound}`, without warnings or `sorryAx`. No full audit.
+
 ## Proved finite estimate: persistent cylinder path energy (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorPersistentPathEnergy.lean`.
@@ -7,8 +22,9 @@
   `floor_mul_endpoint_sq_le_fullCylinderDirichlet` control a fixed old pair's
   observable difference by the full later sector energy, for arbitrary
   cylinder presentations, using the existing fixed-base edge-floor input.
-- **residue**: completed coordinates and endpoint-energy passage, then
-  qualitative fixed-vector rigidity. No common quantitative gap, same-theory
+- **residue**: completed endpoint-energy passage and coordinate separation,
+  then qualitative fixed-vector rigidity. Completed coordinates were checked
+  in the subsequent milestone above. No common quantitative gap, same-theory
   identification, physical mass or continuum result follows. Constants remain
   fixed-base dependent; no frontier field, hole or axiom is changed.
 - **verification**: monitored 20 GiB leaf check; both public axiom diagnostics

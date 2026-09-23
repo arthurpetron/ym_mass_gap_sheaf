@@ -4,14 +4,31 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: persistent cylinder endpoint energy (2026-09-23)
+## Current increment: persistent completed sector coordinates (2026-09-23)
+
+`BF4PhysicalCutoffVacuumSectorPersistentCoordinate` constructs actual coordinate
+functionals on the completed sector, using the original Cauchy modulus at
+`floor * epsilon^2` and a separately named closeness modulus before quotient
+descent. The dense value is the unchanged observable evaluated at the retained
+state; presentations may have different bases. This closes coordinate descent,
+not coordinate separation, completed energy control or vacuum uniqueness.
+The separation review identified an additional required tail/dense-test join;
+orthogonality is not root-coordinate evaluation, and the global vacuum must
+not be silently identified with the sector vacuum.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-persistent-coordinate-check-7.log`; all eight public gates contain
+only `{propext, Quot.sound}`, with no warnings or `sorryAx`. No full-root audit.
+
+## Previous increment: persistent cylinder endpoint energy (2026-09-23)
 
 `BF4PhysicalCutoffVacuumSectorPersistentPathEnergy` extends the persistent
 fixed-base path bound to the actual energy of arbitrary cylinder presentations.
 The old-old edge sum injects into the full later sector energy; no equality of
 the presentation base and selected coordinate base is assumed. Its prospective
 consumer is completed zero-Dirichlet rigidity, not an additional finite rate.
-The completed-coordinate and limit drafts are not yet accepted, and vacuum
+Completed coordinates are now checked above; the energy-limit draft is not yet
+accepted, and vacuum
 uniqueness, common strict gap and physical/continuum joins remain open.
 
 Verification: monitored 20 GiB leaf check,

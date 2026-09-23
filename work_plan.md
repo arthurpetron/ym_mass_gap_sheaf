@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Constructed persistent coordinates on the actual sector completion (2026-09-23 UTC)
+
+`BF4PhysicalCutoffVacuumSectorPersistentCoordinate.completedCoordinate`
+now descends fixed-state evaluation to the actual sector completion. The
+new `coordinateDifferenceSq_floor_le_distSq` permits arbitrary, differently
+based cylinder presentations. The positive retained-state floor and the
+given completion modulus construct `coordinateQCauchy` with rate
+`X.modulus(floor * epsilon^2)`. `coordinateCloseModulus` similarly keeps
+representative-closeness data explicit before quotient descent;
+`completedCoordinate_embedRep` recovers literal dense evaluation. All eight
+public gates passed the monitored 20 GiB leaf check
+`/tmp/ym-gap-persistent-coordinate-check-7.log` within `{propext, Quot.sound}`,
+without warnings or `sorryAx`. Local transparency controls avoid re-enumerating
+the lattice while checking this abstract carrier argument; no budget increase
+or mathematical statement change was needed. No full-root audit.
+
+The dense/completed Dirichlet endpoint passage is still being verified.
+Moreover, coordinate constancy alone is not yet a completed-vector equality:
+the qualitative rigidity route needs a proved separation/tail argument and
+the correct sector-vacuum identification. Orthogonality to the global vacuum
+must not be confused with vanishing of the root coordinate, nor may the global
+vacuum silently be treated as a vector of the sector completion. The generic
+dense-test pairing machinery is a reusable route, but its physical adapter and
+coordinate-pairing identification are not yet checked. Uniform strictness and
+all same-theory, physical-mass, continuum/QFT and every-group joins remain open.
+
 ### Persistent path energy for arbitrary cylinder presentations (2026-09-23 UTC)
 
 `BF4PhysicalCutoffVacuumSectorPersistentPathEnergy.restrictedPulledDirichlet_le_fullCylinderDirichlet`
@@ -38,8 +64,9 @@ and path ceiling depend on the selected fixed base, not on the presentation.
 
 This supplies a finite endpoint-energy estimate for the proposed completed
 zero-energy rigidity argument, not another finite Poincare-rate construction.
-Completed coordinate descent and passage of the endpoint estimate through the
-completion remain unverified drafts; fixed-vector uniqueness, a common strict
+Completed coordinate descent is now checked in the milestone above; passage
+of the endpoint estimate through the completion remains unverified.
+Fixed-vector uniqueness, a common strict
 gap and every physical/continuum join remain open. No canonical frontier is
 weakened. Verification: monitored 20 GiB leaf check,
 `/tmp/ym-gap-persistent-path-energy-check-2.log`; both printed gates are within

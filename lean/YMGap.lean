@@ -3814,6 +3814,7 @@ import YMGap.Continuum.BF4PhysicalJointFormGapEquivalence
 -- Explicit cutoff-two full-carrier obstruction in both completions; not a sector no-go.
 import YMGap.Continuum.BF4PhysicalCompletedFullCarrierObstruction
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPersistentPathEnergy
+import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPersistentCoordinate
 -- Actual cutoff-removed normalization of the raw all-spin reflected form.
 import YMGap.Continuum.BF4PhysicalCubeNormalizedKernelLimit
 -- Same cutoff-removed conditional P contracts its positive one-step RC form.
