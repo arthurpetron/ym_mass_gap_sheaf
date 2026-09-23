@@ -333,7 +333,8 @@ from the compiler's ledger convention to concrete factor-port enumerations. -/
   induction tags with
   | nil => rfl
   | cons tag tags ih =>
-      simp only [doubledWord, List.flatMap_cons, ih]
+      simp only [doubledWord, List.flatMap_cons, ih, List.cons_append,
+        List.nil_append]
 
 /-- Doubling commutes exactly with concatenation of incidence ledgers. -/
 @[simp] theorem doubledWord_append {Tag : Type} (left right : List Tag) :
