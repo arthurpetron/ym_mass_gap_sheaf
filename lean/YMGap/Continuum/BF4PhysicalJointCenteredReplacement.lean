@@ -135,9 +135,33 @@ theorem physicalJoint_completed_form_gap_of_centered_certificate
     (ExactPhysicalJointCenteredCauchyReplacement.toVacuumComplementReplacement
       K half original certificate)
 
+/-- The centered-density obligation: every vacuum-orthogonal completed class
+must be supplied with a Cauchy representative carrying the exact centered-stage
+certificate. -/
+def ExactPhysicalJointCenteredDensity
+    {w : Q'} {hw : (0 : Q') ≤ w} (K half : Nat) : Type :=
+  ∀ original : CauchyGNS
+      (physicalJointSmulGNS w hw K half).toGNSData,
+    PhysicalJointVacuumOrthogonal w hw K half
+      (Quotient.mk
+        (cauchySetoid (physicalJointSmulGNS w hw K half).toGNSData)
+        original) →
+      ExactPhysicalJointCenteredCauchyReplacement K half original
+
+/-- A centered-density witness is sufficient for the existing exact density
+interface consumed by the completed form-gap theorem. -/
+def ExactPhysicalJointCenteredDensity.toVacuumComplementDensity
+    {w : Q'} {hw : (0 : Q') ≤ w} (K half : Nat)
+    (density : ExactPhysicalJointCenteredDensity (w := w) (hw := hw) K half) :
+    ExactPhysicalJointVacuumComplementDensity hw K half :=
+  fun original horthogonal =>
+    ExactPhysicalJointCenteredCauchyReplacement.toVacuumComplementReplacement
+      K half original (density original horthogonal)
+
 #print axioms physicalJointCenteredStage
 #print axioms physicalJointCenteredStage_vacuumOrthogonal
 #print axioms ExactPhysicalJointCenteredCauchyReplacement.toVacuumComplementReplacement
 #print axioms physicalJoint_completed_form_gap_of_centered_certificate
+#print axioms ExactPhysicalJointCenteredDensity.toVacuumComplementDensity
 
 end YMGap.Continuum.BF4PhysicalJointCenteredReplacement

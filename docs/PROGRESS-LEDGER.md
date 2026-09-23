@@ -27620,3 +27620,7 @@ completed joint gap, thermodynamic/continuum passage, physical mass
 calibration, all-group theorem, or Clay conclusion follows.  The checked
 corollary `physicalJoint_completed_form_gap_of_centered_certificate` composes
 the certificate with the existing conditional completed form-gap theorem.
+The all-class input is explicitly packaged as
+`ExactPhysicalJointCenteredDensity`, with
+`ExactPhysicalJointCenteredDensity.toVacuumComplementDensity` supplying the
+existing density interface by construction.

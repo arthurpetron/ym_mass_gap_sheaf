@@ -79,6 +79,9 @@ constructed here, so arbitrary-vector density, the completed gap,
 thermodynamic/continuum, physical-mass, all-group, and Clay obligations remain
 open.  When supplied, `physicalJoint_completed_form_gap_of_centered_certificate`
 composes it with the existing conditional completed form-gap theorem.
+`ExactPhysicalJointCenteredDensity` packages the corresponding all-class
+centered input, and `toVacuumComplementDensity` proves it is sufficient for the
+existing density interface.
 
 The exact finite joint-form algebra is now checked in
 `BF4PhysicalJointCenteredForm.lean`.  The declarations

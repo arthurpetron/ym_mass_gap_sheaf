@@ -145,7 +145,9 @@ thermodynamic/continuum passage, physical-mass, all-group, or Clay result is
 inferred.  The corollary
 `physicalJoint_completed_form_gap_of_centered_certificate` shows that any such
 certificate immediately feeds the existing conditional completed form-gap
-consumer.
+consumer.  `ExactPhysicalJointCenteredDensity` packages this certificate for
+every vacuum-orthogonal class, while
+`toVacuumComplementDensity` converts it to the existing density interface.
 
 ### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
