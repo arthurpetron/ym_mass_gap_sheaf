@@ -42,7 +42,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `centeredCylinderRemainder_abs_le_of_matched_casimir_loss`; the explicit
   moment-certificate interface and consumer are
   `FineUnitCouplingPhysicalCasimirMomentBound` and
-  `centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling`.
+  `centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling`; the finite
+  witness and fully explicit consumer are
+  `fineUnitCouplingPhysicalCasimirMomentBound_finite` and
+  `centeredCylinderRemainder_abs_le_of_finite_casimir_ceiling`.
 - **proof content**: inject the four-cell source and target pair lists into
   complete positive coarse and coupling-one two-replica carriers, use the
   exact finite carrier mass totals, and apply constructive triangle and
@@ -76,6 +79,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The named `FineUnitCouplingPhysicalCasimirMomentBound` is the remaining
   same-carrier analytic certificate; its consumer only composes a supplied
   ceiling and does not prove that ceiling.
+  The finite witness uses the fold-right maximum of the displayed exponents
+  and the same coupling-one partition; it is a finite slab-dependent bound,
+  not a cutoff-, volume-, beta-, or spacing-uniform estimate.
   The result does not identify an OS transfer matrix, pass to a thermodynamic
   or continuum limit, construct the QFT, calibrate a physical mass, cover all
   compact simple groups, or prove the Clay theorem; it does not close

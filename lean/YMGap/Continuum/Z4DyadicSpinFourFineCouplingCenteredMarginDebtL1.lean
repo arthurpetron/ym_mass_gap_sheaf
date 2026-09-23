@@ -1048,6 +1048,88 @@ def FineUnitCouplingPhysicalCasimirMomentBound
     (S : SlabScalePair) (momentCeiling : Q') : Prop :=
   fineUnitCouplingPhysicalCasimirMoment S ≤ momentCeiling
 
+/-! ## 6. A finite, explicit inhabitant of the moment certificate -/
+
+private theorem list_mem_le_foldr_max_local : ∀ (xs : List Nat) (n : Nat),
+    n ∈ xs → n ≤ xs.foldr Nat.max 0
+  | [], _, h => False.elim (List.not_mem_nil h)
+  | a :: xs, n, h => by
+      rcases List.mem_cons.mp h with rfl | hn
+      · exact Nat.le_max_left _ _
+      · exact Nat.le_trans (list_mem_le_foldr_max_local xs n hn)
+          (Nat.le_max_right _ _)
+
+/-- The largest Casimir exponent on the displayed finite physical carrier. -/
+def fineUnitCouplingPhysicalCasimirExponentCeiling
+    (S : SlabScalePair) : Nat :=
+  (S.fine.physicalLabellings.map
+    (fun source => slabPhysicalCasimirExponent S.fine.extent source)).foldr
+      Nat.max 0
+
+/-- A finite ceiling obtained by multiplying the largest displayed exponent
+by the coupling-one partition of the same carrier. -/
+def fineUnitCouplingPhysicalCasimirMomentFiniteCeiling
+    (S : SlabScalePair) : Q' :=
+  Q'.ofNat (fineUnitCouplingPhysicalCasimirExponentCeiling S) *
+    fineUnitCouplingPhysicalPartition S
+
+theorem fineUnitCouplingPhysicalCasimirMoment_le_finite_ceiling
+    (S : SlabScalePair) :
+    fineUnitCouplingPhysicalCasimirMoment S ≤
+      fineUnitCouplingPhysicalCasimirMomentFiniteCeiling S := by
+  unfold fineUnitCouplingPhysicalCasimirMoment
+    fineUnitCouplingPhysicalCasimirMomentFiniteCeiling
+  have hmono :
+      listQSum
+          (fun source =>
+            Q'.ofNat (slabPhysicalCasimirExponent S.fine.extent source) *
+              fineUnitCouplingPhysicalTerm S source)
+          S.fine.physicalLabellings ≤
+        listQSum
+          (fun source =>
+            Q'.ofNat (fineUnitCouplingPhysicalCasimirExponentCeiling S) *
+              fineUnitCouplingPhysicalTerm S source)
+          S.fine.physicalLabellings := by
+    apply listQSum_mono_local
+    intro source hsource
+    have hmax :
+        slabPhysicalCasimirExponent S.fine.extent source ≤
+          fineUnitCouplingPhysicalCasimirExponentCeiling S := by
+      unfold fineUnitCouplingPhysicalCasimirExponentCeiling
+      exact list_mem_le_foldr_max_local _ _
+        (List.mem_map.mpr ⟨source, hsource, rfl⟩)
+    have hexponent :
+        Q'.ofNat (slabPhysicalCasimirExponent S.fine.extent source) ≤
+          Q'.ofNat (fineUnitCouplingPhysicalCasimirExponentCeiling S) :=
+      Q'.ofNat_le_ofNat hmax
+    have hterm : (0 : Q') ≤ fineUnitCouplingPhysicalTerm S source := by
+      unfold fineUnitCouplingPhysicalTerm
+      exact slabParametricKPhysicalTerm_nonnegative
+        (by decide : (0 : Q') ≤ (1 : Q'))
+        S.fine.cutoff S.fine.extent source
+    exact Q'.mul_le_mul_of_nonneg_right _ _ _ hexponent hterm
+  exact Q'.le_trans' _ _ _ hmono
+    (Q'.le_of_eqv
+      (listQSum_mul_left
+        (Q'.ofNat (fineUnitCouplingPhysicalCasimirExponentCeiling S))
+        (fineUnitCouplingPhysicalTerm S)
+        S.fine.physicalLabellings))
+
+theorem fineUnitCouplingPhysicalCasimirMomentFiniteCeiling_nonnegative
+    (S : SlabScalePair) :
+    (0 : Q') ≤ fineUnitCouplingPhysicalCasimirMomentFiniteCeiling S := by
+  unfold fineUnitCouplingPhysicalCasimirMomentFiniteCeiling
+  exact Q'.mul_nonneg _ _
+    (zero_le_ofNat _)
+    (fineUnitCouplingPhysicalPartition_nonnegative S)
+
+theorem fineUnitCouplingPhysicalCasimirMomentBound_finite
+    (S : SlabScalePair) :
+    FineUnitCouplingPhysicalCasimirMomentBound S
+      (fineUnitCouplingPhysicalCasimirMomentFiniteCeiling S) := by
+  unfold FineUnitCouplingPhysicalCasimirMomentBound
+  exact fineUnitCouplingPhysicalCasimirMoment_le_finite_ceiling S
+
 /-- Compile an explicit same-carrier Casimir-moment ceiling into the complete
 finite centered-cylinder estimate.  The ceiling is parameterized by the
 supplied moment certificate; no uniformity is inferred from its existence at
@@ -1103,6 +1185,34 @@ theorem centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling
     (centeredCylinderRemainder_abs_le_of_relative_balanced_carrier
       S hfineCutoff hcoarseCoupling hfineCoupling_le_one M family law
       g hg hgle hcoupling margin (1 : Q') hmargin hfloor hfloor_le hloss)
+
+/-- Fully explicit finite specialization of the Casimir-moment compiler.  The
+ceiling is the finite maximum-exponent bound on the same physical carrier;
+its dependence on the slab remains visible. -/
+theorem centeredCylinderRemainder_abs_le_of_finite_casimir_ceiling
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g) :
+    Q'.abs
+        (centeredCylinderRemainder
+          (physicalKernel S hfineCutoff hcoarseCoupling) M) ≤
+      (fineUnitCouplingBalancedCarrierRatioCeiling g
+          ((1 + (Q'.ofNat 2 * (g * g)) *
+            fineUnitCouplingPhysicalCasimirMomentFiniteCeiling S) *
+            (1 + (Q'.ofNat 2 * (g * g)) *
+              fineUnitCouplingPhysicalCasimirMomentFiniteCeiling S)) hg +
+        Q'.ofNat 2 * finiteMarginEnvelopeCeiling S) * (g * g) := by
+  exact centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling
+    S hfineCutoff hcoarseCoupling hfineCoupling_le_one M family law
+    g (fineUnitCouplingPhysicalCasimirMomentFiniteCeiling S) hg hgle
+    hcoupling
+    (fineUnitCouplingPhysicalCasimirMomentFiniteCeiling_nonnegative S)
+    (fineUnitCouplingPhysicalCasimirMomentBound_finite S)
 
 /-- The reciprocal envelope reaches the complete finite centered-cylinder
 bound once the independent balanced scale-defect calibration is supplied. -/
@@ -1198,7 +1308,12 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 #print axioms centeredCylinderRemainder_abs_le_of_finite_balanced_carrier
 #print axioms centeredCylinderRemainder_abs_le_of_relative_balanced_carrier
 #print axioms FineUnitCouplingPhysicalCasimirMomentBound
+#print axioms fineUnitCouplingPhysicalCasimirExponentCeiling
+#print axioms fineUnitCouplingPhysicalCasimirMoment_le_finite_ceiling
+#print axioms fineUnitCouplingPhysicalCasimirMomentFiniteCeiling_nonnegative
+#print axioms fineUnitCouplingPhysicalCasimirMomentBound_finite
 #print axioms centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling
+#print axioms centeredCylinderRemainder_abs_le_of_finite_casimir_ceiling
 #print axioms centeredCylinderRemainder_abs_le_of_matched_casimir_loss
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal

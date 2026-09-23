@@ -145,6 +145,11 @@ That remaining input is isolated as the proposition
 `FineUnitCouplingPhysicalCasimirMomentBound`; the compiler
 `centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling` consumes it
 without changing the carrier or hiding its parameter dependence.
+The proposition is now inhabited at every finite slab by
+`fineUnitCouplingPhysicalCasimirMomentBound_finite`, using an explicit finite
+maximum exponent, and the direct consumer
+`centeredCylinderRemainder_abs_le_of_finite_casimir_ceiling` closes the finite
+chain.  Uniform control of that ceiling remains open.
 The focused safe target passed 5498 jobs with one worker and the new exports
 have only `{propext, Quot.sound}`; its centered-margin consumer passed 5506
 jobs with the same axiom gate.

@@ -320,6 +320,12 @@ The remaining analytic input is now named explicitly as
 `FineUnitCouplingPhysicalCasimirMomentBound`; its consumer,
 `centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling`, compiles any
 supplied same-carrier moment ceiling into the finite estimate.
+The finite witness
+`fineUnitCouplingPhysicalCasimirMomentBound_finite` uses the fold-right maximum
+of the displayed exponents, and
+`centeredCylinderRemainder_abs_le_of_finite_casimir_ceiling` gives the fully
+explicit finite centered-cylinder bound.  This ceiling is intentionally
+slab-dependent and is not a uniform gap certificate.
 
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
