@@ -237,6 +237,13 @@ compiler still requires the supplied matched family/law and weak-coupling
 hypotheses; it does not construct those analytic inputs or make the ceiling
 uniform.
 
+With the existing balanced raw scale-defect calibration supplied,
+`centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term` now
+composes the two finite producers and returns the complete centered-cylinder
+bound with constant `balancedCeiling + 2 * finiteMarginEnvelopeCeiling S`.
+The remaining frontier is therefore the balanced scale-defect estimate and its
+uniform/continuum passage, not an unconnected algebraic seam.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

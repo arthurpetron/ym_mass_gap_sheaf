@@ -45,7 +45,8 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `finiteMarginEnvelopeCeiling_mul_denominator_eqv` (private support) and
   `fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term`,
   together with
-  `fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term`.
+  `fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term`
+  and `centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term`.
 - **proof content**: divide the explicit two-term centered source-debt
   envelope by the strictly positive coupling-one partition square, regroup the
   two terms constructively, and obtain an inhabitant of the normalized raw
@@ -55,6 +56,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   continuum limit, physical mass gap, all-group construction, or Clay theorem
   is asserted.  The raw-change compiler additionally requires the existing
   matched-AF family/law and coupling hypotheses; it does not construct them.
+  The final centered-cylinder corollary additionally consumes the existing
+  balanced raw scale-defect calibration and only composes the two finite
+  producers.
 - **constructive or propositional**: constructive finite rational quotient and
   equivalence identities; no `sorry`, classical axiom, or new analytic
   hypothesis is introduced.

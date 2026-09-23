@@ -21,6 +21,7 @@ or new axiom.
 import YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtPullback
 import YMGap.Constructive.CRealAbs
 import YMGap.Continuum.TsumDeriv
+import YMGap.Continuum.Z4DyadicSpinFourFineCouplingNormalizedBalancedBridge
 
 namespace YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1
 
@@ -34,6 +35,10 @@ open YMGap.Continuum.CompactDualPhysicalConnectedCovarianceActualFourCellPaths
 open YMGap.Continuum.CompactDualSlabPhysicalData
 open YMGap.Continuum.CompactDualSlabObservablePhysicalBlockingDefect
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
+open YMGap.Continuum.CompactDualCutoffOnePhysicalPushforward
+open YMGap.Continuum.CompactDualSlabObservablePhysicalCenteredRemainderExpansion
+open YMGap.Continuum.Z4DyadicSpinFourFineCouplingNormalizedBalancedBridge
+open YMGap.Continuum.Z4DyadicSpinFourFineCouplingPartitionDrift
 open YMGap.Continuum.FiniteDeterministicKernelPushforward
 open YMGap.Continuum.FiniteWeightedGramSOS
 open YMGap.Continuum.HeatKernelRGStep
@@ -472,11 +477,48 @@ theorem fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_
     (fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term
       K M)
 
+/-- Insert the explicit finite source-debt ceiling into the complete balanced
+blocking compiler.  The only remaining producer premise here is the balanced
+raw scale-defect calibration; the source-margin side is now discharged by the
+same completed centered object. -/
+theorem centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g balancedCeiling : Q')
+    (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g)
+    (hbalancedCeiling : (0 : Q') ≤ balancedCeiling)
+    (hbalanced :
+      FineUnitCouplingBalancedRawColumnScaleDefectCalibration
+        S hfineCutoff hcoarseCoupling M.coarseRoot M.coarseTarget
+          g balancedCeiling) :
+    Q'.abs
+        (centeredCylinderRemainder
+          (physicalKernel S hfineCutoff hcoarseCoupling) M) ≤
+      (balancedCeiling +
+        Q'.ofNat 2 * finiteMarginEnvelopeCeiling S) * (g * g) := by
+  have hmargin :
+      FineUnitCouplingCenteredNormalizedMarginRawCalibration
+        (physicalKernel S hfineCutoff hcoarseCoupling)
+        M (finiteMarginEnvelopeCeiling S) :=
+    fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term
+      (physicalKernel S hfineCutoff hcoarseCoupling) M
+  exact centeredCylinderRemainder_abs_le_of_balanced_and_margin
+    S hfineCutoff hcoarseCoupling hfineCoupling_le_one M family law
+    g balancedCeiling (finiteMarginEnvelopeCeiling S)
+    hg hgle hcoupling hbalancedCeiling
+    (finiteMarginEnvelopeCeiling_nonnegative S) hbalanced hmargin
+
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_sourcePairDebtL1
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term
 #print axioms finiteMarginEnvelopeCeiling_mul_denominator_eqv
 #print axioms fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedChangeRawCalibration_of_partition_two_term
+#print axioms centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term
 
 end YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1

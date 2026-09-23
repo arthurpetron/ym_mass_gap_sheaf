@@ -63,6 +63,14 @@ compiler consequence still carries the supplied `MatchedBlockFamily`,
 `CubicMarginLaw`, coupling match, and positive weak-coupling hypotheses; it
 does not manufacture those analytic inputs or make the ceiling uniform.
 
+Finally, `centeredCylinderRemainder_abs_le_of_balanced_and_partition_two_term`
+composes this finite margin certificate with the existing balanced raw
+scale-defect bridge.  Given that separate balanced calibration, it produces
+the complete finite centered-cylinder estimate with constant
+`balancedCeiling + 2 * finiteMarginEnvelopeCeiling S`.  Thus the remaining
+producer is now isolated to balanced scale-defect control (and later its
+uniform/continuum passage), not a missing algebraic join.
+
 ### Iterated completed finite transfer decay (2026-09-23 UTC)
 
 `SU2QuaternionFiniteHaarCompletedTransferContraction.lean` now carries the
