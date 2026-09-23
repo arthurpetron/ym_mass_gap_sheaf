@@ -25,6 +25,21 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Kernel-certificate normalization repair (2026-09-23 UTC)
+
+`BF4CompactActionDiagonalSOS.lean` now reads the action coefficients from
+the two explicit sparse five-coordinate quadratic templates, instead of
+normalizing the entire forty-coordinate polynomial on every lookup. The
+public theorem statements and the independent end-to-end kernel `decide`
+identity `compactActionComplementSOS_normal` are unchanged. The monitored
+dependency-complete target passed 1,063 jobs, with this module's printed
+gates depending only on `propext` and no `sorryAx`.
+
+This resolves the identified repeated-normalization verification bottleneck;
+it closes no new mathematical gap or physical frontier. The earlier reserve
+stops are not evidence of a mathematical obstruction. No full-root audit was
+run, and the machine-safety reserve was not reduced.
+
 ### Positive-norm strictness compiler (2026-09-23 UTC)
 
 `Z4FiniteCylinderQuadraticStability.lean` now exposes the scalar

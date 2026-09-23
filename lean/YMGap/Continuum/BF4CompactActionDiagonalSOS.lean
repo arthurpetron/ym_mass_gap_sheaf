@@ -127,21 +127,83 @@ def clearedSphereComplementExpr : PolyExpr :=
     (.mul (.const 1596) tenRadiusSumExpr)
     (.neg clearedCompactActionExpr)
 
-private def coefficientOf
-    (monomial : List Nat) : RawPoly → Int
-  | [] => 0
-  | term :: rest =>
-      (if term.1 = monomial then term.2 else 0) +
-        coefficientOf monomial rest
+/-! The action coefficient lookup used to normalize the complete forty-variable
+quadratic once for every queried pair.  In particular, constructing each
+diagonal reserve rebuilt that normal form while filtering all `choose(40, 2)`
+pairs.  The two small tables below are the coefficients already displayed in
+`spatialTemplate` and `kineticTemplate`; the unchanged final normal-form check
+at the end of the file independently checks their use in the assembled SOS. -/
 
-private def quadraticMonomial
-    (left right : Nat) : List Nat :=
-  monoMul (varMono left) (varMono right)
+private def spatialTemplateCoefficient
+    (left right : Nat) : Int :=
+  match min left right, max left right with
+  | 0, 0 => 2
+  | 1, 1 => 2
+  | 2, 2 => 2
+  | 3, 3 => 2
+  | 4, 4 => 2
+  | 0, 4 => -2
+  | 1, 2 => -2
+  | 1, 3 => -2
+  | 1, 4 => 2
+  | 2, 3 => 2
+  | 2, 4 => -2
+  | 3, 4 => -2
+  | _, _ => 0
+
+private def kineticTemplateCoefficient
+    (left right : Nat) : Int :=
+  match min left right, max left right with
+  | 0, 0 => 10
+  | 1, 1 => 10
+  | 2, 2 => 10
+  | 3, 3 => 10
+  | 4, 4 => 10
+  | 0, 1 => 2
+  | 0, 2 => -4
+  | 0, 3 => -2
+  | 0, 4 => -8
+  | 1, 2 => -10
+  | 1, 3 => -8
+  | 1, 4 => 10
+  | 2, 3 => 10
+  | 2, 4 => -8
+  | 3, 4 => -10
+  | _, _ => 0
+
+/-- Decode a used imaginary quaternion coordinate as
+`(isTarget, holonomy, colour)`.  Scalar coordinates and coordinates outside
+the forty-coordinate carrier do not occur in the action. -/
+private def actionCoordinateData
+    (coordinate : Nat) : Option (Bool × Nat × Nat) :=
+  if coordinate < 20 then
+    let component := coordinate % 4
+    if component = 0 then none
+    else some (false, coordinate / 4, component - 1)
+  else if coordinate < 40 then
+    let offset := coordinate - 20
+    let component := offset % 4
+    if component = 0 then none
+    else some (true, offset / 4, component - 1)
+  else none
 
 private def actionCoefficient
     (left right : Nat) : Int :=
-  coefficientOf (quadraticMonomial left right)
-    (normalize clearedCompactActionExpr)
+  match actionCoordinateData left, actionCoordinateData right with
+  | some (leftTarget, leftHolonomy, leftColour),
+      some (rightTarget, rightHolonomy, rightColour) =>
+      if leftColour != rightColour then 0
+      else
+        let kinetic :=
+          kineticTemplateCoefficient leftHolonomy rightHolonomy
+        if leftTarget = rightTarget then
+          5 * kinetic +
+            60 * spatialTemplateCoefficient leftHolonomy rightHolonomy
+        else if leftHolonomy = rightHolonomy then
+          -10 * kinetic
+        else
+          -5 * kinetic
+  | _, _ => 0
 
 private def complementCrossCoefficient
     (left right : Nat) : Int :=

@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: positive-norm strictness compiler (2026-09-23)
+## Verification repair: sparse compact-action coefficient lookup (2026-09-23)
+
+`BF4CompactActionDiagonalSOS.lean` no longer recomputes the full quadratic
+normal form for every coefficient lookup. Two sparse template tables and the
+literal source/target coordinate decoder supply the same assembled SOS;
+`compactActionComplementSOS_normal` retains its unchanged independent kernel
+`decide` check. The narrow dependency-complete target passed 1,063 jobs;
+the module's printed gates use only `propext`, with no `sorryAx`.
+
+This is a verification-throughput repair, not mathematical frontier closure.
+It addresses the repeated-normalization cause identified in the source rather
+than increasing resource thresholds. No full-root audit was run.
+
+## Previous increment: positive-norm strictness compiler (2026-09-23)
 
 `Z4FiniteCylinderQuadraticStability.lean` now exposes the scalar
 `abs_lt_of_abs_le_rate_mul_of_pos_norm` and its signed companion
