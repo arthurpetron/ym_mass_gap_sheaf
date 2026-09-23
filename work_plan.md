@@ -25,7 +25,50 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Positive-factor cancellation and actual local normalized score (2026-09-23 UTC)
+### Whole original product score versus SAME centered variance (2026-09-23 UTC)
+
+`SU2QuaternionProductHeatScoreVariance.productHeat_normalized_coefficientSquare_variance_bound`
+now proves `(H[R*(D W)*f]/Z)^2 <= m*C(w)*S*Var_RW(f)` for the ACTUAL selected
+heat product W, R=a(x)*a(y), supported certificate-nonnegative a and positive
+Z=H[R W]. D is the entire signed upper angular direction and f is any
+supported signed two-slice test. Both derivatives are localized before the
+local mixed curvature entries are summed; actual product curvature costs add.
+The finite product floor is constructed but cancels from the final estimate.
+
+S is the sum, over the actual selected list, of each block's coefficient
+squares. Repeated heat factors remain repeated, and m explicitly bounds the
+raw angular-term count at EACH selected block. Finite Cauchy supplies this
+bound without a global list-length prefactor. Choosing m=6 is valid only
+after checking the local count; arbitrary-list canonical regrouping is NOT
+claimed. The constant C(w) and `relativeCutoff w 32` retain nome dependence;
+no useful w->1 asymptotic follows from this checkpoint.
+
+The mean-zero identity
+`SU2QuaternionProductHeatScoreCentering.productHeat_upperDirection_mean_zero`
+uses kinetic symmetry and signed integration by parts for the SAME two
+endpoint sources. Subtracting the exact normalized mean leaves the score
+unchanged. The right side is therefore the existing `normalizedVariance`
+for R*W, not a changed law, uncentered second moment or norm surrogate.
+
+**Next causal frontier:** this is a LINEAR RESPONSE/variance bound, not a
+temporal jump-energy comparison. Determine and prove the actual Wilson
+response/energy join, keeping both complete sources and the same centered
+variance. Integration by parts introduces the source derivative; do not
+discard it or identify the kinetic score with a Wilson jump. The finite-P
+correction in `BF4ExactSlabFixedSpatialGroundStateEnergy.energy_eq_bare_add_correction`
+and the residual/correction in the existing angular-energy upper bound remain
+uncontrolled. The already proved single-loop nome increment is separate.
+Require quantitative usefulness on a justified spatial/spacing family before
+claiming survival or a physical mass consequence. If this score route cannot
+supply that join, stop extending it and reassess the actual temporal form.
+
+Eleven serialized 8 GiB leaves passed thirty-three gates, only
+{propext, Quot.sound}. No new hole/axiom, weakened frontier field, or canonical
+physical/continuum/all-group closure. Root import added; no full-root
+build/audit/guard. Evidence:
+`audits/AUDIT-ORIGINAL-PRODUCT-HEAT-SCORE-VARIANCE-2026-09-23.md`.
+
+### Positive-factor cancellation and actual local normalized score (preceding checkpoint, 2026-09-23 UTC)
 
 `QuaternionHaarPositiveWindowOrderReflection.haar_nonnegative_of_positive_multiplier`
 now cancels a certified strictly positive polynomial in the SAME Haar
@@ -47,14 +90,15 @@ The homogeneous version also handles zero source. The source can depend on
 all n blocks; the estimate still concerns ONE selected relative-heat factor.
 C(w) retains its existing floor/nome dependence and cutoff onset.
 
-**Next causal frontier:** instantiate product-curvature composition with
+**Next frontier at that checkpoint (now advanced above):** instantiate product-curvature composition with
 the grouped local angular coefficients for the ACTUAL whole selected heat
 product. The exact signed-direction product rules and curvature tensorization
 are now checked in `SU2QuaternionSignedAngularAlgebra`. Preserve repeated
 generator aggregation and repeated heat-factor multiplicities; do not infer
 a raw-list coefficient-square estimate. The six canonical planes suggest the
 sufficient cost `6*C(w)*sum(groupedCoefficient^2)` for distinct selected links;
-THIS LOCALIZATION/ASSEMBLY IS NOT YET PROVED. Use the existing general dual
+The local multiplicity version is now proved above; automatic canonical
+regrouping is not. Use the existing general dual
 consumer and whole-product Hessian sign with a certified positive complete
 source; do not sum separate local dual bounds and discard their mixed terms.
 Then prove the actual Wilson-jump/SAME-centered-variance comparison and

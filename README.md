@@ -7,7 +7,22 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-The latest [normalized local score result](audits/AUDIT-ORIGINAL-HEAT-DUAL-SCORE-2026-09-23.md)
+The latest [whole-product centered score result](audits/AUDIT-ORIGINAL-PRODUCT-HEAT-SCORE-VARIANCE-2026-09-23.md)
+retains the ORIGINAL SU(2) heat product W, both complete endpoint sources
+R=a(x)*a(y), and the same positive partition factor Z. For the whole signed
+angular direction D, it proves
+`(H[R*(D W)*f]/Z)^2 <= m*C(w)*S*Var_RW(f)`.
+Here S sums squared coefficients at the actual selected blocks (including
+repeated factors), and m bounds the number of angular terms at each selected
+block. There is no additional global block-count factor. Symmetry proves
+the score has zero mean, so the variance is exactly centered in the SAME law.
+The cutoff onset and nome-dependent C(w) remain explicit. This is a response
+bound, **not a Wilson jump-energy comparison or a physical mass gap**.
+Canonical six-plane regrouping, the Wilson/source-correction join and
+scaling-sufficient constants remain open. Eleven focused leaves passed
+thirty-three permitted axiom gates; no full-root audit.
+
+The preceding [normalized local score result](audits/AUDIT-ORIGINAL-HEAT-DUAL-SCORE-2026-09-23.md)
 removes an unnecessary reciprocal-observable construction. Finite positive
 reciprocal polynomials cancel a positive kernel factor AFTER Haar integration,
 with explicit errors. Completing a square then gives, for the ACTUAL single
@@ -18,8 +33,9 @@ may be any supported signed two-slice test. Curvature and the integrated
 Hessian sign are constructed for h; no additional inverse-floor loss is
 introduced by cancellation (C(w) itself still contains floor dependence).
 Exact product-curvature composition for the actual signed derivative is also
-checked. Whole-product grouped coefficient-square control, the original
-Wilson SAME-centered-variance comparison, and scaling usefulness remain OPEN.
+checked. Whole-product control under an explicit local multiplicity bound is
+now proved above; the original Wilson SAME-centered-variance comparison and
+scaling usefulness remain OPEN.
 Seven focused leaves passed twenty permitted axiom gates; no full-root audit.
 
 The latest [local curvature result](audits/AUDIT-ORIGINAL-HEAT-LOG-CURVATURE-2026-09-23.md)
@@ -29,7 +45,8 @@ ACTUAL relative SU(2) heat kernel. Mixed directions may overlap. The computed
 constant is independent of carrier size and cutoff beyond an explicit onset,
 but depends on the nome w; no useful scaling asymptotics are asserted.
 This supplies the local input used by the normalized score result above;
-the whole-direction assembly and SAME-variance estimate remain open.
+the whole-direction response assembly is now proved above. The Wilson
+temporal-energy/SAME-variance estimate remains open.
 Five focused leaf checks passed twenty-one permitted axiom gates.
 
 The preceding [whole-direction result](audits/AUDIT-SIGNED-KINETIC-ANGULAR-HESSIAN-2026-09-23.md)

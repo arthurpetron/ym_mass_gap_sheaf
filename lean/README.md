@@ -12,7 +12,23 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Actual normalized local dual score (2026-09-23):**
+**Actual whole-product score versus SAME variance (2026-09-23):**
+`SU2QuaternionProductHeatScoreVariance.productHeat_normalized_coefficientSquare_variance_bound`
+proves `(H[R*(D W)*f]/Z)^2 <= m*C(w)*S*Var_RW(f)` for the actual selected
+product W, R=a(x)*a(y), certificate-nonnegative supported a and positive
+Z=H[R W]. Both derivatives localize to the factor's selected block; product
+curvature costs add. Finite Cauchy gives the coefficient-square budget S with
+an explicit LOCAL term-count bound m, retaining repeated factors and terms.
+Symmetry and signed Haar integration by parts make the score mean zero;
+the existing polynomial centering therefore yields the exact SAME variance.
+No automatic canonical-six-plane regrouping or useful scaling asymptotic is
+claimed. The response is not identified with Wilson jump energy; the source
+correction, physical-time/scaling and continuum/all-group joins remain open.
+Eleven focused 8 GiB leaves passed thirty-three permitted axiom gates;
+semantic import added, no full-root build/audit/guard. Evidence:
+`audits/AUDIT-ORIGINAL-PRODUCT-HEAT-SCORE-VARIANCE-2026-09-23.md`.
+
+**Preceding actual normalized local dual score (2026-09-23):**
 `SU2QuaternionRelativeHeatDualScore.relativeHeat_normalized_dual_score_bound`
 constructs the single relative-heat estimate with the same positive endpoint
 source, same edge normalization, and arbitrary signed supported test. Positive
@@ -20,10 +36,10 @@ finite reciprocal polynomials plus an explicit vanishing-error modulus remove
 the extra multiplier only after Haar integration; no completed reciprocal
 observable is needed. Curvature and the integrated Hessian sign are supplied
 by actual heat theorems. Cancellation adds no inverse-floor loss beyond the
-existing nome-dependent C(w). The whole-product grouped coefficient-square
-estimate, SAME centered variance, scaling and physical/continuum/all-group
-obligations remain open. Exact signed-derivative product curvature is checked
-as its next algebraic input. Seven focused leaves, twenty permitted gates;
+existing nome-dependent C(w). The whole-product response estimate with an
+explicit local multiplicity bound and SAME centered variance is now proved
+above. The Wilson-energy comparison, scaling and physical/continuum/all-group
+obligations remain open. Seven focused leaves, twenty permitted gates;
 root imports added but no full-root build/audit/guard. Evidence:
 `audits/AUDIT-ORIGINAL-HEAT-DUAL-SCORE-2026-09-23.md`.
 
@@ -35,8 +51,8 @@ explicit degree-six/four Gaussian prefix budgets, and the relative scalar's
 mixed cap 64. All block/plane overlap is allowed. The local curvature constant
 is computed from w, not supplied; it has no cutoff or ambient-size factor.
 Its nome dependence and cutoff onset remain explicit. Local normalized dual
-score is now checked above; whole-family assembly, SAME normalized Wilson
-variance and scaling behavior remain open.
+score and whole-family response assembly are now checked above; the SAME
+normalized Wilson-energy/variance comparison and scaling behavior remain open.
 Five serialized leaves passed twenty-one permitted gates; no full-root
 build/audit/guard. Evidence:
 `audits/AUDIT-ORIGINAL-HEAT-LOG-CURVATURE-2026-09-23.md`.

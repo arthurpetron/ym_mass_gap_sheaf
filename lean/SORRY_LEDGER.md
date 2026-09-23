@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## Proved whole original product score versus SAME centered variance (2026-09-23)
+
+- **constructed**: actual first/second derivative block localization, signed
+  local mixed curvature, additive whole-product curvature, and a certified
+  finite product floor. The whole original normalized dual score follows.
+- **coefficient-square consumer**:
+  `productHeat_normalized_coefficientSquare_score_bound` uses a supplied
+  LOCAL term-count bound m, not an assumed analytic inequality. The coefficient
+  budget sums actual squared terms at each selected block; repeated heat
+  factors remain repeated. No automatic regrouping into six planes is claimed.
+- **exact centering**: `productHeat_upperDirection_mean_zero` proves zero
+  score mean for identical signed endpoint sources using kinetic symmetry.
+  `productHeat_normalized_coefficientSquare_variance_bound` retains the
+  original numerator and improves the RHS to the SAME normalized variance:
+  `(H[R*(D W)*f]/Z)^2 <= m*C(w)*S*Var_RW(f)`.
+- **guards**: supported certificate-nonnegative source, supported signed test,
+  positive SAME mass Z, `0<w<1`, and `relativeCutoff w 32 <= K`. C(w) depends
+  on the nome/floor; no useful scaling asymptotics or new physical gap.
+- **remaining**: actual Wilson temporal-energy/response comparison, finite-P
+  source correction, justified spatial/scaling control, physical time,
+  continuum nontriviality, finite positive physical mass, full same-theory
+  QFT/YM fields and every compact simple group. A response bound is not a
+  jump-energy bound, and centering alone does not identify those quantities.
+- **verification**: eleven serialized 8 GiB leaves, thirty-three gates within
+  {propext, Quot.sound}; no error/warning/sorryAx/Classical.choice in accepted
+  logs. No new hole/axiom, field weakening, canonical atom closure or full-root
+  build/audit/guard. See
+  `audits/AUDIT-ORIGINAL-PRODUCT-HEAT-SCORE-VARIANCE-2026-09-23.md`.
+
 ## Proved lossless cancellation and actual local normalized heat score (2026-09-23)
 
 - **constructed**: `haar_nonnegative_of_positive_multiplier` removes a positive
@@ -16,7 +45,8 @@
   permits zero source without inventing a normalized law.
 - **next input reduced**: exact product curvature and signed first/second
   Leibniz rules are checked. Whole-product localization with grouped
-  coefficient-square costs and multiplicities is NOT yet constructed.
+  coefficient-square costs and multiplicities was then open; the explicit
+  local-multiplicity version is now constructed in the newer entry above.
 - **remaining**: whole original Wilson temporal form/SAME centered variance,
   finite-P correction, scaling-sufficient estimates, physical time, spatial/
   continuum passage, nontrivial survival, finite positive physical mass,

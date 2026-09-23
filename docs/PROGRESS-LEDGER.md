@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: cancel the multiplier and normalize actual local score (2026-09-23)
+## Current increment: whole-product score with exact SAME variance (2026-09-23)
+
+Both signed derivatives now localize to each selected heat factor before
+product curvature is composed. The actual whole product and both complete
+endpoint sources remain, with the SAME positive partition factor. Finite
+Cauchy converts the sum of local l1 squares into a coefficient-square cost
+with an explicit local term-count bound, retaining all repeated factors.
+
+Kinetic symmetry plus signed Haar integration by parts also proves that the
+whole score has zero mean. The existing polynomial center leaves its response
+unchanged, so the checked bound is
+`(H[R*(D W)*f]/Z)^2 <= m*C(w)*S*Var_RW(f)`.
+This removes whole-product assembly and uncentered-test loss from the SCORE
+route, not the missing Wilson temporal-energy/response identity or source
+correction. Nome/scaling usefulness, physical time, continuum and all-group
+obligations remain OPEN. No automatic six-plane regrouping is claimed.
+
+Eleven serialized 8 GiB leaves passed thirty-three permitted gates. No
+full-root build/audit/guard or progress-metric script; no canonical physical,
+continuum or Clay closure. See
+`audits/AUDIT-ORIGINAL-PRODUCT-HEAT-SCORE-VARIANCE-2026-09-23.md`.
+
+## Previous increment: cancel the multiplier and normalize actual local score (2026-09-23)
 
 Finite positive reciprocal polynomials now reflect positivity through a
 strictly positive multiplier in the same Haar integral, with explicit error
