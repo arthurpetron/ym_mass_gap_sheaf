@@ -170,6 +170,10 @@
 > supported input. Its presentation cap is not uniform in width/cutoff, so
 > constructing the analytic uniform budget is still open; this is not an OS,
 > continuum, or Clay gap claim.
+> The same correction is also checked as a weighted Haar pairing: weighted
+> Cauchy--Schwarz bounds its square by the weighted source square times the
+> weighted square of the explicit defect `P(V*g) - V*g`. This finite estimate
+> identifies the next uniform quantity without asserting that it is bounded.
 > The actual two-link heat packet now has checked all-degree harmonic
 > reproduction with the exact dimension normalization. It gives the
 > Casimir multiplier `w^(n*(n+2))` on a degree-n harmonic when n<=K,

@@ -10,6 +10,7 @@ No small energy, variance comparison, OS gap, or scaling result is asserted.
 
 import YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 import YMGap.Continuum.BF4ExactSlabFixedSpatialGroundStateEnergy
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialOrder
 import YMGap.Continuum.QuaternionHaarSupportedPolynomialInterval
 import YMGap.Continuum.QuaternionHaarPolynomialIntervalProduct
 
@@ -18,6 +19,8 @@ namespace YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy
 set_option autoImplicit false
 
 open YMGap.Constructive
+open YMGap.Continuum.RingNormaliser
+open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.BF4CompactActionCPOrder
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
@@ -29,7 +32,12 @@ open YMGap.Continuum.SU2QuaternionProductHeatMarginals
 open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.QuaternionHaarSupportedPolynomialInterval
 open YMGap.Continuum.QuaternionHaarPolynomialInterval
-open YMGap.Continuum.QuaternionHaarSquareCertificate (supported_add)
+open YMGap.Continuum.QuaternionHaarSquareCertificate
+  (supported_add haar_of_coeff Certificate)
+open YMGap.Continuum.QuaternionHaarWeightedCauchySchwarz
+  (weightedPair weighted_cauchySchwarz)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialOrder (spatialCertificate)
+open YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison (headCutoff)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceCarrier (baseLinks)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceHeat
   (spatialWeight spatialWeight_supported)
@@ -134,6 +142,69 @@ private theorem endpointCorrectionPolynomial_supported
       (productMap_supported (N width) w K (activeBlocks width)
         (activeBlocks_lt width) ha)
       (supported_polyNeg_local ha))
+
+private def endpointDefect (w : Q') (K width : Nat) (g : RatPoly) : RatPoly :=
+  polyAdd
+    (productMap (N width) w K (activeBlocks width)
+      (endpointSource w K width g))
+    (polyNeg (endpointSource w K width g))
+
+private theorem endpointDefect_supported
+    (w : Q') (K width : Nat) (g : RatPoly)
+    (hg : SupportedQuaternionBlocks (N width) g) :
+    SupportedQuaternionBlocks (N width) (endpointDefect w K width g) := by
+  unfold endpointDefect
+  have ha : SupportedQuaternionBlocks (N width)
+      (endpointSource w K width g) := endpointSource_supported w K width g hg
+  exact supported_add
+    (productMap_supported (N width) w K (activeBlocks width)
+      (activeBlocks_lt width) ha)
+    (supported_polyNeg_local ha)
+
+private theorem correction_eq_weightedEndpointPair
+    (w : Q') (K width : Nat) (g f : RatPoly) :
+    correction w K width g f ≈
+      weightedPair (N width) (spatialWeight w K width)
+        (polyMul g (polyMul f f)) (endpointDefect w K width g) := by
+  unfold correction endpointDefect weightedPair endpointSource
+  exact haar_of_coeff (coeffEvalExpr_eqv_of_normalize_eq
+    (.mul (.mul (.mul (.var 0) (.var 1)) (.mul (.var 2) (.var 3))) (.var 4))
+    (.mul (.mul (.mul (.var 1) (.mul (.var 2) (.var 3))) (.var 4)) (.var 0))
+    (by decide)
+    (fun | 0 => spatialWeight w K width | 1 => g | 2 => f | 3 => f
+         | _ => endpointDefect w K width g))
+
+private theorem qmul {a b c d : Q'} (h : a ≈ b) (k : c ≈ d) :
+    a*c ≈ b*d :=
+  Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ h)
+    (Q'.mul_eqv_congr_left _ _ _ k)
+
+/-- Weighted Cauchy–Schwarz exposes the actual endpoint-defect norm.  This is
+finite, keeps the original spatial action, and does not replace the signed
+correction by a coefficient cap. -/
+theorem correction_square_le_weightedEndpointDefect
+    (w : Q') (K width : Nat) (g f : RatPoly)
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (hK : headCutoff w ≤ K)
+    (hg : SupportedQuaternionBlocks (N width) g)
+    (hf : SupportedQuaternionBlocks (N width) f) :
+    correction w K width g f * correction w K width g f ≤
+      weightedPair (N width) (spatialWeight w K width)
+        (polyMul g (polyMul f f)) (polyMul g (polyMul f f)) *
+      weightedPair (N width) (spatialWeight w K width)
+        (endpointDefect w K width g) (endpointDefect w K width g) := by
+  have hV : Certificate (N width) (spatialWeight w K width) :=
+    spatialCertificate hw0 hw1 K width (N width) (Nat.le_refl _) hK
+  have hp : SupportedQuaternionBlocks (N width)
+      (polyMul g (polyMul f f)) :=
+    supported_polyMul hg (supported_polyMul hf hf)
+  have hd : SupportedQuaternionBlocks (N width)
+      (endpointDefect w K width g) := endpointDefect_supported w K width g hg
+  have hcs := weighted_cauchySchwarz (N width) (spatialWeight w K width)
+    (polyMul g (polyMul f f)) (endpointDefect w K width g) hV hp hd
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (qmul (correction_eq_weightedEndpointPair w K width g f)
+      (correction_eq_weightedEndpointPair w K width g f))) hcs
 
 /-- A finite, explicit (presentation-dependent) inhabitant of the correction
 budget interface.  It is obtained from the repository's polynomial interval
@@ -268,6 +339,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.transferStep_hybrid_carrier
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.energy_eq_hybrid_add_correction
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.correction_square_le_weightedEndpointDefect
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.bareEnergy_le_endpointSquare
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.energy_le_endpointSquare_add_signedCorrectionBudget
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialHybridEnergy.finiteSignedEndpointCorrectionBudget

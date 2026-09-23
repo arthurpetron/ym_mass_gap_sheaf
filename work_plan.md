@@ -207,6 +207,15 @@ constructs the named budget for every supported finite input from
 finite bound whose cap is the signed polynomial presentation cap of the exact
 endpoint correction.
 
+**NEW FINITE DEFECT SQUARE --**
+`correction_square_le_weightedEndpointDefect` rewrites the same signed
+correction as a weighted Haar pairing with the original `spatialWeight` and
+applies weighted Cauchy--Schwarz.  Its right-hand side is the weighted source
+square times the weighted square of the explicit defect
+`endpointDefect = P(V*g) - V*g`.  This exposes the analytic quantity that a
+uniform argument must control; it does not turn the defect into a uniform
+constant and still requires the strict finite spatial-certificate hypotheses.
+
 This does **not** provide the needed uniform correction estimate.  The
 presentation cap can grow with width, cutoff, coupling, and source degree;
 producing a volume-/cutoff-controlled bound for the actual endpoint source
@@ -219,7 +228,7 @@ for the same source and parameters.
 
 Focused monitored verification of
 `BF4ExactSlabFixedSpatialHybridEnergy.lean` passed; all printed declarations,
-including the three new finite consequences, use only
+including the new weighted defect-square estimate and the finite consequences, use only
 `{propext, Quot.sound}`.  No dependency-complete or full-root audit is
 claimed.
 

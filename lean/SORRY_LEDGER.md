@@ -48229,7 +48229,8 @@ claimed by these checks.
   `bareEnergy_le_endpointSquare`, and
   `energy_le_endpointSquare_add_signedCorrectionBudget`,
   `finiteSignedEndpointCorrectionBudget`, and
-  `energy_le_endpointSquare_add_finiteSignedCorrectionBudget`
+  `energy_le_endpointSquare_add_finiteSignedCorrectionBudget`, and
+  `correction_square_le_weightedEndpointDefect`
 - **closed obligation**: package a nonnegative Type-level budget for the exact
   correction `correction w K width g f`, and use its absolute-value bound with
   the checked `energy_eq_bare_add_correction` identity to derive
@@ -48242,6 +48243,9 @@ claimed by these checks.
   parameters.  The constructed cap may grow with those parameters, so no
   volume-uniform estimate, same-object variance bound, completed gap,
   thermodynamic/continuum passage, or Clay conclusion is supplied here.
+  The weighted square estimate rewrites the correction using the original
+  spatial weight and exposes the exact defect `P(V*g) - V*g`; a uniform bound
+  for that weighted defect remains unproved.
 - **constructive or propositional**: the budget is a Type-valued named input;
   the compiler is finite rational order arithmetic using `Q'.abs`.  No
   `sorry`, new axiom, `Classical`, `native_decide`, Rust certificate, or
