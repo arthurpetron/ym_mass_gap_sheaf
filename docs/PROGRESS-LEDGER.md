@@ -27530,3 +27530,22 @@ The open analytic theorem is the uniform geometric bound on the literal
 physical shell loads.  No such estimate, completed cofinal gap, physical
 scaling bridge, continuum construction, OS/GNS reconstruction, or Clay
 theorem is claimed.
+
+## Reflected-joint completion boundary is now an explicit certificate (2026-09-23)
+
+`BF4PhysicalJointFormGapExtension.lean` proves the next finite-to-completed
+step after the comparison-image bridge.  `ExactKernelCauchyReplacement` keeps
+an explicit Cauchy representative, a `CauchyNull` closure witness, and exact
+stagewise physical-joint vacuum orthogonality.  The theorem
+`physicalJoint_cinnerRep_form_gap_of_stagewise_replacement` passes the finite
+reflected-joint form estimate through the genuine CReal pairing limits, and
+`physicalJoint_completed_form_gap_of_replacement` descends it to the quotient
+class.  `physicalJointCompletedVacuumFormGapOfDensity` packages the resulting
+whole-completion form gap only under the explicit
+`ExactPhysicalJointVacuumComplementDensity` input.
+
+The dependency-complete target passed 1,241 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  The density/range witness is not
+constructed by this milestone; therefore no unconditional completed joint
+gap, OS transfer identification, thermodynamic/continuum result, physical
+mass calibration, all-group theorem, or Clay conclusion follows.

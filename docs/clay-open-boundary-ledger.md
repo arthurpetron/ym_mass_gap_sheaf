@@ -15,6 +15,16 @@ finite / lattice-level theorems, an explicit and content-bearing statement
 of the continuum existence hypothesis (assumed, never proved), and a
 current boundary marking where the open analysis begins.
 
+**Current reflected-joint boundary (2026-09-23).**
+`BF4PhysicalJointFormGapExtension.lean` now proves the CReal limit passage
+from the finite reflected-joint comparison image to any completed vector
+equipped with an explicit exact-kernel Cauchy replacement.  Its final form-gap
+constructor is conditional on the `Type`-level
+`ExactPhysicalJointVacuumComplementDensity`; that range/density witness is not
+currently inhabited.  This milestone is axiom-clean (`{propext, Quot.sound}`)
+and does not constitute a completed physical gap, an OS/scaling passage, a
+continuum construction, or a Clay result.
+
 **Controlling correction (2026-07-17).** The R1--R3 sections, carrier summary,
 continuum-limit entry, and reconstruction entry below have been re-audited
 against `docs/clay_resolution_target_inventory.md` and

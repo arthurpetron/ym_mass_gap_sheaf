@@ -56,6 +56,22 @@ density/range certificate is still required before this becomes a completed
 joint-space gap.  OS/scaling, thermodynamic/continuum, physical-mass,
 all-group, and Clay obligations remain open.
 
+### Conditional reflected-joint completion passage (2026-09-23 UTC)
+
+`BF4PhysicalJointFormGapExtension.lean` now exposes the exact missing
+completion input as the `Type`-level
+`ExactPhysicalJointVacuumComplementDensity`.  Each replacement carries its
+representative, an explicit `CauchyNull` closure proof, and exact stagewise
+vacuum orthogonality.  The checked declarations
+`physicalJoint_cinnerRep_form_gap_of_stagewise_replacement` and
+`physicalJoint_completed_form_gap_of_replacement` pass the literal-cylinder
+bound through the CReal pairing limit and quotient class; the final
+`physicalJointCompletedVacuumFormGapOfDensity` is conditional on the supplied
+density witness.  The focused target passed 1,241 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  Constructing that witness, and all
+OS/scaling, thermodynamic/continuum, physical-mass, all-group, and Clay steps,
+remain open.
+
 ### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
 The companion reference-transport module now proves the exact finite identity

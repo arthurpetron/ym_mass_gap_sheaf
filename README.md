@@ -31,6 +31,19 @@ producer-selected finite BF4 rate.  The dependency-complete check passed
 a density/range extension to arbitrary joint-completion vectors, nor an
 OS/scaling, thermodynamic/continuum, physical-mass, all-group, or Clay result.
 
+The next conditional completion interface is checked in
+`BF4PhysicalJointFormGapExtension.lean`.  It provides
+`ExactKernelCauchyReplacement`, retaining an explicit Cauchy representative,
+`CauchyNull` closure witness, and stagewise joint vacuum orthogonality;
+`physicalJoint_cinnerRep_form_gap_of_stagewise_replacement` passes the finite
+image estimate through the genuine `CReal` pairing limits, and
+`physicalJointCompletedVacuumFormGapOfDensity` contracts this to the whole
+completed joint carrier when an explicit range/density witness is supplied.
+The focused dependency-complete target passed 1,241 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  The density witness is deliberately
+not asserted or constructed here; OS/scaling, thermodynamic/continuum,
+physical-mass, all-group, and Clay obligations remain open.
+
 The preceding regulator milestone, `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean`,
 still carries an explicit constructive Cauchy modulus for the literal
 three-regulator connected spatial diagonal and pins its CReal limit to the
