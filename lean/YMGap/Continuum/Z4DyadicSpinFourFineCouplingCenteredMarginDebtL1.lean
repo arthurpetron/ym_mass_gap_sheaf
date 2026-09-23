@@ -43,9 +43,19 @@ open YMGap.Continuum.Z4HalfTimeReflectionNormalizedPhysicalGram
 open YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebt
 open YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtPullback
 open YMGap.Continuum.Z4DyadicSpinFourFineCouplingNormalizedMarginFactorization
+open YMGap.Continuum.Z4DyadicSpinFourFineCouplingNormalizedRecentering
 open YMGap.Continuum.Z4DyadicSpinFourFineCouplingReferencePerturbation
 
 local infix:50 " ≈ " => Q'.eqv
+
+private theorem two_mul_eqv_local (a : Q') :
+    (Q'.ofNat 2 * a).eqv (a + a) := by
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_eqv_congr_right (Q'.ofNat 2) (1 + 1) a (by decide)) ?_
+  refine Q'.eqv_trans _ _ _ (Q'.add_mul_eqv 1 1 a) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_right (1 * a) a (1 * a) (Q'.one_mul_eqv a)) ?_
+  exact Q'.add_eqv_congr_left a (1 * a) a (Q'.one_mul_eqv a)
 
 private theorem abs_listQSum_le_sum_abs_local {A : Type}
     (value : A → Q') : ∀ items : List A,
@@ -340,8 +350,103 @@ theorem fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_t
   exact fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_partition_two_term
     K M.coarseRoot M.coarseTarget
 
+/-! ## The finite normalized calibration ceiling -/
+
+/-- The explicit finite ceiling obtained by dividing the two-term source-debt
+envelope by the positive coupling-one partition square.  It is intentionally
+parameter-dependent: this definition does not assert any cutoff- or
+volume-uniform bound. -/
+def finiteMarginEnvelopeCeiling (S : SlabScalePair) : Q' :=
+  Q'.divPos
+    (Q'.ofNat 2 * fineCouplingPhysicalPartitionSquareMargin S)
+    (fineUnitCouplingPhysicalPartition S *
+      fineUnitCouplingPhysicalPartition S)
+    (Q'.mul_pos
+      (fineUnitCouplingPhysicalPartition_pos S)
+      (fineUnitCouplingPhysicalPartition_pos S))
+
+private theorem finiteMarginEnvelopeCeiling_denominator_pos
+    (S : SlabScalePair) :
+    (0 : Q') <
+      fineUnitCouplingPhysicalPartition S *
+        fineUnitCouplingPhysicalPartition S :=
+  Q'.mul_pos
+    (fineUnitCouplingPhysicalPartition_pos S)
+    (fineUnitCouplingPhysicalPartition_pos S)
+
+private theorem finiteMarginEnvelopeCeiling_mul_unitSquare_eqv
+    (S : SlabScalePair) :
+    finiteMarginEnvelopeCeiling S *
+        (fineUnitCouplingPhysicalPartition S *
+          fineUnitCouplingPhysicalPartition S) ≈
+      Q'.ofNat 2 * fineCouplingPhysicalPartitionSquareMargin S := by
+  unfold finiteMarginEnvelopeCeiling
+  exact Q'.divPos_mul_eqv _ _ (finiteMarginEnvelopeCeiling_denominator_pos S)
+
+private theorem finiteMarginEnvelopeCeiling_mul_denominator_eqv
+    (S : SlabScalePair) :
+    finiteMarginEnvelopeCeiling S *
+        fineUnitCouplingCenteredNormalizedChangeDenominator S ≈
+      (Q'.ofNat 2 * fineCouplingPhysicalPartitionSquareMargin S) *
+        (S.fine.physicalPartition * S.fine.physicalPartition) := by
+  let unitSquare :=
+    fineUnitCouplingPhysicalPartition S *
+      fineUnitCouplingPhysicalPartition S
+  let actualSquare :=
+    S.fine.physicalPartition * S.fine.physicalPartition
+  have hunit : finiteMarginEnvelopeCeiling S * unitSquare ≈
+      Q'.ofNat 2 * fineCouplingPhysicalPartitionSquareMargin S := by
+    simpa only [unitSquare] using
+      finiteMarginEnvelopeCeiling_mul_unitSquare_eqv S
+  refine Q'.eqv_trans _
+    ((finiteMarginEnvelopeCeiling S * unitSquare) * actualSquare) _ ?_ ?_
+  · exact Q'.eqv_symm
+      (Q'.mul_assoc_eqv (finiteMarginEnvelopeCeiling S) unitSquare actualSquare)
+  · exact Q'.mul_eqv_congr_right _ _ _ hunit
+
+private theorem partition_two_term_eqv_regrouped
+    (S : SlabScalePair) :
+    fineCouplingPhysicalPartitionSquareMargin S *
+          (S.fine.physicalPartition * S.fine.physicalPartition) +
+        (S.fine.physicalPartition * S.fine.physicalPartition) *
+          fineCouplingPhysicalPartitionSquareMargin S ≈
+      (Q'.ofNat 2 * fineCouplingPhysicalPartitionSquareMargin S) *
+        (S.fine.physicalPartition * S.fine.physicalPartition) := by
+  let margin := fineCouplingPhysicalPartitionSquareMargin S
+  let square := S.fine.physicalPartition * S.fine.physicalPartition
+  have hcomm : square * margin ≈ margin * square :=
+    Q'.mul_comm_eqv square margin
+  have hswap : margin * square + square * margin ≈
+      margin * square + margin * square :=
+    Q'.add_eqv_congr_left (margin * square) (square * margin)
+      (margin * square) hcomm
+  refine Q'.eqv_trans _ (margin * square + margin * square) _ hswap ?_
+  refine Q'.eqv_trans _ (Q'.ofNat 2 * (margin * square)) _
+    (Q'.eqv_symm (two_mul_eqv_local (margin * square))) ?_
+  exact Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat 2) margin square)
+
+/-- The preceding finite L¹ envelope supplies an actual inhabitant of the
+normalized margin-calibration proposition.  The ceiling is explicit and
+finite, but its dependence on `S` remains visible rather than being promoted
+to a uniform estimate. -/
+theorem fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term
+    {S : SlabScalePair} (K : S.FiniteSlabKernel)
+    (M : SlabFaceBlockMap S) :
+    FineUnitCouplingCenteredNormalizedMarginRawCalibration
+      K M (finiteMarginEnvelopeCeiling S) := by
+  unfold FineUnitCouplingCenteredNormalizedMarginRawCalibration
+  have hnum := fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term
+    K M
+  have hregroup := partition_two_term_eqv_regrouped S
+  have hbudget := finiteMarginEnvelopeCeiling_mul_denominator_eqv S
+  refine Q'.le_trans' _ _ _ hnum ?_
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hregroup) ?_
+  exact Q'.le_of_eqv (Q'.eqv_symm hbudget)
+
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_sourcePairDebtL1
 #print axioms fineCouplingPhysicalSourcePairCenteredMarginDebtCrossAverage_abs_le_partition_two_term
 #print axioms fineUnitCouplingCenteredNormalizedMarginNumerator_abs_le_partition_two_term
+#print axioms finiteMarginEnvelopeCeiling_mul_denominator_eqv
+#print axioms fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term
 
 end YMGap.Continuum.Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1

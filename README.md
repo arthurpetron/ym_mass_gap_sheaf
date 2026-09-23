@@ -219,6 +219,16 @@ physical mass, all-group construction, and Clay target remain open.  The
 focused dependency-complete target passed 5504 jobs with one worker, with only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+The same finite source envelope now yields an explicit
+`finiteMarginEnvelopeCeiling` and the theorem
+`fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term`.
+This is a genuine finite normalized-calibration witness obtained by dividing
+by the positive coupling-one partition square.  The ceiling remains visibly
+dependent on the slab parameters, so it does not claim the uniform strict
+form bound needed for the continuum mass-gap route.  The added declarations
+were checked in the same 5504-job constructive build with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

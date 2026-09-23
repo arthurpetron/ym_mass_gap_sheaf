@@ -45,6 +45,16 @@ calibration.  The focused dependency-complete safe target passed 5504 jobs
 with one worker.  All three exported declarations report only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+The same module now defines `finiteMarginEnvelopeCeiling` and proves
+`fineUnitCouplingCenteredNormalizedMarginRawCalibration_of_partition_two_term`.
+The ceiling is the explicit positive-denominator quotient of the two-term
+envelope by the coupling-one partition square, so it inhabits the finite
+normalized calibration proposition for every supplied slab.  Its dependence on
+the slab parameters remains explicit; this is a calibration witness, not the
+uniform-in-cutoff/volume producer still required by the strict form-bound
+frontier.  The additional rational regrouping and denominator identity were
+checked in the same 5504-job build with only `{propext, Quot.sound}`.
+
 ### Iterated completed finite transfer decay (2026-09-23 UTC)
 
 `SU2QuaternionFiniteHaarCompletedTransferContraction.lean` now carries the
