@@ -163,6 +163,11 @@
 > energy to the bare kinetic form. At the local differential level it
 > cancels all weight-derivative terms; the finite-time comparison remains
 > open. [Identity and operator boundary](audits/AUDIT-ENDPOINT-WEIGHT-CANCELLATION-2026-09-21.md).
+> A checked finite consumer now packages the remaining signed endpoint defect
+> as a Type-level absolute budget and derives
+> `energy <= H[(V*g*f)^2] + budget` from actual product-heat positivity.
+> Constructing a volume-/cutoff-uniform budget is still open; this is not an
+> OS, continuum, or Clay gap claim.
 > The actual two-link heat packet now has checked all-degree harmonic
 > reproduction with the exact dimension normalization. It gives the
 > Casimir multiplier `w^(n*(n+2))` on a degree-n harmonic when n<=K,
