@@ -52,6 +52,18 @@ OS/GNS passage, continuum survival, physical mass, QFT axioms and every-group
 construction remain open.  See
 `audits/AUDIT-SELECTED-PROJECTION-REINDEX-2026-09-22.md`.
 
+**Conjugated finite head defect (2026-09-22 UTC):**
+`SU2QuaternionConjugatedHeadHeat.conjugatedHeadMap` transports the literal
+head conditional update by an explicit quaternion-block involution, and
+`conjugatedHeadMap_defect_le_angular` transports the checked finite Haar
+angular defect bound to that recoded carrier.  Support, reindex
+multiplicativity, and Haar invariance are explicit; the right-hand side is
+the angular energy of the recoded polynomial.  This does not identify the
+conjugated map with the physical interacting selected-link kernel, and does
+not provide the missing product tensorization, SAME-object OS/GNS passage,
+continuum survival, physical mass, QFT axioms, or every-group construction.
+See `audits/AUDIT-CONJUGATED-HEAD-HEAT-2026-09-22.md`.
+
 **Computed arbitrary-input harmonic decomposition (earlier checkpoint, 2026-09-21 UTC):**
 `SU2QuaternionFischerDecomposition.decomposeHomogeneous` returns actual
 finite radial-harmonic modes by degree recursion, with the explicit

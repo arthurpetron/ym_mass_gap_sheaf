@@ -99,6 +99,25 @@ estimate, OS/GNS passage, continuum survival, physical mass calibration,
 or the Clay theorem.  The next estimate consumes this recoding to transport
 the selected local angular defect into the literal head chart.
 
+### Conjugated finite head defect (2026-09-22 UTC)
+
+**PROGRESS -- the checked local angular defect is now transportable by an
+explicit block involution:** `SU2QuaternionConjugatedHeadHeat.conjugatedHeadMap`
+defines the transported update by conjugating the literal `headMap`, and
+`conjugatedHeadMap_defect_le_angular` proves the corresponding Haar quadratic
+defect bound for every supported polynomial.  The proof uses only support
+preservation, multiplicativity of finite reindexing, exact Haar invariance,
+and the existing `headMap_defect_le_angular` theorem.  Its right-hand energy
+is explicitly the angular energy of the recoded polynomial, so no unproved
+derivative/reindex commutation is hidden in the statement.
+
+This closes a finite recoded local-operator bridge, not the identification of
+the conjugated update with the interacting selected-link kernel.  The
+multi-factor SAME-object estimate, signed endpoint control, OS/GNS passage,
+continuum survival, physical mass, full QFT structure, and every-group
+construction remain open.  Focused verification passed under the permitted
+axiom gate; see `audits/AUDIT-CONJUGATED-HEAD-HEAT-2026-09-22.md`.
+
 **Next mathematical estimate:** use the checked commutation and hybrid
 independence to telescope the actual kinetic quadratic defect with a
 controlled angular cost. On a fully active carrier the intended bound is
