@@ -298,6 +298,11 @@ parameter dependence; it is not a uniform blocking constant.  The downstream
 balanced witness with the finite L¹ margin envelope to produce the complete
 finite centered-cylinder estimate.  The consumer check passed 5506 jobs with
 only `{propext, Quot.sound}` and no `sorryAx`.
+The remaining normalization step is isolated as
+`FineUnitCouplingBalancedCarrierRatioBound`: under a common positive carrier
+ratio, `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_carrier_ratio`
+would supply a ceiling depending only on that ratio and `g`.  The existence
+of such a uniform ratio is still open.
 
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.

@@ -36,6 +36,11 @@ cutoff/volume-uniform balanced calibration remains open.  The explicit
 `FineUnitCouplingBalancedRawColumnScaleDefectCalibration`; its dependence on
 the displayed finite parameters is part of the statement.
 
+The separate `FineUnitCouplingBalancedCarrierRatioBound` proposition factors
+the remaining normalization debt: a common positive carrier ratio would
+compile the finite defect into a ratio-dependent calibration, but no common
+ratio is asserted here.
+
 Constructive contract: finite rational sums, monotonicity, and exact rational
 algebra only; no `Classical`, choice, `native_decide`, proof hole,
 noncomputable declaration, or new axiom.
@@ -1096,6 +1101,119 @@ theorem fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrie
   exact Q'.le_trans' _ _ _ hbase
     (Q'.le_of_eqv (Q'.eqv_symm hbudget))
 
+/-- The one missing normalization input for a uniform balanced estimate: a
+carrier-ratio bound comparing the coupling-one partition square to the actual
+fine partition square.  This proposition is deliberately separate from the
+finite carrier proof above. -/
+def FineUnitCouplingBalancedCarrierRatioBound
+    (S : SlabScalePair) (carrierRatio : Q') : Prop :=
+  fineUnitCouplingPhysicalPartition S *
+      fineUnitCouplingPhysicalPartition S ≤
+    carrierRatio *
+      (S.fine.physicalPartition * S.fine.physicalPartition)
+
+/-- A ratio-based balanced ceiling.  If `carrierRatio` is supplied uniformly
+over a family of slabs, this expression is the corresponding uniform
+candidate; no such uniform ratio is proved here. -/
+def fineUnitCouplingBalancedCarrierRatioCeiling
+    (g carrierRatio : Q') (hg : (0 : Q') < g) : Q' :=
+  Q'.divPos (Q'.ofNat 4 * carrierRatio) (g * g)
+    (Q'.mul_pos hg hg)
+
+theorem fineUnitCouplingBalancedCarrierRatioCeiling_nonnegative
+    (g carrierRatio : Q') (hg : (0 : Q') < g)
+    (hcarrierRatio : (0 : Q') < carrierRatio) :
+    (0 : Q') ≤ fineUnitCouplingBalancedCarrierRatioCeiling
+      g carrierRatio hg := by
+  unfold fineUnitCouplingBalancedCarrierRatioCeiling
+  apply Q'.le_of_lt
+  exact Q'.divPos_pos _ _ (Q'.mul_pos hg hg)
+    (Q'.mul_pos (by decide : (0 : Q') < Q'.ofNat 4) hcarrierRatio)
+
+private theorem four_ratio_carrier_regroup_local
+    (carrierRatio coarseSquare actualSquare : Q') :
+    Q'.ofNat 4 * (coarseSquare * (carrierRatio * actualSquare)) ≈
+      (Q'.ofNat 4 * carrierRatio) *
+        (coarseSquare * actualSquare) := by
+  refine Q'.eqv_trans _ _ _
+    (Q'.eqv_symm (Q'.mul_assoc_eqv
+      (Q'.ofNat 4) coarseSquare (carrierRatio * actualSquare))) ?_
+  refine Q'.eqv_trans _ _ _
+    (nested_product_swap_local
+      (Q'.ofNat 4) coarseSquare carrierRatio actualSquare) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.mul_comm_eqv
+      (Q'.ofNat 4 * (coarseSquare * actualSquare)) carrierRatio) ?_
+  refine Q'.eqv_trans _ _ _
+    (Q'.eqv_symm (Q'.mul_assoc_eqv
+      carrierRatio (Q'.ofNat 4) (coarseSquare * actualSquare))) ?_
+  exact Q'.mul_eqv_congr_right
+    (carrierRatio * Q'.ofNat 4) (Q'.ofNat 4 * carrierRatio)
+    (coarseSquare * actualSquare)
+    (Q'.mul_comm_eqv carrierRatio (Q'.ofNat 4))
+
+/-- Conditional uniformity compiler: a positive carrier-ratio certificate
+turns the finite balanced defect ceiling into the existing balanced-calibration
+interface with a ceiling depending only on `g` and that ratio. -/
+theorem fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_carrier_ratio
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (root target : Nat) (g carrierRatio : Q')
+    (hg : (0 : Q') < g)
+    (hcarrierBound : FineUnitCouplingBalancedCarrierRatioBound
+      S carrierRatio) :
+    FineUnitCouplingBalancedRawColumnScaleDefectCalibration
+      S hfineCutoff hcoarseCoupling root target g
+      (fineUnitCouplingBalancedCarrierRatioCeiling
+        g carrierRatio hg) := by
+  unfold FineUnitCouplingBalancedRawColumnScaleDefectCalibration
+  let coarseSquare :=
+    S.coarse.physicalPartition * S.coarse.physicalPartition
+  let actualSquare :=
+    S.fine.physicalPartition * S.fine.physicalPartition
+  let unitSquare :=
+    fineUnitCouplingPhysicalPartition S *
+      fineUnitCouplingPhysicalPartition S
+  let ratioSquare := carrierRatio * actualSquare
+  have hcoarseSquare0 : (0 : Q') ≤ coarseSquare := by
+    unfold coarseSquare
+    exact Q'.mul_nonneg _ _
+      (physicalPartition_nonnegative S.coarse)
+      (physicalPartition_nonnegative S.coarse)
+  have hunit_le_ratio : unitSquare ≤ ratioSquare := by
+    simpa only [unitSquare, ratioSquare] using hcarrierBound
+  have hcoarse_mul : coarseSquare * unitSquare ≤
+      coarseSquare * ratioSquare :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hunit_le_ratio hcoarseSquare0
+  have hfour_mul : Q'.ofNat 4 * (coarseSquare * unitSquare) ≤
+      Q'.ofNat 4 * (coarseSquare * ratioSquare) :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hcoarse_mul (by decide)
+  have hregroup :
+      Q'.ofNat 4 * (coarseSquare * ratioSquare) ≈
+        (Q'.ofNat 4 * carrierRatio) *
+          (coarseSquare * actualSquare) := by
+    exact four_ratio_carrier_regroup_local carrierRatio coarseSquare
+      actualSquare
+  have hbase :=
+    fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares
+      S hfineCutoff hcoarseCoupling root target
+  have hbudget :
+      (fineUnitCouplingBalancedCarrierRatioCeiling g carrierRatio hg *
+          (g * g)) * (coarseSquare * actualSquare) ≈
+        (Q'.ofNat 4 * carrierRatio) *
+          (coarseSquare * actualSquare) := by
+    refine Q'.mul_eqv_congr_right
+      (fineUnitCouplingBalancedCarrierRatioCeiling g carrierRatio hg *
+        (g * g)) (Q'.ofNat 4 * carrierRatio)
+      (coarseSquare * actualSquare) ?_
+    exact Q'.divPos_mul_eqv (Q'.ofNat 4 * carrierRatio)
+      (g * g) (Q'.mul_pos hg hg)
+  exact Q'.le_trans' _ _ _ hbase
+    (Q'.le_trans' _ _ _ hfour_mul
+      (Q'.le_of_eqv (Q'.eqv_trans _ _ _ hregroup
+        (Q'.eqv_symm hbudget))))
+
 /-- Explicit normalized global-moment input needed by the global
 coupling-one interpolation.  Unlike the receiver-local moment, this contains
 the Casimir exponent summed over the entire fine slab. -/
@@ -1121,6 +1239,10 @@ def FineUnitCouplingGlobalPartitionCasimirNormalization
 #print axioms fineUnitCouplingBalancedCarrierCeiling
 #print axioms fineUnitCouplingBalancedCarrierCeiling_nonnegative
 #print axioms fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier
+#print axioms FineUnitCouplingBalancedCarrierRatioBound
+#print axioms fineUnitCouplingBalancedCarrierRatioCeiling
+#print axioms fineUnitCouplingBalancedCarrierRatioCeiling_nonnegative
+#print axioms fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_carrier_ratio
 #print axioms fineUnitCouplingPhysicalPartition_nonnegative
 #print axioms fineUnitCouplingPhysicalPartitionSquareLoss
 #print axioms fineUnitCouplingPhysicalPartitionSquareLoss_eqv_factorized

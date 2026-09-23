@@ -123,6 +123,11 @@ compiles the finite ceiling into the existing balanced-calibration interface.
 The downstream `centeredCylinderRemainder_abs_le_of_finite_balanced_carrier`
 then consumes this explicit balanced witness together with the finite L¹
 margin envelope, producing a complete finite centered-cylinder estimate.
+The uniformity debt is now factored into the single proposition
+`FineUnitCouplingBalancedCarrierRatioBound`; under that named bound,
+`fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_carrier_ratio`
+produces a ratio- and coupling-dependent ceiling.  The common ratio itself
+remains an open analytic input.
 The focused safe target passed 5498 jobs with one worker and the new exports
 have only `{propext, Quot.sound}`; its centered-margin consumer passed 5506
 jobs with the same axiom gate.

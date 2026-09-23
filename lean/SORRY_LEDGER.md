@@ -27,7 +27,11 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `fineUnitCouplingBalancedRawColumnScaleDefect_abs_le_four_partitionSquares`,
   `fineUnitCouplingBalancedCarrierCeiling`, and
   `fineUnitCouplingBalancedCarrierCeiling_nonnegative`, and
-  `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier`;
+  `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_finite_carrier`,
+  `FineUnitCouplingBalancedCarrierRatioBound`,
+  `fineUnitCouplingBalancedCarrierRatioCeiling`,
+  `fineUnitCouplingBalancedCarrierRatioCeiling_nonnegative`, and
+  `fineUnitCouplingBalancedRawColumnScaleDefectCalibration_of_carrier_ratio`;
   the downstream finite centered-cylinder compiler is
   `centeredCylinderRemainder_abs_le_of_finite_balanced_carrier` in
   `Z4DyadicSpinFourFineCouplingCenteredMarginDebtL1.lean`.
@@ -48,6 +52,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The downstream centered-cylinder estimate consumes this quotient together
   with the already proved finite margin envelope, yielding an explicit
   finite remainder bound; it does not create a uniform strict form bound.
+  The ratio compiler factors the missing uniformity into the single named
+  premise `FineUnitCouplingBalancedCarrierRatioBound`; if a common positive
+  ratio is later supplied, its ceiling depends only on that ratio and `g`.
+  No such common ratio is proved here.
   The result does not identify an OS transfer matrix, pass to a thermodynamic
   or continuum limit, construct the QFT, calibrate a physical mass, cover all
   compact simple groups, or prove the Clay theorem; it does not close
