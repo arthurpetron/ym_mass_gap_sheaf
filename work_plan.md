@@ -25,6 +25,24 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact finite sector-test pairing reads retained coordinates (2026-09-23 UTC)
+
+`BF4PhysicalCutoffVacuumSectorFiniteTestPairing.weightedInner_linearObservable_eqv_coordinateSum`
+proves that at any later cutoff, pairing an arbitrary left observable with a
+fixed finite sector test is exactly a sum over that test's retained base
+indices: left coordinate times test coefficient times pulled stationary weight.
+The test's zero extension removes all other indices. This keeps the original
+pairing and weights, rather than replacing them by a comparison model.
+
+The remaining producer is this identity's cutoff/completion passage, using
+persistent-coordinate convergence and the constructed pulled-weight limits.
+For a fixed vector, the checked common-coordinate result should then give
+dense proportionality to the ambient vacuum. That completed identity, and hence
+actual vacuum-complement fixed-vector exclusion, remain open. No new tail or
+spectral estimate is assumed. Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-finite-test-pairing-check-4.log`; its printed gate contains
+only `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root audit.
+
 ### Completed fixed vectors have one common persistent coordinate (2026-09-23 UTC)
 
 `BF4PhysicalCutoffVacuumSectorFixedCoordinate.completedDirichlet_eq_zero_of_fixed`
@@ -55,7 +73,7 @@ actual pulled-back physical form. No global-vacuum membership is assumed.
 
 The remaining coordinate-to-test join has a finite-support route: a fixed
 sector test reads finitely many retained coordinates and pulled weights.
-That exact finite identity and its completed passage are not yet verified.
+The exact finite identity is now checked above; its completed passage remains open.
 For vacuum-complement rigidity the selected next argument is to prove
 `<x,p> = c <Omega_global,embed p>` for every dense sector test, then let those
 tests approach `x`. This would give `||x||^2 = c <Omega_global,embed x>` and

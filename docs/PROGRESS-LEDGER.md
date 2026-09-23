@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: one common coordinate for completed fixed vectors (2026-09-23)
+## Current increment: exact finite coordinate-to-test pairing (2026-09-23)
+
+`BF4PhysicalCutoffVacuumSectorFiniteTestPairing` proves the actual weighted
+pairing with a fixed sector cylinder is a finite sum of retained coordinates,
+test coefficients and pulled stationary weights. Zero extension eliminates
+indices outside the test's embedded base. Its analytic limit passage is still
+needed; the identity itself adds no tail, gap or continuum hypothesis/result.
+Together with checked coordinate rigidity, its intended consumer is dense
+proportionality to the ambient vacuum, then vacuum-complement zero exclusion.
+
+Verification: monitored 20 GiB leaf check,
+`/tmp/ym-gap-sector-finite-test-pairing-check-4.log`; the gate contains only
+`{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
+## Previous increment: one common coordinate for completed fixed vectors (2026-09-23)
 
 `BF4PhysicalCutoffVacuumSectorFixedCoordinate` proves zero Dirichlet energy for
 a literal completed-sector fixed vector, cancels the positive fixed-base floor,

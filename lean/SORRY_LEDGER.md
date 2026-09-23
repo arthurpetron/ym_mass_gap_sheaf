@@ -1,5 +1,18 @@
 # Sorry Ledger
 
+## Proved identity: finite sector-test coordinate formula (2026-09-23)
+
+- **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFiniteTestPairing.lean`.
+- **theorem**: `weightedInner_linearObservable_eqv_coordinateSum` expresses
+  the actual later-cutoff pairing of an arbitrary left observable with a fixed
+  sector test as a finite retained-coordinate/coefficient/pulled-weight sum.
+- **residue**: cutoff and completed-vector passage before dense proportionality
+  and vacuum-complement rigidity. No tail bound, gap or continuum result is
+  supplied. No new analytic premise, canonical field, axiom or hole.
+- **verification**: monitored 20 GiB leaf check,
+  `/tmp/ym-gap-sector-finite-test-pairing-check-4.log`; the gate contains only
+  `{propext, Quot.sound}`, no warnings or `sorryAx`. No full audit.
+
 ## Proved rigidity: one persistent coordinate for completed fixed vectors (2026-09-23)
 
 - **file**: `YMGap/Continuum/BF4PhysicalCutoffVacuumSectorFixedCoordinate.lean`.
