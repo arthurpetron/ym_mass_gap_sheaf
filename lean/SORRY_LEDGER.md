@@ -45,6 +45,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   `marginalHalfGeometricCompletedFamily_rate_lt_one`, and
   `marginalHalfGeometricCompletedFamily_autocorrelation_sq_decay`, and
   `marginalHalfGeometricCompletedFamily_concrete_cube_autocorrelation_sq_decay`.
+- **additional consequence**:
+  `noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily` proves that no
+  `DynamicVacuumSectorPhysicalRateBand` can inhabit this family: its lattice
+  margin is fixed and positive while its attached spacing has a zero modulus.
 - **proof content**: the family uses the already inhabited marginal
   contraction at `w = 1/2` at every scale and the explicit geometric spacing
   modulus.  Its rate identity and same-object decay are inherited from the

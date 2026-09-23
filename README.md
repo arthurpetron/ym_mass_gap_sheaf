@@ -147,6 +147,13 @@ no replacement observable or transfer.  This closes the observable-connection
 seam for the geometric staging object only.  It remains distinct from a
 physical-rate-band, thermodynamic, continuum, QFT, all-group, or Clay result.
 
+The module also proves
+`noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily`: the fixed
+completed lattice margin is incompatible with the upper half of the physical
+rate-band contract when the attached spacing tends to zero.  This is a
+constructive route-pruning result, not a Yang--Mills no-go theorem; a genuinely
+scale-dependent completed transfer family is still required.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

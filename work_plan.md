@@ -42,6 +42,13 @@ or Clay conclusion follows. The focused dependency-complete target passed
 6078 jobs; the new declaration uses only `{propext, Quot.sound}` and no
 `sorryAx`.
 
+The same module also proves
+`noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily`.  Its fixed,
+strictly positive completed lattice margin contradicts the upper rate-band
+inequality at the spacing-to-zero modulus.  This is a constructive route-pruner
+only, not a no-go theorem for Yang--Mills: the next physical producer must make
+the completed transfer itself scale-dependent.
+
 ### Original connected spatial diagonal now has explicit Cauchy data (2026-09-22 UTC)
 
 `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean` now exposes
