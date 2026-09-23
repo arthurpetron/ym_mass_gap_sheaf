@@ -152,20 +152,22 @@ Monitored focused verification passed; both printed declarations use only
 ## PROVED padded projection pairing transport (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionPaddedProjectionPairing.lean`.
-- **proved declarations**: `project_padded_pairing` and
-  `exposed_heat_projected_pairing`.
+- **proved declarations**: `project_padded_pairing`,
+  `exposed_heat_projected_pairing`, and
+  `exposed_heat_product_projected_pairing`.
 - **proof content**: transports a supported `PaddedPolynomialCoeffEqv`
   through `project block` and an arbitrary supported Haar insertion by using
   identity-reindex/integration commutation, `project_congr`, and
-  `PaddedPolynomialCoeffEqv.haar_insert`; the companion specializes this
-  transport to the exposed selected heat packet.
-- **remaining obligation**: specialize this generic transport to the exposed
-  selected heat/product; the `heatPair`/`headMap` comparison is now proved
-  separately in the exposed-head module, while the full selected-link pairing
-  remains open.
+  `PaddedPolynomialCoeffEqv.haar_insert`; the companions specialize it to
+  the exposed selected heat packet and to the full heat-times-state product,
+  respectively.
+- **remaining obligation**: identify the resulting relative-heat conditional
+  form with `heatPair` for arbitrary shared spectators; the `heatPair`/
+  `headMap` comparison is proved separately in the exposed-head module, while
+  the full selected-link pairing remains open.
 - **constructive status**: focused monitored check passed; the declaration
   uses only `{propext, Quot.sound}` and introduces no `sorry` or new axiom.
-  Log: `/tmp/ym-padded-projection-pairing-current4.log`.
+  Log: `/tmp/ym-padded-projection-product4.log`.
 - **scope**: finite supported SU(2) projection algebra only; no interacting
   selected-link inhabitant, OS gap, continuum, physical mass, full-QFT, or
   every-group conclusion.

@@ -381,8 +381,11 @@ conditional projection and a supported Haar insertion.  It explicitly
 commutes the identity reindex with block integration before applying the
 existing padded Haar-insertion theorem.  The companion
 `exposed_heat_projected_pairing` applies this transport to the actual
-selected heat packet.  These lemmas still do not construct the exposed
-selected-link projection/product pairing.
+selected heat packet.  `exposed_heat_product_projected_pairing` then reduces
+the full exposed heat-times-state projection to a relative-heat conditional
+form with the same exposed test.  The remaining selected-link pairing is the
+identification of that conditional form with `heatPair` for arbitrary shared
+spectators.
 
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original

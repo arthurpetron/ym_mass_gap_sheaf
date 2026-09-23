@@ -16,6 +16,7 @@ namespace YMGap.Continuum.SU2QuaternionPaddedProjectionPairing
 set_option autoImplicit false
 
 open YMGap.Constructive
+open YMGap.Continuum.BF4CompactActionCPOrder
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 open YMGap.Continuum.SU2QuaternionArbitraryHaarBlockReflection
@@ -95,7 +96,72 @@ theorem exposed_heat_projected_pairing
   exact project_padded_pairing (blocks := tailBlocks + 1) (block := 0)
     (by omega) hexposed hrelative hinsertion hkernel
 
+/-! Multiplying the exposed heat equivalence by an arbitrary supported state
+and then projecting gives a concrete relative-heat conditional form.  This
+is the strongest product reduction available before identifying that form
+with `heatPair` for arbitrary shared spectators. -/
+theorem exposed_heat_product_projected_pairing
+    (tailBlocks selected multiplier : Nat)
+    (hblocks : 0 < tailBlocks)
+    (hselected : selected < tailBlocks + 1)
+    (hmultiplier : multiplier < tailBlocks + 1)
+    (hdistinct : selected ≠ multiplier)
+    (w : Q') (K : Nat)
+    (polynomial test : RatPoly) :
+    quaternionHaar (tailBlocks + 1)
+        (polyMul
+          (project 0
+            (exposeTranslationPairPolynomial (tailBlocks + 1)
+              selected multiplier (by omega) hselected hmultiplier
+              (polyMul (heatAt selected multiplier w K) polynomial)))
+          (exposeTranslationPairPolynomial (tailBlocks + 1)
+            selected multiplier (by omega) hselected hmultiplier test)) ≈
+      quaternionHaar (tailBlocks + 1)
+        (polyMul
+          (project 0
+            (polyMul (relativeHeat w K)
+              (exposeTranslationPairPolynomial (tailBlocks + 1)
+                selected multiplier (by omega) hselected hmultiplier
+                polynomial)))
+          (exposeTranslationPairPolynomial (tailBlocks + 1)
+            selected multiplier (by omega) hselected hmultiplier test)) := by
+  let blocks := tailBlocks + 1
+  let head := translationPairHeadPermutation blocks selected hselected
+  let tail := translationPairTailPermutation blocks selected multiplier
+    (by omega) hselected hmultiplier
+  let exposed (p : RatPoly) := reindexQuaternionPolynomial tail
+    (reindexQuaternionPolynomial head p)
+  have hheat := exposeTranslationPair_heat blocks selected multiplier
+    (by omega) hselected hmultiplier hdistinct w K
+  have hexposedPoly : SupportedQuaternionBlocks blocks (exposed polynomial) := by
+    exact exposeTranslationPairPolynomial_supported blocks selected multiplier
+      (by omega) hselected hmultiplier polynomial
+  have hexposedTest : SupportedQuaternionBlocks blocks (exposed test) := by
+    exact exposeTranslationPairPolynomial_supported blocks selected multiplier
+      (by omega) hselected hmultiplier test
+  have hrelative : SupportedQuaternionBlocks blocks (relativeHeat w K) := by
+    exact heat_supported (a := 0) (b := 1) (by omega) (by omega) w K
+  have hprod : PaddedPolynomialCoeffEqv blocks
+      (exposed (polyMul (heatAt selected multiplier w K) polynomial))
+      (polyMul (relativeHeat w K) (exposed polynomial)) := by
+    have hmul := PaddedPolynomialCoeffEqv.mul hheat
+      (PaddedPolynomialCoeffEqv.refl blocks (exposed polynomial))
+    simpa only [exposed, exposeTranslationPairPolynomial,
+      reindexQuaternionPolynomial_mul] using hmul
+  have hleft : SupportedQuaternionBlocks blocks
+      (exposed (polyMul (heatAt selected multiplier w K) polynomial)) := by
+    exact exposeTranslationPairPolynomial_supported blocks selected multiplier
+      (by omega) hselected hmultiplier
+      (polyMul (heatAt selected multiplier w K) polynomial)
+  have hright : SupportedQuaternionBlocks blocks
+      (polyMul (relativeHeat w K) (exposed polynomial)) :=
+    supported_polyMul hrelative hexposedPoly
+  have hpair := project_padded_pairing (blocks := blocks) (block := 0)
+    (by omega) hleft hright hexposedTest hprod
+  simpa only [blocks, exposed] using hpair
+
 end YMGap.Continuum.SU2QuaternionPaddedProjectionPairing
 
 #print axioms YMGap.Continuum.SU2QuaternionPaddedProjectionPairing.project_padded_pairing
 #print axioms YMGap.Continuum.SU2QuaternionPaddedProjectionPairing.exposed_heat_projected_pairing
+#print axioms YMGap.Continuum.SU2QuaternionPaddedProjectionPairing.exposed_heat_product_projected_pairing

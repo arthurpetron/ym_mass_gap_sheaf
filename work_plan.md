@@ -185,8 +185,11 @@ through the identity block involution using
 `PaddedPolynomialCoeffEqv.haar_insert`.  Its companion
 `exposed_heat_projected_pairing` applies the transport to the actual selected
 heat packet.  This discharges the generic projection-compatibility algebraic
-seam, but the exposed selected-link field still needs the concrete exposed
-heat/product recoding and the independent `heatPair`/`headMap` comparison.
+seam.  `exposed_heat_product_projected_pairing` now multiplies the kernel
+equivalence by an arbitrary state and transports the full exposed product
+through `project 0`, leaving a relative-heat conditional form against the
+same exposed test.  The remaining field is the arbitrary shared-spectator
+identification of that form with `heatPair`.
 
 **PROGRESS -- the exposed input now reaches an actual hybrid stage:**
 `hybridSweep_cons_eq_selectedHeatProjection` identifies a schedule head with
