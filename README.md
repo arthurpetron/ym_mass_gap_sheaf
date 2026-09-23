@@ -330,6 +330,9 @@ The exponent maximum is now further bounded by the explicit spatial/cutoff
 quantity `faceEdges.length * c4(cutoff)`, through
 `fineUnitCouplingPhysicalCasimirMomentBound_spatial_cutoff`.  This exposes the
 growth source rather than hiding it in a finite maximum.
+The direct consumer
+`centeredCylinderRemainder_abs_le_of_spatial_cutoff_casimir_ceiling` now carries
+that dependence all the way to the finite observable remainder.
 
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.

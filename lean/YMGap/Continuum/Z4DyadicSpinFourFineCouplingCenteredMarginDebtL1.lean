@@ -1315,6 +1315,33 @@ theorem centeredCylinderRemainder_abs_le_of_finite_casimir_ceiling
     (fineUnitCouplingPhysicalCasimirMomentFiniteCeiling_nonnegative S)
     (fineUnitCouplingPhysicalCasimirMomentBound_finite S)
 
+/-- Fully explicit finite centered-cylinder estimate using the spatial/cutoff
+growth envelope for the same-carrier Casimir moment. -/
+theorem centeredCylinderRemainder_abs_le_of_spatial_cutoff_casimir_ceiling
+    (S : SlabScalePair)
+    (hfineCutoff : S.fine.cutoff = 1)
+    (hcoarseCoupling : (0 : Q') < S.coarse.coupling)
+    (hfineCoupling_le_one : S.fine.coupling ≤ 1)
+    (M : SlabFaceBlockMap S)
+    (family : MatchedBlockFamily) (law : CubicMarginLaw family)
+    (g : Q') (hg : (0 : Q') < g) (hgle : g ≤ law.g₁)
+    (hcoupling : S.fine.coupling = blockedWeight family g) :
+    Q'.abs
+        (centeredCylinderRemainder
+          (physicalKernel S hfineCutoff hcoarseCoupling) M) ≤
+      (fineUnitCouplingBalancedCarrierRatioCeiling g
+          ((1 + (Q'.ofNat 2 * (g * g)) *
+            fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S) *
+            (1 + (Q'.ofNat 2 * (g * g)) *
+              fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S)) hg +
+        Q'.ofNat 2 * finiteMarginEnvelopeCeiling S) * (g * g) := by
+  exact centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling
+    S hfineCutoff hcoarseCoupling hfineCoupling_le_one M family law
+    g (fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling S) hg hgle
+    hcoupling
+    (fineUnitCouplingPhysicalCasimirMomentSpatialCutoffCeiling_nonnegative S)
+    (fineUnitCouplingPhysicalCasimirMomentBound_spatial_cutoff S)
+
 /-- The reciprocal envelope reaches the complete finite centered-cylinder
 bound once the independent balanced scale-defect calibration is supplied. -/
 theorem centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
@@ -1421,6 +1448,7 @@ theorem centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal
 #print axioms fineUnitCouplingPhysicalCasimirMomentBound_spatial_cutoff
 #print axioms centeredCylinderRemainder_abs_le_of_casimir_moment_ceiling
 #print axioms centeredCylinderRemainder_abs_le_of_finite_casimir_ceiling
+#print axioms centeredCylinderRemainder_abs_le_of_spatial_cutoff_casimir_ceiling
 #print axioms centeredCylinderRemainder_abs_le_of_matched_casimir_loss
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_reciprocal
 #print axioms centeredCylinderRemainder_abs_le_of_balanced_and_uniform_reciprocal

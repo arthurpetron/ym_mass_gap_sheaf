@@ -85,7 +85,9 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
   The additional spatial/cutoff compiler
   `fineUnitCouplingPhysicalCasimirMomentBound_spatial_cutoff` bounds the
   exponent maximum by `faceEdges.length * c4(cutoff)` and retains that growth
-  explicitly; it does not discharge the uniform-moment obligation.
+  explicitly; its observable consumer is
+  `centeredCylinderRemainder_abs_le_of_spatial_cutoff_casimir_ceiling`.
+  Neither declaration discharges the uniform-moment obligation.
   The result does not identify an OS transfer matrix, pass to a thermodynamic
   or continuum limit, construct the QFT, calibrate a physical mass, cover all
   compact simple groups, or prove the Clay theorem; it does not close
