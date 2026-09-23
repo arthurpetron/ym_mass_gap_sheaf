@@ -61,6 +61,10 @@ A `sorry` standing for a **constructive** obligation must never be closed later 
 - **observable join**: the final declaration specializes the family decay to
   the literal moving-centered cube and the same completed inner product stored
   by the concrete SU(2) carrier certificate; no surrogate observable is used.
+- **rate-padding boundary**: `FixedNomeCofinalVacuumSectorCenteredStrictGap.weakenRate`
+  constructively reuses the same carrier while replacing a finite rate `q₀`
+  by any larger `q < 1`.  This is bookkeeping only and must not be used as a
+  physical calibration or to manufacture a `DynamicVacuumSectorPhysicalRateBand`.
 - **verification**: focused dependency-complete safe build of
   `+YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily:olean`
   passed 6078 jobs; all printed declarations report only

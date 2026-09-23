@@ -154,6 +154,13 @@ rate-band contract when the attached spacing tends to zero.  This is a
 constructive route-pruning result, not a Yang--Mills no-go theorem; a genuinely
 scale-dependent completed transfer family is still required.
 
+The same module also exports
+`FixedNomeCofinalVacuumSectorCenteredStrictGap.weakenRate`.  It reuses the
+same centered carrier and weakens a finite strict bound from `q₀` to any
+`q₀ ≤ q < 1`.  This is deliberately rate padding for bookkeeping, not a
+physical calibration: padding cannot turn the fixed-margin staging family into
+a physical-rate band or a mass-gap theorem.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,

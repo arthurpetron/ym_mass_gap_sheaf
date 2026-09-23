@@ -34,6 +34,10 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCenteredLimitGap
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledUniformPoincareGap
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorHeadCentering
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorFormCauchy
 open YMGap.Continuum.PhysicalSeparatorLogRate
 open YMGap.Continuum.PhysicalSeparatorLinearTail
 
@@ -198,6 +202,46 @@ theorem noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily
       (Q'.le_of_eqv (Q'.mul_one_eqv (family.latticeMargin 0))) hle
   exact (Int.not_lt_of_ge hreverse) hstrict
 
+/-! ## 5. Explicit rate padding, kept separate from physical calibration -/
+
+/-- Weaker finite cofinal rates preserve the same centered carrier bound.
+This is a bookkeeping lemma only: because it deliberately replaces a rate by
+a larger upper bound, it must not be used as a physical mass calibration. -/
+def FixedNomeCofinalVacuumSectorCenteredStrictGap.weakenRate
+    {w : Q'} {hw : (0 : Q') ≤ w} {half : Nat}
+    {q₀ q : Q'}
+    (certificate : FixedNomeCofinalVacuumSectorCenteredStrictGap
+      w hw half q₀)
+    (h_rate : q₀ ≤ q)
+    (hq_lt_one : q < (1 : Q')) :
+    FixedNomeCofinalVacuumSectorCenteredStrictGap w hw half q where
+  rate_nonnegative :=
+    Q'.le_trans' _ _ _ certificate.rate_nonnegative h_rate
+  rate_lt_one := hq_lt_one
+  anchor := certificate.anchor
+  anchor_ge := certificate.anchor_ge
+  centeredGap := by
+    intro base threshold coefficient
+    let later := certificate.anchor base threshold
+    let moving :=
+      centralPhysicalFinitePulledVacuumSectorHeadCenteredCoefficient
+        w hw base later half coefficient
+    have hbase : base ≤ later := by
+      exact Nat.le_trans (Nat.le_max_left _ _)
+        (certificate.anchor_ge base threshold)
+    have h_old := certificate.centeredGap base threshold coefficient
+    have h_matrix_nonnegative := fixedBasePulledMovingMatrix_nonnegative
+      (w := w) (hw := hw) base later half hbase coefficient
+    have h_matrix_le_diagonal := fixedBasePulledMovingMatrix_le_diagonal
+      (w := w) (hw := hw) base later half hbase coefficient
+    have h_diagonal_nonnegative :
+        (0 : Q') ≤
+          centralPhysicalFinitePulledVacuumSectorDiagonalQuadratic
+            w hw base later half moving :=
+      Q'.le_trans' _ _ _ h_matrix_nonnegative h_matrix_le_diagonal
+    exact Q'.le_trans' _ _ _ h_old
+      (Q'.mul_le_mul_of_nonneg_right _ _ _ h_rate h_diagonal_nonnegative)
+
 /-! ## Dependency gates -/
 
 end YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
@@ -218,3 +262,5 @@ end YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
   YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily.marginalHalfGeometricCompletedFamily_concrete_cube_autocorrelation_sq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily.noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily
+#print axioms
+  YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily.FixedNomeCofinalVacuumSectorCenteredStrictGap.weakenRate

@@ -49,6 +49,15 @@ inequality at the spacing-to-zero modulus.  This is a constructive route-pruner
 only, not a no-go theorem for Yang--Mills: the next physical producer must make
 the completed transfer itself scale-dependent.
 
+The same module now includes
+`FixedNomeCofinalVacuumSectorCenteredStrictGap.weakenRate`, a checked monotone
+finite-bound padding lemma.  It preserves the centered carrier while replacing
+`q₀` by any `q₀ ≤ q < 1`; its role is diagnostic bookkeeping only.  It cannot
+provide physical calibration, because an artificially weakened bound does not
+change the transfer or its actual margin.  The next real obligation therefore
+remains an inhabited scale-dependent adaptive transition-product certificate,
+with the physical margin tied to the vanishing spacing.
+
 ### Original connected spatial diagonal now has explicit Cauchy data (2026-09-22 UTC)
 
 `BF4ExactSlabFixedSpatialOriginalConnectedDiagonalCauchy.lean` now exposes
