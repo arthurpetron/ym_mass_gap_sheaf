@@ -17,6 +17,7 @@ thermodynamic/continuum result.
 import YMGap.Constructive.Sqrt
 import YMGap.Constructive.ExpNeg
 import YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz
+import YMGap.Continuum.GNSDenseCompletionLaws
 import YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
 
 namespace YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate
@@ -26,9 +27,11 @@ set_option maxHeartbeats 8000000
 
 open YMGap.Constructive
 open YMGap.Continuum.GNSQuotient
+open YMGap.Continuum.GNSDenseCompletionLaws
 open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz
 open YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison
 open YMGap.Continuum.BF4GeometricHaarMehlerProjection
+open YMGap.Continuum.BF4CompactActionCPOrder
 open YMGap.Continuum.SU2HeatCutoffCasimirBound
 open YMGap.Continuum.SU2QuaternionFiniteHaarGNSCarrier
 open YMGap.Continuum.SU2QuaternionFiniteHaarProductMapQuotient
@@ -513,6 +516,91 @@ def centeredCompletionStrictRateCertificate
   exact centeredCompletionTwoStepMoment_RCle_exact
     n hw0 hw1 K hK ids hnodup hids x
 
+/-! ## Completed centered-carrier separation -/
+
+private theorem cAdd_embed_zero_local (D : GNSData)
+    (x : GNSCompletionSpace D) :
+    D.cAdd x (embedV D D.zero) = x := by
+  refine Quotient.inductionOn x ?_
+  intro X
+  apply Quotient.sound
+  intro ε hε
+  refine ⟨0, fun n _ => ?_⟩
+  have hv : D.veq (D.add (X.seq n) D.zero) (X.seq n) := D.add_zero _
+  have hsub : D.veq (D.sub (D.add (X.seq n) D.zero) (X.seq n)) D.zero := by
+    refine D.veq_trans
+      (D.veq_trans
+        (D.add_congr hv (D.veq_refl (D.neg (X.seq n))))
+        (D.add_comm (X.seq n) (D.neg (X.seq n))))
+      (D.neg_add (X.seq n))
+  have hrad : D.rad (D.add (X.seq n) D.zero) (X.seq n) := by
+    exact Q'.eqv_trans _ _ _
+      (D.B_diag_congr hsub) (D.B_zero_left D.zero)
+  exact Q'.le_trans' _ 0 ε (Q'.le_of_eqv hrad) (Q'.le_of_lt hε)
+
+private theorem cSub_embed_zero_local (D : GNSData)
+    (x : GNSCompletionSpace D) :
+    D.cSub x (embedV D D.zero) = x := by
+  unfold GNSData.cSub
+  rw [D.cNeg_embed D.zero]
+  have hz : D.veq (D.neg D.zero) D.zero := D.neg_zero
+  have hneg : D.cAdd x (embedV D (D.neg D.zero)) =
+      D.cAdd x (embedV D D.zero) := by
+    refine Quotient.inductionOn x ?_
+    intro X
+    apply Quotient.sound
+    intro ε hε
+    refine ⟨0, fun n _ => ?_⟩
+    have hrad : D.rad (D.add (X.seq n) (D.neg D.zero))
+        (D.add (X.seq n) D.zero) := by
+      have hv : D.veq (D.add (X.seq n) (D.neg D.zero))
+          (D.add (X.seq n) D.zero) := D.add_congr (D.veq_refl _) hz
+      have hsub : D.veq
+          (D.sub (D.add (X.seq n) (D.neg D.zero))
+            (D.add (X.seq n) D.zero)) D.zero := by
+        refine D.veq_trans
+          (D.veq_trans
+            (D.add_congr hv (D.veq_refl _))
+            (D.add_comm _ _))
+          (D.neg_add (D.add (X.seq n) D.zero))
+      exact Q'.eqv_trans _ _ _
+        (D.B_diag_congr hsub) (D.B_zero_left D.zero)
+    exact Q'.le_trans' _ 0 ε (Q'.le_of_eqv hrad) (Q'.le_of_lt hε)
+  rw [hneg, cAdd_embed_zero_local]
+
+def centeredCompletionZero (n : Nat) : CenteredCompletionSpace n :=
+  embedCenteredRep n (finiteHaarGNSData n).zero (by
+    change quaternionHaar n (polySmul 0 polyOne) ≈ 0
+    exact Q'.eqv_trans _ _ _
+      (quaternionHaar_polySmul n 0 polyOne)
+      (Q'.zero_mul_eqv (quaternionHaar n polyOne)))
+
+theorem centeredCompletionZero_toGNS (n : Nat) :
+    centeredCompletionToGNSCompletion n (centeredCompletionZero n) =
+      embedV (finiteHaarGNSData n) (finiteHaarGNSData n).zero := rfl
+
+theorem centeredCompletionInner_posdef (n : Nat)
+    (x : CenteredCompletionSpace n) :
+    centeredCompletionInner n x x = CReal.RCzero ↔
+      x = centeredCompletionZero n := by
+  constructor
+  · intro h
+    apply centeredCompletionToGNSCompletion_injective n
+    rw [centeredCompletionZero_toGNS]
+    apply GNSDenseCompletionLaws.eq_of_distance_le_zero
+    rw [cSub_embed_zero_local]
+    change CReal.RCle (centeredCompletionInner n x x) CReal.RCzero
+    rw [h]
+    exact CReal.RCle_refl _
+  · intro hx
+    rw [hx]
+    unfold centeredCompletionInner centeredCompletionZero
+    rw [centeredCompletionToGNSCompletion_embedCenteredRep]
+    change (finiteHaarGNSData n).cinnerCompl
+      (embedV (finiteHaarGNSData n) (finiteHaarGNSData n).zero)
+      (embedV (finiteHaarGNSData n) (finiteHaarGNSData n).zero) = _
+    rw [(finiteHaarGNSData n).cinnerCompl_embedZero_left]
+
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate_lt_one
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.midpointRate_sq_ge
@@ -521,5 +609,8 @@ def centeredCompletionStrictRateCertificate
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_leEv_exact
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionTwoStepMoment_RCle_exact
 #print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionStrictRateCertificate
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionZero
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionZero_toGNS
+#print axioms YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate.centeredCompletionInner_posdef
 
 end YMGap.Continuum.SU2QuaternionFiniteHaarMidpointFormRate

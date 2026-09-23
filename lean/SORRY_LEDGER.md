@@ -13,6 +13,25 @@ Every `sorry` in `lean/` must appear here with:
 
 A `sorry` standing for a **constructive** obligation must never be closed later by a classical proof without explicit sign-off recorded in this ledger.
 
+## PROVED completed centered-carrier positive definiteness (2026-09-23 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarMidpointFormRate.lean`.
+- **proved declarations**: `centeredCompletionZero`,
+  `centeredCompletionZero_toGNS`, and `centeredCompletionInner_posdef`.
+- **proof content**: constructs the centered completion's zero point from the
+  explicit finite-Haar zero representative, proves completion subtraction by
+  the embedded GNS zero is the identity, and applies the generic constructive
+  `GNSDenseCompletionLaws.eq_of_distance_le_zero` theorem through the injective
+  centered-to-full-GNS inclusion.  The reverse direction uses the full
+  completion's embedded-zero pairing law.
+- **scope**: this proves separation of the ordinary-Haar completed centered
+  carrier.  It does not identify that carrier with the interacting OS space,
+  supply a beta/spacing-uniform rate, or prove a physical spectral or
+  continuum gap.
+- **verification**: focused safe build passed `1909/1909`; the new public
+  declarations report only `{propext, Quot.sound}` and introduce no `sorry` or
+  classical axiom.
+
 ## PROVED strict midpoint-rate consequence (2026-09-23 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionFiniteHaarMidpointFormRate.lean`.

@@ -189,6 +189,29 @@ for every vector in one constructive sigma witness.  This is a genuine
 carrier-wide certificate at the displayed finite parameters, not a silently
 uniform-in-beta or spacing statement.
 
+### Completed centered-carrier separation (2026-09-23 UTC)
+
+`centeredCompletionZero` constructs the centered completion's zero point from
+the explicit finite-Haar zero representative.  The local completion identity
+for subtraction by the embedded GNS zero is proved directly from the Cauchy
+null relation, and `centeredCompletionZero_toGNS` pins this point to the zero
+of the already constructed full finite-Haar GNS completion.  Consequently,
+`centeredCompletionInner_posdef` proves
+
+```text
+centeredCompletionInner n x x = 0  <->  x = centeredCompletionZero n.
+```
+
+The forward implication uses the generic full-completion separation theorem
+`GNSDenseCompletionLaws.eq_of_distance_le_zero` and the injective centered
+inclusion; the reverse implication uses the embedded-zero pairing law.  This
+closes the nonzero-vector/norm-separation seam for the finite ordinary-Haar
+SU(2) carrier.  It remains only a finite carrier fact: no interacting OS
+identification, beta/spacing-uniform estimate, physical calibration,
+thermodynamic limit, continuum QFT, or Clay conclusion follows yet.  Focused
+safe verification passed the dependency-complete target (1909 jobs), with only
+`{propext, Quot.sound}`.
+
 ### Exact hybrid sweep reaches the original product and endpoint energy (2026-09-21 UTC)
 
 **PROGRESS -- the operator-composition identity is now checked:**

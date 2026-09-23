@@ -81,6 +81,16 @@ constructive sigma witness uniform over all vectors in the displayed carrier.
 The focused dependency-complete check passed all 1907 jobs with only
 `{propext, Quot.sound}`.
 
+The same module now constructs `centeredCompletionZero` and proves
+`centeredCompletionInner_posdef`: the completed centered ordinary-Haar SU(2)
+carrier has zero completed norm exactly at its explicit zero point.  The proof
+uses the injective inclusion into the full finite-Haar GNS completion and the
+generic constructive separation theorem
+`GNSDenseCompletionLaws.eq_of_distance_le_zero`.  This closes finite carrier
+separation only; it is not an interacting OS, physical, thermodynamic,
+continuum, or Clay mass-gap theorem.  Focused safe verification passed the
+dependency-complete target with 1909 jobs and only `{propext, Quot.sound}`.
+
 > **Current frontier (2026-09-23 UTC):** the fixed-spacing SU(2) Wilson
 > carrier has a checked strict two-step form gap and nonzero excitations.
 > Its finite chronological operators now have checked composition, adjoints,
