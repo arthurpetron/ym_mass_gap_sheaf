@@ -148,6 +148,26 @@ Monitored focused verification passed; both printed declarations use only
   inhabitant, completed OS gap, continuum, physical-mass, full-QFT, or
   every-group conclusion.
 
+## PROVED padded projection pairing transport (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionPaddedProjectionPairing.lean`.
+- **proved declarations**: `project_padded_pairing` and
+  `exposed_heat_projected_pairing`.
+- **proof content**: transports a supported `PaddedPolynomialCoeffEqv`
+  through `project block` and an arbitrary supported Haar insertion by using
+  identity-reindex/integration commutation, `project_congr`, and
+  `PaddedPolynomialCoeffEqv.haar_insert`; the companion specializes this
+  transport to the exposed selected heat packet.
+- **remaining obligation**: specialize this generic transport to the exposed
+  selected heat/product and separately prove the exposed `heatPair`/`headMap`
+  comparison; the full selected-link pairing remains open.
+- **constructive status**: focused monitored check passed; the declaration
+  uses only `{propext, Quot.sound}` and introduces no `sorry` or new axiom.
+  Log: `/tmp/ym-padded-projection-pairing-current4.log`.
+- **scope**: finite supported SU(2) projection algebra only; no interacting
+  selected-link inhabitant, OS gap, continuum, physical mass, full-QFT, or
+  every-group conclusion.
+
 ## PROVED conditional hybrid-stage bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean`.

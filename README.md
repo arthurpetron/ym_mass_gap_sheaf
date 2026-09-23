@@ -365,6 +365,16 @@ the independent exposed `heatPair`/`headMap` comparison.  The checked
 field is inhabited: conditional projection compatibility and the
 `copy`/`liftHead` comparison remain genuine finite SU(2) obligations.
 
+**Padded projection transport (2026-09-22 UTC):**
+`SU2QuaternionPaddedProjectionPairing.project_padded_pairing` proves the
+generic finite lemma that supported `PaddedPolynomialCoeffEqv` survives a
+conditional projection and a supported Haar insertion.  It explicitly
+commutes the identity reindex with block integration before applying the
+existing padded Haar-insertion theorem.  The companion
+`exposed_heat_projected_pairing` applies this transport to the actual
+selected heat packet.  Neither theorem constructs the exposed selected-link
+pairing or identifies the exposed relative heat kernel with `headMap`.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is

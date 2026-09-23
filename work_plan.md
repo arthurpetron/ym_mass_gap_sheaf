@@ -174,6 +174,18 @@ fields into the existing exposed-head certificate.  No inhabitant of either
 bridge is claimed; this is a sharper, causal decomposition of the same
 finite interacting obligation.
 
+**PROGRESS -- padded equivalence now survives conditional projection:**
+`SU2QuaternionPaddedProjectionPairing.project_padded_pairing` proves that a
+supported `PaddedPolynomialCoeffEqv` remains valid after `project block` and
+an arbitrary supported Haar insertion.  The proof transports the equivalence
+through the identity block involution using
+`reindex_integrateQuaternionBlock`, applies `project_congr`, and closes with
+`PaddedPolynomialCoeffEqv.haar_insert`.  Its companion
+`exposed_heat_projected_pairing` applies the transport to the actual selected
+heat packet.  This discharges the generic projection-compatibility algebraic
+seam, but the exposed selected-link field still needs the concrete exposed
+heat/product recoding and the independent `heatPair`/`headMap` comparison.
+
 **PROGRESS -- the exposed input now reaches an actual hybrid stage:**
 `hybridSweep_cons_eq_selectedHeatProjection` identifies a schedule head with
 the selected-link update on the literal doubled carrier, using

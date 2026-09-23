@@ -27,6 +27,7 @@ open YMGap.Continuum.SU2QuaternionAngularReindex
 open YMGap.Continuum.SU2QuaternionConjugatedHeadHeatChain
 open YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
 open YMGap.Continuum.SU2QuaternionHaarBlockProjection
+open YMGap.Continuum.SU2QuaternionHaarBlockConditionalAlgebra
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionRelativeHeatPairGeometry
 open YMGap.Continuum.SU2QuaternionRelativeHeatTransmission
@@ -207,6 +208,20 @@ def selectedLinkExposedProjectionPairing_of_pairing
         (tailBlocks + 1) selected multiplier (by omega)
           hselected hmultiplier hdistinct w K
       pairing := pairing }
+
+/-! A fully proved finite variant is available when the input equivalence is
+the ordinary coefficient equivalence.  This is the exact operation that is
+missing for `PaddedPolynomialCoeffEqv`: the latter is an equivalence only
+after a common identity reindex, and no theorem currently removes that
+reindex before applying `project`. -/
+theorem project_coeff_pairing
+    {blocks index : Nat} {p q insertion : RatPoly}
+    (h : RatPolyCoeffEqv p q) :
+    quaternionHaar blocks
+        (polyMul (project index p) insertion) ≈
+      quaternionHaar blocks
+        (polyMul (project index q) insertion) := by
+  exact haar_of_coeff ((project_congr index h).mul_right insertion)
 
 structure SelectedLinkExposedHeatHeadPairing
     (tailBlocks selected multiplier : Nat)
@@ -460,6 +475,7 @@ end YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkHeadIdentification
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkExposedHeadPairing
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedHeatPair
+#print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.project_coeff_pairing
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkExposedProjectionPairing
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.selectedLinkExposedProjectionPairing_of_pairing
 #print axioms YMGap.Continuum.SU2QuaternionSelectedLinkHeadIdentification.SelectedLinkExposedHeatHeadPairing
