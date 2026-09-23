@@ -27647,3 +27647,23 @@ is not constructed here.  Thus this milestone supplies a conditional bridge
 for the centered-density/completion route, not an unconditional density
 theorem, completed physical gap, OS/scaling or thermodynamic/continuum
 passage, physical mass calibration, all-group theorem, or Clay result.
+
+## BF4-specific reverse comparison obligation (2026-09-23)
+
+`BF4PhysicalJointReverseComparison.lean` attaches the generic reverse map to
+the concrete BF4 central and reflected-joint carriers.  Its Type-level
+`PhysicalJointReverseComparisonCertificate` asks for a positive rational
+`κ` and the single missing lower-distance field
+`κ * distSqQ_central ≤ distSqQ_joint`.  The adapter
+`PhysicalJointReverseComparisonCertificate.toGeneric` produces the generic
+certificate; `physicalJointReverseComparison` then supplies the conditional
+map, with `physicalJointReverseComparison_comparison`,
+`physicalJointComparison_reverseComparison`, and
+`physicalJointReverseComparison_intertwines` as the quotient and operator
+consequences.
+
+The dependency-complete monitored target passed 1,135 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  No BF4 lower-distance witness is
+constructed.  Existing finite Poincaré/Dirichlet estimates are not silently
+reinterpreted as this field, so the completed uniform gap, continuum passage,
+physical mass, all-group theorem, and Clay target remain open.

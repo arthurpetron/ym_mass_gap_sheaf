@@ -101,6 +101,15 @@ witness, density theorem, strict physical gap, OS/scaling passage, continuum
 theory, physical-mass calibration, all-group construction, or Clay conclusion
 is claimed.
 
+The generic bridge is now attached to the actual BF4 reflected-joint carrier in
+`BF4PhysicalJointReverseComparison.lean`.  Its
+`PhysicalJointReverseComparisonCertificate` has only the missing finite BF4
+lower-distance field (and `κ > 0`); `physicalJointReverseComparison` supplies
+the conditional map between the concrete central and reflected-joint
+completions, with quotient round trips and transfer intertwining.  The module
+passed a dependency-complete 1,135-job monitored target under the same axiom
+gate.  No inhabitant of the BF4 lower field is currently present.
+
 The exact finite joint-form algebra is now checked in
 `BF4PhysicalJointCenteredForm.lean`.  The declarations
 `physicalJoint_vacuum_unit` and `physicalJoint_vacuum_pairing_eq_stationaryMean`

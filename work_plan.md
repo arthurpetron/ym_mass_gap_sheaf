@@ -175,6 +175,25 @@ passage, physical mass, an all-group theorem, or the Clay conclusion.  Its
 purpose is to make the exact missing comparison input mechanically consumable
 by the density and completion layers.
 
+### BF4-specific reverse comparison obligation (2026-09-23 UTC)
+
+`BF4PhysicalJointReverseComparison.lean` attaches the generic reverse bridge
+to the concrete `centralPhysicalSmulGNS` / `physicalJointSmulGNS` carriers and
+their actual BF4 transfer.  The Type-level
+`PhysicalJointReverseComparisonCertificate` exposes exactly one missing
+physical input beyond `κ > 0`: the lower-distance inequality
+`κ * distSqQ_central ≤ distSqQ_joint`.  Its adapter
+`PhysicalJointReverseComparisonCertificate.toGeneric` and map
+`physicalJointReverseComparison` provide the quotient round trips and
+`physicalJointReverseComparison_intertwines` once that field is supplied.
+
+The dependency-complete monitored target passed 1,135 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.  Existing BF4 finite Poincaré and
+Dirichlet floors do not inhabit this lower-distance field; they remain
+cutoff-dependent form estimates.  Therefore this milestone names and
+mechanizes the physical bridge but does not claim a completed uniform gap,
+continuum passage, physical mass, all-group result, or Clay theorem.
+
 ### Centered fine-source margin debt L1 envelope (2026-09-23 UTC)
 
 The companion reference-transport module now proves the exact finite identity
