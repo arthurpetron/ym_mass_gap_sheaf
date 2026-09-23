@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: construct the original full-product cyclic fold (2026-09-23)
+## Current increment: bound the actual cyclic step after rotation (2026-09-23)
+
+Two explicit block reversals identify the actual cyclic step C with
+A(headMap(B p)), under every supported-carrier insertion. Derotation B A
+then gives the computed conjugated head map, not an assumed realization.
+`cycleStep_rotated_defect_le_head_energy` consumes this join to prove
+`H(p*p)-H(R p * C p) <= (1-w)*H(blockAngularSquare 0 p)`, with R=A B and
+the original support/cutoff/coupling guards. This is actual local quantitative
+progress, not a new certificate containing the desired inequality as a field.
+
+Next consumer: the full-product endpoint angular bound. The local rotated
+pairing cannot simply be replaced by an unrotated one or summed to assert
+that bound. Commuting-product/joint-mode control, proper-active-set residuals
+and the original interacting signed correction remain open, as do all
+physical/continuum/Clay joins. Two narrow checks passed eleven permitted
+axiom gates; no root build/audit/guard. Exact evidence:
+`audits/AUDIT-PRODUCT-HEAT-CYCLIC-ROTATION-2026-09-23.md`.
+
+## Previous increment: construct the original full-product cyclic fold (2026-09-23)
 
 The replacement is now an actual operator identity, not an assumed local
 certificate. `productMap_range_cycle_carrier` identifies the fully active
@@ -12,9 +30,9 @@ original product operator with n fresh-output cyclic steps, retaining all
 signed insertions and the original final coordinate order. Its finite Fubini
 invariant uses n+m variables for m steps. Support and mean are also checked.
 
-The remaining mathematical task is quantitative: remove the cyclic rotation
-from the local smoothing estimate and control the full product angular
-defect. Intermediate cyclic maps are not asserted positive/self-adjoint.
+The local rotation separation is now checked above; controlling the full
+product angular defect remains open. Intermediate cyclic maps are not
+asserted positive/self-adjoint.
 Proper active subsets still require inactive projection control; the physical
 consumer still retains `V*g*f` and the signed endpoint correction. No
 canonical continuum/Clay atom is closed. Verification and exact declarations:

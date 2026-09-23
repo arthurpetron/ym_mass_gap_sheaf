@@ -51,6 +51,16 @@ or self-adjoint. The sum-of-angular-energies estimate, inactive-link residuals,
 and interacting signed correction remain open. See the
 [proof and verification boundary](audits/AUDIT-PRODUCT-HEAT-CYCLIC-FOLD-2026-09-23.md).
 
+The cyclic rotation is now [explicitly separated from heat smoothing](lean/YMGap/Continuum/SU2QuaternionProductHeatCyclicRotation.lean).
+For the actual cyclic step `C` and its coordinate rotation `R`, the checked
+local estimate is `H(p*p)-H(R(p)*C(p)) <= (1-w)*H(blockAngularSquare 0 p)`.
+It follows from an exact derotation identity with the computed head update,
+not an assumed operator comparison. The rotated input matters: this is not
+an unrotated intermediate-step bound or the full-product inequality.
+Composition across all blocks, inactive-link residuals and the signed
+interacting correction remain open. See the
+[local estimate and next consumer](audits/AUDIT-PRODUCT-HEAT-CYCLIC-ROTATION-2026-09-23.md).
+
 ## Earlier checkpoints (historical; later results may supersede open steps)
 
 Latest checked finite completed-carrier milestone:

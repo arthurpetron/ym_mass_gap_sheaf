@@ -13,6 +13,18 @@ discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
 **Original product map as a conditional-link sweep (2026-09-21 UTC):**
+**Rotation-separated local estimate (2026-09-23):**
+`SU2QuaternionProductHeatCyclicRotation.cycleReturn_step_carrier` identifies
+the derotation of the actual fresh-output step with a computed conjugated
+head map. `cycleStep_rotated_defect_le_head_energy` consequently bounds
+`H(p*p)-H(cycleRotation p * cycleStep p)` by `(1-w)*H(blockAngularSquare 0 p)`
+for supported inputs, `0 <= w < 1`, and `sufficientCutoff w <= K`.
+Two explicit block reversals retain every spectator and signed pairing.
+This closes the local rotation/estimate join, not the multi-step product
+bound, inactive projection residual, interacting signed correction or any
+physical/continuum obligation. Eleven public gates passed in two narrow
+checks; see `audits/AUDIT-PRODUCT-HEAT-CYCLIC-ROTATION-2026-09-23.md`.
+
 **Fresh-output replacement (2026-09-23):**
 `SU2QuaternionProductHeatCyclicFold.productMap_range_cycle_carrier` proves
 the fully active original product map is n computed cyclic steps: append a
@@ -21,7 +33,7 @@ invariant uses n+m source variables and leaves n survivors; at m=n it returns
 the original upper-slice ordering. The join preserves arbitrary signed
 insertions, support, and (for n>0) the Haar mean. It assumes no selected-link
 identification. Cyclic rotations are not positive local smoothing maps; the
-angular defect estimate and the interacting/physical joins remain open.
+full-product angular defect estimate and interacting/physical joins remain open.
 Focused verification: `audits/AUDIT-PRODUCT-HEAT-CYCLIC-FOLD-2026-09-23.md`.
 
 **Correction (2026-09-23):** The exact endpoint sweep identity below remains

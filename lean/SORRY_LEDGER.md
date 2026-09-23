@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Proved actual cyclic-step rotation and local angular bound (2026-09-23)
+
+- **files**: `YMGap/Continuum/SU2QuaternionBlockReversal.lean` and
+  `YMGap/Continuum/SU2QuaternionProductHeatCyclicRotation.lean`.
+- **join**: `cycleStep_rotation_carrier` and `cycleReturn_step_carrier`
+  identify the actual fresh-output step and its derotation with computed
+  head smoothing, retaining every insertion and spectator. No identity premise.
+- **quantitative consequence**: `cycleStep_rotated_defect_le_head_energy`
+  bounds `H(p*p)-H(R p * C p)` by `(1-w)*H(blockAngularSquare 0 p)` for
+  supported p, n>0, `0 <= w < 1`, and `sufficientCutoff w <= K`.
+- **residue**: full-product angular composition, inactive projection
+  residual, signed interacting correction, physical OS/time identification,
+  spatial/scaling, continuum survival, physical mass, QFT and every group.
+  No unrotated cyclic-step bound, self-adjointness or global estimate is claimed.
+- **honesty/verification**: no new hole, axiom or changed frontier field;
+  two 8 GiB monitored leaf checks, eleven permitted public gates, no warnings
+  or `sorryAx`; no full-root build/audit/guard. Evidence:
+  `audits/AUDIT-PRODUCT-HEAT-CYCLIC-ROTATION-2026-09-23.md`.
+
 ## Proved original full-product fresh-output fold (2026-09-23)
 
 - **files**: `YMGap/Continuum/SU2QuaternionProductHeatPrefix.lean` and
@@ -10,7 +29,7 @@
   invariant uses n+m variables, not a fixed doubled carrier for all m.
 - **consequences**: exact signed pairing and defect; supported inputs remain
   supported and their mean is preserved for n>0. No identification premise.
-- **residue**: rotation-separated local smoothing/product angular bound,
+- **residue**: product angular bound (local rotation separation proved above),
   inactive-link residual for proper active sets, interacting signed correction,
   and all original-action/time, spatial/scaling, continuum/QFT/group joins.
   Intermediate cyclic maps are NOT asserted positive or self-adjoint.

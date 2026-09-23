@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual cyclic step has a rotation-separated angular bound (2026-09-23 UTC)
+
+`SU2QuaternionBlockReversal` constructs the full reversal A and head-fixing
+tail reversal B. `SU2QuaternionProductHeatCyclicRotation` proves the actual
+cyclic step C is A(headMap(B p)) under every insertion on the supported
+carrier. Its derotation B A C is therefore the computed conjugated head map
+B headMap B. No local identification is assumed.
+
+`cycleStep_rotated_defect_le_head_energy` now gives
+`H(p*p)-H(R p * C p) <= (1-w)*H(blockAngularSquare 0 p)`, where R=A B,
+for n=tail+1, supported p, `0 <= w < 1`, and `sufficientCutoff w <= K`.
+The input follows the explicit coordinate rotation. Neither R=id nor a
+positive/self-adjoint cyclic intermediate map nor an unrotated defect is
+asserted. This is a quantitative theorem about the actual cyclic step.
+
+NEXT: prove the rotation-separated multi-step composition estimate for the
+original full product endpoint identified below. This requires more than
+summing the new local inequalities: commuting smoothing maps or positive
+joint modes and their angular control still need proof. The next local
+algebra target is `headMap` equivariance under spectator permutations fixing
+block zero; this would reduce B headMap B to headMap. Distinct selected
+head maps then need a proved commutation/product-defect argument, not an
+assumed selected-link realization. The downstream
+consumer remains `BF4ExactSlabFixedSpatialGroundStateEnergy.energy_eq_bare_add_correction`,
+with the original `V*g*f`, inactive projections for proper active subsets,
+and signed correction retained. The original-action/time, spatial/scaling,
+nontrivial continuum, physical mass, full QFT and every-group joins stay OPEN.
+
+Verification: two focused single-worker 8 GiB checks, eleven public gates
+within `{propext, Quot.sound}`, no warnings or `sorryAx`. No full-root
+build/audit/guard. Exact declarations and evidence:
+`audits/AUDIT-PRODUCT-HEAT-CYCLIC-ROTATION-2026-09-23.md`.
+
 ### Original product map is an actual fresh-output cyclic fold (2026-09-23 UTC)
 
 `SU2QuaternionProductHeatPrefix.productHeat_prefix_succ_carrier` exposes
@@ -40,9 +73,9 @@ Support persists at every step; for n>0 the original mean persists as well.
 This removes the full endpoint identification for this concrete cyclic
 implementation. It does NOT yet prove the desired angular inequality:
 each step rotates coordinates, so intermediate maps cannot be treated as
-positive/self-adjoint local updates. NEXT: separate that explicit rotation
-from heat smoothing, and prove the commuting-product angular estimate (or
-an equivalent positive joint-mode argument) on this now-pinned endpoint.
+positive/self-adjoint local updates. The rotation separation and local bound
+are now proved above; the commuting-product angular estimate (or an
+equivalent positive joint-mode argument) on this pinned endpoint remains open.
 For the physical proper active list, retain the inactive projection residual;
 the original `V*g*f` source and signed endpoint correction still need control.
 No physical gap, continuum/QFT/all-group or Clay atom is closed.
