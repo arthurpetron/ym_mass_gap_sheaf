@@ -142,6 +142,28 @@ Monitored focused verification passed; both printed declarations use only
 - **scope**: conditional finite SU(2) stage bridge only; no completed OS gap,
   continuum, physical-mass, full-QFT, or every-group conclusion.
 
+## PROVED conditional hybrid schedule defect budget (2026-09-22 UTC)
+
+- **file**: `lean/YMGap/Continuum/SU2QuaternionProductHeatHybridSweep.lean`.
+- **proved declarations**: `hybridSweepStageDefects`,
+  `hybridSweepStageAngularEnergies`, and
+  `hybridSweep_defect_budget_of_exposed`.
+- **proof content**: records the defect and selected-block energy at each
+  changing suffix-state stage of the actual hybrid schedule, then inductively
+  sums the checked per-stage `(1-w)` bound under a separately supplied
+  `SelectedLinkExposedHeadPairing` family.  Index, support, and coefficient
+  transport remain explicit.
+- **open obligation**: populate the exposed-pairing family, identify the
+  changing-stage sum with an endpoint/telescope form, remove inactive Haar
+  projections, and control signed cross-terms.
+- **constructive status**: dependency-complete monitored target
+  `+YMGap.Continuum.SU2QuaternionProductHeatHybridSweep:olean` passed 1959
+  jobs; the printed theorem uses only `{propext, Quot.sound}` and introduces
+  no `sorry` or new axiom.
+- **scope**: conditional finite SU(2) schedule budget only; no completed
+  SAME-object OS gap, continuum, physical-mass, full-QFT, or every-group
+  conclusion.
+
 ## PROVED selected-projection Haar pairing bridge (2026-09-22 UTC)
 
 - **file**: `lean/YMGap/Continuum/SU2QuaternionSelectedProjectionReindex.lean`.

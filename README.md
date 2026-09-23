@@ -283,6 +283,18 @@ only: the list is not yet the changing `hybridSweep` state trace, and inactive
 projections, signed endpoint terms, SAME-object OS/GNS, continuum survival,
 physical mass, full QFT, and every-group/Clay closure remain open.
 
+**Schedule-level conditional defect budget (2026-09-22 UTC):**
+`SU2QuaternionProductHeatHybridSweep.lean` now defines
+`hybridSweepStageDefects` and `hybridSweepStageAngularEnergies` on the actual
+changing suffix-state schedule.  The theorem
+`hybridSweep_defect_budget_of_exposed` sums the checked per-stage `(1-w)`
+estimates under an explicit `SelectedLinkExposedHeadPairing` family,
+including the support and index proofs for every scheduled stage.  This is a
+real schedule-level finite budget, but it deliberately does not identify the
+sum with an endpoint/telescope form: inactive Haar projections, signed
+cross-terms, a populated exposed-pairing family, SAME-object OS/GNS, continuum
+survival, physical mass, and all-group/Clay closure remain open.
+
 **Positive actual transfer and whole-state temporal energy (2026-09-21 UTC):**
 The new `BF4ExactSlabFixedSpatialSpanReversal.lean` identifies the original
 signed source with its odd reflection window. The extra chart slice is

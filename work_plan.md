@@ -186,6 +186,19 @@ OS, continuum, physical-mass, or every-group result.  The next causal seam is
 to construct the state-transition/identification bridge for the actual
 `hybridSweep` stages.
 
+**PROGRESS -- schedule-level conditional defect budget:**
+`SU2QuaternionProductHeatHybridSweep.hybridSweepStageDefects` records the
+actual same-object defect at each changing suffix-state stage, while
+`hybridSweepStageAngularEnergies` records the matching selected-block energy.
+The theorem `hybridSweep_defect_budget_of_exposed` inductively sums these lists
+under an explicit `SelectedLinkExposedHeadPairing` family and factors the
+common `(1-w)` coefficient through the constructive `Q'` list sum.  The
+schedule is therefore no longer hidden behind an arbitrary state list.  The
+result remains conditional and finite: it does not assert endpoint/telescope
+identification, remove inactive Haar projections, control signed cross-terms,
+populate the exposed family, or establish a SAME-object OS/GNS, continuum,
+physical-mass, or every-group result.
+
 ### Conjugated finite head defect (2026-09-22 UTC)
 
 **PROGRESS -- the checked local angular defect is now transportable by an
