@@ -25,6 +25,38 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Spectator-retaining geometric budget and SAME four-link moments (2026-09-24 UTC)
+
+The next actual-source refinement is checked. Spectator heat stays in its
+computed positive Gram channels. With b_c=P_spectator(q*c), the original
+energy obeys 4E+D_ch<=2B_ch, where B_ch is the channel sum of
+8eps*H[b_c^2*(4-f^2)]+960eps^2*H[b_c^2]. D_ch is the channel-summed
+increment, NOT the previous global increment. The positive-heat corollary
+gives 2E<=B_ch with both cutoff guards explicit.
+
+`ChannelGeometricContraction.passiveGeometricBudget_le_original` proves
+B_ch is no larger than the previous raw budget. The nonnegative plaquette
+gap is rewritten as four times its three vector-component squares before
+weighted Bessel is applied. No subtraction of upper bounds is used.
+`ChannelActiveMoments.oddMoment_eq_active_plaquette_channels` preserves the
+ORIGINAL odd-marginal partition, mean and second moment with the SAME
+insertions. Full heat on each projected source reduces to the actual face's
+observable-block heat; `observableBlocks_length` checks exactly FOUR blocks.
+This is not an identification of partial productMap with conditional heat.
+
+**Next:** control the channel-aggregated signed budget relative to the SAME
+globally centered variance for ONE justified changing-scale family, or prove
+its response directly. Sources/weights still depend on width, depth, cutoff
+and nome; signed channels are not separate probability laws. Four active heat
+blocks do not supply a uniform bound. A03 and all scaling/continuum/Clay nodes
+remain OPEN; canonical chart labels, geometry and markers are unchanged.
+
+Four final narrow serialized 2 GiB checks passed 26 permitted gates. One
+possible-concurrency refusal was resolved by verifying prior process exit;
+no safety threshold or elaboration limit was raised. Semantic imports added;
+no full-root build/audit/guard. Evidence:
+`audits/AUDIT-PASSIVE-GEOMETRIC-LOCALIZATION-2026-09-24.md`.
+
 ### Derivative-free geometric ORIGINAL energy budget (2026-09-24 UTC)
 
 The primary branch now has a quantitative consequence of the exact plaquette

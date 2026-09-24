@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: geometric second-order budget for ORIGINAL energy (2026-09-24 UTC)
+## Current increment: retain spectator heat in the geometric energy budget (2026-09-24 UTC)
+
+The ORIGINAL energy now has a channel-local geometric bound. Its total budget
+is proved no larger than the preceding raw-source budget by weighted Bessel
+on the actual plaquette vector squares. The SAME odd-marginal moment identity
+retains partition and centering, and reduces each channel's heat to exactly
+four physical blocks. This removes the whole-slice heat comparison from this
+finite reduction, but sources/weights still retain all parameter dependence.
+
+The channel-aggregated SAME centered-variance/scaling comparison remains A03.
+No canonical chart status change. Four final narrow checks passed 26 permitted
+gates; no full-root audit/guard. Evidence:
+`audits/AUDIT-PASSIVE-GEOMETRIC-LOCALIZATION-2026-09-24.md`.
+
+## Previous increment: geometric second-order budget for ORIGINAL energy (2026-09-24 UTC)
 
 The full original-source plaquette cost now has the quantitative bound
 4E+D<=16eps*H[q^2*(4-f^2)]+1920eps^2*H[q^2], eps=1-w. The favorable

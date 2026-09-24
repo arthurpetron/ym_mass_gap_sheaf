@@ -4901,6 +4901,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoungExplicit
 import YMGap.Continuum.SU2QuaternionPositiveSourceVarianceFence
 -- Original plaquette energy: geometric O(1-w) weight and zeroth-order O((1-w)^2) remainder.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoungGeometricBudget
+-- Spectator heat retained: original energy, SAME four-link moments, and a no-larger geometric budget.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelActiveMoments
+import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelGeometricContraction
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

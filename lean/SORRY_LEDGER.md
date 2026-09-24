@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Spectator-retaining geometric refinement CLOSED; A03 comparison OPEN (2026-09-24 UTC)
+
+- **proved**: `PassiveGeometricBudget` bounds the ORIGINAL terminal energy
+  by a geometric budget on computed spectator-channel sources; its distinct
+  channel increment is retained or dropped under the positive-heat guard.
+- **SAME consumer**: `ChannelActiveMoments.oddMoment_eq_active_plaquette_channels`
+  retains original partition/mean/second moments and reduces each source's heat
+  list to the actual four face blocks (`observableBlocks_length`).
+- **refinement**: `ChannelGeometricContraction.passiveGeometricBudget_le_original`
+  proves the new total budget is no larger than the previous raw budget;
+  the geometric part uses the actual three-vector-square certificate.
+- **open**: the channel-aggregated SAME centered-variance comparison along a
+  justified scaling family. No channelwise probability/variance assumption,
+  new hole, analytic premise, axiom or canonical-field change. All continuum,
+  physical Hamiltonian/mass and every-group joins remain open.
+- **verification**: four final narrow checks, 26 permitted printed gates,
+  unchanged one-worker/2 GiB/12 GiB-reserve limits. No full-root audit/guard.
+  Evidence: `audits/AUDIT-PASSIVE-GEOMETRIC-LOCALIZATION-2026-09-24.md`.
+
 ## ORIGINAL energy geometric budget CLOSED; SAME variance comparison OPEN (2026-09-24 UTC)
 
 - **proved**: `SU2HeatPlaquetteGeometricBudget` bounds the signed coefficients

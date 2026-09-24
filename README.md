@@ -10,7 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked original-energy estimate:** for the complete projected terminal
+**New checked refinement:** spectator heat is retained in computed positive
+channels, and the original energy's geometric budget is proved no larger than
+the earlier raw-source budget. The SAME partition, mean and second moments
+reduce channelwise to exactly four active plaquette links. The required
+channel-aggregated comparison with the **same centered variance along scaling**
+is still open; four active links do not imply parameter-uniform control. See
+the [localization audit](audits/AUDIT-PASSIVE-GEOMETRIC-LOCALIZATION-2026-09-24.md).
+
+**Checked original-energy estimate:** for the complete projected terminal
 source q and fundamental plaquette f, write eps=1-w, A=H[q^2] and
 C=H[q^2*(4-f^2)]. The original signed energy obeys
 `4E+D <= 16*eps*C + 1920*eps^2*A`, with its source-increment correction D

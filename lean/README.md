@@ -12,6 +12,14 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Spectator-retaining refinement (2026-09-24 UTC):**
+`PassiveGeometricBudget` supplies the actual terminal-source energy bound;
+`ChannelActiveMoments` preserves the SAME odd moments with exactly four active
+heat blocks; `ChannelGeometricContraction` proves the new budget is no larger
+than its raw predecessor. Channel-aggregated SAME-variance/scaling control is
+still open. Four narrow checks passed 26 permitted gates; no full-root audit.
+See `audits/AUDIT-PASSIVE-GEOMETRIC-LOCALIZATION-2026-09-24.md`.
+
 **Original-energy geometric budget (2026-09-24 UTC):**
 `BF4ExactSlabFixedSpatialSourceYoungGeometricBudget.padded_terminal_plaquette_signed_geometric_budget`
 proves 4E+D<=16eps*C+1920eps^2*A, where A=H[q^2], C=H[q^2*(4-f^2)],
