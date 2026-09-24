@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## Positive heat-law angular/variance obstruction (2026-09-24 UTC)
+
+- **proved**: `QuaternionHaarExposedHeatMoments` constructs the exact unit
+  mass, fundamental mean and second moment. `QuaternionHaarExposedFundamentalEnergy`
+  proves the selected-link identity `Gamma(chi_1)=4-chi_1^2` under arbitrary
+  Haar insertion. `QuaternionHaarExposedHeatPositive` constructs the same
+  exposed heat-prefix positivity certificate at the computed head cutoff.
+- **actual consumer**: `QuaternionHaarHeatAngularVarianceObstruction`
+  normalizes by the SAME mass, pins the centered variance and angular moment,
+  and `positiveCounterexample` returns a certified late-cutoff counterexample
+  for every proposed nome-uniform constant. `variance_le_eight_scaled_angular`
+  bounds this variance by eight times the first-order angular budget.
+- **boundary / open**: this is one central heat on a four-link holonomy, not
+  the interacting odd marginal, independent-link product or full temporal
+  energy. No generic angular constant can replace the required source-specific
+  estimate. Useful original observable-family scaling/survival, EVERY-vector
+  spatial/spacing control, physical mass, SAME-theory QFT/YM and every group
+  remain open. No new hole, axiom or canonical field change.
+- **verification**: five serialized 4 GiB leaves, forty permitted gates,
+  no error/warning/sorryAx in accepted logs; no full-root build/audit/guard.
+  Evidence and next-action boundary: positive heat-law follow-up in
+  `audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md`.
+
 ## Complex time positivity and gap on the SAME completion (2026-09-24 UTC)
 
 - **constructed**: `BF4ExactSlabFixedSpatialJointComplexification` pairs two

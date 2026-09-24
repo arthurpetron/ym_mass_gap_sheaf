@@ -7,6 +7,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The [latest checked diagnostic](audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md#positive-heat-law-angularvariance-obstruction)
+rules out the nome-uniform upper bound `E_h[Gamma(f)] <= C*Var_h(f)` for a
+positive heat law on an exposed four-link holonomy. Its exact variance is
+`1+3*w^8-4*w^6`, while selected-link angular energy is `3*(1-w^8)`.
+An explicit counterexample is returned for every proposed constant and
+requested late cutoff. Even the angular budget multiplied by `1-w` retains
+at least one eighth of this variance. This is **not** a bound on actual
+temporal energy or a counterexample to the interacting Yang--Mills marginal.
+The next producer still needs a justified changing-scale observable family
+and SAME original temporal-energy/variance control. Five narrow checks passed
+forty permitted axiom gates; no continuum or Clay obligation is closed.
+
 The SAME all-nome fixed-width reflected carrier now has a checked
 [complex pairing and time action](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointComplexification.lean).
 Its [actual consumer](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointComplexGap.lean)

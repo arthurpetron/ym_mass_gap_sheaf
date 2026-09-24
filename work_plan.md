@@ -25,6 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Positive heat-law diagnostic: the angular budget need not shrink (2026-09-24 UTC)
+
+`QuaternionHaarHeatAngularVarianceObstruction` pins the actual normalized
+fundamental-character variance and selected-link angular moment of one heat
+prefix on the composite exposed four-link holonomy:
+
+    Var_h(f) = 1+3*w^8-4*w^6,    E_h[Gamma(f)] = 3*(1-w^8).
+
+`positiveCounterexample` computes `w=1-1/(24*(C+1))` for every C>=0 and returns
+a cutoff beyond any supplied onset, the actual positivity certificate, and
+the refutation of `E_h[Gamma(f)] <= C*Var_h(f)`. Mass, observable and center
+are unchanged throughout. `variance_le_eight_scaled_angular` also proves
+`Var_h(f) <= 8*(1-w)*E_h[Gamma(f)]`: a small bare prefactor by itself does
+not make this angular upper-bound budget small relative to the variance.
+This last inequality is NOT a lower bound on actual temporal energy.
+
+**Decision / next causal work:** do not seek a generic nome-uniform angular/
+variance constant as a replacement for the missing original-marginal estimate.
+The diagnostic law is not `(V*g_n)*g_(n+1)` and is not a product of four
+independent link kernels. It does not refute a source-specific estimate,
+nome-dependent constants with useful scaling, signed cancellation, or another
+observable family. The next analytic producer must construct ONE justified
+changing-scale original observable family and estimate its actual full
+temporal form against its SAME centered variance (or directly prove useful
+sampled response). Only extend the Ward branch with a concrete signed
+residual estimate and a proved weight/temporal join. Keep the separate
+EVERY-vector spatial/spacing bound and full SAME-theory QFT/YM/all-group
+requirements open; no canonical field was closed or weakened.
+
+Five serialized 4 GiB leaf checks passed forty gates within
+{propext, Quot.sound}, with no error/warning/sorryAx in their accepted logs.
+The exact modules, logs and source review are recorded in the positive
+heat-law follow-up of `audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md`.
+The semantic consumer import is added; no full-root build/audit/guard.
+
 ### Positive complex time and strict gap on the SAME joint carrier (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialJointComplexification` constructs the actual product

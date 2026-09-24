@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Positive heat-law angular/variance obstruction (2026-09-24 UTC):**
+`QuaternionHaarHeatAngularVarianceObstruction.positiveCounterexample` computes
+a nome and late cutoff, returns the actual exposed-holonomy heat positivity
+certificate, and refutes a nome-uniform `E_h[Gamma(f)] <= C*Var_h(f)` bound.
+The same-law variance and selected-link angular moment are pinned exactly;
+`variance_le_eight_scaled_angular` shows the first-order angular budget does
+not become a vanishing fraction of that variance. This is not a temporal
+energy lower bound or the interacting odd marginal. Source-specific scaling,
+survival and all continuum/Clay obligations remain open. Five serialized
+4 GiB leaves passed forty permitted gates; no full-root build/audit/guard.
+
 **Complex pairing and gap on the SAME joint carrier (2026-09-24 UTC):**
 `BF4ExactSlabFixedSpatialJointComplexification` uses two copies of the actual
 all-nome `JointCompletion`, proving positive definiteness, conjugate symmetry,

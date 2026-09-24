@@ -250,3 +250,81 @@ consumer and serialized verification. A parallel source review checked its
 same-object and signed-residual boundaries. No new hole, axiom, frontier-field
 change or full-root build/audit/guard; the added semantic import was not
 itself rebuilt.
+
+## Positive heat-law angular/variance obstruction
+
+The comparison now has a constructive diagnostic on an actual positive heat
+functional. Let x be the scalar part of `exposedFourWord r0 r1 r2 r3`,
+f=`characterPolynomial x 1`, and h=`heatPrefix w K x`. The carrier contains
+the four quaternion blocks (3<blocks). This is one central heat prefix on
+the composite holonomy, NOT four independent link-heat factors and NOT the
+interacting odd marginal `(V*g_n)*g_(n+1)`.
+
+The exact identities for K>=2 are:
+
+    H[h]=1,  E_h[f]=2*w^3,  E_h[f^2]=1+3*w^8,
+    Var_h(f)=1+3*w^8-4*w^6,
+    E_h[Gamma(f)]=3*(1-w^8).
+
+Here Gamma sums the six angular planes at ONE selected/head link.
+`heat_mass`, `heat_fundamental_moment` and `heat_fundamental_square_moment`
+are at `lean/YMGap/Continuum/QuaternionHaarExposedHeatMoments.lean:233`,
+`:246` and `:264`. Fusion leaves only heat labels zero, one and two in
+these moments. `exposedFundamental_angularSquare` at
+`lean/YMGap/Continuum/QuaternionHaarExposedFundamentalEnergy.lean:235`
+proves Gamma(f)=4-f^2 with every Haar insertion retained, by the angular
+Leibniz rule and the first two Casimir identities. `normalized_mean`,
+`normalized_variance` and `normalized_angular` at
+`lean/YMGap/Continuum/QuaternionHaarHeatAngularVarianceObstruction.lean:73`,
+`:81` and `:100` use the SAME density, mass and centered mean.
+
+`radialRate_le_eight_scaled_angular` at
+`lean/YMGap/Continuum/SU2QuaternionHeatCovarianceRates.lean:149` and its
+normalized consumer `variance_le_eight_scaled_angular` at
+`lean/YMGap/Continuum/QuaternionHaarHeatAngularVarianceObstruction.lean:136`
+give `Var_h(f) <= 8*(1-w)*E_h[Gamma(f)]`. Thus the bare first-order angular
+budget is not a vanishing relative-loss certificate for this observable.
+It is an upper-bound BUDGET, not actual temporal energy: the inequality
+does not give a temporal-energy lower bound or refute actual survival.
+
+For any proposed C>=0, `obstructionNome` at
+`lean/YMGap/Continuum/SU2QuaternionHeatCovarianceRates.lean:213` computes
+w=1-1/(24*(C+1)), with 0<w<1 and 24*C*(1-w)<3. The quadratic upper bound
+on variance and linear lower bound on angular energy refute
+E_h[Gamma(f)]<=C*Var_h(f). `positiveCounterexample` at
+`lean/YMGap/Continuum/QuaternionHaarHeatAngularVarianceObstruction.lean:170`
+returns K=max(onset,max(2,headCutoff w)), a certificate for this exact h,
+and the failed inequality. Hence the witness survives ANY requested late
+cutoff onset. The positivity producer is `exposedHeatPrefixCertificate` at
+`lean/YMGap/Continuum/QuaternionHaarExposedHeatPositive.lean:81`.
+
+### Route consequence and remaining input
+
+A generic nome-uniform angular/variance constant is unavailable even on this
+positive heat family. This does not settle the actual odd-marginal residual:
+its sources and weight are different. Nome-dependent/source-specific control,
+signed cancellations and another justified changing-scale observable family
+are not excluded. The next producer remains direct SAME temporal-form/
+centered-variance control for one compatible original family, or a positive
+sampled-response construction. No further Ward wrapper is warranted without
+a concrete residual bound and a proved original-weight/time join. The
+separate all-vector spatial/spacing estimate and the full nontrivial
+continuum/QFT/YM-field, physical-mass and all-group obligations remain open.
+
+### Verification of the heat-law diagnostic
+
+Five serialized one-worker 4 GiB checks terminated successfully:
+
+- `/tmp/ym-gap-heat-angular-radial-rates-check-5.log`: 21 gates.
+- `/tmp/ym-gap-exposed-fundamental-energy-check-5.log`: 4 gates.
+- `/tmp/ym-gap-exposed-heat-moments-check-6.log`: 5 gates.
+- `/tmp/ym-gap-exposed-heat-positive-check-2.log`: 3 gates.
+- `/tmp/ym-gap-heat-angular-variance-obstruction-check-4.log`: 7 gates.
+
+All forty printed gates are within {propext, Quot.sound} (some axiom-free),
+with no error/warning/sorryAx in the accepted logs. Sol supplied the moment/
+angular/scalar drafts and an independent same-law scope review; Luna supplied
+the positivity draft. Root corrected the algebra/namespaces, constructed the
+normalized consumer and explicit certified counterexample, and serialized
+verification. No new hole/axiom or canonical frontier-field change. The
+semantic root imports the consumer; no full-root build/audit/guard ran.

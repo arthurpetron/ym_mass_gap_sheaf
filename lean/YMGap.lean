@@ -4896,6 +4896,8 @@ import YMGap.Continuum.SU2QuaternionHeadHeatWeightedTaylor
 import YMGap.Continuum.BF4ExactSlabFixedSpatialExactKineticAlignment
 -- Exact centered Ward identity in the original odd marginal; signed residual remains open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredWard
+-- Positive exposed heat-law diagnostic; not the original interacting marginal.
+import YMGap.Continuum.QuaternionHaarHeatAngularVarianceObstruction
 import YMGap.Continuum.SU2QuaternionWeightedProjectionSweep
 import YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 import YMGap.Continuum.SU2QuaternionProductHeatHybridProjection
