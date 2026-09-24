@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: reject a universal reversed score/energy join (2026-09-24 UTC)
+## Current review: remove an unnecessary survival quantifier (2026-09-24 UTC)
+
+Source audit and plan correction, not a new kernel-checked theorem. The
+existing `centered_relative_energy` consumer needs a bound on ONE supplied
+state. Survival work should construct a justified observable family and its
+actual variance/whole temporal bound, rather than first requiring an upper
+Gram bound for every coefficient vector. The separate all-vector LOWER energy
+bound for a physical gap remains unchanged. The full edge form already keeps
+both endpoints; only the optional bare-energy split needs its correction.
+
+The guarded spatial-union physical-rate ceiling is not automatically a
+consumer of the all-nome fixed-width result: carrier transport, trajectory
+guards and physical identification must be proved. Current variance/loss
+certificate numbers still do not produce survival. No candidate is supplied.
+This review changes the next search target, not the mathematical completion
+status. See `audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md`.
+
+Documentation checks only; no Lean edits, compiler, full audit, guard or
+progress-metric script. The unchanged whole-project goal remains open.
+
+## Previous increment: reject a universal reversed score/energy join (2026-09-24 UTC)
 
 The lower one-end kernel-score response is exactly `-B(Da,a*f)`. Its
 flat-source specialization vanishes for every angular direction and test.

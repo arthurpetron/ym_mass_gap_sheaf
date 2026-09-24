@@ -7,6 +7,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The latest [source audit](audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md)
+separates two different tasks: survival needs ONE explicitly constructed
+observable family with useful energy/variance control; the gap needs a lower
+energy bound for EVERY centered vector, with adequate scaling. A full-family
+upper Gram estimate is optional for survival. The all-nome fixed-width carrier
+and the guarded spatial-union carrier are not silently identified. This is a
+plan correction, not a new theorem; the required observable family is still open.
+
 The latest [checked route diagnostic](audits/AUDIT-KERNEL-SCORE-ENERGY-DIRECTION-2026-09-24.md)
 separates the kernel-score response from temporal energy. With a flat positive
 source on the actual one-link SU(2) heat kernel, every one-end angular score
@@ -15,7 +23,8 @@ at arbitrarily late admissible cutoffs. Thus the score estimate below cannot
 be universally reversed into an energy upper bound. This is not a physical
 Wilson or Yang--Mills counterexample. The forward target is now direct control
 of the full signed temporal form relative to its SAME centered variance,
-retaining the source correction and checking spatial/spacing usefulness.
+retaining both sources and checking spatial/spacing usefulness. The source
+correction is needed only when using the separate bare-energy split.
 Two focused leaves passed eight permitted axiom gates; no full-root audit.
 
 The [whole-product centered score result](audits/AUDIT-ORIGINAL-PRODUCT-HEAT-SCORE-VARIANCE-2026-09-23.md)

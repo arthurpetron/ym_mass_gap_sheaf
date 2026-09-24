@@ -25,6 +25,47 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Quantifier audit: one survival family, separate all-vector gap (2026-09-24 UTC)
+
+Source review, NOT a new Lean closure. The immediate existing consumer is
+`BF4ExactSlabFixedSpatialJointTemporalEnergy.centered_relative_energy`:
+it propagates a one-step relative-energy bound for ONE supplied centered
+state on the same all-nome fixed-width `JointCompletion`. For survival,
+construct one explicit changing-scale original observable family with an
+adequate norm floor/cap and small sampled loss, retaining its actual mixed
+terms. A full-family UPPER Gram bound is an optional stronger producer,
+not a prerequisite. Proving the sampled response directly is also sufficient.
+
+The separate strict-gap task requires an ALL-centered-vectors LOWER energy
+bound (equivalently an upper transfer bound), with spatial/spacing control
+and physical spectral identification. The checked fixed-width completed
+form bound has a nome/width-dependent rate; it does not close that scaling
+task. A low-energy witness does not prove a mass gap, and the all-vector
+quantifier is not removed from the gap obligation.
+
+Use the existing full edge-jump energy identity. Its complete endpoint
+weight already retains the terminal evolution; a separate finite-P source
+correction is required only if choosing the bare-energy split. The finite
+terminal equation is `P(V*g_n)=g_(n+1)`, not a stationary eigenrelation.
+The current affine variance floor and single-plaquette increment budget
+cannot together supply the needed small relative loss (already checked in
+`BF4ExactSlabPlaquetteAffineCalibrationObstruction`). A better joint estimate
+for the chosen observable, not a new wrapper around those numbers, is needed.
+
+Do NOT automatically feed the all-nome `JointCompletion` result into
+`BF4WilsonSurvivalPhysicalRateCeiling`: that theorem uses guarded spatial
+`UnionCompletion`, supplied physical spacing and a response floor. Same-object
+transport and trajectory guards remain additional proof obligations; the
+certified rate is not already the physical Hamiltonian spectral edge.
+
+Next execution: select a justified original Wilson observable family and
+estimate its SAME centered covariance and full temporal form together.
+Use the existing signed-pair expansion / whole-observable lag consumer;
+do not first demand control for every coefficient vector. Do not select
+regulator-dependent witnesses without proving their compatible limit.
+No new frontier structure, formal field change or proof claim. Evidence:
+`audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md`.
+
 ### Repoint: direct temporal form, not a reversed kernel-score bound (2026-09-24 UTC)
 
 The score/variance theorem below is valid, but it does not supply the desired
@@ -47,12 +88,15 @@ coefficient-square energy bound, and not a refutation of Yang--Mills.
 **Next causal frontier:** park reversed one-end score domination as a universal
 upper-energy producer. Work directly with the full signed temporal jump/Dirichlet Gram form
 and the SAME centered variance on an explicitly justified changing-spatial/
-coupling/spacing observable family. The existing producers are one-link
-displacement, literal word telescoping, the exact `full_jump_pairing`, and
+coupling/spacing observable family. As clarified above, survival needs the
+estimate for a constructed family, not for every coefficient vector. The
+existing producers are one-link displacement, literal word telescoping,
+the exact `full_jump_pairing`, and
 the actual family variance floor. Separate local energy bounds and bounded
 link overlap do NOT control off-link Gram entries under the interacting
 endpoint source. A uniform occurrence-Gram bound or a proved SAME-source
-conditional tensorization could be sufficient; neither is supplied here.
+conditional tensorization could be sufficient; neither is supplied here,
+and neither is mandatory if the chosen family's estimate can be proved directly.
 Retain the finite-P source correction if using the angular-defect route.
 
 The actual desired output is a sufficiently small RELATIVE one-step loss
