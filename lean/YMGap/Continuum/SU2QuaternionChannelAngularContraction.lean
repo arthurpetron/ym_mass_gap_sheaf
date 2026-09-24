@@ -98,7 +98,9 @@ theorem angularListSum_range (n : Nat) (p : RatPoly) :
       finSum (fun i => H n (blockAngularSquare i p)) n :=
   qsum_map_range (fun i => H n (blockAngularSquare i p)) n
 
-private theorem blockDerivative_channelSource (ids : List Nat)
+/-- Outside the projected family, differentiating a channel source differentiates
+only the original source; the computed channel multiplier is local to `ids`. -/
+theorem blockDerivative_channelSource (ids : List Nat)
     (block i j : Nat) (hi : i < 4) (hj : j < 4) (hnot : block ∉ ids)
     (q c : RatPoly) (hc : QuaternionBlockIndependent block c) :
     RatPolyCoeffEqv
@@ -158,6 +160,40 @@ private theorem unweighted_haar_six (blocks : Nat) (f : Nat → Nat → RatPoly)
       (sixValue_congr _ _
         (fun _ _ _ _ => haar_of_coeff (RatPolyCoeffEqv.one_mul _))))
 
+/-- Exact plane-by-plane expansion of a channel angular square.  This identity
+uses only channel locality and conditional differentiation; positivity and
+the Bessel estimate enter only in the subsequent inequality. -/
+theorem channelSource_blockAngularSquare_eq (n : Nat) (w : Q') (K : Nat)
+    (ids : List Nat) (block : Nat) (hnot : block ∉ ids) (q : RatPoly) :
+    channelSum (productChannels n w K ids) (fun c =>
+      H n (blockAngularSquare block (channelSource ids q c))) ≈
+      sixValue (fun i j =>
+        channelSum (productChannels n w K ids) (fun c => H n (polyMul
+          (familyProject ids
+            (polyMul (blockAngularDerivative block i j q) c))
+          (familyProject ids
+            (polyMul (blockAngularDerivative block i j q) c))))) := by
+  let cs := productChannels n w K ids
+  let plane := fun c i j => H n
+    (polyMul (blockAngularDerivative block i j (channelSource ids q c))
+      (blockAngularDerivative block i j (channelSource ids q c)))
+  let projectedPlane := fun c i j => H n (polyMul
+    (familyProject ids (polyMul (blockAngularDerivative block i j q) c))
+    (familyProject ids (polyMul (blockAngularDerivative block i j q) c)))
+  have hexpand : channelSum cs (fun c => H n
+      (blockAngularSquare block (channelSource ids q c))) ≈
+      channelSum cs (fun c => sixValue (plane c)) :=
+    channelSum_congr _ _ cs (fun c _ => unweighted_haar_six n _)
+  have hplanes : sixValue (fun i j => channelSum cs (fun c => plane c i j)) ≈
+      sixValue (fun i j => channelSum cs (fun c => projectedPlane c i j)) :=
+    sixValue_congr _ _ (fun i j hi hj =>
+      channelSum_congr _ _ cs (fun c hc =>
+        let hd := blockDerivative_channelSource ids block i j hi hj hnot q c.2
+          (productChannels_independent n w K ids block hnot c hc)
+        haar_of_coeff (RatPolyCoeffEqv.mul hd hd)))
+  exact Q'.eqv_trans _ _ _ hexpand
+    (Q'.eqv_trans _ _ _ (channelSum_six cs plane) hplanes)
+
 /-- Every angular block outside the projected channel family contracts with
 coefficient one under the complete finite Gram-channel sum. -/
 theorem channelSource_blockAngularSquare_le (n : Nat) {w : Q'}
@@ -169,30 +205,13 @@ theorem channelSource_blockAngularSquare_le (n : Nat) {w : Q'}
       H n (blockAngularSquare block (channelSource ids q c))) ≤
       H n (blockAngularSquare block q) := by
   let cs := productChannels n w K ids
-  let plane := fun c i j => H n
-    (polyMul (blockAngularDerivative block i j (channelSource ids q c))
-      (blockAngularDerivative block i j (channelSource ids q c)))
-  have hexpand : channelSum cs (fun c => H n
-      (blockAngularSquare block (channelSource ids q c))) ≈
-      channelSum cs (fun c => sixValue (plane c)) :=
-    channelSum_congr _ _ cs (fun c _ => unweighted_haar_six n _)
-  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv
-    (Q'.eqv_trans _ _ _ hexpand (channelSum_six cs plane))) ?_
+  have hexpand := channelSource_blockAngularSquare_eq n w K ids block hnot q
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hexpand) ?_
   refine Q'.le_trans' _ _ _ (sixValue_mono _ _ (fun i j hi hj => ?_))
     (Q'.le_of_eqv (Q'.eqv_symm (unweighted_haar_six n _)))
-  have hd := blockDerivative_channelSource ids block i j hi hj hnot q
-  have hsquare (c : GramChannel) (hc : c ∈ cs) : plane c.2 i j ≈
-      H n (polyMul
-        (familyProject ids (polyMul (blockAngularDerivative block i j q) c.2))
-        (familyProject ids (polyMul (blockAngularDerivative block i j q) c.2))) :=
-    haar_of_coeff (RatPolyCoeffEqv.mul
-      (hd c.2 (productChannels_independent n w K ids block hnot c hc))
-      (hd c.2 (productChannels_independent n w K ids block hnot c hc)))
-  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv
-    (channelSum_congr _ _ cs hsquare))
-    (productChannels_familyProject_square_le n hw0 hw1 K ids hnd hids
-      (blockAngularDerivative block i j q)
-      (angularDerivative_supported_at (by omega) (by omega) hq))
+  exact productChannels_familyProject_square_le n hw0 hw1 K ids hnd hids
+    (blockAngularDerivative block i j q)
+    (angularDerivative_supported_at (by omega) (by omega) hq)
 
 /-- One selected heat list contracts every distinct block-angular square after
 the matching in-place projection. -/
@@ -366,6 +385,8 @@ theorem pairCasimir_channel_le_active (n : Nat) (hn : 0 < n) {w : Q'}
 #print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.angularListSum_append
 #print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.angularListSum_perm
 #print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.angularListSum_range
+#print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.blockDerivative_channelSource
+#print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.channelSource_blockAngularSquare_eq
 #print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.channelSource_blockAngularSquare_le
 #print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.heatChannels_project_blockAngularSquare_le_at
 #print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.pairCasimir_diagonal_eq_angularListSum

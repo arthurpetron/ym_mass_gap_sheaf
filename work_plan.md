@@ -25,7 +25,60 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Complete original-source local regularity and explicit harmonic tail (2026-09-24 UTC)
+### Conditional spectator pairing and SAME-channel harmonic tail (2026-09-24 UTC)
+
+The previously missing conditional mixed positivity is now proved on the
+ORIGINAL product heat. A partial block involution copies exactly the selected
+spectator coordinates into an auxiliary slice; every active coordinate stays
+shared. Conditional Fubini identifies this pairing with
+B_F(u,v)=sum_c lambda_c H[P_F(u*c)*P_F(v*c)]. The actual positive kernel and
+certificates for u,v give B_F(u,v)>=0, without making signed channels positive.
+Applying this to C*q-Dq and C*q+Dq gives Q_F(Dq)<=C^2*Q_F(q).
+
+`EndpointChannelRegularity` supplies this bound for the COMPLETE original
+q=P_fringe(V*g_n), every width/depth and actual active link, using the existing
+C(w)=endpointRelativeCap(w) and K_reg(w)=endpointRelativeCutoff(w). The exact
+channel differentiation identity pays for the six angular planes by
+6*C(w)^2*Q_F(q). `EndpointChannelTail.projectedEndpoint_plaquetteChannel_highTail_small`
+then proves, for the actual plaquette spectator family and each selected
+active observable block, sum_c lambda_c H[high_L(P_F(q*c))^2]<=epsilon*Q_F(q).
+The existing computed L(w,epsilon) suffices. Constants remain independent of
+width/depth/sufficiently late cutoff at FIXED nome, not changing spacing.
+
+**Next causal producer:** a joint four-active-link retained-heat comparison
+on these SAME channels. Prefer the reviewed finite-path first-moment route
+below to constructing a new joint-projector framework merely for this floor.
+The present tail theorem is not a joint projector or a lower bound on the
+original partition. A pointwise kernel floor only bounds a decoupled mean
+square; it is not a norm-relative floor for arbitrary signed channel sources.
+Even a partition/norm comparison would still leave the SAME globally centered
+variance and justified scaling family to control. No new interface assumes
+either missing conclusion. A03, ONE-state survival, EVERY-state scaling,
+SAME continuum/QFT/YM/UV, physical Hamiltonian/mass and every group remain OPEN.
+
+**Reviewed next argument, NOT YET FORMALIZED:** the existing full-cycle path
+pairings of each signed channel source are nonnegative before attenuation.
+Their total is its raw norm and their first total-Casimir moment is its angular
+energy. For integer M>0 and K>=M, prove the scalar supporting-line inequality
+M*productAttenuation(w,K,ds) >= w^M*(M-totalCasimir(ds)). Below total degree
+cost M all individual labels lie below K; above M the right side is nonpositive.
+Sum it on the EXISTING full-carrier paths, then sum the actual channels.
+Passive independence reduces the first moment to exactly four active links;
+their six-plane bounds should give E<=24*C(w)^2*A, A=Q_F(q). A computed
+M>=48*C(w)^2 would then yield a floor (w^M/2)*A for the original active heat
+moment, with K>=max(K_reg(w),M). The path/active-moment and first-moment APIs
+already exist; the scalar inequality and aggregate consumer still need proof.
+This avoids assuming channel positivity, source-degree bounds or new joint
+spectral-projector laws. It is fixed-nome control, not a scaling estimate.
+
+Six final narrow serialized checks passed 31 permitted gates. Arithmetic
+rewrite and namespace errors were repaired at default elaboration limits;
+one-worker/2 GiB/12 GiB-reserve settings are unchanged, with no safety stop.
+No new hole, axiom, analytic field or canonical chart status change. Semantic
+import added; no full-root build/audit/guard. Evidence:
+`audits/AUDIT-CONDITIONAL-CHANNEL-TAIL-2026-09-24.md`.
+
+### Previous checkpoint: original-source local regularity and harmonic tail (2026-09-24 UTC)
 
 The complete source q=P_fringe(V*g_n) now has a constructed local relative
 angular bound, including terminal depth zero. At an actual active link,
@@ -44,7 +97,7 @@ within-degree sums; the first omitted Casimir is (L+1)*(L+3). This is a
 one-link RAW Haar estimate, not a cutoff on the source's total degree and
 not uniform in changing coupling/spacing.
 
-**Next causal producer:** establish the conditional mixed-positive pairing
+**Producer open at that checkpoint, now proved above:** the conditional mixed-positive pairing
 sum_c lambda_c H[P_F(u*c)*P_F(v*c)]>=0 for positive certified u,v, retaining
 shared active coordinates. This would let the existing cone bound control
 the actual spectator-smoothed quadratic, before tail and four-link heat-floor

@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: local regularity and computed ORIGINAL-source harmonic tail (2026-09-24 UTC)
+## Current increment: conditional positivity and SAME-channel harmonic tail (2026-09-24 UTC)
+
+The missing conditional pairing now retains active variables rather than
+averaging them away. Its ORIGINAL positive heat kernel supplies mixed
+positivity, and the complete endpoint cone controls Q_F(Dq) by C(w)^2 Q_F(q).
+Exact differentiation through spectator channels and the one-link Casimir
+threshold give a computed epsilon-small channel-summed high tail relative
+to that SAME Q_F(q), including the actual plaquette spectator specialization.
+No channel positivity or new analytic premise is assumed.
+
+The next finite join is a joint four-active-link heat comparison. Neither
+that comparison nor SAME globally centered-variance/scaling control follows
+from the one-link tail result. All canonical chart labels, edges and statuses
+are unchanged; this is new partial A03 evidence, not its closure.
+
+Six final narrow checks passed 31 permitted gates at unchanged safety and
+default elaboration limits; no full-root audit/guard. Evidence:
+`audits/AUDIT-CONDITIONAL-CHANNEL-TAIL-2026-09-24.md`.
+
+## Previous increment: local regularity and computed ORIGINAL-source harmonic tail (2026-09-24 UTC)
 
 The complete projected terminal source now has a width/depth/cutoff-independent
 local angular cap at FIXED nome, with a computed sufficient heat cutoff.

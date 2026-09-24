@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Conditional mixed positivity and endpoint channel tail CLOSED; A03 OPEN (2026-09-24 UTC)
+
+- **proved**: `PartialSwapPairing.partialSwap_familyProject_pairing` copies
+  exactly the selected coordinates while retaining shared active variables.
+  `FamilyChannelCone.familyChannelPair_eq_conditionalKernel` identifies the
+  ORIGINAL heat kernel; `.familyChannelPair_nonnegative` and
+  `.familyChannelQuadratic_le_of_cone` give mixed positivity and cone domination.
+- **actual consumer**: `EndpointChannelRegularity` controls the COMPLETE
+  original projected source in the SAME spectator quadratic, not raw Haar
+  norm. `EndpointChannelTail.projectedEndpoint_plaquetteChannel_highTail_small`
+  supplies an epsilon-small channel-summed selected-link harmonic tail on the
+  actual plaquette spectator family, with the existing computed degree modulus.
+  The cap and cutoff depend on nome, not width/depth/sufficiently late cutoff.
+- **open**: joint four-active-link retained heat, SAME globally centered
+  variance along justified scaling, and all continuum/QFT/mass/all-group joins.
+  Signed channels are not asserted positive or separately normalized laws.
+  No new hole, axiom, analytic premise or canonical field was introduced.
+- **verification**: six narrow serialized checks, 31 permitted printed gates,
+  default elaboration limits, one worker, 2 GiB cap and unchanged 12 GiB reserve.
+  No safety stop or full-root build/audit/guard. Evidence:
+  `audits/AUDIT-CONDITIONAL-CHANNEL-TAIL-2026-09-24.md`.
+
 ## Original endpoint local regularity and harmonic-tail modulus CLOSED; A03 OPEN (2026-09-24 UTC)
 
 - **proved**: `EndpointRelativeBound.projectedEndpointRelativeBound` constructs

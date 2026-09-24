@@ -10,14 +10,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked original-source estimate:** a computed harmonic-degree threshold
-makes the discarded one-link tail at most `epsilon` times the SAME raw source
-Haar norm. At fixed coupling it works for every width, terminal depth and
-sufficiently late heat cutoff. All original spatial and terminal factors are
-retained. This is not yet the interacting-variance/scaling comparison: the
-next join must preserve shared active variables in the spectator quadratic.
-Five narrow checks passed 28 permitted gates; no full-root audit. See the
-[local regularity and tail audit](audits/AUDIT-ENDPOINT-LOCAL-SPECTRAL-TAIL-2026-09-24.md).
+**New checked conditional-channel estimate:** a computed harmonic-degree
+threshold makes the channel-summed one-link tail at most `epsilon` times the
+SAME spectator-channel quadratic of the complete original source. The proof
+copies only spectator coordinates, preserving shared active links and all
+spatial/terminal factors. At fixed coupling the threshold works for every
+width, terminal depth and sufficiently late heat cutoff. It assumes no
+positivity of signed channel sources. A joint four-link heat comparison and
+the **same centered-variance/scaling comparison** remain open.
+Six narrow checks passed 31 permitted gates; no full-root audit. See the
+[conditional-channel tail audit](audits/AUDIT-CONDITIONAL-CHANNEL-TAIL-2026-09-24.md)
+and the preceding
+[raw-source regularity audit](audits/AUDIT-ENDPOINT-LOCAL-SPECTRAL-TAIL-2026-09-24.md).
 
 **Checked spectator refinement:** spectator heat is retained in computed positive
 channels, and the original energy's geometric budget is proved no larger than
