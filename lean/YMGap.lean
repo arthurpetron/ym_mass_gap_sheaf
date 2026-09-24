@@ -4954,9 +4954,10 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicExcitation
 -- Certificate-number obstruction only; actual Wilson response is not refuted.
 import YMGap.Continuum.BF4DyadicResetBudgetObstruction
 -- Exact growing-word kinetic heat image consumed by the ORIGINAL terminal
--- signed energy, including the complete square image. Useful SAME interacting
--- variance/scaling control remains open; bare heat is not the physical transfer.
-import YMGap.Continuum.BF4DyadicWilsonSquareQuadraticHeat
+-- signed energy, with spectator heat retained in actual computed channels and
+-- a cancellation-preserving geometric budget. SAME variance/scaling control
+-- remains open; no channel-square/physical-partition substitution is made.
+import YMGap.Continuum.BF4DyadicWilsonSquareChannelBudget
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original growing-word square heat and complete signed cost (2026-09-24 UTC):**
+**Original growing-square spectator-channel budget (2026-09-24 UTC):**
+`BF4DyadicWilsonSquarePassiveChannels` proves the exact original energy and
+odd-moment/mass decomposition with every spectator heat factor retained.
+`BF4DyadicWilsonSquareChannelCost` evaluates the complete signed cost in
+these actual computed channels. `ChannelGeometry` constructs the actual
+fundamental cap four and proves A>=0 and G=4A-M>=0; `ChannelBudget` gives
+4E+D_ch<=2*(8*(1-w^L)*G+960*(1-w^L)^2*A), with K>=2 and 0<=w<=1.
+A is the heat-retaining conditional channel quadratic, NOT the original
+partition. The useful SAME centered-variance/scaling comparison remains open.
+Five narrow checks passed 31 permitted gates; no full-root audit. Evidence:
+`audits/AUDIT-DYADIC-WILSON-CHANNEL-BUDGET-2026-09-24.md` at repository root.
+
+**Preceding original growing-word square heat and complete signed cost (2026-09-24 UTC):**
 `SU2QuaternionProductHeatWilsonSpinTwo` proves original spin-two transmission
 with w^(8*perimeter), preserving ordered prefixes, remaining heat factors and
 arbitrary supported tests. Its fundamental-square image is 1+w^(8*perimeter)*chi_2.

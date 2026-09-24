@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## Original growing-square channel budget CLOSED; SAME variance/scaling comparison OPEN (2026-09-24 UTC)
+
+- **proved actual channels**: `BF4DyadicWilsonSquareChannelPartition`
+  constructs the literal square's active/spectator cover and proves its
+  spectator independence. `BF4DyadicWilsonSquarePassiveChannels`
+  preserves original terminal energy, admissible odd moments and physical
+  odd mass, with all spectator heat retained and active-only channel heat.
+  The original aggregate mean is not replaced by channel means.
+- **proved complete signed identity**: `BF4DyadicWilsonSquareChannelCost.paddedSquare_terminal_channel_cost`
+  gives 4E+D_ch=2*((1-2*w^(12L)+w^(32L))*M+(1-w^(32L))*A).
+  A is the existing familyChannelQuadratic; M and D_ch use the SAME actual
+  computed channel sources. No equality with unchannelized raw moments,
+  the original correction, or physical partition is asserted.
+- **proved geometric estimate**: `BF4DyadicWilsonSquareChannelGeometry`
+  constructs the actual cap-four certificate and proves A>=0, 4A-M>=0.
+  `BF4DyadicWilsonSquareChannelBudget.paddedSquare_terminal_signed_geometric_budget`
+  retains D_ch and proves 4E+D_ch<=2*(8*(1-u)*(4A-M)+960*(1-u)^2*A),
+  u=w^L, at 0<=w<=1 and K>=2. No cutoff positivity is assumed to drop D_ch.
+- **open**: useful SAME original-normalization/centered-variance comparison
+  on a justified changing-scale family, or direct response. Fixed-plaquette
+  channel heat floors are not a proved growing-square scaling estimate.
+  No new completed scaling bound, survival, cross-width identification,
+  full QFT/YM/UV, physical Hamiltonian/mass or all-group closure.
+- **verification**: five final narrow checks, 31 permitted gates; one
+  worker, 2 GiB cap, default elaboration limits, unchanged 12 GiB reserve.
+  A safety refusal was respected before remeasurement and resumption.
+  No source hole, new axiom, analytic premise or canonical-field change.
+  Independent review passed. One semantic-root import; no full-root
+  build/audit/guard. Schema 1 snapshot 20: partial A03 evidence only;
+  exact chart and all goal markers unchanged. Evidence:
+  `audits/AUDIT-DYADIC-WILSON-CHANNEL-BUDGET-2026-09-24.md`.
+
 ## Original growing-word square heat and complete signed formula CLOSED; A03 comparison OPEN (2026-09-24 UTC)
 
 - **proved original quadratic step**: `SU2QuaternionSelectedPairQuadraticHeat`

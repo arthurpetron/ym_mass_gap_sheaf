@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **19**, 2026-09-24 UTC. Source checkpoint:
-the original growing-word square heat and complete signed-cost milestone committed with this
+Chart schema: **1**. Snapshot: **20**, 2026-09-24 UTC. Source checkpoint:
+the original growing-square spectator-channel geometric-budget milestone committed with this
 snapshot; verification is recorded in
-`audits/AUDIT-DYADIC-WILSON-SQUARE-HEAT-2026-09-24.md`.
+`audits/AUDIT-DYADIC-WILSON-CHANNEL-BUDGET-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -234,6 +234,23 @@ complete projected source and signed correction. No source normalization,
 useful SAME centered-variance/scaling bound or interacting eigenmode is
 inferred. A03 stays open; no recorded face-span or Wilson carrier is replaced.
 
+Additional partial A03 evidence: `BF4DyadicWilsonSquarePassiveChannels.paddedSquare_energy_eq_channels`
+and `.oddMass_eq_active_square_channels`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquarePassiveChannels.lean:109`, `:190`)
+preserve the ORIGINAL energy and odd mass with every spectator heat factor
+retained. `BF4DyadicWilsonSquareChannelCost.paddedSquare_terminal_channel_cost`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareChannelCost.lean:135`) evaluates
+4E+D_ch in the actual computed channel moments A,M. The original odd mass
+is an active HEAT pairing, not A. The cap-four certificate and weighted
+channel bound in `BF4DyadicWilsonSquareChannelGeometry.squareChannelMoment_le_four_mass`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareChannelGeometry.lean:220`)
+supply 4A-M>=0. `BF4DyadicWilsonSquareChannelBudget.paddedSquare_terminal_signed_geometric_budget`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareChannelBudget.lean:98`) proves
+4E+D_ch<=2*(8*(1-u)*(4A-M)+960*(1-u)^2*A), u=w^L. D_ch is retained;
+neither it nor A is identified with an unchannelized predecessor. The useful
+SAME interacting centered-variance/scaling comparison remains open. No
+completed scaling improvement or carrier substitution is asserted.
+
 ## Activity and changes since the preceding chart
 
 - Primary active node: **A03**. Literal Wilson squares now have side L=2^s,
@@ -262,10 +279,13 @@ inferred. A03 stays open; no recorded face-span or Wilson carrier is replaced.
   distinct-link words and consumed by the original terminal signed cost
   of the growing square. Its actual square heat image is now proved and
   consumed in the complete signed formula 4E+D=2*((1-2*a+b)*M+(1-b)*N).
-  Next: useful complete signed-cost/SAME centered-variance control along
-  a justified scaling family, or direct response. N remains the original
-  projected-source Haar square; no partition substitution, interacting
-  eigenvalue or stronger completed scaling estimate is asserted.
+  The raw-source formula has now been rederived in the actual square's
+  spectator channels, retaining their heat weights and original odd mass.
+  A constructed cap-four certificate gives the signed geometric budget
+  in A and 4A-M at u=w^L. Next: useful complete channel-budget/SAME centered-
+  variance control along a justified scaling family, or direct response.
+  Neither raw N nor channel A is the physical partition by substitution;
+  no interacting eigenvalue or stronger completed scaling estimate is asserted.
 - Parallel node: **J02**. The literal all-nome Wilson completion now has
   proved rational linear laws, bilinear pairing, linear time and positive
   definiteness. Signed finite time combinations retain every original
@@ -279,7 +299,7 @@ inferred. A03 stays open; no recorded face-span or Wilson carrier is replaced.
   Full Hilbert/QFT, scaling survival and the continuum join remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--18; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--19; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -324,3 +344,4 @@ inferred. A03 stays open; no recorded face-span or Wilson carrier is replaced.
 | 1 / 17 | 2026-09-24 | The proposed multi-link reset floor cannot pay the existing cubic response-loss budget, even for every actual selected sublist of square edges. Certificate obstruction only; next A03 analysis repointed to signed relative loss or direct response. No actual-variance upper bound, carrier substitution, chart-block or goal-node status change. |
 | 1 / 18 | 2026-09-24 | Exact fundamental product-heat image for arbitrary distinct-link words, actual growing-square distinctness/fringe independence, and original terminal signed-cost consumer. The square heat image and useful SAME variance/scaling comparison remain open. Partial A03 only; no interacting eigenvalue, carrier substitution, chart-block or goal-node status change. |
 | 1 / 19 | 2026-09-24 | Exact label-two and full fundamental-square product-heat images for arbitrary distinct-link words, specialized to the actual growing square and consumed in its complete signed terminal-energy formula. Useful SAME interacting centered-variance/scaling comparison remains open. Partial A03 only; no interacting eigenvalue, carrier substitution, chart-block or goal-node status change. |
+| 1 / 20 | 2026-09-24 | Actual growing-square spectator channels preserve original energy and odd mass. The constructed cap four supplies a signed geometric budget at u=w^L with all spectator heat retained. SAME original-normalization/centered-variance scaling comparison remains open. Partial A03 only; no completed scaling improvement, carrier substitution, chart-block or goal-node status change. |

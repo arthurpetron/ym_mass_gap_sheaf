@@ -25,7 +25,52 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Original growing-word square heat and complete signed terminal formula (2026-09-24 UTC)
+### Original growing-square channel decomposition and signed geometric budget (2026-09-24 UTC)
+
+`BF4DyadicWilsonSquareChannelPartition` computes the active/spectator split
+from the literal ordered square and proves the character independent of its
+complement. `BF4DyadicWilsonSquarePassiveChannels.paddedSquare_energy_eq_channels`
+retains the ORIGINAL terminal energy with every spectator heat factor in
+computed Gram weights and projected channel sources. Its
+`.oddMoment_eq_active_square_channels` preserves arbitrary admissible
+insertions and the original mean; `.oddMass_eq_active_square_channels`
+identifies the ORIGINAL odd mass with active HEAT moments, not raw squares.
+
+Writing A=sum_h weight(h)*H[q_h^2], M=sum_h weight(h)*H[q_h^2*f^2], and
+D_ch=sum_h weight(h)*sourceIncrementCost(q_h,f), the actual terminal
+`.paddedSquare_terminal_channel_cost` in `BF4DyadicWilsonSquareChannelCost`
+proves 4E+D_ch=2*((1-2*w^(12L)+w^(32L))*M+(1-w^(32L))*A).
+A is exactly the existing familyChannelQuadratic of the ORIGINAL projected
+source and square-complement heat. D_ch is not silently identified with the
+preceding unchannelized correction. There is no channelwise normalization
+or recentering, and no replacement of the interacting physical partition.
+
+`BF4DyadicWilsonSquareChannelGeometry.paddedSquareSquareBound` constructs
+the actual cap-four Haar certificate. The computed positive channel weights
+give A>=0 and 4A-M>=0. `BF4DyadicWilsonSquareChannelBudget.paddedSquare_terminal_signed_geometric_budget`
+then proves, with u=w^L, 0<=w<=1 and K>=2,
+
+    4E+D_ch <= 2*(8*(1-u)*(4A-M)+960*(1-u)^2*A).
+
+**Next causal A03 proposition:** control this complete signed aggregate, or
+its actual channel mass and geometric defect, against the SAME interacting
+centered variance along a justified changing-scale family; a direct response
+alternative remains available. The existing fixed-plaquette channel heat
+floor is not already this growing-square comparison. This checkpoint does
+not improve a completed scaling estimate or prove continuum survival.
+EVERY-state scaling, SAME continuum/YM/UV, full Hilbert/OS/QFT, physical
+Hamiltonian/mass and every compact simple group remain open.
+
+Five narrow checks passed 31 gates within {propext, Quot.sound}, one worker,
+2 GiB cap, default elaboration limits and unchanged 12 GiB reserve. One
+pressure refusal was respected before remeasurement/resumption. No source
+hole, new axiom, analytic premise or canonical-field change. Independent
+source review passed; one semantic-root import updated. No full-root build,
+audit or guard. Schema 1 snapshot 20 adds partial A03 evidence only; the
+exact chart block, labels, symbols, scopes and every goal marker are unchanged.
+Evidence: `audits/AUDIT-DYADIC-WILSON-CHANNEL-BUDGET-2026-09-24.md`.
+
+### Previous checkpoint: Original growing-word square heat and complete signed terminal formula (2026-09-24 UTC)
 
 `SU2QuaternionProductHeatWilsonSpinTwo.productMap_spinTwo_word` proves the
 original selected product heat transmits the label-two character by
