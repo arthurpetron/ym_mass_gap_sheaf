@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Nonzero SAME all-nome Wilson excitation (2026-09-24 UTC):**
+**SAME all-nome Wilson rational algebra and definite pairing (2026-09-24 UTC):**
+`BF4WilsonAllNomeLinear` and `LinearLaws` construct explicit-modulus rational
+operations and prove their laws on the existing completion. `BilinearTime`
+proves bilinearity, actual time linearity and the exact signed double-correlator
+formula, retaining all cross terms. `Geometry.completedInner_posdef` identifies
+zero norm with the actual zero state; its strict-gap consumer rules out a
+nonzero two-step fixed vector in the vacuum complement at fixed nome/width.
+`TimeDifference` proves B(x-T(2)x,x-T(2)x)>=(1-q)^2*B(x,x) and supplies an
+actual plaquette-difference state with positive norm floor at every positive
+width. No arbitrary-filter nonvanishing, scaling survival, full real
+Hilbert/QFT or continuum claim. Five narrow checks passed 61 permitted gates;
+no full-root audit. A03/full J02 and all scaling/physical-mass obligations
+remain open. Evidence:
+`audits/AUDIT-ALL-NOME-WILSON-LINEAR-GEOMETRY-2026-09-24.md` at repository root.
+
+**Preceding nonzero SAME all-nome Wilson excitation (2026-09-24 UTC):**
 `BF4WilsonAllNomeCenteredVector` constructs rational centering with an explicit
 mean modulus; its actual completed time correlations are the centered scalar
 moments. `PlaquetteVariance` proves exact original mean/variance/response pins.

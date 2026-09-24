@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **12**, 2026-09-24 UTC. Source checkpoint:
-the SAME all-nome Wilson excitation milestone committed with this
+Chart schema: **1**. Snapshot: **13**, 2026-09-24 UTC. Source checkpoint:
+the SAME all-nome Wilson linear-geometry milestone committed with this
 snapshot; verification is recorded in
-`audits/AUDIT-ALL-NOME-WILSON-EXCITATION-2026-09-24.md`.
+`audits/AUDIT-ALL-NOME-WILSON-LINEAR-GEOMETRY-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -127,6 +127,22 @@ supply a positive plaquette norm and a positive one-step response at fixed
 parameters, not growing-loop/scaling survival. No change to A04's separate
 face-span conditional consumer or B01--B03's recorded scope is asserted.
 
+Additional partial J02 evidence: `BF4WilsonAllNomeLinear.completedAdd` and
+`.completedSmul` (`lean/YMGap/Continuum/BF4WilsonAllNomeLinear.lean:132`, `:135`)
+construct actual rational operations with explicit moduli; `LinearLaws`
+proves their laws. `BF4WilsonAllNomeGeometry.completedInner_posdef`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeGeometry.lean:71`) identifies zero norm
+with the actual zero state. `BF4WilsonAllNomeBilinearTime.orbitSum_pairing`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeBilinearTime.lean:195`) retains the full
+signed double correlator on actual finite time combinations.
+`BF4WilsonAllNomeTimeDifference.timeDifference_norm_lower` and
+`.positiveTimeDifferenceExcitation`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeTimeDifference.lean:122`, `:192`)
+supply the squared-norm lower bound `(1-q)^2*B(x,x)` for x-T(2)x and an
+actual plaquette-difference state with positive floor at every positive
+width. The floor depends on nome/width; this is not scaling survival, an
+A03 variance comparison, or full J02 closure.
+
 ## Activity and changes since the preceding chart
 
 - Primary active node: **A03**. Literal Wilson squares now have side L=2^s,
@@ -140,18 +156,17 @@ face-span conditional consumer or B01--B03's recorded scope is asserted.
   The six-face floor is now proved at most (1-w)^12, so subtracting the
   available nome-linear loss budget cannot certify a positive response.
   This limits that certificate pair, not actual variance or physical survival.
-- Parallel node: **J02**. The literal all-nome Wilson completion now has an
-  explicit nonzero centered plaquette at every positive width, with computed
-  nome-only norm floor. Strict padding supplies a positive one-step response
-  with nome/width-dependent floor. Both belong to the SAME completed carrier
-  and temporal map as its previously proved strict two-step estimate.
-  Original mean/variance/response pins are proved; no face-span completion
-  or carrier bridge is assumed. Actual centered square vectors and their
-  absolute loss are also supplied, but not their scaling norm comparison.
+- Parallel node: **J02**. The literal all-nome Wilson completion now has
+  proved rational linear laws, bilinear pairing, linear time and positive
+  definiteness. Signed finite time combinations retain every original
+  cross term and preserve the vacuum complement. The positive-square
+  argument supplies a concrete plaquette-difference excitation with floor
+  `(1-q)^2*starRatio(w)`, positive at each fixed nome and width. It neither
+  replaces B01--B03's recorded carrier nor improves the A03 scaling estimate.
   Full Hilbert/QFT, scaling survival and the continuum join remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--11; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--12; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -189,3 +204,4 @@ face-span conditional consumer or B01--B03's recorded scope is asserted.
 | 1 / 10 | 2026-09-24 | Literal all-nome represented completion and pairing, actual positive contractive time semigroup, fixed unit, invariant orthogonal sector and SAME-operator loop moments/loss. Partial J02 evidence only; strict same-carrier gap, centered scaling survival and full Hilbert/QFT remain open. No chart-block or goal-node status change. |
 | 1 / 11 | 2026-09-24 | Original arbitrary-Wilson covariance, rational-centered dyadic cap removal and strict two-step bound on EVERY unit-orthogonal state of the SAME all-nome completion. Nome/width dependence remains; partial J02 evidence only. No face-span carrier identification, chart-block or goal-node status change. |
 | 1 / 12 | 2026-09-24 | Actual centered Wilson vectors, positive plaquette norm/one-step response, and SAME centered square loss. The coarse six-face-floor/nome-linear-loss certificate pair cannot certify positive response. Partial A03/J02 evidence only; no carrier substitution, scaling-survival conclusion, chart-block or goal-node status change. |
+| 1 / 13 | 2026-09-24 | SAME rational completion algebra, bilinear/linear time, definite pairing and exact signed finite-orbit correlators. A positive-square bound supplies a quantitatively nonzero plaquette time difference at fixed nome/width. Partial J02 only; no A03 improvement, carrier substitution, scaling-survival conclusion, chart-block or goal-node status change. |

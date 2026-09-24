@@ -1,5 +1,38 @@
 # Sorry Ledger
 
+## SAME Wilson rational algebra and definite pairing CLOSED; full J02/A03 OPEN (2026-09-24 UTC)
+
+- **constructed**: `BF4WilsonAllNomeLinear.completedAdd`, `.completedSmul`,
+  `.completedZero`, `.completedNeg`, `.completedSub` act on the existing
+  literal all-nome Cauchy quotient. Their moduli are explicit; pointwise
+  reflected-pairing equality supplies the actual zero-distance witness.
+  `LinearLaws` proves associativity, commutativity, zero/inverse laws and
+  rational scalar laws, including rational equivalence compatibility.
+- **proved SAME-operator consumer**: `BF4WilsonAllNomeBilinearTime` proves
+  completed bilinearity and time linearity. `.orbitSum_pairing` gives the
+  exact double sum of correlators at m+n, without deleting signed cross
+  terms. Orthogonality and the existing strict bound hold for these actual
+  filtered states; arbitrary-filter nonvanishing is not claimed.
+- **proved definiteness**: `BF4WilsonAllNomeGeometry.completedInner_posdef`
+  identifies zero norm with the actual embedded zero.
+  `.vacuumComplement_twoStep_fixed_eq_zero` rules out a nonzero two-step
+  fixed vector in the actual orthogonal sector at fixed nome/width.
+- **proved quantitative consumer**: `BF4WilsonAllNomeTimeDifference.timeDifference_norm_lower`
+  bounds the squared norm of x-T(2)x below by `(1-q)^2*B(x,x)` on EVERY
+  vacuum-orthogonal state. `.positiveTimeDifferenceExcitation` supplies an
+  actual state and positive floor `(1-q)^2*starRatio(w)` for every positive
+  width. This particular filter is nonzero; the coupling/width-dependent
+  floor is not a scaling-survival estimate or an improvement to A03.
+- **open**: A03 useful SAME variance/response on a justified scaling family;
+  spatial/spacing control of EVERY-state decay; full real/complex Hilbert,
+  OS/QFT, SAME continuum/YM/UV, physical Hamiltonian/mass and every group.
+  No canonical field, chart status or recorded face-span scope is changed.
+- **verification**: five final narrow checks, 61 gates within
+  {propext, Quot.sound}; one worker, 2 GiB cap, default elaboration limits,
+  unchanged 12 GiB reserve. No new hole, axiom or analytic premise;
+  no full-root build/audit/guard. Evidence:
+  `audits/AUDIT-ALL-NOME-WILSON-LINEAR-GEOMETRY-2026-09-24.md`.
+
 ## SAME Wilson nonzero excitation CLOSED; coarse certificate join fenced; A03 OPEN (2026-09-24 UTC)
 
 - **constructed with explicit data**: `BF4WilsonAllNomeCenteredVector.centeredStream`

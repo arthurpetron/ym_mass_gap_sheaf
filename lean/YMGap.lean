@@ -4932,6 +4932,13 @@ import YMGap.Continuum.BF4WilsonAllNomePlaquetteExcitation
 -- Limitation of the computed six-face floor plus nome-linear loss budget,
 -- not an actual variance upper bound or a physical-survival refutation.
 import YMGap.Continuum.BF4ExactSlabStarVarianceLossObstruction
+-- SAME all-nome rational algebra, definite pairing and exact signed time
+-- combinations; no carrier substitution or scaling-survival conclusion.
+import YMGap.Continuum.BF4WilsonAllNomeLinearLaws
+import YMGap.Continuum.BF4WilsonAllNomeGeometry
+-- Positive-square norm floor and an actual nonzero two-step difference.
+-- Its computed floor still depends on nome/width, not a physical mass floor.
+import YMGap.Continuum.BF4WilsonAllNomeTimeDifference
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

@@ -25,7 +25,52 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Nonzero SAME Wilson excitation and certificate-comparison obstruction (2026-09-24 UTC)
+### SAME Wilson rational algebra, definite pairing and signed time combinations (2026-09-24 UTC)
+
+`BF4WilsonAllNomeLinear` constructs addition, rational scaling, zero, negation
+and subtraction on the EXISTING literal all-nome Wilson completion. The
+addition modulus uses both input moduli at epsilon/4; rational scaling uses
+the computed scalar tolerance. `LinearLaws` proves the rational vector laws
+by actual reflected-pairing equality and explicit zero-distance witnesses,
+without choosing quotient representatives or identifying another carrier.
+
+`BilinearTime` proves the actual completed pairing is rationally bilinear and
+the actual discrete temporal semigroup is linear for these operations.
+`orbitSum_pairing` realizes a finite signed time combination as an actual
+state and computes its pairing as the double sum of SAME-operator correlators
+at lag m+n, retaining every cross term. Such combinations preserve the actual
+vacuum complement and inherit its existing strict two-step bound. This alone
+does not assert that an arbitrary filter produces a nonzero state.
+
+`Geometry.completedInner_posdef` proves B(x,x)=0 iff x is the embedded zero.
+Its direct strict-gap consumer proves that a two-step fixed vector in the
+vacuum complement is zero, at fixed nome and width. This is not continuum
+vacuum isolation or a physical Hamiltonian theorem.
+
+`TimeDifference.timeDifference_norm_lower` gives a quantitative consequence:
+B(x-T(2)x,x-T(2)x)>=(1-q)^2*B(x,x) on EVERY vacuum-orthogonal state. The exact
+positive-square identity retains the gap remainder; it requires no division
+or new premise. `.positiveTimeDifferenceExcitation` returns an actual state
+and positive rational norm floor `(1-q)^2*starRatio(w)` at every positive
+width. This proves nonvanishing for THIS filter, not arbitrary filters or
+changing-scale survival; its floor still depends on nome and width.
+
+**Next causal frontier A03 is unchanged:** useful SAME centered variance or
+response along a justified changing-scale family. Source inspection still
+does not connect the odd-middle centered Ward residual to the signed
+source-energy correction. A fixed-plaquette O(1-w) relative estimate is one
+possible sufficient route, not an imposed prerequisite or a proved fact.
+The separate spatial/spacing control of EVERY-state decay is also open.
+These carrier constructions supply partial J02 inputs; full real/complex
+Hilbert/OS/QFT, SAME continuum/YM/UV, physical Hamiltonian/mass and every
+compact simple group remain open. No canonical field or chart marker changed.
+
+Five final narrow checks passed 61 permitted printed gates, with one worker,
+2 GiB cap, default elaboration limits and unchanged 12 GiB reserve. No new
+hole, axiom, analytic premise or full-root build/audit/guard. Evidence:
+`audits/AUDIT-ALL-NOME-WILSON-LINEAR-GEOMETRY-2026-09-24.md`.
+
+### Previous checkpoint: nonzero SAME Wilson excitation and certificate-comparison obstruction (2026-09-24 UTC)
 
 `BF4WilsonAllNomeCenteredVector` now constructs actual centered vectors in
 the literal all-nome completion, using the original mean's explicit modulus.

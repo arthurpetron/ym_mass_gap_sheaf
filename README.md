@@ -10,7 +10,21 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked same-carrier excitation:** the literal all-nome Wilson completion
+**New checked same-carrier algebra:** the literal all-nome Wilson completion
+now has explicit-modulus rational linear operations and their algebraic laws,
+a positive-definite pairing, and linear discrete time. Finite signed time
+combinations are actual states whose correlators retain every cross term.
+A two-step fixed vector in the vacuum complement must be zero, at fixed
+coupling and width. This is partial Hilbert-space construction, not full
+QFT or continuum vacuum isolation. A positive-square argument also proves
+`||x-T^2 x||^2 >= (1-q)^2 ||x||^2` in that sector, producing an actual
+time-difference excitation with a computed positive norm floor at every
+positive width. This floor depends on coupling and width; it is not scaling
+survival. Five narrow checks passed 61 permitted gates; no full-root audit. See the
+[linear-geometry audit](audits/AUDIT-ALL-NOME-WILSON-LINEAR-GEOMETRY-2026-09-24.md).
+The primary scaling-variance frontier and all chart markers remain unchanged.
+
+**Preceding checked same-carrier excitation:** the literal all-nome Wilson completion
 now contains an explicit centered plaquette with a proved positive norm floor
 at every positive width and fixed coupling. Strict padding also supplies an
 explicit positive one-step response. Both belong to the SAME carrier and time
