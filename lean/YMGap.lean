@@ -4901,6 +4901,7 @@ import YMGap.Continuum.SU2QuaternionProductHeatAngularHessian
 import YMGap.Continuum.SU2QuaternionHeatLogCurvature
 import YMGap.Continuum.SU2QuaternionRelativeHeatDualScore
 import YMGap.Continuum.SU2QuaternionProductHeatScoreVariance
+import YMGap.Continuum.SU2QuaternionProductHeatScoreEnergyObstruction
 import YMGap.Continuum.SU2QuaternionSignedAngularAlgebra
 import YMGap.Continuum.SU2QuaternionProductHeatPrefix
 import YMGap.Continuum.SU2QuaternionProductHeatCyclicFold

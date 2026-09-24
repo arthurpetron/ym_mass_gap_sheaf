@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## Proved kernel-score source identity and guarded energy fence (2026-09-24 UTC)
+
+- **constructed**: `productHeat_lower_score_eq_source_pair` keeps both
+  endpoint sources and identifies the lower one-end kernel score exactly
+  with `-B(Da,a*f)`; no source positivity or late cutoff is required.
+  `productHeat_flat_lower_score_zero` vanishes for every supported test and
+  finite signed angular direction when a=1.
+- **guarded diagnostic**: the actual one-link product at every strict nome
+  and every `relativeCutoff w 32 <= K` has positive SAME edge mass and
+  positive squared jump for the nonconstant coordinate probe.
+  `normalized_score_energy_domination_false` refutes every scalar reverse
+  domination by the squared normalized one-end score, which is zero.
+- **scope**: this prunes a universal score-only upper-energy route. The
+  valid score/variance theorem is unchanged, and no physical Wilson-specific
+  energy bound, direct coefficient-square bound or Yang--Mills claim is refuted.
+- **live input**: direct full signed temporal Gram control relative to the
+  actual variance, on a justified changing-spatial/coupling/spacing family.
+  The finite-P source correction and off-link mixed terms remain. No new
+  structure assuming this estimate was introduced.
+- **verification**: two serialized 8 GiB leaves, eight gates within
+  {propext, Quot.sound}; accepted logs contain no error/warning/sorryAx or
+  Classical.choice. No hole/axiom/field change, canonical closure or full-root
+  build/audit/guard. See `audits/AUDIT-KERNEL-SCORE-ENERGY-DIRECTION-2026-09-24.md`.
+
 ## Proved whole original product score versus SAME centered variance (2026-09-23)
 
 - **constructed**: actual first/second derivative block localization, signed

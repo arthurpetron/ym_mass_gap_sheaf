@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: whole-product score with exact SAME variance (2026-09-23)
+## Current increment: reject a universal reversed score/energy join (2026-09-24 UTC)
+
+The lower one-end kernel-score response is exactly `-B(Da,a*f)`. Its
+flat-source specialization vanishes for every angular direction and test.
+The actual one-link heat example has positive SAME normalized temporal
+jump energy at every cutoff satisfying the score theorem's onset. Hence
+no scalar can upper-bound that energy by the squared one-end score.
+
+This is verified evidence to stop extending the score-only route toward the
+required upper time-loss estimate. The preceding centered score theorem is
+valid but has the wrong direction for that consumer. The live task is direct
+full temporal Gram control versus the actual family variance, keeping all
+source corrections and testing physical scaling usefulness. A physical
+Wilson-specific route or direct coefficient-square bound is not refuted.
+
+Two focused 8 GiB checks, eight permitted gates, no full-root build/audit/
+guard or progress-metric script. No canonical physical/continuum/Clay closure.
+See `audits/AUDIT-KERNEL-SCORE-ENERGY-DIRECTION-2026-09-24.md`.
+
+## Previous increment: whole-product score with exact SAME variance (2026-09-23)
 
 Both signed derivatives now localize to each selected heat factor before
 product curvature is composed. The actual whole product and both complete

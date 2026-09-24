@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-23 UTC)
+## Whole-project goal and live completion map (updated 2026-09-24 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -24,6 +24,50 @@ Legitimately inhabit the canonical pinned frontier bundles without `sorry`,
 a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
+
+### Repoint: direct temporal form, not a reversed kernel-score bound (2026-09-24 UTC)
+
+The score/variance theorem below is valid, but it does not supply the desired
+UPPER time-loss estimate. The new exact identity
+`SU2QuaternionProductHeatScoreSource.productHeat_lower_score_eq_source_pair`
+proves, for a supported lower one-end test f,
+`H[a(x)*a(y)*(D_y W)*f(x)] = -B(D a, a*f)`.
+It is a response of the endpoint source, not the temporal energy of f.
+
+The new `SU2QuaternionProductHeatScoreEnergyObstruction` gives a decisive
+guarded diagnostic: a=1, the actual one-link product heat W, and the
+nonconstant coordinate f=x_0. Every signed-direction one-end score is ZERO,
+while the SAME edge mass and squared temporal jump are strictly POSITIVE
+for every `0<w<1` and every `relativeCutoff w 32 <= K`. The theorem
+`normalized_score_energy_domination_false` rules out every scalar B in
+`normalizedJumpEnergy <= B*(normalizedOneEndScore)^2` for this instance.
+This is not a physical Wilson counterexample, not a refutation of a direct
+coefficient-square energy bound, and not a refutation of Yang--Mills.
+
+**Next causal frontier:** park reversed one-end score domination as a universal
+upper-energy producer. Work directly with the full signed temporal jump/Dirichlet Gram form
+and the SAME centered variance on an explicitly justified changing-spatial/
+coupling/spacing observable family. The existing producers are one-link
+displacement, literal word telescoping, the exact `full_jump_pairing`, and
+the actual family variance floor. Separate local energy bounds and bounded
+link overlap do NOT control off-link Gram entries under the interacting
+endpoint source. A uniform occurrence-Gram bound or a proved SAME-source
+conditional tensorization could be sufficient; neither is supplied here.
+Retain the finite-P source correction if using the angular-defect route.
+
+The actual desired output is a sufficiently small RELATIVE one-step loss
+for the existing signed lag/survival consumer, not a coefficient-1 stability
+bound, an energy LOWER bound, or another upper bound on a scalar response.
+A coefficient-square budget is only useful after comparison with the SAME
+variance; a near-one nome rate is only useful after checking its physical
+spacing/time calibration. Do not require an unnecessary all-observable or
+all-bare-coupling theorem when a justified family suffices. No new frontier
+structure or assumed analytic estimate was added.
+
+Two focused 8 GiB leaves passed eight permitted gates; no new hole/axiom,
+field weakening or physical/continuum/all-group closure. Root import added;
+no full-root build/audit/guard. Evidence:
+`audits/AUDIT-KERNEL-SCORE-ENERGY-DIRECTION-2026-09-24.md`.
 
 ### Whole original product score versus SAME centered variance (2026-09-23 UTC)
 
@@ -50,7 +94,7 @@ endpoint sources. Subtracting the exact normalized mean leaves the score
 unchanged. The right side is therefore the existing `normalizedVariance`
 for R*W, not a changed law, uncentered second moment or norm surrogate.
 
-**Next causal frontier:** this is a LINEAR RESPONSE/variance bound, not a
+**Boundary at that checkpoint (route now repointed above):** this is a LINEAR RESPONSE/variance bound, not a
 temporal jump-energy comparison. Determine and prove the actual Wilson
 response/energy join, keeping both complete sources and the same centered
 variance. Integration by parts introduces the source derivative; do not

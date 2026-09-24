@@ -12,6 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Kernel score is not temporal energy (2026-09-24 UTC):**
+`SU2QuaternionProductHeatScoreSource.productHeat_lower_score_eq_source_pair`
+identifies a lower one-end response with `-B(Da,a*f)`. For a=1 it vanishes
+for every signed direction and supported test. The actual one-link example in
+`SU2QuaternionProductHeatScoreEnergyObstruction` has positive SAME mass and
+jump energy at every cutoff meeting `relativeCutoff w 32 <= K`; its normalized
+energy cannot be bounded above by any scalar times the squared one-end score.
+The previous response/variance theorem remains valid. No physical Wilson
+estimate or Yang--Mills claim is refuted. The live producer target is the
+direct full mixed temporal form, with the SAME source/variance and useful
+spatial/spacing behavior, not reversal of the score bound. Two focused
+8 GiB checks, eight permitted gates; no full-root build/audit/guard. Evidence:
+`audits/AUDIT-KERNEL-SCORE-ENERGY-DIRECTION-2026-09-24.md`.
+
 **Actual whole-product score versus SAME variance (2026-09-23):**
 `SU2QuaternionProductHeatScoreVariance.productHeat_normalized_coefficientSquare_variance_bound`
 proves `(H[R*(D W)*f]/Z)^2 <= m*C(w)*S*Var_RW(f)` for the actual selected
