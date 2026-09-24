@@ -1,6 +1,37 @@
 # Sorry Ledger
 
+## SAME all-nome Wilson completed strict bound CLOSED; scaling/Clay OPEN (2026-09-24 UTC)
+
+- **proved original envelope**: `BF4WilsonAllNomeSeparatedCovariance.originalWindowScalar_centered_abs_le`
+  retains the actual reflected source, both unit marginals and shared
+  partition. `.intrinsic_centered_covariance_le` passes it through original
+  joint limits, with a lag-independent expression cap and nome/width rate.
+- **proved dense bound**: `CenteredMoments` uses rational centering of the
+  actual constructive-real unit coefficient. Its explicit Cauchy data,
+  positivity, contraction and dyadic laws feed
+  `DenseGap.centered_twoStep_bound`; the presentation cap disappears without
+  division by a possibly zero norm, including the zero-rate case.
+- **proved SAME completed consumer**:
+  `BF4WilsonAllNomeCompletedGap.completed_twoStep_form_gap` bounds EVERY
+  unit-orthogonal vector of `BF4WilsonAllNomeCompletedInner.Completion`
+  under its actual `CompletedTime.completedTime 2`. The rate is the computed
+  `twoStepRate(w,width)<1`; `.vacuumComplement_twoStep_form_gap` directly
+  consumes the existing subtype. No separate face-span/small-nome completion
+  or assumed carrier bridge enters this proof.
+- **open**: useful SAME centered variance/nonzero response on a justified
+  changing-scale family, spatial/spacing control of EVERY-state decay,
+  full metric/Hilbert/OS/QFT, SAME continuum/YM/UV, physical Hamiltonian/mass,
+  and every compact simple group. No canonical-field or chart-marker changes.
+- **verification**: four final narrow checks, 33 printed gates within
+  {propext, Quot.sound}, one worker, 2 GiB cap and unchanged 12 GiB reserve.
+  No source hole, new axiom or analytic premise. One semantic-root import;
+  no full-root build/audit/guard. Evidence:
+  `audits/AUDIT-ALL-NOME-WILSON-COMPLETED-GAP-2026-09-24.md`.
+
 ## Literal all-nome Wilson completion/time CLOSED; full J02 and A03 OPEN (2026-09-24 UTC)
+
+Historical checkpoint: its strict-bound residue is now supplied above; the
+centered-scaling and full Hilbert/QFT residues remain open.
 
 - **constructed**: `BF4WilsonAllNomeCompletedInner.Completion` is the
   represented Cauchy quotient of the actual literal-width reflected form.

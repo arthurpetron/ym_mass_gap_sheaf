@@ -10,15 +10,23 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked same-carrier construction:** the literal-width Wilson reflected
-form now has a represented Cauchy completion, an explicit-modulus pairing,
-and an actual positive contractive discrete-time semigroup for every `0<w<1`.
-The constant state has norm one and is fixed; its orthogonal sector is
-invariant. Original loop correlations and the dyadic absolute loss bound are
-proved matrix coefficients of this SAME completed operator. This is not a
-strict gap, full Hilbert/QFT package, or continuum-survival theorem.
-Eight narrow checks passed 67 permitted gates; no full-root audit.
-See the [all-nome completion audit](audits/AUDIT-ALL-NOME-WILSON-COMPLETED-TIME-2026-09-24.md).
+**New checked same-carrier strict bound:** on the literal-width all-nome
+Wilson completion, every unit-orthogonal vector satisfies
+`B(x,T(2)x) <= q(w,width)*B(x,x)`, with the computed `0 <= q(w,width) < 1`.
+The proof identifies the original separated Wilson covariance, removes its
+expression-dependent prefactor by dyadic moments, and passes through the
+actual Cauchy pairing limits. It uses the SAME physical temporal advance,
+not a link heat-bath dynamics or the separate face-span completion.
+Four narrow checks passed 33 permitted gates; no full-root audit.
+See the [completed-bound audit](audits/AUDIT-ALL-NOME-WILSON-COMPLETED-GAP-2026-09-24.md).
+
+The rate still depends on coupling and spatial width. Spatial/spacing control,
+nonzero continuum survival, full Hilbert/QFT structure and physical mass
+calibration remain open. The preceding
+[all-nome completion construction](audits/AUDIT-ALL-NOME-WILSON-COMPLETED-TIME-2026-09-24.md)
+supplies this SAME carrier, norm-one fixed unit, invariant orthogonal sector,
+and exact original loop-correlation matrix coefficients. The new strict bound
+does not change the canonical chart's labels, layout or proof markers.
 
 **Preceding checked observable connection:** literal Wilson squares now have growing
 lattice side L=2^s and assigned spacing 2^-s, with exact unit geometric side.

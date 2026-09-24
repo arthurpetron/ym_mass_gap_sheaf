@@ -4920,8 +4920,12 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointEnergyCoefficientFence
 import YMGap.Continuum.BF4WilsonAllNomeLoopTimePin
 -- Literal-width all-nome represented completion and actual positive contractive
 -- time semigroup, fixed unit, invariant orthogonal sector and SAME loop moments.
--- Strict same-carrier gap, full Hilbert/QFT and scaling survival remain OPEN.
+-- The strict SAME-carrier bound is supplied below; full Hilbert/QFT and
+-- scaling survival remain OPEN.
 import YMGap.Continuum.BF4WilsonAllNomeCompletedTime
+-- Arbitrary Wilson covariance -> dyadic cap removal -> EVERY completed
+-- unit-orthogonal vector; strict rate still depends on nome and width.
+import YMGap.Continuum.BF4WilsonAllNomeCompletedGap
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

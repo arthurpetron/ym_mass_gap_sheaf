@@ -25,7 +25,48 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Literal all-nome Wilson completion and actual time (2026-09-24 UTC)
+### Strict two-step bound on the SAME all-nome Wilson completion (2026-09-24 UTC)
+
+The direct producer identified at the preceding checkpoint now reaches its
+completed consumer. `BF4WilsonAllNomeSeparatedCovariance` rewrites the actual
+reflected joint source and BOTH marginals as supported separated Wilson
+polynomials, retaining the same cutoff, boundary depth, partition and width.
+The existing arbitrary-polynomial transfer estimate passes through the
+original joint limits to the connected physical-lag envelope.
+
+`CenteredMoments` approximates the constructive-real unit coefficient by
+rationals, proving actual centered even-moment positivity, contraction and
+dyadic Cauchy--Schwarz. `DenseGap` removes the expression-dependent cap,
+including the zero-rate branch without division by a norm. `CompletedGap`
+passes that bound through the actual representative pairing limits. Its
+`completed_twoStep_form_gap` proves, for EVERY completed x with B(x,U)=0,
+B(x,T(2)x)<=q(w,width)*B(x,x), where q=mixRate(w,width)^2<1. The existing
+vacuum-complement subtype has a direct consumer. No face-span embedding,
+carrier substitution, small-nome restriction or new analytic input is used.
+
+**Next causal frontier:** useful control of the SAME centered variance or
+nonzero response for the literal changing-scale Wilson family, on a justified
+coupling/width/spacing trajectory. The bound 384*L^3*(1-w) is still an absolute
+loss bound; this strict upper estimate supplies no positive norm floor.
+Separately, the EVERY-state rate needs spatial/spacing control: q is computed
+from the nome-dependent kinetic floor/cap raised to the temporal-face count.
+Pointwise q<1 is not a uniform physical mass floor. Keep these nontriviality
+and universal-decay inputs distinct and on the SAME resulting theory.
+
+Full metric/Hilbert/OS/QFT assembly, SAME continuum/YM/UV structure, physical
+Hamiltonian/mass calibration and every compact simple group remain OPEN.
+No canonical field is closed or changed. Schema 1, snapshot 11 adds evidence
+only; its chart block and A03 primary-frontier marker are unchanged.
+
+Four final narrow checks passed 33 permitted printed gates. One worker,
+2 GiB cap, default elaboration limits and unchanged 12 GiB reserve. No new
+hole/axiom/premise; one semantic-root import, no full-root build/audit/guard.
+Evidence: `audits/AUDIT-ALL-NOME-WILSON-COMPLETED-GAP-2026-09-24.md`.
+
+### Previous checkpoint: literal all-nome Wilson completion and actual time (2026-09-24 UTC)
+
+Historical checkpoint: its strict-bound residue is supplied above. Its
+centered-scaling, full QFT and continuum residues remain open.
 
 The preceding carrier residue is now constructed, without a new analytic
 certificate. `BF4WilsonAllNomeFormLaws` and `CauchySchwarz` prove the actual

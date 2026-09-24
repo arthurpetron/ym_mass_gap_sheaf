@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**All-nome SAME Wilson completion and time (2026-09-24 UTC):**
+**Strict bound on the SAME all-nome Wilson completion (2026-09-24 UTC):**
+`BF4WilsonAllNomeSeparatedCovariance` proves the original connected lag
+envelope for arbitrary intrinsic expressions. `CenteredMoments` obtains the
+even-time positivity and dyadic laws by rational centering with explicit
+approximation data; `DenseGap` removes the expression-dependent prefactor.
+`CompletedGap.completed_twoStep_form_gap` gives B(x,T(2)x)<=q*B(x,x) for
+EVERY unit-orthogonal vector on the existing literal-width completion.
+The computed q=mixRate(w,width)^2 is strictly below one at fixed parameters.
+No small-nome or face-span carrier is substituted. Spatial/spacing control,
+centered survival, full Hilbert/QFT and continuum/physical mass remain open.
+Four narrow checks passed 33 permitted gates; no full-root audit. Evidence:
+`audits/AUDIT-ALL-NOME-WILSON-COMPLETED-GAP-2026-09-24.md` at repository root.
+
+**Preceding all-nome SAME Wilson completion and time (2026-09-24 UTC):**
 `BF4WilsonAllNomeCompletedInner` constructs the represented Cauchy completion
 of the literal-width reflected form, with explicit pairing data and sharp
 Cauchy--Schwarz. `BF4WilsonAllNomeTimeContraction` proves actual advance is
@@ -21,8 +34,9 @@ nonexpansive using the original finite interval cap and midpoint doubling.
 fixed norm-one unit, invariant orthogonal sector, balance, contraction and
 one-step positivity. Original loop moments and the dyadic absolute loss
 bound are SAME-operator matrix coefficients. No older small-nome/face-span
-completion is substituted. Strict gap, centered survival, full Hilbert/QFT,
-scaling/continuum and physical mass remain open. Eight narrow checks cover
+completion is substituted. The strict-bound residue is now supplied above;
+centered survival, full Hilbert/QFT, scaling/continuum and physical mass remain
+open. Eight narrow checks cover
 67 permitted gates; no full-root audit. Evidence at repository root:
 `audits/AUDIT-ALL-NOME-WILSON-COMPLETED-TIME-2026-09-24.md`.
 

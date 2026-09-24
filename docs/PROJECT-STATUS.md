@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **10**, 2026-09-24 UTC. Source checkpoint:
-the literal all-nome Wilson completion/time milestone committed with this
+Chart schema: **1**. Snapshot: **11**, 2026-09-24 UTC. Source checkpoint:
+the SAME all-nome Wilson completed-bound milestone committed with this
 snapshot; verification is recorded in
-`audits/AUDIT-ALL-NOME-WILSON-COMPLETED-TIME-2026-09-24.md`.
+`audits/AUDIT-ALL-NOME-WILSON-COMPLETED-GAP-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -104,6 +104,18 @@ Verification context: `audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`,
 checkpoint in `work_plan.md`. These record targeted checks, not a fresh
 full-tree build or full axiom audit.
 
+Additional fixed-parameter evidence, NOT a replacement of B01--B03's
+recorded face-span carrier: the separate literal-width all-nome Wilson
+`BF4WilsonAllNomeCompletedInner.Completion`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedInner.lean:59`) now has its
+OWN directly proved strict bound,
+`BF4WilsonAllNomeCompletedGap.completed_twoStep_form_gap`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:146`). It covers
+every vector orthogonal to its actual unit under its actual temporal
+semigroup. No identification of the two completions or transfer of the
+face-span survival theorem is claimed. This is additional partial J02
+evidence, not a change to the chart's fixed labels or scope registry.
+
 ## Activity and changes since the preceding chart
 
 - Primary active node: **A03**. Literal Wilson squares now have side L=2^s,
@@ -114,21 +126,18 @@ full-tree build or full axiom audit.
   justified scaling trajectory. The complete signed-source route remains
   available; the preceding coarse coefficient limitation is unchanged.
   A03 stays `[ ]`: no nonzero limiting norm or continuum premise is supplied.
-- Parallel node: **J02**. `BF4WilsonAllNomeCompletedInner` now constructs
-  the literal-width all-nome represented Cauchy completion and its actual
-  pairing, including sharp Cauchy--Schwarz and a norm-one unit.
-  `CompletedTime` descends actual advance to a positive contractive discrete
-  semigroup, fixes that unit and preserves its orthogonal sector. Original
-  loop moments and the dyadic absolute loss bound are SAME-operator matrix
-  coefficients. This is NOT the face-span completion or the older small-nome
-  Wilson completion. A strict gap on this carrier, full metric/Hilbert/QFT
-  assembly and scaling/continuum joins remain open. The next strict-gap
-  route must prove the centered lag envelope for arbitrary Wilson expressions;
-  a face-span embedding alone would bound only its image. Previous sharp
-  complex pairing results are retained. Full J02 and all goal markers stay open.
+- Parallel node: **J02**. The literal all-nome Wilson completion now has a
+  directly proved strict two-step bound on EVERY unit-orthogonal state.
+  The original separated covariance pins feed rational-centered even moments;
+  dyadic prefactor removal and the actual pairing limits give the completed
+  estimate with q=mixRate(w,width)^2<1. This is NOT a face-span bound or
+  small-nome completion substituted by name. The rate remains nome/width
+  dependent. No nonzero norm floor, scaling survival, full Hilbert/QFT
+  assembly or continuum join follows. The original loop moments/loss pins
+  remain on this SAME operator. Full J02 and all goal markers stay open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--9; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--10; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -164,3 +173,4 @@ full-tree build or full axiom audit.
 | 1 / 8 | 2026-09-24 | The computed normalized coefficient is at least 32; this limits that certificate, not actual energy. ORIGINAL transfer positivity sharpens E<=norm and the existing centered approximation retains the same epsilon in energy. Partial A03 evidence only. No chart-block or goal-node status change. |
 | 1 / 9 | 2026-09-24 | Literal dyadic Wilson squares, fixed-width all-nome reflected form, exact two-time moment pin and SAME-form cubic-cost loss bound. Partial A03/J02 evidence only; no completion substitution or scaling-survival conclusion. No chart-block or goal-node status change. |
 | 1 / 10 | 2026-09-24 | Literal all-nome represented completion and pairing, actual positive contractive time semigroup, fixed unit, invariant orthogonal sector and SAME-operator loop moments/loss. Partial J02 evidence only; strict same-carrier gap, centered scaling survival and full Hilbert/QFT remain open. No chart-block or goal-node status change. |
+| 1 / 11 | 2026-09-24 | Original arbitrary-Wilson covariance, rational-centered dyadic cap removal and strict two-step bound on EVERY unit-orthogonal state of the SAME all-nome completion. Nome/width dependence remains; partial J02 evidence only. No face-span carrier identification, chart-block or goal-node status change. |
