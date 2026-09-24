@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: coarse coefficient limitation and sharp energy approximation (2026-09-24 UTC)
+## Current increment: literal Wilson family reaches its SAME reflected form (2026-09-24 UTC)
+
+Actual square source words now have side L=2^s, assigned spacing 2^-s,
+unit geometric side, perimeter four and an explicit spacing modulus. Their
+existing original-state increment bound is 384*L^3*(1-w), not a small
+relative-energy estimate. A literal-width all-nome reflected form now has
+proved symmetry, positivity and common temporal-chart invariance.
+
+The exact two-time pin F(advance m x,advance n x)=lag(m+n) makes the square
+increment estimate a direct bound on twice the loss of the SAME reflected
+pairing. This is an actual observable/form connection, not another supplied
+frontier certificate. There is no arbitrary-Wilson map into the face-span
+JointCompletion and no silent use of the older small-nome Wilson completion.
+
+Next carrier work is the literal all-nome rational form algebra, completion
+and time descent with these pins retained. The analytic A03 frontier still
+requires SAME centered-variance/scaling control or direct nonzero response;
+assigned geometry is not a physical coupling trajectory or continuum limit.
+Every canonical chart marker and label remains unchanged. Four final narrow
+checks cover 33 permitted gates, with no new hole/axiom/input or full-root
+audit/guard. Evidence: `audits/AUDIT-DYADIC-WILSON-REFLECTED-FAMILY-2026-09-24.md`.
+
+## Previous increment: coarse coefficient limitation and sharp energy approximation (2026-09-24 UTC)
 
 The preceding partition floor is valid, but its computed coefficient is now
 proved too coarse for a small-loss bound: kappa<=2*rho*delta forces delta>=32

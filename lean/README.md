@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Literal Wilson family and SAME reflected time pin (2026-09-24 UTC):**
+`WilsonSquare.squareLoop` and `DyadicWilsonSquare` construct actual closed
+words of side 2^s with assigned spacing 2^-s and explicit geometric modulus.
+`BF4WilsonAllNomeReflectedForm` uses the literal-width ORIGINAL joint limit,
+with symmetry, positivity and temporal-chart invariance at every 0<w<1.
+`LoopTimePin.time_pairing_lag` identifies two advances with lag(m+n), and
+`dyadic_reflected_loss_bound` consumes the existing increment estimate in
+2*(F(x,x)-F(x,advance L x))<=384*L^3*(1-w). No face-span completion substitution, centered
+norm floor or scaling/continuum claim. Four narrow checks cover 33 permitted
+gates; no full-root audit. Evidence at repository root:
+`audits/AUDIT-DYADIC-WILSON-REFLECTED-FAMILY-2026-09-24.md`.
+
 **Coefficient limitation and sharp original-energy cap (2026-09-24 UTC):**
 `EndpointEnergyCoefficientFence.normalizedCoefficient_ge_thirtyTwo` proves
 that any delta with kappa(w)<=2*rho(w)*delta must satisfy delta>=32.

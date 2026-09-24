@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **8**, 2026-09-24 UTC. Source checkpoint:
-the coefficient-fence and sharp original-energy milestone committed with this
+Chart schema: **1**. Snapshot: **9**, 2026-09-24 UTC. Source checkpoint:
+the literal Wilson-family and same-reflected-moment milestone committed with this
 snapshot; verification is recorded in
-`audits/AUDIT-ENDPOINT-ENERGY-COEFFICIENT-FENCE-2026-09-24.md`.
+`audits/AUDIT-DYADIC-WILSON-REFLECTED-FAMILY-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -106,24 +106,25 @@ full-tree build or full axiom audit.
 
 ## Activity and changes since the preceding chart
 
-- Primary active node: **A03**. The preceding ORIGINAL partition floor remains
-  valid, but normalizing its computed energy coefficient forces delta>=32
-  for every strict nome. This is a proved limitation of that certificate,
-  NOT a lower bound on actual energy. ORIGINAL transfer positivity separately
-  sharpens E(f)<=2*norm(f) to E(f)<=norm(f). The actual centered approximation
-  retains epsilon in energy with its existing modulus. These finite upper
-  bounds do not supply useful relative energy on a justified scaling family.
-  Next: retain the complete signed correction or control an actual averaged
-  source against SAME centered variance. A03 remains `[ ]`; no source
-  positivity, scaling-family or continuum premise has been silently supplied.
-- Parallel node: **J02**. Sharp complex pairing work supplies prerequisites;
-  `JointComplexCauchySchwarz.inner_cauchySchwarz` now reaches the SAME completed
-  carrier, and `JointComplexSharpContinuity.time_pairing_converges` supplies
-  its actual constant-one matrix-coefficient consumer. The full node remains
-  `[ ]`; no continuum, full-QFT or physical-mass closure is claimed.
+- Primary active node: **A03**. Literal Wilson squares now have side L=2^s,
+  assigned spacing 2^-s, unit geometric side and a computed spacing modulus.
+  Their original increment bound has a SAME reflected-form consumer:
+  2*(F(x,x)-F(x,advance L x))<=384*L^3*(1-w). The cubic cost remains. This is not useful
+  relative control without the SAME centered-variance comparison and a
+  justified scaling trajectory. The complete signed-source route remains
+  available; the preceding coarse coefficient limitation is unchanged.
+  A03 stays `[ ]`: no nonzero limiting norm or continuum premise is supplied.
+- Parallel node: **J02**. `BF4WilsonAllNomeReflectedForm` supplies original
+  literal-width symmetry, positivity and temporal-chart invariance for the
+  larger Wilson syntax at every strict nome. `LoopTimePin.time_pairing_lag`
+  proves F(advance m x,advance n x)=lag(m+n). This is NOT a map into the
+  existing face-span completion or a reuse of the older small-nome Wilson
+  completion. Its all-nome completion/time descent and the same-carrier gap
+  bridge remain open. Previous sharp complex pairing results are retained.
+  Full J02, continuum and physical-mass obligations remain `[ ]`.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--7; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--8; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -157,3 +158,4 @@ full-tree build or full axiom audit.
 | 1 / 6 | 2026-09-24 | Conditional original-kernel mixed positivity and computed harmonic tails in the SAME actual spectator-channel quadratic. Partial A03 evidence only; joint four-link heat and SAME variance/scaling comparisons open. No chart-block or goal-node status change. |
 | 1 / 7 | 2026-09-24 | Computed positive floor comparing the SAME original channel norm with the ORIGINAL partition, and its direct original-energy consumer, independent of width/depth/late cutoff at fixed nome. Partial A03 evidence only; SAME centered-variance/scaling comparisons open. No chart-block or goal-node status change. |
 | 1 / 8 | 2026-09-24 | The computed normalized coefficient is at least 32; this limits that certificate, not actual energy. ORIGINAL transfer positivity sharpens E<=norm and the existing centered approximation retains the same epsilon in energy. Partial A03 evidence only. No chart-block or goal-node status change. |
+| 1 / 9 | 2026-09-24 | Literal dyadic Wilson squares, fixed-width all-nome reflected form, exact two-time moment pin and SAME-form cubic-cost loss bound. Partial A03/J02 evidence only; no completion substitution or scaling-survival conclusion. No chart-block or goal-node status change. |

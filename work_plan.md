@@ -25,7 +25,45 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Coarse coefficient limitation and sharp ORIGINAL energy cap (2026-09-24 UTC)
+### Literal dyadic Wilson family and SAME reflected moments (2026-09-24 UTC)
+
+`WilsonSquare.squareLoop` now constructs an actual closed ordered square word
+of every natural side length. `DyadicWilsonSquare` assigns side L=2^s and
+spacing=(1/2)^s, proves unit geometric side/perimeter four and a computed
+spacing modulus, and preserves the literal word under strict spatial padding.
+Its original joint-state increment at L time steps is at most 384*L^3*(1-w).
+This exposes a cubic scale cost; it is not a justified coupling trajectory.
+
+`BF4WilsonAllNomeReflectedForm` constructs the reflected form at the literal
+SAME width from `originalJointLimit`, with no extra collar or small-nome
+condition. Symmetry, diagonal positivity and common temporal-chart invariance
+are proved on the existing intrinsic Wilson syntax. `LoopTimePin.time_pairing_lag`
+identifies two actual advances with the SAME original lag moment at m+n.
+Its `dyadic_reflected_loss_bound` gives the direct observable consumer:
+2*(F(x,x)-F(x,advance L x))<=384*L^3*(1-w).
+
+**Carrier boundary:** arbitrary Wilson words are not thereby vectors in the
+face-span `JointCompletion` used by `JointEnergySurvival`. Nor is the older
+small-nome Wilson completion silently substituted. Next carrier component:
+prove rational form laws, complete this literal all-nome form and descend
+actual time while retaining these pins. Any reuse of the old strict gap
+requires a proved same-form/carrier bridge. This is partial J02 work.
+
+**Analytic frontier A03 remains unchanged:** useful comparison to the SAME
+centered variance or a direct nonzero response bound along a justified
+scaling family. The family now has literal geometry and a reflected loss
+estimate, but no width/coupling schedule, cross-scale limit or surviving
+centered norm. Preserve the signed-source route and the separate EVERY-state
+scaling obligation. No canonical field, chart label or status marker changed.
+
+Four final narrow checks passed 33 permitted printed gates; default
+elaboration limits, one worker, 2 GiB cap and unchanged 12 GiB reserve.
+An early simplifier-introduced classical dependency was rejected and removed
+with explicit constructor proofs. No new hole, axiom or analytic premise;
+no full-root audit/guard. Evidence:
+`audits/AUDIT-DYADIC-WILSON-REFLECTED-FAMILY-2026-09-24.md`.
+
+### Previous checkpoint: coarse coefficient limitation and sharp ORIGINAL energy cap (2026-09-24 UTC)
 
 The previous floor remains proved, but its direct energy coefficient is now
 quantitatively fenced. `EndpointEnergyCoefficientFence.endpointFloorPower_le_gap`

@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## Literal Wilson family and SAME reflected time pin CLOSED; A03/J02 OPEN (2026-09-24 UTC)
+
+- **proved objects**: `WilsonSquare.squareLoop` is an actual closed compatible
+  source word. `DyadicWilsonSquare` supplies side 2^s, assigned spacing 2^-s,
+  unit geometric side, perimeter four and an explicit spacing modulus.
+  Strict padding preserves the literal word, not expectations at different widths.
+- **proved SAME-object consumer**: `BF4WilsonAllNomeReflectedForm` uses the
+  original joint limit at the literal width and every 0<w<1, without a collar.
+  It has symmetry, diagonal positivity and temporal-chart invariance.
+  `LoopTimePin.time_pairing_lag` proves F(advance m x,advance n x)=lag(m+n).
+  `dyadic_reflected_loss_bound` proves
+  2*(F(x,x)-F(x,advance L x))<=384*L^3*(1-w).
+- **open**: this Wilson form's all-nome completion/transfer and its relation
+  to the separate face-span `JointCompletion`; useful SAME centered variance,
+  justified width/coupling scaling and nonzero survival. The older small-nome
+  Wilson completion is not substituted. EVERY-state scaling, SAME continuum/
+  QFT/YM/UV, physical Hamiltonian/mass and every group remain open.
+- **verification**: four final narrow serialized checks, 33 printed gates
+  within {propext, Quot.sound}; one worker, 2 GiB cap, unchanged 12 GiB reserve.
+  A development classical dependency was rejected and removed. No new hole,
+  axiom, analytic field, canonical weakening, chart-status change or full-root
+  audit/guard. See `audits/AUDIT-DYADIC-WILSON-REFLECTED-FAMILY-2026-09-24.md`.
+
 ## Computed coefficient fenced; sharp original-energy cap CLOSED; A03 OPEN (2026-09-24 UTC)
 
 - **proved limitation**: `EndpointEnergyCoefficientFence.endpointFloorPower_le_gap`

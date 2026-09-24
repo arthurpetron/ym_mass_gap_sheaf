@@ -10,7 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked limitation and sharper energy bound:** the preceding partition
+**New checked observable connection:** literal Wilson squares now have growing
+lattice side L=2^s and assigned spacing 2^-s, with exact unit geometric side.
+Their original time-increment estimate is now identified with loss of the
+**same fixed-width reflected pairing**, for every strict coupling nome:
+`2*(F(x,x)-F(x,advance L x)) <= 384*L^3*(1-w)`.
+The cubic cost remains. No centered-variance floor, physical coupling
+trajectory, completed Wilson-carrier identification or continuum survival is
+claimed. Four narrow checks passed 33 permitted gates; no full-root audit.
+See the [Wilson-family audit](audits/AUDIT-DYADIC-WILSON-REFLECTED-FAMILY-2026-09-24.md).
+
+**Preceding checked limitation and sharper energy bound:** the preceding partition
 estimate has a normalized coefficient at least 32 for every strict nome. This
 is a limitation of that computed certificate, NOT a lower bound on actual
 energy or a counterexample to Yang--Mills. Independently, positivity of the
