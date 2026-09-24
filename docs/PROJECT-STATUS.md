@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **11**, 2026-09-24 UTC. Source checkpoint:
-the SAME all-nome Wilson completed-bound milestone committed with this
+Chart schema: **1**. Snapshot: **12**, 2026-09-24 UTC. Source checkpoint:
+the SAME all-nome Wilson excitation milestone committed with this
 snapshot; verification is recorded in
-`audits/AUDIT-ALL-NOME-WILSON-COMPLETED-GAP-2026-09-24.md`.
+`audits/AUDIT-ALL-NOME-WILSON-EXCITATION-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -116,28 +116,42 @@ semigroup. No identification of the two completions or transfer of the
 face-span survival theorem is claimed. This is additional partial J02
 evidence, not a change to the chart's fixed labels or scope registry.
 
+Additional partial A03/J02 evidence: `BF4WilsonAllNomeCenteredVector.centeredVector`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeCenteredVector.lean:129`) constructs actual
+centered vectors on that Wilson completion. `centered_dyadic_loss_bound` (`:194`)
+retains the cubic absolute loss for its changing square family.
+`BF4WilsonAllNomePlaquetteExcitation.nonzeroExcitation` and
+`.positiveResponseExcitation`
+(`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteExcitation.lean:113`, `:123`)
+supply a positive plaquette norm and a positive one-step response at fixed
+parameters, not growing-loop/scaling survival. No change to A04's separate
+face-span conditional consumer or B01--B03's recorded scope is asserted.
+
 ## Activity and changes since the preceding chart
 
 - Primary active node: **A03**. Literal Wilson squares now have side L=2^s,
   assigned spacing 2^-s, unit geometric side and a computed spacing modulus.
-  Their original increment bound has a SAME reflected-form consumer:
-  2*(F(x,x)-F(x,advance L x))<=384*L^3*(1-w). The cubic cost remains. This is not useful
+  Their original increment bound now has an actual SAME centered-vector consumer:
+  2*(B(v,v)-B(v,T(L)v))<=384*L^3*(1-w). The cubic cost remains. This is not useful
   relative control without the SAME centered-variance comparison and a
   justified scaling trajectory. The complete signed-source route remains
   available; the preceding coarse coefficient limitation is unchanged.
   A03 stays `[ ]`: no nonzero limiting norm or continuum premise is supplied.
-- Parallel node: **J02**. The literal all-nome Wilson completion now has a
-  directly proved strict two-step bound on EVERY unit-orthogonal state.
-  The original separated covariance pins feed rational-centered even moments;
-  dyadic prefactor removal and the actual pairing limits give the completed
-  estimate with q=mixRate(w,width)^2<1. This is NOT a face-span bound or
-  small-nome completion substituted by name. The rate remains nome/width
-  dependent. No nonzero norm floor, scaling survival, full Hilbert/QFT
-  assembly or continuum join follows. The original loop moments/loss pins
-  remain on this SAME operator. Full J02 and all goal markers stay open.
+  The six-face floor is now proved at most (1-w)^12, so subtracting the
+  available nome-linear loss budget cannot certify a positive response.
+  This limits that certificate pair, not actual variance or physical survival.
+- Parallel node: **J02**. The literal all-nome Wilson completion now has an
+  explicit nonzero centered plaquette at every positive width, with computed
+  nome-only norm floor. Strict padding supplies a positive one-step response
+  with nome/width-dependent floor. Both belong to the SAME completed carrier
+  and temporal map as its previously proved strict two-step estimate.
+  Original mean/variance/response pins are proved; no face-span completion
+  or carrier bridge is assumed. Actual centered square vectors and their
+  absolute loss are also supplied, but not their scaling norm comparison.
+  Full Hilbert/QFT, scaling survival and the continuum join remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--10; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--11; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -174,3 +188,4 @@ evidence, not a change to the chart's fixed labels or scope registry.
 | 1 / 9 | 2026-09-24 | Literal dyadic Wilson squares, fixed-width all-nome reflected form, exact two-time moment pin and SAME-form cubic-cost loss bound. Partial A03/J02 evidence only; no completion substitution or scaling-survival conclusion. No chart-block or goal-node status change. |
 | 1 / 10 | 2026-09-24 | Literal all-nome represented completion and pairing, actual positive contractive time semigroup, fixed unit, invariant orthogonal sector and SAME-operator loop moments/loss. Partial J02 evidence only; strict same-carrier gap, centered scaling survival and full Hilbert/QFT remain open. No chart-block or goal-node status change. |
 | 1 / 11 | 2026-09-24 | Original arbitrary-Wilson covariance, rational-centered dyadic cap removal and strict two-step bound on EVERY unit-orthogonal state of the SAME all-nome completion. Nome/width dependence remains; partial J02 evidence only. No face-span carrier identification, chart-block or goal-node status change. |
+| 1 / 12 | 2026-09-24 | Actual centered Wilson vectors, positive plaquette norm/one-step response, and SAME centered square loss. The coarse six-face-floor/nome-linear-loss certificate pair cannot certify positive response. Partial A03/J02 evidence only; no carrier substitution, scaling-survival conclusion, chart-block or goal-node status change. |

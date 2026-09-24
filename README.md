@@ -10,7 +10,21 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked same-carrier strict bound:** on the literal-width all-nome
+**New checked same-carrier excitation:** the literal all-nome Wilson completion
+now contains an explicit centered plaquette with a proved positive norm floor
+at every positive width and fixed coupling. Strict padding also supplies an
+explicit positive one-step response. Both belong to the SAME carrier and time
+operator as the strict bound below. Actual centered Wilson squares retain the
+existing cubic absolute loss bound; their scaling-variance comparison is open.
+
+One proposed comparison is now ruled out: the six-face norm-floor certificate
+is at most `(1-w)^12`, so subtracting the available nome-linear loss budget
+cannot certify positive response. This limits those bounds, not the actual
+response or Yang--Mills theory. Four narrow checks passed 33 permitted gates;
+no full-root audit. See the [excitation and bound-comparison audit](audits/AUDIT-ALL-NOME-WILSON-EXCITATION-2026-09-24.md).
+No canonical chart label, layout or proof marker changed.
+
+**Preceding checked same-carrier strict bound:** on the literal-width all-nome
 Wilson completion, every unit-orthogonal vector satisfies
 `B(x,T(2)x) <= q(w,width)*B(x,x)`, with the computed `0 <= q(w,width) < 1`.
 The proof identifies the original separated Wilson covariance, removes its

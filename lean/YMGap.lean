@@ -4926,6 +4926,12 @@ import YMGap.Continuum.BF4WilsonAllNomeCompletedTime
 -- Arbitrary Wilson covariance -> dyadic cap removal -> EVERY completed
 -- unit-orthogonal vector; strict rate still depends on nome and width.
 import YMGap.Continuum.BF4WilsonAllNomeCompletedGap
+-- Constructed SAME centered vectors, positive plaquette norm/response and
+-- actual centered square loss; scaling survival remains OPEN.
+import YMGap.Continuum.BF4WilsonAllNomePlaquetteExcitation
+-- Limitation of the computed six-face floor plus nome-linear loss budget,
+-- not an actual variance upper bound or a physical-survival refutation.
+import YMGap.Continuum.BF4ExactSlabStarVarianceLossObstruction
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

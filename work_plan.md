@@ -25,7 +25,53 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Strict two-step bound on the SAME all-nome Wilson completion (2026-09-24 UTC)
+### Nonzero SAME Wilson excitation and certificate-comparison obstruction (2026-09-24 UTC)
+
+`BF4WilsonAllNomeCenteredVector` now constructs actual centered vectors in
+the literal all-nome completion, using the original mean's explicit modulus.
+Its autocorrelation and norm are exactly the existing connected scalar
+moments. `PlaquetteVariance` joins the original finite mean/lag pins with the
+six-face variance floor, without identifying the separate face-span carrier.
+`PlaquetteExcitation.nonzeroExcitation` supplies an actual nonzero state with
+norm at least starRatio(w) in every positive width. Strict padding additionally
+gives `.positiveResponseExcitation`, with the original positive one-step
+response floor at fixed nome/width. The existing strict bound acts on this
+SAME nonzero vacuum-complement vector. No new analytic input is assumed.
+
+The changing-scale square family also has an actual centered-vector consumer:
+`centered_dyadic_loss_bound` proves
+2*(B(v,v)-B(v,T(L)v))<=384*L^3*(1-w). Centering does not change this loss.
+The bound remains absolute; no positive norm floor for the growing loops or
+justified coupling/width/spacing trajectory is supplied.
+
+**Checked failed join:** `StarVarianceLossObstruction` proves
+starRatio(w)<=((1-w)*(1-w))^6<=1-w. Thus subtracting ANY C*(1-w), C>=1,
+from this norm-floor certificate is nonpositive, including C=192 for the
+one-step plaquette loss budget. These are comparisons of AVAILABLE bounds,
+not an upper bound on actual variance or a refutation of actual positive
+response. The independent positive-response theorem above remains valid.
+Do not repackage the coarse floor/loss pair as a scaling-survival certificate.
+
+**Next causal frontier A03:** useful SAME centered variance or nonzero
+response along a justified changing-scale family. The actual centered Wilson
+vectors now exist; the missing improvement is analytic, not another carrier
+wrapper. Preserve the sharper complete signed-source route or prove a useful
+direct response estimate. Keep separate the spatial/spacing control required
+for EVERY-state decay. Full Hilbert/OS/QFT, SAME continuum/YM/UV, physical
+Hamiltonian/mass and every compact simple group remain OPEN.
+
+Four final narrow checks passed 33 permitted gates; one worker, 2 GiB cap,
+default elaboration limits and unchanged 12 GiB reserve. One initial check
+was safety-stopped and one subsequent launch refused; checks resumed after
+recovery without weakening limits. No new hole/axiom/analytic premise;
+two semantic-root imports, no full-root build/audit/guard. Schema 1 snapshot 12
+adds evidence only; the chart block, proof markers and A03 frontier are unchanged.
+Evidence: `audits/AUDIT-ALL-NOME-WILSON-EXCITATION-2026-09-24.md`.
+
+### Previous checkpoint: strict two-step bound on the SAME all-nome Wilson completion (2026-09-24 UTC)
+
+Historical checkpoint: its explicit centered-vector/plaquette-norm residue
+is supplied above. The changing-scale and continuum residues remain open.
 
 The direct producer identified at the preceding checkpoint now reaches its
 completed consumer. `BF4WilsonAllNomeSeparatedCovariance` rewrites the actual

@@ -1,5 +1,38 @@
 # Sorry Ledger
 
+## SAME Wilson nonzero excitation CLOSED; coarse certificate join fenced; A03 OPEN (2026-09-24 UTC)
+
+- **constructed with explicit data**: `BF4WilsonAllNomeCenteredVector.centeredStream`
+  uses the actual mean's modulus. `.centeredVector` and `.centeredExcitation`
+  live in the existing all-nome Wilson completion and its vacuum complement.
+  `.centeredVector_time_pairing` and `.centeredVector_diagonal` pin their
+  actual time correlations and norms to the original connected scalars.
+- **proved nontriviality**: `BF4WilsonAllNomePlaquetteVariance` pins the
+  original mean and diagonal variance; it transfers only scalar equalities,
+  not the old face-span completion. `PlaquetteExcitation.nonzeroExcitation`
+  returns an actual nonzero state with the positive starRatio(w) norm floor
+  for every positive width. `.positiveResponseExcitation` supplies a positive
+  one-step matrix coefficient with computed nome/width floor and proved
+  strict-padding activity. The existing strict bound acts on the SAME state.
+- **proved changing-family consumer**: `CenteredVector.centered_dyadic_loss_bound`
+  puts the original cubic loss bound on the actual CENTERED square vector.
+  This is still absolute; the growing-loop norm/response comparison is open.
+- **checked limitation, not a physics refutation**:
+  `BF4ExactSlabStarVarianceLossObstruction.plaquette_budget_nonpositive`
+  follows from starRatio(w)<=(1-w)^12. The available norm-floor and
+  nome-linear loss-budget pair cannot certify a positive response. Actual
+  variance/loss can be stronger, and the separate positive response is proved.
+- **open**: A03 useful SAME variance/response on a justified scaling family;
+  spatial/spacing control of EVERY-state decay; full Hilbert/OS/QFT, SAME
+  continuum/YM/UV, physical Hamiltonian/mass and every compact simple group.
+  No canonical field, chart proof marker, or goal scope changed.
+- **verification**: four final narrow checks, 33 gates within
+  {propext, Quot.sound}; one worker, 2 GiB cap, default elaboration limits,
+  unchanged 12 GiB reserve. An initial safety stop and later launch refusal
+  were respected; verification resumed after recovery. No source hole, new
+  axiom or analytic premise; two semantic-root imports, no full-root
+  build/audit/guard. See `audits/AUDIT-ALL-NOME-WILSON-EXCITATION-2026-09-24.md`.
+
 ## SAME all-nome Wilson completed strict bound CLOSED; scaling/Clay OPEN (2026-09-24 UTC)
 
 - **proved original envelope**: `BF4WilsonAllNomeSeparatedCovariance.originalWindowScalar_centered_abs_le`

@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Strict bound on the SAME all-nome Wilson completion (2026-09-24 UTC):**
+**Nonzero SAME all-nome Wilson excitation (2026-09-24 UTC):**
+`BF4WilsonAllNomeCenteredVector` constructs rational centering with an explicit
+mean modulus; its actual completed time correlations are the centered scalar
+moments. `PlaquetteVariance` proves exact original mean/variance/response pins.
+`PlaquetteExcitation.nonzeroExcitation` and `.positiveResponseExcitation`
+return actual states and quantitative proofs, with no face-existence or
+analytic activity assumption. The existing strict bound acts on these SAME
+states. `centered_dyadic_loss_bound` retains the cubic budget on actual centered
+square vectors, without supplying their missing scaling norm comparison.
+`StarVarianceLossObstruction` proves the six-face floor is too small to pay
+the available nome-linear loss budget; this limits that certificate pair,
+not actual positive response. Four narrow checks passed 33 permitted gates;
+no full-root audit. A03/full J02, scaling/continuum and physical mass remain open.
+Evidence: `audits/AUDIT-ALL-NOME-WILSON-EXCITATION-2026-09-24.md` at repository root.
+
+**Preceding strict bound on the SAME all-nome Wilson completion (2026-09-24 UTC):**
 `BF4WilsonAllNomeSeparatedCovariance` proves the original connected lag
 envelope for arbitrary intrinsic expressions. `CenteredMoments` obtains the
 even-time positivity and dyadic laws by rational centering with explicit
