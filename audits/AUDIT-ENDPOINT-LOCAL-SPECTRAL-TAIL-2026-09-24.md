@@ -97,7 +97,7 @@ The precise missing producer is conditional mixed positivity
 for supported certified nonnegative u,v, with the active coordinates shared.
 The existing one-head square identity is
 `SU2QuaternionSharedHeadGramPairing.copy_lift_pair_eq_project_square`
-(`lean/YMGap/Continuum/SU2QuaternionSharedHeadGramPairing.lean:107`).
+(`lean/YMGap/Continuum/SU2QuaternionSharedHeadGramPairing.lean:109`).
 The generic selected-set mixed identity is not supplied by this milestone.
 The reviewed candidate construction swaps only spectator coordinates between
 two copies; existing certificate extension and reindexing preserve positivity.
