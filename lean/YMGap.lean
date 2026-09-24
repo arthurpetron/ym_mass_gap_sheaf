@@ -4904,6 +4904,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoungGeometricBudget
 -- Spectator heat retained: original energy, SAME four-link moments, and a no-larger geometric budget.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelActiveMoments
 import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelGeometricContraction
+-- Complete original-source local regularity and explicit one-link RAW Haar
+-- spectral tails. Conditional spectator quadratic/SAME variance scaling is OPEN.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointSpectralTail
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

@@ -25,6 +25,44 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Complete original-source local regularity and explicit harmonic tail (2026-09-24 UTC)
+
+The complete source q=P_fringe(V*g_n) now has a constructed local relative
+angular bound, including terminal depth zero. At an actual active link,
+six possible incident spatial faces plus one terminal output give
+C(w)=6*relativeCap(w,4096)+relativeCap(w,32), with an explicit nome-only
+cutoff K_reg(w). Actual fringe integration preserves the cone certificates
+Cq-Dq and Cq+Dq. Multiplying them gives H[R*(Dq)^2]<=C(w)^2*H[R*q^2]
+for any certified positive background, including shared-variable backgrounds.
+
+`EndpointSpectralTail.projectedEndpoint_highTail_small` consumes the full
+six-plane energy bound on the ORIGINAL projected terminal source. It computes
+L(w,epsilon) such that its selected-link harmonic tail above every L>=L(w,epsilon)
+satisfies H[high_L(q)^2]<=epsilon*H[q^2], at every width and terminal depth,
+and all K>=K_reg(w). Weighted cross-degree orthogonality preserves entire
+within-degree sums; the first omitted Casimir is (L+1)*(L+3). This is a
+one-link RAW Haar estimate, not a cutoff on the source's total degree and
+not uniform in changing coupling/spacing.
+
+**Next causal producer:** establish the conditional mixed-positive pairing
+sum_c lambda_c H[P_F(u*c)*P_F(v*c)]>=0 for positive certified u,v, retaining
+shared active coordinates. This would let the existing cone bound control
+the actual spectator-smoothed quadratic, before tail and four-link heat-floor
+comparisons. Do NOT identify it with a partial productMap pairing: productMap
+with an empty list is global Haar averaging, while familyProject [] is identity.
+The reviewed candidate uses a partial spectator swap on a doubled carrier;
+the selected-set conditional Fubini/Gram identity is still unproved. No
+channelwise positivity assumption or new analytic field has replaced it.
+
+The channel-aggregated signed-cost/SAME centered-variance comparison along a
+justified scaling family remains A03. ONE-state survival, EVERY-state scaling,
+SAME continuum/QFT/YM/UV, physical Hamiltonian/mass and every group remain OPEN.
+Canonical chart wording/layout/status markers are unchanged. Five narrow
+serialized checks passed 28 permitted gates; all final proofs use default
+elaboration limits and unchanged one-worker/2 GiB/12 GiB-reserve safety limits.
+No full-root build/audit/guard. Evidence:
+`audits/AUDIT-ENDPOINT-LOCAL-SPECTRAL-TAIL-2026-09-24.md`.
+
 ### Spectator-retaining geometric budget and SAME four-link moments (2026-09-24 UTC)
 
 The next actual-source refinement is checked. Spectator heat stays in its

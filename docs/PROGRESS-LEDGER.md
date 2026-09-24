@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: retain spectator heat in the geometric energy budget (2026-09-24 UTC)
+## Current increment: local regularity and computed ORIGINAL-source harmonic tail (2026-09-24 UTC)
+
+The complete projected terminal source now has a width/depth/cutoff-independent
+local angular cap at FIXED nome, with a computed sufficient heat cutoff.
+Weighted harmonic orthogonality turns it into an explicit epsilon-to-degree
+modulus for the actual one-link high part: H[high_L(q)^2]<=epsilon*H[q^2].
+No degree cap, source division or additional analytic premise is assumed.
+
+This supplies a genuine original-source regularity input, not the missing
+interacting-variance comparison. The next producer is conditional mixed
+positivity retaining the spectator-channel quadratic and shared active
+variables. A proposed partial-productMap identification was rejected because
+it averages those unselected variables. A03 and all chart markers stay open
+or checked exactly as before; no goal-node status changes.
+
+Five narrow checks passed 28 permitted gates at the unchanged safety limits;
+final elaboration limits are default, no full-root audit/guard. Evidence:
+`audits/AUDIT-ENDPOINT-LOCAL-SPECTRAL-TAIL-2026-09-24.md`.
+
+## Previous increment: retain spectator heat in the geometric energy budget (2026-09-24 UTC)
 
 The ORIGINAL energy now has a channel-local geometric bound. Its total budget
 is proved no larger than the preceding raw-source budget by weighted Bessel

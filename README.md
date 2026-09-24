@@ -10,7 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked refinement:** spectator heat is retained in computed positive
+**New checked original-source estimate:** a computed harmonic-degree threshold
+makes the discarded one-link tail at most `epsilon` times the SAME raw source
+Haar norm. At fixed coupling it works for every width, terminal depth and
+sufficiently late heat cutoff. All original spatial and terminal factors are
+retained. This is not yet the interacting-variance/scaling comparison: the
+next join must preserve shared active variables in the spectator quadratic.
+Five narrow checks passed 28 permitted gates; no full-root audit. See the
+[local regularity and tail audit](audits/AUDIT-ENDPOINT-LOCAL-SPECTRAL-TAIL-2026-09-24.md).
+
+**Checked spectator refinement:** spectator heat is retained in computed positive
 channels, and the original energy's geometric budget is proved no larger than
 the earlier raw-source budget. The SAME partition, mean and second moments
 reduce channelwise to exactly four active plaquette links. The required

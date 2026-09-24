@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Original endpoint local regularity and harmonic-tail modulus CLOSED; A03 OPEN (2026-09-24 UTC)
+
+- **proved**: `EndpointRelativeBound.projectedEndpointRelativeBound` constructs
+  the complete source's local cone certificates at every terminal depth and
+  width, with explicit nome-dependent cap/cutoff. The spatial action keeps all
+  factors; fringe integration preserves the same relative constant.
+- **actual consumer**: `EndpointSpectralTail.projectedEndpoint_highTail_small`
+  computes a nome/epsilon-only degree threshold giving an epsilon-small
+  selected-link tail relative to the SAME raw source Haar norm. Weighted
+  harmonic orthogonality and original angular energy supply the bound.
+- **open producer**: conditional mixed positivity for the SAME spectator
+  channel quadratic with active variables shared; partial productMap is not
+  that operator. No positive-law premise is assigned to signed channels.
+  Joint four-link tail/retained heat floor and SAME centered-variance/scaling
+  control remain open, as do all continuum/QFT/mass/all-group requirements.
+- **verification**: five narrow serialized checks, 28 permitted printed gates.
+  Final proofs use default elaboration limits, one worker, 2 GiB cap and the
+  unchanged 12 GiB reserve. No new hole, axiom, analytic premise or canonical
+  field; no full-root build/audit/guard. Evidence:
+  `audits/AUDIT-ENDPOINT-LOCAL-SPECTRAL-TAIL-2026-09-24.md`.
+
 ## Spectator-retaining geometric refinement CLOSED; A03 comparison OPEN (2026-09-24 UTC)
 
 - **proved**: `PassiveGeometricBudget` bounds the ORIGINAL terminal energy

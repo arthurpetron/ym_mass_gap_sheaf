@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original-source local regularity and tail (2026-09-24 UTC):**
+`EndpointRelativeBound` retains the complete spatial action, every terminal
+depth and actual fringe projection. `EndpointSpectralTail.projectedEndpoint_highTail_small`
+computes an epsilon-to-degree threshold for the SAME raw source norm,
+uniform in width/depth/sufficiently late cutoff at fixed nome. The conditional
+spectator quadratic and SAME centered-variance/scaling join remain open.
+Five narrow checks passed 28 permitted gates; no full-root audit. See
+`audits/AUDIT-ENDPOINT-LOCAL-SPECTRAL-TAIL-2026-09-24.md` at repository root.
+
 **Spectator-retaining refinement (2026-09-24 UTC):**
 `PassiveGeometricBudget` supplies the actual terminal-source energy bound;
 `ChannelActiveMoments` preserves the SAME odd moments with exactly four active

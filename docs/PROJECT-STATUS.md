@@ -1,8 +1,8 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **4**, 2026-09-24 UTC. Source checkpoint:
-the spectator-retaining geometric-localization milestone committed with this snapshot;
-verification is recorded in `audits/AUDIT-PASSIVE-GEOMETRIC-LOCALIZATION-2026-09-24.md`.
+Chart schema: **1**. Snapshot: **5**, 2026-09-24 UTC. Source checkpoint:
+the original endpoint regularity and harmonic-tail milestone committed with this snapshot;
+verification is recorded in `audits/AUDIT-ENDPOINT-LOCAL-SPECTRAL-TAIL-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -105,12 +105,14 @@ full-tree build or full axiom audit.
 
 ## Activity and changes since the preceding chart
 
-- Primary active node: **A03**. Spectator heat is now retained in a checked
-  channel-local geometric energy budget, proved no larger than the raw budget.
-  SAME odd-marginal moments reduce to exactly four active face heat blocks.
-  Channel sources and weights still depend on width, depth, cutoff and nome;
-  their aggregate comparison with SAME centered variance along scaling is open.
-  A03 remains `[ ]`. The positivity-only shortcut stays excluded by `fa0cd1f`.
+- Primary active node: **A03**. The COMPLETE original projected endpoint source
+  now has a local relative angular bound and a computed one-link harmonic-tail
+  modulus, uniform in width/depth/sufficiently late cutoff at FIXED nome.
+  This controls raw Haar norm, not the spectator quadratic or SAME variance.
+  Next: conditional mixed positivity retaining shared active variables, before
+  channel-aggregated tail/heat-floor and centered-variance/scaling comparisons.
+  Partial productMap is not that conditional operator. A03 remains `[ ]`;
+  the positivity-only shortcut stays excluded by `fa0cd1f`.
 - Parallel node: **J02**. Sharp complex pairing work supplies prerequisites;
   `JointComplexCauchySchwarz.inner_cauchySchwarz` now reaches the SAME completed
   carrier, and `JointComplexSharpContinuity.time_pairing_converges` supplies
@@ -118,7 +120,7 @@ full-tree build or full axiom audit.
   `[ ]`; no continuum, full-QFT or physical-mass closure is claimed.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--3; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--4; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -148,3 +150,4 @@ full-tree build or full axiom audit.
 | 1 / 2 | 2026-09-24 | Sharp complex Cauchy--Schwarz and explicit matrix-coefficient consumer on the SAME completion. Partial J02 evidence only; no chart-block or goal-node status change. |
 | 1 / 3 | 2026-09-24 | Quantitative original-source geometric energy budget with signed correction retained. Partial A03 evidence only; SAME variance/scaling comparison open. No chart-block or goal-node status change. |
 | 1 / 4 | 2026-09-24 | Spectator-retaining geometric budget, coefficient-one contraction, and SAME moments with exactly four active heat blocks. Partial A03 evidence only; channel-aggregated SAME variance/scaling comparison open. No chart-block or goal-node status change. |
+| 1 / 5 | 2026-09-24 | Complete original-source local angular bound and explicit one-link harmonic-tail modulus at fixed nome. Partial A03 evidence only; conditional spectator quadratic and SAME variance/scaling comparison open. No chart-block or goal-node status change. |
