@@ -1,19 +1,23 @@
 /-
 # Upper and triangle bounds for the ORIGINAL finite temporal energy
 
-The positive full edge square of f+f' and the exact two-endpoint marginal
+The constructed original transfer quadratic gives the sharper bound
+E_{g_n}(f) <= H[nu*f^2] at every nonnegative nome and cutoff. The positive
+full edge square of f+f' and the exact two-endpoint marginal
 identity give E_{g_n}(f) <= 2*H[nu*f^2]. The same positive edge form gives
 E_{g_n}(f+q) <= 2*E_{g_n}(f)+2*E_{g_n}(q).
 
 These bounds retain g_n=T^n1, both spatial endpoint factors, and the
 unnormalized odd marginal nu. They control finite approximation errors;
-they assume neither transfer-operator positive semidefiniteness nor a
-stationary vacuum, and supply no coercive lower bound or continuum gap.
+the weaker edge proofs do not use transfer positive semidefiniteness, while
+the sharper norm bound consumes its existing proof. None assumes a stationary
+vacuum or supplies a coercive lower bound or continuum gap.
 -/
 
 import YMGap.Continuum.BF4ExactSlabFixedSpatialActualMarginalDual
 import YMGap.Continuum.BF4ExactSlabFixedSpatialDirichletWindow
 import YMGap.Continuum.QuaternionHaarWeightedSquareTriangle
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferPositive
 
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialEnergyNormBound
 
@@ -74,6 +78,24 @@ private theorem parallelogram (p q : RatPoly) :
     (.add (.add (.mul (.var 0) (.var 0)) (.mul (.var 1) (.var 1)))
       (.add (.mul (.var 0) (.var 0)) (.mul (.var 1) (.var 1))))
     (by decide) (fun | 0 => p | _ => q)
+
+/-- Positivity of the ORIGINAL transfer quadratic removes the factor two.
+The nome need only be nonnegative; there is no late-cutoff or stationary-source
+premise in this upper bound. -/
+theorem energy_le_norm (w : Q') (hw : (0 : Q') ≤ w) (K width n : Nat)
+    {f : RatPoly} (hf : SupportedQuaternionBlocks (N width) f) :
+    energy w K width (terminalMessage w K width n) f ≤
+      marginalPair w K width n f f := by
+  let g := terminalMessage w K width n
+  have hn := BF4ExactSlabFixedSpatialTransferPositive.transferStep_quadratic_nonnegative
+    w hw K width (polyMul g f) (supported_polyMul (terminalMessage_supported w K width n) hf)
+  unfold energy
+  refine Q'.le_trans' _ _ _ (Q'.add_le_add_left _ _ _ (Q'.neg_le_neg hn)) ?_
+  exact Q'.le_of_eqv (Q'.eqv_trans _ _ _
+    (poly_identity_of_normal_eq (.add (.var 0) (.neg (.const 0))) (.var 0)
+      (by decide) (fun _ => weightedMass w K width
+        (polyMul (polyMul g (transferStep w K width g)) (polyMul f f))))
+    (norm_pin w K width n f))
 
 variable {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
   (K width : Nat) (hK : headCutoff w ≤ K) (n : Nat)
@@ -161,4 +183,5 @@ theorem energy_add_le {f q : RatPoly} (hf : SupportedQuaternionBlocks (N width) 
 end YMGap.Continuum.BF4ExactSlabFixedSpatialEnergyNormBound
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialEnergyNormBound.energy_le_two_norm
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialEnergyNormBound.energy_le_norm
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialEnergyNormBound.energy_add_le

@@ -10,7 +10,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked original-partition comparison:** an explicit positive factor
+**New checked limitation and sharper energy bound:** the preceding partition
+estimate has a normalized coefficient at least 32 for every strict nome. This
+is a limitation of that computed certificate, NOT a lower bound on actual
+energy or a counterexample to Yang--Mills. Independently, positivity of the
+ORIGINAL transfer proves `E(f)<=marginalPair(f,f)`, improving the previous
+factor two. The existing centered approximation consequently retains the
+same epsilon tolerance in energy, with its original modulus unchanged.
+Three narrow checks cover 17 permitted gates; no full-root audit. The SAME
+centered-variance/scaling estimate remains open; no chart status changes.
+See the [coefficient and energy-bound audit](audits/AUDIT-ENDPOINT-ENERGY-COEFFICIENT-FENCE-2026-09-24.md).
+
+**Preceding checked original-partition comparison:** an explicit positive factor
 `rho(w)=w^M/2` times the complete source's conditional channel norm is bounded
 by the ORIGINAL marginal partition. Four active links control the required
 first Casimir moment; the cutoff and floor depend on coupling, not spatial

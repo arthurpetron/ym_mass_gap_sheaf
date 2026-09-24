@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original-partition floor (2026-09-24 UTC):**
+**Coefficient limitation and sharp original-energy cap (2026-09-24 UTC):**
+`EndpointEnergyCoefficientFence.normalizedCoefficient_ge_thirtyTwo` proves
+that any delta with kappa(w)<=2*rho(w)*delta must satisfy delta>=32.
+This concerns the computed certificate, not actual energy. The valid
+original-partition floor remains available, but that coarse coefficient
+cannot supply a small loss. `EnergyNormBound.energy_le_norm` independently
+proves E(f)<=marginalPair(f,f) using ORIGINAL transfer positivity, with no
+stationarity or late-cutoff assumption. `CenteredFringeExtraction.centered_error_energy_le_same_tolerance`
+retains epsilon in the existing approximation's energy error, without
+changing its modulus. No coercivity or scaling conclusion. Three narrow
+checks cover 17 permitted gates; no full-root audit. Evidence:
+`audits/AUDIT-ENDPOINT-ENERGY-COEFFICIENT-FENCE-2026-09-24.md` at repository root.
+
+**Preceding original-partition floor (2026-09-24 UTC):**
 `EndpointChannelHeatFloor.padded_channelNorm_le_originalPartition` proves
 `rho(w)*Q_F(q)<=H[marginalWeight]` for the COMPLETE original source and its
 SAME spectator channels. The computed positive rho and cutoff depend only on

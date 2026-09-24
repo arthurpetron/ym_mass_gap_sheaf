@@ -147,6 +147,32 @@ theorem centered_extracted_energy_split {f : RatPoly}
     (fringePart_transfer_zero hw0 hw1 K width hK k n f)
     (centered_pieces_orthogonal hw0 hw1 K width hK n k f)
 
+/-- The constructed centered approximation now has the SAME tolerance in
+the original energy as in the original norm. The proved original transfer
+positivity removes the older factor two without changing the modulus. -/
+theorem centered_error_energy_le_same_tolerance {f : RatPoly}
+    (hf : SupportedQuaternionBlocks (N width) f)
+    (hmean : quaternionHaar (N width) (polyMul (marginalWeight w K width n) f) ≈ 0)
+    (epsilon : Q') (hepsilon : (0 : Q') < epsilon)
+    (hk : relativeApproximationCutoff hw0 hw1 K width hK epsilon ≤ k) :
+    let e := polyAdd f (polyNeg (polyAdd (fringePart hw0 hw1 K width hK k f)
+      (centeredActivePart hw0 hw1 K width hK n k f)))
+    energy w K width (terminalMessage w K width n) e ≤
+      epsilon*marginalPair w K width n f f := by
+  let s := polyAdd (fringePart hw0 hw1 K width hK k f)
+    (centeredActivePart hw0 hw1 K width hK n k f)
+  have hs : SupportedQuaternionBlocks (N width) s :=
+    supported_add (fringePart_supported hw0 hw1 K width hK k hf)
+      (centeredActivePart_supported hw0 hw1 K width hK n k hf)
+  have hneg : SupportedQuaternionBlocks (N width) (polyNeg s) := by
+    intro t ht
+    obtain ⟨u, hu, rfl⟩ := List.mem_map.mp ht
+    exact hs u hu
+  exact Q'.le_trans' _ _ _
+    (BF4ExactSlabFixedSpatialEnergyNormBound.energy_le_norm w (Q'.le_of_lt hw0) K width n
+      (supported_add hf hneg))
+    (centered_error_norm_le_tolerance hw0 hw1 K width hK n k hf hmean epsilon hepsilon hk)
+
 /-- The constructed approximation error is small in the ORIGINAL energy,
 using the same relative modulus. This is an upper bound, not coercivity. -/
 theorem centered_error_energy_le_tolerance {f : RatPoly}
@@ -186,3 +212,4 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFringeExtraction
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFringeExtraction.centered_error_norm_le_tolerance
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFringeExtraction.centered_extracted_energy_split
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFringeExtraction.centered_error_energy_le_tolerance
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredFringeExtraction.centered_error_energy_le_same_tolerance

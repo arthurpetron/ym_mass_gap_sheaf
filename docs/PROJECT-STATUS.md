@@ -1,8 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **7**, 2026-09-24 UTC. Source checkpoint:
-the original-channel partition-floor milestone committed with this snapshot;
-verification is recorded in `audits/AUDIT-CHANNEL-PARTITION-FLOOR-2026-09-24.md`.
+Chart schema: **1**. Snapshot: **8**, 2026-09-24 UTC. Source checkpoint:
+the coefficient-fence and sharp original-energy milestone committed with this
+snapshot; verification is recorded in
+`audits/AUDIT-ENDPOINT-ENERGY-COEFFICIENT-FENCE-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -105,16 +106,16 @@ full-tree build or full axiom audit.
 
 ## Activity and changes since the preceding chart
 
-- Primary active node: **A03**. The COMPLETE original endpoint source's SAME
-  spectator-channel quadratic A now satisfies rho(w)*A<=Z, where Z is the
-  ORIGINAL marginal partition and rho(w)=w^M/2>0 is computed from the four-link
-  first-moment cap. The cutoff and floor are independent of width and terminal
-  depth at FIXED nome. Its original-energy consumer proves
-  2*rho(w)*E_original<=kappa(w)*Z with a computed nome-only coefficient.
-  Next: prove the SAME centered-variance/scaling comparisons.
-  Neither centering nor changing-nome control follows from these bounds. Signed
-  channel sources are not asserted positive. A03 remains `[ ]`; the
-  positivity-only shortcut stays excluded by `fa0cd1f`.
+- Primary active node: **A03**. The preceding ORIGINAL partition floor remains
+  valid, but normalizing its computed energy coefficient forces delta>=32
+  for every strict nome. This is a proved limitation of that certificate,
+  NOT a lower bound on actual energy. ORIGINAL transfer positivity separately
+  sharpens E(f)<=2*norm(f) to E(f)<=norm(f). The actual centered approximation
+  retains epsilon in energy with its existing modulus. These finite upper
+  bounds do not supply useful relative energy on a justified scaling family.
+  Next: retain the complete signed correction or control an actual averaged
+  source against SAME centered variance. A03 remains `[ ]`; no source
+  positivity, scaling-family or continuum premise has been silently supplied.
 - Parallel node: **J02**. Sharp complex pairing work supplies prerequisites;
   `JointComplexCauchySchwarz.inner_cauchySchwarz` now reaches the SAME completed
   carrier, and `JointComplexSharpContinuity.time_pairing_converges` supplies
@@ -122,7 +123,7 @@ full-tree build or full axiom audit.
   `[ ]`; no continuum, full-QFT or physical-mass closure is claimed.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--6; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--7; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -155,3 +156,4 @@ full-tree build or full axiom audit.
 | 1 / 5 | 2026-09-24 | Complete original-source local angular bound and explicit one-link harmonic-tail modulus at fixed nome. Partial A03 evidence only; conditional spectator quadratic and SAME variance/scaling comparison open. No chart-block or goal-node status change. |
 | 1 / 6 | 2026-09-24 | Conditional original-kernel mixed positivity and computed harmonic tails in the SAME actual spectator-channel quadratic. Partial A03 evidence only; joint four-link heat and SAME variance/scaling comparisons open. No chart-block or goal-node status change. |
 | 1 / 7 | 2026-09-24 | Computed positive floor comparing the SAME original channel norm with the ORIGINAL partition, and its direct original-energy consumer, independent of width/depth/late cutoff at fixed nome. Partial A03 evidence only; SAME centered-variance/scaling comparisons open. No chart-block or goal-node status change. |
+| 1 / 8 | 2026-09-24 | The computed normalized coefficient is at least 32; this limits that certificate, not actual energy. ORIGINAL transfer positivity sharpens E<=norm and the existing centered approximation retains the same epsilon in energy. Partial A03 evidence only. No chart-block or goal-node status change. |

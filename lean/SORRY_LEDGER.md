@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Computed coefficient fenced; sharp original-energy cap CLOSED; A03 OPEN (2026-09-24 UTC)
+
+- **proved limitation**: `EndpointEnergyCoefficientFence.endpointFloorPower_le_gap`
+  gives w^M<=1-w for the ACTUAL computed M. Its
+  `normalizedCoefficient_ge_thirtyTwo` proves kappa<=2*rho*delta implies
+  delta>=32, for every 0<w<1. This limits only that coarse certificate;
+  it does not lower-bound actual energy or refute source-specific cancellation.
+- **proved estimate and actual consumer**: `EnergyNormBound.energy_le_norm`
+  improves the original finite E<=2*norm bound to E<=norm using the existing
+  ORIGINAL transfer positivity. No stationary-source or late-cutoff premise.
+  `CenteredFringeExtraction.centered_error_energy_le_same_tolerance` gives
+  E(error)<=epsilon*norm with the SAME existing approximation modulus.
+- **open**: useful SAME centered-energy/variance comparison on a justified
+  scaling family, nonzero survival, EVERY-state scaling, full SAME continuum/
+  QFT/YM/UV, physical Hamiltonian/mass, and every compact simple group.
+  No new hole, axiom, analytic premise or canonical-field change. No chart
+  marker changes; A03 remains open.
+- **verification**: three final narrow serialized checks, 17 printed gates
+  within {propext, Quot.sound}; default elaboration, one worker, 2 GiB cap,
+  unchanged 12 GiB reserve. No full-root build/audit/guard. See
+  `audits/AUDIT-ENDPOINT-ENERGY-COEFFICIENT-FENCE-2026-09-24.md`.
+
 ## SAME channel norm versus ORIGINAL partition CLOSED; A03 OPEN (2026-09-24 UTC)
 
 - **proved**: `SU2HeatProductFirstMomentFloor` supplies the scalar supporting

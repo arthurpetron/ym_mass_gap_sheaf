@@ -25,7 +25,44 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Computed SAME-channel floor against the ORIGINAL partition (2026-09-24 UTC)
+### Coarse coefficient limitation and sharp ORIGINAL energy cap (2026-09-24 UTC)
+
+The previous floor remains proved, but its direct energy coefficient is now
+quantitatively fenced. `EndpointEnergyCoefficientFence.endpointFloorPower_le_gap`
+proves w^M<=1-w for the ACTUAL exponent M(w). Consequently
+64*rho(w)<=kappa(w), and `normalizedCoefficient_ge_thirtyTwo` proves
+kappa(w)<=2*rho(w)*delta implies delta>=32 for every 0<w<1. The small numerator
+kappa is not a small normalized coefficient. This concerns this computed
+certificate ONLY: actual energy may be much smaller, and the sharper signed
+and geometric estimates have not been refuted.
+
+There is also a stronger actual estimate without that floor:
+`EnergyNormBound.energy_le_norm` proves E(f)<=marginalPair(f,f) by positivity
+of the ORIGINAL transfer quadratic. It needs only nonnegative nome and
+polynomial support, not stationarity or a late cutoff. The existing
+`CenteredFringeExtraction.centered_error_energy_le_same_tolerance` consumes
+it to give E(error)<=epsilon*marginalPair(f,f), replacing the older factor
+two without altering the explicit approximation modulus. This is an upper
+approximation bound, not coercivity or small relative energy for an excitation.
+
+**Next causal proposition:** control the COMPLETE actual signed cost against
+the SAME centered variance for ONE justified changing-scale observable family,
+or prove a direct response lower bound on that family. The existing consumer
+`JointEnergySurvival.response_floor_of_relative_energy` requires a useful
+relative energy delta with n*delta+theta<=1, plus a SAME norm floor. No new
+frontier interface is needed. Retain the favorable source-increment correction
+in 4E+D=2J or derive an actual averaged-source estimate; generic source
+positivity and the coarse coefficient above do not supply this input.
+The existing finite variance floor is not missing; useful joint dependence
+and the justified scaling family are. No change to the goal, chart labels,
+status markers or the separate EVERY-state gap obligation.
+
+Three final narrow checks passed 17 permitted printed gates; default
+elaboration limits, one worker, 2 GiB cap and unchanged 12 GiB OS reserve.
+No new hole, axiom, analytic premise, or full-root audit/guard. Evidence:
+`audits/AUDIT-ENDPOINT-ENERGY-COEFFICIENT-FENCE-2026-09-24.md`.
+
+### Previous checkpoint: computed SAME-channel floor against the ORIGINAL partition (2026-09-24 UTC)
 
 The reviewed first-moment argument is now proved, without a new joint-projector
 framework. The actual signed channel sources have nonnegative full diagonal

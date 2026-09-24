@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original channel norm reaches the ORIGINAL partition (2026-09-24 UTC)
+## Current increment: coarse coefficient limitation and sharp energy approximation (2026-09-24 UTC)
+
+The preceding partition floor is valid, but its computed coefficient is now
+proved too coarse for a small-loss bound: kappa<=2*rho*delta forces delta>=32
+at every strict nome. This is a theorem about that certificate coefficient,
+not a lower bound on actual energy or an obstruction to a sharper proof.
+Do not build another fixed-nome variance wrapper around this coefficient and
+call it scaling control. The signed/geometric budget remains available.
+
+Independently, the existing original transfer positivity gives E(f)<=norm(f),
+improving the older factor two. Its actual centered-fringe approximation
+consumer now bounds E(error) by epsilon*norm(f) with the SAME modulus and
+tolerance. This is approximation-error control, not centered coercivity or
+ONE-state continuum survival. A03 and all chart markers remain unchanged.
+
+Three final narrow checks cover 17 permitted gates; no new hole/axiom/input
+or full-root audit/guard. Evidence:
+`audits/AUDIT-ENDPOINT-ENERGY-COEFFICIENT-FENCE-2026-09-24.md`.
+
+## Previous increment: original channel norm reaches the ORIGINAL partition (2026-09-24 UTC)
 
 The computed floor rho(w)=w^M/2, M>=48*C(w)^2, now satisfies rho*A<=Z
 for the COMPLETE source's SAME conditional channel norm A and ORIGINAL
