@@ -4,7 +4,30 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: finite local weighted-heat cancellation (2026-09-24 UTC)
+## Current increment: full-product source cancellation (2026-09-24 UTC)
+
+The full-product degree-path Casimir coefficient is now proved equal to
+`sum_i H[a^2*Gamma_i(f)]`. The proof uses a cyclic differential sweep,
+same-frame integration by parts and weighted block transport, not a presumed
+joint orthogonal expansion. This closes the concrete first-order identity
+left open by the previous computed Taylor bound.
+
+The actual consumer is
+`BF4ExactSlabFixedSpatialSourceTaylor.padded_plaquette_energy_le_angular_add_quadratic`:
+the ORIGINAL temporal energy is at most `(1-w)` times that angular cost plus
+`(1-w)^2` times BOTH source-dependent remainder budgets. The complete source
+is q=P_F(V*g); q^2 is not identified with the actual odd marginal.
+
+Next: useful SAME-centered-variance control on ONE justified changing-scale
+family, separately from the EVERY-vector spatial/spacing gap. No survival,
+continuum/QFT/physical mass/all-group or canonical-frontier closure follows.
+Seven serialized 4 GiB checks passed thirty-four permitted axiom gates.
+Existing semantic consumer covers the new imports; no new hole/axiom.
+No full-root build/audit/guard or progress-metric script was run (the latter
+launches a guard requiring separate approval). Evidence:
+`audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`.
+
+## Previous increment: finite local weighted-heat cancellation (2026-09-24 UTC)
 
 A new actual finite-time upper bound cancels all endpoint-source derivatives
 at first order: `E(a,f) <= (1-w) H[a^2 Gamma(f)] + (1-w)^2 B(a,a*f^2)`.

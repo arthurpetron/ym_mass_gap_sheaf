@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Full-product first-order source cancellation (2026-09-24 UTC)
+
+- **proved**: the actual computed Casimir coefficient equals a cyclic
+  differential sweep; same-frame pairing and weighted angular cancellation
+  eliminate source derivatives, and weighted coordinate transport returns
+  all original block energies.
+  `SU2QuaternionProductHeatAngularTaylor.sourceFirstOrder_eq_weightedAngularEnergy`
+  identifies the coefficient with `sum_i H[a^2*Gamma_i(f)]`.
+- **actual consumer**: `BF4ExactSlabFixedSpatialSourceTaylor.energy_taylor_angular`
+  retains BOTH signed remainders; `padded_plaquette_energy_le_angular_add_quadratic`
+  gives the factor-one first-order upper bound for the ORIGINAL energy and
+  complete projected source q=P_F(V*g), with both quadratic budgets.
+- **open**: useful SAME-variance control of the angular cost and remainder
+  on ONE justified changing-scale family. q^2 is not the original odd
+  marginal; q and its budget depend on nome, cutoff, width and depth.
+  Separate EVERY-vector spatial/spacing gap, full QFT/YM, physical mass and
+  every group remain open. No canonical field changed; no new hole/axiom.
+- **verification**: seven serialized 4 GiB leaves, thirty-four permitted
+  gates, no error/warning/sorryAx in accepted logs; no full-root build/audit/guard.
+  Evidence: source-cancellation follow-up in
+  `audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`.
+
 ## Computed full-product Taylor bound for original energy (2026-09-24 UTC)
 
 - **proved**: scalar product-attenuation bounds, exact cyclic linearity,
@@ -12,9 +34,10 @@
   and `padded_plaquette_energy_le_firstOrder_add_quadratic` retain the original
   transfer, complete projected source and literal plaquette. No stationary
   source equation, joint orthogonality or surrogate marginal is assumed.
-- **open**: computed-Casimir/block-Laplacian identification, full first-order
-  source cancellation, and useful SAME-variance control of the source-dependent
-  budget on a justified scaling family. Separate EVERY-vector spatial/spacing
+- **follow-up/open**: the computed-Casimir differential join and full
+  first-order source cancellation are proved in the entry above. Useful
+  SAME-variance control of the source-dependent budget on a justified scaling
+  family remains open. Separate EVERY-vector spatial/spacing
   gap, full QFT/YM, physical mass and every group remain open. No canonical
   field changed; no new hole/axiom.
 - **verification**: seven serialized 4 GiB leaves, thirty-eight permitted

@@ -25,6 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Full-product first-order source cancellation (2026-09-24 UTC)
+
+The computed Casimir tree now equals the actual cyclic differential sweep.
+Pairing each step in its rotating frame permits head-block integration by
+parts and exact weighted source cancellation; weighted coordinate transport
+then returns the angular squares at ALL original blocks. No joint spectral
+orthogonality or positivity of the signed pairing remainder is assumed.
+
+**Actual consumer:** `BF4ExactSlabFixedSpatialSourceTaylor.energy_taylor_angular`
+and `padded_plaquette_energy_le_angular_add_quadratic` retain the original
+transfer, source q=P_F(V*g), literal plaquette and existing padding guard:
+
+    E_original = eps*sum_i H[q^2*Gamma_i(f)]
+                 + R(q,q*f^2)-R(q*f,q*f),
+    E_original <= eps*sum_i H[q^2*Gamma_i(f)] + eps^2*B(q,f).
+
+Thus the complete first-order source-derivative cancellation is now proved.
+B retains BOTH absolute leaf budgets, and the signed source correction is
+already inside E_original. The weight q^2 is NOT silently identified with
+the original odd marginal `(V*g_n)*g_(n+1)`.
+
+**Next causal proposition:** construct ONE justified changing-scale original
+observable family and bound this complete angular-plus-remainder expression
+relative to its SAME centered variance (or prove a useful direct sampled
+response). The source, and therefore B, depends on nome, cutoff, spatial
+width and terminal depth; the quadratic prefactor alone supplies no useful
+scaling estimate. The separate EVERY-vector spatial/spacing gap and full
+SAME-theory QFT/YM/physical-mass/every-group obligations remain open.
+
+Seven serialized 4 GiB leaf checks passed thirty-four gates within
+{propext, Quot.sound}, with no error/warning/sorryAx in accepted logs.
+The source-cancellation follow-up in
+`audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md` records declarations
+and logs. Existing semantic consumer import covers the new dependencies;
+no full-root build/audit/guard, new hole/axiom or canonical-field change.
+
 ### Computed full-product Taylor formula for ORIGINAL energy (2026-09-24 UTC)
 
 The actual cyclic heat sweep now has a computed finite degree-path expansion.
@@ -46,14 +82,11 @@ With eps=1-w and C the computed Casimir pairing, they prove
 The budget contains BOTH absolute leaf remainders. The complete signed source
 correction is already part of this full energy, so it is not added again.
 
-**Next causal proposition:** identify the computed Casimir pairing with the
-negative sum of block-angular Laplacian pairings, then prove the full
-first-order weighted source cancellation. The existing Casimir/cancellation
-theorems are head-block results; the required cyclic Laplacian transport and
-blockwise join are NOT proved here. This is not yet a factor-one angular
-estimate. After that identity, the actual source-dependent remainder and
-angular cost still need useful SAME-centered-variance control on ONE justified
-changing-scale family. For fixed inputs the tree/budget has no w,K arguments,
+**Follow-up:** the cyclic differential join and full first-order weighted
+source cancellation are now proved in the entry above. The actual
+source-dependent remainder and angular cost still need useful
+SAME-centered-variance control on ONE justified changing-scale family.
+For fixed inputs the tree/budget has no w,K arguments,
 but q depends on nome, cutoff, width and terminal depth; no scaling uniformity
 or survival follows. The separate EVERY-vector spatial/spacing gap and full
 SAME-theory QFT/YM/physical-mass/every-group obligations remain open.

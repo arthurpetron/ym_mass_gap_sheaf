@@ -237,7 +237,7 @@ the new estimate does not normalize against a different law.
 
 ### What remains and verification boundary
 
-The first-order coefficient is computed, not yet identified with
+At that checkpoint the first-order coefficient was computed, not yet identified with
 `sum_i H[a^2*Gamma_i(f)]`. The next concrete identity is
 `C(p,test)=-sum_i H[test*Delta_i(p)]`, requiring actual block-indexed
 Laplacian transport through the cyclic rotations. Existing head Casimir and
@@ -269,3 +269,91 @@ All thirty-eight printed gates lie within {propext, Quot.sound}; accepted
 logs contain no error/warning/sorryAx. Earlier failed drafts are not evidence.
 Semantic consumer import added; no full-root build/audit/guard was run.
 CI remains unchanged (disabled).
+
+## Full-product source-cancellation follow-up (2026-09-24 UTC)
+
+The first-order identity left open above is now proved for the full product:
+
+    C(a*f,a*f)-C(a,a*f^2) = sum_i H[a^2*Gamma_i(f)].
+
+This is an actual identity on the original Haar carrier, for arbitrary signed
+supported polynomial a,f, not a source-stationarity assumption. The proof
+first identifies the computed Casimir tree with a differential cyclic sweep.
+Pairing a sweep in its own rotating frame emits the head negative-Laplacian
+pairing plus the next rotated problem. Head integration by parts and the
+existing weighted cancellation eliminate all derivatives of a at first
+order. Weighted coordinate transport, not merely unweighted Haar invariance,
+identifies the emitted head energies with all original block energies.
+
+Consequently the existing original-source consumer now proves
+
+    E_original = eps*sum_i H[q^2*Gamma_i(f)]
+                 + R(q,q*f^2)-R(q*f,q*f),
+    E_original <= eps*sum_i H[q^2*Gamma_i(f)] + eps^2*B(q,f),
+    q = P_F(V*g),  eps = 1-w.
+
+The upper bound uses 0<=w<1 and the existing computed sufficient-cutoff
+guard. It does not require the source degrees to lie below the cutoff.
+The exact identity requires no positivity of a or f. B is the sum of BOTH
+absolute leaf-pairing remainder budgets. The source correction is already
+inside the full energy and is not added again. Strict spatial padding
+constructs fringe independence for the literal plaquette; no fringe
+independence is imposed on the endpoint source.
+
+### Declaration evidence
+
+- `branchCasimir_head_carrier`, `branchCasimir_rotation_carrier`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicHeadCasimir.lean:179`, `:213`.
+- `modeFold_casimir_carrier`, `pairCasimir_sweep`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicCasimirSweep.lean:216`, `:247`.
+- `rotateIterate_head_weightedAngularSquare_haar_of_lt`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicWeightedAngular.lean:178`.
+  This uses the existing, now public and axiom-gated
+  `SU2QuaternionAngularReindex.reindex_blockAngularDerivative_prefix`;
+  that theorem's statement and proof are unchanged.
+- `sourceSweep_succ`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicSourceCancellation.lean:148`.
+- `sourceFirstOrder_eq_weightedAngularEnergy`, `sourceEnergy_taylor_angular`,
+  `sourceEnergy_le_angular_add_quadratic`,
+  `lean/YMGap/Continuum/SU2QuaternionProductHeatAngularTaylor.lean:91`, `:107`, `:121`.
+- `energy_taylor_angular`, `energy_le_angular_add_quadratic`,
+  `padded_plaquette_energy_le_angular_add_quadratic`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceTaylor.lean:129`, `:148`, `:169`.
+
+### Remaining analytic input and verification
+
+The first-order derivative cancellation is closed; useful SAME-variance
+control is not. q depends on w,K,width and terminal depth. Its square is
+NOT identified with the original odd marginal `(V*g_n)*g_(n+1)`. Neither
+the angular cost nor B has been bounded usefully along a justified
+changing-scale observable family. In particular, eps^2 alone is no scaling
+estimate when the polynomial source and its degrees change.
+
+The existing fixed-width consumer is
+`BF4ExactSlabFixedSpatialJointTemporalEnergy.centered_relative_energy`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointTemporalEnergy.lean:128`:
+a supplied one-step energy/variance bound propagates linearly in time on
+the SAME centered completed state. The present finite Taylor identity does
+not supply a scaling-useful bound to that consumer. The guarded spatial
+union is not identified with this all-nome fixed-width carrier.
+ONE-family survival, EVERY-vector spatial/spacing gap, full SAME-theory
+QFT/local YM/UV identification, physical mass and every group remain open.
+
+Sol repaired the recurrence and wrote the original-slab consumers; Luna
+independently reviewed signs, the unchanged source and both retained budgets.
+Seven accepted leaf checks were serialized with one worker and 4 GiB cap,
+each terminal exit 0:
+
+- `/tmp/ym-gap-angular-reindex-export-check-1.log`: four gates;
+- `/tmp/ym-gap-cyclic-head-casimir-check-1.log`: seven gates;
+- `/tmp/ym-gap-cyclic-casimir-sweep-check-2.log`: five gates;
+- `/tmp/ym-gap-cyclic-weighted-angular-check-4.log`: five gates;
+- `/tmp/ym-gap-cyclic-source-cancellation-check-2.log`: four gates;
+- `/tmp/ym-gap-product-angular-taylor-check-2.log`: three gates;
+- `/tmp/ym-gap-original-source-angular-taylor-check-1.log`: six gates.
+
+All thirty-four printed gates lie within {propext, Quot.sound}; accepted
+logs contain no error/warning/sorryAx. Failed drafts are not verification
+evidence. The existing original-source import in `lean/YMGap.lean` covers
+the new dependencies. No full-root build/audit/guard, new hole/axiom or
+canonical-field change. CI remains unchanged (disabled).

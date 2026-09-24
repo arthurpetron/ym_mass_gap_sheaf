@@ -7,16 +7,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-The original temporal energy now has a [computed full-product Taylor bound](audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md#computed-full-product-taylor-follow-up-2026-09-24-utc).
-After exact inactive-source integration, its zeroth-order terms cancel and
-its first-order coefficient is an explicit difference of Casimir-weighted
-Haar pairings. BOTH signed remainders have computed quadratic bounds; the
-actual padded-plaquette consumer retains the original transfer and source.
-Identifying that coefficient with a source-cancelled angular energy, and
-controlling the budget relative to the SAME variance along changing scales,
-remain open. The source itself depends on nome, cutoff, width and terminal
-depth: the quadratic prefactor alone is not a scaling estimate. Seven narrow
-checks passed thirty-eight permitted axiom gates; no full-root build/audit/guard.
+The original temporal energy now has a [source-cancelled full-product Taylor bound](audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md#full-product-source-cancellation-follow-up-2026-09-24-utc).
+The computed Casimir coefficient is exactly `sum_i H[q^2*Gamma_i(f)]`:
+all endpoint-source derivatives cancel at first order, on every block.
+The original padded-plaquette energy therefore satisfies
+`E <= (1-w)*sum_i H[q^2*Gamma_i(f)] + (1-w)^2*B(q,f)`, with BOTH
+signed remainder budgets retained. Here `q=P_F(V*g)` is the complete
+projected source, not a replacement for the actual odd-time marginal.
+Useful control of this angular cost and remainder relative to the SAME
+variance along changing scales remains open. The source depends on nome,
+cutoff, width and terminal depth: the quadratic factor alone is not a scaling
+estimate. Seven narrow checks passed thirty-four permitted axiom gates;
+no full-root build/audit/guard or continuum/Clay closure.
 
 The [original temporal energy now admits exact inactive-source reduction](audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md#original-slab-projected-source-follow-up-2026-09-24-utc).
 For a fringe-independent observable, Haar-average the COMPLETE endpoint

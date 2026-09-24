@@ -363,7 +363,7 @@ theorem blockAngularSquare_supported
     (angularDerivative_supported_at (by omega) (by omega) hpolynomial)
     (angularDerivative_supported_at (by omega) (by omega) hpolynomial)
 
-private theorem reindex_blockAngularDerivative_prefix
+theorem reindex_blockAngularDerivative_prefix
     {blocks block i j : Nat} (s : QuaternionBlockInvolution blocks)
     (hblock : block < blocks) (hi : i < 4) (hj : j < 4)
     (polynomial : RatPoly) :
@@ -425,5 +425,6 @@ theorem reindex_blockAngularSquare_haar
 end YMGap.Continuum.SU2QuaternionAngularReindex
 
 #print axioms YMGap.Continuum.SU2QuaternionAngularReindex.reindex_ratDerivative
+#print axioms YMGap.Continuum.SU2QuaternionAngularReindex.reindex_blockAngularDerivative_prefix
 #print axioms YMGap.Continuum.SU2QuaternionAngularReindex.blockAngularSquare_supported
 #print axioms YMGap.Continuum.SU2QuaternionAngularReindex.reindex_blockAngularSquare_haar

@@ -12,16 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original full-product Taylor estimate (2026-09-24 UTC):**
-`SU2QuaternionCyclicHeatModeExpansion` computes the actual cyclic degree
-tree; its unweighted reassembly and signed pairing Taylor formula are proved.
-`SU2QuaternionProductHeatSourceTaylor` cancels the full weighted energy's
-zeroth-order terms and retains BOTH signed quadratic remainder budgets.
-`BF4ExactSlabFixedSpatialSourceTaylor` applies this to the original projected
-source and padded plaquette. The first-order angular/source-cancellation
-identification and useful SAME-variance/scaling control remain open; fixed
-polynomial budgets are not uniform bounds on the changing physical source.
-Seven serialized 4 GiB leaves passed thirty-eight permitted gates; no new
+**Full-product source cancellation (2026-09-24 UTC):**
+`SU2QuaternionCyclicCasimirSweep` identifies the computed degree-path
+coefficient with the differential sweep; weighted cyclic transport and
+integration by parts cancel every first-order source derivative.
+`SU2QuaternionProductHeatAngularTaylor.sourceFirstOrder_eq_weightedAngularEnergy`
+gives exactly `sum_i H[a^2*Gamma_i(f)]`, with no joint-orthogonality premise.
+`BF4ExactSlabFixedSpatialSourceTaylor.energy_le_angular_add_quadratic` and its
+padded-plaquette consumer retain the original energy, q=P_F(V*g), and BOTH
+quadratic remainder budgets. The weight q^2 is not identified with the odd
+marginal. Useful SAME-variance and changing-scale control remain open.
+Seven serialized 4 GiB leaves passed thirty-four permitted gates; no new
 hole/axiom, canonical-frontier closure or full-root build/audit/guard.
 
 **Original energy with exact inactive-source reduction (2026-09-24 UTC):**
