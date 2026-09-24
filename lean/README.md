@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**SAME nonzero dyadic Wilson family (2026-09-24 UTC):**
+**Original growing-word heat and signed cost (2026-09-24 UTC):**
+`SU2QuaternionProductHeatWilsonWord` proves exact fundamental transmission
+with multiplier w^(3*perimeter), preserving quaternion order and arbitrary
+supported tests. `BF4DyadicWilsonSquareNodup` and `HeatImage` derive the actual
+growing square's distinct indices, fringe independence and multiplier w^(12*L).
+`BF4DyadicWilsonSquareSignedCost.paddedSquare_terminal_young_identity`
+retains the original terminal source q and correction in
+4E+D=2*((1-2*w^(12*L))*H[q*q*f*f]+H[q*q*P(f*f)]).
+The square image remains literal. No interacting-transfer eigenvalue,
+useful relative-variance estimate, or scaling survival is supplied.
+Four narrow checks passed thirteen permitted gates; no full-root audit.
+Evidence: `audits/AUDIT-DYADIC-WILSON-HEAT-SIGNED-COST-2026-09-24.md` at repository root.
+
+**Preceding SAME nonzero dyadic Wilson family (2026-09-24 UTC):**
 `BF4ExactSlabWilsonWordVariance` proves original selected-action variance
 at least starRatio(w)*(1+mean^2), with the actual selected mean/partition.
 `BF4DyadicWilsonSquarePlacedGeometry` supplies the exact moving-slice

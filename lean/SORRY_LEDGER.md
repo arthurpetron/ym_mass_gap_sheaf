@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## Original growing-word fundamental heat and signed cost CLOSED; square image/A03 OPEN (2026-09-24 UTC)
+
+- **proved transmission**: `SU2QuaternionProductHeatWilsonWord.pairing_with_prefix`
+  and `.productMap_fundamental_word` preserve the ordered quaternion word,
+  remaining original heat factors and arbitrary supported final test, with
+  exact multiplier w^(3*perimeter), distinct selected blocks and K>=1.
+- **proved actual square premises**: `BF4DyadicWilsonSquareNodup` constructs
+  underlying-link and carrier-index distinctness; `BF4DyadicWilsonSquareHeatImage.paddedSquare_fringe_independent`
+  derives fringe independence from strict padding. Its
+  `.paddedSquare_fundamental_fullRange` and `.paddedSquare_fundamental_mixed_moment`
+  give a=w^(12*L), L=2^scale, on the literal original square and full source test.
+- **proved original-energy consumer**: `BF4DyadicWilsonSquareSignedCost.paddedSquare_singleEndedCost`
+  evaluates only the signed fundamental cross term. Its
+  `.paddedSquare_terminal_young_identity` retains the actual terminal message,
+  full projected source q and correction D: 4E+D=2*((1-2*a)*H[q*q*f*f]+H[q*q*P(f*f)]).
+  The actual square image P(f*f) has not been evaluated or assumed.
+- **open**: arbitrary-growing-word square heat image and a useful complete
+  signed cost/SAME interacting centered-variance comparison, or direct response
+  on a justified changing-scale trajectory. Bare product heat is not the
+  interacting completed transfer. EVERY-state scaling, full Hilbert/OS/QFT,
+  SAME continuum/YM/UV, physical Hamiltonian/mass and every group remain open.
+- **verification**: four final narrow checks, thirteen permitted gates (one
+  empty), one worker, 2 GiB cap, unchanged 12 GiB reserve. Independent review
+  passed. No source hole, axiom, analytic premise or canonical-field change.
+  One semantic-root import; no full-root build/audit/guard. Schema 1 snapshot
+  18 records partial A03 evidence only; chart unchanged. Evidence:
+  `audits/AUDIT-DYADIC-WILSON-HEAT-SIGNED-COST-2026-09-24.md`.
+
 ## Reset-floor/cubic-loss certificate obstruction CLOSED; relative response OPEN (2026-09-24 UTC)
 
 - **proved numerical obstruction**: `BF4DyadicResetBudgetObstruction.resetFloor_le_count_mul_starRatio`

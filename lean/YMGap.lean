@@ -4953,6 +4953,9 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicExcitation
 -- Even the proposed multi-link reset floor cannot pay the current cubic loss.
 -- Certificate-number obstruction only; actual Wilson response is not refuted.
 import YMGap.Continuum.BF4DyadicResetBudgetObstruction
+-- Exact growing-word kinetic heat image consumed by the ORIGINAL terminal
+-- signed energy. The square image and useful SAME variance/scaling bound remain open.
+import YMGap.Continuum.BF4DyadicWilsonSquareSignedCost
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

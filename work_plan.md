@@ -25,7 +25,47 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Reset amplification cannot pay the existing cubic loss (2026-09-24 UTC)
+### Original growing-word heat transmission and signed source cost (2026-09-24 UTC)
+
+`SU2QuaternionProductHeatWilsonWord.productMap_fundamental_word` proves
+P(chi)=w^(3*perimeter)*chi in the original supported-Haar quotient for every
+ordered word with distinct selected block indices and K>=1. The induction
+moves each lower coordinate to the upper slice, preserving the quaternion
+order, arbitrary supported prefix, all remaining heat factors and final test.
+It does not replace the interacting transfer P(V*f) by the bare product map P.
+
+`BF4DyadicWilsonSquareNodup` proves the literal growing square's distinct
+underlying links and actual fixed-slice indices. `BF4DyadicWilsonSquareHeatImage`
+derives its fringe independence from strict padding and gives the exact
+fundamental multiplier a=w^(12*L), L=2^scale. Its mixed-moment theorem retains
+an arbitrary supported source q: H[(q*q*f)*P(f)]=a*H[q*q*f*f].
+
+`BF4DyadicWilsonSquareSignedCost.paddedSquare_terminal_young_identity`
+consumes this with the ORIGINAL terminal message and full projected source.
+With M=H[q*q*f*f] and S=H[q*q*P(f*f)], it proves
+4*energy+sourceIncrementCost=2*((1-2*a)*M+S). No source term, sign or correction
+is discarded. The statements are finite algebraic identities at arbitrary
+rational w and explicit K>=1, not positivity claims about truncated heat.
+
+**Next useful A03 input:** evaluate the remaining actual square heat image
+for a growing distinct-link word, or directly bound the retained signed cost
+against the SAME interacting centered variance along a justified scaling
+trajectory. The known four-link spin-two image does not itself supply the
+arbitrary-word result. Even an exact square image would leave the useful
+normalized variance/scaling comparison to prove; no bare kinetic eigenvalue
+is an interacting completed-transfer eigenvalue. Direct-response alternatives
+remain available. EVERY-state spatial/spacing control, full Hilbert/OS/QFT,
+SAME continuum/YM/UV, physical Hamiltonian/mass and every group remain open.
+
+Four final narrow checks passed thirteen printed gates within
+{propext, Quot.sound}, one empty. One worker, 2 GiB cap, default elaboration
+limits and unchanged 12 GiB reserve. Independent source review passed. No
+source hole, new axiom, analytic premise or canonical-field change. One
+semantic-root import; no full-root build/audit/guard. Schema 1 snapshot 18
+adds partial A03 evidence only; exact chart block and all goal markers unchanged.
+Evidence: `audits/AUDIT-DYADIC-WILSON-HEAT-SIGNED-COST-2026-09-24.md`.
+
+### Previous checkpoint: Reset amplification cannot pay the existing cubic loss (2026-09-24 UTC)
 
 Before constructing multi-link residual densities, the numerical join was
 tested. `BF4DyadicResetBudgetObstruction` proves that for r=starRatio(w),

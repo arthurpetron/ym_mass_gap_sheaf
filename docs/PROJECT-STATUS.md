@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **17**, 2026-09-24 UTC. Source checkpoint:
-the dyadic reset-budget obstruction milestone committed with this
+Chart schema: **1**. Snapshot: **18**, 2026-09-24 UTC. Source checkpoint:
+the original growing-word heat and signed-cost milestone committed with this
 snapshot; verification is recorded in
-`audits/AUDIT-DYADIC-RESET-BUDGET-2026-09-24.md`.
+`audits/AUDIT-DYADIC-WILSON-HEAT-SIGNED-COST-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -199,6 +199,23 @@ budget 192*L^3*(1-w), for every actual selected sublist of square edges.
 This is not an upper bound on variance or a refutation of physical survival.
 No reset expansion is assumed; proving one alone would not fix this join.
 
+Additional partial A03 evidence:
+`SU2QuaternionProductHeatWilsonWord.productMap_fundamental_word`
+(`lean/YMGap/Continuum/SU2QuaternionProductHeatWilsonWord.lean:248`)
+proves exact original product-heat transmission w^(3*perimeter), retaining
+arbitrary supported tests. `BF4DyadicWilsonSquareNodup.paddedSquare_indices_nodup`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareNodup.lean:238`) derives actual
+carrier-index distinctness. `BF4DyadicWilsonSquareHeatImage.paddedSquare_fringe_independent`
+and `.paddedSquare_fundamental_fullRange`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareHeatImage.lean:84`, `:101`)
+derive strict-padding independence and the literal square multiplier w^(12*L).
+`BF4DyadicWilsonSquareSignedCost.paddedSquare_terminal_young_identity`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedCost.lean:86`) retains
+the original terminal source and correction: 4E+D=2*((1-2*w^(12*L))*M+S),
+where M=H[q*q*f*f] and S=H[q*q*P(f*f)]. The square image S, useful SAME
+interacting variance/scaling comparison and A03 remain open. This bare
+kinetic image is not an eigenidentity for the interacting completed transfer.
+
 ## Activity and changes since the preceding chart
 
 - Primary active node: **A03**. Literal Wilson squares now have side L=2^s,
@@ -223,6 +240,11 @@ No reset expansion is assumed; proving one alone would not fix this join.
   unchanged cubic-loss certificate. Next analysis targets the signed word
   quadratic before finite Cauchy discards its cross terms, or a stronger
   direct-response route; no sharper estimate is yet claimed.
+  The exact fundamental product-heat image is now proved for arbitrary
+  distinct-link words and consumed by the original terminal signed cost
+  of the growing square. Next: its actual square heat image and useful
+  complete signed-cost/SAME variance control, or direct response. No
+  interacting eigenvalue or stronger scaling estimate is asserted.
 - Parallel node: **J02**. The literal all-nome Wilson completion now has
   proved rational linear laws, bilinear pairing, linear time and positive
   definiteness. Signed finite time combinations retain every original
@@ -236,7 +258,7 @@ No reset expansion is assumed; proving one alone would not fix this join.
   Full Hilbert/QFT, scaling survival and the continuum join remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--16; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--17; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -279,3 +301,4 @@ No reset expansion is assumed; proving one alone would not fix this join.
 | 1 / 15 | 2026-09-24 | Original arbitrary-word and literal dyadic-square first/second Haar moments, retaining the full selected-link heat complement. Exact rationally shifted square equals (1+c*c) times its unchanged spectator integral. Partial A03 only; full-action variance/scaling comparison remains open. No carrier substitution, chart-block or goal-node status change. |
 | 1 / 16 | 2026-09-24 | Original selected-action variance with actual mean/partition, exact moving placement, and positive norm floor/nonzero dyadic-square states on the SAME all-nome completion. Partial A03/J02 only; changing-scale survival and cubic-loss control remain open. No carrier substitution, chart-block or goal-node status change. |
 | 1 / 17 | 2026-09-24 | The proposed multi-link reset floor cannot pay the existing cubic response-loss budget, even for every actual selected sublist of square edges. Certificate obstruction only; next A03 analysis repointed to signed relative loss or direct response. No actual-variance upper bound, carrier substitution, chart-block or goal-node status change. |
+| 1 / 18 | 2026-09-24 | Exact fundamental product-heat image for arbitrary distinct-link words, actual growing-square distinctness/fringe independence, and original terminal signed-cost consumer. The square heat image and useful SAME variance/scaling comparison remain open. Partial A03 only; no interacting eigenvalue, carrier substitution, chart-block or goal-node status change. |
