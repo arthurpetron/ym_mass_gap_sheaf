@@ -7,6 +7,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The **exact remainder now contracts through the complete spectator-channel
+family**, with coefficient one. Exact kinetic recombination, conditional
+norm-loss control and the active angular estimate prove this on the actual
+finite heat channels. The original padded-plaquette consumer contracts both
+positive remainder sums back to the original source diagonals, while retaining
+the favorable negative channel sum with its correct sign. This supplies the
+previously open remainder contraction, **not a SAME-variance or scaling bound**:
+the original diagonals can still contain bulk-source costs. Six narrow checks
+passed 27 permitted gates; no full-root audit. See the
+[remainder-channel contraction audit](audits/AUDIT-REMAINDER-CHANNEL-CONTRACTION-2026-09-24.md).
+
 The **exact Taylor remainder is now a checked positive symmetric bilinear
 form**, with sharp Cauchy--Schwarz. Polarizing its mixed source term gives an
 original-action plaquette bound using diagonal remainders, without the absolute

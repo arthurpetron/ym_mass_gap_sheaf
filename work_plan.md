@@ -25,6 +25,47 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact spectator-remainder contraction and original-source consumer (2026-09-24 UTC)
+
+The complete spectator family now contracts the exact positive remainder:
+
+    sum_c lambda_c R(b_c,b_c) <= R(q,q), b_c=P_S(q*h_c).
+
+The proof retains the ORIGINAL full-product kinetic pairing exactly. Its
+conditional norm loss is at most eps times the passive angular cost, and its
+remaining Casimir cost is at most the active angular cost. These costs add to
+the original Casimir term. No commuting-projector assumption is introduced.
+An S-independent insertion r passes through the channel transform, giving
+the same contraction for b_c*r against q*r. All statements retain 0<=w<1,
+the explicit sufficientCutoff w<=K guard, support and the actual block partition.
+
+The original padded plaquette now satisfies, for any rational s>=0,
+
+    2*s*E_original <= 2*s*eps*angular(q,f)
+      + s^2*R(q,q)+R(q*f^2,q*f^2)
+      - 2*s*sum_c lambda_c R(b_c*f,b_c*f).
+
+`BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_le_angular_add_original_diagonals`
+is the actual consumer. Only the POSITIVE channel sums were contracted;
+replacing the retained negative channel sum by -2*s*R(q*f,q*f) would reverse
+the inequality. The common partition and mean are unchanged. The two global
+positive diagonals may retain bulk-source costs: this new upper bound is not
+asserted numerically sharper than the earlier channel bound on every input.
+
+**Next analytic frontier:** useful control of the complete signed combination
+and angular cost against SAME centered variance on ONE justified changing-scale
+observable family, or its direct response. Quantitative control of positive
+costs or lower/cancellation control of negative terms requires new mathematics;
+the coefficient one alone is not a volume/spacing estimate. The separate
+EVERY-vector scaling gap, full SAME continuum/QFT/YM/UV, physical Hamiltonian
+mass and every-group obligations remain OPEN.
+
+Six final serialized 4 GiB checks passed 27 printed gates (11 existing) within
+{propext, Quot.sound}; no new hole, analytic premise or canonical-field change.
+No safety interruption in this increment, no changed limits, and no full-root
+build/audit/guard. Existing semantic imports cover the new modules. Evidence:
+`audits/AUDIT-REMAINDER-CHANNEL-CONTRACTION-2026-09-24.md`.
+
 ### Exact positive remainder and cancellation-preserving energy bound (2026-09-24 UTC)
 
 The exact full-product Taylor remainder R is now proved symmetric bilinear
@@ -57,11 +98,10 @@ replaced by channelwise probability laws.
 **Next analytic frontier:** bound these complete diagonal costs with their
 retained cancellation, together with angular cost, against SAME centered
 variance on ONE justified changing-scale family, or prove its direct response.
-An operator-valued spectator contraction in the exact remainder seminorm is
-still OPEN; scalar Haar-square Bessel and PSD/Cauchy alone do not supply it.
-Any such proof must establish the active-remainder/spectator compatibility,
-not subtract separate upper bounds termwise. This is a possible next argument,
-not a newly assumed analytic field or a required detour. The EVERY-vector
+The spectator contraction proposed at this checkpoint is now proved in the
+follow-up above, using exact kinetic recombination and sharp conditional loss;
+scalar Haar-square Bessel and PSD/Cauchy alone did not supply it. No separate
+upper bounds were subtracted termwise. The EVERY-vector
 spatial/spacing gap, full SAME continuum/QFT/YM/UV, physical Hamiltonian mass
 and every-group obligations remain open.
 
@@ -100,7 +140,7 @@ observable family, or its direct sampled response. The exact signed remainder
 before the absolute mode-tree budget is a candidate route for preserving
 cancellation; an exact-remainder PSD/Cauchy or operator-valued contraction
 was NOT proved in this increment. Exact-remainder PSD/Cauchy and polarization
-are subsequently checked above; operator-valued contraction remains open.
+and the spectator-remainder contraction are subsequently checked above.
 Existing Bessel APIs do not directly
 apply to the input-dependent absolute leaf budget. That is an interface
 limitation, not a no-go theorem. Raw Haar norm is still not the interacting

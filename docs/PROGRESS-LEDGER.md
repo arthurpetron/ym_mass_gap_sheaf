@@ -4,7 +4,31 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact remainder form and signed energy bound (2026-09-24 UTC)
+## Current increment: exact spectator-remainder contraction (2026-09-24 UTC)
+
+The actual spectator family now satisfies `sum lambda*R(b,b)<=R(q,q)`,
+including independent insertions. The kinetic pairing recombines exactly;
+the sharp conditional norm loss and active Casimir contraction account for
+the two remaining terms. The conditional channel norm is not confused with
+partial productMap, which averages unselected coordinates.
+
+The ORIGINAL padded plaquette consumes the result:
+`2*s*E <= 2*s*eps*angular(q,f)+s^2*R(q,q)+R(q*f^2,q*f^2)-2*s*sum lambda*R(b*f,b*f)`
+for any s>=0. Only positive channel sums contract. The favorable negative sum
+remains with the correct sign, and no common normalization is changed.
+This removes a previously open finite compatibility step, not the need for
+useful SAME-variance/scaling control; positive global diagonals can retain
+bulk-source costs. No universal numerical improvement over the prior bound.
+
+Next: quantitative control of the whole signed combination and angular cost
+on ONE justified changing-scale family, or direct sampled response. Separate
+EVERY-vector scaling, SAME continuum/QFT/YM/UV, physical mass and every group
+remain open. Six final narrow checks passed 27 permitted gates (11 existing),
+without safety interruptions or changed limits. No new hole/axiom, canonical
+field change or full-root build/audit/guard/progress-metric run. Evidence:
+`audits/AUDIT-REMAINDER-CHANNEL-CONTRACTION-2026-09-24.md`.
+
+## Previous increment: exact remainder form and signed energy bound (2026-09-24 UTC)
 
 The computed Taylor remainder is now a symmetric positive bilinear form on
 supported polynomials, with sharp Cauchy--Schwarz. The Casimir symmetry proof
@@ -20,8 +44,9 @@ diagonal sum still needs a useful SAME-variance/scaling comparison.
 
 Next: prove a quantitative estimate on those actual costs for ONE justified
 changing-scale family or its direct response. Operator-valued spectator
-contraction in the remainder seminorm is a candidate, not supplied by the
-scalar Bessel API or PSD alone. EVERY-vector scaling, full SAME QFT/YM/UV,
+contraction in the remainder seminorm was a candidate at this checkpoint;
+it is now proved in the follow-up above, not from scalar Bessel/PSD alone.
+EVERY-vector scaling, full SAME QFT/YM/UV,
 physical Hamiltonian mass and every group remain separate open obligations.
 
 Five final narrow checks passed 23 permitted gates (five existing). Two

@@ -4,6 +4,12 @@
 This is a checked finite SU(2) estimate on the ORIGINAL source energy.
 The continuum Yang--Mills / Clay target remains OPEN.
 
+**Subsequent result:** the proposed spectator-remainder contraction is now
+proved by exact kinetic recombination and sharp conditional norm-loss control;
+see [the follow-up audit](AUDIT-REMAINDER-CHANNEL-CONTRACTION-2026-09-24.md).
+The historical verification and declaration positions below refer to this
+earlier increment. The SAME-variance/scaling comparison remains open.
+
 ## Mathematical change
 
 Let `H` denote the original finite product Haar functional, `P` the full

@@ -9,6 +9,7 @@ related by finite-prefix equality and then by the existing Haar carrier.
 
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionSelectedProjectionReindex
+import YMGap.Continuum.SU2QuaternionAngularReindex
 import YMGap.Continuum.BF4ExactSlabSpatialLinkReflection
 import YMGap.Continuum.QuaternionHaarAngularCarrier
 
@@ -42,7 +43,11 @@ open YMGap.Continuum.SU2QuaternionProductHeatPassiveChannels
 open YMGap.Continuum.SU2QuaternionHaarBlockProjection
 open YMGap.Continuum.SU2QuaternionHaarHeadFubini
 open YMGap.Continuum.SU2QuaternionSelectedProjectionReindex
+open YMGap.Continuum.SU2QuaternionAngularReindex
 open YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
+open YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
+open YMGap.Continuum.SU2HeatCutoffCasimirBound
+open YMGap.Continuum.QuaternionHaarLinearAngularEnergy
 open YMGap.Continuum.QuaternionHaarAngularCarrier
 open YMGap.Continuum.QuaternionHaarSquareCertificate
 
@@ -349,6 +354,55 @@ theorem heatChannels_project_square_le_at (n slot : Nat) (hslot : slot < n) {w :
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hsum)
     (Q'.le_trans' _ _ _ hhead (Q'.le_of_eqv hnorm))
 
+/-- At one arbitrary selected block, the norm lost by the complete Gram
+channel analysis is bounded by the sharp local angular defect. -/
+theorem heatChannels_project_square_loss_le_at (n slot : Nat) (hslot : slot < n)
+    {w : Q'} (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q')) (K : Nat)
+    (hK : sufficientCutoff w ≤ K) (p : RatPoly)
+    (hp : SupportedQuaternionBlocks n p) :
+    H n (polyMul p p) -
+        channelSum (heatChannels slot w K) (fun h => H n
+          (polyMul (project slot (polyMul p h)) (project slot (polyMul p h)))) ≤
+      ((1 : Q')-w) * H n (blockAngularSquare slot p) := by
+  have hn : (n-1)+1 = n := by omega
+  let s := headSwapBlockInvolution n slot hslot
+  have hs : s.map slot = 0 := headSwapBlockInvolution_map_selected n slot hslot
+  have hs0 : s.map 0 = slot := headSwapBlockInvolution_map_zero n slot hslot
+  have himage := heatChannels_image s hslot w K
+  rw [hs] at himage
+  have hsum := channelSum_image hslot s hs p hp himage
+  let p' := reindexQuaternionPolynomial s p
+  have hp' : SupportedQuaternionBlocks ((n-1)+1) p' := by
+    rw [hn]
+    exact reindex_supported s p
+  have hpair0 := heatChannels_project_square_eq_pair (n-1) w K p' hp'
+  have hpair : channelSum (heatChannels 0 w K) (fun h => H n
+      (polyMul (project 0 (polyMul p' h)) (project 0 (polyMul p' h)))) ≈
+      H n (polyMul p' (headMap w K p')) := by
+    simpa only [hn] using hpair0
+  have hnorm := quaternionHaar_reindex s (polyMul p p) (supported_polyMul hp hp)
+  rw [reindexQuaternionPolynomial_mul] at hnorm
+  have hloss : H n (polyMul p p) -
+      channelSum (heatChannels slot w K) (fun h => H n
+        (polyMul (project slot (polyMul p h)) (project slot (polyMul p h)))) ≈
+      H n (polyMul p' p') - H n (polyMul p' (headMap w K p')) :=
+    Q'.add_eqv_congr' (Q'.eqv_symm hnorm)
+      (Q'.neg_eqv_congr _ _ (Q'.eqv_trans _ _ _ hsum hpair))
+  have hdef0 := headMap_defect_le_angular (n-1) hw0 hw1 K hK p' hp'
+  have hdef : H n (polyMul p' p') - H n (polyMul p' (headMap w K p')) ≤
+      ((1 : Q')-w) * H n (angularSquare p') := by
+    simpa only [hn] using hdef0
+  have hangReindex := reindex_blockAngularSquare_haar s (by omega : 0 < n) p
+  rw [hs0] at hangReindex
+  have hangNorm := quaternionHaar_reindex s (blockAngularSquare slot p)
+    (blockAngularSquare_supported hslot hp)
+  have hang : H n (angularSquare p') ≈ H n (blockAngularSquare slot p) :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_symm hangReindex) hangNorm
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hloss)
+    (Q'.le_trans' _ _ _ hdef
+      (Q'.le_of_eqv (Q'.mul_eqv_congr_left _ _ _ hang)))
+
 end YMGap.Continuum.SU2QuaternionSelectedHeatGramBessel
 
 #print axioms YMGap.Continuum.SU2QuaternionSelectedHeatGramBessel.heatChannels_project_square_le_at
+#print axioms YMGap.Continuum.SU2QuaternionSelectedHeatGramBessel.heatChannels_project_square_loss_le_at

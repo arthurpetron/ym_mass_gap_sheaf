@@ -11,6 +11,7 @@ is not bounded here against the original centered variance or across scales.
 
 import YMGap.Continuum.SU2QuaternionExactRemainderEnergy
 import YMGap.Continuum.SU2QuaternionPassiveChannelAngularBudget
+import YMGap.Continuum.SU2QuaternionRemainderChannelContraction
 
 namespace YMGap.Continuum.SU2QuaternionPassiveChannelRemainder
 
@@ -31,6 +32,8 @@ open YMGap.Continuum.SU2QuaternionProductHeatProjectedSourceEnergy
 open YMGap.Continuum.SU2QuaternionProductHeatAngularTaylor
 open YMGap.Continuum.SU2QuaternionPassiveChannelAngularBudget
 open YMGap.Continuum.SU2QuaternionExactRemainderEnergy
+open YMGap.Continuum.SU2QuaternionExactRemainderForm
+open YMGap.Continuum.SU2QuaternionRemainderChannelContraction
 open YMGap.Continuum.SU2HeatCutoffCasimirBound
 
 local infix:50 " ≈ " => Q'.eqv
@@ -71,6 +74,15 @@ private theorem sum_le (left right : RatPoly → Q') : ∀ cs : List GramChannel
       (Q'.mul_le_mul_of_nonneg_left _ _ _ (h c List.mem_cons_self) (hw c List.mem_cons_self))
       (sum_le left right cs (fun d hd => hw d (List.mem_cons_of_mem c hd))
         (fun d hd => h d (List.mem_cons_of_mem c hd)))
+
+private theorem sum_neg (f : RatPoly → Q') (cs : List GramChannel) :
+    channelSum cs (fun p => -(f p)) ≈ -(channelSum cs f) :=
+  Q'.eqv_trans _ _ _ (sum_congr _ (fun p => (-1)*f p) cs (fun c _ =>
+    poly_identity_of_normal_eq (.neg (.var 0)) (.mul (.const (-1)) (.var 0))
+      (by decide) (fun _ => f c.2)))
+    (Q'.eqv_trans _ _ _ (sum_scale (-1) f cs)
+      (poly_identity_of_normal_eq (.mul (.const (-1)) (.var 0)) (.neg (.var 0))
+        (by decide) (fun _ => channelSum cs f)))
 
 /-- Exact channel recombination of the polarized source energy. All signed
 diagonal terms remain in `polarizedRemainder`; no estimate has been taken. -/
@@ -169,8 +181,61 @@ theorem sourceEnergy_le_angular_add_balanced_channels (tail : Nat) {w : Q'}
           (familyProject_supported passive (supported_polyMul ha
             (productChannels_supported (tail+1) w K passive hpassive c hc))) hf)))
 
+/-- The two positive diagonal channel costs are controlled by the ORIGINAL
+source diagonals. The favorable negative channel sum is retained with its
+correct order direction; no variance or scaling comparison is supplied. -/
+theorem sourceEnergy_le_angular_add_original_diagonals (tail : Nat) {w : Q'}
+    (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q')) (K : Nat)
+    (hK : sufficientCutoff w ≤ K) (active passive : List Nat)
+    (hactive : ∀ i, i ∈ active → i < tail+1)
+    (hpassive : ∀ i, i ∈ passive → i < tail+1)
+    (hnot : ∀ i, i ∈ passive → i ∉ active)
+    (hcover : (passive++active).Perm (List.range (tail+1)))
+    (hnd : passive.Nodup) (s : Q') (hs : (0 : Q') ≤ s) (a f : RatPoly)
+    (ha : SupportedQuaternionBlocks (tail+1) a)
+    (hf : SupportedQuaternionBlocks (tail+1) f)
+    (hind : ∀ i, i ∈ passive → QuaternionBlockIndependent i f) :
+    (2*s)*sourceEnergy (tail+1) w K (List.range (tail+1)) a f ≤
+      (2*s)*((1 : Q')-w)*weightedAngularEnergy tail a f +
+        (s*s*exactRemainderPair tail w K a a +
+          exactRemainderPair tail w K (polyMul a (polyMul f f)) (polyMul a (polyMul f f)) +
+          -((2*s)*channelSum (productChannels (tail+1) w K passive) (fun c =>
+            exactRemainderPair tail w K (polyMul (channelSource passive a c) f)
+              (polyMul (channelSource passive a c) f)))) := by
+  let cs := productChannels (tail+1) w K passive
+  let b := fun c => channelSource passive a c
+  let ra := fun c => exactRemainderPair tail w K (b c) (b c)
+  let ry := fun c => exactRemainderPair tail w K
+    (polyMul (b c) (polyMul f f)) (polyMul (b c) (polyMul f f))
+  let rz := fun c => exactRemainderPair tail w K (polyMul (b c) f) (polyMul (b c) f)
+  have hsum : channelSum cs (fun c => balancedRemainder tail w K s (b c) f) ≈
+      (s*s)*channelSum cs ra+channelSum cs ry + -((2*s)*channelSum cs rz) :=
+    Q'.eqv_trans _ _ _
+      (sum_add (fun c => (s*s)*ra c+ry c) (fun c => -((2*s)*rz c)) cs)
+      (Q'.add_eqv_congr'
+        (Q'.eqv_trans _ _ _ (sum_add (fun c => (s*s)*ra c) ry cs)
+          (Q'.add_eqv_congr' (sum_scale (s*s) ra cs) (Q'.eqv_refl _)))
+        (Q'.eqv_trans _ _ _ (sum_neg (fun c => (2*s)*rz c) cs)
+          (Q'.neg_eqv_congr _ _ (sum_scale (2*s) rz cs))))
+  have hbase := sourceEnergy_le_angular_add_balanced_channels tail hw0 hw1 K hK
+    active passive hactive hpassive hnot hcover hnd s hs a f ha hf hind
+  have hra := exactRemainderPair_channel_sum_le tail hw0 hw1 K hK
+    active passive hactive hpassive hnot hcover hnd a ha
+  have hry := exactRemainderPair_weighted_channel_sum_le tail hw0 hw1 K hK
+    active passive hactive hpassive hnot hcover hnd a (polyMul f f) ha
+    (supported_polyMul hf hf)
+    (fun i hi => quaternionBlockIndependent_polyMul (hind i hi) (hind i hi))
+  exact Q'.le_trans' _ _ _ hbase
+    (Q'.add_le_add (Q'.le_refl' _)
+      (Q'.le_trans' _ _ _ (Q'.le_of_eqv hsum)
+        (Q'.add_le_add
+          (Q'.add_le_add (Q'.mul_le_mul_of_nonneg_left _ _ _ hra
+            (Q'.mul_nonneg _ _ hs hs)) hry)
+          (Q'.le_refl' _))))
+
 end YMGap.Continuum.SU2QuaternionPassiveChannelRemainder
 
 #print axioms YMGap.Continuum.SU2QuaternionPassiveChannelRemainder.sourceEnergy_eq_polarized_channels
 #print axioms YMGap.Continuum.SU2QuaternionPassiveChannelRemainder.sourceEnergy_le_angular_add_polarized_channels
 #print axioms YMGap.Continuum.SU2QuaternionPassiveChannelRemainder.sourceEnergy_le_angular_add_balanced_channels
+#print axioms YMGap.Continuum.SU2QuaternionPassiveChannelRemainder.sourceEnergy_le_angular_add_original_diagonals

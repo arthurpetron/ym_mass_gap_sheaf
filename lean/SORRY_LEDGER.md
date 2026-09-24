@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## Spectator-remainder contraction and original-source diagonals (2026-09-24 UTC)
+
+- **proved**: `SU2QuaternionSelectedHeatGramBessel.heatChannels_project_square_loss_le_at`
+  and `SU2QuaternionFamilyChannelLoss.productChannels_familyProject_loss_le`
+  give coefficient-one conditional norm-loss bounds on the actual channel list.
+  `SU2QuaternionChannelAngularContraction.pairCasimir_channel_le_active`
+  controls the remaining Casimir cost. Exact original kinetic recombination
+  then proves `SU2QuaternionRemainderChannelContraction.exactRemainderPair_channel_sum_le`
+  and its independent-insertion counterpart. No spectral commutation premise.
+- **actual consumer**:
+  `BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_le_angular_add_original_diagonals`
+  contracts both positive remainder channel sums, preserving the negative one
+  and the original source/action/partition. A contraction UPPER bound cannot
+  replace the favorable negative channel diagonal by its original-source one.
+- **open**: useful complete signed-remainder and angular-cost control against
+  SAME centered variance on ONE justified changing-scale family, or direct
+  response. Original positive diagonals may still contain bulk-source costs.
+  EVERY-vector scaling, full SAME continuum/QFT/YM/UV, physical Hamiltonian
+  mass and every group remain open. No hole, analytic premise or field change.
+- **verification**: six final serialized 4 GiB checks, 27 permitted gates
+  (11 existing); accepted logs have no error/warning/sorryAx. No safety
+  interruption or limit change in this increment. Existing semantic imports
+  cover the three new modules; no full-root build/audit/guard. Evidence:
+  `audits/AUDIT-REMAINDER-CHANNEL-CONTRACTION-2026-09-24.md`.
+
 ## Exact remainder form and original balanced energy bound (2026-09-24 UTC)
 
 - **proved**: `SU2QuaternionCyclicCasimirBilinear.pairCasimir_symm` and the
@@ -16,8 +41,9 @@
   negative square. The balancing parameter and common normalization remain explicit.
 - **open**: useful complete diagonal-cost/ angular-cost comparison with SAME
   variance on ONE changing-scale family, or direct sampled response. A proposed
-  remainder-seminorm spectator contraction needs a new compatibility proof;
-  scalar Bessel and positivity alone are insufficient. EVERY-vector scaling,
+  remainder-seminorm spectator contraction is subsequently proved above by
+  exact recombination and conditional-loss control, not scalar Bessel/PSD alone.
+  EVERY-vector scaling,
   full SAME continuum/QFT/YM/UV, physical mass and every group remain open.
   No new analytic premise, hole, axiom or canonical-field change.
 - **verification**: five final serialized 4 GiB checks, 23 permitted printed
