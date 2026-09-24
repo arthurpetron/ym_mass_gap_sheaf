@@ -7,6 +7,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+A **checked positive-source counterexample** rules out dropping the signed
+remainder: on the actual one-link SU(2) heat kernel, energy can exceed
+`(1-w)*angularCost` even for a source `1+2*f^2`. This does not refute the
+interacting Yang--Mills route or the checked bound retaining the remainder.
+The next estimate must control that signed contribution, not assume its sign.
+See the [angular-only fence](audits/AUDIT-ANGULAR-ONLY-ENERGY-FENCE-2026-09-24.md).
+
 The **path second moment now equals the actual differential Casimir square**.
 Actual character-product eigenaction and integration by parts close the join,
 without an assumed projector family. The exact remainder therefore obeys

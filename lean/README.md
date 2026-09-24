@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Angular-only shortcut refuted (2026-09-24 UTC):**
+`SU2QuaternionAngularOnlyEnergyFence.angular_only_energy_bound_false`
+kernel-checks an actual one-link energy counterexample with source `1+2*f^2`,
+nome 1/2 and cutoff 3 satisfying the sufficient-cutoff guard. Energy is
+97727/8192, while the proposed angular-only budget is 23/2. Positivity of the
+source does not justify discarding the signed remainder. One narrow check
+passed seven gates; no physical/continuum claim or full-root audit. Evidence:
+`audits/AUDIT-ANGULAR-ONLY-ENERGY-FENCE-2026-09-24.md`.
+
 **Actual path second moment and original derivative-cost consumer (2026-09-24 UTC):**
 `SU2QuaternionCyclicCasimirSquare.full_squareMoment_eq_sweep` identifies the
 original full-path second moment with the computed differential square.

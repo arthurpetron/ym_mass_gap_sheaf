@@ -25,6 +25,40 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Positive-source angular-only fence and next signed estimate (2026-09-24 UTC)
+
+`SU2QuaternionAngularOnlyEnergyFence.angular_only_energy_bound_false` rules
+out discarding the signed remainder, even for a positive source. On the
+actual one-link product heat, take f=chi_1, a=1+2*f^2, w=1/2, K=3. Then
+E=97727/8192 and angular(a,f)=23; the proposed eps*angular bound is exceeded
+by 3519/8192. Source support, positivity certificate and sufficient-cutoff
+guard are checked. This is not a counterexample for the original interacting
+source, nor a proof of any larger universal angular coefficient.
+
+The independent absolute-loss route is already available on the SAME
+completed plaquette (`BF4AllNomeCompletedPlaquetteIncrement.completed_loss_nome_bound`).
+Its mismatch with the known coefficient-variance floor is also already
+proved (`BF4ExactSlabPlaquetteAffineCalibrationObstruction.computedLossRatio_ge`
+and `computedLossRatio_no_linear_scaling`). Do not recreate these wrappers.
+The family variance floor is width/face-count uniform at FIXED nome; its
+changing-nome behavior, not spatial counting alone, defeats this certificate.
+
+**Next concrete candidate:** prove the actual positive-kernel source Young
+identity before estimating: if J=Hxy[K a(x)^2(f(x)-f(y))^2] and
+D=Hxy[K(a(x)-a(y))^2(f(x)-f(y))^2], then 4E=2J-D and D>=0.
+The intended consumer is a zeroth-order source budget via the actual heat
+images of f and f^2. This construction and its observable-specific image
+identifications are not checked by this checkpoint; a standalone scalar
+formula is not their substitute. Preserve D where useful. SAME-variance
+control on ONE changing-scale excitation, EVERY-vector scaling, all SAME
+continuum/QFT/YM/UV, physical mass and every group remain open.
+
+One accepted serialized 4 GiB check passed seven gates within the allowed
+set, with no safety interruption or changed machine limits. The finite
+reductions use scoped recursion depths, not native computation or a new
+axiom. Semantic import added; no full-root build/audit/guard. Evidence:
+`audits/AUDIT-ANGULAR-ONLY-ENERGY-FENCE-2026-09-24.md`.
+
 ### Actual second moment and original active-derivative energy bound (2026-09-24 UTC)
 
 The previous checkpoint's missing identity is now PROVED:

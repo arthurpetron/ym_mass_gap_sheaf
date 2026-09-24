@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Angular-only positive-source shortcut REFUTED (2026-09-24 UTC)
+
+- **proved**: `SU2QuaternionAngularOnlyEnergyFence.angular_only_energy_bound_false`
+  refutes `E<=(1-w)*angularCost` for the actual one-link product heat, at
+  w=1/2 and K=3, with explicit source `1+2*f^2` and fundamental f. Support,
+  source positivity certificate, sufficient-cutoff guard and exact rational
+  energy/angular values are checked. The excess is 3519/8192.
+- **scope**: this forbids a generic shortcut, not the actual interacting
+  source or the earlier signed remainder bound. It proves neither a larger
+  universal coefficient nor failure of every such coefficient.
+- **open**: signed-energy/SAME-variance scaling control remains. The
+  derivative-free absolute energy route and its weak-floor calibration
+  obstruction already exist; neither is re-proved here. No new hole, axiom,
+  analytic premise or canonical-field change.
+- **verification**: one accepted serialized 4 GiB check, seven permitted
+  gates (the cutoff guard is axiom-free), no warning/error/sorryAx or safety
+  interruption. Finite evaluation uses scoped recursion depths 4096/8192;
+  machine limits are unchanged. Semantic import added; no full-root audit.
+  Evidence: `audits/AUDIT-ANGULAR-ONLY-ENERGY-FENCE-2026-09-24.md`.
+
 ## Path-second-moment join CLOSED; signed scaling estimate OPEN (2026-09-24 UTC)
 
 - **proved**: actual character-product and full-path Casimir eigenaction in

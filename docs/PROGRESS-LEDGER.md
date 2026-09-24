@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual second moment and signed-energy consumer (2026-09-24 UTC)
+## Current increment: positive-source angular-only fence (2026-09-24 UTC)
+
+The generic shortcut `E<=(1-w)*angularCost` is false even for a source
+`1+2*f^2`. The actual one-link operator at w=1/2, K=3 gives energy
+97727/8192, angular cost 23 and excess 3519/8192 over the proposed bound.
+This prunes an unjustified sign shortcut; it is not a Yang--Mills counterexample.
+One narrow check passed seven permitted gates. No source hole/axiom,
+canonical-field change, machine-limit change or full-root audit/guard.
+
+Next: a positive-kernel source Young identity retaining its nonnegative
+source-increment correction is under construction; it may remove source
+derivatives from the upper cost. It is NOT checked by this checkpoint.
+Useful SAME-variance/scaling control remains the analytic requirement.
+Evidence: `audits/AUDIT-ANGULAR-ONLY-ENERGY-FENCE-2026-09-24.md`.
+
+## Previous increment: actual second moment and signed-energy consumer (2026-09-24 UTC)
 
 The previously open equality `M2(p)=H[(C_sweep p)^2]` is now proved using
 actual character-product/path eigenaction, integration by parts and reassembly

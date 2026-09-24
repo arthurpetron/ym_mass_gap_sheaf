@@ -4878,13 +4878,15 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedSourceEnergy
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceTaylor
 -- Exact spectator Gram-channel reduction of original moments and plaquette energy.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
--- Computed Casimir-square channel contraction; the path-second-moment join remains open.
+-- Computed Casimir-square channel contraction; actual second moment joined by the BF4 consumer above.
 import YMGap.Continuum.SU2QuaternionPassiveChannelCasimirSquare
 import YMGap.Continuum.SU2QuaternionDiagonalRemainderMoment
 import YMGap.Continuum.SU2QuaternionCyclicPathReassembly
 import YMGap.Continuum.SU2QuaternionSelectedCharacterEigenaction
 import YMGap.Continuum.SU2QuaternionCharacterCasimirLocality
 import YMGap.Continuum.SU2QuaternionCasimirHeadIntegration
+-- Positive-source counterexample: the signed remainder cannot simply be discarded.
+import YMGap.Continuum.SU2QuaternionAngularOnlyEnergyFence
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality
