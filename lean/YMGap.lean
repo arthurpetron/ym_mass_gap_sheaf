@@ -4943,8 +4943,10 @@ import YMGap.Continuum.BF4WilsonAllNomeTimeDifference
 -- the SAME vacuum complement is closed under those explicit row limits.
 import YMGap.Continuum.BF4WilsonAllNomeCauchyRows
 -- Literal selected head and selected-link-free tail for the growing Wilson square.
--- The arbitrary-word Haar-moment and useful scaling-variance joins remain OPEN.
+-- Original complementary-action moments and rationally shifted square are proved;
+-- the full interacting variance/scaling comparison remains OPEN.
 import YMGap.Continuum.BF4DyadicWilsonSquareUniqueEdge
+import YMGap.Continuum.BF4DyadicWilsonSquareShiftedMoment
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

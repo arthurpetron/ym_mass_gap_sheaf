@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**SAME all-nome Wilson represented limits (2026-09-24 UTC):**
+**Original dyadic Wilson one-link moments (2026-09-24 UTC):**
+`OriginalBlockCoordinateMoments` and `IndependentTailMoments` retain arbitrary
+independent spectators in exact original-Haar first/second moments. The
+literal-word locality and moment consumers derive the required independence;
+`BF4DyadicWilsonSquareSingleLinkMoments` specializes them to the growing
+padded square with explicit side/width/ambient guards.
+`BF4DyadicWilsonSquareShiftedMoment.paddedSquare_shifted_complement_moment`
+gives H[(chi-c)^2 R]=(1+c*c)*H[R] for every rational c and the unchanged
+complementHeat R. This is an unnormalized complementary-action identity,
+not full interacting variance or scaling survival. The incident-factor
+comparison and SAME completed-variance/scaling join remain open; the
+coarse starRatio/cubic-loss limitation is unchanged. Six narrow checks
+passed twelve permitted gates; no full-root audit. Evidence:
+`audits/AUDIT-DYADIC-WILSON-SINGLE-LINK-MOMENTS-2026-09-24.md` at repository root.
+
+**Preceding SAME all-nome Wilson represented limits (2026-09-24 UTC):**
 `BF4WilsonAllNomeDistance` proves the actual completed squared-distance laws.
 `CauchyRows` instantiates computed diagonal limits using supplied inner and
 outer moduli, with outer rate `R.modulus(epsilon/16)`. Limits are independent

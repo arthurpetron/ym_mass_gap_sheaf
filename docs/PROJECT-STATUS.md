@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **14**, 2026-09-24 UTC. Source checkpoint:
-the SAME all-nome Wilson represented-limit milestone committed with this
+Chart schema: **1**. Snapshot: **15**, 2026-09-24 UTC. Source checkpoint:
+the original dyadic Wilson single-link moment milestone committed with this
 snapshot; verification is recorded in
-`audits/AUDIT-ALL-NOME-WILSON-REPRESENTED-LIMITS-2026-09-24.md`.
+`audits/AUDIT-DYADIC-WILSON-SINGLE-LINK-MOMENTS-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -159,6 +159,22 @@ expose a literal head and exclude its underlying link from the remaining
 growing square word. The original arbitrary-word Haar moments and useful
 scaling-variance estimate are not supplied by this geometry.
 
+Additional partial A03 evidence: the original arbitrary-word Haar moments
+are now proved in `BF4ExactSlabWilsonWordSingleLinkMoments.original_word_first_moment`
+and `.original_word_second_moment`
+(`lean/YMGap/Continuum/BF4ExactSlabWilsonWordSingleLinkMoments.lean:44`, `:63`).
+`BF4DyadicWilsonSquareSingleLinkMoments.paddedSquare_complement_first_moment`
+and `.paddedSquare_complement_second_moment`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareSingleLinkMoments.lean:69`, `:83`)
+derive their premises for the actual growing square and retain the entire
+selected-link complementHeat product R.
+`BF4DyadicWilsonSquareShiftedMoment.paddedSquare_shifted_complement_moment`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareShiftedMoment.lean:93`)
+gives H[(chi-c)^2 R]=(1+c*c)*H[R] for arbitrary rational c. R is not the full
+action; its incident factors still require an interacting comparison.
+No normalized full-action variance, completed-vector scaling bound, or
+survival conclusion is supplied. The coarse starRatio limitation remains.
+
 ## Activity and changes since the preceding chart
 
 - Primary active node: **A03**. Literal Wilson squares now have side L=2^s,
@@ -172,8 +188,11 @@ scaling-variance estimate are not supplied by this geometry.
   The six-face floor is now proved at most (1-w)^12, so subtracting the
   available nome-linear loss budget cannot certify a positive response.
   This limits that certificate pair, not actual variance or physical survival.
-  The new unique-link decomposition supplies a finite geometric input to the
-  arbitrary-word one-link moment calculation; that calculation remains open.
+  The unique-link decomposition now supplies the premises of the proved
+  original arbitrary-word and dyadic-square one-link moments. Their exact
+  shifted-square identity retains the complete heat complement. The next
+  join is a useful incident-factor/full-action comparison with normalization
+  and SAME completed-vector control on a justified changing-scale family.
 - Parallel node: **J02**. The literal all-nome Wilson completion now has
   proved rational linear laws, bilinear pairing, linear time and positive
   definiteness. Signed finite time combinations retain every original
@@ -187,7 +206,7 @@ scaling-variance estimate are not supplied by this geometry.
   Full Hilbert/QFT, scaling survival and the continuum join remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--13; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--14; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -227,3 +246,4 @@ scaling-variance estimate are not supplied by this geometry.
 | 1 / 12 | 2026-09-24 | Actual centered Wilson vectors, positive plaquette norm/one-step response, and SAME centered square loss. The coarse six-face-floor/nome-linear-loss certificate pair cannot certify positive response. Partial A03/J02 evidence only; no carrier substitution, scaling-survival conclusion, chart-block or goal-node status change. |
 | 1 / 13 | 2026-09-24 | SAME rational completion algebra, bilinear/linear time, definite pairing and exact signed finite-orbit correlators. A positive-square bound supplies a quantitatively nonzero plaquette time difference at fixed nome/width. Partial J02 only; no A03 improvement, carrier substitution, scaling-survival conclusion, chart-block or goal-node status change. |
 | 1 / 14 | 2026-09-24 | SAME squared distance and computed represented limits; actual time commutes with limits and the vacuum complement is closed under them. Literal selected-link head-tail geometry supplies an A03 precursor, not arbitrary-word Haar moments or scaling variance. Partial J02/A03 only; no carrier substitution, chart-block or goal-node status change. |
+| 1 / 15 | 2026-09-24 | Original arbitrary-word and literal dyadic-square first/second Haar moments, retaining the full selected-link heat complement. Exact rationally shifted square equals (1+c*c) times its unchanged spectator integral. Partial A03 only; full-action variance/scaling comparison remains open. No carrier substitution, chart-block or goal-node status change. |

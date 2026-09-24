@@ -25,7 +25,47 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### SAME Wilson represented limits and unique-link geometry (2026-09-24 UTC)
+### Original dyadic Wilson one-link and shifted moments (2026-09-24 UTC)
+
+The A03 moment precursor is now proved for the literal growing square.
+`SU2QuaternionOriginalBlockCoordinateMoments` integrates one selected block
+inside the ORIGINAL Haar functional: coordinate mean zero and covariance
+delta_ij/4, retaining an arbitrary block-independent polynomial spectator.
+`SU2QuaternionIndependentTailMoments` applies those identities to the four
+signed coordinates of an independent quaternion tail. The existing tail
+Haar-unit relation, valid under arbitrary insertion, gives fundamental
+character second moment equal to the untouched spectator integral.
+
+`BF4ExactSlabWilsonWordLinkLocality` derives tail independence from actual
+link absence. `BF4ExactSlabWilsonWordSingleLinkMoments` joins the result to
+the ORIGINAL ordered word and its exact complementary heat product.
+`BF4DyadicWilsonSquareSingleLinkMoments` discharges every physicality and
+absence premise for the existing padded dyadic square, with explicit
+side(scale)<width<=extent guards. No new analytic premise is introduced.
+
+`BF4DyadicWilsonSquareShiftedMoment.paddedSquare_shifted_complement_moment`
+proves H[(chi-c)^2 R]=(1+c*c)*H[R] for every rational c, where chi is the
+literal original square character and R is the entire selected-link heat
+complement. The scalar expansion retains every cross term until the exact
+first moments cancel it. No positivity assumption is needed for this identity.
+
+**Next causal frontier A03:** compare the original incident heat factors
+against this SAME shifted-square datum, with normalization and changing-scale
+control sufficient for the actual completed centered vector. R is not the
+full action: no incident factor has been declared independent or discarded
+from a full-action theorem. A coarse starRatio extension alone cannot pay
+the existing cubic loss budget; its known limitation remains. Useful SAME
+variance/response, justified scaling, EVERY-state rate control, full QFT,
+SAME continuum/YM/UV, physical Hamiltonian/mass and every group remain open.
+
+Six final narrow checks passed twelve gates within {propext, Quot.sound},
+one worker, 2 GiB cap, default elaboration limits, unchanged 12 GiB reserve.
+Safety stops were respected; no source hole, axiom or frontier-field change.
+One semantic-root import, no full-root build/audit/guard. Schema 1 snapshot 15
+adds partial A03 evidence only; the exact chart block is unchanged.
+Evidence: `audits/AUDIT-DYADIC-WILSON-SINGLE-LINK-MOMENTS-2026-09-24.md`.
+
+### Previous checkpoint: SAME Wilson represented limits and unique-link geometry (2026-09-24 UTC)
 
 `BF4WilsonAllNomeDistance.completedDist` is B(x-y,x-y) on the EXISTING
 literal all-nome Wilson completion. Symmetry, nonnegativity, the factor-two

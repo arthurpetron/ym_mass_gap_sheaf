@@ -10,15 +10,25 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked same-carrier limits:** the literal all-nome Wilson carrier now
+**New checked original-loop moments:** for the actual growing dyadic Wilson
+square, integrating its uniquely occurring selected link gives exact first
+and second moments while retaining the full complementary action product R.
+For every rational center c, `H[(chi-c)^2 R] = (1+c*c) H[R]`. This supplies
+an input to the interacting variance comparison; R is not the full action,
+and no scaling-survival bound follows here. Six narrow checks passed twelve
+permitted axiom gates; no full-root audit. See the
+[one-link moment audit](audits/AUDIT-DYADIC-WILSON-SINGLE-LINK-MOMENTS-2026-09-24.md).
+All canonical chart nodes and the scaling/continuum proof boundary are unchanged.
+
+**Preceding checked same-carrier limits:** the literal all-nome Wilson carrier now
 has its actual completed squared distance and computed limits for supplied
 Cauchy rows, with explicit inner and outer moduli. Discrete time commutes
 with these limits, and the vacuum complement is closed under them. No
 representatives are chosen from arbitrary quotient-valued sequences.
 In parallel, every padded dyadic Wilson square has a proved head-tail
 decomposition with its selected link absent from the tail. This supplies
-geometry for a later one-link Haar calculation, not a growing-loop variance
-floor. Three narrow checks passed 40 permitted gates; no full-root audit.
+geometry for the one-link Haar calculation now proved above, not a growing-loop
+variance floor. Three narrow checks passed 40 permitted gates; no full-root audit.
 See the [represented-limit and loop-geometry audit](audits/AUDIT-ALL-NOME-WILSON-REPRESENTED-LIMITS-2026-09-24.md).
 The scaling-variance frontier, full Hilbert/QFT obligations and all canonical
 chart markers remain unchanged.

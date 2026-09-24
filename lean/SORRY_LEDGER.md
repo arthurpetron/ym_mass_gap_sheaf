@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## Original dyadic Wilson one-link moments CLOSED; A03 comparison OPEN (2026-09-24 UTC)
+
+- **proved original moments**: `SU2QuaternionOriginalBlockCoordinateMoments.variable_mul`
+  and `.variable_pair_mul` retain arbitrary independent spectators in the
+  original Haar carrier. `SU2QuaternionIndependentTailMoments.fundamental_first_moment`
+  and `.fundamental_second_moment` combine coordinate covariance with the
+  existing arbitrary-insertion Haar-unit relation of the actual tail.
+- **proved literal-word consumers**: `BF4ExactSlabWilsonWordLinkLocality`
+  derives four-coordinate independence from selected underlying-link absence.
+  `BF4ExactSlabWilsonWordSingleLinkMoments` keeps the original ordered word
+  and full complementary action product. `BF4DyadicWilsonSquareSingleLinkMoments`
+  constructs the placement/absence premises for the padded dyadic family.
+- **proved recentering input**: `BF4DyadicWilsonSquareShiftedMoment.paddedSquare_shifted_complement_moment`
+  gives H[(chi-c)^2 R]=(1+c*c)*H[R] for arbitrary rational c. R is exactly
+  complementHeat, NOT the full action or a normalized probability density.
+- **open next join**: useful original incident-heat comparison and SAME
+  normalized centered-vector variance/response on a justified scaling family.
+  The coarse starRatio/cubic-loss obstruction is unchanged. EVERY-state
+  spatial/spacing control, full Hilbert/OS/QFT, SAME continuum/YM/UV,
+  physical Hamiltonian/mass and every compact simple group remain open.
+- **verification**: six final narrow checks, twelve printed gates within
+  {propext, Quot.sound}; one worker, 2 GiB cap, default elaboration limits,
+  unchanged 12 GiB reserve. Safety pauses respected. No new source hole,
+  axiom, analytic premise, canonical-field change or chart-node closure.
+  One semantic-root import; full-root build/audit/guard NOT run. Evidence:
+  `audits/AUDIT-DYADIC-WILSON-SINGLE-LINK-MOMENTS-2026-09-24.md`.
+
 ## SAME Wilson represented limits CLOSED; full J02/A03 OPEN (2026-09-24 UTC)
 
 - **proved actual distance**: `BF4WilsonAllNomeDistance.completedDist` is
