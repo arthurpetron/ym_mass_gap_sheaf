@@ -12,7 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Actual selected-link label-two heat image (2026-09-24 UTC):**
+**Actual four-link square image and original energy cost (2026-09-24 UTC):**
+`SU2QuaternionProductHeatSpinTwoPlaquette.productMap_spinTwoPlaquette_of_perm`
+composes the four actual w^8 transmissions into w^32. The fundamental square
+image and both original spatial-plaquette images are checked in supported-Haar
+equivalence, not free coefficient equality. `SourceYoungExplicit` consumes
+them in the original padded terminal-plaquette `4E+D=2J`, with full source
+and correction retained. The explicit raw q-squared cost is not SAME
+interacting variance. Seven narrow checks passed 24 permitted gates;
+no full-root audit or new hole/axiom. Evidence:
+`audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`.
+
+**Previous selected-link checkpoint (2026-09-24 UTC):**
 `SU2QuaternionSpinTwoHeatTransmission.selectedCharacterTwo_heat_pairing`
 proves the w^8 transmission for K>=2 with every orientation and arbitrary
 supported head-independent spectators. The retained substitution is computed;

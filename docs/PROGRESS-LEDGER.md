@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual selected-link label-two heat image (2026-09-24 UTC)
+## Current increment: full square image and explicit original energy cost (2026-09-24 UTC)
+
+The actual four-link composition and square image are now checked, including
+their literal original spatial-plaquette realization. The bare product heat
+sends f to w^12*f and f^2 to 1+w^32*chi_2 in supported-Haar equivalence.
+The original padded terminal plaquette consumes both identities in 4E+D=2J,
+retaining the complete fringe-projected source and source-increment correction.
+The generic collected J depends on only two raw squared-source moments.
+
+The next mathematical join is STILL signed-cost/SAME interacting variance
+for ONE compatible changing-scale observable. Identifying P(f^2) closes a
+concrete finite input, not that estimate or the independent EVERY-vector
+scaling task. Seven final serialized 2 GiB checks passed 24 permitted gates;
+no new hole/analytic premise, safety interruption or full-root audit.
+Evidence: `audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`.
+
+## Previous increment: actual selected-link label-two heat image (2026-09-24 UTC)
 
 The actual relative heat transmits the selected label-two plaquette character
 with factor w^8, K>=2, every orientation and arbitrary supported spectators

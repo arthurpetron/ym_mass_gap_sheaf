@@ -7,12 +7,22 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-The **selected-link label-two heat image is now checked**, including all
+The **full four-link square heat image is now checked** on the original
+spatial plaquette: `P(f)=w^12*f` and `P(f^2)=1+w^32*chi_2`, as supported-Haar
+identities for the actual product heat. The original terminal-plaquette
+energy consumes these images in `4E+D=2J`, retaining the complete projected
+source and the favorable correction D. The explicit J uses only raw
+squared-source moments, **not the interacting variance**; useful changing-scale
+control remains open. Seven narrow checks passed 24 permitted axiom gates;
+no full-root audit. See the
+[four-link image and energy-cost audit](audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md).
+
+The preceding **selected-link label-two heat image** includes all
 plaquette orientations and arbitrary supported spectators. Its exact factor
 is w^8; the proof computes the retained coordinate image and removes auxiliary
 radii only in the original Haar carrier. Composing four links to identify
-the full squared-plaquette heat image remains open, as does its comparison
-with the interacting variance. Four narrow checks passed 17 permitted gates;
+the full squared-plaquette heat image was then open and is now checked above;
+its comparison with interacting variance remains open. Four narrow checks passed 17 permitted gates;
 no full-root audit. See the
 [selected-link heat audit](audits/AUDIT-SELECTED-SPIN-TWO-HEAT-2026-09-24.md).
 

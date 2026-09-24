@@ -25,7 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Actual selected-link label-two heat image (2026-09-24 UTC)
+### Actual four-link square image and original energy cost (2026-09-24 UTC)
+
+The next finite join is now CLOSED. Arbitrary physical placement, literal
+retained-word transport and four actual selected-link transmissions give the
+full w^32 product-map image. The Clebsch--Gordan square identity and constant
+preservation supply P(f^2)=1+w^32*chi_2. `BF4ExactSlabFixedSpatialPlaquetteSquare`
+pins both this and P(f)=w^12*f to the actual face and full base-link product.
+All images are supported-Haar equalities; no interacting-transfer
+eigenrelation or free polynomial equality is claimed.
+
+`SU2QuaternionPlaquetteYoungCost.singleEndedCost_plaquette_collected` proves
+
+    J = (1-w^32)*H[q^2] + (1+w^32-2*w^12)*H[q^2*f^2].
+
+The original-action consumer is
+`BF4ExactSlabFixedSpatialSourceYoungExplicit.padded_terminal_plaquette_young_channels`:
+4E+D=2J with the actual complete source q=P_fringe(V*g_n). Strict padding
+constructs the needed observable independence. No source independence or
+stationary eigenstate is supplied as a hypothesis. The exact D is retained.
+
+**Next analytic frontier:** compare the complete signed cost with the SAME
+interacting centered variance for ONE justified changing-scale observable
+family, or prove its response directly. Raw q^2 is not q*P(q), and the
+coefficient 1+w^32-2*w^12 is not asserted nonnegative. Do not replace signed
+control by separate absolute estimates or add a wrapper assuming the missing
+comparison. EVERY-vector spatial/spacing control, SAME continuum/QFT/YM/UV,
+physical Hamiltonian/mass and every compact simple group remain OPEN.
+
+Seven final serialized 2 GiB checks passed 24 permitted gates; no safety
+interruption or changed memory limit. Proof/namespace errors were repaired;
+the final composition uses the default elaboration budget. No new source
+hole, analytic premise or canonical-field change. Semantic imports added;
+no full-root build/audit/guard. Evidence:
+`audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`.
+
+### Previous checkpoint: selected-link label-two heat image (2026-09-24 UTC)
 
 `SU2QuaternionSpinTwoHeatTransmission.selectedCharacterTwo_heat_pairing`
 now proves the actual selected-link transmission with factor w^8, for K>=2,

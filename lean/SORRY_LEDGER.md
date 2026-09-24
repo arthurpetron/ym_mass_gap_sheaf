@@ -1,6 +1,26 @@
 # Sorry Ledger
 
-## Selected-link label-two heat image CLOSED; four-link join OPEN (2026-09-24 UTC)
+## Four-link square image and original energy consumer CLOSED; variance comparison OPEN (2026-09-24 UTC)
+
+- **proved**: actual arbitrary-link/literal transmission, four-link w^32
+  composition and square image in supported-Haar equivalence. The two
+  `BF4ExactSlabFixedSpatialPlaquetteSquare` theorems pin the fundamental
+  and squared images to the original face and full product heat.
+- **actual consumer**: `SourceYoungExplicit.padded_terminal_plaquette_young_channels`
+  retains original E, complete q=P_fringe(V*g_n), and D in 4E+D=2J.
+  Strict padding supplies its independence guard. `PlaquetteYoungCost`
+  also collects J into (1-w^32)H[q^2]+(1+w^32-2w^12)H[q^2*f^2].
+- **open**: useful signed-cost/SAME interacting-variance control for ONE
+  changing-scale family; separate EVERY-vector scaling, continuum/QFT/YM/UV,
+  physical Hamiltonian/mass, and all-group obligations. Raw q^2 is not the
+  interacting marginal q*P(q). No new source hole, axiom, analytic premise
+  or canonical-field change.
+- **verification**: seven final narrow checks passed 24 gates within
+  {propext, Quot.sound}; no safety interruption, changed memory limit or
+  full-root audit/guard. Evidence:
+  `audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`.
+
+## Previous checkpoint: selected-link image CLOSED; four-link join then OPEN (2026-09-24 UTC)
 
 - **proved**: `SU2QuaternionSpinTwoHeatTransmission.selectedCharacterTwo_heat_pairing`
   computes actual relative-heat transmission with factor w^8, K>=2, every
