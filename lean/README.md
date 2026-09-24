@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Complex pairing and gap on the SAME joint carrier (2026-09-24 UTC):**
+`BF4ExactSlabFixedSpatialJointComplexification` uses two copies of the actual
+all-nome `JointCompletion`, proving positive definiteness, conjugate symmetry,
+additivity, witnessed sesquilinearity and compatibility with discrete time.
+`JointComplexGap` embeds the original vacuum, retains BOTH orthogonality
+conditions, and proves all-integer-time positivity and the SAME norm/form
+decay for every complex centered state. The rate still depends on nome and
+width. Full complex Hilbert/OS/QFT, scaling and physical mass remain open.
+Two serialized 4 GiB leaves passed thirty-eight permitted gates; no full-root
+build/audit/guard. Accepted logs are recorded in `work_plan.md`.
+
 **Centered Ward identity in the SAME odd marginal (2026-09-24 UTC):**
 `QuaternionHaarCenteredLinearWard` proves the arbitrary-weight head-linear
 identity, retaining its signed derivative-of-weight term. The actual

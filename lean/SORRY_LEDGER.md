@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Complex time positivity and gap on the SAME completion (2026-09-24 UTC)
+
+- **constructed**: `BF4ExactSlabFixedSpatialJointComplexification` pairs two
+  copies of the actual all-nome `JointCompletion`; its pairing is positive
+  definite and sesquilinear with supplied scalar Cauchy data. The original
+  discrete time action is additive, scalar-compatible and symmetric.
+- **actual consumer**: `JointComplexGap.complex_orthogonal_iff` retains both
+  real orthogonality conditions. `inner_time_nonnegative` uses original-action
+  time positivity, not symmetry alone. `complexTime_norm_decay` and
+  `complex_twoStep_form_gap` retain the actual nome/width-dependent rate on
+  EVERY complex vacuum-orthogonal vector.
+- **open**: full Hilbert/OS/QFT, spatial/spacing control, a surviving compatible
+  observable family, calibrated physical Hamiltonian mass, YM local fields
+  and every group. No canonical field, new hole or axiom changed.
+- **verification**: two serialized 4 GiB leaves, thirty-eight permitted gates,
+  no error/warning/sorryAx in `/tmp/ym-gap-joint-complexification-check-2.log`
+  and `/tmp/ym-gap-joint-complex-gap-check-1.log`. Semantic import added;
+  no full-root build/audit/guard.
+
 ## Centered Ward identity in the SAME original odd marginal (2026-09-24 UTC)
 
 - **proved**: `QuaternionHaarCenteredLinearWard.centered_linear_ward_own_mean`

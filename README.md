@@ -7,6 +7,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The SAME all-nome fixed-width reflected carrier now has a checked
+[complex pairing and time action](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointComplexification.lean).
+Its [actual consumer](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointComplexGap.lean)
+proves positivity at every discrete time and the original strict rate for
+EVERY complex vacuum-orthogonal vector, retaining both real and imaginary
+orthogonality conditions. Scalar Cauchy data remain explicit. This is an
+algebraic/ordered extension of the existing carrier, **not full complex
+Hilbert/OS/QFT reconstruction or a scaling-uniform physical gap**. Two focused
+4 GiB checks passed thirty-eight permitted axiom gates; no full-root audit.
+
 The [centered angular identity now uses the actual odd-time marginal](audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md#same-odd-marginal-centered-ward-follow-up):
 `H[W*Gamma(f)] + R = 3*Z*Var_W(f)`, with the ORIGINAL
 `W=(V*g_n)*g_(n+1)` and `Z=oddMass`. The literal plaquette's selected-link

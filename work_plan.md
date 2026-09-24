@@ -25,6 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Positive complex time and strict gap on the SAME joint carrier (2026-09-24 UTC)
+
+`BF4ExactSlabFixedSpatialJointComplexification` constructs the actual product
+`JointCompletion x JointCompletion`, its complex pairing and witnessed scalar
+action. Positive definiteness, conjugate symmetry, additivity, sesquilinearity
+and time/scalar compatibility are proved. Scalar Cauchy data are retained;
+neither quotient representatives nor moduli are selected.
+
+**Actual consumer:** `BF4ExactSlabFixedSpatialJointComplexGap` proves that
+complex orthogonality to the embedded original unit is exactly orthogonality
+of BOTH real components. The original-action time-positivity theorem supplies
+the real sign at every integer time; symmetry and time balance cancel the
+imaginary cross term. Summing the two actual real estimates proves
+
+    ||T^n z||^2 <= twoStepRate(w,width)^n * ||z||^2
+
+for every complex vacuum-orthogonal state, and the corresponding even-time
+form bound. This extends the existing fixed-width result to complex states;
+it neither introduces a new gap premise nor replaces the carrier with the
+guarded spatial union or BF4 conditional dynamics.
+
+**Boundary and priority:** this is not full complex Hilbert/OS/QFT packaging,
+a continuous Hamiltonian, or spatial/spacing control. The primary analytic
+task remains useful SAME temporal-energy/variance control for an explicitly
+compatible changing-scale observable family, separately from the all-vector
+gap's scaling estimate. Physical mass, YM local fields and every group remain
+open. No canonical field/hole/axiom changed.
+
+Two serialized 4 GiB leaves passed thirty-eight axiom gates within
+{propext, Quot.sound}, with no error/warning/sorryAx in the accepted logs:
+`/tmp/ym-gap-joint-complexification-check-2.log` (27) and
+`/tmp/ym-gap-joint-complex-gap-check-1.log` (11). Semantic import added;
+no full-root build/audit/guard. The independent source review confirmed both
+orthogonality components and the original time-positivity dependency.
+
 ### Exact centered Ward identity in the SAME odd marginal (2026-09-24 UTC)
 
 `QuaternionHaarCenteredLinearWard.centered_linear_ward_own_mean` proves
