@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original energy with exact inactive-source reduction (2026-09-24 UTC):**
+`SU2QuaternionProductHeatProjectedSourceEnergy` projects the complete source,
+preserving full energy and every inactive-independent insertion.
+`BF4ExactSlabFixedSpatialProjectedSourceEnergy` pins this to the original
+transfer and odd marginal; strict padding supplies the literal plaquette's
+independence. Its angular estimate has no separate fringe residual, but
+retains all projected-source derivatives and the signed source correction.
+Useful SAME-variance/scaling control remains open. Five serialized 4 GiB
+leaves passed twenty gates within {propext, Quot.sound}; no new hole/axiom,
+canonical-frontier closure or full-root build/audit/guard.
+
 **Represented complex limits and their pairing consumer (2026-09-24 UTC):**
 `BF4ExactSlabFixedSpatialJointComplexPresentedCompleteness` constructs limits
 from supplied complex Cauchy representatives in the SAME actual norm, with

@@ -7,6 +7,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The [original temporal energy now admits exact inactive-source reduction](audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md#original-slab-projected-source-follow-up-2026-09-24-utc).
+For a fringe-independent observable, Haar-average the COMPLETE endpoint
+source `a=V*g` to `q=P_F(a)`. The original energy and all fringe-independent
+inserted moments equal their full-product counterparts with source q.
+The resulting angular upper bound has **no separate inactive residual**;
+it retains `H[q*f^2*(P_full(q)-q)]` with its sign. Strict spatial padding
+constructs the independence guard for literal plaquettes. Source derivatives
+and the signed correction still need useful control relative to the SAME
+variance; no scaling/survival or gap obligation is closed. Five narrow checks
+passed twenty permitted axiom gates; no full-root build/audit/guard.
+
 The SAME reflected carrier now has [represented complex limits and pairing continuity](audits/AUDIT-JOINT-REPRESENTED-COMPLETENESS-2026-09-24.md#complex-limits-and-matrix-coefficient-consumer).
 Supplied complex Cauchy representatives converge in the ACTUAL complex norm,
 with a computed modulus; represented limits are unique and commute with the
@@ -209,9 +220,10 @@ of blocks. A positive quadratic potential composes the actual cyclic steps
 without assuming inter-step commutation; exact rotation-period and angular
 transport proofs return the result to the original operator and coordinates.
 This is factor two, not the sharper factor-one target or a strict gap.
-The proper-active-subset join is now proved below; controlling its residual
-and signed interacting correction remains open. No physical/continuum
-obligation is closed. See the
+The proper-active-subset join is proved below. The latest full-energy
+reduction above removes its separate residual for fringe-independent
+observables; projected-source derivative/correction control remains open.
+No physical/continuum obligation is closed. See the
 [verification and mathematical argument](audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md).
 
 The [inactive-coordinate extension](lean/YMGap/Continuum/SU2QuaternionProductHeatInactiveAngularDefect.lean)
@@ -221,8 +233,9 @@ residual square and the full-product defect of the projected input. The
 applies this to the complete original source `u=(V*g)*f`, retaining the
 residual, projected angular cost and signed endpoint correction. All three
 terms remain explicit; none is silently discarded. This is a finite energy
-**upper bound**, not a physical spectral-gap lower bound. Next are quantitative
-control of these terms and the actual normalization. Four focused checks
+**upper bound**, not a physical spectral-gap lower bound. For fringe-independent
+observables, the newer full-energy reduction above eliminates the separate
+inactive residual before estimating. Four focused checks
 passed thirteen permitted axiom gates; see the
 [proof and remaining obligations](audits/AUDIT-INACTIVE-PROJECTED-ANGULAR-ENERGY-2026-09-23.md).
 
@@ -231,8 +244,9 @@ Haar averaging decreases every block's angular energy, hence its full sum,
 with coefficient **one**. The interacting estimate can now use the angular
 energy of the original complete source `u=(V*g)*f`, without a projected input
 or extra block-count loss. Source derivatives, the residual square and the
-signed correction remain; controlling them relative to the actual
-normalization is the next analytic task, not a discharged physical gap.
+signed correction remain in this older bound. The newer projected-source
+bound above removes the separate residual under observable independence;
+useful SAME-variance control remains open.
 
 The next [mixed-term check](audits/AUDIT-DISJOINT-TEMPORAL-CROSS-TERM-2026-09-23.md)
 rules out discarding temporal cross terms merely because observables have
@@ -259,8 +273,9 @@ supported inputs remain on the n-block carrier and their Haar mean is
 preserved. This identity alone proves an operator join, **not** the angular defect bound:
 the intermediate cyclic maps include a rotation and are not asserted positive
 or self-adjoint. The sum-of-angular-energies estimate is now proved with factor
-two above; inactive-link residuals and the interacting signed correction
-remain open. See the
+two above; the newer full-energy reduction removes a separate inactive
+residual for fringe-independent observables, but not the signed correction.
+See the
 [proof and verification boundary](audits/AUDIT-PRODUCT-HEAT-CYCLIC-FOLD-2026-09-23.md).
 
 The cyclic rotation is now [explicitly separated from heat smoothing](lean/YMGap/Continuum/SU2QuaternionProductHeatCyclicRotation.lean).

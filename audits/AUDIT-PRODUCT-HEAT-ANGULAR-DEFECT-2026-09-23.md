@@ -102,3 +102,74 @@ only `propext`). Accepted logs contain no warning, error, `sorryAx` or
 No new `sorry`, axiom, classical exception or changed frontier field.
 Root imports are registered; no full-root build/audit/guard was run.
 CI remains unchanged.
+
+## Original-slab projected-source follow-up (2026-09-24 UTC)
+
+The proper-active-subset obstacle above is now reduced for fringe-independent
+observables, without requiring the complete endpoint source to be independent.
+For `q=P_F(a)`, exact signed bilinear projection gives
+
+    H[(a*p)*P_active(a)] = H[(q*p)*P_full(q)],
+    E_active(a,f) = E_full(q,f).
+
+The first identity requires p to omit F; the second requires f to omit F.
+Support, disjointness and range-coverage guards are explicit. These identities
+have no positivity/cutoff premise. The angular consequence retains the
+existing `0 <= w < 1` and `sufficientCutoff w <= K` guards:
+
+    E_full(q,f) <= 2*(1-w)*sum_i H[Gamma_i(q*f)]
+                  + H[q*f^2*(P_full(q)-q)].
+
+There is no separate inactive residual. The correction is signed and is NOT
+discarded, declared nonpositive or set to zero by a stationarity premise.
+The prefactor is independent of width/cutoff, but the source, angular sum
+and correction are not bounded uniformly by this statement.
+
+### Declarations and actual consumer
+
+- `productMap_inactive_to_full_bilinear`,
+  `lean/YMGap/Continuum/SU2QuaternionProductHeatInactiveBilinear.lean:37`:
+  signed projection of both entries and restoration of missing factors.
+- `sourceMoment_project`, `sourceEnergy_project`,
+  `sourceEnergy_le_projectedAngular_add_correction`,
+  `lean/YMGap/Continuum/SU2QuaternionProductHeatProjectedSourceEnergy.lean:70`,
+  `:85`, `:139`: exact inserted moments/full energy, then angular upper bound.
+- `energy_source_pin`, `energy_projected_source`, `oddMoment_projected_source`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialProjectedSourceEnergy.lean:81`,
+  `:102`, `:117`: ORIGINAL transfer, source `V*g`, and actual odd marginal
+  `(V*g_n)*g_(n+1)`. The insertion theorem covers 1, f and f*f under their
+  support/independence guards, so normalization and centering need not change.
+- `characterFace_independent_index`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFaceIndependence.lean:139`, and
+  `plaquette_fringe_independent_after_padding`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteFringeIndependent.lean:48`:
+  derive the literal character's fringe independence from strict padding.
+- `padded_plaquette_energy_le_projectedSourceAngular_add_correction`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialProjectedSourceEnergy.lean:196`:
+  actual padded-plaquette/terminal-message consumer, with no manual activity
+  or source-independence premise.
+
+Sol independently reviewed the energy and moment pins and the signed
+correction. This is not a duplicate of `ActiveEnergy.energy_active`: that
+theorem peels the spatial weight under Haar and retains the partial transfer;
+this result projects the COMPLETE source and uses the full product kernel.
+
+### Remaining mathematical task and verification
+
+Useful SAME-variance control of the full projected-source expression remains
+open. An observable family must still be constructed and tracked through a
+justified scaling trajectory. The separate EVERY-vector spatial/spacing gap,
+same-theory continuum/QFT/YM fields, physical mass and every group remain open.
+No canonical frontier field was changed and no new hole/axiom was introduced.
+
+Accepted serialized checks, each terminal exit 0, one worker and 4 GiB cap:
+
+- `/tmp/ym-gap-inactive-bilinear-check-1.log`: one gate;
+- `/tmp/ym-gap-projected-source-energy-check-1.log`: four gates;
+- `/tmp/ym-gap-face-character-independence-check-1.log`: seven gates;
+- `/tmp/ym-gap-plaquette-fringe-independent-check-1.log`: two gates;
+- `/tmp/ym-gap-original-projected-source-energy-check-1.log`: six gates.
+
+All twenty printed gates use only {propext, Quot.sound}; accepted logs contain
+no error/warning/sorryAx. Semantic consumer import added. No full-root
+build/audit/guard was run; GitHub CI remains unchanged (disabled).

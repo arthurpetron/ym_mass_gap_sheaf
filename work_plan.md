@@ -25,6 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact inactive-source reduction of the ORIGINAL full energy (2026-09-24 UTC)
+
+For `a=V*g` and an observable f independent of the fringe F, first set
+`q=familyProject F a`. `SU2QuaternionProductHeatProjectedSourceEnergy`
+proves that the FULL weighted energy equals its fully active counterpart
+with source q. It also preserves every fringe-independent inserted moment.
+The source a itself need not be fringe-independent. Applying the checked
+full-product angular defect AFTER this equality gives
+
+    E_original(g,f) <= 2*(1-w)*sum_i H[Gamma_i(q*f)]
+                      + H[q*f^2*(P_full(q)-q)].
+
+**Actual consumer:** `BF4ExactSlabFixedSpatialProjectedSourceEnergy`
+uses the original transfer and `marginalWeight=(V*g_n)*g_(n+1)` without
+changing the normalization. `padded_plaquette_energy_le_projectedSourceAngular_add_correction`
+constructs the independence guard from strict spatial padding of a literal
+face, rather than assuming the complete source omits fringe coordinates.
+There is NO separate inactive residual in this full-energy bound. This
+supersedes that extra budget for the stated observables, not the earlier
+bare-defect identity for arbitrary inputs.
+
+**Next causal task:** obtain useful cancellation-aware control of the
+remaining projected-source angular term PLUS its signed correction relative
+to the SAME centered variance on ONE justified changing-scale observable
+family, or directly bound its full temporal response. Neither stationarity
+of q nor a sign for the correction is proved. Nome dependence, source-degree
+growth and spatial scaling must remain explicit. The separate EVERY-vector
+spatial/spacing gap estimate, full SAME-theory QFT/YM, physical mass and every
+group remain open; no canonical field changed.
+
+Five serialized 4 GiB leaf checks passed twenty permitted axiom gates, with
+no error/warning/sorryAx in the accepted logs. The original-slab follow-up in
+`audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md` records exact scope
+and logs. Semantic consumer import added; no full-root build/audit/guard.
+
 ### Represented complex limits and SAME matrix-coefficient convergence (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialJointComplexPresentedCompleteness` uses the actual

@@ -4870,6 +4870,8 @@ import YMGap.Continuum.QuaternionHaarAngularCasimir
 import YMGap.Continuum.QuaternionHaarExposedHeatCasimir
 import YMGap.Continuum.QuaternionHaarWeightedAngularCancellation
 import YMGap.Continuum.BF4ExactSlabFixedSpatialGroundStateEnergy
+-- Exact full-energy fringe reduction; signed source correction remains, no scaling closure.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedSourceEnergy
 import YMGap.Continuum.SU2QuaternionTailEvaluationDifferential
 import YMGap.Continuum.SU2QuaternionRelativeHarmonicSelection
 import YMGap.Continuum.SU2QuaternionDerivativeCommutation

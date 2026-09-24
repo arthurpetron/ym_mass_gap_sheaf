@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Exact inactive-source reduction of original temporal energy (2026-09-24 UTC)
+
+- **proved**: `SU2QuaternionProductHeatInactiveBilinear` projects both signed
+  inputs and restores the missing heat factors. `SU2QuaternionProductHeatProjectedSourceEnergy`
+  preserves full energy and every inactive-independent insertion, then gives
+  a full-product angular bound with no separate inactive residual.
+- **actual consumer**: `BF4ExactSlabFixedSpatialProjectedSourceEnergy` pins
+  original energy and odd-marginal moments, retaining the signed correction
+  of the complete projected source. `padded_plaquette_energy_le_projectedSourceAngular_add_correction`
+  derives observable independence from strict padding. The endpoint source
+  itself need not be independent of fringe coordinates.
+- **open**: useful control of projected-source angular energy plus signed
+  correction relative to SAME centered variance along a justified scaling
+  family; separately EVERY-vector spatial/spacing gap, full QFT/YM, physical
+  mass and every group. No new hole/axiom or canonical field change.
+- **verification**: five serialized 4 GiB leaves, twenty permitted gates,
+  no error/warning/sorryAx in accepted logs; no full-root build/audit/guard.
+  Evidence: original-slab follow-up in
+  `audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`.
+
 ## Represented complex limits and SAME pairing convergence (2026-09-24 UTC)
 
 - **constructed**: `BF4ExactSlabFixedSpatialJointComplexPresentedCompleteness`

@@ -133,6 +133,20 @@ theorem heatFace_independent_index (w : Q') (K width : Nat) (face : Z4Plaq)
     QuaternionBlockIndependent i (heatPrefix w K (plaquette width face).scalar) :=
   independent_of_local (heatFace_local w K width face i hnot) hi (fun h => h rfl)
 
+/-- Every character of a literal face word is independent of a block omitted
+by all four face edges. This is the character-level form of the same public
+index guard used for the full heat prefix. -/
+theorem characterFace_independent_index (width : Nat) (face : Z4Plaq)
+    (i spin : Nat) (hi : i < N width)
+    (hnot : ∀ l, l ∈ edgesOf face → l ∈ baseLinks width →
+      (baseLinks width).idxOf l ≠ i) :
+    QuaternionBlockIndependent i
+      (characterPolynomial (plaquette width face).scalar spin) := by
+  have hp := word_local width i (orientedPlaquetteBoundary face)
+    (fun e he => hnot e.link (orientedPlaquetteBoundary_link_mem_edgesOf he))
+    PolyQuaternion.one (local_one _ _)
+  exact independent_of_local (hp.scalar.character spin) hi (fun h => h rfl)
+
 /-- A literal retained link absent from the face is absent from EVERY spin
 in its full heat prefix. -/
 theorem heatFace_independent (w : Q') (K : Nat) {width : Nat} {l : Z4Link}
@@ -177,6 +191,7 @@ theorem heatProduct_independent (w : Q') (K : Nat) {width : Nat} {l : Z4Link}
 
 #print axioms heatFace_supported
 #print axioms heatFace_independent_index
+#print axioms characterFace_independent_index
 #print axioms heatFace_independent
 #print axioms heatProduct_supported
 #print axioms heatProduct_independent_index
