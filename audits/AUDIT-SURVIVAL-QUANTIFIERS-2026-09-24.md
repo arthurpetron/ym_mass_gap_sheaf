@@ -4,6 +4,11 @@ Source audit at `5a13687`, 2026-09-24 UTC. This is a mathematical route review,
 not a new Lean proof, numerical experiment, or axiom audit. No Lean file or
 canonical frontier field is changed by this checkpoint.
 
+The original review is preserved below. The final **checked follow-up**
+records subsequent Lean proofs: the relative loss budget is weaker than the
+example in the review, the fixed-width calibration consumer now exists, and
+the direct necessary margin bound needs no norm cap or time sampling.
+
 ## Decision
 
 The immediate survival task needs ONE explicitly constructed observable
@@ -151,3 +156,132 @@ the stronger-than-needed default search target, without changing any formal
 statement. Documentation diff/whitespace checks only; no compiler, full-tree
 build, axiom audit, guard or progress-metric script was run. No new `sorry`,
 axiom, physical instance, or continuum closure is claimed.
+
+## Checked same-carrier survival and calibration follow-up
+
+2026-09-24 UTC, following the source review and full-product cancellation
+checkpoint `ffcb846`. This section records new narrow kernel checks, not a
+full-root build or a physical continuum theorem.
+
+### Actual relative-energy implication
+
+Use the original all-nome fixed-width `JointCompletion`, its constructed
+centering map, pairing B and discrete transfer T. For `y=center x`, put
+`N=B(y,y)` and `E_1=N-B(y,T y)`. The supplied input `E_1<=delta*N` now gives
+
+    n*delta+theta <= 1  ==>  theta*N <= B(y,T^n y).
+    0 <= theta, v <= N  ==>  theta*v <= B(y,T^n y).
+
+Thus a positive floor v and positive theta produce an actual original
+connected-response floor. The budget does NOT require the stronger
+`n*delta*C<=v/2` from the original prose example. There is no norm cap in
+this implication. The observable and relative-energy estimate are inputs,
+not constructed here for changing nome/width/spacing.
+
+| Declaration | Source | Checked output |
+|---|---|---|
+| `response_ge_fraction_of_relative_energy` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:97` | Relative loss budget retains the SAME norm fraction. |
+| `response_floor_of_relative_energy` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:112` | Supplied norm floor gives the response floor. |
+| `centered_response_floor` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:126` | Pins that floor to the existing `completedCenteredScalar`. |
+
+### Cancel the norm before estimating a rate
+
+At lag two the same bound gives `(1-2*delta)*N<=B(y,T^2 y)`. The existing
+completed strict form bound gives `B(y,T^2 y)<=q*N`, where q is the actual
+certified `twoStepRate(w,width)`. A supplied POINTWISE rational witness
+`0<v<=N` permits positive-factor cancellation without forming a real
+reciprocal or choosing a quotient representative as data. Consequently:
+
+    1 - q <= 2*delta,
+    (1-q)/a <= (2*delta)/a   for supplied positive two-step spacing a.
+
+| Declaration | Source | Checked output |
+|---|---|---|
+| `twoStepRate_ge_of_relative_energy` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:140` | `1-2*delta<=q` from one actual nonzero centered state. |
+| `margin_le_twice_relative_energy` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:155` | `1-q<=2*delta`; no cap, uniform floor or sampling premise. |
+| `marginRate_le_of_relative_energy` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:167` | Same necessary inequality divided by supplied positive spacing. |
+
+This is an UPPER constraint on a certified margin, not a proof of an
+EVERY-vector lower energy estimate or the location of a physical spectrum.
+The pointwise floor cancels from this necessary constraint; a surviving
+observable/norm floor is still required for continuum nontriviality.
+
+### Sampled-response consumer on the actual fixed-width carrier
+
+The historical guarded `UnionCompletion` theorem has not been transported
+or silently identified with `JointCompletion`. A separate counterpart is
+now proved directly on the latter carrier. Let x be orthogonal to its actual
+unit, with `B(x,x)<=C`, and supply `f<=B(x,T^(2*n) x)` with `f>0`, where
+`n=floorLatticeSteps A j t`. The squared-norm decay theorem then gives
+`f<=q^n*C`. The existing rational sampler/Bernoulli bounds imply
+
+    (1-q)/a <= responseMarginCeiling C f hf t ht = 2*C/(f*t),
+
+under `a<=t/2`. Here `a=A.spacing j` is explicitly the spacing of TWO
+discrete time steps; it must not be silently read as one-step spacing.
+An explicit threshold from the supplied spacing-to-zero modulus and
+geometric cutoff forces `q>=1/2`, thereby excluding `q=0` before the
+logarithm is constructed. The exact rate logarithm `-log(q)/a` is then at
+most `c94*responseMarginCeiling C f hf t ht`.
+
+| Declaration | Source | Checked output |
+|---|---|---|
+| `response_power_floor` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointSurvivalCalibration.lean:54` | Actual even response and norm cap give `f<=q^n*C`. |
+| `margin_le_of_sampled_response` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointSurvivalCalibration.lean:65` | Certified margin is at most spacing times the computed ceiling. |
+| `marginRate_le_of_sampled_response` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointSurvivalCalibration.lean:77` | The divided margin ceiling. |
+| `transferLogRate_log_pin` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointSurvivalCalibration.lean:107` | Exact scalar identification with negative logarithm of q. |
+| `survivalRateThreshold` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointSurvivalCalibration.lean:120` | Computed threshold, retaining C, f, t and spacing modulus. |
+| `halfRate_of_sampled_response` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointSurvivalCalibration.lean:126` | Positive sampled floor beyond that threshold implies `1/2<=q`. |
+| `logRate_le_of_sampled_response` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointSurvivalCalibration.lean:161` | Ceiling on the exact certified logarithmic rate per two-step spacing. |
+
+The absolute-response consumer still takes a norm cap. The direct
+relative-energy constraint above does not. Neither constructs an actual
+physical Hamiltonian or identifies q with its spectral edge.
+
+### Next producer and source-reviewed alternatives
+
+The first-order cancellation theorem
+`padded_plaquette_energy_le_angular_add_quadratic` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceTaylor.lean:169` still needs
+useful control of its COMPLETE source-dependent angular-plus-remainder
+budget relative to the SAME centered variance on ONE justified changing-scale
+family. No such family or quantitative estimate is supplied by this follow-up.
+
+The existing finite signed filters are not an automatic replacement:
+`orbitSum_pairing` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointBilinearTime.lean:163`
+preserves all signed cross terms, while `orbitSum_twoStep_form_gap` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointBilinearTime.lean:193`
+retains the SAME universal upper rate and does not assert that the filtered
+state is nonzero. `evenResponse_geometric_lower` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointOrbitResponse.lean:101`
+still requires a supplied initial relative lower response. The constructed
+`centralExcitation_norm_floor` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointCentralExcitation.lean:67`
+is genuine, but `centralExcitation_twoStep_bound` at that file's line 96 is
+an upper response bound, not the missing near-one lower estimate. This is
+a source review of the available declarations, not a theorem that every
+possible filter-based analytic argument is impossible.
+
+### Verification and unchanged boundary
+
+Final accepted commands, each serialized with one 4 GiB worker:
+
+```text
+python3 scripts/safe_lean_build.py --jobs 1 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointSurvivalCalibration.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointSurvivalCalibration.olean --check-worker-limit-gib 4 --log-file /tmp/ym-gap-joint-survival-calibration-check-2.log
+python3 scripts/safe_lean_build.py --jobs 1 --check lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean --check-output lean/.lake/build/lib/lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.olean --check-worker-limit-gib 4 --log-file /tmp/ym-gap-joint-energy-survival-check-2.log
+```
+
+Both commands exited zero. Each final log contains six load-bearing theorem
+gates, all within `{propext, Quot.sound}`, and no error/warning/sorryAx.
+Calibration check 1 failed on missing identifiers and elaboration timeouts;
+it is NOT verification evidence. Sol repaired that file and reviewed the
+filtering alternative; Luna independently checked the same-object, sign,
+quantifier and spacing boundaries. Root proved and checked the direct
+positive-norm cancellation consumer. `YMGap.lean` imports EnergySurvival,
+which imports Calibration; no full-root build/audit/guard was run.
+
+No new hole, axiom, canonical-field weakening or continuum closure. The
+actual changing-scale producer, separate EVERY-vector spatial/spacing gap,
+full SAME-theory QFT/YM fields, physical Hamiltonian mass and every compact
+simple group remain open. The whole-project goal is unchanged.

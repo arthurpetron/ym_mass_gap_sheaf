@@ -12,6 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**SAME-carrier conditional survival/calibration (2026-09-24 UTC):**
+`BF4ExactSlabFixedSpatialJointEnergySurvival.centered_response_floor` turns
+the supplied one-state relative energy and `n*delta+theta<=1` into an
+original connected-response floor. Its `margin_le_twice_relative_energy`
+cancels the SAME positive norm to prove `1-twoStepRate<=2*delta`, without
+a norm cap or sampling premise. `JointSurvivalCalibration` separately
+constructs the sampled-response margin/logarithmic-rate ceilings on the
+actual all-nome fixed-width carrier, with computed thresholds and TWO-step
+spacing. Neither scalar is identified with a Hamiltonian spectral edge.
+The changing-scale observable and useful SAME-variance bound remain inputs,
+as does the separate EVERY-vector scaling estimate. Two serialized 4 GiB
+checks passed twelve permitted gates; no full-root build/audit/guard.
+See `audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md`.
+
 **Full-product source cancellation (2026-09-24 UTC):**
 `SU2QuaternionCyclicCasimirSweep` identifies the computed degree-path
 coefficient with the differential sweep; weighted cyclic transport and

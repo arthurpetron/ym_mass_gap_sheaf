@@ -4852,6 +4852,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialJointComplexGap
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointComplexPairingContinuity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointVacuumProjection
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointTemporalEnergy
+-- Conditional SAME-carrier survival and certified-rate ceilings; analytic family still open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialJointEnergySurvival
 import YMGap.Continuum.SU2InverseHeatRemainderUnbounded
 import YMGap.Continuum.SU2QuaternionHaarTailDerivative
 import YMGap.Continuum.SU2QuaternionRelativeHeatAngularBound

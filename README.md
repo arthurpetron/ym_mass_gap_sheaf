@@ -7,6 +7,21 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The SAME carrier now has [checked conditional survival and rate calibration](audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md#checked-same-carrier-survival-and-calibration-follow-up).
+For one centered state with squared norm N and `E_1 <= delta*N`, the budget
+`n*delta + theta <= 1` retains at least `theta*N` in its original response.
+A supplied positive norm floor turns this into a connected-response floor.
+Cancelling that SAME positive norm against the existing strict two-step bound
+also proves `1-q(w,width) <= 2*delta`: **no norm cap or time sampling is needed
+for this necessary rate constraint**. A separate sampled-response consumer
+now bounds the certified logarithmic rate on this actual fixed-width carrier,
+without substituting the guarded spatial-union carrier. Spacing there means
+two-step spacing. These are conditional consumers, not a constructed
+changing-scale observable or a physical Hamiltonian mass theorem. The useful
+original energy/SAME-variance producer and the separate EVERY-vector scaling
+gap remain open. Two narrow checks passed twelve permitted axiom gates;
+no full-root build/audit/guard or continuum/Clay closure.
+
 The original temporal energy now has a [source-cancelled full-product Taylor bound](audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md#full-product-source-cancellation-follow-up-2026-09-24-utc).
 The computed Casimir coefficient is exactly `sum_i H[q^2*Gamma_i(f)]`:
 all endpoint-source derivatives cancel at first order, on every block.

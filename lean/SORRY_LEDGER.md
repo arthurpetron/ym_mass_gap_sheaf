@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## SAME-carrier survival and necessary rate calibration (2026-09-24 UTC)
+
+- **proved conditional machinery**: `BF4ExactSlabFixedSpatialJointEnergySurvival`
+  turns a supplied whole one-step relative-energy bound and relative loss
+  budget into a SAME connected-response floor. Its
+  `margin_le_twice_relative_energy` cancels the positive norm and proves
+  `1-twoStepRate<=2*delta`, without a norm cap or time sampling; the norm
+  witness is only pointwise for that necessary scalar bound.
+- **same-object consumer**: `BF4ExactSlabFixedSpatialJointSurvivalCalibration`
+  proves sampled-response ceilings for the certified margin and exact rate
+  logarithm on `JointCompletion`, with explicit threshold and TWO-step spacing.
+  No identification with the guarded union, a physical Hamiltonian or a
+  spectral edge is assumed or proved.
+- **open inputs**: ONE justified changing-scale original observable, useful
+  relative energy and surviving norm/response estimates; separately EVERY-vector
+  spatial/spacing gap, full QFT/YM, physical mass and every group. These new
+  implications do not produce those inputs. No new hole/axiom or canonical
+  field change.
+- **verification**: two final serialized 4 GiB checks, twelve permitted gates,
+  no error/warning/sorryAx in accepted logs; no full-root build/audit/guard.
+  Evidence: checked follow-up in
+  `audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md`.
+
 ## Full-product first-order source cancellation (2026-09-24 UTC)
 
 - **proved**: the actual computed Casimir coefficient equals a cyclic

@@ -4,7 +4,34 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: full-product source cancellation (2026-09-24 UTC)
+## Current increment: SAME-carrier survival/calibration (2026-09-24 UTC)
+
+The actual relative one-step energy now supplies a response fraction via
+`n*delta+theta<=1`, and the supplied norm floor supplies the SAME original
+connected-response floor. A shorter mathematical contraction cancels the
+positive norm against the completed two-step form bound, giving
+`1-twoStepRate<=2*delta` without a norm cap or sampling hypothesis.
+This removes unnecessary quantitative inputs from the necessary rate
+constraint; it does not construct the relative-energy estimate.
+
+The sampled margin/logarithm consumer is also now on the actual all-nome
+fixed-width `JointCompletion`, not the guarded spatial-union carrier.
+Its norm cap, positive response and spacing-to-zero inputs remain explicit;
+the threshold rules out a zero rate before forming the logarithm. Spacing
+means TWO-step spacing and no Hamiltonian spectral edge is identified.
+
+Next: ONE justified changing-scale observable with useful SAME-variance
+control of its original full energy (or direct response), separately from
+the EVERY-vector spatial/spacing gap. Existing signed time-filter algebra
+does not construct the missing lower response/norm estimate. Full QFT/YM,
+physical mass, every group and the Clay target remain open.
+
+Two final serialized 4 GiB checks passed twelve permitted axiom gates.
+Semantic consumer import added; no new hole/axiom or canonical-field change.
+No full-root build/audit/guard or progress-metric script was run.
+Evidence: `audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md`, checked follow-up.
+
+## Previous increment: full-product source cancellation (2026-09-24 UTC)
 
 The full-product degree-path Casimir coefficient is now proved equal to
 `sum_i H[a^2*Gamma_i(f)]`. The proof uses a cyclic differential sweep,

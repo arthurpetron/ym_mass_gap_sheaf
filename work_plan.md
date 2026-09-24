@@ -25,6 +25,47 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### SAME-carrier survival and necessary rate calibration (2026-09-24 UTC)
+
+`BF4ExactSlabFixedSpatialJointEnergySurvival` now proves the actual
+one-state implication: `E_1 <= delta*N` and `n*delta+theta<=1` give
+`theta*N <= B(x,T^n x)`. A supplied floor `v<=N` gives `theta*v` as a
+response floor; the constructed centering map pins it to the original
+connected scalar. No norm cap enters the relative loss budget.
+
+**Shorter backward connection:** apply the same whole-energy bound at lag
+two and the existing completed strict form bound, then cancel the SAME
+positive norm using a pointwise rational floor. The checked theorem
+`margin_le_twice_relative_energy` gives `1-twoStepRate(w,width)<=2*delta`.
+This necessary constraint needs no norm cap, no uniform floor, no time
+sampling and no real reciprocal. `marginRate_le_of_relative_energy` retains
+the explicit positive TWO-step spacing in its denominator.
+
+`BF4ExactSlabFixedSpatialJointSurvivalCalibration` also supplies the formerly
+missing all-nome fixed-width counterpart to the guarded union consumer:
+one positive response at `2*floor(t/a)` and a norm cap imply a quantitative
+margin/spacing ceiling. A computed spacing threshold forces `q>=1/2`,
+including exclusion of the zero-rate case, and bounds the exact scalar
+`-log(q)/a`. This is a certified-rate statement, not a Hamiltonian mass or
+spectral-edge identification. No spatial-union carrier is substituted.
+
+**Next causal proposition remains analytic:** construct ONE justified
+changing-scale original observable and prove useful whole temporal-energy
+control relative to its SAME variance, or its sampled response directly.
+The norm floor must survive for nontriviality even though it cancels from
+the necessary rate constraint. Finite signed time filtering alone supplies
+neither the needed lower response nor its norm bound; the existing orbit
+lemmas retain those inputs. Do not repeat displacement estimates or add a
+new filter wrapper without this quantitative input. The separate EVERY-vector
+spatial/spacing gap, full SAME-theory QFT/YM, physical mass and every group
+remain open. No canonical field was closed or weakened.
+
+Two final serialized 4 GiB checks passed twelve gates within
+{propext, Quot.sound}, without error/warning/sorryAx in accepted logs.
+Semantic consumer import added; no full-root build/audit/guard or new hole.
+Evidence and exact declarations:
+`audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md` (checked follow-up).
+
 ### Full-product first-order source cancellation (2026-09-24 UTC)
 
 The computed Casimir tree now equals the actual cyclic differential sweep.
