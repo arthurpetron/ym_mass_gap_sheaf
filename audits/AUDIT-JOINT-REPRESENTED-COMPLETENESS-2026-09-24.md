@@ -43,9 +43,11 @@ Uniqueness identifies the time image of L with the constructed limit of the
 time-mapped family. Thus the result is compatible with the actual transfer,
 not only an abstract completion interface.
 
-The next consumer is `JointRangeApproximation.evenOrbitSum`. Its checked
+The next consumer at this checkpoint was `JointRangeApproximation.evenOrbitSum`. Its checked
 residual error tends to zero, but the approximating vectors still need their
 own Cauchy estimate before completeness supplies an exact inverse image.
+That estimate and exact inverse are now proved in the subsequent
+[Neumann-inverse checkpoint](AUDIT-JOINT-NEUMANN-INVERSE-2026-09-24.md).
 
 ## Boundary and verification
 

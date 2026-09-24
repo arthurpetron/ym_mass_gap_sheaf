@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Exact discrete inverse on the SAME vacuum complement (2026-09-24 UTC):**
+`BF4ExactSlabFixedSpatialJointNeumannInverse.inverse` is constructed by a
+geometric Cauchy limit, actual residual continuity, and quotient descent by
+uniqueness. `inverse_right` and `inverse_left` prove both inverse laws for
+`I-T^2` on the actual completed unit complement. The finite-tail proof retains
+every time-translate cross term; its Cauchy modulus covers q=0 without dividing
+by q. No source-independent operator-norm bound or Hamiltonian/continuum claim
+is made. Five serialized 4 GiB leaves passed thirty-six permitted gates;
+no full-root build/audit/guard. Evidence:
+`audits/AUDIT-JOINT-NEUMANN-INVERSE-2026-09-24.md`.
+
 **Represented completeness of the SAME joint carrier (2026-09-24 UTC):**
 `BF4ExactSlabFixedSpatialJointPresentedCompleteness.PresentedNormCauchy.limit_converges`
 constructs a limit and explicit convergence modulus measured in the actual

@@ -25,6 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact discrete inverse on the SAME completed vacuum complement (2026-09-24 UTC)
+
+**The completeness consumer is now constructed:**
+`BF4ExactSlabFixedSpatialJointNeumannInverse.inverse` is a quotient-level map
+on the original `JointCompletion`. Writing R=I-T^2 and C for the existing
+vacuum-complement projection, `inverse_residual` proves R(inverse x)=C x;
+`inverse_right` and `inverse_left` prove both inverse laws on the unit
+complement. The output is orthogonal to the same unit. Representative-level
+preimages are unique by the existing strict fixed-width form bound, so the
+algorithm descends without selecting a quotient representative.
+
+The missing mathematical estimate is proved, not assumed. For the literal
+finite tail starting at p, of length l,
+
+    ||tail||^2 <= (q^p * geomSum(q,l))^2 * ||x||^2.
+
+Every mixed term is retained and controlled by actual time balance and norm
+decay. With C_X=normCeiling(X)/(1-q)^2, the Cauchy modulus is the existing
+`geometricCutoff q C_X epsilon`, including q=0. `orbitNormCauchy` supplies the
+actual represented family to completeness; `mapResidual_limit` commutes the
+actual residual through its limit. The older finite residual-error estimate
+then identifies its exact residual with the original source.
+
+**Boundary/next work:** no continuous-time generator or Hamiltonian resolvent
+has been constructed, and no source-independent operator-norm estimate is
+asserted by this checkpoint. Nome and width dependence remain explicit. The
+primary analytic frontier remains useful SAME energy/variance control for a
+justified scaling family, spatial/spacing control of the all-vector gap, and
+the full same-theory continuum/QFT/YM-field and every-group joins. Do not treat
+the new discrete inverse as a substitute for any of those estimates.
+
+Five serialized 4 GiB leaves passed thirty-six permitted gates. Semantic import
+added; no full-root build/audit/guard, new hole/axiom or canonical field change.
+Evidence: `audits/AUDIT-JOINT-NEUMANN-INVERSE-2026-09-24.md`.
+
 ### SAME reflected carrier: represented completeness and transfer compatibility (2026-09-24 UTC)
 
 **Constructed, not assumed:** an outer family supplied by inner Cauchy
@@ -41,7 +76,7 @@ modulus. `PresentedNormCauchy.mapTime_limit` proves that the actual discrete
 physical-time map commutes with the constructed limit. No ordinary-GNS carrier
 or finite-cutoff completion is substituted for the joint reflected carrier.
 
-**Next concrete consumer:** `JointRangeApproximation.evenOrbitSum` already gives
+**Consumer at this checkpoint (now completed above):** `JointRangeApproximation.evenOrbitSum` gives
 finite approximate preimages of `I-T^2`. Prove these actual vectors Cauchy with
 a computed geometric tail modulus, then use this completeness and continuity
 of the residual to construct an exact preimage. The tail estimate must retain

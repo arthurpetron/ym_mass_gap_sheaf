@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## Constructed exact discrete inverse on the SAME unit complement (2026-09-24 UTC)
+
+- **finite estimate**: `JointOrbitTailBound.evenOrbitTail_geometric_norm_le`
+  bounds the literal finite tail by `(q^p*geomSum(q,l))^2*B(x,x)`, retaining all
+  mixed terms. `JointOrbitCauchy.mk_evenOrbitRep` pins every computed Cauchy
+  representative to the existing actual finite orbit sum.
+- **constructed convergence**: `JointNeumannCauchy.orbitNormCauchy` derives a
+  geometric Cauchy modulus from the actual strict rate and computed norm
+  ceiling, including q=0. `JointResidualPresentedLimit.mapResidual_limit`
+  proves continuity of the actual R=I-T^2 through represented limits.
+- **exact map**: `JointNeumannInverse.inverse` descends the constructed centered
+  preimage by proved uniqueness. `inverse_residual` gives R(inverse x)=center x;
+  `inverse_left`/`inverse_right` give both laws on the actual unit complement.
+  Quotient descent chooses no representatives and adds no analytic premise.
+- **remaining**: no source-independent inverse operator-norm bound is asserted;
+  continuous physical time/Hamiltonian resolvent, spatial/spacing control,
+  nontrivial continuum survival, full same-theory QFT/YM identification and
+  every compact simple group remain open. This closes no canonical Clay atom.
+- **verification**: five serialized 4 GiB leaves, thirty-six printed gates
+  within {propext, Quot.sound}; no error/warning/sorryAx in accepted logs.
+  No new hole/axiom, frontier weakening or full-root build/audit/guard. See
+  `audits/AUDIT-JOINT-NEUMANN-INVERSE-2026-09-24.md`.
+
 ## Constructed represented limits on the SAME reflected carrier (2026-09-24 UTC)
 
 - **constructed**: `CRealSeminormPresentedCompleteness` gives an explicit

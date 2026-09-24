@@ -7,15 +7,24 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-The [represented-completeness result](audits/AUDIT-JOINT-REPRESENTED-COMPLETENESS-2026-09-24.md)
+The [exact discrete inverse](audits/AUDIT-JOINT-NEUMANN-INVERSE-2026-09-24.md)
+is now constructed on the SAME reflected carrier: on its vacuum complement,
+`inverse` is a two-sided inverse of `I-T^2`. Finite geometric orbit sums converge
+with explicit moduli; continuity gives exact preimages, and uniqueness makes
+the construction descend to quotient states without choosing representatives.
+The rate still depends on nome and spatial width. This is **not a continuum
+Hamiltonian resolvent or physical mass gap**. Five focused leaves passed
+thirty-six permitted axiom gates; spatial/spacing control remains open.
+
+The preceding [represented-completeness result](audits/AUDIT-JOINT-REPRESENTED-COMPLETENESS-2026-09-24.md)
 now constructs limits in the SAME cutoff-removed reflected carrier, from
 supplied Cauchy representatives and an explicit modulus in its actual completed
 norm. Limits are unique among represented candidates and commute with the
 actual discrete transfer. This does not select representatives of arbitrary
 quotient-valued sequences or complete the full Hilbert/OS/QFT construction.
-Three focused checks passed twenty-three permitted axiom gates. The next
-consumer is convergence of the existing finite approximate inverse sums;
-spatial/scaling and continuum obligations remain open.
+Three focused checks passed twenty-three permitted axiom gates. Its concrete
+inverse-sum consumer is now proved above; spatial/scaling and continuum
+obligations remain open.
 
 The latest [local weighted-heat estimate](audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md)
 cancels endpoint-source derivatives at first order in the actual one-link heat
