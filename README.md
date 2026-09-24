@@ -7,6 +7,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The SAME reflected carrier now has [represented complex limits and pairing continuity](audits/AUDIT-JOINT-REPRESENTED-COMPLETENESS-2026-09-24.md#complex-limits-and-matrix-coefficient-consumer).
+Supplied complex Cauchy representatives converge in the ACTUAL complex norm,
+with a computed modulus; represented limits are unique and commute with the
+original discrete transfer. A computed test-norm ceiling gives an explicit
+matrix-coefficient convergence modulus. The continuity estimate openly uses
+factor two, not sharp complex Cauchy--Schwarz; the strict transfer rate is
+unchanged. These are fixed-nome/fixed-width Hilbert prerequisites, **not full
+Hilbert/OS/QFT or scaling closure**. Two narrow checks passed twenty-two
+permitted axiom gates; the changing-scale temporal-energy/variance producer
+and the separate EVERY-vector scaling estimate remain open.
+
 The [latest checked diagnostic](audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md#positive-heat-law-angularvariance-obstruction)
 rules out the nome-uniform upper bound `E_h[Gamma(f)] <= C*Var_h(f)` for a
 positive heat law on an exposed four-link holonomy. Its exact variance is

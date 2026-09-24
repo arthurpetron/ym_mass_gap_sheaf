@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Represented complex limits and their pairing consumer (2026-09-24 UTC):**
+`BF4ExactSlabFixedSpatialJointComplexPresentedCompleteness` constructs limits
+from supplied complex Cauchy representatives in the SAME actual norm, with
+explicit rates, represented uniqueness and actual discrete-time compatibility.
+`JointComplexPairingContinuity.pairing_converges` and `time_pairing_converges`
+compute squared complex matrix-coefficient error moduli from supplied test
+representatives. The continuity bound has an explicit factor two; sharp
+complex Cauchy--Schwarz is not claimed and the strict gap rate is unchanged.
+Two serialized 4 GiB leaves passed twenty-two permitted gates. No full-root
+build/audit/guard; no full Hilbert/QFT, scaling or canonical-frontier closure.
+
 **Positive heat-law angular/variance obstruction (2026-09-24 UTC):**
 `QuaternionHaarHeatAngularVarianceObstruction.positiveCounterexample` computes
 a nome and late cutoff, returns the actual exposed-holonomy heat positivity

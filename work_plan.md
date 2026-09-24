@@ -25,6 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Represented complex limits and SAME matrix-coefficient convergence (2026-09-24 UTC)
+
+`BF4ExactSlabFixedSpatialJointComplexPresentedCompleteness` uses the actual
+complex pairing on `JointCompletion x JointCompletion`. Each component's
+squared distance is bounded by their nonnegative sum, so the supplied complex
+Cauchy modulus produces both real Cauchy families. Existing represented real
+completeness constructs their limits. The maximum of their half-tolerance
+rates gives `PresentedComplexCauchy.limit_converges`; supplied candidate
+representatives prove uniqueness. `mapTime_limit` commutes this construction
+with the original discrete transfer, without choosing quotient representatives.
+
+**Actual consumer:** `BF4ExactSlabFixedSpatialJointComplexPairingContinuity`
+proves `|<x-y,test>|^2 <= 2*||x-y||^2*||test||^2` from four real pairing
+estimates. Factor TWO is explicit; this is not sharp complex Cauchy--Schwarz
+and does not alter the strict transfer rate. `testNormCap` computes a positive
+rational ceiling from the supplied test representatives. Feeding
+`delta=(epsilon/2)/testNormCap` to the norm-limit rate proves
+`pairing_converges`; `time_pairing_converges` transports actual discrete-time
+matrix coefficients with the resulting explicit modulus.
+
+**Boundary / next causal work:** these results apply at fixed nome and width
+to explicitly represented families, not arbitrary quotient-valued sequence
+lifts. Full complex Hilbert/OS/QFT, continuous Hamiltonian, local YM fields,
+physical mass and every group remain open. The primary analytic producer is
+still ONE justified changing-scale original observable family with useful
+SAME temporal-energy/variance control, separately from the EVERY-vector
+spatial/spacing gap estimate. Do not extend fixed-width algebra merely to
+obtain a sharper continuity constant without a consumer that needs it.
+
+Two serialized 4 GiB leaf checks passed twenty-two gates within
+{propext, Quot.sound}; accepted logs contain no error/warning/sorryAx.
+Evidence: complex follow-up in
+`audits/AUDIT-JOINT-REPRESENTED-COMPLETENESS-2026-09-24.md`.
+Semantic consumer import added; no full-root build/audit/guard, new hole/axiom,
+or canonical-frontier field change.
+
 ### Positive heat-law diagnostic: the angular budget need not shrink (2026-09-24 UTC)
 
 `QuaternionHaarHeatAngularVarianceObstruction` pins the actual normalized

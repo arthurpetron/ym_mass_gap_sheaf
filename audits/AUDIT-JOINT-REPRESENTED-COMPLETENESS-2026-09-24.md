@@ -68,3 +68,51 @@ and a 4 GiB cap. Accepted logs:
 All three exited successfully. No error, warning or `sorryAx` occurs in the
 accepted logs. Semantic-root import added; no full-root build, audit or guard
 was run. No hole, new axiom or canonical-frontier statement change was made.
+
+## Complex limits and matrix-coefficient consumer
+
+Follow-up, 2026-09-24 UTC. On the existing `ComplexCarrier`, not a replacement
+GNS model, complex squared distance is exactly the sum of the two real squared
+distances. Nonnegativity bounds each component by this sum. The supplied
+complex Cauchy data therefore produce two real represented Cauchy families;
+their limits and half-error moduli construct the complex limit. Candidate
+uniqueness and the existing real transfer-limit laws prove complex time
+compatibility.
+
+New declarations:
+
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointComplexPresentedCompleteness.lean`:
+  `PresentedComplexCauchy.limit`, `limitRate`, `limit_converges`,
+  `CandidateLimit.eq_constructed_limit`, `PresentedComplexCauchy.mapTime_limit`.
+- `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointComplexPairingContinuity.lean`:
+  `inner_two_bound`, `pairing_error_bound`, `testNormCap`, `pairingRate`,
+  `pairing_converges`, `time_pairing_converges`.
+
+The actual consumer uses the explicit bound
+
+    |<x-y,test>|^2 <= 2 * ||x-y||^2 * ||test||^2.
+
+This is a continuity estimate, NOT sharp complex Cauchy--Schwarz. Four sharp
+real inequalities and the two-term square bound prove it; all complex cross
+terms are retained until that inequality. The original strict transfer rate
+is unchanged. From supplied test representatives, `testNormCap` computes a
+positive rational ceiling C. Applying norm convergence at `(epsilon/2)/C`
+proves squared pairing error at most epsilon. The time consumer applies this
+to the actual time-mapped family and uses the proved same-transfer limit
+identity. Time is fixed in this statement; no time/scaling uniformity is
+asserted. No new completeness or analytic assumption is supplied.
+
+Accepted serialized one-worker 4 GiB logs:
+
+- `/tmp/ym-gap-joint-complex-completeness-check-2.log`: twelve gates.
+- `/tmp/ym-gap-joint-complex-pairing-continuity-check-3.log`: ten gates.
+
+Both checks exited zero, with only {propext, Quot.sound} and no error,
+warning or sorryAx in the accepted logs. The independent source review
+confirmed the supplied representatives, actual norm and half-error modulus.
+Semantic consumer import added; no full-root build/audit/guard was run.
+
+These are fixed-nome/fixed-width represented Hilbert prerequisites, not full
+Hilbert/OS/QFT or continuous Hamiltonian construction. The changing-scale
+SAME temporal-energy/variance producer, separate EVERY-vector gap scaling,
+continuum survival, physical mass, local YM fields and all groups remain open.

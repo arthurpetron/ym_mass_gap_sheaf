@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Represented complex limits and SAME pairing convergence (2026-09-24 UTC)
+
+- **constructed**: `BF4ExactSlabFixedSpatialJointComplexPresentedCompleteness`
+  supplies actual complex norm limits, explicit moduli, represented uniqueness
+  and compatibility with the original discrete transfer. No representatives
+  are selected from quotient states.
+- **actual consumer**: `JointComplexPairingContinuity.pairing_converges` and
+  `time_pairing_converges` compute squared complex matrix-coefficient error
+  rates using an explicit factor-two continuity bound and a rational ceiling
+  from the supplied test representatives. Sharp complex Cauchy--Schwarz is not
+  claimed; the fixed-width strict transfer rate is not modified.
+- **open**: full complex Hilbert/OS/QFT and continuous Hamiltonian, useful
+  changing-scale survival family, EVERY-vector spatial/spacing gap control,
+  physical mass, local YM fields and every group. No canonical field changed,
+  no new hole or axiom.
+- **verification**: two serialized 4 GiB leaves, twenty-two permitted gates,
+  no error/warning/sorryAx in accepted logs; no full-root build/audit/guard.
+  Exact logs and boundary in the complex follow-up of
+  `audits/AUDIT-JOINT-REPRESENTED-COMPLETENESS-2026-09-24.md`.
+
 ## Positive heat-law angular/variance obstruction (2026-09-24 UTC)
 
 - **proved**: `QuaternionHaarExposedHeatMoments` constructs the exact unit
