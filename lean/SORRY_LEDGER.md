@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## Reset-floor/cubic-loss certificate obstruction CLOSED; relative response OPEN (2026-09-24 UTC)
+
+- **proved numerical obstruction**: `BF4DyadicResetBudgetObstruction.resetFloor_le_count_mul_starRatio`
+  and `.resetFloor_le_count_mul_nomeDefect` bound the proposed reset floor
+  1-p-4*p*p, p=(1-starRatio(w))^k, by k*starRatio(w)<=k*(1-w).
+  `.resetFloor_cubic_budget_nonpositive` proves it cannot pay the existing
+  response budget 192*L^3*(1-w) when k<=4*L, L=2^scale.
+- **actual count witness**: `.selectedSublist_resetFloor_cubic_budget_nonpositive`
+  derives that guard for any literal selected sublist of padded-square edges.
+  No missing selected-link independence or reset-density decomposition is
+  assumed. The result bounds certificate numbers, not actual variance/response.
+- **open and repointed**: useful signed relative loss or direct response on
+  the original changing-scale Wilson family. The finite Cauchy bound in
+  `QuaternionHaarWordDifference.word_scalar_square_bound`, consumed by
+  `BF4ExactSlabFixedSpatialWilsonKineticIncrement.word_increment_bound`,
+  discards cross terms and yields squared perimeter. Reset amplification alone
+  cannot repair that join. All scaling, SAME continuum/QFT/YM/UV, physical
+  Hamiltonian/mass and all-group obligations remain open.
+- **verification**: six permitted gates (two empty), one narrow final check,
+  one worker, 2 GiB cap, unchanged 12 GiB reserve. Initial pressure refusal
+  respected; no new source hole, axiom, analytic premise or field change.
+  One semantic-root import; no full-root build/audit/guard. Chart unchanged.
+  Evidence: `audits/AUDIT-DYADIC-RESET-BUDGET-2026-09-24.md`.
+
 ## SAME dyadic Wilson fixed-nome variance/nonzero family CLOSED; A03 scaling OPEN (2026-09-24 UTC)
 
 - **proved original selected-action estimate**: `BF4ExactSlabWilsonWordVariance.shifted_square_floor`

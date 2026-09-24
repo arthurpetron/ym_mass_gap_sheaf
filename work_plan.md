@@ -25,7 +25,45 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### SAME nonzero dyadic Wilson family and selected-action variance (2026-09-24 UTC)
+### Reset amplification cannot pay the existing cubic loss (2026-09-24 UTC)
+
+Before constructing multi-link residual densities, the numerical join was
+tested. `BF4DyadicResetBudgetObstruction` proves that for r=starRatio(w),
+p=(1-r)^k and the proposed reset floor F=1-p-4*p*p,
+F<=k*r<=k*(1-w). For k<=4*L, L=2^scale, the resulting response certificate
+F-192*L^3*(1-w) is nonpositive at EVERY 0<w<1. The coefficient 192 is half
+the displayed SAME centered-increment budget 384, which bounds twice the
+response loss. An actual selected sublist of the padded square supplies the
+count bound by length; no unproved distinctness or independence is inserted.
+
+This bounds a proposed certificate number, NOT the actual variance or
+response. No reset expansion has been proved or assumed. Building that
+expansion alone therefore cannot repair the present survival join.
+
+**Repointed next A03 proposition:** a useful signed relative loss estimate
+on the SAME centered Wilson family, or direct positive response along a
+justified changing-coupling/spacing trajectory. In relative form the desired
+estimate is 2*(B(v,v)-B(v,T(L)v))<=eta*B(v,v), with explicit eta<2 and
+scale control; nonzero norm/limit compatibility remain separate inputs.
+The specific source bottleneck is
+`QuaternionHaarWordDifference.word_scalar_square_bound`: its use of
+`finite_square_bound` loses the cross terms of the literal ordered-word
+telescope and introduces squared perimeter. Its original-action consumer is
+`BF4ExactSlabFixedSpatialWilsonKineticIncrement.word_increment_bound`.
+Analyze that signed quadratic with the full edgeDensity, terminal messages
+and oddMass retained, or use a genuinely stronger direct-response argument.
+No stronger relative estimate is supplied by this checkpoint; do not build
+reset scaffolding as the next step unless its quantitative consumer changes.
+
+One final narrow check passed six gates within {propext, Quot.sound}, two
+empty; one worker, 2 GiB cap, unchanged 12 GiB reserve. An initial launch
+refusal was respected and memory remeasured before resumption. No new hole,
+axiom, analytic premise or canonical-field change. One semantic-root import;
+no full-root build/audit/guard. Schema 1 snapshot 17 records a pruned numerical
+join only: no chart-block or goal-node status change. Evidence:
+`audits/AUDIT-DYADIC-RESET-BUDGET-2026-09-24.md`.
+
+### Previous checkpoint: SAME nonzero dyadic Wilson family and selected-action variance (2026-09-24 UTC)
 
 `BF4ExactSlabWilsonWordVariance` proves the actual selected-action variance
 of any qualifying forward-head Wilson word is at least

@@ -4950,6 +4950,9 @@ import YMGap.Continuum.BF4DyadicWilsonSquareShiftedMoment
 -- Exact selected chain action and moving loop placement give nonzero dyadic
 -- states on the SAME all-nome completion, at fixed nome; no scaling survival.
 import YMGap.Continuum.BF4WilsonAllNomeDyadicExcitation
+-- Even the proposed multi-link reset floor cannot pay the current cubic loss.
+-- Certificate-number obstruction only; actual Wilson response is not refuted.
+import YMGap.Continuum.BF4DyadicResetBudgetObstruction
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality
