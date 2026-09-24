@@ -25,7 +25,52 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Conditional spectator pairing and SAME-channel harmonic tail (2026-09-24 UTC)
+### Computed SAME-channel floor against the ORIGINAL partition (2026-09-24 UTC)
+
+The reviewed first-moment argument is now proved, without a new joint-projector
+framework. The actual signed channel sources have nonnegative full diagonal
+path pairings. Summing the scalar inequality
+`w^M*(M-totalCasimir)<=M*productAttenuation` on these paths gives an actual
+full-heat lower bound. Passive independence reduces their first moment to
+exactly four face links; six angular planes per link give E_channel<=24*C(w)^2*A,
+where A is the SAME conditional spectator-channel quadratic of the COMPLETE
+original source. A computed integer M>=48*C(w)^2 yields rho(w)=w^M/2>0.
+
+`EndpointChannelHeatFloor.padded_channelNorm_le_originalPartition` proves
+rho(w)*A<=H[marginalWeight w K width depth]. The right side is the ORIGINAL
+partition, identified by the existing exact channel moment theorem. The
+computed cutoff max(K_reg(w),M(w)) is independent of width and terminal depth.
+No channel positivity, source-degree bound, stationary premise or new analytic
+input is assumed. Strict padding supplies the four-link activity guard.
+
+`EndpointEnergyPartitionBound.padded_endpoint_energy_le_originalPartition`
+now consumes the floor in the EXISTING original-energy budget, proving
+2*rho(w)*E_original<=kappa(w)*Z with kappa(w)=32*(1-w)+960*(1-w)^2. Its
+cutoff guards are explicit, and the finer signed/geometric estimates remain
+available. This coarser bound drops only a nonnegative plaquette square.
+
+**Next causal join:** control the SAME globally centered variance and useful
+nome dependence along a justified scaling family. The fixed-nome partition
+and energy bounds supply neither comparison. A03 and all continuum/Clay nodes
+remain OPEN; canonical chart wording, layout and proof markers are unchanged.
+
+**Avoid the next bookkeeping loop:** `OddLocalVariance.odd_variance_floor`
+already gives a nome-only positive floor for the SAME original centered
+variance. A coarse energy/variance bound can thus be assembled at fixed nome;
+that is not the missing useful scaling estimate. The present relative cap
+contains `JacobiShiftedRelativeSlope.budget`, with its explicit reciprocal
+`1/(1-w*w)`, before squaring and forming w^M. Seek an actual averaged-source
+improvement or retain the sharper signed/geometric cancellation; do not call
+another generic finite comparison a closure of A03. No additional frontier
+interface is needed to express this distinction. Source pointers are in the audit.
+
+Six final narrow serialized checks cover 34 permitted printed gates, including
+the preserved exact active-Casimir check from the preceding proof turn. Final
+proofs use default elaboration limits and unchanged one-worker/2 GiB/12 GiB
+reserve settings. No new hole, axiom or analytic field; no full-root audit/guard.
+Evidence: `audits/AUDIT-CHANNEL-PARTITION-FLOOR-2026-09-24.md`.
+
+### Previous checkpoint: conditional spectator pairing and SAME-channel harmonic tail (2026-09-24 UTC)
 
 The previously missing conditional mixed positivity is now proved on the
 ORIGINAL product heat. A partial block involution copies exactly the selected
@@ -45,7 +90,7 @@ active observable block, sum_c lambda_c H[high_L(P_F(q*c))^2]<=epsilon*Q_F(q).
 The existing computed L(w,epsilon) suffices. Constants remain independent of
 width/depth/sufficiently late cutoff at FIXED nome, not changing spacing.
 
-**Next causal producer:** a joint four-active-link retained-heat comparison
+**Next producer at that checkpoint, now proved above:** a joint four-active-link retained-heat comparison
 on these SAME channels. Prefer the reviewed finite-path first-moment route
 below to constructing a new joint-projector framework merely for this floor.
 The present tail theorem is not a joint projector or a lower bound on the
@@ -56,7 +101,7 @@ variance and justified scaling family to control. No new interface assumes
 either missing conclusion. A03, ONE-state survival, EVERY-state scaling,
 SAME continuum/QFT/YM/UV, physical Hamiltonian/mass and every group remain OPEN.
 
-**Reviewed next argument, NOT YET FORMALIZED:** the existing full-cycle path
+**Reviewed argument at that checkpoint, now formalized above:** the existing full-cycle path
 pairings of each signed channel source are nonnegative before attenuation.
 Their total is its raw norm and their first total-Casimir moment is its angular
 energy. For integer M>0 and K>=M, prove the scalar supporting-line inequality

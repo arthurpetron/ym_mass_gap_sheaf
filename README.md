@@ -10,14 +10,25 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked conditional-channel estimate:** a computed harmonic-degree
+**New checked original-partition comparison:** an explicit positive factor
+`rho(w)=w^M/2` times the complete source's conditional channel norm is bounded
+by the ORIGINAL marginal partition. Four active links control the required
+first Casimir moment; the cutoff and floor depend on coupling, not spatial
+width or terminal depth. Its direct consumer bounds the ORIGINAL plaquette
+energy by that SAME partition with an explicit coupling-dependent coefficient.
+Signed channel sources need not be positive.
+The **same centered-variance/scaling comparison remains open**. Six narrow
+checks cover 34 permitted gates; no full-root audit. See the
+[partition-floor audit](audits/AUDIT-CHANNEL-PARTITION-FLOOR-2026-09-24.md).
+
+**Preceding checked conditional-channel estimate:** a computed harmonic-degree
 threshold makes the channel-summed one-link tail at most `epsilon` times the
 SAME spectator-channel quadratic of the complete original source. The proof
 copies only spectator coordinates, preserving shared active links and all
 spatial/terminal factors. At fixed coupling the threshold works for every
 width, terminal depth and sufficiently late heat cutoff. It assumes no
-positivity of signed channel sources. A joint four-link heat comparison and
-the **same centered-variance/scaling comparison** remain open.
+positivity of signed channel sources. The joint heat comparison is now proved
+above; the **same centered-variance/scaling comparison** remains open.
 Six narrow checks passed 31 permitted gates; no full-root audit. See the
 [conditional-channel tail audit](audits/AUDIT-CONDITIONAL-CHANNEL-TAIL-2026-09-24.md)
 and the preceding

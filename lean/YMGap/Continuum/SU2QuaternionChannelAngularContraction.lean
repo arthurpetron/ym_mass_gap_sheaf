@@ -331,19 +331,18 @@ private theorem qsum_map_le (f g : Nat → Q') : ∀ ids : List Nat,
   | i::ids, h => Q'.add_le_add (h i List.mem_cons_self)
       (qsum_map_le f g ids (fun j hj => h j (List.mem_cons_of_mem i hj)))
 
-/-- The complete diagonal Casimir cost of the projected spectator channels is
-bounded by the angular cost on the complementary active block list. -/
-theorem pairCasimir_channel_le_active (n : Nat) (hn : 0 < n) {w : Q'}
-    (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) (K : Nat)
-    (passive active : List Nat) (hnd : passive.Nodup)
+/-- Exact reduction of the channel first Casimir moment to the complementary
+active links. No norm contraction or sign estimate is taken here. -/
+theorem pairCasimir_channel_eq_active (n : Nat) (hn : 0 < n) (w : Q') (K : Nat)
+    (passive active : List Nat)
     (hpassive : ∀ i, i ∈ passive → i < n)
-    (hactive : ∀ i, i ∈ active → i < n)
-    (hnot : ∀ i, i ∈ active → i ∉ passive)
     (hcover : (passive++active).Perm (List.range n))
     (q : RatPoly) (hq : SupportedQuaternionBlocks n q) :
     channelSum (productChannels n w K passive) (fun c =>
       pairCasimir (n-1) (channelSource passive q c)
-        (channelSource passive q c)) ≤ angularListSum n active q := by
+        (channelSource passive q c)) ≈
+      qListSum (active.map fun i => channelSum (productChannels n w K passive)
+        (fun c => H n (blockAngularSquare i (channelSource passive q c)))) := by
   let cs := productChannels n w K passive
   let source := fun c => channelSource passive q c
   have hsource (c : GramChannel) (hc : c ∈ cs) : SupportedQuaternionBlocks n (source c.2) :=
@@ -374,7 +373,23 @@ theorem pairCasimir_channel_le_active (n : Nat) (hn : 0 < n) {w : Q'}
             (Q'.add_eqv_congr' hpasszero (Q'.eqv_refl _))
             (Q'.eqv_trans _ _ _ (QPoly.q_zero_add_eqv _)
               (channelSum_angularList n cs active source)))))
-  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv hreduce) ?_
+  exact hreduce
+
+/-- The complete diagonal Casimir cost of the projected spectator channels is
+bounded by the angular cost on the complementary active block list. -/
+theorem pairCasimir_channel_le_active (n : Nat) (hn : 0 < n) {w : Q'}
+    (hw0 : (0 : Q') ≤ w) (hw1 : w ≤ 1) (K : Nat)
+    (passive active : List Nat) (hnd : passive.Nodup)
+    (hpassive : ∀ i, i ∈ passive → i < n)
+    (hactive : ∀ i, i ∈ active → i < n)
+    (hnot : ∀ i, i ∈ active → i ∉ passive)
+    (hcover : (passive++active).Perm (List.range n))
+    (q : RatPoly) (hq : SupportedQuaternionBlocks n q) :
+    channelSum (productChannels n w K passive) (fun c =>
+      pairCasimir (n-1) (channelSource passive q c)
+        (channelSource passive q c)) ≤ angularListSum n active q := by
+  refine Q'.le_trans' _ _ _ (Q'.le_of_eqv
+    (pairCasimir_channel_eq_active n hn w K passive active hpassive hcover q hq)) ?_
   unfold angularListSum
   apply qsum_map_le
   intro i hi
@@ -391,6 +406,7 @@ theorem pairCasimir_channel_le_active (n : Nat) (hn : 0 < n) {w : Q'}
 #print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.heatChannels_project_blockAngularSquare_le_at
 #print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.pairCasimir_diagonal_eq_angularListSum
 #print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.pairCasimir_eq_angular_partition
+#print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.pairCasimir_channel_eq_active
 #print axioms YMGap.Continuum.SU2QuaternionChannelAngularContraction.pairCasimir_channel_le_active
 
 end YMGap.Continuum.SU2QuaternionChannelAngularContraction

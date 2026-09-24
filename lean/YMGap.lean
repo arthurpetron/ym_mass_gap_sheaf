@@ -4906,9 +4906,14 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelActiveMoments
 import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelGeometricContraction
 -- Complete original-source local regularity and explicit one-link RAW Haar
 -- spectral tails, then conditional SAME-channel tails with shared active links.
--- Joint four-link heat and SAME centered-variance/scaling comparisons remain OPEN.
+-- The original-partition floor below retains four-link heat;
+-- SAME centered-variance/scaling comparisons remain OPEN.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointSpectralTail
 import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointChannelTail
+-- Computed nome-only first-moment floor for the SAME original endpoint channels.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointChannelHeatFloor
+-- Actual original-energy consumer of the fixed-nome partition floor.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointEnergyPartitionBound
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## SAME channel norm versus ORIGINAL partition CLOSED; A03 OPEN (2026-09-24 UTC)
+
+- **proved**: `SU2HeatProductFirstMomentFloor` supplies the scalar supporting
+  line, and `SU2QuaternionFirstMomentHeatFloor` sums it on the existing signed
+  source's nonnegative diagonal paths. No new projector or degree premise.
+- **actual consumer**: `EndpointChannelFirstMoment` proves the four-link
+  aggregate cap 24*C(w)^2*A. `EndpointChannelHeatFloor.padded_channelNorm_le_originalPartition`
+  gives (w^M/2)*A<=Z for M>=48*C(w)^2, with Z the ORIGINAL marginal partition.
+  The positive floor and sufficient cutoff are nome-only computed data.
+  `EndpointEnergyPartitionBound.padded_endpoint_energy_le_originalPartition`
+  consumes it to prove 2*rho(w)*E_original<=kappa(w)*Z for the actual plaquette,
+  with explicit kappa(w)=32*(1-w)+960*(1-w)^2 and all cutoff guards retained.
+- **open**: SAME centered-variance comparison and useful changing-scale control;
+  continuum/QFT/YM/UV, physical Hamiltonian/mass and every-group joins remain open.
+  A03 remains `[ ]`. No new hole, axiom, analytic premise or canonical-field change.
+- **verification**: six final narrow checks, 34 permitted printed gates,
+  including the unchanged active-Casimir leaf checked in the preceding proof turn.
+  Default elaboration and unchanged one-worker/2 GiB/12 GiB-reserve limits;
+  no full-root build/audit/guard. Evidence:
+  `audits/AUDIT-CHANNEL-PARTITION-FLOOR-2026-09-24.md`.
+
 ## Conditional mixed positivity and endpoint channel tail CLOSED; A03 OPEN (2026-09-24 UTC)
 
 - **proved**: `PartialSwapPairing.partialSwap_familyProject_pairing` copies

@@ -12,15 +12,26 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Conditional-channel regularity and tail (2026-09-24 UTC):**
+**Original-partition floor (2026-09-24 UTC):**
+`EndpointChannelHeatFloor.padded_channelNorm_le_originalPartition` proves
+`rho(w)*Q_F(q)<=H[marginalWeight]` for the COMPLETE original source and its
+SAME spectator channels. The computed positive rho and cutoff depend only on
+nome; four active links bound the aggregate first Casimir moment by 24*C(w)^2.
+`EndpointEnergyPartitionBound.padded_endpoint_energy_le_originalPartition`
+then gives 2*rho(w)*E_original<=kappa(w)*Z with computed kappa(w).
+SAME centered-variance and changing-spacing control remain open. Six narrow
+checks cover 34 permitted gates; no full-root audit. Evidence:
+`audits/AUDIT-CHANNEL-PARTITION-FLOOR-2026-09-24.md` at repository root.
+
+**Preceding conditional-channel regularity and tail (2026-09-24 UTC):**
 `FamilyChannelCone` proves mixed positivity using the actual heat kernel and
 a spectator-only coordinate swap, retaining shared active links.
 `EndpointChannelTail.projectedEndpoint_plaquetteChannel_highTail_small`
 transfers the complete original source's computed epsilon-to-degree threshold
 to the SAME channel-summed norm. Width/depth/sufficiently late cutoff remain
 uniform at FIXED nome; signed channel sources need not be positive.
-Joint four-link heat and SAME centered-variance/scaling comparisons remain
-open. Six narrow checks passed 31 permitted gates; no full-root audit. See
+The joint retained-heat floor is now proved; SAME centered-variance/scaling
+comparisons remain open. Six narrow checks passed 31 permitted gates; no full-root audit. See
 `audits/AUDIT-CONDITIONAL-CHANNEL-TAIL-2026-09-24.md` at repository root.
 
 **Spectator-retaining refinement (2026-09-24 UTC):**

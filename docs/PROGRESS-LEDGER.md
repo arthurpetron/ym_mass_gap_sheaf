@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: conditional positivity and SAME-channel harmonic tail (2026-09-24 UTC)
+## Current increment: original channel norm reaches the ORIGINAL partition (2026-09-24 UTC)
+
+The computed floor rho(w)=w^M/2, M>=48*C(w)^2, now satisfies rho*A<=Z
+for the COMPLETE source's SAME conditional channel norm A and ORIGINAL
+odd-marginal partition Z. The first-moment argument uses existing positive
+diagonal paths, exactly four active links and six angular planes per link.
+Width/depth/late-cutoff uniformity is proved at FIXED nome, not changing spacing.
+The original-energy consumer now gives 2*rho(w)*E_original<=kappa(w)*Z with
+kappa(w)=32*(1-w)+960*(1-w)^2. This is a proved SAME-normalization consequence,
+not a comparison to centered variance; the finer signed budget is preserved.
+
+This removes an uncentered normalization obstacle. The SAME centered-variance
+and useful scaling comparisons remain open; A03 and every chart marker stay
+unchanged. No new analytic premise or channel-positivity assumption.
+Six final narrow checks cover 34 permitted gates, including the preserved
+active-Casimir check from the preceding proof turn; no full-root audit/guard.
+Evidence: `audits/AUDIT-CHANNEL-PARTITION-FLOOR-2026-09-24.md`.
+
+## Previous increment: conditional positivity and SAME-channel harmonic tail (2026-09-24 UTC)
 
 The missing conditional pairing now retains active variables rather than
 averaging them away. Its ORIGINAL positive heat kernel supplies mixed
