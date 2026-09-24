@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**SAME complex Wilson carrier (2026-09-24 UTC):**
+`BF4WilsonAllNomeComplexification` realifies the existing all-nome Wilson
+completion into two copies of that completion, with explicit constructive-real
+scalar data, a Hermitian positive-definite pairing, real embedding, and the
+original completed time map.  The 27-declaration focused check is axiom-clean
+within `{propext, Quot.sound}`.  This is fixed-nome/fixed-width J02 structure;
+it is not the reflected continuum OS reconstruction, a scaling-uniform gap,
+or a Clay conclusion.  Evidence:
+`audits/AUDIT-WILSON-COMPLEXIFICATION-2026-09-24.md` at repository root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.

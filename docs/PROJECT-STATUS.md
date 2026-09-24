@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **22**, 2026-09-24 UTC. Source checkpoint:
-the SAME Wilson real-scaling and computed-vacuum-projection milestone committed with this
-snapshot; verification is recorded in
-`audits/AUDIT-WILSON-REAL-SCALING-PROJECTION-2026-09-24.md`.
+Chart schema: **1**. Snapshot: **23**, 2026-09-24 UTC. Source checkpoint:
+the SAME Wilson complex-carrier milestone committed with this snapshot;
+verification is recorded in
+`audits/AUDIT-WILSON-COMPLEXIFICATION-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -253,6 +253,17 @@ completed scaling improvement or carrier substitution is asserted.
 
 ## Activity and changes since the preceding chart
 
+New partial J02 evidence: `BF4WilsonAllNomeComplexification` constructs a
+two-component complexification of the EXISTING all-nome Wilson completion.
+`valueConj_mul`, `inner_conj_symm`, `inner_posdef`, `inner_smul_right`,
+`inner_smul_left`, and `inner_time_balance` retain the actual completed pairing
+and original completed time, with explicit `CReal` scalar approximation data.
+The 27-declaration focused check is within `{propext, Quot.sound}`.  This adds
+fixed-parameter complex structure only; the drafted complex strict-gap consumer
+is not yet verified, and no chart node closes.  Full reflected OS/Hilbert
+reconstruction, scaling survival, A03, continuum limits, physical mass and
+every-group construction remain open.
+
 New partial J02 evidence: `BF4WilsonAllNomeCompletedRealScalar.completedRealSmul`
 (`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedRealScalar.lean:85`) constructs
 real scaling on the existing Wilson completion, with explicit QCauchy scalar
@@ -321,7 +332,7 @@ remains open; extending this candidate normalization alone cannot supply it.
   Full Hilbert/QFT, scaling survival and the continuum join remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--21; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--22; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -369,3 +380,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 20 | 2026-09-24 | Actual growing-square spectator channels preserve original energy and odd mass. The constructed cap four supplies a signed geometric budget at u=w^L with all spectator heat retained. SAME original-normalization/centered-variance scaling comparison remains open. Partial A03 only; no completed scaling improvement, carrier substitution, chart-block or goal-node status change. |
 | 1 / 21 | 2026-09-24 | The candidate iterated endpoint floor forces a coefficient of at least 1920 even for the quadratic channel-budget remainder. Numerical normalization obstruction only; no growing-square partition comparison or actual energy lower bound. A03 remains open; no chart-block, scope or goal-node status change. |
 | 1 / 22 | 2026-09-24 | Actual explicit-modulus real scaling, algebraic laws, computed vacuum projection and same-operator connected correlations on the existing Wilson completion. Exact equality with the preceding dense centered state is proved. Partial J02 only; no new scaling estimate, carrier substitution, full Hilbert/QFT closure, chart-block or goal-node status change. |
+| 1 / 23 | 2026-09-24 | Two-component complexification of the SAME all-nome Wilson completion, with explicit constructive-real scalar data, Hermitian positive-definite pairing, and original-time balance. Focused check passed 27 declarations within the permitted axiom gate. Partial J02 only; the complex consumer, A03 scaling estimate, continuum/QFT closure and all goal markers remain open. |

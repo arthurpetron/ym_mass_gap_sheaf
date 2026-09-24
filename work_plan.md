@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### SAME complex carrier and original transfer (2026-09-24 UTC)
+
+`BF4WilsonAllNomeComplexification` realifies the EXISTING all-nome Wilson
+completion as two copies of the same `Completion`.  Its complex values,
+conjugation, explicit `CReal` scalar action (with supplied `QCauchy` moduli),
+Hermitian pairing, real embedding, and componentwise `completedTime` are all
+defined on that carrier.  The checked laws include conjugate symmetry,
+positive-definiteness, additivity, sesquilinearity, time zero/addition,
+time/scalar commutation, and time balance.  This is a fixed nome/width
+Hilbert-structure prerequisite; it does not identify a continuum OS carrier,
+provide completeness beyond the existing real completion, or improve A03's
+scaling estimate.  The separate complex strict-gap consumer is drafted but
+remains unverified until the safe launcher permits it.
+
+One focused check passed 27 declarations with only `{propext, Quot.sound}`;
+no source hole, new axiom, or classical input was introduced.  The check was
+serialized with one worker and a 2 GiB cap; the subsequent consumer check was
+held by the unchanged 12 GiB reserve.  Evidence:
+`audits/AUDIT-WILSON-COMPLEXIFICATION-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream
