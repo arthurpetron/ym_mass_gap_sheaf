@@ -7,6 +7,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The original plaquette energy now has an [exact spectator-channel reduction](audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md).
+Heat factors on links untouched by the observable are retained as computed
+positive Gram channels. Each channel dresses BOTH endpoints of the complete
+source before spectator integration. The resulting projected sources preserve
+the original energy, partition and inserted moments, and feed the checked angular /
+mixed-remainder estimate. The literal plaquette supplies the support partition;
+the source is not assumed local. Channel weights are not probability weights,
+and channel sources can be signed. Useful control of the **summed budget against
+the SAME variance along changing scales remains open**. The ordinary full-product
+angular defect also improves from factor two to one. Five narrow checks passed
+twenty-two permitted axiom gates; no full-root audit or continuum/Clay closure.
+
 The original temporal-energy estimate now has [only ONE remainder budget](audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md#product-character-diagonal-remainder-follow-up-2026-09-24-utc).
 Each complete computed degree path is realized by an actual product of
 normalized character kernels; their Gram positivity proves

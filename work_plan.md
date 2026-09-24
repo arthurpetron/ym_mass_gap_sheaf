@@ -25,6 +25,43 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Retain spectator heat exactly through computed channels (2026-09-24 UTC)
+
+The original product heat now has an explicit finite positive Gram-channel
+list, not merely an assumed decomposition or a PSD assertion. For a split into
+observable blocks A and spectators S, write the actual spectator kernel as
+`K_S(x,y)=sum_c lambda_c*h_c(x)*h_c(y)`. For q=P_fringe(V*g), construct
+`b_c=P_S(q*h_c)`. Exact endpoint pairing and the existing source projection give
+
+    E_original(q,f) = sum_c lambda_c * E_full(b_c,f).
+
+The same identity preserves all allowed inserted moments and the original
+partition normalization. Each b_c is independent of S. The literal plaquette supplies A, S and
+observable independence; strict padding supplies the original fringe guard.
+The actual consumer
+`BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_le_channel_budgets`
+then sums the checked angular/mixed-remainder bound over these sources. This
+retains spectator heat exactly, instead of Taylor-expanding its original
+source modes. It does not make the channel sum uniformly bounded.
+
+**Next causal proposition:** control the complete weighted channel budget
+against SAME centered variance for ONE justified changing-scale original
+observable family, or prove a useful direct sampled response. Preserve the
+common partition and mean: lambda_c are unnormalized, b_c can be signed, and
+individual channel moments are not asserted positive. No independent
+channelwise probability/centering shortcut is justified. Width, nome, cutoff,
+terminal depth and observable dependence all remain in the computed data.
+The separate EVERY-vector spatial/spacing estimate and full SAME-theory
+continuum/QFT/YM/UV, physical mass and every-group joins remain open.
+
+The ordinary unweighted product-heat defect also now has factor ONE, from
+the checked nonnegative diagonal remainder and constant-source cancellation.
+Five final serialized 4 GiB checks passed twenty-two permitted gates.
+Two sharp-estimate attempts were stopped by the 12 GiB reserve; checking
+resumed after memory recovery, without weakened thresholds. Semantic imports
+added; no full-root build/audit/guard, new hole/axiom or canonical-field change.
+Evidence: `audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
+
 ### Original full-product diagonal remainder is nonnegative (2026-09-24 UTC)
 
 The exact original Taylor identity keeps `R(q,q*f^2)-R(q*f,q*f)`, but the

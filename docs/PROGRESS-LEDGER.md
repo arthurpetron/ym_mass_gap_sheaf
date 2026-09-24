@@ -4,7 +4,31 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: one mixed source remainder budget (2026-09-24 UTC)
+## Current increment: exact spectator-channel localization (2026-09-24 UTC)
+
+Computed finite positive Gram channels now retain the actual spectator heat.
+Every channel dresses both endpoints of q=P_fringe(V*g), then exact spectator
+integration gives b_c=P_S(q*h_c). Original energy and inserted moments equal
+their weighted channel sums, with the SAME common normalization. Literal
+plaquette geometry supplies the partition and independence guards.
+
+The original plaquette consumer bounds energy by the sum of the checked
+angular/mixed-remainder budgets for b_c. The passive original source modes no
+longer need a full bulk Taylor expansion. This is an exact localization,
+NOT a uniform bound on the resulting channel sum; signed sources are not
+probability laws, and separate channelwise centering is not performed.
+The ordinary full-product angular defect also improves to factor one.
+
+Next: a useful summed-budget/SAME-variance estimate along ONE justified
+changing-scale original family (or direct response), separately from the
+EVERY-vector scaling gap. Full continuum/QFT/YM/UV, physical mass, every group
+and Clay remain open. Five final serialized 4 GiB checks passed twenty-two
+permitted gates. Two memory-reserve stops were followed by recovery, with
+unchanged safety thresholds. Semantic imports added; no full-root build,
+audit, guard or progress-metric run. Evidence:
+`audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
+
+## Previous increment: one mixed source remainder budget (2026-09-24 UTC)
 
 The original full-product diagonal Taylor remainder is now nonnegative.
 Finite nome-one cutoff subtraction identifies each computed branch with

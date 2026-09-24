@@ -4874,8 +4874,12 @@ import YMGap.Continuum.QuaternionHaarWeightedAngularCancellation
 import YMGap.Continuum.BF4ExactSlabFixedSpatialGroundStateEnergy
 -- Exact full-energy fringe reduction; signed source correction remains, no scaling closure.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedSourceEnergy
--- Computed original-energy Taylor bound; first-order angular/scaling joins remain open.
+-- Original-energy Taylor bound with checked source cancellation; scaling remains open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceTaylor
+-- Exact spectator Gram-channel reduction of original moments and plaquette energy.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
+-- Factor-one ordinary product-heat angular defect; not a physical gap.
+import YMGap.Continuum.SU2QuaternionProductHeatSharpAngularDefect
 import YMGap.Continuum.SU2QuaternionTailEvaluationDifferential
 import YMGap.Continuum.SU2QuaternionRelativeHarmonicSelection
 import YMGap.Continuum.SU2QuaternionDerivativeCommutation

@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## Exact spectator-channel source reduction (2026-09-24 UTC)
+
+- **proved**: `SU2QuaternionProductHeatGramChannels.productHeat_gram_carrier`
+  computes the actual finite Gram expansion; channel support and nonnegative
+  weights are checked. `ProductHeatPassiveChannels` proves exact moment and
+  energy sums after integrating each dressed source, with passive heat retained.
+- **actual consumer**:
+  `BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_le_channel_budgets`
+  uses the literal plaquette partition and original q=P_fringe(V*g). Its
+  `oddMoment_eq_plaquette_channels` retains common partition and mean. The generic
+  `channelSource_independent` proves spectator independence, not source locality
+  assumed in advance. Channel sources may be signed; no probability mixture.
+- **additional proved consequence**:
+  `SU2QuaternionProductHeatSharpAngularDefect.productMap_full_defect_le_angular`
+  removes factor two from the ordinary full-product angular defect.
+- **open**: useful control of the summed budget against SAME centered variance
+  along ONE justified changing-scale family, plus the independent EVERY-vector
+  scaling estimate and full SAME-theory continuum/QFT/YM/UV, physical mass and
+  every-group obligations. No canonical field changed or hole introduced.
+- **verification**: five final serialized 4 GiB checks, twenty-two gates within
+  {propext, Quot.sound}, no error/warning/sorryAx in accepted logs. Two reserve
+  stops preceded memory recovery; no threshold changed. Semantic imports added;
+  no full-root build/audit/guard. Exact evidence:
+  `audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
+
 ## Full-product diagonal remainder positivity (2026-09-24 UTC)
 
 - **proved**: normalized character product Gram positivity; exact character

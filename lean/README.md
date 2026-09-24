@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Exact spectator-channel localization (2026-09-24 UTC):**
+`SU2QuaternionProductHeatGramChannels.productHeat_gram_carrier` constructs
+the actual finite weighted Gram list, with supported channel polynomials and
+nonnegative weights. `ProductHeatPassiveChannels` preserves moments and full
+energy after projecting each dressed source, not after discarding passive
+heat. `BF4ExactSlabFixedSpatialPassiveChannels` supplies the ORIGINAL padded
+plaquette consumer and its summed angular/mixed-budget bound. Channels are
+not individually declared probability laws; common normalization and centering
+remain unchanged. `ProductHeatSharpAngularDefect` separately proves the
+factor-one ordinary product bound. Five serialized 4 GiB leaves passed
+twenty-two permitted gates. The summed-budget/SAME-variance scaling estimate,
+survival, EVERY-vector scaling gap and continuum/Clay joins remain open.
+No full-root build/audit/guard. Evidence:
+`audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
+
 **Original energy with one mixed remainder budget (2026-09-24 UTC):**
 `SU2QuaternionCyclicDiagonalRemainder.pairRemainder_diagonal_nonnegative`
 realizes each valid full degree path by its original product-character Gram
