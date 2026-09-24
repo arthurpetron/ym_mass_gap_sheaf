@@ -4942,6 +4942,11 @@ import YMGap.Continuum.BF4WilsonAllNomeTimeDifference
 -- Actual squared distance and represented limits commute with discrete time;
 -- the SAME vacuum complement is closed under those explicit row limits.
 import YMGap.Continuum.BF4WilsonAllNomeCauchyRows
+-- Explicit-modulus real scaling and computed unit projection on the SAME
+-- Wilson completion. Connected completed correlators and the dense centering
+-- pin are proved; no scaling estimate or full Hilbert/QFT claim is made.
+import YMGap.Continuum.BF4WilsonAllNomeRealScalarLaws
+import YMGap.Continuum.BF4WilsonAllNomeCenteringPin
 -- Literal selected head and selected-link-free tail for the growing Wilson square.
 -- Original complementary-action moments and rationally shifted square are proved;
 -- the useful changing-coupling/spacing comparison remains OPEN.

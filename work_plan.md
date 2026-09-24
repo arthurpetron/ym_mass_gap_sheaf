@@ -25,7 +25,52 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Iterated channel-floor normalization cannot pay the quadratic remainder (2026-09-24 UTC)
+### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
+
+`BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream
+s_n*X_n with a computed squared-distance modulus from scalar QCauchy data and
+the original pairing's computed norm ceiling. `BF4WilsonAllNomeCompletedRealScalar`
+descends it to the EXISTING all-nome Wilson completion, proves pairing
+homogeneity and independence of scalar/vector representatives and moduli,
+and commutes with the actual completed time map. No modulus is extracted
+from the legacy propositional `CReal.cauchy` field. `RealScalarLaws` proves
+addition, scalar sum/product laws, norm-square scaling and preservation of
+the existing vacuum complement, reusing computed scalar arithmetic moduli.
+
+`BF4WilsonAllNomeUnitProjection` computes P(x)=B(x,U)*U for every completed
+vector, including the coefficient's QCauchy data. Pairing separation proves
+quotient descent. P is additive, self-adjoint, idempotent, norm-contractive,
+fixes U and commutes with the ORIGINAL time operator. C(x)=x-P(x) constructs
+an inhabitant of the existing vacuum complement and gives the exact identity
+
+    B(C(x),T(n)C(y)) = B(x,T(n)y) - B(x,U)*B(U,y).
+
+`BF4WilsonAllNomeCenteringPin.centeredPart_embed` proves this projection-based
+centering of an embedded dense expression is EXACTLY the preceding
+`centeredVector`. The proof compares actual pairing limits against every
+completed test; equal norms alone are not used to infer equality. The
+existing dyadic norm/loss statements therefore concern that same state,
+with their unchanged constants and fixed-parameter limitations.
+
+**Next causal work:** A03 remains the useful complete signed cost/SAME
+interacting centered-variance estimate, or direct response, on a justified
+scaling family. The pruned iterated channel floor remains unusable for a
+small coefficient. J02 now has these actual scalar/projection operations;
+complex Hilbert structure, completeness beyond represented rows, OS/QFT/YM
+fields and UV identification remain separate work. No B01--B03 face-span
+carrier is replaced, and no completed scaling rate or continuum survival is
+claimed. Physical time/Hamiltonian/mass and every group remain open.
+
+Five final narrow checks passed 56 gates within {propext, Quot.sound}; one
+worker, 2 GiB cap, default elaboration limits and unchanged 12 GiB reserve.
+Memory refusals/stops were respected before remeasurement and resumption.
+No source hole, new axiom, analytic premise or canonical-field change.
+Independent source/scope reviews passed. Two semantic-root imports; no
+full-root build/audit/guard. Schema 1 snapshot 22 adds partial J02 evidence;
+the exact chart, scope registry and all goal markers remain unchanged.
+Evidence: `audits/AUDIT-WILSON-REAL-SCALING-PROJECTION-2026-09-24.md`.
+
+### Previous checkpoint: Iterated channel-floor normalization cannot pay the quadratic remainder (2026-09-24 UTC)
 
 `BF4DyadicChannelFloorObstruction` tests the proposed number
 rho_L=(1/2)*w^(L*M(w)), where M is the existing computed endpoint-channel

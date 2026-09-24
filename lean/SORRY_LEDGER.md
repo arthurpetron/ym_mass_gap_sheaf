@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## SAME real scaling and unit projection CLOSED; full Hilbert/QFT and scaling OPEN (2026-09-24 UTC)
+
+- **constructed scalar action**: `BF4WilsonAllNomeRealScalarCauchy.realScalarCauchy`
+  supplies the actual stream and modulus. `BF4WilsonAllNomeCompletedRealScalar.completedRealSmul`
+  descends it to the existing Wilson completion with exact pairing
+  homogeneity, data/representative independence and actual-time commutation.
+  Scalar QCauchy is explicit data, not extracted from legacy `CReal.cauchy`.
+  `BF4WilsonAllNomeRealScalarLaws` proves the vector/scalar algebraic laws,
+  norm-square scaling and same-vacuum-complement preservation, with computed
+  scalar sum/product moduli.
+- **constructed projection and correlator**: `BF4WilsonAllNomeUnitProjection.unitProjection`
+  computes B(x,U)*U with its coefficient modulus and quotient descent.
+  It is self-adjoint, idempotent, norm-contractive and commutes with the
+  original time operator. `.centeredState` maps every completed vector to
+  the existing vacuum complement. `.centeredPart_time_pairing` gives
+  B(Cx,T(n)Cy)=B(x,T(n)y)-B(x,U)*B(U,y).
+- **proved existing-state pin**: `BF4WilsonAllNomeCenteringPin.centeredPart_embed`
+  and `.centeredState_embed` identify this centering with the previous dense
+  centered vector and subtype inhabitant, by equality of all pairings.
+  Existing dyadic variance/loss constants are unchanged.
+- **open**: useful changing-scale signed cost/SAME variance or direct response,
+  complex Hilbert/full completeness/OS/QFT/YM/UV structure, SAME continuum
+  passage, physical Hamiltonian/mass and every compact simple group. No
+  recorded face-span carrier is replaced; no A03/J02 goal node closes.
+- **verification**: five final narrow checks, 56 permitted gates; one worker,
+  2 GiB cap, default elaboration limits, unchanged 12 GiB reserve. Pressure
+  refusals/stops respected; fresh measurements preceded resumption.
+  No source hole, new axiom, analytic premise or canonical-field change.
+  Independent reviews passed; two semantic-root imports; no full-root
+  build/audit/guard. Schema 1 snapshot 22 preserves the exact chart and scopes.
+  Evidence: `audits/AUDIT-WILSON-REAL-SCALING-PROJECTION-2026-09-24.md`.
+
 ## Iterated channel-floor obstruction CLOSED; useful SAME variance/scaling estimate OPEN (2026-09-24 UTC)
 
 - **proved numerical obstruction**: `BF4DyadicChannelFloorObstruction.loopFloor`

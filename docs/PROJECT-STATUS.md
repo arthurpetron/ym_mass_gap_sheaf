@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **21**, 2026-09-24 UTC. Source checkpoint:
-the proposed iterated channel-floor obstruction milestone committed with this
+Chart schema: **1**. Snapshot: **22**, 2026-09-24 UTC. Source checkpoint:
+the SAME Wilson real-scaling and computed-vacuum-projection milestone committed with this
 snapshot; verification is recorded in
-`audits/AUDIT-DYADIC-CHANNEL-FLOOR-2026-09-24.md`.
+`audits/AUDIT-WILSON-REAL-SCALING-PROJECTION-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -253,6 +253,20 @@ completed scaling improvement or carrier substitution is asserted.
 
 ## Activity and changes since the preceding chart
 
+New partial J02 evidence: `BF4WilsonAllNomeCompletedRealScalar.completedRealSmul`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedRealScalar.lean:85`) constructs
+real scaling on the existing Wilson completion, with explicit QCauchy scalar
+data; `.completedTime_realSmul` (`:129`) preserves actual time. The scalar
+algebraic laws have computed sum/product moduli. `BF4WilsonAllNomeUnitProjection.unitProjection`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeUnitProjection.lean:87`) computes the
+actual vacuum component, and `.centeredPart_time_pairing` (`:231`) realizes
+connected correlations for arbitrary completed vectors under that SAME
+time map. `BF4WilsonAllNomeCenteringPin.centeredPart_embed`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeCenteringPin.lean:75`) identifies
+this centering with the preceding dense centered vector. No modulus is
+extracted from legacy CReal, no face-span carrier is replaced, and no scaling
+estimate or full Hilbert/OS/QFT conclusion is supplied. J02 remains open.
+
 New A03 route limitation: `BF4DyadicChannelFloorObstruction.coefficient_ge_nineteenTwenty`
 (`lean/YMGap/Continuum/BF4DyadicChannelFloorObstruction.lean:114`) proves that
 paying 960*(1-w^L)^2 through the candidate iterated endpoint floor requires
@@ -307,7 +321,7 @@ remains open; extending this candidate normalization alone cannot supply it.
   Full Hilbert/QFT, scaling survival and the continuum join remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--20; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--21; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -354,3 +368,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 19 | 2026-09-24 | Exact label-two and full fundamental-square product-heat images for arbitrary distinct-link words, specialized to the actual growing square and consumed in its complete signed terminal-energy formula. Useful SAME interacting centered-variance/scaling comparison remains open. Partial A03 only; no interacting eigenvalue, carrier substitution, chart-block or goal-node status change. |
 | 1 / 20 | 2026-09-24 | Actual growing-square spectator channels preserve original energy and odd mass. The constructed cap four supplies a signed geometric budget at u=w^L with all spectator heat retained. SAME original-normalization/centered-variance scaling comparison remains open. Partial A03 only; no completed scaling improvement, carrier substitution, chart-block or goal-node status change. |
 | 1 / 21 | 2026-09-24 | The candidate iterated endpoint floor forces a coefficient of at least 1920 even for the quadratic channel-budget remainder. Numerical normalization obstruction only; no growing-square partition comparison or actual energy lower bound. A03 remains open; no chart-block, scope or goal-node status change. |
+| 1 / 22 | 2026-09-24 | Actual explicit-modulus real scaling, algebraic laws, computed vacuum projection and same-operator connected correlations on the existing Wilson completion. Exact equality with the preceding dense centered state is proved. Partial J02 only; no new scaling estimate, carrier substitution, full Hilbert/QFT closure, chart-block or goal-node status change. |

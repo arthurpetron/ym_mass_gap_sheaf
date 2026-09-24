@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Iterated channel-floor limitation (2026-09-24 UTC):**
+**SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
+The existing all-nome Wilson completion now has real scaling with explicit
+QCauchy scalar data, proved algebraic laws and actual-time compatibility.
+`BF4WilsonAllNomeUnitProjection` computes the actual unit projection and
+centers arbitrary completed states, with the exact same-operator identity
+B(Cx,T(n)Cy)=B(x,T(n)y)-B(x,U)*B(U,y). `BF4WilsonAllNomeCenteringPin`
+identifies this with the previously constructed dense centered vectors.
+No representative is chosen from a quotient. This is fixed-parameter
+algebra, not useful scaling control or full Hilbert/OS/QFT closure.
+Five narrow checks passed 56 permitted gates; no full-root audit. Evidence:
+`audits/AUDIT-WILSON-REAL-SCALING-PROJECTION-2026-09-24.md` at repository root.
+
+**Preceding iterated channel-floor limitation (2026-09-24 UTC):**
 `BF4DyadicChannelFloorObstruction` proves that the proposed floor
 rho_L=(1/2)*w^(L*M(w)) is at most (1/2)*(1-w^L)^2 for 0<w<1 and L>=2.
 Any coefficient paying the current quadratic remainder through this number
