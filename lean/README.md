@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Finite local weighted heat with first-order source cancellation (2026-09-24 UTC):**
+`SU2QuaternionHeadHeatWeightedTaylor.weightedEnergy_le_angular_add_quadratic`
+proves `E(a,f) <= (1-w) H[a^2 Gamma(f)] + (1-w)^2 B(a,a*f^2)` for the actual
+shared-spectator head heat. B is a computed mixed Casimir-squared budget,
+not a source-independent constant. The existing sufficient-cutoff guard
+covers omitted harmonic modes, without restricting the source degree to K.
+The source derivatives cancel at first order; the diagonal defect is bounded
+as a whole. Source-budget scaling and the full-product/physical joins remain
+open. Three final 4 GiB leaf checks passed eleven permitted axiom gates;
+no full-root build/audit/guard. Evidence:
+`audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md`.
+
 **Kernel score is not temporal energy (2026-09-24 UTC):**
 `SU2QuaternionProductHeatScoreSource.productHeat_lower_score_eq_source_pair`
 identifies a lower one-end response with `-B(Da,a*f)`. For a=1 it vanishes

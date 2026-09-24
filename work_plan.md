@@ -25,6 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Finite local weighted heat: first-order cancellation, explicit remainder (2026-09-24 UTC)
+
+**New checked mathematical estimate, not a continuum closure:**
+`SU2QuaternionHeadHeatWeightedTaylor.weightedEnergy_le_angular_add_quadratic`
+proves, for the ACTUAL head heat with shared spectators and complete source a,
+
+    E(a,f) <= (1-w) H[a^2 Gamma(f)] + (1-w)^2 B(a,a*f^2).
+
+Here `E=heatPair(a,a*f^2)-heatPair(a*f,a*f)` and B is the computed sum
+of Casimir-squared absolute mixed harmonic-group pairings. The source's
+derivatives cancel at FIRST order by the existing exact angular identity.
+The diagonal defect is bounded as a whole; its coarse absolute Taylor error
+is not added to the budget. The mixed heat-pair Taylor expansion is also exact
+at every rational nome/cutoff before estimating the signed remainder.
+
+The upper estimate uses `0<=w<1` and the existing `sufficientCutoff w<=K`.
+Omitted modes satisfy the same quadratic envelope; no source-degree<=K
+assumption is introduced. This matters because the physical source itself
+depends on the heat cutoff. B still depends on the COMPLETE source and test;
+the displayed quadratic factor does NOT prove useful scaling for a changing
+source family. There is no assumed ground-state/eigenvector relation.
+
+**Next causal test:** establish quantitative usefulness of this source budget
+against the SAME variance/normalization for a justified observable family,
+while retaining any needed further signed cancellation. The separate
+full-product join must transport sources and observables through the actual
+fresh-output/rotation steps; a shared-spectator head update is not the full
+transfer. Do not build a weighted-product compiler around an uncontrolled
+budget, nor interpret the local bound as an OS or Hamiltonian gap. Survival,
+spatial/spacing control, full QFT, all-group and Clay obligations remain OPEN.
+
+Three serialized final leaf checks at 4 GiB passed eleven printed axiom gates,
+all within {propext, Quot.sound}. Semantic-root import added; no full-root
+build/audit/guard. No new hole, axiom, or frontier-field change. Evidence:
+`audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md`.
+
 ### Quantifier audit: one survival family, separate all-vector gap (2026-09-24 UTC)
 
 Source review, NOT a new Lean closure. The immediate existing consumer is

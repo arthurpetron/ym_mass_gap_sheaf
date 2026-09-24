@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current review: remove an unnecessary survival quantifier (2026-09-24 UTC)
+## Current increment: finite local weighted-heat cancellation (2026-09-24 UTC)
+
+A new actual finite-time upper bound cancels all endpoint-source derivatives
+at first order: `E(a,f) <= (1-w) H[a^2 Gamma(f)] + (1-w)^2 B(a,a*f^2)`.
+The computed B retains complete equal-degree signed groups before absolute
+values. The cutoff remainder estimate covers omitted modes under the existing
+cutoff witness; no input-degree<=K restriction or stationary-source premise.
+
+This supplies a quantitative local consequence of the previously differential
+cancellation identity. It does not control B for the changing physical source,
+transport the weighted estimate through the full product, or prove survival.
+The next test is actual SAME-normalization/variance usefulness, not adding a
+product wrapper around an uncontrolled budget. All continuum/Clay joins remain
+open. See `audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md`.
+
+Three final serialized 4 GiB leaf checks passed eleven permitted axiom gates.
+Semantic import added; no full-root build/audit/guard or progress-metric script.
+No new hole, axiom, canonical-field change, or claimed frontier closure.
+
+## Previous review: remove an unnecessary survival quantifier (2026-09-24 UTC)
 
 Source audit and plan correction, not a new kernel-checked theorem. The
 existing `centered_relative_energy` consumer needs a bound on ONE supplied

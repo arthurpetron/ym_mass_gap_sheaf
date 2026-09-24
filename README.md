@@ -7,6 +7,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The latest [local weighted-heat estimate](audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md)
+cancels endpoint-source derivatives at first order in the actual one-link heat
+energy, leaving an explicit source-dependent quadratic remainder. It covers
+source degrees above the heat cutoff under the existing computed cutoff guard.
+This is a checked finite estimate with shared spectators, **not the full
+transfer or a scaling-uniform survival bound**. Three narrow checks passed
+eleven permitted axiom gates; the source-budget and full-product joins remain open.
+
 The latest [source audit](audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md)
 separates two different tasks: survival needs ONE explicitly constructed
 observable family with useful energy/variance control; the gap needs a lower

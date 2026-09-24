@@ -4886,6 +4886,7 @@ import YMGap.Continuum.SU2QuaternionGroupedHeatComparison
 import YMGap.Continuum.SU2QuaternionGroupedAngularEnergy
 import YMGap.Continuum.SU2QuaternionSpareHeadCopy
 import YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
+import YMGap.Continuum.SU2QuaternionHeadHeatWeightedTaylor
 import YMGap.Continuum.SU2QuaternionWeightedProjectionSweep
 import YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 import YMGap.Continuum.SU2QuaternionProductHeatHybridProjection
