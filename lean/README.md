@@ -12,18 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Active Casimir-square contraction (2026-09-24 UTC):**
-`SU2QuaternionPassiveChannelCasimirSquare` contracts the COMPLETE computed
-cyclic differential-square channel budget to active derivatives of the
-original source, also with independent insertions. No cross-term or
-channel-count loss. `DiagonalRemainderMoment` separately bounds the exact
-remainder by `(1-w)^2` times the path second moment. Their equality remains
-OPEN: no remainder/derivative bound or useful SAME-variance scaling estimate
-is claimed. Actual selected-character eigenaction, independent-factor
-calculus and exact path/integration identities support the next join.
-Twelve narrow checks passed 43 permitted gates; no new hole/analytic premise,
-safety-limit change or full-root audit. Evidence:
-`audits/AUDIT-ACTIVE-CASIMIR-SQUARE-2026-09-24.md`.
+**Actual path second moment and original derivative-cost consumer (2026-09-24 UTC):**
+`SU2QuaternionCyclicCasimirSquare.full_squareMoment_eq_sweep` identifies the
+original full-path second moment with the computed differential square.
+Actual character-product/path eigenaction, self-adjointness and SAME-tree
+reassembly prove this without a projector premise. The exact remainder is
+bounded by `(1-w)^2` times that square. `PassiveChannelRemainderSobolev` and
+the original BF4 padded-plaquette consumer contract only the two POSITIVE
+remainder sums to active Casimir squares of the complete original source;
+the negative channel remainder and all cross terms remain. This closes the
+previous checkpoint's finite join, NOT SAME-variance/scaling control.
+Six final narrow checks passed 22 permitted gates (eight existing); no new
+hole/analytic premise, changed safety limit or full-root audit. Existing
+semantic imports cover the new modules. Evidence:
+`audits/AUDIT-PATH-SECOND-MOMENT-2026-09-24.md`.
 
 **Exact spectator-remainder contraction (2026-09-24 UTC):**
 `SU2QuaternionFamilyChannelLoss` bounds the actual conditional norm loss by

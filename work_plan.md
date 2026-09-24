@@ -25,7 +25,47 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Active differential-square budget and the explicit second-moment join (2026-09-24 UTC)
+### Actual second moment and original active-derivative energy bound (2026-09-24 UTC)
+
+The previous checkpoint's missing identity is now PROVED:
+`M2(p)=H[(C_sweep p)^2]=H[(C_all p)^2]`. Actual upper-endpoint character-product
+eigenaction descends through exact head integration to each full valid path.
+Self-adjointness moves C to the test, and weighted reassembly keeps the SAME
+original source tree. No commuting projector family or new analytic premise.
+
+Thus the exact remainder satisfies `R(p,p)<=eps^2 H[(C_sweep p)^2]`, where
+`eps=1-w`, for 0<=w<1 and the computed sufficient-cutoff guard. The actual
+original-action consumer is now
+`BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_le_angular_add_activeCasimir_diagonals`:
+
+    2*s*E_original <= 2*s*eps*angular(q,f)
+      + s^2*eps^2*H[(C_A q)^2] + eps^2*H[(C_A(q*f^2))^2]
+      - 2*s*sum_c lambda_c R(b_c*f,b_c*f).
+
+Here s>=0, q=P_fringe(V*g) is the COMPLETE original source, A is the literal
+plaquette's observable block set, and b_c=P_S(q*h_c) are the same actual
+channels. Both positive channel sums contract with coefficient one; all
+Casimir cross terms and the favorable negative remainder remain. This is not
+asserted numerically sharper than every earlier bound. Differentiating only
+active slots does not make q local or turn raw Haar norms into variance.
+
+**Next analytic frontier:** useful control of the complete signed RHS against
+SAME centered variance on ONE justified changing-scale observable family, or
+its direct response. Investigate signed control of
+`R(b,b*f^2)-R(b*f,b*f)` before separate diagonal domination. The current upper
+bound for R cannot be substituted into the negative term: negation reverses
+the inequality. A signed estimate or justified source-cost/variance control
+requires new mathematics, not another wrapper around an unsupplied input.
+The separate EVERY-vector scaling gap, SAME continuum/QFT/YM/UV, physical
+Hamiltonian mass and every-group tasks remain OPEN.
+
+Six final serialized 4 GiB checks passed 22 permitted gates (eight existing).
+No safety interruption, changed limits, new hole/analytic premise or
+canonical-field change; existing semantic imports include the new modules.
+No full-root build/audit/guard. Evidence:
+`audits/AUDIT-PATH-SECOND-MOMENT-2026-09-24.md`.
+
+### Previous checkpoint: active differential square; second-moment join then OPEN (2026-09-24 UTC)
 
 The literal active Casimir C_A commutes through the actual spectator channel
 map. A single family-Bessel application to the complete C_A source retains

@@ -7,16 +7,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-The **complete computed Casimir-square budget now contracts to active-link
-derivatives of the original source**, with coefficient one and all cross terms
-retained, also with spectator-independent insertions. Separately, the exact
-remainder is bounded by `(1-w)^2` times its positive degree-path second moment.
-**The equality between that path moment and the differential square remains
-open**; these are not yet a remainder/derivative bound or SAME-variance scaling
-estimate. Selected character eigenaction and exact integration/reassembly
-ingredients are checked for that next join. Twelve narrow checks passed 43
-permitted gates; no full-root audit. See the
-[active-Casimir-square audit](audits/AUDIT-ACTIVE-CASIMIR-SQUARE-2026-09-24.md).
+The **path second moment now equals the actual differential Casimir square**.
+Actual character-product eigenaction and integration by parts close the join,
+without an assumed projector family. The exact remainder therefore obeys
+`R(p,p) <= (1-w)^2 H[(C p)^2]` under the explicit sufficient-cutoff guard.
+The original padded-plaquette consumer contracts its positive channel costs
+to active-link derivatives of the COMPLETE original source, with coefficient
+one and all cross terms retained; the favorable negative channel sum stays.
+**Useful control relative to the SAME interacting variance along changing
+scales remains open**: raw Haar derivative norms can still contain global
+source costs. Six narrow checks passed 22 permitted gates (eight existing);
+no full-root audit. See the
+[second-moment and original-energy audit](audits/AUDIT-PATH-SECOND-MOMENT-2026-09-24.md).
 
 The **exact remainder now contracts through the complete spectator-channel
 family**, with coefficient one. Exact kinetic recombination, conditional

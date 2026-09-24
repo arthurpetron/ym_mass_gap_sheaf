@@ -4,7 +4,32 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: active Casimir-square channel budget (2026-09-24 UTC)
+## Current increment: actual second moment and signed-energy consumer (2026-09-24 UTC)
+
+The previously open equality `M2(p)=H[(C_sweep p)^2]` is now proved using
+actual character-product/path eigenaction, integration by parts and reassembly
+on the SAME original ragged tree. Hence `R(p,p)<=(1-w)^2 H[(C_sweep p)^2]`
+under the explicit sufficient-cutoff guard. No projector family is assumed.
+
+The original padded plaquette now consumes this result: its two positive
+channel remainder sums are bounded by active derivative squares of q and
+q*f^2, with coefficient one; the favorable negative channel sum remains.
+All cross terms, original source/action and common normalization survive.
+Only the differentiated slots are localized, not the source itself.
+
+Next analytic target: control the signed remainder combination and angular
+cost against SAME centered variance for ONE changing-scale excitation, or
+direct response. A promising mathematical question is signed mixed-remainder
+control BEFORE diagonal domination; the diagonal upper bound cannot replace
+a subtracted remainder by a subtracted Casimir square. No such signed bound
+is claimed here. EVERY-vector scaling and continuum/Clay joins remain open.
+
+Six final narrow checks passed 22 permitted gates (eight existing), with no
+safety interruption, new analytic premise/hole, canonical-field change or
+full-root build/audit/guard/progress-metric run. Evidence:
+`audits/AUDIT-PATH-SECOND-MOMENT-2026-09-24.md`.
+
+## Previous increment: active Casimir-square channel budget (2026-09-24 UTC)
 
 The full computed differential-sweep square contracts through all actual
 spectator channels to the original ACTIVE Casimir square, with coefficient

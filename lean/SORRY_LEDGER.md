@@ -1,6 +1,29 @@
 # Sorry Ledger
 
-## Active Casimir-square budget; path-second-moment join OPEN (2026-09-24 UTC)
+## Path-second-moment join CLOSED; signed scaling estimate OPEN (2026-09-24 UTC)
+
+- **proved**: actual character-product and full-path Casimir eigenaction in
+  `SU2QuaternionCharacterProductCasimir` and `SU2QuaternionCyclicPathCasimir`.
+  `SU2QuaternionCyclicCasimirSquare.full_squareMoment_eq_literal` and
+  `full_squareMoment_eq_sweep` identify the original path second moment with
+  the differential square. `exactRemainderPair_diagonal_le_sweepSquare`
+  supplies `R(p,p)<=(1-w)^2 H[(C_sweep p)^2]` under the explicit cutoff guard.
+- **actual consumer**:
+  `BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_le_angular_add_activeCasimir_diagonals`
+  uses `SU2QuaternionPassiveChannelRemainderSobolev` to bound both positive
+  channel sums by active Casimir squares of the complete original source.
+  The favorable negative channel sum, partition, action and source are retained.
+- **open**: the complete signed RHS versus SAME centered interacting variance
+  on ONE justified changing-scale excitation, or direct response. A diagonal
+  upper bound cannot be substituted into the negative term. EVERY-vector
+  scaling, full SAME continuum/QFT/YM/UV, physical mass and every group remain
+  open. No source hole, analytic premise, axiom or canonical-field change.
+- **verification**: six final serialized 4 GiB checks, 22 permitted gates
+  (eight existing). No safety interruption or limit change; existing semantic
+  imports cover the new modules. No full-root build/audit/guard. Evidence:
+  `audits/AUDIT-PATH-SECOND-MOMENT-2026-09-24.md`.
+
+## Previous checkpoint: active Casimir-square budget; join then OPEN (2026-09-24 UTC)
 
 - **proved**: `SU2QuaternionChannelCasimirSquare.channelSource_activeCasimir_square_le`
   contracts the full active differential square with coefficient one.
