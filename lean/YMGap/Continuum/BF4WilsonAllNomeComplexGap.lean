@@ -126,6 +126,19 @@ theorem complexTime_preserves_gap_sector (n : Nat) (x : VC)
     I CU (CT n x) = (RCzero, RCzero) :=
   complexTime_preserves_orthogonal hw0 hw1 width n x hx
 
+/-! The fixed-parameter gap is a same-object discrete correlator estimate at
+every translated time slice.  The exact `n+2` indexing is exposed rather than
+hidden behind a new transfer or a continuum-time notation. -/
+theorem complex_twoStep_translated (n : Nat) (x : VC)
+    (hx : I CU x = (RCzero, RCzero)) :
+    RCle (I (CT n x) (CT (n+2) x)).1
+      (RCscale (twoStepRate hw0 hw1 width) (I (CT n x) (CT n x)).1) := by
+  have horth := complexTime_preserves_orthogonal hw0 hw1 width n x hx
+  have h := complex_twoStep_form_gap hw0 hw1 width (CT n x) horth
+  rw [show n+2 = 2+n by omega,
+    complexTime_add hw0 hw1 width 2 n x]
+  exact h
+
 #print axioms complexUnit
 #print axioms complexUnit_fixed
 #print axioms inner_unit_left
@@ -137,5 +150,6 @@ theorem complexTime_preserves_gap_sector (n : Nat) (x : VC)
 #print axioms complexTime_zero
 #print axioms complexTime_add
 #print axioms complexTime_preserves_gap_sector
+#print axioms complex_twoStep_translated
 
 end YMGap.Continuum.BF4WilsonAllNomeComplexGap

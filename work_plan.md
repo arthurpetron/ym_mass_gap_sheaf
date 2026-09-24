@@ -51,6 +51,15 @@ new axiom, or classical input was introduced.  Both checks were serialized
 with one worker and a 2 GiB cap under the unchanged 12 GiB reserve.  Evidence:
 `audits/AUDIT-WILSON-COMPLEXIFICATION-2026-09-24.md`.
 
+`BF4WilsonAllNomeComplexGap.complex_twoStep_translated` now consumes the
+same complex vacuum sector at every discrete time `n` and exposes the exact
+correlator bound between `CT n x` and `CT (n+2) x`.  The proof is only the
+existing sector-preservation theorem, the fixed-parameter two-step estimate,
+and the original semigroup law; it introduces no new transfer or continuum
+time.  The focused check passed within `{propext, Quot.sound}` with no source
+hole, warning, classical input or error.  Evidence:
+`audits/AUDIT-WILSON-COMPLEX-TRANSLATED-GAP-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream

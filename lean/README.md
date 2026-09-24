@@ -29,6 +29,13 @@ bound for every complex vacuum-orthogonal state at fixed nome/width.  The rate
 is not scaling-uniform and is not a physical Hamiltonian gap.  Evidence:
 `audits/AUDIT-WILSON-COMPLEX-GAP-2026-09-24.md` at repository root.
 
+The same module now exposes `complex_twoStep_translated`, the exact discrete
+correlator form of that bound at indices `n` and `n+2` for every translated
+vacuum-orthogonal state.  This is still fixed nome/width completed time; it is
+not a spacing-uniform, continuum, Hamiltonian or Clay mass-gap result.
+Evidence: `audits/AUDIT-WILSON-COMPLEX-TRANSLATED-GAP-2026-09-24.md` at
+repository root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.
