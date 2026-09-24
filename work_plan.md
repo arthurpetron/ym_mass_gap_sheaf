@@ -25,7 +25,55 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Original dyadic Wilson one-link and shifted moments (2026-09-24 UTC)
+### SAME nonzero dyadic Wilson family and selected-action variance (2026-09-24 UTC)
+
+`BF4ExactSlabWilsonWordVariance` proves the actual selected-action variance
+of any qualifying forward-head Wilson word is at least
+starRatio(w)*(1+mean^2), where mean is the SAME normalized selected-action
+mean. All physical no-repetition face lists are admitted. The proof retains
+the whole selected complement, compares its incident factors, and cancels
+only the common LOCAL upper factor; no exterior action is dropped.
+`QuaternionHaarDensityVariance.shifted_moment_expansion` exposes the existing
+shift algebra without changing any theorem or frontier field.
+
+**Two source mismatches were resolved, not assumed:** the completed Wilson
+construction uses chainIds at fixed spatial width, NOT every face of its
+ambient slab; and its loop is placed at the moving middle time slice, NOT
+time zero. `BF4DyadicWilsonSquarePlacedGeometry` proves shifted head/tail
+geometry and physicality. The arbitrary-selected-action variance theorem
+therefore applies directly to the exact originalWindowScalar sequence.
+
+`BF4WilsonAllNomeDyadicVariance.originalWindowScalar_variance_floor` keeps
+that actual chain action, mean, square, cutoff and placement. The existing
+joint cutoff/time convergence and exact intrinsic chart pin yield
+`.centeredVector_norm_floor` on the SAME literal all-nome completion:
+B(v,v)>=starRatio(w)>0 for every scale and fitting width, at fixed nome.
+The same numerical floor works across widths, but the states are not
+identified between different completions.
+
+`BF4WilsonAllNomeDyadicExcitation.nonzeroExcitation` computes width=2^scale+1
+and an actual nonzero vacuum-complement state. Its connected correlator is
+the SAME completed-time matrix coefficient; the existing universal strict
+two-step estimate acts on it. No continuum limit of this family, positive
+physical-time response, or cross-width state map is constructed here.
+
+**Next A03 frontier:** a stronger useful relative loss/variance or direct
+response estimate on a justified changing-coupling/spacing trajectory. The
+fixed-nome variance input is now inhabited, but the coarse starRatio floor
+still deteriorates and the cubic loss estimate is unchanged. Merely dividing
+that loss by this floor does not close the survival input. Preserve the
+signed-source/direct-response alternatives; no new route is mandatory.
+EVERY-state spatial/spacing control, full Hilbert/OS/QFT, SAME continuum/YM/UV,
+physical Hamiltonian/mass and every compact simple group remain open.
+
+Five final narrow checks passed 34 printed permitted gates (24 new gates,
+10 existing gates rechecked); one worker, 2 GiB cap, default elaboration
+limits and unchanged 12 GiB reserve. No source hole, axiom or new analytic
+premise. One semantic-root import; no full-root build/audit/guard.
+Schema 1 snapshot 16 adds partial A03/J02 evidence only; chart unchanged.
+Evidence: `audits/AUDIT-DYADIC-WILSON-SAME-VARIANCE-2026-09-24.md`.
+
+### Previous checkpoint: Original dyadic Wilson one-link and shifted moments (2026-09-24 UTC)
 
 The A03 moment precursor is now proved for the literal growing square.
 `SU2QuaternionOriginalBlockCoordinateMoments` integrates one selected block

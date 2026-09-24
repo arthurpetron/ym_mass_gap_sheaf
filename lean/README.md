@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original dyadic Wilson one-link moments (2026-09-24 UTC):**
+**SAME nonzero dyadic Wilson family (2026-09-24 UTC):**
+`BF4ExactSlabWilsonWordVariance` proves original selected-action variance
+at least starRatio(w)*(1+mean^2), with the actual selected mean/partition.
+`BF4DyadicWilsonSquarePlacedGeometry` supplies the exact moving-slice
+geometry. `BF4WilsonAllNomeDyadicVariance` applies the bound to the actual
+chainIds window sequence, not all ambient faces, and passes through the
+existing joint limits to the SAME completed centered square. Its norm
+is at least starRatio(w) for every fitting width/scale at fixed nome.
+`BF4WilsonAllNomeDyadicExcitation.nonzeroExcitation` constructs the actual
+nonzero family; its correlators and strict two-step bound use the existing
+completed time. No cross-width identification, scaling-survival, physical
+response or continuum theorem. The coarse floor/cubic-loss mismatch remains.
+Five narrow checks passed 34 permitted gates; no full-root audit. Evidence:
+`audits/AUDIT-DYADIC-WILSON-SAME-VARIANCE-2026-09-24.md` at repository root.
+
+**Preceding original dyadic Wilson one-link moments (2026-09-24 UTC):**
 `OriginalBlockCoordinateMoments` and `IndependentTailMoments` retain arbitrary
 independent spectators in exact original-Haar first/second moments. The
 literal-word locality and moment consumers derive the required independence;

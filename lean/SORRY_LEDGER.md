@@ -1,5 +1,36 @@
 # Sorry Ledger
 
+## SAME dyadic Wilson fixed-nome variance/nonzero family CLOSED; A03 scaling OPEN (2026-09-24 UTC)
+
+- **proved original selected-action estimate**: `BF4ExactSlabWilsonWordVariance.shifted_square_floor`
+  retains (1+c*c) and the SAME selected-action partition. Its
+  `.normalizedVariance_floor` chooses the actual selected mean;
+  `.finiteValue_variance_floor_with_mean` preserves the existing numerator
+  and reciprocal. No physical no-repetition selected face list is replaced
+  by the full ambient action.
+- **proved exact placement**: `BF4DyadicWilsonSquarePlacedGeometry` preserves
+  the selected forward head, selected-link-free tail and physicality under
+  the actual middle-slice shift. The chainIds/full-ambient-action mismatch
+  and moving/unshifted-loop mismatch are not bypassed.
+- **proved SAME limit/carrier join**: `BF4WilsonAllNomeDyadicVariance.originalWindowScalar_variance_floor`
+  bounds the actual chain-window finite sequence; `.centeredVector_norm_floor`
+  gives the fixed-nome starRatio floor on the existing completed centered
+  square, using the original joint-limit moduli and exact mean/chart pins.
+- **constructed actual family**: `BF4WilsonAllNomeDyadicExcitation.nonzeroExcitation`
+  returns an explicitly fitting width and nonzero vacuum-complement state
+  for every square scale. Its norm floor, correlator pin and existing strict
+  two-step bound refer to this SAME state and temporal operator.
+- **open**: useful changing-coupling/spacing relative loss or direct response,
+  cross-width/scale state comparison, continuum survival, EVERY-state rate
+  control, full Hilbert/OS/QFT, SAME continuum/YM/UV, physical Hamiltonian/mass
+  and all compact simple groups. The cubic loss/coarse floor limitation remains.
+- **verification**: five final narrow checks, 34 printed gates within
+  {propext, Quot.sound}; 24 new gates and 10 existing gates rechecked.
+  One worker, 2 GiB cap, default elaboration limits, unchanged 12 GiB reserve.
+  No new source hole, axiom, analytic premise, canonical-field change or
+  chart-node closure. One semantic-root import; no full-root build/audit/guard.
+  Evidence: `audits/AUDIT-DYADIC-WILSON-SAME-VARIANCE-2026-09-24.md`.
+
 ## Original dyadic Wilson one-link moments CLOSED; A03 comparison OPEN (2026-09-24 UTC)
 
 - **proved original moments**: `SU2QuaternionOriginalBlockCoordinateMoments.variable_mul`

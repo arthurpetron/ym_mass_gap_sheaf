@@ -175,6 +175,15 @@ private theorem shifted_square_pin {blocks : Nat} {W p : RatPoly}
         | 2 => quaternionHaar blocks W
         | _ => c)))
 
+/-- Exact shifted-square expansion in the SAME certified density. This public
+adapter exposes the existing algebra without assuming a variance estimate. -/
+theorem shifted_moment_expansion {blocks : Nat} {W p : RatPoly}
+    (P : Certificate blocks W) (hp : SupportedQuaternionBlocks blocks p) (c : Q') :
+    quaternionHaar blocks (polyMul W (polyMul (shifted p c) (shifted p c))) ≈
+      quaternionHaar blocks (polyMul W (polyMul p p)) +
+        -(2*c*quaternionHaar blocks (polyMul W p)) +
+        c*c*quaternionHaar blocks W := shifted_square_pin P hp c
+
 /-- Any rational center has bare squared norm at least the bare variance. -/
 theorem bare_variance_le_shifted {blocks : Nat} {p : RatPoly}
     (hp : SupportedQuaternionBlocks blocks p) (c : Q') :
@@ -259,6 +268,7 @@ theorem normalized_variance_floor {blocks : Nat} {W : RatPoly} {delta : Q'}
 end YMGap.Continuum.QuaternionHaarDensityVariance
 
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.raw_square_floor
+#print axioms YMGap.Continuum.QuaternionHaarDensityVariance.shifted_moment_expansion
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.bare_variance_le_shifted
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.normalizedMoment
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.normalizedVariance

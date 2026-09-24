@@ -4944,9 +4944,12 @@ import YMGap.Continuum.BF4WilsonAllNomeTimeDifference
 import YMGap.Continuum.BF4WilsonAllNomeCauchyRows
 -- Literal selected head and selected-link-free tail for the growing Wilson square.
 -- Original complementary-action moments and rationally shifted square are proved;
--- the full interacting variance/scaling comparison remains OPEN.
+-- the useful changing-coupling/spacing comparison remains OPEN.
 import YMGap.Continuum.BF4DyadicWilsonSquareUniqueEdge
 import YMGap.Continuum.BF4DyadicWilsonSquareShiftedMoment
+-- Exact selected chain action and moving loop placement give nonzero dyadic
+-- states on the SAME all-nome completion, at fixed nome; no scaling survival.
+import YMGap.Continuum.BF4WilsonAllNomeDyadicExcitation
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

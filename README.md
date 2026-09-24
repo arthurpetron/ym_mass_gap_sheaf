@@ -10,7 +10,19 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked original-loop moments:** for the actual growing dyadic Wilson
+**New checked nonzero Wilson-square family:** every growing dyadic square
+now has an actual nonzero centered state on the existing all-nome Wilson
+completion, with norm at least the computed positive starRatio(w) at fixed
+coupling. The proof uses the exact fixed-width chain action and moving
+middle-slice observable, retaining their original normalization and limits.
+Its correlators and strict two-step bound use the SAME completed time operator.
+This is not continuum survival: no cross-width state identification is proved,
+the floor deteriorates with coupling, and the cubic loss estimate is unchanged.
+Five narrow checks passed 34 permitted gates; no full-root audit. See the
+[same-variance audit](audits/AUDIT-DYADIC-WILSON-SAME-VARIANCE-2026-09-24.md).
+No canonical chart node changed status.
+
+**Preceding checked original-loop moments:** for the actual growing dyadic Wilson
 square, integrating its uniquely occurring selected link gives exact first
 and second moments while retaining the full complementary action product R.
 For every rational center c, `H[(chi-c)^2 R] = (1+c*c) H[R]`. This supplies
