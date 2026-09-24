@@ -59,11 +59,51 @@ All new modules are under `lean/YMGap/Continuum/`. No extra analytic hypothesis
 is supplied: q<1 is the existing fixed-width theorem, normCeiling is computed
 from the supplied representative, and the finite tail bound is proved here.
 
+## Bounded-inverse follow-up
+
+The subsequent `BF4ExactSlabFixedSpatialJointNeumannAlgebra.lean` proves
+`inverse_add`, `inverse_smul`, `inverse_sub`, `inverse_time`, and
+`inverse_selfAdjoint` by residual uniqueness and symmetry. Scalars in these
+linearity statements are rational; no real/complex linearity is asserted.
+
+`BF4ExactSlabFixedSpatialJointNeumannBound.lean` defines the explicit
+`inverseNormConstant` g=1/(1-q), with q=`twoStepRate(hw0,hw1,width)`.
+`residual_form_bound` is the actual coercive form estimate. For a centered z,
+put N=B(z,z), P=B(z,Rz), M=B(Rz,Rz). Scaling coercivity gives N<=gP.
+The nonnegative square B(z-gRz,z-gRz)=N-2gP+g^2 M gives
+2gP<=N+g^2 M. Thus 2N<=N+g^2 M, and additive cancellation gives N<=g^2 M.
+Both mixed terms remain; no vector norm is divided by or tested for zero.
+
+`inverse_norm_centered_bound` applies this to the constructed inverse:
+
+    B(inverse x,inverse x) <= g^2 B(center x,center x) <= g^2 B(x,x).
+
+`inverse_distance_bound` combines it with `inverse_sub` on actual quotient
+states. `preimage_error_bound` bounds the distance from any centered y to
+inverse(x) by g^2 times the squared distance from R(y) to center(x). This is
+the concrete residual-error certificate consumer, with no new analytic input.
+
+The constant is independent of source and representative, NOT of nome or
+width. The q=0 case is included; g deteriorates as q approaches one. The
+presentation-relative construction moduli are not replaced by a quotient
+representative-selection algorithm. A separate mathematical review checked
+the square argument and these exact scope boundaries.
+
+Two serialized 4 GiB leaf checks passed:
+
+- `/tmp/ym-gap-joint-neumann-algebra-check-3.log`: nine permitted gates.
+- `/tmp/ym-gap-joint-neumann-bound-check-3.log`: eight permitted gates.
+
+Both checks returned terminal success; all seventeen gates use only
+{propext, Quot.sound}, with no errors, warnings or sorryAx in accepted logs.
+The semantic root imports the new capstone. No full-root build/audit/guard,
+new hole/axiom, or canonical frontier field change occurred.
+
 ## Limits of the claim
 
 The construction and moduli retain nome and spatial-width dependence. This
-checkpoint does not assert a source-independent operator-norm bound for the
-inverse, a continuous-time generator, a Hamiltonian resolvent or spectral
+checkpoint now supplies the source-independent squared-norm bound above,
+but not a continuous-time generator, a Hamiltonian resolvent or spectral
 theorem, spatial/spacing-uniform estimates, a continuum theory, physical mass
 calibration, or the construction for every compact simple group.
 

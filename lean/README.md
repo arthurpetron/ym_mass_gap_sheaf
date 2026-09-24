@@ -12,14 +12,26 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Intrinsic inverse bound on the SAME carrier (2026-09-24 UTC):**
+`BF4ExactSlabFixedSpatialJointNeumannBound.inverse_norm_centered_bound`
+proves `||inverse x||^2 <= g^2 ||center x||^2`, with computed
+`g=1/(1-twoStepRate(w,width))`, independent of the source. Completing a square
+avoids division by a vector norm. The estimate supplies distance stability
+and an approximate-preimage residual-to-error certificate. `JointNeumannAlgebra`
+proves rational linearity, symmetry and discrete-time commutation. Nome/width
+dependence remains; no physical Hamiltonian or continuum theorem is claimed.
+Two serialized 4 GiB checks passed seventeen permitted gates; no full-root
+build/audit/guard. See the bounded-inverse follow-up in
+`audits/AUDIT-JOINT-NEUMANN-INVERSE-2026-09-24.md`.
+
 **Exact discrete inverse on the SAME vacuum complement (2026-09-24 UTC):**
 `BF4ExactSlabFixedSpatialJointNeumannInverse.inverse` is constructed by a
 geometric Cauchy limit, actual residual continuity, and quotient descent by
 uniqueness. `inverse_right` and `inverse_left` prove both inverse laws for
 `I-T^2` on the actual completed unit complement. The finite-tail proof retains
 every time-translate cross term; its Cauchy modulus covers q=0 without dividing
-by q. No source-independent operator-norm bound or Hamiltonian/continuum claim
-is made. Five serialized 4 GiB leaves passed thirty-six permitted gates;
+by q. The source-independent norm bound is now proved above; no Hamiltonian/
+continuum claim is made. Five serialized 4 GiB leaves passed thirty-six permitted gates;
 no full-root build/audit/guard. Evidence:
 `audits/AUDIT-JOINT-NEUMANN-INVERSE-2026-09-24.md`.
 

@@ -7,6 +7,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The discrete inverse now has an [intrinsic norm bound](audits/AUDIT-JOINT-NEUMANN-INVERSE-2026-09-24.md#bounded-inverse-follow-up):
+`||inverse x||^2 <= (1-q(w,width))^(-2) ||center x||^2`.
+Completing a square proves this without dividing by a vector norm. The same
+estimate controls distances and errors of approximate preimages. Rational
+linearity, symmetry and discrete-time commutation are also checked. The bound
+is uniform over input states, **not** over coupling or spatial width; it is not
+a physical Hamiltonian resolvent. Two focused checks passed seventeen permitted
+axiom gates; no continuum or Clay obligation is closed.
+
 The [exact discrete inverse](audits/AUDIT-JOINT-NEUMANN-INVERSE-2026-09-24.md)
 is now constructed on the SAME reflected carrier: on its vacuum complement,
 `inverse` is a two-sided inverse of `I-T^2`. Finite geometric orbit sums converge

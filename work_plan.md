@@ -25,6 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Intrinsically bounded discrete inverse on the SAME carrier (2026-09-24 UTC)
+
+`BF4ExactSlabFixedSpatialJointNeumannBound.inverse_norm_centered_bound`
+now proves `||inverse x||^2 <= g^2 ||center x||^2`, with the explicit
+source-independent `g=1/(1-twoStepRate(w,width))`. The actual norm replaces
+the presentation-dependent ceiling used to construct the inverse. The proof
+completes the square `||z-g*(I-T^2)z||^2`: coercivity gives
+`||z||^2 <= g*B(z,(I-T^2)z)`, and retaining both mixed terms gives the bound
+without dividing by, or deciding positivity of, a vector norm.
+
+`JointNeumannAlgebra` proves rational linearity, symmetry of the actual
+completed pairing, and commutation with every discrete time step by uniqueness.
+The concrete consumers `inverse_distance_bound` and `preimage_error_bound`
+control actual quotient-state distances and certify the error of any supplied
+centered approximate preimage from its residual error. No representative
+choice or new analytic premise is introduced.
+
+The constant is uniform over source vectors ONLY, not over nome or width;
+the formula deteriorates if the certified rate approaches one. No continuous
+Hamiltonian, physical resolvent, real/complex linearity, full QFT, continuum
+survival, spatial/spacing control or every-group obligation is closed.
+Two serialized 4 GiB leaf checks passed seventeen gates within
+{propext, Quot.sound}; no full-root build/audit/guard. The semantic import
+and ledger are updated, with no new hole/axiom or canonical field change.
+Evidence: `audits/AUDIT-JOINT-NEUMANN-INVERSE-2026-09-24.md`.
+
+**Next causal priority:** return to useful SAME full temporal energy/variance
+control for one justified changing-scale original observable family, alongside
+the separate all-vector gap's spatial/scaling passage. A parallel source review
+confirmed that the singleton displacement/floor ratio is only a weaker form
+of the already checked `computedLossRatio` obstruction, not a new producer.
+Do not add that wrapper or extend fixed-width inverse machinery without a
+specific missing consumer. Signed mixed displacement control is not supplied
+by separate plaquette bounds or by the local Taylor remainder's scalar sign.
+
 ### Exact discrete inverse on the SAME completed vacuum complement (2026-09-24 UTC)
 
 **The completeness consumer is now constructed:**
@@ -49,8 +84,8 @@ actual residual through its limit. The older finite residual-error estimate
 then identifies its exact residual with the original source.
 
 **Boundary/next work:** no continuous-time generator or Hamiltonian resolvent
-has been constructed, and no source-independent operator-norm estimate is
-asserted by this checkpoint. Nome and width dependence remain explicit. The
+has been constructed. The source-independent norm bound missing at this
+checkpoint is now proved above. Nome and width dependence remain explicit. The
 primary analytic frontier remains useful SAME energy/variance control for a
 justified scaling family, spatial/spacing control of the all-vector gap, and
 the full same-theory continuum/QFT/YM-field and every-group joins. Do not treat

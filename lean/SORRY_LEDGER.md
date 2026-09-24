@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Intrinsic bounded inverse and error stability on the SAME carrier (2026-09-24 UTC)
+
+- **proved**: `JointNeumannBound.residual_form_bound` and
+  `residual_norm_bound` turn the actual strict two-step form bound into
+  `||z||^2 <= g^2 ||(I-T^2)z||^2` on the unit complement, with computed
+  `g=1/(1-twoStepRate(w,width))`. Completing a square avoids division by
+  a possibly zero norm. `inverse_norm_centered_bound` and `inverse_norm_bound`
+  therefore control the already constructed inverse in the actual norm.
+- **consumers**: `inverse_distance_bound` and `preimage_error_bound` certify
+  actual state distances and the error from an approximate residual equation.
+  `JointNeumannAlgebra` proves additivity, rational homogeneity, subtraction,
+  discrete-time commutation, and symmetry for the SAME pairing.
+- **scope**: source-independent constant, still nome/width-dependent. No
+  real/complex linearity, continuous Hamiltonian resolvent, spatial/spacing
+  uniformity, continuum survival, full same-theory QFT/YM or all-group closure.
+  No canonical frontier atom or field changed; no new hole or axiom.
+- **verification**: two serialized 4 GiB checks, seventeen permitted axiom
+  gates; no error/warning/sorryAx in the accepted logs, and no full-root
+  build/audit/guard. See the bounded-inverse follow-up in
+  `audits/AUDIT-JOINT-NEUMANN-INVERSE-2026-09-24.md`.
+
 ## Constructed exact discrete inverse on the SAME unit complement (2026-09-24 UTC)
 
 - **finite estimate**: `JointOrbitTailBound.evenOrbitTail_geometric_norm_le`
@@ -14,7 +35,7 @@
   preimage by proved uniqueness. `inverse_residual` gives R(inverse x)=center x;
   `inverse_left`/`inverse_right` give both laws on the actual unit complement.
   Quotient descent chooses no representatives and adds no analytic premise.
-- **remaining**: no source-independent inverse operator-norm bound is asserted;
+- **remaining**: the source-independent inverse norm bound is now proved above;
   continuous physical time/Hamiltonian resolvent, spatial/spacing control,
   nontrivial continuum survival, full same-theory QFT/YM identification and
   every compact simple group remain open. This closes no canonical Clay atom.
