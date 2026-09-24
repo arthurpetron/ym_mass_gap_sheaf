@@ -184,3 +184,69 @@ Sol supplied scalar/prefix/physical drafts and a parallel scope review;
 root corrected, composed and kernel-checked the chain. No new hole, axiom,
 frontier-field weakening or canonical closure. The semantic root imports
 the physical consumer; that aggregation itself was not rebuilt.
+
+## SAME odd-marginal centered Ward follow-up
+
+`QuaternionHaarCenteredLinearWard.centered_linear_ward` applies angular
+integration by parts to `W*(f-c)*D f`, retaining both product-rule terms.
+For exact head degree one, the six-plane angular Laplacian is `-3*f`.
+The computed own-mean specialization `centered_linear_ward_own_mean` gives
+
+    H[W*Gamma(f)] + sum_(i<j) H[(f-c)*(D_ij W)*(D_ij f)]
+      = 3*H[W]*Var_W(f),    c=H[W*f]/H[W].
+
+W may depend on the selected block. The raw identity uses no positivity
+assumption; the normalized version supplies an explicit positive mass.
+Neither result bounds the signed sum or asserts it is nonnegative.
+
+`BF4ExactSlabFixedSpatialPlaquetteDegree.plaquette_degree` counts actual
+incident oriented links in the literal fixed-spatial word. Each selected
+incident link has multiplicity one. `plaquette_character_degree` uses the
+exact spin-1 polynomial `2*scalar`, not a parity/center-charge surrogate.
+`plaquette_character_head_degree` moves the selected slot by the existing
+explicit block involution.
+
+`BF4ExactSlabFixedSpatialCenteredWard.plaquette_centered_ward` is the concrete
+consumer. Its W is only a reindexing of
+`BF4ExactSlabFixedSpatialActualMarginalDual.marginalWeight`, namely
+`(V*g_n)*g_(n+1)`. `frameMass_pin` returns the Haar mass to `oddMass`;
+`frameMoment_pin` and `frameVariance_pin` return the normalized moments to
+the pre-existing `middleRatio (n+1) n`. Both messages, spatial weight,
+partition, observable and center therefore agree with the original chain.
+The derivative of `g_(n+1)` remains in the residual. No equation replacing
+consecutive messages by a stationary source is introduced.
+
+### Remaining analytic input
+
+This is an exact identity, not an improvement of the temporal-energy bound.
+For this route, a lower signed estimate `R >= -rho*Z*Var` would yield
+`H[W*Gamma(f)] <= (3+rho)*Z*Var`. It does not require `rho<3`; it does require
+parameter dependence adequate for a justified changing-scale family, plus
+the still-missing comparison to the full original temporal energy. The local
+Taylor estimate above carries `a^2`, not this marginal W. Changing weights
+would change the variance/partition and needs its own proved comparison.
+
+Source review found local Ward-response/score-cost bounds, not an estimate
+of this complete odd-marginal residual with useful scaling. In particular
+`BF4ExactSlabLocalWardVariance.normalizedResponse_squared_le_variance_cost`
+concerns its displayed full-slab score response and actual score cost; it
+does not furnish the needed bound on this fixed-spatial residual. No new
+conditional wrapper is introduced around that missing estimate. Spatial/
+spacing control, continuum survival, physical Hamiltonian calibration,
+same-theory QFT/YM identification and every-group closure remain open.
+
+### Verification of the Ward join
+
+Three serialized one-worker 4 GiB checks passed:
+
+- `/tmp/ym-gap-centered-linear-ward-check-3.log`: four gates.
+- `/tmp/ym-gap-fixed-spatial-plaquette-degree-check-5.log`: four gates.
+- `/tmp/ym-gap-fixed-spatial-centered-ward-check-3.log`: six gates.
+
+All accepted checks terminated successfully with only {propext, Quot.sound}
+and no errors/warnings/sorryAx. Sol and Luna supplied independent drafts;
+root corrected the algebra/incidence proofs, composed the actual marginal
+consumer and serialized verification. A parallel source review checked its
+same-object and signed-residual boundaries. No new hole, axiom, frontier-field
+change or full-root build/audit/guard; the added semantic import was not
+itself rebuilt.

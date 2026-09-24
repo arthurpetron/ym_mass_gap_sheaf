@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Centered Ward identity in the SAME original odd marginal (2026-09-24 UTC)
+
+- **proved**: `QuaternionHaarCenteredLinearWard.centered_linear_ward_own_mean`
+  retains the complete signed derivative-of-weight term in
+  `H[W*Gamma(f)] + R = 3*H[W]*Var_W(f)`. The exact selected-link degree of the
+  literal plaquette is constructed by `BF4ExactSlabFixedSpatialPlaquetteDegree`.
+- **actual join**: `BF4ExactSlabFixedSpatialCenteredWard.plaquette_centered_ward`
+  uses the existing `(V*g_n)*g_(n+1)` marginal. `frameMass_pin`, `frameMoment_pin`
+  and `frameVariance_pin` preserve `oddMass` and the original centered
+  `middleRatio` variance. No source squaring/stationarity is assumed.
+- **open**: a quantitatively useful signed residual estimate, the full
+  original temporal-energy join, spatial/spacing control, survival, physical
+  mass, full same-theory QFT/YM fields and every compact simple group. This
+  exact identity is not a bound and closes no canonical frontier field.
+- **verification**: three serialized 4 GiB leaves, fourteen permitted gates,
+  no errors/warnings/sorryAx in accepted logs. No new hole/axiom or full-root
+  build/audit/guard. See the same-odd-marginal follow-up in
+  `audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md`.
+
 ## Witnessed real-scalar algebra on the SAME completion (2026-09-24 UTC)
 
 - **proved**: `BF4ExactSlabFixedSpatialJointRealScalarAlgebra` supplies scalar

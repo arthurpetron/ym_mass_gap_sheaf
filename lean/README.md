@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Centered Ward identity in the SAME odd marginal (2026-09-24 UTC):**
+`QuaternionHaarCenteredLinearWard` proves the arbitrary-weight head-linear
+identity, retaining its signed derivative-of-weight term. The actual
+plaquette degree is constructed by `BF4ExactSlabFixedSpatialPlaquetteDegree`;
+`BF4ExactSlabFixedSpatialCenteredWard.plaquette_centered_ward` pins the result
+to the original `marginalWeight`, `oddMass` and centered `middleRatio` variance.
+The weight is `(V*g_n)*g_(n+1)`, not `(V*g_n)^2`. Residual control and the
+full temporal-energy join remain unproved. Three serialized 4 GiB leaves
+passed fourteen permitted gates; no full-root build/audit/guard.
+
 **SAME-carrier real-scalar algebra (2026-09-24 UTC):**
 `BF4ExactSlabFixedSpatialJointRealScalarAlgebra` proves scalar addition,
 multiplication, zero/one and negation laws for the existing `completedRealSmul`,

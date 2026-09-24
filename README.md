@@ -7,6 +7,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The [centered angular identity now uses the actual odd-time marginal](audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md#same-odd-marginal-centered-ward-follow-up):
+`H[W*Gamma(f)] + R = 3*Z*Var_W(f)`, with the ORIGINAL
+`W=(V*g_n)*g_(n+1)` and `Z=oddMass`. The literal plaquette's selected-link
+degree is proved, and its mean/variance are pinned to the existing
+`middleRatio`. R retains derivatives of the complete weight, including the
+next terminal message. **R is not bounded here**; neither the temporal
+energy/variance estimate nor continuum survival follows. Three narrow checks
+passed fourteen permitted gates; no full-root audit.
+
 The SAME all-nome reflected completion now has checked
 [witnessed real-scalar algebra](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointRealScalarAlgebra.lean):
 addition/multiplication of scalars, negation, exact squared-norm/distance

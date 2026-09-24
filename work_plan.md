@@ -25,6 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact centered Ward identity in the SAME odd marginal (2026-09-24 UTC)
+
+`QuaternionHaarCenteredLinearWard.centered_linear_ward_own_mean` proves
+
+    H[W*Gamma(f)] + R_W(f-c,f) = 3*H[W]*Var_W(f),  c=E_W[f],
+
+for a degree-one selected quaternion block and arbitrary full W. The residual
+is the signed six-plane sum `H[(f-c)*(D W)*(D f)]`; the complete weight is
+differentiated. `BF4ExactSlabFixedSpatialPlaquetteDegree` constructs exact
+degree one of the literal plaquette character at each incident link, not
+merely its center-charge parity. The selected-link swap is explicit.
+
+**Actual consumer:** `BF4ExactSlabFixedSpatialCenteredWard.plaquette_centered_ward`
+uses the existing `marginalWeight=(V*g_n)*g_(n+1)`. Haar invariance and finite
+factor reordering pin its mass to `oddMass` and both moments to the existing
+`middleRatio (n+1) n`, so its centered variance is the SAME original one.
+No stationary/eigenvector equation or substitution by `(V*g_n)^2` is used.
+
+**Analytic boundary / next decision:** this is an identity, not a new estimate.
+A signed lower bound `R >= -rho*Z*Var` would give the angular upper bound
+`H[W*Gamma(f)] <= (3+rho)*Z*Var`; rho need not be below three, but its parameter
+dependence must make the eventual loss useful on a justified scaling family.
+Neither such a bound nor the full original temporal-energy join is supplied.
+The local Taylor estimate uses a different `a^2` weight and cannot be silently
+substituted. Do not extend this identity branch without a concrete residual
+estimate; direct signed temporal-energy control remains an alternative.
+The separate all-vector spatial/spacing estimate, survival, physical mass,
+same-theory QFT/YM fields and every-group targets remain OPEN.
+
+Three serialized 4 GiB leaves passed fourteen gates within {propext, Quot.sound},
+with no errors/warnings/sorryAx. Semantic import added; no full-root
+build/audit/guard or canonical field/hole/axiom change. Proof and accepted
+logs: same-odd-marginal follow-up in
+`audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md`.
+
 ### Witnessed real-scalar algebra on the SAME completion (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialJointRealScalarAlgebra` proves the previously missing

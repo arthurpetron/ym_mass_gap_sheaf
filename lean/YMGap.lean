@@ -4893,6 +4893,8 @@ import YMGap.Continuum.SU2QuaternionSpareHeadCopy
 import YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
 import YMGap.Continuum.SU2QuaternionHeadHeatWeightedTaylor
 import YMGap.Continuum.BF4ExactSlabFixedSpatialExactKineticAlignment
+-- Exact centered Ward identity in the original odd marginal; signed residual remains open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredWard
 import YMGap.Continuum.SU2QuaternionWeightedProjectionSweep
 import YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 import YMGap.Continuum.SU2QuaternionProductHeatHybridProjection
