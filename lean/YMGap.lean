@@ -4887,6 +4887,10 @@ import YMGap.Continuum.SU2QuaternionCharacterCasimirLocality
 import YMGap.Continuum.SU2QuaternionCasimirHeadIntegration
 -- Positive-source counterexample: the signed remainder cannot simply be discarded.
 import YMGap.Continuum.SU2QuaternionAngularOnlyEnergyFence
+-- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoung
+-- Scalar coefficient bounds only; no four-link spin-two heat image is assumed.
+import YMGap.Continuum.SU2HeatFundamentalIncrementBudget
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

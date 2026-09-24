@@ -25,7 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Positive-source angular-only fence and next signed estimate (2026-09-24 UTC)
+### Actual source-Young identity; raw-weight comparison still OPEN (2026-09-24 UTC)
+
+The previously proposed identity is now checked on the actual product heat:
+`4E+D=2J`, where J=Hxy[K q(x)^2(f(x)-f(y))^2] and
+D=Hxy[K(q(x)-q(y))^2(f(x)-f(y))^2]. For 0<w<1 and headCutoff(w)<=K,
+the existing positive-kernel certificate proves D>=0, hence `2E<=J`.
+The exact moment identity uses the ACTUAL product map:
+
+    J = H[q^2(f^2+P(f^2)-2*f*P(f))].
+
+`BF4ExactSlabFixedSpatialSourceYoung.projected_young_moment_identity` pins
+the complete signed identity to original E and q=P_fringe(V*g). Strict
+padding gives the literal terminal-plaquette upper bound. No source derivative,
+eigenstate premise, modified action, new carrier or changed partition is used.
+
+**Analytic decision:** raw q^2 is not the original interacting q*P(q) weight.
+Dropping D removes the source correction, not the need to control it. Useful
+SAME-variance control for ONE changing-scale family or direct sampled response
+remains the priority. Retain D for cancellation analysis; do not add wrappers
+around an unsupplied reverse source/marginal comparison. The separate
+EVERY-vector scaling, SAME continuum/QFT/YM/UV, physical mass and all-group
+joins remain OPEN.
+
+Scalar coefficients 1-w^32<=32(1-w) and
+0<=5-8w^12+3w^32<=960(1-w)^2 are also checked. The actual four-link spin-two
+image is a separate unfinished producer; completing it would simplify J,
+not automatically prove the variance comparison. A canonical substitution
+draft is unverified at this checkpoint.
+
+Four final narrow checks passed eleven permitted gates. An earlier reserve
+stop was followed by recovery and reduced worker ceilings; a classical core
+range lemma was replaced by the existing constructive witness. No new hole,
+analytic premise, axiom or canonical-field change; no full-root audit/guard.
+Evidence: `audits/AUDIT-SOURCE-YOUNG-2026-09-24.md`.
+
+### Previous checkpoint: positive-source angular-only fence (2026-09-24 UTC)
 
 `SU2QuaternionAngularOnlyEnergyFence.angular_only_energy_bound_false` rules
 out discarding the signed remainder, even for a positive source. On the

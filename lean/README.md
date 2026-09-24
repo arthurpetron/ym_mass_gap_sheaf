@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original-source Young identity (2026-09-24 UTC):**
+`BF4ExactSlabFixedSpatialSourceYoung.projected_young_moment_identity` proves
+`4E+D=2H[q^2(f^2+P(f^2)-2fP(f))]` on the unchanged original action and
+projected terminal source. Positivity at the explicit heat cutoff gives
+`2E<=J`, with no source derivatives. The raw q-squared weight is NOT the
+original q*P(q) marginal; SAME-variance/scaling control remains open. Separate
+scalar bounds do not identify the four-link spin-two heat image. Four narrow
+checks passed eleven permitted gates after a safety stop and recovery;
+no full-root audit or new hole/axiom. Evidence:
+`audits/AUDIT-SOURCE-YOUNG-2026-09-24.md`.
+
 **Angular-only shortcut refuted (2026-09-24 UTC):**
 `SU2QuaternionAngularOnlyEnergyFence.angular_only_energy_bound_false`
 kernel-checks an actual one-link energy counterexample with source `1+2*f^2`,

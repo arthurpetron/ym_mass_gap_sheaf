@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Original-source Young identity CLOSED; variance comparison OPEN (2026-09-24 UTC)
+
+- **proved**: `SU2QuaternionProductHeatSourceYoung` gives the exact
+  `4E+D=2J` identity and, under explicit positive-heat cutoff guards, `2E<=J`.
+  D is the squared source-increment correction; no source positivity is
+  assumed. `SourceYoungMoments` identifies J with the ACTUAL three heat moments.
+- **actual consumer**: `BF4ExactSlabFixedSpatialSourceYoung` retains original
+  E and q=P_fringe(V*g), proves the signed moment identity, and supplies the
+  literal padded terminal-plaquette upper bound without source derivatives.
+- **separate scalar work**: `SU2HeatFundamentalIncrementBudget` proves
+  1-w^32<=32(1-w) and 0<=5-8w^12+3w^32<=960(1-w)^2. The actual four-link
+  spin-two heat image is NOT provided by these inequalities.
+- **open**: useful COMPLETE signed-cost/SAME-variance control along changing
+  scales. q^2 is not the original marginal q*P(q); dropping D loses its source
+  correction. ONE-state survival, EVERY-vector scaling, continuum/QFT/YM/UV,
+  physical Hamiltonian/mass and every group remain open. No new hole, analytic
+  premise, axiom or canonical-field change.
+- **verification**: four final narrow checks, eleven permitted gates; one
+  earlier reserve-triggered stop, then recovery and reduced worker ceilings.
+  A classical range lemma was caught and replaced constructively. No full-root
+  build/audit/guard. Evidence: `audits/AUDIT-SOURCE-YOUNG-2026-09-24.md`.
+
 ## Angular-only positive-source shortcut REFUTED (2026-09-24 UTC)
 
 - **proved**: `SU2QuaternionAngularOnlyEnergyFence.angular_only_energy_bound_false`

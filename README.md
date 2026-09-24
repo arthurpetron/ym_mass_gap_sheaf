@@ -7,6 +7,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The **original plaquette energy now has an exact source-Young identity**,
+`4E+D=2J`, retaining a nonnegative source-increment correction D. The checked
+bound `2E<=J` has no source derivatives, and J is expressed through the ACTUAL
+heat images of f and f-squared. It still uses a raw squared-source Haar weight,
+not the interacting variance: useful changing-scale control remains open.
+Four narrow checks passed eleven permitted gates; no full-root audit. See the
+[source-Young audit](audits/AUDIT-SOURCE-YOUNG-2026-09-24.md).
+
 A **checked positive-source counterexample** rules out dropping the signed
 remainder: on the actual one-link SU(2) heat kernel, energy can exceed
 `(1-w)*angularCost` even for a source `1+2*f^2`. This does not refute the

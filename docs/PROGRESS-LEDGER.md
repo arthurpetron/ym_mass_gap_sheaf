@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: positive-source angular-only fence (2026-09-24 UTC)
+## Current increment: actual source-Young identity and moment consumer (2026-09-24 UTC)
+
+The original action now satisfies `4E+D=2J`, with its complete projected
+source q and exact product kernel retained. Positive heat proves D>=0 and
+`2E<=J`; exact marginals express J as `H[q^2(f^2+P(f^2)-2fP(f))]`.
+The literal padded plaquette consumes the bound. This removes source
+derivatives from the upper cost, NOT its dependence on the complete source.
+
+Next: useful signed-cost/SAME-variance control. The original marginal uses
+q*P(q), not q^2; dropping D does not solve that comparison. The four-link
+spin-two image remains open despite separately checked scalar coefficients.
+Do not count a raw-norm restatement as a scaling producer. Four final narrow
+checks passed eleven permitted gates after a safety stop/recovery; no
+full-root audit or new analytic premise/hole. Evidence:
+`audits/AUDIT-SOURCE-YOUNG-2026-09-24.md`.
+
+## Previous increment: positive-source angular-only fence (2026-09-24 UTC)
 
 The generic shortcut `E<=(1-w)*angularCost` is false even for a source
 `1+2*f^2`. The actual one-link operator at w=1/2, K=3 gives energy
