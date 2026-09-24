@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Positivity-only bare-rate comparison refuted (2026-09-24 UTC)
+
+The next generic sign shortcut is now fenced by an actual one-link example:
+q=1+(1+f)^2, nome 1/2, cutoff 3. `PositiveSourceVarianceFence` proves
+`Z*E > (1-w^3)*(Z*A-B^2)` in the equivalent negated-upper-bound form.
+Its cleared deficit is -10616463/8388608, with positive Z and centered
+variance. `HalfHeatThreeCertificate` constructs a strict quarter-floor for
+the actual kernel, so failure is not due to negative truncated heat.
+
+**Repoint:** do not assume that source/kernel positivity gives the favorable
+residual sign or the bare-rate comparison. The proposed cleared-residual
+rewrite is already encoded by `BF4ExactSlabFixedSpatialClearedCovariance`;
+another wrapper does not supply the missing estimate. Use the actual
+projected terminal source structure in a cancellation-preserving comparison,
+or construct a justified changing-scale observable with direct response
+control. The test source is not identified with the original 4D source.
+ONE-state survival, EVERY-vector spatial/spacing control and all SAME
+continuum/QFT/YM/UV/Hamiltonian/mass/all-group joins remain OPEN.
+
+Two final serialized 2 GiB checks passed sixteen permitted gates. Earlier
+namespace/setoid errors, compiler-memory expansion and host-reserve stops
+were repaired/respected without raising limits or lowering the reserve.
+No new hole, axiom, analytic premise or canonical-field change; semantic
+import added, no full-root audit/guard. Evidence:
+`audits/AUDIT-POSITIVE-SOURCE-VARIANCE-FENCE-2026-09-24.md`.
+
 ### Actual four-link square image and original energy cost (2026-09-24 UTC)
 
 The next finite join is now CLOSED. Arbitrary physical placement, literal

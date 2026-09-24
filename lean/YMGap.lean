@@ -4896,6 +4896,7 @@ import YMGap.Continuum.SU2QuaternionSpinTwoHeatTransmission
 -- Exact square image and source-Young cost; SAME interacting variance control remains open.
 import YMGap.Continuum.SU2QuaternionPlaquetteYoungCost
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoungExplicit
+import YMGap.Continuum.SU2QuaternionPositiveSourceVarianceFence
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

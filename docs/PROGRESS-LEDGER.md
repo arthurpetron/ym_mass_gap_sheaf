@@ -4,7 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: full square image and explicit original energy cost (2026-09-24 UTC)
+## Current increment: positive-source variance shortcut refuted (2026-09-24 UTC)
+
+The actual one-link heat with a certified quarter-floor and source
+q=1+(1+f)^2 violates the proposed bare-loss/SAME-variance upper estimate.
+The negative cleared deficit, positive mass and positive centered variance
+are kernel-checked. This excludes a generic positivity-only proof path;
+it does not refute an original-terminal-source estimate or Yang--Mills.
+The existing cleared-covariance identity needs a new source-specific estimate,
+not another residual wrapper. Two narrow checks passed sixteen permitted
+gates at unchanged safety limits; no full-root audit or new hole/axiom.
+Evidence: `audits/AUDIT-POSITIVE-SOURCE-VARIANCE-FENCE-2026-09-24.md`.
+
+## Previous increment: full square image and explicit original energy cost (2026-09-24 UTC)
 
 The actual four-link composition and square image are now checked, including
 their literal original spatial-plaquette realization. The bare product heat

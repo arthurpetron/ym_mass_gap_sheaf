@@ -7,6 +7,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+A **checked positive-source diagnostic** now rules out a generic bare-rate
+energy/variance shortcut. On the actual one-link SU(2) product heat, the
+explicit source `1+(1+f)^2` and a kernel with certified floor 1/4 violate
+`Z*E <= (1-w^3)*(Z*A-B^2)`. This is not an original terminal source or a
+Yang--Mills counterexample: the missing estimate must use more than positivity.
+Two narrow checks passed sixteen permitted axiom gates; no full-root audit.
+See the [variance-comparison diagnostic](audits/AUDIT-POSITIVE-SOURCE-VARIANCE-FENCE-2026-09-24.md).
+
 The **full four-link square heat image is now checked** on the original
 spatial plaquette: `P(f)=w^12*f` and `P(f^2)=1+w^32*chi_2`, as supported-Haar
 identities for the actual product heat. The original terminal-plaquette

@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Positive-source variance shortcut fenced (2026-09-24 UTC):**
+`SU2QuaternionPositiveSourceVarianceFence.bare_loss_variance_bound_false`
+checks the actual one-link counterexample with `q=1+(1+f)^2`, `w=1/2`,
+`K=3`, SAME source moments and positive centered variance. The actual heat
+also has an explicit quarter-floor certificate. Positivity alone does not
+give the bare-rate comparison; no original terminal/YM counterexample or
+scaling conclusion follows. Two narrow checks passed sixteen permitted gates;
+no full-root audit. Evidence:
+`audits/AUDIT-POSITIVE-SOURCE-VARIANCE-FENCE-2026-09-24.md`.
+
 **Actual four-link square image and original energy cost (2026-09-24 UTC):**
 `SU2QuaternionProductHeatSpinTwoPlaquette.productMap_spinTwoPlaquette_of_perm`
 composes the four actual w^8 transmissions into w^32. The fundamental square

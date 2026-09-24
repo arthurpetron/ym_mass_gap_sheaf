@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## Positive-source bare-rate variance shortcut REFUTED (2026-09-24 UTC)
+
+- **proved**: `SU2QuaternionHalfHeatThreeCertificate` supplies actual kernel
+  positivity with floor 1/4. `SU2QuaternionPositiveSourceVarianceFence` uses
+  the existing source moments/energy, q=1+(1+f)^2 and w=1/2,K=3, to refute
+  `Z*E <= (1-w^3)*(Z*A-B^2)` despite positive source and centered variance.
+- **scope**: generic positivity does not supply the missing comparison.
+  The source is not shown to be the original projected terminal source;
+  this is not a Yang--Mills counterexample. Source-specific signed control,
+  ONE-state scaling survival, EVERY-vector scaling, continuum/QFT/YM/UV,
+  physical Hamiltonian/mass and every group remain OPEN.
+- **verification**: two accepted narrow checks, sixteen permitted gates;
+  no new hole/axiom/analytic premise or changed canonical field. Earlier
+  memory stops were respected with unchanged limits; no full-root audit.
+  Evidence: `audits/AUDIT-POSITIVE-SOURCE-VARIANCE-FENCE-2026-09-24.md`.
+
 ## Four-link square image and original energy consumer CLOSED; variance comparison OPEN (2026-09-24 UTC)
 
 - **proved**: actual arbitrary-link/literal transmission, four-link w^32
