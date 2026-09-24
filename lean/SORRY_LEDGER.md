@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## Iterated channel-floor obstruction CLOSED; useful SAME variance/scaling estimate OPEN (2026-09-24 UTC)
+
+- **proved numerical obstruction**: `BF4DyadicChannelFloorObstruction.loopFloor`
+  defines the candidate rho_L=(1/2)*w^(L*M(w)), using the existing endpoint
+  exponent. `.loopFloor_le_half_loopDefect_square` proves rho_L<=(1/2)*(1-w^L)^2
+  for 0<w<1, L>=2. `.coefficient_ge_nineteenTwenty` forces C>=1920 when
+  960*(1-w^L)^2<=C*rho_L. `.dyadic_coefficient_ge_nineteenTwenty` supplies
+  the actual side=2^(scale+1) specialization.
+- **scope**: no growing-square original-partition floor is assumed or proved.
+  This rules out a small coefficient from this normalization of the quadratic
+  remainder only. It neither lower-bounds actual energy nor refutes survival.
+- **open**: useful complete signed aggregate/SAME interacting centered-variance
+  control or direct response on a justified scaling trajectory. Original odd
+  mass is not replaced by channel A. All continuum and all-group obligations
+  remain; no broader A03 or J02 node closes.
+- **verification**: one final narrow check, seven gates within
+  {propext, Quot.sound}, one empty; one worker, 2 GiB cap, default elaboration
+  limits and unchanged 12 GiB reserve. Draft errors corrected before acceptance.
+  No source hole, new axiom, analytic premise or canonical-field change.
+  Independent source review passed. One semantic-root import; no full-root
+  build/audit/guard. Schema 1 snapshot 21 preserves the exact chart and scopes.
+  Evidence: `audits/AUDIT-DYADIC-CHANNEL-FLOOR-2026-09-24.md`.
+
 ## Original growing-square channel budget CLOSED; SAME variance/scaling comparison OPEN (2026-09-24 UTC)
 
 - **proved actual channels**: `BF4DyadicWilsonSquareChannelPartition`

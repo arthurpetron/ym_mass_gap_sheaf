@@ -4958,6 +4958,9 @@ import YMGap.Continuum.BF4DyadicResetBudgetObstruction
 -- a cancellation-preserving geometric budget. SAME variance/scaling control
 -- remains open; no channel-square/physical-partition substitution is made.
 import YMGap.Continuum.BF4DyadicWilsonSquareChannelBudget
+-- The candidate iterated endpoint floor cannot give a small quadratic-budget
+-- coefficient. Numerical obstruction only, not a physical energy lower bound.
+import YMGap.Continuum.BF4DyadicChannelFloorObstruction
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

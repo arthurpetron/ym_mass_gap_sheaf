@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **20**, 2026-09-24 UTC. Source checkpoint:
-the original growing-square spectator-channel geometric-budget milestone committed with this
+Chart schema: **1**. Snapshot: **21**, 2026-09-24 UTC. Source checkpoint:
+the proposed iterated channel-floor obstruction milestone committed with this
 snapshot; verification is recorded in
-`audits/AUDIT-DYADIC-WILSON-CHANNEL-BUDGET-2026-09-24.md`.
+`audits/AUDIT-DYADIC-CHANNEL-FLOOR-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -253,6 +253,14 @@ completed scaling improvement or carrier substitution is asserted.
 
 ## Activity and changes since the preceding chart
 
+New A03 route limitation: `BF4DyadicChannelFloorObstruction.coefficient_ge_nineteenTwenty`
+(`lean/YMGap/Continuum/BF4DyadicChannelFloorObstruction.lean:114`) proves that
+paying 960*(1-w^L)^2 through the candidate iterated endpoint floor requires
+C>=1920, for 0<w<1 and L>=2. Its dyadic specialization (`:135`) includes
+every side 2^(scale+1). No growing-loop partition floor or physical energy
+lower bound is asserted. The useful SAME signed-aggregate/variance comparison
+remains open; extending this candidate normalization alone cannot supply it.
+
 - Primary active node: **A03**. Literal Wilson squares now have side L=2^s,
   assigned spacing 2^-s, unit geometric side and a computed spacing modulus.
   Their original increment bound now has an actual SAME centered-vector consumer:
@@ -299,7 +307,7 @@ completed scaling improvement or carrier substitution is asserted.
   Full Hilbert/QFT, scaling survival and the continuum join remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--19; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--20; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -345,3 +353,4 @@ completed scaling improvement or carrier substitution is asserted.
 | 1 / 18 | 2026-09-24 | Exact fundamental product-heat image for arbitrary distinct-link words, actual growing-square distinctness/fringe independence, and original terminal signed-cost consumer. The square heat image and useful SAME variance/scaling comparison remain open. Partial A03 only; no interacting eigenvalue, carrier substitution, chart-block or goal-node status change. |
 | 1 / 19 | 2026-09-24 | Exact label-two and full fundamental-square product-heat images for arbitrary distinct-link words, specialized to the actual growing square and consumed in its complete signed terminal-energy formula. Useful SAME interacting centered-variance/scaling comparison remains open. Partial A03 only; no interacting eigenvalue, carrier substitution, chart-block or goal-node status change. |
 | 1 / 20 | 2026-09-24 | Actual growing-square spectator channels preserve original energy and odd mass. The constructed cap four supplies a signed geometric budget at u=w^L with all spectator heat retained. SAME original-normalization/centered-variance scaling comparison remains open. Partial A03 only; no completed scaling improvement, carrier substitution, chart-block or goal-node status change. |
+| 1 / 21 | 2026-09-24 | The candidate iterated endpoint floor forces a coefficient of at least 1920 even for the quadratic channel-budget remainder. Numerical normalization obstruction only; no growing-square partition comparison or actual energy lower bound. A03 remains open; no chart-block, scope or goal-node status change. |

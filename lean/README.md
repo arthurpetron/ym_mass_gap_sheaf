@@ -12,7 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original growing-square spectator-channel budget (2026-09-24 UTC):**
+**Iterated channel-floor limitation (2026-09-24 UTC):**
+`BF4DyadicChannelFloorObstruction` proves that the proposed floor
+rho_L=(1/2)*w^(L*M(w)) is at most (1/2)*(1-w^L)^2 for 0<w<1 and L>=2.
+Any coefficient paying the current quadratic remainder through this number
+is at least 1920. No original-partition comparison or physical energy lower
+bound is asserted. The useful SAME signed-aggregate/centered-variance scaling
+estimate remains open; this candidate normalization cannot provide a small
+coefficient. One narrow check passed seven permitted gates; no full-root audit.
+Evidence: `audits/AUDIT-DYADIC-CHANNEL-FLOOR-2026-09-24.md` at repository root.
+
+**Preceding original growing-square spectator-channel budget (2026-09-24 UTC):**
 `BF4DyadicWilsonSquarePassiveChannels` proves the exact original energy and
 odd-moment/mass decomposition with every spectator heat factor retained.
 `BF4DyadicWilsonSquareChannelCost` evaluates the complete signed cost in

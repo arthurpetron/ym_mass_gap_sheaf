@@ -25,7 +25,40 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Original growing-square channel decomposition and signed geometric budget (2026-09-24 UTC)
+### Iterated channel-floor normalization cannot pay the quadratic remainder (2026-09-24 UTC)
+
+`BF4DyadicChannelFloorObstruction` tests the proposed number
+rho_L=(1/2)*w^(L*M(w)), where M is the existing computed endpoint-channel
+first-moment exponent. It does NOT assume or prove a growing-square partition
+comparison. The existing scalar fence w^M<=1-w gives, for 0<w<1 and L>=2,
+rho_L<=(1/2)*(1-w^L)^2. Thus any coefficient C satisfying
+960*(1-w^L)^2<=C*rho_L must obey C>=1920. The actual dyadic-side
+specialization includes every side 2^(scale+1).
+
+This is an obstruction to paying even the quadratic A remainder of the
+current channel budget through that candidate floor. It is not a lower bound
+on the physical energy, an upper bound on variance, or a survival refutation.
+The full signed expression may admit a sharper comparison; it has not been
+replaced by this candidate normalization.
+
+**Next causal A03 proposition:** control the actual complete signed channel
+aggregate against the SAME interacting centered variance along a justified
+scaling family, or prove a direct response bound. Do not extend the iterated
+worst-case floor route without a quantitatively different consumer. A useful
+comparison must retain the original odd mass and terminal action, not replace
+them by A. Parallel J02 work targets explicit-modulus real scalar operations
+on the existing all-nome Wilson completion; native `CReal.cauchy` is a legacy
+propositional existence field, not extractable modulus data.
+
+One narrow check passed seven gates within {propext, Quot.sound}, one empty;
+one worker, 2 GiB cap and unchanged safety/elaboration limits. Initial draft
+elaboration errors were corrected. No source hole, new axiom, analytic premise
+or canonical-field change. Independent source/scope review passed. No full-root
+build/audit/guard. Schema 1 snapshot 21 records a pruned numerical join only;
+the chart block, scope registry and every goal marker remain unchanged.
+Evidence: `audits/AUDIT-DYADIC-CHANNEL-FLOOR-2026-09-24.md`.
+
+### Previous checkpoint: Original growing-square channel decomposition and signed geometric budget (2026-09-24 UTC)
 
 `BF4DyadicWilsonSquareChannelPartition` computes the active/spectator split
 from the literal ordered square and proves the character independent of its
