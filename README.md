@@ -10,7 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-A **checked positive-source diagnostic** now rules out a generic bare-rate
+**New checked Hilbert-space prerequisite:** sharp complex Cauchy--Schwarz now
+holds on the **same existing completed reflected carrier**, and its actual
+discrete-time pairing-continuity consumer has an explicit constant-one bound.
+This does not change the fixed-width gap, establish scaling control, or close
+the full Hilbert/OS/QFT node. The original-source energy/variance estimate
+remains the primary analytic frontier. See the
+[sharp-pairing verification record](audits/AUDIT-SHARP-COMPLEX-PAIRING-2026-09-24.md).
+
+A **checked positive-source diagnostic** rules out a generic bare-rate
 energy/variance shortcut. On the actual one-link SU(2) product heat, the
 explicit source `1+(1+f)^2` and a kernel with certified floor 1/4 violate
 `Z*E <= (1-w^3)*(Z*A-B^2)`. This is not an original terminal source or a

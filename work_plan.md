@@ -25,6 +25,38 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Sharp complex pairing on the SAME completion (2026-09-24 UTC)
+
+The parallel J02 prerequisite now reaches its actual consumer:
+`BF4ExactSlabFixedSpatialJointComplexCauchySchwarz.inner_cauchySchwarz`
+proves |<x,y>|^2 <= <x,x><y,y> on the EXISTING complexified joint completion.
+The proof aligns the phase at the finite rational stage, then transports the
+inequality through the time-window limit, one common intrinsic chart, cutoff
+removal, supplied Cauchy representatives and quotient descent. There is no
+choice of representatives, CReal zero decision, new carrier or analytic input.
+
+`BF4ExactSlabFixedSpatialJointComplexSharpContinuity.time_pairing_converges`
+uses this exact inequality for the actual discrete-time matrix coefficients.
+The squared-norm tolerance is epsilon/testNormCap instead of
+epsilon/(2*testNormCap); the ceiling is computed from the supplied test
+representatives. No monotonicity of the resulting index function is asserted.
+The previous weaker consumer remains available for compatibility.
+
+**Next / unchanged primary frontier:** A03 remains the useful complete signed
+energy/SAME interacting-variance comparison for ONE justified changing-scale
+observable, or its direct response. Terminal gauge-sign symmetry and weighted
+derivative bounds do not supply that comparison. J02 remains OPEN: this result
+does not establish full Hilbert/OS/QFT/YM/UV structure. Spatial/spacing control,
+SAME continuum limits, physical Hamiltonian/mass and every group remain open.
+The canonical chart retains every label, marker and edge; no goal-node status
+changes. This is additional evidence within J02, not a new goal node.
+
+Six focused leaf checks (three preserved earlier checks, three new checks)
+cover 22 printed gates, all within {propext, Quot.sound}. One host-reserve stop
+was respected; after observed recovery, checking resumed at the same one-worker,
+2 GiB ceiling and 12 GiB reserve. No full-root build/audit/guard. Evidence:
+`audits/AUDIT-SHARP-COMPLEX-PAIRING-2026-09-24.md`.
+
 ### Positivity-only bare-rate comparison refuted (2026-09-24 UTC)
 
 The next generic sign shortcut is now fenced by an actual one-link example:

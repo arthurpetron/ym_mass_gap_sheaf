@@ -36,12 +36,12 @@ open YMGap.Continuum.OSReconstructionProgress
 
 local infix:50 " ≈ " => Q'.eqv
 
-private def finitePairing {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+def finitePairing {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (width h stage t : Nat) (xs ys : Span) : Q' :=
   windowRatio hw0 hw1 (headCutoff w+stage) width (Nat.le_add_right _ _)
     t (2*h) t (mixedProduct width h xs ys)
 
-private theorem finite_add_left {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+theorem finite_add_left {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (width h stage t : Nat) (xs ys zs : Span) :
     finitePairing hw0 hw1 width h stage t (xs++ys) zs ≈
       finitePairing hw0 hw1 width h stage t xs zs +
@@ -50,7 +50,7 @@ private theorem finite_add_left {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'
   rw [mixedProduct_add_left]
   exact windowRatio_add hw0 hw1 _ width _ t (2*h) t _ _
 
-private theorem finite_add_right {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+theorem finite_add_right {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (width h stage t : Nat) (xs ys zs : Span) :
     finitePairing hw0 hw1 width h stage t xs (ys++zs) ≈
       finitePairing hw0 hw1 width h stage t xs ys +
@@ -60,7 +60,7 @@ private theorem finite_add_right {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q
       (mixedProduct_add_right width h xs ys zs))
     (windowRatio_add hw0 hw1 _ width _ t (2*h) t _ _)
 
-private theorem finite_smul_left {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+theorem finite_smul_left {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (width h stage t : Nat) (c : Q') (xs ys : Span) :
     finitePairing hw0 hw1 width h stage t (scaleSpan c xs) ys ≈
       c * finitePairing hw0 hw1 width h stage t xs ys :=
@@ -69,7 +69,7 @@ private theorem finite_smul_left {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q
       (mixedProduct_smul_left width h c xs ys))
     (windowRatio_smul hw0 hw1 _ width _ t (2*h) t c _)
 
-private theorem finite_smul_right {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+theorem finite_smul_right {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (width h stage t : Nat) (c : Q') (xs ys : Span) :
     finitePairing hw0 hw1 width h stage t xs (scaleSpan c ys) ≈
       c * finitePairing hw0 hw1 width h stage t xs ys :=
@@ -78,7 +78,7 @@ private theorem finite_smul_right {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : 
       (mixedProduct_smul_right width h c xs ys))
     (windowRatio_smul hw0 hw1 _ width _ t (2*h) t c _)
 
-private theorem finite_symm {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+theorem finite_symm {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (width h stage t : Nat) (xs ys : Span)
     (hx : Within h xs) (hy : Within h ys)
     (hxf : Physical width xs) (hyf : Physical width ys) :
@@ -87,10 +87,10 @@ private theorem finite_symm {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
   reflectedWindowRatio_symm hw0 hw1 width h xs ys hx hxf hy hyf stage t
 
 /-- The physical domain is retained by the actual signed combination. -/
-private def guardedSpan (width h : Nat) :=
+def guardedSpan (width h : Nat) :=
   {xs : Span // Within h xs ∧ Physical width xs}
 
-private def finitePreInnerForm {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+def finitePreInnerForm {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (width h stage t : Nat) : PreInnerForm (guardedSpan width h) where
   B := fun xs ys => finitePairing hw0 hw1 width h stage t xs.val ys.val
   nonnegQuad := by

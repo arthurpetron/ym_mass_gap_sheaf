@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Sharp complex pairing on the SAME completion (2026-09-24 UTC):**
+`BF4ExactSlabFixedSpatialJointComplexCauchySchwarz.inner_cauchySchwarz`
+and `BF4ExactSlabFixedSpatialJointComplexSharpContinuity.time_pairing_converges`
+give the constant-one inequality and its explicit pairing-modulus consumer.
+The original carrier and all supplied Cauchy data are retained. This is a
+fixed-width Hilbert-space prerequisite, not full QFT or scaling closure.
+Six focused leaf checks cover 22 permitted gates; no full-root audit/guard.
+See `audits/AUDIT-SHARP-COMPLEX-PAIRING-2026-09-24.md` at repository root.
+
 **Positive-source variance shortcut fenced (2026-09-24 UTC):**
 `SU2QuaternionPositiveSourceVarianceFence.bare_loss_variance_bound_false`
 checks the actual one-link counterexample with `q=1+(1+f)^2`, `w=1/2`,

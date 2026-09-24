@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: positive-source variance shortcut refuted (2026-09-24 UTC)
+## Current increment: sharp complex pairing reaches the SAME completion (2026-09-24 UTC)
+
+The actual completed complex pairing now satisfies constant-one
+Cauchy--Schwarz. The finite proof uses a rational phase-aligned vector;
+the SAME reflected/window, intrinsic, cutoff and representative limits carry
+it to the existing quotient. Its concrete matrix-coefficient consumer replaces
+the factor-two tolerance by epsilon/testNormCap, with explicit data and no
+new analytic premise. This advances a J02 prerequisite, not full J02 or A03.
+All canonical chart goal-node statuses remain unchanged.
+
+Six focused leaf checks cover 22 permitted gates, including three preserved
+earlier checks. One reserve-triggered stop was respected, followed by recovery
+and serialized checking at unchanged limits. No full-root audit/guard,
+new hole/axiom or canonical-field change. Evidence:
+`audits/AUDIT-SHARP-COMPLEX-PAIRING-2026-09-24.md`.
+
+## Previous increment: positive-source variance shortcut refuted (2026-09-24 UTC)
 
 The actual one-link heat with a certified quarter-floor and source
 q=1+(1+f)^2 violates the proposed bare-loss/SAME-variance upper estimate.

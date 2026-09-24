@@ -4850,6 +4850,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialJointRealScalarAlgebra
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointComplexGap
 -- Represented complex limits and actual discrete-time pairing moduli; no scaling closure.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointComplexPairingContinuity
+-- Sharp complex Cauchy--Schwarz and pairing moduli on the SAME fixed-width carrier.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialJointComplexSharpContinuity
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointVacuumProjection
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointTemporalEnergy
 -- Conditional SAME-carrier survival and certified-rate ceilings; analytic family still open.

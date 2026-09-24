@@ -1,7 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **1**, 2026-09-24 UTC, source checkpoint
-`fa0cd1f`. This is the single source for user-facing ASCII progress charts.
+Chart schema: **1**. Snapshot: **2**, 2026-09-24 UTC. Source checkpoint:
+the sharp-complex-pairing milestone committed with this snapshot; verification
+is recorded in `audits/AUDIT-SHARP-COMPLEX-PAIRING-2026-09-24.md`.
+This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
 
@@ -106,10 +108,13 @@ full-tree build or full axiom audit.
 - Primary active node: **A03**. The checked diagnostic in `fa0cd1f` excludes
   a positivity-only bare-rate variance comparison; A03 remains `[ ]`.
 - Parallel node: **J02**. Sharp complex pairing work supplies prerequisites;
-  the full node remains `[ ]`.
+  `JointComplexCauchySchwarz.inner_cauchySchwarz` now reaches the SAME completed
+  carrier, and `JointComplexSharpContinuity.time_pairing_converges` supplies
+  its actual constant-one matrix-coefficient consumer. The full node remains
+  `[ ]`; no continuum, full-QFT or physical-mass closure is claimed.
 - Goal-node status changes: **NONE**.
-- Displayed wording/layout/symbol changes: **NONE**. This establishes the
-  permanent IDs and maintenance contract for the last displayed chart.
+- Displayed wording/layout/symbol changes: **NONE**. The chart block is
+  unchanged from snapshot 1; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -136,3 +141,4 @@ full-tree build or full axiom audit.
 | Schema / snapshot | Date (UTC) | Change |
 |---|---|---|
 | 1 / 1 | 2026-09-24 | Freeze last displayed chart; add permanent IDs, fixed meanings and evidence rules. No goal-node status change. |
+| 1 / 2 | 2026-09-24 | Sharp complex Cauchy--Schwarz and explicit matrix-coefficient consumer on the SAME completion. Partial J02 evidence only; no chart-block or goal-node status change. |

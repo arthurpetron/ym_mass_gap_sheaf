@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## Sharp complex pairing on the SAME joint completion CLOSED; J02 OPEN (2026-09-24 UTC)
+
+- **proved**: `JointComplexCauchySchwarz.inner_cauchySchwarz` supplies constant-one
+  complex Cauchy--Schwarz on the existing carrier, via the actual finite rational
+  phase-aligned inequality and the existing chart/cutoff/representative limits.
+- **consumer**: `JointComplexSharpContinuity.time_pairing_converges` bounds actual
+  discrete-time matrix-coefficient errors with tolerance epsilon/testNormCap,
+  retaining explicit supplied representatives and their norm ceiling.
+- **open**: A03 original-source energy/SAME-variance control and ONE-state
+  scaling survival; EVERY-vector spatial/spacing control; full J02
+  Hilbert/OS/QFT/YM/UV, SAME continuum, physical Hamiltonian/mass and every group.
+  No new hole, axiom, analytic premise, carrier or canonical-field change.
+- **verification**: six focused leaf checks, 22 permitted printed gates;
+  three earlier finite/window checks plus three new intrinsic/completed/consumer
+  checks. A host-reserve stop was respected before recovery at unchanged limits.
+  No full-root audit/guard. Evidence:
+  `audits/AUDIT-SHARP-COMPLEX-PAIRING-2026-09-24.md`.
+
 ## Positive-source bare-rate variance shortcut REFUTED (2026-09-24 UTC)
 
 - **proved**: `SU2QuaternionHalfHeatThreeCertificate` supplies actual kernel
