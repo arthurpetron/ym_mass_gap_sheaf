@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**One-link channel Bessel bound (2026-09-24 UTC):**
+`SU2QuaternionHeadHeatGramBessel` proves the exact shared-spectator pairing
+and coefficient-one norm bound for the complete channel list of one head heat
+factor, at every finite cutoff and 0<=w<=1. Its weighted consumer retains a
+head-independent squared insertion. `ProductHeatGramLocality` proves actual
+selected-block locality, not locality of the interacting source. This is not
+yet the full spectator-family bound, and its raw Haar norm is not the original
+partition or SAME variance. Four final narrow checks passed; no full-root
+audit or continuum/Clay closure. The next composition and remaining analytic
+input are recorded in the one-link follow-up to
+`audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
+
 **Exact spectator-channel localization (2026-09-24 UTC):**
 `SU2QuaternionProductHeatGramChannels.productHeat_gram_carrier` constructs
 the actual finite weighted Gram list, with supported channel polynomials and

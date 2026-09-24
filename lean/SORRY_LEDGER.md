@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## Conditional one-link channel Bessel bound (2026-09-24 UTC)
+
+- **proved**: `SU2QuaternionSharedHeadGramPairing.sharedHead_channel_pairing`
+  identifies each actual channel with its conditional projection square,
+  preserving all shared spectators. `SU2QuaternionHeadHeatGramBessel`
+  recombines the complete one-link list into the original head heat pairing
+  and proves coefficient-one norm domination for every K and 0<=w<=1.
+- **actual consumer**: `heatChannels_project_weighted_square_le` retains a
+  head-independent squared insertion. `ProductHeatGramLocality` proves channel
+  independence outside the selected list and its projection invariance.
+- **open composition**: arbitrary selected-block transport and full spectator
+  list Bessel/angular contraction are not yet proved. These are intended
+  consumers of the new one-link result, not silently supplied hypotheses.
+- **open analytic input**: complete mixed-budget/SAME-variance control on ONE
+  justified changing-scale original family; separately EVERY-vector scaling
+  and full SAME-theory continuum/QFT/YM/UV, physical mass and every group.
+  Raw Haar norm is not the original interacting partition. No hole introduced,
+  analytic premise added, or canonical field changed.
+- **verification**: four final serialized 4 GiB checks, seventeen printed
+  permitted gates (five pre-existing), no error/warning/sorryAx in accepted
+  logs. One reserve refusal preceded recovery, without changed thresholds.
+  Semantic imports added; no full-root build/audit/guard. Evidence: one-link
+  follow-up in `audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
+
 ## Exact spectator-channel source reduction (2026-09-24 UTC)
 
 - **proved**: `SU2QuaternionProductHeatGramChannels.productHeat_gram_carrier`

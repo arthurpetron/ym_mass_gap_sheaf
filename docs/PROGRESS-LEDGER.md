@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact spectator-channel localization (2026-09-24 UTC)
+## Current increment: one-link channel Bessel bound (2026-09-24 UTC)
+
+The computed ONE-LINK channel sum now equals the actual conditional heat
+quadratic form, with untouched coordinates shared between source copies.
+The existing positive-contraction theorem bounds it by the original raw
+Haar source square with coefficient one, for all finite K and 0<=w<=1.
+A head-independent squared insertion is retained by the weighted consumer.
+Literal channel locality and projection invariance are also checked.
+
+This removes a channel-count penalty for one factor, not for the entire
+spectator list yet. Next exact join: selected-block transport and finite-list
+composition, then the angular consumer. The mixed remainder/SAME-variance
+estimate on a changing-scale family remains the analytic obstruction; raw
+norm is not the interacting partition. No physical or continuum obligation
+was closed. Four final narrow checks passed seventeen printed permitted gates
+(including five existing Gram gates); no new hole/axiom or field change.
+One reserve refusal was followed by memory recovery at unchanged limits.
+No full-root build/audit/guard/progress-metric run. Evidence: one-link follow-up
+in `audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
+
+## Previous increment: exact spectator-channel localization (2026-09-24 UTC)
 
 Computed finite positive Gram channels now retain the actual spectator heat.
 Every channel dresses both endpoints of q=P_fringe(V*g), then exact spectator

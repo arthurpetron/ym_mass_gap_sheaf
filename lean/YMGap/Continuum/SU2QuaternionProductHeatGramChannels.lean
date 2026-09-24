@@ -168,7 +168,7 @@ private theorem columnChannels_supported {n slot degree k : Nat} (hslot : slot <
   obtain ⟨p, hp, rfl⟩ := List.mem_map.mp hc
   exact tensorLeaves_supported (coordinateColumn_supported hslot degree k) p hp
 
-private theorem heatChannels_supported {n slot : Nat} (hslot : slot < n) (w : Q') (K : Nat) :
+theorem heatChannels_supported {n slot : Nat} (hslot : slot < n) (w : Q') (K : Nat) :
     ∀ c, c ∈ heatChannels slot w K → SupportedQuaternionBlocks n c.2 := by
   intro c hc
   obtain ⟨degree, hd, hc⟩ := List.mem_flatMap.mp hc
@@ -347,7 +347,7 @@ private theorem finiteChannels_carrier {A : Type} (n : Nat)
         (RatPolyCoeffEqv.haarCarrier
           (channelKernel_append n (channels a) (xs.flatMap channels)).symm)
 
-private theorem heatChannels_carrier (n slot : Nat) (hslot : slot < n) (w : Q') (K : Nat) :
+theorem heatChannels_carrier (n slot : Nat) (hslot : slot < n) (w : Q') (K : Nat) :
     HaarCarrierEqv (n+n) (heatAt slot (n+slot) w K)
       (channelKernel n (heatChannels slot w K)) := by
   refine (RatPolyCoeffEqv.haarCarrier (heatAt_symm slot (n+slot) w K)).trans ?_
@@ -449,6 +449,8 @@ end YMGap.Continuum.SU2QuaternionProductHeatGramChannels
 
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatGramChannels.channelKernel
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatGramChannels.productChannels
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatGramChannels.heatChannels_supported
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatGramChannels.heatChannels_carrier
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatGramChannels.productChannels_supported
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatGramChannels.productChannels_nonnegative
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatGramChannels.productHeat_gram_carrier

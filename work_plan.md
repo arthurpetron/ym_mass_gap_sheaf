@@ -25,6 +25,46 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### First coefficient-one conditional channel budget (2026-09-24 UTC)
+
+`SU2QuaternionHeadHeatGramBessel.heatChannels_project_square_eq_pair` now
+identifies the actual one-link Gram sum with the original conditional heat
+pairing, retaining SHARED spectator variables:
+
+    sum_c lambda_c H[(P_0(q*h_c))^2] = H[q*headMap(w,K,q)] <= H[q^2].
+
+The inequality is proved for every finite K and 0<=w<=1. Its weighted
+consumer `heatChannels_project_weighted_square_le` retains an arbitrary
+head-independent squared insertion r^2, with coefficient one and no channel
+count/diagonal-trace penalty. The original q and r may still depend on all
+parameters. `SU2QuaternionProductHeatGramLocality` proves that computed channel
+polynomials depend only on their selected blocks; projection fixes channels
+outside those blocks. No source locality is assumed.
+
+**Next exact composition:** transport the one-link estimate to a selected
+block and iterate it over the literal spectator list, preserving channel
+weights/multiplicities and common source normalization. This would bound the
+summed angular channel cost in
+`sourceEnergy_le_projected_channel_budgets` by the previous q^2-weighted
+angular cost without combinatorial growth. The multi-block estimate is NOT
+yet proved; a coordinate recoding must use supported prefix/carrier equality,
+not false literal polynomial equality after padding.
+
+**Remaining analytic input:** control the complete mixed remainder and SAME
+centered variance for ONE justified changing-scale family (or direct response).
+Raw source norm is not the original heat-weighted partition: discarded active
+modes prevent a general reverse-coercivity shortcut. The existing exact
+plaquette increment/affine-floor numbers are already quantitatively inadequate;
+do not repackage them. EVERY-vector scaling, full SAME continuum/QFT/YM/UV,
+physical mass and every-group obligations remain open.
+
+Four final serialized 4 GiB checks passed all printed gates within
+{propext, Quot.sound}. One preflight refusal at the 12 GiB reserve preceded
+memory recovery; no thresholds changed. Semantic imports added; no new hole,
+axiom or canonical-field change, and no full-root build/audit/guard.
+Evidence: one-link follow-up in
+`audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
+
 ### Retain spectator heat exactly through computed channels (2026-09-24 UTC)
 
 The original product heat now has an explicit finite positive Gram-channel

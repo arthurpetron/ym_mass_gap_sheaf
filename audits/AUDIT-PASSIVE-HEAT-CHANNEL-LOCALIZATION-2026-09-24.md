@@ -122,3 +122,97 @@ uniformity claim. Semantic imports were added for the actual consumers.
 No new hole/axiom, classical input or canonical-field change was introduced.
 No full-root build, full-tree audit, guard or progress-metric run was performed.
 CI remains unchanged (disabled).
+
+## One-link conditional Bessel follow-up
+
+Checked 2026-09-24 UTC. This proves the first norm estimate on the computed
+channels, not the full spectator-family budget or a continuum conclusion.
+
+For the actual list `heatChannels 0 w K`, the exact identity and bound are
+
+    sum_c lambda_c H[(P_0(q*h_c))^2]
+      = H[q*headMap(w,K,q)] <= H[q^2].
+
+The untouched coordinates are SHARED: on (x,y,z), `copy q` is q(x,z) and
+`liftHead q` is q(y,z). Their two copies of z are not integrated independently.
+The two-link Gram carrier extends to arbitrary shared-spectator insertions;
+exact head Fubini then produces the conditional square. The existing
+`headMap_form_le_norm` supplies the coefficient-one inequality.
+
+For a head-independent insertion r, absorbing r into the source yields
+
+    sum_c lambda_c H[(P_0(q*h_c))^2*r^2] <= H[q^2*r^2].
+
+The coefficient is one for every finite K and 0<=w<=1, with no pointwise
+heat-floor guard. The source, insertion and channel list may still depend on
+parameters. The right side is the raw Haar source square, NOT the original
+interacting partition or centered variance. No channel probability law is
+asserted; signed q and r are allowed.
+
+### Exact declarations
+
+Paths are under `lean/YMGap/Continuum/`.
+
+- `SU2QuaternionProductHeatGramLocality.lean:162`:
+  `heatChannels_independent`; `:172`: `productChannels_independent`;
+  `:192`: `project_productChannel_fixed`; `:199`:
+  `familyProject_productChannel_fixed`. These concern the computed channels,
+  not locality of q.
+- `SU2QuaternionSharedHeadGramPairing.lean:84`: `copy_mul_carrier`;
+  `:109`: `copy_lift_pair_eq_project_square`; `:141`:
+  `sharedHead_channel_pairing` preserve the shared spectator carrier.
+- `SU2QuaternionHeadHeatGramBessel.lean:91`:
+  `heatChannels_project_square_eq_pair`; `:115`:
+  `heatChannels_project_square_le`; `:135`:
+  `heatChannels_project_weighted_square_le` are the exact recombination,
+  norm bound and weighted consumer.
+- `SU2QuaternionProductHeatGramChannels.lean:171`:
+  `heatChannels_supported`; `:350`: `heatChannels_carrier` are existing
+  one-link producer proofs made public, with their own printed axiom gates.
+
+### Remaining causal join and rejected repetitions
+
+The arbitrary selected-block and whole spectator-list Bessel inequalities
+are NOT yet proved. Their precise next construction is supported channel
+transport through a head/block swap, followed by finite-list composition.
+Transport must preserve weights, multiplicities and original normalization;
+raw polynomial equality is inappropriate when reindexing adds zero padding.
+Only after that join may the six angular squares be summed into the full
+angular channel cost consumed by `sourceEnergy_le_projected_channel_budgets`.
+
+Even that angular contraction would not control the remaining mixed budget
+or compare it with SAME centered variance along changing scales. Arbitrary
+raw source norms cannot be identified with attenuated physical moments:
+`SU2QuaternionHeadHeatDiagonal.harmonic_pair` explicitly retains the cutoff
+attenuation, including zero above cutoff. Source review also found that
+merely renaming the existing input-dependent Taylor tree as an active-block
+tree supplies no new quantitative inequality.
+
+The existing completed plaquette increment and affine-floor quotient must
+not be repackaged as a new survival route:
+`BF4AllNomeCompletedPlaquetteIncrement` already supplies the 192*n*(1-w)
+increment, while `BF4ExactSlabPlaquetteAffineCalibrationObstruction.computedLossRatio_ge`
+proves the corresponding available-budget ratio is at least 115200. This
+concerns those certificate numbers, not a counterexample to Yang--Mills.
+
+### Follow-up verification
+
+Final serialized monitored 4 GiB checks completed with exit 0:
+
+- `/tmp/ym-gap-gram-locality-check-3.log`: four gates;
+- `/tmp/ym-gap-gram-public-pairing-check-1.log`: seven gates, five pre-existing;
+- `/tmp/ym-gap-shared-head-gram-check-4.log`: three gates;
+- `/tmp/ym-gap-head-gram-bessel-check-2.log`: three gates.
+
+All seventeen printed gates are within {propext, Quot.sound}; accepted logs
+contain no error, warning or sorryAx. Failed draft logs are not evidence of
+proof. Pairing check 3 was refused before launch when available memory reached
+the 12 GiB reserve. Read-only memory telemetry confirmed recovery before the
+unchanged check resumed; no threshold was weakened or unrelated process killed.
+
+Sol supplied the locality and pairing drafts and independently reviewed the
+mathematical scope. Root implemented the Gram recombination/Bessel consumer,
+repaired the drafts and performed all serialized checks. No new hole, axiom,
+analytic premise or canonical-field change was introduced. Semantic imports
+were added; no full-root build, full-tree audit, guard or progress-metric run
+was performed. CI remains disabled. Whole-project Clay target remains OPEN.
