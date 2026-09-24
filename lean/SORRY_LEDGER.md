@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## Exact remainder form and original balanced energy bound (2026-09-24 UTC)
+
+- **proved**: `SU2QuaternionCyclicCasimirBilinear.pairCasimir_symm` and the
+  test-side algebra; `SU2QuaternionExactRemainderForm.exactRemainderGNSData`
+  identifies a genuine PSD form with the computed original Taylor remainder;
+  `exactRemainderPair_cauchySchwarz` gives sharp Cauchy--Schwarz. No spectral
+  orthogonality hypothesis or physical OS identification is added.
+- **actual consumers**: `SU2QuaternionExactRemainderEnergy.sourceEnergy_polarized_remainder`
+  retains both negative remainder squares. `SU2QuaternionPassiveChannelRemainder`
+  recombines every original channel and contracts only the angular cost.
+  `BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_le_angular_add_balanced_channels`
+  gives the original-action bound with diagonal remainders and the favorable
+  negative `R(a*f,a*f)` retained. The stronger polarized consumer drops neither
+  negative square. The balancing parameter and common normalization remain explicit.
+- **open**: useful complete diagonal-cost/ angular-cost comparison with SAME
+  variance on ONE changing-scale family, or direct sampled response. A proposed
+  remainder-seminorm spectator contraction needs a new compatibility proof;
+  scalar Bessel and positivity alone are insufficient. EVERY-vector scaling,
+  full SAME continuum/QFT/YM/UV, physical mass and every group remain open.
+  No new analytic premise, hole, axiom or canonical-field change.
+- **verification**: five final serialized 4 GiB checks, 23 permitted printed
+  gates (five existing), no error/warning/sorryAx in accepted logs. Two reserve
+  preflight refusals and one runtime stop preceded observed recovery without
+  changed limits. Existing semantic import covers all four new modules;
+  no full-root build/audit/guard. Evidence:
+  `audits/AUDIT-EXACT-REMAINDER-FORM-2026-09-24.md`.
+
 ## Complete spectator-family angular contraction (2026-09-24 UTC)
 
 - **proved**: `SU2QuaternionSelectedHeatGramBessel.heatChannels_project_square_le_at`

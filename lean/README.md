@@ -12,6 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Exact remainder form and original energy bound (2026-09-24 UTC):**
+`SU2QuaternionCyclicCasimirBilinear` proves symmetry and test-side algebra;
+`ExactRemainderForm` identifies the actual Taylor remainder with a positive
+symmetric bilinear form and proves sharp Cauchy--Schwarz. `ExactRemainderEnergy`
+polarizes before estimating. `PassiveChannelRemainder` and the original BF4
+plaquette consumer retain the full channel weights and the favorable negative
+diagonal, with no absolute mode-tree budget. The stronger version retains both
+negative squares. This finite auxiliary form is not a physical OS completion;
+useful SAME-variance/scaling control and all continuum/Clay joins remain open.
+Five final narrow checks passed 23 permitted gates (five existing), after
+memory-reserve interruptions and observed recovery at unchanged limits.
+No new hole/axiom or full-root audit. Evidence:
+`audits/AUDIT-EXACT-REMAINDER-FORM-2026-09-24.md`.
+
 **Complete spectator-family angular contraction (2026-09-24 UTC):**
 `SU2QuaternionSelectedHeatGramBessel` and `FamilyHeatGramBessel` extend the
 coefficient-one estimate to arbitrary distinct valid blocks, at every finite

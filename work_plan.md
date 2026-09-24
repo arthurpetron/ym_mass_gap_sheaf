@@ -25,6 +25,53 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact positive remainder and cancellation-preserving energy bound (2026-09-24 UTC)
+
+The exact full-product Taylor remainder R is now proved symmetric bilinear
+and positive semidefinite on supported polynomials, with sharp Cauchy--Schwarz.
+The proof uses cyclic Casimir integration by parts and the existing diagonal
+positivity, not an assumed commuting spectral-projector family. This is an
+auxiliary finite algebraic form, not a new physical OS Hilbert space.
+
+For y=a*f^2, z=a*f and any rational s, polarization proves
+
+    2*s*E(a,f) = 2*s*eps*angular(a,f)
+                 + s^2*R(a,a)+R(y,y)-R(s*a-y,s*a-y)-2*s*R(z,z).
+
+For s>=0 the existing coefficient-one angular contraction gives the actual
+original padded-plaquette bound
+
+    2*s*E_original <= 2*s*eps*angular(q,f)
+      + sum_c lambda_c [s^2*R(b_c,b_c)+R(b_c*f^2,b_c*f^2)
+                         -2*s*R(b_c*f,b_c*f)].
+
+Here q=P_fringe(V*g), b_c=P_S(q*h_c), and R uses the SAME finite heat product,
+nome and cutoff. A stronger checked version also retains
+`-sum_c lambda_c R(s*b_c-b_c*f^2,s*b_c-b_c*f^2)`. The displayed bound drops
+only this nonnegative residual; no absolute leaf budget or channel-count
+factor appears. The free s is data, not an assumed optimal balance.
+`BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_le_angular_add_balanced_channels`
+is the actual original-action consumer. The common partition/mean are not
+replaced by channelwise probability laws.
+
+**Next analytic frontier:** bound these complete diagonal costs with their
+retained cancellation, together with angular cost, against SAME centered
+variance on ONE justified changing-scale family, or prove its direct response.
+An operator-valued spectator contraction in the exact remainder seminorm is
+still OPEN; scalar Haar-square Bessel and PSD/Cauchy alone do not supply it.
+Any such proof must establish the active-remainder/spectator compatibility,
+not subtract separate upper bounds termwise. This is a possible next argument,
+not a newly assumed analytic field or a required detour. The EVERY-vector
+spatial/spacing gap, full SAME continuum/QFT/YM/UV, physical Hamiltonian mass
+and every-group obligations remain open.
+
+Five final serialized 4 GiB checks passed 23 printed gates (five existing)
+within {propext, Quot.sound}; no new hole, analytic premise or canonical-field
+change. Two preflight refusals and one runtime reserve stop preceded observed
+recovery at unchanged limits. Existing semantic imports cover the new modules;
+no full-root build/audit/guard. Evidence:
+`audits/AUDIT-EXACT-REMAINDER-FORM-2026-09-24.md`.
+
 ### Complete spectator-family angular contraction (2026-09-24 UTC)
 
 The next exact composition is now proved. The selected-block Bessel theorem
@@ -52,7 +99,9 @@ AND angular cost against SAME centered variance for ONE justified changing-scale
 observable family, or its direct sampled response. The exact signed remainder
 before the absolute mode-tree budget is a candidate route for preserving
 cancellation; an exact-remainder PSD/Cauchy or operator-valued contraction
-has NOT been proved in this increment. Existing Bessel APIs do not directly
+was NOT proved in this increment. Exact-remainder PSD/Cauchy and polarization
+are subsequently checked above; operator-valued contraction remains open.
+Existing Bessel APIs do not directly
 apply to the input-dependent absolute leaf budget. That is an interface
 limitation, not a no-go theorem. Raw Haar norm is still not the interacting
 partition; EVERY-vector spatial/spacing control, full SAME-theory

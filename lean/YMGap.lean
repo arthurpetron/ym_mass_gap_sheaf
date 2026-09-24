@@ -4878,7 +4878,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedSourceEnergy
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceTaylor
 -- Exact spectator Gram-channel reduction of original moments and plaquette energy.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
--- Channel Bessel and full spectator angular contraction; SAME-variance scaling remains open.
+-- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality
 -- Factor-one ordinary product-heat angular defect; not a physical gap.

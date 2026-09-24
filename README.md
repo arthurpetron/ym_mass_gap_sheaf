@@ -7,6 +7,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The **exact Taylor remainder is now a checked positive symmetric bilinear
+form**, with sharp Cauchy--Schwarz. Polarizing its mixed source term gives an
+original-action plaquette bound using diagonal remainders, without the absolute
+mode-tree budget. The stronger version retains both negative squares; the
+balanced bound drops only the balancing residual and keeps the favorable
+negative diagonal at `a*f`. The complete spectator sum and coefficient-one
+angular estimate are preserved. This is **not yet a useful SAME-variance or
+changing-scale estimate**: the remaining diagonal costs still need control.
+Five narrow checks passed 23 permitted axiom gates; no full-root audit.
+See the [exact-remainder audit](audits/AUDIT-EXACT-REMAINDER-FORM-2026-09-24.md).
+
 The **complete spectator-family angular bound is now checked**, with coefficient
 one and no channel-count loss. Selected-block transport and finite distinct-list
 composition extend the one-link Bessel estimate to every spectator heat factor,

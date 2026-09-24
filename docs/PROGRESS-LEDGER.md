@@ -4,7 +4,33 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: full spectator angular contraction (2026-09-24 UTC)
+## Current increment: exact remainder form and signed energy bound (2026-09-24 UTC)
+
+The computed Taylor remainder is now a symmetric positive bilinear form on
+supported polynomials, with sharp Cauchy--Schwarz. The Casimir symmetry proof
+uses actual cyclic integration by parts; no spectral commutation is assumed.
+Polarization retains the signed mixed contribution through exact diagonals.
+
+The ORIGINAL padded plaquette consumes the new estimate, for any s>=0:
+`2*s*E <= 2*s*eps*angular(q,f) + sum lambda*(s^2*R(b,b)+R(b*f^2,b*f^2)-2*s*R(b*f,b*f))`.
+The stronger version also retains the negative balancing-residual square.
+This avoids the input-dependent absolute leaf budget without asserting that
+the new numerical bound always improves that older bound. The remaining
+diagonal sum still needs a useful SAME-variance/scaling comparison.
+
+Next: prove a quantitative estimate on those actual costs for ONE justified
+changing-scale family or its direct response. Operator-valued spectator
+contraction in the remainder seminorm is a candidate, not supplied by the
+scalar Bessel API or PSD alone. EVERY-vector scaling, full SAME QFT/YM/UV,
+physical Hamiltonian mass and every group remain separate open obligations.
+
+Five final narrow checks passed 23 permitted gates (five existing). Two
+preflight refusals and one runtime reserve stop preceded observed recovery;
+no limits changed. No new hole/axiom or canonical-field change, and no full-root
+build/audit/guard/progress-metric run. Evidence:
+`audits/AUDIT-EXACT-REMAINDER-FORM-2026-09-24.md`.
+
+## Previous increment: full spectator angular contraction (2026-09-24 UTC)
 
 The one-link result now composes over the complete distinct spectator list,
 with coefficient one for all finite K and 0<=w<=1. Selected-block recoding
