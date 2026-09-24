@@ -25,6 +25,48 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Complete spectator-family angular contraction (2026-09-24 UTC)
+
+The next exact composition is now proved. The selected-block Bessel theorem
+transports the literal one-link Gram channels through a head transposition,
+preserving weights and supported prefix/carrier equality. Finite distinct-list
+induction then proves, for every finite cutoff K and 0<=w<=1,
+
+    sum_c lambda_c H[(P_S(q*h_c))^2*r^2] <= H[q^2*r^2],
+
+whenever r is S-independent. There is no channel-count penalty; q need not
+be local. Applying this to each angular derivative of an S-independent f
+(zero on S) gives
+
+    sum_c lambda_c angular(b_c,f) <= angular(q,f), b_c=P_S(q*h_c).
+
+The actual consumer
+`BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_le_angular_add_channel_mixed_budget`
+therefore retains the SAME original source, action and terminal messages in
+
+    E_original <= eps*angular(q,f)
+                  + eps^2*sum_c lambda_c pairBudget(b_c,b_c*f^2).
+
+**Next analytic frontier:** useful control of the remaining mixed remainder
+AND angular cost against SAME centered variance for ONE justified changing-scale
+observable family, or its direct sampled response. The exact signed remainder
+before the absolute mode-tree budget is a candidate route for preserving
+cancellation; an exact-remainder PSD/Cauchy or operator-valued contraction
+has NOT been proved in this increment. Existing Bessel APIs do not directly
+apply to the input-dependent absolute leaf budget. That is an interface
+limitation, not a no-go theorem. Raw Haar norm is still not the interacting
+partition; EVERY-vector spatial/spacing control, full SAME-theory
+continuum/QFT/YM/UV, physical mass and every group remain open.
+
+Four final serialized 4 GiB checks passed ten printed gates (four existing)
+within {propext, Quot.sound}. A classical core range-distinctness dependency
+was detected and replaced by the existing constructive `range_nodup` proof.
+One preflight refusal and one runtime memory-reserve stop preceded recovery;
+no safety threshold changed. Existing semantic imports cover the new modules;
+no new hole/axiom, canonical-field change, or full-root build/audit/guard.
+Evidence: full-family follow-up in
+`audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
+
 ### First coefficient-one conditional channel budget (2026-09-24 UTC)
 
 `SU2QuaternionHeadHeatGramBessel.heatChannels_project_square_eq_pair` now
@@ -41,14 +83,10 @@ parameters. `SU2QuaternionProductHeatGramLocality` proves that computed channel
 polynomials depend only on their selected blocks; projection fixes channels
 outside those blocks. No source locality is assumed.
 
-**Next exact composition:** transport the one-link estimate to a selected
-block and iterate it over the literal spectator list, preserving channel
-weights/multiplicities and common source normalization. This would bound the
-summed angular channel cost in
-`sourceEnergy_le_projected_channel_budgets` by the previous q^2-weighted
-angular cost without combinatorial growth. The multi-block estimate is NOT
-yet proved; a coordinate recoding must use supported prefix/carrier equality,
-not false literal polynomial equality after padding.
+**Exact composition subsequently checked:** selected-block transport,
+literal distinct spectator-list iteration, and the original angular consumer
+are proved in the follow-up above. Coordinate recoding uses supported
+prefix/carrier equality, not false literal polynomial equality after padding.
 
 **Remaining analytic input:** control the complete mixed remainder and SAME
 centered variance for ONE justified changing-scale family (or direct response).

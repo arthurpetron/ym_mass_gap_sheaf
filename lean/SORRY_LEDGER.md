@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## Complete spectator-family angular contraction (2026-09-24 UTC)
+
+- **proved**: `SU2QuaternionSelectedHeatGramBessel.heatChannels_project_square_le_at`
+  and `SU2QuaternionFamilyHeatGramBessel.productChannels_familyProject_square_le`
+  extend the actual one-link Bessel inequality to arbitrary valid distinct
+  blocks, preserving literal channel weights. The weighted counterpart retains
+  every family-independent squared insertion. All finite K and 0<=w<=1 are
+  admitted, with coefficient one.
+- **actual consumers**: `SU2QuaternionPassiveChannelAngularBudget.channelSource_weightedAngularEnergy_le`
+  contracts the full angular sum; `sourceEnergy_le_angular_add_channel_mixed_budget`
+  and the original padded-plaquette specialization retain only the mixed
+  remainder channel sum. No source locality or channel probability law is assumed.
+- **open**: useful mixed-remainder/ angular-cost control against SAME centered
+  variance on ONE changing-scale family (or direct response). The coefficient
+  does not turn the raw Haar weight into the interacting partition. The
+  EVERY-vector scaling gap, full SAME continuum/QFT/YM/UV, physical mass and
+  every-group obligations remain open. No new hole, analytic field or canonical
+  weakening was introduced.
+- **verification**: four final serialized 4 GiB checks, ten permitted printed
+  gates (four existing), no error/warning/sorryAx in accepted logs. A draft
+  core `List.nodup_range` dependency failed the constructive gate and was
+  replaced by `CayleyParentInj.range_nodup`. One reserve preflight refusal and
+  one runtime reserve stop preceded recovery at unchanged limits. Existing
+  semantic import covers all new modules; no full-root build/audit/guard.
+  Evidence: full-family follow-up in
+  `audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
+
 ## Conditional one-link channel Bessel bound (2026-09-24 UTC)
 
 - **proved**: `SU2QuaternionSharedHeadGramPairing.sharedHead_channel_pairing`
@@ -10,9 +37,8 @@
 - **actual consumer**: `heatChannels_project_weighted_square_le` retains a
   head-independent squared insertion. `ProductHeatGramLocality` proves channel
   independence outside the selected list and its projection invariance.
-- **open composition**: arbitrary selected-block transport and full spectator
-  list Bessel/angular contraction are not yet proved. These are intended
-  consumers of the new one-link result, not silently supplied hypotheses.
+- **composition subsequently proved**: arbitrary selected-block transport and
+  full distinct spectator-list Bessel/angular contraction are checked above.
 - **open analytic input**: complete mixed-budget/SAME-variance control on ONE
   justified changing-scale original family; separately EVERY-vector scaling
   and full SAME-theory continuum/QFT/YM/UV, physical mass and every group.

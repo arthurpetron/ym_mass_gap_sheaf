@@ -12,16 +12,30 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Complete spectator-family angular contraction (2026-09-24 UTC):**
+`SU2QuaternionSelectedHeatGramBessel` and `FamilyHeatGramBessel` extend the
+coefficient-one estimate to arbitrary distinct valid blocks, at every finite
+cutoff and 0<=w<=1, including independent squared insertions. The actual
+`PassiveChannelAngularBudget` and original padded-plaquette consumer remove
+the channel sum from the angular cost, retaining the full mixed remainder
+sum. The raw q-squared Haar weight is not the interacting variance; the
+changing-scale analytic comparison and continuum/Clay joins remain open.
+Four final narrow checks passed ten permitted gates (four existing), after
+replacing a detected classical core dependency with constructive range
+distinctness. Two memory-reserve interruptions preceded safe recovery;
+no threshold changed and no full-root audit ran. Evidence: full-family
+follow-up in `audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
+
 **One-link channel Bessel bound (2026-09-24 UTC):**
 `SU2QuaternionHeadHeatGramBessel` proves the exact shared-spectator pairing
 and coefficient-one norm bound for the complete channel list of one head heat
 factor, at every finite cutoff and 0<=w<=1. Its weighted consumer retains a
 head-independent squared insertion. `ProductHeatGramLocality` proves actual
-selected-block locality, not locality of the interacting source. This is not
-yet the full spectator-family bound, and its raw Haar norm is not the original
-partition or SAME variance. Four final narrow checks passed; no full-root
-audit or continuum/Clay closure. The next composition and remaining analytic
-input are recorded in the one-link follow-up to
+selected-block locality, not locality of the interacting source. The full
+spectator-family bound is subsequently checked above; its raw Haar norm is
+still not the original partition or SAME variance. Four final narrow checks
+passed; no full-root audit or continuum/Clay closure. The one-link result is
+recorded in the one-link follow-up to
 `audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
 
 **Exact spectator-channel localization (2026-09-24 UTC):**

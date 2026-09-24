@@ -14,6 +14,7 @@ probability laws. The total budget still needs a SAME-variance/scaling bound.
 import YMGap.Continuum.SU2QuaternionProductHeatPassiveChannels
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteChannelPartition
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceTaylor
+import YMGap.Continuum.SU2QuaternionPassiveChannelAngularBudget
 
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
 
@@ -149,9 +150,52 @@ theorem padded_plaquette_energy_le_channel_budgets {w : Q'}
     (energy_projected_source w K width g f hg hf
       (plaquette_fringe_independent_after_padding hwidth face hface))) h
 
+/-- All spectator-channel ANGULAR costs contract with coefficient one on the
+original padded plaquette. The mixed channel remainder is retained in full;
+the right side is not a normalized SAME-variance or changing-scale bound. -/
+theorem padded_plaquette_energy_le_angular_add_channel_mixed_budget {w : Q'}
+    (hw0 : (0 : Q') ≤ w) (hw1 : w < (1 : Q')) (K : Nat) {base width : Nat}
+    (hwidth : base < width) (hK : sufficientCutoff w ≤ K) (depth : Nat)
+    (face : Z4Plaq) (hface : face ∈ spatialFaces base) :
+    let g := terminalMessage w K width depth
+    let f := characterPolynomial (plaquette width face).scalar 1
+    energy w K width g f ≤
+      ((1 : Q')-w)*weightedAngularEnergy (N width-1)
+        (projectedEndpointSource w K width g) f +
+      (((1 : Q')-w)*((1 : Q')-w)) *
+        channelSum (productChannels (N width) w K (spectatorBlocks width face)) (fun c =>
+          pairBudget (N width-1) (plaquetteChannelSource w K width g face c)
+            (polyMul (plaquetteChannelSource w K width g face c) (polyMul f f))) := by
+  let g := terminalMessage w K width depth
+  let f := characterPolynomial (plaquette width face).scalar 1
+  have hf' := spatialFaces_mono (Nat.le_of_lt hwidth) hface
+  have hl : (face.1, (dirsOf face.2).1) ∈ baseLinks width :=
+    face_link_mem_base hf' (by simp [edgesOf])
+  have hb : 0 < N width := Nat.lt_of_le_of_lt (Nat.zero_le _) (List.idxOf_lt_length_of_mem hl)
+  have hN : N width-1+1 = N width := Nat.sub_add_cancel hb
+  have hg := terminalMessage_supported w K width depth
+  have hf := SU2QuaternionRelativeHeatPairGeometry.character_supported
+    (plaquette_supported width (N width) (Nat.le_refl _) face).scalar 1
+  have hnd : (spectatorBlocks width face).Nodup :=
+    List.filter_sublist.nodup (CayleyParentInj.range_nodup (N width))
+  have h := SU2QuaternionPassiveChannelAngularBudget.sourceEnergy_le_angular_add_channel_mixed_budget
+    (N width-1) hw0 hw1 K hK (observableBlocks width face) (spectatorBlocks width face)
+    (by simpa only [hN] using observableBlocks_lt width face)
+    (by simpa only [hN] using spectatorBlocks_lt width face)
+    (spectator_not_observable width face)
+    (by simpa only [hN] using spectator_observable_cover width face) hnd
+    (projectedEndpointSource w K width g) f
+    (by simpa only [hN] using projected_supported w K width g hg)
+    (by simpa only [hN] using hf) (plaquette_spectator_independent width face)
+  simp only [hN] at h
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv
+    (energy_projected_source w K width g f hg hf
+      (plaquette_fringe_independent_after_padding hwidth face hface))) h
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels.plaquetteChannelSource
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels.oddMoment_eq_plaquette_channels
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_eq_channels
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_le_channel_budgets
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_le_angular_add_channel_mixed_budget

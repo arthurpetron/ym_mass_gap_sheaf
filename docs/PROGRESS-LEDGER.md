@@ -4,7 +4,34 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: one-link channel Bessel bound (2026-09-24 UTC)
+## Current increment: full spectator angular contraction (2026-09-24 UTC)
+
+The one-link result now composes over the complete distinct spectator list,
+with coefficient one for all finite K and 0<=w<=1. Selected-block recoding
+uses supported prefix/carrier equality; list induction preserves every actual
+channel weight. A family-independent squared insertion is retained.
+
+The angular consumer applies that bound to every original angular derivative:
+spectator derivatives vanish, and the other derivatives retain independence.
+The original padded plaquette now satisfies
+`E <= eps*angular(q,f) + eps^2*sum_c lambda_c pairBudget(b_c,b_c*f^2)`.
+No channel-count penalty remains on the first-order angular term. The mixed
+remainder and SAME-variance scaling comparison are NOT supplied; no source
+norm/physical normalization identification or continuum closure is claimed.
+
+Next: preserve the exact signed remainder when seeking useful quantitative
+control for ONE justified changing-scale family, or prove its response
+directly. Existing Bessel APIs do not apply directly to input-dependent
+absolute leaf budgets; this is not a mathematical no-go result. EVERY-vector
+scaling, full SAME QFT/YM/UV, physical mass and every group remain open.
+Four final narrow checks passed ten permitted gates, including four existing.
+A classical core range lemma was replaced by the existing constructive proof.
+One preflight refusal and one runtime reserve stop preceded recovery, with
+unchanged safety limits. No new hole/axiom, canonical-field change or full-root
+build/audit/guard/progress-metric run. Evidence: full-family follow-up in
+`audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md`.
+
+## Previous increment: one-link channel Bessel bound (2026-09-24 UTC)
 
 The computed ONE-LINK channel sum now equals the actual conditional heat
 quadratic form, with untouched coordinates shared between source copies.

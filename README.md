@@ -7,12 +7,22 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The **complete spectator-family angular bound is now checked**, with coefficient
+one and no channel-count loss. Selected-block transport and finite distinct-list
+composition extend the one-link Bessel estimate to every spectator heat factor,
+including independent squared insertions. The original padded plaquette consumer
+now bounds its first-order angular term by the original q-squared angular energy;
+only the mixed Taylor budget retains a channel sum. This raw Haar weight is still
+**not the interacting variance**, and the changing-scale analytic estimate remains
+open. Four final narrow checks passed the constructive gate; no full-root audit.
+See the [full-family follow-up](audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md#full-family-angular-contraction-follow-up).
+
 The first channel-budget estimate is now checked: summing **all channels of
 one conditional heat factor** costs coefficient one, with untouched variables
 shared between the two source copies. This holds at every finite cutoff and
 `0 <= w <= 1`, including a head-independent squared insertion. It bounds the
 original raw Haar source norm, **not** the interacting partition or centered
-variance. Composition over the complete spectator family remains open; see the
+variance. Composition over the complete spectator family is now checked above; see the
 [one-link Bessel follow-up](audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md#one-link-conditional-bessel-follow-up).
 
 The original plaquette energy now has an [exact spectator-channel reduction](audits/AUDIT-PASSIVE-HEAT-CHANNEL-LOCALIZATION-2026-09-24.md).

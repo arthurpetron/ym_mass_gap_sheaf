@@ -216,3 +216,108 @@ repaired the drafts and performed all serialized checks. No new hole, axiom,
 analytic premise or canonical-field change was introduced. Semantic imports
 were added; no full-root build, full-tree audit, guard or progress-metric run
 was performed. CI remains disabled. Whole-project Clay target remains OPEN.
+
+## Full-family angular contraction follow-up
+
+2026-09-24 UTC, following `4143e37`. The previously open selected-block and
+finite-list joins are now checked, together with the ORIGINAL plaquette
+consumer. This is a finite coefficient-one estimate, not continuum closure.
+
+### Exact result and actual consumer
+
+For a distinct valid block list S, let the original computed heat channels
+be `(lambda_c,h_c)` and put `b_c=P_S(q*h_c)`. For supported q,r and r
+independent of every block in S, the new family theorem proves
+
+    sum_c lambda_c H[b_c^2*r^2] <= H[q^2*r^2].
+
+This holds for every finite cutoff K and 0<=w<=1, including an empty S.
+Only the coefficient is one: q,r and the channel data can depend on cutoff,
+nome, width, terminal depth and the chosen observable. No source locality,
+channel normalization or probability interpretation is assumed.
+
+Selected-block transport uses the actual coordinate transposition, exact
+channel weights and supported prefix equality of channel polynomials.
+Haar carrier equality then transports conditional projection squares.
+The family proof inducts through the literal Cartesian channel list; channel
+locality justifies pulling the remaining channel factor through each projection.
+
+For S-independent f, an angular derivative on S is coefficientwise zero.
+Every other angular derivative retains S-independence and is a valid r above.
+Summing all six planes and original blocks therefore gives
+
+    sum_c lambda_c angular(b_c,f) <= angular(q,f).
+
+The checked ORIGINAL padded-plaquette consumer now yields
+
+    E_original <= eps*angular(q,f)
+                  + eps^2*sum_c lambda_c pairBudget(b_c,b_c*f^2),
+    eps=1-w, q=P_fringe(V*g).
+
+The existing sufficient-cutoff and strict-nome guards remain on this energy
+consumer; the Bessel estimate alone needs neither that cutoff onset nor
+strict w<1. Original action, terminal messages, source, common partition and
+centering are not replaced. Only the first-order angular channel cost is
+contracted. The full mixed remainder channel sum is retained.
+
+| Declaration | Source | Scope |
+| --- | --- | --- |
+| `heatChannels_project_square_le_at` | `lean/YMGap/Continuum/SU2QuaternionSelectedHeatGramBessel.lean:325` | Arbitrary selected-block Bessel inequality. |
+| `productChannels_familyProject_square_le` | `lean/YMGap/Continuum/SU2QuaternionFamilyHeatGramBessel.lean:149` | Complete distinct-family coefficient-one bound. |
+| `productChannels_familyProject_weighted_square_le` | `lean/YMGap/Continuum/SU2QuaternionFamilyHeatGramBessel.lean:212` | Family-independent squared insertion retained. |
+| `channelSource_weightedAngularEnergy_le` | `lean/YMGap/Continuum/SU2QuaternionPassiveChannelAngularBudget.lean:153` | Full first-order angular sum contracts. |
+| `sourceEnergy_le_angular_add_channel_mixed_budget` | `lean/YMGap/Continuum/SU2QuaternionPassiveChannelAngularBudget.lean:185` | Original source-energy estimate with only the mixed budget still summed. |
+| `padded_plaquette_energy_le_angular_add_channel_mixed_budget` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPassiveChannels.lean:156` | Literal original-action, padded plaquette application. |
+
+### Remaining analytic frontier
+
+The raw q-squared Haar weight is NOT the original heat-weighted partition
+or SAME centered variance. No useful changing-scale temporal-energy/variance
+bound, nontrivial continuum response, EVERY-vector spatial/spacing gap,
+full SAME-theory continuum/QFT/YM/UV reconstruction, finite positive physical
+Hamiltonian mass, or every-group construction is supplied here.
+
+The existing family Bessel API does not directly control the mixed
+`pairBudget`: `leafAbsSum` at
+`lean/YMGap/Continuum/SU2QuaternionCyclicModeTaylor.lean:57` takes absolute
+mixed pairings on an input-dependent cyclic tree; `pairBudget` at `:266`
+weights those leaves by squared total Casimir. These are not the fixed
+independent squared insertions accepted by the new theorem. This observation
+is an API limitation, NOT a proof that no bound exists.
+
+An independently reviewed candidate next route retains the exact signed
+remainder BEFORE that absolute budget. `productPair_taylor` at
+`lean/YMGap/Continuum/SU2QuaternionCyclicModeTaylor.lean:271` identifies its
+actual operator expression. Diagonal remainder positivity already exists;
+exact-remainder polarization/Cauchy and a suitable retained-operator channel
+contraction are possible next proof tasks, NOT new proved results in this
+increment. Even those would still require a useful comparison with SAME
+variance for ONE justified changing-scale family (or direct response).
+
+### Verification and constructive boundary
+
+Final serialized monitored 4 GiB checks completed with exit 0:
+
+- `/tmp/ym-gap-selected-gram-bessel-check-3.log`: one gate;
+- `/tmp/ym-gap-family-gram-bessel-check-3.log`: two gates;
+- `/tmp/ym-gap-passive-angular-budget-check-3.log`: two gates;
+- `/tmp/ym-gap-original-family-angular-check-4.log`: five gates, four existing.
+
+All ten printed gates are within {propext, Quot.sound}; accepted logs contain
+no error, warning or sorryAx. Original-consumer check 3 compiled but exposed
+`Classical.choice` through the core `List.nodup_range`; it is NOT accepted
+evidence. The final proof instead uses the already constructive
+`CayleyParentInj.range_nodup` at `lean/YMGap/Continuum/CayleyParentInj.lean:124`.
+No source `sorry`, new axiom or analytic hypothesis was introduced.
+
+Family check 2 was refused before launch at the 12 GiB reserve; angular
+check 2 was stopped at 11.9 GiB available. Read-only telemetry confirmed
+recovery before resuming with the same one-worker 4 GiB cap and unchanged
+reserve. No unrelated process was killed or safety threshold weakened.
+
+Sol supplied selected-block and family drafts and reviewed the angular
+mathematics; root repaired/integrated them, proved the angular consumer and
+original specialization, and ran all checks serially. Existing semantic
+imports cover all new modules. No full-root build, full-tree audit, guard or
+progress-metric run was performed. No canonical field changed; CI remains
+disabled. The whole-project Clay target remains OPEN.
