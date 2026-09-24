@@ -25,6 +25,46 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original full-product diagonal remainder is nonnegative (2026-09-24 UTC)
+
+The exact original Taylor identity keeps `R(q,q*f^2)-R(q*f,q*f)`, but the
+second term now has a proved sign. A normalized character is the difference
+of two consecutive finite nome-one heat packets. Subtracting their checked
+cyclic expansions identifies its actual step with the computed branch.
+Finite Fubini identifies every valid complete degree path with a product of
+the original lower/upper character kernels, whose Gram positivity gives
+the nonnegative path pairing. Scalar remainder positivity then proves
+`SU2QuaternionCyclicDiagonalRemainder.pairRemainder_diagonal_nonnegative`.
+No joint orthogonality or commutation of Fischer projectors is assumed.
+
+**Actual consumer:**
+`BF4ExactSlabFixedSpatialSourceTaylor.energy_le_angular_add_mixed_quadratic`
+and its padded-plaquette specialization prove
+
+    E_original <= eps*sum_i H[q^2*Gamma_i(f)]
+                  + eps^2*pairBudget(q,q*f^2),
+    q=P_F(V*g), eps=1-w.
+
+This removes the separate diagonal budget, not the complete remainder. The
+original source, action, terminal messages, sufficient-cutoff guard and
+above-cutoff modes are retained. q^2 is not identified with the odd marginal.
+The nome-one evaluations are finite polynomial identities, not a continuum
+endpoint or a physical instance at w=1.
+
+**Next causal proposition:** useful control of this remaining mixed source
+budget and angular cost relative to SAME centered variance for ONE justified
+changing-scale observable family, or a useful direct sampled response.
+The separate EVERY-vector spatial/spacing estimate and full SAME-theory
+continuum/QFT/YM/UV, physical mass and every-group joins remain open. Do not
+repeat the sign proof or infer scaling uniformity from the eps^2 prefactor.
+
+Five final serialized 4 GiB checks passed twenty-eight permitted axiom gates.
+One check was refused before launch at the 12 GiB reserve; it was resumed
+only after memory recovery. No thresholds were changed, no new hole/axiom
+or canonical-field change, and no full-root build/audit/guard was run.
+Existing semantic consumer import covers all new modules. Evidence:
+`audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`, diagonal follow-up.
+
 ### SAME-carrier survival and necessary rate calibration (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialJointEnergySurvival` now proves the actual

@@ -357,3 +357,84 @@ logs contain no error/warning/sorryAx. Failed drafts are not verification
 evidence. The existing original-source import in `lean/YMGap.lean` covers
 the new dependencies. No full-root build/audit/guard, new hole/axiom or
 canonical-field change. CI remains unchanged (disabled).
+
+## Product-character diagonal remainder follow-up (2026-09-24 UTC)
+
+### Argument and actual consumer
+
+The checked sharper bound preserves the exact original identity
+
+    E_original = eps * sum_i H[q^2 * Gamma_i(f)]
+                 + R(q,q*f^2) - R(q*f,q*f),
+    q = P_F(V*g), eps = 1-w.
+
+Its new mathematical step is positivity of the DIAGONAL full-product
+remainder. Positivity of the scalar degree-path remainder alone does not
+establish this: the existing tree pairs each leaf against the original
+input, and one-head orthogonality does not prove positivity of those
+full-path pairings. No unproved commutation of Fischer projections is used.
+
+Instead, at nome one, the difference of consecutive finite heat packets is
+exactly the dimension-normalized character `(d+1)*chi_d`. Subtracting their
+already proved cyclic harmonic expansions identifies the actual character
+step with the computed degree-d branch. For each valid complete path,
+ordered finite Haar integration identifies the resulting cycle with the
+product of the corresponding original lower/upper character kernels.
+Representation-channel Gram positivity makes that endpoint quadratic
+nonnegative. This covers the ragged input-dependent path tree, repeated
+degrees, zero branches and degrees omitted by the heat cutoff.
+
+The final checked consumer removes only the diagonal budget:
+
+    E_original <= eps * sum_i H[q^2 * Gamma_i(f)]
+                  + eps^2 * pairBudget(q,q*f^2).
+
+The mixed source budget remains, with its actual nome/cutoff/width/depth
+dependence through q. No source stationarity, q^2=odd-marginal equality,
+SAME-variance estimate or scaling trajectory is assumed or obtained.
+ONE-family survival, EVERY-vector spatial/spacing gap, full SAME-theory
+QFT/YM/UV identification, physical mass, every group and Clay closure stay
+open. The existing computed sufficient-cutoff guard is unchanged; no cutoff
+dominating the source degree is added.
+
+### Declaration evidence
+
+- `characterProduct_quadratic_nonnegative`,
+  `lean/YMGap/Continuum/SU2QuaternionCharacterProductPositive.lean:139`.
+- `characterCycleStep_branch_carrier`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicCharacterSelection.lean:233`.
+- `characterIterate_diagonal_nonnegative`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicCharacterPositive.lean:178`.
+- `full_path_pairing_nonnegative`, `full_leafSum_diagonal_nonnegative`,
+  `pairRemainder_diagonal_nonnegative`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicDiagonalRemainder.lean:68`, `:102`, `:113`.
+- `sourceEnergy_le_angular_add_mixed_quadratic`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicDiagonalRemainder.lean:146`.
+- `energy_le_angular_add_mixed_quadratic`,
+  `padded_plaquette_energy_le_angular_add_mixed_quadratic`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceTaylor.lean:197`, `:218`.
+
+### Verification boundary
+
+Five final checks used the monitored launcher, one worker and a 4 GiB cap;
+all completed with terminal exit 0:
+
+- `/tmp/ym-gap-character-product-positive-check-3.log`: four gates;
+- `/tmp/ym-gap-character-selection-check-3.log`: seven gates;
+- `/tmp/ym-gap-character-cycle-positive-check-3.log`: four gates;
+- `/tmp/ym-gap-diagonal-remainder-check-2.log`: five gates;
+- `/tmp/ym-gap-original-mixed-source-taylor-check-1.log`: eight gates.
+
+All twenty-eight printed gates lie within {propext, Quot.sound}. Accepted
+logs contain no error/warning/sorryAx. Failed drafts are not evidence.
+The first attempt to check `SU2QuaternionCyclicCharacterPositive` was
+refused at preflight (exit 75): available memory reached the 12 GiB reserve.
+No compiler was launched for that attempt. Memory was checked again and
+recovered before verification resumed; no safety threshold was weakened.
+Sol supplied the channel-positivity proof and initial selector draft; the
+main agent completed selector cancellation, full-cycle positivity, diagonal
+remainder and actual consumer. Luna independently reviewed the final signs,
+normalization, ragged paths, nome-one algebraic use and scope.
+The existing original-source semantic import includes all new modules.
+No full-root build/audit/guard or progress-metric script was run; no new
+hole/axiom or canonical-field change. CI remains unchanged (disabled).

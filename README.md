@@ -7,6 +7,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The original temporal-energy estimate now has [only ONE remainder budget](audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md#product-character-diagonal-remainder-follow-up-2026-09-24-utc).
+Each complete computed degree path is realized by an actual product of
+normalized character kernels; their Gram positivity proves
+`R(q*f,q*f) >= 0`. The sharper bound is therefore
+`E <= (1-w)*sum_i H[q^2*Gamma_i(f)] + (1-w)^2*pairBudget(q,q*f^2)`.
+It retains the original source `q=P_F(V*g)`, action, cutoff and terminal
+messages, including modes above the cutoff. No commuting harmonic-projector
+family is assumed. Useful SAME-variance/scaling control of the remaining
+mixed source budget is still open; this is not continuum survival or a
+physical gap. Five narrow checks passed twenty-eight permitted gates after
+one safety-preflight refusal and memory recovery; no full-root audit.
+
 The SAME carrier now has [checked conditional survival and rate calibration](audits/AUDIT-SURVIVAL-QUANTIFIERS-2026-09-24.md#checked-same-carrier-survival-and-calibration-follow-up).
 For one centered state with squared norm N and `E_1 <= delta*N`, the budget
 `n*delta + theta <= 1` retains at least `theta*N` in its original response.

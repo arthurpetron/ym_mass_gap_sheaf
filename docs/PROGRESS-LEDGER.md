@@ -4,7 +4,30 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: SAME-carrier survival/calibration (2026-09-24 UTC)
+## Current increment: one mixed source remainder budget (2026-09-24 UTC)
+
+The original full-product diagonal Taylor remainder is now nonnegative.
+Finite nome-one cutoff subtraction identifies each computed branch with
+its actual normalized character step; full-cycle Fubini and product Gram
+positivity establish nonnegative original-input path pairings. This avoids
+assuming a commuting Fischer-projector family or joint orthogonality.
+
+The original slab and literal padded plaquette now satisfy
+`E <= eps*sum_i H[q^2*Gamma_i(f)] + eps^2*pairBudget(q,q*f^2)`, with the SAME
+q=P_F(V*g), action and terminal messages. The separate diagonal absolute
+budget is removed; the mixed budget is not discarded or controlled uniformly.
+Above-cutoff modes are still covered by the existing scalar cutoff witness.
+
+Next: a useful original energy/SAME-variance bound on ONE justified changing-
+scale family, separately from the EVERY-vector spatial/spacing gap. The
+continuum/QFT/YM/UV, physical-mass, every-group and Clay targets stay open.
+Five final serialized 4 GiB checks passed twenty-eight permitted gates.
+One safety refusal was followed by memory recovery, with unchanged limits.
+No full-root build/audit/guard/progress-metric run; existing semantic import
+covers the new modules. Evidence: diagonal follow-up in
+`audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`.
+
+## Previous increment: SAME-carrier survival/calibration (2026-09-24 UTC)
 
 The actual relative one-step energy now supplies a response fraction via
 `n*delta+theta<=1`, and the supplied norm floor supplies the SAME original

@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original energy with one mixed remainder budget (2026-09-24 UTC):**
+`SU2QuaternionCyclicDiagonalRemainder.pairRemainder_diagonal_nonnegative`
+realizes each valid full degree path by its original product-character Gram
+kernel. Finite nome-one prefix subtraction proves the branch selector; no
+commuting Fischer-projector family is assumed. The actual consumer
+`BF4ExactSlabFixedSpatialSourceTaylor.padded_plaquette_energy_le_angular_add_mixed_quadratic`
+retains q=P_F(V*g) and replaces the two-budget estimate by the single mixed
+budget `pairBudget(q,q*f^2)`. The same cutoff guard covers omitted modes.
+This does not bound that source-dependent quantity against SAME variance
+along changing scales. Five serialized 4 GiB leaves passed twenty-eight
+permitted gates; a safety-preflight refusal was followed by memory recovery,
+without weakening thresholds. No full-root build/audit/guard or Clay closure.
+
 **SAME-carrier conditional survival/calibration (2026-09-24 UTC):**
 `BF4ExactSlabFixedSpatialJointEnergySurvival.centered_response_floor` turns
 the supplied one-state relative energy and `n*delta+theta<=1` into an

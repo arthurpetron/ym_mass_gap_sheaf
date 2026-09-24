@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Full-product diagonal remainder positivity (2026-09-24 UTC)
+
+- **proved**: normalized character product Gram positivity; exact character
+  branch selection by finite nome-one cutoff subtraction; full-cycle Fubini
+  realization; nonnegative original-input pairing on every valid computed
+  path; `SU2QuaternionCyclicDiagonalRemainder.pairRemainder_diagonal_nonnegative`.
+  No commuting harmonic-projector family or cutoff dominating source degree
+  is assumed.
+- **actual consumer**:
+  `BF4ExactSlabFixedSpatialSourceTaylor.padded_plaquette_energy_le_angular_add_mixed_quadratic`
+  keeps the original full projected source and removes only the diagonal
+  budget. The upper bound retains `eps^2*pairBudget(q,q*f^2)`.
+- **open**: useful SAME-variance control of this mixed source budget and the
+  angular cost along ONE justified changing-scale family; independently the
+  EVERY-vector spatial/spacing gap, SAME-theory continuum/QFT/YM/UV, physical
+  mass and every compact simple group. No canonical field changed or hole added.
+- **verification**: five final serialized 4 GiB checks, twenty-eight gates
+  within {propext, Quot.sound}, no error/warning/sorryAx in accepted logs.
+  One preflight refusal preceded memory recovery; no threshold was weakened.
+  No full-root build/audit/guard. Exact evidence: diagonal follow-up in
+  `audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`.
+
 ## SAME-carrier survival and necessary rate calibration (2026-09-24 UTC)
 
 - **proved conditional machinery**: `BF4ExactSlabFixedSpatialJointEnergySurvival`
