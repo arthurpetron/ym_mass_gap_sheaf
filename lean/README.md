@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**SAME-carrier real-scalar algebra (2026-09-24 UTC):**
+`BF4ExactSlabFixedSpatialJointRealScalarAlgebra` proves scalar addition,
+multiplication, zero/one and negation laws for the existing `completedRealSmul`,
+with explicit scalar Cauchy data. Exact norm/distance scaling and a real action
+on the actual unit complement preserve the same pairing and discrete time.
+The scalar witness constructors are reused without substituting their legacy
+vector carrier. This is not arbitrary quotient-sequence completeness, full
+Hilbert/OS/QFT or a scaling theorem. One serialized 4 GiB check passed fourteen
+gates within {propext, Quot.sound}; no full-root build/audit/guard.
+
 **Error-free original kinetic alignment (2026-09-24 UTC):**
 `SU2QuaternionProductHeatExactAlignment` absorbs the finite fusion endpoint
 at a computed cutoff and proves a `6*(1-w)` chordal bound relative to the

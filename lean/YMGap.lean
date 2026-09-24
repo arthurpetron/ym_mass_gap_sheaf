@@ -4845,6 +4845,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialJointRangeApproximation
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointPresentedLimitLaws
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointNeumannInverse
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointNeumannBound
+-- Witnessed real-scalar laws on the same joint carrier; no full Hilbert/QFT closure.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialJointRealScalarAlgebra
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointVacuumProjection
 import YMGap.Continuum.BF4ExactSlabFixedSpatialJointTemporalEnergy
 import YMGap.Continuum.SU2InverseHeatRemainderUnbounded

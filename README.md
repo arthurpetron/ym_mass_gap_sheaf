@@ -7,6 +7,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The SAME all-nome reflected completion now has checked
+[witnessed real-scalar algebra](lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointRealScalarAlgebra.lean):
+addition/multiplication of scalars, negation, exact squared-norm/distance
+scaling, and scaling within the vacuum complement commuting with discrete
+time. Every scalar retains supplied Cauchy data; no quotient representative
+or modulus is selected. This fills an algebraic prerequisite, **not full
+Hilbert/OS/QFT reconstruction or the missing scaling estimates**. One focused
+check passed fourteen permitted axiom gates; no full-root audit.
+
 The original full heat product now has [error-free kinetic alignment](audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md#error-free-full-product-alignment-follow-up).
 A computed cutoff lets the last retained SU(2) fusion channel absorb the
 negative endpoint exactly. The resulting four-coordinate link displacement

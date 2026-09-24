@@ -25,6 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Witnessed real-scalar algebra on the SAME completion (2026-09-24 UTC)
+
+`BF4ExactSlabFixedSpatialJointRealScalarAlgebra` proves the previously missing
+scalar-addition, product, zero/one and negation laws of the existing actual
+`completedRealSmul`. Separation by the SAME completed pairing proves vector
+equalities; supplied scalar Cauchy moduli are composed, not selected from
+quotient reals. The concrete consumers are exact squared-distance scaling and
+`unitComplementRealSmul`, which commutes with the actual discrete time map.
+Only scalar witness constructors are reused from the older plaquette algebra;
+the vector carrier remains the all-nome `JointCompletion` throughout.
+
+This fills an independent algebraic prerequisite of the Hilbert construction,
+not full real/complex Hilbert completeness, reflected OS/QFT reconstruction,
+or a continuum estimate. The analytic priority remains the SAME signed
+temporal energy/variance estimate for a useful changing-scale family and the
+separate all-vector spatial/spacing bound. No canonical field or hole changed.
+One serialized 4 GiB leaf passed fourteen gates within {propext, Quot.sound},
+with no error/warning/sorryAx. Log:
+`/tmp/ym-gap-joint-real-scalar-algebra-check-3.log`.
+Semantic import added; no full-root build/audit/guard.
+
 ### Exact finite fusion cancellation in the ORIGINAL product (2026-09-24 UTC)
 
 **Checked improvement:** `SU2HeatFusionCutoffPositive.endpoint_coeff_le`

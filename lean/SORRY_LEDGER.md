@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## Witnessed real-scalar algebra on the SAME completion (2026-09-24 UTC)
+
+- **proved**: `BF4ExactSlabFixedSpatialJointRealScalarAlgebra` supplies scalar
+  addition/multiplication, zero/one, negation/subtraction and exact squared
+  norm/distance scaling for the existing all-nome joint real action.
+- **actual consumer**: `unitComplementRealSmul` stays in the SAME completed
+  vacuum complement; `unitComplementTime_realSmul` commutes with discrete time.
+  Scalar Cauchy data are explicit; legacy scalar-only constructors do not
+  replace the vector carrier.
+- **open**: full Hilbert/OS/QFT, the SAME energy/variance scaling estimates,
+  continuum survival, physical mass and every group. No canonical field,
+  hole or axiom changed; no quotient representative/modulus is selected.
+- **verification**: one serialized 4 GiB leaf, fourteen permitted gates,
+  no errors/warnings/sorryAx in `/tmp/ym-gap-joint-real-scalar-algebra-check-3.log`.
+  Semantic import added; no full-root build/audit/guard.
+
 ## Error-free full-product and physical kinetic alignment (2026-09-24 UTC)
 
 - **proved**: `SU2HeatFusionCutoffPositive.endpoint_coeff_le` absorbs the
