@@ -1,5 +1,40 @@
 # Sorry Ledger
 
+## Original growing-word square heat and complete signed formula CLOSED; A03 comparison OPEN (2026-09-24 UTC)
+
+- **proved original quadratic step**: `SU2QuaternionSelectedPairQuadraticHeat`
+  and `SU2QuaternionSelectedLinearHeatProduct` keep arbitrary supported,
+  source-independent coefficients and spectators on the same Haar carrier.
+  `SU2QuaternionIndependentTailHeat.scalar_square_transmission` retains the
+  actual tail norm; `.spinTwo_transmission` uses its genuine arbitrary-insertion
+  Haar-unit relation. `SU2QuaternionSpinTwoWordStep.spinTwo_word_step` handles
+  both orientations without commuting or dropping quaternion letters.
+- **proved arbitrary-word square image**: `SU2QuaternionProductHeatWilsonSpinTwo.pairing_with_prefix`
+  retains the unit upper prefix, its explicit lower pin, and all remaining
+  heat factors. `.productMap_spinTwo_word` gives w^(8*perimeter), and
+  `.productMap_fundamental_square` gives 1+w^(8*perimeter)*chi_2, for actual
+  distinct selected blocks, K>=2, and EVERY supported final test.
+- **proved actual terminal consumer**: `BF4DyadicWilsonSquareQuadraticHeat.paddedSquare_square_fullRange`
+  derives b=w^(32*L) for the actual padded square. `.paddedSquare_square_moment`
+  gives H[q*q*P(f*f)]=b*M+(1-b)*N. `.paddedSquare_terminal_quadratic_identity`
+  proves 4E+D=2*((1-2*a+b)*M+(1-b)*N), a=w^(12*L), for the ORIGINAL terminal
+  message and complete projected q, with M=H[q*q*f*f] and N=H[q*q].
+- **open**: useful complete signed cost/SAME interacting centered-variance
+  comparison or direct response along a justified scaling family. N has not
+  been identified with a different partition; no interacting eigenmode,
+  stronger completed scaling bound or survival conclusion is asserted.
+  EVERY-state scaling, full Hilbert/OS/QFT, SAME continuum/YM/UV, physical
+  Hamiltonian/mass and every group remain open.
+- **verification**: six final narrow checks, nineteen permitted gates (one
+  empty; thirteen public and six private diagnostics), one worker, 2 GiB cap,
+  unchanged 12 GiB reserve and default elaboration limits. Initial failed
+  drafts were repaired before acceptance, including removal of a
+  choice-dependent dependent-match helper. No source hole, new axiom,
+  analytic premise or canonical-field change. One semantic-root import
+  updated; no full-root build/audit/guard. Schema 1 snapshot 19 adds partial
+  A03 evidence only; exact chart unchanged. Evidence:
+  `audits/AUDIT-DYADIC-WILSON-SQUARE-HEAT-2026-09-24.md`.
+
 ## Original growing-word fundamental heat and signed cost CLOSED; square image/A03 OPEN (2026-09-24 UTC)
 
 - **proved transmission**: `SU2QuaternionProductHeatWilsonWord.pairing_with_prefix`

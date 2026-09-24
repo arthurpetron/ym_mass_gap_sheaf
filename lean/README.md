@@ -12,7 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original growing-word heat and signed cost (2026-09-24 UTC):**
+**Original growing-word square heat and complete signed cost (2026-09-24 UTC):**
+`SU2QuaternionProductHeatWilsonSpinTwo` proves original spin-two transmission
+with w^(8*perimeter), preserving ordered prefixes, remaining heat factors and
+arbitrary supported tests. Its fundamental-square image is 1+w^(8*perimeter)*chi_2.
+`BF4DyadicWilsonSquareQuadraticHeat` derives b=w^(32*L) for the actual padded
+square and evaluates the full original terminal formula:
+4E+D=2*((1-2*w^(12*L)+b)*H[q*q*f*f]+(1-b)*H[q*q]).
+The actual projected source q and signed correction D remain. Useful SAME
+interacting variance/scaling control, physical survival and continuum closure
+are not supplied. Six narrow checks passed nineteen permitted gates;
+no full-root audit. Evidence:
+`audits/AUDIT-DYADIC-WILSON-SQUARE-HEAT-2026-09-24.md` at repository root.
+
+**Preceding original growing-word heat and signed cost (2026-09-24 UTC):**
 `SU2QuaternionProductHeatWilsonWord` proves exact fundamental transmission
 with multiplier w^(3*perimeter), preserving quaternion order and arbitrary
 supported tests. `BF4DyadicWilsonSquareNodup` and `HeatImage` derive the actual

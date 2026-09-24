@@ -25,7 +25,56 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Original growing-word heat transmission and signed source cost (2026-09-24 UTC)
+### Original growing-word square heat and complete signed terminal formula (2026-09-24 UTC)
+
+`SU2QuaternionProductHeatWilsonSpinTwo.productMap_spinTwo_word` proves the
+original selected product heat transmits the label-two character by
+w^(8*perimeter) for every distinct-link ordered word and K>=2.
+`.productMap_fundamental_square` uses chi_1^2=1+chi_2 to compute the full
+square image. These are supported-Haar identities, not literal polynomial
+equalities or interacting-transfer eigenidentities.
+
+The one-link proof keeps the actual quaternion-tail norm in its quadratic
+trace channel. Only the original arbitrary-insertion Haar-unit relation
+cancels that trace for chi_2. Reversed links are handled by conjugating the
+retained tail. The induction keeps the original order, upper prefix,
+remaining heat factors and every supported final test. All unit/support/
+independence premises are constructed for the actual word.
+
+`BF4DyadicWilsonSquareQuadraticHeat.paddedSquare_square_fullRange` specializes
+this to the literal growing square, L=2^scale, with b=w^(32*L).
+`.paddedSquare_square_moment` retains every supported q and gives
+H[q*q*P(f*f)]=b*M+(1-b)*N, M=H[q*q*f*f], N=H[q*q]. Its
+`.paddedSquare_terminal_quadratic_identity` consumes the ORIGINAL terminal
+message and complete projected endpoint source:
+
+    4*energy + sourceIncrementCost = 2*((1-2*a+b)*M+(1-b)*N),
+    a=w^(12*L), b=w^(32*L).
+
+No source term, sign, correction or normalization is discarded. The identity
+holds at arbitrary rational w with K>=2; it asserts no positivity of a
+truncated kernel. The square-image producer that was missing at the preceding
+checkpoint is now proved and consumed by the original energy formula.
+
+**Next causal A03 proposition:** control this COMPLETE signed expression
+against the SAME interacting centered variance (or prove a direct response
+lower bound) along a justified changing-scale trajectory. N is the original
+projected-source Haar square, not a silently substituted physical partition.
+The new identity alone does not supply that comparison or improve the
+completed scaling bound. EVERY-state spatial/spacing control, full
+Hilbert/OS/QFT, SAME continuum/YM/UV, physical Hamiltonian/mass and every
+compact simple group remain open.
+
+Six final narrow checks passed nineteen printed gates within
+{propext, Quot.sound}, one empty (thirteen public gates and six local helper
+diagnostics). One worker, 2 GiB cap, default elaboration limits and unchanged
+12 GiB reserve. No source hole, new axiom, analytic premise or canonical-field
+change. One semantic-root import updated; no full-root build/audit/guard.
+Schema 1 snapshot 19 records partial A03 evidence only; exact chart block,
+labels, layout, scopes and all goal-node markers are unchanged. Evidence:
+`audits/AUDIT-DYADIC-WILSON-SQUARE-HEAT-2026-09-24.md`.
+
+### Previous checkpoint: Original growing-word heat transmission and signed source cost (2026-09-24 UTC)
 
 `SU2QuaternionProductHeatWilsonWord.productMap_fundamental_word` proves
 P(chi)=w^(3*perimeter)*chi in the original supported-Haar quotient for every

@@ -10,16 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked growing-word heat and signed-energy identity:** the original
-product heat multiplies a distinct-link fundamental Wilson word by
-`w^(3*perimeter)`, retaining arbitrary supported tests. The actual growing
-square supplies every distinctness and padding premise. Its complete terminal
-source now satisfies an exact signed-energy formula in which the fundamental
-cross term is evaluated and the square heat image remains explicit. This is
-not an eigenvalue of the interacting transfer, a useful relative-variance
-bound, or continuum survival. Four narrow checks passed thirteen permitted
-gates; no full-root audit. See the
-[heat and signed-cost audit](audits/AUDIT-DYADIC-WILSON-HEAT-SIGNED-COST-2026-09-24.md).
+**New checked complete growing-word square heat image:** the original product
+heat sends a distinct-link Wilson character square to
+`1 + w^(8*perimeter)*chi_2`, retaining every supported test. For the actual
+growing square this evaluates the remaining term in its original terminal
+energy: `4E+D = 2*((1-2a+b)*M+(1-b)*N)`, with `a=w^(12L)`, `b=w^(32L)` and
+both source moments retained. This is not an interacting-transfer eigenvalue,
+a useful relative-variance bound, or continuum survival. Six narrow checks
+passed nineteen permitted gates; no full-root audit. See the
+[square heat audit](audits/AUDIT-DYADIC-WILSON-SQUARE-HEAT-2026-09-24.md).
 No canonical chart node changed status.
 
 **Preceding checked nonzero Wilson-square family:** every growing dyadic square

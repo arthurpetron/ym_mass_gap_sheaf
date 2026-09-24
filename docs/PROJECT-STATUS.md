@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **18**, 2026-09-24 UTC. Source checkpoint:
-the original growing-word heat and signed-cost milestone committed with this
+Chart schema: **1**. Snapshot: **19**, 2026-09-24 UTC. Source checkpoint:
+the original growing-word square heat and complete signed-cost milestone committed with this
 snapshot; verification is recorded in
-`audits/AUDIT-DYADIC-WILSON-HEAT-SIGNED-COST-2026-09-24.md`.
+`audits/AUDIT-DYADIC-WILSON-SQUARE-HEAT-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -212,9 +212,27 @@ derive strict-padding independence and the literal square multiplier w^(12*L).
 `BF4DyadicWilsonSquareSignedCost.paddedSquare_terminal_young_identity`
 (`lean/YMGap/Continuum/BF4DyadicWilsonSquareSignedCost.lean:86`) retains
 the original terminal source and correction: 4E+D=2*((1-2*w^(12*L))*M+S),
-where M=H[q*q*f*f] and S=H[q*q*P(f*f)]. The square image S, useful SAME
+where M=H[q*q*f*f] and S=H[q*q*P(f*f)]. The square image S was unresolved
+at snapshot 18; the next paragraph records its producer. The useful SAME
 interacting variance/scaling comparison and A03 remain open. This bare
 kinetic image is not an eigenidentity for the interacting completed transfer.
+
+Additional partial A03 evidence:
+`SU2QuaternionProductHeatWilsonSpinTwo.productMap_spinTwo_word` and
+`.productMap_fundamental_square`
+(`lean/YMGap/Continuum/SU2QuaternionProductHeatWilsonSpinTwo.lean:242`, `:263`)
+prove the original label-two multiplier w^(8*perimeter) and full fundamental
+square image 1+w^(8*perimeter)*chi_2, retaining ordered prefixes, genuine
+Haar-unit certificates and every supported final test. The actual square
+specialization `BF4DyadicWilsonSquareQuadraticHeat.paddedSquare_square_fullRange`
+and `.paddedSquare_square_moment`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareQuadraticHeat.lean:83`, `:120`)
+give b=w^(32*L) and S=b*M+(1-b)*N, N=H[q*q]. Its
+`.paddedSquare_terminal_quadratic_identity` (`:178`) now proves
+4E+D=2*((1-2*a+b)*M+(1-b)*N), a=w^(12*L), with the actual terminal message,
+complete projected source and signed correction. No source normalization,
+useful SAME centered-variance/scaling bound or interacting eigenmode is
+inferred. A03 stays open; no recorded face-span or Wilson carrier is replaced.
 
 ## Activity and changes since the preceding chart
 
@@ -242,9 +260,12 @@ kinetic image is not an eigenidentity for the interacting completed transfer.
   direct-response route; no sharper estimate is yet claimed.
   The exact fundamental product-heat image is now proved for arbitrary
   distinct-link words and consumed by the original terminal signed cost
-  of the growing square. Next: its actual square heat image and useful
-  complete signed-cost/SAME variance control, or direct response. No
-  interacting eigenvalue or stronger scaling estimate is asserted.
+  of the growing square. Its actual square heat image is now proved and
+  consumed in the complete signed formula 4E+D=2*((1-2*a+b)*M+(1-b)*N).
+  Next: useful complete signed-cost/SAME centered-variance control along
+  a justified scaling family, or direct response. N remains the original
+  projected-source Haar square; no partition substitution, interacting
+  eigenvalue or stronger completed scaling estimate is asserted.
 - Parallel node: **J02**. The literal all-nome Wilson completion now has
   proved rational linear laws, bilinear pairing, linear time and positive
   definiteness. Signed finite time combinations retain every original
@@ -258,7 +279,7 @@ kinetic image is not an eigenidentity for the interacting completed transfer.
   Full Hilbert/QFT, scaling survival and the continuum join remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--17; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--18; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -302,3 +323,4 @@ kinetic image is not an eigenidentity for the interacting completed transfer.
 | 1 / 16 | 2026-09-24 | Original selected-action variance with actual mean/partition, exact moving placement, and positive norm floor/nonzero dyadic-square states on the SAME all-nome completion. Partial A03/J02 only; changing-scale survival and cubic-loss control remain open. No carrier substitution, chart-block or goal-node status change. |
 | 1 / 17 | 2026-09-24 | The proposed multi-link reset floor cannot pay the existing cubic response-loss budget, even for every actual selected sublist of square edges. Certificate obstruction only; next A03 analysis repointed to signed relative loss or direct response. No actual-variance upper bound, carrier substitution, chart-block or goal-node status change. |
 | 1 / 18 | 2026-09-24 | Exact fundamental product-heat image for arbitrary distinct-link words, actual growing-square distinctness/fringe independence, and original terminal signed-cost consumer. The square heat image and useful SAME variance/scaling comparison remain open. Partial A03 only; no interacting eigenvalue, carrier substitution, chart-block or goal-node status change. |
+| 1 / 19 | 2026-09-24 | Exact label-two and full fundamental-square product-heat images for arbitrary distinct-link words, specialized to the actual growing square and consumed in its complete signed terminal-energy formula. Useful SAME interacting centered-variance/scaling comparison remains open. Partial A03 only; no interacting eigenvalue, carrier substitution, chart-block or goal-node status change. |
