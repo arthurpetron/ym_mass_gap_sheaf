@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## ORIGINAL energy geometric budget CLOSED; SAME variance comparison OPEN (2026-09-24 UTC)
+
+- **proved**: `SU2HeatPlaquetteGeometricBudget` bounds the signed coefficients
+  using the existing curvature cancellation. `PlaquetteSourceGeometry` proves
+  positivity of raw A=H[q^2] and C=H[q^2*(4-f^2)] using the actual plaquette
+  square-cap certificate, and identifies the original collected channel cost.
+- **actual consumer**: `SourceYoungGeometricBudget.padded_terminal_plaquette_signed_geometric_budget`
+  gives 4E+D<=16eps*C+1920eps^2*A for the COMPLETE original projected terminal
+  source. Its positive-heat corollary gives 2E<=8eps*C+960eps^2*A.
+- **open**: these source-dependent raw moments are not the SAME interacting
+  variance or partition. Their required scaling comparison, ONE-state survival,
+  EVERY-vector spatial/spacing control and all continuum/QFT/YM/UV/mass/group
+  joins remain OPEN. No new hole, axiom, analytic premise or canonical field.
+- **verification**: three final narrow serialized 2 GiB checks, 13 permitted
+  gates; namespace errors repaired, no changed limits or safety interruption.
+  No full-root audit/guard. Evidence:
+  `audits/AUDIT-SOURCE-GEOMETRIC-BUDGET-2026-09-24.md`.
+
 ## Sharp complex pairing on the SAME joint completion CLOSED; J02 OPEN (2026-09-24 UTC)
 
 - **proved**: `JointComplexCauchySchwarz.inner_cauchySchwarz` supplies constant-one

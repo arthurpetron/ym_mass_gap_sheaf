@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: sharp complex pairing reaches the SAME completion (2026-09-24 UTC)
+## Current increment: geometric second-order budget for ORIGINAL energy (2026-09-24 UTC)
+
+The full original-source plaquette cost now has the quantitative bound
+4E+D<=16eps*H[q^2*(4-f^2)]+1920eps^2*H[q^2], eps=1-w. The favorable
+increment correction is retained; its positive-kernel corollary bounds 2E.
+The proof uses exact character images and curvature cancellation before
+bounding either signed coefficient, and the actual square-cap certificate
+supplies nonnegativity. No source derivatives or new analytic premise remain
+in this bound. It is not a normalized or scaling-uniform energy bound.
+
+The missing SAME-interacting-variance comparison remains A03; no goal-node
+marker changes. Three final narrow checks passed 13 permitted gates at
+unchanged limits; no safety interruption, full-root audit/guard or new hole.
+Evidence: `audits/AUDIT-SOURCE-GEOMETRIC-BUDGET-2026-09-24.md`.
+
+## Previous increment: sharp complex pairing reaches the SAME completion (2026-09-24 UTC)
 
 The actual completed complex pairing now satisfies constant-one
 Cauchy--Schwarz. The finite proof uses a rational phase-aligned vector;

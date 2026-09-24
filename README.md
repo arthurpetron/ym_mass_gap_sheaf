@@ -10,7 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked Hilbert-space prerequisite:** sharp complex Cauchy--Schwarz now
+**New checked original-energy estimate:** for the complete projected terminal
+source q and fundamental plaquette f, write eps=1-w, A=H[q^2] and
+C=H[q^2*(4-f^2)]. The original signed energy obeys
+`4E+D <= 16*eps*C + 1920*eps^2*A`, with its source-increment correction D
+retained. The bound uses no source derivatives. These raw moments still need
+control relative to the **same interacting centered variance**; no scaling
+or continuum gap is claimed. See the
+[geometric energy audit](audits/AUDIT-SOURCE-GEOMETRIC-BUDGET-2026-09-24.md).
+
+**Checked Hilbert-space prerequisite:** sharp complex Cauchy--Schwarz
 holds on the **same existing completed reflected carrier**, and its actual
 discrete-time pairing-continuity consumer has an explicit constant-one bound.
 This does not change the fixed-width gap, establish scaling control, or close

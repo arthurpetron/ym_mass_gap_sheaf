@@ -25,6 +25,43 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Derivative-free geometric ORIGINAL energy budget (2026-09-24 UTC)
+
+The primary branch now has a quantitative consequence of the exact plaquette
+images. For the COMPLETE source q=P_fringe(V*g_n), let eps=1-w,
+A=H[q^2], and C=H[q^2*(4-f^2)] for the actual fundamental plaquette f.
+`BF4ExactSlabFixedSpatialSourceYoungGeometricBudget` proves
+
+    4*E_original + D <= 16*eps*C + 1920*eps^2*A,
+
+and, under the actual positive-heat cutoff guard,
+
+    2*E_original <= 8*eps*C + 960*eps^2*A.
+
+The argument retains the signed channel combination BEFORE bounding it.
+Writing gamma=5-8w^12+3w^32 and theta=2w^12-1-w^32 gives
+J=theta*C+gamma*A. Existing curvature control gives 0<=gamma<=960*eps^2;
+3*theta=2*(1-w^12)-gamma gives theta<=8*eps. The actual plaquette square
+certificate proves C>=0, including when theta is negative. No derivative of
+q, cutoff/degree-dependent Casimir norm, stationary-source premise, or new
+analytic assumption is required. This is not asserted sharper for every
+source than every preceding estimate.
+
+**Next analytic join remains OPEN:** control this COMPLETE signed expression
+against the SAME interacting centered variance along a justified changing-scale
+family, or prove the family's response directly. A and C are raw q-squared
+moments, not q*P(q) moments; neither their ratio to the original partition nor
+their cutoff/depth/width behavior is controlled here. Retaining the geometric
+weight and D is useful information, not a proof of that comparison. ONE-state
+survival, EVERY-vector scaling, SAME continuum/QFT/YM/UV, physical mass and
+every group remain open. No canonical chart goal-node status change.
+
+Three final narrow serialized 2 GiB checks passed 13 permitted gates. Missing
+namespace references were repaired; the final proofs use default elaboration
+limits, with no safety interruption or raised machine limits this turn.
+Semantic import added; no full-root build/audit/guard. Evidence:
+`audits/AUDIT-SOURCE-GEOMETRIC-BUDGET-2026-09-24.md`.
+
 ### Sharp complex pairing on the SAME completion (2026-09-24 UTC)
 
 The parallel J02 prerequisite now reaches its actual consumer:

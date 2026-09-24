@@ -4899,6 +4899,8 @@ import YMGap.Continuum.SU2QuaternionSpinTwoHeatTransmission
 import YMGap.Continuum.SU2QuaternionPlaquetteYoungCost
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoungExplicit
 import YMGap.Continuum.SU2QuaternionPositiveSourceVarianceFence
+-- Original plaquette energy: geometric O(1-w) weight and zeroth-order O((1-w)^2) remainder.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoungGeometricBudget
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

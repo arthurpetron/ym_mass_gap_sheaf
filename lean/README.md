@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original-energy geometric budget (2026-09-24 UTC):**
+`BF4ExactSlabFixedSpatialSourceYoungGeometricBudget.padded_terminal_plaquette_signed_geometric_budget`
+proves 4E+D<=16eps*C+1920eps^2*A, where A=H[q^2], C=H[q^2*(4-f^2)],
+eps=1-w, and q is the complete ORIGINAL projected terminal source. The
+positive-heat version gives 2E<=8eps*C+960eps^2*A. No source derivatives
+or new analytic premise are used; SAME interacting-variance/scaling control
+remains open. Three narrow checks passed 13 permitted gates; no full-root
+audit/guard. See `audits/AUDIT-SOURCE-GEOMETRIC-BUDGET-2026-09-24.md`.
+
 **Sharp complex pairing on the SAME completion (2026-09-24 UTC):**
 `BF4ExactSlabFixedSpatialJointComplexCauchySchwarz.inner_cauchySchwarz`
 and `BF4ExactSlabFixedSpatialJointComplexSharpContinuity.time_pairing_converges`

@@ -1,8 +1,8 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **2**, 2026-09-24 UTC. Source checkpoint:
-the sharp-complex-pairing milestone committed with this snapshot; verification
-is recorded in `audits/AUDIT-SHARP-COMPLEX-PAIRING-2026-09-24.md`.
+Chart schema: **1**. Snapshot: **3**, 2026-09-24 UTC. Source checkpoint:
+the original-source geometric-budget milestone committed with this snapshot;
+verification is recorded in `audits/AUDIT-SOURCE-GEOMETRIC-BUDGET-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -105,8 +105,11 @@ full-tree build or full axiom audit.
 
 ## Activity and changes since the preceding chart
 
-- Primary active node: **A03**. The checked diagnostic in `fa0cd1f` excludes
-  a positivity-only bare-rate variance comparison; A03 remains `[ ]`.
+- Primary active node: **A03**. The original terminal plaquette now has a
+  checked derivative-free geometric budget retaining the signed correction:
+  `4E+D <= 16*(1-w)*H[q^2*(4-f^2)] + 1920*(1-w)^2*H[q^2]`.
+  Its raw source moments are not the SAME interacting variance, so A03 remains
+  `[ ]`. The positivity-only shortcut remains excluded by `fa0cd1f`.
 - Parallel node: **J02**. Sharp complex pairing work supplies prerequisites;
   `JointComplexCauchySchwarz.inner_cauchySchwarz` now reaches the SAME completed
   carrier, and `JointComplexSharpContinuity.time_pairing_converges` supplies
@@ -114,7 +117,7 @@ full-tree build or full axiom audit.
   `[ ]`; no continuum, full-QFT or physical-mass closure is claimed.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshot 1; this snapshot records only new proof evidence.
+  unchanged from snapshots 1 and 2; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -142,3 +145,4 @@ full-tree build or full axiom audit.
 |---|---|---|
 | 1 / 1 | 2026-09-24 | Freeze last displayed chart; add permanent IDs, fixed meanings and evidence rules. No goal-node status change. |
 | 1 / 2 | 2026-09-24 | Sharp complex Cauchy--Schwarz and explicit matrix-coefficient consumer on the SAME completion. Partial J02 evidence only; no chart-block or goal-node status change. |
+| 1 / 3 | 2026-09-24 | Quantitative original-source geometric energy budget with signed correction retained. Partial A03 evidence only; SAME variance/scaling comparison open. No chart-block or goal-node status change. |
