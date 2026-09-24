@@ -25,7 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Actual source-Young identity; raw-weight comparison still OPEN (2026-09-24 UTC)
+### Actual selected-link label-two heat image (2026-09-24 UTC)
+
+`SU2QuaternionSpinTwoHeatTransmission.selectedCharacterTwo_heat_pairing`
+now proves the actual selected-link transmission with factor w^8, for K>=2,
+every orientation, and arbitrary supported head-independent spectators on
+any carrier with at least five blocks. The computed retained substitution,
+head-fixing harmonic transport and SAME-Haar radius elimination are proved;
+neither harmonicity of the ordinary character nor free coefficient equality
+with a radius-free polynomial is assumed.
+
+**Next finite join:** expose five arbitrary physical indices, compose the
+four link transmissions, then use chi_1^2=1+chi_2 and the actual constant
+image to identify P(f^2) in the existing source-Young moment consumer.
+The full w^32 product-map image remains OPEN at this checkpoint. Completing
+it simplifies J but does not control the complete signed energy relative
+to the SAME interacting variance. q=P_fringe(V*g) here denotes Haar
+projection, not fringe heat. ONE-state changing-scale survival,
+EVERY-vector scaling, SAME continuum/QFT/YM/UV, physical mass and all groups
+remain OPEN. No canonical field or analytic premise changed.
+
+Four final narrow checks passed 17 permitted gates. A startup reserve refusal
+was followed by source review, observed recovery and a serialized retry at
+unchanged limits. Semantic import added; no full-root build/audit/guard.
+Evidence: `audits/AUDIT-SELECTED-SPIN-TWO-HEAT-2026-09-24.md`.
+
+### Previous checkpoint: source-Young identity; raw-weight comparison OPEN (2026-09-24 UTC)
 
 The previously proposed identity is now checked on the actual product heat:
 `4E+D=2J`, where J=Hxy[K q(x)^2(f(x)-f(y))^2] and

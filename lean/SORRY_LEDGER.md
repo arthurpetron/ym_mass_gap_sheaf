@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Selected-link label-two heat image CLOSED; four-link join OPEN (2026-09-24 UTC)
+
+- **proved**: `SU2QuaternionSpinTwoHeatTransmission.selectedCharacterTwo_heat_pairing`
+  computes actual relative-heat transmission with factor w^8, K>=2, every
+  orientation and arbitrary supported head-independent spectators. Structural
+  substitution, head-fixing harmonic transport and prefix-sensitive padding
+  preserve the original carrier. Radius factors are removed only through
+  SAME-Haar identities, not coefficient equality.
+- **consumer / residue**: the actual P(f^2) term in
+  `BF4ExactSlabFixedSpatialSourceYoung.projected_young_moment_identity`.
+  Arbitrary-index placement and four-step product-map composition remain open;
+  no full w^32 image or SAME-variance estimate is claimed. ONE-state survival,
+  EVERY-vector scaling and all continuum/QFT/YM/UV/mass/group joins remain open.
+- **verification**: four narrow checks passed 17 permitted gates. One startup
+  reserve refusal, then recovery and serialized retry at unchanged limits.
+  No source hole, axiom, analytic premise or canonical-field change; no
+  full-root audit/guard. Evidence:
+  `audits/AUDIT-SELECTED-SPIN-TWO-HEAT-2026-09-24.md`.
+
 ## Original-source Young identity CLOSED; variance comparison OPEN (2026-09-24 UTC)
 
 - **proved**: `SU2QuaternionProductHeatSourceYoung` gives the exact

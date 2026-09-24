@@ -7,6 +7,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The **selected-link label-two heat image is now checked**, including all
+plaquette orientations and arbitrary supported spectators. Its exact factor
+is w^8; the proof computes the retained coordinate image and removes auxiliary
+radii only in the original Haar carrier. Composing four links to identify
+the full squared-plaquette heat image remains open, as does its comparison
+with the interacting variance. Four narrow checks passed 17 permitted gates;
+no full-root audit. See the
+[selected-link heat audit](audits/AUDIT-SELECTED-SPIN-TWO-HEAT-2026-09-24.md).
+
 The **original plaquette energy now has an exact source-Young identity**,
 `4E+D=2J`, retaining a nonnegative source-increment correction D. The checked
 bound `2E<=J` has no source derivatives, and J is expressed through the ACTUAL

@@ -4891,6 +4891,8 @@ import YMGap.Continuum.SU2QuaternionAngularOnlyEnergyFence
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoung
 -- Scalar coefficient bounds only; no four-link spin-two heat image is assumed.
 import YMGap.Continuum.SU2HeatFundamentalIncrementBudget
+-- Actual selected-link label-two image; four-link product-map composition remains open.
+import YMGap.Continuum.SU2QuaternionSpinTwoHeatTransmission
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

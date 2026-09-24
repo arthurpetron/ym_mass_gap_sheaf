@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual source-Young identity and moment consumer (2026-09-24 UTC)
+## Current increment: actual selected-link label-two heat image (2026-09-24 UTC)
+
+The actual relative heat transmits the selected label-two plaquette character
+with factor w^8, K>=2, every orientation and arbitrary supported spectators
+independent of the selected link. The proof computes the retained image,
+transports harmonicity through head-fixing swaps, and removes radii only
+inside the SAME Haar carrier. Trailing-zero padding is handled explicitly.
+
+Next: arbitrary-index placement and four transmissions to identify the
+actual P(f^2) needed by source-Young. The full product-map image is still
+open; its completion would simplify J, not establish SAME-variance/scaling
+control. Four narrow checks passed 17 permitted gates after a startup
+reserve refusal and observed recovery. No full-root audit, new source hole,
+analytic premise or canonical-field change. Evidence:
+`audits/AUDIT-SELECTED-SPIN-TWO-HEAT-2026-09-24.md`.
+
+## Previous increment: actual source-Young identity and moment consumer (2026-09-24 UTC)
 
 The original action now satisfies `4E+D=2J`, with its complete projected
 source q and exact product kernel retained. Positive heat proves D>=0 and

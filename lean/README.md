@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Actual selected-link label-two heat image (2026-09-24 UTC):**
+`SU2QuaternionSpinTwoHeatTransmission.selectedCharacterTwo_heat_pairing`
+proves the w^8 transmission for K>=2 with every orientation and arbitrary
+supported head-independent spectators. The retained substitution is computed;
+radius removal uses the SAME Haar carrier, not coefficient equality.
+The four-link w^32 image and signed-energy/SAME-variance scaling bound remain
+open. Four narrow checks passed 17 permitted gates after a startup reserve
+refusal and recovery; no new hole/axiom or full-root audit. Evidence:
+`audits/AUDIT-SELECTED-SPIN-TWO-HEAT-2026-09-24.md`.
+
 **Original-source Young identity (2026-09-24 UTC):**
 `BF4ExactSlabFixedSpatialSourceYoung.projected_young_moment_identity` proves
 `4E+D=2H[q^2(f^2+P(f^2)-2fP(f))]` on the unchanged original action and
