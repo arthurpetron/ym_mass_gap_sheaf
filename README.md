@@ -10,7 +10,20 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked same-carrier algebra:** the literal all-nome Wilson completion
+**New checked same-carrier limits:** the literal all-nome Wilson carrier now
+has its actual completed squared distance and computed limits for supplied
+Cauchy rows, with explicit inner and outer moduli. Discrete time commutes
+with these limits, and the vacuum complement is closed under them. No
+representatives are chosen from arbitrary quotient-valued sequences.
+In parallel, every padded dyadic Wilson square has a proved head-tail
+decomposition with its selected link absent from the tail. This supplies
+geometry for a later one-link Haar calculation, not a growing-loop variance
+floor. Three narrow checks passed 40 permitted gates; no full-root audit.
+See the [represented-limit and loop-geometry audit](audits/AUDIT-ALL-NOME-WILSON-REPRESENTED-LIMITS-2026-09-24.md).
+The scaling-variance frontier, full Hilbert/QFT obligations and all canonical
+chart markers remain unchanged.
+
+**Preceding checked same-carrier algebra:** the literal all-nome Wilson completion
 now has explicit-modulus rational linear operations and their algebraic laws,
 a positive-definite pairing, and linear discrete time. Finite signed time
 combinations are actual states whose correlators retain every cross term.

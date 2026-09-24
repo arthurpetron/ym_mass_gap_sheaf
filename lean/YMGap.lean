@@ -4939,6 +4939,12 @@ import YMGap.Continuum.BF4WilsonAllNomeGeometry
 -- Positive-square norm floor and an actual nonzero two-step difference.
 -- Its computed floor still depends on nome/width, not a physical mass floor.
 import YMGap.Continuum.BF4WilsonAllNomeTimeDifference
+-- Actual squared distance and represented limits commute with discrete time;
+-- the SAME vacuum complement is closed under those explicit row limits.
+import YMGap.Continuum.BF4WilsonAllNomeCauchyRows
+-- Literal selected head and selected-link-free tail for the growing Wilson square.
+-- The arbitrary-word Haar-moment and useful scaling-variance joins remain OPEN.
+import YMGap.Continuum.BF4DyadicWilsonSquareUniqueEdge
 -- Channel Bessel, angular contraction and exact signed remainder bounds; SAME-variance scaling remains open.
 import YMGap.Continuum.SU2QuaternionHeadHeatGramBessel
 import YMGap.Continuum.SU2QuaternionProductHeatGramLocality

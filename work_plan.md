@@ -25,7 +25,57 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### SAME Wilson rational algebra, definite pairing and signed time combinations (2026-09-24 UTC)
+### SAME Wilson represented limits and unique-link geometry (2026-09-24 UTC)
+
+`BF4WilsonAllNomeDistance.completedDist` is B(x-y,x-y) on the EXISTING
+literal all-nome Wilson completion. Symmetry, nonnegativity, the factor-two
+squared triangle law and zero-distance separation are proved from its
+actual pairing limits. `distanceData` supplies every field required by the
+existing generic diagonal construction; no completeness field is assumed.
+
+`CauchyRows.limit` constructs the limit of supplied Cauchy representatives.
+Inner moduli and the outer completed-distance modulus remain data; the dense
+diagonal rate is max(R.modulus(epsilon/16),(epsilon/16).den), and the completed
+row convergence rate is R.modulus(epsilon/16). The limit is unique and
+independent of supplied representatives of the same points, and recovers
+an original Cauchy stream's class. `limit_timeRows` proves that the actual
+discrete time map commutes with this computed limit, retaining both layers
+of moduli. No arbitrary quotient-valued sequence is lifted by choice.
+
+`limit_orthogonal` proves the existing vacuum complement is closed under
+these represented limits. Its argument bounds B(U,L)^2 by B(L-row_n,L-row_n)
+using the SAME sharp CS, unit norm and each row's orthogonality; the actual
+distance bound forces B(U,L)=0. `orthogonalLimit` returns the actual subtype
+state. This is partial J02 construction, not full real/complex Hilbert or QFT.
+
+**Parallel A03 precursor:** `BF4DyadicWilsonSquareUniqueEdge` proves every
+positive-side square has a literal selected head whose underlying link is
+absent from the remaining word. `paddedSquare_edges_split` and
+`selectedLink_not_mem_dyadicTail` provide this exact decomposition for the
+growing padded dyadic family. Membership uniqueness alone is not used as
+an occurrence-count proof. No action factor or spectator is removed here.
+
+**Next causal frontier A03 remains:** useful SAME centered variance or
+response along a justified changing-scale family. The new geometry does
+not produce the original arbitrary-word one-link Haar first/second moments.
+Those moments and their SAME centered-vector pin are still needed for a
+loop variance argument. Even extending the existing six-face starRatio
+floor would not repair its already proved mismatch with the cubic loss
+budget. Preserve the complete signed-source/direct-response alternatives;
+do not impose fixed-plaquette near-one control as a necessary prerequisite.
+EVERY-state spatial/spacing control, SAME thermodynamic/continuum limits,
+full QFT/YM/UV, physical Hamiltonian/mass and every group remain open.
+
+Three final narrow checks passed 40 gates within {propext, Quot.sound},
+with one worker, 2 GiB cap, default elaboration limits and unchanged 12 GiB
+reserve. An initial unique-edge check exposed a classical tactic branch;
+explicit impossible-case elimination removed it before the final checks.
+No new source hole, axiom or analytic premise. Two semantic-root imports;
+no full-root build/audit/guard. Schema 1 snapshot 14 adds evidence only:
+fixed chart labels, layout, proof markers and A03 frontier are unchanged.
+Evidence: `audits/AUDIT-ALL-NOME-WILSON-REPRESENTED-LIMITS-2026-09-24.md`.
+
+### Previous checkpoint: SAME Wilson rational algebra, definite pairing and signed time combinations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeLinear` constructs addition, rational scaling, zero, negation
 and subtraction on the EXISTING literal all-nome Wilson completion. The

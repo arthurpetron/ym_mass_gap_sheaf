@@ -12,7 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**SAME all-nome Wilson rational algebra and definite pairing (2026-09-24 UTC):**
+**SAME all-nome Wilson represented limits (2026-09-24 UTC):**
+`BF4WilsonAllNomeDistance` proves the actual completed squared-distance laws.
+`CauchyRows` instantiates computed diagonal limits using supplied inner and
+outer moduli, with outer rate `R.modulus(epsilon/16)`. Limits are independent
+of supplied representatives of the same points; actual discrete time
+commutes with the limit. `limit_orthogonal` and `orthogonalLimit` prove closure
+of the existing vacuum complement under these represented limits, using
+the SAME sharp Cauchy--Schwarz and distance bound. No arbitrary quotient-row
+selection, real-scalar extension, or full Hilbert/QFT closure is claimed.
+`BF4DyadicWilsonSquareUniqueEdge` separately proves a literal head-tail
+decomposition and selected underlying-link absence from the tail. The
+original arbitrary-word Haar moments and useful scaling variance remain open.
+Three narrow checks passed 40 permitted gates; no full-root audit. Evidence:
+`audits/AUDIT-ALL-NOME-WILSON-REPRESENTED-LIMITS-2026-09-24.md` at repository root.
+
+**Preceding SAME all-nome Wilson rational algebra and definite pairing (2026-09-24 UTC):**
 `BF4WilsonAllNomeLinear` and `LinearLaws` construct explicit-modulus rational
 operations and prove their laws on the existing completion. `BilinearTime`
 proves bilinearity, actual time linearity and the exact signed double-correlator

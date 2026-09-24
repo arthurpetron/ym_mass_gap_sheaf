@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **13**, 2026-09-24 UTC. Source checkpoint:
-the SAME all-nome Wilson linear-geometry milestone committed with this
+Chart schema: **1**. Snapshot: **14**, 2026-09-24 UTC. Source checkpoint:
+the SAME all-nome Wilson represented-limit milestone committed with this
 snapshot; verification is recorded in
-`audits/AUDIT-ALL-NOME-WILSON-LINEAR-GEOMETRY-2026-09-24.md`.
+`audits/AUDIT-ALL-NOME-WILSON-REPRESENTED-LIMITS-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -143,6 +143,22 @@ actual plaquette-difference state with positive floor at every positive
 width. The floor depends on nome/width; this is not scaling survival, an
 A03 variance comparison, or full J02 closure.
 
+Additional partial J02 evidence: `BF4WilsonAllNomeDistance.distanceData`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDistance.lean:125`) constructs the
+actual completed squared-distance data.
+`BF4WilsonAllNomeCauchyRows.limit_bound` and `.limit_timeRows`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeCauchyRows.lean:67`, `:119`) prove
+computed represented limits and their commutation with actual discrete time.
+`.limit_orthogonal` and `.orthogonalLimit` (`:158`, `:181`) retain the
+existing vacuum complement. Supplied representatives and inner/outer moduli
+remain data; no arbitrary quotient-row selection or full Hilbert claim.
+Additional A03 geometry only: `BF4DyadicWilsonSquareUniqueEdge.paddedSquare_edges_split`
+and `.selectedLink_not_mem_dyadicTail`
+(`lean/YMGap/Continuum/BF4DyadicWilsonSquareUniqueEdge.lean:170`, `:182`)
+expose a literal head and exclude its underlying link from the remaining
+growing square word. The original arbitrary-word Haar moments and useful
+scaling-variance estimate are not supplied by this geometry.
+
 ## Activity and changes since the preceding chart
 
 - Primary active node: **A03**. Literal Wilson squares now have side L=2^s,
@@ -156,6 +172,8 @@ A03 variance comparison, or full J02 closure.
   The six-face floor is now proved at most (1-w)^12, so subtracting the
   available nome-linear loss budget cannot certify a positive response.
   This limits that certificate pair, not actual variance or physical survival.
+  The new unique-link decomposition supplies a finite geometric input to the
+  arbitrary-word one-link moment calculation; that calculation remains open.
 - Parallel node: **J02**. The literal all-nome Wilson completion now has
   proved rational linear laws, bilinear pairing, linear time and positive
   definiteness. Signed finite time combinations retain every original
@@ -163,10 +181,13 @@ A03 variance comparison, or full J02 closure.
   argument supplies a concrete plaquette-difference excitation with floor
   `(1-q)^2*starRatio(w)`, positive at each fixed nome and width. It neither
   replaces B01--B03's recorded carrier nor improves the A03 scaling estimate.
+  The actual squared distance now supports computed represented limits;
+  discrete time commutes with them and the vacuum complement is closed
+  under them. This does not select representatives of arbitrary quotient rows.
   Full Hilbert/QFT, scaling survival and the continuum join remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--12; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--13; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -205,3 +226,4 @@ A03 variance comparison, or full J02 closure.
 | 1 / 11 | 2026-09-24 | Original arbitrary-Wilson covariance, rational-centered dyadic cap removal and strict two-step bound on EVERY unit-orthogonal state of the SAME all-nome completion. Nome/width dependence remains; partial J02 evidence only. No face-span carrier identification, chart-block or goal-node status change. |
 | 1 / 12 | 2026-09-24 | Actual centered Wilson vectors, positive plaquette norm/one-step response, and SAME centered square loss. The coarse six-face-floor/nome-linear-loss certificate pair cannot certify positive response. Partial A03/J02 evidence only; no carrier substitution, scaling-survival conclusion, chart-block or goal-node status change. |
 | 1 / 13 | 2026-09-24 | SAME rational completion algebra, bilinear/linear time, definite pairing and exact signed finite-orbit correlators. A positive-square bound supplies a quantitatively nonzero plaquette time difference at fixed nome/width. Partial J02 only; no A03 improvement, carrier substitution, scaling-survival conclusion, chart-block or goal-node status change. |
+| 1 / 14 | 2026-09-24 | SAME squared distance and computed represented limits; actual time commutes with limits and the vacuum complement is closed under them. Literal selected-link head-tail geometry supplies an A03 precursor, not arbitrary-word Haar moments or scaling variance. Partial J02/A03 only; no carrier substitution, chart-block or goal-node status change. |

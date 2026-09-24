@@ -1,5 +1,36 @@
 # Sorry Ledger
 
+## SAME Wilson represented limits CLOSED; full J02/A03 OPEN (2026-09-24 UTC)
+
+- **proved actual distance**: `BF4WilsonAllNomeDistance.completedDist` is
+  the existing pairing of the existing completed subtraction with itself.
+  `.distanceData` supplies symmetry, nonnegativity, the factor-two squared
+  triangle law, separation and actual representative-limit convergence.
+- **constructed limits**: `BF4WilsonAllNomeCauchyRows.limit` instantiates
+  the existing generic diagonal construction, with supplied row representatives
+  and inner/outer moduli. `.limit_bound` uses R.modulus(epsilon/16);
+  `.limit_unique`, `.limit_independent`, and `.limit_original` keep the
+  SAME quotient. No arbitrary quotient-valued sequence is lifted to rows.
+- **proved consumers**: `.limit_timeRows` commutes actual discrete time
+  with the computed limit, retaining the moduli. `.limit_orthogonal` and
+  `.orthogonalLimit` close the existing vacuum complement under these limits
+  by sharp CS and the actual completed-distance bound.
+- **proved A03 geometry only**: `BF4DyadicWilsonSquareUniqueEdge.paddedSquare_edges_split`
+  and `.selectedLink_not_mem_dyadicTail` exhibit a literal selected head
+  and exclude its underlying link from the rest of the growing square word.
+  This does not yet supply the original arbitrary-word Haar first/second
+  moments, their SAME centered-vector pin, or a useful scaling variance floor.
+- **open**: A03 useful SAME variance/response along justified scaling;
+  EVERY-state spatial/spacing control, full real/complex Hilbert/OS/QFT,
+  SAME continuum/YM/UV, physical Hamiltonian/mass and every compact simple group.
+  No canonical field, chart status or recorded face-span scope is changed.
+- **verification**: three final narrow checks, 40 printed gates within
+  {propext, Quot.sound}; one worker, 2 GiB cap, default elaboration limits,
+  unchanged 12 GiB reserve. Initial classical tactic dependencies were
+  replaced by explicit contradiction elimination before acceptance. No new
+  source hole, axiom or analytic premise; no full-root build/audit/guard.
+  Evidence: `audits/AUDIT-ALL-NOME-WILSON-REPRESENTED-LIMITS-2026-09-24.md`.
+
 ## SAME Wilson rational algebra and definite pairing CLOSED; full J02/A03 OPEN (2026-09-24 UTC)
 
 - **constructed**: `BF4WilsonAllNomeLinear.completedAdd`, `.completedSmul`,
