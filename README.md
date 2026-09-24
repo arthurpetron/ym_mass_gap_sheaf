@@ -7,6 +7,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The [represented-completeness result](audits/AUDIT-JOINT-REPRESENTED-COMPLETENESS-2026-09-24.md)
+now constructs limits in the SAME cutoff-removed reflected carrier, from
+supplied Cauchy representatives and an explicit modulus in its actual completed
+norm. Limits are unique among represented candidates and commute with the
+actual discrete transfer. This does not select representatives of arbitrary
+quotient-valued sequences or complete the full Hilbert/OS/QFT construction.
+Three focused checks passed twenty-three permitted axiom gates. The next
+consumer is convergence of the existing finite approximate inverse sums;
+spatial/scaling and continuum obligations remain open.
+
 The latest [local weighted-heat estimate](audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md)
 cancels endpoint-source derivatives at first order in the actual one-link heat
 energy, leaving an explicit source-dependent quadratic remainder. It covers

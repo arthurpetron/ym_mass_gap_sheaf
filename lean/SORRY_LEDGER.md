@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Constructed represented limits on the SAME reflected carrier (2026-09-24 UTC)
+
+- **constructed**: `CRealSeminormPresentedCompleteness` gives an explicit
+  diagonal for arbitrary-modulus represented Cauchy families, with outer and
+  inner rates. `JointPresentedCompleteness.PresentedNormCauchy.limit_converges`
+  applies it to the actual `JointCompletion` and its completed squared norm.
+  The needed comparison bridge is computed from `pairRate`, not assumed.
+- **actual consequences**: `JointPresentedLimitLaws.CandidateLimit.eq_constructed_limit`
+  gives uniqueness; `PresentedNormCauchy.mapTime_limit` commutes the constructed
+  limit with the existing actual discrete transfer.
+- **scope**: representatives are supplied data. No choice-based lift of arbitrary
+  quotient sequences, ordinary-GNS replacement, full Hilbert/OS/QFT closure,
+  exact inverse, spatial/scaling or continuum mass-gap claim is made.
+- **next consumer**: Cauchy control of `JointRangeApproximation.evenOrbitSum`,
+  retaining its mixed time-translate terms, then an exact residual preimage.
+- **verification**: three serialized 4 GiB leaves, twenty-three gates within
+  {propext, Quot.sound}; no error/warning/sorryAx in accepted logs. No new
+  hole/axiom, weakened frontier field or full-root build/audit/guard. Evidence:
+  `audits/AUDIT-JOINT-REPRESENTED-COMPLETENESS-2026-09-24.md`.
+
 ## Proved kernel-score source identity and guarded energy fence (2026-09-24 UTC)
 
 - **constructed**: `productHeat_lower_score_eq_source_pair` keeps both

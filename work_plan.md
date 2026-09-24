@@ -25,6 +25,37 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### SAME reflected carrier: represented completeness and transfer compatibility (2026-09-24 UTC)
+
+**Constructed, not assumed:** an outer family supplied by inner Cauchy
+representatives, with an explicit Cauchy modulus in the ACTUAL completed norm,
+now has a constructed limit in `JointCompletion` and explicit norm-convergence
+rate. `BF4ExactSlabFixedSpatialJointPresentedCompleteness.PresentedNormCauchy`
+does not assume the generic diagonal's stronger representative comparisons:
+`late_distSq_le` derives them from the existing actual `pairRate`. The generic
+diagonal retains all outer and inner indices as data.
+
+`BF4ExactSlabFixedSpatialJointPresentedLimitLaws.CandidateLimit.eq_constructed_limit`
+proves uniqueness against any supplied represented candidate with a convergence
+modulus. `PresentedNormCauchy.mapTime_limit` proves that the actual discrete
+physical-time map commutes with the constructed limit. No ordinary-GNS carrier
+or finite-cutoff completion is substituted for the joint reflected carrier.
+
+**Next concrete consumer:** `JointRangeApproximation.evenOrbitSum` already gives
+finite approximate preimages of `I-T^2`. Prove these actual vectors Cauchy with
+a computed geometric tail modulus, then use this completeness and continuity
+of the residual to construct an exact preimage. The tail estimate must retain
+every cross term; the existing residual-error bound alone does not prove
+convergence of the preimages.
+
+This is represented completeness, not selection of representatives from an
+arbitrary quotient-valued sequence. Nome and width remain fixed; full Hilbert/
+OS/QFT, spatial/spacing estimates, continuum survival, physical Hamiltonian
+calibration and all groups remain OPEN. No canonical frontier field changed.
+Three serialized 4 GiB leaves passed twenty-three permitted gates; no full-root
+build/audit/guard. Evidence:
+`audits/AUDIT-JOINT-REPRESENTED-COMPLETENESS-2026-09-24.md`.
+
 ### Finite local weighted heat: first-order cancellation, explicit remainder (2026-09-24 UTC)
 
 **New checked mathematical estimate, not a continuum closure:**

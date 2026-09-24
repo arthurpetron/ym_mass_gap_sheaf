@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Represented completeness of the SAME joint carrier (2026-09-24 UTC):**
+`BF4ExactSlabFixedSpatialJointPresentedCompleteness.PresentedNormCauchy.limit_converges`
+constructs a limit and explicit convergence modulus measured in the actual
+completed squared norm. The required representative comparisons are derived
+from the existing pairing rate, not added as assumptions. Supplied candidate
+limits are unique, and `JointPresentedLimitLaws.PresentedNormCauchy.mapTime_limit`
+proves commutation with the existing discrete transfer. No quotient
+representative selection, full Hilbert/QFT closure or scaling theorem is claimed.
+Three serialized 4 GiB leaf checks passed twenty-three permitted axiom gates;
+no full-root build/audit/guard. See
+`audits/AUDIT-JOINT-REPRESENTED-COMPLETENESS-2026-09-24.md`.
+
 **Finite local weighted heat with first-order source cancellation (2026-09-24 UTC):**
 `SU2QuaternionHeadHeatWeightedTaylor.weightedEnergy_le_angular_add_quadratic`
 proves `E(a,f) <= (1-w) H[a^2 Gamma(f)] + (1-w)^2 B(a,a*f^2)` for the actual
