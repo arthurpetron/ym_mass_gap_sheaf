@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact spectator-remainder contraction (2026-09-24 UTC)
+## Current increment: active Casimir-square channel budget (2026-09-24 UTC)
+
+The full computed differential-sweep square contracts through all actual
+spectator channels to the original ACTIVE Casimir square, with coefficient
+one and all cross terms. The insertion consumer retains original u*r.
+Separately, the remainder is bounded by `(1-w)^2` times its positive path
+second moment. Their connecting equality is OPEN; first-weight reassembly
+does not identify a second moment with the square of a first-weight sum.
+
+Next: use the checked selected-character eigenaction, independent-factor
+product rule, Casimir/integration commutation and actual path-kernel identity
+to prove full product/path eigenaction, then the second-moment equality.
+Its actual energy consumer retains the negative remainder channel sum.
+Useful SAME-variance/scaling control and every continuum/Clay join remain
+open; no physical Hamiltonian interpretation of the auxiliary Casimir.
+
+Twelve final narrow checks passed 43 permitted gates, including existing
+path proofs. No safety interruption, new hole/analytic premise, canonical
+field change or full-root build/audit/guard/progress-metric run. Evidence:
+`audits/AUDIT-ACTIVE-CASIMIR-SQUARE-2026-09-24.md`.
+
+## Previous increment: exact spectator-remainder contraction (2026-09-24 UTC)
 
 The actual spectator family now satisfies `sum lambda*R(b,b)<=R(q,q)`,
 including independent insertions. The kinetic pairing recombines exactly;

@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Active Casimir-square contraction (2026-09-24 UTC):**
+`SU2QuaternionPassiveChannelCasimirSquare` contracts the COMPLETE computed
+cyclic differential-square channel budget to active derivatives of the
+original source, also with independent insertions. No cross-term or
+channel-count loss. `DiagonalRemainderMoment` separately bounds the exact
+remainder by `(1-w)^2` times the path second moment. Their equality remains
+OPEN: no remainder/derivative bound or useful SAME-variance scaling estimate
+is claimed. Actual selected-character eigenaction, independent-factor
+calculus and exact path/integration identities support the next join.
+Twelve narrow checks passed 43 permitted gates; no new hole/analytic premise,
+safety-limit change or full-root audit. Evidence:
+`audits/AUDIT-ACTIVE-CASIMIR-SQUARE-2026-09-24.md`.
+
 **Exact spectator-remainder contraction (2026-09-24 UTC):**
 `SU2QuaternionFamilyChannelLoss` bounds the actual conditional norm loss by
 the passive angular cost. `ChannelAngularContraction` bounds channel Casimir

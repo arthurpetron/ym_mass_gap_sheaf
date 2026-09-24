@@ -25,6 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Active differential-square budget and the explicit second-moment join (2026-09-24 UTC)
+
+The literal active Casimir C_A commutes through the actual spectator channel
+map. A single family-Bessel application to the complete C_A source retains
+all cross terms with coefficient one. Blockwise IBP and constructive
+polarization identify the computed cyclic Casimir with the literal differential
+operator at pairing and square level. Passive independence then proves
+
+    sum_c lambda_c H[(C_sweep b_c)^2] <= H[(C_A u)^2], b_c=P_S(u*h_c),
+
+and the version with b_c*r and original u*r for S-independent r. These are
+actual computed channel budgets for every finite K and 0<=w<=1, not physical
+Hamiltonian bounds or interacting variances. The original source is not
+assumed local.
+
+Separately, positivity on the computed full paths gives
+`R(p,p)<=(1-w)^2*M2(p)` under the explicit sufficient-cutoff guard. The missing
+join is precisely `M2(p)=H[(C_sweep p)^2]`. First-weight reassembly alone does
+not prove it. The actual selected character eigenaction, independent-factor
+product rule, Casimir/head-integration commutation and valid-path kernel
+pairing are checked; compose the full product/path eigenaction next, then
+sum on the original ragged tree. Do not introduce an assumed projector family
+or claim the remainder/derivative inequality before this equality is checked.
+
+**Actual next consumer:** the positive channel remainders in
+`BF4ExactSlabFixedSpatialPassiveChannels.padded_plaquette_energy_le_angular_add_balanced_channels`.
+Retain the favorable negative channel sum and all original normalization.
+Even after the second-moment join, useful SAME-variance control for ONE
+changing-scale excitation remains open, independently of the EVERY-vector
+scaling gap, SAME continuum/QFT/YM/UV, physical mass and every-group tasks.
+
+Twelve final serialized 4 GiB checks passed 43 permitted gates, including
+previously checked path proofs. No safety interruption, new analytic premise,
+hole, canonical-field change or full-root audit/guard. Semantic imports added.
+Evidence: `audits/AUDIT-ACTIVE-CASIMIR-SQUARE-2026-09-24.md`.
+
 ### Exact spectator-remainder contraction and original-source consumer (2026-09-24 UTC)
 
 The complete spectator family now contracts the exact positive remainder:

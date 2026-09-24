@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## Active Casimir-square budget; path-second-moment join OPEN (2026-09-24 UTC)
+
+- **proved**: `SU2QuaternionChannelCasimirSquare.channelSource_activeCasimir_square_le`
+  contracts the full active differential square with coefficient one.
+  `SU2QuaternionLiteralCasimirPairing.pairCasimir_eq_literal` identifies the
+  computed first Casimir with the literal differential operator; its two
+  square corollaries and passive independence give the ACTUAL computed
+  channel-sweep consumers in `SU2QuaternionPassiveChannelCasimirSquare`.
+  The independent-insertion version retains the original source times r.
+- **separately proved**:
+  `SU2QuaternionDiagonalRemainderMoment.exactRemainderPair_diagonal_le_squareMoment`
+  bounds R by `(1-w)^2*M2` on the original positive full-path measure.
+  Selected character Casimir eigenaction, independent-factor differentiation,
+  exact head-integration commutation and valid-path reassembly are checked.
+- **OPEN join**: `M2(p)=H[(casimirSweep p)^2]`. Positivity and the first-weight
+  identity do not establish it. The full product/path eigenaction and its
+  second-moment consumer are not asserted proved. No remainder bounded by a
+  differential square is claimed at this checkpoint.
+- **downstream**: useful complete signed-energy/SAME-variance control for ONE
+  changing-scale excitation; independently EVERY-vector scaling, full SAME
+  continuum/QFT/YM/UV, physical Hamiltonian mass and every group remain OPEN.
+  No new analytic hypothesis, source hole, axiom or canonical-field change.
+- **verification**: twelve final serialized 4 GiB checks, 43 permitted gates;
+  no safety interruption or changed memory limits. Semantic imports added;
+  no full-root build/audit/guard. Evidence:
+  `audits/AUDIT-ACTIVE-CASIMIR-SQUARE-2026-09-24.md`.
+
 ## Spectator-remainder contraction and original-source diagonals (2026-09-24 UTC)
 
 - **proved**: `SU2QuaternionSelectedHeatGramBessel.heatChannels_project_square_loss_le_at`

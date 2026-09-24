@@ -7,6 +7,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The **complete computed Casimir-square budget now contracts to active-link
+derivatives of the original source**, with coefficient one and all cross terms
+retained, also with spectator-independent insertions. Separately, the exact
+remainder is bounded by `(1-w)^2` times its positive degree-path second moment.
+**The equality between that path moment and the differential square remains
+open**; these are not yet a remainder/derivative bound or SAME-variance scaling
+estimate. Selected character eigenaction and exact integration/reassembly
+ingredients are checked for that next join. Twelve narrow checks passed 43
+permitted gates; no full-root audit. See the
+[active-Casimir-square audit](audits/AUDIT-ACTIVE-CASIMIR-SQUARE-2026-09-24.md).
+
 The **exact remainder now contracts through the complete spectator-channel
 family**, with coefficient one. Exact kinetic recombination, conditional
 norm-loss control and the active angular estimate prove this on the actual

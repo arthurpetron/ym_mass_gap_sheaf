@@ -50,7 +50,9 @@ def pathPiece (tail : Nat) : RatPoly → List Nat → RatPoly
   | p, [] => p
   | p, d::ds => pathPiece tail (nextPiece tail p d) ds
 
-private theorem pathPiece_character_carrier (tail : Nat) :
+/-- Each valid computed path is the actual sequence of normalized character
+kernels, with arbitrary Haar insertions retained. -/
+theorem pathPiece_character_carrier (tail : Nat) :
     ∀ (ds : List Nat) (p : RatPoly), SupportedQuaternionBlocks (tail+1) p →
       ValidPath tail p ds → HaarCarrierEqv (tail+1)
         (characterIterate (tail+1) ds p) (pathPiece tail p ds)
@@ -160,6 +162,7 @@ theorem sourceEnergy_le_angular_add_mixed_quadratic (tail : Nat) {w : Q'}
 end YMGap.Continuum.SU2QuaternionCyclicDiagonalRemainder
 
 #print axioms YMGap.Continuum.SU2QuaternionCyclicDiagonalRemainder.full_path_pairing_nonnegative
+#print axioms YMGap.Continuum.SU2QuaternionCyclicDiagonalRemainder.pathPiece_character_carrier
 #print axioms YMGap.Continuum.SU2QuaternionCyclicDiagonalRemainder.full_leafSum_diagonal_nonnegative
 #print axioms YMGap.Continuum.SU2QuaternionCyclicDiagonalRemainder.pairRemainder_diagonal_nonnegative
 #print axioms YMGap.Continuum.SU2QuaternionCyclicDiagonalRemainder.sourceEnergy_le_firstOrder_add_mixed_quadratic
