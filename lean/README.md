@@ -12,6 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**All-nome SAME Wilson completion and time (2026-09-24 UTC):**
+`BF4WilsonAllNomeCompletedInner` constructs the represented Cauchy completion
+of the literal-width reflected form, with explicit pairing data and sharp
+Cauchy--Schwarz. `BF4WilsonAllNomeTimeContraction` proves actual advance is
+nonexpansive using the original finite interval cap and midpoint doubling.
+`BF4WilsonAllNomeCompletedTime` descends the actual semigroup, proves its
+fixed norm-one unit, invariant orthogonal sector, balance, contraction and
+one-step positivity. Original loop moments and the dyadic absolute loss
+bound are SAME-operator matrix coefficients. No older small-nome/face-span
+completion is substituted. Strict gap, centered survival, full Hilbert/QFT,
+scaling/continuum and physical mass remain open. Eight narrow checks cover
+67 permitted gates; no full-root audit. Evidence at repository root:
+`audits/AUDIT-ALL-NOME-WILSON-COMPLETED-TIME-2026-09-24.md`.
+
 **Literal Wilson family and SAME reflected time pin (2026-09-24 UTC):**
 `WilsonSquare.squareLoop` and `DyadicWilsonSquare` construct actual closed
 words of side 2^s with assigned spacing 2^-s and explicit geometric modulus.

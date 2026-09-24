@@ -1,9 +1,9 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **9**, 2026-09-24 UTC. Source checkpoint:
-the literal Wilson-family and same-reflected-moment milestone committed with this
+Chart schema: **1**. Snapshot: **10**, 2026-09-24 UTC. Source checkpoint:
+the literal all-nome Wilson completion/time milestone committed with this
 snapshot; verification is recorded in
-`audits/AUDIT-DYADIC-WILSON-REFLECTED-FAMILY-2026-09-24.md`.
+`audits/AUDIT-ALL-NOME-WILSON-COMPLETED-TIME-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -114,17 +114,21 @@ full-tree build or full axiom audit.
   justified scaling trajectory. The complete signed-source route remains
   available; the preceding coarse coefficient limitation is unchanged.
   A03 stays `[ ]`: no nonzero limiting norm or continuum premise is supplied.
-- Parallel node: **J02**. `BF4WilsonAllNomeReflectedForm` supplies original
-  literal-width symmetry, positivity and temporal-chart invariance for the
-  larger Wilson syntax at every strict nome. `LoopTimePin.time_pairing_lag`
-  proves F(advance m x,advance n x)=lag(m+n). This is NOT a map into the
-  existing face-span completion or a reuse of the older small-nome Wilson
-  completion. Its all-nome completion/time descent and the same-carrier gap
-  bridge remain open. Previous sharp complex pairing results are retained.
-  Full J02, continuum and physical-mass obligations remain `[ ]`.
+- Parallel node: **J02**. `BF4WilsonAllNomeCompletedInner` now constructs
+  the literal-width all-nome represented Cauchy completion and its actual
+  pairing, including sharp Cauchy--Schwarz and a norm-one unit.
+  `CompletedTime` descends actual advance to a positive contractive discrete
+  semigroup, fixes that unit and preserves its orthogonal sector. Original
+  loop moments and the dyadic absolute loss bound are SAME-operator matrix
+  coefficients. This is NOT the face-span completion or the older small-nome
+  Wilson completion. A strict gap on this carrier, full metric/Hilbert/QFT
+  assembly and scaling/continuum joins remain open. The next strict-gap
+  route must prove the centered lag envelope for arbitrary Wilson expressions;
+  a face-span embedding alone would bound only its image. Previous sharp
+  complex pairing results are retained. Full J02 and all goal markers stay open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--8; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--9; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -159,3 +163,4 @@ full-tree build or full axiom audit.
 | 1 / 7 | 2026-09-24 | Computed positive floor comparing the SAME original channel norm with the ORIGINAL partition, and its direct original-energy consumer, independent of width/depth/late cutoff at fixed nome. Partial A03 evidence only; SAME centered-variance/scaling comparisons open. No chart-block or goal-node status change. |
 | 1 / 8 | 2026-09-24 | The computed normalized coefficient is at least 32; this limits that certificate, not actual energy. ORIGINAL transfer positivity sharpens E<=norm and the existing centered approximation retains the same epsilon in energy. Partial A03 evidence only. No chart-block or goal-node status change. |
 | 1 / 9 | 2026-09-24 | Literal dyadic Wilson squares, fixed-width all-nome reflected form, exact two-time moment pin and SAME-form cubic-cost loss bound. Partial A03/J02 evidence only; no completion substitution or scaling-survival conclusion. No chart-block or goal-node status change. |
+| 1 / 10 | 2026-09-24 | Literal all-nome represented completion and pairing, actual positive contractive time semigroup, fixed unit, invariant orthogonal sector and SAME-operator loop moments/loss. Partial J02 evidence only; strict same-carrier gap, centered scaling survival and full Hilbert/QFT remain open. No chart-block or goal-node status change. |

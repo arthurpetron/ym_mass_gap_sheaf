@@ -10,14 +10,25 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**New checked observable connection:** literal Wilson squares now have growing
+**New checked same-carrier construction:** the literal-width Wilson reflected
+form now has a represented Cauchy completion, an explicit-modulus pairing,
+and an actual positive contractive discrete-time semigroup for every `0<w<1`.
+The constant state has norm one and is fixed; its orthogonal sector is
+invariant. Original loop correlations and the dyadic absolute loss bound are
+proved matrix coefficients of this SAME completed operator. This is not a
+strict gap, full Hilbert/QFT package, or continuum-survival theorem.
+Eight narrow checks passed 67 permitted gates; no full-root audit.
+See the [all-nome completion audit](audits/AUDIT-ALL-NOME-WILSON-COMPLETED-TIME-2026-09-24.md).
+
+**Preceding checked observable connection:** literal Wilson squares now have growing
 lattice side L=2^s and assigned spacing 2^-s, with exact unit geometric side.
 Their original time-increment estimate is now identified with loss of the
 **same fixed-width reflected pairing**, for every strict coupling nome:
 `2*(F(x,x)-F(x,advance L x)) <= 384*L^3*(1-w)`.
 The cubic cost remains. No centered-variance floor, physical coupling
-trajectory, completed Wilson-carrier identification or continuum survival is
-claimed. Four narrow checks passed 33 permitted gates; no full-root audit.
+trajectory or continuum survival is claimed. The completion above supplies
+its operator consumer, not an identification with the separate face-span
+carrier. Four narrow checks passed 33 permitted gates; no full-root audit.
 See the [Wilson-family audit](audits/AUDIT-DYADIC-WILSON-REFLECTED-FAMILY-2026-09-24.md).
 
 **Preceding checked limitation and sharper energy bound:** the preceding partition

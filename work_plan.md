@@ -25,7 +25,55 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Literal dyadic Wilson family and SAME reflected moments (2026-09-24 UTC)
+### Literal all-nome Wilson completion and actual time (2026-09-24 UTC)
+
+The preceding carrier residue is now constructed, without a new analytic
+certificate. `BF4WilsonAllNomeFormLaws` and `CauchySchwarz` prove the actual
+form's algebra and sharp reflected inequality. `Seminorm`/`PairingContinuity`
+derive null descent, the squared triangle law and computed pairing tolerance.
+`CompletedInner` instantiates the existing represented Cauchy completion
+using the original form's explicit approximation data, not extracted witnesses.
+Its pairing is symmetric, nonnegative and sharply Cauchy--Schwarz, with a
+norm-one embedded unit and the exact original two-time Wilson moments.
+
+`TimeForm` balances actual temporal advance and proves one-step positivity.
+`TimeContraction` bounds its orbit by the original finite interval cap, then
+bounded midpoint doubling proves contraction with constant one. This removes
+the expression-dependent cap without dividing by a possibly zero norm.
+`CompletedTime` constructs the actual discrete semigroup on this SAME
+completion, retains the supplied Cauchy modulus, fixes the unit and preserves
+its orthogonal sector. Balance, contraction and one-step positivity hold on
+every completed state. `completedTime_loop_lag` identifies the actual operator
+matrix coefficient with the original loop lag; `completed_dyadic_loss_bound`
+gives its direct absolute loss bound, still 384*L^3*(1-w).
+
+**Next causal joins:** a same-carrier strict gap or an adequate proved carrier
+bridge, and useful SAME centered-variance/nonzero response control along a
+justified scaling family. Do not transport the separate face-span gap or the
+old small-nome Wilson completion by name. The represented Cauchy quotient and
+pairing are not yet a full metric/Hilbert/OS/QFT package. A03 and full J02,
+EVERY-state scaling, SAME continuum/YM/UV, physical Hamiltonian/mass and every
+group remain OPEN. Canonical schema 1, snapshot 10 records evidence only;
+the chart fence, node labels, proof markers and primary frontier are unchanged.
+
+**Reviewed direct next producer:**
+`BF4ExactSlabFixedSpatialSeparatedCovariance.polynomialWindow_covariance_bound`
+already accepts arbitrary supported polynomials at the actual width and nome.
+Prove the separated reflected-product and marginal pins for intrinsic Wilson
+expressions, then derive the centered physical-lag envelope on this SAME form.
+The existing dyadic prefactor-removal argument and representative-limit
+consumer provide the route from that envelope to a completed strict bound.
+The pins/envelope are not yet proved here. A face-span-to-Wilson embedding
+alone would bound only its image; no density in the Wilson carrier is supplied.
+
+Eight final narrow checks passed 67 permitted printed gates. Default
+elaboration, one worker, 2 GiB cap and 12 GiB reserve remain unchanged.
+One launch refusal and one stopped check honored the reserve; checks resumed
+after recovery. No new hole, axiom or analytic premise. One semantic-root
+import, but no full-root build/audit/guard. Evidence:
+`audits/AUDIT-ALL-NOME-WILSON-COMPLETED-TIME-2026-09-24.md`.
+
+### Previous checkpoint: literal dyadic Wilson family and SAME reflected moments (2026-09-24 UTC)
 
 `WilsonSquare.squareLoop` now constructs an actual closed ordered square word
 of every natural side length. `DyadicWilsonSquare` assigns side L=2^s and

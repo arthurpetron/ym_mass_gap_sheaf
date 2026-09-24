@@ -1,6 +1,38 @@
 # Sorry Ledger
 
+## Literal all-nome Wilson completion/time CLOSED; full J02 and A03 OPEN (2026-09-24 UTC)
+
+- **constructed**: `BF4WilsonAllNomeCompletedInner.Completion` is the
+  represented Cauchy quotient of the actual literal-width reflected form.
+  `intrinsicFormCauchy` retains explicit original approximation data;
+  `pairingData` supplies proved continuity/anchor bounds. The completed
+  pairing is symmetric, nonnegative, sharply Cauchy--Schwarz, with a unit
+  of norm one and exact original embedded two-time loop moments.
+- **proved actual time**: `TimeContraction.distSq_advance_contraction`
+  uses the original finite interval bound and bounded midpoint doubling,
+  not a new analytic premise. `CompletedTime.completedTime` is the actual
+  descended discrete semigroup, positive and contractive, fixing the unit.
+  `completedTime_preserves_vacuumComplement` proves orthogonal-sector
+  invariance; `completedTime_loop_lag` and `completed_dyadic_loss_bound`
+  supply the SAME original correlations and absolute geometric loss bound.
+- **open**: full represented metric/Hilbert/OS/QFT assembly, a strict bound
+  on this SAME Wilson carrier (or an adequate proved bridge), SAME centered
+  variance and justified scaling/nonzero survival. The separate face-span
+  strict gap is not transported here. EVERY-state scaling, continuum/YM/UV,
+  physical Hamiltonian/mass and every group remain open. No chart marker changes.
+- **verification**: eight final narrow serialized checks, 67 printed gates
+  within {propext, Quot.sound}; default elaboration limits, one worker,
+  2 GiB cap and unchanged 12 GiB reserve. The safety launcher refused one
+  launch and stopped another on available memory; verification resumed
+  after recovery, without changing limits or stopping user processes.
+  No source hole, new axiom, analytic hypothesis or canonical weakening.
+  One semantic-root import; no full-root build/audit/guard. Evidence:
+  `audits/AUDIT-ALL-NOME-WILSON-COMPLETED-TIME-2026-09-24.md`.
+
 ## Literal Wilson family and SAME reflected time pin CLOSED; A03/J02 OPEN (2026-09-24 UTC)
+
+Historical checkpoint; its completion/time residue is supplied above. Its
+centered-variance, scaling and survival residue remains open.
 
 - **proved objects**: `WilsonSquare.squareLoop` is an actual closed compatible
   source word. `DyadicWilsonSquare` supplies side 2^s, assigned spacing 2^-s,
