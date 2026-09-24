@@ -2,6 +2,9 @@
 
 ## Current proof boundary (2026-09-24 UTC)
 
+The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
+wording, layout, proof-status meanings and permanent node IDs across updates.
+
 The Clay target remains **open**: a nontrivial continuum Yang--Mills theory on
 R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,

@@ -12,6 +12,19 @@ Prefer a short, causally useful mathematical argument over additional proof
 scaffolding. Every increment must identify its actual consumer and what remains
 unproved. The constructive contract and machine-safety rules below are unchanged.
 
+## Stable user-facing progress chart
+
+`docs/PROJECT-STATUS.md` is the single source for ASCII progress charts.
+Read it before every chart and reuse its exact chart block, fixed node labels,
+layout, IDs and status meanings. Do not redesign or paraphrase the diagram
+between updates. Keep the whole-project goal visible every time. `[x]` means
+the EXACT displayed claim has a kernel-checked proof in its recorded scope;
+`[ ]` remains open. Activity is separate from proof status. Partial results
+and conditional consumers do not close broader goal nodes. Record evidence
+and the delta from the previous chart. Necessary structural corrections need
+a versioned old-to-new migration and user-facing explanation, never silent
+changes of labels, symbols or mathematical scope.
+
 ## Machine safety is a correctness requirement
 
 Computationally demanding work is encouraged. Destabilizing the host is not.
