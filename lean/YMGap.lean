@@ -4890,6 +4890,7 @@ import YMGap.Continuum.SU2QuaternionGroupedAngularEnergy
 import YMGap.Continuum.SU2QuaternionSpareHeadCopy
 import YMGap.Continuum.SU2QuaternionHeadHeatDiagonal
 import YMGap.Continuum.SU2QuaternionHeadHeatWeightedTaylor
+import YMGap.Continuum.BF4ExactSlabFixedSpatialExactKineticAlignment
 import YMGap.Continuum.SU2QuaternionWeightedProjectionSweep
 import YMGap.Continuum.SU2QuaternionProductHeatHybridSweep
 import YMGap.Continuum.SU2QuaternionProductHeatHybridProjection

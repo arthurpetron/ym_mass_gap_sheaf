@@ -7,6 +7,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+The original full heat product now has [error-free kinetic alignment](audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md#error-free-full-product-alignment-follow-up).
+A computed cutoff lets the last retained SU(2) fusion channel absorb the
+negative endpoint exactly. The resulting four-coordinate link displacement
+is at most `6*(1-w)` times the SAME weighted mass, for arbitrary signed
+endpoint sources. The physical slab retains its actual spatial weight,
+terminal messages and partition; its existing normalized alignment mean is
+at least `coeffW(w,1)`, without an additive cutoff error. The coefficient and
+cutoff onset are independent of width/depth, but depend on nome w. This is
+**not** a Wilson energy/variance comparison or a continuum gap. Four narrow
+checks passed twelve permitted axiom gates; no full-root audit.
+
 The discrete inverse now has an [intrinsic norm bound](audits/AUDIT-JOINT-NEUMANN-INVERSE-2026-09-24.md#bounded-inverse-follow-up):
 `||inverse x||^2 <= (1-q(w,width))^(-2) ||center x||^2`.
 Completing a square proves this without dividing by a vector norm. The same

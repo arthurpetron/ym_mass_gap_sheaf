@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Error-free original kinetic alignment (2026-09-24 UTC):**
+`SU2QuaternionProductHeatExactAlignment` absorbs the finite fusion endpoint
+at a computed cutoff and proves a `6*(1-w)` chordal bound relative to the
+SAME full-product mass, accepting signed endpoint sources.
+`BF4ExactSlabFixedSpatialExactKineticAlignment` consumes it with the original
+spatial weight, terminal message, odd mass and existing normalized mean.
+There is no cutoff-error term or width/depth coefficient. Nome dependence and
+the missing same-Wilson-variance comparison remain. Four serialized 4 GiB
+checks passed twelve permitted gates; no full-root build/audit/guard.
+
 **Intrinsic inverse bound on the SAME carrier (2026-09-24 UTC):**
 `BF4ExactSlabFixedSpatialJointNeumannBound.inverse_norm_centered_bound`
 proves `||inverse x||^2 <= g^2 ||center x||^2`, with computed

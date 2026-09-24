@@ -25,6 +25,37 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact finite fusion cancellation in the ORIGINAL product (2026-09-24 UTC)
+
+**Checked improvement:** `SU2HeatFusionCutoffPositive.endpoint_coeff_le`
+uses the computed cutoff `sufficientCutoff w = (1-w).den` and reciprocal
+Bernoulli to prove `coeffW(w,1)*coeffW(w,K) <= coeffW(w,K-1)`. The top retained
+bulk coefficient therefore absorbs the negative finite fusion endpoint.
+`SU2QuaternionHeatFusionCutoffPositive.prefix_alignment_no_error` proves the
+resulting quadratic inequality for arbitrary supported signed sources.
+`SU2QuaternionProductHeatExactAlignment` retains every original heat factor
+and BOTH equal endpoint sources; the four-coordinate displacement is bounded
+by `(2-coeffW(w,1))*mass <= 6*(1-w)*mass`, with no cutoff-error term.
+
+**Actual consumer:** `BF4ExactSlabFixedSpatialExactKineticAlignment` pins the
+source to `spatialWeight*terminalMessage` and the mass to `oddMass`. Its exact
+normalized bound uses the pre-existing `alignmentMean`, at the computed
+maximum of the heat-head and fusion cutoffs. Width/depth do not enter the
+coefficient or onset; nome dependence is explicit. Four serialized 4 GiB
+checks passed twelve permitted gates; no full-root build/audit/guard.
+
+**Next causal priority remains analytic:** this diagonal-source estimate does
+not compare the actual signed temporal energy with the SAME centered Wilson
+variance. In the bilinear product form B, the weighted energy involves
+`B(a,a*f^2)-B(a*f,a*f)`; its two terms cannot be replaced by one diagonal
+source. Retain their cancellation when seeking a useful changing-scale
+observable family. Do not feed the stronger link bound into the already
+insufficient plaquette-floor ratio and call that scaling progress. The
+separate all-vector spatial/scaling bound, full same-theory QFT/YM fields,
+physical mass and every-group joins remain OPEN. No canonical field changed.
+Evidence: error-free full-product follow-up in
+`audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md`.
+
 ### Intrinsically bounded discrete inverse on the SAME carrier (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialJointNeumannBound.inverse_norm_centered_bound`

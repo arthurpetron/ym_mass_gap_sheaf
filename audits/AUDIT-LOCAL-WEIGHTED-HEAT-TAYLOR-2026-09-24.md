@@ -117,3 +117,70 @@ Sol supplied scalar and mixed-generator drafts and independently reviewed
 the upper-bound sign and the shared-spectator/full-product boundary. Root
 assembled and proved the weighted estimate, corrected and checked the leaves,
 and preserved the open scaling and same-object obligations.
+
+## Error-free full-product alignment follow-up
+
+2026-09-24 UTC. This is a different, exact finite fusion argument for a
+particular four-coordinate multiplet. It does NOT transport the general local
+Taylor energy estimate through the full product or bound its source budget.
+
+Write c_j=(j+1)*w^(j*(j+2)), 0<=w<1. At K>=sufficientCutoff(w), the
+denominator cutoff gives K*(1-w)>=1. Cleared reciprocal Bernoulli then gives
+`2*(K+1)*w^(2*K+4)<=K`, hence `c_1*c_K<=c_(K-1)`.
+The public producer is `SU2HeatFusionCutoffPositive.endpoint_coeff_le` in
+`lean/YMGap/Continuum/SU2HeatFusionCutoffPositive.lean`.
+
+At prefix length K+1, combine the last bulk coefficient with the negative
+boundary BEFORE estimating either. Its coefficient becomes
+`c_K-c_1*c_(K+1)>=0`; the remaining upper boundary coefficient is positive.
+Existing SU(2) dimension/Casimir convexity handles all interior coefficients.
+`prefix_alignment_no_error` at
+`lean/YMGap/Continuum/SU2QuaternionHeatFusionCutoffPositive.lean:79`
+uses actual character-quadratic positivity, not pointwise residual positivity.
+
+The complete original product P, any supported signed source a, and the SAME
+mass Z=H[P*a(x)*a(y)] satisfy, for every selected link i,
+
+    c_1*Z <= H[P*a(x)*a(y)*chi_1(y_i*conj(x_i))],
+    H[P*a(x)*a(y)*||x_i-y_i||^2] <= (2-c_1)*Z <= 6*(1-w)*Z.
+
+These are `product_alignment_no_error`, `product_displacement_bound`, and
+`product_displacement_nome_bound` at
+`lean/YMGap/Continuum/SU2QuaternionProductHeatExactAlignment.lean:59`,
+`:115`, and `:141`. They retain every factor, allow repeated selected links,
+and need no pointwise source certificate or source-degree/cutoff comparison.
+The upper inequality for signed a does NOT assert that the left quadratic
+form is nonnegative. Cauchy--Schwarz for that form does not follow; the
+proved positive form is the upper-bound residual, not the displacement form.
+
+The actual slab consumers are `exact_alignment_cleared`,
+`exact_alignment_normalized`, `exact_alignment_normalized_of_cutoff`, and
+`exact_link_displacement_nome_bound` at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialExactKineticAlignment.lean:59`,
+`:81`, `:95`, and `:106`. They use a=spatialWeight*terminalMessage, literal
+edgeDensity and original oddMass. Normalization uses the existing positive
+mass and alignmentMean; `exactCutoff` at line 93 computes the maximum of
+headCutoff and sufficientCutoff. Both coefficient and onset are independent
+of width, depth and source; neither is claimed independent of nome.
+
+**Remaining analytic join:** for a bilinear product form B, the actual
+weighted temporal energy involves `B(a,a*f^2)-B(a*f,a*f)`. The new diagonal
+source inequality alone gives no useful comparison of this difference with
+the SAME centered Wilson variance. Individual coordinate insertions are not
+gauge-invariant Wilson observables. The previous plaquette increment/floor
+obstruction is not removed, nor is continuum survival, spatial/scaling gap
+control, physical mass, full QFT/YM identification or every group supplied.
+
+Four serialized one-worker 4 GiB checks passed, with twelve printed gates:
+
+- `/tmp/ym-gap-heat-fusion-cutoff-positive-check-2.log`: three gates.
+- `/tmp/ym-gap-quaternion-fusion-cutoff-positive-check-4.log`: one gate.
+- `/tmp/ym-gap-product-heat-exact-alignment-check-1.log`: three gates.
+- `/tmp/ym-gap-slab-exact-kinetic-alignment-check-3.log`: five gates.
+
+All accepted logs have terminal success, no errors/warnings/sorryAx, and only
+permitted dependencies (or no axioms). No full-root build/audit/guard ran.
+Sol supplied scalar/prefix/physical drafts and a parallel scope review;
+root corrected, composed and kernel-checked the chain. No new hole, axiom,
+frontier-field weakening or canonical closure. The semantic root imports
+the physical consumer; that aggregation itself was not rebuilt.

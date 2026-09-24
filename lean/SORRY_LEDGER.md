@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Error-free full-product and physical kinetic alignment (2026-09-24 UTC)
+
+- **proved**: `SU2HeatFusionCutoffPositive.endpoint_coeff_le` absorbs the
+  finite negative fusion endpoint using a computed cutoff. The prefix and
+  product consumers prove exact alignment and chordal displacement at most
+  `6*(1-w)*mass`, retaining all factors and arbitrary signed endpoint sources.
+- **physical consumer**: `BF4ExactSlabFixedSpatialExactKineticAlignment`
+  keeps the original spatial weight, terminal message and `oddMass`; its
+  normalized theorem targets the existing `alignmentMean`. A maximum of two
+  computed cutoffs supplies the normalization and endpoint guards.
+- **open**: same-observable temporal energy/variance control for a useful
+  scaling family, the separate all-vector spatial/spacing bound, continuum
+  survival, physical mass, full same-theory QFT/YM fields and every group.
+  No new hole/axiom or canonical frontier-field change. Signed-source upper
+  control is not positivity of the displacement kernel.
+- **verification**: four serialized 4 GiB leaves, twelve permitted gates,
+  no errors/warnings/sorryAx in accepted logs; no full-root build/audit/guard.
+  See the full-product follow-up in
+  `audits/AUDIT-LOCAL-WEIGHTED-HEAT-TAYLOR-2026-09-24.md`.
+
 ## Intrinsic bounded inverse and error stability on the SAME carrier (2026-09-24 UTC)
 
 - **proved**: `JointNeumannBound.residual_form_bound` and
