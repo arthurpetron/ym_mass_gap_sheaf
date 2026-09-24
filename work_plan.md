@@ -25,6 +25,45 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Computed full-product Taylor formula for ORIGINAL energy (2026-09-24 UTC)
+
+The actual cyclic heat sweep now has a computed finite degree-path expansion.
+Unweighted reassembly returns the original polynomial after one full rotation;
+the scalar product attenuation has a total-Casimir quadratic remainder bound,
+including omitted degrees beyond the heat cutoff. The resulting signed Haar
+pairing formula is checked without assuming joint orthogonality or discarding
+a signed diagonal remainder.
+
+**Actual consumer:** `BF4ExactSlabFixedSpatialSourceTaylor.energy_taylor` and
+`padded_plaquette_energy_le_firstOrder_add_quadratic` use exactly
+`q=P_F(V*g)`, the original temporal energy and the existing padding guard.
+With eps=1-w and C the computed Casimir pairing, they prove
+
+    E_original = eps*(C(q*f,q*f)-C(q,q*f^2))
+                 + R(q,q*f^2)-R(q*f,q*f),
+    E_original <= eps*sourceFirstOrder(q,f) + eps^2*sourceTaylorBudget(q,f).
+
+The budget contains BOTH absolute leaf remainders. The complete signed source
+correction is already part of this full energy, so it is not added again.
+
+**Next causal proposition:** identify the computed Casimir pairing with the
+negative sum of block-angular Laplacian pairings, then prove the full
+first-order weighted source cancellation. The existing Casimir/cancellation
+theorems are head-block results; the required cyclic Laplacian transport and
+blockwise join are NOT proved here. This is not yet a factor-one angular
+estimate. After that identity, the actual source-dependent remainder and
+angular cost still need useful SAME-centered-variance control on ONE justified
+changing-scale family. For fixed inputs the tree/budget has no w,K arguments,
+but q depends on nome, cutoff, width and terminal depth; no scaling uniformity
+or survival follows. The separate EVERY-vector spatial/spacing gap and full
+SAME-theory QFT/YM/physical-mass/every-group obligations remain open.
+
+Seven serialized 4 GiB leaf checks passed thirty-eight gates within
+{propext, Quot.sound}, with no error/warning/sorryAx in accepted logs. The
+computed-Taylor follow-up in `audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`
+records exact declarations and logs. Semantic consumer import added; no
+full-root build/audit/guard, new hole/axiom or canonical-field change.
+
 ### Exact inactive-source reduction of the ORIGINAL full energy (2026-09-24 UTC)
 
 For `a=V*g` and an observable f independent of the fringe F, first set

@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Computed full-product Taylor bound for original energy (2026-09-24 UTC)
+
+- **proved**: scalar product-attenuation bounds, exact cyclic linearity,
+  computed degree-path expansion and unweighted reassembly, and a signed
+  full-product pairing Taylor identity with TWO-sided quadratic remainders.
+  `SU2QuaternionProductHeatSourceTaylor.sourceEnergy_taylor` cancels the
+  zeroth-order terms of the actual full energy; its upper bound retains both
+  absolute remainder budgets, not an unproved diagonal sign.
+- **actual consumer**: `BF4ExactSlabFixedSpatialSourceTaylor.energy_taylor`
+  and `padded_plaquette_energy_le_firstOrder_add_quadratic` retain the original
+  transfer, complete projected source and literal plaquette. No stationary
+  source equation, joint orthogonality or surrogate marginal is assumed.
+- **open**: computed-Casimir/block-Laplacian identification, full first-order
+  source cancellation, and useful SAME-variance control of the source-dependent
+  budget on a justified scaling family. Separate EVERY-vector spatial/spacing
+  gap, full QFT/YM, physical mass and every group remain open. No canonical
+  field changed; no new hole/axiom.
+- **verification**: seven serialized 4 GiB leaves, thirty-eight permitted
+  gates, no error/warning/sorryAx in accepted logs; no full-root build/audit/guard.
+  Evidence: computed-Taylor follow-up in
+  `audits/AUDIT-PRODUCT-HEAT-ANGULAR-DEFECT-2026-09-23.md`.
+
 ## Exact inactive-source reduction of original temporal energy (2026-09-24 UTC)
 
 - **proved**: `SU2QuaternionProductHeatInactiveBilinear` projects both signed

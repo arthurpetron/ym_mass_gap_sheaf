@@ -173,3 +173,99 @@ Accepted serialized checks, each terminal exit 0, one worker and 4 GiB cap:
 All twenty printed gates use only {propext, Quot.sound}; accepted logs contain
 no error/warning/sorryAx. Semantic consumer import added. No full-root
 build/audit/guard was run; GitHub CI remains unchanged (disabled).
+
+## Computed full-product Taylor follow-up (2026-09-24 UTC)
+
+### Mathematical statement and same-object consumer
+
+The actual fresh-output cyclic heat sweep is expanded into a finite computed
+tree. Every edge carries its head harmonic degree; a leaf carries the product
+of the ACTUAL truncated attenuations along its path. With path Casimir
+`c=sum_d d*(d+2)` and eps=1-w, the scalar remainder r satisfies
+
+    0 <= r = productAttenuation-1+eps*c <= eps^2*c^2
+
+under `0 <= w < 1` and the explicit `sufficientCutoff w <= K` guard. This
+includes degrees omitted by K: no degree-at-most-cutoff premise is imposed.
+
+Unweighted reassembly recovers the original polynomial on the Haar carrier.
+For a fixed supported p and an arbitrary signed test, the resulting identity is
+
+    H[test*P_full(p)] = H[test*p] - eps*C(p,test) + R(p,test),
+    -eps^2*B(p,test) <= R(p,test) <= eps^2*B(p,test).
+
+C is the computed signed leaf pairing weighted by total Casimir, and B is
+the sum of absolute leaf pairings weighted by its square. The scalar r is
+nonnegative; the PAIRING remainder R is not asserted to be nonnegative.
+No joint orthogonality or joint spectral diagonal positivity is used.
+
+Apply the identity to BOTH terms of the existing full weighted energy:
+
+    E(a,f) = H[a*f^2*P_full(a)] - H[(a*f)*P_full(a*f)]
+           = eps*(C(a*f,a*f)-C(a,a*f^2))
+             + R(a,a*f^2)-R(a*f,a*f)
+          <= eps*sourceFirstOrder(a,f) + eps^2*sourceTaylorBudget(a,f).
+
+The two zeroth-order terms cancel before estimates. Both absolute remainder
+budgets are retained. The original signed source correction is already in E,
+not an additional term to be counted again.
+
+`BF4ExactSlabFixedSpatialSourceTaylor` takes `a=q=P_F(V*g)` after the earlier
+exact inactive-source reduction. Its padded literal-plaquette theorem uses
+the original terminal message, spatial action and temporal energy. Existing
+`oddMoment_projected_source` still preserves mass, mean and second moment;
+the new estimate does not normalize against a different law.
+
+### Declaration evidence
+
+- `productRemainder_bounds_of_sufficientCutoff`,
+  `lean/YMGap/Continuum/SU2HeatProductTaylorRemainder.lean:229`.
+- `productMap_modeFold`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicHeatModeExpansion.lean:194`,
+  uses the carrier-preserving cyclic linearity in `SU2QuaternionCyclicHeatLinear`.
+- `full_modeFold_one_carrier`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicModeReassembly.lean:137`.
+- `productPair_taylor`, `pairRemainder_le_quadratic`,
+  `neg_pairRemainder_le_quadratic`,
+  `lean/YMGap/Continuum/SU2QuaternionCyclicModeTaylor.lean:271`, `:314`, `:321`.
+- `sourceFirstOrder`, `sourceTaylorBudget`, `sourceEnergy_taylor`,
+  `sourceEnergy_le_firstOrder_add_quadratic`,
+  `lean/YMGap/Continuum/SU2QuaternionProductHeatSourceTaylor.lean:35`, `:41`,
+  `:47`, `:82`.
+- `energy_taylor`, `padded_plaquette_energy_le_firstOrder_add_quadratic`,
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceTaylor.lean:61`, `:100`.
+
+### What remains and verification boundary
+
+The first-order coefficient is computed, not yet identified with
+`sum_i H[a^2*Gamma_i(f)]`. The next concrete identity is
+`C(p,test)=-sum_i H[test*Delta_i(p)]`, requiring actual block-indexed
+Laplacian transport through the cyclic rotations. Existing head Casimir and
+weighted angular cancellation results do not themselves supply that join.
+Even after that identification, useful control of the resulting first-order
+term and remainder against SAME centered variance is still needed.
+
+For fixed p,test, the tree and B have no nome/cutoff arguments. For the
+original source q, however, their polynomial input depends on w,K,width and
+terminal depth. The squared total-Casimir budget may grow with source degree
+and carrier size; no uniform bound or useful changing-scale asymptotic is
+proved. ONE-family survival, EVERY-vector spatial/spacing gap, SAME-theory
+continuum/QFT/local YM fields, physical mass and every group remain open.
+No canonical field changed and no new hole/axiom was introduced.
+
+Sol produced scalar/linearity/reassembly and Taylor drafts; Luna independently
+reviewed the signed energy formula and the two-budget scope. Accepted checks
+were serialized, one worker, 4 GiB cap, each terminal exit 0:
+
+- `/tmp/ym-gap-product-taylor-scalar-check-3.log`: five gates;
+- `/tmp/ym-gap-cyclic-heat-linear-check-4.log`: fifteen gates;
+- `/tmp/ym-gap-cyclic-mode-expansion-check-3.log`: six gates;
+- `/tmp/ym-gap-cyclic-mode-reassembly-check-2.log`: three gates;
+- `/tmp/ym-gap-cyclic-mode-taylor-check-4.log`: four gates;
+- `/tmp/ym-gap-product-source-taylor-check-1.log`: two gates;
+- `/tmp/ym-gap-original-source-taylor-check-2.log`: three gates.
+
+All thirty-eight printed gates lie within {propext, Quot.sound}; accepted
+logs contain no error/warning/sorryAx. Earlier failed drafts are not evidence.
+Semantic consumer import added; no full-root build/audit/guard was run.
+CI remains unchanged (disabled).

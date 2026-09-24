@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original full-product Taylor estimate (2026-09-24 UTC):**
+`SU2QuaternionCyclicHeatModeExpansion` computes the actual cyclic degree
+tree; its unweighted reassembly and signed pairing Taylor formula are proved.
+`SU2QuaternionProductHeatSourceTaylor` cancels the full weighted energy's
+zeroth-order terms and retains BOTH signed quadratic remainder budgets.
+`BF4ExactSlabFixedSpatialSourceTaylor` applies this to the original projected
+source and padded plaquette. The first-order angular/source-cancellation
+identification and useful SAME-variance/scaling control remain open; fixed
+polynomial budgets are not uniform bounds on the changing physical source.
+Seven serialized 4 GiB leaves passed thirty-eight permitted gates; no new
+hole/axiom, canonical-frontier closure or full-root build/audit/guard.
+
 **Original energy with exact inactive-source reduction (2026-09-24 UTC):**
 `SU2QuaternionProductHeatProjectedSourceEnergy` projects the complete source,
 preserving full energy and every inactive-independent insertion.
