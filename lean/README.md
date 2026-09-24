@@ -22,6 +22,13 @@ it is not the reflected continuum OS reconstruction, a scaling-uniform gap,
 or a Clay conclusion.  Evidence:
 `audits/AUDIT-WILSON-COMPLEXIFICATION-2026-09-24.md` at repository root.
 
+`BF4WilsonAllNomeComplexGap` consumes that same carrier, existing unit and
+original completed transfer.  Its 11-declaration focused check proves unit
+fixation, complex vacuum-sector preservation, and the strict two-step form
+bound for every complex vacuum-orthogonal state at fixed nome/width.  The rate
+is not scaling-uniform and is not a physical Hamiltonian gap.  Evidence:
+`audits/AUDIT-WILSON-COMPLEX-GAP-2026-09-24.md` at repository root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.

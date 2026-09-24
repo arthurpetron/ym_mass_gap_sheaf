@@ -1,9 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **23**, 2026-09-24 UTC. Source checkpoint:
-the SAME Wilson complex-carrier milestone committed with this snapshot;
+Chart schema: **1**. Snapshot: **24**, 2026-09-24 UTC. Source checkpoint:
+the SAME Wilson complex-carrier and fixed-parameter gap-consumer milestone
+committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-COMPLEXIFICATION-2026-09-24.md`.
+`audits/AUDIT-WILSON-COMPLEX-GAP-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -253,6 +254,17 @@ completed scaling improvement or carrier substitution is asserted.
 
 ## Activity and changes since the preceding chart
 
+New partial J02 evidence: `BF4WilsonAllNomeComplexGap.complex_twoStep_form_gap`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeComplexGap.lean:97`) consumes the
+complexification on the SAME all-nome Wilson completion.  The module also
+proves `complexUnit_fixed` (`:53`),
+`complexTime_preserves_orthogonal` (`:74`), and the exact complex
+vacuum-orthogonality criterion (`:64`).  Its 11-declaration focused check is
+within `{propext, Quot.sound}`.  This is a fixed nome/width consequence only:
+the displayed strict-gap node remains scoped as recorded, and no scaling,
+continuum, physical-mass or all-group conclusion is supplied.  Evidence:
+`audits/AUDIT-WILSON-COMPLEX-GAP-2026-09-24.md`.
+
 New partial J02 evidence: `BF4WilsonAllNomeComplexification` constructs a
 two-component complexification of the EXISTING all-nome Wilson completion.
 `valueConj_mul`, `inner_conj_symm`, `inner_posdef`, `inner_smul_right`,
@@ -381,3 +393,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 21 | 2026-09-24 | The candidate iterated endpoint floor forces a coefficient of at least 1920 even for the quadratic channel-budget remainder. Numerical normalization obstruction only; no growing-square partition comparison or actual energy lower bound. A03 remains open; no chart-block, scope or goal-node status change. |
 | 1 / 22 | 2026-09-24 | Actual explicit-modulus real scaling, algebraic laws, computed vacuum projection and same-operator connected correlations on the existing Wilson completion. Exact equality with the preceding dense centered state is proved. Partial J02 only; no new scaling estimate, carrier substitution, full Hilbert/QFT closure, chart-block or goal-node status change. |
 | 1 / 23 | 2026-09-24 | Two-component complexification of the SAME all-nome Wilson completion, with explicit constructive-real scalar data, Hermitian positive-definite pairing, and original-time balance. Focused check passed 27 declarations within the permitted axiom gate. Partial J02 only; the complex consumer, A03 scaling estimate, continuum/QFT closure and all goal markers remain open. |
+| 1 / 24 | 2026-09-24 | The SAME complex Wilson carrier now consumes the existing unit and transfer: unit fixation, vacuum-sector preservation and an 11-declaration fixed-parameter strict two-step bound are kernel-checked within the permitted axiom gate. No scaling, continuum, physical-mass, all-group or chart-node closure. |

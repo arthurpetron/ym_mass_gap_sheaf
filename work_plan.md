@@ -36,13 +36,19 @@ positive-definiteness, additivity, sesquilinearity, time zero/addition,
 time/scalar commutation, and time balance.  This is a fixed nome/width
 Hilbert-structure prerequisite; it does not identify a continuum OS carrier,
 provide completeness beyond the existing real completion, or improve A03's
-scaling estimate.  The separate complex strict-gap consumer is drafted but
-remains unverified until the safe launcher permits it.
+scaling estimate.
 
-One focused check passed 27 declarations with only `{propext, Quot.sound}`;
-no source hole, new axiom, or classical input was introduced.  The check was
-serialized with one worker and a 2 GiB cap; the subsequent consumer check was
-held by the unchanged 12 GiB reserve.  Evidence:
+`BF4WilsonAllNomeComplexGap` now consumes that carrier with the EXISTING unit
+and transfer.  It proves unit fixation, the complex vacuum-orthogonality
+criterion and its preservation under every discrete time, and the strict
+two-step form bound on every complex vacuum-orthogonal state at fixed
+coupling/width.  The bound remains nome/width-dependent and is not a physical
+Hamiltonian or continuum gap.
+
+The complexification check passed 27 declarations and the consumer check
+passed 11 declarations, all within `{propext, Quot.sound}`; no source hole,
+new axiom, or classical input was introduced.  Both checks were serialized
+with one worker and a 2 GiB cap under the unchanged 12 GiB reserve.  Evidence:
 `audits/AUDIT-WILSON-COMPLEXIFICATION-2026-09-24.md`.
 
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
