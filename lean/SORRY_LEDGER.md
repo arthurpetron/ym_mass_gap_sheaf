@@ -20,6 +20,25 @@
   `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
   or custom axiom.
 
+## Same-object probe decay carried through the branch (2026-09-25 UTC)
+
+- **decay field:** `GapFiber.probe_time_decay` in
+  `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`
+  records the all-lag completed-carrier estimate from
+  `BF4WilsonSpatialUnionRelaxation.norm_decay`.
+- **compiler:** `NontrivialityFiber.toGap` derives that field from the existing
+  vacuum-orthogonality witness; the dimensionless, fixed-spacing, and
+  vanishing-spacing fibers preserve it without changing the carrier.
+- **consequences:** `branch_arrow_exposes_same_object_decay` and
+  `gap_mass_arrow_preserves_same_object_decay` expose the actual same-object
+  correlator estimate behind the branch's strict two-step bound.
+- **scope:** fixed-spacing SU(2) discrete-time decay only; spacing survival,
+  canonical OS/GNS identification, continuum/QFT construction, and Clay
+  closure remain open.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Composed branch-to-fixed-spacing-rate presheaf chain (2026-09-25 UTC)
 
 - **calibrated fiber:** `SpacingCalibratedMassFiber` in

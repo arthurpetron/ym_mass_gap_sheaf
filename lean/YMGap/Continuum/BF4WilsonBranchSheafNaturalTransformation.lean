@@ -20,6 +20,7 @@ import YMGap.Categorical.ScaleSheaf
 import YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
 import YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
 import YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
+import YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap
 import YMGap.Continuum.BF4ExactSlabCollarAdjustedRate
 import YMGap.Continuum.FiniteSizeGeometricSum
@@ -48,6 +49,8 @@ open YMGap.Continuum.BF4WilsonSpatialUnionCompletedGap
   (completed_twoStep_form_gap)
 open YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
   (unitExcitation_even_lower)
+open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
+  (norm_decay)
 open YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
   (rayleighFloor unitExcitation unitExcitation_orthogonal)
 open YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
@@ -104,6 +107,10 @@ structure GapFiber : Type 2 where
     RCle (B probe (T 2 probe))
       (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
         (B probe probe))
+  probe_time_decay :
+    ∀ n : Nat,
+      RCle (B (T n probe) (T n probe))
+        (RCscale ((twoStepRate nome hd)^n) (B probe probe))
 
 /-- A gap-side section enriched with the constructive dimensionless transfer
 mass.  The mass is the exact positive `-log(currentRate)` of the fixed
@@ -115,6 +122,10 @@ structure DimensionlessMassFiber : Type 2 where
     RCle (B probe (T 2 probe))
       (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
         (B probe probe))
+  probe_time_decay :
+    ∀ n : Nat,
+      RCle (B (T n probe) (T n probe))
+        (RCscale ((twoStepRate nome hd)^n) (B probe probe))
   transfer_mass : CReal
   transfer_mass_positive : CReal.IsPositive transfer_mass
   transfer_mass_log_pin : CReal.Equiv transfer_mass
@@ -132,6 +143,10 @@ structure SpacingCalibratedMassFiber (A : CurrentSpacing) : Type 2 where
     RCle (B probe (T 2 probe))
       (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
         (B probe probe))
+  probe_time_decay :
+    ∀ n : Nat,
+      RCle (B (T n probe) (T n probe))
+        (RCscale ((twoStepRate nome hd)^n) (B probe probe))
   physical_rate : CReal
   physical_rate_exact : physical_rate = currentPhysicalRate A
   physical_rate_posEv : PosEv physical_rate
@@ -154,6 +169,10 @@ structure VanishingSpacingMassFiber (S : CurrentSpacingSchedule) : Type 2 where
     RCle (B probe (T 2 probe))
       (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
         (B probe probe))
+  probe_time_decay :
+    ∀ n : Nat,
+      RCle (B (T n probe) (T n probe))
+        (RCscale ((twoStepRate nome hd)^n) (B probe probe))
   physical_rate : Nat → CReal
   physical_rate_exact : ∀ j,
     physical_rate j = currentPhysicalRate ⟨S.a j, S.a_pos j⟩
@@ -172,6 +191,9 @@ def NontrivialityFiber.toGap (e : NontrivialityFiber) : GapFiber where
   probe_strict_two_step :=
     completed_twoStep_form_gap nome_pos nome_lt_one hsmall hd hs e.probe
       e.probe_vacuum_orthogonal
+  probe_time_decay :=
+    norm_decay nome_pos nome_lt_one hsmall hd hs e.probe
+      e.probe_vacuum_orthogonal
 
 /-- The gap-to-mass compiler retains the same probe and strict estimate and
 adds only the already checked fixed-spacing logarithmic certificate. -/
@@ -179,6 +201,7 @@ def GapFiber.toDimensionlessMass (g : GapFiber) : DimensionlessMassFiber where
   probe := g.probe
   probe_vacuum_orthogonal := g.probe_vacuum_orthogonal
   probe_strict_two_step := g.probe_strict_two_step
+  probe_time_decay := g.probe_time_decay
   transfer_mass := currentTransferMass
   transfer_mass_positive := currentTransferMass_pos
   transfer_mass_log_pin := currentTransferMass_log_pin
@@ -191,6 +214,7 @@ def DimensionlessMassFiber.toSpacingCalibratedMass
   probe := m.probe
   probe_vacuum_orthogonal := m.probe_vacuum_orthogonal
   probe_strict_two_step := m.probe_strict_two_step
+  probe_time_decay := m.probe_time_decay
   physical_rate := currentPhysicalRate A
   physical_rate_exact := rfl
   physical_rate_posEv := currentPhysicalRate_posEv A
@@ -204,6 +228,7 @@ def DimensionlessMassFiber.toVanishingSpacingMass
   probe := m.probe
   probe_vacuum_orthogonal := m.probe_vacuum_orthogonal
   probe_strict_two_step := m.probe_strict_two_step
+  probe_time_decay := m.probe_time_decay
   physical_rate := fun j => currentPhysicalRate ⟨S.a j, S.a_pos j⟩
   physical_rate_exact := fun _ => rfl
   physical_rate_posEv := fun j => currentPhysicalRate_posEv ⟨S.a j, S.a_pos j⟩
@@ -331,6 +356,21 @@ theorem gap_mass_arrow_preserves_probe (n : Nat) (g : GapFiber) :
 theorem gap_mass_arrow_preserves_rate (n : Nat) (g : GapFiber) :
     (gapToDimensionlessMass.app n g).transfer_mass = currentTransferMass := rfl
 
+theorem branch_arrow_exposes_same_object_decay
+    (n k : Nat) (e : NontrivialityFiber) :
+    RCle
+      (B (T k (nontrivialityToGap.app n e).probe)
+        (T k (nontrivialityToGap.app n e).probe))
+      (RCscale ((twoStepRate nome hd)^k)
+        (B (nontrivialityToGap.app n e).probe
+          (nontrivialityToGap.app n e).probe)) :=
+  (nontrivialityToGap.app n e).probe_time_decay k
+
+theorem gap_mass_arrow_preserves_same_object_decay
+    (n k : Nat) (g : GapFiber) :
+    (gapToDimensionlessMass.app n g).probe_time_decay k =
+      g.probe_time_decay k := rfl
+
 theorem calibration_arrow_preserves_probe
     (A : CurrentSpacing) (n : Nat) (m : DimensionlessMassFiber) :
     ((dimensionlessMassToSpacingCalibratedMass A).app n m).probe = m.probe := rfl
@@ -410,8 +450,10 @@ theorem currentGap_strict_two_step :
 #print axioms nontrivialityToVanishingSpacingMass
 #print axioms branch_arrow_preserves_probe
 #print axioms branch_arrow_preserves_orthogonality
+#print axioms branch_arrow_exposes_same_object_decay
 #print axioms gap_mass_arrow_preserves_probe
 #print axioms gap_mass_arrow_preserves_rate
+#print axioms gap_mass_arrow_preserves_same_object_decay
 #print axioms calibration_arrow_preserves_probe
 #print axioms calibration_arrow_exposes_exact_rate
 #print axioms calibration_arrow_preserves_rate_pin

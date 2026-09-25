@@ -36,6 +36,20 @@ cannot have a finite ceiling.  This is a checked negative consequence, not a
 continuum family or a positive Clay gap; it identifies the required next
 input as a genuinely changing same-theory transfer family.
 
+## Current increment: same-object probe decay carried through the branch (2026-09-25 UTC)
+
+`GapFiber` now carries `probe_time_decay`, the all-lag completed-carrier norm
+decay supplied by `BF4WilsonSpatialUnionRelaxation.norm_decay`.  The compiler
+`NontrivialityFiber.toGap` derives it from the existing vacuum-orthogonality
+field, and `DimensionlessMassFiber` plus both calibrated rate fibers preserve
+the same field.  The checked consequences
+`branch_arrow_exposes_same_object_decay` and
+`gap_mass_arrow_preserves_same_object_decay` make the branch's transfer bound
+an actual same-object correlator estimate, with no new carrier or rate.  This
+remains fixed-spacing SU(2) discrete-time decay; spacing survival, canonical
+OS/GNS identification, continuum/QFT construction, and Clay closure remain
+open.
+
 ## Current increment: composed branch-to-log-mass presheaf chain (2026-09-25 UTC)
 
 The branch arrow in
