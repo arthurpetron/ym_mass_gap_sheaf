@@ -12,6 +12,7 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRescaledStrengthTracking
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicSpacingTailCompiler
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicStrengthNormalization
+import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualTransitionProductCompiler
 
 namespace YMGap.Continuum.BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler
 
@@ -28,12 +29,16 @@ open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveTransitionProductFa
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRescaledStrengthTracking
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicSpacingTailCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicStrengthNormalization
+open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualTransitionProductCompiler
 open YMGap.Continuum.QuadraticRateErrorTailControl
+open YMGap.Continuum.PhysicalSeparatorContinuumRealization
+open YMGap.Continuum.PhysicalSeparatorFullLogComparison
 open YMGap.Continuum.SummableRationalStepVariation
 
 /-- The matched AF spacing tail and the rescaled-strength variation compile
@@ -63,6 +68,61 @@ def matchedExactLogRateCauchyOfRescaledStrength
         trajectory C H)
   exact exactLogRateCauchyOfRescaledStrength pin band variation hspacing
 
+/-- Add the independent finite exact-log ceiling to the matched Cauchy
+consumer.  The result carries spacing cofinality, convergence, and the
+surviving positive/finite rate bounds for the same completed carrier. -/
+def matchedExactRateCutoffRemovalOfRescaledStrength
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (producer : trajectory.LocalProducer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (pin : DynamicVacuumSectorObservablePin
+      (trajectory.toCompletedFamily producer))
+    (variation : SummableRationalStepVariation
+      (rescaledStrength (trajectory.toNormalizedStrengthLaw producer)))
+    (ceiling : FullRangeLogRateCeiling (fullRangeRateFamily pin))
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    ExactRateCutoffRemoval
+      (DynamicVacuumSectorObservablePin.exactCertificate
+        pin scaling.toPhysicalRateBand ceiling) :=
+  exactRateCutoffRemovalOfRateCauchy
+    pin scaling.toPhysicalRateBand ceiling
+    (matchedExactLogRateCauchyOfRescaledStrength
+      trajectory producer scaling pin variation C H)
+
+namespace MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer
+
+/-- The exact-log consumer specialized to the literal matched explicit
+capacity-check producer.  Its projections remain definitionally tied to the
+same completed carrier, transfer, and observable pin. -/
+def matchedExplicitProducerExactLogRateCauchyOfRescaledStrength
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer :
+      MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer
+        trajectory)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer.toLocalProducer)
+    (pin : DynamicVacuumSectorObservablePin
+      (trajectory.toCompletedFamily producer.toLocalProducer))
+    (variation : SummableRationalStepVariation
+      (rescaledStrength
+        (trajectory.toNormalizedStrengthLaw producer.toLocalProducer)))
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    CReal.ModCauchyEv ((fullRangeRateFamily pin).rate) :=
+  matchedExactLogRateCauchyOfRescaledStrength
+    trajectory producer.toLocalProducer scaling pin variation C H
+
+end MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer
+
 #print axioms matchedExactLogRateCauchyOfRescaledStrength
+#print axioms matchedExactRateCutoffRemovalOfRescaledStrength
+#print axioms
+  MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer.matchedExplicitProducerExactLogRateCauchyOfRescaledStrength
 
 end YMGap.Continuum.BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler

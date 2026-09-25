@@ -1,11 +1,18 @@
 # Sorry Ledger
 
-## Matched AF rescaled-strength exact-log adapter (2026-09-25 UTC)
+## Matched AF rescaled-strength exact-rate cutoff (2026-09-25 UTC)
 
 - **same-object join:** `matchedExactLogRateCauchyOfRescaledStrength`
   (`lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.lean`)
   transports the AF inverse-square spacing tail to the literal matched
   completed family and feeds it to `exactLogRateCauchyOfRescaledStrength`.
+- **cutoff removal:** `matchedExactRateCutoffRemovalOfRescaledStrength`
+  consumes that same Cauchy witness plus an independent
+  `FullRangeLogRateCeiling`, producing `ExactRateCutoffRemoval` with spacing
+  cofinality and surviving positive/finite rate bounds.
+- **explicit producer:**
+  `MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer.matchedExplicitProducerExactLogRateCauchyOfRescaledStrength`
+  specializes the Cauchy consumer to the literal matched explicit producer.
 - **explicit remaining inputs:** the local producer, two-sided strength
   scaling, observable pin, rescaled-strength variation, and shifted AF
   identification remain fields of the theorem type.

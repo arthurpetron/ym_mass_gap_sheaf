@@ -44,7 +44,7 @@ The focused monitored check passed with only `{propext, Quot.sound}` and no
 `sorryAx`, classical axiom, `native_decide`, or custom axiom.  No continuum,
 positive-mass, or Clay claim follows.
 
-## Current increment: matched AF spacing tail joined to same-object log-rate consumer (2026-09-25 UTC)
+## Current increment: matched AF exact-rate cutoff removal on the same carrier (2026-09-25 UTC)
 
 `matchedExactLogRateCauchyOfRescaledStrength` in
 `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.lean`
@@ -54,9 +54,15 @@ with `exactLogRateCauchyOfRescaledStrength`.  The result is a
 completed carrier and transfer.  The type keeps the local producer,
 two-sided strength scaling, same-object observable pin, rescaled-strength
 variation, and shifted AF identification explicit; none is constructed by
-this adapter.  The focused monitored check passed with only
-`{propext, Quot.sound}`.  This closes a typed matched-family interface, not
-the physical rate, continuum/QFT, all-group, or Clay obligations.
+this adapter.  `matchedExactRateCutoffRemovalOfRescaledStrength` then adds
+the independent finite exact-log ceiling and constructs the repository's
+`ExactRateCutoffRemoval`, including spacing cofinality, convergence, and the
+surviving positive/finite rate bounds on that same carrier.  The explicit
+producer specialization is
+`MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer.matchedExplicitProducerExactLogRateCauchyOfRescaledStrength`.
+The focused monitored check passed with only `{propext, Quot.sound}`.  This
+closes a typed matched-family cutoff interface, not the physical rate,
+continuum/QFT, all-group, or Clay obligations.
 
 ## Current increment: fixed-family debt input compiled to CReal (2026-09-25 UTC)
 
