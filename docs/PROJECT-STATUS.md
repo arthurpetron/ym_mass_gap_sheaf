@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **46**, 2026-09-24 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **47**, 2026-09-25 UTC. Source checkpoint:
 the exact lag-two Wilson-to-OS relative-loss bridge consumer, alongside the
 checked fixed-parameter complex relative-loss consumer and the explicit
 width-degeneration obstruction for the original response witness
@@ -65,8 +65,9 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
      on a justified scaling family          |
              |  <-- CURRENT FRONTIER        v
              v                         [ ] Spatial and spacing
- [x] Conditional survival theorem           control of the rate
-     (requires the missing input)           |
+ [x] Conditional survival theorem     control of the rate
+     (requires the missing input)     [x] Same-carrier exact-log ceiling
+                                       [x] Gap/strength -> rescaled variation
              |                              v
              v                         [ ] EVERY-state decay
  [ ] ONE nonzero excitation survives        survives scaling
@@ -104,6 +105,8 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B02 | Transfer + vacuum sector | Original `jointCompletedTime`, `jointCompletedUnit` and orthogonality used by `completed_twoStep_form_gap` below; discrete time, not a continuum Hamiltonian. |
 | B03 | Strict completed T^2 bound at FIXED coupling/width | `BF4ExactSlabFixedSpatialJointCompletedGap.completed_twoStep_form_gap`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointCompletedGap.lean:150`; EVERY vacuum-orthogonal vector, nome/width-dependent rate. Complex extension: `BF4ExactSlabFixedSpatialJointComplexGap.complex_twoStep_form_gap`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointComplexGap.lean:117`. |
 | B04 | Spatial and spacing control of the rate | OPEN; fixed-parameter strictness is not scaling control. |
+| B04a | Same-carrier exact-log ceiling from the physical band | `fullRangeLogRateCeilingOfPhysicalRateBand`; checked interface only, with the physical band still supplied. |
+| B04b | Gap/strength variation factored into rescaled variation | `rescaledStrengthVariationOfPhysicalGapAndStrength` and matched adapter; both primitive variations remain open inputs. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
