@@ -193,6 +193,18 @@ continuum construction, physical mass, and all-group obligations remain open.
 Verification is recorded in
 `audits/AUDIT-DYNAMIC-FORM-GAP-RELATIVE-LOSS-2026-09-24.md`.
 
+New dynamic form-to-operator bridge:
+`BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.DynamicVacuumSectorCompletedMarkovFormCauchySchwarzFamily`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.lean:53`)
+factors the missing positive completed Markov-form Cauchy--Schwarz input at
+each scale.  The consumer
+`channel_completed_norm_gap_of_formGap_and_markovCS` (`:65`) composes that
+input with the scale-wise form family and returns the literal completed
+`<Tv,Tv> <= rate^2 <v,v>` estimate for the same channel vector.  The
+Cauchy--Schwarz family is not inhabited; no chart-node status changes.
+Verification is recorded in
+`audits/AUDIT-DYNAMIC-MARKOV-FORM-CS-BRIDGE-2026-09-24.md`.
+
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`
 (`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteRateCalibration.lean:54`)
@@ -746,3 +758,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 48 | 2026-09-24 | Rewrote the existing finite physical SU(2) form gap as relative loss on the literal moving-centered cube same-object autocorrelation, with explicit `cutoffUniformRate w` margin positivity. No chart-node status change. |
 | 1 / 49 | 2026-09-24 | Added a separate dynamic family form-gap certificate and inhabited it for the fixed-`w=1/2` geometric staging family; the moving-cube RC channel now has scale-wise relative loss. No chart-node status change. |
 | 1 / 50 | 2026-09-24 | Exposed the dynamic form-gap relative-loss coefficient through the global completed Markov transfer on the identical embedded vector by equality transport. No chart-node status change. |
+| 1 / 51 | 2026-09-24 | Factored the scale-indexed completed Markov-form Cauchy--Schwarz input and composed it with the form gap into the literal same-object squared-norm estimate. The CS family remains open; no chart-node status change. |

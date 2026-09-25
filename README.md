@@ -51,6 +51,16 @@ to zero, so the existing physical-rate-band obstruction remains.  It does not
 close continuum survival, physical mass, or the all-group theorem.  See the
 [dynamic form-gap audit](audits/AUDIT-DYNAMIC-FORM-GAP-RELATIVE-LOSS-2026-09-24.md).
 
+**New checked dynamic operator bridge (2026-09-24):**
+`BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge` keeps the
+completed Markov-form Cauchy--Schwarz law as an explicit scale-indexed input
+and composes it with the same-carrier form gap to obtain the literal
+`<Tv,Tv> <= rate^2 <v,v>` estimate for each channel vector.  The
+Cauchy--Schwarz family is still uninhabited, so this is a compiler edge only;
+spacing-uniformity, continuum survival, physical mass, and every-group
+construction remain open.  See the
+[dynamic Markov-form bridge audit](audits/AUDIT-DYNAMIC-MARKOV-FORM-CS-BRIDGE-2026-09-24.md).
+
 **New checked complete growing-word square heat image:** the original product
 heat sends a distinct-link Wilson character square to
 `1 + w^(8*perimeter)*chi_2`, retaining every supported test. For the actual

@@ -121,6 +121,21 @@ family's spacing vanishes while its lattice margin is constant, so the known
 rate-band obstruction and all continuum/physical-mass obligations remain.
 Verification: `audits/AUDIT-DYNAMIC-FORM-GAP-RELATIVE-LOSS-2026-09-24.md`.
 
+### Dynamic Markov-form Cauchy--Schwarz bridge (2026-09-24 UTC)
+
+`BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.DynamicVacuumSectorCompletedMarkovFormCauchySchwarzFamily`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.lean:53`)
+keeps the positive completed Markov-form Cauchy--Schwarz law as an explicit
+scale-indexed input.  The consumer
+`channel_completed_norm_gap_of_formGap_and_markovCS` (`:65`) composes it with
+the same-carrier form-gap family and applies
+`centralPhysicalVacuumSectorCylinderCompletedTransfer_norm_gap`, yielding the
+literal completed squared-norm estimate at rate squared for every channel
+vector.  The Cauchy--Schwarz family remains uninhabited; this is a compiler
+edge toward the operator/power consumer, not a physical-rate, continuum, or
+Clay result.  Evidence:
+`audits/AUDIT-DYNAMIC-MARKOV-FORM-CS-BRIDGE-2026-09-24.md`.
+
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`

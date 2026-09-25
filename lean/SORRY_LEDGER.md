@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Dynamic Markov-form Cauchy--Schwarz bridge CLOSED; Cauchy--Schwarz family OPEN (2026-09-24 UTC)
+
+- **factored input**: `BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.DynamicVacuumSectorCompletedMarkovFormCauchySchwarzFamily`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.lean:53`)
+  records the positive completed Markov-form Cauchy--Schwarz datum at every
+  scale of one dynamic family's actual nome and carrier.  The bridge-local
+  `DynamicVacuumSectorCompletedFormGapFamily` is the corresponding explicit
+  form-gap input (`:44`).
+- **consumer**: `channel_completed_norm_gap_of_formGap_and_markovCS` (`:65`)
+  applies `centralPhysicalVacuumSectorCylinderCompletedTransfer_norm_gap` and
+  returns the literal same-object completed squared-norm estimate with the
+  squared scale-wise rate for every channel vector.
+- **scope**: no inhabitant of the Cauchy--Schwarz family is supplied.  The
+  physical-rate band, spatial/spacing control, continuum survival,
+  thermodynamic/continuum passage, physical mass, and all-group theorem remain
+  open; no chart node changes status.
+- **verification**: focused monitored check reports only `{propext, Quot.sound}`
+  and no `sorryAx`, classical input, or custom axiom.  Evidence:
+  `audits/AUDIT-DYNAMIC-MARKOV-FORM-CS-BRIDGE-2026-09-24.md`.
+
 ## Dynamic form-gap family certificate CLOSED; physical-rate band OPEN (2026-09-24 UTC)
 
 - **factored certificate**: `BF4PhysicalDynamicVacuumSectorFormGapRelativeLoss.DynamicVacuumSectorCompletedFormGapFamily`
