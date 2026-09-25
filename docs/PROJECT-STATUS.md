@@ -147,6 +147,21 @@ parameters, so B04, B05, A03 scaling, and all continuum joins remain open.
 Verification is recorded in
 `audits/AUDIT-WILSON-PLAQUETTE-TWO-STEP-RESPONSE-2026-09-24.md`.
 
+New complex-carrier concrete excitation consumer:
+`BF4WilsonAllNomeComplexPlaquetteExcitation.complexPlaquetteExcitation`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeComplexPlaquetteExcitation.lean:52`)
+embeds the already constructed real plaquette state into the actual
+two-component complex carrier.  Its orthogonality to the complex unit,
+diagonal/norm identity, positive norm floor, lag-two response floor,
+fixed-parameter relative loss, and iterated even-lag correlator decay are
+proved in the same module (`:58`, `:68`, `:75`, `:82`, `:91`, `:105`).  The
+two-padding origin specialization is also explicit (`:118--139`).  This is a
+concrete same-object complex witness, not a cross-width identification or an
+OS/GNS bridge; nome, width, active-face hypotheses, spacing-uniform control,
+scaling survival, physical mass, continuum, and all-group obligations remain
+open.  Verification is recorded in
+`audits/AUDIT-WILSON-COMPLEX-PLAQUETTE-EXCITATION-2026-09-24.md`.
+
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`
 (`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteRateCalibration.lean:54`)
@@ -696,3 +711,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 44 | 2026-09-24 | Added the lag-indexed OS relative-loss family and equality-only Wilson transport consumer; the focused check is axiom-free. No bridge inhabitant or chart-node status change. |
 | 1 / 45 | 2026-09-24 | Proved a fixed-parameter complex Wilson relative-loss inequality and an explicit width modulus showing the computed original-response witness has no positive width-uniform floor. Both focused checks stay within `{propext, Quot.sound}`; no chart-node status change. |
 | 1 / 46 | 2026-09-24 | Added the exact lag-two relative-loss bridge interface and equality-only transport consumer; the focused check is axiom-free. No bridge inhabitant or chart-node status change. |
+| 1 / 47 | 2026-09-24 | Embedded the actual plaquette excitation into the complex Wilson carrier and proved its orthogonality, norm/response floors, relative loss, and even-lag decay. Fixed-parameter same-object evidence only; no chart-node status change. |

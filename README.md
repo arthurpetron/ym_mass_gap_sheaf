@@ -23,6 +23,14 @@ shape, but no concrete carrier map is claimed.  See
 the [relative-loss audit](audits/AUDIT-WILSON-COMPLEX-RELATIVE-LOSS-2026-09-24.md)
 and [response-width audit](audits/AUDIT-WILSON-RESPONSE-WIDTH-OBSTRUCTION-2026-09-24.md).
 
+**Latest concrete same-object join (2026-09-24):**
+`BF4WilsonAllNomeComplexPlaquetteExcitation` embeds the actual plaquette
+excitation into the complex Wilson carrier and proves its unit orthogonality,
+norm/lag-two response floors, fixed-parameter relative loss, and even-lag
+correlator decay.  This is finite-parameter evidence only; the OS/GNS map,
+scaling survival, continuum construction, physical mass, and all-group result
+remain open.  See the [complex plaquette audit](audits/AUDIT-WILSON-COMPLEX-PLAQUETTE-EXCITATION-2026-09-24.md).
+
 **New checked complete growing-word square heat image:** the original product
 heat sends a distinct-link Wilson character square to
 `1 + w^(8*perimeter)*chi_2`, retaining every supported test. For the actual

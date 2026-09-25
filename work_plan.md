@@ -72,6 +72,21 @@ same-carrier consequence, but its rate remains parameter-dependent and it does
 not construct the Wilson-to-OS map or any scaling modulus.  Evidence:
 `audits/AUDIT-WILSON-COMPLEX-RELATIVE-LOSS-2026-09-24.md`.
 
+### Concrete plaquette witness on the complex carrier (2026-09-24 UTC)
+
+`BF4WilsonAllNomeComplexPlaquetteExcitation.complexPlaquetteExcitation`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeComplexPlaquetteExcitation.lean:52`)
+embeds the existing real plaquette excitation into the same two-component
+complex completion.  The module proves its complex-unit orthogonality and
+diagonal identity (`:58`, `:68`), transports the positive norm and lag-two
+response floors (`:75`, `:82`), and specializes both the fixed-parameter
+relative-loss and even-lag correlator-decay theorems (`:91`, `:105`).  The
+two-padding origin witness is explicit at `:118--139`.  This removes the
+state-level type mismatch for one finite-parameter observable, while leaving
+the carrier map to OS/GNS, spacing-uniform estimates, cross-width survival,
+physical mass, continuum, and every-group construction open.  Verification:
+`audits/AUDIT-WILSON-COMPLEX-PLAQUETTE-EXCITATION-2026-09-24.md`.
+
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`
