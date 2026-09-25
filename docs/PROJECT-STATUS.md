@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **41**, 2026-09-24 UTC. Source checkpoint:
-the SAME all-nome Wilson coarse dyadic rational-budget obstruction
+Chart schema: **1**. Snapshot: **42**, 2026-09-24 UTC. Source checkpoint:
+the minimal typed Wilson-to-OS same-object bridge consumer
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-DYADIC-RATIONAL-BUDGET-OBSTRUCTION-2026-09-24.md`.
+`audits/AUDIT-WILSON-OS-BRIDGE-SPEC-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -574,9 +574,18 @@ remains open; extending this candidate normalization alone cannot supply it.
   `CoarseBudgetData` bundle, with `coarse_budget_data_empty` proving that the
   proposed budget has no inhabitant under `0 < 1-w`. This is a constructive
   no-go, not an actual-loss lower bound.
+- New checked bridge expansion: `BF4WilsonOSBridgeSpec.SameObjectBridge`
+  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:29`) names the exact
+  carrier-map, pairing, step, vacuum, and orthogonality data needed to identify
+  the literal all-nome Wilson completion with the separate strict OS carrier.
+  `OSFormGap` (`:48`) keeps the OS-side two-step inequality as an explicit
+  input, and `transfer_twoStep_form_gap` (`:62`) transports it constructively
+  to the Wilson side. The focused check reports an empty axiom set. No bridge
+  inhabitant is supplied, so J02, B04/B05, the continuum joins, physical mass,
+  and the Clay target remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--40; this snapshot records only new proof evidence.
+  unchanged; this snapshot records a new typed bridge expansion only.
 
 ## Maintenance contract
 
@@ -640,3 +649,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 36 | 2026-09-24 | The literal origin plaquette now discharges fixed-parameter `twoStepRate > 0` after two padding layers, and the existing complex-rate cutoff is instantiated without a positivity premise. This is coefficient-level finite-parameter evidence only; no chart-block or goal-node status change. |
 | 1 / 40 | 2026-09-24 | The explicit cubic dyadic loss formula is arithmetically incompatible with the proposed rational budget under any abstract coarse defect floor `rho ≤ 1-w`; certificate obstruction only, with no actual-loss lower bound or chart-block/goal-node status change. |
 | 1 / 41 | 2026-09-24 | The coarse rational budget is packaged as Type-level `CoarseBudgetData`, and `coarse_budget_data_empty` proves its constructive emptiness under `0 < 1-w`; no chart-block or goal-node status change. |
+| 1 / 42 | 2026-09-24 | Minimal typed Wilson-to-OS bridge interface and constructive two-step form-bound consumer checked with an empty axiom set. No bridge inhabitant or chart-node status change. |

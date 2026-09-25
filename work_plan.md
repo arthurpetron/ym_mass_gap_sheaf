@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Minimal Wilson-to-OS bridge certificate (2026-09-24 UTC)
+
+The literal all-nome Wilson completion and the separate strict OS completion
+are not currently identified by any checked declaration.  The exact missing
+data is now isolated in
+`BF4WilsonOSBridgeSpec.SameObjectBridge`
+(`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:29`): a carrier map,
+pairing preservation, discrete-step compatibility, vacuum preservation, and
+preservation of the selected vacuum-complement predicate.  The OS-side
+two-step estimate is a separate `OSFormGap` input (`:48`).
+
+The checked consumer
+`BF4WilsonOSBridgeSpec.transfer_twoStep_form_gap` (`:62`) transports that
+OS estimate to the Wilson carrier using only the supplied equalities.  Its
+focused axiom report is empty.  This is a typed contraction of the J02 bridge
+obligation, not an inhabitant of the bridge: the concrete map, its pairing
+identity, and the OS bound remain open, as do spacing control, scaling
+survival, thermodynamic/continuum limits, physical mass, and the all-group
+construction.
+
 ### SAME complex carrier and original transfer (2026-09-24 UTC)
 
 `BF4WilsonAllNomeComplexification` realifies the EXISTING all-nome Wilson
