@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **35**, 2026-09-24 UTC. Source checkpoint:
-the SAME all-nome Wilson two-step-rate width-obstruction milestone
+Chart schema: **1**. Snapshot: **36**, 2026-09-24 UTC. Source checkpoint:
+the SAME all-nome Wilson origin-plaquette complex-rate cutoff milestone
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-TWO-STEP-RATE-WIDTH-OBSTRUCTION-2026-09-24.md`.
+`audits/AUDIT-WILSON-ORIGIN-COMPLEX-CUTOFF-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -178,6 +178,19 @@ certificate cannot be promoted to B04's spacing-uniform rate.  The theorem is
 about the computed comparison rate only, not the actual transfer operator or
 Yang--Mills.  Verification is recorded in
 `audits/AUDIT-WILSON-TWO-STEP-RATE-WIDTH-OBSTRUCTION-2026-09-24.md`.
+
+New fixed-parameter cutoff consumer:
+`BF4WilsonAllNomeOriginComplexCutoff.origin_twoStepRate_positive`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeOriginComplexCutoff.lean:42`) consumes
+the literal origin plaquette, its two explicit padding layers, and the existing
+same-carrier rate calibration to prove strict positivity of `twoStepRate` at
+`width + 2` without an extra face or activity hypothesis.  Its companion
+`origin_complexRateCutoff_bound` (`:53`) feeds that positivity into the
+existing `HKConvGen.powBaseCutoff` modulus for every positive rational error
+target.  This is coefficient-level finite-parameter evidence only; it does
+not alter the computed-rate width obstruction or close B04, A05, J01, J02,
+J03, or J04.  Verification is recorded in
+`audits/AUDIT-WILSON-ORIGIN-COMPLEX-CUTOFF-2026-09-24.md`.
 
 Additional partial J02 evidence: `BF4WilsonAllNomeLinear.completedAdd` and
 `.completedSmul` (`lean/YMGap/Continuum/BF4WilsonAllNomeLinear.lean:132`, `:135`)
@@ -541,3 +554,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 33 | 2026-09-24 | Same-carrier plaquette floor calibrated against `twoStepRate * plaquetteNormCeiling`. Fixed nome/width only; no chart-block or goal-node status change. |
 | 1 / 34 | 2026-09-24 | Same-carrier normalized plaquette response floor and fixed-parameter rate positivity. Scaling and continuum joins remain open; no chart-block or goal-node status change. |
 | 1 / 35 | 2026-09-24 | Honest obstruction: the computed `twoStepRate = mixRate^2` has no positive width-uniform bound below one. This redirects B04 to a new analytic rate or genuine spatial/spacing control; no chart-block or goal-node status change. |
+| 1 / 36 | 2026-09-24 | The literal origin plaquette now discharges fixed-parameter `twoStepRate > 0` after two padding layers, and the existing complex-rate cutoff is instantiated without a positivity premise. This is coefficient-level finite-parameter evidence only; no chart-block or goal-node status change. |

@@ -160,6 +160,21 @@ B04's spacing-uniform contraction; it is not a claim about the actual transfer
 operator. Evidence:
 `audits/AUDIT-WILSON-TWO-STEP-RATE-WIDTH-OBSTRUCTION-2026-09-24.md`.
 
+### Origin plaquette supplies the finite complex-rate cutoff (2026-09-24 UTC)
+
+`BF4WilsonAllNomeOriginComplexCutoff.origin_twoStepRate_positive`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeOriginComplexCutoff.lean:42`) consumes
+the literal origin plaquette at `width + 2`, using its two explicit padding
+layers to discharge both spatial-face membership and the active-link premise.
+It therefore proves strict positivity of the existing same-carrier
+`twoStepRate` without leaving a residual face hypothesis.  The companion
+`origin_complexRateCutoff_bound` (`:53`) feeds this positivity into
+`complexRateCutoff_bound`, producing the existing `powBaseCutoff` modulus for
+every positive rational target.  This is a fixed nome/width coefficient
+modulus only.  It does not repair the width obstruction, produce a uniform
+response, or close A03/B04/A05/J01--J04.  Evidence:
+`audits/AUDIT-WILSON-ORIGIN-COMPLEX-CUTOFF-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream

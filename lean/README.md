@@ -117,6 +117,15 @@ Evidence:
 `audits/AUDIT-WILSON-TWO-STEP-RATE-WIDTH-OBSTRUCTION-2026-09-24.md` at
 repository root.
 
+`BF4WilsonAllNomeOriginComplexCutoff.origin_twoStepRate_positive` consumes the
+literal origin plaquette after two explicit padding layers and discharges the
+strict positivity premise for the existing complex rate. Its companion
+`origin_complexRateCutoff_bound` supplies the `powBaseCutoff` coefficient
+modulus for every positive rational target. This remains a finite
+nome/width-dependent certificate; it does not provide a spacing-uniform rate,
+continuum survival or physical mass gap. Evidence:
+`audits/AUDIT-WILSON-ORIGIN-COMPLEX-CUTOFF-2026-09-24.md` at repository root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.
