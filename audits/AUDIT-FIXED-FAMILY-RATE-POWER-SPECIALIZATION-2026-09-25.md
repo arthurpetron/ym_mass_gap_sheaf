@@ -14,8 +14,8 @@ continuum survival, or a positive physical mass.
 | declaration | location | result |
 |---|---|---|
 | `actual_stream_eqv_geometric` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:58` | The actual scheduled stream is pointwise `Q'`-equivalent to the fixed squared rate raised to `time * 2^scale`. |
-| `marginalHalfGeometric_positiveRatePowerVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:68` | For every positive integer time, constructs `SummableRationalStepVariation` for the actual normalized scheduled-rate stream. |
-| `marginalHalfGeometric_ratePowerVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:77` | Adds the automatic time-zero branch, giving the compiler's all-time rational rate-variation input. |
+| `marginalHalfGeometric_positiveRatePowerVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:84` | For every positive integer time, constructs `SummableRationalStepVariation` for the actual normalized scheduled-rate stream. |
+| `marginalHalfGeometric_ratePowerVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:94` | Adds the automatic time-zero branch, giving the compiler's all-time rational rate-variation input. |
 
 The fixed squared base is strictly between zero and one by the existing
 `cutoffUniformRate_pos`/`cutoffUniformRate_lt_one` bounds. The pointwise

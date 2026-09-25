@@ -4,12 +4,15 @@
 The lightweight core proves variation for `r^(time * 2^scale)`.  This file
 transports that certificate to the literal normalized moving-cube scheduled
 rate stream of the concrete SU(2) geometric staging family, using only the
-checked fixed-rate pin and floor-sampler identity.  The resulting input is
-usable by the rational variation compiler; it does not provide raw connected
-moment variation or a positive physical mass.
+checked fixed-rate pin and floor-sampler identity.  It also converts the
+pointwise-constant reciprocal-square normalization debt into the constructive-
+real variation interface.  These scalar inputs are usable by the normalized
+cutoff compiler; the file does not provide raw connected-moment variation or a
+positive physical mass.
 -/
 
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerArithmetic
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizedDebt
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 import YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
@@ -24,9 +27,11 @@ set_option maxHeartbeats 10000000
 open YMGap.Constructive
 open YMGap.Continuum
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerArithmetic
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizedDebt
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
 open YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
 open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.SummableRationalStepVariationAlgebra
@@ -63,6 +68,19 @@ private theorem actual_stream_eqv_geometric
   rw [marginalHalfGeometric_latticeSteps_eq]
   exact Q'.eqv_refl _
 
+/-! ## Concrete normalization-debt input -/
+
+/-- The reciprocal-square normalization debt of the fixed-nome family has an
+explicit constructive-real variation certificate.  Its rational stream is
+pointwise constant, so the conversion contributes no new analytic
+assumption.  The raw same-object moment remains separate. -/
+def marginalHalfGeometric_normalizationNormDebtVariation :
+    MovingCubeNormalizationNormDebtVariation
+      marginalHalfGeometricCompletedFamily :=
+  movingCubeNormalizationNormDebtVariationOfRational
+    marginalHalfGeometricCompletedFamily
+    marginalHalfGeometric_normalizationNormDebtRationalVariation
+
 /-! ## Concrete positive-time compiler input -/
 
 def marginalHalfGeometric_positiveRatePowerVariation
@@ -84,6 +102,8 @@ def marginalHalfGeometric_ratePowerVariation :
 
 end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization
 
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_normalizationNormDebtVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_positiveRatePowerVariation
 #print axioms

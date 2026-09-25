@@ -290,13 +290,21 @@ calibration. Verification is recorded in
 (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean`)
 transports the generic certificate to the literal normalized scheduled-rate
 stream of `marginalHalfGeometricCompletedFamily`. The declarations
-`marginalHalfGeometric_positiveRatePowerVariation` (`:68`) and
-`marginalHalfGeometric_ratePowerVariation` (`:77`) now inhabit the actual
+`marginalHalfGeometric_positiveRatePowerVariation` (`:84`) and
+`marginalHalfGeometric_ratePowerVariation` (`:94`) now inhabit the actual
 compiler's all-time rational rate-variation input. This does not inhabit raw
 connected-moment variation; the positive-time limit remains zero, so no
 positive physical mass or continuum/Clay claim follows. Verification is
 recorded in
 `audits/AUDIT-FIXED-FAMILY-RATE-POWER-SPECIALIZATION-2026-09-25.md`.
+
+The same specialization also converts the fixed-family pointwise-constant
+normalization debt into the constructive-real debt-variation input via
+`marginalHalfGeometric_normalizationNormDebtVariation` (`:75`).  Both scalar
+inputs of the normalized cutoff compiler are therefore inhabited for this
+family; the raw same-object CReal representative variation remains the
+independent missing input.  Verification is recorded in
+`audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
 
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`
@@ -862,3 +870,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 59 | 2026-09-25 | Constructed and checked the full positive-time rational variation certificate for the exact stream `r^(time * 2^scale)`; equality transport to the large normalized compiler remains open. No chart-node status change. |
 | 1 / 60 | 2026-09-25 | Proved constructively that the completed CReal limit of the exact positive-time geometric stream `r^(time * 2^scale)` is zero. This rules out positive physical-mass calibration by this spacing family; the compiler bridge and a replacement physical-rate family remain open. No chart-node status change. |
 | 1 / 61 | 2026-09-25 | Transported the fixed-family variation certificate to the literal normalized scheduled-rate stream and inhabited its all-time rational variation input. Raw connected-moment variation remains open; no chart-node status change. |
+| 1 / 62 | 2026-09-25 | Converted the fixed-family pointwise-constant normalization debt into the constructive-real debt-variation input alongside the inhabited normalized scheduled-rate input. Raw same-object CReal variation remains open; no chart-node status change. |

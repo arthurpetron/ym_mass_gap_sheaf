@@ -228,12 +228,25 @@ and all continuum/QFT joins remain open. Verification:
 (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean`)
 transports the geometric certificate to the literal normalized scheduled-rate
 stream of `marginalHalfGeometricCompletedFamily`. Its
-`marginalHalfGeometric_positiveRatePowerVariation` (`:68`) and
-`marginalHalfGeometric_ratePowerVariation` (`:77`) declarations inhabit the
+`marginalHalfGeometric_positiveRatePowerVariation` (`:84`) and
+`marginalHalfGeometric_ratePowerVariation` (`:94`) declarations inhabit the
 actual compiler's positive-time and all-time rational rate inputs. The raw
 connected-moment variation remains a separate open input; the exact
 positive-time rate-power limit is zero, so no positive mass calibration follows.
 Verification: `audits/AUDIT-FIXED-FAMILY-RATE-POWER-SPECIALIZATION-2026-09-25.md`.
+
+### Fixed-family normalized rate and debt inputs (2026-09-25 UTC)
+
+`marginalHalfGeometric_normalizationNormDebtVariation`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:75`)
+now converts the pointwise-constant rational debt stream into the exact
+constructive-real debt-variation input.  Alongside the literal scheduled-rate
+variation above, this inhabits both scalar inputs of the normalized cutoff
+compiler for the fixed family.  The raw same-object CReal representative
+variation remains the next analytic frontier; the geometric positive-time rate
+limit is zero, so a replacement physical-rate family is still required for
+positive mass calibration.  Verification:
+`audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
 
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 

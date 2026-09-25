@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## Fixed-family normalized rate and debt inputs CLOSED; raw moment OPEN (2026-09-25 UTC)
+
+- **debt conversion:** `BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_normalizationNormDebtVariation`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:75`)
+  converts the pointwise-constant rational debt certificate into the exact
+  constructive-real debt-variation input.
+- **rate conversion:** the same module's
+  `marginalHalfGeometric_positiveRatePowerVariation` (`:84`) and
+  `marginalHalfGeometric_ratePowerVariation` (`:94`) inhabit the literal
+  positive-time and all-time scheduled-rate inputs.
+- **scope:** these are the two scalar branches only.  The raw
+  `MovingCubeRawScheduledRepresentativeVariation` remains uninhabited; the
+  geometric positive-time rate limit is zero, so no positive physical mass,
+  continuum/QFT reconstruction, all-group theorem, or Clay result follows.
+- **verification:** see
+  `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
+
 ## Generic geometric antitone tail CLOSED; physical specialization IN PROGRESS (2026-09-24 UTC)
 
 - **cutoff:** `GeometricAntitoneTailControl.geometricTailRate`
@@ -43,11 +60,11 @@
 
 - **specialization:**
   `BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_positiveRatePowerVariation`
-  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:68`)
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:84`)
   transports the generic certificate to the literal normalized scheduled-rate
   stream of the fixed SU(2) geometric staging family.
 - **all-time input:**
-  `marginalHalfGeometric_ratePowerVariation` (`:77`) adds the automatic zero-time
+  `marginalHalfGeometric_ratePowerVariation` (`:94`) adds the automatic zero-time
   branch and inhabits `NormalizedMovingCubeSampledRatePowerRationalVariation`.
 - **scope:** the compiler's raw connected-moment variation remains open. The
   positive-time stream has zero completed CReal limit, so this staging family

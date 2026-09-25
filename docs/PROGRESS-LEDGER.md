@@ -4,6 +4,18 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: fixed-family debt input compiled to CReal (2026-09-25 UTC)
+
+`marginalHalfGeometric_normalizationNormDebtVariation` in
+`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:75`
+converts the checked pointwise-constant rational debt certificate into the
+exact `MovingCubeNormalizationNormDebtVariation` input consumed by the
+normalized cutoff compiler.  Together with the literal scheduled-rate input,
+both scalar variation branches are now inhabited for this fixed family.  The
+raw same-object CReal representative variation remains open; the geometric
+positive-time rate limit is zero, so no positive physical mass is claimed.
+Evidence: `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
+
 ## Current increment: actual normalized scheduled-rate input inhabited (2026-09-25 UTC)
 
 The fixed-family geometric certificate is now transported to the literal
