@@ -96,6 +96,21 @@ and connect its observable pin to the concrete fixed-sector probe without
 reusing the fixed-carrier reciprocal-spacing construction.  This is a scope
 audit and open-input isolation, not continuum or Clay closure.
 
+## Current increment: response floor joined to the strict rate bound (2026-09-25 UTC)
+
+`gap_probe_response_floor_le_rate_scaled_norm` and
+`branch_arrow_response_floor_le_rate_scaled_norm` in
+`lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`
+compose the carried positive `rayleighFloor` response with the strict
+two-step estimate.  The result is a same-object inequality placing the
+positive response below the strict-rate-scaled probe norm, both on a gap
+fiber and after the nontriviality → gap natural-transformation component.
+This is the strongest immediate quantitative consequence of the current
+fixed-spacing branch; it neither supplies the missing changing-family budget
+nor upgrades a per-probe estimate to an EVERY-state or continuum theorem.
+The focused check passed with only `{propext, Quot.sound}` and no `sorryAx`,
+classical axiom, `native_decide`, or custom axiom.
+
 ## Current increment: composed branch-to-fixed-spacing-rate presheaf chain (2026-09-25 UTC)
 
 `SpacingCalibratedMassFiber` in

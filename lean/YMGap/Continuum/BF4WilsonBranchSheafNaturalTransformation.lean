@@ -408,6 +408,22 @@ theorem branch_arrow_preserves_response_floor
     (nontrivialityToGap.app n e).probe_response_floor =
       e.probe_response_floor := rfl
 
+theorem gap_probe_response_floor_le_rate_scaled_norm
+    (g : GapFiber) :
+    RCle (Quotient.mk crealSetoid (ofQ' rayleighFloor))
+      (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
+        (B g.probe g.probe)) :=
+  RCle_trans g.probe_response_floor g.probe_strict_two_step
+
+theorem branch_arrow_response_floor_le_rate_scaled_norm
+    (n : Nat) (e : NontrivialityFiber) :
+    RCle (Quotient.mk crealSetoid (ofQ' rayleighFloor))
+      (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
+        (B (nontrivialityToGap.app n e).probe
+          (nontrivialityToGap.app n e).probe)) :=
+  gap_probe_response_floor_le_rate_scaled_norm
+    (nontrivialityToGap.app n e)
+
 theorem branch_arrow_preserves_sector
     (n : Nat) (e : NontrivialityFiber) :
     (nontrivialityToGap.app n e).sector = e.sector := rfl
@@ -581,6 +597,8 @@ theorem currentGap_strict_two_step :
 #print axioms branch_arrow_preserves_probe
 #print axioms branch_arrow_preserves_orthogonality
 #print axioms branch_arrow_preserves_response_floor
+#print axioms gap_probe_response_floor_le_rate_scaled_norm
+#print axioms branch_arrow_response_floor_le_rate_scaled_norm
 #print axioms branch_arrow_preserves_sector
 #print axioms branch_arrow_preserves_sector_probe
 #print axioms branch_arrow_probe_is_sector_probe

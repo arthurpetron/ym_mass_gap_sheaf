@@ -103,6 +103,22 @@
   to the concrete fixed-sector observable; the fixed-carrier reciprocal-spacing
   construction cannot serve as that bridge.
 
+## Response floor joined to the strict rate bound (2026-09-25 UTC)
+
+- **quantitative consumers:** `gap_probe_response_floor_le_rate_scaled_norm`
+  and `branch_arrow_response_floor_le_rate_scaled_norm` in
+  `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`
+  compose the positive `rayleighFloor` response with the strict two-step
+  upper bound.
+- **meaning:** the same-object response is below the strict-rate-scaled probe
+  norm both on a gap fiber and after the nontriviality → gap arrow.
+- **scope:** this is fixed-spacing, per-probe compatibility only; it does not
+  construct the missing changing-family budget or an EVERY-state/continuum
+  estimate.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Scheduled-rate presheaf obstruction (2026-09-25 UTC)
 
 - **scheduled fiber:** `VanishingSpacingMassFiber` and
