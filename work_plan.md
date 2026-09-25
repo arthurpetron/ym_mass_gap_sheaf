@@ -110,6 +110,22 @@ per-expression/per-width/per-nome caps, not uniform scaling bounds, and they
 do not supply the missing response floor or any continuum passage. Evidence:
 `audits/AUDIT-WILSON-COMPLETED-NORM-CEILING-2026-09-24.md`.
 
+### SAME all-nome plaquette response square and lag-two floor (2026-09-24 UTC)
+
+`BF4WilsonAllNomePlaquetteTwoStepResponseCore.completed_oneStep_diagonal`
+and `.plaquetteExcitation_response_square` combine exact completed-time
+balance, the semigroup law, completed Cauchy--Schwarz, and the existing
+one-step plaquette floor. `BF4WilsonAllNomePlaquetteTwoStepResponse` then
+divides by the proved actual diagonal ceiling and constructs the explicit
+positive `twoStepFloor` for the same all-nome plaquette excitation.
+`BF4WilsonAllNomePlaquetteTwoStepResponsePadded` transports this result along
+spatial-face inclusion. The three focused checks are axiom-clean within
+`{propext, Quot.sound}` and are recorded in
+`audits/AUDIT-WILSON-PLAQUETTE-TWO-STEP-RESPONSE-2026-09-24.md`.
+The witness remains nome/width-dependent; spatial/spacing control, scaling
+survival, continuum passage, physical mass calibration and every-group
+extension remain open.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream

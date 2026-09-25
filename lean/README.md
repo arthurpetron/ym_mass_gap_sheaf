@@ -80,6 +80,17 @@ width and nome; they are not uniform scaling bounds and do not provide a
 response floor or continuum result. Evidence:
 `audits/AUDIT-WILSON-COMPLETED-NORM-CEILING-2026-09-24.md` at repository root.
 
+`BF4WilsonAllNomePlaquetteTwoStepResponseCore` now squares the checked
+same-carrier one-step plaquette response using completed Cauchy--Schwarz and
+exact time balance. `BF4WilsonAllNomePlaquetteTwoStepResponse` divides by the
+actual completed diagonal ceiling and returns a positive explicit lag-two
+floor; `BF4WilsonAllNomePlaquetteTwoStepResponsePadded` transports it through
+spatial-face inclusion. These are fixed nome/width certificates only: their
+focused checks are axiom-clean within `{propext, Quot.sound}`, while scaling,
+continuum, physical-mass and Clay obligations remain open. Evidence:
+`audits/AUDIT-WILSON-PLAQUETTE-TWO-STEP-RESPONSE-2026-09-24.md` at repository
+root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.

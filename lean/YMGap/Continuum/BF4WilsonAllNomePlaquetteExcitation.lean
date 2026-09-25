@@ -63,6 +63,21 @@ theorem plaquetteExcitation_norm_floor :
   rw [centeredVector_diagonal]
   exact centered_norm_floor hw0 hw1 width face hf
 
+def plaquetteNormCeiling : Q' :=
+  centeredNormCeiling hw0 hw1 x
+
+theorem plaquetteExcitation_norm_ceiling :
+    RCle (B v v)
+      (Quotient.mk crealSetoid (ofQ' (plaquetteNormCeiling hw0 hw1 width face hf))) := by
+  exact centeredVector_norm_ceiling hw0 hw1 x
+
+theorem plaquetteNormCeiling_positive :
+    (0 : Q') < plaquetteNormCeiling hw0 hw1 width face hf := by
+  have hfloor := plaquetteExcitation_norm_floor hw0 hw1 width face hf
+  have hcap := plaquetteExcitation_norm_ceiling hw0 hw1 width face hf
+  have hle := GNSQuotient.GNSData.RCofQ'_le_reflect (RCle_trans hfloor hcap)
+  exact Q'.pos_of_lt_of_le (starRatio_positive hw0 hw1) hle
+
 theorem plaquetteExcitation_norm_ne_zero : B v v ≠ RCzero := by
   intro hz
   have h := plaquetteExcitation_norm_floor hw0 hw1 width face hf
@@ -132,6 +147,9 @@ def positiveResponseExcitation (width : Nat) :
 
 #print axioms plaquetteExcitation
 #print axioms plaquetteExcitation_norm_floor
+#print axioms plaquetteNormCeiling
+#print axioms plaquetteExcitation_norm_ceiling
+#print axioms plaquetteNormCeiling_positive
 #print axioms plaquetteExcitation_norm_ne_zero
 #print axioms plaquetteExcitation_ne_zero
 #print axioms plaquetteExcitation_correlator_pin

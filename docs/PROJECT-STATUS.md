@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **31**, 2026-09-24 UTC. Source checkpoint:
-the SAME Wilson completed-diagonal norm-ceiling milestone
+Chart schema: **1**. Snapshot: **32**, 2026-09-24 UTC. Source checkpoint:
+the SAME all-nome Wilson plaquette lag-two response-floor milestone
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-COMPLETED-NORM-CEILING-2026-09-24.md`.
+`audits/AUDIT-WILSON-PLAQUETTE-TWO-STEP-RESPONSE-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -127,6 +127,22 @@ retains the cubic absolute loss for its changing square family.
 supply a positive plaquette norm and a positive one-step response at fixed
 parameters, not growing-loop/scaling survival. No change to A04's separate
 face-span conditional consumer or B01--B03's recorded scope is asserted.
+
+New fixed-parameter same-carrier response evidence:
+`BF4WilsonAllNomePlaquetteTwoStepResponseCore.completed_oneStep_diagonal` and
+`.plaquetteExcitation_response_square`
+(`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteTwoStepResponseCore.lean:46`,
+`:52`) combine exact time balance, completed Cauchy--Schwarz, and the existing
+one-step floor. `BF4WilsonAllNomePlaquetteTwoStepResponse.plaquetteExcitation_twoStep_floor`
+(`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteTwoStepResponse.lean:65`)
+divides by the proved completed diagonal ceiling and returns an explicit
+positive lag-two floor on the actual all-nome Wilson excitation. The padding
+wrapper `.padded_plaquetteExcitation_twoStep_floor`
+(`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteTwoStepResponsePadded.lean:33`)
+preserves the result under spatial-face inclusion. The nome and width remain
+parameters, so B04, B05, A03 scaling, and all continuum joins remain open.
+Verification is recorded in
+`audits/AUDIT-WILSON-PLAQUETTE-TWO-STEP-RESPONSE-2026-09-24.md`.
 
 Additional partial J02 evidence: `BF4WilsonAllNomeLinear.completedAdd` and
 `.completedSmul` (`lean/YMGap/Continuum/BF4WilsonAllNomeLinear.lean:132`, `:135`)
