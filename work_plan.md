@@ -205,6 +205,17 @@ step bounds, raw representative variation, physical-rate control, and all
 continuum/QFT joins remain open. Verification:
 `audits/AUDIT-GEOMETRIC-ANTITONE-TAIL-2026-09-24.md`.
 
+### Positive-time dyadic rate-power core (2026-09-25 UTC)
+
+`BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.positiveRatePowerVariation`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.lean:60`)
+constructs the full rational variation certificate for `r^(time * 2^scale)`
+at positive time and any `0 < r < 1`. It joins the checked sampler arithmetic
+to the geometric-tail budget at the scalar level. Equality transport into the
+large normalized moving-cube compiler remains open, as do raw representative
+variation, physical-rate control, and all continuum/QFT joins. Verification:
+`audits/AUDIT-FIXED-FAMILY-RATE-POWER-VARIATION-CORE-2026-09-25.md`.
+
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`

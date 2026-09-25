@@ -17,6 +17,22 @@
 - **verification:** see
   `audits/AUDIT-GEOMETRIC-ANTITONE-TAIL-2026-09-24.md`.
 
+## Positive-time dyadic rate-power core CLOSED; compiler transport OPEN (2026-09-25 UTC)
+
+- **core certificate:** `BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.positiveRatePowerVariation`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.lean:60`)
+  constructs `SummableRationalStepVariation` for every exact stream
+  `r^(time * 2^scale)` with `0 < r < 1` and `0 < time`.
+- **budget:** the variation is `r^scale`; its antitone tail is supplied by
+  `GeometricAntitoneTailControl.geometricPowerTailControl`.
+- **scope:** equality transport to the compiler's
+  `normalizedMovingCubeSampledRatePower` remains open because that bridge
+  imports the large BF4 continuum environment. Raw representative variation,
+  physical-rate control, continuum/QFT reconstruction, physical mass, and the
+  all-group theorem remain open.
+- **verification:** see
+  `audits/AUDIT-FIXED-FAMILY-RATE-POWER-VARIATION-CORE-2026-09-25.md`.
+
 ## Fixed-family sampler arithmetic CLOSED; positive-time variation OPEN (2026-09-24 UTC)
 
 - **exact sampler:** `BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerArithmetic.marginalHalfGeometric_latticeSteps_eq`

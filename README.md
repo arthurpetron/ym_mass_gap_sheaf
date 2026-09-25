@@ -110,6 +110,15 @@ positive-time rate-power variation; it does not close raw representative
 variation or any continuum/QFT obligation. See the
 [geometric-tail audit](audits/AUDIT-GEOMETRIC-ANTITONE-TAIL-2026-09-24.md).
 
+**New positive-time rate-power core (2026-09-25):**
+`BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.positiveRatePowerVariation`
+constructs the full summable rational variation certificate for every exact
+stream `r^(time * 2^scale)` with `0 < r < 1` and positive integer time. This
+is the scalar certificate selected by the fixed-family rate pin and sampler
+arithmetic. Equality transport into the large normalized moving-cube compiler
+remains an explicit open bridge; no raw, physical, continuum, or Clay claim
+is made. See the [rate-power core audit](audits/AUDIT-FIXED-FAMILY-RATE-POWER-VARIATION-CORE-2026-09-25.md).
+
 **New checked complete growing-word square heat image:** the original product
 heat sends a distinct-link Wilson character square to
 `1 + w^(8*perimeter)*chi_2`, retaining every supported test. For the actual
