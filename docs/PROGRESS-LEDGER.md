@@ -51,6 +51,20 @@ custom axiom.  This closes the observable-identity seam at fixed spacing; it
 does not establish a changing-spacing observable, continuum/QFT limits, or
 the Clay theorem.
 
+## Current increment: branch probe identified with the concrete unit excitation (2026-09-25 UTC)
+
+The source and gap natural-transformation components now expose
+`probe = unitExcitation` through `branch_arrow_probe_is_unit_excitation` and
+`gap_mass_arrow_probe_is_unit_excitation` in
+`lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`.
+The proof composes the carried `probe_sector` equality with
+`sector_exact = currentSector` and the definitional current-sector probe.
+Thus the already checked `unitExcitation` response and same-object decay
+consumers apply to the branch observable without an implicit observable swap.
+The focused check passed with only `{propext, Quot.sound}` and no `sorryAx`,
+classical axiom, `native_decide`, or custom axiom.  This remains a fixed-
+spacing SU(2) identity, not a changing-spacing or continuum construction.
+
 ## Current increment: composed branch-to-fixed-spacing-rate presheaf chain (2026-09-25 UTC)
 
 `SpacingCalibratedMassFiber` in

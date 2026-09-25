@@ -54,6 +54,21 @@
   `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
   or custom axiom.
 
+## Branch probe identified with the concrete unit excitation (2026-09-25 UTC)
+
+- **identity:** `branch_arrow_probe_is_unit_excitation` and
+  `gap_mass_arrow_probe_is_unit_excitation` in
+  `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`
+  prove the source/gap probes equal the concrete `unitExcitation`.
+- **transport:** the proof composes `probe_sector`, `sector_exact`, and the
+  current-sector definition, so existing response and same-object decay
+  lemmas apply without changing observables.
+- **scope:** fixed-spacing SU(2) only; no changing-spacing family,
+  continuum/QFT construction, or Clay closure.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Scheduled-rate presheaf obstruction (2026-09-25 UTC)
 
 - **scheduled fiber:** `VanishingSpacingMassFiber` and

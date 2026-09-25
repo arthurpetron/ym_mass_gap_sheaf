@@ -401,6 +401,17 @@ theorem branch_arrow_probe_is_sector_probe
       (nontrivialityToGap.app n e).sector.probe :=
   (nontrivialityToGap.app n e).probe_sector
 
+theorem branch_arrow_probe_is_unit_excitation
+    (n : Nat) (e : NontrivialityFiber) :
+    (nontrivialityToGap.app n e).probe = unitExcitation := by
+  calc
+    (nontrivialityToGap.app n e).probe =
+        (nontrivialityToGap.app n e).sector.probe :=
+      branch_arrow_probe_is_sector_probe n e
+    _ = currentSector.probe := by
+      rw [(nontrivialityToGap.app n e).sector_exact]
+    _ = unitExcitation := rfl
+
 theorem gap_mass_arrow_preserves_probe (n : Nat) (g : GapFiber) :
     (gapToDimensionlessMass.app n g).probe = g.probe := rfl
 
@@ -419,6 +430,17 @@ theorem gap_mass_arrow_probe_is_sector_probe
     (gapToDimensionlessMass.app n g).probe =
       (gapToDimensionlessMass.app n g).sector.probe :=
   (gapToDimensionlessMass.app n g).probe_sector
+
+theorem gap_mass_arrow_probe_is_unit_excitation
+    (n : Nat) (g : GapFiber) :
+    (gapToDimensionlessMass.app n g).probe = unitExcitation := by
+  calc
+    (gapToDimensionlessMass.app n g).probe =
+        (gapToDimensionlessMass.app n g).sector.probe :=
+      gap_mass_arrow_probe_is_sector_probe n g
+    _ = currentSector.probe := by
+      rw [(gapToDimensionlessMass.app n g).sector_exact]
+    _ = unitExcitation := rfl
 
 theorem branch_arrow_exposes_same_object_decay
     (n k : Nat) (e : NontrivialityFiber) :
@@ -525,12 +547,14 @@ theorem currentGap_strict_two_step :
 #print axioms branch_arrow_preserves_sector
 #print axioms branch_arrow_preserves_sector_probe
 #print axioms branch_arrow_probe_is_sector_probe
+#print axioms branch_arrow_probe_is_unit_excitation
 #print axioms branch_arrow_exposes_same_object_decay
 #print axioms gap_mass_arrow_preserves_probe
 #print axioms gap_mass_arrow_preserves_rate
 #print axioms gap_mass_arrow_exposes_sector
 #print axioms gap_mass_arrow_preserves_sector_probe
 #print axioms gap_mass_arrow_probe_is_sector_probe
+#print axioms gap_mass_arrow_probe_is_unit_excitation
 #print axioms gap_mass_arrow_preserves_same_object_decay
 #print axioms calibration_arrow_preserves_probe
 #print axioms calibration_arrow_exposes_exact_rate

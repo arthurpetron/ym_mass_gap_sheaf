@@ -1,11 +1,11 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **61**, 2026-09-25 UTC. Source checkpoint:
-the explicit `CompletedPhysicalSU2Sector` witness and `probe_sector` observable
-identity carried from the nontriviality and gap fibers through the
-dimensionless, fixed-spacing, and scheduled branch fibers, alongside the
-earlier exact lag-two Wilson-to-OS relative-loss bridge consumer and its
-width-degeneration audit.  The focused source check for this snapshot passed
+Chart schema: **1**. Snapshot: **62**, 2026-09-25 UTC. Source checkpoint:
+the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
+identity, and `probe = unitExcitation` equality carried from the nontriviality
+and gap fibers through the dimensionless, fixed-spacing, and scheduled branch
+fibers, alongside the earlier exact lag-two Wilson-to-OS relative-loss bridge
+consumer and its width-degeneration audit.  The focused source check for this snapshot passed
 with only `{propext, Quot.sound}`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
@@ -74,6 +74,12 @@ show that the branch probe is literally the concrete sector probe whose
 same-object correlator pins are already packaged in `CompletedPhysicalSU2Sector`.
 This closes the observable-identity seam only at fixed spacing; it does not
 construct a changing-spacing observable or continuum/QFT limit.  The
+the source and gap arrows now further expose `probe = unitExcitation` through
+`branch_arrow_probe_is_unit_excitation` and
+`gap_mass_arrow_probe_is_unit_excitation`.  This is the exact concrete probe
+used by the checked response and same-object decay lemmas, so no observable
+relabeling is hidden in the branch contraction.  It remains fixed-spacing SU(2)
+evidence; changing-spacing and continuum/QFT construction remain open.  The
 dense source branch and the
 discrete-time transfer/gap branch now form an actual natural transformation
 over the covariant intrinsic-width scale diagram: `denseObservableDiagram`,
@@ -146,6 +152,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Concrete sector/correlator witness carried into rate fibers
                                        [x] Source/gap fibers carry the explicit sector witness
                                        [x] Branch probe pinned to the sector observable
+                                       [x] Branch probe equals concrete unit excitation
              |                              |
              v                              v
  [ ] Complete signed cost versus   [x] Strict completed T^2 bound
@@ -204,6 +211,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | A02j | Concrete sector witness carried through the branch topos | `BF4WilsonBranchSheafNaturalTransformation.DimensionlessMassFiber.sector`, `.SpacingCalibratedMassFiber.sector`, `.VanishingSpacingMassFiber.sector`, `.gap_mass_arrow_exposes_sector`, `.calibration_arrow_preserves_sector`, and `.scheduled_arrow_preserves_sector`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; carries `CompletedPhysicalSU2Sector` with `sector_exact = currentSector` through the dimensionless, fixed-spacing, and scheduled rate arrows. This makes the branch type-level same-carrier, but remains fixed-spacing SU(2) and does not provide OS/GNS, changing-spacing, continuum, or Clay closure. |
 | A02k | Source-to-gap explicit sector transport | `BF4WilsonBranchSheafNaturalTransformation.NontrivialityFiber.sector`, `.GapFiber.sector`, `.NontrivialityFiber.toGap`, `.branch_arrow_preserves_sector`, and `.GapFiber.toDimensionlessMass`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; transports `CompletedPhysicalSU2Sector` and `sector_exact = currentSector` from the nontriviality endpoint through the gap compiler instead of manufacturing a downstream witness. This is fixed-spacing SU(2) same-carrier evidence, not changing-spacing, OS/GNS, continuum, or Clay closure. |
 | A02l | Branch probe pinned to the concrete sector observable | `BF4WilsonBranchSheafNaturalTransformation.*Fiber.probe_sector`, `.branch_arrow_probe_is_sector_probe`, and `.gap_mass_arrow_probe_is_sector_probe`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; carries `probe = sector.probe` through all branch/rate fibers and exposes the same-object observable whose correlator pins live in `CompletedPhysicalSU2Sector`. This is fixed-spacing observable identity only, not changing-spacing survival, OS/GNS, continuum, or Clay closure. |
+| A02m | Branch probe identified with the concrete unit excitation | `BF4WilsonBranchSheafNaturalTransformation.branch_arrow_probe_is_unit_excitation` and `.gap_mass_arrow_probe_is_unit_excitation`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; composes the sector-observable identity with `sector_exact = currentSector` to expose `unitExcitation`, the exact probe used by the checked response and decay consumers. This is fixed-spacing SU(2) observable identity, not changing-spacing, OS/GNS, continuum, or Clay closure. |
 | A03 | Complete signed cost versus SAME interacting variance on a justified scaling family | OPEN original-source estimate for ONE family, or direct response alternative. |
 | A04 | Conditional survival theorem (requires the missing input) | `BF4ExactSlabFixedSpatialJointEnergySurvival.response_floor_of_relative_energy`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:112`; supplied relative energy and positive norm floor, SAME fixed-width carrier. |
 | A05 | ONE nonzero excitation survives | OPEN compatible changing-scale observable and nonzero response. |
@@ -1074,3 +1082,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 77 | 2026-09-25 | Carried an explicit `CompletedPhysicalSU2Sector` witness with `sector_exact = currentSector` through the dimensionless, fixed-spacing, and scheduled rate fibers, with checked sector-preservation lemmas for the natural-transformation arrows. The branch is type-level same-carrier, but changing-spacing, OS/GNS, continuum/QFT and Clay obligations remain open. |
 | 1 / 78 | 2026-09-25 | Extended the same `CompletedPhysicalSU2Sector` witness to the nontriviality and gap source fibers, transported it through `NontrivialityFiber.toGap`, and checked `branch_arrow_preserves_sector`; the full branch chain is now proof-relevantly same-carrier from its source endpoint. Changing-spacing, OS/GNS, continuum/QFT and Clay obligations remain open. |
 | 1 / 79 | 2026-09-25 | Pinned the branch probe itself to the carried sector observable with `probe_sector : probe = sector.probe`, and checked its exposure through the nontriviality and gap arrows. The fixed-spacing same-object correlator now has an explicit observable identity; changing-spacing, OS/GNS, continuum/QFT and Clay obligations remain open. |
+| 1 / 80 | 2026-09-25 | Exposed the source/gap branch probe as the concrete `unitExcitation` used by the checked response and same-object decay consumers. This removes the last fixed-spacing observable relabeling seam; changing-spacing, OS/GNS, continuum/QFT and Clay obligations remain open. |
