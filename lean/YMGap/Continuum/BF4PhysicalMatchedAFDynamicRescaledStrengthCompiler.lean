@@ -4,8 +4,11 @@
 The matched physical trajectory already carries the exact coupling-dependent
 spacing.  Its AF identification supplies the inverse-square spacing tail;
 the rescaled-strength compiler then consumes that tail on the same completed
-carrier.  This adapter does not construct the local producer, a strength
-scaling certificate, an observable pin, or the rescaled-strength variation.
+carrier.  The route exposes the rescaled variation first through physical-gap
+and normalized-strength streams, and then through literal ray-capacity and
+finite-sector mass-floor streams.  None of those primitive estimates, the
+local producer, the strength-scaling certificate, or the observable pin is
+constructed here.
 -/
 
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRescaledStrengthTracking
@@ -14,6 +17,7 @@ import YMGap.Continuum.BF4PhysicalMatchedAFDynamicSpacingTailCompiler
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicStrengthNormalization
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualTransitionProductCompiler
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualAdaptiveObservableTransitionProductCompiler
+import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler
 import YMGap.Continuum.FinitePrefixFullLogRateCeiling
 import YMGap.Continuum.PhysicalSeparatorFullLogHalfWindow
 
@@ -35,9 +39,11 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicV
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRescaledStrengthTracking
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorUniformMassFloor
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicSpacingTailCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicStrengthNormalization
+open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualTransitionProductCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualAdaptiveObservableTransitionProductCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffObservableCompiler
@@ -146,6 +152,47 @@ def matchedExactLogRateCauchyOfPhysicalGapAndStrength
       (trajectory.toNormalizedStrengthLaw producer)
       gapVariation strengthVariation) C H
 
+/-! The strength variation can be reduced one level further to the literal
+ray-capacity and finite-sector mass-floor streams used by the local producer.
+This is still an explicit certificate boundary: neither primitive stream is
+constructed here. -/
+
+def matchedExactLogRateCauchyOfRayCapacityAndMassFloorAndPhysicalGap
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (producer : trajectory.LocalProducer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (pin : DynamicVacuumSectorObservablePin
+      (trajectory.toCompletedFamily producer))
+    (rayDeltaVariation : SummableRationalStepVariation
+      (fun scale =>
+        (((trajectory.toDynamicFamily producer).toResidualCoercivityFamily.rayCapacity
+          scale).delta)))
+    (massFloorVariation : SummableRationalStepVariation
+      (fun scale =>
+        centralPhysicalFiniteVacuumSectorUniformMassFloor
+          ((trajectory.toDynamicFamily producer).toResidualCoercivityFamily.nome scale)
+          (Q'.le_of_lt
+            ((trajectory.toDynamicFamily producer).toResidualCoercivityFamily.nome_pos
+              scale)) 0))
+    (gapVariation : SummableRationalStepVariation
+      (trajectory.toCompletedFamily producer).physicalGap)
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    CReal.ModCauchyEv ((fullRangeRateFamily pin).rate) := by
+  let residualFamily :=
+    (trajectory.toDynamicFamily producer).toResidualCoercivityFamily
+  let strengthVariation := strengthVariationOfRayDeltaAndMassFloor
+    residualFamily rayDeltaVariation massFloorVariation
+  refine matchedExactLogRateCauchyOfPhysicalGapAndStrength
+    trajectory producer scaling pin gapVariation ?_ C H
+  simpa only [residualFamily,
+    MatchedPhysicalDynamicScalarTrajectory.toNormalizedStrengthLaw,
+    DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.toNormalizedStrengthLaw]
+    using strengthVariation
+
 /-- Add the independent finite exact-log ceiling to the matched Cauchy
 consumer.  The result carries spacing cofinality, convergence, and the
 surviving positive/finite rate bounds for the same completed carrier. -/
@@ -197,6 +244,47 @@ def matchedExactRateCutoffRemovalOfRescaledStrengthOfPhysicalRateBand
     trajectory producer scaling pin variation
     (fullRangeLogRateCeilingOfPhysicalRateBand
       pin scaling.toPhysicalRateBand) C H
+
+/-! Full contraction of the two algebraic seams: the exact-log ceiling is
+computed from the physical band, while strength variation is computed from
+the local ray-capacity and finite-sector mass-floor streams. -/
+
+def matchedExactRateCutoffRemovalOfRayCapacityAndMassFloorAndPhysicalGapOfPhysicalRateBand
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (producer : trajectory.LocalProducer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (pin : DynamicVacuumSectorObservablePin
+      (trajectory.toCompletedFamily producer))
+    (rayDeltaVariation : SummableRationalStepVariation
+      (fun scale =>
+        (((trajectory.toDynamicFamily producer).toResidualCoercivityFamily.rayCapacity
+          scale).delta)))
+    (massFloorVariation : SummableRationalStepVariation
+      (fun scale =>
+        centralPhysicalFiniteVacuumSectorUniformMassFloor
+          ((trajectory.toDynamicFamily producer).toResidualCoercivityFamily.nome scale)
+          (Q'.le_of_lt
+            ((trajectory.toDynamicFamily producer).toResidualCoercivityFamily.nome_pos
+              scale)) 0))
+    (gapVariation : SummableRationalStepVariation
+      (trajectory.toCompletedFamily producer).physicalGap)
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    ExactRateCutoffRemoval
+      (DynamicVacuumSectorObservablePin.exactCertificate
+        pin scaling.toPhysicalRateBand
+        (fullRangeLogRateCeilingOfPhysicalRateBand
+          pin scaling.toPhysicalRateBand)) :=
+  exactRateCutoffRemovalOfRateCauchy
+    pin scaling.toPhysicalRateBand
+    (fullRangeLogRateCeilingOfPhysicalRateBand
+      pin scaling.toPhysicalRateBand)
+    (matchedExactLogRateCauchyOfRayCapacityAndMassFloorAndPhysicalGap
+      trajectory producer scaling pin rayDeltaVariation massFloorVariation
+      gapVariation C H)
 
 /-- Assemble the same-object continuum handoff from the matched exact-rate
 certificate and the independent projective/OS/reconstruction witnesses. -/
@@ -291,9 +379,11 @@ end MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer
 
 #print axioms matchedExactLogRateCauchyOfRescaledStrength
 #print axioms matchedExactLogRateCauchyOfPhysicalGapAndStrength
+#print axioms matchedExactLogRateCauchyOfRayCapacityAndMassFloorAndPhysicalGap
 #print axioms fullRangeLogRateCeilingOfPhysicalRateBand
 #print axioms matchedExactRateCutoffRemovalOfRescaledStrength
 #print axioms matchedExactRateCutoffRemovalOfRescaledStrengthOfPhysicalRateBand
+#print axioms matchedExactRateCutoffRemovalOfRayCapacityAndMassFloorAndPhysicalGapOfPhysicalRateBand
 #print axioms matchedContinuumHandoffOfRescaledStrength
 #print axioms observableCertificatesExactRateCutoffRemovalOfRescaledStrength
 #print axioms

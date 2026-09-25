@@ -12,6 +12,10 @@
   `matchedExactLogRateCauchyOfPhysicalGapAndStrength` exposes that
   factorization on the literal matched completed carrier.  The two primitive
   variation certificates remain uninhabited inputs.
+- **fully joined cutoff consumer:**
+  `matchedExactRateCutoffRemovalOfRayCapacityAndMassFloorAndPhysicalGapOfPhysicalRateBand`
+  combines the primitive variation factorization with the computed ceiling;
+  ray-capacity, mass-floor, and physical-gap variations remain explicit.
 - **computed ceiling:** `fullRangeLogRateCeilingOfPhysicalRateBand`
   (`lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.lean`)
   derives the full-range exact-log ceiling from the same observable pin and

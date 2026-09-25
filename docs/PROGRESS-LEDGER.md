@@ -20,6 +20,13 @@ remaining obligation, not a claim of physical-rate or continuum closure.
 The focused checks passed with only `{propext, Quot.sound}` and no
 `sorryAx`, classical axiom, `native_decide`, or custom axiom.
 
+The joined cutoff consumer
+`matchedExactRateCutoffRemovalOfRayCapacityAndMassFloorAndPhysicalGapOfPhysicalRateBand`
+now contracts both algebraic seams at once: its only new variation inputs are
+the literal ray-capacity, finite-sector mass-floor, and completed physical-gap
+streams, while the exact-log ceiling is computed from the same physical-rate
+band.  These inputs remain open analytic certificates.
+
 ## Current increment: physical-band ceiling removes a matched free input (2026-09-25 UTC)
 
 `fullRangeLogRateCeilingOfPhysicalRateBand` in
