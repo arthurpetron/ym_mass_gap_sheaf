@@ -54,11 +54,15 @@ close continuum survival, physical mass, or the all-group theorem.  See the
 **New checked dynamic operator bridge (2026-09-24):**
 `BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge` keeps the
 completed Markov-form Cauchy--Schwarz law as an explicit scale-indexed input
-and composes it with the same-carrier form gap to obtain the literal
-`<Tv,Tv> <= rate^2 <v,v>` estimate for each channel vector.  The
-Cauchy--Schwarz family is still uninhabited, so this is a compiler edge only;
+and uses the existing adaptive completed Markov-form theorem to inhabit that
+family constructively.  It then composes the result with the same-carrier
+form gap to obtain the literal `<Tv,Tv> <= rate^2 <v,v>` estimate for each
+channel vector.  This is a compiler edge only;
 spacing-uniformity, continuum survival, physical mass, and every-group
-construction remain open.  See the
+construction remain open.  The same module also supplies the inhabited
+`w = 1/2` geometric form-gap family and the literal moving-cube estimate at
+every geometric scale; its lattice margin remains fixed as spacing vanishes.
+See the
 [dynamic Markov-form bridge audit](audits/AUDIT-DYNAMIC-MARKOV-FORM-CS-BRIDGE-2026-09-24.md).
 
 **New checked complete growing-word square heat image:** the original product

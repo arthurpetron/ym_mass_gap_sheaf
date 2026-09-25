@@ -1,21 +1,30 @@
 # Sorry Ledger
 
-## Dynamic Markov-form Cauchy--Schwarz bridge CLOSED; Cauchy--Schwarz family OPEN (2026-09-24 UTC)
+## Dynamic Markov-form Cauchy--Schwarz bridge CLOSED; adaptive CS producer CLOSED (2026-09-24 UTC)
 
 - **factored input**: `BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.DynamicVacuumSectorCompletedMarkovFormCauchySchwarzFamily`
-  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.lean:53`)
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.lean:56`)
   records the positive completed Markov-form Cauchy--Schwarz datum at every
-  scale of one dynamic family's actual nome and carrier.  The bridge-local
-  `DynamicVacuumSectorCompletedFormGapFamily` is the corresponding explicit
-  form-gap input (`:44`).
-- **consumer**: `channel_completed_norm_gap_of_formGap_and_markovCS` (`:65`)
+  scale of one dynamic family's actual nome and carrier.  The canonical
+  producer `canonicalDynamicVacuumSectorCompletedMarkovFormCauchySchwarzFamily`
+  (`:66`) supplies it from the existing adaptive completed Markov-form
+  theorem.  The bridge-local `DynamicVacuumSectorCompletedFormGapFamily` is
+  the corresponding explicit form-gap input (`:47`).
+- **consumer**: `channel_completed_norm_gap_of_formGap_and_markovCS` (`:78`)
   applies `centralPhysicalVacuumSectorCylinderCompletedTransfer_norm_gap` and
   returns the literal same-object completed squared-norm estimate with the
-  squared scale-wise rate for every channel vector.
-- **scope**: no inhabitant of the Cauchy--Schwarz family is supplied.  The
-  physical-rate band, spatial/spacing control, continuum survival,
+  squared scale-wise rate for every channel vector.  The input-free wrapper
+  `channel_completed_norm_gap_of_formGap` is at `:105`.
+- **scope**: the Cauchy--Schwarz family is now inhabited, but the form-gap
+  family, physical-rate band, spatial/spacing control, continuum survival,
   thermodynamic/continuum passage, physical mass, and all-group theorem remain
   open; no chart node changes status.
+- **concrete specialization**: `marginalHalfGeometricCompletedFormGapFamily`
+  (`:79`) and `marginalHalfGeometricCompletedFormGapFamily_rate` (`:85`)
+  inhabit and pin the fixed-`w = 1/2` geometric form gap.  The theorem
+  `marginalHalfGeometricMovingCube_completed_norm_gap` (`:143`) gives the
+  literal moving-cube same-object squared-norm estimate at every geometric
+  scale.  Its lattice margin is fixed while spacing vanishes.
 - **verification**: focused monitored check reports only `{propext, Quot.sound}`
   and no `sorryAx`, classical input, or custom axiom.  Evidence:
   `audits/AUDIT-DYNAMIC-MARKOV-FORM-CS-BRIDGE-2026-09-24.md`.

@@ -124,17 +124,27 @@ Verification: `audits/AUDIT-DYNAMIC-FORM-GAP-RELATIVE-LOSS-2026-09-24.md`.
 ### Dynamic Markov-form Cauchy--Schwarz bridge (2026-09-24 UTC)
 
 `BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.DynamicVacuumSectorCompletedMarkovFormCauchySchwarzFamily`
-(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.lean:53`)
-keeps the positive completed Markov-form Cauchy--Schwarz law as an explicit
-scale-indexed input.  The consumer
-`channel_completed_norm_gap_of_formGap_and_markovCS` (`:65`) composes it with
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.lean:56`)
+keeps the positive completed Markov-form Cauchy--Schwarz law as a
+scale-indexed input.  Its canonical producer (`:66`) is the existing
+`centralPhysicalVacuumSectorCylinderCompletedMarkovFormCauchySchwarzData`
+theorem.  The consumer
+`channel_completed_norm_gap_of_formGap_and_markovCS` (`:78`) composes it with
 the same-carrier form-gap family and applies
 `centralPhysicalVacuumSectorCylinderCompletedTransfer_norm_gap`, yielding the
 literal completed squared-norm estimate at rate squared for every channel
-vector.  The Cauchy--Schwarz family remains uninhabited; this is a compiler
-edge toward the operator/power consumer, not a physical-rate, continuum, or
-Clay result.  Evidence:
+vector.  `channel_completed_norm_gap_of_formGap` (`:105`) discharges the input
+entirely.  This is a compiler edge toward the operator/power consumer, not a
+physical-rate, continuum, or Clay result.  Evidence:
 `audits/AUDIT-DYNAMIC-MARKOV-FORM-CS-BRIDGE-2026-09-24.md`.
+
+The same module now inhabits `marginalHalfGeometricCompletedFormGapFamily`
+(`:79`) and pins its rate to `cutoffUniformRate (1/2)` (`:85`).
+`marginalHalfGeometricMovingCube_completed_norm_gap` (`:143`) applies the
+input-free consumer to the literal moving-centered cube channel at every
+geometric scale.  This is a non-vacuous same-object finite consequence; its
+lattice margin is not spacing-uniform, so the B04/B05 and continuum joins stay
+open.
 
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 

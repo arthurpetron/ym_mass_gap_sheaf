@@ -195,15 +195,24 @@ Verification is recorded in
 
 New dynamic form-to-operator bridge:
 `BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.DynamicVacuumSectorCompletedMarkovFormCauchySchwarzFamily`
-(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.lean:53`)
-factors the missing positive completed Markov-form Cauchy--Schwarz input at
-each scale.  The consumer
-`channel_completed_norm_gap_of_formGap_and_markovCS` (`:65`) composes that
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.lean:56`)
+factors the positive completed Markov-form Cauchy--Schwarz input at each
+scale.  The canonical producer (`:66`) is supplied by the existing adaptive
+completed Markov-form theorem.  The consumer
+`channel_completed_norm_gap_of_formGap_and_markovCS` (`:78`) composes that
 input with the scale-wise form family and returns the literal completed
-`<Tv,Tv> <= rate^2 <v,v>` estimate for the same channel vector.  The
-Cauchy--Schwarz family is not inhabited; no chart-node status changes.
+`<Tv,Tv> <= rate^2 <v,v>` estimate for the same channel vector; the
+input-free wrapper `channel_completed_norm_gap_of_formGap` is at `:105`.
+No chart-node status changes.
 Verification is recorded in
 `audits/AUDIT-DYNAMIC-MARKOV-FORM-CS-BRIDGE-2026-09-24.md`.
+
+The same bridge now has an inhabited concrete specialization:
+`marginalHalfGeometricCompletedFormGapFamily` (`:79`) and its rate pin (`:85`)
+feed `marginalHalfGeometricMovingCube_completed_norm_gap` (`:143`), giving a
+literal nonzero moving-centered cube channel estimate at every geometric
+scale.  The lattice margin remains fixed while spacing vanishes; no chart-node
+status changes.
 
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`
@@ -759,3 +768,5 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 49 | 2026-09-24 | Added a separate dynamic family form-gap certificate and inhabited it for the fixed-`w=1/2` geometric staging family; the moving-cube RC channel now has scale-wise relative loss. No chart-node status change. |
 | 1 / 50 | 2026-09-24 | Exposed the dynamic form-gap relative-loss coefficient through the global completed Markov transfer on the identical embedded vector by equality transport. No chart-node status change. |
 | 1 / 51 | 2026-09-24 | Factored the scale-indexed completed Markov-form Cauchy--Schwarz input and composed it with the form gap into the literal same-object squared-norm estimate. The CS family remains open; no chart-node status change. |
+| 1 / 52 | 2026-09-24 | Inhabited the dynamic Markov-form Cauchy--Schwarz family from the existing adaptive producer and added an input-free same-object squared-norm consumer. No chart-node status change. |
+| 1 / 53 | 2026-09-24 | Added the inhabited `w = 1/2` geometric form-gap family, explicit rate pin, and non-vacuous moving-cube same-object squared-norm estimate at every geometric scale. No chart-node status change. |
