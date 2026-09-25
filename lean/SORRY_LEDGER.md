@@ -19,6 +19,23 @@
   `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
   or custom axiom.
 
+## Dense dyadic width naturality (2026-09-25 UTC)
+
+- **dense restriction square:**
+  `inclusion_loopState`, `inclusion_paddedSquare_loopState`,
+  `inclusion_paddedSquare_trans`, and `inclusion_paddedSquare_advance`
+  (`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDenseNaturality.lean`)
+  specialize the intrinsic-width inclusion to the dyadic-square observable.
+  The source word is transported coherently across widths, successive
+  inclusions compose, and discrete time commutes with the transport.
+- **scope:** this is dense/intrinsic naturality only.  No map between completed
+  width-indexed carriers, interacting-action comparison, changing-width
+  response floor, A03/A05 closure, continuum, physical mass, or Clay field is
+  introduced.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Route-prune and compatible constant-gap compiler (2026-09-25 UTC)
 
 - **concrete route obstruction:**

@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **50**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **51**, 2026-09-25 UTC. Source checkpoint:
 the exact lag-two Wilson-to-OS relative-loss bridge consumer, alongside the
 checked fixed-parameter complex relative-loss consumer and the explicit
 width-degeneration obstruction for the original response witness
@@ -22,7 +22,9 @@ changing the carrier, observable, transfer, or spacing tail.  The scale-zero
 member of the geometric Wilson-square family is now identified with the
 literal origin plaquette and its checked lag-two floor is transported to the
 dyadic presentation on that same carrier.  This is a typed naturality edge at
-one fiber, not cross-scale naturality.  These are route pruning and compatible
+one fiber, not cross-scale naturality.  The dense intrinsic-width inclusion is
+now specialized to the dyadic-square family, with composition and discrete
+time compatibility across widths.  These are route pruning and compatible
 conditional compilers only; the physical band, observable pin,
 continuum/QFT handoff, and Clay target remain open.
 
@@ -66,6 +68,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
  [x] Exact plaquette heat images   [x] SAME reflected completion
  [x] Signed energy: 4E+D=2J        [x] Transfer + vacuum sector
  [x] Scale-zero same-carrier bridge
+ [x] Dense width naturality square
              |                              |
              v                              v
  [ ] Complete signed cost versus   [x] Strict completed T^2 bound
@@ -110,6 +113,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | A01 | Exact plaquette heat images | `BF4ExactSlabFixedSpatialPlaquetteSquare.plaquette_fullRange` and `.plaquetteSquare_fullRange`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteSquare.lean:139`, `:165`; actual bare product heat, supported-Haar equivalence, explicit cutoff guards. |
 | A02 | Signed energy: 4E+D=2J | `BF4ExactSlabFixedSpatialSourceYoungExplicit.padded_terminal_plaquette_young_channels`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceYoungExplicit.lean:115`; original complete projected source and correction. |
 | A02a | Scale-zero same-carrier bridge | `BF4WilsonAllNomeDyadicScaleZeroPlaquetteBridge.square_zero_edges_eq_origin_boundary`, `.paddedSquare_zero_eq_originPlaquette`, `.dyadicExcitation_zero_eq_plaquetteExcitation`, and `.dyadicExcitation_zero_twoStep_floor`, `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicScaleZeroPlaquetteBridge.lean`; a finite typed transport edge between the dyadic-square and plaquette fibers. No cross-scale naturality or A03/A05 closure. |
+| A02b | Dense width naturality square | `BF4WilsonAllNomeDyadicDenseNaturality.inclusion_loopState`, `.inclusion_paddedSquare_loopState`, `.inclusion_paddedSquare_trans`, and `.inclusion_paddedSquare_advance`, `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDenseNaturality.lean`; intrinsic-width source transport, composition and discrete-time compatibility. No completed-carrier map or changing-width response floor. |
 | A03 | Complete signed cost versus SAME interacting variance on a justified scaling family | OPEN original-source estimate for ONE family, or direct response alternative. |
 | A04 | Conditional survival theorem (requires the missing input) | `BF4ExactSlabFixedSpatialJointEnergySurvival.response_floor_of_relative_energy`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:112`; supplied relative energy and positive norm floor, SAME fixed-width carrier. |
 | A05 | ONE nonzero excitation survives | OPEN compatible changing-scale observable and nonzero response. |
@@ -969,3 +973,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 66 | 2026-09-25 | Specialized matched cutoff removal to the existing scale-wise finite observable-certificate compiler, preserving the literal completed carrier. No chart-node status change. |
 | 1 / 67 | 2026-09-25 | Ruled out the coarse dyadic rational loss budget for the concrete `starRatio`, and added a compatible pointwise-constant same-family physical-gap calibration compiler for exact-log Cauchy/cutoff removal. Physical band, continuum/QFT and Clay nodes remain open. |
 | 1 / 68 | 2026-09-25 | Added a kernel-checked scale-zero typed transport edge identifying the geometric Wilson square with the origin plaquette and transporting its lag-two floor on the same completed carrier. Cross-scale naturality, A03/A05, continuum/QFT and Clay nodes remain open. |
+| 1 / 69 | 2026-09-25 | Specialized the existing intrinsic-width inclusion to the dyadic-square family, proving composition and discrete-time compatibility across widths. Completed-carrier transport, changing-width response, A03/A05, continuum/QFT and Clay nodes remain open. |

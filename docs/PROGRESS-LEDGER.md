@@ -72,6 +72,22 @@ physical-mass, or Clay result.  The focused single-file check passed with only
 `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`, or
 custom axiom.
 
+## Current increment: dense dyadic width naturality (2026-09-25 UTC)
+
+`inclusion_loopState`, `inclusion_paddedSquare_loopState`,
+`inclusion_paddedSquare_trans`, and `inclusion_paddedSquare_advance` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDenseNaturality.lean` specialize
+the existing proof-relevant intrinsic-width inclusion to the dyadic-square
+observable.  They give the same ordered source word at every larger width,
+prove composition of successive width inclusions, and commute with discrete
+physical time.  This is a genuine presheaf-style dense naturality square and
+the first cross-width bridge between the two branches.  It does not provide a
+map between the completed width-indexed Hilbert carriers, compare interacting
+actions at different widths, or produce a changing-width response floor;
+those are still explicit A03/A05/B04 obligations.  The focused check passed
+with only `{propext, Quot.sound}` and no `sorryAx`, classical axiom,
+`native_decide`, or custom axiom.
+
 ## Current increment: physical-band ceiling removes a matched free input (2026-09-25 UTC)
 
 `fullRangeLogRateCeilingOfPhysicalRateBand` in
