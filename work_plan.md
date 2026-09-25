@@ -63,6 +63,13 @@ interacting centered variance (or a direct response bound), with explicit
 moduli and an independently checked representation.  The A03 chart node
 therefore remains open until such a witness is inhabited.
 
+The anchor family is not yet an adapter for the Wilson branch: its coupling is
+`anchorCoupling = 1/400` (`Z4StrongCouplingParametricAnchor.lean:243`), while
+the Wilson small-nome carrier currently uses `nome = Q'.invSucc 1023`
+(`BF4ExactSlabPlaquetteSmallNomeCertificate.lean:32`).  A future bridge must
+prove a parameter-changing comparison and a same-carrier observable/response
+pin; a constant map would be a surrogate substitution and is disallowed.
+
 ### Minimal Wilson-to-OS bridge certificate (2026-09-24 UTC)
 
 The literal all-nome Wilson completion and the separate strict OS completion
