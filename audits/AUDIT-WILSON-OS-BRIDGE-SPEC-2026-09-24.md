@@ -21,11 +21,19 @@ strict OS completion; that concrete identification remains open.
   two-step form inequality as a separate input.  The order and scaling
   operations are parameters, so the interface does not assume a particular
   scalar model.
+- `YMGap.Continuum.BF4WilsonOSBridgeSpec.OSFormFamily`
+  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:62`) generalizes the
+  input to an arbitrary lag-indexed bound, leaving its coefficient function
+  explicit for a later same-object decay instantiation.
 - `YMGap.Continuum.BF4WilsonOSBridgeSpec.transfer_twoStep_form_gap`
-  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:62`) transports that OS
+  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:76`) transports that OS
   inequality to every Wilson vector whose orthogonality is preserved by the
   bridge.  Its focused check passed with no axioms (`#print axioms` reports an
   empty set).
+- `YMGap.Continuum.BF4WilsonOSBridgeSpec.transfer_form_family`
+  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:95`) transports every
+  member of the lag-indexed family to the Wilson carrier.  Its focused check
+  also reports an empty axiom set.
 
 ## Honest boundary
 

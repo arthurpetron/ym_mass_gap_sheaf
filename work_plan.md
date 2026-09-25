@@ -37,12 +37,15 @@ preservation of the selected vacuum-complement predicate.  The OS-side
 two-step estimate is a separate `OSFormGap` input (`:48`).
 
 The checked consumer
-`BF4WilsonOSBridgeSpec.transfer_twoStep_form_gap` (`:62`) transports that
-OS estimate to the Wilson carrier using only the supplied equalities.  Its
-focused axiom report is empty.  This is a typed contraction of the J02 bridge
-obligation, not an inhabitant of the bridge: the concrete map, its pairing
-identity, and the OS bound remain open, as do spacing control, scaling
-survival, thermodynamic/continuum limits, physical mass, and the all-group
+`BF4WilsonOSBridgeSpec.transfer_twoStep_form_gap` (`:76`) transports that OS
+estimate to the Wilson carrier using only the supplied equalities.  The new
+`OSFormFamily`/`transfer_form_family` pair (`:62`, `:95`) leaves the lag and
+coefficient function explicit, which is the interface needed for a
+same-object correlator-decay comparison.  Both consumers have empty axiom
+reports.  This is a typed contraction of the J02 bridge obligation, not an
+inhabitant of the bridge: the concrete map, its pairing identity, and the OS
+bound remain open, as do spacing control, scaling survival,
+thermodynamic/continuum limits, physical mass, and the all-group
 construction.
 
 ### SAME complex carrier and original transfer (2026-09-24 UTC)

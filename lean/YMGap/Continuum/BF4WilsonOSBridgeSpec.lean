@@ -52,6 +52,20 @@ def OSFormGap {W : Type uW} {O : Type uO} {R : Type uR}
     leR (B.pairingO y (B.stepO 2 y))
       (scale rate (B.pairingO y y))
 
+/-- An OS-side family of same-object form bounds indexed by discrete lag.
+
+`bound n` is intentionally a parameter: an eventual concrete instantiation
+can choose `twoStepRate ^ n` times the zero-lag form, or a different certified
+coefficient.  The bridge transport below therefore does not smuggle in a
+particular decay law.
+-/
+def OSFormFamily {W : Type uW} {O : Type uO} {R : Type uR}
+    (B : SameObjectBridge W O R) (leR : R → R → Prop)
+    (bound : Nat → R → R) : Prop :=
+  ∀ n y, B.orthogonalO y →
+    leR (B.pairingO y (B.stepO n y))
+      (bound n (B.pairingO y y))
+
 /-- Transport the OS two-step form bound to every Wilson vector certified
 orthogonal by the bridge.
 
@@ -72,6 +86,26 @@ theorem transfer_twoStep_form_gap
     B.pairing_preserved x x] at h
   exact h
 
+/-- Transport every member of an OS form family to the Wilson carrier.
+
+This is the same equality-only argument as the two-step consumer, with the
+lag left explicit.  It is the bridge-facing shape required before a
+same-object correlator decay estimate can be compared across carriers.
+-/
+theorem transfer_form_family
+    {W : Type uW} {O : Type uO} {R : Type uR}
+    (B : SameObjectBridge W O R) (leR : R → R → Prop)
+    (bound : Nat → R → R) (hOS : OSFormFamily B leR bound)
+    (x : W) (hx : B.orthogonalW x) (n : Nat) :
+    leR (B.pairingW x (B.stepW n x))
+      (bound n (B.pairingW x x)) := by
+  have h := hOS n (B.toOS x) (B.orthogonal_preserved x hx)
+  rw [B.step_preserved n x,
+    B.pairing_preserved x (B.stepW n x),
+    B.pairing_preserved x x] at h
+  exact h
+
 #print axioms transfer_twoStep_form_gap
+#print axioms transfer_form_family
 
 end YMGap.Continuum.BF4WilsonOSBridgeSpec
