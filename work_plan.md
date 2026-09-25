@@ -50,6 +50,36 @@ pairing identity, and the OS bound remain open, as do spacing control, scaling s
 thermodynamic/continuum limits, physical mass, and the all-group
 construction.
 
+### Fixed-parameter complex relative-loss consumer (2026-09-24 UTC)
+
+`BF4WilsonAllNomeComplexRelativeLoss.complex_twoStep_relative_loss`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeComplexRelativeLoss.lean:53`) converts
+the existing strict complex Wilson form bound into the concrete deficit shape
+needed by the relative-loss bridge:
+
+`(1 - twoStepRate) * pairing(x,x) <= pairing(x,x) - pairing(x,T^2 x)`.
+
+The companion `complex_twoStep_relative_loss_margin_positive` (`:62`) proves
+the displayed margin positive at each fixed nome and width.  This is a genuine
+same-carrier consequence, but its rate remains parameter-dependent and it does
+not construct the Wilson-to-OS map or any scaling modulus.  Evidence:
+`audits/AUDIT-WILSON-COMPLEX-RELATIVE-LOSS-2026-09-24.md`.
+
+### Width degeneration of the explicit original response witness (2026-09-24 UTC)
+
+`BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialResponseWidthObstruction.lean:58`)
+uses the literal temporal-face injection and the head-floor bound to show that
+the detector scale is at most `(1/32)^width`.  Consequently
+`uniformFloor_le_margin_power_square` (`:85`) and the explicit
+`responseWidthModulus`/`uniformFloor_le_epsilon` pair (`:110`, `:113`) prove
+that this particular computed positive witness tends to zero with width.
+`no_width_uniform_uniformFloor` (`:127`) packages the obstruction to any
+positive width-uniform lower floor for this witness.  This is a useful negative
+result: B04 cannot be closed by promoting the displayed coarse witness alone;
+the actual response or a sharper carrier/norm comparison is still required.
+Evidence: `audits/AUDIT-WILSON-RESPONSE-WIDTH-OBSTRUCTION-2026-09-24.md`.
+
 ### SAME complex carrier and original transfer (2026-09-24 UTC)
 
 `BF4WilsonAllNomeComplexification` realifies the EXISTING all-nome Wilson

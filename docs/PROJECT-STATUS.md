@@ -1,10 +1,12 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **44**, 2026-09-24 UTC. Source checkpoint:
-the lag-indexed Wilson-to-OS relative-loss bridge consumer
+Chart schema: **1**. Snapshot: **45**, 2026-09-24 UTC. Source checkpoint:
+the checked fixed-parameter complex relative-loss consumer and the explicit
+width-degeneration obstruction for the original response witness
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-OS-BRIDGE-SPEC-2026-09-24.md`.
+`audits/AUDIT-WILSON-COMPLEX-RELATIVE-LOSS-2026-09-24.md` and
+`audits/AUDIT-WILSON-RESPONSE-WIDTH-OBSTRUCTION-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -178,6 +180,29 @@ certificate cannot be promoted to B04's spacing-uniform rate.  The theorem is
 about the computed comparison rate only, not the actual transfer operator or
 Yang--Mills.  Verification is recorded in
 `audits/AUDIT-WILSON-TWO-STEP-RATE-WIDTH-OBSTRUCTION-2026-09-24.md`.
+
+New computed-response scaling obstruction:
+`BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialResponseWidthObstruction.lean:58`)
+and `uniformFloor_le_margin_power_square` (`:85`) show that the explicit
+original plaquette lower-witness coefficient is bounded by
+`(1/32)^(width+width)`.  The explicit `responseWidthModulus`/`uniformFloor_le_epsilon`
+pair (`:110`, `:113`) gives a width modulus, and
+`no_width_uniform_uniformFloor` (`:127`) rules out any positive width-uniform
+floor for this particular computed witness.  This is a certificate
+obstruction only: it is not a statement about the actual response or transfer
+operator and leaves A03, B04, B05 and all continuum joins open.  Verification:
+`audits/AUDIT-WILSON-RESPONSE-WIDTH-OBSTRUCTION-2026-09-24.md`.
+
+New fixed-parameter same-carrier relative-loss evidence:
+`BF4WilsonAllNomeComplexRelativeLoss.complex_twoStep_relative_loss`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeComplexRelativeLoss.lean:53`)
+rewrites the existing strict complex Wilson two-step form bound as an explicit
+deficit bound with margin `1-twoStepRate`; its positivity is proved at `:62`.
+This supplies the concrete fixed-parameter shape consumed by the typed
+Wilson-to-OS relative-loss bridge, but the margin remains nome/width
+dependent and no bridge inhabitant or scaling survival is supplied.
+Verification: `audits/AUDIT-WILSON-COMPLEX-RELATIVE-LOSS-2026-09-24.md`.
 
 New fixed-parameter cutoff consumer:
 `BF4WilsonAllNomeOriginComplexCutoff.origin_twoStepRate_positive`
@@ -657,3 +682,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 42 | 2026-09-24 | Minimal typed Wilson-to-OS bridge interface and constructive two-step form-bound consumer checked with an empty axiom set. No bridge inhabitant or chart-node status change. |
 | 1 / 43 | 2026-09-24 | Added the lag-indexed OS form-family interface and its equality-only Wilson transport consumer; both are axiom-free. No bridge inhabitant or chart-node status change. |
 | 1 / 44 | 2026-09-24 | Added the lag-indexed OS relative-loss family and equality-only Wilson transport consumer; the focused check is axiom-free. No bridge inhabitant or chart-node status change. |
+| 1 / 45 | 2026-09-24 | Proved a fixed-parameter complex Wilson relative-loss inequality and an explicit width modulus showing the computed original-response witness has no positive width-uniform floor. Both focused checks stay within `{propext, Quot.sound}`; no chart-node status change. |

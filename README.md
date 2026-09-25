@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Latest checked expansion (2026-09-24):** the existing complex Wilson
+two-step estimate now yields an explicit fixed-parameter relative-loss bound,
+`(1-twoStepRate) * ||x||² <= ||x||² - <x,T²x>`.  Separately, the explicit
+original plaquette response witness is proved to decay at least as
+`(1/32)^(width+width)`, so that particular witness has no positive
+width-uniform floor.  Both results are kernel-checked within
+`{propext, Quot.sound}`; neither supplies the still-open OS bridge, scaling
+survival, continuum construction, physical mass, or all-group theorem.  See
+the [relative-loss audit](audits/AUDIT-WILSON-COMPLEX-RELATIVE-LOSS-2026-09-24.md)
+and [response-width audit](audits/AUDIT-WILSON-RESPONSE-WIDTH-OBSTRUCTION-2026-09-24.md).
+
 **New checked complete growing-word square heat image:** the original product
 heat sends a distinct-link Wilson character square to
 `1 + w^(8*perimeter)*chi_2`, retaining every supported test. For the actual
