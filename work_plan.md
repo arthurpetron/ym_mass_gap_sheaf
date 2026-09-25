@@ -198,6 +198,22 @@ This is a cleaner finite certificate interface, but the rational inequality
 itself remains unproved along changing nome/spacing/scale.  Evidence remains
 `audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md`.
 
+### Arithmetic obstruction to the coarse dyadic budget (2026-09-24 UTC)
+
+`BF4WilsonAllNomeDyadicRationalBudgetObstruction.no_rational_loss_budget`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean:35`)
+checks the explicit cubic formula against the proposed rational budget.  For
+any abstract `rho ≤ 1-w`, positive `1-w`, and admissible
+`delta,theta` with `delta + theta ≤ 1`, the budget
+`dyadicLossBoundFormula ≤ 2*delta*rho` is contradictory: the right side is at
+most `2*(1-w)`, while the cubic coefficient is at least `384` for every
+`2^scale ≥ 1`.  The theorem intentionally leaves `rho` abstract; applying it
+to `starRatio` still requires a separate checked defect instance.  This is a
+certificate-number obstruction, not a lower bound on actual completed loss,
+and it redirects the next frontier to a sharper SAME-object loss comparison
+or a different response/scaling certificate.  Evidence:
+`audits/AUDIT-WILSON-DYADIC-RATIONAL-BUDGET-OBSTRUCTION-2026-09-24.md`.
+
 ### SAME-carrier two-step rate-margin calibration (2026-09-24 UTC)
 
 `BF4WilsonAllNomeTwoStepMargin.vacuumComplement_twoStep_rate_margin`

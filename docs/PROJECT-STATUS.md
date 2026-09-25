@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **39**, 2026-09-24 UTC. Source checkpoint:
-the SAME all-nome Wilson rational dyadic loss-budget milestone
+Chart schema: **1**. Snapshot: **40**, 2026-09-24 UTC. Source checkpoint:
+the SAME all-nome Wilson coarse dyadic rational-budget obstruction
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md`.
+`audits/AUDIT-WILSON-DYADIC-RATIONAL-BUDGET-OBSTRUCTION-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -218,6 +218,18 @@ backward calibration of the existing fixed-parameter rate, not a producer of
 the relative-loss estimate and not a physical Hamiltonian or continuum gap.
 No chart node changes status.  Verification is recorded in
 `audits/AUDIT-WILSON-TWO-STEP-MARGIN-2026-09-24.md`.
+
+New certificate-number obstruction:
+`BF4WilsonAllNomeDyadicRationalBudgetObstruction.no_rational_loss_budget`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean:35`)
+proves that the explicit cubic formula cannot satisfy the proposed rational
+survival budget whenever an abstract response floor `rho` obeys
+`rho ≤ 1-w`.  The theorem intentionally does not identify `rho` with
+`starRatio`; it is therefore a reusable arithmetic obstruction, not a
+completed-loss lower bound.  It redirects A03's next step to a sharper
+SAME-object loss comparison or a different response/scaling certificate.
+No chart node changes status.  Verification is recorded in
+`audits/AUDIT-WILSON-DYADIC-RATIONAL-BUDGET-OBSTRUCTION-2026-09-24.md`.
 
 New rationalized same-carrier budget:
 `BF4WilsonAllNomeDyadicRelativeSurvival.dyadic_relative_energy_of_rational_loss_budget`
@@ -548,9 +560,16 @@ remains open; extending this candidate normalization alone cannot supply it.
   `dyadicLossBound ≤ 2*delta*starRatio w`, using the existing SAME-state norm
   floor. The rational inequality remains open along scaling; no chart node
   closes.
+- New checked certificate-number obstruction:
+  `BF4WilsonAllNomeDyadicRationalBudgetObstruction.no_rational_loss_budget`
+  proves that the explicit cubic formula cannot satisfy the proposed rational
+  budget under any coarse defect floor `rho ≤ 1-w` and admissible
+  `delta,theta`. This is not an actual-loss lower bound and does not identify
+  `rho` with `starRatio`; it redirects A03 to a sharper SAME-object loss or a
+  different response/scaling certificate. No chart node closes.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--37; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--40; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -612,3 +631,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 34 | 2026-09-24 | Same-carrier normalized plaquette response floor and fixed-parameter rate positivity. Scaling and continuum joins remain open; no chart-block or goal-node status change. |
 | 1 / 35 | 2026-09-24 | Honest obstruction: the computed `twoStepRate = mixRate^2` has no positive width-uniform bound below one. This redirects B04 to a new analytic rate or genuine spatial/spacing control; no chart-block or goal-node status change. |
 | 1 / 36 | 2026-09-24 | The literal origin plaquette now discharges fixed-parameter `twoStepRate > 0` after two padding layers, and the existing complex-rate cutoff is instantiated without a positivity premise. This is coefficient-level finite-parameter evidence only; no chart-block or goal-node status change. |
+| 1 / 40 | 2026-09-24 | The explicit cubic dyadic loss formula is arithmetically incompatible with the proposed rational budget under any abstract coarse defect floor `rho ≤ 1-w`; certificate obstruction only, with no actual-loss lower bound or chart-block/goal-node status change. |

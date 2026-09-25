@@ -142,6 +142,15 @@ the explicit rational inequality
 removes quotient-real budget plumbing but does not prove the inequality along
 scaling. Evidence is recorded in the same audit.
 
+`BF4WilsonAllNomeDyadicRationalBudgetObstruction.no_rational_loss_budget`
+checks the arithmetic obstruction behind that open premise: for the explicit
+cubic formula and any `rho ≤ 1-w`, no admissible `delta,theta` can satisfy
+`dyadicLossBoundFormula ≤ 2*delta*rho`. The theorem is deliberately
+parameterized by `rho` and does not identify it with `starRatio` without a
+separate defect instance. This compares certificate numbers only; it is not
+a lower bound on the actual completed loss, a uniform gap, or a continuum
+result. Evidence: `audits/AUDIT-WILSON-DYADIC-RATIONAL-BUDGET-OBSTRUCTION-2026-09-24.md`.
+
 `BF4WilsonAllNomeTwoStepMargin` adds the backward calibration on the SAME
 completed carrier: a nonzero vacuum-complement state with relative lag-two
 loss `delta` forces `1-delta ≤ twoStepRate`, equivalently
