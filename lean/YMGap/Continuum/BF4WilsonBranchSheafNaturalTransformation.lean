@@ -41,6 +41,8 @@ open YMGap.Constructive.CReal
 open YMGap.Constructive.CRealLog
 open YMGap.Continuum.TuranPositivity
 open YMGap.Continuum.BF4WilsonSpatialUnion
+open YMGap.Continuum.BF4WilsonSpatialUnionCurrentSector
+  (CompletedPhysicalSU2Sector currentSector)
 open YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData (completedInner)
 open YMGap.Continuum.BF4WilsonSpatialUnionPosdef
@@ -116,6 +118,10 @@ structure GapFiber : Type 2 where
 mass.  The mass is the exact positive `-log(currentRate)` of the fixed
 two-step rate; no lattice-spacing conversion is included. -/
 structure DimensionlessMassFiber : Type 2 where
+  /-- The concrete fixed-spacing carrier/transfer/vacuum/correlator package
+  already constructed for the same Wilson union. -/
+  sector : CompletedPhysicalSU2Sector
+  sector_exact : sector = currentSector
   probe : V
   probe_vacuum_orthogonal : B probe U = RCzero
   probe_strict_two_step :
@@ -137,6 +143,8 @@ spacing is an explicit witness, and `physical_rate_exact` prevents this fiber
 from silently changing the rate.  This is a per-spacing calibration arrow,
 not a uniform continuum family. -/
 structure SpacingCalibratedMassFiber (A : CurrentSpacing) : Type 2 where
+  sector : CompletedPhysicalSU2Sector
+  sector_exact : sector = currentSector
   probe : V
   probe_vacuum_orthogonal : B probe U = RCzero
   probe_strict_two_step :
@@ -163,6 +171,8 @@ cofinality is retained as data.  This fiber is useful precisely because its
 finite-ceiling obstruction is honest: it cannot be mistaken for a continuum
 mass-gap family. -/
 structure VanishingSpacingMassFiber (S : CurrentSpacingSchedule) : Type 2 where
+  sector : CompletedPhysicalSU2Sector
+  sector_exact : sector = currentSector
   probe : V
   probe_vacuum_orthogonal : B probe U = RCzero
   probe_strict_two_step :
@@ -198,6 +208,8 @@ def NontrivialityFiber.toGap (e : NontrivialityFiber) : GapFiber where
 /-- The gap-to-mass compiler retains the same probe and strict estimate and
 adds only the already checked fixed-spacing logarithmic certificate. -/
 def GapFiber.toDimensionlessMass (g : GapFiber) : DimensionlessMassFiber where
+  sector := currentSector
+  sector_exact := rfl
   probe := g.probe
   probe_vacuum_orthogonal := g.probe_vacuum_orthogonal
   probe_strict_two_step := g.probe_strict_two_step
@@ -211,6 +223,8 @@ calibration while preserving the same probe and completed carrier. -/
 def DimensionlessMassFiber.toSpacingCalibratedMass
     (A : CurrentSpacing) (m : DimensionlessMassFiber) :
     SpacingCalibratedMassFiber A where
+  sector := m.sector
+  sector_exact := m.sector_exact
   probe := m.probe
   probe_vacuum_orthogonal := m.probe_vacuum_orthogonal
   probe_strict_two_step := m.probe_strict_two_step
@@ -225,6 +239,8 @@ vanishing-spacing schedule, without changing its completed carrier. -/
 def DimensionlessMassFiber.toVanishingSpacingMass
     (S : CurrentSpacingSchedule) (m : DimensionlessMassFiber) :
     VanishingSpacingMassFiber S where
+  sector := m.sector
+  sector_exact := m.sector_exact
   probe := m.probe
   probe_vacuum_orthogonal := m.probe_vacuum_orthogonal
   probe_strict_two_step := m.probe_strict_two_step
@@ -356,6 +372,9 @@ theorem gap_mass_arrow_preserves_probe (n : Nat) (g : GapFiber) :
 theorem gap_mass_arrow_preserves_rate (n : Nat) (g : GapFiber) :
     (gapToDimensionlessMass.app n g).transfer_mass = currentTransferMass := rfl
 
+theorem gap_mass_arrow_exposes_sector (n : Nat) (g : GapFiber) :
+    (gapToDimensionlessMass.app n g).sector = currentSector := rfl
+
 theorem branch_arrow_exposes_same_object_decay
     (n k : Nat) (e : NontrivialityFiber) :
     RCle
@@ -385,6 +404,10 @@ theorem calibration_arrow_preserves_rate_pin
     ((dimensionlessMassToSpacingCalibratedMass A).app n m).physical_rate_log_pin =
       currentPhysicalRate_log_pin A := rfl
 
+theorem calibration_arrow_preserves_sector
+    (A : CurrentSpacing) (n : Nat) (m : DimensionlessMassFiber) :
+    ((dimensionlessMassToSpacingCalibratedMass A).app n m).sector = m.sector := rfl
+
 theorem scheduled_arrow_preserves_probe
     (S : CurrentSpacingSchedule) (n : Nat) (m : DimensionlessMassFiber) :
     ((dimensionlessMassToVanishingSpacingMass S).app n m).probe = m.probe := rfl
@@ -393,6 +416,10 @@ theorem scheduled_arrow_exposes_rate
     (S : CurrentSpacingSchedule) (n j : Nat) (m : DimensionlessMassFiber) :
     ((dimensionlessMassToVanishingSpacingMass S).app n m).physical_rate j =
       currentPhysicalRate ⟨S.a j, S.a_pos j⟩ := rfl
+
+theorem scheduled_arrow_preserves_sector
+    (S : CurrentSpacingSchedule) (n : Nat) (m : DimensionlessMassFiber) :
+    ((dimensionlessMassToVanishingSpacingMass S).app n m).sector = m.sector := rfl
 
 theorem scheduled_rate_floor
     (S : CurrentSpacingSchedule) (n j : Nat) (m : DimensionlessMassFiber) :
@@ -453,12 +480,15 @@ theorem currentGap_strict_two_step :
 #print axioms branch_arrow_exposes_same_object_decay
 #print axioms gap_mass_arrow_preserves_probe
 #print axioms gap_mass_arrow_preserves_rate
+#print axioms gap_mass_arrow_exposes_sector
 #print axioms gap_mass_arrow_preserves_same_object_decay
 #print axioms calibration_arrow_preserves_probe
 #print axioms calibration_arrow_exposes_exact_rate
 #print axioms calibration_arrow_preserves_rate_pin
+#print axioms calibration_arrow_preserves_sector
 #print axioms scheduled_arrow_preserves_probe
 #print axioms scheduled_arrow_exposes_rate
+#print axioms scheduled_arrow_preserves_sector
 #print axioms scheduled_rate_floor
 #print axioms scheduled_rate_floor_cofinal
 #print axioms scheduled_fixed_carrier_no_finite_ceiling

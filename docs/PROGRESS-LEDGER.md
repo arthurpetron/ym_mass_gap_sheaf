@@ -4,6 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: concrete sector witness carried through the branch topos (2026-09-25 UTC)
+
+`DimensionlessMassFiber`, `SpacingCalibratedMassFiber`, and
+`VanishingSpacingMassFiber` in
+`lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean` now
+carry an explicit `CompletedPhysicalSU2Sector` together with
+`sector_exact : sector = currentSector`.  The gap-to-mass compiler exposes the
+concrete current sector, while
+`gap_mass_arrow_exposes_sector`, `calibration_arrow_preserves_sector`, and
+`scheduled_arrow_preserves_sector` prove that the branch arrows retain that
+same carrier witness.  This makes the sheaf-topos contraction visibly
+same-carrier at the type level, rather than merely preserving a probe and a
+rate field.  The focused check passed with only `{propext, Quot.sound}` and no
+`sorryAx`, classical axiom, `native_decide`, or custom axiom.  It is still the
+fixed-spacing SU(2) carrier: it does not identify a canonical OS/GNS object,
+construct a changing-spacing family, establish continuum/QFT limits, or close
+the Clay target.
+
 ## Current increment: composed branch-to-fixed-spacing-rate presheaf chain (2026-09-25 UTC)
 
 `SpacingCalibratedMassFiber` in

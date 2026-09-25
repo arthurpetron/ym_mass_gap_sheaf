@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **58**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **59**, 2026-09-25 UTC. Source checkpoint:
 the exact lag-two Wilson-to-OS relative-loss bridge consumer, alongside the
 checked fixed-parameter complex relative-loss consumer and the explicit
 width-degeneration obstruction for the original response witness
@@ -50,6 +50,16 @@ explicit, and `scheduled_fixed_carrier_no_finite_ceiling` proves that the
 fixed completed carrier cannot itself furnish a finite physical ceiling as
 spacing tends to zero.  This negative result is the causal boundary: the next
 positive input must be a genuinely changing same-theory transfer family.  The
+same typed chain now carries an explicit `CompletedPhysicalSU2Sector` witness
+through the dimensionless, fixed-spacing, and scheduled rate fibers:
+`DimensionlessMassFiber.sector`, `SpacingCalibratedMassFiber.sector`, and
+`VanishingSpacingMassFiber.sector`, each paired with
+`sector_exact : sector = currentSector`.  The checked exposure and preservation
+lemmas `gap_mass_arrow_exposes_sector`, `calibration_arrow_preserves_sector`,
+and `scheduled_arrow_preserves_sector` make the natural-transformation chain
+same-carrier at the type level.  This is still the fixed-spacing SU(2)
+completed sector; it does not supply canonical OS/GNS identification,
+changing-spacing transfer data, continuum/QFT limits, or Clay closure.  The
 dense source branch and the
 discrete-time transfer/gap branch now form an actual natural transformation
 over the covariant intrinsic-width scale diagram: `denseObservableDiagram`,
@@ -119,6 +129,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
  [x] Dense -> common union-completion naturality
                                       [x] Nontriviality -> gap presheaf branch arrow
                                        [x] Same-object probe decay compiler
+                                       [x] Concrete sector/correlator witness carried into rate fibers
              |                              |
              v                              v
  [ ] Complete signed cost versus   [x] Strict completed T^2 bound
@@ -174,6 +185,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | A02g | Composed branch-to-fixed-spacing physical-rate presheaf chain | `BF4WilsonBranchSheafNaturalTransformation.SpacingCalibratedMassFiber`, `.DimensionlessMassFiber.toSpacingCalibratedMass`, `.dimensionlessMassToSpacingCalibratedMass`, `.gapToSpacingCalibratedMass`, and `.nontrivialityToSpacingCalibratedMass`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`, using `BF4WilsonSpatialUnionPhysicalCalibration.CurrentSpacing`, `.currentPhysicalRate`, `.currentPhysicalRate_posEv`, and `.currentPhysicalRate_log_pin`; exposes an explicit per-spacing physical-rate conversion on the same completed carrier. It is not a changing-spacing family, uniform physical band, continuum, or Clay theorem. |
 | A02h | Fixed-carrier vanishing-spacing ceiling obstruction | `BF4WilsonBranchSheafNaturalTransformation.VanishingSpacingMassFiber`, `.dimensionlessMassToVanishingSpacingMass`, `.gapToVanishingSpacingMass`, `.nontrivialityToVanishingSpacingMass`, `.scheduled_rate_floor`, `.scheduled_rate_floor_cofinal`, and `.scheduled_fixed_carrier_no_finite_ceiling`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; makes the fixed-carrier failure of finite physical-rate uniformity along a supplied spacing-to-zero schedule a typed presheaf consequence. It identifies, but does not solve, the need for a changing same-theory family. |
 | A02i | Same-object probe decay carried through the branch | `BF4WilsonBranchSheafNaturalTransformation.GapFiber.probe_time_decay`, `.NontrivialityFiber.toGap`, `.branch_arrow_exposes_same_object_decay`, and `.gap_mass_arrow_preserves_same_object_decay`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`, using `BF4WilsonSpatialUnionRelaxation.norm_decay`; exposes all-lag completed-carrier decay for the same branch probe. It is fixed-spacing SU(2) discrete-time evidence, not spacing survival, OS/GNS identification, continuum, or Clay closure. |
+| A02j | Concrete sector witness carried through the branch topos | `BF4WilsonBranchSheafNaturalTransformation.DimensionlessMassFiber.sector`, `.SpacingCalibratedMassFiber.sector`, `.VanishingSpacingMassFiber.sector`, `.gap_mass_arrow_exposes_sector`, `.calibration_arrow_preserves_sector`, and `.scheduled_arrow_preserves_sector`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; carries `CompletedPhysicalSU2Sector` with `sector_exact = currentSector` through the dimensionless, fixed-spacing, and scheduled rate arrows. This makes the branch type-level same-carrier, but remains fixed-spacing SU(2) and does not provide OS/GNS, changing-spacing, continuum, or Clay closure. |
 | A03 | Complete signed cost versus SAME interacting variance on a justified scaling family | OPEN original-source estimate for ONE family, or direct response alternative. |
 | A04 | Conditional survival theorem (requires the missing input) | `BF4ExactSlabFixedSpatialJointEnergySurvival.response_floor_of_relative_energy`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:112`; supplied relative energy and positive norm floor, SAME fixed-width carrier. |
 | A05 | ONE nonzero excitation survives | OPEN compatible changing-scale observable and nonzero response. |
@@ -1041,3 +1053,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 74 | 2026-09-25 | Added the explicit fixed-spacing calibration arrow from the dimensionless branch to `currentPhysicalRate`, with a supplied `CurrentSpacing`, `PosEv` positivity, and exact logarithmic pin on the same completed carrier. Changing-spacing uniformity, continuum/QFT and Clay nodes remain open. |
 | 1 / 75 | 2026-09-25 | Added the scheduled-rate presheaf branch and proved the fixed-carrier vanishing-spacing finite-ceiling obstruction. This clarifies that a positive continuum route requires a genuinely changing same-theory transfer family; continuum/QFT and Clay nodes remain open. |
 | 1 / 76 | 2026-09-25 | Carried the existing all-lag same-object completed-carrier decay through the nontriviality → gap → rate fibers. This strengthens the fixed-spacing correlator realization without changing the open spacing, continuum/QFT, or Clay obligations. |
+| 1 / 77 | 2026-09-25 | Carried an explicit `CompletedPhysicalSU2Sector` witness with `sector_exact = currentSector` through the dimensionless, fixed-spacing, and scheduled rate fibers, with checked sector-preservation lemmas for the natural-transformation arrows. The branch is type-level same-carrier, but changing-spacing, OS/GNS, continuum/QFT and Clay obligations remain open. |

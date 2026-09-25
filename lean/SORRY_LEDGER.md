@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## Concrete sector witness carried through the branch topos (2026-09-25 UTC)
+
+- **same-carrier fields:** `DimensionlessMassFiber`,
+  `SpacingCalibratedMassFiber`, and `VanishingSpacingMassFiber` in
+  `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`
+  now carry `CompletedPhysicalSU2Sector` data with the explicit equality
+  `sector_exact : sector = currentSector`.
+- **natural-transformation exposure:** `gap_mass_arrow_exposes_sector`,
+  `calibration_arrow_preserves_sector`, and
+  `scheduled_arrow_preserves_sector` show that the gap-to-mass and rate
+  arrows retain the same concrete completed carrier.
+- **scope:** this is a type-level same-carrier witness in the fixed-spacing
+  SU(2) presheaf branch.  It is not canonical OS/GNS identification, a
+  changing-spacing family, a continuum/QFT construction, or Clay closure.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Scheduled-rate presheaf obstruction (2026-09-25 UTC)
 
 - **scheduled fiber:** `VanishingSpacingMassFiber` and
