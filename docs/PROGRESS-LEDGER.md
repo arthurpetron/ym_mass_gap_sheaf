@@ -4,6 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: dense-to-union completed naturality (2026-09-25 UTC)
+
+`positiveDenseDiagram` and `unionCompletionDiagram` in
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionNaturalTransformation.lean` make
+the existing positive-width dense source and one common `UnionCompletion`
+explicitly typed diagrams over `ScaleCat`.  `denseToUnion` is a genuine
+cross-width natural transformation, proved from
+`BF4WilsonChronologicalBaseCoherence.embedStage_atBase`; it identifies every
+finite-width source word with the same union-completion class at larger bases.
+`denseTimeToUnion` and `completedTime_denseToUnion` add the physical-time
+intertwining edge.  This discharges the previously missing map only for the
+staged spatial-union carrier.  It does not identify that carrier with the
+canonical OS/GNS completion, prove a uniform rate under spacing removal, or
+close A03/A05, continuum, or Clay.  The focused check passed with only
+`{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`, or
+custom axiom.
+
 ## Current increment: dense branch natural transformation (2026-09-25 UTC)
 
 `denseObservableDiagram` and `denseTransferDiagram` in

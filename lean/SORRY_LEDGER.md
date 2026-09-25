@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Dense-to-union completed naturality (2026-09-25 UTC)
+
+- **common completed target:** `positiveDenseDiagram` and
+  `unionCompletionDiagram` in
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionNaturalTransformation.lean`
+  package positive-width dense observables and the staged spatial-union
+  `UnionCompletion` as typed scale diagrams.
+- **cross-width transformation:** `denseToUnion` is natural by the existing
+  `BF4WilsonChronologicalBaseCoherence.embedStage_atBase`; it identifies each
+  finite source word with the same union-completion class at every larger
+  support base.
+- **time edge:** `denseTimeToUnion` and `completedTime_denseToUnion` add the
+  physically advanced transformation and its completed-time intertwining.
+- **scope:** this discharges cross-width transport only on `UnionCompletion`;
+  it does not identify the union carrier with canonical OS/GNS data, provide a
+  spacing-uniform response floor, or close A03/A05, continuum, physical mass,
+  or Clay fields.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Scale-zero dyadic/plaquette naturality edge (2026-09-25 UTC)
 
 - **literal carrier equality:**
