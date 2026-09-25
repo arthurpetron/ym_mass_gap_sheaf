@@ -100,6 +100,16 @@ conditional survival compiler; it produces neither the cap nor the response,
 and it remains fixed nome/width. Evidence:
 `audits/AUDIT-WILSON-COMPLEX-RESPONSE-FLOOR-2026-09-24.md`.
 
+`CRealSeminormPairingCompletion.completedInner_diagonal_le_normCeiling` now
+transports the existing computed stream ceiling to the completed diagonal,
+using the explicit `max n normBase` reindex and the constructive one-sided
+limit theorem. `BF4WilsonAllNomeCenteredVector.centeredVector_norm_ceiling`
+and `BF4WilsonAllNomeDyadicExcitation.dyadicExcitation_norm_ceiling` consume
+it for actual centered Wilson vectors and padded dyadic squares. These are
+per-expression/per-width/per-nome caps, not uniform scaling bounds, and they
+do not supply the missing response floor or any continuum passage. Evidence:
+`audits/AUDIT-WILSON-COMPLETED-NORM-CEILING-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream

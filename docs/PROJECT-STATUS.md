@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **30**, 2026-09-24 UTC. Source checkpoint:
-the SAME Wilson complex-carrier response-floor milestone
+Chart schema: **1**. Snapshot: **31**, 2026-09-24 UTC. Source checkpoint:
+the SAME Wilson completed-diagonal norm-ceiling milestone
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-COMPLEX-RESPONSE-FLOOR-2026-09-24.md`.
+`audits/AUDIT-WILSON-COMPLETED-NORM-CEILING-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -319,6 +319,21 @@ positivity, spacing/scaling, thermodynamic, continuum, physical-mass and
 all-group obligations remain open. Evidence:
 `audits/AUDIT-WILSON-COMPLEX-RESPONSE-FLOOR-2026-09-24.md`.
 
+New partial J02 evidence: `CRealSeminormPairingCompletion.completedInner_diagonal_le_normCeiling`
+(`lean/YMGap/Continuum/CRealSeminormPairingCompletion.lean:221`) transports
+the computed dense-stream ceiling to the completed diagonal by an explicit
+`max n normBase` reindex and the constructive one-sided limit principle.
+`BF4WilsonAllNomeCenteredVector.centeredVector_norm_ceiling`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeCenteredVector.lean:180`) and
+`BF4WilsonAllNomeDyadicExcitation.dyadicExcitation_norm_ceiling`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicExcitation.lean:52`) specialize
+that cap to actual centered Wilson vectors and every padded dyadic square.
+The three focused checks exit 0 within `{propext, Quot.sound}`.  The cap is
+expression/width/nome dependent, not uniform, and supplies neither a response
+floor nor scaling, thermodynamic, continuum, physical-mass, or all-group
+closure. Evidence:
+`audits/AUDIT-WILSON-COMPLETED-NORM-CEILING-2026-09-24.md`.
+
 New partial J02 evidence: `BF4WilsonAllNomeComplexGap.complex_twoStep_form_gap`
 (`lean/YMGap/Continuum/BF4WilsonAllNomeComplexGap.lean:97`) consumes the
 complexification on the SAME all-nome Wilson completion.  The module also
@@ -465,3 +480,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 28 | 2026-09-24 | The iterated same-carrier norm estimate is converted into an even-lag same-object correlator bound at lag `2*n`. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |
 | 1 / 29 | 2026-09-24 | Even-lag same-object correlators are proved nonnegative, and the scalar `twoStepRate^n` coefficient receives an explicit cutoff under an honest strict-positivity premise. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |
 | 1 / 30 | 2026-09-24 | The same complex carrier now has a conditional response-floor compiler: an explicit norm cap plus response floor implies `floor ≤ twoStepRate^n*C`. Focused check passed within the permitted axiom gate. No chart-block or goal-node status change; cap/response production and all scaling/continuum obligations remain open. |
+| 1 / 31 | 2026-09-24 | The computed per-stream norm ceiling now reaches the completed diagonal and specializes to actual centered Wilson and padded dyadic-square states. Focused checks passed within the permitted axiom gate. The cap is not scale/width uniform and does not produce a response floor or close any chart node. |

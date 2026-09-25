@@ -71,6 +71,15 @@ conditional response compiler: it constructs neither hypothesis and makes no
 spacing-uniform, continuum, physical-mass or Clay claim. Evidence:
 `audits/AUDIT-WILSON-COMPLEX-RESPONSE-FLOOR-2026-09-24.md` at repository root.
 
+`CRealSeminormPairingCompletion.completedInner_diagonal_le_normCeiling`
+transports the existing computed per-stream ceiling to the completed
+diagonal. `centeredVector_norm_ceiling` and
+`dyadicExcitation_norm_ceiling` specialize it to actual centered Wilson and
+padded dyadic-square states. These caps depend on the supplied expression,
+width and nome; they are not uniform scaling bounds and do not provide a
+response floor or continuum result. Evidence:
+`audits/AUDIT-WILSON-COMPLETED-NORM-CEILING-2026-09-24.md` at repository root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.

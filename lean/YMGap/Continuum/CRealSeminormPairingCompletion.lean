@@ -12,6 +12,7 @@ metric completeness or positive-definiteness assumption is introduced.
 
 import YMGap.Continuum.CRealSeminormPairingCompletionLimit
 import YMGap.Constructive.CRealLimitClose
+import YMGap.Continuum.RCCauchySchwarz
 
 namespace YMGap.Continuum.CRealSeminormPairingCompletion
 
@@ -210,6 +211,40 @@ theorem completedInner_mk (X Y : D.Cauchy) :
     completedInner P
       (Quotient.mk D.completionSetoid X) (Quotient.mk D.completionSetoid Y) =
       Quotient.mk crealSetoid (representativeInner P X Y) := rfl
+
+/-! A completed diagonal inherits the explicit stream ceiling.  The generic
+ceiling theorem only bounds stages at or beyond `normBase`; the proof therefore
+uses the same representative stream with the index map `n ↦ max n normBase`.
+This is a per-representative certificate, not a uniform bound over carriers,
+widths, volumes, or couplings. -/
+
+theorem completedInner_diagonal_le_normCeiling (X : D.Cauchy) :
+    RCle
+      (completedInner P
+        (Quotient.mk D.completionSetoid X)
+        (Quotient.mk D.completionSetoid X))
+      (Quotient.mk crealSetoid (ofQ' (normCeiling P X))) := by
+  let base := normBase P X
+  have hshift :
+      ConvergesTo
+        (fun n => pairSequence P X X (max n base))
+        (representativeInner P X X) := by
+    intro epsilon hepsilon
+    obtain ⟨Nstage, hstage⟩ := pairSequence_converges P X X epsilon hepsilon
+    refine ⟨max Nstage base, fun n hn => ?_⟩
+    have hN : Nstage ≤ n :=
+      Nat.le_trans (Nat.le_max_left _ _) hn
+    have hterm : Nstage ≤ max n base :=
+      Nat.le_trans hN (Nat.le_max_left _ _)
+    exact hstage (max n base) hterm
+  have hbound :
+      leEv (representativeInner P X X)
+        (ofQ' (normCeiling P X)) := by
+    apply CReal.leEv_of_convergesTo_le hshift (convergesTo_const _)
+    intro n
+    exact diagonal_le_normCeiling P X (max n base) (Nat.le_max_right _ _)
+  rw [completedInner_mk]
+  exact hbound
 
 theorem representativeInner_constant (x y : D.Carrier) :
     Equiv (representativeInner P (D.constant x) (D.constant y))

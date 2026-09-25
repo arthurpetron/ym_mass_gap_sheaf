@@ -46,6 +46,15 @@ theorem dyadicExcitation_norm_floor :
     RCle (Quotient.mk crealSetoid (ofQ' (starRatio w))) (B v v) :=
   centeredVector_norm_floor hw0 hw1 scale width hwidth
 
+def dyadicNormCeiling : Q' :=
+  centeredNormCeiling hw0 hw1 (loopState (paddedSquare scale width hwidth))
+
+theorem dyadicExcitation_norm_ceiling :
+    RCle (B v v)
+      (Quotient.mk crealSetoid (ofQ' (dyadicNormCeiling hw0 hw1 scale width hwidth))) := by
+  exact centeredVector_norm_ceiling hw0 hw1
+    (loopState (paddedSquare scale width hwidth))
+
 theorem dyadicExcitation_norm_ne_zero : B v v ≠ RCzero := by
   intro hz
   have h := dyadicExcitation_norm_floor hw0 hw1 scale width hwidth
@@ -91,6 +100,8 @@ def nonzeroExcitation (scale : Nat) :
 
 #print axioms dyadicExcitation
 #print axioms dyadicExcitation_norm_floor
+#print axioms dyadicNormCeiling
+#print axioms dyadicExcitation_norm_ceiling
 #print axioms dyadicExcitation_norm_ne_zero
 #print axioms dyadicExcitation_ne_zero
 #print axioms dyadicExcitation_correlator_pin

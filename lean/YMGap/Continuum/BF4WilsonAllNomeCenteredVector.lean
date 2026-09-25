@@ -170,6 +170,19 @@ theorem centeredVector_diagonal (x : IntrinsicExpression width) :
   rw [completedTime_zero] at h
   exact h
 
+/-! The generic completion ceiling now reaches this actual centered vector.
+The result is an explicit rational cap for each supplied stream; it does not
+assert uniformity in the expression, square size, width, nome, or volume. -/
+
+def centeredNormCeiling (x : IntrinsicExpression width) : Q' :=
+  CRealSeminormPairingCompletion.normCeiling PD (C x)
+
+theorem centeredVector_norm_ceiling (x : IntrinsicExpression width) :
+    RCle (B (v x) (v x))
+      (Quotient.mk crealSetoid (ofQ' (centeredNormCeiling hw0 hw1 x))) := by
+  exact CRealSeminormPairingCompletion.completedInner_diagonal_le_normCeiling
+    PD (C x)
+
 /-- Centering cancels from time loss on the actual completion, for every
 intrinsic expression. This is an identity, not a relative loss estimate. -/
 theorem centeredVector_loss_pin (n : Nat) (x : IntrinsicExpression width) :
@@ -216,6 +229,8 @@ theorem centered_dyadic_loss_bound (scale width : Nat)
 #print axioms centeredExcitation
 #print axioms centeredVector_time_pairing
 #print axioms centeredVector_diagonal
+#print axioms centeredNormCeiling
+#print axioms centeredVector_norm_ceiling
 #print axioms centeredVector_loss_pin
 #print axioms centered_dyadic_loss_bound
 
