@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **37**, 2026-09-24 UTC. Source checkpoint:
-the SAME all-nome Wilson dyadic relative-energy survival milestone
+Chart schema: **1**. Snapshot: **38**, 2026-09-24 UTC. Source checkpoint:
+the SAME all-nome Wilson two-step rate-margin calibration milestone
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md`.
+`audits/AUDIT-WILSON-TWO-STEP-MARGIN-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -206,6 +206,18 @@ proved along a changing-scale trajectory.  No chart node changes status:
 spacing control, scaling survival, continuum, physical mass, and all-group
 construction remain open.  Verification is recorded in
 `audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md`.
+
+New same-carrier rate-margin calibration:
+`BF4WilsonAllNomeTwoStepMargin.vacuumComplement_twoStep_rate_margin`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeTwoStepMargin.lean:103`) proves that
+any nonzero vacuum-complement state with a relative lag-two loss `delta` forces
+`1 - delta ≤ twoStepRate`.  Its companion
+`vacuumComplement_twoStep_margin_le_relative_energy` (`:112`) rewrites this as
+the explicit necessary margin bound `1 - twoStepRate ≤ delta`.  This is a
+backward calibration of the existing fixed-parameter rate, not a producer of
+the relative-loss estimate and not a physical Hamiltonian or continuum gap.
+No chart node changes status.  Verification is recorded in
+`audits/AUDIT-WILSON-TWO-STEP-MARGIN-2026-09-24.md`.
 
 Additional partial J02 evidence: `BF4WilsonAllNomeLinear.completedAdd` and
 `.completedSmul` (`lean/YMGap/Continuum/BF4WilsonAllNomeLinear.lean:132`, `:135`)
@@ -515,6 +527,11 @@ remains open; extending this candidate normalization alone cannot supply it.
   factor two. `dyadic_response_floor_of_loss_budget` (`:154`) composes both.
   The budget is not proved along a changing-scale trajectory; no chart node
   closes.
+- New checked backward calibration: `BF4WilsonAllNomeTwoStepMargin` proves
+  that any nonzero vacuum-complement state with relative lag-two loss `delta`
+  forces `1-delta ≤ twoStepRate`, equivalently
+  `1-twoStepRate ≤ delta`. This constrains the existing fixed-parameter rate
+  but supplies neither the loss estimate nor a physical mass normalization.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
   unchanged from snapshots 1--37; this snapshot records only new proof evidence.

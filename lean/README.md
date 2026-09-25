@@ -136,6 +136,13 @@ The budget remains open along changing scale; this is not a uniform gap or
 continuum result. Evidence:
 `audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md` at repository root.
 
+`BF4WilsonAllNomeTwoStepMargin` adds the backward calibration on the SAME
+completed carrier: a nonzero vacuum-complement state with relative lag-two
+loss `delta` forces `1-delta ≤ twoStepRate`, equivalently
+`1-twoStepRate ≤ delta`. This constrains the fixed-parameter rate but does not
+construct the loss estimate or identify a physical Hamiltonian edge. Evidence:
+`audits/AUDIT-WILSON-TWO-STEP-MARGIN-2026-09-24.md` at repository root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.

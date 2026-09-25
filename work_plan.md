@@ -190,6 +190,18 @@ The budget is not proved along a changing-scale trajectory, so this is a
 finite-parameter compiler and not B04/A05/J01--J04 closure.  Evidence:
 `audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md`.
 
+### SAME-carrier two-step rate-margin calibration (2026-09-24 UTC)
+
+`BF4WilsonAllNomeTwoStepMargin.vacuumComplement_twoStep_rate_margin`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeTwoStepMargin.lean:103`) proves that
+any nonzero vacuum-complement state with relative lag-two loss `delta` forces
+`1 - delta ≤ twoStepRate`.  Its companion
+`vacuumComplement_twoStep_margin_le_relative_energy` (`:112`) gives the
+necessary margin form `1 - twoStepRate ≤ delta`.  This is a backward
+calibration of the existing fixed-parameter rate, not a producer of relative
+loss, physical time, or continuum mass.  Evidence:
+`audits/AUDIT-WILSON-TWO-STEP-MARGIN-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream
