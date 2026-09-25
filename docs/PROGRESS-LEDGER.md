@@ -4,6 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: positive-time-only raw variation certificate (2026-09-25 UTC)
+
+The canonical fixed-family raw stream now exposes the remaining obligation as
+the Type-level structure
+`MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:560`): it asks only for
+`SummableCRealStepVariation` at times `0 < time`.  Its constructive adapter
+`MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation.toAllTime`
+(`:567`) inserts the already-proved zero-time certificate and returns the
+all-time variation object consumed by the normalized compiler.  The missing
+frontier is therefore exactly positive-time cross-scale variation for the SAME
+canonical correlator; no zero-time obligation is duplicated or hidden.
+The theorem
+`marginalHalfGeometricRawRepresentativeCanonical_sq_decay`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:422`)
+also rewrites the finite scheduled square-decay bound directly onto that same
+canonical CReal representative, before any square-root or variation bridge.
+The focused monitored check passed with only `{propext, Quot.sound}` and no
+`sorryAx`, classical axiom, `native_decide`, or custom axiom.  No continuum,
+positive-mass, or Clay claim follows.
+
 ## Current increment: fixed-family debt input compiled to CReal (2026-09-25 UTC)
 
 `marginalHalfGeometric_normalizationNormDebtVariation` in

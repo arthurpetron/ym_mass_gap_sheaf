@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Positive-time-only raw variation input (2026-09-25 UTC)
+
+- **factorization:** `MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:560`)
+  asks only for `SummableCRealStepVariation` of the canonical raw correlator at
+  times `0 < time`.
+- **adapter:** `...PositiveTimeVariation.toAllTime` (`:567`) inserts the
+  already-proved `marginalHalfGeometricRawCanonicalZeroTimeVariation` (`:518`)
+  and returns the all-time variation object consumed by the normalized
+  compiler.
+- **same-object decay:** `marginalHalfGeometricRawRepresentativeCanonical_sq_decay`
+  (`:422`) transports the finite scheduled square-decay inequality to the
+  canonical CReal representative before the still-missing variation bridge.
+- **scope:** this is a type-level reduction, not an inhabitant of the
+  positive-time fields.  The spacing-uniform physical rate, continuum/QFT
+  reconstruction, all-group theorem, and Clay target remain open.
+- **verification:** focused safe Lean check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`.
+
 ## Fixed-family normalized rate and debt inputs CLOSED; raw moment OPEN (2026-09-25 UTC)
 
 - **debt conversion:** `BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_normalizationNormDebtVariation`

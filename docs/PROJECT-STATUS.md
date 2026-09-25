@@ -284,6 +284,21 @@ limit, exposing that this spacing family cannot itself provide a positive mass
 calibration. Verification is recorded in
 `audits/AUDIT-FIXED-FAMILY-RATE-POWER-VARIATION-CORE-2026-09-25.md`.
 
+### Positive-time-only raw variation frontier (2026-09-25 UTC)
+
+The canonical fixed-family raw stream now factors its remaining input into
+`MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:560`),
+which asks only for summable cross-scale variation when `0 < time`.
+`...PositiveTimeVariation.toAllTime` (`:567`) inserts the checked
+`marginalHalfGeometricRawCanonicalZeroTimeVariation` (`:518`) and produces the
+all-time object required by the normalized compiler.  This removes duplicated
+zero-time obligations and leaves one precisely typed positive-time frontier;
+the same-object theorem
+`marginalHalfGeometricRawRepresentativeCanonical_sq_decay` (`:422`) exposes
+the finite squared decay on the canonical CReal representative itself.
+the continuum, spacing-uniform mass, and Clay nodes remain open.
+
 ### Concrete normalized-stream rate input (2026-09-25 UTC)
 
 `BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization`
@@ -325,7 +340,7 @@ The fixed-family stream is now also proof-argument-canonical via
 `represents` theorem (`:330`).  This removes scale-dependent nome-proof noise.
 The time-zero slice is definitionally constant and its complete
 `SummableCRealStepVariation` certificate is inhabited by
-`marginalHalfGeometricRawCanonicalZeroTimeVariation` (`:478`); the positive-
+`marginalHalfGeometricRawCanonicalZeroTimeVariation` (`:518`); the positive-
 time cross-scale field remains the active raw frontier.  No chart marker
 changes.
 

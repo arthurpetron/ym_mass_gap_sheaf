@@ -410,10 +410,50 @@ theorem marginalHalfGeometricRawRepresentativeCanonical_represents
             (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0).completionSetoid
           (marginalHalfGeometricRawPowerCauchyCanonical
             (time * 2 ^ scale)))
-        (centralPhysicalVacuumSectorCylinderCompletionToGlobal
-          ((centralPhysicalDynamicMovingCubeRCChannel
-            marginalHalfGeometricCompletedFamily).vectorAt scale).1) := by
+            (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+              ((centralPhysicalDynamicMovingCubeRCChannel
+                marginalHalfGeometricCompletedFamily).vectorAt scale).1) := by
             exact hinner'.symm
+
+/-! The fixed-family squared decay is available directly on the canonical
+CReal representative, before any future square-root or variation bridge.
+This is the same-object estimate rewritten from the quotient channel; no
+representative is selected after the fact. -/
+theorem marginalHalfGeometricRawRepresentativeCanonical_sq_decay
+    (time scale : Nat) :
+    CReal.leEv
+      (CReal.mul
+        (marginalHalfGeometricRawRepresentativeCanonical time scale)
+        (marginalHalfGeometricRawRepresentativeCanonical time scale))
+      (CReal.mul
+      (CReal.mul
+        (CReal.ofQ' (fixedSquaredRate ^ (time * 2 ^ scale)))
+          (marginalHalfGeometricRawRepresentativeCanonical 0 scale))
+        (marginalHalfGeometricRawRepresentativeCanonical 0 scale)) := by
+  have hdecay := sampledConnectedAutocorrelationSq_decay
+    (centralPhysicalDynamicMovingCubeRCChannel
+      marginalHalfGeometricCompletedFamily) scale time
+  have hrc : CReal.RCle
+      (Quotient.mk CReal.crealSetoid
+        (CReal.mul
+          (marginalHalfGeometricRawRepresentativeCanonical time scale)
+          (marginalHalfGeometricRawRepresentativeCanonical time scale)))
+      (Quotient.mk CReal.crealSetoid
+        (CReal.mul
+          (CReal.mul
+            (CReal.ofQ' (fixedSquaredRate ^ (time * 2 ^ scale)))
+            (marginalHalfGeometricRawRepresentativeCanonical 0 scale))
+          (marginalHalfGeometricRawRepresentativeCanonical 0 scale))) := by
+    rw [← CReal.RCmul_mk, ← CReal.RCmul_mk, ← CReal.RCscale_mk]
+    rw [marginalHalfGeometricRawRepresentativeCanonical_represents time scale,
+      marginalHalfGeometricRawRepresentativeCanonical_represents 0 scale]
+    rw [← sampledConnectedAutocorrelation_zero_eq_normSq] at hdecay
+    simpa [sampledConnectedAutocorrelationSq,
+      sampledConnectedAutocorrelation,
+      marginalHalfGeometric_latticeSteps_eq,
+      marginalHalfGeometricCompletedFamily_rate,
+      fixedSquaredRate] using hdecay
+  exact hrc
 
 theorem marginalHalfGeometricRawRepresentativeCanonical_zero_time_const
     (scale : Nat) :
@@ -505,12 +545,33 @@ def marginalHalfGeometricRawCanonicalZeroTimeVariation :
 
 /-! The canonical stream is now ready for the all-time variation input.  The
 zero-time slice is inhabited explicitly; positive-time cross-scale variation
-remains the sole missing field. -/
+remains the sole missing field.  We expose that split in the type itself so
+the remaining certificate cannot accidentally re-prove (or silently assume)
+the already-closed time-zero case. -/
 
 structure MarginalHalfGeometricRawRepresentativeCanonicalVariation : Type 1 where
   variation : forall time,
     SummableCRealStepVariation
       (fun scale => marginalHalfGeometricRawRepresentativeCanonical time scale)
+
+/-! Positive-time cross-scale variation is the only missing raw input.  The
+time-zero slice is deliberately absent: it is supplied by
+`marginalHalfGeometricRawCanonicalZeroTimeVariation` below. -/
+structure MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation : Type 1 where
+  variation : forall (time : Nat), 0 < time ->
+    SummableCRealStepVariation
+      (fun scale => marginalHalfGeometricRawRepresentativeCanonical time scale)
+
+/-! Reinsert the already-proved zero-time slice, yielding the all-time
+variation object consumed by the normalized moving-cube compiler. -/
+def MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation.toAllTime
+    (data : MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation) :
+    MarginalHalfGeometricRawRepresentativeCanonicalVariation where
+  variation := by
+    intro time
+    cases time with
+    | zero => exact marginalHalfGeometricRawCanonicalZeroTimeVariation
+    | succ n => exact data.variation (n + 1) (Nat.succ_pos n)
 
 def MarginalHalfGeometricRawRepresentativeCanonicalVariation.toRawScheduledVariation
     (data : MarginalHalfGeometricRawRepresentativeCanonicalVariation) :
@@ -572,5 +633,9 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationS
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometricRawRepresentativeCanonical_represents
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometricRawCanonicalZeroTimeVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometricRawRepresentativeCanonical_sq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation.toAllTime
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.MarginalHalfGeometricRawRepresentativeCanonicalVariation.toRawScheduledVariation

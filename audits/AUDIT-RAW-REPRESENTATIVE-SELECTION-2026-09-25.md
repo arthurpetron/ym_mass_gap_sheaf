@@ -24,7 +24,10 @@ certificate.
 | `MarginalHalfGeometricRawRepresentativeVariation.toRawScheduledVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:547` | Factors the remaining obligation to a single `SummableCRealStepVariation` field for the explicit representative stream. |
 | `marginalHalfGeometricRawRepresentativeCanonical` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:248` | Repeats the same construction with fixed decidable nome proofs, removing proof-argument variation from the fixed-family stream. |
 | `marginalHalfGeometricRawRepresentativeCanonical_represents` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:330` | Proves the canonical CReal stream has the same literal sampled RC correlator. |
-| `marginalHalfGeometricRawCanonicalZeroTimeVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:478` | Closes the complete `SummableCRealStepVariation` field at time zero; positive-time cross-scale variation remains open. |
+| `marginalHalfGeometricRawRepresentativeCanonical_sq_decay` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:422` | Rewrites the finite scheduled square-decay inequality onto the same canonical CReal representative. |
+| `marginalHalfGeometricRawCanonicalZeroTimeVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:518` | Closes the complete `SummableCRealStepVariation` field at time zero; positive-time cross-scale variation remains open. |
+| `MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:560` | Factors the uninhabited input to the positive-time (`0 < time`) cross-scale variation fields only. |
+| `MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation.toAllTime` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:567` | Constructively inserts the proved zero-time certificate and returns the all-time variation object consumed by the normalized compiler. |
 
 ## Generic constructive boundary
 
@@ -41,9 +44,11 @@ presentation certificate; hidden quotient choice remains disallowed.
 The exact representative and its `represents` equality are now proved in the
 specialization module.  A proof-argument-canonical copy has the same exact
 RC stream, and its time-zero variation is now inhabited with an explicit
-inner modulus.  The only remaining uninhabited all-time field is the
-summable consecutive-scale variation modulus at positive physical times.  No
-representative-selection gap is being counted twice.
+inner modulus.  `MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation`
+records the only remaining uninhabited input: the summable consecutive-scale
+variation modulus at positive physical times.  Its `toAllTime` adapter inserts
+the closed zero-time slice, so no representative-selection or zero-time gap is
+counted twice.
 
 This boundary does not weaken the finite same-object result and does not claim
 a continuum or Clay conclusion.  It precisely isolates the next causal
