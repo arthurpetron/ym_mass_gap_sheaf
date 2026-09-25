@@ -22,6 +22,12 @@
   `marginalHalfGeometric_ratePowerLimit_positive_time_equiv_zero` (`:610`)
   identifies the positive-time scalar limit with zero.  This exposes a
   fixed-spacing schedule collapse, not a physical positive mass.
+- **endpoint/pruning consequence:**
+  `marginalHalfGeometric_ratePowerLimit_zero_time_equiv_one` (`:635`) identifies
+  the zero-time endpoint with one, while
+  `marginalHalfGeometric_ratePowerLimit_positive_time_not_isPositive` (`:665`)
+  rules out a strictly positive CReal rate at every positive time.  The
+  fixed-spacing family is therefore not a physical-mass calibration route.
 - **scope:** this is a type-level reduction, not an inhabitant of the
   positive-time fields.  The spacing-uniform physical rate, continuum/QFT
   reconstruction, all-group theorem, and Clay target remain open.

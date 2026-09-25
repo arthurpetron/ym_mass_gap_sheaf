@@ -4,7 +4,7 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: positive-time-only raw variation certificate (2026-09-25 UTC)
+## Current increment: fixed-family scalar endpoints and positive-time raw frontier (2026-09-25 UTC)
 
 The canonical fixed-family raw stream now exposes the remaining obligation as
 the Type-level structure
@@ -23,16 +23,23 @@ also rewrites the finite scheduled square-decay bound directly onto that same
 canonical CReal representative, before any square-root or variation bridge.
 The conditional compiler
 `marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime`
-(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:634`)
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:681`)
 now feeds that raw object, the already-inhabited rational normalization debt,
 and the already-inhabited scheduled-rate variation into one concrete fixed-
 family normalized continuum limit.  Its zero-time strict positivity
-(`:643`) and same-object squared decay (`:657`) are proved; the only supplied
+(`:690`) and same-object squared decay (`:704`) are proved; the only supplied
 argument still missing is the positive-time raw variation structure itself.
 The scalar rate-limit theorem
 `marginalHalfGeometric_ratePowerLimit_positive_time_equiv_zero` (`:610`)
 shows that this fixed-spacing dyadic schedule collapses to zero at every
 positive integer time; it is not a positive physical mass result.
+The complementary `marginalHalfGeometric_ratePowerLimit_zero_time_equiv_one`
+(`:635`) identifies the zero-time endpoint with one, and
+`marginalHalfGeometric_ratePowerLimit_positive_time_not_isPositive` (`:665`)
+rules out any strictly positive CReal rate at positive time.  Thus this
+fixed-spacing family is formally pruned from physical-mass calibration; the
+remaining raw variation field is still open but cannot rescue this scalar
+schedule.
 The focused monitored check passed with only `{propext, Quot.sound}` and no
 `sorryAx`, classical axiom, `native_decide`, or custom axiom.  No continuum,
 positive-mass, or Clay claim follows.

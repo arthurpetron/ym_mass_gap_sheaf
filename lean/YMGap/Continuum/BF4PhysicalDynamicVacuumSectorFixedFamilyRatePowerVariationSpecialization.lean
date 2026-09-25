@@ -629,6 +629,53 @@ theorem marginalHalfGeometric_ratePowerLimit_positive_time_equiv_zero
     (positiveRatePowerVariation_limit_equiv_zero
       fixedSquaredRate fixedSquaredRate_pos fixedSquaredRate_lt_one time htime)
 
+/- The complementary zero-time endpoint is the constant unit stream.  Together
+with the positive-time zero theorem above, this completely characterizes the
+fixed-spacing scalar limit and makes the physical-mass obstruction explicit. -/
+theorem marginalHalfGeometric_ratePowerLimit_zero_time_equiv_one :
+    CReal.Equiv
+      (marginalHalfGeometric_ratePowerLimit.limitRepresentative 0)
+      (CReal.ofQ' 1) := by
+  apply CReal.Equiv_of_limit_of_equal
+  · intro scale
+    exact YMGap.Constructive.TrigAdd.equiv_ofQ'_of_eqv
+      (normalizedMovingCubeSampledRatePower_zero_eqv_one
+        marginalHalfGeometricCompletedFamily scale)
+  · exact marginalHalfGeometric_ratePowerLimit.converges 0
+  · exact CReal.convergesTo_const (CReal.ofQ' 1)
+
+private theorem positive_constant_not_le_zero_fixed_rate
+    (q : Q') (hq : (0 : Q') < q) :
+    ¬ CReal.leEv (CReal.ofQ' q) CReal.czero := by
+  intro h
+  obtain ⟨N, hN⟩ := h (HalfPow.half * q) (ExpNeg.half_mul_pos q hq)
+  have hbad := hN N (Nat.le_refl N)
+  change q ≤ 0 + HalfPow.half * q at hbad
+  rw [Q'.zero_add'] at hbad
+  have hprod : q * 1 ≤ q * HalfPow.half := Q'.le_trans' _ _ _
+    (Q'.le_of_eqv (Q'.mul_one_eqv _))
+    (Q'.le_trans' _ _ _ hbad (Q'.le_of_eqv (Q'.mul_comm_eqv _ _)))
+  exact (by decide : ¬ (1 : Q') ≤ HalfPow.half)
+    (Q'.le_of_mul_le_mul_left hprod hq)
+
+/- A positive CReal rate is impossible on this branch at positive time.  This
+is stronger than merely identifying the representative with zero: it rules
+out any downstream physical-mass witness whose rate limit would have to be
+strictly positive. -/
+theorem marginalHalfGeometric_ratePowerLimit_positive_time_not_isPositive
+    (time : Nat) (htime : 0 < time) :
+    ¬ CReal.IsPositive
+      (marginalHalfGeometric_ratePowerLimit.limitRepresentative time) := by
+  intro hpositive
+  obtain ⟨epsilon, hepsilon, hle⟩ := hpositive
+  have hconstant : CReal.leEv (CReal.ofQ' epsilon) CReal.czero :=
+    CReal.leEv_trans
+      (CReal.leEv_of_le hle)
+      (CReal.leEv_of_equiv
+        (marginalHalfGeometric_ratePowerLimit_positive_time_equiv_zero
+          time htime))
+  exact positive_constant_not_le_zero_fixed_rate epsilon hepsilon hconstant
+
 /- The fixed-family normalized limit is therefore defined from the same raw
 representative and the already inhabited rational debt certificate. -/
 def marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime
@@ -739,6 +786,10 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationS
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_ratePowerLimit
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_ratePowerLimit_positive_time_equiv_zero
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_ratePowerLimit_zero_time_equiv_one
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_ratePowerLimit_positive_time_not_isPositive
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime
 #print axioms
