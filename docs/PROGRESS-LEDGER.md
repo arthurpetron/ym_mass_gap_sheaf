@@ -4,6 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: composed branch-to-fixed-spacing-rate presheaf chain (2026-09-25 UTC)
+
+`SpacingCalibratedMassFiber` in
+`lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean` now
+records an explicit `CurrentSpacing` witness, the exact
+`currentPhysicalRate = currentTransferMass / a`, its `PosEv` positivity, and
+the exact logarithmic calibration pin.  The natural transformation
+`dimensionlessMassToSpacingCalibratedMass` pastes the checked dimensionless
+mass branch into this per-spacing rate fiber, while
+`gapToSpacingCalibratedMass` and `nontrivialityToSpacingCalibratedMass` compose
+the full branch chain in `Type^(ScaleCat.op)`.  The focused check passed with
+only `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+or custom axiom.  This is an explicit fixed-spacing calibration interface;
+it does not provide a changing-spacing family, a uniform continuum rate band,
+canonical OS/GNS transport, continuum/QFT construction, or Clay closure.
+
 ## Current increment: composed branch-to-log-mass presheaf chain (2026-09-25 UTC)
 
 The branch arrow in

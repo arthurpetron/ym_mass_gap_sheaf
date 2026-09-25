@@ -25,6 +25,7 @@ import YMGap.Continuum.BF4ExactSlabCollarAdjustedRate
 import YMGap.Continuum.FiniteSizeGeometricSum
 import YMGap.Continuum.QuaternionHaarCharacterInterval
 import YMGap.Continuum.BF4WilsonSpatialUnionDiscreteLogGap
+import YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration
 
 namespace YMGap.Continuum.BF4WilsonBranchSheafNaturalTransformation
 
@@ -37,6 +38,7 @@ open YMGap.Categorical.ScaleSheaf
 open YMGap.Constructive
 open YMGap.Constructive.CReal
 open YMGap.Constructive.CRealLog
+open YMGap.Continuum.TuranPositivity
 open YMGap.Continuum.BF4WilsonSpatialUnion
 open YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData (completedInner)
@@ -64,6 +66,9 @@ open YMGap.Continuum.BF4ExactSlabSummableCoreRate
 open YMGap.Continuum.BF4WilsonSpatialUnionDiscreteLogGap
   (currentRate currentTransferMass currentTransferMass_pos
     currentTransferLogReduction currentTransferMass_log_pin)
+open YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration
+  (CurrentSpacing currentPhysicalRate currentPhysicalRate_posEv
+    currentPhysicalRate_log_pin)
 
 
 local notation "hsmall" => And.left existingNome_guards
@@ -114,6 +119,27 @@ structure DimensionlessMassFiber : Type 2 where
       (CReal.neg (CReal.log (CReal.ofQ' currentRate)
         currentTransferLogReduction))
 
+/-- A fixed-spacing physical-rate section on the same completed carrier.  The
+spacing is an explicit witness, and `physical_rate_exact` prevents this fiber
+from silently changing the rate.  This is a per-spacing calibration arrow,
+not a uniform continuum family. -/
+structure SpacingCalibratedMassFiber (A : CurrentSpacing) : Type 2 where
+  probe : V
+  probe_vacuum_orthogonal : B probe U = RCzero
+  probe_strict_two_step :
+    RCle (B probe (T 2 probe))
+      (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
+        (B probe probe))
+  physical_rate : CReal
+  physical_rate_exact : physical_rate = currentPhysicalRate A
+  physical_rate_posEv : PosEv physical_rate
+  physical_rate_log_pin : CReal.Equiv physical_rate
+      (CReal.mul
+        (CReal.neg (CReal.log (CReal.ofQ' currentRate)
+          currentTransferLogReduction))
+        (CReal.ofQ'
+          (YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.spacingReciprocal A)))
+
 /-! ## The branch compiler -/
 
 /-- The shared-carrier branch compiler.  It keeps the probe and its
@@ -137,6 +163,19 @@ def GapFiber.toDimensionlessMass (g : GapFiber) : DimensionlessMassFiber where
   transfer_mass := currentTransferMass
   transfer_mass_positive := currentTransferMass_pos
   transfer_mass_log_pin := currentTransferMass_log_pin
+
+/-- The dimensionless certificate feeds the exact fixed-spacing physical-rate
+calibration while preserving the same probe and completed carrier. -/
+def DimensionlessMassFiber.toSpacingCalibratedMass
+    (A : CurrentSpacing) (m : DimensionlessMassFiber) :
+    SpacingCalibratedMassFiber A where
+  probe := m.probe
+  probe_vacuum_orthogonal := m.probe_vacuum_orthogonal
+  probe_strict_two_step := m.probe_strict_two_step
+  physical_rate := currentPhysicalRate A
+  physical_rate_exact := rfl
+  physical_rate_posEv := currentPhysicalRate_posEv A
+  physical_rate_log_pin := currentPhysicalRate_log_pin A
 
 /-- The concrete current Wilson probe inhabits the nontriviality fiber. -/
 def currentNontriviality : NontrivialityFiber where
@@ -173,6 +212,16 @@ def dimensionlessMassPresheaf : Presheaf ScaleCat TypeCat where
   map_id := fun _ => rfl
   map_comp := fun _ _ => rfl
 
+/-- Constant presheaf of exact fixed-spacing physical-rate sections.  The
+spacing witness is fixed externally; changing-spacing comparison remains an
+explicit later obligation. -/
+def spacingCalibratedMassPresheaf (A : CurrentSpacing) :
+    Presheaf ScaleCat TypeCat where
+  obj := fun _ => SpacingCalibratedMassFiber A
+  map := fun _ => fun e => e
+  map_id := fun _ => rfl
+  map_comp := fun _ _ => rfl
+
 /-- The branch arrow in the presheaf topos `Type^(ScaleCat.op)`.  Naturality
 states that scale refinement and branch compilation commute; both are the
 identity on the already-common completed carrier. -/
@@ -186,10 +235,29 @@ def gapToDimensionlessMass : NatTrans gapPresheaf dimensionlessMassPresheaf wher
   app := fun _ => GapFiber.toDimensionlessMass
   naturality := fun _ => rfl
 
+/-- The fixed-spacing calibration arrow in the presheaf topos. -/
+def dimensionlessMassToSpacingCalibratedMass (A : CurrentSpacing) :
+    NatTrans dimensionlessMassPresheaf (spacingCalibratedMassPresheaf A) where
+  app := fun _ => DimensionlessMassFiber.toSpacingCalibratedMass A
+  naturality := fun _ => rfl
+
 /-- The contracted branch chain in the presheaf topos. -/
 def nontrivialityToDimensionlessMass :
     NatTrans nontrivialityPresheaf dimensionlessMassPresheaf :=
   YMGap.Categorical.natTransComp nontrivialityToGap gapToDimensionlessMass
+
+/-- Paste the gap branch through the dimensionless mass and into the explicit
+physical-rate fiber. -/
+def gapToSpacingCalibratedMass (A : CurrentSpacing) :
+    NatTrans gapPresheaf (spacingCalibratedMassPresheaf A) :=
+  YMGap.Categorical.natTransComp gapToDimensionlessMass
+    (dimensionlessMassToSpacingCalibratedMass A)
+
+/-- The full checked nontriviality -> gap -> calibrated-rate chain. -/
+def nontrivialityToSpacingCalibratedMass (A : CurrentSpacing) :
+    NatTrans nontrivialityPresheaf (spacingCalibratedMassPresheaf A) :=
+  YMGap.Categorical.natTransComp nontrivialityToGap
+    (gapToSpacingCalibratedMass A)
 
 theorem branch_arrow_preserves_probe (n : Nat) (e : NontrivialityFiber) :
     (nontrivialityToGap.app n e).probe = e.probe := rfl
@@ -204,6 +272,20 @@ theorem gap_mass_arrow_preserves_probe (n : Nat) (g : GapFiber) :
 
 theorem gap_mass_arrow_preserves_rate (n : Nat) (g : GapFiber) :
     (gapToDimensionlessMass.app n g).transfer_mass = currentTransferMass := rfl
+
+theorem calibration_arrow_preserves_probe
+    (A : CurrentSpacing) (n : Nat) (m : DimensionlessMassFiber) :
+    ((dimensionlessMassToSpacingCalibratedMass A).app n m).probe = m.probe := rfl
+
+theorem calibration_arrow_exposes_exact_rate
+    (A : CurrentSpacing) (n : Nat) (m : DimensionlessMassFiber) :
+    ((dimensionlessMassToSpacingCalibratedMass A).app n m).physical_rate =
+      currentPhysicalRate A := rfl
+
+theorem calibration_arrow_preserves_rate_pin
+    (A : CurrentSpacing) (n : Nat) (m : DimensionlessMassFiber) :
+    ((dimensionlessMassToSpacingCalibratedMass A).app n m).physical_rate_log_pin =
+      currentPhysicalRate_log_pin A := rfl
 
 theorem branch_chain_preserves_probe (n : Nat) (e : NontrivialityFiber) :
     (nontrivialityToDimensionlessMass.app n e).probe = e.probe := by
@@ -222,13 +304,22 @@ theorem currentGap_strict_two_step :
 #print axioms nontrivialityPresheaf
 #print axioms gapPresheaf
 #print axioms dimensionlessMassPresheaf
+#print axioms SpacingCalibratedMassFiber
+#print axioms spacingCalibratedMassPresheaf
 #print axioms nontrivialityToGap
 #print axioms gapToDimensionlessMass
 #print axioms nontrivialityToDimensionlessMass
+#print axioms DimensionlessMassFiber.toSpacingCalibratedMass
+#print axioms dimensionlessMassToSpacingCalibratedMass
+#print axioms gapToSpacingCalibratedMass
+#print axioms nontrivialityToSpacingCalibratedMass
 #print axioms branch_arrow_preserves_probe
 #print axioms branch_arrow_preserves_orthogonality
 #print axioms gap_mass_arrow_preserves_probe
 #print axioms gap_mass_arrow_preserves_rate
+#print axioms calibration_arrow_preserves_probe
+#print axioms calibration_arrow_exposes_exact_rate
+#print axioms calibration_arrow_preserves_rate_pin
 #print axioms branch_chain_preserves_probe
 #print axioms currentGap_strict_two_step
 

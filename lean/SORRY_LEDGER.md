@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## Composed branch-to-fixed-spacing-rate presheaf chain (2026-09-25 UTC)
+
+- **calibrated fiber:** `SpacingCalibratedMassFiber` in
+  `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`
+  records a supplied `CurrentSpacing`, the exact `currentPhysicalRate`, its
+  `PosEv` positivity, and the exact logarithmic calibration pin.
+- **calibration arrow:** `DimensionlessMassFiber.toSpacingCalibratedMass` and
+  `dimensionlessMassToSpacingCalibratedMass` preserve the same probe and strict
+  completed-carrier estimate while exposing the explicit spacing conversion.
+  `gapToSpacingCalibratedMass` and `nontrivialityToSpacingCalibratedMass`
+  compose the full branch chain in `Type^(ScaleCat.op)`.
+- **scope:** per-spacing calibration only; no changing-spacing family,
+  uniform continuum rate band, canonical OS/GNS transport, continuum/QFT
+  construction, or Clay closure is claimed.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Composed branch-to-log-mass presheaf chain (2026-09-25 UTC)
 
 - **mass fiber:** `DimensionlessMassFiber` in
