@@ -14,8 +14,13 @@ is the explicit natural side `2^scale` used by the certificate arithmetic.
 is the cubic rational loss expression
 `384 * (ofNat side * (ofNat side * ofNat side)) * (1-w)`.
 
-`no_rational_loss_budget`
+`CoarseBudgetData`
 (`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean:35`)
+is a Type-level bundle carrying `rho`, `delta`, `theta`, the defect/fraction
+hypotheses, and the proposed loss budget as explicit fields.
+
+`no_rational_loss_budget`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean:47`)
 proves `False` from the following explicit hypotheses: `0 < 1-w`,
 `0 ≤ delta`, `0 ≤ theta`, `delta + theta ≤ 1`, a coarse defect bound
 `rho ≤ 1-w`, and the proposed budget
@@ -28,6 +33,12 @@ silently identify `rho` with `starRatio`.  An application to the existing
 `starRatio` therefore still requires an explicit checked instance of the
 coarse defect inequality.
 
+`coarse_budget_data_empty`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean:110`)
+packages the same result as an explicit function from the Type-level budget
+bundle to `False`.  Thus the proposed budget has no constructive inhabitant
+under `0 < 1-w`; no excluded-middle or choice principle is used.
+
 ## Verification
 
 Command:
@@ -36,12 +47,13 @@ Command:
 python3 scripts/safe_lean_build.py --check \
   lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean \
   --check-worker-limit-gib 2 \
-  --log-file /tmp/ym-gap-dyadic-budget-obstruction-check7.log
+  --log-file /tmp/ym-gap-dyadic-budget-obstruction-check9.log
 ```
 
 The monitored source check exited 0.  The log printed no warnings, errors,
 `sorryAx`, or classical axioms.  The load-bearing theorem audits to
-`{propext, Quot.sound}`.  No existing chart node changes status.
+`{propext, Quot.sound}` for both printed theorems.  No existing chart node
+changes status.
 
 ## Honest boundary
 

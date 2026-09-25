@@ -201,7 +201,7 @@ itself remains unproved along changing nome/spacing/scale.  Evidence remains
 ### Arithmetic obstruction to the coarse dyadic budget (2026-09-24 UTC)
 
 `BF4WilsonAllNomeDyadicRationalBudgetObstruction.no_rational_loss_budget`
-(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean:35`)
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean:47`)
 checks the explicit cubic formula against the proposed rational budget.  For
 any abstract `rho ≤ 1-w`, positive `1-w`, and admissible
 `delta,theta` with `delta + theta ≤ 1`, the budget
@@ -213,6 +213,9 @@ certificate-number obstruction, not a lower bound on actual completed loss,
 and it redirects the next frontier to a sharper SAME-object loss comparison
 or a different response/scaling certificate.  Evidence:
 `audits/AUDIT-WILSON-DYADIC-RATIONAL-BUDGET-OBSTRUCTION-2026-09-24.md`.
+`CoarseBudgetData` (`:35`) packages the proposed inputs as explicit Type-level
+data, and `coarse_budget_data_empty` (`:110`) proves that this package has no
+inhabitant under `0 < 1-w`; this is the constructive form of the obstruction.
 
 ### SAME-carrier two-step rate-margin calibration (2026-09-24 UTC)
 

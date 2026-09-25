@@ -150,6 +150,9 @@ parameterized by `rho` and does not identify it with `starRatio` without a
 separate defect instance. This compares certificate numbers only; it is not
 a lower bound on the actual completed loss, a uniform gap, or a continuum
 result. Evidence: `audits/AUDIT-WILSON-DYADIC-RATIONAL-BUDGET-OBSTRUCTION-2026-09-24.md`.
+The same module's `CoarseBudgetData` is a Type-level witness bundle for that
+proposal, and `coarse_budget_data_empty` proves constructively that the bundle
+is uninhabited whenever `0 < 1-w`.
 
 `BF4WilsonAllNomeTwoStepMargin` adds the backward calibration on the SAME
 completed carrier: a nonzero vacuum-complement state with relative lag-two

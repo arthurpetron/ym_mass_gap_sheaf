@@ -29,6 +29,19 @@ def dyadicLossBoundFormula (w : Q') (scale : Nat) : Q' :=
   (384 : Q') * (Q'.ofNat (dyadicSide scale) *
     (Q'.ofNat (dyadicSide scale) * Q'.ofNat (dyadicSide scale))) * (1 + -w)
 
+/-- Type-level data for the proposed coarse rational survival budget.  The
+fields are intentionally witnesses, so its emptiness is a constructive
+obstruction rather than a negated existence claim with hidden choice. -/
+structure CoarseBudgetData (w : Q') (scale : Nat) where
+  rho : Q'
+  delta : Q'
+  theta : Q'
+  rho_defect : rho ≤ 1 + -w
+  delta_nonnegative : (0 : Q') ≤ delta
+  theta_nonnegative : (0 : Q') ≤ theta
+  fraction_budget : delta + theta ≤ (1 : Q')
+  loss_budget : dyadicLossBoundFormula w scale ≤ (2*delta) * rho
+
 variable {w : Q'} (scale : Nat)
 
 theorem no_rational_loss_budget
@@ -94,6 +107,15 @@ theorem no_rational_loss_budget
     Q'.le_trans' _ _ _ hbudgetLoss hupper
   exact lt_irrefl' _ (lt_of_lt_of_le hstrictLoss hleLoss)
 
+theorem coarse_budget_data_empty
+    (h : (0 : Q') < 1 + -w) :
+    CoarseBudgetData w scale → False := by
+  intro data
+  exact no_rational_loss_budget (w := w) scale data.rho data.delta data.theta h
+    data.delta_nonnegative data.theta_nonnegative data.fraction_budget
+    data.rho_defect data.loss_budget
+
 #print axioms no_rational_loss_budget
+#print axioms coarse_budget_data_empty
 
 end YMGap.Continuum.BF4WilsonAllNomeDyadicRationalBudgetObstruction

@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **40**, 2026-09-24 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **41**, 2026-09-24 UTC. Source checkpoint:
 the SAME all-nome Wilson coarse dyadic rational-budget obstruction
 committed with this snapshot;
 verification is recorded in
@@ -221,13 +221,16 @@ No chart node changes status.  Verification is recorded in
 
 New certificate-number obstruction:
 `BF4WilsonAllNomeDyadicRationalBudgetObstruction.no_rational_loss_budget`
-(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean:35`)
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean:47`)
 proves that the explicit cubic formula cannot satisfy the proposed rational
 survival budget whenever an abstract response floor `rho` obeys
 `rho ≤ 1-w`.  The theorem intentionally does not identify `rho` with
 `starRatio`; it is therefore a reusable arithmetic obstruction, not a
 completed-loss lower bound.  It redirects A03's next step to a sharper
 SAME-object loss comparison or a different response/scaling certificate.
+`CoarseBudgetData` (`:35`) packages the proposed inputs as explicit Type-level
+data, and `coarse_budget_data_empty` (`:110`) proves that package empty under
+`0 < 1-w`.
 No chart node changes status.  Verification is recorded in
 `audits/AUDIT-WILSON-DYADIC-RATIONAL-BUDGET-OBSTRUCTION-2026-09-24.md`.
 
@@ -567,6 +570,10 @@ remains open; extending this candidate normalization alone cannot supply it.
   `delta,theta`. This is not an actual-loss lower bound and does not identify
   `rho` with `starRatio`; it redirects A03 to a sharper SAME-object loss or a
   different response/scaling certificate. No chart node closes.
+- The obstruction is now packaged as the explicit Type-level
+  `CoarseBudgetData` bundle, with `coarse_budget_data_empty` proving that the
+  proposed budget has no inhabitant under `0 < 1-w`. This is a constructive
+  no-go, not an actual-loss lower bound.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
   unchanged from snapshots 1--40; this snapshot records only new proof evidence.
@@ -632,3 +639,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 35 | 2026-09-24 | Honest obstruction: the computed `twoStepRate = mixRate^2` has no positive width-uniform bound below one. This redirects B04 to a new analytic rate or genuine spatial/spacing control; no chart-block or goal-node status change. |
 | 1 / 36 | 2026-09-24 | The literal origin plaquette now discharges fixed-parameter `twoStepRate > 0` after two padding layers, and the existing complex-rate cutoff is instantiated without a positivity premise. This is coefficient-level finite-parameter evidence only; no chart-block or goal-node status change. |
 | 1 / 40 | 2026-09-24 | The explicit cubic dyadic loss formula is arithmetically incompatible with the proposed rational budget under any abstract coarse defect floor `rho ≤ 1-w`; certificate obstruction only, with no actual-loss lower bound or chart-block/goal-node status change. |
+| 1 / 41 | 2026-09-24 | The coarse rational budget is packaged as Type-level `CoarseBudgetData`, and `coarse_budget_data_empty` proves its constructive emptiness under `0 < 1-w`; no chart-block or goal-node status change. |
