@@ -4,6 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: anchor cutoff-zero finite transition-product join (2026-09-25 UTC)
+
+`AnchorFiniteMarginAtZero`, `AnchorFiniteProductAtZero`, and
+`AnchorFiniteTransitionAtZero` in
+`lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`
+package the already checked cutoff-zero finite capacity margin together with
+the routed conditional-transition product.  The presheaf
+`anchorFiniteTransitionAtZeroPresheaf` and natural transformation
+`anchorRayCapacityToFiniteTransitionAtZero` transport this paired witness at
+every scale, with
+`anchorRayCapacityToFiniteTransitionAtZero_section` exposing its section value.
+The focused safe check passed with only `{propext, Quot.sound}` and no
+`sorryAx`, classical axiom, `native_decide`, or custom axiom.  This is a finite
+cutoff-zero join only: it does not establish a cofinal transition-product
+bound, a changing same-theory family, a physical-rate band, continuum/QFT
+construction, or the Clay theorem.
+
 ## Current increment: fixed-nome dynamic family and scheduled RC channel (2026-09-25 UTC)
 
 `BF4WilsonFixedCarrierDynamicFamily.fixedCarrierDynamicFamily` now inhabits

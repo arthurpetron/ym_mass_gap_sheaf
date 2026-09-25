@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **69**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **70**, 2026-09-25 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -122,6 +122,13 @@ delta certificate.  The naturality proof uses an explicit constancy field;
 the adaptive transition-product extension remains a separate uninhabited input.
 This is a genuine presheaf-level branch component, not sheaf descent or a
 completed changing-family construction.  The
+anchor source now also carries the checked cutoff-zero finite transition
+product and its finite capacity margin in
+`AnchorFiniteTransitionAtZero`, with
+`anchorRayCapacityToFiniteTransitionAtZero` exposing that witness naturally
+at every scale.  This is a cutoff-zero finite join only; it does not assert a
+cofinal transition-product bound, changing-family control, continuum/QFT
+construction, or Clay closure.  The
 dense source branch and the
 discrete-time transfer/gap branch now form an actual natural transformation
 over the covariant intrinsic-width scale diagram: `denseObservableDiagram`,
@@ -201,6 +208,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Fixed-nome dynamic family / scheduled RC channel witness
                                        [x] Fixed-carrier physical-rate-band no-go
                                        [x] Anchor ray-capacity presheaf evaluation
+                                       [x] Anchor cutoff-zero finite transition-product witness
              |                              |
              v                              v
  [ ] Complete signed cost versus   [x] Strict completed T^2 bound
@@ -280,6 +288,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04g | Fixed-nome dynamic family / scheduled RC channel witness | `BF4WilsonFixedCarrierDynamicFamily.fixedCarrierDynamicFamily`, `.fixedCarrierMovingCubeChannel`, `.fixedCarrierMovingCube_zero_isPositive`, `.fixedCarrierMovingCube_sampled_zero_isPositive`, and `.fixedCarrierMovingCube_sampled_decay`, `lean/YMGap/Continuum/BF4WilsonFixedCarrierDynamicFamily.lean`; constructs the dynamic-family record with constant nome, explicit spacing-to-zero, and the genuine RC moving-cube channel. This is an obstruction witness, not a changing-family, rate-band, continuum, or Clay result. |
 | B04h | Fixed-carrier physical-rate-band no-go | `BF4WilsonFixedCarrierDynamicFamily.noPhysicalRateBand_of_fixedCarrier`, `lean/YMGap/Continuum/BF4WilsonFixedCarrierDynamicFamily.lean`; specializes the generic constant-positive-margin contradiction to the inhabited fixed-nome family. It rules out the fixed-carrier physical-band shortcut and does not refute a genuinely scale-dependent family. |
 | B04i | Anchor ray-capacity presheaf evaluation | `BF4PhysicalAnchorRayCapacityNaturalTransformation.AnchorConstantRayCapacityProducer`, `.anchorRayCapacityEvaluation`, `.anchorRayCapacityToDelta`, `.anchorConstantRayCapacitySection`, `.anchorRayCapacityEvaluation_section`, and `.anchorRayCapacityEvaluation_delta_pos`, `lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`; transports the explicitly constant positive cofinal ray-capacity witness across the scale presheaf and exposes its positive delta. The adaptive transition-product extension, completed family, physical band, and continuum/QFT handoff remain open. |
+| B04j | Anchor cutoff-zero finite transition-product witness | `BF4PhysicalAnchorRayCapacityNaturalTransformation.AnchorFiniteMarginAtZero`, `.AnchorFiniteProductAtZero`, `.AnchorFiniteTransitionAtZero`, `.anchorFiniteTransitionAtZero`, `.anchorFiniteTransitionAtZeroPresheaf`, `.anchorRayCapacityToFiniteTransitionAtZero`, and `.anchorRayCapacityToFiniteTransitionAtZero_section`, `lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`; joins the checked cutoff-zero finite capacity margin and routed conditional-transition product and transports that witness naturally across the constant scale presheaf. This is a finite cutoff-zero component only; no cofinal transition-product bound, changing-family bridge, physical band, continuum/QFT handoff, or Clay closure is claimed. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1146,3 +1155,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 85 | 2026-09-25 | Constructed an inhabited fixed-nome `DynamicVacuumSectorCompletedFamily` from an explicit vanishing-spacing schedule, plus its genuine RC moving-cube channel, positive sampled zero-time response, and scheduled decay. This is an obstruction lane; changing-coupling, physical-band, OS/QFT and Clay nodes remain open. |
 | 1 / 86 | 2026-09-25 | Specialized the generic constant-positive-margin contradiction to the new fixed-nome dynamic family, proving that no physical-rate band can inhabit this fixed-carrier vanishing-spacing lane. A genuinely scale-dependent carrier/rate family remains required. |
 | 1 / 87 | 2026-09-25 | Added a constructive presheaf natural transformation for the inhabited anchor/geometric ray-capacity branch. An explicit constancy field makes scale evaluation natural and preserves the positive cofinal capacity delta; the adaptive transition-product extension and all changing-family/continuum/Clay nodes remain open. |
+| 1 / 88 | 2026-09-25 | Joined the anchor cutoff-zero finite capacity margin with its routed conditional-transition product and exposed the pair as a natural transformation across the constant scale presheaf. This is a finite cutoff-zero witness only; no cofinal transition-product, changing-family, continuum/QFT or Clay node changes status. |

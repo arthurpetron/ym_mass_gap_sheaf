@@ -17,6 +17,7 @@ continuum object is manufactured here.
 import YMGap.Categorical.Core
 import YMGap.Categorical.ScaleSheaf
 import YMGap.Continuum.BF4PhysicalAnchorDynamicRayCapacityCompiler
+import YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision
 
 namespace YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation
 
@@ -29,6 +30,9 @@ open YMGap.Categorical.ScaleSheaf
 open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalAnchorDynamicRayCapacityCompiler
 open YMGap.Continuum.BF4CentralSpinCubeUniformRayCapacity
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveRouting
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveTransitionProductTarget
 open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
 open YMGap.Continuum.Z4StrongCouplingParametricAnchor
 
@@ -115,6 +119,59 @@ theorem anchorRayCapacityEvaluation_delta_pos
         (anchorRayCapacityEvaluation.app scale p)).value :=
   (anchorRayCapacityEvaluation.app scale p).capacity.delta_pos
 
+/-! ## The first finite transition-product consumer -/
+
+abbrev AnchorFiniteMarginAtZero : Type 1 :=
+  CentralLowerExcitedSpinCubeOffRayResidualRoutedFiniteCapacityMarginAt
+    (w := anchorCoupling) (hw := by decide) 0
+    (anchorCentralSpinCubeFiniteRayCapacityAt 0)
+    (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+      anchorCoupling (by decide) 0)
+
+abbrev AnchorFiniteProductAtZero : Type 1 :=
+  CentralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductAt
+    (w := anchorCoupling) (hw := by decide) 0
+    (anchorCentralSpinCubeFiniteRayCapacityAt 0)
+    (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+      anchorCoupling (by decide) 0)
+
+/-- The finite cutoff-zero transition-product certificate attached to the
+anchor capacity.  Its existence is not promoted to a cofinal success family. -/
+structure AnchorFiniteTransitionAtZero : Type 1 where
+  capacity : FixedNomeCofinalSpinCubeRayCapacity anchorCoupling_pos
+  capacity_eq : capacity = anchorCentralSpinCubeCofinalRayCapacity
+  margin : AnchorFiniteMarginAtZero
+  product : AnchorFiniteProductAtZero
+
+def anchorFiniteTransitionAtZero : AnchorFiniteTransitionAtZero where
+  capacity := anchorCentralSpinCubeCofinalRayCapacity
+  capacity_eq := rfl
+  margin := anchorCanonicalFiniteCapacityMarginAt_zero
+  product := anchorCanonicalRoutedConditionalTransitionProductAt_zero
+
+def anchorFiniteTransitionAtZeroPresheaf :
+    Presheaf ScaleCat (TypeCat.{1}) where
+  obj := fun _ => AnchorFiniteTransitionAtZero
+  map := fun _ => fun p => p
+  map_id := fun _ => rfl
+  map_comp := fun _ _ => rfl
+
+/-- Every explicitly constant anchor-capacity section carries the checked
+cutoff-zero margin and routed transition-product witness. -/
+def anchorRayCapacityToFiniteTransitionAtZero : NatTrans
+    anchorConstantRayCapacityPresheaf anchorFiniteTransitionAtZeroPresheaf where
+  app := fun _ pinned =>
+    { capacity := pinned.producer.rayCapacity 0
+      capacity_eq := pinned.capacity_eq 0
+      margin := anchorCanonicalFiniteCapacityMarginAt_zero
+      product := anchorCanonicalRoutedConditionalTransitionProductAt_zero }
+  naturality := fun _ => rfl
+
+theorem anchorRayCapacityToFiniteTransitionAtZero_section (scale : Nat) :
+    (anchorRayCapacityToFiniteTransitionAtZero.app scale
+      anchorConstantRayCapacitySection).margin =
+      anchorCanonicalFiniteCapacityMarginAt_zero := rfl
+
 end YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation
 
 #print axioms
@@ -139,3 +196,17 @@ end YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation
   YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.anchorRayCapacityEvaluation_section
 #print axioms
   YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.anchorRayCapacityEvaluation_delta_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.AnchorFiniteMarginAtZero
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.AnchorFiniteProductAtZero
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.AnchorFiniteTransitionAtZero
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.anchorFiniteTransitionAtZero
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.anchorFiniteTransitionAtZeroPresheaf
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.anchorRayCapacityToFiniteTransitionAtZero
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.anchorRayCapacityToFiniteTransitionAtZero_section

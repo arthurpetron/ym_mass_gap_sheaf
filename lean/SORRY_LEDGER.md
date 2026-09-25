@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## Anchor cutoff-zero finite transition-product join (2026-09-25 UTC)
+
+- **declarations:** `AnchorFiniteMarginAtZero`, `AnchorFiniteProductAtZero`,
+  `AnchorFiniteTransitionAtZero`, `anchorFiniteTransitionAtZero`,
+  `anchorFiniteTransitionAtZeroPresheaf`,
+  `anchorRayCapacityToFiniteTransitionAtZero`, and
+  `anchorRayCapacityToFiniteTransitionAtZero_section` in
+  `lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`.
+- **result:** the cutoff-zero finite capacity margin and routed
+  conditional-transition product are packaged together and transported at
+  every scale by a constant presheaf natural transformation.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+- **scope:** finite cutoff-zero component only; no cofinal transition-product
+  bound, changing-family bridge, physical-rate band, continuum/QFT handoff or
+  Clay theorem is claimed.
+
 ## Concrete sector witness carried through the branch topos (2026-09-25 UTC)
 
 - **same-carrier fields:** `DimensionlessMassFiber`,
