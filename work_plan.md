@@ -158,6 +158,19 @@ interface, but representative convergence, physical-rate scaling, and the
 continuum joins remain open.  Evidence:
 `audits/AUDIT-DYNAMIC-UNIFORM-NORM-FLOOR-2026-09-24.md`.
 
+### Fixed-family normalized-debt variation (2026-09-24 UTC)
+
+`BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizedDebt` proves that the
+actual reciprocal-square moving-cube normalization debt is constant along the
+inhabited `w = 1/2` geometric family.  The theorem
+`marginalHalfGeometric_normalizationNormDebt_eq` (`:26`) and the constructor
+`marginalHalfGeometric_normalizationNormDebtRationalVariation` (`:33`) give
+the exact zero rational step-variation input.  This file does not yet import
+the normalized-limit consumer; raw representative variation, rate-power
+convergence, a physical-rate band, and every continuum/QFT obligation remain
+open.  Verification:
+`audits/AUDIT-FIXED-FAMILY-NORMALIZATION-DEBT-2026-09-24.md`.
+
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`

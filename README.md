@@ -73,6 +73,16 @@ same-object autocorrelation.  This closes only the finite-family floor input;
 the representative cutoff limit and physical scaling remain open.  See the
 [uniform-floor audit](audits/AUDIT-DYNAMIC-UNIFORM-NORM-FLOOR-2026-09-24.md).
 
+**New fixed-family normalized-debt input (2026-09-24):**
+`BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizedDebt` proves that the
+reciprocal-square normalization debt is constant along the inhabited
+`w = 1/2` geometric staging family and constructs its zero rational
+step-variation certificate for the actual debt stream.  This inhabits the
+normalization-debt input of the normalized cutoff compiler; raw representative
+variation remains a separate input.  Raw variation, rate-power convergence,
+physical scaling, and all continuum/QFT obligations remain open.
+See the [fixed-debt audit](audits/AUDIT-FIXED-FAMILY-NORMALIZATION-DEBT-2026-09-24.md).
+
 **New checked complete growing-word square heat image:** the original product
 heat sends a distinct-link Wilson character square to
 `1 + w^(8*perimeter)*chi_2`, retaining every supported test. For the actual

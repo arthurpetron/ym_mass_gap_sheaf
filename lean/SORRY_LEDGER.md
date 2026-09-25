@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Fixed-family normalized-debt variation CLOSED; raw representative variation OPEN (2026-09-24 UTC)
+
+- **constant debt:** `BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizedDebt.marginalHalfGeometric_normalizationNormDebt_eq`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizedDebt.lean:26`)
+  proves the exact reciprocal-square normalization debt is constant along the
+  fixed-`w = 1/2` geometric family.
+- **variation witness:**
+  `marginalHalfGeometric_normalizationNormDebtRationalVariation` (`:33`)
+  constructs the actual zero rational step-variation certificate consumed by
+  the normalized moving-cube compiler.
+- **consumer input:** the resulting variation inhabits the rational debt input
+  type consumed by the normalized moving-cube cutoff compiler.  Raw
+  representative variation and scheduled rate-power convergence remain
+  explicit inputs.
+- **scope:** no physical-rate band, thermodynamic/continuum passage, OS/QFT
+  reconstruction, physical mass, or all-group theorem is claimed; no chart node
+  changes.
+- **verification:** see
+  `audits/AUDIT-FIXED-FAMILY-NORMALIZATION-DEBT-2026-09-24.md`.
+
 ## Fixed-family scheduled norm floor CLOSED; representative limit OPEN (2026-09-24 UTC)
 
 - **inhabited input**: `BF4PhysicalDynamicVacuumSectorUniformNormFloorSpecialization.marginalHalfGeometricMovingCubeUniformRCNormFloor`

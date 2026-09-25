@@ -223,6 +223,17 @@ retains that floor on the sampled same-object autocorrelation at every scale.
 The representative-level cutoff limit and spacing-uniform physical decay
 remain open; no chart-node status changes.
 
+New fixed-family normalization-debt input:
+`BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizedDebt` proves that the
+reciprocal-square normalization debt is constant along the inhabited
+`w = 1/2` geometric staging family and constructs its zero rational
+step-variation certificate for the actual rational debt stream.  The
+normalized-limit consumer can now use this as its debt input, but raw
+representative variation remains separate.  Raw variation, rate-power
+convergence, physical scaling, and all continuum/QFT obligations remain open;
+no chart-node status changes.  Verification is recorded in
+`audits/AUDIT-FIXED-FAMILY-NORMALIZATION-DEBT-2026-09-24.md`.
+
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`
 (`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteRateCalibration.lean:54`)
@@ -780,3 +791,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 52 | 2026-09-24 | Inhabited the dynamic Markov-form Cauchy--Schwarz family from the existing adaptive producer and added an input-free same-object squared-norm consumer. No chart-node status change. |
 | 1 / 53 | 2026-09-24 | Added the inhabited `w = 1/2` geometric form-gap family, explicit rate pin, and non-vacuous moving-cube same-object squared-norm estimate at every geometric scale. No chart-node status change. |
 | 1 / 54 | 2026-09-24 | Inhabited the fixed-family scale-uniform moving-cube norm floor and transported it to every scheduled zero-time same-object autocorrelation. The cutoff limit and scaling nodes remain open. |
+| 1 / 55 | 2026-09-24 | Proved the reciprocal-square normalization debt is constant in the fixed `w = 1/2` geometric family and constructed its zero rational variation. The normalized-limit consumer's debt input is now inhabited; raw representative variation remains open. No chart-node status change. |
