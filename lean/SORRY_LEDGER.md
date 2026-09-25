@@ -3,12 +3,12 @@
 ## Fixed-family normalized rate and debt inputs CLOSED; raw moment OPEN (2026-09-25 UTC)
 
 - **debt conversion:** `BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_normalizationNormDebtVariation`
-  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:75`)
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:98`)
   converts the pointwise-constant rational debt certificate into the exact
   constructive-real debt-variation input.
 - **rate conversion:** the same module's
-  `marginalHalfGeometric_positiveRatePowerVariation` (`:84`) and
-  `marginalHalfGeometric_ratePowerVariation` (`:94`) inhabit the literal
+  `marginalHalfGeometric_positiveRatePowerVariation` (`:107`) and
+  `marginalHalfGeometric_ratePowerVariation` (`:117`) inhabit the literal
   positive-time and all-time scheduled-rate inputs.
 - **scope:** these are the two scalar branches only.  The raw
   `MovingCubeRawScheduledRepresentativeVariation` remains uninhabited; the
@@ -18,7 +18,7 @@
   `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
 
 - **conditional raw nontriviality:**
-  `marginalHalfGeometric_rawContinuumNontriviality` (`:123`) composes the
+  `marginalHalfGeometric_rawContinuumNontriviality` (`:140`) composes the
   fixed-family uniform norm floor with the raw continuum nontriviality
   compiler, conditional on the explicit raw representative/variation object.
   It does not inhabit that object or select CReal representatives.
@@ -35,14 +35,29 @@
   `MovingCubeRawScheduledRepresentativeVariation`
   (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler.lean:47`)
   now has its fixed-family representative and exact RC `represents` equality
-  supplied by `marginalHalfGeometricRawRepresentative` (`:207`) and
-  `marginalHalfGeometricRawRepresentative_represents` (`:216`).  Only a
+  supplied by `marginalHalfGeometricRawRepresentative` (`:210`) and
+  `marginalHalfGeometricRawRepresentative_represents` (`:525`).  Only a
   summable cross-scale modulus remains.
 - **constructive boundary:** generic quotient elements still provide only
   `CReal.Equiv` through `physicalCauchyPairingLimit_welldef`; the fixed-family
   proof avoids hidden choice by retaining explicit Cauchy presentations.
 - **verification:** see
   `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`.
+
+## Canonical fixed-family zero-time variation CLOSED; positive-time variation OPEN (2026-09-25 UTC)
+
+- **canonical presentation:** `marginalHalfGeometricRawRepresentativeCanonical`
+  and `marginalHalfGeometricRawRepresentativeCanonical_represents` in
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean`
+  fix the `w = 1/2` proof arguments while retaining the literal sampled RC
+  correlator.
+- **zero-time certificate:**
+  `marginalHalfGeometricRawCanonicalZeroTimeVariation` constructs the complete
+  `SummableCRealStepVariation` object for time zero, using the explicit
+  `completeLimitFromRate` inner modulus and zero step budget.
+- **scope:** this closes only the time-zero slice.  The positive-time
+  cross-scale raw variation required by the all-time adapter remains open; no
+  continuum, physical-mass, or Clay claim follows.
 
 ## Generic geometric antitone tail CLOSED; physical specialization IN PROGRESS (2026-09-24 UTC)
 

@@ -314,11 +314,20 @@ The carrier/transfer side of the raw frontier is now audited explicitly:
 `sampledConnectedAutocorrelation_eq_global` identify the same completed
 moving-cube observable at the `CReal.RC` level.  The fixed-family specialization
 now constructs the CReal stream itself from explicit Cauchy presentations via
-`marginalHalfGeometricRawRepresentative` (`:207`) and proves its exact
-`represents` equality (`:216`).  The remaining input is only the summable
+`marginalHalfGeometricRawRepresentative` (`:210`) and proves its exact
+`represents` equality (`:525`).  The remaining input is only the summable
 cross-scale variation field; no hidden quotient choice is used.  This is
 recorded in `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`; no
 chart marker changes.
+
+The fixed-family stream is now also proof-argument-canonical via
+`marginalHalfGeometricRawRepresentativeCanonical` (`:248`) and its exact
+`represents` theorem (`:330`).  This removes scale-dependent nome-proof noise.
+The time-zero slice is definitionally constant and its complete
+`SummableCRealStepVariation` certificate is inhabited by
+`marginalHalfGeometricRawCanonicalZeroTimeVariation` (`:478`); the positive-
+time cross-scale field remains the active raw frontier.  No chart marker
+changes.
 
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`

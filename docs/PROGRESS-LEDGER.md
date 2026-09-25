@@ -21,14 +21,27 @@ Evidence: `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
 The fixed-family moving-cube vector and its recursively applied completed
 transfer powers retain explicit Cauchy presentations.  The declaration
 `marginalHalfGeometricRawRepresentative`
-(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:207`)
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:210`)
 constructs the corresponding CReal pairing stream, and
-`marginalHalfGeometricRawRepresentative_represents` (`:216`) proves its exact
+`marginalHalfGeometricRawRepresentative_represents` (`:525`) proves its exact
 quotient equality with the literal sampled same-object RC correlator.  The
 adapter `MarginalHalfGeometricRawRepresentativeVariation.toRawScheduledVariation`
-(`:238`) isolates the only remaining raw input: a summable cross-scale
+(`:547`) isolates the only remaining raw input: a summable cross-scale
 variation modulus for this explicit stream.  No hidden quotient choice is
 used.  Evidence: `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`.
+
+## Current increment: canonical fixed-family stream and zero-time variation closed (2026-09-25 UTC)
+
+The fixed `w = 1/2` stream now has a proof-argument-canonical CReal
+presentation: `marginalHalfGeometricRawRepresentativeCanonical` and
+`marginalHalfGeometricRawRepresentativeCanonical_represents` retain the same
+literal sampled RC correlator while fixing the nome proofs across scales.  The
+zero-time slice is definitionally constant after this canonicalization, and
+`marginalHalfGeometricRawCanonicalZeroTimeVariation` constructs its full
+`SummableCRealStepVariation` certificate with an explicit inner modulus derived
+from `completeLimitFromRate`.  The all-time canonical adapter is now isolated;
+only positive-time cross-scale raw variation remains.  No continuum or
+positive-mass claim follows.
 
 ## Current increment: fixed-family raw nontriviality compiles conditionally (2026-09-25 UTC)
 

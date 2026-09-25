@@ -18,6 +18,7 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityC
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 import YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
 import YMGap.Continuum.SummableRationalStepVariationAlgebra
+import YMGap.Constructive.CRealInnerRegularity
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization
 
@@ -26,6 +27,7 @@ set_option maxRecDepth 100000
 set_option maxHeartbeats 10000000
 
 open YMGap.Constructive
+open YMGap.Constructive.RationalTail
 open YMGap.Continuum
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletion
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
@@ -54,6 +56,7 @@ open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.SummableRationalStepVariationAlgebra
 open YMGap.Continuum.SummableCRealStepVariation
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
+open YMGap.Constructive.CReal
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -213,6 +216,312 @@ def marginalHalfGeometricRawRepresentative (time scale : Nat) : CReal :=
         marginalHalfGeometricCompletedFamily scale time))
     (marginalHalfGeometricRawInitialCauchy scale)
 
+/-! A proof-argument-canonical presentation of the same fixed-nome stream.
+The family fields reduce to `1/2`, but their proof arguments need not be
+definitionally identical across scales.  Fixing the two decidable proofs here
+removes that representational noise from the remaining variation estimate. -/
+
+private def marginalHalfGeometricRawInitialCauchyCanonical :
+    (centralPhysicalCutoffLinearSquaredSeminorm
+      (by decide : (0 : Q') < HalfPow.half)
+      (by decide : HalfPow.half < (1 : Q')) 0).Cauchy :=
+  centralPhysicalVacuumSectorCylinderCauchyToGlobal
+    (centralPhysicalVacuumSectorMovingCenteredCauchy
+      (by decide : (0 : Q') < HalfPow.half)
+      (by decide : HalfPow.half < (1 : Q'))
+      1 0
+      (centralPhysicalCutoffOneCubeIndicatorCoefficient
+        HalfPow.half (by decide : (0 : Q') < HalfPow.half)))
+
+private def marginalHalfGeometricRawPowerCauchyCanonical : Nat →
+    (centralPhysicalCutoffLinearSquaredSeminorm
+      (by decide : (0 : Q') < HalfPow.half)
+      (by decide : HalfPow.half < (1 : Q')) 0).Cauchy
+  | 0 => marginalHalfGeometricRawInitialCauchyCanonical
+  | n + 1 =>
+      centralPhysicalAdaptiveMarkovMapCauchy
+        (centralPhysicalDenseMarkovCauchyData
+          (by decide : (0 : Q') < HalfPow.half)
+          (by decide : HalfPow.half < (1 : Q')) 0)
+        (marginalHalfGeometricRawPowerCauchyCanonical n)
+
+def marginalHalfGeometricRawRepresentativeCanonical
+    (time scale : Nat) : CReal :=
+  physicalCauchyPairingLimit
+    (by decide : (0 : Q') < HalfPow.half)
+    (by decide : HalfPow.half < (1 : Q')) 0
+    (marginalHalfGeometricRawPowerCauchyCanonical
+      (time * 2 ^ scale))
+    marginalHalfGeometricRawInitialCauchyCanonical
+
+private theorem marginalHalfGeometricRawInitialCauchyCanonical_mk
+    (scale : Nat) :
+    centralPhysicalVacuumSectorCylinderCompletionToGlobal
+        ((centralPhysicalDynamicMovingCubeRCChannel
+          marginalHalfGeometricCompletedFamily).vectorAt scale).1 =
+      Quotient.mk
+        (centralPhysicalCutoffLinearSquaredSeminorm
+          (by decide : (0 : Q') < HalfPow.half)
+          (by decide : HalfPow.half < (1 : Q')) 0).completionSetoid
+        marginalHalfGeometricRawInitialCauchyCanonical := by
+  rfl
+
+private theorem marginalHalfGeometricRawInitialCauchyCanonical_mk_family
+    (scale : Nat) :
+    centralPhysicalVacuumSectorCylinderCompletionToGlobal
+        ((centralPhysicalDynamicMovingCubeRCChannel
+          marginalHalfGeometricCompletedFamily).vectorAt scale).1 =
+      Quotient.mk
+        (centralPhysicalCutoffLinearSquaredSeminorm
+          (marginalHalfGeometricCompletedFamily.nome_pos scale)
+          (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0).completionSetoid
+        marginalHalfGeometricRawInitialCauchyCanonical := by
+  rfl
+
+private theorem marginalHalfGeometricRawPowerCauchyCanonical_mk
+    (scale n : Nat) :
+    centralPhysicalConcreteAdaptiveCompletedMarkovPower
+        (by decide : (0 : Q') < HalfPow.half)
+        (by decide : HalfPow.half < (1 : Q')) 0 n
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+          ((centralPhysicalDynamicMovingCubeRCChannel
+            marginalHalfGeometricCompletedFamily).vectorAt scale).1) =
+      Quotient.mk
+        (centralPhysicalCutoffLinearSquaredSeminorm
+          (by decide : (0 : Q') < HalfPow.half)
+          (by decide : HalfPow.half < (1 : Q')) 0).completionSetoid
+        (marginalHalfGeometricRawPowerCauchyCanonical n) := by
+  induction n with
+  | zero => exact marginalHalfGeometricRawInitialCauchyCanonical_mk scale
+  | succ n ih =>
+      rw [centralPhysicalConcreteAdaptiveCompletedMarkovPower,
+        centralPhysicalConcreteAdaptiveCompletedMarkovTransfer, ih,
+        centralPhysicalAdaptiveCompletedMarkovTransfer_mk]
+      rfl
+
+private theorem marginalHalfGeometricGlobalProofs_eq
+    (scale n : Nat) :
+    centralPhysicalCutoffCompletedInner
+        (marginalHalfGeometricCompletedFamily.nome_pos scale)
+        (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0
+        (centralPhysicalConcreteAdaptiveCompletedMarkovPower
+          (marginalHalfGeometricCompletedFamily.nome_pos scale)
+          (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0 n
+          (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+            ((centralPhysicalDynamicMovingCubeRCChannel
+              marginalHalfGeometricCompletedFamily).vectorAt scale).1))
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+          ((centralPhysicalDynamicMovingCubeRCChannel
+            marginalHalfGeometricCompletedFamily).vectorAt scale).1) =
+      centralPhysicalCutoffCompletedInner
+        (by decide : (0 : Q') < HalfPow.half)
+        (by decide : HalfPow.half < (1 : Q')) 0
+        (centralPhysicalConcreteAdaptiveCompletedMarkovPower
+          (by decide : (0 : Q') < HalfPow.half)
+          (by decide : HalfPow.half < (1 : Q')) 0 n
+          (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+            ((centralPhysicalDynamicMovingCubeRCChannel
+              marginalHalfGeometricCompletedFamily).vectorAt scale).1))
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+          ((centralPhysicalDynamicMovingCubeRCChannel
+            marginalHalfGeometricCompletedFamily).vectorAt scale).1) := by
+  rfl
+
+theorem marginalHalfGeometricRawRepresentativeCanonical_represents
+    (time scale : Nat) :
+    Quotient.mk CReal.crealSetoid
+        (marginalHalfGeometricRawRepresentativeCanonical time scale) =
+      sampledConnectedAutocorrelation
+        (centralPhysicalDynamicMovingCubeRCChannel
+          marginalHalfGeometricCompletedFamily) scale time := by
+  rw [sampledConnectedAutocorrelation_eq_global]
+  rw [marginalHalfGeometricGlobalProofs_eq]
+  unfold marginalHalfGeometricRawRepresentativeCanonical
+  rw [marginalHalfGeometric_latticeSteps_eq,
+    marginalHalfGeometricRawPowerCauchyCanonical_mk]
+  have hinit := marginalHalfGeometricRawInitialCauchyCanonical_mk_family scale
+  have hinner := congrArg
+    (fun z => centralPhysicalCutoffCompletedInner
+      (marginalHalfGeometricCompletedFamily.nome_pos scale)
+      (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0
+      (Quotient.mk
+        (centralPhysicalCutoffLinearSquaredSeminorm
+          (marginalHalfGeometricCompletedFamily.nome_pos scale)
+          (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0).completionSetoid
+          (marginalHalfGeometricRawPowerCauchyCanonical
+          (time * 2 ^ scale))) z) hinit
+  have hinner' :
+      centralPhysicalCutoffCompletedInner
+          (marginalHalfGeometricCompletedFamily.nome_pos scale)
+          (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0
+          (Quotient.mk
+            (centralPhysicalCutoffLinearSquaredSeminorm
+              (marginalHalfGeometricCompletedFamily.nome_pos scale)
+              (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0).completionSetoid
+            (marginalHalfGeometricRawPowerCauchyCanonical
+              (time * 2 ^ scale)))
+          (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+            ((centralPhysicalDynamicMovingCubeRCChannel
+              marginalHalfGeometricCompletedFamily).vectorAt scale).1) =
+        centralPhysicalCutoffCompletedInner
+          (marginalHalfGeometricCompletedFamily.nome_pos scale)
+          (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0
+          (Quotient.mk
+            (centralPhysicalCutoffLinearSquaredSeminorm
+              (marginalHalfGeometricCompletedFamily.nome_pos scale)
+              (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0).completionSetoid
+            (marginalHalfGeometricRawPowerCauchyCanonical
+              (time * 2 ^ scale)))
+          (Quotient.mk
+            (centralPhysicalCutoffLinearSquaredSeminorm
+              (marginalHalfGeometricCompletedFamily.nome_pos scale)
+              (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0).completionSetoid
+            marginalHalfGeometricRawInitialCauchyCanonical) := by
+    exact hinner
+  calc
+    Quotient.mk CReal.crealSetoid
+        (physicalCauchyPairingLimit
+          (by decide : (0 : Q') < HalfPow.half)
+          (by decide : HalfPow.half < (1 : Q')) 0
+          (marginalHalfGeometricRawPowerCauchyCanonical
+            (time * 2 ^ scale))
+          marginalHalfGeometricRawInitialCauchyCanonical) =
+      centralPhysicalCutoffCompletedInner
+        (by decide : (0 : Q') < HalfPow.half)
+        (by decide : HalfPow.half < (1 : Q')) 0
+        (Quotient.mk
+          (centralPhysicalCutoffLinearSquaredSeminorm
+            (by decide : (0 : Q') < HalfPow.half)
+            (by decide : HalfPow.half < (1 : Q')) 0).completionSetoid
+          (marginalHalfGeometricRawPowerCauchyCanonical
+            (time * 2 ^ scale)))
+        (Quotient.mk
+          (centralPhysicalCutoffLinearSquaredSeminorm
+            (by decide : (0 : Q') < HalfPow.half)
+            (by decide : HalfPow.half < (1 : Q')) 0).completionSetoid
+          marginalHalfGeometricRawInitialCauchyCanonical) := by
+            rfl
+    _ = centralPhysicalCutoffCompletedInner
+        (marginalHalfGeometricCompletedFamily.nome_pos scale)
+        (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0
+        (Quotient.mk
+          (centralPhysicalCutoffLinearSquaredSeminorm
+            (marginalHalfGeometricCompletedFamily.nome_pos scale)
+            (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0).completionSetoid
+          (marginalHalfGeometricRawPowerCauchyCanonical
+            (time * 2 ^ scale)))
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+          ((centralPhysicalDynamicMovingCubeRCChannel
+            marginalHalfGeometricCompletedFamily).vectorAt scale).1) := by
+            exact hinner'.symm
+
+theorem marginalHalfGeometricRawRepresentativeCanonical_zero_time_const
+    (scale : Nat) :
+    marginalHalfGeometricRawRepresentativeCanonical 0 scale =
+      marginalHalfGeometricRawRepresentativeCanonical 0 0 := by
+  unfold marginalHalfGeometricRawRepresentativeCanonical
+  simp [marginalHalfGeometricRawPowerCauchyCanonical]
+
+private def completeLimitFromRate_innerRegularity
+    (s : Nat -> CReal) (M : Q' -> Nat) (reg : Nat -> Q' -> Nat)
+    (hreg : CReal.RegPred s reg)
+    (hb : CReal.LeRatBound s M) :
+    CReal.InnerRegularity
+      (CReal.completeLimitFromRate s M reg hreg hb) where
+  rate := fun epsilon =>
+    (HalfPow.half * (HalfPow.half * epsilon)).den
+  regular := by
+    intro epsilon hepsilon p q hp hq
+    rcases Nat.le_total p q with hpq | hqp
+    · have h := CReal.diagSeqR_directed s M reg hreg hb
+        epsilon hepsilon p q hpq hp
+      simpa only [CReal.completeLimitFromRate_approx] using h
+    · have h := CReal.diagSeqR_directed s M reg hreg hb
+        epsilon hepsilon q p hqp hq
+      have hs := by
+        simpa only [CReal.completeLimitFromRate_approx] using h
+      exact ⟨hs.2, hs.1⟩
+
+private def marginalHalfGeometricRawCanonicalZeroInnerRegularity :
+    CReal.InnerRegularity
+      (marginalHalfGeometricRawRepresentativeCanonical 0 0) := by
+  unfold marginalHalfGeometricRawRepresentativeCanonical
+  simp only [marginalHalfGeometricRawPowerCauchyCanonical]
+  exact completeLimitFromRate_innerRegularity
+    (physicalCauchyPairingSeq
+      (by decide : (0 : Q') < HalfPow.half)
+      (by decide : HalfPow.half < (1 : Q')) 0
+      marginalHalfGeometricRawInitialCauchyCanonical
+      marginalHalfGeometricRawInitialCauchyCanonical)
+    (fun epsilon =>
+      physicalCauchyPairRateNat
+        (by decide : (0 : Q') < HalfPow.half)
+        (by decide : HalfPow.half < (1 : Q')) 0
+        marginalHalfGeometricRawInitialCauchyCanonical
+        marginalHalfGeometricRawInitialCauchyCanonical epsilon.den)
+    (physicalCauchyPairingInnerRate
+      (by decide : (0 : Q') < HalfPow.half)
+      (by decide : HalfPow.half < (1 : Q')) 0
+      marginalHalfGeometricRawInitialCauchyCanonical
+      marginalHalfGeometricRawInitialCauchyCanonical)
+    (physicalCauchyPairingSeq_RegPred
+      (by decide : (0 : Q') < HalfPow.half)
+      (by decide : HalfPow.half < (1 : Q')) 0
+      marginalHalfGeometricRawInitialCauchyCanonical
+      marginalHalfGeometricRawInitialCauchyCanonical)
+    (physicalCauchyPairingSeq_LeRatBound
+      (by decide : (0 : Q') < HalfPow.half)
+      (by decide : HalfPow.half < (1 : Q')) 0
+      marginalHalfGeometricRawInitialCauchyCanonical
+      marginalHalfGeometricRawInitialCauchyCanonical)
+
+def marginalHalfGeometricRawCanonicalZeroTimeVariation :
+    SummableCRealStepVariation
+      (fun scale => marginalHalfGeometricRawRepresentativeCanonical 0 scale) where
+  variation := fun _ => 0
+  variation_nonnegative := fun _ => Q'.le_refl' 0
+  tailRate := fun _ => 0
+  tailRate_antitone := by
+    intro epsilon delta hdelta hle
+    exact Nat.le_refl 0
+  tailBound := by
+    intro epsilon hepsilon start hstart length
+    rw [RationalTail.finSum_zero_seq]
+    exact Q'.le_of_lt hepsilon
+  innerRate := fun _ epsilon =>
+    marginalHalfGeometricRawCanonicalZeroInnerRegularity.rate epsilon
+  innerRegular := by
+    intro scale epsilon hepsilon p q hp hq
+    have h := marginalHalfGeometricRawCanonicalZeroInnerRegularity.regular
+      epsilon hepsilon p q hp hq
+    rw [marginalHalfGeometricRawRepresentativeCanonical_zero_time_const scale]
+    exact h
+  stepBound := by
+    intro scale k
+    rw [marginalHalfGeometricRawRepresentativeCanonical_zero_time_const scale,
+      marginalHalfGeometricRawRepresentativeCanonical_zero_time_const (scale + 1)]
+    exact ⟨Q'.add_le_self_of_nonneg _ 0 (Q'.le_refl' 0),
+      Q'.add_le_self_of_nonneg _ 0 (Q'.le_refl' 0)⟩
+
+/-! The canonical stream is now ready for the all-time variation input.  The
+zero-time slice is inhabited explicitly; positive-time cross-scale variation
+remains the sole missing field. -/
+
+structure MarginalHalfGeometricRawRepresentativeCanonicalVariation : Type 1 where
+  variation : forall time,
+    SummableCRealStepVariation
+      (fun scale => marginalHalfGeometricRawRepresentativeCanonical time scale)
+
+def MarginalHalfGeometricRawRepresentativeCanonicalVariation.toRawScheduledVariation
+    (data : MarginalHalfGeometricRawRepresentativeCanonicalVariation) :
+    MovingCubeRawScheduledRepresentativeVariation
+      marginalHalfGeometricCompletedFamily where
+  representative := fun time scale =>
+    marginalHalfGeometricRawRepresentativeCanonical time scale
+  represents := fun time scale =>
+    marginalHalfGeometricRawRepresentativeCanonical_represents time scale
+  variation := data.variation
+
 theorem marginalHalfGeometricRawRepresentative_represents
     (time scale : Nat) :
     Quotient.mk CReal.crealSetoid
@@ -259,3 +568,9 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationS
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometricRawRepresentative_represents
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.MarginalHalfGeometricRawRepresentativeVariation.toRawScheduledVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometricRawRepresentativeCanonical_represents
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometricRawCanonicalZeroTimeVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.MarginalHalfGeometricRawRepresentativeCanonicalVariation.toRawScheduledVariation
