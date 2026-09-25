@@ -43,7 +43,9 @@ physical-mass, or all-group obligations.  See the [physical relative-loss audit]
 `BF4PhysicalDynamicVacuumSectorFormGapRelativeLoss` factors a separate
 completed form-gap family certificate from squared-norm contraction, inhabits
 it for the fixed-`w=1/2` geometric staging family, and derives scale-wise
-relative loss for the moving-cube same-object channel.  The certificate is a
+relative loss for the moving-cube same-object channel.  Its equality-only
+global consumer exposes the same lag-one coefficient through the completed
+Markov transfer on that identical vector.  The certificate is a
 staging bridge only: its lattice margin stays constant while the spacing tends
 to zero, so the existing physical-rate-band obstruction remains.  It does not
 close continuum survival, physical mass, or the all-group theorem.  See the

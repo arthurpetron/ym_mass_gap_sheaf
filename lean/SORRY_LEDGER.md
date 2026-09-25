@@ -8,8 +8,11 @@
   `marginalHalfGeometricCompletedFormGapFamily` inhabits it for the fixed
   `w = 1/2` geometric staging family, and
   `channel_relative_loss_of_formGapFamily` derives the same-object
-  relative-loss inequality for any channel vector; the moving-cube
-  specialization and positive-margin theorem are also proved.
+  relative-loss inequality for any channel vector.
+  `channel_relative_loss_of_formGapFamily_global` exposes its lag-one
+  coefficient through the global completed Markov transfer on the identical
+  embedded vector; the moving-cube specialization and positive-margin theorem
+  are also proved.
 - **scope**: this is a scale-wise staging bridge.  The margin is the constant
   finite cutoff rate while spacing tends to zero, so the existing
   `noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily` obstruction

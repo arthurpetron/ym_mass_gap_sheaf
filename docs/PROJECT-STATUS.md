@@ -178,12 +178,15 @@ Verification is recorded in
 
 New dynamic form-level certificate:
 `BF4PhysicalDynamicVacuumSectorFormGapRelativeLoss.DynamicVacuumSectorCompletedFormGapFamily`
-(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFormGapRelativeLoss.lean:39`)
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFormGapRelativeLoss.lean:42`)
 keeps the one-step form gap separate from the dynamic family's squared-norm
-contraction.  The fixed-`w=1/2` geometric staging family inhabits it (`:46`),
-and `channel_relative_loss_of_formGapFamily` (`:59`) transports it to the
-literal same-object RC channel.  The moving-centered cube specialization and
-positive scale-wise margin are proved at `:83` and `:102`.  This is an honest
+contraction.  The fixed-`w=1/2` geometric staging family inhabits it (`:49`),
+and `channel_relative_loss_of_formGapFamily` (`:62`) transports it to the
+literal same-object RC channel.  The equality-only
+`channel_relative_loss_of_formGapFamily_global` consumer (`:80`) exposes the
+same coefficient through the global completed Markov transfer on that
+identical vector.  The moving-centered cube specialization and positive
+scale-wise margin are proved at `:111` and `:130`.  This is an honest
 family-level bridge input; the attached spacing still tends to zero with a
 constant lattice margin, so the existing physical-rate-band obstruction,
 continuum construction, physical mass, and all-group obligations remain open.
@@ -742,3 +745,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 47 | 2026-09-24 | Embedded the actual plaquette excitation into the complex Wilson carrier and proved its orthogonality, norm/response floors, relative loss, and even-lag decay. Fixed-parameter same-object evidence only; no chart-node status change. |
 | 1 / 48 | 2026-09-24 | Rewrote the existing finite physical SU(2) form gap as relative loss on the literal moving-centered cube same-object autocorrelation, with explicit `cutoffUniformRate w` margin positivity. No chart-node status change. |
 | 1 / 49 | 2026-09-24 | Added a separate dynamic family form-gap certificate and inhabited it for the fixed-`w=1/2` geometric staging family; the moving-cube RC channel now has scale-wise relative loss. No chart-node status change. |
+| 1 / 50 | 2026-09-24 | Exposed the dynamic form-gap relative-loss coefficient through the global completed Markov transfer on the identical embedded vector by equality transport. No chart-node status change. |

@@ -16,18 +16,21 @@ relative-loss statement at every scale.
 In
 `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFormGapRelativeLoss.lean`:
 
-- `DynamicVacuumSectorCompletedFormGapFamily` (lines 39--44) is the minimal
+- `DynamicVacuumSectorCompletedFormGapFamily` (lines 42--47) is the minimal
   family-indexed form-gap input.
-- `marginalHalfGeometricCompletedFormGapFamily` (lines 46--50) inhabits it
+- `marginalHalfGeometricCompletedFormGapFamily` (lines 49--53) inhabits it
   using the existing `completedSectorFormGap` at every scale.
-- `channel_relative_loss_of_formGapFamily` (lines 59--72) transports the
+- `channel_relative_loss_of_formGapFamily` (lines 62--75) transports the
   form gap to the literal channel norm and one-step same-object correlation.
-- `channel_relative_loss_margin_positive_of_formGapFamily` (lines 74--79)
+- `channel_relative_loss_of_formGapFamily_global` (lines 80--100) exposes the
+  same lag-one coefficient through the global completed Markov transfer on
+  the identical embedded vector, by equality transport only.
+- `channel_relative_loss_margin_positive_of_formGapFamily` (lines 102--107)
   proves the scale-wise margin positive.
 - `marginalHalfGeometricCompletedFamily_movingCube_relative_loss` (lines
-  83--100) specializes the result to the actual moving-centered cube channel.
+  111--128) specializes the result to the actual moving-centered cube channel.
 - `marginalHalfGeometricCompletedFamily_movingCube_margin_positive` (lines
-  102--107) gives its positive margin at every scale.
+  130--135) gives its positive margin at every scale.
 
 ## Verification
 

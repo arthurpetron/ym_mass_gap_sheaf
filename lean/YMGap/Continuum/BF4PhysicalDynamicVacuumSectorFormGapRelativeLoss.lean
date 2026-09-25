@@ -25,6 +25,9 @@ set_option maxHeartbeats 2000000
 
 open YMGap.Constructive
 open YMGap.Continuum
+open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
 open YMGap.Continuum.BF4PhysicalConcreteSU2RelativeLoss
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
 open YMGap.Continuum.BF4PhysicalCubeCompletedMarginalGap
@@ -71,6 +74,31 @@ theorem channel_relative_loss_of_formGapFamily
   exact sector_relative_loss_of_form_gap
     (formFamily.formGapAt scale) (channel.vectorAt scale)
 
+/-- The same relative-loss inequality with the lag-one coefficient exposed
+through the global completed Markov transfer on the identical embedded vector.
+This is only an equality transport: it introduces no new operator or rate. -/
+theorem channel_relative_loss_of_formGapFamily_global
+    {half : Nat} {family : DynamicVacuumSectorCompletedFamily half}
+    (formFamily : DynamicVacuumSectorCompletedFormGapFamily family)
+    (channel : DynamicVacuumSectorSameObjectRCChannel family)
+    (scale : Nat) :
+    CReal.RCle
+      (CReal.RCscale
+        (1 - (formFamily.formGapAt scale).rate)
+        (channel.normSq scale))
+      (CReal.RCsub
+        (channel.normSq scale)
+        (centralPhysicalCutoffCompletedInner
+          (family.nome_pos scale) (family.nome_lt_one scale) half
+          (centralPhysicalConcreteAdaptiveCompletedMarkovPower
+            (family.nome_pos scale) (family.nome_lt_one scale) half 1
+            (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+              (channel.vectorAt scale).1))
+          (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+            (channel.vectorAt scale).1))) := by
+  simpa only [DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_eq_global] using
+    channel_relative_loss_of_formGapFamily formFamily channel scale
+
 theorem channel_relative_loss_margin_positive_of_formGapFamily
     {half : Nat} {family : DynamicVacuumSectorCompletedFamily half}
     (formFamily : DynamicVacuumSectorCompletedFormGapFamily family)
@@ -108,6 +136,7 @@ theorem marginalHalfGeometricCompletedFamily_movingCube_margin_positive
 
 #print axioms marginalHalfGeometricCompletedFormGapFamily
 #print axioms channel_relative_loss_of_formGapFamily
+#print axioms channel_relative_loss_of_formGapFamily_global
 #print axioms marginalHalfGeometricCompletedFamily_movingCube_relative_loss
 #print axioms marginalHalfGeometricCompletedFamily_movingCube_margin_positive
 
