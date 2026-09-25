@@ -194,6 +194,17 @@ variation, physical-rate band, and all continuum/QFT joins remain open.
 Verification:
 `audits/AUDIT-FIXED-FAMILY-RATE-POWER-ARITHMETIC-2026-09-24.md`.
 
+### Generic geometric antitone tail (2026-09-24 UTC)
+
+`GeometricAntitoneTailControl.geometricPowerTailControl`
+(`lean/YMGap/Continuum/GeometricAntitoneTailControl.lean:105`) constructs the
+order-antitone tail datum for `r^scale` whenever `0 < r < 1`. Its explicit
+`qCeilNat` cutoff and geometric finite-tail bound are the reusable input for
+the next fixed-family positive-time variation certificate. Stream-specific
+step bounds, raw representative variation, physical-rate control, and all
+continuum/QFT joins remain open. Verification:
+`audits/AUDIT-GEOMETRIC-ANTITONE-TAIL-2026-09-24.md`.
+
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`

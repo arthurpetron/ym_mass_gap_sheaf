@@ -101,6 +101,15 @@ antitone-tail/variation certificate is still open, as are raw representative
 variation, physical scaling, and all continuum/QFT obligations. See the
 [sampler arithmetic audit](audits/AUDIT-FIXED-FAMILY-RATE-POWER-ARITHMETIC-2026-09-24.md).
 
+**New generic geometric tail certificate (2026-09-24):**
+`GeometricAntitoneTailControl.geometricPowerTailControl` constructs an
+order-antitone `AntitoneTailControl (fun scale => r^scale)` for every rational
+`0 < r < 1`, using a `qCeilNat` reciprocal cutoff and the existing constructive
+geometric-series bound. This is the reusable scalar input for the fixed-family
+positive-time rate-power variation; it does not close raw representative
+variation or any continuum/QFT obligation. See the
+[geometric-tail audit](audits/AUDIT-GEOMETRIC-ANTITONE-TAIL-2026-09-24.md).
+
 **New checked complete growing-word square heat image:** the original product
 heat sends a distinct-link Wilson character square to
 `1 + w^(8*perimeter)*chi_2`, retaining every supported test. For the actual

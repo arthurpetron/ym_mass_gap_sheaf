@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## Generic geometric antitone tail CLOSED; physical specialization IN PROGRESS (2026-09-24 UTC)
+
+- **cutoff:** `GeometricAntitoneTailControl.geometricTailRate`
+  (`lean/YMGap/Continuum/GeometricAntitoneTailControl.lean:31`) uses a
+  representation-invariant `qCeilNat` reciprocal cutoff.
+- **bounds:** `geometricTailRate_antitone` (`:37`) and
+  `geometricTailRate_bound` (`:52`) prove monotonicity and the geometric tail
+  estimate.
+- **constructor:** `geometricPowerTailControl` (`:105`) inhabits
+  `AntitoneTailControl (fun n => r ^ n)` for every `0 < r < 1`.
+- **scope:** the fixed-family positive-time rate-power variation still needs
+  its stream-specific step bounds; raw representative variation, physical-rate
+  control, continuum/QFT reconstruction, physical mass, and the all-group
+  theorem remain open.
+- **verification:** see
+  `audits/AUDIT-GEOMETRIC-ANTITONE-TAIL-2026-09-24.md`.
+
 ## Fixed-family sampler arithmetic CLOSED; positive-time variation OPEN (2026-09-24 UTC)
 
 - **exact sampler:** `BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerArithmetic.marginalHalfGeometric_latticeSteps_eq`

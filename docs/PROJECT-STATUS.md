@@ -256,6 +256,17 @@ raw representative variation, physical-rate scaling, and all continuum/QFT
 joins. Verification is recorded in
 `audits/AUDIT-FIXED-FAMILY-RATE-POWER-ARITHMETIC-2026-09-24.md`.
 
+### Generic geometric antitone tail (2026-09-24 UTC)
+
+`GeometricAntitoneTailControl.geometricPowerTailControl`
+(`lean/YMGap/Continuum/GeometricAntitoneTailControl.lean:105`) now inhabits
+the order-antitone `AntitoneTailControl (fun n => r ^ n)` for every rational
+`0 < r < 1`. The cutoff and bound are explicit at `:31`, `:37`, and `:52` and
+use `qCeilNat` rather than representation-sensitive numerator data. This is a
+generic scalar input; the fixed-family stream-specific step bounds and all raw,
+physical, continuum, OS/QFT, and Clay joins remain open. Verification is
+recorded in `audits/AUDIT-GEOMETRIC-ANTITONE-TAIL-2026-09-24.md`.
+
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`
 (`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteRateCalibration.lean:54`)
@@ -816,3 +827,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 55 | 2026-09-24 | Proved the reciprocal-square normalization debt is constant in the fixed `w = 1/2` geometric family and constructed its zero rational variation. The normalized-limit consumer's debt input is now inhabited; raw representative variation remains open. No chart-node status change. |
 | 1 / 56 | 2026-09-24 | Proved the fixed-family reciprocal normalization scale is constant, inhabited the generic global ceiling, and derived the shared raw norm-floor/fourth-power debt consequences. Raw and positive-time rate variation remain open. No chart-node status change. |
 | 1 / 57 | 2026-09-24 | Proved the exact fixed-family geometric floor sampler is `time * 2^scale`, reducing the positive-time stream to explicit dyadic-exponent arithmetic. The antitone-tail variation, scaling, and continuum joins remain open. No chart-node status change. |
+| 1 / 58 | 2026-09-24 | Added and checked an order-antitone geometric tail certificate for every rational base in `(0,1)`, using `qCeilNat`; fixed-family stream-specific step bounds remain open. No chart-node status change. |
