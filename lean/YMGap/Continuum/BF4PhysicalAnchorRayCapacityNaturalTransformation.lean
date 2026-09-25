@@ -33,6 +33,11 @@ open YMGap.Continuum.BF4CentralSpinCubeUniformRayCapacity
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveFiniteCapacityDecision
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveRouting
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualAdaptiveTransitionProductTarget
+open YMGap.Continuum.BF4PhysicalSpinCubeFiniteLinearFullSectorCoercivity
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualConditionalCongestion
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayResidualFrontier
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
+open YMGap.Continuum.BF4PhysicalSpinCubeRayReturnFloor
 open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
 open YMGap.Continuum.Z4StrongCouplingParametricAnchor
 
@@ -172,6 +177,83 @@ theorem anchorRayCapacityToFiniteTransitionAtZero_section (scale : Nat) :
       anchorConstantRayCapacitySection).margin =
       anchorCanonicalFiniteCapacityMarginAt_zero := rfl
 
+/-! ## The cutoff-indexed finite-linear transition family -/
+
+/-- A finite-linear transition witness at one scale.  Its ray capacity is the
+cutoff-dependent restricted capacity, so this object is not the cofinal
+shared-floor witness above. -/
+structure AnchorFiniteLinearTransition : Type 1 where
+  producer : AnchorConstantRayCapacityProducer
+  cutoff : Nat
+  capacity : CentralLowerExcitedSpinCubeFiniteRayCapacityAt
+    anchorCoupling_pos cutoff
+  product : CentralLowerExcitedSpinCubeOffRayResidualRoutedConditionalTransitionProductAt
+    (w := anchorCoupling) (hw := anchorCoupling_pos) cutoff
+    (centralLowerExcitedSpinCubeFiniteLinearRestrictedRayCapacity capacity)
+    (canonicalCentralPhysicalFiniteVacuumSectorPositiveRoutingAt
+      anchorCoupling (Q'.le_of_lt anchorCoupling_pos) cutoff)
+
+def anchorFiniteLinearTransitionAtScale (scale : Nat) :
+    AnchorFiniteLinearTransition where
+  producer := anchorConstantRayCapacitySection
+  cutoff := scale
+  capacity := centralLowerExcitedSpinCubeFiniteRayCapacityAt
+    anchorCoupling_pos scale
+  product := centralLowerExcitedSpinCubeFiniteLinearRoutedConditionalTransitionProductAt
+    (w := anchorCoupling) (hw := anchorCoupling_pos) (K := scale)
+    (centralLowerExcitedSpinCubeFiniteRayCapacityAt anchorCoupling_pos scale)
+
+/-! The cutoff varies inside a family object, not in the presheaf maps.  This
+is the constructive shape required by naturality: a constant presheaf may
+transport a whole scale-indexed family by identity, while the family itself
+records the finite product at each cutoff. -/
+
+structure AnchorFiniteLinearTransitionFamily : Type 1 where
+  producer : AnchorConstantRayCapacityProducer
+  atScale : ∀ scale, AnchorFiniteLinearTransition
+  at_producer : ∀ scale, (atScale scale).producer = producer
+  at_cutoff : ∀ scale, (atScale scale).cutoff = scale
+
+def anchorFiniteLinearTransitionFamilyOfProducer
+    (p : AnchorConstantRayCapacityProducer) :
+    AnchorFiniteLinearTransitionFamily where
+  producer := p
+  atScale := fun scale =>
+    { producer := p
+      cutoff := scale
+      capacity := centralLowerExcitedSpinCubeFiniteRayCapacityAt
+        anchorCoupling_pos scale
+      product := centralLowerExcitedSpinCubeFiniteLinearRoutedConditionalTransitionProductAt
+        (w := anchorCoupling) (hw := anchorCoupling_pos) (K := scale)
+        (centralLowerExcitedSpinCubeFiniteRayCapacityAt anchorCoupling_pos scale) }
+  at_producer := fun _ => rfl
+  at_cutoff := fun _ => rfl
+
+def anchorFiniteLinearTransitionFamilyPresheaf :
+    Presheaf ScaleCat (TypeCat.{1}) where
+  obj := fun _ => AnchorFiniteLinearTransitionFamily
+  map := fun _ => fun p => p
+  map_id := fun _ => rfl
+  map_comp := fun _ _ => rfl
+
+/-- The scale-indexed finite-linear product retains the anchor producer while
+exposing the exact cutoff-dependent restricted ray capacity. -/
+def anchorRayCapacityToFiniteLinearTransitionFamily : NatTrans
+    anchorConstantRayCapacityPresheaf
+      anchorFiniteLinearTransitionFamilyPresheaf where
+  app := fun _ pinned => anchorFiniteLinearTransitionFamilyOfProducer pinned
+  naturality := fun _ => rfl
+
+theorem anchorRayCapacityToFiniteLinearTransitionFamily_producer
+    (scale : Nat) (p : anchorConstantRayCapacityPresheaf.obj scale) :
+    (anchorRayCapacityToFiniteLinearTransitionFamily.app scale p).producer = p := by
+  rfl
+
+theorem anchorFiniteLinearTransitionAtScale_capacity_pos (scale : Nat) :
+    (0 : Q') <
+      (anchorFiniteLinearTransitionAtScale scale).capacity.delta :=
+  (anchorFiniteLinearTransitionAtScale scale).capacity.delta_pos
+
 end YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation
 
 #print axioms
@@ -210,3 +292,15 @@ end YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation
   YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.anchorRayCapacityToFiniteTransitionAtZero
 #print axioms
   YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.anchorRayCapacityToFiniteTransitionAtZero_section
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.AnchorFiniteLinearTransition
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.AnchorFiniteLinearTransitionFamily
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.anchorFiniteLinearTransitionFamilyOfProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.anchorFiniteLinearTransitionFamilyPresheaf
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.anchorRayCapacityToFiniteLinearTransitionFamily
+#print axioms
+  YMGap.Continuum.BF4PhysicalAnchorRayCapacityNaturalTransformation.anchorFiniteLinearTransitionAtScale_capacity_pos

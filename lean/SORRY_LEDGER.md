@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Anchor cutoff-indexed finite-linear transition family (2026-09-25 UTC)
+
+- **declarations:** `AnchorFiniteLinearTransition`,
+  `AnchorFiniteLinearTransitionFamily`,
+  `anchorFiniteLinearTransitionFamilyOfProducer`,
+  `anchorFiniteLinearTransitionFamilyPresheaf`,
+  `anchorRayCapacityToFiniteLinearTransitionFamily`,
+  `anchorRayCapacityToFiniteLinearTransitionFamily_producer`, and
+  `anchorFiniteLinearTransitionAtScale_capacity_pos` in
+  `lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`.
+- **result:** the finite-linear restricted ray capacity and routed
+  conditional-transition product are packaged at every cutoff as a whole
+  scale-indexed family, with explicit producer and cutoff bookkeeping; a
+  constant-presheaf natural transformation carries that family from the
+  anchor producer.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+- **scope:** cutoff-dependent finite data only; no cofinal shared-floor bound,
+  changing same-theory family, physical-rate band, continuum/QFT handoff or
+  Clay theorem is claimed.
+
 ## Anchor cutoff-zero finite transition-product join (2026-09-25 UTC)
 
 - **declarations:** `AnchorFiniteMarginAtZero`, `AnchorFiniteProductAtZero`,

@@ -6,6 +6,23 @@ new angle). Run `bash computations/progress_metric.sh` each iteration.
 
 ## Current increment: anchor cutoff-zero finite transition-product join (2026-09-25 UTC)
 
+## Current increment: anchor cutoff-indexed finite-linear transition family (2026-09-25 UTC)
+
+`AnchorFiniteLinearTransition` and `AnchorFiniteLinearTransitionFamily` in
+`lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`
+package the existing finite-linear restricted ray capacity and routed
+conditional-transition product at each cutoff.  The family retains the
+explicit anchor producer and proves producer/cutoff bookkeeping; the constant
+presheaf `anchorFiniteLinearTransitionFamilyPresheaf` and natural
+transformation `anchorRayCapacityToFiniteLinearTransitionFamily` expose the
+whole scale-indexed family without pretending that a changing cutoff is an
+identity map.  `anchorFiniteLinearTransitionAtScale_capacity_pos` preserves
+the positive finite capacity delta.  The focused safe check passed with only
+`{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`, or
+custom axiom.  This is cutoff-dependent finite data only: it does not provide
+a cofinal shared-floor bound, a changing same-theory family, a physical-rate
+band, continuum/QFT construction, or the Clay theorem.
+
 `AnchorFiniteMarginAtZero`, `AnchorFiniteProductAtZero`, and
 `AnchorFiniteTransitionAtZero` in
 `lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`
