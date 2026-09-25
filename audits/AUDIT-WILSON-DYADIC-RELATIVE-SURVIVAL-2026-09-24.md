@@ -26,6 +26,11 @@ the explicit response floor `theta * starRatio w`.
 `dyadic_response_floor_of_loss_budget` (`:154`) composes this with the response
 floor theorem.
 
+`dyadic_relative_energy_of_rational_loss_budget` (`:156`) weakens the input
+interface from a quotient-real budget to the explicit rational inequality
+`dyadicLossBound ≤ 2*delta*starRatio w`.  It uses the existing positive norm
+floor and nonnegative scalar monotonicity to recover the completed budget.
+
 ## Verification
 
 Command:
@@ -34,7 +39,7 @@ Command:
 python3 scripts/safe_lean_build.py --check \
   lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRelativeSurvival.lean \
   --check-worker-limit-gib 2 \
-  --log-file /tmp/ym-gap-dyadic-relative-survival-check4.log
+  --log-file /tmp/ym-gap-dyadic-relative-survival-check6.log
 ```
 
 The monitored source check exited 0.  The log printed no warnings, errors,
@@ -47,5 +52,5 @@ node changes status.
 The SAME-norm budget is an explicit premise.  The available cubic absolute
 loss bound has not been shown to satisfy it for a changing nome/spacing/scale
 trajectory.  Therefore this milestone is a genuine finite-parameter
-relative-survival compiler, not a scaling-uniform gap, continuum limit,
+relative-survival compiler with a rationalized interface, not a scaling-uniform gap, continuum limit,
 physical mass calibration, or Clay theorem.

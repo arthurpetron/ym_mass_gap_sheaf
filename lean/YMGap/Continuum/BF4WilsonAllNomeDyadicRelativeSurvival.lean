@@ -151,6 +151,25 @@ theorem dyadic_relative_energy_of_loss_budget
   rw [← RCscale_RCscale] at hcombined
   exact rcscale_cancel_two hcombined
 
+/- A rational-only form of the same budget.  The positive norm floor lets a
+   rational inequality against `starRatio` pay the completed norm budget. -/
+theorem dyadic_relative_energy_of_rational_loss_budget
+    (delta : Q')
+    (hdelta : (0 : Q') ≤ delta)
+    (hbudgetLoss : dyadicLossBound (w := w) scale ≤
+      (2*delta) * starRatio w) :
+    RCle (dyadicEnergy hw0 hw1 scale width hwidth)
+      (RCscale delta (B v v)) := by
+  have hfloor := dyadicExcitation_norm_floor hw0 hw1 scale width hwidth
+  have hscaled := RCscale_mono
+    (Q'.mul_nonneg (2 : Q') delta (by decide) hdelta) hfloor
+  rw [scale_rational] at hscaled
+  have hleft : RCle (Rq (dyadicLossBound (w := w) scale))
+      (Rq ((2*delta) * starRatio w)) := by
+    exact CReal.leEv_of_le (CReal.ofQ'_le_ofQ' hbudgetLoss)
+  exact dyadic_relative_energy_of_loss_budget hw0 hw1 scale width hwidth delta
+    (RCle_trans hleft hscaled)
+
 theorem dyadic_response_floor_of_loss_budget
     (delta theta : Q')
     (htheta : (0 : Q') ≤ theta)
@@ -168,6 +187,7 @@ theorem dyadic_response_floor_of_loss_budget
 #print axioms dyadic_response_ge_fraction_of_relative_energy
 #print axioms dyadic_response_floor_of_relative_energy
 #print axioms dyadic_relative_energy_of_loss_budget
+#print axioms dyadic_relative_energy_of_rational_loss_budget
 #print axioms dyadic_response_floor_of_loss_budget
 
 end YMGap.Continuum.BF4WilsonAllNomeDyadicRelativeSurvival

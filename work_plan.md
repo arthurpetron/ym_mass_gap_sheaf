@@ -190,6 +190,14 @@ The budget is not proved along a changing-scale trajectory, so this is a
 finite-parameter compiler and not B04/A05/J01--J04 closure.  Evidence:
 `audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md`.
 
+The same module now adds
+`dyadic_relative_energy_of_rational_loss_budget` (`:156`), reducing the
+completed norm-budget premise to the explicit rational inequality
+`dyadicLossBound ≤ 2*delta*starRatio w` using the existing positive norm floor.
+This is a cleaner finite certificate interface, but the rational inequality
+itself remains unproved along changing nome/spacing/scale.  Evidence remains
+`audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md`.
+
 ### SAME-carrier two-step rate-margin calibration (2026-09-24 UTC)
 
 `BF4WilsonAllNomeTwoStepMargin.vacuumComplement_twoStep_rate_margin`

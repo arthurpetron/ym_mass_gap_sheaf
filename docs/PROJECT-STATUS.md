@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **38**, 2026-09-24 UTC. Source checkpoint:
-the SAME all-nome Wilson two-step rate-margin calibration milestone
+Chart schema: **1**. Snapshot: **39**, 2026-09-24 UTC. Source checkpoint:
+the SAME all-nome Wilson rational dyadic loss-budget milestone
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-TWO-STEP-MARGIN-2026-09-24.md`.
+`audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -218,6 +218,16 @@ backward calibration of the existing fixed-parameter rate, not a producer of
 the relative-loss estimate and not a physical Hamiltonian or continuum gap.
 No chart node changes status.  Verification is recorded in
 `audits/AUDIT-WILSON-TWO-STEP-MARGIN-2026-09-24.md`.
+
+New rationalized same-carrier budget:
+`BF4WilsonAllNomeDyadicRelativeSurvival.dyadic_relative_energy_of_rational_loss_budget`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRelativeSurvival.lean:156`)
+reduces the completed norm-budget premise to the explicit rational inequality
+`dyadicLossBound ≤ 2*delta*starRatio w`, using the existing positive norm floor
+and nonnegative scalar action.  This removes a quotient-real budget from the
+input interface but does not prove the rational inequality along scaling.  No
+chart node changes status.  Verification is recorded in
+`audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md`.
 
 Additional partial J02 evidence: `BF4WilsonAllNomeLinear.completedAdd` and
 `.completedSmul` (`lean/YMGap/Continuum/BF4WilsonAllNomeLinear.lean:132`, `:135`)
@@ -532,6 +542,12 @@ remains open; extending this candidate normalization alone cannot supply it.
   forces `1-delta ≤ twoStepRate`, equivalently
   `1-twoStepRate ≤ delta`. This constrains the existing fixed-parameter rate
   but supplies neither the loss estimate nor a physical mass normalization.
+- New rationalized budget interface:
+  `dyadic_relative_energy_of_rational_loss_budget` reduces the completed
+  quotient-real budget to the explicit rational inequality
+  `dyadicLossBound ≤ 2*delta*starRatio w`, using the existing SAME-state norm
+  floor. The rational inequality remains open along scaling; no chart node
+  closes.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
   unchanged from snapshots 1--37; this snapshot records only new proof evidence.

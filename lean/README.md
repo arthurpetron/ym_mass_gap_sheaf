@@ -136,6 +136,12 @@ The budget remains open along changing scale; this is not a uniform gap or
 continuum result. Evidence:
 `audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md` at repository root.
 
+`dyadic_relative_energy_of_rational_loss_budget` further reduces that input to
+the explicit rational inequality
+`dyadicLossBound ≤ 2*delta*starRatio w`, using the existing norm floor. This
+removes quotient-real budget plumbing but does not prove the inequality along
+scaling. Evidence is recorded in the same audit.
+
 `BF4WilsonAllNomeTwoStepMargin` adds the backward calibration on the SAME
 completed carrier: a nonzero vacuum-complement state with relative lag-two
 loss `delta` forces `1-delta ≤ twoStepRate`, equivalently
