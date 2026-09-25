@@ -174,6 +174,16 @@ theorem complex_iterated_norm_gap (n : Nat) (x : VC)
       rw [RCscale_RCscale, Q'.pow_succ]
       exact RCle_refl _
 
+/-! The norm iteration is the same-object even-lag correlator through the
+completed-time pairing identity.  No separate observable or representative is
+introduced. -/
+theorem complex_even_lag_corr_decay (n : Nat) (x : VC)
+    (hx : I CU x = (RCzero, RCzero)) :
+    RCle (I x (CT (2*n) x)).1
+      (RCscale ((twoStepRate hw0 hw1 width)^n) (I x x).1) := by
+  rw [inner_even_diagonal hw0 hw1 width n x]
+  exact complex_iterated_norm_gap hw0 hw1 width n x hx
+
 #print axioms complexUnit
 #print axioms complexUnit_fixed
 #print axioms inner_unit_left
@@ -188,5 +198,6 @@ theorem complex_iterated_norm_gap (n : Nat) (x : VC)
 #print axioms complex_twoStep_translated
 #print axioms complex_oneStep_norm_gap
 #print axioms complex_iterated_norm_gap
+#print axioms complex_even_lag_corr_decay
 
 end YMGap.Continuum.BF4WilsonAllNomeComplexGap

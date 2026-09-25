@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **27**, 2026-09-24 UTC. Source checkpoint:
-the SAME Wilson complex-carrier iterated norm-contraction milestone
+Chart schema: **1**. Snapshot: **28**, 2026-09-24 UTC. Source checkpoint:
+the SAME Wilson complex-carrier even-lag correlator milestone
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-COMPLEX-ITERATED-NORM-GAP-2026-09-24.md`.
+`audits/AUDIT-WILSON-COMPLEX-EVEN-LAG-CORRELATOR-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -284,6 +284,16 @@ this adds no spacing/scaling, thermodynamic, continuum, physical-mass or
 all-group closure.  Evidence:
 `audits/AUDIT-WILSON-COMPLEX-ITERATED-NORM-GAP-2026-09-24.md`.
 
+New partial J02 evidence: `BF4WilsonAllNomeComplexGap.complex_even_lag_corr_decay`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeComplexGap.lean:180`) converts the
+iterated norm estimate into the same-object correlator bound at even lag `2*n`
+using the exact completed-time pairing identity.  The focused monitored check
+exits 0 and the declaration audits to `{propext, Quot.sound}` with no
+`sorryAx`, classical input, warning or error.  This remains fixed nome/width
+discrete time; no spacing/scaling, thermodynamic, continuum, physical-mass or
+all-group node closes.  Evidence:
+`audits/AUDIT-WILSON-COMPLEX-EVEN-LAG-CORRELATOR-2026-09-24.md`.
+
 New partial J02 evidence: `BF4WilsonAllNomeComplexGap.complex_twoStep_form_gap`
 (`lean/YMGap/Continuum/BF4WilsonAllNomeComplexGap.lean:97`) consumes the
 complexification on the SAME all-nome Wilson completion.  The module also
@@ -374,7 +384,7 @@ remains open; extending this candidate normalization alone cannot supply it.
   Full Hilbert/QFT, scaling survival and the continuum join remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--27; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--28; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -427,3 +437,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 25 | 2026-09-24 | The SAME complex Wilson gap is now exposed as an exact translated discrete correlator bound at indices n and n+2 for every translated vacuum-orthogonal state. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |
 | 1 / 26 | 2026-09-24 | The translated complex correlator is rewritten as a same-carrier norm-square contraction at the intervening time slice. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |
 | 1 / 27 | 2026-09-24 | The same-carrier norm contraction is iterated constructively, giving `twoStepRate^n` decay for every discrete power at fixed nome/width. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |
+| 1 / 28 | 2026-09-24 | The iterated same-carrier norm estimate is converted into an even-lag same-object correlator bound at lag `2*n`. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |

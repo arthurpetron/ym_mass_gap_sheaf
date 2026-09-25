@@ -50,6 +50,13 @@ continuum, Hamiltonian or Clay result. Evidence:
 `audits/AUDIT-WILSON-COMPLEX-ITERATED-NORM-GAP-2026-09-24.md` at repository
 root.
 
+`complex_even_lag_corr_decay` rewrites the same iterated estimate as the
+same-object correlator bound at even lag `2*n`, via the exact completed-time
+pairing identity. It remains fixed nome/width discrete evidence, not a
+spacing-uniform, continuum, Hamiltonian or Clay result. Evidence:
+`audits/AUDIT-WILSON-COMPLEX-EVEN-LAG-CORRELATOR-2026-09-24.md` at repository
+root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.

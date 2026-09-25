@@ -78,6 +78,13 @@ within `{propext, Quot.sound}` with no source hole, warning, classical input or
 error.  Evidence:
 `audits/AUDIT-WILSON-COMPLEX-ITERATED-NORM-GAP-2026-09-24.md`.
 
+`BF4WilsonAllNomeComplexGap.complex_even_lag_corr_decay` now exposes the same
+bound as a same-object correlator at even lag `2*n`, by the exact completed-time
+pairing identity.  This is the direct discrete correlator consumer needed
+before any spacing or continuum passage; it remains fixed nome/width.  The
+focused check passed within `{propext, Quot.sound}`.  Evidence:
+`audits/AUDIT-WILSON-COMPLEX-EVEN-LAG-CORRELATOR-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream
