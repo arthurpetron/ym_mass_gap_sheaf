@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Route-prune and compatible constant-gap compiler (2026-09-25 UTC)
+
+- **concrete route obstruction:**
+  `no_starRatio_rational_loss_budget`
+  (`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean`)
+  specializes the abstract dyadic rational loss-budget contradiction to the
+  actual local `starRatio`.  It closes only that coarse route; it does not
+  discharge A03/A05 or provide a same-object scaling response.
+- **constant-gap calibration:**
+  `DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration`,
+  `.toVariation`, `exactLogRateCauchyOfConstantPhysicalGap`, and
+  `exactRateCutoffRemovalOfConstantPhysicalGap`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.lean`)
+  compile a pointwise-constant physical-gap input into exact-log variation and
+  cutoff removal on the same completed family.  The calibration is an explicit
+  input; it does not construct the physical band, continuum/QFT data, or a
+  positive Clay mass gap.
+- **verification:** both focused safe checks passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Matched AF rescaled-strength exact-rate cutoff (2026-09-25 UTC)
 
 - **variation factorization:**

@@ -171,6 +171,29 @@ theorem marginRate_eqv_physicalGap
   change (family.physicalGap scale).eqv (family.physicalGap scale)
   exact Q'.eqv_refl _
 
+/-! ## 1a. A compatible minimal mass-calibration certificate -/
+
+/-- A same-family physical mass calibration that is compatible with
+spacing-to-zero: the rational physical gap is pointwise equivalent to one
+fixed value.  This is deliberately weaker than a primitive reciprocal-spacing
+floor (which the spacing-to-zero no-go rules out), but strong enough to supply
+the exact summable variation needed by the logarithmic compiler. -/
+structure ConstantPhysicalGapCalibration
+    {half : Nat}
+    (family : DynamicVacuumSectorCompletedFamily half) : Type 1 where
+  value : Q'
+  physicalGap_eqv : ∀ scale, family.physicalGap scale ≈ value
+
+/-- A constant physical-gap calibration carries zero same-family step
+variation, using the canonical rational constant-stream compiler. -/
+def ConstantPhysicalGapCalibration.toVariation
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (calibration : ConstantPhysicalGapCalibration family) :
+    SummableRationalStepVariation family.physicalGap :=
+  SummableRationalStepVariation.ofPointwiseEqvConstant
+    family.physicalGap calibration.value calibration.physicalGap_eqv
+
 /-! ## 2. Join the two analytic branches -/
 
 /-- Summable physical-gap variation and inverse-square spacing variation
@@ -213,6 +236,19 @@ def exactLogRateCauchy
       pin.toPhysicalSeparator family.transferSpacing scale)
     (shiftedTailControl gapVariation.tailControl start)
     errorControl
+
+/-- A constant same-family physical gap removes the last variation input from
+the exact-log cutoff compiler.  The spacing tail remains explicit, and the
+observable, physical-rate band, and completed carrier are unchanged. -/
+def exactLogRateCauchyOfConstantPhysicalGap
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    (calibration : ConstantPhysicalGapCalibration family)
+    (spacingTail : InverseSquareSpacingTail family.transferSpacing 0) :
+    CReal.ModCauchyEv ((fullRangeRateFamily pin).rate) :=
+  exactLogRateCauchy pin band calibration.toVariation spacingTail
 
 namespace PhysicalGapPrimitiveVariationInput
 
@@ -275,6 +311,20 @@ def exactRateCutoffRemovalOfVariations
   (ExactRateLimitData.ofRateCauchy
     (exactLogRateCauchy pin band gapVariation spacingTail)).withSpacing
       family.transferSpacingToZero
+
+/-- The constant-gap calibration compiles directly to exact cutoff removal on
+the same completed physical family. -/
+def exactRateCutoffRemovalOfConstantPhysicalGap
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family)
+    (ceiling : FullRangeLogRateCeiling (fullRangeRateFamily pin))
+    (calibration : ConstantPhysicalGapCalibration family)
+    (spacingTail : InverseSquareSpacingTail family.transferSpacing 0) :
+    ExactRateCutoffRemoval (exactCertificate pin band ceiling) :=
+  exactRateCutoffRemovalOfVariations pin band ceiling
+    calibration.toVariation spacingTail
 
 /-! ## 3a. Backward direct-rate interface -/
 
@@ -344,6 +394,12 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.exactLogLinearMarginTail
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.marginRate_eqv_physicalGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration.toVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.exactLogRateCauchyOfConstantPhysicalGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.exactRateCutoffRemovalOfConstantPhysicalGap
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.exactLogRateCauchy
 #print axioms

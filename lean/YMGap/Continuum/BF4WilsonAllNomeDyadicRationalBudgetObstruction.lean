@@ -9,6 +9,7 @@ numbers only; it is not a lower bound on the actual completed loss.
 -/
 
 import YMGap.Continuum.ClusteringImpliesGap
+import YMGap.Continuum.BF4ExactSlabStarVarianceLossObstruction
 import YMGap.Constructive.SU3CharFactor
 
 namespace YMGap.Continuum.BF4WilsonAllNomeDyadicRationalBudgetObstruction
@@ -19,6 +20,8 @@ open YMGap.Constructive
 open YMGap.Constructive.CReal
 open YMGap.Continuum.ClusteringImpliesGap
   (lt_of_lt_of_le mul_lt_mul_of_pos_right lt_irrefl')
+open YMGap.Continuum.BF4ExactSlabStarVarianceLossObstruction
+  (starRatio_le_nome_defect)
 open YMGap.Constructive.SU3CharFactor (ofNat_mul_eqv)
 
 local infix:50 " ≈ " => Q'.eqv
@@ -107,6 +110,28 @@ theorem no_rational_loss_budget
     Q'.le_trans' _ _ _ hbudgetLoss hupper
   exact lt_irrefl' _ (lt_of_lt_of_le hstrictLoss hleLoss)
 
+/-- The abstract coarse obstruction applies to the actual six-face `starRatio`
+floor.  This closes the proposed rational-budget route at its real same-
+carrier coefficient; it does not bound the actual completed loss or response.
+-/
+theorem no_starRatio_rational_loss_budget
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (delta theta : Q')
+    (hdelta : (0 : Q') ≤ delta)
+    (htheta : (0 : Q') ≤ theta)
+    (hbudget : delta + theta ≤ (1 : Q'))
+    (hbudgetLoss : dyadicLossBoundFormula w scale ≤
+      (2*delta) * YMGap.Continuum.BF4ExactSlabLocalStarComparison.starRatio w) :
+    False := by
+  exact no_rational_loss_budget
+    (w := w) scale
+    (YMGap.Continuum.BF4ExactSlabLocalStarComparison.starRatio w)
+    delta theta
+    (HKPos.one_sub_pos hw1)
+    hdelta htheta hbudget
+    (starRatio_le_nome_defect hw0 hw1)
+    hbudgetLoss
+
 theorem coarse_budget_data_empty
     (h : (0 : Q') < 1 + -w) :
     CoarseBudgetData w scale → False := by
@@ -116,6 +141,7 @@ theorem coarse_budget_data_empty
     data.rho_defect data.loss_budget
 
 #print axioms no_rational_loss_budget
+#print axioms no_starRatio_rational_loss_budget
 #print axioms coarse_budget_data_empty
 
 end YMGap.Continuum.BF4WilsonAllNomeDyadicRationalBudgetObstruction

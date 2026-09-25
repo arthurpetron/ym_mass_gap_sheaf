@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **48**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **49**, 2026-09-25 UTC. Source checkpoint:
 the exact lag-two Wilson-to-OS relative-loss bridge consumer, alongside the
 checked fixed-parameter complex relative-loss consumer and the explicit
 width-degeneration obstruction for the original response witness
@@ -15,9 +15,12 @@ symbols; subsequent updates are maintenance, not redesigns.
 Latest typed frontier (2026-09-25 UTC): the matched AF route now factors its
 rescaled-strength variation into physical-gap and normalized-strength
 variations on the same carrier, and computes its full-range exact-log ceiling
-from the same physical-rate band.  This does not change the chart's
-top-level open markers: the physical band, observable pin, continuum/QFT
-handoff, and Clay target remain open.
+from the same physical-rate band.  The concrete `starRatio` dyadic loss
+budget is now ruled out, and a pointwise-constant same-family physical-gap
+calibration compiles to exact-log Cauchy and cutoff-removal data without
+changing the carrier, observable, transfer, or spacing tail.  These are route
+pruning and compatible conditional compilers only; the physical band,
+observable pin, continuum/QFT handoff, and Clay target remain open.
 
 ## Fixed interpretation
 
@@ -69,6 +72,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
      (requires the missing input)     [x] Same-carrier exact-log ceiling
                                        [x] Gap/strength -> rescaled variation
                                        [x] Ray/mass/gap -> joined cutoff consumer
+                                       [x] Constant-gap calibration compiler
+                                       [x] Concrete starRatio budget obstruction
              |                              v
              v                         [ ] EVERY-state decay
  [ ] ONE nonzero excitation survives        survives scaling
@@ -109,6 +114,8 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04a | Same-carrier exact-log ceiling from the physical band | `fullRangeLogRateCeilingOfPhysicalRateBand`; checked interface only, with the physical band still supplied. |
 | B04b | Gap/strength variation factored into rescaled variation | `rescaledStrengthVariationOfPhysicalGapAndStrength` and matched adapter; both primitive variations remain open inputs. |
 | B04c | Ray/mass/gap variation joined to cutoff removal | `matchedExactRateCutoffRemovalOfRayCapacityAndMassFloorAndPhysicalGapOfPhysicalRateBand`; all three primitive variations remain open inputs. |
+| B04d | Constant-gap calibration compiler | `DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration.toVariation`, `exactLogRateCauchyOfConstantPhysicalGap`, and `exactRateCutoffRemovalOfConstantPhysicalGap`; calibration remains an explicit input. |
+| B04e | Concrete `starRatio` dyadic budget obstruction | `no_starRatio_rational_loss_budget`; prunes only the coarse rational budget route and does not close A03/A05. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -954,3 +961,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 64 | 2026-09-25 | Added exact-rate cutoff removal and an explicit-producer specialization on the same matched carrier, with an independent finite ceiling still explicit. No chart-node status change. |
 | 1 / 65 | 2026-09-25 | Added a same-object continuum-handoff constructor fed by the matched exact-rate witness and explicit OS/reconstruction/existence data. No chart-node status change. |
 | 1 / 66 | 2026-09-25 | Specialized matched cutoff removal to the existing scale-wise finite observable-certificate compiler, preserving the literal completed carrier. No chart-node status change. |
+| 1 / 67 | 2026-09-25 | Ruled out the coarse dyadic rational loss budget for the concrete `starRatio`, and added a compatible pointwise-constant same-family physical-gap calibration compiler for exact-log Cauchy/cutoff removal. Physical band, continuum/QFT and Clay nodes remain open. |

@@ -27,6 +27,31 @@ the literal ray-capacity, finite-sector mass-floor, and completed physical-gap
 streams, while the exact-log ceiling is computed from the same physical-rate
 band.  These inputs remain open analytic certificates.
 
+## Current increment: route-prune and compatible constant-gap compiler (2026-09-25 UTC)
+
+`no_starRatio_rational_loss_budget` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRationalBudgetObstruction.lean`
+specializes the abstract dyadic rational loss obstruction to the actual
+`starRatio` using `starRatio_le_nome_defect`.  It proves that the coarse
+dyadic budget cannot be inhabited for the concrete local star ratio; this
+prunes that route and does not refute the still-open A03/A05 response path.
+The monitored check passed with only `{propext, Quot.sound}` and no
+`sorryAx`, classical axiom, `native_decide`, or custom axiom.
+
+`ConstantPhysicalGapCalibration` and its consumers
+`exactLogRateCauchyOfConstantPhysicalGap` and
+`exactRateCutoffRemovalOfConstantPhysicalGap` in
+`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.lean`
+provide a minimal same-family calibration whose physical-gap stream is
+pointwise equivalent to one fixed rational value.  The compiler therefore
+constructs zero gap variation and feeds the existing exact-log Cauchy and
+cutoff-removal consumers without changing the observable, carrier, transfer,
+or spacing tail.  This is an explicit conditional input, not a construction
+of the physical band or a continuum mass gap; the primitive positive-spacing
+variation route remains ruled out by the existing spacing-to-zero no-go.
+The monitored check passed with only `{propext, Quot.sound}` and no
+`sorryAx`, classical axiom, `native_decide`, or custom axiom.
+
 ## Current increment: physical-band ceiling removes a matched free input (2026-09-25 UTC)
 
 `fullRangeLogRateCeilingOfPhysicalRateBand` in
