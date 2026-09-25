@@ -103,6 +103,24 @@
   to the concrete fixed-sector observable; the fixed-carrier reciprocal-spacing
   construction cannot serve as that bridge.
 
+## Fixed-nome dynamic family and scheduled RC channel (2026-09-25 UTC)
+
+- **declarations:** `fixedCarrierDynamicFamily`,
+  `fixedCarrierMovingCubeChannel`,
+  `fixedCarrierMovingCube_zero_isPositive`,
+  `fixedCarrierMovingCube_sampled_zero_isPositive`, and
+  `fixedCarrierMovingCube_sampled_decay` in
+  `lean/YMGap/Continuum/BF4WilsonFixedCarrierDynamicFamily.lean`.
+- **result:** an explicit vanishing-spacing schedule now inhabits the dynamic
+  family record with constant small nome and completed rate, while the moving
+  cube supplies a genuine RC same-object channel with positive zero-time
+  response and scheduled decay.
+- **verification:** focused safe check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+- **scope:** this is the fixed-carrier obstruction lane; no changing-coupling
+  family, physical rate band, rational pin, OS/QFT handoff or Clay conclusion.
+
 ## Unit-probe norm-one collapse and rational rate floor (2026-09-25 UTC)
 
 - **declarations:** `gap_probe_norm_one`,

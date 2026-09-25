@@ -4,6 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: fixed-nome dynamic family and scheduled RC channel (2026-09-25 UTC)
+
+`BF4WilsonFixedCarrierDynamicFamily.fixedCarrierDynamicFamily` now inhabits
+`DynamicVacuumSectorCompletedFamily 0` from the existing fixed small-nome
+carrier and an explicit `CurrentSpacingSchedule`, transporting the schedule's
+modulus into `SpacingToZero`.  The companion
+`fixedCarrierMovingCubeChannel` is the concrete moving-cube
+`DynamicVacuumSectorSameObjectRCChannel`; its zero-time completed and sampled
+correlations are strictly positive, and
+`fixedCarrierMovingCube_sampled_decay` preserves the exact scheduled completed
+rate.  The focused safe check passed with only `{propext, Quot.sound}` and no
+`sorryAx`, classical axiom, `native_decide`, or custom axiom.  This is a
+non-vacuous fixed-carrier obstruction witness: it does not provide the missing
+changing-coupling family, physical rate band, rational observable pin,
+projective OS handoff, continuum QFT, or Clay theorem.
+
 ## Current increment: unit-probe norm-one collapse and rational rate floor (2026-09-25 UTC)
 
 `gap_probe_norm_one` in
