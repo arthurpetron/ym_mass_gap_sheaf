@@ -4,6 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: nontriviality-to-gap presheaf arrow (2026-09-25 UTC)
+
+`NontrivialityFiber` and `GapFiber` in
+`lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean` make
+the two fixed-spacing branch interfaces explicit on the same completed
+`UnionCompletion`. `NontrivialityFiber.toGap` preserves the probe and its
+vacuum-orthogonality proof and derives the strict two-step bound from
+`completed_twoStep_form_gap`; the positive response and nonzero fields remain
+visible on the source side. The constant presheaves
+`nontrivialityPresheaf` and `gapPresheaf` on `ScaleCat.op`, together with
+`nontrivialityToGap`, form a genuine natural transformation in the presheaf
+topos. The concrete `currentNontriviality` and `currentGap` sections are
+inhabited at the checked nome. This is a fixed-spacing branch implication,
+not a sheaf-gluing theorem, canonical OS/GNS identification, changing-spacing
+uniformity, continuum construction, or Clay closure. The focused check passed
+with only `{propext, Quot.sound}` and no `sorryAx`, classical axiom,
+`native_decide`, or custom axiom.
+
 ## Current increment: dense-to-union completed naturality (2026-09-25 UTC)
 
 `positiveDenseDiagram` and `unionCompletionDiagram` in

@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Nontriviality-to-gap presheaf arrow (2026-09-25 UTC)
+
+- **branch fibers:** `NontrivialityFiber` and `GapFiber` in
+  `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`
+  retain, respectively, the nonzero positive-response probe and the
+  same-carrier strict two-step gap certificate.
+- **branch compiler:** `NontrivialityFiber.toGap` preserves the probe and
+  vacuum orthogonality and applies
+  `BF4WilsonSpatialUnionCompletedGap.completed_twoStep_form_gap`; it does not
+  infer a scaling or continuum result from the response floor.
+- **presheaf arrow:** `nontrivialityPresheaf`, `gapPresheaf`, and
+  `nontrivialityToGap` are constant presheaves on `ScaleCat.op` and a natural
+  transformation between them. `currentNontriviality` and `currentGap` are
+  concrete fixed-nome sections.
+- **scope:** this is a same-`UnionCompletion`, fixed-spacing implication; it
+  is not sheaf gluing, canonical OS/GNS transport, spacing-uniformity,
+  continuum/QFT construction, physical mass calibration, or Clay closure.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Dense-to-union completed naturality (2026-09-25 UTC)
 
 - **common completed target:** `positiveDenseDiagram` and
