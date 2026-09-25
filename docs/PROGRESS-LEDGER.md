@@ -60,8 +60,13 @@ the independent finite exact-log ceiling and constructs the repository's
 surviving positive/finite rate bounds on that same carrier.  The explicit
 producer specialization is
 `MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer.matchedExplicitProducerExactLogRateCauchyOfRescaledStrength`.
+Finally, `matchedContinuumHandoffOfRescaledStrength` constructs the
+same-object continuum handoff once the independent projective OS,
+reconstruction spectral-channel, exact-rate reconstruction, and continuum
+YM-existence witnesses are supplied.  These semantic witnesses remain
+explicit; the constructor does not claim them.
 The focused monitored check passed with only `{propext, Quot.sound}`.  This
-closes a typed matched-family cutoff interface, not the physical rate,
+closes a typed matched-family cutoff/continuum interface, not the physical rate,
 continuum/QFT, all-group, or Clay obligations.
 
 ## Current increment: fixed-family debt input compiled to CReal (2026-09-25 UTC)

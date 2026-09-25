@@ -844,7 +844,10 @@ remains open; extending this candidate normalization alone cannot supply it.
   AF identification remain explicit hypotheses.  The same module now also
   constructs `matchedExactRateCutoffRemovalOfRescaledStrength` after one
   independent finite exact-log ceiling, and specializes the Cauchy consumer
-  to the literal explicit transition producer.  These are typed B04
+  to the literal explicit transition producer.  It now also constructs
+  `matchedContinuumHandoffOfRescaledStrength` when the independent
+  projective-OS, spectral-channel, exact-rate-reconstruction and continuum
+  existence witnesses are supplied.  These are typed B04/J01/J02
   expansions only; no displayed goal marker changes.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
@@ -935,3 +938,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 62 | 2026-09-25 | Converted the fixed-family pointwise-constant normalization debt into the constructive-real debt-variation input alongside the inhabited normalized scheduled-rate input. Raw same-object CReal variation remains open; no chart-node status change. |
 | 1 / 63 | 2026-09-25 | Joined the matched shifted-AF inverse-square spacing tail to the exact rescaled-strength log-rate consumer on the same completed carrier. Remaining producer, scaling, pin and variation inputs stay explicit; no chart-node status change. |
 | 1 / 64 | 2026-09-25 | Added exact-rate cutoff removal and an explicit-producer specialization on the same matched carrier, with an independent finite ceiling still explicit. No chart-node status change. |
+| 1 / 65 | 2026-09-25 | Added a same-object continuum-handoff constructor fed by the matched exact-rate witness and explicit OS/reconstruction/existence data. No chart-node status change. |

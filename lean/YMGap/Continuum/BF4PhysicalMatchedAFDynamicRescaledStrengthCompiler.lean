@@ -36,6 +36,11 @@ open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicSpacingTailCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicStrengthNormalization
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualTransitionProductCompiler
+open YMGap.Continuum.ContinuumMeasure
+open YMGap.Continuum.ExactRateReconstructionHandoff
+open YMGap.Continuum.FourDExistence
+open YMGap.Continuum.MeasureLinkedOSReconstruction
+open YMGap.Continuum.ProjectiveOSCorrelationHandoff
 open YMGap.Continuum.QuadraticRateErrorTailControl
 open YMGap.Continuum.PhysicalSeparatorContinuumRealization
 open YMGap.Continuum.PhysicalSeparatorFullLogComparison
@@ -93,6 +98,41 @@ def matchedExactRateCutoffRemovalOfRescaledStrength
     (matchedExactLogRateCauchyOfRescaledStrength
       trajectory producer scaling pin variation C H)
 
+/-- Assemble the same-object continuum handoff from the matched exact-rate
+certificate and the independent projective/OS/reconstruction witnesses. -/
+def matchedContinuumHandoffOfRescaledStrength
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (producer : trajectory.LocalProducer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (pin : DynamicVacuumSectorObservablePin
+      (trajectory.toCompletedFamily producer))
+    (variation : SummableRationalStepVariation
+      (rescaledStrength (trajectory.toNormalizedStrengthLaw producer)))
+    (ceiling : FullRangeLogRateCeiling (fullRangeRateFamily pin))
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (projectiveOS : ProjectiveOSCorrelationHandoff pin.toPhysicalSeparator
+      existence osGNS pin.physicalSampling)
+    (spectralChannel :
+      ProjectiveOSCorrelationHandoff.ReconstructionSpectralChannelHandoff
+        projectiveOS osGNS.reconstruction)
+    (exactRate : ExactRateReconstructionHandoff
+      (DynamicVacuumSectorObservablePin.exactCertificate
+        pin scaling.toPhysicalRateBand ceiling) osGNS.reconstruction)
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    DynamicVacuumSectorContinuumHandoff
+      pin scaling.toPhysicalRateBand ceiling existence osGNS where
+  rateCauchy := matchedExactLogRateCauchyOfRescaledStrength
+    trajectory producer scaling pin variation C H
+  projectiveOS := projectiveOS
+  spectralChannel := spectralChannel
+  exactRate := exactRate
+
 namespace MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer
 
 /-- The exact-log consumer specialized to the literal matched explicit
@@ -122,6 +162,7 @@ end MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer
 
 #print axioms matchedExactLogRateCauchyOfRescaledStrength
 #print axioms matchedExactRateCutoffRemovalOfRescaledStrength
+#print axioms matchedContinuumHandoffOfRescaledStrength
 #print axioms
   MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer.matchedExplicitProducerExactLogRateCauchyOfRescaledStrength
 

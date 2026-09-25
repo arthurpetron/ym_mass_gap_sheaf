@@ -13,6 +13,10 @@
 - **explicit producer:**
   `MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer.matchedExplicitProducerExactLogRateCauchyOfRescaledStrength`
   specializes the Cauchy consumer to the literal matched explicit producer.
+- **semantic handoff:** `matchedContinuumHandoffOfRescaledStrength` assembles
+  the same-carrier continuum handoff from the exact-rate witness and explicit
+  projective OS, spectral-channel, exact-rate reconstruction, and continuum
+  YM-existence data.
 - **explicit remaining inputs:** the local producer, two-sided strength
   scaling, observable pin, rescaled-strength variation, and shifted AF
   identification remain fields of the theorem type.
