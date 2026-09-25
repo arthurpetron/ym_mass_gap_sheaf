@@ -583,6 +583,75 @@ def MarginalHalfGeometricRawRepresentativeCanonicalVariation.toRawScheduledVaria
     marginalHalfGeometricRawRepresentativeCanonical_represents time scale
   variation := data.variation
 
+/-! ## Conditional same-observable continuum contraction -/
+
+/- The positive-time certificate now feeds the existing raw representative
+compiler without introducing a second representative or limit object. -/
+def marginalHalfGeometric_rawScheduledVariationOfPositiveTime
+    (positive : MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation) :
+    MovingCubeRawScheduledRepresentativeVariation
+      marginalHalfGeometricCompletedFamily :=
+  positive.toAllTime.toRawScheduledVariation
+
+/- The scalar rate stream is already fully constructive; only the raw
+same-object cross-scale variation is supplied by the caller. -/
+def marginalHalfGeometric_ratePowerLimit :
+    NormalizedMovingCubeSampledRatePowerLimit
+      marginalHalfGeometricCompletedFamily :=
+  normalizedMovingCubeSampledRatePowerLimitOfVariation
+    marginalHalfGeometricCompletedFamily
+    (normalizedMovingCubeSampledRatePowerVariationOfRational
+      marginalHalfGeometricCompletedFamily
+      marginalHalfGeometric_ratePowerVariation)
+
+/- The fixed-family normalized limit is therefore defined from the same raw
+representative and the already inhabited rational debt certificate. -/
+def marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime
+    (positive : MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation) :
+    NormalizedMovingCubeScheduledRCContinuumLimit
+      marginalHalfGeometricCompletedFamily :=
+  normalizedMovingCubeLimitOfRationalDebtVariation
+    marginalHalfGeometricCompletedFamily
+    (marginalHalfGeometric_rawScheduledVariationOfPositiveTime positive)
+    marginalHalfGeometric_normalizationNormDebtRationalVariation
+
+theorem marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime_zero_isPositive
+    (positive : MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation) :
+    RCStrictPositivity.RCIsPositive
+      (NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+        (marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime positive) 0) := by
+  exact normalizedMovingCubeLimitOfRationalDebtVariation_zero_isPositive
+    marginalHalfGeometricCompletedFamily
+    (marginalHalfGeometric_rawScheduledVariationOfPositiveTime positive)
+    marginalHalfGeometric_normalizationNormDebtRationalVariation
+
+/- The strongest current contraction: once the one remaining positive-time
+raw variation certificate is supplied, the concrete fixed-family same-object
+continuum channel has strict zero-time positivity and the exact squared decay
+bound, with its scalar rate limit already constructed. -/
+theorem marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime_sq_decay
+    (positive : MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation)
+    (time : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+          (marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime positive) time)
+        (NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+          (marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime positive) time))
+      (CReal.RCmul
+        (CReal.RCmul
+          (Quotient.mk CReal.crealSetoid
+            (marginalHalfGeometric_ratePowerLimit.limitRepresentative time))
+          (NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+            (marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime positive) 0))
+        (NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+          (marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime positive) 0)) := by
+  exact normalizedMovingCubeLimitOfRationalVariations_sq_decay
+    marginalHalfGeometricCompletedFamily
+    (marginalHalfGeometric_rawScheduledVariationOfPositiveTime positive)
+    marginalHalfGeometric_normalizationNormDebtRationalVariation
+    marginalHalfGeometric_ratePowerVariation time
+
 theorem marginalHalfGeometricRawRepresentative_represents
     (time scale : Nat) :
     Quotient.mk CReal.crealSetoid
@@ -639,3 +708,13 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationS
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation.toAllTime
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.MarginalHalfGeometricRawRepresentativeCanonicalVariation.toRawScheduledVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_rawScheduledVariationOfPositiveTime
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_ratePowerLimit
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime_zero_isPositive
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime_sq_decay

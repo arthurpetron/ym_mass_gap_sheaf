@@ -28,6 +28,10 @@ certificate.
 | `marginalHalfGeometricRawCanonicalZeroTimeVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:518` | Closes the complete `SummableCRealStepVariation` field at time zero; positive-time cross-scale variation remains open. |
 | `MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:560` | Factors the uninhabited input to the positive-time (`0 < time`) cross-scale variation fields only. |
 | `MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation.toAllTime` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:567` | Constructively inserts the proved zero-time certificate and returns the all-time variation object consumed by the normalized compiler. |
+| `marginalHalfGeometric_rawScheduledVariationOfPositiveTime` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:590` | Reuses the canonical representative and the positive-time-to-all-time adapter as the raw scheduled compiler input. |
+| `marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:609` | Constructs the concrete fixed-family normalized continuum limit from that same raw object and the already inhabited rational debt stream. |
+| `marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime_zero_isPositive` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:618` | Proves strict zero-time positivity for the conditional same-observable limit. |
+| `marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime_sq_decay` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:632` | Proves the exact continuum squared decay for that same limit, using the checked scalar rate stream. |
 
 ## Generic constructive boundary
 

@@ -13,6 +13,11 @@
 - **same-object decay:** `marginalHalfGeometricRawRepresentativeCanonical_sq_decay`
   (`:422`) transports the finite scheduled square-decay inequality to the
   canonical CReal representative before the still-missing variation bridge.
+- **conditional continuum contraction:**
+  `marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime` (`:609`),
+  `..._zero_isPositive` (`:618`), and `..._sq_decay` (`:632`) compose the
+  canonical raw object with the already inhabited debt/rate streams.  These
+  declarations do not inhabit the positive-time raw variation field.
 - **scope:** this is a type-level reduction, not an inhabitant of the
   positive-time fields.  The spacing-uniform physical rate, continuum/QFT
   reconstruction, all-group theorem, and Clay target remain open.

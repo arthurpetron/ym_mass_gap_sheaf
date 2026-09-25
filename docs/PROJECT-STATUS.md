@@ -297,6 +297,12 @@ zero-time obligations and leaves one precisely typed positive-time frontier;
 the same-object theorem
 `marginalHalfGeometricRawRepresentativeCanonical_sq_decay` (`:422`) exposes
 the finite squared decay on the canonical CReal representative itself.
+The conditional contraction
+`marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime` (`:609`),
+with strict positivity (`:618`) and squared decay (`:632`), now joins this
+single raw object to the already checked normalization-debt and rate-power
+streams.  It remains conditional precisely on the positive-time raw variation
+certificate.
 the continuum, spacing-uniform mass, and Clay nodes remain open.
 
 ### Concrete normalized-stream rate input (2026-09-25 UTC)
