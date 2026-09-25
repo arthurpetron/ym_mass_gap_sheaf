@@ -70,6 +70,14 @@ error.  It adds no spacing/scaling, continuum, physical-mass or all-group
 result.  Evidence:
 `audits/AUDIT-WILSON-COMPLEX-ONE-STEP-NORM-GAP-2026-09-24.md`.
 
+`BF4WilsonAllNomeComplexGap.complex_iterated_norm_gap` now iterates that
+contraction constructively and gives the same-carrier norm-square bound with
+rate `twoStepRate^n` for every discrete power.  The rate is uniform in the
+iteration index but remains nome/width-dependent.  The focused check passed
+within `{propext, Quot.sound}` with no source hole, warning, classical input or
+error.  Evidence:
+`audits/AUDIT-WILSON-COMPLEX-ITERATED-NORM-GAP-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream

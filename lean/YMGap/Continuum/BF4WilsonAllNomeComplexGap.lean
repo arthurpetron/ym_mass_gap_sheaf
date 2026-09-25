@@ -22,7 +22,8 @@ open YMGap.Continuum.BF4WilsonAllNomeCompletedInner
 open YMGap.Continuum.BF4WilsonAllNomeCompletedGap
 open YMGap.Continuum.BF4WilsonAllNomeComplexification
 open YMGap.Continuum.BF4WilsonAllNomeBilinearTime
-open YMGap.Continuum.BF4ExactSlabFixedSpatialDenseCenteredGap (twoStepRate)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialDenseCenteredGap
+  (twoStepRate twoStepRate_nonnegative)
 
 variable {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (width : Nat)
 
@@ -153,6 +154,26 @@ theorem complex_oneStep_norm_gap (n : Nat) (x : VC)
     inner_even_diagonal hw0 hw1 width (n+1) x] at h
   exact h
 
+/-! Iteration of the same completed-carrier contraction.  The power is the
+fixed nome/width rate; this remains a discrete finite-parameter statement. -/
+theorem complex_iterated_norm_gap (n : Nat) (x : VC)
+    (hx : I CU x = (RCzero, RCzero)) :
+    RCle (I (CT n x) (CT n x)).1
+      (RCscale ((twoStepRate hw0 hw1 width)^n) (I x x).1) := by
+  induction n with
+  | zero =>
+      rw [complexTime_zero, Q'.pow_zero, RCscale_one]
+      exact RCle_refl _
+  | succ k ih =>
+      have hstep := complex_oneStep_norm_gap hw0 hw1 width k x hx
+      refine RCle_trans hstep ?_
+      have hrateNonnegative : (0 : Q') ≤ twoStepRate hw0 hw1 width :=
+        twoStepRate_nonnegative hw0 hw1 width
+      have hscaled := RCscale_mono hrateNonnegative ih
+      refine RCle_trans hscaled ?_
+      rw [RCscale_RCscale, Q'.pow_succ]
+      exact RCle_refl _
+
 #print axioms complexUnit
 #print axioms complexUnit_fixed
 #print axioms inner_unit_left
@@ -166,5 +187,6 @@ theorem complex_oneStep_norm_gap (n : Nat) (x : VC)
 #print axioms complexTime_preserves_gap_sector
 #print axioms complex_twoStep_translated
 #print axioms complex_oneStep_norm_gap
+#print axioms complex_iterated_norm_gap
 
 end YMGap.Continuum.BF4WilsonAllNomeComplexGap
