@@ -98,6 +98,7 @@ structure NontrivialityFiber : Type 2 where
   sector : CompletedPhysicalSU2Sector
   sector_exact : sector = currentSector
   probe : V
+  probe_sector : probe = sector.probe
   probe_ne_zero : probe ≠ Z
   probe_vacuum_orthogonal : B probe U = RCzero
   probe_response_floor :
@@ -111,6 +112,7 @@ structure GapFiber : Type 2 where
   sector : CompletedPhysicalSU2Sector
   sector_exact : sector = currentSector
   probe : V
+  probe_sector : probe = sector.probe
   probe_vacuum_orthogonal : B probe U = RCzero
   probe_strict_two_step :
     RCle (B probe (T 2 probe))
@@ -130,6 +132,7 @@ structure DimensionlessMassFiber : Type 2 where
   sector : CompletedPhysicalSU2Sector
   sector_exact : sector = currentSector
   probe : V
+  probe_sector : probe = sector.probe
   probe_vacuum_orthogonal : B probe U = RCzero
   probe_strict_two_step :
     RCle (B probe (T 2 probe))
@@ -153,6 +156,7 @@ structure SpacingCalibratedMassFiber (A : CurrentSpacing) : Type 2 where
   sector : CompletedPhysicalSU2Sector
   sector_exact : sector = currentSector
   probe : V
+  probe_sector : probe = sector.probe
   probe_vacuum_orthogonal : B probe U = RCzero
   probe_strict_two_step :
     RCle (B probe (T 2 probe))
@@ -181,6 +185,7 @@ structure VanishingSpacingMassFiber (S : CurrentSpacingSchedule) : Type 2 where
   sector : CompletedPhysicalSU2Sector
   sector_exact : sector = currentSector
   probe : V
+  probe_sector : probe = sector.probe
   probe_vacuum_orthogonal : B probe U = RCzero
   probe_strict_two_step :
     RCle (B probe (T 2 probe))
@@ -206,6 +211,7 @@ def NontrivialityFiber.toGap (e : NontrivialityFiber) : GapFiber where
   sector := e.sector
   sector_exact := e.sector_exact
   probe := e.probe
+  probe_sector := e.probe_sector
   probe_vacuum_orthogonal := e.probe_vacuum_orthogonal
   probe_strict_two_step :=
     completed_twoStep_form_gap nome_pos nome_lt_one hsmall hd hs e.probe
@@ -220,6 +226,7 @@ def GapFiber.toDimensionlessMass (g : GapFiber) : DimensionlessMassFiber where
   sector := g.sector
   sector_exact := g.sector_exact
   probe := g.probe
+  probe_sector := g.probe_sector
   probe_vacuum_orthogonal := g.probe_vacuum_orthogonal
   probe_strict_two_step := g.probe_strict_two_step
   probe_time_decay := g.probe_time_decay
@@ -235,6 +242,7 @@ def DimensionlessMassFiber.toSpacingCalibratedMass
   sector := m.sector
   sector_exact := m.sector_exact
   probe := m.probe
+  probe_sector := m.probe_sector
   probe_vacuum_orthogonal := m.probe_vacuum_orthogonal
   probe_strict_two_step := m.probe_strict_two_step
   probe_time_decay := m.probe_time_decay
@@ -251,6 +259,7 @@ def DimensionlessMassFiber.toVanishingSpacingMass
   sector := m.sector
   sector_exact := m.sector_exact
   probe := m.probe
+  probe_sector := m.probe_sector
   probe_vacuum_orthogonal := m.probe_vacuum_orthogonal
   probe_strict_two_step := m.probe_strict_two_step
   probe_time_decay := m.probe_time_decay
@@ -263,6 +272,7 @@ def currentNontriviality : NontrivialityFiber where
   sector := currentSector
   sector_exact := rfl
   probe := unitExcitation
+  probe_sector := rfl
   probe_ne_zero := unitExcitation_ne_zero
   probe_vacuum_orthogonal := unitExcitation_orthogonal
   probe_response_floor := by
@@ -381,6 +391,16 @@ theorem branch_arrow_preserves_sector
     (n : Nat) (e : NontrivialityFiber) :
     (nontrivialityToGap.app n e).sector = e.sector := rfl
 
+theorem branch_arrow_preserves_sector_probe
+    (n : Nat) (e : NontrivialityFiber) :
+    (nontrivialityToGap.app n e).probe_sector = e.probe_sector := rfl
+
+theorem branch_arrow_probe_is_sector_probe
+    (n : Nat) (e : NontrivialityFiber) :
+    (nontrivialityToGap.app n e).probe =
+      (nontrivialityToGap.app n e).sector.probe :=
+  (nontrivialityToGap.app n e).probe_sector
+
 theorem gap_mass_arrow_preserves_probe (n : Nat) (g : GapFiber) :
     (gapToDimensionlessMass.app n g).probe = g.probe := rfl
 
@@ -389,6 +409,16 @@ theorem gap_mass_arrow_preserves_rate (n : Nat) (g : GapFiber) :
 
 theorem gap_mass_arrow_exposes_sector (n : Nat) (g : GapFiber) :
     (gapToDimensionlessMass.app n g).sector = currentSector := g.sector_exact
+
+theorem gap_mass_arrow_preserves_sector_probe
+    (n : Nat) (g : GapFiber) :
+    (gapToDimensionlessMass.app n g).probe_sector = g.probe_sector := rfl
+
+theorem gap_mass_arrow_probe_is_sector_probe
+    (n : Nat) (g : GapFiber) :
+    (gapToDimensionlessMass.app n g).probe =
+      (gapToDimensionlessMass.app n g).sector.probe :=
+  (gapToDimensionlessMass.app n g).probe_sector
 
 theorem branch_arrow_exposes_same_object_decay
     (n k : Nat) (e : NontrivialityFiber) :
@@ -493,10 +523,14 @@ theorem currentGap_strict_two_step :
 #print axioms branch_arrow_preserves_probe
 #print axioms branch_arrow_preserves_orthogonality
 #print axioms branch_arrow_preserves_sector
+#print axioms branch_arrow_preserves_sector_probe
+#print axioms branch_arrow_probe_is_sector_probe
 #print axioms branch_arrow_exposes_same_object_decay
 #print axioms gap_mass_arrow_preserves_probe
 #print axioms gap_mass_arrow_preserves_rate
 #print axioms gap_mass_arrow_exposes_sector
+#print axioms gap_mass_arrow_preserves_sector_probe
+#print axioms gap_mass_arrow_probe_is_sector_probe
 #print axioms gap_mass_arrow_preserves_same_object_decay
 #print axioms calibration_arrow_preserves_probe
 #print axioms calibration_arrow_exposes_exact_rate

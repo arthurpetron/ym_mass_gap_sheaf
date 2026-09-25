@@ -37,6 +37,20 @@ axiom, `native_decide`, or custom axiom.  This remains a fixed-spacing SU(2)
 carrier and does not supply changing-spacing control, canonical OS/GNS
 identification, continuum/QFT limits, or Clay closure.
 
+## Current increment: physical probe pinned to the carried sector (2026-09-25 UTC)
+
+All four branch fibers now carry `probe_sector : probe = sector.probe` in
+`lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`.
+The compiler arrows transport this equality, and
+`branch_arrow_probe_is_sector_probe` plus
+`gap_mass_arrow_probe_is_sector_probe` expose that the nontrivial/gap probes
+are the concrete sector probe whose same-object correlator pins live in
+`CompletedPhysicalSU2Sector`.  The focused check passed with only
+`{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`, or
+custom axiom.  This closes the observable-identity seam at fixed spacing; it
+does not establish a changing-spacing observable, continuum/QFT limits, or
+the Clay theorem.
+
 ## Current increment: composed branch-to-fixed-spacing-rate presheaf chain (2026-09-25 UTC)
 
 `SpacingCalibratedMassFiber` in

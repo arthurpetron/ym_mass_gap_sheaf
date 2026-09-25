@@ -36,6 +36,24 @@
   `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
   or custom axiom.
 
+## Physical probe pinned to the carried sector (2026-09-25 UTC)
+
+- **observable identity:** `NontrivialityFiber`, `GapFiber`,
+  `DimensionlessMassFiber`, `SpacingCalibratedMassFiber`, and
+  `VanishingSpacingMassFiber` now carry
+  `probe_sector : probe = sector.probe` in
+  `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`.
+- **transport and exposure:** the branch compilers preserve this equality;
+  `branch_arrow_probe_is_sector_probe` and
+  `gap_mass_arrow_probe_is_sector_probe` expose the concrete sector probe
+  behind the same-object correlator data.
+- **scope:** this closes only the observable-identity seam on the fixed
+  completed SU(2) carrier.  It does not provide a changing-spacing observable,
+  continuum/QFT limits, or Clay closure.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Scheduled-rate presheaf obstruction (2026-09-25 UTC)
 
 - **scheduled fiber:** `VanishingSpacingMassFiber` and
