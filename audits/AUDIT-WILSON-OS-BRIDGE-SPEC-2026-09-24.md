@@ -34,12 +34,12 @@ strict OS completion; that concrete identification remains open.
   lag-two relative-loss input supplied by the current completed complex Wilson
   consumer, without requiring an unproved all-lag interpolation.
 - `YMGap.Continuum.BF4WilsonOSBridgeSpec.transfer_twoStep_form_gap`
-  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:76`) transports that OS
+  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:102`) transports that OS
   inequality to every Wilson vector whose orthogonality is preserved by the
   bridge.  Its focused check passed with no axioms (`#print axioms` reports an
   empty set).
 - `YMGap.Continuum.BF4WilsonOSBridgeSpec.transfer_form_family`
-  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:95`) transports every
+  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:121`) transports every
   member of the lag-indexed family to the Wilson carrier.  Its focused check
   also reports an empty axiom set.
 - `YMGap.Continuum.BF4WilsonOSBridgeSpec.transfer_relative_loss_family`

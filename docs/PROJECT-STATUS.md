@@ -616,11 +616,11 @@ remains open; extending this candidate normalization alone cannot supply it.
   carrier-map, pairing, step, vacuum, and orthogonality data needed to identify
   the literal all-nome Wilson completion with the separate strict OS carrier.
   `OSFormGap` (`:48`) keeps the OS-side two-step inequality as an explicit
-  input, and `transfer_twoStep_form_gap` (`:76`) transports it constructively
+  input, and `transfer_twoStep_form_gap` (`:102`) transports it constructively
   to the Wilson side. `OSFormFamily` (`:62`) and
-  `transfer_form_family` (`:95`) now expose the corresponding arbitrary-lag
+  `transfer_form_family` (`:121`) now expose the corresponding arbitrary-lag
   consumer needed for same-object correlator decay. The new
-  `OSRelativeLossFamily` (`:76`) and `transfer_relative_loss_family` (`:127`)
+  `OSRelativeLossFamily` (`:76`) and `transfer_relative_loss_family` (`:138`)
   expose the relative-energy defect needed by the survival compiler. All
   focused consumers report empty axiom sets. No bridge inhabitant is supplied,
   so J02, B04/B05, the continuum joins, physical mass, and the Clay target
