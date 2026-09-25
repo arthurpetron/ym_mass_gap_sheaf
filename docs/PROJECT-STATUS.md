@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **36**, 2026-09-24 UTC. Source checkpoint:
-the SAME all-nome Wilson origin-plaquette complex-rate cutoff milestone
+Chart schema: **1**. Snapshot: **37**, 2026-09-24 UTC. Source checkpoint:
+the SAME all-nome Wilson dyadic relative-energy survival milestone
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-ORIGIN-COMPLEX-CUTOFF-2026-09-24.md`.
+`audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -191,6 +191,21 @@ target.  This is coefficient-level finite-parameter evidence only; it does
 not alter the computed-rate width obstruction or close B04, A05, J01, J02,
 J03, or J04.  Verification is recorded in
 `audits/AUDIT-WILSON-ORIGIN-COMPLEX-CUTOFF-2026-09-24.md`.
+
+New same-carrier relative-energy compiler:
+`BF4WilsonAllNomeDyadicRelativeSurvival.dyadic_response_floor_of_relative_energy`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRelativeSurvival.lean:124`)
+consumes a relative loss bound for the actual padded dyadic-square state and
+returns a positive response floor at its own discrete lag, using the existing
+`starRatio` norm floor.  The companion
+`dyadic_relative_energy_of_loss_budget` (`:140`) composes the existing cubic
+centered loss estimate with an explicit SAME-norm budget, cancelling the
+factor two constructively; `dyadic_response_floor_of_loss_budget` (`:154`)
+composes both pieces.  The budget remains an explicit hypothesis and is not
+proved along a changing-scale trajectory.  No chart node changes status:
+spacing control, scaling survival, continuum, physical mass, and all-group
+construction remain open.  Verification is recorded in
+`audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md`.
 
 Additional partial J02 evidence: `BF4WilsonAllNomeLinear.completedAdd` and
 `.completedSmul` (`lean/YMGap/Continuum/BF4WilsonAllNomeLinear.lean:132`, `:135`)
@@ -491,9 +506,18 @@ remains open; extending this candidate normalization alone cannot supply it.
   the computed fixed-width rate as B04's uniform certificate; it does not
   refute the actual transfer operator. The next frontier remains a genuinely
   spatially/spacing-uniform same-object estimate.
+- New checked same-carrier compiler: `BF4WilsonAllNomeDyadicRelativeSurvival`
+  consumes the actual padded dyadic-square centered loss and norm floor. Its
+  `dyadic_response_floor_of_relative_energy` (`:124`) returns a positive
+  response under an explicit relative-energy budget, while
+  `dyadic_relative_energy_of_loss_budget` (`:140`) composes the existing cubic
+  loss bound with an explicit SAME-norm budget and constructively cancels the
+  factor two. `dyadic_response_floor_of_loss_budget` (`:154`) composes both.
+  The budget is not proved along a changing-scale trajectory; no chart node
+  closes.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--35; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--37; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 

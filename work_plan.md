@@ -175,6 +175,21 @@ modulus only.  It does not repair the width obstruction, produce a uniform
 response, or close A03/B04/A05/J01--J04.  Evidence:
 `audits/AUDIT-WILSON-ORIGIN-COMPLEX-CUTOFF-2026-09-24.md`.
 
+### SAME-carrier dyadic relative-energy survival (2026-09-24 UTC)
+
+`BF4WilsonAllNomeDyadicRelativeSurvival.dyadic_response_floor_of_relative_energy`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRelativeSurvival.lean:124`)
+consumes a relative loss bound for the actual padded dyadic-square state and
+returns a positive response floor at its own discrete lag, using the existing
+`starRatio` norm floor.  The companion
+`dyadic_relative_energy_of_loss_budget` (`:140`) composes the existing cubic
+centered loss bound with the explicit SAME-norm budget
+`lossBound ≤ 2*delta*norm`, cancelling the factor two by constructive eventual
+order.  `dyadic_response_floor_of_loss_budget` (`:154`) composes both pieces.
+The budget is not proved along a changing-scale trajectory, so this is a
+finite-parameter compiler and not B04/A05/J01--J04 closure.  Evidence:
+`audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream

@@ -126,6 +126,16 @@ nome/width-dependent certificate; it does not provide a spacing-uniform rate,
 continuum survival or physical mass gap. Evidence:
 `audits/AUDIT-WILSON-ORIGIN-COMPLEX-CUTOFF-2026-09-24.md` at repository root.
 
+`BF4WilsonAllNomeDyadicRelativeSurvival` consumes the actual padded dyadic
+square's completed norm floor and centered loss. Its
+`dyadic_response_floor_of_relative_energy` returns a positive same-carrier
+response under an explicit relative-energy budget, while
+`dyadic_relative_energy_of_loss_budget` composes the existing cubic loss bound
+with an explicit SAME-norm budget and constructively cancels the factor two.
+The budget remains open along changing scale; this is not a uniform gap or
+continuum result. Evidence:
+`audits/AUDIT-WILSON-DYADIC-RELATIVE-SURVIVAL-2026-09-24.md` at repository root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.
