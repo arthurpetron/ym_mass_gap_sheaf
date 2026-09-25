@@ -93,6 +93,13 @@ state norm cap and parameter-uniform positivity/rate control remain separate
 certificates.  Evidence:
 `audits/AUDIT-WILSON-COMPLEX-RATE-MODULUS-2026-09-24.md`.
 
+`complex_even_lag_response_power_floor` now composes the same-object decay
+with explicit hypotheses for a rational norm cap and a response floor, giving
+`floor ≤ twoStepRate^n*C` for the same complex carrier. This is the next
+conditional survival compiler; it produces neither the cap nor the response,
+and it remains fixed nome/width. Evidence:
+`audits/AUDIT-WILSON-COMPLEX-RESPONSE-FLOOR-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream

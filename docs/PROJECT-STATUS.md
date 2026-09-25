@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **29**, 2026-09-24 UTC. Source checkpoint:
-the SAME Wilson complex-carrier rate-modulus milestone
+Chart schema: **1**. Snapshot: **30**, 2026-09-24 UTC. Source checkpoint:
+the SAME Wilson complex-carrier response-floor milestone
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-COMPLEX-RATE-MODULUS-2026-09-24.md`.
+`audits/AUDIT-WILSON-COMPLEX-RESPONSE-FLOOR-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -308,6 +308,17 @@ No spacing/scaling, thermodynamic, continuum, physical-mass or all-group node
 closes.  Evidence:
 `audits/AUDIT-WILSON-COMPLEX-RATE-MODULUS-2026-09-24.md`.
 
+New conditional J02 evidence: `BF4WilsonAllNomeComplexGap.complex_even_lag_response_power_floor`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeComplexGap.lean:210`) composes the
+same-object even-lag decay with explicit norm-cap and response-floor
+hypotheses, yielding `floor ≤ twoStepRate^n*C` on the SAME complex carrier.
+The focused monitored check exits 0 and the declaration audits to
+`{propext, Quot.sound}` with no `sorryAx`, classical input, warning or error.
+This is a conditional compiler only: cap/response production, strict rate
+positivity, spacing/scaling, thermodynamic, continuum, physical-mass and
+all-group obligations remain open. Evidence:
+`audits/AUDIT-WILSON-COMPLEX-RESPONSE-FLOOR-2026-09-24.md`.
+
 New partial J02 evidence: `BF4WilsonAllNomeComplexGap.complex_twoStep_form_gap`
 (`lean/YMGap/Continuum/BF4WilsonAllNomeComplexGap.lean:97`) consumes the
 complexification on the SAME all-nome Wilson completion.  The module also
@@ -453,3 +464,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 27 | 2026-09-24 | The same-carrier norm contraction is iterated constructively, giving `twoStepRate^n` decay for every discrete power at fixed nome/width. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |
 | 1 / 28 | 2026-09-24 | The iterated same-carrier norm estimate is converted into an even-lag same-object correlator bound at lag `2*n`. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |
 | 1 / 29 | 2026-09-24 | Even-lag same-object correlators are proved nonnegative, and the scalar `twoStepRate^n` coefficient receives an explicit cutoff under an honest strict-positivity premise. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |
+| 1 / 30 | 2026-09-24 | The same complex carrier now has a conditional response-floor compiler: an explicit norm cap plus response floor implies `floor ≤ twoStepRate^n*C`. Focused check passed within the permitted axiom gate. No chart-block or goal-node status change; cap/response production and all scaling/continuum obligations remain open. |

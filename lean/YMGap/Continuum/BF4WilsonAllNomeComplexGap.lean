@@ -204,6 +204,25 @@ theorem complexRateCutoff_bound (epsilon : Q')
   exact HKConvGen.pow_base_le_cutoff hrate
     (twoStepRate_lt_one hw0 hw1 width) hepsilon
 
+/-! A response-floor consumer for the same completed complex carrier.  The
+norm cap and response floor are explicit hypotheses; no absolute observable
+bound or scaling-uniform survival is inferred from the fixed-parameter gap. -/
+theorem complex_even_lag_response_power_floor (x : VC)
+    (hx : I CU x = (RCzero, RCzero))
+    (C floor : Q')
+    (hcap : RCle (I x x).1
+      (Quotient.mk crealSetoid (ofQ' C)))
+    (n : Nat)
+    (hresponse : RCle (Quotient.mk crealSetoid (ofQ' floor))
+      (I x (CT (2*n) x)).1) :
+    floor ≤ (twoStepRate hw0 hw1 width)^n * C := by
+  have hdecay := complex_even_lag_corr_decay hw0 hw1 width n x hx
+  have hcap' := RCscale_mono
+    (Q'.pow_nonneg (twoStepRate hw0 hw1 width)
+      (twoStepRate_nonnegative hw0 hw1 width) n) hcap
+  have h := RCle_trans hdecay hcap'
+  exact GNSQuotient.GNSData.RCofQ'_le_reflect (RCle_trans hresponse h)
+
 #print axioms complexUnit
 #print axioms complexUnit_fixed
 #print axioms inner_unit_left
@@ -222,5 +241,6 @@ theorem complexRateCutoff_bound (epsilon : Q')
 #print axioms complex_even_lag_corr_nonnegative
 #print axioms complexRateCutoff
 #print axioms complexRateCutoff_bound
+#print axioms complex_even_lag_response_power_floor
 
 end YMGap.Continuum.BF4WilsonAllNomeComplexGap

@@ -64,6 +64,13 @@ fixed-parameter evidence; a norm cap and uniform positivity/rate bridge are
 still required for an absolute observable modulus. Evidence:
 `audits/AUDIT-WILSON-COMPLEX-RATE-MODULUS-2026-09-24.md` at repository root.
 
+`complex_even_lag_response_power_floor` composes that same-object decay with
+an explicit norm-cap and response-floor hypothesis, yielding the rational
+comparison `floor ≤ twoStepRate^n*C` on the SAME complex carrier. This is a
+conditional response compiler: it constructs neither hypothesis and makes no
+spacing-uniform, continuum, physical-mass or Clay claim. Evidence:
+`audits/AUDIT-WILSON-COMPLEX-RESPONSE-FLOOR-2026-09-24.md` at repository root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.
