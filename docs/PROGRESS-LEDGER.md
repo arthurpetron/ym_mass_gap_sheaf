@@ -4,6 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: dense branch natural transformation (2026-09-25 UTC)
+
+`denseObservableDiagram` and `denseTransferDiagram` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeDenseTimeNaturalTransformation.lean`
+package the checked intrinsic-width inclusion as a covariant scale diagram.
+`denseTimeNaturalTransformation` then gives an actual natural transformation
+whose component is the intrinsic discrete-time advance; its naturality square
+is `inclusion_advance`, and
+`denseTime_naturality_paddedSquare` specializes the square to the dyadic
+observable.  This is the precise sheaf-style interface currently available:
+the dense source word, width transport, and discrete time are coherent.  It is
+not a presheaf map between completed width-indexed Hilbert carriers, does not
+compare interacting actions at different widths, and supplies no changing-width
+response floor or continuum/Clay result.  The focused check passed with only
+`{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`, or
+custom axiom.
+
 ## Current increment: rescaled variation factored into same-family primitives (2026-09-25 UTC)
 
 `rescaledStrengthVariationOfPhysicalGapAndStrength` in

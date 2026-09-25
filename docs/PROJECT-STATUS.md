@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **51**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **52**, 2026-09-25 UTC. Source checkpoint:
 the exact lag-two Wilson-to-OS relative-loss bridge consumer, alongside the
 checked fixed-parameter complex relative-loss consumer and the explicit
 width-degeneration obstruction for the original response witness
@@ -12,7 +12,15 @@ This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
 
-Latest typed frontier (2026-09-25 UTC): the matched AF route now factors its
+Latest typed frontier (2026-09-25 UTC): the dense source branch and the
+discrete-time transfer/gap branch now form an actual natural transformation
+over the covariant intrinsic-width scale diagram: `denseObservableDiagram`,
+`denseTransferDiagram`, and `denseTimeNaturalTransformation` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeDenseTimeNaturalTransformation.lean`.
+The dyadic-square specialization is checked as
+`denseTime_naturality_paddedSquare`.  This is the sheaf-style naturality edge
+that the existing dense inclusion can support; it stops before any presheaf map
+between completed Hilbert carriers.  The matched AF route also factors its
 rescaled-strength variation into physical-gap and normalized-strength
 variations on the same carrier, and computes its full-range exact-log ceiling
 from the same physical-rate band.  The concrete `starRatio` dyadic loss
@@ -69,6 +77,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
  [x] Signed energy: 4E+D=2J        [x] Transfer + vacuum sector
  [x] Scale-zero same-carrier bridge
  [x] Dense width naturality square
+ [x] Dense time natural transformation
              |                              |
              v                              v
  [ ] Complete signed cost versus   [x] Strict completed T^2 bound
@@ -114,6 +123,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | A02 | Signed energy: 4E+D=2J | `BF4ExactSlabFixedSpatialSourceYoungExplicit.padded_terminal_plaquette_young_channels`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceYoungExplicit.lean:115`; original complete projected source and correction. |
 | A02a | Scale-zero same-carrier bridge | `BF4WilsonAllNomeDyadicScaleZeroPlaquetteBridge.square_zero_edges_eq_origin_boundary`, `.paddedSquare_zero_eq_originPlaquette`, `.dyadicExcitation_zero_eq_plaquetteExcitation`, and `.dyadicExcitation_zero_twoStep_floor`, `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicScaleZeroPlaquetteBridge.lean`; a finite typed transport edge between the dyadic-square and plaquette fibers. No cross-scale naturality or A03/A05 closure. |
 | A02b | Dense width naturality square | `BF4WilsonAllNomeDyadicDenseNaturality.inclusion_loopState`, `.inclusion_paddedSquare_loopState`, `.inclusion_paddedSquare_trans`, and `.inclusion_paddedSquare_advance`, `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDenseNaturality.lean`; intrinsic-width source transport, composition and discrete-time compatibility. No completed-carrier map or changing-width response floor. |
+| A02c | Dense branch time natural transformation | `BF4WilsonAllNomeDenseTimeNaturalTransformation.denseObservableDiagram`, `.denseTransferDiagram`, `.denseTimeNaturalTransformation`, `.denseTime_naturality`, and `.denseTime_naturality_paddedSquare`, `lean/YMGap/Continuum/BF4WilsonAllNomeDenseTimeNaturalTransformation.lean`; packages the covariant dense width diagram and actual discrete-time advance as a kernel-checked natural transformation. No completed-carrier map, interacting-action comparison, changing-width response floor, or continuum/Clay closure. |
 | A03 | Complete signed cost versus SAME interacting variance on a justified scaling family | OPEN original-source estimate for ONE family, or direct response alternative. |
 | A04 | Conditional survival theorem (requires the missing input) | `BF4ExactSlabFixedSpatialJointEnergySurvival.response_floor_of_relative_energy`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:112`; supplied relative energy and positive norm floor, SAME fixed-width carrier. |
 | A05 | ONE nonzero excitation survives | OPEN compatible changing-scale observable and nonzero response. |
@@ -974,3 +984,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 67 | 2026-09-25 | Ruled out the coarse dyadic rational loss budget for the concrete `starRatio`, and added a compatible pointwise-constant same-family physical-gap calibration compiler for exact-log Cauchy/cutoff removal. Physical band, continuum/QFT and Clay nodes remain open. |
 | 1 / 68 | 2026-09-25 | Added a kernel-checked scale-zero typed transport edge identifying the geometric Wilson square with the origin plaquette and transporting its lag-two floor on the same completed carrier. Cross-scale naturality, A03/A05, continuum/QFT and Clay nodes remain open. |
 | 1 / 69 | 2026-09-25 | Specialized the existing intrinsic-width inclusion to the dyadic-square family, proving composition and discrete-time compatibility across widths. Completed-carrier transport, changing-width response, A03/A05, continuum/QFT and Clay nodes remain open. |
+| 1 / 70 | 2026-09-25 | Added `NatTrans` to the constructive category core and packaged the dense observable and transfer/gap branches as a covariant scale diagram with discrete-time natural transformation; the dyadic square is checked. Completed-carrier presheaf maps, changing-width response, A03/A05, continuum/QFT and Clay nodes remain open. |

@@ -85,6 +85,24 @@ structure Functor (C : Cat.{u, v}) (D : Cat.{u', v'}) where
 out of the opposite category `C.op`. -/
 abbrev Presheaf (C : Cat.{u, v}) (D : Cat.{u', v'}) := Functor C.op D
 
+/-! ## Natural transformations -/
+
+/-- A proof-relevant natural transformation between two functors.
+
+The component at an object is a morphism in the target category.  Naturality
+is stated in the same diagrammatic composition order as `Cat.comp`: first the
+source functor's map, then the component at the target object.  This is the
+minimal datum needed to turn the checked dense width/time squares into an
+actual typed categorical edge; no extensional or classical principle is
+hidden in the definition. -/
+structure NatTrans {C : Cat.{u, v}} {D : Cat.{u', v'}}
+    (F G : Functor C D) where
+  /-- Component of the transformation at an object of the source category. -/
+  app : (X : C.Obj) → D.Hom (F.obj X) (G.obj X)
+  /-- The naturality square commutes for every source morphism. -/
+  naturality : ∀ {X Y : C.Obj} (f : C.Hom X Y),
+    D.comp (F.map f) (app Y) = D.comp (app X) (G.map f)
+
 /-! ## The category of types
 
 `TypeCat` — objects are types, morphisms are functions.  The target of
