@@ -4,6 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: physical-band ceiling removes a matched free input (2026-09-25 UTC)
+
+`fullRangeLogRateCeilingOfPhysicalRateBand` in
+`lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.lean`
+constructs the exact full-range logarithmic ceiling from the same pinned
+completed carrier and `DynamicVacuumSectorPhysicalRateBand`.  Its tail starts
+at the explicit `band.marginModulus HalfPow.half`: the band theorem supplies
+the half-window, `marginRate_eqv_physicalGap` identifies the pinned margin rate
+with the completed physical gap, and `computedPrefixCeiling` supplies the
+finite prefix.  The constructor
+`matchedExactRateCutoffRemovalOfRescaledStrengthOfPhysicalRateBand` therefore
+removes the previously independent `FullRangeLogRateCeiling` input from the
+matched cutoff-removal route.  This is still conditional on the local
+producer, strength scaling, observable pin, rescaled-strength variation, and
+AF identification; it does not construct the band or any continuum/QFT
+witness.  The focused monitored check passed with only `{propext,
+Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`, or custom
+axiom.
+
 ## Current increment: fixed-family scalar endpoints and positive-time raw frontier (2026-09-25 UTC)
 
 The canonical fixed-family raw stream now exposes the remaining obligation as

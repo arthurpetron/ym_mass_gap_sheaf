@@ -14,6 +14,8 @@ import YMGap.Continuum.BF4PhysicalMatchedAFDynamicSpacingTailCompiler
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicStrengthNormalization
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualTransitionProductCompiler
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualAdaptiveObservableTransitionProductCompiler
+import YMGap.Continuum.FinitePrefixFullLogRateCeiling
+import YMGap.Continuum.PhysicalSeparatorFullLogHalfWindow
 
 namespace YMGap.Continuum.BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler
 
@@ -41,13 +43,54 @@ open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualAdaptiveObser
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffObservableCompiler
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.ExactRateReconstructionHandoff
+open YMGap.Continuum.FinitePrefixFullLogRateCeiling
 open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.MeasureLinkedOSReconstruction
 open YMGap.Continuum.ProjectiveOSCorrelationHandoff
 open YMGap.Continuum.QuadraticRateErrorTailControl
 open YMGap.Continuum.PhysicalSeparatorContinuumRealization
+open YMGap.Continuum.PhysicalSeparatorFullLogHalfWindow
 open YMGap.Continuum.PhysicalSeparatorFullLogComparison
 open YMGap.Continuum.SummableRationalStepVariation
+
+/-! ## 0. The rate band computes the exact full-range ceiling -/
+
+/-
+The exact-log consumer previously accepted a separate finite ceiling.  For a
+matched completed carrier this is not an independent analytic input: the
+physical-rate band supplies the eventual half-window and the same upper rate
+bound, while the finite-prefix ceiling is computed from the separator and its
+positive spacing.  This constructor keeps every quantity on the pinned
+completed family and removes that free ceiling field from the route.
+-/
+
+def fullRangeLogRateCeilingOfPhysicalRateBand
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (pin : DynamicVacuumSectorObservablePin family)
+    (band : DynamicVacuumSectorPhysicalRateBand family) :
+    FullRangeLogRateCeiling (fullRangeRateFamily pin) := by
+  let start := band.marginModulus HalfPow.half
+  let H : EventualSeparatorHalfWindow pin.toPhysicalSeparator start := {
+    sep_ge_half := fun j hj => by
+      have hrate := band.one_sub_epsilon_le_rate
+        HalfPow.half (by decide) j hj
+      exact Q'.le_trans' _ _ _
+        (Q'.le_of_eqv
+          (by decide : Q'.eqv HalfPow.half (1 - HalfPow.half))) hrate
+  }
+  let U : TailMarginRateCeiling pin.toPhysicalSeparator
+      family.transferSpacing start := {
+    ceiling := band.ceiling
+    margin_bound := fun j hj => by
+      have hmargin :=
+        marginRate_eqv_physicalGap pin j
+      exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hmargin)
+        (band.physicalGap_le_ceiling j)
+  }
+  exact globalExactCeilingOfPrefixEventualHalfWindow
+    pin.toPhysicalSeparator family.transferSpacing start
+    (computedPrefixCeiling (fullRangeRateFamily pin) start) H U
 
 /-- The matched AF spacing tail and the rescaled-strength variation compile
 to an exact-log Cauchy modulus for the full-range rate of the same completed
@@ -100,6 +143,33 @@ def matchedExactRateCutoffRemovalOfRescaledStrength
     pin scaling.toPhysicalRateBand ceiling
     (matchedExactLogRateCauchyOfRescaledStrength
       trajectory producer scaling pin variation C H)
+
+/-! The preceding consumer is retained for callers that already carry an
+explicit ceiling.  This variant computes that ceiling from the same physical
+rate band, so the matched route has no free full-range upper-bound input. -/
+
+def matchedExactRateCutoffRemovalOfRescaledStrengthOfPhysicalRateBand
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (producer : trajectory.LocalProducer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (pin : DynamicVacuumSectorObservablePin
+      (trajectory.toCompletedFamily producer))
+    (variation : SummableRationalStepVariation
+      (rescaledStrength (trajectory.toNormalizedStrengthLaw producer)))
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    ExactRateCutoffRemoval
+      (DynamicVacuumSectorObservablePin.exactCertificate
+        pin scaling.toPhysicalRateBand
+        (fullRangeLogRateCeilingOfPhysicalRateBand
+          pin scaling.toPhysicalRateBand)) :=
+  matchedExactRateCutoffRemovalOfRescaledStrength
+    trajectory producer scaling pin variation
+    (fullRangeLogRateCeilingOfPhysicalRateBand
+      pin scaling.toPhysicalRateBand) C H
 
 /-- Assemble the same-object continuum handoff from the matched exact-rate
 certificate and the independent projective/OS/reconstruction witnesses. -/
@@ -193,7 +263,9 @@ def matchedExplicitProducerExactLogRateCauchyOfRescaledStrength
 end MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer
 
 #print axioms matchedExactLogRateCauchyOfRescaledStrength
+#print axioms fullRangeLogRateCeilingOfPhysicalRateBand
 #print axioms matchedExactRateCutoffRemovalOfRescaledStrength
+#print axioms matchedExactRateCutoffRemovalOfRescaledStrengthOfPhysicalRateBand
 #print axioms matchedContinuumHandoffOfRescaledStrength
 #print axioms observableCertificatesExactRateCutoffRemovalOfRescaledStrength
 #print axioms

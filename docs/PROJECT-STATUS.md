@@ -12,6 +12,12 @@ This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
 
+Latest typed frontier (2026-09-25 UTC): the matched AF route now computes its
+full-range exact-log ceiling from the same physical-rate band and removes that
+free ceiling input from cutoff removal.  This does not change the chart's
+top-level open markers: the physical band, observable pin, continuum/QFT
+handoff, and Clay target remain open.
+
 ## Fixed interpretation
 
 - `[x]`: the EXACT displayed claim is proved and Lean-kernel-checked within

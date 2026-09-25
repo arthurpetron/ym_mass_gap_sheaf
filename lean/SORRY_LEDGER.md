@@ -2,6 +2,15 @@
 
 ## Matched AF rescaled-strength exact-rate cutoff (2026-09-25 UTC)
 
+- **computed ceiling:** `fullRangeLogRateCeilingOfPhysicalRateBand`
+  (`lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.lean`)
+  derives the full-range exact-log ceiling from the same observable pin and
+  physical rate band.  It glues the computed finite prefix to the explicit
+  half-window tail and uses `marginRate_eqv_physicalGap`; no independent
+  ceiling witness is required.
+- **ceiling-free route:**
+  `matchedExactRateCutoffRemovalOfRescaledStrengthOfPhysicalRateBand` consumes
+  that computed ceiling and returns the same-object `ExactRateCutoffRemoval`.
 - **same-object join:** `matchedExactLogRateCauchyOfRescaledStrength`
   (`lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.lean`)
   transports the AF inverse-square spacing tail to the literal matched
