@@ -22,6 +22,21 @@ fixed-spacing SU(2) carrier: it does not identify a canonical OS/GNS object,
 construct a changing-spacing family, establish continuum/QFT limits, or close
 the Clay target.
 
+## Current increment: explicit sector transport from nontriviality through the gap fiber (2026-09-25 UTC)
+
+`NontrivialityFiber` and `GapFiber` now carry the same explicit
+`CompletedPhysicalSU2Sector` witness and equality
+`sector_exact : sector = currentSector`.  The compiler
+`NontrivialityFiber.toGap` transports that witness, and
+`branch_arrow_preserves_sector` proves preservation in the first natural
+transformation.  `GapFiber.toDimensionlessMass` now transports the proof rather
+than manufacturing a downstream sector, so the full nontriviality → gap → rate
+chain is proof-relevantly same-carrier from its source endpoint.  The focused
+check passed with only `{propext, Quot.sound}` and no `sorryAx`, classical
+axiom, `native_decide`, or custom axiom.  This remains a fixed-spacing SU(2)
+carrier and does not supply changing-spacing control, canonical OS/GNS
+identification, continuum/QFT limits, or Clay closure.
+
 ## Current increment: composed branch-to-fixed-spacing-rate presheaf chain (2026-09-25 UTC)
 
 `SpacingCalibratedMassFiber` in

@@ -18,6 +18,24 @@
   `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
   or custom axiom.
 
+## Explicit sector transport from nontriviality through the gap fiber (2026-09-25 UTC)
+
+- **source and gap fields:** `NontrivialityFiber` and `GapFiber` in
+  `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`
+  now both carry `CompletedPhysicalSU2Sector` with
+  `sector_exact : sector = currentSector`.
+- **transport:** `NontrivialityFiber.toGap` transports the sector witness, and
+  `branch_arrow_preserves_sector` checks the first natural-transformation
+  component.  `GapFiber.toDimensionlessMass` transports the same proof rather
+  than introducing a fresh downstream carrier witness.
+- **scope:** the entire nontriviality → gap → rate chain is now explicitly
+  same-carrier at its source endpoint, still only for fixed-spacing SU(2).
+  Changing-spacing control, canonical OS/GNS identification, continuum/QFT
+  construction, and Clay closure remain open.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Scheduled-rate presheaf obstruction (2026-09-25 UTC)
 
 - **scheduled fiber:** `VanishingSpacingMassFiber` and

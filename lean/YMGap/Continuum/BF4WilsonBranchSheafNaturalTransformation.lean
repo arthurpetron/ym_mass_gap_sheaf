@@ -93,6 +93,10 @@ local notation "Z" => completedZero nome_pos nome_lt_one hsmall hd hs
 floor and nonzero field are retained; the vacuum-orthogonality field is the
 typed datum that permits passage to the gap branch. -/
 structure NontrivialityFiber : Type 2 where
+  /-- The concrete fixed-spacing carrier/transfer/vacuum/correlator package
+  on which the nontrivial probe lives. -/
+  sector : CompletedPhysicalSU2Sector
+  sector_exact : sector = currentSector
   probe : V
   probe_ne_zero : probe ≠ Z
   probe_vacuum_orthogonal : B probe U = RCzero
@@ -103,6 +107,9 @@ structure NontrivialityFiber : Type 2 where
 /-- A gap-side section on the same completed carrier.  Its strict form bound
 is the EVERY-centered-state consumer, specialized to this section's probe. -/
 structure GapFiber : Type 2 where
+  /-- The same concrete completed sector carried from the source branch. -/
+  sector : CompletedPhysicalSU2Sector
+  sector_exact : sector = currentSector
   probe : V
   probe_vacuum_orthogonal : B probe U = RCzero
   probe_strict_two_step :
@@ -196,6 +203,8 @@ gap theorem.  The positive response is not used to fake an EVERY-state gap;
 it remains visible in the source fiber as an independent nontriviality datum.
 -/
 def NontrivialityFiber.toGap (e : NontrivialityFiber) : GapFiber where
+  sector := e.sector
+  sector_exact := e.sector_exact
   probe := e.probe
   probe_vacuum_orthogonal := e.probe_vacuum_orthogonal
   probe_strict_two_step :=
@@ -208,8 +217,8 @@ def NontrivialityFiber.toGap (e : NontrivialityFiber) : GapFiber where
 /-- The gap-to-mass compiler retains the same probe and strict estimate and
 adds only the already checked fixed-spacing logarithmic certificate. -/
 def GapFiber.toDimensionlessMass (g : GapFiber) : DimensionlessMassFiber where
-  sector := currentSector
-  sector_exact := rfl
+  sector := g.sector
+  sector_exact := g.sector_exact
   probe := g.probe
   probe_vacuum_orthogonal := g.probe_vacuum_orthogonal
   probe_strict_two_step := g.probe_strict_two_step
@@ -251,6 +260,8 @@ def DimensionlessMassFiber.toVanishingSpacingMass
 
 /-- The concrete current Wilson probe inhabits the nontriviality fiber. -/
 def currentNontriviality : NontrivialityFiber where
+  sector := currentSector
+  sector_exact := rfl
   probe := unitExcitation
   probe_ne_zero := unitExcitation_ne_zero
   probe_vacuum_orthogonal := unitExcitation_orthogonal
@@ -366,6 +377,10 @@ theorem branch_arrow_preserves_orthogonality
     (nontrivialityToGap.app n e).probe_vacuum_orthogonal =
       e.probe_vacuum_orthogonal := rfl
 
+theorem branch_arrow_preserves_sector
+    (n : Nat) (e : NontrivialityFiber) :
+    (nontrivialityToGap.app n e).sector = e.sector := rfl
+
 theorem gap_mass_arrow_preserves_probe (n : Nat) (g : GapFiber) :
     (gapToDimensionlessMass.app n g).probe = g.probe := rfl
 
@@ -373,7 +388,7 @@ theorem gap_mass_arrow_preserves_rate (n : Nat) (g : GapFiber) :
     (gapToDimensionlessMass.app n g).transfer_mass = currentTransferMass := rfl
 
 theorem gap_mass_arrow_exposes_sector (n : Nat) (g : GapFiber) :
-    (gapToDimensionlessMass.app n g).sector = currentSector := rfl
+    (gapToDimensionlessMass.app n g).sector = currentSector := g.sector_exact
 
 theorem branch_arrow_exposes_same_object_decay
     (n k : Nat) (e : NontrivialityFiber) :
@@ -477,6 +492,7 @@ theorem currentGap_strict_two_step :
 #print axioms nontrivialityToVanishingSpacingMass
 #print axioms branch_arrow_preserves_probe
 #print axioms branch_arrow_preserves_orthogonality
+#print axioms branch_arrow_preserves_sector
 #print axioms branch_arrow_exposes_same_object_decay
 #print axioms gap_mass_arrow_preserves_probe
 #print axioms gap_mass_arrow_preserves_rate
