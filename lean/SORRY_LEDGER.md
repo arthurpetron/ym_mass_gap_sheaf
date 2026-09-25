@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Fixed-family normalization-scale ceiling CLOSED; cutoff variation OPEN (2026-09-24 UTC)
+
+- **constant scale:** `BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizationCeiling.marginalHalfGeometric_normalizationScale_eq`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizationCeiling.lean:34`)
+  proves the exact reciprocal normalization scale is constant along the fixed
+  `w = 1/2` geometric family.
+- **global ceiling:** `marginalHalfGeometric_normalizationScaleCeiling`
+  (`:41`) inhabits the generic ceiling consumed by the raw and normalized
+  routes.
+- **consequences:** `marginalHalfGeometric_normalizationScaleCeiling_uniformNormFloor`
+  (`:53`) supplies the raw-channel uniform norm floor, and
+  `marginalHalfGeometric_correlationSqDebt_le_ceiling_fourth` (`:61`) supplies
+  the fourth-power debt bound.
+- **scope:** raw representative variation, positive-time rate-power variation,
+  physical-rate control, thermodynamic/continuum passage, OS/QFT structure,
+  physical mass, and the all-group theorem remain open.
+- **verification:** see
+  `audits/AUDIT-FIXED-FAMILY-NORMALIZATION-CEILING-2026-09-24.md`.
+
 ## Fixed-family normalized-debt variation CLOSED; raw representative variation OPEN (2026-09-24 UTC)
 
 - **constant debt:** `BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizedDebt.marginalHalfGeometric_normalizationNormDebt_eq`

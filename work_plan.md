@@ -171,6 +171,18 @@ convergence, a physical-rate band, and every continuum/QFT obligation remain
 open.  Verification:
 `audits/AUDIT-FIXED-FAMILY-NORMALIZATION-DEBT-2026-09-24.md`.
 
+### Fixed-family normalization ceiling (2026-09-24 UTC)
+
+`BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizationCeiling` proves the
+actual reciprocal normalization scale is constant along the fixed `w = 1/2`
+family (`:34`) and inhabits the generic
+`MovingCubeNormalizationScaleCeiling` (`:41`).  Its `toUniformNormFloor`
+consequence (`:53`) and fourth-power debt bound (`:61`) expose one scalar
+certificate shared by the raw and normalized routes.  Raw representative
+variation, positive-time rate-power variation, physical-rate scaling, and all
+continuum/QFT obligations remain open.  Verification:
+`audits/AUDIT-FIXED-FAMILY-NORMALIZATION-CEILING-2026-09-24.md`.
+
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`

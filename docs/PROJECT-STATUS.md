@@ -234,6 +234,16 @@ convergence, physical scaling, and all continuum/QFT obligations remain open;
 no chart-node status changes.  Verification is recorded in
 `audits/AUDIT-FIXED-FAMILY-NORMALIZATION-DEBT-2026-09-24.md`.
 
+New fixed-family normalization ceiling:
+`BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizationCeiling` proves the
+reciprocal normalization scale is constant and packages it as the generic
+`MovingCubeNormalizationScaleCeiling`.  The resulting certificate supplies a
+raw-channel uniform norm floor and a fourth-power debt bound for every
+geometric cutoff.  Raw representative variation, positive-time rate-power
+variation, physical scaling, and the continuum/QFT joins remain open; no
+chart-node status changes.  Verification is recorded in
+`audits/AUDIT-FIXED-FAMILY-NORMALIZATION-CEILING-2026-09-24.md`.
+
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`
 (`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteRateCalibration.lean:54`)
@@ -792,3 +802,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 53 | 2026-09-24 | Added the inhabited `w = 1/2` geometric form-gap family, explicit rate pin, and non-vacuous moving-cube same-object squared-norm estimate at every geometric scale. No chart-node status change. |
 | 1 / 54 | 2026-09-24 | Inhabited the fixed-family scale-uniform moving-cube norm floor and transported it to every scheduled zero-time same-object autocorrelation. The cutoff limit and scaling nodes remain open. |
 | 1 / 55 | 2026-09-24 | Proved the reciprocal-square normalization debt is constant in the fixed `w = 1/2` geometric family and constructed its zero rational variation. The normalized-limit consumer's debt input is now inhabited; raw representative variation remains open. No chart-node status change. |
+| 1 / 56 | 2026-09-24 | Proved the fixed-family reciprocal normalization scale is constant, inhabited the generic global ceiling, and derived the shared raw norm-floor/fourth-power debt consequences. Raw and positive-time rate variation remain open. No chart-node status change. |

@@ -83,6 +83,15 @@ variation remains a separate input.  Raw variation, rate-power convergence,
 physical scaling, and all continuum/QFT obligations remain open.
 See the [fixed-debt audit](audits/AUDIT-FIXED-FAMILY-NORMALIZATION-DEBT-2026-09-24.md).
 
+**Fixed-family normalization ceiling (2026-09-24):**
+`BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizationCeiling` packages the
+same constant reciprocal scale as an inhabited global ceiling.  Its generic
+consumer yields a cutoff-uniform raw norm floor and a fourth-power
+normalization-debt bound for the actual fixed-family channel.  This remains a
+finite scalar certificate; raw variation, positive-time rate variation,
+physical scaling, and continuum/QFT obligations remain open.  See the
+[ceiling audit](audits/AUDIT-FIXED-FAMILY-NORMALIZATION-CEILING-2026-09-24.md).
+
 **New checked complete growing-word square heat image:** the original product
 heat sends a distinct-link Wilson character square to
 `1 + w^(8*perimeter)*chi_2`, retaining every supported test. For the actual
