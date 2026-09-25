@@ -108,6 +108,15 @@ dependent and is not a uniform mass or continuum result. Evidence:
 `audits/AUDIT-WILSON-PLAQUETTE-RELATIVE-FLOOR-2026-09-24.md` at repository
 root.
 
+`BF4ExactSlabFixedSpatialTwoStepRateWidthObstruction.no_width_uniform_computed_twoStepRate`
+proves that the existing computed `twoStepRate = mixRate^2` exceeds every
+rational `0 ≤ q < 1` at an explicit positive width. This is an honest
+obstruction to treating the fixed-width scalar rate as spacing-uniform; it is
+not a refutation of the actual transfer operator or a Yang--Mills result.
+Evidence:
+`audits/AUDIT-WILSON-TWO-STEP-RATE-WIDTH-OBSTRUCTION-2026-09-24.md` at
+repository root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.

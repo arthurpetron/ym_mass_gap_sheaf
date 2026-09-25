@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **34**, 2026-09-24 UTC. Source checkpoint:
-the SAME all-nome Wilson normalized plaquette-response milestone
+Chart schema: **1**. Snapshot: **35**, 2026-09-24 UTC. Source checkpoint:
+the SAME all-nome Wilson two-step-rate width-obstruction milestone
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-PLAQUETTE-RELATIVE-FLOOR-2026-09-24.md`.
+`audits/AUDIT-WILSON-TWO-STEP-RATE-WIDTH-OBSTRUCTION-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -167,6 +167,17 @@ derives strict positivity of the fixed-parameter rate. Nome, width, and the
 active-face premise remain explicit; scaling and continuum joins remain open.
 Verification is recorded in
 `audits/AUDIT-WILSON-PLAQUETTE-RELATIVE-FLOOR-2026-09-24.md`.
+
+New computed-rate scaling obstruction:
+`BF4ExactSlabFixedSpatialTwoStepRateWidthObstruction.no_width_uniform_computed_twoStepRate`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoStepRateWidthObstruction.lean:132`)
+proves that for every strict nome and every rational `0 ≤ q < 1`, the existing
+computed `twoStepRate = mixRate^2` exceeds `q` at an explicit positive width.
+This closes no roadmap node; it records that the current fixed-width scalar
+certificate cannot be promoted to B04's spacing-uniform rate.  The theorem is
+about the computed comparison rate only, not the actual transfer operator or
+Yang--Mills.  Verification is recorded in
+`audits/AUDIT-WILSON-TWO-STEP-RATE-WIDTH-OBSTRUCTION-2026-09-24.md`.
 
 Additional partial J02 evidence: `BF4WilsonAllNomeLinear.completedAdd` and
 `.completedSmul` (`lean/YMGap/Continuum/BF4WilsonAllNomeLinear.lean:132`, `:135`)
@@ -462,9 +473,14 @@ remains open; extending this candidate normalization alone cannot supply it.
   discrete time commutes with them and the vacuum complement is closed
   under them. This does not select representatives of arbitrary quotient rows.
   Full Hilbert/QFT, scaling survival and the continuum join remain open.
+- New checked obstruction: for every `0 ≤ q < 1`, the current computed
+  `mixRate^2` exceeds `q` at an explicit positive width. This rules out only
+  the computed fixed-width rate as B04's uniform certificate; it does not
+  refute the actual transfer operator. The next frontier remains a genuinely
+  spatially/spacing-uniform same-object estimate.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--29; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--35; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -521,3 +537,7 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 29 | 2026-09-24 | Even-lag same-object correlators are proved nonnegative, and the scalar `twoStepRate^n` coefficient receives an explicit cutoff under an honest strict-positivity premise. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |
 | 1 / 30 | 2026-09-24 | The same complex carrier now has a conditional response-floor compiler: an explicit norm cap plus response floor implies `floor ≤ twoStepRate^n*C`. Focused check passed within the permitted axiom gate. No chart-block or goal-node status change; cap/response production and all scaling/continuum obligations remain open. |
 | 1 / 31 | 2026-09-24 | The computed per-stream norm ceiling now reaches the completed diagonal and specializes to actual centered Wilson and padded dyadic-square states. Focused checks passed within the permitted axiom gate. The cap is not scale/width uniform and does not produce a response floor or close any chart node. |
+| 1 / 32 | 2026-09-24 | Same-carrier plaquette response squared into a positive lag-two floor, with spatial padding. Fixed nome/width only; no chart-block or goal-node status change. |
+| 1 / 33 | 2026-09-24 | Same-carrier plaquette floor calibrated against `twoStepRate * plaquetteNormCeiling`. Fixed nome/width only; no chart-block or goal-node status change. |
+| 1 / 34 | 2026-09-24 | Same-carrier normalized plaquette response floor and fixed-parameter rate positivity. Scaling and continuum joins remain open; no chart-block or goal-node status change. |
+| 1 / 35 | 2026-09-24 | Honest obstruction: the computed `twoStepRate = mixRate^2` has no positive width-uniform bound below one. This redirects B04 to a new analytic rate or genuine spatial/spacing control; no chart-block or goal-node status change. |

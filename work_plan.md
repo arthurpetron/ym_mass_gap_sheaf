@@ -148,6 +148,18 @@ This remains nome/width/face dependent and is not a uniform mass or continuum
 statement. Evidence:
 `audits/AUDIT-WILSON-PLAQUETTE-RELATIVE-FLOOR-2026-09-24.md`.
 
+### Honest width obstruction for the computed two-step rate (2026-09-24 UTC)
+
+`BF4ExactSlabFixedSpatialTwoStepRateWidthObstruction.no_width_uniform_computed_twoStepRate`
+proves that, for every strict nome and every rational `0 ≤ q < 1`, the
+existing computed `twoStepRate = mixRate^2` exceeds `q` at the explicit width
+`violatingWidth ((1/2)*(1+q))`. The midpoint-square inequality is proved by
+the constructive rational polynomial normalizer and positive remainder. This
+obstructs promotion of the current fixed-width comparison certificate to
+B04's spacing-uniform contraction; it is not a claim about the actual transfer
+operator. Evidence:
+`audits/AUDIT-WILSON-TWO-STEP-RATE-WIDTH-OBSTRUCTION-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream
