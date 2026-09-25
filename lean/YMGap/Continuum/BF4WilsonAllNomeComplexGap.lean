@@ -139,6 +139,20 @@ theorem complex_twoStep_translated (n : Nat) (x : VC)
     complexTime_add hw0 hw1 width 2 n x]
   exact h
 
+/-! The translated two-step estimate is also a same-carrier norm contraction at
+the intervening time slice.  This is an exact discrete identity, not a claim
+about a continuum generator or a physical mass normalization. -/
+theorem complex_oneStep_norm_gap (n : Nat) (x : VC)
+    (hx : I CU x = (RCzero, RCzero)) :
+    RCle (I (CT (n+1) x) (CT (n+1) x)).1
+      (RCscale (twoStepRate hw0 hw1 width)
+        (I (CT n x) (CT n x)).1) := by
+  have h := complex_twoStep_translated hw0 hw1 width n x hx
+  rw [inner_time_sum hw0 hw1 width n (n+2) x x,
+    show n + (n+2) = 2*(n+1) by omega,
+    inner_even_diagonal hw0 hw1 width (n+1) x] at h
+  exact h
+
 #print axioms complexUnit
 #print axioms complexUnit_fixed
 #print axioms inner_unit_left
@@ -151,5 +165,6 @@ theorem complex_twoStep_translated (n : Nat) (x : VC)
 #print axioms complexTime_add
 #print axioms complexTime_preserves_gap_sector
 #print axioms complex_twoStep_translated
+#print axioms complex_oneStep_norm_gap
 
 end YMGap.Continuum.BF4WilsonAllNomeComplexGap

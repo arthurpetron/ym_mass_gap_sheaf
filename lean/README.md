@@ -36,6 +36,13 @@ not a spacing-uniform, continuum, Hamiltonian or Clay mass-gap result.
 Evidence: `audits/AUDIT-WILSON-COMPLEX-TRANSLATED-GAP-2026-09-24.md` at
 repository root.
 
+It also exposes `complex_oneStep_norm_gap`, an exact rewrite of that translated
+correlator as a norm-square contraction at the intervening time slice `n+1`.
+The estimate is uniform in the discrete time index but remains fixed in nome
+and width; it is not a spacing-uniform, continuum, Hamiltonian or Clay result.
+Evidence: `audits/AUDIT-WILSON-COMPLEX-ONE-STEP-NORM-GAP-2026-09-24.md` at
+repository root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.

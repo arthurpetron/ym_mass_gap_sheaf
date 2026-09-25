@@ -60,6 +60,16 @@ time.  The focused check passed within `{propext, Quot.sound}` with no source
 hole, warning, classical input or error.  Evidence:
 `audits/AUDIT-WILSON-COMPLEX-TRANSLATED-GAP-2026-09-24.md`.
 
+The same translated bound is now consumed by
+`BF4WilsonAllNomeComplexGap.complex_oneStep_norm_gap`, which rewrites the
+`n,n+2` pairing as the norm-square contraction at the intervening slice `n+1`.
+This is a same-carrier discrete contraction, uniform in the time index but
+still parameterized by nome and width.  The focused check passed within
+`{propext, Quot.sound}` with no source hole, warning, classical input or
+error.  It adds no spacing/scaling, continuum, physical-mass or all-group
+result.  Evidence:
+`audits/AUDIT-WILSON-COMPLEX-ONE-STEP-NORM-GAP-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream
