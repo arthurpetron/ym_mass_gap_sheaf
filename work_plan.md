@@ -25,6 +25,44 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### External certificate-method transfer (2026-09-25 UTC)
+
+The recent nine-loop six-gluon computation is not a Clay-theory input: it is
+planar \(\mathcal N=4\) SYM perturbative data, not a constructive continuum
+mass-gap construction.  Its directly reusable lesson is the validation
+architecture described in [Anthropic's long-running scientific-computing
+report](https://www.anthropic.com/research/long-running-Claude) and the
+[Cosmic Nine Loops validation note](https://smsharma.io/cosmic-nine-loops/validation/method_and_validation.md):
+keep a durable progress/failed-approach log; maintain an executable test
+oracle; use two independently assembled representations where possible;
+verify sampled linear algebra against every constraint afterward; reserve
+held-out limits or OPE sectors for checks not used to fit the candidate; and
+record explicit untested assumptions.  The accompanying
+[Zenodo dataset](https://zenodo.org/records/22800071) supplies symbols through
+nine loops and is useful only as an example of a manifest/checksum-backed
+finite data release, not as evidence for the Clay target.
+
+For the live A03 frontier this becomes a concrete constructive protocol:
+
+1. Keep the original signed-channel evaluator and a direct-response evaluator
+   as separate Lean witness paths, sharing only a typed interface for the
+   SAME completed carrier, observable, and coupling/spacing schedule.
+2. For each finite cutoff, expose exact rational rows (or a Rust-generated
+   certificate whose evaluator is independently kernel-checked by Lean), then
+   check every declared constraint rather than trusting sampled rows.  Use
+   held-out cutoff/placement rows and a second recoding of the same signed
+   expression before promoting a bound.
+3. Record reconstruction bounds, parameter dependence, and every untested
+   assumption in the ledger.  A finite-field or modular agreement is a
+   certificate for the finite datum only; it is not a continuum estimate,
+   OS/GNS identification, physical mass, or Clay closure.
+
+This narrows the next proof task without weakening it: construct one
+same-theory scaling-family witness for the complete signed cost versus the
+interacting centered variance (or a direct response bound), with explicit
+moduli and an independently checked representation.  The A03 chart node
+therefore remains open until such a witness is inhabited.
+
 ### Minimal Wilson-to-OS bridge certificate (2026-09-24 UTC)
 
 The literal all-nome Wilson completion and the separate strict OS completion
