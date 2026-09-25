@@ -134,6 +134,23 @@
 - **scope:** fixed-carrier route pruning only; it does not refute a genuinely
   scale-dependent family and does not prove continuum/QFT/Clay.
 
+## Anchor ray-capacity presheaf evaluation (2026-09-25 UTC)
+
+- **declarations:** `AnchorConstantRayCapacityProducer`,
+  `anchorRayCapacityEvaluation`, `anchorRayCapacityToDelta`,
+  `anchorConstantRayCapacitySection`, `anchorRayCapacityEvaluation_section`,
+  and `anchorRayCapacityEvaluation_delta_pos` in
+  `lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`.
+- **result:** the inhabited anchor/geometric cofinal ray-capacity witness is
+  transported through a constant scale presheaf; its positive delta is exposed
+  at every scale by a natural transformation.
+- **verification:** focused safe check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+- **scope:** capacity component only; the adaptive transition-product
+  extension, completed changing family, physical-rate band, OS/QFT handoff and
+  Clay theorem remain open.
+
 ## Unit-probe norm-one collapse and rational rate floor (2026-09-25 UTC)
 
 - **declarations:** `gap_probe_norm_one`,

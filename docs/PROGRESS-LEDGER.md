@@ -20,6 +20,21 @@ non-vacuous fixed-carrier obstruction witness: it does not provide the missing
 changing-coupling family, physical rate band, rational observable pin,
 projective OS handoff, continuum QFT, or Clay theorem.
 
+## Current increment: anchor ray-capacity presheaf evaluation (2026-09-25 UTC)
+
+`AnchorConstantRayCapacityProducer` and
+`anchorConstantRayCapacitySection` in
+`lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`
+package the already inhabited strong-coupling anchor capacity together with an
+explicit scale-constancy field.  The natural transformation
+`anchorRayCapacityEvaluation` evaluates that producer at each scale, while
+`anchorRayCapacityToDelta` exposes a positive delta certificate.  The focused
+safe check passed with only `{propext, Quot.sound}` and no `sorryAx`, classical
+axiom, `native_decide`, or custom axiom.  This is a genuine presheaf-level
+component and a clean factorization boundary: the adaptive transition-product
+extension, completed changing family, physical-rate band, and continuum/QFT
+handoff remain separate inputs.
+
 ## Current increment: fixed-carrier physical-band no-go (2026-09-25 UTC)
 
 `noPhysicalRateBand_of_fixedCarrier` specializes the generic

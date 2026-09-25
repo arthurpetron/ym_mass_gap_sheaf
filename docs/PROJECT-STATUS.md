@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **68**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **69**, 2026-09-25 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -114,6 +114,14 @@ component.  This remains fixed-spacing and per-probe; it is not the missing
 changing-family budget.  This isolates the next required bridge as an actual
 changing carrier/transfer family connected to the concrete sector probe; the
 fixed-carrier reciprocal-spacing construction is explicitly insufficient.  The
+anchor/geometric ray-capacity branch now has an explicit constant-capacity
+source fiber and evaluation natural transformation in
+`BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`: the positive
+cofinal capacity is transported to each scale and then projected to a positive
+delta certificate.  The naturality proof uses an explicit constancy field;
+the adaptive transition-product extension remains a separate uninhabited input.
+This is a genuine presheaf-level branch component, not sheaf descent or a
+completed changing-family construction.  The
 dense source branch and the
 discrete-time transfer/gap branch now form an actual natural transformation
 over the covariant intrinsic-width scale diagram: `denseObservableDiagram`,
@@ -192,6 +200,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Unit-probe norm-one collapse to rational rate floor
                                        [x] Fixed-nome dynamic family / scheduled RC channel witness
                                        [x] Fixed-carrier physical-rate-band no-go
+                                       [x] Anchor ray-capacity presheaf evaluation
              |                              |
              v                              v
  [ ] Complete signed cost versus   [x] Strict completed T^2 bound
@@ -270,6 +279,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04f | Changing-family instantiation / same-theory bridge | `BF4PhysicalDynamicVacuumSectorCompletedFamily.DynamicVacuumSectorCompletedFamily`, `.DynamicVacuumSectorPhysicalRateBand`, and `BF4PhysicalDynamicVacuumSectorObservablePath.DynamicVacuumSectorObservablePin`; the fixed-nome witness is now supplied by `BF4WilsonFixedCarrierDynamicFamily.fixedCarrierDynamicFamily`, but no changing-coupling family, observable pin, physical band, or OS/reconstruction bridge is inhabited. |
 | B04g | Fixed-nome dynamic family / scheduled RC channel witness | `BF4WilsonFixedCarrierDynamicFamily.fixedCarrierDynamicFamily`, `.fixedCarrierMovingCubeChannel`, `.fixedCarrierMovingCube_zero_isPositive`, `.fixedCarrierMovingCube_sampled_zero_isPositive`, and `.fixedCarrierMovingCube_sampled_decay`, `lean/YMGap/Continuum/BF4WilsonFixedCarrierDynamicFamily.lean`; constructs the dynamic-family record with constant nome, explicit spacing-to-zero, and the genuine RC moving-cube channel. This is an obstruction witness, not a changing-family, rate-band, continuum, or Clay result. |
 | B04h | Fixed-carrier physical-rate-band no-go | `BF4WilsonFixedCarrierDynamicFamily.noPhysicalRateBand_of_fixedCarrier`, `lean/YMGap/Continuum/BF4WilsonFixedCarrierDynamicFamily.lean`; specializes the generic constant-positive-margin contradiction to the inhabited fixed-nome family. It rules out the fixed-carrier physical-band shortcut and does not refute a genuinely scale-dependent family. |
+| B04i | Anchor ray-capacity presheaf evaluation | `BF4PhysicalAnchorRayCapacityNaturalTransformation.AnchorConstantRayCapacityProducer`, `.anchorRayCapacityEvaluation`, `.anchorRayCapacityToDelta`, `.anchorConstantRayCapacitySection`, `.anchorRayCapacityEvaluation_section`, and `.anchorRayCapacityEvaluation_delta_pos`, `lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`; transports the explicitly constant positive cofinal ray-capacity witness across the scale presheaf and exposes its positive delta. The adaptive transition-product extension, completed family, physical band, and continuum/QFT handoff remain open. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1135,3 +1145,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 84 | 2026-09-25 | Collapsed the carried unit-probe norm to the rational rate floor and exposed the same bound after the nontriviality-to-gap natural-transformation component. The result is fixed-spacing and per-probe; the dynamic-family bridge and all continuum/Clay claims remain open. |
 | 1 / 85 | 2026-09-25 | Constructed an inhabited fixed-nome `DynamicVacuumSectorCompletedFamily` from an explicit vanishing-spacing schedule, plus its genuine RC moving-cube channel, positive sampled zero-time response, and scheduled decay. This is an obstruction lane; changing-coupling, physical-band, OS/QFT and Clay nodes remain open. |
 | 1 / 86 | 2026-09-25 | Specialized the generic constant-positive-margin contradiction to the new fixed-nome dynamic family, proving that no physical-rate band can inhabit this fixed-carrier vanishing-spacing lane. A genuinely scale-dependent carrier/rate family remains required. |
+| 1 / 87 | 2026-09-25 | Added a constructive presheaf natural transformation for the inhabited anchor/geometric ray-capacity branch. An explicit constancy field makes scale evaluation natural and preserves the positive cofinal capacity delta; the adaptive transition-product extension and all changing-family/continuum/Clay nodes remain open. |
