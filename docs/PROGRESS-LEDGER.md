@@ -4,6 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: geometric positive-time rate-power limit is zero (2026-09-25 UTC)
+
+The checked scalar certificate
+`BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.positiveRatePowerVariation`
+constructs two-sided summable variation for the exact stream
+`r^(time * 2^scale)`. Its companion
+`positiveRatePowerVariation_limit_equiv_zero`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.lean:101`)
+then proves, constructively and with only `{propext, Quot.sound}`, that every
+positive-time completed CReal limit in this geometric spacing family is zero.
+This is a causal obstruction to using that family for positive physical-mass
+calibration, not a continuum or Clay result. The bridge to the actual large
+normalized compiler and a replacement physical-rate scaling family remain open.
+Evidence: `audits/AUDIT-FIXED-FAMILY-RATE-POWER-VARIATION-CORE-2026-09-25.md`.
+
 ## Current increment: literal Wilson family reaches its SAME reflected form (2026-09-24 UTC)
 
 Actual square source words now have side L=2^s, assigned spacing 2^-s,

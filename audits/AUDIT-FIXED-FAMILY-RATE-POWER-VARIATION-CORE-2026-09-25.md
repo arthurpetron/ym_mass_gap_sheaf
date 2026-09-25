@@ -13,6 +13,7 @@ large normalized moving-cube continuum compiler.
 | declaration | location | result |
 |---|---|---|
 | `positiveRatePowerVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.lean:60` | For every rational `0 < r < 1` and positive `time`, constructs `SummableRationalStepVariation (fun scale => r^(time * 2^scale))`. |
+| `positiveRatePowerVariation_limit_equiv_zero` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.lean:101` | The completed CReal limit of that exact positive-time stream is equivalent to `CReal.ofQ' 0`, with an explicit epsilon/stage argument. |
 
 The variation budget is `r^scale`. The exponent inequality
 `scale <= time * 2^scale` gives pointwise domination, and the checked
@@ -37,6 +38,9 @@ input, custom axiom, `native_decide`, or `noncomputable` declaration appears.
 
 This is the exact scalar rate-power certificate. The compiler-facing equality
 transport into `normalizedMovingCubeSampledRatePower` imports a very large BF4
-environment and remains a separate open bridge. Raw representative variation,
-physical-rate control, thermodynamic/continuum passage, OS/QFT reconstruction,
-physical mass, and the all-group Clay theorem remain open.
+environment and remains a separate open bridge. The new limit theorem records a
+concrete obstruction: at positive time this geometric spacing family has zero
+rate-power limit, so it cannot itself calibrate a positive physical mass. Raw
+representative variation, a different physical-rate scaling family,
+thermodynamic/continuum passage, OS/QFT reconstruction, physical mass, and the
+all-group Clay theorem remain open.

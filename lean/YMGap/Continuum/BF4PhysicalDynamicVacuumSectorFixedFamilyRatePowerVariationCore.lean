@@ -91,7 +91,70 @@ def positiveRatePowerVariation
           (Q'.le_of_eqv (Q'.add_comm_eqv _ _)))
     exact ⟨hnext_le_sum, hcurrent_le_sum⟩
 
+/-! ## Positive-time limit obstruction
+
+The preceding certificate proves summability of the exact geometric sampler
+stream.  Its positive-time limit is nevertheless zero: the dyadic exponent
+`time * 2^scale` eventually exceeds every rational power cutoff.  This is a
+constructive consequence of the current spacing family, not a mass-gap
+construction. -/
+
+theorem positiveRatePowerVariation_limit_equiv_zero
+    (r : Q') (hr0 : (0 : Q') < r) (hr1 : r < (1 : Q'))
+    (time : Nat) (htime : 0 < time) :
+    CReal.Equiv
+      (positiveRatePowerVariation r hr0 hr1 time htime).limit
+      (CReal.ofQ' 0) := by
+  let data := positiveRatePowerVariation r hr0 hr1 time htime
+  change CReal.Equiv data.limit (CReal.ofQ' 0)
+  have hconv := data.converges
+  intro ε hε
+  let q : Q' := HalfPow.half * ε
+  have hqpos : (0 : Q') < q := ExpNeg.half_mul_pos ε hε
+  obtain ⟨Ntail, hNtail⟩ := HKConvGen.pow_base_le hr0 hr1 q hqpos
+  obtain ⟨Nconv, hNconv⟩ := hconv q hqpos
+  let N : Nat := max Ntail Nconv
+  have hNtailN : Ntail ≤ N := Nat.le_max_left _ _
+  have hNconvN : Nconv ≤ N := Nat.le_max_right _ _
+  obtain ⟨Napx, happrox⟩ := hNconv N hNconvN
+  refine ⟨Napx, fun n hn => ?_⟩
+  have happrox' :
+      r ^ (time * 2 ^ N) ≤ data.limit.approx n + q ∧
+        data.limit.approx n ≤ r ^ (time * 2 ^ N) + q := by
+    simpa only [CReal.ofQ'_approx] using happrox n hn
+  have hexp : N ≤ time * 2 ^ N := scale_le_time_dyadic time N htime
+  have hstream : r ^ (time * 2 ^ N) ≤ q :=
+    hNtail (time * 2 ^ N) (Nat.le_trans hNtailN hexp)
+  have hstream_nonnegative : (0 : Q') ≤ r ^ (time * 2 ^ N) :=
+    stream_nonnegative r hr0 time N
+  constructor
+  · change data.limit.approx n ≤ (0 : Q') + ε
+    have hstep : r ^ (time * 2 ^ N) + q ≤ q + q :=
+      Q'.add_le_add_right _ _ q hstream
+    have hbound : data.limit.approx n ≤ q + q :=
+      Q'.le_trans' _ _ _ happrox'.2 hstep
+    have hqq : (q + q).eqv ((0 : Q') + ε) :=
+      Q'.eqv_trans _ _ _ (ExpNeg.two_halves ε)
+        (Q'.eqv_symm (Q'.eqv_of_eq' (Q'.zero_add' ε)))
+    exact Q'.le_trans' _ _ _ hbound (Q'.le_of_eqv hqq)
+  · change (0 : Q') ≤ data.limit.approx n + ε
+    have hzero_q : (0 : Q') ≤ data.limit.approx n + q :=
+      Q'.le_trans' _ _ _ hstream_nonnegative happrox'.1
+    have hq_le : q ≤ (data.limit.approx n + q) + q := by
+      refine Q'.le_trans' _ _ _
+        (Q'.le_of_eqv (Q'.eqv_of_eq' (Eq.symm (Q'.zero_add' q)))) ?_
+      exact Q'.add_le_add_right _ _ q hzero_q
+    have hzero_sum : (0 : Q') ≤ (data.limit.approx n + q) + q :=
+      Q'.le_trans' _ _ _ (Q'.le_of_lt hqpos) hq_le
+    have hsum_eps : ((data.limit.approx n + q) + q).eqv
+        (data.limit.approx n + ε) := by
+      refine Q'.eqv_trans _ _ _ (Q'.add_assoc_eqv (data.limit.approx n) q q) ?_
+      exact Q'.add_eqv_congr_left _ _ _ (ExpNeg.two_halves ε)
+    exact Q'.le_trans' _ _ _ hzero_sum (Q'.le_of_eqv hsum_eps)
+
 end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore
 
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.positiveRatePowerVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.positiveRatePowerVariation_limit_equiv_zero

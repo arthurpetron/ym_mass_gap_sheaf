@@ -25,11 +25,16 @@
   `r^(time * 2^scale)` with `0 < r < 1` and `0 < time`.
 - **budget:** the variation is `r^scale`; its antitone tail is supplied by
   `GeometricAntitoneTailControl.geometricPowerTailControl`.
+- **limit obstruction:** `positiveRatePowerVariation_limit_equiv_zero`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.lean:101`)
+  proves that every positive-time exact stream in this geometric family has
+  completed CReal limit `0`; this family therefore cannot itself supply a
+  positive physical mass calibration.
 - **scope:** equality transport to the compiler's
   `normalizedMovingCubeSampledRatePower` remains open because that bridge
   imports the large BF4 continuum environment. Raw representative variation,
-  physical-rate control, continuum/QFT reconstruction, physical mass, and the
-  all-group theorem remain open.
+  a different physical-rate scaling family, continuum/QFT reconstruction,
+  physical mass, and the all-group theorem remain open.
 - **verification:** see
   `audits/AUDIT-FIXED-FAMILY-RATE-POWER-VARIATION-CORE-2026-09-25.md`.
 

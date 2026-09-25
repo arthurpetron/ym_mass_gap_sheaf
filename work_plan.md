@@ -212,8 +212,13 @@ continuum/QFT joins remain open. Verification:
 constructs the full rational variation certificate for `r^(time * 2^scale)`
 at positive time and any `0 < r < 1`. It joins the checked sampler arithmetic
 to the geometric-tail budget at the scalar level. Equality transport into the
-large normalized moving-cube compiler remains open, as do raw representative
-variation, physical-rate control, and all continuum/QFT joins. Verification:
+large normalized moving-cube compiler remains open. Its companion
+`positiveRatePowerVariation_limit_equiv_zero`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.lean:101`)
+proves that this exact positive-time geometric stream has zero completed CReal
+limit; consequently this spacing family cannot itself calibrate a positive
+physical mass. Raw representative variation, a different physical-rate family,
+and all continuum/QFT joins remain open. Verification:
 `audits/AUDIT-FIXED-FAMILY-RATE-POWER-VARIATION-CORE-2026-09-25.md`.
 
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)

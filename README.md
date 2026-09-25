@@ -117,7 +117,11 @@ stream `r^(time * 2^scale)` with `0 < r < 1` and positive integer time. This
 is the scalar certificate selected by the fixed-family rate pin and sampler
 arithmetic. Equality transport into the large normalized moving-cube compiler
 remains an explicit open bridge; no raw, physical, continuum, or Clay claim
-is made. See the [rate-power core audit](audits/AUDIT-FIXED-FAMILY-RATE-POWER-VARIATION-CORE-2026-09-25.md).
+is made. The companion theorem
+`positiveRatePowerVariation_limit_equiv_zero` proves that this exact
+positive-time geometric stream has zero completed CReal limit, so this spacing
+family cannot by itself calibrate a positive physical mass. See the
+[rate-power core audit](audits/AUDIT-FIXED-FAMILY-RATE-POWER-VARIATION-CORE-2026-09-25.md).
 
 **New checked complete growing-word square heat image:** the original product
 heat sends a distinct-link Wilson character square to

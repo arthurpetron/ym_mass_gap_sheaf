@@ -276,7 +276,12 @@ constructs the complete rational step-variation datum for every exact stream
 certificate selected by the fixed-family rate pin and sampler arithmetic. The
 equality bridge to the compiler's actual normalized stream remains open because
 it requires the large BF4 environment; all raw, physical, continuum, OS/QFT,
-and Clay joins remain open. Verification is recorded in
+and Clay joins remain open. The companion
+`positiveRatePowerVariation_limit_equiv_zero`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.lean:101`)
+proves that the exact positive-time geometric stream has zero completed CReal
+limit, exposing that this spacing family cannot itself provide a positive mass
+calibration. Verification is recorded in
 `audits/AUDIT-FIXED-FAMILY-RATE-POWER-VARIATION-CORE-2026-09-25.md`.
 
 New fixed-parameter rate calibration:
@@ -841,3 +846,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 57 | 2026-09-24 | Proved the exact fixed-family geometric floor sampler is `time * 2^scale`, reducing the positive-time stream to explicit dyadic-exponent arithmetic. The antitone-tail variation, scaling, and continuum joins remain open. No chart-node status change. |
 | 1 / 58 | 2026-09-24 | Added and checked an order-antitone geometric tail certificate for every rational base in `(0,1)`, using `qCeilNat`; fixed-family stream-specific step bounds remain open. No chart-node status change. |
 | 1 / 59 | 2026-09-25 | Constructed and checked the full positive-time rational variation certificate for the exact stream `r^(time * 2^scale)`; equality transport to the large normalized compiler remains open. No chart-node status change. |
+| 1 / 60 | 2026-09-25 | Proved constructively that the completed CReal limit of the exact positive-time geometric stream `r^(time * 2^scale)` is zero. This rules out positive physical-mass calibration by this spacing family; the compiler bridge and a replacement physical-rate family remain open. No chart-node status change. |
