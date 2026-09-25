@@ -1,13 +1,11 @@
 # Canonical one-page project status
 
 Chart schema: **1**. Snapshot: **59**, 2026-09-25 UTC. Source checkpoint:
-the exact lag-two Wilson-to-OS relative-loss bridge consumer, alongside the
-checked fixed-parameter complex relative-loss consumer and the explicit
-width-degeneration obstruction for the original response witness
-committed with this snapshot;
-verification is recorded in
-`audits/AUDIT-WILSON-COMPLEX-RELATIVE-LOSS-2026-09-24.md` and
-`audits/AUDIT-WILSON-RESPONSE-WIDTH-OBSTRUCTION-2026-09-24.md`.
+the explicit `CompletedPhysicalSU2Sector` witness carried through the
+dimensionless, fixed-spacing, and scheduled branch fibers, alongside the
+earlier exact lag-two Wilson-to-OS relative-loss bridge consumer and its
+width-degeneration audit.  The focused source check for this snapshot passed
+with only `{propext, Quot.sound}`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
