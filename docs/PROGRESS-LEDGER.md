@@ -16,17 +16,19 @@ raw same-object CReal representative variation remains open; the geometric
 positive-time rate limit is zero, so no positive physical mass is claimed.
 Evidence: `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
 
-## Current boundary: raw representative selection is genuinely missing (2026-09-25 UTC)
+## Current increment: explicit fixed-family raw representative constructed (2026-09-25 UTC)
 
-The concrete fixed-family carrier, transfer, vacuum-complement vector, and
-sampled same-object correlator are already linked at the `CReal.RC` level.
-The raw compiler still requires a `CReal` representative stream with exact
-`represents` equalities and a summable cross-scale variation modulus.  The
-existing completion construction provides only `CReal.Equiv` under changes of
-completion representatives, which is sufficient for `RC` quotient descent but
-not for a choice-free `CReal` quotient lift.  This is now recorded as the
-minimal honest next certificate; no hidden representative selection is added.
-Evidence: `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`.
+The fixed-family moving-cube vector and its recursively applied completed
+transfer powers retain explicit Cauchy presentations.  The declaration
+`marginalHalfGeometricRawRepresentative`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:207`)
+constructs the corresponding CReal pairing stream, and
+`marginalHalfGeometricRawRepresentative_represents` (`:216`) proves its exact
+quotient equality with the literal sampled same-object RC correlator.  The
+adapter `MarginalHalfGeometricRawRepresentativeVariation.toRawScheduledVariation`
+(`:238`) isolates the only remaining raw input: a summable cross-scale
+variation modulus for this explicit stream.  No hidden quotient choice is
+used.  Evidence: `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`.
 
 ## Current increment: fixed-family raw nontriviality compiles conditionally (2026-09-25 UTC)
 

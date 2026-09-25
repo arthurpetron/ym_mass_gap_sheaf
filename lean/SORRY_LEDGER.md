@@ -23,7 +23,7 @@
   compiler, conditional on the explicit raw representative/variation object.
   It does not inhabit that object or select CReal representatives.
 
-## Raw representative-selection boundary recorded (2026-09-25 UTC)
+## Raw representative stream constructed; variation remains OPEN (2026-09-25 UTC)
 
 - **finite same-object support:** `centralPhysicalDynamicMovingCubeRCChannel`
   (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorSameObjectRCChannel.lean:195`)
@@ -34,12 +34,13 @@
 - **remaining certificate:**
   `MovingCubeRawScheduledRepresentativeVariation`
   (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler.lean:47`)
-  still requires CReal representatives, exact RC `represents` equalities, and
-  a summable cross-scale modulus.
-- **constructive boundary:** `physicalCauchyPairingLimit_welldef` supplies
-  only `CReal.Equiv`, enough for `centralPhysicalCutoffCompletedInner`'s RC
-  quotient descent but not a choice-free CReal quotient lift.  No hidden
-  representative selection is introduced.
+  now has its fixed-family representative and exact RC `represents` equality
+  supplied by `marginalHalfGeometricRawRepresentative` (`:207`) and
+  `marginalHalfGeometricRawRepresentative_represents` (`:216`).  Only a
+  summable cross-scale modulus remains.
+- **constructive boundary:** generic quotient elements still provide only
+  `CReal.Equiv` through `physicalCauchyPairingLimit_welldef`; the fixed-family
+  proof avoids hidden choice by retaining explicit Cauchy presentations.
 - **verification:** see
   `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`.
 

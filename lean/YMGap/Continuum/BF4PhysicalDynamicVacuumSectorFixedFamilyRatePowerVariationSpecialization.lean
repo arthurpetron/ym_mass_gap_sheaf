@@ -27,6 +27,17 @@ set_option maxHeartbeats 10000000
 
 open YMGap.Constructive
 open YMGap.Continuum
+open YMGap.Continuum.BF4PhysicalCutoffLinearCompletion
+open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
+open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInnerOuter
+open YMGap.Continuum.BF4PhysicalCutoffLinearMarkovAdaptiveCompletionCauchy
+open YMGap.Continuum.BF4PhysicalCutoffLinearMarkovAdaptiveCompletedTransfer
+open YMGap.Continuum.BF4PhysicalCutoffLinearMarkovConcreteAdaptiveTransfer
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredCompletion
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
+open YMGap.Continuum.BF4PhysicalCutoffStationarySourceTail
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerArithmetic
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizedDebt
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore
@@ -36,9 +47,12 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalV
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 open YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
 open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.SummableRationalStepVariationAlgebra
+open YMGap.Continuum.SummableCRealStepVariation
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
 
 local infix:50 " ≈ " => Q'.eqv
@@ -128,6 +142,109 @@ def marginalHalfGeometric_rawContinuumNontriviality
   MovingCubeRawContinuumNontriviality.ofUniformNormFloor
     marginalHalfGeometric_normalizationScaleCeiling.toUniformNormFloor
 
+/-! ## Explicit raw representatives from the actual Cauchy presentations -/
+
+private def marginalHalfGeometricRawInitialCauchy (scale : Nat) :
+    (centralPhysicalCutoffLinearSquaredSeminorm
+      (marginalHalfGeometricCompletedFamily.nome_pos scale)
+      (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0).Cauchy :=
+  centralPhysicalVacuumSectorCylinderCauchyToGlobal
+    (centralPhysicalVacuumSectorMovingCenteredCauchy
+      (marginalHalfGeometricCompletedFamily.nome_pos scale)
+      (marginalHalfGeometricCompletedFamily.nome_lt_one scale)
+      1 0
+      (centralPhysicalCutoffOneCubeIndicatorCoefficient
+        (marginalHalfGeometricCompletedFamily.nome scale)
+        (marginalHalfGeometricCompletedFamily.nome_pos scale)))
+
+private def marginalHalfGeometricRawPowerCauchy (scale : Nat) : Nat →
+    (centralPhysicalCutoffLinearSquaredSeminorm
+      (marginalHalfGeometricCompletedFamily.nome_pos scale)
+      (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0).Cauchy
+  | 0 => marginalHalfGeometricRawInitialCauchy scale
+  | n + 1 =>
+      centralPhysicalAdaptiveMarkovMapCauchy
+        (centralPhysicalDenseMarkovCauchyData
+          (marginalHalfGeometricCompletedFamily.nome_pos scale)
+          (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0)
+        (marginalHalfGeometricRawPowerCauchy scale n)
+
+private theorem marginalHalfGeometricRawInitialCauchy_mk (scale : Nat) :
+    centralPhysicalVacuumSectorCylinderCompletionToGlobal
+        ((centralPhysicalDynamicMovingCubeRCChannel
+          marginalHalfGeometricCompletedFamily).vectorAt scale).1 =
+      Quotient.mk
+        (centralPhysicalCutoffLinearSquaredSeminorm
+          (marginalHalfGeometricCompletedFamily.nome_pos scale)
+          (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0).completionSetoid
+        (marginalHalfGeometricRawInitialCauchy scale) := by
+  rfl
+
+private theorem marginalHalfGeometricRawPowerCauchy_mk
+    (scale n : Nat) :
+    centralPhysicalConcreteAdaptiveCompletedMarkovPower
+        (marginalHalfGeometricCompletedFamily.nome_pos scale)
+        (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0 n
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+          ((centralPhysicalDynamicMovingCubeRCChannel
+            marginalHalfGeometricCompletedFamily).vectorAt scale).1) =
+      Quotient.mk
+        (centralPhysicalCutoffLinearSquaredSeminorm
+          (marginalHalfGeometricCompletedFamily.nome_pos scale)
+          (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0).completionSetoid
+        (marginalHalfGeometricRawPowerCauchy scale n) := by
+  induction n with
+  | zero => exact marginalHalfGeometricRawInitialCauchy_mk scale
+  | succ n ih =>
+      rw [centralPhysicalConcreteAdaptiveCompletedMarkovPower,
+        centralPhysicalConcreteAdaptiveCompletedMarkovTransfer, ih,
+        centralPhysicalAdaptiveCompletedMarkovTransfer_mk]
+      rfl
+
+/-- A CReal representative is obtained from the explicit Cauchy presentations
+used to build the same moving-cube vector and its actual completed transfer
+powers.  No quotient representative is selected. -/
+def marginalHalfGeometricRawRepresentative (time scale : Nat) : CReal :=
+  physicalCauchyPairingLimit
+    (marginalHalfGeometricCompletedFamily.nome_pos scale)
+    (marginalHalfGeometricCompletedFamily.nome_lt_one scale) 0
+    (marginalHalfGeometricRawPowerCauchy scale
+      (centralPhysicalDynamicRCLatticeSteps
+        marginalHalfGeometricCompletedFamily scale time))
+    (marginalHalfGeometricRawInitialCauchy scale)
+
+theorem marginalHalfGeometricRawRepresentative_represents
+    (time scale : Nat) :
+    Quotient.mk CReal.crealSetoid
+        (marginalHalfGeometricRawRepresentative time scale) =
+      sampledConnectedAutocorrelation
+        (centralPhysicalDynamicMovingCubeRCChannel
+          marginalHalfGeometricCompletedFamily) scale time := by
+  rw [sampledConnectedAutocorrelation_eq_global]
+  unfold marginalHalfGeometricRawRepresentative
+  rw [marginalHalfGeometricRawPowerCauchy_mk,
+    marginalHalfGeometricRawInitialCauchy_mk,
+    centralPhysicalCutoffCompletedInner_mk]
+  rfl
+
+/-! The exact representative has now been constructed; only its summable
+cross-scale variation remains to be supplied. -/
+
+structure MarginalHalfGeometricRawRepresentativeVariation : Type 1 where
+  variation : forall time,
+    SummableCRealStepVariation
+      (fun scale => marginalHalfGeometricRawRepresentative time scale)
+
+def MarginalHalfGeometricRawRepresentativeVariation.toRawScheduledVariation
+    (data : MarginalHalfGeometricRawRepresentativeVariation) :
+    MovingCubeRawScheduledRepresentativeVariation
+      marginalHalfGeometricCompletedFamily where
+  representative := fun time scale =>
+    marginalHalfGeometricRawRepresentative time scale
+  represents := fun time scale =>
+    marginalHalfGeometricRawRepresentative_represents time scale
+  variation := data.variation
+
 end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization
 
 #print axioms
@@ -138,3 +255,7 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationS
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_ratePowerVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_rawContinuumNontriviality
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometricRawRepresentative_represents
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.MarginalHalfGeometricRawRepresentativeVariation.toRawScheduledVariation

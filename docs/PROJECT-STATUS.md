@@ -302,8 +302,8 @@ The same specialization also converts the fixed-family pointwise-constant
 normalization debt into the constructive-real debt-variation input via
 `marginalHalfGeometric_normalizationNormDebtVariation` (`:75`).  Both scalar
 inputs of the normalized cutoff compiler are therefore inhabited for this
-family; the raw same-object CReal representative variation remains the
-independent missing input.  Verification is recorded in
+family; only the raw same-object CReal representative's cross-scale variation
+remains the independent missing input.  Verification is recorded in
 `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
 
 Conditional raw nontriviality is also now composed by
@@ -312,13 +312,13 @@ Conditional raw nontriviality is also now composed by
 The carrier/transfer side of the raw frontier is now audited explicitly:
 `centralPhysicalDynamicMovingCubeRCChannel` and
 `sampledConnectedAutocorrelation_eq_global` identify the same completed
-moving-cube observable at the `CReal.RC` level.  The missing input is narrower
-than a new carrier: `MovingCubeRawScheduledRepresentativeVariation` still
-requires compatible CReal representatives and a summable cross-scale modulus.
-The existing pairing-well-definedness theorem gives only `CReal.Equiv`, which
-cannot be used as a hidden choice of CReal representatives.  This is recorded
-in `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`; no chart marker
-changes.
+moving-cube observable at the `CReal.RC` level.  The fixed-family specialization
+now constructs the CReal stream itself from explicit Cauchy presentations via
+`marginalHalfGeometricRawRepresentative` (`:207`) and proves its exact
+`represents` equality (`:216`).  The remaining input is only the summable
+cross-scale variation field; no hidden quotient choice is used.  This is
+recorded in `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`; no
+chart marker changes.
 
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`

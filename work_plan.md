@@ -251,14 +251,15 @@ positive mass calibration.  Verification:
 ### Raw same-object representative boundary (2026-09-25 UTC)
 
 The fixed-family carrier, transfer, vacuum-complement vector, and sampled
-correlator are already concrete and linked at the `CReal.RC` level by
+correlator are concrete and linked at the `CReal.RC` level by
 `centralPhysicalDynamicMovingCubeRCChannel` and
-`sampledConnectedAutocorrelation_eq_global`.  The next certificate must still
-provide compatible `CReal` representatives and a summable cross-scale
-variation modulus for `MovingCubeRawScheduledRepresentativeVariation`.
-`physicalCauchyPairingLimit_welldef` gives only `CReal.Equiv`, so it cannot be
-used as a hidden quotient representative selection.  Keep this boundary
-explicit and constructive.  Evidence:
+`sampledConnectedAutocorrelation_eq_global`.  The specialization now retains
+their explicit Cauchy presentations, constructs
+`marginalHalfGeometricRawRepresentative` (`:207`), and proves its exact
+`represents` equality (`:216`).  The next certificate is only a summable
+cross-scale variation modulus for that stream.  Generic quotient elements
+still provide only `CReal.Equiv`, so hidden quotient choice remains forbidden.
+Evidence:
 `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`.
 
 The fixed-family nontriviality side is now discharged conditionally by

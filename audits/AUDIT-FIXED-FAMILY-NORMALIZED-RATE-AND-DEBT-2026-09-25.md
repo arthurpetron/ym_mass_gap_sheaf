@@ -42,9 +42,11 @@ All three printed declarations report only `{propext, Quot.sound}` and no
 ## Boundary
 
 The normalized compiler now has both scalar rational inputs for this concrete
-family.  Its raw representative field still requires an explicit
-`MovingCubeRawScheduledRepresentativeVariation`; conditional on that field,
-the fixed-family raw nontriviality witness is now automatic.  The
+family.  The fixed-family specialization now supplies the representative and
+exact `represents` equality; constructing its
+`SummableCRealStepVariation` field is still required to form an explicit
+`MovingCubeRawScheduledRepresentativeVariation`.  Conditional on that field,
+the fixed-family raw nontriviality witness is automatic.  The
 positive-time geometric rate limit is zero by
 `positiveRatePowerVariation_limit_equiv_zero`, so this family cannot calibrate
 a positive physical mass.  Thermodynamic/continuum passage, OS/QFT
