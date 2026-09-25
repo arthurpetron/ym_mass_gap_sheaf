@@ -274,15 +274,29 @@ recorded in `audits/AUDIT-GEOMETRIC-ANTITONE-TAIL-2026-09-24.md`.
 constructs the complete rational step-variation datum for every exact stream
 `r^(time * 2^scale)` with `0 < r < 1` and positive time. This is the scalar
 certificate selected by the fixed-family rate pin and sampler arithmetic. The
-equality bridge to the compiler's actual normalized stream remains open because
-it requires the large BF4 environment; all raw, physical, continuum, OS/QFT,
-and Clay joins remain open. The companion
+equality bridge to the compiler's actual normalized stream is now discharged
+for this concrete staging family by a separate specialization; all raw,
+physical, continuum, OS/QFT, and Clay joins remain open. The companion
 `positiveRatePowerVariation_limit_equiv_zero`
 (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore.lean:101`)
 proves that the exact positive-time geometric stream has zero completed CReal
 limit, exposing that this spacing family cannot itself provide a positive mass
 calibration. Verification is recorded in
 `audits/AUDIT-FIXED-FAMILY-RATE-POWER-VARIATION-CORE-2026-09-25.md`.
+
+### Concrete normalized-stream rate input (2026-09-25 UTC)
+
+`BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean`)
+transports the generic certificate to the literal normalized scheduled-rate
+stream of `marginalHalfGeometricCompletedFamily`. The declarations
+`marginalHalfGeometric_positiveRatePowerVariation` (`:68`) and
+`marginalHalfGeometric_ratePowerVariation` (`:77`) now inhabit the actual
+compiler's all-time rational rate-variation input. This does not inhabit raw
+connected-moment variation; the positive-time limit remains zero, so no
+positive physical mass or continuum/Clay claim follows. Verification is
+recorded in
+`audits/AUDIT-FIXED-FAMILY-RATE-POWER-SPECIALIZATION-2026-09-25.md`.
 
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`
@@ -847,3 +861,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 58 | 2026-09-24 | Added and checked an order-antitone geometric tail certificate for every rational base in `(0,1)`, using `qCeilNat`; fixed-family stream-specific step bounds remain open. No chart-node status change. |
 | 1 / 59 | 2026-09-25 | Constructed and checked the full positive-time rational variation certificate for the exact stream `r^(time * 2^scale)`; equality transport to the large normalized compiler remains open. No chart-node status change. |
 | 1 / 60 | 2026-09-25 | Proved constructively that the completed CReal limit of the exact positive-time geometric stream `r^(time * 2^scale)` is zero. This rules out positive physical-mass calibration by this spacing family; the compiler bridge and a replacement physical-rate family remain open. No chart-node status change. |
+| 1 / 61 | 2026-09-25 | Transported the fixed-family variation certificate to the literal normalized scheduled-rate stream and inhabited its all-time rational variation input. Raw connected-moment variation remains open; no chart-node status change. |

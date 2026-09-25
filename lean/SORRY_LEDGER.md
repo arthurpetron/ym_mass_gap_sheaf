@@ -31,12 +31,30 @@
   completed CReal limit `0`; this family therefore cannot itself supply a
   positive physical mass calibration.
 - **scope:** equality transport to the compiler's
-  `normalizedMovingCubeSampledRatePower` remains open because that bridge
-  imports the large BF4 continuum environment. Raw representative variation,
-  a different physical-rate scaling family, continuum/QFT reconstruction,
-  physical mass, and the all-group theorem remain open.
+  `normalizedMovingCubeSampledRatePower` is now discharged for the fixed
+  geometric staging family by a separate specialization; other families still
+  need their own pointwise bridge. Raw representative variation, a different
+  physical-rate scaling family, continuum/QFT reconstruction, physical mass,
+  and the all-group theorem remain open.
 - **verification:** see
   `audits/AUDIT-FIXED-FAMILY-RATE-POWER-VARIATION-CORE-2026-09-25.md`.
+
+## Concrete normalized-stream rate input CLOSED; raw moment OPEN (2026-09-25 UTC)
+
+- **specialization:**
+  `BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_positiveRatePowerVariation`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:68`)
+  transports the generic certificate to the literal normalized scheduled-rate
+  stream of the fixed SU(2) geometric staging family.
+- **all-time input:**
+  `marginalHalfGeometric_ratePowerVariation` (`:77`) adds the automatic zero-time
+  branch and inhabits `NormalizedMovingCubeSampledRatePowerRationalVariation`.
+- **scope:** the compiler's raw connected-moment variation remains open. The
+  positive-time stream has zero completed CReal limit, so this staging family
+  still cannot calibrate a positive physical mass; continuum/QFT and Clay joins
+  remain open.
+- **verification:** see
+  `audits/AUDIT-FIXED-FAMILY-RATE-POWER-SPECIALIZATION-2026-09-25.md`.
 
 ## Fixed-family sampler arithmetic CLOSED; positive-time variation OPEN (2026-09-24 UTC)
 

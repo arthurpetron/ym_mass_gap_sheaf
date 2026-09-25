@@ -37,10 +37,11 @@ input, custom axiom, `native_decide`, or `noncomputable` declaration appears.
 ## Boundary
 
 This is the exact scalar rate-power certificate. The compiler-facing equality
-transport into `normalizedMovingCubeSampledRatePower` imports a very large BF4
-environment and remains a separate open bridge. The new limit theorem records a
-concrete obstruction: at positive time this geometric spacing family has zero
-rate-power limit, so it cannot itself calibrate a positive physical mass. Raw
-representative variation, a different physical-rate scaling family,
+transport is now discharged for the concrete geometric staging family by
+`BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization`;
+other families still require their own pointwise bridge. The new limit theorem
+records a concrete obstruction: at positive time this geometric spacing family
+has zero rate-power limit, so it cannot itself calibrate a positive physical
+mass. Raw representative variation, a different physical-rate scaling family,
 thermodynamic/continuum passage, OS/QFT reconstruction, physical mass, and the
 all-group Clay theorem remain open.

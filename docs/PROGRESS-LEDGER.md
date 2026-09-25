@@ -4,6 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: actual normalized scheduled-rate input inhabited (2026-09-25 UTC)
+
+The fixed-family geometric certificate is now transported to the literal
+`normalizedMovingCubeSampledRatePower` stream. The declarations
+`marginalHalfGeometric_positiveRatePowerVariation` and
+`marginalHalfGeometric_ratePowerVariation` in
+`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean`
+use the existing fixed-rate pin and exact sampler identity and pass the
+compiler's rational rate-variation interface. This closes only the rate-input
+branch: raw connected-moment variation remains open, and the exact positive-time
+rate-power limit is zero, so no positive physical mass is claimed.
+Evidence: `audits/AUDIT-FIXED-FAMILY-RATE-POWER-SPECIALIZATION-2026-09-25.md`.
+
 ## Current increment: geometric positive-time rate-power limit is zero (2026-09-25 UTC)
 
 The checked scalar certificate
