@@ -214,6 +214,15 @@ literal nonzero moving-centered cube channel estimate at every geometric
 scale.  The lattice margin remains fixed while spacing vanishes; no chart-node
 status changes.
 
+New finite nontriviality input:
+`BF4PhysicalDynamicVacuumSectorUniformNormFloorSpecialization.marginalHalfGeometricMovingCubeUniformRCNormFloor`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorUniformNormFloorSpecialization.lean:34`)
+inhabits the scheduled channel's scale-uniform rational norm floor for the
+constant-nome geometric family.  Its zero-time transport theorem (`:48`)
+retains that floor on the sampled same-object autocorrelation at every scale.
+The representative-level cutoff limit and spacing-uniform physical decay
+remain open; no chart-node status changes.
+
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`
 (`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteRateCalibration.lean:54`)
@@ -770,3 +779,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 51 | 2026-09-24 | Factored the scale-indexed completed Markov-form Cauchy--Schwarz input and composed it with the form gap into the literal same-object squared-norm estimate. The CS family remains open; no chart-node status change. |
 | 1 / 52 | 2026-09-24 | Inhabited the dynamic Markov-form Cauchy--Schwarz family from the existing adaptive producer and added an input-free same-object squared-norm consumer. No chart-node status change. |
 | 1 / 53 | 2026-09-24 | Added the inhabited `w = 1/2` geometric form-gap family, explicit rate pin, and non-vacuous moving-cube same-object squared-norm estimate at every geometric scale. No chart-node status change. |
+| 1 / 54 | 2026-09-24 | Inhabited the fixed-family scale-uniform moving-cube norm floor and transported it to every scheduled zero-time same-object autocorrelation. The cutoff limit and scaling nodes remain open. |

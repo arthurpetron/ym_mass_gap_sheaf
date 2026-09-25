@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## Fixed-family scheduled norm floor CLOSED; representative limit OPEN (2026-09-24 UTC)
+
+- **inhabited input**: `BF4PhysicalDynamicVacuumSectorUniformNormFloorSpecialization.marginalHalfGeometricMovingCubeUniformRCNormFloor`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorUniformNormFloorSpecialization.lean:34`)
+  supplies a positive rational floor for the literal moving-cube channel at
+  every scale of the constant-nome geometric family.
+- **scheduled consequence**:
+  `marginalHalfGeometricMovingCube_uniform_floor_le_zeroTime` (`:48`) carries
+  the same floor to the sampled zero-time same-object autocorrelation at every
+  scale via `sampledConnectedAutocorrelation_zero_eq_normSq`.
+- **scope**: this discharges only the finite-family uniform nontriviality
+  input.  The representative-level scheduled limit, spacing-uniform physical
+  decay, thermodynamic/continuum passage, physical mass, and all-group theorem
+  remain open; no chart node changes status.
+- **verification**: focused monitored check reports only `{propext, Quot.sound}`
+  and no `sorryAx`, classical input, or custom axiom.  Evidence:
+  `audits/AUDIT-DYNAMIC-UNIFORM-NORM-FLOOR-2026-09-24.md`.
+
 ## Dynamic Markov-form Cauchy--Schwarz bridge CLOSED; adaptive CS producer CLOSED (2026-09-24 UTC)
 
 - **factored input**: `BF4PhysicalDynamicVacuumSectorMarkovFormCauchySchwarzBridge.DynamicVacuumSectorCompletedMarkovFormCauchySchwarzFamily`

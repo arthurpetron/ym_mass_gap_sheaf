@@ -146,6 +146,18 @@ geometric scale.  This is a non-vacuous same-object finite consequence; its
 lattice margin is not spacing-uniform, so the B04/B05 and continuum joins stay
 open.
 
+### Fixed-family scheduled norm floor (2026-09-24 UTC)
+
+`BF4PhysicalDynamicVacuumSectorUniformNormFloorSpecialization.marginalHalfGeometricMovingCubeUniformRCNormFloor`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorUniformNormFloorSpecialization.lean:34`)
+inhabits the scheduled-channel `DynamicVacuumSectorUniformRCNormFloor` for the
+constant-nome geometric family.  The zero-time theorem (`:48`) carries the
+same rational floor to every sampled autocorrelation.  This discharges the
+finite-family nontriviality input required by the scheduled continuum
+interface, but representative convergence, physical-rate scaling, and the
+continuum joins remain open.  Evidence:
+`audits/AUDIT-DYNAMIC-UNIFORM-NORM-FLOOR-2026-09-24.md`.
+
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`

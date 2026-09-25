@@ -65,6 +65,14 @@ every geometric scale; its lattice margin remains fixed as spacing vanishes.
 See the
 [dynamic Markov-form bridge audit](audits/AUDIT-DYNAMIC-MARKOV-FORM-CS-BRIDGE-2026-09-24.md).
 
+**New checked scheduled nontriviality input (2026-09-24):**
+`BF4PhysicalDynamicVacuumSectorUniformNormFloorSpecialization` inhabits the
+scale-uniform positive norm floor for the literal moving-cube channel in the
+constant-nome geometric family and transports it to every scheduled zero-time
+same-object autocorrelation.  This closes only the finite-family floor input;
+the representative cutoff limit and physical scaling remain open.  See the
+[uniform-floor audit](audits/AUDIT-DYNAMIC-UNIFORM-NORM-FLOOR-2026-09-24.md).
+
 **New checked complete growing-word square heat image:** the original product
 heat sends a distinct-link Wilson character square to
 `1 + w^(8*perimeter)*chi_2`, retaining every supported test. For the actual
