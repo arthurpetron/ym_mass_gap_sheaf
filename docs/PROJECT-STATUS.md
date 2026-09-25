@@ -306,6 +306,17 @@ family; the raw same-object CReal representative variation remains the
 independent missing input.  Verification is recorded in
 `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
 
+The carrier/transfer side of the raw frontier is now audited explicitly:
+`centralPhysicalDynamicMovingCubeRCChannel` and
+`sampledConnectedAutocorrelation_eq_global` identify the same completed
+moving-cube observable at the `CReal.RC` level.  The missing input is narrower
+than a new carrier: `MovingCubeRawScheduledRepresentativeVariation` still
+requires compatible CReal representatives and a summable cross-scale modulus.
+The existing pairing-well-definedness theorem gives only `CReal.Equiv`, which
+cannot be used as a hidden choice of CReal representatives.  This is recorded
+in `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`; no chart marker
+changes.
+
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`
 (`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteRateCalibration.lean:54`)

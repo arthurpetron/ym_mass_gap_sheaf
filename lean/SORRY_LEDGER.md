@@ -17,6 +17,26 @@
 - **verification:** see
   `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
 
+## Raw representative-selection boundary recorded (2026-09-25 UTC)
+
+- **finite same-object support:** `centralPhysicalDynamicMovingCubeRCChannel`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorSameObjectRCChannel.lean:195`)
+  and `sampledConnectedAutocorrelation_eq_global`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorScheduledRCChannel.lean:120`)
+  already identify the concrete completed carrier, transfer, vector, and
+  sampled RC correlator.
+- **remaining certificate:**
+  `MovingCubeRawScheduledRepresentativeVariation`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler.lean:47`)
+  still requires CReal representatives, exact RC `represents` equalities, and
+  a summable cross-scale modulus.
+- **constructive boundary:** `physicalCauchyPairingLimit_welldef` supplies
+  only `CReal.Equiv`, enough for `centralPhysicalCutoffCompletedInner`'s RC
+  quotient descent but not a choice-free CReal quotient lift.  No hidden
+  representative selection is introduced.
+- **verification:** see
+  `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`.
+
 ## Generic geometric antitone tail CLOSED; physical specialization IN PROGRESS (2026-09-24 UTC)
 
 - **cutoff:** `GeometricAntitoneTailControl.geometricTailRate`

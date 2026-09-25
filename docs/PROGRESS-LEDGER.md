@@ -16,6 +16,18 @@ raw same-object CReal representative variation remains open; the geometric
 positive-time rate limit is zero, so no positive physical mass is claimed.
 Evidence: `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
 
+## Current boundary: raw representative selection is genuinely missing (2026-09-25 UTC)
+
+The concrete fixed-family carrier, transfer, vacuum-complement vector, and
+sampled same-object correlator are already linked at the `CReal.RC` level.
+The raw compiler still requires a `CReal` representative stream with exact
+`represents` equalities and a summable cross-scale variation modulus.  The
+existing completion construction provides only `CReal.Equiv` under changes of
+completion representatives, which is sufficient for `RC` quotient descent but
+not for a choice-free `CReal` quotient lift.  This is now recorded as the
+minimal honest next certificate; no hidden representative selection is added.
+Evidence: `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`.
+
 ## Current increment: actual normalized scheduled-rate input inhabited (2026-09-25 UTC)
 
 The fixed-family geometric certificate is now transported to the literal

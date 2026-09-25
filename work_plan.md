@@ -248,6 +248,19 @@ limit is zero, so a replacement physical-rate family is still required for
 positive mass calibration.  Verification:
 `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
 
+### Raw same-object representative boundary (2026-09-25 UTC)
+
+The fixed-family carrier, transfer, vacuum-complement vector, and sampled
+correlator are already concrete and linked at the `CReal.RC` level by
+`centralPhysicalDynamicMovingCubeRCChannel` and
+`sampledConnectedAutocorrelation_eq_global`.  The next certificate must still
+provide compatible `CReal` representatives and a summable cross-scale
+variation modulus for `MovingCubeRawScheduledRepresentativeVariation`.
+`physicalCauchyPairingLimit_welldef` gives only `CReal.Equiv`, so it cannot be
+used as a hidden quotient representative selection.  Keep this boundary
+explicit and constructive.  Evidence:
+`audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`.
+
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`
