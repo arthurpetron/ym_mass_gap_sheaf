@@ -1,12 +1,14 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **63**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **64**, 2026-09-25 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
 and scheduled branch fibers, alongside the earlier exact lag-two Wilson-to-OS
 relative-loss bridge consumer and its width-degeneration audit.  The focused source check for this snapshot passed
-with only `{propext, Quot.sound}`.
+with only `{propext, Quot.sound}`; the dynamic-family gate was also checked
+with the same axiom set and remains uninhabited at its family/observable/OS
+handoff inputs.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -85,6 +87,13 @@ strict gap and decay fields through the gap, dimensionless, fixed-spacing, and
 scheduled rate fibers.  The four preservation lemmas keep this lower bound
 attached to the same concrete `unitExcitation`; it is still a per-probe
 fixed-spacing fact, not an EVERY-state or continuum estimate.  The
+The source-independent dynamic-family gate in
+`BF4PhysicalDynamicVacuumSectorCompletedFamily.lean` also rechecks cleanly,
+but remains an interface: no changing completed family, physical rate band,
+observable pin, full-log ceiling, projective OS handoff, or reconstruction
+handoff is inhabited.  This isolates the next required bridge as an actual
+changing carrier/transfer family connected to the concrete sector probe; the
+fixed-carrier reciprocal-spacing construction is explicitly insufficient.  The
 dense source branch and the
 discrete-time transfer/gap branch now form an actual natural transformation
 over the covariant intrinsic-width scale diagram: `denseObservableDiagram`,
@@ -175,6 +184,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Gap -> dimensionless log-mass branch arrow
                                        [x] Dimensionless -> fixed-spacing rate calibration arrow
                                        [x] Fixed-carrier vanishing-spacing ceiling obstruction
+                                       [ ] Dynamic-family instantiation / same-theory bridge
              |                              v
              v                         [ ] EVERY-state decay
  [ ] ONE nonzero excitation survives        survives scaling
@@ -231,6 +241,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04c | Ray/mass/gap variation joined to cutoff removal | `matchedExactRateCutoffRemovalOfRayCapacityAndMassFloorAndPhysicalGapOfPhysicalRateBand`; all three primitive variations remain open inputs. |
 | B04d | Constant-gap calibration compiler | `DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration.toVariation`, `exactLogRateCauchyOfConstantPhysicalGap`, and `exactRateCutoffRemovalOfConstantPhysicalGap`; calibration remains an explicit input. |
 | B04e | Concrete `starRatio` dyadic budget obstruction | `no_starRatio_rational_loss_budget`; prunes only the coarse rational budget route and does not close A03/A05. |
+| B04f | Dynamic-family instantiation / same-theory bridge | `BF4PhysicalDynamicVacuumSectorCompletedFamily.DynamicVacuumSectorCompletedFamily`, `.DynamicVacuumSectorPhysicalRateBand`, and `BF4PhysicalDynamicVacuumSectorObservablePath.DynamicVacuumSectorObservablePin`; interfaces and rate/continuum consumers are checked, but no changing family, observable pin, physical band, or OS/reconstruction bridge is inhabited. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1091,3 +1102,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 79 | 2026-09-25 | Pinned the branch probe itself to the carried sector observable with `probe_sector : probe = sector.probe`, and checked its exposure through the nontriviality and gap arrows. The fixed-spacing same-object correlator now has an explicit observable identity; changing-spacing, OS/GNS, continuum/QFT and Clay obligations remain open. |
 | 1 / 80 | 2026-09-25 | Exposed the source/gap branch probe as the concrete `unitExcitation` used by the checked response and same-object decay consumers. This removes the last fixed-spacing observable relabeling seam; changing-spacing, OS/GNS, continuum/QFT and Clay obligations remain open. |
 | 1 / 81 | 2026-09-25 | Carried the positive `rayleighFloor` response bound through the gap, dimensionless, fixed-spacing, and scheduled rate fibers, preserving it with the same concrete probe alongside strict gap and decay data. The result remains per-probe fixed-spacing evidence; changing-spacing, OS/GNS, continuum/QFT and Clay obligations remain open. |
+| 1 / 82 | 2026-09-25 | Revalidated the source-independent dynamic-family module under the axiom gate and recorded its uninhabited family/observable/rate-band/OS handoff inputs as the next explicit open bridge. The fixed-carrier reciprocal-spacing obstruction remains decisive; no continuum or Clay claim is added. |

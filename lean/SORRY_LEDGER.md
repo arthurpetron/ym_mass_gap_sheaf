@@ -87,6 +87,22 @@
   `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
   or custom axiom.
 
+## Dynamic-family gate revalidated and missing bridge isolated (2026-09-25 UTC)
+
+- **checked interfaces:**
+  `DynamicVacuumSectorCompletedFamily`,
+  `DynamicVacuumSectorPhysicalRateBand` in
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorCompletedFamily.lean`,
+  and `DynamicVacuumSectorObservablePin` plus the continuum handoff modules.
+- **verification:** the focused safe check of the completed-family module passed
+  with only `{propext, Quot.sound}`.
+- **missing inhabitance:** no changing completed-family, physical rate band,
+  observable pin, full-log ceiling, projective OS handoff, or reconstruction
+  handoff is inhabited by this check.
+- **next bridge:** a genuine changing carrier/transfer family must be connected
+  to the concrete fixed-sector observable; the fixed-carrier reciprocal-spacing
+  construction cannot serve as that bridge.
+
 ## Scheduled-rate presheaf obstruction (2026-09-25 UTC)
 
 - **scheduled fiber:** `VanishingSpacingMassFiber` and

@@ -81,6 +81,21 @@ nontriviality certificate, not an EVERY-state or continuum gap.  The focused
 check passed with only `{propext, Quot.sound}` and no `sorryAx`, classical
 axiom, `native_decide`, or custom axiom.
 
+## Current increment: dynamic-family gate revalidated and missing bridge isolated (2026-09-25 UTC)
+
+The focused safe check of
+`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorCompletedFamily.lean`
+passed with only `{propext, Quot.sound}`.  Its checked interfaces are
+`DynamicVacuumSectorCompletedFamily`,
+`DynamicVacuumSectorPhysicalRateBand`, and the downstream
+`DynamicVacuumSectorObservablePin`/continuum handoff.  No inhabitant of the
+changing family, physical rate band, observable pin, full-log ceiling, or OS/
+reconstruction handoff is present.  The next causal bridge is therefore
+explicit: instantiate a genuinely changing completed carrier/transfer family
+and connect its observable pin to the concrete fixed-sector probe without
+reusing the fixed-carrier reciprocal-spacing construction.  This is a scope
+audit and open-input isolation, not continuum or Clay closure.
+
 ## Current increment: composed branch-to-fixed-spacing-rate presheaf chain (2026-09-25 UTC)
 
 `SpacingCalibratedMassFiber` in
