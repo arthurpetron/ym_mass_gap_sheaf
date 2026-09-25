@@ -42,9 +42,11 @@ estimate to the Wilson carrier using only the supplied equalities.  The new
 `OSFormFamily`/`transfer_form_family` pair (`:62`, `:95`) leaves the lag and
 coefficient function explicit, which is the interface needed for a
 same-object correlator-decay comparison.  Both consumers have empty axiom
-reports.  This is a typed contraction of the J02 bridge obligation, not an
-inhabitant of the bridge: the concrete map, its pairing identity, and the OS
-bound remain open, as do spacing control, scaling survival,
+reports.  The `OSRelativeLossFamily`/`transfer_relative_loss_family` pair
+(`:76`, `:127`) leaves the subtraction, scalar defect, and lag explicit for
+the relative-energy survival compiler.  This is a typed contraction of the
+J02 bridge obligation, not an inhabitant of the bridge: the concrete map, its
+pairing identity, and the OS bound remain open, as do spacing control, scaling survival,
 thermodynamic/continuum limits, physical mass, and the all-group
 construction.
 

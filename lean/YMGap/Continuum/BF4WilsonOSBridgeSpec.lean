@@ -66,6 +66,21 @@ def OSFormFamily {W : Type uW} {O : Type uO} {R : Type uR}
     leR (B.pairingO y (B.stepO n y))
       (bound n (B.pairingO y y))
 
+/-- An OS-side family of relative same-object loss bounds.
+
+`subR` is left abstract so the certificate can later be instantiated with the
+completed `CReal.RC` subtraction.  This is the exact shape needed by the
+relative-energy survival compiler: a lagged defect is bounded by a scalar
+fraction of the same vector's norm.
+-/
+def OSRelativeLossFamily {W : Type uW} {O : Type uO} {R : Type uR}
+    (B : SameObjectBridge W O R) (leR : R → R → Prop)
+    (subR : R → R → R) (scale : R → R → R)
+    (delta : Nat → R) : Prop :=
+  ∀ n y, B.orthogonalO y →
+    leR (subR (B.pairingO y y) (B.pairingO y (B.stepO n y)))
+      (scale (delta n) (B.pairingO y y))
+
 /-- Transport the OS two-step form bound to every Wilson vector certified
 orthogonal by the bridge.
 
@@ -105,7 +120,26 @@ theorem transfer_form_family
     B.pairing_preserved x x] at h
   exact h
 
+/-- Transport every member of an OS relative-loss family to the Wilson
+carrier.  The subtraction and scalar operations are used only through the
+same pairing-preservation equalities, so no algebraic law is hidden here.
+-/
+theorem transfer_relative_loss_family
+    {W : Type uW} {O : Type uO} {R : Type uR}
+    (B : SameObjectBridge W O R) (leR : R → R → Prop)
+    (subR : R → R → R) (scale : R → R → R)
+    (delta : Nat → R) (hOS : OSRelativeLossFamily B leR subR scale delta)
+    (x : W) (hx : B.orthogonalW x) (n : Nat) :
+    leR (subR (B.pairingW x x) (B.pairingW x (B.stepW n x)))
+      (scale (delta n) (B.pairingW x x)) := by
+  have h := hOS n (B.toOS x) (B.orthogonal_preserved x hx)
+  rw [B.step_preserved n x,
+    B.pairing_preserved x (B.stepW n x),
+    B.pairing_preserved x x] at h
+  exact h
+
 #print axioms transfer_twoStep_form_gap
 #print axioms transfer_form_family
+#print axioms transfer_relative_loss_family
 
 end YMGap.Continuum.BF4WilsonOSBridgeSpec

@@ -1,7 +1,7 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **43**, 2026-09-24 UTC. Source checkpoint:
-the lag-indexed Wilson-to-OS same-object bridge consumer
+Chart schema: **1**. Snapshot: **44**, 2026-09-24 UTC. Source checkpoint:
+the lag-indexed Wilson-to-OS relative-loss bridge consumer
 committed with this snapshot;
 verification is recorded in
 `audits/AUDIT-WILSON-OS-BRIDGE-SPEC-2026-09-24.md`.
@@ -582,9 +582,12 @@ remains open; extending this candidate normalization alone cannot supply it.
   input, and `transfer_twoStep_form_gap` (`:76`) transports it constructively
   to the Wilson side. `OSFormFamily` (`:62`) and
   `transfer_form_family` (`:95`) now expose the corresponding arbitrary-lag
-  consumer needed for same-object correlator decay. Both focused theorems
-  report empty axiom sets. No bridge inhabitant is supplied, so J02, B04/B05,
-  the continuum joins, physical mass, and the Clay target remain open.
+  consumer needed for same-object correlator decay. The new
+  `OSRelativeLossFamily` (`:76`) and `transfer_relative_loss_family` (`:127`)
+  expose the relative-energy defect needed by the survival compiler. All
+  focused consumers report empty axiom sets. No bridge inhabitant is supplied,
+  so J02, B04/B05, the continuum joins, physical mass, and the Clay target
+  remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
   unchanged; this snapshot records a new typed bridge expansion only.
@@ -653,3 +656,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 41 | 2026-09-24 | The coarse rational budget is packaged as Type-level `CoarseBudgetData`, and `coarse_budget_data_empty` proves its constructive emptiness under `0 < 1-w`; no chart-block or goal-node status change. |
 | 1 / 42 | 2026-09-24 | Minimal typed Wilson-to-OS bridge interface and constructive two-step form-bound consumer checked with an empty axiom set. No bridge inhabitant or chart-node status change. |
 | 1 / 43 | 2026-09-24 | Added the lag-indexed OS form-family interface and its equality-only Wilson transport consumer; both are axiom-free. No bridge inhabitant or chart-node status change. |
+| 1 / 44 | 2026-09-24 | Added the lag-indexed OS relative-loss family and equality-only Wilson transport consumer; the focused check is axiom-free. No bridge inhabitant or chart-node status change. |

@@ -25,6 +25,10 @@ strict OS completion; that concrete identification remains open.
   (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:62`) generalizes the
   input to an arbitrary lag-indexed bound, leaving its coefficient function
   explicit for a later same-object decay instantiation.
+- `YMGap.Continuum.BF4WilsonOSBridgeSpec.OSRelativeLossFamily`
+  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:76`) names the analogous
+  lag-indexed relative-energy defect, with subtraction, scaling, and defect
+  coefficient all explicit inputs.
 - `YMGap.Continuum.BF4WilsonOSBridgeSpec.transfer_twoStep_form_gap`
   (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:76`) transports that OS
   inequality to every Wilson vector whose orthogonality is preserved by the
@@ -33,6 +37,10 @@ strict OS completion; that concrete identification remains open.
 - `YMGap.Continuum.BF4WilsonOSBridgeSpec.transfer_form_family`
   (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:95`) transports every
   member of the lag-indexed family to the Wilson carrier.  Its focused check
+  also reports an empty axiom set.
+- `YMGap.Continuum.BF4WilsonOSBridgeSpec.transfer_relative_loss_family`
+  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:127`) transports the
+  relative-loss family needed by the survival compiler.  Its focused check
   also reports an empty axiom set.
 
 ## Honest boundary
