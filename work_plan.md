@@ -137,6 +137,17 @@ This is a useful calibration of the already existing fixed-parameter rate,
 not a uniform spacing/coupling bound or physical mass. Evidence:
 `audits/AUDIT-WILSON-PLAQUETTE-RATE-CALIBRATION-2026-09-24.md`.
 
+### SAME-carrier normalized plaquette response (2026-09-24 UTC)
+
+`BF4WilsonAllNomePlaquetteRelativeFloor` divides the actual lag-two response
+floor by the completed diagonal ceiling and proves a positive Rayleigh-style
+lower witness for the true `T²` matrix coefficient.  Its cancellation lemma
+then gives `relativeFloor ≤ twoStepRate` using the supplied positive norm
+floor, and derives strict positivity of the existing fixed-parameter rate.
+This remains nome/width/face dependent and is not a uniform mass or continuum
+statement. Evidence:
+`audits/AUDIT-WILSON-PLAQUETTE-RELATIVE-FLOOR-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream

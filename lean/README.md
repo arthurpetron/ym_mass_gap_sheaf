@@ -99,6 +99,15 @@ nome and width and is not a physical mass or continuum calibration. Evidence:
 `audits/AUDIT-WILSON-PLAQUETTE-RATE-CALIBRATION-2026-09-24.md` at repository
 root.
 
+`BF4WilsonAllNomePlaquetteRelativeFloor` normalizes that same lag-two floor by
+the actual completed diagonal ceiling and proves a positive Rayleigh-style
+lower witness for the true `T²` matrix coefficient. It then cancels the
+positive plaquette norm floor to obtain `relativeFloor ≤ twoStepRate` and
+strict positivity of the fixed-parameter rate. This remains nome/width/face
+dependent and is not a uniform mass or continuum result. Evidence:
+`audits/AUDIT-WILSON-PLAQUETTE-RELATIVE-FLOOR-2026-09-24.md` at repository
+root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.

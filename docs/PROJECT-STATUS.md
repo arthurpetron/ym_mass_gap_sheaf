@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **33**, 2026-09-24 UTC. Source checkpoint:
-the SAME all-nome Wilson plaquette rate-calibration milestone
+Chart schema: **1**. Snapshot: **34**, 2026-09-24 UTC. Source checkpoint:
+the SAME all-nome Wilson normalized plaquette-response milestone
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-PLAQUETTE-RATE-CALIBRATION-2026-09-24.md`.
+`audits/AUDIT-WILSON-PLAQUETTE-RELATIVE-FLOOR-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -154,6 +154,19 @@ existing rate but does not make it uniform in coupling, width, volume, or
 lattice spacing. Scaling survival and all continuum joins remain open. Its
 focused verification is recorded in
 `audits/AUDIT-WILSON-PLAQUETTE-RATE-CALIBRATION-2026-09-24.md`.
+
+New normalized same-carrier response evidence:
+`BF4WilsonAllNomePlaquetteRelativeFloor.plaquetteExcitation_relative_floor`
+(`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteRelativeFloor.lean:70`)
+divides the explicit lag-two floor by the actual completed diagonal ceiling
+and bounds the resulting positive Rayleigh-style witness below the true
+same-carrier lag-two pairing. `plaquette_relativeFloor_le_rate` (`:95`)
+constructively cancels the supplied positive norm floor against the existing
+strict transfer estimate, and `twoStepRate_positive_of_plaquette` (`:111`)
+derives strict positivity of the fixed-parameter rate. Nome, width, and the
+active-face premise remain explicit; scaling and continuum joins remain open.
+Verification is recorded in
+`audits/AUDIT-WILSON-PLAQUETTE-RELATIVE-FLOOR-2026-09-24.md`.
 
 Additional partial J02 evidence: `BF4WilsonAllNomeLinear.completedAdd` and
 `.completedSmul` (`lean/YMGap/Continuum/BF4WilsonAllNomeLinear.lean:132`, `:135`)
