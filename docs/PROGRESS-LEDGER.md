@@ -23,12 +23,16 @@ also rewrites the finite scheduled square-decay bound directly onto that same
 canonical CReal representative, before any square-root or variation bridge.
 The conditional compiler
 `marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime`
-(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:609`)
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:634`)
 now feeds that raw object, the already-inhabited rational normalization debt,
 and the already-inhabited scheduled-rate variation into one concrete fixed-
 family normalized continuum limit.  Its zero-time strict positivity
-(`:618`) and same-object squared decay (`:632`) are proved; the only supplied
+(`:643`) and same-object squared decay (`:657`) are proved; the only supplied
 argument still missing is the positive-time raw variation structure itself.
+The scalar rate-limit theorem
+`marginalHalfGeometric_ratePowerLimit_positive_time_equiv_zero` (`:610`)
+shows that this fixed-spacing dyadic schedule collapses to zero at every
+positive integer time; it is not a positive physical mass result.
 The focused monitored check passed with only `{propext, Quot.sound}` and no
 `sorryAx`, classical axiom, `native_decide`, or custom axiom.  No continuum,
 positive-mass, or Clay claim follows.

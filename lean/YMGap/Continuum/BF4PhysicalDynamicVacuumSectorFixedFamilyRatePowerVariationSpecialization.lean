@@ -604,6 +604,31 @@ def marginalHalfGeometric_ratePowerLimit :
       marginalHalfGeometricCompletedFamily
       marginalHalfGeometric_ratePowerVariation)
 
+/- The explicit fixed-family rate limit collapses to zero at every positive
+physical time.  This is the constructive limit of the dyadic sampler, not a
+positive physical mass statement. -/
+theorem marginalHalfGeometric_ratePowerLimit_positive_time_equiv_zero
+    (time : Nat) (htime : 0 < time) :
+    CReal.Equiv
+      (marginalHalfGeometric_ratePowerLimit.limitRepresentative time)
+      (CReal.ofQ' 0) := by
+  let geometric :=
+    positiveRatePowerVariation fixedSquaredRate
+      fixedSquaredRate_pos fixedSquaredRate_lt_one time htime
+  have hlimit :
+      CReal.Equiv
+        (marginalHalfGeometric_ratePowerLimit.limitRepresentative time)
+        geometric.limit := by
+    apply CReal.Equiv_of_limit_of_equal
+    · intro scale
+      exact YMGap.Constructive.TrigAdd.equiv_ofQ'_of_eqv
+        (actual_stream_eqv_geometric scale time)
+    · exact marginalHalfGeometric_ratePowerLimit.converges time
+    · exact geometric.converges
+  exact CReal.Equiv.trans hlimit
+    (positiveRatePowerVariation_limit_equiv_zero
+      fixedSquaredRate fixedSquaredRate_pos fixedSquaredRate_lt_one time htime)
+
 /- The fixed-family normalized limit is therefore defined from the same raw
 representative and the already inhabited rational debt certificate. -/
 def marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime
@@ -712,6 +737,8 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationS
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_rawScheduledVariationOfPositiveTime
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_ratePowerLimit
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_ratePowerLimit_positive_time_equiv_zero
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime
 #print axioms

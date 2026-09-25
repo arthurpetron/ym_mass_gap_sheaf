@@ -14,10 +14,14 @@
   (`:422`) transports the finite scheduled square-decay inequality to the
   canonical CReal representative before the still-missing variation bridge.
 - **conditional continuum contraction:**
-  `marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime` (`:609`),
-  `..._zero_isPositive` (`:618`), and `..._sq_decay` (`:632`) compose the
+  `marginalHalfGeometric_normalizedContinuumLimitOfPositiveTime` (`:634`),
+  `..._zero_isPositive` (`:643`), and `..._sq_decay` (`:657`) compose the
   canonical raw object with the already inhabited debt/rate streams.  These
   declarations do not inhabit the positive-time raw variation field.
+- **rate-limit consequence:**
+  `marginalHalfGeometric_ratePowerLimit_positive_time_equiv_zero` (`:610`)
+  identifies the positive-time scalar limit with zero.  This exposes a
+  fixed-spacing schedule collapse, not a physical positive mass.
 - **scope:** this is a type-level reduction, not an inhabitant of the
   positive-time fields.  The spacing-uniform physical rate, continuum/QFT
   reconstruction, all-group theorem, and Clay target remain open.
