@@ -103,6 +103,22 @@
   to the concrete fixed-sector observable; the fixed-carrier reciprocal-spacing
   construction cannot serve as that bridge.
 
+## Unit-probe norm-one collapse and rational rate floor (2026-09-25 UTC)
+
+- **declarations:** `gap_probe_norm_one`,
+  `gap_probe_response_floor_le_rate`, and
+  `branch_arrow_response_floor_le_rate` in
+  `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`.
+- **result:** the carried `unitExcitation` probe has norm one, so the strict
+  rate-scaled norm inequality reflects to
+  `rayleighFloor ≤ twoStepRate nome hd`, including after the
+  nontriviality-to-gap natural-transformation component.
+- **verification:** focused safe check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+- **scope:** fixed-spacing, same-object and per-probe only; no spatially
+  uniform rate, changing-family bridge, continuum/QFT or Clay conclusion.
+
 ## Response floor joined to the strict rate bound (2026-09-25 UTC)
 
 - **quantitative consumers:** `gap_probe_response_floor_le_rate_scaled_norm`

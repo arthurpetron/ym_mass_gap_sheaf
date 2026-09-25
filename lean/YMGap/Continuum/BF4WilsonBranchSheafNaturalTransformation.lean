@@ -54,7 +54,7 @@ open YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
 open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
   (norm_decay)
 open YMGap.Continuum.BF4WilsonSpatialUnionNormalizedExcitation
-  (rayleighFloor unitExcitation unitExcitation_orthogonal)
+  (rayleighFloor unitExcitation unitExcitation_norm unitExcitation_orthogonal)
 open YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
   (unitExcitation_ne_zero)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap
@@ -86,6 +86,11 @@ local notation "B" => completedInner nome_pos nome_lt_one hsmall hd hs
 local notation "T" => completedTime nome_pos nome_lt_one hsmall hd hs
 local notation "U" => completedUnit nome_pos nome_lt_one hsmall hd hs
 local notation "Z" => completedZero nome_pos nome_lt_one hsmall hd hs
+
+private theorem rc_mul_one_local (a : RC) :
+    RCmul a (Quotient.mk crealSetoid cone) = a := by
+  refine Quotient.inductionOn a ?_
+  exact fun A => Quotient.sound (CRealAlg.cmul_cone A)
 
 /-! ## The two branch fibers -/
 
@@ -415,6 +420,22 @@ theorem gap_probe_response_floor_le_rate_scaled_norm
         (B g.probe g.probe)) :=
   RCle_trans g.probe_response_floor g.probe_strict_two_step
 
+theorem gap_probe_norm_one (g : GapFiber) :
+    B g.probe g.probe = Quotient.mk crealSetoid cone := by
+  calc
+    B g.probe g.probe = B g.sector.probe g.sector.probe := by
+      rw [g.probe_sector]
+    _ = B currentSector.probe currentSector.probe := by
+      rw [g.sector_exact]
+    _ = B unitExcitation unitExcitation := rfl
+    _ = Quotient.mk crealSetoid cone := unitExcitation_norm
+
+theorem gap_probe_response_floor_le_rate (g : GapFiber) :
+    (rayleighFloor : Q') ≤ twoStepRate nome hd := by
+  have h := gap_probe_response_floor_le_rate_scaled_norm g
+  rw [gap_probe_norm_one, rc_mul_one_local] at h
+  exact YMGap.Continuum.GNSQuotient.GNSData.RCofQ'_le_reflect h
+
 theorem branch_arrow_response_floor_le_rate_scaled_norm
     (n : Nat) (e : NontrivialityFiber) :
     RCle (Quotient.mk crealSetoid (ofQ' rayleighFloor))
@@ -423,6 +444,11 @@ theorem branch_arrow_response_floor_le_rate_scaled_norm
           (nontrivialityToGap.app n e).probe)) :=
   gap_probe_response_floor_le_rate_scaled_norm
     (nontrivialityToGap.app n e)
+
+theorem branch_arrow_response_floor_le_rate
+    (n : Nat) (e : NontrivialityFiber) :
+    (rayleighFloor : Q') ≤ twoStepRate nome hd :=
+  gap_probe_response_floor_le_rate (nontrivialityToGap.app n e)
 
 theorem branch_arrow_preserves_sector
     (n : Nat) (e : NontrivialityFiber) :
@@ -598,7 +624,10 @@ theorem currentGap_strict_two_step :
 #print axioms branch_arrow_preserves_orthogonality
 #print axioms branch_arrow_preserves_response_floor
 #print axioms gap_probe_response_floor_le_rate_scaled_norm
+#print axioms gap_probe_norm_one
+#print axioms gap_probe_response_floor_le_rate
 #print axioms branch_arrow_response_floor_le_rate_scaled_norm
+#print axioms branch_arrow_response_floor_le_rate
 #print axioms branch_arrow_preserves_sector
 #print axioms branch_arrow_preserves_sector_probe
 #print axioms branch_arrow_probe_is_sector_probe

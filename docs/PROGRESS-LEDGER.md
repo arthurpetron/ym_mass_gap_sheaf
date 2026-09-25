@@ -4,6 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: unit-probe norm-one collapse and rational rate floor (2026-09-25 UTC)
+
+`gap_probe_norm_one` in
+`lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`
+collapses the carried branch probe norm to the checked `unitExcitation_norm`
+certificate.  Reflecting the already-proved scaled-norm inequality through
+`GNSQuotient.GNSData.RCofQ'_le_reflect` yields
+`gap_probe_response_floor_le_rate`, and
+`branch_arrow_response_floor_le_rate` exposes the same rational bound after the
+nontriviality → gap natural-transformation component.  The focused safe check
+passed with only `{propext, Quot.sound}` and no `sorryAx`, classical axiom,
+`native_decide`, or custom axiom.  This is fixed-spacing and per-probe; it does
+not provide a spatially uniform rate, a changing carrier family, a continuum
+limit, or the Clay theorem.
+
 ## Current increment: concrete sector witness carried through the branch topos (2026-09-25 UTC)
 
 `DimensionlessMassFiber`, `SpacingCalibratedMassFiber`, and

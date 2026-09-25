@@ -1,11 +1,12 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **65**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **66**, 2026-09-25 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
 and scheduled branch fibers, alongside the new same-object response/rate
-compatibility inequality and the earlier exact lag-two Wilson-to-OS
+compatibility inequality, its unit-probe norm-one collapse to a rational rate
+floor, and the earlier exact lag-two Wilson-to-OS
 relative-loss bridge consumer and its width-degeneration audit.  The focused source check for this snapshot passed
 with only `{propext, Quot.sound}`; the dynamic-family gate was also checked
 with the same axiom set and remains uninhabited at its family/observable/OS
@@ -92,11 +93,15 @@ fixed-spacing fact, not an EVERY-state or continuum estimate.  The
 `branch_arrow_response_floor_le_rate_scaled_norm` lemmas compose this floor
 with the strict-rate-scaled probe norm, giving the branch's strongest immediate
 same-object quantitative compatibility.  They do not supply the changing-
-family budget.  The source-independent dynamic-family gate in
 `BF4PhysicalDynamicVacuumSectorCompletedFamily.lean` also rechecks cleanly,
 but remains an interface: no changing completed family, physical rate band,
 observable pin, full-log ceiling, projective OS handoff, or reconstruction
-handoff is inhabited.  This isolates the next required bridge as an actual
+handoff is inhabited.  The `gap_probe_norm_one` identity then collapses the
+scaled norm, and `gap_probe_response_floor_le_rate` together with
+`branch_arrow_response_floor_le_rate` reflects the result to the rational
+bound `rayleighFloor ≤ twoStepRate nome hd`, including after the branch-arrow
+component.  This remains fixed-spacing and per-probe; it is not the missing
+changing-family budget.  This isolates the next required bridge as an actual
 changing carrier/transfer family connected to the concrete sector probe; the
 fixed-carrier reciprocal-spacing construction is explicitly insufficient.  The
 dense source branch and the
@@ -174,6 +179,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Branch probe equals concrete unit excitation
                                        [x] Positive response floor carried through rate fibers
                                        [x] Response floor joined to strict-rate-scaled norm
+                                       [x] Unit-probe norm-one collapse to rational rate floor
              |                              |
              v                              v
  [ ] Complete signed cost versus   [x] Strict completed T^2 bound
@@ -236,6 +242,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | A02m | Branch probe identified with the concrete unit excitation | `BF4WilsonBranchSheafNaturalTransformation.branch_arrow_probe_is_unit_excitation` and `.gap_mass_arrow_probe_is_unit_excitation`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; composes the sector-observable identity with `sector_exact = currentSector` to expose `unitExcitation`, the exact probe used by the checked response and decay consumers. This is fixed-spacing SU(2) observable identity, not changing-spacing, OS/GNS, continuum, or Clay closure. |
 | A02n | Positive response floor carried through the branch fibers | `BF4WilsonBranchSheafNaturalTransformation.*Fiber.probe_response_floor`, `.branch_arrow_preserves_response_floor`, `.gap_mass_arrow_preserves_response_floor`, `.calibration_arrow_preserves_response_floor`, and `.scheduled_arrow_preserves_response_floor`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; carries the positive `rayleighFloor` lower bound with the same concrete probe alongside strict gap and decay data. This is per-probe fixed-spacing evidence, not an EVERY-state, changing-spacing, continuum, or Clay result. |
 | A02o | Response floor joined to strict-rate-scaled norm | `BF4WilsonBranchSheafNaturalTransformation.gap_probe_response_floor_le_rate_scaled_norm` and `.branch_arrow_response_floor_le_rate_scaled_norm`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; composes the same-object positive response with the strict two-step bound into a quantitative lower-vs-rate-scaled-norm inequality. This is fixed-spacing per-probe compatibility, not a changing-family budget or continuum gap. |
+| A02p | Unit-probe norm-one collapse to rational rate floor | `BF4WilsonBranchSheafNaturalTransformation.gap_probe_norm_one`, `.gap_probe_response_floor_le_rate`, and `.branch_arrow_response_floor_le_rate`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; uses the carried `probe = unitExcitation` identity and its norm-one certificate to reflect the scaled-norm inequality back to `rayleighFloor ≤ twoStepRate nome hd`, including after the natural-transformation component. This is fixed-spacing, same-object and per-probe; it is not a spatially uniform, changing-family, continuum, or Clay gap. |
 | A03 | Complete signed cost versus SAME interacting variance on a justified scaling family | OPEN original-source estimate for ONE family, or direct response alternative. |
 | A04 | Conditional survival theorem (requires the missing input) | `BF4ExactSlabFixedSpatialJointEnergySurvival.response_floor_of_relative_energy`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:112`; supplied relative energy and positive norm floor, SAME fixed-width carrier. |
 | A05 | ONE nonzero excitation survives | OPEN compatible changing-scale observable and nonzero response. |
@@ -1111,3 +1118,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 81 | 2026-09-25 | Carried the positive `rayleighFloor` response bound through the gap, dimensionless, fixed-spacing, and scheduled rate fibers, preserving it with the same concrete probe alongside strict gap and decay data. The result remains per-probe fixed-spacing evidence; changing-spacing, OS/GNS, continuum/QFT and Clay obligations remain open. |
 | 1 / 82 | 2026-09-25 | Revalidated the source-independent dynamic-family module under the axiom gate and recorded its uninhabited family/observable/rate-band/OS handoff inputs as the next explicit open bridge. The fixed-carrier reciprocal-spacing obstruction remains decisive; no continuum or Clay claim is added. |
 | 1 / 83 | 2026-09-25 | Composed the carried positive response floor with the strict rate bound, proving a same-object response ≤ rate-scaled-norm inequality on the gap fiber and after the nontriviality → gap arrow. This is the strongest immediate fixed-spacing quantitative consequence; the changing-family bridge remains open. |
+| 1 / 84 | 2026-09-25 | Collapsed the carried unit-probe norm to the rational rate floor and exposed the same bound after the nontriviality-to-gap natural-transformation component. The result is fixed-spacing and per-probe; the dynamic-family bridge and all continuum/Clay claims remain open. |
