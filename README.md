@@ -39,6 +39,16 @@ moving-centered cube same-object autocorrelation, with positive margin
 nome-dependent and does not close the OS bridge, spacing limit, continuum,
 physical-mass, or all-group obligations.  See the [physical relative-loss audit](audits/AUDIT-PHYSICAL-SU2-RELATIVE-LOSS-2026-09-24.md).
 
+**Latest dynamic-family consequence (2026-09-24):**
+`BF4PhysicalDynamicVacuumSectorFormGapRelativeLoss` factors a separate
+completed form-gap family certificate from squared-norm contraction, inhabits
+it for the fixed-`w=1/2` geometric staging family, and derives scale-wise
+relative loss for the moving-cube same-object channel.  The certificate is a
+staging bridge only: its lattice margin stays constant while the spacing tends
+to zero, so the existing physical-rate-band obstruction remains.  It does not
+close continuum survival, physical mass, or the all-group theorem.  See the
+[dynamic form-gap audit](audits/AUDIT-DYNAMIC-FORM-GAP-RELATIVE-LOSS-2026-09-24.md).
+
 **New checked complete growing-word square heat image:** the original product
 heat sends a distinct-link Wilson character square to
 `1 + w^(8*perimeter)*chi_2`, retaining every supported test. For the actual

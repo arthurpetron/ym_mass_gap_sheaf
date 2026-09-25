@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Dynamic form-gap family certificate CLOSED; physical-rate band OPEN (2026-09-24 UTC)
+
+- **factored certificate**: `BF4PhysicalDynamicVacuumSectorFormGapRelativeLoss.DynamicVacuumSectorCompletedFormGapFamily`
+  records a completed physical-sector form-gap datum at every scale, separate
+  from the existing dynamic squared-norm contraction family.
+  `marginalHalfGeometricCompletedFormGapFamily` inhabits it for the fixed
+  `w = 1/2` geometric staging family, and
+  `channel_relative_loss_of_formGapFamily` derives the same-object
+  relative-loss inequality for any channel vector; the moving-cube
+  specialization and positive-margin theorem are also proved.
+- **scope**: this is a scale-wise staging bridge.  The margin is the constant
+  finite cutoff rate while spacing tends to zero, so the existing
+  `noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily` obstruction
+  remains.  No physical-rate producer, continuum survival, OS/GNS passage,
+  physical mass, or all-group theorem is asserted.
+- **verification**: the focused monitored check of
+  `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFormGapRelativeLoss.lean`
+  reports only `{propext, Quot.sound}` and no `sorryAx`, classical input, or
+  custom axiom.  Evidence:
+  `audits/AUDIT-DYNAMIC-FORM-GAP-RELATIVE-LOSS-2026-09-24.md`.
+
 ## Concrete physical SU(2) relative loss CLOSED; uniform/continuum passage OPEN (2026-09-24 UTC)
 
 - **proved same-object deficit**: `BF4PhysicalConcreteSU2RelativeLoss.sector_relative_loss_of_form_gap`

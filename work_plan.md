@@ -103,6 +103,21 @@ spacing-uniform rate, OS/GNS identification, continuum passage, physical
 mass, and all-group construction remain open.  Verification:
 `audits/AUDIT-PHYSICAL-SU2-RELATIVE-LOSS-2026-09-24.md`.
 
+### Dynamic form-gap family certificate (2026-09-24 UTC)
+
+`BF4PhysicalDynamicVacuumSectorFormGapRelativeLoss.DynamicVacuumSectorCompletedFormGapFamily`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFormGapRelativeLoss.lean:39`)
+factors the form-level input needed by relative-loss transport from the
+source-independent dynamic family's squared-norm contraction.  The existing
+fixed-`w=1/2` geometric staging family inhabits this certificate (`:46`), and
+`channel_relative_loss_of_formGapFamily` (`:59`) gives a literal one-step
+same-object deficit on any selected RC channel.  The actual moving-centered
+cube specialization and its positive margin are at `:83` and `:102`.  This is
+an honest scale-wise bridge input, not a physical-rate band: the staging
+family's spacing vanishes while its lattice margin is constant, so the known
+rate-band obstruction and all continuum/physical-mass obligations remain.
+Verification: `audits/AUDIT-DYNAMIC-FORM-GAP-RELATIVE-LOSS-2026-09-24.md`.
+
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`
