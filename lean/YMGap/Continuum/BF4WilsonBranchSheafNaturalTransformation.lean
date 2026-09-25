@@ -24,6 +24,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialSpatialDenseGap
 import YMGap.Continuum.BF4ExactSlabCollarAdjustedRate
 import YMGap.Continuum.FiniteSizeGeometricSum
 import YMGap.Continuum.QuaternionHaarCharacterInterval
+import YMGap.Continuum.BF4WilsonSpatialUnionDiscreteLogGap
 
 namespace YMGap.Continuum.BF4WilsonBranchSheafNaturalTransformation
 
@@ -35,6 +36,7 @@ open YMGap.Categorical
 open YMGap.Categorical.ScaleSheaf
 open YMGap.Constructive
 open YMGap.Constructive.CReal
+open YMGap.Constructive.CRealLog
 open YMGap.Continuum.BF4WilsonSpatialUnion
 open YMGap.Continuum.BF4WilsonSpatialUnionSeminorm
 open YMGap.Continuum.BF4WilsonSpatialUnionPairingData (completedInner)
@@ -59,6 +61,10 @@ open YMGap.Continuum.BF4ExactSlabSmallNomeHaarComparison
   (existingNome_guards)
 open YMGap.Continuum.BF4ExactSlabSummableCoreRate
   (existingNome_entropyRate)
+open YMGap.Continuum.BF4WilsonSpatialUnionDiscreteLogGap
+  (currentRate currentTransferMass currentTransferMass_pos
+    currentTransferLogReduction currentTransferMass_log_pin)
+
 
 local notation "hsmall" => And.left existingNome_guards
 local notation "hd" => And.right existingNome_guards
@@ -92,6 +98,22 @@ structure GapFiber : Type 2 where
       (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
         (B probe probe))
 
+/-- A gap-side section enriched with the constructive dimensionless transfer
+mass.  The mass is the exact positive `-log(currentRate)` of the fixed
+two-step rate; no lattice-spacing conversion is included. -/
+structure DimensionlessMassFiber : Type 2 where
+  probe : V
+  probe_vacuum_orthogonal : B probe U = RCzero
+  probe_strict_two_step :
+    RCle (B probe (T 2 probe))
+      (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
+        (B probe probe))
+  transfer_mass : CReal
+  transfer_mass_positive : CReal.IsPositive transfer_mass
+  transfer_mass_log_pin : CReal.Equiv transfer_mass
+      (CReal.neg (CReal.log (CReal.ofQ' currentRate)
+        currentTransferLogReduction))
+
 /-! ## The branch compiler -/
 
 /-- The shared-carrier branch compiler.  It keeps the probe and its
@@ -105,6 +127,16 @@ def NontrivialityFiber.toGap (e : NontrivialityFiber) : GapFiber where
   probe_strict_two_step :=
     completed_twoStep_form_gap nome_pos nome_lt_one hsmall hd hs e.probe
       e.probe_vacuum_orthogonal
+
+/-- The gap-to-mass compiler retains the same probe and strict estimate and
+adds only the already checked fixed-spacing logarithmic certificate. -/
+def GapFiber.toDimensionlessMass (g : GapFiber) : DimensionlessMassFiber where
+  probe := g.probe
+  probe_vacuum_orthogonal := g.probe_vacuum_orthogonal
+  probe_strict_two_step := g.probe_strict_two_step
+  transfer_mass := currentTransferMass
+  transfer_mass_positive := currentTransferMass_pos
+  transfer_mass_log_pin := currentTransferMass_log_pin
 
 /-- The concrete current Wilson probe inhabits the nontriviality fiber. -/
 def currentNontriviality : NontrivialityFiber where
@@ -134,12 +166,30 @@ def gapPresheaf : Presheaf ScaleCat TypeCat where
   map_id := fun _ => rfl
   map_comp := fun _ _ => rfl
 
+/-- Constant presheaf of dimensionless fixed-spacing mass sections. -/
+def dimensionlessMassPresheaf : Presheaf ScaleCat TypeCat where
+  obj := fun _ => DimensionlessMassFiber
+  map := fun _ => fun m => m
+  map_id := fun _ => rfl
+  map_comp := fun _ _ => rfl
+
 /-- The branch arrow in the presheaf topos `Type^(ScaleCat.op)`.  Naturality
 states that scale refinement and branch compilation commute; both are the
 identity on the already-common completed carrier. -/
 def nontrivialityToGap : NatTrans nontrivialityPresheaf gapPresheaf where
   app := fun _ => NontrivialityFiber.toGap
   naturality := fun _ => rfl
+
+/-- The second branch arrow in the presheaf topos: a completed gap section
+feeds the constructive dimensionless logarithmic mass section. -/
+def gapToDimensionlessMass : NatTrans gapPresheaf dimensionlessMassPresheaf where
+  app := fun _ => GapFiber.toDimensionlessMass
+  naturality := fun _ => rfl
+
+/-- The contracted branch chain in the presheaf topos. -/
+def nontrivialityToDimensionlessMass :
+    NatTrans nontrivialityPresheaf dimensionlessMassPresheaf :=
+  YMGap.Categorical.natTransComp nontrivialityToGap gapToDimensionlessMass
 
 theorem branch_arrow_preserves_probe (n : Nat) (e : NontrivialityFiber) :
     (nontrivialityToGap.app n e).probe = e.probe := rfl
@@ -148,6 +198,17 @@ theorem branch_arrow_preserves_orthogonality
     (n : Nat) (e : NontrivialityFiber) :
     (nontrivialityToGap.app n e).probe_vacuum_orthogonal =
       e.probe_vacuum_orthogonal := rfl
+
+theorem gap_mass_arrow_preserves_probe (n : Nat) (g : GapFiber) :
+    (gapToDimensionlessMass.app n g).probe = g.probe := rfl
+
+theorem gap_mass_arrow_preserves_rate (n : Nat) (g : GapFiber) :
+    (gapToDimensionlessMass.app n g).transfer_mass = currentTransferMass := rfl
+
+theorem branch_chain_preserves_probe (n : Nat) (e : NontrivialityFiber) :
+    (nontrivialityToDimensionlessMass.app n e).probe = e.probe := by
+  change (GapFiber.toDimensionlessMass (NontrivialityFiber.toGap e)).probe = e.probe
+  rfl
 
 theorem currentGap_strict_two_step :
     RCle (B currentGap.probe (T 2 currentGap.probe))
@@ -160,9 +221,15 @@ theorem currentGap_strict_two_step :
 #print axioms currentGap
 #print axioms nontrivialityPresheaf
 #print axioms gapPresheaf
+#print axioms dimensionlessMassPresheaf
 #print axioms nontrivialityToGap
+#print axioms gapToDimensionlessMass
+#print axioms nontrivialityToDimensionlessMass
 #print axioms branch_arrow_preserves_probe
 #print axioms branch_arrow_preserves_orthogonality
+#print axioms gap_mass_arrow_preserves_probe
+#print axioms gap_mass_arrow_preserves_rate
+#print axioms branch_chain_preserves_probe
 #print axioms currentGap_strict_two_step
 
 end YMGap.Continuum.BF4WilsonBranchSheafNaturalTransformation

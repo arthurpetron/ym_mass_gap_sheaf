@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Composed branch-to-log-mass presheaf chain (2026-09-25 UTC)
+
+- **mass fiber:** `DimensionlessMassFiber` in
+  `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`
+  retains the same probe/gap data and carries the positive constructive
+  `currentTransferMass` with `currentTransferMass_log_pin`.
+- **second arrow:** `GapFiber.toDimensionlessMass` and
+  `gapToDimensionlessMass` attach that dimensionless `-log(currentRate)`
+  certificate without converting it to physical units.
+- **composition:** `YMGap.Categorical.natTransComp` in
+  `lean/YMGap/Categorical/Core.lean` pastes naturality squares; the composite
+  `nontrivialityToDimensionlessMass` contracts nontriviality → gap → log-mass.
+- **scope:** fixed-spacing and dimensionless only; canonical OS/GNS transport,
+  spacing uniformity, physical mass calibration, continuum/QFT construction,
+  and Clay closure remain open.
+- **verification:** focused Core and branch checks passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Nontriviality-to-gap presheaf arrow (2026-09-25 UTC)
 
 - **branch fibers:** `NontrivialityFiber` and `GapFiber` in

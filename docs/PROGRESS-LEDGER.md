@@ -4,6 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: composed branch-to-log-mass presheaf chain (2026-09-25 UTC)
+
+The branch arrow in
+`lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean` now
+continues from `GapFiber` to `DimensionlessMassFiber` via
+`gapToDimensionlessMass`, retaining the same probe, vacuum orthogonality, and
+strict two-step estimate while attaching the checked positive
+`currentTransferMass` and its exact logarithm pin.  The new core constructor
+`YMGap.Categorical.natTransComp` pastes naturality squares constructively, and
+`nontrivialityToDimensionlessMass` is the composite presheaf-topos arrow.  This
+is a dimensionless fixed-spacing transfer mass only: no lattice-spacing
+conversion, canonical OS/GNS identification, changing-spacing uniformity,
+continuum construction, or Clay closure follows.  The focused Core and branch
+checks passed with only `{propext, Quot.sound}` and no `sorryAx`, classical
+axiom, `native_decide`, or custom axiom.
+
 ## Current increment: nontriviality-to-gap presheaf arrow (2026-09-25 UTC)
 
 `NontrivialityFiber` and `GapFiber` in

@@ -103,6 +103,15 @@ structure NatTrans {C : Cat.{u, v}} {D : Cat.{u', v'}}
   naturality : ∀ {X Y : C.Obj} (f : C.Hom X Y),
     D.comp (F.map f) (app Y) = D.comp (app X) (G.map f)
 
+/-- Vertical composition of natural transformations.  The proof is the
+constructive three-square paste: associativity, the first naturality square,
+the second naturality square, and associativity again. -/
+def natTransComp {F G H : Functor C D}
+    (α : NatTrans F G) (β : NatTrans G H) : NatTrans F H where
+  app := fun X => D.comp (α.app X) (β.app X)
+  naturality := fun {X Y} f => by
+    rw [← D.assoc, α.naturality f, D.assoc, β.naturality f, ← D.assoc]
+
 /-! ## The category of types
 
 `TypeCat` — objects are types, morphisms are functions.  The target of
@@ -119,3 +128,5 @@ def TypeCat : Cat.{u + 1, u} where
   assoc := fun _ _ _ => rfl
 
 end YMGap.Categorical
+
+#print axioms YMGap.Categorical.natTransComp

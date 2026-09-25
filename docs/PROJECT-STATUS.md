@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **54**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **55**, 2026-09-25 UTC. Source checkpoint:
 the exact lag-two Wilson-to-OS relative-loss bridge consumer, alongside the
 checked fixed-parameter complex relative-loss consumer and the explicit
 width-degeneration obstruction for the original response witness
@@ -27,6 +27,11 @@ presheaf-topos arrow `nontrivialityToGap` in
 while applying the strict completed two-step bound.  This is a same-carrier
 branch implication only; it does not supply sheaf gluing, changing-spacing
 uniformity, canonical OS/GNS transport, or continuum/Clay data.  The dense
+branch chain now composes that arrow with `gapToDimensionlessMass` via
+`YMGap.Categorical.natTransComp`, yielding
+`nontrivialityToDimensionlessMass` and the checked positive dimensionless
+`currentTransferMass` logarithm pin.  This remains fixed-spacing and does not
+constitute physical mass calibration.  The dense
 source branch and the
 discrete-time transfer/gap branch now form an actual natural transformation
 over the covariant intrinsic-width scale diagram: `denseObservableDiagram`,
@@ -108,6 +113,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Ray/mass/gap -> joined cutoff consumer
                                        [x] Constant-gap calibration compiler
                                        [x] Concrete starRatio budget obstruction
+                                       [x] Gap -> dimensionless log-mass branch arrow
              |                              v
              v                         [ ] EVERY-state decay
  [ ] ONE nonzero excitation survives        survives scaling
@@ -143,6 +149,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | A02c | Dense branch time natural transformation | `BF4WilsonAllNomeDenseTimeNaturalTransformation.denseObservableDiagram`, `.denseTransferDiagram`, `.denseTimeNaturalTransformation`, `.denseTime_naturality`, and `.denseTime_naturality_paddedSquare`, `lean/YMGap/Continuum/BF4WilsonAllNomeDenseTimeNaturalTransformation.lean`; packages the covariant dense width diagram and actual discrete-time advance as a kernel-checked natural transformation. No completed-carrier map, interacting-action comparison, changing-width response floor, or continuum/Clay closure. |
 | A02d | Dense-to-union completed naturality | `BF4WilsonSpatialUnionNaturalTransformation.positiveDenseDiagram`, `.unionCompletionDiagram`, `.denseToUnion`, `.denseTimeToUnion`, and `.completedTime_denseToUnion`, `lean/YMGap/Continuum/BF4WilsonSpatialUnionNaturalTransformation.lean`; maps every positive-width dense source into the common staged `UnionCompletion`, naturally in width, and intertwines completed physical time. The union carrier is not yet the canonical OS/GNS carrier and has no spacing-uniform Clay closure. |
 | A02e | Nontriviality-to-gap presheaf branch arrow | `BF4WilsonBranchSheafNaturalTransformation.NontrivialityFiber.toGap`, `.nontrivialityPresheaf`, `.gapPresheaf`, `.nontrivialityToGap`, `.currentNontriviality`, and `.currentGap`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; on constant presheaves over `ScaleCat.op`, preserves the same fixed-spacing probe and orthogonality while deriving the strict completed two-step bound. It is not sheaf gluing, canonical OS/GNS transport, spacing-uniformity, continuum, or Clay closure. |
+| A02f | Composed branch-to-log-mass presheaf chain | `YMGap.Categorical.natTransComp` in `lean/YMGap/Categorical/Core.lean`, plus `BF4WilsonBranchSheafNaturalTransformation.DimensionlessMassFiber`, `.gapToDimensionlessMass`, `.nontrivialityToDimensionlessMass`, and `.branch_chain_preserves_probe`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; pastes the nontriviality → gap arrow into the checked positive dimensionless `-log(currentRate)` certificate on the same carrier. It is not a lattice-spacing or physical-mass theorem. |
 | A03 | Complete signed cost versus SAME interacting variance on a justified scaling family | OPEN original-source estimate for ONE family, or direct response alternative. |
 | A04 | Conditional survival theorem (requires the missing input) | `BF4ExactSlabFixedSpatialJointEnergySurvival.response_floor_of_relative_energy`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:112`; supplied relative energy and positive norm floor, SAME fixed-width carrier. |
 | A05 | ONE nonzero excitation survives | OPEN compatible changing-scale observable and nonzero response. |
@@ -1006,3 +1013,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 70 | 2026-09-25 | Added `NatTrans` to the constructive category core and packaged the dense observable and transfer/gap branches as a covariant scale diagram with discrete-time natural transformation; the dyadic square is checked. Completed-carrier presheaf maps, changing-width response, A03/A05, continuum/QFT and Clay nodes remain open. |
 | 1 / 71 | 2026-09-25 | Added the positive-width dense-to-`UnionCompletion` natural transformation and its completed-time intertwining law. Cross-width transport now exists on the staged union carrier; canonical OS/GNS identification, spacing-uniform response, A03/A05, continuum/QFT and Clay nodes remain open. |
 | 1 / 72 | 2026-09-25 | Added the fixed-spacing nontriviality-to-gap arrow as a natural transformation between constant presheaves on `ScaleCat.op`; the same probe and orthogonality now compile into the strict completed two-step gap fiber. Sheaf gluing, changing-spacing response, canonical OS/GNS transport, continuum/QFT and Clay nodes remain open. |
+| 1 / 73 | 2026-09-25 | Added constructive natural-transformation composition and the gap-to-dimensionless-log-mass arrow; the nontriviality → gap → `currentTransferMass` chain is now one checked presheaf morphism. This remains dimensionless and fixed-spacing; physical mass, continuum/QFT and Clay nodes remain open. |
