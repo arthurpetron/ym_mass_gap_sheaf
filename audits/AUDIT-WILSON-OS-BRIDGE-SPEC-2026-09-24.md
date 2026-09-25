@@ -29,6 +29,10 @@ strict OS completion; that concrete identification remains open.
   (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:76`) names the analogous
   lag-indexed relative-energy defect, with subtraction, scaling, and defect
   coefficient all explicit inputs.
+- `YMGap.Continuum.BF4WilsonOSBridgeSpec.OSRelativeLossGap`
+  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:88`) isolates the exact
+  lag-two relative-loss input supplied by the current completed complex Wilson
+  consumer, without requiring an unproved all-lag interpolation.
 - `YMGap.Continuum.BF4WilsonOSBridgeSpec.transfer_twoStep_form_gap`
   (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:76`) transports that OS
   inequality to every Wilson vector whose orthogonality is preserved by the
@@ -39,9 +43,13 @@ strict OS completion; that concrete identification remains open.
   member of the lag-indexed family to the Wilson carrier.  Its focused check
   also reports an empty axiom set.
 - `YMGap.Continuum.BF4WilsonOSBridgeSpec.transfer_relative_loss_family`
-  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:127`) transports the
+  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:138`) transports the
   relative-loss family needed by the survival compiler.  Its focused check
   also reports an empty axiom set.
+- `YMGap.Continuum.BF4WilsonOSBridgeSpec.transfer_twoStep_relative_loss`
+  (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:154`) transports the
+  exact lag-two relative-loss inequality by the same equality-only argument;
+  its focused check reports an empty axiom set.
 
 ## Honest boundary
 
@@ -59,4 +67,6 @@ python3 scripts/safe_lean_build.py --jobs 1 \
   --check-output /tmp/ym-gap-os-bridge-spec-check3.log
 ```
 
-Observed result: exit 0; `transfer_twoStep_form_gap` has no axioms.
+Observed result: exit 0; `transfer_twoStep_form_gap`,
+`transfer_form_family`, `transfer_relative_loss_family`, and
+`transfer_twoStep_relative_loss` report no axioms.

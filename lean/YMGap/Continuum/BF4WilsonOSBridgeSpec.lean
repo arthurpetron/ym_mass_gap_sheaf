@@ -81,6 +81,17 @@ def OSRelativeLossFamily {W : Type uW} {O : Type uO} {R : Type uR}
     leR (subR (B.pairingO y y) (B.pairingO y (B.stepO n y)))
       (scale (delta n) (B.pairingO y y))
 
+/- A lag-two relative-loss input is the exact shape supplied by the current
+   completed complex Wilson consumer.  Keeping this separate from the
+   all-lag family avoids demanding unproved interpolation merely to transport
+   the two-step physical estimate. -/
+def OSRelativeLossGap {W : Type uW} {O : Type uO} {R : Type uR}
+    (B : SameObjectBridge W O R) (leR : R → R → Prop)
+    (subR : R → R → R) (scale : R → R → R) (delta : R) : Prop :=
+  ∀ y, B.orthogonalO y →
+    leR (subR (B.pairingO y y) (B.pairingO y (B.stepO 2 y)))
+      (scale delta (B.pairingO y y))
+
 /-- Transport the OS two-step form bound to every Wilson vector certified
 orthogonal by the bridge.
 
@@ -138,8 +149,25 @@ theorem transfer_relative_loss_family
     B.pairing_preserved x x] at h
   exact h
 
+/-- Transport the exact lag-two relative-loss inequality without inventing
+an all-lag interpolation hypothesis. -/
+theorem transfer_twoStep_relative_loss
+    {W : Type uW} {O : Type uO} {R : Type uR}
+    (B : SameObjectBridge W O R) (leR : R → R → Prop)
+    (subR : R → R → R) (scale : R → R → R) (delta : R)
+    (hOS : OSRelativeLossGap B leR subR scale delta)
+    (x : W) (hx : B.orthogonalW x) :
+    leR (subR (B.pairingW x x) (B.pairingW x (B.stepW 2 x)))
+      (scale delta (B.pairingW x x)) := by
+  have h := hOS (B.toOS x) (B.orthogonal_preserved x hx)
+  rw [B.step_preserved 2 x,
+    B.pairing_preserved x (B.stepW 2 x),
+    B.pairing_preserved x x] at h
+  exact h
+
 #print axioms transfer_twoStep_form_gap
 #print axioms transfer_form_family
 #print axioms transfer_relative_loss_family
+#print axioms transfer_twoStep_relative_loss
 
 end YMGap.Continuum.BF4WilsonOSBridgeSpec

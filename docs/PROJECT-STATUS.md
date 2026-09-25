@@ -1,7 +1,8 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **45**, 2026-09-24 UTC. Source checkpoint:
-the checked fixed-parameter complex relative-loss consumer and the explicit
+Chart schema: **1**. Snapshot: **46**, 2026-09-24 UTC. Source checkpoint:
+the exact lag-two Wilson-to-OS relative-loss bridge consumer, alongside the
+checked fixed-parameter complex relative-loss consumer and the explicit
 width-degeneration obstruction for the original response witness
 committed with this snapshot;
 verification is recorded in
@@ -203,6 +204,17 @@ This supplies the concrete fixed-parameter shape consumed by the typed
 Wilson-to-OS relative-loss bridge, but the margin remains nome/width
 dependent and no bridge inhabitant or scaling survival is supplied.
 Verification: `audits/AUDIT-WILSON-COMPLEX-RELATIVE-LOSS-2026-09-24.md`.
+
+New exact lag-two bridge contraction:
+`BF4WilsonOSBridgeSpec.OSRelativeLossGap` and
+`BF4WilsonOSBridgeSpec.transfer_twoStep_relative_loss`
+(`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:88`, `:154`) isolate and
+transport the precise two-step relative-loss statement now supplied by the
+complex Wilson carrier.  This removes an unnecessary all-lag interpolation
+obligation from the future concrete bridge, while leaving the carrier map,
+pairing identity, OS-side inhabitant, and all scaling/continuum requirements
+open.  Verification is recorded in
+`audits/AUDIT-WILSON-OS-BRIDGE-SPEC-2026-09-24.md`.
 
 New fixed-parameter cutoff consumer:
 `BF4WilsonAllNomeOriginComplexCutoff.origin_twoStepRate_positive`
@@ -683,3 +695,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 43 | 2026-09-24 | Added the lag-indexed OS form-family interface and its equality-only Wilson transport consumer; both are axiom-free. No bridge inhabitant or chart-node status change. |
 | 1 / 44 | 2026-09-24 | Added the lag-indexed OS relative-loss family and equality-only Wilson transport consumer; the focused check is axiom-free. No bridge inhabitant or chart-node status change. |
 | 1 / 45 | 2026-09-24 | Proved a fixed-parameter complex Wilson relative-loss inequality and an explicit width modulus showing the computed original-response witness has no positive width-uniform floor. Both focused checks stay within `{propext, Quot.sound}`; no chart-node status change. |
+| 1 / 46 | 2026-09-24 | Added the exact lag-two relative-loss bridge interface and equality-only transport consumer; the focused check is axiom-free. No bridge inhabitant or chart-node status change. |

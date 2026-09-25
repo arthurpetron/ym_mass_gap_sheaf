@@ -17,7 +17,9 @@ original plaquette response witness is proved to decay at least as
 `(1/32)^(width+width)`, so that particular witness has no positive
 width-uniform floor.  Both results are kernel-checked within
 `{propext, Quot.sound}`; neither supplies the still-open OS bridge, scaling
-survival, continuum construction, physical mass, or all-group theorem.  See
+survival, continuum construction, physical mass, or all-group theorem.  The
+bridge now has an exact lag-two transport consumer matching the relative-loss
+shape, but no concrete carrier map is claimed.  See
 the [relative-loss audit](audits/AUDIT-WILSON-COMPLEX-RELATIVE-LOSS-2026-09-24.md)
 and [response-width audit](audits/AUDIT-WILSON-RESPONSE-WIDTH-OBSTRUCTION-2026-09-24.md).
 

@@ -50,6 +50,13 @@ pairing identity, and the OS bound remain open, as do spacing control, scaling s
 thermodynamic/continuum limits, physical mass, and the all-group
 construction.
 
+The exact lag-two specialization is now separately named by
+`OSRelativeLossGap` (`lean/YMGap/Continuum/BF4WilsonOSBridgeSpec.lean:88`) and
+consumed by `transfer_twoStep_relative_loss` (`:154`).  This matches the
+currently proved complex Wilson relative-loss theorem without requiring an
+unproved all-lag interpolation.  The consumer is equality-only and axiom-free;
+the bridge inhabitant, OS-side bound and spacing/scaling passage remain open.
+
 ### Fixed-parameter complex relative-loss consumer (2026-09-24 UTC)
 
 `BF4WilsonAllNomeComplexRelativeLoss.complex_twoStep_relative_loss`
