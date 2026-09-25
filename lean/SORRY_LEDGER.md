@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Concrete physical SU(2) relative loss CLOSED; uniform/continuum passage OPEN (2026-09-24 UTC)
+
+- **proved same-object deficit**: `BF4PhysicalConcreteSU2RelativeLoss.sector_relative_loss_of_form_gap`
+  rewrites the existing completed sector form-gap certificate as
+  `(1-rate) * <v,v> <= <v,v> - <T v,v>` on the actual vacuum-complement
+  carrier. `concreteSU2_relative_loss_of_marginalGap` specializes this to the
+  literal moving-centered cube observable at the inhabited finite rate
+  `cutoffUniformRate w`, and `concreteSU2_relative_loss_margin_positive`
+  proves its fixed-nome margin positive.
+- **scope**: the carrier, transfer, vacuum complement and autocorrelation are
+  the same physical SU(2) objects already constructed in
+  `BF4PhysicalConcreteSU2CompletedCarrierCertificate`. The rate remains
+  nome-dependent and the specialization assumes `w <= 1/2`; no spacing-uniform
+  producer, OS/GNS identification, thermodynamic/continuum passage, physical
+  mass, or all-group theorem is asserted.
+- **verification**: focused monitored check of
+  `lean/YMGap/Continuum/BF4PhysicalConcreteSU2RelativeLoss.lean` reports only
+  `{propext, Quot.sound}` and no `sorryAx`, classical input, or custom axiom.
+  Evidence: `audits/AUDIT-PHYSICAL-SU2-RELATIVE-LOSS-2026-09-24.md`.
+
 ## SAME real scaling and unit projection CLOSED; full Hilbert/QFT and scaling OPEN (2026-09-24 UTC)
 
 - **constructed scalar action**: `BF4WilsonAllNomeRealScalarCauchy.realScalarCauchy`

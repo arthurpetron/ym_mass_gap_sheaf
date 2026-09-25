@@ -87,6 +87,22 @@ the carrier map to OS/GNS, spacing-uniform estimates, cross-width survival,
 physical mass, continuum, and every-group construction open.  Verification:
 `audits/AUDIT-WILSON-COMPLEX-PLAQUETTE-EXCITATION-2026-09-24.md`.
 
+### Concrete physical SU(2) relative-loss consumer (2026-09-24 UTC)
+
+`BF4PhysicalConcreteSU2RelativeLoss.sector_relative_loss_of_form_gap`
+(`lean/YMGap/Continuum/BF4PhysicalConcreteSU2RelativeLoss.lean:62`) rewrites
+the existing completed sector form gap on the actual vacuum complement as
+`(1-rate) * <v,v> <= <v,v> - <T v,v>`.  The specialization
+`concreteSU2_relative_loss_of_marginalGap` (`:89`) uses the already inhabited
+finite marginal certificate and the literal moving-centered cube observable;
+its explicit rate is `cutoffUniformRate w`.  The companion
+`concreteSU2_relative_loss_margin_positive` (`:110`) proves the fixed-nome
+margin positive.  This is the physical finite-carrier input shape needed by
+the relative-loss bridge.  The nome dependence, `w ≤ 1/2` restriction,
+spacing-uniform rate, OS/GNS identification, continuum passage, physical
+mass, and all-group construction remain open.  Verification:
+`audits/AUDIT-PHYSICAL-SU2-RELATIVE-LOSS-2026-09-24.md`.
+
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`

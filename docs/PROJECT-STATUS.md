@@ -162,6 +162,20 @@ scaling survival, physical mass, continuum, and all-group obligations remain
 open.  Verification is recorded in
 `audits/AUDIT-WILSON-COMPLEX-PLAQUETTE-EXCITATION-2026-09-24.md`.
 
+New concrete physical-carrier relative-loss consumer:
+`BF4PhysicalConcreteSU2RelativeLoss.sector_relative_loss_of_form_gap`
+(`lean/YMGap/Continuum/BF4PhysicalConcreteSU2RelativeLoss.lean:62`) rewrites
+the existing completed sector form-gap certificate as
+`(1-rate) * <v,v> ≤ <v,v> - <Tv,v>` on the SAME completed vacuum complement.
+`concreteSU2_relative_loss_of_marginalGap` (`:89`) specializes this to the
+literal moving-centered cube autocorrelation with the inhabited finite rate
+`cutoffUniformRate w`, and `concreteSU2_relative_loss_margin_positive` (`:110`)
+proves its fixed-nome margin positive.  This is a direct finite physical
+consumer for the relative-loss bridge; it does not provide spacing-uniformity,
+an OS/GNS map, a continuum limit, physical mass, or an all-group theorem.
+Verification is recorded in
+`audits/AUDIT-PHYSICAL-SU2-RELATIVE-LOSS-2026-09-24.md`.
+
 New fixed-parameter rate calibration:
 `BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`
 (`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteRateCalibration.lean:54`)
@@ -712,3 +726,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 45 | 2026-09-24 | Proved a fixed-parameter complex Wilson relative-loss inequality and an explicit width modulus showing the computed original-response witness has no positive width-uniform floor. Both focused checks stay within `{propext, Quot.sound}`; no chart-node status change. |
 | 1 / 46 | 2026-09-24 | Added the exact lag-two relative-loss bridge interface and equality-only transport consumer; the focused check is axiom-free. No bridge inhabitant or chart-node status change. |
 | 1 / 47 | 2026-09-24 | Embedded the actual plaquette excitation into the complex Wilson carrier and proved its orthogonality, norm/response floors, relative loss, and even-lag decay. Fixed-parameter same-object evidence only; no chart-node status change. |
+| 1 / 48 | 2026-09-24 | Rewrote the existing finite physical SU(2) form gap as relative loss on the literal moving-centered cube same-object autocorrelation, with explicit `cutoffUniformRate w` margin positivity. No chart-node status change. |

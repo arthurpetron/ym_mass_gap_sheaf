@@ -31,6 +31,14 @@ correlator decay.  This is finite-parameter evidence only; the OS/GNS map,
 scaling survival, continuum construction, physical mass, and all-group result
 remain open.  See the [complex plaquette audit](audits/AUDIT-WILSON-COMPLEX-PLAQUETTE-EXCITATION-2026-09-24.md).
 
+**Latest physical-carrier consequence (2026-09-24):**
+`BF4PhysicalConcreteSU2RelativeLoss` rewrites the existing finite physical
+SU(2) form gap as an explicit relative-loss bound for the literal
+moving-centered cube same-object autocorrelation, with positive margin
+`1-cutoffUniformRate w` under the existing finite assumptions.  This remains
+nome-dependent and does not close the OS bridge, spacing limit, continuum,
+physical-mass, or all-group obligations.  See the [physical relative-loss audit](audits/AUDIT-PHYSICAL-SU2-RELATIVE-LOSS-2026-09-24.md).
+
 **New checked complete growing-word square heat image:** the original product
 heat sends a distinct-link Wilson character square to
 `1 + w^(8*perimeter)*chi_2`, retaining every supported test. For the actual
