@@ -848,7 +848,9 @@ remains open; extending this candidate normalization alone cannot supply it.
   `matchedContinuumHandoffOfRescaledStrength` when the independent
   projective-OS, spectral-channel, exact-rate-reconstruction and continuum
   existence witnesses are supplied.  These are typed B04/J01/J02
-  expansions only; no displayed goal marker changes.
+  expansions only.  The same module also specializes cutoff removal to the
+  existing scale-wise finite observable-certificate compiler, preserving the
+  literal completed-family projections; no displayed goal marker changes.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
   unchanged; this snapshot records a new typed bridge expansion only.
@@ -939,3 +941,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 63 | 2026-09-25 | Joined the matched shifted-AF inverse-square spacing tail to the exact rescaled-strength log-rate consumer on the same completed carrier. Remaining producer, scaling, pin and variation inputs stay explicit; no chart-node status change. |
 | 1 / 64 | 2026-09-25 | Added exact-rate cutoff removal and an explicit-producer specialization on the same matched carrier, with an independent finite ceiling still explicit. No chart-node status change. |
 | 1 / 65 | 2026-09-25 | Added a same-object continuum-handoff constructor fed by the matched exact-rate witness and explicit OS/reconstruction/existence data. No chart-node status change. |
+| 1 / 66 | 2026-09-25 | Specialized matched cutoff removal to the existing scale-wise finite observable-certificate compiler, preserving the literal completed carrier. No chart-node status change. |

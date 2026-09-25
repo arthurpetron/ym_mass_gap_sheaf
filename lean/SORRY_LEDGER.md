@@ -17,6 +17,9 @@
   the same-carrier continuum handoff from the exact-rate witness and explicit
   projective OS, spectral-channel, exact-rate reconstruction, and continuum
   YM-existence data.
+- **observable boundary:** `observableCertificatesExactRateCutoffRemovalOfRescaledStrength`
+  specializes the result to the existing scale-wise finite observable
+  certificate compiler, preserving the literal completed-family projections.
 - **explicit remaining inputs:** the local producer, two-sided strength
   scaling, observable pin, rescaled-strength variation, and shifted AF
   identification remain fields of the theorem type.

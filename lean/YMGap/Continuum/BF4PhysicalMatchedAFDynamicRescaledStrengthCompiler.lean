@@ -13,6 +13,7 @@ import YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicSpacingTailCompiler
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicStrengthNormalization
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualTransitionProductCompiler
+import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualAdaptiveObservableTransitionProductCompiler
 
 namespace YMGap.Continuum.BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler
 
@@ -36,6 +37,8 @@ open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicSpacingTailCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicStrengthNormalization
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualTransitionProductCompiler
+open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualAdaptiveObservableTransitionProductCompiler
+open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtNewTrafficRawKernelActiveCellOldNewActiveRowSupportActivationDeletedAllCutoffObservableCompiler
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.ExactRateReconstructionHandoff
 open YMGap.Continuum.FourDExistence
@@ -133,6 +136,35 @@ def matchedContinuumHandoffOfRescaledStrength
   spectralChannel := spectralChannel
   exactRate := exactRate
 
+/-- The matched observable-certificate route reaches exact-rate cutoff removal
+on the completed carrier constructed from those literal certificates. -/
+def observableCertificatesExactRateCutoffRemovalOfRescaledStrength
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat)
+    (certificates : forall physicalScale,
+      MatchedEventualNewEndpointTrafficOldNewFaceActivatedDeletedSupportAllCutoffObservableCertificate
+        trajectory transitionStart physicalScale)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory
+      (observableCertificatesToLocalProducer transitionStart certificates))
+    (pin : DynamicVacuumSectorObservablePin
+      (observableCertificatesToCompletedFamily transitionStart certificates))
+    (variation : SummableRationalStepVariation
+      (rescaledStrength
+        (observableCertificatesToNormalizedStrengthLaw
+          transitionStart certificates)))
+    (ceiling : FullRangeLogRateCeiling (fullRangeRateFamily pin))
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    ExactRateCutoffRemoval
+      (DynamicVacuumSectorObservablePin.exactCertificate
+        pin scaling.toPhysicalRateBand ceiling) :=
+  matchedExactRateCutoffRemovalOfRescaledStrength
+    trajectory (observableCertificatesToLocalProducer transitionStart certificates)
+    scaling pin variation ceiling C H
+
 namespace MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer
 
 /-- The exact-log consumer specialized to the literal matched explicit
@@ -163,6 +195,7 @@ end MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer
 #print axioms matchedExactLogRateCauchyOfRescaledStrength
 #print axioms matchedExactRateCutoffRemovalOfRescaledStrength
 #print axioms matchedContinuumHandoffOfRescaledStrength
+#print axioms observableCertificatesExactRateCutoffRemovalOfRescaledStrength
 #print axioms
   MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer.matchedExplicitProducerExactLogRateCauchyOfRescaledStrength
 

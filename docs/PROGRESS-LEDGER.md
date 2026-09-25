@@ -65,6 +65,10 @@ same-object continuum handoff once the independent projective OS,
 reconstruction spectral-channel, exact-rate reconstruction, and continuum
 YM-existence witnesses are supplied.  These semantic witnesses remain
 explicit; the constructor does not claim them.
+`observableCertificatesExactRateCutoffRemovalOfRescaledStrength` further
+specializes the cutoff result to the existing scale-wise observable
+certificate compiler, so the completed carrier is now reached directly from
+those finite certificate fields.
 The focused monitored check passed with only `{propext, Quot.sound}`.  This
 closes a typed matched-family cutoff/continuum interface, not the physical rate,
 continuum/QFT, all-group, or Clay obligations.
