@@ -67,8 +67,10 @@ open YMGap.Continuum.BF4WilsonSpatialUnionDiscreteLogGap
   (currentRate currentTransferMass currentTransferMass_pos
     currentTransferLogReduction currentTransferMass_log_pin)
 open YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration
-  (CurrentSpacing currentPhysicalRate currentPhysicalRate_posEv
-    currentPhysicalRate_log_pin)
+  (CurrentSpacing CurrentSpacingSchedule currentPhysicalRate
+    currentPhysicalRate_posEv currentPhysicalRate_log_pin currentRateMargin
+    currentPhysicalRate_floor_of_spacing_le currentRateFloor_cofinal
+    fixedMass_no_finite_physical_ceiling)
 
 
 local notation "hsmall" => And.left existingNome_guards
@@ -140,6 +142,23 @@ structure SpacingCalibratedMassFiber (A : CurrentSpacing) : Type 2 where
         (CReal.ofQ'
           (YMGap.Continuum.BF4WilsonSpatialUnionPhysicalCalibration.spacingReciprocal A)))
 
+/-- A vanishing-spacing schedule for the SAME fixed completed carrier.  The
+rate sequence is explicit at every scheduled spacing, while the schedule's
+cofinality is retained as data.  This fiber is useful precisely because its
+finite-ceiling obstruction is honest: it cannot be mistaken for a continuum
+mass-gap family. -/
+structure VanishingSpacingMassFiber (S : CurrentSpacingSchedule) : Type 2 where
+  probe : V
+  probe_vacuum_orthogonal : B probe U = RCzero
+  probe_strict_two_step :
+    RCle (B probe (T 2 probe))
+      (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
+        (B probe probe))
+  physical_rate : Nat → CReal
+  physical_rate_exact : ∀ j,
+    physical_rate j = currentPhysicalRate ⟨S.a j, S.a_pos j⟩
+  physical_rate_posEv : ∀ j, PosEv (physical_rate j)
+
 /-! ## The branch compiler -/
 
 /-- The shared-carrier branch compiler.  It keeps the probe and its
@@ -176,6 +195,18 @@ def DimensionlessMassFiber.toSpacingCalibratedMass
   physical_rate_exact := rfl
   physical_rate_posEv := currentPhysicalRate_posEv A
   physical_rate_log_pin := currentPhysicalRate_log_pin A
+
+/-- The same dimensionless certificate can be evaluated along any supplied
+vanishing-spacing schedule, without changing its completed carrier. -/
+def DimensionlessMassFiber.toVanishingSpacingMass
+    (S : CurrentSpacingSchedule) (m : DimensionlessMassFiber) :
+    VanishingSpacingMassFiber S where
+  probe := m.probe
+  probe_vacuum_orthogonal := m.probe_vacuum_orthogonal
+  probe_strict_two_step := m.probe_strict_two_step
+  physical_rate := fun j => currentPhysicalRate ⟨S.a j, S.a_pos j⟩
+  physical_rate_exact := fun _ => rfl
+  physical_rate_posEv := fun j => currentPhysicalRate_posEv ⟨S.a j, S.a_pos j⟩
 
 /-- The concrete current Wilson probe inhabits the nontriviality fiber. -/
 def currentNontriviality : NontrivialityFiber where
@@ -222,6 +253,16 @@ def spacingCalibratedMassPresheaf (A : CurrentSpacing) :
   map_id := fun _ => rfl
   map_comp := fun _ _ => rfl
 
+/-- Constant presheaf of rates sampled along a supplied vanishing-spacing
+schedule.  The schedule is fixed as an external parameter; its failure to
+admit a finite ceiling is proved below. -/
+def vanishingSpacingMassPresheaf (S : CurrentSpacingSchedule) :
+    Presheaf ScaleCat TypeCat where
+  obj := fun _ => VanishingSpacingMassFiber S
+  map := fun _ => fun e => e
+  map_id := fun _ => rfl
+  map_comp := fun _ _ => rfl
+
 /-- The branch arrow in the presheaf topos `Type^(ScaleCat.op)`.  Naturality
 states that scale refinement and branch compilation commute; both are the
 identity on the already-common completed carrier. -/
@@ -241,6 +282,12 @@ def dimensionlessMassToSpacingCalibratedMass (A : CurrentSpacing) :
   app := fun _ => DimensionlessMassFiber.toSpacingCalibratedMass A
   naturality := fun _ => rfl
 
+/-- The scheduled-rate arrow in the presheaf topos. -/
+def dimensionlessMassToVanishingSpacingMass (S : CurrentSpacingSchedule) :
+    NatTrans dimensionlessMassPresheaf (vanishingSpacingMassPresheaf S) where
+  app := fun _ => DimensionlessMassFiber.toVanishingSpacingMass S
+  naturality := fun _ => rfl
+
 /-- The contracted branch chain in the presheaf topos. -/
 def nontrivialityToDimensionlessMass :
     NatTrans nontrivialityPresheaf dimensionlessMassPresheaf :=
@@ -258,6 +305,17 @@ def nontrivialityToSpacingCalibratedMass (A : CurrentSpacing) :
     NatTrans nontrivialityPresheaf (spacingCalibratedMassPresheaf A) :=
   YMGap.Categorical.natTransComp nontrivialityToGap
     (gapToSpacingCalibratedMass A)
+
+/-- Paste the complete branch into the scheduled-rate obstruction fiber. -/
+def gapToVanishingSpacingMass (S : CurrentSpacingSchedule) :
+    NatTrans gapPresheaf (vanishingSpacingMassPresheaf S) :=
+  YMGap.Categorical.natTransComp gapToDimensionlessMass
+    (dimensionlessMassToVanishingSpacingMass S)
+
+def nontrivialityToVanishingSpacingMass (S : CurrentSpacingSchedule) :
+    NatTrans nontrivialityPresheaf (vanishingSpacingMassPresheaf S) :=
+  YMGap.Categorical.natTransComp nontrivialityToGap
+    (gapToVanishingSpacingMass S)
 
 theorem branch_arrow_preserves_probe (n : Nat) (e : NontrivialityFiber) :
     (nontrivialityToGap.app n e).probe = e.probe := rfl
@@ -287,6 +345,37 @@ theorem calibration_arrow_preserves_rate_pin
     ((dimensionlessMassToSpacingCalibratedMass A).app n m).physical_rate_log_pin =
       currentPhysicalRate_log_pin A := rfl
 
+theorem scheduled_arrow_preserves_probe
+    (S : CurrentSpacingSchedule) (n : Nat) (m : DimensionlessMassFiber) :
+    ((dimensionlessMassToVanishingSpacingMass S).app n m).probe = m.probe := rfl
+
+theorem scheduled_arrow_exposes_rate
+    (S : CurrentSpacingSchedule) (n j : Nat) (m : DimensionlessMassFiber) :
+    ((dimensionlessMassToVanishingSpacingMass S).app n m).physical_rate j =
+      currentPhysicalRate ⟨S.a j, S.a_pos j⟩ := rfl
+
+theorem scheduled_rate_floor
+    (S : CurrentSpacingSchedule) (n j : Nat) (m : DimensionlessMassFiber) :
+    CReal.leEv
+      (CReal.ofQ' (currentRateMargin * Q'.recipPos (S.a j) (S.a_pos j)))
+      (((dimensionlessMassToVanishingSpacingMass S).app n m).physical_rate j) := by
+  change CReal.leEv
+    (CReal.ofQ' (currentRateMargin * Q'.recipPos (S.a j) (S.a_pos j)))
+    (currentPhysicalRate ⟨S.a j, S.a_pos j⟩)
+  exact currentPhysicalRate_floor_of_spacing_le
+    ⟨S.a j, S.a_pos j⟩ (S.a j) (S.a_pos j) (Q'.le_refl' _)
+
+theorem scheduled_rate_floor_cofinal
+    (S : CurrentSpacingSchedule) (u : Q') (hu : (0 : Q') ≤ u) :
+    ∃ j, u ≤ currentRateMargin * Q'.recipPos (S.a j) (S.a_pos j) :=
+  currentRateFloor_cofinal S u hu
+
+theorem scheduled_fixed_carrier_no_finite_ceiling
+    (S : CurrentSpacingSchedule) (ceiling : Q')
+    (hceiling : (0 : Q') < ceiling)
+    (hupper : ∀ j, currentRateMargin ≤ ceiling * S.a j) : False :=
+  fixedMass_no_finite_physical_ceiling S ceiling hceiling hupper
+
 theorem branch_chain_preserves_probe (n : Nat) (e : NontrivialityFiber) :
     (nontrivialityToDimensionlessMass.app n e).probe = e.probe := by
   change (GapFiber.toDimensionlessMass (NontrivialityFiber.toGap e)).probe = e.probe
@@ -306,13 +395,19 @@ theorem currentGap_strict_two_step :
 #print axioms dimensionlessMassPresheaf
 #print axioms SpacingCalibratedMassFiber
 #print axioms spacingCalibratedMassPresheaf
+#print axioms VanishingSpacingMassFiber
+#print axioms vanishingSpacingMassPresheaf
 #print axioms nontrivialityToGap
 #print axioms gapToDimensionlessMass
 #print axioms nontrivialityToDimensionlessMass
 #print axioms DimensionlessMassFiber.toSpacingCalibratedMass
 #print axioms dimensionlessMassToSpacingCalibratedMass
+#print axioms DimensionlessMassFiber.toVanishingSpacingMass
+#print axioms dimensionlessMassToVanishingSpacingMass
 #print axioms gapToSpacingCalibratedMass
 #print axioms nontrivialityToSpacingCalibratedMass
+#print axioms gapToVanishingSpacingMass
+#print axioms nontrivialityToVanishingSpacingMass
 #print axioms branch_arrow_preserves_probe
 #print axioms branch_arrow_preserves_orthogonality
 #print axioms gap_mass_arrow_preserves_probe
@@ -320,6 +415,11 @@ theorem currentGap_strict_two_step :
 #print axioms calibration_arrow_preserves_probe
 #print axioms calibration_arrow_exposes_exact_rate
 #print axioms calibration_arrow_preserves_rate_pin
+#print axioms scheduled_arrow_preserves_probe
+#print axioms scheduled_arrow_exposes_rate
+#print axioms scheduled_rate_floor
+#print axioms scheduled_rate_floor_cofinal
+#print axioms scheduled_fixed_carrier_no_finite_ceiling
 #print axioms branch_chain_preserves_probe
 #print axioms currentGap_strict_two_step
 

@@ -20,6 +20,22 @@ or custom axiom.  This is an explicit fixed-spacing calibration interface;
 it does not provide a changing-spacing family, a uniform continuum rate band,
 canonical OS/GNS transport, continuum/QFT construction, or Clay closure.
 
+## Current increment: scheduled-rate presheaf obstruction (2026-09-25 UTC)
+
+`VanishingSpacingMassFiber` and `vanishingSpacingMassPresheaf` in
+`lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean` expose a
+supplied `CurrentSpacingSchedule` as a typed continuation of the same
+nontriviality → gap → dimensionless-mass branch.  The arrows
+`dimensionlessMassToVanishingSpacingMass`, `gapToVanishingSpacingMass`, and
+`nontrivialityToVanishingSpacingMass` preserve the probe and completed carrier
+while defining the rate at every schedule index.  `scheduled_rate_floor` and
+`scheduled_rate_floor_cofinal` transport the explicit fixed-carrier floor, and
+`scheduled_fixed_carrier_no_finite_ceiling` reuses the constructive obstruction
+that a positive fixed dimensionless mass divided by a spacing tending to zero
+cannot have a finite ceiling.  This is a checked negative consequence, not a
+continuum family or a positive Clay gap; it identifies the required next
+input as a genuinely changing same-theory transfer family.
+
 ## Current increment: composed branch-to-log-mass presheaf chain (2026-09-25 UTC)
 
 The branch arrow in

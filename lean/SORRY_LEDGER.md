@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Scheduled-rate presheaf obstruction (2026-09-25 UTC)
+
+- **scheduled fiber:** `VanishingSpacingMassFiber` and
+  `vanishingSpacingMassPresheaf` in
+  `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`
+  carry a supplied `CurrentSpacingSchedule`, the exact fixed-carrier rate at
+  every index, and pointwise `PosEv` witnesses.
+- **arrows:** `dimensionlessMassToVanishingSpacingMass`,
+  `gapToVanishingSpacingMass`, and `nontrivialityToVanishingSpacingMass`
+  paste the existing branch through the scheduled-rate fiber in
+  `Type^(ScaleCat.op)` while preserving the same probe and carrier.
+- **consequence:** `scheduled_rate_floor` and
+  `scheduled_rate_floor_cofinal` expose the fixed-carrier reciprocal-spacing
+  floor; `scheduled_fixed_carrier_no_finite_ceiling` proves that no finite
+  ceiling can coexist with a positive spacing-to-zero schedule.  A genuine
+  continuum route therefore needs a changing same-theory transfer family.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Composed branch-to-fixed-spacing-rate presheaf chain (2026-09-25 UTC)
 
 - **calibrated fiber:** `SpacingCalibratedMassFiber` in

@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **56**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **57**, 2026-09-25 UTC. Source checkpoint:
 the exact lag-two Wilson-to-OS relative-loss bridge consumer, alongside the
 checked fixed-parameter complex relative-loss consumer and the explicit
 width-degeneration obstruction for the original response witness
@@ -37,7 +37,15 @@ per-spacing calibration edge: `SpacingCalibratedMassFiber`,
 `nontrivialityToSpacingCalibratedMass` expose the supplied `CurrentSpacing`,
 the exact `currentPhysicalRate`, its `PosEv` positivity, and its logarithmic
 pin on the same completed carrier.  This is not a changing-spacing family or
-a uniform physical-rate/continuum theorem.  The dense
+a uniform physical-rate/continuum theorem.  The same typed chain now accepts a
+supplied vanishing-spacing schedule through
+`VanishingSpacingMassFiber` and its arrows
+`dimensionlessMassToVanishingSpacingMass`, `gapToVanishingSpacingMass`, and
+`nontrivialityToVanishingSpacingMass`.  The schedule-indexed rate floor is
+explicit, and `scheduled_fixed_carrier_no_finite_ceiling` proves that the
+fixed completed carrier cannot itself furnish a finite physical ceiling as
+spacing tends to zero.  This negative result is the causal boundary: the next
+positive input must be a genuinely changing same-theory transfer family.  The dense
 source branch and the
 discrete-time transfer/gap branch now form an actual natural transformation
 over the covariant intrinsic-width scale diagram: `denseObservableDiagram`,
@@ -121,6 +129,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Concrete starRatio budget obstruction
                                        [x] Gap -> dimensionless log-mass branch arrow
                                        [x] Dimensionless -> fixed-spacing rate calibration arrow
+                                       [x] Fixed-carrier vanishing-spacing ceiling obstruction
              |                              v
              v                         [ ] EVERY-state decay
  [ ] ONE nonzero excitation survives        survives scaling
@@ -158,6 +167,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | A02e | Nontriviality-to-gap presheaf branch arrow | `BF4WilsonBranchSheafNaturalTransformation.NontrivialityFiber.toGap`, `.nontrivialityPresheaf`, `.gapPresheaf`, `.nontrivialityToGap`, `.currentNontriviality`, and `.currentGap`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; on constant presheaves over `ScaleCat.op`, preserves the same fixed-spacing probe and orthogonality while deriving the strict completed two-step bound. It is not sheaf gluing, canonical OS/GNS transport, spacing-uniformity, continuum, or Clay closure. |
 | A02f | Composed branch-to-log-mass presheaf chain | `YMGap.Categorical.natTransComp` in `lean/YMGap/Categorical/Core.lean`, plus `BF4WilsonBranchSheafNaturalTransformation.DimensionlessMassFiber`, `.gapToDimensionlessMass`, `.nontrivialityToDimensionlessMass`, and `.branch_chain_preserves_probe`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; pastes the nontriviality → gap arrow into the checked positive dimensionless `-log(currentRate)` certificate on the same carrier. It is not a lattice-spacing or physical-mass theorem. |
 | A02g | Composed branch-to-fixed-spacing physical-rate presheaf chain | `BF4WilsonBranchSheafNaturalTransformation.SpacingCalibratedMassFiber`, `.DimensionlessMassFiber.toSpacingCalibratedMass`, `.dimensionlessMassToSpacingCalibratedMass`, `.gapToSpacingCalibratedMass`, and `.nontrivialityToSpacingCalibratedMass`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`, using `BF4WilsonSpatialUnionPhysicalCalibration.CurrentSpacing`, `.currentPhysicalRate`, `.currentPhysicalRate_posEv`, and `.currentPhysicalRate_log_pin`; exposes an explicit per-spacing physical-rate conversion on the same completed carrier. It is not a changing-spacing family, uniform physical band, continuum, or Clay theorem. |
+| A02h | Fixed-carrier vanishing-spacing ceiling obstruction | `BF4WilsonBranchSheafNaturalTransformation.VanishingSpacingMassFiber`, `.dimensionlessMassToVanishingSpacingMass`, `.gapToVanishingSpacingMass`, `.nontrivialityToVanishingSpacingMass`, `.scheduled_rate_floor`, `.scheduled_rate_floor_cofinal`, and `.scheduled_fixed_carrier_no_finite_ceiling`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; makes the fixed-carrier failure of finite physical-rate uniformity along a supplied spacing-to-zero schedule a typed presheaf consequence. It identifies, but does not solve, the need for a changing same-theory family. |
 | A03 | Complete signed cost versus SAME interacting variance on a justified scaling family | OPEN original-source estimate for ONE family, or direct response alternative. |
 | A04 | Conditional survival theorem (requires the missing input) | `BF4ExactSlabFixedSpatialJointEnergySurvival.response_floor_of_relative_energy`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:112`; supplied relative energy and positive norm floor, SAME fixed-width carrier. |
 | A05 | ONE nonzero excitation survives | OPEN compatible changing-scale observable and nonzero response. |
@@ -1023,3 +1033,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 72 | 2026-09-25 | Added the fixed-spacing nontriviality-to-gap arrow as a natural transformation between constant presheaves on `ScaleCat.op`; the same probe and orthogonality now compile into the strict completed two-step gap fiber. Sheaf gluing, changing-spacing response, canonical OS/GNS transport, continuum/QFT and Clay nodes remain open. |
 | 1 / 73 | 2026-09-25 | Added constructive natural-transformation composition and the gap-to-dimensionless-log-mass arrow; the nontriviality → gap → `currentTransferMass` chain is now one checked presheaf morphism. This remains dimensionless and fixed-spacing; physical mass, continuum/QFT and Clay nodes remain open. |
 | 1 / 74 | 2026-09-25 | Added the explicit fixed-spacing calibration arrow from the dimensionless branch to `currentPhysicalRate`, with a supplied `CurrentSpacing`, `PosEv` positivity, and exact logarithmic pin on the same completed carrier. Changing-spacing uniformity, continuum/QFT and Clay nodes remain open. |
+| 1 / 75 | 2026-09-25 | Added the scheduled-rate presheaf branch and proved the fixed-carrier vanishing-spacing finite-ceiling obstruction. This clarifies that a positive continuum route requires a genuinely changing same-theory transfer family; continuum/QFT and Clay nodes remain open. |
