@@ -4,6 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: rescaled variation factored into same-family primitives (2026-09-25 UTC)
+
+`rescaledStrengthVariationOfPhysicalGapAndStrength` in
+`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorRescaledStrengthTracking.lean`
+uses the exact identity
+`rescaledStrength ≈ physicalGap + physicalGap * strength`.  The existing
+constructive variation algebra supplies the product ceilings automatically,
+then adds the physical-gap and product streams and transports the result by
+setoid equality.  The matched adapter
+`matchedExactLogRateCauchyOfPhysicalGapAndStrength` exposes this smaller input
+surface on the same completed carrier.  Neither primitive variation is
+currently inhabited for the matched family; this is a factorization of the
+remaining obligation, not a claim of physical-rate or continuum closure.
+The focused checks passed with only `{propext, Quot.sound}` and no
+`sorryAx`, classical axiom, `native_decide`, or custom axiom.
+
 ## Current increment: physical-band ceiling removes a matched free input (2026-09-25 UTC)
 
 `fullRangeLogRateCeilingOfPhysicalRateBand` in

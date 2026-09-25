@@ -82,6 +82,34 @@ theorem rescaledStrength_eqv_gap_add
   refine Q'.eqv_trans _ _ _ (Q'.mul_add_eqv _ _ _) ?_
   exact Q'.add_eqv_congr_right _ _ _ (Q'.mul_one_eqv _)
 
+/-! ## 1a. Primitive variation compiler for the rescaled strength -/
+
+/-- Independent summable variations of the same completed physical gap and
+normalized strength compile to variation of their exact rescaled strength.
+The only algebraic input is the already-proved identity
+`rescaledStrength = physicalGap + physicalGap * strength` up to `Q'.eqv`;
+no reciprocal-spacing variation is introduced. -/
+def rescaledStrengthVariationOfPhysicalGapAndStrength
+    (law : DynamicVacuumSectorNormalizedStrengthLaw family)
+    (gapVariation : SummableRationalStepVariation family.physicalGap)
+    (strengthVariation : SummableRationalStepVariation law.strength) :
+    SummableRationalStepVariation (rescaledStrength law) := by
+  have gap_nonnegative : forall scale, (0 : Q') <= family.physicalGap scale := by
+    intro scale
+    exact Q'.le_of_lt (Q'.divPos_pos _ _
+      (family.transferSpacing.spacing_pos scale)
+      (family.latticeMargin_pos scale))
+  have strength_nonnegative : forall scale, (0 : Q') <= law.strength scale := by
+    intro scale
+    exact Q'.le_of_lt (law.strength_pos scale)
+  let productVariation := SummableRationalStepVariationAlgebra.mul
+    gapVariation strengthVariation gap_nonnegative strength_nonnegative
+  let combinedVariation := SummableRationalStepVariationAlgebra.add
+    gapVariation productVariation
+  exact SummableRationalStepVariationAlgebra.ofPointwiseEqv
+    combinedVariation (fun scale =>
+      Q'.eqv_symm (rescaledStrength_eqv_gap_add law scale))
+
 theorem physicalGap_le_rescaledStrength
     (law : DynamicVacuumSectorNormalizedStrengthLaw family) (j : Nat) :
     family.physicalGap j <= rescaledStrength law j := by
@@ -272,6 +300,7 @@ def exactLogRateCauchyOfRescaledStrength
 
 #print axioms rescaledStrength
 #print axioms rescaledStrength_eqv_gap_add
+#print axioms rescaledStrengthVariationOfPhysicalGapAndStrength
 #print axioms physicalGap_le_rescaledStrength
 #print axioms normalizationError_nonnegative
 #print axioms rescaledStrength_le_gap_add_normalizationError

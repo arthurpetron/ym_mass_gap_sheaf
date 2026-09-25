@@ -119,6 +119,33 @@ def matchedExactLogRateCauchyOfRescaledStrength
         trajectory C H)
   exact exactLogRateCauchyOfRescaledStrength pin band variation hspacing
 
+/-! The rescaled-strength variation can itself be factored into two
+same-family primitive streams: physical-gap variation and normalized-strength
+variation.  This exposes a smaller honest input surface for the matched route
+without silently manufacturing either variation. -/
+
+def matchedExactLogRateCauchyOfPhysicalGapAndStrength
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (producer : trajectory.LocalProducer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (pin : DynamicVacuumSectorObservablePin
+      (trajectory.toCompletedFamily producer))
+    (gapVariation : SummableRationalStepVariation
+      (trajectory.toCompletedFamily producer).physicalGap)
+    (strengthVariation : SummableRationalStepVariation
+      (trajectory.toNormalizedStrengthLaw producer).strength)
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    CReal.ModCauchyEv ((fullRangeRateFamily pin).rate) :=
+  matchedExactLogRateCauchyOfRescaledStrength
+    trajectory producer scaling pin
+    (rescaledStrengthVariationOfPhysicalGapAndStrength
+      (trajectory.toNormalizedStrengthLaw producer)
+      gapVariation strengthVariation) C H
+
 /-- Add the independent finite exact-log ceiling to the matched Cauchy
 consumer.  The result carries spacing cofinality, convergence, and the
 surviving positive/finite rate bounds for the same completed carrier. -/
@@ -263,6 +290,7 @@ def matchedExplicitProducerExactLogRateCauchyOfRescaledStrength
 end MatchedPhysicalDynamicExplicitRayEventualCanonicalCapacityCheckProducer
 
 #print axioms matchedExactLogRateCauchyOfRescaledStrength
+#print axioms matchedExactLogRateCauchyOfPhysicalGapAndStrength
 #print axioms fullRangeLogRateCeilingOfPhysicalRateBand
 #print axioms matchedExactRateCutoffRemovalOfRescaledStrength
 #print axioms matchedExactRateCutoffRemovalOfRescaledStrengthOfPhysicalRateBand

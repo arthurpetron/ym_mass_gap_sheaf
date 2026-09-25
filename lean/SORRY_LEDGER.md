@@ -2,6 +2,16 @@
 
 ## Matched AF rescaled-strength exact-rate cutoff (2026-09-25 UTC)
 
+- **variation factorization:**
+  `rescaledStrengthVariationOfPhysicalGapAndStrength`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorRescaledStrengthTracking.lean`)
+  compiles independent same-family variation certificates for `physicalGap`
+  and normalized `strength` into variation of `rescaledStrength`, using the
+  exact gap-plus-product identity and constructive product ceilings.
+- **matched primitive-input adapter:**
+  `matchedExactLogRateCauchyOfPhysicalGapAndStrength` exposes that
+  factorization on the literal matched completed carrier.  The two primitive
+  variation certificates remain uninhabited inputs.
 - **computed ceiling:** `fullRangeLogRateCeilingOfPhysicalRateBand`
   (`lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.lean`)
   derives the full-range exact-log ceiling from the same observable pin and
