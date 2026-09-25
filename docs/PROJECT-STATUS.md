@@ -835,6 +835,14 @@ remains open; extending this candidate normalization alone cannot supply it.
   focused consumers report empty axiom sets. No bridge inhabitant is supplied,
   so J02, B04/B05, the continuum joins, physical mass, and the Clay target
   remain open.
+- New checked matched-AF rate interface:
+  `matchedExactLogRateCauchyOfRescaledStrength`
+  (`lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.lean`)
+  joins the shifted-AF inverse-square spacing tail to the exact logarithmic
+  rate consumer on the literal matched completed carrier.  The local
+  producer, strength scaling, observable pin, rescaled-strength variation and
+  AF identification remain explicit hypotheses.  This is a typed B04
+  expansion only; no displayed goal marker changes.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
   unchanged; this snapshot records a new typed bridge expansion only.
@@ -922,3 +930,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 60 | 2026-09-25 | Proved constructively that the completed CReal limit of the exact positive-time geometric stream `r^(time * 2^scale)` is zero. This rules out positive physical-mass calibration by this spacing family; the compiler bridge and a replacement physical-rate family remain open. No chart-node status change. |
 | 1 / 61 | 2026-09-25 | Transported the fixed-family variation certificate to the literal normalized scheduled-rate stream and inhabited its all-time rational variation input. Raw connected-moment variation remains open; no chart-node status change. |
 | 1 / 62 | 2026-09-25 | Converted the fixed-family pointwise-constant normalization debt into the constructive-real debt-variation input alongside the inhabited normalized scheduled-rate input. Raw same-object CReal variation remains open; no chart-node status change. |
+| 1 / 63 | 2026-09-25 | Joined the matched shifted-AF inverse-square spacing tail to the exact rescaled-strength log-rate consumer on the same completed carrier. Remaining producer, scaling, pin and variation inputs stay explicit; no chart-node status change. |

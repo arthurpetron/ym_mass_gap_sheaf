@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## Matched AF rescaled-strength exact-log adapter (2026-09-25 UTC)
+
+- **same-object join:** `matchedExactLogRateCauchyOfRescaledStrength`
+  (`lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.lean`)
+  transports the AF inverse-square spacing tail to the literal matched
+  completed family and feeds it to `exactLogRateCauchyOfRescaledStrength`.
+- **explicit remaining inputs:** the local producer, two-sided strength
+  scaling, observable pin, rescaled-strength variation, and shifted AF
+  identification remain fields of the theorem type.
+- **scope:** no inhabitant of those fields, no physical-rate limit, continuum
+  QFT reconstruction, all-group theorem, or Clay conclusion is asserted.
+- **verification:** focused safe Lean check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`.
+
 ## Positive-time-only raw variation input (2026-09-25 UTC)
 
 - **factorization:** `MarginalHalfGeometricRawRepresentativeCanonicalPositiveTimeVariation`

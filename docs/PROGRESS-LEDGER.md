@@ -44,6 +44,20 @@ The focused monitored check passed with only `{propext, Quot.sound}` and no
 `sorryAx`, classical axiom, `native_decide`, or custom axiom.  No continuum,
 positive-mass, or Clay claim follows.
 
+## Current increment: matched AF spacing tail joined to same-object log-rate consumer (2026-09-25 UTC)
+
+`matchedExactLogRateCauchyOfRescaledStrength` in
+`lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.lean`
+joins `MatchedPhysicalDynamicScalarTrajectory.physicalSpacingInverseSquareOfAFTrajectory`
+with `exactLogRateCauchyOfRescaledStrength`.  The result is a
+`CReal.ModCauchyEv` for the exact full-range rate of the literal matched
+completed carrier and transfer.  The type keeps the local producer,
+two-sided strength scaling, same-object observable pin, rescaled-strength
+variation, and shifted AF identification explicit; none is constructed by
+this adapter.  The focused monitored check passed with only
+`{propext, Quot.sound}`.  This closes a typed matched-family interface, not
+the physical rate, continuum/QFT, all-group, or Clay obligations.
+
 ## Current increment: fixed-family debt input compiled to CReal (2026-09-25 UTC)
 
 `marginalHalfGeometric_normalizationNormDebtVariation` in
