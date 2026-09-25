@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Scale-zero dyadic/plaquette naturality edge (2026-09-25 UTC)
+
+- **literal carrier equality:**
+  `square_zero_edges_eq_origin_boundary` and
+  `paddedSquare_zero_eq_originPlaquette` in
+  `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicScaleZeroPlaquetteBridge.lean`
+  identify the unit dyadic square with the origin plaquette source loop,
+  including the width-dependent physical witness.
+- **typed branch transport:**
+  `dyadicExcitation_zero_eq_plaquetteExcitation` transports the centered state
+  along that equality on the same completed Wilson carrier, and
+  `dyadicExcitation_zero_twoStep_floor` transports the existing positive
+  lag-two floor to the dyadic presentation.  This is a scale-zero edge only;
+  it does not inhabit cross-scale naturality, A03/A05, continuum, physical
+  mass, or Clay fields.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Route-prune and compatible constant-gap compiler (2026-09-25 UTC)
 
 - **concrete route obstruction:**

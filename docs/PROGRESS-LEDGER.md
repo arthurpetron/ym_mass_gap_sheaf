@@ -52,6 +52,26 @@ variation route remains ruled out by the existing spacing-to-zero no-go.
 The monitored check passed with only `{propext, Quot.sound}` and no
 `sorryAx`, classical axiom, `native_decide`, or custom axiom.
 
+## Current increment: scale-zero dyadic/plaquette naturality edge (2026-09-25 UTC)
+
+`square_zero_edges_eq_origin_boundary` and
+`paddedSquare_zero_eq_originPlaquette` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicScaleZeroPlaquetteBridge.lean`
+identify the scale-zero member of the geometrically scaled Wilson-square
+family with the literal origin plaquette loop, including its width-dependent
+physical witness.  The centered-state equality
+`dyadicExcitation_zero_eq_plaquetteExcitation` then transports the existing
+plaquette state along this literal carrier equality, and
+`dyadicExcitation_zero_twoStep_floor` transports the checked positive lag-two
+floor to the dyadic presentation.  This is the first explicit typed
+transport edge between the nontriviality and gap branches: it preserves the
+observable, completed carrier, transfer, and all nome/width parameters.
+It is only the scale-zero fiber; it supplies no cross-scale natural
+transformation, changing-scale response floor, A03/A05 closure, continuum,
+physical-mass, or Clay result.  The focused single-file check passed with only
+`{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`, or
+custom axiom.
+
 ## Current increment: physical-band ceiling removes a matched free input (2026-09-25 UTC)
 
 `fullRangeLogRateCeilingOfPhysicalRateBand` in
