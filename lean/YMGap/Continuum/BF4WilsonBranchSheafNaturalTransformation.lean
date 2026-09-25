@@ -114,6 +114,9 @@ structure GapFiber : Type 2 where
   probe : V
   probe_sector : probe = sector.probe
   probe_vacuum_orthogonal : B probe U = RCzero
+  probe_response_floor :
+    RCle (Quotient.mk crealSetoid (ofQ' rayleighFloor))
+      (B probe (T 2 probe))
   probe_strict_two_step :
     RCle (B probe (T 2 probe))
       (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
@@ -134,6 +137,9 @@ structure DimensionlessMassFiber : Type 2 where
   probe : V
   probe_sector : probe = sector.probe
   probe_vacuum_orthogonal : B probe U = RCzero
+  probe_response_floor :
+    RCle (Quotient.mk crealSetoid (ofQ' rayleighFloor))
+      (B probe (T 2 probe))
   probe_strict_two_step :
     RCle (B probe (T 2 probe))
       (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
@@ -158,6 +164,9 @@ structure SpacingCalibratedMassFiber (A : CurrentSpacing) : Type 2 where
   probe : V
   probe_sector : probe = sector.probe
   probe_vacuum_orthogonal : B probe U = RCzero
+  probe_response_floor :
+    RCle (Quotient.mk crealSetoid (ofQ' rayleighFloor))
+      (B probe (T 2 probe))
   probe_strict_two_step :
     RCle (B probe (T 2 probe))
       (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
@@ -187,6 +196,9 @@ structure VanishingSpacingMassFiber (S : CurrentSpacingSchedule) : Type 2 where
   probe : V
   probe_sector : probe = sector.probe
   probe_vacuum_orthogonal : B probe U = RCzero
+  probe_response_floor :
+    RCle (Quotient.mk crealSetoid (ofQ' rayleighFloor))
+      (B probe (T 2 probe))
   probe_strict_two_step :
     RCle (B probe (T 2 probe))
       (RCmul (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
@@ -213,6 +225,7 @@ def NontrivialityFiber.toGap (e : NontrivialityFiber) : GapFiber where
   probe := e.probe
   probe_sector := e.probe_sector
   probe_vacuum_orthogonal := e.probe_vacuum_orthogonal
+  probe_response_floor := e.probe_response_floor
   probe_strict_two_step :=
     completed_twoStep_form_gap nome_pos nome_lt_one hsmall hd hs e.probe
       e.probe_vacuum_orthogonal
@@ -228,6 +241,7 @@ def GapFiber.toDimensionlessMass (g : GapFiber) : DimensionlessMassFiber where
   probe := g.probe
   probe_sector := g.probe_sector
   probe_vacuum_orthogonal := g.probe_vacuum_orthogonal
+  probe_response_floor := g.probe_response_floor
   probe_strict_two_step := g.probe_strict_two_step
   probe_time_decay := g.probe_time_decay
   transfer_mass := currentTransferMass
@@ -244,6 +258,7 @@ def DimensionlessMassFiber.toSpacingCalibratedMass
   probe := m.probe
   probe_sector := m.probe_sector
   probe_vacuum_orthogonal := m.probe_vacuum_orthogonal
+  probe_response_floor := m.probe_response_floor
   probe_strict_two_step := m.probe_strict_two_step
   probe_time_decay := m.probe_time_decay
   physical_rate := currentPhysicalRate A
@@ -261,6 +276,7 @@ def DimensionlessMassFiber.toVanishingSpacingMass
   probe := m.probe
   probe_sector := m.probe_sector
   probe_vacuum_orthogonal := m.probe_vacuum_orthogonal
+  probe_response_floor := m.probe_response_floor
   probe_strict_two_step := m.probe_strict_two_step
   probe_time_decay := m.probe_time_decay
   physical_rate := fun j => currentPhysicalRate ⟨S.a j, S.a_pos j⟩
@@ -387,6 +403,11 @@ theorem branch_arrow_preserves_orthogonality
     (nontrivialityToGap.app n e).probe_vacuum_orthogonal =
       e.probe_vacuum_orthogonal := rfl
 
+theorem branch_arrow_preserves_response_floor
+    (n : Nat) (e : NontrivialityFiber) :
+    (nontrivialityToGap.app n e).probe_response_floor =
+      e.probe_response_floor := rfl
+
 theorem branch_arrow_preserves_sector
     (n : Nat) (e : NontrivialityFiber) :
     (nontrivialityToGap.app n e).sector = e.sector := rfl
@@ -414,6 +435,11 @@ theorem branch_arrow_probe_is_unit_excitation
 
 theorem gap_mass_arrow_preserves_probe (n : Nat) (g : GapFiber) :
     (gapToDimensionlessMass.app n g).probe = g.probe := rfl
+
+theorem gap_mass_arrow_preserves_response_floor
+    (n : Nat) (g : GapFiber) :
+    (gapToDimensionlessMass.app n g).probe_response_floor =
+      g.probe_response_floor := rfl
 
 theorem gap_mass_arrow_preserves_rate (n : Nat) (g : GapFiber) :
     (gapToDimensionlessMass.app n g).transfer_mass = currentTransferMass := rfl
@@ -461,6 +487,11 @@ theorem calibration_arrow_preserves_probe
     (A : CurrentSpacing) (n : Nat) (m : DimensionlessMassFiber) :
     ((dimensionlessMassToSpacingCalibratedMass A).app n m).probe = m.probe := rfl
 
+theorem calibration_arrow_preserves_response_floor
+    (A : CurrentSpacing) (n : Nat) (m : DimensionlessMassFiber) :
+    ((dimensionlessMassToSpacingCalibratedMass A).app n m).probe_response_floor =
+      m.probe_response_floor := rfl
+
 theorem calibration_arrow_exposes_exact_rate
     (A : CurrentSpacing) (n : Nat) (m : DimensionlessMassFiber) :
     ((dimensionlessMassToSpacingCalibratedMass A).app n m).physical_rate =
@@ -478,6 +509,11 @@ theorem calibration_arrow_preserves_sector
 theorem scheduled_arrow_preserves_probe
     (S : CurrentSpacingSchedule) (n : Nat) (m : DimensionlessMassFiber) :
     ((dimensionlessMassToVanishingSpacingMass S).app n m).probe = m.probe := rfl
+
+theorem scheduled_arrow_preserves_response_floor
+    (S : CurrentSpacingSchedule) (n : Nat) (m : DimensionlessMassFiber) :
+    ((dimensionlessMassToVanishingSpacingMass S).app n m).probe_response_floor =
+      m.probe_response_floor := rfl
 
 theorem scheduled_arrow_exposes_rate
     (S : CurrentSpacingSchedule) (n j : Nat) (m : DimensionlessMassFiber) :
@@ -544,12 +580,14 @@ theorem currentGap_strict_two_step :
 #print axioms nontrivialityToVanishingSpacingMass
 #print axioms branch_arrow_preserves_probe
 #print axioms branch_arrow_preserves_orthogonality
+#print axioms branch_arrow_preserves_response_floor
 #print axioms branch_arrow_preserves_sector
 #print axioms branch_arrow_preserves_sector_probe
 #print axioms branch_arrow_probe_is_sector_probe
 #print axioms branch_arrow_probe_is_unit_excitation
 #print axioms branch_arrow_exposes_same_object_decay
 #print axioms gap_mass_arrow_preserves_probe
+#print axioms gap_mass_arrow_preserves_response_floor
 #print axioms gap_mass_arrow_preserves_rate
 #print axioms gap_mass_arrow_exposes_sector
 #print axioms gap_mass_arrow_preserves_sector_probe
@@ -557,10 +595,12 @@ theorem currentGap_strict_two_step :
 #print axioms gap_mass_arrow_probe_is_unit_excitation
 #print axioms gap_mass_arrow_preserves_same_object_decay
 #print axioms calibration_arrow_preserves_probe
+#print axioms calibration_arrow_preserves_response_floor
 #print axioms calibration_arrow_exposes_exact_rate
 #print axioms calibration_arrow_preserves_rate_pin
 #print axioms calibration_arrow_preserves_sector
 #print axioms scheduled_arrow_preserves_probe
+#print axioms scheduled_arrow_preserves_response_floor
 #print axioms scheduled_arrow_exposes_rate
 #print axioms scheduled_arrow_preserves_sector
 #print axioms scheduled_rate_floor

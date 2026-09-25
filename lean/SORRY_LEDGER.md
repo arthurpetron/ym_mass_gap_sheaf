@@ -69,6 +69,24 @@
   `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
   or custom axiom.
 
+## Positive response floor carried through the gap and rate fibers (2026-09-25 UTC)
+
+- **fiber fields:** `GapFiber`, `DimensionlessMassFiber`,
+  `SpacingCalibratedMassFiber`, and `VanishingSpacingMassFiber` now retain the
+  source `probe_response_floor` in
+  `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`.
+- **preservation:** `branch_arrow_preserves_response_floor`,
+  `gap_mass_arrow_preserves_response_floor`,
+  `calibration_arrow_preserves_response_floor`, and
+  `scheduled_arrow_preserves_response_floor` transport the same positive
+  `rayleighFloor` estimate through the branch arrows.
+- **scope:** this is a per-probe fixed-spacing SU(2) nontriviality certificate
+  joined to the strict gap and decay fields; it is not an EVERY-state bound,
+  changing-spacing family, continuum/QFT construction, or Clay closure.
+- **verification:** focused safe single-file check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Scheduled-rate presheaf obstruction (2026-09-25 UTC)
 
 - **scheduled fiber:** `VanishingSpacingMassFiber` and

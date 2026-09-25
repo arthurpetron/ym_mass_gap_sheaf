@@ -65,6 +65,22 @@ The focused check passed with only `{propext, Quot.sound}` and no `sorryAx`,
 classical axiom, `native_decide`, or custom axiom.  This remains a fixed-
 spacing SU(2) identity, not a changing-spacing or continuum construction.
 
+## Current increment: positive response floor carried through the gap and rate fibers (2026-09-25 UTC)
+
+The probe response floor is now retained in `GapFiber`,
+`DimensionlessMassFiber`, `SpacingCalibratedMassFiber`, and
+`VanishingSpacingMassFiber` and transported by every branch compiler in
+`lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`.
+The preservation lemmas `branch_arrow_preserves_response_floor`,
+`gap_mass_arrow_preserves_response_floor`,
+`calibration_arrow_preserves_response_floor`, and
+`scheduled_arrow_preserves_response_floor` keep the positive
+`rayleighFloor` estimate attached to the same `unitExcitation` observable
+while the strict gap and decay fields are carried.  This is a per-probe
+nontriviality certificate, not an EVERY-state or continuum gap.  The focused
+check passed with only `{propext, Quot.sound}` and no `sorryAx`, classical
+axiom, `native_decide`, or custom axiom.
+
 ## Current increment: composed branch-to-fixed-spacing-rate presheaf chain (2026-09-25 UTC)
 
 `SpacingCalibratedMassFiber` in
