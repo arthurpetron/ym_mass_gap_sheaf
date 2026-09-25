@@ -183,6 +183,17 @@ variation, positive-time rate-power variation, physical-rate scaling, and all
 continuum/QFT obligations remain open.  Verification:
 `audits/AUDIT-FIXED-FAMILY-NORMALIZATION-CEILING-2026-09-24.md`.
 
+### Fixed-family rate-power sampler arithmetic (2026-09-24 UTC)
+
+`BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerArithmetic.marginalHalfGeometric_latticeSteps_eq`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerArithmetic.lean:26`)
+proves the exact floor-sampler identity `time * 2^scale` for the geometric
+spacing. This is the arithmetic input for the next positive-time rate-power
+variation certificate. The antitone-tail construction, raw representative
+variation, physical-rate band, and all continuum/QFT joins remain open.
+Verification:
+`audits/AUDIT-FIXED-FAMILY-RATE-POWER-ARITHMETIC-2026-09-24.md`.
+
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`

@@ -92,6 +92,15 @@ finite scalar certificate; raw variation, positive-time rate variation,
 physical scaling, and continuum/QFT obligations remain open.  See the
 [ceiling audit](audits/AUDIT-FIXED-FAMILY-NORMALIZATION-CEILING-2026-09-24.md).
 
+**New fixed-family sampler arithmetic (2026-09-24):**
+`BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerArithmetic.marginalHalfGeometric_latticeSteps_eq`
+proves that the actual floor sampler for the geometric spacing is exactly
+`time * 2^scale`. Together with the existing fixed-rate pin, this identifies
+the positive-time sampled rate-power stream arithmetically. A constructive
+antitone-tail/variation certificate is still open, as are raw representative
+variation, physical scaling, and all continuum/QFT obligations. See the
+[sampler arithmetic audit](audits/AUDIT-FIXED-FAMILY-RATE-POWER-ARITHMETIC-2026-09-24.md).
+
 **New checked complete growing-word square heat image:** the original product
 heat sends a distinct-link Wilson character square to
 `1 + w^(8*perimeter)*chi_2`, retaining every supported test. For the actual

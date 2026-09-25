@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## Fixed-family sampler arithmetic CLOSED; positive-time variation OPEN (2026-09-24 UTC)
+
+- **exact sampler:** `BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerArithmetic.marginalHalfGeometric_latticeSteps_eq`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerArithmetic.lean:26`)
+  proves that the actual geometric-spacing floor sampler is exactly
+  `time * 2^scale`.
+- **rate identification:** with
+  `BF4PhysicalMarginalGeometricCompletedFamily.marginalHalfGeometricCompletedFamily_rate`
+  (`:79`), the fixed-family positive-time sampled rate-power stream is now
+  reduced to an explicit dyadic-exponent arithmetic stream.
+- **scope:** the antitone-tail/positive-time variation witness is still open;
+  raw representative variation, physical-rate control,
+  thermodynamic/continuum passage, OS/QFT reconstruction, physical mass, and
+  the all-group theorem remain open.
+- **verification:** see
+  `audits/AUDIT-FIXED-FAMILY-RATE-POWER-ARITHMETIC-2026-09-24.md`.
+
 ## Fixed-family normalization-scale ceiling CLOSED; cutoff variation OPEN (2026-09-24 UTC)
 
 - **constant scale:** `BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizationCeiling.marginalHalfGeometric_normalizationScale_eq`
