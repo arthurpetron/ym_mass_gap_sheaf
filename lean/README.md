@@ -91,6 +91,14 @@ continuum, physical-mass and Clay obligations remain open. Evidence:
 `audits/AUDIT-WILSON-PLAQUETTE-TWO-STEP-RESPONSE-2026-09-24.md` at repository
 root.
 
+`BF4WilsonAllNomePlaquetteRateCalibration` composes the same-carrier positive
+lag-two floor with the existing completed strict transfer bound and diagonal
+ceiling, proving the explicit rational constraint
+`twoStepFloor ≤ twoStepRate * plaquetteNormCeiling`. This remains fixed in
+nome and width and is not a physical mass or continuum calibration. Evidence:
+`audits/AUDIT-WILSON-PLAQUETTE-RATE-CALIBRATION-2026-09-24.md` at repository
+root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.

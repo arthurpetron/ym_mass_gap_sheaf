@@ -126,6 +126,17 @@ The witness remains nome/width-dependent; spatial/spacing control, scaling
 survival, continuum passage, physical mass calibration and every-group
 extension remain open.
 
+### SAME-carrier plaquette rate calibration (2026-09-24 UTC)
+
+`BF4WilsonAllNomePlaquetteRateCalibration.plaquette_twoStep_floor_le_rate_mul_normCeiling`
+composes the actual positive lag-two floor with the existing completed strict
+two-step transfer estimate and the actual diagonal ceiling. It proves the
+explicit rational constraint
+`twoStepFloor ≤ twoStepRate * plaquetteNormCeiling` on the SAME carrier.
+This is a useful calibration of the already existing fixed-parameter rate,
+not a uniform spacing/coupling bound or physical mass. Evidence:
+`audits/AUDIT-WILSON-PLAQUETTE-RATE-CALIBRATION-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream
