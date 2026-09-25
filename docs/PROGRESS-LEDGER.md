@@ -4,7 +4,7 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: anchor cutoff-zero finite transition-product join (2026-09-25 UTC)
+## Previous increment: anchor cutoff-zero finite transition-product join (2026-09-25 UTC)
 
 ## Current increment: anchor cutoff-indexed finite-linear transition family (2026-09-25 UTC)
 
