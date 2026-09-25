@@ -12,6 +12,7 @@ changing-coupling same-theory family.
 
 import YMGap.Continuum.BF4PhysicalCubeCompletedMarginalGap
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
+import YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
 import YMGap.Continuum.BF4WilsonBranchSheafNaturalTransformation
 
 namespace YMGap.Continuum.BF4WilsonFixedCarrierDynamicFamily
@@ -25,6 +26,8 @@ open YMGap.Continuum.BF4ExactSlabPlaquetteSmallNomeCertificate
   (nome nome_pos nome_lt_one)
 open YMGap.Continuum.BF4PhysicalCubeCompletedMarginalGap
   (completedSectorContraction)
+open YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
+  (noPhysicalRateBand_of_constantPositiveMargin)
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
@@ -119,6 +122,20 @@ theorem fixedCarrierMovingCube_sampled_decay
   sampledConnectedAutocorrelationSq_decay
     (fixedCarrierMovingCubeChannel S) scale time
 
+theorem noPhysicalRateBand_of_fixedCarrier
+    (S : CurrentSpacingSchedule)
+    (band : DynamicVacuumSectorPhysicalRateBand
+      (fixedCarrierDynamicFamily S)) :
+    False := by
+  apply noPhysicalRateBand_of_constantPositiveMargin
+    (family := fixedCarrierDynamicFamily S) 0
+    ((fixedCarrierDynamicFamily S).latticeMargin_pos 0)
+  · intro scale
+    unfold fixedCarrierDynamicFamily
+      DynamicVacuumSectorCompletedFamily.latticeMargin
+    exact Q'.eqv_refl _
+  · exact band
+
 end YMGap.Continuum.BF4WilsonFixedCarrierDynamicFamily
 
 #print axioms YMGap.Continuum.BF4WilsonFixedCarrierDynamicFamily.fixedCarrierSpacing
@@ -128,3 +145,4 @@ end YMGap.Continuum.BF4WilsonFixedCarrierDynamicFamily
 #print axioms YMGap.Continuum.BF4WilsonFixedCarrierDynamicFamily.fixedCarrierMovingCube_zero_isPositive
 #print axioms YMGap.Continuum.BF4WilsonFixedCarrierDynamicFamily.fixedCarrierMovingCube_sampled_zero_isPositive
 #print axioms YMGap.Continuum.BF4WilsonFixedCarrierDynamicFamily.fixedCarrierMovingCube_sampled_decay
+#print axioms YMGap.Continuum.BF4WilsonFixedCarrierDynamicFamily.noPhysicalRateBand_of_fixedCarrier

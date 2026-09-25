@@ -121,6 +121,19 @@
 - **scope:** this is the fixed-carrier obstruction lane; no changing-coupling
   family, physical rate band, rational pin, OS/QFT handoff or Clay conclusion.
 
+## Fixed-carrier physical-band no-go (2026-09-25 UTC)
+
+- **declaration:** `noPhysicalRateBand_of_fixedCarrier` in
+  `lean/YMGap/Continuum/BF4WilsonFixedCarrierDynamicFamily.lean`.
+- **result:** specializes `noPhysicalRateBand_of_constantPositiveMargin` to the
+  inhabited fixed-nome family; no physical-rate band can inhabit its
+  vanishing-spacing schedule.
+- **verification:** focused safe check passed with only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+- **scope:** fixed-carrier route pruning only; it does not refute a genuinely
+  scale-dependent family and does not prove continuum/QFT/Clay.
+
 ## Unit-probe norm-one collapse and rational rate floor (2026-09-25 UTC)
 
 - **declarations:** `gap_probe_norm_one`,

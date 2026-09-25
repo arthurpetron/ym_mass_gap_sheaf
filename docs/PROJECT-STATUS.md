@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **67**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **68**, 2026-09-25 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -11,7 +11,8 @@ relative-loss bridge consumer and its width-degeneration audit.  The focused sou
 with only `{propext, Quot.sound}`; the dynamic-family gate was also checked
 with the same axiom set.  A fixed-nome dynamic-family witness and scheduled
 same-object RC channel are now constructed separately; this is an explicit
-obstruction lane, not a changing-coupling family.
+obstruction lane, not a changing-coupling family.  The generic constant-margin
+no-go now proves that this fixed-carrier family admits no physical-rate band.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -102,7 +103,10 @@ vanishing-spacing schedule, while
 positive sampled zero-time response and scheduled decay.  This is the
 fixed-carrier obstruction lane: no changing-coupling family, physical rate
 band, rational observable pin, projective OS handoff, or reconstruction
-handoff is inhabited.  The `gap_probe_norm_one` identity then collapses the
+handoff is inhabited.  `noPhysicalRateBand_of_fixedCarrier` now specializes
+the constant-positive-margin contradiction to this family, so the fixed-
+carrier physical-band shortcut is formally ruled out.  The
+`gap_probe_norm_one` identity then collapses the
 scaled norm, and `gap_probe_response_floor_le_rate` together with
 `branch_arrow_response_floor_le_rate` reflects the result to the rational
 bound `rayleighFloor ≤ twoStepRate nome hd`, including after the branch-arrow
@@ -187,6 +191,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Response floor joined to strict-rate-scaled norm
                                        [x] Unit-probe norm-one collapse to rational rate floor
                                        [x] Fixed-nome dynamic family / scheduled RC channel witness
+                                       [x] Fixed-carrier physical-rate-band no-go
              |                              |
              v                              v
  [ ] Complete signed cost versus   [x] Strict completed T^2 bound
@@ -264,6 +269,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04e | Concrete `starRatio` dyadic budget obstruction | `no_starRatio_rational_loss_budget`; prunes only the coarse rational budget route and does not close A03/A05. |
 | B04f | Changing-family instantiation / same-theory bridge | `BF4PhysicalDynamicVacuumSectorCompletedFamily.DynamicVacuumSectorCompletedFamily`, `.DynamicVacuumSectorPhysicalRateBand`, and `BF4PhysicalDynamicVacuumSectorObservablePath.DynamicVacuumSectorObservablePin`; the fixed-nome witness is now supplied by `BF4WilsonFixedCarrierDynamicFamily.fixedCarrierDynamicFamily`, but no changing-coupling family, observable pin, physical band, or OS/reconstruction bridge is inhabited. |
 | B04g | Fixed-nome dynamic family / scheduled RC channel witness | `BF4WilsonFixedCarrierDynamicFamily.fixedCarrierDynamicFamily`, `.fixedCarrierMovingCubeChannel`, `.fixedCarrierMovingCube_zero_isPositive`, `.fixedCarrierMovingCube_sampled_zero_isPositive`, and `.fixedCarrierMovingCube_sampled_decay`, `lean/YMGap/Continuum/BF4WilsonFixedCarrierDynamicFamily.lean`; constructs the dynamic-family record with constant nome, explicit spacing-to-zero, and the genuine RC moving-cube channel. This is an obstruction witness, not a changing-family, rate-band, continuum, or Clay result. |
+| B04h | Fixed-carrier physical-rate-band no-go | `BF4WilsonFixedCarrierDynamicFamily.noPhysicalRateBand_of_fixedCarrier`, `lean/YMGap/Continuum/BF4WilsonFixedCarrierDynamicFamily.lean`; specializes the generic constant-positive-margin contradiction to the inhabited fixed-nome family. It rules out the fixed-carrier physical-band shortcut and does not refute a genuinely scale-dependent family. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1128,3 +1134,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 83 | 2026-09-25 | Composed the carried positive response floor with the strict rate bound, proving a same-object response ≤ rate-scaled-norm inequality on the gap fiber and after the nontriviality → gap arrow. This is the strongest immediate fixed-spacing quantitative consequence; the changing-family bridge remains open. |
 | 1 / 84 | 2026-09-25 | Collapsed the carried unit-probe norm to the rational rate floor and exposed the same bound after the nontriviality-to-gap natural-transformation component. The result is fixed-spacing and per-probe; the dynamic-family bridge and all continuum/Clay claims remain open. |
 | 1 / 85 | 2026-09-25 | Constructed an inhabited fixed-nome `DynamicVacuumSectorCompletedFamily` from an explicit vanishing-spacing schedule, plus its genuine RC moving-cube channel, positive sampled zero-time response, and scheduled decay. This is an obstruction lane; changing-coupling, physical-band, OS/QFT and Clay nodes remain open. |
+| 1 / 86 | 2026-09-25 | Specialized the generic constant-positive-margin contradiction to the new fixed-nome dynamic family, proving that no physical-rate band can inhabit this fixed-carrier vanishing-spacing lane. A genuinely scale-dependent carrier/rate family remains required. |

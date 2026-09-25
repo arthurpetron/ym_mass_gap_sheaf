@@ -20,6 +20,18 @@ non-vacuous fixed-carrier obstruction witness: it does not provide the missing
 changing-coupling family, physical rate band, rational observable pin,
 projective OS handoff, continuum QFT, or Clay theorem.
 
+## Current increment: fixed-carrier physical-band no-go (2026-09-25 UTC)
+
+`noPhysicalRateBand_of_fixedCarrier` specializes the generic
+`noPhysicalRateBand_of_constantPositiveMargin` theorem to
+`fixedCarrierDynamicFamily`.  Because its lattice margin is constant and
+strictly positive while the supplied spacing tends to zero, no
+`DynamicVacuumSectorPhysicalRateBand` can inhabit this family.  The focused
+safe check passed with only `{propext, Quot.sound}` and no `sorryAx`, classical
+axiom, `native_decide`, or custom axiom.  This is a route-pruning theorem: it
+rules out fixed-carrier reciprocal-spacing as the physical continuum bridge,
+while leaving genuinely scale-dependent carrier/rate families open.
+
 ## Current increment: unit-probe norm-one collapse and rational rate floor (2026-09-25 UTC)
 
 `gap_probe_norm_one` in
