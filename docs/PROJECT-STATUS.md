@@ -306,6 +306,9 @@ family; the raw same-object CReal representative variation remains the
 independent missing input.  Verification is recorded in
 `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
 
+Conditional raw nontriviality is also now composed by
+`marginalHalfGeometric_rawContinuumNontriviality` (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:123`): once the raw representative/variation certificate is supplied, the fixed-family uniform norm floor supplies the exact continuum zero-time positivity field.  This does not construct the raw certificate itself.
+
 The carrier/transfer side of the raw frontier is now audited explicitly:
 `centralPhysicalDynamicMovingCubeRCChannel` and
 `sampledConnectedAutocorrelation_eq_global` identify the same completed

@@ -15,6 +15,7 @@ not assert a positive physical mass or a continuum Yang--Mills theorem.
 | `marginalHalfGeometric_normalizationNormDebtVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:75` | Converts the exact pointwise-constant rational debt certificate into the `MovingCubeNormalizationNormDebtVariation` input consumed by the constructive-real normalized-limit compiler. |
 | `marginalHalfGeometric_positiveRatePowerVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:84` | Transports the checked `r^(time * 2^scale)` variation certificate to the literal normalized scheduled-rate stream for every positive time. |
 | `marginalHalfGeometric_ratePowerVariation` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:94` | Adds the exact time-zero branch and inhabits the compiler's all-time rational rate-variation input. |
+| `marginalHalfGeometric_rawContinuumNontriviality` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:123` | Given the already-required raw representative/variation certificate, transports the fixed-family uniform norm floor to the exact raw continuum zero-time positivity witness. |
 
 The debt declaration uses
 `marginalHalfGeometric_normalizationNormDebtRationalVariation` from
@@ -42,8 +43,9 @@ All three printed declarations report only `{propext, Quot.sound}` and no
 
 The normalized compiler now has both scalar rational inputs for this concrete
 family.  Its raw representative field still requires an explicit
-`MovingCubeRawScheduledRepresentativeVariation`; the positive-time geometric
-rate limit is zero by
+`MovingCubeRawScheduledRepresentativeVariation`; conditional on that field,
+the fixed-family raw nontriviality witness is now automatic.  The
+positive-time geometric rate limit is zero by
 `positiveRatePowerVariation_limit_equiv_zero`, so this family cannot calibrate
 a positive physical mass.  Thermodynamic/continuum passage, OS/QFT
 reconstruction, all-group extension, and the Clay target remain open.

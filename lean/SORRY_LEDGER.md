@@ -17,6 +17,12 @@
 - **verification:** see
   `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
 
+- **conditional raw nontriviality:**
+  `marginalHalfGeometric_rawContinuumNontriviality` (`:123`) composes the
+  fixed-family uniform norm floor with the raw continuum nontriviality
+  compiler, conditional on the explicit raw representative/variation object.
+  It does not inhabit that object or select CReal representatives.
+
 ## Raw representative-selection boundary recorded (2026-09-25 UTC)
 
 - **finite same-object support:** `centralPhysicalDynamicMovingCubeRCChannel`

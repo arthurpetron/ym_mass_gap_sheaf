@@ -261,6 +261,14 @@ used as a hidden quotient representative selection.  Keep this boundary
 explicit and constructive.  Evidence:
 `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`.
 
+The fixed-family nontriviality side is now discharged conditionally by
+`marginalHalfGeometric_rawContinuumNontriviality`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:123`):
+the uniform norm floor already supplies the raw continuum zero-time positivity
+field whenever the raw representative/variation object is present.  The
+remaining work is still representative selection plus cross-scale variation,
+not a second nontriviality estimate.
+
 ### Width degeneration of the explicit original response witness (2026-09-24 UTC)
 
 `BF4ExactSlabFixedSpatialResponseWidthObstruction.detectorScale_le_margin_power`

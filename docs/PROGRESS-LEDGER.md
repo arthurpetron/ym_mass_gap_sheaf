@@ -28,6 +28,18 @@ not for a choice-free `CReal` quotient lift.  This is now recorded as the
 minimal honest next certificate; no hidden representative selection is added.
 Evidence: `audits/AUDIT-RAW-REPRESENTATIVE-SELECTION-2026-09-25.md`.
 
+## Current increment: fixed-family raw nontriviality compiles conditionally (2026-09-25 UTC)
+
+`marginalHalfGeometric_rawContinuumNontriviality`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.lean:123`)
+composes the fixed-family uniform norm floor with the raw continuum
+nontriviality compiler.  Therefore the raw zero-time positivity field is
+automatic once the explicit raw representative/variation certificate exists;
+the certificate itself remains the active frontier.  The declaration is
+kernel-checked within `{propext, Quot.sound}` and does not select a hidden
+CReal representative.
+Evidence: `audits/AUDIT-FIXED-FAMILY-NORMALIZED-RATE-AND-DEBT-2026-09-25.md`.
+
 ## Current increment: actual normalized scheduled-rate input inhabited (2026-09-25 UTC)
 
 The fixed-family geometric certificate is now transported to the literal

@@ -14,6 +14,7 @@ positive physical mass.
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerArithmetic
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizedDebt
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 import YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
 import YMGap.Continuum.SummableRationalStepVariationAlgebra
@@ -30,8 +31,11 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerArithmeti
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyNormalizedDebt
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationCore
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
 open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.SummableRationalStepVariationAlgebra
@@ -100,6 +104,30 @@ def marginalHalfGeometric_ratePowerVariation :
     marginalHalfGeometricCompletedFamily
     marginalHalfGeometric_positiveRatePowerVariation
 
+/-! ## Conditional raw nontriviality is already available -/
+
+private def marginalHalfGeometric_normalizationScaleCeiling :
+    MovingCubeNormalizationScaleCeiling
+      marginalHalfGeometricCompletedFamily :=
+  { ceiling :=
+      movingCubeNormalizationScale marginalHalfGeometricCompletedFamily 0
+    ceiling_pos := movingCubeNormalizationScale_pos
+      marginalHalfGeometricCompletedFamily 0
+    scale_le := fun scale => by
+      exact Q'.le_refl' _ }
+
+/-- Once the raw representative/variation certificate is supplied, the
+fixed-family uniform norm floor already constructs the exact raw continuum
+zero-time nontriviality witness.  This closes that downstream field
+conditionally without selecting a CReal representative. -/
+def marginalHalfGeometric_rawContinuumNontriviality
+    (raw : MovingCubeRawScheduledRepresentativeVariation
+      marginalHalfGeometricCompletedFamily) :
+    MovingCubeRawContinuumNontriviality
+      marginalHalfGeometricCompletedFamily raw :=
+  MovingCubeRawContinuumNontriviality.ofUniformNormFloor
+    marginalHalfGeometric_normalizationScaleCeiling.toUniformNormFloor
+
 end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization
 
 #print axioms
@@ -108,3 +136,5 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationS
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_positiveRatePowerVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_ratePowerVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFixedFamilyRatePowerVariationSpecialization.marginalHalfGeometric_rawContinuumNontriviality
