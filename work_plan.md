@@ -85,6 +85,14 @@ before any spacing or continuum passage; it remains fixed nome/width.  The
 focused check passed within `{propext, Quot.sound}`.  Evidence:
 `audits/AUDIT-WILSON-COMPLEX-EVEN-LAG-CORRELATOR-2026-09-24.md`.
 
+The same module now proves even-lag correlator nonnegativity and exposes
+`complexRateCutoff`/`complexRateCutoff_bound`, an explicit `powBaseCutoff`
+modulus for the scalar coefficient when strict rate positivity is supplied.
+This is deliberately not promoted to an absolute observable modulus: the
+state norm cap and parameter-uniform positivity/rate control remain separate
+certificates.  Evidence:
+`audits/AUDIT-WILSON-COMPLEX-RATE-MODULUS-2026-09-24.md`.
+
 ### SAME real scaling, computed unit projection and completed connected correlations (2026-09-24 UTC)
 
 `BF4WilsonAllNomeRealScalarCauchy` constructs the actual varying Wilson stream

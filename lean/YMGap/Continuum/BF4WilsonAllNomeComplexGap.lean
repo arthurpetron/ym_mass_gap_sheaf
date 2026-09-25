@@ -10,6 +10,7 @@ continuum or physical-Hamiltonian gap.
 
 import YMGap.Continuum.BF4WilsonAllNomeComplexification
 import YMGap.Continuum.BF4WilsonAllNomeCompletedGap
+import YMGap.Continuum.HeatKernelConvGen
 
 namespace YMGap.Continuum.BF4WilsonAllNomeComplexGap
 
@@ -23,7 +24,7 @@ open YMGap.Continuum.BF4WilsonAllNomeCompletedGap
 open YMGap.Continuum.BF4WilsonAllNomeComplexification
 open YMGap.Continuum.BF4WilsonAllNomeBilinearTime
 open YMGap.Continuum.BF4ExactSlabFixedSpatialDenseCenteredGap
-  (twoStepRate twoStepRate_nonnegative)
+  (twoStepRate twoStepRate_nonnegative twoStepRate_lt_one)
 
 variable {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q')) (width : Nat)
 
@@ -184,6 +185,25 @@ theorem complex_even_lag_corr_decay (n : Nat) (x : VC)
   rw [inner_even_diagonal hw0 hw1 width n x]
   exact complex_iterated_norm_gap hw0 hw1 width n x hx
 
+theorem complex_even_lag_corr_nonnegative (n : Nat) (x : VC) :
+    RCnonneg (I x (CT (2*n) x)).1 := by
+  rw [inner_even_diagonal hw0 hw1 width n x]
+  exact inner_nonnegative hw0 hw1 width (CT n x)
+
+/-! The scalar rate has an explicit constructive cutoff when its strict
+positivity is supplied.  This is only a coefficient modulus: an absolute
+observable modulus additionally needs a norm cap for the chosen state. -/
+def complexRateCutoff (epsilon : Q') : Nat :=
+  HKConvGen.powBaseCutoff (twoStepRate hw0 hw1 width) epsilon
+
+theorem complexRateCutoff_bound (epsilon : Q')
+    (hepsilon : (0 : Q') < epsilon)
+    (hrate : (0 : Q') < twoStepRate hw0 hw1 width) :
+    (twoStepRate hw0 hw1 width) ^ (complexRateCutoff hw0 hw1 width epsilon)
+      ≤ epsilon := by
+  exact HKConvGen.pow_base_le_cutoff hrate
+    (twoStepRate_lt_one hw0 hw1 width) hepsilon
+
 #print axioms complexUnit
 #print axioms complexUnit_fixed
 #print axioms inner_unit_left
@@ -199,5 +219,8 @@ theorem complex_even_lag_corr_decay (n : Nat) (x : VC)
 #print axioms complex_oneStep_norm_gap
 #print axioms complex_iterated_norm_gap
 #print axioms complex_even_lag_corr_decay
+#print axioms complex_even_lag_corr_nonnegative
+#print axioms complexRateCutoff
+#print axioms complexRateCutoff_bound
 
 end YMGap.Continuum.BF4WilsonAllNomeComplexGap

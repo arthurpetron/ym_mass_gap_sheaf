@@ -1,10 +1,10 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **28**, 2026-09-24 UTC. Source checkpoint:
-the SAME Wilson complex-carrier even-lag correlator milestone
+Chart schema: **1**. Snapshot: **29**, 2026-09-24 UTC. Source checkpoint:
+the SAME Wilson complex-carrier rate-modulus milestone
 committed with this snapshot;
 verification is recorded in
-`audits/AUDIT-WILSON-COMPLEX-EVEN-LAG-CORRELATOR-2026-09-24.md`.
+`audits/AUDIT-WILSON-COMPLEX-RATE-MODULUS-2026-09-24.md`.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -294,6 +294,20 @@ discrete time; no spacing/scaling, thermodynamic, continuum, physical-mass or
 all-group node closes.  Evidence:
 `audits/AUDIT-WILSON-COMPLEX-EVEN-LAG-CORRELATOR-2026-09-24.md`.
 
+New partial J02 evidence: `BF4WilsonAllNomeComplexGap.complex_even_lag_corr_nonnegative`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeComplexGap.lean:188`) proves
+nonnegativity of every even-lag same-object correlator by rewriting it to the
+diagonal norm.  `complexRateCutoff`/`complexRateCutoff_bound`
+(`:196`, `:199`) add the explicit `HKConvGen.powBaseCutoff` modulus for the
+scalar coefficient, with strict rate positivity stated as an honest premise.
+The focused monitored check exits 0 and all new declarations audit to
+`{propext, Quot.sound}` with no `sorryAx`, classical input, warning or error.
+This is coefficient-level fixed-parameter evidence only: an absolute observable
+modulus still needs a norm cap and parameter-uniform positivity/rate control.
+No spacing/scaling, thermodynamic, continuum, physical-mass or all-group node
+closes.  Evidence:
+`audits/AUDIT-WILSON-COMPLEX-RATE-MODULUS-2026-09-24.md`.
+
 New partial J02 evidence: `BF4WilsonAllNomeComplexGap.complex_twoStep_form_gap`
 (`lean/YMGap/Continuum/BF4WilsonAllNomeComplexGap.lean:97`) consumes the
 complexification on the SAME all-nome Wilson completion.  The module also
@@ -384,7 +398,7 @@ remains open; extending this candidate normalization alone cannot supply it.
   Full Hilbert/QFT, scaling survival and the continuum join remain open.
 - Goal-node status changes: **NONE**.
 - Displayed wording/layout/symbol changes: **NONE**. The chart block is
-  unchanged from snapshots 1--28; this snapshot records only new proof evidence.
+  unchanged from snapshots 1--29; this snapshot records only new proof evidence.
 
 ## Maintenance contract
 
@@ -438,3 +452,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 26 | 2026-09-24 | The translated complex correlator is rewritten as a same-carrier norm-square contraction at the intervening time slice. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |
 | 1 / 27 | 2026-09-24 | The same-carrier norm contraction is iterated constructively, giving `twoStepRate^n` decay for every discrete power at fixed nome/width. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |
 | 1 / 28 | 2026-09-24 | The iterated same-carrier norm estimate is converted into an even-lag same-object correlator bound at lag `2*n`. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |
+| 1 / 29 | 2026-09-24 | Even-lag same-object correlators are proved nonnegative, and the scalar `twoStepRate^n` coefficient receives an explicit cutoff under an honest strict-positivity premise. Focused check passed within the permitted axiom gate. Partial J02 only; no spacing/scaling, continuum, physical-mass, all-group or chart-node closure. |

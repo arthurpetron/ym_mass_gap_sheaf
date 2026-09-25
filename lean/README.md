@@ -57,6 +57,13 @@ spacing-uniform, continuum, Hamiltonian or Clay result. Evidence:
 `audits/AUDIT-WILSON-COMPLEX-EVEN-LAG-CORRELATOR-2026-09-24.md` at repository
 root.
 
+Even-lag correlators are nonnegative, and `complexRateCutoff` with
+`complexRateCutoff_bound` supplies an explicit `powBaseCutoff` for the scalar
+rate under a strict-positivity premise. This is only coefficient-level
+fixed-parameter evidence; a norm cap and uniform positivity/rate bridge are
+still required for an absolute observable modulus. Evidence:
+`audits/AUDIT-WILSON-COMPLEX-RATE-MODULUS-2026-09-24.md` at repository root.
+
 **SAME real scaling, vacuum projection and connected correlators (2026-09-24 UTC):**
 The existing all-nome Wilson completion now has real scaling with explicit
 QCauchy scalar data, proved algebraic laws and actual-time compatibility.
