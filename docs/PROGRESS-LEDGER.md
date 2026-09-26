@@ -25,6 +25,14 @@ not yet the missing physical-rate band or scaling-family observable pin; the
 OS/GNS, continuum/QFT, all-group, physical-mass, and Clay obligations remain
 open.
 
+The same verified module also defines `changingNomeFormGap` and proves
+`changingNomeFormGap_rate` and `changingNomeFormGap_margin_positive`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeDynamicFamily.lean:97--112`).
+This is the explicit one-step strict form certificate at the same scheduled
+nome, with positive lattice margin, and is the minimal honest input for the
+next relative-loss/observable compiler.  It is not a spacing comparison or a
+physical-rate band.
+
 See `audits/AUDIT-CHANGING-NOME-COMPLETED-FAMILY-2026-09-25.md`.
 
 ## Current increment: real all-nome same-carrier even-lag iteration (2026-09-25 UTC)

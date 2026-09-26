@@ -48,6 +48,13 @@ changing-family data seam, but not a physical-rate band or observable pin;
 the canonical chart markers therefore remain unchanged, as do the
 OS/GNS, continuum/QFT, physical-mass, all-group, and Clay obligations.
 
+The same module now exposes `changingNomeFormGap`,
+`changingNomeFormGap_rate`, and `changingNomeFormGap_margin_positive`
+(`:97--112`).  This adds the one-step strict form certificate and its positive
+lattice margin to the same changing family.  It is a bridge input for a
+future same-object relative-loss/observable compiler, not a physical-rate
+comparison; canonical chart markers remain unchanged.
+
 Latest typed frontier (2026-09-25 UTC): the positive-width dense source now
 has a genuine natural transformation into the single staged spatial-union
 completion: `positiveDenseDiagram`, `unionCompletionDiagram`, and `denseToUnion`
@@ -1218,3 +1225,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 89 | 2026-09-25 | Packaged the finite-linear restricted ray capacity and routed conditional-transition product at every cutoff as a whole scale-indexed family in a constant presheaf, retaining the anchor producer and explicit cutoff bookkeeping. This remains cutoff-dependent finite data; no cofinal, changing-family, continuum/QFT or Clay node changes status. |
 | 1 / 90 | 2026-09-25 | Generalized the computed `mixRate^2` width obstruction to every constructive nome schedule. Coupling retuning cannot supply the missing spacing-uniform certificate; the actual transfer operator and all continuum/Clay nodes remain open. No chart marker changed. |
 | 1 / 91 | 2026-09-25 | Inhabited an explicit nonconstant completed SU(2) nome schedule with vanishing spacing modulus and a concrete same-object moving-cube RC channel, including positive zero-time response and scale-wise decay. The changing-family data seam is now inhabited, but the physical-rate band, observable pin, OS/GNS, continuum/QFT, all-group and Clay nodes remain open; no canonical chart marker changed. |
+| 1 / 92 | 2026-09-25 | Added the explicit one-step `changingNomeFormGap` certificate, its definitionally matching rate, and positive lattice margin for the same changing family. This is a bridge input for relative-loss/observable control; no canonical chart marker changed. |

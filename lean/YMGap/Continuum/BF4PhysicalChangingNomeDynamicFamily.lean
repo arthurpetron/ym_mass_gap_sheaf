@@ -27,6 +27,7 @@ open YMGap.Constructive.ExpNeg
 open YMGap.Constructive.HalfPow
 open YMGap.Continuum.BF4PhysicalCubeCompletedMarginalGap
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedStrictFormGap
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 open YMGap.Continuum.PhysicalSeparatorLinearTail
@@ -93,6 +94,23 @@ theorem changingNomeDynamicFamily_spacing (scale : Nat) :
 theorem changingNomeDynamicFamily_nome (scale : Nat) :
     changingNomeDynamicFamily.nome scale = changingNome scale := rfl
 
+def changingNomeFormGap (scale : Nat) :
+    CentralPhysicalVacuumSectorCylinderCompletedStrictFormGapData
+      (changingNome_pos scale) (changingNome_lt_one scale) 0 :=
+  completedSectorFormGap
+    (changingNome_pos scale)
+    (changingNome_lt_one scale)
+    (changingNome_le_half scale)
+
+theorem changingNomeFormGap_rate (scale : Nat) :
+    (changingNomeFormGap scale).rate =
+      cutoffUniformRate (changingNome scale)
+        (Q'.le_of_lt (changingNome_pos scale)) := rfl
+
+theorem changingNomeFormGap_margin_positive (scale : Nat) :
+    (0 : Q') < 1 - (changingNomeFormGap scale).rate :=
+  one_sub_pos_of_lt_one (changingNomeFormGap scale).rate_lt_one
+
 def changingNomeMovingCubeChannel :
     DynamicVacuumSectorSameObjectRCChannel changingNomeDynamicFamily :=
   centralPhysicalDynamicMovingCubeRCChannel changingNomeDynamicFamily
@@ -128,6 +146,9 @@ theorem changingNomeMovingCube_connectedSq_decay (scale time : Nat) :
 #print axioms changingNomeDynamicFamily_rate
 #print axioms changingNomeDynamicFamily_spacing
 #print axioms changingNomeDynamicFamily_nome
+#print axioms changingNomeFormGap
+#print axioms changingNomeFormGap_rate
+#print axioms changingNomeFormGap_margin_positive
 #print axioms changingNomeMovingCubeChannel
 #print axioms changingNomeMovingCube_zero_isPositive
 #print axioms changingNomeMovingCube_connectedSq_decay

@@ -27,6 +27,14 @@ has a completed strict contraction at every scheduled nome.  The projections
 `changingNomeDynamicFamily_rate`, `changingNomeDynamicFamily_spacing`, and
 `changingNomeDynamicFamily_nome` are at `:84--94`.
 
+The one-step form certificate is `changingNomeFormGap` at `:97--103`.
+`changingNomeFormGap_rate` at `:105--108` identifies its rate definitionally
+with the same `cutoffUniformRate (changingNome scale)`, and
+`changingNomeFormGap_margin_positive` at `:110--112` proves the strict
+positive lattice margin.  These declarations expose the form-level input for
+a future relative-loss compiler without asserting any relation to the
+vanishing spacing.
+
 The same-object channel is
 `changingNomeMovingCubeChannel` at `:96--98`.  Its positive zero-time
 response is `changingNomeMovingCube_zero_isPositive` at `:100--105`, and its

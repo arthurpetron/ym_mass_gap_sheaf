@@ -142,6 +142,13 @@ existing completed SU(2) marginal channel: no physical-rate band, rational
 observable pin, OS/GNS identification, continuum/QFT construction, all-group
 extension, or Clay conclusion is asserted.
 
+The same file now exposes `changingNomeFormGap` and its rate and margin
+lemmas (`:97--112`).  This is the one-step strict form certificate underlying
+the changing-family contraction, definitionally at the same scheduled nome;
+it is the minimal input for a future same-object relative-loss/observable
+compiler.  It does not by itself compare the margin to the spacing or inhabit
+the physical-rate band.
+
 ### Minimal Wilson-to-OS bridge certificate (2026-09-24 UTC)
 
 The literal all-nome Wilson completion and the separate strict OS completion
