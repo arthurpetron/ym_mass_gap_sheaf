@@ -83,6 +83,20 @@ route additionally asks for `MovingCubeNormalizationScaleRationalVariation`
 and positive-time sampled rate-power variation.  These are the next A05
 construction targets; no all-scale response or continuum claim is inferred.
 
+### B04 numerical reduction (2026-09-26 UTC)
+
+For `changingNome scale = 1/(scale+3)` and
+`changingSpacing.spacing scale = 1/(scale+2)`, the denominator law reduces
+the missing physical band to fixed positive rationals `L,U` satisfying
+`L ≤ s_n * (2 + 6 * H(w_n)) ≤ U`, with
+`H = headEnergyConstant = S/F`.  The numerator scale `S` is the explicit
+finite carrier-square at base `1404`; the denominator floor `F` is the
+anchored finite pulled-kernel minimum.  The current source proves `F > 0`
+pointwise but supplies no asymptotic estimate as `w_n → 0`.  The next B04
+proof attempt should therefore expose a finite polynomial lower/upper bound
+for that anchor minimum and compare its vanishing order with `s_n`; until
+then, the global denominator band remains honestly open.
+
 ### New finite producer (2026-09-25 UTC)
 
 `BF4ExactSlabWidthOneActualFringePairing.fringeTestNormFloor` and

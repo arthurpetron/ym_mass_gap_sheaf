@@ -135,6 +135,19 @@ rate-power variation as further explicit inputs.  This is the precise A05
 backward frontier; no finite-prefix theorem is being promoted to an
 all-scale claim.
 
+## B04 concrete asymptotic target (2026-09-26 UTC)
+
+For the current schedule `w_n = 1/(n+3)` and `s_n = 1/(n+2)`, the exact
+denominator is `2 + 6 * headEnergyConstant (w_n)`.  Therefore the missing
+all-scale band is equivalent to finding fixed positive rationals `L,U` with
+`L ≤ s_n * (2 + 6 * H(w_n)) ≤ U` for every `n`, where `H = S/F`, `S` is
+`centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale`, and `F` is the
+anchored finite pulled-kernel minimum inside
+`fixedBasePulledPositiveEdgeFloorValue`.  The source search found only the
+pointwise positivity of `F`; no declaration gives its order as `w_n → 0`, and
+no declaration refutes this particular band.  This is the next B04 analytic
+target, distinct from the already checked finite-prefix wrappers.
+
 ## Current increment: explicit denominator-level calibration compiler (2026-09-26 UTC)
 
 `one_sub_divPos_eqv_inverse`
