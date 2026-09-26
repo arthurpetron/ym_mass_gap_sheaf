@@ -118,6 +118,23 @@ This is the finite-window form of nonzero survival on the same completed
 carrier.  The all-scale response floor, a scaling-family observable pin, and
 the A05/B05 continuum joins remain open.
 
+## Backward frontier expansion: changing-family tail inputs (2026-09-26 UTC)
+
+The finite-prefix response floor does not supply the asymptotic certificates
+needed by the existing raw continuum nontriviality compiler.  Its exact
+required inputs are `MovingCubeRawScheduledRepresentativeVariation`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler.lean:47`)
+and `MovingCubeNormalizationScaleTailCeiling`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMovingCubeNormalizationTailCeilingCompiler.lean:96`),
+specialized to `changingNomeDynamicFamily`.  The tail ceiling glues finite
+prefix maxima into a global reciprocal-floor bound, while representative
+variation provides the same-object cutoff-removal modulus.  The source search
+found no changing-nome inhabitant for either type.  The normalized route adds
+`MovingCubeNormalizationScaleRationalVariation` and positive-time sampled
+rate-power variation as further explicit inputs.  This is the precise A05
+backward frontier; no finite-prefix theorem is being promoted to an
+all-scale claim.
+
 ## Current increment: explicit denominator-level calibration compiler (2026-09-26 UTC)
 
 `one_sub_divPos_eqv_inverse`

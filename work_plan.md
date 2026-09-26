@@ -66,6 +66,23 @@ same-object nonzero-response witness on every finite regulator window; it is
 not a uniform scaling-family floor and does not close A05, B05, OS/GNS,
 continuum, or Clay.
 
+### Backward frontier: asymptotic same-observable inputs (2026-09-26 UTC)
+
+The raw continuum nontriviality route is now targeted by its actual type-level
+inputs rather than by another finite minimum.  For
+`changingNomeDynamicFamily`, it requires
+`MovingCubeRawScheduledRepresentativeVariation`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler.lean:47`)
+and `MovingCubeNormalizationScaleTailCeiling`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMovingCubeNormalizationTailCeilingCompiler.lean:96`).
+The tail ceiling is the asymptotic reciprocal-floor bound; the representative
+variation is the same-object cutoff-removal modulus.  The finite-prefix
+certificates already checked provide only the executable prefix portion.  A
+changing-nome inhabitant for either tail type is not present.  The normalized
+route additionally asks for `MovingCubeNormalizationScaleRationalVariation`
+and positive-time sampled rate-power variation.  These are the next A05
+construction targets; no all-scale response or continuum claim is inferred.
+
 ### New finite producer (2026-09-25 UTC)
 
 `BF4ExactSlabWidthOneActualFringePairing.fringeTestNormFloor` and

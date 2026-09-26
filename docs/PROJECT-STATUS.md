@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **77**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **78**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -110,6 +110,18 @@ is `changingNomeFinitePrefixResponseCertificate` (`:89--106`).  The focused
 check reports only `{propext, Quot.sound}`.  This is finite-prefix response
 survival; it is not a scale-uniform excitation, an OS/GNS result, or a Clay
 mass-gap theorem.
+
+Latest backward frontier expansion (2026-09-26 UTC): the finite-prefix
+response certificate does not discharge the asymptotic inputs required by the
+same observable's raw continuum route.  The remaining typed inputs are
+`MovingCubeRawScheduledRepresentativeVariation`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler.lean:47`)
+and `MovingCubeNormalizationScaleTailCeiling`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMovingCubeNormalizationTailCeilingCompiler.lean:96`)
+for `changingNomeDynamicFamily`.  Their finite-prefix parts are already
+computable, but no changing-nome tail inhabitant is present; normalized decay
+also requires `MovingCubeNormalizationScaleRationalVariation` and positive-time
+rate-power variation.  This is now the explicit A05 backward frontier.
 
 Latest typed frontier (2026-09-25 UTC): the positive-width dense source now
 has a genuine natural transformation into the single staged spatial-union
@@ -316,6 +328,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
      (requires the missing input)     [x] Same-carrier exact-log ceiling
  [x] Finite-prefix same-object        [x] Gap/strength -> rescaled variation
      response floor                    [x] Ray/mass/gap -> joined cutoff consumer
+ [ ] Changing-family norm-floor tail
+     ceiling + raw representative variation
                                        [x] Constant-gap calibration compiler
                                        [x] Concrete starRatio budget obstruction
                                        [x] Gap -> dimensionless log-mass branch arrow
@@ -377,6 +391,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | A03 | Complete signed cost versus SAME interacting variance on a justified scaling family | OPEN original-source estimate for ONE family, or direct response alternative. |
 | A04 | Conditional survival theorem (requires the missing input) | `BF4ExactSlabFixedSpatialJointEnergySurvival.response_floor_of_relative_energy`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:112`; supplied relative energy and positive norm floor, SAME fixed-width carrier. |
 | A05a | Finite-prefix same-object response floor | `BF4PhysicalDynamicVacuumSectorFinitePrefixResponse.FinitePrefixResponseFloor`, `.finitePrefixResponseCertificate`, `.finitePrefixResponseFloor_le_zeroTime`, and `.changingNomeFinitePrefixResponseCertificate`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFinitePrefixResponse.lean:28--106`; takes the existing literal channel norm floor, forms its constructive finite minimum, and transports it to the same completed zero-time connected autocorrelation on every finite prefix. This does not provide an all-scale excitation or scaling survival. |
+| A05b | Changing-family asymptotic response inputs | `MovingCubeRawScheduledRepresentativeVariation`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler.lean:47`, and `MovingCubeNormalizationScaleTailCeiling`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorMovingCubeNormalizationTailCeilingCompiler.lean:96`; these are the exact representative-variation and reciprocal-floor tail certificates consumed by the raw continuum nontriviality compiler. No changing-nome inhabitant is currently present; normalized decay further requires `MovingCubeNormalizationScaleRationalVariation` and positive-time sampled rate-power variation. |
 | A05 | ONE nonzero excitation survives | OPEN compatible changing-scale observable and nonzero response. |
 | B01 | SAME reflected completion | `BF4ExactSlabFixedSpatialJointPhysicalTime.JointCompletion`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointPhysicalTime.lean:111`; fixed-width carrier. Full Hilbert/QFT packaging remains J02. |
 | B02 | Transfer + vacuum sector | Original `jointCompletedTime`, `jointCompletedUnit` and orthogonality used by `completed_twoStep_form_gap` below; discrete time, not a continuum Hamiltonian. |
