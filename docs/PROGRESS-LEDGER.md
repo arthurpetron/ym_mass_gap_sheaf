@@ -4,6 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: explicit width-one auxiliary norm floor (2026-09-25 UTC)
+
+`fringeTestNormFloor`, `fringeTestNormFloor_positive`, and
+`fringeTest_norm_lower` in
+`lean/YMGap/Continuum/BF4ExactSlabWidthOneActualFringePairing.lean:235--272`
+extract a positive `Q'.divPos` lower bound for the actual width-one fringe
+seed norm from the previously checked product estimate.  The proof keeps the
+same original marginal and uses only `2*(1-w^9) ≤ 2`, so it does not invert an
+interacting mass or change the measure.  The focused safe check passed with
+only `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+or custom axiom.  Scope is fixed width-one auxiliary polynomial data; it does
+not close the gauge-invariant excitation, changing-scale survival, A03, or any
+continuum/Clay obligation.
+
 ## Previous increment: anchor cutoff-zero finite transition-product join (2026-09-25 UTC)
 
 ## Current increment: anchor cutoff-indexed finite-linear transition family (2026-09-25 UTC)

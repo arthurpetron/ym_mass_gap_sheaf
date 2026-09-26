@@ -225,6 +225,51 @@ theorem fringeTest_norm_product_lower (hspin : 1 ≤ K) (k : Nat)
           (Q'.mul_le_mul_of_nonneg_left _ _ _
             (shiftedTester_marginal_square_le hw0 hw1 K hK hspin) hn))))
 
+/-- Explicit positive norm floor extracted from the product lower bound.
+
+The denominator in the preceding product estimate is used only through the
+safe upper bound `2*(1-w^9) ≤ 2`; no inverse of the interacting marginal is
+introduced.  This remains a fixed width-one, auxiliary-polynomial statement,
+not a gauge-invariant excitation or a scaling result. -/
+def fringeTestNormFloor (w : Q') : Q' :=
+  Q'.divPos (Q'.mkPos 1 16 (by decide) * qpow w 18) 2 (by decide)
+
+theorem fringeTestNormFloor_positive {w : Q'} (hw0 : (0 : Q') < w) :
+    (0 : Q') < fringeTestNormFloor w := by
+  unfold fringeTestNormFloor
+  exact Q'.divPos_pos _ _ (by decide)
+    (Q'.mul_pos (by decide) (qpow_positive hw0 18))
+
+theorem fringeTest_norm_lower (hspin : 1 ≤ K) (k : Nat)
+    (hk : pairingDegree hw0 hw1 K hK ≤ k) :
+    fringeTestNormFloor w ≤
+      marginalPair w K 1 0 (fringeTest hw0 hw1 K hK k)
+        (fringeTest hw0 hw1 K hK k) := by
+  let q := fringeTest hw0 hw1 K hK k
+  let nrm := marginalPair w K 1 0 q q
+  have hprod : Q'.mkPos 1 16 (by decide) * qpow w 18 ≤
+      nrm * (2 * (1 + -(qpow w 9))) := by
+    exact fringeTest_norm_product_lower hw0 hw1 K hK hspin k hk
+  have hq0 : (0 : Q') ≤ qpow w 9 :=
+    Q'.le_of_lt (qpow_positive hw0 9)
+  have hcoef : 2 * (1 + -(qpow w 9)) ≤ (2 : Q') := by
+    have hneg : -(qpow w 9) ≤ (0 : Q') := Q'.nonpos_neg_of_nonneg hq0
+    have hone : (1 : Q') + -(qpow w 9) ≤ 1 := by
+      exact Q'.le_trans' _ _ _
+        (Q'.add_le_add_left 1 (-(qpow w 9)) 0 hneg)
+        (Q'.le_of_eqv (Q'.eqv_of_eq (Q'.add_zero' 1)))
+    exact Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left _ _ 2 hone (by decide))
+      (Q'.le_of_eqv (by decide : (2 : Q') * 1 ≈ 2))
+  have hnrm : (0 : Q') ≤ nrm := by
+    exact ((marginalCertificate hw0 hw1 K 1 hK 0).mul
+      (Certificate.square q (fringeTest_supported hw0 hw1 K hK k))).haar_nonnegative
+  have hscaled : nrm * (2 * (1 + -(qpow w 9))) ≤ nrm * 2 :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hcoef hnrm
+  have hA2 : Q'.mkPos 1 16 (by decide) * qpow w 18 ≤ nrm * 2 :=
+    Q'.le_trans' _ _ _ hprod hscaled
+  exact Q'.divPos_le_of_le_mul _ _ (by decide) hA2
+
 end YMGap.Continuum.BF4ExactSlabWidthOneActualFringePairing
 
 #print axioms YMGap.Continuum.BF4ExactSlabWidthOneActualFringePairing.pairingTolerance
@@ -234,3 +279,6 @@ end YMGap.Continuum.BF4ExactSlabWidthOneActualFringePairing
 #print axioms YMGap.Continuum.BF4ExactSlabWidthOneActualFringePairing.pairingDegree
 #print axioms YMGap.Continuum.BF4ExactSlabWidthOneActualFringePairing.fringeTest_pairing_lower
 #print axioms YMGap.Continuum.BF4ExactSlabWidthOneActualFringePairing.fringeTest_norm_product_lower
+#print axioms YMGap.Continuum.BF4ExactSlabWidthOneActualFringePairing.fringeTestNormFloor
+#print axioms YMGap.Continuum.BF4ExactSlabWidthOneActualFringePairing.fringeTestNormFloor_positive
+#print axioms YMGap.Continuum.BF4ExactSlabWidthOneActualFringePairing.fringeTest_norm_lower

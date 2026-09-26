@@ -25,6 +25,18 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### New finite producer (2026-09-25 UTC)
+
+`BF4ExactSlabWidthOneActualFringePairing.fringeTestNormFloor` and
+`fringeTest_norm_lower`
+(`lean/YMGap/Continuum/BF4ExactSlabWidthOneActualFringePairing.lean:235--272`)
+extract a positive explicit norm floor for the existing width-one fringe seed
+from its checked source/tester product bound.  The extraction uses the safe
+coefficient estimate `2*(1-w^9) ≤ 2` and keeps the original marginal unchanged;
+the focused check has only `{propext, Quot.sound}`.  This is a fixed-width
+auxiliary-polynomial producer, not a gauge-invariant or changing-scale
+excitation, and it does not close A03.
+
 ### External certificate-method transfer (2026-09-25 UTC)
 
 The recent nine-loop six-gluon computation is not a Clay-theory input: it is

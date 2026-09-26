@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **71**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **72**, 2026-09-25 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -196,6 +196,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
  [x] Exact plaquette heat images   [x] SAME reflected completion
  [x] Signed energy: 4E+D=2J        [x] Transfer + vacuum sector
  [x] Scale-zero same-carrier bridge
+ [x] Width-one auxiliary fringe norm floor
  [x] Dense width naturality square
  [x] Dense time natural transformation
  [x] Dense -> common union-completion naturality
@@ -261,6 +262,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | A01 | Exact plaquette heat images | `BF4ExactSlabFixedSpatialPlaquetteSquare.plaquette_fullRange` and `.plaquetteSquare_fullRange`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteSquare.lean:139`, `:165`; actual bare product heat, supported-Haar equivalence, explicit cutoff guards. |
 | A02 | Signed energy: 4E+D=2J | `BF4ExactSlabFixedSpatialSourceYoungExplicit.padded_terminal_plaquette_young_channels`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialSourceYoungExplicit.lean:115`; original complete projected source and correction. |
 | A02a | Scale-zero same-carrier bridge | `BF4WilsonAllNomeDyadicScaleZeroPlaquetteBridge.square_zero_edges_eq_origin_boundary`, `.paddedSquare_zero_eq_originPlaquette`, `.dyadicExcitation_zero_eq_plaquetteExcitation`, and `.dyadicExcitation_zero_twoStep_floor`, `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicScaleZeroPlaquetteBridge.lean`; a finite typed transport edge between the dyadic-square and plaquette fibers. No cross-scale naturality or A03/A05 closure. |
+| A02q | Width-one auxiliary fringe norm floor | `BF4ExactSlabWidthOneActualFringePairing.fringeTestNormFloor`, `.fringeTestNormFloor_positive`, and `.fringeTest_norm_lower`, `lean/YMGap/Continuum/BF4ExactSlabWidthOneActualFringePairing.lean:235`, `:238`, `:244`; extracts a positive explicit `Q'.divPos` norm floor from the checked width-one source/tester pairing, using only the safe coefficient bound `2*(1-w^9) ≤ 2`. This is fixed width-one auxiliary-polynomial data, not a gauge-invariant excitation, changing-scale survival, or A03 closure. |
 | A02b | Dense width naturality square | `BF4WilsonAllNomeDyadicDenseNaturality.inclusion_loopState`, `.inclusion_paddedSquare_loopState`, `.inclusion_paddedSquare_trans`, and `.inclusion_paddedSquare_advance`, `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDenseNaturality.lean`; intrinsic-width source transport, composition and discrete-time compatibility. No completed-carrier map or changing-width response floor. |
 | A02c | Dense branch time natural transformation | `BF4WilsonAllNomeDenseTimeNaturalTransformation.denseObservableDiagram`, `.denseTransferDiagram`, `.denseTimeNaturalTransformation`, `.denseTime_naturality`, and `.denseTime_naturality_paddedSquare`, `lean/YMGap/Continuum/BF4WilsonAllNomeDenseTimeNaturalTransformation.lean`; packages the covariant dense width diagram and actual discrete-time advance as a kernel-checked natural transformation. No completed-carrier map, interacting-action comparison, changing-width response floor, or continuum/Clay closure. |
 | A02d | Dense-to-union completed naturality | `BF4WilsonSpatialUnionNaturalTransformation.positiveDenseDiagram`, `.unionCompletionDiagram`, `.denseToUnion`, `.denseTimeToUnion`, and `.completedTime_denseToUnion`, `lean/YMGap/Continuum/BF4WilsonSpatialUnionNaturalTransformation.lean`; maps every positive-width dense source into the common staged `UnionCompletion`, naturally in width, and intertwines completed physical time. The union carrier is not yet the canonical OS/GNS carrier and has no spacing-uniform Clay closure. |
