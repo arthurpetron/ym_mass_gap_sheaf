@@ -27,6 +27,7 @@ open YMGap.Constructive.ExpNeg
 open YMGap.Constructive.HalfPow
 open YMGap.Continuum.BF4PhysicalCubeCompletedMarginalGap
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedStrictFormGap
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
@@ -111,9 +112,59 @@ theorem changingNomeFormGap_margin_positive (scale : Nat) :
     (0 : Q') < 1 - (changingNomeFormGap scale).rate :=
   one_sub_pos_of_lt_one (changingNomeFormGap scale).rate_lt_one
 
+private theorem changingNome_deficit_lower (r : Q') (norm form : CReal.RC)
+    (h : CReal.RCle form (CReal.RCscale r norm)) :
+    CReal.RCle (CReal.RCscale (1 - r) norm)
+      (CReal.RCsub norm form) := by
+  revert h
+  refine Quotient.inductionOn₂ norm form ?_
+  intro N F h epsilon hepsilon
+  obtain ⟨index, hN⟩ := h epsilon hepsilon
+  refine ⟨index, fun n hn => ?_⟩
+  have hf := hN n hn
+  change F.approx n ≤ r * N.approx n + epsilon at hf
+  have hneg := Q'.neg_le_neg_add hf
+  have hsum := Q'.add_le_add_left (N.approx n) _ _ hneg
+  change (1 - r) * N.approx n ≤
+    (N.approx n + -F.approx n) + epsilon
+  exact Q'.le_trans' _ _ _
+    (Q'.le_of_eqv
+      (Q'.eqv_trans _ _ _
+        (Q'.add_mul_eqv 1 (-r) (N.approx n))
+        (Q'.add_eqv_congr'
+          (Q'.one_mul_eqv (N.approx n))
+          (Q'.neg_mul_eqv r (N.approx n)))))
+    (Q'.le_trans' _ _ _ hsum
+      (Q'.ge_of_eqv (Q'.add_assoc_eqv _ _ _)))
+
 def changingNomeMovingCubeChannel :
     DynamicVacuumSectorSameObjectRCChannel changingNomeDynamicFamily :=
   centralPhysicalDynamicMovingCubeRCChannel changingNomeDynamicFamily
+
+theorem changingNomeMovingCube_relative_loss (scale : Nat) :
+    CReal.RCle
+      (CReal.RCscale
+        (1 - (changingNomeFormGap scale).rate)
+        (DynamicVacuumSectorSameObjectRCChannel.normSq
+          changingNomeMovingCubeChannel scale))
+      (CReal.RCsub
+        (DynamicVacuumSectorSameObjectRCChannel.normSq
+          changingNomeMovingCubeChannel scale)
+        (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+          changingNomeMovingCubeChannel scale 1)) := by
+  exact changingNome_deficit_lower
+    (changingNomeFormGap scale).rate
+    (DynamicVacuumSectorSameObjectRCChannel.normSq
+      changingNomeMovingCubeChannel scale)
+    (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+      changingNomeMovingCubeChannel scale 1)
+    (by
+      simpa only [DynamicVacuumSectorSameObjectRCChannel.normSq,
+        DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation,
+        centralPhysicalVacuumSectorCylinderCompletedAutocorrelation,
+        centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower] using
+        (changingNomeFormGap scale).form_gap
+          (changingNomeMovingCubeChannel.vectorAt scale))
 
 theorem changingNomeMovingCube_zero_isPositive (scale : Nat) :
     RCIsPositive
@@ -149,6 +200,7 @@ theorem changingNomeMovingCube_connectedSq_decay (scale time : Nat) :
 #print axioms changingNomeFormGap
 #print axioms changingNomeFormGap_rate
 #print axioms changingNomeFormGap_margin_positive
+#print axioms changingNomeMovingCube_relative_loss
 #print axioms changingNomeMovingCubeChannel
 #print axioms changingNomeMovingCube_zero_isPositive
 #print axioms changingNomeMovingCube_connectedSq_decay

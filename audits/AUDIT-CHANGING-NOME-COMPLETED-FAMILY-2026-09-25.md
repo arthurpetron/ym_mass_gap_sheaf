@@ -41,6 +41,15 @@ response is `changingNomeMovingCube_zero_isPositive` at `:100--105`, and its
 scale/time connected-square decay is
 `changingNomeMovingCube_connectedSq_decay` at `:107--118`.
 
+The private constructive quotient-order helper
+`changingNome_deficit_lower` at `:115--138` converts a form estimate
+`form ≤ r · norm` into the explicit deficit estimate
+`(1-r) · norm ≤ norm - form`.  It is consumed by
+`changingNomeMovingCube_relative_loss` at `:144--167`, which identifies the
+form field with the same moving-cube norm and lag-one connected
+autocorrelation.  Thus the changing family now has a literal same-object
+relative-loss inequality; the margin is still scale-dependent.
+
 ## Verification
 
 The focused command was:
@@ -59,8 +68,9 @@ Quot.sound}`; no declaration reports `sorryAx`, `Classical.choice`,
 
 ## Scope boundary
 
-This is an inhabited changing-nome completed-family data record and a
-concrete same-object RC channel.  It does not establish a physical-rate band,
+This is an inhabited changing-nome completed-family data record, a
+one-step form gap, and a concrete same-object RC channel with a lag-one
+relative-loss inequality.  It does not establish a physical-rate band,
 a changing-family observable/response pin, spatially uniform bounds, an
 Osterwalder--Schrader/GNS identification, thermodynamic or continuum limits,
 the full QFT axioms, an all-compact-simple-group theorem, or the Clay mass-gap

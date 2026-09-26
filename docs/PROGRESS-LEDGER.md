@@ -31,7 +31,10 @@ The same verified module also defines `changingNomeFormGap` and proves
 This is the explicit one-step strict form certificate at the same scheduled
 nome, with positive lattice margin, and is the minimal honest input for the
 next relative-loss/observable compiler.  It is not a spacing comparison or a
-physical-rate band.
+physical-rate band.  `changingNomeMovingCube_relative_loss`
+(`:144--167`) now applies that certificate to the literal moving-cube channel,
+giving the same-object lag-one deficit inequality on the changing family.  The
+margin remains scale-dependent and no rational observable pin is asserted.
 
 See `audits/AUDIT-CHANGING-NOME-COMPLETED-FAMILY-2026-09-25.md`.
 

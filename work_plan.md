@@ -147,7 +147,11 @@ lemmas (`:97--112`).  This is the one-step strict form certificate underlying
 the changing-family contraction, definitionally at the same scheduled nome;
 it is the minimal input for a future same-object relative-loss/observable
 compiler.  It does not by itself compare the margin to the spacing or inhabit
-the physical-rate band.
+the physical-rate band.  `changingNomeMovingCube_relative_loss` (`:144--167`)
+now consumes that form field on the literal moving-cube channel and proves the
+corresponding positive-margin deficit against its lag-one same-object
+autocorrelation.  This is a genuine changing-family response inequality, but
+it still has no spacing-uniform lower margin or rational observable pin.
 
 ### Minimal Wilson-to-OS bridge certificate (2026-09-24 UTC)
 
