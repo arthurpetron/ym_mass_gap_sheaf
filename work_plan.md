@@ -53,6 +53,19 @@ data; it is intentionally not coerced into the all-scale
 `DynamicVacuumSectorPhysicalRateBand`, whose single floor and ceiling remain
 the open B04 input.
 
+### New finite-prefix response certificate (2026-09-26 UTC)
+
+`BF4PhysicalDynamicVacuumSectorFinitePrefixResponse.lean:28--106` defines
+`FinitePrefixResponseFloor` and its constructor from any existing
+`DynamicVacuumSectorSameObjectRCChannel`.  It takes the finite minimum of the
+channel's explicit per-scale norm floors and transports it through the actual
+completed inner product to the zero-time connected autocorrelation.  The
+changing-nome moving-cube channel is instantiated by
+`changingNomeFinitePrefixResponseCertificate`.  This is a genuine
+same-object nonzero-response witness on every finite regulator window; it is
+not a uniform scaling-family floor and does not close A05, B05, OS/GNS,
+continuum, or Clay.
+
 ### New finite producer (2026-09-25 UTC)
 
 `BF4ExactSlabWidthOneActualFringePairing.fringeTestNormFloor` and

@@ -101,6 +101,23 @@ operator substitution.  The focused monitored check again reports only
 `{propext, Quot.sound}`.  This is a finite-window compiler, not the missing
 all-scale physical-rate band.
 
+## Current increment: finite-prefix same-object response floor (2026-09-26 UTC)
+
+`FinitePrefixResponseFloor`, `finitePrefixResponseCertificate`, and
+`finitePrefixResponseFloor_le_zeroTime` in
+`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFinitePrefixResponse.lean:28--88`
+take a supplied `DynamicVacuumSectorSameObjectRCChannel`, form the constructive
+finite minimum of its per-scale rational norm floors, and prove that this one
+positive rational floor bounds the literal completed zero-time connected
+autocorrelation throughout the finite prefix.  The changing-nome moving-cube
+instance is `changingNomeFinitePrefixResponseCertificate` (`:89--106`).  The
+focused monitored check passed with one worker, an 8 GiB worker ceiling, an
+8 GiB reserve, and only `{propext, Quot.sound}`.
+
+This is the finite-window form of nonzero survival on the same completed
+carrier.  The all-scale response floor, a scaling-family observable pin, and
+the A05/B05 continuum joins remain open.
+
 ## Current increment: explicit denominator-level calibration compiler (2026-09-26 UTC)
 
 `one_sub_divPos_eqv_inverse`

@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **76**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **77**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -98,6 +98,18 @@ divide the exact same-family denominator inequalities by the positive explicit
 denominator and recover the rate-level inequalities on every finite prefix.
 The focused declaration reports only `{propext, Quot.sound}`.  This is a
 windowed rate compiler; it does not inhabit the all-scale physical-rate band.
+
+Latest verified finite-response increment (2026-09-26 UTC):
+`FinitePrefixResponseFloor`, `finitePrefixResponseCertificate`, and
+`finitePrefixResponseFloor_le_zeroTime` in
+`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFinitePrefixResponse.lean:28--88`
+take the existing same-object channel's positive rational norm floor, form its
+constructive finite minimum, and transport it to the literal completed
+zero-time connected autocorrelation.  The changing-nome moving-cube instance
+is `changingNomeFinitePrefixResponseCertificate` (`:89--106`).  The focused
+check reports only `{propext, Quot.sound}`.  This is finite-prefix response
+survival; it is not a scale-uniform excitation, an OS/GNS result, or a Clay
+mass-gap theorem.
 
 Latest typed frontier (2026-09-25 UTC): the positive-width dense source now
 has a genuine natural transformation into the single staged spatial-union
@@ -302,8 +314,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
              v                         [ ] Spatial and spacing
  [x] Conditional survival theorem     control of the rate
      (requires the missing input)     [x] Same-carrier exact-log ceiling
-                                       [x] Gap/strength -> rescaled variation
-                                       [x] Ray/mass/gap -> joined cutoff consumer
+ [x] Finite-prefix same-object        [x] Gap/strength -> rescaled variation
+     response floor                    [x] Ray/mass/gap -> joined cutoff consumer
                                        [x] Constant-gap calibration compiler
                                        [x] Concrete starRatio budget obstruction
                                        [x] Gap -> dimensionless log-mass branch arrow
@@ -364,6 +376,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | A02p | Unit-probe norm-one collapse to rational rate floor | `BF4WilsonBranchSheafNaturalTransformation.gap_probe_norm_one`, `.gap_probe_response_floor_le_rate`, and `.branch_arrow_response_floor_le_rate`, `lean/YMGap/Continuum/BF4WilsonBranchSheafNaturalTransformation.lean`; uses the carried `probe = unitExcitation` identity and its norm-one certificate to reflect the scaled-norm inequality back to `rayleighFloor ≤ twoStepRate nome hd`, including after the natural-transformation component. This is fixed-spacing, same-object and per-probe; it is not a spatially uniform, changing-family, continuum, or Clay gap. |
 | A03 | Complete signed cost versus SAME interacting variance on a justified scaling family | OPEN original-source estimate for ONE family, or direct response alternative. |
 | A04 | Conditional survival theorem (requires the missing input) | `BF4ExactSlabFixedSpatialJointEnergySurvival.response_floor_of_relative_energy`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointEnergySurvival.lean:112`; supplied relative energy and positive norm floor, SAME fixed-width carrier. |
+| A05a | Finite-prefix same-object response floor | `BF4PhysicalDynamicVacuumSectorFinitePrefixResponse.FinitePrefixResponseFloor`, `.finitePrefixResponseCertificate`, `.finitePrefixResponseFloor_le_zeroTime`, and `.changingNomeFinitePrefixResponseCertificate`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorFinitePrefixResponse.lean:28--106`; takes the existing literal channel norm floor, forms its constructive finite minimum, and transports it to the same completed zero-time connected autocorrelation on every finite prefix. This does not provide an all-scale excitation or scaling survival. |
 | A05 | ONE nonzero excitation survives | OPEN compatible changing-scale observable and nonzero response. |
 | B01 | SAME reflected completion | `BF4ExactSlabFixedSpatialJointPhysicalTime.JointCompletion`, `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointPhysicalTime.lean:111`; fixed-width carrier. Full Hilbert/QFT packaging remains J02. |
 | B02 | Transfer + vacuum sector | Original `jointCompletedTime`, `jointCompletedUnit` and orthogonality used by `completed_twoStep_form_gap` below; discrete time, not a continuum Hamiltonian. |
