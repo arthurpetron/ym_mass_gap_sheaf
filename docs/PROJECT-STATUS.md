@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **72**, 2026-09-25 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **73**, 2026-09-25 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -33,6 +33,20 @@ consumer under explicit norm-cap and response-floor hypotheses.  This is not a
 spacing-uniform bound or a changing-family result, so the canonical chart
 markers are unchanged; OS/GNS identification, continuum/QFT construction,
 physical mass, and the Clay target remain open.
+
+Latest verified expansion (2026-09-25 UTC):
+`BF4PhysicalChangingNomeDynamicFamily.lean` now inhabits a genuinely
+nonconstant completed SU(2) family with
+`changingNome scale = Q'.invSucc (scale + 2)` and an independent
+`changingSpacing` schedule whose `epsilon.den` modulus tends to zero
+(`:36--82`).  `changingNomeMovingCubeChannel`,
+`changingNomeMovingCube_zero_isPositive`, and
+`changingNomeMovingCube_connectedSq_decay` (`:96--118`) expose a concrete
+same-object RC channel and its scale-wise completed decay.  The focused safe
+check has only `{propext, Quot.sound}` and no `sorryAx`.  This inhabits the
+changing-family data seam, but not a physical-rate band or observable pin;
+the canonical chart markers therefore remain unchanged, as do the
+OS/GNS, continuum/QFT, physical-mass, all-group, and Clay obligations.
 
 Latest typed frontier (2026-09-25 UTC): the positive-width dense source now
 has a genuine natural transformation into the single staged spatial-union
@@ -304,12 +318,13 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04c | Ray/mass/gap variation joined to cutoff removal | `matchedExactRateCutoffRemovalOfRayCapacityAndMassFloorAndPhysicalGapOfPhysicalRateBand`; all three primitive variations remain open inputs. |
 | B04d | Constant-gap calibration compiler | `DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration.toVariation`, `exactLogRateCauchyOfConstantPhysicalGap`, and `exactRateCutoffRemovalOfConstantPhysicalGap`; calibration remains an explicit input. |
 | B04e | Concrete `starRatio` dyadic budget obstruction | `no_starRatio_rational_loss_budget`; prunes only the coarse rational budget route and does not close A03/A05. |
-| B04f | Changing-family instantiation / same-theory bridge | `BF4PhysicalDynamicVacuumSectorCompletedFamily.DynamicVacuumSectorCompletedFamily`, `.DynamicVacuumSectorPhysicalRateBand`, and `BF4PhysicalDynamicVacuumSectorObservablePath.DynamicVacuumSectorObservablePin`; the fixed-nome witness is now supplied by `BF4WilsonFixedCarrierDynamicFamily.fixedCarrierDynamicFamily`, but no changing-coupling family, observable pin, physical band, or OS/reconstruction bridge is inhabited. |
+| B04f | Changing-family instantiation / same-theory bridge | `BF4PhysicalDynamicVacuumSectorCompletedFamily.DynamicVacuumSectorCompletedFamily`, `.DynamicVacuumSectorPhysicalRateBand`, and `BF4PhysicalDynamicVacuumSectorObservablePath.DynamicVacuumSectorObservablePin`; the explicit changing-nome completed-family data is now inhabited by `BF4PhysicalChangingNomeDynamicFamily.changingNomeDynamicFamily`, but no same-theory observable pin, physical band, or OS/reconstruction bridge is inhabited. |
 | B04g | Fixed-nome dynamic family / scheduled RC channel witness | `BF4WilsonFixedCarrierDynamicFamily.fixedCarrierDynamicFamily`, `.fixedCarrierMovingCubeChannel`, `.fixedCarrierMovingCube_zero_isPositive`, `.fixedCarrierMovingCube_sampled_zero_isPositive`, and `.fixedCarrierMovingCube_sampled_decay`, `lean/YMGap/Continuum/BF4WilsonFixedCarrierDynamicFamily.lean`; constructs the dynamic-family record with constant nome, explicit spacing-to-zero, and the genuine RC moving-cube channel. This is an obstruction witness, not a changing-family, rate-band, continuum, or Clay result. |
 | B04h | Fixed-carrier physical-rate-band no-go | `BF4WilsonFixedCarrierDynamicFamily.noPhysicalRateBand_of_fixedCarrier`, `lean/YMGap/Continuum/BF4WilsonFixedCarrierDynamicFamily.lean`; specializes the generic constant-positive-margin contradiction to the inhabited fixed-nome family. It rules out the fixed-carrier physical-band shortcut and does not refute a genuinely scale-dependent family. |
 | B04i | Anchor ray-capacity presheaf evaluation | `BF4PhysicalAnchorRayCapacityNaturalTransformation.AnchorConstantRayCapacityProducer`, `.anchorRayCapacityEvaluation`, `.anchorRayCapacityToDelta`, `.anchorConstantRayCapacitySection`, `.anchorRayCapacityEvaluation_section`, and `.anchorRayCapacityEvaluation_delta_pos`, `lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`; transports the explicitly constant positive cofinal ray-capacity witness across the scale presheaf and exposes its positive delta. The adaptive transition-product extension, completed family, physical band, and continuum/QFT handoff remain open. |
 | B04j | Anchor cutoff-zero finite transition-product witness | `BF4PhysicalAnchorRayCapacityNaturalTransformation.AnchorFiniteMarginAtZero`, `.AnchorFiniteProductAtZero`, `.AnchorFiniteTransitionAtZero`, `.anchorFiniteTransitionAtZero`, `.anchorFiniteTransitionAtZeroPresheaf`, `.anchorRayCapacityToFiniteTransitionAtZero`, and `.anchorRayCapacityToFiniteTransitionAtZero_section`, `lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`; joins the checked cutoff-zero finite capacity margin and routed conditional-transition product and transports that witness naturally across the constant scale presheaf. This is a finite cutoff-zero component only; no cofinal transition-product bound, changing-family bridge, physical band, continuum/QFT handoff, or Clay closure is claimed. |
 | B04k | Anchor cutoff-indexed finite-linear transition family | `BF4PhysicalAnchorRayCapacityNaturalTransformation.AnchorFiniteLinearTransition`, `.AnchorFiniteLinearTransitionFamily`, `.anchorFiniteLinearTransitionFamilyOfProducer`, `.anchorFiniteLinearTransitionFamilyPresheaf`, `.anchorRayCapacityToFiniteLinearTransitionFamily`, `.anchorRayCapacityToFiniteLinearTransitionFamily_producer`, and `.anchorFiniteLinearTransitionAtScale_capacity_pos`, `lean/YMGap/Continuum/BF4PhysicalAnchorRayCapacityNaturalTransformation.lean`; packages the existing finite-linear restricted ray capacity and routed conditional-transition product at every cutoff inside a whole scale-indexed family, while retaining the explicit anchor producer and cutoff bookkeeping through a constant-presheaf natural transformation. This is cutoff-dependent finite data only; it does not supply a cofinal shared-floor bound, changing same-theory family, physical-rate band, continuum/QFT handoff, or Clay closure. |
+| B04l | Explicit changing-nome completed SU(2) family / same-object RC channel | `BF4PhysicalChangingNomeDynamicFamily.changingNome`, `.changingSpacingToZero`, `.changingNomeDynamicFamily`, `.changingNomeMovingCubeChannel`, `.changingNomeMovingCube_zero_isPositive`, and `.changingNomeMovingCube_connectedSq_decay`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeDynamicFamily.lean:36--118`; supplies a nonconstant positive nome schedule, vanishing spacing modulus, completed contraction at every scale, and a concrete same-object RC channel. It does not supply the physical-rate band, changing-family observable pin, OS/GNS bridge, continuum/QFT passage, all-group extension, or Clay theorem. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -830,6 +845,19 @@ completed scaling improvement or carrier substitution is asserted.
 
 ## Activity and changes since the preceding chart
 
+New B04 expansion: `BF4PhysicalChangingNomeDynamicFamily.changingNome`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeDynamicFamily.lean:36`) is the
+explicit nonconstant schedule `Q'.invSucc (scale + 2)`, while
+`changingSpacingToZero` (`:63--70`) supplies the independent
+`epsilon.den` spacing modulus.  `changingNomeDynamicFamily` (`:72--82`)
+reuses the completed contraction at each scale, and
+`changingNomeMovingCubeChannel` with its positive zero-time response and
+connected-square decay (`:96--118`) gives a concrete same-object RC channel
+through the changing family.  The focused safe check passed with only
+`{propext, Quot.sound}` and no `sorryAx`.  This is a genuine changing-family
+data witness, not a physical-rate band or observable pin, so no canonical
+chart marker changes.
+
 New partial J02 evidence: `BF4WilsonAllNomeComplexGap.complex_twoStep_translated`
 (`lean/YMGap/Continuum/BF4WilsonAllNomeComplexGap.lean:132`) applies the
 existing strict bound to every translated complex vacuum-orthogonal state and
@@ -1189,3 +1217,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 88 | 2026-09-25 | Joined the anchor cutoff-zero finite capacity margin with its routed conditional-transition product and exposed the pair as a natural transformation across the constant scale presheaf. This is a finite cutoff-zero witness only; no cofinal transition-product, changing-family, continuum/QFT or Clay node changes status. |
 | 1 / 89 | 2026-09-25 | Packaged the finite-linear restricted ray capacity and routed conditional-transition product at every cutoff as a whole scale-indexed family in a constant presheaf, retaining the anchor producer and explicit cutoff bookkeeping. This remains cutoff-dependent finite data; no cofinal, changing-family, continuum/QFT or Clay node changes status. |
 | 1 / 90 | 2026-09-25 | Generalized the computed `mixRate^2` width obstruction to every constructive nome schedule. Coupling retuning cannot supply the missing spacing-uniform certificate; the actual transfer operator and all continuum/Clay nodes remain open. No chart marker changed. |
+| 1 / 91 | 2026-09-25 | Inhabited an explicit nonconstant completed SU(2) nome schedule with vanishing spacing modulus and a concrete same-object moving-cube RC channel, including positive zero-time response and scale-wise decay. The changing-family data seam is now inhabited, but the physical-rate band, observable pin, OS/GNS, continuum/QFT, all-group and Clay nodes remain open; no canonical chart marker changed. |

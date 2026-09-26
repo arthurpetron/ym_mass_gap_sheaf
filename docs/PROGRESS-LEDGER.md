@@ -4,6 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: explicit changing-nome completed SU(2) family (2026-09-25 UTC)
+
+`changingNome`, `changingSpacing`, `changingSpacingToZero`, and
+`changingNomeDynamicFamily` in
+`lean/YMGap/Continuum/BF4PhysicalChangingNomeDynamicFamily.lean:36--82`
+provide a genuine nonconstant completed family: the nome is
+`Q'.invSucc (scale + 2)`, the spacing is `Q'.invSucc (j + 1)`, and the
+`epsilon.den` modulus proves spacing tends to zero.  The family reuses the
+existing completed marginal contraction at every scale, with explicit rate,
+spacing, nome, positivity, strict-bound, and nonconstancy witnesses.
+
+`changingNomeMovingCubeChannel` together with
+`changingNomeMovingCube_zero_isPositive` and
+`changingNomeMovingCube_connectedSq_decay` (`:96--118`) supplies a concrete
+same-object RC channel through that changing family.  The focused safe check
+reports only `{propext, Quot.sound}` and no `sorryAx`, classical axiom,
+`native_decide`, or custom axiom.  This is a positive changing-family witness,
+not yet the missing physical-rate band or scaling-family observable pin; the
+OS/GNS, continuum/QFT, all-group, physical-mass, and Clay obligations remain
+open.
+
+See `audits/AUDIT-CHANGING-NOME-COMPLETED-FAMILY-2026-09-25.md`.
+
 ## Current increment: real all-nome same-carrier even-lag iteration (2026-09-25 UTC)
 
 `completedInner_even_diagonal`, `completed_twoStep_translated`,

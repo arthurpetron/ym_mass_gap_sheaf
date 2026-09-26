@@ -116,6 +116,32 @@ the Wilson small-nome carrier currently uses `nome = Q'.invSucc 1023`
 prove a parameter-changing comparison and a same-carrier observable/response
 pin; a constant map would be a surrogate substitution and is disallowed.
 
+### Explicit changing-nome completed SU(2) family (2026-09-25 UTC)
+
+`BF4PhysicalChangingNomeDynamicFamily.lean` now inhabits the existing
+`DynamicVacuumSectorCompletedFamily 0` interface with the explicit nonconstant
+schedule `changingNome scale = Q'.invSucc (scale + 2)`
+(`:36--57`).  The schedule is constructively positive, strictly below one,
+bounded by one half, and has a checked nonconstancy witness.  The independent
+spacing schedule `changingSpacing` and modulus `changingSpacingToZero`
+(`:59--70`) use `Q'.invSucc (j + 1)` and `epsilon.den`, so the family really
+has vanishing spacing data rather than a constant-spacing placeholder.
+
+`changingNomeDynamicFamily` (`:72--82`) supplies the completed contraction at
+each scale by applying the existing `completedSectorContraction`; its rate,
+spacing, and nome projections are exposed by
+`changingNomeDynamicFamily_rate`, `changingNomeDynamicFamily_spacing`, and
+`changingNomeDynamicFamily_nome` (`:84--94`).  The concrete
+`changingNomeMovingCubeChannel` (`:96--98`) then gives a same-object RC
+channel whose zero-time response is positive and whose squared connected
+correlation obeys the completed rate bound via
+`changingNomeMovingCube_zero_isPositive` and
+`changingNomeMovingCube_connectedSq_decay` (`:100--118`).  This closes the
+previously uninhabited *changing-family data* seam, but it is still only the
+existing completed SU(2) marginal channel: no physical-rate band, rational
+observable pin, OS/GNS identification, continuum/QFT construction, all-group
+extension, or Clay conclusion is asserted.
+
 ### Minimal Wilson-to-OS bridge certificate (2026-09-24 UTC)
 
 The literal all-nome Wilson completion and the separate strict OS completion
