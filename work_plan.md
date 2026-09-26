@@ -53,33 +53,35 @@ SAME-operator estimate rather than parameter tuning.  The focused check stayed
 within `{propext, Quot.sound}`; see
 `audits/AUDIT-WILSON-TWO-STEP-RATE-SCHEDULE-2026-09-25.md`.
 
-### External certificate-method transfer (2026-09-25 UTC)
+### External certificate-method transfer (2026-09-26 UTC)
 
 The recent nine-loop six-gluon computation is not a Clay-theory input: it is
 planar \(\mathcal N=4\) SYM perturbative data, not a constructive continuum
-mass-gap construction.  Its directly reusable lesson is the validation
-architecture described in [Anthropic's long-running scientific-computing
-report](https://www.anthropic.com/research/long-running-Claude) and the
-[Cosmic Nine Loops validation note](https://smsharma.io/cosmic-nine-loops/validation/method_and_validation.md):
-keep a durable progress/failed-approach log; maintain an executable test
-oracle; use two independently assembled representations where possible;
-verify sampled linear algebra against every constraint afterward; reserve
-held-out limits or OPE sectors for checks not used to fit the candidate; and
-record explicit untested assumptions.  The accompanying
-[Zenodo dataset](https://zenodo.org/records/22800071) supplies symbols through
-nine loops and is useful only as an example of a manifest/checksum-backed
-finite data release, not as evidence for the Clay target.
+mass-gap construction.  The directly reusable lesson from [Anthropic's
+report](https://www.anthropic.com/research/yes-claude-can-do-nine-loops) and
+the [Cosmic Nine Loops materials](https://smsharma.io/cosmic-nine-loops/) is a
+dual-construction plus independent-validation architecture.  The candidate
+was constrained by a finite alphabet of allowed terms, computed by one
+bootstrap route and cross-checked through a related form-factor route, then
+independently validated by a domain expert.  The companion [Zenodo
+release](https://zenodo.org/records/22800071) publishes finite symbol data
+through nine loops with reproducible ancillary files.  None of this is
+evidence for the Clay target, but it is a useful model for exposing and
+checking our finite certificates.
 
 For the live A03 frontier this becomes a concrete constructive protocol:
 
 1. Keep the original signed-channel evaluator and a direct-response evaluator
    as separate Lean witness paths, sharing only a typed interface for the
-   SAME completed carrier, observable, and coupling/spacing schedule.
+   SAME completed carrier, observable, and coupling/spacing schedule.  A
+   second route is valuable only when its carrier and observable are
+   definitionally tied to the first, as in a same-object compiler.
 2. For each finite cutoff, expose exact rational rows (or a Rust-generated
    certificate whose evaluator is independently kernel-checked by Lean), then
    check every declared constraint rather than trusting sampled rows.  Use
    held-out cutoff/placement rows and a second recoding of the same signed
-   expression before promoting a bound.
+   expression before promoting a bound.  The finite witness should carry a
+   manifest and checksum, while Lean remains the acceptance oracle.
 3. Record reconstruction bounds, parameter dependence, and every untested
    assumption in the ledger.  A finite-field or modular agreement is a
    certificate for the finite datum only; it is not a continuum estimate,

@@ -41,6 +41,16 @@ embedded vector, with no operator substitution.
 
 See `audits/AUDIT-CHANGING-NOME-COMPLETED-FAMILY-2026-09-25.md`.
 
+## External validation protocol (2026-09-26 UTC)
+
+The nine-loop amplitude materials were reviewed as a certificate-workflow
+reference only; see
+`audits/AUDIT-EXTERNAL-NINE-LOOP-CERTIFICATE-WORKFLOW-2026-09-26.md`.
+They reinforce the current next-step discipline: keep independent finite
+routes separate until a typed same-object equality is proved, validate exact
+rows and held-out placements with Lean, and record manifests, moduli, and
+untested assumptions.  No Clay-target node changes state.
+
 ## Current increment: real all-nome same-carrier even-lag iteration (2026-09-25 UTC)
 
 `completedInner_even_diagonal`, `completed_twoStep_translated`,
