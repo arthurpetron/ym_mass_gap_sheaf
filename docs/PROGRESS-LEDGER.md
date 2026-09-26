@@ -4,6 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: real all-nome same-carrier even-lag iteration (2026-09-25 UTC)
+
+`completedInner_even_diagonal`, `completed_twoStep_translated`,
+`completed_oneStep_norm_gap`, `completed_iterated_norm_gap`,
+`completed_even_lag_corr_decay`, and `completed_even_lag_corr_nonnegative`
+in `lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:174--252`
+transport the existing fixed-nome real completed-carrier form bound to every
+time slice and iterate it to an explicit even-lag power bound.  The proof uses
+the existing time semigroup, preservation of the vacuum complement, and the
+nonnegative fixed rate; it introduces no new carrier or observable.  The
+focused safe check passed with only `{propext, Quot.sound}` and no `sorryAx`.
+This is fixed nome/width discrete decay only; spatial/spacing uniformity,
+changing-family survival, OS/GNS/QFT, physical mass, and Clay remain open.
+
+See `audits/AUDIT-WILSON-ALL-NOME-EVEN-LAG-2026-09-25.md`.
+
 ## Current increment: no schedule rescues the computed two-step rate (2026-09-25 UTC)
 
 `no_width_uniform_computed_twoStepRate_schedule` in

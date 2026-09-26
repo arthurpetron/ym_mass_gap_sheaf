@@ -91,6 +91,22 @@ interacting centered variance (or a direct response bound), with explicit
 moduli and an independently checked representation.  The A03 chart node
 therefore remains open until such a witness is inhabited.
 
+### Real all-nome same-carrier even-lag iteration (2026-09-25 UTC)
+
+`completedInner_even_diagonal`, `completed_twoStep_translated`,
+`completed_oneStep_norm_gap`, `completed_iterated_norm_gap`,
+`completed_even_lag_corr_decay`, and `completed_even_lag_corr_nonnegative`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:174--252`)
+now extend the existing fixed-nome real completion bound to every discrete
+time slice and every even lag on the literal same completed carrier.  The
+proof preserves the vacuum-complement predicate under the existing completed
+time map, then iterates the exact norm contraction with the explicit power of
+`twoStepRate`.  The focused check reports only `{propext, Quot.sound}` and no
+`sorryAx`.  This is a fixed nome/width discrete correlator theorem: it does
+not provide spatially uniform rates, a changing-spacing family, OS/GNS
+identification, physical mass calibration, continuum/QFT limits, or the Clay
+target.
+
 The anchor family is not yet an adapter for the Wilson branch: its coupling is
 `anchorCoupling = 1/400` (`Z4StrongCouplingParametricAnchor.lean:243`), while
 the Wilson small-nome carrier currently uses `nome = Q'.invSucc 1023`

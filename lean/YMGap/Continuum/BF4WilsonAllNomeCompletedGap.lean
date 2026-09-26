@@ -26,7 +26,8 @@ open YMGap.Continuum.BF4WilsonAllNomeCompletedInner
 open YMGap.Continuum.BF4WilsonAllNomeCompletedTime
 open YMGap.Continuum.BF4WilsonAllNomeCenteredMoments
 open YMGap.Continuum.BF4WilsonAllNomeDenseGap (centered_twoStep_bound)
-open YMGap.Continuum.BF4ExactSlabFixedSpatialDenseCenteredGap (twoStepRate)
+open YMGap.Continuum.BF4ExactSlabFixedSpatialDenseCenteredGap
+  (twoStepRate twoStepRate_nonnegative)
 open YMGap.Continuum.BF4ExactSlabPlaquetteRealScalarAlgebra
   (scalarAddCauchy scalarNegCauchy scalarMulCauchy)
 
@@ -170,6 +171,78 @@ theorem vacuumComplement_twoStep_form_gap
   completed_twoStep_form_gap hw0 hw1 width x.val
     ((completedInner_symm hw0 hw1 x.val U).trans x.property)
 
+theorem completedInner_even_diagonal (n : Nat) (x : V) :
+    B x (T (2*n) x) = B (T n x) (T n x) := by
+  simpa only [Nat.two_mul] using
+    (completedInner_time_sum (width := width) hw0 hw1 n n x x).symm
+
+/-! The fixed-parameter same-carrier estimate can be translated to every
+time slice.  The rate is still the supplied nome/width rate; this theorem
+does not introduce a new transfer or a scaling limit. -/
+theorem completed_twoStep_translated (n : Nat) (x : V)
+  (hx : B x U = RCzero) :
+    RCle (B (T n x) (T (n+2) x))
+      (RCscale (twoStepRate hw0 hw1 width)
+        (B (T n x) (T n x))) := by
+  have hx' : B U x = RCzero :=
+    (completedInner_symm hw0 hw1 U x).trans hx
+  have horth' := completedTime_preserves_vacuumComplement
+    (width := width) hw0 hw1 n x hx'
+  have horth : B (T n x) U = RCzero :=
+    (completedInner_symm hw0 hw1 (T n x) U).trans horth'
+  have h := completed_twoStep_form_gap hw0 hw1 width (T n x) horth
+  rw [show n+2 = 2+n by omega,
+    completedTime_add (width := width) hw0 hw1 2 n x]
+  exact h
+
+/-! The translated two-step estimate is the one-step norm contraction at the
+intervening time slice, using the exact completed pairing identity. -/
+theorem completed_oneStep_norm_gap (n : Nat) (x : V)
+    (hx : B x U = RCzero) :
+    RCle (B (T (n+1) x) (T (n+1) x))
+      (RCscale (twoStepRate hw0 hw1 width)
+        (B (T n x) (T n x))) := by
+  have h := completed_twoStep_translated hw0 hw1 width n x hx
+  rw [completedInner_time_sum (width := width) hw0 hw1 n (n+2) x x,
+    show n + (n+2) = 2*(n+1) by omega,
+    completedInner_even_diagonal hw0 hw1 width (n+1) x] at h
+  exact h
+
+/-! Iteration of the same completed-carrier contraction.  The power is the
+fixed nome/width rate, so this remains a discrete finite-parameter statement.
+-/
+theorem completed_iterated_norm_gap (n : Nat) (x : V)
+    (hx : B x U = RCzero) :
+    RCle (B (T n x) (T n x))
+      (RCscale ((twoStepRate hw0 hw1 width)^n) (B x x)) := by
+  induction n with
+  | zero =>
+      rw [completedTime_zero, Q'.pow_zero, RCscale_one]
+      exact RCle_refl _
+  | succ k ih =>
+      have hstep := completed_oneStep_norm_gap hw0 hw1 width k x hx
+      refine RCle_trans hstep ?_
+      have hrateNonnegative : (0 : Q') ≤ twoStepRate hw0 hw1 width :=
+        twoStepRate_nonnegative hw0 hw1 width
+      have hscaled := RCscale_mono hrateNonnegative ih
+      refine RCle_trans hscaled ?_
+      rw [RCscale_RCscale, Q'.pow_succ]
+      exact RCle_refl _
+
+/-! The iterated norm estimate is the same-object even-lag correlator bound;
+no representative or new observable is introduced. -/
+theorem completed_even_lag_corr_decay (n : Nat) (x : V)
+    (hx : B x U = RCzero) :
+    RCle (B x (T (2*n) x))
+      (RCscale ((twoStepRate hw0 hw1 width)^n) (B x x)) := by
+  rw [completedInner_even_diagonal hw0 hw1 width n x]
+  exact completed_iterated_norm_gap hw0 hw1 width n x hx
+
+theorem completed_even_lag_corr_nonnegative (n : Nat) (x : V) :
+    RCnonneg (B x (T (2*n) x)) := by
+  rw [completedInner_even_diagonal hw0 hw1 width n x]
+  exact completedInner_nonnegative hw0 hw1 (T n x)
+
 #print axioms representativeCenteredMoment
 #print axioms representativeCenteredMomentCauchy
 #print axioms representativeCenteredMoment_converges
@@ -182,5 +255,10 @@ theorem vacuumComplement_twoStep_form_gap
 #print axioms completed_twoStep_form_gap
 #print axioms completed_even_nonnegative
 #print axioms vacuumComplement_twoStep_form_gap
+#print axioms completed_twoStep_translated
+#print axioms completed_oneStep_norm_gap
+#print axioms completed_iterated_norm_gap
+#print axioms completed_even_lag_corr_decay
+#print axioms completed_even_lag_corr_nonnegative
 
 end YMGap.Continuum.BF4WilsonAllNomeCompletedGap
