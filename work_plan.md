@@ -44,6 +44,15 @@ comparison on the changing family; the necessary denominator-growth theorem
 shows that it cannot be replaced by a bounded-denominator shortcut.  No
 OS/GNS, continuum/QFT, physical-mass, every-group, or Clay conclusion follows.
 
+The same module now defines `FinitePrefixPhysicalRateBand` and
+`FinitePrefixExplicitMarginDenominatorBand.toFinitePrefixPhysicalRateBand`
+(`:333--380`).  Dividing by the positive explicit denominator recovers the
+physical-rate inequalities on each finite prefix of the definitionally same
+family.  This is the correct finite-window contraction of the calibration
+data; it is intentionally not coerced into the all-scale
+`DynamicVacuumSectorPhysicalRateBand`, whose single floor and ceiling remain
+the open B04 input.
+
 ### New finite producer (2026-09-25 UTC)
 
 `BF4ExactSlabWidthOneActualFringePairing.fringeTestNormFloor` and

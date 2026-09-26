@@ -91,6 +91,16 @@ and one finite ceiling over the changing family remains the B04 frontier; the
 OS/GNS, continuum/QFT, physical-mass, every-group, and Clay obligations remain
 open.
 
+`FinitePrefixPhysicalRateBand` and
+`FinitePrefixExplicitMarginDenominatorBand.toFinitePrefixPhysicalRateBand`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:333--380`)
+now divide those denominator inequalities by the same positive explicit
+denominator.  The result is a rate-level lower/upper inequality on every
+finite prefix of the identical family, with the same floor and ceiling and no
+operator substitution.  The focused monitored check again reports only
+`{propext, Quot.sound}`.  This is a finite-window compiler, not the missing
+all-scale physical-rate band.
+
 ## Current increment: explicit denominator-level calibration compiler (2026-09-26 UTC)
 
 `one_sub_divPos_eqv_inverse`

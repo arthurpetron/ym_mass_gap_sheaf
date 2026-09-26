@@ -341,6 +341,56 @@ def finitePrefixExplicitMarginDenominatorBand
           (family.transferSpacing.spacing scale)
           (law.denominator scale)))))
 
+/-! ## 2b. The finite prefix reaches the rate-level interface -/
+
+/-- A physical-rate band restricted to one finite scale prefix.  This is the
+    windowed analogue of `DynamicVacuumSectorPhysicalRateBand`; it does not
+    assert one floor or ceiling for all scales. -/
+structure FinitePrefixPhysicalRateBand
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (law : ExplicitMarginInverseLaw family)
+    (bound : Nat) : Type 1 where
+  floor : Q'
+  floor_pos : (0 : Q') < floor
+  ceiling : Q'
+  ceiling_pos : (0 : Q') < ceiling
+  lowerRate : ∀ scale, scale ≤ bound →
+    floor * family.transferSpacing.spacing scale ≤
+      family.latticeMargin scale
+  upperRate : ∀ scale, scale ≤ bound →
+    family.latticeMargin scale ≤
+      ceiling * family.transferSpacing.spacing scale
+
+/-- Divide the finite-prefix denominator inequalities by the same positive
+    denominator to obtain the corresponding finite-prefix rate inequalities. -/
+def FinitePrefixExplicitMarginDenominatorBand.toFinitePrefixPhysicalRateBand
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {law : ExplicitMarginInverseLaw family}
+    {bound : Nat}
+    (band : FinitePrefixExplicitMarginDenominatorBand law bound) :
+    FinitePrefixPhysicalRateBand law bound where
+  floor := band.floor
+  floor_pos := band.floor_pos
+  ceiling := band.ceiling
+  ceiling_pos := band.ceiling_pos
+  lowerRate := by
+    intro scale hscale
+    have hquotient := Q'.le_divPos_of_mul_le
+      (1 : Q') (law.denominator scale) (law.denominator_pos scale)
+      (band.lowerDenominator scale hscale)
+    exact Q'.le_trans' _ _ _ hquotient
+      (Q'.le_of_eqv
+        (Q'.eqv_symm (law.margin_eqv_inverse scale)))
+  upperRate := by
+    intro scale hscale
+    have hquotient := Q'.divPos_le_of_le_mul
+      (1 : Q') (law.denominator scale) (law.denominator_pos scale)
+      (band.upperDenominator scale hscale)
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (law.margin_eqv_inverse scale)) hquotient
+
 /-! ## 3. The causal compiler -/
 
 /-- Compile the explicit denominator inequalities into the existing physical
@@ -391,6 +441,8 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginDenominatorBand.finitePrefixExplicitMarginDenominatorBand
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginDenominatorBand.physicalGap_mul_spacing_mul_den_eqv_one
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginDenominatorBand.FinitePrefixExplicitMarginDenominatorBand.toFinitePrefixPhysicalRateBand
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginDenominatorBand.denominator_unbounded
 #print axioms
