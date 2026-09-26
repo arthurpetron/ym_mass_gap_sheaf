@@ -71,6 +71,26 @@ Clay target remain open.  The focused monitored check passed with one worker,
 an 8 GiB worker ceiling, an 8 GiB reserve, and only `{propext, Quot.sound}`;
 no `sorryAx`, classical axiom, custom axiom, or `native_decide` was reported.
 
+## Current increment: exact finite-prefix denominator band (2026-09-26 UTC)
+
+`finitePrefixGapFloor`, `finitePrefixGapCeiling`,
+`physicalGap_mul_spacing_mul_den_eqv_one`, and
+`finitePrefixExplicitMarginDenominatorBand` in
+`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:160--330`
+construct a positive lower and upper denominator band for every finite prefix
+of the exact same-family physical-gap stream.  The floor is the constructive
+finite minimum and the ceiling is the constructive running maximum; the band
+inequalities follow from the kernel-checked same-family identity
+`(physicalGap * spacing) * denominator ≈ 1`.  The focused monitored check
+passed with one worker, an 8 GiB worker ceiling, an 8 GiB reserve, and only
+`{propext, Quot.sound}`.
+
+This is a real finite-regulator calibration certificate, not an all-scale
+physical-rate band.  Passing from these windowed extrema to one positive floor
+and one finite ceiling over the changing family remains the B04 frontier; the
+OS/GNS, continuum/QFT, physical-mass, every-group, and Clay obligations remain
+open.
+
 ## Current increment: explicit denominator-level calibration compiler (2026-09-26 UTC)
 
 `one_sub_divPos_eqv_inverse`

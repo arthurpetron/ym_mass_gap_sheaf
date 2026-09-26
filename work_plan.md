@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-25 UTC)
+## Whole-project goal and live completion map (updated 2026-09-26 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -24,6 +24,25 @@ Legitimately inhabit the canonical pinned frontier bundles without `sorry`,
 a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
+
+### New finite-prefix calibration certificate (2026-09-26 UTC)
+
+`finitePrefixGapFloor`, `finitePrefixGapCeiling`,
+`physicalGap_mul_spacing_mul_den_eqv_one`, and
+`finitePrefixExplicitMarginDenominatorBand` in
+`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:160--330`
+now inhabit the finite-window version of the physical calibration interface
+for any exact same-family `physicalGap` stream.  The floor and ceiling are the
+constructive finite minimum and running maximum, and the denominator product
+identity is kernel-checked, so every scale in a finite prefix receives both
+required product inequalities.  The focused safe check reports only
+`{propext, Quot.sound}`.
+
+This is an honest finite-regulator witness, not the all-scale B04 estimate.
+The next contraction is an explicit infinite-scale denominator-versus-spacing
+comparison on the changing family; the necessary denominator-growth theorem
+shows that it cannot be replaced by a bounded-denominator shortcut.  No
+OS/GNS, continuum/QFT, physical-mass, every-group, or Clay conclusion follows.
 
 ### New finite producer (2026-09-25 UTC)
 

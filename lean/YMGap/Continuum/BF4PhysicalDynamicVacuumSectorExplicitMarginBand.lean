@@ -18,6 +18,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 -/
 
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
+import YMGap.Continuum.WindowedSpacingFloor
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
 
@@ -144,6 +145,202 @@ theorem denominator_unbounded
       YMGap.Constructive.HalfPow.half)) hone_half
     exact hfalse.elim
 
+/-! ## 2a. Every finite prefix has a computed denominator band -/
+
+/- A finite regulator does not need the missing all-scale comparison.  The
+   exact same-family physical-gap stream itself supplies a positive minimum
+   and a finite maximum on every prefix.  This is deliberately a windowed
+   certificate: passing from these prefix extrema to one positive floor and
+   one finite ceiling for all scales is the still-open B04 join. -/
+
+theorem physicalGap_pos
+    {half : Nat}
+    (family : DynamicVacuumSectorCompletedFamily half)
+    (scale : Nat) :
+    (0 : Q') < family.physicalGap scale := by
+  unfold DynamicVacuumSectorCompletedFamily.physicalGap
+  exact Q'.divPos_pos _ _ _ (family.latticeMargin_pos scale)
+
+def finitePrefixGapFloor
+    {half : Nat}
+    (family : DynamicVacuumSectorCompletedFamily half)
+    (bound : Nat) : Q' :=
+  YMGap.Continuum.WindowedSpacingFloor.finMin
+    family.physicalGap bound
+
+def finitePrefixGapCeiling
+    {half : Nat}
+    (family : DynamicVacuumSectorCompletedFamily half)
+    (bound : Nat) : Q' :=
+  Q'.runningMax family.physicalGap bound
+
+theorem finitePrefixGapFloor_pos
+    {half : Nat}
+    (family : DynamicVacuumSectorCompletedFamily half)
+    (bound : Nat) :
+    (0 : Q') < finitePrefixGapFloor family bound := by
+  unfold finitePrefixGapFloor
+  exact YMGap.Continuum.WindowedSpacingFloor.finMin_pos
+    family.physicalGap (physicalGap_pos family) bound
+
+theorem finitePrefixGapCeiling_pos
+    {half : Nat}
+    (family : DynamicVacuumSectorCompletedFamily half)
+    (bound : Nat) :
+    (0 : Q') < finitePrefixGapCeiling family bound := by
+  unfold finitePrefixGapCeiling
+  exact YMGap.Continuum.ContinuumClosureProgram.q'_lt_of_lt_of_le
+    (physicalGap_pos family bound)
+    (Q'.le_runningMax family.physicalGap bound)
+
+theorem physicalGap_mul_spacing_mul_den_eqv_one
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {law : ExplicitMarginInverseLaw family}
+    (scale : Nat) :
+    (family.physicalGap scale * family.transferSpacing.spacing scale) *
+        law.denominator scale ≈ (1 : Q') := by
+  have hgapSpacing :
+      family.physicalGap scale * family.transferSpacing.spacing scale ≈
+        family.latticeMargin scale := by
+    unfold DynamicVacuumSectorCompletedFamily.physicalGap
+    exact Q'.divPos_mul_eqv
+      (family.latticeMargin scale)
+      (family.transferSpacing.spacing scale)
+      (family.transferSpacing.spacing_pos scale)
+  have hmarginDen :
+      family.latticeMargin scale * law.denominator scale ≈ (1 : Q') := by
+    refine Q'.eqv_trans _
+      (Q'.divPos 1 (law.denominator scale)
+        (law.denominator_pos scale) * law.denominator scale) _
+      (Q'.mul_eqv_congr_right _ _ _
+        (law.margin_eqv_inverse scale)) ?_
+    exact Q'.divPos_mul_eqv 1 (law.denominator scale)
+      (law.denominator_pos scale)
+  refine Q'.eqv_trans _
+    (family.latticeMargin scale * law.denominator scale) _
+    (Q'.mul_eqv_congr_right _ _ _ hgapSpacing) hmarginDen
+
+private theorem le_runningMax_of_le
+    (f : Nat → Q') :
+    ∀ bound scale, scale ≤ bound → f scale ≤ Q'.runningMax f bound
+  | 0, scale, hscale => by
+      have hzero : scale = 0 := by omega
+      subst hzero
+      exact Q'.le_refl' _
+  | bound + 1, scale, hscale => by
+      have hcases : scale < bound + 1 ∨ scale = bound + 1 := by omega
+      rcases hcases with hlt | heq
+      · exact Q'.le_trans' _ _ _
+          (le_runningMax_of_le f bound scale (by omega))
+          (Q'.le_runningMax_succ f bound)
+      · subst heq
+        exact Q'.le_runningMax f (bound + 1)
+
+structure FinitePrefixExplicitMarginDenominatorBand
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (law : ExplicitMarginInverseLaw family)
+    (bound : Nat) : Type 1 where
+  floor : Q'
+  floor_pos : (0 : Q') < floor
+  ceiling : Q'
+  ceiling_pos : (0 : Q') < ceiling
+  lowerDenominator : ∀ scale, scale ≤ bound →
+    (floor * family.transferSpacing.spacing scale) *
+        law.denominator scale ≤ (1 : Q')
+  upperDenominator : ∀ scale, scale ≤ bound →
+    (1 : Q') ≤
+      (ceiling * family.transferSpacing.spacing scale) *
+        law.denominator scale
+
+def finitePrefixExplicitMarginDenominatorBand
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {law : ExplicitMarginInverseLaw family}
+    (bound : Nat) :
+    FinitePrefixExplicitMarginDenominatorBand law bound where
+  floor := finitePrefixGapFloor family bound
+  floor_pos := finitePrefixGapFloor_pos family bound
+  ceiling := finitePrefixGapCeiling family bound
+  ceiling_pos := finitePrefixGapCeiling_pos family bound
+  lowerDenominator := by
+    intro scale hscale
+    have hfloor :=
+      YMGap.Continuum.WindowedSpacingFloor.finMin_le
+        family.physicalGap bound scale hscale
+    have hnonneg :
+        (0 : Q') ≤
+          family.transferSpacing.spacing scale * law.denominator scale :=
+      Q'.mul_nonneg
+        (family.transferSpacing.spacing scale)
+        (law.denominator scale)
+        (Q'.le_of_lt (family.transferSpacing.spacing_pos scale))
+        (Q'.le_of_lt (law.denominator_pos scale))
+    have hscaled := Q'.mul_le_mul_of_nonneg_right
+      (finitePrefixGapFloor family bound)
+      (family.physicalGap scale)
+      (family.transferSpacing.spacing scale * law.denominator scale)
+      hfloor hnonneg
+    have htargetAssoc := Q'.le_of_eqv
+      (Q'.eqv_symm (Q'.mul_assoc_eqv
+        (family.physicalGap scale)
+        (family.transferSpacing.spacing scale)
+        (law.denominator scale)))
+    have htarget := Q'.le_trans' _ _ _ hscaled
+      (Q'.le_trans' _ _ _ htargetAssoc
+        (Q'.le_of_eqv
+          (physicalGap_mul_spacing_mul_den_eqv_one (law := law) scale)))
+    exact Q'.le_trans' _ _ _
+      (Q'.le_of_eqv (Q'.mul_assoc_eqv
+        (finitePrefixGapFloor family bound)
+        (family.transferSpacing.spacing scale)
+        (law.denominator scale)))
+      htarget
+  upperDenominator := by
+    intro scale hscale
+    have hceiling :=
+      le_runningMax_of_le family.physicalGap bound scale hscale
+    have hgapCeiling : family.physicalGap scale ≤
+        finitePrefixGapCeiling family bound := by
+      exact hceiling
+    have hnonneg :
+        (0 : Q') ≤
+          family.transferSpacing.spacing scale * law.denominator scale :=
+      Q'.mul_nonneg
+        (family.transferSpacing.spacing scale)
+        (law.denominator scale)
+        (Q'.le_of_lt (family.transferSpacing.spacing_pos scale))
+        (Q'.le_of_lt (law.denominator_pos scale))
+    have hscaled := Q'.mul_le_mul_of_nonneg_right
+      (family.physicalGap scale)
+      (finitePrefixGapCeiling family bound)
+      (family.transferSpacing.spacing scale * law.denominator scale)
+      hgapCeiling
+      hnonneg
+    have honeEqv : (1 : Q') ≈
+        family.physicalGap scale *
+          (family.transferSpacing.spacing scale * law.denominator scale) :=
+      Q'.eqv_trans _
+        ((family.physicalGap scale * family.transferSpacing.spacing scale) *
+          law.denominator scale) _
+        (Q'.eqv_symm
+          (physicalGap_mul_spacing_mul_den_eqv_one (law := law) scale))
+        (Q'.mul_assoc_eqv
+          (family.physicalGap scale)
+          (family.transferSpacing.spacing scale)
+          (law.denominator scale))
+    have hone : (1 : Q') ≤
+        family.physicalGap scale *
+          (family.transferSpacing.spacing scale * law.denominator scale) :=
+      Q'.le_of_eqv honeEqv
+    exact Q'.le_trans' _ _ _ hone
+      (Q'.le_trans' _ _ _ hscaled
+        (Q'.le_of_eqv (Q'.eqv_symm (Q'.mul_assoc_eqv
+          (finitePrefixGapCeiling family bound)
+          (family.transferSpacing.spacing scale)
+          (law.denominator scale)))))
+
 /-! ## 3. The causal compiler -/
 
 /-- Compile the explicit denominator inequalities into the existing physical
@@ -190,6 +387,10 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
 
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginDenominatorBand.toPhysicalRateBand
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginDenominatorBand.finitePrefixExplicitMarginDenominatorBand
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginDenominatorBand.physicalGap_mul_spacing_mul_den_eqv_one
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginDenominatorBand.denominator_unbounded
 #print axioms

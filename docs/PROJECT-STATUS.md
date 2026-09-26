@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **74**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **75**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -75,6 +75,20 @@ some computable scale.  It uses the spacing modulus and the upper raw product
 inequality only.  This sharpens the open B04 requirement by ruling out a
 bounded-denominator shortcut; it does not inhabit the concrete changing-nome
 band or change any whole-project goal marker.
+
+Latest verified finite-regulator increment (2026-09-26 UTC):
+`finitePrefixGapFloor`, `finitePrefixGapCeiling`,
+`physicalGap_mul_spacing_mul_den_eqv_one`, and
+`finitePrefixExplicitMarginDenominatorBand` in
+`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:160--330`
+construct a positive lower and upper denominator band on every finite prefix of
+the exact same changing-family physical-gap stream.  The band is obtained from
+the finite minimum/maximum of `family.physicalGap` and the kernel-checked
+identity `physicalGap * spacing * denominator ≈ 1`; its axiom report is only
+`{propext, Quot.sound}`.  This is a genuine finite-scale calibration witness,
+not the missing all-scale denominator-versus-spacing estimate: the infinite
+changing-family join, OS/GNS identification, continuum/QFT construction,
+physical mass, every-group theorem, and Clay target remain open.
 
 Latest typed frontier (2026-09-25 UTC): the positive-width dense source now
 has a genuine natural transformation into the single staged spatial-union
@@ -288,6 +302,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Fixed-carrier vanishing-spacing ceiling obstruction
                                        [x] Exact changing-nome reciprocal margin law / band compiler
                                        [x] Any inhabited spacing-to-zero band forces denominator growth
+                                       [x] Exact same-family denominator band on every finite scale prefix
+                                       [ ] Infinite-scale denominator/spacing comparison
                                        [ ] Changing-family instantiation / same-theory bridge
              |                              v
              v                         [ ] EVERY-state decay
@@ -357,6 +373,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04l | Explicit changing-nome completed SU(2) family / same-object RC channel | `BF4PhysicalChangingNomeDynamicFamily.changingNome`, `.changingSpacingToZero`, `.changingNomeDynamicFamily`, `.changingNomeFormGap`, `.changingNomeMovingCubeChannel`, `.changingNomeMovingCube_relative_loss`, `.changingNomeMovingCube_relative_loss_global`, `.changingNomeMovingCube_zero_isPositive`, and `.changingNomeMovingCube_connectedSq_decay`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeDynamicFamily.lean:36--211`; supplies a nonconstant positive nome schedule, vanishing spacing modulus, one-step form gap, same-object lag-one deficit, its global adaptive-transfer transport, completed contraction, and concrete RC-channel decay. It does not supply a spacing-uniform physical-rate band, changing-family observable pin, OS/GNS bridge, continuum/QFT passage, all-group extension, or Clay theorem. |
 | B04m | Explicit denominator-level margin calibration | `BF4PhysicalCubeCutoffUniformGapAlgebra.one_add_sub_self_eqv`, `.one_sub_divPos_eqv_inverse`, `BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginInverseLaw`, `.ExplicitMarginDenominatorBand`, `.ExplicitMarginDenominatorBand.toPhysicalRateBand`, and `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeExplicitMarginInverseLaw`, `.changingNomeExplicitMarginDenominatorBand`, `.changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand`, `lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGapAlgebra.lean:26--55`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:35--183`, and `lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:27--78`; exposes the exact same-family reciprocal denominator law and compiles supplied denominator-versus-spacing inequalities into the existing physical-rate interface. The inequalities themselves remain open, so this does not close B04, OS/GNS, continuum/QFT, physical mass, or Clay. |
 | B04n | Necessary denominator growth for any physical band | `BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginDenominatorBand.denominator_unbounded`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:80--145`; from any inhabited two-sided denominator band and any positive rational ceiling, constructs a scale where the explicit denominator reaches that ceiling, using only the spacing-to-zero modulus and the upper raw product inequality. This rules out a bounded-denominator shortcut but does not prove the concrete changing-nome denominator-versus-spacing inequalities or close B04, OS/GNS, continuum/QFT, physical mass, or Clay. |
+| B04o | Exact same-family finite-prefix denominator band | `BF4PhysicalDynamicVacuumSectorExplicitMarginBand.finitePrefixGapFloor`, `.finitePrefixGapCeiling`, `.physicalGap_mul_spacing_mul_den_eqv_one`, and `.finitePrefixExplicitMarginDenominatorBand`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:160--330`; the exact same-family physical-gap stream has a positive finite-prefix minimum and maximum, and the reciprocal identity turns them into lower/upper denominator products on every finite prefix. This is a finite-regulator certificate only; it does not supply one scale-independent band, changing-family same-theory transport, OS/GNS, continuum/QFT, physical mass, or Clay closure. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
