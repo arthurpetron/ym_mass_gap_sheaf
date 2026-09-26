@@ -8,12 +8,14 @@ new angle). Run `bash computations/progress_metric.sh` each iteration.
 
 `completedInner_even_diagonal`, `completed_twoStep_translated`,
 `completed_oneStep_norm_gap`, `completed_iterated_norm_gap`,
-`completed_even_lag_corr_decay`, and `completed_even_lag_corr_nonnegative`
-in `lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:174--252`
+`completed_even_lag_corr_decay`, `completed_even_lag_corr_nonnegative`, and
+`completed_even_lag_response_power_floor` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:174--264`
 transport the existing fixed-nome real completed-carrier form bound to every
 time slice and iterate it to an explicit even-lag power bound.  The proof uses
 the existing time semigroup, preservation of the vacuum complement, and the
-nonnegative fixed rate; it introduces no new carrier or observable.  The
+nonnegative fixed rate; the response-floor consumer makes the norm cap and
+response floor explicit and introduces no new carrier or observable.  The
 focused safe check passed with only `{propext, Quot.sound}` and no `sorryAx`.
 This is fixed nome/width discrete decay only; spatial/spacing uniformity,
 changing-family survival, OS/GNS/QFT, physical mass, and Clay remain open.

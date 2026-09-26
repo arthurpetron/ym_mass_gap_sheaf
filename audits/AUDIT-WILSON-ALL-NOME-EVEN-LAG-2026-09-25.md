@@ -15,6 +15,7 @@ fixed nome/width two-step form estimate.  The declarations are:
 | `completed_iterated_norm_gap` | `lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:214` | iterates the contraction with the explicit power `twoStepRate^n` |
 | `completed_even_lag_corr_decay` | `lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:234` | gives the same-object even-lag upper bound |
 | `completed_even_lag_corr_nonnegative` | `lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:241` | gives nonnegativity of the same-object even-lag pairing |
+| `completed_even_lag_response_power_floor` | `lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:250` | combines explicit norm-cap and response-floor hypotheses with the decay estimate |
 
 The proof uses the existing `completedTime_preserves_vacuumComplement` and
 `completedInner_time_sum` declarations in
@@ -24,6 +25,10 @@ existing fixed-parameter rate facts `twoStepRate_nonnegative` and
 `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDenseCenteredGap.lean:143`.
 No new carrier, observable, transfer, or scaling family is introduced.
 
+The response-floor consumer concludes the rational inequality
+`floor ≤ twoStepRate^n * C`; it does not manufacture either the norm cap or
+the response floor.
+
 ## Verification
 
 Focused command:
@@ -31,7 +36,7 @@ Focused command:
 ```text
 python3 scripts/safe_lean_build.py --jobs 1 --check-worker-limit-gib 20 \
   --check lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean \
-  --check-output /tmp/ym-all-nome-even-lag.log --status-seconds 20
+  --check-output /tmp/ym-all-nome-response-floor.log --status-seconds 20
 ```
 
 The command exited successfully.  The file's `#print axioms` output for the

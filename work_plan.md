@@ -95,17 +95,19 @@ therefore remains open until such a witness is inhabited.
 
 `completedInner_even_diagonal`, `completed_twoStep_translated`,
 `completed_oneStep_norm_gap`, `completed_iterated_norm_gap`,
-`completed_even_lag_corr_decay`, and `completed_even_lag_corr_nonnegative`
-(`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:174--252`)
+`completed_even_lag_corr_decay`, `completed_even_lag_corr_nonnegative`, and
+`completed_even_lag_response_power_floor`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:174--264`)
 now extend the existing fixed-nome real completion bound to every discrete
 time slice and every even lag on the literal same completed carrier.  The
 proof preserves the vacuum-complement predicate under the existing completed
-time map, then iterates the exact norm contraction with the explicit power of
-`twoStepRate`.  The focused check reports only `{propext, Quot.sound}` and no
-`sorryAx`.  This is a fixed nome/width discrete correlator theorem: it does
-not provide spatially uniform rates, a changing-spacing family, OS/GNS
-identification, physical mass calibration, continuum/QFT limits, or the Clay
-target.
+time map, iterates the exact norm contraction with the explicit power of
+`twoStepRate`, and exposes the resulting rational inequality whenever a norm
+cap and response floor are supplied.  The focused check reports only
+`{propext, Quot.sound}` and no `sorryAx`.  This is a fixed nome/width discrete
+correlator theorem: it does not provide spatially uniform rates, a
+changing-spacing family, OS/GNS identification, physical mass calibration,
+continuum/QFT limits, or the Clay target.
 
 The anchor family is not yet an adapter for the Wilson branch: its coupling is
 `anchorCoupling = 1/400` (`Z4StrongCouplingParametricAnchor.lean:243`), while

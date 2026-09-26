@@ -23,14 +23,16 @@ symbols; subsequent updates are maintenance, not redesigns.
 Latest verified increment (2026-09-25 UTC): the literal real all-nome Wilson
 completion now has `completedInner_even_diagonal`,
 `completed_twoStep_translated`, `completed_oneStep_norm_gap`,
-`completed_iterated_norm_gap`, `completed_even_lag_corr_decay`, and
-`completed_even_lag_corr_nonnegative` in
-`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:174--252`.
+`completed_iterated_norm_gap`, `completed_even_lag_corr_decay`,
+`completed_even_lag_corr_nonnegative`, and
+`completed_even_lag_response_power_floor` in
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedGap.lean:174--264`.
 Together these give same-object even-lag decay at every discrete time slice
-with the explicit fixed nome/width rate power.  This is not a spacing-uniform
-bound or a changing-family result, so the canonical chart markers are
-unchanged; OS/GNS identification, continuum/QFT construction, physical mass,
-and the Clay target remain open.
+with the explicit fixed nome/width rate power, and a rational response-floor
+consumer under explicit norm-cap and response-floor hypotheses.  This is not a
+spacing-uniform bound or a changing-family result, so the canonical chart
+markers are unchanged; OS/GNS identification, continuum/QFT construction,
+physical mass, and the Clay target remain open.
 
 Latest typed frontier (2026-09-25 UTC): the positive-width dense source now
 has a genuine natural transformation into the single staged spatial-union

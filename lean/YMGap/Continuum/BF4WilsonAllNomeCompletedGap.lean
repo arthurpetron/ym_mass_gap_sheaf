@@ -243,6 +243,26 @@ theorem completed_even_lag_corr_nonnegative (n : Nat) (x : V) :
   rw [completedInner_even_diagonal hw0 hw1 width n x]
   exact completedInner_nonnegative hw0 hw1 (T n x)
 
+/-! A response-floor consumer for the same completed real carrier.  The norm
+cap and response floor are explicit hypotheses; this does not infer an
+absolute observable bound or scaling-uniform survival from the fixed-rate
+decay estimate. -/
+theorem completed_even_lag_response_power_floor (x : V)
+    (hx : B x U = RCzero)
+    (C floor : Q')
+    (hcap : RCle (B x x)
+      (Quotient.mk crealSetoid (ofQ' C)))
+    (n : Nat)
+    (hresponse : RCle (Quotient.mk crealSetoid (ofQ' floor))
+      (B x (T (2*n) x))) :
+    floor ≤ (twoStepRate hw0 hw1 width)^n * C := by
+  have hdecay := completed_even_lag_corr_decay hw0 hw1 width n x hx
+  have hcap' := RCscale_mono
+    (Q'.pow_nonneg (twoStepRate hw0 hw1 width)
+      (twoStepRate_nonnegative hw0 hw1 width) n) hcap
+  have h := RCle_trans hdecay hcap'
+  exact GNSQuotient.GNSData.RCofQ'_le_reflect (RCle_trans hresponse h)
+
 #print axioms representativeCenteredMoment
 #print axioms representativeCenteredMomentCauchy
 #print axioms representativeCenteredMoment_converges
@@ -260,5 +280,6 @@ theorem completed_even_lag_corr_nonnegative (n : Nat) (x : V) :
 #print axioms completed_iterated_norm_gap
 #print axioms completed_even_lag_corr_decay
 #print axioms completed_even_lag_corr_nonnegative
+#print axioms completed_even_lag_response_power_floor
 
 end YMGap.Continuum.BF4WilsonAllNomeCompletedGap
