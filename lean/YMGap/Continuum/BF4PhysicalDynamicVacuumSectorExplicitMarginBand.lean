@@ -66,7 +66,85 @@ structure ExplicitMarginDenominatorBand
 
 namespace ExplicitMarginDenominatorBand
 
-/-! ## 2. The causal compiler -/
+/-! ## 2. Necessary scale growth -/
+
+/- A denominator band over a spacing stream that vanishes cannot have a
+bounded denominator.  The proof is deliberately stated before the compiler:
+it uses only the upper raw product inequality and the explicit spacing
+modulus, so it cannot smuggle in the physical-rate conclusion. -/
+
+/-- Every positive rational ceiling is eventually exceeded by the explicit
+denominator of an inhabited denominator band.  Thus an eventual or global
+bounded-denominator route cannot supply the missing physical calibration over
+a spacing-to-zero family. -/
+theorem denominator_unbounded
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {law : ExplicitMarginInverseLaw family}
+    (band : ExplicitMarginDenominatorBand law)
+    (bound : Q') (hbound : (0 : Q') < bound) :
+    ∃ scale, bound ≤ law.denominator scale := by
+  let target : Q' := (1 : Q') + bound
+  have htarget : (0 : Q') < target := by
+    exact Q'.add_pos (by decide) hbound
+  have hbound_target : bound ≤ target := by
+    refine Q'.le_trans' bound (bound + 1) target ?_ ?_
+    · exact Q'.add_le_self_of_nonneg bound 1 (by decide)
+    · exact Q'.le_of_eqv (Q'.add_comm_eqv bound 1)
+  let denominatorScale : Q' := band.ceiling * target
+  have hdenominatorScale : (0 : Q') < denominatorScale := by
+    exact Q'.mul_pos band.ceiling_pos htarget
+  let threshold : Q' :=
+    Q'.divPos (YMGap.Constructive.HalfPow.half) denominatorScale
+      hdenominatorScale
+  have hthreshold : (0 : Q') < threshold := by
+    exact Q'.divPos_pos (YMGap.Constructive.HalfPow.half)
+      denominatorScale hdenominatorScale (by decide)
+  let scale : Nat := family.transferSpacingToZero.modulus threshold
+  have hspacing : family.transferSpacing.spacing scale ≤ threshold :=
+    family.transferSpacingToZero.spacing_le threshold hthreshold
+      scale (Nat.le_refl _)
+  have hscaled :
+      band.ceiling * family.transferSpacing.spacing scale ≤
+        band.ceiling * threshold :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hspacing
+      (Q'.le_of_lt band.ceiling_pos)
+  by_cases htarget_le : target ≤ law.denominator scale
+  · exact ⟨scale, Q'.le_trans' bound target (law.denominator scale)
+      hbound_target htarget_le⟩
+  · have hdenominator_le : law.denominator scale ≤ target :=
+      Q'.le_of_not_le' htarget_le
+    have hproduct :
+        (band.ceiling * family.transferSpacing.spacing scale) *
+            law.denominator scale ≤
+          (band.ceiling * threshold) * target :=
+      Q'.mul_le_mul_of_nonneg hscaled hdenominator_le
+        (Q'.le_of_lt (Q'.mul_pos band.ceiling_pos hthreshold))
+        (Q'.le_of_lt (law.denominator_pos scale))
+    have hcollapse :
+        ((band.ceiling * threshold) * target).eqv
+          (YMGap.Constructive.HalfPow.half) := by
+      refine Q'.eqv_trans _ ((threshold * band.ceiling) * target) _
+        (Q'.mul_eqv_congr_right (band.ceiling * threshold)
+          (threshold * band.ceiling) target
+          (Q'.mul_comm_eqv band.ceiling threshold)) ?_
+      refine Q'.eqv_trans _ (threshold * (band.ceiling * target)) _
+        (Q'.mul_assoc_eqv threshold band.ceiling target) ?_
+      exact Q'.divPos_mul_eqv (YMGap.Constructive.HalfPow.half)
+        denominatorScale hdenominatorScale
+    have hupper :
+        (1 : Q') ≤
+          (band.ceiling * family.transferSpacing.spacing scale) *
+            law.denominator scale :=
+      band.upperDenominator scale
+    have hone_half : (1 : Q') ≤ YMGap.Constructive.HalfPow.half :=
+      Q'.le_trans' _ _ _ hupper
+        (Q'.le_trans' _ _ _ hproduct (Q'.le_of_eqv hcollapse))
+    have hfalse : False := (by decide : ¬ ((1 : Q') ≤
+      YMGap.Constructive.HalfPow.half)) hone_half
+    exact hfalse.elim
+
+/-! ## 3. The causal compiler -/
 
 /-- Compile the explicit denominator inequalities into the existing physical
 rate band for the same completed family. -/
@@ -112,5 +190,7 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
 
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginDenominatorBand.toPhysicalRateBand
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginDenominatorBand.denominator_unbounded
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand.ExplicitMarginDenominatorBand.toContinuumGapTheorem

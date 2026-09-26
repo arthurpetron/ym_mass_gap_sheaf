@@ -51,6 +51,26 @@ routes separate until a typed same-object equality is proved, validate exact
 rows and held-out placements with Lean, and record manifests, moduli, and
 untested assumptions.  No Clay-target node changes state.
 
+## Current increment: denominator growth is necessary for any physical band (2026-09-26 UTC)
+
+`ExplicitMarginDenominatorBand.denominator_unbounded`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:80--145`)
+proves a constructive necessary condition for the still-open physical
+calibration input.  Given any inhabited two-sided denominator band over a
+spacing-to-zero family and any positive rational `bound`, the explicit
+denominator exceeds that ceiling at some computable scale.  The witness comes
+from the family’s spacing modulus at the threshold
+`(1/2) / (ceiling * (1 + bound))`; the upper band inequality then contradicts
+`1 ≤ 1/2` if the denominator stayed below `1 + bound`.
+
+This is a non-vacuous obstruction to bounded-denominator shortcuts and a
+sharper statement of what the missing changing-nome estimate must supply.  It
+does not prove the concrete `gapDenominator (changingNome scale)` inequalities,
+so B04, OS/GNS, continuum/QFT, physical mass, every-group construction, and the
+Clay target remain open.  The focused monitored check passed with one worker,
+an 8 GiB worker ceiling, an 8 GiB reserve, and only `{propext, Quot.sound}`;
+no `sorryAx`, classical axiom, custom axiom, or `native_decide` was reported.
+
 ## Current increment: explicit denominator-level calibration compiler (2026-09-26 UTC)
 
 `one_sub_divPos_eqv_inverse`
@@ -65,7 +85,7 @@ make the remaining physical calibration input explicit: a positive denominator,
 an exact margin identity on the same completed family, and lower/upper product
 inequalities against the scheduled spacing.  The consumers
 `ExplicitMarginDenominatorBand.toPhysicalRateBand` and
-`...toContinuumGapTheorem` (`:71--105`) compile those fields into the existing
+`...toContinuumGapTheorem` (`:151--183`) compile those fields into the existing
 physical-rate and continuum-gap interfaces; their focused check reports only
 `{propext, Quot.sound}`.  The changing-family denominator/spacing inequalities
 are not supplied here, so no spatially uniform rate, continuum limit, OS/GNS

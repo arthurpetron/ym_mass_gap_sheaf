@@ -173,7 +173,7 @@ the numerator/denominator relation explicitly.
 factor the physical calibration input into an explicit positive denominator,
 an exact same-family margin identity, and two product inequalities.
 `ExplicitMarginDenominatorBand.toPhysicalRateBand` and
-`...toContinuumGapTheorem` (`:71--105`) compile those fields into the existing
+`...toContinuumGapTheorem` (`:151--183`) compile those fields into the existing
 physical-rate and continuum-gap interfaces; their focused check also reports
 only `{propext, Quot.sound}`.  This is a genuine contraction of the open
 calibration obligation, not an inhabitant of the changing-family denominator
@@ -192,6 +192,18 @@ inequalities, which are still open.  The specialized alias
 `changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand` (lines `67--78`)
 make that missing pair an explicit, same-family type without manufacturing an
 inhabitant.
+
+The same generic module now proves
+`ExplicitMarginDenominatorBand.denominator_unbounded` (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:80--145`).
+For every positive rational ceiling it uses only the spacing-to-zero modulus
+and the band’s upper raw product inequality to construct a scale where the
+explicit denominator is at least that ceiling.  The contradiction threshold is
+the constructive half of the reciprocal of `ceiling * (1 + bound)`, so this is
+an honest necessary growth theorem, not a denominator estimate for BF4.  The
+focused check reports only `{propext, Quot.sound}`.  It rules out a bounded-
+denominator shortcut while leaving the two concrete changing-nome product
+inequalities, physical-rate band, OS/GNS, continuum/QFT, physical mass,
+all-group extension, and Clay closure open.
 
 ### Minimal Wilson-to-OS bridge certificate (2026-09-24 UTC)
 
