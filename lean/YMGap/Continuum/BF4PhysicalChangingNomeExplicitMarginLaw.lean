@@ -64,8 +64,22 @@ def changingNomeExplicitMarginInverseLaw :
     unfold Q'.divPos
     exact Q'.mul_eqv_congr_right _ _ _ hsub
 
+/-- The remaining physical-calibration fields specialized to the concrete
+changing family.  This type is intentionally not inhabited here: its fields
+are exactly the two uniform denominator-versus-spacing inequalities. -/
+abbrev changingNomeExplicitMarginDenominatorBand : Type 1 :=
+  ExplicitMarginDenominatorBand changingNomeExplicitMarginInverseLaw
+
+/-- Once the two specialized inequalities are supplied, the generic compiler
+produces the physical-rate band for the same changing family. -/
+def changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand
+    (band : changingNomeExplicitMarginDenominatorBand) :
+    DynamicVacuumSectorPhysicalRateBand changingNomeDynamicFamily :=
+  band.toPhysicalRateBand
+
 #print axioms changingNomeMarginDenominator
 #print axioms changingNomeMarginDenominator_pos
 #print axioms changingNomeExplicitMarginInverseLaw
+#print axioms changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand
 
 end YMGap.Continuum.BF4PhysicalChangingNomeExplicitMarginLaw

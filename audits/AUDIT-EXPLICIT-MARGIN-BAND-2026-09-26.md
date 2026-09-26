@@ -19,6 +19,7 @@ or the Clay theorem.
 | `ExplicitMarginDenominatorBand.toContinuumGapTheorem` | `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:97--105` | Delegates to the existing physical-rate-to-continuum-gap interface. |
 | `changingNomeMarginDenominator` | `lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:27--31` | Concrete BF4 denominator along the nonconstant changing-nome schedule. |
 | `changingNomeExplicitMarginInverseLaw` | `lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:42--65` | Exact reciprocal margin law for the definitionally same completed changing family. |
+| `changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand` | `lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:75--78` | Specialized consumer exposing the two remaining denominator-versus-spacing fields. |
 
 ## Verification
 
@@ -47,6 +48,8 @@ python3 scripts/safe_lean_build.py --jobs 1 --reserve-gib 8 \
   lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean
 
 changingNomeExplicitMarginInverseLaw depends on axioms:
+[propext, Quot.sound]
+changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand depends on axioms:
 [propext, Quot.sound]
 ```
 

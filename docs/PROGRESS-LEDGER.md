@@ -78,7 +78,10 @@ same-family reciprocal law: `changingNomeMarginDenominator`,
 margin of `changingNomeDynamicFamily` with the reciprocal of its explicit BF4
 denominator.  The focused check reports only `{propext, Quot.sound}`.  The
 denominator-versus-spacing lower and upper inequalities remain uninhabited, so
-this does not yet produce a physical-rate band or a continuum gap.
+this does not yet produce a physical-rate band or a continuum gap.  The
+specialized type `changingNomeExplicitMarginDenominatorBand` and its consumer
+`changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand` (lines `67--78`)
+now expose those two missing fields directly on the same family.
 
 ## Current increment: real all-nome same-carrier even-lag iteration (2026-09-25 UTC)
 

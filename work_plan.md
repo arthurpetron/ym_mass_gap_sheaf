@@ -187,7 +187,11 @@ with denominator `changingNomeMarginDenominator` and its positivity proof.
 The focused check reports only `{propext, Quot.sound}`.  This is the concrete
 changing-nome reciprocal law that the generic compiler consumes; the remaining
 typed input is precisely the pair of lower/upper denominator-versus-spacing
-inequalities, which are still open.
+inequalities, which are still open.  The specialized alias
+`changingNomeExplicitMarginDenominatorBand` and consumer
+`changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand` (lines `67--78`)
+make that missing pair an explicit, same-family type without manufacturing an
+inhabitant.
 
 ### Minimal Wilson-to-OS bridge certificate (2026-09-24 UTC)
 
