@@ -51,6 +51,26 @@ routes separate until a typed same-object equality is proved, validate exact
 rows and held-out placements with Lean, and record manifests, moduli, and
 untested assumptions.  No Clay-target node changes state.
 
+## Current increment: explicit denominator-level calibration compiler (2026-09-26 UTC)
+
+`one_sub_divPos_eqv_inverse`
+(`lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGapAlgebra.lean:30--43`)
+is a scale-free rational identity for the strict margin of a positive quotient:
+`1 - p/q ≈ (q-p)/q`.  It is checked independently of the dependent BF4
+carrier and reports only `{propext, Quot.sound}`.
+
+`ExplicitMarginInverseLaw` and `ExplicitMarginDenominatorBand`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:35--65`)
+make the remaining physical calibration input explicit: a positive denominator,
+an exact margin identity on the same completed family, and lower/upper product
+inequalities against the scheduled spacing.  The consumers
+`ExplicitMarginDenominatorBand.toPhysicalRateBand` and
+`...toContinuumGapTheorem` (`:71--105`) compile those fields into the existing
+physical-rate and continuum-gap interfaces; their focused check reports only
+`{propext, Quot.sound}`.  The changing-family denominator/spacing inequalities
+are not supplied here, so no spatially uniform rate, continuum limit, OS/GNS
+identification, physical mass, or Clay closure is claimed.
+
 ## Current increment: real all-nome same-carrier even-lag iteration (2026-09-25 UTC)
 
 `completedInner_even_diagonal`, `completed_twoStep_translated`,

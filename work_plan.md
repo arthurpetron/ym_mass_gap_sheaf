@@ -158,6 +158,29 @@ it still has no spacing-uniform lower margin or rational observable pin.
 same inequality to the global adaptive Markov coefficient of the identical
 embedded vector, without an operator substitution.
 
+### Explicit denominator-level calibration compiler (2026-09-26 UTC)
+
+`BF4PhysicalCubeCutoffUniformGapAlgebra.one_sub_divPos_eqv_inverse`
+(`lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGapAlgebra.lean:30--43`)
+now records the scale-free rational identity
+`1 - p/q ≈ (q-p)/q` for every positive denominator.  The focused check reports
+only `{propext, Quot.sound}`.  It deliberately avoids unfolding the dependent
+BF4 energy carrier; a later changing-family specialization must still prove
+the numerator/denominator relation explicitly.
+
+`ExplicitMarginInverseLaw` and `ExplicitMarginDenominatorBand`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:35--65`)
+factor the physical calibration input into an explicit positive denominator,
+an exact same-family margin identity, and two product inequalities.
+`ExplicitMarginDenominatorBand.toPhysicalRateBand` and
+`...toContinuumGapTheorem` (`:71--105`) compile those fields into the existing
+physical-rate and continuum-gap interfaces; their focused check also reports
+only `{propext, Quot.sound}`.  This is a genuine contraction of the open
+calibration obligation, not an inhabitant of the changing-family denominator
+versus spacing bounds.  Uniform spacing control, OS/GNS identification,
+continuum/QFT construction, physical mass, all-group extension, and Clay
+closure remain open.
+
 ### Minimal Wilson-to-OS bridge certificate (2026-09-24 UTC)
 
 The literal all-nome Wilson completion and the separate strict OS completion
