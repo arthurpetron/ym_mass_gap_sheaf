@@ -54,7 +54,7 @@ untested assumptions.  No Clay-target node changes state.
 ## Current increment: explicit denominator-level calibration compiler (2026-09-26 UTC)
 
 `one_sub_divPos_eqv_inverse`
-(`lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGapAlgebra.lean:30--43`)
+(`lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGapAlgebra.lean:42--55`)
 is a scale-free rational identity for the strict margin of a positive quotient:
 `1 - p/q ≈ (q-p)/q`.  It is checked independently of the dependent BF4
 carrier and reports only `{propext, Quot.sound}`.
@@ -70,6 +70,15 @@ physical-rate and continuum-gap interfaces; their focused check reports only
 `{propext, Quot.sound}`.  The changing-family denominator/spacing inequalities
 are not supplied here, so no spatially uniform rate, continuum limit, OS/GNS
 identification, physical mass, or Clay closure is claimed.
+
+`BF4PhysicalChangingNomeExplicitMarginLaw.lean` now instantiates the exact
+same-family reciprocal law: `changingNomeMarginDenominator`,
+`changingNomeMarginDenominator_pos`, and
+`changingNomeExplicitMarginInverseLaw` (lines `27--65`) identify the lattice
+margin of `changingNomeDynamicFamily` with the reciprocal of its explicit BF4
+denominator.  The focused check reports only `{propext, Quot.sound}`.  The
+denominator-versus-spacing lower and upper inequalities remain uninhabited, so
+this does not yet produce a physical-rate band or a continuum gap.
 
 ## Current increment: real all-nome same-carrier even-lag iteration (2026-09-25 UTC)
 

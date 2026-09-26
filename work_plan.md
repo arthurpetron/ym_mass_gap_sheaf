@@ -161,7 +161,7 @@ embedded vector, without an operator substitution.
 ### Explicit denominator-level calibration compiler (2026-09-26 UTC)
 
 `BF4PhysicalCubeCutoffUniformGapAlgebra.one_sub_divPos_eqv_inverse`
-(`lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGapAlgebra.lean:30--43`)
+(`lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGapAlgebra.lean:42--55`)
 now records the scale-free rational identity
 `1 - p/q ≈ (q-p)/q` for every positive denominator.  The focused check reports
 only `{propext, Quot.sound}`.  It deliberately avoids unfolding the dependent
@@ -180,6 +180,14 @@ calibration obligation, not an inhabitant of the changing-family denominator
 versus spacing bounds.  Uniform spacing control, OS/GNS identification,
 continuum/QFT construction, physical mass, all-group extension, and Clay
 closure remain open.
+
+`BF4PhysicalChangingNomeExplicitMarginLaw.lean` now supplies the exact
+same-family instance `changingNomeExplicitMarginInverseLaw` (lines `42--65`),
+with denominator `changingNomeMarginDenominator` and its positivity proof.
+The focused check reports only `{propext, Quot.sound}`.  This is the concrete
+changing-nome reciprocal law that the generic compiler consumes; the remaining
+typed input is precisely the pair of lower/upper denominator-versus-spacing
+inequalities, which are still open.
 
 ### Minimal Wilson-to-OS bridge certificate (2026-09-24 UTC)
 
