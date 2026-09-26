@@ -35,6 +35,9 @@ physical-rate band.  `changingNomeMovingCube_relative_loss`
 (`:144--167`) now applies that certificate to the literal moving-cube channel,
 giving the same-object lag-one deficit inequality on the changing family.  The
 margin remains scale-dependent and no rational observable pin is asserted.
+`changingNomeMovingCube_relative_loss_global` (`:171--191`) then transports
+the same inequality to the global adaptive Markov coefficient of the identical
+embedded vector, with no operator substitution.
 
 See `audits/AUDIT-CHANGING-NOME-COMPLETED-FAMILY-2026-09-25.md`.
 

@@ -27,6 +27,8 @@ open YMGap.Constructive.ExpNeg
 open YMGap.Constructive.HalfPow
 open YMGap.Continuum.BF4PhysicalCubeCompletedMarginalGap
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
+open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedStrictFormGap
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
@@ -164,7 +166,29 @@ theorem changingNomeMovingCube_relative_loss (scale : Nat) :
         centralPhysicalVacuumSectorCylinderCompletedAutocorrelation,
         centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower] using
         (changingNomeFormGap scale).form_gap
-          (changingNomeMovingCubeChannel.vectorAt scale))
+        (changingNomeMovingCubeChannel.vectorAt scale))
+
+theorem changingNomeMovingCube_relative_loss_global (scale : Nat) :
+    CReal.RCle
+      (CReal.RCscale
+        (1 - (changingNomeFormGap scale).rate)
+        (DynamicVacuumSectorSameObjectRCChannel.normSq
+          changingNomeMovingCubeChannel scale))
+      (CReal.RCsub
+        (DynamicVacuumSectorSameObjectRCChannel.normSq
+          changingNomeMovingCubeChannel scale)
+        (centralPhysicalCutoffCompletedInner
+          (changingNomeDynamicFamily.nome_pos scale)
+          (changingNomeDynamicFamily.nome_lt_one scale) 0
+          (centralPhysicalConcreteAdaptiveCompletedMarkovPower
+            (changingNomeDynamicFamily.nome_pos scale)
+            (changingNomeDynamicFamily.nome_lt_one scale) 0 1
+            (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+              (changingNomeMovingCubeChannel.vectorAt scale).1))
+          (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+            (changingNomeMovingCubeChannel.vectorAt scale).1))) := by
+  simpa only [DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_eq_global] using
+    changingNomeMovingCube_relative_loss scale
 
 theorem changingNomeMovingCube_zero_isPositive (scale : Nat) :
     RCIsPositive
@@ -201,6 +225,7 @@ theorem changingNomeMovingCube_connectedSq_decay (scale time : Nat) :
 #print axioms changingNomeFormGap_rate
 #print axioms changingNomeFormGap_margin_positive
 #print axioms changingNomeMovingCube_relative_loss
+#print axioms changingNomeMovingCube_relative_loss_global
 #print axioms changingNomeMovingCubeChannel
 #print axioms changingNomeMovingCube_zero_isPositive
 #print axioms changingNomeMovingCube_connectedSq_decay

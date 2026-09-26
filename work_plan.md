@@ -152,6 +152,9 @@ now consumes that form field on the literal moving-cube channel and proves the
 corresponding positive-margin deficit against its lag-one same-object
 autocorrelation.  This is a genuine changing-family response inequality, but
 it still has no spacing-uniform lower margin or rational observable pin.
+`changingNomeMovingCube_relative_loss_global` (`:171--191`) transports the
+same inequality to the global adaptive Markov coefficient of the identical
+embedded vector, without an operator substitution.
 
 ### Minimal Wilson-to-OS bridge certificate (2026-09-24 UTC)
 

@@ -50,6 +50,11 @@ form field with the same moving-cube norm and lag-one connected
 autocorrelation.  Thus the changing family now has a literal same-object
 relative-loss inequality; the margin is still scale-dependent.
 
+`changingNomeMovingCube_relative_loss_global` at `:171--191` rewrites the
+same inequality through `DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_eq_global`.
+Its lag-one term is therefore the global adaptive Markov coefficient of the
+same embedded completed vector, not a separately chosen operator.
+
 ## Verification
 
 The focused command was:
