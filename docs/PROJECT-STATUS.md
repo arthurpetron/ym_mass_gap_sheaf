@@ -286,6 +286,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Gap -> dimensionless log-mass branch arrow
                                        [x] Dimensionless -> fixed-spacing rate calibration arrow
                                        [x] Fixed-carrier vanishing-spacing ceiling obstruction
+                                       [x] Exact changing-nome reciprocal margin law / band compiler
+                                       [x] Any inhabited spacing-to-zero band forces denominator growth
                                        [ ] Changing-family instantiation / same-theory bridge
              |                              v
              v                         [ ] EVERY-state decay
