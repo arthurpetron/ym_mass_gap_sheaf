@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: explicit width-one auxiliary norm floor (2026-09-25 UTC)
+## Current increment: no schedule rescues the computed two-step rate (2026-09-25 UTC)
+
+`no_width_uniform_computed_twoStepRate_schedule` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoStepRateWidthObstruction.lean:173--232`
+extends the fixed-nome width obstruction to every constructive nome schedule
+with explicit witnesses `0 < nome width < 1`.  For any proposed rational
+`0 ≤ q < 1`, the existing width-only `mixFraction` estimate selects an
+explicit violating width and proves `q < twoStepRate` there.  Therefore tuning
+the coupling as the width changes cannot make the current computed `mixRate^2`
+certificate spacing-uniform.  This is a route-pruning result only: it does not
+bound the actual transfer operator or close spatial control, changing-family
+survival, continuum/QFT, physical mass, or Clay.  The focused safe check passed
+with only `{propext, Quot.sound}` and no `sorryAx`.
+
+See `audits/AUDIT-WILSON-TWO-STEP-RATE-SCHEDULE-2026-09-25.md`.
+
+## Previous increment: explicit width-one auxiliary norm floor (2026-09-25 UTC)
 
 `fringeTestNormFloor`, `fringeTestNormFloor_positive`, and
 `fringeTest_norm_lower` in

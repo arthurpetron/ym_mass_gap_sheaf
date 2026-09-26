@@ -989,6 +989,16 @@ remains open; extending this candidate normalization alone cannot supply it.
   the computed fixed-width rate as B04's uniform certificate; it does not
   refute the actual transfer operator. The next frontier remains a genuinely
   spatially/spacing-uniform same-object estimate.
+- New schedule-level checked obstruction:
+  `BF4ExactSlabFixedSpatialTwoStepRateWidthObstruction.no_width_uniform_computed_twoStepRate_schedule`
+  (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoStepRateWidthObstruction.lean:173`)
+  proves the same failure for every constructive nome schedule
+  `0 < nome width < 1`: coupling retuning cannot make this computed
+  `mixRate^2` uniformly contractive over growing width.  This is only a
+  route-pruning theorem about the displayed scalar certificate; the actual
+  transfer operator, spatial/spacing control, changing-family survival,
+  continuum, physical mass and Clay nodes remain open.  Evidence:
+  `audits/AUDIT-WILSON-TWO-STEP-RATE-SCHEDULE-2026-09-25.md`.
 - New checked same-carrier compiler: `BF4WilsonAllNomeDyadicRelativeSurvival`
   consumes the actual padded dyadic-square centered loss and norm floor. Its
   `dyadic_response_floor_of_relative_energy` (`:124`) returns a positive
@@ -1164,3 +1174,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 87 | 2026-09-25 | Added a constructive presheaf natural transformation for the inhabited anchor/geometric ray-capacity branch. An explicit constancy field makes scale evaluation natural and preserves the positive cofinal capacity delta; the adaptive transition-product extension and all changing-family/continuum/Clay nodes remain open. |
 | 1 / 88 | 2026-09-25 | Joined the anchor cutoff-zero finite capacity margin with its routed conditional-transition product and exposed the pair as a natural transformation across the constant scale presheaf. This is a finite cutoff-zero witness only; no cofinal transition-product, changing-family, continuum/QFT or Clay node changes status. |
 | 1 / 89 | 2026-09-25 | Packaged the finite-linear restricted ray capacity and routed conditional-transition product at every cutoff as a whole scale-indexed family in a constant presheaf, retaining the anchor producer and explicit cutoff bookkeeping. This remains cutoff-dependent finite data; no cofinal, changing-family, continuum/QFT or Clay node changes status. |
+| 1 / 90 | 2026-09-25 | Generalized the computed `mixRate^2` width obstruction to every constructive nome schedule. Coupling retuning cannot supply the missing spacing-uniform certificate; the actual transfer operator and all continuum/Clay nodes remain open. No chart marker changed. |

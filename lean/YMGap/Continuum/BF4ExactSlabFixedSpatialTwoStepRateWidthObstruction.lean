@@ -160,6 +160,78 @@ theorem no_width_uniform_computed_twoStepRate {w : Q'}
   exact Int.not_lt.mpr
     (hbound (violatingWidth r) (Nat.succ_pos _)) htwo
 
+/-! The preceding obstruction is pointwise in the nome.  The next theorem
+extends it to an arbitrary constructive nome schedule: varying the coupling
+with the spatial width cannot repair this particular `mixRate^2` certificate.
+The proof uses only the schedule's displayed positivity/window witnesses and
+the width-only bound on `mixFraction`; it does not identify the computed rate
+with the actual transfer operator. -/
+
+/-- The existing computed two-step rate has no contraction constant below one
+uniformly along any admissible nome schedule.  This is a route obstruction,
+not a statement about a stronger transfer estimate or the Yang--Mills theory. -/
+theorem no_width_uniform_computed_twoStepRate_schedule
+    (nome : Nat → Q')
+    (hnome0 : ∀ width, (0 : Q') < nome width)
+    (hnome1 : ∀ width, nome width < (1 : Q'))
+    (q : Q') (hq0 : (0 : Q') ≤ q) (hq1 : q < (1 : Q')) :
+    ¬ (∀ width, 0 < width →
+      twoStepRate (hnome0 width) (hnome1 width) width ≤ q) := by
+  intro hbound
+  let r : Q' := HalfPow.half * ((1 : Q') + q)
+  have hr1 : r < (1 : Q') := by
+    exact midpoint_lt_one hq1
+  have hrpos : (0 : Q') < r := by
+    exact Q'.mul_pos (by decide) (Q'.pos_add_nonneg (by decide) hq0)
+  let e : Q' := HalfPow.half * ((1 : Q') + -r)
+  have her : (0 : Q') < e := by
+    exact ExpNeg.half_mul_pos _ (ClusteringImpliesGap.sub_pos_of_lt hr1)
+  let width : Nat := widthModulus e + 1
+  have hfrac : mixFraction (hnome0 width) (hnome1 width) width ≤ e :=
+    mixFraction_le_epsilon (hnome0 width) (hnome1 width) e her width
+      (Nat.le_succ _)
+  have hmix : r < mixRate (hnome0 width) (hnome1 width) width := by
+    apply Int.lt_of_not_ge
+    intro hmr
+    have hsum : (1 : Q') ≤ r + mixFraction (hnome0 width) (hnome1 width) width := by
+      have hc :
+          mixRate (hnome0 width) (hnome1 width) width +
+              mixFraction (hnome0 width) (hnome1 width) width ≈ 1 :=
+        RingNormaliser.poly_identity_of_normal_eq
+          (.add (.add (.const 1) (.neg (.var 0))) (.var 0)) (.const 1)
+          (by decide)
+          (fun _ => mixFraction (hnome0 width) (hnome1 width) width)
+      exact Q'.le_trans' _ _ _ (Q'.ge_of_eqv hc)
+        (Q'.add_le_add_right _ _ _ hmr)
+    have hbad : (1 : Q') + -r ≤ e :=
+      Q'.le_trans' _ _ _ (Q'.sub_le_of_le_add hsum) hfrac
+    have hlt : e < (1 : Q') + -r := ClusteringImpliesGap.lt_of_lt_of_le
+      (ClusteringImpliesGap.mul_lt_mul_of_pos_right
+        (ClusteringImpliesGap.sub_pos_of_lt hr1)
+        (by decide : HalfPow.half < (1 : Q')))
+      (Q'.le_of_eqv (Q'.one_mul_eqv _))
+    exact Int.not_lt.mpr hbad hlt
+  have hmixpos : (0 : Q') < mixRate (hnome0 width) (hnome1 width) width :=
+    ClusteringImpliesGap.lt_of_lt_of_le hrpos (Q'.le_of_lt hmix)
+  have hrr : q < r * r := by
+    exact midpoint_sq_gt hq1
+  have hleft : r * r <
+      mixRate (hnome0 width) (hnome1 width) width * r :=
+    ClusteringImpliesGap.mul_lt_mul_of_pos_right hrpos hmix
+  have hright :
+      mixRate (hnome0 width) (hnome1 width) width * r <
+        mixRate (hnome0 width) (hnome1 width) width *
+          mixRate (hnome0 width) (hnome1 width) width :=
+    Q'.mul_lt_mul_of_pos_left hmixpos hmix
+  have htwo : q < twoStepRate (hnome0 width) (hnome1 width) width := by
+    have hsq : r * r <
+        twoStepRate (hnome0 width) (hnome1 width) width := by
+      exact ClusteringImpliesGap.lt_of_lt_of_le hleft (Q'.le_of_lt hright)
+    exact ClusteringImpliesGap.lt_of_lt_of_le hrr (Q'.le_of_lt hsq)
+  exact Int.not_lt.mpr
+    (hbound width (Nat.succ_pos _)) htwo
+
 end YMGap.Continuum.BF4ExactSlabFixedSpatialTwoStepRateWidthObstruction
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTwoStepRateWidthObstruction.no_width_uniform_computed_twoStepRate
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialTwoStepRateWidthObstruction.no_width_uniform_computed_twoStepRate_schedule

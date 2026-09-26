@@ -37,6 +37,22 @@ the focused check has only `{propext, Quot.sound}`.  This is a fixed-width
 auxiliary-polynomial producer, not a gauge-invariant or changing-scale
 excitation, and it does not close A03.
 
+### New schedule-level rate obstruction (2026-09-25 UTC)
+
+`BF4ExactSlabFixedSpatialTwoStepRateWidthObstruction.no_width_uniform_computed_twoStepRate_schedule`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTwoStepRateWidthObstruction.lean:173--232`)
+extends the existing fixed-nome width obstruction to every constructive nome
+schedule `nome : Nat → Q'` with explicit `0 < nome width < 1` witnesses.  For
+each proposed `0 ≤ q < 1`, the width-only estimate
+`mixFraction ≤ (1/32)^width` supplies an explicit violating width and proves
+`q < twoStepRate` there.  Thus retuning the coupling with width cannot make the
+current computed `mixRate^2` certificate spacing-uniform.  This is a useful
+route-pruning theorem, not an obstruction to the actual transfer operator: the
+positive spatial/spacing node remains open and now explicitly requires a new
+SAME-operator estimate rather than parameter tuning.  The focused check stayed
+within `{propext, Quot.sound}`; see
+`audits/AUDIT-WILSON-TWO-STEP-RATE-SCHEDULE-2026-09-25.md`.
+
 ### External certificate-method transfer (2026-09-25 UTC)
 
 The recent nine-loop six-gluon computation is not a Clay-theory input: it is
