@@ -24,6 +24,7 @@ import YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
 namespace YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 
 set_option autoImplicit false
+set_option maxRecDepth 100000
 
 open YMGap.Constructive
 open YMGap.Constructive.CReal
@@ -51,6 +52,8 @@ open YMGap.Continuum.BF4WilsonSpatialUnionResolvent
 open YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
 open YMGap.Continuum.BF4WilsonSpatialUnionRelaxation
   (mixed_correlator_sq_decay)
+open YMGap.Continuum.BF4WilsonSpatialUnionResponseLower
+  (unitExcitation_even_lower)
 open YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation
   (evenOrbitResidual evenOrbitResidual_strict_form_bound)
 open YMGap.Continuum.BF4WilsonSpatialUnionBilinear
@@ -1014,6 +1017,25 @@ structure CanonicalProbeData
   twoStep_intertwines :
     J.map (T 2 (R unitExcitation)) = P.op.T (P.op.T vector)
 
+/-! The normalized unit excitation has a sharper nontriviality payload than
+    the resolvent probe: its current two-step response already carries the
+    explicit positive `rayleighFloor`. -/
+
+structure CanonicalUnitProbeData
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    (P : WilsonTimeTranslationPin W)
+    (J : CurrentCarrierBridge P) : Type 2 where
+  vector : GNSCompletionSpace W.toGNSData
+  vacuum_orthogonal :
+    W.toGNSData.cinnerCompl vector P.op.vacuum = RCzero
+  nonzero : vector ≠ embedV W.toGNSData W.toGNSData.zero
+  twoStep_response_floor :
+    RCle (Quotient.mk crealSetoid (ofQ' rayleighFloor))
+      (W.toGNSData.cinnerCompl
+        (P.op.T (P.op.T vector)) vector)
+
 namespace CurrentCarrierBridge
 
 variable
@@ -1264,6 +1286,53 @@ theorem canonicalProbe_twoStep_form_bound
   rw [J.form_preserving (R unitExcitation) (R unitExcitation)]
   rw [hsym]
   exact hgap
+
+/-! ## The transported unit-excitation response -/
+
+/-- The normalized current unit excitation remains in the canonical vacuum
+complement under the named bridge. -/
+theorem canonicalUnitProbe_vacuum_orthogonal
+    (J : CurrentCarrierBridge P) :
+    W.toGNSData.cinnerCompl (J.map unitExcitation) P.op.vacuum = RCzero :=
+  J.image_vacuum_orthogonal unitExcitation_orthogonal
+
+/-- Exact form preservation makes the transported normalized excitation
+nonzero; no quotient representative is selected. -/
+theorem canonicalUnitProbe_ne_zero
+    (J : CurrentCarrierBridge P) :
+    J.map unitExcitation ≠ embedV W.toGNSData W.toGNSData.zero := by
+  intro hzero
+  apply unitExcitation_ne_zero
+  apply J.map_injective
+  rw [hzero, J.map_zero]
+
+/-- The canonical unit excitation retains the explicit positive current
+two-step response floor on the same transferred carrier. -/
+theorem canonicalUnitProbe_twoStep_response_floor
+    (J : CurrentCarrierBridge P) :
+    RCle (Quotient.mk crealSetoid (ofQ' rayleighFloor))
+      (W.toGNSData.cinnerCompl
+        (P.op.T (P.op.T (J.map unitExcitation)))
+        (J.map unitExcitation)) := by
+  have hsym :
+      B (T 2 unitExcitation) unitExcitation =
+        B unitExcitation (T 2 unitExcitation) :=
+    completedInner_symm nome_pos nome_lt_one hsmall hd hs
+      (T 2 unitExcitation) unitExcitation
+  rw [← J.twoStep_intertwines unitExcitation]
+  rw [J.form_preserving (T 2 unitExcitation) unitExcitation]
+  rw [hsym]
+  exact unitExcitation_even_lower 1
+
+/-- Package the transported unit excitation as the minimal canonical
+nontriviality witness: vacuum orthogonality, nonzero-ness, and a positive
+same-object response floor all refer to one canonical vector. -/
+def canonicalUnitProbe
+    (J : CurrentCarrierBridge P) : CanonicalUnitProbeData P J where
+  vector := J.map unitExcitation
+  vacuum_orthogonal := J.canonicalUnitProbe_vacuum_orthogonal
+  nonzero := J.canonicalUnitProbe_ne_zero
+  twoStep_response_floor := J.canonicalUnitProbe_twoStep_response_floor
 
 end CurrentCarrierBridge
 
@@ -1598,3 +1667,7 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_twoStepCorrelation_eq_current
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_twoStep_sq_decay
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalProbe_twoStep_form_bound
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_vacuum_orthogonal
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_ne_zero
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_response_floor
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe

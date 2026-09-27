@@ -13,6 +13,11 @@ with the same axiom set.  A fixed-nome dynamic-family witness and scheduled
 same-object RC channel are now constructed separately; this is an explicit
 obstruction lane, not a changing-coupling family.  The generic constant-margin
 no-go now proves that this fixed-carrier family admits no physical-rate band.
+Latest proof-state increment (2026-09-27 UTC): the named current-to-canonical
+bridge now transports the normalized `unitExcitation` into a single canonical
+GNS vector with vacuum orthogonality, nonzero-ness, and the explicit positive
+`rayleighFloor` two-step response. This is conditional on the bridge datum;
+the canonical range section and every continuum/Clay endpoint remain open.
 Latest continuation checkpoint (2026-09-27 UTC): the correlated same-edge
 local-producer compiler is now named by `correlatedCapacityDebtProducer` and
 has a checked same-carrier adapter

@@ -65738,6 +65738,25 @@ refactored correlated handoff use only `{propext, Quot.sound}` and no
 `sorryAx`.  Projective/OS, reconstruction, continuum/QFT, physical mass,
 all-group, and Clay inputs remain explicit and uninhabited.
 
+## 249. Transport the normalized unit excitation into the canonical GNS image (2026-09-27)
+
+`CanonicalUnitProbeData` and
+`CurrentCarrierBridge.canonicalUnitProbe` now package the existing normalized
+`unitExcitation` after transport through the named current-to-canonical bridge.
+The package records, for one canonical vector, vacuum orthogonality,
+nonzero-ness, and the explicit positive `rayleighFloor` lower bound for its
+same-object two-step response. The response proof uses the existing exact
+current-carrier bound `unitExcitation_even_lower 1`; no quotient representative
+or new carrier is selected.
+
+This is a conditional GNS-image nontriviality witness: the
+`CurrentCarrierBridge` itself remains an explicit, currently uninhabited
+OS/GNS carrier certificate. The canonical range section, completed all-vector
+gap, projective/OS realization, continuum/QFT construction, physical mass
+calibration, every-group theorem, and Clay result remain open. The
+dependency-complete monitored target passed in 2,602 jobs; the new declarations
+use only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A

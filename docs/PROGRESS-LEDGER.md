@@ -4,6 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: transport the normalized unit excitation into the canonical GNS image (2026-09-27 UTC)
+
+`CanonicalUnitProbeData`,
+`CurrentCarrierBridge.canonicalUnitProbe_vacuum_orthogonal`,
+`CurrentCarrierBridge.canonicalUnitProbe_ne_zero`,
+`CurrentCarrierBridge.canonicalUnitProbe_twoStep_response_floor`, and
+`CurrentCarrierBridge.canonicalUnitProbe`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1024,
+:1294--1335`) package the existing normalized `unitExcitation` after transport
+through the named current-to-canonical bridge. One canonical vector now
+retains vacuum orthogonality, nonzero-ness, and the explicit positive
+`rayleighFloor` two-step response, with the last field inherited from
+`unitExcitation_even_lower 1` on the same current carrier. The bridge remains
+an explicit conditional certificate: no canonical range section, all-vector
+canonical gap, OS/GNS realization, continuum/QFT, physical-mass, every-group,
+or Clay endpoint is constructed. The dependency-complete monitored target
+passed in 2,602 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## Current increment: exact-rate certificate contracts into the semantic handoff (2026-09-27 UTC)
 
 `MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofExactRateCutoffRemoval`

@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Latest canonical-image nontriviality transport (2026-09-27):**
+`CanonicalUnitProbeData` and `CurrentCarrierBridge.canonicalUnitProbe` now
+transport the already normalized `unitExcitation` into the named canonical
+GNS image, retaining one-vector vacuum orthogonality, nonzero-ness, and the
+explicit positive `rayleighFloor` two-step response. This remains conditional
+on the uninhabited `CurrentCarrierBridge`; the canonical range section,
+completed all-vector gap, OS/GNS realization, continuum/QFT, physical mass,
+every-group, and Clay nodes remain open. The dependency-complete target
+passed in 2,602 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+
 **Latest checked repaired-family path (2026-09-26):**
 `BF4PhysicalChangingNomeExplicitMarginLaw` now provides a carrier-normalized
 vanishing-spacing schedule, its same-nome/same-gap completed family, the

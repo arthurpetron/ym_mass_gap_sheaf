@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Normalized unit excitation transported into the canonical GNS image (2026-09-27 UTC)
+
+- **declarations:** `CanonicalUnitProbeData`,
+  `CurrentCarrierBridge.canonicalUnitProbe_vacuum_orthogonal`,
+  `CurrentCarrierBridge.canonicalUnitProbe_ne_zero`,
+  `CurrentCarrierBridge.canonicalUnitProbe_twoStep_response_floor`, and
+  `CurrentCarrierBridge.canonicalUnitProbe` in
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1024,
+  :1294--1335`.
+- **result:** the existing normalized `unitExcitation` is transported through
+  one named current-to-canonical bridge and packaged as one canonical vector
+  with vacuum orthogonality, nonzero-ness, and the explicit positive
+  `rayleighFloor` lower bound for its same-object two-step response.
+- **scope:** this remains conditional on the explicit `CurrentCarrierBridge`;
+  no range section, canonical all-vector gap, OS/GNS realization,
+  continuum/QFT, physical-mass, every-group, or Clay theorem is constructed.
+- **verification:** dependency-complete monitored target
+  `+YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge:olean` passed in
+  2,602 jobs. The new declarations report only `{propext, Quot.sound}` and
+  no `sorryAx`, classical axiom, `native_decide`, or custom axiom.
+
 ## Exact-rate certificate contracts into the semantic handoff (2026-09-27 UTC)
 
 - **declaration:** `toContinuumHandoff_ofExactRateCutoffRemoval` in
