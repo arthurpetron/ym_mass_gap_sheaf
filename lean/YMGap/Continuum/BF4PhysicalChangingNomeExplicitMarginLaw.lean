@@ -768,6 +768,72 @@ structure ChangingNomeCarrierNormalizedCofinalGapCalibration : Type 1 where
     ExplicitMarginDenominatorBand.finitePrefixGapCeiling
         changingNomeCarrierNormalizedDynamicFamily bound ≤ ceiling
 
+/-! The cofinal-prefix presentation is equivalent to a direct pointwise
+    physical-gap band.  This is a structural recoding only: it neither proves
+    either all-scale estimate nor changes the completed carrier. -/
+
+structure ChangingNomeCarrierNormalizedPhysicalGapBounds : Type 1 where
+  floor : Q'
+  floor_pos : (0 : Q') < floor
+  ceiling : Q'
+  ceiling_pos : (0 : Q') < ceiling
+  floor_le_gap : ∀ scale,
+    floor ≤ changingNomeCarrierNormalizedDynamicFamily.physicalGap scale
+  gap_le_ceiling : ∀ scale,
+    changingNomeCarrierNormalizedDynamicFamily.physicalGap scale ≤ ceiling
+
+def ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalGapBounds
+    (calibration : ChangingNomeCarrierNormalizedCofinalGapCalibration) :
+    ChangingNomeCarrierNormalizedPhysicalGapBounds where
+  floor := calibration.floor
+  floor_pos := calibration.floor_pos
+  ceiling := calibration.ceiling
+  ceiling_pos := calibration.ceiling_pos
+  floor_le_gap := by
+    intro scale
+    exact Q'.le_trans' _ _ _
+      (calibration.floor_le_prefix scale)
+      (YMGap.Continuum.WindowedSpacingFloor.finMin_le
+        changingNomeCarrierNormalizedDynamicFamily.physicalGap scale scale
+        (Nat.le_refl scale))
+  gap_le_ceiling := by
+    intro scale
+    exact Q'.le_trans' _ _ _
+      (Q'.le_runningMax
+        changingNomeCarrierNormalizedDynamicFamily.physicalGap scale)
+      (calibration.prefix_ceiling_le scale)
+
+private theorem physicalGap_floor_le_finitePrefixGapFloor
+    (floor : Q')
+    (hfloor : ∀ scale,
+      floor ≤ changingNomeCarrierNormalizedDynamicFamily.physicalGap scale) :
+    ∀ bound,
+      floor ≤
+        ExplicitMarginDenominatorBand.finitePrefixGapFloor
+          changingNomeCarrierNormalizedDynamicFamily bound
+  | 0 => hfloor 0
+  | bound + 1 => by
+      unfold ExplicitMarginDenominatorBand.finitePrefixGapFloor
+        YMGap.Continuum.WindowedSpacingFloor.finMin
+      exact (Q'.le_min'_iff _ _ _).mpr
+        ⟨hfloor (bound + 1),
+          physicalGap_floor_le_finitePrefixGapFloor floor hfloor bound⟩
+
+def ChangingNomeCarrierNormalizedPhysicalGapBounds.toCofinalGapCalibration
+    (bounds : ChangingNomeCarrierNormalizedPhysicalGapBounds) :
+    ChangingNomeCarrierNormalizedCofinalGapCalibration where
+  floor := bounds.floor
+  floor_pos := bounds.floor_pos
+  ceiling := bounds.ceiling
+  ceiling_pos := bounds.ceiling_pos
+  floor_le_prefix :=
+    physicalGap_floor_le_finitePrefixGapFloor bounds.floor
+      bounds.floor_le_gap
+  prefix_ceiling_le := by
+    intro bound
+    unfold ExplicitMarginDenominatorBand.finitePrefixGapCeiling
+    exact Q'.runningMax_le_of_le bounds.gap_le_ceiling bound
+
 /-! The lower raw denominator inequality is not an additional cofinal
     estimate.  The floor field already bounds the same completed family's
     physical gap, and the exact reciprocal law then contracts that bound to
@@ -1075,6 +1141,8 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedFinitePrefixPhysicalRateBand
 #print axioms changingNomeCarrierNormalizedFinitePrefixGapFloor_succ_le
 #print axioms changingNomeCarrierNormalizedFinitePrefixGapCeiling_le_succ
+#print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalGapBounds
+#print axioms ChangingNomeCarrierNormalizedPhysicalGapBounds.toCofinalGapCalibration
 #print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.lowerDenominator
 #print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalRateBand
 #print axioms changingNomeCarrierNormalizedExplicitMarginInverseLaw

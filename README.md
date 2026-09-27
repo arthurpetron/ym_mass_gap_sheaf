@@ -43,6 +43,15 @@ cofinal calibration witness. The endpoint moduli, cutoff removal, OS/GNS/QFT
 passage, physical mass, every-group construction, and Clay theorem remain open
 by design.
 
+**Latest calibration-shape contraction (2026-09-26):**
+`ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalGapBounds` and
+`ChangingNomeCarrierNormalizedPhysicalGapBounds.toCofinalGapCalibration` give
+an exact two-way recoding between the repaired family's finite-prefix
+cofinal-calibration presentation and direct pointwise lower/upper bounds on
+the same physical-gap stream. This is certificate-shape progress only: the
+all-scale bounds remain uninhabited, so no physical-rate, continuum/QFT,
+physical-mass, every-group, or Clay conclusion follows.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly
