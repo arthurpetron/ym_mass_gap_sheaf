@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## Actual local completed auxiliary and covariance producer (2026-09-27 UTC)
+
+- **constructed witnesses:** `LocalCauchyRepresentative.LocalRep` retains an
+  actual Cauchy representative, termwise literal support, and SAME-class pin.
+  Its conditional constructor uses the existing explicit diagonal/modulus.
+  `LocalCauchyCone.auxiliaryRep` builds the ACTUAL second coupled component
+  at n+1 inside radius 16*n. This does not assert a converse for arbitrary
+  operationally localized completed vectors.
+- **completed estimate:** `CompletedLocalSupportCoercivity.completed_local_coercivity`
+  passes the proved dense local estimate through original centering and closed
+  CReal order. `ConeSize.grow_length_le` supplies the extent-independent
+  `25^r*seedSize` budget. `LocalAuxiliaryCoercivity.auxiliary_reverse_energy`
+  then constructs the strict coefficient at the actual balanced auxiliary,
+  using the existing 625 estimate on the reversed original physical schedule.
+- **actual consumer:** `LocalChebyshevCovariance.finiteCovariance_sq_bound`
+  retains the original covariance, original partition and both variances.
+  The factor depends on nome, seed size and degree, not extent or late cutoff.
+  It has no unsupplied auxiliary coercivity or denominator-positivity premise.
+- **open:** useful degree/cone and changing-coupling control; c_n>2 for each n
+  alone is NOT decay of its reciprocal Chebyshev factor as n grows. All-state
+  scaling control, thermodynamic/OS/QFT, physical Hamiltonian mass, nontrivial
+  continuum survival, every compact simple group and Clay remain open.
+- **verification:** eight focused serialized one-worker/20 GiB checks, all 36
+  printed gates within {propext, Quot.sound}; parallel Sol/Luna work and review.
+  No new sorry, axiom, noncomputable input, canonical field or chart-marker
+  change. No root/full-tree build, audit or guard. Evidence:
+  `audits/AUDIT-LOCAL-CHEBYSHEV-PRODUCER-2026-09-27.md`.
+
 ## Actual local conditional Dirichlet bound with support-only cost (2026-09-27 UTC)
 
 - **proved:** `SU2QuaternionWeightedHaarProjectionMinimum.weighted_fluctuation_le_difference`
@@ -14,8 +42,9 @@
   original-centered polynomial with literal support of size at most s.
   `LocalSupportHaarVariance` supplies the matching norm upper estimate; exact
   schedule summation removes the shared exterior mass without division by it.
-- **open:** literal-local Cauchy realization of completed auxiliary states,
-  growing-support/changing-coupling control, arbitrary completed-state
+- **open:** the subsequent entry above constructs literal-local Cauchy data
+  for the actual auxiliary orbit; growing-support/changing-coupling control,
+  arbitrary completed-state
   improvement, thermodynamic/scaling/OS/QFT, physical Hamiltonian mass,
   nontrivial continuum survival, every compact simple group and Clay.
 - **verification:** seven focused serialized one-worker/20 GiB checks, all 29

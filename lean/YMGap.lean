@@ -5485,6 +5485,13 @@ import YMGap.Continuum.BF4ExactSlabLocalSupportFluctuation
 import YMGap.Continuum.BF4ExactSlabLocalSupportHaarVariance
 import YMGap.Continuum.BF4ExactSlabLocalSupportResidualFloor
 import YMGap.Continuum.BF4ExactSlabLocalSupportCoercivity
+-- Actual local completed auxiliary and covariance, with degree-dependent cost.
+import YMGap.Continuum.BF4ExactSlabCompletedLocalSupportCoercivity
+import YMGap.Continuum.BF4ExactSlabLocalCauchyRepresentative
+import YMGap.Continuum.BF4ExactSlabLocalCauchyCone
+import YMGap.Continuum.BF4ExactSlabConeSize
+import YMGap.Continuum.BF4ExactSlabLocalAuxiliaryCoercivity
+import YMGap.Continuum.BF4ExactSlabLocalChebyshevCovariance
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

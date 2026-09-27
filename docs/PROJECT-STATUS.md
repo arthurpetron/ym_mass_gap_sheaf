@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting completed local covariance producer (2026-09-27 UTC; chart markers unchanged):
+Constructed literal-local Cauchy representatives put the ACTUAL Chebyshev
+auxiliary inside radius 16*n and its balanced output inside radius 16*(n+1).
+The local completed coercivity bound supplies the reverse-energy input and
+the original covariance bound, preserving both original variances. Its
+factor is extent/late-cutoff independent at each fixed degree, but the
+cone budget grows with degree; asymptotic decay is not proved. All 36 gates
+passed eight focused checks. A03, physical scaling and same-theory OS/QFT/
+every-group Clay remain open. Evidence:
+`audits/AUDIT-LOCAL-CHEBYSHEV-PRODUCER-2026-09-27.md`.
+
 Verified supporting local conditional coercivity (2026-09-27 UTC; chart markers unchanged):
 The ACTUAL completed conditional residuals control the original norm of each
 original-centered polynomial on at most s literal links, with positive factor

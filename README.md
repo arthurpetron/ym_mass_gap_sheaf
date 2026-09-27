@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Local completed auxiliary and covariance producer (2026-09-27):** explicit
+local Cauchy representatives now carry the support-only estimate to the ACTUAL
+completed Chebyshev auxiliary. The original covariance is bounded by its two
+original variances with an explicit factor independent of ambient volume and
+late cutoff at each fixed degree. No auxiliary coercivity premise remains.
+The factor still depends on a rapidly growing cone budget; long-distance
+decay, changing-coupling control and the continuum gap are not proved.
+See the [proof and quantitative limitation](audits/AUDIT-LOCAL-CHEBYSHEV-PRODUCER-2026-09-27.md).
+
 **Actual conditional energy with support-only cost (2026-09-27):** for every
 original-centered polynomial on at most s literal links, the actual completed
 conditional residuals now control its original norm with positive coefficient

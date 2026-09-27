@@ -1,5 +1,11 @@
 # Original conditional Dirichlet coercivity with support-only cost
 
+Historical checkpoint: `bb6bbbd`. The subsequent
+[completed local auxiliary construction](AUDIT-LOCAL-CHEBYSHEV-PRODUCER-2026-09-27.md)
+supplies literal-local representatives for the actual Chebyshev orbit and
+passes the estimate to its original covariance consumer. Its degree-dependent
+cost does not prove asymptotic decay or a scaling-family bound.
+
 ## Checked result
 
 For 0<w<1, every finite extent, K>=headCutoff(w), and every original-law

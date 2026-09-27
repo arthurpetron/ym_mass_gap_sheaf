@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual local conditional energy without all-volume cost (2026-09-27 UTC)
+## Current increment: actual local completed auxiliary supplies covariance (2026-09-27 UTC)
+
+The support-only coercivity theorem now applies to the ACTUAL completed
+Chebyshev auxiliary, through constructed literal-local Cauchy witnesses and
+the exact original color-layer pruning. Its second component at degree n+1
+has radius 16*n; the balanced output has radius 16*(n+1). The proved cone
+budget is `25^(16*(n+1))*seedSize`. Composing the local completed estimate
+with the 625 reverse-loss theorem supplies c_n>2 and the original finite
+covariance consumer without an analytic auxiliary premise.
+
+The returned covariance factor depends on nome, seed size and degree, not
+extent or late cutoff. This removes the local-completion seam; it does not
+show asymptotic decay because c_n itself depends on degree. Useful cone/
+changing-coupling control and same-theory scaling/OS/QFT/every-group Clay
+remain open. All 36 gates passed eight serialized one-worker/20 GiB checks,
+with parallel Sol/Luna proof work and independent scope review. No displayed
+node closes; no broad progress-metric/guard run. Evidence:
+`audits/AUDIT-LOCAL-CHEBYSHEV-PRODUCER-2026-09-27.md`.
+
+## Earlier increment: actual local conditional energy without all-volume cost (2026-09-27 UTC)
 
 `dense_local_coercivity` constructs the positive support-only coefficient for
 the SAME original norm and completed conditional residual sum, on embedded
@@ -14,8 +33,9 @@ bound. The common detached mass matches the local norm upper estimate and
 cancels division-free after exact physical schedule summation. This closes
 the dense local residual estimate, not just an assumed analytic interface.
 
-The coefficient depends on nome and support size. Literal-local realization
-of the completed auxiliary, growing-cone/changing-coupling control and the
+The coefficient depends on nome and support size. The later result above
+constructs the completed auxiliary's literal-local realization; growing-cone/
+changing-coupling control and the
 same-theory continuum/OS/QFT/every-group target remain open. All 29 gates
 passed seven focused serialized one-worker/20 GiB checks; Sol and Luna proof
 work and independent review ran in parallel. No canonical node closes or

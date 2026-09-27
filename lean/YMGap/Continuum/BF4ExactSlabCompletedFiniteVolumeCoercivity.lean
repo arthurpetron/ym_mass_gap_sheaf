@@ -149,15 +149,17 @@ private theorem finalEnergyRep_pin (X : CauchyGNS F) :
   exact sumOn_rep (schedule extent) _ _ (fun i _ =>
     residualLimitRep_pin hw0 hw1 extent stage i X)
 
-/-- Complete the already-proved dense inequality for a representative whose
-terms are centered in the actual original full-action form. -/
-private theorem completed_of_termwise_centered (X : CauchyGNS F)
-    (hcenter : ∀ n, (F).B (X.seq n) U ≈ 0) :
+/-- Close any coefficient-parametric dense Dirichlet inequality along a
+supplied Cauchy representative. No center or support property is inferred:
+the caller supplies the SAME completed-carrier bound for every term. -/
+theorem completed_of_termwise_bound (delta : Q') (X : CauchyGNS F)
+    (hterms : ∀ n, CReal.RCle
+      (CReal.RCscale delta (normSq (embedV F (X.seq n))))
+      ((P).finalEnergy (schedule extent) (embedV F (X.seq n)))) :
     CReal.RCle
-      (CReal.RCscale (coercivity hw0 hw1 extent)
+      (CReal.RCscale delta
         (normSq (Quotient.mk (cauchySetoid F) X)))
       ((P).finalEnergy (schedule extent) (Quotient.mk (cauchySetoid F) X)) := by
-  let delta := coercivity hw0 hw1 extent
   let lhs : Nat → CReal := fun n =>
     CReal.mul (CReal.ofQ' delta) (inputRep hw0 hw1 extent stage X n)
   let rhs : Nat → CReal := fun n =>
@@ -174,7 +176,7 @@ private theorem completed_of_termwise_centered (X : CauchyGNS F)
       (fun i => residualLimitRep hw0 hw1 extent stage i X)
       (fun i _ => residualRep_converges hw0 hw1 extent stage i X)
   have hterm (n : Nat) : CReal.leEv (lhs n) (rhs n) := by
-    have h := dense_centered_coercivity hw0 hw1 K extent hK (X.seq n) (hcenter n)
+    have h := hterms n
     have he : (P).finalEnergy (schedule extent) (embedV F (X.seq n)) =
         Quotient.mk CReal.crealSetoid (rhs n) := by
       exact sumOn_rep (schedule extent) _ _ (fun i _ =>
@@ -191,6 +193,18 @@ private theorem completed_of_termwise_centered (X : CauchyGNS F)
           (fun i => residualLimitRep hw0 hw1 extent stage i X))) := hlim
   rw [← finalEnergyRep_pin hw0 hw1 extent stage X] at hrc
   exact hrc
+
+/-- Complete the already-proved dense inequality for a representative whose
+terms are centered in the actual original full-action form. -/
+private theorem completed_of_termwise_centered (X : CauchyGNS F)
+    (hcenter : ∀ n, (F).B (X.seq n) U ≈ 0) :
+    CReal.RCle
+      (CReal.RCscale (coercivity hw0 hw1 extent)
+        (normSq (Quotient.mk (cauchySetoid F) X)))
+      ((P).finalEnergy (schedule extent) (Quotient.mk (cauchySetoid F) X)) :=
+  completed_of_termwise_bound hw0 hw1 extent stage
+    (coercivity hw0 hw1 extent) X
+    (fun n => dense_centered_coercivity hw0 hw1 K extent hK (X.seq n) (hcenter n))
 
 /-- The genuine original-action finite-volume Dirichlet lower bound on all
 completed vectors orthogonal to the unnormalized original vacuum. -/
@@ -211,3 +225,4 @@ theorem completed_centered_coercivity (x : GNSCompletionSpace F)
 end YMGap.Continuum.BF4ExactSlabCompletedFiniteVolumeCoercivity
 
 #print axioms YMGap.Continuum.BF4ExactSlabCompletedFiniteVolumeCoercivity.completed_centered_coercivity
+#print axioms YMGap.Continuum.BF4ExactSlabCompletedFiniteVolumeCoercivity.completed_of_termwise_bound

@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Constructed local completed auxiliary and covariance producer (2026-09-27 UTC)
+
+The literal-local completion seam is closed for the ACTUAL Chebyshev orbit
+of an original local polynomial. `LocalCauchyCone.auxiliaryRep` constructs
+the second component at degree n+1 on radius 16*n, with explicit Cauchy data;
+its balanced output has radius 16*(n+1). Pruning retains only links in the
+input region, so one color layer costs one star expansion. No representative
+is chosen from an arbitrary quotient and no operational-to-literal converse
+is assumed. Original centering preserves literal support and the Cauchy modulus.
+
+`LocalAuxiliaryCoercivity` composes the completed local bound with the proved
+625 reverse-loss estimate, giving
+`c_n=2+(2/625)*supportRatio(w,25^(16*(n+1))*seedSize)>2`.
+`LocalChebyshevCovariance.finiteCovariance_sq_bound` constructs the original
+separated squared-covariance bound with factor `1/T_(n+1)(c_n-1)^2` and BOTH
+original diagonal variances. The factor has no extent or late-cutoff argument.
+It still depends on nome, initial support size and degree; no analytic
+reverse-energy premise remains for these actual local seeds.
+
+NEXT mathematical frontier: obtain quantitatively useful dependence on growing
+cones and changing coupling. Strict c_n>2 at each n does NOT establish
+T_(n+1)(c_n-1) growing without bound. Retain this as a checked baseline, not
+a long-distance decay proof. Prioritize a sharper SAME-action energy estimate
+or a verified obstruction to this comparison route over more wrappers around
+the now-constructed auxiliary. Same-theory thermodynamic/scaling/OS/QFT,
+physical Hamiltonian mass, nontrivial continuum survival and every-group Clay
+remain open; A03 and all displayed chart markers are unchanged.
+
+Eight focused serialized one-worker/20 GiB checks passed all 36 printed gates
+within {propext, Quot.sound}. Sol/Luna proof work and independent same-object
+review ran in parallel; no new hole or broad build/audit/guard was introduced.
+Evidence: `audits/AUDIT-LOCAL-CHEBYSHEV-PRODUCER-2026-09-27.md`.
+
 ### Actual conditional Dirichlet bound with support-only cost (2026-09-27 UTC)
 
 `BF4ExactSlabLocalSupportCoercivity.dense_local_coercivity` now proves
@@ -37,10 +70,10 @@ least squares, inverse Cauchy approximation and exact schedule summation
 compose the estimates before division; the detached mass disappears without
 an all-volume floor. The coefficient is independent of extent and late cutoff.
 
-NEXT: construct literal-local Cauchy representatives for the ACTUAL completed
-auxiliary states, preserving their computed cone, and pass this estimate
-through that completion. Then control the displayed support-size and nome
-costs on a justified scaling family. Operational `EightLayerCone.Localized`
+The previously next literal-local auxiliary construction and completion
+passage are now proved above for actual local seeds. The remaining task is
+control of the displayed support-size and nome costs on a justified scaling
+family. Operational `EightLayerCone.Localized`
 alone is not a proved literal-local representative. An arbitrary completed
 all-state improvement, thermodynamic/scaling/OS/QFT, physical Hamiltonian mass,
 nontrivial continuum survival and every-group Clay remain open.
