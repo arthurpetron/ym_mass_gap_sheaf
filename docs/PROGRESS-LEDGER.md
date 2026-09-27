@@ -30434,3 +30434,16 @@ The monitored source check reports only `{propext, Quot.sound}` for all four
 constructors and no `sorryAx`; the rate, transfer, finite approximation,
 projective, exact-rate, stationarity, continuum, physical-mass, every-group,
 and Clay inputs remain explicit.
+
+## Matched raw path accepts the dense-unit vacuum certificate (2026-09-27 UTC)
+
+Both matched routes now expose
+`toRawWilsonConnectedMassGapPath_ofDenseUnitVacuumPin`. Each consumes the
+stronger `WilsonDenseUnitVacuumPin` and delegates to the stationary raw-path
+consumer through its existing constructive `toStationaryVacuumPin` adapter.
+The completed family, same-object projective handoff, matrix coefficient,
+exact-rate, graph-norm, and uniform-floor indices are unchanged.
+
+The monitored source check reports only `{propext, Quot.sound}` for both
+constructors and no `sorryAx`; no vacuum, stationarity, continuum QFT,
+physical-mass, every-group, or Clay witness is manufactured.
