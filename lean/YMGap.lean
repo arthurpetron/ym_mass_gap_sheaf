@@ -5425,6 +5425,13 @@ import YMGap.Continuum.BF4ExactSlabStarConditionalProjection
 import YMGap.Continuum.SU2QuaternionConditionalVarianceReplica
 import YMGap.Continuum.BF4ExactSlabStarVarianceReplica
 import YMGap.Continuum.BF4ExactSlabStarPolynomialResidual
+-- Exact signed test-ray optimization on the original completed residual.
+-- Summed useful centered lower coercivity remains open.
+import YMGap.Continuum.RationalDualTestNormalization
+import YMGap.Continuum.RationalDualTestOptimization
+import YMGap.Continuum.BF4ExactSlabStarPolynomialResidualScaling
+import YMGap.Continuum.BF4ExactSlabStarNormalizedPolynomialTest
+import YMGap.Continuum.BF4ExactSlabStarOptimizedPolynomialTest
 -- Same-carrier reverse adjoint and positive sweep product; no accelerated rate.
 import YMGap.Continuum.GNSProjectionSweepAdjoint
 -- Coupled Chebyshev energy and actual same-carrier non-strict polynomial stability.
@@ -5433,6 +5440,9 @@ import YMGap.Continuum.GNSChebyshevEnergy
 import YMGap.Continuum.GNSChebyshevRecurrence
 import YMGap.Continuum.BF4ExactSlabFullActionScalar
 import YMGap.Continuum.BF4ExactSlabSweepChebyshev
+-- Scalar normalizing estimate and order-independent energy, not accelerated decay.
+import YMGap.Continuum.ChebyshevReciprocalPair
+import YMGap.Continuum.GNSProjectionSweepEnergyOrder
 -- Strict on explicitly free-centered inputs, not the whole vacuum complement.
 import YMGap.Continuum.BF4ExactSlabStarFreeCentering
 import YMGap.Continuum.BF4ExactSlabStarLocalInfluence

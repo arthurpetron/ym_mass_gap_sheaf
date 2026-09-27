@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting exact test-ray optimization (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabStarOptimizedPolynomialTest.optimizedGain_lower` now consumes
+the exact best rational scaling of one actual signed kernel test. The null
+branch is handled by the original form's Cauchy--Schwarz theorem. This is
+not optimization over all tests or a uniform centered coercivity estimate.
+Parallel scalar Chebyshev reciprocal normalization and fixed-state residual
+energy order invariance are checked. All 35 focused gates passed. Useful
+uniform summed gains, rescaled contraction, physical scaling and continuum/
+every-group Clay remain open. Evidence:
+`audits/AUDIT-ORIGINAL-DUAL-OPTIMIZATION-2026-09-27.md`.
+
 Verified supporting operator-polynomial stability (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabSweepChebyshev.coupled_two_norm` bounds every order of the
 actual `T_n(2*S* S-I)` by the original input norm. The proof uses a checked

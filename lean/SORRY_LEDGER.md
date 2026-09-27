@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## Exact original test-ray optimization and scalar normalization (2026-09-27 UTC)
+
+- **files:** `RationalDualTestNormalization.lean`,
+  `RationalDualTestOptimization.lean`,
+  `BF4ExactSlabStarPolynomialResidualScaling.lean`,
+  `BF4ExactSlabStarNormalizedPolynomialTest.lean`,
+  `BF4ExactSlabStarOptimizedPolynomialTest.lean`,
+  `ChebyshevReciprocalPair.lean`, `GNSProjectionSweepEnergyOrder.lean`,
+  all under `lean/YMGap/Continuum/`.
+- **proved:** actual residual homogeneity and exact rational dual quadratic;
+  total optimizer A/C for positive original cost C, zero for null C;
+  `pairValue_null` (`OptimizedPolynomialTest:70`), exact value (`:87`),
+  maximality among scalar multiples (`:110`) and SAME-completion lower
+  bound `optimizedGain_lower` (`:134`). The exact gain dominates the
+  regularized baseline (`:125`). Chebyshev `T_center` (`:74`), positivity
+  (`:123`) and reciprocal bound (`:165`) are scalar results. Energy-order
+  `finalEnergy_reverse` (`:55`) reorders residual tests on a fixed state,
+  not noncommuting sweep operators.
+- **residue:** useful uniform summed-test/original centered lower
+  coercivity, rescaled interval contraction, rational parameter calibration,
+  polynomial cone join and physical/continuum/every-group Clay obligations.
+  No new hole or analytic field. Existing Type-level Heron moduli provide
+  the proposed calibration index, but that calibration join is unproved.
+- **verification:** 35 gates passed seven focused serialized one-worker/
+  20 GiB checks within {propext, Quot.sound}. Sol contributed and independently
+  reviewed the original optimizer. No canonical field/chart change or full
+  audit. Evidence: `audits/AUDIT-ORIGINAL-DUAL-OPTIMIZATION-2026-09-27.md`.
+
 ## Actual completed Chebyshev energy and non-strict stability (2026-09-27 UTC)
 
 - **files:** `GNSChebyshevEnergy.lean`, `GNSChebyshevRecurrence.lean`,

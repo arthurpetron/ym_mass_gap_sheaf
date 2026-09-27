@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact original test-ray optimization checked (2026-09-27 UTC)
+
+`BF4ExactSlabStarOptimizedPolynomialTest` now computes the exact best
+rational scaling of the actual kernel test `t_i(p)`. For signed
+`A=B(f,t_i(p))` and cost `C=B(t_i(p),t_i(p))`, it returns A/C when C>0
+and zero otherwise. The null branch is justified by the original form's
+Cauchy--Schwarz theorem. `optimizedGain_lower` bounds the actual completed
+residual by this computed gain from below; `scaled_value_le_optimizedGain`
+proves maximality along the supplied test ray, NOT over all tests/states.
+This removes the arbitrary test-scale loss in the checked A/(1+C)
+regularization without substituting a coarse normalizer window.
+
+NEXT forward: choose and control original signed test families so their
+summed exact gains dominate the SAME globally centered norm with useful
+volume/cutoff/changing-coupling dependence. Scalar optimization supplies
+neither that frame/lower estimate nor physical scaling.
+
+In parallel, `ChebyshevReciprocalPair` proves the reciprocal-pair closed
+form, positivity and scalar normalization bound `1/T_n <= 2*s^n`;
+`GNSProjectionSweepEnergyOrder` proves that the residual ENERGY, not the
+noncommuting sweep, is unchanged by reversing its test order. NEXT backward:
+rescaled centered contraction and rational parameter calibration, then the
+polynomial cone/covariance join. An explicit Heron modulus already provides
+the finite calibration index; do not add a new analytic premise for it.
+The calibration itself is not yet proved. See the source-grounded note
+`audits/NOTE-RATIONAL-ACCELERATION-CALIBRATION-2026-09-27.md`.
+
+All 35 gates passed seven focused serialized one-worker/20 GiB checks.
+Independent Sol review confirmed the null branch, original carrier and
+inequality direction. No canonical field, analytic field or chart marker
+changed; no full-tree audit ran. Physical/continuum/every-group Clay remains
+open. Evidence: `audits/AUDIT-ORIGINAL-DUAL-OPTIMIZATION-2026-09-27.md`.
+
 ### Actual completed Chebyshev energy and stability checked (2026-09-27 UTC)
 
 The coupled recurrence `U'=T+XU`, `T'=XU'-U` now preserves

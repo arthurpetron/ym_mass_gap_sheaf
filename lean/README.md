@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Exact original polynomial test-ray optimization (2026-09-27 UTC):**
+`BF4ExactSlabStarOptimizedPolynomialTest` constructs the best rational
+scaling of each supplied actual conditional-kernel test, handles null cost
+constructively, and bounds the SAME completed residual energy from below.
+Parallel scalar Chebyshev normalization and residual-energy order invariance
+are checked. All 35 gates passed seven focused serialized checks within
+`{propext, Quot.sound}`. Useful summed-test lower coercivity, accelerated
+spatial/physical scaling and continuum/every-group Clay remain open.
+Evidence: `audits/AUDIT-ORIGINAL-DUAL-OPTIMIZATION-2026-09-27.md` at repository root.
+
 **Original completed operator-polynomial stability (2026-09-27 UTC):**
 `GNSChebyshevEnergy` and `GNSChebyshevRecurrence` prove a coupled quadratic
 invariant and the literal first-kind recurrence. `BF4ExactSlabFullActionScalar`
