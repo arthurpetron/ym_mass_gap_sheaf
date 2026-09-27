@@ -164,6 +164,37 @@ def ofUniformNormFloor
   graphNorm := graphNorm
   vacuumPin := vacuumPin
 
+/-- The raw capstone with its exact-rate branch factored into the smaller
+positive exact-log witness and an explicit identification of that witness rate
+with the variation-selected physical limit.  No rate identity is inferred:
+the `CReal.Equiv` is part of the constructor boundary. -/
+def ofUniformNormFloorAndPositiveExactLogGapWitness
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {raw : MovingCubeRawScheduledRepresentativeVariation family}
+    {band : DynamicVacuumSectorPhysicalRateBand family}
+    {gapVariation : SummableRationalStepVariation family.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit family}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel family))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      family raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      family raw H W projectiveOS)
+    (exactWitness : PositiveExactLogGapWitness W.reconstruction)
+    (rate_equiv : CReal.Equiv gapVariation.limit exactWitness.rate)
+    (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      family ratePower W)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    RawWilsonConnectedMassGapPath family raw band gapVariation
+      ratePower H W :=
+  ofUniformNormFloor uniform projectiveOS matrixCoefficient
+    (DynamicVacuumSectorWilsonExactRateHandoff.ofPositiveExactLogGapWitness
+      exactWitness rate_equiv)
+    graphNorm vacuumPin
+
 /-- The same finite-source constructor with the all-vector graph-norm frontier
 split into its three independently buildable branches: scalar rate pin,
 representative transfer lift, and finite graph approximation. -/
@@ -1559,6 +1590,8 @@ end YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMa
 
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloor
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloorAndPositiveExactLogGapWitness
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath.RawWilsonConnectedMassGapPath.ofUniformNormFloorAndParallelGraphNormCompilers
 #print axioms

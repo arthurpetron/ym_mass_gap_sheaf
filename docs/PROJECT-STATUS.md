@@ -1869,6 +1869,15 @@ the witness. The focused check reports only `{propext, Quot.sound}` with no
 `sorryAx`; all continuum/QFT, physical-mass, every-group, and Clay inputs
 remain open. No canonical chart marker changed.
 
+The raw Wilson capstone now also has
+`RawWilsonConnectedMassGapPath.ofUniformNormFloorAndPositiveExactLogGapWitness`.
+It accepts the positive exact-log witness and an explicit `CReal.Equiv` to the
+variation-selected physical limit, then delegates to the existing same-family
+constructor. This is a typed boundary reduction only: nontriviality,
+projective/same-object, matrix, graph-norm, vacuum, and all continuum/Clay
+certificates remain explicit. The focused check reports only
+`{propext, Quot.sound}` with no `sorryAx`; no canonical chart marker changed.
+
 ## Maintenance contract
 
 1. Read this file before every chart. Copy its chart block; do not regenerate
@@ -2043,3 +2052,4 @@ remain open. No canonical chart marker changed.
 | 1 / 151 | 2026-09-27 | Added direct completed-real raw projective/matrix handoff consumers for both matched routes. The same-measure raw representative equality remains explicit; focused check remains `{propext, Quot.sound}` with no `sorryAx`, and no OS/GNS, continuum, physical-mass, every-group, or Clay obligation is manufactured. |
 | 1 / 152 | 2026-09-27 | Lowered the matched raw-path scheduled rate-power input to rational step variation for both routes, compiling it to the exact constructive-real limit consumed by the capstone. Focused check remains `{propext, Quot.sound}` with no `sorryAx`; positive-time rate convergence and all OS/continuum/Clay joins remain open inputs. |
 | 1 / 153 | 2026-09-27 | Added `DynamicVacuumSectorWilsonExactRateHandoff.ofPositiveExactLogGapWitness`, the reverse exact-rate adapter from a positive exact-log witness plus an explicit `CReal.Equiv` to the variation-selected physical stream. The constructor preserves the positive transfer-gap bound and transports convergence without manufacturing the identity; focused check remains `{propext, Quot.sound}` with no `sorryAx`, and no canonical chart marker changed. |
+| 1 / 154 | 2026-09-27 | Added `RawWilsonConnectedMassGapPath.ofUniformNormFloorAndPositiveExactLogGapWitness`, threading the factored exact-rate witness through the raw capstone while preserving all same-family indices. Focused check remains `{propext, Quot.sound}` with no `sorryAx`; no raw certificate or continuum/Clay node is closed, and no canonical chart marker changed. |
