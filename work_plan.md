@@ -65623,6 +65623,28 @@ report only `{propext, Quot.sound}`; no full-root audit is claimed.  The next
 causal producer is the same-carrier multi-slab witness, followed by the
 explicit uniform scale/error modulus for the continuum-facing rate.
 
+## 243. Compute the matched full-log ceiling from the physical rate band (2026-09-27)
+
+The matched-AF physical-exponential route now consumes the existing
+`BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.fullRangeLogRateCeilingOfPhysicalRateBand`.
+That compiler uses constructive rational upper bounds for the `log 2` and
+reduced-mantissa approximants, computes the finite prefix by a located maximum,
+and glues it to the same matched band's eventual half-window and margin-rate
+tail.  The adapter declarations
+`toFullRangeLogRateCeiling_ofStrengthBandComputed`,
+`toFullRangeExactPhysicalSeparatorCertificate_ofStrengthBandComputed`,
+`toExactRateCutoffRemoval_ofGapVariationAndComputedCeiling`,
+`toContinuumHandoff_ofGapVariationAndComputedCeiling`, and
+`toContinuumYMWithExactLogGap_ofComputedHandoff` therefore remove the
+independent full-log ceiling field without changing the observable or completed
+carrier.
+
+This closes the finite-prefix/full-log bookkeeping seam only.  The same-family
+physical-gap variation, exact-rate reconstruction, projective/OS handoff,
+continuum measure/QFT construction, physical mass calibration, all-group
+generalization, and Clay theorem remain open.  The focused monitored target
+passes in 5,243 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A
