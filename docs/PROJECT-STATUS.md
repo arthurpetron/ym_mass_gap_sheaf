@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting identity (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabFixedSpatialWilsonFullReflection.spatialLimit_mirror` now proves
+reflection invariance for arbitrary full-window original Wilson expressions.
+The proof keeps the same finite action and reciprocal partition, then uses
+the existing explicit-modulus spatial limit with its small-nome guards.
+The focused one-worker, 20 GiB-capped check passed within
+`{propext, Quot.sound}`. An ambient algebra with invertible time and its
+canonical reflected-form identification remain open; no canonical field or
+one-sided positivity guard changed. No unchanged chart is reprinted.
+
 Verified supporting reduction (2026-09-27 UTC; chart markers unchanged):
 `CurrentCarrierFormCertificate.toBridgeOfDense` now derives the completed
 two-step dynamics and probe orthogonality from static form/vacuum transport

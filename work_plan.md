@@ -25,6 +25,28 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Full-window original reflection now checked (2026-09-27 UTC)
+
+`BF4ExactSlabFixedSpatialWilsonFullReflection.lean` proves literal reflection
+for arbitrary signed expressions with `Within (2*H)`, rather than only the
+supported half-window. `mirror_involutive` and `mirror_shift_full` preserve
+the actual offsets and centered inclusions. `originalChain_finiteValue_reflection`
+retains the same selected action, cutoff stage and reciprocal partition;
+`chartScalar_mirror` and `spatialLimit_mirror` pass the identity to the existing
+explicit-modulus original spatial expectation. The spatial small-nome guards
+remain explicit; the finite identity needs only the original nome bounds.
+
+This removes the missing full-expression reflection-invariance lemma identified
+by the source review, not the ambient-algebra or canonical OS obligations.
+The next join is a reflection-closed ambient presentation, its justified
+algebra congruence and invertible time action, with the reflected Gram pinned
+to the existing union pairing. The positive-stage quotient alone is not closed
+under reflection. No canonical scalar field or half-space positivity guard
+has been changed. One focused check passed with one worker capped at 20 GiB,
+and all seven printed declarations use only `{propext, Quot.sound}`.
+Sol independently reviewed the geometry and same-action pin. No full-tree
+audit was run, and broad chart markers remain unchanged.
+
 ### Physical-target correction and checked completion reduction (2026-09-27 UTC)
 
 The next completed-carrier obligation can be reduced using existing

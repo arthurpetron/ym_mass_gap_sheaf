@@ -504,3 +504,45 @@ The subsequent focused checks of `BF4WilsonSpatialUnionContextLaws.lean`,
 `BF4WilsonSpatialUnionProductPositivity.lean`, and
 `BF4WilsonSpatialUnionObservableQuotient.lean` also passed, with the same
 single-worker 20 GiB limit and axiom gate. No canonical field was modified.
+
+## 12. Full-window original reflection invariance supplied
+
+The earlier source search found reflection symmetry for mixed products of
+half-window expressions, not invariance for arbitrary full-window expressions.
+The latter is now proved without altering the half-space positivity statements:
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `mirror_involutive` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonFullReflection.lean:65` | `mirror H (mirror H e) = e` under `Within (2*H) e`. |
+| `mirror_shift_full` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonFullReflection.lean:83` | Full-window reflection commutes with centered enlargement. |
+| `loop_placed_reflection` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonFullReflection.lean:122` | Actual link reflection at every offset `j <= 2*H`. |
+| `placed_reflection_full` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonFullReflection.lean:145` | Literal reflected polynomial for arbitrary signed full-window expressions. |
+| `originalChain_finiteValue_reflection` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonFullReflection.lean:160` | Reflection preserves finite expectation with unchanged selected action, stage and reciprocal. |
+| `chartScalar_mirror` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonFullReflection.lean:182` | Equality on every original spatial/heat/time chart. |
+| `spatialLimit_mirror` | `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonFullReflection.lean:209` | Equivalent existing CReal expectations, with the same spatial small-nome guards. |
+
+The finite proof combines `spatial_character_reflection`
+(`lean/YMGap/Continuum/BF4ExactSlabSpatialWilsonReflection.lean:101`),
+`originalChain_reflection`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialReflectedSymmetry.lean:213`),
+and `quaternionHaar_reflectCorrectedSlabPolynomial`
+(`lean/YMGap/Continuum/BF4ExactSlabVacuumReflection.lean:263`). The limit proof
+uses the existing `spatial_diagonal_converges`, not a new limit or selected
+representative. Sol independently reviewed the full-window geometry and the
+unchanged-action/partition pin.
+
+The distinct fixed-center time-translation identity already exists as
+`spatialLimit_shift_within`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonLimitStationarity.lean:168`).
+The new reflection identity is not a claim that the positive-stage quotient
+is reflection-closed. An ambient algebra congruence across centered/base
+presentations, invertible ambient time, and the actual same-reflected-Gram
+join remain to be constructed. Equality of expectations or of OS-null
+states alone is not a supplied product congruence. Canonical scalar fields
+remain unchanged; no canonical root or continuum obligation closes.
+
+Verification: a focused monitored check passed with one worker capped at
+20 GiB. All seven printed public declarations depend only on
+`{propext, Quot.sound}`. An initial check found missing namespace opens;
+those were corrected, with no statement change or new hypothesis. No
+`sorry`, classical input, trusted computation or full-tree audit was added.

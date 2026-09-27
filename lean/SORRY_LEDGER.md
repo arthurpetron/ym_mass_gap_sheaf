@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Original full-window reflection invariance (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonFullReflection.lean`.
+- **proved:** `mirror_involutive`, `mirror_shift_full`,
+  `loop_placed_reflection`, and `placed_reflection_full` extend literal
+  reflection geometry to all expressions with `Within (2*H)`. No one-sided
+  positivity statement is extended to that larger domain.
+  `originalChain_finiteValue_reflection`, `chartScalar_mirror`, and
+  `spatialLimit_mirror` retain the original selected action, heat stage,
+  reciprocal partition and explicit limit moduli.
+- **scope/residue:** the finite identity uses `0 < w < 1`; the original
+  spatial limit retains its explicit small-nome guards. This supplies
+  full-window expectation invariance, not an ambient observable quotient,
+  invertible time action, canonical scalar functional or reflected Gram
+  identification. Scaling, continuum QFT and every-group Clay closure remain
+  open. No canonical field, existing guard, or broad chart marker changes.
+- **verification:** focused monitored check, one worker capped at 20 GiB;
+  all seven printed declarations use only `{propext, Quot.sound}`. No
+  `sorry`, new analytic premise, classical axiom or trusted computation was
+  introduced. No full-library check was run. Sol independently reviewed the
+  geometry, selected-action pin and remaining source-to-target obligations.
+
 ## Concrete time-tested Wilson quotient and positive stationary mean (2026-09-27 UTC)
 
 - **files:**
