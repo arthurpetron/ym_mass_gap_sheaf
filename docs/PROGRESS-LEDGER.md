@@ -4,6 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: collapse the canonical unit-probe response floor to the scalar rate (2026-09-27 UTC)
+
+`CurrentCarrierBridge.canonicalUnitProbe_norm_one`,
+`canonicalUnitProbe_response_floor_le_rate_scaled_norm`, and
+`canonicalUnitProbe_response_floor_le_rate`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1420--1452`)
+transport the exact norm-one pin to the canonical image and compose the
+positive selected-vector response floor with the strict two-step ceiling.  The
+exact same-object norm then collapses the result to the rational inequality
+`rayleighFloor ≤ twoStepRate nome hd`.  This closes the selected-vector scalar
+compatibility loop without changing the carrier or observable.
+
+The result remains conditional on the named `CurrentCarrierBridge` and fixed
+spacing.  The all-vector canonical range section and completed gap, OS/GNS
+realization, continuum/QFT, physical-mass, every-group, and Clay endpoints
+remain open.  The dependency-complete monitored target passed in 2,602 jobs;
+all three declarations use only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## Current increment: transport the normalized unit excitation into the canonical GNS image (2026-09-27 UTC)
 
 `CanonicalUnitProbeData`,

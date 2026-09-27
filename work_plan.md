@@ -65817,6 +65817,24 @@ physical mass calibration, every-group theorem, and Clay result remain open.
 The dependency-complete monitored target passed in 2,602 jobs; both new
 declarations use only `{propext, Quot.sound}` and no `sorryAx`.
 
+## 254. Collapse the canonical unit-probe response floor to the scalar rate (2026-09-27)
+
+`CurrentCarrierBridge.canonicalUnitProbe_norm_one` transports the exact
+current normalized-excitation norm to the canonical GNS image.  The paired
+consumers `canonicalUnitProbe_response_floor_le_rate_scaled_norm` and
+`canonicalUnitProbe_response_floor_le_rate` then compose the positive
+same-object response floor with the strict two-step form ceiling and cancel
+the exact unit norm, yielding the rational compatibility inequality
+`rayleighFloor ≤ twoStepRate nome hd` for the selected canonical probe.
+
+This is the strongest selected-vector scalar consequence of the named bridge;
+it is still fixed-spacing and conditional on that bridge.  It does not create
+the all-vector canonical range section or completed gap, and it does not close
+OS/GNS reconstruction, continuum/QFT, physical-mass calibration, the
+every-group theorem, or the Clay target.  The dependency-complete monitored
+target passed in 2,602 jobs; all three declarations use only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A

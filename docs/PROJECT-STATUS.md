@@ -22,6 +22,13 @@ the same vector also has the transported strict two-step form ceiling. The
 same vector is also proved not to be two-step fixed. Its canonical coefficient
 and norm are exact current-carrier equalities. The all-vector canonical range
 section and every continuum/Clay endpoint remain open.
+The canonical unit probe now also has exact canonical norm one, and the
+selected-vector response floor contracts through the strict form ceiling to
+the scalar inequality `rayleighFloor ≤ twoStepRate nome hd`.
+
+This remains conditional fixed-spacing bridge evidence; the all-vector range
+section, completed canonical gap, OS/GNS realization, continuum/QFT,
+physical-mass calibration, every-group theorem, and Clay result remain open.
 Latest continuation checkpoint (2026-09-27 UTC): the correlated same-edge
 local-producer compiler is now named by `correlatedCapacityDebtProducer` and
 has a checked same-carrier adapter

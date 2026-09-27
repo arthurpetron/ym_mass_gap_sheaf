@@ -1411,6 +1411,46 @@ theorem canonicalUnitProbe_norm_eq_current
       B unitExcitation unitExcitation
   exact J.form_preserving unitExcitation unitExcitation
 
+/-! The exact norm identity now closes the selected-probe Rayleigh
+    compatibility loop.  This remains an image-level statement: the bridge
+    and the all-vector canonical range section are still explicit inputs. -/
+
+/-- The canonical unit probe has the exact unit norm carried by the current
+normalized excitation. -/
+theorem canonicalUnitProbe_norm_one
+    (J : CurrentCarrierBridge P) :
+    W.toGNSData.cinnerCompl
+        J.canonicalUnitProbe.vector J.canonicalUnitProbe.vector =
+      Quotient.mk crealSetoid cone := by
+  rw [J.canonicalUnitProbe_norm_eq_current]
+  exact unitExcitation_norm
+
+private theorem canonicalUnitProbe_rc_mul_one_local (a : CReal.RC) :
+    CReal.RCmul a (Quotient.mk crealSetoid cone) = a := by
+  refine Quotient.inductionOn a ?_
+  exact fun A => Quotient.sound (CRealAlg.cmul_cone A)
+
+/-- The canonical unit probe's positive response floor is bounded by the
+strict two-step rate after transport through its exact same-object norm. -/
+theorem canonicalUnitProbe_response_floor_le_rate_scaled_norm
+    (J : CurrentCarrierBridge P) :
+    RCle (Quotient.mk crealSetoid (ofQ' rayleighFloor))
+      (CReal.RCmul
+        (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
+        (W.toGNSData.cinnerCompl
+          J.canonicalUnitProbe.vector J.canonicalUnitProbe.vector)) := by
+  exact RCle_trans J.canonicalUnitProbe.twoStep_response_floor
+    J.canonicalUnitProbe_twoStep_form_bound
+
+/-- The selected canonical unit probe therefore forces the literal current
+fixed-spacing rate to dominate the positive response floor. -/
+theorem canonicalUnitProbe_response_floor_le_rate
+    (J : CurrentCarrierBridge P) :
+    (rayleighFloor : Q') ≤ twoStepRate nome hd := by
+  have h := J.canonicalUnitProbe_response_floor_le_rate_scaled_norm
+  rw [J.canonicalUnitProbe_norm_one, canonicalUnitProbe_rc_mul_one_local] at h
+  exact YMGap.Continuum.GNSQuotient.GNSData.RCofQ'_le_reflect h
+
 end CurrentCarrierBridge
 
 /-! ## The completed canonical-range consumer
@@ -1765,3 +1805,6 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_not_fixed
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_correlation_eq_current
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_norm_eq_current
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_norm_one
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_response_floor_le_rate_scaled_norm
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_response_floor_le_rate

@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## Canonical unit-probe norm-one and scalar rate compatibility (2026-09-27 UTC)
+
+- **declarations:** `CurrentCarrierBridge.canonicalUnitProbe_norm_one`,
+  `CurrentCarrierBridge.canonicalUnitProbe_response_floor_le_rate_scaled_norm`,
+  and `CurrentCarrierBridge.canonicalUnitProbe_response_floor_le_rate` in
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1420--1452`.
+- **result:** the canonical unit probe has the exact transported norm-one
+  identity; its positive same-object response floor is bounded by the literal
+  strict two-step rate times its norm, and therefore by that rate itself.
+- **scope:** selected-vector fixed-spacing bridge consequence only; no
+  all-vector range section, canonical completed gap, OS/GNS realization,
+  continuum/QFT, physical-mass, every-group, or Clay theorem is constructed.
+- **verification:** dependency-complete monitored target
+  `+YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge:olean` passed in
+  2,602 jobs. The three declarations report only `{propext, Quot.sound}` and
+  no `sorryAx`, classical axiom, `native_decide`, or custom axiom.
+
 ## Normalized unit excitation transported into the canonical GNS image (2026-09-27 UTC)
 
 - **declarations:** `CanonicalUnitProbeData`,

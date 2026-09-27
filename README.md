@@ -28,6 +28,14 @@ It is also proved not to be a two-step fixed vector via
 Its canonical two-step coefficient and norm are now exposed as exact
 same-object equalities with the current carrier.
 
+The canonical unit probe now also has an exact norm-one identity, and its
+positive response floor composes with the strict two-step ceiling to prove the
+selected-vector scalar compatibility `rayleighFloor ≤ twoStepRate`.  This is
+conditional fixed-spacing evidence on the named bridge; the all-vector range,
+OS/GNS, continuum/QFT, physical-mass, every-group, and Clay obligations remain
+open.  The dependency-complete target passed in 2,602 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 **Latest checked repaired-family path (2026-09-26):**
 `BF4PhysicalChangingNomeExplicitMarginLaw` now provides a carrier-normalized
 vanishing-spacing schedule, its same-nome/same-gap completed family, the
