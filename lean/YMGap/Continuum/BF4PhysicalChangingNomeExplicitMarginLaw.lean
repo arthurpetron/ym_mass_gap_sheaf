@@ -682,6 +682,81 @@ theorem changingNomeCarrierNormalizedFinitePrefixGapCeiling_le_succ
     (Q'.le_runningMax_succ
       changingNomeCarrierNormalizedDynamicFamily.physicalGap bound)
 
+/-- The minimal cofinal input below the all-scale rate band: one positive floor
+    below every finite-prefix minimum and one finite ceiling above every
+    finite-prefix maximum.  Its two fields are the remaining asymptotic
+    estimates; the structure itself is intentionally not inhabited here. -/
+structure ChangingNomeCarrierNormalizedCofinalGapCalibration : Type 1 where
+  floor : Q'
+  floor_pos : (0 : Q') < floor
+  ceiling : Q'
+  ceiling_pos : (0 : Q') < ceiling
+  floor_le_prefix : ∀ bound,
+    floor ≤
+      ExplicitMarginDenominatorBand.finitePrefixGapFloor
+        changingNomeCarrierNormalizedDynamicFamily bound
+  prefix_ceiling_le : ∀ bound,
+    ExplicitMarginDenominatorBand.finitePrefixGapCeiling
+        changingNomeCarrierNormalizedDynamicFamily bound ≤ ceiling
+
+/-- A cofinal-prefix calibration certificate compiles to the all-scale
+    physical-rate band on the identical repaired completed family.  No
+    asymptotic estimate is manufactured: the two uniform fields are explicit
+    inputs to this compiler. -/
+def ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalRateBand
+    (calibration : ChangingNomeCarrierNormalizedCofinalGapCalibration) :
+    DynamicVacuumSectorPhysicalRateBand
+      changingNomeCarrierNormalizedDynamicFamily where
+  floor := calibration.floor
+  floor_pos := calibration.floor_pos
+  ceiling := calibration.ceiling
+  ceiling_pos := calibration.ceiling_pos
+  lowerRate := by
+    intro scale
+    have hfloorGap : calibration.floor ≤
+        changingNomeCarrierNormalizedDynamicFamily.physicalGap scale :=
+      Q'.le_trans' _ _ _
+        (calibration.floor_le_prefix scale)
+        (YMGap.Continuum.WindowedSpacingFloor.finMin_le
+          changingNomeCarrierNormalizedDynamicFamily.physicalGap scale scale
+          (Nat.le_refl scale))
+    have hscaled := Q'.mul_le_mul_of_nonneg_right
+      calibration.floor
+      (changingNomeCarrierNormalizedDynamicFamily.physicalGap scale)
+      (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+      hfloorGap
+      (Q'.le_of_lt
+        (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing_pos scale))
+    have hcollapse :
+        changingNomeCarrierNormalizedDynamicFamily.physicalGap scale *
+            changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale ≈
+          changingNomeCarrierNormalizedDynamicFamily.latticeMargin scale := by
+      unfold DynamicVacuumSectorCompletedFamily.physicalGap
+      exact Q'.divPos_mul_eqv _ _ _
+    exact Q'.le_trans' _ _ _ hscaled (Q'.le_of_eqv hcollapse)
+  upperRate := by
+    intro scale
+    have hgapCeiling : changingNomeCarrierNormalizedDynamicFamily.physicalGap scale ≤
+        calibration.ceiling :=
+      Q'.le_trans' _ _ _
+        (Q'.le_runningMax
+          changingNomeCarrierNormalizedDynamicFamily.physicalGap scale)
+        (calibration.prefix_ceiling_le scale)
+    have hscaled := Q'.mul_le_mul_of_nonneg_right
+      (changingNomeCarrierNormalizedDynamicFamily.physicalGap scale)
+      calibration.ceiling
+      (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+      hgapCeiling
+      (Q'.le_of_lt
+        (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing_pos scale))
+    have hcollapse :
+        changingNomeCarrierNormalizedDynamicFamily.latticeMargin scale ≈
+          changingNomeCarrierNormalizedDynamicFamily.physicalGap scale *
+            changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale := by
+      unfold DynamicVacuumSectorCompletedFamily.physicalGap
+      exact Q'.eqv_symm (Q'.divPos_mul_eqv _ _ _)
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hcollapse) hscaled
+
 /-- The smallest honest B04 certificate for the repaired schedule.  Its two
     fields are the still-open uniform product bounds, now typed against the
     same completed nome/gap family as the carrier-normalized spacing. -/
@@ -889,6 +964,7 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedFinitePrefixPhysicalRateBand
 #print axioms changingNomeCarrierNormalizedFinitePrefixGapFloor_succ_le
 #print axioms changingNomeCarrierNormalizedFinitePrefixGapCeiling_le_succ
+#print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalRateBand
 #print axioms changingNomeCarrierNormalizedExplicitMarginInverseLaw
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand

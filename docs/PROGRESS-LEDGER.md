@@ -8,7 +8,7 @@ new angle). Run `bash computations/progress_metric.sh` each iteration.
 
 `ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand`,
 `.toPhysicalRateBand`, and `.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:752--802`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:827--877`)
 transport the two explicit product-band inequalities through the repaired
 carrier-normalized spacing schedule.  The compiler preserves the exact
 same-family denominator law and reaches the existing sharp
@@ -21,7 +21,7 @@ monitored check reports only `{propext, Quot.sound}`.
 ## Current increment: normalized product band forces the repaired floor order (2026-09-26 UTC)
 
 `ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:715--750`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:790--825`)
 transports the scalar quotient kernel to the repaired carrier-normalized
 spacing.  Any inhabited normalized product band therefore forces
 `6*((floor*normalizedSpacing)*carrierSquareScale) ≤ floorValue` at every
@@ -261,6 +261,18 @@ prefix-direction needed before any cofinal argument, but it supplies no
 positive all-scale floor or finite all-scale ceiling.  The focused monitored
 check reports only `{propext, Quot.sound}`.
 
+## Current increment: repaired-family cofinal-prefix calibration compiler (2026-09-26 UTC)
+
+`ChangingNomeCarrierNormalizedCofinalGapCalibration` and
+`ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalRateBand`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:689--758`)
+factor the remaining all-scale input into one positive lower bound for every
+finite-prefix floor and one finite upper bound for every finite-prefix ceiling,
+then compile those fields to the existing all-scale physical-rate band on the
+same repaired family.  The calibration certificate remains uninhabited; this
+is a conditional compiler only.  The focused monitored check reports only
+`{propext, Quot.sound}`.
+
 ## Current increment: finite anchor-floor ceiling and abstract quotient budget (2026-09-26 UTC)
 
 `fixedBasePulledPositiveEdgeFloorValue_le_half`
@@ -311,7 +323,7 @@ is the exact algebraic presentation of the scheduled denominator as
 `ChangingNomeHeadEnergyProductBand` (`:153--171`) retains only the two uniform
 product inequalities against the unchanged spacing, and
 `ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand`
-(`:808--842`) compiles them into the existing same-family denominator band.
+(`:883--917`) compiles them into the existing same-family denominator band.
 The focused check reports only `{propext, Quot.sound}`.  The certificate is
 intentionally uninhabited: proving its two fields is exactly the remaining
 all-scale denominator-versus-spacing problem.
@@ -319,7 +331,7 @@ all-scale denominator-versus-spacing problem.
 ## Current increment: product band contracted to the continuum-gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:855--858`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:930--933`)
 composes the exact changing-nome denominator presentation, the specialized
 product-band compiler, and the existing same-family physical-rate compiler
 into the sharp `ContinuumGapTheorem` interface.  The focused monitored build
