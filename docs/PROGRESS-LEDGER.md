@@ -21,6 +21,19 @@ actual anchor minimum `F(w_n)`, so the all-scale product band, physical-rate
 band, same-theory bridge, continuum/QFT, physical-mass, every-group, and Clay
 obligations remain open.
 
+## Current increment: concrete changing-nome floor-order specialization (2026-09-26 UTC)
+
+`ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:239--272`)
+instantiates the preceding scalar kernel with the actual scheduled spacing,
+anchored pulled-kernel floor, finite carrier-square scale, and head quotient.
+Thus every inhabited product band forces the concrete pointwise consequence
+`6 * ((floor * spacing) * carrierSquareScale) ≤ floorValue` at every scale.
+The focused monitored check reports only `{propext, Quot.sound}`.  This is a
+necessary condition on the still-uninhabited product band; it does not prove
+the cofinal order of the anchor minimum, the all-scale denominator/spacing
+band, or any continuum/QFT, physical-mass, every-group, or Clay node.
+
 ## Current increment: explicit changing-nome completed SU(2) family (2026-09-25 UTC)
 
 `changingNome`, `changingSpacing`, `changingSpacingToZero`, and

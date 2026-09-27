@@ -213,6 +213,64 @@ theorem ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_sc
         (Q'.mul_assoc_eqv A (Q'.ofNat 6) H)
   exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft) hscaled
 
+/-! The dependent specialization is kept behind four small names.  This
+    avoids asking elaboration to repeatedly normalize the changing-nome
+    carrier, its positive floor, and the scheduled spacing in one large
+    theorem term. -/
+
+def changingNomeBandSpacing (scale : Nat) : Q' :=
+  changingNomeDynamicFamily.transferSpacing.spacing scale
+
+def changingNomeBandFloor (scale : Nat) : Q' :=
+  fixedBasePulledPositiveEdgeFloorValue
+    (changingNome scale)
+    (Q'.le_of_lt (changingNome_pos scale)) 1404 0
+
+def changingNomeBandScale (scale : Nat) : Q' :=
+  centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale
+    (changingNome scale)
+    (Q'.le_of_lt (changingNome_pos scale)) 1404 0
+
+def changingNomeBandHeadEnergy (scale : Nat) : Q' :=
+  headEnergyConstant
+    (changingNome scale)
+    (Q'.le_of_lt (changingNome_pos scale))
+
+theorem ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
+    (band : ChangingNomeHeadEnergyProductBand) (scale : Nat) :
+    Q'.ofNat 6 *
+        ((band.floor * changingNomeBandSpacing scale) *
+          changingNomeBandScale scale) ≤
+      changingNomeBandFloor scale := by
+  let A : Q' := band.floor * changingNomeBandSpacing scale
+  let H : Q' := changingNomeBandHeadEnergy scale
+  let S : Q' := changingNomeBandScale scale
+  let F : Q' := changingNomeBandFloor scale
+  have hA0 : (0 : Q') ≤ A := by
+    dsimp [A, changingNomeBandSpacing]
+    exact Q'.mul_nonneg band.floor
+      (changingNomeDynamicFamily.transferSpacing.spacing scale)
+      (Q'.le_of_lt band.floor_pos)
+      (Q'.le_of_lt (changingNomeDynamicFamily.transferSpacing.spacing_pos scale))
+  have hF0 : (0 : Q') ≤ F := by
+    dsimp [F, changingNomeBandFloor]
+    exact Q'.le_of_lt
+      (fixedBasePulledPositiveEdgeFloorValue_pos
+        (changingNome scale) (Q'.le_of_lt (changingNome_pos scale)) 1404 0)
+  have hband : A * (Q'.ofNat 2 + Q'.ofNat 6 * H) ≤ (1 : Q') := by
+    dsimp [A, H, changingNomeBandSpacing, changingNomeBandHeadEnergy]
+    exact band.lowerHeadEnergy scale
+  have hFS : F * H ≈ S := by
+    dsimp [F, H, S, changingNomeBandFloor, changingNomeBandHeadEnergy,
+      changingNomeBandScale]
+    exact fixedBasePulledPositiveEdgeFloorValue_mul_headEnergyConstant_eqv_scale
+      (changingNome scale) (Q'.le_of_lt (changingNome_pos scale))
+  have hresult :=
+    ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_scalar
+      (A := A) (H := H) (S := S) (F := F) hA0 hF0 hband hFS
+  simpa [A, S, F, changingNomeBandSpacing, changingNomeBandScale,
+    changingNomeBandFloor] using hresult
+
 /-- Compile the minimal head-energy product certificate into the existing
     same-family denominator band without changing the spacing or denominator.
     The certificate remains uninhabited until the cofinal floor-order estimate
@@ -274,6 +332,11 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeMarginDenominator_ge_two_add_twelve_scale
 #print axioms changingNomeMarginDenominator_eqv_two_add_six_headEnergy
 #print axioms ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_scalar
+#print axioms changingNomeBandSpacing
+#print axioms changingNomeBandFloor
+#print axioms changingNomeBandScale
+#print axioms changingNomeBandHeadEnergy
+#print axioms ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
 #print axioms ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand
 #print axioms ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeExplicitMarginInverseLaw

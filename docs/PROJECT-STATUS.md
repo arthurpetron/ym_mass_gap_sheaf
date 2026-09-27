@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **85**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **86**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -21,8 +21,10 @@ abstract quotient lower-budget compiler, and its concrete dependent
 instantiation `headEnergyConstant_ge_two_carrierSquareScale`, and the
 corresponding concrete pointwise denominator lower budget, and the new minimal
 head-energy product-band compiler and its direct conditional contraction to the
-sharp continuum-gap interface; the cofinal order of the anchor floor remains
-open.
+sharp continuum-gap interface.  The scalar floor-order consequence is now
+specialized to the concrete changing-nome carrier through
+`lower_floor_mul_spacing_mul_scale_le`; the cofinal anchor-minimum estimate
+remains open.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -170,6 +172,17 @@ is a generic kernel-checked scalar theorem: any nonnegative product coefficient
 consequence required before specializing to the dependent changing-nome
 carrier.  The dependent specialization is not asserted here; the cofinal
 anchor-minimum estimate and all continuum/Clay nodes remain open.
+
+Latest verified B04 dependent specialization (2026-09-26 UTC):
+`ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:239--272`)
+instantiates the scalar kernel with the actual changing-nome spacing, anchored
+finite floor, carrier-square scale, and quotient head energy.  Any inhabited
+product band therefore forces the concrete pointwise inequality
+`6 * ((floor * spacing) * carrierSquareScale) ≤ floorValue` at every scheduled
+scale.  The proof reports only `{propext, Quot.sound}`.  This is a necessary
+condition on an assumed band; it does not prove the cofinal anchor-minimum
+asymptotic, inhabit the product band, or close the continuum/Clay route.
 
 Latest backward frontier expansion (2026-09-26 UTC): the finite-prefix
 response certificate does not discharge the asymptotic inputs required by the
@@ -412,6 +425,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Minimal head-energy product-band compiler
                                        [x] Head-energy product band -> continuum-gap interface
                                        [x] Scalar product-band -> floor-order necessary condition
+                                       [x] Dependent changing-nome floor-order specialization
                                        [ ] Infinite-scale denominator/spacing comparison
                                        [ ] Anchor-minimum asymptotic estimate
                                            F(w_n) comparable to spacing
@@ -494,6 +508,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04t | Minimal head-energy product-band compiler | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator_eqv_two_add_six_headEnergy` (`:92--106`) and `ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand` (`:146--204`); factors the remaining B04 input into two uniform product inequalities on the exact `2 + 6*H(w_scale)` expression and compiles them without changing the same family. The certificate is not inhabited, so the denominator-versus-spacing, continuum, and Clay obligations remain open. |
 | B04u | Head-energy product band -> continuum-gap interface | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem` (`:267--270`); contracts the specialized product-band certificate through the existing same-family physical-rate compiler to the sharp `ContinuumGapTheorem` interface. It is conditional on the still-uninhabited product band and does not itself construct a continuum theory or mass gap. |
 | B04v | Scalar product-band -> floor-order necessary condition | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_scalar` (`:174--214`); from nonnegative `A,F`, the exact quotient identity `F*H ≈ S`, and `A*(2+6*H) ≤ 1`, derives `6*A*S ≤ F` by kernel-checked rational algebra. This is a necessary-condition contraction for the dependent B04 target, not its cofinal specialization or a continuum/Clay result. |
+| B04w | Dependent changing-nome floor-order specialization | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le` (`:239--272`); instantiates the scalar kernel with the actual scheduled spacing, anchored floor, carrier-square scale, and head quotient, yielding `6*((floor*spacing)*scale) ≤ floorValue` at every scale under the assumed product band. This is a necessary condition only; the product band and cofinal floor asymptotic remain open. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1397,3 +1412,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 99 | 2026-09-26 | Added the exact denominator presentation `changingNomeMarginDenominator_eqv_two_add_six_headEnergy` and the uninhabited `ChangingNomeHeadEnergyProductBand` compiler. The remaining B04 input is now factored into two explicit uniform product inequalities on `2 + 6*H(w_scale)`; no continuum/Clay status is overstated. |
 | 1 / 100 | 2026-09-26 | Added the conditional `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem` contraction. The uninhabited product band now has an explicit typed route to the sharp continuum-gap interface; no continuum/Clay status is overstated. |
 | 1 / 101 | 2026-09-26 | Added the generic scalar contraction `ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_scalar`: any lower product band plus the exact quotient identity forces the finite floor to dominate the spacing-times-carrier-square term. This exposes a necessary floor-order target; the dependent changing-nome specialization and all continuum/Clay nodes remain open. |
+| 1 / 102 | 2026-09-26 | Specialized the floor-order contraction to the actual changing-nome expressions with `ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le`. The checked consequence is now pointwise on the concrete spacing, anchor floor, and carrier-square scale; the product band, cofinal anchor-minimum estimate, and all continuum/Clay nodes remain open. |

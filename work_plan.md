@@ -151,6 +151,18 @@ changing-nome specialization has been constructed.  The next producer is
 still a cofinal estimate for the actual anchored minimum `F(w_n)`; all
 continuum, physical-mass, every-group, and Clay nodes remain open.
 
+### Concrete changing-nome floor-order specialization (2026-09-26 UTC)
+
+`ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:239--272`)
+now applies that scalar kernel to the concrete dependent expressions.  The
+proof names the scheduled spacing, finite anchor floor, carrier-square scale,
+and quotient head energy separately so Lean does not unfold the entire
+dependent carrier in one term.  Under an inhabited product band it yields
+`6 * ((floor * spacing) * carrierSquareScale) ≤ floorValue` at every scale,
+with only `{propext, Quot.sound}`.  This is a necessary floor-order condition,
+not a proof of the product band or of the cofinal asymptotic `F(w_n) ~ spacing`.
+
 ### New finite producer (2026-09-25 UTC)
 
 `BF4ExactSlabWidthOneActualFringePairing.fringeTestNormFloor` and
