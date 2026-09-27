@@ -498,6 +498,51 @@ structure PhysicalExponentialJoin : Type 1 where
   gapVariation : SummableRationalStepVariation
     changingNomeCarrierNormalizedDynamicFamily.physicalGap
 
+def PhysicalExponentialJoin.ofNormalizationScaleVariationAndPositiveRatePower
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation
+      changingNomeCarrierNormalizedDynamicFamily)
+    (calibration : ChangingNomeCarrierNormalizedCofinalGapCalibration)
+    (raw : RawVariation)
+    (positiveRatePower : PositiveRatePowerVariation)
+    (gapVariation : SummableRationalStepVariation
+      changingNomeCarrierNormalizedDynamicFamily.physicalGap) :
+    PhysicalExponentialJoin where
+  core :=
+    (ConcreteJoin.ofNormalizationScaleVariationAndPositiveRatePower
+      scaleVariation calibration raw positiveRatePower).toJoin
+  gapVariation := gapVariation
+
+def PhysicalExponentialJoin.ofNormalizationScaleVariationAndHeadEnergyProductBandAndPositiveRatePower
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation
+      changingNomeCarrierNormalizedDynamicFamily)
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand)
+    (raw : RawVariation)
+    (positiveRatePower : PositiveRatePowerVariation)
+    (gapVariation : SummableRationalStepVariation
+      changingNomeCarrierNormalizedDynamicFamily.physicalGap) :
+    PhysicalExponentialJoin where
+  core :=
+    (ConcreteJoin.ofNormalizationScaleVariationAndHeadEnergyProductBandAndPositiveRatePower
+      scaleVariation band raw positiveRatePower).toJoin
+  gapVariation := gapVariation
+
+def PhysicalExponentialJoin.ofNormalizationScaleVariationAndConstantPhysicalGapCalibrationAndPositiveRatePower
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation
+      changingNomeCarrierNormalizedDynamicFamily)
+    (calibration :
+      DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration
+        changingNomeCarrierNormalizedDynamicFamily)
+    (raw : RawVariation)
+    (positiveRatePower : PositiveRatePowerVariation) :
+    PhysicalExponentialJoin where
+  core :=
+    (ConcreteJoin.ofNormalizationScaleVariationAndPositiveRatePower
+      scaleVariation
+      (changingNomeCarrierNormalizedCofinalGapCalibration_ofConstantPhysicalGapCalibration
+        calibration)
+      raw positiveRatePower).toJoin
+  gapVariation := calibration.toVariation
+
 /-- Compile the repaired-family join plus the single physical-gap variation
 input into the existing same-object physical-exponential certificate. -/
 def PhysicalExponentialJoin.toCertificate
@@ -734,6 +779,12 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofNormalizationScaleVariationAndPositiveRatePower
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofNormalizationScaleVariationAndHeadEnergyProductBandAndPositiveRatePower
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.ofNormalizationScaleVariationAndPositiveRatePower
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.ofNormalizationScaleVariationAndHeadEnergyProductBandAndPositiveRatePower
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.ofNormalizationScaleVariationAndConstantPhysicalGapCalibrationAndPositiveRatePower
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toCanonicalUniformRCNormFloor
 #print axioms

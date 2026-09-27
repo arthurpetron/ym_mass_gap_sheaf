@@ -30804,3 +30804,14 @@ checked time-zero unit variation through
 `normalizedMovingCubeSampledRatePowerRationalVariationOfPositive`.  Its
 head-energy specialization preserves the same repaired carrier.  No
 positive-time rate estimate is constructed by this recoding.
+
+The physical-exponential handoff now has the corresponding three typed
+constructors: `PhysicalExponentialJoin.ofNormalizationScaleVariationAndPositiveRatePower`
+composes reciprocal-scale variation, positive-time scheduled-rate variation,
+and an explicit physical-gap variation; the head-energy specialization
+transports the repaired product-band calibration; and the constant-calibration
+specialization supplies the checked zero gap variation.  These are structural
+compositions on the same carrier.  Raw representative variation, the
+positive-time rate estimate, nonconstant physical calibration or gap
+variation, OS/GNS/QFT structure, and the Clay conclusion remain explicit
+inputs or open obligations.

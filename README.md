@@ -3430,6 +3430,14 @@ OS/GNS certificates are still explicit inputs.
 The scheduled-rate input is likewise exposed through a positive-time
 interface: the proved time-zero constant branch is inserted automatically,
 leaving only strictly positive physical times as analytic rate data.
+The `PhysicalExponentialJoin` layer now composes that positive-time rate
+interface with the reciprocal-normalization-scale variation on the same
+carrier, with parallel specializations for a supplied head-energy product
+band or a constant physical-gap calibration.  The generic constructors keep
+the physical-gap variation explicit; the constant-calibration specialization
+supplies only its checked zero variation.  None of these recodings constructs
+the raw representative, the positive-time rate estimate, the physical
+calibration, OS/GNS/QFT data, or the Clay conclusion.
 `WilsonContinuumMassClusteringJoin` then adds an explicit raw-to-projective
 same-object identification, OS-value compatibility, projective Wilson
 coefficient pin, and reconstruction spectral channel, compiling to the
