@@ -1,5 +1,63 @@
 # Sorry Ledger
 
+## Supported Wilson products and time-context congruence (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/BF4WilsonSpatialUnionProduct.lean`.
+- **declarations:** `productStage` (`:98`),
+  `embedStage_eq_of_common_source` (`:155`), `product_comm` (`:169`),
+  `product_assoc` (`:183`), `product_sum_right` (`:206`),
+  `TimeContextEq` (`:265`), `timeContext_time` (`:279`),
+  `timeContext_embed` (`:285`), `timeContext_product` (`:308`),
+  `timeContext_sum` (`:343`), and `timeContext_smul` (`:350`).
+- **result:** original supported expressions multiply at computed common
+  base/radius. Finite polynomial identities descend to their existing
+  physical state images. Equality tested against every supported multiplier
+  after every forward time is an equivalence, respects time/product/sum/scalar
+  operations, and implies equality of the original embedded states.
+- **scope:** this constructs no multiplication on arbitrary OS-null classes
+  or completed states. Algebra laws under every contextual test remain to
+  be supplied before constructing a full source quotient algebra. The
+  canonical reflected form, supported normalized probe, scaling, continuum
+  QFT and every-group Clay result remain open.
+- **verification:** monitored focused source check, one worker capped at
+  20 GiB. All public declarations report only `{propext, Quot.sound}` or
+  fewer axioms; no `sorryAx`, new hole, classical axiom, or trusted computation.
+  No full-tree verification was run.
+
+## Dense dynamics determines the completed bridge image (2026-09-27 UTC)
+
+- **declarations:** `maps_eq_of_dense` in
+  `lean/YMGap/Continuum/CRealSeminormCompletedApproximation.lean:138`;
+  `transfer_sub`, `transfer_nonexpansive`, and `maps_eq_of_dense` in
+  `lean/YMGap/Continuum/GNSTransferMetric.lean:97`;
+  `CurrentCarrierProbeCertificate.ofFormCertificate`,
+  `CurrentCarrierFormCertificate.distance_preserving`,
+  `CurrentCarrierFormCertificate.toTwoStepCertificateOfDense`,
+  `CurrentCarrierFormCertificate.toBridgeOfDense`, and
+  `CurrentStageDenseTwoStepCertificate.toBridge` in
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:923`.
+- **result:** static form/vacuum preservation supplies probe orthogonality
+  and exact squared-distance preservation. Self-adjoint norm contraction
+  supplies pairwise contraction. A dense two-step equation therefore extends
+  to the completed image, using the source representative's explicit
+  quarter-tolerance approximant. Completed dynamics and probe orthogonality
+  are no longer independent inputs for these constructors.
+- **scope:** the generic dense theorem needs neither target completeness
+  nor rational dense images. The ordinary Wilson-GNS bridge remains
+  conditional on its selected datum, static map, and dense dynamics.
+  Its reflected physical OS identification, range section, scaling,
+  continuum/QFT, physical Hamiltonian and every-group Clay target remain
+  open. No frontier structure or field was changed.
+- **additional selected-vector consequences:**
+  `CurrentCarrierBridge.canonicalUnitProbe_twoStep_response_not_le_zero`
+  (`:1468`) and `.canonicalUnitProbe_twoStep_defect_form_bound` (`:1503`)
+  give strict response and the transported `I - T²` coercive margin for the
+  same supplied-bridge unit probe, at fixed spacing only.
+- **verification:** serialized monitored focused checks of all three modules,
+  one worker, 20 GiB ceiling; all printed axioms are within
+  `{propext, Quot.sound}`, with no `sorryAx`. No new hole, classical axiom,
+  trusted computation or full-tree verification claim.
+
 ## Canonical unit-probe norm-one and scalar rate compatibility (2026-09-27 UTC)
 
 - **declarations:** `CurrentCarrierBridge.canonicalUnitProbe_norm_one`,

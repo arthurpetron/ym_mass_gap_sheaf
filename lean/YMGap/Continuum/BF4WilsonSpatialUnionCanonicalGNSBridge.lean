@@ -12,14 +12,20 @@ current result: a map preserving the completed form and zero, intertwining the
 two-step current time map with the selected canonical transfer, and recording
 vacuum orthogonality of the transported probe.  From it we construct a
 canonical probe package whose squared norm has the same explicit `1/4` floor.
-No bridge inhabitant is fabricated here; the structure is the exact remaining
-OS/GNS carrier obligation for this route.
+No bridge inhabitant is fabricated here. The target is the ordinary Wilson
+completion `W.toGNSData`, not automatically the reflected positive-time
+completion `CanonicalOSRoot.PositiveTimeOSRoot.positive`. An identification
+with that physical OS form is a separate obligation; this conditional bridge
+must not be treated as its construction. In particular, arbitrary supplied
+Wilson data and time pins do not determine a compatible same-theory map.
 -/
 
 import YMGap.Continuum.BF4WilsonSpatialUnionResolventResponse
 import YMGap.Continuum.BF4WilsonSpatialUnionRangeApproximation
 import YMGap.Continuum.WilsonGNSTransferUnderdetermination
 import YMGap.Continuum.BF4PhysicalDenseStageGraphNormCompiler
+import YMGap.Continuum.GNSDenseCompletionLaws
+import YMGap.Continuum.GNSTransferMetric
 
 namespace YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 
@@ -634,11 +640,10 @@ def ofExistingPairingContinuity
 
 end CurrentStagePairingSeparationCertificate
 
-/-! A dense-stage dynamic pin is deliberately weaker than the arbitrary
-Cauchy-stream two-step certificate below.  It asks only for exact transport of
-the original finite stage time-two map; the consumers derived from it therefore
-apply to canonical images of finite stages, not to all completed canonical
-vectors. -/
+/-! A dense-stage dynamic pin asks only for exact transport of the original
+finite stage time-two map. The Cauchy extension below derives the corresponding
+completed-image equation from pairing continuity and self-adjointness. This
+does not assert that the image exhausts the canonical completion. -/
 
 structure CurrentStageDenseTwoStepCertificate
     {M : Nat -> Type} {mu : ContinuumMeasure M}
@@ -900,9 +905,9 @@ def CurrentCarrierCauchyTwoStepCertificate.toTwoStepCertificate
         (Quotient.mk (cauchySetoid W.toGNSData) (C.mapCauchy X)))
     exact D.mapCauchy_twoStep X
 
-/-- The probe-specific vacuum-complement certificate.  It is the smallest
-nontriviality-side input needed by the current resolvent consumer and is kept
-independent of the all-vector dynamic estimate. -/
+/-- The probe-specific vacuum-complement certificate. Its field follows from
+the static form and vacuum pins via `ofFormCertificate` below; it is retained
+as a compatibility interface rather than an independent analytic input. -/
 structure CurrentCarrierProbeCertificate
     {M : Nat -> Type} {mu : ContinuumMeasure M}
     {H : ContinuumYMExistence mu}
@@ -911,6 +916,21 @@ structure CurrentCarrierProbeCertificate
     (F : CurrentCarrierFormCertificate P) : Type 2 where
   probe_vacuum_orthogonal :
     W.toGNSData.cinnerCompl (F.map (R unitExcitation)) P.op.vacuum = RCzero
+
+/-- The existing resolvent is centered. Exact preservation of the form and
+vacuum therefore supplies the probe certificate without a dynamics premise
+or a choice of representative for the completed probe. -/
+def CurrentCarrierProbeCertificate.ofFormCertificate
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+    (F : CurrentCarrierFormCertificate P) :
+    CurrentCarrierProbeCertificate P F where
+  probe_vacuum_orthogonal := by
+    rw [← F.vacuum_preserving, F.form_preserving (R unitExcitation) U]
+    exact (center_fixed_iff nome_pos nome_lt_one hsmall hd hs _).mp
+      unitExcitation_resolvent_centered
 
 def CurrentCarrierCauchyProbeCertificate.toProbeCertificate
     {M : Nat -> Type} {mu : ContinuumMeasure M}
@@ -984,6 +1004,110 @@ def CurrentCarrierCauchyFormCertificate.toBridge
   CurrentCarrierBridge.ofCertificates P C.toFormCertificate
     (CurrentCarrierCauchyTwoStepCertificate.toTwoStepCertificate C D)
     (CurrentCarrierCauchyProbeCertificate.toProbeCertificate C O)
+
+namespace CurrentCarrierFormCertificate
+
+variable
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+
+open YMGap.Continuum.BF4WilsonSpatialUnionCompletedDistance
+  (completedDist completedDist_time_contraction distanceData)
+open YMGap.Continuum.BF4WilsonSpatialUnionBilinear
+  (completedSub completedInner_sub_left)
+
+/-- Exact form preservation already preserves squared distances, without a
+separate linearity premise or rational representatives for the stage images. -/
+theorem distance_preserving (F : CurrentCarrierFormCertificate P) (x y : V) :
+    GNSTransferMetric.distanceSq W.toGNSData (F.map x) (F.map y) =
+      completedDist nome_pos nome_lt_one hsmall hd hs x y := by
+  unfold GNSTransferMetric.distanceSq completedDist
+  rw [RCBilinearDifference.difference_diagonal W.toGNSData.cSub
+    W.toGNSData.cinnerCompl W.toGNSData.cinnerCompl_cSub_left
+    W.toGNSData.cinnerCompl_comm]
+  rw [RCBilinearDifference.difference_diagonal
+    (completedSub nome_pos nome_lt_one hsmall hd hs) B
+    (completedInner_sub_left nome_pos nome_lt_one hsmall hd hs)
+    (completedInner_symm nome_pos nome_lt_one hsmall hd hs)]
+  simp only [F.form_preserving]
+
+/-- A dense two-step equation extends through any completed form-preserving
+map. The dense images may be arbitrary completed GNS vectors: this does not
+require the stronger exact rational stage-map interface. -/
+def toTwoStepCertificateOfDense (F : CurrentCarrierFormCertificate P)
+    (dense : ∀ s : Stage,
+      F.map (T 2 (embedStage nome_pos nome_lt_one hsmall hd hs s)) =
+        P.op.T (P.op.T (F.map (embedStage nome_pos nome_lt_one hsmall hd hs s)))) :
+    CurrentCarrierTwoStepCertificate P F where
+  twoStep_intertwines := by
+    intro x
+    apply GNSTransferMetric.maps_eq_of_dense
+      (distanceData nome_pos nome_lt_one hsmall hd hs) W.toGNSData
+      (fun y => F.map (T 2 y)) (fun y => P.op.T (P.op.T (F.map y)))
+      (dense := dense) (x := x)
+    · intro a b
+      rw [F.distance_preserving]
+      exact completedDist_time_contraction nome_pos nome_lt_one hsmall hd hs 2 a b
+    · intro a b
+      apply RCle_trans (GNSTransferMetric.transfer_nonexpansive W.toGNSData P.op
+        (P.op.T (F.map a)) (P.op.T (F.map b)))
+      apply RCle_trans (GNSTransferMetric.transfer_nonexpansive W.toGNSData P.op
+        (F.map a) (F.map b))
+      rw [F.distance_preserving]
+      exact RCle_refl _
+
+/-- Static completed form/vacuum transport and its dense dynamics suffice.
+Neither completed dynamics nor probe orthogonality is an independent input.
+The supplied canonical datum and static transport are not constructed here. -/
+def toBridgeOfDense (F : CurrentCarrierFormCertificate P)
+    (dense : ∀ s : Stage,
+      F.map (T 2 (embedStage nome_pos nome_lt_one hsmall hd hs s)) =
+        P.op.T (P.op.T (F.map (embedStage nome_pos nome_lt_one hsmall hd hs s)))) :
+    CurrentCarrierBridge P :=
+  CurrentCarrierBridge.ofCertificates P F (F.toTwoStepCertificateOfDense dense)
+    (CurrentCarrierProbeCertificate.ofFormCertificate F)
+
+end CurrentCarrierFormCertificate
+
+/-- The older termwise stage producer is a specialization of the same dense
+extension argument. No second limit proof or canonical range section is
+required. Its exact rational stage-image restriction remains unchanged. -/
+def CurrentStageDenseTwoStepCertificate.toCauchyTwoStepCertificate
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+    {F : CurrentStageCauchyFormCertificate P}
+    (C : CurrentStageDenseTwoStepCertificate P F) :
+    CurrentCarrierCauchyTwoStepCertificate P F.toCauchyFormCertificate where
+  mapCauchy_twoStep := by
+    intro X
+    have dynamics : CurrentCarrierTwoStepCertificate P
+        F.toCauchyFormCertificate.toFormCertificate :=
+      F.toCauchyFormCertificate.toFormCertificate.toTwoStepCertificateOfDense (by
+        intro s
+        rw [completedTime_embedStage]
+        exact C.twoStep_intertwines s)
+    exact dynamics.twoStep_intertwines (Quotient.mk (S).completionSetoid X)
+
+/-- Static stage transport and the dense two-step equation suffice for the
+existing completed bridge. The completed dynamics and probe orthogonality
+fields are derived, so neither remains a separate producer input here.
+The static stage certificate and dense equation themselves remain inputs. -/
+def CurrentStageDenseTwoStepCertificate.toBridge
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonGNS.WilsonGNSData H.os_axioms.A}
+    {P : WilsonTimeTranslationPin W}
+    {F : CurrentStageCauchyFormCertificate P}
+    (C : CurrentStageDenseTwoStepCertificate P F) : CurrentCarrierBridge P :=
+  CurrentCarrierBridge.ofCertificates P F.toCauchyFormCertificate.toFormCertificate
+    (CurrentCarrierCauchyTwoStepCertificate.toTwoStepCertificate
+      F.toCauchyFormCertificate C.toCauchyTwoStepCertificate)
+    (CurrentCarrierProbeCertificate.ofFormCertificate
+      F.toCauchyFormCertificate.toFormCertificate)
 
 /-- Exact form preservation makes the bridge map injective.  The proof uses the
 separating completed current pairing, so injectivity is not an extra field and
@@ -1338,6 +1462,20 @@ def canonicalUnitProbe
   nonzero := J.canonicalUnitProbe_ne_zero
   twoStep_response_floor := J.canonicalUnitProbe_twoStep_response_floor
 
+/-- The transported canonical unit probe has a genuinely strict positive
+two-step response.  The strictness is derived from the rational floor and
+does not introduce a second observable or a separate nonzero assumption. -/
+theorem canonicalUnitProbe_twoStep_response_not_le_zero
+    (J : CurrentCarrierBridge P) :
+    ¬ RCle
+      (W.toGNSData.cinnerCompl
+        (P.op.T (P.op.T J.canonicalUnitProbe.vector))
+        J.canonicalUnitProbe.vector)
+      RCzero := by
+  intro hzero
+  apply positive_constant_not_le_zero_local rayleighFloor rayleighFloor_positive
+  exact RCle_trans J.canonicalUnitProbe_twoStep_response_floor hzero
+
 /-- The transported unit excitation also obeys the existing strict canonical
 two-step form bound; its lower response floor and upper gap bound therefore
 refer to one canonical vector. -/
@@ -1359,6 +1497,32 @@ theorem canonicalUnitProbe_twoStep_form_bound
       (Quotient.mk crealSetoid (ofQ' (twoStepRate nome hd)))
       (W.toGNSData.cinnerCompl (J.map unitExcitation) (J.map unitExcitation)))
   exact J.image_twoStep_form_bound unitExcitation_orthogonal
+
+/-- The canonical unit probe also carries the strict residual margin for
+`I - T²`, with the same fixed-spacing rate and the same canonical norm. -/
+theorem canonicalUnitProbe_twoStep_defect_form_bound
+    (J : CurrentCarrierBridge P) :
+    RCle
+      (CReal.RCscale (1 - twoStepRate nome hd)
+        (W.toGNSData.cinnerCompl
+          J.canonicalUnitProbe.vector J.canonicalUnitProbe.vector))
+      (CReal.RCsub
+        (W.toGNSData.cinnerCompl
+          J.canonicalUnitProbe.vector J.canonicalUnitProbe.vector)
+        (W.toGNSData.cinnerCompl
+          (P.op.T (P.op.T J.canonicalUnitProbe.vector))
+          J.canonicalUnitProbe.vector)) := by
+  change RCle
+    (CReal.RCscale (1 - twoStepRate nome hd)
+      (W.toGNSData.cinnerCompl
+        (J.map unitExcitation) (J.map unitExcitation)))
+    (CReal.RCsub
+      (W.toGNSData.cinnerCompl
+        (J.map unitExcitation) (J.map unitExcitation))
+      (W.toGNSData.cinnerCompl
+        (P.op.T (P.op.T (J.map unitExcitation)))
+        (J.map unitExcitation)))
+  exact J.image_twoStep_defect_form_bound unitExcitation_orthogonal
 
 /-- A supplied bridge transports the current fixed-point exclusion to the
 canonical unit excitation. -/
@@ -1777,6 +1941,12 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_fixed_stage_eq_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.twoStep_fixed_stage_eq_zero_of_existing_pairing_continuity
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.toCauchyTwoStepCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentStageDenseTwoStepCertificate.toBridge
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierProbeCertificate.ofFormCertificate
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierFormCertificate.distance_preserving
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierFormCertificate.toTwoStepCertificateOfDense
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierFormCertificate.toBridgeOfDense
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyTwoStepCertificate.toTwoStepCertificate
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierCauchyProbeCertificate
@@ -1799,8 +1969,10 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_vacuum_orthogonal
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_ne_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_response_floor
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_response_not_le_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_form_bound
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_defect_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_fixed_eq_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_not_fixed
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_correlation_eq_current

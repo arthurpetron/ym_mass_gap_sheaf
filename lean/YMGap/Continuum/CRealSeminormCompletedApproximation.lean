@@ -131,6 +131,44 @@ theorem completedDist_three_segment (a b c d : D.Completion) (epsilon : Q') (he 
     leEv_le_ofQ'_of_approx_le (fun _ => quarter_le_self (quarter_pos he))
   exact completedDist_two_segment P a c d epsilon hac (RCle_trans hcd hrelax)
 
+/-- A dense equality determines two nonexpansive maps into any separated
+squared-distance target. Neither target completeness nor a rational-valued
+pre-Hilbert presentation is needed. The approximant is sampled using the
+supplied source representative's own modulus. -/
+theorem maps_eq_of_dense {Target : Type}
+    (targetDist : Target → Target → RC)
+    (target_eq : ∀ a b, (∀ epsilon : Q', (0 : Q') < epsilon →
+      RCle (targetDist a b) (Quotient.mk crealSetoid (ofQ' epsilon))) → a = b)
+    (target_two_segment : ∀ a b c (epsilon : Q'),
+      RCle (targetDist a b) (Quotient.mk crealSetoid (ofQ' (quarter epsilon))) →
+      RCle (targetDist b c) (Quotient.mk crealSetoid (ofQ' (quarter epsilon))) →
+      RCle (targetDist a c) (Quotient.mk crealSetoid (ofQ' epsilon)))
+    (f g : D.Completion → Target)
+    (hf : ∀ x y, RCle (targetDist (f x) (f y)) (P.completedDist x y))
+    (hg : ∀ x y, RCle (targetDist (g x) (g y)) (P.completedDist x y))
+    (dense : ∀ s, f (D.embedRep s) = g (D.embedRep s))
+    (x : D.Completion) : f x = g x := by
+  refine Quotient.inductionOn x ?_
+  intro X
+  let current : D.Completion := Quotient.mk D.completionSetoid X
+  apply target_eq
+  intro epsilon hepsilon
+  let n := X.modulus (quarter epsilon)
+  let near := D.embedRep (X.seq n)
+  have hnear : RCle (P.completedDist near current)
+      (Quotient.mk crealSetoid (ofQ' (quarter epsilon))) :=
+    constantApproximation_bound P X (quarter epsilon) (quarter_pos hepsilon)
+      n (Nat.le_refl _)
+  have hfar : RCle (P.completedDist current near)
+      (Quotient.mk crealSetoid (ofQ' (quarter epsilon))) := by
+    rw [P.completedDist_symm current near]
+    exact hnear
+  have hleft := RCle_trans (hf current near) hfar
+  have hright := RCle_trans (hg near current) hnear
+  have hmiddle : f near = g near := dense (X.seq n)
+  rw [← hmiddle] at hright
+  exact target_two_segment (f current) (f near) (g current) epsilon hleft hright
+
 end YMGap.Continuum.CRealSeminormCompletedApproximation
 
 #print axioms YMGap.Continuum.CRealSeminormCompletedApproximation.DistanceData
@@ -143,3 +181,4 @@ end YMGap.Continuum.CRealSeminormCompletedApproximation
 #print axioms YMGap.Continuum.CRealSeminormCompletedApproximation.approximant_bound
 #print axioms YMGap.Continuum.CRealSeminormCompletedApproximation.completedDist_two_segment
 #print axioms YMGap.Continuum.CRealSeminormCompletedApproximation.completedDist_three_segment
+#print axioms YMGap.Continuum.CRealSeminormCompletedApproximation.maps_eq_of_dense

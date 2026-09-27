@@ -2,17 +2,17 @@
 
 Date: 2026-09-27 UTC. Base commit: `7c2d23e`.
 
-Status: source review and mathematical argument; the accompanying Lean draft
-has **not** passed elaboration or its axiom gates. Line references into the
-bridge module below refer to the reviewed working-tree draft. Other references
-are to unchanged source. This report closes no checked roadmap node.
-The Lean drafts remain uncommitted pending verification; references to the
-new generic module describe the local draft, not a verified file on `main`.
+Status: source review and mathematical argument, with the completion/bridge
+reduction now kernel-checked. `CRealSeminormCompletedApproximation`,
+`GNSTransferMetric`, and `BF4WilsonSpatialUnionCanonicalGNSBridge` passed
+serialized focused checks with only `{propext, Quot.sound}`. The independent
+Product module also passed, with the same or fewer axioms. Line references describe this
+reviewed source revision. No canonical roadmap marker or Clay obligation closes.
 
 **Physical-target warning:** the bridge's ordinary Wilson GNS destination is
 not automatically the canonical reflected positive-time OS destination.
 Section 5 records the missing identification and the resulting execution
-correction. The useful dense-extension draft has been made target-generic;
+correction. The checked dense-extension theorem is target-generic;
 it does not construct a physical identification.
 
 ## 1. Probe orthogonality follows from static transport
@@ -30,7 +30,7 @@ identifies centeredness with vacuum orthogonality. Consequently the argument is
 <F(Ru), Omega> = <F(Ru), F(U)> = B(Ru,U) = 0.
 ```
 
-The draft `CurrentCarrierProbeCertificate.ofFormCertificate`
+The checked `CurrentCarrierProbeCertificate.ofFormCertificate`
 (`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:923`)
 implements those rewrites. It uses neither a transfer equation nor a choice
 of Cauchy representative. The existing `CurrentCarrierProbeCertificate`
@@ -39,13 +39,13 @@ structure and its fields are preserved.
 ## 2. Dense dynamics determines dynamics on the completed image
 
 The older exact stage interface also benefits from the target-generic
-metric argument in section 4. The draft
+metric argument in section 4. The checked
 `CurrentStageDenseTwoStepCertificate.toCauchyTwoStepCertificate`
 (`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1077`)
 specializes `CurrentCarrierFormCertificate.toTwoStepCertificateOfDense` to
 the existing stage transport and then applies it to each supplied source
-Cauchy class. Its draft `.toBridge` at `:1099` adds the derived probe pin.
-The earlier duplicate pairing-limit proof has been removed from the draft.
+Cauchy class. Its `.toBridge` at `:1099` adds the derived probe pin.
+The earlier duplicate pairing-limit draft has been replaced by this specialization.
 The original structures and field types are preserved; the static stage
 transport and dense equation remain inputs. No range section or extra
 continuity hypothesis is used, and no stage producer is constructed here.
@@ -78,12 +78,12 @@ No field has been weakened to address the restriction.
 
 ## 4. Stronger reduction without exact rational stage representatives
 
-The draft `CurrentCarrierFormCertificate.toBridgeOfDense`
+The checked `CurrentCarrierFormCertificate.toBridgeOfDense`
 (`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1064`)
 instead takes the existing completed form certificate and a two-step equation
 only on embedded source stages. Those images are arbitrary completed GNS
-vectors, not necessarily constant rational GNS streams. The proof proceeds as
-follows; all new declarations remain unverified.
+vectors, not necessarily constant rational GNS streams. The checked proof
+proceeds as follows.
 
 1. `CurrentCarrierFormCertificate.distance_preserving` (same module `:1023`)
    expands squared differences using `RCBilinearDifference.difference_diagonal`
@@ -92,7 +92,7 @@ follows; all new declarations remain unverified.
 2. `GNSTransferMetric.transfer_sub`
    (`lean/YMGap/Continuum/GNSTransferMetric.lean:97`) derives difference
    preservation from self-adjointness and pairing nondegeneracy.
-   `transfer_nonexpansive` (same module `:113`) then derives pairwise distance
+   `transfer_nonexpansive` (same module `:117`) then derives pairwise distance
    contraction from the transfer's supplied norm contraction.
 3. For a supplied source representative `X` and positive tolerance `epsilon`,
    sample its own stage at `X.modulus (quarter epsilon)`.
@@ -111,8 +111,8 @@ follows; all new declarations remain unverified.
 `CurrentCarrierFormCertificate.toTwoStepCertificateOfDense`
 (`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1039`)
 implements steps 1--4 via `GNSTransferMetric.maps_eq_of_dense`
-(`lean/YMGap/Continuum/GNSTransferMetric.lean:124`). Its proof now specializes
-the more general draft `CRealSeminormCompletedApproximation.maps_eq_of_dense`
+(`lean/YMGap/Continuum/GNSTransferMetric.lean:128`). Its proof specializes
+the general theorem `CRealSeminormCompletedApproximation.maps_eq_of_dense`
 (`lean/YMGap/Continuum/CRealSeminormCompletedApproximation.lean:138`): the target
 is any type with a squared distance, all-positive-tolerance separation and the
 quarter-tolerance two-segment estimate. No rational GNS presentation or target
@@ -126,9 +126,10 @@ No canonical frontier type is changed. Quotient induction
 proves an equality; it does not
 select quotient representatives as data. Independent Sol source review found
 the approximation directions and certificate types consistent, with no added
-range/density premise. This is not an elaboration or axiom check.
+range/density premise. Subsequent focused checks confirmed elaboration and
+the permitted axiom set for all three completion/bridge modules.
 
-Thus the stronger pending reduction leaves static completed form/vacuum
+Thus the stronger checked reduction leaves static completed form/vacuum
 transport plus its dense dynamics equation as inputs. It avoids the exact
 rational stage-map restriction; it does not alter the rational canonical root,
 construct the continuum datum, or provide the all-vector range section.
@@ -242,15 +243,15 @@ to a physical root producer; completed normalization must not be silently
 treated as a raw-stage construction. This is a source/type distinction, not
 a proof of irrationality or nonrepresentability. No frontier type is changed.
 
-## 8. Supported products: concrete draft, not an OS quotient algebra
+## 8. Supported products: checked construction, not an OS quotient algebra
 
-`BF4WilsonSpatialUnionProduct.lean` is a new **unverified local draft**.
+`BF4WilsonSpatialUnionProduct.lean` passed its focused elaboration/axiom check.
 `product` (`lean/YMGap/Continuum/BF4WilsonSpatialUnionProduct.lean:50`)
 places both intrinsic expressions at their maximum radius; `productStage`
-(`:95`) also uses their maximum spatial base. `chart_product` (`:55`) and
-`atBase_product` (`:99`) retain the literal common-chart multiplication.
+(`:98`) also uses their maximum spatial base. `chart_product` (`:55`) and
+`atBase_product` (`:102`) retain the literal common-chart multiplication.
 
-The draft `embedStage_eq_of_common_source` (`:150`) composes the existing
+`embedStage_eq_of_common_source` (`:155`) composes the existing
 `distSq_at_base` (`lean/YMGap/Continuum/BF4WilsonSpatialUnion.lean:151`),
 `intrinsic_distSq_zero_of_padded_diagonal`
 (`lean/YMGap/Continuum/BF4WilsonSpatialUnionObservableDescent.lean:140`), and
@@ -260,16 +261,16 @@ It requires one finite coefficient identity, not an additional analytic
 estimate. This permits different source bases without choosing a common
 support bound for an entire completed stream.
 
-`product_comm` (`BF4WilsonSpatialUnionProduct.lean:164`), `product_assoc`
-(`:178`), and `product_sum_right` (`:201`) then use the existing finite
+`product_comm` (`BF4WilsonSpatialUnionProduct.lean:169`), `product_assoc`
+(`:183`), and `product_sum_right` (`:206`) then use the existing finite
 polynomial laws to conclude equality of the corresponding `embedStage`
 images. No arbitrary completed-state equality is used as a product
 congruence hypothesis. Consequently these results do not yet define an
 algebra on an observable equivalence relation or on the OS null quotient.
 Their consumer is the missing source-side observable-algebra realization;
 the canonical reflected Gram pin and supported normalized probe remain open.
-Sol's independent source review found the bounds and descent types aligned;
-no elaboration or axiom check has run, and no roadmap node is closed.
+Sol reviewed the mathematical argument independently. The subsequent focused
+check uses only `{propext, Quot.sound}` or fewer axioms. No roadmap marker closes.
 
 ## 9. A multiplier-only equivalence need not be preserved by time
 
@@ -306,7 +307,7 @@ equivalence time-stable. This does not contradict the existing physical
 different assertion. No assertion is made that this finite example satisfies
 the Wilson provenance, the positive-response assumptions, or all OS axioms.
 
-### Constructive algebraic correction and unverified source implementation
+### Constructive algebraic correction and checked source implementation
 
 For a unital commutative rational algebra `A`, a rational-linear map `J`, and
 an algebra endomorphism `tau`, the time-stable version is
@@ -325,19 +326,19 @@ condition at `n+1`; no inverse or surjectivity of time is required. Taking
 explicit universal quantifiers; no representatives or moduli are selected.
 
 This argument identifies a constructive congruence, not a new assumed
-analytic certificate. The local draft now defines the concrete source
-`TimeContextEq` (`lean/YMGap/Continuum/BF4WilsonSpatialUnionProduct.lean:260`).
-`advance_product` (`:82`) and `time_product` (`:106`) give the exact raw-time
-product identity; `product_smul_left` (`:228`) and `product_unit_right`
-(`:244`) supply embedded scalar/unit laws. `timeContext_time` (`:274`),
-`timeContext_embed` (`:280`), and `timeContext_product` (`:303`) implement
+analytic certificate. The checked module defines the concrete source
+`TimeContextEq` (`lean/YMGap/Continuum/BF4WilsonSpatialUnionProduct.lean:265`).
+`advance_product` (`:85`) and `time_product` (`:109`) give the exact raw-time
+product identity; `product_smul_left` (`:233`) and `product_unit_right`
+(`:249`) supply embedded scalar/unit laws. `timeContext_time` (`:279`),
+`timeContext_embed` (`:285`), and `timeContext_product` (`:308`) implement
 time stability, equality of original state images, and product congruence.
 The last proof rotates entire products under the embedding before using a
 contextual test; it does not multiply an equality of completed vectors.
 
-All of these declarations remain **unverified drafts**. Independent Sol
-review found no issue with the index shift, source guards or product rotations.
-The later drafts `timeContext_sum` (`:338`) and `timeContext_smul` (`:345`)
+All of these declarations passed the focused check. Independent Sol review
+also checked the index shift, source guards and product rotations.
+`timeContext_sum` (`:343`) and `timeContext_smul` (`:350`)
 also derive addition/scalar congruence from the existing completed linear
 operations and their embedded-stage pins. Algebra laws modulo `TimeContextEq`
 remain unimplemented: laws only after embedding must not be mistaken for laws
@@ -411,17 +412,24 @@ range section (`CanonicalRangeSectionCertificate`, same module `:1635`),
 same-measure OS realization, scaling control, physical Hamiltonian,
 nontrivial continuum theory, and every-group Clay theorem remain open.
 
-The existing external Lake process `46993` and its Lean child `60253`
-(`BF4PhysicalBoundaryCutoffTwoSectorRawKernelRows/Row64.lean`) were confirmed
-live by process inspection during this review. No concurrent Lean check was
-launched in this continuation. The previous claim that they had terminated
-was invalid: sandbox-denied process access had been interpreted as process
-absence. Future checks must distinguish those outcomes.
+The Lake process `46993` and its Lean child `60253`
+(`BF4PhysicalBoundaryCutoffTwoSectorRawKernelRows/Row64.lean`) were initially
+treated as externally owned. The current thread's launch record at
+2026-09-27 09:51:29 UTC instead identifies this assistant's accidental
+`python3 scripts/safe_lean_build.py --jobs 1 -- --` invocation, which expanded
+to the unintended full-library `lake build --`. Its process start time matched.
+After revalidating the exact process group, SIGINT stopped both processes;
+authoritative process inspection confirmed their exit before a narrow check
+started at approximately 13:52 UTC. Completed artifacts were preserved, and
+no lock was removed. The earlier termination claim based on sandbox-denied
+process access was invalid; permission denial is not evidence of absence.
 
-Next verification, only after the live build ends: a monitored one-worker
-check/build of `CRealSeminormCompletedApproximation.lean`, then
-`GNSTransferMetric.lean`, then
-`BF4WilsonSpatialUnionCanonicalGNSBridge.lean`, inspecting all three modules'
-printed axiom dependencies. The draft also contains the two earlier unverified
-unit-probe consequences. No success or axiom-set claim is made for any of the
-new declarations; the proof-status ledger and chart remain unchanged.
+Verification completed: monitored one-worker, 20 GiB-capped focused checks of
+`CRealSeminormCompletedApproximation.lean`, `GNSTransferMetric.lean`,
+`BF4WilsonSpatialUnionCanonicalGNSBridge.lean`, and
+`BF4WilsonSpatialUnionProduct.lean`, in that order. All printed declarations
+use only `{propext, Quot.sound}` or fewer axioms, including the two unit-probe
+consequences. Elaboration fixes addressed one GNS projection rewrite and
+three product/chart elaboration errors; none changed mathematical statements.
+The proof ledger records the checked reductions; canonical chart markers stay
+unchanged. No full-library build or axiom audit is claimed.

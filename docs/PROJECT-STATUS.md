@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting reduction (2026-09-27 UTC; chart markers unchanged):
+`CurrentCarrierFormCertificate.toBridgeOfDense` now derives the completed
+two-step dynamics and probe orthogonality from static form/vacuum transport
+and its dense equation. The target-independent completion theorem and GNS
+specialization passed focused checks within `{propext, Quot.sound}`.
+The ordinary Wilson-GNS target is not automatically the reflected physical
+OS target; its missing identification and all continuum/Clay obligations
+remain open. See `audits/AUDIT-CANONICAL-BRIDGE-MINIMALITY-2026-09-27.md`.
+No unchanged ASCII chart is reprinted for this supporting reduction.
+The independently checked `BF4WilsonSpatialUnionProduct` supplies raw-stage
+products and time/product/sum/scalar congruence for `TimeContextEq`, with the
+same axiom gate. It does not yet supply the full contextual algebra laws or
+the canonical reflected observable identification.
+
 Chart schema: **1**. Snapshot: **125**, 2026-09-27 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor

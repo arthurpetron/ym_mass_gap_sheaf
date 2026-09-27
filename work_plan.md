@@ -25,20 +25,22 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Physical-target correction and completion draft (2026-09-27 UTC; verification pending)
+### Physical-target correction and checked completion reduction (2026-09-27 UTC)
 
 The next completed-carrier obligation can be reduced using existing
 mathematics: static form/vacuum preservation transports the centered
 resolvent's orthogonality and preserves squared distances. Self-adjointness
 and norm contraction imply pairwise transfer contraction. A dense two-step
 equation then extends to the completed image using the source's explicit
-approximation modulus. The draft
+approximation modulus. The checked
 `CurrentCarrierFormCertificate.toBridgeOfDense` in
 `BF4WilsonSpatialUnionCanonicalGNSBridge.lean` implements this stronger route:
 stage images may be arbitrary completed GNS vectors. Generic metric lemmas
-are drafted in `GNSTransferMetric.lean`. Kernel/axiom checks remain pending
-behind the live external `Row64` build; no checked milestone or chart node
-is advanced.
+are proved in `GNSTransferMetric.lean`. All three changed completion/bridge
+modules passed serialized focused checks with only `{propext, Quot.sound}`.
+No canonical chart marker advances: the physical bridge producer remains open.
+The blocking `Row64` run was traced to this assistant's accidental full-build
+command, stopped gracefully, and its completed artifacts preserved.
 
 The source review and exact remaining producer restrictions are in
 `audits/AUDIT-CANONICAL-BRIDGE-MINIMALITY-2026-09-27.md`. Before implementing
@@ -47,9 +49,9 @@ representability requirement; the existing general Cauchy-stream interface
 does not impose that per-stage restriction. The new completed-map reduction
 also avoids it without changing any frontier structure. The canonical datum,
 static transport, dense dynamic equation, and all-vector range section remain
-inputs. Verify `CRealSeminormCompletedApproximation`, then `GNSTransferMetric`,
-then the bridge, serialized through the monitored launcher; do not start a
-competing Lean process.
+inputs. `CRealSeminormCompletedApproximation`, `GNSTransferMetric`, and the
+bridge were checked serially with one worker capped at 20 GiB. No full-tree
+audit was run.
 
 **Producer correction from the scoped source audit:** the old bridge targets
 ordinary `W.toGNSData`, whereas `CanonicalOSRoot.PositiveTimeOSRoot` uses a
@@ -72,21 +74,20 @@ finite-expectation provenance: `completedTime_correlator` unfolds through
 `spatialCauchy_modulus`, `spatial_approx`, and `chartScalar_original_pin`
 supplying the explicit regulator control and original normalized action pin.
 The exact chain is recorded in audit section 6; do not add another conditional
-certificate for that already supplied source-side fact. The draft stage-level
+certificate for that already supplied source-side fact. The checked stage-level
 dynamics consumer now specializes the generic dense-extension proof rather
 than maintaining a second pairing-limit proof. A scalar-interface correction
 has been put to the user for review; until approved, canonical frontier types
 remain unchanged.
 
-The independent supported-product draft in
+The independent checked supported-product construction in
 `BF4WilsonSpatialUnionProduct.lean` now constructs multiplication on original
 stages at their maximum base and radius. It transports finite polynomial
 commutativity, associativity and distributivity into equalities of the existing
 embedded states through a common-source identity. These are not product
 congruence laws for arbitrary OS-null states and do not yet construct the
-canonical observable algebra. Static Sol review found no issue; the module
-joins the narrow verification queue after the existing external build, with
-no proof-status change. Audit sections 7--8 also retain the separate missing
+canonical observable algebra. Its focused check passed with only
+`{propext, Quot.sound}` (or fewer axioms). Audit sections 7--8 retain the missing
 supported representation of the CReal-normalized completed probe. Do not
 expand a semantic quotient until its compatibility laws have been justified.
 
@@ -94,16 +95,15 @@ A further paper check rules out automatic time stability for the relation
 that tests equality only after multiplication by arbitrary source observables.
 Audit section 9 gives an explicit rational four-coordinate counterexample,
 despite unital algebraic time evolution, exact intertwining and a positive
-self-adjoint contraction. The Product draft now retains all forward time
+self-adjoint contraction. The Product module retains all forward time
 translates in `TimeContextEq`, proves the exact raw-stage time/product identity,
 and derives equivalence, time/product compatibility and equality of the
-original embedded images. Embedded unit/scalar laws are also drafted. Sol
-reviewed these proofs statically; no elaboration or axiom check has run.
-Addition/scalar congruence is now also drafted using the existing completed
-linear operations. Algebra laws under every contextual test are still needed
+original embedded images. Embedded unit/scalar laws and contextual
+addition/scalar congruence also pass the focused axiom check. Sol independently
+reviewed the arguments. Algebra laws under every contextual test are still needed
 before calling this a source observable algebra. Do not infer
 a descended time map from the multiplier-only relation or treat embedded
-laws as contextual laws. No canonical field or proof status is changed.
+laws as contextual laws. No canonical field or chart marker is changed.
 
 The parallel scaling check reuses
 `BF4WilsonUniformLatticeRateScalingObstruction.sampledLimit_zero`; its common
