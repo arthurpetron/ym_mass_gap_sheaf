@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **122**, 2026-09-27 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **123**, 2026-09-27 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -202,6 +202,15 @@ the existing cutoff-removal theorem proves strict positivity of the
 continuum zero-time same-object autocorrelation.  Neither certificate is
 constructed here, and no continuum measure, OS/GNS reconstruction, physical
 mass, every-group, or Clay result is claimed.
+
+The same raw moving-cube compiler now also transports the exact finite
+same-object squared-decay inequality through cutoff removal: an explicit
+`ScheduledRCContinuumLimit` and
+`NormalizedMovingCubeSampledRatePowerLimit` yield the continuum squared
+autocorrelation bound for each physical time.  This retains the exact
+scheduled rate-power stream; it does not identify that stream with a physical
+exponential or construct OS/GNS, a continuum QFT, a physical mass, or the Clay
+gap.
 
 Because the finite physical-mass shell entropy estimate is already proved, the
 matched route now also accepts the smaller
@@ -1910,3 +1919,4 @@ still consumes the two unproved all-scale pointwise inequalities.
 | 1 / 136 | 2026-09-27 | Added same-family `toPhysicalGapFloor` and `toRegScalingBand` projections for both rationalized matched decay routes. They consume an explicit physical-rate band and preserve the literal completed transfer/spacing; the band and all physical, continuum, and Clay inputs remain open. |
 | 1 / 137 | 2026-09-27 | Added same-family `toContinuumGapTheorem` projections for both rationalized matched routes. They expose the existing scalar continuum-gap interface from an external physical-rate band; the scalar projection is conditional and does not close continuum/QFT, physical-mass, every-group, or Clay obligations. |
 | 1 / 138 | 2026-09-27 | Exposed `continuumZeroTime_isPositive` for both matched routes. An explicit scheduled-RC representative limit plus a uniform same-channel norm floor now compiles to continuum zero-time positivity; the two certificates and all OS/QFT, physical-mass, every-group, and Clay obligations remain open. |
+| 1 / 139 | 2026-09-27 | Transported the exact finite moving-cube squared-decay estimate through the raw continuum compiler for both matched routes. The scheduled representative limit and rate-power limit remain explicit; no physical-exponential, OS/GNS, continuum-QFT, physical-mass, every-group, or Clay conclusion is added. |

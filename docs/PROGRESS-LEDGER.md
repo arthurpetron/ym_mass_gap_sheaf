@@ -30282,3 +30282,17 @@ The monitored source check reports only `{propext, Quot.sound}` for both new
 dependency gates and no `sorryAx`.  The representative limit, uniform floor,
 continuum measure, OS/GNS reconstruction, physical mass, every-group, and
 Clay inputs remain open.
+
+## Matched scheduled-RC channel reaches conditional continuum decay (2026-09-27 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.continuumConnectedAutocorrelationSq_decay`
+and the corresponding factorized declaration.  Each reuses the existing raw
+moving-cube continuum compiler: an explicit scheduled representative limit and
+`NormalizedMovingCubeSampledRatePowerLimit` pass the exact finite squared
+same-object estimate to the continuum `RC` channel at every physical time.
+
+The monitored source check reports only `{propext, Quot.sound}` for both new
+dependency gates and no `sorryAx`.  The representative/rate-power limits,
+physical-exponential identification, continuum measure, OS/GNS reconstruction,
+physical mass, every-group, and Clay inputs remain open.

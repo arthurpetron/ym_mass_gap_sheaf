@@ -23,6 +23,7 @@ import YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 import YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellEntropy
@@ -51,6 +52,8 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 open YMGap.Continuum.PhysicalSeparator
 open YMGap.Continuum.PhysicalSeparatorContinuumRealization
@@ -707,6 +710,29 @@ def MatchedPhysicalExplicitRayStateLoadDecayProducer.continuumZeroTime_isPositiv
     RCIsPositive (limit.continuumConnectedAutocorrelation 0) :=
   limit.continuumConnectedAutocorrelation_zero_isPositive uniform
 
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.continuumConnectedAutocorrelationSq_decay
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (limit : ScheduledRCContinuumLimit producer.toSameObjectRCChannel)
+    (ratePower : NormalizedMovingCubeSampledRatePowerLimit
+      producer.toCompletedFamily)
+    (time : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (limit.continuumConnectedAutocorrelation time)
+        (limit.continuumConnectedAutocorrelation time))
+      (CReal.RCmul
+        (CReal.RCmul
+          (Quotient.mk CReal.crealSetoid
+            (ratePower.limitRepresentative time))
+          (limit.continuumConnectedAutocorrelation 0))
+        (limit.continuumConnectedAutocorrelation 0)) := by
+  exact rawMovingCubeContinuumConnectedAutocorrelationSq_decay
+    producer.toCompletedFamily limit ratePower time
+
 /-! ## 8. Split the remaining decay into weight and path mechanisms -/
 
 /-- A factored analytic input for the same route: stationary-weight decay and
@@ -998,6 +1024,29 @@ def MatchedPhysicalExplicitRayFactorizedDecayProducer.continuumZeroTime_isPositi
     RCIsPositive (limit.continuumConnectedAutocorrelation 0) :=
   limit.continuumConnectedAutocorrelation_zero_isPositive uniform
 
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.continuumConnectedAutocorrelationSq_decay
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (limit : ScheduledRCContinuumLimit producer.toSameObjectRCChannel)
+    (ratePower : NormalizedMovingCubeSampledRatePowerLimit
+      producer.toCompletedFamily)
+    (time : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (limit.continuumConnectedAutocorrelation time)
+        (limit.continuumConnectedAutocorrelation time))
+      (CReal.RCmul
+        (CReal.RCmul
+          (Quotient.mk CReal.crealSetoid
+            (ratePower.limitRepresentative time))
+          (limit.continuumConnectedAutocorrelation 0))
+        (limit.continuumConnectedAutocorrelation 0)) := by
+  exact rawMovingCubeContinuumConnectedAutocorrelationSq_decay
+    producer.toCompletedFamily limit ratePower time
+
 /-! ## 9. Occupied-shell obstruction at the matched boundary -/
 
 /-- Every occupied physical-mass shell forces the matched state-load envelope
@@ -1146,6 +1195,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.continuumZeroTime_isPositive
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.continuumConnectedAutocorrelationSq_decay
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toStateLoadDecayProducer
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toResistanceProducer
@@ -1183,6 +1234,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toContinuumGapTheorem
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.continuumZeroTime_isPositive
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.continuumConnectedAutocorrelationSq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.one_le_envelope_of_shell_member
 #print axioms
