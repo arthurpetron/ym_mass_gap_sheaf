@@ -147,6 +147,11 @@ rate-power limit imply squared same-object autocorrelation decay at every
 physical time.  The rate-power stream remains explicit and is not yet a
 physical exponential or a continuum Yang--Mills construction.
 
+With a same-measure raw projective/OS/GNS matrix-coefficient pin supplied,
+both routes also identify that same continuum correlation with the selected
+Wilson transfer power on its pinned vacuum-complement state.  The pin and the
+all-vector transfer gap remain explicit inputs.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

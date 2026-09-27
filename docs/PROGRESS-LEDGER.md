@@ -30296,3 +30296,18 @@ The monitored source check reports only `{propext, Quot.sound}` for both new
 dependency gates and no `sorryAx`.  The representative/rate-power limits,
 physical-exponential identification, continuum measure, OS/GNS reconstruction,
 physical mass, every-group, and Clay inputs remain open.
+
+## Matched raw channel reaches conditional Wilson OS/GNS coefficient (2026-09-27 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.rawContinuumConnectedAutocorrelation_eq_matrixCoefficient`
+and the corresponding factorized declaration.  Each consumes a literal raw
+representative variation and a same-measure
+`RawMovingCubeWilsonMatrixCoefficientPin`; the existing handoff then identifies
+the same-object continuum correlation with the selected Wilson transfer power
+on the exact pinned vacuum-complement state.
+
+The monitored source check reports only `{propext, Quot.sound}` for both new
+dependency gates and no `sorryAx`.  The projective measure, OS/GNS pin,
+all-vector transfer gap, physical mass, every-group, and Clay inputs remain
+open.
