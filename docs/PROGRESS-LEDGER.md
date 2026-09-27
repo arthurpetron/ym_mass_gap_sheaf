@@ -30767,3 +30767,12 @@ compiler, and `ConcreteJoin.ofConstantPhysicalGapCalibration` preserves the
 response-persistence, raw, normalization-debt, and scheduled-rate fields in
 one same-carrier object.  This removes a duplicate calibration presentation,
 not the underlying analytic obligation.
+
+The same join now accepts the existing repaired head-energy product route:
+`changingNomeCarrierNormalizedPhysicalGapBounds_ofHeadEnergyProductBand`
+uses the checked physical-rate band's floor/ceiling consequences to obtain the
+cofinal physical-gap calibration, and `ConcreteJoin.ofHeadEnergyProductBand`
+attaches it to the same response-persistent carrier.  The generic
+`ofCofinalGapCalibration` constructor separates this transport from either
+analytic source.  No head-energy, response-persistence, OS/GNS, or continuum
+certificate is manufactured by these recodings.

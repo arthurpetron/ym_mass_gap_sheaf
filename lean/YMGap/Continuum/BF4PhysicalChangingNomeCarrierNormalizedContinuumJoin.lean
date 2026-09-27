@@ -148,6 +148,27 @@ structure ConcreteJoin : Type 1 where
   normDebt : NormDebtVariation
   ratePower : RatePowerVariation
 
+def ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofCofinalGapCalibration
+    (responsePersistence : ChangingNomeCarrierNormalizedResponsePersistence)
+    (calibration : ChangingNomeCarrierNormalizedCofinalGapCalibration) :
+    ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute where
+  responsePersistence := responsePersistence
+  calibration := calibration
+
+def ConcreteJoin.ofCofinalGapCalibration
+    (responsePersistence : ChangingNomeCarrierNormalizedResponsePersistence)
+    (calibration : ChangingNomeCarrierNormalizedCofinalGapCalibration)
+    (raw : RawVariation)
+    (normDebt : NormDebtVariation)
+    (ratePower : RatePowerVariation) :
+    ConcreteJoin where
+  cofinal :=
+    ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofCofinalGapCalibration
+      responsePersistence calibration
+  raw := raw
+  normDebt := normDebt
+  ratePower := ratePower
+
 /- A compatible constant physical-gap certificate can be recoded into the
    specialized cofinal calibration used by the repaired carrier.  The proof
    only transports its pointwise equality through the existing finite-min/max
@@ -176,16 +197,46 @@ def changingNomeCarrierNormalizedCofinalGapCalibration_ofConstantPhysicalGapCali
   (changingNomeCarrierNormalizedPhysicalGapBounds_ofConstantPhysicalGapCalibration
     calibration).toCofinalGapCalibration
 
+def changingNomeCarrierNormalizedPhysicalGapBounds_ofHeadEnergyProductBand
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand) :
+    ChangingNomeCarrierNormalizedPhysicalGapBounds where
+  floor := band.floor
+  floor_pos := band.floor_pos
+  ceiling := band.ceiling
+  ceiling_pos := band.ceiling_pos
+  floor_le_gap := by
+    intro scale
+    exact DynamicVacuumSectorPhysicalRateBand.floor_le_physicalGap
+      (band.toPhysicalRateBand) scale
+  gap_le_ceiling := by
+    intro scale
+    exact DynamicVacuumSectorPhysicalRateBand.physicalGap_le_ceiling
+      (band.toPhysicalRateBand) scale
+
+def changingNomeCarrierNormalizedCofinalGapCalibration_ofHeadEnergyProductBand
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand) :
+    ChangingNomeCarrierNormalizedCofinalGapCalibration :=
+  (changingNomeCarrierNormalizedPhysicalGapBounds_ofHeadEnergyProductBand
+    band).toCofinalGapCalibration
+
 def ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofConstantPhysicalGapCalibration
     (responsePersistence : ChangingNomeCarrierNormalizedResponsePersistence)
     (calibration :
       DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration
         changingNomeCarrierNormalizedDynamicFamily) :
-    ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute where
-  responsePersistence := responsePersistence
-  calibration :=
-    changingNomeCarrierNormalizedCofinalGapCalibration_ofConstantPhysicalGapCalibration
-      calibration
+    ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute :=
+  ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofCofinalGapCalibration
+    responsePersistence
+    (changingNomeCarrierNormalizedCofinalGapCalibration_ofConstantPhysicalGapCalibration
+      calibration)
+
+def ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofHeadEnergyProductBand
+    (responsePersistence : ChangingNomeCarrierNormalizedResponsePersistence)
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand) :
+    ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute :=
+  ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofCofinalGapCalibration
+    responsePersistence
+    (changingNomeCarrierNormalizedCofinalGapCalibration_ofHeadEnergyProductBand band)
 
 def ConcreteJoin.ofConstantPhysicalGapCalibration
     (responsePersistence : ChangingNomeCarrierNormalizedResponsePersistence)
@@ -199,6 +250,20 @@ def ConcreteJoin.ofConstantPhysicalGapCalibration
   cofinal :=
     ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofConstantPhysicalGapCalibration
       responsePersistence calibration
+  raw := raw
+  normDebt := normDebt
+  ratePower := ratePower
+
+def ConcreteJoin.ofHeadEnergyProductBand
+    (responsePersistence : ChangingNomeCarrierNormalizedResponsePersistence)
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand)
+    (raw : RawVariation)
+    (normDebt : NormDebtVariation)
+    (ratePower : RatePowerVariation) :
+    ConcreteJoin where
+  cofinal :=
+    ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofHeadEnergyProductBand
+      responsePersistence band
   raw := raw
   normDebt := normDebt
   ratePower := ratePower
@@ -514,13 +579,25 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toJoin
 #print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofCofinalGapCalibration
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofCofinalGapCalibration
+#print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.changingNomeCarrierNormalizedPhysicalGapBounds_ofConstantPhysicalGapCalibration
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.changingNomeCarrierNormalizedCofinalGapCalibration_ofConstantPhysicalGapCalibration
 #print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.changingNomeCarrierNormalizedPhysicalGapBounds_ofHeadEnergyProductBand
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.changingNomeCarrierNormalizedCofinalGapCalibration_ofHeadEnergyProductBand
+#print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofConstantPhysicalGapCalibration
 #print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofHeadEnergyProductBand
+#print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofConstantPhysicalGapCalibration
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofHeadEnergyProductBand
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toCanonicalUniformRCNormFloor
 #print axioms

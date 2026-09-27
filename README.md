@@ -3415,6 +3415,9 @@ physical-rate band on the same completed family.
 That calibration can be transported through the repaired finite-min/max
 compiler into `ConcreteJoin`, preserving the same response-persistence and
 observable variation fields.
+The existing repaired head-energy product-band certificate now has the same
+typed transport, and a generic cofinal-calibration constructor makes the
+meeting point explicit without selecting between those analytic inputs.
 `WilsonContinuumMassClusteringJoin` then adds an explicit raw-to-projective
 same-object identification, OS-value compatibility, projective Wilson
 coefficient pin, and reconstruction spectral channel, compiling to the
