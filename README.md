@@ -275,6 +275,18 @@ single typed bridge over a genuinely changing completed carrier, but the
 physical-rate band, observable rationalization, OS/GNS passage, continuum/QFT,
 every-group, and Clay nodes remain open.
 
+**New repaired-family same-object physical route (2026-09-27):**
+`ChangingNomeCarrierNormalizedConcreteChannelBridge` packages the concrete
+moving-cube channel on the carrier-normalized spacing family with exact
+nome/spacing and same-object identities, zero-time positivity, and completed
+squared decay. `ChangingNomeCarrierNormalizedConcretePhysicalChannelRoute`
+then keeps that channel and an explicit same-family physical-rate band in one
+dependent object and composes the band to the existing scalar continuum-gap
+interface. The route can be constructed from
+`ChangingNomeCarrierNormalizedHeadEnergyProductBand`, but that product band
+and the OS/GNS, continuum-QFT, physical-mass, every-group, and Clay inputs
+remain open.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

@@ -30549,3 +30549,15 @@ positivity and completed squared decay at every scale. The monitored source
 check reports only `{propext, Quot.sound}` and no `sorryAx`. The physical-rate
 band, observable rationalization, OS/GNS passage, continuum/QFT, every-group,
 physical-mass, and Clay inputs remain open.
+
+## Repaired-family same-object physical route (2026-09-27 UTC)
+
+`ChangingNomeCarrierNormalizedConcreteChannelBridge` packages the concrete
+moving-cube channel on the carrier-normalized spacing family with exact
+nome/spacing and same-object identities, zero-time positivity, and completed
+squared decay. `ChangingNomeCarrierNormalizedConcretePhysicalChannelRoute`
+keeps that channel and an explicit same-family physical-rate band in one
+dependent object and composes the band to the existing scalar continuum-gap
+interface. The route can be constructed from
+`ChangingNomeCarrierNormalizedHeadEnergyProductBand`; the product band and all
+OS/GNS, continuum/QFT, physical-mass, every-group, and Clay inputs remain open.

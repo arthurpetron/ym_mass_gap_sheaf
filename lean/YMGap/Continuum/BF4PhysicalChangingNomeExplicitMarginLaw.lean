@@ -597,6 +597,74 @@ def changingNomeCarrierNormalizedMovingCubeChannel :
   centralPhysicalDynamicMovingCubeRCChannel
     changingNomeCarrierNormalizedDynamicFamily
 
+/-! ## 8a. One typed bridge for the repaired same-object channel -/
+
+/-- The carrier-normalized spacing repair keeps the same concrete completed
+SU(2) observable while changing only the scale schedule.  This bridge records
+the exact nome/spacing, vector, and same-object autocorrelation identifications
+that a physical-rate consumer must preserve. -/
+structure ChangingNomeCarrierNormalizedConcreteChannelBridge : Type 1 where
+  channel : DynamicVacuumSectorSameObjectRCChannel
+    changingNomeCarrierNormalizedDynamicFamily
+  nome_eq : ∀ scale,
+    changingNomeCarrierNormalizedDynamicFamily.nome scale = changingNome scale
+  spacing_eq : ∀ scale,
+    changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale =
+      changingNomeCarrierNormalizedSpacing.spacing scale
+  vectorAt_eq : ∀ scale,
+    channel.vectorAt scale =
+      centralPhysicalDynamicMovingCubeVectorAt
+        changingNomeCarrierNormalizedDynamicFamily scale
+  autocorrelation_eq : ∀ scale time,
+    channel.connectedAutocorrelation scale time =
+      DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+        (centralPhysicalDynamicMovingCubeRCChannel
+          changingNomeCarrierNormalizedDynamicFamily) scale time
+
+/-- Construct the repaired-channel bridge from the existing inhabited
+carrier-normalized family and literal moving-cube channel. -/
+def changingNomeCarrierNormalizedConcreteChannelBridge :
+    ChangingNomeCarrierNormalizedConcreteChannelBridge where
+  channel := changingNomeCarrierNormalizedMovingCubeChannel
+  nome_eq := by
+    intro scale
+    exact changingNomeCarrierNormalizedDynamicFamily_same_nome scale
+  spacing_eq := by
+    intro scale
+    rfl
+  vectorAt_eq := by
+    intro scale
+    rfl
+  autocorrelation_eq := by
+    intro scale time
+    rfl
+
+/-- The repaired bridge retains strict zero-time positivity at every scale. -/
+theorem changingNomeCarrierNormalizedConcreteChannelBridge_zero_isPositive
+    (scale : Nat) :
+    RCIsPositive
+      (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+        changingNomeCarrierNormalizedConcreteChannelBridge.channel scale 0) :=
+  centralPhysicalDynamicMovingCube_connected_zero_isPositive
+    changingNomeCarrierNormalizedDynamicFamily scale
+
+/-- The repaired bridge retains completed squared decay at every scale/time. -/
+theorem changingNomeCarrierNormalizedConcreteChannelBridge_connectedSq_decay
+    (scale time : Nat) :
+    CReal.RCle
+      (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelationSq
+        changingNomeCarrierNormalizedConcreteChannelBridge.channel scale time)
+      (CReal.RCmul
+        (CReal.RCscale
+          ((((changingNomeCarrierNormalizedDynamicFamily.completedGap scale).rate *
+              (changingNomeCarrierNormalizedDynamicFamily.completedGap scale).rate)) ^ time)
+          (DynamicVacuumSectorSameObjectRCChannel.normSq
+            changingNomeCarrierNormalizedConcreteChannelBridge.channel scale))
+        (DynamicVacuumSectorSameObjectRCChannel.normSq
+          changingNomeCarrierNormalizedConcreteChannelBridge.channel scale)) :=
+  centralPhysicalDynamicMovingCube_connectedSq_decay
+    changingNomeCarrierNormalizedDynamicFamily scale time
+
 theorem changingNomeCarrierNormalizedMovingCube_zero_isPositive (scale : Nat) :
     RCIsPositive
       (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
@@ -1126,6 +1194,41 @@ def ChangingNomeCarrierNormalizedHeadEnergyProductBand.toPhysicalRateBand
       changingNomeCarrierNormalizedDynamicFamily :=
   band.toExplicitMarginDenominatorBand.toPhysicalRateBand
 
+/-! ## 8b. Same-object physical-rate route -/
+
+/-- A same-family physical-rate route keeps the repaired concrete channel and
+the uniform rate band in one typed object.  The rate band is intentionally a
+field: it is not inferred from the channel's dimensionless decay. -/
+structure ChangingNomeCarrierNormalizedConcretePhysicalChannelRoute : Type 1 where
+  channelBridge : ChangingNomeCarrierNormalizedConcreteChannelBridge
+  rateBand : DynamicVacuumSectorPhysicalRateBand
+    changingNomeCarrierNormalizedDynamicFamily
+
+/-- A supplied head-energy product band enters the same-object route without
+changing the completed family or its moving-cube channel. -/
+def ChangingNomeCarrierNormalizedConcretePhysicalChannelRoute.ofHeadEnergyProductBand
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand) :
+    ChangingNomeCarrierNormalizedConcretePhysicalChannelRoute where
+  channelBridge := changingNomeCarrierNormalizedConcreteChannelBridge
+  rateBand := band.toPhysicalRateBand
+
+/-- The same-family rate route contracts to the existing sharp continuum-gap
+interface; it does not construct the continuum QFT or OS/GNS passage. -/
+def ChangingNomeCarrierNormalizedConcretePhysicalChannelRoute.toContinuumGapTheorem
+    (route : ChangingNomeCarrierNormalizedConcretePhysicalChannelRoute) :
+    SharpContinuumObligation.ContinuumGapTheorem :=
+  route.rateBand.toContinuumGapTheorem
+
+/-- The rate route retains the concrete channel's strict zero-time response. -/
+theorem ChangingNomeCarrierNormalizedConcretePhysicalChannelRoute.zero_isPositive
+    (route : ChangingNomeCarrierNormalizedConcretePhysicalChannelRoute)
+    (scale : Nat) :
+    RCIsPositive
+      (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+        route.channelBridge.channel scale 0) :=
+  DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_zero_isPositive
+    route.channelBridge.channel scale
+
 def ChangingNomeCarrierNormalizedHeadEnergyProductBand.toContinuumGapTheorem
     (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand) :
     SharpContinuumObligation.ContinuumGapTheorem :=
@@ -1209,6 +1312,9 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedDynamicFamily_same_nome
 #print axioms changingNomeCarrierNormalizedDynamicFamily_same_gap_rate
 #print axioms changingNomeCarrierNormalizedMovingCubeChannel
+#print axioms changingNomeCarrierNormalizedConcreteChannelBridge
+#print axioms changingNomeCarrierNormalizedConcreteChannelBridge_zero_isPositive
+#print axioms changingNomeCarrierNormalizedConcreteChannelBridge_connectedSq_decay
 #print axioms changingNomeCarrierNormalizedMovingCube_zero_isPositive
 #print axioms changingNomeCarrierNormalizedMovingCube_connectedSq_decay
 #print axioms changingNomeCarrierNormalizedMovingCube_sampled_zero_isPositive
@@ -1231,6 +1337,9 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toPhysicalRateBand
+#print axioms ChangingNomeCarrierNormalizedConcretePhysicalChannelRoute.ofHeadEnergyProductBand
+#print axioms ChangingNomeCarrierNormalizedConcretePhysicalChannelRoute.toContinuumGapTheorem
+#print axioms ChangingNomeCarrierNormalizedConcretePhysicalChannelRoute.zero_isPositive
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand
 #print axioms ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
