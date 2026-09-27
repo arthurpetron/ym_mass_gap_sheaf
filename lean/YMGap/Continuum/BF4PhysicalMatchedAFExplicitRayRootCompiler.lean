@@ -20,6 +20,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 -/
 
 import YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
+import YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellEntropy
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellStateLoadFactorization
@@ -39,6 +40,11 @@ open YMGap.Continuum
 open YMGap.Continuum.BF4MatchedPhysicalAFBridge
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceGapPath
+open YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootCoercivity
@@ -365,6 +371,15 @@ def MatchedPhysicalExplicitRayMassShellProducer.toCompletedFamily
     DynamicVacuumSectorCompletedFamily 0 :=
   producer.toResistanceProducer.toCompletedFamily
 
+def MatchedPhysicalExplicitRayMassShellProducer.toConditionalVarianceGapProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayMassShellProducer trajectory) :
+    MatchedPhysicalConditionalVarianceGapProducer trajectory :=
+  producer.toResistanceProducer.toConditionalVarianceGapProducer
+
 theorem MatchedPhysicalExplicitRayMassShellProducer.toCompletedFamily_latticeMargin_eqv_fraction
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -441,6 +456,15 @@ def MatchedPhysicalExplicitRayStateLoadDecayProducer.toCompletedFamily
     DynamicVacuumSectorCompletedFamily 0 :=
   producer.toResistanceProducer.toCompletedFamily
 
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toConditionalVarianceGapProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory) :
+    MatchedPhysicalConditionalVarianceGapProducer trajectory :=
+  producer.toResistanceProducer.toConditionalVarianceGapProducer
+
 theorem MatchedPhysicalExplicitRayStateLoadDecayProducer.toCompletedFamily_latticeMargin_eqv_fraction
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -462,6 +486,59 @@ theorem MatchedPhysicalExplicitRayStateLoadDecayProducer.fraction_pos
     (scale : Nat) :
     (0 : Q') < producer.toRootProducer.fraction scale := by
   exact producer.toResistanceProducer.fraction_pos scale
+
+theorem MatchedPhysicalExplicitRayStateLoadDecayProducer.transferPower_norm_decay
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (scale n : Nat)
+    (vector : CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement
+      (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0) :
+    CReal.RCle
+      (centralPhysicalVacuumSectorCylinderCompletedInner
+        (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 n vector).1
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 n vector).1)
+      (CReal.RCscale
+        (((producer.toConditionalVarianceGapProducer.completedGapAt scale).rate *
+          (producer.toConditionalVarianceGapProducer.completedGapAt scale).rate) ^ n)
+        (centralPhysicalVacuumSectorCylinderCompletedInner
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0
+          vector.1 vector.1)) := by
+  exact transferPower_norm_decay_of_matchedScale
+    producer.toConditionalVarianceGapProducer scale n vector
+
+theorem MatchedPhysicalExplicitRayStateLoadDecayProducer.autocorrelation_sq_decay
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (scale n : Nat)
+    (vector : CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement
+      (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0) :
+    CReal.RCle
+      (CReal.RCmul
+        (centralPhysicalVacuumSectorCylinderCompletedAutocorrelation
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 n vector.1)
+        (centralPhysicalVacuumSectorCylinderCompletedAutocorrelation
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 n vector.1))
+      (CReal.RCmul
+        (CReal.RCscale
+          (((producer.toConditionalVarianceGapProducer.completedGapAt scale).rate *
+            (producer.toConditionalVarianceGapProducer.completedGapAt scale).rate) ^ n)
+          (centralPhysicalVacuumSectorCylinderCompletedInner
+            (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0
+            vector.1 vector.1))
+        (centralPhysicalVacuumSectorCylinderCompletedInner
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0
+          vector.1 vector.1)) := by
+  exact autocorrelation_sq_decay_of_matchedScale
+    producer.toConditionalVarianceGapProducer scale n vector
 
 /-! ## 8. Split the remaining decay into weight and path mechanisms -/
 
@@ -515,6 +592,15 @@ def MatchedPhysicalExplicitRayFactorizedDecayProducer.toCompletedFamily
     DynamicVacuumSectorCompletedFamily 0 :=
   producer.toResistanceProducer.toCompletedFamily
 
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toConditionalVarianceGapProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory) :
+    MatchedPhysicalConditionalVarianceGapProducer trajectory :=
+  producer.toResistanceProducer.toConditionalVarianceGapProducer
+
 theorem MatchedPhysicalExplicitRayFactorizedDecayProducer.toCompletedFamily_latticeMargin_eqv_fraction
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -536,6 +622,59 @@ theorem MatchedPhysicalExplicitRayFactorizedDecayProducer.fraction_pos
     (scale : Nat) :
     (0 : Q') < producer.toRootProducer.fraction scale := by
   exact producer.toResistanceProducer.fraction_pos scale
+
+theorem MatchedPhysicalExplicitRayFactorizedDecayProducer.transferPower_norm_decay
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (scale n : Nat)
+    (vector : CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement
+      (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0) :
+    CReal.RCle
+      (centralPhysicalVacuumSectorCylinderCompletedInner
+        (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 n vector).1
+        (centralPhysicalVacuumSectorCylinderCompletedVacuumTransferPower
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 n vector).1)
+      (CReal.RCscale
+        (((producer.toConditionalVarianceGapProducer.completedGapAt scale).rate *
+          (producer.toConditionalVarianceGapProducer.completedGapAt scale).rate) ^ n)
+        (centralPhysicalVacuumSectorCylinderCompletedInner
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0
+          vector.1 vector.1)) := by
+  exact transferPower_norm_decay_of_matchedScale
+    producer.toConditionalVarianceGapProducer scale n vector
+
+theorem MatchedPhysicalExplicitRayFactorizedDecayProducer.autocorrelation_sq_decay
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (scale n : Nat)
+    (vector : CentralPhysicalVacuumSectorCylinderCompletedVacuumComplement
+      (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0) :
+    CReal.RCle
+      (CReal.RCmul
+        (centralPhysicalVacuumSectorCylinderCompletedAutocorrelation
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 n vector.1)
+        (centralPhysicalVacuumSectorCylinderCompletedAutocorrelation
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0 n vector.1))
+      (CReal.RCmul
+        (CReal.RCscale
+          (((producer.toConditionalVarianceGapProducer.completedGapAt scale).rate *
+            (producer.toConditionalVarianceGapProducer.completedGapAt scale).rate) ^ n)
+          (centralPhysicalVacuumSectorCylinderCompletedInner
+            (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0
+            vector.1 vector.1))
+        (centralPhysicalVacuumSectorCylinderCompletedInner
+          (trajectory.nome_pos scale) (trajectory.nome_lt_one scale) 0
+          vector.1 vector.1)) := by
+  exact autocorrelation_sq_decay_of_matchedScale
+    producer.toConditionalVarianceGapProducer scale n vector
 
 /-! ## 9. Occupied-shell obstruction at the matched boundary -/
 
@@ -645,6 +784,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMassShellProducer.fraction_pos
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMassShellProducer.toConditionalVarianceGapProducer
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toMassShellProducer
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toResistanceProducer
@@ -657,6 +798,12 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.fraction_pos
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toConditionalVarianceGapProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.transferPower_norm_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.autocorrelation_sq_decay
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toStateLoadDecayProducer
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toResistanceProducer
@@ -668,6 +815,12 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toCompletedFamily_latticeMargin_eqv_fraction
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.fraction_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toConditionalVarianceGapProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.transferPower_norm_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.autocorrelation_sq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.one_le_envelope_of_shell_member
 #print axioms

@@ -30160,3 +30160,32 @@ The monitored source check reports only `{propext, Quot.sound}` and no
 observable pin, OS/GNS passage, continuum/QFT construction, physical mass,
 every-group theorem, and Clay target remain open; no canonical chart marker
 changed.
+
+## Matched decay input reaches completed same-object autocorrelation (2026-09-26 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now imports the existing
+completed-carrier consumer
+`BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier` and adds
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.toConditionalVarianceGapProducer`
+and
+`MatchedPhysicalExplicitRayFactorizedDecayProducer.toConditionalVarianceGapProducer`.
+The state-load and factorized interfaces each therefore project to the literal
+`MatchedPhysicalConditionalVarianceGapProducer` without changing the matched
+nome, completed carrier, transfer, vacuum complement, or posterior fraction.
+
+The corresponding
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.transferPower_norm_decay`,
+`.autocorrelation_sq_decay`,
+`MatchedPhysicalExplicitRayFactorizedDecayProducer.transferPower_norm_decay`,
+and `.autocorrelation_sq_decay` declarations are exact applications of
+`BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier.transferPower_norm_decay_of_matchedScale`
+and `.autocorrelation_sq_decay_of_matchedScale`.  They give the completed
+transfer-power norm bound and same-object vector autocorrelation at every
+matched scale and power once the named decay certificate is supplied.
+
+The monitored source check passed with only `{propext, Quot.sound}` for all
+new dependency gates and no `sorryAx`.  This is a conditional finite-scale
+consumer: the decay certificates, same-object observable pin, uniform
+physical-rate calibration, OS/GNS passage, continuum/QFT construction,
+physical mass, every-group theorem, and Clay target remain open; no canonical
+chart marker changed.

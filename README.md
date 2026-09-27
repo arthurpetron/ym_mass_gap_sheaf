@@ -97,6 +97,18 @@ interfaces: every occupied shell forces the state-load or factored envelope
 to be at least one.  This constrains, but does not by itself refute, a future
 uniform witness because unbounded shell occupancy is still an open input.
 
+The two minimal decay interfaces now also project into the existing completed
+carrier consumer.  Each of
+`MatchedPhysicalExplicitRayStateLoadDecayProducer` and
+`MatchedPhysicalExplicitRayFactorizedDecayProducer` exposes a
+`toConditionalVarianceGapProducer`, together with exact transfer-power
+norm-decay and same-object autocorrelation theorems for every matched scale,
+power, and completed vacuum-complement vector.  A supplied decay certificate
+therefore reaches the literal completed SU(2) transfer and same-object vector
+correlator; the certificate itself, an observable pin, OS/GNS reconstruction,
+uniform physical calibration, continuum/QFT, physical mass, every-group, and
+Clay obligations remain open.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly
