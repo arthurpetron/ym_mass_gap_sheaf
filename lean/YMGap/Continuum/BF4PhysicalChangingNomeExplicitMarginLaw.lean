@@ -657,6 +657,31 @@ def changingNomeCarrierNormalizedFinitePrefixPhysicalRateBand
       changingNomeCarrierNormalizedExplicitMarginInverseLaw bound :=
   (changingNomeCarrierNormalizedFinitePrefixExplicitMarginDenominatorBand bound).toFinitePrefixPhysicalRateBand
 
+/-- Enlarging the finite window can only lower its constructive gap floor. -/
+theorem changingNomeCarrierNormalizedFinitePrefixGapFloor_succ_le
+    (bound : Nat) :
+    ExplicitMarginDenominatorBand.finitePrefixGapFloor
+        changingNomeCarrierNormalizedDynamicFamily (bound + 1) ≤
+      ExplicitMarginDenominatorBand.finitePrefixGapFloor
+        changingNomeCarrierNormalizedDynamicFamily bound := by
+  simpa [ExplicitMarginDenominatorBand.finitePrefixGapFloor,
+    YMGap.Continuum.WindowedSpacingFloor.finMin] using
+    (YMGap.Continuum.WindowedSpacingFloor.min'_le_right
+      (changingNomeCarrierNormalizedDynamicFamily.physicalGap (bound + 1))
+      (YMGap.Continuum.WindowedSpacingFloor.finMin
+        changingNomeCarrierNormalizedDynamicFamily.physicalGap bound))
+
+/-- Enlarging the finite window can only raise its constructive gap ceiling. -/
+theorem changingNomeCarrierNormalizedFinitePrefixGapCeiling_le_succ
+    (bound : Nat) :
+    ExplicitMarginDenominatorBand.finitePrefixGapCeiling
+        changingNomeCarrierNormalizedDynamicFamily bound ≤
+      ExplicitMarginDenominatorBand.finitePrefixGapCeiling
+        changingNomeCarrierNormalizedDynamicFamily (bound + 1) := by
+  simpa [ExplicitMarginDenominatorBand.finitePrefixGapCeiling] using
+    (Q'.le_runningMax_succ
+      changingNomeCarrierNormalizedDynamicFamily.physicalGap bound)
+
 /-- The smallest honest B04 certificate for the repaired schedule.  Its two
     fields are the still-open uniform product bounds, now typed against the
     same completed nome/gap family as the carrier-normalized spacing. -/
@@ -862,6 +887,8 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedFinitePrefixResponseFloor_le_sampled_zeroTime
 #print axioms changingNomeCarrierNormalizedFinitePrefixExplicitMarginDenominatorBand
 #print axioms changingNomeCarrierNormalizedFinitePrefixPhysicalRateBand
+#print axioms changingNomeCarrierNormalizedFinitePrefixGapFloor_succ_le
+#print axioms changingNomeCarrierNormalizedFinitePrefixGapCeiling_le_succ
 #print axioms changingNomeCarrierNormalizedExplicitMarginInverseLaw
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand
