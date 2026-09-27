@@ -25,6 +25,36 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Bounded-degree ORIGINAL sweep energy checked (2026-09-27 UTC)
+
+`BF4ExactSlabConditionalSweepEnergy.eight_layer_energy_le_625_loss` proves
+`sum_i ||R_i A x||^2 <=625*(||x||^2-||Ax||^2)` for the actual full eight-layer
+sweep A on the existing original-action completion. No sector or gap input
+is assumed. The finite Gram identity bounds the exact signed, transported
+correction lists; row AND transpose incidence are at most 25. The coefficient
+has no cutoff, nome or extent factor. This closes the bounded-degree energy
+step left open below; it is an upper bound, not lower coercivity.
+
+Parallel geometry now gives the actual normalized covariance/sweep equality
+from root coordinate separation greater than 8*rounds plus the two literal
+probe-carrier sizes (`BF4ExactSlabConeCoordinateDistance`). Cutoff stage and
+sweep rounds stay separate. That geometric conversion is no longer open.
+
+NEXT: prove useful SAME-action lower coercivity directly on the actual
+unit-centered sector, retaining explicit nome/cutoff/volume/scaling dependence.
+The checked upper bound and centering preservation make that the sufficient
+analytic input. A separate `JointFixed=constants` proof is not independently
+needed on this direct route; it remains open if instead attempting to use a
+bound only on the abstract joint-fixed complement. Do not return to free-link
+centering, volume-extensive comparison floors, or another conditional wrapper.
+Spatial/physical scaling and continuum/all-group Clay closure remain open.
+
+All 31 gates passed five focused one-worker/20 GiB checks. Sol implemented
+the coordinate task and independently reviewed the Gram/correction/energy
+chain and physical pin. No new analytic field, hole, canonical edit,
+full-tree audit or chart-marker change. Evidence:
+`audits/AUDIT-SWEEP-ENERGY-2026-09-27.md`.
+
 ### Original normalized covariance/sweep connection checked (2026-09-27 UTC)
 
 `BF4ExactSlabConditionalCovariance.covariance_as_sweep_pairing` identifies

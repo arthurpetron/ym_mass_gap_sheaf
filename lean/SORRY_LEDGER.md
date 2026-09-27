@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## Bounded-degree original sweep energy and coordinate join (2026-09-27 UTC)
+
+- **files:** `GNSFiniteSumEnergy.lean`, `GNSProjectionSweepSparseRow.lean`,
+  `GNSProjectionSweepEnergy.lean`, `BF4ExactSlabConditionalSweepEnergy.lean`,
+  and `BF4ExactSlabConeCoordinateDistance.lean`, all under
+  `lean/YMGap/Continuum/`.
+- **proved:** `energy_deficit` (`GNSFiniteSumEnergy:189`) is the exact
+  completed Gram identity; `correctionWalk_eq` / `correctionWalk_energy`
+  (`GNSProjectionSweepSparseRow:118` / `:152`) retain actual signed
+  transports and intermediate losses. `finalEnergy_le_norm_loss`
+  (`GNSProjectionSweepEnergy:204`) sums row AND column incidence.
+  `eight_layer_energy_le_625_loss` (`BF4ExactSlabConditionalSweepEnergy:84`)
+  gives the original full-sweep upper bound with geometric constant 625.
+  `covariance_as_sweep_pairing_of_root_far`
+  (`BF4ExactSlabConeCoordinateDistance:137`) supplies the actual coordinate-
+  separated normalized covariance consumer.
+- **residue:** useful original-action LOWER coercivity on actual centered
+  states and its physical scaling control. A direct centered bound would
+  not independently require the still-unproved common-fixed-space
+  identification. No contraction rate, OS/Hamiltonian gap or continuum/Clay
+  conclusion follows from the upper energy estimate alone.
+- **verification:** 31 axiom gates passed five focused one-worker/20 GiB
+  checks within {propext, Quot.sound}. Sol independently reviewed the
+  algebra, transported signs, both incidence counts and physical scope.
+  No new hole, analytic field, canonical edit or full-tree audit. Evidence:
+  `audits/AUDIT-SWEEP-ENERGY-2026-09-27.md`.
+
 ## Original normalized covariance/sweep connection (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/BF4ExactSlabConditionalCovariance.lean`.

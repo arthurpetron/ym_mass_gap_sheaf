@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting total-energy estimate (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabConditionalSweepEnergy.eight_layer_energy_le_625_loss` bounds
+ALL final physical residuals by 625 times the actual sweep norm loss on
+the original completed action. The exact Gram identity, signed transported
+correction lists, and both 25-neighbor incidence counts are proved.
+`BF4ExactSlabConeCoordinateDistance` also joins coordinate separation to
+the existing normalized covariance/sweep equality. All 31 focused gates
+passed. Useful LOWER interacting coercivity and physical scaling remain
+open; this upper estimate gives no mass gap or continuum/Clay closure.
+Evidence: `audits/AUDIT-SWEEP-ENERGY-2026-09-27.md`.
+
 Verified supporting covariance connection (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabConditionalCovariance.covariance_as_sweep_pairing` now pins the
 original NORMALIZED finite covariance to the actual iterated sweep pairing
