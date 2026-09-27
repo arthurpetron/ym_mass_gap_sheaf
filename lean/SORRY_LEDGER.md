@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## Guarded original signed covariance response (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/BF4ExactSlabGuardedCovarianceResponse.lean`.
+- **proved:** `finite_moment_insertion_bound` (`:152`) retains the actual
+  old/new partitions and pays one relative face floor. Three such bounds
+  give `finite_covariance_insertion_bound` (`:190`); exact denominator
+  clearing gives `signed_response_bound` (`:208`).
+  `rooted_signed_response_bound` (`:227`) controls the existing WHOLE signed
+  rooted sum, not its termwise absolute majorant. `covariance_insertion_bound`
+  (`:241`) supplies the existing fixed-volume cutoff-limit consumer.
+- **rate:** `covarianceBudget_geometric` (`:127`) factors the explicit budget
+  into a nome/probe-dependent amplitude and the old entropy rate to the
+  saturated insertion-to-probe distance. No ambient face count or cutoff in
+  the amplitude. Both observables use one fixed connected carrier; insertion
+  means appending a heat factor and does not require a fresh face.
+- **residue:** all small-nome heatRatio/remainder/entropy guards remain.
+  This is not the full three-mark diameter estimate, a coupling-range
+  extension, changing-spacing control, or continuum/Clay closure.
+- **verification:** final focused one-worker/20 GiB check passed all nine
+  gates with only {propext, Quot.sound}, no warnings. Sol reviewed exact
+  normalization and rooted transfer. No new hole, axiom, canonical field
+  edit or full-tree audit. Evidence:
+  `audits/AUDIT-GUARDED-COVARIANCE-RESPONSE-2026-09-27.md`.
+
 ## Cost-one original reflection-fixed deletion (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/BF4ExactSlabReflectionFixedDeletion.lean`.

@@ -25,6 +25,34 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Guarded original signed covariance response checked (2026-09-27 UTC)
+
+`BF4ExactSlabGuardedCovarianceResponse.rooted_signed_response_bound` now bounds
+the EXISTING signed rooted sum without its three-mark termwise collar cost.
+The argument controls the actual p, q and pq moment changes using two-probe
+clustering and one relative face floor, then recombines their covariance.
+Both probes stay on one fixed connected carrier P. `covarianceBudget_geometric`
+exhibits the coefficient as A(w,P,c)*s(w)^(distance-|P|), with saturated natural
+subtraction and no ambient face count or representation cutoff in A.
+`covariance_insertion_bound` passes it to the existing fixed-volume cutoff
+covariance; no new measure or limit is introduced.
+
+NEXT: improve the SAME-action spatial estimate beyond its old small-nome
+guard, or justify a scaling family on which a replacement estimate is useful.
+The new theorem does NOT expand the coupling range of
+`BF4ExactSlabTwoProbeDistanceDecay.connectedNumerator_distance_bound`.
+It gives insertion-to-common-carrier decay, not full three-mark diameter
+control for arbitrarily separating probes. Do not return to termwise core
+floors in this guarded scope, or mistake further strong-coupling wrappers for
+physical-spacing progress. General scaling, nontrivial survival, physical
+mass and continuum/all-group closure remain open.
+
+All nine gates passed the focused one-worker/20 GiB check; Sol independently
+reviewed the normalization and exact rooted consumer. Parallel primary-source
+research supplied no applicable general SU(2) heat-kernel deletion theorem.
+No new hole, canonical field change, full-tree audit or broad chart-marker
+advance. Evidence: `audits/AUDIT-GUARDED-COVARIANCE-RESPONSE-2026-09-27.md`.
+
 ### Cost-one reflection-fixed deletion checked (2026-09-27 UTC)
 
 `BF4ExactSlabReflectionFixedDeletion.original_partition_deletion` improves

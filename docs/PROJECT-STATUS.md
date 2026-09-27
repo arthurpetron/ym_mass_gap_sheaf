@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting signed response (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabGuardedCovarianceResponse.rooted_signed_response_bound` controls
+the original signed rooted covariance response via three moment changes,
+without its termwise core collar cost. Its explicit geometric budget and
+existing fixed-volume cutoff-limit consumer passed all nine focused gates.
+Both probes use one connected carrier, and all old small-nome guards remain;
+the spatial rate is not extended toward the physical scaling regime.
+Changing-spacing control and the continuum/Clay target remain open.
+
 Verified supporting partition comparison (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabReflectionFixedDeletion.original_partition_deletion` proves
 cost-one deletion of any subset of central reflection-fixed faces while
