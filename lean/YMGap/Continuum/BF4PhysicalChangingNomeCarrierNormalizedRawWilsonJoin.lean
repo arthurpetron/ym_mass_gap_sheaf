@@ -139,6 +139,42 @@ def WilsonJoin.toIteratedBoundedMassGap
     WilsonIteratedBoundedMassGap W :=
   data.toPath.iteratedBoundedMassGap
 
+/-! ## Same-carrier physical-exponential handoff -/
+
+/-- The Wilson join plus the one remaining physical-gap variation certificate.
+    Keeping the Wilson data inside this bundle prevents the physical-
+    exponential compiler from being paired with an unrelated repaired carrier. -/
+structure WilsonPhysicalExponentialJoin
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    (H : ContinuumYMExistence mu)
+    (W : WilsonSelectedOSGNSData H) : Type 4 where
+  wilson : WilsonJoin H W
+  gapVariation : SummableRationalStepVariation
+    changingNomeCarrierNormalizedDynamicFamily.physicalGap
+
+/-- Repackage the same repaired-family physical-gap variation for the existing
+    physical-exponential compiler.  The Wilson certificate remains available
+    through `wilson`; no physical exponential is inferred from it. -/
+def WilsonPhysicalExponentialJoin.toPhysicalExponentialJoin
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (data : WilsonPhysicalExponentialJoin H W) :
+    PhysicalExponentialJoin :=
+  { core := data.wilson.core.toJoin
+    gapVariation := data.gapVariation }
+
+/-- Compile the same-family physical-gap variation to the existing
+    constructive physical-exponential certificate. -/
+def WilsonPhysicalExponentialJoin.toCertificate
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (data : WilsonPhysicalExponentialJoin H W) :
+    NormalizedMovingCubePhysicalExponentialCertificate
+      changingNomeCarrierNormalizedDynamicFamily :=
+  data.toPhysicalExponentialJoin.toCertificate
+
 end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
 
 /-! ## Axiom-dependency gates -/
@@ -151,3 +187,7 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonJoin.toMinimalBoundedMassGap
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonJoin.toIteratedBoundedMassGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.toPhysicalExponentialJoin
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.toCertificate

@@ -3397,6 +3397,10 @@ conditional endpoint; `toIteratedBoundedMassGap` additionally consumes the
 stationary-vacuum field already carried by that path to expose its
 all-integer-iterate interface.  Every field remains indexed by the same repaired
 family, raw representative, scheduled rate, and selected Wilson datum.  The
+`WilsonPhysicalExponentialJoin` then adds exactly one same-family
+physical-gap-variation certificate and compiles it to the existing
+constructive physical-exponential certificate; endpoint Euler moduli remain
+separate inputs.  The
 bundle is a certificate interface, not an inhabitant: no OS/GNS construction,
 continuum QFT, physical-mass calibration, every-group theorem, or Clay result
 is claimed.  Focused checking reported only `{propext, Quot.sound}` and no

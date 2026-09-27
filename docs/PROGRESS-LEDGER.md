@@ -30678,3 +30678,15 @@ but it constructs no stationarity, OS/GNS, exact-rate, graph-norm, continuum,
 physical-mass, every-group, or Clay witness.  Focused checking remains
 `{propext, Quot.sound}` with no `sorryAx`; the canonical chart marker is
 unchanged.
+
+## Same-carrier physical-exponential Wilson handoff (2026-09-27 UTC)
+
+`WilsonPhysicalExponentialJoin` retains the full same-family `WilsonJoin` and
+adds exactly one `SummableRationalStepVariation` for the repaired family’s
+physical gap.  Its `toPhysicalExponentialJoin` projection feeds the existing
+`PhysicalExponentialJoin`, and `toCertificate` compiles that input to the
+constructive physical-exponential certificate.  This does not identify the
+rate with a finite physical mass or construct endpoint Euler moduli; those
+remain explicit obligations.  Focused checking is expected to remain
+`{propext, Quot.sound}` with no `sorryAx`, and the canonical chart marker is
+unchanged.
