@@ -1885,6 +1885,14 @@ while preserving all same-family semantic indices. The focused check reports
 only `{propext, Quot.sound}` and no `sorryAx`; the underlying certificates and
 continuum/Clay obligations remain open, and no canonical chart marker changed.
 
+Both routes also expose
+`toRawWilsonConnectedMassGapPath_ofLinearTransferConvergence`: the selected
+`WilsonLinearTimeTranslationPin` is converted by the checked `ofLinear`
+adapter, and the finite graph approximation is indexed by that selected lift.
+This removes an avoidable semantic-transfer choice without constructing the
+linear pin or any analytic certificate. The focused check remains
+`{propext, Quot.sound}` with no `sorryAx`; no canonical chart marker changed.
+
 ## Maintenance contract
 
 1. Read this file before every chart. Copy its chart block; do not regenerate
@@ -2061,3 +2069,4 @@ continuum/Clay obligations remain open, and no canonical chart marker changed.
 | 1 / 153 | 2026-09-27 | Added `DynamicVacuumSectorWilsonExactRateHandoff.ofPositiveExactLogGapWitness`, the reverse exact-rate adapter from a positive exact-log witness plus an explicit `CReal.Equiv` to the variation-selected physical stream. The constructor preserves the positive transfer-gap bound and transports convergence without manufacturing the identity; focused check remains `{propext, Quot.sound}` with no `sorryAx`, and no canonical chart marker changed. |
 | 1 / 154 | 2026-09-27 | Added `RawWilsonConnectedMassGapPath.ofUniformNormFloorAndPositiveExactLogGapWitness`, threading the factored exact-rate witness through the raw capstone while preserving all same-family indices. Focused check remains `{propext, Quot.sound}` with no `sorryAx`; no raw certificate or continuum/Clay node is closed, and no canonical chart marker changed. |
 | 1 / 155 | 2026-09-27 | Added matched state-load and factorized route constructors `toRawWilsonConnectedMassGapPath_ofPositiveExactLogGapWitness`, threading the positive exact-log witness and explicit `CReal.Equiv` through the raw path while preserving all same-family indices. Focused check remains `{propext, Quot.sound}` with no `sorryAx`; no certificate or continuum/Clay node is closed, and no canonical chart marker changed. |
+| 1 / 156 | 2026-09-27 | Added matched state-load and factorized route constructors `toRawWilsonConnectedMassGapPath_ofLinearTransferConvergence`, consuming the selected `WilsonLinearTimeTranslationPin` through the checked `ofLinear` representative lift and preserving same-family graph-norm indices. Focused check remains `{propext, Quot.sound}` with no `sorryAx`; no certificate or continuum/Clay node is closed, and no canonical chart marker changed. |

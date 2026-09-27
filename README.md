@@ -244,6 +244,14 @@ graph-norm, vacuum, and completed-family indices while requiring the rate
 equivalence explicitly. This is conditional plumbing; no certificate or
 continuum/Clay result is manufactured.
 
+The same routes now expose
+`toRawWilsonConnectedMassGapPath_ofLinearTransferConvergence`, which consumes
+the selected `WilsonLinearTimeTranslationPin` and constructs the representative
+lift through its checked `ofLinear` adapter. The finite graph approximation is
+therefore indexed by the selected Wilson transfer itself, rather than by an
+independent semantic lift; the rate-convergence, observable, vacuum, and
+continuum/Clay inputs remain conditional.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

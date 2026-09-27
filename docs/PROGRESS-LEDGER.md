@@ -30513,3 +30513,14 @@ matrix, graph-norm, vacuum, and completed-family indices remain aligned.
 Focused check reports only `{propext, Quot.sound}` and no `sorryAx`; all
 certificates and continuum/QFT, physical-mass, every-group, and Clay inputs
 remain open.
+
+## Matched routes pin the semantic transfer to the selected Wilson operator (2026-09-27 UTC)
+
+Both matched route producers now expose
+`toRawWilsonConnectedMassGapPath_ofLinearTransferConvergence`. The constructor
+consumes `WilsonLinearTimeTranslationPin`, derives the representative lift via
+`WilsonPhysicalTimeRepresentativeTransferLift.ofLinear`, and types the finite
+graph approximation against that exact lift before entering the existing raw
+capstone. The monitored check reports only `{propext, Quot.sound}` and no
+`sorryAx`; rate convergence, graph approximation, projective/same-object,
+vacuum, continuum/QFT, physical-mass, every-group, and Clay inputs remain open.
