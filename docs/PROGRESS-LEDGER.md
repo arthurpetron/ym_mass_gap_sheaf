@@ -137,11 +137,15 @@ unfolding the dependent carrier in downstream files; they are projection
 lemmas, not asymptotic estimates.
 
 This sharpens the B04 asymptotic target by exposing a one-sided finite budget,
-but it does not silently instantiate the dependent `headEnergyConstant` or
-claim a denominator bound: the missing cofinal lower estimate on the actual
-anchor minimum `F(w_n)` remains open.  Consequently the all-scale physical
-rate band, OS/GNS, continuum/QFT, physical mass, every-group, and Clay nodes
-remain open.
+and the checked theorem
+`BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant_ge_two_carrierSquareScale`
+(`lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean:197--221`)
+instantiates it to the concrete finite inequality
+`2 * carrierSquareScale ≤ headEnergyConstant w` for every admissible `w`.
+This still does not claim a denominator bound: the missing cofinal lower
+estimate on the actual anchor minimum `F(w_n)` remains open.  Consequently the
+all-scale physical rate band, OS/GNS, continuum/QFT, physical mass,
+every-group, and Clay nodes remain open.
 
 ## Backward frontier expansion: changing-family tail inputs (2026-09-26 UTC)
 

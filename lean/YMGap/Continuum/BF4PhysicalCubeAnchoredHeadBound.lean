@@ -21,6 +21,7 @@ completed operator identification, continuum/QFT or Clay claim is inferred.
 
 import YMGap.Continuum.BF4PhysicalCubeTailAbsorption
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledBaseEdgeFloorFormula
+import YMGap.Continuum.BF4PhysicalChangingNomeAnchorBudget
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledSimplePathScale
 
 namespace YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound
@@ -28,6 +29,7 @@ namespace YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound
 set_option autoImplicit false
 
 open YMGap.Constructive
+open YMGap.Continuum.BF4PhysicalChangingNomeAnchorBudget
 open YMGap.Continuum.BF4PhysicalCubeTailAbsorption
 open YMGap.Continuum.BF4PhysicalCutoffEmbeddedEntryCauchy
 open YMGap.Continuum.BF4PhysicalCutoffFiniteIndexBridge
@@ -188,6 +190,32 @@ theorem fixedBasePulledPositiveEdgeFloorValue_mul_headEnergyConstant_eqv_scale
     (Q'.mul_comm_eqv _ _)
     (Q'.divPos_mul_eqv _ _ _)
 
+/-- The unit fallback gives a concrete one-sided budget for the anchored
+head quotient.  This is not a cofinal estimate: it only records the
+finite-floor direction `F ≤ 1/2`, while the lower order of `F(w)` remains
+open along the changing-nome schedule. -/
+theorem headEnergyConstant_ge_two_carrierSquareScale
+    (w : Q') (hw : (0 : Q') ≤ w) :
+    Q'.ofNat 2 *
+        centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale
+          w hw 1404 0 ≤
+      headEnergyConstant w hw := by
+  have hscale : (0 : Q') <
+      centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale w hw 1404 0 :=
+    centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale_pos
+      w hw 1404 0
+  have hfloor : (0 : Q') <
+      fixedBasePulledPositiveEdgeFloorValue w hw 1404 0 :=
+    fixedBasePulledPositiveEdgeFloorValue_pos w hw 1404 0
+  have hfloor_le :
+      fixedBasePulledPositiveEdgeFloorValue w hw 1404 0 ≤ HalfPow.half :=
+    fixedBasePulledPositiveEdgeFloorValue_le_half w hw 1404 0
+  have hquotient :=
+    divPos_ge_two_mul_of_floor_le_half
+      hscale hfloor hfloor_le
+  rw [headEnergyConstant_eq_divPos]
+  exact hquotient
+
 /-- The formerly open fixed-head estimate, with its concrete constant and
 onset. Uniform in later K; NOT uniform in the nome w. -/
 theorem anchored_head_bound {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
@@ -257,6 +285,7 @@ end YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound
 #print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant_pos
 #print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant_eq_divPos
 #print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.fixedBasePulledPositiveEdgeFloorValue_mul_headEnergyConstant_eqv_scale
+#print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant_ge_two_carrierSquareScale
 #print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.anchored_head_bound
 #print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.coercivityConstant
 #print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.coercivityConstant_pos

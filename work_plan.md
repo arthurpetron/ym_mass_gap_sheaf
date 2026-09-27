@@ -99,16 +99,17 @@ then, the global denominator band remains honestly open.
 
 ### Finite anchor-floor budget (2026-09-26 UTC)
 
-`BF4PhysicalChangingNomeAnchorBudget.lean` now proves the complementary
-one-sided fact `fixedBasePulledPositiveEdgeFloorValue_le_half`: the explicit
-finite pulled-kernel floor is bounded above by its half-unit fallback.  Its
-generic `divPos_ge_two_mul_of_floor_le_half` compiler turns that inequality
-into a lower bound for any positive quotient with the same denominator.  This
-is useful bookkeeping for the B04 asymptotic comparison, but the dependent
-instantiation at `headEnergyConstant` and the cofinal order of `F(w_n)` remain
-named open inputs.  The focused check is axiom-clean within
-`{propext, Quot.sound}`; no continuum, OS/GNS, physical-mass, all-group, or
-Clay claim follows.
+`BF4PhysicalChangingNomeAnchorBudget.lean` proves the complementary one-sided
+fact `fixedBasePulledPositiveEdgeFloorValue_le_half`: the explicit finite
+pulled-kernel floor is bounded above by its half-unit fallback.  Its generic
+`divPos_ge_two_mul_of_floor_le_half` compiler turns that inequality into a
+lower bound for any positive quotient with the same denominator.  The concrete
+dependent application
+`BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant_ge_two_carrierSquareScale`
+now checks `2 * carrierSquareScale ≤ headEnergyConstant w` for every admissible
+`w`.  The cofinal order of `F(w_n)` remains an open input.  The focused checks
+are axiom-clean within `{propext, Quot.sound}`; no continuum, OS/GNS,
+physical-mass, all-group, or Clay claim follows.
 
 ### New finite producer (2026-09-25 UTC)
 
