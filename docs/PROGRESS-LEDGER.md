@@ -30731,3 +30731,16 @@ representation/currency seam on one repaired carrier; they do not construct
 the missing physical calibration, continuum QFT, every-group, or Clay input.
 The focused monitored check reports only `{propext, Quot.sound}` and no
 `sorryAx`; the canonical chart marker remains unchanged.
+
+## Same-carrier primitive physical-gap variation handoff (2026-09-27 UTC)
+
+`WilsonPhysicalExponentialJoin.ofMarginAndReciprocalSpacing` now refines the
+remaining physical-gap variation field into the exact primitive currencies
+used by `BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler`: a
+summable lattice-margin variation and a summable reciprocal-spacing variation.
+The compiler then reconstructs variation of the identical repaired family's
+`physicalGap`.  The reciprocal stream remains an explicit backward input; the
+repaired spacing tends to zero, so this constructor does not provide a hidden
+continuum witness or bypass the repository's reciprocal-spacing no-go.  The
+focused monitored check reports only `{propext, Quot.sound}` and no `sorryAx`;
+the canonical chart marker remains unchanged.

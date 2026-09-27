@@ -3402,6 +3402,10 @@ physical-gap-variation certificate and compiles it to the existing
 constructive physical-exponential certificate; endpoint Euler moduli remain
 separate inputs; `toModulusCertificateOfExplicitSandwich` exposes their exact
 lower/upper/width obligations against the same scheduled rate stream.  The
+companion `ofMarginAndReciprocalSpacing` constructor factors the remaining
+physical-gap variation into explicit lattice-margin and reciprocal-spacing
+variation streams; it does not manufacture either stream or evade the
+spacing-to-zero obstruction.
 `WilsonContinuumMassClusteringJoin` then adds an explicit raw-to-projective
 same-object identification, OS-value compatibility, projective Wilson
 coefficient pin, and reconstruction spectral channel, compiling to the

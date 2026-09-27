@@ -15,6 +15,7 @@ axiom, or noncomputable declaration is used.
 
 import YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler
 import YMGap.Continuum.ContinuumMassClusteringEndpoint
 
 namespace YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
@@ -40,6 +41,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
 open YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 open YMGap.Continuum.ContinuumMeasure
@@ -164,6 +166,30 @@ structure WilsonPhysicalExponentialJoin
   wilson : WilsonJoin H W
   gapVariation : SummableRationalStepVariation
     changingNomeCarrierNormalizedDynamicFamily.physicalGap
+
+/- The physical-gap variation can be supplied in the compiler's primitive
+   currencies.  The reciprocal-spacing stream remains explicit: for the
+   repaired spacing-to-zero family this is a backward interface, not a
+   continuum-compatible witness manufactured by this constructor. -/
+def WilsonPhysicalExponentialJoin.ofMarginAndReciprocalSpacing
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (wilson : WilsonJoin H W)
+    (marginVariation :
+      SummableRationalStepVariation
+        changingNomeCarrierNormalizedDynamicFamily.latticeMargin)
+    (reciprocalSpacingVariation :
+      SummableRationalStepVariation
+        (fun scale =>
+          Q'.recipPos
+            (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+            (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing_pos scale))) :
+    WilsonPhysicalExponentialJoin H W where
+  wilson := wilson
+  gapVariation := physicalGapVariationOfMarginAndReciprocalSpacing
+    changingNomeCarrierNormalizedDynamicFamily
+    marginVariation reciprocalSpacingVariation
 
 /-- Repackage the same repaired-family physical-gap variation for the existing
     physical-exponential compiler.  The Wilson certificate remains available
@@ -383,6 +409,8 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonJoin.toIteratedBoundedMassGap
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.toPhysicalExponentialJoin
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.ofMarginAndReciprocalSpacing
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.toCertificate
 #print axioms
