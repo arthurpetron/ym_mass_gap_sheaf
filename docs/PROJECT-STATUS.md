@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting sweep identities (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabConditionalSweep.sweep_loss` telescopes the actual successive
+conditional residual norms in the original interacting completion. The signed
+pairing telescope, common-fixed-complement preservation and one-step neighbor
+correction bounds passed focused checks. An arbitrary sweep is not spatially
+local over one pass; bounded-depth layering, useful interacting coercivity
+and the original spatial covariance join remain open. This is not an OS
+transfer or continuum gap. See `audits/AUDIT-CONDITIONAL-SWEEP-2026-09-27.md`.
+
 Verified supporting route restriction (2026-09-27 UTC; chart markers unchanged):
 `SU2QuaternionHeatFreeSectorObstruction.free_sector_preservation_false`
 gives a positive two-site heat example where a globally centered,

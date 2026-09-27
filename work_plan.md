@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original-action sweep loss checked; spatial join remains explicit (2026-09-27 UTC)
+
+`BF4ExactSlabConditionalSweep.sweep_loss` proves that the squared norms of
+the ACTUAL successive conditional residuals telescope to the total norm
+loss in the SAME original full-action completion. Its signed pairing
+telescope preserves cross-term signs; nonneighbors cannot increase a
+selected residual, while neighboring corrections remain explicit. The
+preserved sector is the common-fixed-space orthogonal complement, not the
+refuted free-centered sector and not an identified OS vacuum complement.
+The existing physical star geometry bounds a duplicate-free neighbor row
+by 25; no total-energy or strict-contraction claim follows yet.
+
+NEXT: establish a spatially controlled schedule before building further
+sweep inverses. An arbitrary ordered sweep can propagate across the slab,
+so contraction in sweep count alone does not close the signed covariance
+consumer. Source review identifies an eight-color direction/base-parity
+schedule as a bounded next geometric task; its layer locality remains to
+be proved. Bounded-degree energy control, original-action coercivity with
+useful parameter dependence, normalization and spatial response joins are
+still missing. Keep the direct signed-response route available; do not
+rename a conditional-dynamics gap as a physical-time gap.
+
+Both focused one-worker/20 GiB checks passed (12 generic and 10 physical
+axiom gates). Sol reviewed the physical pin and identified the spatial
+residue. No new analytic input, hole, canonical edit, broad audit or chart
+marker change. Evidence: `audits/AUDIT-CONDITIONAL-SWEEP-2026-09-27.md`.
+
 ### Neighboring free-sector preservation refuted in a positive heat block (2026-09-27 UTC)
 
 `SU2QuaternionHeatFreeSectorObstruction.free_sector_preservation_false`

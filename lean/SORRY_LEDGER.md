@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## Original-action conditional sweep algebra (2026-09-27 UTC)
+
+- **files:** `lean/YMGap/Continuum/GNSProjectionSweep.lean` and
+  `lean/YMGap/Continuum/BF4ExactSlabConditionalSweep.lean`.
+- **proved:** `Family.loss_eq` (`:133`) telescopes actual intermediate
+  residual norms; `Family.pairingLoss_eq` (`:156`) retains signed pairing
+  changes. The physical `sweep_loss` (`:65`) and
+  `signed_pairing_telescope` (`:69`) use the original full-action completion.
+  `sweep_preserves_joint_complement` (`:78`) preserves the correct common-
+  fixed-space complement; `nonneighbor_residual_norm` (`:84`) and
+  `correction_norm` (`:100`) control individual residual updates. The
+  duplicate-free `neighbor_count` (`:107`) is geometric, not a spectral rate.
+- **open residue:** completed bounded-degree total-energy estimate,
+  original-action coercivity with useful scaling dependence, identification
+  of the common fixed space, and the normalized spatial covariance join.
+  Arbitrary sequential sweeps have no proved volume-independent propagation
+  radius; bounded-depth layers and their locality are the next geometric
+  task. No conditional-update/OS-transfer identification is claimed.
+- **verification:** 22 printed gates passed two focused one-worker/20 GiB
+  checks within {propext, Quot.sound}; Sol independently reviewed same-object
+  use and scope. No new sorry, analytic field, canonical change or full-tree
+  audit. Evidence: `audits/AUDIT-CONDITIONAL-SWEEP-2026-09-27.md`.
+
 ## Neighboring free-centered sector obstruction (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/SU2QuaternionHeatFreeSectorObstruction.lean`.
