@@ -58,10 +58,12 @@ Let f_i=p-H_i p be the coordinate Haar fluctuation.
    every coordinate fluctuation exactly once. `free_energy_le_local_dirichlet`,
    `lean/YMGap/Continuum/BF4ExactSlabLocalSupportCoercivity.lean:87`, sums
    the residual estimates to m b E_free <= E_original.
-6. `dense_local_coercivity_mul` (`LocalSupportCoercivity.lean:109`)
+6. `dense_local_coercivity_mul`
+   (`lean/YMGap/Continuum/BF4ExactSlabLocalSupportCoercivity.lean:109`)
    combines m||p||^2 <= m M b E_free <= M E_original. There is no division
    by b and no lower floor for the whole volume. `dense_local_coercivity`
-   (`:136`) divides only by the proved positive M and returns the displayed
+   (`lean/YMGap/Continuum/BF4ExactSlabLocalSupportCoercivity.lean:136`)
+   divides only by the proved positive M and returns the displayed
    bound. `supportRatio` and `supportRatio_positive`,
    `lean/YMGap/Continuum/BF4ExactSlabLocalSupportVariance.lean:140` and
    `:144`, define the coefficient and prove strict positivity.
