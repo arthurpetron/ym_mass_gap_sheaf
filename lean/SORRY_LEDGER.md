@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## Original local residual variational completeness (2026-09-27 UTC)
+
+- **files:** `QuaternionHaarCertificateFormBounds.lean`,
+  `BF4ExactSlabStarCertifiedApproximation.lean`,
+  `BF4ExactSlabStarExteriorSeedNorm.lean`,
+  `BF4ExactSlabStarResidualApproximation.lean`,
+  `BF4ExactSlabStarVariationalApproximation.lean`, under `lean/YMGap/Continuum/`.
+- **proved:** `Certificate.form_interval` (`CertificateFormBounds:58`)
+  extends square-test bounds to every existing positive certificate.
+  `certified_residual_norm` (`CertifiedApproximation:134`) and the actual
+  variance-weight instance (`:187`) retain the original action.
+  `residual_error_identity` (`ResidualApproximation:142`) and
+  `residual_approximation_norm` (`:177`) give explicit polynomial approximation
+  to the SAME completed conditional residual. `relativeCutoff` (`:241`)
+  depends only on w and tolerance. `residual_relative_bracket`
+  (`VariationalApproximation:156`) brackets its local energy by a computed
+  rational v and v+epsilon*original squared norm, including null inputs.
+- **residue:** useful summed-test/observable-specific original lower
+  estimates, rescaled operator/cone join, physical scaling and same-theory
+  continuum QFT/OS/Hamiltonian/every-group Clay. Local inverse approximation
+  and local variational completeness no longer require a missing producer.
+  No arbitrary-completed-input interval algorithm is claimed. No new hole,
+  analytic premise or canonical field change.
+- **verification:** all 29 gates passed five focused serialized one-worker/
+  20 GiB module checks within {propext, Quot.sound}, with independent Sol
+  proof work/review. No chart-marker change or full-tree audit. Evidence:
+  `audits/AUDIT-ORIGINAL-RESIDUAL-VARIATIONAL-2026-09-27.md`.
+
 ## Original weighted test cost and constructive calibration (2026-09-27 UTC)
 
 - **files:** `BF4ExactSlabStarExteriorResidual.lean`,
@@ -21,6 +49,8 @@
   now proved; it does not construct an interacting eta. Physical scaling,
   same-theory continuum QFT and every-group Clay remain open. No new hole,
   analytic field or canonical field change.
+  The B*Phi approximation and its local residual variational join are
+  subsequently proved in the checkpoint above.
 - **verification:** all 41 gates passed focused serialized one-worker/20 GiB
   checks within {propext, Quot.sound}; independent Sol review passed.
   No chart-marker change or full-tree audit. Evidence:

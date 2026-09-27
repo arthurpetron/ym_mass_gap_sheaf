@@ -5435,6 +5435,13 @@ import YMGap.Continuum.BF4ExactSlabStarOptimizedPolynomialTest
 -- Exact exterior-modulated test pair/cost in the SAME original form.
 import YMGap.Continuum.BF4ExactSlabStarExteriorResidual
 import YMGap.Continuum.BF4ExactSlabStarPolynomialCost
+-- Actual local residual approximation and finite rational energy brackets.
+-- These do not supply useful global interacting coercivity.
+import YMGap.Continuum.QuaternionHaarCertificateFormBounds
+import YMGap.Continuum.BF4ExactSlabStarCertifiedApproximation
+import YMGap.Continuum.BF4ExactSlabStarExteriorSeedNorm
+import YMGap.Continuum.BF4ExactSlabStarResidualApproximation
+import YMGap.Continuum.BF4ExactSlabStarVariationalApproximation
 -- Same-carrier reverse adjoint and positive sweep product; no accelerated rate.
 import YMGap.Continuum.GNSProjectionSweepAdjoint
 -- Coupled Chebyshev energy and actual same-carrier non-strict polynomial stability.

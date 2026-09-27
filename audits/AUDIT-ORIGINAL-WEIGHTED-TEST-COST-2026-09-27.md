@@ -1,5 +1,12 @@
 # Original weighted test costs and constructive scalar calibration
 
+**Checked follow-up:** the B*Phi-weighted approximation and a direct
+polynomial approximation to the original completed conditional residual
+are now proved. The latter uses the certified B*N(p^2) weight and supplies
+finite rational local-energy brackets with explicit absolute and relative
+tolerances. See `AUDIT-ORIGINAL-RESIDUAL-VARIATIONAL-2026-09-27.md`.
+The global lower estimate and physical/continuum obligations below remain open.
+
 ## Exact forward identities
 
 Fix the existing original SU(2) slab parameters `0<w<1`, extent, heat cutoff

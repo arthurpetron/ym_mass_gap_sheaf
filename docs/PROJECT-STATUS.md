@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting local variational completeness (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabStarResidualApproximation` approximates the ACTUAL completed
+conditional residual by genuine polynomial kernel tests. The relative
+squared error has explicit nome-dependent geometric rate independent of
+volume, late heat cutoff and link position. `residual_relative_bracket`
+in `BF4ExactSlabStarVariationalApproximation` returns finite rational energy
+brackets of width epsilon times the original norm. All 29 gates passed.
+This closes local approximation, not useful global lower coercivity,
+physical scaling or continuum/every-group Clay. Evidence:
+`audits/AUDIT-ORIGINAL-RESIDUAL-VARIATIONAL-2026-09-27.md`.
+
 Verified supporting weighted cost and scalar calibration (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabStarPolynomialCost` pins the actual exterior-modulated
 test's pair/cost to H[B*r*Phi] and H[B*r^2*D*Phi], using a checked equality

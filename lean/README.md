@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original residual variational completeness (2026-09-27 UTC):**
+Explicit polynomial kernel tests now approximate the SAME completed local
+residual with squared error at most `inverseRate(w)^(2n)*||p||^2`.
+The finite signed dual value brackets that residual energy to any requested
+absolute or relative tolerance. The relative iteration count depends only
+on nome and tolerance, not volume, late heat cutoff or link position.
+All 29 gates passed focused serialized checks within `{propext, Quot.sound}`.
+This is local approximation, not global coercivity, physical scaling or
+continuum/every-group Clay closure. Evidence:
+`audits/AUDIT-ORIGINAL-RESIDUAL-VARIATIONAL-2026-09-27.md` at repository root.
+
 **Original weighted test cost and explicit scalar calibration (2026-09-27 UTC):**
 The exterior-modulated kernel tests now have checked exact original pair
 and cost H[B*r*Phi] and H[B*r^2*D*Phi]. Their completed identity feeds the

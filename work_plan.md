@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original residual variational completeness checked (2026-09-27 UTC)
+
+The actual polynomial kernel tests now approximate the existing original
+completed conditional residual with an explicit geometric error:
+`||R_i p-t(J(a_n)*p)||^2 <= inverseRate(w)^(2n)*||p||^2`.
+`BF4ExactSlabStarResidualApproximation.residual_error_identity` proves the
+direct join by killing the exterior numerator under R_i. The required
+B*N(p^2) weight is certified, and induction over positive certificates
+transfers the original normalizer interval to it. The same argument also
+supplies the previously missing B*Phi-weighted approximation. No extra
+inverse completion or coarse multiplicative loss on the norm is needed.
+
+`BF4ExactSlabStarVariationalApproximation.residual_relative_bracket`
+returns a finite rational lower value v with
+`v <= ||R_i p||^2 <= v+epsilon*||p||^2`. The iteration count is computed
+from w and epsilon alone, independently of volume, late heat cutoff, link
+position and input polynomial. The absolute-tolerance bracket is also
+proved. These are local unnormalized residual energies of supplied
+polynomials, not global coercivity or physical Hamiltonian energies.
+
+NEXT forward: derive a useful uniform lower estimate from these actual
+signed finite test values, summed or restricted to the observable-generated
+vectors actually consumed. Do not reopen local inverse existence or add a
+local variational oracle: that producer is now constructed. The rate is
+nome-dependent, so neither global mixing nor physical scaling follows.
+NEXT backward remains the rescaled operator/cone join and unchanged
+same-theory continuum/OS/Hamiltonian/every-group requirements.
+
+All 29 gates passed five focused serialized one-worker/20 GiB module checks.
+Sol supplied independent proofs and review. No new hole, analytic field,
+canonical change, chart-marker change or full-tree audit.
+Evidence: `audits/AUDIT-ORIGINAL-RESIDUAL-VARIATIONAL-2026-09-27.md`.
+
 ### Exact original weighted test cost and rational calibration checked (2026-09-27 UTC)
 
 For actual exterior insertion r, original polynomial p, and conditional
@@ -35,6 +68,8 @@ t(J(r)*p)=J(r)*t(p) equality in the SAME completion. The extra D in the
 cost is retained. NEXT forward: control reciprocal-normalizer approximation
 in the actual B*Phi weight, then useful summed-test/original centered lower
 estimates. A B-only approximation does not silently supply this join.
+The weighted approximation and its original residual-energy consumer are
+subsequently proved in the checkpoint above.
 
 In parallel, `RationalSqrtCalibration` computes rho with
 eta/4<=rho^2<=eta from a supplied 0<eta<1. `ChebyshevMarginParameters`
