@@ -5546,6 +5546,8 @@ import YMGap.Continuum.BF4ExactSlabBlockCompletedInverse
 import YMGap.Continuum.BF4ExactSlabBlockExteriorPairing
 import YMGap.Continuum.BF4ExactSlabBlockOriginalConditional
 import YMGap.Continuum.BF4ExactSlabBlockConditionalProjection
+import YMGap.Continuum.BF4ExactSlabBlockTower
+import YMGap.Continuum.BF4ExactSlabBlockNonneighborCommutation
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Original completed block-pair algebra (2026-09-27 UTC)
+
+- **proved:** `BlockNonneighborCommutation.conditionalProjection_commute`
+  from one collar-separation premise, and `remote_residual_pair_nonnegative`.
+  `BlockTower.tower`, `reverse_tower`, `nested_commute`, and
+  `nested_residual_pair_nonnegative` cover nested blocks. All statements use
+  the actual original completion, every vector, rational `0<w<1`, late cutoff.
+- **constructed consumer input:** `BlockTower.blockFamily` instantiates the
+  existing projection-family algebra with all finite in-range block lists.
+- **open residue:** interacting non-nested all-state signed estimate; actual
+  block-schedule cover/counts/propagation geometry; justified physical scaling
+  and nontrivial survival. No fullData degree-tail/finite-matrix reduction was
+  found; a successful finite test on one source is not the universal estimate.
+  Thermodynamic control and same-theory OS/QFT/mass/every-group Clay stay open.
+- **verification:** two focused serialized one-worker/20 GiB targets, all
+  15 gates within {propext, Quot.sound}; parallel proof/scope review. No new
+  sorry, axiom, analytic bundle, weakened field or canonical chart change.
+  Evidence: `audits/AUDIT-ORIGINAL-BLOCK-PAIR-ALGEBRA-2026-09-27.md`.
+
 ## Actual original completed block projection (2026-09-27 UTC)
 
 - **constructed approximation:** `BlockInverseApproximation.approximateInverse`

@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original block-pair algebra proved (2026-09-27):** blocks whose action
+collars are separated commute on EVERY original completed state. Nested
+blocks satisfy the exact conditional tower law. Both classes have
+nonnegative mixed residual terms; these terms need not vanish. The actual
+block family now supplies the existing schedule algebra. The interacting,
+non-nested all-state estimate and block-schedule geometry remain open;
+successful finite tests on individual observables do not supply that estimate.
+All 15 gates passed focused checks. See the
+[proof and remaining-estimate audit](audits/AUDIT-ORIGINAL-BLOCK-PAIR-ALGEBRA-2026-09-27.md).
+
 **Original completed block projection constructed (2026-09-27):** the actual
 block conditional map now acts on EVERY vector of the original full-action
 completion, for every rational `0<w<1` and late heat cutoff. It is self-adjoint,

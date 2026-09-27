@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual original completed block projection (2026-09-27 UTC)
+## Current increment: original completed block-pair algebra (2026-09-27 UTC)
+
+Remote original block projections commute from one collar-separation premise.
+Nested projections obey the exact tower law in both orders. Both classes
+contribute nonnegative mixed residual terms, not necessarily zero terms.
+The actual `blockFamily` joins these results to existing schedule algebra.
+NEXT: interacting non-nested all-state signed control and actual block-schedule
+geometry. Finite source tests are not universal angle certificates; input
+polynomial degree is not cut off by the inverse-iteration modulus.
+
+Both focused targets passed all 15 gates within {propext, Quot.sound}, with
+serialized one-worker/20 GiB compilation and parallel Sol/Luna mathematics.
+No new sorry, axiom, analytic bundle, canonical chart change or broad run.
+Physical scaling/nontriviality, thermodynamic passage and same-theory
+OS/QFT/physical mass/every-group Clay remain open. Evidence:
+`audits/AUDIT-ORIGINAL-BLOCK-PAIR-ALGEBRA-2026-09-27.md`.
+
+## Earlier increment: actual original completed block projection (2026-09-27 UTC)
 
 Polynomial division and explicit residual/Cauchy/null moduli now construct the
 actual N_p/D state. The inserted-numerator bound retains the original full-action

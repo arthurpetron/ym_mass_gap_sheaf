@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting original block-pair algebra (2026-09-27 UTC; chart markers unchanged):
+Remote blocks commute under one collar-separation premise; nested blocks
+obey the exact tower law, on EVERY original completed vector. Both mixed
+residual contributions are nonnegative. The actual block family joins the
+existing schedule algebra. Interacting non-nested all-state signed control,
+block geometry, physical scaling/nontrivial survival and A03 remain open,
+as do thermodynamic and same-theory OS/QFT/mass/every-group Clay obligations.
+Both focused targets passed all 15 gates; no canonical chart block changes.
+Evidence: `audits/AUDIT-ORIGINAL-BLOCK-PAIR-ALGEBRA-2026-09-27.md`.
+
 Verified supporting original completed block projection (2026-09-27 UTC; chart markers unchanged):
 The actual block conditional operator is constructed on EVERY original
 full-action completion vector, with self-adjointness, idempotence, sharp

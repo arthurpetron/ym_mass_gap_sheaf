@@ -25,6 +25,36 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original completed block-pair algebra proved (2026-09-27 UTC)
+
+`BlockNonneighborCommutation.conditionalProjection_commute` proves exact
+full-space commutation from the single premise that the S collar contains
+no T link. No extra direct disjointness, reverse separation or nodup premise
+is required. `BlockTower.tower` and `reverse_tower` give the nested conditional
+tower. Both remote and nested mixed residual terms are nonnegative, not
+necessarily zero. `BlockTower.blockFamily` supplies the actual original
+operators to existing schedule algebra. All rational `0<w<1`, late heat cutoff.
+
+NEXT: focus the signed all-state estimate on interacting, non-nested blocks.
+Removing the union's common exterior mode does not prove their remaining
+range-angle bound. Exact signed finite polynomial tests retain all spectator
+factors, but one successful observable test is not a universal bound. The
+inverse iteration's degree-free relative cutoff does not truncate input
+polynomial degree; no checked finite-matrix/high-degree-tail reduction was
+found for this actual carrier. Seek an all-polynomial signed form estimate,
+or prove that missing tail reduction before trusting finite-matrix tests.
+
+The actual block schedule still needs cover, row/column counts and propagation
+geometry; single-link constants do not transfer automatically. Useful decay
+must be physically calibrated on a justified scaling family with nontrivial
+survival. Selected-face thermodynamic control and same-theory OS/QFT/mass/
+every-group Clay remain open. No canonical chart claim changes.
+
+Two focused serialized one-worker/20 GiB targets passed all 15 printed gates
+within {propext, Quot.sound}; parallel Sol/Luna proof and source review.
+No new sorry, axiom, analytic bundle or broad run. Evidence:
+`audits/AUDIT-ORIGINAL-BLOCK-PAIR-ALGEBRA-2026-09-27.md`.
+
 ### Actual original completed block projection constructed (2026-09-27 UTC)
 
 `BlockConditionalProjection.conditionalProjection` now constructs the actual
