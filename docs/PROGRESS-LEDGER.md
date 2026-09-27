@@ -30502,3 +30502,14 @@ projective/same-object, matrix-coefficient, graph-norm, and vacuum fields stay
 unchanged and same-family indexed. The focused check reports only
 `{propext, Quot.sound}` and no `sorryAx`; all certificates and continuum/Clay
 obligations remain open.
+
+## Matched routes consume the factored exact-rate witness (2026-09-27 UTC)
+
+Both `MatchedPhysicalExplicitRayStateLoadDecayProducer` and
+`MatchedPhysicalExplicitRayFactorizedDecayProducer` now feed the raw capstone
+directly from `PositiveExactLogGapWitness` plus an explicit
+`CReal.Equiv gapVariation.limit witness.rate`. The projective/same-object,
+matrix, graph-norm, vacuum, and completed-family indices remain aligned.
+Focused check reports only `{propext, Quot.sound}` and no `sorryAx`; all
+certificates and continuum/QFT, physical-mass, every-group, and Clay inputs
+remain open.
