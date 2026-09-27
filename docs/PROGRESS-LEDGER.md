@@ -30744,3 +30744,11 @@ repaired spacing tends to zero, so this constructor does not provide a hidden
 continuum witness or bypass the repository's reciprocal-spacing no-go.  The
 focused monitored check reports only `{propext, Quot.sound}` and no `sorryAx`;
 the canonical chart marker remains unchanged.
+
+The same handoff also exposes
+`WilsonPhysicalExponentialJoin.ofConstantPhysicalGapCalibration`.  This route
+uses the existing constant-gap calibration compiler to obtain zero variation,
+which is compatible with the repaired spacing-to-zero schedule.  The
+pointwise constant-gap identity remains an explicit missing analytic input;
+the constructor does not turn positivity or finite-cutoff bounds into that
+identity.

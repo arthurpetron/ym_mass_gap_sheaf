@@ -3405,7 +3405,10 @@ lower/upper/width obligations against the same scheduled rate stream.  The
 companion `ofMarginAndReciprocalSpacing` constructor factors the remaining
 physical-gap variation into explicit lattice-margin and reciprocal-spacing
 variation streams; it does not manufacture either stream or evade the
-spacing-to-zero obstruction.
+spacing-to-zero obstruction.  The companion
+`ofConstantPhysicalGapCalibration` constructor gives the spacing-to-zero-
+compatible zero-variation route, while leaving the pointwise calibration
+itself explicit.
 `WilsonContinuumMassClusteringJoin` then adds an explicit raw-to-projective
 same-object identification, OS-value compatibility, projective Wilson
 coefficient pin, and reconstruction spectral channel, compiling to the

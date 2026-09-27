@@ -42,6 +42,7 @@ open YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 open YMGap.Continuum.ContinuumMeasure
@@ -190,6 +191,21 @@ def WilsonPhysicalExponentialJoin.ofMarginAndReciprocalSpacing
   gapVariation := physicalGapVariationOfMarginAndReciprocalSpacing
     changingNomeCarrierNormalizedDynamicFamily
     marginVariation reciprocalSpacingVariation
+
+/- A spacing-to-zero-compatible alternative is the constant physical-gap
+   calibration interface.  Its zero step variation is constructive, but the
+   pointwise calibration itself remains an explicit analytic input. -/
+def WilsonPhysicalExponentialJoin.ofConstantPhysicalGapCalibration
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (wilson : WilsonJoin H W)
+    (calibration :
+      DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration
+        changingNomeCarrierNormalizedDynamicFamily) :
+    WilsonPhysicalExponentialJoin H W where
+  wilson := wilson
+  gapVariation := calibration.toVariation
 
 /-- Repackage the same repaired-family physical-gap variation for the existing
     physical-exponential compiler.  The Wilson certificate remains available
@@ -411,6 +427,8 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.toPhysicalExponentialJoin
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.ofMarginAndReciprocalSpacing
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.ofConstantPhysicalGapCalibration
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.toCertificate
 #print axioms
