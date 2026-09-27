@@ -639,6 +639,24 @@ def changingNomeCarrierNormalizedExplicitMarginInverseLaw :
     exact Q'.eqv_trans _ _ _ hmargin
       (changingNomeExplicitMarginInverseLaw.margin_eqv_inverse scale)
 
+/-- Every finite prefix of the repaired carrier-normalized family has the
+    exact same-family denominator band obtained from its completed physical
+    gap.  The extrema are constructive finite minima/maxima; no all-scale
+    calibration is smuggled into this witness. -/
+def changingNomeCarrierNormalizedFinitePrefixExplicitMarginDenominatorBand
+    (bound : Nat) :
+    ExplicitMarginDenominatorBand.FinitePrefixExplicitMarginDenominatorBand
+      changingNomeCarrierNormalizedExplicitMarginInverseLaw bound :=
+  ExplicitMarginDenominatorBand.finitePrefixExplicitMarginDenominatorBand bound
+
+/-- The repaired finite-prefix denominator witness contracts to the matching
+    finite-prefix physical-rate band on the identical completed family. -/
+def changingNomeCarrierNormalizedFinitePrefixPhysicalRateBand
+    (bound : Nat) :
+    ExplicitMarginDenominatorBand.FinitePrefixPhysicalRateBand
+      changingNomeCarrierNormalizedExplicitMarginInverseLaw bound :=
+  (changingNomeCarrierNormalizedFinitePrefixExplicitMarginDenominatorBand bound).toFinitePrefixPhysicalRateBand
+
 /-- The smallest honest B04 certificate for the repaired schedule.  Its two
     fields are the still-open uniform product bounds, now typed against the
     same completed nome/gap family as the carrier-normalized spacing. -/
@@ -842,6 +860,8 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedFinitePrefixResponseCertificate
 #print axioms changingNomeCarrierNormalizedFinitePrefixResponseFloor_pos
 #print axioms changingNomeCarrierNormalizedFinitePrefixResponseFloor_le_sampled_zeroTime
+#print axioms changingNomeCarrierNormalizedFinitePrefixExplicitMarginDenominatorBand
+#print axioms changingNomeCarrierNormalizedFinitePrefixPhysicalRateBand
 #print axioms changingNomeCarrierNormalizedExplicitMarginInverseLaw
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand
