@@ -30581,3 +30581,13 @@ rational floor below every finite-prefix response minimum. Its checked
 norm-floor interface. Finite-prefix positivity alone does not inhabit this
 persistence structure, so cutoff removal and the continuum excitation remain
 open.
+
+## Cofinal same-object route join (2026-09-27 UTC)
+
+`ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute` joins the explicit
+prefix-persistence norm-floor input with the explicit cofinal physical-gap
+calibration for the same repaired channel. Its checked projections produce
+the all-scale norm floor, physical-rate band, and scalar continuum-gap
+interface while leaving both analytic inputs, OS/GNS reconstruction, full
+continuum QFT, physical mass, every-group uniformity, and the Clay theorem
+open.

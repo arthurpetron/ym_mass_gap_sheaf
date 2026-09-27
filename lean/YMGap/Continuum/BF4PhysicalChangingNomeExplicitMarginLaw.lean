@@ -1149,6 +1149,48 @@ def ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalRateBand
       exact Q'.eqv_symm (Q'.divPos_mul_eqv _ _ _)
     exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hcollapse) hscaled
 
+/-! ## 8e. One same-object route through both cofinal inputs -/
+
+/-- The all-scale repaired route keeps the same concrete channel, its uniform
+response floor, and its physical-rate calibration in one dependent bundle.
+Both fields are explicit analytic inputs; this structure is not inhabited by
+the finite-prefix certificates alone. -/
+structure ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute : Type 1 where
+  responsePersistence : ChangingNomeCarrierNormalizedResponsePersistence
+  calibration : ChangingNomeCarrierNormalizedCofinalGapCalibration
+
+/-- The route exposes the all-scale same-channel norm floor. -/
+def ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.toUniformRCNormFloor
+    (route : ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute) :
+    DynamicVacuumSectorUniformRCNormFloor
+      route.responsePersistence.channelBridge.channel :=
+  route.responsePersistence.toUniformRCNormFloor
+
+/-- The route exposes the physical-rate band for its identical completed
+family. -/
+def ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.toPhysicalRateBand
+    (route : ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute) :
+    DynamicVacuumSectorPhysicalRateBand
+      changingNomeCarrierNormalizedDynamicFamily :=
+  route.calibration.toPhysicalRateBand
+
+/-- The same-object cofinal route contracts to the scalar continuum-gap
+interface while leaving OS/GNS and QFT reconstruction explicit. -/
+def ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.toContinuumGapTheorem
+    (route : ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute) :
+    SharpContinuumObligation.ContinuumGapTheorem :=
+  route.toPhysicalRateBand.toContinuumGapTheorem
+
+/-- The route retains strict zero-time positivity of its concrete channel. -/
+theorem ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.zero_isPositive
+    (route : ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute)
+    (scale : Nat) :
+    RCIsPositive
+      (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+        route.responsePersistence.channelBridge.channel scale 0) :=
+  DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_zero_isPositive
+    route.responsePersistence.channelBridge.channel scale
+
 /-- The smallest honest B04 certificate for the repaired schedule.  Its two
     fields are the still-open uniform product bounds, now typed against the
     same completed nome/gap family as the carrier-normalized spacing. -/
@@ -1405,6 +1447,10 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms ChangingNomeCarrierNormalizedPhysicalGapBounds.toPhysicalRateBand
 #print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.lowerDenominator
 #print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalRateBand
+#print axioms ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.toUniformRCNormFloor
+#print axioms ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.toPhysicalRateBand
+#print axioms ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.toContinuumGapTheorem
+#print axioms ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.zero_isPositive
 #print axioms changingNomeCarrierNormalizedExplicitMarginInverseLaw
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand

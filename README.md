@@ -306,6 +306,15 @@ norm-floor interface. Finite-prefix positivity alone does not inhabit this
 persistence structure, so cutoff removal and the continuum excitation remain
 open.
 
+**New cofinal same-object route join (2026-09-27):**
+`ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute` joins the explicit
+prefix-persistence norm-floor input with the explicit cofinal physical-gap
+calibration for the same repaired channel. Its checked projections produce
+the all-scale norm floor, physical-rate band, and scalar continuum-gap
+interface while leaving both analytic inputs, OS/GNS reconstruction, full
+continuum QFT, physical mass, every-group uniformity, and the Clay theorem
+open.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly
