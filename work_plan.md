@@ -122,7 +122,7 @@ schedule.
 
 ### Minimal B04 head-energy certificate (2026-09-26 UTC)
 
-`BF4PhysicalChangingNomeExplicitMarginLaw.lean:92--204` now exposes the exact
+`BF4PhysicalChangingNomeExplicitMarginLaw.lean:93--319` now exposes the exact
 `gapDenominator = 2 + 6*headEnergyConstant` presentation and a
 `ChangingNomeHeadEnergyProductBand` whose two fields are precisely the uniform
 spacing-product bounds still needed.  Its compiler preserves the actual
@@ -132,7 +132,7 @@ order estimate is proved.
 ### Conditional contraction to the sharp gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:267--270`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:325--328`)
 now composes that specialized certificate with the existing same-family
 physical-rate compiler and the sharp `ContinuumGapTheorem` interface.  This
 closes the typed downstream route once the product-band fields are supplied;
