@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Signed-numerator original conditional projection bound (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/BF4ExactSlabStarNumeratorInfluence.lean`.
+- **proved:** `probe_variational_bound` (`:103`) completes the square in
+  the retained exterior form; `conditional_residual_bound` (`:124`)
+  passes it through the existing actual conditional Cauchy representative.
+  `conditional_norm_bound` (`:161`) gives `L*||C_i p||^2<=||N_i p||^2`.
+  `centered_numerator_energy` (`:175`) identifies the free residual's
+  numerator energy with the squared norm of `N_i p-D_i*A_i(p)` in that
+  exterior form; `free_residual_variance_bound` (`:203`) uses it without
+  changing the original residual of p.
+- **residue:** an actual small bound for the signed numerator correction,
+  useful neighboring influence/global centered coercivity and physical
+  scaling. No such bound follows merely from the old coarse L/U window.
+  This is not an OS/physical-time gap or continuum/Clay closure.
+- **verification:** seven gates passed a focused monitored one-worker/
+  20 GiB check within {propext, Quot.sound}. Sol independently reviewed
+  the exact identities and scope. No new hole, analytic field, canonical
+  change or full-tree audit. Evidence:
+  `audits/AUDIT-SIGNED-NUMERATOR-PROJECTION-2026-09-27.md`.
+
 ## Inverse-free original polynomial Dirichlet comparison (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/BF4ExactSlabPolynomialDirichletComparison.lean`.

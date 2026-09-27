@@ -25,6 +25,35 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Signed-numerator projection bound checked (2026-09-27 UTC)
+
+`BF4ExactSlabStarNumeratorInfluence.conditional_norm_bound` proves
+`L(w)*||C_i p||_F^2 <= ||N_i p||_G_i^2` on the ACTUAL completed original
+conditional projection. A finite square-completion argument supplies the
+bound at every existing conditional-Cauchy approximant; no inverse or
+smallness input is added. `centered_numerator_energy` identifies the
+numerator energy of the free residual with the squared retained-exterior
+norm of the SIGNED difference `N_i p - D_i*A_i(p)`. This difference is
+formed before its norm is taken, so its cancellations are not replaced by
+the coarse L/U window. The comparison is in the quadratic form, not a raw
+coefficient identity.
+
+NEXT: actually control these signed numerator differences (or a sharper
+direct centered estimate) with useful cross-link/scaling dependence. The
+new numerator-sensitive bound is not yet a neighboring influence rate,
+and L(w) still deteriorates. Global interacting coercivity remains open.
+The existing temporal two-link dual bounds use a different marginal and
+retain an uncontrolled signed determinant, so they do not supply this
+missing input. In parallel, construct original-carrier centered Cauchy
+approximations to make the dense-to-completed consumer explicit; do not
+replace completed orthogonality by termwise centering as a hypothesis.
+
+Seven gates passed the focused one-worker/20 GiB check. Sol independently
+reviewed the square identity, original-action pins and form-level signed
+numerator identity. No new hole, analytic field, canonical edit, full-tree
+audit or chart-marker change. Evidence:
+`audits/AUDIT-SIGNED-NUMERATOR-PROJECTION-2026-09-27.md`.
+
 ### Inverse-free original Dirichlet comparison checked (2026-09-27 UTC)
 
 `BF4ExactSlabPolynomialDirichletComparison.dirichlet_comparison` bounds the

@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting signed-numerator bound (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabStarNumeratorInfluence.conditional_norm_bound` bounds the
+actual completed conditional output using the computed numerator energy.
+`centered_numerator_energy` retains the exact signed difference between
+the inserted numerator and normalizer times the free average, before
+squaring in the original exterior form. All seven focused gates passed.
+A small neighboring influence, global lower coercivity, useful physical
+scaling and continuum/Clay closure remain open. Evidence:
+`audits/AUDIT-SIGNED-NUMERATOR-PROJECTION-2026-09-27.md`.
+
 Verified supporting polynomial comparison (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabPolynomialDirichletComparison.dirichlet_comparison` bounds the
 actual original conditional-residual energy on every polynomial by an
