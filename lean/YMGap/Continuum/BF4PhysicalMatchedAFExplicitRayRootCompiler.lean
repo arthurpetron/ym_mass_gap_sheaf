@@ -22,6 +22,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 import YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 import YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellEntropy
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellStateLoadFactorization
@@ -48,6 +49,8 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
+open YMGap.Continuum.PhysicalSeparator
 open YMGap.Continuum.RCStrictPositivity
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
@@ -609,6 +612,36 @@ theorem MatchedPhysicalExplicitRayStateLoadDecayProducer.sameObjectRCChannel_con
   exact DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_eq_global
     producer.toSameObjectRCChannel scale time
 
+/-- An explicit rationalization certificate exposes the concrete state-load
+channel through the downstream singleton-observable interface. -/
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toObservablePin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (rationalization :
+      DynamicVacuumSectorSameObjectRationalization
+        producer.toSameObjectRCChannel)
+    (rate_pos : ∀ scale,
+      (0 : Q') < (producer.toCompletedFamily.completedGap scale).rate) :
+    DynamicVacuumSectorObservablePin producer.toCompletedFamily :=
+  rationalization.toObservablePin rate_pos
+
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toPhysicalSeparator
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (rationalization :
+      DynamicVacuumSectorSameObjectRationalization
+        producer.toSameObjectRCChannel)
+    (rate_pos : ∀ scale,
+      (0 : Q') < (producer.toCompletedFamily.completedGap scale).rate) :
+    PhysicalSeparator :=
+  (producer.toObservablePin rationalization rate_pos).toPhysicalSeparator
+
 /-! ## 8. Split the remaining decay into weight and path mechanisms -/
 
 /-- A factored analytic input for the same route: stationary-weight decay and
@@ -810,6 +843,36 @@ theorem MatchedPhysicalExplicitRayFactorizedDecayProducer.sameObjectRCChannel_co
   exact DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_eq_global
     producer.toSameObjectRCChannel scale time
 
+/-- The factorized route reaches the same observable interface once its
+explicit rationalization certificate and strict-rate witness are supplied. -/
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toObservablePin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (rationalization :
+      DynamicVacuumSectorSameObjectRationalization
+        producer.toSameObjectRCChannel)
+    (rate_pos : ∀ scale,
+      (0 : Q') < (producer.toCompletedFamily.completedGap scale).rate) :
+    DynamicVacuumSectorObservablePin producer.toCompletedFamily :=
+  rationalization.toObservablePin rate_pos
+
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toPhysicalSeparator
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (rationalization :
+      DynamicVacuumSectorSameObjectRationalization
+        producer.toSameObjectRCChannel)
+    (rate_pos : ∀ scale,
+      (0 : Q') < (producer.toCompletedFamily.completedGap scale).rate) :
+    PhysicalSeparator :=
+  (producer.toObservablePin rationalization rate_pos).toPhysicalSeparator
+
 /-! ## 9. Occupied-shell obstruction at the matched boundary -/
 
 /-- Every occupied physical-mass shell forces the matched state-load envelope
@@ -946,6 +1009,10 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.sameObjectRCChannel_connectedAutocorrelation_eq_global
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toObservablePin
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toPhysicalSeparator
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toStateLoadDecayProducer
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toResistanceProducer
@@ -971,6 +1038,10 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.sameObjectRCChannel_connectedSq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.sameObjectRCChannel_connectedAutocorrelation_eq_global
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toObservablePin
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toPhysicalSeparator
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.one_le_envelope_of_shell_member
 #print axioms

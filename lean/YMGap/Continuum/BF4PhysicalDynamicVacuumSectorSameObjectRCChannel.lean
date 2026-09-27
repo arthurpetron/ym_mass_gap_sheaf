@@ -25,6 +25,7 @@ noncomputable declaration is used.
 -/
 
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 import YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
@@ -43,6 +44,7 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredNonzero
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredPositiveNorm
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumOrthogonal
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 open YMGap.Continuum.RCStrictPositivity
 
 /-! ## 1. The same-object RC channel -/
@@ -172,7 +174,76 @@ theorem connectedAutocorrelation_eq_global
 
 end DynamicVacuumSectorSameObjectRCChannel
 
-/-! ## 2. The concrete moving cube channel -/
+/-! ## 2. Rationalization of one concrete RC channel -/
+
+/-- The exact additional data needed to expose one RC channel through the
+rational observable interface.  No rationality is inferred: the two `pin`
+fields are explicit equalities to the literal completed moments.  The
+positivity and amplitude fields are retained because the downstream
+observable path consumes them at the same type level. -/
+structure DynamicVacuumSectorSameObjectRationalization
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (channel : DynamicVacuumSectorSameObjectRCChannel family) : Type 1 where
+  normSq : Nat → Q'
+  normSq_pos : ∀ scale, (0 : Q') < normSq scale
+  normSq_pin : ∀ scale,
+    Quotient.mk CReal.crealSetoid (CReal.ofQ' (normSq scale)) =
+      channel.normSq scale
+  connectedCorrSq : Nat → Nat → Q'
+  connectedCorrSq_nonnegative : ∀ scale time,
+    (0 : Q') ≤ connectedCorrSq scale time
+  connectedCorrSq_zero_pos : ∀ scale,
+    (0 : Q') < connectedCorrSq scale 0
+  connectedCorrSq_pin : ∀ scale time,
+    Quotient.mk CReal.crealSetoid
+        (CReal.ofQ' (connectedCorrSq scale time)) =
+      channel.connectedAutocorrelationSq scale time
+  gaugeInvariant : Prop
+  gaugeInvariant_witness : gaugeInvariant
+  amplitude : Q'
+  amplitude_pos : (0 : Q') < amplitude
+  normFourth_le_amplitude : ∀ scale,
+    normSq scale * normSq scale ≤ amplitude
+
+namespace DynamicVacuumSectorSameObjectRationalization
+
+/-- A rationalized concrete channel becomes a singleton-observable pin.  The
+singleton is only a presentation of the already selected same-object vector;
+all moment equalities remain explicit fields of the certificate. -/
+def toObservablePin
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    {channel : DynamicVacuumSectorSameObjectRCChannel family}
+    (rationalization :
+      DynamicVacuumSectorSameObjectRationalization channel)
+    (rate_pos : ∀ scale, (0 : Q') < (family.completedGap scale).rate) :
+    DynamicVacuumSectorObservablePin family where
+  Obs := Unit
+  GaugeInvariantLocal := fun _ => rationalization.gaugeInvariant
+  vectorAt := fun scale _ => channel.vectorAt scale
+  connectedCorrSq := fun scale _ time => rationalization.connectedCorrSq scale time
+  connectedCorrSq_nonnegative := fun scale _ time =>
+    rationalization.connectedCorrSq_nonnegative scale time
+  normSq := fun scale _ => rationalization.normSq scale
+  normSq_nonnegative := fun scale _ =>
+    Q'.le_of_lt (rationalization.normSq_pos scale)
+  normSq_pin := fun scale _ => rationalization.normSq_pin scale
+  connectedCorrSq_pin := fun scale _ time =>
+    rationalization.connectedCorrSq_pin scale time
+  amplitude := fun _ => rationalization.amplitude
+  amplitude_pos := fun _ _ => rationalization.amplitude_pos
+  normFourth_le_amplitude := fun scale _ _ =>
+    rationalization.normFourth_le_amplitude scale
+  rate_pos := rate_pos
+  gapObservable := ()
+  gapObservable_local := rationalization.gaugeInvariant_witness
+  gapObservable_zero_pos := fun scale =>
+    rationalization.connectedCorrSq_zero_pos scale
+
+end DynamicVacuumSectorSameObjectRationalization
+
+/-! ## 3. The concrete moving cube channel -/
 
 /-- At every scale, the exact moving-centered cutoff-one cube vector in the
 actual completed vacuum complement of that scale's nome. -/
@@ -244,6 +315,8 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel.DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelationSq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel.DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_eq_global
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel.DynamicVacuumSectorSameObjectRationalization.toObservablePin
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel.centralPhysicalDynamicMovingCubeRCChannel
 #print axioms

@@ -30214,3 +30214,23 @@ vector certificate: rational observable pinning, uniform physical-rate
 calibration, OS/GNS passage, continuum/QFT construction, physical mass,
 every-group theorem, and Clay target remain open; no canonical chart marker
 changed.
+
+## Explicit RC-to-rational observable certificate (2026-09-26 UTC)
+
+`BF4PhysicalDynamicVacuumSectorSameObjectRCChannel.lean` now defines
+`DynamicVacuumSectorSameObjectRationalization`.  Its fields are the exact
+rational norm and squared-autocorrelation streams, RC equality pins to the
+literal channel moments, nonnegativity, zero-time positivity, a uniform
+amplitude bound, and an explicit gauge-invariance proposition with witness.
+The constructor
+`DynamicVacuumSectorSameObjectRationalization.toObservablePin` produces the
+singleton `DynamicVacuumSectorObservablePin` only after a strict completed-rate
+positivity witness is separately supplied.
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now exposes
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.toObservablePin`,
+`.toPhysicalSeparator`, and the corresponding factorized-route declarations.
+The focused monitored checks report only `{propext, Quot.sound}` and no
+`sorryAx`.  This is a certificate-shape contraction: no rational moment,
+gauge-invariance, strict-rate, physical calibration, OS/GNS, continuum/QFT,
+physical-mass, every-group, or Clay witness is claimed to exist.
