@@ -1,11 +1,31 @@
 # Sorry Ledger
 
+## Correlated local debt reaches the exact-rate cutoff boundary (2026-09-27 UTC)
+
+- **declaration:** `toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations` in
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.lean:1239`.
+- **result:** the existing correlated same-edge capacity-debt envelope,
+  tail allowance, and initial closure feed the exact-rate cutoff-removal
+  compiler for one generated observable and one completed carrier.  The
+  adapter stops before projective/OS correlation and does not infer any later
+  continuum structure.
+- **explicit inputs:** the observable witness, matched strength scaling,
+  ray-capacity variation, finite-sector mass-floor variation, physical-gap
+  variation, and shifted AF identification remain premises.
+- **scope:** no continuum measure/QFT construction, physical mass calibration,
+  all-group theorem, or Clay conclusion is claimed.
+- **verification:** focused monitored target
+  `+YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath:olean`
+  passed in 5,243 jobs.  The dependency gate reports only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Correlated local debt reaches the same-carrier continuum handoff (2026-09-27 UTC)
 
 - **declarations:** `correlatedCapacityDebtProducer` and
   `toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations` in
   `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.lean:1214`
-  and `:1242`.
+  and `:1301`.
 - **result:** the existing correlated same-edge capacity-debt envelope,
   tail allowance, and initial closure now name one exact matched local
   producer and feed the existing continuum-handoff compiler.  The generated

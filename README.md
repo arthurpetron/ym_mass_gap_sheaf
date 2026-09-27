@@ -3586,6 +3586,15 @@ causal composition boundary, not an inhabited continuum/QFT or Clay theorem;
 the focused monitored build remains 5,243 jobs with only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+The same branch now also exposes
+`toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations`.
+This is the finite exact-rate cutoff consumer for the identical generated
+observable and completed carrier; it deliberately stops before projective/OS
+correlation and the continuum handoff.  The correlated envelope, scaling,
+variation, AF, exact-rate reconstruction, continuum/QFT, physical-mass,
+every-group, and Clay inputs remain explicit.  Its focused monitored gate is
+within `{propext, Quot.sound}` with no `sorryAx`.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,

@@ -17,8 +17,11 @@ Latest continuation checkpoint (2026-09-27 UTC): the correlated same-edge
 local-producer compiler is now named by `correlatedCapacityDebtProducer` and
 has a checked same-carrier adapter
 `toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations`.  The
-adapter still requires every raw/normalization/scaling/variation, AF,
-projective/OS, and exact-rate input; it does not claim an inhabited continuum,
+same generated producer also has the narrower exact-rate boundary
+`toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations`,
+which stops before projective/OS data.  Both adapters
+still require every raw/normalization/scaling/variation, AF,
+projective/OS, and exact-rate input; they do not claim an inhabited continuum,
 physical-mass, all-group, or Clay endpoint.  Focused target: 5,243 jobs;
 axioms: `{propext, Quot.sound}`; no `sorryAx`.
 The anchor branch now also carries a constant-presheaf family whose fiber at

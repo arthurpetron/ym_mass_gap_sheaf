@@ -1234,6 +1234,65 @@ abbrev correlatedCapacityDebtProducer
   localProducer_ofCorrelatedCapacityDebt trajectory transitionStart envelope
     tailAllowance tailAllowance_pos initial_closure
 
+/-! The exact-rate cutoff stage is exposed separately from the semantic
+    projective/OS handoff. -/
+def toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat)
+    (envelope : forall physicalScale,
+      MatchedEventualCanonicalCorrelatedCapacityDebtEnvelope
+        trajectory transitionStart physicalScale)
+    (tailAllowance : Nat -> Q')
+    (tailAllowance_pos : forall physicalScale,
+      (0 : Q') < tailAllowance physicalScale)
+    (initial_closure : forall physicalScale,
+      matchedEventualCanonicalRoutedCapacityDebtMaximum
+            trajectory transitionStart physicalScale 0 +
+          prefixTailTotalBudget
+            (matchedEventualCanonicalRoutedCapacityDebtMaximumVariation
+              (envelope physicalScale))
+            (tailAllowance physicalScale) <=
+        (1 : Q'))
+    (witness : PhysicalExponentialObservableWitness trajectory
+      (correlatedCapacityDebtProducer trajectory transitionStart envelope
+        tailAllowance tailAllowance_pos initial_closure))
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory
+      (correlatedCapacityDebtProducer trajectory transitionStart envelope
+        tailAllowance tailAllowance_pos initial_closure))
+    (rayDeltaVariation : SummableRationalStepVariation
+      (fun scale =>
+        (((trajectory.toDynamicFamily
+          (correlatedCapacityDebtProducer trajectory transitionStart envelope
+            tailAllowance tailAllowance_pos initial_closure)).toResidualCoercivityFamily.rayCapacity
+          scale).delta)))
+    (massFloorVariation : SummableRationalStepVariation
+      (fun scale =>
+        centralPhysicalFiniteVacuumSectorUniformMassFloor
+          ((trajectory.toDynamicFamily
+            (correlatedCapacityDebtProducer trajectory transitionStart envelope
+              tailAllowance tailAllowance_pos initial_closure)).toResidualCoercivityFamily.nome
+            scale)
+          (Q'.le_of_lt
+            ((trajectory.toDynamicFamily
+              (correlatedCapacityDebtProducer trajectory transitionStart envelope
+                tailAllowance tailAllowance_pos initial_closure)).toResidualCoercivityFamily.nome_pos
+              scale)) 0))
+    (gapVariation : PhysicalGapRationalVariation trajectory
+      (correlatedCapacityDebtProducer trajectory transitionStart envelope
+        tailAllowance tailAllowance_pos initial_closure))
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    ExactRateCutoffRemoval
+      (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate
+        witness.observable scaling.toPhysicalRateBand
+        (fullRangeLogRateCeilingOfPhysicalRateBand
+          witness.observable scaling.toPhysicalRateBand)) :=
+  toExactRateCutoffRemoval_ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling
+    witness scaling rayDeltaVariation massFloorVariation gapVariation C H
+
 /-! The local capacity/debt compiler can now be joined directly to the
     existing same-carrier continuum handoff.  Every analytic input not
     supplied by that local compiler remains an explicit argument, and the
@@ -1400,5 +1459,7 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toPhysicalExponentialCertificate_ofCorrelatedCapacityDebt
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.correlatedCapacityDebtProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations

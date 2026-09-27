@@ -65705,6 +65705,23 @@ handoff gate report only `{propext, Quot.sound}` and no `sorryAx`.  Continuum
 measure/QFT construction, physical mass calibration, all-group generalization,
 and the Clay theorem remain open.
 
+## 247. Separate correlated local debt from exact-rate cutoff removal (2026-09-27)
+
+The same correlated producer now has a narrower finite-stage consumer,
+`toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations`.
+It retains the generated observable and completed-carrier indices, consumes the
+literal ray-capacity, finite-sector mass-floor, and physical-gap variation
+streams, and stops at `ExactRateCutoffRemoval` before any projective/OS or
+continuum handoff fields are requested.  This separates the exact-rate
+cutoff boundary from the later semantic continuum boundary without hiding any
+analytic premise.
+
+The focused monitored target passes in 5,243 jobs.  The new dependency gate
+reports only `{propext, Quot.sound}` and no `sorryAx`.  Correlated envelope
+inhabitation, scaling, AF identification, exact-rate reconstruction,
+projective/OS data, continuum/QFT construction, physical mass calibration,
+all-group generalization, and the Clay theorem remain open.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A

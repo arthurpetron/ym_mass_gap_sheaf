@@ -4,6 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: correlated local debt reaches the exact-rate boundary (2026-09-27 UTC)
+
+`MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations`
+(`lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.lean:1239`)
+consumes the existing correlated capacity-debt producer together with the
+literal ray-capacity, finite-sector mass-floor, physical-gap variation, and
+matched AF inputs.  It returns `ExactRateCutoffRemoval` for the same generated
+observable and completed carrier, before projective/OS fields are needed.  This
+is a finite exact-rate contraction only: the envelope, scaling, exact-rate
+reconstruction, continuum/QFT, physical-mass, every-group, and Clay inputs
+remain open.  The focused monitored target passes in 5,243 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 ## Current increment: repaired-family product band contracts to the continuum-gap interface (2026-09-26 UTC)
 
 `ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand`,
