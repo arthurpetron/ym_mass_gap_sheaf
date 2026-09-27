@@ -4,7 +4,30 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original fixed-small-nome covariance decay (2026-09-27 UTC)
+## Current increment: all-nome original block normalizer (2026-09-27 UTC)
+
+The actual incident collar now has a constructed finite-family Haar normalizer,
+positive certificate, exterior independence and exact full-action marginal/test
+identities. Explicit bounds apply to every supported certified-positive test;
+square tests give two-sided form and squared-norm bounds for the actual
+normalizer multiplier on the detached original background. These hold for every
+rational `0<w<1`, with constants depending on nome and block size, not extent or
+late cutoff. No small-nome guard or assumed inverse is used.
+
+The scaling review reuses the existing AF guard obstruction: the preceding
+small-nome covariance estimate does not cover chart points `0<g<=1/2`
+under a supplied `CubicMarginLaw`. NEXT:
+construct the actual block inverse/projection, then supply useful signed
+inter-block control beyond that guard. Positivity/invertibility alone is not
+this missing analytic estimate. Selected-face boundary response, same-theory
+scaling/OS/QFT/nontriviality/physical mass/every-group Clay remain open.
+
+Four focused serialized checks passed all 32 gates within {propext, Quot.sound};
+parallel Sol/Luna proofs and independent scope review. No full-tree/root build,
+full audit, progress-metric or guard run. Canonical chart unchanged; no reprint.
+Evidence: `audits/AUDIT-ALL-NOME-BLOCK-NORMALIZER-2026-09-27.md`.
+
+## Earlier increment: original fixed-small-nome covariance decay (2026-09-27 UTC)
 
 The actual centered auxiliary now receives the proved original reverse-energy
 bound with a parameter independent of support and degree. Elementary Chebyshev

@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## All-nome original block normalizer (2026-09-27 UTC)
+
+- **constructed:** `SU2QuaternionHaarFamilyCertificate.familyProject_certificate`
+  and `familyProject_interval` preserve explicit finite-family witnesses.
+  `BF4ExactSlabBlockNormalizer.normalizer` integrates the ACTUAL original
+  incident collar; `normalizer_certificate` supplies a positive certificate.
+  `full_marginal_pin`, `full_inserted_marginal_pin` and `full_test_pin` retain
+  every detached original action factor and the original observable insertion.
+- **proved estimates:** `BlockComparisonConstants.blockLower` and `blockUpper`
+  depend only on nome and block size. `BlockNormalizer.normalizer_weighted_bounds`
+  holds for every supported certified-positive test, hence supported squares.
+  `BlockNormalizerMap.normalizerMap_form_bounds`, `normalizerMap_norm_upper`
+  and `normalizerMap_norm_lower` concern the constructed multiplier on the
+  detached-background carrier, for all rational `0<w<1` and late cutoff.
+- **reviewed obstruction:** existing `BF4SmallNomeAFGuardObstruction.fine_guard_fails`
+  and `blocked_guard_fails` rule out the preceding small-nome decay premise
+  at chart points `0<g<=1/2` under a supplied `CubicMarginLaw`;
+  no duplicate theorem or general YM refutation.
+- **open residue:** constructive block inverse and same-original completed
+  conditional projection; useful signed block control beyond the near-Haar
+  guard; selected-face boundary response and thermodynamic control; justified
+  scaling/nontrivial survival, same-theory OS/QFT/physical mass/every-group Clay.
+  The new L/U bounds are not an interacting block-angle or physical gap bound.
+- **verification:** four focused serialized one-worker/20 GiB checks, all
+  32 printed gates within {propext, Quot.sound}; independent scope review.
+  No new sorry, axiom, analytic bundle, weakened frontier or broad run.
+  Canonical chart unchanged. Evidence:
+  `audits/AUDIT-ALL-NOME-BLOCK-NORMALIZER-2026-09-27.md`.
+
 ## Original fixed-small-nome covariance decay (2026-09-27 UTC)
 
 - **proved actual consumer:** `SmallNomeChebyshevCovariance.auxiliary_reverse_energy`

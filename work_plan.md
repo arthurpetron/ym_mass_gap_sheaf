@@ -25,6 +25,50 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### All-nome original block normalizer proved; scaling route repointed (2026-09-27 UTC)
+
+The parameter review has a decisive existing answer, not a new theorem:
+`BF4SmallNomeAFGuardObstruction.fine_guard_fails` and `blocked_guard_fails`
+exclude the covariance theorem's `heatRemainderBound(w)<1` premise on the
+supplied `CubicMarginLaw` chart at `g<=1/2`. This rules out reusing THAT
+estimate there, not the AF law or Yang--Mills. Do not duplicate the obstruction
+or treat fixed small nome plus shrinking spacing as a justified scaling route.
+
+The actual finite-block normalizer is now constructed at every rational
+`0<w<1`: integrate the incident collar over the selected original coordinates,
+retaining the detached original action B. `BlockNormalizer.full_test_pin`
+proves the exact full-action test identity with the inserted numerator.
+`normalizer_certificate` supplies positivity as data;
+`normalizer_weighted_bounds` applies to supported certified-positive tests,
+hence to every supported square, including spectator-dependent ones.
+`BlockNormalizerMap.normalizerMap_form_bounds`, `normalizerMap_norm_upper`
+and `normalizerMap_norm_lower` give explicit L/U and squared-norm bounds on
+the detached-background carrier. The carrier retains all original coordinates;
+its weight is B, not the full action. L and U depend on nome and block size,
+not ambient volume or late cutoff. No small-nome premise is used.
+
+NEXT: use these bounds to construct polynomial approximate inverses with an
+explicit error modulus, then the completed inverse and interacting block
+conditional projection on the SAME original full-action completion. Reuse the
+existing positive-contraction residual argument and one-link inverse pattern;
+prove exterior independence and the original testing/range identities rather
+than assuming them. This removes a missing object needed to formulate the
+actual two-block estimate; it does not supply that estimate. The essential
+analytic producer remains cancellation-preserving mixed/angle control outside
+the near-Haar guard on a justified scaling family. Do not mistake L/U
+invertibility bounds for a useful scaling gap or introduce a field assuming it.
+
+In parallel, retain the distinct selected-face signed boundary-response and
+thermodynamic-modulus obligation: current full-face clustering does not provide
+the intermediate-mask estimate. Same-theory scaling, nontrivial survival,
+OS/QFT, physical Hamiltonian mass and every-group Clay remain open.
+
+Four focused serialized one-worker/20 GiB checks passed all 32 printed gates
+within {propext, Quot.sound}; bounded Sol/Luna proof and review tasks ran in
+parallel without concurrent compilers. No new sorry, axiom, analytic bundle,
+canonical field/marker change or broad run. The chart remains unchanged.
+Evidence: `audits/AUDIT-ALL-NOME-BLOCK-NORMALIZER-2026-09-27.md`.
+
 ### Original fixed-small-nome covariance decay proved (2026-09-27 UTC)
 
 The actual centered auxiliary now receives the proved volume-uniform reverse

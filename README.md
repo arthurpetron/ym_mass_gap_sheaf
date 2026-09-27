@@ -10,6 +10,19 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**All-nome block normalizer constructed (2026-09-27):** integrating the
+actual incident action over any finite list of physical links now gives a
+positive polynomial normalizer, exact original-action marginal identities,
+and explicit two-sided multiplier bounds for every rational `0<w<1` and late
+heat cutoff. All detached original face factors remain in the background.
+The constants depend on nome and block size, not ambient volume or cutoff.
+These are inversion inputs, not a block-correlation or physical gap estimate.
+Under a supplied `CubicMarginLaw`, the existing AF guard obstruction excludes
+reuse of the small-nome decay theorem at chart points `0<g<=1/2`.
+Next: constructive block inversion
+and the missing signed inter-block control beyond that guard. See the
+[proof and route audit](audits/AUDIT-ALL-NOME-BLOCK-NORMALIZER-2026-09-27.md).
+
 **Original covariance decay with a volume-independent rate (2026-09-27):**
 at fixed small nome, the original covariance now satisfies
 `Cov(p,q)^2 <= rho(w)^(2n) * Var(p) * Var(q)`, with `0<rho(w)<1`,

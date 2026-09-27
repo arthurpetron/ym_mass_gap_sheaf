@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting all-nome block normalizer (2026-09-27 UTC; chart markers unchanged):
+The original incident collar has a positive family-integrated normalizer and
+exact full-action test identities. Explicit two-sided form/norm bounds hold on
+the detached original background for every rational `0<w<1`, with nome/block-size
+cost but no ambient-volume or late-cutoff cost. The inverse and completed
+interacting block projection remain to be constructed; useful signed block
+control on a justified scaling family is still missing. Existing AF obstruction
+excludes reuse of the small-nome decay guard at chart points `0<g<=1/2`
+under a supplied `CubicMarginLaw`.
+All 32 gates passed four focused serialized checks. No canonical claim closes
+or chart block changes. Evidence:
+`audits/AUDIT-ALL-NOME-BLOCK-NORMALIZER-2026-09-27.md`.
+
 Verified supporting original covariance decay (2026-09-27 UTC; chart markers unchanged):
 `Cov(p,q)^2 <= rho(w)^(2n)*Var(p)*Var(q)` now holds with `0<rho(w)<1`,
 both ORIGINAL variances, and the checked sixteen-layer-per-degree separation.

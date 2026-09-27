@@ -5533,6 +5533,11 @@ import YMGap.Continuum.ChebyshevGeometricLower
 import YMGap.Continuum.BF4ExactSlabSmallNomeCovarianceRate
 import YMGap.Continuum.BF4ExactSlabConditionalVariancePositive
 import YMGap.Continuum.BF4ExactSlabSmallNomeChebyshevCovarianceLimit
+-- All-nome original block normalizer and multiplier bounds, not a block gap.
+import YMGap.Continuum.SU2QuaternionHaarFamilyCertificate
+import YMGap.Continuum.BF4ExactSlabBlockComparisonConstants
+import YMGap.Continuum.BF4ExactSlabBlockNormalizer
+import YMGap.Continuum.BF4ExactSlabBlockNormalizerMap
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.
