@@ -21,6 +21,7 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinu
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorMovingCubeNormalizationTailCeilingCompiler
@@ -52,6 +53,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorMovingCubeNormalizationTailCe
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalGapVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 open YMGap.Continuum.WindowedSpacingFloor
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler
@@ -543,6 +545,68 @@ def PhysicalExponentialJoin.ofNormalizationScaleVariationAndConstantPhysicalGapC
       raw positiveRatePower).toJoin
   gapVariation := calibration.toVariation
 
+/-- The lower physical-exponential handoff exposes the same primitive
+    margin/reciprocal-spacing decomposition already available at the Wilson
+    layer.  The reciprocal stream is deliberately an explicit backward input;
+    it is not inferred from the repaired spacing schedule. -/
+def PhysicalExponentialJoin.ofNormalizationScaleVariationAndMarginAndReciprocalSpacingAndPositiveRatePower
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation
+      changingNomeCarrierNormalizedDynamicFamily)
+    (calibration : ChangingNomeCarrierNormalizedCofinalGapCalibration)
+    (raw : RawVariation)
+    (positiveRatePower : PositiveRatePowerVariation)
+    (marginVariation : SummableRationalStepVariation
+      changingNomeCarrierNormalizedDynamicFamily.latticeMargin)
+    (reciprocalSpacingVariation : SummableRationalStepVariation
+      (fun scale =>
+        Q'.recipPos
+          (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+          (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing_pos scale))) :
+    PhysicalExponentialJoin where
+  core :=
+    (ConcreteJoin.ofNormalizationScaleVariationAndPositiveRatePower
+      scaleVariation calibration raw positiveRatePower).toJoin
+  gapVariation := physicalGapVariationOfMarginAndReciprocalSpacing
+    changingNomeCarrierNormalizedDynamicFamily marginVariation
+      reciprocalSpacingVariation
+
+/-- Head-energy calibration specialization of the primitive physical-gap
+    handoff.  All fields remain tied to the same repaired completed family. -/
+def PhysicalExponentialJoin.ofNormalizationScaleVariationAndHeadEnergyProductBandAndMarginAndReciprocalSpacingAndPositiveRatePower
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation
+      changingNomeCarrierNormalizedDynamicFamily)
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand)
+    (raw : RawVariation)
+    (positiveRatePower : PositiveRatePowerVariation)
+    (marginVariation : SummableRationalStepVariation
+      changingNomeCarrierNormalizedDynamicFamily.latticeMargin)
+    (reciprocalSpacingVariation : SummableRationalStepVariation
+      (fun scale =>
+        Q'.recipPos
+          (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+          (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing_pos scale))) :
+    PhysicalExponentialJoin where
+  core :=
+    (ConcreteJoin.ofNormalizationScaleVariationAndHeadEnergyProductBandAndPositiveRatePower
+      scaleVariation band raw positiveRatePower).toJoin
+  gapVariation := physicalGapVariationOfMarginAndReciprocalSpacing
+    changingNomeCarrierNormalizedDynamicFamily marginVariation
+      reciprocalSpacingVariation
+
+/-- The repaired spacing schedule has an explicit modulus to zero, so the
+    bounded summable reciprocal-spacing interface is incompatible with it. -/
+theorem noChangingNomeCarrierNormalizedReciprocalSpacingVariation
+    (reciprocalSpacingVariation : SummableRationalStepVariation
+      (fun scale =>
+        Q'.recipPos
+          (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+          (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing_pos scale))) :
+    False :=
+  YMGap.Continuum.SummableRationalReciprocalSpacingNoGo.noSummableReciprocalSpacingVariation
+    changingNomeCarrierNormalizedDynamicFamily.transferSpacing
+    changingNomeCarrierNormalizedDynamicFamily.transferSpacingToZero
+    reciprocalSpacingVariation
+
 /-- Compile the repaired-family join plus the single physical-gap variation
 input into the existing same-object physical-exponential certificate. -/
 def PhysicalExponentialJoin.toCertificate
@@ -785,6 +849,12 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.ofNormalizationScaleVariationAndHeadEnergyProductBandAndPositiveRatePower
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.ofNormalizationScaleVariationAndConstantPhysicalGapCalibrationAndPositiveRatePower
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.ofNormalizationScaleVariationAndMarginAndReciprocalSpacingAndPositiveRatePower
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.ofNormalizationScaleVariationAndHeadEnergyProductBandAndMarginAndReciprocalSpacingAndPositiveRatePower
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.noChangingNomeCarrierNormalizedReciprocalSpacingVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toCanonicalUniformRCNormFloor
 #print axioms

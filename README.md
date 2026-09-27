@@ -3438,6 +3438,11 @@ the physical-gap variation explicit; the constant-calibration specialization
 supplies only its checked zero variation.  None of these recodings constructs
 the raw representative, the positive-time rate estimate, the physical
 calibration, OS/GNS/QFT data, or the Clay conclusion.
+The lower handoff now also accepts the same explicit lattice-margin plus
+reciprocal-spacing decomposition used by the Wilson layer.  The repaired
+spacing schedule's constructive modulus-to-zero proves that this bounded
+reciprocal variation cannot itself be the continuum witness, so the direct
+primitive route is intentionally a finite-regulator/backward interface.
 `WilsonContinuumMassClusteringJoin` then adds an explicit raw-to-projective
 same-object identification, OS-value compatibility, projective Wilson
 coefficient pin, and reconstruction spectral channel, compiling to the

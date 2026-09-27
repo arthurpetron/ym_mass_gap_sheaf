@@ -30815,3 +30815,13 @@ compositions on the same carrier.  Raw representative variation, the
 positive-time rate estimate, nonconstant physical calibration or gap
 variation, OS/GNS/QFT structure, and the Clay conclusion remain explicit
 inputs or open obligations.
+
+The lower handoff now exposes the same primitive
+`latticeMargin`/`reciprocalSpacing` decomposition as the Wilson layer through
+`PhysicalExponentialJoin.ofNormalizationScaleVariationAndMarginAndReciprocalSpacingAndPositiveRatePower`
+and its head-energy specialization.  The specialized theorem
+`noChangingNomeCarrierNormalizedReciprocalSpacingVariation` applies the
+constructive spacing-to-zero no-go to the repaired family: a bounded summable
+reciprocal-spacing stream cannot be the continuum witness.  This is a checked
+route factorization and an explicit shortcut refutation, not a physical-gap
+or Clay construction.
