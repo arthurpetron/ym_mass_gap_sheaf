@@ -3460,6 +3460,18 @@ continuum QFT, physical-mass calibration, every-group theorem, or Clay result
 is claimed.  Focused checking reported only `{propext, Quot.sound}` and no
 `sorryAx`.
 
+**Matched-AF physical-exponential adapter, checked 2026-09-27:**
+`BF4PhysicalMatchedAFDynamicPhysicalExponentialPath` adapts the generic
+physical-exponential consumer to the literal matched-AF SU(2) trajectory and
+its local producer.  It exposes the scheduled physical limit, two-sided
+endpoint identification, same-object squared continuum decay, and the
+existing physical-exponential certificate on one completed carrier.  Raw
+representative, normalization-debt, physical-gap, strength-band, and
+positive-time rate inputs remain explicit; this is a typed construction seam,
+not a continuum/QFT, physical-mass, every-group, or Clay proof.  The focused
+monitored build completed in 5,108 jobs with only `{propext, Quot.sound}` and
+no `sorryAx`.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,

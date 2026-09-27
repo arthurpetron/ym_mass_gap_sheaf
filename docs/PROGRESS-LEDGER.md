@@ -30825,3 +30825,16 @@ constructive spacing-to-zero no-go to the repaired family: a bounded summable
 reciprocal-spacing stream cannot be the continuum witness.  This is a checked
 route factorization and an explicit shortcut refutation, not a physical-gap
 or Clay construction.
+
+The matched-AF physical-exponential adapter is now explicit in
+`BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.lean`.  Its
+`MatchedPhysicalDynamicScalarTrajectory` namespace re-exposes the generic
+physical-exponential limit, endpoint identification, same-object squared
+continuum decay, and `NormalizedMovingCubePhysicalExponentialCertificate`
+consumer on the literal matched trajectory and its local producer.  The raw,
+normalization-debt, physical-gap, strength-band, and positive-time rate inputs
+remain typed arguments; no local producer, scaling estimate, OS/GNS datum,
+continuum QFT, physical-mass calibration, every-group theorem, or Clay result
+is manufactured.  The focused monitored build completed successfully (5,108
+jobs, one worker), and the three new declaration gates report only
+`{propext, Quot.sound}` with no `sorryAx`.
