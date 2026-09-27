@@ -47,11 +47,13 @@ open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.WilsonMinimalBoundedMassGapHandoff
 open YMGap.Continuum.WilsonIteratedNormDecayHandoff
 open YMGap.Continuum.ContinuumMassClusteringEndpoint
+open YMGap.Continuum.ContinuumSquaredClusteringHandoff
 open YMGap.Continuum.ProjectiveOSCorrelationHandoff
 open YMGap.Continuum.ProjectiveWilsonConnectedDecayHandoff
 open YMGap.Continuum.PhysicalSeparator
 open YMGap.Continuum.PhysicalSeparatorLogRate
 open YMGap.Continuum.PhysicalSeparatorContinuumRealization
+open YMGap.Continuum.RCStrictPositivity
 open YMGap.Continuum.TuranPositivity
 
 /-! ## Same-family OS/GNS handoff inputs -/
@@ -278,8 +280,49 @@ theorem WilsonContinuumMassClusteringJoin.massRate_posEv
     {A : PhysicalSpacing}
     {sampling : PhysicalSeparationSampling A}
     (data : WilsonContinuumMassClusteringJoin P H W sampling) :
-    TuranPositivity.PosEv data.toEndpoint.massRate :=
+  TuranPositivity.PosEv data.toEndpoint.massRate :=
   data.toEndpoint.massRate_posEv
+
+/-- Expose the representation-invariant positive mass package selected by the
+    same repaired-carrier endpoint. -/
+def WilsonContinuumMassClusteringJoin.positiveMassRC
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (data : WilsonContinuumMassClusteringJoin P H W sampling) :
+    PositiveRC :=
+  data.toEndpoint.positiveMassRC
+
+/-- Expose the endpoint's nontrivial squared geometric clustering object on
+    the same projective continuum correlation. -/
+def WilsonContinuumMassClusteringJoin.nontrivialClustering
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (data : WilsonContinuumMassClusteringJoin P H W sampling) :
+    NontrivialRCSquaredGeometricClustering
+      data.toEndpoint.correlationPin.continuumGapCorrRC :=
+  data.toEndpoint.nontrivialClustering
+
+/-- The clustering ratio is the square of the same selected Wilson separator
+    whose exact logarithm supplies the endpoint mass. -/
+theorem WilsonContinuumMassClusteringJoin.clusteringRatio_eq_selectedSeparatorSq
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (data : WilsonContinuumMassClusteringJoin P H W sampling) :
+    data.toEndpoint.nontrivialClustering.ratio =
+      W.selectedSpectralData.gap.sep * W.selectedSpectralData.gap.sep :=
+  data.toEndpoint.clusteringRatio_eq_selectedSeparatorSq
 
 end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
 
@@ -303,3 +346,9 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonContinuumMassClusteringJoin.toEndpoint
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonContinuumMassClusteringJoin.massRate_posEv
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonContinuumMassClusteringJoin.positiveMassRC
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonContinuumMassClusteringJoin.nontrivialClustering
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonContinuumMassClusteringJoin.clusteringRatio_eq_selectedSeparatorSq

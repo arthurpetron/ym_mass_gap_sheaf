@@ -3407,6 +3407,9 @@ same-object identification, OS-value compatibility, projective Wilson
 coefficient pin, and reconstruction spectral channel, compiling to the
 repository's positive exact-mass/nontrivial-clustering endpoint.  These remain
 certificate inputs, not constructed continuum data.  The
+same join now exposes its representation-invariant positive mass, nontrivial
+squared clustering object, and the exact ratio identity tying clustering to
+the selected Wilson separator square.  The
 bundle is a certificate interface, not an inhabitant: no OS/GNS construction,
 continuum QFT, physical-mass calibration, every-group theorem, or Clay result
 is claimed.  Focused checking reported only `{propext, Quot.sound}` and no

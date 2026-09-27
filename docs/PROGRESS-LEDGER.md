@@ -30710,3 +30710,10 @@ exact-mass and nontrivial-clustering interface.  No projective measure,
 spectral channel, physical calibration, full QFT, every-group, or Clay witness
 is constructed; focused checking remains `{propext, Quot.sound}` with no
 `sorryAx`.
+
+The join now also projects `positiveMassRC` and
+`nontrivialClustering`, and proves `clusteringRatio_eq_selectedSeparatorSq`.
+Thus the positive completed-real mass and the nonzero geometric clustering
+remain attached to the same selected Wilson separator.  These are conditional
+endpoint consequences; no physical calibration, full continuum QFT,
+every-group, or Clay witness is constructed.
