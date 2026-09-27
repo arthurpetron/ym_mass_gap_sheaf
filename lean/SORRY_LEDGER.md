@@ -40,6 +40,21 @@
   2,602 jobs; the new declarations report only `{propext, Quot.sound}` and no
   `sorryAx`, classical axiom, `native_decide`, or custom axiom.
 
+## Canonical unit probe under the strict two-step ceiling (2026-09-27 UTC)
+
+- **declaration:** `CurrentCarrierBridge.canonicalUnitProbe_twoStep_form_bound` in
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1341--1361`.
+- **result:** the existing strict two-step form bound is transported to the
+  same canonical unit vector that carries the positive `rayleighFloor` response
+  floor and explicit current preimage.
+- **scope:** this is an image-level fixed-spacing result; the bridge,
+  all-vector canonical range section, OS/GNS realization, continuum/QFT,
+  physical-mass, every-group, and Clay endpoints remain open.
+- **verification:** dependency-complete monitored target
+  `+YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge:olean` passed in
+  2,602 jobs. The declaration reports only `{propext, Quot.sound}` and no
+  `sorryAx`, classical axiom, `native_decide`, or custom axiom.
+
 ## Exact-rate certificate contracts into the semantic handoff (2026-09-27 UTC)
 
 - **declaration:** `toContinuumHandoff_ofExactRateCutoffRemoval` in

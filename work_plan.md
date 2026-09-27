@@ -65773,6 +65773,21 @@ every-group theorem, and Clay result remain open.  The dependency-complete
 monitored target passed in 2,602 jobs; the new declarations use only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+## 251. Put the canonical unit probe under the strict two-step ceiling (2026-09-27)
+
+`CurrentCarrierBridge.canonicalUnitProbe_twoStep_form_bound` transports the
+existing strict two-step form bound to the same canonical unit vector that
+already carries the positive `rayleighFloor` response floor.  The selected
+canonical excitation therefore has both a nonzero lower response witness and
+the fixed-spacing upper contraction estimate, while its exact carrier and
+preimage remain explicit.
+
+This is still an image-level fixed-spacing result: the bridge, all-vector
+canonical range section, continuum/QFT realization, physical mass calibration,
+every-group theorem, and Clay result remain open.  The dependency-complete
+monitored target passed in 2,602 jobs; the new declaration uses only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A

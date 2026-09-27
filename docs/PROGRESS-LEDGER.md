@@ -36,6 +36,19 @@ physical-mass, every-group, and Clay endpoints remain open.  The
 dependency-complete monitored target passed in 2,602 jobs with only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+## Current increment: put the canonical unit probe under the strict two-step ceiling (2026-09-27 UTC)
+
+`CurrentCarrierBridge.canonicalUnitProbe_twoStep_form_bound`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1341--1361`)
+transports the existing strict two-step form bound to the same canonical unit
+vector that carries the positive `rayleighFloor` response floor. The selected
+canonical excitation now has both the lower response witness and the fixed-
+spacing upper contraction estimate, with its exact current preimage preserved.
+This remains an image-level conditional result: the bridge, all-vector
+canonical range section, OS/GNS realization, continuum/QFT, physical-mass,
+every-group, and Clay endpoints remain open. The dependency-complete monitored
+target passed in 2,602 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## Current increment: exact-rate certificate contracts into the semantic handoff (2026-09-27 UTC)
 
 `MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofExactRateCutoffRemoval`

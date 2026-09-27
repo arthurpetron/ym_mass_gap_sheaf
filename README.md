@@ -21,6 +21,8 @@ on the uninhabited `CurrentCarrierBridge`; the canonical range section,
 completed all-vector gap, OS/GNS realization, continuum/QFT, physical mass,
 every-group, and Clay nodes remain open. The dependency-complete target
 passed in 2,602 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+The same canonical vector also now carries the transported strict two-step
+form ceiling `CurrentCarrierBridge.canonicalUnitProbe_twoStep_form_bound`.
 
 **Latest checked repaired-family path (2026-09-26):**
 `BF4PhysicalChangingNomeExplicitMarginLaw` now provides a carrier-normalized
