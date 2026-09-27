@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting half-space geometry (2026-09-27 UTC; chart markers unchanged):
+`BF4WilsonSignedTimeHalfSpace.toIntrinsic` constructs an actual supported
+source for each raw expression with signed time `t <= 0`, with literal recovery.
+Its original polynomial support survives every spatial padding, and its
+reflected mean is nonnegative. The source embeds in the actual supported
+contextual quotient. The final focused check passed within `{propext, Quot.sound}`.
+This covers products of slice-spatial Wilson loops, not all spacetime loops.
+The canonical two-parameter support pin, scalar alignment, scaling and
+continuum/Clay remain open; no canonical field changed.
+
 Verified supporting reflected null quotient (2026-09-27 UTC; chart markers unchanged):
 `BF4WilsonSignedTimeUnionOS.reflectedDistance_zero_iff` identifies the original
 supported reflected-null relation with equality in the SAME physical completion.

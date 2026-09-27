@@ -25,6 +25,40 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Geometric half-space source coverage checked (2026-09-27 UTC)
+
+`BF4WilsonSignedTimeHalfSpace.lean` proves that every intrinsic source has
+signed times at most zero, matching the existing physical forward-time
+convention. Conversely `toIntrinsic` constructs a supported source at the
+computed radius of every raw `LowerHalf` expression, and
+`fromIntrinsic_toIntrinsic` recovers that expression literally. This is a
+right inverse, not a bijection between redundant intrinsic radius records.
+`shiftedSource` also supplies an explicit supported time translate of every
+finite signed expression.
+
+`window_source_supported` and `centered_source_supported` certify the entire
+original polynomial's half-window coordinate support, including signed cross
+terms and every spatial padding. `mean_reflection_positive` proves positivity
+of the original reflected mean on these geometric sources;
+`embedding_supportedObservable` identifies them in the actual supported
+contextual quotient. Generators are spatial loops at single time slices,
+not general spacetime loops. Cutoff-independent source syntax is not a
+cutoff-uniform analytic estimate.
+
+The remaining support input is the concrete canonical two-parameter family
+and its `PositiveTimeSupport.approximationSupported` pin, not another name for
+raw half-space support. The scalar-interface approval remains pending;
+canonical fields are unchanged. Canonical all-vector range, changing spacing,
+physical mass, continuum QFT and every-group Clay closure remain open.
+
+The final focused monitored check passed with one worker capped at 20 GiB.
+All 17 printed declarations are axiom-free or use only `{propext, Quot.sound}`.
+The axiom check caught `Classical.choice` introduced by arithmetic automation
+on an iff; explicitly proving its two directions removed it without changing
+the statement. Sol independently reviewed geometry, source coverage and the
+canonical residue. No hole, analytic input, full-tree check or chart-marker
+advance; audit section 19 records declaration-level evidence.
+
 ### Reflected null quotient and explicit observable approximation checked (2026-09-27 UTC)
 
 `BF4WilsonSignedTimeUnionOS.reflectedDistance_eq` identifies the original

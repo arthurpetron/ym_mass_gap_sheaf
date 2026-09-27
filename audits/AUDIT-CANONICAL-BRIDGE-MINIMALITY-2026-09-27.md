@@ -850,3 +850,45 @@ The rational scalar fields recorded in section 17 are unchanged. Separately,
 support at the actual two-parameter approximants. This fixed-spacing quotient
 does not supply that canonical family. Canonical all-vector range, changing
 spacing, physical mass, continuum QFT and every compact simple group remain open.
+
+## 19. Raw geometric half-space coverage and its original-mean consumer
+
+The geometric source question is now answered explicitly in
+`lean/YMGap/Continuum/BF4WilsonSignedTimeHalfSpace.lean`. Physical forward time
+decreases the signed coordinate; the supported side is therefore `t <= 0`.
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `LowerHalf`, `lowerHalf_ofWindow_iff`, `fromIntrinsic_lowerHalf` | `lean/YMGap/Continuum/BF4WilsonSignedTimeHalfSpace.lean:43`, `:50`, `:61` | Intrinsic sources lie in the raw signed lower half-space, with exact natural-offset support correspondence. |
+| `lowerHalf_inclusion_iff`, `lowerHalf_forward` | same module `:65`, `:73` | Spatial inclusion preserves/reflects support; physical forward time preserves it. |
+| `ofWindow_window` | same module `:97` | A guarded symmetric-window realization recovers the signed syntax literally, without truncation. |
+| `window_halfWithin`, `toIntrinsic`, `fromIntrinsic_toIntrinsic` | same module `:116`, `:132`, `:135` | Every raw lower-half expression returns an actual intrinsic source at its computed radius and a literal right-inverse equality. |
+| `window_source_supported`, `centered_source_supported` | same module `:140`, `:148` | The whole source polynomial has the half-window block bound, also after every spatial padding. |
+| `shiftedSource`, `fromIntrinsic_shiftedSource` | same module `:156`, `:159` | Every finite signed expression has a computed supported translate, with exact source equality. |
+| `mean_reflection_positive` | same module `:168` | The original reflected mean is nonnegative for every such geometric half-space source. |
+| `supportedObservable`, `embedding_supportedObservable` | same module `:176`, `:181` | The constructed source is in the actual supported contextual quotient and maps to its original ambient class. |
+
+The right inverse does not assert equality of redundant intrinsic radius
+records. Raw `LowerHalf` is not asserted for every representative of an ambient
+quotient class. Generators use `SourceLoop`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonProbe.lean:44`): spatial
+loops at individual slices. Products can mix slices; arbitrary spacetime loops
+with temporal edges are not included by this result. The polynomial's support
+is independent of heat cutoff because the source has no such argument; this
+is not an analytic uniformity statement.
+
+Verification: the final focused monitored check passed with one worker capped
+at 20 GiB. All 17 printed declarations are axiom-free or use only
+`{propext, Quot.sound}`. The first arithmetic iff proof typechecked but printed
+`Classical.choice`; explicit introduction of its two directions removed that
+dependency. No statement or resource limit changed. Sol independently reviewed
+the source coverage, original-mean pin and canonical residue. No hole, analytic
+premise, full-tree audit or broad chart-marker advance.
+
+The still-missing `PositiveTimeSupport.approximationSupported`
+(`lean/YMGap/Continuum/CanonicalOSRoot.lean:231`) concerns a concrete canonical
+limit's actual volume/cutoff approximants and the same family's certificates.
+The raw recoding and padded block-support bound do not supply that family or
+approximation pin. Canonical scalar-interface approval is pending; its fields
+are unchanged. Canonical all-vector range, changing spacing, physical mass,
+continuum QFT and every compact simple group remain open.

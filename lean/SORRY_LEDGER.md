@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## Geometric half-space coverage and original reflected positivity (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/BF4WilsonSignedTimeHalfSpace.lean`.
+- **coverage:** `fromIntrinsic_lowerHalf`, `ofWindow_window`, `toIntrinsic`,
+  and `fromIntrinsic_toIntrinsic` (`:61`, `:97`, `:132`, `:135`) identify the
+  image of actual supported syntax with raw signed expressions at times
+  `t <= 0`. The window guard prevents `Int.toNat` truncation. This is a right
+  inverse only: intrinsic radii may be redundant.
+- **geometric consumers:** `window_source_supported` / `centered_source_supported`
+  (`:140`, `:148`) certify full polynomial coordinate support at every spatial
+  padding. `shiftedSource` / `fromIntrinsic_shiftedSource` (`:156`, `:159`)
+  supply an actual half-space source after a computed finite time shift.
+  `mean_reflection_positive` and `embedding_supportedObservable` (`:168`,
+  `:181`) retain the original reflected mean and actual contextual quotient.
+- **scope and residue:** this is fixed-spacing, small-nome SU(2) for products
+  of spatial loops at individual time slices, not arbitrary spacetime loops.
+  Raw source support is not the canonical two-parameter approximation pin.
+  The canonical scalar/interface decision, all-vector range, changing spacing,
+  physical mass, continuum QFT and every-group Clay closure remain open.
+- **verification:** final focused monitored check passed, one worker capped
+  at 20 GiB; all 17 printed declarations are axiom-free or use only
+  `{propext, Quot.sound}`. An initial iff proof's arithmetic automation
+  introduced `Classical.choice`; explicit directional introduction removed
+  it. Final output has no classical dependency or `sorryAx`. No new hole,
+  analytic premise, canonical field change or full-tree audit. Sol independently
+  reviewed the geometric coverage and remaining canonical support requirement.
+
 ## Reflected null quotient and explicit dense observable witnesses (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/BF4WilsonSignedTimeUnionOS.lean`.
