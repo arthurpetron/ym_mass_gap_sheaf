@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Signed-time original state and reflected source join checked (2026-09-27 UTC)
+
+`BF4WilsonSignedTimeExpression.lean` constructs integer-time Wilson syntax
+with a computed finite support radius, exact inverse translations and
+reflection conjugacy. All semantic window uses carry explicit support bounds.
+`BF4WilsonSignedTimeExpectation.lean` supplies its original CReal expectation,
+explicit Cauchy witness, normalization, rational linearity and ordinary-square
+positivity. `mean_forward`/`mean_backward` use unequal-padding stationarity;
+`mean_reflect` uses the checked full-window reflection theorem.
+
+The source join is now explicit: `mean_reflected_intrinsic`, `pairing_as_mean`,
+and `completedInner_as_mean` identify the reflected mean with the existing
+intrinsic/all-finite-base union form and completed dense pairing.
+`fromIntrinsic_advance` and `completedTime_correlator_as_mean` identify the
+SAME current transfer's dense correlators with that signed observable's time
+advance. This does not replace the reflected form with ordinary expectation
+of a square.
+
+Next prove the ambient product-context congruence and its spatial-base
+coherence, rather than assuming raw syntax is an associative algebra or
+that equality of completed OS states is a product congruence. Inverse time
+now permits pulling arbitrary ambient tests backward. The positive-stage
+quotient join still needs a supported shifted-test construction and an
+explicit product-vacuum mean pin. Canonical scalar fields remain unchanged;
+no ambient algebra quotient or canonical OS root has yet been supplied.
+
+Both new modules passed focused monitored checks, serialized with one worker
+capped at 20 GiB. All 45 printed declarations are axiom-free or use only
+`{propext, Quot.sound}`; no new hole or analytic hypothesis was introduced.
+Sol constructed the syntax and independently reviewed the expectation and
+same-carrier pins. Audit section 13 records the exact scope and remaining
+join. No full-tree check or broad chart-marker advance is claimed.
+
 ### Full-window original reflection now checked (2026-09-27 UTC)
 
 `BF4ExactSlabFixedSpatialWilsonFullReflection.lean` proves literal reflection

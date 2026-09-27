@@ -546,3 +546,72 @@ Verification: a focused monitored check passed with one worker capped at
 `{propext, Quot.sound}`. An initial check found missing namespace opens;
 those were corrected, with no statement change or new hypothesis. No
 `sorry`, classical input, trusted computation or full-tree audit was added.
+
+## 13. Signed-time source construction and original reflected-form join
+
+The source construction now uses integer times relative to the reflection
+plane, avoiding a premature quotient of radius-tagged expressions.
+`Expression`, `Within`, `radius`, and `window` in
+`lean/YMGap/Continuum/BF4WilsonSignedTimeExpression.lean:21` retain the
+same ordered source loops, spins and signed rational operations. The
+computed radius bounds every time on both sides. Every semantic window use
+has this bound, excluding truncation by `Int.toNat`.
+
+The syntax module's focused check passed with all 27 printed declarations
+inside `{propext, Quot.sound}` or axiom-free. In particular:
+
+- `backward_forward` and `forward_backward`
+  (`lean/YMGap/Continuum/BF4WilsonSignedTimeExpression.lean:268`, `:285`)
+  are literal inverse-time identities, not equalities of expectations alone.
+- `reflect_reflect`, `reflect_forward`, and `reflect_backward`
+  (same module `:252`, `:302`, `:323`) give actual reflection involution and
+  conjugacy of the two time directions.
+- `ofWindow_forward` (same module `:353`) retains the existing positive
+  source's physical radius advance, including every time offset.
+
+The expectation consumer's final focused check also passed. Its 18 printed
+declarations are axiom-free or depend only on `{propext, Quot.sound}`:
+
+| Declaration | Source | Claim |
+|---|---|---|
+| `mean`, `meanCauchy` | `lean/YMGap/Continuum/BF4WilsonSignedTimeExpectation.lean:58`, `:63` | The original CReal spatial expectation and its explicit rational Cauchy witness. |
+| `mean_at` | same module `:69` | Centered-window independence under a witnessed support bound. |
+| `mean_reflect` | same module `:82` | Invariance under actual time reflection. |
+| `mean_forward`, `mean_backward` | same module `:92`, `:103` | Physical stationarity from unequal original padding, not from centered rechart alone. |
+| `mean_one`, `mean_add`, `mean_smul` | same module `:112`, `:116`, `:128` | Normalization and rational linearity of that same CReal mean, up to CReal equivalence. |
+| `mean_square_nonnegative` | same module `:150` | Ordinary square positivity from the original finite expectation, not the OS diagonal. |
+| `mean_reflected_intrinsic` | same module `:185` | The reflected mean of the signed source pair is the existing intrinsic OS form. |
+| `pairing_as_mean`, `completedInner_as_mean` | same module `:205`, `:217` | Every pair of stages in the all-finite-base union has exactly that reflected mean, including the current completed dense images. |
+| `completedTime_correlator_as_mean` | same module `:229` | The current completed transfer acts on those dense correlators by the constructed signed forward time. |
+
+Sol independently reviewed the expectation, positivity and same-carrier
+pins. These are raw expression and source-state results: no literal
+associative-algebra equality, ambient algebra quotient, canonical rational
+functional, completed canonical range section, or continuum construction is
+asserted. The common base in the pairing theorem is computed from its two
+inputs; no common base is chosen for an arbitrary Cauchy stream.
+
+Both checks were serialized through the monitored safe launcher, with one
+worker capped at 20 GiB and the existing pressure/reserve safeguards. The
+initial syntax draft exposed arithmetic guards insufficiently and allowed
+bare `omega` on conjunction goals to introduce `Classical.choice`; explicit
+conjunction introduction and guarded arithmetic removed that dependency.
+The final axiom output contains no `Classical.choice` or `sorryAx`. The
+expectation retry explicitly unfolded the spatial representative for its
+positivity proof and closed a definitional equality in the transfer pin.
+No mathematical statement was weakened. No full-library audit was run.
+
+### Next mathematical join, not yet a proved declaration
+
+An ambient contextual relation can test equality of `mean(a*z)` for every
+signed-time expression `z`, using CReal equivalence rather than equality
+of chosen CReal representatives. Unlike the earlier half-space relation,
+inverse time is now available: a translated test can be pulled back with
+`backward`, and reflection with `reflect`. Descending multiplication still
+requires the actual mean-level polynomial laws. The supported quotient join
+also needs a constructive supported representative for a sufficiently shifted
+signed test and an explicit product-vacuum mean pin. Neither is inferred from
+completed-state equality. Signed spatial-base inclusion and its mean
+coherence must be supplied before this is an all-base ambient quotient.
+This identifies the next proof obligation; it does not add a frontier bundle
+or change a canonical field.

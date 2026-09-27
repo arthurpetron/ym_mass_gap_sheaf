@@ -1,5 +1,41 @@
 # Sorry Ledger
 
+## Signed-time original expectation and same reflected source join (2026-09-27 UTC)
+
+- **files:** `lean/YMGap/Continuum/BF4WilsonSignedTimeExpression.lean` and
+  `lean/YMGap/Continuum/BF4WilsonSignedTimeExpectation.lean`.
+- **constructed:** `Expression`, `radius`, `window` (syntax module `:21`,
+  `:36`, `:91`) retain the original source loops with integer times and a
+  computed symmetric support bound. `backward_forward`, `forward_backward`,
+  `reflect_reflect`, and the reflection/time conjugacy laws (`:268`, `:285`,
+  `:252`, `:302`, `:323`) are literal syntax equalities.
+- **original state:** `mean` and `meanCauchy` (expectation module `:58`,
+  `:63`) select the existing explicit-modulus original spatial construction,
+  not a quotient representative chosen by an axiom. `mean_at`,
+  `mean_reflect`, `mean_forward`, and `mean_backward` (`:69`, `:82`, `:92`,
+  `:103`) distinguish centered rechart from physical time stationarity.
+  `mean_one`, `mean_add`, `mean_smul`, and `mean_square_nonnegative`
+  (`:112`, `:116`, `:128`, `:150`) prove normalized rational linearity and
+  ordinary-square positivity at the original finite action and spatial limit.
+- **same-object join:** `mean_reflected_intrinsic`, `pairing_as_mean`,
+  `completedInner_as_mean`, and `completedTime_correlator_as_mean`
+  (expectation module `:185`, `:205`, `:217`, `:229`) pin the reflected mean
+  to the existing intrinsic, union and completed dense pairings, with the
+  SAME completed transfer and original observable advance.
+- **scope/residue:** fixed-nome discrete-time Wilson expressions with the
+  existing small-nome spatial guards. Raw syntax is not an associative
+  algebra quotient; ambient contextual descent/base coherence, canonical
+  scalar realization, canonical OS root and range section, scaling,
+  continuum QFT and every-group Clay closure remain open. No canonical field
+  or chart marker changes; no equality of ordinary and reflected norms is
+  asserted.
+- **verification:** both focused checks passed serially under the monitored
+  launcher, one worker capped at 20 GiB. All 45 printed public declarations
+  are axiom-free or use only `{propext, Quot.sound}`; no `sorryAx`, classical
+  input, trusted computation, new analytic premise, or full-tree run.
+  Sol supplied the syntax draft and separately reviewed the mathematical
+  source/target pins; final axiom checking was performed by the main agent.
+
 ## Original full-window reflection invariance (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonFullReflection.lean`.

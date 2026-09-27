@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting source join (2026-09-27 UTC; chart markers unchanged):
+`BF4WilsonSignedTimeExpression` supplies exact inverse signed time and
+reflection, with guarded finite-window realization.
+`BF4WilsonSignedTimeExpectation` constructs the original positive normalized
+CReal mean and proves its time/reflection invariance. Its
+`completedTime_correlator_as_mean` pins the SAME current completed dense
+transfer correlators to that reflected ambient expression mean. Both focused
+checks passed within `{propext, Quot.sound}`. Raw syntax is not yet an
+associative algebra quotient; global ambient descent, canonical scalar/form
+realization and all continuum/Clay obligations remain open. No unchanged
+ASCII chart is reprinted.
+
 Verified supporting identity (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabFixedSpatialWilsonFullReflection.spatialLimit_mirror` now proves
 reflection invariance for arbitrary full-window original Wilson expressions.
