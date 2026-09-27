@@ -25,6 +25,38 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact original weighted test cost and rational calibration checked (2026-09-27 UTC)
+
+For actual exterior insertion r, original polynomial p, and conditional
+variance numerator Phi=D*N(p^2)-Np^2, `BF4ExactSlabStarPolynomialCost`
+now identifies the optimizer's exact pair and cost as H[B*r*Phi] and
+H[B*r^2*D*Phi]. `BF4ExactSlabStarExteriorResidual` proves the required
+t(J(r)*p)=J(r)*t(p) equality in the SAME completion. The extra D in the
+cost is retained. NEXT forward: control reciprocal-normalizer approximation
+in the actual B*Phi weight, then useful summed-test/original centered lower
+estimates. A B-only approximation does not silently supply this join.
+
+In parallel, `RationalSqrtCalibration` computes rho with
+eta/4<=rho^2<=eta from a supplied 0<eta<1. `ChebyshevMarginParameters`
+constructs the positive reciprocal pair, the exact affine-center identity,
+and a computable epsilon cutoff for scalar normalization decay. The earlier
+calibration task is now proved, not a fresh analytic input. NEXT backward:
+the actual rescaled operator contraction and polynomial cone/covariance
+join. This scalar construction does not produce the interacting eta.
+
+The targeted stress test `audits/AUDIT-MARKOV-RATE-SCOPE-2026-09-27.md`
+keeps global centered coercivity as a sufficient route without declaring it
+necessary for Clay. Compare that premise against bounds on the actual
+observable-generated recurrence vectors consumed by
+`GNSChebyshevEnergy.state_norm_le`; a global invariant sector is optional,
+not a prerequisite to trying the smaller vector estimate. Neither useful
+analytic bound is supplied by this review. The target is unchanged.
+
+All 41 gates passed four focused serialized one-worker/20 GiB module checks.
+No new hole, analytic/canonical field or chart-marker change; no full-tree
+audit. Physical scaling and continuum/every-group Clay remain open.
+Evidence: `audits/AUDIT-ORIGINAL-WEIGHTED-TEST-COST-2026-09-27.md`.
+
 ### Exact original test-ray optimization checked (2026-09-27 UTC)
 
 `BF4ExactSlabStarOptimizedPolynomialTest` now computes the exact best
@@ -49,7 +81,7 @@ noncommuting sweep, is unchanged by reversing its test order. NEXT backward:
 rescaled centered contraction and rational parameter calibration, then the
 polynomial cone/covariance join. An explicit Heron modulus already provides
 the finite calibration index; do not add a new analytic premise for it.
-The calibration itself is not yet proved. See the source-grounded note
+The calibration was subsequently proved in the checkpoint above. See the source-grounded note
 `audits/NOTE-RATIONAL-ACCELERATION-CALIBRATION-2026-09-27.md`.
 
 All 35 gates passed seven focused serialized one-worker/20 GiB checks.
@@ -10511,11 +10543,14 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
    on unchanged machinery. Record the exact verification boundary, update the
    live status/ledger, and commit and push completed increments as requested.
    Keep CI off. Rust can generate certificates only for independent Lean checking.
-7. **Keep the causal picture visible.** Roughly hourly during active work, show
-   an ASCII map that includes the WHOLE-PROJECT GOAL, checked arrows, the current
-   obstruction and the remaining continuum/all-group obligations. Expansion
-   exposes necessary witnesses and estimates; contraction composes proved arrows
-   or eliminates an unnecessary branch. Do not imply proximity from graph size.
+7. **Keep the causal picture stable and informative.** Print an ASCII map only
+   when its recorded proof/expansion state has changed, never merely because a
+   turn or hour elapsed. Reuse the exact canonical block in
+   `docs/PROJECT-STATUS.md`, keeping the WHOLE-PROJECT GOAL visible; omit a
+   repeated legend unless needed. Supporting results that leave the displayed
+   claims open do not justify a reprint. Expansion exposes necessary witnesses
+   and estimates; contraction composes proved arrows or eliminates an
+   unnecessary branch. Do not imply proximity from graph size.
 8. **Bound literature polling (user request, 2026-09-16).** Check the routine
    math-ph new listing at most once every 12 hours, using the timestamped
    research audit between checks. Do not repeat a scan on each goal turn.

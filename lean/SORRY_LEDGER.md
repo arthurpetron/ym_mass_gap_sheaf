@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## Original weighted test cost and constructive calibration (2026-09-27 UTC)
+
+- **files:** `BF4ExactSlabStarExteriorResidual.lean`,
+  `BF4ExactSlabStarPolynomialCost.lean`, `RationalSqrtCalibration.lean`,
+  `ChebyshevMarginParameters.lean`, all under `lean/YMGap/Continuum/`.
+- **proved:** `polynomialResidual_exteriorSeed_completed`
+  (`ExteriorResidual:233`) identifies the actual completed exterior-modulated
+  kernel test. `exteriorSeed_pairValue` (`PolynomialCost:196`) and
+  `exteriorSeed_normCost` (`:210`) pin its original pair/cost to H[B*r*Phi]
+  and H[B*r^2*D*Phi], retaining the extra normalizer in the cost.
+  `rho_sq_lower` (`RationalSqrtCalibration:122`) and `rho_sq_upper` (`:106`)
+  give eta/4<=rho^2<=eta using a computed Heron index. The rational margin
+  parameters supply `center_eq_margin` (`ChebyshevMarginParameters:211`),
+  `calibrated_recip_le` (`:231`), a data-level `normalizationCutoff` (`:246`)
+  and its all-later-indices correctness theorem `normalization_small` (`:254`).
+- **residue:** actual B*Phi-weighted reciprocal-normalizer approximation,
+  useful original summed-test/observable-specific lower estimates, rescaled
+  operator contraction and the cone/covariance join. Scalar calibration is
+  now proved; it does not construct an interacting eta. Physical scaling,
+  same-theory continuum QFT and every-group Clay remain open. No new hole,
+  analytic field or canonical field change.
+- **verification:** all 41 gates passed focused serialized one-worker/20 GiB
+  checks within {propext, Quot.sound}; independent Sol review passed.
+  No chart-marker change or full-tree audit. Evidence:
+  `audits/AUDIT-ORIGINAL-WEIGHTED-TEST-COST-2026-09-27.md`. The separate
+  `audits/AUDIT-MARKOV-RATE-SCOPE-2026-09-27.md` is a source/research review,
+  not a new proof or a refutation of this precise sweep.
+
 ## Exact original test-ray optimization and scalar normalization (2026-09-27 UTC)
 
 - **files:** `RationalDualTestNormalization.lean`,
@@ -22,7 +50,8 @@
   coercivity, rescaled interval contraction, rational parameter calibration,
   polynomial cone join and physical/continuum/every-group Clay obligations.
   No new hole or analytic field. Existing Type-level Heron moduli provide
-  the proposed calibration index, but that calibration join is unproved.
+  the proposed calibration index; that scalar join is subsequently proved
+  in the checkpoint above, without supplying original interacting coercivity.
 - **verification:** 35 gates passed seven focused serialized one-worker/
   20 GiB checks within {propext, Quot.sound}. Sol contributed and independently
   reviewed the original optimizer. No canonical field/chart change or full

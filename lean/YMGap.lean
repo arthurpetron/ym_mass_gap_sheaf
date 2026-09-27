@@ -5432,6 +5432,9 @@ import YMGap.Continuum.RationalDualTestOptimization
 import YMGap.Continuum.BF4ExactSlabStarPolynomialResidualScaling
 import YMGap.Continuum.BF4ExactSlabStarNormalizedPolynomialTest
 import YMGap.Continuum.BF4ExactSlabStarOptimizedPolynomialTest
+-- Exact exterior-modulated test pair/cost in the SAME original form.
+import YMGap.Continuum.BF4ExactSlabStarExteriorResidual
+import YMGap.Continuum.BF4ExactSlabStarPolynomialCost
 -- Same-carrier reverse adjoint and positive sweep product; no accelerated rate.
 import YMGap.Continuum.GNSProjectionSweepAdjoint
 -- Coupled Chebyshev energy and actual same-carrier non-strict polynomial stability.
@@ -5442,6 +5445,9 @@ import YMGap.Continuum.BF4ExactSlabFullActionScalar
 import YMGap.Continuum.BF4ExactSlabSweepChebyshev
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
+-- Constructive scalar calibration and explicit cutoff, not an interacting gap.
+import YMGap.Continuum.RationalSqrtCalibration
+import YMGap.Continuum.ChebyshevMarginParameters
 import YMGap.Continuum.GNSProjectionSweepEnergyOrder
 -- Strict on explicitly free-centered inputs, not the whole vacuum complement.
 import YMGap.Continuum.BF4ExactSlabStarFreeCentering

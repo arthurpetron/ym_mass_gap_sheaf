@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original weighted test cost and explicit scalar calibration (2026-09-27 UTC):**
+The exterior-modulated kernel tests now have checked exact original pair
+and cost H[B*r*Phi] and H[B*r^2*D*Phi]. Their completed identity feeds the
+existing test-ray optimizer without replacing the actual normalizer.
+In parallel, an explicit Heron calibration and rational reciprocal-pair
+parameters give a computable scalar Chebyshev normalization cutoff.
+All 41 gates passed focused serialized checks within `{propext, Quot.sound}`.
+The actual weighted approximation, useful interacting lower estimate,
+rescaled operator contraction, physical scaling and continuum/every-group
+Clay remain open. Evidence:
+`audits/AUDIT-ORIGINAL-WEIGHTED-TEST-COST-2026-09-27.md` at repository root.
+
 **Exact original polynomial test-ray optimization (2026-09-27 UTC):**
 `BF4ExactSlabStarOptimizedPolynomialTest` constructs the best rational
 scaling of each supplied actual conditional-kernel test, handles null cost

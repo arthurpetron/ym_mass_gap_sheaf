@@ -1,5 +1,18 @@
 # Next rational calibration: existing constructive data, not a new input
 
+## Checked follow-up (2026-09-27 UTC)
+
+The scalar construction proposed below is now proved in
+`lean/YMGap/Continuum/RationalSqrtCalibration.lean` and
+`lean/YMGap/Continuum/ChebyshevMarginParameters.lean`. The returned Heron
+index, rho bounds, reciprocal-pair identities, scalar geometric bound and
+explicit epsilon cutoff passed all 26 focused gates within
+`{propext, Quot.sound}`. The interacting eta, rescaled operator contraction
+and physical cone/covariance join remain open. Exact declarations and
+verification scope: `AUDIT-ORIGINAL-WEIGHTED-TEST-COST-2026-09-27.md`.
+
+## Historical plan (retained below)
+
 This is a source-grounded proof plan, NOT a checked calibration theorem.
 It was reviewed while the original polynomial-test check ran. No compiler
 or routine literature scan was launched for this note.

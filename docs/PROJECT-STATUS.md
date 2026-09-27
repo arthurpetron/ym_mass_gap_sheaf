@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting weighted cost and scalar calibration (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabStarPolynomialCost` pins the actual exterior-modulated
+test's pair/cost to H[B*r*Phi] and H[B*r^2*D*Phi], using a checked equality
+in the SAME completion. The extra D is not dropped. Rational Heron
+calibration, the exact reciprocal-pair parameters and an explicit scalar
+Chebyshev cutoff are also checked. All 41 focused gates passed. Actual
+weighted approximation, useful lower interacting estimates, the rescaled
+operator/cone join and physical/continuum/every-group Clay remain open.
+Evidence: `audits/AUDIT-ORIGINAL-WEIGHTED-TEST-COST-2026-09-27.md`.
+The separate Markov-rate scope review changes no proof status or target.
+
 Verified supporting exact test-ray optimization (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabStarOptimizedPolynomialTest.optimizedGain_lower` now consumes
 the exact best rational scaling of one actual signed kernel test. The null
