@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting Chebyshev cone/covariance join (2026-09-27 UTC; chart markers unchanged):
+The SAME balanced sweep is sixteen layers; its degree-n Chebyshev state has
+radius 16*n and an exact separated-pairing identity. Normalization preserves
+the original finite covariance and reciprocal partition. The norm consumer
+now requires a reverse-energy estimate only on the actual auxiliary vector,
+not a global invariant sector; that analytic producer is still missing.
+All 25 focused gates passed. Physical scaling, OS/continuum/every-group Clay
+remain open. Evidence: `audits/AUDIT-ORIGINAL-CHEBYSHEV-CONE-2026-09-27.md`.
+
 Verified supporting local variational completeness (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabStarResidualApproximation` approximates the ACTUAL completed
 conditional residual by genuine polynomial kernel tests. The relative

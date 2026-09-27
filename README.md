@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original-action spatial identity checked (2026-09-27):** the actual
+balanced conditional sweep has a sixteen-layer propagation bound. Its
+normalized Chebyshev state preserves the original separated covariance
+exactly. A checked norm consumer needs a reverse-energy estimate only on
+the recurrence's actual auxiliary vectors; that estimate remains open.
+This is not yet decay, an OS/Hamiltonian gap, or continuum existence.
+See the [proof and verification boundary](audits/AUDIT-ORIGINAL-CHEBYSHEV-CONE-2026-09-27.md).
+
 **Latest canonical-image nontriviality transport (2026-09-27):**
 `CanonicalUnitProbeData` and `CurrentCarrierBridge.canonicalUnitProbe` now
 transport the already normalized `unitExcitation` into the named canonical

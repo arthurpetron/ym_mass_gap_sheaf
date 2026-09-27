@@ -25,6 +25,38 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original Chebyshev cone and covariance join checked (2026-09-27 UTC)
+
+The actual balanced conditional sweep B=S* S is exactly sixteen color
+layers. The existing degree-n Chebyshev first component is localized within
+16*n original Ward-star expansions. Before cone/test contact its pairing
+is exactly T_n(c-1) times the original pairing. Normalization by this
+positive scalar retains the SAME finite covariance, centered polynomials
+and reciprocal partition; literal root separation supplies the cone premise.
+`BF4ExactSlabChebyshevCovariance.covariance_as_chebyshev_pairing_of_root_far`
+is the checked consumer, not a surrogate covariance or an OS-time statement.
+
+The rescaling consumer now needs only
+`c*||B u||^2 <= 2*||S u||^2` at the ACTUAL auxiliary vector
+`u=(coupled c x n).2`. For c>=0 this supplies the norm bound for the first
+component and its normalization. This inequality is an explicit unsupplied
+argument, not a new analytic field or a proved rate. The c=2 non-strict
+case does not give accelerated decay.
+
+NEXT forward: target that original observable-generated reverse-energy
+estimate, or a useful original centered lower-energy estimate implying it.
+Preserve the local signed test values and actual norm; the checked local
+variational approximation remains available. The source review finds no
+existing local/free-sector/625-upper estimate that fills the missing input.
+Do not reopen the now-checked polynomial cone/covariance equality. NEXT
+backward: quantitative calibrated spatial decay and its same-theory
+scaling/OS/Hamiltonian/continuum/every-group consumers. The Clay target and
+canonical fields are unchanged.
+
+All 25 gates passed five focused serialized one-worker/20 GiB module checks,
+with Sol proof work and review. No new hole, chart-marker change or full-tree
+audit. Evidence: `audits/AUDIT-ORIGINAL-CHEBYSHEV-CONE-2026-09-27.md`.
+
 ### Original residual variational completeness checked (2026-09-27 UTC)
 
 The actual polynomial kernel tests now approximate the existing original

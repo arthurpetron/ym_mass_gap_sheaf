@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## Original Chebyshev cone and single-vector norm consumer (2026-09-27 UTC)
+
+- **files:** `BF4ExactSlabBalancedCone.lean`, `BF4ExactSlabChebyshevCone.lean`,
+  `BF4ExactSlabChebyshevPairing.lean`, `BF4ExactSlabChebyshevCovariance.lean`,
+  `BF4ExactSlabChebyshevRescale.lean`, under `lean/YMGap/Continuum/`.
+- **proved:** exact sixteen-layer realization of the original B=S* S;
+  16*n localization of the actual first Chebyshev component; its separated
+  scalar pairing and normalized original covariance pin, including the
+  coordinate-separation consumer. Exact affine norm expansion and the
+  normalized-vector norm consumer use the same completed carrier.
+- **explicit open argument:** `hrev` in
+  `coupled_first_norm_from_reverse_energy` and
+  `normalizedFirst_norm_from_reverse_energy` is
+  `c*||B u||^2 <= 2*||S u||^2` at the actual auxiliary u. This is not
+  produced here. It avoids a stronger all-state/invariant-sector premise
+  without weakening any canonical field. Useful c>2 rescaling, original
+  lower estimates, spatial/scaling rate, same-theory OS/continuum QFT,
+  physical mass/nontrivial survival and every-group Clay remain open.
+- **verification:** 25 public gates passed five focused serialized
+  one-worker/20 GiB checks within {propext, Quot.sound}, with Sol proof
+  contributions and independent review. No new sorry, analytic structure,
+  canonical or chart-marker change. No root/full-tree/audit/guard run.
+  Evidence: `audits/AUDIT-ORIGINAL-CHEBYSHEV-CONE-2026-09-27.md`.
+
 ## Original local residual variational completeness (2026-09-27 UTC)
 
 - **files:** `QuaternionHaarCertificateFormBounds.lean`,

@@ -5450,6 +5450,12 @@ import YMGap.Continuum.GNSChebyshevEnergy
 import YMGap.Continuum.GNSChebyshevRecurrence
 import YMGap.Continuum.BF4ExactSlabFullActionScalar
 import YMGap.Continuum.BF4ExactSlabSweepChebyshev
+-- Exact original polynomial cone/covariance pin; the reverse-energy producer is open.
+import YMGap.Continuum.BF4ExactSlabBalancedCone
+import YMGap.Continuum.BF4ExactSlabChebyshevCone
+import YMGap.Continuum.BF4ExactSlabChebyshevPairing
+import YMGap.Continuum.BF4ExactSlabChebyshevCovariance
+import YMGap.Continuum.BF4ExactSlabChebyshevRescale
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.
