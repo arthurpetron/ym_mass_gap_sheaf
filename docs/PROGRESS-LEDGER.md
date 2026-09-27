@@ -30064,6 +30064,26 @@ bound and does not close physical spacing calibration, OS/GNS, continuum/QFT,
 physical mass, every-group, or Clay obligations.  No canonical chart marker
 changed.
 
+## Factorized physical-mass decay handoff (2026-09-26 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
+`MatchedPhysicalExplicitRayFactorizedDecayProducer`.  Its scale-indexed field
+separates stationary-weight decay from canonical-path resistance growth using
+the existing
+`FixedNomeCofinalSpinCubeOffRayRootResistancePhysicalMassWeightPathFactorizedDecay`
+certificate.  The checked `toStateLoadDecayProducer` applies the exact product
+compiler, including the entropy and geometric-step conditions, and then the
+route reaches the same resistance, explicit-ray, completed-family,
+posterior-fraction, and exact-margin projections.  The new
+`toResistanceProducer`, `toRootProducer`, `toCompletedFamily`,
+`toCompletedFamily_latticeMargin_eqv_fraction`, and `fraction_pos` declarations
+all preserve the literal matched carrier.
+
+The monitored source check reports only `{propext, Quot.sound}` and no
+`sorryAx`.  The factored decay witnesses, physical calibration, observable
+pin, OS/GNS passage, continuum/QFT construction, physical mass, every-group
+theorem, and Clay target remain open; no canonical chart marker changed.
+
 ## Pointwise state-load decay is the remaining physical-mass input (2026-09-26 UTC)
 
 `BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds

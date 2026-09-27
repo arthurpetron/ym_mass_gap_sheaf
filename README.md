@@ -35,11 +35,6 @@ already-available CReal modulus for the exact middle scheduled-rate stream.
 width moduli into both endpoint certificates, with a constant-zero witness
 showing the compiler is inhabited; the physical order/width inputs remain
 open.
-Since the finite shell-entropy estimate is already proved, the route now also
-accepts the smaller `MatchedPhysicalExplicitRayStateLoadDecayProducer`: only
-pointwise physical-mass state-load decay remains as input, and the entropy
-compiler supplies the shell count before reaching the same completed carrier.
-This decay certificate and all physical/continuum/Clay joins remain open.
 The repaired carrier-normalized spacing also satisfies the explicit envelope
 `spacing(scale) ≤ 1/(scale+1)`, independent of the carrier numerator. This is
 spatial modulus control only. The new carrier-plus-one reserve and lower raw
@@ -87,6 +82,16 @@ same resistance boundary and same completed carrier.  This is an explicit
 typed route toward physical-mass calibration, not a claim that the shell
 certificate is inhabited; the shell bound and all continuum/Clay joins remain
 open.
+Since the finite shell-entropy estimate is already proved, the route now also
+accepts the smaller `MatchedPhysicalExplicitRayStateLoadDecayProducer`: only
+pointwise physical-mass state-load decay remains as input, and the entropy
+compiler supplies the shell count before reaching the same completed carrier.
+This decay certificate and all physical/continuum/Clay joins remain open.
+The remaining pointwise input is also available in factored form through
+`MatchedPhysicalExplicitRayFactorizedDecayProducer`, separating stationary
+weight decay from canonical-path resistance growth before the checked product
+compiler rejoins them.  Neither factorized certificate is currently
+inhabited uniformly; all physical/continuum/Clay joins remain open.
 
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive

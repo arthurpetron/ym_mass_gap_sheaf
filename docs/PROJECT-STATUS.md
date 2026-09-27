@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **114**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **115**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -122,6 +122,15 @@ transfer, vacuum complement, posterior fraction, and exact lattice-margin
 identity.  This is a further input reduction only; the moment bound, physical
 calibration, OS/GNS passage, continuum/QFT construction, physical mass,
 every-group theorem, and Clay result remain open.
+
+The pointwise decay boundary is also factored constructively into separate
+stationary-weight and canonical-path-resistance mechanisms by
+`MatchedPhysicalExplicitRayFactorizedDecayProducer`.  Its checked product
+compiler rejoins those mechanisms into the state-load decay certificate, then
+preserves the same resistance, explicit-ray, completed-carrier,
+posterior-fraction, and exact-margin projections.  Neither factorized decay
+input is inhabited uniformly; physical calibration, OS/GNS, continuum/QFT,
+physical mass, every-group, and Clay remain open.
 
 Because the finite physical-mass shell entropy estimate is already proved, the
 matched route now also accepts the smaller
@@ -1822,3 +1831,4 @@ still consumes the two unproved all-scale pointwise inequalities.
 | 1 / 128 | 2026-09-26 | Lowered the matched rooted input to a single scale-indexed scalar off-ray resistance-moment bound through `MatchedPhysicalExplicitRayMomentProducer.toResistanceProducer`. The existing congestion, coercivity, explicit-ray, completed-family, posterior-fraction, and exact-margin projections are preserved on the same carrier; the moment bound and all physical/continuum/Clay joins remain open, with no canonical chart marker change. |
 | 1 / 129 | 2026-09-26 | Added the alternate physical-mass-shell input `MatchedPhysicalExplicitRayMassShellProducer`. Its existing entropy/state-load shell compiler reaches the same resistance boundary, explicit ray, completed carrier, posterior fraction, and exact margin identity; the shell certificate and all physical/continuum/Clay joins remain open, with no canonical chart marker change. |
 | 1 / 130 | 2026-09-26 | Used the already proved finite shell-entropy estimate to add `MatchedPhysicalExplicitRayStateLoadDecayProducer`, whose sole scale-indexed input is pointwise physical-mass state-load decay. The entropy compiler then reaches the same resistance boundary, completed carrier, posterior fraction, and exact margin identity; decay and all physical/continuum/Clay joins remain open, with no canonical chart marker change. |
+| 1 / 131 | 2026-09-26 | Factored the remaining pointwise input into separate stationary-weight decay and canonical-path resistance-growth data with `MatchedPhysicalExplicitRayFactorizedDecayProducer`; the checked product compiler rejoins them and preserves the same completed carrier, posterior fraction, and exact margin identity. The factorized inputs and all physical/continuum/Clay joins remain open, with no canonical chart marker change. |
