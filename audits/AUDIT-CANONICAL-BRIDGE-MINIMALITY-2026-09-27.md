@@ -465,8 +465,9 @@ consumer was found in the scoped endpoint modules inspected here:
 
 Thus the dyadic argument cannot yet be applied through these declarations.
 The pin from the scalar scaling limit to the continuum `S(1)` pairing is
-also absent from `sampledLimit_zero`. No actual changing-nome contradiction,
-QFT endpoint construction, or kernel-checked dyadic theorem is claimed.
+also absent from `sampledLimit_zero`. No actual changing-nome contradiction
+or QFT endpoint construction is claimed. Section 21 subsequently kernel-checks
+the generic dyadic argument; it does not construct these missing inputs.
 
 ## 11. Residue and verification boundary
 
@@ -892,3 +893,75 @@ The raw recoding and padded block-support bound do not supply that family or
 approximation pin. Canonical scalar-interface approval is pending; its fields
 are unchanged. Canonical all-vector range, changing spacing, physical mass,
 continuum QFT and every compact simple group remain open.
+
+## 20. Heat removal is not the canonical physical-spacing cutoff
+
+The source audit found two distinct missing joins, not another missing
+fixed-nome specialization:
+
+- `spatial_approx`
+  (`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonSpatialLimit.lean:100`)
+  compares `chartScalar` at independent spatial margin `r`, heat stage `k`,
+  and exterior time `t` to the representative index `i` of the SAME fixed-nome,
+  fixed-spacing limit. The explicit pivots and moduli already exist.
+- `ReferenceWeightStageFamily.spacing` / `spacingTendsToZero`
+  (`lean/YMGap/Continuum/CanonicalOSRoot.lean:90`, `:93`) instead attach
+  shrinking physical spacing to `cutoff`. `CanonicalSchwingerLimit.approximation`
+  (`:126`) needs an actual finite observable for every limiting observable;
+  `continuumModulus` / `approximationConverges` (`:146`, `:147`) require its
+  joint physical-spacing/volume convergence. Reusing heat stage as this cutoff
+  without a new same-action physical scaling theorem would not supply those fields.
+- `ContextEq`
+  (`lean/YMGap/Continuum/BF4WilsonSignedTimeContext.lean:98`) concerns limiting
+  tested means. `mean_of_polynomial_eq` / `context_of_polynomial_eq`
+  (`:83`, `:109`) give finite polynomial congruence TO limiting equivalence,
+  not an inverse. Finite-stage expectation/discretization descent from this
+  quotient was NOT FOUND in `BF4WilsonSignedTimeContext.lean`,
+  `BF4WilsonSignedTimeContextInclusion.lean`, `BF4WilsonSignedTimeUnion.lean`,
+  `BF4WilsonSignedTimeUnionObservable.lean`, or
+  `BF4ExactSlabFixedSpatialWilsonSpatialLimit.lean`. Raw supplied sources
+  can be evaluated without choice; a finite approximation for an arbitrary
+  quotient class is a separate obligation. No impossibility theorem for such
+  descent is claimed.
+
+No actual canonical family/limit inhabitant was found in the inspected
+`CanonicalOSRoot.lean` or the scoped `BF4*.lean` declaration search. Scalar
+correction alone cannot supply the missing physical family or descent.
+
+The existing `guard_forces_small_nome` / `no_fine_guard_on_chart`
+(`lean/YMGap/Continuum/BF4SmallNomeAFGuardObstruction.lean:51`, `:126`) already
+exclude reusing the old remainder-cap guard on the supplied AF chart.
+`sampled_polynomial_small`
+(`lean/YMGap/Continuum/BF4WilsonOldGuardScalingObstruction.lean:59`) already
+gives polynomially norm-bounded response extinction throughout that guarded
+region. These were source-reviewed, not rebuilt in this turn. Neither is a
+Yang--Mills nonexistence theorem. The plan now points back to actual retained-head,
+same-action spatial control outside the old guard, not new fixed-nome wrappers.
+
+## 21. The dyadic nonextinction argument is now kernel-checked
+
+`lean/YMGap/Continuum/DyadicTimeNonextinction.lean` supplies the argument from
+section 10 with explicit hypotheses and no new frontier structure:
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `halfTime_norm` | `lean/YMGap/Continuum/DyadicTimeNonextinction.lean:35` | Self-adjointness and the actual dyadic square law identify the next half-time norm with the current autocorrelation. |
+| `dyadic_images_zero` | same module `:45` | Zero endpoint autocorrelation, right-zero pairing and norm separation force every smaller dyadic image to vanish. |
+| `eq_zero_of_endpoint_zero` | same module `:56` | Separated squared distance and an explicit continuity modulus imply the source itself is zero; the selected test index is `modulus epsilon + 1`. |
+| `eq_zero_of_zero_limit_pin` | same module `:74` | A supplied zero CReal limit is usable through an exact SAME-endpoint scalar pin. |
+| `completed_eq_zero_of_endpoint_zero` | same module `:106` | Existing completed GNS laws discharge norm and distance separation, retaining the dyadic map, square, self-adjointness and continuity inputs. |
+
+The abstract proof needs no time-map positivity, linearity or full semigroup
+law beyond the displayed dyadic square relation. It uses norm separation,
+not a spectral theorem or a choice of eigenvector. The GNS specialization
+does not equate ordinary and reflected forms. No actual continuum time family,
+continuity modulus or endpoint limit pin is constructed, so this is not yet an
+application to the changing-nome channel or a continuum nontriviality result.
+
+Verification: final focused monitored check passed with one worker capped at
+20 GiB. All five public declarations use only `propext` or
+`{propext, Quot.sound}`, with no `sorryAx` or classical dependency. Elaboration
+required explicit inclusion of proof-only section parameters and the existing
+left-subtraction/symmetry laws; no statement or resource limit changed. Sol
+independently checked the dyadic recursion and exact scope. No full-tree audit,
+canonical field edit or broad chart-marker advance.

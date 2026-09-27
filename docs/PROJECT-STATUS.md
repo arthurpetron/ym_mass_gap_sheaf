@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting dyadic implication (2026-09-27 UTC; chart markers unchanged):
+`DyadicTimeNonextinction.eq_zero_of_endpoint_zero` proves that self-adjoint
+dyadic square laws and witnessed continuity rule out a zero endpoint correlation
+for a nonzero state. Its exact scaling-limit pin and actual continuum time maps
+remain inputs, not constructed objects. Five declarations passed the focused
+axiom check. The accompanying source audit separates heat-regulator removal
+from physical-spacing convergence and identifies unproved finite discretization
+of the limiting contextual quotient. No canonical or continuum/Clay closure.
+
 Verified supporting half-space geometry (2026-09-27 UTC; chart markers unchanged):
 `BF4WilsonSignedTimeHalfSpace.toIntrinsic` constructs an actual supported
 source for each raw expression with signed time `t <= 0`, with literal recovery.

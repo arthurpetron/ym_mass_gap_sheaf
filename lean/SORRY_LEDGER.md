@@ -1,5 +1,35 @@
 # Sorry Ledger
 
+## Conditional dyadic nonextinction; physical-cutoff distinction (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/DyadicTimeNonextinction.lean`.
+- **mathematics:** `halfTime_norm` (`:35`) identifies the endpoint correlation
+  with the next dyadic image's squared norm; `dyadic_images_zero` (`:45`)
+  propagates vanishing by induction. `eq_zero_of_endpoint_zero` (`:56`) uses
+  the supplied continuity modulus at `modulus epsilon + 1` and separated
+  distance to identify the source vector with zero. These prove the argument
+  previously recorded only on paper in the canonical bridge audit.
+- **same-object condition:** `eq_zero_of_zero_limit_pin` (`:74`) still takes
+  an exact pin from the supplied zero CReal limit to THIS endpoint pairing.
+  `completed_eq_zero_of_endpoint_zero` (`:106`) discharges norm/distance
+  separation for the existing GNS completion. It does not identify ordinary
+  GNS with physical OS or construct any dyadic time map.
+- **route correction:** the fixed-spacing `spatial_approx` uses spatial,
+  heat and exterior-time regulators, not the canonical spacing cutoff.
+  Finite-stage discretization of the limiting contextual quotient is also
+  unproved. Neither obligation is a consequence of the pending scalar change.
+  Existing old-guard/AF and polynomial-response obstructions are reused.
+- **verification:** final focused monitored check passed, one worker capped
+  at 20 GiB. All five public declarations use only `propext` or
+  `{propext, Quot.sound}`; no `sorryAx` or classical dependency. The elaboration
+  retry explicitly included proof-only section parameters and used the existing
+  left-subtraction/symmetry laws. No statement or resource limit changed.
+  Sol independently reviewed the proof and scope. No full-tree audit.
+- **residue:** actual continuum dyadic time/continuity, its endpoint pin,
+  physical spacing control, canonical scalar/support realization, physical
+  mass, full QFT and every-group Clay closure remain open. No new frontier
+  structure, analytic assumption in an existing theorem, or canonical field edit.
+
 ## Geometric half-space coverage and original reflected positivity (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/BF4WilsonSignedTimeHalfSpace.lean`.

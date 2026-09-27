@@ -25,6 +25,40 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Physical-cutoff route correction and dyadic nonextinction checked (2026-09-27 UTC)
+
+The finite-source audit separates three independent issues. The current
+`spatial_approx` removes spatial margin, heat cutoff and exterior time at
+fixed nome/spacing; the canonical `ReferenceWeightStageFamily.cutoff` instead
+controls spacing tending to zero. `ContextEq` gives limiting contextual
+equality, not a proved finite-stage discretization of its quotient. Neither
+missing join is supplied by changing the canonical scalar from Q' to RC.
+The existing `BF4SmallNomeAFGuardObstruction.no_fine_guard_on_chart` and
+`BF4WilsonOldGuardScalingObstruction.sampled_polynomial_small` already rule
+out the corresponding old-guard shortcuts. No duplicate fixed-nome wrapper
+or new assumed family is added.
+
+`DyadicTimeNonextinction.lean` now proves the previously paper-only endpoint
+argument: self-adjoint dyadic square laws turn a zero endpoint correlation
+into zero at every smaller dyadic image. An explicit squared-distance
+continuity modulus and separation force the source vector to be zero.
+`eq_zero_of_zero_limit_pin` retains the exact SAME-endpoint scalar pin;
+`completed_eq_zero_of_endpoint_zero` discharges separation for the existing
+GNS completion without identifying an ordinary GNS datum with physical OS.
+No continuum time family, continuity witness or scaling-limit pin is supplied.
+
+Next investigate the existing retained-head, same-action spatial-control
+frontier outside the old small-nome guard. Do not attempt a canonical family
+by relabeling heat cutoff as physical spacing or choosing quotient
+representatives. The scalar correction remains pending approval; changing
+spacing, physical mass, continuum QFT and every-group Clay closure remain open.
+
+The final focused monitored check passed with one worker capped at 20 GiB.
+All five public declarations use only `propext` or `{propext, Quot.sound}`.
+Sol independently checked the regulator distinction and dyadic argument.
+No hole, canonical field change, full-tree audit or broad chart-marker advance.
+Audit sections 20--21 record the route correction and exact theorem scope.
+
 ### Geometric half-space source coverage checked (2026-09-27 UTC)
 
 `BF4WilsonSignedTimeHalfSpace.lean` proves that every intrinsic source has
