@@ -29990,3 +29990,25 @@ This is a genuine spatial modulus strengthening, not the missing physical
 calibration: the comparison of the physical gap denominator with the spacing,
 the uniform product band, the continuum/QFT passage, physical mass,
 every-group construction, and Clay conclusion remain open.
+
+## Carrier-plus-one reserve and cofinal lower-denominator consumer (2026-09-26 UTC)
+
+`changingNomeCarrierNormalizedSpacing_carrier_plus_one_le` in
+`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:463--513`
+proves the repaired schedule's sharper additive reserve
+`(6*S + 1) * spacing ≤ 1`, where `S` is the concrete carrier-square scale.
+The proof is an explicit reciprocal-index calculation; it uses no asymptotic
+estimate and preserves the same completed nome/gap family.
+
+`ChangingNomeCarrierNormalizedCofinalGapCalibration.lowerDenominator` in the
+same module (`:777--810`) then consumes the actual cofinal calibration floor:
+the floor is bounded by the same-family physical-gap stream on each scale, and
+`ExplicitMarginDenominatorBand.physicalGap_mul_spacing_mul_den_eqv_one`
+transports that bound to the lower raw denominator product.  Thus the lower
+raw inequality is no longer an independent cofinal estimate; only the upper
+raw product inequality and the calibration witness remain open.
+
+The focused monitored check reports only `{propext, Quot.sound}` and no
+`sorryAx`.  This does not inhabit the product band, establish the uniform
+physical-rate band, or close continuum/QFT, physical-mass, every-group, or
+Clay obligations.

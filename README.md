@@ -16,7 +16,10 @@ vanishing-spacing schedule, its same-nome/same-gap completed family, the
 conditional product-band → physical-rate → sharp continuum-gap compiler, the
 necessary normalized floor-order consequence, and the concrete same-object
 moving-cube channel with positive zero-time response and completed squared
-decay. These are kernel-checked SU(2) components; the product band,
+decay. It also proves the sharper `(6*S + 1) * spacing ≤ 1` reserve and
+automatically discharges the lower raw denominator product for any supplied
+cofinal physical-gap floor via the exact reciprocal identity. These are
+kernel-checked SU(2) components; the product band,
 cutoff-removal variation, uniform scaling survival, OS/GNS reconstruction,
 continuum QFT, physical mass, every-group construction, and Clay theorem remain
 open. See the [canonical status chart](docs/PROJECT-STATUS.md) and
@@ -34,9 +37,11 @@ showing the compiler is inhabited; the physical order/width inputs remain
 open.
 The repaired carrier-normalized spacing also satisfies the explicit envelope
 `spacing(scale) ≤ 1/(scale+1)`, independent of the carrier numerator. This is
-spatial modulus control only; the gap-denominator comparison remains open.
-The endpoint moduli, cutoff removal, OS/GNS/QFT passage, physical mass,
-every-group construction, and Clay theorem remain open by design.
+spatial modulus control only. The new carrier-plus-one reserve and lower raw
+denominator consumer do not supply the still-open upper product inequality or
+cofinal calibration witness. The endpoint moduli, cutoff removal, OS/GNS/QFT
+passage, physical mass, every-group construction, and Clay theorem remain open
+by design.
 
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive

@@ -456,6 +456,61 @@ theorem changingNomeCarrierNormalizedSpacing_le_invSucc (scale : Nat) :
   simpa [changingNomeCarrierNormalizedSpacing, index] using
     (ExpNeg.invSucc_le_of_le hindex)
 
+/-- The repaired spacing also pays one additive unit beyond the carrier:
+`(6*S + 1) * spacing ≤ 1`.  The extra unit is the `+1` in the reciprocal
+index; it is an explicit reserve for later floor/product comparisons. -/
+theorem changingNomeCarrierNormalizedSpacing_carrier_plus_one_le
+    (scale : Nat) :
+    (Q'.ofNat 6 * changingNomeBandScale scale) *
+          changingNomeCarrierNormalizedSpacing.spacing scale +
+        changingNomeCarrierNormalizedSpacing.spacing scale ≤
+      (1 : Q') := by
+  let carrier := Q'.ofNat 6 * changingNomeBandScale scale
+  let index := carrier.num.toNat + scale
+  have hcarrier0 : (0 : Q') ≤ carrier := by
+    dsimp [carrier]
+    exact Q'.mul_nonneg _ _ (by decide)
+      (Q'.le_of_lt
+        (centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale_pos
+          (changingNome scale)
+          (Q'.le_of_lt (changingNome_pos scale)) 1404 0))
+  have hcarrierNat : carrier ≤ Q'.ofNat carrier.num.toNat :=
+    YMGap.Constructive.RatNat.le_ofNat_toNat carrier hcarrier0
+  have hnumIndex : carrier.num.toNat ≤ index := by
+    exact Nat.le_add_right _ _
+  have hindexNat : Q'.ofNat carrier.num.toNat ≤ Q'.ofNat index :=
+    Q'.ofNat_le_ofNat hnumIndex
+  have hcarrierIndex : carrier ≤ Q'.ofNat index :=
+    Q'.le_trans' _ _ _ hcarrierNat hindexNat
+  have hscaled : carrier * Q'.invSucc index ≤
+      Q'.ofNat index * Q'.invSucc index :=
+    Q'.mul_le_mul_of_nonneg_right _ _ _ hcarrierIndex
+      (Q'.le_of_lt (Q'.invSucc_pos index))
+  have hsum : carrier * Q'.invSucc index + Q'.invSucc index ≤
+      Q'.ofNat index * Q'.invSucc index + Q'.invSucc index :=
+    Q'.add_le_add_right _ _ _ hscaled
+  have hsucc : Q'.ofNat (index + 1) ≈ Q'.ofNat index + 1 := by
+    refine Q'.eqv_trans _ (Q'.ofNat index + Q'.ofNat 1) _
+      (Q'.ofNat_add_eqv index 1) ?_
+    exact Q'.add_eqv_congr_left _ _ _ (by decide)
+  have hnormEqv :
+      Q'.ofNat index * Q'.invSucc index + Q'.invSucc index ≈ (1 : Q') := by
+    refine Q'.eqv_trans _ ((Q'.ofNat index + 1) * Q'.invSucc index) _ ?_ ?_
+    · refine Q'.eqv_trans _
+        (Q'.ofNat index * Q'.invSucc index +
+          (1 : Q') * Q'.invSucc index) _ ?_ ?_
+      · exact Q'.add_eqv_congr_left _ _ _
+          (Q'.eqv_symm (Q'.one_mul_eqv (Q'.invSucc index)))
+      · exact Q'.eqv_symm
+          (Q'.add_mul_eqv (Q'.ofNat index) 1 (Q'.invSucc index))
+    · have hmul :
+          (Q'.ofNat index + 1) * Q'.invSucc index ≈
+            Q'.ofNat (index + 1) * Q'.invSucc index :=
+        Q'.mul_eqv_congr_right _ _ _ (Q'.eqv_symm hsucc)
+      exact Q'.eqv_trans _ _ _ hmul
+        (Q'.ofNat_succ_mul_invSucc index)
+  exact Q'.le_trans' _ _ _ hsum (Q'.le_of_eqv hnormEqv)
+
 def changingNomeCarrierNormalizedSpacingToZero :
     SpacingToZero changingNomeCarrierNormalizedSpacing where
   modulus := fun epsilon => epsilon.den
@@ -713,6 +768,46 @@ structure ChangingNomeCarrierNormalizedCofinalGapCalibration : Type 1 where
     ExplicitMarginDenominatorBand.finitePrefixGapCeiling
         changingNomeCarrierNormalizedDynamicFamily bound ≤ ceiling
 
+/-! The lower raw denominator inequality is not an additional cofinal
+    estimate.  The floor field already bounds the same completed family's
+    physical gap, and the exact reciprocal law then contracts that bound to
+    one.  Only the upper raw inequality remains in the calibration input. -/
+
+theorem ChangingNomeCarrierNormalizedCofinalGapCalibration.lowerDenominator
+    (calibration : ChangingNomeCarrierNormalizedCofinalGapCalibration)
+    (scale : Nat) :
+    (calibration.floor *
+        changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale) *
+        changingNomeCarrierNormalizedExplicitMarginInverseLaw.denominator scale ≤
+      (1 : Q') := by
+  have hfloorGap : calibration.floor ≤
+      changingNomeCarrierNormalizedDynamicFamily.physicalGap scale :=
+    Q'.le_trans' _ _ _
+      (calibration.floor_le_prefix scale)
+      (YMGap.Continuum.WindowedSpacingFloor.finMin_le
+        changingNomeCarrierNormalizedDynamicFamily.physicalGap scale scale
+        (Nat.le_refl scale))
+  have hscaled := Q'.mul_le_mul_of_nonneg_right
+    calibration.floor
+    (changingNomeCarrierNormalizedDynamicFamily.physicalGap scale)
+    (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+    hfloorGap
+    (Q'.le_of_lt
+      (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing_pos scale))
+  have hproduct := Q'.mul_le_mul_of_nonneg_right
+    (calibration.floor *
+      changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+    (changingNomeCarrierNormalizedDynamicFamily.physicalGap scale *
+      changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+    (changingNomeCarrierNormalizedExplicitMarginInverseLaw.denominator scale)
+    hscaled
+    (Q'.le_of_lt
+      (changingNomeCarrierNormalizedExplicitMarginInverseLaw.denominator_pos scale))
+  have hone :=
+    ExplicitMarginDenominatorBand.physicalGap_mul_spacing_mul_den_eqv_one
+      (law := changingNomeCarrierNormalizedExplicitMarginInverseLaw) scale
+  exact Q'.le_trans' _ _ _ hproduct (Q'.le_of_eqv hone)
+
 /-- A cofinal-prefix calibration certificate compiles to the all-scale
     physical-rate band on the identical repaired completed family.  No
     asymptotic estimate is manufactured: the two uniform fields are explicit
@@ -962,6 +1057,7 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedSpacing
 #print axioms changingNomeCarrierNormalizedSpacingToZero
 #print axioms changingNomeCarrierNormalizedSpacing_le_invSucc
+#print axioms changingNomeCarrierNormalizedSpacing_carrier_plus_one_le
 #print axioms changingNomeCarrierNormalizedSpacing_carrier_ceiling
 #print axioms changingNomeCarrierNormalizedDynamicFamily
 #print axioms changingNomeCarrierNormalizedDynamicFamily_same_nome
@@ -979,6 +1075,7 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedFinitePrefixPhysicalRateBand
 #print axioms changingNomeCarrierNormalizedFinitePrefixGapFloor_succ_le
 #print axioms changingNomeCarrierNormalizedFinitePrefixGapCeiling_le_succ
+#print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.lowerDenominator
 #print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalRateBand
 #print axioms changingNomeCarrierNormalizedExplicitMarginInverseLaw
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
