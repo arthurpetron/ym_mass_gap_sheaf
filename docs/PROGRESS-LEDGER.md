@@ -30796,3 +30796,11 @@ physical-gap calibration.  This contracts two typed fields to one analytic
 stream without asserting that the stream exists.  Raw representative and
 scheduled-rate variations, physical calibration when not supplied by the
 head-energy band, OS/GNS, and continuum/QFT inputs remain explicit.
+
+The scheduled-rate branch now has the matching positive-time contraction:
+`PositiveRatePowerVariation` records only `time > 0`, while
+`ConcreteJoin.ofNormalizationScaleVariationAndPositiveRatePower` inserts the
+checked time-zero unit variation through
+`normalizedMovingCubeSampledRatePowerRationalVariationOfPositive`.  Its
+head-energy specialization preserves the same repaired carrier.  No
+positive-time rate estimate is constructed by this recoding.

@@ -78,6 +78,15 @@ def RatePowerVariation : Type 1 :=
   NormalizedMovingCubeSampledRatePowerRationalVariation
     changingNomeCarrierNormalizedDynamicFamily
 
+/- The time-zero branch of the exact scheduled rate is definitionally one and
+   is compiled automatically below.  This alias keeps the remaining input
+   restricted to strictly positive physical times. -/
+def PositiveRatePowerVariation : Type 1 :=
+  ∀ time, 0 < time ->
+    SummableRationalStepVariation
+      (fun scale => normalizedMovingCubeSampledRatePower
+        changingNomeCarrierNormalizedDynamicFamily scale time)
+
 /-- The honest typed join of the B04 calibration and the A05 same-observable
 variation inputs.  It is intentionally not inhabited in the current
 development. -/
@@ -355,6 +364,31 @@ def ConcreteJoin.ofNormalizationScaleVariationAndHeadEnergyProductBand
     (changingNomeCarrierNormalizedCofinalGapCalibration_ofHeadEnergyProductBand
       band)
     raw ratePower
+
+def ConcreteJoin.ofNormalizationScaleVariationAndPositiveRatePower
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation
+      changingNomeCarrierNormalizedDynamicFamily)
+    (calibration : ChangingNomeCarrierNormalizedCofinalGapCalibration)
+    (raw : RawVariation)
+    (positiveRatePower : PositiveRatePowerVariation) :
+    ConcreteJoin :=
+  ConcreteJoin.ofNormalizationScaleVariation
+    scaleVariation calibration raw
+    (normalizedMovingCubeSampledRatePowerRationalVariationOfPositive
+      changingNomeCarrierNormalizedDynamicFamily positiveRatePower)
+
+def ConcreteJoin.ofNormalizationScaleVariationAndHeadEnergyProductBandAndPositiveRatePower
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation
+      changingNomeCarrierNormalizedDynamicFamily)
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand)
+    (raw : RawVariation)
+    (positiveRatePower : PositiveRatePowerVariation) :
+    ConcreteJoin :=
+  ConcreteJoin.ofNormalizationScaleVariationAndPositiveRatePower
+    scaleVariation
+    (changingNomeCarrierNormalizedCofinalGapCalibration_ofHeadEnergyProductBand
+      band)
+    raw positiveRatePower
 
 /-- Forget only the response-persistence field to reuse the existing
     calibration/raw/debt/rate contraction. -/
@@ -696,6 +730,10 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofNormalizationScaleVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofNormalizationScaleVariationAndHeadEnergyProductBand
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofNormalizationScaleVariationAndPositiveRatePower
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofNormalizationScaleVariationAndHeadEnergyProductBandAndPositiveRatePower
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toCanonicalUniformRCNormFloor
 #print axioms
