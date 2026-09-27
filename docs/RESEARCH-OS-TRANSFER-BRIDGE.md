@@ -10,7 +10,8 @@ target.
 ## Primary references checked
 
 * K. Osterwalder and E. Seiler, “Gauge field theories on a lattice,”
-  *Annals of Physics* (1978), DOI [10.1016/0003-4916(78)90240-0](https://doi.org/10.1016/0003-4916(78)90240-0).
+  *Annals of Physics* 110 (1978), 440–471, DOI
+  [10.1016/0003-4916(78)90039-8](https://www.sciencedirect.com/science/article/pii/0003491678900398).
   The paper establishes physical positivity for the Euclidean lattice
   Schwinger functions and derives a positive self-adjoint transfer matrix.
 * M. Lüscher, “Construction of a selfadjoint, strictly positive transfer
