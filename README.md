@@ -209,6 +209,12 @@ The raw capstone also accepts the stronger existing
 stationarity adapter; this is an input adapter, not a construction of the
 vacuum sector.
 
+For the observable seam, both matched branches also accept the lower
+completed-real `RawMovingCubeProjectiveOSCorrelationHandoff` together with its
+same-measure raw Wilson matrix pin. The literal representative/same-object
+equality remains a named certificate and is not inferred from the finite
+carrier.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

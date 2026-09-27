@@ -30447,3 +30447,18 @@ exact-rate, graph-norm, and uniform-floor indices are unchanged.
 The monitored source check reports only `{propext, Quot.sound}` for both
 constructors and no `sorryAx`; no vacuum, stationarity, continuum QFT,
 physical-mass, every-group, or Clay witness is manufactured.
+
+## Matched raw path accepts the direct completed-real projective handoff (2026-09-27 UTC)
+
+Both matched routes now expose
+`toRawWilsonConnectedMassGapPath_ofRawProjectiveMatrixCoefficientPin`.
+Each consumes a `RawMovingCubeProjectiveOSCorrelationHandoff` and its matching
+`RawMovingCubeWilsonMatrixCoefficientPin`, plus the existing uniform floor,
+exact-rate, graph-norm, and stationary-vacuum fields. This is the lower
+same-measure observable boundary; it does not derive the raw representative
+equality from the completed carrier.
+
+The monitored source check reports only `{propext, Quot.sound}` for both
+constructors and no `sorryAx`. Projective/OS semantics, raw same-object
+identification, continuum, physical-mass, every-group, and Clay inputs remain
+explicit.

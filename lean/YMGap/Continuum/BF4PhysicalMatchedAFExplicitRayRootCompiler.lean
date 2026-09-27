@@ -947,6 +947,40 @@ def MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGap
   RawWilsonConnectedMassGapPath.ofUniformNormFloorAndProjectiveWilsonOSMatrixCoefficientPin
     uniform projective sameObject matrixCoefficient exactRate graphNorm vacuumPin
 
+/-- Use the lower completed-real projective handoff directly. This keeps the
+raw representative/same-object equality bundled with its exact Wilson matrix
+pin, rather than asking callers to re-expand the rational separator adapter. -/
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath_ofRawProjectiveMatrixCoefficientPin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    {raw : MovingCubeRawScheduledRepresentativeVariation producer.toCompletedFamily}
+    {band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily}
+    {gapVariation : SummableRationalStepVariation
+      producer.toCompletedFamily.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit
+      producer.toCompletedFamily}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel producer.toCompletedFamily))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      producer.toCompletedFamily raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      producer.toCompletedFamily raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      producer.toCompletedFamily gapVariation W)
+    (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      producer.toCompletedFamily ratePower W)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    RawWilsonConnectedMassGapPath producer.toCompletedFamily raw band
+      gapVariation ratePower H W :=
+  RawWilsonConnectedMassGapPath.ofUniformNormFloor uniform projectiveOS
+    matrixCoefficient exactRate graphNorm vacuumPin
+
 /-- Use the stronger dense-unit vacuum certificate to supply the stationary
 vacuum field required by the connected raw Wilson path. -/
 def MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath_ofDenseUnitVacuumPin
@@ -1767,6 +1801,39 @@ def MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGa
   RawWilsonConnectedMassGapPath.ofUniformNormFloorAndProjectiveWilsonOSMatrixCoefficientPin
     uniform projective sameObject matrixCoefficient exactRate graphNorm vacuumPin
 
+/-- Use the lower completed-real projective handoff directly on the factorized
+route, retaining the same-measure raw Wilson matrix coefficient. -/
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGapPath_ofRawProjectiveMatrixCoefficientPin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    {raw : MovingCubeRawScheduledRepresentativeVariation producer.toCompletedFamily}
+    {band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily}
+    {gapVariation : SummableRationalStepVariation
+      producer.toCompletedFamily.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit
+      producer.toCompletedFamily}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel producer.toCompletedFamily))
+    (projectiveOS : RawMovingCubeProjectiveOSCorrelationHandoff
+      producer.toCompletedFamily raw H W.measureLinked)
+    (matrixCoefficient : RawMovingCubeWilsonMatrixCoefficientPin
+      producer.toCompletedFamily raw H W projectiveOS)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      producer.toCompletedFamily gapVariation W)
+    (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      producer.toCompletedFamily ratePower W)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    RawWilsonConnectedMassGapPath producer.toCompletedFamily raw band
+      gapVariation ratePower H W :=
+  RawWilsonConnectedMassGapPath.ofUniformNormFloor uniform projectiveOS
+    matrixCoefficient exactRate graphNorm vacuumPin
+
 /-- Use the stronger dense-unit vacuum certificate to supply the stationary
 vacuum field required by the factorized connected raw Wilson path. -/
 def MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGapPath_ofDenseUnitVacuumPin
@@ -2256,6 +2323,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath_ofRawProjectiveMatrixCoefficientPin
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath_ofDenseUnitVacuumPin
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath_ofParallelGraphNormCompilers
@@ -2331,6 +2400,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMassGap_ofDenseUnitVacuumPin
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGapPath
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGapPath_ofRawProjectiveMatrixCoefficientPin
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGapPath_ofDenseUnitVacuumPin
 #print axioms

@@ -1846,6 +1846,13 @@ The raw capstone now also accepts the stronger existing
 `toStationaryVacuumPin` projection. This removes only a redundant adapter from
 the call site; it does not construct a vacuum or stationarity witness.
 
+Both matched routes additionally expose a direct
+`toRawWilsonConnectedMassGapPath_ofRawProjectiveMatrixCoefficientPin` boundary.
+It consumes the lower completed-real raw projective handoff together with its
+same-measure Wilson matrix-coefficient pin, avoiding any re-expansion of the
+rational separator adapter. The raw representative/same-object equality is
+still an explicit certificate; it is not inferred from the completed carrier.
+
 ## Maintenance contract
 
 1. Read this file before every chart. Copy its chart block; do not regenerate
@@ -2017,3 +2024,4 @@ the call site; it does not construct a vacuum or stationarity witness.
 | 1 / 148 | 2026-09-27 | Factored the matched raw-path uniform-floor input through global normalization ceilings, eventual tail ceilings with finite-prefix gluing, and summable reciprocal-scale variation for both routes. All six constructors preserve the same capstone indices; focused check remains `{propext, Quot.sound}` with no `sorryAx`, while the tail/variation and all physical/continuum/Clay obligations remain open. |
 | 1 / 149 | 2026-09-27 | Split the matched raw-path graph-norm input into parallel rate-limit/transfer/finite-approximation compilers, with a convergence-form scalar variant, for both routes. The constructors preserve all-vector graph-norm scope and the same capstone indices; focused check remains `{propext, Quot.sound}` with no `sorryAx`. |
 | 1 / 150 | 2026-09-27 | Added direct raw-path consumers of the existing stronger `WilsonDenseUnitVacuumPin` for both matched routes, using only the checked stationarity adapter. No vacuum is constructed; focused check remains `{propext, Quot.sound}` with no `sorryAx`, and continuum/Clay obligations remain open. |
+| 1 / 151 | 2026-09-27 | Added direct completed-real raw projective/matrix handoff consumers for both matched routes. The same-measure raw representative equality remains explicit; focused check remains `{propext, Quot.sound}` with no `sorryAx`, and no OS/GNS, continuum, physical-mass, every-group, or Clay obligation is manufactured. |
