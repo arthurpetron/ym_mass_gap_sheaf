@@ -3488,6 +3488,14 @@ still an analytic input; no OS/GNS, continuum/QFT, physical-mass, every-group,
 or Clay result is inferred.  The focused check remains within
 `{propext, Quot.sound}` and produces no `sorryAx`.
 
+The same witness now projects through
+`toFullRangeExactPhysicalSeparatorCertificate` to the exact-log compiler on
+the literal separator and completed-family spacing.  Its two required
+dimensional-transmutation inputs—`PhysicalGapFloor` and
+`FullRangeLogRateCeiling`—remain explicit and unproved; no continuum or Clay
+claim is hidden by this transport.  The focused check remains within
+`{propext, Quot.sound}` and produces no `sorryAx`.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,

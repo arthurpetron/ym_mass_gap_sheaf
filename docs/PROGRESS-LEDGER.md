@@ -30857,3 +30857,10 @@ scaling contraction while leaving the pin itself explicit; no OS/GNS,
 continuum, physical-mass, every-group, or Clay conclusion is inferred.  The
 focused monitored build remains 5,133 jobs with only `{propext, Quot.sound}`
 and no `sorryAx`.
+
+The observable witness now projects to the existing full-range exact-log
+compiler through `toFullRangeExactPhysicalSeparatorCertificate`.  The adapter
+uses the literal completed-family spacing and separator and requires exactly
+the two missing dimensional-transmutation inputs, `PhysicalGapFloor` and
+`FullRangeLogRateCeiling`; it proves neither.  The focused monitored build
+remains 5,133 jobs with only `{propext, Quot.sound}` and no `sorryAx`.

@@ -21,6 +21,7 @@ import YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtCompiler
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
+import YMGap.Continuum.PhysicalSeparatorFullLogComparison
 
 namespace YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
 
@@ -46,6 +47,8 @@ open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtCompiler
 open YMGap.Continuum.SummableRationalStepVariationPrefixTailClosure
 open YMGap.Continuum.PhysicalSeparator
+open YMGap.Continuum.PhysicalSeparatorFullLogComparison
+open YMGap.Continuum.PhysicalSeparatorFullLogRate
 
 namespace MatchedPhysicalDynamicScalarTrajectory
 
@@ -321,7 +324,39 @@ theorem physicalSeparator_gapObservable_zero_pos
 
 end PhysicalExponentialObservableWitness
 
-/-! ## 5. Contract the local producer to the correlated same-edge debt seam -/
+/-! ## 5. Expose the exact-log physical-gap obligations -/
+
+/-- The observable witness selects the exact separator and completed-family
+spacing used by the full-range logarithmic compiler.  A physical-gap floor and
+finite exact-rate ceiling remain explicit, so this adapter cannot turn the
+finite exponential certificate into a continuum mass gap by coercion. -/
+def toFullRangeExactPhysicalSeparatorCertificate
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness :
+      PhysicalExponentialObservableWitness trajectory producer)
+    (gapFloor :
+      PhysicalGapFloor
+        (PhysicalExponentialObservableWitness.physicalSeparator witness)
+        (trajectory.toCompletedFamily producer).transferSpacing.spacing
+        (trajectory.toCompletedFamily producer).transferSpacing.spacing_pos)
+    (ceiling :
+      FullRangeLogRateCeiling
+        (fullRangeRateFamilyOfPhysicalData
+          (PhysicalExponentialObservableWitness.physicalSeparator witness)
+          (trajectory.toCompletedFamily producer).transferSpacing.spacing
+          (trajectory.toCompletedFamily producer).transferSpacing.spacing_pos)) :
+    FullRangeExactPhysicalSeparatorCertificate :=
+  fullRangeExactCertificateOfPhysicalGapFloor
+    (PhysicalExponentialObservableWitness.physicalSeparator witness)
+    (trajectory.toCompletedFamily producer).transferSpacing.spacing
+    (trajectory.toCompletedFamily producer).transferSpacing.spacing_pos
+    gapFloor ceiling
+
+/-! ## 6. Contract the local producer to the correlated same-edge debt seam -/
 
 /-- The correlated capacity-debt compiler supplies the exact local producer
 for the matched trajectory.  This is the smallest named route from the
@@ -418,6 +453,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.PhysicalExponentialObservableWitness.ofRationalVariations
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.PhysicalExponentialObservableWitness.physicalSeparator_gapObservable_zero_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toFullRangeExactPhysicalSeparatorCertificate
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.localProducer_ofCorrelatedCapacityDebt
 #print axioms
