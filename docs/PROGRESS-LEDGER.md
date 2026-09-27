@@ -30865,6 +30865,27 @@ the two missing dimensional-transmutation inputs, `PhysicalGapFloor` and
 `FullRangeLogRateCeiling`; it proves neither.  The focused monitored build
 remains 5,133 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
 
+## Matched physical-rate band computes the full-log ceiling (2026-09-27 UTC)
+
+The finite-prefix reduction is now consumed by the existing constructive
+`BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.fullRangeLogRateCeilingOfPhysicalRateBand`.
+That compiler computes the prefix directly from rational upper bounds on the
+constructive `log 2` and reduced-mantissa approximants, then glues it to the
+eventual half-window and margin-rate ceiling supplied by the same matched
+physical-rate band.  The matched witness exposes this as
+`toFullRangeLogRateCeiling_ofStrengthBandComputed` and packages it through
+`toFullRangeExactPhysicalSeparatorCertificate_ofStrengthBandComputed`.
+The direct consumers
+`toExactRateCutoffRemoval_ofGapVariationAndComputedCeiling`,
+`toContinuumHandoff_ofGapVariationAndComputedCeiling`, and
+`toContinuumYMWithExactLogGap_ofComputedHandoff` keep the observable and
+completed carrier definitionally identical while removing the independent
+full-log ceiling field.  Same-family physical-gap variation, exact-rate
+reconstruction, projective/OS data, continuum/QFT, physical-mass,
+every-group, and Clay inputs remain explicit.  The focused monitored check
+completed in 5,243 jobs; all new dependency gates report only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 The matched path now uses the existing same-family exact-log variation
 compiler through `toFullRangeExactPhysicalSeparatorCertificate_ofStrengthBand`
 and `toExactRateCutoffRemoval_ofGapVariation`.  Strength scaling supplies the

@@ -3539,6 +3539,19 @@ physical-mass, every-group, and Clay inputs remain open; this is not a global
 full-log or continuum construction.  The focused monitored build completed in
 5,153 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
 
+The finite-prefix boundary is now eliminated on this path.  The existing
+`BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler.fullRangeLogRateCeilingOfPhysicalRateBand`
+computes the prefix from constructive logarithm approximation bounds and glues
+it to the matched physical-rate tail.  The matched adapter exposes this as
+`toFullRangeLogRateCeiling_ofStrengthBandComputed`, then threads it through
+`toFullRangeExactPhysicalSeparatorCertificate_ofStrengthBandComputed`,
+`toExactRateCutoffRemoval_ofGapVariationAndComputedCeiling`, and
+`toContinuumHandoff_ofGapVariationAndComputedCeiling`.  The remaining inputs
+are same-family physical-gap variation, exact-rate reconstruction, and
+projective/OS data; no continuum/QFT, physical-mass, every-group, or Clay
+claim is added.  The focused monitored build completed in 5,243 jobs with
+only `{propext, Quot.sound}` and no `sorryAx`.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,
