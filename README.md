@@ -25,6 +25,8 @@ The same canonical vector also now carries the transported strict two-step
 form ceiling `CurrentCarrierBridge.canonicalUnitProbe_twoStep_form_bound`.
 It is also proved not to be a two-step fixed vector via
 `CurrentCarrierBridge.canonicalUnitProbe_twoStep_not_fixed`.
+Its canonical two-step coefficient and norm are now exposed as exact
+same-object equalities with the current carrier.
 
 **Latest checked repaired-family path (2026-09-26):**
 `BF4PhysicalChangingNomeExplicitMarginLaw` now provides a carrier-normalized

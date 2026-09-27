@@ -65802,6 +65802,21 @@ physical mass calibration, every-group theorem, and Clay result remain open.
 The dependency-complete monitored target passed in 2,602 jobs; both new
 declarations use only `{propext, Quot.sound}` and no `sorryAx`.
 
+## 253. Expose exact canonical/current unit-probe correlator identities (2026-09-27)
+
+`CurrentCarrierBridge.canonicalUnitProbe_twoStep_correlation_eq_current` and
+`canonicalUnitProbe_norm_eq_current` identify the canonical unit probe's
+two-step same-object coefficient and norm exactly with the existing
+current-carrier pairings. The selected canonical vector is therefore not
+merely bounded: its observable coefficient and normalization are tied to the
+same completed SU(2) carrier by kernel-checked equalities.
+
+This remains conditional on the named carrier bridge and fixed spacing. The
+all-vector range section, OS/GNS completion, continuum/QFT realization,
+physical mass calibration, every-group theorem, and Clay result remain open.
+The dependency-complete monitored target passed in 2,602 jobs; both new
+declarations use only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A

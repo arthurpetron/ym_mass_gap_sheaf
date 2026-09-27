@@ -1384,6 +1384,33 @@ theorem canonicalUnitProbe_twoStep_not_fixed
   apply J.canonicalUnitProbe_ne_zero
   exact J.canonicalUnitProbe_twoStep_fixed_eq_zero hfixed
 
+/-- The canonical unit probe's two-step coefficient is exactly the existing
+current-carrier same-object coefficient. -/
+theorem canonicalUnitProbe_twoStep_correlation_eq_current
+    (J : CurrentCarrierBridge P) :
+    W.toGNSData.cinnerCompl
+        (P.op.T (P.op.T J.canonicalUnitProbe.vector))
+        J.canonicalUnitProbe.vector =
+      B (T 2 unitExcitation) unitExcitation := by
+  change
+    W.toGNSData.cinnerCompl
+        (P.op.T (P.op.T (J.map unitExcitation)))
+        (J.map unitExcitation) =
+      B (T 2 unitExcitation) unitExcitation
+  exact J.image_twoStep_correlation_eq_current unitExcitation
+
+/-- The canonical unit probe's norm is exactly the current normalized norm. -/
+theorem canonicalUnitProbe_norm_eq_current
+    (J : CurrentCarrierBridge P) :
+    W.toGNSData.cinnerCompl
+        J.canonicalUnitProbe.vector J.canonicalUnitProbe.vector =
+      B unitExcitation unitExcitation := by
+  change
+    W.toGNSData.cinnerCompl
+        (J.map unitExcitation) (J.map unitExcitation) =
+      B unitExcitation unitExcitation
+  exact J.form_preserving unitExcitation unitExcitation
+
 end CurrentCarrierBridge
 
 /-! ## The completed canonical-range consumer
@@ -1736,3 +1763,5 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_form_bound
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_fixed_eq_zero
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_not_fixed
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_correlation_eq_current
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_norm_eq_current

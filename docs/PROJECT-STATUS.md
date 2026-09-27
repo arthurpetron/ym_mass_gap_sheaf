@@ -19,8 +19,9 @@ GNS vector with vacuum orthogonality, nonzero-ness, and the explicit positive
 `rayleighFloor` two-step response. This is conditional on the bridge datum;
 its stored current preimage is returned exactly by any supplied range section;
 the same vector also has the transported strict two-step form ceiling. The
-same vector is also proved not to be two-step fixed. The all-vector canonical
-range section and every continuum/Clay endpoint remain open.
+same vector is also proved not to be two-step fixed. Its canonical coefficient
+and norm are exact current-carrier equalities. The all-vector canonical range
+section and every continuum/Clay endpoint remain open.
 Latest continuation checkpoint (2026-09-27 UTC): the correlated same-edge
 local-producer compiler is now named by `correlatedCapacityDebtProducer` and
 has a checked same-carrier adapter

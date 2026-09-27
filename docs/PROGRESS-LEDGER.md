@@ -63,6 +63,20 @@ continuum/QFT, physical-mass, every-group, and Clay endpoints remain open.
 The dependency-complete monitored target passed in 2,602 jobs with only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+## Current increment: expose exact canonical/current unit-probe correlator identities (2026-09-27 UTC)
+
+`CurrentCarrierBridge.canonicalUnitProbe_twoStep_correlation_eq_current` and
+`CurrentCarrierBridge.canonicalUnitProbe_norm_eq_current`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1387--1412`)
+identify the canonical unit probe's two-step same-object coefficient and norm
+exactly with the existing current-carrier pairings. The selected canonical
+vector is therefore not merely bounded: its observable coefficient and
+normalization are tied to the same completed SU(2) carrier by kernel-checked
+equalities. The bridge, all-vector range section, OS/GNS realization,
+continuum/QFT, physical-mass, every-group, and Clay endpoints remain open.
+The dependency-complete monitored target passed in 2,602 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 ## Current increment: exact-rate certificate contracts into the semantic handoff (2026-09-27 UTC)
 
 `MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofExactRateCutoffRemoval`
