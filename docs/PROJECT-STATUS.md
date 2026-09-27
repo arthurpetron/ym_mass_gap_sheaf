@@ -1,5 +1,12 @@
 # Canonical one-page project status
 
+Verified supporting estimate restriction (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabResponseCollarCostObstruction.no_cubic_anchor_cost_nonincrease`
+rules out offsetting the current termwise collar cost by w^3 per added core
+face for w>=1/32. This is not a lower bound on actual signed coefficients or
+a Yang--Mills no-go. Seven focused gates passed; the normalized signed spatial
+estimate, physical scaling and continuum/Clay endpoint remain open.
+
 Verified supporting dyadic implication (2026-09-27 UTC; chart markers unchanged):
 `DyadicTimeNonextinction.eq_zero_of_endpoint_zero` proves that self-adjoint
 dyadic square laws and witnessed continuity rule out a zero endpoint correlation

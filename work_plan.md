@@ -25,6 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Response collar-cost route restriction checked (2026-09-27 UTC)
+
+The retained-head audit exposed a quantitative loss in the existing termwise
+response estimate: each added anchor costs 24 collar faces, hence 96 powers
+of the retained heat floor across the four partition factors.
+`BF4ExactSlabResponseCollarCostObstruction.activity_le_floor_of_nonincrease`
+proves that a nonincreasing scalar step needs activity <= headFloor(w)^96.
+`no_cubic_anchor_cost_nonincrease` rules out paying this by w^3 per core face
+when w>=1/32. This concerns the displayed majorant only: no actual coefficient
+lower bound, signed-sum divergence, or Yang--Mills nonexistence is asserted.
+
+NEXT: attack the SAME normalized signed `distanceActivity` before termwise
+absolute collar bounds, or prove a sharper original-partition comparison.
+Do not attempt to close the route merely by attaching a cubic per-face rate
+to the current collar cost. Existing one-face variance and guarded coupling
+path results already cover those local steps; no duplicate wrapper is needed.
+The actual spatial estimate, changing-spacing family, physical mass and
+continuum/all-group endpoint remain open. Canonical scalar approval is still
+pending, and no canonical fields have changed.
+
+Seven public gates passed the focused one-worker/20 GiB check. Sol reviewed
+the exact scope; no full-tree audit or broad chart-marker advance. Evidence:
+`audits/AUDIT-RESPONSE-COLLAR-COST-2026-09-27.md`.
+
 ### Physical-cutoff route correction and dyadic nonextinction checked (2026-09-27 UTC)
 
 The finite-source audit separates three independent issues. The current

@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Response collar-cost restriction (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/BF4ExactSlabResponseCollarCostObstruction.lean`.
+- **proved:** `collarFloor_step` (`:59`) identifies the original 96-power
+  loss per core entry; `activity_le_floor_of_nonincrease` (`:85`) cancels
+  the positive floors exactly. `no_cubic_anchor_cost_nonincrease` (`:124`)
+  rules out a nonincreasing cubic-activity step for w>=1/32 under the literal
+  existing incidence budget.
+- **boundary:** this constrains a proposed scalar majorant, not the actual
+  signed coefficients. No decay estimate, canonical atom, or physical no-go.
+  The existing global w^3 identity is not assumed to hold per core face.
+- **next:** retain signed normalized responses or improve the SAME partition
+  comparison; the actual cofactor estimate and physical scaling remain open.
+- **verification:** focused one-worker/20 GiB check passed seven gates with
+  only {propext, Quot.sound}. Initial syntax/namespace errors were corrected;
+  no statement or resource limit changed. Independent Sol scope review;
+  no full-tree audit, new hole, axiom, or canonical field edit.
+- **evidence:** `audits/AUDIT-RESPONSE-COLLAR-COST-2026-09-27.md`.
+
 ## Conditional dyadic nonextinction; physical-cutoff distinction (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/DyadicTimeNonextinction.lean`.
