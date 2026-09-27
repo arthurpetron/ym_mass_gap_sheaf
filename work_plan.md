@@ -25,6 +25,47 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original fixed-small-nome covariance decay proved (2026-09-27 UTC)
+
+The actual centered auxiliary now receives the proved volume-uniform reverse
+energy. With `c=2+(2/625)*(gamma/2)>2` and `rho=1/(c-1)`, the original
+covariance satisfies `Cov(p,q)^2 <= rho^(2n)*Var(p)*Var(q)` whenever
+`LinksDisjoint (grow extent (16*n) support) testSupport`. Both variances and
+the covariance use the SAME original full-action normalized expectation.
+`ChebyshevGeometricLower.pow_le_T` proves `T_n(x)>=x^n` for x>1;
+`SmallNomeCovarianceRate.degreeModulus` supplies explicit Nat data for the
+relative factor tolerance. The factor no longer pays the growing collar cost.
+
+`SmallNomeChebyshevCovarianceLimit.covariance_sq_geometric_bound` and
+`covariance_sq_epsilon_bound` carry the estimate through the EXISTING
+fixed-extent heat-cutoff limit. `existingNome_covariance_sq_geometric_bound`
+discharges all scalar guards at nome `1/1024`; `existingNome_rate_window`
+proves its rate lies strictly between zero and one. Extent, cutoff, observable
+support size and recurrence degree do not enter the rate. The geometric
+degree is not identified with physical time or physical distance.
+
+NEXT: test this exact small-nome window against the existing changing-spacing
+requirements before extending the branch. A justified scaling trajectory,
+same-observable transport and a nonzero finite-physical-time response remain
+necessary; fixed nome plus an arbitrary shrinking spacing is not such a
+construction. The boundary/volume edge is also unsupplied: the present bound
+uses the FULL original face set, while
+`BF4ExactSlabConnectedFaceResponse.finite_response_bound` consumes an estimate
+on a signed face-addition response for selected face sets. Establish that
+same-action response estimate and its summable boundary/volume modulus before
+claiming thermodynamic passage; do not assume it from fixed-volume clustering
+or rename it as a new analytic certificate. Keep physical scaling and
+nontrivial survival coupled in the next mathematical review.
+
+Five focused serialized one-worker/20 GiB checks passed all 31 printed gates
+within {propext, Quot.sound}; Sol/Luna proof tasks ran in parallel, with an
+independent parameter/same-object review. No new sorry, axiom, analytic bundle,
+weakened frontier or broad run. A03 and the canonical chart remain unchanged:
+same-theory scaling, thermodynamic/continuum, OS/QFT, physical mass and
+every-group Clay remain open. Evidence:
+`audits/AUDIT-SMALL-NOME-COVARIANCE-DECAY-2026-09-27.md`.
+Earlier covariance-decay open statements below are historical in this scope.
+
 ### Volume-uniform original small-nome coercivity proved (2026-09-27 UTC)
 
 `SmallNomeUniformCoercivity.volume_uniform_centered_coercivity` proves

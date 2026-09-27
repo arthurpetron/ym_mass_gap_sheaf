@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: volume-uniform original small-nome coercivity (2026-09-27 UTC)
+## Current increment: original fixed-small-nome covariance decay (2026-09-27 UTC)
+
+The actual centered auxiliary now receives the proved original reverse-energy
+bound with a parameter independent of support and degree. Elementary Chebyshev
+growth gives `Cov(p,q)^2 <= rho(w)^(2n)*Var(p)*Var(q)` under the existing
+sixteen-layer separation condition. Both variances remain original. The rate
+and explicit degree modulus have no extent or heat-cutoff cost. The bound
+passes to the existing fixed-volume cutoff-limit covariance; the exact pilot
+nome discharges all scalar guards. This is a new estimate, not another
+conditional wrapper around the missing coercivity.
+
+NEXT: assess compatibility with a justified scaling trajectory and nontrivial
+finite-physical-time survival. The selected-face signed boundary-response
+estimate and thermodynamic modulus are also missing; full-face fixed-volume
+clustering does not provide them automatically. Same-theory OS/QFT, physical
+Hamiltonian mass and every-group Clay remain open. No displayed canonical
+claim changes, so no chart is reprinted. Five focused serialized checks passed
+all 31 gates within {propext, Quot.sound}; parallel Sol/Luna proof tasks and
+independent source review. No full-tree/root build, full audit, progress-metric
+or guard run. Evidence:
+`audits/AUDIT-SMALL-NOME-COVARIANCE-DECAY-2026-09-27.md`.
+
+## Earlier increment: volume-uniform original small-nome coercivity (2026-09-27 UTC)
 
 The actual signed-neighbor sum now costs at most `50e*E`, counting both
 endpoints of ordered pairs. Consequently the original conditional generator

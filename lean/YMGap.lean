@@ -5527,6 +5527,12 @@ import YMGap.Continuum.BF4ExactSlabConditionalGeneratorDecay
 import YMGap.Continuum.RCGeometricErrorClosure
 import YMGap.Continuum.RCDescentCoercivity
 import YMGap.Continuum.BF4ExactSlabSmallNomeUniformCoercivity
+-- Fixed-small-nome original covariance decay and heat-cutoff limit, not physical scaling.
+import YMGap.Continuum.BF4ExactSlabSmallNomeChebyshevCovariance
+import YMGap.Continuum.ChebyshevGeometricLower
+import YMGap.Continuum.BF4ExactSlabSmallNomeCovarianceRate
+import YMGap.Continuum.BF4ExactSlabConditionalVariancePositive
+import YMGap.Continuum.BF4ExactSlabSmallNomeChebyshevCovarianceLimit
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

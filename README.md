@@ -10,6 +10,19 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original covariance decay with a volume-independent rate (2026-09-27):**
+at fixed small nome, the original covariance now satisfies
+`Cov(p,q)^2 <= rho(w)^(2n) * Var(p) * Var(q)`, with `0<rho(w)<1`,
+whenever the literal supports obey the checked sixteen-layer-per-degree
+separation condition. Both variances are ORIGINAL interacting variances.
+The rate has no volume, heat-cutoff, support-size or degree argument; an
+explicit degree modulus makes its squared factor at most epsilon squared.
+The SAME bound passes to the existing fixed-volume heat-cutoff limit.
+At nome `1/1024`, all scalar smallness guards are discharged. This is a
+fixed-nome covariance theorem, not a justified continuum scaling family,
+thermodynamic limit or OS/Hamiltonian gap. See the
+[proof and scope audit](audits/AUDIT-SMALL-NOME-COVARIANCE-DECAY-2026-09-27.md).
+
 **Volume-uniform original conditional coercivity (2026-09-27):** the SAME
 original full-action completion now satisfies
 `(gamma(w)/2)*||x||^2 <= sum_i ||(I-P_i)x||^2` for every centered vector,
@@ -19,8 +32,8 @@ Signed neighbor counting, energy descent and telescoping prove the bound;
 the older volume-dependent baseline is used only to remove a vanishing tail
 and does not enter the final coefficient. The result supplies the existing
 reverse-energy theorem with a coefficient independent of volume, test support
-and recurrence degree. Next: consume it in the original Chebyshev covariance
-bound. This is conditional-link dynamics, not a justified physical scaling
+and recurrence degree. Its original Chebyshev covariance consumer is now
+proved above. This is conditional-link dynamics, not a justified physical scaling
 family or an OS/Hamiltonian gap. See the
 [proof and scope audit](audits/AUDIT-SMALL-NOME-UNIFORM-COERCIVITY-2026-09-27.md).
 

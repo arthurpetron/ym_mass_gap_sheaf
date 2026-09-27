@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## Original fixed-small-nome covariance decay (2026-09-27 UTC)
+
+- **proved actual consumer:** `SmallNomeChebyshevCovariance.auxiliary_reverse_energy`
+  supplies the existing finite covariance theorem at the actual centered
+  auxiliary, for all degrees without a support-size cost.
+- **constructed rate/modulus:** `SmallNomeCovarianceRate.rate` is strictly
+  between zero and one and depends only on nome. `covarianceFactor_le_rate_pow`
+  proves geometric decay and `degreeModulus` returns an explicit Nat threshold.
+  `ChebyshevGeometricLower.pow_le_T` supplies the elementary scalar argument.
+- **same-object cutoff passage:** `SmallNomeChebyshevCovarianceLimit.covariance_sq_geometric_bound`
+  bounds squared original CReal covariance by the geometric factor times
+  BOTH original variances. `covariance_sq_epsilon_bound` consumes the explicit
+  modulus. `existingNome_covariance_sq_geometric_bound` discharges every
+  scalar guard at the actual pilot nome. Literal sixteen-layer separation
+  remains a premise; volume and observables are fixed during cutoff removal.
+- **open residue:** justified physical scaling and nontrivial survival,
+  selected-face signed boundary response/thermodynamic modulus, same-theory
+  OS/QFT, physical Hamiltonian mass and every compact simple group. No
+  ordinary conditional sweep is identified with OS time by these results.
+- **verification:** five focused serialized one-worker/20 GiB checks, all
+  31 printed gates within {propext, Quot.sound}; independent source review.
+  No new sorry, axiom, analytic bundle, canonical field/marker change or broad
+  build/audit/guard. Earlier fixed-small-nome covariance-decay obligations
+  are discharged only in the explicit scope above. Evidence:
+  `audits/AUDIT-SMALL-NOME-COVARIANCE-DECAY-2026-09-27.md`.
+
 ## Volume-uniform original small-nome coercivity (2026-09-27 UTC)
 
 - **proved actual signed sum:** `GNSProjectionSweep.Family.neighboringCross_lower`

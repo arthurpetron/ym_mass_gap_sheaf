@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting original covariance decay (2026-09-27 UTC; chart markers unchanged):
+`Cov(p,q)^2 <= rho(w)^(2n)*Var(p)*Var(q)` now holds with `0<rho(w)<1`,
+both ORIGINAL variances, and the checked sixteen-layer-per-degree separation.
+The rate and explicit degree modulus are independent of volume, heat cutoff
+and support size at the fixed guarded nome. The SAME bound passes to the
+fixed-volume heat-cutoff limit; all scalar guards are proved at nome `1/1024`.
+A03 requires a justified scaling family, not just fixed-nome decay, and remains
+open. Boundary-response/thermodynamic control and same-theory OS/QFT/physical
+mass/every-group Clay also remain open. All 31 gates passed five focused
+serialized checks; the canonical chart block is unchanged. Evidence:
+`audits/AUDIT-SMALL-NOME-COVARIANCE-DECAY-2026-09-27.md`.
+Earlier open statements below record their checkpoint's scope.
+
 Verified supporting original small-nome uniform coercivity (2026-09-27 UTC; chart markers unchanged):
 Every original completed centered vector now satisfies
 `(gamma/2)||x||^2 <= sum_i ||(I-P_i)x||^2`, with the SAME positive coefficient
