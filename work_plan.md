@@ -25,6 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original normalized covariance/sweep connection checked (2026-09-27 UTC)
+
+`BF4ExactSlabConditionalCovariance.covariance_as_sweep_pairing` identifies
+the EXISTING finite connected covariance with the reciprocal original
+partition times the iterated conditional-sweep pairing of two explicitly
+centered original polynomials. Their literal support is preserved. Both
+states live on the existing full-action completion; the constant retains
+squared norm Z. The cutoff stage and sweep rounds remain separate.
+This closes the finite covariance/normalization connection left open below.
+
+NEXT: useful contraction on THESE interacting centered states, including
+the missing common-fixed-complement identification and original-action
+coercivity with useful volume/coupling/scaling dependence. Global mean zero
+is now proved and preserved, but is not that identification. A bounded
+parallel geometric task converts cone separation into coordinate distance;
+Sol found an argument from existing edge windows and rooted-carrier size
+bounds. Neither the geometric conversion nor the analytic bound is yet
+proved. Do not add a decay wrapper that assumes the desired rate.
+
+All 11 gates passed the focused one-worker/20 GiB check; Sol independently
+reviewed the exact pins. No new analytic field, hole, canonical change,
+full-tree audit or chart-marker change. Physical scaling and continuum/Clay
+remain open. Evidence: `audits/AUDIT-CONDITIONAL-COVARIANCE-2026-09-27.md`.
+
 ### Eight-layer causal cone and separated pairing checked (2026-09-27 UTC)
 
 `BF4ExactSlabEightLayerCone` constructs a duplicate-free schedule containing

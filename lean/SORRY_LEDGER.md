@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Original normalized covariance/sweep connection (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/BF4ExactSlabConditionalCovariance.lean`.
+- **proved:** `normalized_centered_pair` (`:152`) and
+  `completed_covariance` (`:163`) identify the existing finite covariance
+  with the reciprocal original partition times the SAME completed pairing.
+  `centered_local` (`:158`) preserves literal support;
+  `sweep_centered_unit` (`:178`) preserves actual global centering;
+  `covariance_as_sweep_pairing` (`:190`) supplies the normalized iterated
+  eight-layer pairing before cone/test contact.
+- **residue:** useful same-sweep contraction, common-fixed-complement
+  identification, bounded-degree total-energy bound, and useful
+  original-action coercivity. Coordinate-distance conversion also remains
+  open. Cutoff stage and sweep count are separate; no physical-time,
+  spacing-uniform, continuum or Clay gap is claimed.
+- **verification:** all 11 focused gates passed within
+  {propext, Quot.sound}, one worker capped at 20 GiB. Sol reviewed the
+  exact normalization and same-carrier pins. No new sorry, analytic field,
+  canonical change or full-tree audit. Evidence:
+  `audits/AUDIT-CONDITIONAL-COVARIANCE-2026-09-27.md`.
+
 ## Exact eight-layer cone and separated original pairing (2026-09-27 UTC)
 
 - **files:** `lean/YMGap/Continuum/Z4LinkEightColor.lean`,

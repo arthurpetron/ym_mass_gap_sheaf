@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting covariance connection (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabConditionalCovariance.covariance_as_sweep_pairing` now pins the
+original NORMALIZED finite covariance to the actual iterated sweep pairing
+of two explicitly centered original polynomials. The same partition and
+completion are retained, and centering preserves literal link support.
+All 11 focused gates passed. Useful contraction, identification of the
+common-fixed complement, physical scaling and continuum/Clay remain open.
+This closes the finite normalization connection listed in earlier entries.
+Evidence: `audits/AUDIT-CONDITIONAL-COVARIANCE-2026-09-27.md`.
+
 Verified supporting spatial identity (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabEightLayerCone` constructs eight commuting physical link layers
 covering every link once. Its full sweep equals the computed cone-restricted
