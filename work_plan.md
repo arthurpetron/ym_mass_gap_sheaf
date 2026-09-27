@@ -120,6 +120,15 @@ algebraic lower budget, not a spacing-uniform estimate; the next B04 task is
 still to compare the denominator with `1 / changingSpacing` along the cofinal
 schedule.
 
+### Minimal B04 head-energy certificate (2026-09-26 UTC)
+
+`BF4PhysicalChangingNomeExplicitMarginLaw.lean:92--204` now exposes the exact
+`gapDenominator = 2 + 6*headEnergyConstant` presentation and a
+`ChangingNomeHeadEnergyProductBand` whose two fields are precisely the uniform
+spacing-product bounds still needed.  Its compiler preserves the actual
+changing family and denominator; it is not inhabited until the anchor-floor
+order estimate is proved.
+
 ### New finite producer (2026-09-25 UTC)
 
 `BF4ExactSlabWidthOneActualFringePairing.fringeTestNormFloor` and

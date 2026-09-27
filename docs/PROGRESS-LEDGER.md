@@ -159,6 +159,20 @@ scale at the fixed anchor.  The focused declaration reports only
 no lower order for the anchor floor, no denominator-versus-spacing comparison,
 and no OS/GNS, continuum/QFT, physical-mass, every-group, or Clay conclusion.
 
+## Current increment: minimal head-energy product-band certificate (2026-09-26 UTC)
+
+`changingNomeMarginDenominator_eqv_two_add_six_headEnergy`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:92--106`)
+is the exact algebraic presentation of the scheduled denominator as
+`2 + 6 * H(w_scale)`, with `H = headEnergyConstant`.  The new structure
+`ChangingNomeHeadEnergyProductBand` (`:146--164`) retains only the two uniform
+product inequalities against the unchanged spacing, and
+`ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand`
+(`:170--204`) compiles them into the existing same-family denominator band.
+The focused check reports only `{propext, Quot.sound}`.  The certificate is
+intentionally uninhabited: proving its two fields is exactly the remaining
+all-scale denominator-versus-spacing problem.
+
 ## Backward frontier expansion: changing-family tail inputs (2026-09-26 UTC)
 
 The finite-prefix response floor does not supply the asymptotic certificates

@@ -86,6 +86,25 @@ theorem changingNomeMarginDenominator_ge_two_add_twelve_scale (scale : Nat) :
     1 + (1 + Q'.ofNat 6 * headEnergyConstant w hw)
   exact Q'.le_trans' _ _ _ hadded (Q'.le_of_eqv hden)
 
+/-- The exact denominator expression needed by the changing-nome asymptotic
+    reduction.  This is an algebraic presentation only; it does not compare
+    the expression with the vanishing spacing. -/
+theorem changingNomeMarginDenominator_eqv_two_add_six_headEnergy
+    (scale : Nat) :
+    changingNomeMarginDenominator scale ≈
+      Q'.ofNat 2 + Q'.ofNat 6 *
+        headEnergyConstant
+          (changingNome scale)
+          (Q'.le_of_lt (changingNome_pos scale)) := by
+  unfold changingNomeMarginDenominator gapDenominator gapNumerator
+  let x : Q' := Q'.ofNat 6 *
+    headEnergyConstant (changingNome scale)
+      (Q'.le_of_lt (changingNome_pos scale))
+  change 1 + (1 + x) ≈ Q'.ofNat 2 + x
+  refine Q'.eqv_trans _ ((1 + 1) + x) _
+    (Q'.eqv_symm (Q'.add_assoc_eqv 1 1 x)) ?_
+  exact Q'.add_eqv_congr_right (1 + 1) (Q'.ofNat 2) x (by decide)
+
 /-- The changing family has an exact same-object reciprocal presentation of
 its lattice margin.  No spacing comparison is included. -/
 def changingNomeExplicitMarginInverseLaw :
@@ -119,6 +138,71 @@ are exactly the two uniform denominator-versus-spacing inequalities. -/
 abbrev changingNomeExplicitMarginDenominatorBand : Type 1 :=
   ExplicitMarginDenominatorBand changingNomeExplicitMarginInverseLaw
 
+/-! The remaining B04 input can now be stated directly at the anchored
+    head-energy level.  This is the smallest honest certificate below the
+    generic denominator band: it asks only for two uniform product bounds on
+    `2 + 6 * H(w_scale)`, with `H = S/F` the already-defined head quotient. -/
+
+structure ChangingNomeHeadEnergyProductBand : Type 1 where
+  floor : Q'
+  floor_pos : (0 : Q') < floor
+  ceiling : Q'
+  ceiling_pos : (0 : Q') < ceiling
+  lowerHeadEnergy : ∀ scale,
+    (floor * changingNomeDynamicFamily.transferSpacing.spacing scale) *
+        (Q'.ofNat 2 + Q'.ofNat 6 *
+          headEnergyConstant
+            (changingNome scale)
+            (Q'.le_of_lt (changingNome_pos scale))) ≤
+      (1 : Q')
+  upperHeadEnergy : ∀ scale,
+    (1 : Q') ≤
+      (ceiling * changingNomeDynamicFamily.transferSpacing.spacing scale) *
+        (Q'.ofNat 2 + Q'.ofNat 6 *
+          headEnergyConstant
+            (changingNome scale)
+            (Q'.le_of_lt (changingNome_pos scale)))
+
+/-- Compile the minimal head-energy product certificate into the existing
+    same-family denominator band without changing the spacing or denominator.
+    The certificate remains uninhabited until the cofinal floor-order estimate
+    for `F(w_scale)` is proved. -/
+def ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand
+    (band : ChangingNomeHeadEnergyProductBand) :
+    changingNomeExplicitMarginDenominatorBand where
+  floor := band.floor
+  floor_pos := band.floor_pos
+  ceiling := band.ceiling
+  ceiling_pos := band.ceiling_pos
+  lowerDenominator := by
+    intro scale
+    have htransport :
+        (band.floor * changingNomeDynamicFamily.transferSpacing.spacing scale) *
+            changingNomeMarginDenominator scale ≈
+          (band.floor * changingNomeDynamicFamily.transferSpacing.spacing scale) *
+            (Q'.ofNat 2 + Q'.ofNat 6 *
+              headEnergyConstant
+                (changingNome scale)
+                (Q'.le_of_lt (changingNome_pos scale))) :=
+      Q'.mul_eqv_congr_left _ _ _
+        (changingNomeMarginDenominator_eqv_two_add_six_headEnergy scale)
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv htransport)
+      (band.lowerHeadEnergy scale)
+  upperDenominator := by
+    intro scale
+    have htransport :
+        (band.ceiling * changingNomeDynamicFamily.transferSpacing.spacing scale) *
+            changingNomeMarginDenominator scale ≈
+          (band.ceiling * changingNomeDynamicFamily.transferSpacing.spacing scale) *
+            (Q'.ofNat 2 + Q'.ofNat 6 *
+              headEnergyConstant
+                (changingNome scale)
+                (Q'.le_of_lt (changingNome_pos scale))) :=
+      Q'.mul_eqv_congr_left _ _ _
+        (changingNomeMarginDenominator_eqv_two_add_six_headEnergy scale)
+    exact Q'.le_trans' _ _ _ (band.upperHeadEnergy scale)
+      (Q'.le_of_eqv (Q'.eqv_symm htransport))
+
 /-- Once the two specialized inequalities are supplied, the generic compiler
 produces the physical-rate band for the same changing family. -/
 def changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand
@@ -129,6 +213,8 @@ def changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand
 #print axioms changingNomeMarginDenominator
 #print axioms changingNomeMarginDenominator_pos
 #print axioms changingNomeMarginDenominator_ge_two_add_twelve_scale
+#print axioms changingNomeMarginDenominator_eqv_two_add_six_headEnergy
+#print axioms ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand
 #print axioms changingNomeExplicitMarginInverseLaw
 #print axioms changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand
 
