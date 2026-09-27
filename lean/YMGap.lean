@@ -5500,6 +5500,13 @@ import YMGap.Continuum.BF4ExactSlabLocalChebyshevObstruction
 import YMGap.Continuum.GNSProjectionResidualPair
 import YMGap.Continuum.GNSProjectionSignedEnergy
 import YMGap.Continuum.BF4ExactSlabSignedNeighborEnergy
+-- Same-original-action two-link form comparison, not yet a residual-pair gap.
+import YMGap.Continuum.BF4ExactSlabSmallNomePairCalibration
+import YMGap.Continuum.BF4ExactSlabSmallNomeCollarComparison
+import YMGap.Continuum.QuaternionHaarSignedFormComparison
+import YMGap.Continuum.SU2QuaternionWeightedHaarBlockProjection
+import YMGap.Continuum.BF4ExactSlabTwoLinkCompletionComparison
+import YMGap.Continuum.BF4ExactSlabTwoLinkSignedComparison
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

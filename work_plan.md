@@ -25,6 +25,43 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original two-link comparison constructed on the completion (2026-09-27 UTC)
+
+`SmallNomeCollarComparison.two_link_fullData_bounds` now proves the missing
+comparison `L*B0(p,p)<=B(p,p)<=U*B0(p,p)` for EVERY supported polynomial,
+including arbitrary spectator dependence. B is the original full action;
+B0 keeps every original face outside the two-link collar. With
+`delta=heatRemainderBound(w)`, the constants are `L=(1-delta)^12` and
+`U=(1+delta)^12`, independent of extent, heat cutoff and test support under
+the explicit small-nome guards. The exponent is an upper face budget.
+`TwoLinkCompletionComparison` constructs inverse identity-sequence maps
+with explicit Cauchy/null moduli and carries BOTH constants to all completed
+vectors. The existing pilot nome satisfies `25U<26L` by kernel computation.
+`TwoLinkSignedComparison.completed_signed_pair` also proves the two-sided
+signed polarization bound on arbitrary original completed vectors. Weighted
+coordinate self-adjointness and contraction are proved in the SAME detached
+background; none is asserted in the original full-action form.
+
+NEXT: construct the reference coordinate projections on the shared completed
+carrier and prove their same-range identities with the ACTUAL conditional
+projections: `P_i Q_i=Q_i` and `Q_i P_i=P_i`. Raw coordinate projections are
+orthogonal in B0, NOT in B; do not use original-form self-adjointness for them.
+Then compose the signed polarization bound and the two-error identity from
+the previous audit to bound actual neighboring residual pairings. Only after
+that join may ordered degree counting and the constructive H-squared-to-
+coercivity argument supply the existing
+`FiniteVolumeReverseEnergy.reverse_energy_of_coercivity_at_balanced` consumer.
+Do not re-assume these missing estimates as new analytic fields.
+
+This removes the original form-comparison/completion input, not the actual
+conditional-pair bound, its coercivity upgrade, or a continuum scaling
+trajectory. A03, OS/QFT/nontriviality/physical mass/every-group Clay and all
+canonical chart markers remain open/unchanged. Evidence and exact targeted
+verification: `audits/AUDIT-ORIGINAL-TWO-LINK-COMPARISON-2026-09-27.md`.
+Six focused serialized one-worker/20 GiB checks passed all 36 printed gates
+within {propext, Quot.sound}; Sol/Luna proof work and review ran in parallel.
+No full-tree/root build, full audit, guard, progress-metric or CI run.
+
 ### Original signed-energy lower-bound problem localized (2026-09-27 UTC)
 
 `SignedNeighborEnergy.conditionalGenerator_square` now proves, on the SAME

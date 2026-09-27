@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## Original two-link form comparison and completed realization (2026-09-27 UTC)
+
+- **proved original input:** `SmallNomeCollarComparison.two_link_fullData_bounds`
+  uses all original action factors and arbitrary supported test polynomials,
+  not just tests local on two links. The comparator retains every detached
+  face. Its factors `(1-delta)^12` and `(1+delta)^12` depend on nome, not
+  extent/cutoff/test support, under explicit small-nome guards.
+- **constructed completion:** `TwoLinkCompletionComparison.toBackground`
+  and `toFull` retain literal sequences, with explicit rescaled Cauchy/null
+  moduli. Both inverse and dense embedding identities are proved.
+  `completed_form_bounds` carries both original constants to EVERY vector.
+- **checked scalar input:** `SmallNomePairCalibration.existingNome_pair_calibration`
+  proves `25U<26L` at the existing rational nome; it is not a dynamics gap.
+- **signed completed input:** `TwoLinkSignedComparison.completed_signed_pair`
+  gives the signed mixed-form error bound for every original completed pair,
+  using the same explicit background maps. Weighted coordinate projection
+  contraction is separately proved for the actual detached background.
+- **open residue:** actual completed reference-coordinate operators and
+  their range pins against the original conditional projections, the signed
+  residual-pair lower estimate, its constructive coercivity upgrade and all
+  physical scaling/OS/QFT/nontriviality/mass/every-group Clay obligations.
+  The reference projections are not asserted self-adjoint in the original
+  full-action form. No new sorry, analytic bundle or canonical field.
+- **verification/evidence:** six focused serialized one-worker/20 GiB checks,
+  all 36 gates within {propext, Quot.sound}, and independent Sol/Luna review;
+  no root/full-tree build, full audit, guard or chart change.
+  `audits/AUDIT-ORIGINAL-TWO-LINK-COMPARISON-2026-09-27.md` records exact targets.
+
 ## Original signed neighborhood energy reduction (2026-09-27 UTC)
 
 - **proved:** `GNSProjectionSweep.Family.commuting_residual_pairing_eq_normSq`

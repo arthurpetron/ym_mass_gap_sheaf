@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: only signed neighbors can lower residual-sum energy (2026-09-27 UTC)
+## Current increment: actual two-link comparison reaches every completed vector (2026-09-27 UTC)
+
+The original full-action form now has the required near-one comparison to
+the SAME detached two-link background, with at most twelve face factors and
+arbitrary spectator dependence. The original norm comparison is proved, not
+an assumed certificate. Identity-sequence maps, explicit Cauchy/null moduli,
+inverse laws and closed-order passage transport both constants to the actual
+completion. The pilot scalar inequality `25U<26L` is separately checked.
+The signed mixed-form error inequality also reaches every original completed
+pair; no actual conditional-residual pair estimate is inferred from it alone.
+
+This supplies a missing input to the signed-neighbor perturbation argument.
+It does not yet prove the pair bound for ACTUAL conditional residuals:
+the reference coordinate projections must be realized and their ranges
+pinned on the original completed carrier. Coercivity and physical scaling
+remain open. No canonical node closes or chart changes. Parallel Sol/Luna
+proof and review tasks were independent; checks remained focused and serial.
+All 36 printed gates passed within {propext, Quot.sound}. No broad
+progress-metric/guard run. Evidence and verification boundary:
+`audits/AUDIT-ORIGINAL-TWO-LINK-COMPARISON-2026-09-27.md`.
+
+## Earlier increment: only signed neighbors can lower residual-sum energy (2026-09-27 UTC)
 
 The SAME original completed operator H=sum_i(I-P_i) now satisfies
 `<H x,x>=E(x)` and `||H x||^2=E(x)+C_near(x)+Q_remote(x)`.

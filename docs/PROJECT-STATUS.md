@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting original two-link comparison (2026-09-27 UTC; chart markers unchanged):
+The actual full-action form and common detached original background satisfy
+`(1-delta)^12*B0 <= B <= (1+delta)^12*B0`, for arbitrary spectator-dependent
+polynomials and every vector of the original completion. Identity-sequence
+comparison maps have explicit moduli and proved inverses. These constants
+also control the signed mixed-form error on every completed pair. They
+are extent/cutoff/support independent under explicit small-nome guards, not
+uniform along an established physical scaling trajectory. Actual conditional
+projection-range pins, the signed residual-pair bound and the coercivity
+upgrade remain open, as do A03 and same-theory OS/QFT/every-group Clay.
+All 36 gates passed six focused checks within {propext, Quot.sound}.
+Evidence: `audits/AUDIT-ORIGINAL-TWO-LINK-COMPARISON-2026-09-27.md`.
+
 Verified supporting signed-neighbor reduction (2026-09-27 UTC; chart markers unchanged):
 The actual original completed residual sum H satisfies `<Hx,x>=E(x)` and
 `||Hx||^2=E(x)+C_near(x)+Q_remote(x)`. Distinct-neighbor terms stay signed;

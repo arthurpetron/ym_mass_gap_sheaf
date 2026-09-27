@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Two-link comparison on the actual completion (2026-09-27):** the original
+full-action form is now bounded above and below by a common detached
+two-link background, with factors `(1+/-delta(w))^12`. Every other original
+face remains in that background. The constants are independent of extent,
+heat cutoff and test support, under explicit small-nome guards. Constructed
+maps with explicit moduli carry both bounds to every completed vector.
+The remaining step is the signed estimate for the actual conditional
+residual pair, including its projection-range identities. This is not an
+OS/physical gap or a justified continuum scaling estimate. See the
+[comparison proof and exact remaining join](audits/AUDIT-ORIGINAL-TWO-LINK-COMPARISON-2026-09-27.md).
+
 **Signed-energy obstruction localized (2026-09-27):** on the original
 completed carrier, Lean now decomposes the conditional residual-sum square
 into its Dirichlet energy, signed neighboring cross terms, and nonnegative
