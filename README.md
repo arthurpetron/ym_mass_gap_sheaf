@@ -10,13 +10,22 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Signed covariance identity proved (2026-09-27):** the exact four-copy
+conditional covariance identity retains shared exterior variables and all
+one-block action factors while exposing cancellation in the shared
+interaction. The original two-link slab action supplies all four face-factor
+classes. Focused Lean checks and independent review passed. A useful
+variance-relative bound and the normalized completed-operator join remain
+open; this is not a new spectral-gap or continuum theorem. See the
+[identity and normalization audit](audits/AUDIT-SIGNED-FOUR-COPY-COVARIANCE-2026-09-27.md).
+
 **Shared-factor comparison and route limit (2026-09-27):** a checked signed
 form comparison now charges only faces shared by two block lists, retaining
 every other original factor and arbitrary spectator dependence. The existing
 coarse floor/cap constants still cannot close the proposed neighbor budget
 at degree two or above; this is a limit of that estimate, not a Yang--Mills
-counterexample. Next: an exact signed covariance determinant preserving
-cancellation, then its still-missing original-action bound. All 28 gates
+counterexample. The cancellation-preserving covariance determinant is now
+proved above; its original-action bound remains missing. All 28 gates
 passed focused checks. See the
 [proof, obstruction and next-task audit](audits/AUDIT-BLOCK-SHARED-FACTOR-BUDGET-2026-09-27.md).
 

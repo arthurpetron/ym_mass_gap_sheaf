@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting signed four-copy identity (2026-09-27 UTC; chart unchanged):
+The conditional covariance numerator now has an exact signed determinant
+representation with shared exterior variables and a once-only exterior
+insertion. Duplicated one-block action factors are extracted exactly.
+The useful variance-relative estimate and actual normalizer/completed-space
+join remain open, along with A03 and the full same-theory Clay requirements.
+Focused resource-capped checks passed within {propext, Quot.sound}.
+Evidence: `audits/AUDIT-SIGNED-FOUR-COPY-COVARIANCE-2026-09-27.md`.
+
 Verified supporting shared-block comparison and budget exclusion (2026-09-27 UTC; chart markers unchanged):
 A signed original form comparison now pays only shared-face factors,
 retaining nonshared action and arbitrary spectator tests. The coarse existing

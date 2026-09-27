@@ -5551,6 +5551,11 @@ import YMGap.Continuum.BF4ExactSlabBlockNonneighborCommutation
 import YMGap.Continuum.BF4ExactSlabSharedFaceRegion
 import YMGap.Continuum.BF4ExactSlabSharedFaceComparison
 import YMGap.Continuum.BF4ExactSlabSharedFloorBudgetObstruction
+import YMGap.Continuum.SU2QuaternionDisjointPartialSwap
+import YMGap.Continuum.SU2QuaternionFamilyCovarianceReplica
+import YMGap.Continuum.SU2QuaternionFourCopyCovariance
+import YMGap.Continuum.SU2QuaternionSharedFactorDeterminant
+import YMGap.Continuum.BF4ExactSlabTwoLinkFourCopy
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

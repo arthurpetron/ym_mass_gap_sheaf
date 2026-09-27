@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Signed four-copy conditional covariance (2026-09-27 UTC)
+
+- **proved:** `SU2QuaternionFamilyCovarianceReplica.mixed_identity` and
+  `SU2QuaternionFourCopyCovariance.four_copy_identity` retain common exterior
+  variables, actual family Haar moments and a once-only exterior insertion.
+  `SU2QuaternionSharedFactorDeterminant.shared_factor_determinant` extracts
+  duplicated one-block factors while retaining the shared signed determinant.
+  `crossDeterminant_zero_of_left_independent` proves exact cancellation.
+- **original instance:** `BF4ExactSlabTwoLinkFourCopy.full_factor_pin` and
+  `original_shared_four_copy_identity` use the actual full action and all four
+  original face classes, for distinct physical links and spectator-dependent
+  tests. The exterior heat occurs once; no small-nome guard is imposed.
+- **open residue:** a useful original conditional variance-relative bound,
+  actual normalizer/reciprocal join to the completed prediction spaces,
+  block geometry and physically calibrated scaling/nontrivial survival.
+  The numerator identity alone is not the normalized original covariance.
+  Thermodynamic and same-theory OS/QFT/mass/every-group Clay remain open.
+- **verification:** focused serialized one-worker/20 GiB checks within
+  {propext, Quot.sound}; independent normalization/scope review. No new sorry,
+  axiom, analytic bundle, weakened field, chart change or broad run. Evidence:
+  `audits/AUDIT-SIGNED-FOUR-COPY-COVARIANCE-2026-09-27.md`.
+
 ## Shared-block signed form and coarse degree-budget obstruction (2026-09-27 UTC)
 
 - **proved:** `SharedFaceRegion.shared_partition`, count bounds and singleton

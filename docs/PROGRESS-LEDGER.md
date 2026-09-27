@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: shared-block form comparison and budget obstruction (2026-09-27 UTC)
+## Current increment: signed four-copy conditional covariance (2026-09-27 UTC)
+
+The missing exact determinant identity is proved, including its factor four,
+shared exterior variables and once-only exterior insertion. One-block action
+factors are duplicated explicitly; only the shared interaction remains inside
+the signed determinant. No estimate or normalized completed pairing follows
+from the identity alone. NEXT: useful conditional-variance-relative control and
+the actual reciprocal-normalizer join. Physical scaling, thermodynamic control
+and same-theory OS/QFT/nontriviality/mass/every-group Clay remain open.
+Focused serialized resource-capped checks passed within {propext, Quot.sound}.
+No new sorry, axiom, assumed analytic bundle or canonical chart change.
+Evidence: `audits/AUDIT-SIGNED-FOUR-COPY-COVARIANCE-2026-09-27.md`.
+
+## Earlier increment: shared-block form comparison and budget obstruction (2026-09-27 UTC)
 
 The original full form now has a signed comparison charging only shared
 faces, with every other factor and all spectator dependence retained. The

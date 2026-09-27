@@ -25,6 +25,38 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Signed four-copy covariance identity proved (2026-09-27 UTC)
+
+`SU2QuaternionFourCopyCovariance.four_copy_identity` proves the factor-four
+conditional covariance identity for disjoint selected coordinate families,
+with the SAME shared exterior variables and a once-only exterior insertion.
+`SharedFactorDeterminant.shared_factor_determinant` extracts the duplicated
+A-only/B-only action factors, leaving the signed shared interaction
+`K*R_AB(K)-R_A(K)*R_B(K)` intact. The determinant vanishes when the interaction
+is independent of A; no absolute window is substituted for that cancellation.
+`BF4ExactSlabTwoLinkFourCopy.original_shared_four_copy_identity` instantiates
+this on distinct original physical links with the actual shared, left-only,
+right-only and neither-face heat products. Tests may depend on every exterior
+variable; only the opposite selected coordinate is excluded. `full_factor_pin`
+identifies their product with the complete original action. No nome/positivity
+guard is needed for these polynomial identities.
+
+NEXT: bound this actual signed determinant relative to the interacting
+conditional variances on a justified scaling family. The identity is a
+division-free numerator, not yet the original normalized completed pairing:
+with full action E*W and D=P_AB(W), the outer conditional-covariance pairing
+requires E*N/D, not merely E*N. Reuse the constructed original block inverse
+and projection to prove that join; do not assume it or replace D by a global
+floor. The useful estimate, completed prediction-space join, block geometry,
+physical scaling/nontrivial survival, thermodynamic control and same-theory
+OS/QFT/mass/every-group Clay remain open. No new assumed-angle bundle.
+
+Focused serialized one-worker/20 GiB checks and an independent mathematical
+review verify the identity and factorization within {propext, Quot.sound}.
+No new sorry, axiom, weakened frontier, broad run or canonical chart change.
+Evidence: `audits/AUDIT-SIGNED-FOUR-COPY-COVARIANCE-2026-09-27.md`.
+Earlier identity-open entries below are historical in the scope just proved.
+
 ### Shared-block comparison checked; coarse-window route pruned (2026-09-27 UTC)
 
 `SharedFaceRegion` generalizes the existing singleton shared-face geometry to
