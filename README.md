@@ -3496,6 +3496,12 @@ dimensional-transmutation inputs—`PhysicalGapFloor` and
 claim is hidden by this transport.  The focused check remains within
 `{propext, Quot.sound}` and produces no `sorryAx`.
 
+`toExactRateCutoffRemoval` now continues that route through the constructive
+cutoff-removal compiler: an explicit exact-rate Cauchy modulus and
+spacing-to-zero modulus produce the surviving floor/ceiling record.  The
+projective measure, OS/GNS, reconstruction, continuum, and Clay obligations
+remain explicit; no such result is inferred by the adapter.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,

@@ -22,6 +22,7 @@ import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCo
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 import YMGap.Continuum.PhysicalSeparatorFullLogComparison
+import YMGap.Continuum.PhysicalSeparatorContinuumRealization
 
 namespace YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
 
@@ -49,6 +50,8 @@ open YMGap.Continuum.SummableRationalStepVariationPrefixTailClosure
 open YMGap.Continuum.PhysicalSeparator
 open YMGap.Continuum.PhysicalSeparatorFullLogComparison
 open YMGap.Continuum.PhysicalSeparatorFullLogRate
+open YMGap.Continuum.PhysicalSeparatorContinuumRealization
+open YMGap.Continuum.PhysicalSeparatorLinearTail
 
 namespace MatchedPhysicalDynamicScalarTrajectory
 
@@ -356,6 +359,47 @@ def toFullRangeExactPhysicalSeparatorCertificate
     (trajectory.toCompletedFamily producer).transferSpacing.spacing_pos
     gapFloor ceiling
 
+/-- The exact-log certificate contracts further to cutoff removal from the
+explicit Cauchy modulus of the exact physical-rate sequence and the supplied
+spacing-to-zero modulus.  The existing constructive limit compiler derives
+both surviving band inequalities; no continuum measure or OS datum is chosen.
+-/
+def toExactRateCutoffRemoval
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness :
+      PhysicalExponentialObservableWitness trajectory producer)
+    (gapFloor :
+      PhysicalGapFloor
+        (PhysicalExponentialObservableWitness.physicalSeparator witness)
+        (trajectory.toCompletedFamily producer).transferSpacing.spacing
+        (trajectory.toCompletedFamily producer).transferSpacing.spacing_pos)
+    (ceiling :
+      FullRangeLogRateCeiling
+        (fullRangeRateFamilyOfPhysicalData
+          (PhysicalExponentialObservableWitness.physicalSeparator witness)
+          (trajectory.toCompletedFamily producer).transferSpacing.spacing
+          (trajectory.toCompletedFamily producer).transferSpacing.spacing_pos))
+    (spacingToZero :
+      SpacingToZero
+        (fullRangeRateFamilyOfPhysicalData
+          (PhysicalExponentialObservableWitness.physicalSeparator witness)
+          (trajectory.toCompletedFamily producer).transferSpacing.spacing
+          (trajectory.toCompletedFamily producer).transferSpacing.spacing_pos).physicalSpacing)
+    (rateCauchy :
+      CReal.ModCauchyEv
+        (fullRangeRateFamilyOfPhysicalData
+          (PhysicalExponentialObservableWitness.physicalSeparator witness)
+          (trajectory.toCompletedFamily producer).transferSpacing.spacing
+          (trajectory.toCompletedFamily producer).transferSpacing.spacing_pos).rate) :
+    ExactRateCutoffRemoval
+      (toFullRangeExactPhysicalSeparatorCertificate witness gapFloor ceiling) :=
+  ExactRateLimitData.withSpacing
+    (ExactRateLimitData.ofRateCauchy rateCauchy) spacingToZero
+
 /-! ## 6. Contract the local producer to the correlated same-edge debt seam -/
 
 /-- The correlated capacity-debt compiler supplies the exact local producer
@@ -455,6 +499,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.PhysicalExponentialObservableWitness.physicalSeparator_gapObservable_zero_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toFullRangeExactPhysicalSeparatorCertificate
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.localProducer_ofCorrelatedCapacityDebt
 #print axioms

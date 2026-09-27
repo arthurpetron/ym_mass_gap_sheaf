@@ -30864,3 +30864,10 @@ uses the literal completed-family spacing and separator and requires exactly
 the two missing dimensional-transmutation inputs, `PhysicalGapFloor` and
 `FullRangeLogRateCeiling`; it proves neither.  The focused monitored build
 remains 5,133 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+
+The matched exact-log adapter now reaches `ExactRateCutoffRemoval` through
+`toExactRateCutoffRemoval`.  Given the explicit exact-rate Cauchy modulus and
+spacing-to-zero modulus, the existing constructive limit compiler derives
+the surviving positive floor and finite ceiling; projective measure, OS/GNS,
+and reconstruction bridges remain untouched.  The focused monitored build
+remains 5,133 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
