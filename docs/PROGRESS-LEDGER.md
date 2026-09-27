@@ -129,6 +129,13 @@ division compiler: whenever a positive quotient has denominator at most one
 half, its value is at least twice its positive numerator.  Both declarations
 pass the focused monitored check with only `{propext, Quot.sound}`.
 
+`headEnergyConstant_eq_divPos` and
+`fixedBasePulledPositiveEdgeFloorValue_mul_headEnergyConstant_eqv_scale`
+(`lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean:172--189`)
+expose the corresponding exact quotient and multiplication identities without
+unfolding the dependent carrier in downstream files; they are projection
+lemmas, not asymptotic estimates.
+
 This sharpens the B04 asymptotic target by exposing a one-sided finite budget,
 but it does not silently instantiate the dependent `headEnergyConstant` or
 claim a denominator bound: the missing cofinal lower estimate on the actual
