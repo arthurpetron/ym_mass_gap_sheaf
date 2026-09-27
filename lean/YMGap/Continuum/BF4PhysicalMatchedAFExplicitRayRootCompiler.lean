@@ -23,6 +23,7 @@ import YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellEntropy
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellStateLoadFactorization
+import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellPointwiseDecayObstruction
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceFlow
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMoment
 import YMGap.Continuum.BF4PhysicalVacuumSectorMassExactExplicitRayOffRayResistanceGap
@@ -44,6 +45,7 @@ open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootCoercivity
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellEntropy
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellStateLoadFactorization
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellPointwiseDecayObstruction
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceFlow
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMoment
 open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
@@ -535,6 +537,65 @@ theorem MatchedPhysicalExplicitRayFactorizedDecayProducer.fraction_pos
     (0 : Q') < producer.toRootProducer.fraction scale := by
   exact producer.toResistanceProducer.fraction_pos scale
 
+/-! ## 9. Occupied-shell obstruction at the matched boundary -/
+
+/-- Every occupied physical-mass shell forces the matched state-load envelope
+to pay at least one unit.  This is inherited from the exact finite row
+identity, not an additional analytic assumption. -/
+theorem MatchedPhysicalExplicitRayStateLoadDecayProducer.one_le_envelope_of_shell_member
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (scale K : Nat) (hK :
+      (producer.offRayStateLoadDecay scale).start ≤ K)
+    (source target shell state : Nat)
+    (hshell : shell <
+      centralLowerExcitedSpinCubeOffRayRootPhysicalMassShellCount
+        (trajectory.nome scale)
+        (Q'.le_of_lt (trajectory.nome_pos scale)) K)
+    (hstate : state ∈
+      centralLowerExcitedSpinCubeOffRayRootEdgePhysicalMassShellStates
+        (trajectory.nome scale)
+        (Q'.le_of_lt (trajectory.nome_pos scale)) K source target shell) :
+    (1 : Q') ≤
+      (producer.offRayStateLoadDecay scale).loadAmplitude *
+        (producer.offRayStateLoadDecay scale).loadRatio ^ shell := by
+  exact
+    FixedNomeCofinalSpinCubeOffRayRootResistancePhysicalMassStateLoadDecay.one_le_decayEnvelope_of_shell_member
+      (producer.offRayStateLoadDecay scale) K hK source target shell state
+      hshell hstate
+
+/-- The same occupied-shell obstruction after the stationary-weight/path
+resistance factorization. -/
+theorem MatchedPhysicalExplicitRayFactorizedDecayProducer.one_le_envelope_of_shell_member
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (scale K : Nat) (hK :
+      (producer.offRayFactorized scale).start ≤ K)
+    (source target shell state : Nat)
+    (hshell : shell <
+      centralLowerExcitedSpinCubeOffRayRootPhysicalMassShellCount
+        (trajectory.nome scale)
+        (Q'.le_of_lt (trajectory.nome_pos scale)) K)
+    (hstate : state ∈
+      centralLowerExcitedSpinCubeOffRayRootEdgePhysicalMassShellStates
+        (trajectory.nome scale)
+        (Q'.le_of_lt (trajectory.nome_pos scale)) K source target shell) :
+    (1 : Q') ≤
+      ((producer.offRayFactorized scale).stationaryAmplitude *
+          (producer.offRayFactorized scale).resistanceAmplitude) *
+        ((producer.offRayFactorized scale).stationaryRatio *
+          (producer.offRayFactorized scale).resistanceRatio) ^ shell := by
+  exact
+    FixedNomeCofinalSpinCubeOffRayRootResistancePhysicalMassWeightPathFactorizedDecay.one_le_factorizedEnvelope_of_shell_member
+      (producer.offRayFactorized scale) K hK source target shell state
+      hshell hstate
+
 end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 
 /-! ## Dependency gates -/
@@ -607,3 +668,7 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toCompletedFamily_latticeMargin_eqv_fraction
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.fraction_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.one_le_envelope_of_shell_member
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.one_le_envelope_of_shell_member

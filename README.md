@@ -92,6 +92,10 @@ The remaining pointwise input is also available in factored form through
 weight decay from canonical-path resistance growth before the checked product
 compiler rejoins them.  Neither factorized certificate is currently
 inhabited uniformly; all physical/continuum/Clay joins remain open.
+The exact finite occupied-shell obstruction is now transported to both
+interfaces: every occupied shell forces the state-load or factored envelope
+to be at least one.  This constrains, but does not by itself refute, a future
+uniform witness because unbounded shell occupancy is still an open input.
 
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive

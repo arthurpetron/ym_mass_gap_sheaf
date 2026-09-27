@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **115**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **116**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -122,6 +122,14 @@ transfer, vacuum complement, posterior fraction, and exact lattice-margin
 identity.  This is a further input reduction only; the moment bound, physical
 calibration, OS/GNS passage, continuum/QFT construction, physical mass,
 every-group theorem, and Clay result remain open.
+
+The matched boundary now also transports the exact occupied-shell obstruction:
+`one_le_envelope_of_shell_member` proves, for both the minimal state-load and
+factored decay inputs, that every occupied physical-mass shell has envelope
+at least one.  This is inherited from the finite row identity and constrains
+any future uniform decay witness; it is not a contradiction without a proved
+unbounded-occupancy hypothesis.  Physical calibration, OS/GNS passage,
+continuum/QFT construction, physical mass, every-group, and Clay remain open.
 
 The pointwise decay boundary is also factored constructively into separate
 stationary-weight and canonical-path-resistance mechanisms by
@@ -1832,3 +1840,4 @@ still consumes the two unproved all-scale pointwise inequalities.
 | 1 / 129 | 2026-09-26 | Added the alternate physical-mass-shell input `MatchedPhysicalExplicitRayMassShellProducer`. Its existing entropy/state-load shell compiler reaches the same resistance boundary, explicit ray, completed carrier, posterior fraction, and exact margin identity; the shell certificate and all physical/continuum/Clay joins remain open, with no canonical chart marker change. |
 | 1 / 130 | 2026-09-26 | Used the already proved finite shell-entropy estimate to add `MatchedPhysicalExplicitRayStateLoadDecayProducer`, whose sole scale-indexed input is pointwise physical-mass state-load decay. The entropy compiler then reaches the same resistance boundary, completed carrier, posterior fraction, and exact margin identity; decay and all physical/continuum/Clay joins remain open, with no canonical chart marker change. |
 | 1 / 131 | 2026-09-26 | Factored the remaining pointwise input into separate stationary-weight decay and canonical-path resistance-growth data with `MatchedPhysicalExplicitRayFactorizedDecayProducer`; the checked product compiler rejoins them and preserves the same completed carrier, posterior fraction, and exact margin identity. The factorized inputs and all physical/continuum/Clay joins remain open, with no canonical chart marker change. |
+| 1 / 132 | 2026-09-26 | Transported the finite occupied-shell obstruction to the matched state-load and factorized producers: every occupied shell forces the corresponding decay envelope to be at least one. This constrains any future uniform decay witness but is not a contradiction without unbounded shell occupancy; no canonical chart marker changed. |

@@ -30064,6 +30064,25 @@ bound and does not close physical spacing calibration, OS/GNS, continuum/QFT,
 physical mass, every-group, or Clay obligations.  No canonical chart marker
 changed.
 
+## Occupied-shell obstruction reaches the matched dynamic boundary (2026-09-26 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now transports the exact
+finite obstruction through
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.one_le_envelope_of_shell_member`
+and
+`MatchedPhysicalExplicitRayFactorizedDecayProducer.one_le_envelope_of_shell_member`.
+For every matched scale, cutoff, directed edge, and occupied physical-mass
+shell, the proposed state-load envelope and its stationary-weight/path-
+resistance factorization are each bounded below by one.  The result follows
+from the finite row identity and does not introduce a new analytic axiom.
+
+The monitored source check reports only `{propext, Quot.sound}` and no
+`sorryAx`.  This is a necessary-condition transport, not a contradiction:
+unbounded occupied-shell growth has not been proved.  Physical calibration,
+the observable pin, OS/GNS passage, continuum/QFT construction, physical
+mass, every-group theorem, and Clay target remain open; no canonical chart
+marker changed.
+
 ## Factorized physical-mass decay handoff (2026-09-26 UTC)
 
 `BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
