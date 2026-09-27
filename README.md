@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Actual conditional energy with support-only cost (2026-09-27):** for every
+original-centered polynomial on at most s literal links, the actual completed
+conditional residuals now control its original norm with positive coefficient
+`headFloor(w)^(6s)/prefixCap(w)^(6s)`. The shared exterior action cancels without
+an all-volume penalty. The input is still an embedded local polynomial, not
+an arbitrary completed auxiliary state; growing-support and changing-coupling
+control remain open. See the [proof and precise scope](audits/AUDIT-ORIGINAL-LOCAL-SUPPORT-COERCIVITY-2026-09-27.md).
+
 **Local variance without a volume penalty (2026-09-27):** two-sided bounds
 now compare the SAME original interacting variance with Haar variance for
 every polynomial on at most s literal links. Their positive constant depends

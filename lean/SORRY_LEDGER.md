@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## Actual local conditional Dirichlet bound with support-only cost (2026-09-27 UTC)
+
+- **proved:** `SU2QuaternionWeightedHaarProjectionMinimum.weighted_fluctuation_le_difference`
+  is weighted Haar projection minimality when the nonnegative background
+  and comparison probe omit the selected coordinate. `LocalSupportFluctuation`
+  proves the needed literal locality, outside-support zero, and independence.
+- **actual residual:** `BF4ExactSlabLocalSupportResidualFloor.conditional_residual_local_floor`
+  passes the common-background probe lower estimate through the actual
+  inverse Cauchy construction. Every physical link uses the SAME background.
+- **constructed coercivity:** `BF4ExactSlabLocalSupportCoercivity.dense_local_coercivity`
+  proves `supportRatio(w,s)*||embed(p)||^2 <= finalEnergy(embed(p))` for every
+  original-centered polynomial with literal support of size at most s.
+  `LocalSupportHaarVariance` supplies the matching norm upper estimate; exact
+  schedule summation removes the shared exterior mass without division by it.
+- **open:** literal-local Cauchy realization of completed auxiliary states,
+  growing-support/changing-coupling control, arbitrary completed-state
+  improvement, thermodynamic/scaling/OS/QFT, physical Hamiltonian mass,
+  nontrivial continuum survival, every compact simple group and Clay.
+- **verification:** seven focused serialized one-worker/20 GiB checks, all 29
+  printed gates within {propext, Quot.sound}; Sol/Luna proof and scope review.
+  No new sorry, axiom, canonical field, chart-marker change or broad build.
+  Evidence: `audits/AUDIT-ORIGINAL-LOCAL-SUPPORT-COERCIVITY-2026-09-27.md`.
+
 ## Original local variance with support-only comparison cost (2026-09-27 UTC)
 
 - **proved:** `BF4ExactSlabLocalSupportComparison` retains the detached original
@@ -14,8 +37,9 @@
 - **consumer:** `BF4ExactSlabLocalSupportCovariance` proves both bounds for
   the existing finite original diagonal covariance and its fixed-extent
   heat-cutoff limit. There is no new probability law or limit assumption.
-- **open:** actual conditional-residual lower comparison with local cost,
-  growing-support/changing-coupling control, all-completed-state improvement,
+- **open:** the local residual lower comparison is now proved above on dense
+  literal-local inputs; completed auxiliary realization, growing-support/
+  changing-coupling control, all-completed-state improvement,
   thermodynamic/scaling/OS/QFT, physical Hamiltonian mass, nontrivial continuum
   survival, every compact simple group and Clay. No displayed node closes.
 - **verification:** four focused serialized one-worker/20 GiB checks, all 38

@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual conditional Dirichlet bound with support-only cost (2026-09-27 UTC)
+
+`BF4ExactSlabLocalSupportCoercivity.dense_local_coercivity` now proves
+`delta(w,s)*||embed(p)||^2 <= sum_i ||(I-P_i)embed(p)||^2`, with the SAME
+original full-action norm and completed conditional projections. Here p is
+an original-centered polynomial with literal support of size at most s and
+`delta(w,s)=headFloor(w)^(6s)/prefixCap(w)^(6s)>0`. Both upper norm and lower
+residual estimates retain one common detached original mass. Weighted Haar
+least squares, inverse Cauchy approximation and exact schedule summation
+compose the estimates before division; the detached mass disappears without
+an all-volume floor. The coefficient is independent of extent and late cutoff.
+
+NEXT: construct literal-local Cauchy representatives for the ACTUAL completed
+auxiliary states, preserving their computed cone, and pass this estimate
+through that completion. Then control the displayed support-size and nome
+costs on a justified scaling family. Operational `EightLayerCone.Localized`
+alone is not a proved literal-local representative. An arbitrary completed
+all-state improvement, thermodynamic/scaling/OS/QFT, physical Hamiltonian mass,
+nontrivial continuum survival and every-group Clay remain open.
+
+Seven focused serialized one-worker/20 GiB checks passed all 29 printed gates
+within {propext, Quot.sound}; Sol proof/review and Luna proof work ran in
+parallel. No new hole, canonical field, chart-marker change or full-tree/
+audit/guard run. Evidence:
+`audits/AUDIT-ORIGINAL-LOCAL-SUPPORT-COERCIVITY-2026-09-27.md`.
+
 ### Original local variance without an all-volume cost (2026-09-27 UTC)
 
 For every supported polynomial local on at most s literal links, the SAME
@@ -36,8 +62,8 @@ The factor is independent of extent, placement and late heat cutoff; nome
 and support-size dependence remain explicit. `LocalSupportCovariance` pins
 the result to the existing finite covariance and its fixed-extent cutoff limit.
 
-NEXT: retain the same exterior in a lower estimate for the actual conditional
-residuals. The local variance theorem alone does NOT improve the all-state
+The originally next local residual comparison is now proved above for
+embedded literal-local inputs. The local variance theorem alone does NOT improve the all-state
 completed coercivity coefficient below: literal polynomial support is not
 automatically the operational support of the completed auxiliary, and the
 support/coupling costs must still be controlled on a justified scaling family.

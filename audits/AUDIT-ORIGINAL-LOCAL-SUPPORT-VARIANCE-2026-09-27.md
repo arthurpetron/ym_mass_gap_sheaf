@@ -1,5 +1,11 @@
 # Original local variance with no all-volume comparison cost
 
+Historical checkpoint: `8f8ab78`; declaration line references and four-check
+counts below refer to that checkpoint. The subsequent
+[local conditional coercivity proof](AUDIT-ORIGINAL-LOCAL-SUPPORT-COERCIVITY-2026-09-27.md)
+supplies the residual estimate on embedded literal-local inputs, but not on
+arbitrary completed auxiliary states or a scaling family.
+
 ## Checked estimate
 
 For 0<w<1, any finite extent, K>=headCutoff(w), and a supported polynomial

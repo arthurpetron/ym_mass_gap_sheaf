@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original local variance without all-volume cost (2026-09-27 UTC)
+## Current increment: actual local conditional energy without all-volume cost (2026-09-27 UTC)
+
+`dense_local_coercivity` constructs the positive support-only coefficient for
+the SAME original norm and completed conditional residual sum, on embedded
+original-centered literal-local polynomials. Weighted projection minimality
+bounds every inverse probe; closed CReal order gives the actual residual
+bound. The common detached mass matches the local norm upper estimate and
+cancels division-free after exact physical schedule summation. This closes
+the dense local residual estimate, not just an assumed analytic interface.
+
+The coefficient depends on nome and support size. Literal-local realization
+of the completed auxiliary, growing-cone/changing-coupling control and the
+same-theory continuum/OS/QFT/every-group target remain open. All 29 gates
+passed seven focused serialized one-worker/20 GiB checks; Sol and Luna proof
+work and independent review ran in parallel. No canonical node closes or
+broad progress-metric/guard run occurs. Evidence:
+`audits/AUDIT-ORIGINAL-LOCAL-SUPPORT-COERCIVITY-2026-09-27.md`.
+
+## Earlier increment: original local variance without all-volume cost (2026-09-27 UTC)
 
 Exact detached-background factorization and comparison of numerator and
 partition now yield two-sided SAME original variance bounds for any polynomial
@@ -16,8 +34,9 @@ Sol proof/review and Luna source lookup ran in parallel.
 
 This is an actual estimate, not a new conditional wrapper. It controls local
 normalization but does not improve the all-completed-state reverse-energy
-coefficient: actual residual comparison, growing cones and changing coupling
-remain to be controlled. No canonical node or Clay endpoint closes. No broad
+coefficient: the new dense local residual comparison above still leaves
+completed auxiliary realization, growing cones and changing coupling open.
+No canonical node or Clay endpoint closes. No broad
 progress-metric/guard run. Evidence:
 `audits/AUDIT-ORIGINAL-LOCAL-SUPPORT-VARIANCE-2026-09-27.md`.
 

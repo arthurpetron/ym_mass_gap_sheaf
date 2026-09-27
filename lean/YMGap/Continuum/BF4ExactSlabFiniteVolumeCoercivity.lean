@@ -102,7 +102,8 @@ local notation "P" => projections hw0 hw1 K extent hK
 local notation "U" => (Subtype.mk polyOne
   (supported_one (List.length (boundaryCompleteSlabLinks extent))))
 
-private theorem free_energy_schedule (p : (F).V) :
+/-- The original physical schedule sums each bare coordinate energy once. -/
+theorem free_energy_schedule (p : (F).V) :
     sumOn (schedule extent) (fun i => rat (haarSquare
       (boundaryCompleteSlabLinks extent).length
       (fluctuation ((boundaryCompleteSlabLinks extent).idxOf i.val) p.val))) =
@@ -185,6 +186,7 @@ theorem dense_centered_coercivity (p : (F).V) (hcenter : (F).B p U ≈ 0) :
 #print axioms volumeFloor_positive
 #print axioms volumeCap_positive
 #print axioms coercivity_positive
+#print axioms free_energy_schedule
 #print axioms free_energy_le_original_dirichlet
 #print axioms dense_centered_coercivity_mul
 #print axioms dense_centered_coercivity

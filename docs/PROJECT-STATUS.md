@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting local conditional coercivity (2026-09-27 UTC; chart markers unchanged):
+The ACTUAL completed conditional residuals control the original norm of each
+original-centered polynomial on at most s literal links, with positive factor
+`headFloor(w)^(6s)/prefixCap(w)^(6s)`. One shared exterior mass cancels without
+an all-volume cost. Seven focused checks passed all 29 gates. This is not yet
+a bound on arbitrary completed auxiliary states: their literal-local Cauchy
+realization, growing-support and changing-coupling control remain open.
+A03 and the OS/continuum/QFT/every-group Clay target remain open. Evidence:
+`audits/AUDIT-ORIGINAL-LOCAL-SUPPORT-COERCIVITY-2026-09-27.md`.
+
 Verified supporting support-only variance comparison (2026-09-27 UTC; chart markers unchanged):
 The SAME original variance of any polynomial on at most s literal links is
 bounded in both directions by Haar variance with positive factor

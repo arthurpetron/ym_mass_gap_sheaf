@@ -5479,6 +5479,12 @@ import YMGap.Continuum.BF4ExactSlabFiniteVolumeChebyshevCovariance
 import YMGap.Continuum.BF4ExactSlabLocalSupportComparison
 import YMGap.Continuum.BF4ExactSlabLocalSupportVariance
 import YMGap.Continuum.BF4ExactSlabLocalSupportCovariance
+-- Support-only actual conditional energy on dense local inputs, not all states.
+import YMGap.Continuum.SU2QuaternionWeightedHaarProjectionMinimum
+import YMGap.Continuum.BF4ExactSlabLocalSupportFluctuation
+import YMGap.Continuum.BF4ExactSlabLocalSupportHaarVariance
+import YMGap.Continuum.BF4ExactSlabLocalSupportResidualFloor
+import YMGap.Continuum.BF4ExactSlabLocalSupportCoercivity
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

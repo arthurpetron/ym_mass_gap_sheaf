@@ -173,6 +173,19 @@ private theorem ratio_le {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
   exact Q'.le_of_mul_le_mul_left (Q'.le_trans' _ _ _ (Q'.le_of_eqv he) h)
     (supportCap_positive hw0 hw1 size)
 
+/-- The same explicit support budget bounds both exact collar constants. -/
+theorem support_collar_bounds {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (extent : Nat) (S : List Z4Link) (size : Nat) (hsize : S.length ≤ size) :
+    supportFloor w size ≤ (headFloor w)^(collarCount extent S) ∧
+      (prefixCap w)^(collarCount extent S) ≤ supportCap w size := by
+  have hc : collarCount extent S ≤ 6*size :=
+    Nat.le_trans (collarCount_le extent S) (Nat.mul_le_mul_left 6 hsize)
+  exact ⟨HKConvGen.pow_base_antitone (Q'.le_of_lt (headFloor_positive hw0 hw1))
+      (Q'.le_trans' _ _ _
+        (BF4ExactSlabSharedWindowFloorBound.headFloor_le_oneThirtySecond hw0 hw1)
+        (by decide : Q'.mkPos 1 32 (by decide) ≤ 1)) hc,
+    pow_exponent_mono (BF4ExactSlabStarRateObstruction.prefixCap_ge_one hw0 hw1) hc⟩
+
 variable {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
   (K extent : Nat) (hK : headCutoff w ≤ K) (S : List Z4Link)
 
@@ -235,26 +248,18 @@ theorem support_variance_comparison (size : Nat) (hsize : S.length ≤ size)
     (p : RatPoly) (hp : SupportedQuaternionBlocks blocks p) (hl : LinkLocal extent S p) :
     supportRatio hw0 hw1 size * bareVariance blocks p ≤ normalizedVariance blocks W p hZ ∧
       supportRatio hw0 hw1 size * normalizedVariance blocks W p hZ ≤ bareVariance blocks p := by
-  have hc : collarCount extent S ≤ 6*size :=
-    Nat.le_trans (collarCount_le extent S) (Nat.mul_le_mul_left 6 hsize)
-  have hm : supportFloor w size ≤ m :=
-    HKConvGen.pow_base_antitone (Q'.le_of_lt (headFloor_positive hw0 hw1))
-      (Q'.le_trans' _ _ _
-        (BF4ExactSlabSharedWindowFloorBound.headFloor_le_oneThirtySecond hw0 hw1)
-        (by decide : Q'.mkPos 1 32 (by decide) ≤ 1)) hc
-  have hM : M ≤ supportCap w size :=
-    pow_exponent_mono (BF4ExactSlabStarRateObstruction.prefixCap_ge_one hw0 hw1) hc
+  have hbds := support_collar_bounds hw0 hw1 extent S size hsize
   have hv := normalizedVariance_nonnegative
     (headProduct_certificate hw0 hw1 K extent hK (slabPhysicalFaceEdges extent) (fun _ hi => hi)) hZ hp
   have hb := bareVariance_nonnegative hp
   have h := normalized_variance_comparison hw0 hw1 K extent hK S p hp hl
   constructor
   · exact ratio_le hw0 hw1 size (Q'.le_trans' _ _ _
-      (Q'.mul_le_mul_of_nonneg_right _ _ _ hm hb)
-      (Q'.le_trans' _ _ _ h.1 (Q'.mul_le_mul_of_nonneg_right _ _ _ hM hv)))
+      (Q'.mul_le_mul_of_nonneg_right _ _ _ hbds.1 hb)
+      (Q'.le_trans' _ _ _ h.1 (Q'.mul_le_mul_of_nonneg_right _ _ _ hbds.2 hv)))
   · exact ratio_le hw0 hw1 size (Q'.le_trans' _ _ _
-      (Q'.mul_le_mul_of_nonneg_right _ _ _ hm hv)
-      (Q'.le_trans' _ _ _ h.2 (Q'.mul_le_mul_of_nonneg_right _ _ _ hM hb)))
+      (Q'.mul_le_mul_of_nonneg_right _ _ _ hbds.1 hv)
+      (Q'.le_trans' _ _ _ h.2 (Q'.mul_le_mul_of_nonneg_right _ _ _ hbds.2 hb)))
 
 #print axioms bareVariance_nonnegative
 #print axioms normalized_square_comparison
@@ -262,6 +267,7 @@ theorem support_variance_comparison (size : Nat) (hsize : S.length ≤ size)
 #print axioms supportFloor_positive
 #print axioms supportCap_positive
 #print axioms supportRatio_positive
+#print axioms support_collar_bounds
 #print axioms support_variance_comparison
 
 end YMGap.Continuum.BF4ExactSlabLocalSupportVariance
