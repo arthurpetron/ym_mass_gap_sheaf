@@ -3393,7 +3393,9 @@ bundles the repaired `ConcreteJoin` with explicit projective-OS,
 Wilson-matrix, exact-rate, graph-norm, and stationary-vacuum certificates.
 `WilsonJoin.toPath` compiles those fields to the existing
 `RawWilsonConnectedMassGapPath`, and `toMinimalBoundedMassGap` exposes its
-conditional endpoint.  Every field remains indexed by the same repaired
+conditional endpoint; `toIteratedBoundedMassGap` additionally consumes the
+stationary-vacuum field already carried by that path to expose its
+all-integer-iterate interface.  Every field remains indexed by the same repaired
 family, raw representative, scheduled rate, and selected Wilson datum.  The
 bundle is a certificate interface, not an inhabitant: no OS/GNS construction,
 continuum QFT, physical-mass calibration, every-group theorem, or Clay result

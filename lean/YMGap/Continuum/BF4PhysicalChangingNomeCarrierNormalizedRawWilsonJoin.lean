@@ -42,6 +42,7 @@ open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.WilsonMinimalBoundedMassGapHandoff
+open YMGap.Continuum.WilsonIteratedNormDecayHandoff
 
 /-! ## Same-family OS/GNS handoff inputs -/
 
@@ -128,6 +129,16 @@ def WilsonJoin.toMinimalBoundedMassGap
     WilsonMinimalBoundedMassGap W :=
   data.toPath.minimalBoundedMassGap
 
+/-- The same stationary-vacuum certificate upgrades the conditional minimal
+    endpoint to the all-integer-iterate Wilson gap interface. -/
+def WilsonJoin.toIteratedBoundedMassGap
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (data : WilsonJoin H W) :
+    WilsonIteratedBoundedMassGap W :=
+  data.toPath.iteratedBoundedMassGap
+
 end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
 
 /-! ## Axiom-dependency gates -/
@@ -138,3 +149,5 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonJoin.toPath_nontrivial
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonJoin.toMinimalBoundedMassGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonJoin.toIteratedBoundedMassGap

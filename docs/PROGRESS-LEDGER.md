@@ -30667,3 +30667,14 @@ OS/GNS reconstruction, continuum QFT, physical-mass calibration, every-group
 result, or Clay theorem is constructed.  Focused checking reported only
 `{propext, Quot.sound}` and no `sorryAx`; the canonical chart marker is
 unchanged.
+
+## Same-carrier iterated Wilson endpoint (2026-09-27 UTC)
+
+`WilsonJoin.toIteratedBoundedMassGap` forwards the stationary-vacuum field
+already carried by the same repaired-family `RawWilsonConnectedMassGapPath`
+to its all-integer-iterate `WilsonIteratedBoundedMassGap` endpoint.  This is a
+strictly stronger conditional consumer than the one-step minimal endpoint,
+but it constructs no stationarity, OS/GNS, exact-rate, graph-norm, continuum,
+physical-mass, every-group, or Clay witness.  Focused checking remains
+`{propext, Quot.sound}` with no `sorryAx`; the canonical chart marker is
+unchanged.
