@@ -25,23 +25,53 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Active bridge reduction draft (2026-09-27 UTC; verification pending)
+### Physical-target correction and completion draft (2026-09-27 UTC; verification pending)
 
 The next completed-carrier obligation can be reduced using existing
 mathematics: static form/vacuum preservation transports the centered
-resolvent's orthogonality, and self-adjointness plus Cauchy pairing continuity
-extends the dense two-step equation to the completed image. The draft
-`CurrentStageDenseTwoStepCertificate.toBridge` in
-`BF4WilsonSpatialUnionCanonicalGNSBridge.lean` composes these arguments into
-the unchanged bridge type. Its kernel/axiom checks remain pending behind the
-live external `Row64` build; no checked milestone or chart node is advanced.
+resolvent's orthogonality and preserves squared distances. Self-adjointness
+and norm contraction imply pairwise transfer contraction. A dense two-step
+equation then extends to the completed image using the source's explicit
+approximation modulus. The draft
+`CurrentCarrierFormCertificate.toBridgeOfDense` in
+`BF4WilsonSpatialUnionCanonicalGNSBridge.lean` implements this stronger route:
+stage images may be arbitrary completed GNS vectors. Generic metric lemmas
+are drafted in `GNSTransferMetric.lean`. Kernel/axiom checks remain pending
+behind the live external `Row64` build; no checked milestone or chart node
+is advanced.
 
 The source review and exact remaining producer restrictions are in
 `audits/AUDIT-CANONICAL-BRIDGE-MINIMALITY-2026-09-27.md`. Before implementing
 an exact rational stage-pairing producer, justify that interface's rational
 representability requirement; the existing general Cauchy-stream interface
-does not impose that per-stage restriction. The canonical datum, static
-transport, dense dynamic equation, and all-vector range section remain inputs.
+does not impose that per-stage restriction. The new completed-map reduction
+also avoids it without changing any frontier structure. The canonical datum,
+static transport, dense dynamic equation, and all-vector range section remain
+inputs. Verify the generic module first, then the bridge, serialized through
+the monitored launcher; do not start a competing Lean process.
+
+**Producer correction from the scoped source audit:** the old bridge targets
+ordinary `W.toGNSData`, whereas `CanonicalOSRoot.PositiveTimeOSRoot` uses a
+separate reflected positive-time `positive` datum. No same-observable/form
+identification or concrete BF4 bridge producer was found. Do not extend the
+ordinary-GNS branch as if it constructed the physical OS root. The useful
+completion argument is now isolated as `GNSTransferMetric.maps_eq_of_dense`,
+with an arbitrary GNS target and no continuum-existence premise. Next physical
+producer work must pin the current reflected Wilson pairing and supported
+observables to the reflected target; retain the scalar-interface restriction
+and changing-spacing obligations explicitly. No frontier field is weakened.
+
+The current fixed-spacing mixed correlator already has original reflected
+finite-expectation provenance: `completedTime_correlator` unfolds through
+`pairing`, `intrinsicForm`, `form`, and `spatialLimit`, with
+`spatialCauchy_modulus`, `spatial_approx`, and `chartScalar_original_pin`
+supplying the explicit regulator control and original normalized action pin.
+The exact chain is recorded in audit section 6; do not add another conditional
+certificate for that already supplied source-side fact. The draft stage-level
+dynamics consumer now specializes the generic dense-extension proof rather
+than maintaining a second pairing-limit proof. A scalar-interface correction
+has been put to the user for review; until approved, canonical frontier types
+remain unchanged.
 
 ### New finite-prefix calibration certificate (2026-09-26 UTC)
 
