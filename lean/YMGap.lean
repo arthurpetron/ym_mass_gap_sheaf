@@ -5420,6 +5420,13 @@ import YMGap.Continuum.BF4ExactSlabStarInverseApproximation
 import YMGap.Continuum.BF4ExactSlabStarCompletedInverse
 import YMGap.Continuum.BF4ExactSlabStarFullActionProbe
 import YMGap.Continuum.BF4ExactSlabStarConditionalProjection
+-- Shared-spectator variance and genuine polynomial conditional-kernel tests.
+-- These preserve actual normalizers; global centered coercivity remains open.
+import YMGap.Continuum.SU2QuaternionConditionalVarianceReplica
+import YMGap.Continuum.BF4ExactSlabStarVarianceReplica
+import YMGap.Continuum.BF4ExactSlabStarPolynomialResidual
+-- Same-carrier reverse adjoint and positive sweep product; no accelerated rate.
+import YMGap.Continuum.GNSProjectionSweepAdjoint
 -- Strict on explicitly free-centered inputs, not the whole vacuum complement.
 import YMGap.Continuum.BF4ExactSlabStarFreeCentering
 import YMGap.Continuum.BF4ExactSlabStarLocalInfluence

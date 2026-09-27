@@ -46,6 +46,10 @@ Computationally demanding work is encouraged. Destabilizing the host is not.
   OS reserve without explicit user authorization and a new capacity analysis.
 - Never infer safety from silent compiler output. The telemetry, not elapsed
   time or lack of errors, determines whether a run may continue.
+- During a live long-running job, space manual status checks about five minutes
+  apart and use the intervals for independent mathematics, source review, or
+  targeted research. Keep automatic safety telemetry running continuously.
+  Checks that finish in the initial tool call need no artificial waiting period.
 
 The incident record and supported commands are in
 `docs/lean-build-safety.md`.

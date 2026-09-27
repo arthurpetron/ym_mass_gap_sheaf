@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original conditional variance and polynomial tests (2026-09-27 UTC):**
+`SU2QuaternionConditionalVarianceReplica` and `BF4ExactSlabStarVarianceReplica`
+retain shared spectators and the actual exterior action in the weighted
+two-copy variance identity. `BF4ExactSlabStarPolynomialResidual` constructs
+polynomial tests in the actual completed conditional kernel and proves a
+rational dual lower bound on its residual energy. Separately,
+`GNSProjectionSweepAdjoint` constructs the same-completion positive product
+S* S. All four focused checks passed within `{propext, Quot.sound}`.
+Useful original centered coercivity, accelerated spatial decay, physical
+scaling and continuum/Clay closure remain open. Evidence:
+`audits/AUDIT-CONDITIONAL-VARIANCE-REPLICA-2026-09-27.md` and
+`audits/AUDIT-SWEEP-ACCELERATION-2026-09-27.md` at repository root.
+
 **SAME complex Wilson carrier (2026-09-24 UTC):**
 `BF4WilsonAllNomeComplexification` realifies the existing all-nome Wilson
 completion into two copies of that completion, with explicit constructive-real

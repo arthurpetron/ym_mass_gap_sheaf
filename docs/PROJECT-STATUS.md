@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting actual conditional tests (2026-09-27 UTC; chart markers unchanged):
+The shared-spectator replica identity now retains the original incident
+heat and exterior action. Explicit polynomials `D*p-J(Np)` lie in the
+ACTUAL completed conditional kernel; their rational dual values bound
+the original residual energy without a coarse normalizer-floor factor.
+Eighteen focused gates passed. Useful test selection and uniform original
+centered lower coercivity remain open. In parallel, the same-completion
+reverse-sweep adjoint and positive product S* S passed five focused gates;
+the proposed Chebyshev acceleration is not yet proved. Neither increment
+closes physical scaling, OS/Hamiltonian or continuum/Clay obligations.
+Evidence: `audits/AUDIT-CONDITIONAL-VARIANCE-REPLICA-2026-09-27.md` and
+`audits/AUDIT-SWEEP-ACCELERATION-2026-09-27.md`.
+
 Verified supporting centered approximation (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabConditionalCenteredCompletion.centeredCauchy_same_class`
 constructs centered polynomial representatives of the SAME completed

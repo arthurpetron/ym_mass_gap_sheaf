@@ -1,5 +1,49 @@
 # Sorry Ledger
 
+## Original weighted variance and genuine polynomial kernel tests (2026-09-27 UTC)
+
+- **files:** `SU2QuaternionConditionalVarianceReplica.lean`,
+  `BF4ExactSlabStarVarianceReplica.lean`, and
+  `BF4ExactSlabStarPolynomialResidual.lean`, under `lean/YMGap/Continuum/`.
+- **proved:** generic `replica_identity` (`:126`) keeps shared spectators
+  in the weighted two-copy identity; `determinant_certificate` (`:180`)
+  constructs its positivity witness. Physical `varianceNumerator_replica`
+  (`:104`) and `retained_variance_nonnegative` (`:167`) retain the actual
+  incident heat and complementary original action. The polynomial module's
+  `polynomialResidual_projection_zero` (`:187`) puts the computed test
+  `D*p-J(Np)` in the ACTUAL completed conditional kernel;
+  `polynomialResidual_variance_pair` (`:115`) pins its cross-pair with p
+  to the original retained-exterior determinant;
+  `polynomialResidual_dual_lower` (`:246`) proves the floor-free lower test.
+  `dualValue_lower` (`:296`) consumes its exact finite rational value.
+- **residue:** constructive selection/control of tests giving a useful
+  summed lower bound on the original globally centered norm. A poor test
+  can give a nonpositive lower bound. The determinant equals D^2 times
+  conditional variance, not residual energy without a normalizer. No
+  original global coercivity, physical scaling, OS gap or continuum/Clay
+  conclusion is supplied. No new analytic premise or hole is introduced.
+- **verification:** all eighteen gates passed three serialized focused
+  one-worker/20 GiB checks within {propext, Quot.sound}. Independent Sol review found
+  no carrier or normalization mismatch. No canonical field or chart
+  marker changed; no full-tree build/audit. Evidence:
+  `audits/AUDIT-CONDITIONAL-VARIANCE-REPLICA-2026-09-27.md`.
+
+## Reverse adjoint and positive completed sweep product (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/GNSProjectionSweepAdjoint.lean`.
+- **proved:** `Family.sweep_adjoint_reverse` (`:21`) identifies the
+  reversed order as the existing sweep's pairing adjoint;
+  `balanced` (`:34`), `balanced_pairing` (`:38`),
+  `balanced_selfAdjoint` (`:46`) and `balanced_positive` (`:61`) construct
+  the positive SAME-completion product S* S without a gap hypothesis.
+- **residue:** constructive operator Chebyshev acceleration and the useful
+  original centered coercivity input. Neither is proved by these identities.
+  No OS/physical Hamiltonian or continuum gap is asserted.
+- **verification:** five gates passed a focused one-worker/20 GiB check
+  within {propext, Quot.sound}; main reviewed Sol's implementation.
+  No new hole, analytic field, canonical edit or full-tree audit. Evidence:
+  `audits/AUDIT-SWEEP-ACCELERATION-2026-09-27.md`.
+
 ## Original centered Cauchy approximation (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/BF4ExactSlabConditionalCenteredCompletion.lean`.

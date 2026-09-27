@@ -25,6 +25,49 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual weighted variance and conditional-kernel tests checked (2026-09-27 UTC)
+
+`SU2QuaternionConditionalVarianceReplica.replica_identity` retains the
+shared exterior variables in the exact identity
+`A_x A_y[W_x W_y (p_x-p_y)^2] = 2*(D*N(p^2)-N(p)^2)`.
+`BF4ExactSlabStarVarianceReplica` constructs its positivity certificate
+for the actual original incident heat and the untouched complementary
+action. Eleven gates passed two focused one-worker/20 GiB checks.
+This is the weighted determinant, NOT the bare-Haar variance of W.
+It equals D^2 times normalized conditional variance; the original residual
+energy would integrate the determinant with B/D, not B alone.
+
+The parallel `BF4ExactSlabStarPolynomialResidual` construction is checked:
+the literal polynomial `t_i(p)=J_i(D_i)*p-J_i(N_i(p))`
+lies in the actual conditional kernel and supplies a floor-free dual lower
+test. `dualValue_lower` consumes the exact finite rational value
+`2*B(f,t)-B(t,t)` in the original completed residual energy, not a new
+carrier or an assumed global gap. The cross-pair `B(p,t_i(p))` is exactly
+the retained-exterior variance numerator, not the residual norm. Seven
+further gates passed; independent Sol review found no normalization mismatch.
+
+NEXT: select and bound actual signed polynomial tests, or directly control
+the weighted determinant, so the summed lower energy dominates the SAME
+globally centered original norm with useful volume/cutoff/scaling control.
+Positivity alone does not supply that estimate. Do not replace the actual
+normalizer by its coarse floor by default or return to small bare-Haar
+perturbation near w=1. No analytic field, canonical field or chart marker
+is changed. Global coercivity, physical scaling and continuum/Clay closure
+remain open. Evidence:
+`audits/AUDIT-CONDITIONAL-VARIANCE-REPLICA-2026-09-27.md`.
+
+In parallel, targeted primary-source review identified Chebyshev acceleration
+as a candidate to improve the dynamics-to-spatial-rate conversion from order
+epsilon to order sqrt(epsilon). The SAME-completion reverse sweep is now
+proved to be the adjoint; `GNSProjectionSweep.Family.balanced`, introduced
+by `GNSProjectionSweepAdjoint.lean`, constructs the positive product S* S. Five
+focused gates passed. The operator Chebyshev estimate, scalar-action pin,
+polynomial cone join and actual coercivity input remain open. This backward
+task may proceed independently of forward test selection; it does not
+replace it. See `audits/AUDIT-SWEEP-ACCELERATION-2026-09-27.md`.
+All four checks were serialized with one worker and the 20 GiB cap. No
+root/full-tree build or audit was run; root imports were updated only.
+
 ### Original centered Cauchy representatives checked (2026-09-27 UTC)
 
 `BF4ExactSlabConditionalCenteredCompletion.centeredCauchy` applies the
