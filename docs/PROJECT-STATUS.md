@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting actual auxiliary test (2026-09-27 UTC; chart markers unchanged):
+The reverse-energy input is exactly a lower bound on the actual reverse
+loss; the auxiliary cone and total pruned loss are now pinned. Explicit
+Cauchy representatives and computed rational error brackets supply a finite
+test whose success implies the original squared-covariance bound. All 48
+printed gates passed nine focused checks. No successful numerical instance
+or useful uniform positivity estimate is claimed. Physical scaling and
+same-theory continuum/OS/QFT/every-group Clay remain open. Evidence:
+`audits/AUDIT-AUXILIARY-REVERSE-LOSS-2026-09-27.md`.
+
 Verified supporting Chebyshev cone/covariance join (2026-09-27 UTC; chart markers unchanged):
 The SAME balanced sweep is sixteen layers; its degree-n Chebyshev state has
 radius 16*n and an exact separated-pairing identity. Normalization preserves

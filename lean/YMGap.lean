@@ -5435,6 +5435,7 @@ import YMGap.Continuum.BF4ExactSlabStarOptimizedPolynomialTest
 -- Exact exterior-modulated test pair/cost in the SAME original form.
 import YMGap.Continuum.BF4ExactSlabStarExteriorResidual
 import YMGap.Continuum.BF4ExactSlabStarPolynomialCost
+import YMGap.Continuum.BF4ExactSlabStarMixedPolynomialCost
 -- Actual local residual approximation and finite rational energy brackets.
 -- These do not supply useful global interacting coercivity.
 import YMGap.Continuum.QuaternionHaarCertificateFormBounds
@@ -5457,6 +5458,13 @@ import YMGap.Continuum.BF4ExactSlabChebyshevPairing
 import YMGap.Continuum.BF4ExactSlabChebyshevCovariance
 import YMGap.Continuum.BF4ExactSlabChebyshevRescale
 import YMGap.Continuum.BF4ExactSlabChebyshevCovarianceBound
+-- Actual auxiliary cone/loss and a computed finite test, not a uniform producer.
+import YMGap.Continuum.BF4ExactSlabConeSchedule
+import YMGap.Continuum.BF4ExactSlabChebyshevAuxiliaryCone
+import YMGap.Continuum.GNSInnerRationalBracket
+import YMGap.Continuum.BF4ExactSlabChebyshevRepresentative
+import YMGap.Continuum.BF4ExactSlabChebyshevFiniteTest
+import YMGap.Continuum.BF4ExactSlabChebyshevFiniteCovariance
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

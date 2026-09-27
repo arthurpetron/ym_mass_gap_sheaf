@@ -77,7 +77,9 @@ private theorem reverse_layers_sweep (cs : List Color) (x : GNSCompletionSpace F
       layer_reverse_sweep hw0 hw1 K extent hK c x,
       ih]
 
-private theorem schedule_reverse_sweep (x : GNSCompletionSpace F) :
+/-- Reversing the actual schedule reverses color order; within each color
+the conditional projections commute. This also pins the reverse-loss word. -/
+theorem schedule_reverse_sweep (x : GNSCompletionSpace F) :
     (P).sweep (schedule extent).reverse x =
       runLayers hw0 hw1 K extent hK colors.reverse x := by
   unfold schedule runLayers
@@ -168,6 +170,7 @@ theorem balancedCycles_pairing (n : Nat) (support testSupport : List Z4Link)
     (balancedCycles n) support testSupport x y hx hy
   rwa [balancedCycles_length]
 
+#print axioms schedule_reverse_sweep
 #print axioms balanced_runLayers
 #print axioms balanced_localized
 #print axioms balanced_cone_pairing

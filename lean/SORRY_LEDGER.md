@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## Actual auxiliary reverse loss and finite certificate consumer (2026-09-27 UTC)
+
+- **proved:** `BF4ExactSlabChebyshevRescale.reverse_energy_iff_loss` gives the
+  exact target `(c-2)||S u||^2 <= c loss(reverse,S u)`. `ConeSchedule` and
+  `ChebyshevAuxiliaryCone` compute and pin its original pruned loss word.
+  `StarMixedPolynomialCost` retains the signed mixed numerator and original
+  exterior; it does not assert preservation of a second link's kernel.
+- **constructed:** `BF4ExactSlabChebyshevRepresentative.coupledRep` retains
+  explicit Cauchy moduli and both actual coupled components.
+  `GNSInnerRationalBracket.inner_bracket` computes rational intervals.
+  `BF4ExactSlabChebyshevFiniteTest.reverse_energy_of_finite_test` certifies
+  the actual inequality from epsilon>0 and epsilon<=marginValue.
+  `BF4ExactSlabChebyshevFiniteCovariance.finiteCovariance_sq_bound_of_finite_test`
+  consumes that comparison for the original covariance and both variances.
+- **still open:** success of the rational test, a useful c>2 reverse-loss
+  fraction and volume/cutoff/changing-coupling/spacing control. No numerical
+  instance was evaluated. The full-schedule evaluator has not yet been
+  cone-optimized. Same-theory OS/continuum/QFT, nontrivial survival, physical
+  mass, every compact simple group and Clay remain open. No new sorry or
+  canonical field is introduced; the rational premise remains explicit.
+- **verification:** nine focused serialized one-worker/20 GiB module checks,
+  48 printed gates within {propext, Quot.sound}; independent Sol scope
+  reviews. No root/full-tree/audit/guard run or chart-marker change.
+  Full source map: `audits/AUDIT-AUXILIARY-REVERSE-LOSS-2026-09-27.md`.
+
 ## Original Chebyshev cone and single-vector norm consumer (2026-09-27 UTC)
 
 - **files:** `BF4ExactSlabBalancedCone.lean`, `BF4ExactSlabChebyshevCone.lean`,

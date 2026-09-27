@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Finite certificate consumer checked (2026-09-27):** explicit Cauchy
+representatives and error moduli now reduce the actual auxiliary reverse-energy
+estimate to a finite rational comparison. A successful test implies the
+original squared-covariance bound, retaining both original variances. The
+required reverse loss also has an exact computed cone word. No successful
+numerical instance or scaling-uniform positivity estimate is claimed.
+See the [construction and remaining analytic obligation](audits/AUDIT-AUXILIARY-REVERSE-LOSS-2026-09-27.md).
+
 **Original-action conditional covariance bound checked (2026-09-27):** the actual
 balanced conditional sweep has a sixteen-layer propagation bound. Its
 normalized Chebyshev state preserves the original separated covariance

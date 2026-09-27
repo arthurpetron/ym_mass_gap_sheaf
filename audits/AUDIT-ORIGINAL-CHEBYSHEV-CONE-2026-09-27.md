@@ -31,7 +31,7 @@ lattice spacing is asserted.
 ## Source map
 
 - `balanced_runLayers`,
-  `lean/YMGap/Continuum/BF4ExactSlabBalancedCone.lean:89`: the actual B is
+  `lean/YMGap/Continuum/BF4ExactSlabBalancedCone.lean:91`: the actual B is
   the forward colors followed by reversed colors. The same module proves
   one-cycle and iterated localization and separated pairing.
 - `coupled_first_localized`,
@@ -47,10 +47,10 @@ lattice spacing is asserted.
   `covariance_as_chebyshev_pairing_of_root_far` (`:71`) consumes the literal
   root separation 16*n plus the two carrier sizes.
 - `affine_norm_expansion`,
-  `lean/YMGap/Continuum/BF4ExactSlabChebyshevRescale.lean:101`: the exact
+  `lean/YMGap/Continuum/BF4ExactSlabChebyshevRescale.lean:151`: the exact
   original squared-norm identity for arbitrary rational c.
-  `coupled_first_norm_from_reverse_energy` (`:125`) and
-  `normalizedFirst_norm_from_reverse_energy` (`:137`) consume the
+  `coupled_first_norm_from_reverse_energy` (`:175`) and
+  `normalizedFirst_norm_from_reverse_energy` (`:187`) consume the
   single-vector inequality below. They do not produce it.
 
 ## Smaller sufficient analytic input, still open

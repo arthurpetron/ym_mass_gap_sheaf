@@ -25,6 +25,36 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual auxiliary loss and finite test checked (2026-09-27 UTC)
+
+The open auxiliary estimate now has the exact target
+`(c-2)*||S u||^2 <= c*loss(reverse,S u)`. The actual auxiliary at step n+1
+is localized within 16*n star expansions; its forward image adds eight.
+The reverse loss equals the TOTAL loss of a computed pruned physical-link
+word. Signed mixed test numerators retain the original exterior weight;
+exterior multiplication is not asserted to preserve a second link's kernel.
+
+Explicit Cauchy representatives of the SAME sweep/affine/coupled recurrence
+now produce a rational margin with a computed error modulus.
+`BF4ExactSlabChebyshevFiniteCovariance.finiteCovariance_sq_bound_of_finite_test`
+consumes `epsilon>0` and `epsilon<=marginValue` to prove the original
+squared-covariance bound. No real inequality or modulus is hidden in an
+assumed certificate structure. No numerical instance or successful test
+has been produced; the evaluator currently uses full schedule representatives.
+
+NEXT forward: prove a useful positive fraction of the ACTUAL reverse loss,
+or produce a scaling-justified family of successful rational tests, preserving
+signed terms and the original norm. The desired c>2 estimate must carry
+volume, cutoff and changing-coupling control. Do not replace this task with
+another conditional wrapper or claim that a local pair angle supplies global
+coercivity. NEXT backward: calibrated spatial decay and SAME-theory
+scaling/OS/Hamiltonian/nontriviality/QFT/every-group consumers.
+
+All 48 printed gates passed nine focused serialized one-worker/20 GiB
+module checks within {propext, Quot.sound}; independent Sol reviews passed.
+No new hole, canonical field, chart-marker change or full-tree audit.
+Evidence: `audits/AUDIT-AUXILIARY-REVERSE-LOSS-2026-09-27.md`.
+
 ### Original Chebyshev cone and covariance join checked (2026-09-27 UTC)
 
 The actual balanced conditional sweep B=S* S is exactly sixteen color

@@ -79,6 +79,46 @@ private theorem sub_bound (a b z : RC) (h : RCle a b) :
   change RCle _ (RCsub (RCadd z b) b) at hh
   rwa [he] at hh
 
+private theorem order_by_difference (a b d e : RC)
+    (he : RCsub b a = RCsub e d) : RCle a b ↔ RCle d e := by
+  have cancel (x y : RC) : RCadd x (RCsub y x) = y := by
+    refine Quotient.inductionOn₂ x y ?_
+    intro X Y
+    exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+      poly_identity_of_normal_eq
+        (.add (.var 0) (.add (.var 1) (.neg (.var 0)))) (.var 1)
+        (by decide) (fun | 0 => X.approx n | _ => Y.approx n)))
+  have regroup (x y z : RC) :
+      RCadd y (RCsub z x) = RCadd z (RCsub y x) := by
+    refine Quotient.inductionOn₃ x y z ?_
+    intro X Y Z
+    exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+      poly_identity_of_normal_eq
+        (.add (.var 1) (.add (.var 2) (.neg (.var 0))))
+        (.add (.var 2) (.add (.var 1) (.neg (.var 0))))
+        (by decide) (fun | 0 => X.approx n | 1 => Y.approx n | _ => Z.approx n)))
+  constructor
+  · intro h
+    have hh := RCadd_le_add h (RCle_refl (RCsub d a))
+    rw [cancel, regroup, he, cancel] at hh
+    exact hh
+  · intro h
+    have hh := RCadd_le_add h (RCle_refl (RCsub a d))
+    rw [cancel, regroup, ← he, cancel] at hh
+    exact hh
+
+private theorem loss_difference (c : Q') (a b : RC) :
+    RCsub (RCscale 2 a) (RCscale c b) =
+      RCsub (RCscale c (RCsub a b)) (RCscale (c + (-(2 : Q'))) a) := by
+  refine Quotient.inductionOn₂ a b ?_
+  intro A B
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq
+      (.add (.mul (.const 2) (.var 1)) (.neg (.mul (.var 0) (.var 2))))
+      (.add (.mul (.var 0) (.add (.var 1) (.neg (.var 2))))
+        (.neg (.mul (.add (.var 0) (.neg (.const 2))) (.var 1))))
+      (by decide) (fun | 0 => c | 1 => A.approx n | _ => B.approx n)))
+
 variable {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
   (K extent : Nat) (hK : headCutoff w ≤ K)
 
@@ -87,6 +127,16 @@ local notation "P" => projections hw0 hw1 K extent hK
 local notation "S" => fullScalarData hw0 hw1 K extent hK
 local notation "B" => Family.balanced (projections hw0 hw1 K extent hK) (schedule extent)
 local notation "W" => Family.sweep (projections hw0 hw1 K extent hK) (schedule extent)
+
+/-- Exact, division-free reverse-loss target for the required estimate.
+The loss is evaluated on S u along the actual reversed schedule; no local
+pair-centering or global algorithmic gap is assumed. -/
+theorem reverse_energy_iff_loss (c : Q') (u : GNSCompletionSpace F) :
+    RCle (RCscale c (normSq (B u))) (RCscale 2 (normSq (W u))) ↔
+      RCle (RCscale (c + (-(2 : Q'))) (normSq (W u)))
+        (RCscale c ((P).loss (schedule extent).reverse (W u))) := by
+  rw [(P).loss_eq]
+  exact order_by_difference _ _ _ _ (loss_difference c (normSq (W u)) (normSq (B u)))
 
 private theorem scalar_norm (c : Q') (x : GNSCompletionSpace F) :
     normSq ((S).cSmul c x) = RCscale c (RCscale c (normSq x)) := by
@@ -153,6 +203,7 @@ theorem normalizedFirst_norm_from_reverse_energy (c : Q') (hc : (0 : Q') ≤ c)
   rw [he]
   exact RCscale_mono hr (RCscale_mono hr hb)
 
+#print axioms reverse_energy_iff_loss
 #print axioms affine_norm_expansion
 #print axioms affine_norm_of_reverse_energy
 #print axioms coupled_first_norm_from_reverse_energy
