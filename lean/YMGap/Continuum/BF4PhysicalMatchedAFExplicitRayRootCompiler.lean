@@ -20,6 +20,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 -/
 
 import YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
+import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceFlow
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMoment
 import YMGap.Continuum.BF4PhysicalVacuumSectorMassExactExplicitRayOffRayResistanceGap
@@ -38,6 +39,7 @@ open YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceGapPath
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootCoercivity
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceFlow
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMoment
 open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
@@ -313,6 +315,72 @@ theorem MatchedPhysicalExplicitRayMomentProducer.toCompletedFamily_latticeMargin
   exact MatchedPhysicalRootCoercivityGapProducer.toCompletedFamily_latticeMargin_eqv_fraction
     producer.toResistanceProducer.toRootProducer scale
 
+/-! ## 6. A physical-mass shell route to the same boundary -/
+
+/-- A physically organized alternative input: entropy and state-load decay on
+the literal physical-mass shells of every matched off-ray edge. -/
+structure MatchedPhysicalExplicitRayMassShellProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing) :
+    Type 1 where
+  offRayMassShell : ∀ scale,
+    FixedNomeCofinalSpinCubeOffRayRootResistancePhysicalMassShellBound
+      (trajectory.nome_pos scale)
+
+/-- The physical-mass shell compiler supplies the same local resistance
+congestion certificate consumed by the matched route. -/
+def MatchedPhysicalExplicitRayMassShellProducer.toResistanceProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayMassShellProducer trajectory) :
+    MatchedPhysicalExplicitRayResistanceProducer trajectory where
+  offRayResistance := fun scale =>
+    (producer.offRayMassShell scale).toResistanceCongestionBound
+
+def MatchedPhysicalExplicitRayMassShellProducer.toRootProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayMassShellProducer trajectory) :
+    MatchedPhysicalRootCoercivityGapProducer trajectory :=
+  producer.toResistanceProducer.toRootProducer
+
+def MatchedPhysicalExplicitRayMassShellProducer.toCompletedFamily
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayMassShellProducer trajectory) :
+    DynamicVacuumSectorCompletedFamily 0 :=
+  producer.toResistanceProducer.toCompletedFamily
+
+theorem MatchedPhysicalExplicitRayMassShellProducer.toCompletedFamily_latticeMargin_eqv_fraction
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayMassShellProducer trajectory)
+    (scale : Nat) :
+    producer.toCompletedFamily.latticeMargin scale ≈
+      producer.toRootProducer.fraction scale := by
+  exact MatchedPhysicalRootCoercivityGapProducer.toCompletedFamily_latticeMargin_eqv_fraction
+    producer.toResistanceProducer.toRootProducer scale
+
+theorem MatchedPhysicalExplicitRayMassShellProducer.fraction_pos
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayMassShellProducer trajectory)
+    (scale : Nat) :
+    (0 : Q') < producer.toRootProducer.fraction scale := by
+  exact producer.toResistanceProducer.fraction_pos scale
+
 end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 
 /-! ## Dependency gates -/
@@ -351,3 +419,13 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMomentProducer.toCompletedFamily
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMomentProducer.toCompletedFamily_latticeMargin_eqv_fraction
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMassShellProducer.toResistanceProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMassShellProducer.toRootProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMassShellProducer.toCompletedFamily
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMassShellProducer.toCompletedFamily_latticeMargin_eqv_fraction
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMassShellProducer.fraction_pos

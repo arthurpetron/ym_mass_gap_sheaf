@@ -30064,6 +30064,26 @@ bound and does not close physical spacing calibration, OS/GNS, continuum/QFT,
 physical mass, every-group, or Clay obligations.  No canonical chart marker
 changed.
 
+## Physical-mass shell handoff for the matched rooted route (2026-09-26 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
+`MatchedPhysicalExplicitRayMassShellProducer`.  Its only scale-indexed field
+is the existing
+`FixedNomeCofinalSpinCubeOffRayRootResistancePhysicalMassShellBound`, which
+packages physical-mass shell entropy and pointwise state-load decay.  The
+checked `toResistanceCongestionBound` projection feeds the same matched
+resistance producer used by the scalar-moment route.  Consequently
+`toRootProducer`, `toCompletedFamily`,
+`toCompletedFamily_latticeMargin_eqv_fraction`, and `fraction_pos` preserve
+the literal matched nome, completed carrier, transfer, vacuum complement,
+posterior fraction, and exact margin identity.
+
+The monitored source check reports only `{propext, Quot.sound}` and no
+`sorryAx`.  This exposes a typed physical-mass handoff but does not inhabit
+the shell certificate, physical calibration, same-object observable pin,
+OS/GNS passage, continuum/QFT construction, physical mass, every-group
+theorem, or Clay target; no canonical chart marker changed.
+
 ## Scalar resistance-moment reduction of the matched rooted input (2026-09-26 UTC)
 
 `BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds

@@ -75,6 +75,13 @@ scale-indexed scalar `FixedNomeCofinalSpinCubeOffRayRootResistanceMomentBound`
 via the checked `toResistanceCongestionBound` projection, again without
 changing the completed carrier or its exact margin identity.  The moment
 bound and all physical/continuum/Clay joins remain open.
+An alternate physically organized handoff is now exposed by
+`MatchedPhysicalExplicitRayMassShellProducer`: its existing physical-mass
+shell certificate (entropy plus pointwise state-load decay) compiles to the
+same resistance boundary and same completed carrier.  This is an explicit
+typed route toward physical-mass calibration, not a claim that the shell
+certificate is inhabited; the shell bound and all continuum/Clay joins remain
+open.
 
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
