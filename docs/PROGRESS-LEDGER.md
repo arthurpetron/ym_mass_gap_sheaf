@@ -29918,3 +29918,22 @@ The focused check reports only `{propext, Quot.sound}` and no `sorryAx`.
 The new structure is not inhabited: the cofinal calibration, raw/debt/rate
 variation, and physical-gap variation inputs remain explicit, and no physical
 mass, OS/QFT, every-group, or Clay conclusion follows.
+
+## Physical-exponential endpoint-modulus boundary (2026-09-26 UTC)
+
+`PhysicalExponentialJoin.toModulusCertificate` in
+`lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:177--204`
+extends the preceding same-family handoff with two explicit constructive
+inputs: an upper and a lower `CReal.ExplicitConvergenceCertificate` for the
+scheduled Euler endpoint streams.  Both are indexed by the exact
+`normalizedMovingCubePhysicalExponentialLimit` representative selected by the
+join's own rational rate-power variation, and both are passed unchanged to
+`NormalizedMovingCubePhysicalExponentialModulusCertificate.ofRationalVariations`.
+
+The endpoint witnesses are constructor arguments rather than a separate
+dependent-field wrapper.  This keeps the fixed repaired-family elaboration
+boundary within the deterministic heartbeat budget while preserving the exact
+same-family types and the existing physical-exponential compiler.  The focused
+safe check reports only `{propext, Quot.sound}` and no `sorryAx`.  No endpoint
+modulus, cutoff-removal, physical-mass, OS/QFT, every-group, or Clay inhabitant
+is supplied by this boundary.

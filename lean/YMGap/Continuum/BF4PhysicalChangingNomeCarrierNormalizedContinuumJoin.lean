@@ -20,6 +20,7 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationa
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
 
 namespace YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
 
@@ -38,7 +39,9 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometric
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler
 open YMGap.Continuum.RCStrictPositivity
 open YMGap.Continuum.SummableRationalStepVariation
 
@@ -171,6 +174,35 @@ def PhysicalExponentialJoin.toCertificate
     data.gapVariation
     data.core.ratePower
 
+/-- Compile the physical-exponential join plus its explicit endpoint moduli
+into the modulus-refined same-object certificate. -/
+def PhysicalExponentialJoin.toModulusCertificate
+    (data : PhysicalExponentialJoin)
+    (upperModulus : ∀ time : Nat,
+      CReal.ExplicitConvergenceCertificate
+        (fun scale => scheduledSquaredRateUpperExponential
+          changingNomeCarrierNormalizedDynamicFamily scale time)
+        ((normalizedMovingCubePhysicalExponentialLimit
+          changingNomeCarrierNormalizedDynamicFamily data.core.ratePower).limitRepresentative
+          time))
+    (lowerModulus : ∀ time : Nat,
+      CReal.ExplicitConvergenceCertificate
+        (fun scale => scheduledSquaredRateLowerExponential
+          changingNomeCarrierNormalizedDynamicFamily carrierNormalized_rate_pos scale time)
+        ((normalizedMovingCubePhysicalExponentialLimit
+          changingNomeCarrierNormalizedDynamicFamily data.core.ratePower).limitRepresentative
+          time)) :
+    NormalizedMovingCubePhysicalExponentialModulusCertificate
+      changingNomeCarrierNormalizedDynamicFamily :=
+  NormalizedMovingCubePhysicalExponentialModulusCertificate.ofRationalVariations
+    changingNomeCarrierNormalizedDynamicFamily
+    data.core.raw data.core.normDebt
+    data.core.toPhysicalRateBand
+    carrierNormalized_rate_pos
+    data.gapVariation
+    data.core.ratePower
+    upperModulus lowerModulus
+
 theorem Join.sq_decay (data : Join) (time : Nat) :
     CReal.RCle
       (CReal.RCmul
@@ -212,5 +244,7 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.carrierNormalized_rate_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.toCertificate
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.toModulusCertificate
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.sq_decay
