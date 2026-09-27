@@ -57,6 +57,11 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin
 open YMGap.Continuum.QuadraticRateErrorTailControl
+open YMGap.Continuum.ContinuumMeasure
+open YMGap.Continuum.FourDExistence
+open YMGap.Continuum.MeasureLinkedOSReconstruction
+open YMGap.Continuum.ExactRateReconstructionHandoff
+open YMGap.Continuum.ProjectiveOSCorrelationHandoff
 
 namespace MatchedPhysicalDynamicScalarTrajectory
 
@@ -486,6 +491,49 @@ def toExactRateCutoffRemoval_ofGapVariation
     ((adaptiveFamily trajectory producer).physicalRateBand band)
     ceiling gapVariation spacingTail
 
+/-- The matched observable witness reaches the existing continuum handoff
+from the same-family exact-log variation compiler.  Projective/OS semantics,
+the spectral channel, and exact-rate reconstruction identification remain
+explicit arguments on the identical separator and completed family. -/
+def toContinuumHandoff_ofGapVariation
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness :
+      PhysicalExponentialObservableWitness trajectory producer)
+    (band : StrengthBand trajectory producer)
+    (ceiling :
+      FullRangeLogRateCeiling
+        (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.fullRangeRateFamily
+          witness.observable))
+    (gapVariation : PhysicalGapRationalVariation trajectory producer)
+    (spacingTail :
+      InverseSquareSpacingTail
+        (trajectory.toCompletedFamily producer).transferSpacing 0)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    (existence : ContinuumYMExistence mu)
+    (osGNS : MeasureLinkedOSGNSData existence)
+    (projectiveOS : ProjectiveOSCorrelationHandoff
+      witness.observable.toPhysicalSeparator existence osGNS
+        witness.observable.physicalSampling)
+    (spectralChannel :
+      ProjectiveOSCorrelationHandoff.ReconstructionSpectralChannelHandoff
+        projectiveOS osGNS.reconstruction)
+    (exactRate : ExactRateReconstructionHandoff
+      (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate
+        witness.observable
+        ((adaptiveFamily trajectory producer).physicalRateBand band)
+        ceiling)
+      osGNS.reconstruction) :
+    YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff
+      witness.observable
+      ((adaptiveFamily trajectory producer).physicalRateBand band)
+      ceiling existence osGNS :=
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff.ofExactLogVariations
+    gapVariation spacingTail projectiveOS spectralChannel exactRate
+
 /-! ## 6. Contract the local producer to the correlated same-edge debt seam -/
 
 /-- The correlated capacity-debt compiler supplies the exact local producer
@@ -593,6 +641,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toFullRangeExactPhysicalSeparatorCertificate_ofStrengthBand
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofGapVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofGapVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.localProducer_ofCorrelatedCapacityDebt
 #print axioms

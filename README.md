@@ -3515,6 +3515,12 @@ physical-gap floor, while gap variation plus an inverse-square spacing tail
 construct the exact-rate Cauchy modulus.  The full-log ceiling and those
 analytic inputs remain explicit; no continuum or Clay result is inferred.
 
+`toContinuumHandoff_ofGapVariation` now forwards the same-family exact-log
+variation compiler into the existing `DynamicVacuumSectorContinuumHandoff`.
+Projective/OS correlation, spectral-channel, exact-rate reconstruction,
+continuum-measure, and QFT existence inputs remain explicit and indexed by the
+same observable and carrier; no continuum or Clay endpoint is constructed.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,

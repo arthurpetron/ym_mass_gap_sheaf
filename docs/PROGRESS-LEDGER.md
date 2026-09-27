@@ -30873,6 +30873,14 @@ spacing tail supply the exact-rate Cauchy modulus.  Only the full-log ceiling
 and those explicit variation/tail inputs remain; the focused 5,153-job build
 reports only `{propext, Quot.sound}` and no `sorryAx`.
 
+The matched route now reaches the existing `DynamicVacuumSectorContinuumHandoff`
+through `toContinuumHandoff_ofGapVariation`.  The same-family exact-log
+variation compiler supplies its rate Cauchy field; projective/OS correlation,
+spectral-channel, and exact-rate reconstruction identifications remain
+explicitly indexed by the matched observable and carrier.  The focused
+5,153-job build reports only `{propext, Quot.sound}` and no `sorryAx`; no
+continuum measure or Clay endpoint is claimed.
+
 The cutoff-removal adapter now has the specialized
 `toExactRateCutoffRemoval_ofTrajectorySpacing` route, reusing the matched
 trajectory's own spacing-to-zero modulus.  After the explicit physical-gap
