@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## Correlated local debt reaches the same-carrier continuum handoff (2026-09-27 UTC)
+
+- **declarations:** `correlatedCapacityDebtProducer` and
+  `toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations` in
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.lean:1214`
+  and `:1242`.
+- **result:** the existing correlated same-edge capacity-debt envelope,
+  tail allowance, and initial closure now name one exact matched local
+  producer and feed the existing continuum-handoff compiler.  The generated
+  producer, completed family, strength scaling, observable pin, and all
+  projective/OS/exact-rate fields remain definitionally tied to one carrier.
+- **explicit inputs:** raw representative variation, normalization-debt
+  variation, strength scaling, ray-capacity variation, finite-sector
+  mass-floor variation, physical-gap variation, shifted AF identification,
+  projective/OS correlation, and exact-rate reconstruction remain premises;
+  none is manufactured by this adapter.
+- **scope:** no continuum measure/QFT construction, physical mass calibration,
+  all-group theorem, or Clay conclusion is claimed.
+- **verification:** focused monitored target
+  `+YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath:olean`
+  passed in 5,243 jobs.  The new gates report only
+  `{propext, Quot.sound}` and no `sorryAx`, classical axiom, `native_decide`,
+  or custom axiom.
+
 ## Anchor cutoff-indexed finite-linear transition family (2026-09-25 UTC)
 
 - **declarations:** `AnchorFiniteLinearTransition`,
