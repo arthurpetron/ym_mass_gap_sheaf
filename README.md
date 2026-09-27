@@ -128,6 +128,13 @@ matched routes now project that pin to the exact `PhysicalGapFloor` and
 `RegScalingBand` for the literal completed transfer and spacing.  The band
 and all physical/continuum/Clay inputs remain open.
 
+Those routes also expose the existing scalar
+`SharpContinuumObligation.ContinuumGapTheorem` through
+`toContinuumGapTheorem` when an external physical-rate band is supplied.  This
+is a conditional scalar interface only, not a continuum QFT construction;
+the rational observable, strict-rate, OS/GNS, physical-mass, every-group, and
+Clay obligations remain open.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

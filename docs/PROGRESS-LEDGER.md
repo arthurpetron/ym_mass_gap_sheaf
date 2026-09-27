@@ -30251,3 +30251,19 @@ dependency gates and no `sorryAx`.  This is a conditional downstream join:
 the physical-rate band, physical calibration, OS/GNS passage, continuum/QFT
 construction, physical mass, every-group theorem, and Clay target remain
 open.
+
+## Matched rational pin reaches scalar continuum-gap interface (2026-09-27 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.toContinuumGapTheorem`
+and the corresponding factorized declaration.  Each projects the existing
+`SharpContinuumObligation.ContinuumGapTheorem` from an external
+`DynamicVacuumSectorPhysicalRateBand` for the same completed carrier and
+spacing.  The scalar projection is intentionally independent of the
+rational-observable and strict-rate inputs; those remain required by the
+observable/physical-separator branch.
+
+The monitored source check reports only `{propext, Quot.sound}` for both new
+dependency gates and no `sorryAx`.  This is a scalar interface projection,
+not continuum/QFT existence: physical-rate calibration, OS/GNS, continuum
+measure, physical mass, every-group, and Clay remain open.

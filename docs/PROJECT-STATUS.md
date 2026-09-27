@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **120**, 2026-09-27 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **121**, 2026-09-27 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -184,6 +184,15 @@ spacing; no proxy separator or alternate carrier is introduced.  The uniform
 rate band, rational moment certificate, strict-rate witness, physical
 calibration, OS/GNS passage, continuum/QFT construction, physical mass,
 every-group theorem, and Clay result remain explicit open inputs.
+
+The same routes now also expose `toContinuumGapTheorem`, projecting the
+existing scalar `SharpContinuumObligation.ContinuumGapTheorem` from an
+external physical-rate band on the same completed family and spacing.  This is
+only a conditional scalar gap interface; it is not a continuum measure, OS/GNS
+reconstruction, QFT construction, physical-mass calibration, every-group
+theorem, or Clay result.  The scalar projection itself does not consume the
+rational moment certificate or strict-rate witness; those remain required by
+the observable/physical-separator branch.
 
 Because the finite physical-mass shell entropy estimate is already proved, the
 matched route now also accepts the smaller
@@ -1890,3 +1899,4 @@ still consumes the two unproved all-scale pointwise inequalities.
 | 1 / 134 | 2026-09-26 | Attached the existing moving-centered cube RC channel to both minimal decay routes. Its zero-time connected autocorrelation is positive, its squared autocorrelation inherits the completed rate, and its same-object coefficient is identified with the global adaptive transfer. This is a concrete completed-vector channel, not yet a rational observable pin or continuum/Clay result. |
 | 1 / 135 | 2026-09-26 | Factored the RC-to-rational-observable seam into explicit moment equalities, nonnegativity/zero-time positivity, amplitude, gauge-invariance, and strict-rate certificates, with a kernel-checked constructor to the singleton observable pin and physical separator. None of those certificates is inhabited by this milestone; no continuum or Clay node closes. |
 | 1 / 136 | 2026-09-27 | Added same-family `toPhysicalGapFloor` and `toRegScalingBand` projections for both rationalized matched decay routes. They consume an explicit physical-rate band and preserve the literal completed transfer/spacing; the band and all physical, continuum, and Clay inputs remain open. |
+| 1 / 137 | 2026-09-27 | Added same-family `toContinuumGapTheorem` projections for both rationalized matched routes. They expose the existing scalar continuum-gap interface from an external physical-rate band; the scalar projection is conditional and does not close continuum/QFT, physical-mass, every-group, or Clay obligations. |
