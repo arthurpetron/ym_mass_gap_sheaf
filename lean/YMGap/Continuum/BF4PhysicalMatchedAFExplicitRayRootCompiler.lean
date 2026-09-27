@@ -27,6 +27,7 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecay
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
+import YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellEntropy
@@ -59,6 +60,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCo
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeWilsonGNSHandoff
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
+open YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeProjectiveOSCorrelationHandoff
@@ -863,6 +865,42 @@ def MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonIteratedBoundedMass
     exactRate operatorGap
   stationarity := stationarity
 
+/-- The existing dense-unit stationarity certificate is sufficient for the
+iterated matched endpoint; no second vacuum equation is inferred. -/
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonIteratedBoundedMassGap_ofDenseUnitStationaryVacuumPin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (exactRate : PositiveExactLogGapWitness D.reconstruction)
+    (operatorGap : WilsonOperatorNormGapPin D)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin D) :
+    WilsonIteratedBoundedMassGap D :=
+  producer.toWilsonIteratedBoundedMassGap_ofExactLogGap exactRate operatorGap
+    vacuumPin.stationarity
+
+/-- The stronger dense-unit pin is reduced through its checked stationarity
+adapter before entering the same iterated endpoint. -/
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonIteratedBoundedMassGap_ofDenseUnitVacuumPin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (exactRate : PositiveExactLogGapWitness D.reconstruction)
+    (operatorGap : WilsonOperatorNormGapPin D)
+    (vacuumPin : WilsonDenseUnitVacuumPin D) :
+    WilsonIteratedBoundedMassGap D :=
+  producer.toWilsonIteratedBoundedMassGap_ofExactLogGap exactRate operatorGap
+    vacuumPin.toStationaryVacuumPin.stationarity
+
 def MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -1376,6 +1414,42 @@ def MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMas
     exactRate operatorGap
   stationarity := stationarity
 
+/-- The factorized route consumes the existing dense-unit stationary-vacuum
+certificate without changing its selected carrier or exact rate. -/
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMassGap_ofDenseUnitStationaryVacuumPin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (exactRate : PositiveExactLogGapWitness D.reconstruction)
+    (operatorGap : WilsonOperatorNormGapPin D)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin D) :
+    WilsonIteratedBoundedMassGap D :=
+  producer.toWilsonIteratedBoundedMassGap_ofExactLogGap exactRate operatorGap
+    vacuumPin.stationarity
+
+/-- The factorized route also accepts the stronger dense-unit pin through its
+constructive stationarity adapter. -/
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMassGap_ofDenseUnitVacuumPin
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (exactRate : PositiveExactLogGapWitness D.reconstruction)
+    (operatorGap : WilsonOperatorNormGapPin D)
+    (vacuumPin : WilsonDenseUnitVacuumPin D) :
+    WilsonIteratedBoundedMassGap D :=
+  producer.toWilsonIteratedBoundedMassGap_ofExactLogGap exactRate operatorGap
+    vacuumPin.toStationaryVacuumPin.stationarity
+
 def MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -1624,6 +1698,10 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonIteratedBoundedMassGap_ofExactLogGap
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonIteratedBoundedMassGap_ofDenseUnitStationaryVacuumPin
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonIteratedBoundedMassGap_ofDenseUnitVacuumPin
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonMinimalBoundedMassGap
@@ -1681,6 +1759,10 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonMinimalBoundedMassGap_ofExactLogGap
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMassGap_ofExactLogGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMassGap_ofDenseUnitStationaryVacuumPin
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMassGap_ofDenseUnitVacuumPin
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
 #print axioms

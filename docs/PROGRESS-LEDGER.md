@@ -30375,3 +30375,13 @@ stationarity for iteration). The physical-rate band and summable variation
 handoff remain an explicit producer of that witness, not a hidden endpoint
 requirement. The monitored source check reports only
 `{propext, Quot.sound}` and no `sorryAx`.
+
+## Existing dense-unit vacuum certificates reach the matched iterated endpoint (2026-09-27 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now exposes, for both
+state-load and factorized routes, consumers of
+`WilsonDenseUnitStationaryVacuumPin` and of the stronger
+`WilsonDenseUnitVacuumPin`. The latter is converted using its existing
+constructive `toStationaryVacuumPin` adapter; neither declaration fabricates a
+vacuum or stationarity witness. The monitored check reports only
+`{propext, Quot.sound}` and no `sorryAx`.

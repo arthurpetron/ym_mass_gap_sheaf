@@ -1811,6 +1811,12 @@ and `toWilsonIteratedBoundedMassGap_ofExactLogGap`). The dynamic physical-rate
 band and variation handoff are now one named producer of that witness rather
 than an implicit requirement of the selected-Wilson endpoint.
 
+The existing dense-stage vacuum certificates now connect directly to the
+iterated matched endpoint: both routes accept
+`WilsonDenseUnitStationaryVacuumPin`, or the stronger
+`WilsonDenseUnitVacuumPin` through its checked stationarity adapter. This is a
+reuse of existing BF4/GNS vacuum data, not a newly constructed vacuum pin.
+
 ## Maintenance contract
 
 1. Read this file before every chart. Copy its chart block; do not regenerate
@@ -1977,3 +1983,4 @@ than an implicit requirement of the selected-Wilson endpoint.
 | 1 / 143 | 2026-09-27 | Added matched projections from the minimal Wilson endpoint to `WilsonIteratedBoundedMassGap` under an explicit `WilsonVacuumStationarityPin`. The iterated correlator interface is exposed, while stationarity, graph-norm, exact-rate, continuum/QFT, physical-mass, every-group, and Clay inputs remain explicit; focused check remains `{propext, Quot.sound}` with no `sorryAx`. |
 | 1 / 144 | 2026-09-27 | Factored both matched endpoints through direct `WilsonOperatorNormGapPin` consumers, so exact-rate/physical-band contraction no longer requires a graph-norm witness at the endpoint boundary. Graph norm remains an independent pin producer; all continuum/QFT, stationarity, physical-mass, every-group, and Clay inputs remain open. Focused check: `{propext, Quot.sound}`, no `sorryAx`. |
 | 1 / 145 | 2026-09-27 | Reduced the exact-rate side further to direct `PositiveExactLogGapWitness` consumers for minimal and iterated endpoints; dynamic physical-rate/variation data are only a named producer of that witness. Focused check remains `{propext, Quot.sound}` with no `sorryAx`; continuum/QFT, stationarity, physical-mass, every-group, and Clay obligations remain open. |
+| 1 / 146 | 2026-09-27 | Connected existing `WilsonDenseUnitStationaryVacuumPin` and `WilsonDenseUnitVacuumPin` certificates to both matched iterated-gap routes through the checked stationarity adapter. No vacuum pin is constructed; focused check remains `{propext, Quot.sound}` with no `sorryAx`. |
