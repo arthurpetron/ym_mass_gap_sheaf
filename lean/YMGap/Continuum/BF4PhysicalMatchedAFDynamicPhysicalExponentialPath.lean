@@ -534,6 +534,99 @@ def toContinuumHandoff_ofGapVariation
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff.ofExactLogVariations
     gapVariation spacingTail projectiveOS spectralChannel exactRate
 
+/-- Export the existing conditional exact-log continuum endpoint through the
+matched observable/carrier indices. -/
+def toContinuumYMWithExactLogGap_ofHandoff
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness :
+      PhysicalExponentialObservableWitness trajectory producer)
+    (band : StrengthBand trajectory producer)
+    (ceiling :
+      FullRangeLogRateCeiling
+        (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.fullRangeRateFamily
+          witness.observable))
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (handoff :
+      YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff
+        witness.observable
+        ((adaptiveFamily trajectory producer).physicalRateBand band)
+        ceiling existence osGNS) :
+    YMGap.Continuum.PhysicalSeparatorContinuumRealization.ContinuumYMWithExactLogGap
+      (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate
+        witness.observable
+        ((adaptiveFamily trajectory producer).physicalRateBand band)
+        ceiling) mu :=
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff.toContinuumYMWithExactLogGap
+    handoff
+
+/-- The matched endpoint retains the existing constructive positive exact-log
+mass consequence of the same handoff. -/
+theorem continuumMass_posEv_ofHandoff
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness :
+      PhysicalExponentialObservableWitness trajectory producer)
+    (band : StrengthBand trajectory producer)
+    (ceiling :
+      FullRangeLogRateCeiling
+        (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.fullRangeRateFamily
+          witness.observable))
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (handoff :
+      YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff
+        witness.observable
+        ((adaptiveFamily trajectory producer).physicalRateBand band)
+        ceiling existence osGNS) :
+    TuranPositivity.PosEv
+      (YMGap.Continuum.PhysicalSeparatorContinuumRealization.PhysicalSeparatorContinuumRealization.endpointMass
+        (toContinuumYMWithExactLogGap_ofHandoff witness band ceiling handoff)) :=
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff.continuumMass_posEv
+    handoff
+
+/-- The matched endpoint retains the OS/spectral equality for the same
+physically sampled gap observable. -/
+theorem osGapCorr_equiv_spectral_ofHandoff
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness :
+      PhysicalExponentialObservableWitness trajectory producer)
+    (band : StrengthBand trajectory producer)
+    (ceiling :
+      FullRangeLogRateCeiling
+        (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.fullRangeRateFamily
+          witness.observable))
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (handoff :
+      YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff
+        witness.observable
+        ((adaptiveFamily trajectory producer).physicalRateBand band)
+        ceiling existence osGNS)
+    (time : Nat) :
+    CReal.Equiv
+      (CReal.ofQ' (existence.os_axioms.E.E
+        (handoff.projectiveOS.osConnectedTwoPoint.connectedInsertion
+          handoff.projectiveOS.osConnectedTwoPoint.gapInsertion time)))
+      (CReal.ofQ'
+        (SpectralGap.corr osGNS.reconstruction.spec time)) :=
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff.osGapCorr_equiv_spectral
+    handoff time
+
 /-! ## 6. Contract the local producer to the correlated same-edge debt seam -/
 
 /-- The correlated capacity-debt compiler supplies the exact local producer
@@ -643,6 +736,12 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofGapVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofGapVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumYMWithExactLogGap_ofHandoff
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.continuumMass_posEv_ofHandoff
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.osGapCorr_equiv_spectral_ofHandoff
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.localProducer_ofCorrelatedCapacityDebt
 #print axioms

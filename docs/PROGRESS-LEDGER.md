@@ -30881,6 +30881,14 @@ explicitly indexed by the matched observable and carrier.  The focused
 5,153-job build reports only `{propext, Quot.sound}` and no `sorryAx`; no
 continuum measure or Clay endpoint is claimed.
 
+The matched namespace now exposes the handoff's existing endpoint
+consequences through `toContinuumYMWithExactLogGap_ofHandoff`,
+`continuumMass_posEv_ofHandoff`, and
+`osGapCorr_equiv_spectral_ofHandoff`.  These are conditional projections:
+they preserve the same observable/carrier indices and do not construct the
+projective measure, OS/GNS data, or exact-rate reconstruction.  The focused
+5,153-job build reports only `{propext, Quot.sound}` and no `sorryAx`.
+
 The cutoff-removal adapter now has the specialized
 `toExactRateCutoffRemoval_ofTrajectorySpacing` route, reusing the matched
 trajectory's own spacing-to-zero modulus.  After the explicit physical-gap

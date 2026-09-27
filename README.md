@@ -3521,6 +3521,12 @@ Projective/OS correlation, spectral-channel, exact-rate reconstruction,
 continuum-measure, and QFT existence inputs remain explicit and indexed by the
 same observable and carrier; no continuum or Clay endpoint is constructed.
 
+The matched namespace also exposes the handoff's conditional endpoint through
+`toContinuumYMWithExactLogGap_ofHandoff`, with positive mass and OS/spectral
+correlator projections.  These preserve the same observable/carrier indices;
+the projective measure, OS/GNS, exact-rate reconstruction, every-group, and
+Clay inputs remain explicit.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,
