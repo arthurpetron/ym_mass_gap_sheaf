@@ -30267,3 +30267,18 @@ The monitored source check reports only `{propext, Quot.sound}` for both new
 dependency gates and no `sorryAx`.  This is a scalar interface projection,
 not continuum/QFT existence: physical-rate calibration, OS/GNS, continuum
 measure, physical mass, every-group, and Clay remain open.
+
+## Matched scheduled-RC channel reaches conditional continuum positivity (2026-09-27 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.continuumZeroTime_isPositive`
+and the corresponding factorized declaration.  Each consumes an explicit
+`ScheduledRCContinuumLimit` and a
+`DynamicVacuumSectorUniformRCNormFloor` for the same literal moving-cube
+channel and applies the existing scheduled-RC cutoff-removal theorem to prove
+strict positivity of the continuum zero-time connected autocorrelation.
+
+The monitored source check reports only `{propext, Quot.sound}` for both new
+dependency gates and no `sorryAx`.  The representative limit, uniform floor,
+continuum measure, OS/GNS reconstruction, physical mass, every-group, and
+Clay inputs remain open.

@@ -22,6 +22,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 import YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 import YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellEntropy
@@ -49,6 +50,7 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
 open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 open YMGap.Continuum.PhysicalSeparator
 open YMGap.Continuum.PhysicalSeparatorContinuumRealization
@@ -693,6 +695,18 @@ def MatchedPhysicalExplicitRayStateLoadDecayProducer.toContinuumGapTheorem
     ContinuumGapTheorem :=
   band.toContinuumGapTheorem
 
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.continuumZeroTime_isPositive
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (limit : ScheduledRCContinuumLimit producer.toSameObjectRCChannel)
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      producer.toSameObjectRCChannel) :
+    RCIsPositive (limit.continuumConnectedAutocorrelation 0) :=
+  limit.continuumConnectedAutocorrelation_zero_isPositive uniform
+
 /-! ## 8. Split the remaining decay into weight and path mechanisms -/
 
 /-- A factored analytic input for the same route: stationary-weight decay and
@@ -972,6 +986,18 @@ def MatchedPhysicalExplicitRayFactorizedDecayProducer.toContinuumGapTheorem
     ContinuumGapTheorem :=
   band.toContinuumGapTheorem
 
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.continuumZeroTime_isPositive
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (limit : ScheduledRCContinuumLimit producer.toSameObjectRCChannel)
+    (uniform : DynamicVacuumSectorUniformRCNormFloor
+      producer.toSameObjectRCChannel) :
+    RCIsPositive (limit.continuumConnectedAutocorrelation 0) :=
+  limit.continuumConnectedAutocorrelation_zero_isPositive uniform
+
 /-! ## 9. Occupied-shell obstruction at the matched boundary -/
 
 /-- Every occupied physical-mass shell forces the matched state-load envelope
@@ -1118,6 +1144,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toContinuumGapTheorem
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.continuumZeroTime_isPositive
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toStateLoadDecayProducer
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toResistanceProducer
@@ -1153,6 +1181,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toRegScalingBand
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toContinuumGapTheorem
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.continuumZeroTime_isPositive
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.one_le_envelope_of_shell_member
 #print axioms

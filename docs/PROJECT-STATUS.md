@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **121**, 2026-09-27 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **122**, 2026-09-27 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -193,6 +193,15 @@ reconstruction, QFT construction, physical-mass calibration, every-group
 theorem, or Clay result.  The scalar projection itself does not consume the
 rational moment certificate or strict-rate witness; those remain required by
 the observable/physical-separator branch.
+
+The scheduled-RC handoff now also exposes
+`continuumZeroTime_isPositive` for both matched routes.  Given an explicit
+`ScheduledRCContinuumLimit` and a scale-uniform
+`DynamicVacuumSectorUniformRCNormFloor` for the literal moving-cube channel,
+the existing cutoff-removal theorem proves strict positivity of the
+continuum zero-time same-object autocorrelation.  Neither certificate is
+constructed here, and no continuum measure, OS/GNS reconstruction, physical
+mass, every-group, or Clay result is claimed.
 
 Because the finite physical-mass shell entropy estimate is already proved, the
 matched route now also accepts the smaller
@@ -1900,3 +1909,4 @@ still consumes the two unproved all-scale pointwise inequalities.
 | 1 / 135 | 2026-09-26 | Factored the RC-to-rational-observable seam into explicit moment equalities, nonnegativity/zero-time positivity, amplitude, gauge-invariance, and strict-rate certificates, with a kernel-checked constructor to the singleton observable pin and physical separator. None of those certificates is inhabited by this milestone; no continuum or Clay node closes. |
 | 1 / 136 | 2026-09-27 | Added same-family `toPhysicalGapFloor` and `toRegScalingBand` projections for both rationalized matched decay routes. They consume an explicit physical-rate band and preserve the literal completed transfer/spacing; the band and all physical, continuum, and Clay inputs remain open. |
 | 1 / 137 | 2026-09-27 | Added same-family `toContinuumGapTheorem` projections for both rationalized matched routes. They expose the existing scalar continuum-gap interface from an external physical-rate band; the scalar projection is conditional and does not close continuum/QFT, physical-mass, every-group, or Clay obligations. |
+| 1 / 138 | 2026-09-27 | Exposed `continuumZeroTime_isPositive` for both matched routes. An explicit scheduled-RC representative limit plus a uniform same-channel norm floor now compiles to continuum zero-time positivity; the two certificates and all OS/QFT, physical-mass, every-group, and Clay obligations remain open. |

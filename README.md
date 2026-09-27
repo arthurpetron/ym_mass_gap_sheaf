@@ -135,6 +135,12 @@ is a conditional scalar interface only, not a continuum QFT construction;
 the rational observable, strict-rate, OS/GNS, physical-mass, every-group, and
 Clay obligations remain open.
 
+The scheduled-RC handoff also exposes `continuumZeroTime_isPositive`: an
+explicit representative-level scheduled limit and a uniform norm floor for
+the same moving-cube channel imply strict positivity of its continuum
+zero-time autocorrelation.  Those two cutoff-removal certificates are still
+open; this does not construct the continuum theory or the Clay mass gap.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly
