@@ -24,6 +24,7 @@ set_option maxHeartbeats 20000000
 set_option autoImplicit false
 
 open YMGap.Constructive
+open YMGap.Constructive.CReal
 open YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
 open YMGap.Continuum.BF4PhysicalChangingNomeExplicitMarginLaw
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath
@@ -324,6 +325,50 @@ theorem WilsonContinuumMassClusteringJoin.clusteringRatio_eq_selectedSeparatorSq
       W.selectedSpectralData.gap.sep * W.selectedSpectralData.gap.sep :=
   data.toEndpoint.clusteringRatio_eq_selectedSeparatorSq
 
+/-- Expose the canonical positive exact-log representative selected by the
+    same reconstruction and Wilson gap. -/
+def WilsonContinuumMassClusteringJoin.canonicalPositiveMass
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (data : WilsonContinuumMassClusteringJoin P H W sampling) :
+    Σ' mass : CReal, CReal.IsPositive mass :=
+  data.toEndpoint.canonicalPositiveMass
+
+/-- The cutoff-removed rate and the reconstruction exact logarithm are
+    explicitly equivalent in the same physical-mass currency. -/
+theorem WilsonContinuumMassClusteringJoin.massRate_equiv_selectedSeparatorExactLog
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (data : WilsonContinuumMassClusteringJoin P H W sampling) :
+    CReal.Equiv data.toEndpoint.massRate
+      (OSExactLogGap.exactLogGap W.reconstruction
+        data.toEndpoint.iteratedGap.boundedGap.exactRate.exactGap.positiveGapBound) :=
+  data.toEndpoint.massRate_equiv_selectedSeparatorExactLog
+
+/-- The quotient-valued mass is the quotient of that same canonical exact-log
+    representative. -/
+theorem WilsonContinuumMassClusteringJoin.massRC_eq_selectedSeparatorExactLogRC
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (data : WilsonContinuumMassClusteringJoin P H W sampling) :
+    data.toEndpoint.massRC =
+      Quotient.mk crealSetoid
+        (OSExactLogGap.exactLogGap W.reconstruction
+          data.toEndpoint.iteratedGap.boundedGap.exactRate.exactGap.positiveGapBound) :=
+  data.toEndpoint.massRC_eq_selectedSeparatorExactLogRC
+
 end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
 
 /-! ## Axiom-dependency gates -/
@@ -352,3 +397,9 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonContinuumMassClusteringJoin.nontrivialClustering
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonContinuumMassClusteringJoin.clusteringRatio_eq_selectedSeparatorSq
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonContinuumMassClusteringJoin.canonicalPositiveMass
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonContinuumMassClusteringJoin.massRate_equiv_selectedSeparatorExactLog
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonContinuumMassClusteringJoin.massRC_eq_selectedSeparatorExactLogRC

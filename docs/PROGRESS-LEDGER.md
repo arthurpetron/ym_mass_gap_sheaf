@@ -30717,3 +30717,17 @@ Thus the positive completed-real mass and the nonzero geometric clustering
 remain attached to the same selected Wilson separator.  These are conditional
 endpoint consequences; no physical calibration, full continuum QFT,
 every-group, or Clay witness is constructed.
+
+## Same-carrier exact-log mass calibration (2026-09-27 UTC)
+
+The same `WilsonContinuumMassClusteringJoin` now exposes
+`canonicalPositiveMass`, carrying the endpoint's positive completed-real
+representative.  It also proves
+`massRate_equiv_selectedSeparatorExactLog`, identifying the endpoint rate with
+the reconstruction exact logarithm of the selected Wilson separator, and
+`massRC_eq_selectedSeparatorExactLogRC`, identifying the quotient-valued mass
+with the quotient of that same representative.  These equalities close a
+representation/currency seam on one repaired carrier; they do not construct
+the missing physical calibration, continuum QFT, every-group, or Clay input.
+The focused monitored check reports only `{propext, Quot.sound}` and no
+`sorryAx`; the canonical chart marker remains unchanged.

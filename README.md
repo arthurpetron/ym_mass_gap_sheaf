@@ -3410,6 +3410,10 @@ certificate inputs, not constructed continuum data.  The
 same join now exposes its representation-invariant positive mass, nontrivial
 squared clustering object, and the exact ratio identity tying clustering to
 the selected Wilson separator square.  The
+join also exposes the canonical positive exact-log representative and proves
+the `CReal.Equiv` and quotient-valued equalities identifying its mass with the
+reconstruction exact logarithm of the same selected separator.  These are
+mass-currency projections, not a physical calibration theorem.  The
 bundle is a certificate interface, not an inhabitant: no OS/GNS construction,
 continuum QFT, physical-mass calibration, every-group theorem, or Clay result
 is claimed.  Focused checking reported only `{propext, Quot.sound}` and no
