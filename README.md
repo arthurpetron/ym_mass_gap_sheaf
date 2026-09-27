@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-## Current proof boundary (2026-09-25 UTC)
+## Current proof boundary (2026-09-26 UTC)
 
 The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
 wording, layout, proof-status meanings and permanent node IDs across updates.
@@ -9,6 +9,18 @@ The Clay target remains **open**: a nontrivial continuum Yang--Mills theory on
 R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
+
+**Latest checked repaired-family path (2026-09-26):**
+`BF4PhysicalChangingNomeExplicitMarginLaw` now provides a carrier-normalized
+vanishing-spacing schedule, its same-nome/same-gap completed family, the
+conditional product-band → physical-rate → sharp continuum-gap compiler, the
+necessary normalized floor-order consequence, and the concrete same-object
+moving-cube channel with positive zero-time response and completed squared
+decay. These are kernel-checked SU(2) components; the product band,
+cutoff-removal variation, uniform scaling survival, OS/GNS reconstruction,
+continuum QFT, physical mass, every-group construction, and Clay theorem remain
+open. See the [canonical status chart](docs/PROJECT-STATUS.md) and
+[forward-progress ledger](docs/PROGRESS-LEDGER.md).
 
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
