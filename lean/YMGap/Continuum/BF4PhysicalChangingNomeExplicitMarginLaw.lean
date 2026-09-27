@@ -555,6 +555,48 @@ structure ChangingNomeCarrierNormalizedHeadEnergyProductBand : Type 1 where
             (changingNome scale)
             (Q'.le_of_lt (changingNome_pos scale)))
 
+/-! The repaired schedule has the same quotient identity as the original
+    changing-nome family.  Its product certificate therefore forces the exact
+    floor order required by the normalized spacing, with no re-use of the
+    scale-zero contradiction from the old schedule. -/
+
+theorem ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand) (scale : Nat) :
+    Q'.ofNat 6 *
+        ((band.floor *
+            changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale) *
+          changingNomeBandScale scale) ≤
+      changingNomeBandFloor scale := by
+  let A : Q' := band.floor *
+    changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale
+  let H : Q' := changingNomeBandHeadEnergy scale
+  let S : Q' := changingNomeBandScale scale
+  let F : Q' := changingNomeBandFloor scale
+  have hA0 : (0 : Q') ≤ A := by
+    dsimp [A]
+    exact Q'.mul_nonneg band.floor
+      (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+      (Q'.le_of_lt band.floor_pos)
+      (Q'.le_of_lt
+        (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing_pos scale))
+  have hF0 : (0 : Q') ≤ F := by
+    dsimp [F, changingNomeBandFloor]
+    exact Q'.le_of_lt
+      (fixedBasePulledPositiveEdgeFloorValue_pos
+        (changingNome scale) (Q'.le_of_lt (changingNome_pos scale)) 1404 0)
+  have hband : A * (Q'.ofNat 2 + Q'.ofNat 6 * H) ≤ (1 : Q') := by
+    dsimp [A, H]
+    exact band.lowerHeadEnergy scale
+  have hFS : F * H ≈ S := by
+    dsimp [F, H, S, changingNomeBandFloor, changingNomeBandHeadEnergy,
+      changingNomeBandScale]
+    exact fixedBasePulledPositiveEdgeFloorValue_mul_headEnergyConstant_eqv_scale
+      (changingNome scale) (Q'.le_of_lt (changingNome_pos scale))
+  have hresult :=
+    ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_scalar
+      (A := A) (H := H) (S := S) (F := F) hA0 hF0 hband hFS
+  simpa [A, S, F, changingNomeBandScale, changingNomeBandFloor] using hresult
+
 def ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand
     (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand) :
     ExplicitMarginDenominatorBand
@@ -683,6 +725,7 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedDynamicFamily_same_nome
 #print axioms changingNomeCarrierNormalizedDynamicFamily_same_gap_rate
 #print axioms changingNomeCarrierNormalizedExplicitMarginInverseLaw
+#print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toPhysicalRateBand
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toContinuumGapTheorem

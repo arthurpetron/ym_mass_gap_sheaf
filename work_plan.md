@@ -132,7 +132,7 @@ order estimate is proved.
 ### Conditional contraction to the sharp gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:661--664`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:703--706`)
 now composes that specialized certificate with the existing same-family
 physical-rate compiler and the sharp `ContinuumGapTheorem` interface.  This
 closes the typed downstream route once the product-band fields are supplied;
@@ -194,7 +194,7 @@ open.  The focused monitored check reports only `{propext, Quot.sound}`.
 
 `ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand`,
 `.toPhysicalRateBand`, and `.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:558--608`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:600--650`)
 now transport the two explicit product-band fields through the
 carrier-normalized spacing schedule and into the existing sharp
 `ContinuumGapTheorem` interface.  The product-band structure remains
