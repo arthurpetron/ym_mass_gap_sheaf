@@ -511,6 +511,102 @@ theorem changingNomeCarrierNormalizedDynamicFamily_same_gap_rate (scale : Nat) :
       cutoffUniformRate (changingNome scale)
         (Q'.le_of_lt (changingNome_pos scale)) := rfl
 
+/-- The exact denominator law transported to the repaired spacing schedule.
+    The dimensionless margin is unchanged because the completed nome and gap
+    are unchanged; only the physical spacing field is replaced. -/
+def changingNomeCarrierNormalizedExplicitMarginInverseLaw :
+    ExplicitMarginInverseLaw changingNomeCarrierNormalizedDynamicFamily where
+  denominator := changingNomeMarginDenominator
+  denominator_pos := changingNomeMarginDenominator_pos
+  margin_eqv_inverse := by
+    intro scale
+    have hmargin :
+        changingNomeCarrierNormalizedDynamicFamily.latticeMargin scale ≈
+          changingNomeDynamicFamily.latticeMargin scale := by
+      unfold DynamicVacuumSectorCompletedFamily.latticeMargin
+      rw [changingNomeCarrierNormalizedDynamicFamily_same_gap_rate,
+        changingNomeDynamicFamily_rate]
+      exact Q'.eqv_refl _
+    exact Q'.eqv_trans _ _ _ hmargin
+      (changingNomeExplicitMarginInverseLaw.margin_eqv_inverse scale)
+
+/-- The smallest honest B04 certificate for the repaired schedule.  Its two
+    fields are the still-open uniform product bounds, now typed against the
+    same completed nome/gap family as the carrier-normalized spacing. -/
+structure ChangingNomeCarrierNormalizedHeadEnergyProductBand : Type 1 where
+  floor : Q'
+  floor_pos : (0 : Q') < floor
+  ceiling : Q'
+  ceiling_pos : (0 : Q') < ceiling
+  lowerHeadEnergy : ∀ scale,
+    (floor *
+        changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale) *
+        (Q'.ofNat 2 + Q'.ofNat 6 *
+          headEnergyConstant
+            (changingNome scale)
+            (Q'.le_of_lt (changingNome_pos scale))) ≤
+      (1 : Q')
+  upperHeadEnergy : ∀ scale,
+    (1 : Q') ≤
+      (ceiling *
+        changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale) *
+        (Q'.ofNat 2 + Q'.ofNat 6 *
+          headEnergyConstant
+            (changingNome scale)
+            (Q'.le_of_lt (changingNome_pos scale)))
+
+def ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand) :
+    ExplicitMarginDenominatorBand
+      changingNomeCarrierNormalizedExplicitMarginInverseLaw where
+  floor := band.floor
+  floor_pos := band.floor_pos
+  ceiling := band.ceiling
+  ceiling_pos := band.ceiling_pos
+  lowerDenominator := by
+    intro scale
+    have htransport :
+        (band.floor *
+            changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale) *
+            changingNomeMarginDenominator scale ≈
+          (band.floor *
+            changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale) *
+            (Q'.ofNat 2 + Q'.ofNat 6 *
+              headEnergyConstant
+                (changingNome scale)
+                (Q'.le_of_lt (changingNome_pos scale))) :=
+      Q'.mul_eqv_congr_left _ _ _
+        (changingNomeMarginDenominator_eqv_two_add_six_headEnergy scale)
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv htransport)
+      (band.lowerHeadEnergy scale)
+  upperDenominator := by
+    intro scale
+    have htransport :
+        (band.ceiling *
+            changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale) *
+            changingNomeMarginDenominator scale ≈
+          (band.ceiling *
+            changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale) *
+            (Q'.ofNat 2 + Q'.ofNat 6 *
+              headEnergyConstant
+                (changingNome scale)
+                (Q'.le_of_lt (changingNome_pos scale))) :=
+      Q'.mul_eqv_congr_left _ _ _
+        (changingNomeMarginDenominator_eqv_two_add_six_headEnergy scale)
+    exact Q'.le_trans' _ _ _ (band.upperHeadEnergy scale)
+      (Q'.le_of_eqv (Q'.eqv_symm htransport))
+
+def ChangingNomeCarrierNormalizedHeadEnergyProductBand.toPhysicalRateBand
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand) :
+    DynamicVacuumSectorPhysicalRateBand
+      changingNomeCarrierNormalizedDynamicFamily :=
+  band.toExplicitMarginDenominatorBand.toPhysicalRateBand
+
+def ChangingNomeCarrierNormalizedHeadEnergyProductBand.toContinuumGapTheorem
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand) :
+    SharpContinuumObligation.ContinuumGapTheorem :=
+  band.toPhysicalRateBand.toContinuumGapTheorem
+
 /-- Compile the minimal head-energy product certificate into the existing
     same-family denominator band without changing the spacing or denominator.
     The certificate remains uninhabited until the cofinal floor-order estimate
@@ -586,6 +682,10 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedDynamicFamily
 #print axioms changingNomeCarrierNormalizedDynamicFamily_same_nome
 #print axioms changingNomeCarrierNormalizedDynamicFamily_same_gap_rate
+#print axioms changingNomeCarrierNormalizedExplicitMarginInverseLaw
+#print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand
+#print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toPhysicalRateBand
+#print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand
 #print axioms ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeExplicitMarginInverseLaw

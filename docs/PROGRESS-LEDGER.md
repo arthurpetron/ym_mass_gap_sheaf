@@ -4,6 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: repaired-family product band contracts to the continuum-gap interface (2026-09-26 UTC)
+
+`ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand`,
+`.toPhysicalRateBand`, and `.toContinuumGapTheorem`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:558--608`)
+transport the two explicit product-band inequalities through the repaired
+carrier-normalized spacing schedule.  The compiler preserves the exact
+same-family denominator law and reaches the existing sharp
+`SharpContinuumObligation.ContinuumGapTheorem` interface.  The product-band
+structure is still an explicit, currently uninhabited input; therefore this is
+a conditional downstream join, not an inhabited physical-rate band, continuum
+construction, physical mass, every-group, or Clay result.  The focused
+monitored check reports only `{propext, Quot.sound}`.
+
 ## Current increment: product-band forces a necessary floor order (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_scalar`
@@ -220,10 +234,10 @@ and no OS/GNS, continuum/QFT, physical-mass, every-group, or Clay conclusion.
 (`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:92--106`)
 is the exact algebraic presentation of the scheduled denominator as
 `2 + 6 * H(w_scale)`, with `H = headEnergyConstant`.  The new structure
-`ChangingNomeHeadEnergyProductBand` (`:146--164`) retains only the two uniform
+`ChangingNomeHeadEnergyProductBand` (`:153--171`) retains only the two uniform
 product inequalities against the unchanged spacing, and
 `ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand`
-(`:170--204`) compiles them into the existing same-family denominator band.
+(`:614--648`) compiles them into the existing same-family denominator band.
 The focused check reports only `{propext, Quot.sound}`.  The certificate is
 intentionally uninhabited: proving its two fields is exactly the remaining
 all-scale denominator-versus-spacing problem.
@@ -231,7 +245,7 @@ all-scale denominator-versus-spacing problem.
 ## Current increment: product band contracted to the continuum-gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:565--568`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:661--664`)
 composes the exact changing-nome denominator presentation, the specialized
 product-band compiler, and the existing same-family physical-rate compiler
 into the sharp `ContinuumGapTheorem` interface.  The focused monitored build

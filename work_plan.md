@@ -122,7 +122,7 @@ schedule.
 
 ### Minimal B04 head-energy certificate (2026-09-26 UTC)
 
-`BF4PhysicalChangingNomeExplicitMarginLaw.lean:92--552` now exposes the exact
+`BF4PhysicalChangingNomeExplicitMarginLaw.lean:92--648` now exposes the exact
 `gapDenominator = 2 + 6*headEnergyConstant` presentation and a
 `ChangingNomeHeadEnergyProductBand` whose two fields are precisely the uniform
 spacing-product bounds still needed.  Its compiler preserves the actual
@@ -132,7 +132,7 @@ order estimate is proved.
 ### Conditional contraction to the sharp gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:565--568`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:661--664`)
 now composes that specialized certificate with the existing same-family
 physical-rate compiler and the sharp `ContinuumGapTheorem` interface.  This
 closes the typed downstream route once the product-band fields are supplied;
@@ -188,6 +188,18 @@ The same-nome and same-gap-rate identities (`:506--512`) confirm that the
 completed transfer data are unchanged.  This is a constructive normalization
 scaffold after the scale-zero obstruction; the product band, physical-rate
 band, OS/GNS, continuum/QFT, physical mass, every-group, and Clay nodes remain
+open.  The focused monitored check reports only `{propext, Quot.sound}`.
+
+### Repaired-family product-band contraction (2026-09-26 UTC)
+
+`ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand`,
+`.toPhysicalRateBand`, and `.toContinuumGapTheorem`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:558--608`)
+now transport the two explicit product-band fields through the
+carrier-normalized spacing schedule and into the existing sharp
+`ContinuumGapTheorem` interface.  The product-band structure remains
+uninhabited, so this is a conditional typed join; the all-scale physical-rate
+band, continuum/QFT, physical mass, every-group, and Clay obligations remain
 open.  The focused monitored check reports only `{propext, Quot.sound}`.
 
 ### Scale-zero obstruction and schedule redesign (2026-09-26 UTC)
