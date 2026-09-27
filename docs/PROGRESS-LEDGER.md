@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual local factor degenerates (2026-09-27 UTC)
+## Current increment: only signed neighbors can lower residual-sum energy (2026-09-27 UTC)
+
+The SAME original completed operator H=sum_i(I-P_i) now satisfies
+`<H x,x>=E(x)` and `||H x||^2=E(x)+C_near(x)+Q_remote(x)`.
+The remote part is a constructed nonnegative sum of squares; the ordered
+distinct-neighbor part retains its signs. Thus the next lower estimate can
+target bounded-degree original neighboring terms without paying an ambient
+volume count for remote terms. This is a checked exact reduction, not the
+missing analytic pair bound or global gap. The audit records an elementary
+near-product perturbation argument, its factor-of-two counting requirement,
+and the still-missing same-object comparison/completion/coercivity joins.
+
+Three focused serialized checks passed all 22 gates within {propext,
+Quot.sound}, with Luna proof and independent Sol math/source reviews. No
+canonical node or Clay endpoint closes; no broad progress-metric/guard run.
+Evidence: `audits/AUDIT-ORIGINAL-SIGNED-NEIGHBOR-ENERGY-2026-09-27.md`.
+
+## Earlier increment: actual local factor degenerates (2026-09-27 UTC)
 
 The existing degree-dependent covariance multiplier is now proved to return
 to ONE, uniformly in nome and nonempty seed size, with explicit tolerance

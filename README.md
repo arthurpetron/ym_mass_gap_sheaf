@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Signed-energy obstruction localized (2026-09-27):** on the original
+completed carrier, Lean now decomposes the conditional residual-sum square
+into its Dirichlet energy, signed neighboring cross terms, and nonnegative
+remote squares. Only the bounded-degree neighbor terms can lower the result;
+their required quantitative bound remains open. This is conditional-link
+dynamics, not a physical Hamiltonian gap. See the
+[checked identity and next mathematical argument](audits/AUDIT-ORIGINAL-SIGNED-NEIGHBOR-ENERGY-2026-09-27.md).
+
 **Current comparison route ruled out for asymptotic decay (2026-09-27):** Lean
 now proves that the actual covariance factor at degree `d=n+1`
 lies between `1-2^(-d)` and `1`, with an explicit convergence modulus

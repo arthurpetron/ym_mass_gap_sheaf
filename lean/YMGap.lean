@@ -5496,6 +5496,10 @@ import YMGap.Continuum.BF4ExactSlabLocalChebyshevCovariance
 import YMGap.Continuum.BF4ExactSlabConeBudgetDegree
 import YMGap.Continuum.ChebyshevNearOneUpper
 import YMGap.Continuum.BF4ExactSlabLocalChebyshevObstruction
+-- Original signed neighbor terms, with a proved nonnegative remote remainder.
+import YMGap.Continuum.GNSProjectionResidualPair
+import YMGap.Continuum.GNSProjectionSignedEnergy
+import YMGap.Continuum.BF4ExactSlabSignedNeighborEnergy
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

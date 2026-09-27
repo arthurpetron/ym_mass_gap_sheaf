@@ -25,6 +25,36 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original signed-energy lower-bound problem localized (2026-09-27 UTC)
+
+`SignedNeighborEnergy.conditionalGenerator_square` now proves, on the SAME
+original completion, `||H x||^2=E(x)+C_near(x)+Q_remote(x)` for H=sum_i(I-P_i).
+`conditionalGenerator_energy` identifies `<H x,x>` with the existing E.
+The ordered DISTINCT-neighbor sum retains all signs; every remote term is
+a proved nonnegative composed-residual square. Each neighborhood row has at
+most 25 physical links, including its diagonal. No neighbor smallness or
+scaling-uniform lower bound is assumed or proved by this identity.
+
+NEXT producer: a common-background two-coordinate comparison and signed
+perturbation estimate for the ACTUAL conditional residuals. Existing small-
+nome original-face bounds tend to one; the reviewed argument in the audit
+specifies how a comparison L*B0<=B<=U*B0 would bound a single cross pairing
+by `-(U-L)/(2L)` times the two residual energies. Ordered counting costs
+twice that coefficient, so the safe degree-25 condition is `25U<26L`.
+This comparison/range pin, its completed passage, and the subsequent
+constructive H-squared-to-coercivity bridge remain unproved. Do not replace
+them with assumed certificates or treat small-nome control as continuum
+scaling. The original reverse-energy theorem is the eventual consumer.
+Reuse `LocalSupportComparison.collarCount_le` on [i,j] (at most 12 faces),
+its detached background and exact split. The stronger weight comparison
+must hold for arbitrary spectator-dependent tests, not only two-link-local
+polynomials; no new geometric partition is needed.
+
+Three focused serialized one-worker/20 GiB checks passed all 22 gates within
+{propext, Quot.sound}; Luna proof work and two Sol math/source reviews ran
+in parallel. No new hole, analytic bundle or canonical chart change. Evidence:
+`audits/AUDIT-ORIGINAL-SIGNED-NEIGHBOR-ENERGY-2026-09-27.md`.
+
 ### Actual local Chebyshev factor degenerates: route redirected (2026-09-27 UTC)
 
 `LocalChebyshevObstruction.factor_bounds` proves the ACTUAL returned factor

@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Original signed neighborhood energy reduction (2026-09-27 UTC)
+
+- **proved:** `GNSProjectionSweep.Family.commuting_residual_pairing_eq_normSq`
+  (module `GNSProjectionResidualPair`) makes every commuting remote pair
+  a nonnegative composed-residual square. `GNSProjectionSignedEnergy`
+  constructs the self-adjoint residual sum and identifies its quadratic form
+  with the existing Dirichlet energy, then separates its norm square into
+  diagonal, signed distinct-neighbor, and nonnegative remote terms.
+- **actual instance:** `BF4ExactSlabSignedNeighborEnergy.conditionalGenerator_square`
+  and `signed_energy_le_generator_square` use the original completed fullData,
+  conditional projections and duplicate-free physical schedule. The row count
+  is 25 including the diagonal, not an asserted analytic contraction constant.
+- **open:** the quantitative signed neighboring-pair lower estimate, its
+  actual common-background/completion pins, and constructive coercivity
+  upgrade. A reviewed small-nome perturbation argument is recorded as prose,
+  not a formal theorem. Scaling/OS/QFT/nontriviality/physical mass/every-group
+  Clay remain open. No named hypothesis bundle or sorry is introduced.
+- **verification:** three focused one-worker/20 GiB checks, all 22 gates within
+  {propext, Quot.sound}; Luna proof and independent Sol review. No full-tree
+  build/audit/guard or canonical chart change. Evidence:
+  `audits/AUDIT-ORIGINAL-SIGNED-NEIGHBOR-ENERGY-2026-09-27.md`.
+
 ## Actual local factor obstruction and analytic redirect (2026-09-27 UTC)
 
 - **proved:** `LocalChebyshevObstruction.factor_bounds` puts the ACTUAL

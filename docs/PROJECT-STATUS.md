@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting signed-neighbor reduction (2026-09-27 UTC; chart markers unchanged):
+The actual original completed residual sum H satisfies `<Hx,x>=E(x)` and
+`||Hx||^2=E(x)+C_near(x)+Q_remote(x)`. Distinct-neighbor terms stay signed;
+remote terms are proved nonnegative squares. Each neighborhood row contains
+at most 25 links. The useful quantitative neighbor bound and coercivity
+upgrade remain open, as do A03 and same-theory scaling/OS/QFT/every-group
+Clay. All 22 gates passed three focused checks. Evidence:
+`audits/AUDIT-ORIGINAL-SIGNED-NEIGHBOR-ENERGY-2026-09-27.md`.
+
 Verified supporting route obstruction (2026-09-27 UTC; chart markers unchanged):
 The ACTUAL degree-dependent local covariance factor lies in
 `[1-2^(-(n+1)),1]`; its square is at least 1/4. An explicit `epsilon.den`
