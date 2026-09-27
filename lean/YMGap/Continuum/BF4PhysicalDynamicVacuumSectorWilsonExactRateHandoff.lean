@@ -27,6 +27,7 @@ conclusion is inhabited here.  No `Classical.*`, choice, `native_decide`,
 
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
+import YMGap.Continuum.EffMassConvergence
 
 namespace YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
 
@@ -39,6 +40,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
+open YMGap.Continuum.EffMassConvergence
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.OSExactLogGap
@@ -70,6 +72,33 @@ structure DynamicVacuumSectorWilsonExactRateHandoff
     (exactLogGap D.reconstruction positiveGapBound)
 
 namespace DynamicVacuumSectorWilsonExactRateHandoff
+
+/-! ## 1a. Reverse construction from an exact logarithmic witness -/
+
+/-- Repackage a positive exact-logarithmic gap witness as the same-stream
+physical-rate handoff, provided the variation-selected limit is explicitly
+identified with the witness rate.
+
+The equality is deliberately an input `CReal.Equiv`: the constructor does not
+infer that a physical variation limit is the Wilson rate.  It only transports
+the existing constructive convergence along that supplied identification and
+keeps the positive transfer-gap bound from the exact-log witness. -/
+def ofPositiveExactLogGapWitness
+    {family : DynamicVacuumSectorCompletedFamily 0}
+    {gapVariation : SummableRationalStepVariation family.physicalGap}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (witness : PositiveExactLogGapWitness D.reconstruction)
+    (rate_equiv : CReal.Equiv gapVariation.limit witness.rate) :
+    DynamicVacuumSectorWilsonExactRateHandoff
+      family gapVariation D where
+  positiveGapBound := witness.exactGap.positiveGapBound
+  physicalGapConverges := by
+    have hlim : CReal.Equiv gapVariation.limit
+        (exactLogGap D.reconstruction witness.exactGap.positiveGapBound) :=
+      CReal.Equiv.trans rate_equiv witness.exactGap.rate_equiv
+    exact convergesTo_retarget gapVariation.converges hlim
 
 /-- Constructive uniqueness identifies the variation-selected physical rate
 with the exact logarithm of the selected Wilson separator. -/
@@ -169,6 +198,8 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
 
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff.DynamicVacuumSectorWilsonExactRateHandoff.physicalGapLimit_equiv_exactLog
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff.DynamicVacuumSectorWilsonExactRateHandoff.ofPositiveExactLogGapWitness
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff.DynamicVacuumSectorWilsonExactRateHandoff.toExactLogGapAt
 #print axioms

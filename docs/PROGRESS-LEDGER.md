@@ -30476,3 +30476,17 @@ The monitored source check reports only `{propext, Quot.sound}` for both
 constructors and no `sorryAx`. Positive-time rate variation, projective/raw
 same-object semantics, graph norm, vacuum, continuum, physical-mass,
 every-group, and Clay inputs remain explicit.
+
+## Reverse exact-rate witness construction (2026-09-27 UTC)
+
+`DynamicVacuumSectorWilsonExactRateHandoff.ofPositiveExactLogGapWitness`
+(`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff.lean`)
+repackages an explicit `PositiveExactLogGapWitness` into the same-stream
+physical-rate handoff. Its additional `CReal.Equiv` hypothesis identifies the
+variation-selected limit with the witness rate; the constructor then
+transports the existing rational-stream convergence and retains the witness's
+positive transfer-gap bound. This factors the exact-rate seam without
+manufacturing the missing rate identity. The focused monitored source check
+reports only `{propext, Quot.sound}` and no `sorryAx`; the witness, identity,
+and all continuum/QFT, physical-mass, every-group, and Clay inputs remain
+open.

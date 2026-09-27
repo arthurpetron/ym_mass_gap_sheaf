@@ -220,6 +220,16 @@ The scheduled rate-power seam is lowered to the existing rational
 the constructive-real limit required by the capstone. Positive-time variation
 is still an explicit analytic input.
 
+**Latest exact-rate factorization (2026-09-27):**
+`DynamicVacuumSectorWilsonExactRateHandoff.ofPositiveExactLogGapWitness`
+provides the reverse typed contraction from an independently supplied
+`PositiveExactLogGapWitness`: it retains the witness's positive transfer-gap
+bound and transports the variation-selected physical stream along an explicit
+`CReal.Equiv` to the witness rate. The physical-rate identity is therefore
+not inferred or hidden. The focused check passes with only
+`{propext, Quot.sound}` and no `sorryAx`; the witness, rate identification,
+and every continuum/Clay input remain explicit.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly
