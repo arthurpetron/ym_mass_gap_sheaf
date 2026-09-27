@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## Ordinary square-nullity and spatial contextual quotient inclusion (2026-09-27 UTC)
+
+- **files:** `lean/YMGap/Continuum/BF4WilsonSignedTimeFiniteCauchySchwarz.lean`,
+  `lean/YMGap/Continuum/BF4WilsonSignedTimeCauchySchwarz.lean`, and
+  `lean/YMGap/Continuum/BF4WilsonSignedTimeContextInclusion.lean`.
+- **actual estimate:** `chartScalar_cauchySchwarz` (FiniteCauchySchwarz `:164`)
+  bounds the ordinary product under the original full-window action and
+  reciprocal partition. `spatialLimit_cauchySchwarz`, `mean_cauchySchwarz`, and
+  `mean_radical_zero` (CauchySchwarz `:40`, `:63`, `:97`) retain each product's
+  own regulator convergence witness and give all-test vanishing from an
+  ordinary zero square. This is not the reflected OS Cauchy--Schwarz theorem.
+- **closed local gap:** `context_iff_square_zero` (ContextInclusion `:67`)
+  identifies all-test equality with zero mean of the squared difference.
+  `context_include` and `context_include_iff` (`:83`, `:93`) cover the new tests
+  at every larger base, using the proved ordinary radical and original mean
+  inclusion. `observableInclusion` (`:108`) descends to the actual quotient;
+  `observableInclusion_injective` (`:115`) proves injectivity. Mean, product,
+  unit, sum, rational scalar, inverse time and reflection are preserved
+  (`:125`, `:132`, `:143`, `:148`, `:159`, `:167`, `:176`, `:185`).
+- **residue:** coherence and assembly into a single all-base ambient quotient,
+  supported-source identification, canonical scalar/reflected OS root,
+  changing-spacing control, continuum QFT and every-group Clay closure remain
+  open. The proposed supported-source proof now needs the product-vacuum mean
+  pin, not construction of every shifted test. No canonical field changes.
+- **verification:** three serialized focused checks passed, one worker capped
+  at 20 GiB; all 20 printed declarations are axiom-free or use only
+  `{propext, Quot.sound}`. Initial inclusion elaboration required a qualified
+  coefficient-congruence constructor and corrected local-notation precedence;
+  final output has no `sorryAx` or classical dependency. No analytic premise,
+  explicit hole, trusted computation or full-tree check was introduced.
+  Sol supplied finite CS and independently reviewed the limit and inclusion.
+
 ## Fixed-base signed-time ambient observable quotient (2026-09-27 UTC)
 
 - **files:** `lean/YMGap/Continuum/BF4WilsonSignedTimeContext.lean`,

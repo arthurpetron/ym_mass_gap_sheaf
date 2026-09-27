@@ -657,3 +657,53 @@ use only `{propext, Quot.sound}`; no `sorryAx` or `Classical.choice` occurs in
 their printed dependencies. Sol implemented source inclusion and separately
 reviewed contextual congruence, same-carrier scope and the global-base gap.
 No full-tree audit was run. Broad chart markers remain unchanged.
+
+## 15. Ordinary Cauchy--Schwarz closes the contextual spatial-inclusion gap
+
+The missing ordinary estimate from section 14 is now proved:
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `chart_square_nonnegative` | `lean/YMGap/Continuum/BF4WilsonSignedTimeFiniteCauchySchwarz.lean:35` | Ordinary full-window square positivity under the same selected action and reciprocal partition. |
+| `chartScalar_cauchySchwarz` | same module `:164` | Sharp rational ordinary-product inequality from an actual `PreInnerForm` constructed using that square positivity. |
+| `spatialLimit_cauchySchwarz` | `lean/YMGap/Continuum/BF4WilsonSignedTimeCauchySchwarz.lean:40` | Passage through three separately witnessed product limits at the common guarded window. |
+| `mean_cauchySchwarz` | same module `:63` | Sharp inequality for computed-radius signed means, recharted at the maximum support radius. |
+| `mean_radical_zero` | same module `:97` | Zero ordinary square mean implies zero mean against every signed-time test. |
+| `mean_difference_mul` | `lean/YMGap/Continuum/BF4WilsonSignedTimeContextInclusion.lean:47` | Exact subtraction identity for the original tested mean. |
+| `context_iff_square_zero` | same module `:67` | All-test contextual equality iff the ordinary squared difference has zero mean. |
+| `context_include`, `context_include_iff` | same module `:83`, `:93` | Contextual equality is preserved and reflected under spatial enlargement, including additional larger-base tests. |
+| `observableInclusion`, `observableInclusion_injective` | same module `:108`, `:115` | An actual injective map between the constructed observable quotients. |
+| `observableInclusion_mean`, `observableInclusion_mul`, `observableInclusion_one`, `observableInclusion_add`, `observableInclusion_smul` | same module `:125`, `:132`, `:143`, `:148`, `:159` | Preservation of original mean and algebraic operations. |
+| `observableInclusion_forward`, `observableInclusion_backward`, `observableInclusion_reflection` | same module `:167`, `:176`, `:185` | Compatibility with both time directions and reflection. |
+
+The ordinary mean is never substituted for the physical reflected form. The
+argument uses ordinary positivity only to transport the ambient contextual
+relation; the prior same-carrier reflected transfer pin remains unchanged.
+There is no new analytic premise or altered small-nome guard.
+
+All three focused checks passed serially with one worker capped at 20 GiB.
+All 20 printed declarations are axiom-free or use only `{propext, Quot.sound}`.
+The inclusion draft needed two elaboration fixes (qualified constructor and
+notation precedence); its final axiom output has no `sorryAx` or classical
+dependency. Sol supplied the finite proof and independently reviewed the limit,
+contextual criterion and injection. No full-tree check was run.
+
+### Shorter next source join (reviewed argument, NOT a proved declaration)
+
+`TimeContextEq` in `lean/YMGap/Continuum/BF4WilsonSpatialUnionProduct.lean:265`
+tests equality of the same embedded product states. At time zero, use the two
+source stages themselves as tests and pair the resulting equalities with the
+vacuum. A still-missing common-base product-vacuum pin to the ordinary signed
+mean would supply the two mixed equalities needed for the squared-difference
+criterion above. This removes the previously proposed requirement to represent
+every shifted arbitrary signed test. The pin is not supplied merely by
+`pairing_as_mean` (`lean/YMGap/Continuum/BF4WilsonSignedTimeExpectation.lean:205`),
+which retains reflection and the unit multiplier; those must be removed using
+the already proved reflection invariance and unit laws, with product-source
+compatibility justified at a common window.
+
+The reverse source identification still needs the reflected distance-null to
+embedded-state equality, not only equality of vacuum scalars. Assembly and
+coherence of a single all-base ambient quotient, canonical scalar/reflected OS
+realization, all-vector range, scaling and continuum/Clay remain open. This
+planning contraction adds no field or wrapper and closes no broad chart node.

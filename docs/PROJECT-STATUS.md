@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting spatial descent (2026-09-27 UTC; chart markers unchanged):
+ordinary Cauchy--Schwarz for the original signed-time mean now proves that
+all-test contextual equality is equivalent to zero ordinary squared difference.
+`BF4WilsonSignedTimeContextInclusion.observableInclusion` is therefore a
+constructed injective quotient map under spatial enlargement, preserving mean,
+unit, product, linear operations, both time directions and reflection, including
+the additional larger-base tests. Three focused checks passed within
+`{propext, Quot.sound}`. All-base quotient assembly, supported-source and
+canonical reflected OS identification, scaling and continuum/Clay remain open.
+
 Verified supporting ambient quotient (2026-09-27 UTC; chart markers unchanged):
 `BF4WilsonSignedTimeContext` and `BF4WilsonSignedTimeObservable` supply the
 fixed-base all-test quotient, associative commutative product, inverse time,
@@ -7,8 +17,8 @@ reflection and ordinary positive stationary RC mean. Its reflected mean is
 exactly the SAME current completed dense transfer correlator.
 `BF4WilsonSignedTimeBaseInclusion` preserves the original mean under source
 inclusion. All three focused checks passed within `{propext, Quot.sound}`.
-Global quotient inclusion still needs an ordinary square-nullity argument
-against larger-base tests; mean inclusion alone does not supply it.
+The subsequent ordinary square-nullity argument above now supplies quotient
+inclusion against larger-base tests; mean inclusion alone was insufficient.
 Canonical scalar/reflected OS realization and continuum/Clay remain open.
 
 Verified supporting source join (2026-09-27 UTC; chart markers unchanged):

@@ -25,6 +25,38 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Ordinary square-nullity and spatial quotient inclusion checked (2026-09-27 UTC)
+
+The missing estimate is now proved, not added as an input.
+`BF4WilsonSignedTimeFiniteCauchySchwarz.chartScalar_cauchySchwarz` uses ordinary
+full-window square positivity with the original action and partition.
+`BF4WilsonSignedTimeCauchySchwarz.mean_cauchySchwarz` passes the three original
+product limits separately; `mean_radical_zero` annihilates every signed test
+when the ordinary square mean is zero.
+`BF4WilsonSignedTimeContextInclusion.context_iff_square_zero` reduces all-test
+equality to that one squared-difference criterion. `context_include_iff` then
+preserves AND reflects contextual equality under spatial enlargement, including
+new larger-base tests. `observableInclusion` is an actual injective quotient
+map preserving unit, product, addition, rational scaling, mean, both time
+directions and reflection. No reflected norm was replaced by an ordinary norm.
+
+The next source join has a shorter proposed proof: use supported
+`TimeContextEq` at time zero, tested separately against the two source stages,
+and take their product-vacuum means. An exact common-base pin from those means
+to ordinary signed-time products would give zero squared difference and hence
+ambient contextual equality. This avoids constructing every shifted signed
+test. That product-vacuum pin and resulting supported join are NOT yet proved.
+Reverse identification still needs the reflected source-distance/embedded-state
+pin. A single all-base ambient quotient, its coherence laws, canonical scalar
+and reflected OS realization, scaling and continuum/Clay remain open.
+
+Three new modules passed serialized focused checks with one worker capped at
+20 GiB; all 20 printed declarations are axiom-free or use only
+`{propext, Quot.sound}`. Sol supplied the finite proof and independently reviewed
+the limit and contextual inclusion. No new hole, analytic premise, frontier
+field change, full-tree run or broad chart-marker advance. Audit section 15
+records the proof and the strictly shorter proposed next join.
+
 ### Fixed-base signed-time observable quotient checked (2026-09-27 UTC)
 
 `BF4WilsonSignedTimeContext.lean` now proves all-test contextual equivalence
@@ -41,12 +73,11 @@ common base. Ordinary conjugation (`star = id`) is distinct from reflection.
 
 `BF4WilsonSignedTimeBaseInclusion.lean` also constructs source inclusion,
 preserving the support radius, time/reflection operations and original mean.
-It does not yet descend between contextual quotients: larger bases allow
-new tests. Next prove ordinary ambient Cauchy--Schwarz and its square-zero
-radical consequence, then transport square-nullity through `mean_include`.
-The existing reflected Cauchy--Schwarz theorem is not a substitute. The
-supported quotient join and canonical scalar/reflected-root realization
-remain open; canonical fields are unchanged.
+Source inclusion alone did not descend between contextual quotients: larger
+bases allow new tests. The ordinary Cauchy--Schwarz and square-nullity argument
+now recorded above supplies that descent. The existing reflected theorem was
+not used as a substitute. The supported quotient join and canonical
+scalar/reflected-root realization remain open; canonical fields are unchanged.
 
 All three focused checks passed serially with one worker capped at 20 GiB.
 All 68 printed declarations use only `{propext, Quot.sound}`. Sol supplied
@@ -72,10 +103,10 @@ SAME current transfer's dense correlators with that signed observable's time
 advance. This does not replace the reflected form with ordinary expectation
 of a square.
 
-The fixed-base product-context congruence and ambient quotient have since
-been supplied above; global spatial-base contextual coherence is still open.
-The positive-stage quotient join still needs a supported shifted-test
-construction and an explicit product-vacuum mean pin. Canonical scalar
+The fixed-base quotient and contextual spatial inclusion have since been
+supplied above. The positive-stage quotient join still needs the explicit
+product-vacuum mean pin; the ordinary square-nullity criterion now provides a
+shorter proposed route without shifted-test construction. Canonical scalar
 fields remain unchanged; no canonical OS root has yet been supplied.
 
 Both new modules passed focused monitored checks, serialized with one worker
