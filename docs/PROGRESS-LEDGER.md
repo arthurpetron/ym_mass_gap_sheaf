@@ -30847,3 +30847,13 @@ closure therefore feed the exact completed matched carrier without an
 unnamed producer gap; raw/normalization/strength/gap/rate scaling data remain
 explicit.  The focused monitored build completed successfully in 5,133 jobs;
 all five adapter gates report only `{propext, Quot.sound}` and no `sorryAx`.
+
+The matched physical-exponential path now also has
+`PhysicalExponentialObservableWitness`: it bundles the existing
+physical-exponential certificate with a `SameObjectObservablePin` indexed by
+the identical completed carrier, and exposes the pin's strictly positive
+zero-time connected correlator.  `ofRationalVariations` performs the checked
+scaling contraction while leaving the pin itself explicit; no OS/GNS,
+continuum, physical-mass, every-group, or Clay conclusion is inferred.  The
+focused monitored build remains 5,133 jobs with only `{propext, Quot.sound}`
+and no `sorryAx`.

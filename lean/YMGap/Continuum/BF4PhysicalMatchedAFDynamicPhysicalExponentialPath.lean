@@ -45,6 +45,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExp
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtCompiler
 open YMGap.Continuum.SummableRationalStepVariationPrefixTailClosure
+open YMGap.Continuum.PhysicalSeparator
 
 namespace MatchedPhysicalDynamicScalarTrajectory
 
@@ -239,7 +240,88 @@ def toPhysicalExponentialCertificate
     (BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.movingCubeRatePowerRationalVariationOfPositive
       (adaptiveFamily trajectory producer) positiveRatePower)
 
-/-! ## 4. Contract the local producer to the correlated same-edge debt seam -/
+/-! ## 4. Keep the nonzero observable on the identical completed carrier -/
+
+/-- A physical-exponential certificate and the same-object observable pin are
+kept in one dependent record.  The pin is indexed by the very completed
+matched family used by the exponential certificate, so this record cannot
+silently mix observables or carriers. -/
+structure PhysicalExponentialObservableWitness
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (producer : trajectory.LocalProducer) : Type 2 where
+  exponential : NormalizedMovingCubePhysicalExponentialCertificate
+    (trajectory.toCompletedFamily producer)
+  observable : trajectory.SameObjectObservablePin producer
+
+namespace PhysicalExponentialObservableWitness
+
+/-- Attach an already checked exponential certificate to an exact same-object
+observable pin without changing any family index. -/
+def ofCertificate
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (producer : trajectory.LocalProducer)
+    (exponential : NormalizedMovingCubePhysicalExponentialCertificate
+      (trajectory.toCompletedFamily producer))
+    (observable : trajectory.SameObjectObservablePin producer) :
+    PhysicalExponentialObservableWitness trajectory producer :=
+  { exponential := exponential, observable := observable }
+
+/-- Produce the bundled witness from the explicit scaling inputs and the
+same-family observable pin. -/
+def ofRationalVariations
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (producer : trajectory.LocalProducer)
+    (raw : MovingCubeRawVariation trajectory producer)
+    (normalizationDebt :
+      MovingCubeNormalizationDebtRationalVariation trajectory producer)
+    (band : StrengthBand trajectory producer)
+    (gapVariation : PhysicalGapRationalVariation trajectory producer)
+    (positiveRatePower :
+      PositiveMovingCubeRatePowerRationalVariation trajectory producer)
+    (observable : trajectory.SameObjectObservablePin producer) :
+    PhysicalExponentialObservableWitness trajectory producer :=
+  ofCertificate trajectory producer
+    (toPhysicalExponentialCertificate trajectory producer raw normalizationDebt
+      band gapVariation positiveRatePower)
+    observable
+
+/-- The bundled witness retains the physical separator selected by its exact
+observable pin. -/
+def physicalSeparator
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness : PhysicalExponentialObservableWitness trajectory producer) :
+    PhysicalSeparator :=
+  trajectory.physicalSeparator witness.observable
+
+theorem physicalSeparator_gapObservable_zero_pos
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness : PhysicalExponentialObservableWitness trajectory producer)
+    (scale : Nat) :
+    (0 : Q') <
+      (physicalSeparator witness).corrIface.connectedCorr
+        scale witness.observable.gapObservable 0 :=
+  trajectory.physicalSeparator_gapObservable_zero_pos witness.observable scale
+
+end PhysicalExponentialObservableWitness
+
+/-! ## 5. Contract the local producer to the correlated same-edge debt seam -/
 
 /-- The correlated capacity-debt compiler supplies the exact local producer
 for the matched trajectory.  This is the smallest named route from the
@@ -330,6 +412,12 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.normalizedMovingCubePhysicalExponential_sq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toPhysicalExponentialCertificate
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.PhysicalExponentialObservableWitness.ofCertificate
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.PhysicalExponentialObservableWitness.ofRationalVariations
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.PhysicalExponentialObservableWitness.physicalSeparator_gapObservable_zero_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.localProducer_ofCorrelatedCapacityDebt
 #print axioms

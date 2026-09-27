@@ -3481,6 +3481,13 @@ an unnamed `LocalProducer` gap.  All scaling, OS/GNS, continuum/QFT,
 physical-mass, every-group, and Clay inputs remain explicit; this contraction
 also uses only `{propext, Quot.sound}` and produces no `sorryAx`.
 
+`PhysicalExponentialObservableWitness` now bundles that certificate with an
+explicit `SameObjectObservablePin` indexed by the identical completed carrier
+and exposes its strictly positive zero-time connected correlator.  The pin is
+still an analytic input; no OS/GNS, continuum/QFT, physical-mass, every-group,
+or Clay result is inferred.  The focused check remains within
+`{propext, Quot.sound}` and produces no `sorryAx`.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,
