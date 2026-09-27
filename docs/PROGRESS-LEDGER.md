@@ -30364,3 +30364,14 @@ graph-norm route delegates to these smaller consumers, so an independently
 constructed dense-stage/GNS operator pin can enter the endpoint without a
 spurious rate-power requirement. The monitored check reports only
 `{propext, Quot.sound}` and no `sorryAx`; all analytic witnesses remain open.
+
+## Matched endpoints factor through direct exact-log witnesses (2026-09-27 UTC)
+
+The matched state-load and factorized routes now expose
+`toWilsonMinimalBoundedMassGap_ofExactLogGap` and
+`toWilsonIteratedBoundedMassGap_ofExactLogGap`. These consume a direct
+`PositiveExactLogGapWitness` and the same-family operator-gap pin (plus
+stationarity for iteration). The physical-rate band and summable variation
+handoff remain an explicit producer of that witness, not a hidden endpoint
+requirement. The monitored source check reports only
+`{propext, Quot.sound}` and no `sorryAx`.
