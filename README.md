@@ -3472,6 +3472,15 @@ not a continuum/QFT, physical-mass, every-group, or Clay proof.  The focused
 monitored build completed in 5,108 jobs with only `{propext, Quot.sound}` and
 no `sorryAx`.
 
+The adapter also exposes
+`localProducer_ofCorrelatedCapacityDebt` and
+`toPhysicalExponentialCertificate_ofCorrelatedCapacityDebt`.  The existing
+same-edge correlated capacity-debt envelope, tail allowance, and initial
+closure consequently reach the exact physical-exponential consumer without
+an unnamed `LocalProducer` gap.  All scaling, OS/GNS, continuum/QFT,
+physical-mass, every-group, and Clay inputs remain explicit; this contraction
+also uses only `{propext, Quot.sound}` and produces no `sorryAx`.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,

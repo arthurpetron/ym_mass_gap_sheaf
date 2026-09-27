@@ -18,6 +18,7 @@ custom axiom, or noncomputable declaration is used.
 -/
 
 import YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
+import YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtCompiler
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponentialPath
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 
@@ -42,6 +43,8 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerEulerCorrid
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerEulerCorridor.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
+open YMGap.Continuum.BF4PhysicalMatchedAFDynamicExplicitRayEventualCanonicalCorrelatedCapacityDebtCompiler
+open YMGap.Continuum.SummableRationalStepVariationPrefixTailClosure
 
 namespace MatchedPhysicalDynamicScalarTrajectory
 
@@ -236,6 +239,85 @@ def toPhysicalExponentialCertificate
     (BF4PhysicalDynamicSpinCubeOffRayAdaptiveNormalizedMovingCubeRationalVariationPath.DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.movingCubeRatePowerRationalVariationOfPositive
       (adaptiveFamily trajectory producer) positiveRatePower)
 
+/-! ## 4. Contract the local producer to the correlated same-edge debt seam -/
+
+/-- The correlated capacity-debt compiler supplies the exact local producer
+for the matched trajectory.  This is the smallest named route from the
+same-edge envelope/tail/slack obligations into the physical-exponential
+consumer; no scaling or continuum input is inferred here. -/
+def localProducer_ofCorrelatedCapacityDebt
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat)
+    (envelope : forall physicalScale,
+      MatchedEventualCanonicalCorrelatedCapacityDebtEnvelope
+        trajectory transitionStart physicalScale)
+    (tailAllowance : Nat -> Q')
+    (tailAllowance_pos : forall physicalScale,
+      (0 : Q') < tailAllowance physicalScale)
+    (initial_closure : forall physicalScale,
+      matchedEventualCanonicalRoutedCapacityDebtMaximum
+            trajectory transitionStart physicalScale 0 +
+          prefixTailTotalBudget
+            (matchedEventualCanonicalRoutedCapacityDebtMaximumVariation
+              (envelope physicalScale))
+            (tailAllowance physicalScale) <=
+        (1 : Q')) :
+    trajectory.LocalProducer :=
+  matchedEventualCanonicalCorrelatedCapacityDebtLocalProducer
+    trajectory transitionStart envelope tailAllowance tailAllowance_pos
+      initial_closure
+
+/-- Direct physical-exponential contraction from the correlated same-edge
+debt certificate.  The raw representative, normalization debt, strength
+band, physical-gap variation, and positive-time rate variation remain
+explicit arguments on the identical completed matched carrier. -/
+def toPhysicalExponentialCertificate_ofCorrelatedCapacityDebt
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat)
+    (envelope : forall physicalScale,
+      MatchedEventualCanonicalCorrelatedCapacityDebtEnvelope
+        trajectory transitionStart physicalScale)
+    (tailAllowance : Nat -> Q')
+    (tailAllowance_pos : forall physicalScale,
+      (0 : Q') < tailAllowance physicalScale)
+    (initial_closure : forall physicalScale,
+      matchedEventualCanonicalRoutedCapacityDebtMaximum
+            trajectory transitionStart physicalScale 0 +
+          prefixTailTotalBudget
+            (matchedEventualCanonicalRoutedCapacityDebtMaximumVariation
+              (envelope physicalScale))
+            (tailAllowance physicalScale) <=
+        (1 : Q'))
+    (raw : MovingCubeRawVariation trajectory
+      (localProducer_ofCorrelatedCapacityDebt trajectory transitionStart
+        envelope tailAllowance tailAllowance_pos initial_closure))
+    (normalizationDebt : MovingCubeNormalizationDebtRationalVariation trajectory
+      (localProducer_ofCorrelatedCapacityDebt trajectory transitionStart
+        envelope tailAllowance tailAllowance_pos initial_closure))
+    (band : StrengthBand trajectory
+      (localProducer_ofCorrelatedCapacityDebt trajectory transitionStart
+        envelope tailAllowance tailAllowance_pos initial_closure))
+    (gapVariation : PhysicalGapRationalVariation trajectory
+      (localProducer_ofCorrelatedCapacityDebt trajectory transitionStart
+        envelope tailAllowance tailAllowance_pos initial_closure))
+    (positiveRatePower : PositiveMovingCubeRatePowerRationalVariation trajectory
+      (localProducer_ofCorrelatedCapacityDebt trajectory transitionStart
+        envelope tailAllowance tailAllowance_pos initial_closure)) :
+    NormalizedMovingCubePhysicalExponentialCertificate
+      (trajectory.toCompletedFamily
+        (localProducer_ofCorrelatedCapacityDebt trajectory transitionStart
+          envelope tailAllowance tailAllowance_pos initial_closure)) :=
+  toPhysicalExponentialCertificate trajectory
+    (localProducer_ofCorrelatedCapacityDebt trajectory transitionStart envelope
+      tailAllowance tailAllowance_pos initial_closure)
+    raw normalizationDebt band gapVariation positiveRatePower
+
 end MatchedPhysicalDynamicScalarTrajectory
 
 end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
@@ -248,3 +330,7 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.normalizedMovingCubePhysicalExponential_sq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toPhysicalExponentialCertificate
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.localProducer_ofCorrelatedCapacityDebt
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toPhysicalExponentialCertificate_ofCorrelatedCapacityDebt

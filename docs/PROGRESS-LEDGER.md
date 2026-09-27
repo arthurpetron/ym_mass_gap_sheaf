@@ -30838,3 +30838,12 @@ continuum QFT, physical-mass calibration, every-group theorem, or Clay result
 is manufactured.  The focused monitored build completed successfully (5,108
 jobs, one worker), and the three new declaration gates report only
 `{propext, Quot.sound}` with no `sorryAx`.
+
+The same matched physical-exponential adapter now contracts the local
+producer through `localProducer_ofCorrelatedCapacityDebt` and
+`toPhysicalExponentialCertificate_ofCorrelatedCapacityDebt`.  The existing
+same-edge correlated capacity-debt envelope, tail allowance, and initial
+closure therefore feed the exact completed matched carrier without an
+unnamed producer gap; raw/normalization/strength/gap/rate scaling data remain
+explicit.  The focused monitored build completed successfully in 5,133 jobs;
+all five adapter gates report only `{propext, Quot.sound}` and no `sorryAx`.
