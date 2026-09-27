@@ -30786,3 +30786,13 @@ finite-minimum induction to build the all-prefix response floor.  The two
 response certificate with either a generic cofinal calibration or the repaired
 head-energy product band.  The ceiling itself is still the open analytic
 input; no uniform bound is inferred from pointwise positivity.
+
+The existing finite-prefix/tail normalization compiler is now wired into the
+same join.  `ConcreteJoin.ofNormalizationScaleVariation` takes one summable
+reciprocal-scale variation and constructs both the global normalization
+ceiling (hence response persistence) and the exact squared normalization-debt
+variation; its head-energy specialization also transports the repaired
+physical-gap calibration.  This contracts two typed fields to one analytic
+stream without asserting that the stream exists.  Raw representative and
+scheduled-rate variations, physical calibration when not supplied by the
+head-energy band, OS/GNS, and continuum/QFT inputs remain explicit.

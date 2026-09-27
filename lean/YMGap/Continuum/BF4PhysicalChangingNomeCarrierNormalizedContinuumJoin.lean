@@ -23,6 +23,7 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertific
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorMovingCubeNormalizationTailCeilingCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
 import YMGap.Constructive.CRealExplicitSqueeze
 import YMGap.Continuum.SummableCRealExplicitConvergenceCertificate
@@ -47,6 +48,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariation
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFinitePrefixResponse
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorMovingCubeNormalizationTailCeilingCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
@@ -326,6 +328,33 @@ def ConcreteJoin.ofNormalizationScaleCeilingAndHeadEnergyProductBand
     (changingNomeCarrierNormalizedCofinalGapCalibration_ofHeadEnergyProductBand
       band)
     raw normDebt ratePower
+
+def ConcreteJoin.ofNormalizationScaleVariation
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation
+      changingNomeCarrierNormalizedDynamicFamily)
+    (calibration : ChangingNomeCarrierNormalizedCofinalGapCalibration)
+    (raw : RawVariation)
+    (ratePower : RatePowerVariation) :
+    ConcreteJoin :=
+  ConcreteJoin.ofNormalizationScaleCeiling
+    (MovingCubeNormalizationScaleCeiling.ofScaleVariation scaleVariation)
+    calibration raw
+    (MovingCubeNormalizationScaleCeiling.normDebtRationalVariationOfScaleVariation
+      scaleVariation)
+    ratePower
+
+def ConcreteJoin.ofNormalizationScaleVariationAndHeadEnergyProductBand
+    (scaleVariation : MovingCubeNormalizationScaleRationalVariation
+      changingNomeCarrierNormalizedDynamicFamily)
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand)
+    (raw : RawVariation)
+    (ratePower : RatePowerVariation) :
+    ConcreteJoin :=
+  ConcreteJoin.ofNormalizationScaleVariation
+    scaleVariation
+    (changingNomeCarrierNormalizedCofinalGapCalibration_ofHeadEnergyProductBand
+      band)
+    raw ratePower
 
 /-- Forget only the response-persistence field to reuse the existing
     calibration/raw/debt/rate contraction. -/
@@ -663,6 +692,10 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofNormalizationScaleCeiling
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofNormalizationScaleCeilingAndHeadEnergyProductBand
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofNormalizationScaleVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofNormalizationScaleVariationAndHeadEnergyProductBand
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toCanonicalUniformRCNormFloor
 #print axioms
