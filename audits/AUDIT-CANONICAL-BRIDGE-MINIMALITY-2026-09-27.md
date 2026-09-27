@@ -245,12 +245,12 @@ a proof of irrationality or nonrepresentability. No frontier type is changed.
 ## 8. Supported products: concrete draft, not an OS quotient algebra
 
 `BF4WilsonSpatialUnionProduct.lean` is a new **unverified local draft**.
-`product` (`lean/YMGap/Continuum/BF4WilsonSpatialUnionProduct.lean:42`)
+`product` (`lean/YMGap/Continuum/BF4WilsonSpatialUnionProduct.lean:50`)
 places both intrinsic expressions at their maximum radius; `productStage`
-(`:66`) also uses their maximum spatial base. `chart_product` (`:47`) and
-`atBase_product` (`:70`) retain the literal common-chart multiplication.
+(`:95`) also uses their maximum spatial base. `chart_product` (`:55`) and
+`atBase_product` (`:99`) retain the literal common-chart multiplication.
 
-The draft `embedStage_eq_of_common_source` (`:104`) composes the existing
+The draft `embedStage_eq_of_common_source` (`:150`) composes the existing
 `distSq_at_base` (`lean/YMGap/Continuum/BF4WilsonSpatialUnion.lean:151`),
 `intrinsic_distSq_zero_of_padded_diagonal`
 (`lean/YMGap/Continuum/BF4WilsonSpatialUnionObservableDescent.lean:140`), and
@@ -260,8 +260,8 @@ It requires one finite coefficient identity, not an additional analytic
 estimate. This permits different source bases without choosing a common
 support bound for an entire completed stream.
 
-`product_comm` (`BF4WilsonSpatialUnionProduct.lean:118`), `product_assoc`
-(`:132`), and `product_sum_right` (`:155`) then use the existing finite
+`product_comm` (`BF4WilsonSpatialUnionProduct.lean:164`), `product_assoc`
+(`:178`), and `product_sum_right` (`:201`) then use the existing finite
 polynomial laws to conclude equality of the corresponding `embedStage`
 images. No arbitrary completed-state equality is used as a product
 congruence hypothesis. Consequently these results do not yet define an
@@ -306,7 +306,7 @@ equivalence time-stable. This does not contradict the existing physical
 different assertion. No assertion is made that this finite example satisfies
 the Wilson provenance, the positive-response assumptions, or all OS axioms.
 
-### Constructive algebraic correction, not yet a source implementation
+### Constructive algebraic correction and unverified source implementation
 
 For a unital commutative rational algebra `A`, a rational-linear map `J`, and
 an algebra endomorphism `tau`, the time-stable version is
@@ -324,15 +324,84 @@ condition at `n+1`; no inverse or surjectivity of time is required. Taking
 `n=0` and `z=1` gives equality of the original `J` images. All tests are
 explicit universal quantifiers; no representatives or moduli are selected.
 
-This argument identifies a possible constructive congruence, not a new
-assumed analytic certificate. The concrete stage implementation still needs
-the source algebra laws inside these tests, scalar/unit compatibility, and
-the exact time/product law. The current draft proves only selected laws
-after embedding; it must not be described as already supplying these stronger
-contextual laws. Neither version constructs the missing reflected canonical
-observable map, the scalar-interface repair, or continuum scaling control.
+This argument identifies a constructive congruence, not a new assumed
+analytic certificate. The local draft now defines the concrete source
+`TimeContextEq` (`lean/YMGap/Continuum/BF4WilsonSpatialUnionProduct.lean:260`).
+`advance_product` (`:82`) and `time_product` (`:106`) give the exact raw-time
+product identity; `product_smul_left` (`:228`) and `product_unit_right`
+(`:244`) supply embedded scalar/unit laws. `timeContext_time` (`:274`),
+`timeContext_embed` (`:280`), and `timeContext_product` (`:303`) implement
+time stability, equality of original state images, and product congruence.
+The last proof rotates entire products under the embedding before using a
+contextual test; it does not multiply an equality of completed vectors.
 
-## 10. Residue and verification boundary
+All of these declarations remain **unverified drafts**. Independent Sol
+review found no issue with the index shift, source guards or product rotations.
+The later drafts `timeContext_sum` (`:338`) and `timeContext_smul` (`:345`)
+also derive addition/scalar congruence from the existing completed linear
+operations and their embedded-stage pins. Algebra laws modulo `TimeContextEq`
+remain unimplemented: laws only after embedding must not be mistaken for laws
+after every contextual test. No quotient algebra, reflected canonical
+observable map, scalar-interface repair, or continuum scaling control is
+constructed.
+
+## 10. Reuse the existing scaling obstruction; do not assume its endpoint
+
+The conditional Wilson extinction estimate already exists:
+`sampledAutocorrelation_small`
+(`lean/YMGap/Continuum/BF4WilsonUniformLatticeRateScalingObstruction.lean:93`)
+uses a supplied common `q < 1`, centered source vectors with one norm cap,
+and `SpacingToZero`, and returns the bound at its computed
+`physicalDecayModulus` (`:48`). `sampledLimit_zero` (`:162`) identifies any
+supplied same-scalar limit as zero. The time argument is a positive **natural
+number**, and spacing is explicitly the duration of two original lattice
+steps. No duplicate extinction theorem is added.
+
+Those common-rate and norm-cap hypotheses are not supplied for the identified
+changing-nome channel by this module. `changingNomeDynamicFamily`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeDynamicFamily.lean:76`) instead
+uses the cylinder completed family and its `cutoffUniformRate`; it is not a
+declaration identifying that carrier with the spatial-union completion.
+`changingNomeCarrierNormalizedSpacingToZero`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:514`)
+supplies a spacing modulus, while the `Join` structure
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:95`)
+still takes the raw/normalization/rate variation inputs. These declarations
+do not supply the required same-observable identification with the Wilson
+union family or a uniform rate cap there.
+
+Vanishing at positive integer times and a nonzero value at zero alone do
+not contradict continuity. There is a sharper **paper argument**, separately
+checked by Sol: for an actual same-carrier self-adjoint semigroup `S(t)`,
+strongly continuous at zero, a zero autocorrelation at time one gives
+
+```text
+0 = <v,S(1)v> = <S(1/2)v,S(1/2)v>, hence S(1/2)v = 0.
+```
+
+Repeating the same square identity yields `S(2^(-k))v = 0` for all positive
+`k`; strong continuity then gives `v = 0`. This uses a genuine semigroup at
+dyadic times, norm separation, and the same vector throughout. No such
+consumer was found in the scoped endpoint modules inspected here:
+
+- `ContractionSemigroup`
+  (`lean/YMGap/Continuum/OSReconstruction.lean:140`) contains only
+  `semigroup_witness : Unit`, not time-indexed maps or continuity laws.
+  `SemigroupGenerated` (`:178`) returns the supplied operator's abstract
+  `generation_law` proposition and does not expose those laws.
+- `BundleLinkedOSReconstructionData`
+  (`lean/YMGap/Continuum/MeasureLinkedOSReconstruction.lean:72`) carries that
+  abstract semigroup; its fields do not provide the dyadic operations.
+- `GeneralTransferFormLaws`
+  (`lean/YMGap/Continuum/CanonicalOSRoot.lean:560`) exposes a single actual
+  transfer and its form laws, not a strongly continuous physical-time family.
+
+Thus the dyadic argument cannot yet be applied through these declarations.
+The pin from the scalar scaling limit to the continuum `S(1)` pairing is
+also absent from `sampledLimit_zero`. No actual changing-nome contradiction,
+QFT endpoint construction, or kernel-checked dyadic theorem is claimed.
+
+## 11. Residue and verification boundary
 
 The bridge still takes `H : ContinuumYMExistence mu`, a selected
 `WilsonGNSData`, and a `WilsonTimeTranslationPin` as parameters

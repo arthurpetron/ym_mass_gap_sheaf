@@ -94,11 +94,29 @@ A further paper check rules out automatic time stability for the relation
 that tests equality only after multiplication by arbitrary source observables.
 Audit section 9 gives an explicit rational four-coordinate counterexample,
 despite unital algebraic time evolution, exact intertwining and a positive
-self-adjoint contraction. A constructive candidate retains all forward time
-translates in those tests; the algebraic argument is recorded there, but its
-actual stage laws are not yet implemented or kernel-checked. Do not infer a
-descended time map from the multiplier-only relation or from the pending
-embedded product laws. This review changes no canonical field or proof status.
+self-adjoint contraction. The Product draft now retains all forward time
+translates in `TimeContextEq`, proves the exact raw-stage time/product identity,
+and derives equivalence, time/product compatibility and equality of the
+original embedded images. Embedded unit/scalar laws are also drafted. Sol
+reviewed these proofs statically; no elaboration or axiom check has run.
+Addition/scalar congruence is now also drafted using the existing completed
+linear operations. Algebra laws under every contextual test are still needed
+before calling this a source observable algebra. Do not infer
+a descended time map from the multiplier-only relation or treat embedded
+laws as contextual laws. No canonical field or proof status is changed.
+
+The parallel scaling check reuses
+`BF4WilsonUniformLatticeRateScalingObstruction.sampledLimit_zero`; its common
+rate, norm cap and same-scalar limit remain inputs, not facts supplied by the
+separate changing-nome moving-cube family. Audit section 10 records the
+additional endpoint issue: the inspected legacy `ContractionSemigroup` has
+no time-indexed maps or strong-continuity laws, and the canonical reflected
+root currently supplies discrete transfer form laws. The dyadic semigroup
+argument from zero time-one autocorrelation to a zero vector is valid on
+an actual strongly continuous self-adjoint semigroup, but its same-carrier
+maps and scaling pin are not constructed by these endpoint declarations.
+Do not duplicate the extinction bound or infer continuum incompatibility
+from integer-time limits without this join. Canonical types remain untouched.
 
 ### New finite-prefix calibration certificate (2026-09-26 UTC)
 
