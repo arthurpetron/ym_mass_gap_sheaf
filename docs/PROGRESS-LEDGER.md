@@ -34,6 +34,17 @@ necessary condition on the still-uninhabited product band; it does not prove
 the cofinal order of the anchor minimum, the all-scale denominator/spacing
 band, or any continuum/QFT, physical-mass, every-group, or Clay node.
 
+## Current increment: floor-cancellation spacing/carrier consumer (2026-09-26 UTC)
+
+`ChangingNomeHeadEnergyProductBand.spacing_mul_scale_le_of_lower_bound`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:316--333`)
+uses the positive concrete anchor floor to cancel it from a supplied
+specialized lower-bound certificate.  It yields the floor-independent
+necessary ceiling `6 * (spacing * carrierSquareScale) ≤ 1` at that scale.
+The monitored check reports only `{propext, Quot.sound}`.  The lower-bound
+certificate remains an explicit input; no product-band inhabitant or cofinal
+anchor-minimum estimate is produced.
+
 ## Current increment: explicit changing-nome completed SU(2) family (2026-09-25 UTC)
 
 `changingNome`, `changingSpacing`, `changingSpacingToZero`, and
@@ -206,7 +217,7 @@ all-scale denominator-versus-spacing problem.
 ## Current increment: product band contracted to the continuum-gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:325--328`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:386--389`)
 composes the exact changing-nome denominator presentation, the specialized
 product-band compiler, and the existing same-family physical-rate compiler
 into the sharp `ContinuumGapTheorem` interface.  The focused monitored build

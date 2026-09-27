@@ -271,6 +271,67 @@ theorem ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
   simpa [A, S, F, changingNomeBandSpacing, changingNomeBandScale,
     changingNomeBandFloor] using hresult
 
+private theorem floor_mul_six_spacing_scale_eqv
+    (floor spacing scale : Q') :
+    Q'.ofNat 6 * ((floor * spacing) * scale) ≈
+      floor * (Q'.ofNat 6 * (spacing * scale)) := by
+  refine Q'.eqv_trans _ ((Q'.ofNat 6 * (floor * spacing)) * scale) _
+    (Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat 6) (floor * spacing) scale)) ?_
+  refine Q'.eqv_trans _ (((Q'.ofNat 6 * floor) * spacing) * scale) _
+    (Q'.mul_eqv_congr_right _ _ scale
+      (Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat 6) floor spacing))) ?_
+  refine Q'.eqv_trans _ (((floor * Q'.ofNat 6) * spacing) * scale) _
+    (Q'.mul_eqv_congr_right _ _ scale
+      (Q'.mul_eqv_congr_right _ _ spacing
+        (Q'.mul_comm_eqv (Q'.ofNat 6) floor))) ?_
+  refine Q'.eqv_trans _ ((floor * (Q'.ofNat 6 * spacing)) * scale) _
+    (Q'.mul_eqv_congr_right _ _ scale
+      (Q'.mul_assoc_eqv floor (Q'.ofNat 6) spacing)) ?_
+  refine Q'.eqv_trans _ (floor * ((Q'.ofNat 6 * spacing) * scale)) _
+    (Q'.mul_assoc_eqv floor (Q'.ofNat 6 * spacing) scale) ?_
+  exact Q'.mul_eqv_congr_left floor _ _
+    (Q'.mul_assoc_eqv (Q'.ofNat 6) spacing scale)
+
+private theorem cancel_floor_of_spacing_scale
+    {floor spacing scale : Q'}
+    (hfloor : (0 : Q') < floor)
+    (hbound : Q'.ofNat 6 * ((floor * spacing) * scale) ≤ floor) :
+    Q'.ofNat 6 * (spacing * scale) ≤ (1 : Q') := by
+  have htransport :
+      Q'.ofNat 6 * ((floor * spacing) * scale) ≈
+        floor * (Q'.ofNat 6 * (spacing * scale)) := by
+    exact floor_mul_six_spacing_scale_eqv floor spacing scale
+  have hright : floor ≈ floor * (1 : Q') :=
+    Q'.eqv_symm (Q'.mul_one_eqv floor)
+  have hcancel :
+      floor * (Q'.ofNat 6 * (spacing * scale)) ≤ floor * (1 : Q') :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv (Q'.eqv_symm htransport))
+      (Q'.le_trans' _ _ _ hbound (Q'.le_of_eqv hright))
+  exact Q'.le_of_mul_le_mul_left hcancel hfloor
+
+/-- Cancelling the positive finite floor from the specialized necessary
+    condition leaves a floor-independent carrier/spacing ceiling.  This is a
+    necessary consequence of an inhabited product band, not an assertion that
+    the product band itself exists. -/
+theorem ChangingNomeHeadEnergyProductBand.spacing_mul_scale_le_of_lower_bound
+    (scale : Nat)
+    (hbound :
+      Q'.ofNat 6 *
+          ((changingNomeBandFloor scale * changingNomeBandSpacing scale) *
+            changingNomeBandScale scale) ≤
+        changingNomeBandFloor scale) :
+    Q'.ofNat 6 *
+        (changingNomeBandSpacing scale * changingNomeBandScale scale) ≤
+      (1 : Q') := by
+  exact cancel_floor_of_spacing_scale
+    (floor := changingNomeBandFloor scale)
+    (spacing := changingNomeBandSpacing scale)
+    (scale := changingNomeBandScale scale)
+    (by
+      exact fixedBasePulledPositiveEdgeFloorValue_pos
+        (changingNome scale) (Q'.le_of_lt (changingNome_pos scale)) 1404 0)
+    hbound
+
 /-- Compile the minimal head-energy product certificate into the existing
     same-family denominator band without changing the spacing or denominator.
     The certificate remains uninhabited until the cofinal floor-order estimate
@@ -337,6 +398,7 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeBandScale
 #print axioms changingNomeBandHeadEnergy
 #print axioms ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
+#print axioms ChangingNomeHeadEnergyProductBand.spacing_mul_scale_le_of_lower_bound
 #print axioms ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand
 #print axioms ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeExplicitMarginInverseLaw
