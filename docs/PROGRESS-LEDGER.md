@@ -30462,3 +30462,17 @@ The monitored source check reports only `{propext, Quot.sound}` for both
 constructors and no `sorryAx`. Projective/OS semantics, raw same-object
 identification, continuum, physical-mass, every-group, and Clay inputs remain
 explicit.
+
+## Matched raw path consumes rational scheduled-rate variation (2026-09-27 UTC)
+
+Both matched routes now expose
+`toRawWilsonConnectedMassGapPath_ofRatePowerRationalVariation`. The constructor
+accepts `NormalizedMovingCubeSampledRatePowerRationalVariation`, applies the
+existing `normalizedMovingCubeSampledRatePowerVariationOfRational` and
+`normalizedMovingCubeSampledRatePowerLimitOfVariation` compilers, and passes the
+resulting exact constructive-real limit to the same raw Wilson capstone.
+
+The monitored source check reports only `{propext, Quot.sound}` for both
+constructors and no `sorryAx`. Positive-time rate variation, projective/raw
+same-object semantics, graph norm, vacuum, continuum, physical-mass,
+every-group, and Clay inputs remain explicit.

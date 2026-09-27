@@ -215,6 +215,11 @@ same-measure raw Wilson matrix pin. The literal representative/same-object
 equality remains a named certificate and is not inferred from the finite
 carrier.
 
+The scheduled rate-power seam is lowered to the existing rational
+`NormalizedMovingCubeSampledRatePowerRationalVariation`, which is compiled to
+the constructive-real limit required by the capstone. Positive-time variation
+is still an explicit analytic input.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

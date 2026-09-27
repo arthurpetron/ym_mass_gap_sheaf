@@ -1853,6 +1853,12 @@ same-measure Wilson matrix-coefficient pin, avoiding any re-expansion of the
 rational separator adapter. The raw representative/same-object equality is
 still an explicit certificate; it is not inferred from the completed carrier.
 
+The scheduled rate-power field is now lowered similarly: both routes accept a
+`NormalizedMovingCubeSampledRatePowerRationalVariation` and compile it through
+the existing constructive-real variation compiler before entering the raw
+path. Thus positive-time rate convergence is a named rational frontier rather
+than an opaque limit field.
+
 ## Maintenance contract
 
 1. Read this file before every chart. Copy its chart block; do not regenerate
@@ -2025,3 +2031,4 @@ still an explicit certificate; it is not inferred from the completed carrier.
 | 1 / 149 | 2026-09-27 | Split the matched raw-path graph-norm input into parallel rate-limit/transfer/finite-approximation compilers, with a convergence-form scalar variant, for both routes. The constructors preserve all-vector graph-norm scope and the same capstone indices; focused check remains `{propext, Quot.sound}` with no `sorryAx`. |
 | 1 / 150 | 2026-09-27 | Added direct raw-path consumers of the existing stronger `WilsonDenseUnitVacuumPin` for both matched routes, using only the checked stationarity adapter. No vacuum is constructed; focused check remains `{propext, Quot.sound}` with no `sorryAx`, and continuum/Clay obligations remain open. |
 | 1 / 151 | 2026-09-27 | Added direct completed-real raw projective/matrix handoff consumers for both matched routes. The same-measure raw representative equality remains explicit; focused check remains `{propext, Quot.sound}` with no `sorryAx`, and no OS/GNS, continuum, physical-mass, every-group, or Clay obligation is manufactured. |
+| 1 / 152 | 2026-09-27 | Lowered the matched raw-path scheduled rate-power input to rational step variation for both routes, compiling it to the exact constructive-real limit consumed by the capstone. Focused check remains `{propext, Quot.sound}` with no `sorryAx`; positive-time rate convergence and all OS/continuum/Clay joins remain open inputs. |
