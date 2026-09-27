@@ -58,6 +58,19 @@ searched source tree.  Likewise, `CanonicalRangeSectionCertificate` is declared
 at `:1497` but has no producer term.  Thus the finite `CompletedPhysicalSU2Sector`
 and the canonical GNS bridge are not yet the same object.
 
+The same underdetermination is explicit one layer lower.  The minimal
+`WilsonTimeTranslationPin` is only an interface at
+`lean/YMGap/Continuum/WilsonGNSTransferUnderdetermination.lean:131`; its only
+closed examples are the deliberately nonphysical rank-one `qIdentityPin` and
+`qZeroPin` at `:173` and `:179`.  The measure-linked handoff
+`WilsonLinkedOSGNSData` (`lean/YMGap/Continuum/WilsonLinkedOSReconstruction.lean:77`)
+requires a measure-linked OS bundle, an expectation equality, a selected time
+translation, and an explicit operator/model form gap.  The measure-linked OS
+bundle itself (`lean/YMGap/Continuum/MeasureLinkedOSReconstruction.lean:132`)
+requires the projective functional limit and a bundle-linked reconstruction.
+These declarations isolate the actual producers needed for a same-theory
+physical bridge; they do not provide them.
+
 ## Next certificate boundary
 
 The next useful producer should therefore be an inhabited, same-measure
