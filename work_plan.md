@@ -132,7 +132,7 @@ order estimate is proved.
 ### Conditional contraction to the sharp gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:703--706`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:734--737`)
 now composes that specialized certificate with the existing same-family
 physical-rate compiler and the sharp `ContinuumGapTheorem` interface.  This
 closes the typed downstream route once the product-band fields are supplied;
@@ -179,12 +179,12 @@ that the product band or the cofinal anchor-minimum estimate has been proved.
 `changingNomeCarrierNormalizedSpacingToZero`,
 `changingNomeCarrierNormalizedSpacing_carrier_ceiling`, and
 `changingNomeCarrierNormalizedDynamicFamily`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:429--504`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:429--514`)
 replace only the spacing schedule by
 `invSucc((6*carrierScale).num.toNat + scale)`.  The schedule is positive,
 has the explicit modulus `epsilon.den`, and satisfies the necessary
 floor-independent ceiling `6 * (spacing * carrierScale) ≤ 1` at every scale.
-The same-nome and same-gap-rate identities (`:506--512`) confirm that the
+The same-nome and same-gap-rate identities (`:508--514`) confirm that the
 completed transfer data are unchanged.  This is a constructive normalization
 scaffold after the scale-zero obstruction; the product band, physical-rate
 band, OS/GNS, continuum/QFT, physical mass, every-group, and Clay nodes remain
@@ -194,13 +194,26 @@ open.  The focused monitored check reports only `{propext, Quot.sound}`.
 
 `ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand`,
 `.toPhysicalRateBand`, and `.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:600--650`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:631--681`)
 now transport the two explicit product-band fields through the
 carrier-normalized spacing schedule and into the existing sharp
 `ContinuumGapTheorem` interface.  The product-band structure remains
 uninhabited, so this is a conditional typed join; the all-scale physical-rate
 band, continuum/QFT, physical mass, every-group, and Clay obligations remain
 open.  The focused monitored check reports only `{propext, Quot.sound}`.
+
+### Repaired-family same-object channel (2026-09-26 UTC)
+
+`changingNomeCarrierNormalizedMovingCubeChannel`,
+`changingNomeCarrierNormalizedMovingCube_zero_isPositive`, and
+`changingNomeCarrierNormalizedMovingCube_connectedSq_decay`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:518--543`)
+instantiate the concrete moving-cube channel on the repaired same-name
+family.  The literal completed channel has positive zero-time response and
+the completed squared-gap decay bound.  This is an observable join only:
+cutoff-removal variation, a uniform scaling floor, OS/GNS, continuum/QFT,
+physical mass, every-group, and Clay remain open.  The focused monitored check
+reports only `{propext, Quot.sound}`.
 
 ### Scale-zero obstruction and schedule redesign (2026-09-26 UTC)
 

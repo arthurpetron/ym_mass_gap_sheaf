@@ -21,7 +21,7 @@ monitored check reports only `{propext, Quot.sound}`.
 ## Current increment: normalized product band forces the repaired floor order (2026-09-26 UTC)
 
 `ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:563--598`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:594--629`)
 transports the scalar quotient kernel to the repaired carrier-normalized
 spacing.  Any inhabited normalized product band therefore forces
 `6*((floor*normalizedSpacing)*carrierSquareScale) ≤ floorValue` at every
@@ -29,6 +29,20 @@ scale.  This is a necessary condition only: it does not inhabit the repaired
 product band or the all-scale physical-rate band, and it does not close the
 continuum/QFT, physical-mass, every-group, or Clay obligations.  The focused
 monitored check reports only `{propext, Quot.sound}`.
+
+## Current increment: repaired-family same-object channel (2026-09-26 UTC)
+
+`changingNomeCarrierNormalizedMovingCubeChannel`,
+`changingNomeCarrierNormalizedMovingCube_zero_isPositive`, and
+`changingNomeCarrierNormalizedMovingCube_connectedSq_decay`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:518--543`)
+instantiate the concrete moving-cube same-object channel on the repaired
+carrier-normalized family.  The actual completed channel retains positive
+zero-time response and the squared completed-gap decay bound.  This joins the
+spacing repair to the A05 observable branch, but supplies neither cutoff-removal
+variation nor a uniform scaling floor; OS/GNS, continuum/QFT, physical mass,
+every-group, and Clay obligations remain open.  The focused monitored check
+reports only `{propext, Quot.sound}`.
 
 ## Current increment: product-band forces a necessary floor order (2026-09-26 UTC)
 
@@ -249,7 +263,7 @@ is the exact algebraic presentation of the scheduled denominator as
 `ChangingNomeHeadEnergyProductBand` (`:153--171`) retains only the two uniform
 product inequalities against the unchanged spacing, and
 `ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand`
-(`:656--690`) compiles them into the existing same-family denominator band.
+(`:687--721`) compiles them into the existing same-family denominator band.
 The focused check reports only `{propext, Quot.sound}`.  The certificate is
 intentionally uninhabited: proving its two fields is exactly the remaining
 all-scale denominator-versus-spacing problem.
@@ -257,7 +271,7 @@ all-scale denominator-versus-spacing problem.
 ## Current increment: product band contracted to the continuum-gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:703--706`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:734--737`)
 composes the exact changing-nome denominator presentation, the specialized
 product-band compiler, and the existing same-family physical-rate compiler
 into the sharp `ContinuumGapTheorem` interface.  The focused monitored build
@@ -29677,11 +29691,11 @@ obligations remain open.
 `changingNomeCarrierNormalizedSpacingToZero`,
 `changingNomeCarrierNormalizedSpacing_carrier_ceiling`, and
 `changingNomeCarrierNormalizedDynamicFamily`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:429--504`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:429--514`)
 define a positive spacing schedule whose index is the explicit carrier-aware
 denominator plus the scale.  Its modulus is `epsilon.den`, and the checked
 ceiling is `6 * (normalizedSpacing * carrierSquareScale) ≤ 1` at every scale.
-The same-nome and same-gap-rate identities (`:506--512`) show that only the
+The same-nome and same-gap-rate identities (`:508--514`) show that only the
 spacing schedule changed.  This repairs the scale-zero normalization seam but
 does not inhabit the product band or close physical calibration, OS/GNS,
 continuum/QFT, physical mass, every-group, or Clay obligations.

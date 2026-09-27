@@ -30,8 +30,10 @@ open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 open YMGap.Continuum.PhysicalSeparatorLinearTail
 open YMGap.Continuum.PhysicalSeparatorLogRate
+open YMGap.Continuum.RCStrictPositivity
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -511,6 +513,35 @@ theorem changingNomeCarrierNormalizedDynamicFamily_same_gap_rate (scale : Nat) :
       cutoffUniformRate (changingNome scale)
         (Q'.le_of_lt (changingNome_pos scale)) := rfl
 
+/-- The carrier-normalized spacing repair leaves the concrete completed
+    moving-cube observable available on the repaired same-name family. -/
+def changingNomeCarrierNormalizedMovingCubeChannel :
+    DynamicVacuumSectorSameObjectRCChannel
+      changingNomeCarrierNormalizedDynamicFamily :=
+  centralPhysicalDynamicMovingCubeRCChannel
+    changingNomeCarrierNormalizedDynamicFamily
+
+theorem changingNomeCarrierNormalizedMovingCube_zero_isPositive (scale : Nat) :
+    RCIsPositive
+      (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+        changingNomeCarrierNormalizedMovingCubeChannel scale 0) :=
+  centralPhysicalDynamicMovingCube_connected_zero_isPositive
+    changingNomeCarrierNormalizedDynamicFamily scale
+
+theorem changingNomeCarrierNormalizedMovingCube_connectedSq_decay
+    (scale time : Nat) :
+    CReal.RCle
+      (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelationSq
+        changingNomeCarrierNormalizedMovingCubeChannel scale time)
+      (CReal.RCmul
+        (CReal.RCscale
+          ((((changingNomeCarrierNormalizedDynamicFamily.completedGap scale).rate *
+              (changingNomeCarrierNormalizedDynamicFamily.completedGap scale).rate)) ^ time)
+          (changingNomeCarrierNormalizedMovingCubeChannel.normSq scale))
+        (changingNomeCarrierNormalizedMovingCubeChannel.normSq scale)) :=
+  centralPhysicalDynamicMovingCube_connectedSq_decay
+    changingNomeCarrierNormalizedDynamicFamily scale time
+
 /-- The exact denominator law transported to the repaired spacing schedule.
     The dimensionless margin is unchanged because the completed nome and gap
     are unchanged; only the physical spacing field is replaced. -/
@@ -724,6 +755,9 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedDynamicFamily
 #print axioms changingNomeCarrierNormalizedDynamicFamily_same_nome
 #print axioms changingNomeCarrierNormalizedDynamicFamily_same_gap_rate
+#print axioms changingNomeCarrierNormalizedMovingCubeChannel
+#print axioms changingNomeCarrierNormalizedMovingCube_zero_isPositive
+#print axioms changingNomeCarrierNormalizedMovingCube_connectedSq_decay
 #print axioms changingNomeCarrierNormalizedExplicitMarginInverseLaw
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand
