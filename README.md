@@ -3552,6 +3552,17 @@ projective/OS data; no continuum/QFT, physical-mass, every-group, or Clay
 claim is added.  The focused monitored build completed in 5,243 jobs with
 only `{propext, Quot.sound}` and no `sorryAx`.
 
+The next matched-AF contraction replaces the primitive physical-gap plus
+reciprocal-spacing variation seam with the smaller
+`SummableRationalStepVariation (rescaledStrength ...)` input.  The new
+`toExactRateCutoffRemoval_ofRescaledStrengthAndComputedCeiling` and
+`toContinuumHandoff_ofRescaledStrengthAndComputedCeiling` declarations keep
+the same observable and completed carrier while using the computed full-log
+ceiling.  This is a checked adapter, not an inhabitant of the variation,
+scaling, OS/GNS, continuum/QFT, physical-mass, every-group, or Clay inputs.
+The focused monitored build completed in 5,243 jobs; the new gates report
+only `{propext, Quot.sound}` and no `sorryAx`.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,

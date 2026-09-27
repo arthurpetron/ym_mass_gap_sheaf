@@ -60,6 +60,11 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicRescaledStrengthCompiler
+open YMGap.Continuum.BF4PhysicalMatchedAFDynamicStrengthNormalization
+open YMGap.Continuum.AFTrajectoryCertificate
+open YMGap.Continuum.BF4AFPhysicalSpacingToZero
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRescaledStrengthTracking
+open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.QuadraticRateErrorTailControl
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.FourDExistence
@@ -663,6 +668,81 @@ def toExactRateCutoffRemoval_ofGapVariationAndComputedCeiling
     (toFullRangeLogRateCeiling_ofStrengthBandComputed witness band)
     gapVariation spacingTail
 
+/-! ## 5c. Replace primitive gap variation by rescaled-strength variation
+
+The rescaled-strength compiler controls the same exact-log rate using the
+physical gap plus the vanishing normalization correction, without asking for
+variation of reciprocal spacing.  This adapter exposes that smaller analytic
+input on the same observable witness and uses the already computed full-log
+ceiling. -/
+
+/-- Same-carrier cutoff removal from a summable rescaled-strength variation,
+with the full-log ceiling computed from the scaling band. -/
+def toExactRateCutoffRemoval_ofRescaledStrengthAndComputedCeiling
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness : PhysicalExponentialObservableWitness trajectory producer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (variation : SummableRationalStepVariation
+      (rescaledStrength
+        (trajectory.toNormalizedStrengthLaw producer)))
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    ExactRateCutoffRemoval
+      (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate
+        witness.observable
+        (scaling.toPhysicalRateBand)
+        (fullRangeLogRateCeilingOfPhysicalRateBand
+          witness.observable scaling.toPhysicalRateBand)) :=
+  matchedExactRateCutoffRemovalOfRescaledStrengthOfPhysicalRateBand
+    trajectory producer scaling witness.observable variation C H
+
+/-- Same-carrier continuum handoff from rescaled-strength variation, with the
+full-log ceiling computed from the matched scaling band. -/
+def toContinuumHandoff_ofRescaledStrengthAndComputedCeiling
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness : PhysicalExponentialObservableWitness trajectory producer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (variation : SummableRationalStepVariation
+      (rescaledStrength
+        (trajectory.toNormalizedStrengthLaw producer)))
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (projectiveOS : ProjectiveOSCorrelationHandoff
+      witness.observable.toPhysicalSeparator existence osGNS
+        witness.observable.physicalSampling)
+    (spectralChannel :
+      ProjectiveOSCorrelationHandoff.ReconstructionSpectralChannelHandoff
+        projectiveOS osGNS.reconstruction)
+    (exactRate : ExactRateReconstructionHandoff
+      (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate
+        witness.observable
+        (scaling.toPhysicalRateBand)
+        (fullRangeLogRateCeilingOfPhysicalRateBand
+          witness.observable scaling.toPhysicalRateBand))
+      osGNS.reconstruction)
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff
+      witness.observable
+      (scaling.toPhysicalRateBand)
+      (fullRangeLogRateCeilingOfPhysicalRateBand
+        witness.observable scaling.toPhysicalRateBand)
+      existence osGNS :=
+  matchedContinuumHandoffOfRescaledStrength
+    trajectory producer scaling witness.observable variation
+    (fullRangeLogRateCeilingOfPhysicalRateBand
+      witness.observable scaling.toPhysicalRateBand)
+    projectiveOS spectralChannel exactRate C H
+
 /-- The matched observable witness reaches the existing continuum handoff
 from the same-family exact-log variation compiler.  Projective/OS semantics,
 the spectral channel, and exact-rate reconstruction identification remain
@@ -989,9 +1069,13 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofGapVariationAndComputedCeiling
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofRescaledStrengthAndComputedCeiling
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofGapVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofGapVariationAndComputedCeiling
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofRescaledStrengthAndComputedCeiling
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumYMWithExactLogGap_ofHandoff
 #print axioms

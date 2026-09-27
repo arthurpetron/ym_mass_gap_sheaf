@@ -65645,6 +65645,26 @@ continuum measure/QFT construction, physical mass calibration, all-group
 generalization, and Clay theorem remain open.  The focused monitored target
 passes in 5,243 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
 
+## 244. Reduce the matched variation seam to rescaled strength (2026-09-27)
+
+The matched physical-exponential path now has a second exact-log route whose
+only variation field is the summable rational variation of
+`rescaledStrength (trajectory.toNormalizedStrengthLaw producer)`.  The new
+adapters `toExactRateCutoffRemoval_ofRescaledStrengthAndComputedCeiling` and
+`toContinuumHandoff_ofRescaledStrengthAndComputedCeiling` call the existing
+rescaled-strength compiler with the full-log ceiling computed from the same
+physical-rate band.  This keeps the observable and completed carrier
+definitionally identical and avoids treating reciprocal-spacing variation as
+the continuum witness.
+
+This is a factorization of required input, not a constructed analytic
+certificate.  `MatchedPhysicalDynamicStrengthScaling`, the rescaled-strength
+variation, the AF identification, exact-rate reconstruction, projective/OS
+data, continuum/QFT construction, physical mass calibration, all-group
+generalization, and the Clay theorem remain open.  The focused monitored target
+passes in 5,243 jobs; the new declarations have only `{propext, Quot.sound}`
+and no `sorryAx`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A

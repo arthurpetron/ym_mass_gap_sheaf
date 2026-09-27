@@ -30936,6 +30936,24 @@ floor and exact-rate ceiling, only the exact-rate Cauchy modulus remains at
 this boundary; the focused 5,133-job build still reports only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+## Matched exact-log route reduced to rescaled-strength variation (2026-09-27 UTC)
+
+The matched physical-exponential adapter now exposes the existing
+`matchedExactRateCutoffRemovalOfRescaledStrengthOfPhysicalRateBand` and
+`matchedContinuumHandoffOfRescaledStrength` compilers through
+`toExactRateCutoffRemoval_ofRescaledStrengthAndComputedCeiling` and
+`toContinuumHandoff_ofRescaledStrengthAndComputedCeiling`.  The new route
+consumes a single summable variation of
+`rescaledStrength (trajectory.toNormalizedStrengthLaw producer)` and the
+matched AF identification, while retaining the computed full-log ceiling and
+the identical observable/completed-carrier indices.  It therefore removes the
+primitive reciprocal-spacing variation from this boundary; it does not
+construct the strength scaling, the rescaled-strength variation, projective or
+OS/GNS data, exact-rate reconstruction, continuum/QFT, physical mass,
+all-group, or Clay inputs.  The focused monitored check completed in 5,243
+jobs, and both new dependency gates report only `{propext, Quot.sound}` with
+no `sorryAx`.
+
 The matched exact-log adapter now reaches `ExactRateCutoffRemoval` through
 `toExactRateCutoffRemoval`.  Given the explicit exact-rate Cauchy modulus and
 spacing-to-zero modulus, the existing constructive limit compiler derives
