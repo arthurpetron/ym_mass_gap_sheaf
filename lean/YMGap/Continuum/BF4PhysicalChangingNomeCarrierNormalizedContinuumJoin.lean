@@ -19,6 +19,7 @@ import YMGap.Continuum.BF4PhysicalChangingNomeExplicitMarginLaw
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 
 namespace YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
 
@@ -28,14 +29,18 @@ set_option autoImplicit false
 
 open YMGap.Constructive
 open YMGap.Continuum.BF4PhysicalChangingNomeExplicitMarginLaw
+open YMGap.Continuum.BF4PhysicalChangingNomeDynamicFamily
+open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 open YMGap.Continuum.RCStrictPositivity
+open YMGap.Continuum.SummableRationalStepVariation
 
 /-! ## The four-input meeting point -/
 
@@ -131,6 +136,41 @@ def Join.toRatePowerClustering (data : Join) :
     changingNomeCarrierNormalizedDynamicFamily
     data.toContinuumLimit data.toRatePowerLimit
 
+/-! ## The next physical-exponential handoff -/
+
+/-- The repaired completed family has a strictly positive finite transfer rate
+at every scale.  This is a finite-family fact; it is not a uniform physical
+mass bound. -/
+theorem carrierNormalized_rate_pos (scale : Nat) :
+    (0 : Q') <
+      (changingNomeCarrierNormalizedDynamicFamily.completedGap scale).rate := by
+  rw [changingNomeCarrierNormalizedDynamicFamily_same_gap_rate]
+  exact cutoffUniformRate_pos (changingNome scale)
+    (Q'.le_of_lt (changingNome_pos scale))
+
+/-- The physical-exponential corridor needs one additional exact variation
+certificate: consecutive-scale variation of the same family's physical gap.
+The existing `Join` supplies every other field, so this structure isolates the
+remaining analytic input without weakening its identity. -/
+structure PhysicalExponentialJoin : Type 1 where
+  core : Join
+  gapVariation : SummableRationalStepVariation
+    changingNomeCarrierNormalizedDynamicFamily.physicalGap
+
+/-- Compile the repaired-family join plus the single physical-gap variation
+input into the existing same-object physical-exponential certificate. -/
+def PhysicalExponentialJoin.toCertificate
+    (data : PhysicalExponentialJoin) :
+    NormalizedMovingCubePhysicalExponentialCertificate
+      changingNomeCarrierNormalizedDynamicFamily :=
+  NormalizedMovingCubePhysicalExponentialCertificate.ofRationalVariations
+    changingNomeCarrierNormalizedDynamicFamily
+    data.core.raw data.core.normDebt
+    data.core.toPhysicalRateBand
+    carrierNormalized_rate_pos
+    data.gapVariation
+    data.core.ratePower
+
 theorem Join.sq_decay (data : Join) (time : Nat) :
     CReal.RCle
       (CReal.RCmul
@@ -168,5 +208,9 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.zero_floor
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.toRatePowerClustering
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.carrierNormalized_rate_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.toCertificate
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.sq_decay

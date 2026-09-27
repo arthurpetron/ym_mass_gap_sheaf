@@ -29895,3 +29895,26 @@ identify the rate stream with a physical exponential.  The declaration checks
 with only `{propext, Quot.sound}` and no `sorryAx`; the four-input `Join`
 remains uninhabited, so no OS/GNS/QFT, physical-mass, every-group, or Clay
 conclusion follows.
+
+## Physical-exponential handoff factorization (2026-09-26 UTC)
+
+The repaired-family join now reaches the existing physical-exponential
+corridor through a minimal additional certificate.  The theorem
+`carrierNormalized_rate_pos` and the structure/compiler
+`PhysicalExponentialJoin` / `PhysicalExponentialJoin.toCertificate` are in
+`lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:141--172`.
+
+`carrierNormalized_rate_pos` proves
+`0 < (changingNomeCarrierNormalizedDynamicFamily.completedGap scale).rate`
+at every finite scale by exact reduction to `cutoffUniformRate_pos`; it is not
+a uniform physical-mass estimate.  `PhysicalExponentialJoin` adds precisely
+one field beyond the existing `Join`, namely
+`SummableRationalStepVariation` for
+`changingNomeCarrierNormalizedDynamicFamily.physicalGap`.  Its compiler feeds
+the existing `NormalizedMovingCubePhysicalExponentialCertificate` without
+changing the carrier, observable, or scheduled rate stream.
+
+The focused check reports only `{propext, Quot.sound}` and no `sorryAx`.
+The new structure is not inhabited: the cofinal calibration, raw/debt/rate
+variation, and physical-gap variation inputs remain explicit, and no physical
+mass, OS/QFT, every-group, or Clay conclusion follows.

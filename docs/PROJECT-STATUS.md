@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **100**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **101**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -57,6 +57,10 @@ The same join now projects to the direct
 `NontrivialRCSquaredRatePowerClustering` contract, retaining the exact CReal
 scheduled rate stream without a fixed-ratio or physical-exponential
 identification.
+The next physical-exponential handoff is now also factored: finite rate
+positivity is proved for the repaired family, and `PhysicalExponentialJoin`
+isolates exactly one additional physical-gap variation certificate before the
+existing exponential corridor can be consumed.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -353,6 +357,17 @@ does not identify the rate stream with a fixed rational ratio or a physical
 exponential.  The `Join` inputs remain uninhabited, so OS/GNS/QFT, physical
 mass, every-group, and Clay obligations remain open.
 
+Latest verified B04/A05 physical-exponential handoff factorization (2026-09-26 UTC):
+`carrierNormalized_rate_pos`, `PhysicalExponentialJoin`, and
+`PhysicalExponentialJoin.toCertificate`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:141--172`)
+prove finite positivity of the repaired completed transfer rate and isolate
+the sole additional input consumed by the existing
+`NormalizedMovingCubePhysicalExponentialCertificate` compiler:
+`SummableRationalStepVariation` of the same family's physical-gap stream.
+The resulting certificate remains conditional; no physical mass, OS/QFT,
+every-group, or Clay theorem is claimed.
+
 Latest verified B04/A05 repaired-family observable join (2026-09-26 UTC):
 `changingNomeCarrierNormalizedMovingCubeChannel`,
 `changingNomeCarrierNormalizedMovingCube_zero_isPositive`, and
@@ -633,6 +648,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                            (conditional on the same normalized Join)
                                        [x] Same-family direct CReal rate-power clustering contract
                                            (no fixed-ratio or physical-exponential identification)
+                                       [x] Physical-exponential handoff factorization
+                                           (one same-family physical-gap variation input remains)
                                        [ ] Infinite-scale denominator/spacing comparison
                                        [ ] Anchor-minimum asymptotic estimate
                                            F(w_n) comparable to spacing
@@ -730,6 +747,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04ai | Cofinal calibration + A05 variation -> same-family continuum RC join | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join`, `.Join.toPhysicalRateBand`, `.Join.toContinuumLimit`, `.Join.toRatePowerLimit`, `.Join.toContinuumGapTheorem`, `.Join.zero_isPositive`, and `.Join.sq_decay`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:40--125`; joins the B04 calibration with the A05 raw/debt/rate variation inputs on the identical repaired family and compiles the exact normalized continuum RC channel, rate-power limit, positivity, decay, and conditional scalar gap interface. The four-input join remains uninhabited, so OS/GNS/QFT, physical mass, every-group, and Clay nodes remain open. |
 | B04aj | Joined continuum zero-time unit floor | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.zero_floor`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:108--118`; transports the exact unit lower bound from finite normalized same-object coefficients through the joined cutoff limit. It is conditional on the uninhabited `Join` and does not close the all-scale variation, OS/GNS/QFT, physical-mass, every-group, or Clay obligations. |
 | B04ak | Same-family direct CReal rate-power clustering contract | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.toRatePowerClustering`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:122--132`; compiles the joined normalized continuum limit and exact scheduled rate-power limit to `NontrivialRCSquaredRatePowerClustering` with the same-object decay and unit floor. No fixed-ratio or physical-exponential identification is asserted, and the four-input `Join` remains uninhabited. |
+| B04al | Physical-exponential handoff factorization | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.carrierNormalized_rate_pos`, `.PhysicalExponentialJoin`, and `.PhysicalExponentialJoin.toCertificate`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:141--172`; proves finite repaired-family rate positivity and factors the existing physical-exponential certificate through one additional same-family physical-gap variation input. The factorization is conditional and does not establish physical mass or Clay completion. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1648,3 +1666,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 114 | 2026-09-26 | Joined the cofinal B04 calibration with the A05 raw/debt/rate variation inputs in `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join`, yielding conditional same-family normalized continuum RC, rate-power, positivity, decay, and scalar-gap projections. The four-input join remains uninhabited; no continuum/QFT, physical-mass, every-group, or Clay claim is added. |
 | 1 / 115 | 2026-09-26 | Added `Join.zero_floor`, proving the exact unit lower bound survives at continuum time zero for any supplied same-family join. This strengthens conditional nontriviality only; the join inputs and all continuum/Clay completion nodes remain open. |
 | 1 / 116 | 2026-09-26 | Added `Join.toRatePowerClustering`, a same-family direct CReal rate-power clustering consumer retaining the exact scheduled rate stream, squared decay, and unit floor without a fixed-ratio shortcut. The join inputs and all OS/QFT, physical-mass, every-group, and Clay nodes remain open. |
+| 1 / 117 | 2026-09-26 | Factored the next physical-exponential handoff: proved repaired-family finite rate positivity and added `PhysicalExponentialJoin.toCertificate`, whose only new input is same-family physical-gap variation. The certificate remains conditional; no physical mass or Clay claim is added. |
