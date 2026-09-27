@@ -116,6 +116,26 @@ def toContinuumYMWithGapOfMarginCompatibility
   route.toContinuumRealization.toContinuumYMWithGapOfMarginCompatibility
     floorMarginGap
 
+/-- Once the explicit margin-currency compatibility certificate is supplied,
+the route reaches the repository's final constructive mass-gap proposition
+for the identical OS reconstruction. -/
+theorem massGapConclusion_ofMarginCompatibility
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (route : ChangingNomeCarrierNormalizedContinuumRoute existence osGNS)
+    (floorMarginGap :
+      HasSpectralGapAt route.toContinuumRealization.reconstruction
+        (CReal.ofQ'
+          (DynamicVacuumSectorObservablePin.exactCertificate
+            route.observable.toObservablePin
+            route.observable.cofinal.toPhysicalRateBand route.ceiling).uniformFloor.floor)) :
+    ∃ m_0 : CReal,
+      CReal.IsPositive m_0 ∧
+        HasSpectralGapAt route.toContinuumRealization.reconstruction m_0 := by
+  exact FourDExistence.ym_mass_gap_of_existence
+    (route.toContinuumYMWithGapOfMarginCompatibility floorMarginGap)
+
 end ChangingNomeCarrierNormalizedContinuumRoute
 
 end YMGap.Continuum.BF4PhysicalChangingNomeContinuumRoute
@@ -130,3 +150,5 @@ end YMGap.Continuum.BF4PhysicalChangingNomeContinuumRoute
   YMGap.Continuum.BF4PhysicalChangingNomeContinuumRoute.ChangingNomeCarrierNormalizedContinuumRoute.toPositiveExactLogGapWitness
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeContinuumRoute.ChangingNomeCarrierNormalizedContinuumRoute.toContinuumYMWithGapOfMarginCompatibility
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeContinuumRoute.ChangingNomeCarrierNormalizedContinuumRoute.massGapConclusion_ofMarginCompatibility

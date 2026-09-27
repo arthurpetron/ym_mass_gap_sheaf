@@ -341,6 +341,10 @@ The continuum route now exports `toPositiveExactLogGapWitness` and a
 an explicit `HasSpectralGapAt` certificate in the reconstructed margin
 currency; it does not identify that margin with the exact logarithmic mass
 automatically. This keeps the remaining physical-mass calibration visible.
+With that certificate supplied, `massGapConclusion_ofMarginCompatibility`
+reaches the repository's final positive-gap proposition for the same
+reconstructed operator; this is a conditional consequence, not a construction
+of the certificate or a Clay proof.
 
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive

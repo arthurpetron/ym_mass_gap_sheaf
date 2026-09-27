@@ -30622,3 +30622,12 @@ currency, and `toContinuumYMWithGapOfMarginCompatibility`, which consumes an
 explicit `HasSpectralGapAt` certificate at the reconstructed margin floor.
 The latter is deliberately conditional: no conversion from `-log(q)` to
 `1-q`, physical mass calibration, or Clay closure is inferred.
+
+## Conditional final mass-gap proposition projection (2026-09-27 UTC)
+
+`massGapConclusion_ofMarginCompatibility` threads the explicit
+margin-currency `HasSpectralGapAt` certificate through
+`ym_mass_gap_of_existence`, preserving the same reconstructed operator and
+constructive positive mass witness. This is a conditional endpoint projection;
+it does not construct the compatibility certificate, continuum handoff,
+every-group result, or Clay theorem.
