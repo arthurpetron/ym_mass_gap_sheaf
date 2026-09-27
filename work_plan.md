@@ -25,6 +25,24 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Active bridge reduction draft (2026-09-27 UTC; verification pending)
+
+The next completed-carrier obligation can be reduced using existing
+mathematics: static form/vacuum preservation transports the centered
+resolvent's orthogonality, and self-adjointness plus Cauchy pairing continuity
+extends the dense two-step equation to the completed image. The draft
+`CurrentStageDenseTwoStepCertificate.toBridge` in
+`BF4WilsonSpatialUnionCanonicalGNSBridge.lean` composes these arguments into
+the unchanged bridge type. Its kernel/axiom checks remain pending behind the
+live external `Row64` build; no checked milestone or chart node is advanced.
+
+The source review and exact remaining producer restrictions are in
+`audits/AUDIT-CANONICAL-BRIDGE-MINIMALITY-2026-09-27.md`. Before implementing
+an exact rational stage-pairing producer, justify that interface's rational
+representability requirement; the existing general Cauchy-stream interface
+does not impose that per-stage restriction. The canonical datum, static
+transport, dense dynamic equation, and all-vector range section remain inputs.
+
 ### New finite-prefix calibration certificate (2026-09-26 UTC)
 
 `finitePrefixGapFloor`, `finitePrefixGapCeiling`,
