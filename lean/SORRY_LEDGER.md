@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Shared-block signed form and coarse degree-budget obstruction (2026-09-27 UTC)
+
+- **proved:** `SharedFaceRegion.shared_partition`, count bounds and singleton
+  pin; `SharedFaceComparison.fullWeight_split`, `shared_weighted_bounds` and
+  `shared_signed_pair` retain all nonshared factors and arbitrary spectator
+  tests, with cost from the actual shared count. This is a form comparison,
+  not a conditional-residual angle or completed reference construction.
+- **proved scalar exclusion:** `SharedFloorBudgetObstruction.not_degreeBudget_lt_one`
+  extends the older floor/window obstruction to the proposed D*(1-L/U) budget:
+  s>=1 and D>=2 cannot give a positive margin from those constants. It does
+  not bound actual conditional influence or refute a different route or YM.
+- **next/open:** signed four-copy conditional covariance determinant, retaining
+  common exterior variables; useful original-action signed bound and completed
+  prediction-space join; block geometry, physical scaling/nontriviality,
+  thermodynamic control, same-theory OS/QFT/mass and every-group Clay.
+- **verification:** three focused serialized one-worker/20 GiB targets, all
+  28 gates within {propext, Quot.sound}. No new sorry, axiom, analytic bundle,
+  field weakening or canonical chart change. Evidence:
+  `audits/AUDIT-BLOCK-SHARED-FACTOR-BUDGET-2026-09-27.md`.
+
 ## Original completed block-pair algebra (2026-09-27 UTC)
 
 - **proved:** `BlockNonneighborCommutation.conditionalProjection_commute`

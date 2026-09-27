@@ -5548,6 +5548,9 @@ import YMGap.Continuum.BF4ExactSlabBlockOriginalConditional
 import YMGap.Continuum.BF4ExactSlabBlockConditionalProjection
 import YMGap.Continuum.BF4ExactSlabBlockTower
 import YMGap.Continuum.BF4ExactSlabBlockNonneighborCommutation
+import YMGap.Continuum.BF4ExactSlabSharedFaceRegion
+import YMGap.Continuum.BF4ExactSlabSharedFaceComparison
+import YMGap.Continuum.BF4ExactSlabSharedFloorBudgetObstruction
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

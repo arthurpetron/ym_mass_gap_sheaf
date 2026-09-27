@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Shared-factor comparison and route limit (2026-09-27):** a checked signed
+form comparison now charges only faces shared by two block lists, retaining
+every other original factor and arbitrary spectator dependence. The existing
+coarse floor/cap constants still cannot close the proposed neighbor budget
+at degree two or above; this is a limit of that estimate, not a Yang--Mills
+counterexample. Next: an exact signed covariance determinant preserving
+cancellation, then its still-missing original-action bound. All 28 gates
+passed focused checks. See the
+[proof, obstruction and next-task audit](audits/AUDIT-BLOCK-SHARED-FACTOR-BUDGET-2026-09-27.md).
+
 **Original block-pair algebra proved (2026-09-27):** blocks whose action
 collars are separated commute on EVERY original completed state. Nested
 blocks satisfy the exact conditional tower law. Both classes have

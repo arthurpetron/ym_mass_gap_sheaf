@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original completed block-pair algebra (2026-09-27 UTC)
+## Current increment: shared-block form comparison and budget obstruction (2026-09-27 UTC)
+
+The original full form now has a signed comparison charging only shared
+faces, with every other factor and all spectator dependence retained. The
+block-list geometry is pinned to the older singleton theorem. Reusing the
+older m<=1/32, M>=1 facts proves that the proposed D*(1-(m/M)^s) budget cannot
+close at s>=1, D>=2. Stop the coarse-window reference-completion branch;
+this excludes that scalar producer, not the actual conditional angle or YM.
+
+NEXT: an exact signed four-copy conditional covariance determinant, with
+shared exterior variables and the original shared heat factor. Its analytic
+bound and completed prediction join remain open, as do physical scaling,
+thermodynamic passage and same-theory OS/QFT/nontriviality/mass/every-group Clay.
+Three focused serialized targets passed all 28 gates within {propext, Quot.sound}.
+No new sorry, axiom, analytic bundle, chart marker change or broad run.
+Evidence: `audits/AUDIT-BLOCK-SHARED-FACTOR-BUDGET-2026-09-27.md`.
+
+## Earlier increment: original completed block-pair algebra (2026-09-27 UTC)
 
 Remote original block projections commute from one collar-separation premise.
 Nested projections obey the exact tower law in both orders. Both classes

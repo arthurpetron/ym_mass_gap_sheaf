@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting shared-block comparison and budget exclusion (2026-09-27 UTC; chart markers unchanged):
+A signed original form comparison now pays only shared-face factors,
+retaining nonshared action and arbitrary spectator tests. The coarse existing
+floor/cap constants provably cannot close the proposed D>=2 neighbor budget.
+This excludes that scalar route only, not original conditional influence or
+Yang--Mills. Next: a signed four-copy conditional covariance determinant;
+its useful bound and completed join remain open, as do A03 and same-theory
+scaling/thermodynamic/OS/QFT/nontriviality/mass/every-group Clay obligations.
+All 28 gates passed three focused targets; no canonical chart block change.
+Evidence: `audits/AUDIT-BLOCK-SHARED-FACTOR-BUDGET-2026-09-27.md`.
+
 Verified supporting original block-pair algebra (2026-09-27 UTC; chart markers unchanged):
 Remote blocks commute under one collar-separation premise; nested blocks
 obey the exact tower law, on EVERY original completed vector. Both mixed

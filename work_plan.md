@@ -25,6 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Shared-block comparison checked; coarse-window route pruned (2026-09-27 UTC)
+
+`SharedFaceRegion` generalizes the existing singleton shared-face geometry to
+finite block lists, with an exact singleton pin and six-times-either-size
+count bounds. `SharedFaceComparison.shared_signed_pair` proves a universal
+signed polynomial-form comparison charging only actual shared factors, while
+retaining every other face and arbitrary spectator dependence. Its constants
+are L=headFloor(w)^s and U=prefixCap(w)^s, s the actual shared-face count.
+It is not yet a conditional-residual estimate or a completed reference join.
+
+The older `SharedWindowFloorBound`/`SharedWindowInfluenceObstruction` already
+rule out a strong inference from the singleton absolute window. The new
+`SharedFloorBudgetObstruction.not_degreeBudget_lt_one` connects those actual
+constants to the proposed improved block coefficient: s>=1 gives L/U<=1/32,
+so D*(1-L/U) cannot be below one at D>=2. Do not build a product-reference
+completion solely to feed these constants into that neighbor budget.
+This rules out that estimate/consumer combination, not block methods,
+sharper estimates, or YM. It does not make a uniform dimensionless margin
+a necessary condition for the physical target.
+
+NEXT: derive an exact signed four-copy covariance-determinant identity with
+shared exterior variables, duplicating the A-only/B-only factors and leaving
+the common exterior factor for one final integration. Start from the actual
+sharedHeat factor, not a generic positive window. Reuse the checked partial
+Haar/replica machinery and preserve `K_ab*K_a'b'-K_ab'*K_a'b` before taking
+absolute values. This is an identity task, not a promised bound: the useful
+SU(2)-specific signed estimate, original completed prediction-space join,
+block geometry and physically calibrated scaling/nontrivial survival remain
+open. Selected-face thermodynamic and same-theory OS/QFT/mass/every-group
+Clay obligations are unchanged. No new assumed-angle bundle.
+
+Three focused serialized one-worker/20 GiB targets passed all 28 gates within
+{propext, Quot.sound}; Sol/Luna proof, source research and scope review ran in
+parallel. No new sorry, axiom, weakened field or broad run. Chart unchanged.
+Evidence: `audits/AUDIT-BLOCK-SHARED-FACTOR-BUDGET-2026-09-27.md`.
+
 ### Original completed block-pair algebra proved (2026-09-27 UTC)
 
 `BlockNonneighborCommutation.conditionalProjection_commute` proves exact
