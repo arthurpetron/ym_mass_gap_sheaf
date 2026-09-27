@@ -65788,6 +65788,20 @@ every-group theorem, and Clay result remain open.  The dependency-complete
 monitored target passed in 2,602 jobs; the new declaration uses only
 `{propext, Quot.sound}` and no `sorryAx`.
 
+## 252. Exclude a two-step fixed point for the canonical unit excitation (2026-09-27)
+
+`CurrentCarrierBridge.canonicalUnitProbe_twoStep_fixed_eq_zero` specializes
+the image-level fixed-point exclusion to the canonical unit probe, and
+`canonicalUnitProbe_twoStep_not_fixed` combines it with the probe's proved
+nonzero-ness.  The selected canonical excitation therefore cannot be a
+two-step transfer fixed vector under the named bridge.
+
+This is selected-state spectral nontriviality only: the bridge, all-vector
+canonical range section, completed canonical gap, continuum/QFT realization,
+physical mass calibration, every-group theorem, and Clay result remain open.
+The dependency-complete monitored target passed in 2,602 jobs; both new
+declarations use only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A

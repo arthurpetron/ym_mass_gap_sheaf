@@ -55,6 +55,22 @@
   2,602 jobs. The declaration reports only `{propext, Quot.sound}` and no
   `sorryAx`, classical axiom, `native_decide`, or custom axiom.
 
+## Canonical unit probe is not two-step fixed (2026-09-27 UTC)
+
+- **declarations:** `CurrentCarrierBridge.canonicalUnitProbe_twoStep_fixed_eq_zero`
+  and `CurrentCarrierBridge.canonicalUnitProbe_twoStep_not_fixed` in
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1363--1385`.
+- **result:** the image-level fixed-point exclusion specializes to the
+  transported canonical unit probe; its proved nonzero-ness then yields that
+  it cannot be fixed by the canonical two-step transfer.
+- **scope:** this is selected-state spectral nontriviality only. The bridge,
+  all-vector canonical range section, completed canonical gap, OS/GNS,
+  continuum/QFT, physical-mass, every-group, and Clay endpoints remain open.
+- **verification:** dependency-complete monitored target
+  `+YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge:olean` passed in
+  2,602 jobs. Both declarations report only `{propext, Quot.sound}` and no
+  `sorryAx`, classical axiom, `native_decide`, or custom axiom.
+
 ## Exact-rate certificate contracts into the semantic handoff (2026-09-27 UTC)
 
 - **declaration:** `toContinuumHandoff_ofExactRateCutoffRemoval` in

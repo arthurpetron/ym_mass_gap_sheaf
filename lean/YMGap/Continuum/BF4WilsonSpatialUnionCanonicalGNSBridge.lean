@@ -1360,6 +1360,30 @@ theorem canonicalUnitProbe_twoStep_form_bound
       (W.toGNSData.cinnerCompl (J.map unitExcitation) (J.map unitExcitation)))
   exact J.image_twoStep_form_bound unitExcitation_orthogonal
 
+/-- A supplied bridge transports the current fixed-point exclusion to the
+canonical unit excitation. -/
+theorem canonicalUnitProbe_twoStep_fixed_eq_zero
+    (J : CurrentCarrierBridge P)
+    (hfixed :
+      P.op.T (P.op.T J.canonicalUnitProbe.vector) =
+        J.canonicalUnitProbe.vector) :
+    J.canonicalUnitProbe.vector = embedV W.toGNSData W.toGNSData.zero := by
+  change J.map unitExcitation = embedV W.toGNSData W.toGNSData.zero
+  apply J.image_twoStep_fixed_eq_zero unitExcitation_orthogonal
+  change
+    P.op.T (P.op.T (J.map unitExcitation)) =
+      J.map unitExcitation
+  exact hfixed
+
+/-- The transported unit excitation is therefore not a two-step fixed vector. -/
+theorem canonicalUnitProbe_twoStep_not_fixed
+    (J : CurrentCarrierBridge P) :
+    ¬ (P.op.T (P.op.T J.canonicalUnitProbe.vector) =
+      J.canonicalUnitProbe.vector) := by
+  intro hfixed
+  apply J.canonicalUnitProbe_ne_zero
+  exact J.canonicalUnitProbe_twoStep_fixed_eq_zero hfixed
+
 end CurrentCarrierBridge
 
 /-! ## The completed canonical-range consumer
@@ -1710,3 +1734,5 @@ end YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_response_floor
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe
 #print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_form_bound
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_fixed_eq_zero
+#print axioms YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge.CurrentCarrierBridge.canonicalUnitProbe_twoStep_not_fixed

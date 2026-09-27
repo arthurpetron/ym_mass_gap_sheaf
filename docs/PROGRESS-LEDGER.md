@@ -49,6 +49,20 @@ canonical range section, OS/GNS realization, continuum/QFT, physical-mass,
 every-group, and Clay endpoints remain open. The dependency-complete monitored
 target passed in 2,602 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
 
+## Current increment: exclude a two-step fixed point for the canonical unit excitation (2026-09-27 UTC)
+
+`CurrentCarrierBridge.canonicalUnitProbe_twoStep_fixed_eq_zero` and
+`CurrentCarrierBridge.canonicalUnitProbe_twoStep_not_fixed`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1363--1385`)
+specialize the image-level fixed-point exclusion to the transported canonical
+unit probe and combine it with its proved nonzero-ness.  The selected
+canonical excitation therefore cannot be a two-step transfer fixed vector
+under the named bridge.  This is selected-state spectral nontriviality only:
+the bridge, all-vector canonical range section, completed canonical gap,
+continuum/QFT, physical-mass, every-group, and Clay endpoints remain open.
+The dependency-complete monitored target passed in 2,602 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 ## Current increment: exact-rate certificate contracts into the semantic handoff (2026-09-27 UTC)
 
 `MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofExactRateCutoffRemoval`
