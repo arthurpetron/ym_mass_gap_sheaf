@@ -29877,3 +29877,21 @@ The declaration checks with only `{propext, Quot.sound}` and no `sorryAx`.
 It remains conditional on the uninhabited cofinal calibration and variation
 fields; it does not produce the missing analytic inputs, OS/GNS/QFT structure,
 physical mass, every-group theorem, or Clay conclusion.
+
+## Same-family direct CReal rate-power clustering contraction (2026-09-26 UTC)
+
+`Join.toRatePowerClustering` in
+`lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:122--132`
+now consumes the exact repaired-family joined limit and its scheduled
+rate-power limit through
+`NormalizedMovingCubeContinuumCertificate.toNontrivialRCSquaredRatePowerClusteringOfLimits`.
+The result is the direct `NontrivialRCSquaredRatePowerClustering` object for
+the same normalized observable: its amplitude is the actual continuum
+zero-time correlation, its rate is the exact CReal scheduled stream, its
+decay is the checked squared bound, and its zero floor is one.
+
+This contraction intentionally does not impose a fixed rational ratio or
+identify the rate stream with a physical exponential.  The declaration checks
+with only `{propext, Quot.sound}` and no `sorryAx`; the four-input `Join`
+remains uninhabited, so no OS/GNS/QFT, physical-mass, every-group, or Clay
+conclusion follows.

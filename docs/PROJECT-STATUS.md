@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **99**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **100**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -53,6 +53,10 @@ causal B04/A05 join rather than a completed continuum or Clay theorem.
 The joined normalized channel also has a checked unit floor at continuum time
 zero (`Join.zero_floor`), stronger than positivity; it is conditional on the
 same uninhabited four-input `Join` and does not assert an inhabited limit.
+The same join now projects to the direct
+`NontrivialRCSquaredRatePowerClustering` contract, retaining the exact CReal
+scheduled rate stream without a fixed-ratio or physical-exponential
+identification.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -339,6 +343,16 @@ response at least one, not merely positive.  This remains conditional on the
 uninhabited calibration and variation fields; no all-scale analytic input,
 OS/GNS/QFT, physical mass, every-group, or Clay conclusion is supplied.
 
+Latest verified B04/A05 rate-power clustering contraction (2026-09-26 UTC):
+`BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.toRatePowerClustering`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:122--132`)
+packages the exact repaired-family normalized continuum correlation, its CReal
+scheduled rate-power limit, squared decay, and unit zero-time floor into the
+direct `NontrivialRCSquaredRatePowerClustering` contract.  It deliberately
+does not identify the rate stream with a fixed rational ratio or a physical
+exponential.  The `Join` inputs remain uninhabited, so OS/GNS/QFT, physical
+mass, every-group, and Clay obligations remain open.
+
 Latest verified B04/A05 repaired-family observable join (2026-09-26 UTC):
 `changingNomeCarrierNormalizedMovingCubeChannel`,
 `changingNomeCarrierNormalizedMovingCube_zero_isPositive`, and
@@ -617,6 +631,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                            (four explicit inputs; Join remains uninhabited)
                                        [x] Joined continuum zero-time unit floor
                                            (conditional on the same normalized Join)
+                                       [x] Same-family direct CReal rate-power clustering contract
+                                           (no fixed-ratio or physical-exponential identification)
                                        [ ] Infinite-scale denominator/spacing comparison
                                        [ ] Anchor-minimum asymptotic estimate
                                            F(w_n) comparable to spacing
@@ -713,6 +729,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04ah | Cofinal-prefix calibration -> all-scale rate compiler | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeCarrierNormalizedCofinalGapCalibration` and `.toPhysicalRateBand` (`:689--758`); factors the remaining all-scale input into uniform bounds on the finite-prefix extrema and compiles them to the same-family all-scale physical-rate band. The calibration certificate remains uninhabited, so the continuum, physical-mass, every-group, and Clay nodes remain open. |
 | B04ai | Cofinal calibration + A05 variation -> same-family continuum RC join | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join`, `.Join.toPhysicalRateBand`, `.Join.toContinuumLimit`, `.Join.toRatePowerLimit`, `.Join.toContinuumGapTheorem`, `.Join.zero_isPositive`, and `.Join.sq_decay`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:40--125`; joins the B04 calibration with the A05 raw/debt/rate variation inputs on the identical repaired family and compiles the exact normalized continuum RC channel, rate-power limit, positivity, decay, and conditional scalar gap interface. The four-input join remains uninhabited, so OS/GNS/QFT, physical mass, every-group, and Clay nodes remain open. |
 | B04aj | Joined continuum zero-time unit floor | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.zero_floor`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:108--118`; transports the exact unit lower bound from finite normalized same-object coefficients through the joined cutoff limit. It is conditional on the uninhabited `Join` and does not close the all-scale variation, OS/GNS/QFT, physical-mass, every-group, or Clay obligations. |
+| B04ak | Same-family direct CReal rate-power clustering contract | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.toRatePowerClustering`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:122--132`; compiles the joined normalized continuum limit and exact scheduled rate-power limit to `NontrivialRCSquaredRatePowerClustering` with the same-object decay and unit floor. No fixed-ratio or physical-exponential identification is asserted, and the four-input `Join` remains uninhabited. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1630,3 +1647,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 113 | 2026-09-26 | Added the cofinal-prefix calibration certificate and compiler to the all-scale physical-rate band. Its two uniform extremal bounds remain open; no continuum or Clay claim is added. |
 | 1 / 114 | 2026-09-26 | Joined the cofinal B04 calibration with the A05 raw/debt/rate variation inputs in `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join`, yielding conditional same-family normalized continuum RC, rate-power, positivity, decay, and scalar-gap projections. The four-input join remains uninhabited; no continuum/QFT, physical-mass, every-group, or Clay claim is added. |
 | 1 / 115 | 2026-09-26 | Added `Join.zero_floor`, proving the exact unit lower bound survives at continuum time zero for any supplied same-family join. This strengthens conditional nontriviality only; the join inputs and all continuum/Clay completion nodes remain open. |
+| 1 / 116 | 2026-09-26 | Added `Join.toRatePowerClustering`, a same-family direct CReal rate-power clustering consumer retaining the exact scheduled rate stream, squared decay, and unit floor without a fixed-ratio shortcut. The join inputs and all OS/QFT, physical-mass, every-group, and Clay nodes remain open. |

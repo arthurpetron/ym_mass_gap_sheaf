@@ -18,6 +18,7 @@ noncomputable declaration is used.
 import YMGap.Continuum.BF4PhysicalChangingNomeExplicitMarginLaw
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
 
 namespace YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
 
@@ -30,6 +31,7 @@ open YMGap.Continuum.BF4PhysicalChangingNomeExplicitMarginLaw
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
@@ -117,6 +119,18 @@ theorem Join.zero_floor (data : Join) :
   NormalizedMovingCubeScheduledRCContinuumLimit.one_le_continuumConnectedAutocorrelation_zero
     data.toContinuumLimit
 
+/-- The joined same-object limit and exact scheduled rate-power limit form the
+direct rate-power clustering contract.  This retains the actual CReal rate
+stream and does not identify it with a fixed rational ratio or a physical
+exponential. -/
+def Join.toRatePowerClustering (data : Join) :
+    NontrivialRCSquaredRatePowerClustering
+      (NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+        data.toContinuumLimit) :=
+  NormalizedMovingCubeContinuumCertificate.toNontrivialRCSquaredRatePowerClusteringOfLimits
+    changingNomeCarrierNormalizedDynamicFamily
+    data.toContinuumLimit data.toRatePowerLimit
+
 theorem Join.sq_decay (data : Join) (time : Nat) :
     CReal.RCle
       (CReal.RCmul
@@ -152,5 +166,7 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.zero_isPositive
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.zero_floor
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.toRatePowerClustering
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.sq_decay
