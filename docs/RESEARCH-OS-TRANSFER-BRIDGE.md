@@ -17,7 +17,7 @@ target.
 * M. Lüscher, “Construction of a selfadjoint, strictly positive transfer
   matrix for Euclidean lattice gauge theories,” *Communications in
   Mathematical Physics* 54 (1977), 283–292, DOI
-  [10.1007/BF01614132](https://doi.org/10.1007/BF01614132).
+  [10.1007/BF01614090](https://doi.org/10.1007/BF01614090).
 * D. Schlingemann, “From euclidean field theory to quantum field theory,”
   [arXiv:hep-th/9802035](https://arxiv.org/abs/hep-th/9802035).  This gives a
   C*-algebraic presentation of the Osterwalder–Schrader reconstruction route,
