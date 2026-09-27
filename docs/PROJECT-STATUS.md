@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting route restriction (2026-09-27 UTC; chart markers unchanged):
+`SU2QuaternionHeatFreeSectorObstruction.free_sector_preservation_false`
+gives a positive two-site heat example where a globally centered,
+free-link-centered input loses free-link centering after a neighboring
+conditional update. All 12 focused gates passed. This blocks automatic
+iteration of directional bounds from global centering alone; it is not a
+full-slab or Yang--Mills counterexample. The required interacting spatial
+estimate, physical scaling and continuum/Clay endpoint remain open.
+
 Verified supporting signed response (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabGuardedCovarianceResponse.rooted_signed_response_bound` controls
 the original signed rooted covariance response via three moment changes,

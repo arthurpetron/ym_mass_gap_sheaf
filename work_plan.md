@@ -25,6 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Neighboring free-sector preservation refuted in a positive heat block (2026-09-27 UTC)
+
+`SU2QuaternionHeatFreeSectorObstruction.free_sector_preservation_false`
+checks an exact two-site weighted SU(2) heat example: B(x)=1+x_0/2 and
+f=x_0*(y_0-2*w^3). The input has zero free x-average AND zero weighted
+global mean. Its actual conditional y-update remains globally centered but
+has free x-average w^3/4>0. Positivity of the same weight is constructed
+for 0<w<1 and K>=max(1,headCutoff(w)); all heat spins through K remain.
+This refutes a universal preservation inference, not a source-specific
+full-slab statement, gauge-invariant Wilson estimate, or Yang--Mills theory.
+
+NEXT: do not iterate `StarLocalInfluence`'s free-centered local bound using
+global centering alone. A conditional route needs actual neighboring-sector
+leakage control or an interacting block-centered iteration law, then the
+SAME normalized signed-response join. No such full-action block criterion
+was found in the inspected modules. The alternative direct consumer remains
+`BF4ExactSlabRootedResponseResummation.covariance_response_bound_of_rooted`.
+The required beyond-guard spatial/scaling estimate is still analytic work;
+do not replace it with another conditional interface or local-floor wrapper.
+
+All 12 gates passed the focused one-worker/20 GiB check. Sol reviewed the
+final source; a second review mapped the missing block-to-response join.
+No canonical field change, new hole, full-tree audit or chart-marker advance.
+Evidence: `audits/AUDIT-HEAT-FREE-SECTOR-2026-09-27.md`.
+
 ### Guarded original signed covariance response checked (2026-09-27 UTC)
 
 `BF4ExactSlabGuardedCovarianceResponse.rooted_signed_response_bound` now bounds

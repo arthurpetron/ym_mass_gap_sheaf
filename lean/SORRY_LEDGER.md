@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Neighboring free-centered sector obstruction (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/SU2QuaternionHeatFreeSectorObstruction.lean`.
+- **proved:** `source_free_centered` (`:106`) and
+  `source_weighted_mean_zero` (`:170`) give both centerings for the explicit
+  input. `output_weighted_pairing` (`:157`) pins the actual conditional
+  update to the SAME weight. `output_weighted_mean_zero` (`:195`) preserves
+  global centering, but `output_free_mean` (`:206`) equals w^3/4 and
+  `free_sector_preservation_false` (`:235`) refutes automatic free-sector
+  invariance. `weight_certificate` (`:93`) and `weight_mass` (`:102`)
+  certify the positive normalized example at the explicit late cutoff.
+- **scope/residue:** two-site weighted relative heat, not the full physical
+  slab or gauge-invariant source sector. The full-action neighboring-sector
+  control/block iteration and its normalized signed spatial response remain
+  open. A universal conditional-update/global-centering argument cannot
+  supply that missing premise. No canonical field or old theorem changes.
+- **verification:** 12 focused axiom gates passed within {propext, Quot.sound},
+  one worker capped at 20 GiB. Sol reviewed the actual conditional and
+  positivity pins. No hole or full-tree audit. Evidence:
+  `audits/AUDIT-HEAT-FREE-SECTOR-2026-09-27.md`.
+
 ## Guarded original signed covariance response (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/BF4ExactSlabGuardedCovarianceResponse.lean`.
