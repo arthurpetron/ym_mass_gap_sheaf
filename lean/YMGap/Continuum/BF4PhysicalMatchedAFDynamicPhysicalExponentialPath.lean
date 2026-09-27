@@ -400,6 +400,39 @@ def toExactRateCutoffRemoval
   ExactRateLimitData.withSpacing
     (ExactRateLimitData.ofRateCauchy rateCauchy) spacingToZero
 
+/-- Specialized cutoff removal using the spacing-to-zero modulus already
+stored on the matched scalar trajectory.  Only the exact-rate Cauchy modulus
+remains a new analytic input at this boundary. -/
+def toExactRateCutoffRemoval_ofTrajectorySpacing
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness :
+      PhysicalExponentialObservableWitness trajectory producer)
+    (gapFloor :
+      PhysicalGapFloor
+        (PhysicalExponentialObservableWitness.physicalSeparator witness)
+        (trajectory.toCompletedFamily producer).transferSpacing.spacing
+        (trajectory.toCompletedFamily producer).transferSpacing.spacing_pos)
+    (ceiling :
+      FullRangeLogRateCeiling
+        (fullRangeRateFamilyOfPhysicalData
+          (PhysicalExponentialObservableWitness.physicalSeparator witness)
+          (trajectory.toCompletedFamily producer).transferSpacing.spacing
+          (trajectory.toCompletedFamily producer).transferSpacing.spacing_pos))
+    (rateCauchy :
+      CReal.ModCauchyEv
+        (fullRangeRateFamilyOfPhysicalData
+          (PhysicalExponentialObservableWitness.physicalSeparator witness)
+          (trajectory.toCompletedFamily producer).transferSpacing.spacing
+          (trajectory.toCompletedFamily producer).transferSpacing.spacing_pos).rate) :
+    ExactRateCutoffRemoval
+      (toFullRangeExactPhysicalSeparatorCertificate witness gapFloor ceiling) :=
+  toExactRateCutoffRemoval witness gapFloor ceiling
+    trajectory.transferSpacingToZero rateCauchy
+
 /-! ## 6. Contract the local producer to the correlated same-edge debt seam -/
 
 /-- The correlated capacity-debt compiler supplies the exact local producer
@@ -501,6 +534,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toFullRangeExactPhysicalSeparatorCertificate
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofTrajectorySpacing
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.localProducer_ofCorrelatedCapacityDebt
 #print axioms

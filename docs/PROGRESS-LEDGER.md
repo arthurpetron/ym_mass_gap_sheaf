@@ -30865,6 +30865,13 @@ the two missing dimensional-transmutation inputs, `PhysicalGapFloor` and
 `FullRangeLogRateCeiling`; it proves neither.  The focused monitored build
 remains 5,133 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
 
+The cutoff-removal adapter now has the specialized
+`toExactRateCutoffRemoval_ofTrajectorySpacing` route, reusing the matched
+trajectory's own spacing-to-zero modulus.  After the explicit physical-gap
+floor and exact-rate ceiling, only the exact-rate Cauchy modulus remains at
+this boundary; the focused 5,133-job build still reports only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 The matched exact-log adapter now reaches `ExactRateCutoffRemoval` through
 `toExactRateCutoffRemoval`.  Given the explicit exact-rate Cauchy modulus and
 spacing-to-zero modulus, the existing constructive limit compiler derives

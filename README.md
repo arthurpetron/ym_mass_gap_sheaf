@@ -3502,6 +3502,12 @@ spacing-to-zero modulus produce the surviving floor/ceiling record.  The
 projective measure, OS/GNS, reconstruction, continuum, and Clay obligations
 remain explicit; no such result is inferred by the adapter.
 
+The specialized `toExactRateCutoffRemoval_ofTrajectorySpacing` constructor
+now reuses the matched trajectory's own spacing-to-zero modulus, leaving only
+the exact-rate Cauchy modulus beyond the explicit physical-gap floor and
+ceiling.  This is still a cutoff-removal certificate, not a continuum/QFT or
+Clay construction.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,
