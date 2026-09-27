@@ -185,6 +185,13 @@ matched branches accept `WilsonDenseUnitStationaryVacuumPin`, and the stronger
 `WilsonDenseUnitVacuumPin` through its checked stationarity adapter. These are
 consumers of named data, not a construction of the missing continuum vacuum.
 
+Both matched branches also rejoin the existing
+`RawWilsonConnectedMassGapPath` through `toRawWilsonConnectedMassGapPath`.
+The handoff keeps the completed family and same-object indices aligned while
+requiring explicit uniform RC, projective/OS, matrix-coefficient, exact-rate,
+graph-norm, and dense-unit stationarity certificates. It is a typed capstone
+consumer, not a construction of those open certificates or of the Clay result.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

@@ -1817,6 +1817,16 @@ iterated matched endpoint: both routes accept
 `WilsonDenseUnitVacuumPin` through its checked stationarity adapter. This is a
 reuse of existing BF4/GNS vacuum data, not a newly constructed vacuum pin.
 
+Both matched routes now also expose
+`toRawWilsonConnectedMassGapPath`. The constructor consumes the same-family
+uniform RC norm floor, projective OS handoff and same-object identification,
+Wilson matrix-coefficient pin, exact-rate handoff, graph-norm limit, and
+dense-unit stationarity pin, then packages them with the existing
+`RawWilsonConnectedMassGapPath` capstone. This rejoins the nontriviality and
+observable-connected continuum path without manufacturing any missing input;
+all continuum/QFT, physical-mass, every-group, and Clay obligations remain
+explicit.
+
 ## Maintenance contract
 
 1. Read this file before every chart. Copy its chart block; do not regenerate
@@ -1984,3 +1994,4 @@ reuse of existing BF4/GNS vacuum data, not a newly constructed vacuum pin.
 | 1 / 144 | 2026-09-27 | Factored both matched endpoints through direct `WilsonOperatorNormGapPin` consumers, so exact-rate/physical-band contraction no longer requires a graph-norm witness at the endpoint boundary. Graph norm remains an independent pin producer; all continuum/QFT, stationarity, physical-mass, every-group, and Clay inputs remain open. Focused check: `{propext, Quot.sound}`, no `sorryAx`. |
 | 1 / 145 | 2026-09-27 | Reduced the exact-rate side further to direct `PositiveExactLogGapWitness` consumers for minimal and iterated endpoints; dynamic physical-rate/variation data are only a named producer of that witness. Focused check remains `{propext, Quot.sound}` with no `sorryAx`; continuum/QFT, stationarity, physical-mass, every-group, and Clay obligations remain open. |
 | 1 / 146 | 2026-09-27 | Connected existing `WilsonDenseUnitStationaryVacuumPin` and `WilsonDenseUnitVacuumPin` certificates to both matched iterated-gap routes through the checked stationarity adapter. No vacuum pin is constructed; focused check remains `{propext, Quot.sound}` with no `sorryAx`. |
+| 1 / 147 | 2026-09-27 | Rejoined both matched routes with the existing `RawWilsonConnectedMassGapPath` through `toRawWilsonConnectedMassGapPath`. The wrappers preserve the same completed family and consume explicit uniform RC-floor, projective/same-object, Wilson matrix, exact-rate, graph-norm, and dense-unit stationarity certificates; focused check remains `{propext, Quot.sound}` with no `sorryAx`, and no continuum/Clay obligation is closed. |

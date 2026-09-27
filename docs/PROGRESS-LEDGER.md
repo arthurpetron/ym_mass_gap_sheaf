@@ -30385,3 +30385,20 @@ state-load and factorized routes, consumers of
 constructive `toStationaryVacuumPin` adapter; neither declaration fabricates a
 vacuum or stationarity witness. The monitored check reports only
 `{propext, Quot.sound}` and no `sorryAx`.
+
+## Matched routes reach the observable-connected raw Wilson path (2026-09-27 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now exposes
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath`
+and the corresponding factorized-route declaration. Each delegates to the
+existing
+`RawWilsonConnectedMassGapPath.ofUniformNormFloorAndProjectiveWilsonOSMatrixCoefficientPin`
+constructor, preserving the route's completed family while consuming explicit
+uniform RC-floor, projective OS/same-object, Wilson matrix-coefficient,
+exact-rate, graph-norm, and dense-unit stationary-vacuum certificates.
+
+The monitored source check passes with only `{propext, Quot.sound}` for both
+new wrappers and no `sorryAx`. This is a causal typed rejoin of the existing
+nontriviality/observable-connected capstone; it constructs none of the still
+open certificates and does not close continuum QFT, physical mass, every
+compact simple group, or the Clay theorem.
