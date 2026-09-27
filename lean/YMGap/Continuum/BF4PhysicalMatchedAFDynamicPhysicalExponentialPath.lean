@@ -64,6 +64,8 @@ open YMGap.Continuum.BF4PhysicalMatchedAFDynamicStrengthNormalization
 open YMGap.Continuum.AFTrajectoryCertificate
 open YMGap.Continuum.BF4AFPhysicalSpacingToZero
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRescaledStrengthTracking
+open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayResidualStrengthVariationCompiler
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorUniformMassFloor
 open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.QuadraticRateErrorTailControl
 open YMGap.Continuum.ContinuumMeasure
@@ -743,6 +745,184 @@ def toContinuumHandoff_ofRescaledStrengthAndComputedCeiling
       witness.observable scaling.toPhysicalRateBand)
     projectiveOS spectralChannel exactRate C H
 
+/-! ## 5d. Factor the rescaled variation into primitive streams -/
+
+/-- Same-carrier cutoff removal after factoring rescaled-strength variation
+into physical-gap and normalized-strength variations. -/
+def toExactRateCutoffRemoval_ofPhysicalGapAndStrengthAndComputedCeiling
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness : PhysicalExponentialObservableWitness trajectory producer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (gapVariation : SummableRationalStepVariation
+      (trajectory.toCompletedFamily producer).physicalGap)
+    (strengthVariation : SummableRationalStepVariation
+      (trajectory.toNormalizedStrengthLaw producer).strength)
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    ExactRateCutoffRemoval
+      (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate
+        witness.observable
+        (scaling.toPhysicalRateBand)
+        (fullRangeLogRateCeilingOfPhysicalRateBand
+          witness.observable scaling.toPhysicalRateBand)) :=
+  toExactRateCutoffRemoval_ofRescaledStrengthAndComputedCeiling
+    witness scaling
+    (rescaledStrengthVariationOfPhysicalGapAndStrength
+      (trajectory.toNormalizedStrengthLaw producer)
+      gapVariation strengthVariation)
+    C H
+
+/-- Same-carrier cutoff removal after reducing normalized-strength variation to
+the literal ray-capacity and finite-sector mass-floor streams. -/
+def toExactRateCutoffRemoval_ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness : PhysicalExponentialObservableWitness trajectory producer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (rayDeltaVariation : SummableRationalStepVariation
+      (fun scale =>
+        (((trajectory.toDynamicFamily producer).toResidualCoercivityFamily.rayCapacity
+          scale).delta)))
+    (massFloorVariation : SummableRationalStepVariation
+      (fun scale =>
+        centralPhysicalFiniteVacuumSectorUniformMassFloor
+          ((trajectory.toDynamicFamily producer).toResidualCoercivityFamily.nome
+            scale)
+          (Q'.le_of_lt
+            ((trajectory.toDynamicFamily producer).toResidualCoercivityFamily.nome_pos
+              scale)) 0))
+    (gapVariation : SummableRationalStepVariation
+      (trajectory.toCompletedFamily producer).physicalGap)
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    ExactRateCutoffRemoval
+      (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate
+        witness.observable
+        (scaling.toPhysicalRateBand)
+        (fullRangeLogRateCeilingOfPhysicalRateBand
+          witness.observable scaling.toPhysicalRateBand)) :=
+  matchedExactRateCutoffRemovalOfRayCapacityAndMassFloorAndPhysicalGapOfPhysicalRateBand
+    trajectory producer scaling witness.observable rayDeltaVariation
+    massFloorVariation gapVariation C H
+
+/-- Same-carrier continuum handoff after factoring rescaled-strength variation
+into physical-gap and normalized-strength variations. -/
+def toContinuumHandoff_ofPhysicalGapAndStrengthAndComputedCeiling
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness : PhysicalExponentialObservableWitness trajectory producer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (gapVariation : SummableRationalStepVariation
+      (trajectory.toCompletedFamily producer).physicalGap)
+    (strengthVariation : SummableRationalStepVariation
+      (trajectory.toNormalizedStrengthLaw producer).strength)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (projectiveOS : ProjectiveOSCorrelationHandoff
+      witness.observable.toPhysicalSeparator existence osGNS
+        witness.observable.physicalSampling)
+    (spectralChannel :
+      ProjectiveOSCorrelationHandoff.ReconstructionSpectralChannelHandoff
+        projectiveOS osGNS.reconstruction)
+    (exactRate : ExactRateReconstructionHandoff
+      (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate
+        witness.observable
+        (scaling.toPhysicalRateBand)
+        (fullRangeLogRateCeilingOfPhysicalRateBand
+          witness.observable scaling.toPhysicalRateBand))
+      osGNS.reconstruction)
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff
+      witness.observable
+      (scaling.toPhysicalRateBand)
+      (fullRangeLogRateCeilingOfPhysicalRateBand
+        witness.observable scaling.toPhysicalRateBand)
+      existence osGNS :=
+  toContinuumHandoff_ofRescaledStrengthAndComputedCeiling
+    witness scaling
+    (rescaledStrengthVariationOfPhysicalGapAndStrength
+      (trajectory.toNormalizedStrengthLaw producer)
+      gapVariation strengthVariation)
+    projectiveOS spectralChannel exactRate C H
+
+/-- Same-carrier continuum handoff after reducing normalized-strength
+variation to ray-capacity and finite-sector mass-floor streams. -/
+def toContinuumHandoff_ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness : PhysicalExponentialObservableWitness trajectory producer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (rayDeltaVariation : SummableRationalStepVariation
+      (fun scale =>
+        (((trajectory.toDynamicFamily producer).toResidualCoercivityFamily.rayCapacity
+          scale).delta)))
+    (massFloorVariation : SummableRationalStepVariation
+      (fun scale =>
+        centralPhysicalFiniteVacuumSectorUniformMassFloor
+          ((trajectory.toDynamicFamily producer).toResidualCoercivityFamily.nome
+            scale)
+          (Q'.le_of_lt
+            ((trajectory.toDynamicFamily producer).toResidualCoercivityFamily.nome_pos
+              scale)) 0))
+    (gapVariation : SummableRationalStepVariation
+      (trajectory.toCompletedFamily producer).physicalGap)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (projectiveOS : ProjectiveOSCorrelationHandoff
+      witness.observable.toPhysicalSeparator existence osGNS
+        witness.observable.physicalSampling)
+    (spectralChannel :
+      ProjectiveOSCorrelationHandoff.ReconstructionSpectralChannelHandoff
+        projectiveOS osGNS.reconstruction)
+    (exactRate : ExactRateReconstructionHandoff
+      (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate
+        witness.observable
+        (scaling.toPhysicalRateBand)
+        (fullRangeLogRateCeilingOfPhysicalRateBand
+          witness.observable scaling.toPhysicalRateBand))
+      osGNS.reconstruction)
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff
+      witness.observable
+      (scaling.toPhysicalRateBand)
+      (fullRangeLogRateCeilingOfPhysicalRateBand
+        witness.observable scaling.toPhysicalRateBand)
+      existence osGNS :=
+  matchedContinuumHandoffOfRescaledStrength
+    trajectory producer scaling witness.observable
+    (rescaledStrengthVariationOfPhysicalGapAndStrength
+      (trajectory.toNormalizedStrengthLaw producer)
+      gapVariation
+      (by
+        let residualFamily :=
+          (trajectory.toDynamicFamily producer).toResidualCoercivityFamily
+        let strengthVariation := strengthVariationOfRayDeltaAndMassFloor
+          residualFamily rayDeltaVariation massFloorVariation
+        simpa only [residualFamily,
+          MatchedPhysicalDynamicScalarTrajectory.toNormalizedStrengthLaw,
+          DynamicSpinCubeOffRayAdaptiveTransitionProductFamily.toNormalizedStrengthLaw]
+          using strengthVariation))
+    (fullRangeLogRateCeilingOfPhysicalRateBand
+      witness.observable scaling.toPhysicalRateBand)
+    projectiveOS spectralChannel exactRate C H
+
 /-- The matched observable witness reaches the existing continuum handoff
 from the same-family exact-log variation compiler.  Projective/OS semantics,
 the spectral channel, and exact-rate reconstruction identification remain
@@ -1071,11 +1251,19 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofRescaledStrengthAndComputedCeiling
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofPhysicalGapAndStrengthAndComputedCeiling
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofGapVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofGapVariationAndComputedCeiling
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofRescaledStrengthAndComputedCeiling
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofPhysicalGapAndStrengthAndComputedCeiling
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumYMWithExactLogGap_ofHandoff
 #print axioms

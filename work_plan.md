@@ -65665,6 +65665,27 @@ generalization, and the Clay theorem remain open.  The focused monitored target
 passes in 5,243 jobs; the new declarations have only `{propext, Quot.sound}`
 and no `sorryAx`.
 
+## 245. Factor the matched rescaled variation to primitive streams (2026-09-27)
+
+The same matched adapter now follows the compiler's complete backward chain:
+independent physical-gap and normalized-strength variations feed the rescaled
+variation, and literal ray-capacity plus finite-sector mass-floor variations
+feed normalized-strength variation.  The four new declarations
+`toExactRateCutoffRemoval_ofPhysicalGapAndStrengthAndComputedCeiling`,
+`toContinuumHandoff_ofPhysicalGapAndStrengthAndComputedCeiling`,
+`toExactRateCutoffRemoval_ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling`,
+and
+`toContinuumHandoff_ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling`
+keep the computed full-log ceiling and the same observable/completed-carrier
+indices throughout.
+
+This is only certificate-shape contraction.  The primitive variation streams,
+the matched scaling, AF identification, exact-rate reconstruction,
+projective/OS data, continuum/QFT construction, physical mass calibration,
+all-group generalization, and Clay theorem remain open.  The focused monitored
+target passes in 5,243 jobs; all four new declarations are within
+`{propext, Quot.sound}` and introduce no `sorryAx`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A

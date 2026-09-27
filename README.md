@@ -3563,6 +3563,17 @@ scaling, OS/GNS, continuum/QFT, physical-mass, every-group, or Clay inputs.
 The focused monitored build completed in 5,243 jobs; the new gates report
 only `{propext, Quot.sound}` and no `sorryAx`.
 
+The primitive factorization is now exposed on the same route as well:
+`toExactRateCutoffRemoval_ofPhysicalGapAndStrengthAndComputedCeiling` and
+`toContinuumHandoff_ofPhysicalGapAndStrengthAndComputedCeiling` consume
+independent gap and normalized-strength variations, while the corresponding
+`...ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling` declarations
+reduce strength variation to the literal ray-capacity and finite-sector
+mass-floor streams.  These are honest typed reductions only; none of the
+variation, scaling, OS/GNS, continuum/QFT, physical-mass, every-group, or
+Clay inputs is inhabited by this milestone.  The focused monitored build
+completed in 5,243 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,

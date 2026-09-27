@@ -30954,6 +30954,25 @@ all-group, or Clay inputs.  The focused monitored check completed in 5,243
 jobs, and both new dependency gates report only `{propext, Quot.sound}` with
 no `sorryAx`.
 
+## Matched primitive variation factorization reaches the same handoff (2026-09-27 UTC)
+
+The same-carrier path now exposes the two lower input surfaces already present
+in the rescaled-strength compiler.  The declarations
+`toExactRateCutoffRemoval_ofPhysicalGapAndStrengthAndComputedCeiling` and
+`toContinuumHandoff_ofPhysicalGapAndStrengthAndComputedCeiling` turn separate
+summable physical-gap and normalized-strength streams into the rescaled
+variation.  The paired declarations
+`toExactRateCutoffRemoval_ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling`
+and
+`toContinuumHandoff_ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling`
+reduce the normalized-strength stream further to the literal ray-capacity and
+finite-sector mass-floor streams.  Every declaration retains the computed
+full-log ceiling and the identical observable/completed-carrier indices.  This
+does not construct any primitive variation, scaling witness, exact-rate
+reconstruction, projective/OS data, continuum/QFT, physical mass, all-group,
+or Clay input.  The focused monitored check completed in 5,243 jobs; all four
+new gates report only `{propext, Quot.sound}` with no `sorryAx`.
+
 The matched exact-log adapter now reaches `ExactRateCutoffRemoval` through
 `toExactRateCutoffRemoval`.  Given the explicit exact-rate Cauchy modulus and
 spacing-to-zero modulus, the existing constructive limit compiler derives
