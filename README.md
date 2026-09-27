@@ -3508,6 +3508,13 @@ the exact-rate Cauchy modulus beyond the explicit physical-gap floor and
 ceiling.  This is still a cutoff-removal certificate, not a continuum/QFT or
 Clay construction.
 
+The matched path also uses the existing exact-log variation compiler through
+`toFullRangeExactPhysicalSeparatorCertificate_ofStrengthBand` and
+`toExactRateCutoffRemoval_ofGapVariation`: the strength band supplies the
+physical-gap floor, while gap variation plus an inverse-square spacing tail
+construct the exact-rate Cauchy modulus.  The full-log ceiling and those
+analytic inputs remain explicit; no continuum or Clay result is inferred.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,

@@ -30865,6 +30865,14 @@ the two missing dimensional-transmutation inputs, `PhysicalGapFloor` and
 `FullRangeLogRateCeiling`; it proves neither.  The focused monitored build
 remains 5,133 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
 
+The matched path now uses the existing same-family exact-log variation
+compiler through `toFullRangeExactPhysicalSeparatorCertificate_ofStrengthBand`
+and `toExactRateCutoffRemoval_ofGapVariation`.  Strength scaling supplies the
+physical-gap floor; a summable physical-gap variation and inverse-square
+spacing tail supply the exact-rate Cauchy modulus.  Only the full-log ceiling
+and those explicit variation/tail inputs remain; the focused 5,153-job build
+reports only `{propext, Quot.sound}` and no `sorryAx`.
+
 The cutoff-removal adapter now has the specialized
 `toExactRateCutoffRemoval_ofTrajectorySpacing` route, reusing the matched
 trajectory's own spacing-to-zero modulus.  After the explicit physical-gap

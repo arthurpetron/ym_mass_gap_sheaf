@@ -23,6 +23,7 @@ import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptivePhysicalExponenti
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 import YMGap.Continuum.PhysicalSeparatorFullLogComparison
 import YMGap.Continuum.PhysicalSeparatorContinuumRealization
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
 
 namespace YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
 
@@ -52,6 +53,10 @@ open YMGap.Continuum.PhysicalSeparatorFullLogComparison
 open YMGap.Continuum.PhysicalSeparatorFullLogRate
 open YMGap.Continuum.PhysicalSeparatorContinuumRealization
 open YMGap.Continuum.PhysicalSeparatorLinearTail
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin
+open YMGap.Continuum.QuadraticRateErrorTailControl
 
 namespace MatchedPhysicalDynamicScalarTrajectory
 
@@ -433,6 +438,54 @@ def toExactRateCutoffRemoval_ofTrajectorySpacing
   toExactRateCutoffRemoval witness gapFloor ceiling
     trajectory.transferSpacingToZero rateCauchy
 
+/-- Strength scaling itself supplies the physical-gap floor required by the
+exact-log compiler.  This constructor keeps only the independent full-log
+ceiling explicit. -/
+def toFullRangeExactPhysicalSeparatorCertificate_ofStrengthBand
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness :
+      PhysicalExponentialObservableWitness trajectory producer)
+    (band : StrengthBand trajectory producer)
+    (ceiling :
+      FullRangeLogRateCeiling
+        (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.fullRangeRateFamily
+          witness.observable)) :
+    FullRangeExactPhysicalSeparatorCertificate :=
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate witness.observable
+    ((adaptiveFamily trajectory producer).physicalRateBand band) ceiling
+
+/-- Same-family physical-gap variation and an inverse-square spacing tail
+construct the exact-rate cutoff removal, while the full-log ceiling remains a
+separate analytic input. -/
+def toExactRateCutoffRemoval_ofGapVariation
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness :
+      PhysicalExponentialObservableWitness trajectory producer)
+    (band : StrengthBand trajectory producer)
+    (ceiling :
+      FullRangeLogRateCeiling
+        (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.fullRangeRateFamily
+          witness.observable))
+    (gapVariation : PhysicalGapRationalVariation trajectory producer)
+    (spacingTail :
+      InverseSquareSpacingTail
+        (trajectory.toCompletedFamily producer).transferSpacing 0) :
+    ExactRateCutoffRemoval
+      (toFullRangeExactPhysicalSeparatorCertificate_ofStrengthBand
+        witness band ceiling) :=
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.exactRateCutoffRemovalOfVariations
+    witness.observable
+    ((adaptiveFamily trajectory producer).physicalRateBand band)
+    ceiling gapVariation spacingTail
+
 /-! ## 6. Contract the local producer to the correlated same-edge debt seam -/
 
 /-- The correlated capacity-debt compiler supplies the exact local producer
@@ -536,6 +589,10 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofTrajectorySpacing
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toFullRangeExactPhysicalSeparatorCertificate_ofStrengthBand
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofGapVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.localProducer_ofCorrelatedCapacityDebt
 #print axioms
