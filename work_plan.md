@@ -65686,6 +65686,25 @@ all-group generalization, and Clay theorem remain open.  The focused monitored
 target passes in 5,243 jobs; all four new declarations are within
 `{propext, Quot.sound}` and introduce no `sorryAx`.
 
+## 246. Carry correlated local debt into the continuum handoff (2026-09-27)
+
+The matched path now names the producer returned by
+`localProducer_ofCorrelatedCapacityDebt` as
+`correlatedCapacityDebtProducer` and adds
+`toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations`.  This
+adapter constructs the physical-exponential observable witness on that exact
+producer and forwards it to the same-carrier continuum handoff using the
+literal ray-capacity, finite-sector mass-floor, and physical-gap variation
+streams.  The projective/OS correlation, spectral-channel, exact-rate
+reconstruction, AF identification, raw representative, normalization debt,
+strength scaling, and observable pin remain explicit arguments; no missing
+analytic field is inferred and no carrier is changed.
+
+The focused monitored target passes in 5,243 jobs.  The new producer alias and
+handoff gate report only `{propext, Quot.sound}` and no `sorryAx`.  Continuum
+measure/QFT construction, physical mass calibration, all-group generalization,
+and the Clay theorem remain open.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A

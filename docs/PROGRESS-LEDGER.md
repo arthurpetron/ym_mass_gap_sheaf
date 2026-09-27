@@ -30973,6 +30973,20 @@ reconstruction, projective/OS data, continuum/QFT, physical mass, all-group,
 or Clay input.  The focused monitored check completed in 5,243 jobs; all four
 new gates report only `{propext, Quot.sound}` with no `sorryAx`.
 
+## Correlated local debt reaches the same-carrier continuum handoff (2026-09-27 UTC)
+
+The matched path now names the existing correlated same-edge local producer as
+`correlatedCapacityDebtProducer` and adds
+`toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations`.  It
+constructs the physical-exponential observable witness on that generated
+producer and forwards the literal ray-capacity, finite-sector mass-floor, and
+physical-gap variation streams to the same-carrier continuum handoff.  Raw and
+normalization variation, strength scaling, AF identification, projective/OS
+correlation, and exact-rate reconstruction remain explicit inputs on the same
+observable and completed carrier.  This is a typed composition boundary, not
+an inhabited continuum/QFT, physical-mass, every-group, or Clay theorem.
+Focused check: 5,243 jobs, `{propext, Quot.sound}`, no `sorryAx`.
+
 The matched exact-log adapter now reaches `ExactRateCutoffRemoval` through
 `toExactRateCutoffRemoval`.  Given the explicit exact-rate Cauchy modulus and
 spacing-to-zero modulus, the existing constructive limit compiler derives

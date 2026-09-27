@@ -13,6 +13,14 @@ with the same axiom set.  A fixed-nome dynamic-family witness and scheduled
 same-object RC channel are now constructed separately; this is an explicit
 obstruction lane, not a changing-coupling family.  The generic constant-margin
 no-go now proves that this fixed-carrier family admits no physical-rate band.
+Latest continuation checkpoint (2026-09-27 UTC): the correlated same-edge
+local-producer compiler is now named by `correlatedCapacityDebtProducer` and
+has a checked same-carrier adapter
+`toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations`.  The
+adapter still requires every raw/normalization/scaling/variation, AF,
+projective/OS, and exact-rate input; it does not claim an inhabited continuum,
+physical-mass, all-group, or Clay endpoint.  Focused target: 5,243 jobs;
+axioms: `{propext, Quot.sound}`; no `sorryAx`.
 The anchor branch now also carries a constant-presheaf family whose fiber at
 each cutoff is the checked finite-linear restricted transition product; this
 is cutoff-dependent finite data, not a cofinal or continuum family.

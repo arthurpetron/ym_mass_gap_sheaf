@@ -1206,6 +1206,128 @@ def toPhysicalExponentialCertificate_ofCorrelatedCapacityDebt
       tailAllowance tailAllowance_pos initial_closure)
     raw normalizationDebt band gapVariation positiveRatePower
 
+/-! ## 7. Correlated local debt into the continuum handoff -/
+
+/- The producer returned by the correlated same-edge compiler is named once so
+   the downstream certificate types remain visibly indexed by one completed
+   carrier. -/
+abbrev correlatedCapacityDebtProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat)
+    (envelope : forall physicalScale,
+      MatchedEventualCanonicalCorrelatedCapacityDebtEnvelope
+        trajectory transitionStart physicalScale)
+    (tailAllowance : Nat -> Q')
+    (tailAllowance_pos : forall physicalScale,
+      (0 : Q') < tailAllowance physicalScale)
+    (initial_closure : forall physicalScale,
+      matchedEventualCanonicalRoutedCapacityDebtMaximum
+            trajectory transitionStart physicalScale 0 +
+          prefixTailTotalBudget
+            (matchedEventualCanonicalRoutedCapacityDebtMaximumVariation
+              (envelope physicalScale))
+            (tailAllowance physicalScale) <=
+        (1 : Q')) : trajectory.LocalProducer :=
+  localProducer_ofCorrelatedCapacityDebt trajectory transitionStart envelope
+    tailAllowance tailAllowance_pos initial_closure
+
+/-! The local capacity/debt compiler can now be joined directly to the
+    existing same-carrier continuum handoff.  Every analytic input not
+    supplied by that local compiler remains an explicit argument, and the
+    projective/OS/exact-rate fields are indexed by the very observable selected
+    from the same generated producer. -/
+def toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing)
+    (transitionStart : Nat -> Nat)
+    (envelope : forall physicalScale,
+      MatchedEventualCanonicalCorrelatedCapacityDebtEnvelope
+        trajectory transitionStart physicalScale)
+    (tailAllowance : Nat -> Q')
+    (tailAllowance_pos : forall physicalScale,
+      (0 : Q') < tailAllowance physicalScale)
+    (initial_closure : forall physicalScale,
+      matchedEventualCanonicalRoutedCapacityDebtMaximum
+            trajectory transitionStart physicalScale 0 +
+          prefixTailTotalBudget
+            (matchedEventualCanonicalRoutedCapacityDebtMaximumVariation
+              (envelope physicalScale))
+            (tailAllowance physicalScale) <=
+        (1 : Q'))
+    (raw : MovingCubeRawVariation trajectory
+      (correlatedCapacityDebtProducer trajectory transitionStart envelope
+        tailAllowance tailAllowance_pos initial_closure))
+    (normalizationDebt : MovingCubeNormalizationDebtRationalVariation trajectory
+      (correlatedCapacityDebtProducer trajectory transitionStart envelope
+        tailAllowance tailAllowance_pos initial_closure))
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory
+      (correlatedCapacityDebtProducer trajectory transitionStart envelope
+        tailAllowance tailAllowance_pos initial_closure))
+    (rayDeltaVariation : SummableRationalStepVariation
+      (fun scale =>
+        (((trajectory.toDynamicFamily
+          (correlatedCapacityDebtProducer trajectory transitionStart envelope
+            tailAllowance tailAllowance_pos initial_closure)).toResidualCoercivityFamily.rayCapacity
+          scale).delta)))
+    (massFloorVariation : SummableRationalStepVariation
+      (fun scale =>
+        centralPhysicalFiniteVacuumSectorUniformMassFloor
+          ((trajectory.toDynamicFamily
+            (correlatedCapacityDebtProducer trajectory transitionStart envelope
+              tailAllowance tailAllowance_pos initial_closure)).toResidualCoercivityFamily.nome
+            scale)
+          (Q'.le_of_lt
+            ((trajectory.toDynamicFamily
+              (correlatedCapacityDebtProducer trajectory transitionStart envelope
+                tailAllowance tailAllowance_pos initial_closure)).toResidualCoercivityFamily.nome_pos
+              scale)) 0))
+    (gapVariation : PhysicalGapRationalVariation trajectory
+      (correlatedCapacityDebtProducer trajectory transitionStart envelope
+        tailAllowance tailAllowance_pos initial_closure))
+    (positiveRatePower : PositiveMovingCubeRatePowerRationalVariation trajectory
+      (correlatedCapacityDebtProducer trajectory transitionStart envelope
+        tailAllowance tailAllowance_pos initial_closure))
+    (observable : trajectory.SameObjectObservablePin
+      (correlatedCapacityDebtProducer trajectory transitionStart envelope
+        tailAllowance tailAllowance_pos initial_closure))
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (projectiveOS : ProjectiveOSCorrelationHandoff
+      observable.toPhysicalSeparator existence osGNS observable.physicalSampling)
+    (spectralChannel :
+      ProjectiveOSCorrelationHandoff.ReconstructionSpectralChannelHandoff
+        projectiveOS osGNS.reconstruction)
+    (exactRate : ExactRateReconstructionHandoff
+      (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate
+        observable scaling.toPhysicalRateBand
+        (fullRangeLogRateCeilingOfPhysicalRateBand
+          observable scaling.toPhysicalRateBand))
+      osGNS.reconstruction)
+    (C : AFTrajectoryCertificate)
+    (H : ShiftedAFTrajectoryIdentification C trajectory.coupling) :
+    YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff
+      observable scaling.toPhysicalRateBand
+      (fullRangeLogRateCeilingOfPhysicalRateBand
+        observable scaling.toPhysicalRateBand)
+      existence osGNS := by
+  let producer :=
+    correlatedCapacityDebtProducer trajectory transitionStart envelope
+      tailAllowance tailAllowance_pos initial_closure
+  let witness :
+      PhysicalExponentialObservableWitness trajectory producer :=
+    PhysicalExponentialObservableWitness.ofRationalVariations
+      trajectory producer raw normalizationDebt scaling.toStrengthBand
+      gapVariation positiveRatePower observable
+  exact toContinuumHandoff_ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling
+    witness scaling rayDeltaVariation massFloorVariation gapVariation
+    projectiveOS spectralChannel exactRate C H
+
 end MatchedPhysicalDynamicScalarTrajectory
 
 end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
@@ -1276,3 +1398,7 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.localProducer_ofCorrelatedCapacityDebt
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toPhysicalExponentialCertificate_ofCorrelatedCapacityDebt
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.correlatedCapacityDebtProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations

@@ -3574,6 +3574,18 @@ variation, scaling, OS/GNS, continuum/QFT, physical-mass, every-group, or
 Clay inputs is inhabited by this milestone.  The focused monitored build
 completed in 5,243 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
 
+The correlated same-edge local-producer branch now has a direct downstream
+adapter: `correlatedCapacityDebtProducer` names the generated producer, and
+`toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations` builds the
+same-family physical-exponential observable witness and carries it into the
+existing continuum handoff.  Raw and normalization variation, strength
+scaling, ray-capacity and finite-sector mass-floor variation, physical-gap
+variation, AF identification, projective/OS data, and exact-rate
+reconstruction remain explicit inputs on that identical carrier.  This is a
+causal composition boundary, not an inhabited continuum/QFT or Clay theorem;
+the focused monitored build remains 5,243 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,
