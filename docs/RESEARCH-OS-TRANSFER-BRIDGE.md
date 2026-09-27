@@ -50,6 +50,14 @@ fields before any canonical GNS conclusion is used.  The pending
 surjectivity/range boundary; it cannot be replaced by decay or by a finite
 volume gap.
 
+A source-level search confirms the exact status of this boundary: the named
+`CurrentCarrierBridge` is declared at
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:933`, with
+constructors only at `:957` and `:975`; no concrete inhabitant appears in the
+searched source tree.  Likewise, `CanonicalRangeSectionCertificate` is declared
+at `:1497` but has no producer term.  Thus the finite `CompletedPhysicalSU2Sector`
+and the canonical GNS bridge are not yet the same object.
+
 ## Next certificate boundary
 
 The next useful producer should therefore be an inhabited, same-measure
