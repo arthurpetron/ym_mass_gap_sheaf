@@ -30613,3 +30613,12 @@ the conditional exact-log-gap Yang--Mills endpoint, and positive endpoint
 mass. These inputs remain fields of the route; no rationalization,
 projective measure, OS/GNS reconstruction, full continuum/QFT construction,
 physical mass calibration, every-group result, or Clay theorem is constructed.
+
+## Exact-log witness and margin-compatibility projection (2026-09-27 UTC)
+
+`ChangingNomeCarrierNormalizedContinuumRoute` now exports
+`toPositiveExactLogGapWitness`, preserving the exact logarithmic mass
+currency, and `toContinuumYMWithGapOfMarginCompatibility`, which consumes an
+explicit `HasSpectralGapAt` certificate at the reconstructed margin floor.
+The latter is deliberately conditional: no conversion from `-log(q)` to
+`1-q`, physical mass calibration, or Clay closure is inferred.

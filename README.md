@@ -335,6 +335,13 @@ mass. Every field is still an explicit input: no rationalization,
 projective measure, OS/GNS reconstruction, full continuum/QFT construction,
 physical mass calibration, every-group result, or Clay theorem is claimed.
 
+**New exact-gap/margin compatibility projection (2026-09-27):**
+The continuum route now exports `toPositiveExactLogGapWitness` and a
+`toContinuumYMWithGapOfMarginCompatibility` constructor. The latter requires
+an explicit `HasSpectralGapAt` certificate in the reconstructed margin
+currency; it does not identify that margin with the exact logarithmic mass
+automatically. This keeps the remaining physical-mass calibration visible.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

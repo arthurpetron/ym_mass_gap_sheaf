@@ -26,6 +26,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.MeasureLinkedOSReconstruction
+open YMGap.Continuum.OSReconstruction
 open YMGap.Continuum.PhysicalSeparatorContinuumRealization
 open YMGap.Continuum.PhysicalSeparatorFullLogComparison
 
@@ -87,6 +88,34 @@ theorem continuumMass_posEv
         route.toContinuumYMWithExactLogGap) :=
   route.handoff.continuumMass_posEv
 
+/-- Export the exact logarithmic gap as the generic positive-gap witness used
+by downstream physical-mass consumers. -/
+def toPositiveExactLogGapWitness
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (route : ChangingNomeCarrierNormalizedContinuumRoute existence osGNS) :
+    PositiveExactLogGapWitness route.toContinuumRealization.reconstruction :=
+  route.toContinuumRealization.continuumYangMillsExactLogGap
+
+/-- The older margin-valued Clay endpoint is available only after an explicit
+compatibility certificate between the exact physical logarithmic rate and the
+OS reconstruction's margin currency. -/
+def toContinuumYMWithGapOfMarginCompatibility
+    {M : Nat → Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (route : ChangingNomeCarrierNormalizedContinuumRoute existence osGNS)
+    (floorMarginGap :
+      HasSpectralGapAt route.toContinuumRealization.reconstruction
+        (CReal.ofQ'
+          (DynamicVacuumSectorObservablePin.exactCertificate
+            route.observable.toObservablePin
+            route.observable.cofinal.toPhysicalRateBand route.ceiling).uniformFloor.floor)) :
+    ContinuumYMWithGap mu :=
+  route.toContinuumRealization.toContinuumYMWithGapOfMarginCompatibility
+    floorMarginGap
+
 end ChangingNomeCarrierNormalizedContinuumRoute
 
 end YMGap.Continuum.BF4PhysicalChangingNomeContinuumRoute
@@ -97,3 +126,7 @@ end YMGap.Continuum.BF4PhysicalChangingNomeContinuumRoute
   YMGap.Continuum.BF4PhysicalChangingNomeContinuumRoute.ChangingNomeCarrierNormalizedContinuumRoute.toContinuumYMWithExactLogGap
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeContinuumRoute.ChangingNomeCarrierNormalizedContinuumRoute.continuumMass_posEv
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeContinuumRoute.ChangingNomeCarrierNormalizedContinuumRoute.toPositiveExactLogGapWitness
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeContinuumRoute.ChangingNomeCarrierNormalizedContinuumRoute.toContinuumYMWithGapOfMarginCompatibility
