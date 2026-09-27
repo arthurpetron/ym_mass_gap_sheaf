@@ -30776,3 +30776,13 @@ attaches it to the same response-persistent carrier.  The generic
 `ofCofinalGapCalibration` constructor separates this transport from either
 analytic source.  No head-energy, response-persistence, OS/GNS, or continuum
 certificate is manufactured by these recodings.
+
+The response side is now factored through the smallest named scalar found in
+the existing raw/nontriviality compiler:
+`changingNomeCarrierNormalizedResponsePersistence_ofNormalizationScaleCeiling`
+uses a uniform ceiling on the reciprocal normalization scale and an explicit
+finite-minimum induction to build the all-prefix response floor.  The two
+`ConcreteJoin.ofNormalizationScaleCeiling*` constructors then meet that
+response certificate with either a generic cofinal calibration or the repaired
+head-energy product band.  The ceiling itself is still the open analytic
+input; no uniform bound is inferred from pointwise positivity.

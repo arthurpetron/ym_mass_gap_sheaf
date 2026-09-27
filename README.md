@@ -3418,6 +3418,10 @@ observable variation fields.
 The existing repaired head-energy product-band certificate now has the same
 typed transport, and a generic cofinal-calibration constructor makes the
 meeting point explicit without selecting between those analytic inputs.
+A uniform ceiling for the reciprocal moving-cube normalization scale now
+also compiles to the required all-prefix response-persistence witness by
+finite-minimum induction, so the raw nontriviality input is exposed as one
+named scalar certificate.
 `WilsonContinuumMassClusteringJoin` then adds an explicit raw-to-projective
 same-object identification, OS-value compatibility, projective Wilson
 coefficient pin, and reconstruction spectral channel, compiling to the

@@ -148,6 +148,38 @@ structure ConcreteJoin : Type 1 where
   normDebt : NormDebtVariation
   ratePower : RatePowerVariation
 
+/- A uniform ceiling on the reciprocal normalization scale contracts the
+   finite-prefix response floors into the exact response-persistence field.
+   The finite-minimum induction is explicit; no all-scale floor is inferred
+   from pointwise positivity alone. -/
+private theorem changingNomeCarrierNormalizedResponseFloor_le_finMin_ofNormalizationScaleCeiling
+    (bound : MovingCubeNormalizationScaleCeiling
+      changingNomeCarrierNormalizedDynamicFamily)
+    (window : Nat) :
+    bound.rawFloor ≤
+      finitePrefixResponseFloor
+        changingNomeCarrierNormalizedConcreteChannelBridge.channel window := by
+  change bound.rawFloor ≤
+    finMin
+      changingNomeCarrierNormalizedConcreteChannelBridge.channel.normFloor window
+  induction window with
+  | zero =>
+      exact bound.rawFloor_le_channelFloor 0
+  | succ window ih =>
+      apply (Q'.le_min'_iff _ _ _).mpr
+      exact ⟨bound.rawFloor_le_channelFloor (window + 1), ih⟩
+
+def changingNomeCarrierNormalizedResponsePersistence_ofNormalizationScaleCeiling
+    (bound : MovingCubeNormalizationScaleCeiling
+      changingNomeCarrierNormalizedDynamicFamily) :
+    ChangingNomeCarrierNormalizedResponsePersistence where
+  channelBridge := changingNomeCarrierNormalizedConcreteChannelBridge
+  floor := bound.rawFloor
+  floor_pos := bound.rawFloor_pos
+  floor_le_prefix :=
+    changingNomeCarrierNormalizedResponseFloor_le_finMin_ofNormalizationScaleCeiling
+      bound
+
 def ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofCofinalGapCalibration
     (responsePersistence : ChangingNomeCarrierNormalizedResponsePersistence)
     (calibration : ChangingNomeCarrierNormalizedCofinalGapCalibration) :
@@ -267,6 +299,33 @@ def ConcreteJoin.ofHeadEnergyProductBand
   raw := raw
   normDebt := normDebt
   ratePower := ratePower
+
+def ConcreteJoin.ofNormalizationScaleCeiling
+    (bound : MovingCubeNormalizationScaleCeiling
+      changingNomeCarrierNormalizedDynamicFamily)
+    (calibration : ChangingNomeCarrierNormalizedCofinalGapCalibration)
+    (raw : RawVariation)
+    (normDebt : NormDebtVariation)
+    (ratePower : RatePowerVariation) :
+    ConcreteJoin :=
+  ConcreteJoin.ofCofinalGapCalibration
+    (changingNomeCarrierNormalizedResponsePersistence_ofNormalizationScaleCeiling
+      bound)
+    calibration raw normDebt ratePower
+
+def ConcreteJoin.ofNormalizationScaleCeilingAndHeadEnergyProductBand
+    (bound : MovingCubeNormalizationScaleCeiling
+      changingNomeCarrierNormalizedDynamicFamily)
+    (band : ChangingNomeCarrierNormalizedHeadEnergyProductBand)
+    (raw : RawVariation)
+    (normDebt : NormDebtVariation)
+    (ratePower : RatePowerVariation) :
+    ConcreteJoin :=
+  ConcreteJoin.ofNormalizationScaleCeiling
+    bound
+    (changingNomeCarrierNormalizedCofinalGapCalibration_ofHeadEnergyProductBand
+      band)
+    raw normDebt ratePower
 
 /-- Forget only the response-persistence field to reuse the existing
     calibration/raw/debt/rate contraction. -/
@@ -579,6 +638,8 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toJoin
 #print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.changingNomeCarrierNormalizedResponsePersistence_ofNormalizationScaleCeiling
+#print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofCofinalGapCalibration
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofCofinalGapCalibration
@@ -598,6 +659,10 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofConstantPhysicalGapCalibration
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofHeadEnergyProductBand
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofNormalizationScaleCeiling
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofNormalizationScaleCeilingAndHeadEnergyProductBand
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toCanonicalUniformRCNormFloor
 #print axioms
