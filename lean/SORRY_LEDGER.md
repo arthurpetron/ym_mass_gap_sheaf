@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## Exact eight-layer cone and separated original pairing (2026-09-27 UTC)
+
+- **files:** `lean/YMGap/Continuum/Z4LinkEightColor.lean`,
+  `lean/YMGap/Continuum/GNSCommutingSweep.lean`, and
+  `lean/YMGap/Continuum/BF4ExactSlabEightLayerCone.lean`.
+- **proved:** the coloring's `same_color_on_face_eq` (`:88`) pins physical
+  commutation; `Family.sweep_filter` (`:34`) deletes fixing updates exactly.
+  In the physical module, `schedule_covers` (`:65`) / `schedule_nodup`
+  (`:85`) cover every physical link exactly once; `runLayers_eq_cone`
+  (`:227`) proves actual completed-vector equality with the computed cone.
+  `cycles_localized` (`:311`) bounds n sweeps by 8*n star expansions;
+  `cycles_pairing` (`:320`) preserves the original signed pairing until
+  cone/test contact. Literal polynomial support supplies operational
+  support without selecting completed representatives.
+- **residue:** useful same-sweep contraction/coercivity, centered-sector
+  identification, original partition normalization and quantitative spatial
+  distance conversion. The exact finite-speed step does not establish a
+  decay rate, OS transfer gap, physical scaling or continuum/Clay result.
+- **verification:** 26 gates passed three focused one-worker/20 GiB checks
+  within {propext, Quot.sound}. Sol independently reviewed same-object and
+  separation/iteration pins. No new sorry, analytic field, canonical edit
+  or full-tree audit. Evidence: `audits/AUDIT-EIGHT-LAYER-CONE-2026-09-27.md`.
+
 ## Original-action conditional sweep algebra (2026-09-27 UTC)
 
 - **files:** `lean/YMGap/Continuum/GNSProjectionSweep.lean` and

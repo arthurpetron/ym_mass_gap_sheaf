@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Eight-layer causal cone and separated pairing checked (2026-09-27 UTC)
+
+`BF4ExactSlabEightLayerCone` constructs a duplicate-free schedule containing
+EVERY physical link, in eight direction/base-parity layers. The actual
+projections within a layer commute. `layer_prune` exactly deletes updates
+outside the initial support, and `runLayers_eq_cone` identifies the full
+completed output with its computed cone restriction. n complete sweeps
+require at most 8*n Ward-star expansions, without a volume/cutoff factor.
+`cycles_pairing` proves B(sweep^n x,y)=B(x,y) while the enlarged cone avoids
+the test support. Literal supported polynomials supply both input pins;
+completed support is explicitly operational, not a chosen representative.
+
+NEXT: prove a useful contraction of THIS same original-action sweep on the
+correct interacting centered sector. The finite-speed/separated-pairing
+mechanism is now checked; do not replace the missing rate with a Neumann
+wrapper. Bounded-degree energy control, an original-action lower bound with
+useful scaling dependence, centered covariance/common-fixed-space pin and
+actual partition normalization remain open. A link-star to coordinate-
+distance adapter can run alongside the analytic work. No physical-time gap
+or continuum closure follows from these exact identities alone.
+
+All 26 gates passed three focused one-worker/20 GiB checks. Sol supplied the
+finite coloring and independently reviewed the actual cone and iterated
+pairing. No new analytic assumption, canonical change, hole, broad audit or
+chart-marker change. Evidence: `audits/AUDIT-EIGHT-LAYER-CONE-2026-09-27.md`.
+
 ### Original-action sweep loss checked; spatial join remains explicit (2026-09-27 UTC)
 
 `BF4ExactSlabConditionalSweep.sweep_loss` proves that the squared norms of

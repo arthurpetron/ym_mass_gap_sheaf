@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting spatial identity (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabEightLayerCone` constructs eight commuting physical link layers
+covering every link once. Its full sweep equals the computed cone-restricted
+sweep on localized inputs; n complete sweeps require at most 8*n star
+expansions. `cycles_pairing` preserves the actual interacting pairing until
+cone/test contact. All 26 focused gates passed. Useful same-sweep contraction,
+centered covariance/normalization pins, physical scaling and continuum/Clay
+remain open. Evidence: `audits/AUDIT-EIGHT-LAYER-CONE-2026-09-27.md`.
+
 Verified supporting sweep identities (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabConditionalSweep.sweep_loss` telescopes the actual successive
 conditional residual norms in the original interacting completion. The signed
