@@ -1,5 +1,35 @@
 # Sorry Ledger
 
+## Constructed original finite-volume coercivity and covariance (2026-09-27 UTC)
+
+- **proved:** `SU2QuaternionHaarEfronStein.haar_efron_stein` has constant one.
+  `BF4ExactSlabHaarVarianceComparison.centered_norm_le_free_energy` uses
+  original weighted centering; `BF4ExactSlabStarHaarResidualFloor` bounds the
+  actual completed conditional residual from below by its coordinate Haar
+  fluctuation. `BF4ExactSlabPhysicalScheduleIndex.physical_schedule_index_perm`
+  supplies the exact sum indexing. No tensorization of interacting kernels
+  or preservation of a neighboring free-centered sector is assumed.
+- **constructed lower estimate:** `BF4ExactSlabFiniteVolumeCoercivity` gives
+  the positive rational `delta=headFloor^faceCount/prefixCap^faceCount` and
+  dense coercivity. `BF4ExactSlabCompletedFiniteVolumeCoercivity.completed_centered_coercivity`
+  proves the SAME inequality on every completed state orthogonal to the
+  original unnormalized vacuum, without an extra analytic premise.
+- **actual consumer:** `BF4ExactSlabFiniteVolumeReverseEnergy.finite_volume_reverse_energy`
+  constructs c=2+2*delta/625>2 and joins coercivity at B u to reverse-sweep
+  loss. `BF4ExactSlabFiniteVolumeChebyshevCovariance.finiteCovariance_sq_bound`
+  supplies the formerly explicit auxiliary estimate and scalar denominator
+  positivity, preserving the original covariance and both variances.
+- **still open:** useful volume/changing-coupling/spacing control, same-theory
+  OS/continuum/QFT, nontrivial survival, physical Hamiltonian mass, every compact
+  simple group and Clay. The new positive constant is independent of late
+  cutoff, NOT extent or nome. No numerical-test success is claimed. The
+  earlier missing-producer entries are superseded only at finite volume.
+- **verification:** ten focused serialized one-worker/20 GiB module checks,
+  47 printed gates within {propext, Quot.sound}; parallel proof/scope review.
+  No new sorry, axiom, canonical field, chart-marker change or root/full-tree/
+  audit/guard run. Evidence:
+  `audits/AUDIT-ORIGINAL-FINITE-VOLUME-COERCIVITY-2026-09-27.md`.
+
 ## Actual auxiliary reverse loss and finite certificate consumer (2026-09-27 UTC)
 
 - **proved:** `BF4ExactSlabChebyshevRescale.reverse_energy_iff_loss` gives the

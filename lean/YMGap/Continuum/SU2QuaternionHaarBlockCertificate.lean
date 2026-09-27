@@ -67,7 +67,9 @@ private theorem exponent_restore_head (m : List Nat) (k : Nat) :
           congr 1
           omega
 
-private theorem restored_prefix (blocks i : Nat) (hi : i < blocks) :
+/-- Moving a selected block to the head, integrating and restoring it is
+the in-place projection, modulo the explicit prefix polynomial relation. -/
+theorem restored_prefix (blocks i : Nat) (hi : i < blocks) :
     ∀ p : RatPoly, QuaternionPrefixPolynomialEqv blocks
       (reindexQuaternionPolynomial (headSwapBlockInvolution blocks i hi)
         (liftHead (partialHaarHead
@@ -197,6 +199,8 @@ def project_interval (blocks i : Nat) (hi : i < blocks) {p : RatPoly} {c : Q'}
     exact .ofCoeff ((project_cap i c).add (RatPolyCoeffEqv.refl _)).symm C
 
 end YMGap.Continuum.SU2QuaternionHaarBlockCertificate
+
+#print axioms YMGap.Continuum.SU2QuaternionHaarBlockCertificate.restored_prefix
 
 #print axioms YMGap.Continuum.SU2QuaternionHaarBlockCertificate.project_certificate
 #print axioms YMGap.Continuum.SU2QuaternionHaarBlockCertificate.project_cap

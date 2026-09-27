@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: collapse the canonical unit-probe response floor to the scalar rate (2026-09-27 UTC)
+## Current increment: constructed original-action finite-volume producer (2026-09-27 UTC)
+
+The proof now constructs, rather than assumes, a positive lower bound on the
+original full-action completed centered Dirichlet form. Its explicit rational
+coefficient is `headFloor(w)^faces/prefixCap(w)^faces`. Applying it to the
+balanced sweep output and the existing reverse-loss upper estimate supplies
+the actual Chebyshev auxiliary inequality with c>2. The original separated
+covariance theorem is consequently proved without an analytic reverse-energy
+premise. All 47 gates passed ten focused checks, with parallel source review.
+
+This is genuine finite-volume proof progress, not a scaling-uniform rate or
+OS/Hamiltonian identification. The all-volume comparison cost, physical
+scaling, same-theory continuum/QFT/nontriviality/every-group target remain
+open. No canonical node closes. The broad progress-metric script was not run:
+it launches the unrequested frontier guard; no guard result is inferred.
+Evidence: `audits/AUDIT-ORIGINAL-FINITE-VOLUME-COERCIVITY-2026-09-27.md`.
+
+## Earlier increment: collapse the canonical unit-probe response floor to the scalar rate (2026-09-27 UTC)
 
 `CurrentCarrierBridge.canonicalUnitProbe_norm_one`,
 `canonicalUnitProbe_response_floor_le_rate_scaled_norm`, and

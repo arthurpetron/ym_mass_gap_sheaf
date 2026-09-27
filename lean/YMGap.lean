@@ -5446,12 +5446,12 @@ import YMGap.Continuum.BF4ExactSlabStarVariationalApproximation
 -- Same-carrier reverse adjoint and positive sweep product; no accelerated rate.
 import YMGap.Continuum.GNSProjectionSweepAdjoint
 -- Coupled Chebyshev energy and actual same-carrier non-strict polynomial stability.
--- Centered coercivity and normalized accelerated spatial decay remain open.
+-- Scaling-uniform centered coercivity and physical spatial decay remain open.
 import YMGap.Continuum.GNSChebyshevEnergy
 import YMGap.Continuum.GNSChebyshevRecurrence
 import YMGap.Continuum.BF4ExactSlabFullActionScalar
 import YMGap.Continuum.BF4ExactSlabSweepChebyshev
--- Exact original polynomial cone/covariance pin; the reverse-energy producer is open.
+-- Exact original cone/covariance pin; scaling-uniform reverse energy is open.
 import YMGap.Continuum.BF4ExactSlabBalancedCone
 import YMGap.Continuum.BF4ExactSlabChebyshevCone
 import YMGap.Continuum.BF4ExactSlabChebyshevPairing
@@ -5465,6 +5465,16 @@ import YMGap.Continuum.GNSInnerRationalBracket
 import YMGap.Continuum.BF4ExactSlabChebyshevRepresentative
 import YMGap.Continuum.BF4ExactSlabChebyshevFiniteTest
 import YMGap.Continuum.BF4ExactSlabChebyshevFiniteCovariance
+-- Constructed original finite-volume coercivity and covariance, not scaling uniformity.
+import YMGap.Continuum.SU2QuaternionHaarEfronStein
+import YMGap.Continuum.BF4ExactSlabHaarVarianceComparison
+import YMGap.Continuum.BF4ExactSlabStarHaarResidualFloor
+import YMGap.Continuum.BF4ExactSlabPhysicalScheduleIndex
+import YMGap.Continuum.BF4ExactSlabFiniteVolumeCoercivity
+import YMGap.Continuum.BF4ExactSlabCompletedFiniteVolumeCoercivity
+import YMGap.Continuum.BF4ExactSlabFiniteVolumeReverseEnergy
+import YMGap.Continuum.ChebyshevAboveOne
+import YMGap.Continuum.BF4ExactSlabFiniteVolumeChebyshevCovariance
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

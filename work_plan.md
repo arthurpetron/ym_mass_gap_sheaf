@@ -25,6 +25,37 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Constructed finite-volume coercivity and covariance (2026-09-27 UTC)
+
+The original-action lower bound is now constructed at every finite extent:
+`delta = headFloor(w)^faceCount / prefixCap(w)^faceCount > 0` and
+`delta*||x||^2 <= sum_i ||(I-P_i)x||^2` on the SAME completed centered
+carrier. The proof uses sharp product-Haar Efron--Stein, original mean-zero
+orthogonality, full-action weight comparison, the exact physical schedule,
+and centered Cauchy approximation. No interacting coercivity premise remains.
+
+Applying it to B u and composing the proved reverse-sweep 625 estimate gives
+`c*||B u||^2 <= 2*||S u||^2` with the explicit `c=2+2*delta/625>2`.
+`BF4ExactSlabFiniteVolumeChebyshevCovariance.finiteCovariance_sq_bound`
+therefore proves the original separated covariance bound with its original
+two variances and reciprocal Chebyshev factor. Both the auxiliary estimate
+and denominator positivity are supplied by proofs, not caller hypotheses.
+
+The coefficient is independent of late cutoff but pays for ALL volume faces
+and depends on nome. This is a genuine finite-volume baseline, NOT a useful
+scaling-uniform estimate or an OS-time/physical Hamiltonian gap. It supersedes
+the earlier missing-producer statements below only in this finite-volume
+scope. NEXT forward: improve the actual original signed loss on a justified
+scaling family without the all-volume floor/cap cost; retain the finite bound
+as a checked baseline, not a route to claim thermodynamic uniformity. NEXT
+backward: the same-theory scaling/OS/Hamiltonian/nontriviality/QFT/every-group
+requirements remain open.
+
+Ten focused serialized one-worker/20 GiB checks passed all 47 printed gates
+within {propext, Quot.sound}; parallel Sol/Luna proof and scope reviews.
+No new hole, canonical field, chart-marker change or full-tree audit.
+Evidence: `audits/AUDIT-ORIGINAL-FINITE-VOLUME-COERCIVITY-2026-09-27.md`.
+
 ### Actual auxiliary loss and finite test checked (2026-09-27 UTC)
 
 The open auxiliary estimate now has the exact target

@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting finite-volume coercivity (2026-09-27 UTC; chart markers unchanged):
+The original full-action completed centered carrier now has an explicit
+positive Dirichlet lower coefficient `headFloor^faces/prefixCap^faces`.
+Sharp Haar Efron--Stein, original centering and actual conditional-residual
+comparison construct the bound. The reverse-sweep 625 estimate then supplies
+`c=2+2*delta/625>2` to the original finite covariance theorem, without an
+assumed auxiliary inequality or denominator-positivity premise. Ten focused
+checks passed all 47 gates. The coefficient is late-cutoff uniform but pays
+for all volume faces and depends on nome; A03's justified-scaling-family
+estimate and the OS/continuum/QFT/every-group Clay target remain open.
+Earlier missing-producer statements below are historical in this finite-volume
+scope. Evidence: `audits/AUDIT-ORIGINAL-FINITE-VOLUME-COERCIVITY-2026-09-27.md`.
+
 Verified supporting actual auxiliary test (2026-09-27 UTC; chart markers unchanged):
 The reverse-energy input is exactly a lower bound on the actual reverse
 loss; the auxiliary cone and total pruned loss are now pinned. Explicit

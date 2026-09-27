@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original-action finite-volume lower bound proved (2026-09-27):** a positive
+explicit coefficient now bounds the summed conditional residual energy on
+the SAME completed centered carrier. It supplies the actual reverse-energy
+input to the original separated covariance theorem; no assumed coercivity or
+successful numerical test is needed for this finite-volume result. The
+coefficient is uniform in the late heat cutoff but depends on coupling and
+all volume faces. A useful scaling-uniform estimate and an OS/physical mass
+gap remain open. See the [proof and scope](audits/AUDIT-ORIGINAL-FINITE-VOLUME-COERCIVITY-2026-09-27.md).
+
 **Finite certificate consumer checked (2026-09-27):** explicit Cauchy
 representatives and error moduli now reduce the actual auxiliary reverse-energy
 estimate to a finite rational comparison. A successful test implies the
@@ -24,7 +33,9 @@ normalized Chebyshev state preserves the original separated covariance
 exactly. The squared covariance is now bounded by the squared reciprocal
 Chebyshev value times the two ORIGINAL diagonal variances, conditional on
 a reverse-energy estimate at the recurrence's actual auxiliary vector.
-That estimate remains open; no partition-floor comparison loss is introduced.
+That consumer itself assumes the estimate; the finite-volume producer above
+now supplies it, at a volume-dependent coefficient. The covariance conversion
+introduces no further partition-floor comparison loss.
 This is not yet decay, an OS/Hamiltonian gap, or continuum existence.
 See the [proof and verification boundary](audits/AUDIT-ORIGINAL-CHEBYSHEV-CONE-2026-09-27.md).
 An older curvature-method no-go claim has also been
