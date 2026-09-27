@@ -30352,3 +30352,15 @@ same iterated selected-Wilson interface consumed by the pinned correlator
 decay theorem; stationarity remains an explicit input, and no continuum or
 Clay witness is constructed. The monitored source check again reports only
 `{propext, Quot.sound}` and no `sorryAx`.
+
+## Matched endpoints factor through the minimal operator-gap certificate (2026-09-27 UTC)
+
+Both matched decay routes now expose direct
+`toWilsonMinimalBoundedMassGap_ofOperatorNormGap` and
+`toWilsonIteratedBoundedMassGap_ofOperatorNormGap` declarations. They consume
+only a same-family `WilsonOperatorNormGapPin`, exact-rate handoff, physical
+rate band, and (for the iterated form) an explicit stationarity pin. The
+graph-norm route delegates to these smaller consumers, so an independently
+constructed dense-stage/GNS operator pin can enter the endpoint without a
+spurious rate-power requirement. The monitored check reports only
+`{propext, Quot.sound}` and no `sorryAx`; all analytic witnesses remain open.

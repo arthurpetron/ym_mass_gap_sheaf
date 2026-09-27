@@ -1798,6 +1798,13 @@ iterated selected-Wilson decay interface used by the pinned correlator
 consumer while leaving stationarity itself, the graph-norm and exact-rate
 certificates, and all continuum/Clay inputs as named hypotheses.
 
+The endpoint is now factored at its smallest typed boundary as
+`toWilsonMinimalBoundedMassGap_ofOperatorNormGap` and
+`toWilsonIteratedBoundedMassGap_ofOperatorNormGap` for both routes. Thus an
+independently constructed all-vector operator pin can be consumed directly;
+the graph-norm compiler is only one producer of that pin, not a hidden
+requirement of the mass-gap structure.
+
 ## Maintenance contract
 
 1. Read this file before every chart. Copy its chart block; do not regenerate
@@ -1962,3 +1969,4 @@ certificates, and all continuum/Clay inputs as named hypotheses.
 | 1 / 141 | 2026-09-27 | Exposed the conditional `WilsonIteratedBoundedMassGap` squared-decay consumer for both matched routes. The selected transfer gap remains an explicit all-vector input; no spectral-gap construction, physical mass, every-group, or Clay conclusion is added. |
 | 1 / 142 | 2026-09-27 | Added matched state-load and factorized projections to the all-vector `WilsonOperatorNormGapPin`, plus exact-rate/graph-norm contraction to `WilsonMinimalBoundedMassGap`. All graph-norm, exact-rate, physical-band, stationarity, continuum/QFT, physical-mass, every-group, and Clay inputs remain explicit; focused check is `{propext, Quot.sound}` with no `sorryAx`, and no canonical chart marker changed. |
 | 1 / 143 | 2026-09-27 | Added matched projections from the minimal Wilson endpoint to `WilsonIteratedBoundedMassGap` under an explicit `WilsonVacuumStationarityPin`. The iterated correlator interface is exposed, while stationarity, graph-norm, exact-rate, continuum/QFT, physical-mass, every-group, and Clay inputs remain explicit; focused check remains `{propext, Quot.sound}` with no `sorryAx`. |
+| 1 / 144 | 2026-09-27 | Factored both matched endpoints through direct `WilsonOperatorNormGapPin` consumers, so exact-rate/physical-band contraction no longer requires a graph-norm witness at the endpoint boundary. Graph norm remains an independent pin producer; all continuum/QFT, stationarity, physical-mass, every-group, and Clay inputs remain open. Focused check: `{propext, Quot.sound}`, no `sorryAx`. |

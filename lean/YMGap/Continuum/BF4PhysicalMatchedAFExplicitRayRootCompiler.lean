@@ -829,6 +829,25 @@ def MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonOperatorNormGapPin
 endpoint when the exact-rate and graph-norm compiler branches are both
 supplied on the same completed family.  Stationarity and the stronger
 iterated-gap package remain separate downstream inputs. -/
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily)
+    {gapVariation : SummableRationalStepVariation
+      producer.toCompletedFamily.physicalGap}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      producer.toCompletedFamily gapVariation D)
+    (operatorGap : WilsonOperatorNormGapPin D) :
+    WilsonMinimalBoundedMassGap D where
+  exactRate := exactRate.toPositiveExactLogGapWitness band
+  operatorGap := operatorGap
+
 def MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonMinimalBoundedMassGap
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -848,11 +867,33 @@ def MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonMinimalBoundedMassG
     (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
       producer.toCompletedFamily ratePower D) :
     WilsonMinimalBoundedMassGap D :=
-  exactRate.compileWilsonMinimalBoundedMassGap band graphNorm
+  producer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap band exactRate
+    graphNorm.toWilsonOperatorNormGapPin
 
 /-- Add an explicit vacuum-stationarity pin to the minimal endpoint, exposing
 the iterated selected-Wilson gap consumed by the downstream correlator route.
 The stationarity datum is intentionally a separate named input. -/
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonIteratedBoundedMassGap_ofOperatorNormGap
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily)
+    {gapVariation : SummableRationalStepVariation
+      producer.toCompletedFamily.physicalGap}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      producer.toCompletedFamily gapVariation D)
+    (operatorGap : WilsonOperatorNormGapPin D)
+    (stationarity : WilsonVacuumStationarityPin D) :
+    WilsonIteratedBoundedMassGap D where
+  boundedGap := producer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
+    band exactRate operatorGap
+  stationarity := stationarity
+
 def MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonIteratedBoundedMassGap
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -873,7 +914,8 @@ def MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonIteratedBoundedMass
       producer.toCompletedFamily ratePower D)
     (stationarity : WilsonVacuumStationarityPin D) :
     WilsonIteratedBoundedMassGap D where
-  boundedGap := producer.toWilsonMinimalBoundedMassGap band exactRate graphNorm
+  boundedGap := producer.toWilsonIteratedBoundedMassGap_ofOperatorNormGap
+    band exactRate graphNorm.toWilsonOperatorNormGapPin stationarity |>.boundedGap
   stationarity := stationarity
 
 /-! ## 8. Split the remaining decay into weight and path mechanisms -/
@@ -1268,6 +1310,25 @@ def MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonOperatorNormGapPin
 
 /-- The factorized route contracts to the minimal selected-Wilson bounded
 mass-gap endpoint from the same exact-rate and graph-norm branches. -/
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily)
+    {gapVariation : SummableRationalStepVariation
+      producer.toCompletedFamily.physicalGap}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      producer.toCompletedFamily gapVariation D)
+    (operatorGap : WilsonOperatorNormGapPin D) :
+    WilsonMinimalBoundedMassGap D where
+  exactRate := exactRate.toPositiveExactLogGapWitness band
+  operatorGap := operatorGap
+
 def MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonMinimalBoundedMassGap
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -1287,10 +1348,32 @@ def MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonMinimalBoundedMass
     (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
       producer.toCompletedFamily ratePower D) :
     WilsonMinimalBoundedMassGap D :=
-  exactRate.compileWilsonMinimalBoundedMassGap band graphNorm
+  producer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap band exactRate
+    graphNorm.toWilsonOperatorNormGapPin
 
 /-- The factorized route reaches the same iterated selected-Wilson endpoint
 after an explicit stationarity pin is supplied. -/
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMassGap_ofOperatorNormGap
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily)
+    {gapVariation : SummableRationalStepVariation
+      producer.toCompletedFamily.physicalGap}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {D : WilsonSelectedOSGNSData H}
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      producer.toCompletedFamily gapVariation D)
+    (operatorGap : WilsonOperatorNormGapPin D)
+    (stationarity : WilsonVacuumStationarityPin D) :
+    WilsonIteratedBoundedMassGap D where
+  boundedGap := producer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
+    band exactRate operatorGap
+  stationarity := stationarity
+
 def MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMassGap
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -1311,7 +1394,8 @@ def MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMas
       producer.toCompletedFamily ratePower D)
     (stationarity : WilsonVacuumStationarityPin D) :
     WilsonIteratedBoundedMassGap D where
-  boundedGap := producer.toWilsonMinimalBoundedMassGap band exactRate graphNorm
+  boundedGap := producer.toWilsonIteratedBoundedMassGap_ofOperatorNormGap
+    band exactRate graphNorm.toWilsonOperatorNormGapPin stationarity |>.boundedGap
   stationarity := stationarity
 
 /-! ## 9. Occupied-shell obstruction at the matched boundary -/
@@ -1470,7 +1554,11 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonOperatorNormGapPin
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonMinimalBoundedMassGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonIteratedBoundedMassGap_ofOperatorNormGap
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonIteratedBoundedMassGap
 #print axioms
@@ -1520,7 +1608,11 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonOperatorNormGapPin
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonMinimalBoundedMassGap
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMassGap_ofOperatorNormGap
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMassGap
 #print axioms
