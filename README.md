@@ -165,6 +165,11 @@ exact-rate, physical-band, stationarity, OS/GNS, continuum/QFT, physical-mass,
 every-group, and Clay witnesses remain open. The focused check is within
 `{propext, Quot.sound}` with no `sorryAx`.
 
+Given an explicit `WilsonVacuumStationarityPin`, both routes now also project
+that minimal endpoint to `WilsonIteratedBoundedMassGap`, the iterated transfer
+interface used by the pinned correlator consumer. Stationarity and every
+continuum/Clay input remain named hypotheses.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

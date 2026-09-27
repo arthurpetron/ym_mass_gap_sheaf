@@ -1792,6 +1792,12 @@ continuum/QFT, physical-mass, every-group, and Clay witnesses remain explicit
 inputs. The focused monitored source check passed with only
 `{propext, Quot.sound}` and no `sorryAx`; no canonical chart marker changed.
 
+With an explicit `WilsonVacuumStationarityPin`, each route now also projects
+that minimal endpoint to `WilsonIteratedBoundedMassGap`. This exposes the
+iterated selected-Wilson decay interface used by the pinned correlator
+consumer while leaving stationarity itself, the graph-norm and exact-rate
+certificates, and all continuum/Clay inputs as named hypotheses.
+
 ## Maintenance contract
 
 1. Read this file before every chart. Copy its chart block; do not regenerate
@@ -1955,3 +1961,4 @@ inputs. The focused monitored source check passed with only
 | 1 / 140 | 2026-09-27 | Exposed the raw Wilson/projective OS/GNS matrix-coefficient equality for both matched routes, keyed to the same completed family and measure-linked handoff. This is conditional bridge evidence only; no OS/GNS existence, all-vector gap, physical mass, every-group, or Clay conclusion is added. |
 | 1 / 141 | 2026-09-27 | Exposed the conditional `WilsonIteratedBoundedMassGap` squared-decay consumer for both matched routes. The selected transfer gap remains an explicit all-vector input; no spectral-gap construction, physical mass, every-group, or Clay conclusion is added. |
 | 1 / 142 | 2026-09-27 | Added matched state-load and factorized projections to the all-vector `WilsonOperatorNormGapPin`, plus exact-rate/graph-norm contraction to `WilsonMinimalBoundedMassGap`. All graph-norm, exact-rate, physical-band, stationarity, continuum/QFT, physical-mass, every-group, and Clay inputs remain explicit; focused check is `{propext, Quot.sound}` with no `sorryAx`, and no canonical chart marker changed. |
+| 1 / 143 | 2026-09-27 | Added matched projections from the minimal Wilson endpoint to `WilsonIteratedBoundedMassGap` under an explicit `WilsonVacuumStationarityPin`. The iterated correlator interface is exposed, while stationarity, graph-norm, exact-rate, continuum/QFT, physical-mass, every-group, and Clay inputs remain explicit; focused check remains `{propext, Quot.sound}` with no `sorryAx`. |

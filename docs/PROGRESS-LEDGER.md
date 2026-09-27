@@ -30345,3 +30345,10 @@ stationarity, OS/GNS, or continuum witnesses. The monitored source check
 passed with only `{propext, Quot.sound}` for every new dependency gate and no
 `sorryAx`. The Wilson graph-norm/exact-rate inputs, stationarity, continuum
 QFT, physical mass, every-group, and Clay obligations remain open.
+
+With an explicit `WilsonVacuumStationarityPin`, each matched route now also
+projects the minimal endpoint to `WilsonIteratedBoundedMassGap`. This is the
+same iterated selected-Wilson interface consumed by the pinned correlator
+decay theorem; stationarity remains an explicit input, and no continuum or
+Clay witness is constructed. The monitored source check again reports only
+`{propext, Quot.sound}` and no `sorryAx`.
