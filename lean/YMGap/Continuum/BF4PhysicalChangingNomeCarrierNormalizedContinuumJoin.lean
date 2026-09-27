@@ -23,6 +23,7 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertific
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
 import YMGap.Constructive.CRealExplicitSqueeze
 import YMGap.Continuum.SummableCRealExplicitConvergenceCertificate
 
@@ -37,6 +38,7 @@ open YMGap.Continuum.BF4PhysicalChangingNomeExplicitMarginLaw
 open YMGap.Continuum.BF4PhysicalChangingNomeDynamicFamily
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
@@ -145,6 +147,61 @@ structure ConcreteJoin : Type 1 where
   raw : RawVariation
   normDebt : NormDebtVariation
   ratePower : RatePowerVariation
+
+/- A compatible constant physical-gap certificate can be recoded into the
+   specialized cofinal calibration used by the repaired carrier.  The proof
+   only transports its pointwise equality through the existing finite-min/max
+   compiler; it does not construct the equality. -/
+def changingNomeCarrierNormalizedPhysicalGapBounds_ofConstantPhysicalGapCalibration
+    (calibration :
+      DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration
+        changingNomeCarrierNormalizedDynamicFamily) :
+    ChangingNomeCarrierNormalizedPhysicalGapBounds where
+  floor := calibration.value
+  floor_pos := calibration.value_pos
+  ceiling := calibration.value
+  ceiling_pos := calibration.value_pos
+  floor_le_gap := by
+    intro scale
+    exact Q'.le_of_eqv (Q'.eqv_symm (calibration.physicalGap_eqv scale))
+  gap_le_ceiling := by
+    intro scale
+    exact Q'.le_of_eqv (calibration.physicalGap_eqv scale)
+
+def changingNomeCarrierNormalizedCofinalGapCalibration_ofConstantPhysicalGapCalibration
+    (calibration :
+      DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration
+        changingNomeCarrierNormalizedDynamicFamily) :
+    ChangingNomeCarrierNormalizedCofinalGapCalibration :=
+  (changingNomeCarrierNormalizedPhysicalGapBounds_ofConstantPhysicalGapCalibration
+    calibration).toCofinalGapCalibration
+
+def ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofConstantPhysicalGapCalibration
+    (responsePersistence : ChangingNomeCarrierNormalizedResponsePersistence)
+    (calibration :
+      DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration
+        changingNomeCarrierNormalizedDynamicFamily) :
+    ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute where
+  responsePersistence := responsePersistence
+  calibration :=
+    changingNomeCarrierNormalizedCofinalGapCalibration_ofConstantPhysicalGapCalibration
+      calibration
+
+def ConcreteJoin.ofConstantPhysicalGapCalibration
+    (responsePersistence : ChangingNomeCarrierNormalizedResponsePersistence)
+    (calibration :
+      DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration
+        changingNomeCarrierNormalizedDynamicFamily)
+    (raw : RawVariation)
+    (normDebt : NormDebtVariation)
+    (ratePower : RatePowerVariation) :
+    ConcreteJoin where
+  cofinal :=
+    ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofConstantPhysicalGapCalibration
+      responsePersistence calibration
+  raw := raw
+  normDebt := normDebt
+  ratePower := ratePower
 
 /-- Forget only the response-persistence field to reuse the existing
     calibration/raw/debt/rate contraction. -/
@@ -456,6 +513,14 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.rawContinuumNontrivialityOfResponsePersistence
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toJoin
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.changingNomeCarrierNormalizedPhysicalGapBounds_ofConstantPhysicalGapCalibration
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.changingNomeCarrierNormalizedCofinalGapCalibration_ofConstantPhysicalGapCalibration
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute.ofConstantPhysicalGapCalibration
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.ofConstantPhysicalGapCalibration
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toCanonicalUniformRCNormFloor
 #print axioms

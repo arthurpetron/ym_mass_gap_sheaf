@@ -30759,3 +30759,11 @@ and ceiling.  Together with `toVariation`, this gives the complete
 spacing-to-zero-compatible analytic consequence of that certificate on the
 same completed family; it still does not construct the certificate itself or
 close the continuum/QFT, every-group, or Clay obligations.
+
+The specialized repaired-family transport is now explicit as well:
+`changingNomeCarrierNormalizedPhysicalGapBounds_ofConstantPhysicalGapCalibration`
+recodes the pointwise identity through the existing finite minimum/maximum
+compiler, and `ConcreteJoin.ofConstantPhysicalGapCalibration` preserves the
+response-persistence, raw, normalization-debt, and scheduled-rate fields in
+one same-carrier object.  This removes a duplicate calibration presentation,
+not the underlying analytic obligation.
