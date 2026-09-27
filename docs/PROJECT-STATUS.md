@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting polynomial comparison (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabPolynomialDirichletComparison.dirichlet_comparison` bounds the
+actual original conditional-residual energy on every polynomial by an
+explicit rational energy in both directions. Link-specific star-deleted
+backgrounds retain the complementary action. All six focused gates passed.
+The nome-dependent local constants are coarse; useful globally centered
+LOWER coercivity, physical scaling and continuum/Clay remain open. No
+neighboring free-sector preservation or automatic tensorization is used.
+Evidence: `audits/AUDIT-POLYNOMIAL-DIRICHLET-COMPARISON-2026-09-27.md`.
+
 Verified supporting total-energy estimate (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabConditionalSweepEnergy.eight_layer_energy_le_625_loss` bounds
 ALL final physical residuals by 625 times the actual sweep norm loss on

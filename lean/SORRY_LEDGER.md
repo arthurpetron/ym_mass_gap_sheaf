@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Inverse-free original polynomial Dirichlet comparison (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/BF4ExactSlabPolynomialDirichletComparison.lean`.
+- **proved:** `residual_free_pin` (`:118`) leaves the actual conditional
+  residual unchanged when the computed free-link average is subtracted.
+  `conditional_variance_comparison` (`:158`) compares every original
+  polynomial's actual completed conditional variance with its star-deleted
+  squared norm using exactly `lowerFactor(w)` and `upperFactor(w)`.
+  `polynomialEnergy` (`:176`) is an explicit rational sum retaining each
+  link's complementary original action; `dirichlet_comparison` (`:189`)
+  proves the summed comparison on the SAME full-action completion.
+- **residue:** useful original-action lower coercivity on actual globally
+  centered states, uniform control over all polynomial inputs and its
+  completed extension, and physical scaling. The local constants have no
+  extent/cutoff factor but depend on nome and are coarse. No automatic
+  tensorization, free-sector preservation, OS gap or continuum/Clay result.
+- **verification:** six printed gates passed one focused one-worker/20 GiB
+  check within {propext, Quot.sound}. Sol reviewed exact constants,
+  complementary backgrounds and same-carrier pins. No new hole, analytic
+  field, canonical edit or full-tree audit. Evidence:
+  `audits/AUDIT-POLYNOMIAL-DIRICHLET-COMPARISON-2026-09-27.md`.
+
 ## Bounded-degree original sweep energy and coordinate join (2026-09-27 UTC)
 
 - **files:** `GNSFiniteSumEnergy.lean`, `GNSProjectionSweepSparseRow.lean`,

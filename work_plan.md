@@ -25,6 +25,35 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Inverse-free original Dirichlet comparison checked (2026-09-27 UTC)
+
+`BF4ExactSlabPolynomialDirichletComparison.dirichlet_comparison` bounds the
+actual conditional-residual energy on EVERY original polynomial between
+`lowerFactor(w)*polynomialEnergy` and `upperFactor(w)*polynomialEnergy`.
+Each summand uses the explicitly free-centered polynomial and its OWN
+star-deleted background, retaining all complementary original factors.
+The completed energy stays on the SAME full-action carrier. This removes
+constructed conditional inverses from a finite polynomial lower-bound
+target; it does not supply that lower bound or tensorize local estimates.
+
+NEXT remains useful original-action lower coercivity on actual globally
+centered states. The polynomial comparison is an optional producer route,
+not a mandatory scaling loss: its six-face constants are nome-dependent
+and coarse. A small actual cross-link conditional influence with retained
+exterior, or a sharper direct centered estimate, is still missing. Do not
+assume neighboring free-sector preservation or replace these distinct
+backgrounds by a common product-Haar law. Finite-degree certificates alone
+would not establish an all-polynomial/completed bound.
+
+Parallel primary-source review found conditional-density and spatial-mixing
+criteria for approximate tensorization, but no supplied original SU(2)
+plaquette estimate in the required scaling regime. These are candidate
+methods, not imported proofs. All six focused one-worker/20 GiB gates
+passed; Sol independently reviewed both inequalities and their scaling
+limitations. No new hole, analytic field, canonical change, full-tree audit
+or chart-marker change. Evidence:
+`audits/AUDIT-POLYNOMIAL-DIRICHLET-COMPARISON-2026-09-27.md`.
+
 ### Bounded-degree ORIGINAL sweep energy checked (2026-09-27 UTC)
 
 `BF4ExactSlabConditionalSweepEnergy.eight_layer_energy_le_625_loss` proves
