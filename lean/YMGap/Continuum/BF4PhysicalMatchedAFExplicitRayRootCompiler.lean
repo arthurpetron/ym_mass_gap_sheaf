@@ -21,6 +21,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 
 import YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceFlow
+import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMoment
 import YMGap.Continuum.BF4PhysicalVacuumSectorMassExactExplicitRayOffRayResistanceGap
 
 namespace YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
@@ -38,6 +39,7 @@ open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootCoercivity
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceFlow
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMoment
 open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
 open YMGap.Continuum.BF4PhysicalVacuumSectorRootCoercivityCofinalGapBridge
 open YMGap.Continuum.BF4PhysicalVacuumSectorMassExactExplicitRayOffRayResistanceGap
@@ -252,6 +254,65 @@ theorem MatchedPhysicalExplicitRayResistanceProducer.fraction_pos
     (0 : Q') < producer.toRootProducer.fraction scale := by
   exact producer.toOffRayProducer.fraction_pos scale
 
+/-! ## 5. Lower the boundary to a scalar resistance moment -/
+
+/-- A still smaller scale-indexed input: one uniform first-resistance-moment
+bound for the off-ray root at each literal matched nome. -/
+structure MatchedPhysicalExplicitRayMomentProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing) :
+    Type 1 where
+  offRayMoment : ∀ scale,
+    FixedNomeCofinalSpinCubeOffRayRootResistanceMomentBound
+      (trajectory.nome_pos scale)
+
+/-- The checked first-moment compiler supplies the resistance-congestion
+certificate consumed by the preceding resistance-level adapter. -/
+def MatchedPhysicalExplicitRayMomentProducer.toResistanceProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayMomentProducer trajectory) :
+    MatchedPhysicalExplicitRayResistanceProducer trajectory where
+  offRayResistance := fun scale =>
+    (producer.offRayMoment scale).toResistanceCongestionBound
+
+/-- The scalar-moment input reaches the same explicit-ray rooted producer. -/
+def MatchedPhysicalExplicitRayMomentProducer.toRootProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayMomentProducer trajectory) :
+    MatchedPhysicalRootCoercivityGapProducer trajectory :=
+  producer.toResistanceProducer.toRootProducer
+
+/-- Consequently the scalar-moment input reaches the same completed carrier,
+transfer, and vacuum complement. -/
+def MatchedPhysicalExplicitRayMomentProducer.toCompletedFamily
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayMomentProducer trajectory) :
+    DynamicVacuumSectorCompletedFamily 0 :=
+  producer.toResistanceProducer.toCompletedFamily
+
+theorem MatchedPhysicalExplicitRayMomentProducer.toCompletedFamily_latticeMargin_eqv_fraction
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayMomentProducer trajectory)
+    (scale : Nat) :
+    producer.toCompletedFamily.latticeMargin scale ≈
+      producer.toRootProducer.fraction scale := by
+  exact MatchedPhysicalRootCoercivityGapProducer.toCompletedFamily_latticeMargin_eqv_fraction
+    producer.toResistanceProducer.toRootProducer scale
+
 end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 
 /-! ## Dependency gates -/
@@ -282,3 +343,11 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayResistanceProducer.toCompletedFamily_latticeMargin_eqv_fraction
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayResistanceProducer.fraction_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMomentProducer.toResistanceProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMomentProducer.toRootProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMomentProducer.toCompletedFamily
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMomentProducer.toCompletedFamily_latticeMargin_eqv_fraction

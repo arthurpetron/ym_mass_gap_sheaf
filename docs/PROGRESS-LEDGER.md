@@ -30063,3 +30063,22 @@ This identity is conditional on the still-open cofinal resistance-congestion
 bound and does not close physical spacing calibration, OS/GNS, continuum/QFT,
 physical mass, every-group, or Clay obligations.  No canonical chart marker
 changed.
+
+## Scalar resistance-moment reduction of the matched rooted input (2026-09-26 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
+`MatchedPhysicalExplicitRayMomentProducer`.  Its only scale-indexed field is
+the scalar `FixedNomeCofinalSpinCubeOffRayRootResistanceMomentBound`; the
+checked `toResistanceCongestionBound` projection feeds the existing
+`MatchedPhysicalExplicitRayResistanceProducer` without changing the literal
+matched nome, completed carrier, transfer, vacuum complement, posterior
+fraction, or exact completed-margin identity.  The new
+`toRootProducer`, `toCompletedFamily`, and
+`toCompletedFamily_latticeMargin_eqv_fraction` declarations are therefore a
+strictly smaller named input boundary for the same route.
+
+The monitored source check reports only `{propext, Quot.sound}` and no
+`sorryAx`.  The scalar moment bound, physical calibration, same-object
+observable pin, OS/GNS passage, continuum/QFT construction, physical mass,
+every-group theorem, and Clay target remain open; no canonical chart marker
+changed.

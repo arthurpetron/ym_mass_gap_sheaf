@@ -70,6 +70,11 @@ check is axiom-clean within `{propext, Quot.sound}` and introduces no
 `sorryAx`.
 The resistance-level adapter also exposes the exact completed lattice-margin
 identity for the same carrier; this is not a uniform spacing estimate.
+The moment-level adapter now reduces that resistance input further to one
+scale-indexed scalar `FixedNomeCofinalSpinCubeOffRayRootResistanceMomentBound`
+via the checked `toResistanceCongestionBound` projection, again without
+changing the completed carrier or its exact margin identity.  The moment
+bound and all physical/continuum/Clay joins remain open.
 
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
