@@ -30690,3 +30690,10 @@ rate with a finite physical mass or construct endpoint Euler moduli; those
 remain explicit obligations.  Focused checking is expected to remain
 `{propext, Quot.sound}` with no `sorryAx`, and the canonical chart marker is
 unchanged.
+
+The same bundle now also exposes
+`toModulusCertificateOfExplicitSandwich`: lower-to-middle and middle-to-upper
+eventual inequalities plus an explicit endpoint width are consumed by the
+existing constructive Euler squeeze, all indexed by the repaired family’s own
+scheduled rate stream.  These three obligations remain uninhabited; no
+physical mass is inferred, and the canonical chart marker remains unchanged.

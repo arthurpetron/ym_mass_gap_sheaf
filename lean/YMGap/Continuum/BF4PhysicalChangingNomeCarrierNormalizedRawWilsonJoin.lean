@@ -37,6 +37,8 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
 open YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.FourDExistence
@@ -175,6 +177,42 @@ def WilsonPhysicalExponentialJoin.toCertificate
       changingNomeCarrierNormalizedDynamicFamily :=
   data.toPhysicalExponentialJoin.toCertificate
 
+/-- Preserve the same-family endpoint-modulus obligations while consuming the
+    checked explicit-sandwich compiler. -/
+def WilsonPhysicalExponentialJoin.toModulusCertificateOfExplicitSandwich
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    (data : WilsonPhysicalExponentialJoin H W)
+    (lowerLeMiddle : ∀ time : Nat, ∀ scale : Nat,
+      CReal.ExplicitLeEv
+        (scheduledSquaredRateLowerExponential
+          changingNomeCarrierNormalizedDynamicFamily carrierNormalized_rate_pos
+            scale time)
+        (CReal.ofQ'
+          (normalizedMovingCubeSampledRatePower
+            changingNomeCarrierNormalizedDynamicFamily scale time)))
+    (middleLeUpper : ∀ time : Nat, ∀ scale : Nat,
+      CReal.ExplicitLeEv
+        (CReal.ofQ'
+          (normalizedMovingCubeSampledRatePower
+            changingNomeCarrierNormalizedDynamicFamily scale time))
+        (scheduledSquaredRateUpperExponential
+          changingNomeCarrierNormalizedDynamicFamily scale time))
+    (width : ∀ time : Nat,
+      CReal.ExplicitWidth
+        (fun scale =>
+          scheduledSquaredRateLowerExponential
+            changingNomeCarrierNormalizedDynamicFamily carrierNormalized_rate_pos
+              scale time)
+        (fun scale =>
+          scheduledSquaredRateUpperExponential
+            changingNomeCarrierNormalizedDynamicFamily scale time)) :
+    NormalizedMovingCubePhysicalExponentialModulusCertificate
+      changingNomeCarrierNormalizedDynamicFamily :=
+  data.toPhysicalExponentialJoin.toModulusCertificateOfExplicitSandwich
+    lowerLeMiddle middleLeUpper width
+
 end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
 
 /-! ## Axiom-dependency gates -/
@@ -191,3 +229,5 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.toPhysicalExponentialJoin
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.toCertificate
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.toModulusCertificateOfExplicitSandwich
