@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original centered Cauchy representatives checked (2026-09-27 UTC)
+
+`BF4ExactSlabConditionalCenteredCompletion.centeredCauchy` applies the
+existing original finite mean subtraction to a supplied Cauchy sequence,
+retaining its modulus exactly. Completed orthogonality to the actual
+constant suffices for `centeredCauchy_same_class`; individual input terms
+need not be centered. `centeredNullModulus` returns closeness data with
+rate `X.modulus(epsilon/10)` using the existing null-modulus recovery.
+The constant's squared norm remains the original partition Z. No square
+root, normalized replacement carrier, or quotient representative is chosen.
+This closes the centered-representative construction proposed below, not
+the missing analytic lower estimate or its completed energy inequality.
+
+NEXT remains a useful retained-exterior signed numerator/two-star estimate
+or a sharper direct centered lower bound. Do not substitute another
+conditional gap wrapper for that analytic work. The current directional
+bounds do not iterate automatically on the free-centered sector, and their
+nome constants alone do not give physical scaling. Global coercivity,
+physical scaling and every-group continuum/Clay closure remain open.
+
+Eight gates passed a focused one-worker/20 GiB check. Sol explored the
+parallel construction; the final direct original-form proof was completed
+locally and independently reviewed by Sol. No new hole, analytic field,
+canonical edit, full-tree audit or chart-marker change. Evidence:
+`audits/AUDIT-ORIGINAL-CENTERED-APPROXIMATION-2026-09-27.md`.
+
 ### Signed-numerator projection bound checked (2026-09-27 UTC)
 
 `BF4ExactSlabStarNumeratorInfluence.conditional_norm_bound` proves

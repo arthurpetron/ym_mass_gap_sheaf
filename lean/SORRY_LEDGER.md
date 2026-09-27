@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Original centered Cauchy approximation (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/BF4ExactSlabConditionalCenteredCompletion.lean`.
+- **proved:** `centered_distSq_le` (`:84`) proves dense original-form
+  nonexpansiveness; `centeredCauchy` (`:98`) retains the supplied modulus.
+  `self_center_distance` (`:113`) uses the actual reciprocal partition.
+  `centeredNullModulus` (`:182`) assumes only COMPLETED orthogonality and
+  returns Type-level closeness data; `centeredNullModulus_modulus` (`:187`)
+  computes its rate as `X.modulus(epsilon/10)`.
+  `centeredCauchy_same_class` (`:192`) proves the unchanged completed class.
+- **residue:** useful original interacting lower coercivity and physical
+  scaling. The recovered rate bounds the correction between the two
+  supplied sequences, not convergence of finite means as a separate
+  output. No completed energy lower estimate, OS gap or continuum/Clay
+  conclusion is supplied.
+- **verification:** eight printed gates passed a focused one-worker/
+  20 GiB check within {propext, Quot.sound}. Sol independently reviewed
+  completed orthogonality, absence of representative choice and explicit
+  moduli. No new hole, analytic field, canonical change or full-tree audit.
+  Evidence: `audits/AUDIT-ORIGINAL-CENTERED-APPROXIMATION-2026-09-27.md`.
+
 ## Signed-numerator original conditional projection bound (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/BF4ExactSlabStarNumeratorInfluence.lean`.

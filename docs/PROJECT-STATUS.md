@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting centered approximation (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabConditionalCenteredCompletion.centeredCauchy_same_class`
+constructs centered polynomial representatives of the SAME completed
+orthogonal state from its supplied Cauchy representative. The Cauchy
+modulus is unchanged; null-closeness data use `X.modulus(epsilon/10)`.
+All eight focused gates passed. No termwise centering input, square root
+or replacement carrier. The useful interacting lower bound, physical
+scaling and continuum/Clay remain open. Evidence:
+`audits/AUDIT-ORIGINAL-CENTERED-APPROXIMATION-2026-09-27.md`.
+
 Verified supporting signed-numerator bound (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabStarNumeratorInfluence.conditional_norm_bound` bounds the
 actual completed conditional output using the computed numerator energy.
