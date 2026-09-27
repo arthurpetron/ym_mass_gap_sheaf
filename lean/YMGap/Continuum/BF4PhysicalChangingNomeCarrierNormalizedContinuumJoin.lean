@@ -134,6 +134,39 @@ def rawContinuumNontrivialityOfResponsePersistence
     (responsePersistence_toCanonicalUniformRCNormFloor
       persistence)
 
+/-! ## One same-carrier join including response persistence -/
+
+/-- The normalized continuum inputs can be attached to the same cofinal
+    concrete route that carries both response persistence and physical-gap
+    calibration.  This stronger bundle prevents those two certificates from
+    being supplied for unrelated presentations of the repaired family. -/
+structure ConcreteJoin : Type 1 where
+  cofinal : ChangingNomeCarrierNormalizedCofinalConcreteChannelRoute
+  raw : RawVariation
+  normDebt : NormDebtVariation
+  ratePower : RatePowerVariation
+
+/-- Forget only the response-persistence field to reuse the existing
+    calibration/raw/debt/rate contraction. -/
+def ConcreteJoin.toJoin (data : ConcreteJoin) : Join where
+  calibration := data.cofinal.calibration
+  raw := data.raw
+  normDebt := data.normDebt
+  ratePower := data.ratePower
+
+def ConcreteJoin.toCanonicalUniformRCNormFloor (data : ConcreteJoin) :
+    DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel
+        changingNomeCarrierNormalizedDynamicFamily) :=
+  responsePersistence_toCanonicalUniformRCNormFloor
+    data.cofinal.responsePersistence
+
+def ConcreteJoin.toRawContinuumNontriviality (data : ConcreteJoin) :
+    MovingCubeRawContinuumNontriviality
+      changingNomeCarrierNormalizedDynamicFamily data.raw :=
+  MovingCubeRawContinuumNontriviality.ofUniformNormFloor
+    data.toCanonicalUniformRCNormFloor
+
 /-! ## Exact downstream compilations -/
 
 /-- The cofinal calibration gives the all-scale physical rate band on the
@@ -354,6 +387,39 @@ theorem Join.sq_decay (data : Join) (time : Nat) :
     changingNomeCarrierNormalizedDynamicFamily data.raw data.normDebt
     data.ratePower time
 
+def ConcreteJoin.toContinuumLimit (data : ConcreteJoin) :
+    NormalizedMovingCubeScheduledRCContinuumLimit
+      changingNomeCarrierNormalizedDynamicFamily :=
+  data.toJoin.toContinuumLimit
+
+def ConcreteJoin.toRatePowerLimit (data : ConcreteJoin) :
+    NormalizedMovingCubeSampledRatePowerLimit
+      changingNomeCarrierNormalizedDynamicFamily :=
+  data.toJoin.toRatePowerLimit
+
+theorem ConcreteJoin.zero_isPositive (data : ConcreteJoin) :
+    RCIsPositive
+      (NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+        data.toContinuumLimit 0) :=
+  data.toJoin.zero_isPositive
+
+theorem ConcreteJoin.sq_decay (data : ConcreteJoin) (time : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+          data.toContinuumLimit time)
+        (NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+          data.toContinuumLimit time))
+      (CReal.RCmul
+        (CReal.RCmul
+          (Quotient.mk CReal.crealSetoid
+            (data.toRatePowerLimit.limitRepresentative time))
+          (NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+            data.toContinuumLimit 0))
+        (NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+          data.toContinuumLimit 0)) :=
+  data.toJoin.sq_decay time
+
 end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
 
 /-! ## Axiom-dependency gates -/
@@ -388,3 +454,17 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.responsePersistence_toCanonicalUniformRCNormFloor
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.rawContinuumNontrivialityOfResponsePersistence
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toJoin
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toCanonicalUniformRCNormFloor
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toRawContinuumNontriviality
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toContinuumLimit
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.toRatePowerLimit
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.zero_isPositive
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.ConcreteJoin.sq_decay

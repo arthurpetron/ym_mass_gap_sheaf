@@ -35,6 +35,14 @@ variation is provided. This closes no new producer: response persistence and
 raw variation remain explicit inputs, and the physical-rate, OS/GNS,
 continuum-QFT, physical-mass, every-group, and Clay obligations remain open.
 
+`ConcreteJoin` now bundles response persistence, cofinal physical calibration,
+raw variation, normalization-debt variation, and scheduled-rate variation on
+one repaired SU(2) family. Its projections preserve the same carrier and give
+canonical-floor transport, raw nontriviality, continuum zero-time positivity,
+and squared decay. The bundle is still a certificate interface rather than an
+inhabited construction; no OS/GNS, continuum-QFT, physical-mass, every-group,
+or Clay result is claimed.
+
 **Latest physical-exponential contraction (2026-09-26):**
 `PhysicalExponentialJoin.toCertificate` now reaches the existing same-family
 physical-exponential corridor from one explicit physical-gap variation input;

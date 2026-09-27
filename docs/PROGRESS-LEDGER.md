@@ -30642,3 +30642,13 @@ floor and a raw representative variation to produce the exact raw continuum
 nontriviality field. Both inputs remain explicit; no physical-rate, OS/GNS,
 continuum/QFT, physical-mass, every-group, or Clay node closes, and no
 canonical chart marker changes.
+
+## Same-carrier response-aware continuum join (2026-09-27 UTC)
+
+`ConcreteJoin` bundles response persistence, cofinal physical calibration, raw
+representative variation, normalization-debt variation, and scheduled-rate
+variation on the same repaired SU(2) family. Its checked projections preserve
+canonical-floor transport, raw continuum nontriviality, continuum zero-time
+positivity, and squared decay. The bundle remains an explicit certificate
+interface rather than an inhabitant; no OS/GNS, continuum/QFT, physical-mass,
+every-group, or Clay node closes, and no canonical chart marker changes.
