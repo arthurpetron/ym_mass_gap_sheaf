@@ -10,6 +10,7 @@ vanishing spacing is deliberately left as a separate typed certificate.
 import YMGap.Continuum.BF4PhysicalChangingNomeDynamicFamily
 import YMGap.Continuum.BF4PhysicalCubeCutoffUniformGapAlgebra
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFinitePrefixResponse
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 
 namespace YMGap.Continuum.BF4PhysicalChangingNomeExplicitMarginLaw
@@ -34,6 +35,7 @@ open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFinitePrefixResponse
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 open YMGap.Continuum.PhysicalSeparatorLinearTail
@@ -590,6 +592,34 @@ theorem changingNomeCarrierNormalizedMovingCube_sampled_sq_decay
   sampledConnectedAutocorrelationSq_decay
     changingNomeCarrierNormalizedMovingCubeChannel scale time
 
+def changingNomeCarrierNormalizedFinitePrefixResponseCertificate
+    (bound : Nat) :
+    FinitePrefixResponseFloor
+      changingNomeCarrierNormalizedMovingCubeChannel bound :=
+  finitePrefixResponseCertificate
+    changingNomeCarrierNormalizedMovingCubeChannel bound
+
+theorem changingNomeCarrierNormalizedFinitePrefixResponseFloor_pos
+    (bound : Nat) :
+    (0 : Q') <
+      finitePrefixResponseFloor
+        changingNomeCarrierNormalizedMovingCubeChannel bound :=
+  finitePrefixResponseFloor_pos
+    changingNomeCarrierNormalizedMovingCubeChannel bound
+
+theorem changingNomeCarrierNormalizedFinitePrefixResponseFloor_le_sampled_zeroTime
+    (bound scale : Nat) (hscale : scale ≤ bound) :
+    CReal.RCle
+      (Quotient.mk CReal.crealSetoid
+        (CReal.ofQ'
+          (finitePrefixResponseFloor
+            changingNomeCarrierNormalizedMovingCubeChannel bound)))
+      (sampledConnectedAutocorrelation
+        changingNomeCarrierNormalizedMovingCubeChannel scale 0) := by
+  rw [sampledConnectedAutocorrelation_zero_eq_normSq]
+  exact (changingNomeCarrierNormalizedFinitePrefixResponseCertificate bound).lowerNorm
+    scale hscale
+
 /-- The exact denominator law transported to the repaired spacing schedule.
     The dimensionless margin is unchanged because the completed nome and gap
     are unchanged; only the physical spacing field is replaced. -/
@@ -809,6 +839,9 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedMovingCube_sampled_zero_isPositive
 #print axioms changingNomeCarrierNormalizedMovingCube_sampled_eq_global
 #print axioms changingNomeCarrierNormalizedMovingCube_sampled_sq_decay
+#print axioms changingNomeCarrierNormalizedFinitePrefixResponseCertificate
+#print axioms changingNomeCarrierNormalizedFinitePrefixResponseFloor_pos
+#print axioms changingNomeCarrierNormalizedFinitePrefixResponseFloor_le_sampled_zeroTime
 #print axioms changingNomeCarrierNormalizedExplicitMarginInverseLaw
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand

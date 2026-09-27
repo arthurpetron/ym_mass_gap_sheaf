@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **93**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **94**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -166,7 +166,7 @@ Latest verified B04 certificate factorization (2026-09-26 UTC):
 (`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:92--106`)
 is the exact denominator presentation, and
 `ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand`
-(`:735--769`) compiles the minimal two-sided product certificate on
+(`:765--799`) compiles the minimal two-sided product certificate on
 `2 + 6*headEnergyConstant` into the existing same-family denominator band.
 Both declarations are axiom-clean within `{propext, Quot.sound}`.  The new
 certificate type is intentionally not inhabited: its two uniform product
@@ -174,7 +174,7 @@ inequalities are the remaining asymptotic input.
 
 Latest verified B04 contraction (2026-09-26 UTC):
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:782--785`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:812--815`)
 composes the specialized product-band compiler with the existing physical-rate
 and sharp continuum-gap interfaces.  It is a conditional compiler only: the
 product-band witness is still uninhabited, so this does not claim a concrete
@@ -239,7 +239,7 @@ closure.
 Latest verified B04 repaired-family contraction (2026-09-26 UTC):
 `ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand`,
 `.toPhysicalRateBand`, and `.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:679--729`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:709--759`)
 transport the two explicit product-band fields through the repaired spacing
 schedule, preserve the exact same-family denominator law, and contract to the
 existing sharp continuum-gap interface.  The product-band structure remains an
@@ -248,7 +248,7 @@ construction, physical mass, every-group theorem, and Clay result remain open.
 
 Latest verified B04 normalized floor-order contraction (2026-09-26 UTC):
 `ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:642--677`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:672--707`)
 transports the scalar quotient kernel to the repaired spacing and proves that
 any inhabited normalized product band forces
 `6*((floor*normalizedSpacing)*carrierSquareScale) ≤ floorValue` at every scale.
@@ -260,18 +260,28 @@ Latest verified B04/A05 physical-time sampling join (2026-09-26 UTC):
 `changingNomeCarrierNormalizedMovingCube_sampled_zero_isPositive`,
 `changingNomeCarrierNormalizedMovingCube_sampled_eq_global`, and
 `changingNomeCarrierNormalizedMovingCube_sampled_sq_decay`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:550--591`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:550--593`)
 instantiate the canonical spacing-to-zero floor sampling for the repaired
 same-object channel.  The sampled correlation retains positive zero-time
 response, the exact global adaptive-transfer coefficient identity, and the
 completed squared-decay bound.  Cutoff-removal variation and uniform scaling
 survival remain open.
 
+Latest verified A05a repaired-family finite-prefix response join (2026-09-26 UTC):
+`changingNomeCarrierNormalizedFinitePrefixResponseCertificate`,
+`changingNomeCarrierNormalizedFinitePrefixResponseFloor_pos`, and
+`changingNomeCarrierNormalizedFinitePrefixResponseFloor_le_sampled_zeroTime`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:595--621`)
+construct the finite minimum of the repaired channel's explicit norm floors and
+transport it to the literal sampled zero-time correlation on every finite
+prefix.  This is finite-window response survival only; no all-scale floor,
+cutoff-removal modulus, continuum excitation, or Clay result follows.
+
 Latest verified B04/A05 repaired-family observable join (2026-09-26 UTC):
 `changingNomeCarrierNormalizedMovingCubeChannel`,
 `changingNomeCarrierNormalizedMovingCube_zero_isPositive`, and
 `changingNomeCarrierNormalizedMovingCube_connectedSq_decay`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:518--543`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:523--548`)
 instantiate the concrete same-object moving-cube channel on the repaired
 carrier-normalized family.  They retain positive zero-time response and the
 completed squared-decay bound for that family; cutoff-removal variation,
@@ -533,6 +543,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                            (positive finite response/decay; tail open)
                                        [x] Carrier-normalized physical-time sampling/global transfer join
                                            (sampled decay; cutoff tail open)
+                                       [x] Carrier-normalized finite-prefix response floor
+                                           (finite window only; all-scale tail open)
                                        [ ] Infinite-scale denominator/spacing comparison
                                        [ ] Anchor-minimum asymptotic estimate
                                            F(w_n) comparable to spacing
@@ -612,17 +624,18 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04q | Concrete changing-nome denominator/spacing target | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:29--38`, together with `BF4PhysicalCubeCutoffUniformGap.gapDenominator`, `lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGap.lean:33--48`, `BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant`, `lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean:159--166`, and `BF4PhysicalFiniteVacuumSectorSimplePathScale.centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale`, `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorSimplePathScale.lean:223--227`; the missing all-scale proof reduces to fixed `L,U>0` with `L ≤ s_n*(2+6*H(w_n)) ≤ U`, where `H=S/F` and `F` is the anchored finite pulled-kernel minimum. No declaration currently estimates `F` along shrinking `w_n`, so this remains OPEN. |
 | B04r | Finite anchor-floor ceiling / concrete quotient budget | `BF4PhysicalChangingNomeAnchorBudget.fixedBasePulledPositiveEdgeFloorValue_le_half` and `.divPos_ge_two_mul_of_floor_le_half`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeAnchorBudget.lean:60--109`, plus `BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant_eq_divPos`, `.fixedBasePulledPositiveEdgeFloorValue_mul_headEnergyConstant_eqv_scale`, and `.headEnergyConstant_ge_two_carrierSquareScale`, `lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean:172--221`; the unit fallback and quotient compiler now instantiate to the concrete finite inequality `2*S ≤ H(w)` for every admissible `w`. The cofinal order estimate for `F(w_n)` remains open; this is a one-sided finite budget, not B04 closure. |
 | B04s | Concrete changing-nome denominator lower budget | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator_ge_two_add_twelve_scale`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:46--87`; joins the checked head quotient to the actual scheduled denominator and proves `2 + 12*S(w) ≤ gapDenominator(w)` pointwise. It does not provide the missing denominator-versus-spacing comparison or any continuum/Clay closure. |
-| B04t | Minimal head-energy product-band compiler | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator_eqv_two_add_six_headEnergy` (`:92--106`) and `ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand` (`:735--769`); factors the remaining B04 input into two uniform product inequalities on the exact `2 + 6*H(w_scale)` expression and compiles them without changing the same family. The certificate is not inhabited, so the denominator-versus-spacing, continuum, and Clay obligations remain open. |
-| B04u | Head-energy product band -> continuum-gap interface | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem` (`:782--785`); contracts the specialized product-band certificate through the existing same-family physical-rate compiler to the sharp `ContinuumGapTheorem` interface. It is conditional on the still-uninhabited product band and does not itself construct a continuum theory or mass gap. |
+| B04t | Minimal head-energy product-band compiler | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator_eqv_two_add_six_headEnergy` (`:92--106`) and `ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand` (`:765--799`); factors the remaining B04 input into two uniform product inequalities on the exact `2 + 6*H(w_scale)` expression and compiles them without changing the same family. The certificate is not inhabited, so the denominator-versus-spacing, continuum, and Clay obligations remain open. |
+| B04u | Head-energy product band -> continuum-gap interface | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem` (`:812--815`); contracts the specialized product-band certificate through the existing same-family physical-rate compiler to the sharp `ContinuumGapTheorem` interface. It is conditional on the still-uninhabited product band and does not itself construct a continuum theory or mass gap. |
 | B04v | Scalar product-band -> floor-order necessary condition | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_scalar` (`:174--214`); from nonnegative `A,F`, the exact quotient identity `F*H ≈ S`, and `A*(2+6*H) ≤ 1`, derives `6*A*S ≤ F` by kernel-checked rational algebra. This is a necessary-condition contraction for the dependent B04 target, not its cofinal specialization or a continuum/Clay result. |
 | B04w | Dependent changing-nome floor-order specialization | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le` (`:239--272`); instantiates the scalar kernel with the actual scheduled spacing, anchored floor, carrier-square scale, and head quotient, yielding `6*((floor*spacing)*scale) ≤ floorValue` at every scale under the assumed product band. This is a necessary condition only; the product band and cofinal floor asymptotic remain open. |
 | B04x | Floor cancellation -> spacing/carrier ceiling consumer | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.spacing_mul_scale_le_of_lower_bound` (`:317--334`); cancels the concrete positive floor from a supplied specialized lower-bound certificate and derives `6*(spacing*carrierSquareScale) ≤ 1`. The lower-bound certificate is still explicit, so this is a typed necessary-condition consumer, not B04 closure. |
 | B04y | Scale-zero floor-order obstruction / schedule redesign | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeBandScale_ge_two` and `.changingNomeBand_lower_bound_scale_zero_impossible` (`:336--416`); the concrete carrier-square factor is at least two, so the current `spacing 0 = 1/2` schedule makes the supplied floor-order certificate impossible at scale zero. This diagnoses the route normalization and does not claim a Yang--Mills obstruction or any continuum/Clay closure. |
 | B04z | Carrier-normalized spacing repair scaffold | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeCarrierNormalizedSpacing`, `.changingNomeCarrierNormalizedSpacingToZero`, `.changingNomeCarrierNormalizedSpacing_carrier_ceiling`, `.changingNomeCarrierNormalizedDynamicFamily`, `.changingNomeCarrierNormalizedDynamicFamily_same_nome`, and `.changingNomeCarrierNormalizedDynamicFamily_same_gap_rate` (`:429--514`); replaces only the spacing schedule by a carrier-aware denominator, proves spacing-to-zero and `6*spacing*carrierSquareScale ≤ 1`, and preserves the completed nome/gap. This is not an inhabited product band, physical calibration, continuum construction, or Clay result. |
-| B04aa | Carrier-normalized product-band -> continuum-gap compiler | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand`, `.toPhysicalRateBand`, and `.toContinuumGapTheorem` (`:679--729`); transports the two still-open uniform product inequalities through the repaired same-family spacing and contracts them to the sharp `ContinuumGapTheorem` interface. The product-band input remains uninhabited, so this does not close B04, continuum/QFT, physical mass, every-group, or Clay. |
-| B04ab | Carrier-normalized product-band -> floor-order specialization | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le` (`:642--677`); transports the scalar quotient kernel to the repaired spacing and shows that any inhabited normalized product band forces `6*((floor*normalizedSpacing)*carrierSquareScale) ≤ floorValue` at every scale. This is a necessary asymptotic condition only; the repaired product band and all continuum/Clay nodes remain open. |
+| B04aa | Carrier-normalized product-band -> continuum-gap compiler | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand`, `.toPhysicalRateBand`, and `.toContinuumGapTheorem` (`:709--759`); transports the two still-open uniform product inequalities through the repaired same-family spacing and contracts them to the sharp `ContinuumGapTheorem` interface. The product-band input remains uninhabited, so this does not close B04, continuum/QFT, physical mass, every-group, or Clay. |
+| B04ab | Carrier-normalized product-band -> floor-order specialization | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le` (`:672--707`); transports the scalar quotient kernel to the repaired spacing and shows that any inhabited normalized product band forces `6*((floor*normalizedSpacing)*carrierSquareScale) ≤ floorValue` at every scale. This is a necessary asymptotic condition only; the repaired product band and all continuum/Clay nodes remain open. |
 | B04ac | Carrier-normalized same-object moving-cube channel | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeCarrierNormalizedMovingCubeChannel`, `.changingNomeCarrierNormalizedMovingCube_zero_isPositive`, and `.changingNomeCarrierNormalizedMovingCube_connectedSq_decay` (`:523--548`); instantiates the concrete same-object moving-cube channel on the repaired family with positive zero-time response and completed squared decay. Cutoff-removal variation, uniform survival, OS/GNS, continuum/QFT, physical mass, every-group, and Clay remain open. |
-| B04ad | Carrier-normalized physical-time sampling/global transfer join | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeCarrierNormalizedMovingCube_sampled_zero_isPositive`, `.changingNomeCarrierNormalizedMovingCube_sampled_eq_global`, and `.changingNomeCarrierNormalizedMovingCube_sampled_sq_decay` (`:550--591`); instantiates floor sampling, exact global adaptive-transfer identity, and sampled squared decay for the repaired same-object channel. Cutoff-removal variation and uniform scaling survival remain open. |
+| B04ad | Carrier-normalized physical-time sampling/global transfer join | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeCarrierNormalizedMovingCube_sampled_zero_isPositive`, `.changingNomeCarrierNormalizedMovingCube_sampled_eq_global`, and `.changingNomeCarrierNormalizedMovingCube_sampled_sq_decay` (`:550--593`); instantiates floor sampling, exact global adaptive-transfer identity, and sampled squared decay for the repaired same-object channel. Cutoff-removal variation and uniform scaling survival remain open. |
+| B04ae | Carrier-normalized finite-prefix response floor | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeCarrierNormalizedFinitePrefixResponseCertificate`, `.changingNomeCarrierNormalizedFinitePrefixResponseFloor_pos`, and `.changingNomeCarrierNormalizedFinitePrefixResponseFloor_le_sampled_zeroTime` (`:595--621`); constructs the finite minimum of the repaired channel's explicit norm floors and transports it to sampled zero-time response on every finite prefix. This is finite-window response survival only; the all-scale tail, cutoff-removal variation, continuum, and Clay nodes remain open. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1534,3 +1547,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 107 | 2026-09-26 | Added the carrier-normalized product-band floor-order specialization. Any inhabited repaired band now yields the exact necessary floor-vs-spacing/carrier inequality; the repaired band and all continuum/Clay nodes remain open. |
 | 1 / 108 | 2026-09-26 | Instantiated the concrete same-object moving-cube channel on the repaired carrier-normalized family, with positive zero-time response and completed squared decay. Cutoff-removal variation, uniform survival, OS/GNS, continuum/QFT, physical mass, every-group, and Clay nodes remain open. |
 | 1 / 109 | 2026-09-26 | Instantiated physical-time sampling, the exact global adaptive-transfer coefficient identity, and sampled squared decay for the repaired channel. Cutoff-removal variation and uniform scaling survival remain open. |
+| 1 / 110 | 2026-09-26 | Added the repaired-family finite-prefix response certificate and sampled zero-time floor consumer. This is finite-window response survival only; the all-scale tail, continuum, and Clay nodes remain open. |
