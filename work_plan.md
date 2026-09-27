@@ -129,6 +129,16 @@ spacing-product bounds still needed.  Its compiler preserves the actual
 changing family and denominator; it is not inhabited until the anchor-floor
 order estimate is proved.
 
+### Conditional contraction to the sharp gap interface (2026-09-26 UTC)
+
+`ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:217--220`)
+now composes that specialized certificate with the existing same-family
+physical-rate compiler and the sharp `ContinuumGapTheorem` interface.  This
+closes the typed downstream route once the product-band fields are supplied;
+it does not supply those fields and therefore does not claim continuum/QFT,
+physical-mass, all-group, or Clay closure.
+
 ### New finite producer (2026-09-25 UTC)
 
 `BF4ExactSlabWidthOneActualFringePairing.fringeTestNormFloor` and

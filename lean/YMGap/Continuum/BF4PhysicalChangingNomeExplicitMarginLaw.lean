@@ -210,11 +210,21 @@ def changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand
     DynamicVacuumSectorPhysicalRateBand changingNomeDynamicFamily :=
   band.toPhysicalRateBand
 
+/-- The specialized product certificate contracts all the way to the sharp
+continuum-gap interface.  This is only a conditional compiler: the product
+band remains an explicit, currently uninhabited input, and the resulting
+`ContinuumGapTheorem` still carries the same changing-family physical gap. -/
+def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
+    (band : ChangingNomeHeadEnergyProductBand) :
+    SharpContinuumObligation.ContinuumGapTheorem :=
+  (band.toExplicitMarginDenominatorBand).toContinuumGapTheorem
+
 #print axioms changingNomeMarginDenominator
 #print axioms changingNomeMarginDenominator_pos
 #print axioms changingNomeMarginDenominator_ge_two_add_twelve_scale
 #print axioms changingNomeMarginDenominator_eqv_two_add_six_headEnergy
 #print axioms ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand
+#print axioms ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeExplicitMarginInverseLaw
 #print axioms changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand
 

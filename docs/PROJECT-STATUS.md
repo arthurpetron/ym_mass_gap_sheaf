@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **83**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **84**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -20,8 +20,9 @@ The B04 branch now also exposes the finite anchor-floor half ceiling, an
 abstract quotient lower-budget compiler, and its concrete dependent
 instantiation `headEnergyConstant_ge_two_carrierSquareScale`, and the
 corresponding concrete pointwise denominator lower budget, and the new minimal
-head-energy product-band compiler; the cofinal order of the anchor floor
-remains open.
+head-energy product-band compiler and its direct conditional contraction to the
+sharp continuum-gap interface; the cofinal order of the anchor floor remains
+open.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -150,6 +151,15 @@ is the exact denominator presentation, and
 Both declarations are axiom-clean within `{propext, Quot.sound}`.  The new
 certificate type is intentionally not inhabited: its two uniform product
 inequalities are the remaining asymptotic input.
+
+Latest verified B04 contraction (2026-09-26 UTC):
+`ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:217--220`)
+composes the specialized product-band compiler with the existing physical-rate
+and sharp continuum-gap interfaces.  It is a conditional compiler only: the
+product-band witness is still uninhabited, so this does not claim a concrete
+continuum gap, OS/GNS reconstruction, physical mass, every-group theorem, or
+the Clay result.
 
 Latest backward frontier expansion (2026-09-26 UTC): the finite-prefix
 response certificate does not discharge the asymptotic inputs required by the
@@ -390,6 +400,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Concrete finite head-quotient lower budget
                                        [x] Concrete changing-nome denominator lower budget
                                        [x] Minimal head-energy product-band compiler
+                                       [x] Head-energy product band -> continuum-gap interface
                                        [ ] Infinite-scale denominator/spacing comparison
                                        [ ] Anchor-minimum asymptotic estimate
                                            F(w_n) comparable to spacing
@@ -470,6 +481,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04r | Finite anchor-floor ceiling / concrete quotient budget | `BF4PhysicalChangingNomeAnchorBudget.fixedBasePulledPositiveEdgeFloorValue_le_half` and `.divPos_ge_two_mul_of_floor_le_half`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeAnchorBudget.lean:60--109`, plus `BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant_eq_divPos`, `.fixedBasePulledPositiveEdgeFloorValue_mul_headEnergyConstant_eqv_scale`, and `.headEnergyConstant_ge_two_carrierSquareScale`, `lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean:172--221`; the unit fallback and quotient compiler now instantiate to the concrete finite inequality `2*S ≤ H(w)` for every admissible `w`. The cofinal order estimate for `F(w_n)` remains open; this is a one-sided finite budget, not B04 closure. |
 | B04s | Concrete changing-nome denominator lower budget | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator_ge_two_add_twelve_scale`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:46--87`; joins the checked head quotient to the actual scheduled denominator and proves `2 + 12*S(w) ≤ gapDenominator(w)` pointwise. It does not provide the missing denominator-versus-spacing comparison or any continuum/Clay closure. |
 | B04t | Minimal head-energy product-band compiler | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator_eqv_two_add_six_headEnergy` (`:92--106`) and `ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand` (`:146--204`); factors the remaining B04 input into two uniform product inequalities on the exact `2 + 6*H(w_scale)` expression and compiles them without changing the same family. The certificate is not inhabited, so the denominator-versus-spacing, continuum, and Clay obligations remain open. |
+| B04u | Head-energy product band -> continuum-gap interface | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem` (`:217--220`); contracts the specialized product-band certificate through the existing same-family physical-rate compiler to the sharp `ContinuumGapTheorem` interface. It is conditional on the still-uninhabited product band and does not itself construct a continuum theory or mass gap. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1371,3 +1383,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 97 | 2026-09-26 | Checked the concrete dependent application `headEnergyConstant_ge_two_carrierSquareScale`: for every admissible `w`, `2 * carrierSquareScale ≤ headEnergyConstant w`. This advances only the one-sided finite budget; cofinal floor order, the all-scale physical-rate band, and every continuum/Clay node remain open. |
 | 1 / 98 | 2026-09-26 | Proved `changingNomeMarginDenominator_ge_two_add_twelve_scale`: the concrete scheduled denominator satisfies `2 + 12*S(w) ≤ gapDenominator(w)` at every scale. This is pointwise denominator growth only; the denominator-versus-spacing comparison and all continuum/Clay nodes remain open. |
 | 1 / 99 | 2026-09-26 | Added the exact denominator presentation `changingNomeMarginDenominator_eqv_two_add_six_headEnergy` and the uninhabited `ChangingNomeHeadEnergyProductBand` compiler. The remaining B04 input is now factored into two explicit uniform product inequalities on `2 + 6*H(w_scale)`; no continuum/Clay status is overstated. |
+| 1 / 100 | 2026-09-26 | Added the conditional `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem` contraction. The uninhabited product band now has an explicit typed route to the sharp continuum-gap interface; no continuum/Clay status is overstated. |

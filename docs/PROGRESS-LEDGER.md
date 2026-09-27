@@ -173,6 +173,18 @@ The focused check reports only `{propext, Quot.sound}`.  The certificate is
 intentionally uninhabited: proving its two fields is exactly the remaining
 all-scale denominator-versus-spacing problem.
 
+## Current increment: product band contracted to the continuum-gap interface (2026-09-26 UTC)
+
+`ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:217--220`)
+composes the exact changing-nome denominator presentation, the specialized
+product-band compiler, and the existing same-family physical-rate compiler
+into the sharp `ContinuumGapTheorem` interface.  The focused monitored build
+reports only `{propext, Quot.sound}`.  This is a conditional contraction: the
+product band remains uninhabited, so it does not assert a concrete continuum
+gap, OS/GNS reconstruction, physical mass, every-group theorem, or Clay
+solution.
+
 ## Backward frontier expansion: changing-family tail inputs (2026-09-26 UTC)
 
 The finite-prefix response floor does not supply the asymptotic certificates
