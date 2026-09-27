@@ -51,6 +51,10 @@ cofinal-calibration presentation and direct pointwise lower/upper bounds on
 the same physical-gap stream. This is certificate-shape progress only: the
 all-scale bounds remain uninhabited, so no physical-rate, continuum/QFT,
 physical-mass, every-group, or Clay conclusion follows.
+Those direct bounds now compile straight to the repaired denominator and
+physical-rate interfaces through the exact reciprocal identity, without
+re-entering the finite-prefix encoding; this is still conditional on the
+unproved bounds.
 
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive

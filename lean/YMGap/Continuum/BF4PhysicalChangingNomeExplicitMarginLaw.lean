@@ -834,6 +834,86 @@ def ChangingNomeCarrierNormalizedPhysicalGapBounds.toCofinalGapCalibration
     unfold ExplicitMarginDenominatorBand.finitePrefixGapCeiling
     exact Q'.runningMax_le_of_le bounds.gap_le_ceiling bound
 
+/-! Once the direct pointwise bounds are supplied, the reciprocal identity
+    compiles them to the raw denominator band without passing back through the
+    finite-prefix presentation. -/
+
+def ChangingNomeCarrierNormalizedPhysicalGapBounds.toExplicitMarginDenominatorBand
+    (bounds : ChangingNomeCarrierNormalizedPhysicalGapBounds) :
+    ExplicitMarginDenominatorBand
+      changingNomeCarrierNormalizedExplicitMarginInverseLaw where
+  floor := bounds.floor
+  floor_pos := bounds.floor_pos
+  ceiling := bounds.ceiling
+  ceiling_pos := bounds.ceiling_pos
+  lowerDenominator := by
+    intro scale
+    have hscaled := Q'.mul_le_mul_of_nonneg_right
+      bounds.floor
+      (changingNomeCarrierNormalizedDynamicFamily.physicalGap scale)
+      (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+      (bounds.floor_le_gap scale)
+      (Q'.le_of_lt
+        (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing_pos scale))
+    have hproduct := Q'.mul_le_mul_of_nonneg_right
+      (bounds.floor *
+        changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+      (changingNomeCarrierNormalizedDynamicFamily.physicalGap scale *
+        changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale)
+      (changingNomeCarrierNormalizedExplicitMarginInverseLaw.denominator scale)
+      hscaled
+      (Q'.le_of_lt
+        (changingNomeCarrierNormalizedExplicitMarginInverseLaw.denominator_pos scale))
+    have hone :=
+      ExplicitMarginDenominatorBand.physicalGap_mul_spacing_mul_den_eqv_one
+        (law := changingNomeCarrierNormalizedExplicitMarginInverseLaw) scale
+    exact Q'.le_trans' _ _ _ hproduct (Q'.le_of_eqv hone)
+  upperDenominator := by
+    intro scale
+    let gap : Q' :=
+      changingNomeCarrierNormalizedDynamicFamily.physicalGap scale
+    let spacing : Q' :=
+      changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing scale
+    let denominator : Q' :=
+      changingNomeCarrierNormalizedExplicitMarginInverseLaw.denominator scale
+    have hnonneg :
+        (0 : Q') ≤
+          spacing * denominator :=
+      Q'.mul_nonneg
+        spacing denominator
+        (Q'.le_of_lt
+          (changingNomeCarrierNormalizedDynamicFamily.transferSpacing.spacing_pos scale))
+        (Q'.le_of_lt
+          (changingNomeCarrierNormalizedExplicitMarginInverseLaw.denominator_pos scale))
+    have hscaled := Q'.mul_le_mul_of_nonneg_right
+      gap
+      bounds.ceiling
+      (spacing * denominator)
+      (bounds.gap_le_ceiling scale)
+      hnonneg
+    have honeEqv : (1 : Q') ≈
+        gap * (spacing * denominator) :=
+      Q'.eqv_trans _
+        ((gap * spacing) * denominator) _
+        (Q'.eqv_symm
+          (ExplicitMarginDenominatorBand.physicalGap_mul_spacing_mul_den_eqv_one
+            (law := changingNomeCarrierNormalizedExplicitMarginInverseLaw) scale))
+        (Q'.mul_assoc_eqv gap spacing denominator)
+    have hone : (1 : Q') ≤
+        gap * (spacing * denominator) :=
+      Q'.le_of_eqv honeEqv
+    exact Q'.le_trans' _ _ _ hone
+      (Q'.le_trans' _ _ _ hscaled
+        (Q'.le_of_eqv (Q'.eqv_symm (Q'.mul_assoc_eqv
+          bounds.ceiling
+          spacing denominator))))
+
+def ChangingNomeCarrierNormalizedPhysicalGapBounds.toPhysicalRateBand
+    (bounds : ChangingNomeCarrierNormalizedPhysicalGapBounds) :
+    DynamicVacuumSectorPhysicalRateBand
+      changingNomeCarrierNormalizedDynamicFamily :=
+  bounds.toExplicitMarginDenominatorBand.toPhysicalRateBand
+
 /-! The lower raw denominator inequality is not an additional cofinal
     estimate.  The floor field already bounds the same completed family's
     physical gap, and the exact reciprocal law then contracts that bound to
@@ -1143,6 +1223,8 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedFinitePrefixGapCeiling_le_succ
 #print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalGapBounds
 #print axioms ChangingNomeCarrierNormalizedPhysicalGapBounds.toCofinalGapCalibration
+#print axioms ChangingNomeCarrierNormalizedPhysicalGapBounds.toExplicitMarginDenominatorBand
+#print axioms ChangingNomeCarrierNormalizedPhysicalGapBounds.toPhysicalRateBand
 #print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.lowerDenominator
 #print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalRateBand
 #print axioms changingNomeCarrierNormalizedExplicitMarginInverseLaw

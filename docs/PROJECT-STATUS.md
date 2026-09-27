@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **107**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **108**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -56,7 +56,9 @@ inequality on the same family.  The upper raw inequality and the cofinal
 certificate itself remain open.  The cofinal-prefix presentation is now
 recoded, in both directions, as a direct pointwise two-sided physical-gap
 bound on this identical repaired family; this is a structural expansion only,
-not an inhabitant of the missing bound.
+not an inhabitant of the missing bound.  The direct pointwise bounds now also
+compile straight to the repaired denominator and physical-rate bands, without
+re-entering the prefix encoding.
 The new `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean` module
 then packages that calibration together with the raw representative,
 normalization-debt, and scheduled-rate variation inputs as one exact
@@ -704,6 +706,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                             upper inequality remains open)
                                        [x] Cofinal-prefix ↔ pointwise physical-gap band
                                            (exact two-way recoding; bounds remain open)
+                                       [x] Pointwise physical-gap bounds -> denominator/rate band
+                                           (same-family direct compiler; bounds remain open)
                                        [ ] Infinite-scale denominator/spacing comparison
                                        [ ] Anchor-minimum asymptotic estimate
                                            F(w_n) comparable to spacing
@@ -808,6 +812,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04ap | Carrier-normalized explicit scale spacing envelope | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeCarrierNormalizedSpacing_le_invSucc`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:445--457`; proves the repaired spacing at scale `s` is at most `Q'.invSucc s`, independently of the carrier numerator. This strengthens spatial modulus control but does not compare the physical gap denominator with spacing or close the product band, continuum, or Clay target. |
 | B04aq | Carrier-plus-one reserve and cofinal lower-denominator consumer | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeCarrierNormalizedSpacing_carrier_plus_one_le` (`:463--513`) and `ChangingNomeCarrierNormalizedCofinalGapCalibration.lowerDenominator` (`:842--875`); proves `(6*S+1)*spacing ≤ 1` for the repaired schedule and shows that any supplied cofinal physical-gap floor automatically satisfies the lower raw denominator product through the exact same-family reciprocal identity. The upper raw inequality and calibration witness remain open; no continuum, physical-mass, every-group, or Clay closure is claimed. |
 | B04ar | Cofinal-prefix ↔ pointwise physical-gap band recoding | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalGapBounds` and `ChangingNomeCarrierNormalizedPhysicalGapBounds.toCofinalGapCalibration` (same module); the finite minimum/maximum folds and their constructive order lemmas give an exact two-way recoding between the cofinal-prefix certificate and direct pointwise bounds on the same repaired physical-gap stream. This changes no estimate: both all-scale bounds remain open, and no continuum, physical-mass, every-group, or Clay closure is claimed. |
+| B04as | Pointwise physical-gap bounds -> denominator/rate band | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeCarrierNormalizedPhysicalGapBounds.toExplicitMarginDenominatorBand` and `.toPhysicalRateBand` (`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:841--915`); the exact physical-gap/spacing/denominator reciprocal identity compiles direct pointwise bounds into the raw denominator and same-family physical-rate interfaces without prefix re-entry. The pointwise bounds remain open; no continuum, physical-mass, every-group, or Clay closure is claimed. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1606,6 +1611,12 @@ the all-scale denominator/spacing comparison, continuum/QFT passage, physical
 mass, every-group construction, and Clay theorem remain open.  The focused
 safe check reports only `{propext, Quot.sound}` and no `sorryAx`.
 
+The same direct bounds now feed
+`ChangingNomeCarrierNormalizedPhysicalGapBounds.toExplicitMarginDenominatorBand`
+and `.toPhysicalRateBand` (`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:841--915`) without returning through the prefix certificate.
+This is the shortest typed contraction to the existing rate interface; it
+still consumes the two unproved all-scale pointwise inequalities.
+
 ## Maintenance contract
 
 1. Read this file before every chart. Copy its chart block; do not regenerate
@@ -1750,3 +1761,4 @@ safe check reports only `{propext, Quot.sound}` and no `sorryAx`.
 | 1 / 121 | 2026-09-26 | Proved the repaired carrier-normalized spacing envelope `spacing(scale) ≤ 1/(scale+1)`, independent of the carrier numerator. This adds explicit spatial modulus control while leaving the denominator-versus-spacing comparison, product band, continuum, and Clay obligations open. |
 | 1 / 122 | 2026-09-26 | Proved the repaired carrier-plus-one reserve `(6*S+1)*spacing ≤ 1` and added the cofinal-calibration lower-denominator consumer via the exact physical-gap/spacing/denominator reciprocal identity. The upper raw product inequality and the cofinal witness remain open; no continuum, physical-mass, every-group, or Clay node closes. |
 | 1 / 123 | 2026-09-26 | Added the exact two-way recoding between the repaired cofinal-prefix gap calibration and direct pointwise physical-gap bounds, using constructive finite minimum/maximum folds. This contracts certificate shape only; both all-scale bounds and every downstream continuum/Clay node remain open. |
+| 1 / 124 | 2026-09-26 | Added the direct pointwise physical-gap-bounds → denominator/rate compiler, using the exact same-family reciprocal identity without prefix re-entry. The two pointwise bounds remain open; no continuum, physical-mass, every-group, or Clay node closes. |
