@@ -25,6 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Cost-one reflection-fixed deletion checked (2026-09-27 UTC)
+
+`BF4ExactSlabReflectionFixedDeletion.original_partition_deletion` improves
+the SAME original partition comparison for a precise geometric class: retain
+the entire reflected lower/upper bulk and delete any subset of central fixed
+crossing faces. The cost is one for every finite cutoff and rational w>=0.
+`masked_original_product` pins zero-nome profiles to the literal selected-face
+product; nested comparisons also hold for original unnormalized reflected
+quadratics. The four `*_limit_*` theorems pass these inequalities to the
+existing fixed-volume heat-cutoff CReals for 0<w<1, with existing moduli.
+This is regulator removal, not physical-spacing convergence.
+
+NEXT: estimate the actual normalized signed response before the crude collar
+majorant, or supply a sharper comparison for its nonfixed removed faces.
+Do not substitute cost one in `rooted_response_term_bound`: its arbitrary
+incidence collars and selected ambient actions do not have the geometry
+required by this theorem. A reflection-based route first needs an exact
+action/geometry pin; no such general pin is supplied here. Spatial decay,
+changing spacing, physical mass and continuum/all-group closure remain open.
+
+All 15 gates passed the focused one-worker/20 GiB check. Sol independently
+reviewed the exact product and scope. No new hole, canonical field edit,
+full-tree audit or broad chart-marker advance. Evidence:
+`audits/AUDIT-REFLECTION-FIXED-DELETION-2026-09-27.md`.
+
 ### Response collar-cost route restriction checked (2026-09-27 UTC)
 
 The retained-head audit exposed a quantitative loss in the existing termwise

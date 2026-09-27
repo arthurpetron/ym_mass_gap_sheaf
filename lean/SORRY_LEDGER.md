@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## Cost-one original reflection-fixed deletion (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/BF4ExactSlabReflectionFixedDeletion.lean`.
+- **proved:** `masked_original_product` (`:137`) identifies zero-nome
+  crossing profiles with the literal selected original face product.
+  `original_quadratic_nested` (`:156`) / `original_quadratic_deletion`
+  (`:171`) compare the SAME unnormalized reflected numerators; their unit
+  specializations compare original partitions (`:199`, `:207`). No small-nome
+  guard or late-cutoff premise is required; all finite K and w>=0 are covered.
+- **limit consumer:** `original_quadratic_limit_nested` (`:214`),
+  `original_quadratic_limit_deletion` (`:227`), `original_partition_limit_nested`
+  (`:239`) and `original_partition_limit_deletion` (`:251`) use the existing
+  fixed-volume, fixed-nome CReal cutoff limits and explicit moduli for 0<w<1.
+- **residue:** only reflection-fixed faces are deleted, while both complete
+  bulk halves stay. General response collars do not have this restriction,
+  nor do arbitrary selected endpoints automatically have paired bulk. The
+  normalized signed response estimate, physical scaling and Clay target
+  remain open. No normalized-correlation monotonicity or new analytic premise.
+- **verification:** final focused one-worker/20 GiB check passed all 15 gates
+  within {propext, Quot.sound}, without warnings. Sol reviewed scope and exact
+  product identification. No new hole, axiom, canonical field edit or full
+  audit. Evidence: `audits/AUDIT-REFLECTION-FIXED-DELETION-2026-09-27.md`.
+
 ## Response collar-cost restriction (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/BF4ExactSlabResponseCollarCostObstruction.lean`.

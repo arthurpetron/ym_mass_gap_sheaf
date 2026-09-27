@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting partition comparison (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabReflectionFixedDeletion.original_partition_deletion` proves
+cost-one deletion of any subset of central reflection-fixed faces while
+retaining both original bulk halves. Nested unnormalized quadratic comparisons
+and their existing fixed-volume heat-cutoff limits are also checked. All 15
+focused gates passed within `{propext, Quot.sound}`. Arbitrary response collars
+do not satisfy this geometry; their signed normalization estimate, physical
+scaling and continuum/Clay endpoint remain open.
+
 Verified supporting estimate restriction (2026-09-27 UTC; chart markers unchanged):
 `BF4ExactSlabResponseCollarCostObstruction.no_cubic_anchor_cost_nonincrease`
 rules out offsetting the current termwise collar cost by w^3 per added core
