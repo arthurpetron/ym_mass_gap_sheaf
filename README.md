@@ -123,6 +123,11 @@ explicit gauge-invariance witness are required before the singleton
 `DynamicVacuumSectorObservablePin` and physical separator can be constructed.
 These are typed certificates, not inferred properties of the RC channel.
 
+With the same-family `DynamicVacuumSectorPhysicalRateBand` supplied, both
+matched routes now project that pin to the exact `PhysicalGapFloor` and
+`RegScalingBand` for the literal completed transfer and spacing.  The band
+and all physical/continuum/Clay inputs remain open.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

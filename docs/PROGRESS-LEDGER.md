@@ -30234,3 +30234,20 @@ The focused monitored checks report only `{propext, Quot.sound}` and no
 `sorryAx`.  This is a certificate-shape contraction: no rational moment,
 gauge-invariance, strict-rate, physical calibration, OS/GNS, continuum/QFT,
 physical-mass, every-group, or Clay witness is claimed to exist.
+
+## Matched rational pin reaches physical gap and regular scaling interfaces (2026-09-27 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.toPhysicalGapFloor` and
+`.toRegScalingBand`, together with the corresponding factorized-route
+declarations.  Each consumes the same explicit rationalization certificate,
+strict completed-rate positivity, and an external
+`DynamicVacuumSectorPhysicalRateBand`; the existing observable compiler then
+returns the exact `PhysicalGapFloor` and `RegScalingBand` for the literal
+matched completed carrier and spacing.
+
+The monitored source check reports only `{propext, Quot.sound}` for the new
+dependency gates and no `sorryAx`.  This is a conditional downstream join:
+the physical-rate band, physical calibration, OS/GNS passage, continuum/QFT
+construction, physical mass, every-group theorem, and Clay target remain
+open.

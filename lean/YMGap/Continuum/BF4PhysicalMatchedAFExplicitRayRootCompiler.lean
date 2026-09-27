@@ -51,6 +51,8 @@ open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 open YMGap.Continuum.PhysicalSeparator
+open YMGap.Continuum.PhysicalSeparatorContinuumRealization
+open YMGap.Continuum.RegularContinuumPipeline
 open YMGap.Continuum.RCStrictPositivity
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
@@ -642,6 +644,39 @@ def MatchedPhysicalExplicitRayStateLoadDecayProducer.toPhysicalSeparator
     PhysicalSeparator :=
   (producer.toObservablePin rationalization rate_pos).toPhysicalSeparator
 
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toPhysicalGapFloor
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (rationalization :
+      DynamicVacuumSectorSameObjectRationalization
+        producer.toSameObjectRCChannel)
+    (rate_pos : ∀ scale,
+      (0 : Q') < (producer.toCompletedFamily.completedGap scale).rate)
+    (band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily) :
+    PhysicalGapFloor
+      (producer.toPhysicalSeparator rationalization rate_pos)
+      producer.toCompletedFamily.transferSpacing.spacing
+      producer.toCompletedFamily.transferSpacing.spacing_pos :=
+  (producer.toObservablePin rationalization rate_pos).toPhysicalGapFloor band
+
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toRegScalingBand
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (rationalization :
+      DynamicVacuumSectorSameObjectRationalization
+        producer.toSameObjectRCChannel)
+    (rate_pos : ∀ scale,
+      (0 : Q') < (producer.toCompletedFamily.completedGap scale).rate)
+    (band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily) :
+    RegScalingBand :=
+  (producer.toObservablePin rationalization rate_pos).toRegScalingBand band
+
 /-! ## 8. Split the remaining decay into weight and path mechanisms -/
 
 /-- A factored analytic input for the same route: stationary-weight decay and
@@ -873,6 +908,39 @@ def MatchedPhysicalExplicitRayFactorizedDecayProducer.toPhysicalSeparator
     PhysicalSeparator :=
   (producer.toObservablePin rationalization rate_pos).toPhysicalSeparator
 
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toPhysicalGapFloor
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (rationalization :
+      DynamicVacuumSectorSameObjectRationalization
+        producer.toSameObjectRCChannel)
+    (rate_pos : ∀ scale,
+      (0 : Q') < (producer.toCompletedFamily.completedGap scale).rate)
+    (band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily) :
+    PhysicalGapFloor
+      (producer.toPhysicalSeparator rationalization rate_pos)
+      producer.toCompletedFamily.transferSpacing.spacing
+      producer.toCompletedFamily.transferSpacing.spacing_pos :=
+  (producer.toObservablePin rationalization rate_pos).toPhysicalGapFloor band
+
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toRegScalingBand
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (rationalization :
+      DynamicVacuumSectorSameObjectRationalization
+        producer.toSameObjectRCChannel)
+    (rate_pos : ∀ scale,
+      (0 : Q') < (producer.toCompletedFamily.completedGap scale).rate)
+    (band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily) :
+    RegScalingBand :=
+  (producer.toObservablePin rationalization rate_pos).toRegScalingBand band
+
 /-! ## 9. Occupied-shell obstruction at the matched boundary -/
 
 /-- Every occupied physical-mass shell forces the matched state-load envelope
@@ -1013,6 +1081,10 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toPhysicalSeparator
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toPhysicalGapFloor
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toRegScalingBand
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toStateLoadDecayProducer
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toResistanceProducer
@@ -1042,6 +1114,10 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toObservablePin
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toPhysicalSeparator
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toPhysicalGapFloor
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toRegScalingBand
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.one_le_envelope_of_shell_member
 #print axioms
