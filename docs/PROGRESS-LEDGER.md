@@ -30561,3 +30561,13 @@ dependent object and composes the band to the existing scalar continuum-gap
 interface. The route can be constructed from
 `ChangingNomeCarrierNormalizedHeadEnergyProductBand`; the product band and all
 OS/GNS, continuum/QFT, physical-mass, every-group, and Clay inputs remain open.
+
+## Inhabited finite-prefix repaired-family route (2026-09-27 UTC)
+
+`ChangingNomeCarrierNormalizedFinitePrefixConcreteRoute bound` packages, for
+every finite scale window, the same repaired concrete channel, a constructive
+positive response floor over that window, and the matching finite-prefix
+physical-rate band. Its `response_floor_le_zeroTime` theorem transports the
+floor to the literal same-object zero-time autocorrelation. This remains finite
+window evidence only; the all-scale floor/rate band and all OS/GNS,
+continuum/QFT, physical-mass, every-group, and Clay inputs remain open.

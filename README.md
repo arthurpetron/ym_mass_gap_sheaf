@@ -287,6 +287,16 @@ interface. The route can be constructed from
 and the OS/GNS, continuum-QFT, physical-mass, every-group, and Clay inputs
 remain open.
 
+**New inhabited finite-prefix route (2026-09-27):**
+`ChangingNomeCarrierNormalizedFinitePrefixConcreteRoute bound` packages, for
+every finite scale window, the same repaired concrete channel, a constructive
+positive response floor over that window, and the matching finite-prefix
+physical-rate band. Its `response_floor_le_zeroTime` theorem transports the
+floor to the literal same-object zero-time autocorrelation. This is finite
+window evidence only; it does not supply the missing all-scale floor or rate
+band, nor the OS/GNS, continuum/QFT, physical-mass, every-group, or Clay
+construction.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

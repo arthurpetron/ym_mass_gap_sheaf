@@ -794,6 +794,43 @@ def changingNomeCarrierNormalizedFinitePrefixPhysicalRateBand
       changingNomeCarrierNormalizedExplicitMarginInverseLaw bound :=
   (changingNomeCarrierNormalizedFinitePrefixExplicitMarginDenominatorBand bound).toFinitePrefixPhysicalRateBand
 
+/-! ## 8c. Inhabited finite-prefix same-object route -/
+
+/-- Every finite scale window carries both a positive same-object response floor
+and the corresponding finite-prefix rate band on the identical repaired
+completed family.  The bound is deliberately a field, so this object cannot
+be mistaken for an all-scale calibration. -/
+structure ChangingNomeCarrierNormalizedFinitePrefixConcreteRoute
+    (bound : Nat) : Type 1 where
+  channelBridge : ChangingNomeCarrierNormalizedConcreteChannelBridge
+  response : FinitePrefixResponseFloor channelBridge.channel bound
+  rateBand : ExplicitMarginDenominatorBand.FinitePrefixPhysicalRateBand
+    changingNomeCarrierNormalizedExplicitMarginInverseLaw bound
+
+/-- Construct the finite-prefix route at any supplied bound from the concrete
+moving-cube response certificate and finite denominator extrema. -/
+def changingNomeCarrierNormalizedFinitePrefixConcreteRoute
+    (bound : Nat) :
+    ChangingNomeCarrierNormalizedFinitePrefixConcreteRoute bound where
+  channelBridge := changingNomeCarrierNormalizedConcreteChannelBridge
+  response := finitePrefixResponseCertificate
+    changingNomeCarrierNormalizedMovingCubeChannel bound
+  rateBand := changingNomeCarrierNormalizedFinitePrefixPhysicalRateBand bound
+
+/-- The finite-prefix route's explicit response floor bounds the same-object
+zero-time autocorrelation throughout its window. -/
+theorem ChangingNomeCarrierNormalizedFinitePrefixConcreteRoute.response_floor_le_zeroTime
+    {bound : Nat}
+    (route : ChangingNomeCarrierNormalizedFinitePrefixConcreteRoute bound)
+    (scale : Nat) (hscale : scale ≤ bound) :
+    CReal.RCle
+      (Quotient.mk CReal.crealSetoid
+        (CReal.ofQ' route.response.floor))
+      (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+        route.channelBridge.channel scale 0) := by
+  rw [DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_zero_eq_normSq]
+  exact route.response.lowerNorm scale hscale
+
 /-- Enlarging the finite window can only lower its constructive gap floor. -/
 theorem changingNomeCarrierNormalizedFinitePrefixGapFloor_succ_le
     (bound : Nat) :
@@ -1325,6 +1362,8 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedFinitePrefixResponseFloor_le_sampled_zeroTime
 #print axioms changingNomeCarrierNormalizedFinitePrefixExplicitMarginDenominatorBand
 #print axioms changingNomeCarrierNormalizedFinitePrefixPhysicalRateBand
+#print axioms changingNomeCarrierNormalizedFinitePrefixConcreteRoute
+#print axioms ChangingNomeCarrierNormalizedFinitePrefixConcreteRoute.response_floor_le_zeroTime
 #print axioms changingNomeCarrierNormalizedFinitePrefixGapFloor_succ_le
 #print axioms changingNomeCarrierNormalizedFinitePrefixGapCeiling_le_succ
 #print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalGapBounds
