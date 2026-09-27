@@ -1,5 +1,39 @@
 # Sorry Ledger
 
+## Fixed-base signed-time ambient observable quotient (2026-09-27 UTC)
+
+- **files:** `lean/YMGap/Continuum/BF4WilsonSignedTimeContext.lean`,
+  `lean/YMGap/Continuum/BF4WilsonSignedTimeBaseInclusion.lean`, and
+  `lean/YMGap/Continuum/BF4WilsonSignedTimeObservable.lean`.
+- **contextual laws:** `ContextEq` (Context module `:98`) tests the original
+  mean after multiplication by every signed expression at the fixed base.
+  `context_of_polynomial_eq` (`:109`) retains the arbitrary multiplier;
+  `context_mul`, `context_add`, `context_smul`, `context_forward`,
+  `context_backward`, and `context_reflect` (`:182`, `:195`, `:205`,
+  `:211`, `:219`, `:227`) prove genuine congruence. No OS-null ideal is assumed.
+- **objects and same-carrier pin:** `Observable`, `observableAlg`, and
+  `meanRC` (Observable module `:47`, `:158`, `:186`) construct the quotient,
+  its real observable algebra and normalized stationary RC mean with ordinary
+  square positivity. Product laws, inverse time and reflection conjugacy are
+  literal quotient equalities. `completedTime_as_observable_mean` (`:244`)
+  pins the SAME completed dense-stage transfer correlator to the reflected
+  quotient mean. `star = id` is not time reflection.
+- **source inclusion:** `inclusion`, `window_include`, and `mean_include`
+  (BaseInclusion module `:30`, `:60`, `:132`) preserve original spatial
+  placement, support and expectation; time/reflection compatibility is proved.
+  This does not yet prove quotient inclusion against the larger set of tests.
+- **residue:** ordinary ambient Cauchy--Schwarz/square-nullity transport,
+  all-base quotient and supported-source join, canonical scalar/reflected OS
+  realization, changing-spacing control, continuum QFT and every-group Clay
+  closure remain open. Existing reflected Cauchy--Schwarz cannot substitute
+  for ordinary positivity in the global-base argument. No frontier field or
+  broad chart marker changes.
+- **verification:** three serialized focused monitored checks passed with
+  one worker capped at 20 GiB. All 68 printed declarations use only
+  `{propext, Quot.sound}`. No new `sorry`, classical input, trusted computation,
+  analytic premise or full-tree check. Sol constructed source inclusion and
+  independently reviewed congruence and the remaining global-base obligation.
+
 ## Signed-time original expectation and same reflected source join (2026-09-27 UTC)
 
 - **files:** `lean/YMGap/Continuum/BF4WilsonSignedTimeExpression.lean` and

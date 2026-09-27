@@ -615,3 +615,45 @@ completed-state equality. Signed spatial-base inclusion and its mean
 coherence must be supplied before this is an all-base ambient quotient.
 This identifies the next proof obligation; it does not add a frontier bundle
 or change a canonical field.
+
+## 14. Fixed-base ambient contextual quotient supplied
+
+The preceding fixed-base contextual obligation is now proved:
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `ContextEq` | `lean/YMGap/Continuum/BF4WilsonSignedTimeContext.lean:98` | Equality of original means after every signed expression multiplier at the fixed spatial base. |
+| `context_of_polynomial_eq` | same module `:109` | Coefficient identities with arbitrary tests descend through the unchanged action to the original CReal mean. |
+| `context_mul`, `context_add`, `context_smul` | same module `:182`, `:195`, `:205` | Genuine operation congruence, not an assumed ideal property for OS-null states. |
+| `context_forward`, `context_backward`, `context_reflect` | same module `:211`, `:219`, `:227` | Each arbitrary test is transported through the inverse symmetry. |
+| `Observable`, `observableAlg` | `lean/YMGap/Continuum/BF4WilsonSignedTimeObservable.lean:47`, `:158` | Actual fixed-base quotient and real observable algebra; product laws are proved separately from the minimal `ObsAlg` fields. |
+| `forwardHom`, `backwardHom`, `reflectionHom` | same module `:164`, `:171`, `:178` | Unital product homomorphisms, with literal inverse-time and reflection laws. |
+| `meanRC` | same module `:186` | Quotient-valued original mean; normalization, linearity, stationarity and ordinary-square positivity follow in `:190`--`:228`. No CReal representative is selected from RC. |
+| `reflectedMean_intrinsic` | same module `:235` | The reflected quotient mean is the original intrinsic OS form. |
+| `completedTime_as_observable_mean` | same module `:244` | The SAME current completed transfer's dense-stage correlator is the reflected quotient mean at the computed common base. |
+| `inclusion`, `window_include` | `lean/YMGap/Continuum/BF4WilsonSignedTimeBaseInclusion.lean:30`, `:60` | Source inclusion preserves original loop placement and its guarded window. |
+| `mean_include` | same module `:132` | Original CReal expectation is preserved under source inclusion. |
+
+The algebra's `star = id` is real conjugation, not time reflection. The
+reflected form and ordinary square mean remain distinct. The transfer pin
+concerns dense stages, not a chosen common base for every completed vector.
+
+### Remaining global-base obligation
+
+`mean_include` alone does not preserve `ContextEq`: the larger base permits
+additional tests. No quotient inclusion declaration is claimed. The identified
+next argument is ordinary Cauchy--Schwarz and the square-zero radical
+criterion, followed by transport of the squared difference through
+`mean_include`. The existing `spatialLimit_cauchySchwarz` and `radical_zero`
+in `BF4ExactSlabFixedSpatialWilsonReflectedCauchySchwarz.lean` concern the
+reflected form and cannot fill that ordinary-mean obligation. Supported-source
+quotient identification, canonical scalar/reflected root, all-vector range,
+scaling and the continuum/Clay endpoint remain open. No canonical field was
+modified and no extra analytic premise was inserted.
+
+Verification: all three modules passed focused checks serialized through the
+monitored launcher with one worker capped at 20 GiB. All 68 printed declarations
+use only `{propext, Quot.sound}`; no `sorryAx` or `Classical.choice` occurs in
+their printed dependencies. Sol implemented source inclusion and separately
+reviewed contextual congruence, same-carrier scope and the global-base gap.
+No full-tree audit was run. Broad chart markers remain unchanged.

@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ambient quotient (2026-09-27 UTC; chart markers unchanged):
+`BF4WilsonSignedTimeContext` and `BF4WilsonSignedTimeObservable` supply the
+fixed-base all-test quotient, associative commutative product, inverse time,
+reflection and ordinary positive stationary RC mean. Its reflected mean is
+exactly the SAME current completed dense transfer correlator.
+`BF4WilsonSignedTimeBaseInclusion` preserves the original mean under source
+inclusion. All three focused checks passed within `{propext, Quot.sound}`.
+Global quotient inclusion still needs an ordinary square-nullity argument
+against larger-base tests; mean inclusion alone does not supply it.
+Canonical scalar/reflected OS realization and continuum/Clay remain open.
+
 Verified supporting source join (2026-09-27 UTC; chart markers unchanged):
 `BF4WilsonSignedTimeExpression` supplies exact inverse signed time and
 reflection, with guarded finite-window realization.
@@ -7,8 +18,8 @@ reflection, with guarded finite-window realization.
 CReal mean and proves its time/reflection invariance. Its
 `completedTime_correlator_as_mean` pins the SAME current completed dense
 transfer correlators to that reflected ambient expression mean. Both focused
-checks passed within `{propext, Quot.sound}`. Raw syntax is not yet an
-associative algebra quotient; global ambient descent, canonical scalar/form
+checks passed within `{propext, Quot.sound}`. The subsequent fixed-base
+quotient is recorded above; global ambient descent, canonical scalar/form
 realization and all continuum/Clay obligations remain open. No unchanged
 ASCII chart is reprinted.
 

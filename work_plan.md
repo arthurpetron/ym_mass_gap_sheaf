@@ -25,6 +25,35 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Fixed-base signed-time observable quotient checked (2026-09-27 UTC)
+
+`BF4WilsonSignedTimeContext.lean` now proves all-test contextual equivalence
+is compatible with multiplication, addition, rational scaling, both time
+directions and reflection. Polynomial identities retain an arbitrary test
+multiplier and the original action. Inverse time pulls each arbitrary test
+backward; no product ideal property of OS-null states is assumed.
+`BF4WilsonSignedTimeObservable.lean` constructs the fixed-positive-base
+quotient, its associative commutative unital product, actual time/reflection
+homomorphisms, and normalized positive stationary RC-valued mean.
+`completedTime_as_observable_mean` identifies the SAME current completed
+dense transfer correlator with the quotient's reflected mean at its computed
+common base. Ordinary conjugation (`star = id`) is distinct from reflection.
+
+`BF4WilsonSignedTimeBaseInclusion.lean` also constructs source inclusion,
+preserving the support radius, time/reflection operations and original mean.
+It does not yet descend between contextual quotients: larger bases allow
+new tests. Next prove ordinary ambient Cauchy--Schwarz and its square-zero
+radical consequence, then transport square-nullity through `mean_include`.
+The existing reflected Cauchy--Schwarz theorem is not a substitute. The
+supported quotient join and canonical scalar/reflected-root realization
+remain open; canonical fields are unchanged.
+
+All three focused checks passed serially with one worker capped at 20 GiB.
+All 68 printed declarations use only `{propext, Quot.sound}`. Sol supplied
+the inclusion module and independently reviewed quotient congruence and the
+global-base gap. Audit section 14 records scope and evidence. No new hole,
+analytic premise, full-tree run or broad chart-marker advance is claimed.
+
 ### Signed-time original state and reflected source join checked (2026-09-27 UTC)
 
 `BF4WilsonSignedTimeExpression.lean` constructs integer-time Wilson syntax
@@ -43,13 +72,11 @@ SAME current transfer's dense correlators with that signed observable's time
 advance. This does not replace the reflected form with ordinary expectation
 of a square.
 
-Next prove the ambient product-context congruence and its spatial-base
-coherence, rather than assuming raw syntax is an associative algebra or
-that equality of completed OS states is a product congruence. Inverse time
-now permits pulling arbitrary ambient tests backward. The positive-stage
-quotient join still needs a supported shifted-test construction and an
-explicit product-vacuum mean pin. Canonical scalar fields remain unchanged;
-no ambient algebra quotient or canonical OS root has yet been supplied.
+The fixed-base product-context congruence and ambient quotient have since
+been supplied above; global spatial-base contextual coherence is still open.
+The positive-stage quotient join still needs a supported shifted-test
+construction and an explicit product-vacuum mean pin. Canonical scalar
+fields remain unchanged; no canonical OS root has yet been supplied.
 
 Both new modules passed focused monitored checks, serialized with one worker
 capped at 20 GiB. All 45 printed declarations are axiom-free or use only
