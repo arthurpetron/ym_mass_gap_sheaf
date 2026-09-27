@@ -3402,6 +3402,11 @@ physical-gap-variation certificate and compiles it to the existing
 constructive physical-exponential certificate; endpoint Euler moduli remain
 separate inputs; `toModulusCertificateOfExplicitSandwich` exposes their exact
 lower/upper/width obligations against the same scheduled rate stream.  The
+`WilsonContinuumMassClusteringJoin` then adds an explicit raw-to-projective
+same-object identification, OS-value compatibility, projective Wilson
+coefficient pin, and reconstruction spectral channel, compiling to the
+repository's positive exact-mass/nontrivial-clustering endpoint.  These remain
+certificate inputs, not constructed continuum data.  The
 bundle is a certificate interface, not an inhabitant: no OS/GNS construction,
 continuum QFT, physical-mass calibration, every-group theorem, or Clay result
 is claimed.  Focused checking reported only `{propext, Quot.sound}` and no

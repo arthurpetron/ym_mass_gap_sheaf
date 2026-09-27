@@ -30697,3 +30697,16 @@ eventual inequalities plus an explicit endpoint width are consumed by the
 existing constructive Euler squeeze, all indexed by the repaired family’s own
 scheduled rate stream.  These three obligations remain uninhabited; no
 physical mass is inferred, and the canonical chart marker remains unchanged.
+
+## Same-carrier continuum mass/clustering endpoint (2026-09-27 UTC)
+
+`WilsonContinuumMassClusteringJoin` attaches the repository's
+`ContinuumMassClusteringEndpoint` to the repaired Wilson join.  Its fields
+include an explicit raw-to-projective sampled-gap identification, OS-value
+compatibility with the Wilson raw handoff, a projective Wilson coefficient
+pin, and a reconstruction spectral-channel handoff.  `toEndpoint` then
+supplies the same join's iterated Wilson gap, yielding the existing positive
+exact-mass and nontrivial-clustering interface.  No projective measure,
+spectral channel, physical calibration, full QFT, every-group, or Clay witness
+is constructed; focused checking remains `{propext, Quot.sound}` with no
+`sorryAx`.

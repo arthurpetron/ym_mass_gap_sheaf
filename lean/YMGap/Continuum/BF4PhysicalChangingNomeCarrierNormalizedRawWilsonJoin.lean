@@ -15,6 +15,7 @@ axiom, or noncomputable declaration is used.
 
 import YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath
+import YMGap.Continuum.ContinuumMassClusteringEndpoint
 
 namespace YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
 
@@ -45,6 +46,13 @@ open YMGap.Continuum.FourDExistence
 open YMGap.Continuum.SummableRationalStepVariation
 open YMGap.Continuum.WilsonMinimalBoundedMassGapHandoff
 open YMGap.Continuum.WilsonIteratedNormDecayHandoff
+open YMGap.Continuum.ContinuumMassClusteringEndpoint
+open YMGap.Continuum.ProjectiveOSCorrelationHandoff
+open YMGap.Continuum.ProjectiveWilsonConnectedDecayHandoff
+open YMGap.Continuum.PhysicalSeparator
+open YMGap.Continuum.PhysicalSeparatorLogRate
+open YMGap.Continuum.PhysicalSeparatorContinuumRealization
+open YMGap.Continuum.TuranPositivity
 
 /-! ## Same-family OS/GNS handoff inputs -/
 
@@ -213,6 +221,66 @@ def WilsonPhysicalExponentialJoin.toModulusCertificateOfExplicitSandwich
   data.toPhysicalExponentialJoin.toModulusCertificateOfExplicitSandwich
     lowerLeMiddle middleLeUpper width
 
+/-! ## Same-carrier continuum mass/clustering endpoint -/
+
+/-- The remaining projective/spectral data needed by the repository's
+    exact-mass clustering endpoint, attached to the raw observable selected by
+    the same repaired Wilson join. -/
+structure WilsonContinuumMassClusteringJoin
+    (P : PhysicalSeparator)
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    (H : ContinuumYMExistence mu)
+    (W : WilsonSelectedOSGNSData H)
+    {A : PhysicalSpacing}
+    (sampling : PhysicalSeparationSampling A) : Type 4 where
+  wilson : WilsonJoin H W
+  projective : ProjectiveOSCorrelationHandoff
+    P H W.measureLinked sampling
+  sameObject : RawMovingCubeSampledGapCorrelationIdentification
+    changingNomeCarrierNormalizedDynamicFamily wilson.core.raw projective
+  projectiveOS_eq_wilsonOS : forall time : Nat,
+    CReal.Equiv
+      (CReal.ofQ'
+        (H.os_axioms.E.E
+          (projective.osConnectedTwoPoint.connectedInsertion
+            projective.osConnectedTwoPoint.gapInsertion time)))
+      (CReal.ofQ'
+        (H.os_axioms.E.E
+          (wilson.certificates.projectiveOS.osConnected.connectedInsertion
+            wilson.certificates.projectiveOS.osConnected.gapInsertion time)))
+  correlationPin : ProjectiveWilsonOSMatrixCoefficientPin projective W
+  spectralChannel :
+    ProjectiveOSCorrelationHandoff.ReconstructionSpectralChannelHandoff
+      projective W.reconstruction
+
+/-- Compile the same-family projective and spectral certificates to the
+    existing positive-mass/nontrivial-clustering endpoint. -/
+def WilsonContinuumMassClusteringJoin.toEndpoint
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (data : WilsonContinuumMassClusteringJoin P H W sampling) :
+    ContinuumMassClusteringEndpoint W data.projective :=
+  { iteratedGap := data.wilson.toIteratedBoundedMassGap
+    correlationPin := data.correlationPin
+    spectralChannel := data.spectralChannel }
+
+/-- The endpoint's exact logarithmic mass is positive for the same selected
+    Wilson datum. -/
+theorem WilsonContinuumMassClusteringJoin.massRate_posEv
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (data : WilsonContinuumMassClusteringJoin P H W sampling) :
+    TuranPositivity.PosEv data.toEndpoint.massRate :=
+  data.toEndpoint.massRate_posEv
+
 end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
 
 /-! ## Axiom-dependency gates -/
@@ -231,3 +299,7 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.toCertificate
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonPhysicalExponentialJoin.toModulusCertificateOfExplicitSandwich
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonContinuumMassClusteringJoin.toEndpoint
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonContinuumMassClusteringJoin.massRate_posEv
