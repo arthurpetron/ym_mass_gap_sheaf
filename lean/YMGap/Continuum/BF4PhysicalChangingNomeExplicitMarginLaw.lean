@@ -442,6 +442,20 @@ def changingNomeCarrierNormalizedSpacing : PhysicalSpacing where
   spacing_pos := fun scale => by
     exact Q'.invSucc_pos _
 
+/-- The repaired spacing has an explicit scale envelope, independently of the
+carrier numerator: its denominator is at least `scale`.  This is stronger
+than the abstract spacing-to-zero witness and is still only spacing control;
+it does not compare the physical gap denominator with the lattice spacing. -/
+theorem changingNomeCarrierNormalizedSpacing_le_invSucc (scale : Nat) :
+    changingNomeCarrierNormalizedSpacing.spacing scale ≤ Q'.invSucc scale := by
+  let carrier := Q'.ofNat 6 * changingNomeBandScale scale
+  let index := carrier.num.toNat + scale
+  have hindex : scale ≤ index := by
+    dsimp [index]
+    omega
+  simpa [changingNomeCarrierNormalizedSpacing, index] using
+    (ExpNeg.invSucc_le_of_le hindex)
+
 def changingNomeCarrierNormalizedSpacingToZero :
     SpacingToZero changingNomeCarrierNormalizedSpacing where
   modulus := fun epsilon => epsilon.den
@@ -947,6 +961,7 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeBand_lower_bound_scale_zero_impossible
 #print axioms changingNomeCarrierNormalizedSpacing
 #print axioms changingNomeCarrierNormalizedSpacingToZero
+#print axioms changingNomeCarrierNormalizedSpacing_le_invSucc
 #print axioms changingNomeCarrierNormalizedSpacing_carrier_ceiling
 #print axioms changingNomeCarrierNormalizedDynamicFamily
 #print axioms changingNomeCarrierNormalizedDynamicFamily_same_nome

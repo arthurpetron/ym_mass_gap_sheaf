@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **104**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **105**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -43,6 +43,11 @@ compiler: once the two still-uninhabited uniform product inequalities are
 supplied, the same completed nome/gap data contract through the physical-rate
 interface to `SharpContinuumObligation.ContinuumGapTheorem`.  This is a
 conditional downstream join, not a physical calibration or continuum result.
+The repaired spacing now also has the explicit scale envelope
+`changingNomeCarrierNormalizedSpacing_le_invSucc`, namely spacing at scale
+`s` is at most `1/(s+1)`, independently of the carrier numerator.  This is
+stronger than the abstract spacing-to-zero modulus but does not compare the
+physical gap denominator with spacing.
 The new `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean` module
 then packages that calibration together with the raw representative,
 normalization-debt, and scheduled-rate variation inputs as one exact
@@ -650,6 +655,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                            (spacing/carrier schedule must be redesigned)
                                        [x] Carrier-normalized repaired spacing schedule
                                            (same completed nome/gap; calibration still open)
+                                       [x] Carrier-normalized spacing ≤ 1/(scale+1) envelope
+                                           (explicit scale control; denominator comparison open)
                                        [x] Carrier-normalized product-band -> continuum-gap compiler
                                            (two uniform product bounds remain open)
                                        [x] Carrier-normalized product-band -> floor-order specialization
@@ -782,6 +789,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04am | Physical-exponential endpoint-modulus boundary | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.toModulusCertificate`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:177--204`; accepts explicit upper/lower CReal convergence moduli for the exact same-family scheduled Euler endpoint streams and compiles them with the existing physical-exponential certificate. The moduli remain open inputs; no cutoff-removal, physical-mass, every-group, or Clay completion follows. |
 | B04an | Exact scheduled rate-power middle modulus | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.ratePowerExplicitCertificate`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:179--193`; projects the explicit CReal convergence certificate already carried by the same-family rational scheduled-rate variation onto the exact middle stream and its physical-exponential limit representative. Euler endpoint moduli, cutoff removal, physical mass, every-group, and Clay completion remain open. |
 | B04ao | Typed explicit physical-exponential squeeze compiler | `YMGap.Constructive.CReal.explicitEndpointsOfSandwich`, `YMGap.Constructive.CReal.explicitEndpoints_const_zero`, `lean/YMGap/Constructive/CRealExplicitSqueeze.lean:82--321`, and `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.toModulusCertificateOfExplicitSandwich`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:238--278`; explicit eventual-order and scale/approximation-width witnesses compile the exact middle certificate into both endpoint certificates, and a constant-zero witness proves non-vacuity. The physical endpoint order/width inputs, cutoff removal, physical mass, every-group, and Clay completion remain open. |
+| B04ap | Carrier-normalized explicit scale spacing envelope | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeCarrierNormalizedSpacing_le_invSucc`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:445--457`; proves the repaired spacing at scale `s` is at most `Q'.invSucc s`, independently of the carrier numerator. This strengthens spatial modulus control but does not compare the physical gap denominator with spacing or close the product band, continuum, or Clay target. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1704,3 +1712,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 118 | 2026-09-26 | Isolated the explicit upper/lower CReal endpoint-modulus inputs at `PhysicalExponentialJoin.toModulusCertificate`, preserving the exact same-family rate-power limit and the existing physical-exponential compiler. The modulus witnesses remain open; no physical mass or Clay claim is added. |
 | 1 / 119 | 2026-09-26 | Exposed `PhysicalExponentialJoin.ratePowerExplicitCertificate`, projecting the exact scheduled rate-power middle modulus from the rational variation witness while keeping both Euler endpoint moduli explicit and open. No physical mass or Clay claim is added. |
 | 1 / 120 | 2026-09-26 | Added `CReal.explicitEndpointsOfSandwich`, its constant-zero non-vacuity witness, and the same-family `toModulusCertificateOfExplicitSandwich` handoff. Explicit order/width inputs now compile to both Euler endpoint certificates; those physical inputs and all continuum/Clay obligations remain open. |
+| 1 / 121 | 2026-09-26 | Proved the repaired carrier-normalized spacing envelope `spacing(scale) ≤ 1/(scale+1)`, independent of the carrier numerator. This adds explicit spatial modulus control while leaving the denominator-versus-spacing comparison, product band, continuum, and Clay obligations open. |

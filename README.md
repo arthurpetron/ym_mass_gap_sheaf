@@ -32,6 +32,9 @@ already-available CReal modulus for the exact middle scheduled-rate stream.
 width moduli into both endpoint certificates, with a constant-zero witness
 showing the compiler is inhabited; the physical order/width inputs remain
 open.
+The repaired carrier-normalized spacing also satisfies the explicit envelope
+`spacing(scale) ≤ 1/(scale+1)`, independent of the carrier numerator. This is
+spatial modulus control only; the gap-denominator comparison remains open.
 The endpoint moduli, cutoff removal, OS/GNS/QFT passage, physical mass,
 every-group construction, and Clay theorem remain open by design.
 

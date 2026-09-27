@@ -29975,3 +29975,18 @@ exponential modulus certificate while preserving the exact joined
 rate-power limit.  The physical endpoint order/width witnesses remain open;
 this milestone does not claim cutoff removal, OS/GNS/QFT, physical mass,
 every-group construction, or the Clay theorem.
+
+## Carrier-normalized explicit scale spacing envelope (2026-09-26 UTC)
+
+`changingNomeCarrierNormalizedSpacing_le_invSucc` in
+`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:445--457`
+proves the repaired spacing at scale `s` is bounded by `Q'.invSucc s`.
+The proof uses only that the repaired denominator is
+`carrier.num.toNat + s`, hence at least `s`; it is independent of any
+asymptotic estimate on the carrier numerator.  The monitored declaration
+check reports only `{propext, Quot.sound}` and no `sorryAx`.
+
+This is a genuine spatial modulus strengthening, not the missing physical
+calibration: the comparison of the physical gap denominator with the spacing,
+the uniform product band, the continuum/QFT passage, physical mass,
+every-group construction, and Clay conclusion remain open.
