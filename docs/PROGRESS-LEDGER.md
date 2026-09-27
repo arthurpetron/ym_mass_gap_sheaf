@@ -22,6 +22,20 @@ canonical gap, OS/GNS realization, continuum/QFT, physical-mass, every-group,
 or Clay endpoint is constructed. The dependency-complete monitored target
 passed in 2,602 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
 
+## Current increment: make the canonical unit-probe image round-trip explicit (2026-09-27 UTC)
+
+`CanonicalUnitProbeData.current_preimage`, `CanonicalUnitProbeData.image_eq`,
+and `CanonicalRangeSectionCertificate.currentOfCanonical_unitProbe`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1031--1032,
+:1431--1441`) record and transport the exact current-carrier preimage of the
+canonical unit excitation.  Any supplied canonical range section is now proved
+to return that stored preimage, establishing a pointwise natural round-trip
+without selecting or constructing an all-vector range section.  The canonical
+range section, completed all-vector gap, OS/GNS realization, continuum/QFT,
+physical-mass, every-group, and Clay endpoints remain open.  The
+dependency-complete monitored target passed in 2,602 jobs with only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 ## Current increment: exact-rate certificate contracts into the semantic handoff (2026-09-27 UTC)
 
 `MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofExactRateCutoffRemoval`

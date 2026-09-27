@@ -14,7 +14,9 @@ Mathlib-free Lean with explicit witnesses and moduli.
 `CanonicalUnitProbeData` and `CurrentCarrierBridge.canonicalUnitProbe` now
 transport the already normalized `unitExcitation` into the named canonical
 GNS image, retaining one-vector vacuum orthogonality, nonzero-ness, and the
-explicit positive `rayleighFloor` two-step response. This remains conditional
+explicit positive `rayleighFloor` two-step response. Its explicit current
+preimage is now also returned by any supplied range section via
+`CanonicalRangeSectionCertificate.currentOfCanonical_unitProbe`. This remains conditional
 on the uninhabited `CurrentCarrierBridge`; the canonical range section,
 completed all-vector gap, OS/GNS realization, continuum/QFT, physical mass,
 every-group, and Clay nodes remain open. The dependency-complete target

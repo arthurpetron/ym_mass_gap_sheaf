@@ -65757,6 +65757,22 @@ calibration, every-group theorem, and Clay result remain open. The
 dependency-complete monitored target passed in 2,602 jobs; the new declarations
 use only `{propext, Quot.sound}` and no `sorryAx`.
 
+## 250. Make the canonical unit-probe image round-trip explicit (2026-09-27)
+
+`CanonicalUnitProbeData` now carries both the canonical vector and its exact
+current-carrier preimage, together with the image equality.  The new
+`CanonicalRangeSectionCertificate.currentOfCanonical_unitProbe` theorem proves
+that any supplied canonical range section sends this vector back to that stored
+preimage.  Thus the pointwise unit excitation is a genuine natural round-trip
+across the bridge; the theorem does not select or construct an all-vector
+range section.
+
+The canonical range section, completed all-vector gap, projective/OS
+realization, continuum/QFT construction, physical mass calibration,
+every-group theorem, and Clay result remain open.  The dependency-complete
+monitored target passed in 2,602 jobs; the new declarations use only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A

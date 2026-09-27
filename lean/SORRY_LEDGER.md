@@ -21,6 +21,25 @@
   2,602 jobs. The new declarations report only `{propext, Quot.sound}` and
   no `sorryAx`, classical axiom, `native_decide`, or custom axiom.
 
+## Canonical unit-probe image round-trip (2026-09-27 UTC)
+
+- **declarations:** `CanonicalUnitProbeData.current_preimage`,
+  `CanonicalUnitProbeData.image_eq`, and
+  `CanonicalRangeSectionCertificate.currentOfCanonical_unitProbe` in
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1031--1032,
+  :1431--1441`.
+- **result:** the canonical unit excitation carries its exact current-carrier
+  preimage, and any supplied canonical range section is proved to return that
+  same preimage.  This is a pointwise naturality result, not an all-vector
+  section construction.
+- **scope:** the all-vector range section, canonical completed gap,
+  OS/GNS realization, continuum/QFT, physical-mass, every-group, and Clay
+  endpoints remain explicit open obligations.
+- **verification:** dependency-complete monitored target
+  `+YMGap.Continuum.BF4WilsonSpatialUnionCanonicalGNSBridge:olean` passed in
+  2,602 jobs; the new declarations report only `{propext, Quot.sound}` and no
+  `sorryAx`, classical axiom, `native_decide`, or custom axiom.
+
 ## Exact-rate certificate contracts into the semantic handoff (2026-09-27 UTC)
 
 - **declaration:** `toContinuumHandoff_ofExactRateCutoffRemoval` in

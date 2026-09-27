@@ -1028,6 +1028,8 @@ structure CanonicalUnitProbeData
     (P : WilsonTimeTranslationPin W)
     (J : CurrentCarrierBridge P) : Type 2 where
   vector : GNSCompletionSpace W.toGNSData
+  current_preimage : V
+  image_eq : J.map current_preimage = vector
   vacuum_orthogonal :
     W.toGNSData.cinnerCompl vector P.op.vacuum = RCzero
   nonzero : vector ≠ embedV W.toGNSData W.toGNSData.zero
@@ -1330,6 +1332,8 @@ same-object response floor all refer to one canonical vector. -/
 def canonicalUnitProbe
     (J : CurrentCarrierBridge P) : CanonicalUnitProbeData P J where
   vector := J.map unitExcitation
+  current_preimage := unitExcitation
+  image_eq := rfl
   vacuum_orthogonal := J.canonicalUnitProbe_vacuum_orthogonal
   nonzero := J.canonicalUnitProbe_ne_zero
   twoStep_response_floor := J.canonicalUnitProbe_twoStep_response_floor
@@ -1423,6 +1427,18 @@ theorem map_currentOfCanonical
   refine Quotient.inductionOn z ?_
   intro X
   exact (D.class_eq X).symm
+
+/-- On the transported unit probe, a supplied canonical range section
+round-trips to the exact stored current-carrier preimage. This is the
+pointwise naturality statement needed before attempting an all-vector section;
+it does not construct that section. -/
+theorem currentOfCanonical_unitProbe
+    (D : CanonicalRangeSectionCertificate P J) :
+    D.currentOfCanonical J.canonicalUnitProbe.vector =
+      J.canonicalUnitProbe.current_preimage := by
+  apply J.map_injective
+  rw [D.map_currentOfCanonical]
+  exact J.canonicalUnitProbe.image_eq.symm
 
 /-- The supplied range section therefore identifies the current and canonical
 completed carriers in both directions. -/

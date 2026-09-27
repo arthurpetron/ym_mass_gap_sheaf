@@ -17,7 +17,8 @@ Latest proof-state increment (2026-09-27 UTC): the named current-to-canonical
 bridge now transports the normalized `unitExcitation` into a single canonical
 GNS vector with vacuum orthogonality, nonzero-ness, and the explicit positive
 `rayleighFloor` two-step response. This is conditional on the bridge datum;
-the canonical range section and every continuum/Clay endpoint remain open.
+its stored current preimage is returned exactly by any supplied range section;
+the all-vector canonical range section and every continuum/Clay endpoint remain open.
 Latest continuation checkpoint (2026-09-27 UTC): the correlated same-edge
 local-producer compiler is now named by `correlatedCapacityDebtProducer` and
 has a checked same-carrier adapter
