@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **79**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **80**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -16,6 +16,9 @@ no-go now proves that this fixed-carrier family admits no physical-rate band.
 The anchor branch now also carries a constant-presheaf family whose fiber at
 each cutoff is the checked finite-linear restricted transition product; this
 is cutoff-dependent finite data, not a cofinal or continuum family.
+The B04 branch now also exposes the finite anchor-floor half ceiling and an
+abstract quotient lower-budget compiler; its dependent changing-nome
+instantiation remains open.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -110,6 +113,16 @@ is `changingNomeFinitePrefixResponseCertificate` (`:89--106`).  The focused
 check reports only `{propext, Quot.sound}`.  This is finite-prefix response
 survival; it is not a scale-uniform excitation, an OS/GNS result, or a Clay
 mass-gap theorem.
+
+Latest verified finite anchor-budget increment (2026-09-26 UTC):
+`fixedBasePulledPositiveEdgeFloorValue_le_half`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeAnchorBudget.lean:60--69`)
+exposes the unit-fallback ceiling on the actual finite pulled-kernel floor,
+and `divPos_ge_two_mul_of_floor_le_half` (`:101--109`) compiles that ceiling
+into a generic positive-quotient lower bound.  Both focused declarations are
+axiom-clean within `{propext, Quot.sound}`.  The dependent instantiation for
+`headEnergyConstant` and the cofinal order of the floor remain open; this is a
+one-sided finite budget, not the missing B04 band or a Clay result.
 
 Latest backward frontier expansion (2026-09-26 UTC): the finite-prefix
 response certificate does not discharge the asymptotic inputs required by the
@@ -346,6 +359,7 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Any inhabited spacing-to-zero band forces denominator growth
                                        [x] Exact same-family denominator band on every finite scale prefix
                                        [x] Finite-prefix denominator -> rate compiler
+                                       [x] Finite anchor-floor half ceiling / quotient budget compiler
                                        [ ] Infinite-scale denominator/spacing comparison
                                        [ ] Anchor-minimum asymptotic estimate
                                            F(w_n) comparable to spacing
@@ -423,6 +437,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04o | Exact same-family finite-prefix denominator band | `BF4PhysicalDynamicVacuumSectorExplicitMarginBand.finitePrefixGapFloor`, `.finitePrefixGapCeiling`, `.physicalGap_mul_spacing_mul_den_eqv_one`, and `.finitePrefixExplicitMarginDenominatorBand`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:160--330`; the exact same-family physical-gap stream has a positive finite-prefix minimum and maximum, and the reciprocal identity turns them into lower/upper denominator products on every finite prefix. This is a finite-regulator certificate only; it does not supply one scale-independent band, changing-family same-theory transport, OS/GNS, continuum/QFT, physical mass, or Clay closure. |
 | B04p | Finite-prefix denominator-to-rate compiler | `BF4PhysicalDynamicVacuumSectorExplicitMarginBand.FinitePrefixExplicitMarginDenominatorBand.toFinitePrefixPhysicalRateBand`, `lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorExplicitMarginBand.lean:333--380`; divides the same positive denominator and preserves the same floor/ceiling on each finite prefix, yielding the rate inequalities for the identical family. This is windowed only and does not inhabit the all-scale physical-rate band or any continuum/Clay node. |
 | B04q | Concrete changing-nome denominator/spacing target | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:29--38`, together with `BF4PhysicalCubeCutoffUniformGap.gapDenominator`, `lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGap.lean:33--48`, `BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant`, `lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean:159--166`, and `BF4PhysicalFiniteVacuumSectorSimplePathScale.centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale`, `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorSimplePathScale.lean:223--227`; the missing all-scale proof reduces to fixed `L,U>0` with `L ≤ s_n*(2+6*H(w_n)) ≤ U`, where `H=S/F` and `F` is the anchored finite pulled-kernel minimum. No declaration currently estimates `F` along shrinking `w_n`, so this remains OPEN. |
+| B04r | Finite anchor-floor ceiling / abstract quotient budget | `BF4PhysicalChangingNomeAnchorBudget.fixedBasePulledPositiveEdgeFloorValue_le_half` and `.divPos_ge_two_mul_of_floor_le_half`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeAnchorBudget.lean:60--109`; the unit fallback gives `F ≤ 1/2`, and a generic positive quotient compiler gives `2*S ≤ S/F` when instantiated with a positive numerator and floor. The dependent `headEnergyConstant` instantiation and any cofinal order estimate remain open; this is a one-sided finite budget, not B04 closure. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1320,3 +1335,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 93 | 2026-09-26 | Consumed the changing-family form gap on the literal moving-cube channel and proved `changingNomeMovingCube_relative_loss`, a same-object lag-one deficit inequality. The margin remains scale-dependent; physical-rate, rational-observable, OS/GNS, continuum/QFT, all-group and Clay nodes remain open, with no canonical chart marker change. |
 | 1 / 94 | 2026-09-26 | Transported the same changing-family lag-one deficit to the global adaptive Markov coefficient of the identical embedded vector with `changingNomeMovingCube_relative_loss_global`. No operator substitution or chart marker change. |
 | 1 / 95 | 2026-09-26 | Proved `ExplicitMarginDenominatorBand.denominator_unbounded`: any inhabited two-sided denominator band over a spacing-to-zero family must exceed every positive rational ceiling at some computable scale. This rules out bounded-denominator shortcuts but does not prove the concrete changing-nome denominator-versus-spacing inequalities or change a canonical whole-project marker. |
+| 1 / 96 | 2026-09-26 | Added the axiom-clean finite anchor-floor ceiling `fixedBasePulledPositiveEdgeFloorValue_le_half` and the abstract quotient budget compiler `divPos_ge_two_mul_of_floor_le_half`. This adds one-sided B04 evidence only; the dependent head-constant instantiation and cofinal floor order remain open. |

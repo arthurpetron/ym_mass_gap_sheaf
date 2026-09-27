@@ -118,6 +118,24 @@ This is the finite-window form of nonzero survival on the same completed
 carrier.  The all-scale response floor, a scaling-family observable pin, and
 the A05/B05 continuum joins remain open.
 
+## Current increment: finite anchor-floor ceiling and abstract quotient budget (2026-09-26 UTC)
+
+`fixedBasePulledPositiveEdgeFloorValue_le_half`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeAnchorBudget.lean:60--69`)
+proves that the anchored finite pulled-kernel floor is always at most its
+explicit half-unit fallback.  The same module's
+`divPos_ge_two_mul_of_floor_le_half` (`:101--109`) is a constructive
+division compiler: whenever a positive quotient has denominator at most one
+half, its value is at least twice its positive numerator.  Both declarations
+pass the focused monitored check with only `{propext, Quot.sound}`.
+
+This sharpens the B04 asymptotic target by exposing a one-sided finite budget,
+but it does not silently instantiate the dependent `headEnergyConstant` or
+claim a denominator bound: the missing cofinal lower estimate on the actual
+anchor minimum `F(w_n)` remains open.  Consequently the all-scale physical
+rate band, OS/GNS, continuum/QFT, physical mass, every-group, and Clay nodes
+remain open.
+
 ## Backward frontier expansion: changing-family tail inputs (2026-09-26 UTC)
 
 The finite-prefix response floor does not supply the asymptotic certificates

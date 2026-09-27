@@ -165,6 +165,29 @@ def headEnergyConstant (w : Q') (hw : (0 : Q') ≤ w) : Q' :=
 theorem headEnergyConstant_pos (w : Q') (hw : (0 : Q') ≤ w) : (0 : Q') < headEnergyConstant w hw :=
   Q'.divPos_pos _ _ _ (centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale_pos w hw 1404 0)
 
+/-! The quotient definition is kept behind these two small projection lemmas.
+Downstream calibration files should use them instead of unfolding the
+dependent carrier expression, which otherwise causes expensive elaboration. -/
+
+theorem headEnergyConstant_eq_divPos (w : Q') (hw : (0 : Q') ≤ w) :
+    headEnergyConstant w hw =
+      Q'.divPos
+        (centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale
+          w hw 1404 0)
+        (fixedBasePulledPositiveEdgeFloorValue w hw 1404 0)
+        (fixedBasePulledPositiveEdgeFloorValue_pos w hw 1404 0) := rfl
+
+theorem fixedBasePulledPositiveEdgeFloorValue_mul_headEnergyConstant_eqv_scale
+    (w : Q') (hw : (0 : Q') ≤ w) :
+    fixedBasePulledPositiveEdgeFloorValue w hw 1404 0 *
+        headEnergyConstant w hw ≈
+      centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale
+        w hw 1404 0 := by
+  rw [headEnergyConstant_eq_divPos]
+  exact Q'.eqv_trans _ _ _
+    (Q'.mul_comm_eqv _ _)
+    (Q'.divPos_mul_eqv _ _ _)
+
 /-- The formerly open fixed-head estimate, with its concrete constant and
 onset. Uniform in later K; NOT uniform in the nome w. -/
 theorem anchored_head_bound {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
@@ -232,6 +255,8 @@ end YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound
 #print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.headBoundStart_ge_base
 #print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant
 #print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant_pos
+#print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant_eq_divPos
+#print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.fixedBasePulledPositiveEdgeFloorValue_mul_headEnergyConstant_eqv_scale
 #print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.anchored_head_bound
 #print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.coercivityConstant
 #print axioms YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.coercivityConstant_pos
