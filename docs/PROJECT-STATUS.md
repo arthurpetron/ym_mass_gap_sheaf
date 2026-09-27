@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **109**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **110**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -95,11 +95,12 @@ Latest verified compiler reduction (2026-09-26 UTC):
 scale-indexed cofinal spin-ray capacity directly from the literal matched
 nome, using the existing selected-term row ceiling.  Its
 `MatchedPhysicalExplicitRayOffRayProducer.toRootProducer` therefore reduces
-the matched rooted dynamic input to one named field: a cofinal off-ray root
-certificate at each scale.  The compiler preserves the existing completed
-canonical-sector carrier, transfer, vacuum complement, and conditional
-posterior fraction; `fraction_pos` and `fraction_le_one` are checked for the
-same literal objects.  The off-ray field, strength/spacing comparison,
+the matched rooted dynamic input to one named primitive field: a cofinal
+off-ray resistance-congestion bound at each scale.  The existing
+`toCofinalOffRayRootCoercivity` compiler and the explicit ray then preserve
+the same completed canonical-sector carrier, transfer, vacuum complement, and
+conditional posterior fraction; `fraction_pos` is checked for the same
+literal objects.  The resistance bound, strength/spacing comparison,
 same-object observable pin, OS/GNS passage, continuum/QFT construction,
 physical mass, every-group theorem, and Clay result remain open.  The focused
 check reports only `{propext, Quot.sound}` and no `sorryAx`; this is a causal
@@ -1779,3 +1780,4 @@ still consumes the two unproved all-scale pointwise inequalities.
 | 1 / 123 | 2026-09-26 | Added the exact two-way recoding between the repaired cofinal-prefix gap calibration and direct pointwise physical-gap bounds, using constructive finite minimum/maximum folds. This contracts certificate shape only; both all-scale bounds and every downstream continuum/Clay node remain open. |
 | 1 / 124 | 2026-09-26 | Added the direct pointwise physical-gap-bounds → denominator/rate compiler, using the exact same-family reciprocal identity without prefix re-entry. The two pointwise bounds remain open; no continuum, physical-mass, every-group, or Clay node closes. |
 | 1 / 125 | 2026-09-26 | Added `BF4PhysicalMatchedAFExplicitRayRootCompiler`: the existing selected-term theorem now supplies the scale-indexed ray capacity definitionally at every literal matched nome. The matched rooted dynamic input is reduced to one named off-ray root certificate per scale, while the completed carrier/transfer/vacuum compiler and positive posterior-fraction bounds are preserved. The off-ray certificate, strength/spacing comparison, observable pin, OS/GNS, continuum/QFT, physical-mass, every-group, and Clay nodes remain open; no canonical chart marker changed. |
+| 1 / 126 | 2026-09-26 | Lowered the same matched rooted input one step further: `MatchedPhysicalExplicitRayResistanceProducer` consumes only a scale-indexed cofinal off-ray resistance-congestion bound, then reuses the checked coercivity compiler and explicit ray capacity to reach the same completed carrier and positive posterior fraction. The resistance bound and all physical/continuum/Clay joins remain open; no canonical chart marker changed. |

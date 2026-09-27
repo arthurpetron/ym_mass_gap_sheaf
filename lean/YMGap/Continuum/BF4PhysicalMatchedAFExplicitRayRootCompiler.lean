@@ -20,6 +20,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 -/
 
 import YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
+import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceFlow
 import YMGap.Continuum.BF4PhysicalVacuumSectorMassExactExplicitRayOffRayResistanceGap
 
 namespace YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
@@ -36,6 +37,7 @@ open YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceGapPath
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootCoercivity
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceFlow
 open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
 open YMGap.Continuum.BF4PhysicalVacuumSectorRootCoercivityCofinalGapBridge
 open YMGap.Continuum.BF4PhysicalVacuumSectorMassExactExplicitRayOffRayResistanceGap
@@ -165,6 +167,66 @@ theorem MatchedPhysicalExplicitRayOffRayProducer.fraction_le_one
     (producer.offRay scale)
     (explicitRay trajectory scale)
 
+/-! ## 4. Lower the boundary once more to resistance congestion -/
+
+/-- The primitive scale-indexed input for the same rooted dynamic route:
+one cofinal resistance-congestion bound for the off-ray root at each scale.
+The existing resistance compiler supplies the rooted coercivity consumed
+above. -/
+structure MatchedPhysicalExplicitRayResistanceProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing) :
+    Type 1 where
+  offRayResistance : ∀ scale,
+    FixedNomeCofinalSpinCubeOffRayRootResistanceCongestionBound
+      (trajectory.nome_pos scale)
+
+/-- Compile the resistance-congestion input into the already reduced
+off-ray-root input, without changing its physical scale or nome. -/
+def MatchedPhysicalExplicitRayResistanceProducer.toOffRayProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayResistanceProducer trajectory) :
+    MatchedPhysicalExplicitRayOffRayProducer trajectory where
+  offRay := fun scale =>
+    (producer.offRayResistance scale).toCofinalOffRayRootCoercivity
+
+/-- The resistance-level input reaches the same explicit-ray rooted producer
+through the two checked local compilers. -/
+def MatchedPhysicalExplicitRayResistanceProducer.toRootProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayResistanceProducer trajectory) :
+    MatchedPhysicalRootCoercivityGapProducer trajectory :=
+  producer.toOffRayProducer.toRootProducer
+
+/-- Consequently the resistance-level input reaches the same completed
+carrier, transfer, and vacuum complement. -/
+def MatchedPhysicalExplicitRayResistanceProducer.toCompletedFamily
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayResistanceProducer trajectory) :
+    DynamicVacuumSectorCompletedFamily 0 :=
+  producer.toOffRayProducer.toCompletedFamily
+
+theorem MatchedPhysicalExplicitRayResistanceProducer.fraction_pos
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayResistanceProducer trajectory)
+    (scale : Nat) :
+    (0 : Q') < producer.toRootProducer.fraction scale := by
+  exact producer.toOffRayProducer.fraction_pos scale
+
 end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 
 /-! ## Dependency gates -/
@@ -183,3 +245,11 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayOffRayProducer.fraction_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayOffRayProducer.fraction_le_one
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayResistanceProducer.toOffRayProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayResistanceProducer.toRootProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayResistanceProducer.toCompletedFamily
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayResistanceProducer.fraction_pos

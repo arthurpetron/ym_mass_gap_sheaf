@@ -59,10 +59,11 @@ unproved bounds.
 **Latest rooted-input contraction (2026-09-26):**
 `BF4PhysicalMatchedAFExplicitRayRootCompiler` now constructs the cofinal
 spin-ray capacity directly from the literal matched nome at every physical
-scale.  The dynamic rooted path therefore has one explicit remaining local
-input—the cofinal off-ray root certificate per scale—before it produces the
-same completed carrier, transfer, vacuum complement, and conditional
-posterior fraction.  The off-ray input, strength/spacing comparison,
+scale.  Its resistance-level adapter further reduces the dynamic rooted path
+to one explicit remaining local input—the cofinal off-ray
+resistance-congestion bound per scale—before it produces the same completed
+carrier, transfer, vacuum complement, and conditional posterior fraction.  The
+resistance input, strength/spacing comparison,
 same-object observable pin, OS/GNS reconstruction, continuum/QFT, physical
 mass, every-group construction, and Clay theorem remain open.  The focused
 check is axiom-clean within `{propext, Quot.sound}` and introduces no

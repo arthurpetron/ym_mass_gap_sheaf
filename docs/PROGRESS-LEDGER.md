@@ -30031,3 +30031,20 @@ The monitored source check passed with only `{propext, Quot.sound}` and no
 inhabitant of the off-ray certificate, strength/spacing band, observable pin,
 OS/GNS passage, continuum/QFT construction, physical mass, every-group
 theorem, or Clay target.  No canonical chart marker changed.
+
+## Resistance-level reduction of the matched rooted input (2026-09-26 UTC)
+
+The same `BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
+`MatchedPhysicalExplicitRayResistanceProducer`.  Its sole scale-indexed field
+is `FixedNomeCofinalSpinCubeOffRayRootResistanceCongestionBound`; the existing
+`toCofinalOffRayRootCoercivity` theorem supplies the off-ray root certificate,
+and `explicitRay` supplies the ray capacity.  The resulting
+`toRootProducer`, `toCompletedFamily`, and `fraction_pos` preserve the literal
+matched completed carrier, transfer, vacuum complement, and posterior-fraction
+objects.  This is the smallest currently named local input on this route.
+
+The monitored check again reports only `{propext, Quot.sound}` and no
+`sorryAx`.  The resistance-congestion bound itself, its comparison with
+physical spacing, the same-object observable pin, OS/GNS passage,
+continuum/QFT construction, physical mass, every-group theorem, and Clay
+target remain open.  No canonical chart marker changed.
