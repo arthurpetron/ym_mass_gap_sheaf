@@ -25,6 +25,43 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual original conditional-pair bound constructed (2026-09-27 UTC)
+
+`TwoLinkResidualLowerBound.conditional_residual_pair_lower` proves
+`<R_i x,R_j x> >= -e(w)*(||R_i x||^2+||R_j x||^2)` on EVERY original
+completed vector, with `e=(U-L)/(2L)`. No conditional-angle estimate is
+assumed. The weighted coordinate projections are constructed on the detached
+completion and transported by the proved inverse maps. Both range identities
+`P_i Q_i=Q_i` and `Q_i P_i=P_i` are proved for the ACTUAL original P_i.
+The reference residual pairing is a background square; two signed form
+errors supply the lower bound. Neither Q_i nor its residual is claimed
+orthogonal in the original form. There is no locality or distinctness guard
+on this pair theorem beyond physical-link membership.
+
+NEXT: sum the signed estimates over ordered distinct neighbors in
+`SignedNeighborEnergy.conditionalGenerator_square`. Each ordered incidence
+costs e at both endpoints; the conservative degree-25 budget gives
+`gamma=1-50e>0` from the checked pilot condition `25U<26L`. Then prove the
+constructive H-squared-to-coercivity upgrade on the original centered sector.
+Prefer the reviewed finite geometric energy-descent argument in the audit:
+`T=I-H/(2N)` contracts E geometrically; the existing finite-volume positive
+baseline removes its norm tail, yielding the sufficient coefficient gamma/2.
+This argument remains to be formalized; do not require a sharp gamma or
+introduce inverse-square-root machinery merely to optimize the constant. Supply
+the existing `FiniteVolumeReverseEnergy.reverse_energy_of_coercivity_at_balanced`
+consumer; do not introduce an analytic field assuming the upgrade.
+
+The pair coefficient is independent of extent and late cutoff at fixed nome
+under `0<w<1`, `heatRatio(w)<=1/2`, `heatRemainderBound(w)<1`,
+`headCutoff(w)<=K`. This is not uniform on a justified physical scaling
+trajectory, nor an OS-time estimate. A03 and all displayed chart claims stay
+unchanged/open. Nine focused serialized one-worker/20 GiB checks passed all
+50 printed gates within {propext, Quot.sound}; Sol/Luna proof work and an
+independent signed-budget review ran in parallel. No new hole or broad run.
+Evidence: `audits/AUDIT-ORIGINAL-CONDITIONAL-PAIR-BOUND-2026-09-27.md`.
+Earlier next-step statements below record their checkpoint's open inputs;
+the range identities and actual pair bound are now discharged as stated here.
+
 ### Original two-link comparison constructed on the completion (2026-09-27 UTC)
 
 `SmallNomeCollarComparison.two_link_fullData_bounds` now proves the missing

@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting actual conditional-pair bound (2026-09-27 UTC; chart markers unchanged):
+For EVERY original completed vector, the actual residual pairing satisfies
+`<R_i x,R_j x> >= -(U-L)/(2L)*(||R_i x||^2+||R_j x||^2)`.
+Reference projections and both range identities with the original conditional
+projections are constructed. The proof retains both signed error terms.
+Its coefficient is volume/late-cutoff independent at fixed small nome,
+not uniform on a justified physical scaling family. Ordered summation and
+the constructive coercivity upgrade remain open, as do A03 and all
+same-theory OS/QFT/every-group Clay obligations. All 50 gates passed nine
+focused checks within {propext, Quot.sound}; no canonical chart block changes.
+Earlier range/pair open statements below record their earlier checkpoints.
+Evidence: `audits/AUDIT-ORIGINAL-CONDITIONAL-PAIR-BOUND-2026-09-27.md`.
+
 Verified supporting original two-link comparison (2026-09-27 UTC; chart markers unchanged):
 The actual full-action form and common detached original background satisfy
 `(1-delta)^12*B0 <= B <= (1+delta)^12*B0`, for arbitrary spectator-dependent

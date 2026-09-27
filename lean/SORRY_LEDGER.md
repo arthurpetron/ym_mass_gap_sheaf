@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## Actual original conditional-pair lower bound (2026-09-27 UTC)
+
+- **constructed:** `SU2QuaternionWeightedHaarProjectionCompletion.projection`
+  on the detached weighted completion; `TwoLinkReferenceProjection.reference`
+  on the original completion through the existing explicit inverse maps.
+  `conditional_reference` and `reference_conditional` prove BOTH same-range
+  identities for the actual original conditional projection.
+- **proved:** `TwoLinkResidualIdentity.two_error_identity` is exact;
+  `TwoLinkReferenceEnergy.remainder_pair_nonnegative` is a background square;
+  `TwoLinkFormError.formError_bounds` controls both signed errors.
+  `TwoLinkResidualLowerBound.conditional_residual_pair_lower` composes these
+  into the actual pair estimate with explicit `pairCoefficient=(U-L)/(2L)`.
+  It holds for every original completed vector and any physical link pair.
+- **scope:** fixed nome with explicit smallness guards, all extent and late
+  heat cutoff. No asserted original-form orthogonality of the reference
+  projections. No locality, centering or distinctness premise is needed.
+- **open residue:** ordered-neighbor summation, constructive coercivity
+  upgrade, justified scaling, same-theory OS/QFT/nontriviality/physical mass
+  and every-group Clay. Earlier entries' range/pair obligations are now
+  discharged only in the scope above. No new sorry, axiom or analytic bundle.
+- **verification:** nine focused serialized one-worker/20 GiB checks, all
+  50 printed gates within {propext, Quot.sound}; independent Sol review.
+  No full-tree/root build, full audit, guard or canonical chart change.
+  Evidence: `audits/AUDIT-ORIGINAL-CONDITIONAL-PAIR-BOUND-2026-09-27.md`.
+
 ## Original two-link form comparison and completed realization (2026-09-27 UTC)
 
 - **proved original input:** `SmallNomeCollarComparison.two_link_fullData_bounds`

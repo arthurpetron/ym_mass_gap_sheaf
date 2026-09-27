@@ -5507,6 +5507,15 @@ import YMGap.Continuum.QuaternionHaarSignedFormComparison
 import YMGap.Continuum.SU2QuaternionWeightedHaarBlockProjection
 import YMGap.Continuum.BF4ExactSlabTwoLinkCompletionComparison
 import YMGap.Continuum.BF4ExactSlabTwoLinkSignedComparison
+import YMGap.Continuum.SU2QuaternionWeightedHaarProjectionCompletion
+import YMGap.Continuum.BF4ExactSlabHaarCoordinateLocality
+import YMGap.Continuum.BF4ExactSlabTwoLinkReferenceProjection
+import YMGap.Continuum.BF4ExactSlabTwoLinkReferenceEnergy
+import YMGap.Continuum.BF4ExactSlabTwoLinkResidualIdentity
+import YMGap.Continuum.RCSignedPairBudget
+import YMGap.Continuum.BF4ExactSlabTwoLinkPerturbationConstants
+import YMGap.Continuum.BF4ExactSlabTwoLinkFormError
+import YMGap.Continuum.BF4ExactSlabTwoLinkResidualLowerBound
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

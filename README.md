@@ -10,14 +10,25 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Actual signed conditional-pair bound (2026-09-27):** for every vector in
+the original full-action completion, the actual residuals `R_i=I-P_i`
+satisfy `<R_i x,R_j x> >= -(U-L)/(2L) * (||R_i x||^2+||R_j x||^2)`.
+The proof constructs the background coordinate projections and proves both
+same-range identities with the original conditional projections. Its explicit
+coefficient depends on nome, not volume or late heat cutoff, under the
+small-nome guards. Next: ordered-neighbor summation and constructive
+coercivity upgrade. This is conditional-link dynamics, not OS time or a
+continuum mass gap. See the
+[checked pair bound and precise scope](audits/AUDIT-ORIGINAL-CONDITIONAL-PAIR-BOUND-2026-09-27.md).
+
 **Two-link comparison on the actual completion (2026-09-27):** the original
 full-action form is now bounded above and below by a common detached
 two-link background, with factors `(1+/-delta(w))^12`. Every other original
 face remains in that background. The constants are independent of extent,
 heat cutoff and test support, under explicit small-nome guards. Constructed
 maps with explicit moduli carry both bounds to every completed vector.
-The remaining step is the signed estimate for the actual conditional
-residual pair, including its projection-range identities. This is not an
+The signed estimate and projection-range identities are now proved above;
+their global coercivity consequence remains open. This is not an
 OS/physical gap or a justified continuum scaling estimate. See the
 [comparison proof and exact remaining join](audits/AUDIT-ORIGINAL-TWO-LINK-COMPARISON-2026-09-27.md).
 
@@ -25,7 +36,8 @@ OS/physical gap or a justified continuum scaling estimate. See the
 completed carrier, Lean now decomposes the conditional residual-sum square
 into its Dirichlet energy, signed neighboring cross terms, and nonnegative
 remote squares. Only the bounded-degree neighbor terms can lower the result;
-their required quantitative bound remains open. This is conditional-link
+their quantitative pair bound is now proved above, while its ordered-sum
+and coercivity consequences remain open. This is conditional-link
 dynamics, not a physical Hamiltonian gap. See the
 [checked identity and next mathematical argument](audits/AUDIT-ORIGINAL-SIGNED-NEIGHBOR-ENERGY-2026-09-27.md).
 

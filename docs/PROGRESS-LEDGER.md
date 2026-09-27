@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual two-link comparison reaches every completed vector (2026-09-27 UTC)
+## Current increment: actual original signed conditional-pair bound (2026-09-27 UTC)
+
+The constructed reference coordinate projections now share their ranges with
+the ACTUAL original conditional projections on every completed vector, in
+both directions. The exact two-error identity, nonnegative background square
+and signed form comparison prove the actual residual-pair lower bound with
+coefficient `(U-L)/(2L)`, independent of extent and late cutoff at fixed
+small nome. This discharges the pair estimate, not merely its prerequisites.
+
+NEXT: ordered-neighbor summation (two endpoint incidences), then constructive
+H-squared-to-coercivity on the original centered sector. These and justified
+physical scaling/OS/QFT/every-group Clay remain open. No displayed canonical
+claim changes, so no chart is reprinted. Nine focused serialized checks
+passed all 50 gates within {propext, Quot.sound}, with parallel Sol/Luna
+proof work and independent review. No full-tree/root build, full audit,
+progress-metric or guard run. Evidence:
+`audits/AUDIT-ORIGINAL-CONDITIONAL-PAIR-BOUND-2026-09-27.md`.
+Earlier range/pair open statements below are historical in this scope.
+
+## Earlier increment: actual two-link comparison reaches every completed vector (2026-09-27 UTC)
 
 The original full-action form now has the required near-one comparison to
 the SAME detached two-link background, with at most twelve face factors and
