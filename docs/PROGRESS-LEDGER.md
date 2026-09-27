@@ -30012,3 +30012,22 @@ The focused monitored check reports only `{propext, Quot.sound}` and no
 `sorryAx`.  This does not inhabit the product band, establish the uniform
 physical-rate band, or close continuum/QFT, physical-mass, every-group, or
 Clay obligations.
+
+## Explicit ray removal from the matched rooted dynamic input (2026-09-26 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` adds
+`MatchedPhysicalExplicitRayOffRayProducer`.  Its `explicitRay` field is
+constructed at each physical scale from
+`explicitSubunitCentralSpinCubeCofinalRayCapacity` at the literal matched
+nome.  `toRootProducer` therefore converts a single scale-indexed cofinal
+off-ray root certificate into the existing matched rooted producer without
+changing the carrier, transfer, vacuum complement, or posterior-fraction
+definitions.  `toCompletedFamily` and
+`toConditionalVarianceGapProducer` preserve those same completed objects;
+`fraction_pos` and `fraction_le_one` are checked for every scale.
+
+The monitored source check passed with only `{propext, Quot.sound}` and no
+`sorryAx`.  This is a genuine reduction of the dynamic input boundary, not an
+inhabitant of the off-ray certificate, strength/spacing band, observable pin,
+OS/GNS passage, continuum/QFT construction, physical mass, every-group
+theorem, or Clay target.  No canonical chart marker changed.

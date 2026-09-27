@@ -56,6 +56,18 @@ physical-rate interfaces through the exact reciprocal identity, without
 re-entering the finite-prefix encoding; this is still conditional on the
 unproved bounds.
 
+**Latest rooted-input contraction (2026-09-26):**
+`BF4PhysicalMatchedAFExplicitRayRootCompiler` now constructs the cofinal
+spin-ray capacity directly from the literal matched nome at every physical
+scale.  The dynamic rooted path therefore has one explicit remaining local
+input—the cofinal off-ray root certificate per scale—before it produces the
+same completed carrier, transfer, vacuum complement, and conditional
+posterior fraction.  The off-ray input, strength/spacing comparison,
+same-object observable pin, OS/GNS reconstruction, continuum/QFT, physical
+mass, every-group construction, and Clay theorem remain open.  The focused
+check is axiom-clean within `{propext, Quot.sound}` and introduces no
+`sorryAx`.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly
