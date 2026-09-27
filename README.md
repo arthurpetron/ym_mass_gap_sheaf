@@ -297,6 +297,15 @@ window evidence only; it does not supply the missing all-scale floor or rate
 band, nor the OS/GNS, continuum/QFT, physical-mass, every-group, or Clay
 construction.
 
+**New prefix-persistence reduction (2026-09-27):**
+`ChangingNomeCarrierNormalizedResponsePersistence` isolates the exact missing
+nontriviality input below the repaired finite-prefix routes: one positive
+rational floor below every finite-prefix response minimum. Its checked
+`toUniformRCNormFloor` compiler produces the existing all-scale same-channel
+norm-floor interface. Finite-prefix positivity alone does not inhabit this
+persistence structure, so cutoff removal and the continuum excitation remain
+open.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

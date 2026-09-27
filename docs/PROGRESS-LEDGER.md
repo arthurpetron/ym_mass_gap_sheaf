@@ -30571,3 +30571,13 @@ physical-rate band. Its `response_floor_le_zeroTime` theorem transports the
 floor to the literal same-object zero-time autocorrelation. This remains finite
 window evidence only; the all-scale floor/rate band and all OS/GNS,
 continuum/QFT, physical-mass, every-group, and Clay inputs remain open.
+
+## Prefix-persistence reduction to an all-scale norm floor (2026-09-27 UTC)
+
+`ChangingNomeCarrierNormalizedResponsePersistence` isolates the exact missing
+nontriviality input below the repaired finite-prefix routes: one positive
+rational floor below every finite-prefix response minimum. Its checked
+`toUniformRCNormFloor` compiler produces the existing all-scale same-channel
+norm-floor interface. Finite-prefix positivity alone does not inhabit this
+persistence structure, so cutoff removal and the continuum excitation remain
+open.

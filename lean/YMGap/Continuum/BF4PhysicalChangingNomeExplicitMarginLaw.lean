@@ -831,6 +831,38 @@ theorem ChangingNomeCarrierNormalizedFinitePrefixConcreteRoute.response_floor_le
   rw [DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_zero_eq_normSq]
   exact route.response.lowerNorm scale hscale
 
+/-! ## 8d. Prefix persistence contracts to an all-scale floor -/
+
+/-- The minimal remaining response input below the all-scale norm floor: one
+positive rational must lie below every finite-prefix minimum for the same
+concrete channel.  The persistence field is intentionally explicit and is not
+inhabited by finite-prefix positivity alone. -/
+structure ChangingNomeCarrierNormalizedResponsePersistence : Type 1 where
+  channelBridge : ChangingNomeCarrierNormalizedConcreteChannelBridge
+  floor : Q'
+  floor_pos : (0 : Q') < floor
+  floor_le_prefix : ∀ bound,
+    floor ≤ finitePrefixResponseFloor channelBridge.channel bound
+
+/-- A persistent prefix floor compiles to the existing all-scale same-channel
+norm-floor interface. -/
+def ChangingNomeCarrierNormalizedResponsePersistence.toUniformRCNormFloor
+    (persistence : ChangingNomeCarrierNormalizedResponsePersistence) :
+    DynamicVacuumSectorUniformRCNormFloor
+      persistence.channelBridge.channel where
+  floor := persistence.floor
+  floor_pos := persistence.floor_pos
+  floor_le := by
+    intro scale
+    refine CReal.RCle_trans ?_
+      ((finitePrefixResponseCertificate
+        persistence.channelBridge.channel scale).lowerNorm scale
+        (Nat.le_refl scale))
+    rw [CReal.RCle_mk]
+    exact CReal.leEv_of_le
+      (CReal.ofQ'_le_ofQ'
+        (persistence.floor_le_prefix scale))
+
 /-- Enlarging the finite window can only lower its constructive gap floor. -/
 theorem changingNomeCarrierNormalizedFinitePrefixGapFloor_succ_le
     (bound : Nat) :
@@ -1364,6 +1396,7 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedFinitePrefixPhysicalRateBand
 #print axioms changingNomeCarrierNormalizedFinitePrefixConcreteRoute
 #print axioms ChangingNomeCarrierNormalizedFinitePrefixConcreteRoute.response_floor_le_zeroTime
+#print axioms ChangingNomeCarrierNormalizedResponsePersistence.toUniformRCNormFloor
 #print axioms changingNomeCarrierNormalizedFinitePrefixGapFloor_succ_le
 #print axioms changingNomeCarrierNormalizedFinitePrefixGapCeiling_le_succ
 #print axioms ChangingNomeCarrierNormalizedCofinalGapCalibration.toPhysicalGapBounds
