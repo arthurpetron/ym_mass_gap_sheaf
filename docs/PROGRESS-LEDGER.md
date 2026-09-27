@@ -29937,3 +29937,19 @@ same-family types and the existing physical-exponential compiler.  The focused
 safe check reports only `{propext, Quot.sound}` and no `sorryAx`.  No endpoint
 modulus, cutoff-removal, physical-mass, OS/QFT, every-group, or Clay inhabitant
 is supplied by this boundary.
+
+## Exact scheduled rate-power middle modulus (2026-09-26 UTC)
+
+`PhysicalExponentialJoin.ratePowerExplicitCertificate` in
+`lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:179--193`
+projects the Type-level convergence certificate already carried by the same
+family's rational scheduled-rate variation onto the exact middle stream
+`scale ↦ CReal.ofQ' (normalizedMovingCubeSampledRatePower family scale time)`.
+Its target is definitionally the `limitRepresentative` selected by
+`normalizedMovingCubePhysicalExponentialLimit`, so no proposition-valued
+convergence witness is eliminated and no unrelated limit is substituted.
+
+The focused safe check reports only `{propext, Quot.sound}` and no `sorryAx`.
+This closes only the middle modulus leg of the physical-exponential corridor;
+the two Euler endpoint moduli, cutoff-removal, OS/QFT, physical mass,
+every-group, and Clay obligations remain explicit.

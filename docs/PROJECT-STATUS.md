@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **102**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **103**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -65,6 +65,10 @@ Its `toModulusCertificate` constructor now isolates the two explicit upper
 and lower CReal endpoint-modulus inputs for that exact same-family rate limit;
 the witnesses remain open and no cutoff-removal or physical-mass claim is
 added.
+The same handoff now exposes the exact scheduled rate-power stream's explicit
+middle convergence certificate through `PhysicalExponentialJoin.ratePowerExplicitCertificate`;
+this is inherited directly from the rational variation witness and does not
+provide either Euler endpoint modulus.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -668,6 +672,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                            (one same-family physical-gap variation input remains)
                                        [x] Explicit physical-exponential endpoint moduli isolated
                                            (same-family rate limit; modulus inputs remain open)
+                                       [x] Exact scheduled rate-power middle modulus exposed
+                                           (inherited from rational variation; endpoints remain open)
                                        [ ] Infinite-scale denominator/spacing comparison
                                        [ ] Anchor-minimum asymptotic estimate
                                            F(w_n) comparable to spacing
@@ -767,6 +773,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04ak | Same-family direct CReal rate-power clustering contract | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.toRatePowerClustering`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:122--132`; compiles the joined normalized continuum limit and exact scheduled rate-power limit to `NontrivialRCSquaredRatePowerClustering` with the same-object decay and unit floor. No fixed-ratio or physical-exponential identification is asserted, and the four-input `Join` remains uninhabited. |
 | B04al | Physical-exponential handoff factorization | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.carrierNormalized_rate_pos`, `.PhysicalExponentialJoin`, and `.PhysicalExponentialJoin.toCertificate`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:141--172`; proves finite repaired-family rate positivity and factors the existing physical-exponential certificate through one additional same-family physical-gap variation input. The factorization is conditional and does not establish physical mass or Clay completion. |
 | B04am | Physical-exponential endpoint-modulus boundary | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.toModulusCertificate`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:177--204`; accepts explicit upper/lower CReal convergence moduli for the exact same-family scheduled Euler endpoint streams and compiles them with the existing physical-exponential certificate. The moduli remain open inputs; no cutoff-removal, physical-mass, every-group, or Clay completion follows. |
+| B04an | Exact scheduled rate-power middle modulus | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.ratePowerExplicitCertificate`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:179--193`; projects the explicit CReal convergence certificate already carried by the same-family rational scheduled-rate variation onto the exact middle stream and its physical-exponential limit representative. Euler endpoint moduli, cutoff removal, physical mass, every-group, and Clay completion remain open. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1687,3 +1694,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 116 | 2026-09-26 | Added `Join.toRatePowerClustering`, a same-family direct CReal rate-power clustering consumer retaining the exact scheduled rate stream, squared decay, and unit floor without a fixed-ratio shortcut. The join inputs and all OS/QFT, physical-mass, every-group, and Clay nodes remain open. |
 | 1 / 117 | 2026-09-26 | Factored the next physical-exponential handoff: proved repaired-family finite rate positivity and added `PhysicalExponentialJoin.toCertificate`, whose only new input is same-family physical-gap variation. The certificate remains conditional; no physical mass or Clay claim is added. |
 | 1 / 118 | 2026-09-26 | Isolated the explicit upper/lower CReal endpoint-modulus inputs at `PhysicalExponentialJoin.toModulusCertificate`, preserving the exact same-family rate-power limit and the existing physical-exponential compiler. The modulus witnesses remain open; no physical mass or Clay claim is added. |
+| 1 / 119 | 2026-09-26 | Exposed `PhysicalExponentialJoin.ratePowerExplicitCertificate`, projecting the exact scheduled rate-power middle modulus from the rational variation witness while keeping both Euler endpoint moduli explicit and open. No physical mass or Clay claim is added. |

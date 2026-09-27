@@ -22,6 +22,15 @@ continuum QFT, physical mass, every-group construction, and Clay theorem remain
 open. See the [canonical status chart](docs/PROJECT-STATUS.md) and
 [forward-progress ledger](docs/PROGRESS-LEDGER.md).
 
+**Latest physical-exponential contraction (2026-09-26):**
+`PhysicalExponentialJoin.toCertificate` now reaches the existing same-family
+physical-exponential corridor from one explicit physical-gap variation input;
+`PhysicalExponentialJoin.toModulusCertificate` keeps both Euler endpoint
+moduli as explicit inputs, and `ratePowerExplicitCertificate` exposes the
+already-available CReal modulus for the exact middle scheduled-rate stream.
+The endpoint moduli, cutoff removal, OS/GNS/QFT passage, physical mass,
+every-group construction, and Clay theorem remain open by design.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

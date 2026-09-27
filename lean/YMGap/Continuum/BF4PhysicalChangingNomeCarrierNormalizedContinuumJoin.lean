@@ -21,6 +21,7 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinu
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
+import YMGap.Continuum.SummableCRealExplicitConvergenceCertificate
 
 namespace YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
 
@@ -43,6 +44,7 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCer
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler
 open YMGap.Continuum.RCStrictPositivity
+open YMGap.Continuum.SummableCRealStepVariation
 open YMGap.Continuum.SummableRationalStepVariation
 
 /-! ## The four-input meeting point -/
@@ -174,6 +176,22 @@ def PhysicalExponentialJoin.toCertificate
     data.gapVariation
     data.core.ratePower
 
+/-- The rational scheduled-rate variation already carries an explicit CReal
+convergence modulus for the exact middle stream used by the physical-
+exponential corridor.  This projection exposes that witness without trying to
+extract endpoint moduli from the propositional Euler squeeze. -/
+def PhysicalExponentialJoin.ratePowerExplicitCertificate
+    (data : PhysicalExponentialJoin) (time : Nat) :
+    CReal.ExplicitConvergenceCertificate
+      (fun scale => CReal.ofQ'
+        (normalizedMovingCubeSampledRatePower
+          changingNomeCarrierNormalizedDynamicFamily scale time))
+      ((normalizedMovingCubePhysicalExponentialLimit
+        changingNomeCarrierNormalizedDynamicFamily data.core.ratePower).limitRepresentative
+        time) :=
+  SummableCRealStepVariation.toExplicitConvergenceCertificate
+    ((data.core.ratePower time).toSummableCRealStepVariation)
+
 /-- Compile the physical-exponential join plus its explicit endpoint moduli
 into the modulus-refined same-object certificate. -/
 def PhysicalExponentialJoin.toModulusCertificate
@@ -244,6 +262,8 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.carrierNormalized_rate_pos
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.toCertificate
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.ratePowerExplicitCertificate
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.toModulusCertificate
 #print axioms
