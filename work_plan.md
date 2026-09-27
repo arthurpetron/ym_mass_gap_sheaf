@@ -25,6 +25,40 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Supported-to-ambient context identification checked (2026-09-27 UTC)
+
+`BF4WilsonSignedTimeIntrinsicAlgebra.lean` proves literal source recodings for
+product, sum, difference, rational scale, unit and spatial inclusion. Centered
+window enlargement cancels exactly in integer time; no semantic surrogate is
+introduced. `BF4WilsonSignedTimeSupportedJoin.lean` then proves the missing
+`product_vacuum_mean_at` and `completedProductVacuum_mean_at`: the actual
+supported product's vacuum pairing is its ordinary original signed-time mean.
+Reflection invariance removes reflection only in this unit pairing.
+
+`timeContext_iff_context` identifies the supported time-tested relation with
+ambient all-test contextual equality at ANY supplied common spatial base.
+Forward: one supported difference test at time zero gives ordinary square-nullity.
+Reverse: ordinary nullity annihilates the reflected difference test, hence
+the existing reflected distance is zero and the SAME completed states agree.
+Larger-base inclusion and time/product congruence then cover every supported
+test and every forward time. `timeContext_iff_difference_test` contracts that
+entire relation to one actual supported difference test. No OS-null ideal or
+equality of ordinary and reflected norms is assumed.
+
+Next construct the single all-base ambient quotient, using coherent spatial
+inclusions, and descend the now-identified supported observable map into it.
+Do not demand surjectivity onto ambient signed observables. Canonical scalar
+and reflected OS realization, all-vector range, scaling and continuum/Clay
+remain open. No canonical field is changed.
+
+Both new modules passed serialized focused checks with one worker capped at
+20 GiB. All 24 printed declarations are axiom-free or use only
+`{propext, Quot.sound}`. Sol supplied the literal syntax laws and independently
+reviewed the two-way same-carrier argument. The join's elaboration retry kept
+large means/source maps locally opaque instead of raising resource limits;
+explicit base witnesses resolved guarded rewrites. No hole, analytic premise,
+full-tree run or broad chart-marker advance. Audit section 16 records evidence.
+
 ### Ordinary square-nullity and spatial quotient inclusion checked (2026-09-27 UTC)
 
 The missing estimate is now proved, not added as an input.
@@ -40,15 +74,11 @@ new larger-base tests. `observableInclusion` is an actual injective quotient
 map preserving unit, product, addition, rational scaling, mean, both time
 directions and reflection. No reflected norm was replaced by an ordinary norm.
 
-The next source join has a shorter proposed proof: use supported
-`TimeContextEq` at time zero, tested separately against the two source stages,
-and take their product-vacuum means. An exact common-base pin from those means
-to ordinary signed-time products would give zero squared difference and hence
-ambient contextual equality. This avoids constructing every shifted signed
-test. That product-vacuum pin and resulting supported join are NOT yet proved.
-Reverse identification still needs the reflected source-distance/embedded-state
-pin. A single all-base ambient quotient, its coherence laws, canonical scalar
-and reflected OS realization, scaling and continuum/Clay remain open.
+The source join proposed at this checkpoint is now proved above, in both
+directions, using one supported difference test rather than separately testing
+both operands. Its product-vacuum and reflected source-distance pins are checked.
+A single all-base ambient quotient, its coherence laws, canonical scalar and
+reflected OS realization, scaling and continuum/Clay remain open.
 
 Three new modules passed serialized focused checks with one worker capped at
 20 GiB; all 20 printed declarations are axiom-free or use only
@@ -76,8 +106,9 @@ preserving the support radius, time/reflection operations and original mean.
 Source inclusion alone did not descend between contextual quotients: larger
 bases allow new tests. The ordinary Cauchy--Schwarz and square-nullity argument
 now recorded above supplies that descent. The existing reflected theorem was
-not used as a substitute. The supported quotient join and canonical
-scalar/reflected-root realization remain open; canonical fields are unchanged.
+not used as a substitute. The supported relation identification is now checked
+above; its global quotient map and canonical scalar/reflected-root realization
+remain open. Canonical fields are unchanged.
 
 All three focused checks passed serially with one worker capped at 20 GiB.
 All 68 printed declarations use only `{propext, Quot.sound}`. Sol supplied
@@ -104,10 +135,10 @@ advance. This does not replace the reflected form with ordinary expectation
 of a square.
 
 The fixed-base quotient and contextual spatial inclusion have since been
-supplied above. The positive-stage quotient join still needs the explicit
-product-vacuum mean pin; the ordinary square-nullity criterion now provides a
-shorter proposed route without shifted-test construction. Canonical scalar
-fields remain unchanged; no canonical OS root has yet been supplied.
+supplied above, along with the positive-stage relation identification and exact
+product-vacuum mean pin. The global quotient map remains to be assembled.
+Canonical scalar fields remain unchanged; no canonical OS root has yet been
+supplied.
 
 Both new modules passed focused monitored checks, serialized with one worker
 capped at 20 GiB. All 45 printed declarations are axiom-free or use only

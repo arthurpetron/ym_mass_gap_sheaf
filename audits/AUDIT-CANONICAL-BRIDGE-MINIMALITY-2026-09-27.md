@@ -707,3 +707,48 @@ embedded-state equality, not only equality of vacuum scalars. Assembly and
 coherence of a single all-base ambient quotient, canonical scalar/reflected OS
 realization, all-vector range, scaling and continuum/Clay remain open. This
 planning contraction adds no field or wrapper and closes no broad chart node.
+
+## 16. Supported relation and ambient relation identified in both directions
+
+The missing source join from section 15 is now proved. Literal syntactic
+recoding first removes the common-center bookkeeping:
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `ofWindow_shift`, `ofWindow_chart` | `lean/YMGap/Continuum/BF4WilsonSignedTimeIntrinsicAlgebra.lean:31`, `:56` | Simultaneously shifting offsets and center leaves signed time unchanged. |
+| `fromIntrinsic_product`, `fromIntrinsic_sum`, `fromIntrinsic_difference` | same module `:63`, `:71`, `:79` | Literal signed product, sum and difference, not merely equality of means. |
+| `fromIntrinsic_smul`, `fromIntrinsic_unit`, `fromIntrinsic_inclusion` | same module `:88`, `:91`, `:122` | Exact scale, unit and spatial-source inclusion. |
+| `sourceAt_product`, `sourceAt_difference`, `sourceAt_time`, `sourceAt_trans` | `lean/YMGap/Continuum/BF4WilsonSignedTimeSupportedJoin.lean:46`, `:53`, `:61`, `:66` | The original staged sources preserve these operations at arbitrary witnessed common bases. |
+| `intrinsicForm_unit_mean`, `pairing_unit_mean_at` | same module `:78`, `:88` | The original vacuum scalar is the ordinary mean, using reflection invariance and the actual unit. |
+| `product_vacuum_mean_at`, `completedProductVacuum_mean_at` | same module `:99`, `:108` | SAME supported product, SAME completed vacuum, SAME original mean. |
+
+`context_of_difference_test` (SupportedJoin `:120`) takes equality of the two actual completed
+products with the supported difference as multiplier. Pairing with the vacuum
+and the exact source-difference law gives zero ordinary square mean;
+`context_of_timeContext` (`:145`) extracts that test from time zero. The reverse
+`embedStage_eq_of_context` (`:155`) uses ordinary radical zero with the reflected
+difference as test, then pins the resulting zero scalar to the existing
+reflected `distSq`. Only then does `embedRep_eq_of_null` identify the completed
+states. Ordinary and reflected norms are never declared equal.
+
+`timeContext_of_context` (`:181`) enlarges the base to include an arbitrary supported
+test, then applies proved time and product congruence. Thus
+`timeContext_iff_context` (`:213`) covers every forward time, every supported multiplier,
+and any supplied common base. `timeContext_iff_difference_test` (`:223`) additionally
+contracts this entire relation to one supported difference test. Both are about
+the actual original state, not a generic assertion about arbitrary OS radicals.
+The earlier shifted-test construction is unnecessary for this join.
+
+Verification: the two new modules passed serialized focused checks with one
+worker capped at 20 GiB; all 24 printed declarations are axiom-free or use only
+`{propext, Quot.sound}`. A beta-redex and missing explicit base guards were
+resolved in rewrites. Local opacity of large source/mean definitions removed
+an elaboration timeout without raising limits. No statement or hypothesis was
+weakened. Sol supplied the syntax laws and independently reviewed both relation
+directions. No new hole, analytic premise or full-tree audit was introduced.
+
+Next is actual assembly of the all-base ambient quotient with coherent
+inclusions, and its injective supported quotient map. Surjectivity onto ambient
+signed-time observables is not asserted or required for that map. Canonical
+scalar/reflected OS realization, all-vector range, scaling, continuum QFT and
+the every-group Clay theorem remain open; no broad chart marker advances.

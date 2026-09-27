@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting source identification (2026-09-27 UTC; chart markers unchanged):
+`BF4WilsonSignedTimeSupportedJoin.timeContext_iff_context` identifies the
+supported time-tested relation with ambient signed-time contextual equality
+at any common base. The actual product-vacuum mean pin supplies one direction;
+the reverse uses zero reflected distance in the SAME completion.
+`timeContext_iff_difference_test` reduces all times and supported tests to one
+supported difference test. Literal source recodings and the two-way join passed
+focused checks within `{propext, Quot.sound}`. Global ambient quotient assembly,
+canonical scalar/reflected OS realization, scaling and continuum/Clay remain open.
+
 Verified supporting spatial descent (2026-09-27 UTC; chart markers unchanged):
 ordinary Cauchy--Schwarz for the original signed-time mean now proves that
 all-test contextual equality is equivalent to zero ordinary squared difference.
@@ -7,8 +17,9 @@ all-test contextual equality is equivalent to zero ordinary squared difference.
 constructed injective quotient map under spatial enlargement, preserving mean,
 unit, product, linear operations, both time directions and reflection, including
 the additional larger-base tests. Three focused checks passed within
-`{propext, Quot.sound}`. All-base quotient assembly, supported-source and
-canonical reflected OS identification, scaling and continuum/Clay remain open.
+`{propext, Quot.sound}`. The subsequent supported relation identification is
+recorded above; all-base quotient assembly, canonical reflected OS identification,
+scaling and continuum/Clay remain open.
 
 Verified supporting ambient quotient (2026-09-27 UTC; chart markers unchanged):
 `BF4WilsonSignedTimeContext` and `BF4WilsonSignedTimeObservable` supply the

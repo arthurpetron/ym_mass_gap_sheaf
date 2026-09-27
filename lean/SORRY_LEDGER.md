@@ -1,5 +1,39 @@
 # Sorry Ledger
 
+## Exact supported-to-ambient contextual identification (2026-09-27 UTC)
+
+- **files:** `lean/YMGap/Continuum/BF4WilsonSignedTimeIntrinsicAlgebra.lean`
+  and `lean/YMGap/Continuum/BF4WilsonSignedTimeSupportedJoin.lean`.
+- **literal source laws:** `ofWindow_chart` and `fromIntrinsic_product`,
+  `fromIntrinsic_sum`, `fromIntrinsic_difference`, `fromIntrinsic_smul`,
+  `fromIntrinsic_unit`, `fromIntrinsic_inclusion` (IntrinsicAlgebra `:56`,
+  `:63`, `:71`, `:79`, `:88`, `:91`, `:122`) preserve actual ordered loops,
+  signed times and operations. No new observable or state is selected.
+- **same-object pin:** `intrinsicForm_unit_mean`, `pairing_unit_mean_at`,
+  `product_vacuum_mean_at`, `completedProductVacuum_mean_at` (SupportedJoin
+  `:78`, `:88`, `:99`, `:108`) identify the original product-vacuum pairing
+  with its ordinary signed-time mean at any common base. Reflection is removed
+  only for the vacuum scalar, not for the general OS form.
+- **closed relation join:** `context_of_difference_test` and
+  `context_of_timeContext` use an actual supported difference test to obtain
+  ordinary square-nullity. `embedStage_eq_of_context` passes through the
+  actual reflected difference norm before invoking existing null embedding.
+  `timeContext_of_context` covers every time and supported multiplier after
+  explicit spatial enlargement. `timeContext_iff_context` proves the exact
+  two-way relation identification; `timeContext_iff_difference_test` reduces
+  the full relation to one supported test. No generic OS-null ideal is used.
+- **residue:** single all-base ambient quotient and its supported quotient
+  map, canonical scalar/reflected OS root, all-vector range, changing spacing,
+  continuum QFT and every-group Clay closure remain open. No frontier field
+  or broad chart marker changes; no surjectivity onto ambient signed syntax.
+- **verification:** both serialized focused checks passed, one worker capped
+  at 20 GiB; all 24 printed declarations are axiom-free or use only
+  `{propext, Quot.sound}`. A guarded rewrite needed explicit base witnesses;
+  local opacity of the large means/source maps removed an elaboration timeout
+  without raising heartbeat or memory limits. Final output has no `sorryAx`
+  or classical dependency. No hole, new analytic premise or full-tree check.
+  Sol supplied syntax laws and independently reviewed the two-way join.
+
 ## Ordinary square-nullity and spatial contextual quotient inclusion (2026-09-27 UTC)
 
 - **files:** `lean/YMGap/Continuum/BF4WilsonSignedTimeFiniteCauchySchwarz.lean`,
