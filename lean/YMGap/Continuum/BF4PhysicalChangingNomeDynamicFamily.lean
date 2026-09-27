@@ -143,6 +143,69 @@ def changingNomeMovingCubeChannel :
     DynamicVacuumSectorSameObjectRCChannel changingNomeDynamicFamily :=
   centralPhysicalDynamicMovingCubeRCChannel changingNomeDynamicFamily
 
+/-! ## 3a. One typed bridge for the changing completed family -/
+
+/-- The inhabited changing-nome family and its literal moving-cube channel are
+packaged with the schedule equalities that downstream physical compilers
+consume.  The bridge exposes an actual completed SU(2) sector at every scale;
+it does not assert the missing physical-rate band. -/
+structure ChangingNomeConcreteChannelBridge : Type 1 where
+  family : DynamicVacuumSectorCompletedFamily 0
+  channel : DynamicVacuumSectorSameObjectRCChannel family
+  nome_eq : ∀ scale, family.nome scale = changingNome scale
+  spacing_eq : ∀ scale,
+    family.transferSpacing.spacing scale = changingSpacing.spacing scale
+  vectorAt_eq : ∀ scale,
+    channel.vectorAt scale =
+      centralPhysicalDynamicMovingCubeVectorAt family scale
+  autocorrelation_eq : ∀ scale time,
+    channel.connectedAutocorrelation scale time =
+      DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+        (centralPhysicalDynamicMovingCubeRCChannel family) scale time
+
+/-- Construct the changing-nome concrete channel bridge from the existing
+inhabited completed family and literal moving-cube channel. -/
+def changingNomeConcreteChannelBridge : ChangingNomeConcreteChannelBridge where
+  family := changingNomeDynamicFamily
+  channel := changingNomeMovingCubeChannel
+  nome_eq := by
+    intro scale
+    exact changingNomeDynamicFamily_nome scale
+  spacing_eq := by
+    intro scale
+    exact changingNomeDynamicFamily_spacing scale
+  vectorAt_eq := by
+    intro scale
+    rfl
+  autocorrelation_eq := by
+    intro scale time
+    rfl
+
+/-- The bridge retains strict zero-time positivity of the literal channel at
+every changing-nome scale. -/
+theorem changingNomeConcreteChannelBridge_zero_isPositive (scale : Nat) :
+    RCIsPositive
+      (changingNomeConcreteChannelBridge.channel.connectedAutocorrelation
+        scale 0) :=
+  centralPhysicalDynamicMovingCube_connected_zero_isPositive
+    changingNomeConcreteChannelBridge.family scale
+
+/-- The bridge retains the completed same-object squared decay bound at every
+changing-nome scale and time. -/
+theorem changingNomeConcreteChannelBridge_connectedSq_decay
+    (scale time : Nat) :
+    CReal.RCle
+      (changingNomeConcreteChannelBridge.channel.connectedAutocorrelationSq
+        scale time)
+      (CReal.RCmul
+        (CReal.RCscale
+          ((((changingNomeConcreteChannelBridge.family.completedGap scale).rate *
+              (changingNomeConcreteChannelBridge.family.completedGap scale).rate)) ^ time)
+          (changingNomeConcreteChannelBridge.channel.normSq scale))
+        (changingNomeConcreteChannelBridge.channel.normSq scale)) :=
+  centralPhysicalDynamicMovingCube_connectedSq_decay
+    changingNomeConcreteChannelBridge.family scale time
+
 theorem changingNomeMovingCube_relative_loss (scale : Nat) :
     CReal.RCle
       (CReal.RCscale
@@ -227,6 +290,9 @@ theorem changingNomeMovingCube_connectedSq_decay (scale time : Nat) :
 #print axioms changingNomeMovingCube_relative_loss
 #print axioms changingNomeMovingCube_relative_loss_global
 #print axioms changingNomeMovingCubeChannel
+#print axioms changingNomeConcreteChannelBridge
+#print axioms changingNomeConcreteChannelBridge_zero_isPositive
+#print axioms changingNomeConcreteChannelBridge_connectedSq_decay
 #print axioms changingNomeMovingCube_zero_isPositive
 #print axioms changingNomeMovingCube_connectedSq_decay
 

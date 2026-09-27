@@ -30538,3 +30538,14 @@ The monitored check reports only `{propext, Quot.sound}` and no `sorryAx`.
 The family’s fixed positive margin still triggers
 `noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily`; no physical-rate,
 continuum/QFT, physical-mass, every-group, or Clay node closes.
+
+## Inhabited changing-nome SU(2) channel bridge (2026-09-27 UTC)
+
+`ChangingNomeConcreteChannelBridge` packages the nonconstant
+`changingNomeDynamicFamily` with its literal moving-centered cube channel,
+exact nome and spacing schedule equalities, and same-object vector and
+autocorrelation identities. Its checked projections retain strict zero-time
+positivity and completed squared decay at every scale. The monitored source
+check reports only `{propext, Quot.sound}` and no `sorryAx`. The physical-rate
+band, observable rationalization, OS/GNS passage, continuum/QFT, every-group,
+physical-mass, and Clay inputs remain open.

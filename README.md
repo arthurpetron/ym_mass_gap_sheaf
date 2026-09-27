@@ -265,6 +265,16 @@ physical-rate band by
 `noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily`, so physical
 calibration, continuum/QFT, every-group, and Clay nodes remain open.
 
+**New inhabited changing-nome SU(2) channel bridge (2026-09-27):**
+`ChangingNomeConcreteChannelBridge` packages the nonconstant
+`changingNomeDynamicFamily` with its literal moving-centered cube channel,
+exact nome and spacing schedule equalities, and same-object vector and
+autocorrelation identities. Its checked projections retain strict zero-time
+positivity and completed squared decay at every scale. This is the first
+single typed bridge over a genuinely changing completed carrier, but the
+physical-rate band, observable rationalization, OS/GNS passage, continuum/QFT,
+every-group, and Clay nodes remain open.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly
