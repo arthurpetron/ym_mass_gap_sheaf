@@ -25,6 +25,16 @@ continuum QFT, physical mass, every-group construction, and Clay theorem remain
 open. See the [canonical status chart](docs/PROJECT-STATUS.md) and
 [forward-progress ledger](docs/PROGRESS-LEDGER.md).
 
+**Latest same-carrier response-floor transport (2026-09-27):**
+`responsePersistence_toCanonicalUniformRCNormFloor` transports the repaired
+family's prefix-persistence floor from its explicitly bridged response channel
+to the canonical moving-cube channel, using the bridge's vector equality and
+the finite-prefix minimum. `rawContinuumNontrivialityOfResponsePersistence`
+then supplies the raw continuum nontriviality field once the raw representative
+variation is provided. This closes no new producer: response persistence and
+raw variation remain explicit inputs, and the physical-rate, OS/GNS,
+continuum-QFT, physical-mass, every-group, and Clay obligations remain open.
+
 **Latest physical-exponential contraction (2026-09-26):**
 `PhysicalExponentialJoin.toCertificate` now reaches the existing same-family
 physical-exponential corridor from one explicit physical-gap variation input;

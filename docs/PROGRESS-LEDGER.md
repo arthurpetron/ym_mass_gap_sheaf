@@ -30631,3 +30631,14 @@ margin-currency `HasSpectralGapAt` certificate through
 constructive positive mass witness. This is a conditional endpoint projection;
 it does not construct the compatibility certificate, continuum handoff,
 every-group result, or Clay theorem.
+
+## Canonical response-floor transport (2026-09-27 UTC)
+
+`responsePersistence_toCanonicalUniformRCNormFloor` transports the repaired
+response-persistence floor to the canonical moving-cube channel through the
+explicit bridge vector equality and finite-prefix minimum. The companion
+`rawContinuumNontrivialityOfResponsePersistence` consumes that transported
+floor and a raw representative variation to produce the exact raw continuum
+nontriviality field. Both inputs remain explicit; no physical-rate, OS/GNS,
+continuum/QFT, physical-mass, every-group, or Clay node closes, and no
+canonical chart marker changes.

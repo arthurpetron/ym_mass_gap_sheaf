@@ -21,6 +21,8 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinu
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
 import YMGap.Constructive.CRealExplicitSqueeze
 import YMGap.Continuum.SummableCRealExplicitConvergenceCertificate
 
@@ -40,9 +42,14 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuum
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorFinitePrefixResponse
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeContinuumDecayCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
+open YMGap.Continuum.WindowedSpacingFloor
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRatePowerPhysicalExponentialCompiler
 open YMGap.Continuum.RCStrictPositivity
 open YMGap.Continuum.SummableCRealStepVariation
@@ -75,6 +82,57 @@ structure Join : Type 1 where
   raw : RawVariation
   normDebt : NormDebtVariation
   ratePower : RatePowerVariation
+
+/-! ## The response floor transported to the canonical carrier -/
+
+/- The response-persistence channel is definitionally the same completed
+   moving-cube carrier only after its bridge equalities are used.  This
+   transport is therefore kept explicit: it does not identify an arbitrary
+   response channel with the canonical one by type alone. -/
+def responsePersistence_toCanonicalUniformRCNormFloor
+    (persistence : ChangingNomeCarrierNormalizedResponsePersistence) :
+    DynamicVacuumSectorUniformRCNormFloor
+      (centralPhysicalDynamicMovingCubeRCChannel
+        changingNomeCarrierNormalizedDynamicFamily) where
+  floor := persistence.floor
+  floor_pos := persistence.floor_pos
+  floor_le := by
+    intro scale
+    have hprefix : persistence.floor ≤
+        finitePrefixResponseFloor
+          persistence.channelBridge.channel scale :=
+      persistence.floor_le_prefix scale
+    have hmin : finitePrefixResponseFloor
+        persistence.channelBridge.channel scale ≤
+        persistence.channelBridge.channel.normFloor scale :=
+      finMin_le persistence.channelBridge.channel.normFloor scale scale
+        (Nat.le_refl scale)
+    have hchannel : CReal.RCle
+        (Quotient.mk CReal.crealSetoid
+          (CReal.ofQ' persistence.floor))
+        (persistence.channelBridge.channel.normSq scale) := by
+      refine CReal.RCle_trans ?_ (persistence.channelBridge.channel.normFloor_le scale)
+      rw [CReal.RCle_mk]
+      exact CReal.leEv_of_le
+        (CReal.ofQ'_le_ofQ' (Q'.le_trans' _ _ _ hprefix hmin))
+    have hvector :
+        persistence.channelBridge.channel.vectorAt scale =
+          (centralPhysicalDynamicMovingCubeRCChannel
+            changingNomeCarrierNormalizedDynamicFamily).vectorAt scale := by
+      exact persistence.channelBridge.vectorAt_eq scale
+    simpa [DynamicVacuumSectorSameObjectRCChannel.normSq, hvector] using hchannel
+
+/- The same response-persistence witness consequently closes the raw
+   continuum nontriviality field once the raw representative variation is
+   supplied.  The remaining raw variation is not hidden or weakened. -/
+def rawContinuumNontrivialityOfResponsePersistence
+    (persistence : ChangingNomeCarrierNormalizedResponsePersistence)
+    (raw : RawVariation) :
+    MovingCubeRawContinuumNontriviality
+      changingNomeCarrierNormalizedDynamicFamily raw :=
+  MovingCubeRawContinuumNontriviality.ofUniformNormFloor
+    (responsePersistence_toCanonicalUniformRCNormFloor
+      persistence)
 
 /-! ## Exact downstream compilations -/
 
@@ -326,3 +384,7 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.toModulusCertificate
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.sq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.responsePersistence_toCanonicalUniformRCNormFloor
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.rawContinuumNontrivialityOfResponsePersistence
