@@ -21,6 +21,7 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinu
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeGeometricClustering
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialCertificate
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorPhysicalExponentialModulusCertificate
+import YMGap.Constructive.CRealExplicitSqueeze
 import YMGap.Continuum.SummableCRealExplicitConvergenceCertificate
 
 namespace YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
@@ -221,6 +222,61 @@ def PhysicalExponentialJoin.toModulusCertificate
     data.core.ratePower
     upperModulus lowerModulus
 
+/-! ## Explicit squeeze handoff -/
+
+/--
+The endpoint-modulus constructor after the Prop/Type wall has been factored
+into its minimal typed inputs.  The supplied order witnesses and width
+certificate are compiled against the exact middle certificate selected by
+`ratePowerExplicitCertificate`; the resulting endpoint certificates are then
+fed to the existing same-family modulus refinement.
+
+This does not construct those order/width witnesses.  It makes their precise
+remaining interface observable and prevents a later consumer from pairing an
+endpoint modulus with a different rate-power limit.
+-/
+def PhysicalExponentialJoin.toModulusCertificateOfExplicitSandwich
+    (data : PhysicalExponentialJoin)
+    (lowerLeMiddle : ∀ time : Nat, ∀ scale : Nat,
+      CReal.ExplicitLeEv
+        (scheduledSquaredRateLowerExponential
+          changingNomeCarrierNormalizedDynamicFamily carrierNormalized_rate_pos
+            scale time)
+        (CReal.ofQ'
+          (normalizedMovingCubeSampledRatePower
+            changingNomeCarrierNormalizedDynamicFamily scale time)))
+    (middleLeUpper : ∀ time : Nat, ∀ scale : Nat,
+      CReal.ExplicitLeEv
+        (CReal.ofQ'
+          (normalizedMovingCubeSampledRatePower
+            changingNomeCarrierNormalizedDynamicFamily scale time))
+        (scheduledSquaredRateUpperExponential
+          changingNomeCarrierNormalizedDynamicFamily scale time))
+    (width : ∀ time : Nat,
+      CReal.ExplicitWidth
+        (fun scale =>
+          scheduledSquaredRateLowerExponential
+            changingNomeCarrierNormalizedDynamicFamily carrierNormalized_rate_pos
+              scale time)
+        (fun scale =>
+          scheduledSquaredRateUpperExponential
+            changingNomeCarrierNormalizedDynamicFamily scale time)) :
+    NormalizedMovingCubePhysicalExponentialModulusCertificate
+      changingNomeCarrierNormalizedDynamicFamily :=
+  data.toModulusCertificate
+    (fun time =>
+      (CReal.explicitEndpointsOfSandwich
+        (data.ratePowerExplicitCertificate time)
+        (fun scale => lowerLeMiddle time scale)
+        (fun scale => middleLeUpper time scale)
+        (width time)).1)
+    (fun time =>
+      (CReal.explicitEndpointsOfSandwich
+        (data.ratePowerExplicitCertificate time)
+        (fun scale => lowerLeMiddle time scale)
+        (fun scale => middleLeUpper time scale)
+        (width time)).2)
+
 theorem Join.sq_decay (data : Join) (time : Nat) :
     CReal.RCle
       (CReal.RCmul
@@ -258,6 +314,8 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.zero_floor
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.toRatePowerClustering
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.PhysicalExponentialJoin.toModulusCertificateOfExplicitSandwich
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.carrierNormalized_rate_pos
 #print axioms

@@ -29953,3 +29953,25 @@ The focused safe check reports only `{propext, Quot.sound}` and no `sorryAx`.
 This closes only the middle modulus leg of the physical-exponential corridor;
 the two Euler endpoint moduli, cutoff-removal, OS/QFT, physical mass,
 every-group, and Clay obligations remain explicit.
+
+## Typed explicit physical-exponential squeeze compiler (2026-09-26 UTC)
+
+`YMGap.Constructive.CReal.explicitEndpointsOfSandwich` in
+`lean/YMGap/Constructive/CRealExplicitSqueeze.lean:82--271` now composes
+Type-level eventual-order witnesses (`ExplicitLeEv`) and a Type-level
+scale/approximation width witness (`ExplicitWidth`) with an explicit middle
+convergence certificate.  Its four-quarter error budget constructs both upper
+and lower endpoint certificates directly; no threshold is extracted from a
+propositional `leEv` or `leRat` theorem.
+
+`explicitEndpoints_const_zero` at
+`lean/YMGap/Constructive/CRealExplicitSqueeze.lean:311--321` is a concrete
+constant-zero inhabitant of the compiler, checked with only `{propext}`.  The
+same-family handoff
+`PhysicalExponentialJoin.toModulusCertificateOfExplicitSandwich` in
+`lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:238--278`
+feeds the compiler's two endpoint outputs into the existing physical-
+exponential modulus certificate while preserving the exact joined
+rate-power limit.  The physical endpoint order/width witnesses remain open;
+this milestone does not claim cutoff removal, OS/GNS/QFT, physical mass,
+every-group construction, or the Clay theorem.

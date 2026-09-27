@@ -28,6 +28,10 @@ physical-exponential corridor from one explicit physical-gap variation input;
 `PhysicalExponentialJoin.toModulusCertificate` keeps both Euler endpoint
 moduli as explicit inputs, and `ratePowerExplicitCertificate` exposes the
 already-available CReal modulus for the exact middle scheduled-rate stream.
+`CReal.explicitEndpointsOfSandwich` now composes explicit eventual-order and
+width moduli into both endpoint certificates, with a constant-zero witness
+showing the compiler is inhabited; the physical order/width inputs remain
+open.
 The endpoint moduli, cutoff removal, OS/GNS/QFT passage, physical mass,
 every-group construction, and Clay theorem remain open by design.
 
