@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting route obstruction (2026-09-27 UTC; chart markers unchanged):
+The ACTUAL degree-dependent local covariance factor lies in
+`[1-2^(-(n+1)),1]`; its square is at least 1/4. An explicit `epsilon.den`
+modulus proves approach to ONE, uniformly in nome and nonempty seed size.
+This factor cannot yield asymptotic decay; it is not a lower covariance
+bound or a Yang--Mills counterexample. Next: stronger collective original
+signed-energy control. All 14 gates passed three focused checks. A03 and
+the same-theory scaling/OS/QFT/every-group Clay target remain open. Evidence:
+`audits/AUDIT-LOCAL-CHEBYSHEV-FACTOR-OBSTRUCTION-2026-09-27.md`.
+
 Verified supporting completed local covariance producer (2026-09-27 UTC; chart markers unchanged):
 Constructed literal-local Cauchy representatives put the ACTUAL Chebyshev
 auxiliary inside radius 16*n and its balanced output inside radius 16*(n+1).

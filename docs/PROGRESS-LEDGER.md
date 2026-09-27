@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual local completed auxiliary supplies covariance (2026-09-27 UTC)
+## Current increment: actual local factor degenerates (2026-09-27 UTC)
+
+The existing degree-dependent covariance multiplier is now proved to return
+to ONE, uniformly in nome and nonempty seed size, with explicit tolerance
+modulus `epsilon.den`. Its interval is `[1-2^(-(n+1)),1]` and its square is
+at least 1/4. This prunes the inference from pointwise strict auxiliary
+coercivity to decay along this degree-dependent coefficient. It does NOT
+bound actual covariance from below or refute Yang--Mills.
+
+NEXT: a stronger collective SAME-original-action signed-energy estimate,
+using the actual finite dual brackets and retaining mixed conditional terms.
+Do not continue wrapping the conservative collar factor as a decay route.
+Three focused serialized one-worker/20 GiB checks passed all 14 gates,
+with Sol/Luna proof work and independent scope review. No canonical displayed
+claim changes and no broad progress-metric/guard run. Evidence:
+`audits/AUDIT-LOCAL-CHEBYSHEV-FACTOR-OBSTRUCTION-2026-09-27.md`.
+
+## Earlier increment: actual local completed auxiliary supplies covariance (2026-09-27 UTC)
 
 The support-only coercivity theorem now applies to the ACTUAL completed
 Chebyshev auxiliary, through constructed literal-local Cauchy witnesses and

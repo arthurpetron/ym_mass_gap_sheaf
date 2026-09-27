@@ -5492,6 +5492,10 @@ import YMGap.Continuum.BF4ExactSlabLocalCauchyCone
 import YMGap.Continuum.BF4ExactSlabConeSize
 import YMGap.Continuum.BF4ExactSlabLocalAuxiliaryCoercivity
 import YMGap.Continuum.BF4ExactSlabLocalChebyshevCovariance
+-- The actual conservative local factor returns to one, not a decay rate.
+import YMGap.Continuum.BF4ExactSlabConeBudgetDegree
+import YMGap.Continuum.ChebyshevNearOneUpper
+import YMGap.Continuum.BF4ExactSlabLocalChebyshevObstruction
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

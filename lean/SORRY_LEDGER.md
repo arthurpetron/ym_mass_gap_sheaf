@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## Actual local factor obstruction and analytic redirect (2026-09-27 UTC)
+
+- **proved:** `LocalChebyshevObstruction.factor_bounds` puts the ACTUAL
+  covariance factor in `[1-2^(-(n+1)),1]` for nonempty seed size and 0<w<1.
+  `factor_square_ge_quarter` bounds its square below by 1/4;
+  `factor_approaches_one` uses the explicit `factorModulus(epsilon)=epsilon.den`,
+  uniformly in nome and nonempty seed size. `ChebyshevNearOneUpper` and
+  `ConeBudgetDegree` supply the scalar and natural-number ingredients.
+- **pruned inference:** this degree-dependent multiplier cannot give
+  asymptotic decay, even by changing nome. The previous covariance upper
+  bound stays valid. No lower bound on covariance or YM counterexample.
+- **next/open:** a useful collective original signed-energy lower estimate,
+  with actual mixed conditional terms and scaling dependence controlled.
+  The existing finite dual brackets approximate energies; they do not prove
+  that collective lower estimate. Same-theory OS/scaling/QFT, physical mass,
+  nontrivial continuum survival, every-group Clay and A03 remain open.
+- **verification:** three focused serialized one-worker/20 GiB checks; all
+  14 printed gates within {propext, Quot.sound}; independent Sol review.
+  No new hole, axiom, noncomputable declaration, canonical field or chart
+  marker. No root/full-tree build, full audit or guard. Evidence:
+  `audits/AUDIT-LOCAL-CHEBYSHEV-FACTOR-OBSTRUCTION-2026-09-27.md`.
+
 ## Actual local completed auxiliary and covariance producer (2026-09-27 UTC)
 
 - **constructed witnesses:** `LocalCauchyRepresentative.LocalRep` retains an
@@ -18,8 +40,8 @@
   retains the original covariance, original partition and both variances.
   The factor depends on nome, seed size and degree, not extent or late cutoff.
   It has no unsupplied auxiliary coercivity or denominator-positivity premise.
-- **open:** useful degree/cone and changing-coupling control; c_n>2 for each n
-  alone is NOT decay of its reciprocal Chebyshev factor as n grows. All-state
+- **open:** stronger degree/coupling control; the subsequent obstruction
+  above proves this factor returns to one, so a sharper estimate is needed. All-state
   scaling control, thermodynamic/OS/QFT, physical Hamiltonian mass, nontrivial
   continuum survival, every compact simple group and Clay remain open.
 - **verification:** eight focused serialized one-worker/20 GiB checks, all 36

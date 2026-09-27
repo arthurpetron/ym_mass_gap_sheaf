@@ -1,5 +1,11 @@
 # Actual local completed auxiliary and original covariance producer
 
+Checkpoint `b338a25`. Subsequent result: the
+[checked factor obstruction](AUDIT-LOCAL-CHEBYSHEV-FACTOR-OBSTRUCTION-2026-09-27.md)
+proves this degree-dependent factor returns to ONE, uniformly in nome and
+nonempty seed size. The finite upper bound below remains valid; the next
+priority is a stronger estimate, not asymptotic decay from this factor.
+
 ## Checked conclusion
 
 Let 0<w<1, K=headCutoff(w)+stage, and p,q be supported polynomials literally

@@ -10,13 +10,23 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Current comparison route ruled out for asymptotic decay (2026-09-27):** Lean
+now proves that the actual covariance factor at degree `d=n+1`
+lies between `1-2^(-d)` and `1`, with an explicit convergence modulus
+independent of nome and nonempty seed size. Its square is at least `1/4`.
+This factor cannot establish long-distance decay, even by varying the coupling;
+this is NOT a lower bound on covariance or a Yang--Mills counterexample.
+Next: stronger collective original-action signed-energy control.
+See the [checked obstruction and redirected target](audits/AUDIT-LOCAL-CHEBYSHEV-FACTOR-OBSTRUCTION-2026-09-27.md).
+
 **Local completed auxiliary and covariance producer (2026-09-27):** explicit
 local Cauchy representatives now carry the support-only estimate to the ACTUAL
 completed Chebyshev auxiliary. The original covariance is bounded by its two
 original variances with an explicit factor independent of ambient volume and
 late cutoff at each fixed degree. No auxiliary coercivity premise remains.
-The factor still depends on a rapidly growing cone budget; long-distance
-decay, changing-coupling control and the continuum gap are not proved.
+The factor still depends on a rapidly growing cone budget; the obstruction
+above now proves its degeneration. Long-distance decay and the continuum
+gap are not proved.
 See the [proof and quantitative limitation](audits/AUDIT-LOCAL-CHEBYSHEV-PRODUCER-2026-09-27.md).
 
 **Actual conditional energy with support-only cost (2026-09-27):** for every

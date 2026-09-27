@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual local Chebyshev factor degenerates: route redirected (2026-09-27 UTC)
+
+`LocalChebyshevObstruction.factor_bounds` proves the ACTUAL returned factor
+is in `[1-2^(-(n+1)),1]` for every 0<w<1 and nonempty seed support.
+Its square is at least 1/4; `factor_approaches_one` supplies the explicit
+modulus `epsilon.den`, independent of nome and seed size. This comparison
+route cannot give decay by increasing degree, even along varying nomes.
+The original covariance upper bound remains valid; no lower bound on actual
+covariance or counterexample to Yang--Mills is claimed.
+
+NEXT mathematical frontier: prove a collective SAME-original-action signed
+conditional-energy lower estimate at the actual balanced auxiliary, avoiding
+the demonstrated collar-floor loss. The existing `StarVariationalApproximation`
+finite dual brackets and `StarMixedPolynomialCost.cross_link_kernel_test`
+retain the exact original objects and mixed terms. The downstream consumer
+is `FiniteVolumeReverseEnergy.reverse_energy_of_coercivity_at_balanced`;
+the 625 theorem is an upper energy/loss comparison, not the missing lower
+estimate. Do not add another wrapper that assumes this estimate, or treat
+unconditional fixed-degree covariance control as a proved iteratable
+boundary-conditioned criterion. Physical scaling and all same-theory Clay
+endpoint requirements remain open. No canonical field or chart marker changes.
+
+Three focused serialized one-worker/20 GiB checks passed all 14 printed gates
+within {propext, Quot.sound}, with parallel Sol/Luna proof work and review.
+No new hole or broad build/audit/guard. Evidence:
+`audits/AUDIT-LOCAL-CHEBYSHEV-FACTOR-OBSTRUCTION-2026-09-27.md`.
+
 ### Constructed local completed auxiliary and covariance producer (2026-09-27 UTC)
 
 The literal-local completion seam is closed for the ACTUAL Chebyshev orbit
@@ -44,8 +71,9 @@ original diagonal variances. The factor has no extent or late-cutoff argument.
 It still depends on nome, initial support size and degree; no analytic
 reverse-energy premise remains for these actual local seeds.
 
-NEXT mathematical frontier: obtain quantitatively useful dependence on growing
-cones and changing coupling. Strict c_n>2 at each n does NOT establish
+At checkpoint b338a25 the next frontier was quantitative control of growing
+cones and changing coupling; the subsequent obstruction above redirects it.
+Strict c_n>2 at each n does NOT establish
 T_(n+1)(c_n-1) growing without bound. Retain this as a checked baseline, not
 a long-distance decay proof. Prioritize a sharper SAME-action energy estimate
 or a verified obstruction to this comparison route over more wrappers around
