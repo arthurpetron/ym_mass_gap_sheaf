@@ -110,10 +110,19 @@ follows; all new declarations remain unverified.
 
 `CurrentCarrierFormCertificate.toTwoStepCertificateOfDense`
 (`lean/YMGap/Continuum/BF4WilsonSpatialUnionCanonicalGNSBridge.lean:1039`)
-implements steps 1--4 via the new generic `GNSTransferMetric.maps_eq_of_dense`
-(`lean/YMGap/Continuum/GNSTransferMetric.lean:124`). That lemma uses an arbitrary
-GNS destination and a source `DistanceData`, so it is not tied to the ordinary
-Wilson form or an assumed continuum-existence package. Quotient induction
+implements steps 1--4 via `GNSTransferMetric.maps_eq_of_dense`
+(`lean/YMGap/Continuum/GNSTransferMetric.lean:124`). Its proof now specializes
+the more general draft `CRealSeminormCompletedApproximation.maps_eq_of_dense`
+(`lean/YMGap/Continuum/CRealSeminormCompletedApproximation.lean:138`): the target
+is any type with a squared distance, all-positive-tolerance separation and the
+quarter-tolerance two-segment estimate. No rational GNS presentation or target
+completeness is required. For a target with the existing constructive-real
+`DistanceData`, these two laws are already supplied by
+`CRealSeminormCauchyRows.completed_eq_of_small`
+(`lean/YMGap/Continuum/CRealSeminormCauchyRows.lean:135`) and
+`CRealSeminormCompletedApproximation.completedDist_two_segment`
+(`lean/YMGap/Continuum/CRealSeminormCompletedApproximation.lean:110`).
+No canonical frontier type is changed. Quotient induction
 proves an equality; it does not
 select quotient representatives as data. Independent Sol source review found
 the approximation directions and certificate types consistent, with no added
@@ -215,7 +224,115 @@ identify the observable with the canonical continuum algebra. An independent
 Sol source review found no single correlator-level wrapper, but confirmed this
 existing chain and the supplied modulus. No duplicate wrapper is added.
 
-## 7. Residue and verification boundary
+## 7. Supported probe representation is separate from completed normalization
+
+`PositiveTimeOSRoot.probeObservable` and `probeNormOne`
+(`lean/YMGap/Continuum/CanonicalOSRoot.lean:318`, `:321`) require a supported
+algebra observable whose state has exactly unit norm. The current physical
+`unitExcitation`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionNormalizedExcitation.lean:101`)
+is instead constructed by completed real-scalar multiplication using
+`normalizer` (`:92`) and its explicit `normalizerCauchy` (`:96`). Its norm is
+proved by `unitExcitation_norm` (`:107`). In contrast, `smulStage`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnion.lean:83`) takes a rational scalar.
+
+These declarations alone do not exhibit a supported algebra representative
+of the normalized completed vector. Such an identification remains an input
+to a physical root producer; completed normalization must not be silently
+treated as a raw-stage construction. This is a source/type distinction, not
+a proof of irrationality or nonrepresentability. No frontier type is changed.
+
+## 8. Supported products: concrete draft, not an OS quotient algebra
+
+`BF4WilsonSpatialUnionProduct.lean` is a new **unverified local draft**.
+`product` (`lean/YMGap/Continuum/BF4WilsonSpatialUnionProduct.lean:42`)
+places both intrinsic expressions at their maximum radius; `productStage`
+(`:66`) also uses their maximum spatial base. `chart_product` (`:47`) and
+`atBase_product` (`:70`) retain the literal common-chart multiplication.
+
+The draft `embedStage_eq_of_common_source` (`:104`) composes the existing
+`distSq_at_base` (`lean/YMGap/Continuum/BF4WilsonSpatialUnion.lean:151`),
+`intrinsic_distSq_zero_of_padded_diagonal`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionObservableDescent.lean:140`), and
+`chartInsertion_source_congr`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionSourceIdentity.lean:75`).
+It requires one finite coefficient identity, not an additional analytic
+estimate. This permits different source bases without choosing a common
+support bound for an entire completed stream.
+
+`product_comm` (`BF4WilsonSpatialUnionProduct.lean:118`), `product_assoc`
+(`:132`), and `product_sum_right` (`:155`) then use the existing finite
+polynomial laws to conclude equality of the corresponding `embedStage`
+images. No arbitrary completed-state equality is used as a product
+congruence hypothesis. Consequently these results do not yet define an
+algebra on an observable equivalence relation or on the OS null quotient.
+Their consumer is the missing source-side observable-algebra realization;
+the canonical reflected Gram pin and supported normalized probe remain open.
+Sol's independent source review found the bounds and descent types aligned;
+no elaboration or axiom check has run, and no roadmap node is closed.
+
+## 9. A multiplier-only equivalence need not be preserved by time
+
+The following is an explicit rational **paper counterexample**, independently
+recomputed by Sol. It has not been formalized or kernel-checked. It concerns
+a proposed generic implication, not the Wilson model or the full OS axioms.
+
+Let `A = Q^4` with coordinatewise multiplication and unit `(1,1,1,1)`, and
+let `J : A -> Q^2` and the two time maps be
+
+```text
+J(a,b,c,d)   = (d,b-c)
+tau(a,b,c,d) = (a,a,a,d)
+T(u,v)      = (u,0).
+```
+
+The map `tau` is a unital rational algebra endomorphism. Direct substitution
+gives `J(tau p) = T(J p)`. In the Euclidean form on `Q^2`, `T` is positive,
+self-adjoint and contractive, and fixes `J(1) = (1,0)`.
+
+Define multiplier-only equivalence by
+`p ~ q` iff `J(p*z) = J(q*z)` for every `z : A`. For `x=(1,0,0,0)`, every
+`x*z=(z_1,0,0,0)` maps to zero, so `x ~ 0`. However, with `z_0=(0,1,0,0)`,
+
+```text
+tau(x) = (1,1,1,0)
+J(tau(x)*z_0) = (0,1) != (0,0).
+```
+
+Thus `tau(x)` is not equivalent to zero. Exact intertwining and even a
+positive self-adjoint contraction do not make this stronger observable
+equivalence time-stable. This does not contradict the existing physical
+`completedTime` map: stability of the original OS null relation is a
+different assertion. No assertion is made that this finite example satisfies
+the Wilson provenance, the positive-response assumptions, or all OS axioms.
+
+### Constructive algebraic correction, not yet a source implementation
+
+For a unital commutative rational algebra `A`, a rational-linear map `J`, and
+an algebra endomorphism `tau`, the time-stable version is
+
+```text
+p ~_time q  iff  for every n : Nat and z : A,
+                 J((tau^n p)*z) = J((tau^n q)*z).
+```
+
+This is an equivalence by equality in the target. Addition and rational
+scaling respect it by linearity. For products, use the first equivalence
+with test `(tau^n b)*z`, then the second with test `(tau^n a')*z`, applying
+associativity and commutativity in `A`. Time preservation uses the same
+condition at `n+1`; no inverse or surjectivity of time is required. Taking
+`n=0` and `z=1` gives equality of the original `J` images. All tests are
+explicit universal quantifiers; no representatives or moduli are selected.
+
+This argument identifies a possible constructive congruence, not a new
+assumed analytic certificate. The concrete stage implementation still needs
+the source algebra laws inside these tests, scalar/unit compatibility, and
+the exact time/product law. The current draft proves only selected laws
+after embedding; it must not be described as already supplying these stronger
+contextual laws. Neither version constructs the missing reflected canonical
+observable map, the scalar-interface repair, or continuum scaling control.
+
+## 10. Residue and verification boundary
 
 The bridge still takes `H : ContinuumYMExistence mu`, a selected
 `WilsonGNSData`, and a `WilsonTimeTranslationPin` as parameters
@@ -233,8 +350,9 @@ was invalid: sandbox-denied process access had been interpreted as process
 absence. Future checks must distinguish those outcomes.
 
 Next verification, only after the live build ends: a monitored one-worker
-check/build of `GNSTransferMetric.lean`, then
-`BF4WilsonSpatialUnionCanonicalGNSBridge.lean`, inspecting both modules'
+check/build of `CRealSeminormCompletedApproximation.lean`, then
+`GNSTransferMetric.lean`, then
+`BF4WilsonSpatialUnionCanonicalGNSBridge.lean`, inspecting all three modules'
 printed axiom dependencies. The draft also contains the two earlier unverified
 unit-probe consequences. No success or axiom-set claim is made for any of the
 new declarations; the proof-status ledger and chart remain unchanged.

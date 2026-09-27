@@ -47,16 +47,21 @@ representability requirement; the existing general Cauchy-stream interface
 does not impose that per-stage restriction. The new completed-map reduction
 also avoids it without changing any frontier structure. The canonical datum,
 static transport, dense dynamic equation, and all-vector range section remain
-inputs. Verify the generic module first, then the bridge, serialized through
-the monitored launcher; do not start a competing Lean process.
+inputs. Verify `CRealSeminormCompletedApproximation`, then `GNSTransferMetric`,
+then the bridge, serialized through the monitored launcher; do not start a
+competing Lean process.
 
 **Producer correction from the scoped source audit:** the old bridge targets
 ordinary `W.toGNSData`, whereas `CanonicalOSRoot.PositiveTimeOSRoot` uses a
 separate reflected positive-time `positive` datum. No same-observable/form
 identification or concrete BF4 bridge producer was found. Do not extend the
 ordinary-GNS branch as if it constructed the physical OS root. The useful
-completion argument is now isolated as `GNSTransferMetric.maps_eq_of_dense`,
-with an arbitrary GNS target and no continuum-existence premise. Next physical
+completion argument is now isolated as
+`CRealSeminormCompletedApproximation.maps_eq_of_dense`, with an arbitrary
+separated squared-distance target and no continuum-existence premise.
+`GNSTransferMetric.maps_eq_of_dense` is its GNS specialization; the existing
+constructive-real `DistanceData` also supplies its two target metric laws.
+Next physical
 producer work must pin the current reflected Wilson pairing and supported
 observables to the reflected target; retain the scalar-interface restriction
 and changing-spacing obligations explicitly. No frontier field is weakened.
@@ -72,6 +77,28 @@ dynamics consumer now specializes the generic dense-extension proof rather
 than maintaining a second pairing-limit proof. A scalar-interface correction
 has been put to the user for review; until approved, canonical frontier types
 remain unchanged.
+
+The independent supported-product draft in
+`BF4WilsonSpatialUnionProduct.lean` now constructs multiplication on original
+stages at their maximum base and radius. It transports finite polynomial
+commutativity, associativity and distributivity into equalities of the existing
+embedded states through a common-source identity. These are not product
+congruence laws for arbitrary OS-null states and do not yet construct the
+canonical observable algebra. Static Sol review found no issue; the module
+joins the narrow verification queue after the existing external build, with
+no proof-status change. Audit sections 7--8 also retain the separate missing
+supported representation of the CReal-normalized completed probe. Do not
+expand a semantic quotient until its compatibility laws have been justified.
+
+A further paper check rules out automatic time stability for the relation
+that tests equality only after multiplication by arbitrary source observables.
+Audit section 9 gives an explicit rational four-coordinate counterexample,
+despite unital algebraic time evolution, exact intertwining and a positive
+self-adjoint contraction. A constructive candidate retains all forward time
+translates in those tests; the algebraic argument is recorded there, but its
+actual stage laws are not yet implemented or kernel-checked. Do not infer a
+descended time map from the multiplier-only relation or from the pending
+embedded product laws. This review changes no canonical field or proof status.
 
 ### New finite-prefix calibration certificate (2026-09-26 UTC)
 
