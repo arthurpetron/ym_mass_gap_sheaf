@@ -132,7 +132,7 @@ order estimate is proved.
 ### Conditional contraction to the sharp gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:734--737`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:782--785`)
 now composes that specialized certificate with the existing same-family
 physical-rate compiler and the sharp `ContinuumGapTheorem` interface.  This
 closes the typed downstream route once the product-band fields are supplied;
@@ -194,7 +194,7 @@ open.  The focused monitored check reports only `{propext, Quot.sound}`.
 
 `ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand`,
 `.toPhysicalRateBand`, and `.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:631--681`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:679--729`)
 now transport the two explicit product-band fields through the
 carrier-normalized spacing schedule and into the existing sharp
 `ContinuumGapTheorem` interface.  The product-band structure remains
@@ -207,13 +207,26 @@ open.  The focused monitored check reports only `{propext, Quot.sound}`.
 `changingNomeCarrierNormalizedMovingCubeChannel`,
 `changingNomeCarrierNormalizedMovingCube_zero_isPositive`, and
 `changingNomeCarrierNormalizedMovingCube_connectedSq_decay`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:518--543`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:523--548`)
 instantiate the concrete moving-cube channel on the repaired same-name
 family.  The literal completed channel has positive zero-time response and
 the completed squared-gap decay bound.  This is an observable join only:
 cutoff-removal variation, a uniform scaling floor, OS/GNS, continuum/QFT,
 physical mass, every-group, and Clay remain open.  The focused monitored check
 reports only `{propext, Quot.sound}`.
+
+### Repaired-family physical-time sampling/global join (2026-09-26 UTC)
+
+`changingNomeCarrierNormalizedMovingCube_sampled_zero_isPositive`,
+`changingNomeCarrierNormalizedMovingCube_sampled_eq_global`, and
+`changingNomeCarrierNormalizedMovingCube_sampled_sq_decay`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:550--591`)
+instantiate floor sampling and the exact global adaptive-transfer coefficient
+identity for the repaired same-object channel, while preserving its completed
+squared decay.  This is the physical-time observable join; cutoff-removal
+variation, uniform scaling survival, OS/GNS, continuum/QFT, physical mass,
+every-group, and Clay remain open.  The focused monitored check reports only
+`{propext, Quot.sound}`.
 
 ### Scale-zero obstruction and schedule redesign (2026-09-26 UTC)
 

@@ -8,7 +8,7 @@ new angle). Run `bash computations/progress_metric.sh` each iteration.
 
 `ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand`,
 `.toPhysicalRateBand`, and `.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:600--650`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:679--729`)
 transport the two explicit product-band inequalities through the repaired
 carrier-normalized spacing schedule.  The compiler preserves the exact
 same-family denominator law and reaches the existing sharp
@@ -21,7 +21,7 @@ monitored check reports only `{propext, Quot.sound}`.
 ## Current increment: normalized product band forces the repaired floor order (2026-09-26 UTC)
 
 `ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:594--629`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:642--677`)
 transports the scalar quotient kernel to the repaired carrier-normalized
 spacing.  Any inhabited normalized product band therefore forces
 `6*((floor*normalizedSpacing)*carrierSquareScale) ≤ floorValue` at every
@@ -35,7 +35,7 @@ monitored check reports only `{propext, Quot.sound}`.
 `changingNomeCarrierNormalizedMovingCubeChannel`,
 `changingNomeCarrierNormalizedMovingCube_zero_isPositive`, and
 `changingNomeCarrierNormalizedMovingCube_connectedSq_decay`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:518--543`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:523--548`)
 instantiate the concrete moving-cube same-object channel on the repaired
 carrier-normalized family.  The actual completed channel retains positive
 zero-time response and the squared completed-gap decay bound.  This joins the
@@ -43,6 +43,19 @@ spacing repair to the A05 observable branch, but supplies neither cutoff-removal
 variation nor a uniform scaling floor; OS/GNS, continuum/QFT, physical mass,
 every-group, and Clay obligations remain open.  The focused monitored check
 reports only `{propext, Quot.sound}`.
+
+## Current increment: repaired-family physical-time sampling/global join (2026-09-26 UTC)
+
+`changingNomeCarrierNormalizedMovingCube_sampled_zero_isPositive`,
+`changingNomeCarrierNormalizedMovingCube_sampled_eq_global`, and
+`changingNomeCarrierNormalizedMovingCube_sampled_sq_decay`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:550--591`)
+instantiate the canonical spacing-to-zero floor sampling for the repaired
+same-object channel.  The sampled correlation retains positive zero-time
+response, the exact global adaptive-transfer coefficient identity, and the
+completed squared-decay bound.  Cutoff-removal variation and uniform scaling
+survival remain open.  The focused monitored check reports only
+`{propext, Quot.sound}`.
 
 ## Current increment: product-band forces a necessary floor order (2026-09-26 UTC)
 
@@ -263,7 +276,7 @@ is the exact algebraic presentation of the scheduled denominator as
 `ChangingNomeHeadEnergyProductBand` (`:153--171`) retains only the two uniform
 product inequalities against the unchanged spacing, and
 `ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand`
-(`:687--721`) compiles them into the existing same-family denominator band.
+(`:735--769`) compiles them into the existing same-family denominator band.
 The focused check reports only `{propext, Quot.sound}`.  The certificate is
 intentionally uninhabited: proving its two fields is exactly the remaining
 all-scale denominator-versus-spacing problem.
@@ -271,7 +284,7 @@ all-scale denominator-versus-spacing problem.
 ## Current increment: product band contracted to the continuum-gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:734--737`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:782--785`)
 composes the exact changing-nome denominator presentation, the specialized
 product-band compiler, and the existing same-family physical-rate compiler
 into the sharp `ContinuumGapTheorem` interface.  The focused monitored build

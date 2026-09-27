@@ -10,6 +10,7 @@ vanishing spacing is deliberately left as a separate typed certificate.
 import YMGap.Continuum.BF4PhysicalChangingNomeDynamicFamily
 import YMGap.Continuum.BF4PhysicalCubeCutoffUniformGapAlgebra
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 
 namespace YMGap.Continuum.BF4PhysicalChangingNomeExplicitMarginLaw
 
@@ -25,12 +26,16 @@ open YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound
 open YMGap.Continuum.BF4PhysicalChangingNomeDynamicFamily
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGapAlgebra
+open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledBaseEdgeFloor
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorScheduledRCChannel
 open YMGap.Continuum.PhysicalSeparatorLinearTail
 open YMGap.Continuum.PhysicalSeparatorLogRate
 open YMGap.Continuum.RCStrictPositivity
@@ -542,6 +547,49 @@ theorem changingNomeCarrierNormalizedMovingCube_connectedSq_decay
   centralPhysicalDynamicMovingCube_connectedSq_decay
     changingNomeCarrierNormalizedDynamicFamily scale time
 
+theorem changingNomeCarrierNormalizedMovingCube_sampled_zero_isPositive
+    (scale : Nat) :
+    RCIsPositive
+      (sampledConnectedAutocorrelation
+        changingNomeCarrierNormalizedMovingCubeChannel scale 0) :=
+  sampledConnectedAutocorrelation_zero_isPositive
+    changingNomeCarrierNormalizedMovingCubeChannel scale
+
+theorem changingNomeCarrierNormalizedMovingCube_sampled_eq_global
+    (scale time : Nat) :
+    sampledConnectedAutocorrelation
+        changingNomeCarrierNormalizedMovingCubeChannel scale time =
+      centralPhysicalCutoffCompletedInner
+        (changingNomeCarrierNormalizedDynamicFamily.nome_pos scale)
+        (changingNomeCarrierNormalizedDynamicFamily.nome_lt_one scale) 0
+        (centralPhysicalConcreteAdaptiveCompletedMarkovPower
+          (changingNomeCarrierNormalizedDynamicFamily.nome_pos scale)
+          (changingNomeCarrierNormalizedDynamicFamily.nome_lt_one scale) 0
+          (centralPhysicalDynamicRCLatticeSteps
+            changingNomeCarrierNormalizedDynamicFamily scale time)
+          (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+            (changingNomeCarrierNormalizedMovingCubeChannel.vectorAt scale).1))
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+          (changingNomeCarrierNormalizedMovingCubeChannel.vectorAt scale).1) :=
+  sampledConnectedAutocorrelation_eq_global
+    changingNomeCarrierNormalizedMovingCubeChannel scale time
+
+theorem changingNomeCarrierNormalizedMovingCube_sampled_sq_decay
+    (scale time : Nat) :
+    CReal.RCle
+      (sampledConnectedAutocorrelationSq
+        changingNomeCarrierNormalizedMovingCubeChannel scale time)
+      (CReal.RCmul
+        (CReal.RCscale
+          ((((changingNomeCarrierNormalizedDynamicFamily.completedGap scale).rate *
+              (changingNomeCarrierNormalizedDynamicFamily.completedGap scale).rate)) ^
+            (centralPhysicalDynamicRCLatticeSteps
+              changingNomeCarrierNormalizedDynamicFamily scale time))
+          (changingNomeCarrierNormalizedMovingCubeChannel.normSq scale))
+        (changingNomeCarrierNormalizedMovingCubeChannel.normSq scale)) :=
+  sampledConnectedAutocorrelationSq_decay
+    changingNomeCarrierNormalizedMovingCubeChannel scale time
+
 /-- The exact denominator law transported to the repaired spacing schedule.
     The dimensionless margin is unchanged because the completed nome and gap
     are unchanged; only the physical spacing field is replaced. -/
@@ -758,6 +806,9 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeCarrierNormalizedMovingCubeChannel
 #print axioms changingNomeCarrierNormalizedMovingCube_zero_isPositive
 #print axioms changingNomeCarrierNormalizedMovingCube_connectedSq_decay
+#print axioms changingNomeCarrierNormalizedMovingCube_sampled_zero_isPositive
+#print axioms changingNomeCarrierNormalizedMovingCube_sampled_eq_global
+#print axioms changingNomeCarrierNormalizedMovingCube_sampled_sq_decay
 #print axioms changingNomeCarrierNormalizedExplicitMarginInverseLaw
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
 #print axioms ChangingNomeCarrierNormalizedHeadEnergyProductBand.toExplicitMarginDenominatorBand
