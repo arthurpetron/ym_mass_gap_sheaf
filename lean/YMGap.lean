@@ -5475,6 +5475,10 @@ import YMGap.Continuum.BF4ExactSlabCompletedFiniteVolumeCoercivity
 import YMGap.Continuum.BF4ExactSlabFiniteVolumeReverseEnergy
 import YMGap.Continuum.ChebyshevAboveOne
 import YMGap.Continuum.BF4ExactSlabFiniteVolumeChebyshevCovariance
+-- Original local variances pay for support, not all volume faces; no global gap.
+import YMGap.Continuum.BF4ExactSlabLocalSupportComparison
+import YMGap.Continuum.BF4ExactSlabLocalSupportVariance
+import YMGap.Continuum.BF4ExactSlabLocalSupportCovariance
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

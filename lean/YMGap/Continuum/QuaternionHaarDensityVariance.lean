@@ -184,6 +184,25 @@ theorem shifted_moment_expansion {blocks : Nat} {W p : RatPoly}
         -(2*c*quaternionHaar blocks (polyMul W p)) +
         c*c*quaternionHaar blocks W := shifted_square_pin P hp c
 
+/-- The actual normalized W-variance is no larger than the W-square
+centered at any supplied rational constant. -/
+theorem normalized_variance_le_shifted {blocks : Nat} {W p : RatPoly}
+    (P : Certificate blocks W) (hp : SupportedQuaternionBlocks blocks p)
+    (hZ : (0 : Q') < quaternionHaar blocks W) (c : Q') :
+    normalizedVariance blocks W p hZ ≤
+      normalizedMoment blocks W (polyMul (shifted p c) (shifted p c)) hZ := by
+  let z := quaternionHaar blocks W
+  let a := quaternionHaar blocks (polyMul W p)
+  let b := quaternionHaar blocks (polyMul W (polyMul p p))
+  let s := Q'.recipPos z hZ
+  have h := RationalVarianceComparison.variance_le_quadratic z a b s c
+    (Q'.mul_recipPos_eqv z hZ)
+  change normalizedVariance blocks W p hZ ≤
+    RationalVarianceComparison.quadratic z a b s c at h
+  exact Q'.le_trans' _ _ _ h
+    (Q'.le_of_eqv (Q'.mul_eqv_congr_right _ _ s
+      (Q'.eqv_symm (shifted_square_pin P hp c))))
+
 /-- Any rational center has bare squared norm at least the bare variance. -/
 theorem bare_variance_le_shifted {blocks : Nat} {p : RatPoly}
     (hp : SupportedQuaternionBlocks blocks p) (c : Q') :
@@ -211,6 +230,45 @@ theorem bare_variance_le_shifted {blocks : Nat} {p : RatPoly}
     (Q'.le_trans' _ _ _
       (RationalVarianceComparison.variance_le_quadratic 1 a b 1 c (by decide))
       (Q'.le_of_eqv hquad))
+
+/-- Centering at the bare Haar mean gives exactly the bare variance. -/
+theorem bare_mean_pin {blocks : Nat} {p : RatPoly}
+    (hp : SupportedQuaternionBlocks blocks p) :
+    quaternionHaar blocks
+        (polyMul (shifted p (quaternionHaar blocks p))
+          (shifted p (quaternionHaar blocks p))) ≈
+      quaternionHaar blocks (polyMul p p) +
+        -(quaternionHaar blocks p * quaternionHaar blocks p) := by
+  let a := quaternionHaar blocks p
+  let b := quaternionHaar blocks (polyMul p p)
+  have he : quaternionHaar blocks (polyMul (shifted p a) (shifted p a)) ≈
+      b + -(2*a*a) + a*a*1 :=
+    Q'.eqv_trans _ _ _ (Q'.eqv_symm (haar_of_coeff (RatPolyCoeffEqv.one_mul _)))
+      (Q'.eqv_trans _ _ _ (shifted_square_pin (Certificate.one blocks) hp a)
+        (Q'.add_eqv_congr'
+          (Q'.add_eqv_congr' (haar_of_coeff (RatPolyCoeffEqv.one_mul _))
+            (Q'.neg_eqv_congr _ _
+              (Q'.mul_eqv_congr_left _ _ _ (haar_of_coeff (RatPolyCoeffEqv.one_mul p)))))
+          (Q'.mul_eqv_congr_left _ _ _ (haar_one blocks))))
+  have hquad : b + -(2*a*a) + a*a*1 ≈
+      RationalVarianceComparison.quadratic 1 a b 1 (a*1) :=
+    RingNormaliser.poly_identity_of_normal_eq
+      (.add (.add (.var 0) (.neg (.mul (.mul (.const 2) (.var 1)) (.var 1))))
+        (.mul (.mul (.var 1) (.var 1)) (.const 1)))
+      (.mul
+        (.add (.add (.var 0)
+          (.neg (.mul (.mul (.const 2) (.mul (.var 1) (.const 1))) (.var 1))))
+          (.mul (.mul (.mul (.var 1) (.const 1)) (.mul (.var 1) (.const 1)))
+            (.const 1)))
+        (.const 1))
+      (by decide) (fun | 0 => b | _ => a)
+  have hvar : RationalVarianceComparison.variance a b 1 ≈ b + -(a*a) :=
+    Q'.add_eqv_congr' (Q'.mul_one_eqv b)
+      (Q'.neg_eqv_congr _ _ (qmul (Q'.mul_one_eqv a) (Q'.mul_one_eqv a)))
+  exact Q'.eqv_trans _ _ _ he
+    (Q'.eqv_trans _ _ _ hquad
+      (Q'.eqv_trans _ _ _
+        (RationalVarianceComparison.quadratic_minimizer 1 a b 1 (by decide)) hvar))
 
 /-- The original centered square is exactly its normalized variance. -/
 theorem own_mean_pin {blocks : Nat} {W p : RatPoly}
@@ -269,7 +327,9 @@ end YMGap.Continuum.QuaternionHaarDensityVariance
 
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.raw_square_floor
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.shifted_moment_expansion
+#print axioms YMGap.Continuum.QuaternionHaarDensityVariance.normalized_variance_le_shifted
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.bare_variance_le_shifted
+#print axioms YMGap.Continuum.QuaternionHaarDensityVariance.bare_mean_pin
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.normalizedMoment
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.normalizedVariance
 #print axioms YMGap.Continuum.QuaternionHaarDensityVariance.shifted

@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## Original local variance with support-only comparison cost (2026-09-27 UTC)
+
+- **proved:** `BF4ExactSlabLocalSupportComparison` retains the detached original
+  action and compares only faces touching the literal link support. Its
+  `collarCount_le` proves at most six faces per support link; square and
+  partition comparisons share the exact same background mass.
+- **constructed estimate:** `BF4ExactSlabLocalSupportVariance.support_variance_comparison`
+  proves two-sided original/Haar variance bounds with returned positive
+  `supportRatio=headFloor(w)^(6s)/prefixCap(w)^(6s)`. No extent, late cutoff,
+  location, degree or coefficient dependence enters that ratio. Nome and
+  support-size dependence remain explicit; centering is at each actual mean.
+- **consumer:** `BF4ExactSlabLocalSupportCovariance` proves both bounds for
+  the existing finite original diagonal covariance and its fixed-extent
+  heat-cutoff limit. There is no new probability law or limit assumption.
+- **open:** actual conditional-residual lower comparison with local cost,
+  growing-support/changing-coupling control, all-completed-state improvement,
+  thermodynamic/scaling/OS/QFT, physical Hamiltonian mass, nontrivial continuum
+  survival, every compact simple group and Clay. No displayed node closes.
+- **verification:** four focused serialized one-worker/20 GiB checks, all 38
+  printed gates within {propext, Quot.sound}; parallel Sol/Luna work. No new
+  sorry, axiom, frontier field or full-tree/audit/guard run. Evidence:
+  `audits/AUDIT-ORIGINAL-LOCAL-SUPPORT-VARIANCE-2026-09-27.md`.
+
 ## Constructed original finite-volume coercivity and covariance (2026-09-27 UTC)
 
 - **proved:** `SU2QuaternionHaarEfronStein.haar_efron_stein` has constant one.

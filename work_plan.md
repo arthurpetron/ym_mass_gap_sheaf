@@ -25,6 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original local variance without an all-volume cost (2026-09-27 UTC)
+
+For every supported polynomial local on at most s literal links, the SAME
+original full-action variance is bounded in both directions by Haar variance
+with positive factor `delta(w,s)=headFloor(w)^(6s)/prefixCap(w)^(6s)`.
+The detached original action stays in both numerator and partition and is
+cancelled before normalization. Both means are explicit and need not agree.
+The factor is independent of extent, placement and late heat cutoff; nome
+and support-size dependence remain explicit. `LocalSupportCovariance` pins
+the result to the existing finite covariance and its fixed-extent cutoff limit.
+
+NEXT: retain the same exterior in a lower estimate for the actual conditional
+residuals. The local variance theorem alone does NOT improve the all-state
+completed coercivity coefficient below: literal polynomial support is not
+automatically the operational support of the completed auxiliary, and the
+support/coupling costs must still be controlled on a justified scaling family.
+Thermodynamic existence, OS/physical Hamiltonian, continuum/QFT/nontriviality
+and every-group Clay remain open. No canonical field or chart marker changes.
+
+Four focused serialized one-worker/20 GiB checks passed all 38 printed gates
+within {propext, Quot.sound}; Sol proof/review and Luna API lookup ran in parallel.
+No new hole or full-tree/audit/guard run. Evidence:
+`audits/AUDIT-ORIGINAL-LOCAL-SUPPORT-VARIANCE-2026-09-27.md`.
+
 ### Constructed finite-volume coercivity and covariance (2026-09-27 UTC)
 
 The original-action lower bound is now constructed at every finite extent:

@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: constructed original-action finite-volume producer (2026-09-27 UTC)
+## Current increment: original local variance without all-volume cost (2026-09-27 UTC)
+
+Exact detached-background factorization and comparison of numerator and
+partition now yield two-sided SAME original variance bounds for any polynomial
+on at most s literal links. The positive ratio is
+`headFloor(w)^(6s)/prefixCap(w)^(6s)`, independent of extent and late cutoff.
+The existing original finite diagonal covariance and fixed-extent cutoff
+limit inherit both bounds. All 38 gates passed four focused checks; bounded
+Sol proof/review and Luna source lookup ran in parallel.
+
+This is an actual estimate, not a new conditional wrapper. It controls local
+normalization but does not improve the all-completed-state reverse-energy
+coefficient: actual residual comparison, growing cones and changing coupling
+remain to be controlled. No canonical node or Clay endpoint closes. No broad
+progress-metric/guard run. Evidence:
+`audits/AUDIT-ORIGINAL-LOCAL-SUPPORT-VARIANCE-2026-09-27.md`.
+
+## Earlier increment: constructed original-action finite-volume producer (2026-09-27 UTC)
 
 The proof now constructs, rather than assumes, a positive lower bound on the
 original full-action completed centered Dirichlet form. Its explicit rational

@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Local variance without a volume penalty (2026-09-27):** two-sided bounds
+now compare the SAME original interacting variance with Haar variance for
+every polynomial on at most s literal links. Their positive constant depends
+only on coupling and s, not ambient volume or late heat cutoff. The bounds
+also hold for the existing fixed-volume cutoff limit. This is local variance
+control, not a global contraction or continuum survival theorem. See the
+[proof and remaining gap](audits/AUDIT-ORIGINAL-LOCAL-SUPPORT-VARIANCE-2026-09-27.md).
+
 **Original-action finite-volume lower bound proved (2026-09-27):** a positive
 explicit coefficient now bounds the summed conditional residual energy on
 the SAME completed centered carrier. It supplies the actual reverse-energy

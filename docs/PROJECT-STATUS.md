@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting support-only variance comparison (2026-09-27 UTC; chart markers unchanged):
+The SAME original variance of any polynomial on at most s literal links is
+bounded in both directions by Haar variance with positive factor
+`headFloor(w)^(6s)/prefixCap(w)^(6s)`. The exterior action cancels against
+the same partition; the factor is independent of extent and late cutoff.
+The existing finite covariance and fixed-extent cutoff-limit covariance
+inherit both bounds. Four focused checks passed all 38 gates. This is static
+local variance control, not an improved global completed contraction,
+growing-support/spacing control or nontrivial continuum survival. A03 and
+the OS/continuum/QFT/every-group Clay target remain open. Evidence:
+`audits/AUDIT-ORIGINAL-LOCAL-SUPPORT-VARIANCE-2026-09-27.md`.
+
 Verified supporting finite-volume coercivity (2026-09-27 UTC; chart markers unchanged):
 The original full-action completed centered carrier now has an explicit
 positive Dirichlet lower coefficient `headFloor^faces/prefixCap^faces`.
