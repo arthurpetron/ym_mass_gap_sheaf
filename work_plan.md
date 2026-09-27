@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Reflected null quotient and explicit observable approximation checked (2026-09-27 UTC)
+
+`BF4WilsonSignedTimeUnionOS.reflectedDistance_eq` identifies the original
+ambient reflected mean of a supported difference with the SAME completed
+squared distance. `reflectedDistance_zero_iff` therefore identifies precisely
+the OS-null relation, not the stronger multiplication-tested observable
+relation. `OSObservable` is the actual quotient; its `state` is injective into
+the existing physical completion, and `inner_ofObservable` / `state_forwardTime`
+retain the original reflected form and completed transfer.
+Addition and rational scaling also descend through the proved null criterion;
+`state_add` / `state_smul` identify them with the existing completed operations.
+
+`approximationData` returns an OS-quotient observable and its squared-distance
+error certificate from a SUPPLIED union Cauchy representative. Its witness is
+exactly the original stage at `X.modulus epsilon`. There is no new completion,
+choice of a representative from a quotient class, or product on OS-null states.
+
+This closes the next null/dense-source identification from the preceding
+checkpoint. Next resolve the canonical scalar/interface decision before
+expanding that root: actual expectations are RC-valued, whereas the existing
+canonical root requires Q'-valued data. Canonical support still requires
+`PositiveTimeSupport.approximationSupported`, tying geometry to the actual
+two-parameter approximants. Neither obligation follows from the present
+fixed-spacing null quotient. Canonical all-vector range, changing-spacing
+control, physical mass, continuum QFT and every-group closure remain open.
+Do not alter canonical fields without approval.
+
+The final focused monitored check passed, one worker capped at 20 GiB; all 25
+printed declarations use only `{propext, Quot.sound}`. No new hole, analytic
+input, full-tree check or broad chart-marker advance. Sol checked the explicit
+approximation consumer and independently reviewed the null quotient's scope;
+audit section 18 records the exact scope.
+
 ### All-base ambient quotient and physical correlator identification checked (2026-09-27 UTC)
 
 `BF4WilsonSignedTimeBaseCoherence.lean` proves literal identity and composition
@@ -43,12 +76,10 @@ rational scaling, forward time and mean. Its `embedding_reflected_mean` and
 the SAME completed physical pairing and transfer. Reflection positivity is
 proved on this embedded supported part, not arbitrary signed-time observables.
 
-Next identify zero reflected distance of supported observables with equality
-of their existing completed states, using `embedding_reflected_mean` and
-`BF4WilsonSpatialUnionBilinear.completedSub_norm_zero_iff`. Reuse
-`CRealSeminormCompletedApproximation.approximationData` for explicit dense
-approximants from supplied Cauchy representatives; do not choose representatives
-from quotient classes. The canonical Q'-valued expectation is not
+Zero reflected distance is now identified with equality of existing completed
+states above, with explicit dense OS-observable approximants from supplied
+Cauchy representatives, not a choice from quotient classes.
+The canonical Q'-valued expectation is not
 supplied by an RC-valued limit; do not assume a rational conversion or change
 canonical fields. Canonical scalar/reflected OS realization, all-vector range,
 changing spacing, physical mass, continuum QFT and every-group Clay closure

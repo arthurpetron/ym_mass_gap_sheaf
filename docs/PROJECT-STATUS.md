@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting reflected null quotient (2026-09-27 UTC; chart markers unchanged):
+`BF4WilsonSignedTimeUnionOS.reflectedDistance_zero_iff` identifies the original
+supported reflected-null relation with equality in the SAME physical completion.
+Its actual quotient injects into that completion, preserving reflected form,
+time, addition and rational scaling. `approximationData` returns dense observable witnesses with explicit error
+bounds from supplied Cauchy representatives, without choosing quotient
+representatives. One focused check passed within `{propext, Quot.sound}`.
+Canonical scalar/support realization, all-vector range, scaling and continuum/Clay
+remain open. No multiplication of OS-null classes or new completion is assumed.
+
 Verified supporting all-base realization (2026-09-27 UTC; chart markers unchanged):
 `BF4WilsonSignedTimeUnionObservable.Observable` now assembles the actual ambient
 signed-time quotient across all positive spatial bases, with the original

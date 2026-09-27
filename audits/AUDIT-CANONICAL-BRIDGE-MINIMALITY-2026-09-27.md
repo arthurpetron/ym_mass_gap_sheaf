@@ -811,3 +811,42 @@ this scalar conversion would not discharge the gap.
 Canonical scalar/reflected OS realization, all-vector range, changing-spacing
 control, positive physical mass, continuum QFT and every compact simple group
 remain open. No canonical field or broad chart marker changes.
+
+## 18. Original reflected null quotient identified with the existing states
+
+The next composition in section 17 is now proved in
+`lean/YMGap/Continuum/BF4WilsonSignedTimeUnionOS.lean`:
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `supportedDifference`, `state_difference` | `lean/YMGap/Continuum/BF4WilsonSignedTimeUnionOS.lean:49`, `:53` | Actual supported addition and rational negation map to the existing completed difference. |
+| `reflectedForm`, `reflectedForm_eq` | same module `:62`, `:67` | The original ambient reflected expectation equals the SAME completed physical form. |
+| `reflectedDistance_eq`, `reflectedDistance_zero_iff` | same module `:77`, `:88` | Its difference square equals completed squared distance, and vanishes exactly when the existing states agree. |
+| `nullSetoid`, `OSObservable` | same module `:95`, `:104` | Actual quotient by reflected null distance, distinct from multiplication-tested contextual equality. |
+| `state`, `state_injective` | same module `:110`, `:116` | Constructed injection into the already existing physical completion. |
+| `inner_ofObservable` | same module `:128` | The quotient form is the original reflected mean on every supported observable pair. |
+| `forwardTime`, `state_forwardTime`, `inner_forwardTime` | same module `:133`, `:142`, `:148` | Forward time descends through the proved null relation and uses the SAME completed transfer and correlators. |
+| `approximationData`, `approximationData_witness` | same module `:157`, `:166` | From a supplied union Cauchy representative and positive rational error, return an actual quotient observable and squared-distance bound, using precisely `X.seq (X.modulus epsilon)`. |
+| `add`, `state_add`, `smul`, `state_smul` | same module `:174`, `:184`, `:191`, `:199` | Addition and rational scaling descend through the proved null criterion and preserve the actual completed operations. No product descent is asserted. |
+
+The constructive approximation is a Type-valued pair, not a proposition
+hiding a witness. It is not a selector for arbitrary completion classes.
+There is no new completion, arbitrary ambient-to-physical state map, or
+product on OS-null classes. The supported contextual algebra and its physical
+null quotient are kept distinct.
+
+Verification: the final focused monitored check passed with one
+worker capped at 20 GiB. All 25 printed declarations use only
+`{propext, Quot.sound}`; no `sorryAx` or classical dependency. Sol located and
+reviewed the existing explicit approximation consumer and independently reviewed
+the null quotient's scope. The first 21 declarations passed on the first run;
+adding linear descent required correcting the quotient-congruence binder order.
+No theorem statement or resource limit was changed. No new analytic input,
+canonical field change, full-tree audit or broad chart-marker advance.
+
+The rational scalar fields recorded in section 17 are unchanged. Separately,
+`PositiveTimeSupport.approximationSupported`
+(`lean/YMGap/Continuum/CanonicalOSRoot.lean:231`) requires geometric positive-time
+support at the actual two-parameter approximants. This fixed-spacing quotient
+does not supply that canonical family. Canonical all-vector range, changing
+spacing, physical mass, continuum QFT and every compact simple group remain open.

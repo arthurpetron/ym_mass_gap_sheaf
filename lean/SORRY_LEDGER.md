@@ -1,5 +1,35 @@
 # Sorry Ledger
 
+## Reflected null quotient and explicit dense observable witnesses (2026-09-27 UTC)
+
+- **file:** `lean/YMGap/Continuum/BF4WilsonSignedTimeUnionOS.lean`.
+- **exact null criterion:** `state_difference`, `reflectedDistance_eq`, and
+  `reflectedDistance_zero_iff` (`:53`, `:77`, `:88`) identify the original
+  reflected mean of a supported difference with the existing completed
+  squared distance and its zero relation. No equality of ordinary and
+  reflected norms, or OS-null multiplication ideal, is assumed.
+- **actual quotient and maps:** `nullSetoid`, `OSObservable`, `state`, and
+  `state_injective` (`:95`, `:104`, `:110`, `:116`) quotient that relation and
+  inject it into the SAME existing physical completion. `inner_ofObservable`
+  and `state_forwardTime` (`:128`, `:142`) retain the original reflected
+  expectation and actual completed transfer; no second completion is built.
+  `state_add` and `state_smul` (`:184`, `:199`) preserve the actual completed
+  addition and rational scaling on this null quotient, without product descent.
+- **witnessed approximation:** `approximationData` / `approximationData_witness`
+  (`:157`, `:166`) return a null-quotient observable and its distance bound
+  from a supplied Cauchy representative, at its own modulus. This does not
+  choose representatives for arbitrary quotient-valued streams.
+- **residue:** the canonical rational-valued scalar interface and geometric
+  two-parameter support identification remain open, as do canonical all-vector
+  range, changing spacing, physical mass, continuum QFT and every-group Clay
+  closure. No canonical field, broad chart marker, hole or analytic input changed.
+- **verification:** the focused monitored check passed with one worker capped
+  at 20 GiB; all 25 printed declarations use only `{propext, Quot.sound}`.
+  No `sorryAx`, classical dependency or full-tree audit. Sol reviewed the
+  existing constructive approximation consumer and the null quotient's scope.
+  The additive descent retry corrected the order of quotient congruence
+  binders, without altering its statement or any resource limit.
+
 ## All-base ambient quotient and same physical correlators (2026-09-27 UTC)
 
 - **files:** `lean/YMGap/Continuum/BF4WilsonSignedTimeBaseCoherence.lean`,
