@@ -35,6 +35,11 @@ already-available CReal modulus for the exact middle scheduled-rate stream.
 width moduli into both endpoint certificates, with a constant-zero witness
 showing the compiler is inhabited; the physical order/width inputs remain
 open.
+Since the finite shell-entropy estimate is already proved, the route now also
+accepts the smaller `MatchedPhysicalExplicitRayStateLoadDecayProducer`: only
+pointwise physical-mass state-load decay remains as input, and the entropy
+compiler supplies the shell count before reaching the same completed carrier.
+This decay certificate and all physical/continuum/Clay joins remain open.
 The repaired carrier-normalized spacing also satisfies the explicit envelope
 `spacing(scale) ≤ 1/(scale+1)`, independent of the carrier numerator. This is
 spatial modulus control only. The new carrier-plus-one reserve and lower raw

@@ -21,6 +21,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 
 import YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
+import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellEntropy
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceFlow
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMoment
 import YMGap.Continuum.BF4PhysicalVacuumSectorMassExactExplicitRayOffRayResistanceGap
@@ -40,6 +41,7 @@ open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootCoercivity
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
+open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellEntropy
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceFlow
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMoment
 open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
@@ -381,6 +383,82 @@ theorem MatchedPhysicalExplicitRayMassShellProducer.fraction_pos
     (0 : Q') < producer.toRootProducer.fraction scale := by
   exact producer.toResistanceProducer.fraction_pos scale
 
+/-! ## 7. The unconditional entropy compiler leaves only pointwise load decay -/
+
+/-- The smallest physical-mass input on this route: a cofinal pointwise
+state-load decay certificate.  Shell cardinality/entropy is supplied by the
+literal finite BF4 carrier. -/
+structure MatchedPhysicalExplicitRayStateLoadDecayProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    (trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing) :
+    Type 1 where
+  offRayStateLoadDecay : ∀ scale,
+    FixedNomeCofinalSpinCubeOffRayRootResistancePhysicalMassStateLoadDecay
+      (trajectory.nome_pos scale)
+
+/-- The proved physical-mass entropy count expands pointwise decay into the
+mass-shell certificate consumed by the matched route. -/
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toMassShellProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory) :
+    MatchedPhysicalExplicitRayMassShellProducer trajectory where
+  offRayMassShell := fun scale =>
+    (producer.offRayStateLoadDecay scale).toPhysicalMassShellBound
+
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toResistanceProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory) :
+    MatchedPhysicalExplicitRayResistanceProducer trajectory :=
+  producer.toMassShellProducer.toResistanceProducer
+
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toRootProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory) :
+    MatchedPhysicalRootCoercivityGapProducer trajectory :=
+  producer.toResistanceProducer.toRootProducer
+
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toCompletedFamily
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory) :
+    DynamicVacuumSectorCompletedFamily 0 :=
+  producer.toResistanceProducer.toCompletedFamily
+
+theorem MatchedPhysicalExplicitRayStateLoadDecayProducer.toCompletedFamily_latticeMargin_eqv_fraction
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (scale : Nat) :
+    producer.toCompletedFamily.latticeMargin scale ≈
+      producer.toRootProducer.fraction scale := by
+  exact MatchedPhysicalRootCoercivityGapProducer.toCompletedFamily_latticeMargin_eqv_fraction
+    producer.toResistanceProducer.toRootProducer scale
+
+theorem MatchedPhysicalExplicitRayStateLoadDecayProducer.fraction_pos
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (scale : Nat) :
+    (0 : Q') < producer.toRootProducer.fraction scale := by
+  exact producer.toResistanceProducer.fraction_pos scale
+
 end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 
 /-! ## Dependency gates -/
@@ -429,3 +507,15 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMassShellProducer.toCompletedFamily_latticeMargin_eqv_fraction
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayMassShellProducer.fraction_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toMassShellProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toResistanceProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toRootProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toCompletedFamily
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toCompletedFamily_latticeMargin_eqv_fraction
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.fraction_pos

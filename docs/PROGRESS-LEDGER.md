@@ -30064,6 +30064,25 @@ bound and does not close physical spacing calibration, OS/GNS, continuum/QFT,
 physical mass, every-group, or Clay obligations.  No canonical chart marker
 changed.
 
+## Pointwise state-load decay is the remaining physical-mass input (2026-09-26 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
+`MatchedPhysicalExplicitRayStateLoadDecayProducer`.  Its only scale-indexed
+field is
+`FixedNomeCofinalSpinCubeOffRayRootResistancePhysicalMassStateLoadDecay`.
+The existing unconditional finite shell-entropy estimate is applied by
+`toPhysicalMassShellBound`, after which the route reuses the checked
+mass-shell, resistance, explicit-ray, and matched-root compilers.  The new
+`toMassShellProducer`, `toResistanceProducer`, `toRootProducer`,
+`toCompletedFamily`, `toCompletedFamily_latticeMargin_eqv_fraction`, and
+`fraction_pos` declarations preserve the literal completed carrier, transfer,
+vacuum complement, posterior fraction, and exact margin identity.
+
+The monitored source check reports only `{propext, Quot.sound}` and no
+`sorryAx`.  Pointwise state-load decay, physical calibration, the observable
+pin, OS/GNS passage, continuum/QFT construction, physical mass, every-group
+theorem, and Clay target remain open; no canonical chart marker changed.
+
 ## Physical-mass shell handoff for the matched rooted route (2026-09-26 UTC)
 
 `BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
