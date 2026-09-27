@@ -22,6 +22,7 @@ open YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound
 open YMGap.Continuum.BF4PhysicalChangingNomeDynamicFamily
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGapAlgebra
+open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledBaseEdgeFloor
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
@@ -163,6 +164,55 @@ structure ChangingNomeHeadEnergyProductBand : Type 1 where
             (changingNome scale)
             (Q'.le_of_lt (changingNome_pos scale)))
 
+/-! The lower product inequality is not merely a quotient-side condition.  By
+    multiplying it by the positive finite floor and using the exact identity
+    `F * (S / F) = S`, it forces the floor itself to be at least of the
+    spacing-times-carrier-square order.  This generic scalar kernel keeps the
+    expensive algebra independent of the dependent finite-sector expressions
+    used by the changing-nome theorem below. -/
+
+theorem ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_scalar
+    {A H S F : Q'}
+    (hA0 : (0 : Q') ≤ A)
+    (hF0 : (0 : Q') ≤ F)
+    (hband : A * (Q'.ofNat 2 + Q'.ofNat 6 * H) ≤ (1 : Q'))
+    (hFS : F * H ≈ S) :
+    Q'.ofNat 6 * (A * S) ≤ F := by
+  have hsixH_le : Q'.ofNat 6 * H ≤
+      Q'.ofNat 2 + Q'.ofNat 6 * H := by
+    exact Q'.le_trans' _ (Q'.ofNat 6 * H + Q'.ofNat 2) _
+      (Q'.add_le_self_of_nonneg _ _ (by decide))
+      (Q'.le_of_eqv (Q'.add_comm_eqv _ _))
+  have hsixH_scaled : A * (Q'.ofNat 6 * H) ≤
+      A * (Q'.ofNat 2 + Q'.ofNat 6 * H) := by
+    exact Q'.mul_le_mul_of_nonneg_left _ _ A hsixH_le hA0
+  have hsixH_le_one : A * (Q'.ofNat 6 * H) ≤ (1 : Q') :=
+    Q'.le_trans' _ _ _ hsixH_scaled hband
+  have hscaled : F * (A * (Q'.ofNat 6 * H)) ≤ F := by
+    exact Q'.le_trans' _ _ _
+      (Q'.mul_le_mul_of_nonneg_left _ _ F hsixH_le_one hF0)
+      (Q'.le_of_eqv (Q'.mul_one_eqv F))
+  have hleft :
+      Q'.ofNat 6 * (A * S) ≈ F * (A * (Q'.ofNat 6 * H)) := by
+    refine Q'.eqv_trans _ (Q'.ofNat 6 * (A * (F * H))) _ ?_ ?_
+    · exact Q'.mul_eqv_congr_left (Q'.ofNat 6) _ _
+        (Q'.mul_eqv_congr_left A _ _ (Q'.eqv_symm hFS))
+    · refine Q'.eqv_trans _ ((Q'.ofNat 6 * A) * (F * H)) _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat 6) A (F * H))) ?_
+      refine Q'.eqv_trans _ (((Q'.ofNat 6 * A) * F) * H) _
+        (Q'.eqv_symm (Q'.mul_assoc_eqv (Q'.ofNat 6 * A) F H)) ?_
+      refine Q'.eqv_trans _ ((F * (Q'.ofNat 6 * A)) * H) _
+        (Q'.mul_eqv_congr_right _ _ _
+          (Q'.mul_comm_eqv (Q'.ofNat 6 * A) F)) ?_
+      refine Q'.eqv_trans _ ((F * (A * Q'.ofNat 6)) * H) _
+        (Q'.mul_eqv_congr_right _ _ _
+          (Q'.mul_eqv_congr_left F _ _ (Q'.mul_comm_eqv (Q'.ofNat 6) A))) ?_
+      refine Q'.eqv_trans _ (F * ((A * Q'.ofNat 6) * H)) _
+        (Q'.mul_assoc_eqv F (A * Q'.ofNat 6) H) ?_
+      exact Q'.mul_eqv_congr_left F _ _
+        (Q'.mul_assoc_eqv A (Q'.ofNat 6) H)
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hleft) hscaled
+
 /-- Compile the minimal head-energy product certificate into the existing
     same-family denominator band without changing the spacing or denominator.
     The certificate remains uninhabited until the cofinal floor-order estimate
@@ -223,6 +273,7 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeMarginDenominator_pos
 #print axioms changingNomeMarginDenominator_ge_two_add_twelve_scale
 #print axioms changingNomeMarginDenominator_eqv_two_add_six_headEnergy
+#print axioms ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_scalar
 #print axioms ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand
 #print axioms ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeExplicitMarginInverseLaw

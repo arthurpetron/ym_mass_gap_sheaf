@@ -4,6 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: product-band forces a necessary floor order (2026-09-26 UTC)
+
+`ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_scalar`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:174--214`)
+is the generic scalar contraction behind the remaining B04 asymptotic estimate.
+For nonnegative `A` and `F`, the lower product inequality
+`A*(2 + 6*H) ≤ 1`, together with the exact quotient identity `F*H ≈ S`,
+constructively yields `6*A*S ≤ F`.  The proof uses only the checked `Q'`
+order, multiplication, associativity, commutativity, and equality-to-order
+lemmas; the focused monitored check reports only `{propext, Quot.sound}`.
+
+This is a necessary-condition theorem, not the dependent changing-nome
+specialization: no declaration yet supplies the cofinal estimate for the
+actual anchor minimum `F(w_n)`, so the all-scale product band, physical-rate
+band, same-theory bridge, continuum/QFT, physical-mass, every-group, and Clay
+obligations remain open.
+
 ## Current increment: explicit changing-nome completed SU(2) family (2026-09-25 UTC)
 
 `changingNome`, `changingSpacing`, `changingSpacingToZero`, and
@@ -176,7 +193,7 @@ all-scale denominator-versus-spacing problem.
 ## Current increment: product band contracted to the continuum-gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:217--220`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:267--270`)
 composes the exact changing-nome denominator presentation, the specialized
 product-band compiler, and the existing same-family physical-rate compiler
 into the sharp `ContinuumGapTheorem` interface.  The focused monitored build

@@ -132,12 +132,24 @@ order estimate is proved.
 ### Conditional contraction to the sharp gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:217--220`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:267--270`)
 now composes that specialized certificate with the existing same-family
 physical-rate compiler and the sharp `ContinuumGapTheorem` interface.  This
 closes the typed downstream route once the product-band fields are supplied;
 it does not supply those fields and therefore does not claim continuum/QFT,
 physical-mass, all-group, or Clay closure.
+
+### Necessary floor-order contraction (2026-09-26 UTC)
+
+`ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_scalar`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:174--214`)
+is the generic scalar kernel for the remaining B04 estimate.  From
+`A*(2 + 6*H) ≤ 1`, nonnegative `A,F`, and the exact quotient identity
+`F*H ≈ S`, it derives `6*A*S ≤ F` with only `{propext}`.  This makes the
+floor-order consequence explicit without pretending that the dependent
+changing-nome specialization has been constructed.  The next producer is
+still a cofinal estimate for the actual anchored minimum `F(w_n)`; all
+continuum, physical-mass, every-group, and Clay nodes remain open.
 
 ### New finite producer (2026-09-25 UTC)
 
