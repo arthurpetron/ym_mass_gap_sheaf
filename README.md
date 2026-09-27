@@ -325,6 +325,16 @@ zero-time observable. The rationalization, OS/GNS reconstruction, continuum
 QFT, physical mass, every-group uniformity, and Clay inputs remain explicit
 open fields.
 
+**New conditional continuum handoff route (2026-09-27):**
+`ChangingNomeCarrierNormalizedContinuumRoute` attaches the exact-rate Cauchy
+modulus, projective/OS correlation handoff, reconstruction spectral-channel
+pin, and exact-rate identification to that same rationalized separator. Its
+checked projections produce the existing same-object continuum realization,
+the conditional exact-log-gap Yang--Mills endpoint, and positive endpoint
+mass. Every field is still an explicit input: no rationalization,
+projective measure, OS/GNS reconstruction, full continuum/QFT construction,
+physical mass calibration, every-group result, or Clay theorem is claimed.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

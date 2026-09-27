@@ -30602,3 +30602,14 @@ band, and the scalar continuum-gap interface, with a positive distinguished
 zero-time observable. The rationalization itself remains a required field;
 OS/GNS reconstruction, full continuum QFT, physical mass, every-group
 uniformity, and the Clay theorem remain open.
+
+## Conditional continuum handoff route for the repaired family (2026-09-27 UTC)
+
+`ChangingNomeCarrierNormalizedContinuumRoute` attaches the exact-rate Cauchy
+modulus, projective/OS correlation handoff, reconstruction spectral-channel
+pin, and exact-rate identification to the same rationalized separator. Its
+checked projections produce the existing same-object continuum realization,
+the conditional exact-log-gap Yang--Mills endpoint, and positive endpoint
+mass. These inputs remain fields of the route; no rationalization,
+projective measure, OS/GNS reconstruction, full continuum/QFT construction,
+physical mass calibration, every-group result, or Clay theorem is constructed.
