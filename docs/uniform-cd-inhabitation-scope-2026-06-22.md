@@ -1,4 +1,17 @@
 # Scope: inhabiting `uniform_CD` via the SZZ / BBD toolkit (2026-06-22)
+
+> **Scope correction (2026-09-27; supersedes the historical no-go and
+> inhabitation claims below).** Shen–Zhu–Zhu's SU(2), four-dimensional
+> `1−48β` is a **lower-bound coefficient** for its Wilson Langevin curvature.
+> A negative coefficient neither makes the actual curvature negative nor
+> refutes `UniformCurvatureBound.uniform_CD` or every curvature method. The
+> paper's positive strong-coupling result is not a constructed inhabitant of
+> this repository's finite-generator template, and no identification with
+> the current conditional heat action is proved. Assertions below that all
+> curvature bounds must be analytic/polynomial or cannot support continuum
+> scaling are withdrawn, not established obstructions. See
+> [the corrected scope audit](../audits/AUDIT-CURVATURE-LOWER-BOUND-SCOPE-2026-09-27.md).
+
 **STATUS:** Scope/plan dated 2026-06-22; see the canonical ledgers for the outcome (docs/where-the-wall-sits-2026-06-22.md, docs/stage1-completion-ledger-2026-06-22.md, docs/stage2-progress-ledger-2026-06-22.md, docs/continuum-wall-outstanding-2026-06-22.md).
 
 `UniformCurvatureBound.uniform_CD` = a single K>0 with Bakry–Émery `CD(K,∞)` for the SU(N) lattice YM

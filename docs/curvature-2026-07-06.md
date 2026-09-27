@@ -1,5 +1,19 @@
 # The Bakry–Émery CURVATURE route to `singleStep` — does it avoid the renormalon?
 
+> **Scope correction (2026-09-27; supersedes the historical verdict below).**
+> The Shen–Zhu–Zhu coefficient `1−48β` for SU(2), `d=4`, `β≥0` is a **lower
+> bound**, not the actual interacting curvature. Its negativity does not prove
+> negative curvature or rule out a sharper curvature argument. The cited Lean
+> declarations establish a free Casimir fact, a rational residual identity,
+> and values of that scalar coefficient—not an interacting Hessian sign, a
+> no-go theorem for curvature methods, or a renormalon obstruction.
+> In particular, neither `SingleStepDefectBound` nor `UniformCurvatureBound`
+> is refuted. Claims below that curvature is necessarily analytic/polynomial,
+> “wrong-form,” or provably unable to close the frontier are withdrawn.
+> The paper concerns Wilson-action Langevin dynamics, not an identified copy
+> of this repository's conditional heat action. See
+> [the corrected scope audit](../audits/AUDIT-CURVATURE-LOWER-BOUND-SCOPE-2026-09-27.md).
+
 **Sole open field under attack.**
 `SingleStepDefectReduction.SingleStepDefectBound.singleStep`:
 `(1 − δ_model_k)·trueMargin_k ≤ trueMargin_{k+1}`, i.e. `realδ_k ≤ δ_model_k = 6·pMult·(1−w_k)²`.

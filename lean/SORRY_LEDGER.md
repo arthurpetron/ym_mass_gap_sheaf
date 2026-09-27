@@ -4,12 +4,16 @@
 
 - **files:** `BF4ExactSlabBalancedCone.lean`, `BF4ExactSlabChebyshevCone.lean`,
   `BF4ExactSlabChebyshevPairing.lean`, `BF4ExactSlabChebyshevCovariance.lean`,
-  `BF4ExactSlabChebyshevRescale.lean`, under `lean/YMGap/Continuum/`.
+  `BF4ExactSlabChebyshevRescale.lean`, and the subsequent
+  `BF4ExactSlabChebyshevCovarianceBound.lean`, under `lean/YMGap/Continuum/`.
 - **proved:** exact sixteen-layer realization of the original B=S* S;
   16*n localization of the actual first Chebyshev component; its separated
   scalar pairing and normalized original covariance pin, including the
   coordinate-separation consumer. Exact affine norm expansion and the
   normalized-vector norm consumer use the same completed carrier.
+  The subsequent `finiteCovariance_sq_bound` (`ChebyshevCovarianceBound:102`)
+  proves the conditional squared covariance bound with reciprocal Chebyshev
+  factor and BOTH original diagonal variances, using that same `hrev`.
 - **explicit open argument:** `hrev` in
   `coupled_first_norm_from_reverse_energy` and
   `normalizedFirst_norm_from_reverse_energy` is
@@ -23,6 +27,15 @@
   contributions and independent review. No new sorry, analytic structure,
   canonical or chart-marker change. No root/full-tree/audit/guard run.
   Evidence: `audits/AUDIT-ORIGINAL-CHEBYSHEV-CONE-2026-09-27.md`.
+  The subsequent covariance-bound module passed one additional focused
+  one-worker/20 GiB check; its gate is {propext, Quot.sound}. Independent
+  Sol review confirmed the original normalization and explicit premises.
+- **scope correction:** the separate curvature assessment's comments and
+  historical human reviews no longer infer actual negative curvature from
+  a negative LOWER bound or claim an all-methods no-go. Declaration/proof
+  text and frontier fields are unchanged; neither `SingleStepDefectBound`
+  nor `UniformCurvatureBound` is inhabited or refuted by that assessment.
+  See `audits/AUDIT-CURVATURE-LOWER-BOUND-SCOPE-2026-09-27.md`.
 
 ## Original local residual variational completeness (2026-09-27 UTC)
 

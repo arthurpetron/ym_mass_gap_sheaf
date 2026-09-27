@@ -120,3 +120,34 @@ The actual reverse-energy/lower-estimate producer, useful spatial/scaling
 rates, same-theory OS and continuum QFT, physical mass, nontrivial survival,
 every compact simple group and the whole Clay target remain open. Canonical
 chart markers are unchanged, so no chart reprint is warranted.
+
+## Follow-up: conditional original squared-covariance bound
+
+`finiteCovariance_sq_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabChebyshevCovarianceBound.lean:102`, now
+proves, in the constructive-real embedding of the finite rational values,
+
+    Cov(p,q)^2 <= T_n(c-1)^(-2) Cov(p,p) Cov(q,q).
+
+Its explicit guards are 0<w<1, c>=0, positive T_n(c-1), literal polynomial
+locality, disjointness of the 16*n expanded support from the test support,
+and the SAME single-auxiliary-vector reverse-energy inequality above.
+The auxiliary vector is generated from the original centered p; no
+reverse-energy hypothesis on q is needed. Completed Cauchy--Schwarz and
+the checked normalized-vector bound give the inequality. The actual
+reciprocal partition is squared and absorbed exactly into the two
+original diagonal covariances via `completed_covariance`
+(`lean/YMGap/Continuum/BF4ExactSlabConditionalCovariance.lean:164`). No
+partition floor, comparison measure, or extra volume factor is inserted.
+
+The new module passed a focused serialized one-worker/20 GiB check through
+the monitored launcher. Its single public axiom gate reports
+`[propext, Quot.sound]`, without `sorryAx`. Sol independently checked the
+normalization, support premise and actual-vector hypothesis. The check
+finished within its initial call. No root/full-tree/audit/guard run was made.
+
+The reverse-energy producer for useful c>2 remains open; this theorem does
+not by itself prove strict decay. The canonical chart and Clay boundary
+are unchanged. Separately, the historical all-curvature-methods no-go is
+withdrawn in `audits/AUDIT-CURVATURE-LOWER-BOUND-SCOPE-2026-09-27.md`;
+that documentation correction supplies no analytic estimate.

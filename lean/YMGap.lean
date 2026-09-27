@@ -5456,6 +5456,7 @@ import YMGap.Continuum.BF4ExactSlabChebyshevCone
 import YMGap.Continuum.BF4ExactSlabChebyshevPairing
 import YMGap.Continuum.BF4ExactSlabChebyshevCovariance
 import YMGap.Continuum.BF4ExactSlabChebyshevRescale
+import YMGap.Continuum.BF4ExactSlabChebyshevCovarianceBound
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

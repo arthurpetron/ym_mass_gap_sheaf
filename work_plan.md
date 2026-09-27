@@ -43,11 +43,26 @@ component and its normalization. This inequality is an explicit unsupplied
 argument, not a new analytic field or a proved rate. The c=2 non-strict
 case does not give accelerated decay.
 
+The subsequent `BF4ExactSlabChebyshevCovarianceBound.finiteCovariance_sq_bound`
+now joins that estimate to completed Cauchy--Schwarz:
+`Cov(p,q)^2 <= T_n(c-1)^(-2) Var(p) Var(q)` in the constructive-real
+embedding, under the same 16*n separation and explicit auxiliary estimate.
+Both variances and the partition are the ORIGINAL ones; no floor/cap loss
+is introduced. Its one focused one-worker/20 GiB check and independent Sol
+review passed; the public gate is {propext, Quot.sound}. No strict-decay
+producer, chart marker or canonical field changed.
+
 NEXT forward: target that original observable-generated reverse-energy
 estimate, or a useful original centered lower-energy estimate implying it.
 Preserve the local signed test values and actual norm; the checked local
 variational approximation remains available. The source review finds no
 existing local/free-sector/625-upper estimate that fills the missing input.
+An older curvature exclusion is withdrawn: a negative lower-bound
+coefficient does not determine actual curvature's sign. The scalar/free
+Lean declarations were unchanged; no curvature estimate or frontier
+inhabitant was produced. See
+`audits/AUDIT-CURVATURE-LOWER-BOUND-SCOPE-2026-09-27.md` before using the
+historical route assessments to exclude methods.
 Do not reopen the now-checked polynomial cone/covariance equality. NEXT
 backward: quantitative calibrated spatial decay and its same-theory
 scaling/OS/Hamiltonian/continuum/every-group consumers. The Clay target and
