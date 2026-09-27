@@ -17,6 +17,7 @@ custom axiom, or `noncomputable` declaration is used.
 import YMGap.Continuum.BF4PhysicalCanonicalAFDynamicFamilyCompiler
 import YMGap.Continuum.BF4PhysicalConcreteSU2CompletedCarrierCertificate
 import YMGap.Continuum.BF4PhysicalCubeCompletedMarginalGap
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 
 namespace YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
 
@@ -33,6 +34,8 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
+open YMGap.Continuum.RCStrictPositivity
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorMovingCenteredVacuumComplement
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCenteredLimitGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledUniformPoincareGap
@@ -161,6 +164,49 @@ theorem marginalHalfGeometricCompletedFamily_concrete_cube_autocorrelation_sq_de
       (centralPhysicalCutoffOneCubeMovingCenteredSectorVacuumComplement
         (by decide) (by decide)))
 
+/-! ## 3a. One typed bridge for the concrete carrier and dynamic channel -/
+
+/-- The fixed-nome carrier certificate and the scale-indexed dynamic channel
+are packaged together with the literal same-object identifications.  This is
+an inhabited SU(2) bridge: it does not identify the fixed margin with a
+physical continuum rate. -/
+structure MarginalHalfGeometricConcreteChannelBridge : Type 1 where
+  carrier : ConcreteSU2CompletedCarrierCertificate
+    (w := HalfPow.half) (by decide) (by decide)
+  channel : DynamicVacuumSectorSameObjectRCChannel
+    marginalHalfGeometricCompletedFamily
+  vectorAt_eq : ∀ scale,
+    channel.vectorAt scale =
+      concreteVacuumComplementVector (w := HalfPow.half) (by decide) (by decide)
+  autocorrelation_eq : ∀ scale time,
+    channel.connectedAutocorrelation scale time =
+      concreteSameObjectAutocorrelation
+        (w := HalfPow.half) (by decide) (by decide) time
+
+/-- Construct the concrete fixed-nome SU(2) bridge without any new analytic
+input. -/
+def marginalHalfGeometricConcreteChannelBridge :
+    MarginalHalfGeometricConcreteChannelBridge where
+  carrier := concreteSU2CompletedCarrierCertificate
+    (w := HalfPow.half) (by decide) (by decide)
+  channel := centralPhysicalDynamicMovingCubeRCChannel
+    marginalHalfGeometricCompletedFamily
+  vectorAt_eq := by
+    intro scale
+    rfl
+  autocorrelation_eq := by
+    intro scale time
+    rfl
+
+/-- The dynamic channel's zero-time correlator inherits the concrete
+fixed-nome positivity witness from the same completed observable. -/
+theorem marginalHalfGeometricConcreteChannelBridge_zero_isPositive :
+    RCIsPositive
+      (marginalHalfGeometricConcreteChannelBridge.channel.connectedAutocorrelation
+        0 0) := by
+  rw [marginalHalfGeometricConcreteChannelBridge.autocorrelation_eq 0 0]
+  exact marginalHalfGeometricConcreteChannelBridge.carrier.autocorrelation_zero_positive
+
 /-! ## 4. Constant positive margins cannot supply the physical-rate band -/
 
 /-- Any completed family with a positive lattice margin that is constant
@@ -278,6 +324,10 @@ end YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily
   YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily.marginalHalfGeometricCompletedFamily_autocorrelation_sq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily.marginalHalfGeometricCompletedFamily_concrete_cube_autocorrelation_sq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily.marginalHalfGeometricConcreteChannelBridge
+#print axioms
+  YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily.marginalHalfGeometricConcreteChannelBridge_zero_isPositive
 #print axioms
   YMGap.Continuum.BF4PhysicalMarginalGeometricCompletedFamily.noPhysicalRateBand_of_constantPositiveMargin
 #print axioms

@@ -30524,3 +30524,17 @@ graph approximation against that exact lift before entering the existing raw
 capstone. The monitored check reports only `{propext, Quot.sound}` and no
 `sorryAx`; rate convergence, graph approximation, projective/same-object,
 vacuum, continuum/QFT, physical-mass, every-group, and Clay inputs remain open.
+
+## Inhabited fixed-nome SU(2) channel bridge (2026-09-27 UTC)
+
+`MarginalHalfGeometricConcreteChannelBridge` and
+`marginalHalfGeometricConcreteChannelBridge_zero_isPositive` package the
+existing `ConcreteSU2CompletedCarrierCertificate` with the dynamic
+`centralPhysicalDynamicMovingCubeRCChannel` on
+`marginalHalfGeometricCompletedFamily`. The bridge carries kernel-checked
+equalities identifying its vector and same-object autocorrelation with the
+literal moving-centered cube, plus an inhabited zero-time positivity witness.
+The monitored check reports only `{propext, Quot.sound}` and no `sorryAx`.
+The family’s fixed positive margin still triggers
+`noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily`; no physical-rate,
+continuum/QFT, physical-mass, every-group, or Clay node closes.

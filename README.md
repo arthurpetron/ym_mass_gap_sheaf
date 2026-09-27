@@ -252,6 +252,19 @@ therefore indexed by the selected Wilson transfer itself, rather than by an
 independent semantic lift; the rate-convergence, observable, vacuum, and
 continuum/Clay inputs remain conditional.
 
+**New inhabited fixed-nome SU(2) channel bridge (2026-09-27):**
+`MarginalHalfGeometricConcreteChannelBridge` packages the existing
+`ConcreteSU2CompletedCarrierCertificate` with the dynamic
+`centralPhysicalDynamicMovingCubeRCChannel` on
+`marginalHalfGeometricCompletedFamily`. Its kernel-checked fields identify the
+channel vector and same-object autocorrelation with the literal moving-centered
+cube, and `marginalHalfGeometricConcreteChannelBridge_zero_isPositive` supplies
+an inhabited zero-time positivity witness. This is a concrete fixed-nome,
+geometric-spacing SU(2) staging bridge only: the family still violates the
+physical-rate band by
+`noPhysicalRateBand_of_marginalHalfGeometricCompletedFamily`, so physical
+calibration, continuum/QFT, every-group, and Clay nodes remain open.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly
