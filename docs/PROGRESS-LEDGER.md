@@ -30652,3 +30652,18 @@ canonical-floor transport, raw continuum nontriviality, continuum zero-time
 positivity, and squared decay. The bundle remains an explicit certificate
 interface rather than an inhabitant; no OS/GNS, continuum/QFT, physical-mass,
 every-group, or Clay node closes, and no canonical chart marker changes.
+
+## Same-carrier Wilson/OS handoff (2026-09-27 UTC)
+
+`WilsonCertificates` names the remaining projective-OS, Wilson
+matrix-coefficient, exact-rate, graph-norm, and stationary-vacuum inputs on
+the repaired changing-nome family.  `WilsonJoin` attaches that bundle to the
+same `ConcreteJoin`, preserving the raw representative, physical-rate band,
+and scheduled-rate limit in its dependent type.  `WilsonJoin.toPath` compiles
+the bundle to `RawWilsonConnectedMassGapPath`, while
+`WilsonJoin.toMinimalBoundedMassGap` projects the existing conditional Wilson
+endpoint.  The certificate bundle is not inhabited by this milestone: no
+OS/GNS reconstruction, continuum QFT, physical-mass calibration, every-group
+result, or Clay theorem is constructed.  Focused checking reported only
+`{propext, Quot.sound}` and no `sorryAx`; the canonical chart marker is
+unchanged.

@@ -3387,6 +3387,19 @@ check: `/tmp/ym-forward-backward-corrected3.log`; the source hash is recorded
 in `lean/SORRY_LEDGER.md`.  The declarations use only
 `{propext, Quot.sound}`.
 
+**Latest same-carrier Wilson handoff, checked 2026-09-27:**
+`BF4PhysicalChangingNomeCarrierNormalizedRawWilsonJoin.WilsonJoin` now
+bundles the repaired `ConcreteJoin` with explicit projective-OS,
+Wilson-matrix, exact-rate, graph-norm, and stationary-vacuum certificates.
+`WilsonJoin.toPath` compiles those fields to the existing
+`RawWilsonConnectedMassGapPath`, and `toMinimalBoundedMassGap` exposes its
+conditional endpoint.  Every field remains indexed by the same repaired
+family, raw representative, scheduled rate, and selected Wilson datum.  The
+bundle is a certificate interface, not an inhabitant: no OS/GNS construction,
+continuum QFT, physical-mass calibration, every-group theorem, or Clay result
+is claimed.  Focused checking reported only `{propext, Quot.sound}` and no
+`sorryAx`.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,
