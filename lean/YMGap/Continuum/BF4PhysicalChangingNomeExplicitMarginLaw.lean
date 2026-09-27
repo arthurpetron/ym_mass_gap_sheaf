@@ -23,6 +23,7 @@ open YMGap.Continuum.BF4PhysicalChangingNomeDynamicFamily
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGapAlgebra
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorPulledBaseEdgeFloor
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
@@ -332,6 +333,88 @@ theorem ChangingNomeHeadEnergyProductBand.spacing_mul_scale_le_of_lower_bound
         (changingNome scale) (Q'.le_of_lt (changingNome_pos scale)) 1404 0)
     hbound
 
+theorem changingNomeBandScale_ge_two (scale : Nat) :
+    (Q'.ofNat 2 : Q') ≤ changingNomeBandScale scale := by
+  unfold changingNomeBandScale
+  let states := centralPhysicalFiniteVacuumSectorIndices
+    (changingNome scale) (Q'.le_of_lt (changingNome_pos scale)) 1404 0
+  have hlength : 1 ≤ states.length := by
+    exact Nat.succ_le_iff.mpr
+      (List.length_pos_of_mem
+        (zero_mem_centralPhysicalFiniteVacuumSectorIndices
+          (changingNome scale) (Q'.le_of_lt (changingNome_pos scale)) 1404 0))
+  have hsquare : 1 ≤ states.length * states.length := by
+    simpa using Nat.mul_le_mul hlength hlength
+  have hcast : (Q'.ofNat 1 : Q') ≤ Q'.ofNat (states.length * states.length) :=
+    Q'.ofNat_le_ofNat hsquare
+  have hadd : (1 : Q') + 1 ≤
+      (1 : Q') + Q'.ofNat (states.length * states.length) :=
+    Q'.add_le_add_left _ _ _ hcast
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv (by decide)) hadd
+
+/-- The present spacing schedule cannot even admit the specialized lower-bound
+    certificate at scale zero: its fixed carrier-square factor is already too
+    large for `spacing 0 = 1/2`.  This is a route obstruction, not a
+    Yang--Mills obstruction; the schedule or normalization must be changed. -/
+theorem changingNomeBand_lower_bound_scale_zero_impossible
+    (hbound :
+      Q'.ofNat 6 *
+          ((changingNomeBandFloor 0 * changingNomeBandSpacing 0) *
+            changingNomeBandScale 0) ≤
+        changingNomeBandFloor 0) : False := by
+  have hceiling :=
+    ChangingNomeHeadEnergyProductBand.spacing_mul_scale_le_of_lower_bound
+      0 hbound
+  have hscale := changingNomeBandScale_ge_two 0
+  have hspacing : changingNomeBandSpacing 0 = Q'.invSucc 1 := rfl
+  have hinner : Q'.invSucc 1 * (Q'.ofNat 2 : Q') ≤
+      Q'.invSucc 1 * changingNomeBandScale 0 := by
+    exact Q'.mul_le_mul_of_nonneg_left _ _ _ hscale
+      (Q'.invSucc_nonneg 1)
+  have houter : Q'.ofNat 6 * (Q'.invSucc 1 * (Q'.ofNat 2 : Q')) ≤
+      Q'.ofNat 6 * (Q'.invSucc 1 * changingNomeBandScale 0) := by
+    exact Q'.mul_le_mul_of_nonneg_left _ _ _ hinner (by decide)
+  have hbase : (1 : Q') <
+      Q'.ofNat 6 * (Q'.invSucc 1 * (Q'.ofNat 2 : Q')) := by
+    decide
+  have hlt_of_lt_of_le {a b c : Q'} (hab : a < b) (hbc : b ≤ c) : a < c := by
+    have e1 : a.num * (b.den : Int) < b.num * (a.den : Int) := hab
+    have e2 : b.num * (c.den : Int) ≤ c.num * (b.den : Int) := hbc
+    show a.num * (c.den : Int) < c.num * (a.den : Int)
+    have hcdpos : (0 : Int) < (c.den : Int) := by exact_mod_cast c.den_pos
+    have had : (0 : Int) ≤ (a.den : Int) := by exact_mod_cast Nat.zero_le _
+    have s1 : (a.num * (c.den : Int)) * (b.den : Int)
+        < (b.num * (a.den : Int)) * (c.den : Int) := by
+      have hs := Int.mul_lt_mul_of_pos_right e1 hcdpos
+      have hreorder :
+          (a.num * (b.den : Int)) * (c.den : Int) =
+            (a.num * (c.den : Int)) * (b.den : Int) := by
+        rw [Int.mul_assoc, Int.mul_assoc,
+          Int.mul_comm (b.den : Int) (c.den : Int)]
+      rwa [hreorder] at hs
+    have s2 : (b.num * (a.den : Int)) * (c.den : Int)
+        ≤ (c.num * (a.den : Int)) * (b.den : Int) := by
+      have hs := Int.mul_le_mul_of_nonneg_left e2 had
+      have hleft :
+          (a.den : Int) * (b.num * (c.den : Int)) =
+            (b.num * (a.den : Int)) * (c.den : Int) := by
+        rw [Int.mul_comm b.num (a.den : Int), Int.mul_assoc]
+      have hright :
+          (a.den : Int) * (c.num * (b.den : Int)) =
+            (c.num * (a.den : Int)) * (b.den : Int) := by
+        rw [Int.mul_comm c.num (a.den : Int), Int.mul_assoc]
+      rwa [hleft, hright] at hs
+    have schain : (a.num * (c.den : Int)) * (b.den : Int)
+        < (c.num * (a.den : Int)) * (b.den : Int) :=
+      Int.lt_of_lt_of_le s1 s2
+    exact Int.lt_of_mul_lt_mul_right schain
+      (by exact_mod_cast Nat.zero_le _)
+  have hlt : (1 : Q') <
+      Q'.ofNat 6 * (changingNomeBandSpacing 0 * changingNomeBandScale 0) := by
+    rw [hspacing]
+    exact hlt_of_lt_of_le hbase houter
+  exact (Int.not_lt_of_ge hceiling) hlt
+
 /-- Compile the minimal head-energy product certificate into the existing
     same-family denominator band without changing the spacing or denominator.
     The certificate remains uninhabited until the cofinal floor-order estimate
@@ -399,6 +482,8 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeBandHeadEnergy
 #print axioms ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le
 #print axioms ChangingNomeHeadEnergyProductBand.spacing_mul_scale_le_of_lower_bound
+#print axioms changingNomeBandScale_ge_two
+#print axioms changingNomeBand_lower_bound_scale_zero_impossible
 #print axioms ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand
 #print axioms ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeExplicitMarginInverseLaw

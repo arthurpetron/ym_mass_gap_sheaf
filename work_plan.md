@@ -122,7 +122,7 @@ schedule.
 
 ### Minimal B04 head-energy certificate (2026-09-26 UTC)
 
-`BF4PhysicalChangingNomeExplicitMarginLaw.lean:93--373` now exposes the exact
+`BF4PhysicalChangingNomeExplicitMarginLaw.lean:92--456` now exposes the exact
 `gapDenominator = 2 + 6*headEnergyConstant` presentation and a
 `ChangingNomeHeadEnergyProductBand` whose two fields are precisely the uniform
 spacing-product bounds still needed.  Its compiler preserves the actual
@@ -132,7 +132,7 @@ order estimate is proved.
 ### Conditional contraction to the sharp gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:386--389`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:469--472`)
 now composes that specialized certificate with the existing same-family
 physical-rate compiler and the sharp `ContinuumGapTheorem` interface.  This
 closes the typed downstream route once the product-band fields are supplied;
@@ -166,12 +166,27 @@ not a proof of the product band or of the cofinal asymptotic `F(w_n) ~ spacing`.
 ### Floor-cancellation spacing/carrier consumer (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.spacing_mul_scale_le_of_lower_bound`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:316--333`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:317--334`)
 is the next scalar contraction.  It cancels the positive concrete anchor floor
 from a supplied lower-bound certificate and exposes the necessary
 floor-independent ceiling `6 * (spacing * carrierSquareScale) ≤ 1`.  The
 certificate is deliberately an explicit argument: the theorem does not claim
 that the product band or the cofinal anchor-minimum estimate has been proved.
+
+### Scale-zero obstruction and schedule redesign (2026-09-26 UTC)
+
+`changingNomeBandScale_ge_two` and
+`changingNomeBand_lower_bound_scale_zero_impossible`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:336--416`)
+prove that the concrete carrier-square factor is at least two, while the
+present schedule has `changingNomeBandSpacing 0 = 1/2`.  Therefore the
+specialized floor-order certificate consumed above is impossible at scale
+zero.  This is a constructive obstruction to the current spacing/carrier
+normalization, not a Yang--Mills obstruction: redesign the schedule or
+normalize the carrier before attempting the all-scale B04 input.  The product
+band, physical-rate band, OS/GNS, continuum/QFT, physical mass, every-group,
+and Clay nodes remain open.  The focused monitored check reports only
+`{propext, Quot.sound}`.
 
 ### New finite producer (2026-09-25 UTC)
 

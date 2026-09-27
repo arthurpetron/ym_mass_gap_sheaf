@@ -37,13 +37,27 @@ band, or any continuum/QFT, physical-mass, every-group, or Clay node.
 ## Current increment: floor-cancellation spacing/carrier consumer (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.spacing_mul_scale_le_of_lower_bound`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:316--333`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:317--334`)
 uses the positive concrete anchor floor to cancel it from a supplied
 specialized lower-bound certificate.  It yields the floor-independent
 necessary ceiling `6 * (spacing * carrierSquareScale) ≤ 1` at that scale.
 The monitored check reports only `{propext, Quot.sound}`.  The lower-bound
 certificate remains an explicit input; no product-band inhabitant or cofinal
 anchor-minimum estimate is produced.
+
+## Current increment: scale-zero obstruction to the present floor-order schedule (2026-09-26 UTC)
+
+`changingNomeBandScale_ge_two` and
+`changingNomeBand_lower_bound_scale_zero_impossible`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:336--416`)
+prove that the concrete carrier-square scale is at least two, while
+`changingNomeBandSpacing 0` is definitionally `1/2`.  Combining this with the
+floor-cancellation consumer shows that any supplied specialized lower-bound
+certificate is impossible at scale zero.  This is a constructive obstruction
+to the current spacing/carrier normalization and therefore a schedule-redesign
+requirement, not a Yang--Mills obstruction; the product band, all-scale
+physical-rate band, OS/GNS, continuum/QFT, physical mass, every-group, and Clay
+obligations remain open.
 
 ## Current increment: explicit changing-nome completed SU(2) family (2026-09-25 UTC)
 
@@ -217,7 +231,7 @@ all-scale denominator-versus-spacing problem.
 ## Current increment: product band contracted to the continuum-gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:386--389`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:469--472`)
 composes the exact changing-nome denominator presentation, the specialized
 product-band compiler, and the existing same-family physical-rate compiler
 into the sharp `ContinuumGapTheorem` interface.  The focused monitored build
