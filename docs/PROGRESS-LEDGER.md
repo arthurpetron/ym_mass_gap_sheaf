@@ -29861,3 +29861,19 @@ This is a causal contraction of B04 and A05 interfaces, not an inhabitant of
 their missing analytic inputs.  No changing-family tail, all-scale calibration,
 OS/GNS identification, thermodynamic/continuum passage, physical mass,
 every-group theorem, or Clay result follows.
+
+## Joined continuum zero-time unit floor (2026-09-26 UTC)
+
+The repaired-family join now exposes the stronger nontriviality consequence
+`Join.zero_floor` in
+`lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:108--118`.
+It invokes the generic normalized-limit theorem
+`NormalizedMovingCubeScheduledRCContinuumLimit.one_le_continuumConnectedAutocorrelation_zero`
+on the exact `Join.toContinuumLimit`, transporting the finite normalized
+unit floor to the same completed repaired family at continuum time zero.  The
+result is `CReal.RCle 1` rather than merely `RCIsPositive`.
+
+The declaration checks with only `{propext, Quot.sound}` and no `sorryAx`.
+It remains conditional on the uninhabited cofinal calibration and variation
+fields; it does not produce the missing analytic inputs, OS/GNS/QFT structure,
+physical mass, every-group theorem, or Clay conclusion.

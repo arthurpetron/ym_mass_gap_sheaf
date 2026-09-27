@@ -105,6 +105,18 @@ theorem Join.zero_isPositive (data : Join) :
   normalizedMovingCubeLimitOfRationalDebtVariation_zero_isPositive
     changingNomeCarrierNormalizedDynamicFamily data.raw data.normDebt
 
+/-- The normalized unit floor survives the joined cutoff limit.  This is
+stronger than mere positivity: once the four-input join is supplied, the
+same-object continuum response at time zero is at least one in the exact
+constructive-real order. -/
+theorem Join.zero_floor (data : Join) :
+    CReal.RCle
+      (Quotient.mk CReal.crealSetoid (CReal.ofQ' 1))
+      (NormalizedMovingCubeScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+        data.toContinuumLimit 0) :=
+  NormalizedMovingCubeScheduledRCContinuumLimit.one_le_continuumConnectedAutocorrelation_zero
+    data.toContinuumLimit
+
 theorem Join.sq_decay (data : Join) (time : Nat) :
     CReal.RCle
       (CReal.RCmul
@@ -138,5 +150,7 @@ end YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.toContinuumGapTheorem
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.zero_isPositive
+#print axioms
+  YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.zero_floor
 #print axioms
   YMGap.Continuum.BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join.sq_decay
