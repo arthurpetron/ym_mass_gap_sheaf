@@ -111,6 +111,15 @@ now checks `2 * carrierSquareScale ≤ headEnergyConstant w` for every admissibl
 are axiom-clean within `{propext, Quot.sound}`; no continuum, OS/GNS,
 physical-mass, all-group, or Clay claim follows.
 
+### Concrete denominator lower budget (2026-09-26 UTC)
+
+`BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator_ge_two_add_twelve_scale`
+now transports the concrete finite head quotient to the scheduled denominator,
+proving `2 + 12*S(w) ≤ gapDenominator(w)` pointwise.  This is a checked
+algebraic lower budget, not a spacing-uniform estimate; the next B04 task is
+still to compare the denominator with `1 / changingSpacing` along the cofinal
+schedule.
+
 ### New finite producer (2026-09-25 UTC)
 
 `BF4ExactSlabWidthOneActualFringePairing.fringeTestNormFloor` and

@@ -18,9 +18,11 @@ set_option maxHeartbeats 10000000
 set_option autoImplicit false
 
 open YMGap.Constructive
+open YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound
 open YMGap.Continuum.BF4PhysicalChangingNomeDynamicFamily
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGapAlgebra
+open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
 
@@ -36,6 +38,53 @@ theorem changingNomeMarginDenominator_pos (scale : Nat) :
     (0 : Q') < changingNomeMarginDenominator scale :=
   gapDenominator_pos (changingNome scale)
     (Q'.le_of_lt (changingNome_pos scale))
+
+/-! The finite anchor budget now gives a concrete one-sided denominator
+    lower bound.  This remains pointwise in the schedule; it does not compare
+    the denominator to the vanishing spacing. -/
+
+theorem changingNomeMarginDenominator_ge_two_add_twelve_scale (scale : Nat) :
+    Q'.ofNat 2 + Q'.ofNat 12 *
+        centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale
+          (changingNome scale)
+          (Q'.le_of_lt (changingNome_pos scale)) 1404 0 ≤
+      changingNomeMarginDenominator scale := by
+  let w := changingNome scale
+  let hw : (0 : Q') ≤ w := Q'.le_of_lt (changingNome_pos scale)
+  let scaleValue :=
+    centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale w hw 1404 0
+  have hbudget : Q'.ofNat 2 * scaleValue ≤ headEnergyConstant w hw :=
+    YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant_ge_two_carrierSquareScale
+      w hw
+  have hscaled :
+      Q'.ofNat 6 * (Q'.ofNat 2 * scaleValue) ≤
+        Q'.ofNat 6 * headEnergyConstant w hw :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hbudget (by decide)
+  have hcoeff : Q'.ofNat 12 ≈ Q'.ofNat 6 * Q'.ofNat 2 := by decide
+  have hscale_eqv :
+      Q'.ofNat 12 * scaleValue ≈
+        Q'.ofNat 6 * (Q'.ofNat 2 * scaleValue) := by
+    refine Q'.eqv_trans _ ((Q'.ofNat 6 * Q'.ofNat 2) * scaleValue) _
+      (Q'.mul_eqv_congr_right _ _ _ hcoeff) ?_
+    exact Q'.mul_assoc_eqv _ _ _
+  have hscaled' :
+      Q'.ofNat 12 * scaleValue ≤
+        Q'.ofNat 6 * headEnergyConstant w hw :=
+    Q'.le_trans' _ _ _ (Q'.le_of_eqv hscale_eqv) hscaled
+  have hadded :
+      Q'.ofNat 2 + Q'.ofNat 12 * scaleValue ≤
+        Q'.ofNat 2 + Q'.ofNat 6 * headEnergyConstant w hw :=
+    Q'.add_le_add_left _ _ _ hscaled'
+  let x : Q' := Q'.ofNat 6 * headEnergyConstant w hw
+  have htwo : Q'.ofNat 2 ≈ (1 : Q') + 1 := by decide
+  have hden : Q'.ofNat 2 + x ≈ 1 + (1 + x) := by
+    have hfirst : Q'.ofNat 2 + x ≈ (1 + 1) + x :=
+      Q'.add_eqv_congr_right (Q'.ofNat 2) ((1 : Q') + 1) x htwo
+    exact Q'.eqv_trans _ ((1 + 1) + x) _ hfirst
+      (Q'.add_assoc_eqv 1 1 x)
+  change Q'.ofNat 2 + Q'.ofNat 12 * scaleValue ≤
+    1 + (1 + Q'.ofNat 6 * headEnergyConstant w hw)
+  exact Q'.le_trans' _ _ _ hadded (Q'.le_of_eqv hden)
 
 /-- The changing family has an exact same-object reciprocal presentation of
 its lattice margin.  No spacing comparison is included. -/
@@ -79,6 +128,7 @@ def changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand
 
 #print axioms changingNomeMarginDenominator
 #print axioms changingNomeMarginDenominator_pos
+#print axioms changingNomeMarginDenominator_ge_two_add_twelve_scale
 #print axioms changingNomeExplicitMarginInverseLaw
 #print axioms changingNomeExplicitMarginDenominatorBand_toPhysicalRateBand
 

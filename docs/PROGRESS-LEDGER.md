@@ -147,6 +147,18 @@ estimate on the actual anchor minimum `F(w_n)` remains open.  Consequently the
 all-scale physical rate band, OS/GNS, continuum/QFT, physical mass,
 every-group, and Clay nodes remain open.
 
+## Current increment: concrete changing-nome denominator lower budget (2026-09-26 UTC)
+
+`BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator_ge_two_add_twelve_scale`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:46--87`)
+joins the checked finite head quotient budget to the actual changing-nome
+margin denominator.  At every scheduled scale it proves the pointwise bound
+`2 + 12 * S(w) ≤ gapDenominator(w)`, where `S(w)` is the explicit carrier-square
+scale at the fixed anchor.  The focused declaration reports only
+`{propext, Quot.sound}`.  This is a finite algebraic contraction: it supplies
+no lower order for the anchor floor, no denominator-versus-spacing comparison,
+and no OS/GNS, continuum/QFT, physical-mass, every-group, or Clay conclusion.
+
 ## Backward frontier expansion: changing-family tail inputs (2026-09-26 UTC)
 
 The finite-prefix response floor does not supply the asymptotic certificates
