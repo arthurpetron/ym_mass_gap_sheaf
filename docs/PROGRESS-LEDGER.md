@@ -30591,3 +30591,14 @@ the all-scale norm floor, physical-rate band, and scalar continuum-gap
 interface while leaving both analytic inputs, OS/GNS reconstruction, full
 continuum QFT, physical mass, every-group uniformity, and the Clay theorem
 open.
+
+## Rationalized observable route for the repaired family (2026-09-27 UTC)
+
+`ChangingNomeCarrierNormalizedObservableRoute` joins the cofinal same-object
+route to the explicit `DynamicVacuumSectorSameObjectRationalization`
+certificate. Its checked projections compile that same channel to the
+`PhysicalSeparator`, the two-sided physical gap floor, the regular scaling
+band, and the scalar continuum-gap interface, with a positive distinguished
+zero-time observable. The rationalization itself remains a required field;
+OS/GNS reconstruction, full continuum QFT, physical mass, every-group
+uniformity, and the Clay theorem remain open.
