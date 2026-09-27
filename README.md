@@ -198,6 +198,12 @@ gluing), and summable reciprocal-scale variation each feed the same capstone on
 both matched branches. The corresponding tail or variation estimate remains
 an explicit analytic input.
 
+The graph-norm seam is similarly split into parallel typed inputs: a scalar
+rate-limit pin, a representative-transfer lift, and a finite graph
+approximation, or equivalently convergence of the scheduled finite rate stream
+with those same transfer branches. This preserves the all-vector scope of the
+existing graph-norm compiler.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

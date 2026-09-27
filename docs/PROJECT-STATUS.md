@@ -1835,6 +1835,12 @@ prefix gluing; and the `...ofNormalizationScaleVariation` constructors consume
 summable reciprocal-scale variation. These are equivalent typed producers of
 the same floor, not an inhabited physical tail estimate.
 
+The graph-norm input is likewise exposed through two parallel constructors on
+each route: one takes the scalar rate-limit pin, representative transfer lift,
+and finite graph approximation separately; the other takes convergence of the
+actual scheduled finite rate stream with the same two transfer branches. Both
+feed the existing graph-norm compiler without weakening its all-vector scope.
+
 ## Maintenance contract
 
 1. Read this file before every chart. Copy its chart block; do not regenerate
@@ -2004,3 +2010,4 @@ the same floor, not an inhabited physical tail estimate.
 | 1 / 146 | 2026-09-27 | Connected existing `WilsonDenseUnitStationaryVacuumPin` and `WilsonDenseUnitVacuumPin` certificates to both matched iterated-gap routes through the checked stationarity adapter. No vacuum pin is constructed; focused check remains `{propext, Quot.sound}` with no `sorryAx`. |
 | 1 / 147 | 2026-09-27 | Rejoined both matched routes with the existing `RawWilsonConnectedMassGapPath` through `toRawWilsonConnectedMassGapPath`. The wrappers preserve the same completed family and consume explicit uniform RC-floor, projective/same-object, Wilson matrix, exact-rate, graph-norm, and dense-unit stationarity certificates; focused check remains `{propext, Quot.sound}` with no `sorryAx`, and no continuum/Clay obligation is closed. |
 | 1 / 148 | 2026-09-27 | Factored the matched raw-path uniform-floor input through global normalization ceilings, eventual tail ceilings with finite-prefix gluing, and summable reciprocal-scale variation for both routes. All six constructors preserve the same capstone indices; focused check remains `{propext, Quot.sound}` with no `sorryAx`, while the tail/variation and all physical/continuum/Clay obligations remain open. |
+| 1 / 149 | 2026-09-27 | Split the matched raw-path graph-norm input into parallel rate-limit/transfer/finite-approximation compilers, with a convergence-form scalar variant, for both routes. The constructors preserve all-vector graph-norm scope and the same capstone indices; focused check remains `{propext, Quot.sound}` with no `sorryAx`. |

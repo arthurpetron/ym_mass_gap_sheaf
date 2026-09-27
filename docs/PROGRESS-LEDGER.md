@@ -30418,3 +30418,19 @@ The monitored source check reports only `{propext, Quot.sound}` for all six
 constructors and no `sorryAx`. The asymptotic tail/variation estimate,
 projective OS/same-object, Wilson, exact-rate, graph-norm, stationarity,
 continuum, physical-mass, every-group, and Clay inputs remain explicit.
+
+## Matched raw-path graph norm is split into parallel compilers (2026-09-27 UTC)
+
+Both matched routes now expose
+`...toRawWilsonConnectedMassGapPath_ofParallelGraphNormCompilers` and
+`...ofParallelGraphNormConvergenceCompilers`. The first accepts the existing
+rate-limit pin, representative transfer lift, and finite graph approximation
+as separate typed branches; the second replaces only the scalar branch with
+scheduled-rate convergence. Each delegates to the corresponding constructor
+of `RawWilsonConnectedMassGapPath`, preserving the same completed family and
+all-vector quantification.
+
+The monitored source check reports only `{propext, Quot.sound}` for all four
+constructors and no `sorryAx`; the rate, transfer, finite approximation,
+projective, exact-rate, stationarity, continuum, physical-mass, every-group,
+and Clay inputs remain explicit.
