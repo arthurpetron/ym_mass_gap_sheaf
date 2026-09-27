@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **110**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **111**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -105,6 +105,13 @@ same-object observable pin, OS/GNS passage, continuum/QFT construction,
 physical mass, every-group theorem, and Clay result remain open.  The focused
 check reports only `{propext, Quot.sound}` and no `sorryAx`; this is a causal
 input reduction, not a new canonical chart marker.
+
+The resistance-level compiler also exposes
+`toConditionalVarianceGapProducer` and
+`toCompletedFamily_latticeMargin_eqv_fraction`, so the remaining primitive
+input is connected to the exact completed lattice margin on the same carrier.
+This is an exact identity, not a uniform spacing estimate; all physical and
+continuum downstream obligations remain open.
 
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
@@ -1781,3 +1788,4 @@ still consumes the two unproved all-scale pointwise inequalities.
 | 1 / 124 | 2026-09-26 | Added the direct pointwise physical-gap-bounds → denominator/rate compiler, using the exact same-family reciprocal identity without prefix re-entry. The two pointwise bounds remain open; no continuum, physical-mass, every-group, or Clay node closes. |
 | 1 / 125 | 2026-09-26 | Added `BF4PhysicalMatchedAFExplicitRayRootCompiler`: the existing selected-term theorem now supplies the scale-indexed ray capacity definitionally at every literal matched nome. The matched rooted dynamic input is reduced to one named off-ray root certificate per scale, while the completed carrier/transfer/vacuum compiler and positive posterior-fraction bounds are preserved. The off-ray certificate, strength/spacing comparison, observable pin, OS/GNS, continuum/QFT, physical-mass, every-group, and Clay nodes remain open; no canonical chart marker changed. |
 | 1 / 126 | 2026-09-26 | Lowered the same matched rooted input one step further: `MatchedPhysicalExplicitRayResistanceProducer` consumes only a scale-indexed cofinal off-ray resistance-congestion bound, then reuses the checked coercivity compiler and explicit ray capacity to reach the same completed carrier and positive posterior fraction. The resistance bound and all physical/continuum/Clay joins remain open; no canonical chart marker changed. |
+| 1 / 127 | 2026-09-26 | Exposed the exact completed lattice-margin identity at the resistance boundary through `toConditionalVarianceGapProducer` and `toCompletedFamily_latticeMargin_eqv_fraction`. This preserves the same carrier and fraction while leaving the cofinal resistance bound, physical calibration, OS/GNS, continuum/QFT, physical-mass, every-group, and Clay obligations open; no canonical chart marker changed. |

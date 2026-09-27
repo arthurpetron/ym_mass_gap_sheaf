@@ -42,6 +42,8 @@ open YMGap.Continuum.BF4PhysicalSpinCubeRayCofinalReturnFloor
 open YMGap.Continuum.BF4PhysicalVacuumSectorRootCoercivityCofinalGapBridge
 open YMGap.Continuum.BF4PhysicalVacuumSectorMassExactExplicitRayOffRayResistanceGap
 
+local infix:50 " ≈ " => Q'.eqv
+
 /-! ## 1. The strictly smaller dynamic input -/
 
 /-- The only scale-indexed rooted datum not supplied by the explicit ray
@@ -217,6 +219,29 @@ def MatchedPhysicalExplicitRayResistanceProducer.toCompletedFamily
     DynamicVacuumSectorCompletedFamily 0 :=
   producer.toOffRayProducer.toCompletedFamily
 
+/-- The resistance-level route preserves the conditional-variance producer
+for the same completed family. -/
+def MatchedPhysicalExplicitRayResistanceProducer.toConditionalVarianceGapProducer
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayResistanceProducer trajectory) :
+    MatchedPhysicalConditionalVarianceGapProducer trajectory :=
+  producer.toOffRayProducer.toConditionalVarianceGapProducer
+
+theorem MatchedPhysicalExplicitRayResistanceProducer.toCompletedFamily_latticeMargin_eqv_fraction
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayResistanceProducer trajectory)
+    (scale : Nat) :
+    producer.toCompletedFamily.latticeMargin scale ≈
+      producer.toRootProducer.fraction scale := by
+  exact MatchedPhysicalRootCoercivityGapProducer.toCompletedFamily_latticeMargin_eqv_fraction
+    producer.toOffRayProducer.toRootProducer scale
+
 theorem MatchedPhysicalExplicitRayResistanceProducer.fraction_pos
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -251,5 +276,9 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayResistanceProducer.toRootProducer
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayResistanceProducer.toCompletedFamily
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayResistanceProducer.toConditionalVarianceGapProducer
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayResistanceProducer.toCompletedFamily_latticeMargin_eqv_fraction
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayResistanceProducer.fraction_pos

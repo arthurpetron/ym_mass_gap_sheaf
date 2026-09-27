@@ -68,6 +68,8 @@ same-object observable pin, OS/GNS reconstruction, continuum/QFT, physical
 mass, every-group construction, and Clay theorem remain open.  The focused
 check is axiom-clean within `{propext, Quot.sound}` and introduces no
 `sorryAx`.
+The resistance-level adapter also exposes the exact completed lattice-margin
+identity for the same carrier; this is not a uniform spacing estimate.
 
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive

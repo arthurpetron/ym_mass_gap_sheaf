@@ -30048,3 +30048,18 @@ The monitored check again reports only `{propext, Quot.sound}` and no
 physical spacing, the same-object observable pin, OS/GNS passage,
 continuum/QFT construction, physical mass, every-group theorem, and Clay
 target remain open.  No canonical chart marker changed.
+
+## Exact completed-margin projection at the resistance boundary (2026-09-26 UTC)
+
+`MatchedPhysicalExplicitRayResistanceProducer.toConditionalVarianceGapProducer`
+and `.toCompletedFamily_latticeMargin_eqv_fraction` expose the existing
+conditional-variance producer and prove that its completed lattice margin is
+the exact rooted posterior fraction on the same completed carrier.  The
+resistance-level route therefore reaches the literal margin identity without
+introducing a new transfer or observable.
+
+The focused check remains within `{propext, Quot.sound}` with no `sorryAx`.
+This identity is conditional on the still-open cofinal resistance-congestion
+bound and does not close physical spacing calibration, OS/GNS, continuum/QFT,
+physical mass, every-group, or Clay obligations.  No canonical chart marker
+changed.
