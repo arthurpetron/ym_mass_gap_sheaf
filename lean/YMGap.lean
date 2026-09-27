@@ -5516,6 +5516,17 @@ import YMGap.Continuum.RCSignedPairBudget
 import YMGap.Continuum.BF4ExactSlabTwoLinkPerturbationConstants
 import YMGap.Continuum.BF4ExactSlabTwoLinkFormError
 import YMGap.Continuum.BF4ExactSlabTwoLinkResidualLowerBound
+import YMGap.Continuum.GNSProjectionNeighborLowerBound
+import YMGap.Continuum.BF4ExactSlabConditionalGeneratorMargin
+import YMGap.Continuum.BF4ExactSlabConditionalGeneratorLowerBound
+import YMGap.Continuum.GNSResidualGeneratorStep
+import YMGap.Continuum.GNSResidualGeneratorDescent
+import YMGap.Continuum.GNSResidualGeneratorStepSize
+import YMGap.Continuum.BF4ExactSlabConditionalGeneratorIteration
+import YMGap.Continuum.BF4ExactSlabConditionalGeneratorDecay
+import YMGap.Continuum.RCGeometricErrorClosure
+import YMGap.Continuum.RCDescentCoercivity
+import YMGap.Continuum.BF4ExactSlabSmallNomeUniformCoercivity
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

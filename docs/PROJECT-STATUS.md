@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting original small-nome uniform coercivity (2026-09-27 UTC; chart markers unchanged):
+Every original completed centered vector now satisfies
+`(gamma/2)||x||^2 <= sum_i ||(I-P_i)x||^2`, with the SAME positive coefficient
+for all volume and late heat cutoff at the existing pilot nome. Ordered
+signed-neighbor counting proves `H^2>=gamma H`; energy descent and telescoping
+remove the old finite-volume baseline from the final coefficient. The existing
+balanced-sweep reverse-energy consumer is supplied without a support/degree
+cost. Next: original fixed-coefficient Chebyshev covariance decay. A03 requires
+a justified scaling family, so it and the same-theory OS/QFT/every-group Clay
+target remain open. All 47 gates passed eleven focused checks; the canonical
+chart block is unchanged. Evidence:
+`audits/AUDIT-SMALL-NOME-UNIFORM-COERCIVITY-2026-09-27.md`.
+
 Verified supporting actual conditional-pair bound (2026-09-27 UTC; chart markers unchanged):
 For EVERY original completed vector, the actual residual pairing satisfies
 `<R_i x,R_j x> >= -(U-L)/(2L)*(||R_i x||^2+||R_j x||^2)`.

@@ -25,6 +25,46 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Volume-uniform original small-nome coercivity proved (2026-09-27 UTC)
+
+`SmallNomeUniformCoercivity.volume_uniform_centered_coercivity` proves
+`(gamma/2)*||x||^2 <= sum_i ||(I-P_i)x||^2` on EVERY original completed
+centered vector, for all extent and late cutoff stage. The explicit coefficient
+has no volume, cutoff, test-support or recurrence-degree argument:
+`gamma=1-50e`, `e=(U-L)/(2L)`. The exact pilot nome `1/1024` discharges all
+scalar smallness guards and positivity. No assumed analytic coercivity input
+remains in `existingNome_centered_coercivity`.
+
+The causal chain is now checked: signed pair bound -> ordered row/column
+counting -> `H^2 >= gamma H` -> actual centered iteration
+`x -> x-Hx/(2*(number_of_links+1))` -> geometric energy descent and norm/energy
+telescope -> removal of the norm tail using the OLD finite-volume baseline.
+That baseline affects the proof's tail bound but cancels from the final
+coefficient. No spectral theorem or inverse square root is used.
+`volume_uniform_reverse_energy` supplies the existing balanced-sweep consumer
+with `c=2+(2/625)*(gamma/2)>2`, independent of volume/support/degree.
+
+NEXT: apply that reverse-energy producer at the ACTUAL centered Chebyshev
+auxiliary in `BF4ExactSlabChebyshevCovarianceBound.finiteCovariance_sq_bound`.
+Construct its new reciprocal Chebyshev factor and prove useful decay for
+the fixed c>2; do not reuse the ruled-out degree-dependent local collar
+coefficient. Retain BOTH original variances and the existing sixteen-layer
+separation cone. Then pass the fixed-nome estimate through available cutoff
+limits with exact same-observable pins. Physical scaling must still be proved;
+fixed small nome does not itself provide a justified vanishing-spacing family.
+
+Eleven focused serialized one-worker/20 GiB checks passed all 47 printed
+gates within {propext, Quot.sound}; Sol/Luna tasks ran in parallel, with an
+independent same-carrier/baseline-cancellation review. No new sorry, axiom,
+analytic bundle, weakened frontier, full-tree/root build, full audit or guard.
+The geometric error lemma is an order implication only: its representative
+bound is eliminated into Prop, not exported as a chosen quotient modulus.
+A03 and all canonical chart markers remain unchanged; same-theory scaling,
+OS/QFT, nontrivial survival, physical Hamiltonian mass and every-group Clay
+remain open. Evidence: `audits/AUDIT-SMALL-NOME-UNIFORM-COERCIVITY-2026-09-27.md`.
+Earlier open pair/summation/coercivity statements below are historical in
+this fixed-small-nome scope.
+
 ### Actual original conditional-pair bound constructed (2026-09-27 UTC)
 
 `TwoLinkResidualLowerBound.conditional_residual_pair_lower` proves

@@ -10,14 +10,28 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Volume-uniform original conditional coercivity (2026-09-27):** the SAME
+original full-action completion now satisfies
+`(gamma(w)/2)*||x||^2 <= sum_i ||(I-P_i)x||^2` for every centered vector,
+every volume, and every late heat cutoff under explicit small-nome guards.
+Here `gamma=1-50*(U-L)/(2L)` is proved positive at the existing nome `1/1024`.
+Signed neighbor counting, energy descent and telescoping prove the bound;
+the older volume-dependent baseline is used only to remove a vanishing tail
+and does not enter the final coefficient. The result supplies the existing
+reverse-energy theorem with a coefficient independent of volume, test support
+and recurrence degree. Next: consume it in the original Chebyshev covariance
+bound. This is conditional-link dynamics, not a justified physical scaling
+family or an OS/Hamiltonian gap. See the
+[proof and scope audit](audits/AUDIT-SMALL-NOME-UNIFORM-COERCIVITY-2026-09-27.md).
+
 **Actual signed conditional-pair bound (2026-09-27):** for every vector in
 the original full-action completion, the actual residuals `R_i=I-P_i`
 satisfy `<R_i x,R_j x> >= -(U-L)/(2L) * (||R_i x||^2+||R_j x||^2)`.
 The proof constructs the background coordinate projections and proves both
 same-range identities with the original conditional projections. Its explicit
 coefficient depends on nome, not volume or late heat cutoff, under the
-small-nome guards. Next: ordered-neighbor summation and constructive
-coercivity upgrade. This is conditional-link dynamics, not OS time or a
+small-nome guards. Ordered-neighbor summation and the constructive coercivity
+upgrade are now proved above. This is conditional-link dynamics, not OS time or a
 continuum mass gap. See the
 [checked pair bound and precise scope](audits/AUDIT-ORIGINAL-CONDITIONAL-PAIR-BOUND-2026-09-27.md).
 
@@ -28,7 +42,7 @@ face remains in that background. The constants are independent of extent,
 heat cutoff and test support, under explicit small-nome guards. Constructed
 maps with explicit moduli carry both bounds to every completed vector.
 The signed estimate and projection-range identities are now proved above;
-their global coercivity consequence remains open. This is not an
+their small-nome global coercivity consequence is also proved above. This is not an
 OS/physical gap or a justified continuum scaling estimate. See the
 [comparison proof and exact remaining join](audits/AUDIT-ORIGINAL-TWO-LINK-COMPARISON-2026-09-27.md).
 
@@ -37,7 +51,7 @@ completed carrier, Lean now decomposes the conditional residual-sum square
 into its Dirichlet energy, signed neighboring cross terms, and nonnegative
 remote squares. Only the bounded-degree neighbor terms can lower the result;
 their quantitative pair bound is now proved above, while its ordered-sum
-and coercivity consequences remain open. This is conditional-link
+and small-nome coercivity consequences are now proved above. This is conditional-link
 dynamics, not a physical Hamiltonian gap. See the
 [checked identity and next mathematical argument](audits/AUDIT-ORIGINAL-SIGNED-NEIGHBOR-ENERGY-2026-09-27.md).
 

@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual original signed conditional-pair bound (2026-09-27 UTC)
+## Current increment: volume-uniform original small-nome coercivity (2026-09-27 UTC)
+
+The actual signed-neighbor sum now costs at most `50e*E`, counting both
+endpoints of ordered pairs. Consequently the original conditional generator
+satisfies `||Hx||^2 >= gamma*E(x)`, `gamma=1-50e`, with proved positive pilot
+margin. Actual centered gradient iteration, geometric energy descent and a
+finite norm/energy telescope upgrade this to `(gamma/2)||x||^2 <= E(x)`.
+The old finite-volume baseline is used only to remove the vanishing norm
+tail; it does not appear in the final coefficient. The actual balanced
+reverse-energy theorem now has a strict coefficient independent of volume,
+cutoff, support and degree at the fixed guarded nome.
+
+NEXT: use that coefficient in the existing original Chebyshev covariance
+consumer and control the resulting factor as degree grows. Justified physical
+scaling and all same-theory OS/QFT/nontriviality/mass/every-group Clay nodes
+remain open. No displayed canonical claim changes or chart is reprinted.
+Eleven focused serialized checks passed all 47 gates within {propext,
+Quot.sound}, with parallel Sol/Luna work and independent final review. No
+broad build/audit/progress-metric/guard. Evidence:
+`audits/AUDIT-SMALL-NOME-UNIFORM-COERCIVITY-2026-09-27.md`.
+
+## Earlier increment: actual original signed conditional-pair bound (2026-09-27 UTC)
 
 The constructed reference coordinate projections now share their ranges with
 the ACTUAL original conditional projections on every completed vector, in

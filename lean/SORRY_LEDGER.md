@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## Volume-uniform original small-nome coercivity (2026-09-27 UTC)
+
+- **proved actual signed sum:** `GNSProjectionSweep.Family.neighboringCross_lower`
+  counts both endpoints; `ConditionalGeneratorLowerBound.conditionalGenerator_square_lower`
+  instantiates row/column degree 25 for the ORIGINAL P/H. The explicit
+  `ConditionalGeneratorMargin.margin=1-50e` is positive at the pilot nome.
+- **constructed coercivity:** `SmallNomeUniformCoercivity.volume_uniform_centered_coercivity`
+  proves `coefficient*||x||^2<=E(x)` for every original completed centered x,
+  all extent and late cutoff stage. `coefficient=margin/2` depends only on nome.
+  `existingNome_centered_coercivity` discharges all scalar guards at `1/1024`.
+  Actual center-preserving iteration, geometric energy descent, telescoping
+  and `RCDescentCoercivity.descent_coercivity` remove the old baseline's
+  volume cost from the final coefficient. No spectral theorem is assumed.
+- **actual consumer:** `volume_uniform_reverse_energy` supplies the already
+  existing balanced-sweep reverse-energy theorem; `reverse_coefficient_gt_two`
+  proves its strict coefficient without a support/degree penalty.
+- **constructivity boundary:** `RCGeometricErrorClosure.le_of_geometric_error`
+  eliminates the representative's local bound only into an order proposition;
+  it does not choose a representative or return a quotient convergence modulus.
+- **open residue:** new fixed-coefficient original covariance decay, justified
+  physical scaling, same-theory OS/QFT, nontrivial survival, physical Hamiltonian
+  mass and every compact simple group. Earlier pair/sum/coercivity obligations
+  below are discharged only in the explicit fixed-small-nome scope above.
+- **verification:** eleven focused serialized one-worker/20 GiB checks,
+  all 47 gates within {propext, Quot.sound}; independent same-carrier review.
+  No new sorry, axiom, analytic bundle or canonical field/marker change;
+  no full-tree/root build, full audit or guard. Evidence:
+  `audits/AUDIT-SMALL-NOME-UNIFORM-COERCIVITY-2026-09-27.md`.
+
 ## Actual original conditional-pair lower bound (2026-09-27 UTC)
 
 - **constructed:** `SU2QuaternionWeightedHaarProjectionCompletion.projection`
