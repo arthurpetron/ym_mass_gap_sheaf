@@ -5538,6 +5538,14 @@ import YMGap.Continuum.SU2QuaternionHaarFamilyCertificate
 import YMGap.Continuum.BF4ExactSlabBlockComparisonConstants
 import YMGap.Continuum.BF4ExactSlabBlockNormalizer
 import YMGap.Continuum.BF4ExactSlabBlockNormalizerMap
+-- Actual all-nome block conditional projection on the original completion; no block gap.
+import YMGap.Continuum.BF4ExactSlabBlockInverseApproximation
+import YMGap.Continuum.BF4ExactSlabBlockInsertedNorm
+import YMGap.Continuum.BF4ExactSlabBlockConditionalApproximation
+import YMGap.Continuum.BF4ExactSlabBlockCompletedInverse
+import YMGap.Continuum.BF4ExactSlabBlockExteriorPairing
+import YMGap.Continuum.BF4ExactSlabBlockOriginalConditional
+import YMGap.Continuum.BF4ExactSlabBlockConditionalProjection
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting original completed block projection (2026-09-27 UTC; chart markers unchanged):
+The actual block conditional operator is constructed on EVERY original
+full-action completion vector, with self-adjointness, idempotence, sharp
+nonexpansiveness and explicit exterior fixation. Polynomial division, Cauchy
+and null moduli are constructed for all rational `0<w<1` and late cutoff.
+The inverse algorithm's geometric rate is not a mixing rate. Signed
+inter-block control, block geometry and justified physical scaling remain
+open, along with A03 and same-theory OS/QFT/nontriviality/mass/every-group Clay.
+All 66 gates passed seven focused targets. No canonical chart block changes.
+Evidence: `audits/AUDIT-ORIGINAL-BLOCK-PROJECTION-2026-09-27.md`.
+
 Verified supporting all-nome block normalizer (2026-09-27 UTC; chart markers unchanged):
 The original incident collar has a positive family-integrated normalizer and
 exact full-action test identities. Explicit two-sided form/norm bounds hold on

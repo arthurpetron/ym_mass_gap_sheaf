@@ -25,6 +25,51 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual original completed block projection constructed (2026-09-27 UTC)
+
+`BlockConditionalProjection.conditionalProjection` now constructs the actual
+finite-block conditional operator on EVERY vector of the SAME original
+full-action completion for rational `0<w<1` and `K>=headCutoff(w)`. Its
+self-adjointness, idempotence, nonexpansiveness, positivity and residual-range
+orthogonality are proved. Explicitly exterior Cauchy states and polynomials
+are fixed. This discharges the preceding missing block-operator construction,
+not a strict inter-block or OS/physical mass estimate.
+
+The proof constructs polynomial division `a <- a+(r-D*a)/U`, a residual
+cutoff, a Cauchy modulus and the completed preimage of every dense numerator.
+The SAME original numerator norm is bounded by `U*||p||_full^2`. Every
+approximant is exterior-independent. Identity-sequence maps then carry it to
+the original full-action space, with explicit null moduli. Exact independent
+testing gives `<Qp,Qq>=<Qp,q>`; this yields the sharp dense distance bound
+and hence the existing constructive full-space extension. No arbitrary
+background vector is silently treated as exterior. The algorithm rate `1-L/U`
+depends on nome and block size and is not the projection's mixing rate.
+
+NEXT: use the constructed Q_b to attack the actual signed block-residual
+estimate, not another inverse wrapper. A candidate pair estimate is
+`<R_b x,R_c x> >= -e*(||R_b x||^2+||R_c x||^2)` on the original completion.
+For an actual block schedule, prove the cover, neighbor row/column counts,
+remote commutation/remainder, and propagation geometry needed by the existing
+ordered-sum/descent/covariance route; the single-link degree 25, loss 625 and
+sixteen-layer cone cannot simply be reused. Seek a useful estimate on a
+justified scaling family, not an unnecessary all-coupling theorem.
+
+Do not require a dimensionless block margin bounded away from zero merely
+because it would suffice. The needed physical conclusion concerns the induced
+decay calibrated to actual physical separation, with nonzero finite-time
+response and same-observable limit transport. A positive margin at each cutoff
+alone does not supply this join. Proving the block operators relocates none of
+that analytic work into a hypothesis: it makes the operators concrete.
+Selected-face boundary/volume control remains a separate missing producer.
+Same-theory scaling, nontrivial survival, OS/QFT, physical Hamiltonian mass and
+every-group Clay remain open; no canonical field or chart marker changes.
+
+Seven focused serialized one-worker/20 GiB targets passed all 66 printed gates
+within {propext, Quot.sound}; Sol/Luna proof/review work ran in parallel, with
+no concurrent compilers. No new sorry, axiom, analytic bundle or broad run.
+Evidence: `audits/AUDIT-ORIGINAL-BLOCK-PROJECTION-2026-09-27.md`.
+Earlier inverse/projection-open statements below are historical in this scope.
+
 ### All-nome original block normalizer proved; scaling route repointed (2026-09-27 UTC)
 
 The parameter review has a decisive existing answer, not a new theorem:

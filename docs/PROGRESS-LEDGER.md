@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-nome original block normalizer (2026-09-27 UTC)
+## Current increment: actual original completed block projection (2026-09-27 UTC)
+
+Polynomial division and explicit residual/Cauchy/null moduli now construct the
+actual N_p/D state. The inserted-numerator bound retains the original full-action
+norm. Termwise exterior independence licenses the exact completed test identity;
+sharp nonexpansiveness extends the map to EVERY original completion vector.
+Self-adjointness, idempotence, positivity, exterior fixation and residual-range
+orthogonality are proved. The missing operator is constructed, not assumed.
+
+NEXT: signed inter-block control and the actual block schedule's cover,
+neighbor degree, remote remainder and propagation geometry. Physical scaling
+requires the induced rate per physical separation and nontrivial survival,
+not necessarily a uniform dimensionless block margin. The inverse iteration's
+rate is NOT a dynamics gap. Boundary/thermodynamic and same-theory
+scaling/OS/QFT/nontriviality/physical mass/every-group Clay remain open.
+
+Seven focused serialized targets passed all 66 gates within {propext, Quot.sound};
+parallel Sol/Luna proofs and independent scope review. No new sorry, axiom,
+analytic bundle, canonical chart change or broad build/audit/guard/progress run.
+Evidence: `audits/AUDIT-ORIGINAL-BLOCK-PROJECTION-2026-09-27.md`.
+
+## Earlier increment: all-nome original block normalizer (2026-09-27 UTC)
 
 The actual incident collar now has a constructed finite-family Haar normalizer,
 positive certificate, exterior independence and exact full-action marginal/test

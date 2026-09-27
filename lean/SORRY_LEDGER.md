@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## Actual original completed block projection (2026-09-27 UTC)
+
+- **constructed approximation:** `BlockInverseApproximation.approximateInverse`
+  and `approximationCutoff` return polynomial iterates and residual tolerance
+  data. `BlockConditionalApproximation.relativeCutoff` depends only on nome,
+  block size and tolerance; its error bound retains the original input norm.
+  Every conditional approximant is independent of the integrated coordinates.
+- **constructed preimages:** `BlockCompletedInverse.inverseCauchy`,
+  `inverseState`, `inverseImageNull` and `normalizer_inverseState` give explicit
+  Cauchy/null moduli and exact image identities for dense sources. The actual
+  multiplier extension is injective. No arbitrary inverse is postulated.
+- **original carrier join:** `BlockOriginalConditional.toFullCauchy` and
+  `toFullNullModulus` retain literal original coordinates. Independent-rep
+  pair/test identities prove `conditionalUpdate_pairing`; arbitrary background
+  vectors are not treated as exterior states.
+- **completed operator proved:** `BlockConditionalProjection.conditionalProjection`
+  acts on the existing original full-action completion, is nonexpansive,
+  self-adjoint, idempotent and positive, fixes explicitly exterior states,
+  and has orthogonal residual/range. All rational `0<w<1` and late cutoff.
+- **open residue:** useful signed block-pair estimates, actual block-schedule
+  geometry/cover/remote remainder, and physical-scale rate calibration with
+  nontrivial survival. Selected-face boundary/thermodynamic control and
+  same-theory OS/QFT/physical mass/every-group Clay remain open. The inverse
+  convergence rate is not a mixing rate; the norm ceiling one is not a gap.
+- **verification:** seven focused serialized one-worker/20 GiB targets,
+  all 66 printed gates within {propext, Quot.sound}; independent scope review.
+  No new sorry, axiom, analytic bundle, weakened field, chart change or broad
+  run. Evidence: `audits/AUDIT-ORIGINAL-BLOCK-PROJECTION-2026-09-27.md`.
+
 ## All-nome original block normalizer (2026-09-27 UTC)
 
 - **constructed:** `SU2QuaternionHaarFamilyCertificate.familyProject_certificate`

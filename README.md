@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original completed block projection constructed (2026-09-27):** the actual
+block conditional map now acts on EVERY vector of the original full-action
+completion, for every rational `0<w<1` and late heat cutoff. It is self-adjoint,
+idempotent and nonexpansive, and fixes explicitly exterior states. Polynomial
+division supplies explicit residual/Cauchy moduli; original-action pairing
+identities prove the sharp norm ceiling of one. The division algorithm's
+geometric rate is not a mixing rate. Signed inter-block estimates, their
+geometry and physical-scale calibration remain open. See the
+[proof and next-consumer audit](audits/AUDIT-ORIGINAL-BLOCK-PROJECTION-2026-09-27.md).
+
 **All-nome block normalizer constructed (2026-09-27):** integrating the
 actual incident action over any finite list of physical links now gives a
 positive polynomial normalizer, exact original-action marginal identities,
@@ -19,8 +29,8 @@ The constants depend on nome and block size, not ambient volume or cutoff.
 These are inversion inputs, not a block-correlation or physical gap estimate.
 Under a supplied `CubicMarginLaw`, the existing AF guard obstruction excludes
 reuse of the small-nome decay theorem at chart points `0<g<=1/2`.
-Next: constructive block inversion
-and the missing signed inter-block control beyond that guard. See the
+The inverse/projection construction is now supplied above; signed inter-block
+control beyond that guard remains missing. See the
 [proof and route audit](audits/AUDIT-ALL-NOME-BLOCK-NORMALIZER-2026-09-27.md).
 
 **Original covariance decay with a volume-independent rate (2026-09-27):**
