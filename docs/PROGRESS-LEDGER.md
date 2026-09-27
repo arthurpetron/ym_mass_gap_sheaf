@@ -231,7 +231,7 @@ all-scale denominator-versus-spacing problem.
 ## Current increment: product band contracted to the continuum-gap interface (2026-09-26 UTC)
 
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:469--472`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:565--568`)
 composes the exact changing-nome denominator presentation, the specialized
 product-band compiler, and the existing same-family physical-rate compiler
 into the sharp `ContinuumGapTheorem` interface.  The focused monitored build
@@ -29644,6 +29644,21 @@ The monitored dependency-complete target passed 1,244 jobs with only
 witness or completed joint gap is constructed here, so OS/scaling,
 thermodynamic/continuum, physical mass calibration, all-group, and Clay
 obligations remain open.
+
+## Current increment: carrier-normalized spacing repair scaffold (2026-09-26 UTC)
+
+`changingNomeCarrierNormalizedSpacing`,
+`changingNomeCarrierNormalizedSpacingToZero`,
+`changingNomeCarrierNormalizedSpacing_carrier_ceiling`, and
+`changingNomeCarrierNormalizedDynamicFamily`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:429--504`)
+define a positive spacing schedule whose index is the explicit carrier-aware
+denominator plus the scale.  Its modulus is `epsilon.den`, and the checked
+ceiling is `6 * (normalizedSpacing * carrierSquareScale) ≤ 1` at every scale.
+The same-nome and same-gap-rate identities (`:506--512`) show that only the
+spacing schedule changed.  This repairs the scale-zero normalization seam but
+does not inhabit the product band or close physical calibration, OS/GNS,
+continuum/QFT, physical mass, every-group, or Clay obligations.
 
 ## Exact-centered representative certificate (2026-09-23)
 

@@ -18,6 +18,9 @@ set_option maxHeartbeats 10000000
 set_option autoImplicit false
 
 open YMGap.Constructive
+open YMGap.Constructive.ExpNeg
+open YMGap.Constructive.HalfPow
+open YMGap.Continuum.BF4PhysicalCubeCompletedMarginalGap
 open YMGap.Continuum.BF4PhysicalCubeAnchoredHeadBound
 open YMGap.Continuum.BF4PhysicalChangingNomeDynamicFamily
 open YMGap.Continuum.BF4PhysicalCubeCutoffUniformGap
@@ -27,6 +30,8 @@ open YMGap.Continuum.BF4PhysicalFiniteVacuumSector
 open YMGap.Continuum.BF4PhysicalFiniteVacuumSectorSimplePathScale
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorCompletedFamily
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExplicitMarginBand
+open YMGap.Continuum.PhysicalSeparatorLinearTail
+open YMGap.Continuum.PhysicalSeparatorLogRate
 
 local infix:50 " ≈ " => Q'.eqv
 
@@ -415,6 +420,97 @@ theorem changingNomeBand_lower_bound_scale_zero_impossible
     exact hlt_of_lt_of_le hbase houter
   exact (Int.not_lt_of_ge hceiling) hlt
 
+/-! The preceding contradiction identifies the repair required by the
+    floor-cancellation consumer: the spacing must be normalized against the
+    actual carrier scale before it is sent to zero.  The next schedule keeps
+    the same completed nome/transfer family but uses a denominator indexed by
+    the nonnegative carrier `6*S` and by the scale itself. -/
+
+def changingNomeCarrierNormalizedSpacing : PhysicalSpacing where
+  spacing := fun scale =>
+    let carrier := Q'.ofNat 6 * changingNomeBandScale scale
+    Q'.invSucc (carrier.num.toNat + scale)
+  spacing_pos := fun scale => by
+    exact Q'.invSucc_pos _
+
+def changingNomeCarrierNormalizedSpacingToZero :
+    SpacingToZero changingNomeCarrierNormalizedSpacing where
+  modulus := fun epsilon => epsilon.den
+  spacing_le := by
+    intro epsilon hepsilon scale hscale
+    let carrier := Q'.ofNat 6 * changingNomeBandScale scale
+    have hindex : epsilon.den ≤ carrier.num.toNat + scale := by
+      omega
+    exact Q'.le_trans' _ _ _
+      (ExpNeg.invSucc_le_of_le hindex)
+      (HalfPow.invSucc_den_le epsilon hepsilon)
+
+theorem changingNomeCarrierNormalizedSpacing_carrier_ceiling
+    (scale : Nat) :
+    Q'.ofNat 6 *
+        (changingNomeCarrierNormalizedSpacing.spacing scale *
+          changingNomeBandScale scale) ≤
+      (1 : Q') := by
+  let carrier := Q'.ofNat 6 * changingNomeBandScale scale
+  let index := carrier.num.toNat + scale
+  have hcarrier_pos : (0 : Q') < carrier := by
+    dsimp [carrier]
+    exact Q'.mul_pos (by decide)
+      (centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale_pos
+        (changingNome scale)
+        (Q'.le_of_lt (changingNome_pos scale)) 1404 0)
+  have hcarrier_nonneg : (0 : Q') ≤ carrier :=
+    Q'.le_of_lt hcarrier_pos
+  have hbase : carrier * Q'.invSucc carrier.num.toNat ≤ (1 : Q') :=
+    ExpNeg.mul_invSucc_toNat_le_one carrier hcarrier_nonneg
+  have hindex : carrier.num.toNat ≤ index := by
+    exact Nat.le_add_right _ _
+  have hstep : Q'.invSucc index ≤ Q'.invSucc carrier.num.toNat :=
+    ExpNeg.invSucc_le_of_le hindex
+  have hscaled : carrier * Q'.invSucc index ≤
+      carrier * Q'.invSucc carrier.num.toNat :=
+    Q'.mul_le_mul_of_nonneg_left _ _ _ hstep hcarrier_nonneg
+  have hbound : carrier * Q'.invSucc index ≤ (1 : Q') :=
+    Q'.le_trans' _ _ _ hscaled hbase
+  have htransport :
+      Q'.ofNat 6 * (Q'.invSucc index * changingNomeBandScale scale) ≈
+        carrier * Q'.invSucc index := by
+    dsimp [carrier]
+    refine Q'.eqv_trans _
+      (Q'.ofNat 6 * (changingNomeBandScale scale * Q'.invSucc index)) _
+      (Q'.mul_eqv_congr_left _ _ _
+        (Q'.mul_comm_eqv (Q'.invSucc index)
+          (changingNomeBandScale scale))) ?_
+    exact Q'.eqv_symm
+      (Q'.mul_assoc_eqv (Q'.ofNat 6)
+        (changingNomeBandScale scale) (Q'.invSucc index))
+  simpa [changingNomeCarrierNormalizedSpacing, index] using
+    (Q'.le_trans' _ _ _ (Q'.le_of_eqv htransport) hbound)
+
+/-- The repaired spacing schedule retains the same completed nome and gap
+    data while replacing only the scale-to-zero schedule.  It is a concrete
+    normalization scaffold; no physical-rate band is claimed. -/
+def changingNomeCarrierNormalizedDynamicFamily :
+    DynamicVacuumSectorCompletedFamily 0 where
+  nome := changingNome
+  nome_pos := changingNome_pos
+  nome_lt_one := changingNome_lt_one
+  transferSpacing := changingNomeCarrierNormalizedSpacing
+  transferSpacingToZero := changingNomeCarrierNormalizedSpacingToZero
+  completedGap := fun scale =>
+    completedSectorContraction
+      (changingNome_pos scale)
+      (changingNome_lt_one scale)
+      (changingNome_le_half scale)
+
+theorem changingNomeCarrierNormalizedDynamicFamily_same_nome (scale : Nat) :
+    changingNomeCarrierNormalizedDynamicFamily.nome scale = changingNome scale := rfl
+
+theorem changingNomeCarrierNormalizedDynamicFamily_same_gap_rate (scale : Nat) :
+    (changingNomeCarrierNormalizedDynamicFamily.completedGap scale).rate =
+      cutoffUniformRate (changingNome scale)
+        (Q'.le_of_lt (changingNome_pos scale)) := rfl
+
 /-- Compile the minimal head-energy product certificate into the existing
     same-family denominator band without changing the spacing or denominator.
     The certificate remains uninhabited until the cofinal floor-order estimate
@@ -484,6 +580,12 @@ def ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms ChangingNomeHeadEnergyProductBand.spacing_mul_scale_le_of_lower_bound
 #print axioms changingNomeBandScale_ge_two
 #print axioms changingNomeBand_lower_bound_scale_zero_impossible
+#print axioms changingNomeCarrierNormalizedSpacing
+#print axioms changingNomeCarrierNormalizedSpacingToZero
+#print axioms changingNomeCarrierNormalizedSpacing_carrier_ceiling
+#print axioms changingNomeCarrierNormalizedDynamicFamily
+#print axioms changingNomeCarrierNormalizedDynamicFamily_same_nome
+#print axioms changingNomeCarrierNormalizedDynamicFamily_same_gap_rate
 #print axioms ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand
 #print axioms ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem
 #print axioms changingNomeExplicitMarginInverseLaw

@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **88**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **89**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -31,6 +31,13 @@ least two while `changingNomeBandSpacing 0 = 1/2`, so the supplied floor-order
 certificate is impossible at scale zero.  This is a route obstruction, not a
 Yang--Mills obstruction; the schedule must be redesigned before that
 certificate can serve as an all-scale input.
+The repaired carrier-aware spacing schedule is now also inhabited: it keeps the
+same completed nome and gap data, has an explicit denominator modulus, and
+kernel-proves `6 * (normalizedSpacing * carrierSquareScale) ≤ 1` at every
+scale.  This removes the scale-zero normalization contradiction, but it is a
+calibration scaffold only; the product-band fields, physical-rate band,
+continuum construction, physical mass, every-group theorem, and Clay result
+remain open.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -162,7 +169,7 @@ inequalities are the remaining asymptotic input.
 
 Latest verified B04 contraction (2026-09-26 UTC):
 `ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem`
-(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:469--472`)
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:565--568`)
 composes the specialized product-band compiler with the existing physical-rate
 and sharp continuum-gap interfaces.  It is a conditional compiler only: the
 product-band witness is still uninhabited, so this does not claim a concrete
@@ -210,6 +217,19 @@ since the scheduled spacing there is `1/2`.  This forces a redesign of the
 spacing/carrier normalization; it does not produce the product band,
 physical-rate band, continuum theory, physical mass, every-group theorem, or
 the Clay result.
+
+Latest verified B04 schedule repair (2026-09-26 UTC):
+`changingNomeCarrierNormalizedSpacing`,
+`changingNomeCarrierNormalizedSpacingToZero`,
+`changingNomeCarrierNormalizedSpacing_carrier_ceiling`, and
+`changingNomeCarrierNormalizedDynamicFamily`
+(`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:429--504`)
+provide a positive carrier-aware spacing schedule with modulus
+`epsilon.den`, the same completed nome/gap data, and the necessary
+floor-independent ceiling at every scale.  The two identity lemmas
+(`:506--512`) verify same-nome and same-gap-rate preservation.  This is a
+typed normalization scaffold, not a physical calibration or continuum/Clay
+closure.
 
 Latest backward frontier expansion (2026-09-26 UTC): the finite-prefix
 response certificate does not discharge the asymptotic inputs required by the
@@ -456,6 +476,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                        [x] Floor cancellation -> spacing/carrier ceiling consumer
                                        [x] Scale-zero floor-order obstruction
                                            (spacing/carrier schedule must be redesigned)
+                                       [x] Carrier-normalized repaired spacing schedule
+                                           (same completed nome/gap; calibration still open)
                                        [ ] Infinite-scale denominator/spacing comparison
                                        [ ] Anchor-minimum asymptotic estimate
                                            F(w_n) comparable to spacing
@@ -535,12 +557,13 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04q | Concrete changing-nome denominator/spacing target | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:29--38`, together with `BF4PhysicalCubeCutoffUniformGap.gapDenominator`, `lean/YMGap/Continuum/BF4PhysicalCubeCutoffUniformGap.lean:33--48`, `BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant`, `lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean:159--166`, and `BF4PhysicalFiniteVacuumSectorSimplePathScale.centralPhysicalFiniteVacuumSectorSimpleCarrierSquareScale`, `lean/YMGap/Continuum/BF4PhysicalFiniteVacuumSectorSimplePathScale.lean:223--227`; the missing all-scale proof reduces to fixed `L,U>0` with `L ≤ s_n*(2+6*H(w_n)) ≤ U`, where `H=S/F` and `F` is the anchored finite pulled-kernel minimum. No declaration currently estimates `F` along shrinking `w_n`, so this remains OPEN. |
 | B04r | Finite anchor-floor ceiling / concrete quotient budget | `BF4PhysicalChangingNomeAnchorBudget.fixedBasePulledPositiveEdgeFloorValue_le_half` and `.divPos_ge_two_mul_of_floor_le_half`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeAnchorBudget.lean:60--109`, plus `BF4PhysicalCubeAnchoredHeadBound.headEnergyConstant_eq_divPos`, `.fixedBasePulledPositiveEdgeFloorValue_mul_headEnergyConstant_eqv_scale`, and `.headEnergyConstant_ge_two_carrierSquareScale`, `lean/YMGap/Continuum/BF4PhysicalCubeAnchoredHeadBound.lean:172--221`; the unit fallback and quotient compiler now instantiate to the concrete finite inequality `2*S ≤ H(w)` for every admissible `w`. The cofinal order estimate for `F(w_n)` remains open; this is a one-sided finite budget, not B04 closure. |
 | B04s | Concrete changing-nome denominator lower budget | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator_ge_two_add_twelve_scale`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicitMarginLaw.lean:46--87`; joins the checked head quotient to the actual scheduled denominator and proves `2 + 12*S(w) ≤ gapDenominator(w)` pointwise. It does not provide the missing denominator-versus-spacing comparison or any continuum/Clay closure. |
-| B04t | Minimal head-energy product-band compiler | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator_eqv_two_add_six_headEnergy` (`:92--106`) and `ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand` (`:422--456`); factors the remaining B04 input into two uniform product inequalities on the exact `2 + 6*H(w_scale)` expression and compiles them without changing the same family. The certificate is not inhabited, so the denominator-versus-spacing, continuum, and Clay obligations remain open. |
-| B04u | Head-energy product band -> continuum-gap interface | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem` (`:469--472`); contracts the specialized product-band certificate through the existing same-family physical-rate compiler to the sharp `ContinuumGapTheorem` interface. It is conditional on the still-uninhabited product band and does not itself construct a continuum theory or mass gap. |
+| B04t | Minimal head-energy product-band compiler | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeMarginDenominator_eqv_two_add_six_headEnergy` (`:92--106`) and `ChangingNomeHeadEnergyProductBand.toExplicitMarginDenominatorBand` (`:514--552`); factors the remaining B04 input into two uniform product inequalities on the exact `2 + 6*H(w_scale)` expression and compiles them without changing the same family. The certificate is not inhabited, so the denominator-versus-spacing, continuum, and Clay obligations remain open. |
+| B04u | Head-energy product band -> continuum-gap interface | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.toContinuumGapTheorem` (`:565--568`); contracts the specialized product-band certificate through the existing same-family physical-rate compiler to the sharp `ContinuumGapTheorem` interface. It is conditional on the still-uninhabited product band and does not itself construct a continuum theory or mass gap. |
 | B04v | Scalar product-band -> floor-order necessary condition | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_scale_le_of_scalar` (`:174--214`); from nonnegative `A,F`, the exact quotient identity `F*H ≈ S`, and `A*(2+6*H) ≤ 1`, derives `6*A*S ≤ F` by kernel-checked rational algebra. This is a necessary-condition contraction for the dependent B04 target, not its cofinal specialization or a continuum/Clay result. |
 | B04w | Dependent changing-nome floor-order specialization | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le` (`:239--272`); instantiates the scalar kernel with the actual scheduled spacing, anchored floor, carrier-square scale, and head quotient, yielding `6*((floor*spacing)*scale) ≤ floorValue` at every scale under the assumed product band. This is a necessary condition only; the product band and cofinal floor asymptotic remain open. |
 | B04x | Floor cancellation -> spacing/carrier ceiling consumer | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeHeadEnergyProductBand.spacing_mul_scale_le_of_lower_bound` (`:317--334`); cancels the concrete positive floor from a supplied specialized lower-bound certificate and derives `6*(spacing*carrierSquareScale) ≤ 1`. The lower-bound certificate is still explicit, so this is a typed necessary-condition consumer, not B04 closure. |
 | B04y | Scale-zero floor-order obstruction / schedule redesign | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeBandScale_ge_two` and `.changingNomeBand_lower_bound_scale_zero_impossible` (`:336--416`); the concrete carrier-square factor is at least two, so the current `spacing 0 = 1/2` schedule makes the supplied floor-order certificate impossible at scale zero. This diagnoses the route normalization and does not claim a Yang--Mills obstruction or any continuum/Clay closure. |
+| B04z | Carrier-normalized spacing repair scaffold | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeCarrierNormalizedSpacing`, `.changingNomeCarrierNormalizedSpacingToZero`, `.changingNomeCarrierNormalizedSpacing_carrier_ceiling`, `.changingNomeCarrierNormalizedDynamicFamily`, `.changingNomeCarrierNormalizedDynamicFamily_same_nome`, and `.changingNomeCarrierNormalizedDynamicFamily_same_gap_rate` (`:429--512`); replaces only the spacing schedule by a carrier-aware denominator, proves spacing-to-zero and `6*spacing*carrierSquareScale ≤ 1`, and preserves the completed nome/gap. This is not an inhabited product band, physical calibration, continuum construction, or Clay result. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1447,3 +1470,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 102 | 2026-09-26 | Specialized the floor-order contraction to the actual changing-nome expressions with `ChangingNomeHeadEnergyProductBand.lower_floor_mul_spacing_mul_scale_le`. The checked consequence is now pointwise on the concrete spacing, anchor floor, and carrier-square scale; the product band, cofinal anchor-minimum estimate, and all continuum/Clay nodes remain open. |
 | 1 / 103 | 2026-09-26 | Added the axiom-clean floor-cancellation consumer `ChangingNomeHeadEnergyProductBand.spacing_mul_scale_le_of_lower_bound`. A supplied concrete floor-order certificate now contracts to the floor-independent ceiling `6*(spacing*carrierSquareScale) ≤ 1`; the certificate and all continuum/Clay nodes remain open. |
 | 1 / 104 | 2026-09-26 | Proved `changingNomeBandScale_ge_two` and `changingNomeBand_lower_bound_scale_zero_impossible`: the present `spacing 0 = 1/2` schedule cannot admit the supplied floor-order certificate because the concrete carrier-square factor is at least two. This is a route-normalization obstruction requiring schedule redesign; no continuum/Clay status changes. |
+| 1 / 105 | 2026-09-26 | Added the carrier-normalized spacing schedule and repaired-family compiler. The schedule is positive, tends to zero with modulus `epsilon.den`, satisfies `6*(normalizedSpacing*carrierSquareScale) ≤ 1`, and preserves the completed nome/gap data. This is a normalization scaffold only; the product band, physical calibration, continuum, and Clay nodes remain open. |
