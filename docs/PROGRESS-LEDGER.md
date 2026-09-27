@@ -30402,3 +30402,19 @@ new wrappers and no `sorryAx`. This is a causal typed rejoin of the existing
 nontriviality/observable-connected capstone; it constructs none of the still
 open certificates and does not close continuum QFT, physical mass, every
 compact simple group, or the Clay theorem.
+
+## Matched raw-path floor is factored to normalization certificates (2026-09-27 UTC)
+
+Both matched routes now expose three lower-input variants of
+`toRawWilsonConnectedMassGapPath`: the global
+`...ofNormalizationScaleCeiling`, the eventual
+`...ofNormalizationScaleTailCeiling`, and
+`...ofNormalizationScaleVariation`. The latter two reuse the existing
+finite-prefix/tail compiler and summable-variation-to-ceiling compiler before
+feeding the same `DynamicVacuumSectorUniformRCNormFloor` boundary. No carrier,
+observable, or capstone index changes.
+
+The monitored source check reports only `{propext, Quot.sound}` for all six
+constructors and no `sorryAx`. The asymptotic tail/variation estimate,
+projective OS/same-object, Wilson, exact-rate, graph-norm, stationarity,
+continuum, physical-mass, every-group, and Clay inputs remain explicit.

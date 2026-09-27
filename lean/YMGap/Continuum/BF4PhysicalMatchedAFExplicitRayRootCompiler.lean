@@ -29,6 +29,7 @@ import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompile
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
 import YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 import YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorMovingCubeNormalizationTailCeilingCompiler
 import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellEntropy
@@ -63,9 +64,12 @@ open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonGraphNormLimitCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorWilsonExactRateHandoff
 open YMGap.Continuum.BF4PhysicalSelectedVacuumMeanConvergence
 open YMGap.Continuum.BF4PhysicalDynamicSpinCubeOffRayAdaptiveRawWilsonConnectedMassGapPath
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorMovingCubeNormalizationTailCeilingCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeContinuumDecayCompiler
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeRationalVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeProjectiveOSCorrelationHandoff
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorRawMovingCubeNontrivialityCompiler
 open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorObservablePath
 open YMGap.Continuum.ContinuumMeasure
 open YMGap.Continuum.FourDExistence
@@ -943,6 +947,117 @@ def MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGap
   RawWilsonConnectedMassGapPath.ofUniformNormFloorAndProjectiveWilsonOSMatrixCoefficientPin
     uniform projective sameObject matrixCoefficient exactRate graphNorm vacuumPin
 
+/-- Lower the matched raw-path nontriviality input to the existing global
+reciprocal-normalization ceiling. -/
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath_ofNormalizationScaleCeiling
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    {raw : MovingCubeRawScheduledRepresentativeVariation producer.toCompletedFamily}
+    {band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily}
+    {gapVariation : SummableRationalStepVariation
+      producer.toCompletedFamily.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit
+      producer.toCompletedFamily}
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (bound : MovingCubeNormalizationScaleCeiling producer.toCompletedFamily)
+    (projective : ProjectiveOSCorrelationHandoff P H W.measureLinked sampling)
+    (sameObject : RawMovingCubeSampledGapCorrelationIdentification
+      producer.toCompletedFamily raw projective)
+    (matrixCoefficient : ProjectiveWilsonOSMatrixCoefficientPin projective W)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      producer.toCompletedFamily gapVariation W)
+    (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      producer.toCompletedFamily ratePower W)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    RawWilsonConnectedMassGapPath producer.toCompletedFamily raw band
+      gapVariation ratePower H W :=
+  producer.toRawWilsonConnectedMassGapPath
+    bound.toUniformNormFloor projective sameObject matrixCoefficient
+    exactRate graphNorm vacuumPin
+
+/-- The finite-prefix/tail compiler makes an eventual normalization ceiling
+the same sufficient input for the matched raw Wilson path. -/
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath_ofNormalizationScaleTailCeiling
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    {raw : MovingCubeRawScheduledRepresentativeVariation producer.toCompletedFamily}
+    {band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily}
+    {gapVariation : SummableRationalStepVariation
+      producer.toCompletedFamily.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit
+      producer.toCompletedFamily}
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    {start : Nat}
+    (tail : MovingCubeNormalizationScaleTailCeiling
+      producer.toCompletedFamily start)
+    (projective : ProjectiveOSCorrelationHandoff P H W.measureLinked sampling)
+    (sameObject : RawMovingCubeSampledGapCorrelationIdentification
+      producer.toCompletedFamily raw projective)
+    (matrixCoefficient : ProjectiveWilsonOSMatrixCoefficientPin projective W)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      producer.toCompletedFamily gapVariation W)
+    (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      producer.toCompletedFamily ratePower W)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    RawWilsonConnectedMassGapPath producer.toCompletedFamily raw band
+      gapVariation ratePower H W :=
+  producer.toRawWilsonConnectedMassGapPath
+    tail.toUniformNormFloor projective sameObject matrixCoefficient
+    exactRate graphNorm vacuumPin
+
+/-- Summable reciprocal-scale variation is an even smaller named producer of
+the matched raw-path nontriviality input. -/
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath_ofNormalizationScaleVariation
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    {raw : MovingCubeRawScheduledRepresentativeVariation producer.toCompletedFamily}
+    {band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily}
+    {gapVariation : SummableRationalStepVariation
+      producer.toCompletedFamily.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit
+      producer.toCompletedFamily}
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (variation : MovingCubeNormalizationScaleRationalVariation
+      producer.toCompletedFamily)
+    (projective : ProjectiveOSCorrelationHandoff P H W.measureLinked sampling)
+    (sameObject : RawMovingCubeSampledGapCorrelationIdentification
+      producer.toCompletedFamily raw projective)
+    (matrixCoefficient : ProjectiveWilsonOSMatrixCoefficientPin projective W)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      producer.toCompletedFamily gapVariation W)
+    (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      producer.toCompletedFamily ratePower W)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    RawWilsonConnectedMassGapPath producer.toCompletedFamily raw band
+      gapVariation ratePower H W :=
+  producer.toRawWilsonConnectedMassGapPath
+    (MovingCubeNormalizationScaleCeiling.ofScaleVariation variation).toUniformNormFloor
+    projective sameObject matrixCoefficient exactRate graphNorm vacuumPin
+
 def MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -1528,6 +1643,117 @@ def MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGa
   RawWilsonConnectedMassGapPath.ofUniformNormFloorAndProjectiveWilsonOSMatrixCoefficientPin
     uniform projective sameObject matrixCoefficient exactRate graphNorm vacuumPin
 
+/-- Lower the factorized matched raw-path nontriviality input to the existing
+global reciprocal-normalization ceiling. -/
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGapPath_ofNormalizationScaleCeiling
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    {raw : MovingCubeRawScheduledRepresentativeVariation producer.toCompletedFamily}
+    {band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily}
+    {gapVariation : SummableRationalStepVariation
+      producer.toCompletedFamily.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit
+      producer.toCompletedFamily}
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (bound : MovingCubeNormalizationScaleCeiling producer.toCompletedFamily)
+    (projective : ProjectiveOSCorrelationHandoff P H W.measureLinked sampling)
+    (sameObject : RawMovingCubeSampledGapCorrelationIdentification
+      producer.toCompletedFamily raw projective)
+    (matrixCoefficient : ProjectiveWilsonOSMatrixCoefficientPin projective W)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      producer.toCompletedFamily gapVariation W)
+    (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      producer.toCompletedFamily ratePower W)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    RawWilsonConnectedMassGapPath producer.toCompletedFamily raw band
+      gapVariation ratePower H W :=
+  producer.toRawWilsonConnectedMassGapPath
+    bound.toUniformNormFloor projective sameObject matrixCoefficient
+    exactRate graphNorm vacuumPin
+
+/-- The finite-prefix/tail compiler makes an eventual normalization ceiling
+the same sufficient input for the factorized raw Wilson path. -/
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGapPath_ofNormalizationScaleTailCeiling
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    {raw : MovingCubeRawScheduledRepresentativeVariation producer.toCompletedFamily}
+    {band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily}
+    {gapVariation : SummableRationalStepVariation
+      producer.toCompletedFamily.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit
+      producer.toCompletedFamily}
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    {start : Nat}
+    (tail : MovingCubeNormalizationScaleTailCeiling
+      producer.toCompletedFamily start)
+    (projective : ProjectiveOSCorrelationHandoff P H W.measureLinked sampling)
+    (sameObject : RawMovingCubeSampledGapCorrelationIdentification
+      producer.toCompletedFamily raw projective)
+    (matrixCoefficient : ProjectiveWilsonOSMatrixCoefficientPin projective W)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      producer.toCompletedFamily gapVariation W)
+    (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      producer.toCompletedFamily ratePower W)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    RawWilsonConnectedMassGapPath producer.toCompletedFamily raw band
+      gapVariation ratePower H W :=
+  producer.toRawWilsonConnectedMassGapPath
+    tail.toUniformNormFloor projective sameObject matrixCoefficient
+    exactRate graphNorm vacuumPin
+
+/-- Summable reciprocal-scale variation is an even smaller named producer of
+the factorized matched raw-path nontriviality input. -/
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGapPath_ofNormalizationScaleVariation
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    {raw : MovingCubeRawScheduledRepresentativeVariation producer.toCompletedFamily}
+    {band : DynamicVacuumSectorPhysicalRateBand producer.toCompletedFamily}
+    {gapVariation : SummableRationalStepVariation
+      producer.toCompletedFamily.physicalGap}
+    {ratePower : NormalizedMovingCubeSampledRatePowerLimit
+      producer.toCompletedFamily}
+    {P : PhysicalSeparator}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {A : PhysicalSpacing}
+    {sampling : PhysicalSeparationSampling A}
+    (variation : MovingCubeNormalizationScaleRationalVariation
+      producer.toCompletedFamily)
+    (projective : ProjectiveOSCorrelationHandoff P H W.measureLinked sampling)
+    (sameObject : RawMovingCubeSampledGapCorrelationIdentification
+      producer.toCompletedFamily raw projective)
+    (matrixCoefficient : ProjectiveWilsonOSMatrixCoefficientPin projective W)
+    (exactRate : DynamicVacuumSectorWilsonExactRateHandoff
+      producer.toCompletedFamily gapVariation W)
+    (graphNorm : DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit
+      producer.toCompletedFamily ratePower W)
+    (vacuumPin : WilsonDenseUnitStationaryVacuumPin W) :
+    RawWilsonConnectedMassGapPath producer.toCompletedFamily raw band
+      gapVariation ratePower H W :=
+  producer.toRawWilsonConnectedMassGapPath
+    (MovingCubeNormalizationScaleCeiling.ofScaleVariation variation).toUniformNormFloor
+    projective sameObject matrixCoefficient exactRate graphNorm vacuumPin
+
 def MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
     {family : MatchedBlockFamily}
     {law : CubicMarginLaw family}
@@ -1782,6 +2008,12 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath_ofNormalizationScaleCeiling
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath_ofNormalizationScaleTailCeiling
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toRawWilsonConnectedMassGapPath_ofNormalizationScaleVariation
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonMinimalBoundedMassGap
@@ -1845,6 +2077,12 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonIteratedBoundedMassGap_ofDenseUnitVacuumPin
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGapPath
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGapPath_ofNormalizationScaleCeiling
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGapPath_ofNormalizationScaleTailCeiling
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toRawWilsonConnectedMassGapPath_ofNormalizationScaleVariation
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toWilsonMinimalBoundedMassGap_ofOperatorNormGap
 #print axioms

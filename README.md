@@ -192,6 +192,12 @@ requiring explicit uniform RC, projective/OS, matrix-coefficient, exact-rate,
 graph-norm, and dense-unit stationarity certificates. It is a typed capstone
 consumer, not a construction of those open certificates or of the Clay result.
 
+That uniform-floor seam is also exposed at lower typed boundaries: global
+normalization ceilings, eventual tail ceilings (with executable finite-prefix
+gluing), and summable reciprocal-scale variation each feed the same capstone on
+both matched branches. The corresponding tail or variation estimate remains
+an explicit analytic input.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

@@ -1827,6 +1827,14 @@ observable-connected continuum path without manufacturing any missing input;
 all continuum/QFT, physical-mass, every-group, and Clay obligations remain
 explicit.
 
+The uniform-floor input is now factored further on both routes. The
+`...ofNormalizationScaleCeiling` constructors consume the existing global
+reciprocal-normalization ceiling; the `...ofNormalizationScaleTailCeiling`
+constructors consume only an eventual tail ceiling and use the checked finite-
+prefix gluing; and the `...ofNormalizationScaleVariation` constructors consume
+summable reciprocal-scale variation. These are equivalent typed producers of
+the same floor, not an inhabited physical tail estimate.
+
 ## Maintenance contract
 
 1. Read this file before every chart. Copy its chart block; do not regenerate
@@ -1995,3 +2003,4 @@ explicit.
 | 1 / 145 | 2026-09-27 | Reduced the exact-rate side further to direct `PositiveExactLogGapWitness` consumers for minimal and iterated endpoints; dynamic physical-rate/variation data are only a named producer of that witness. Focused check remains `{propext, Quot.sound}` with no `sorryAx`; continuum/QFT, stationarity, physical-mass, every-group, and Clay obligations remain open. |
 | 1 / 146 | 2026-09-27 | Connected existing `WilsonDenseUnitStationaryVacuumPin` and `WilsonDenseUnitVacuumPin` certificates to both matched iterated-gap routes through the checked stationarity adapter. No vacuum pin is constructed; focused check remains `{propext, Quot.sound}` with no `sorryAx`. |
 | 1 / 147 | 2026-09-27 | Rejoined both matched routes with the existing `RawWilsonConnectedMassGapPath` through `toRawWilsonConnectedMassGapPath`. The wrappers preserve the same completed family and consume explicit uniform RC-floor, projective/same-object, Wilson matrix, exact-rate, graph-norm, and dense-unit stationarity certificates; focused check remains `{propext, Quot.sound}` with no `sorryAx`, and no continuum/Clay obligation is closed. |
+| 1 / 148 | 2026-09-27 | Factored the matched raw-path uniform-floor input through global normalization ceilings, eventual tail ceilings with finite-prefix gluing, and summable reciprocal-scale variation for both routes. All six constructors preserve the same capstone indices; focused check remains `{propext, Quot.sound}` with no `sorryAx`, while the tail/variation and all physical/continuum/Clay obligations remain open. |
