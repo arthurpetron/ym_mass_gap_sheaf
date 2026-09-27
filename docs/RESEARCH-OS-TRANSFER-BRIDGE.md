@@ -22,6 +22,11 @@ target.
   C*-algebraic presentation of the Osterwalder–Schrader reconstruction route,
   including gauge-theoretic observables.
 
+The previously supplied link [arXiv:2608.19068](https://arxiv.org/abs/2608.19068)
+is not relevant to this route: it is a differential-geometry paper on a
+positively curved metric on `S^2 × S^2`, not a Yang–Mills, reflection-
+positivity, or transfer-matrix result.
+
 ## Formalization consequence
 
 The references support a strict separation of four certificates:
