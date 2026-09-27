@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **124**, 2026-09-27 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **125**, 2026-09-27 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -219,6 +219,13 @@ same-object correlation is identified with the selected Wilson transfer power
 on the pinned completed vacuum-complement state.  The projective measure,
 OS/GNS pin, all-vector transfer gap, physical mass, every-group, and Clay
 inputs remain open.
+
+The same handoff now exposes the corresponding squared-decay consumer: an
+explicit `WilsonIteratedBoundedMassGap` on that selected Wilson transfer gives
+the continuum matrix-coefficient decay for the pinned state.  This is a
+conditional operator-gap consequence, not a construction of the operator
+gap, vacuum stationarity, projective measure, physical mass, every-group, or
+Clay theorem.
 
 Because the finite physical-mass shell entropy estimate is already proved, the
 matched route now also accepts the smaller
@@ -1929,3 +1936,4 @@ still consumes the two unproved all-scale pointwise inequalities.
 | 1 / 138 | 2026-09-27 | Exposed `continuumZeroTime_isPositive` for both matched routes. An explicit scheduled-RC representative limit plus a uniform same-channel norm floor now compiles to continuum zero-time positivity; the two certificates and all OS/QFT, physical-mass, every-group, and Clay obligations remain open. |
 | 1 / 139 | 2026-09-27 | Transported the exact finite moving-cube squared-decay estimate through the raw continuum compiler for both matched routes. The scheduled representative limit and rate-power limit remain explicit; no physical-exponential, OS/GNS, continuum-QFT, physical-mass, every-group, or Clay conclusion is added. |
 | 1 / 140 | 2026-09-27 | Exposed the raw Wilson/projective OS/GNS matrix-coefficient equality for both matched routes, keyed to the same completed family and measure-linked handoff. This is conditional bridge evidence only; no OS/GNS existence, all-vector gap, physical mass, every-group, or Clay conclusion is added. |
+| 1 / 141 | 2026-09-27 | Exposed the conditional `WilsonIteratedBoundedMassGap` squared-decay consumer for both matched routes. The selected transfer gap remains an explicit all-vector input; no spectral-gap construction, physical mass, every-group, or Clay conclusion is added. |

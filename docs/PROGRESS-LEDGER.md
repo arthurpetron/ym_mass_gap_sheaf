@@ -30311,3 +30311,18 @@ The monitored source check reports only `{propext, Quot.sound}` for both new
 dependency gates and no `sorryAx`.  The projective measure, OS/GNS pin,
 all-vector transfer gap, physical mass, every-group, and Clay inputs remain
 open.
+
+## Matched Wilson pin consumes conditional iterated transfer gap (2026-09-27 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.rawContinuumConnectedAutocorrelationSqDecay`
+and the corresponding factorized declaration.  Each consumes the same raw
+Wilson/projective OS/GNS matrix-coefficient pin together with an explicit
+`WilsonIteratedBoundedMassGap`; the existing theorem then gives squared decay
+of the continuum correlation with the selected transfer-gap rate on that
+pinned vacuum-complement state.
+
+The monitored source check reports only `{propext, Quot.sound}` for both new
+dependency gates and no `sorryAx`.  The all-vector transfer gap, vacuum
+stationarity, projective measure, physical mass, every-group, and Clay inputs
+remain open.

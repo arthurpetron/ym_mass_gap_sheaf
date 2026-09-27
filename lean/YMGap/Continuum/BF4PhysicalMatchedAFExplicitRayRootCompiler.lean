@@ -67,6 +67,7 @@ open YMGap.Continuum.RegularContinuumPipeline
 open YMGap.Continuum.RCStrictPositivity
 open YMGap.Continuum.SharpContinuumObligation
 open YMGap.Continuum.WilsonMinimalBoundedMassGapHandoff
+open YMGap.Continuum.WilsonIteratedNormDecayHandoff
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootCoercivity
@@ -763,6 +764,39 @@ def MatchedPhysicalExplicitRayStateLoadDecayProducer.rawContinuumConnectedAutoco
         (Tpow W.timeTranslation.op time C.gapState) C.gapState :=
   C.rawContinuumConnectedAutocorrelation_eq_matrixCoefficient time
 
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.rawContinuumConnectedAutocorrelationSqDecay
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    {raw : MovingCubeRawScheduledRepresentativeVariation producer.toCompletedFamily}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {B : RawMovingCubeProjectiveOSCorrelationHandoff
+      producer.toCompletedFamily raw H W.measureLinked}
+    (C : RawMovingCubeWilsonMatrixCoefficientPin
+      producer.toCompletedFamily raw H W B)
+    (G : WilsonIteratedBoundedMassGap W)
+    (time : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (ScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+          (rawMovingCubeContinuumLimitOfVariation producer.toCompletedFamily raw)
+          time)
+        (ScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+          (rawMovingCubeContinuumLimitOfVariation producer.toCompletedFamily raw)
+          time))
+      (CReal.RCmul
+        (CReal.RCscale
+          ((W.selectedSpectralData.gap.sep * W.selectedSpectralData.gap.sep) ^ time)
+          (W.wilson.toGNSData.gnsComplete.hilbert.cinner
+            C.gapState C.gapState))
+        (W.wilson.toGNSData.gnsComplete.hilbert.cinner
+          C.gapState C.gapState)) :=
+  C.rawContinuumConnectedAutocorrelationSqDecay G time
+
 /-! ## 8. Split the remaining decay into weight and path mechanisms -/
 
 /-- A factored analytic input for the same route: stationary-weight decay and
@@ -1099,6 +1133,39 @@ def MatchedPhysicalExplicitRayFactorizedDecayProducer.rawContinuumConnectedAutoc
         (Tpow W.timeTranslation.op time C.gapState) C.gapState :=
   C.rawContinuumConnectedAutocorrelation_eq_matrixCoefficient time
 
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.rawContinuumConnectedAutocorrelationSqDecay
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    {raw : MovingCubeRawScheduledRepresentativeVariation producer.toCompletedFamily}
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {H : ContinuumYMExistence mu}
+    {W : WilsonSelectedOSGNSData H}
+    {B : RawMovingCubeProjectiveOSCorrelationHandoff
+      producer.toCompletedFamily raw H W.measureLinked}
+    (C : RawMovingCubeWilsonMatrixCoefficientPin
+      producer.toCompletedFamily raw H W B)
+    (G : WilsonIteratedBoundedMassGap W)
+    (time : Nat) :
+    CReal.RCle
+      (CReal.RCmul
+        (ScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+          (rawMovingCubeContinuumLimitOfVariation producer.toCompletedFamily raw)
+          time)
+        (ScheduledRCContinuumLimit.continuumConnectedAutocorrelation
+          (rawMovingCubeContinuumLimitOfVariation producer.toCompletedFamily raw)
+          time))
+      (CReal.RCmul
+        (CReal.RCscale
+          ((W.selectedSpectralData.gap.sep * W.selectedSpectralData.gap.sep) ^ time)
+          (W.wilson.toGNSData.gnsComplete.hilbert.cinner
+            C.gapState C.gapState))
+        (W.wilson.toGNSData.gnsComplete.hilbert.cinner
+          C.gapState C.gapState)) :=
+  C.rawContinuumConnectedAutocorrelationSqDecay G time
+
 /-! ## 9. Occupied-shell obstruction at the matched boundary -/
 
 /-- Every occupied physical-mass shell forces the matched state-load envelope
@@ -1251,6 +1318,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.rawContinuumConnectedAutocorrelation_eq_matrixCoefficient
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.rawContinuumConnectedAutocorrelationSqDecay
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toStateLoadDecayProducer
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toResistanceProducer
@@ -1292,6 +1361,8 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.continuumConnectedAutocorrelationSq_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.rawContinuumConnectedAutocorrelation_eq_matrixCoefficient
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.rawContinuumConnectedAutocorrelationSqDecay
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.one_le_envelope_of_shell_member
 #print axioms
