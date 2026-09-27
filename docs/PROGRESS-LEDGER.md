@@ -29831,3 +29831,33 @@ The dependency-complete monitored target passed 1,135 jobs with only
 constructed.  Existing finite Poincaré/Dirichlet estimates are not silently
 reinterpreted as this field, so the completed uniform gap, continuum passage,
 physical mass, all-group theorem, and Clay target remain open.
+
+## Repaired-family B04/A05 continuum RC join (2026-09-26 UTC)
+
+`BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean` packages the
+four remaining typed inputs for the repaired same-family route in one
+unambiguous certificate:
+
+* `RawVariation` is
+  `MovingCubeRawScheduledRepresentativeVariation`
+  (`lean/YMGap/Continuum/BF4PhysicalDynamicVacuumSectorNormalizedMovingCubeVariationCompiler.lean:47`)
+  specialized to `changingNomeCarrierNormalizedDynamicFamily`;
+* `NormDebtVariation` is the rational reciprocal-square normalization-debt
+  variation;
+* `RatePowerVariation` is the rational scheduled squared-rate variation; and
+* `calibration` is `ChangingNomeCarrierNormalizedCofinalGapCalibration`.
+
+The structure `Join` is at
+`lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:40--64`.
+Its projections `Join.toPhysicalRateBand`, `Join.toContinuumLimit`,
+`Join.toRatePowerLimit`, and `Join.toContinuumGapTheorem`
+(`:66--105`) keep the physical-rate and normalized continuum RC objects on
+the definitionally same repaired completed family.  The checked consequences
+`Join.zero_isPositive` and `Join.sq_decay` (`:101--125`) give strict zero-time
+positivity and the exact normalized squared-decay inequality; all six printed
+axiom reports are only `{propext, Quot.sound}`.
+
+This is a causal contraction of B04 and A05 interfaces, not an inhabitant of
+their missing analytic inputs.  No changing-family tail, all-scale calibration,
+OS/GNS identification, thermodynamic/continuum passage, physical mass,
+every-group theorem, or Clay result follows.

@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **97**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **98**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -43,6 +43,13 @@ compiler: once the two still-uninhabited uniform product inequalities are
 supplied, the same completed nome/gap data contract through the physical-rate
 interface to `SharpContinuumObligation.ContinuumGapTheorem`.  This is a
 conditional downstream join, not a physical calibration or continuum result.
+The new `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean` module
+then packages that calibration together with the raw representative,
+normalization-debt, and scheduled-rate variation inputs as one exact
+same-family `Join`; its downstream RC limit, rate-power limit, zero-time
+positivity, squared decay, and scalar gap-interface projections all check
+within `{propext, Quot.sound}`.  The `Join` remains uninhabited, so this is a
+causal B04/A05 join rather than a completed continuum or Clay theorem.
 This is the single source for user-facing ASCII progress charts.
 The baseline preserves the last displayed chart's wording, layout and
 symbols; subsequent updates are maintenance, not redesigns.
@@ -305,6 +312,20 @@ finite-prefix floor and one finite upper bound for every finite-prefix ceiling,
 then compile those fields to the existing all-scale physical-rate band on the
 same repaired family.  The certificate is not inhabited; this is a conditional
 compiler, not continuum or Clay closure.
+
+Latest verified B04/A05 continuum RC join (2026-09-26 UTC):
+`BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join` and its
+projections `toPhysicalRateBand`, `toContinuumLimit`, `toRatePowerLimit`, and
+`toContinuumGapTheorem`, together with `zero_isPositive` and `sq_decay`, in
+`lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:40--125`
+package the cofinal calibration, raw same-object variation, rational
+normalization-debt variation, and rational scheduled-rate variation against
+the identical repaired completed family.  The checked outputs are the exact
+normalized continuum RC channel, its constructive rate-power limit, positive
+zero-time response, squared decay, and the conditional scalar gap interface.
+The four-input `Join` has no current inhabitant; physical calibration,
+OS/GNS/QFT, thermodynamic/continuum passage, physical mass, every-group, and
+Clay obligations remain open.
 
 Latest verified B04/A05 repaired-family observable join (2026-09-26 UTC):
 `changingNomeCarrierNormalizedMovingCubeChannel`,
@@ -580,6 +601,8 @@ CONTRACTION: work forward, joining only proved SAME-object facts.
                                            (monotone windows; cofinal estimate open)
                                        [x] Cofinal-prefix calibration -> all-scale rate compiler
                                            (certificate open; same-family route preserved)
+                                       [x] Cofinal calibration + A05 variation -> same-family continuum RC join
+                                           (four explicit inputs; Join remains uninhabited)
                                        [ ] Infinite-scale denominator/spacing comparison
                                        [ ] Anchor-minimum asymptotic estimate
                                            F(w_n) comparable to spacing
@@ -674,6 +697,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B04af | Carrier-normalized finite-prefix rate band | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeCarrierNormalizedFinitePrefixExplicitMarginDenominatorBand` and `.changingNomeCarrierNormalizedFinitePrefixPhysicalRateBand` (`:646--658`); instantiates the constructive finite-prefix denominator extrema and divides them through to the same-family finite-prefix physical-rate inequalities for the repaired spacing. This remains finite-regulator calibration only; the all-scale band, continuum, and Clay nodes remain open. |
 | B04ag | Carrier-normalized finite-prefix floor/ceiling compatibility | `BF4PhysicalChangingNomeExplicitMarginLaw.changingNomeCarrierNormalizedFinitePrefixGapFloor_succ_le` and `.changingNomeCarrierNormalizedFinitePrefixGapCeiling_le_succ` (`:661--683`); proves monotone shrinkage of the finite-prefix floor and monotone growth of the finite-prefix ceiling as the repaired window enlarges. This is cofinal bookkeeping only; it does not supply the missing all-scale rate band or continuum/Clay closure. |
 | B04ah | Cofinal-prefix calibration -> all-scale rate compiler | `BF4PhysicalChangingNomeExplicitMarginLaw.ChangingNomeCarrierNormalizedCofinalGapCalibration` and `.toPhysicalRateBand` (`:689--758`); factors the remaining all-scale input into uniform bounds on the finite-prefix extrema and compiles them to the same-family all-scale physical-rate band. The calibration certificate remains uninhabited, so the continuum, physical-mass, every-group, and Clay nodes remain open. |
+| B04ai | Cofinal calibration + A05 variation -> same-family continuum RC join | `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join`, `.Join.toPhysicalRateBand`, `.Join.toContinuumLimit`, `.Join.toRatePowerLimit`, `.Join.toContinuumGapTheorem`, `.Join.zero_isPositive`, and `.Join.sq_decay`, `lean/YMGap/Continuum/BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.lean:40--125`; joins the B04 calibration with the A05 raw/debt/rate variation inputs on the identical repaired family and compiles the exact normalized continuum RC channel, rate-power limit, positivity, decay, and conditional scalar gap interface. The four-input join remains uninhabited, so OS/GNS/QFT, physical mass, every-group, and Clay nodes remain open. |
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
@@ -1589,3 +1613,4 @@ remains open; extending this candidate normalization alone cannot supply it.
 | 1 / 111 | 2026-09-26 | Instantiated the repaired-family finite-prefix denominator band and same-family finite-prefix physical-rate projection. This is finite-regulator calibration only; the all-scale band, continuum, and Clay nodes remain open. |
 | 1 / 112 | 2026-09-26 | Proved monotone compatibility of the repaired finite-prefix gap floor and ceiling under window enlargement. This is cofinal bookkeeping only; the all-scale rate band, continuum, and Clay nodes remain open. |
 | 1 / 113 | 2026-09-26 | Added the cofinal-prefix calibration certificate and compiler to the all-scale physical-rate band. Its two uniform extremal bounds remain open; no continuum or Clay claim is added. |
+| 1 / 114 | 2026-09-26 | Joined the cofinal B04 calibration with the A05 raw/debt/rate variation inputs in `BF4PhysicalChangingNomeCarrierNormalizedContinuumJoin.Join`, yielding conditional same-family normalized continuum RC, rate-power, positivity, decay, and scalar-gap projections. The four-input join remains uninhabited; no continuum/QFT, physical-mass, every-group, or Clay claim is added. |
