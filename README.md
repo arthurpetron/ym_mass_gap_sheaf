@@ -3527,6 +3527,18 @@ correlator projections.  These preserve the same observable/carrier indices;
 the projective measure, OS/GNS, exact-rate reconstruction, every-group, and
 Clay inputs remain explicit.
 
+The matched rate band now supplies its own asymptotic full-log control.  The
+new `FullRangeLogRatePrefixCeiling` leaves only the finite exact-rate prefix as
+an explicit input; `toFullRangeLogRateCeiling_ofStrengthBandAndPrefix` glues
+that prefix to the eventual half-window produced by the matched linear tail,
+and `toFullRangeExactPhysicalSeparatorCertificate_ofStrengthBandAndPrefix`
+packages the result for the existing exact-log compiler.  The specialized
+`toExactRateCutoffRemoval_ofGapVariationAndPrefix` consumes this reduced input
+directly.  The finite prefix, physical-gap variation, OS/GNS, continuum/QFT,
+physical-mass, every-group, and Clay inputs remain open; this is not a global
+full-log or continuum construction.  The focused monitored build completed in
+5,153 jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,

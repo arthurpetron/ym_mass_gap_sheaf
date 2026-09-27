@@ -30889,6 +30889,25 @@ they preserve the same observable/carrier indices and do not construct the
 projective measure, OS/GNS data, or exact-rate reconstruction.  The focused
 5,153-job build reports only `{propext, Quot.sound}` and no `sorryAx`.
 
+## Matched full-log ceiling reduced to a finite prefix (2026-09-27 UTC)
+
+The matched physical-rate band already has the cross-multiplied tail estimate
+required by `PhysicalSeparatorLinearTail`.  Its spacing-to-zero modulus now
+constructs the eventual half-window and exact-log tail ceiling through
+`PhysicalSeparatorFullLogHalfWindow`.  The new
+`FullRangeLogRatePrefixCeiling` type records only the remaining finite prefix,
+and `toFullRangeLogRateCeiling_ofStrengthBandAndPrefix` glues that prefix to
+the computed tail.  The resulting
+`toFullRangeExactPhysicalSeparatorCertificate_ofStrengthBandAndPrefix` keeps
+the exact separator and completed carrier unchanged, while
+`toExactRateCutoffRemoval_ofGapVariationAndPrefix` consumes the reduced input
+without reintroducing an opaque global ceiling.  This is an explicit
+finite-prefix reduction, not a construction of the prefix or of a continuum
+full-log bound.  Physical-gap variation, OS/GNS, continuum/QFT,
+physical-mass, every-group, and Clay inputs remain open.  The focused
+monitored check completed in 5,153 jobs; all new dependency gates report only
+`{propext, Quot.sound}` and no `sorryAx`.
+
 The cutoff-removal adapter now has the specialized
 `toExactRateCutoffRemoval_ofTrajectorySpacing` route, reusing the matched
 trajectory's own spacing-to-zero modulus.  After the explicit physical-gap
