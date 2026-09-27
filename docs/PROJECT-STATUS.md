@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Chart schema: **1**. Snapshot: **117**, 2026-09-26 UTC. Source checkpoint:
+Chart schema: **1**. Snapshot: **118**, 2026-09-26 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable
 identity, `probe = unitExcitation` equality, and carried positive response floor
 from the nontriviality and gap fibers through the dimensionless, fixed-spacing,
@@ -152,6 +152,17 @@ transfer and same-object vector autocorrelation on the same SU(2) carrier.
 This is conditional finite-scale evidence: no observable pin, OS/GNS passage,
 uniform physical rate, continuum/QFT construction, physical mass,
 every-group theorem, or Clay result is asserted.
+
+The same two routes now carry the concrete moving-centered cube RC channel
+`toSameObjectRCChannel`.  Its zero-time connected autocorrelation is strictly
+positive by the existing rational coordinate floor, its squared connected
+autocorrelation inherits the completed transfer rate, and
+`sameObjectRCChannel_connectedAutocorrelation_eq_global` identifies the same
+object with the global adaptive-transfer matrix coefficient.  This is a
+genuine nonzero completed-vector realization, but its RC moments are not yet a
+rational `DynamicVacuumSectorObservablePin`; physical-rate calibration,
+OS/GNS passage, continuum/QFT, physical mass, every-group, and Clay remain
+open.
 
 Because the finite physical-mass shell entropy estimate is already proved, the
 matched route now also accepts the smaller
@@ -1855,3 +1866,4 @@ still consumes the two unproved all-scale pointwise inequalities.
 | 1 / 131 | 2026-09-26 | Factored the remaining pointwise input into separate stationary-weight decay and canonical-path resistance-growth data with `MatchedPhysicalExplicitRayFactorizedDecayProducer`; the checked product compiler rejoins them and preserves the same completed carrier, posterior fraction, and exact margin identity. The factorized inputs and all physical/continuum/Clay joins remain open, with no canonical chart marker change. |
 | 1 / 132 | 2026-09-26 | Transported the finite occupied-shell obstruction to the matched state-load and factorized producers: every occupied shell forces the corresponding decay envelope to be at least one. This constrains any future uniform decay witness but is not a contradiction without unbounded shell occupancy; no canonical chart marker changed. |
 | 1 / 133 | 2026-09-26 | Projected the minimal state-load and factorized decay routes directly into the existing completed-carrier conditional-variance producer. Their transfer-power norm-decay and same-object autocorrelation theorems now hold for every matched scale and completed vacuum-complement vector. This remains conditional on the decay certificates; observable pin, OS/GNS, uniform physical rate, continuum/QFT, physical mass, every-group, and Clay nodes remain open. |
+| 1 / 134 | 2026-09-26 | Attached the existing moving-centered cube RC channel to both minimal decay routes. Its zero-time connected autocorrelation is positive, its squared autocorrelation inherits the completed rate, and its same-object coefficient is identified with the global adaptive transfer. This is a concrete completed-vector channel, not yet a rational observable pin or continuum/Clay result. |

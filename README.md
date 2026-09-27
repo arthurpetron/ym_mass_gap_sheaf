@@ -109,6 +109,13 @@ correlator; the certificate itself, an observable pin, OS/GNS reconstruction,
 uniform physical calibration, continuum/QFT, physical mass, every-group, and
 Clay obligations remain open.
 
+Each minimal route now also carries the concrete moving-centered cube RC
+channel on its completed family.  The channel has a strictly positive
+zero-time connected autocorrelation, inherits the completed squared-rate
+decay, and is identified exactly with the global adaptive-transfer matrix
+coefficient.  This is a nonzero completed-vector realization, not yet a
+rational observable pin or a physical/continuum mass-gap theorem.
+
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
 nome schedule can make the existing computed `mixRate^2` certificate uniformly

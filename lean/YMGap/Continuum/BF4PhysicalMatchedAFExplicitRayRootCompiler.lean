@@ -21,6 +21,7 @@ No `Classical.*`, choice, `native_decide`, `sorry`, custom axiom, or
 
 import YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 import YMGap.Continuum.BF4PhysicalMatchedAFConditionalVarianceCompletedCarrier
+import YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShell
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellEntropy
 import YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootResistanceMassShellStateLoadFactorization
@@ -45,6 +46,9 @@ open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedGap
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletedMoments
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderCompletion
 open YMGap.Continuum.BF4PhysicalCutoffVacuumSectorCylinderTransferLift
+open YMGap.Continuum.BF4PhysicalCutoffLinearCompletedInner
+open YMGap.Continuum.BF4PhysicalDynamicVacuumSectorSameObjectRCChannel
+open YMGap.Continuum.RCStrictPositivity
 open YMGap.Continuum.BF4PhysicalMatchedAFDynamicFamilyCompiler
 open YMGap.Continuum.BF4PhysicalMatchedAFRootCoercivityGapPath
 open YMGap.Continuum.BF4PhysicalSpinCubeOffRayRootCoercivity
@@ -540,6 +544,71 @@ theorem MatchedPhysicalExplicitRayStateLoadDecayProducer.autocorrelation_sq_deca
   exact autocorrelation_sq_decay_of_matchedScale
     producer.toConditionalVarianceGapProducer scale n vector
 
+/-- The minimal state-load route carries the concrete moving-cube channel on
+the same completed matched family. -/
+def MatchedPhysicalExplicitRayStateLoadDecayProducer.toSameObjectRCChannel
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory) :
+    DynamicVacuumSectorSameObjectRCChannel producer.toCompletedFamily :=
+  centralPhysicalDynamicMovingCubeRCChannel producer.toCompletedFamily
+
+theorem MatchedPhysicalExplicitRayStateLoadDecayProducer.sameObjectRCChannel_zero_isPositive
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (scale : Nat) :
+    RCIsPositive
+      (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+        producer.toSameObjectRCChannel scale 0) := by
+  exact centralPhysicalDynamicMovingCube_connected_zero_isPositive
+    producer.toCompletedFamily scale
+
+theorem MatchedPhysicalExplicitRayStateLoadDecayProducer.sameObjectRCChannel_connectedSq_decay
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (scale time : Nat) :
+    CReal.RCle
+      (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelationSq
+        producer.toSameObjectRCChannel scale time)
+      (CReal.RCmul
+        (CReal.RCscale
+          (((producer.toCompletedFamily.completedGap scale).rate *
+            (producer.toCompletedFamily.completedGap scale).rate) ^ time)
+          (producer.toSameObjectRCChannel.normSq scale))
+        (producer.toSameObjectRCChannel.normSq scale)) := by
+  exact centralPhysicalDynamicMovingCube_connectedSq_decay
+    producer.toCompletedFamily scale time
+
+theorem MatchedPhysicalExplicitRayStateLoadDecayProducer.sameObjectRCChannel_connectedAutocorrelation_eq_global
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayStateLoadDecayProducer trajectory)
+    (scale time : Nat) :
+    DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+        producer.toSameObjectRCChannel scale time =
+      centralPhysicalCutoffCompletedInner
+        (producer.toCompletedFamily.nome_pos scale)
+        (producer.toCompletedFamily.nome_lt_one scale) 0
+        (centralPhysicalConcreteAdaptiveCompletedMarkovPower
+          (producer.toCompletedFamily.nome_pos scale)
+          (producer.toCompletedFamily.nome_lt_one scale) 0 time
+          (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+            (producer.toSameObjectRCChannel.vectorAt scale).1))
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+          (producer.toSameObjectRCChannel.vectorAt scale).1) := by
+  exact DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_eq_global
+    producer.toSameObjectRCChannel scale time
+
 /-! ## 8. Split the remaining decay into weight and path mechanisms -/
 
 /-- A factored analytic input for the same route: stationary-weight decay and
@@ -676,6 +745,71 @@ theorem MatchedPhysicalExplicitRayFactorizedDecayProducer.autocorrelation_sq_dec
   exact autocorrelation_sq_decay_of_matchedScale
     producer.toConditionalVarianceGapProducer scale n vector
 
+/-- The factorized route carries the same concrete moving-cube channel after
+its checked product compiler rejoins the state-load certificate. -/
+def MatchedPhysicalExplicitRayFactorizedDecayProducer.toSameObjectRCChannel
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory) :
+    DynamicVacuumSectorSameObjectRCChannel producer.toCompletedFamily :=
+  centralPhysicalDynamicMovingCubeRCChannel producer.toCompletedFamily
+
+theorem MatchedPhysicalExplicitRayFactorizedDecayProducer.sameObjectRCChannel_zero_isPositive
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (scale : Nat) :
+    RCIsPositive
+      (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+        producer.toSameObjectRCChannel scale 0) := by
+  exact centralPhysicalDynamicMovingCube_connected_zero_isPositive
+    producer.toCompletedFamily scale
+
+theorem MatchedPhysicalExplicitRayFactorizedDecayProducer.sameObjectRCChannel_connectedSq_decay
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (scale time : Nat) :
+    CReal.RCle
+      (DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelationSq
+        producer.toSameObjectRCChannel scale time)
+      (CReal.RCmul
+        (CReal.RCscale
+          (((producer.toCompletedFamily.completedGap scale).rate *
+            (producer.toCompletedFamily.completedGap scale).rate) ^ time)
+          (producer.toSameObjectRCChannel.normSq scale))
+        (producer.toSameObjectRCChannel.normSq scale)) := by
+  exact centralPhysicalDynamicMovingCube_connectedSq_decay
+    producer.toCompletedFamily scale time
+
+theorem MatchedPhysicalExplicitRayFactorizedDecayProducer.sameObjectRCChannel_connectedAutocorrelation_eq_global
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    (producer : MatchedPhysicalExplicitRayFactorizedDecayProducer trajectory)
+    (scale time : Nat) :
+    DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation
+        producer.toSameObjectRCChannel scale time =
+      centralPhysicalCutoffCompletedInner
+        (producer.toCompletedFamily.nome_pos scale)
+        (producer.toCompletedFamily.nome_lt_one scale) 0
+        (centralPhysicalConcreteAdaptiveCompletedMarkovPower
+          (producer.toCompletedFamily.nome_pos scale)
+          (producer.toCompletedFamily.nome_lt_one scale) 0 time
+          (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+            (producer.toSameObjectRCChannel.vectorAt scale).1))
+        (centralPhysicalVacuumSectorCylinderCompletionToGlobal
+          (producer.toSameObjectRCChannel.vectorAt scale).1) := by
+  exact DynamicVacuumSectorSameObjectRCChannel.connectedAutocorrelation_eq_global
+    producer.toSameObjectRCChannel scale time
+
 /-! ## 9. Occupied-shell obstruction at the matched boundary -/
 
 /-- Every occupied physical-mass shell forces the matched state-load envelope
@@ -804,6 +938,14 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.autocorrelation_sq_decay
 #print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.toSameObjectRCChannel
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.sameObjectRCChannel_zero_isPositive
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.sameObjectRCChannel_connectedSq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.sameObjectRCChannel_connectedAutocorrelation_eq_global
+#print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toStateLoadDecayProducer
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toResistanceProducer
@@ -821,6 +963,14 @@ end YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.transferPower_norm_decay
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.autocorrelation_sq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.toSameObjectRCChannel
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.sameObjectRCChannel_zero_isPositive
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.sameObjectRCChannel_connectedSq_decay
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayFactorizedDecayProducer.sameObjectRCChannel_connectedAutocorrelation_eq_global
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFExplicitRayRootCompiler.MatchedPhysicalExplicitRayStateLoadDecayProducer.one_le_envelope_of_shell_member
 #print axioms

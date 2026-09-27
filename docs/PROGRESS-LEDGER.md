@@ -30189,3 +30189,28 @@ consumer: the decay certificates, same-object observable pin, uniform
 physical-rate calibration, OS/GNS passage, continuum/QFT construction,
 physical mass, every-group theorem, and Clay target remain open; no canonical
 chart marker changed.
+
+## Concrete moving-cube RC channel reaches the matched decay routes (2026-09-26 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now imports
+`BF4PhysicalDynamicVacuumSectorSameObjectRCChannel` and defines
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.toSameObjectRCChannel` and
+`MatchedPhysicalExplicitRayFactorizedDecayProducer.toSameObjectRCChannel`.
+Both definitions select the existing moving-centered cube in the literal
+completed family produced by their respective decay route.
+
+The paired declarations
+`sameObjectRCChannel_zero_isPositive`,
+`sameObjectRCChannel_connectedSq_decay`, and
+`sameObjectRCChannel_connectedAutocorrelation_eq_global` (for both routes)
+transport the existing positive rational coordinate floor, completed squared
+rate decay, and exact global adaptive-transfer matrix-coefficient identity.
+Thus a supplied state-load or factorized certificate now yields a concrete
+nonzero completed-vector channel, not merely an arbitrary-vector theorem.
+
+The monitored source check passed with only `{propext, Quot.sound}` for every
+new dependency gate and no `sorryAx`.  The channel remains an RC-valued
+vector certificate: rational observable pinning, uniform physical-rate
+calibration, OS/GNS passage, continuum/QFT construction, physical mass,
+every-group theorem, and Clay target remain open; no canonical chart marker
+changed.
