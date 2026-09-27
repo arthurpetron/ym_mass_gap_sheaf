@@ -4,6 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
+## Current increment: exact-rate certificate contracts into the semantic handoff (2026-09-27 UTC)
+
+`MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofExactRateCutoffRemoval`
+(`lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.lean:1299`)
+builds the existing `DynamicVacuumSectorContinuumHandoff` from an already
+constructed `ExactRateCutoffRemoval`, projective/OS correlation, reconstruction
+spectral channel, and exact-rate reconstruction.  The correlated local-debt
+handoff now factors through this bridge, so its rate Cauchy field is exactly
+the one in the preceding finite cutoff certificate.  This is a same-carrier
+typed contraction only; all OS, continuum/QFT, physical-mass, every-group,
+and Clay inputs remain open.  The focused monitored target passes in 5,243
+jobs with only `{propext, Quot.sound}` and no `sorryAx`.
+
 ## Current increment: correlated local debt reaches the exact-rate boundary (2026-09-27 UTC)
 
 `MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations`

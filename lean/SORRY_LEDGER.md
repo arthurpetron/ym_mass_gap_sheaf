@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## Exact-rate certificate contracts into the semantic handoff (2026-09-27 UTC)
+
+- **declaration:** `toContinuumHandoff_ofExactRateCutoffRemoval` in
+  `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.lean:1299`.
+- **result:** an existing `ExactRateCutoffRemoval` supplies the exact-rate
+  Cauchy field to the same-carrier continuum handoff; projective/OS
+  correlation, its reconstruction spectral channel, and exact-rate
+  reconstruction remain explicit fields.
+- **scope:** the correlated local-debt handoff is factored through this
+  bridge, but no projective measure, OS/GNS realization, continuum/QFT,
+  physical-mass, all-group, or Clay theorem is constructed.
+- **verification:** focused monitored target
+  `+YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath:olean`
+  passed in 5,243 jobs.  The new gate reports only `{propext, Quot.sound}` and
+  no `sorryAx`, classical axiom, `native_decide`, or custom axiom.
+
 ## Correlated local debt reaches the exact-rate cutoff boundary (2026-09-27 UTC)
 
 - **declaration:** `toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations` in
@@ -25,7 +41,7 @@
 - **declarations:** `correlatedCapacityDebtProducer` and
   `toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations` in
   `lean/YMGap/Continuum/BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.lean:1214`
-  and `:1301`.
+  and `:1342`.
 - **result:** the existing correlated same-edge capacity-debt envelope,
   tail allowance, and initial closure now name one exact matched local
   producer and feed the existing continuum-handoff compiler.  The generated

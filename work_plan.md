@@ -65722,6 +65722,22 @@ inhabitation, scaling, AF identification, exact-rate reconstruction,
 projective/OS data, continuum/QFT construction, physical mass calibration,
 all-group generalization, and the Clay theorem remain open.
 
+## 248. Contract the exact-rate certificate into the semantic handoff (2026-09-27)
+
+`toContinuumHandoff_ofExactRateCutoffRemoval` now constructs the existing
+same-carrier `DynamicVacuumSectorContinuumHandoff` directly from one
+`ExactRateCutoffRemoval`, one projective/OS correlation handoff, its
+reconstruction spectral channel, and exact-rate reconstruction.  The rate
+Cauchy modulus is taken from the exact-rate certificate itself, so the finite
+cutoff-removal stage and the semantic OS stage are no longer coupled through a
+duplicated primitive-variation proof.  The correlated local-debt handoff now
+uses this bridge after constructing its exact-rate certificate.
+
+The focused monitored target passes in 5,243 jobs; the new bridge and the
+refactored correlated handoff use only `{propext, Quot.sound}` and no
+`sorryAx`.  Projective/OS, reconstruction, continuum/QFT, physical mass,
+all-group, and Clay inputs remain explicit and uninhabited.
+
 ## 235. Restate missing mass as positive near-full receiver coverage (2026-09-08)
 
 **Status. THE UNCOVERED-MASS INPUT IS NOW CONSTRUCTIVELY EQUIVALENT TO A

@@ -1293,6 +1293,47 @@ def toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations
   toExactRateCutoffRemoval_ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling
     witness scaling rayDeltaVariation massFloorVariation gapVariation C H
 
+/-! The exact-rate certificate is the sole quantitative input needed by the
+    semantic handoff once the projective/OS and reconstruction fields are
+    supplied. -/
+def toContinuumHandoff_ofExactRateCutoffRemoval
+    {family : MatchedBlockFamily}
+    {law : CubicMarginLaw family}
+    {spacing : PhysicalSpacingEnvelope law.g₁}
+    {trajectory : MatchedPhysicalDynamicScalarTrajectory family law spacing}
+    {producer : trajectory.LocalProducer}
+    (witness : PhysicalExponentialObservableWitness trajectory producer)
+    (scaling : MatchedPhysicalDynamicStrengthScaling trajectory producer)
+    (removal : ExactRateCutoffRemoval
+      (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate
+        witness.observable scaling.toPhysicalRateBand
+        (fullRangeLogRateCeilingOfPhysicalRateBand
+          witness.observable scaling.toPhysicalRateBand)))
+    {M : Nat -> Type} {mu : ContinuumMeasure M}
+    {existence : ContinuumYMExistence mu}
+    {osGNS : MeasureLinkedOSGNSData existence}
+    (projectiveOS : ProjectiveOSCorrelationHandoff
+      witness.observable.toPhysicalSeparator existence osGNS
+        witness.observable.physicalSampling)
+    (spectralChannel :
+      ProjectiveOSCorrelationHandoff.ReconstructionSpectralChannelHandoff
+        projectiveOS osGNS.reconstruction)
+    (exactRate : ExactRateReconstructionHandoff
+      (YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.exactCertificate
+        witness.observable scaling.toPhysicalRateBand
+        (fullRangeLogRateCeilingOfPhysicalRateBand
+          witness.observable scaling.toPhysicalRateBand))
+      osGNS.reconstruction) :
+    YMGap.Continuum.BF4PhysicalDynamicVacuumSectorContinuumRealization.DynamicVacuumSectorObservablePin.DynamicVacuumSectorContinuumHandoff
+      witness.observable scaling.toPhysicalRateBand
+      (fullRangeLogRateCeilingOfPhysicalRateBand
+        witness.observable scaling.toPhysicalRateBand)
+      existence osGNS where
+  rateCauchy := removal.rateCauchy
+  projectiveOS := projectiveOS
+  spectralChannel := spectralChannel
+  exactRate := exactRate
+
 /-! The local capacity/debt compiler can now be joined directly to the
     existing same-carrier continuum handoff.  Every analytic input not
     supplied by that local compiler remains an explicit argument, and the
@@ -1383,9 +1424,13 @@ def toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations
     PhysicalExponentialObservableWitness.ofRationalVariations
       trajectory producer raw normalizationDebt scaling.toStrengthBand
       gapVariation positiveRatePower observable
-  exact toContinuumHandoff_ofRayCapacityAndMassFloorAndPhysicalGapAndComputedCeiling
-    witness scaling rayDeltaVariation massFloorVariation gapVariation
-    projectiveOS spectralChannel exactRate C H
+  let removal :=
+    toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations
+      trajectory transitionStart envelope tailAllowance tailAllowance_pos
+      initial_closure witness scaling rayDeltaVariation massFloorVariation
+      gapVariation C H
+  exact toContinuumHandoff_ofExactRateCutoffRemoval
+    witness scaling removal projectiveOS spectralChannel exactRate
 
 end MatchedPhysicalDynamicScalarTrajectory
 
@@ -1461,5 +1506,7 @@ end YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.correlatedCapacityDebtProducer
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations
+#print axioms
+  YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofExactRateCutoffRemoval
 #print axioms
   YMGap.Continuum.BF4PhysicalMatchedAFDynamicPhysicalExponentialPath.MatchedPhysicalDynamicScalarTrajectory.toContinuumHandoff_ofCorrelatedCapacityDebtAndPrimitiveVariations

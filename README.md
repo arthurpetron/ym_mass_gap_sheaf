@@ -3595,6 +3595,15 @@ variation, AF, exact-rate reconstruction, continuum/QFT, physical-mass,
 every-group, and Clay inputs remain explicit.  Its focused monitored gate is
 within `{propext, Quot.sound}` with no `sorryAx`.
 
+The exact-rate/semantic seam is now explicit through
+`toContinuumHandoff_ofExactRateCutoffRemoval`: it consumes the already-built
+`ExactRateCutoffRemoval` together with the projective/OS correlation,
+reconstruction spectral channel, and exact-rate identification.  The
+correlated local-debt handoff is factored through this bridge, preserving one
+observable and one completed carrier.  This does not construct any OS,
+continuum/QFT, physical-mass, every-group, or Clay input; the focused gate
+remains within `{propext, Quot.sound}` with no `sorryAx`.
+
 **Concrete physical endpoint, checked 2026-09-18:**
 `BF4PhysicalConcreteCompletedEndpoint.ConcreteEndpoint.ofExisting` packages
 the actual matched-stage SU(2) completed GNS carrier, macro transfer,

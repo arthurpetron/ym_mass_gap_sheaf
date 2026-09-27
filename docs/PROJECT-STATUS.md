@@ -20,10 +20,14 @@ has a checked same-carrier adapter
 same generated producer also has the narrower exact-rate boundary
 `toExactRateCutoffRemoval_ofCorrelatedCapacityDebtAndPrimitiveVariations`,
 which stops before projective/OS data.  Both adapters
-still require every raw/normalization/scaling/variation, AF,
-projective/OS, and exact-rate input; they do not claim an inhabited continuum,
-physical-mass, all-group, or Clay endpoint.  Focused target: 5,243 jobs;
+leave the raw/normalization/scaling/variation, AF, projective/OS, and
+exact-rate inputs explicit at their respective boundaries; they do not claim
+an inhabited continuum, physical-mass, all-group, or Clay endpoint.  Focused
+target: 5,243 jobs;
 axioms: `{propext, Quot.sound}`; no `sorryAx`.
+The exact-rate certificate now contracts into the semantic handoff through
+`toContinuumHandoff_ofExactRateCutoffRemoval`; the correlated handoff is
+factored through that bridge without changing its carrier.
 The anchor branch now also carries a constant-presheaf family whose fiber at
 each cutoff is the checked finite-linear restricted transition product; this
 is cutoff-dependent finite data, not a cofinal or continuum family.
