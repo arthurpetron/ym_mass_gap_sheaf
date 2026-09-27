@@ -6,7 +6,9 @@ Status: source review and mathematical argument, with the completion/bridge
 reduction now kernel-checked. `CRealSeminormCompletedApproximation`,
 `GNSTransferMetric`, and `BF4WilsonSpatialUnionCanonicalGNSBridge` passed
 serialized focused checks with only `{propext, Quot.sound}`. The independent
-Product module also passed, with the same or fewer axioms. Line references describe this
+Product module also passed, with the same or fewer axioms. Section 9a adds the
+subsequently checked contextual laws, actual quotient, and square-positivity
+construction. Line references describe this
 reviewed source revision. No canonical roadmap marker or Clay obligation closes.
 
 **Physical-target warning:** the bridge's ordinary Wilson GNS destination is
@@ -265,9 +267,9 @@ support bound for an entire completed stream.
 (`:183`), and `product_sum_right` (`:206`) then use the existing finite
 polynomial laws to conclude equality of the corresponding `embedStage`
 images. No arbitrary completed-state equality is used as a product
-congruence hypothesis. Consequently these results do not yet define an
-algebra on an observable equivalence relation or on the OS null quotient.
-Their consumer is the missing source-side observable-algebra realization;
+congruence hypothesis. These results alone do not define a product on the
+OS null quotient. Their subsequent consumer is the distinct time-tested
+observable quotient constructed in section 9a;
 the canonical reflected Gram pin and supported normalized probe remain open.
 Sol reviewed the mathematical argument independently. The subsequent focused
 check uses only `{propext, Quot.sound}` or fewer axioms. No roadmap marker closes.
@@ -340,11 +342,75 @@ All of these declarations passed the focused check. Independent Sol review
 also checked the index shift, source guards and product rotations.
 `timeContext_sum` (`:343`) and `timeContext_smul` (`:350`)
 also derive addition/scalar congruence from the existing completed linear
-operations and their embedded-stage pins. Algebra laws modulo `TimeContextEq`
-remain unimplemented: laws only after embedding must not be mistaken for laws
-after every contextual test. No quotient algebra, reflected canonical
-observable map, scalar-interface repair, or continuum scaling control is
-constructed.
+operations and their embedded-stage pins. Section 9a records the subsequent
+contextual product-law proofs and their quotient consumer. Laws only after
+embedding must not be mistaken for laws after every contextual test. No
+reflected canonical observable map, scalar-interface repair, or continuum
+scaling control is constructed.
+
+## 9a. Checked time-tested quotient and ordinary square positivity
+
+`context_of_common_source`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionContextLaws.lean:49`) multiplies
+each advanced common-chart identity by the arbitrary supported test polynomial
+before invoking the checked source descent. Its specializations
+`context_product_comm` (`:74`), `context_product_assoc` (`:88`),
+`context_product_unit_right` (`:115`), `context_product_unit_left` (`:126`),
+`context_time_unit` (`:132`), `context_product_sum_right` (`:138`), and
+`context_product_smul_left` (`:170`) prove these laws in `TimeContextEq`.
+The unit-time law does not assert equality of raw radius tags.
+
+`Observable`, `observableAlg`, and `forwardHom`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionObservableQuotient.lean:50`,
+`:152`, `:159`) construct the actual tested quotient and forward-time unital
+product homomorphisms. Product commutativity, associativity and both unit
+laws are proved separately (`mul_comm`, `mul_assoc`, `mul_one`, `one_mul`,
+same module `:74`, `:79`, `:86`, `:91`); the minimal `ObsAlg` record alone
+would not certify them. Descended sum and rational scalar operations also
+exist, with product distributivity and scalar compatibility; a full rational
+algebra law suite is not asserted by these declarations.
+
+`state` (`:168`) maps this quotient to the existing physical completion.
+`state_ofStage`, `state_one`, `state_forward`, `state_add`, and `state_smul`
+(`:172`, `:176`, `:180`, `:187`, `:195`) pin the source observable, vacuum,
+time, and linear operations to those exact existing objects. No injectivity,
+all-vector range section, or multiplication on completed states is claimed.
+
+`vacuumMean` (`:203`) is the pairing of that state with the original vacuum.
+`vacuumMean_ofStage`, `vacuumMean_one`, `vacuumMean_add`, `vacuumMean_smul`,
+and `vacuumMean_forward` (`:207`, `:212`, `:216`, `:222`, `:229`) prove its
+original pairing pin, normalization, additivity, rational homogeneity and
+stationarity. It is RC-valued: `WilsonProbFunctional.ProbFunctionalC.E`
+(`lean/YMGap/Continuum/WilsonProbFunctional.lean:112`) instead asks for a
+CReal-valued function. No representative-selection map is constructed here.
+`ObservableMeasure.ProbFunctional.E`
+(`lean/YMGap/Continuum/ObservableMeasure.lean:82`) remains rational-valued.
+
+Ordinary square positivity is now supplied by
+`product_square_vacuum_nonnegative`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionProductPositivity.lean:99`).
+Its finite insertion is `(q*q)*1`, with `q` the original mirrored/recentered
+supported source polynomial. `chartScalar_original_pin`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonSpatialComparison.lean:127`)
+and `originalWindowScalar_pin`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonWindowTimeLimit.lean:122`)
+retain the same original normalized action. The checked Haar-carrier unit
+identity removes the final unit, and `windowRatio_square_nonnegative`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWindowFunctionalLaws.lean:154`)
+supplies nonnegativity at every regulator. The explicit spatial Cauchy
+approximants preserve it. `vacuumMean_square_nonnegative`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionObservableQuotient.lean:237`)
+then proves it for every tested observable class. No identification of an
+ordinary square mean with a reflected diagonal is used.
+
+All three modules passed serialized focused checks within
+`{propext, Quot.sound}`. This supplies concrete fixed-spacing source objects,
+not a new assumed frontier certificate. The real-observable `star = id`
+is explicitly not time reflection. Ambient reflection, the canonical
+reflected Gram pin, scalar-interface reconciliation, supported normalized
+probe, changing-spacing control, continuum QFT and every-group Clay theorem
+remain unconstructed by these declarations. Canonical field types and
+chart markers are unchanged.
 
 ## 10. Reuse the existing scaling obstruction; do not assume its endpoint
 
@@ -433,3 +499,8 @@ consequences. Elaboration fixes addressed one GNS projection rewrite and
 three product/chart elaboration errors; none changed mathematical statements.
 The proof ledger records the checked reductions; canonical chart markers stay
 unchanged. No full-library build or axiom audit is claimed.
+
+The subsequent focused checks of `BF4WilsonSpatialUnionContextLaws.lean`,
+`BF4WilsonSpatialUnionProductPositivity.lean`, and
+`BF4WilsonSpatialUnionObservableQuotient.lean` also passed, with the same
+single-worker 20 GiB limit and axiom gate. No canonical field was modified.

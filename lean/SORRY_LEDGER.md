@@ -1,5 +1,44 @@
 # Sorry Ledger
 
+## Concrete time-tested Wilson quotient and positive stationary mean (2026-09-27 UTC)
+
+- **files:**
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionContextLaws.lean`,
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionProductPositivity.lean`, and
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionObservableQuotient.lean`.
+- **proved source laws:** `context_of_common_source` (`ContextLaws:49`)
+  retains the arbitrary test multiplier in a finite coefficient identity.
+  `context_product_comm`, `context_product_assoc`, both unit laws,
+  `context_time_unit`, `context_product_sum_right`, and
+  `context_product_smul_left` (`:74`, `:88`, `:115`, `:126`, `:132`,
+  `:138`, `:170`) hold under every forward time and supported test.
+- **constructed objects:** `Observable`, `observableAlg`, `forwardHom`,
+  `state`, and `vacuumMean` (`ObservableQuotient:50`, `:152`, `:159`,
+  `:168`, `:203`). The quotient is by `TimeContextEq`, not by arbitrary
+  equality of completed states. Product laws are proved separately from the
+  minimal `ObsAlg` fields. The state/time/linear maps and vacuum are pinned
+  to the SAME existing spatial-union completion.
+- **ordinary positivity:** `product_square_vacuum_nonnegative`
+  (`ProductPositivity:99`) uses the actual finite-window square theorem on
+  the mirrored/recentered insertion, removes its unit by Haar-carrier
+  equality, and passes to the explicit spatial limit.
+  `vacuumMean_square_nonnegative` (`ObservableQuotient:237`) descends it.
+  The same RC expectation is normalized, additive, rational-homogeneous,
+  and stationary (`vacuumMean_one`, `vacuumMean_add`, `vacuumMean_smul`,
+  `vacuumMean_forward`, same module `:212`, `:216`, `:222`, `:229`).
+- **scope/residue:** fixed-spacing supported real Wilson observables only.
+  No full rational algebra law suite, chosen CReal representative of RC,
+  rational canonical functional, ambient time reflection, reflected
+  canonical Gram identification, supported normalized probe, changing-scale
+  estimate, continuum QFT, physical Hamiltonian or every-group Clay closure
+  is asserted. `star = id` is real conjugation, not time reflection. No
+  frontier field or broader chart marker changes.
+- **verification:** all three modules passed focused monitored checks,
+  serialized with one worker capped at 20 GiB. All printed public
+  declarations use only `{propext, Quot.sound}`. No `sorry`, new analytic
+  hypothesis, classical axiom, trusted computation or heartbeat increase was
+  introduced. No full-tree check was run.
+
 ## Supported Wilson products and time-context congruence (2026-09-27 UTC)
 
 - **file:** `lean/YMGap/Continuum/BF4WilsonSpatialUnionProduct.lean`.
@@ -15,8 +54,8 @@
   after every forward time is an equivalence, respects time/product/sum/scalar
   operations, and implies equality of the original embedded states.
 - **scope:** this constructs no multiplication on arbitrary OS-null classes
-  or completed states. Algebra laws under every contextual test remain to
-  be supplied before constructing a full source quotient algebra. The
+  or completed states. The subsequent entry above supplies contextual
+  product laws and their distinct supported-observable quotient. The
   canonical reflected form, supported normalized probe, scaling, continuum
   QFT and every-group Clay result remain open.
 - **verification:** monitored focused source check, one worker capped at

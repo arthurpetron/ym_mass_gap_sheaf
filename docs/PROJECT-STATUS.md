@@ -11,8 +11,17 @@ remain open. See `audits/AUDIT-CANONICAL-BRIDGE-MINIMALITY-2026-09-27.md`.
 No unchanged ASCII chart is reprinted for this supporting reduction.
 The independently checked `BF4WilsonSpatialUnionProduct` supplies raw-stage
 products and time/product/sum/scalar congruence for `TimeContextEq`, with the
-same axiom gate. It does not yet supply the full contextual algebra laws or
-the canonical reflected observable identification.
+same axiom gate. The subsequent `BF4WilsonSpatialUnionContextLaws` and
+`BF4WilsonSpatialUnionObservableQuotient` now supply contextual product laws,
+the actual tested quotient, and forward-time product homomorphisms pinned to
+the current physical completion. `BF4WilsonSpatialUnionProductPositivity`
+supplies ordinary-square positivity from the original finite-window action
+and explicit spatial limit; the quotient vacuum mean is normalized,
+additive, rational-homogeneous and stationary. All three focused checks pass
+within `{propext, Quot.sound}`. The expectation is RC-valued, not a selected
+CReal or rational canonical functional; ambient reflection and the canonical
+reflected observable identification remain open. Broad chart markers do not
+change, so the unchanged ASCII block is not reprinted.
 
 Chart schema: **1**. Snapshot: **125**, 2026-09-27 UTC. Source checkpoint:
 the explicit `CompletedPhysicalSU2Sector` witness, `probe_sector` observable

@@ -85,7 +85,7 @@ The independent checked supported-product construction in
 stages at their maximum base and radius. It transports finite polynomial
 commutativity, associativity and distributivity into equalities of the existing
 embedded states through a common-source identity. These are not product
-congruence laws for arbitrary OS-null states and do not yet construct the
+congruence laws for arbitrary OS-null states and do not construct the
 canonical observable algebra. Its focused check passed with only
 `{propext, Quot.sound}` (or fewer axioms). Audit sections 7--8 retain the missing
 supported representation of the CReal-normalized completed probe. Do not
@@ -100,10 +100,44 @@ translates in `TimeContextEq`, proves the exact raw-stage time/product identity,
 and derives equivalence, time/product compatibility and equality of the
 original embedded images. Embedded unit/scalar laws and contextual
 addition/scalar congruence also pass the focused axiom check. Sol independently
-reviewed the arguments. Algebra laws under every contextual test are still needed
-before calling this a source observable algebra. Do not infer
+reviewed the arguments. The subsequent `BF4WilsonSpatialUnionContextLaws`
+check now proves commutativity, associativity, units, distributivity, and
+product/scalar compatibility under every contextual test. Its proof retains
+the arbitrary test multiplier in the finite coefficient identity. Do not infer
 a descended time map from the multiplier-only relation or treat embedded
 laws as contextual laws. No canonical field or chart marker is changed.
+
+### Concrete time-tested source quotient and positive vacuum mean (2026-09-27 UTC)
+
+`BF4WilsonSpatialUnionObservableQuotient.lean` now constructs the quotient
+by `TimeContextEq`, its commutative associative unital product, descended
+sum/rational-scaling operations, and forward-time `ObsHom`. Its `state` map
+lands in the original spatial-union completion; `state_forward`, `state_add`
+and `state_smul` prove the exact same-object joins. `vacuumMean` is RC-valued,
+normalized, additive, rational-homogeneous and stationary under that time map.
+
+`BF4WilsonSpatialUnionProductPositivity.product_square_vacuum_nonnegative`
+proves ordinary square positivity by identifying the product-vacuum insertion
+with a mirrored/recentered supported polynomial square times the unit,
+applying the original finite-window square positivity theorem, and taking
+the existing explicit spatial limit. `vacuumMean_square_nonnegative` descends
+it to every observable class. This does not substitute reflected norm
+positivity for ordinary expectation positivity.
+
+All three new modules passed serialized focused checks, one worker capped
+at 20 GiB, with only `{propext, Quot.sound}`. No `sorry`, new analytic input,
+frontier field change, or full-tree verification is involved. Sol developed
+the finite positivity argument independently while the contextual laws were
+implemented locally; Lean verification remained serialized.
+
+The next physical join must still supply the ambient time-reflection and
+same-reflected-Gram identification. The real-observable `star = id` is NOT
+that time-reflection map. Neither a chosen CReal-valued representative of
+the RC expectation nor the rational canonical functional is constructed.
+This does not yet prove the full rational algebra law suite, represent the
+CReal-normalized probe as a supported observable, change spacing, or construct
+a canonical OS root, continuum QFT or Clay solution. These exact boundaries
+are recorded in audit section 9a; no broad chart marker advances.
 
 The parallel scaling check reuses
 `BF4WilsonUniformLatticeRateScalingObstruction.sampledLimit_zero`; its common
