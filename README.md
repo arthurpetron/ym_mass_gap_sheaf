@@ -3409,6 +3409,9 @@ spacing-to-zero obstruction.  The companion
 `ofConstantPhysicalGapCalibration` constructor gives the spacing-to-zero-
 compatible zero-variation route, while leaving the pointwise calibration
 itself explicit.
+The underlying `ConstantPhysicalGapCalibration` compiler now also exposes its
+positive value and converts the pointwise identity directly into a uniform
+physical-rate band on the same completed family.
 `WilsonContinuumMassClusteringJoin` then adds an explicit raw-to-projective
 same-object identification, OS-value compatibility, projective Wilson
 coefficient pin, and reconstruction spectral channel, compiling to the

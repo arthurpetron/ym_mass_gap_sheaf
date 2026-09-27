@@ -184,6 +184,21 @@ structure ConstantPhysicalGapCalibration
   value : Q'
   physicalGap_eqv : ∀ scale, family.physicalGap scale ≈ value
 
+theorem ConstantPhysicalGapCalibration.value_pos
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (calibration : ConstantPhysicalGapCalibration family) :
+    (0 : Q') < calibration.value := by
+  have hmargin : (0 : Q') < family.latticeMargin 0 :=
+    family.latticeMargin_pos 0
+  have hspacing : (0 : Q') < family.transferSpacing.spacing 0 :=
+    family.transferSpacing.spacing_pos 0
+  have hgap : (0 : Q') < family.physicalGap 0 := by
+    unfold DynamicVacuumSectorCompletedFamily.physicalGap
+    exact Q'.divPos_pos _ _ hspacing hmargin
+  exact Q'.pos_of_lt_of_le hgap
+    (Q'.le_of_eqv (calibration.physicalGap_eqv 0))
+
 /-- A constant physical-gap calibration carries zero same-family step
 variation, using the canonical rational constant-stream compiler. -/
 def ConstantPhysicalGapCalibration.toVariation
@@ -193,6 +208,45 @@ def ConstantPhysicalGapCalibration.toVariation
     SummableRationalStepVariation family.physicalGap :=
   SummableRationalStepVariation.ofPointwiseEqvConstant
     family.physicalGap calibration.value calibration.physicalGap_eqv
+
+/- A constant physical gap is already a two-sided physical-rate calibration:
+   multiply its pointwise equality by the positive spacing and use the exact
+   reciprocal presentation of `family.physicalGap`. -/
+def ConstantPhysicalGapCalibration.toPhysicalRateBand
+    {half : Nat}
+    {family : DynamicVacuumSectorCompletedFamily half}
+    (calibration : ConstantPhysicalGapCalibration family) :
+    DynamicVacuumSectorPhysicalRateBand family where
+  floor := calibration.value
+  floor_pos := calibration.value_pos
+  ceiling := calibration.value
+  ceiling_pos := calibration.value_pos
+  lowerRate := by
+    intro scale
+    have hgap : calibration.value ≤ family.physicalGap scale :=
+      Q'.le_of_eqv (Q'.eqv_symm (calibration.physicalGap_eqv scale))
+    have hscaled := Q'.mul_le_mul_of_nonneg_right
+      calibration.value (family.physicalGap scale)
+      (family.transferSpacing.spacing scale) hgap
+      (Q'.le_of_lt (family.transferSpacing.spacing_pos scale))
+    have hcollapse : family.physicalGap scale *
+        family.transferSpacing.spacing scale ≈ family.latticeMargin scale := by
+      unfold DynamicVacuumSectorCompletedFamily.physicalGap
+      exact Q'.divPos_mul_eqv _ _ _
+    exact Q'.le_trans' _ _ _ hscaled (Q'.le_of_eqv hcollapse)
+  upperRate := by
+    intro scale
+    have hgap : family.physicalGap scale ≤ calibration.value :=
+      Q'.le_of_eqv (calibration.physicalGap_eqv scale)
+    have hscaled := Q'.mul_le_mul_of_nonneg_right
+      (family.physicalGap scale) calibration.value
+      (family.transferSpacing.spacing scale) hgap
+      (Q'.le_of_lt (family.transferSpacing.spacing_pos scale))
+    have hcollapse : family.latticeMargin scale ≈
+        family.physicalGap scale * family.transferSpacing.spacing scale := by
+      unfold DynamicVacuumSectorCompletedFamily.physicalGap
+      exact Q'.eqv_symm (Q'.divPos_mul_eqv _ _ _)
+    exact Q'.le_trans' _ _ _ (Q'.le_of_eqv hcollapse) hscaled
 
 /-! ## 2. Join the two analytic branches -/
 
@@ -396,6 +450,10 @@ end YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.marginRate_eqv_physicalGap
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration.toVariation
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration.value_pos
+#print axioms
+  YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.ConstantPhysicalGapCalibration.toPhysicalRateBand
 #print axioms
   YMGap.Continuum.BF4PhysicalDynamicVacuumSectorExactLogRateVariationCompiler.DynamicVacuumSectorObservablePin.exactLogRateCauchyOfConstantPhysicalGap
 #print axioms

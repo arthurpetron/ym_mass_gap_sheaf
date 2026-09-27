@@ -30752,3 +30752,10 @@ which is compatible with the repaired spacing-to-zero schedule.  The
 pointwise constant-gap identity remains an explicit missing analytic input;
 the constructor does not turn positivity or finite-cutoff bounds into that
 identity.
+
+The generic `ConstantPhysicalGapCalibration` compiler now proves its value is
+positive and produces `DynamicVacuumSectorPhysicalRateBand` with equal floor
+and ceiling.  Together with `toVariation`, this gives the complete
+spacing-to-zero-compatible analytic consequence of that certificate on the
+same completed family; it still does not construct the certificate itself or
+close the continuum/QFT, every-group, or Clay obligations.
