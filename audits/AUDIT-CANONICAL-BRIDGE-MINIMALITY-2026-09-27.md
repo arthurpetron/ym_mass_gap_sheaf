@@ -752,3 +752,62 @@ inclusions, and its injective supported quotient map. Surjectivity onto ambient
 signed-time observables is not asserted or required for that map. Canonical
 scalar/reflected OS realization, all-vector range, scaling, continuum QFT and
 the every-group Clay theorem remain open; no broad chart marker advances.
+
+## 17. All-base ambient quotient and same physical reflected mean supplied
+
+The assembly proposed in section 16 is now constructed, not assumed:
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `inclusion_refl`, `inclusion_trans` | `lean/YMGap/Continuum/BF4WilsonSignedTimeBaseCoherence.lean:31`, `:55` | Literal identity and composition of signed spatial-source inclusions. |
+| `Stage`, `Related` | `lean/YMGap/Continuum/BF4WilsonSignedTimeUnion.lean:33`, `:86` | Finite signed expressions over all positive bases, related at their computed common base. |
+| `related_iff_at` | same module `:93` | The relation agrees with contextual equality at any supplied common base. |
+| `stageMean_at`, `stageMean_congr` | same module `:169`, `:174` | The original CReal mean is coherent under enlargement and the relation. |
+| `Observable`, `observableAlg` | `lean/YMGap/Continuum/BF4WilsonSignedTimeUnionObservable.lean:39`, `:145` | Actual all-base quotient and minimal observable operations; product laws are proved separately. |
+| `forwardHom`, `backwardHom`, `reflectionHom` | same module `:199`, `:204`, `:209` | Actual unital product homomorphisms, with inverse-time and reflection laws. |
+| `meanRC`, `meanRC_square_nonnegative` | same module `:215`, `:261` | Original normalized stationary RC mean with ordinary square positivity on the ambient quotient. |
+| `related_iff_timeContext` | `lean/YMGap/Continuum/BF4WilsonSignedTimeUnionSupportedEmbedding.lean:60` | Restricting the new relation to supported sources gives exactly the old time-tested relation. |
+| `embedding`, `embedding_injective` | same module `:131`, `:139` | An actual injection of the supported observable quotient into the ambient one. |
+| `embedding_mean` | same module `:200` | The ambient mean restricts to the original supported vacuum mean. |
+| `embedding_reflected_mean` | same module `:224` | The ambient reflected mean equals the SAME completed physical pairing for every pair of supported quotient observables. |
+| `embedding_reflection_positive` | same module `:247` | Reflection positivity on the embedded supported part, not arbitrary signed observables. |
+| `embedding_time_correlator` | same module `:255` | Every supported quotient time correlator uses the SAME actual completed transfer and ambient time action. |
+
+The injection also preserves unit, multiplication, addition, rational scaling
+and forward time (`UnionSupportedEmbedding.lean:150`, `:157`, `:167`, `:177`,
+`:187`). Ordinary `star = id` remains distinct from reflection. The all-base
+quotient has a proved associative commutative unital product and descended
+linear operations; the full additive/module/distributive law suite is not
+claimed. No state map into the physical completion is constructed for arbitrary
+signed expressions, and no surjectivity onto ambient observables is asserted.
+
+Verification: all four new modules passed serialized focused checks with one
+worker capped at 20 GiB. Their 86 printed declarations are axiom-free or use
+only `{propext, Quot.sound}`, with no `sorryAx` or classical dependencies.
+Dependent base rewrites were resolved by explicit raw-stage equalities; no
+statement, analytic guard, heartbeat or memory ceiling was changed. Sol supplied
+coherence and the supported injection and independently reviewed the global
+relation and operation descent. No full-tree audit was run.
+
+Sol's additional source review identifies the next existing consumer:
+`BF4WilsonSpatialUnionBilinear.completedSub_norm_zero_iff`
+(`lean/YMGap/Continuum/BF4WilsonSpatialUnionBilinear.lean:156`) identifies zero
+completed squared difference with state equality. Composing with the new
+reflected-mean pin requires the actual supported-difference/state identity;
+that composition is the next proof, not a new abstract completion.
+`CRealSeminormCompletedApproximation.approximationData`
+(`lean/YMGap/Continuum/CRealSeminormCompletedApproximation.lean:95`) already
+returns a dense stage and error certificate from a SUPPLIED Cauchy
+representative. It does not select representatives from completion classes.
+
+The scalar boundary is explicit in `ProbFunctional.E`
+(`lean/YMGap/Continuum/ObservableMeasure.lean:82`) and `WilsonGNSData.E`
+(`lean/YMGap/Continuum/WilsonGNS.lean:131`), both Q'-valued; the latter's `B`
+(`:150`) is Q'-valued too. `PositiveTimeOSRoot.positive` and `reflectedForm`
+(`lean/YMGap/Continuum/CanonicalOSRoot.lean:272`, `:298`) retain that rational
+GNS interface. The actual limit has values in RC; the canonical Q'-valued
+expectation has not thereby been constructed. Adding a root that assumes
+this scalar conversion would not discharge the gap.
+Canonical scalar/reflected OS realization, all-vector range, changing-spacing
+control, positive physical mass, continuum QFT and every compact simple group
+remain open. No canonical field or broad chart marker changes.

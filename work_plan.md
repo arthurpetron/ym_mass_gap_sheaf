@@ -25,6 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### All-base ambient quotient and physical correlator identification checked (2026-09-27 UTC)
+
+`BF4WilsonSignedTimeBaseCoherence.lean` proves literal identity and composition
+of spatial inclusions. `BF4WilsonSignedTimeUnion.lean` uses these to assemble
+signed expressions over all positive spatial bases; `related_iff_at` makes
+contextual equality independent of the supplied common base.
+`BF4WilsonSignedTimeUnionObservable.lean` constructs the quotient, associative
+commutative unital product, descended addition/rational scaling, inverse time,
+reflection, and the original normalized positive stationary RC-valued mean.
+This is not yet a full proved rational algebra law suite.
+
+`BF4WilsonSignedTimeUnionSupportedEmbedding.embedding` is an actual injective
+map from the supported observable quotient, preserving unit, product, addition,
+rational scaling, forward time and mean. Its `embedding_reflected_mean` and
+`embedding_time_correlator` identify the ambient reflected expectation with
+the SAME completed physical pairing and transfer. Reflection positivity is
+proved on this embedded supported part, not arbitrary signed-time observables.
+
+Next identify zero reflected distance of supported observables with equality
+of their existing completed states, using `embedding_reflected_mean` and
+`BF4WilsonSpatialUnionBilinear.completedSub_norm_zero_iff`. Reuse
+`CRealSeminormCompletedApproximation.approximationData` for explicit dense
+approximants from supplied Cauchy representatives; do not choose representatives
+from quotient classes. The canonical Q'-valued expectation is not
+supplied by an RC-valued limit; do not assume a rational conversion or change
+canonical fields. Canonical scalar/reflected OS realization, all-vector range,
+changing spacing, physical mass, continuum QFT and every-group Clay closure
+remain open. No ambient surjectivity is claimed.
+
+All four new modules passed serialized focused checks with one worker capped
+at 20 GiB. All 86 printed declarations are axiom-free or use only
+`{propext, Quot.sound}`. Sol supplied spatial coherence and the supported
+embedding and independently reviewed the global quotient and scope. No new
+hole, analytic premise, full-tree check or broad chart-marker advance.
+Audit section 17 records the declaration-level evidence.
+
 ### Supported-to-ambient context identification checked (2026-09-27 UTC)
 
 `BF4WilsonSignedTimeIntrinsicAlgebra.lean` proves literal source recodings for
@@ -45,9 +81,9 @@ test and every forward time. `timeContext_iff_difference_test` contracts that
 entire relation to one actual supported difference test. No OS-null ideal or
 equality of ordinary and reflected norms is assumed.
 
-Next construct the single all-base ambient quotient, using coherent spatial
-inclusions, and descend the now-identified supported observable map into it.
-Do not demand surjectivity onto ambient signed observables. Canonical scalar
+The all-base ambient quotient and injective supported map proposed here are
+now constructed above, with coherent inclusions and physical reflected-mean
+pins. No surjectivity onto ambient signed observables is claimed. Canonical scalar
 and reflected OS realization, all-vector range, scaling and continuum/Clay
 remain open. No canonical field is changed.
 
@@ -77,8 +113,8 @@ directions and reflection. No reflected norm was replaced by an ordinary norm.
 The source join proposed at this checkpoint is now proved above, in both
 directions, using one supported difference test rather than separately testing
 both operands. Its product-vacuum and reflected source-distance pins are checked.
-A single all-base ambient quotient, its coherence laws, canonical scalar and
-reflected OS realization, scaling and continuum/Clay remain open.
+The all-base ambient quotient and coherence laws are now constructed above;
+canonical scalar/reflected OS realization, scaling and continuum/Clay remain open.
 
 Three new modules passed serialized focused checks with one worker capped at
 20 GiB; all 20 printed declarations are axiom-free or use only
@@ -107,8 +143,8 @@ Source inclusion alone did not descend between contextual quotients: larger
 bases allow new tests. The ordinary Cauchy--Schwarz and square-nullity argument
 now recorded above supplies that descent. The existing reflected theorem was
 not used as a substitute. The supported relation identification is now checked
-above; its global quotient map and canonical scalar/reflected-root realization
-remain open. Canonical fields are unchanged.
+above; its global quotient map is now constructed. Canonical scalar/reflected-root
+realization remains open. Canonical fields are unchanged.
 
 All three focused checks passed serially with one worker capped at 20 GiB.
 All 68 printed declarations use only `{propext, Quot.sound}`. Sol supplied
@@ -136,7 +172,7 @@ of a square.
 
 The fixed-base quotient and contextual spatial inclusion have since been
 supplied above, along with the positive-stage relation identification and exact
-product-vacuum mean pin. The global quotient map remains to be assembled.
+product-vacuum mean pin. The global quotient map is now constructed above.
 Canonical scalar fields remain unchanged; no canonical OS root has yet been
 supplied.
 

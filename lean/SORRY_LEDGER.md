@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## All-base ambient quotient and same physical correlators (2026-09-27 UTC)
+
+- **files:** `lean/YMGap/Continuum/BF4WilsonSignedTimeBaseCoherence.lean`,
+  `lean/YMGap/Continuum/BF4WilsonSignedTimeUnion.lean`,
+  `lean/YMGap/Continuum/BF4WilsonSignedTimeUnionObservable.lean`, and
+  `lean/YMGap/Continuum/BF4WilsonSignedTimeUnionSupportedEmbedding.lean`.
+- **construction:** `inclusion_refl` / `inclusion_trans` (BaseCoherence
+  `:31`, `:55`) give literal coherence. `Related`, `related_iff_at`, and
+  `stageMean_congr` (Union `:86`, `:93`, `:174`) assemble the all-positive-base
+  contextual relation and original mean. `Observable`, `observableAlg`,
+  `meanRC` (UnionObservable `:39`, `:145`, `:215`) construct the quotient,
+  minimal observable operations and RC-valued original expectation. Product
+  associativity/commutativity/unit and inverse-time/reflection laws are proved;
+  a full rational algebra law suite is not claimed.
+- **same-object join:** `embedding`, `embedding_injective`, `embedding_mean`
+  (UnionSupportedEmbedding `:131`, `:139`, `:200`) construct the supported
+  injection and original vacuum-mean pin, with operation/time preservation.
+  `embedding_reflected_mean`, `embedding_reflection_positive`, and
+  `embedding_time_correlator` (`:224`, `:247`, `:255`) identify its reflected
+  mean with the SAME physical completion and transfer. Positivity here is
+  restricted to embedded supported observables, not arbitrary ambient ones.
+- **residue:** canonical Q'-scalar/reflected OS realization and all-vector
+  range, changing spacing, physical mass, continuum QFT and every-group Clay
+  closure remain open. No rational conversion of the RC mean, ambient
+  surjectivity, new frontier field or broad chart-marker change is asserted.
+- **verification:** four serialized focused checks passed, one worker capped
+  at 20 GiB; all 86 printed declarations are axiom-free or use only
+  `{propext, Quot.sound}`. Final outputs contain no `sorryAx` or classical
+  dependency. No hole, analytic premise or full-tree check was introduced.
+  Sol supplied coherence and the supported injection and independently
+  reviewed the global quotient and its scope.
+
 ## Exact supported-to-ambient contextual identification (2026-09-27 UTC)
 
 - **files:** `lean/YMGap/Continuum/BF4WilsonSignedTimeIntrinsicAlgebra.lean`
