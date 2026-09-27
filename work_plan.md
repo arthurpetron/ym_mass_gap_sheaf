@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual completed Chebyshev energy and stability checked (2026-09-27 UTC)
+
+The coupled recurrence `U'=T+XU`, `T'=XU'-U` now preserves
+`||T||^2+||U||^2-||XU||^2` exactly in `GNSChebyshevEnergy`.
+`GNSChebyshevRecurrence` pins its first component to the literal first-kind
+operator recurrence. No spectral theorem or finite-dimensional replacement
+is used. `BF4ExactSlabFullActionScalar` constructs rational scalar action
+with the SAME original `fullData` definitionally retained.
+
+`BF4ExactSlabSweepChebyshev` constructs the actual `c*S* S-I`, proves its
+self-adjointness and preservation of arbitrary completed centered states,
+and supplies `coupled_two_norm`: every polynomial order at `c=2` has norm
+at most the input norm. Reverse-sweep nonexpansiveness gives this actual
+NON-STRICT bound without a gap premise. It is stability, not accelerated
+decay. The fixed constant is the original polynomial one, not a normalized
+replacement; no common-fixed-space identification is needed here.
+
+NEXT forward: useful signed test selection/lower coercivity on the actual
+centered sector. NEXT backward: rescaled interval contraction, rational
+geometric normalization and the polynomial cone/covariance join. The
+unshrunk `c=2` interval does not supply the missing strict q or physical
+rate. Physical scaling, OS/Hamiltonian and continuum/every-group Clay
+obligations remain open. All 26 gates passed four focused, serialized
+one-worker/20 GiB checks; Sol contributed and independently reviewed.
+No canonical field, analytic field or chart marker changed; no full-tree audit ran.
+Evidence: `audits/AUDIT-ORIGINAL-SWEEP-CHEBYSHEV-2026-09-27.md`.
+
 ### Actual weighted variance and conditional-kernel tests checked (2026-09-27 UTC)
 
 `SU2QuaternionConditionalVarianceReplica.replica_identity` retains the

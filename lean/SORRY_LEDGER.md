@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## Actual completed Chebyshev energy and non-strict stability (2026-09-27 UTC)
+
+- **files:** `GNSChebyshevEnergy.lean`, `GNSChebyshevRecurrence.lean`,
+  `BF4ExactSlabFullActionScalar.lean`, `BF4ExactSlabSweepChebyshev.lean`,
+  all under `lean/YMGap/Continuum/`.
+- **proved:** energy `step_energy` (`:106`) / `state_energy` (`:113`)
+  preserve the exact quadratic invariant; recurrence `first_succ_succ`
+  (`:128`) pins the actual first-kind operator recurrence. Scalar
+  `fullScalarData` (`:27`) preserves original fullData definitionally.
+  Physical `sweep_centered` (`:117`), `affine_centered` (`:147`) and
+  `coupled_centered` (`:181`) apply to arbitrary completed orthogonal
+  inputs, not only dense ones. `affine_two_norm` (`:160`) and
+  `coupled_two_norm` (`:197`) give unconditional NON-STRICT original
+  operator/polynomial bounds at c=2.
+- **residue:** useful actual centered coercivity, the rescaled strict
+  interval, rational geometric normalization and polynomial cone join.
+  Non-strict stability is not accelerated decay, a physical-time gap or
+  continuum/Clay closure. No new analytic field or hole is introduced.
+- **verification:** 26 gates passed four focused one-worker/20 GiB checks
+  within {propext, Quot.sound}; Sol contributed and independently reviewed.
+  No root/full-tree audit, canonical change or chart-marker change.
+  Evidence: `audits/AUDIT-ORIGINAL-SWEEP-CHEBYSHEV-2026-09-27.md`.
+
 ## Original weighted variance and genuine polynomial kernel tests (2026-09-27 UTC)
 
 - **files:** `SU2QuaternionConditionalVarianceReplica.lean`,

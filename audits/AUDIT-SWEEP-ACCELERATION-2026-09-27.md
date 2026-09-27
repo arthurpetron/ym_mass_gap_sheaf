@@ -1,5 +1,12 @@
 # Avoiding a loss in the dynamics-to-spatial-decay conversion
 
+**Follow-up:** the operator energy identity, literal recurrence, original
+rational scalar action, completed centered preservation and unconditional
+all-order NON-STRICT bound at `c=2` have now been checked. See
+`AUDIT-ORIGINAL-SWEEP-CHEBYSHEV-2026-09-27.md`. The planning discussion
+below records the preceding review; its normalized accelerated rate and
+actual centered coercivity remain open.
+
 This is a targeted primary-source/planning review, with a small checked
 supporting adjoint lemma recorded below. It is NOT a proved acceleration
 bound or an instantiated Yang--Mills coercivity theorem. It was performed

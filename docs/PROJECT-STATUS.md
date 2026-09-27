@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting operator-polynomial stability (2026-09-27 UTC; chart markers unchanged):
+`BF4ExactSlabSweepChebyshev.coupled_two_norm` bounds every order of the
+actual `T_n(2*S* S-I)` by the original input norm. The proof uses a checked
+coupled quadratic invariant and the literal operator recurrence, not a
+spectral theorem. Rational scalars and centering are pinned to the SAME
+original completion, including arbitrary completed inputs. All 26 focused
+gates passed. This is NON-STRICT stability, not accelerated decay; useful
+interacting coercivity, geometric normalization, spatial/scaling control
+and continuum/Clay remain open. Evidence:
+`audits/AUDIT-ORIGINAL-SWEEP-CHEBYSHEV-2026-09-27.md`.
+
 Verified supporting actual conditional tests (2026-09-27 UTC; chart markers unchanged):
 The shared-spectator replica identity now retains the original incident
 heat and exterior action. Explicit polynomials `D*p-J(Np)` lie in the

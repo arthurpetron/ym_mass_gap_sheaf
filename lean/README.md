@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original completed operator-polynomial stability (2026-09-27 UTC):**
+`GNSChebyshevEnergy` and `GNSChebyshevRecurrence` prove a coupled quadratic
+invariant and the literal first-kind recurrence. `BF4ExactSlabFullActionScalar`
+and `BF4ExactSlabSweepChebyshev` realize it on the actual full-action
+completion, with completed centered preservation and an unconditional
+all-order NON-STRICT norm bound for `T_n(2*S* S-I)`. Four focused checks
+passed within `{propext, Quot.sound}`. Useful strict centered coercivity,
+normalized acceleration, physical scaling and continuum/Clay remain open.
+Evidence: `audits/AUDIT-ORIGINAL-SWEEP-CHEBYSHEV-2026-09-27.md` at repository root.
+
 **Original conditional variance and polynomial tests (2026-09-27 UTC):**
 `SU2QuaternionConditionalVarianceReplica` and `BF4ExactSlabStarVarianceReplica`
 retain shared spectators and the actual exterior action in the weighted

@@ -5427,6 +5427,12 @@ import YMGap.Continuum.BF4ExactSlabStarVarianceReplica
 import YMGap.Continuum.BF4ExactSlabStarPolynomialResidual
 -- Same-carrier reverse adjoint and positive sweep product; no accelerated rate.
 import YMGap.Continuum.GNSProjectionSweepAdjoint
+-- Coupled Chebyshev energy and actual same-carrier non-strict polynomial stability.
+-- Centered coercivity and normalized accelerated spatial decay remain open.
+import YMGap.Continuum.GNSChebyshevEnergy
+import YMGap.Continuum.GNSChebyshevRecurrence
+import YMGap.Continuum.BF4ExactSlabFullActionScalar
+import YMGap.Continuum.BF4ExactSlabSweepChebyshev
 -- Strict on explicitly free-centered inputs, not the whole vacuum complement.
 import YMGap.Continuum.BF4ExactSlabStarFreeCentering
 import YMGap.Continuum.BF4ExactSlabStarLocalInfluence
