@@ -1775,6 +1775,23 @@ and `.toPhysicalRateBand` (`lean/YMGap/Continuum/BF4PhysicalChangingNomeExplicit
 This is the shortest typed contraction to the existing rate interface; it
 still consumes the two unproved all-scale pointwise inequalities.
 
+## Latest verified Wilson graph-norm contraction (2026-09-27 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now exposes
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonOperatorNormGapPin`
+and the corresponding factorized-route declaration. Each consumes a named
+`DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit` for the same matched
+completed family and selected Wilson datum, and returns the all-vector
+`WilsonOperatorNormGapPin`; this is not a single-observable inference.
+
+The same two routes now expose `toWilsonMinimalBoundedMassGap`, which contracts
+a `DynamicVacuumSectorWilsonExactRateHandoff`, an explicit physical-rate band,
+and the graph-norm limit into the existing `WilsonMinimalBoundedMassGap`.
+The graph-norm, exact-rate, physical band, Wilson/OS construction, stationarity,
+continuum/QFT, physical-mass, every-group, and Clay witnesses remain explicit
+inputs. The focused monitored source check passed with only
+`{propext, Quot.sound}` and no `sorryAx`; no canonical chart marker changed.
+
 ## Maintenance contract
 
 1. Read this file before every chart. Copy its chart block; do not regenerate
@@ -1937,3 +1954,4 @@ still consumes the two unproved all-scale pointwise inequalities.
 | 1 / 139 | 2026-09-27 | Transported the exact finite moving-cube squared-decay estimate through the raw continuum compiler for both matched routes. The scheduled representative limit and rate-power limit remain explicit; no physical-exponential, OS/GNS, continuum-QFT, physical-mass, every-group, or Clay conclusion is added. |
 | 1 / 140 | 2026-09-27 | Exposed the raw Wilson/projective OS/GNS matrix-coefficient equality for both matched routes, keyed to the same completed family and measure-linked handoff. This is conditional bridge evidence only; no OS/GNS existence, all-vector gap, physical mass, every-group, or Clay conclusion is added. |
 | 1 / 141 | 2026-09-27 | Exposed the conditional `WilsonIteratedBoundedMassGap` squared-decay consumer for both matched routes. The selected transfer gap remains an explicit all-vector input; no spectral-gap construction, physical mass, every-group, or Clay conclusion is added. |
+| 1 / 142 | 2026-09-27 | Added matched state-load and factorized projections to the all-vector `WilsonOperatorNormGapPin`, plus exact-rate/graph-norm contraction to `WilsonMinimalBoundedMassGap`. All graph-norm, exact-rate, physical-band, stationarity, continuum/QFT, physical-mass, every-group, and Clay inputs remain explicit; focused check is `{propext, Quot.sound}` with no `sorryAx`, and no canonical chart marker changed. |

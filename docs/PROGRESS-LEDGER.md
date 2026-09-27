@@ -30326,3 +30326,22 @@ The monitored source check reports only `{propext, Quot.sound}` for both new
 dependency gates and no `sorryAx`.  The all-vector transfer gap, vacuum
 stationarity, projective measure, physical mass, every-group, and Clay inputs
 remain open.
+
+## Matched routes reach the Wilson graph-norm and minimal-gap interfaces (2026-09-27 UTC)
+
+`BF4PhysicalMatchedAFExplicitRayRootCompiler.lean` now adds
+`MatchedPhysicalExplicitRayStateLoadDecayProducer.toWilsonOperatorNormGapPin`
+and the corresponding factorized-route declaration. Each forwards a named
+`DynamicVacuumSectorWilsonPhysicalTimeGraphNormLimit` to the existing
+all-vector `WilsonOperatorNormGapPin` compiler, preserving the same completed
+family and selected Wilson datum.
+
+Both routes also add `toWilsonMinimalBoundedMassGap`. Given the same-family
+`DynamicVacuumSectorPhysicalRateBand`,
+`DynamicVacuumSectorWilsonExactRateHandoff`, and graph-norm limit, the existing
+exact-rate handoff constructs `WilsonMinimalBoundedMassGap`; this is the
+strongest endpoint available without fabricating graph-norm, exact-rate,
+stationarity, OS/GNS, or continuum witnesses. The monitored source check
+passed with only `{propext, Quot.sound}` for every new dependency gate and no
+`sorryAx`. The Wilson graph-norm/exact-rate inputs, stationarity, continuum
+QFT, physical mass, every-group, and Clay obligations remain open.

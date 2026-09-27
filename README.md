@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-## Current proof boundary (2026-09-26 UTC)
+## Current proof boundary (2026-09-27 UTC)
 
 The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
 wording, layout, proof-status meanings and permanent node IDs across updates.
@@ -156,6 +156,14 @@ Supplying the explicit `WilsonIteratedBoundedMassGap` now also yields the
 corresponding squared matrix-coefficient decay for that pinned state.  This is
 an operator-gap consumer, not a proof of the all-vector gap or of the Clay
 theorem.
+
+The matched state-load and factorized routes now also expose the all-vector
+`WilsonOperatorNormGapPin` from a named physical-time graph-norm limit, and
+contract the same-family exact-rate plus graph-norm inputs to the existing
+`WilsonMinimalBoundedMassGap`. These are conditional handoffs: the graph-norm,
+exact-rate, physical-band, stationarity, OS/GNS, continuum/QFT, physical-mass,
+every-group, and Clay witnesses remain open. The focused check is within
+`{propext, Quot.sound}` with no `sorryAx`.
 
 **Latest route-pruning theorem (2026-09-25):**
 `no_width_uniform_computed_twoStepRate_schedule` proves that no constructive
