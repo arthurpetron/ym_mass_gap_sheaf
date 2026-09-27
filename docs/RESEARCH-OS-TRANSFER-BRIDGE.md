@@ -71,6 +71,28 @@ requires the projective functional limit and a bundle-linked reconstruction.
 These declarations isolate the actual producers needed for a same-theory
 physical bridge; they do not provide them.
 
+The downstream handoff audit gives a minimal producer ladder rather than one
+monolithic missing theorem:
+
+* `WilsonSelectedOSGNSData` in
+  `lean/YMGap/Continuum/WilsonMinimalBoundedMassGapHandoff.lean:31` needs only
+  the measure-linked bundle, the Wilson observable module, the expectation
+  equality, and a selected time translation.
+* `WilsonOperatorNormGapPin` at `:75` then needs the all-vector operator-norm
+  inequality on the selected vacuum complement.
+* `WilsonMinimalBoundedMassGap` at `:94` adds the exact positive logarithmic
+  rate, sharing the same reconstruction separator.
+* If functional calculus is required, `WilsonLinearTimeTranslationPin` in
+  `lean/YMGap/Continuum/WilsonLinearTimeTranslationHandoff.lean:63` isolates
+  the additional scalar-module laws, linear transfer operator, and exact
+  operator pin.
+
+This factorization identifies the next mathematically meaningful target: an
+inhabited same-measure selected OS/GNS datum, followed by either the direct
+operator-norm gap or the explicitly stronger linear-transfer package.  It
+prevents another selected-vector estimate from being mistaken for the missing
+all-vector physical bridge.
+
 ## Next certificate boundary
 
 The next useful producer should therefore be an inhabited, same-measure
