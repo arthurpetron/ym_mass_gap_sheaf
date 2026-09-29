@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Exact shared-heat correlation obstruction (2026-09-29 UTC)
+
+- **proved:** `SU2QuaternionSharedHeatCorrelationObstruction` gives both
+  zero coordinate means, both variances 1/4 and exact covariance w^3/4
+  for the mass-one relative heat packet, all K>=1. `coefficient_lower_bound`
+  forces rho>=w^3; `testWeightCertificate` supplies a positive actual weight
+  at w=7/8 and an explicit late cutoff. `test_degree_budget_obstruction`
+  rules out the proposed D*rho<1 budget for D>=2 in this shared-factor test.
+- **scope:** not the original full-slab law, not gauge-invariant Wilson
+  tests, and not a necessary condition for physical mass generation.
+- **next/open:** retain the original one-sided factors and actual normalizer
+  in the useful signed variance-relative estimate, or use collective signed
+  geometry. Scaling, completed prediction-angle passage, block geometry,
+  thermodynamic/nontrivial-survival and same-theory OS/QFT/mass/every-group
+  Clay remain open. No new assumed-angle bundle.
+- **verification:** focused one-worker/20 GiB check, all 11 gates within
+  {propext, Quot.sound}; parallel Luna scope review. No new sorry, axiom,
+  weakened frontier or broad run. Evidence:
+  `audits/AUDIT-SHARED-HEAT-CORRELATION-OBSTRUCTION-2026-09-29.md`.
+
 ## Actual completed covariance normalization (2026-09-29 UTC)
 
 - **proved:** `BlockInverseAlgebra.approximateInverse_mul_right` and

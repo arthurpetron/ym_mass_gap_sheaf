@@ -5559,6 +5559,7 @@ import YMGap.Continuum.BF4ExactSlabTwoLinkFourCopy
 import YMGap.Continuum.BF4ExactSlabBlockInverseAlgebra
 import YMGap.Continuum.BF4ExactSlabBlockCovarianceNormalizer
 import YMGap.Continuum.BF4ExactSlabTwoLinkNormalizerPin
+import YMGap.Continuum.SU2QuaternionSharedHeatCorrelationObstruction
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

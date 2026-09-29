@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact shared-heat test excludes a factor-only budget (2026-09-29 UTC)
+
+`SU2QuaternionSharedHeatCorrelationObstruction.coordinate_covariance`
+proves covariance w^3/4 for the two centered fundamental coordinate tests
+of the complete relative heat packet; both variances are 1/4. Therefore
+`coefficient_lower_bound` forces rho>=w^3 in the symmetric correlation
+inequality. At w=7/8, `testWeightCertificate` constructs positivity at the
+explicit late cutoff, and `test_degree_budget_obstruction` rules out
+D*rho<1 for every D>=2. This is an actual correlation obstruction, not
+just a loose floor/cap bound. It is not the original full-slab law or a
+gauge-invariant Wilson test, and does not refute either of those estimates.
+
+NEXT: use the original duplicated leftOnlyHeat/rightOnlyHeat factors and
+actual inverse normalizer in a signed conditional-variance estimate, or
+prove collective signed control without the excluded scalar budget. Do not
+replace the one-sided factors by arbitrary positive weights and expect a
+universal small coefficient from the shared heat alone. The four-copy and
+normalization identities remain valid. A justified scaling family, useful
+completed estimate, block geometry, thermodynamic/nontrivial-survival and
+same-theory OS/QFT/physical mass/every-group Clay remain open. No fixed
+dimensionless gap has been imposed as a necessary physical condition.
+
+One focused serialized 20 GiB check passed all 11 gates within
+{propext, Quot.sound}; parallel Luna reviewed the scope. No new sorry,
+axiom, assumed analytic bundle, canonical chart change or broad run.
+Evidence: `audits/AUDIT-SHARED-HEAT-CORRELATION-OBSTRUCTION-2026-09-29.md`.
+
 ### Actual completed covariance normalization proved (2026-09-29 UTC)
 
 `BlockCovarianceNormalizer.covariance_normalizer_projection` proves

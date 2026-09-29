@@ -4,7 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual completed covariance normalization (2026-09-29 UTC)
+## Current increment: exact shared-heat budget obstruction (2026-09-29 UTC)
+
+The actual pure relative-heat correlation is w^3, so any universal
+shared-factor-only coefficient pays at least w^3. At the constructed
+positive late-cutoff test w=7/8, D*rho<1 is impossible for D>=2. This rules
+out that sufficient-bound shortcut, not an original-slab estimate or YM.
+Retain the actual one-sided action factors and inverse normalizer, or
+exploit collective signed geometry. The useful scaling-family bound and
+same-theory continuum/Clay target remain open. All 11 gates passed the
+focused capped check; Luna reviewed scope. Canonical chart unchanged.
+Evidence: `audits/AUDIT-SHARED-HEAT-CORRELATION-OBSTRUCTION-2026-09-29.md`.
+
+## Earlier increment: actual completed covariance normalization (2026-09-29 UTC)
 
 The original signed numerator now pairs through the ACTUAL constructed
 inverse normalizer to give `<p,q>_full-<C p,C q>_full`, with C the existing

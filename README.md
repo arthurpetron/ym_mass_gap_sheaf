@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Sharper route test (2026-09-29):** the isolated SU(2) shared heat has exact
+fundamental correlation w^3. A checked positive-weight example rules out
+obtaining the proposed small neighbor coefficient from that factor alone.
+This is not a counterexample for the full slab or Yang--Mills: its actual
+one-sided weights and collective signed structure still matter. See the
+[exact correlation and scope audit](audits/AUDIT-SHARED-HEAT-CORRELATION-OBSTRUCTION-2026-09-29.md).
+
 **Actual covariance normalization proved (2026-09-29):** the signed numerator,
 divided by the constructed interacting normalizer, now equals the original
 completed common-block covariance. The proof uses explicit polynomial inverse

@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting route test (2026-09-29 UTC; chart unchanged):
+The actual isolated shared heat has fundamental correlation w^3. A positive
+late-cutoff test at w=7/8 rules out the proposed D*rho<1 shared-factor-only
+budget for D>=2. This is not a full-slab or YM counterexample. Next estimates
+must retain the actual one-sided weights or use collective signed geometry.
+The useful original scaling-family estimate and A03 remain open, along with
+the full same-theory Clay target. Evidence:
+`audits/AUDIT-SHARED-HEAT-CORRELATION-OBSTRUCTION-2026-09-29.md`.
+
 Verified supporting covariance normalization (2026-09-29 UTC; chart unchanged):
 The signed conditional numerator now pairs through the actual constructed
 inverse normalizer to give the original completed common-block covariance.
