@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting prediction-covariance join (2026-09-29 UTC; chart unchanged):
+The actual completed mixed residual is exactly a positive defect square minus
+the common-centered prediction covariance. Constructed block-independent
+approximants identify that covariance with the limit of the actual
+inverse-normalized dense numerators. The useful signed bound on a justified
+scaling family, quantitative angle control and A03 remain open, along with
+the full same-theory Clay target. Do not drop the defect unnecessarily.
+Evidence: `audits/AUDIT-PREDICTION-COVARIANCE-JOIN-2026-09-29.md`.
+
 Verified supporting route test (2026-09-29 UTC; chart unchanged):
 The actual isolated shared heat has fundamental correlation w^3. A positive
 late-cutoff test at w=7/8 rules out the proposed D*rho<1 shared-factor-only

@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Prediction-covariance connection proved (2026-09-29):** the actual completed
+block residual pairing now equals a positive defect square minus its
+common-centered prediction covariance. Explicit block-independent
+approximants connect that covariance to the actual inverse-normalized
+numerators. The useful signed estimate remains open; this is not a new gap
+or continuum theorem. See the
+[proof and next-estimate audit](audits/AUDIT-PREDICTION-COVARIANCE-JOIN-2026-09-29.md).
+
 **Sharper route test (2026-09-29):** the isolated SU(2) shared heat has exact
 fundamental correlation w^3. A checked positive-weight example rules out
 obtaining the proposed small neighbor coefficient from that factor alone.

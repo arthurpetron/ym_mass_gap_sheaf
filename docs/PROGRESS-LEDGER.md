@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: exact shared-heat budget obstruction (2026-09-29 UTC)
+## Current increment: actual prediction-covariance join (2026-09-29 UTC)
+
+The SAME completed block residual pairing is now exactly defect-square minus
+union-centered prediction covariance. Explicit block-independent Cauchy
+approximants connect the latter to actual inverse-normalized dense
+numerators. This closes an operator/limit identity, not a quantitative bound.
+NEXT: control the signed covariance together with its defect relative to
+actual residual energy on a justified scaling family. No need to impose a
+stronger covariance-only ceiling by discarding the positive term. Block
+geometry, thermodynamic/nontrivial survival and same-theory OS/QFT/physical
+mass/every-group Clay remain open. Both focused one-worker/20 GiB checks
+passed all 16 gates within {propext, Quot.sound}; Luna reviewed scope.
+No broad run or canonical chart change. Evidence:
+`audits/AUDIT-PREDICTION-COVARIANCE-JOIN-2026-09-29.md`.
+
+## Earlier increment: exact shared-heat budget obstruction (2026-09-29 UTC)
 
 The actual pure relative-heat correlation is w^3, so any universal
 shared-factor-only coefficient pays at least w^3. At the constructed

@@ -25,6 +25,36 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original completed prediction-covariance join proved (2026-09-29 UTC)
+
+`BlockPredictionCovariance.residual_pair_decomposition` proves, for the
+actual original block projections and C=P_(A++B),
+`<R_A x,R_B x> = ||x-P_A x-P_B x+C x||^2 - (<P_A x,P_B x>-||C x||^2)`.
+The subtracted term is exactly the union-centered prediction covariance.
+`predictionRep_independent` supplies block-independent polynomial approximants
+to every supplied completed prediction, with the existing explicit modulus.
+`inverseCovarianceSequence_converges` and `prediction_covariance_limit` show
+that the actual inverse-normalized dense numerators converge to that SAME
+covariance. No arbitrary completed multiplication or representative choice.
+
+NEXT: prove a useful signed estimate relative to actual residual energy on
+a justified scaling family, retaining all one-sided weights and the positive
+defect where useful. A small upper bound on covariance alone is sufficient,
+not necessary; do not discard cancellation just to reuse a scalar budget.
+For two-link four-copy tests, swap predictions to satisfy the opposite-block
+independence convention. The general block theorem does not extend that
+determinant factorization to arbitrary overlapping blocks. The Ward factor-25
+bound also cannot accept global tests without a new locality/cost proof.
+
+This closes the exact completed prediction/normalization join, NOT its
+quantitative angle bound, block geometry, physical scaling/nontrivial survival,
+thermodynamic or same-theory OS/QFT/mass/every-group Clay obligations. Two
+focused serialized one-worker/20 GiB checks passed all 16 gates within
+{propext, Quot.sound}; Luna reviewed scope. No new sorry, axiom, analytic
+bundle, broad run or canonical chart change. Evidence:
+`audits/AUDIT-PREDICTION-COVARIANCE-JOIN-2026-09-29.md`.
+Earlier exact-prediction-join-open statements are historical in this scope.
+
 ### Exact shared-heat test excludes a factor-only budget (2026-09-29 UTC)
 
 `SU2QuaternionSharedHeatCorrelationObstruction.coordinate_covariance`

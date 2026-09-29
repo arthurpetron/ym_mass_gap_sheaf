@@ -5498,6 +5498,7 @@ import YMGap.Continuum.ChebyshevNearOneUpper
 import YMGap.Continuum.BF4ExactSlabLocalChebyshevObstruction
 -- Original signed neighbor terms, with a proved nonnegative remote remainder.
 import YMGap.Continuum.GNSProjectionResidualPair
+import YMGap.Continuum.GNSProjectionPredictionCovariance
 import YMGap.Continuum.GNSProjectionSignedEnergy
 import YMGap.Continuum.BF4ExactSlabSignedNeighborEnergy
 -- Same-original-action two-link form comparison, not yet a residual-pair gap.
@@ -5558,6 +5559,7 @@ import YMGap.Continuum.SU2QuaternionSharedFactorDeterminant
 import YMGap.Continuum.BF4ExactSlabTwoLinkFourCopy
 import YMGap.Continuum.BF4ExactSlabBlockInverseAlgebra
 import YMGap.Continuum.BF4ExactSlabBlockCovarianceNormalizer
+import YMGap.Continuum.BF4ExactSlabBlockPredictionCovariance
 import YMGap.Continuum.BF4ExactSlabTwoLinkNormalizerPin
 import YMGap.Continuum.SU2QuaternionSharedHeatCorrelationObstruction
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.

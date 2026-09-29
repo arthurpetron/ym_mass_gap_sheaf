@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Original completed prediction-covariance join (2026-09-29 UTC)
+
+- **proved:** `GNSProjectionPredictionCovariance` gives the exact mixed
+  residual as defect square minus common-centered prediction covariance.
+  `BlockPredictionCovariance.residual_pair_decomposition` instantiates it
+  on EVERY original completed state, for finite physical blocks, all strict
+  rational nomes and late cutoff. No commutativity assumption on the pair.
+- **actual limit:** block-independent `predictionRep` approximants carry
+  their explicit modulus; `inverseCovarianceSequence_converges` and
+  `prediction_covariance_limit` identify actual inverse-normalized numerator
+  limits with precisely that prediction covariance. No completed multiplier
+  or quotient representative is postulated.
+- **open:** useful signed covariance/defect estimate relative to original
+  residual energy on justified scaling, quantitative angle control, block
+  geometry, thermodynamic/nontrivial-survival and same-theory OS/QFT/physical
+  mass/every-group Clay. This is conditional dynamics, not an OS transfer.
+- **verification:** two focused serialized one-worker/20 GiB targets, all
+  16 gates within {propext, Quot.sound}; independent Luna review. No new
+  sorry, axiom, assumed analytic bundle, weakened field or broad run.
+  Evidence: `audits/AUDIT-PREDICTION-COVARIANCE-JOIN-2026-09-29.md`.
+
 ## Exact shared-heat correlation obstruction (2026-09-29 UTC)
 
 - **proved:** `SU2QuaternionSharedHeatCorrelationObstruction` gives both
