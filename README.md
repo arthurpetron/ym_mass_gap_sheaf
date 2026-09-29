@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-## Current proof boundary (2026-09-27 UTC)
+## Current proof boundary (2026-09-29 UTC)
 
 The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
 wording, layout, proof-status meanings and permanent node IDs across updates.
@@ -10,13 +10,22 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Actual covariance normalization proved (2026-09-29):** the signed numerator,
+divided by the constructed interacting normalizer, now equals the original
+completed common-block covariance. The proof uses explicit polynomial inverse
+approximants and their existing Cauchy limits. No worst-case floor replaces
+the normalizer. A useful signed estimate on a justified scaling family and
+the inter-block prediction-space bound remain open. This is ordinary
+full-action L2, not an OS transfer or physical mass-gap theorem. See the
+[normalization proof and scope audit](audits/AUDIT-ORIGINAL-COVARIANCE-NORMALIZATION-2026-09-29.md).
+
 **Signed covariance identity proved (2026-09-27):** the exact four-copy
 conditional covariance identity retains shared exterior variables and all
 one-block action factors while exposing cancellation in the shared
 interaction. The original two-link slab action supplies all four face-factor
 classes. Focused Lean checks and independent review passed. A useful
-variance-relative bound and the normalized completed-operator join remain
-open; this is not a new spectral-gap or continuum theorem. See the
+variance-relative bound remains open; the common-block normalization join is
+now proved above. This is not a new spectral-gap or continuum theorem. See the
 [identity and normalization audit](audits/AUDIT-SIGNED-FOUR-COPY-COVARIANCE-2026-09-27.md).
 
 **Shared-factor comparison and route limit (2026-09-27):** a checked signed

@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting covariance normalization (2026-09-29 UTC; chart unchanged):
+The signed conditional numerator now pairs through the actual constructed
+inverse normalizer to give the original completed common-block covariance.
+Explicit finite inverse algebra supplies the limit identity; no floor or
+arbitrary completed multiplier is substituted. The useful signed estimate,
+inter-block prediction-space bound and justified scaling remain open, along
+with A03 and the full same-theory Clay requirements. Evidence:
+`audits/AUDIT-ORIGINAL-COVARIANCE-NORMALIZATION-2026-09-29.md`.
+Earlier normalization-open statements below are historical in this scope.
+
 Verified supporting signed four-copy identity (2026-09-27 UTC; chart unchanged):
 The conditional covariance numerator now has an exact signed determinant
 representation with shared exterior variables and a once-only exterior

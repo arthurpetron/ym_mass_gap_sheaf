@@ -25,6 +25,34 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual completed covariance normalization proved (2026-09-29 UTC)
+
+`BlockCovarianceNormalizer.covariance_normalizer_projection` proves
+`<I(N),1>_E = <p,q>_full - <C p,C q>_full`, where
+`N=D*P(p*q*W)-P(p*W)*P(q*W)`, D=P(W), and I is the actual constructed
+inverse of D on the detached background E. C is the existing original block
+conditional projection. The left side represents E*N/D, not E*N and not a
+floor-normalized replacement. Finite inverse approximants commute with a
+fixed polynomial factor; equality of their explicit pairing limits proves
+the identity without an arbitrary completed multiplication operator.
+
+`TwoLinkNormalizerPin` also identifies the literal detached and collar face
+lists with the four-copy decomposition. `interaction_covariance_normalizer_pair`
+therefore uses its actual shared-face numerator, not a similarly named
+surrogate. Three focused serialized one-worker/20 GiB checks passed all 27
+printed gates within {propext, Quot.sound}; no new sorry, axiom or broad run.
+
+NEXT: retain this exact normalizer while bounding the signed determinant
+relative to the SAME interacting variances on a justified scaling family.
+The four-copy identity's opposite-coordinate independence hypotheses still
+need to hold for the chosen tests. A common-block covariance is not already
+an inter-block residual-angle estimate. The completed prediction-space join,
+useful all-polynomial bound, block geometry, scaling/nontrivial survival,
+thermodynamic and same-theory OS/QFT/mass/every-group Clay remain open.
+No canonical chart claim changes. Evidence:
+`audits/AUDIT-ORIGINAL-COVARIANCE-NORMALIZATION-2026-09-29.md`.
+Earlier normalization-open entries are historical in the scope just proved.
+
 ### Signed four-copy covariance identity proved (2026-09-27 UTC)
 
 `SU2QuaternionFourCopyCovariance.four_copy_identity` proves the factor-four

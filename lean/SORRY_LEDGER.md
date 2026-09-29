@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## Actual completed covariance normalization (2026-09-29 UTC)
+
+- **proved:** `BlockInverseAlgebra.approximateInverse_mul_right` and
+  `approximateInverse_sub` concern the actual finite inverse iterates.
+  `BlockCovarianceNormalizer.inverseState_product_pair` and `inverseState_sub`
+  pass these identities to the existing completion with its explicit moduli.
+- **original completed join:** `covariance_normalizer_pair` and
+  `covariance_normalizer_projection` identify the actual inverse-normalized
+  numerator with `<p,q>_full-<C p,C q>_full`. No floor replacement, squared
+  exterior weight or arbitrary completed multiplication is used.
+- **shared-face instance:** `TwoLinkNormalizerPin.detached_eq_neither`,
+  `collarHeat_pin`, `normalizer_pin` and `covarianceVector_interaction_pin`
+  identify the literal four-copy decomposition with the original block
+  machinery. `interaction_covariance_normalizer_pair` proves the joined
+  completed identity on that actual signed numerator.
+- **open residue:** useful signed estimates relative to the same interacting
+  variances, the completed inter-block prediction/angle join, block geometry
+  and justified physical scaling/nontrivial survival. The common-block
+  covariance identity alone supplies no neighboring residual bound.
+  Thermodynamic and same-theory OS/QFT/mass/every-group Clay remain open.
+- **evidence:** `audits/AUDIT-ORIGINAL-COVARIANCE-NORMALIZATION-2026-09-29.md`.
+  No new sorry, axiom, analytic assumption bundle or weakened frontier.
+  Three focused serialized one-worker/20 GiB checks passed all 27 printed
+  gates within {propext, Quot.sound}; no broad build/audit/guard or CI run.
+
 ## Signed four-copy conditional covariance (2026-09-27 UTC)
 
 - **proved:** `SU2QuaternionFamilyCovarianceReplica.mixed_identity` and

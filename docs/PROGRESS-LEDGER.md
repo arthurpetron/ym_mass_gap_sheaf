@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: signed four-copy conditional covariance (2026-09-27 UTC)
+## Current increment: actual completed covariance normalization (2026-09-29 UTC)
+
+The original signed numerator now pairs through the ACTUAL constructed
+inverse normalizer to give `<p,q>_full-<C p,C q>_full`, with C the existing
+block conditional projection. Termwise polynomial identities and explicit
+Cauchy pairings supply the proof. No completed multiplication or inverse is
+postulated; no coarse floor replaces the denominator. This closes the dense
+common-block normalization identity, not the inter-block prediction-angle
+estimate. Literal face-list pins identify the shared-face numerator with this
+same constructed background/inverse. All 27 gates passed three focused
+serialized one-worker/20 GiB checks. The useful signed bound on a justified scaling family, actual
+block geometry, thermodynamic control and same-theory OS/QFT/nontriviality/
+physical mass/every-group Clay remain open. Canonical chart unchanged.
+Evidence: `audits/AUDIT-ORIGINAL-COVARIANCE-NORMALIZATION-2026-09-29.md`.
+
+## Earlier increment: signed four-copy conditional covariance (2026-09-27 UTC)
 
 The missing exact determinant identity is proved, including its factor four,
 shared exterior variables and once-only exterior insertion. One-block action
