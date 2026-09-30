@@ -4,7 +4,33 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL real-continuity sector and represented real-linear graph (2026-09-30 UTC)
+## Current increment: ORIGINAL dense sector derivative and intrinsic adjoint (2026-09-30 UTC)
+
+`BF4WilsonAllNomeTimeSector.limitCertificate` computes a limit of any
+supplied sector-state Cauchy sequence with explicit modulus, without asking
+for separate row representatives. Stored range witnesses supply those;
+the existing diagonal's e/16 convergence loss is retained. Equality is of
+underlying vectors, not of the witness-bearing structures.
+
+`BF4WilsonAllNomeSectorDerivative.coreDensityCertificate` returns actual
+domain approximants with BOTH coordinates in that sector. Its
+`equation_iff_adjoint` and `ofAdjoint` identify the real graph with its
+intrinsic adjoint, tested against this same actual domain. `closedLimit`
+constructs graph limits from the two supplied sector Cauchy sequences.
+The original domain inclusion pins input and action; addition, real scaling,
+positivity, the fixed-parameter form margin and original-real-time Taylor
+certificate are retained. The old quotient Domain is unchanged.
+
+This closes the intrinsic REAL presented-sector density/adjoint join,
+not the full complex/physical OS Hilbert or physical Hamiltonian join.
+Two final focused serialized checks passed 37 gates in
+{propext, Quot.sound}; no broad run or canonical chart change. Primary
+signed scaling control, physical calibration, continuum survival and Clay
+remain OPEN. Do not add another equivalent pairing criterion; the next
+reconstruction join requires actual physical OS/observable identification.
+Evidence: `audits/AUDIT-ORIGINAL-SECTOR-ADJOINT-2026-09-30.md`.
+
+## Earlier increment: ORIGINAL real-continuity sector and represented real-linear graph (2026-09-30 UTC)
 
 `BF4WilsonAllNomeTimeRangeRealContinuity.real_smallTime` uses half the
 computed dyadic threshold to control every sufficiently small positive real

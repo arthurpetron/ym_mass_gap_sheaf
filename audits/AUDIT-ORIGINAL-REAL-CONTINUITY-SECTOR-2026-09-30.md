@@ -59,14 +59,16 @@ The represented sector is now closed, real-linear, invariant under positive
 time, and continuous at zero for the actual positive-real-time action.
 The existing positive semigroup laws, original integer-time pin, graph
 Taylor differentiation and scoped weak-adjoint criterion retain their
-original objects and hypotheses. These are prerequisites for an intrinsic
-sector/domain adjoint interpretation, not that full package itself.
+original objects and hypotheses. This checkpoint supplies prerequisites
+for the subsequent intrinsic real presented-sector adjoint construction,
+now checked in `audits/AUDIT-ORIGINAL-SECTOR-ADJOINT-2026-09-30.md`.
+The full physical/complex Hilbert identification is not supplied.
 
 In particular, `DerivativeGraphRealLinear.representedRealScale` operates on
 represented graphs. It does NOT redefine the old quotient `Domain`, select
 representatives from arbitrary quotient-valued source sequences, or silently
-equip that whole quotient with a new scalar operation. Future domain
-packaging must preserve these source witnesses and the original equality.
+equip that whole quotient with a new scalar operation. The follow-on
+preserves the source witnesses and original equality in a presented sector.
 
 Identifying this mathematical sector with the physical OS Hilbert space
 remains OPEN. So do physical-time/mass calibration, spatial/scaling control,

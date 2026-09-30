@@ -5852,6 +5852,9 @@ import YMGap.Continuum.BF4WilsonAllNomeTimeRangeRealContinuity
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRangeClosure
 import YMGap.Continuum.BF4WilsonAllNomeTimeRangeLinear
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphRealLinear
+-- Witnessed-sector completeness, dense derivative domain and intrinsic real adjoint.
+import YMGap.Continuum.BF4WilsonAllNomeTimeSector
+import YMGap.Continuum.BF4WilsonAllNomeSectorDerivative
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

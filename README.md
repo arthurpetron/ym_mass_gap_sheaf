@@ -67,9 +67,13 @@ constructs exactly this sector, with continuity at all small dyadic times.
 The same sector now has explicit real-linear operations and positive-time
 invariance, with a computed continuity radius for EVERY small positive real
 time. Real scaling also returns represented derivative graphs on this carrier.
-Time is still in original lattice units; self-adjointness,
-equality with the existing log series, physical calibration, scaling
-survival and Clay remain open.
+The presented sector now has a computed complete limit operation and a dense
+real derivative domain whose graph equals its intrinsic adjoint, with explicit
+source data and the original-time Taylor certificate. This is not a physical
+or complex Hilbert-space identification. Time is still in lattice units;
+physical Hamiltonian reconstruction, equality with the existing log series,
+calibration, scaling survival and Clay remain open.
+See the [intrinsic sector proof and scope](audits/AUDIT-ORIGINAL-SECTOR-ADJOINT-2026-09-30.md).
 See the
 [construction and exact boundary](audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md).
 

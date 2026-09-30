@@ -290,14 +290,26 @@ serialized checks passed 23 gates in {propext, Quot.sound}; no canonical
 field changed. Evidence:
 `audits/AUDIT-ORIGINAL-REAL-CONTINUITY-SECTOR-2026-09-30.md`.
 
-NEXT reconstruction residue: intrinsic sector/domain adjoint interpretation,
-not another weak-pairing criterion or an unjustified total bounded Hamiltonian.
-Represented completeness, real-linear sector operations, positive-time
-invariance and real-zero-continuity characterization are supplied. Graph
-real scaling retains supplied source representatives; do NOT silently select
-such data from the old quotient Domain or redefine that domain's scope.
-Identifying this mathematical sector with the physical OS sector is a separate
-OPEN join. The represented adjoint criterion remains scoped accordingly.
+FOLLOW-ON PROVED: `BF4WilsonAllNomeTimeSector.limitCertificate` constructs
+limits from arbitrary supplied Cauchy sequences of witness-bearing sector
+states, with the original e/16 diagonal rate. `stateSetoid` compares only
+underlying vectors; there is no representative selection from a quotient.
+`BF4WilsonAllNomeSectorDerivative.coreDensityCertificate` returns actual
+domain approximants with BOTH sector coordinates and a computed modulus.
+`equation_iff_adjoint` and `ofAdjoint` prove equality of this real domain
+graph with its intrinsic adjoint. `closedLimit` gives witnessed graph
+closedness; the exact old-domain inclusion, real-linear operations,
+original-real-time Taylor certificate and fixed-nome/width margin remain.
+Two final focused serialized checks passed 37 gates within
+{propext, Quot.sound}; no canonical field changed. Evidence:
+`audits/AUDIT-ORIGINAL-SECTOR-ADJOINT-2026-09-30.md`.
+
+NEXT reconstruction residue: the SAME-object physical OS/observable
+identification and compatible complex Hilbert structure, not another
+equivalent pairing criterion or an unjustified total Hamiltonian.
+The intrinsic REAL presented-sector adjoint join is supplied. Do NOT
+silently select source data from the old quotient Domain or redefine its
+scope. Full physical Hilbert/Hamiltonian identification remains OPEN.
 The equation A u=T v alone remains insufficient on the full ambient carrier
 with its actual boundary kernel.
 

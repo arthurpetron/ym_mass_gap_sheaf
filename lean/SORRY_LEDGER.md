@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL dense sector derivative and intrinsic real adjoint (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeTimeSector.State` retains each original vector's
+  `RangeLimit`. `stateSetoid` compares only underlying vectors.
+  `representedRows`, `limit`, `limitRate`, `limit_bound`, `limit_unique`
+  and `limitCertificate` construct sector completeness from the supplied
+  state-sequence modulus, retaining the original diagonal's e/16 loss.
+- `BF4WilsonAllNomeSectorDerivative.corePoint` inhabits BOTH coordinates
+  of the represented core in this sector. `coreDensityCertificate` returns
+  actual domain points and an explicit all-tail density modulus.
+- `domain_adjoint`, `adjoint_equation`, `ofAdjoint` and
+  `equation_iff_adjoint` prove equality to the intrinsic real adjoint.
+  The test domain is inhabited by every represented original core point.
+  No resolvent or whole-carrier domain is assumed.
+- `closedLimit` constructs simultaneous graph limits in this sector;
+  `sourceRepresentative_pin`, `originalDomain_eq_iff`, input/action pins,
+  real-linear operations, `realTaylorCertificate`, `domain_nonnegative`
+  and `domain_form_gap` preserve the original objects and fixed-parameter
+  scope. The old quotient Domain is not changed or supplied with a choice
+  of representatives. No equation-only claim on the full carrier is made.
+- OPEN: full complex/physical OS Hilbert identification, physical
+  Hamiltonian/time/mass calibration, primary signed scaling estimate,
+  nontrivial continuum survival, full QFT/every-group/Clay fields.
+- Two final focused serialized checks passed 37 printed gates within
+  {propext, Quot.sound}. No new sorry/axiom, weakening or broad run.
+  Evidence: `audits/AUDIT-ORIGINAL-SECTOR-ADJOINT-2026-09-30.md`.
+
 ## PROVED ORIGINAL real-continuity sector and represented real-linear graph (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeTimeRangeRealContinuity.realRadius` computes half the

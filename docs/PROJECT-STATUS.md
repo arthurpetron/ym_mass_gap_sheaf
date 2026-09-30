@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL intrinsic sector adjoint (2026-09-30 UTC;
+chart unchanged): witness-bearing sector sequences now have computed
+limits without separate representative inputs. The actual real derivative
+domain is dense there, with both coordinates witnessed; it is closed under
+supplied graph limits and equals its intrinsic adjoint under the original
+pairing. Exact inclusion into the old domain, real-linear operations,
+positive fixed-parameter form margin and original-real-time Taylor
+certificate are retained. This is a REAL presented/setoid-sector result,
+not full complex Hilbert/physical OS identification or calibration.
+Two final focused serialized checks passed 37 gates within
+{propext, Quot.sound}; no broad run. Signed scaling, nontrivial survival,
+full QFT/every-group/Clay remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-SECTOR-ADJOINT-2026-09-30.md`.
+
 Verified supporting ORIGINAL real-continuity sector (2026-09-30 UTC; chart
 unchanged): the witnessed range now has an explicit radius for EVERY small
 positive real time, and supplied real-zero-continuity data construct range

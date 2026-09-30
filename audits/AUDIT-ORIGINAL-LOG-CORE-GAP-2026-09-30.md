@@ -736,8 +736,10 @@ now supplied above. The further checked real-continuity characterization,
 positive-time invariance, real-linear sector operations and represented
 graph scaling are recorded in
 `audits/AUDIT-ORIGINAL-REAL-CONTINUITY-SECTOR-2026-09-30.md`.
-The reconstruction residue is the intrinsic Hilbert-sector/domain package
-and its sector-adjoint interpretation, preserving explicit source data.
+The follow-on intrinsic REAL presented-sector density, completeness and
+graph-adjoint equality are now checked in
+`audits/AUDIT-ORIGINAL-SECTOR-ADJOINT-2026-09-30.md`, preserving explicit
+source data. Physical OS and full complex Hilbert identification remain open.
 `RangeLimit` at
 `lean/YMGap/Continuum/BF4WilsonAllNomeTimeRangeClosure.lean:66` explicitly
 supplies core approximation within that sector, not whole-carrier density.
