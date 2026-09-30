@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL dyadic-sequence derivative and form gap (2026-09-30 UTC)
+## Current increment: ORIGINAL all-small-real-time Taylor derivative (2026-09-30 UTC)
+
+`BF4WilsonAllNomeRealDerivative.realTaylorCertificate` now supplies a
+positive radius for ||Tx-S(t)Tx-t*A x||^2<=epsilon*t^2 at EVERY supplied
+positive real time below that radius. Its finite precursor is an exact
+time-average identity; contraction and continuity of A x control the error.
+Refinement removes mesh-depth restrictions. Actual difference/scalar Cauchy
+rows then pin the limit to the existing original S(t) and real scalar action.
+No full-space C0, inverse, log-series identification or surrogate carrier.
+
+Consumer: the closed generator construction for the SAME semigroup on a
+justified positive-time sector. Its closed domain and self-adjointness remain
+OPEN, as do physical calibration, scaling survival and the Clay target.
+Four final serialized focused checks passed 58 gates within
+{propext, Quot.sound}; no broad run. Canonical chart claims are unchanged.
+Evidence: `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
+## Earlier increment: ORIGINAL dyadic-sequence derivative and form gap (2026-09-30 UTC)
 
 The higher mixed-moment telescope is now proved on the original carrier.
 It makes Q_k x=2^k*(I-R_k)*T x Cauchy, with squared refinement error
@@ -21,7 +38,7 @@ equal A-outputs. A is symmetric, rational-linear and bounded by the preimage
 norm: ||A x||^2<=||x||^2. Five serialized focused checks passed 64 printed
 gates with exactly {propext, Quot.sound}; no full root/tree build or audit.
 
-OPEN: agreement along every small dyadic/real increment, the appropriate
+The all-small-time agreement is now supplied above. OPEN: the appropriate
 closed generator domain and self-adjointness, log-series identification,
 physical calibration and scaling survival. A is parameterized by preimage x;
 this is not a bounded physical Hamiltonian on the entire original carrier.

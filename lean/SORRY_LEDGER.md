@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL all-small-real-time Taylor derivative (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeTimeAverages.timeAverage_defect` gives the actual finite
+  telescope, with no length penalty in `timeAverage_contraction`.
+- `BF4WilsonAllNomeMeshDerivative.mesh_taylor_bound` and
+  `meshTaylorCertificate` supply an explicit radius for every small dyadic
+  mesh, including coarse presentations and zero. Only continuity of the
+  already constructed derivative output is used, not whole-carrier C0.
+- `BF4WilsonAllNomeRowLinear.rowLimit_difference` and `scalarRows_limit`
+  identify represented limits with the existing original difference and
+  completed-real scalar operations; inner and outer moduli remain data.
+- `BF4WilsonAllNomeRealDerivative.real_taylor_bound` proves
+  ||Tx-S(t)Tx-t*A x||^2<=epsilon*t^2 for EVERY supplied positive real time
+  below a computed positive radius, returned by `realTaylorCertificate`.
+  `realRemainder_time_congr` retains time-presentation independence.
+- OPEN: the actual closed generator domain/self-adjointness on a justified
+  positive-time sector, equality to the existing log-series graph, physical
+  calibration, spatial/scaling control and all Clay fields. The original
+  boundary kernel is not removed; lattice time is not physical calibration.
+- Four final serialized focused checks passed 58 gates within
+  {propext, Quot.sound}. No new sorry/axiom, frontier weakening or broad run.
+  Exact targets and hashes: `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED ORIGINAL dyadic-sequence derivative and core form floor (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeDyadicDefectDecay.moment_nonnegative`, `moment_split`
@@ -21,7 +44,7 @@
   `derivativeAction_symmetric`, `derivativeAction_add` and
   `derivativeAction_smul` prove symmetry, rational linearity and contraction
   in the PREIMAGE norm, not a bounded Hamiltonian on time images T x.
-- OPEN: convergence along EVERY small dyadic and real time, appropriate
+- The EVERY-small-time Taylor extension is now supplied above. OPEN: appropriate
   closed generator domain/self-adjointness, equality to the existing series
   graph, physical calibration, spatial/scaling control and all Clay fields.
   This sequence derivative is not a whole-carrier Hamiltonian. No kernel

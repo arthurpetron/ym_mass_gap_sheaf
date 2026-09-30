@@ -5809,6 +5809,11 @@ import YMGap.Continuum.BF4WilsonAllNomeDyadicDerivative
 import YMGap.Continuum.BF4WilsonAllNomeDyadicDerivativeGap
 import YMGap.Continuum.BF4WilsonAllNomeDyadicDerivativeContinuity
 import YMGap.Continuum.BF4WilsonAllNomeDyadicDerivativeLaws
+-- All-small-time Taylor derivative of the SAME original T(1) range.
+import YMGap.Continuum.BF4WilsonAllNomeTimeAverages
+import YMGap.Continuum.BF4WilsonAllNomeMeshDerivative
+import YMGap.Continuum.BF4WilsonAllNomeRowLinear
+import YMGap.Continuum.BF4WilsonAllNomeRealDerivative
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

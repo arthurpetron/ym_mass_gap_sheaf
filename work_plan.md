@@ -144,8 +144,8 @@ proves Q_(k+1)x-Q_k x=2^k*(I-R_(k+1))^2*T x for the actual
 Q_k x=2^k*(I-R_k)*T x. `quotient_step_bound` bounds its squared norm by
 4^(-k)*||x||^2. `derivativeCertificate` constructs A x=lim Q_k x with
 original output representatives and an explicit convergence modulus.
-This is a difference-quotient limit along times 2^(-k), not yet along
-every small dyadic or real time. No log-series identification is assumed.
+This initial result is a difference-quotient limit along times 2^(-k);
+the all-small-time extension is supplied below. No log-series identification is assumed.
 `BF4WilsonAllNomeDyadicDerivativeGap.derivative_core_gap` proves
 B(Tx,A x)>=(1-q)/2*||Tx||^2 for vacuum-orthogonal Tx. Positive refinement
 forms pass the original defect floor to the actual quotient limit with no
@@ -161,17 +161,31 @@ the PREIMAGE norm, not a bounded Hamiltonian on inputs T x. Five focused
 serialized checks passed all 64 printed gates with exactly
 {propext, Quot.sound}; no full root/tree build, audit/guard or canonical change.
 
-NEXT reconstruction step: pass from this root sequence to EVERY small
-dyadic increment using finite time averages, then to the already constructed
-positive real-time action. Do not import the legacy mesh proof's full-space
-zero-continuity premise: the original carrier has a nonzero boundary kernel.
-Use the now-proved continuity of the constructed derivative output, with its
-explicit positive-time preimages, to construct a uniform-in-mesh Taylor
-remainder modulus.
-The appropriate derivative/domain and self-adjointness joins remain OPEN,
-as do equality with the existing regularizedLog/graph, physical calibration
-and scaling. No canonical field is weakened. The primary scaling-survival
-frontier is unchanged.
+FOLLOW-ON PROVED: `BF4WilsonAllNomeTimeAverages.timeAverage_defect`
+telescopes the actual multi-step quotient to a finite time average.
+Average contraction and continuity of A x alone bound the quotient error;
+mesh refinement removes the depth threshold. The result
+`BF4WilsonAllNomeMeshDerivative.mesh_taylor_bound` controls EVERY small
+dyadic increment, including coarse presentations and zero. No full-space
+zero-continuity premise is imported; the boundary kernel remains.
+`BF4WilsonAllNomeRowLinear` constructs actual difference and scalar rows
+with moduli and pins their limits to the existing completion operations.
+`BF4WilsonAllNomeRealDerivative.real_taylor_bound` then proves
+||Tx-S(t)Tx-t*A x||^2<=epsilon*t^2 for EVERY supplied positive real time
+below the computed radius. `realTaylorCertificate` returns that positive
+radius; `realRemainder_time_congr` proves independence of time presentation.
+The real-time derivative of the original T(1) range is now supplied, in
+original lattice-time units, without log-series identification or inverses.
+Four final focused capped checks passed 58 gates within {propext, Quot.sound};
+no full root/tree build, audit/guard or canonical chart change.
+
+NEXT reconstruction obligation: construct the closed, single-valued graph
+of the actual core pairs (T x,A x), on a justified positive-time sector,
+then address its generator domain and self-adjointness. The existing series
+graph concerns F=regularizedLog, not A; equality remains OPEN and is not an
+implicit identification. No full-carrier density or injectivity is available.
+Physical calibration, spatial/scaling control and the primary scaling-survival
+frontier remain OPEN. No canonical field is weakened.
 
 Survival remains the separate primary analytic frontier below. Source review
 found no whole-family useful relative upper bound. A pure spatial coefficient-

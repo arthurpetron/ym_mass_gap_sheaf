@@ -1,14 +1,15 @@
 # Canonical one-page project status
 
-Verified supporting ORIGINAL dyadic-sequence derivative (2026-09-30 UTC;
+Verified supporting ORIGINAL real-time range derivative (2026-09-30 UTC;
 chart unchanged): higher mixed-moment smoothing makes the actual quotients
 Q_k x=2^k*(I-R_k)*T x converge with explicit original output streams/moduli.
 Positive refinement forms retain B(Tx,A x)>=(1-q)/2*||Tx||^2 on original
-vacuum-orthogonal time images. This concerns the limit along times 2^(-k),
-not yet differentiation along every small time. No log-series identity or
-legacy operator is assumed. A is symmetric, rational-linear and bounded
-in its PREIMAGE norm; its output has a computed small-dyadic-time continuity
-modulus without whole-carrier continuity. Full derivative/domain, self-adjointness,
+vacuum-orthogonal time images. Finite time averages and represented limits
+now prove ||Tx-S(t)Tx-t*A x||^2<=epsilon*t^2 at EVERY small positive real
+increment, with a computed positive radius. No log-series identity or legacy
+operator is assumed. A is symmetric, rational-linear and bounded in its
+PREIMAGE norm. No whole-carrier continuity or kernel deletion is used.
+The actual closed generator domain, self-adjointness,
 physical calibration, scaling survival and all canonical Clay fields remain
 OPEN. Evidence: `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
 

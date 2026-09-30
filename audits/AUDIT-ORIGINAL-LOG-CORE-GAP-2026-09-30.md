@@ -421,8 +421,8 @@ The geometric tail is summable in norm. The checked tail bound is
 4*4^(-start)*||x||^2; the pair bound for m,n>=start is
 16*4^(-start)*||x||^2. Original representatives and a computed modulus
 construct A x=lim_k Q_k x. No original log-series identity is needed.
-This proves the difference-quotient limit along times 2^(-k), not yet
-along every small dyadic or real increment.
+This intermediate result proves the difference-quotient limit along times
+2^(-k). The all-small-time extension is supplied by the follow-on below.
 
 | Declaration | Source | Exact claim |
 | --- | --- | --- |
@@ -441,14 +441,63 @@ need neither converge nor have a uniform norm ceiling: the continuity
 modulus uses one explicitly computed row. The form margin retains the
 original nome/width dependence; it is not a physical mass gap.
 
+## Every small dyadic and positive real increment (PROVED)
+
+The finite average of the actual original root defects telescopes exactly:
+
+    ((I-R_k^(n+1))*T x)/((n+1)*2^(-k))
+      = average_(j=0,...,n) R_k^j Q_k x.
+
+Normalized averages preserve a common squared-norm bound, with no factor
+depending on their length. Thus quotient convergence controls the average
+of Q_k x-A x. The already constructed continuity modulus of A x controls
+the remaining average of R_k^j A x-A x. Refinement preserves the actual
+time and remainder, removing the threshold on k. This proves, including
+zero and coarse mesh presentations,
+
+    ||T x-S(t)T x-t*A x||^2 <= epsilon*t^2.
+
+For dyadic time the positive radius is
+`value <derivativeContinuityModulus X (quarter epsilon),1>`.
+It depends on the supplied original representative, tolerance, nome and
+width. No whole-carrier continuity assumption or uniform coupling/volume
+radius is asserted.
+
+Original difference rows and scalar-approximation rows now retain their
+inner/outer moduli and have limits equal to the existing completed
+operations. The actual dyadic remainders therefore have a represented
+limit equal to the SAME positive-real-time remainder. The radius for real
+time is half the dyadic radius; this leaves room for the supplied upper
+dyadic time approximations. Pairing convergence and eventual order pass
+the bound to the limit, retaining epsilon*t^2, not replacing it by a
+constant error. No inverse of time or transfer is constructed or selected.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `average_norm_bound`, `timeAverage_contraction`, `timeAverage_defect` | `lean/YMGap/Continuum/BF4WilsonAllNomeTimeAverages.lean:226`, `:259`, `:298` | Normalized finite-average bound, contraction and exact original defect telescope. |
+| `meshQuotient_average`, `timeAverage_derivative_close`, `mesh_quotient_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeMeshDerivative.lean:62`, `:93`, `:107` | The multi-step quotient and its error are controlled on sufficiently fine meshes, using continuity only of A x. |
+| `remainder_refine`, `mesh_taylor_bound`, `meshTaylorCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeMeshDerivative.lean:172`, `:181`, `:224` | Refinement removes the depth threshold; a computed positive radius controls every small dyadic presentation. |
+| `differenceRows`, `rowLimit_difference`, `scalarRows`, `scalarRows_limit` | `lean/YMGap/Continuum/BF4WilsonAllNomeRowLinear.lean:65`, `:102`, `:151`, `:202` | Constructed original rows, explicit moduli and limit pins to the existing difference and real scalar action. |
+| `pairing_converges`, `remainderRows_pin`, `remainderRows_limit` | `lean/YMGap/Continuum/BF4WilsonAllNomeRealDerivative.lean:71`, `:117`, `:125` | Actual dyadic remainders converge to the original real-time remainder. |
+| `realRemainder_time_congr`, `real_taylor_bound`, `realTaylorCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeRealDerivative.lean:102`, `:141`, `:179` | Time-presentation independence and the Taylor bound for EVERY supplied small positive real time, with computed positive radius. |
+
+The derivative has the positive-generator sign: the derivative of S(t)T x
+at zero from the right is -A x. A is still parameterized by the preimage x;
+the core pair remains (T x,A x). Original T(1) defines the time unit.
+The earlier core form margin now concerns this actual range derivative,
+but it has not become a physical mass calibration or a self-adjoint
+Hamiltonian theorem.
+
 ## Remaining obligations and next consumer
 
-NEXT: express a multi-step dyadic difference quotient as a finite time
-average of single-step quotients, then use the now-supplied continuity of
-A x to control its Taylor remainder uniformly over small dyadic increments.
-Pass that bound to the already constructed positive real-time action.
-These all-small-increment derivative statements are OPEN, not consequences
-claimed by the root-sequence convergence theorem alone.
+NEXT: construct the closed, single-valued graph of the actual pairs
+(T x,A x) on a justified positive-time sector. The existing series graph
+is specific to F=regularizedLog; it cannot be reused as an A-graph without
+an equality theorem. Source review identifies a short closability route:
+pass finite quotient/time commutation through the existing original time
+rows; use the proved preimage norm bound, symmetry and dependence only on
+T x. This is a PLAN, not a newly checked graph declaration. Full-carrier
+density must not be assumed in the presence of the original boundary kernel.
 
 The appropriate closed generator domain, self-adjointness, density in the
 appropriate physical sector, real-time zero-continuity on the witnessed
@@ -461,8 +510,8 @@ remains the independent primary analytic problem.
 The existing `BF4ExactSlabThermodynamicDyadicSemigroup.action_one`,
 `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicSemigroup.lean:132`,
 is pinned to that OTHER carrier's two-step transfer, not this T. No bridge
-is supplied by the present result. Only carrier-free scalar lemmas are
-reused from legacy files. The nonzero original time kernel prevents
+is supplied by the present result. Only carrier-free scalar lemmas and
+numerical time data are reused from legacy files. The nonzero original time kernel prevents
 assuming strong continuity on the whole carrier merely from positive-time
 power laws; no boundary state has been removed.
 
@@ -616,7 +665,8 @@ Main constructed the original mixed-moment telescope and core-gap proof;
 Sol constructed the represented quotient limit and its output-continuity
 certificate; Luna supplied symmetry, rational linearity and the preimage
 norm bound. Main inspected and checked every new module. The all-small-time
-derivative plan above remains source-guided planning, not a proved join.
+derivative was source-guided planning at this checkpoint; the subsequent
+verification below closes that join.
 Final log SHA-256:
 
 - `/tmp/ym-wilson-dyadic-defect-decay-20260930.log`:
@@ -629,3 +679,28 @@ Final log SHA-256:
   `f37322f19eee3fe6b01236f303e9f0dfac19b468eedfe1ab0783ad41dd87db4c`
 - `/tmp/ym-wilson-dyadic-derivative-laws-20260930.log`:
   `3378eca018c120ccd11464a6bb9fe70b009608394e61eae3b625dd9ef6ff80d2`
+
+All-small-time derivative verification: four final serialized focused checks
+passed 58 printed gates (21 TimeAverages, 15 MeshDerivative, ten RowLinear,
+12 RealDerivative), all within {propext, Quot.sound}, without warnings.
+The first three needed respectively a zero-step unfolding, a match-layout
+correction and explicit representative arguments; RealDerivative passed
+its first check. The same one-worker/20 GiB ceiling and 12 GiB OS reserve
+applied. No full root/tree build, audit or guard; root imports are added but
+not root-checked. No new sorry/axiom, classical dependency, frontier
+weakening, kernel deletion or canonical chart change.
+
+Luna drafted finite averages; Sol constructed represented difference/scalar
+rows; main reviewed those, constructed the dyadic and real Taylor proofs,
+and checked every target with the safe-build skill's narrow serialized
+procedure. A separate Luna source review informed the next graph plan;
+it does not verify that future graph. Final log SHA-256:
+
+- `/tmp/ym-wilson-time-averages-20260930.log`:
+  `af8efaee570f849b64ac083f87034c7c1185bfb964d90742fae3f0df06d3503d`
+- `/tmp/ym-wilson-mesh-derivative-20260930.log`:
+  `a24991165feccd08bc5859d7bfb3fb0e8aba1c8749fda96ffbf77dcd8f3022e4`
+- `/tmp/ym-wilson-row-linear-20260930.log`:
+  `78d439c7966eb6bf6fb603a32d0fd30f31a353ad7ce62271ac656376f7aa15db`
+- `/tmp/ym-wilson-real-derivative-20260930.log`:
+  `fd446d78d346fbbb6220af1b9a0ff0aea25c510d7df2cd0d1a5e7f398e73781d`

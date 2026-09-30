@@ -31,10 +31,12 @@ T(n), with positivity, symmetry, linearity and contraction. The boundary
 kernel still rules out full-carrier continuity at zero. Higher dyadic
 smoothing now constructs the limit A x of 2^k*(I-S(2^-k))*T x with explicit
 moduli. On vacuum-orthogonal T x, its form retains the original margin
-B(Tx,A x)>=(1-q)/2*||Tx||^2. This is differentiation along a specific time
-sequence in original lattice units, not yet every real time. Full derivative/
-generator identification is next; the limit's required small-dyadic-time
-continuity now has an explicit modulus. Equality with the existing log series,
+B(Tx,A x)>=(1-q)/2*||Tx||^2. The SAME A now gives the Taylor derivative at
+EVERY small positive real increment: ||Tx-S(t)Tx-t*A x||^2<=epsilon*t^2,
+with a computed positive radius for each supplied input and epsilon.
+Finite time averages and actual represented limits prove this without
+whole-carrier continuity. Time is still in original lattice units. The closed
+generator domain, self-adjointness, equality with the existing log series,
 physical calibration, scaling survival and Clay remain open.
 See the
 [construction and exact boundary](audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md).
