@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED positive symmetric witnessed original-time graph (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeLogGraph.graph_zero_input` proves closability of the
+  actual (T x,F x) graph without a preimage norm bound. `graph_single_valued`
+  and `diagonal` give uniqueness and explicit-modulus flattening of supplied
+  graph witnesses. `Domain`, `input` and `action` construct an injectively
+  embedded domain on the SAME carrier; `fromTime` includes every T x with
+  action F x and pins the original vacuum to zero action.
+- `BF4WilsonAllNomeLogGraphLinear` constructs rational domain operations
+  and linear input/action pins, using epsilon/(1+c*c) for scalar tolerance.
+  `BF4WilsonAllNomeLogGraphForm.action_nonnegative` and `action_symmetric`
+  prove the full witnessed-domain form laws. `graphPairingModulus` retains
+  its computed cutoff as data from supplied image-norm caps.
+- Five final focused serialized one-worker/20 GiB checks passed 43 printed
+  gates within {propext, Quot.sound}; no full-root build/audit/guard. No
+  new sorry/axiom or open analytic estimate; no old sorry discharged.
+  Full-real domain closure, full-carrier density, self-adjointness,
+  scalar-log identification and physical continuous time are not claimed.
+  The original kernel remains, and the signed spatial/scaling estimate,
+  full QFT, finite physical mass and every-group Clay target remain open.
+  Chart states unchanged. Evidence:
+  `audits/AUDIT-ALL-NOME-WITNESSED-LOG-GRAPH-2026-09-30.md`.
+
 ## PROVED width-independent original positive response (2026-09-30 UTC)
 
 - `BF4ExactSlabFixedSpatialLocalResponse.localResponseFloor_le_window`

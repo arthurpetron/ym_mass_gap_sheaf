@@ -25,6 +25,36 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Witnessed positive symmetric original-time graph (2026-09-30 UTC)
+
+`BF4WilsonAllNomeLogGraph` constructs the actual witnessed closure of
+the core pairs (T x,F x), where T is original one-step time and F is the
+existing regularized series. Commutation, the kernel law and symmetry prove
+closability without any bound on the preimage sequence. A diagonal with an
+explicit modulus flattens supplied graph limits. Uniqueness yields an
+actual quotient domain, injectively embedded in the UNCHANGED carrier,
+whose action sends T x to F x. The original vacuum belongs with zero action.
+
+`BF4WilsonAllNomeLogGraphLinear` constructs rational scaling and addition
+on that domain with exact input/action pins. `BF4WilsonAllNomeLogGraphForm`
+proves its nonnegative form and symmetry. Its pairing cutoff is a named
+function of supplied image-norm caps and graph moduli, not an erased
+existential rate. Five final focused capped checks passed all 43 printed
+gates within {propext, Quot.sound}; no broad run, new analytic assumption,
+sorry or chart-node change. This is independent fixed-parameter J02
+groundwork, NOT full-real domain closure, self-adjointness, scalar-log
+identification, continuous time or a physical Hamiltonian. The actual
+boundary kernel remains; full-carrier density is not assumed.
+
+The source review also rejects a shortcut from the preceding local response
+floor to an arbitrary-state conditional signed-energy bound: the plaquette
+OS response and full-action residual Gram are different objects. No such
+bound has been supplied. Existing signed producers retain small-nome guards.
+Next return to useful ORIGINAL signed control on a justified spatial/scaling
+family; further generic graph/scalar-calculus wrappers do not provide it.
+All same-theory continuum/Clay obligations remain open. Evidence:
+`audits/AUDIT-ALL-NOME-WITNESSED-LOG-GRAPH-2026-09-30.md`.
+
 ### Width-independent ORIGINAL positive-time response (2026-09-30 UTC)
 
 `BF4ExactSlabFixedSpatialLocalResponse.localResponseFloor_le_window`

@@ -5677,6 +5677,12 @@ import YMGap.Continuum.BF4WilsonAllNomeCompletedPairingContinuity
 import YMGap.Continuum.BF4WilsonAllNomeRowPairingLimit
 import YMGap.Continuum.BF4WilsonAllNomeLogPartialAlgebra
 import YMGap.Continuum.BF4WilsonAllNomeLogOperator
+-- Witnessed rational-linear positive symmetric graph; not a physical Hamiltonian.
+import YMGap.Continuum.BF4WilsonAllNomeGraphDistance
+import YMGap.Continuum.BF4WilsonAllNomeLogRangePositive
+import YMGap.Continuum.BF4WilsonAllNomeLogGraph
+import YMGap.Continuum.BF4WilsonAllNomeLogGraphLinear
+import YMGap.Continuum.BF4WilsonAllNomeLogGraphForm
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

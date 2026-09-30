@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting witnessed time graph (2026-09-30 UTC; chart unchanged):
+the actual pairs (T x,F x) have a closable, single-valued graph with explicit
+moduli and constructive diagonal closure. Its quotient domain embeds in the
+SAME carrier and is rational-linear; the action is positive and symmetric,
+includes every T x with value F x, and kills the original vacuum. No source
+norm bound or kernel removal is used. Five focused capped checks passed 43
+gates. No full-carrier density, self-adjointness, scalar-log identity,
+physical Hamiltonian or signed scaling estimate is asserted. Evidence:
+`audits/AUDIT-ALL-NOME-WITNESSED-LOG-GRAPH-2026-09-30.md`.
+
 Verified supporting width-independent positive response (2026-09-30 UTC;
 chart unchanged): the original centered plaquette has a positive nome-only
 one-step floor after cutoff/time removal on the SAME completed vector and
