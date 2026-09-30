@@ -25,6 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Uniform fundamental-loop norm cap and response consumer (2026-09-30 UTC)
+
+`BF4WilsonAllNomeLoopNormBound.centered_loop_norm_le_four` proves squared
+norm <=4 for EVERY unrescaled fundamental source loop on the original
+all-nome completion, independently of nome, width and loop size. Orthogonal
+centering contracts the norm; the original multiplier creates the loop from
+the normalized unit. `BF4WilsonAllNomePlaquetteUniformCapResponse` consumes
+this actual cap: the existing one-step floor u yields lag-two floor u^2/4,
+relative floor u^2/16, and u^2/16<=the SAME two-step rate. The generic Cauchy
+ceiling is no longer needed by this consumer; no pointwise comparison with
+that older ceiling is asserted. The positive floor u still depends on nome
+and width. Upper norm control does not supply dyadic survival or signed
+scaling control. All 11 gates passed focused serialized one-worker/20 GiB
+checks; no broad run. Root proved the cap, Luna the consumer, Sol reviewed.
+
+Physical-time review: the old thermodynamic injectivity proof acts on a
+different completion. A full-Haar inverse is unsafe because the finite
+transfer has inactive fringe directions. Preserve the actual OS quotient
+and time map in any finite-channel approximation/realization; an exact
+inverse-domain bound for every boundary test is not necessary for dense
+range. The finite normalized central-density floor is available uniformly
+in late cutoff/depth, at fixed nome/width, but is not that realization.
+A03, full J02 and the Clay target remain open; chart unchanged. Evidence:
+`audits/AUDIT-ALL-NOME-LOOP-NORM-CAP-2026-09-30.md`.
+
 ### Independent same-carrier complex observables (2026-09-30 UTC)
 
 The actual all-nome equal-time Wilson multipliers now commute on every

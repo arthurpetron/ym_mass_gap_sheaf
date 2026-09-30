@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting norm/response control (2026-09-30 UTC; chart unchanged):
+every unrescaled fundamental Wilson loop has centered squared norm <=4 on
+the SAME all-nome carrier, independent of nome, width and loop size. The
+existing plaquette one-step floor u now gives lag-two floor u^2/4 and relative
+floor u^2/16 without a generic Cauchy ceiling. The floor u remains nome/width
+dependent; survival, signed scaling control, A03, full J02 and Clay remain
+open. All 11 gates passed focused capped checks; no broad run. Evidence:
+`audits/AUDIT-ALL-NOME-LOOP-NORM-CAP-2026-09-30.md`.
+
 Verified supporting J02 complex observables (2026-09-30 UTC; chart unchanged):
 equal-time Wilson multipliers commute on every state of the existing all-nome
 fixed-width completion and its existing complexification. Their complex

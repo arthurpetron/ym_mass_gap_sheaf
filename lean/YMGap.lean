@@ -5624,6 +5624,8 @@ import YMGap.Continuum.BF4WilsonAllNomeWindowRealization
 -- Equal-time commutation and actual complex Wilson observables, not continuum locality.
 import YMGap.Continuum.BF4WilsonAllNomeTimeZeroCommutation
 import YMGap.Continuum.BF4WilsonAllNomeComplexObservables
+import YMGap.Continuum.BF4WilsonAllNomeLoopNormBound
+import YMGap.Continuum.BF4WilsonAllNomePlaquetteUniformCapResponse
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

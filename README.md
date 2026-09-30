@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Uniform loop norm cap (2026-09-30):** centered fundamental Wilson loops
+have squared norm at most 4, independent of nome, width and loop size. This
+removes the generic norm ceiling from a same-carrier plaquette response
+estimate; its positive lower floor remains parameter-dependent. It does
+not establish scaling survival. See the
+[proof and scope audit](audits/AUDIT-ALL-NOME-LOOP-NORM-CAP-2026-09-30.md).
+
 **Complex Wilson observables (2026-09-30):** equal-time multipliers now
 commute on the existing fixed-width all-nome completion and its complexification.
 They are complex-linear, symmetric and bounded, retaining the original vacuum

@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Uniform fundamental-loop norm cap (2026-09-30 UTC):**
+`BF4WilsonAllNomeLoopNormBound` proves centered squared norm <=4 independent
+of nome, width and loop size. `BF4WilsonAllNomePlaquetteUniformCapResponse`
+uses that SAME-carrier cap to obtain lag-two floor u^2/4, relative floor
+u^2/16 and calibration against the existing rate. The original one-step
+floor u remains nome/width dependent. All 11 gates passed focused serialized
+capped checks; no broad run. Scaling survival and Clay remain open. Evidence:
+`audits/AUDIT-ALL-NOME-LOOP-NORM-CAP-2026-09-30.md` at repository root.
+
 **All-nome complex observables (2026-09-30 UTC):**
 `BF4WilsonAllNomeTimeZeroCommutation` proves equal-time commutation on the
 existing real completion. `BF4WilsonAllNomeComplexObservables` constructs
