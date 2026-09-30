@@ -5710,13 +5710,20 @@ import YMGap.Continuum.BF4WilsonAllNomePolynomialDefectBudget
 import YMGap.Continuum.BF4WilsonNomeDyadicDefectSchedule
 import YMGap.Continuum.BF4WilsonAllNomeDyadicDefectCollapse
 -- Exact two-edge signed-source isolation and exposed mixed square.
--- Their physical weighted join and family-uniform variance bound remain open.
+-- Physical mixed-energy lower and one-edge upper joins are supplied below;
+-- the per-face variance and family-uniform bounds remain open.
 import YMGap.Continuum.QuaternionHaarRelativePredictionEnergy
 import YMGap.Continuum.QuaternionHaarMixedAngularDerivative
 import YMGap.Continuum.QuaternionHaarAngularLaplacianLinear
 import YMGap.Continuum.QuaternionHaarMixedAngularSquare
 import YMGap.Continuum.QuaternionHaarExposedMixedAngularSquare
 import YMGap.Continuum.BF4ExactSlabPlaquetteMixedDerivativeIsolation
+import YMGap.Continuum.QuaternionHaarBlockAngularCarrier
+import YMGap.Continuum.QuaternionHaarMixedAngularTransport
+import YMGap.Continuum.BF4ExactSlabPlaquettePhysicalDerivativeCarrier
+import YMGap.Continuum.BF4ExactSlabPlaquetteMixedSquare
+import YMGap.Continuum.BF4ExactSlabSignedMixedEnergyFloor
+import YMGap.Continuum.BF4ExactSlabSignedSourceRelativeEnergy
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 -- Constructed SAME-carrier regularized series, not a physical Hamiltonian.
 import YMGap.Continuum.BF4WilsonAllNomeLogPartial

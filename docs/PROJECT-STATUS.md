@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting original physical mixed energy (2026-09-30 UTC;
+chart unchanged): the physical two-edge transport now composes exact signed
+coefficient isolation with S2(f_p)=8+f_p^2 on the unchanged original carrier.
+The selected original action supplies H[W*S2(F-m)]>=8*c_p^2*H[W]. A separate
+one-edge theorem controls the WHOLE centered source by the explicit factor
+M(w)=24+36*(6*relativeCap(w,2048))^2. The second application, source-encoding
+join, per-face variance bound and family-uniform aggregation remain OPEN;
+neither continuum survival nor a physical gap is inferred. Six focused
+checks passed 33 gates. Canonical statuses remain unchanged. Evidence:
+`audits/AUDIT-PHYSICAL-MIXED-ENERGY-2026-09-30.md`.
+
 Verified supporting two-edge algebra (2026-09-30 UTC; chart unchanged):
 two distinct physical edges isolate a plaquette coefficient in the original
 signed centered source. Separately, the exposed fundamental mixed square

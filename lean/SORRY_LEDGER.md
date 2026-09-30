@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED physical mixed energy and one-edge whole-source bound (2026-09-30 UTC)
+
+- `QuaternionHaarBlockAngularCarrier` and `QuaternionHaarMixedAngularTransport`
+  transport both angular derivatives through the actual finite swap chain,
+  using padded-safe Haar-carrier equality with arbitrary insertions.
+- `BF4ExactSlabPlaquettePhysicalDerivativeCarrier.mixedDerivative_carrier`
+  and `BF4ExactSlabPlaquetteMixedSquare.physical_face_mixedSquare` identify
+  the SAME physical derivatives used for signed-source isolation and prove
+  their 36-square sum is 8+f_p^2.
+- `BF4ExactSlabSignedMixedEnergyFloor.selected_action_mixed_energy_floor`
+  supplies H[W*S2(F-m)] >=8*c_p^2*H[W] for the original selected physical
+  action, any signed source coefficients and rational center. This is an
+  energy lower bound, not a coupling-independent variance or mass bound.
+- `BF4ExactSlabSignedSourceRelativeEnergy.signed_source_one_edge_relative_energy`
+  bounds the full original source's one-edge energy by M(w) times its OWN
+  centered squared norm, M(w)=24+36*(6*relativeCap(w,2048))^2.
+- OPEN: second relative-energy application, exact source-encoding join,
+  per-face variance bound, support-uniform signed-family aggregation,
+  SAME literal completed consumer and all scaling/Clay fields.
+- Six focused one-worker/20 GiB checks passed 33 public gates within
+  {propext, Quot.sound}. No new sorry/axiom or old sorry discharged;
+  no broad audit/guard or canonical chart change. Evidence:
+  `audits/AUDIT-PHYSICAL-MIXED-ENERGY-2026-09-30.md`.
+
 ## PROVED two-edge algebra; original weighted family join OPEN (2026-09-30 UTC)
 
 - `BF4ExactSlabPlaquetteMixedDerivativeIsolation` proves exact coefficient

@@ -25,7 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Supplied two-edge algebra; physical weighted join next (2026-09-30 UTC)
+### Supplied physical mixed-energy floor and whole-source upper bound (2026-09-30 UTC)
+
+The previously missing two-edge physical transport is now proved on the
+original full Haar carrier. The SAME physical derivatives used for signed
+coefficient isolation satisfy S2(f_p)=8+f_p^2. Their composition gives
+
+    H[W*S2(F-m)] >= 8*c_p^2*H[W]
+
+under the selected original action, with arbitrary signed coefficients and
+center. Separately, the original full action now supplies the one-edge bound
+H[W*Gamma_link(F)] <= M(w)*H[W*(F-m)^2], retaining the exact nonincident
+predictor and WHOLE source; M(w)=24+36*(6*relativeCap(w,2048))^2.
+
+NEXT: step back to a generic degree-at-most-one polynomial split, stable
+under the other link's derivative, then apply the same relative Ward estimate
+twice. Pin the Nat-indexed and plaquette-indexed source encodings before
+joining their bounds. The proposed per-face variance estimate is still OPEN.
+Even after it is proved, a separate bounded-interference/dual-family estimate
+must remove the family-size cost. SAME literal completed realization,
+controlled-support scaling survival and the Clay fields remain OPEN.
+Six focused capped checks passed 33 gates in {propext, Quot.sound}; no
+canonical chart field changed. Evidence:
+`audits/AUDIT-PHYSICAL-MIXED-ENERGY-2026-09-30.md`.
+
+### Earlier two-edge algebra checkpoint (2026-09-30 UTC)
 
 The signed-source alternative now has three proved ingredients: exact
 two-physical-edge coefficient isolation for the original centered face sum;

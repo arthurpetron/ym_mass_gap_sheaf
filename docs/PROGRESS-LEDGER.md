@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: two-edge signed-source algebra (2026-09-30 UTC)
+## Current increment: original physical mixed energy (2026-09-30 UTC)
+
+The physical two-edge join is supplied: the exact signed-source detector
+and physical S2(f_p)=8+f_p^2 now compose under the original action, giving
+H[W*S2(F-m)] >=8*c_p^2*H[W]. The full original source also has a one-edge
+upper estimate by M(w) times its own centered norm. NEXT: the degree<=1
+viewpoint for a second relative-energy application and the exact source
+encoding pin. The per-face variance estimate is not yet proved, and a
+family-uniform estimate still needs bounded interference. Six focused
+checks passed 33 gates; no canonical field change, broad guard or
+progress_metric.sh run. Evidence:
+`audits/AUDIT-PHYSICAL-MIXED-ENERGY-2026-09-30.md`.
+
+## Earlier increment: two-edge signed-source algebra (2026-09-30 UTC)
 
 The proposed coefficient detector now has exact physical signed-source
 isolation, the exposed fundamental S2(f)=8+f^2 identity with arbitrary
