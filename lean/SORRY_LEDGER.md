@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Original signed feature cancellation (2026-09-30 UTC)
+
+- **proved:** finite two-by-two Cauchy--Binet cancels equal feature
+  positions; the remaining unordered-position minor products equal the
+  ORIGINAL two-link covariance numerator. Shared coefficients and both
+  one-sided weights remain in the moments.
+- **consumer:** `BF4ExactSlabTwoLinkFeatureWedge` transports supplied
+  certificates to the existing actual-normalizer covariance checker.
+  Test symmetry retains the original ordered union and handles the
+  reversed variable independence of actual conditional predictions.
+- **open:** producing a useful variance-relative certificate/rate on
+  justified scaling, the actual auxiliary reverse-energy estimate, A03
+  and all same-theory continuum/OS/QFT/physical mass/every-group goals.
+  An identity is not a positivity or strict-gap estimate.
+- **verification:** both focused serialized one-worker/20 GiB checks
+  passed all 13 printed gates within {propext, Quot.sound}; independent
+  Luna/Sol source review. No new sorry, axiom, analytic input bundle,
+  broad run, field weakening or canonical frontier closure. Evidence:
+  `audits/AUDIT-SIGNED-FEATURE-WEDGE-2026-09-30.md`.
+
 ## Conservative patch coefficient excluded (2026-09-30 UTC)
 
 - **proved:** `BF4ExactSlabPatchCollarBudgetObstruction` shows that for

@@ -5574,6 +5574,9 @@ import YMGap.Continuum.BF4ExactSlabBlockPredictionAngle
 import YMGap.Continuum.QuaternionHaarCertificateSupportedRepresentative
 import YMGap.Continuum.BF4ExactSlabBlockInversePositive
 import YMGap.Continuum.BF4ExactSlabBlockCovarianceCertificate
+-- Signed feature diagonals cancel; certificates retain the original normalizer.
+import YMGap.Continuum.RatPolyTwoByTwoCauchyBinet
+import YMGap.Continuum.BF4ExactSlabTwoLinkFeatureWedge
 -- Conditional gauge identities; a useful signed scaling-family estimate remains open.
 import YMGap.Continuum.SU2QuaternionConditionalHaarTranslation
 import YMGap.Continuum.SU2QuaternionTranslationSpectatorProjection

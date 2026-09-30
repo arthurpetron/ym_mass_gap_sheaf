@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Signed feature cancellation (2026-09-30):** the original two-link
+covariance numerator is now a sum of products of antisymmetric feature
+minors; same-feature terms cancel exactly. The original action, normalizer
+and signed coefficients are retained. Certificates for this expression feed
+the existing covariance checker, including the reversed prediction order.
+A useful variance-relative bound is still open. See the
+[proof and scope audit](audits/AUDIT-SIGNED-FEATURE-WEDGE-2026-09-30.md).
+
 **Gauge-invariant route test (2026-09-30):** closing the shared-heat tests
 into loops preserves their exact correlation w^3. Thus gauge invariance
 alone cannot repair the excluded shared-factor-only degree budget. This

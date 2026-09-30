@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Signed feature cancellation on the original law (2026-09-30 UTC)
+
+`RatPolyTwoByTwoCauchyBinet.determinant_eq_pairSum` cancels diagonal
+feature positions exactly. `BF4ExactSlabTwoLinkFeatureWedge` pins the
+resulting antisymmetric-minor sum to the original two-link covariance
+vector. Both one-sided actions, exterior variables, signed coefficients
+and the actual normalizer remain intact. Only the mixed term in the
+existing certificate budget is rewritten; its diagonal variances stay
+original. Explicit symmetry swaps the tests while retaining [left,right],
+so actual prediction order does not require changing the normalizer.
+
+The consumer is the existing `inverse_covariance_bound`, and ultimately
+`residual_pair_lower_of_certificates`. No certificate or small rho is
+produced. NEXT: obtain a useful bound on this signed expression against
+the original diagonal covariance on justified scaling, or a collective/
+actual-auxiliary estimate. Termwise absolute bounds and sector membership
+alone do not supply it. Do not build another conditional interface in place
+of that estimate. The conservative patch coefficient remains excluded.
+
+Both new modules passed focused serialized one-worker/20 GiB checks; all
+13 printed gates are within {propext, Quot.sound}. Independent Luna/Sol
+review confirmed signs, multiplicities and original-law scope. No new sorry,
+axiom, analytic bundle, broad run or canonical chart change. A03 and the
+same-theory Clay target remain open. Evidence:
+`audits/AUDIT-SIGNED-FEATURE-WEDGE-2026-09-30.md`.
+
 ### Existing collar coefficient fails the proposed patch test (2026-09-30 UTC)
 
 `BF4ExactSlabPatchCollarBudgetObstruction` proves that the existing
