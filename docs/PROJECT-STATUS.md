@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting signed-family Wilson join (2026-09-30 UTC; chart
+unchanged): the existing fixed-nome original-action variance floor now
+applies to arbitrary signed spatial plaquette families on the literal Wilson
+completion, through exact mean and full-square scalar identities. No carrier
+isometry is assumed. Positive coefficient budget gives nonzero actual states.
+The old coupling cost and its calibration obstruction are unchanged; no
+scaling survival is claimed. This corrects the preceding plan's failure to
+reuse the existing finite family theorem. Both focused capped checks passed
+15 gates. Evidence: `audits/AUDIT-WILSON-SIGNED-FAMILY-JOIN-2026-09-30.md`.
+
 Verified supporting inverse-free local dual algebra (2026-09-30 UTC;
 chart unchanged): an explicit polynomial J satisfies A*J=Y X(A^3*g), and
 double IBP retains the SAME action W=V*A in H[W*J*f]=H[W*A^2*g*(X Y f)].

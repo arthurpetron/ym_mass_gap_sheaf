@@ -5735,6 +5735,9 @@ import YMGap.Continuum.BF4ExactSlabSignedSourceEncoding
 import YMGap.Continuum.QuaternionHaarRetainedDoubleIBP
 import YMGap.Continuum.QuaternionHaarLocalCubeAdjoint
 import YMGap.Continuum.QuaternionHaarLocalCubeDual
+-- Existing signed-family floor on the literal Wilson completion, at fixed nome.
+import YMGap.Continuum.BF4WilsonPlaquetteFamilySourcePin
+import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyVariance
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 -- Constructed SAME-carrier regularized series, not a physical Hamiltonian.
 import YMGap.Continuum.BF4WilsonAllNomeLogPartial

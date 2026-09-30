@@ -25,7 +25,37 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Supplied inverse-free local dual; signed-family route next (2026-09-30 UTC)
+### Planning correction: reuse the existing signed-family floor (2026-09-30 UTC)
+
+The preceding next-priority was based on an incomplete source audit.
+`BF4ExactSlabPlaquetteAffineCoercivity.affine_partition_coercivity` and
+`normalized_variance_floor` ALREADY supply the original selected-action
+signed-family floor, uniformly in extent, family size and late cutoff at
+fixed strict nome. The constant is lower(w)/(600*upper(w)); both window
+factors depend on nome. Do not rebuild this result through cube duals.
+
+The actual missing join is to the literal all-nome Wilson completion for
+arbitrary signed spatial plaquette families. Compare the mean and WHOLE
+square coefficientwise in their common finite original window ratio, pass
+those equalities through the existing diagonal limits, then use the existing
+Wilson centering stream. This compares scalar moments, not entire carriers.
+`BF4WilsonPlaquetteFamilySourcePin` and
+`BF4WilsonAllNomePlaquetteFamilyVariance` now prove that join, the SAME
+completed norm floor and nonvanishing for a positive coefficient-square
+budget. Both focused capped checks passed all 15 printed gates within
+{propext, Quot.sound}; no broad build/audit/guard or canonical chart change.
+Evidence: `audits/AUDIT-WILSON-SIGNED-FAMILY-JOIN-2026-09-30.md`.
+
+The next analytic priority is improved coupling cost, not another fixed-nome
+floor. `BF4ExactSlabPlaquetteAffineCalibrationObstruction` already proves
+that THIS floor cannot pay the available time-loss certificate. Exact
+source realization does not repair that quantitative obstruction. Any dual
+route must improve the final bound without retaining an absolute heat-minimum
+penalty; a poor minimum may be used in an approximation modulus only if it
+provably disappears from the final estimate. Positive-time survival,
+justified spatial/spacing control and every canonical Clay field remain OPEN.
+
+### Earlier inverse-free local dual checkpoint; priority superseded (2026-09-30 UTC)
 
 The next step back addresses the family-size loss directly. Write the full
 weight as W=V*A, with A the two-link collar product and V independent of the
@@ -40,7 +70,7 @@ local observables. Existing two-edge coefficient isolation and local action
 factorization are its concrete consumers. The physical collar instantiation
 is still OPEN; the extra A^2 must be retained and bounded, not dropped.
 
-NEXT PRIORITY: instantiate these polynomial duals on the actual two-link
+SUPERSEDED NEXT PRIORITY: instantiate these polynomial duals on the actual two-link
 collars, prove their local support/coefficient pairing, then a cutoff-uniform
 local norm cap and finite collar-overlap count. This offers a direct signed
 Gram route rather than merely summing per-face bounds. The separate-frame

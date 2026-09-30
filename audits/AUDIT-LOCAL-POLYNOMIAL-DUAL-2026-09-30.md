@@ -4,6 +4,14 @@ Date: 2026-09-30 UTC. Whole-project Clay target OPEN.
 Classification: PROGRESS. Polynomial factorization, same-weight double
 adjoint pairing and mixed-derivative annihilation are kernel-checked.
 
+Priority correction, later on 2026-09-30: the finite fixed-nome signed-family
+floor was already proved in `BF4ExactSlabPlaquetteAffineCoercivity`; this
+route is not needed to establish its existence. Physical cube instantiation
+is suspended absent a demonstrated coupling-cost improvement. The literal
+Wilson completion join is now proved separately; see
+`AUDIT-WILSON-SIGNED-FAMILY-JOIN-2026-09-30.md`. The proved identities below
+remain valid. The numbered next obligations record the superseded plan.
+
 ## Why take this further step back?
 
 The checked two-Ward upper estimate controls each coefficient detector,

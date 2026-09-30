@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED signed-family floor on the literal Wilson completion (2026-09-30 UTC)
+
+- Planning correction: `BF4ExactSlabPlaquetteAffineCoercivity` already
+  supplies finite original-action signed-family coercivity at fixed nome;
+  statements below that list family coercivity as OPEN are historical
+  descriptions of the proposed new routes, not the availability of that floor.
+- `BF4WilsonPlaquetteFamilySourcePin` identifies the actual signed Wilson
+  family mean and WHOLE squared source coefficientwise, preserving cross terms.
+- `BF4WilsonAllNomePlaquetteFamilyVariance.centered_norm_pin` compares the
+  existing joint scalars via their common original finite window ratio, not
+  via an assumed completed-carrier isometry. `familyExcitation_norm_floor`
+  gives the old coefficient-square floor on the actual all-nome Wilson
+  vacuum complement. Positive coefficient budget gives a nonzero vector;
+  `familyExcitation_correlator_pin` uses its SAME completed time operator.
+- The constant is unchanged and remains nome-dependent. Its existing
+  calibration obstruction remains valid. Improved coupled cost, positive-time
+  scaling survival, spatial/spacing passage and all Clay fields remain OPEN.
+- Both focused capped checks passed 15 public gates within
+  {propext, Quot.sound}; no sorry introduced/discharged, broad run or chart
+  change. Evidence: `audits/AUDIT-WILSON-SIGNED-FAMILY-JOIN-2026-09-30.md`.
+
 ## PROVED inverse-free local dual algebra and same-weight pairing (2026-09-30 UTC)
 
 - `QuaternionHaarLocalCubeAdjoint.cubeAdjoint_factor` proves the explicit

@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Signed-family floor on the literal Wilson completion (2026-09-30 UTC):**
+`BF4WilsonAllNomePlaquetteFamilyVariance.familyExcitation_norm_floor`
+transfers the ALREADY existing finite original-action signed-family bound
+through exact mean/square source pins to the actual Wilson centering stream.
+No completed-carrier identification is assumed. The constant is uniform in
+width/family size at fixed nome, not along a changing-coupling limit; its
+known calibration obstruction remains. Both focused capped checks passed
+15 gates; no broad run or canonical Clay closure. Evidence:
+`audits/AUDIT-WILSON-SIGNED-FAMILY-JOIN-2026-09-30.md` at repository root.
+
 **Finite original-weighted moment tail (2026-09-30 UTC):**
 `BF4ExactSlabFiniteMomentTail.physicalSweep_tail_bound` consumes an executable
 finite moment-zero check and bounds the actual sweep on EVERY supported
