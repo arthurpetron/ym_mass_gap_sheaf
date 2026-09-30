@@ -25,6 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Collective estimate: retain defects, screen constants first (2026-09-30 UTC)
+
+Source/mathematical review and targeted research, not a new Lean result.
+For ORDERED adjacent pairs the original identities give
+`||Hy||^2 = E(y) + sum(D_ij-C_ij) + remoteEnergy(y)`.
+Seek `sum C_ij <= sum D_ij + (1-gamma)*E(y)`, retaining positive
+prediction defects and cancellation between pairs. A descent application
+needs this along every relevant gradient orbit, not only its initial
+Chebyshev auxiliary. The existing wedge identity supplies no such estimate.
+
+Do not treat the earlier proposed 18/L-3/L^2 patch threshold as necessary:
+refined inverse-square finite-size methods exist. Their same-operator,
+subsystem, constructive and boundary joins remain unproved here. A direct
+Anshu-constant screen is numerically prohibitive, so no compiler/SDP launch
+is justified yet. Any numerical certificate must control omitted modes and
+ground-kernel errors; the current norm-relative residual approximation is
+not automatically energy-relative. NEXT remains an actual useful signed
+or subsystem estimate, not more calibration/assumption wrappers. No Lean
+edits, builds, frontier closure or chart change. Evidence and source map:
+`audits/RESEARCH-DEFECT-RETAINING-COLLECTIVE-ROUTE-2026-09-30.md`.
+
 ### Square-root calibration joined to original finite covariance (2026-09-30 UTC)
 
 `ChebyshevAboveOneMonotone.T_mono` and `ChebyshevSqrtRate` turn

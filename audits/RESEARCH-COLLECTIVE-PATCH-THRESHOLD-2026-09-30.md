@@ -4,6 +4,12 @@ Source baseline: `d2cfea5`. Reviewed 2026-09-30 UTC. This is mathematical
 analysis and source review, NOT a new Lean theorem or a closed frontier.
 No Lean files, axioms, sorrys, or canonical chart states are changed.
 
+Later scope refinement: 18/L-3/L^2 is sufficient for THIS unweighted
+overlap argument, not a necessary threshold for all collective methods.
+Refined inverse-square criteria and their quantitative/applicability limits
+are reviewed in `RESEARCH-DEFECT-RETAINING-COLLECTIVE-ROUTE-2026-09-30.md`.
+No such criterion has been transferred to the original completed carrier.
+
 Subsequent result: the unchanged conservative `supportRatio(w,4*L^4)`
 cannot clear this test at any L>=1. That scalar comparison is now checked;
 see `audits/AUDIT-PATCH-COLLAR-BUDGET-2026-09-30.md`. The patch-overlap
