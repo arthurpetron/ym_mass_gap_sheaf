@@ -5737,6 +5737,16 @@ import YMGap.Continuum.BF4ExactSlabChronologicalCostPower
 import YMGap.Continuum.BF4ExactSlabChronologicalDirichletSum
 import YMGap.Continuum.BF4ExactSlabChronologicalCoercivity
 import YMGap.Continuum.BF4ExactSlabCompletedChronologicalCoercivity
+-- Original signed face patches improve the conditional small-nome margin;
+-- the resulting volume-uniform coercivity is not OS/scaling control.
+import YMGap.Continuum.RCCollectivePatchBudget
+import YMGap.Continuum.GNSProjectionPatchEnergy
+import YMGap.Continuum.BF4ExactSlabFacePatchIncidence
+import YMGap.Continuum.BF4ExactSlabFacePatchSize
+import YMGap.Continuum.BF4ExactSlabFacePatchEnergy
+import YMGap.Continuum.BF4ExactSlabFacePatchSmallNome
+import YMGap.Continuum.BF4ExactSlabFacePatchGeneratorBound
+import YMGap.Continuum.BF4ExactSlabFacePatchUniformCoercivity
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

@@ -1,5 +1,42 @@
 # Sorry Ledger
 
+## PROVED original collective face-patch join and stronger small-nome margin (2026-09-30 UTC)
+
+- `GNSProjectionSweep.Family.patchSquareSum_eq_energy_add_cross` in
+  `GNSProjectionPatchEnergy.lean` preserves
+  ordered signed Gram pairs and actual variable diagonal incidence.
+  `BF4ExactSlabFacePatchIncidence` proves at most six incident faces per link,
+  exactly one for a distinct neighboring pair, and none for nonneighbors.
+  `BF4ExactSlabFacePatchSize.facePatch_other_length_le_three` proves the
+  original face-patch row has at most three other links per member.
+- `BF4ExactSlabFacePatchEnergy.face_square_signed_identity` instantiates
+  that identity on EVERY original completed input. Its
+  `faceSquareSum_le_generator_plus_five` is unconditional;
+  `generator_square_lower_of_collective_patch` consumes the named actual
+  collective lower bound and produces margin 6*gamma-5. It does not discard
+  exterior action factors or replace the conditional projections.
+- `BF4ExactSlabFacePatchSmallNome.actual_face_lower` supplies gamma=1-6e
+  from the existing small-nome pair coefficient, with no new analytic input.
+  `BF4ExactSlabFacePatchGeneratorBound.generator_square_lower` proves the
+  improved global margin 1-36e instead of 1-50e. The exact nome 1/40 satisfies
+  every guard and makes the new margin positive while the old is negative.
+- `BF4ExactSlabFacePatchUniformCoercivity.volume_uniform_centered_coercivity`
+  upgrades this to centered Dirichlet coefficient (1-36e)/2, independent of
+  extent and late cutoff. The existing positive chronological area baseline
+  removes only the descent norm tail. `coupled_auxiliary_reverse_energy`
+  gives the bound at the ACTUAL c-dependent auxiliary, c=2+(2/625)*(1-36e)/2.
+- OPEN named analytic input: the same collective patch lower bound at useful
+  gamma>5/6 on a justified scaling family outside the supplied regime, or a
+  proved larger-patch alternative. Fixed small-nome improvement supplies no
+  such family. Nome dependence and guards remain explicit. OS/physical-time
+  identification, continuum survival, finite positive physical mass, full
+  QFT and every compact simple group remain open.
+- Eight final focused one-worker/20 GiB checks passed 53 printed gates within
+  {propext, Quot.sound}. No new sorry/custom axiom; no old sorry discharged,
+  frontier field weakened, full-root build, full audit or guard run. The
+  canonical chart is unchanged. Evidence:
+  `audits/AUDIT-COLLECTIVE-FACE-PATCH-2026-09-30.md`.
+
 ## PROVED original completed chronological area coercivity (2026-09-30 UTC)
 
 - `BF4ExactSlabOriginalVariancePins.originalPartition_positive` constructs

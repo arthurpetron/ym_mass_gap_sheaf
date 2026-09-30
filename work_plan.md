@@ -25,7 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### ORIGINAL completed chronological area coercivity (2026-09-30 UTC)
+### ORIGINAL collective face patches and stronger uniform coercivity (2026-09-30 UTC)
+
+The actual physical face patches now preserve the entire ORDERED signed
+neighbor sum: sum_f ||A_f x||^2 = sum_i d_i ||R_i x||^2 + C_near(x),
+where R_i are the EXISTING original full-action conditional residuals and
+d_i<=6 includes the boundary deficit. An actual collective lower coefficient
+gamma<=1 therefore gives the generator square margin 6*gamma-5. This is a
+proved consumer, not an assumption that gamma>5/6 exists at arbitrary nome.
+
+The existing small-nome pair estimate supplies gamma=1-6e on each actual
+four-link patch, so the NEW all-state generator margin is 1-36e, improving
+the old 1-50e. At exact nome 1/40 Lean proves the new margin positive and the
+old negative. `BF4ExactSlabFacePatchUniformCoercivity` proves the resulting
+centered Dirichlet coefficient (1-36e)/2 on EVERY original completed state,
+independent of extent and late cutoff. The chronological area coefficient
+above zero is used only to remove the descent norm tail, not as the final
+coefficient. The same improved coefficient supplies reverse energy at the
+actual balanced sweep and every actual centered Chebyshev auxiliary with
+c=2+(2/625)*(1-36e)/2. Neither the action nor the auxiliary's c is substituted.
+Eight final focused serialized capped checks passed 53 gates within
+{propext, Quot.sound}; no new analytic premise or sorry.
+
+NEXT: an actual collective same-action lower bound with useful dependence on
+a justified scaling family, or a justified larger-patch estimate serving the
+same consumer. Do not repeatedly enlarge fixed small-nome examples as a
+substitute for this missing producer. Support-local coercivity already exists
+but its growing-cone cost loses the Chebyshev rate; unrestricted auxiliary
+orders include the original source at order one and are not automatically a
+smaller problem. The new collective consumer retains signs and permits
+cancellation between patches. These are conditional-update weighted-L2
+estimates, NOT OS-time or continuum/physical mass estimates. All canonical
+continuum/Clay nodes remain open as before; no chart-state change. Evidence:
+`audits/AUDIT-COLLECTIVE-FACE-PATCH-2026-09-30.md`.
+
+### ORIGINAL completed chronological area coercivity (2026-09-30 UTC; preceding checkpoint)
 
 `BF4ExactSlabCompletedChronologicalCoercivity.completed_centered_area_coercivity`
 now proves a positive Dirichlet bound for EVERY vacuum-orthogonal state of the

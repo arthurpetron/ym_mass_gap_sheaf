@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL collective face-patch bound (2026-09-30 UTC;
+chart unchanged): exact signed face incidence improves the actual conditional
+generator margin from 1-50e to 1-36e. The completed centered Dirichlet
+coefficient (1-36e)/2 is independent of volume and late heat cutoff, but retains
+its nome dependence and small-nome guards. Nome 1/40 is a checked positive-new,
+negative-old witness. The coefficient feeds reverse energy at the SAME balanced
+sweep and c-dependent Chebyshev auxiliary. Eight focused checks passed 53 gates.
+The missing collective estimate on a justified scaling family, OS/physical-time
+bridge and all continuum/Clay obligations remain open. Evidence:
+`audits/AUDIT-COLLECTIVE-FACE-PATCH-2026-09-30.md`.
+
 Verified supporting ORIGINAL completed chronological area coercivity
 (2026-09-30 UTC; chart unchanged): every centered state in the SAME full-action
 completion satisfies normSq <= N*(prefixCap/headFloor)^(2*C+12)*finalEnergy,
