@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL selected-action covariance deficit
+(2026-09-30 UTC; chart unchanged): for a fundamental plaquette p and any
+supported q missing one of its edges, Cov(p,q)^2 <= (Var(p)-s(w))*Var(q)
+<= (1-s(w)/4)*Var(p)*Var(q), with s(w)=starRatio(w)>0. Both finite original
+selected moments and their heat-cutoff limits are checked for every rational
+0<w<1; the coefficient is extent/cutoff independent but nome dependent.
+This is ONE covariance factor, not iterable decay: the transformed source
+has no supplied prediction floor. The scaling-family estimate and all Clay
+fields remain open. Four final focused checks passed 13 gates. Evidence:
+`audits/AUDIT-SELECTED-PLAQUETTE-COVARIANCE-DEFICIT-2026-09-30.md`.
+
 Verified supporting original finite-lag survival and face-patch cutoff passage
 (2026-09-30 UTC; chart unchanged): the actual local response c(w)>0 and norm
 cap four now give s(w)*(c(w)/4)^n <= <v,T^n v> for the SAME literal plaquette

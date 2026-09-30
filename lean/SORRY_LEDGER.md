@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED original selected-action plaquette covariance deficit (2026-09-30 UTC)
+
+- `RationalPredictionCovariance.covariance_budget` and
+  `QuaternionHaarPredictionCovariance.covariance_sq_le_variance_deficit`
+  optimize actual affine prediction loss, including zero test variance.
+  `BF4ExactSlabSelectedPredictionCovariance.affine_prediction_floor`
+  supplies every predictor from the existing ORIGINAL selected-action
+  plaquette theorem; no successful analytic bound is assumed.
+- `finite_covariance_deficit` and `covariance_deficit` retain the original
+  action, partition and all three moments. They prove
+  Cov(p,q)^2 <= (Var(p)-starRatio(w))*Var(q) for a fundamental plaquette p
+  and supported q missing one of its actual edges.
+  `BF4ExactSlabSelectedPredictionRate.covariance_rate` carries the supplied
+  eta(w)=1-starRatio(w)/4 in [3/4,1) through the existing heat-cutoff limit.
+  Every rational 0<w<1 and duplicate-free physical face selection is covered;
+  eta is extent/cutoff independent, NOT nome/spacing uniform.
+- OPEN: orbit-wide quantitative control; a transformed source is not the
+  fundamental plaquette used by the erased-link moment proof. This single
+  covariance factor is not distance decay or either dynamical spectral gap.
+  Scaling survival and all same-theory continuum/Clay requirements remain.
+- Four final focused one-worker/20 GiB checks passed 13 gates within
+  {propext, Quot.sound}. No new sorry, axiom, analytic premise or weakened
+  frontier; no old sorry discharged. No broad build/audit/guard or chart
+  change. Evidence:
+  `audits/AUDIT-SELECTED-PLAQUETTE-COVARIANCE-DEFICIT-2026-09-30.md`.
+
 ## PROVED original finite-lag survival and face-patch cutoff passage (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeResponseLower.response_geometric_lower` propagates a

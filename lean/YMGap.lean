@@ -4811,6 +4811,11 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialVertexStarTransfer
 import YMGap.Continuum.BF4ExactSlabFixedSpatialVertexStarEnergy
 import YMGap.Continuum.BF4ExactSlabFixedSpatialVertexStarParity
 import YMGap.Continuum.BF4ExactSlabSelectedStarPredictionError
+-- Actual selected-action covariance deficit; one source, not iterable decay.
+import YMGap.Continuum.RationalPredictionCovariance
+import YMGap.Continuum.QuaternionHaarPredictionCovariance
+import YMGap.Continuum.BF4ExactSlabSelectedPredictionCovariance
+import YMGap.Continuum.BF4ExactSlabSelectedPredictionRate
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteEnergyFloor
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteDefect
 import YMGap.Continuum.QuaternionHaarLocalDualNorm

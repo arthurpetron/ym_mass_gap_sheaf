@@ -25,6 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Supplied original selected-action covariance deficit (2026-09-30 UTC)
+
+The full-slab/selected-chart action mismatch prompted a direct scalar route.
+For the ACTUAL fundamental plaquette p and any supported q missing one of
+its edges, the original prediction floor applies to EVERY affine predictor
+a+t*q under the SAME selected action and partition. Rational optimization
+now proves Cov(p,q)^2 <= (Var(p)-starRatio(w))*Var(q), including Var(q)=0.
+The actual character cap then supplies eta(w)=1-starRatio(w)/4 in [3/4,1).
+`BF4ExactSlabSelectedPredictionCovariance` and
+`BF4ExactSlabSelectedPredictionRate` prove both inequalities for the original
+finite moments and their existing heat-cutoff limits, for every rational
+0<w<1 and every duplicate-free physical face selection. No extent, selected
+list size or late cutoff occurs in eta; nome dependence remains explicit.
+
+This is a supplied ONE-source covariance estimate, not a successful source
+orbit, exponential spatial decay, physical gap or scaling-family budget.
+The erased-link moments used in the proof belong to the fundamental
+plaquette; they have not been supplied for conditional-transformed sources.
+NEXT: test that precise preservation question on an ACTUAL transformed
+source, or test a matched-physical-time signed multiscale defect. Do not
+iterate the initial-source floor or add another conditional wrapper.
+The primary changing-coupling estimate and all canonical Clay fields stay
+open; chart unchanged. Four final focused capped checks passed 13 gates.
+Evidence: `audits/AUDIT-SELECTED-PLAQUETTE-COVARIANCE-DEFICIT-2026-09-30.md`.
+
 ### Supplied-input joins after the step back (2026-09-30 UTC)
 
 A seed-only floor is insufficient for uniform UPPER orbit decay, but a
