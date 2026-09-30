@@ -378,6 +378,21 @@ or a justified row-summable bound sufficient for it; do not replace that
 estimate by local-overlap algebra. This is a source-guided next proposition,
 not a new proved upper estimate. Details:
 `audits/AUDIT-SIGNED-FAMILY-TEMPORAL-JOIN-2026-09-30.md`.
+TARGETED LITERATURE UPDATE (2026-09-30, user-supplied eight-paper list):
+`audits/RESEARCH-TARGETED-YM-FRONTIER-2026-09-30.md` records exact scopes and
+source joins. Use the signed identity/deficit/remainder strategy of
+2609.28091, not its scalar GHS/DSS premises or its LSI as a physical gap.
+The Haar identity suggested by 2608.05415 already has an original polynomial
+counterpart in `SU2QuaternionHaarAngularIBPAt`; do not reconstruct it or
+replace our heat action by that paper's Wilson action. Next test: apply it
+to the complete source/terminal weight and retain signed corrections before
+bounding the remainder relative to the SAME variance. A variance UPPER
+bound is gap-type information; it does not supply our required energy UPPER
+bound for one surviving excitation. The abelian/mean-field Gaussian limits
+are scoped controls, not refutations of this family. The 2D universality,
+strong-coupling large-N and 2+1D outline results do not close 4D fields.
+Lean-Quantum depends on Mathlib: proof ideas only, no dependency import.
+This is a research-driven priority adjustment, not a new proved estimate.
 The now-proved one-step source/domain transfer already controls the actual
 derivative energy, retained norm and source replacement. Do not build another
 equivalent conditional survival/domain wrapper before supplying a useful
