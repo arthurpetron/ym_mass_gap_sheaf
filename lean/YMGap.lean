@@ -5738,6 +5738,10 @@ import YMGap.Continuum.QuaternionHaarLocalCubeDual
 -- Existing signed-family floor on the literal Wilson completion, at fixed nome.
 import YMGap.Continuum.BF4WilsonPlaquetteFamilySourcePin
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyVariance
+-- Whole signed temporal increment on that SAME carrier; relative upper bound open.
+import YMGap.Continuum.BF4WilsonAllNomeZeroRadiusIncrement
+import YMGap.Continuum.BF4WilsonPlaquetteFamilyIncrement
+import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyEnergy
 -- Relative score certificates remove the extra window cost in finite dual norms.
 import YMGap.Continuum.QuaternionHaarRelativeReciprocalDualNorm
 -- Actual Jacobi mixed relative bound and constructive original-prefix weight removal.

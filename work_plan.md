@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Whole signed temporal join; narrow the survival search (2026-09-30 UTC)
+
+`BF4WilsonAllNomeZeroRadiusIncrement.increment_reflected_pin` now proves
+the original squared-increment identity for ANY radius-zero Wilson expression,
+not just a loop. `BF4WilsonPlaquetteFamilyIncrement.finite_family_increment_pin`
+identifies the whole signed plaquette-family square with twice the existing
+original normalized temporal energy. The action, common partition and every
+cross term are retained. `BF4WilsonAllNomePlaquetteFamilyEnergy`
+then pins it to 2*(B(v,v)-B(v,T^n v)) on the SAME already constructed
+centered completed family. This is NOT the squared norm of v-T^n v.
+The existing coefficient-energy LOWER floor transfers too. Two lower bounds
+(energy and variance) do not yield the missing relative UPPER estimate.
+
+NEXT PRIORITY, superseding stronger survival prerequisites below: seek ONE
+explicit nonzero source family on a justified spatial/spacing trajectory,
+with E_j <= M*tau_j*Var_j for the SAME original source and transfer and an
+explicit finite M. Here tau_j must be the physical time of the operator used,
+not an invented spacing law. Compare the signed numerator and denominator
+together before absolute estimates; do not require an upper matrix bound for
+every signed coefficient vector merely to obtain one surviving excitation.
+The separate every-state decay branch still requires its uniform bound.
+
+Temporal filtering is not a free source of such a state: for T=rho*I,
+0<rho<1, every nonzero polynomial-filtered vector has unchanged relative
+loss 1-rho. This is a PAPER-LEVEL diagnostic, not a Yang--Mills model or a
+new checked obstruction. The existing orbit-sum calculus needs an actual
+norm/response estimate; positivity at each finite lag is not scaling survival.
+No new conditional wrapper or frontier bundle has been added.
+
+Three focused one-worker/20 GiB checks passed 17 printed gates, within
+{propext, Quot.sound}; no broad run. All canonical fields remain unchanged.
+Evidence: `audits/AUDIT-SIGNED-FAMILY-TEMPORAL-JOIN-2026-09-30.md`.
+
 ### Supplied actual Jacobi mixed relative heat bound (2026-09-30 UTC)
 
 `JacobiHeatMixedRelativeAngularBound.weightedHeatBound` now constructs

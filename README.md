@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Whole signed-family temporal join (2026-09-30):** the original squared
+time increment now equals twice the loss of the SAME completed transfer
+pairing, with every signed cross term and the common partition retained.
+The existing energy lower bound transfers; the relative upper bound needed
+for scaling survival remains open. The next search targets one suitable
+source family, not an unnecessary all-family upper estimate. See the
+[proof and strategy correction](audits/AUDIT-SIGNED-FAMILY-TEMPORAL-JOIN-2026-09-30.md).
+
 **Finite-moment tail criterion (2026-09-30):** an exact finite check of
 original weighted moments now bounds the true conditional sweep on every
 supported input passing that check, without restricting its polynomial degree.

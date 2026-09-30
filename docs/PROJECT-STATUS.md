@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting signed temporal join (2026-09-30 UTC; chart unchanged):
+the whole signed family's original squared increment is now pinned to twice
+the SAME completed temporal defect B(v,v)-B(v,T^n v). Original action,
+partition and cross terms are retained. The existing energy LOWER floor
+transfers; the relative UPPER estimate needed for scaling survival remains
+OPEN. Survival search is narrowed to one suitable source family, not an
+unnecessarily universal family upper bound. Three focused capped checks
+passed 17 gates. No canonical field changed. Evidence:
+`audits/AUDIT-SIGNED-FAMILY-TEMPORAL-JOIN-2026-09-30.md`.
+
 Verified supporting actual Jacobi mixed relative bound (2026-09-30 UTC;
 chart unchanged): the positive weighted heat now has relative mixed cost
 m*R+d*e*R^2, with R the nome-dependent slope budget and no inverse heat

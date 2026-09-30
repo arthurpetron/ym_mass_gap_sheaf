@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED whole signed temporal join; relative upper bound OPEN (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeZeroRadiusIncrement.increment_reflected_pin` generalizes
+  the original-joint squared-increment/reflected-pairing identity to arbitrary
+  signed radius-zero Wilson syntax and every natural lag.
+- `BF4WilsonPlaquetteFamilyIncrement.finite_family_increment_pin` identifies
+  the complete signed family square with twice `normalizedEnergy` under the
+  SAME original action and partition. No cross terms are discarded.
+- `BF4WilsonAllNomePlaquetteFamilyEnergy.family_increment_completed_pin`
+  transfers it to twice B(v,v)-B(v,T^n v) on the actual existing family
+  excitation; this is not ||v-T^n v||^2. `family_temporalEnergy_floor`
+  transfers the existing coefficient-energy LOWER bound at fixed nome.
+- OPEN: a relative temporal-energy UPPER estimate for a suitable nonzero
+  scaling source; justified spatial/spacing control, continuum survival,
+  every-state decay and all Clay fields. The energy and variance lower bounds
+  do not supply that upper estimate. No new analytic premise was introduced.
+- Three focused capped checks passed 17 gates within {propext, Quot.sound}.
+  No sorry introduced/discharged, axiom change, broad run or chart change.
+  Evidence: `audits/AUDIT-SIGNED-FAMILY-TEMPORAL-JOIN-2026-09-30.md`.
+
 ## PROVED actual finite Jacobi mixed relative estimate (2026-09-30 UTC)
 
 - `JacobiHeatMixedRelativeAngularBound.weightedHeatBound` constructs both
