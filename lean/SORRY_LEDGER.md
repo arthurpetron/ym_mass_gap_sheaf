@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED same-weight two-Ward bound for multi-affine polynomials (2026-09-30 UTC)
+
+- `QuaternionHaarHeadAffineSplit.headAffine_split` gives a constructive
+  degree-zero/one split. `QuaternionHaarAffineRelativeEnergy.angular_energy_le_square`
+  chooses the negative constant part as predictor and bounds angular energy
+  by M(C) times the SAME whole-source square, M(C)=24+36*C^2.
+- `QuaternionHaarDegreeBoundReindex.degreeLE_reindex` and
+  `QuaternionHaarMixedAngularDegreeBound.blockAngularDerivative_headDegreeLE_of_ne`
+  supply degree stability under padded swaps and the other block's derivative.
+- `QuaternionHaarMixedRelativeEnergy.mixed_energy_le_square` supplies the
+  two-edge upper bound with explicit product M(C)*M(D), on the same original
+  weight in two frames, for every supported polynomial affine in both blocks.
+- `BF4ExactSlabSignedSourceEncoding.sourceSpan_full` and `affineSource_full`
+  prove literal full-source/centered-source equality across the two indexings.
+- OPEN: concrete original-action frame/degree instantiation and composed
+  per-face variance bound; support-uniform family aggregation, SAME literal
+  completed consumer and all scaling/Clay fields. No new analytic hypothesis
+  bundle or weakened field is substituted for this work.
+- Six focused single-worker/20 GiB checks passed 18 public gates within
+  {propext, Quot.sound}. No sorry/axiom introduced or old sorry discharged;
+  no broad audit/guard or canonical chart change. Evidence:
+  `audits/AUDIT-MULTIAFFINE-RELATIVE-ENERGY-2026-09-30.md`.
+
 ## PROVED physical mixed energy and one-edge whole-source bound (2026-09-30 UTC)
 
 - `QuaternionHaarBlockAngularCarrier` and `QuaternionHaarMixedAngularTransport`

@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting multi-affine two-Ward composition (2026-09-30 UTC;
+chart unchanged): the SAME-weight mixed angular energy now has the bound
+H[W*S2_head,b(p)]<=M(C)*M(D)*H[W*p^2] for every supported polynomial affine
+in both distinct blocks. The two relative costs and weight frames are
+explicit. Literal full-source and centered-source encoding pins also check.
+Concrete physical degree/frame instantiation and the composed per-face
+variance bound remain OPEN, as does family-size removal. Six focused checks
+passed 18 gates; no canonical status changes. Evidence:
+`audits/AUDIT-MULTIAFFINE-RELATIVE-ENERGY-2026-09-30.md`.
+
 Verified supporting original physical mixed energy (2026-09-30 UTC;
 chart unchanged): the physical two-edge transport now composes exact signed
 coefficient isolation with S2(f_p)=8+f_p^2 on the unchanged original carrier.

@@ -25,7 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Supplied physical mixed-energy floor and whole-source upper bound (2026-09-30 UTC)
+### Supplied multi-affine two-Ward estimate; concrete source join next (2026-09-30 UTC)
+
+The recursive step back to degree<=1 polynomials now supplies the second
+relative-energy application. Split p=f+r into head-linear and head-free
+terms, choose predictor -r, and retain p itself as prediction error.
+The other link's derivative preserves that degree ceiling. Summing six
+directions and swapping the second link to the head gives the checked bound
+
+    H[W*S2_head,b(p)] <= M(C)*M(D)*H[W*p^2],  M(C)=24+36*C^2.
+
+Both certificates refer to the SAME W in its two coordinate frames; the
+constants are explicit, not coupling-independent. Literal full-source and
+centered-source encoding equalities now join the Nat and plaquette labels.
+
+NEXT: supply both degree ceilings and relative certificates for the actual
+signed source and original action in the SAME frame, then join the physical
+mixed-energy floor. The composed per-face variance estimate remains OPEN.
+Use the component bounds: first the A-head estimate, transport back, then
+the B-head estimate. The physical certificates supply these two single-link
+frames separately, not an assumed sequential-swap certificate.
+Family-size removal still requires bounded interference/dual-family control;
+this generic estimate does not provide that. No survival, scaling, continuum
+or Clay field is closed. Six focused capped checks passed 18 gates within
+{propext, Quot.sound}; no canonical chart field changed. Evidence:
+`audits/AUDIT-MULTIAFFINE-RELATIVE-ENERGY-2026-09-30.md`.
+
+### Earlier physical mixed-energy checkpoint (2026-09-30 UTC)
 
 The previously missing two-edge physical transport is now proved on the
 original full Haar carrier. The SAME physical derivatives used for signed

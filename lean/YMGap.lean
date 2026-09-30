@@ -5724,6 +5724,13 @@ import YMGap.Continuum.BF4ExactSlabPlaquettePhysicalDerivativeCarrier
 import YMGap.Continuum.BF4ExactSlabPlaquetteMixedSquare
 import YMGap.Continuum.BF4ExactSlabSignedMixedEnergyFloor
 import YMGap.Continuum.BF4ExactSlabSignedSourceRelativeEnergy
+-- Multi-affine two-Ward composition; actual per-face variance join still open.
+import YMGap.Continuum.QuaternionHaarHeadAffineSplit
+import YMGap.Continuum.QuaternionHaarAffineRelativeEnergy
+import YMGap.Continuum.QuaternionHaarDegreeBoundReindex
+import YMGap.Continuum.QuaternionHaarMixedAngularDegreeBound
+import YMGap.Continuum.QuaternionHaarMixedRelativeEnergy
+import YMGap.Continuum.BF4ExactSlabSignedSourceEncoding
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 -- Constructed SAME-carrier regularized series, not a physical Hamiltonian.
 import YMGap.Continuum.BF4WilsonAllNomeLogPartial

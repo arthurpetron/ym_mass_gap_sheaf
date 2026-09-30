@@ -4,7 +4,19 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original physical mixed energy (2026-09-30 UTC)
+## Current increment: multi-affine two-Ward composition (2026-09-30 UTC)
+
+The degree<=1 viewpoint supplies an actual reusable bound, not another
+analytic assumption: H[W*S2_head,b(p)] <= M(C)*M(D)*H[W*p^2] for the SAME
+source/weight, with both relative costs explicit. The signed source's two
+indexings are now literally equal. NEXT: instantiate the two degree ceilings
+and weight certificates in the same physical frame and compose with the
+mixed-energy lower bound. The per-face variance and family-uniform bound
+remain open. Six focused checks passed 18 gates; no canonical field change,
+broad guard or progress_metric.sh run. Evidence:
+`audits/AUDIT-MULTIAFFINE-RELATIVE-ENERGY-2026-09-30.md`.
+
+## Earlier increment: original physical mixed energy (2026-09-30 UTC)
 
 The physical two-edge join is supplied: the exact signed-source detector
 and physical S2(f_p)=8+f_p^2 now compose under the original action, giving
