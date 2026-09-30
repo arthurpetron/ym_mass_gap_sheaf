@@ -25,7 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### ORIGINAL chronological path-energy sum (2026-09-30 UTC)
+### ORIGINAL completed chronological area coercivity (2026-09-30 UTC)
+
+`BF4ExactSlabCompletedChronologicalCoercivity.completed_centered_area_coercivity`
+now proves a positive Dirichlet bound for EVERY vacuum-orthogonal state of the
+SAME original full-action completion. Its explicit reciprocal coefficient is
+
+    poincareCost = N * (prefixCap(w)/headFloor(w))^(2*C+12),
+    C = 12*(extent+1)^3,
+    areaCoercivity = 1/poincareCost > 0.
+
+`BF4ExactSlabChronologicalCostPower.areaCost_eqv_faceRatio_pow` proves the
+displayed ratio exponent, not merely a numerical estimate. The original
+partition and replica factor cancel exactly, original interacting centering
+is retained, and the chronological energy sum equals the EXISTING physical-link
+Dirichlet sum on the SAME input. The previous centered-Cauchy construction
+extends the dense inequality without changing its explicit modulus. N>0 is
+witnessed even at extent zero. The coefficient is uniform over K>=headCutoff(w),
+but depends on nome and extent. Six focused serialized capped checks passed
+28 gates within {propext, Quot.sound}; no new analytic hypothesis or sorry.
+
+NEXT: return to the missing cancellation-preserving collective signed estimate
+and its justified spatial/scaling family. The finite normalization and
+area-budget branch is complete; further repackaging of this exponentially
+area-losing coefficient does not supply the missing producer. Work backward
+from the existing signed consumer and forward from the original conditional
+energies, preserving normalization and mixed terms. These are ordinary
+conditional-update weighted-L2 dynamics, NOT an OS transfer identification.
+All same-theory continuum/Clay obligations remain open and the canonical chart
+state is unchanged. Evidence:
+`audits/AUDIT-CHRONOLOGICAL-AREA-COERCIVITY-2026-09-30.md`.
+
+### ORIGINAL chronological path-energy sum (2026-09-30 UTC; preceding checkpoint)
+
+The common-factor cancellation, exact single coefficient and completed
+centered bound listed as next below are now proved above. Useful signed
+spatial/scaling control remains open.
 
 `BF4ExactSlabChronologicalPathSum.original_chronological_path_energy_bound`
 now joins the path telescope, physical cut comparison and EXISTING conditional

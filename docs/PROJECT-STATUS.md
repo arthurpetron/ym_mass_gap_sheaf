@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL completed chronological area coercivity
+(2026-09-30 UTC; chart unchanged): every centered state in the SAME full-action
+completion satisfies normSq <= N*(prefixCap/headFloor)^(2*C+12)*finalEnergy,
+with C=12*(extent+1)^3. The exact exponent, positive reciprocal, common-partition
+cancellation and unchanged centered Cauchy modulus are checked. This is uniform
+in late heat cutoff, not nome/area/spacing, and concerns conditional weighted-L2
+dynamics, not OS time. Six focused checks passed 28 gates. The finite join
+formerly open below is complete; useful signed spatial/scaling control and
+all continuum/Clay obligations remain open. Evidence:
+`audits/AUDIT-CHRONOLOGICAL-AREA-COERCIVITY-2026-09-30.md`.
+
 Verified supporting ORIGINAL chronological path-energy sum (2026-09-30 UTC;
 chart unchanged): actual links now have a checked chronological permutation,
 whose intermediate cuts satisfy the area bound. The reordered telescope,

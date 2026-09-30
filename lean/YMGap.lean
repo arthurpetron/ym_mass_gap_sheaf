@@ -5730,6 +5730,13 @@ import YMGap.Continuum.BF4ExactSlabOrderedPathCut
 import YMGap.Continuum.BF4ExactSlabOrderedPathEnergy
 import YMGap.Continuum.BF4ExactSlabOrderedPathVariance
 import YMGap.Continuum.BF4ExactSlabChronologicalPathSum
+-- Exact original centered Dirichlet bound; area loss is not scaling control.
+import YMGap.Continuum.BF4ExactSlabOriginalVariancePins
+import YMGap.Continuum.BF4ExactSlabChronologicalCostBound
+import YMGap.Continuum.BF4ExactSlabChronologicalCostPower
+import YMGap.Continuum.BF4ExactSlabChronologicalDirichletSum
+import YMGap.Continuum.BF4ExactSlabChronologicalCoercivity
+import YMGap.Continuum.BF4ExactSlabCompletedChronologicalCoercivity
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

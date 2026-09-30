@@ -1,6 +1,40 @@
 # Sorry Ledger
 
+## PROVED original completed chronological area coercivity (2026-09-30 UTC)
+
+- `BF4ExactSlabOriginalVariancePins.originalPartition_positive` constructs
+  positivity of the ORIGINAL partition. `original_mean_pin`, `original_norm_pin`
+  and `centered_determinant_pin` retain the full-action mean and norm exactly.
+- `BF4ExactSlabChronologicalCostBound.chronological_stepCost_le_areaCost`
+  bounds every chronological cost by one positive explicit budget.
+  `BF4ExactSlabChronologicalCostPower.areaCost_eqv_faceRatio_pow` pins it to
+  (prefixCap(w)/headFloor(w))^(2*C+12), C=12*(extent+1)^3. No late cutoff enters.
+- `BF4ExactSlabChronologicalDirichletSum.chronologicalResidualEnergy_sum`
+  identifies the reordered finite sum with the EXISTING finalEnergy of the
+  SAME input; it does not reorder the conditional sweep itself.
+- `BF4ExactSlabChronologicalCoercivity.dense_centered_poincare` cancels the
+  original positive partition and replica factor. `blocks_positive` witnesses
+  N>0 even at extent zero; `areaCoercivity_positive` constructs the reciprocal
+  of N*areaCost. `dense_centered_area_coercivity` gives the lower bound.
+- `BF4ExactSlabCompletedChronologicalCoercivity.completed_centered_area_coercivity`
+  and `completed_centered_area_poincare` extend that exact coefficient to EVERY
+  original completed centered state, using the existing explicit-modulus
+  centered representative. This closes the finite normalization/area-budget
+  join recorded below, not a canonical continuum frontier field.
+- OPEN: useful collective signed spatial/scaling control. The coefficient
+  depends on nome and area and is uniform only in late heat cutoff. Ordinary
+  conditional-update L2 dynamics are not OS/physical time. Nontrivial continuum
+  survival, physical mass, full QFT and every-group obligations remain open.
+- Six final focused one-worker/20 GiB checks passed all 28 printed gates within
+  {propext, Quot.sound}. No new sorry, custom axiom, analytic assumption or
+  frontier weakening; no old sorry discharged. No full-root build/audit/guard.
+  Canonical chart unchanged. Evidence:
+  `audits/AUDIT-CHRONOLOGICAL-AREA-COERCIVITY-2026-09-30.md`.
+
 ## PROVED original chronological path-energy sum (2026-09-30 UTC)
+
+The finite coefficient and completed centered inequality listed as open at
+this checkpoint are now proved above; useful spatial/scaling control remains.
 
 - `SU2QuaternionOrderedReplicaPath` constructs arbitrary-order replacement
   increments, exact singleton transport, endpoint equality and the length-N
