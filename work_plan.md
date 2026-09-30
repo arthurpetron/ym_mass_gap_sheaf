@@ -64,6 +64,44 @@ axiom, analytic bundle, broad run or canonical chart change. A03 and the
 same-theory Clay target remain open. Evidence:
 `audits/AUDIT-SIGNED-FEATURE-WEDGE-2026-09-30.md`.
 
+### Finite diagnostic selection: existing tests, actual quantitative gain
+
+Source/mathematical review only; no new checked estimate or numerical run.
+`BF4ExactSlabChebyshevFiniteTest.marginValue` and
+`reverse_energy_of_finite_test` already provide the explicit rational
+auxiliary test. Do not rebuild its evaluator interface. A success merely
+at the existing volume-dependent `reverseCoefficient` would not supply
+the missing uniform estimate: `BF4ExactSlabFiniteVolumeChebyshevCovariance.
+finiteCovariance_sq_bound` already gives that finite-volume conclusion.
+
+For a direct observable-pair diagnostic, fewer quantities suffice.
+`BF4ExactSlabConnectedFaceResponse.finite_covariance_cleared`
+(`lean/YMGap/Continuum/BF4ExactSlabConnectedFaceResponse.lean:176`)
+and `BF4ExactSlabDisconnectedHaarCancellation.connectedNumerator`
+(`lean/YMGap/Continuum/BF4ExactSlabDisconnectedHaarCancellation.lean:115`)
+give, with the SAME full action, `D(p,q)=Z*M(p*q)-M(p)*M(q)` and
+`Cov(p,q)=D(p,q)/Z^2`. Thus the finite squared correlation comparison
+is exactly `D(p,q)^2 <= r^2*D(p,p)*D(q,q)`; only six raw moments
+`M(1), M(p), M(q), M(p*q), M(p*p), M(q*q)` are needed. This avoids
+the nested conditional-inverse representatives, not the cost of integrating
+the full action. It is a weaker diagnostic, NOT a certificate of reverse
+energy or a uniform family. No feasible successful instance is asserted.
+Luna's focused source search found no recorded successful `marginValue`
+instance or bounded-size evaluator run in the three evaluator modules,
+`audits/`, or `computations/`; the existing auxiliary reverse-loss audit
+also records its rational premise as unsupplied. Sol independently checked
+the direct-moment comparison and the separation/calibration distinction.
+
+Before a computational launch, require a bounded cost estimate and a
+coefficient that improves on the existing finite-volume result. Track
+`T_n(c-1)^(-1)` with the actual `16*n` separation. Do not discard the
+sharper rational calibration already in `ChebyshevReciprocalPair.
+T_center_recip_le` and `ChebyshevMarginParameters.calibrated_recip_le`
+by defaulting to the weaker `(c-1)^(-n)` estimate. A physical-spacing
+application still needs a justified original-action family and uniform
+observable control; no conditional-update rate is identified with an
+OS transfer or physical Hamiltonian here. A03 stays open. No chart change.
+
 ### Existing collar coefficient fails the proposed patch test (2026-09-30 UTC)
 
 `BF4ExactSlabPatchCollarBudgetObstruction` proves that the existing
