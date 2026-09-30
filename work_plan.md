@@ -361,14 +361,27 @@ Two final focused serialized checks passed 37 gates exactly in
 {propext, Quot.sound}; no broad run or chart change. Evidence:
 `audits/AUDIT-ORIGINAL-ROOT-RESOLVENT-2026-09-30.md`.
 
-NEXT resolvent proposition: for h=2^(-k), lambda>0, construct
-R_h=h*((1+lambda*h)I-root k)^(-1) from these inverses. Prove the sharp
-adjacent-depth squared norm comparison h^2/4 using root squaring and
-`DyadicDefectDecay.moment_nonnegative`. The explicit positive-polynomial
-factorization is recorded in the audit; it is NOT yet a Lean theorem.
-Then construct the dyadic limit and its sector range witness, and prove
-the actual derivative equation. Do not call the fixed-root inverse a
-generator resolvent or a physical mass gap. The original kernel remains.
+FOLLOW-ON PROVED: `BF4WilsonAllNomeShiftedRootResolvent` constructs the
+two-sided inverse of (delta+b)I-bR, delta>0, b>=0, with sharp norm cap
+1/delta and actual representatives. `ResolventSquareComparison` uses only
+four original mixed moments: AB=C+2D^2 and <Cz,D^2z>>=0 imply
+||ABz||^2>=4||D^2z||^2. `AdjacentRootResolvent.inverse_difference` pins
+A^(-1)x-B^(-1)x=D^2 A^(-1)B^(-1)x on the SAME completion.
+`DyadicResolvent.half_step_pin` identifies the actual next approximant;
+`dyadic_step_bound` gives ||(R_k-R_(k+1))x||^2<=4^(-k)||x||^2/4,
+where R_k=h*((1+lambda*h)I-root k)^(-1), h=2^(-k), lambda>0.
+`dyadicRepresentative` computes every original output Cauchy stream.
+All abbreviated module names have prefix `BF4WilsonAllNome`. Four final
+focused serialized checks passed 39 gates within {propext, Quot.sound};
+no broad run or canonical change. Evidence:
+`audits/AUDIT-ORIGINAL-DYADIC-RESOLVENT-REFINEMENT-2026-09-30.md`.
+
+NEXT resolvent proposition: telescope this sharp adjacent estimate to an
+explicit geometric Cauchy modulus and construct the actual represented
+dyadic limit. Supply its sector range witness and prove the derivative
+equation A_derivative u=T(f-lambda*u). The existing intrinsic sector graph
+then supplies the domain join. Do not call the approximants a constructed
+generator resolvent or physical mass gap. The original kernel remains.
 
 NEXT reconstruction residue: the SAME-object physical reflected OS/observable
 identification and the generator resolvent/spectral join, not another
@@ -413,6 +426,14 @@ are scoped controls, not refutations of this family. The 2D universality,
 strong-coupling large-N and 2+1D outline results do not close 4D fields.
 Lean-Quantum depends on Mathlib: proof ideas only, no dependency import.
 This is a research-driven priority adjustment, not a new proved estimate.
+FOLLOW-ON SOURCE REVIEW: the original signed family's finite numerator,
+shared partition and terminal factors have exact scalar pins, but no
+declaration yet identifies them with the angular Taylor a^2 weight and
+its signed remainders. The next producer must supply that SAME-cutoff
+comparison for the actual family/jump source before invoking the existing
+`SectorSourceTransfer.relative_derivative_bound`. Evidence and exact names:
+`audits/AUDIT-SIGNED-ANGULAR-ORIGINAL-WEIGHT-SEAM-2026-09-30.md`.
+This is a located missing comparison, not a new bound or impossibility theorem.
 The now-proved one-step source/domain transfer already controls the actual
 derivative energy, retained norm and source replacement. Do not build another
 equivalent conditional survival/domain wrapper before supplying a useful

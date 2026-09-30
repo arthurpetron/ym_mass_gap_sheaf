@@ -5861,6 +5861,11 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexSectorDerivative
 -- Constructed bounded root inverses; shrinking-time generator resolvent remains open.
 import YMGap.Continuum.BF4WilsonAllNomeRootResolventPartial
 import YMGap.Continuum.BF4WilsonAllNomeRootResolvent
+-- Actual adjacent dyadic resolvents; represented generator limit remains open.
+import YMGap.Continuum.BF4WilsonAllNomeShiftedRootResolvent
+import YMGap.Continuum.BF4WilsonAllNomeResolventSquareComparison
+import YMGap.Continuum.BF4WilsonAllNomeAdjacentRootResolvent
+import YMGap.Continuum.BF4WilsonAllNomeDyadicResolvent
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary

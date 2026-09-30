@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL dyadic resolvent refinement (2026-09-30 UTC;
+chart unchanged): shifted root inverses have computed original outputs and
+cap 1/delta. Four nonnegative mixed moments prove the sharp square comparison;
+exact inverse algebra and half-step normalization give the actual sequence
+R_k=h*((1+lambda*h)I-root k)^(-1), h=2^(-k), lambda>0, with adjacent squared
+error <=h^2||x||^2/4 on EVERY original vector. The represented limit, sector
+membership and generator equation remain next. No physical OS/scaling result
+or kernel deletion. Four focused serialized checks passed 39 gates within
+{propext, Quot.sound}; no broad run or canonical field change. Evidence:
+`audits/AUDIT-ORIGINAL-DYADIC-RESOLVENT-REFINEMENT-2026-09-30.md`.
+
 Verified supporting ORIGINAL bounded root inverse (2026-09-30 UTC; chart
 unchanged): normalized geometric sums of every constructed transfer root
 now have an actual limit with original representatives and an explicit

@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL sharp dyadic resolvent refinement (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeShiftedRootResolvent` constructs the actual inverse of
+  (delta+b)I-bR for delta>0, b>=0, with cap 1/delta and original output streams.
+- `BF4WilsonAllNomeResolventSquareComparison.denominatorProduct_pin` and
+  `positive_square_comparison` give AB=C+2D^2 and ||ABz||^2>=4||D^2z||^2
+  using four actual nonnegative mixed moments. No spectral calculus.
+- `BF4WilsonAllNomeAdjacentRootResolvent.inverse_difference` gives the
+  exact original inverse difference D^2 A^(-1)B^(-1)x.
+  `BF4WilsonAllNomeDyadicResolvent.dyadic_step_bound` consequently bounds
+  the actual h=2^(-k) adjacent resolvents by h^2||x||^2/4 in squared norm;
+  `half_step_pin` and `dyadicRepresentative_pin` retain exact parameters
+  and computed original representatives, including the boundary kernel.
+- OPEN: represented dyadic limit, sector membership and generator equation;
+  physical OS/time/spectral identification, signed scaling estimate,
+  continuum survival, full QFT/every-group/Clay. No canonical field changed.
+- Four final focused serialized checks passed 39 gates within
+  {propext, Quot.sound}; no new sorry/axiom or broad run. Evidence:
+  `audits/AUDIT-ORIGINAL-DYADIC-RESOLVENT-REFINEMENT-2026-09-30.md`.
+
 ## PROVED ORIGINAL bounded root inverses (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeRootResolventPartial.partial_norm_bound` and
