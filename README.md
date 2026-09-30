@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Finite-feature moment reduction proved (2026-09-30):** the original
+two-link covariance numerator is now expressed through moment sums indexed
+only by the shared interaction, independent of test degree. Both one-sided
+weights, the actual normalizer and all exterior variables are retained.
+This is not a uniform finite-rank or spectral-gap estimate; the useful
+signed bound remains open. See the
+[proof and scope audit](audits/AUDIT-ORIGINAL-FINITE-FEATURE-MOMENTS-2026-09-30.md).
+
 **Prediction-covariance connection proved (2026-09-29):** the actual completed
 block residual pairing now equals a positive defect square minus its
 common-centered prediction covariance. Explicit block-independent

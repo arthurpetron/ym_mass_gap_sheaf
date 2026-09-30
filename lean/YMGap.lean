@@ -5561,6 +5561,10 @@ import YMGap.Continuum.BF4ExactSlabBlockInverseAlgebra
 import YMGap.Continuum.BF4ExactSlabBlockCovarianceNormalizer
 import YMGap.Continuum.BF4ExactSlabBlockPredictionCovariance
 import YMGap.Continuum.BF4ExactSlabTwoLinkNormalizerPin
+-- Finite shared-interaction moment reduction; no uniform norm bound follows.
+import YMGap.Continuum.SU2QuaternionBlockMonomialFeatures
+import YMGap.Continuum.SU2QuaternionSeparableConditionalMoments
+import YMGap.Continuum.BF4ExactSlabTwoLinkFeatureMoments
 import YMGap.Continuum.SU2QuaternionSharedHeatCorrelationObstruction
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair

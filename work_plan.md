@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original weighted finite-feature moments proved (2026-09-30 UTC)
+
+`SU2QuaternionSeparableConditionalMoments.weighted_moment` expands only
+the shared interaction, keeping the actual one-sided weights and arbitrary
+opposite-block-independent tests inside their exact one-link moments.
+The index count is the shared polynomial's term-list length, independent
+of test degree; all exterior variables remain symbolic coefficients.
+`BF4ExactSlabTwoLinkFeatureMoments` identifies the four moment sums with
+the SAME original D, N_f, N_g and N_fg, retains detached E once, and pins
+their signed determinant coefficientwise to the existing `covarianceVector`.
+The existing completed inverse still uses the actual D, not a floor.
+
+NEXT: a useful signed variance-relative estimate on justified scaling,
+retaining the positive residual defect where helpful. Finite features alone
+do not bound their interacting Gram norm or provide exterior/cutoff-uniform
+control. The covariance consumer needs reverse energy only on its actual
+centered auxiliary recurrence; a theorem on every centered state is a
+stronger sufficient route, not a prerequisite. No gauge-sector preservation
+is assumed, and no new analytic input bundle or canonical field is added.
+
+Three focused serialized one-worker/20 GiB checks passed all 22 gates within
+{propext, Quot.sound}; Luna reviewed scope. No new sorry/axiom, broad run or
+canonical chart change. The useful estimate, block geometry, scaling,
+nontrivial survival, thermodynamic and same-theory OS/QFT/physical mass/
+every-group Clay obligations remain open. Evidence:
+`audits/AUDIT-ORIGINAL-FINITE-FEATURE-MOMENTS-2026-09-30.md`.
+
 ### Original completed prediction-covariance join proved (2026-09-29 UTC)
 
 `BlockPredictionCovariance.residual_pair_decomposition` proves, for the

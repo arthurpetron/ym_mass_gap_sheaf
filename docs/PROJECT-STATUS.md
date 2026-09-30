@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting finite-feature reduction (2026-09-30 UTC; chart unchanged):
+The original weighted two-link moments now factor through a shared-interaction
+index list independent of test degree. Exterior coefficients, both one-sided
+weights, the actual normalizer and the signed covariance numerator remain
+unchanged. This proves no uniform rank or useful interacting norm bound.
+The signed scaling-family estimate and A03 remain open, with all same-theory
+continuum/Clay requirements. Evidence:
+`audits/AUDIT-ORIGINAL-FINITE-FEATURE-MOMENTS-2026-09-30.md`.
+
 Verified supporting prediction-covariance join (2026-09-29 UTC; chart unchanged):
 The actual completed mixed residual is exactly a positive defect square minus
 the common-centered prediction covariance. Constructed block-independent

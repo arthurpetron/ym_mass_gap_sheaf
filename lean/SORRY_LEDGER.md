@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Original finite-feature conditional moments (2026-09-30 UTC)
+
+- **proved:** `SU2QuaternionBlockMonomialFeatures.term_factorization`
+  and `SU2QuaternionSeparableConditionalMoments.weighted_moment` retain
+  both one-sided action factors while indexing moment pairs by the shared
+  interaction alone. Every moment remains exterior-valued.
+- **original join:** `BF4ExactSlabTwoLinkFeatureMoments` pins the original
+  normalizer and inserted numerators to these moments, retains detached
+  action once, and gives coefficient equivalence of the existing
+  `covarianceVector` with their signed determinant.
+- **open:** interacting Gram/norm control, useful signed residual estimate
+  on justified scaling, block geometry, nontrivial survival, thermodynamic
+  and same-theory OS/QFT/physical mass/every-group Clay. No uniform rank,
+  normalized matrix bound or completed inverse for a new feature carrier
+  is inferred. The original inverse and carrier are unchanged.
+- **verification:** three focused serial one-worker/20 GiB checks; all 22
+  gates within {propext, Quot.sound}; Luna review. No new sorry, axiom,
+  assumed analytic bundle, weakened field, broad check or chart change.
+  Evidence: `audits/AUDIT-ORIGINAL-FINITE-FEATURE-MOMENTS-2026-09-30.md`.
+
 ## Original completed prediction-covariance join (2026-09-29 UTC)
 
 - **proved:** `GNSProjectionPredictionCovariance` gives the exact mixed

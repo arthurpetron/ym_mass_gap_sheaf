@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual prediction-covariance join (2026-09-29 UTC)
+## Current increment: original finite-feature moments (2026-09-30 UTC)
+
+Only the shared interaction is expanded in the original weighted conditional
+moments. The test-degree-independent index list retains exterior-valued
+entries, both one-sided weights, the actual D and detached E once. The
+signed determinant is coefficient-equivalent to the EXISTING covariance
+vector, whose completed inverse-normalizer join remains unchanged.
+This is a finite-cutoff algebraic reduction, not a useful matrix/norm bound
+or uniform rank result. NEXT: estimate the signed expression relative to
+actual variance/residual energy on justified scaling, retaining the defect
+and allowing a bound only along the needed auxiliary recurrence. All
+same-theory continuum/Clay obligations remain open. All 22 gates passed
+three focused serialized one-worker/20 GiB checks; Luna reviewed scope.
+No broad run or canonical chart change. Evidence:
+`audits/AUDIT-ORIGINAL-FINITE-FEATURE-MOMENTS-2026-09-30.md`.
+
+## Earlier increment: actual prediction-covariance join (2026-09-29 UTC)
 
 The SAME completed block residual pairing is now exactly defect-square minus
 union-centered prediction covariance. Explicit block-independent Cauchy
