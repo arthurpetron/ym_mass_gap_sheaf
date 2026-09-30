@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original finite-feature moments (2026-09-30 UTC)
+## Current increment: same-state covariance-to-residual bound (2026-09-30 UTC)
+
+An exact positive-square identity now converts a one-sided prediction
+covariance bound into a residual-pair bound with coefficient rho/2 for
+0<=rho<=1. The original block specialization and dense-limit passage use
+the SAME conditional inverse and union-centered diagonal variances.
+The existing neighbor-energy theorem consumes this pairwise shape. This
+does not produce a useful rho, schedule geometry or scaling-family bound;
+collective signed control remains a possible alternative. All same-theory
+continuum/Clay obligations remain open. All 10 gates passed three focused
+serialized one-worker/20 GiB checks; Luna reviewed scope. No broad run or
+canonical chart change. Evidence:
+`audits/AUDIT-PREDICTION-ANGLE-RESIDUAL-2026-09-30.md`.
+
+## Earlier increment: original finite-feature moments (2026-09-30 UTC)
 
 Only the shared interaction is expanded in the original weighted conditional
 moments. The test-degree-independent index list retains exterior-valued

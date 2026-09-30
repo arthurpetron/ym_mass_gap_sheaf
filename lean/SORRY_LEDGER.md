@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Same-state prediction covariance to residual energy (2026-09-30 UTC)
+
+- **proved conditional conversion:** `GNSPredictionAngleResidual` retains
+  an exact positive square and converts `2*Cov<=rho*V`, `0<=rho<=1`,
+  into the residual-pair lower bound with coefficient `rho/2` at that state.
+- **original join:** `BF4ExactSlabBlockPredictionAngle` uses the actual
+  completed block projections, pins the diagonal covariance limits to V,
+  and passes the actual inverse-normalized dense bound to the completion.
+  Overlapping blocks are allowed; no all-state premise is added.
+- **open input:** the useful original-action variance-relative covariance
+  bound on justified scaling. This sufficient pairwise route is not a
+  physical necessity; collective signed control remains an alternative.
+  Block geometry, nontrivial survival, thermodynamic and same-theory
+  OS/QFT/physical mass/every-group Clay remain open.
+- **verification:** three focused serialized one-worker/20 GiB checks;
+  all 10 gates within {propext, Quot.sound}; independent Luna review.
+  No new sorry, axiom, analytic bundle, weakened frontier or broad run.
+  Evidence: `audits/AUDIT-PREDICTION-ANGLE-RESIDUAL-2026-09-30.md`.
+
 ## Original finite-feature conditional moments (2026-09-30 UTC)
 
 - **proved:** `SU2QuaternionBlockMonomialFeatures.term_factorization`

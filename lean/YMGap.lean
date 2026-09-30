@@ -5565,6 +5565,10 @@ import YMGap.Continuum.BF4ExactSlabTwoLinkNormalizerPin
 import YMGap.Continuum.SU2QuaternionBlockMonomialFeatures
 import YMGap.Continuum.SU2QuaternionSeparableConditionalMoments
 import YMGap.Continuum.BF4ExactSlabTwoLinkFeatureMoments
+-- Same-state prediction covariance converts to residual energy; useful rho open.
+import YMGap.Continuum.RCPredictionAngleBudget
+import YMGap.Continuum.GNSPredictionAngleResidual
+import YMGap.Continuum.BF4ExactSlabBlockPredictionAngle
 import YMGap.Continuum.SU2QuaternionSharedHeatCorrelationObstruction
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair

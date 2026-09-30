@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Same-state covariance-to-residual conversion proved (2026-09-30 UTC)
+
+`GNSPredictionAngleResidual.weighted_square_identity` retains a positive
+square to turn `2*predictionCovariance <= rho*predictionVarianceSum`,
+`0<=rho<=1`, into the signed residual bound with coefficient `rho/2`.
+The input is needed only at the supplied state, with no `1/(1-rho)` loss.
+`BF4ExactSlabBlockPredictionAngle` specializes this to the SAME original
+completed block projections, including overlapping blocks. Its diagonal
+limit identifies the exact union-centered variances, and its dense-input
+theorem passes the actual inverse-normalized covariance inequality along
+the constructed prediction approximants to that completed residual bound.
+The existing `neighboringCross_lower` consumes this shape with `e=rho/2`.
+
+NEXT: produce a useful original-action signed variance-relative bound on
+justified scaling, using the actual weights, normalizer and exterior data.
+This conversion supplies no useful rho and is a sufficient pairwise route,
+not a necessary condition for physical mass. Collective signed control
+remains an alternative; a fixed dimensionless gap is not imposed. Bounds
+on the actual auxiliary recurrence may suffice without an all-state claim.
+
+Three focused serialized one-worker/20 GiB checks passed all 10 gates within
+{propext, Quot.sound}; Luna independently reviewed the same-object joins.
+No new sorry, axiom, analytic bundle, broad run or canonical chart change.
+Block geometry, scaling, nontrivial survival, thermodynamic and same-theory
+OS/QFT/physical mass/every-group Clay obligations remain open. Evidence:
+`audits/AUDIT-PREDICTION-ANGLE-RESIDUAL-2026-09-30.md`.
+
 ### Original weighted finite-feature moments proved (2026-09-30 UTC)
 
 `SU2QuaternionSeparableConditionalMoments.weighted_moment` expands only

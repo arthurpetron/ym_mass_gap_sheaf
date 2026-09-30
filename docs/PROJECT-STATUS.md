@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting covariance-to-residual conversion (2026-09-30 UTC;
+chart unchanged): the one-state prediction bound `2*Cov<=rho*V`,
+`0<=rho<=1`, implies the signed residual-pair bound with coefficient
+`rho/2`. The exact square identity, original completed specialization and
+actual inverse-normalized dense-limit passage are checked. This supplies
+no useful rho or scaling-family estimate: A03 and all same-theory Clay
+requirements remain open. Evidence:
+`audits/AUDIT-PREDICTION-ANGLE-RESIDUAL-2026-09-30.md`.
+
 Verified supporting finite-feature reduction (2026-09-30 UTC; chart unchanged):
 The original weighted two-link moments now factor through a shared-interaction
 index list independent of test degree. Exterior coefficients, both one-sided

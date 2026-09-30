@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-## Current proof boundary (2026-09-29 UTC)
+## Current proof boundary (2026-09-30 UTC)
 
 The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
 wording, layout, proof-status meanings and permanent node IDs across updates.
@@ -9,6 +9,14 @@ The Clay target remains **open**: a nontrivial continuum Yang--Mills theory on
 R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
+
+**Covariance-to-residual bound proved (2026-09-30):** a one-state bound
+`2 Cov <= rho * (prediction variance sum)` now yields the signed residual
+bound with coefficient `rho/2`, for `0<=rho<=1`. The proof retains a
+positive square and uses the SAME original completed projections and
+conditional normalizer. Producing a useful rho on justified scaling remains
+open; this is not a new gap theorem. See the
+[proof and scope audit](audits/AUDIT-PREDICTION-ANGLE-RESIDUAL-2026-09-30.md).
 
 **Finite-feature moment reduction proved (2026-09-30):** the original
 two-link covariance numerator is now expressed through moment sums indexed
