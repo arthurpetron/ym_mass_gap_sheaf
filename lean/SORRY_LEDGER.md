@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED positive square root of the ORIGINAL transfer (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeDefectPolynomialAlgebra.action_pmul` supplies exact
+  action composition for polynomials in the original D=I-T.
+- `BF4WilsonAllNomeSquareRoot.complementLimit_pairing_recurrence` passes
+  the finite iteration through represented pairing limits, with no choice
+  or assumed continuity of an operator-composition limit.
+- `squareRoot_pairing` proves B(Rx,Ry)=B(x,Ty) for the constructed R=I-H;
+  `squareRoot_square` gives R^2=T on the SAME completion. Positivity,
+  symmetry, rational and supplied-modulus real linearity, contraction and
+  squared-distance contraction are proved. The original kernel is retained.
+- OPEN: compatible dyadic roots, strong continuity on the appropriate
+  range closure, same-core log derivative and generator identification,
+  spatial/spacing calibration, scaling survival and all Clay fields.
+  The root construction is not yet a generic iteratable operator API.
+- Two focused one-worker/20 GiB checks passed 23 printed gates in
+  {propext, Quot.sound}; no full build/audit/guard, new sorry/axiom, frontier
+  weakening or canonical chart change. Evidence:
+  `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED original-carrier complement-iteration convergence (2026-09-30 UTC)
 
 - `ComplementRootPolynomial` proves coefficientwise monotonicity and
@@ -12,8 +32,9 @@
 - `complementLimitCertificate` constructs its actual limit on the SAME
   original completion, with explicit representative and convergence data.
   No arbitrary quotient-valued sequence is lifted by choice.
-- OPEN: the square equation (I-H)^2=T, root positivity and dyadic
-  compatibility, strong continuity on the appropriate range closure,
+- FOLLOW-ON: the square equation and root positivity are proved in the
+  entry above. OPEN: dyadic compatibility, strong continuity on the
+  appropriate range closure,
   same-core regularized-log derivative, graph-core/generator identity,
   spatial/spacing calibration, survival and all Clay fields.
 - Four focused one-worker/20 GiB checks passed 26 printed gates in

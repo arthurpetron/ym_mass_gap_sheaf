@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: inverse-free local dual route (2026-09-30 UTC)
+## Current increment: original-transfer positive square root (2026-09-30 UTC)
+
+The explicit complement limit H now supplies the positive symmetric
+contraction R=I-H with R^2=T on the SAME original completed Wilson carrier.
+The finite polynomial recursion passes through pairings; no general
+functional calculus, inverse transfer or chosen quotient representatives
+are assumed. Consumer: original-transfer dyadic-time reconstruction,
+whose compatibility and continuity remain open. The primary scaling
+survival estimate and all Clay fields remain open. Two focused capped
+checks passed 23 gates; no canonical chart change, broad guard or
+progress_metric.sh run. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
+## Earlier increment: inverse-free local dual route (2026-09-30 UTC)
 
 Stepping back from per-face summation supplies the explicit polynomial dual
 A*J=Y X(A^3*g) and the SAME-weight pairing H[W*J*f]=H[W*A^2*g*(X Y f)].

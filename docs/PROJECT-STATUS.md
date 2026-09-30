@@ -1,13 +1,14 @@
 # Canonical one-page project status
 
-Verified supporting original-carrier complement iteration (2026-09-30 UTC;
-chart unchanged): positive coefficient differences reduce convergence to
-the scalar residual 1-p_n(1)<=2/(n+2). The actual D=I-T polynomial norm
-bound and explicit represented limit now check on the SAME Wilson carrier.
-No general functional calculus, inverse or other-carrier identification is
-used. The square equation (I-H)^2=T, continuous time and generator identity
-remain OPEN, as do scaling survival and every canonical Clay field.
-Four focused capped checks passed 26 gates. Evidence:
+Verified supporting original-carrier positive square root (2026-09-30 UTC;
+chart unchanged): the constructed limit H now gives R=I-H with R^2=T for
+the SAME Wilson transfer. Passing the finite recurrence through pairings
+proves positivity, symmetry, linearity and contraction without an inverse
+or other-carrier identification. The original boundary kernel is retained.
+Compatible dyadic time, strong continuity and generator identity remain
+OPEN, as do scaling survival and every canonical Clay field. The preceding
+explicit complement-iteration modulus is retained. Two further focused
+capped checks passed 23 gates in {propext, Quot.sound}. Evidence:
 `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md` (follow-on construction).
 
 Verified supporting original series-core gap (2026-09-30 UTC; chart unchanged):

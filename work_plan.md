@@ -59,12 +59,25 @@ modulus supplied as data and no choice over quotient representatives.
 The ordered squared-distance bound is r_m^2*||x||^2. Four focused capped
 checks passed 26 gates within {propext, Quot.sound}; no canonical field changed.
 
-NEXT reconstruction step: prove polynomial-action multiplication and pass
-the finite recurrence through the controlled limit to establish (I-H)^2=T
-and positivity of I-H. This square equation is NOT yet checked. Only then
-iterate the positive root to construct fractional time for this EXACT T,
-with strong continuity on the closure of its positive-time range, then
-identify the existing series graph with its generator by a same-core
+FOLLOW-ON PROVED: `BF4WilsonAllNomeDefectPolynomialAlgebra.action_pmul`
+supplies exact polynomial-action composition on the original completion.
+`BF4WilsonAllNomeSquareRoot.complementLimit_pairing_recurrence` passes
+the finite recursion through represented inner-product limits. For R=I-H,
+`squareRoot_pairing` gives B(Rx,Ry)=B(x,Ty), and `squareRoot_square`
+proves R^2=T. The constructed R is positive, symmetric, real-linear (with
+supplied scalar modulus) and contractive. Two further focused capped checks
+passed 23 gates in {propext, Quot.sound}; no canonical field changed.
+
+NEXT reconstruction step: compatible dyadic roots of this EXACT T. The
+first root constructor is Wilson-specific, so reapplying it to R without a
+proved interface would be a gap. Read-only review found an economical
+candidate: nested positive polynomials Q_(0,n)=d,
+Q_(k+1,n)=p_n(Q_(k,n)), all still acting on the ORIGINAL D. Existing Horner
+composition is `QPolyRatPolySubstitutionAlgebra.compose`; coefficient
+positivity/monotonicity under composition and the controlled square-error
+identity must still be proved. This is a planned argument, NOT a checked
+dyadic tower. Then establish strong continuity on the closure of the
+positive-time range and identify the existing series graph with its generator by a same-core
 difference-quotient theorem and graph-core argument. Reuse scalar polynomial
 estimates where applicable; the existing thermodynamic
 dyadic semigroup uses a different carrier/transfer and is not this join.

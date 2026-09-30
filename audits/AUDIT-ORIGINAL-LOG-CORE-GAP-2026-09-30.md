@@ -124,14 +124,65 @@ independent of the presentation; no quotient representatives are selected.
 | `iterationModulus`, `iterationRows` | `lean/YMGap/Continuum/BF4WilsonAllNomeRootIteration.lean:115`, `:149` | Absolute outer modulus and explicitly represented original rows. |
 | `complementLimit`, `complementLimitCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeRootIteration.lean:170`, `:189` | Same-carrier limit with a witnessing convergence modulus. |
 
-The immediate remaining join is polynomial-action multiplication and
-continuity through this controlled limit, needed to prove (I-H)^2=T and
-positivity of I-H for H=complementLimit. Neither assertion is claimed here.
-The limit is not yet named or advertised as a square-root time operator.
-Dyadic compatibility, strong continuity and the existing log-series derivative
-remain subsequent separate requirements. This smaller positive-coefficient
-construction replaces the proposed port of a legacy carrier's full calculus;
-it does not replace the primary missing scaling-survival estimate.
+The square equation and positivity that were left open at this checkpoint
+are now proved by the follow-on below. Dyadic compatibility, strong continuity
+and the existing log-series derivative remain separate requirements. This
+positive-coefficient construction replaces the proposed port of a legacy
+carrier's full calculus; it does not replace the primary missing
+scaling-survival estimate.
+
+## Follow-on: constructed positive square root of the SAME transfer
+
+Let P_n=p_n(D) on the original completion and H=complementLimit.
+Finite polynomial-action multiplication and symmetry give the exact identity
+
+    B(P_n x,P_n y) = 2 B(x,P_(n+1) y) - B(x,Dy).
+
+The existing represented pairing limits pass this recurrence to H. For
+R=I-H, symmetry and cancellation then give B(Rx,Ry)=B(x,Ty). Definiteness
+of the ORIGINAL pairing proves R^2=T. Positivity follows by passing the
+finite bound B(x,P_n x)<=B(x,x) to H. The pairing identity gives contraction;
+symmetry gives additivity and scalar compatibility. No composition-limit
+theorem, inverse transfer, positive lower spectral endpoint, or choice of
+representatives is assumed.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `action_pmul` | `lean/YMGap/Continuum/BF4WilsonAllNomeDefectPolynomialAlgebra.lean:163` | Exact composition of finite polynomial actions. |
+| `action_symmetric`, `action_commutes_time` | `lean/YMGap/Continuum/BF4WilsonAllNomeDefectPolynomialAlgebra.lean:195`, `:209` | Original pairing symmetry and discrete-time compatibility. |
+| `complementLimit_symmetric`, `complementLimit_form_le` | `lean/YMGap/Continuum/BF4WilsonAllNomeSquareRoot.lean:58`, `:69` | Symmetry and original-norm form ceiling for H. |
+| `approximant_pairing_recurrence` | `lean/YMGap/Continuum/BF4WilsonAllNomeSquareRoot.lean:126` | Exact finite recurrence, tested on arbitrary original inputs. |
+| `complementLimit_pairing_recurrence` | `lean/YMGap/Continuum/BF4WilsonAllNomeSquareRoot.lean:232` | Same recurrence after explicitly controlled pairing limits. |
+| `squareRoot`, `squareRoot_nonnegative` | `lean/YMGap/Continuum/BF4WilsonAllNomeSquareRoot.lean:242`, `:249` | Actual positive operator R=I-H, not a supplied witness. |
+| `squareRoot_pairing`, `squareRoot_square` | `lean/YMGap/Continuum/BF4WilsonAllNomeSquareRoot.lean:265`, `:274` | B(Rx,Ry)=B(x,Ty) and the SAME-object equation R^2=T. |
+| `squareRoot_norm_bound`, `squareRoot_distance_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeSquareRoot.lean:279`, `:314` | Norm and squared-distance contraction. |
+| `squareRoot_add`, `squareRoot_smul`, `squareRoot_realSmul` | `lean/YMGap/Continuum/BF4WilsonAllNomeSquareRoot.lean:284`, `:292`, `:300` | Additivity, rational scaling and real scaling with supplied modulus. |
+
+The previously constructed convergence modulus is retained through R=I-H.
+This algebraic positive square root acts on the whole original completion,
+including its boundary states. No kernel removal or physical-time
+calibration is inferred. The construction is not yet an iteratable generic
+positive-contraction API, so applying it again to R is not an available
+formal step.
+
+### Next candidate, not a checked dyadic construction
+
+Read-only review found existing finite Horner composition:
+`QPolyRatPolySubstitutionAlgebra.compose`,
+`lean/YMGap/Continuum/QPolyRatPolySubstitutionAlgebra.lean:118`, and
+`eval_compose` at line 122. The candidate keeps all approximants as
+polynomials in the ORIGINAL D:
+
+    Q_(0,n)(d)=d; Q_(k+1,n)(d)=p_n(Q_(k,n)(d)).
+
+The planned error certificate is
+E_n(t)=(1-p_n(t))^2-(1-t), with E_0=t and
+E_(n+1)=E_n*p_n+E_n^2/4. Its intended nonnegative coefficients and mass
+E_n(1)=r_n^2 would control each finite square-relation error. Coefficient
+positivity/monotonicity under composition, this error identity, a fixed-depth
+modulus and the compatible limiting tower remain UNPROVED. This is a
+mathematical work plan, not another assumed analytic input or a claim that
+dyadic time has been constructed.
 
 ## Remaining obligations
 
@@ -182,3 +233,16 @@ closure. Final log SHA-256 values:
   `7f677e62a034435045017dd618ac1eddaacc23ac1b2896f888f860d5950e6314`
 - `/tmp/ym-wilson-root-iteration-20260930.log`:
   `9160842d47be2ee3a51b7c1455b8aa26e909e4f337de11e8f9ad8601a1f76f27`
+
+Positive-square-root verification: two further serialized focused checks
+passed eight polynomial-algebra and fifteen square-root gates, all with
+exactly {propext, Quot.sound}. The same one-worker/20 GiB cap and 12 GiB
+reserve applied. A scalar error lemma eliminated repeated unfolding of
+the completion after two elaboration-heartbeat failures; the successful
+check uses the default heartbeat limit. No full root/tree build, audit,
+guard, new sorry/axiom or canonical frontier closure. Final log SHA-256:
+
+- `/tmp/ym-defect-polynomial-algebra-20260930.log`:
+  `c40b6f092f39e6d6629cb57eae8cc1cab68621c2c9de77429786d2c4df1e771e`
+- `/tmp/ym-wilson-square-root-20260930.log`:
+  `10afbb6a2bcf6c2946c11523ecb3277bb901d403b9c9e69bcf447967979b6e64`
