@@ -64,6 +64,9 @@ same graph directly; no resolvent is needed for that pairing criterion.
 The witnessed time-range sector is now closed under explicit norm limits.
 Its witnesses compute original representatives, and root-sequence continuity
 constructs exactly this sector, with continuity at all small dyadic times.
+The same sector now has explicit real-linear operations and positive-time
+invariance, with a computed continuity radius for EVERY small positive real
+time. Real scaling also returns represented derivative graphs on this carrier.
 Time is still in original lattice units; self-adjointness,
 equality with the existing log series, physical calibration, scaling
 survival and Clay remain open.

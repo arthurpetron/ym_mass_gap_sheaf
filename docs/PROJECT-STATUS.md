@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL real-continuity sector (2026-09-30 UTC; chart
+unchanged): the witnessed range now has an explicit radius for EVERY small
+positive real time, and supplied real-zero-continuity data construct range
+membership back. Positive time lands in this sector and preserves it.
+Original addition and supplied-modulus real scaling return actual range
+witnesses. Symmetry also gives real scaling of represented derivative
+graphs with explicit inverse-sum sources. The old quotient Domain is not
+silently redefined; physical OS-sector identification, intrinsic adjoint
+packaging, physical calibration and scaling survival remain OPEN.
+Four final focused serialized checks passed 23 gates within
+{propext, Quot.sound}; no broad run or canonical Clay closure. Evidence:
+`audits/AUDIT-ORIGINAL-REAL-CONTINUITY-SECTOR-2026-09-30.md`.
+
 Verified supporting ORIGINAL continuity-sector closedness (2026-09-30 UTC;
 chart unchanged): explicit norm limits of witnessed T-range states now
 return original range witnesses by a computed diagonal. The existing

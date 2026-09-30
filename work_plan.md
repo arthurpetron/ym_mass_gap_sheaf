@@ -276,11 +276,28 @@ root-sequence continuity alone; `continuityOfRootLimit` returns the stronger
 all-small-dyadic modulus. Two final focused serialized checks passed 16
 gates in {propext, Quot.sound}; no canonical field changed.
 
-NEXT reconstruction residue: compatible real-linear sector/domain structure
-and its adjoint interpretation, not another weak-pairing criterion or an
-unjustified total bounded Hamiltonian. The represented closedness and
-dyadic-continuity characterization are now supplied; identifying this
-mathematical sector with the physical OS sector is a separate OPEN join.
+FOLLOW-ON PROVED: `BF4WilsonAllNomeTimeRangeRealContinuity.real_smallTime`
+extends the computed dyadic cutoff to EVERY small positive real time by
+halving the time radius and passing through actual increment rows.
+`rangeOfRealContinuity` supplies the reverse sector witness from given
+real-continuity radii. `BF4WilsonAllNomePositiveTimeRangeClosure` constructs
+original range witnesses for every positive-time image and sector invariance.
+`BF4WilsonAllNomeTimeRangeLinear` proves real-linear closure with original
+preimages and moduli. `BF4WilsonAllNomeDerivativeGraphRealLinear` uses
+symmetry of A to construct real scaling of represented derivative graphs,
+returning explicit inverse-sum source representatives. Four final focused
+serialized checks passed 23 gates in {propext, Quot.sound}; no canonical
+field changed. Evidence:
+`audits/AUDIT-ORIGINAL-REAL-CONTINUITY-SECTOR-2026-09-30.md`.
+
+NEXT reconstruction residue: intrinsic sector/domain adjoint interpretation,
+not another weak-pairing criterion or an unjustified total bounded Hamiltonian.
+Represented completeness, real-linear sector operations, positive-time
+invariance and real-zero-continuity characterization are supplied. Graph
+real scaling retains supplied source representatives; do NOT silently select
+such data from the old quotient Domain or redefine that domain's scope.
+Identifying this mathematical sector with the physical OS sector is a separate
+OPEN join. The represented adjoint criterion remains scoped accordingly.
 The equation A u=T v alone remains insufficient on the full ambient carrier
 with its actual boundary kernel.
 

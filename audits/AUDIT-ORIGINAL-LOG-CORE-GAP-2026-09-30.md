@@ -732,8 +732,12 @@ has the positive symmetric action laws `action_nonnegative` and
 `action_symmetric` at
 `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphForm.lean:194` and `:201`.
 Represented closedness/completeness and the dyadic-continuity criterion are
-now supplied above. The reconstruction residue is the compatible real-linear
-Hilbert-sector/domain package and the sector-adjoint interpretation.
+now supplied above. The further checked real-continuity characterization,
+positive-time invariance, real-linear sector operations and represented
+graph scaling are recorded in
+`audits/AUDIT-ORIGINAL-REAL-CONTINUITY-SECTOR-2026-09-30.md`.
+The reconstruction residue is the intrinsic Hilbert-sector/domain package
+and its sector-adjoint interpretation, preserving explicit source data.
 `RangeLimit` at
 `lean/YMGap/Continuum/BF4WilsonAllNomeTimeRangeClosure.lean:66` explicitly
 supplies core approximation within that sector, not whole-carrier density.

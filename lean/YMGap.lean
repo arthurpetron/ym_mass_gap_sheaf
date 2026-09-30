@@ -5847,6 +5847,11 @@ import YMGap.Continuum.BF4WilsonAllNomeDerivativeAdjointTests
 -- The original witnessed range is closed and characterizes dyadic zero continuity.
 import YMGap.Continuum.BF4WilsonAllNomeTimeRangeClosed
 import YMGap.Continuum.BF4WilsonAllNomeTimeContinuitySector
+-- Original real-time continuity, sector invariance and represented real-linear graph.
+import YMGap.Continuum.BF4WilsonAllNomeTimeRangeRealContinuity
+import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRangeClosure
+import YMGap.Continuum.BF4WilsonAllNomeTimeRangeLinear
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphRealLinear
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

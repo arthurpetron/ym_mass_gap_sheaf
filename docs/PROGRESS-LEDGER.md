@@ -4,7 +4,32 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL range closedness and dyadic continuity-sector characterization (2026-09-30 UTC)
+## Current increment: ORIGINAL real-continuity sector and represented real-linear graph (2026-09-30 UTC)
+
+`BF4WilsonAllNomeTimeRangeRealContinuity.real_smallTime` uses half the
+computed dyadic threshold to control every sufficiently small positive real
+time. `realContinuityCertificate` returns the radius; `rangeOfRealContinuity`
+constructs range membership in the reverse direction. Only a local eventual
+index is eliminated from Prop within the order proof; output data are explicit.
+
+`BF4WilsonAllNomePositiveTimeRangeClosure.positiveAction_range` supplies
+range witnesses for all supplied original positive-time images and
+`positiveAction_preservesRange` needs no extra representative for a sector
+input. `BF4WilsonAllNomeTimeRangeLinear.realSmul` and its additive companions
+retain actual preimage streams/moduli. Finally
+`BF4WilsonAllNomeDerivativeGraphRealLinear.representedRealScale` returns the
+scaled graph and original inverse-sum sources. Symmetry gives real linearity
+of A, so the already proved graph equation suffices without a new norm bound.
+
+Four final focused serialized checks passed 23 gates in
+{propext, Quot.sound}; no broad run or canonical chart change. Intrinsic
+sector/domain adjoint packaging, physical OS identification and calibration,
+the primary signed scaling estimate and Clay remain OPEN. The original
+quotient Domain is not redefined; represented graph inputs retain their
+source witnesses. Evidence:
+`audits/AUDIT-ORIGINAL-REAL-CONTINUITY-SECTOR-2026-09-30.md`.
+
+## Earlier increment: ORIGINAL range closedness and dyadic continuity-sector characterization (2026-09-30 UTC)
 
 `BF4WilsonAllNomeTimeRangeClosed.ofLimit` constructs range preimages for an
 explicit norm limit by sampling the nth range witness to invSucc(n) accuracy.

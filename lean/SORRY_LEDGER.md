@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL real-continuity sector and represented real-linear graph (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeTimeRangeRealContinuity.realRadius` computes half the
+  dyadic continuity threshold; `real_smallTime` passes the actual eventual
+  dyadic bound through original increment rows. `realContinuityCertificate`
+  returns the radius and `rangeOfRealContinuity` constructs the converse
+  range witness from supplied real continuity data.
+- `BF4WilsonAllNomePositiveTimeRangeClosure.meshAction_range`,
+  `dyadicAction_range`, `positiveAction_range` and
+  `positiveAction_preservesRange` construct original range witnesses for
+  positive-time images and sector invariance. Type-bearing claims are defs.
+- `BF4WilsonAllNomeTimeRangeLinear.rationalSmul`, `zero`, `subtract`,
+  `negate`, `add` and `realSmul` supply real-linear sector operations with
+  explicit original preimages and moduli.
+- `BF4WilsonAllNomeDerivativeGraphRealLinear.derivativeAction_realSmul`
+  follows from original symmetry. `realScale_equation`, `realScale`,
+  `realScale_source_pin` and `representedRealScale` construct real-scaled
+  represented graphs. No arbitrary quotient source representative is chosen.
+- OPEN: intrinsic sector/domain adjoint package, physical OS identification,
+  physical time/mass calibration, signed scaling estimate, nontrivial
+  continuum survival, full QFT and all-group Clay fields. No change to the
+  old quotient Domain, no whole-carrier zero continuity or kernel deletion.
+- Four final focused serialized checks passed 23 gates in
+  {propext, Quot.sound}. No new sorry/axiom, weakening or broad run. Evidence:
+  `audits/AUDIT-ORIGINAL-REAL-CONTINUITY-SECTOR-2026-09-30.md`.
+
 ## PROVED ORIGINAL range closedness and dyadic continuity-sector characterization (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeTimeRangeClosed.ofLimit` computes original preimages and
