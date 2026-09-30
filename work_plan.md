@@ -25,6 +25,28 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Quantitative approximation on the original positive-time range (2026-09-30 UTC)
+
+`BF4WilsonAllNomeTimeDefectMoments` proves positivity and exact splitting of
+every B(x,T^k(I-T)^l x) on the existing all-nome completion. Two finite
+telescoping budgets in `BF4WilsonAllNomePositiveTimeTail` give
+`||(I-T)^n T x||^2 <= ||x||^2/(n+1)^2`, independently of nome and width.
+`BF4WilsonAllNomePositiveTimeRange.positiveTimeRangeApproximation` consumes
+this estimate: the explicit polynomial `u_n=sum_{j<n}(I-T)^j x` satisfies
+`T^2 u_n+(I-T)^n T x=T x`, with a computed rational-tolerance cutoff.
+
+This supplies approximation on ACTUAL positive-time images, not full-carrier
+injectivity, full-carrier range density or removal of the proved boundary
+kernel. No spectral representation, continuous-time generator or scaling
+claim follows. Next reconstruction work must keep that input restriction;
+do not silently replace T x by an arbitrary vector. The primary missing
+signed/SAME-variance scaling estimate, A03, full J02 and Clay stay open.
+The fixed-small-nome spatial positive-response witness already existed and
+was not duplicated. All 32 printed gates passed three final focused,
+serialized one-worker/20 GiB checks; no broad run. Sol proved the moments,
+root the tail/range consumer, Luna reviewed. Chart unchanged. Evidence:
+`audits/AUDIT-ALL-NOME-POSITIVE-TIME-RANGE-2026-09-30.md`.
+
 ### Same-carrier boundary kernel: physical-time route correction (2026-09-30 UTC)
 
 `BF4WilsonAllNomeFringeCorrelation.centeredTimeMoment_zero` passes the

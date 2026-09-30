@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED polynomial range approximation after original positive time (2026-09-30 UTC)
+
+- **actual producer:** `BF4WilsonAllNomeTimeDefectMoments` proves positive
+  mixed T/(I-T) moments and exact splitting for every vector of the existing
+  all-nome Wilson completion, with no new analytic input.
+- **estimate and consumer:** `BF4WilsonAllNomePositiveTimeTail` proves
+  `||(I-T)^n T x||^2 <= ||x||^2/(n+1)^2` uniformly in nome/width;
+  `BF4WilsonAllNomePositiveTimeRange.positiveTimeRangeApproximation` returns
+  a polynomial u_n with T^2 u_n approximating T x to computed relative
+  squared-norm tolerance. n is a filter index, not physical time.
+- **scope and open work:** full-carrier range density/injectivity is not asserted;
+  the positive-norm boundary kernel remains. Spectral representation,
+  continuous time, useful signed scaling control, full QFT, physical mass,
+  every-group and Clay obligations are not closed.
+- **verification:** 32 printed gates within {propext, Quot.sound}, three
+  final focused serialized one-worker/20 GiB checks. No sorry introduced
+  or discharged, new axiom, analytic hypothesis or canonical field change.
+  No full-root/full-tree/audit/guard run. Sol proved moments, root the
+  estimate/consumer, Luna reviewed. Evidence:
+  `audits/AUDIT-ALL-NOME-POSITIVE-TIME-RANGE-2026-09-30.md`.
+
 ## PROVED actual boundary time kernel; full finite-carrier injectivity route refuted (2026-09-30 UTC)
 
 - **original-limit join:** `BF4WilsonAllNomeFringeCorrelation` proves exact

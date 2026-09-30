@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Controlled positive-time approximation (2026-09-30):** explicit polynomials
+in the original Wilson transfer now approximate T x by T^2-images with
+squared error at most `||x||^2/(n+1)^2` and a computed tolerance cutoff.
+This works on the same carrier despite its boundary kernel; it is not
+full-carrier injectivity, continuous-time reconstruction or a mass-gap
+estimate. See the
+[proof and scope audit](audits/AUDIT-ALL-NOME-POSITIVE-TIME-RANGE-2026-09-30.md).
+
 **Boundary time-kernel correction (2026-09-30):** the actual width-one
 completed Wilson transfer kills a positive-norm centered plaquette. Full
 injectivity is therefore false there; a padded plaquette instead has positive

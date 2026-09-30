@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original positive-time range approximation (2026-09-30 UTC):**
+`BF4WilsonAllNomeTimeDefectMoments` proves positive mixed time/defect
+moments. `BF4WilsonAllNomePositiveTimeTail` and `PositiveTimeRange` construct
+explicit T^2-images approximating T x with squared error
+`||x||^2/(n+1)^2`, and a computed relative-tolerance cutoff. This respects
+the actual boundary kernel: no full-carrier inverse, range density,
+continuous-time or physical gap claim is made. All 32 printed gates passed
+three final focused capped checks; no broad run. Evidence:
+`audits/AUDIT-ALL-NOME-POSITIVE-TIME-RANGE-2026-09-30.md` at repository root.
+
 **Actual finite-width time kernel (2026-09-30 UTC):**
 `BF4WilsonAllNomeFringeCorrelation` passes exact original inactive-face
 cancellation through the joint limit. `BF4WilsonAllNomeFringeTimeKernel`

@@ -5629,6 +5629,9 @@ import YMGap.Continuum.BF4WilsonAllNomePlaquetteUniformCapResponse
 -- Actual finite-width boundary kernel; not a continuum or bulk refutation.
 import YMGap.Continuum.BF4WilsonAllNomeFringeCorrelation
 import YMGap.Continuum.BF4WilsonAllNomeFringeTimeKernel
+import YMGap.Continuum.BF4WilsonAllNomeTimeDefectMoments
+import YMGap.Continuum.BF4WilsonAllNomePositiveTimeTail
+import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

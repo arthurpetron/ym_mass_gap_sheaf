@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting positive-time approximation (2026-09-30 UTC; chart
+unchanged): on the SAME all-nome completion, every positive-time image T x
+is approximated by explicit T^2-images with squared error at most
+`||x||^2/(n+1)^2`. Positive mixed time/defect moments supply the estimate;
+the rational tolerance computes n. This does not assert full-carrier
+injectivity or density, discard the boundary kernel, construct continuous
+time, or establish physical decay. A03, full J02, J03 and Clay remain open.
+All 32 gates passed three final focused capped checks; no broad run. Evidence:
+`audits/AUDIT-ALL-NOME-POSITIVE-TIME-RANGE-2026-09-30.md`.
+
 Verified boundary-route correction (2026-09-30 UTC; chart unchanged): the
 actual all-nome width-one completed T(1) kills a positive-norm centered
 origin plaquette. Full-carrier injectivity is false there. At padded width
