@@ -1,6 +1,36 @@
 # Sorry Ledger
 
+## PROVED original reciprocal identification and weighted replica path (2026-09-30 UTC)
+
+- `BF4ExactSlabStarReciprocalInverse.reciprocal_residual_norm` bounds the
+  actual reciprocal residual by rho^(2k) times the SAME input squared norm
+  against the entire complementary action. `inverseNullModulus` compares
+  the new sequence to the existing inverse iteration with a computed
+  max cutoff; `reciprocal_limit_eq_inverseState` pins its limit exactly.
+- `BF4ExactSlabInPlaceReciprocalConditional.inPlace_limit_eq_conditionalUpdate`
+  identifies project_j(p*A)*G_k(project_j A) with the EXISTING full original
+  action conditionalUpdate. The actual head swap preserves Haar-carrier
+  pairings; `conditionalNull` retains an explicit cross-sequence modulus.
+- `BF4ExactSlabReplicaPathVariance.original_path_variance_bound` proves
+  2*(H[W]H[Wf^2]-H[Wf]^2)<=N*H_2N[W(x)W(y)*sum pathIncrement^2].
+  Both original full weights remain intact. The exact prefix telescope
+  and Cauchy certificate do not divide by a partition or infer coercivity.
+- OPEN: the joint two-copy reciprocal/edge-flow pairing identity with the
+  original conditional residual energy; its cut/path comparison; the pin
+  from the literal coordinate order to time-layer cuts. The paper candidate
+  N*(prefixCap/headFloor)^(2C+12) is not proved and its area-dependent loss
+  would still not supply useful signed spatial/scaling control.
+- Seven final focused serialized one-worker/20 GiB checks passed 45 gates
+  within {propext, Quot.sound}. No full-root build/audit/guard, new sorry,
+  custom axiom or analytic assumption; no existing sorry discharged or
+  frontier weakened. No OS-transfer, physical mass, continuum or every-group
+  closure; chart unchanged. Evidence:
+  `audits/AUDIT-RECIPROCAL-CONDITIONAL-IDENTIFICATION-2026-09-30.md`.
+
 ## PROVED original finite two-normalizer comparison and variance identity (2026-09-30 UTC)
+
+The single-copy inverse identification and raw weighted path bound formerly
+listed as next below are proved above; the joint energy join is still open.
 
 - `BF4ExactSlabCrossExteriorStar.crossStarComparison` constructs
   U^2 A E - ell^2 A' D >=0 with the same updated link and both actual

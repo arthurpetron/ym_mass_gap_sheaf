@@ -25,7 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### ORIGINAL two-normalizer finite kernel comparison (2026-09-30 UTC)
+### ORIGINAL reciprocal limit identification and path bound (2026-09-30 UTC)
+
+`BF4ExactSlabStarReciprocalInverse` now proves that the finite positive
+reciprocal sequence converges to the EXISTING inverseState, with explicit
+Cauchy and cross-sequence null moduli in the original complementary-action
+norm. The squared residual is bounded by rho^(2k) times the input norm.
+`BF4ExactSlabInPlaceReciprocalConditional.inPlace_limit_eq_conditionalUpdate`
+then identifies the literal project_j(p*A)*G_k(project_j A) sequence with
+the existing conditionalUpdate on the full ORIGINAL action completion.
+The head-coordinate change is proved under Haar insertions, not assumed.
+
+In parallel, `BF4ExactSlabReplicaPathVariance.original_path_variance_bound`
+proves that twice the original unnormalized variance determinant is at most
+N times the original two-copy integral of the sum of adjacent prefix-path
+squares. The telescope has a linear N cost, not iterated triangle losses.
+Seven focused capped checks passed 45 gates within {propext, Quot.sound};
+no new analytic assumption, sorry, broad run or chart-state change.
+
+NEXT: identify the JOINT two-copy reciprocal/edge-flow pairing with the
+actual local residual energy, then join the original cut comparison and
+weighted path bound. The single-copy state identification is now proved;
+do not treat it as the joint pairing theorem. The literal coordinate prefix
+is not yet proved to be time-layer ordered, so its area-count join is also
+open. The candidate N*(prefixCap/headFloor)^(2C+12) remains unproved and
+would still carry an inadequate area-dependent scaling loss. Useful signed
+spatial/scaling control and all continuum/Clay obligations remain open.
+Evidence: `audits/AUDIT-RECIPROCAL-CONDITIONAL-IDENTIFICATION-2026-09-30.md`.
+
+### ORIGINAL two-normalizer finite kernel comparison (2026-09-30 UTC; preceding checkpoint)
+
+The single-copy inverse identification and raw weighted path bound listed
+as next below are now proved above. Joint energy and geometric-order joins
+remain open.
 
 `BF4ExactSlabCrossExteriorStar.crossStarComparison` keeps the SAME updated
 physical link and both actual exterior normalizers D,E. It constructs

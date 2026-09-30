@@ -5699,6 +5699,14 @@ import YMGap.Continuum.BF4ExactSlabStarReciprocalParameters
 import YMGap.Continuum.QuaternionHaarReciprocalCrossComparison
 import YMGap.Continuum.BF4ExactSlabConditionalStarComparison
 import YMGap.Continuum.SU2QuaternionGlobalVarianceReplica
+-- Original reciprocal limit identification and raw path bound, not coercivity.
+import YMGap.Continuum.BF4ExactSlabHeadNormalizerBand
+import YMGap.Continuum.QuaternionHaarReciprocalWeightedError
+import YMGap.Continuum.BF4ExactSlabStarReciprocalInverse
+import YMGap.Continuum.BF4ExactSlabStarReciprocalTransport
+import YMGap.Continuum.BF4ExactSlabInPlaceReciprocalConditional
+import YMGap.Continuum.SU2QuaternionReplicaPathTelescope
+import YMGap.Continuum.BF4ExactSlabReplicaPathVariance
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

@@ -1,13 +1,23 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL conditional-limit identification (2026-09-30 UTC;
+chart unchanged): the literal finite reciprocal sequence now converges, with
+explicit moduli, to the EXISTING conditional update in the full original
+action space. Independently, a coordinate telescope bounds twice the
+original variance determinant by N times the two-copy sum of path-increment
+squares. Seven focused checks passed 45 gates. The joint conditional-energy
+pairing and time-layer-order joins remain open, as do useful signed
+spatial/scaling control and all continuum/Clay obligations. Evidence:
+`audits/AUDIT-RECIPROCAL-CONDITIONAL-IDENTIFICATION-2026-09-30.md`.
+
 Verified supporting ORIGINAL two-normalizer comparison (2026-09-30 UTC;
 chart unchanged): both stars share the same updated link and retain their
 actual exterior Haar normalizers. Positive finite reciprocal polynomials
 give a quantitative joint-insertion comparison with one computed error
 cutoff for both denominators. The exact original two-copy variance identity
-is also proved. Eight focused checks passed 59 gates. The limiting inverse
-identification and ordered-path bound remain open, as do useful signed
-spatial/scaling control and all continuum/Clay joins. Evidence:
+is also proved. Eight focused checks passed 59 gates. Its then-open
+single-copy inverse identification and raw path bound are now proved above;
+the joint energy/scaling and continuum/Clay joins remain open. Evidence:
 `audits/AUDIT-CROSS-EXTERIOR-CONDITIONAL-COMPARISON-2026-09-30.md`.
 
 Verified supporting ORIGINAL two-copy cut comparison (2026-09-30 UTC;
