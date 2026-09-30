@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL sector insertion and time-zero restriction obstruction (2026-09-30 UTC)
+
+- `BF4WilsonAllNomePositiveTimeVacuum` proves actual dyadic and positive
+  real time fix the original vacuum and preserve its pairing/complement.
+- `BF4WilsonAllNomeSectorObservableBoundary.origin_centered_not_range`
+  and `origin_raw_not_range` use the nonzero width-one time-kernel state.
+  `no_original_multiplier_sector_map` refutes restricting the literal
+  time-zero plaquette multiplier to the witnessed continuous-time sector.
+- `BF4WilsonAllNomeSectorInsertion.insertion` constructs S(t) M S(t) on
+  that sector with actual middle representatives and outer range witnesses.
+  Symmetry, real linearity, the spin-only norm cap and original shifted
+  vacuum correlator are proved. This is not an algebra homomorphism.
+- `BF4WilsonAllNomeSectorExcitation.centeredSource_insertion_pin` and
+  `centeredSource_lag` preserve original centering and connected moments.
+  `paddedDomainCertificate` returns an actual centered derivative-domain
+  point with positive squared-norm floor uniformFloor^2/4. This floor
+  depends on nome and width; no scaling-survival claim is made.
+- OPEN: physical reflected observable/algebra and complex Hilbert join,
+  signed scaling estimate, continuum survival, physical time/mass,
+  full QFT/every-group/Clay. No canonical frontier field changed.
+- Four final focused serialized checks passed 34 gates, all exactly
+  {propext, Quot.sound}; no new sorry/axiom or broad run. Evidence:
+  `audits/AUDIT-ORIGINAL-SECTOR-OBSERVABLES-2026-09-30.md`.
+
 ## PROVED ORIGINAL dense sector derivative and intrinsic real adjoint (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeTimeSector.State` retains each original vector's

@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL sector observables (2026-09-30 UTC; chart
+unchanged): the literal width-one time-zero multiplier cannot restrict to
+the witnessed time-continuity sector. The positive-time S(t) M S(t)
+insertion does act there, with original symmetry/norm bounds and exact
+shifted correlator pins. Centering uses the SAME unit projection; a padded
+plaquette at time one supplies a concrete nonzero centered derivative-domain
+state with positive nome/width-dependent floor. This is not an observable
+algebra representation, physical OS identification or scaling survival.
+Four final focused serialized checks passed 34 gates exactly in
+{propext, Quot.sound}; no broad run or canonical field change. Evidence:
+`audits/AUDIT-ORIGINAL-SECTOR-OBSERVABLES-2026-09-30.md`.
+
 Verified supporting ORIGINAL intrinsic sector adjoint (2026-09-30 UTC;
 chart unchanged): witness-bearing sector sequences now have computed
 limits without separate representative inputs. The actual real derivative

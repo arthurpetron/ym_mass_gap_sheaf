@@ -304,9 +304,33 @@ Two final focused serialized checks passed 37 gates within
 {propext, Quot.sound}; no canonical field changed. Evidence:
 `audits/AUDIT-ORIGINAL-SECTOR-ADJOINT-2026-09-30.md`.
 
-NEXT reconstruction residue: the SAME-object physical OS/observable
+FOLLOW-ON PROVED: the literal width-one time-zero plaquette multiplier
+does NOT preserve this sector. `BF4WilsonAllNomeSectorObservableBoundary`
+uses the positive-norm original time-kernel state to refute that restriction.
+`BF4WilsonAllNomePositiveTimeVacuum` proves S(t) fixes the original unit;
+`BF4WilsonAllNomeSectorInsertion.insertion` constructs S(t) M S(t) instead,
+with actual original representatives, symmetry, real linearity, spin-only
+norm cap and the exact original vacuum lag (n+k)+n. This is a bounded
+insertion, not an observable-algebra homomorphism or restriction of M.
+`BF4WilsonAllNomeSectorExcitation` pins its centered source to the SAME
+original connected moment. `paddedDomainCertificate` returns an actual
+nonzero centered derivative-domain point with positive norm floor
+uniformFloor^2/4, still nome/width dependent. Four final focused serialized
+checks passed 34 gates, all exactly {propext, Quot.sound}. No broad run or
+canonical chart change. Evidence:
+`audits/AUDIT-ORIGINAL-SECTOR-OBSERVABLES-2026-09-30.md`.
+
+NEXT reconstruction residue: the SAME-object physical reflected OS/observable
 identification and compatible complex Hilbert structure, not another
 equivalent pairing criterion or an unjustified total Hamiltonian.
+Direct restriction of the original time-zero algebra is now ruled out at
+width one; positive-time insertions do not by themselves identify a
+physical reflected algebra or its full correlation functional.
+Do not redo finite multi-time generation: `BF4WilsonAllNomeWindowRealization`
+already supplies `compileWindow_pin` on this carrier. The remaining
+canonical join needs the supported observable and reflected-form/time pins
+against the SAME limiting theory (`CanonicalOSRoot.PositiveTimeOSRoot`),
+not merely positivity of an independently defined Gram form.
 The intrinsic REAL presented-sector adjoint join is supplied. Do NOT
 silently select source data from the old quotient Domain or redefine its
 scope. Full physical Hilbert/Hamiltonian identification remains OPEN.
