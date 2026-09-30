@@ -284,10 +284,10 @@ action or replacing the one-step operator by its square.
 | `action_add_state`, `action_smul`, `action_realSmul` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSemigroup.lean:159`, `:170`, `:180` | Additivity, rational linearity and real linearity with supplied scalar modulus. |
 | `action_distance_bound`, `action_doubled_pairing` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSemigroup.lean:202`, `:209` | Original squared-distance contraction and doubled-time pairing identity. |
 
-### Next argument selected by stepping back from continuity
+## Follow-on: energy telescope and explicit original continuity moduli
 
-This paragraph records a paper-level plan, not a checked original-carrier
-continuity theorem. A single energy telescope suffices for ALL small dyadic
+The original-carrier argument is now checked. A single energy telescope
+suffices for ALL small dyadic
 increments; there is no need first to demand a sharper inverse-square rate
 along only R_k. For A=S(steps/2^depth), its finer square root and contraction
 give ||Ax||^2<=B(Ax,x), hence
@@ -298,21 +298,60 @@ Adjacent squared increments of A^n x decrease by contraction. Telescoping
 therefore gives n*||A^(n+1)x-A^n x||^2<=||x||^2. When steps*n<=2^depth,
 the remaining nonnegative integer steps transport this bound to Tx, since
 `action_whole` pins a whole mesh interval to the original T. Taking n=2^k
-would prove
+proves
 
     steps*2^k<=2^depth
       => ||S(steps/2^depth)Tx-Tx||^2 <= 2^(-k)||x||^2.
 
-The proof pattern already exists in
+The proof pattern was adapted from
 `BF4ExactSlabThermodynamicDyadicEnergy.time_dissipation`,
 `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicEnergy.lean:86`,
 `weighted_energy` at line 126, and `range_smallTime_bound` at line 221.
 Those declarations concern a DIFFERENT carrier and transfer: their proof
-pattern can be adapted, but their operator is not a supplied join here.
-The original action laws above provide the algebraic inputs. The remaining
-work is to formalize that estimate and a modulus using the supplied preimage
-norm ceiling; extend only through witnessed positive-time approximations.
+pattern is reused, but their operator is not a supplied join here.
+The original action laws above supply the algebraic inputs. For a supplied
+ORIGINAL representative X with norm ceiling c, the checked modulus is
+
+    rangeModulus(X,epsilon) = denominator(epsilon/(c+1)).
+
+This follows from half^k<=invSucc(k)<=epsilon/(c+1) at that threshold.
+Only the scalar `linearTolerance` and its rational budget are reused from
+`BF4ExactSlabThermodynamicPolynomialContinuity`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicPolynomialContinuity.lean:82`;
+the norm ceiling is the original `CRealSeminormPairingCompletion.normCeiling`
+and its original diagonal bound, not that other carrier's norm.
+The relative energy coefficient is independent of nome and width; the
+absolute modulus uses the supplied original state's norm ceiling. This
+is continuity, not a uniform mass estimate.
+
+For an existing represented Cauchy family R of time images with supplied
+preimage representatives X_n, set delta=epsilon/10, n=limitRate(R,delta).
+The closure threshold is rangeModulus(X_n,delta). Two squared-distance
+triangle estimates and dyadic contraction give total error
+6*delta+4*delta=epsilon. The selected X_n is supplied data: no representative
+is chosen from a quotient, and no uniform norm cap or convergence of X_n is
+required. This is exactly the represented closure asserted by the theorem,
+not an unproved characterization of the whole Hilbert carrier.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `mesh_form_dominates_norm`, `mesh_dissipation` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicEnergy.lean:93`, `:102` | Finer-root contraction gives the original one-increment energy inequality. |
+| `weighted_energy`, `time_error_le_blockError` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicEnergy.lean:143`, `:176` | Finite telescope, then contraction over the explicit remaining time. |
+| `range_small_bound`, `anchored_small_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicEnergy.lean:225`, `:232` | All small dyadic increments on T(1)x or relative to any positive dyadic anchor. |
+| `rangeModulus`, `rangeContinuityCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicContinuity.lean:54`, `:85` | Computed original-state threshold retained as data. |
+| `anchored_smallTime` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicContinuity.lean:91` | Explicit relative-time threshold at arbitrary positive anchors; zero anchor permits only zero increments. |
+| `closureModulus`, `closure_smallTime`, `closureContinuityCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicContinuity.lean:127`, `:131`, `:157` | Quantitative continuity at the existing represented limit, with supplied preimage streams and no uniform source-norm bound. |
+
 The original boundary kernel still forbids full-carrier continuity at zero.
+
+The output-data step is also checked. `rootRepresentative` and
+`rootRepresentative_pin`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRepresentatives.lean:32`, `:36`,
+use the actual root-row diagonal and its proved limit pin. `meshRepresentative`
+at line 43 iterates these original Cauchy streams. `suppliedMeshCertificate`
+at line 61 returns the stream AND equality to the existing dyadic action.
+This supplies rows for the next real-time limit without any countable choice
+of representatives from a quotient-valued sequence.
 
 ## Remaining obligations
 
@@ -321,9 +360,9 @@ self-adjointness, continuous physical time, spatial/spacing calibration,
 continuum nontriviality and all Clay fields remain OPEN. No formal frontier
 type was weakened or newly inhabited.
 
-The dyadic action is now supplied. The next same-object reconstruction
-requirement is its strong continuity and real-time extension on the witnessed
-closure of the positive-time range, plus the explicit core limit
+The dyadic action and restricted continuity are now supplied. The next
+same-object reconstruction requirement is its real-time extension, plus
+continuity at zero on the witnessed positive-time sector and the explicit core limit
 (T x-T^s T x)/s -> F x and a graph-core identification. The existing
 `BF4ExactSlabThermodynamicDyadicSemigroup.action_one`,
 `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicSemigroup.lean:132`,
@@ -331,6 +370,20 @@ is pinned to that OTHER carrier's two-step transfer, not this T. No bridge
 is supplied by the present result. The nonzero original time kernel prevents
 assuming strong continuity on the whole carrier merely from positive-time
 power laws.
+
+The next source-level route reuses the carrier-free
+`PositiveRealDyadicTimeData.PositiveTime`, `approximation`,
+`approximation_cauchy` and `approximationReal_equiv`,
+`lean/YMGap/Continuum/PositiveRealDyadicTimeData.lean:27`, `:52`, `:74`,
+`:100`. A positive rational floor permits comparing dyadic time images of
+EVERY original state at strictly positive times. The other-carrier proof
+pattern is `BF4ExactSlabThermodynamicPositiveTimeAction.mesh_close_bound`
+and `timeRows`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveTimeAction.lean:68`,
+`:120`. This is a construction plan, not a current Wilson real-time theorem.
+Do not unnecessarily restrict the positive-time construction to ran T:
+the boundary-kernel restriction concerns continuity AT ZERO. The same
+physical time calibration and generator pin remain required afterward.
 
 ## Verification
 
@@ -423,3 +476,21 @@ ceiling and 12 GiB reserve applied. No full root/tree build, audit/guard,
 new sorry/axiom, frontier weakening or canonical chart change. Log
 `/tmp/ym-wilson-dyadic-semigroup-20260930.log`, SHA-256:
 `3e9a7fbd95e20b8e905c05b65b607ecbf9509b21112535010bb3d1ed5c779333`.
+
+Dyadic-continuity verification: two serialized focused checks passed all
+20 gates (12 Energy, eight Continuity), each with exactly
+{propext, Quot.sound}. Both passed on their first check. The same
+one-worker/20 GiB ceiling and 12 GiB reserve applied. No full root/tree build,
+audit/guard, new sorry/axiom, frontier weakening or canonical chart change.
+Final log SHA-256:
+
+- `/tmp/ym-wilson-dyadic-energy-20260930.log`:
+  `438145ff81887eab9918e81e647a2fb22dab338eacabec9ce4c714a74f058afa`
+- `/tmp/ym-wilson-dyadic-continuity-20260930.log`:
+  `20908b64ab60727b0f472de2fa2b7a5c0f74047fa314645b1baaf7b79e5c5432`
+
+The further focused Representatives check passed five gates on its first
+check, each with exactly {propext, Quot.sound}, under the same safety and
+scope limits. The three final targets therefore passed 25 gates. Log
+`/tmp/ym-wilson-dyadic-representatives-20260930.log`, SHA-256:
+`7f99b33e1a18d6bf4cb9b11a0474a46983c54c6186fc74ebff6e45b4537fb97c`.

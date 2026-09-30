@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL positive-time dyadic continuity (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeDyadicEnergy.mesh_dissipation` uses the finer square
+  root to pay each squared increment from loss of original norm.
+  `weighted_energy` telescopes decreasing increments; `range_small_bound`
+  gives ||S(t)Tx-Tx||^2<=2^(-k)||x||^2 for EVERY dyadic t<=2^(-k).
+- `BF4WilsonAllNomeDyadicContinuity.rangeContinuityCertificate` computes
+  the threshold from the ORIGINAL supplied preimage's norm ceiling.
+  `anchored_smallTime` gives the corresponding relative threshold at any
+  positive dyadic anchor. A zero anchor allows only zero increments.
+- `closureContinuityCertificate` extends to existing represented Cauchy
+  limits of time images with supplied preimage representatives. Those
+  preimages need not converge or have a uniform norm cap; no representative
+  selection, inverse transfer or boundary-state removal occurs.
+- OPEN: real-time extension, same-core log derivative/generator identity,
+  physical calibration, spatial/spacing control, scaling survival and all
+  Clay fields. No full-carrier density or zero-time continuity is asserted.
+- Two final focused one-worker/20 GiB checks passed 20 gates with exactly
+  {propext, Quot.sound}; no full build/audit/guard, new sorry/axiom, frontier
+  weakening or canonical chart change. Evidence:
+  `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+- FOLLOW-ON: `BF4WilsonAllNomeDyadicRepresentatives.suppliedMeshCertificate`
+  computes original output streams with exact dyadic-action pins from the
+  root-row diagonals. Five further focused gates passed in the same axiom
+  gate. This is the explicit row-data input for real-time reconstruction,
+  not a representative chosen from a quotient.
+
 ## PROVED ORIGINAL quotient-indexed dyadic action (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeDyadicSemigroup.mesh_refinement` proves exact refinement
@@ -11,7 +38,8 @@
   one original step, not the legacy thermodynamic two-step operator.
 - Positivity, symmetry, rational and supplied-modulus real linearity,
   norm/distance contraction and doubled-pairing identity are checked.
-- OPEN: appropriate strong continuity and real-time extension, same-core
+- FOLLOW-ON: explicit dyadic continuity on the witnessed positive-time range
+  closure is supplied above. OPEN: real-time extension, same-core
   log derivative/generator identity, physical calibration, spatial/spacing
   control, scaling survival and all Clay fields. No kernel state was removed.
 - One final focused one-worker/20 GiB check passed 16 gates with exactly
@@ -34,8 +62,8 @@
   `root_zero_iff_time_zero` proves every root has exactly the original kernel.
   No boundary state is discarded, inverse assumed, or carrier replaced.
 - FOLLOW-ON: quotient-indexed dyadic action is constructed above.
-  OPEN: strong continuity on the appropriate
-  positive-time range closure, same-core log derivative/generator identity,
+  Dyadic continuity on the witnessed positive-time range closure is supplied
+  above. OPEN: real-time extension, same-core log derivative/generator identity,
   spatial/spacing calibration, scaling survival and all Clay fields.
   Root approximation moduli are not uniform in nesting depth.
 - Three final focused one-worker/20 GiB checks passed 24 printed gates in
@@ -62,7 +90,7 @@
   proves the exact finite square identity on the SAME carrier, with squared
   error norm <=r_n^4*||x||^2, by constructive polynomial coefficient reflection.
 - FOLLOW-ON: compatible square laws are proved in the entry above.
-  OPEN: strong continuity and real-time extension,
+  OPEN: real-time extension,
   same-core log derivative/generator identity, spatial/spacing calibration,
   scaling survival and all Clay fields. The modulus is not uniform in depth.
 - Five final focused one-worker/20 GiB target checks passed 33 gates within
@@ -82,8 +110,8 @@
   symmetry, rational and supplied-modulus real linearity, contraction and
   squared-distance contraction are proved. The original kernel is retained.
 - FOLLOW-ON: compatible roots are constructed above by nested polynomials.
-  OPEN: strong continuity on the appropriate
-  range closure, same-core log derivative and generator identification,
+  Dyadic continuity on the witnessed positive-time range closure is supplied
+  above. OPEN: real-time extension, same-core log derivative and generator identification,
   spatial/spacing calibration, scaling survival and all Clay fields.
   No generic iteratable operator API is needed for that nested construction.
 - Two focused one-worker/20 GiB checks passed 23 printed gates in
@@ -105,8 +133,7 @@
   No arbitrary quotient-valued sequence is lifted by choice.
 - FOLLOW-ON: the square equation and root positivity are proved in the
   entries above, including compatible roots and dyadic action.
-  OPEN: strong continuity on the
-  appropriate range closure,
+  Restricted dyadic continuity is supplied above. OPEN: real-time extension,
   same-core regularized-log derivative, graph-core/generator identity,
   spatial/spacing calibration, survival and all Clay fields.
 - Four focused one-worker/20 GiB checks passed 26 printed gates in

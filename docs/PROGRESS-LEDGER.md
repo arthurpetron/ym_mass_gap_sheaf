@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL dyadic-time semigroup (2026-09-30 UTC)
+## Current increment: ORIGINAL positive-time continuity (2026-09-30 UTC)
+
+`BF4WilsonAllNomeDyadicEnergy.range_small_bound` proves the proposed
+energy-telescope estimate for every small dyadic increment on T(1)x.
+`BF4WilsonAllNomeDyadicContinuity.rangeContinuityCertificate` computes
+a modulus from the ORIGINAL preimage norm ceiling. `anchored_smallTime`
+controls arbitrary positive dyadic anchors; `closureContinuityCertificate`
+extends continuity to existing represented Cauchy limits of time images,
+with supplied preimage representatives but no uniform preimage norm bound.
+Consumer: original-carrier real-time reconstruction and then the same-core
+series-generator identification. Full-carrier density/continuity, physical
+calibration, scaling survival and all Clay fields remain open. Two focused
+capped checks passed 20 gates in {propext, Quot.sound}; no broad run, new
+analytic input, frontier weakening or canonical chart change. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+FOLLOW-ON: `BF4WilsonAllNomeDyadicRepresentatives.suppliedMeshCertificate`
+returns actual output Cauchy streams and exact dyadic-action pins, enabling
+real-time rows without representative choice. Five further focused gates
+passed; real-time construction remains the next obligation.
+
+## Earlier increment: ORIGINAL dyadic-time semigroup (2026-09-30 UTC)
 
 `BF4WilsonAllNomeDyadicSemigroup.action` descends finite iterations of the
 constructed compatible roots to the existing nonnegative dyadic-time
@@ -13,8 +33,8 @@ S(n)=T(n), on the SAME original carrier and with the original time unit.
 Positivity, symmetry, linearity and contraction are checked. Consumer:
 quantitative continuity on the witnessed positive-time range, followed by
 real-time extension and the original series-generator join. None is supplied
-by this algebraic action alone. The next proposed energy-telescope estimate
-is recorded in the audit; it is not yet a proof on this carrier. One focused
+by this algebraic action alone. The energy-telescope continuity estimate
+is now proved in the follow-on above. One focused
 capped check passed 16 gates in {propext, Quot.sound}; no broad run, new
 analytic input, frontier weakening or canonical chart change. Scaling survival
 and all Clay fields remain open. Evidence:
@@ -31,8 +51,9 @@ relation passes through original pairing limits. The resulting roots are
 positive, symmetric and contractive, satisfy R_0=T and R_(k+1)^2=R_k, and
 preserve exactly the original transfer kernel. The explicit convergence
 modulus depends on depth. The follow-on above supplies the action of the
-existing `NonnegativeDyadicTime.Time` quotient. Appropriate strong
-continuity and generator identification, scaling survival and all Clay fields
+existing `NonnegativeDyadicTime.Time` quotient and continuity on the
+witnessed positive-time range closure. Real-time extension and generator
+identification, scaling survival and all Clay fields
 remain open. Three final focused target checks passed 24 gates; no canonical
 field change, broad guard or progress_metric.sh run. Evidence:
 `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
@@ -44,7 +65,8 @@ contraction R=I-H with R^2=T on the SAME original completed Wilson carrier.
 The finite polynomial recursion passes through pairings; no general
 functional calculus, inverse transfer or chosen quotient representatives
 are assumed. Consumer: original-transfer dyadic-time reconstruction,
-whose compatibility and continuity remain open. The primary scaling
+whose compatibility and restricted continuity are supplied by follow-ons
+above. The primary scaling
 survival estimate and all Clay fields remain open. Two focused capped
 checks passed 23 gates; no canonical chart change, broad guard or
 progress_metric.sh run. Evidence:

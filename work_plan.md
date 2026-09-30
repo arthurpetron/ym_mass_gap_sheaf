@@ -102,15 +102,30 @@ Positivity, symmetry, rational and supplied-modulus real linearity, and
 norm/distance contraction are checked. One focused capped check passed 16
 gates in {propext, Quot.sound}; no canonical field changed.
 
-NEXT reconstruction step: prove continuity for ALL small dyadic increments
-on witnessed original positive-time images, then their witnessed closure.
-The proposed short argument is the positive-contraction energy telescope:
-for steps*2^k<=2^depth, seek
-||S(steps/2^depth)T x-T x||^2<=2^(-k)||x||^2.
-This weaker bound suffices for continuity and avoids requiring the sharper
-inverse-square estimate along only the root sequence. Its original-carrier
-formalization and explicit modulus remain OPEN. Then identify the existing
-series graph with the generator by a same-core difference-quotient theorem
+FOLLOW-ON PROVED: `BF4WilsonAllNomeDyadicEnergy.range_small_bound` proves
+||S(steps/2^depth)T x-T x||^2<=2^(-k)||x||^2 whenever steps*2^k<=2^depth.
+One positive-contraction energy telescope covers ALL small dyadic increments;
+the sharper inverse-square bound along only the root sequence was unnecessary.
+`BF4WilsonAllNomeDyadicContinuity.rangeContinuityCertificate` returns an
+explicit threshold from the supplied ORIGINAL preimage norm ceiling.
+`anchored_smallTime` controls every positive dyadic anchor on arbitrary
+original represented states. `closureContinuityCertificate` passes to
+represented limits of original time images with supplied preimage streams;
+no preimage convergence or uniform norm cap is assumed. Two focused capped
+checks passed 20 gates in {propext, Quot.sound}; no canonical field changed.
+
+FOLLOW-ON PROVED: `BF4WilsonAllNomeDyadicRepresentatives.suppliedMeshCertificate`
+returns actual original output Cauchy streams and their exact dyadic-action
+pins, by iterated computed root-row diagonals. Five further focused gates
+passed within {propext, Quot.sound}; no representative selection is needed.
+
+NEXT reconstruction step: use existing `PositiveRealDyadicTimeData` to
+construct real-time limits with explicit time approximation and state
+convergence data. At strictly positive times, the supplied rational time
+floor permits construction on EVERY original state. The range-closure
+restriction is needed for continuity at ZERO, not to construct positive-time
+images. Then identify the existing series graph with the
+generator by a same-core difference-quotient theorem
 and graph-core argument. The thermodynamic dyadic semigroup uses a different
 carrier/transfer and is not this join. Strong continuity at zero on the whole
 carrier must not be asserted while its nonzero time kernel remains. Scalar-log
