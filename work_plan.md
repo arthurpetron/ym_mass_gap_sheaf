@@ -25,6 +25,22 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Collective patch route: quantitative entry test (2026-09-30 UTC)
+
+Source/mathematical review only, not a new Lean result. Overlapping sums of
+the ORIGINAL conditional residuals offer a collective alternative to pairwise
+control. An anchored-box calculation gives the sufficient threshold
+`lambda > 18/L - 3/L^2` for an original-action patch square-energy estimate;
+the counting and its composition are not yet formalized. No such useful
+patch estimate on a justified scaling family has been produced. Existing
+local-support coercivity is not that all-state, exterior-conditioned input.
+The generic constructive descent and final reverse-energy consumer already
+exist; do not rebuild them or confuse the open scaling estimate with the
+proved small-nome result. Next: test the actual quantitative patch input
+before building a compiler, or attack the narrower actual-auxiliary estimate.
+No Lean, ledger closure or canonical chart change. Details and source map:
+`audits/RESEARCH-COLLECTIVE-PATCH-THRESHOLD-2026-09-30.md`.
+
 ### Gauge-invariant loop test excludes the factor-only budget (2026-09-30 UTC)
 
 `SU2QuaternionGaugeLoopCorrelationObstruction` closes the two coordinate
