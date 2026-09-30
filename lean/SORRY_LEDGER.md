@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL bounded root inverses (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeRootResolventPartial.partial_norm_bound` and
+  `partial_tail_bound` give contraction and the sharp r^(2n) squared tail
+  for the actual normalized geometric partial sums of every original root.
+- `BF4WilsonAllNomeRootResolvent.resolvent` constructs their original-carrier
+  limit with explicit `seriesModulus`, `convergenceModulus` and output
+  representatives. `resolvent_equation` is the exact fixed-point equation;
+  symmetry, rational linearity and root commutation are proved.
+- `inverse_right`, `inverse_left`, `inverse_norm_bound` and
+  `inverseRepresentative_pin` construct the actual two-sided inverse of
+  I-rR, for explicit 0<=r<1, with norm ceiling 1/(1-r). No transfer-kernel
+  states are discarded. `inverse_commutes_of_defect_commutes` supplies
+  the next adjacent-root comparison's algebraic consumer.
+- OPEN: dyadic resolvent refinement/limit, generator/sector identification,
+  physical OS/time/spectral identification, original signed scaling estimate,
+  continuum survival, full QFT/every-group/Clay. No canonical field changed.
+- Two final focused serialized checks passed 37 printed gates exactly in
+  {propext, Quot.sound}; no new sorry/axiom or broad run. Evidence:
+  `audits/AUDIT-ORIGINAL-ROOT-RESOLVENT-2026-09-30.md`.
+
 ## PROVED ORIGINAL complex time sector and intrinsic adjoint (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeComplexTimeSector` retains TWO original range witnesses

@@ -5858,6 +5858,9 @@ import YMGap.Continuum.BF4WilsonAllNomeSectorDerivative
 -- Same complex carrier: witnessed sector completeness and intrinsic complex adjoint.
 import YMGap.Continuum.BF4WilsonAllNomeComplexTimeSector
 import YMGap.Continuum.BF4WilsonAllNomeComplexSectorDerivative
+-- Constructed bounded root inverses; shrinking-time generator resolvent remains open.
+import YMGap.Continuum.BF4WilsonAllNomeRootResolventPartial
+import YMGap.Continuum.BF4WilsonAllNomeRootResolvent
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary

@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL bounded root inverse (2026-09-30 UTC; chart
+unchanged): normalized geometric sums of every constructed transfer root
+now have an actual limit with original representatives and an explicit
+geometric modulus. Its fixed-point equation, symmetry, rational linearity,
+root commutation and contraction are checked. Rescaling constructs the
+two-sided inverse of I-rR for 0<=r<1 with norm cap 1/(1-r).
+This is not yet the shrinking-time generator resolvent, physical OS
+identification or a scaling estimate. Two final focused serialized checks
+passed 37 gates exactly in {propext, Quot.sound}; no broad run or canonical
+field change. Evidence: `audits/AUDIT-ORIGINAL-ROOT-RESOLVENT-2026-09-30.md`.
+
 Verified supporting ORIGINAL complex continuity sector (2026-09-30 UTC;
 chart unchanged): the witnessed real sector now complexifies inside the
 EXISTING Wilson complex carrier, with exact scalar/inner-product/norm pins,

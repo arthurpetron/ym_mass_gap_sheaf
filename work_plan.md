@@ -350,8 +350,28 @@ Two final focused serialized checks passed all 55 gates, exactly
 {propext, Quot.sound}; no broad run or chart change. Evidence:
 `audits/AUDIT-ORIGINAL-COMPLEX-SECTOR-2026-09-30.md`.
 
+FOLLOW-ON PROVED: `BF4WilsonAllNomeRootResolventPartial` supplies the actual
+normalized geometric sums' contraction and sharp r^(2n) squared tail.
+`BF4WilsonAllNomeRootResolvent` constructs their original represented limit,
+geometric modulus, symmetry, rational linearity and exact fixed-point equation.
+`inverse_right`/`inverse_left` give the two-sided inverse of I-rR for every
+constructed root and explicit 0<=r<1, with norm cap 1/(1-r).
+`inverse_commutes_of_defect_commutes` is the next refinement's algebraic join.
+Two final focused serialized checks passed 37 gates exactly in
+{propext, Quot.sound}; no broad run or chart change. Evidence:
+`audits/AUDIT-ORIGINAL-ROOT-RESOLVENT-2026-09-30.md`.
+
+NEXT resolvent proposition: for h=2^(-k), lambda>0, construct
+R_h=h*((1+lambda*h)I-root k)^(-1) from these inverses. Prove the sharp
+adjacent-depth squared norm comparison h^2/4 using root squaring and
+`DyadicDefectDecay.moment_nonnegative`. The explicit positive-polynomial
+factorization is recorded in the audit; it is NOT yet a Lean theorem.
+Then construct the dyadic limit and its sector range witness, and prove
+the actual derivative equation. Do not call the fixed-root inverse a
+generator resolvent or a physical mass gap. The original kernel remains.
+
 NEXT reconstruction residue: the SAME-object physical reflected OS/observable
-identification and constructive resolvent/spectral join, not another
+identification and the generator resolvent/spectral join, not another
 real-to-complex compatibility wrapper or an unjustified total Hamiltonian.
 Direct restriction of the original time-zero algebra is now ruled out at
 width one; positive-time insertions do not by themselves identify a
