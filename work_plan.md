@@ -25,6 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### ORIGINAL two-copy cut comparison and area count (2026-09-30 UTC)
+
+`BF4ExactSlabReplicaCutComparison.cutComparisonCertificate` constructs
+the actual full shared-link two-copy action comparison under partial
+exchange of selected physical links. Whole-side face pairs cancel exactly;
+only crossing faces pay ell^2/U^2, with ell=headFloor(w), U=prefixCap(w).
+`weighted_cut_comparison` accepts arbitrary certified nonnegative joint
+insertions. The SAME full pair partition is preserved by exchange.
+`crossingCount_le_area` proves b<=12*(extent+1)^3 for a time-layer cut,
+including arbitrary within-layer selection and all endpoint spatial faces.
+Seven focused capped checks passed 49 gates within {propext, Quot.sound}.
+No new analytic hypothesis, sorry, broad build or chart-state change.
+
+This is a proved raw original-action comparison, NOT yet improved
+coercivity. Next prove the actual cross-exterior conditional-kernel
+comparison with BOTH normalizers retained, then its exact canonical-path
+variance join. The reviewed paper budget is N*(U/ell)^(2C+12), with C the
+maximal crossing-face count and N the updated-link count; it is not a Lean
+Poincare theorem. C can grow with area, so even that candidate is not a
+useful scaling estimate by itself. Do not manufacture a new assumed-gap
+bundle or replace the primary signed/scaling producer with this calculation.
+All continuum/Clay obligations remain open. Evidence:
+`audits/AUDIT-ORIGINAL-REPLICA-CUT-COMPARISON-2026-09-30.md`.
+
 ### Witnessed positive symmetric original-time graph (2026-09-30 UTC)
 
 `BF4WilsonAllNomeLogGraph` constructs the actual witnessed closure of

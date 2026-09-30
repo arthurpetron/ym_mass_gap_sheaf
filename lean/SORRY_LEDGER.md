@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED original two-copy cut comparison and area count (2026-09-30 UTC)
+
+- `BF4ExactSlabReplicaCutComparison.cutComparisonCertificate` and
+  `weighted_cut_comparison` compare the two ORIGINAL shared-link action
+  copies with their actual partial replica exchange. Uncrossed physical
+  face pairs cancel exactly; only b crossing faces contribute the powers
+  (headFloor(w)^2)^b and (prefixCap(w)^2)^b. Joint-copy insertions must be
+  certified nonnegative. `swappedPair_mass_pin` preserves the full pair
+  partition; no independent-face or surrogate conditional law is used.
+- `crossingCount_le_area` proves b<=12*(extent+1)^3 for time-layer cuts,
+  with arbitrary within-layer selection. The underlying physical face-ID
+  count pin and two-layer enumeration retain boundary spatial faces.
+- OPEN next joins: compare the conditional single-link kernels at the two
+  actual exteriors, retaining BOTH normalizers; prove the exact path/
+  variance identity. The paper candidate N*(U/ell)^(2C+12) is not a proved
+  coercivity estimate, and its area dependence is not useful scaling control.
+  No conditional-generator, OS-transfer or physical-gap claim is made here.
+- Seven final focused serialized one-worker/20 GiB checks passed 49 printed
+  gates within {propext, Quot.sound}. No full-root build/audit/guard, new
+  sorry/custom axiom/analytic assumption, or old sorry discharge. The useful
+  signed spatial/scaling estimate, full QFT, continuum survival, finite
+  physical mass and every-group Clay target remain open; chart unchanged.
+  Evidence: `audits/AUDIT-ORIGINAL-REPLICA-CUT-COMPARISON-2026-09-30.md`.
+
 ## PROVED positive symmetric witnessed original-time graph (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeLogGraph.graph_zero_input` proves closability of the

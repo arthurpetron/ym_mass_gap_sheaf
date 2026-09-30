@@ -5683,6 +5683,13 @@ import YMGap.Continuum.BF4WilsonAllNomeLogRangePositive
 import YMGap.Continuum.BF4WilsonAllNomeLogGraph
 import YMGap.Continuum.BF4WilsonAllNomeLogGraphLinear
 import YMGap.Continuum.BF4WilsonAllNomeLogGraphForm
+import YMGap.Continuum.SU2QuaternionReplicaPairSwap
+import YMGap.Continuum.SU2QuaternionReplicaPairBounds
+import YMGap.Continuum.QuaternionHaarChangedProductComparison
+import YMGap.Continuum.BF4ExactSlabCutFaceGeometry
+import YMGap.Continuum.BF4ExactSlabReplicaCutLocality
+import YMGap.Continuum.BF4ExactSlabReplicaCutArea
+import YMGap.Continuum.BF4ExactSlabReplicaCutComparison
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

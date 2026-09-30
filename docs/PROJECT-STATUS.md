@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL two-copy cut comparison (2026-09-30 UTC;
+chart unchanged): partial replica exchange leaves every whole-side face
+pair unchanged. The full interacting action comparison therefore pays only
+for crossing faces, whose actual count is at most 12*(extent+1)^3 for a
+time-layer cut. Joint certified insertions and the SAME pair partition are
+retained. Seven focused capped checks passed 49 gates. The conditional
+normalizer/path-variance joins, useful signed scaling bound and all Clay
+obligations remain open; no improved coercivity is asserted. Evidence:
+`audits/AUDIT-ORIGINAL-REPLICA-CUT-COMPARISON-2026-09-30.md`.
+
 Verified supporting witnessed time graph (2026-09-30 UTC; chart unchanged):
 the actual pairs (T x,F x) have a closable, single-valued graph with explicit
 moduli and constructive diagonal closure. Its quotient domain embeds in the
