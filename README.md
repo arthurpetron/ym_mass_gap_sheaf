@@ -39,11 +39,14 @@ whole-carrier continuity. The actual pairs (Tx,A x) now have a single-valued
 closure under supplied graph-limit moduli, embedded in the original carrier.
 Its domain has checked rational operations, positive symmetric form, zero
 vacuum action and the same fixed-nome/width margin (1-q)/2 on the vacuum
-complement. No bound on
-preimages is required. Extending the Taylor theorem to this graph and
-identifying the full generator domain remain open. Time is still in original
-lattice units; self-adjointness, equality with the existing log series,
-physical calibration, scaling survival and Clay remain open.
+complement. No bound on preimages is required. The Taylor theorem now
+extends to graph limits with supplied source representatives: an explicit
+radius controls ||u-S(t)u-t*v||^2<=epsilon*t^2 at every small positive real
+time. A sharp increment bound in the graph OUTPUT norm makes one source
+approximant's own radius suffice. Identifying the full generator domain
+remains open. Time is still in original lattice units; self-adjointness,
+equality with the existing log series, physical calibration, scaling
+survival and Clay remain open.
 See the
 [construction and exact boundary](audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md).
 

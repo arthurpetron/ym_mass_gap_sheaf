@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL witnessed derivative graph closure (2026-09-30 UTC)
+## Current increment: ORIGINAL represented-graph Taylor derivative (2026-09-30 UTC)
+
+`BF4WilsonAllNomeDerivativeGraphReal.realTaylorCertificate` now returns
+an explicit positive radius controlling ||u-S(t)u-t*v||^2<=epsilon*t^2 at
+every small supplied positive real time. Inputs are the actual graph
+witness and supplied source representatives, not an assumed generator.
+The crucial estimate `DerivativeGraphTimeBound.graph_mesh_increment_bound`
+controls all dyadic increments by t^2||v||^2. Applied to the difference
+from one core approximant, it transfers that approximant's own Taylor
+radius. This closes the graph extension without a uniform preimage norm
+bound or a common radius across the sequence. Names have prefix
+`BF4WilsonAllNome`; exact moduli and source pins remain data.
+
+Consumer: maximal-domain characterization and self-adjointness on a
+justified positive-time sector. The converse characterization remains OPEN,
+as do physical calibration, survival, the separate log-series identity
+and Clay. Six final focused serialized checks passed 36 gates within
+{propext, Quot.sound}; no broad run or canonical chart change. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
+## Earlier increment: ORIGINAL witnessed derivative graph closure (2026-09-30 UTC)
 
 `BF4WilsonAllNomeDerivativeGraph.graph_single_valued` and `diagonal`
 construct a single-valued closure of the actual pairs (Tx,A x) under
@@ -18,9 +38,10 @@ names have prefix `BF4WilsonAllNome`.
 
 Consumer: the actual semigroup derivative on this witnessed graph, then
 generator-domain identification and self-adjointness on a justified sector.
-Those remain OPEN. A source-dependent Taylor radius cannot simply be
-passed through a graph limit; the next bridge must use graph coordinates
-and explicit output-continuity data. Equality with the existing log-series
+The represented Taylor direction is now supplied above; the remaining
+domain and self-adjointness conclusions are OPEN. The proved join uses
+output-norm increment control instead of a common source-dependent radius.
+Equality with the existing log-series
 graph, physical calibration, survival and Clay remain OPEN.
 Five final serialized focused checks passed 51 gates within
 {propext, Quot.sound}; no broad run or canonical chart change. Evidence:

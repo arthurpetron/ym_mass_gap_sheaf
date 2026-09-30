@@ -522,21 +522,74 @@ derivative term uses `derivative_form_ge_defect` from
 `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDerivativeGap.lean:97`.
 No equality A=F is used. The margin retains its nome/width dependence.
 
+## Follow-on: actual Taylor differentiation at represented graph limits
+
+Refining a fixed mesh leaves its quotient unchanged. The refined finite
+averages of A x approach that quotient because the single-step quotients
+approach A x and averaging contracts distance. Each average has norm at
+most ||A x||, so order passage gives the sharp original bound
+||Tx-S(t)Tx||^2<=t^2||A x||^2 at EVERY dyadic time. Passing this through
+the two graph coordinates gives ||u-S(t)u||^2<=t^2||v||^2 for every supplied
+GraphLimit (u,v), without a preimage norm bound.
+
+For the Taylor extension, subtract one core graph pair (Tx_n,A x_n).
+The new increment bound controls the difference of Taylor remainders by
+4*t^2||v-A x_n||^2. Choose n from the graph's output modulus at
+delta=epsilon/11, then take that ONE source's existing core Taylor radius.
+The squared triangle costs at most 10*delta, leaving the required epsilon.
+Thus no common radius across the approximating sequence is assumed.
+Positive-real remainder rows pass the mesh estimate to their already
+constructed original limit, retaining the factor t^2.
+
+The radius constructor explicitly consumes representatives of the source
+sequence, with their pins to G.source. These are additional SUPPLIED
+representation data, not selected by choice from quotient elements. The
+real-time theorem also takes representatives of u and v. Its claim is
+differentiation at every such represented graph limit, not a converse or
+maximal-domain theorem for arbitrary differentiable states. A remains the
+actual positive-generator-sign derivative: d/dt S(t)u at zero is -v.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `norm_limit_order` | `lean/YMGap/Continuum/BF4WilsonAllNomeNormLimitOrder.lean:96` | Stagewise norm order passes through explicit same-carrier distance moduli. |
+| `meshQuotient_refine`, `refined_average_close`, `meshQuotient_image_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeIncrement.lean:72`, `:81`, `:97` | Exact fixed-time refinement and sharp derivative-image norm bound, using finite averages. |
+| `mesh_increment_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeIncrement.lean:134` | Every core dyadic increment is bounded by t squared times the actual derivative-image norm. |
+| `incrementModulus`, `graph_mesh_increment_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphTimeBound.lean:64`, `:80` | Input increment convergence and the whole witnessed graph's sharp dyadic bound. |
+| `outputContinuityCertificate`, `inputContinuityCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphContinuity.lean:117`, `:162` | Both graph-coordinate dyadic-continuity moduli from supplied source representatives. |
+| `remainder_graph_bound`, `radius`, `mesh_taylor_bound`, `meshTaylorCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphMesh.lean:88`, `:131`, `:143`, `:176` | Output-error control transfers one core radius to all small dyadic times at the represented graph point. |
+| `remainderRows_pin`, `remainderRows_limit`, `realRemainder_time_congr` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphReal.lean:90`, `:99`, `:74` | Original remainder rows converge to u-S(t)u-t*v, independent of time presentation. |
+| `real_taylor_bound`, `realTaylorCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphReal.lean:126`, `:180` | Every small supplied positive real time obeys the Taylor estimate at a represented graph limit, with computed positive radius. |
+
 ## Remaining obligations and next consumer
 
-NEXT: extend the actual Taylor theorem to this witnessed A-graph, then
-identify the generator domain on a justified positive-time sector and
-address self-adjointness. A core Taylor radius depends on its source;
-passing that radius through a graph limit is not a checked argument.
-The planned bridge uses finite time averages and graph-output continuity,
-retaining supplied representative streams or continuity moduli as data.
-The fixed-time increment estimate and the average-quotient identification
-needed for this extension are NOT proved by the current graph modules.
-Full-carrier density must not be assumed with the original boundary kernel.
+NEXT: characterize the maximal generator domain on a justified positive-time
+sector, then address self-adjointness. The preceding Taylor theorem proves
+one direction, not that all differentiable states carry the required graph
+witness. The graph equation T v=A u alone permits additional kernel terms
+in v; do not substitute it for the constructed graph. Full-carrier density
+must not be assumed with the original boundary kernel.
+
+Candidate next construction, not yet a proved characterization: use the
+original finite `inverseSum` and `inverseSum_identity` from
+`lean/YMGap/Continuum/BF4WilsonAllNomePositiveTimeRange.lean:42` and `:46`.
+Commutation would make both graph-coordinate errors powers of I-T.
+Their convergence needs explicit positive-time range-closure data for BOTH
+coordinates. This route retains actual finite polynomial preimages instead
+of assuming a transfer inverse or importing the other carrier's graph.
+Sol's independent source review agrees on these two missing joins:
+explicit defect-power decay on the supplied two-coordinate range closure,
+and A/inverseSum commutation. The existing ingredients are
+`positiveTimeTail_bound` at
+`lean/YMGap/Continuum/BF4WilsonAllNomePositiveTimeTail.lean:126`,
+`defect_pair_bound` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDefectPolynomial.lean:74`, and
+`defectPower_additive` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDefectPolynomialAlgebra.lean:66`.
+This review is planning evidence, not a new Lean theorem.
 
 The appropriate closed generator domain, self-adjointness, density in the
-appropriate physical sector, real-time zero-continuity on the witnessed
-sector, spatial/spacing and physical-time calibration, continuum
+appropriate physical sector, real-time zero-continuity throughout that
+required sector, spatial/spacing and physical-time calibration, continuum
 nontriviality and all Clay fields remain OPEN. Equality A=regularizedLog
 and identification with the existing series graph remain separate open
 obligations; no frontier field is removed or weakened. Scaling survival
@@ -764,3 +817,33 @@ module and performed every compiler check. Final log SHA-256:
   `0e86ecad0dbe06a086fe923a896f82b77fe0f3a4a406b91b5d6bf59c5c8e0015`
 - `/tmp/ym-wilson-derivative-graph-gap-20260930.log`:
   `1caadba2e871e0c54c7868fbf8aaecfb125fa644db554894323a9135bcc0fc8e`
+
+Represented-graph derivative verification: six final serialized focused
+checks passed 36 gates (one NormLimitOrder, five Increment, six Continuity,
+five TimeBound, ten Mesh, nine Real), each with exactly {propext, Quot.sound},
+without final warnings. NormLimitOrder needed namespace, propositional-cap
+and pairing-orientation fixes; Increment needed positive-product and cast
+rewrites; Continuity needed explicit local-vector unfolding; Mesh needed
+the fully expanded completion-setoid notation. TimeBound and Real passed
+their first focused checks after static inspection. The safe-build skill
+kept all checks narrow and serialized under one 20 GiB worker and a 12 GiB
+OS reserve; no safety stop or ceiling increase. No full root/tree build,
+audit or guard; added root imports are not root verification. No new sorry,
+axiom, classical dependency, frontier weakening, kernel deletion or
+canonical chart change. Sol drafted the increment proof; Luna drafted norm
+order, continuity and real-time passage; main reviewed/finalized all six
+modules, proved the graph-bound/Taylor joins and ran every check.
+Final log SHA-256:
+
+- `/tmp/ym-wilson-norm-limit-order-20260930.log`:
+  `b3b971afe560af77444fabbfc91937fe363df9d42003b123b59d52a8e625b452`
+- `/tmp/ym-wilson-derivative-increment-20260930.log`:
+  `0e2810509ae673003d84cd180e11b9a84fbd788179c161222addb257d127c8e9`
+- `/tmp/ym-wilson-derivative-graph-continuity-20260930.log`:
+  `e0ba576bf7c5a80ba4249a41477f8a0217939b73cea04fddc078806649a8d230`
+- `/tmp/ym-wilson-derivative-graph-time-bound-20260930.log`:
+  `5bdbe7b1a8f9462dbd8bc308de592f466b40127c39f2904cab08b9cb7d26c5b1`
+- `/tmp/ym-wilson-derivative-graph-mesh-20260930.log`:
+  `698b01d80faa988fa91f6694b3abf1a1554dcfdb8732e7714810486c8e3d875c`
+- `/tmp/ym-wilson-derivative-graph-real-20260930.log`:
+  `e19b6c79fdd136aa0a85c2807e5ecab79671bfb450f595a01894d22dbe5f3d13`

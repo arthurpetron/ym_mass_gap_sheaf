@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL represented-graph Taylor derivative (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeNormLimitOrder.norm_limit_order` passes stagewise
+  diagonal order through supplied same-carrier squared-distance moduli.
+- `BF4WilsonAllNomeDerivativeIncrement.refined_average_close` uses exact
+  refinement: averages of A x converge to the fixed coarse-time quotient.
+  `mesh_increment_bound` gives ||Tx-S(t)Tx||^2<=t^2||A x||^2 on every
+  dyadic mesh, with no small-time restriction or preimage-norm factor.
+- `BF4WilsonAllNomeDerivativeGraphTimeBound.graph_mesh_increment_bound`
+  passes this to every GraphLimit (u,v), controlling by t^2||v||^2.
+- `BF4WilsonAllNomeDerivativeGraphMesh.meshTaylorCertificate` and
+  `BF4WilsonAllNomeDerivativeGraphReal.realTaylorCertificate` return
+  explicit positive Taylor radii for graph limits with SUPPLIED source
+  representatives. The latter handles every small positive real time,
+  retaining epsilon*t^2 and time-presentation independence. One source
+  approximant's own radius suffices; no common radius is assumed.
+- `BF4WilsonAllNomeDerivativeGraphContinuity` returns both coordinate
+  dyadic-continuity moduli from the same supplied representative streams.
+- OPEN: converse/maximal generator-domain identification on the appropriate
+  sector, self-adjointness, the separate log-series identity, physical-time
+  calibration, spatial/scaling control, continuum survival and all Clay
+  frontier fields. No representative is selected by choice or boundary
+  state removed; original T(1) units are not physical calibration.
+- Six final focused serialized checks passed 36 gates within
+  {propext, Quot.sound}. No new sorry/axiom, frontier weakening or broad run.
+  Exact targets/hashes: `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED ORIGINAL witnessed derivative graph closure (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeDerivativeCore.derivativeAction_commutes_time`,
@@ -16,9 +43,9 @@
   `action_symmetric` pass the actual core form through graph limits.
   `BF4WilsonAllNomeDerivativeGraphGap.action_form_gap` retains (1-q)/2
   on the original vacuum complement, at fixed nome and width.
-- OPEN: the actual Taylor theorem on this whole witnessed graph,
-  full generator-domain identification, self-adjointness, equality with
-  the existing log-series graph, physical calibration, spatial/scaling
+- The Taylor theorem with supplied source representatives is now proved
+  above. OPEN: full generator-domain identification, self-adjointness,
+  equality with the existing log-series graph, physical calibration, spatial/scaling
   control, nontrivial continuum survival and every Clay frontier field.
   Closedness here consumes supplied graph-limit witnesses; no choice or
   full-carrier density/continuity is asserted and no boundary state removed.

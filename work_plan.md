@@ -192,12 +192,35 @@ have the `BF4WilsonAllNome` prefix. Five final serialized focused checks
 passed 51 printed gates within {propext, Quot.sound}; no broad check or
 canonical chart change.
 
-NEXT reconstruction obligation: extend the actual Taylor derivative to
-this witnessed graph, then identify the generator domain on a justified
-sector and address self-adjointness. Work with graph coordinates, not a
-uniform cap on preimages or a common source-dependent Taylor radius.
-The needed finite-average/graph-output continuity bridge is still OPEN;
-retain supplied representative streams or continuity moduli as data.
+FOLLOW-ON PROVED: `BF4WilsonAllNomeDerivativeIncrement.mesh_increment_bound`
+controls ||Tx-S(t)Tx||^2 by t^2||A x||^2 for every dyadic increment.
+Refined finite averages of A x converge to the fixed coarse-time quotient;
+their norm bound passes by `BF4WilsonAllNomeNormLimitOrder.norm_limit_order`.
+`DerivativeGraphTimeBound.graph_mesh_increment_bound` passes the bound
+through EVERY graph witness. Applying it to the difference from ONE core
+approximant controls the Taylor remainder difference by its output error
+times 4*t^2. This makes that approximant's own core radius sufficient;
+no uniform preimage cap or common source radius is assumed.
+`DerivativeGraphMesh.meshTaylorCertificate` and
+`DerivativeGraphReal.realTaylorCertificate` now give explicit positive
+radii at graph limits with SUPPLIED source representatives, for every
+small dyadic/positive-real increment. `DerivativeGraphContinuity` also
+returns input/output dyadic-continuity moduli from those supplied streams.
+These abbreviated names have prefix `BF4WilsonAllNome`. Six final focused
+serialized checks passed 36 gates within {propext, Quot.sound}; no broad
+check or canonical chart change.
+
+NEXT reconstruction obligation: identify the generator domain on a justified
+positive-time sector and address self-adjointness. The Taylor theorem is
+one direction, not the converse maximal-domain statement. Preserve supplied
+source representatives; do not extract them by countable choice. Investigate
+the already checked original finite inverse sums as simultaneous graph
+approximants, using range-closure moduli for BOTH coordinates. The equation
+A u=T v alone is insufficient with the original boundary kernel.
+The next missing joins are an explicit modulus for (I-T)^n z on supplied
+limits of T-images, and A/inverseSum commutation. Existing same-carrier
+positiveTimeTail_bound and defect_pair_bound supply the starting estimates;
+this is a source-checked plan, not a completed domain characterization.
 The existing series graph concerns F=regularizedLog, not A; equality remains
 OPEN and is not an implicit identification. No full-carrier density or
 injectivity is available.

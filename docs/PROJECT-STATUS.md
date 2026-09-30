@@ -1,14 +1,26 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL graph Taylor derivative (2026-09-30 UTC;
+chart unchanged): ||u-S(t)u-t*v||^2<=epsilon*t^2 now holds at graph limits
+with supplied source representatives for EVERY small positive real time,
+with an explicit radius. The same-carrier increment estimate
+||u-S(t)u||^2<=t^2||v||^2 on all dyadic meshes makes one core approximant's
+own radius suffice. No uniform preimage bound or representative choice.
+Input/output dyadic-continuity moduli also check. Maximal generator-domain
+identification, self-adjointness, physical calibration, scaling survival
+and every canonical Clay field remain OPEN. Six final focused serialized
+checks passed 36 gates within {propext, Quot.sound}; no broad run. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 Verified supporting ORIGINAL derivative graph closure (2026-09-30 UTC;
 chart unchanged): the actual pairs (Tx,A x) now have a single-valued closure
 under supplied graph-limit moduli. Its quotient domain embeds in the SAME
 carrier, has rational operations, positive symmetric form, zero vacuum
 action and the full fixed-nome/width margin (1-q)/2 on the vacuum complement.
-No preimage bound,
-inverse or log-series identification is used. Taylor differentiation on
-this whole witnessed graph, full generator-domain identification and
-self-adjointness remain OPEN, as do physical calibration, scaling survival
+No preimage bound, inverse or log-series identification is used. Taylor
+differentiation with supplied representatives is now supplied above;
+full generator-domain identification and self-adjointness remain OPEN,
+as do physical calibration, scaling survival
 and all canonical Clay fields. Five final serialized focused checks passed
 51 gates within {propext, Quot.sound}; no broad run. Evidence:
 `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
