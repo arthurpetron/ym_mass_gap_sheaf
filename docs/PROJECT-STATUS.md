@@ -1,12 +1,24 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL dyadic-time action (2026-09-30 UTC; chart
+unchanged): iterating the compatible roots and proving mesh refinement now
+gives a representation-independent S(t) on the existing nonnegative dyadic
+time quotient. The SAME original completion has S(s+t)=S(s)S(t), S(0)=I,
+and S(n)=T(n), including the actual one-step transfer. Positivity, symmetry,
+rational and supplied-modulus real linearity, and norm/distance contraction
+are checked. No other-carrier identification or boundary-state deletion.
+Strong continuity, real-time extension, generator identity, physical scaling
+and all canonical Clay fields remain OPEN. One focused capped check passed
+16 gates within {propext, Quot.sound}; no full-tree check. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 Verified supporting compatible original-carrier roots (2026-09-30 UTC; chart
 unchanged): each fixed natural depth has a limit on the SAME Wilson completion
 with an explicit modulus, nonuniform in depth. The roots form a positive,
 symmetric, contractive family R_k with R_0=T, R_(k+1)^2=R_k, and exactly the
 original transfer kernel at every depth. The finite square-error estimate
-passes through the original pairing limits. The next step is to iterate these
-roots to an action of the existing dyadic-time quotient. Strong continuity,
+passes through the original pairing limits. The dyadic action is now proved
+in the follow-on above. Strong continuity,
 generator identification, scaling survival and every canonical Clay field
 remain OPEN. The three final focused checks passed 24 gates within
 {propext, Quot.sound}. Evidence:
@@ -17,8 +29,9 @@ chart unchanged): the constructed limit H now gives R=I-H with R^2=T for
 the SAME Wilson transfer. Passing the finite recurrence through pairings
 proves positivity, symmetry, linearity and contraction without an inverse
 or other-carrier identification. The original boundary kernel is retained.
-Compatible dyadic time, strong continuity and generator identity remain
-OPEN, as do scaling survival and every canonical Clay field. The preceding
+Compatible roots and dyadic action are supplied by the follow-ons above.
+Strong continuity and generator identity remain OPEN, as do scaling survival
+and every canonical Clay field. The preceding
 explicit complement-iteration modulus is retained. Two further focused
 capped checks passed 23 gates in {propext, Quot.sound}. Evidence:
 `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md` (follow-on construction).

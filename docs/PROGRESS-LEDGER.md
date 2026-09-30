@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: compatible original-carrier root family (2026-09-30 UTC)
+## Current increment: ORIGINAL dyadic-time semigroup (2026-09-30 UTC)
+
+`BF4WilsonAllNomeDyadicSemigroup.action` descends finite iterations of the
+constructed compatible roots to the existing nonnegative dyadic-time
+quotient. `action_add` and `action_whole` give the semigroup law and exact
+S(n)=T(n), on the SAME original carrier and with the original time unit.
+Positivity, symmetry, linearity and contraction are checked. Consumer:
+quantitative continuity on the witnessed positive-time range, followed by
+real-time extension and the original series-generator join. None is supplied
+by this algebraic action alone. The next proposed energy-telescope estimate
+is recorded in the audit; it is not yet a proof on this carrier. One focused
+capped check passed 16 gates in {propext, Quot.sound}; no broad run, new
+analytic input, frontier weakening or canonical chart change. Scaling survival
+and all Clay fields remain open. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
+## Earlier increment: compatible original-carrier root family (2026-09-30 UTC)
 
 Finite nested polynomials now have coefficient-positive differences and an
 explicit fixed-depth mass-deficit modulus. Their actual limits and witnessing
@@ -14,9 +30,9 @@ adjacent difference, reusing already proved monotonicity; its finite square
 relation passes through original pairing limits. The resulting roots are
 positive, symmetric and contractive, satisfy R_0=T and R_(k+1)^2=R_k, and
 preserve exactly the original transfer kernel. The explicit convergence
-modulus depends on depth. NEXT: iterate these roots to an action of the
-existing `NonnegativeDyadicTime.Time` quotient, then prove appropriate strong
-continuity and identify a generator. Scaling survival and all Clay fields
+modulus depends on depth. The follow-on above supplies the action of the
+existing `NonnegativeDyadicTime.Time` quotient. Appropriate strong
+continuity and generator identification, scaling survival and all Clay fields
 remain open. Three final focused target checks passed 24 gates; no canonical
 field change, broad guard or progress_metric.sh run. Evidence:
 `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.

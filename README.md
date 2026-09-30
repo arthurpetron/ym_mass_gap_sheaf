@@ -18,9 +18,11 @@ transfer or substitute carrier is assumed. Nested polynomial limits are now
 constructed at every fixed natural depth with explicit, depth-dependent
 moduli. They form a compatible family of positive symmetric contractions
 R_k on that same carrier, with R_0=T, R_(k+1)^2=R_k, and exactly the
-original transfer kernel at every depth. The next step is to iterate these
-roots into an action of the existing dyadic-time quotient. Strong continuity,
-generator identification, scaling survival and the Clay target remain open.
+original transfer kernel at every depth. Their iterates now give a checked
+action of the existing dyadic-time quotient: S(s+t)=S(s)S(t), with S(n)=T(n)
+for the ORIGINAL geometric time, including one step. Positivity, symmetry,
+linearity and contraction hold. Strong continuity, generator identification,
+scaling survival and the Clay target remain open.
 See the
 [construction and exact boundary](audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md).
 

@@ -262,14 +262,57 @@ remains depth dependent.
 | `root_norm_bound`, `root_distance_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootCompatibility.lean:191`, `:201` | Norm and squared-distance contraction at every depth. |
 | `root_zero_iff_time_zero` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootCompatibility.lean:214` | Every constructed root retains exactly the original T(1) kernel. |
 
-The next algebraic consumer is the dyadic action, not yet constructed here.
+## Follow-on: actual dyadic semigroup, pinned to ORIGINAL one-step time
+
 The existing `NonnegativeDyadicTime.Time` and `add`,
 `lean/YMGap/Constructive/NonnegativeDyadicTime.lean:45`, `:73`, supply the
-time quotient. Iterating R_depth for the mesh step count should descend
-through its existing cross-multiplication relation using the checked square
-law. This is a plan, not a checked dyadic semigroup. Strong continuity,
-the series derivative/generator join and physical scaling remain subsequent
-obligations.
+time quotient. Iterating R_depth for the supplied step count now descends
+through its cross-multiplication relation. Two fine steps equal one coarse
+step by `root_square`; induction gives arbitrary refinement. Equal mesh
+presentations act equally at the explicit common depth p.depth+q.depth.
+Quotient descent selects no time representative. The action is on the SAME
+original completed carrier, without importing the legacy thermodynamic
+action or replacing the one-step operator by its square.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `meshAction`, `mesh_refinement` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSemigroup.lean:41`, `:83` | Finite iteration of the actual roots and exact refinement consistency. |
+| `mesh_congr`, `action` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSemigroup.lean:104`, `:116` | Equivalent meshes act equally; representation-independent dyadic action. |
+| `action_add`, `action_zero` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSemigroup.lean:123`, `:134` | S(s+t)=S(s)S(t) and S(0)=I on every original completed state. |
+| `action_whole`, `action_root` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSemigroup.lean:137`, `:140` | S(n)=T(n), including the original T(1), and S(2^(-k))=R_k. |
+| `action_symmetric`, `action_nonnegative`, `action_norm_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSemigroup.lean:142`, `:148`, `:153` | Symmetric positive contractions at every nonnegative dyadic time. |
+| `action_add_state`, `action_smul`, `action_realSmul` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSemigroup.lean:159`, `:170`, `:180` | Additivity, rational linearity and real linearity with supplied scalar modulus. |
+| `action_distance_bound`, `action_doubled_pairing` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicSemigroup.lean:202`, `:209` | Original squared-distance contraction and doubled-time pairing identity. |
+
+### Next argument selected by stepping back from continuity
+
+This paragraph records a paper-level plan, not a checked original-carrier
+continuity theorem. A single energy telescope suffices for ALL small dyadic
+increments; there is no need first to demand a sharper inverse-square rate
+along only R_k. For A=S(steps/2^depth), its finer square root and contraction
+give ||Ax||^2<=B(Ax,x), hence
+
+    ||Ax-x||^2 + ||Ax||^2 <= ||x||^2.
+
+Adjacent squared increments of A^n x decrease by contraction. Telescoping
+therefore gives n*||A^(n+1)x-A^n x||^2<=||x||^2. When steps*n<=2^depth,
+the remaining nonnegative integer steps transport this bound to Tx, since
+`action_whole` pins a whole mesh interval to the original T. Taking n=2^k
+would prove
+
+    steps*2^k<=2^depth
+      => ||S(steps/2^depth)Tx-Tx||^2 <= 2^(-k)||x||^2.
+
+The proof pattern already exists in
+`BF4ExactSlabThermodynamicDyadicEnergy.time_dissipation`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicEnergy.lean:86`,
+`weighted_energy` at line 126, and `range_smallTime_bound` at line 221.
+Those declarations concern a DIFFERENT carrier and transfer: their proof
+pattern can be adapted, but their operator is not a supplied join here.
+The original action laws above provide the algebraic inputs. The remaining
+work is to formalize that estimate and a modulus using the supplied preimage
+norm ceiling; extend only through witnessed positive-time approximations.
+The original boundary kernel still forbids full-carrier continuity at zero.
 
 ## Remaining obligations
 
@@ -278,9 +321,9 @@ self-adjointness, continuous physical time, spatial/spacing calibration,
 continuum nontriviality and all Clay fields remain OPEN. No formal frontier
 type was weakened or newly inhabited.
 
-The next same-object reconstruction requirement is a fractional-time calculus
-for this original all-nome T, strongly continuous on the closure of its
-positive-time range, plus the explicit core limit
+The dyadic action is now supplied. The next same-object reconstruction
+requirement is its strong continuity and real-time extension on the witnessed
+closure of the positive-time range, plus the explicit core limit
 (T x-T^s T x)/s -> F x and a graph-core identification. The existing
 `BF4ExactSlabThermodynamicDyadicSemigroup.action_one`,
 `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicSemigroup.lean:132`,
@@ -371,3 +414,12 @@ frontier weakening or canonical chart change. Final log SHA-256:
   `88102c98e08679c73d93322b145e0956d1fefb43732de4853d8f2e9dab03f79c`
 - `/tmp/ym-wilson-nested-root-compatibility-20260930.log`:
   `143bb89151a8ee9f2276e18c5d5f70e01c41193ad7728d6827e1ab44f1da03be`
+
+Dyadic-action verification: one further final focused check passed all 16
+printed gates, each with exactly {propext, Quot.sound}. One initial attempt
+needed mesh presentations unfolded on BOTH sides before induction; the final
+check uses the unchanged default heartbeat limit. The same one-worker/20 GiB
+ceiling and 12 GiB reserve applied. No full root/tree build, audit/guard,
+new sorry/axiom, frontier weakening or canonical chart change. Log
+`/tmp/ym-wilson-dyadic-semigroup-20260930.log`, SHA-256:
+`3e9a7fbd95e20b8e905c05b65b607ecbf9509b21112535010bb3d1ed5c779333`.

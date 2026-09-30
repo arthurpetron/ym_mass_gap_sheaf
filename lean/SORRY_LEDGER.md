@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL quotient-indexed dyadic action (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeDyadicSemigroup.mesh_refinement` proves exact refinement
+  by the checked root square law. `mesh_congr` compares equivalent mesh
+  presentations on their explicit common refinement, and `action` descends
+  to the existing `NonnegativeDyadicTime.Time` quotient without choice.
+- `action_add`, `action_zero` and `action_whole` supply S(s+t)=S(s)S(t),
+  S(0)=I and S(n)=T(n) on the SAME original completion. A unit is exactly
+  one original step, not the legacy thermodynamic two-step operator.
+- Positivity, symmetry, rational and supplied-modulus real linearity,
+  norm/distance contraction and doubled-pairing identity are checked.
+- OPEN: appropriate strong continuity and real-time extension, same-core
+  log derivative/generator identity, physical calibration, spatial/spacing
+  control, scaling survival and all Clay fields. No kernel state was removed.
+- One final focused one-worker/20 GiB check passed 16 gates with exactly
+  {propext, Quot.sound}; no full build/audit/guard, new sorry/axiom, frontier
+  weakening or canonical chart change. Evidence:
+  `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED compatible roots of the ORIGINAL transfer (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeNestedRootBasics.root` constructs R_k=I-H_k for every
@@ -14,7 +33,8 @@
   R_(k+1)^2=R_k. `root_norm_bound` and `root_distance_bound` give contraction;
   `root_zero_iff_time_zero` proves every root has exactly the original kernel.
   No boundary state is discarded, inverse assumed, or carrier replaced.
-- OPEN: quotient-indexed dyadic action, strong continuity on the appropriate
+- FOLLOW-ON: quotient-indexed dyadic action is constructed above.
+  OPEN: strong continuity on the appropriate
   positive-time range closure, same-core log derivative/generator identity,
   spatial/spacing calibration, scaling survival and all Clay fields.
   Root approximation moduli are not uniform in nesting depth.
@@ -42,7 +62,7 @@
   proves the exact finite square identity on the SAME carrier, with squared
   error norm <=r_n^4*||x||^2, by constructive polynomial coefficient reflection.
 - FOLLOW-ON: compatible square laws are proved in the entry above.
-  OPEN: dyadic time and strong continuity,
+  OPEN: strong continuity and real-time extension,
   same-core log derivative/generator identity, spatial/spacing calibration,
   scaling survival and all Clay fields. The modulus is not uniform in depth.
 - Five final focused one-worker/20 GiB target checks passed 33 gates within
@@ -62,7 +82,7 @@
   symmetry, rational and supplied-modulus real linearity, contraction and
   squared-distance contraction are proved. The original kernel is retained.
 - FOLLOW-ON: compatible roots are constructed above by nested polynomials.
-  OPEN: dyadic action and strong continuity on the appropriate
+  OPEN: strong continuity on the appropriate
   range closure, same-core log derivative and generator identification,
   spatial/spacing calibration, scaling survival and all Clay fields.
   No generic iteratable operator API is needed for that nested construction.
@@ -84,7 +104,8 @@
   original completion, with explicit representative and convergence data.
   No arbitrary quotient-valued sequence is lifted by choice.
 - FOLLOW-ON: the square equation and root positivity are proved in the
-  entries above, including compatible roots. OPEN: dyadic action and strong continuity on the
+  entries above, including compatible roots and dyadic action.
+  OPEN: strong continuity on the
   appropriate range closure,
   same-core regularized-log derivative, graph-core/generator identity,
   spatial/spacing calibration, survival and all Clay fields.

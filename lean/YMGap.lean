@@ -5792,6 +5792,8 @@ import YMGap.Continuum.BF4WilsonAllNomeNestedRootSquareError
 import YMGap.Continuum.BF4WilsonAllNomeNestedRootBasics
 import YMGap.Continuum.BF4WilsonAllNomeNestedRootErrorSmall
 import YMGap.Continuum.BF4WilsonAllNomeNestedRootCompatibility
+-- Algebraic dyadic time, pinned to original T(1); continuity/generator still open.
+import YMGap.Continuum.BF4WilsonAllNomeDyadicSemigroup
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison
