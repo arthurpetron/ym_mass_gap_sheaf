@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Verified supporting actual Jacobi mixed relative bound (2026-09-30 UTC;
+chart unchanged): the positive weighted heat now has relative mixed cost
+m*R+d*e*R^2, with R the nome-dependent slope budget and no inverse heat
+minimum. Both product and the heat-defining Leibniz derivative are handled.
+Weight removal to the original prefix and the actual collar score remain
+OPEN. Three focused capped checks passed 20 gates. Evidence:
+`audits/AUDIT-MIXED-RELATIVE-HEAT-2026-09-30.md`.
+
 Verified supporting relative dual norm algebra (2026-09-30 UTC; chart
 unchanged): signed relative numerator certificates now bound every finite
 reciprocal dual by C^2 under the SAME original weight, with no extra inverse

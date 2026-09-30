@@ -12,6 +12,14 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Actual positive Jacobi mixed relative bound (2026-09-30 UTC):**
+`JacobiHeatMixedRelativeAngularBound.weightedHeatBound` supplies relative
+cost m*R+d*e*R^2 for the ordered mixed derivative, independent of Jacobi
+cutoff, with no inverse heat-minimum factor. It is the actual WEIGHTED
+Jacobi heat; mixed-deficit weight removal and the physical collar estimate
+remain open. Three focused capped checks passed 20 gates; no broad run or
+Clay closure. Evidence: `audits/AUDIT-MIXED-RELATIVE-HEAT-2026-09-30.md`.
+
 **Signed-family floor on the literal Wilson completion (2026-09-30 UTC):**
 `BF4WilsonAllNomePlaquetteFamilyVariance.familyExcitation_norm_floor`
 transfers the ALREADY existing finite original-action signed-family bound

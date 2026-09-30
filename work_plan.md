@@ -25,6 +25,24 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Supplied actual Jacobi mixed relative heat bound (2026-09-30 UTC)
+
+`JacobiHeatMixedRelativeAngularBound.weightedHeatBound` now constructs
+both signed mixed-derivative certificates for the ACTUAL finite positive
+Jacobi heat. If d,e bound the scalar first derivatives and m its ordered
+mixed derivative, the relative cost is m*R+d*e*R^2, where R is the existing
+nome-dependent summed slope budget. The proof simultaneously handles the
+product and its positive Leibniz derivative, preserving the exact heat
+normalization. No inverse heat-minimum cost enters the result.
+
+NEXT: pass this weighted polynomial estimate to the original unweighted
+heatPrefix using a mixed-second Jacobi deficit modulus (not the first-order
+one), then instantiate actual four-link scalar caps and the collar numerator.
+Finite-family improvement and all scaling/Clay fields remain OPEN. Three
+focused capped checks passed 20 gates in {propext, Quot.sound}; no broad run
+or canonical chart change. Evidence:
+`audits/AUDIT-MIXED-RELATIVE-HEAT-2026-09-30.md`.
+
 ### Supplied reciprocal-dual norm without a heat-minimum cost (2026-09-30 UTC)
 
 The next local algebra now closes without requiring a positive-order bound

@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED actual finite Jacobi mixed relative estimate (2026-09-30 UTC)
+
+- `JacobiHeatMixedRelativeAngularBound.weightedHeatBound` constructs both
+  signs of the ordered mixed derivative for the actual positive weighted
+  heat polynomial. Cost m*R+d*e*R^2 is independent of Jacobi cutoff, not nome;
+  it uses no reciprocal of the heat minimum.
+- `productDerivativeBounds` simultaneously controls the positive product
+  and its Leibniz derivative defining the heat. The finite relative-interval
+  and mixed-certificate algebra is instantiated, not left as an analytic
+  premise or new frontier bundle.
+- OPEN: mixed second-deficit modulus to remove the Jacobi weights, actual
+  physical four-link/collar mixed-score instance, signed-family improvement
+  and all scaling/Clay fields.
+- Three focused capped checks passed 20 public gates within
+  {propext, Quot.sound}; no sorry/axiom change, broad run or chart change.
+  Evidence: `audits/AUDIT-MIXED-RELATIVE-HEAT-2026-09-30.md`.
+
 ## PROVED relative reciprocal-dual norm algebra (2026-09-30 UTC)
 
 - `QuaternionHaarRelativeReciprocalDualNorm.reciprocal_dual_square_certificate`
