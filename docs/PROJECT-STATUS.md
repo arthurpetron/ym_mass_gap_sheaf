@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting represented-sector preservation (2026-09-30 UTC;
+chart unchanged): explicit gauge-invariant Cauchy representatives pass
+through the actual completed block projections, original star sweep,
+balanced/affine map and BOTH auxiliary recurrence components. The singleton
+block/star equality holds on the SAME original full-action completion.
+Both auxiliary states have simultaneously invariant and exactly centered
+approximants; original lower/upper plaquette inputs are included.
+No intrinsic completed gauge action or useful signed scaling estimate is
+constructed. A03 and all same-theory Clay requirements remain open.
+All 41 gates passed six focused resource-capped checks; no broad run.
+Evidence: `audits/AUDIT-GAUGE-REPRESENTED-COMPLETION-2026-09-30.md`.
+Earlier completed-sector-open entries are historical only in this explicit
+represented-sector scope; the canonical chart block is unchanged.
+
 Verified supporting original gauge approximants (2026-09-30 UTC;
 chart unchanged): the actual vertex ledger commutes with physical family
 integration. The original normalizer, inserted numerator and every inverse

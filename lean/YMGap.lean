@@ -5573,12 +5573,12 @@ import YMGap.Continuum.BF4ExactSlabBlockPredictionAngle
 import YMGap.Continuum.QuaternionHaarCertificateSupportedRepresentative
 import YMGap.Continuum.BF4ExactSlabBlockInversePositive
 import YMGap.Continuum.BF4ExactSlabBlockCovarianceCertificate
--- Conditional gauge identities; completed sector preservation and useful rho remain open.
+-- Conditional gauge identities; a useful signed scaling-family estimate remains open.
 import YMGap.Continuum.SU2QuaternionConditionalHaarTranslation
 import YMGap.Continuum.SU2QuaternionTranslationSpectatorProjection
 import YMGap.Continuum.SU2QuaternionSelectedConditionalTranslation
 import YMGap.Continuum.BF4ExactSlabGaugeWeightedPairing
--- Actual gauge ledger and conditional inverse approximants; completed sector remains open.
+-- Actual gauge ledger and conditional inverse approximants.
 import YMGap.Continuum.SU2QuaternionConjugationProjection
 import YMGap.Continuum.SU2QuaternionHaarCarrierProjection
 import YMGap.Continuum.SU2QuaternionSelectedProjectionFixed
@@ -5587,6 +5587,14 @@ import YMGap.Continuum.SU2QuaternionSelectedProjectionEquivariance
 import YMGap.Continuum.SU2QuaternionGaugeFamilyProjection
 import YMGap.Continuum.SU2QuaternionLiftedFamilyProjection
 import YMGap.Continuum.BF4ExactSlabGaugeConditionalApproximation
+-- Represented gauge sector on the SAME completion and actual centered auxiliaries.
+-- No intrinsic completed gauge action, strict rate or OS-transfer identification.
+import YMGap.Continuum.GNSRepresentedSector
+import YMGap.Continuum.GNSRepresentedSectorRecurrence
+import YMGap.Continuum.BF4ExactSlabGaugeRepresentedCompletion
+import YMGap.Continuum.BF4ExactSlabBlockSingletonProjection
+import YMGap.Continuum.BF4ExactSlabGaugeSweep
+import YMGap.Continuum.BF4ExactSlabGaugeCenteredWitness
 import YMGap.Continuum.SU2QuaternionSharedHeatCorrelationObstruction
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair

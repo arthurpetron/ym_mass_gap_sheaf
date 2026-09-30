@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original completed sweep preserves represented gauge sector (2026-09-30 UTC)
+
+`GNSRepresentedSector.Representative` retains an actual Cauchy sequence,
+modulus, dense predicate and pin to the specified original completed point.
+Arithmetic, supplied diagonal limits and the existing dense-map extension
+construct such witnesses. `BF4ExactSlabGaugeRepresentedCompletion.block`
+preserves the existing invariant predicate for every vertex-tag map.
+`BF4ExactSlabBlockSingletonProjection.conditionalProjection_singleton`
+identifies that block operator with the actual star projection by mutual
+range fixation and self-adjointness. `BF4ExactSlabGaugeSweep.coupled`
+therefore supplies witnesses for BOTH existing auxiliary components.
+`BF4ExactSlabGaugeCenteredWitness.coupled_centered_reps` makes every term
+simultaneously invariant and exactly centered, keeping the centering input's
+Cauchy modulus and the same completed point. Original centered lower/upper
+plaquette expressions supply explicit inputs; nonzero norm is not claimed.
+
+This is the represented gauge-polynomial sector inside the SAME full-action
+completion, not an intrinsic fixed-space characterization or a completed
+action of arbitrary vertex gauge elements. No new carrier is substituted.
+NEXT: use original invariant, centered tests in a useful signed estimate on
+justified scaling. Sector preservation supplies no rho or reverse-energy
+bound; the existing covariance consumer requires the latter only on its
+actual second auxiliary component. Do not add more input bundles instead
+of producing the estimate. Collective signed control remains an alternative.
+
+All six focused serialized one-worker/20 GiB checks passed all 41 gates
+within {propext, Quot.sound}; independent Luna/Sol source review passed.
+No new sorry, axiom, analytic bundle or broad run. The canonical chart is
+unchanged and the same-theory Clay requirements remain open. Evidence:
+`audits/AUDIT-GAUGE-REPRESENTED-COMPLETION-2026-09-30.md`.
+Earlier completed-sector-open statements are historical only within the
+explicit represented-sector scope above.
+
 ### Original conditional approximants preserve gauge invariance (2026-09-30 UTC)
 
 The actual finite vertex-gauge ledger now commutes with physical family

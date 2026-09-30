@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## Original represented gauge sector and actual sweep (2026-09-30 UTC)
+
+- **proved:** explicit invariant polynomial representatives, with their
+  existing Cauchy moduli and pin to the SAME original completed vector,
+  survive arithmetic, supplied diagonal limits and the existing dense-map
+  extension. Actual completed block projections preserve these witnesses.
+- **same-operator join:** singleton block equals the original star
+  projection on every completed vector. The actual sweep, balanced/affine
+  map and BOTH coupled auxiliary components preserve the witnesses.
+- **centered original inputs:** the actual finite mean subtraction preserves
+  invariance. Each centered auxiliary has a same-class representative with
+  both properties termwise; centering retains its input Cauchy modulus.
+  Actual lower/upper plaquette expressions provide dense inputs.
+- **scope:** the existing all-tags `Invariant` predicate, not a completed
+  action of arbitrary independent vertex gauges or an intrinsic fixed-space
+  characterization. No alternate ambient completion is used.
+- **open:** useful original-action signed control on justified scaling;
+  sector preservation alone supplies no quantitative improvement. A03,
+  physical scaling/nontrivial survival, thermodynamic and same-theory
+  OS/QFT/physical mass/every-group Clay obligations remain open.
+- **evidence and verification boundary:**
+  `audits/AUDIT-GAUGE-REPRESENTED-COMPLETION-2026-09-30.md`.
+  Six focused serialized one-worker/20 GiB checks passed all 41 gates
+  within {propext, Quot.sound}; independent Luna/Sol review. No broad run.
+  No new sorry, axiom, analytic bundle or canonical field weakening.
+  Earlier completed-sector-open records are historical in this represented
+  scope only.
+
 ## Original conditional gauge approximants (2026-09-30 UTC)
 
 - **proved:** the actual vertex ledger commutes with physical family

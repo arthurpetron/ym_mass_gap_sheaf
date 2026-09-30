@@ -10,20 +10,31 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original completed sweep preserves gauge-polynomial representatives (2026-09-30):**
+explicit invariant Cauchy representatives now pass through the actual
+completed conditional projections, sweep and both auxiliary recurrence
+components in the same full-action space. The singleton block/star
+operator identity is proved. Original centered plaquette inputs and
+simultaneously centered/invariant auxiliary approximants are included.
+This is not an intrinsic completed gauge
+action or a strict estimate; the useful signed scaling bound remains open.
+See the [proof and scope audit](audits/AUDIT-GAUGE-REPRESENTED-COMPLETION-2026-09-30.md).
+
 **Original conditional approximants preserve gauge invariance (2026-09-30):**
 the actual vertex-gauge ledger now commutes with physical-link integration.
 The original normalizer, inserted numerator and every conditional inverse
 approximant preserve the existing polynomial gauge predicate. This includes
-the exact Cauchy representative used by the original completed operator;
-completed-sector preservation and the useful signed bound remain open. See
+the exact Cauchy representative used by the original completed operator.
+The represented-sector join is now proved above; the useful signed bound
+remains open. See
 the [proof and scope audit](audits/AUDIT-GAUGE-CONDITIONAL-APPROXIMANTS-2026-09-30.md).
 
 **Conditional gauge identities proved (2026-09-30):** conditional Haar
 integration now respects the existing selected-link translations while
 retaining arbitrary spectator dependence. The full-action pairing is
 preserved on the augmented gauge carrier. These are finite prerequisites:
-completed gauge-sector preservation and the useful signed covariance bound
-remain open. See the
+the represented-sector join is now proved above, while the useful signed
+covariance bound remains open. See the
 [proof and scope audit](audits/AUDIT-CONDITIONAL-GAUGE-PREREQUISITES-2026-09-30.md).
 
 **Actual inverse preserves positive certificates (2026-09-30):** the
