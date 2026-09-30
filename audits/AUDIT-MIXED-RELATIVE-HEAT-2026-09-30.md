@@ -49,19 +49,40 @@ Supporting finite certificate algebra:
   preserve coefficients, sums, positive scales and widened caps. This finite
   certificate data is actually inhabited by the Jacobi construction above.
 
+## Follow-on: original unweighted heat prefix
+
+The finite-weight removal is now supplied, not assumed.
+`QuaternionHaarHeatMixedAngularDeficit.finite_shifted_tail_le`,
+`lean/YMGap/Continuum/QuaternionHaarHeatMixedAngularDeficit.lean:119`,
+constructs a degree-m heat-tail cutoff; `mixedAngularDeficitInterval` (:302)
+applies it to the degree-six/four majorants of the actual ordered second
+derivative. It splits the requested error between a finite Jacobi band and
+its tail. Existing `heatSecondTermInterval` is exposed without proof changes.
+
+`QuaternionHaarHeatMixedRelativeAngularBound.heatPrefixMixedRelativeBoundAt`,
+`lean/YMGap/Continuum/QuaternionHaarHeatMixedRelativeAngularBound.lean:136`,
+constructs all three relative bounds on the SAME original `heatPrefix`:
+
+    |X H_K| <= (d R+1) H_K,  |Y H_K| <= (e R+1) H_K,
+    |X Y H_K| <= (m R+d e R^2+1) H_K.
+
+Here K is at least the explicit `mixedRelativeCutoff w d e m` (:98). The
+floor sets epsilon=headFloor/(mixedRelativeCost+1); the signed value and
+derivative errors consume exactly the floor. It is not divided into the
+final cost. Scalar first/mixed intervals and the supported unit quaternion
+remain explicit inputs. Cost depends on nome, not K or ambient carrier size.
+
 ## Remaining consumer and scope boundary
 
 The immediate consumer is the original-collar relative numerator
 C(w)*A +/- Y X(A*g), g=X Y f_p, needed by
 `QuaternionHaarRelativeReciprocalDualNorm.reciprocal_dual_weighted_norm_le`.
 
-The finite Jacobi polynomial is WEIGHTED. It is not definitionally the
-original unweighted `heatPrefix`. The existing first-derivative weight-removal
-modulus does not control a mixed second derivative. Next: construct that
-literal mixed deficit interval, using sixth- and fourth-power heat-term
-majorants and explicit finite-band/tail cutoffs; absorb its error against
-the known positive floor. The floor may set approximation precision, but
-must not become an inverse factor in the final relative cost.
+The original-prefix join above closes the weight-removal step only. The
+existing `BF4ExactSlabPlaquetteSecondAngularInterval` differentiates twice
+in ONE reindexed head plane; it cannot be reused silently for two different
+physical planes. The actual four-link mixed input and collar numerator are
+the next concrete producers.
 
 The physical four-link mixed scalar caps, original collar product/numerator,
 new-test residual and signed Gram assembly, improved family estimate,
@@ -83,3 +104,17 @@ One worker, 20 GiB hard cap, 12 GiB OS reserve, dynamic telemetry. No broad
 build/audit/guard or CI change. Sol agents supplied the two finite algebra
 modules; root supplied the actual Jacobi producer and all checks. Luna
 reviewed the missing weight-removal modulus against existing source.
+
+Follow-on verification: the exposed term module and both original-prefix
+weight-removal modules passed three focused serialized checks, 15 printed
+gates total. Only {propext, Quot.sound}; all five new printed cutoff/cost
+definitions are axiom-free. Two missing namespace openings were fixed during
+the checks. No new analytic hypothesis bundle, sorry, classical input,
+limit increase, broad run, or canonical status change.
+
+Follow-on logs: `/tmp/ym-heat-second-term-20260930.log`,
+`/tmp/ym-heat-mixed-angular-deficit-20260930.log`,
+`/tmp/ym-heat-mixed-relative-angular-20260930.log`.
+Sol supplied the mixed deficit module; root proved the original-prefix join
+and ran all checks. A separate Sol source review identified the one-plane
+versus two-plane distinction before any physical claim was made.

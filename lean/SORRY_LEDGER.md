@@ -10,12 +10,19 @@
   and its Leibniz derivative defining the heat. The finite relative-interval
   and mixed-certificate algebra is instantiated, not left as an analytic
   premise or new frontier bundle.
-- OPEN: mixed second-deficit modulus to remove the Jacobi weights, actual
-  physical four-link/collar mixed-score instance, signed-family improvement
-  and all scaling/Clay fields.
+- FOLLOW-ON PROVED: `QuaternionHaarHeatMixedAngularDeficit` constructs the
+  actual mixed-deficit interval with explicit degree-six/four tail cutoffs.
+  `QuaternionHaarHeatMixedRelativeAngularBound.heatPrefixMixedRelativeBoundAt`
+  removes the weights, giving cost m*R+d*e*R^2+1 on the SAME original prefix
+  at every sufficiently late cutoff. The heat floor sets precision only.
+- OPEN: actual physical two-plane four-link/collar mixed-score instance,
+  signed-family improvement and all scaling/Clay fields.
 - Three focused capped checks passed 20 public gates within
   {propext, Quot.sound}; no sorry/axiom change, broad run or chart change.
   Evidence: `audits/AUDIT-MIXED-RELATIVE-HEAT-2026-09-30.md`.
+- Three further focused capped checks passed 15 gates within the same axiom
+  gate, including the now-public existing `heatSecondTermInterval`. No
+  sorry/axiom change or canonical closure.
 
 ## PROVED relative reciprocal-dual norm algebra (2026-09-30 UTC)
 

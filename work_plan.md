@@ -35,12 +35,18 @@ nome-dependent summed slope budget. The proof simultaneously handles the
 product and its positive Leibniz derivative, preserving the exact heat
 normalization. No inverse heat-minimum cost enters the result.
 
-NEXT: pass this weighted polynomial estimate to the original unweighted
-heatPrefix using a mixed-second Jacobi deficit modulus (not the first-order
-one), then instantiate actual four-link scalar caps and the collar numerator.
-Finite-family improvement and all scaling/Clay fields remain OPEN. Three
-focused capped checks passed 20 gates in {propext, Quot.sound}; no broad run
-or canonical chart change. Evidence:
+FOLLOW-ON PROVED: `QuaternionHaarHeatMixedAngularDeficit` supplies explicit
+degree-six/four tail and mixed-deficit cutoffs;
+`QuaternionHaarHeatMixedRelativeAngularBound.heatPrefixMixedRelativeBoundAt`
+removes the weights on the SAME original heatPrefix. The mixed relative cost
+is m*R+d*e*R^2+1 at every sufficiently late cutoff. The heat floor enters
+only the required precision, not that cost. Both first bounds are retained.
+
+NEXT: instantiate actual four-link two-plane scalar caps and the collar
+numerator. Finite-family improvement and all scaling/Clay fields remain OPEN.
+The weighted milestone passed 20 gates; three further focused capped checks
+passed 15 gates (including the exposed existing term bound), all within
+{propext, Quot.sound}. No broad run or canonical chart change. Evidence:
 `audits/AUDIT-MIXED-RELATIVE-HEAT-2026-09-30.md`.
 
 ### Supplied reciprocal-dual norm without a heat-minimum cost (2026-09-30 UTC)

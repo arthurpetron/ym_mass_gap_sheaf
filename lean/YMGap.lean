@@ -5740,10 +5740,12 @@ import YMGap.Continuum.BF4WilsonPlaquetteFamilySourcePin
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyVariance
 -- Relative score certificates remove the extra window cost in finite dual norms.
 import YMGap.Continuum.QuaternionHaarRelativeReciprocalDualNorm
--- Actual finite weighted Jacobi mixed relative bound; weight removal still open.
+-- Actual Jacobi mixed relative bound and constructive original-prefix weight removal.
 import YMGap.Continuum.QuaternionHaarRelativeIntervalProduct
 import YMGap.Continuum.QuaternionHaarMixedRelativeAngularBound
 import YMGap.Continuum.JacobiHeatMixedRelativeAngularBound
+import YMGap.Continuum.QuaternionHaarHeatMixedAngularDeficit
+import YMGap.Continuum.QuaternionHaarHeatMixedRelativeAngularBound
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 -- Constructed SAME-carrier regularized series, not a physical Hamiltonian.
 import YMGap.Continuum.BF4WilsonAllNomeLogPartial

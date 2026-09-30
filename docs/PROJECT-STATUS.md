@@ -4,8 +4,11 @@ Verified supporting actual Jacobi mixed relative bound (2026-09-30 UTC;
 chart unchanged): the positive weighted heat now has relative mixed cost
 m*R+d*e*R^2, with R the nome-dependent slope budget and no inverse heat
 minimum. Both product and the heat-defining Leibniz derivative are handled.
-Weight removal to the original prefix and the actual collar score remain
-OPEN. Three focused capped checks passed 20 gates. Evidence:
+Weight removal to the SAME original prefix now also checks, with mixed cost
+m*R+d*e*R^2+1 and an explicit late-cutoff modulus. The heat floor controls
+precision only. The actual two-plane four-link/collar score remains OPEN.
+The weighted milestone passed 20 gates; three follow-on focused capped
+checks passed 15 more gates. No displayed canonical field changed. Evidence:
 `audits/AUDIT-MIXED-RELATIVE-HEAT-2026-09-30.md`.
 
 Verified supporting relative dual norm algebra (2026-09-30 UTC; chart

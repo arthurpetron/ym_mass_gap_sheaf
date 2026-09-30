@@ -15,10 +15,14 @@ genuinely constructive.
 **Actual positive Jacobi mixed relative bound (2026-09-30 UTC):**
 `JacobiHeatMixedRelativeAngularBound.weightedHeatBound` supplies relative
 cost m*R+d*e*R^2 for the ordered mixed derivative, independent of Jacobi
-cutoff, with no inverse heat-minimum factor. It is the actual WEIGHTED
-Jacobi heat; mixed-deficit weight removal and the physical collar estimate
-remain open. Three focused capped checks passed 20 gates; no broad run or
-Clay closure. Evidence: `audits/AUDIT-MIXED-RELATIVE-HEAT-2026-09-30.md`.
+cutoff, with no inverse heat-minimum factor. Follow-on
+`QuaternionHaarHeatMixedRelativeAngularBound.heatPrefixMixedRelativeBoundAt`
+removes the weights with an explicit mixed-deficit modulus, giving cost
+m*R+d*e*R^2+1 on the SAME original heat prefix. The floor enters only the
+cutoff precision. The physical two-plane four-link/collar estimate remains
+open. The weighted milestone passed 20 gates and the follow-on passed 15
+gates in focused capped checks; no broad run or Clay closure. Evidence:
+`audits/AUDIT-MIXED-RELATIVE-HEAT-2026-09-30.md`.
 
 **Signed-family floor on the literal Wilson completion (2026-09-30 UTC):**
 `BF4WilsonAllNomePlaquetteFamilyVariance.familyExcitation_norm_floor`

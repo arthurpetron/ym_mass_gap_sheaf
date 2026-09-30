@@ -74,7 +74,9 @@ def heatSecondDerivativeCap (w d e f : Q') : Q' :=
   (4*d*e)*SU2HeatPolynomialPrefixBound.prefixBudget w 6 +
     (2*f)*SU2HeatPolynomialPrefixBound.prefixBudget w 4
 
-private def heatSecondTermInterval {blocks i j k l : Nat} {x : RatPoly}
+/-- One original character term with explicit degree-six and degree-four
+budgets, also usable for constructive mixed-derivative tail estimates. -/
+def heatSecondTermInterval {blocks i j k l : Nat} {x : RatPoly}
     {d e f w : Q'} (hi : i < 4*blocks) (hj : j < 4*blocks)
     (hk : k < 4*blocks) (hl : l < 4*blocks) (hw : (0 : Q') ≤ w)
     (X : SquareBound blocks x 1)
@@ -135,4 +137,5 @@ def heatPrefixSecondAngularIntervalAt {blocks i j k l : Nat} {x : RatPoly}
 end YMGap.Continuum.QuaternionHaarHeatSecondAngularDerivative
 
 #print axioms YMGap.Continuum.QuaternionHaarHeatSecondAngularDerivative.heatSecondDerivativeCap
+#print axioms YMGap.Continuum.QuaternionHaarHeatSecondAngularDerivative.heatSecondTermInterval
 #print axioms YMGap.Continuum.QuaternionHaarHeatSecondAngularDerivative.heatPrefixSecondAngularIntervalAt
