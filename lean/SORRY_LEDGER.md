@@ -1,5 +1,36 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL dyadic-sequence derivative and core form floor (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeDyadicDefectDecay.moment_nonnegative`, `moment_split`
+  and `weighted_order` prove higher smoothing from actual original roots.
+  `smoothing_bound` supplies every finite order, with no spectral calculus.
+- `BF4WilsonAllNomeDyadicDerivative.quotient_step` and `quotient_step_bound`
+  identify the actual refinement and bound its squared norm by 4^(-k)||x||^2.
+  `derivativeCertificate` supplies the limit A x of 2^k*(I-R_k)*T x,
+  its original output Cauchy stream and convergence rate as Type-level data.
+- `BF4WilsonAllNomeDyadicDerivativeGap.derivative_core_gap` passes the
+  original defect form floor to this actual limit, retaining (1-q)/2 on
+  vacuum-orthogonal time images T x. No log-series equality is assumed.
+- `BF4WilsonAllNomeDyadicDerivativeContinuity.quotientRows_time_image`
+  supplies explicit original time preimages for every quotient row.
+  `derivativeContinuityCertificate` returns small-dyadic-time continuity
+  data for A x. `derivativeAction_time_congr` proves dependence only on T x.
+  Neither preimage convergence nor a uniform preimage norm cap is assumed.
+- `BF4WilsonAllNomeDyadicDerivativeLaws.derivativeAction_norm_bound`,
+  `derivativeAction_symmetric`, `derivativeAction_add` and
+  `derivativeAction_smul` prove symmetry, rational linearity and contraction
+  in the PREIMAGE norm, not a bounded Hamiltonian on time images T x.
+- OPEN: convergence along EVERY small dyadic and real time, appropriate
+  closed generator domain/self-adjointness, equality to the existing series
+  graph, physical calibration, spatial/scaling control and all Clay fields.
+  This sequence derivative is not a whole-carrier Hamiltonian. No kernel
+  state is removed and no canonical frontier field is changed.
+- Five serialized focused checks passed 64 printed gates, all exactly
+  {propext, Quot.sound}. Check details and log hashes:
+  `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`. No new sorry/axiom
+  or broad build/audit/guard.
+
 ## PROVED ORIGINAL positive real-time action and addition (2026-09-30 UTC)
 
 - `BF4WilsonAllNomePositiveTimeAction.actionCertificate` supplies the actual
@@ -20,8 +51,8 @@
 - OPEN: appropriate real-time zero-continuity, derivative/domain and
   self-adjoint generator, identification with the existing log series/graph,
   physical calibration, spatial/scaling control and all Clay fields. The next
-  plan constructs dyadic derivatives directly via higher smoothing, not by
-  first imposing the separate series identification. No canonical field changes.
+  root-sequence derivative is now supplied above via higher smoothing,
+  without first imposing the separate series identification. No canonical field changes.
 - Exact focused, serialized one-worker/20 GiB checks and axiom evidence:
   `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`. No new sorry/axiom,
   broad build/audit/guard, kernel deletion or full-carrier C0 claim.

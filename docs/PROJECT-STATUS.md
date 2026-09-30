@@ -1,13 +1,25 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL dyadic-sequence derivative (2026-09-30 UTC;
+chart unchanged): higher mixed-moment smoothing makes the actual quotients
+Q_k x=2^k*(I-R_k)*T x converge with explicit original output streams/moduli.
+Positive refinement forms retain B(Tx,A x)>=(1-q)/2*||Tx||^2 on original
+vacuum-orthogonal time images. This concerns the limit along times 2^(-k),
+not yet differentiation along every small time. No log-series identity or
+legacy operator is assumed. A is symmetric, rational-linear and bounded
+in its PREIMAGE norm; its output has a computed small-dyadic-time continuity
+modulus without whole-carrier continuity. Full derivative/domain, self-adjointness,
+physical calibration, scaling survival and all canonical Clay fields remain
+OPEN. Evidence: `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 Verified supporting ORIGINAL positive real-time action (2026-09-30 UTC;
 chart unchanged): explicit dyadic output streams and a positive time floor
 now construct S(t) on EVERY original state for t>0, with computed convergence
 moduli. The operator is independent of its time presentation, satisfies
 S(s+t)=S(s)S(t), and recovers exactly the original T(n), including T(1).
 Positivity, symmetry, linearity and contraction are checked. No legacy
-operator is substituted; its numerical time index is reused. The next
-shorter route seeks a direct derivative via higher dyadic smoothing, leaving
+operator is substituted; its numerical time index is reused. Higher dyadic
+smoothing and the root-sequence derivative are now supplied above, leaving
 the original log-series identification open. Zero-time continuity on the
 appropriate witnessed sector, generator/domain, physical calibration,
 scaling survival and all canonical Clay fields remain OPEN. Evidence:

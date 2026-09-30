@@ -404,60 +404,67 @@ strict mass-gap bound or a physical time calibration. Width and nome still
 parameterize the original carrier. Its nonzero boundary kernel is retained;
 no full-carrier zero-time continuity or continuous physical QFT is asserted.
 
-## Remaining obligations
+## Recursive step back: direct root-sequence derivative (PROVED)
 
-Scalar-log identification, density in the appropriate physical sector,
-self-adjointness, continuous physical time, spatial/spacing calibration,
-continuum nontriviality and all Clay fields remain OPEN. No formal frontier
-type was weakened or newly inhabited.
+The finite telescope now uses the actual original roots throughout. For
+D_k=I-R_k, nonnegative mixed moments obey an exact split; retaining the
+terminal moment makes the estimate iterable. At every finite order r,
 
-The dyadic action, restricted dyadic continuity and positive real-time action
-are now supplied. Real-time continuity at zero on the witnessed positive-time
-sector and a genuine derivative/domain construction remain required. The
-specific core limit (T x-T^s T x)/s -> F x and the existing series-graph
-identification remain OPEN, but the direct derivative route below need not
-prove that identity first. The existing
-`BF4ExactSlabThermodynamicDyadicSemigroup.action_one`,
+    n^(2*r) * ||R_k^(r*n) D_k^r x||^2 <= ||x||^2.
+
+For Q_k x=2^k*(I-R_k)*T x, actual root compatibility gives
+
+    Q_(k+1)x-Q_k x = 2^k*(I-R_(k+1))^2*T x,
+    ||Q_(k+1)x-Q_k x||^2 <= 4^(-k)*||x||^2.
+
+The geometric tail is summable in norm. The checked tail bound is
+4*4^(-start)*||x||^2; the pair bound for m,n>=start is
+16*4^(-start)*||x||^2. Original representatives and a computed modulus
+construct A x=lim_k Q_k x. No original log-series identity is needed.
+This proves the difference-quotient limit along times 2^(-k), not yet
+along every small dyadic or real increment.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `moment_nonnegative`, `moment_split`, `weighted_order`, `smoothing_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDefectDecay.lean:181`, `:188`, `:236`, `:259` | Positive original mixed moments give smoothing at every finite order. |
+| `quotient_step`, `quotient_step_bound`, `quotient_tail_bound`, `quotient_pair_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDerivative.lean:93`, `:117`, `:148`, `:175` | Exact original refinement and quantitative geometric Cauchy bounds. |
+| `quotientModulus`, `quotientRows`, `derivativeAction`, `derivativeCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDerivative.lean:196`, `:241`, `:274`, `:281` | Actual original output, supplied representatives and explicit convergence data; no choice over representatives. |
+| `quotient_form_step`, `derivative_form_ge_defect`, `derivative_core_gap` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDerivativeGap.lean:72`, `:97`, `:115` | Positive refinement passes the original defect floor to A; B(Tx,A x)>=(1-q)/2*B(Tx,Tx) when T x is vacuum-orthogonal. |
+| `preimageRepresentative`, `quotientRows_time_image` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDerivativeContinuity.lean:42`, `:66` | Every quotient row is T(1) of an explicit original Cauchy preimage. |
+| `derivativeContinuityModulus`, `derivative_smallTime`, `derivativeContinuityCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDerivativeContinuity.lean:74`, `:78`, `:89` | Computed continuity threshold for every small dyadic increment acting on A x; no whole-carrier continuity assumption. |
+| `derivativeAction_time_congr` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDerivativeContinuity.lean:100` | Equal T(1)-images give equal A-outputs, without asserting injectivity of T. |
+| `quotient_norm_bound`, `derivativeAction_norm_bound`, `derivativeAction_symmetric`, `derivativeAction_add`, `derivativeAction_smul` | `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDerivativeLaws.lean:83`, `:108`, `:120`, `:135`, `:145` | B(A x,A x)<=B(x,x), symmetry and rational linearity in the original PREIMAGE x. |
+
+The core pair is (T x,A x). The last bound does not assert that its
+Hamiltonian is bounded in the input norm ||T x||. The quotient preimages
+need neither converge nor have a uniform norm ceiling: the continuity
+modulus uses one explicitly computed row. The form margin retains the
+original nome/width dependence; it is not a physical mass gap.
+
+## Remaining obligations and next consumer
+
+NEXT: express a multi-step dyadic difference quotient as a finite time
+average of single-step quotients, then use the now-supplied continuity of
+A x to control its Taylor remainder uniformly over small dyadic increments.
+Pass that bound to the already constructed positive real-time action.
+These all-small-increment derivative statements are OPEN, not consequences
+claimed by the root-sequence convergence theorem alone.
+
+The appropriate closed generator domain, self-adjointness, density in the
+appropriate physical sector, real-time zero-continuity on the witnessed
+sector, spatial/spacing and physical-time calibration, continuum
+nontriviality and all Clay fields remain OPEN. Equality A=regularizedLog
+and identification with the existing series graph remain separate open
+obligations; no frontier field is removed or weakened. Scaling survival
+remains the independent primary analytic problem.
+
+The existing `BF4ExactSlabThermodynamicDyadicSemigroup.action_one`,
 `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicSemigroup.lean:132`,
 is pinned to that OTHER carrier's two-step transfer, not this T. No bridge
-is supplied by the present result. The nonzero original time kernel prevents
+is supplied by the present result. Only carrier-free scalar lemmas are
+reused from legacy files. The nonzero original time kernel prevents
 assuming strong continuity on the whole carrier merely from positive-time
-power laws.
-
-### Recursive step back: construct the derivative directly (PLAN, not proof)
-
-The constructive target needs the actual time generator, not a compulsory
-detour through one chosen series presentation. Define the candidate
-Q_k x=2^k*(I-R_k)*T x. The original checked `root_square`,
-`lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootCompatibility.lean:186`,
-suggests the finite identity
-
-    Q_(k+1)x-Q_k x = 2^k*(I-R_(k+1))^2*T x.
-
-The required smoothing estimate is NOT yet a Wilson declaration. The
-other-carrier proof pattern is `smoothing_bound`,
-`lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDefectDecay.lean:190`:
-positivity and exact splitting of mixed time/defect moments give an iterated
-weighted telescope. Reprove that estimate for each actual original R_k,
-using the finer original root for moment positivity. At depth k+1 and
-n=2^k, order two, the target bound becomes
-
-    2^(4*k) * ||(I-R_(k+1))^2*T x||^2 <= ||x||^2.
-
-It would give ||Q_(k+1)x-Q_k x||^2<=4^(-k)||x||^2. The existing OTHER-carrier
-implementation is `quotient_step_bound` and `quotient_tail_bound`,
-`lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean:100`,
-`:125`; neither is an original-carrier theorem by import alone.
-Positive refinement forms would let the derivative inherit the original
-`completed_defect_form_gap`,
-`lean/YMGap/Continuum/BF4WilsonAllNomeLogCoreGap.lean:101`, on inputs T x.
-This reduces the next search to an actual smoothing estimate, not a new
-assumed generator bundle or a full polynomial calculus. The original
-derivative, all-real-time derivative identification, appropriate domain,
-self-adjointness and physical calibration are still unproved. Equality with
-regularizedLog stays an explicit separate obligation for that series graph;
-no frontier field is removed or weakened. Scaling survival remains the
-independent primary analytic problem.
+power laws; no boundary state has been removed.
 
 ## Verification
 
@@ -595,3 +602,30 @@ The safe-build skill kept checks targeted and serialized. Final log SHA-256:
   `58643931ff25a76a8aed1964147f49d8676ac16464a2fffb37bf5cb1f9a12aca`
 - `/tmp/ym-wilson-positive-real-semigroup-20260930.log`:
   `926b26e8bf2a119e0c95f4ca72bc6611ab628495da28252a835f1f4ef6df5303`
+
+Direct root-sequence derivative verification: five serialized focused checks
+passed all 64 printed gates (24 DefectDecay, 21 Derivative, five Gap,
+eight Continuity, six Laws), each with exactly {propext, Quot.sound}.
+All five passed on their first focused check, without warnings. The same
+one-worker/20 GiB ceiling and 12 GiB OS reserve applied. No full root/tree
+build, audit or guard was run; adding root imports is not root verification.
+No new sorry, axiom, classical dependency, frontier weakening or canonical
+chart change. The safe-build skill kept verification targeted and serialized.
+
+Main constructed the original mixed-moment telescope and core-gap proof;
+Sol constructed the represented quotient limit and its output-continuity
+certificate; Luna supplied symmetry, rational linearity and the preimage
+norm bound. Main inspected and checked every new module. The all-small-time
+derivative plan above remains source-guided planning, not a proved join.
+Final log SHA-256:
+
+- `/tmp/ym-wilson-dyadic-defect-decay-20260930.log`:
+  `6afa25ab6421a081ae54ba9ac1e2ed47abd1dcad9b8ba5470cd0d6e0dbd075a2`
+- `/tmp/ym-wilson-dyadic-derivative-20260930.log`:
+  `a8c1c103876540ddb2435c82e6ed6ecfe926a83ea216810b608c40b2d9bc6466`
+- `/tmp/ym-wilson-dyadic-derivative-gap-20260930.log`:
+  `2ef0300bd9b5fce1f439f156738791cbf2f8fa69eb28dbc7cd3c6a12b1250f50`
+- `/tmp/ym-wilson-dyadic-derivative-continuity-20260930.log`:
+  `f37322f19eee3fe6b01236f303e9f0dfac19b468eedfe1ab0783ad41dd87db4c`
+- `/tmp/ym-wilson-dyadic-derivative-laws-20260930.log`:
+  `3378eca018c120ccd11464a6bb9fe70b009608394e61eae3b625dd9ef6ff80d2`

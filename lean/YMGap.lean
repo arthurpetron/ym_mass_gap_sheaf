@@ -5803,6 +5803,12 @@ import YMGap.Continuum.BF4WilsonAllNomePositiveTimeLaws
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimePins
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeComposition
 import YMGap.Continuum.BF4WilsonAllNomePositiveRealSemigroup
+-- Actual root-sequence derivative and original range-core form margin.
+import YMGap.Continuum.BF4WilsonAllNomeDyadicDefectDecay
+import YMGap.Continuum.BF4WilsonAllNomeDyadicDerivative
+import YMGap.Continuum.BF4WilsonAllNomeDyadicDerivativeGap
+import YMGap.Continuum.BF4WilsonAllNomeDyadicDerivativeContinuity
+import YMGap.Continuum.BF4WilsonAllNomeDyadicDerivativeLaws
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

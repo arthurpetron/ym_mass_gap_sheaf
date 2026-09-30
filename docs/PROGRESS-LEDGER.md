@@ -4,7 +4,31 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL positive real-time action (2026-09-30 UTC)
+## Current increment: ORIGINAL dyadic-sequence derivative and form gap (2026-09-30 UTC)
+
+The higher mixed-moment telescope is now proved on the original carrier.
+It makes Q_k x=2^k*(I-R_k)*T x Cauchy, with squared refinement error
+<=4^(-k)||x||^2. `BF4WilsonAllNomeDyadicDerivative.derivativeCertificate`
+constructs A x=lim Q_k x with an original output representative and explicit
+modulus. `BF4WilsonAllNomeDyadicDerivativeGap.derivative_core_gap` retains
+the full original form margin (1-q)/2 on vacuum-orthogonal inputs T x.
+Consumer: reconstruction of the derivative of the SAME positive-time action,
+without first identifying the original regularized-log series.
+
+Its output now has a computed small-dyadic-time continuity modulus, using
+explicit original T-preimages for the quotient rows. Equal T-images have
+equal A-outputs. A is symmetric, rational-linear and bounded by the preimage
+norm: ||A x||^2<=||x||^2. Five serialized focused checks passed 64 printed
+gates with exactly {propext, Quot.sound}; no full root/tree build or audit.
+
+OPEN: agreement along every small dyadic/real increment, the appropriate
+closed generator domain and self-adjointness, log-series identification,
+physical calibration and scaling survival. A is parameterized by preimage x;
+this is not a bounded physical Hamiltonian on the entire original carrier.
+No boundary state is removed or canonical chart claim closed. Exact evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
+## Earlier increment: ORIGINAL positive real-time action (2026-09-30 UTC)
 
 `BF4WilsonAllNomePositiveTimeAction.actionCertificate` constructs actual
 positive-time images with original output representatives and moduli.
@@ -19,7 +43,7 @@ semigroup. No analytic premise, kernel deletion or canonical closure.
 Strategy contraction: first construct dyadic difference quotients directly,
 using a higher mixed-moment smoothing estimate. Identification with the
 existing log series stays OPEN but need not precede derivative construction.
-The original smoothing bound and derivative are not yet proved. Real-time
+The smoothing bound and root-sequence limit are now supplied above. Real-time
 zero-continuity on the witnessed sector, self-adjointness, physical calibration,
 scaling survival and Clay remain OPEN. Five final focused checks passed
 51 gates in {propext, Quot.sound}; quotient-indexed addition, moments and
