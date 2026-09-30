@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting literal plaquette defect orbit (2026-09-30 UTC; chart
+unchanged): on the ORIGINAL Wilson completion, y=(I-T)v is an explicitly
+supplied nonzero vacuum-complement source with ||y||^2 >= starRatio(w)^2/16
+and ||T^n y||^2 <= 4/(n+1)^2. The energy floor is joined through the original
+finite odd window and literal completed increment; the decay modulus is data.
+Both estimates are width independent, but the norm floor depends on nome.
+For active plaquettes the SAME source also satisfies ||y||^2 <= 192*(1-w),
+so it vanishes unnormalized as w->1. This is not scaling survival or
+every-state exponential decay. Three final focused checks passed 22 gates.
+All canonical fields remain unchanged. Evidence:
+`audits/AUDIT-LITERAL-PLAQUETTE-DEFECT-ORBIT-2026-09-30.md`.
+
 Verified supporting ORIGINAL selected-action covariance deficit
 (2026-09-30 UTC; chart unchanged): for a fundamental plaquette p and any
 supported q missing one of its edges, Cov(p,q)^2 <= (Var(p)-s(w))*Var(q)

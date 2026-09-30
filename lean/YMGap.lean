@@ -5676,6 +5676,11 @@ import YMGap.Continuum.BF4WilsonAllNomeFringeCorrelation
 import YMGap.Continuum.BF4WilsonAllNomeFringeTimeKernel
 import YMGap.Continuum.BF4WilsonAllNomeTimeDefectMoments
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeTail
+-- Actual physical-time decay of a supplied nonzero plaquette defect.
+-- Polynomial, not an all-state gap; the active source vanishes as nome -> 1.
+import YMGap.Continuum.BF4WilsonAllNomeTimeDefectTail
+import YMGap.Continuum.BF4WilsonAllNomePlaquetteEnergyFloor
+import YMGap.Continuum.BF4WilsonAllNomePlaquetteDefectOrbit
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 -- Constructed SAME-carrier regularized series, not a physical Hamiltonian.
 import YMGap.Continuum.BF4WilsonAllNomeLogPartial

@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Supplied literal plaquette defect: time decay and scaling boundary (2026-09-30 UTC)
+
+Stepping back from the unproved conditional-source iteration gives a direct
+physical-time join. On the EXISTING literal Wilson completion, D=I-T and
+positive mixed moments telescope to ||T^n D x||^2 <= ||x||^2/(n+1)^2.
+`BF4WilsonAllNomeTimeDefectTail` supplies the explicit tolerance modulus.
+`BF4WilsonAllNomePlaquetteEnergyFloor` joins the original finite odd-window
+floor to the literal completed centered plaquette v: <v,Dv> >= s(w)/2.
+`BF4WilsonAllNomePlaquetteDefectOrbit` then constructs an actual nonzero
+vacuum-complement source y=Dv at every positive width, with
+||y||^2 >= s(w)^2/16 and ||T^n y||^2 <= 4/(n+1)^2.
+Here s=starRatio; the floor depends on nome, not width. No analytic input
+is assumed for this concrete source, and no old face-span carrier is swapped in.
+
+The SAME module also proves ||y||^2 <= 192*(1-w) for active plaquettes.
+Thus the unnormalized source vanishes as w->1. Polynomial decay of this
+source is not a survival certificate or exponential EVERY-state decay.
+NEXT: a useful original-family estimate must retain a controlled normalized
+nonzero source at matched physical time. An absolute decay bound on this
+vanishing source cannot replace that estimate. The missing source-relative
+scaling budget remains primary; do not extend this branch with more existence
+wrappers or claim an iterable prediction floor from conditional idempotence.
+
+Three final focused capped checks passed 22 gates in {propext, Quot.sound}.
+No canonical chart field changed. Evidence:
+`audits/AUDIT-LITERAL-PLAQUETTE-DEFECT-ORBIT-2026-09-30.md`.
+
 ### Supplied original selected-action covariance deficit (2026-09-30 UTC)
 
 The full-slab/selected-chart action mismatch prompted a direct scalar route.

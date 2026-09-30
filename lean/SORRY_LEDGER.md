@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## PROVED literal plaquette defect orbit and vanishing boundary (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeTimeDefectTail.timeDefect_bound` proves
+  ||T^n(I-T)x||^2 <= ||x||^2/(n+1)^2 on the original all-nome Wilson
+  completion, using positive mixed moments and an explicit relative modulus.
+  The norm on the right is the PREIMAGE norm, not the defect's norm.
+- `BF4WilsonAllNomePlaquetteEnergyFloor.plaquette_defect_form_floor`
+  supplies <v,(I-T)v> >= starRatio(w)/2 from the original finite odd-window
+  theorem and its actual literal-Wilson joint limit. The exact completed
+  increment pin cancels the same centering terms; no carrier identification
+  is assumed. There is no active-link guard for this floor.
+- `BF4WilsonAllNomePlaquetteDefectOrbit.decayingExcitation` supplies a
+  nonzero original vacuum-complement source at every positive width.
+  Its norm is at least starRatio(w)^2/16, and its squared physical-time
+  orbit is at most 4/(n+1)^2 with an explicit absolute tolerance modulus.
+  `plaquette_defect_nome_bound` also proves its norm is at most 192*(1-w)
+  when the plaquette links are active. The unnormalized source therefore
+  vanishes as w->1, despite nonzero fixed-nome norm.
+- OPEN: normalized same-family survival, useful source-relative scaling
+  control, every-state exponential decay, and all continuum/Clay fields.
+  The coefficient-independent smoothing bound is not a mass-gap assertion.
+- Three final focused one-worker/20 GiB checks passed 22 gates within
+  {propext, Quot.sound}. No new sorry, custom axiom, analytic premise or
+  frontier weakening; no old sorry discharged. No broad build/audit/guard
+  or canonical chart change. Evidence:
+  `audits/AUDIT-LITERAL-PLAQUETTE-DEFECT-ORBIT-2026-09-30.md`.
+
 ## PROVED original selected-action plaquette covariance deficit (2026-09-30 UTC)
 
 - `RationalPredictionCovariance.covariance_budget` and
