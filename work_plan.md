@@ -25,6 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Conditional gauge prerequisites proved (2026-09-30 UTC)
+
+`SU2QuaternionConditionalHaarTranslation` proves conditional Haar
+cancellation at arbitrary degree, preserving every spectator insertion.
+The existing selected left/right shears inherit that identity in their
+original coordinates; distinct spectator projections commute coefficientwise.
+`BF4ExactSlabGaugeWeightedPairing.fullWeight_gauge_pairing` retains the
+original untransformed full action while both tests undergo the common
+vertex gauge ledger on the augmented Haar carrier.
+
+NEXT for the gauge branch: prove selected-step fixedness on already
+projected inputs, inverse-orientation cases and carrier-compatible ledger
+composition, then join the actual weighted conditional projection and its
+completion. These finite identities do NOT yet prove sector preservation.
+The analytic priority remains producing a useful original-action signed
+variance-relative estimate on justified scaling; symmetry supplies no rho.
+Do not replace that producer by another conditional interface.
+
+Four focused serialized one-worker/20 GiB checks passed all 12 gates within
+{propext, Quot.sound}; independent Luna/Sol review passed. No new sorry,
+axiom, analytic bundle, broad run or canonical chart change. All same-theory
+continuum/Clay obligations remain open. Evidence:
+`audits/AUDIT-CONDITIONAL-GAUGE-PREREQUISITES-2026-09-30.md`.
+
 ### Actual inverse certificate order proved (2026-09-30 UTC)
 
 `BF4ExactSlabBlockInversePositive.inverseMean_certificate` proves that

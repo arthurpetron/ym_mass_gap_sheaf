@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting conditional gauge identities (2026-09-30 UTC;
+chart unchanged): conditional Haar cancellation retains arbitrary spectator
+insertions and the original selected coordinates. Distinct spectator
+integration commutes with those shears. The full-action pairing is preserved
+on the augmented gauge carrier, with the original weight unchanged.
+Completed gauge-sector preservation and a useful signed scaling-family
+estimate remain open; A03 and all same-theory Clay claims remain open.
+Evidence: `audits/AUDIT-CONDITIONAL-GAUGE-PREREQUISITES-2026-09-30.md`.
+
 Verified supporting inverse-order theorem (2026-09-30 UTC; chart unchanged):
 The constructed actual inverse preserves polynomial positivity certificates.
 Certificates for the original signed covariance budget pass to the SAME

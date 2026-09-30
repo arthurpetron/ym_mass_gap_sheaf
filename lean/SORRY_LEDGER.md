@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## Conditional gauge prerequisites (2026-09-30 UTC)
+
+- **proved:** conditional Haar cancellation for head and original selected
+  left/right shears, with arbitrary spectator insertions; coefficientwise
+  commutation with distinct spectator integrations. The common vertex
+  gauge ledger preserves the original full-weight pairing after adjoining
+  three auxiliary Haar blocks.
+- **open join:** fixedness on already projected inputs, inverse orientations,
+  carrier-compatible ledger composition and the actual weighted conditional
+  projection/completed-sector preservation. The finite pairing identity is
+  not an endomorphism of the unaugmented completion.
+- **open analytic input:** useful original-action signed covariance control
+  on justified scaling. No rho is produced. Geometry, nontrivial survival,
+  thermodynamic and same-theory OS/QFT/physical mass/every-group Clay remain
+  open. No canonical field or chart claim is closed.
+- **verification:** four focused serialized one-worker/20 GiB checks,
+  all 12 gates within {propext, Quot.sound}; independent Luna/Sol review.
+  No new sorry, axiom, analytic bundle, weakened frontier or broad run.
+  Evidence: `audits/AUDIT-CONDITIONAL-GAUGE-PREREQUISITES-2026-09-30.md`.
+
 ## Actual inverse preserves certificate order (2026-09-30 UTC)
 
 - **proved:** `BF4ExactSlabBlockInversePositive.inverseMean_certificate`

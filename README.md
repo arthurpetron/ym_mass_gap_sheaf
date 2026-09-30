@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Conditional gauge identities proved (2026-09-30):** conditional Haar
+integration now respects the existing selected-link translations while
+retaining arbitrary spectator dependence. The full-action pairing is
+preserved on the augmented gauge carrier. These are finite prerequisites:
+completed gauge-sector preservation and the useful signed covariance bound
+remain open. See the
+[proof and scope audit](audits/AUDIT-CONDITIONAL-GAUGE-PREREQUISITES-2026-09-30.md).
+
 **Actual inverse preserves positive certificates (2026-09-30):** the
 constructed conditional inverse now carries polynomial positivity
 certificates to the original normalized covariance inequality without

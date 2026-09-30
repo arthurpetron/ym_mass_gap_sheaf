@@ -5573,6 +5573,11 @@ import YMGap.Continuum.BF4ExactSlabBlockPredictionAngle
 import YMGap.Continuum.QuaternionHaarCertificateSupportedRepresentative
 import YMGap.Continuum.BF4ExactSlabBlockInversePositive
 import YMGap.Continuum.BF4ExactSlabBlockCovarianceCertificate
+-- Conditional gauge identities; completed sector preservation and useful rho remain open.
+import YMGap.Continuum.SU2QuaternionConditionalHaarTranslation
+import YMGap.Continuum.SU2QuaternionTranslationSpectatorProjection
+import YMGap.Continuum.SU2QuaternionSelectedConditionalTranslation
+import YMGap.Continuum.BF4ExactSlabGaugeWeightedPairing
 import YMGap.Continuum.SU2QuaternionSharedHeatCorrelationObstruction
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair

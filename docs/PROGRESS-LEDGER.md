@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: actual inverse certificate order (2026-09-30 UTC)
+## Current increment: conditional gauge prerequisites (2026-09-30 UTC)
+
+Conditional Haar cancellation now retains arbitrary spectator insertions
+at every polynomial degree, including the original selected left/right
+shears. Untouched physical-coordinate integration commutes coefficientwise.
+The common vertex gauge ledger preserves the original full-action pairing
+on the augmented Haar carrier. These identities reduce prerequisites for
+gauge-sector restriction; they prove neither completed sector preservation
+nor a useful signed covariance estimate. NEXT: selected-step fixedness,
+inverse orientations and carrier-compatible ledger composition, followed
+by the actual weighted projection/completion join. All same-theory
+continuum/Clay requirements remain open. All 12 gates passed four focused
+serialized one-worker/20 GiB checks; Luna/Sol reviewed scope. No broad run
+or canonical chart change. Evidence:
+`audits/AUDIT-CONDITIONAL-GAUGE-PREREQUISITES-2026-09-30.md`.
+
+## Earlier increment: actual inverse certificate order (2026-09-30 UTC)
 
 The existing actual inverse normalizer now preserves polynomial positivity
 certificates. The proof passes the multiplier's positive form to its
