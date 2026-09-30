@@ -140,3 +140,62 @@ Sol proved local symmetry and reviewed the joined argument; another Sol
 proved finite weighted span algebra and reviewed the missing global consumer;
 Luna supplied enumeration; root proved reverse adjoint and the actual tail
 consumer. Cached literature findings were reused without a new listing scan.
+
+## Follow-up: global finite moments are not conditional-patch certificates
+
+Read-only mathematical/source review at baseline `fe85e16`, 2026-09-30 UTC.
+This section and the matching plan clarification add no Lean theorem. No
+compiler or large computation ran in this follow-up. Sol reviewed the
+exterior-coefficient issue and literature applicability; Luna mapped the
+actual neighbor geometry. The verification above belongs to the preceding
+proof increment, not a new check in this review.
+
+The distinction is visible in the quantifiers of the proved results. Paths
+in the following list are relative to `lean/YMGap/Continuum/`:
+
+- `BF4ExactSlabPolynomialSweepDegree.lean:133`,
+  `polynomialSweep_selected_degree`, erases arbitrary input degree only
+  in a coordinate visited by the supplied schedule. At `:154`,
+  `physicalSweep_degree_bound` uses coverage of EVERY physical link.
+- `BF4ExactSlabPolynomialSweepApproximation.lean:88`,
+  `polynomialSweep_error`, does apply to an arbitrary schedule, but its
+  bound is relative to the full input norm; it does not add missing degree
+  bounds on unvisited exterior coordinates.
+- `BF4ExactSlabPolynomialSweepAdjoint.lean:62`,
+  `polynomialSweep_adjoint_reverse`, also accepts arbitrary schedules.
+  The globally bounded dual degree theorem at `:76`,
+  `reverseSweep_degree_bound`, again uses the complete physical schedule.
+- `BF4ExactSlabFiniteMomentTail.lean:74`, `dualMonomials_cover`, requires
+  degree bounds in every original block. The tail conclusion at `:120`,
+  `physicalSweep_tail_bound`, explicitly uses the complete physical sweep.
+- `BF4ExactSlabBlockConditionalProjection.lean:137`,
+  `conditionalProjection_fix_exterior_polynomial`, fixes exterior
+  polynomials, not merely constants. Scalar mean subtraction therefore
+  does not by itself remove the patch's exterior fixed sector.
+
+Consequently the present finite scalar test list is not a proved complete
+test family for arbitrary patch inputs. A possible replacement would use
+bounded selected-coordinate monomials with arbitrary exterior polynomial
+coefficients and a uniform original-weighted quadratic inequality on those
+coefficients. Neither that certificate nor its completed-space extension is
+constructed here. A matrix for one frozen exterior, or for an isolated box
+with incident action factors removed, does not supply this input.
+
+The exact background pin already retains the needed dependence:
+`BF4ExactSlabBlockExteriorPairing.lean:54`, `original_exterior_pair`,
+includes multiplication by the actual normalizer. The available perturbation
+estimate is `BF4ExactSlabStarEnergyRelativeApproximation.lean:169`,
+`residual_energy_relative_error_le`; its polynomial residual does not erase
+all input degrees. Its actual signed-sum consumer is
+`BF4ExactSlabSignedNeighborApproximation.lean:189`,
+`conditionalGenerator_square_polynomial_lower`. This consumer supplies an
+explicit lower expression, not positivity of that expression.
+
+Execution decision: keep that direct signed estimate primary. Do not launch
+a patch matrix until a candidate accounts for exterior coefficients and
+fixed states and has a plausible margin after overlap losses. The existing
+unformalized overlap argument and proved failure of the old collar number
+are already recorded in `RESEARCH-COLLECTIVE-PATCH-THRESHOLD-2026-09-30.md`
+and `AUDIT-PATCH-COLLAR-BUDGET-2026-09-30.md`; this review does not supersede
+them or promote their overlap derivation into a checked theorem. No frontier
+or canonical chart state changed. The same-theory Clay goal remains open.

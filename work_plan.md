@@ -61,6 +61,22 @@ completion by density alone: approximants can have small nonzero moments.
 A03, full J02/J03 and the unchanged Clay goal remain open. Evidence:
 `audits/AUDIT-FINITE-MOMENT-SWEEP-TAIL-2026-09-30.md`.
 
+**Patch scope review (2026-09-30 UTC, no new Lean theorem):** the finite
+moment tail is for the ALL-link schedule. For a patch schedule,
+`BF4ExactSlabPolynomialSweepDegree.polynomialSweep_selected_degree` bounds
+only visited coordinates; exterior polynomial coefficients remain arbitrary.
+`polynomialSweep_error` still controls approximation for such schedules,
+but does not supply a finite scalar feature space. Do not reuse the global
+moment checker as a patch certificate or replace original conditional
+operators by a smaller free-boundary action. A proposed local certificate
+must account for arbitrary exterior coefficients, the exterior fixed sector,
+and its actual overlap penalty before it merits computation. This is an
+additional scope boundary, not a new assumption bundle to implement.
+Keep the direct signed-energy estimate primary; its existing
+`BF4ExactSlabSignedNeighborApproximation.conditionalGenerator_square_polynomial_lower`
+already carries the proved energy-relative error. Reuse the cached patch
+threshold and collar-obstruction reviews instead of re-deriving them.
+
 ### All-input bounded-degree original conditional sweep (2026-09-30 UTC)
 
 `BF4ExactSlabPolynomialSweepApproximation.approximation` computes a pure
