@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Actual inverse preserves positive certificates (2026-09-30):** the
+constructed conditional inverse now carries polynomial positivity
+certificates to the original normalized covariance inequality without
+worsening its coefficient. Certificates along the actual prediction
+approximants then imply the completed residual bound. Constructing those
+certificates with a useful coefficient on justified scaling remains open;
+this is not a new gap theorem. See the
+[proof and scope audit](audits/AUDIT-ACTUAL-INVERSE-CERTIFICATE-ORDER-2026-09-30.md).
+
 **Covariance-to-residual bound proved (2026-09-30):** a one-state bound
 `2 Cov <= rho * (prediction variance sum)` now yields the signed residual
 bound with coefficient `rho/2`, for `0<=rho<=1`. The proof retains a

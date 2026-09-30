@@ -5569,6 +5569,10 @@ import YMGap.Continuum.BF4ExactSlabTwoLinkFeatureMoments
 import YMGap.Continuum.RCPredictionAngleBudget
 import YMGap.Continuum.GNSPredictionAngleResidual
 import YMGap.Continuum.BF4ExactSlabBlockPredictionAngle
+-- Actual inverse preserves positive certificates; useful covariance certificates remain open.
+import YMGap.Continuum.QuaternionHaarCertificateSupportedRepresentative
+import YMGap.Continuum.BF4ExactSlabBlockInversePositive
+import YMGap.Continuum.BF4ExactSlabBlockCovarianceCertificate
 import YMGap.Continuum.SU2QuaternionSharedHeatCorrelationObstruction
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair

@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Verified supporting inverse-order theorem (2026-09-30 UTC; chart unchanged):
+The constructed actual inverse preserves polynomial positivity certificates.
+Certificates for the original signed covariance budget pass to the SAME
+completed residual bound without worsening rho. Useful certificates on a
+justified scaling family are not constructed: A03 and all same-theory Clay
+requirements remain open. Evidence:
+`audits/AUDIT-ACTUAL-INVERSE-CERTIFICATE-ORDER-2026-09-30.md`.
+
 Verified supporting covariance-to-residual conversion (2026-09-30 UTC;
 chart unchanged): the one-state prediction bound `2*Cov<=rho*V`,
 `0<=rho<=1`, implies the signed residual-pair bound with coefficient

@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual inverse certificate order proved (2026-09-30 UTC)
+
+`BF4ExactSlabBlockInversePositive.inverseMean_certificate` proves that
+the already constructed inverse of the actual D preserves the existing
+polynomial positivity certificates. Its proof uses positive multiplier
+completion, M(Ir)=r, and the exact inverse/product pairing. An explicit
+supported representative handles certificate transport without assuming
+literal support for every intermediate polynomial.
+`BF4ExactSlabBlockCovarianceCertificate.residual_pair_lower_of_certificates`
+consumes certificates along the actual prediction approximants and gives
+the SAME completed residual bound with coefficient rho/2. No scalar floor
+replaces D; E occurs once. No useful rho or certificate family is produced.
+
+NEXT: construct a useful original-action signed variance-relative estimate
+on justified scaling. The new certificate consumer is a sufficient route,
+not a necessary or complete characterization; collective signed estimates
+remain alternatives. Do not add more input bundles in place of this producer.
+Gauge-sector restriction first needs the missing original projection
+equivariance; action invariance alone does not supply it.
+
+Three focused serialized one-worker/20 GiB checks passed all 16 gates within
+{propext, Quot.sound}; independent Sol review passed. No new sorry, axiom,
+analytic bundle, broad run or canonical chart change. Geometry, scaling,
+nontrivial survival, thermodynamic and same-theory OS/QFT/physical mass/
+every-group Clay obligations remain open. Evidence:
+`audits/AUDIT-ACTUAL-INVERSE-CERTIFICATE-ORDER-2026-09-30.md`.
+
 ### Same-state covariance-to-residual conversion proved (2026-09-30 UTC)
 
 `GNSPredictionAngleResidual.weighted_square_identity` retains a positive

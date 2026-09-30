@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Actual inverse preserves certificate order (2026-09-30 UTC)
+
+- **proved:** `BF4ExactSlabBlockInversePositive.inverseMean_certificate`
+  and `inverseMean_mono` preserve the existing polynomial certificate order
+  through the constructed inverse of the actual conditional normalizer.
+  `Certificate.supportedRepresentative` makes transport support explicit.
+- **consumer:** `BF4ExactSlabBlockCovarianceCertificate` uses certificates
+  for the literal signed covariance budget, retaining E once and D exactly.
+  `residual_pair_lower_of_certificates` requires witnesses at every actual
+  prediction-approximant index and yields the SAME completed residual bound.
+- **open input:** those certificates for a useful rho on justified scaling.
+  No finite prefix, positivity oracle or completeness theorem supplies them.
+  This sufficient pairwise route is not a necessary physical condition;
+  collective signed control remains an alternative. Geometry, nontrivial
+  survival, thermodynamic and same-theory OS/QFT/physical mass/every-group
+  Clay remain open. No canonical field or chart claim is closed.
+- **verification:** three focused serialized one-worker/20 GiB checks,
+  all 16 gates within {propext, Quot.sound}; independent Sol review passed.
+  No new sorry, axiom, analytic bundle, weakened frontier or broad run.
+  Evidence: `audits/AUDIT-ACTUAL-INVERSE-CERTIFICATE-ORDER-2026-09-30.md`.
+
 ## Same-state prediction covariance to residual energy (2026-09-30 UTC)
 
 - **proved conditional conversion:** `GNSPredictionAngleResidual` retains

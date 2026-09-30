@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: same-state covariance-to-residual bound (2026-09-30 UTC)
+## Current increment: actual inverse certificate order (2026-09-30 UTC)
+
+The existing actual inverse normalizer now preserves polynomial positivity
+certificates. The proof passes the multiplier's positive form to its
+completion and uses M(Ir)=r and the existing inverse/product identity.
+Certificates for the signed covariance budget therefore yield the original
+inverse-normalized inequality without loss in rho, and certificates along
+the actual prediction approximants imply the completed residual bound.
+This constructs no useful coefficient or scaling-family certificates; it
+is a sufficient route, not an equivalence or a new gap. All same-theory
+continuum/Clay obligations remain open. All 16 gates passed three focused
+serialized one-worker/20 GiB checks; Sol reviewed scope. No broad run or
+canonical chart change. Evidence:
+`audits/AUDIT-ACTUAL-INVERSE-CERTIFICATE-ORDER-2026-09-30.md`.
+
+## Earlier increment: same-state covariance-to-residual bound (2026-09-30 UTC)
 
 An exact positive-square identity now converts a one-sided prediction
 covariance bound into a residual-pair bound with coefficient rho/2 for
