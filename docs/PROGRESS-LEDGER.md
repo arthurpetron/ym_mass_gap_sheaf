@@ -4,7 +4,33 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL derivative graph without range premises; direct adjoint tests (2026-09-30 UTC)
+## Current increment: ORIGINAL range closedness and dyadic continuity-sector characterization (2026-09-30 UTC)
+
+`BF4WilsonAllNomeTimeRangeClosed.ofLimit` constructs range preimages for an
+explicit norm limit by sampling the nth range witness to invSucc(n) accuracy.
+`representedLimit` and `centeredRepresentedLimit` retain the actual existing
+completion limit and its vacuum complement. `representative` constructs a
+Cauchy representative from the supplied range witness; `representative_pin`
+proves its original class is the target. No quotient representative is chosen.
+
+`BF4WilsonAllNomeTimeContinuitySector.smallTime` gives continuity for ALL
+small original dyadic increments. Conversely `rangeOfRootLimit` constructs
+the sector witness from root-sequence continuity alone, using the actual
+root range and new closedness. `continuityOfRootLimit` upgrades this to a
+computed all-small-dyadic modulus. These are constructive witness maps on
+the original fixed-nome/width carrier, not a physical-sector identification.
+
+Two final focused serialized checks passed all 16 gates within
+{propext, Quot.sound}; no broad run or canonical chart change. Luna reviewed
+the witness flow independently. Sol's parallel source review located the
+analytic loss at the word-telescope square bound: interacting cross terms
+cannot be removed merely from bounded local incidence. That review produces
+no new signed upper theorem. The SAME-source relative energy/variance
+estimate and full Hilbert-sector/physical/scaling joins remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md` and
+`audits/AUDIT-SIGNED-FAMILY-TEMPORAL-JOIN-2026-09-30.md`.
+
+## Earlier increment: ORIGINAL derivative graph without range premises; direct adjoint tests (2026-09-30 UTC)
 
 `BF4WilsonAllNomePolynomialTimeRange.polynomial_time_pin` gives an exact
 finite decomposition p(D)x=p(1)x+T(preimage), with actual Cauchy preimages.

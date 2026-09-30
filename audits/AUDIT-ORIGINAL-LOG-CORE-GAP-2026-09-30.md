@@ -687,6 +687,42 @@ weak tests, so the sector restriction cannot simply be removed here.
 | `graphOfCorePairings`, `graphOfPairings`, `corePairings_iff_graphPairings` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeAdjointTests.lean:78`, `:83`, `:88` | Both witnessed sector coordinates plus the tests construct the graph and its modulus. |
 | `representedGraphOfPairings` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeAdjointTests.lean:96` | Supplied input/output representatives return explicit graph-source representatives. |
 
+## Follow-on: range closedness and dyadic continuity-sector characterization (PROVED)
+
+The sector closedness step is now a construction on the original carrier.
+Given range witnesses R_n for x_n and an explicit modulus for x_n -> z,
+choose preimage_n from R_n at its invSucc(n)-accuracy index. The squared
+triangle yields convergence to z at
+max(outerModulus(epsilon/4),(epsilon/4).den). This computes a range witness
+for z with no preimage norm cap. Applying it to the existing represented
+Cauchy-row limit proves represented completeness within the witnessed sector;
+the same limit retains vacuum orthogonality when every row has it.
+
+Conversely a range witness already gives represented rows of time images.
+Their Cauchy modulus is R.modulus(epsilon/4); uniqueness identifies the
+computed row limit with the original target x. The existing diagonal thus
+constructs an original Cauchy representative OF x from R, without choosing
+one from an arbitrary quotient. Transporting the previous closure-continuity
+theorem along this identity supplies ALL sufficiently small dyadic increments.
+
+For the converse continuity criterion, each R_k x has a range witness from
+the already checked root construction. If R_k x -> x with a supplied modulus
+and original input representative, the new closedness construction returns
+range membership. This requires no derivative or candidate derivative output.
+The same membership then upgrades root-sequence continuity to all small
+dyadic increments with an explicit modulus. These are constructive witness
+maps, not a Prop-level existence characterization or a physical identification.
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `diagonalPreimage`, `diagonalPreimage_close`, `ofLimit` | `lean/YMGap/Continuum/BF4WilsonAllNomeTimeRangeClosed.lean:48`, `:52`, `:60` | Explicit range witness for a supplied original norm limit, with computed diagonal and outer cutoff. |
+| `representedLimit`, `centeredRepresentedLimit` | `lean/YMGap/Continuum/BF4WilsonAllNomeTimeRangeClosed.lean:85`, `:93` | The SAME completed row limit remains in the witnessed range and, when appropriate, the original vacuum complement. |
+| `rangeRows`, `rangeRows_point`, `rangeRows_limit` | `lean/YMGap/Continuum/BF4WilsonAllNomeTimeRangeClosed.lean:103`, `:119`, `:122` | A range witness supplies represented time-image rows whose limit is exactly its target. |
+| `representative`, `representative_pin` | `lean/YMGap/Continuum/BF4WilsonAllNomeTimeRangeClosed.lean:128`, `:132` | Computed original Cauchy representative, without quotient choice. |
+| `continuityModulus`, `smallTime`, `root_small` | `lean/YMGap/Continuum/BF4WilsonAllNomeTimeContinuitySector.lean:51`, `:55`, `:64` | Witnessed range membership gives all-small-dyadic continuity and its root specialization. |
+| `rangeOfRootLimit`, `rangeOfDyadicContinuity` | `lean/YMGap/Continuum/BF4WilsonAllNomeTimeContinuitySector.lean:75`, `:81` | Actual root/dyadic continuity constructs the range witness in the reverse direction. |
+| `continuityOfRootLimit` | `lean/YMGap/Continuum/BF4WilsonAllNomeTimeContinuitySector.lean:94` | Root-sequence continuity upgrades to a computed modulus for ALL small dyadic increments on the SAME input. |
+
 ## Remaining obligations and next consumer
 
 The independent source review confirms that another pairing wrapper would
@@ -695,9 +731,10 @@ not remove an input. The actual `Domain` at
 has the positive symmetric action laws `action_nonnegative` and
 `action_symmetric` at
 `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphForm.lean:194` and `:201`.
-The reconstruction residue is a complete original Hilbert-sector and real
-domain structure on the witnessed closure of ran(T), followed by the
-sector-adjoint interpretation. `RangeLimit` at
+Represented closedness/completeness and the dyadic-continuity criterion are
+now supplied above. The reconstruction residue is the compatible real-linear
+Hilbert-sector/domain package and the sector-adjoint interpretation.
+`RangeLimit` at
 `lean/YMGap/Continuum/BF4WilsonAllNomeTimeRangeClosure.lean:66` explicitly
 supplies core approximation within that sector, not whole-carrier density.
 
@@ -1058,3 +1095,26 @@ adjoint argument and the existing consumer interfaces. Final log SHA-256:
   `a7a2cdc12941e6512dab43251f4333a6380accf496519491de488178e47c4bd9`
 - `/tmp/ym-wilson-derivative-adjoint-tests-20260930.log`:
   `161dd37f6fee5477d446a7803f9a29f6459dd83c3e7ccc80bffbd4f4b6e82309`
+
+Range-closedness and continuity-sector verification: two final serialized
+focused checks passed 16 gates (ten TimeRangeClosed, six TimeContinuitySector),
+each with exactly {propext, Quot.sound}, with no warnings or proof failures.
+The first five closedness gates were checked before extending the same file
+with representative extraction; the final full file was then rechecked.
+Both final checks finished within their initial tool calls. The safe-build
+skill kept the one-worker 20 GiB ceiling, 12 GiB OS reserve, process preflight
+and automatic telemetry. No safety stop or raised limit; no full root/tree
+build, audit or guard. Root imports are NOT root verification.
+
+Main constructed and checked both modules; Luna independently reviewed the
+witness flow and scope. Sol separately reviewed the primary signed analytic
+frontier; that review is recorded in
+`audits/AUDIT-SIGNED-FAMILY-TEMPORAL-JOIN-2026-09-30.md` and is not a new
+signed estimate. No new sorry/axiom, classical dependency, frontier weakening,
+kernel deletion, physical-sector identification or canonical chart change.
+Final log SHA-256:
+
+- `/tmp/ym-wilson-time-range-closed-20260930.log`:
+  `a78607033d2a9b583204e427c1bcd105cb38fe404c90f3f9897329ef1a3de8f9`
+- `/tmp/ym-wilson-time-continuity-sector-20260930.log`:
+  `9cb0ec19c4ec3718e363bcc30455516590e48fcba21b28525885b70407fec624`

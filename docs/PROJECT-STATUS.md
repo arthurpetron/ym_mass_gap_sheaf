@@ -1,5 +1,21 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL continuity-sector closedness (2026-09-30 UTC;
+chart unchanged): explicit norm limits of witnessed T-range states now
+return original range witnesses by a computed diagonal. The existing
+represented completion and vacuum complement are retained. A range witness
+also computes an original Cauchy representative; no quotient choice is used.
+This sector is exactly the represented root-sequence/dyadic zero-continuity
+sector, in the explicit-modulus sense: root continuity constructs membership,
+which supplies ALL sufficiently small dyadic increments. Two final focused
+serialized checks passed 16 gates in {propext, Quot.sound}. The full
+Hilbert-sector/adjoint package, physical OS identification, real physical-time
+calibration and scaling survival remain OPEN. The parallel analytic review
+found no justification for replacing signed displacement cross terms by
+local overlap counts; no such bound is claimed. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md` and
+`audits/AUDIT-SIGNED-FAMILY-TEMPORAL-JOIN-2026-09-30.md`.
+
 Verified supporting ORIGINAL derivative domain and adjoint tests (2026-09-30
 UTC; chart unchanged): actual represented dyadic quotient convergence now
 constructs BOTH coordinate-range witnesses and the represented graph.

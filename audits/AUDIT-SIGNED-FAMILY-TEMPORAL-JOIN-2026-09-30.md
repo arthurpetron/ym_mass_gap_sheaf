@@ -83,6 +83,53 @@ strictly positive fixed-nome response floors alone do not establish the
 scaling-relative estimate. Do not extend a filtering branch without a genuine
 same-source norm/response estimate that repairs this gap.
 
+## Follow-on source review: actual upper bound and the locality limitation
+
+This section is source review and mathematical proof planning, NOT a new
+kernel-checked upper estimate or Yang--Mills counterexample.
+
+An original one-loop upper estimate is already proved:
+`joint_increment_nome_bound`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeKineticIncrement.lean:168`, bounds
+the joint one-step increment by 24*length^2*(1-w), for active source edges.
+`timeIncrement_nome_bound`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeIncrement.lean:120`, gives the
+corresponding n-step upper bound with factor n. These preserve the SAME
+original joint state; the missing input is not an absolute one-loop upper
+bound. The current family variance floor does not provide the useful
+changing-nome relative normalization needed for survival.
+
+The finite mechanism is explicit. `alignment_cleared`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticAlignment.lean:57`,
+retains the full original partition and gives a one-link alignment bound.
+`link_displacement_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonKineticIncrement.lean:90`,
+turns it into a squared coordinate displacement cost. `word_increment_bound`
+in the same file at line 178 applies the deterministic word telescope and
+finite square inequality, producing the squared path length. This does not
+control the original family's signed off-diagonal displacement terms.
+
+`product_alignment`,
+`lean/YMGap/Continuum/SU2QuaternionHeatFusionQuadratic.lean:184`, accepts a
+supported certified endpoint a, retaining a(x)*a(y). Its proof does not
+allow an arbitrary signed two-copy insertion. Replacing a by a*s changes
+both the insertion and the mass; it does not keep the original partition
+while supplying a displacement-covariance estimate. The actual edge law
+also contains the spatial factors and terminal messages. Local source
+incidence therefore does not itself imply independence or orthogonality of
+increments on disjoint faces.
+
+The needed estimate remains a same-action comparison of the full signed
+displacement Gram with the actual centered covariance Gram for ONE useful
+source family. One stronger sufficient route would be a row-summable
+displacement-Gram bound at useful nome dependence, followed by a compatible
+variance estimate. Neither bound is supplied by local overlap counting or
+the preceding one-link theorem. No new conditional wrapper is added, and
+even an absolute l2 family upper bound would not alone repair the current
+variance-floor/calibration cost. The direct signed comparison remains the
+primary target; time-filtering and incidence arguments cannot be recorded
+as its discharge without those missing estimates.
+
 ## Verification boundary
 
 The three new modules passed serialized focused checks via the monitored

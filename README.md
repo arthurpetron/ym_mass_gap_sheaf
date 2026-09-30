@@ -61,6 +61,9 @@ construct the represented graph with NEITHER range premise, retaining the
 fixed-nome/width form margin and all-small-real-time Taylor certificate.
 On the witnessed sector, weak adjoint pairing tests also construct this
 same graph directly; no resolvent is needed for that pairing criterion.
+The witnessed time-range sector is now closed under explicit norm limits.
+Its witnesses compute original representatives, and root-sequence continuity
+constructs exactly this sector, with continuity at all small dyadic times.
 Time is still in original lattice units; self-adjointness,
 equality with the existing log series, physical calibration, scaling
 survival and Clay remain open.

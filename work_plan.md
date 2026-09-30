@@ -264,14 +264,37 @@ for THIS pairing characterization. All abbreviated module names have prefix
 `BF4WilsonAllNome`. Five final focused serialized checks passed 35 gates
 within {propext, Quot.sound}; no broad run or canonical chart change.
 
-NEXT: inspect the actual Hilbert/adjoint consumer and its original-sector
-requirements before introducing further reconstruction wrappers. The weak
-pairing criterion is proved, not a packaged Hilbert adjoint or physical
-Hamiltonian. Do not assume a resolvent is a prerequisite for the now-closed
-pairing join. Keep the primary source-specific energy/variance UPPER bound
-on a justified scaling family in view; structural reconstruction does not
-supply it. The equation A u=T v alone remains insufficient on the full
-ambient carrier with its actual boundary kernel.
+FOLLOW-ON PROVED: `BF4WilsonAllNomeTimeRangeClosed.ofLimit` constructs a
+range witness for an explicit original norm limit by a diagonal of supplied
+preimages. `representedLimit` retains the existing row limit and
+`centeredRepresentedLimit` its original vacuum complement. `representative`
+computes an original Cauchy stream FROM the range witness; its class is
+exactly the original target, without choice. The new
+`BF4WilsonAllNomeTimeContinuitySector.smallTime` supplies all-small-dyadic
+continuity. Conversely, `rangeOfRootLimit` constructs membership from
+root-sequence continuity alone; `continuityOfRootLimit` returns the stronger
+all-small-dyadic modulus. Two final focused serialized checks passed 16
+gates in {propext, Quot.sound}; no canonical field changed.
+
+NEXT reconstruction residue: compatible real-linear sector/domain structure
+and its adjoint interpretation, not another weak-pairing criterion or an
+unjustified total bounded Hamiltonian. The represented closedness and
+dyadic-continuity characterization are now supplied; identifying this
+mathematical sector with the physical OS sector is a separate OPEN join.
+The equation A u=T v alone remains insufficient on the full ambient carrier
+with its actual boundary kernel.
+
+The independent primary analytic task remains the source-specific
+energy/variance UPPER bound on a justified scaling family. Source review
+finds the existing same-action one-loop increment bound
+24*length^2*(1-w), but its combination with the current variance floor
+does not supply scaling survival. Bounded face incidence does NOT remove
+displacement cross correlations under the full spatial/terminal edge law.
+Seek an actual retained-action signed Gram comparison for the chosen source,
+or a justified row-summable bound sufficient for it; do not replace that
+estimate by local-overlap algebra. This is a source-guided next proposition,
+not a new proved upper estimate. Details:
+`audits/AUDIT-SIGNED-FAMILY-TEMPORAL-JOIN-2026-09-30.md`.
 The existing series graph concerns F=regularizedLog, not A; equality remains
 OPEN and is not an implicit identification. No full-carrier density or
 injectivity is available.

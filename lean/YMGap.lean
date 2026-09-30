@@ -5844,6 +5844,9 @@ import YMGap.Continuum.BF4WilsonAllNomeRootTimeRange
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeRootContinuity
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeInputRange
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeAdjointTests
+-- The original witnessed range is closed and characterizes dyadic zero continuity.
+import YMGap.Continuum.BF4WilsonAllNomeTimeRangeClosed
+import YMGap.Continuum.BF4WilsonAllNomeTimeContinuitySector
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

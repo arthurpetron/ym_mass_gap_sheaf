@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL range closedness and dyadic continuity-sector characterization (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeTimeRangeClosed.ofLimit` computes original preimages and
+  a convergence modulus for any supplied norm limit of witnessed range states.
+  `representedLimit` and `centeredRepresentedLimit` use the SAME completed
+  row limit, with its original vacuum-complement witness when supplied.
+  `rangeRows`, `rangeRows_limit`, `representative` and `representative_pin`
+  extract an original representative from a range witness without choice.
+- `BF4WilsonAllNomeTimeContinuitySector.smallTime` supplies continuity of
+  every sufficiently small original dyadic increment. `root_small` restricts
+  it to roots; `rangeOfRootLimit` constructs the range witness in the reverse
+  direction from an input representative and root convergence modulus.
+  `rangeOfDyadicContinuity` and `continuityOfRootLimit` retain both directions
+  and the computed all-small-time modulus as Type-level data.
+- OPEN: a full real-linear Hilbert-sector/domain and adjoint package,
+  physical OS-sector identification, real physical-time/mass calibration,
+  spatial/scaling control, nontrivial survival and all canonical Clay fields.
+  No whole-carrier continuity, boundary-kernel deletion or physical
+  interpretation of the mathematical continuity sector is asserted.
+- Two final focused serialized checks passed 16 gates in
+  {propext, Quot.sound}. No new sorry/axiom, weakening or broad run. Evidence:
+  `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED ORIGINAL derivative graph without range premises and scoped adjoint tests (2026-09-30 UTC)
 
 - `BF4WilsonAllNomePolynomialTimeRange.polynomial_time_pin` proves the
