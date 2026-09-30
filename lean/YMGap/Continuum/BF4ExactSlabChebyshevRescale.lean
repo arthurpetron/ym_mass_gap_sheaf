@@ -4,6 +4,9 @@
 The affine norm identity is on the existing completed full-action carrier.
 The reverse-energy inequality below is an explicit hypothesis on one vector;
 this module does not produce it, a centered coercivity estimate, or a gap.
+At positive rescaling, the exact coupled energy shows that this hypothesis
+is equivalent to the first-component norm bound at the SAME order. It is
+not a bound that propagates from the initial auxiliary without further input.
 -/
 
 import YMGap.Continuum.BF4ExactSlabChebyshevPairing
@@ -181,6 +184,94 @@ theorem coupled_first_norm_from_reverse_energy (c : Q') (hc : (0 : Q') ≤ c)
     (affine_selfAdjoint hw0 hw1 K extent hK c) x n
     (affine_norm_of_reverse_energy hw0 hw1 K extent hK c hc _ hrev)
 
+private theorem energy_margin_rearrangement (c : Q') (t u b a : RC) :
+    RCsub (RCadd t u)
+      (RCsub (RCadd u (RCscale c (RCscale c b)))
+        (RCscale c (RCscale 2 a))) =
+      RCadd t (RCscale c (RCsub (RCscale 2 a) (RCscale c b))) := by
+  refine Quotient.inductionOn₃ t u b ?_
+  intro T0 U0 B0
+  refine Quotient.inductionOn a ?_
+  intro A0
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq
+      (.add (.add (.var 1) (.var 2))
+        (.neg (.add (.add (.var 2) (.mul (.var 0) (.mul (.var 0) (.var 3))))
+          (.neg (.mul (.var 0) (.mul (.const 2) (.var 4)))))))
+      (.add (.var 1) (.mul (.var 0)
+        (.add (.mul (.const 2) (.var 4)) (.neg (.mul (.var 0) (.var 3))))))
+      (by decide)
+      (fun | 0 => c | 1 => T0.approx n | 2 => U0.approx n
+           | 3 => B0.approx n | _ => A0.approx n)))
+
+/-- Exact signed budget at the ACTUAL recurrence order. No sign, centering,
+or strict-gap hypothesis is used. A successful test at a different order
+cannot be substituted into this identity. -/
+theorem coupled_norm_add_margin (c : Q') (x : GNSCompletionSpace F) (n : Nat) :
+    let s := coupled hw0 hw1 K extent hK c x n
+    RCadd (normSq s.1)
+      (RCscale c (RCsub (RCscale 2 (normSq (W s.2)))
+        (RCscale c (normSq (B s.2))))) = normSq x := by
+  have h := GNSChebyshevEnergy.state_energy _
+    (affine_selfAdjoint hw0 hw1 K extent hK c) x n
+  change RCsub
+    (RCadd (normSq (coupled hw0 hw1 K extent hK c x n).1)
+      (normSq (coupled hw0 hw1 K extent hK c x n).2))
+    (normSq (affine hw0 hw1 K extent hK c
+      (coupled hw0 hw1 K extent hK c x n).2)) = normSq x at h
+  rw [affine_norm_expansion, energy_margin_rearrangement] at h
+  exact h
+
+private theorem margin_difference (c : Q') (t a b : RC) :
+    RCsub (RCadd t (RCscale c (RCsub a b))) t =
+      RCsub (RCscale c a) (RCscale c b) := by
+  refine Quotient.inductionOn₃ t a b ?_
+  intro T0 A0 B0
+  exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+    poly_identity_of_normal_eq
+      (.add (.add (.var 1) (.mul (.var 0)
+        (.add (.var 2) (.neg (.var 3))))) (.neg (.var 1)))
+      (.add (.mul (.var 0) (.var 2)) (.neg (.mul (.var 0) (.var 3))))
+      (by decide)
+      (fun | 0 => c | 1 => T0.approx n | 2 => A0.approx n | _ => B0.approx n)))
+
+private theorem scale_cancel_positive (c : Q') (hc : (0 : Q') < c)
+    (a b : RC) (h : RCle (RCscale c a) (RCscale c b)) : RCle a b := by
+  let r := Q'.recipPos c hc
+  have hr : (0 : Q') ≤ r := Q'.le_of_lt (Q'.recipPos_pos c hc)
+  have he : Q'.eqv (r*c) 1 := Q'.eqv_trans _ _ _
+    (Q'.mul_comm_eqv r c) (Q'.mul_recipPos_eqv c hc)
+  have pin (z : RC) : RCscale r (RCscale c z) = z := by
+    refine Quotient.inductionOn z ?_
+    intro Z
+    exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv (fun n =>
+      Q'.eqv_trans _ _ _ (Q'.eqv_symm (Q'.mul_assoc_eqv r c (Z.approx n)))
+        (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_right _ _ _ he)
+          (Q'.one_mul_eqv _))))
+  have hh := RCscale_mono hr h
+  rwa [pin a, pin b] at hh
+
+/-- At positive c, reverse energy is EXACTLY the first-component norm bound
+at this order, not an independent analytic producer of that bound. -/
+theorem coupled_first_norm_iff_reverse_energy (c : Q') (hc : (0 : Q') < c)
+    (x : GNSCompletionSpace F) (n : Nat) :
+    RCle (normSq (coupled hw0 hw1 K extent hK c x n).1) (normSq x) ↔
+      let u := (coupled hw0 hw1 K extent hK c x n).2
+      RCle (RCscale c (normSq (B u))) (RCscale 2 (normSq (W u))) := by
+  let t := (coupled hw0 hw1 K extent hK c x n).1
+  let u := (coupled hw0 hw1 K extent hK c x n).2
+  have hdiff : RCsub (normSq x) (normSq t) =
+      RCsub (RCscale c (RCscale 2 (normSq (W u))))
+        (RCscale c (RCscale c (normSq (B u)))) := by
+    rw [← coupled_norm_add_margin hw0 hw1 K extent hK c x n]
+    exact margin_difference c (normSq t) _ _
+  constructor
+  · intro h
+    exact scale_cancel_positive c hc _ _
+      ((order_by_difference _ _ _ _ hdiff).mp h)
+  · exact coupled_first_norm_from_reverse_energy hw0 hw1 K extent hK c
+      (Q'.le_of_lt hc) x n
+
 /-- The SAME normalized vector used in the covariance pin has squared
 norm bounded by the squared reciprocal Chebyshev value, conditional only
 on the displayed actual auxiliary-vector estimate. -/
@@ -207,6 +298,8 @@ theorem normalizedFirst_norm_from_reverse_energy (c : Q') (hc : (0 : Q') ≤ c)
 #print axioms affine_norm_expansion
 #print axioms affine_norm_of_reverse_energy
 #print axioms coupled_first_norm_from_reverse_energy
+#print axioms coupled_norm_add_margin
+#print axioms coupled_first_norm_iff_reverse_energy
 #print axioms normalizedFirst_norm_from_reverse_energy
 
 end YMGap.Continuum.BF4ExactSlabChebyshevRescale

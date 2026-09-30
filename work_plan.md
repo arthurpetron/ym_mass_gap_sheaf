@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Auxiliary-order diagnostic and quantitative target (2026-09-30 UTC)
+
+The new `BF4ExactSlabChebyshevRescale.coupled_norm_add_margin` exposes
+the EXACT original-carrier identity `||t_n||^2+c*M_n=||x||^2`.
+For c>0, `coupled_first_norm_iff_reverse_energy` identifies M_n>=0
+with the desired unnormalized first-component norm bound at that SAME
+order. It is not a new analytic producer or an equivalence to covariance
+decay. `RationalChebyshevAuxiliaryObstruction` supplies a finite rational
+two-projection example whose first auxiliary passes and whose second fails
+at the same calibration. This refutes generic initial-order bootstrapping,
+not the original Yang--Mills estimate. Both focused capped checks passed
+all 22 printed gates within {propext, Quot.sound}; no broad run or new sorry.
+
+Keep the actual-auxiliary route, but its producer must cover the consumed
+orders, observables and parameter family; one successful early check is
+insufficient. The existing square-root calibration also makes the scale
+budget explicit: a lower bound `c(a)-2 >= C*a^2` can suffice for a positive
+relative physical-SPATIAL decay rate on a bounded spacing range. This is
+a paper-level deduction of the existing scalar inequalities, not a proved
+scaling family. A spacing-independent positive excess is unnecessarily
+strong. Actual original-action production, variance control, geometry and
+OS/physical-time joins remain missing. Do not add further recurrence or
+scalar-calibration wrappers in place of the original signed estimate.
+No canonical chart state changes. Evidence:
+`audits/AUDIT-CHEBYSHEV-AUXILIARY-ORDER-2026-09-30.md`.
+
 ### Completed finite-moment tail by dense reverse tests (2026-09-30 UTC)
 
 `BF4ExactSlabCompletedMomentTail.completed_sweep_tail_bound` extends the

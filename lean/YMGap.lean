@@ -5462,6 +5462,7 @@ import YMGap.Continuum.BF4ExactSlabChebyshevCone
 import YMGap.Continuum.BF4ExactSlabChebyshevPairing
 import YMGap.Continuum.BF4ExactSlabChebyshevCovariance
 import YMGap.Continuum.BF4ExactSlabChebyshevRescale
+import YMGap.Continuum.RationalChebyshevAuxiliaryObstruction
 import YMGap.Continuum.BF4ExactSlabChebyshevCovarianceBound
 -- Actual auxiliary cone/loss and a computed finite test, not a uniform producer.
 import YMGap.Continuum.BF4ExactSlabConeSchedule

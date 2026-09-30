@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED exact auxiliary-order budget and finite bootstrap obstruction (2026-09-30 UTC)
+
+- `BF4ExactSlabChebyshevRescale.coupled_norm_add_margin` proves
+  `||t_n||^2+c*(2||W u_n||^2-c||B u_n||^2)=||x||^2` on the ORIGINAL
+  completed full-action carrier. `coupled_first_norm_iff_reverse_energy`
+  proves equivalence of the unnormalized first-component norm bound and
+  reverse energy at that SAME order, for c>0. No new analytic premise.
+- `RationalChebyshevAuxiliaryObstruction` computes symmetric idempotent
+  rational matrices, B=W*W, and their literal coupled recurrence. Its actual
+  reverse margin is 14/125 at order one and -55944/78125 at order two.
+  `no_first_to_second_bootstrap` excludes propagation from that first test;
+  `first_component_norm_tests` checks the corresponding norm comparisons.
+  This is a finite matrix model, NOT the original Yang--Mills action or
+  a physical-gap counterexample.
+- No uniform original-action margin, covariance estimate, scaling family,
+  OS/time join, frontier atom or existing sorry was closed. No new sorry,
+  custom axiom, classical principle or changed canonical field. Chart
+  unchanged. The spacing-squared excess budget in the audit is an explicit
+  paper-level deduction, not a new kernel-checked scaling theorem.
+- Two focused serialized one-worker/20 GiB checks passed all 22 printed
+  gates within {propext, Quot.sound}; no full-root/full-tree/audit/guard run.
+  Luna supplied the finite example, root the actual identity/equivalence,
+  and Sol reviewed the mathematics and scope. Evidence:
+  `audits/AUDIT-CHEBYSHEV-AUXILIARY-ORDER-2026-09-30.md`.
+
 ## PROVED completed finite-moment tail on the original carrier (2026-09-30 UTC)
 
 - `GNSDenseDualNormBound.norm_le_of_dense_approximate_dual` proves a sharp
