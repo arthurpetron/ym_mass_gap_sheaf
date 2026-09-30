@@ -5475,6 +5475,8 @@ import YMGap.Continuum.BF4ExactSlabCompletedFiniteVolumeCoercivity
 import YMGap.Continuum.BF4ExactSlabFiniteVolumeReverseEnergy
 import YMGap.Continuum.ChebyshevAboveOne
 import YMGap.Continuum.BF4ExactSlabFiniteVolumeChebyshevCovariance
+-- Explicit square-root-margin rate for the SAME finite covariance; not scaling uniformity.
+import YMGap.Continuum.BF4ExactSlabFiniteVolumeChebyshevRate
 -- Original local variances pay for support, not all volume faces; no global gap.
 import YMGap.Continuum.BF4ExactSlabLocalSupportComparison
 import YMGap.Continuum.BF4ExactSlabLocalSupportVariance
@@ -5610,6 +5612,8 @@ import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.
 import YMGap.Continuum.RationalSqrtCalibration
 import YMGap.Continuum.ChebyshevMarginParameters
+import YMGap.Continuum.ChebyshevAboveOneMonotone
+import YMGap.Continuum.ChebyshevSqrtRate
 import YMGap.Continuum.GNSProjectionSweepEnergyOrder
 -- Strict on explicitly free-centered inputs, not the whole vacuum complement.
 import YMGap.Continuum.BF4ExactSlabStarFreeCentering

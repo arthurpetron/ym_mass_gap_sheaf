@@ -25,6 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Square-root calibration joined to original finite covariance (2026-09-30 UTC)
+
+`ChebyshevAboveOneMonotone.T_mono` and `ChebyshevSqrtRate` turn
+the existing exact Chebyshev denominator into an explicit rational rate:
+for x>1, eta=(x-1)/(x+1), construct 0<s<1 with
+`(1-s)^2 >= eta/4` and `1/T_n(x) <= 2*s^n`, with a degree modulus.
+`BF4ExactSlabFiniteVolumeChebyshevRate.finiteCovariance_sq_rate_bound`
+joins that calibration to the ORIGINAL finite action and both original
+diagonal covariances, retaining the `grow(16*n)` separation condition.
+The actual x is reverseCoefficient(w,extent)-1, not a supplied margin.
+
+This is a geometric export of the exact bound, not a pointwise strengthening
+of it. Nome/extent dependence remains; no useful separated-pair degree range
+or scaling-uniform producer is proved. The modulus uses unreduced rational
+arithmetic, so no practical runtime improvement is asserted. The next analytic
+input remains useful signed/collective original-action control on justified
+scaling, with usable separation; do not extend scalar calibration in its place.
+A03 and all same-theory OS/QFT/physical mass/every-group obligations stay open.
+Three focused serialized one-worker/20 GiB checks passed all 20 printed gates
+within {propext, Quot.sound}; no new sorry/axiom or broad run. Sol implemented
+monotonicity and the original-law join; Luna independently reviewed the scalar
+argument and separation limitation. No canonical chart change. Evidence:
+`audits/AUDIT-ORIGINAL-CHEBYSHEV-SQRT-RATE-2026-09-30.md`.
+
 ### Signed feature cancellation on the original law (2026-09-30 UTC)
 
 `RatPolyTwoByTwoCauchyBinet.determinant_eq_pairSum` cancels diagonal
@@ -101,6 +125,19 @@ by defaulting to the weaker `(c-1)^(-n)` estimate. A physical-spacing
 application still needs a justified original-action family and uniform
 observable control; no conditional-update rate is identified with an
 OS transfer or physical Hamiltonian here. A03 stays open. No chart change.
+
+The subsequent quantitative feasibility screen rules out a naive launch:
+at w=1/2 the EXISTING cutoff definitions imply headCutoff>=627, so even
+a proposed 24-face core has at least 628^24 Cartesian label assignments.
+A bounded geometry-only diagnostic found 72 full faces and a 24-face
+remainder at extent one; the whole-slab moment-preserving reduction is
+not yet pinned and cannot be silently assumed. No large calculation or
+new Lean theorem. A targeted finite-group weak-coupling paper also requires
+a positive nonidentity character defect unavailable for rational SU(2);
+its decay theorem is not a producer for this action. Keep the averaged
+signed estimate primary; consider compressed evaluation only with a
+bounded cost and same-action certificate. Evidence and exact source map:
+`audits/AUDIT-ORIGINAL-MOMENT-PILOT-FEASIBILITY-2026-09-30.md`.
 
 ### Existing collar coefficient fails the proposed patch test (2026-09-30 UTC)
 

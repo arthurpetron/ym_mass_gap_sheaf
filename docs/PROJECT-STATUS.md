@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting original finite covariance calibration (2026-09-30 UTC;
+chart unchanged): the exact Chebyshev coefficient now has a constructive
+geometric export with square-root-margin dependence and a degree modulus.
+The original action, both original variances and `16*n` separation remain.
+This is not a pointwise stronger bound, a useful separation-range proof,
+or a scaling-uniform estimate. A03 and all same-theory Clay claims remain
+open. All 20 gates passed three focused checks. Evidence:
+`audits/AUDIT-ORIGINAL-CHEBYSHEV-SQRT-RATE-2026-09-30.md`.
+
 Verified supporting gauge-invariant route test (2026-09-30 UTC; chart unchanged):
 Closing the shared-heat tests into loops does not remove their w^3
 correlation. A positive late-cutoff example excludes the factor-only

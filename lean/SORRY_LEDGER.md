@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## Original finite covariance square-root calibration (2026-09-30 UTC)
+
+- **proved:** Chebyshev argument monotonicity on [1,infinity), and a
+  rational rate s with `(1-s)^2 >= (x-1)/(4*(x+1))` and
+  `1/T_n(x) <= 2*s^n` for every x>1, with an explicit degree modulus.
+- **original-law join:** `BF4ExactSlabFiniteVolumeChebyshevRate.
+  finiteCovariance_sq_rate_bound` retains the original normalized
+  covariance, both original variances and the `16*n` separation.
+  The coefficient is constructed from existing finite-volume coercivity.
+- **open:** useful original-action signed/collective scaling control and
+  a usable separation regime; A03 and all same-theory continuum/OS/QFT/
+  physical mass/every-group goals. The geometric export is pointwise
+  weaker than the exact bound, not a new coercivity estimate or OS gap.
+- **verification:** three focused serialized one-worker/20 GiB checks
+  passed all 20 printed gates within {propext, Quot.sound}; independent
+  Luna/Sol source review. No new sorry/axiom, named analytic premise,
+  weakened field, frontier closure or broad run. Evidence:
+  `audits/AUDIT-ORIGINAL-CHEBYSHEV-SQRT-RATE-2026-09-30.md`.
+
 ## Original signed feature cancellation (2026-09-30 UTC)
 
 - **proved:** finite two-by-two Cauchy--Binet cancels equal feature
