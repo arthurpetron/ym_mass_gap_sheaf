@@ -336,9 +336,23 @@ schedule repairs that boundary source. Three final focused serialized
 checks passed 23 gates within {propext, Quot.sound}; no broad run or chart
 change. Evidence: `audits/AUDIT-ORIGINAL-SOURCE-DOMAIN-TRANSFER-2026-09-30.md`.
 
+FOLLOW-ON PROVED: `BF4WilsonAllNomeComplexTimeSector.limitCertificate`
+constructs witnessed complex-sector limits inside the EXISTING Wilson
+complex carrier. Scalar operations and the convergence norm are pinned
+exactly to that carrier; positive real time preserves the sector, composes,
+recovers the original integer transfer, and has a computed zero-continuity
+radius. `BF4WilsonAllNomeComplexSectorDerivative` gives a dense, complex-
+linear, witnessed closed domain equal to its intrinsic complex adjoint.
+Its `realTaylorCertificate` identifies the SAME real-time derivative, and
+`domain_form_gap` retains the original fixed-nome/width margin. Both real
+component witnesses remain data; equality compares only original values.
+Two final focused serialized checks passed all 55 gates, exactly
+{propext, Quot.sound}; no broad run or chart change. Evidence:
+`audits/AUDIT-ORIGINAL-COMPLEX-SECTOR-2026-09-30.md`.
+
 NEXT reconstruction residue: the SAME-object physical reflected OS/observable
-identification and compatible complex Hilbert structure, not another
-equivalent pairing criterion or an unjustified total Hamiltonian.
+identification and constructive resolvent/spectral join, not another
+real-to-complex compatibility wrapper or an unjustified total Hamiltonian.
 Direct restriction of the original time-zero algebra is now ruled out at
 width one; positive-time insertions do not by themselves identify a
 physical reflected algebra or its full correlation functional.
@@ -347,7 +361,7 @@ already supplies `compileWindow_pin` on this carrier. The remaining
 canonical join needs the supported observable and reflected-form/time pins
 against the SAME limiting theory (`CanonicalOSRoot.PositiveTimeOSRoot`),
 not merely positivity of an independently defined Gram form.
-The intrinsic REAL presented-sector adjoint join is supplied. Do NOT
+The intrinsic real AND complex presented-sector adjoint joins are supplied. Do NOT
 silently select source data from the old quotient Domain or redefine its
 scope. Full physical Hilbert/Hamiltonian identification remains OPEN.
 The equation A u=T v alone remains insufficient on the full ambient carrier
@@ -368,6 +382,16 @@ The now-proved one-step source/domain transfer already controls the actual
 derivative energy, retained norm and source replacement. Do not build another
 equivalent conditional survival/domain wrapper before supplying a useful
 original signed estimate. Filtering alone creates no spectral support near one.
+The full-product angular Hessian has an exact negative common-square identity
+(`SU2QuaternionProductHeatAngularHessian.productHeat_upperHessian_eq_neg_square`),
+but it is not the finite temporal displacement numerator. The existing
+source Taylor upper bound retains a source-dependent quadratic remainder;
+no normalized signed estimate is supplied by the common-square sign alone.
+The parallel bulk-observable review likewise found only preservation of an
+explicit finite fringe-residual kernel, not an exact characterization of
+the entire completed kernel or dense active range. Do not infer unsandwiched
+bulk multiplier sector invariance from that one-sided inclusion. These are
+source-review boundaries, not new counterexamples or canonical obligations.
 The existing series graph concerns F=regularizedLog, not A; equality remains
 OPEN and is not an implicit identification. No full-carrier density or
 injectivity is available.

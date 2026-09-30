@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL complex continuity sector (2026-09-30 UTC;
+chart unchanged): the witnessed real sector now complexifies inside the
+EXISTING Wilson complex carrier, with exact scalar/inner-product/norm pins,
+computed Cauchy limits and positive-real-time continuity radii. Its actual
+complex derivative domain is dense, closed under supplied graph limits,
+complex-linear and equal to its intrinsic complex adjoint. The original
+real-time Taylor estimate and fixed-nome/width form margin survive.
+This supplies the real-to-complex compatibility join, not physical OS
+identification, a resolvent, scaling survival or a physical mass gap.
+Two final focused serialized checks passed all 55 printed gates, exactly
+{propext, Quot.sound}; no broad run or canonical field change. Evidence:
+`audits/AUDIT-ORIGINAL-COMPLEX-SECTOR-2026-09-30.md`.
+
 Verified supporting ORIGINAL source/domain comparison (2026-09-30 UTC;
 chart unchanged): one original time step satisfies ||Tx-x||^2<=E(x),
 ||Tx||^2>=||x||^2-2E(x) and B(Tx,Ax)<=E(x). GIVEN a relative source cost c

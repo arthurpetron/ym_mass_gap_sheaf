@@ -5855,6 +5855,9 @@ import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphRealLinear
 -- Witnessed-sector completeness, dense derivative domain and intrinsic real adjoint.
 import YMGap.Continuum.BF4WilsonAllNomeTimeSector
 import YMGap.Continuum.BF4WilsonAllNomeSectorDerivative
+-- Same complex carrier: witnessed sector completeness and intrinsic complex adjoint.
+import YMGap.Continuum.BF4WilsonAllNomeComplexTimeSector
+import YMGap.Continuum.BF4WilsonAllNomeComplexSectorDerivative
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary

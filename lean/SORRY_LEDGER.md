@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL complex time sector and intrinsic adjoint (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeComplexTimeSector` retains TWO original range witnesses
+  inside the existing complex completion. `val_smul` and `distance_norm_pin`
+  identify the original complex scalar action and norm; `limitCertificate`
+  constructs witnessed limits, with the two real rates evaluated at e/2.
+  `continuityCertificate` returns an actual positive real-time radius.
+  `action_original` preserves the ORIGINAL discrete transfer and time unit.
+- `BF4WilsonAllNomeComplexSectorDerivative.equation_iff_adjoint` and
+  `ofAdjoint` identify the paired actual real graph with its complex adjoint,
+  and construct the domain point. `coreDensityCertificate` supplies domain
+  density; `closedLimit` supplies witnessed graph closedness. Complex scalar
+  operations preserve the exact original input/output values.
+- `realTaylorCertificate` and `remainder_pin` give the derivative of the
+  SAME complex real-time action, with computed radius and error e*t^2 in
+  squared norm. `domain_form_gap` retains the original coreMargin on the
+  original complex vacuum complement, still nome/width dependent.
+- OPEN: original signed source estimate along a justified scaling family,
+  exact completed active/fringe-kernel characterization for unsandwiched
+  bulk observables, physical reflected OS/observable identification,
+  resolvent/spectral and physical-time calibration, continuum survival,
+  full QFT/every-group/Clay. No canonical field was weakened or closed.
+- Two final focused serialized checks passed 55 printed gates, all exactly
+  {propext, Quot.sound}; no new sorry/axiom or broad run. Evidence:
+  `audits/AUDIT-ORIGINAL-COMPLEX-SECTOR-2026-09-30.md`.
+
 ## PROVED ORIGINAL source-energy to derivative-domain comparison (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeSectorSmoothingEnergy.derivative_terminal_energy`
