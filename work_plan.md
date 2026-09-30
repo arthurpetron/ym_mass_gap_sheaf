@@ -25,7 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### ORIGINAL full-replica replacement versus conditional energy (2026-09-30 UTC)
+### ORIGINAL chronological path-energy sum (2026-09-30 UTC)
+
+`BF4ExactSlabChronologicalPathSum.original_chronological_path_energy_bound`
+now joins the path telescope, physical cut comparison and EXISTING conditional
+residual energies on the SAME original finite-cutoff action. Its exact bound is
+2*D(f) <= N*sum_k cost_k*Z*(E_k+E_k), where D is the original unnormalized
+variance determinant, Z the original partition, and E_k the residual squared
+norm at the actual next physical link. The finite sum uses every block once.
+Each cost is an explicit ratio of the cut/star caps to their positive floors;
+it is independent of late heat cutoff, but depends on nome, cut and link.
+
+`BF4ExactSlabChronologicalLinkOrder.chronologicalBlocks_perm` constructs the
+time-layer-ordered permutation; `prefixCut_time_bounds` proves its earlier/
+later-time guards even within a layer. The actual crossing count used by each
+cost is at most 12*(extent+1)^3. Arbitrary-order path certificates preserve the
+same endpoint square and length N. Six focused serialized capped checks passed
+44 gates within {propext, Quot.sound}; no new analytic assumption or sorry.
+
+NEXT: cancel the common replica factor and positive original partition, then
+bound the varying costs by one explicit area-dependent coefficient in the
+existing centered full-action Dirichlet statement. The formerly missing
+chronological geometry and weighted global summation are proved; the simplified
+N*(prefixCap/headFloor)^(2C+12) coercivity statement itself is not yet proved.
+Even that coefficient's area growth is inadequate for useful spatial/scaling
+control. Do not prolong this finite normalization branch as a substitute for
+the missing signed collective estimate, or identify ordinary conditional
+updates with OS/physical time. All same-theory continuum/Clay obligations stay
+open; no canonical chart state changed. Evidence:
+`audits/AUDIT-CHRONOLOGICAL-PATH-ENERGY-2026-09-30.md`.
+
+### ORIGINAL full-replica replacement versus conditional energy (2026-09-30 UTC; preceding checkpoint)
+
+The chronological ordering, area pin and weighted path-energy sum listed as
+next below are now proved above. The simplified coercivity coefficient and
+useful signed spatial/scaling producer remain open.
 
 `BF4ExactSlabReplacementEnergyBound.original_replacement_energy_bound`
 now proves, for every supported original polynomial and actual physical

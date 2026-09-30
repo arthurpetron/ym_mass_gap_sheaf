@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL chronological path-energy sum (2026-09-30 UTC;
+chart unchanged): actual links now have a checked chronological permutation,
+whose intermediate cuts satisfy the area bound. The reordered telescope,
+original cut comparison and existing conditional residual energies give
+2*D(f) <= N*sum_k cost_k*Z*(E_k+E_k), with exact per-cut costs and original
+partition. Six focused checks passed 44 gates. Common-factor cancellation
+and a single-coefficient Dirichlet corollary remain; useful signed spatial/
+scaling control and all continuum/Clay obligations are still open. Evidence:
+`audits/AUDIT-CHRONOLOGICAL-PATH-ENERGY-2026-09-30.md`.
+
 Verified supporting ORIGINAL cross-exterior energy join (2026-09-30 UTC;
 chart unchanged): the independent full-replica replacement cost I_j now
 satisfies ell^2 I_j <= U^2 Z*(energy_j+energy_j), with the ORIGINAL partition

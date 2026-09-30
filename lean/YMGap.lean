@@ -5724,6 +5724,12 @@ import YMGap.Continuum.BF4ExactSlabInPlaceVarianceEnergy
 import YMGap.Continuum.BF4ExactSlabCrossExteriorEnergyFubini
 import YMGap.Continuum.GeometricCorrectedLimitOrder
 import YMGap.Continuum.BF4ExactSlabReplacementEnergyBound
+import YMGap.Continuum.SU2QuaternionOrderedReplicaPath
+import YMGap.Continuum.BF4ExactSlabChronologicalLinkOrder
+import YMGap.Continuum.BF4ExactSlabOrderedPathCut
+import YMGap.Continuum.BF4ExactSlabOrderedPathEnergy
+import YMGap.Continuum.BF4ExactSlabOrderedPathVariance
+import YMGap.Continuum.BF4ExactSlabChronologicalPathSum
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

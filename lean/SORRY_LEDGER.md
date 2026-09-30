@@ -1,6 +1,37 @@
 # Sorry Ledger
 
+## PROVED original chronological path-energy sum (2026-09-30 UTC)
+
+- `SU2QuaternionOrderedReplicaPath` constructs arbitrary-order replacement
+  increments, exact singleton transport, endpoint equality and the length-N
+  Cauchy certificate for an explicit permutation of the original blocks.
+- `BF4ExactSlabChronologicalLinkOrder` constructs such a permutation grouped
+  by actual physical time and proves the prefix time guards and area count.
+- `BF4ExactSlabOrderedPathCut.original_selected_increment_bound` retains
+  the original cut action for every in-range selected block list.
+  `BF4ExactSlabOrderedPathEnergy.original_selected_increment_energy_bound`
+  joins it to the EXISTING original conditional residual, with explicit
+  positive reciprocal floors and the original partition exactly once.
+- `BF4ExactSlabOrderedPathVariance.original_ordered_path_variance_bound`
+  supplies the original variance determinant for this order.
+  `BF4ExactSlabChronologicalPathSum.original_chronological_path_energy_bound`
+  sums the actual per-step energy payments: 2*D <= N*sum_k cost_k*Z*(E_k+E_k).
+  `chronological_cost_crossing_bound` pins each actual crossing count to
+  12*(extent+1)^3. The displayed exact costs depend on nome/cut/link, not K.
+- OPEN: simplify to the centered Dirichlet coefficient by common-factor
+  cancellation and a maximum-cost bound. No assertion of the simplified
+  N*(prefixCap/headFloor)^(2C+12) theorem is made yet. Its area loss would
+  still be inadequate for useful signed spatial/scaling control. OS time,
+  continuum survival, physical mass, full QFT and every group remain open.
+- Six focused one-worker/20 GiB checks passed all 44 printed gates within
+  {propext, Quot.sound}. No new sorry, custom axiom, analytic assumption,
+  frontier weakening, full-root build, audit or guard. Canonical chart unchanged.
+  Evidence: `audits/AUDIT-CHRONOLOGICAL-PATH-ENERGY-2026-09-30.md`.
+
 ## PROVED original cross-exterior replacement-to-energy comparison (2026-09-30 UTC)
+
+Its formerly open chronological geometry and weighted global path-energy
+summation are now proved above; simplified coercivity and scaling remain open.
 
 - `QuaternionHaarOneSidedReciprocalComparison` constructs the shorter
   comparison a*p*G_D*E >= b*(1-rho^k)*q from the actual raw certificate.
