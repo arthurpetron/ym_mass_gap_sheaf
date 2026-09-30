@@ -5632,6 +5632,10 @@ import YMGap.Continuum.BF4WilsonAllNomeFringeTimeKernel
 import YMGap.Continuum.BF4WilsonAllNomeTimeDefectMoments
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeTail
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
+-- Constructed SAME-carrier regularized series, not a physical Hamiltonian.
+import YMGap.Continuum.BF4WilsonAllNomeLogPartial
+import YMGap.Continuum.BF4WilsonAllNomeLogPartialLaws
+import YMGap.Continuum.BF4WilsonAllNomeLogSeries
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

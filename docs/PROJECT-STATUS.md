@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Supporting same-carrier regularized series (2026-09-30 UTC; chart unchanged):
+the finite mixed-moment estimates now construct the actual limit of
+`sum_{k>=1} (I-T)^k T x/k` with explicit convergence data on the original
+all-nome completion. The boundary kernel remains; this is not a scalar-log
+identification, physical generator, continuous-time or scaling theorem.
+Its original time/kernel/vacuum laws also pass to the limit. All 34 gates
+passed three focused capped checks; no broad run. A03, full J02/J03 and
+Clay remain open. Evidence and exact check boundary:
+`audits/AUDIT-ALL-NOME-REGULARIZED-SERIES-2026-09-30.md`.
+
 Verified supporting positive-time approximation (2026-09-30 UTC; chart
 unchanged): on the SAME all-nome completion, every positive-time image T x
 is approximated by explicit T^2-images with squared error at most

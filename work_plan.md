@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Constructed regularized series on the SAME all-nome carrier (2026-09-30 UTC)
+
+`BF4WilsonAllNomeLogPartial` applies the mixed-moment bounds to pairs of
+filtered time vectors. Reciprocal telescoping gives squared tail error
+`||F_N x-F_M x||^2 <= ||x||^2/(M+1)^2`, where
+`F_N x=sum_{k=1}^N (I-T)^k T x/k` and M<=N.
+`BF4WilsonAllNomeLogSeries.regularizedLogCertificate` is the actual consumer:
+it constructs the limit on the ORIGINAL completion with explicit inner/outer
+moduli, descending through equal finite rows rather than selecting quotient
+representatives. `BF4WilsonAllNomeLogPartialLaws` supplies the finite time,
+kernel and vacuum identities for passage to that limit.
+The constructed limit commutes with original discrete time and annihilates
+both its actual kernel and vacuum. All 34 gates passed three final focused
+serialized one-worker/20 GiB checks; no broad run. Sol proved the finite
+estimate, Luna the finite laws, root the limit; Sol reviewed.
+
+This is a regularized series map, not a scalar-log identification, a
+Hamiltonian, a continuous-time semigroup or a scaling result. The T factor
+in every term is essential; the positive-norm boundary kernel is retained.
+Further functional-calculus work must prove the limit's required norm and
+algebraic laws on this same carrier, not substitute the legacy logarithmic
+core. The primary useful signed/SAME-energy scaling estimate remains open;
+A03, full J02/J03 and Clay remain open. Chart unchanged. Detailed proof,
+verification and residue:
+`audits/AUDIT-ALL-NOME-REGULARIZED-SERIES-2026-09-30.md`.
+
 ### Quantitative approximation on the original positive-time range (2026-09-30 UTC)
 
 `BF4WilsonAllNomeTimeDefectMoments` proves positivity and exact splitting of

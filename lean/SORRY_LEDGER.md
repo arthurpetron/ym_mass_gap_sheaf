@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## Constructed regularized series on the original all-nome completion (2026-09-30 UTC)
+
+- **estimate:** `BF4WilsonAllNomeLogPartial` bounds the squared distance
+  between partial sums `sum_{k=1}^N (I-T)^k T x/k` by
+  `||x||^2/(M+1)^2` for M<=N, with the actual transfer and inner product.
+- **actual consumer:** `BF4WilsonAllNomeLogSeries.regularizedLogCertificate`
+  returns the original-carrier limit, explicit modulus and convergence proof.
+  Each finite row has a constructed representative; quotient descent uses
+  equality of row points, not a choice of representatives.
+- **limit laws:** `regularizedLog_commutes_time`,
+  `regularizedLog_kernel_zero` and `regularizedLog_unit_zero` preserve the
+  original discrete time, its actual kernel and normalized vacuum.
+- **scope:** T remains in each summand. The positive-norm boundary kernel
+  is not removed. Scalar-log identification, a norm bound/linearity/symmetry
+  for the limit, a physical generator, continuous time, spatial/scaling
+  control and the useful signed estimate are not supplied. No canonical
+  frontier field is changed; the Clay target remains open.
+- **verification:** all 34 gates passed three final focused serialized
+  one-worker/20 GiB checks within {propext, Quot.sound}. No sorry introduced
+  or discharged; no full-root/full-tree/audit/guard run. Sol proved the
+  finite estimate, Luna the finite laws, root the limit; Sol reviewed.
+  Evidence and exact verification boundary:
+  `audits/AUDIT-ALL-NOME-REGULARIZED-SERIES-2026-09-30.md`.
+
 ## PROVED polynomial range approximation after original positive time (2026-09-30 UTC)
 
 - **actual producer:** `BF4WilsonAllNomeTimeDefectMoments` proves positive

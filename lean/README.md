@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Same-carrier regularized series (2026-09-30 UTC):**
+`BF4WilsonAllNomeLogPartial` supplies the finite reciprocal tail bound;
+`BF4WilsonAllNomeLogSeries.regularizedLogCertificate` constructs the actual
+limit of `sum_{k=1}^N (I-T)^k T x/k`, with explicit representative and
+convergence data on the ORIGINAL all-nome completion. Finite time/kernel/
+vacuum laws are in `BF4WilsonAllNomeLogPartialLaws`. No spectral theorem,
+representative choice, full-carrier injectivity, physical Hamiltonian or
+continuum result is asserted. Exact verification and scope:
+`audits/AUDIT-ALL-NOME-REGULARIZED-SERIES-2026-09-30.md` at repository root.
+
 **Original positive-time range approximation (2026-09-30 UTC):**
 `BF4WilsonAllNomeTimeDefectMoments` proves positive mixed time/defect
 moments. `BF4WilsonAllNomePositiveTimeTail` and `PositiveTimeRange` construct

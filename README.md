@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Constructive series limit (2026-09-30):** the regularized series
+`sum_{k>=1} (I-T)^k T x/k` now has an explicit convergence modulus on the
+original all-nome Wilson completion. The construction retains its boundary
+kernel and does not use a spectral theorem or select quotient representatives.
+This is not yet a physical Hamiltonian or a continuum result. See the
+[proof and scope audit](audits/AUDIT-ALL-NOME-REGULARIZED-SERIES-2026-09-30.md).
+
 **Controlled positive-time approximation (2026-09-30):** explicit polynomials
 in the original Wilson transfer now approximate T x by T^2-images with
 squared error at most `||x||^2/(n+1)^2` and a computed tolerance cutoff.
