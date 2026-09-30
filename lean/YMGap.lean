@@ -5814,6 +5814,12 @@ import YMGap.Continuum.BF4WilsonAllNomeTimeAverages
 import YMGap.Continuum.BF4WilsonAllNomeMeshDerivative
 import YMGap.Continuum.BF4WilsonAllNomeRowLinear
 import YMGap.Continuum.BF4WilsonAllNomeRealDerivative
+-- Witnessed closure of actual derivative pairs; generator identification remains open.
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeCore
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraph
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphLinear
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphForm
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphGap
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

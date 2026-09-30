@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL derivative graph closure (2026-09-30 UTC;
+chart unchanged): the actual pairs (Tx,A x) now have a single-valued closure
+under supplied graph-limit moduli. Its quotient domain embeds in the SAME
+carrier, has rational operations, positive symmetric form, zero vacuum
+action and the full fixed-nome/width margin (1-q)/2 on the vacuum complement.
+No preimage bound,
+inverse or log-series identification is used. Taylor differentiation on
+this whole witnessed graph, full generator-domain identification and
+self-adjointness remain OPEN, as do physical calibration, scaling survival
+and all canonical Clay fields. Five final serialized focused checks passed
+51 gates within {propext, Quot.sound}; no broad run. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 Verified supporting ORIGINAL real-time range derivative (2026-09-30 UTC;
 chart unchanged): higher mixed-moment smoothing makes the actual quotients
 Q_k x=2^k*(I-R_k)*T x converge with explicit original output streams/moduli.

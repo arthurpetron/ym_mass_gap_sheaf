@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL witnessed derivative graph closure (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeDerivativeCore.derivativeAction_commutes_time`,
+  `derivativeAction_kernel_zero`, `derivativeAction_dist_bound` and
+  `derivativeAction_unit_zero` prove actual A-core laws. Positive roots
+  preserve the original fixed vacuum; no log-series identity is assumed.
+- `BF4WilsonAllNomeDerivativeGraph.graph_single_valued` proves closability;
+  `diagonal` flattens supplied simultaneous graph limits with an explicit
+  modulus. `input_injective` embeds the resulting quotient domain in the
+  unchanged carrier; `vacuum_input` and `vacuum_action` pin the vacuum.
+- `BF4WilsonAllNomeDerivativeGraphLinear` supplies witnessed rational
+  scaling/addition and the corresponding input/action laws.
+- `BF4WilsonAllNomeDerivativeGraphForm.action_nonnegative` and
+  `action_symmetric` pass the actual core form through graph limits.
+  `BF4WilsonAllNomeDerivativeGraphGap.action_form_gap` retains (1-q)/2
+  on the original vacuum complement, at fixed nome and width.
+- OPEN: the actual Taylor theorem on this whole witnessed graph,
+  full generator-domain identification, self-adjointness, equality with
+  the existing log-series graph, physical calibration, spatial/scaling
+  control, nontrivial continuum survival and every Clay frontier field.
+  Closedness here consumes supplied graph-limit witnesses; no choice or
+  full-carrier density/continuity is asserted and no boundary state removed.
+- Five final focused serialized checks passed 51 gates within
+  {propext, Quot.sound}. No new sorry/axiom, frontier weakening or broad run.
+  Exact targets and hashes: `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED ORIGINAL all-small-real-time Taylor derivative (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeTimeAverages.timeAverage_defect` gives the actual finite

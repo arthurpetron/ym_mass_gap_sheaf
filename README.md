@@ -35,8 +35,14 @@ B(Tx,A x)>=(1-q)/2*||Tx||^2. The SAME A now gives the Taylor derivative at
 EVERY small positive real increment: ||Tx-S(t)Tx-t*A x||^2<=epsilon*t^2,
 with a computed positive radius for each supplied input and epsilon.
 Finite time averages and actual represented limits prove this without
-whole-carrier continuity. Time is still in original lattice units. The closed
-generator domain, self-adjointness, equality with the existing log series,
+whole-carrier continuity. The actual pairs (Tx,A x) now have a single-valued
+closure under supplied graph-limit moduli, embedded in the original carrier.
+Its domain has checked rational operations, positive symmetric form, zero
+vacuum action and the same fixed-nome/width margin (1-q)/2 on the vacuum
+complement. No bound on
+preimages is required. Extending the Taylor theorem to this graph and
+identifying the full generator domain remain open. Time is still in original
+lattice units; self-adjointness, equality with the existing log series,
 physical calibration, scaling survival and Clay remain open.
 See the
 [construction and exact boundary](audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md).

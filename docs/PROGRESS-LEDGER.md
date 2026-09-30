@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL all-small-real-time Taylor derivative (2026-09-30 UTC)
+## Current increment: ORIGINAL witnessed derivative graph closure (2026-09-30 UTC)
+
+`BF4WilsonAllNomeDerivativeGraph.graph_single_valued` and `diagonal`
+construct a single-valued closure of the actual pairs (Tx,A x) under
+supplied simultaneous graph moduli. No inverse or bounded preimage sequence
+is needed. The quotient domain embeds in the original carrier, contains
+the vacuum with zero action, and has checked rational operations.
+`DerivativeGraphForm.action_nonnegative` and `action_symmetric` pass the
+actual core form to the domain; `DerivativeGraphGap.action_form_gap`
+retains the original fixed-nome/width margin (1-q)/2. These abbreviated
+names have prefix `BF4WilsonAllNome`.
+
+Consumer: the actual semigroup derivative on this witnessed graph, then
+generator-domain identification and self-adjointness on a justified sector.
+Those remain OPEN. A source-dependent Taylor radius cannot simply be
+passed through a graph limit; the next bridge must use graph coordinates
+and explicit output-continuity data. Equality with the existing log-series
+graph, physical calibration, survival and Clay remain OPEN.
+Five final serialized focused checks passed 51 gates within
+{propext, Quot.sound}; no broad run or canonical chart change. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
+## Earlier increment: ORIGINAL all-small-real-time Taylor derivative (2026-09-30 UTC)
 
 `BF4WilsonAllNomeRealDerivative.realTaylorCertificate` now supplies a
 positive radius for ||Tx-S(t)Tx-t*A x||^2<=epsilon*t^2 at EVERY supplied

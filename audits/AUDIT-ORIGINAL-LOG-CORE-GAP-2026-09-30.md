@@ -488,16 +488,51 @@ The earlier core form margin now concerns this actual range derivative,
 but it has not become a physical mass calibration or a self-adjoint
 Hamiltonian theorem.
 
+## Follow-on: closed witnessed graph of the actual derivative
+
+The core pairs are now (Tx,A x), not (Tx,Fx). A graph witness supplies a
+source sequence and one explicit modulus controlling both coordinates.
+Commutation and continuity give T y=A u for a graph limit (u,y). When
+u=0, the original kernel law gives A y=0. Symmetry then makes y orthogonal
+to every approximating A-output, so convergence forces y=0. Subtraction
+gives single-valuedness. This proof does not bound the preimages, choose
+an inverse, assume T injective, or delete its boundary kernel.
+
+The explicit diagonal samples the nth inner witness at its own invSucc(n)
+threshold. It constructs closure under SUPPLIED simultaneous graph limits,
+not a countable-choice selection of witnesses. Identifying presentations
+by their original input gives a domain embedded in the unchanged carrier.
+The positive-root fixedspace argument supplies the actual zero-action
+vacuum: if R squared fixes u, positivity applied to u-Ru forces Ru=u.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `derivativeAction_commutes_time`, `derivativeAction_kernel_zero`, `derivativeAction_dist_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeCore.lean:56`, `:86`, `:96` | Original-time commutation, actual kernel annihilation and distance contraction in the preimage norm. |
+| `derivativeAction_unit_zero`, `core_nonnegative`, `core_symmetric` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeCore.lean:165`, `:182`, `:186` | Actual vacuum annihilation and positive symmetric form on (Tx,A x). |
+| `GraphLimit`, `graph_time_pin`, `graph_zero_input`, `graph_single_valued` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraph.lean:78`, `:97`, `:114`, `:147` | Simultaneous moduli, time pin, closability and unique output. |
+| `diagonal`, `input_injective`, `vacuum_input`, `vacuum_action` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraph.lean:173`, `:223`, `:239`, `:242` | Witnessed closedness, original-carrier domain embedding and exact vacuum pins. |
+| `scale`, `add`, `action_add`, `action_smul` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphLinear.lean:94`, `:116`, `:160`, `:174` | Explicit rational domain operations and linearity of its action. |
+| `graphPairingModulus`, `action_nonnegative`, `action_symmetric` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphForm.lean:81`, `:194`, `:201` | Pairing continuity from image/output caps, positivity and symmetry on the quotient domain. |
+| `graph_defect_form_le`, `graph_form_gap`, `action_form_gap` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphGap.lean:130`, `:171`, `:179` | The actual derivative graph retains the unconditional defect floor and original margin (1-q)/2 on its vacuum complement. |
+
+Only `coreMargin` and `completed_defect_form_gap` are reused from
+`lean/YMGap/Continuum/BF4WilsonAllNomeLogCoreGap.lean:52` and `:101`.
+Their statements concern the original transfer and its rate; the new
+derivative term uses `derivative_form_ge_defect` from
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDerivativeGap.lean:97`.
+No equality A=F is used. The margin retains its nome/width dependence.
+
 ## Remaining obligations and next consumer
 
-NEXT: construct the closed, single-valued graph of the actual pairs
-(T x,A x) on a justified positive-time sector. The existing series graph
-is specific to F=regularizedLog; it cannot be reused as an A-graph without
-an equality theorem. Source review identifies a short closability route:
-pass finite quotient/time commutation through the existing original time
-rows; use the proved preimage norm bound, symmetry and dependence only on
-T x. This is a PLAN, not a newly checked graph declaration. Full-carrier
-density must not be assumed in the presence of the original boundary kernel.
+NEXT: extend the actual Taylor theorem to this witnessed A-graph, then
+identify the generator domain on a justified positive-time sector and
+address self-adjointness. A core Taylor radius depends on its source;
+passing that radius through a graph limit is not a checked argument.
+The planned bridge uses finite time averages and graph-output continuity,
+retaining supplied representative streams or continuity moduli as data.
+The fixed-time increment estimate and the average-quotient identification
+needed for this extension are NOT proved by the current graph modules.
+Full-carrier density must not be assumed with the original boundary kernel.
 
 The appropriate closed generator domain, self-adjointness, density in the
 appropriate physical sector, real-time zero-continuity on the witnessed
@@ -704,3 +739,28 @@ it does not verify that future graph. Final log SHA-256:
   `78d439c7966eb6bf6fb603a32d0fd30f31a353ad7ce62271ac656376f7aa15db`
 - `/tmp/ym-wilson-real-derivative-20260930.log`:
   `fd446d78d346fbbb6220af1b9a0ff0aea25c510d7df2cd0d1a5e7f398e73781d`
+
+Actual derivative-graph verification: five final serialized focused checks
+passed 51 gates (eight Core, 21 Graph, nine Linear, eight Form, five Gap),
+all within {propext, Quot.sound}, with no final warnings. Core required
+explicit limit unfolding, a width argument and zero-vector/presentation
+rewrites; Form required avoiding a local-notation binder collision.
+Graph, Linear and Gap passed their first focused checks. The safe-build
+skill kept verification targeted and serialized, with one 20 GiB worker
+and a 12 GiB OS reserve. No ceiling increase or safety stop was needed.
+No full root/tree build, audit or guard; root imports are not root verification.
+No new sorry/axiom, classical dependency, frontier weakening, kernel
+deletion or canonical chart change. Sol drafted Core, Luna drafted Linear
+and independently reviewed graph scope, and main reviewed/finalized every
+module and performed every compiler check. Final log SHA-256:
+
+- `/tmp/ym-wilson-derivative-core-20260930.log`:
+  `1d7998275b8c5c5f7d92fcf7e5e21a4eebab34474f16f31171bd9ce5f9d3cf69`
+- `/tmp/ym-wilson-derivative-graph-20260930.log`:
+  `63f962a1240ed5677b53639305096caf894a59134750751c5d7167d7b8e0a150`
+- `/tmp/ym-wilson-derivative-graph-linear-20260930.log`:
+  `ca48887ee38ef42c074ca1847fbdc31320d8ef216b79c8233417567905c4aad1`
+- `/tmp/ym-wilson-derivative-graph-form-20260930.log`:
+  `0e86ecad0dbe06a086fe923a896f82b77fe0f3a4a406b91b5d6bf59c5c8e0015`
+- `/tmp/ym-wilson-derivative-graph-gap-20260930.log`:
+  `1caadba2e871e0c54c7868fbf8aaecfb125fa644db554894323a9135bcc0fc8e`

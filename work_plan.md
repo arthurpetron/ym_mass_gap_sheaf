@@ -179,11 +179,28 @@ original lattice-time units, without log-series identification or inverses.
 Four final focused capped checks passed 58 gates within {propext, Quot.sound};
 no full root/tree build, audit/guard or canonical chart change.
 
-NEXT reconstruction obligation: construct the closed, single-valued graph
-of the actual core pairs (T x,A x), on a justified positive-time sector,
-then address its generator domain and self-adjointness. The existing series
-graph concerns F=regularizedLog, not A; equality remains OPEN and is not an
-implicit identification. No full-carrier density or injectivity is available.
+FOLLOW-ON PROVED: `BF4WilsonAllNomeDerivativeGraph.graph_single_valued`
+and `diagonal` construct the actual A-graph's single-valued closure under
+supplied simultaneous convergence moduli. `input_injective` embeds its
+quotient domain in the unchanged carrier. Time commutation, kernel
+annihilation and symmetry prove closability without bounded preimages.
+`DerivativeGraphLinear` supplies rational domain operations;
+`DerivativeGraphForm` supplies positivity and symmetry;
+`DerivativeGraphGap.action_form_gap` retains (1-q)/2 on the SAME vacuum
+complement. The vacuum is an actual zero-action domain input. These names
+have the `BF4WilsonAllNome` prefix. Five final serialized focused checks
+passed 51 printed gates within {propext, Quot.sound}; no broad check or
+canonical chart change.
+
+NEXT reconstruction obligation: extend the actual Taylor derivative to
+this witnessed graph, then identify the generator domain on a justified
+sector and address self-adjointness. Work with graph coordinates, not a
+uniform cap on preimages or a common source-dependent Taylor radius.
+The needed finite-average/graph-output continuity bridge is still OPEN;
+retain supplied representative streams or continuity moduli as data.
+The existing series graph concerns F=regularizedLog, not A; equality remains
+OPEN and is not an implicit identification. No full-carrier density or
+injectivity is available.
 Physical calibration, spatial/scaling control and the primary scaling-survival
 frontier remain OPEN. No canonical field is weakened.
 
