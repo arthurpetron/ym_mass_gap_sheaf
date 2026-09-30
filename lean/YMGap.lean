@@ -5578,6 +5578,15 @@ import YMGap.Continuum.SU2QuaternionConditionalHaarTranslation
 import YMGap.Continuum.SU2QuaternionTranslationSpectatorProjection
 import YMGap.Continuum.SU2QuaternionSelectedConditionalTranslation
 import YMGap.Continuum.BF4ExactSlabGaugeWeightedPairing
+-- Actual gauge ledger and conditional inverse approximants; completed sector remains open.
+import YMGap.Continuum.SU2QuaternionConjugationProjection
+import YMGap.Continuum.SU2QuaternionHaarCarrierProjection
+import YMGap.Continuum.SU2QuaternionSelectedProjectionFixed
+import YMGap.Continuum.SU2QuaternionSelectedTranslationCarrier
+import YMGap.Continuum.SU2QuaternionSelectedProjectionEquivariance
+import YMGap.Continuum.SU2QuaternionGaugeFamilyProjection
+import YMGap.Continuum.SU2QuaternionLiftedFamilyProjection
+import YMGap.Continuum.BF4ExactSlabGaugeConditionalApproximation
 import YMGap.Continuum.SU2QuaternionSharedHeatCorrelationObstruction
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair

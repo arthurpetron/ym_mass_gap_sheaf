@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original conditional approximants preserve gauge invariance (2026-09-30):**
+the actual vertex-gauge ledger now commutes with physical-link integration.
+The original normalizer, inserted numerator and every conditional inverse
+approximant preserve the existing polynomial gauge predicate. This includes
+the exact Cauchy representative used by the original completed operator;
+completed-sector preservation and the useful signed bound remain open. See
+the [proof and scope audit](audits/AUDIT-GAUGE-CONDITIONAL-APPROXIMANTS-2026-09-30.md).
+
 **Conditional gauge identities proved (2026-09-30):** conditional Haar
 integration now respects the existing selected-link translations while
 retaining arbitrary spectator dependence. The full-action pairing is

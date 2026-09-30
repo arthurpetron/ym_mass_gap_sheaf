@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting original gauge approximants (2026-09-30 UTC;
+chart unchanged): the actual vertex ledger commutes with physical family
+integration. The original normalizer, inserted numerator and every inverse
+iterate retain the existing gauge predicate, including every polynomial
+of the SAME full-action conditional Cauchy representative. Completed-sector
+preservation and a useful signed scaling-family estimate remain open;
+A03 and all same-theory Clay claims remain open. Evidence:
+`audits/AUDIT-GAUGE-CONDITIONAL-APPROXIMANTS-2026-09-30.md`.
+
 Verified supporting conditional gauge identities (2026-09-30 UTC;
 chart unchanged): conditional Haar cancellation retains arbitrary spectator
 insertions and the original selected coordinates. Distinct spectator

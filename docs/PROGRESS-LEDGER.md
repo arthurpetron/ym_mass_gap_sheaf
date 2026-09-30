@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: conditional gauge prerequisites (2026-09-30 UTC)
+## Current increment: original conditional gauge approximants (2026-09-30 UTC)
+
+The actual finite vertex ledger commutes with physical family integration,
+including inverse orientations and supported-carrier composition. Exact
+lift/projection transport returns to the original polynomial predicate.
+The actual normalizer, inserted numerator and every inverse iterate retain
+that predicate; so does every polynomial of the SAME full-action
+`conditionalRep`. This closes the dense representative leg, not the
+completed-sector join or a useful signed estimate. NEXT: same-completion
+sector construction/preservation, without losing focus on the missing
+scaling-family estimate. No rho or new gap is produced. All same-theory
+continuum/Clay requirements remain open. All 31 gates passed eight focused
+serialized one-worker/20 GiB checks, with Luna/Sol review. No broad run or
+canonical chart change. Evidence:
+`audits/AUDIT-GAUGE-CONDITIONAL-APPROXIMANTS-2026-09-30.md`.
+
+## Earlier increment: conditional gauge prerequisites (2026-09-30 UTC)
 
 Conditional Haar cancellation now retains arbitrary spectator insertions
 at every polynomial degree, including the original selected left/right

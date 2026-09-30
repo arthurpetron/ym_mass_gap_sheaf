@@ -25,6 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original conditional approximants preserve gauge invariance (2026-09-30 UTC)
+
+The actual finite vertex-gauge ledger now commutes with physical family
+Haar integrations. Carrier congruence follows by transporting square-null
+differences, inverse orientations use multiplier conjugation, and literal
+lift/projection equality returns to the original coordinates.
+`BF4ExactSlabGaugeConditionalApproximation.conditionalRep_invariant`
+proves that every polynomial of the EXISTING full-action conditional
+Cauchy representative preserves the existing fixed-tags `Invariant`
+predicate. The original normalizer, inserted numerator and inverse
+recurrence are unchanged; no scalar floor or alternate weight is used.
+
+NEXT for this branch: construct/characterize the closed invariant sector
+on the SAME full-action completion and prove that the actual completed
+conditional operators and auxiliary recurrence preserve it. Termwise
+invariance alone does not close that step. The main analytic priority is
+still a useful original-action signed estimate on justified scaling;
+gauge symmetry supplies no rho. Collective signed bounds remain alternatives.
+
+Eight focused serialized one-worker/20 GiB checks passed all 31 gates
+within {propext, Quot.sound}; independent Luna/Sol scope review passed.
+No new sorry, axiom, analytic bundle, broad run or canonical chart change.
+Same-theory continuum/Clay requirements remain open. Evidence:
+`audits/AUDIT-GAUGE-CONDITIONAL-APPROXIMANTS-2026-09-30.md`.
+
 ### Conditional gauge prerequisites proved (2026-09-30 UTC)
 
 `SU2QuaternionConditionalHaarTranslation` proves conditional Haar

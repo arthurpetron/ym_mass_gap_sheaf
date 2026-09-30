@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## Original conditional gauge approximants (2026-09-30 UTC)
+
+- **proved:** the actual vertex ledger commutes with physical family
+  integration. Inverse orientations and carrier-compatible composition
+  are included; literal lift equality returns to the original coordinates.
+- **original weighted join:** `BF4ExactSlabGaugeConditionalApproximation`
+  proves invariance of the actual normalizer, inserted numerator, inverse
+  iterates and every term of the SAME `conditionalRep`, using the existing
+  fixed-tags original-polynomial `Invariant` predicate.
+- **open join:** a closed invariant sector on the SAME full-action
+  completion, preservation by completed block projections and the actual
+  auxiliary recurrence. No completed gauge action is postulated.
+- **open analytic input:** useful signed covariance/energy control on
+  justified scaling; symmetry supplies no rho. Geometry, nontrivial
+  survival, thermodynamic and same-theory OS/QFT/physical mass/every-group
+  Clay remain open. No canonical field or chart claim is closed.
+- **verification:** eight focused serialized one-worker/20 GiB checks,
+  all 31 gates within {propext, Quot.sound}; independent Luna/Sol review.
+  No new sorry, axiom, analytic bundle, weakened frontier or broad run.
+  Evidence: `audits/AUDIT-GAUGE-CONDITIONAL-APPROXIMANTS-2026-09-30.md`.
+
 ## Conditional gauge prerequisites (2026-09-30 UTC)
 
 - **proved:** conditional Haar cancellation for head and original selected
