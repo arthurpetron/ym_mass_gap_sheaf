@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting original-carrier complement iteration (2026-09-30 UTC;
+chart unchanged): positive coefficient differences reduce convergence to
+the scalar residual 1-p_n(1)<=2/(n+2). The actual D=I-T polynomial norm
+bound and explicit represented limit now check on the SAME Wilson carrier.
+No general functional calculus, inverse or other-carrier identification is
+used. The square equation (I-H)^2=T, continuous time and generator identity
+remain OPEN, as do scaling survival and every canonical Clay field.
+Four focused capped checks passed 26 gates. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md` (follow-on construction).
+
 Verified supporting original series-core gap (2026-09-30 UTC; chart unchanged):
 the actual transfer rate q now bounds the original series core form below by
 (1-q)/2 times its input norm. On the vacuum complement the series kernel is

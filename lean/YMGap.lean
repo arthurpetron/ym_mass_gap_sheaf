@@ -5776,6 +5776,11 @@ import YMGap.Continuum.BF4WilsonAllNomeLogGraphForm
 -- Actual transfer gap on the original series core; no physical calibration asserted.
 import YMGap.Continuum.BF4WilsonAllNomeLogCoreGap
 import YMGap.Continuum.BF4WilsonAllNomeLogGraphGap
+-- Same-carrier complement iteration limit; square equation remains a separate step.
+import YMGap.Continuum.ComplementRootMass
+import YMGap.Continuum.ComplementRootPolynomial
+import YMGap.Continuum.BF4WilsonAllNomeDefectPolynomial
+import YMGap.Continuum.BF4WilsonAllNomeRootIteration
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

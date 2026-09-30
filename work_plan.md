@@ -48,11 +48,25 @@ An explicit input-pairing modulus bounds nearby images, never preimages.
 the whole witnessed graph/domain's original vacuum complement. One further
 focused capped check passed all five printed gates in {propext, Quot.sound}.
 
-NEXT reconstruction frontier: construct fractional time for this EXACT T,
+FOLLOW-ON VIEWPOINT AND CONSTRUCTION: instead of porting the legacy uniform
+functional calculus, use D=I-T and positive coefficient polynomials
+p_0=0, p_(n+1)=(d+p_n^2)/2. Their masses m_n=p_n(1) have residual
+r_n=1-m_n<=2/(n+2), and p_n-p_m has nonnegative coefficients for m<=n.
+`BF4WilsonAllNomeDefectPolynomial.action_norm_bound` proves the actual
+norm cap by coefficient mass. `BF4WilsonAllNomeRootIteration` now constructs
+the SAME-carrier limit H of p_n(D), with inner representatives and outer
+modulus supplied as data and no choice over quotient representatives.
+The ordered squared-distance bound is r_m^2*||x||^2. Four focused capped
+checks passed 26 gates within {propext, Quot.sound}; no canonical field changed.
+
+NEXT reconstruction step: prove polynomial-action multiplication and pass
+the finite recurrence through the controlled limit to establish (I-H)^2=T
+and positivity of I-H. This square equation is NOT yet checked. Only then
+iterate the positive root to construct fractional time for this EXACT T,
 with strong continuity on the closure of its positive-time range, then
 identify the existing series graph with its generator by a same-core
 difference-quotient theorem and graph-core argument. Reuse scalar polynomial
-root/approximation estimates where applicable; the existing thermodynamic
+estimates where applicable; the existing thermodynamic
 dyadic semigroup uses a different carrier/transfer and is not this join.
 Strong continuity at zero on the whole carrier must not be asserted while
 its nonzero time kernel remains. Scalar-log identification, appropriate

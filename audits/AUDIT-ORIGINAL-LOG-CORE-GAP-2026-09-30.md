@@ -85,6 +85,54 @@ gives the SAME full margin (1-q)/2 on every vacuum-orthogonal graph input.
 | `graph_form_gap` | `lean/YMGap/Continuum/BF4WilsonAllNomeLogGraphGap.lean:174` | Full original margin for vacuum-orthogonal graph input. |
 | `action_form_gap` | `lean/YMGap/Continuum/BF4WilsonAllNomeLogGraphGap.lean:182` | Same quantitative bound on the existing quotient domain and action. |
 
+## Follow-on construction: step back to positive coefficients
+
+The direct polynomial iteration is now constructed on the ORIGINAL carrier.
+Set D=I-T and define p_0(d)=0, p_(n+1)(d)=(d+p_n(d)^2)/2. Its coefficients
+are nonnegative and increase coefficientwise. The mass m_n=p_n(1) obeys
+m_(n+1)=(1+m_n^2)/2, with residual r_n=1-m_n satisfying
+
+    r_(n+1)=r_n-r_n^2/2,     0<=r_n<=2/(n+2).
+
+For m<=n, the difference polynomial p_n-p_m has nonnegative coefficients
+and mass at most r_m. On the existing Wilson completion, mixed-moment
+positivity and monotonicity give 0<=B(D^i x,D^j x)<=B(x,x). Bilinear
+expansion therefore proves
+
+    ||P(D)x||^2 <= P(1)^2 ||x||^2       (nonnegative coefficients),
+    ||p_n(D)x-p_m(D)x||^2 <= r_m^2 ||x||^2.
+
+This is NOT a sup-norm calculus for arbitrary signed polynomials. Signed
+subtraction is performed exactly before its positive coefficient certificate
+is applied. No group-dependent mass or lower spectral endpoint is inferred.
+The relative convergence rate is independent of nome and width because it
+uses only the proved original positive-contraction moments, not a gap.
+
+Each finite row has an explicit original Cauchy representative. For a supplied
+representative X with norm ceiling c, the absolute squared-distance Cauchy
+modulus is max((4*c).num.toNat, epsilon.den). The existing diagonal limit
+uses this at epsilon/16. Exact equality of finite actions makes the limit
+independent of the presentation; no quotient representatives are selected.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `residual_tail_le` | `lean/YMGap/Continuum/ComplementRootMass.lean:219` | Explicit rational residual bound 2/(n+2). |
+| `ordered_difference_nonnegative` | `lean/YMGap/Continuum/ComplementRootPolynomial.lean:97` | Coefficientwise positivity of p_n-p_m for m<=n. |
+| `action_norm_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeDefectPolynomial.lean:145` | Squared coefficient-mass cap on the original completed norm. |
+| `action_distance_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeDefectPolynomial.lean:193` | Same cap for an exactly retained positive polynomial difference. |
+| `ordered_distance_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeRootIteration.lean:75` | Relative Cauchy bound for the actual original-carrier approximants. |
+| `iterationModulus`, `iterationRows` | `lean/YMGap/Continuum/BF4WilsonAllNomeRootIteration.lean:115`, `:149` | Absolute outer modulus and explicitly represented original rows. |
+| `complementLimit`, `complementLimitCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeRootIteration.lean:170`, `:189` | Same-carrier limit with a witnessing convergence modulus. |
+
+The immediate remaining join is polynomial-action multiplication and
+continuity through this controlled limit, needed to prove (I-H)^2=T and
+positivity of I-H for H=complementLimit. Neither assertion is claimed here.
+The limit is not yet named or advertised as a square-root time operator.
+Dyadic compatibility, strong continuity and the existing log-series derivative
+remain subsequent separate requirements. This smaller positive-coefficient
+construction replaces the proposed port of a legacy carrier's full calculus;
+it does not replace the primary missing scaling-survival estimate.
+
 ## Remaining obligations
 
 Scalar-log identification, density in the appropriate physical sector,
@@ -120,3 +168,17 @@ Follow-on verification: one further focused capped check passed the five new
 graph-gap gates within {propext, Quot.sound}; no full-tree check or canonical
 chart change. Log `/tmp/ym-log-graph-gap-20260930.log`, SHA-256:
 `0a9afb9c9e1faf8c5e99cf91be1c6a77137e09e4443c6a30c7a6e3dd801c78b3`.
+
+Complement-iteration verification: four serialized focused checks passed
+26 gates within {propext, Quot.sound}, with the same one-worker/20 GiB cap
+and 12 GiB reserve. No full build/audit/guard, new sorry, axiom or canonical
+closure. Final log SHA-256 values:
+
+- `/tmp/ym-defect-polynomial-20260930.log`:
+  `63c723750ad06d8e0602b530d3279b2f0e143e4290919eb935e1975a99b029d5`
+- `/tmp/ym-complement-root-mass-20260930.log`:
+  `ef1588e697fb3f5e2a9737e27bad638c5de886380e608e863ad2a8e06cf236a8`
+- `/tmp/ym-complement-root-polynomial-20260930.log`:
+  `7f677e62a034435045017dd618ac1eddaacc23ac1b2896f888f860d5950e6314`
+- `/tmp/ym-wilson-root-iteration-20260930.log`:
+  `9160842d47be2ee3a51b7c1455b8aa26e909e4f337de11e8f9ad8601a1f76f27`

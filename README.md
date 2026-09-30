@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Direct reconstruction step (2026-09-30):** a positive-coefficient iteration
+in the original transfer defect now has a proved convergence rate and an
+actual same-carrier limit. This provides a concrete route toward square-root
+time without assuming an inverse transfer or substituting another carrier.
+The square equation and continuous-time generator remain open. See the
+[construction and exact boundary](audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md).
+
 **Original time-series graph bound (2026-09-30):** the existing transfer gap
 now gives a positive quadratic-form bound on every vacuum-orthogonal input
 of the same constructed witnessed graph, retaining the full core margin.

@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED original-carrier complement-iteration convergence (2026-09-30 UTC)
+
+- `ComplementRootPolynomial` proves coefficientwise monotonicity and
+  positive ordered differences for p_0=0, p_(n+1)=(d+p_n^2)/2.
+  `ComplementRootMass.residual_tail_le` gives 1-p_n(1)<=2/(n+2).
+- `BF4WilsonAllNomeDefectPolynomial.action_norm_bound` bounds actual
+  positive-coefficient polynomials in D=I-T by squared coefficient mass.
+  `BF4WilsonAllNomeRootIteration.ordered_distance_bound` retains the
+  signed difference before applying its positive coefficient certificate.
+- `complementLimitCertificate` constructs its actual limit on the SAME
+  original completion, with explicit representative and convergence data.
+  No arbitrary quotient-valued sequence is lifted by choice.
+- OPEN: the square equation (I-H)^2=T, root positivity and dyadic
+  compatibility, strong continuity on the appropriate range closure,
+  same-core regularized-log derivative, graph-core/generator identity,
+  spatial/spacing calibration, survival and all Clay fields.
+- Four focused one-worker/20 GiB checks passed 26 printed gates in
+  {propext, Quot.sound}; no full build/audit/guard, new sorry/axiom, frontier
+  weakening or canonical chart change. Evidence is the follow-on section of
+  `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED original series-core gap and graph kernel control (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeLogRangePositive.regularizedLog_time_firstTerm_le`
