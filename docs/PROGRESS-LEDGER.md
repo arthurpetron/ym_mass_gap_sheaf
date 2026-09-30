@@ -4,7 +4,38 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL derivative/graph criterion without output-range premise (2026-09-30 UTC)
+## Current increment: ORIGINAL derivative graph without range premises; direct adjoint tests (2026-09-30 UTC)
+
+`BF4WilsonAllNomePolynomialTimeRange.polynomial_time_pin` gives an exact
+finite decomposition p(D)x=p(1)x+T(preimage), with actual Cauchy preimages.
+`RootTimeRange.rootRange` uses the vanishing root-polynomial mass and the
+existing fixed-depth root limit to construct a range witness for each root
+image. `DerivativeRootContinuity.root_close` uses the actual quotient limit
+to bound quotient norms, then u-R_k u=2^(-k)Q_k u gives an explicit root-to-input
+modulus. `DerivativeInputRange.inputRange` diagonalizes these original
+time images. Neither coordinate range is now an extra premise of
+`representedGraphOfQuotientLimit`; `quotient_form_gap` and
+`quotientRealTaylorCertificate` retain the same fixed-parameter margin and
+all-small-positive-real-time derivative. Abbreviated names have prefix
+`BF4WilsonAllNome`.
+
+A shorter next join is also proved: `DerivativeAdjointTests.graphOfPairings`
+constructs the graph from weak adjoint tests when both candidate coordinates
+have witnessed sector membership. Bounded A/T symmetry turns those tests
+into A u=T v. This avoids a new resolvent for this precise graph-pairing
+criterion. It does NOT construct a Hilbert-sector adjoint package or identify
+a physical Hamiltonian. A differentiable input in the actual time kernel
+is zero; no boundary state is deleted from the ambient carrier.
+
+Consumer boundary: inspect the exact Hilbert/adjoint interface and its
+physical-sector requirements before adding further reconstruction wrappers.
+The primary source-specific energy/variance upper estimate on a justified
+scaling family, physical calibration and Clay remain OPEN. Five final
+focused serialized checks passed 35 gates within {propext, Quot.sound};
+no broad run or canonical chart change. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
+## Earlier increment: ORIGINAL derivative/graph criterion without output-range premise (2026-09-30 UTC)
 
 `BF4WilsonAllNomeDerivativeOutputRange.outputRange` constructs the missing
 derivative-output range witness from the input range and actual state-quotient
@@ -19,9 +50,9 @@ cancels the exact squared dyadic time factor in the existing Taylor estimate.
 every sufficiently small supplied positive real time. Abbreviated module
 names have prefix `BF4WilsonAllNome`.
 
-Consumer: identify the derivative domain without a separately supplied
-input-range witness, retaining explicit representatives and moduli.
-Self-adjointness remains a distinct obligation, as do log-series equality,
+The separate input-range premise is now removed above, retaining explicit
+representatives and moduli. Packaged Hilbert self-adjointness remains a
+distinct obligation, as do log-series equality,
 physical calibration, scaling survival and Clay. No full-carrier continuity
 or kernel deletion is asserted. Three final focused serialized checks
 passed 21 printed gates within {propext, Quot.sound}; no broad run or

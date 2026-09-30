@@ -53,8 +53,14 @@ The output-range premise is now DERIVED from actual dyadic quotient
 convergence and the input-range witness, by an explicit depth-dependent
 diagonal. Conversely, the graph Taylor radius computes the quotient-limit
 modulus. This characterizes the represented graph on that witnessed input
-sector; no separate output-range assumption is needed. Deriving the input
-sector from differentiability without assuming it remains open.
+sector; no separate output-range assumption is needed. The INPUT range
+witness is now derived too: finite root polynomials split into a vanishing
+scalar mass plus explicit T-images, and quotient convergence makes the
+roots approach the input. Thus actual represented dyadic derivative data
+construct the represented graph with NEITHER range premise, retaining the
+fixed-nome/width form margin and all-small-real-time Taylor certificate.
+On the witnessed sector, weak adjoint pairing tests also construct this
+same graph directly; no resolvent is needed for that pairing criterion.
 Time is still in original lattice units; self-adjointness,
 equality with the existing log series, physical calibration, scaling
 survival and Clay remain open.

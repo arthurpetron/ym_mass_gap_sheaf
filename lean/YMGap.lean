@@ -5838,6 +5838,12 @@ import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphEquation
 import YMGap.Continuum.BF4WilsonAllNomeStateQuotientDistance
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphQuotient
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeOutputRange
+-- Neither range premise is assumed for actual derivatives; scoped weak adjoint tests.
+import YMGap.Continuum.BF4WilsonAllNomePolynomialTimeRange
+import YMGap.Continuum.BF4WilsonAllNomeRootTimeRange
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeRootContinuity
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeInputRange
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeAdjointTests
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

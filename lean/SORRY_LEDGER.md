@@ -1,5 +1,40 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL derivative graph without range premises and scoped adjoint tests (2026-09-30 UTC)
+
+- `BF4WilsonAllNomePolynomialTimeRange.polynomial_time_pin` proves the
+  finite decomposition p(D)x=p(1)x+T(preimage), using actual finite inverse
+  sums; `preimageRepresentative_pin` returns its original representative.
+  `polynomial_time_error` identifies the exact squared scalar-mass cost.
+- `BF4WilsonAllNomeRootTimeRange.rootRange` constructs original T-range
+  witnesses for every fixed-depth root image. The root mass and original
+  approximation moduli are combined explicitly; no uniform-in-depth
+  modulus, inverse transfer or alternate carrier is assumed.
+- `BF4WilsonAllNomeDerivativeRootContinuity.root_close` derives root-to-input
+  convergence from the actual quotient-limit modulus and supplied output
+  norm ceiling. `rootModulus` retains the computed cutoff.
+- `BF4WilsonAllNomeDerivativeInputRange.inputRange` constructs the former
+  INPUT range premise by a diagonal. `representedGraphOfQuotientLimit`
+  returns the actual graph and source representatives from supplied original
+  input/output streams and actual quotient convergence, with NEITHER
+  coordinate range assumed. `quotient_form_gap` and
+  `quotientRealTaylorCertificate` carry the fixed-nome/width margin and
+  every-small-positive-real-time Taylor radius to these derivative pairs.
+  `input_time_kernel_zero` retains the boundary obstruction explicitly.
+- `BF4WilsonAllNomeDerivativeAdjointTests.corePairings_iff_equation`
+  identifies weak core tests with A u=T v using actual A/T symmetry.
+  `graphOfPairings` and `representedGraphOfPairings` construct the original
+  graph from adjoint tests on the witnessed TWO-coordinate sector. These
+  are exact pairing criteria, not a new frontier or an assumed resolvent.
+- OPEN: the Hilbert-sector adjoint/self-adjoint operator package and physical
+  sector identification, log-series equality, physical time/mass calibration,
+  spatial/scaling control, nontrivial survival and all canonical Clay fields.
+  No assertion of whole-carrier continuity or differentiability, no kernel
+  deletion, and no representative selection by choice.
+- Five final focused serialized checks passed 35 gates within
+  {propext, Quot.sound}. No new sorry/axiom, frontier weakening or broad run.
+  Exact evidence: `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED ORIGINAL derivative-output range and bidirectional graph criterion (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeStateQuotientDistance.stateQuotient_distance_bound`
@@ -22,8 +57,8 @@
   the input-range and quotient-limit data in the reverse direction;
   `derivativeRealTaylorCertificate` supplies the positive-real Taylor
   radius from the derivative limit, without an output-range premise.
-- OPEN: deriving the INPUT range witness from differentiability without
-  assuming it, self-adjointness, log-series equality, physical calibration,
+- The INPUT range witness is now derived above. OPEN: packaged Hilbert
+  self-adjointness, log-series equality, physical calibration,
   spatial/scaling control, nontrivial survival and all canonical Clay fields.
   No claim that all ambient states differentiate or that the boundary
   kernel vanishes; no source representatives are selected by choice.

@@ -243,17 +243,35 @@ abbreviated module names have prefix `BF4WilsonAllNome`. Three final focused
 serialized checks passed 21 gates within {propext, Quot.sound}; no broad
 run or canonical chart change.
 
-NEXT reconstruction obligation: derive the INPUT time-range witness from
-actual quotient convergence, rather than assume it. Source-guided plan:
-first approximate each fixed-depth original root by T-images. For a finite
-defect polynomial p, the already proved T I_j x=x-D^j x gives the candidate
-finite identity p(D)x=p(1)x-T(sum_j p_j I_j x). The root polynomials have
-computed vanishing mass p(1); combine that error with their existing
-root-approximation modulus. Finally use the quotient limit to control
-u-R_k u and diagonalize. This plan is NOT yet a proved range witness;
-keep all source representatives/moduli and do not claim whole-carrier
-continuity. Self-adjointness still needs a separate same-sector argument.
-The equation A u=T v alone is insufficient with the original boundary kernel.
+FOLLOW-ON PROVED: `BF4WilsonAllNomePolynomialTimeRange.polynomial_time_pin`
+gives p(D)x=p(1)x+T(preimage), with actual finite Cauchy preimages and exact
+squared error p(1)^2*||x||^2. `RootTimeRange.rootRange` combines the
+root-polynomial mass modulus with the existing fixed-depth root convergence.
+`DerivativeRootContinuity.root_close` derives R_k u -> u from actual quotient
+convergence: quotient norms are eventually bounded and
+u-R_k u=2^(-k)Q_k u. `DerivativeInputRange.inputRange` diagonalizes the
+original T-preimages. `representedGraphOfQuotientLimit` now returns the
+actual graph and representatives with NEITHER range premise. Its form gap
+and all-small-positive-real-time Taylor certificate retain the SAME objects
+and fixed nome/width scope. A differentiable time-kernel input is zero.
+
+FOLLOW-ON PROVED (shorter route): weak core pairing tests imply A u=T v
+by the already proved A/T symmetry and completed pairing separation.
+`DerivativeAdjointTests.graphOfPairings` then constructs the graph whenever
+both candidate coordinates have supplied range membership. Conversely,
+graph symmetry supplies all those pairing tests. No resolvent is needed
+for THIS pairing characterization. All abbreviated module names have prefix
+`BF4WilsonAllNome`. Five final focused serialized checks passed 35 gates
+within {propext, Quot.sound}; no broad run or canonical chart change.
+
+NEXT: inspect the actual Hilbert/adjoint consumer and its original-sector
+requirements before introducing further reconstruction wrappers. The weak
+pairing criterion is proved, not a packaged Hilbert adjoint or physical
+Hamiltonian. Do not assume a resolvent is a prerequisite for the now-closed
+pairing join. Keep the primary source-specific energy/variance UPPER bound
+on a justified scaling family in view; structural reconstruction does not
+supply it. The equation A u=T v alone remains insufficient on the full
+ambient carrier with its actual boundary kernel.
 The existing series graph concerns F=regularizedLog, not A; equality remains
 OPEN and is not an implicit identification. No full-carrier density or
 injectivity is available.

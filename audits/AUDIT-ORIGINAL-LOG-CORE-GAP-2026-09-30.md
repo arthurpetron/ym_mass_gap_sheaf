@@ -639,36 +639,83 @@ has a derivative, or that the original boundary kernel has vanished.
 | `derivativeDataOfGraph` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeOutputRange.lean:136` | Returns the input-range witness and actual derivative-limit modulus from represented graph data. |
 | `derivativeRealTaylorCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeOutputRange.lean:148` | Real Taylor radius from the actual quotient limit and INPUT range only. |
 
+## Follow-on: both range premises constructed from actual differentiability (PROVED)
+
+The proposed finite factorization is now checked:
+p(D)x=p(1)x+T(preimage), where preimage=-sum_j p_j I_j x.
+Finite original vector operations construct its Cauchy representative.
+Its exact squared approximation error is p(1)^2*B(x,x). For a fixed-depth
+root polynomial the scalar mass p(1) is the existing explicit residual,
+which tends to zero. Combining its modulus with the actual root-row
+convergence constructs a time-range witness for EVERY fixed-depth root
+image R_k u. The cutoffs depend on k; no depth-uniform estimate is claimed.
+
+Actual quotient convergence Q_k u -> v bounds the quotient norms eventually:
+the squared triangle and a norm ceiling for the supplied v representative
+suffice. The exact identity u-R_k u=2^(-k)Q_k u then gives an explicit
+root-to-input modulus. At depth n choose the root's time preimage to
+invSucc(n) accuracy. This diagonal constructs the INPUT range witness.
+The preceding output-range construction applies, so NEITHER coordinate
+range is an additional premise of the represented derivative-to-graph map.
+Both original representatives and every convergence modulus remain data.
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `polynomial_time_pin`, `preimageRepresentative_pin`, `polynomial_time_error` | `lean/YMGap/Continuum/BF4WilsonAllNomePolynomialTimeRange.lean:114`, `:143`, `:150` | Exact finite T-image decomposition, its original representative and squared scalar-mass error. |
+| `rootPolynomial_mass`, `rootPreimage_error`, `rootRange` | `lean/YMGap/Continuum/BF4WilsonAllNomeRootTimeRange.lean:55`, `:63`, `:104` | Root mass equals the computed residual; each actual fixed-depth root image has an explicit range witness. |
+| `rootModulus`, `root_close` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeRootContinuity.lean:63`, `:111` | Actual quotient convergence computes an all-tail root-to-input cutoff. |
+| `inputPreimage`, `inputPreimage_close`, `inputRange` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeInputRange.lean:59`, `:62`, `:69` | The diagonal supplies the former input-range premise from actual quotient convergence. |
+| `representedGraphOfQuotientLimit` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeInputRange.lean:94` | Actual represented derivative data return a graph and original source representatives, with neither range premise. |
+| `input_time_kernel_zero` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeInputRange.lean:105` | A differentiable input in the original time kernel is zero; ambient boundary states are not removed. |
+| `quotient_form_gap`, `quotientRealTaylorCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeInputRange.lean:115`, `:126` | The original fixed-nome/width margin and all-small-positive-real-time Taylor certificate apply to these actual derivative pairs. |
+
+## Follow-on: direct weak-adjoint graph characterization (PROVED within sector)
+
+No resolvent is needed for this pairing criterion. Write A for the bounded
+preimage derivative and T for the original one-step transfer. Their proved
+symmetry identifies the core tests B(u,A x)=B(v,T x), for every x, with
+A u=T v. Given both coordinate range witnesses, the existing equation
+criterion constructs the graph. Conversely, graph symmetry supplies the
+tests against every graph pair. Kernel components are invisible to the
+weak tests, so the sector restriction cannot simply be removed here.
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `CorePairings`, `GraphPairings` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeAdjointTests.lean:51`, `:54` | Tests against the actual core and the actual witnessed graph, respectively. |
+| `corePairings_iff_equation` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeAdjointTests.lean:57` | Original symmetry and pairing separation give exactly A u=T v. |
+| `graph_pairings`, `graphPairings_core` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeAdjointTests.lean:68`, `:72` | A graph supplies every weak test; graph tests include core tests. |
+| `graphOfCorePairings`, `graphOfPairings`, `corePairings_iff_graphPairings` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeAdjointTests.lean:78`, `:83`, `:88` | Both witnessed sector coordinates plus the tests construct the graph and its modulus. |
+| `representedGraphOfPairings` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeAdjointTests.lean:96` | Supplied input/output representatives return explicit graph-source representatives. |
+
 ## Remaining obligations and next consumer
 
-NEXT: derive the INPUT range witness from actual differentiability,
-instead of supplying it. This is a proposed next construction, NOT a
-proved result. Finite root polynomials and their represented convergence
-are already available via `rootPolynomial` at
-`lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootSquareError.lean:51`,
-`finiteRoot_eq_sub` at
-`lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootBasics.lean:59`, and
-`nestedLimit_approximation` at
-`lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootIteration.lean:147`.
-Their scalar mass residual has `residualModulus` / `residual_small` at
-`lean/YMGap/Continuum/ComplementRootNestedMass.lean:100` and `:106`.
+The independent source review confirms that another pairing wrapper would
+not remove an input. The actual `Domain` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraph.lean:210` already
+has the positive symmetric action laws `action_nonnegative` and
+`action_symmetric` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphForm.lean:194` and `:201`.
+The reconstruction residue is a complete original Hilbert-sector and real
+domain structure on the witnessed closure of ran(T), followed by the
+sector-adjoint interpretation. `RangeLimit` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeTimeRangeClosure.lean:66` explicitly
+supplies core approximation within that sector, not whole-carrier density.
 
-A short candidate factorization follows termwise from `time_inverseSum_sub`,
-`lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeInverseSum.lean:91`:
-p(D)x=p(1)x-T(sum_j p_j I_j x). This avoids requiring a general polynomial
-division package. Prove that identity, construct its original Cauchy
-preimages, combine the vanishing mass with the existing root convergence,
-and then diagonalize with u-R_n u=2^(-n)Q_n u. All moduli must be supplied;
-this paragraph records the next proof search, not a new checked theorem.
-
-Domain identification without a separately supplied input-sector witness,
-self-adjointness, density in the
-appropriate physical sector, real-time zero-continuity throughout that
-required sector, spatial/spacing and physical-time calibration, continuum
-nontriviality and all Clay fields remain OPEN. Equality A=regularizedLog
-and identification with the existing series graph remain separate open
-obligations; no frontier field is removed or weakened. Scaling survival
-remains the independent primary analytic problem.
+Existing `CompleteGNSHilbert` at
+`lean/YMGap/Continuum/GNSComplete.lean:276` uses another GNSData interface.
+`SelfAdjointHamiltonianResidual` at
+`lean/YMGap/Continuum/GNSHamiltonian.lean:285` requires a whole-carrier
+map and a symmetry law, with no operator domain or boundedness field;
+it is not directly filled by this sector-restricted graph. `SelfAdjointOp` at
+`lean/YMGap/Continuum/OSReconstruction.lean:125` is an abstract placeholder,
+not a proved physical identification. None of these names is a same-object
+bridge. A complete Hilbert-sector package, physical OS-sector identification,
+spatial/spacing and physical-time calibration, continuum nontriviality and
+all Clay fields remain OPEN. Equality A=regularizedLog and identification
+with the existing series graph remain separate open obligations; no frontier
+field is removed or weakened. Scaling survival remains the independent
+primary analytic problem: the source-specific relative temporal-energy
+UPPER bound on a justified scaling family is not supplied by this domain work.
 
 The existing `BF4ExactSlabThermodynamicDyadicSemigroup.action_one`,
 `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicSemigroup.lean:132`,
@@ -981,3 +1028,33 @@ Final log SHA-256:
   `dffb0909935efe2c6971eea77e892e84ec23e6b926b3e14717cafe7bff9210ba`
 - `/tmp/ym-wilson-derivative-output-range-20260930.log`:
   `c46e60c492c241439732ecac9be3d984ccff2dcb51f2e37a77a0cdd8097bf5ef`
+
+Derivative-input range and direct adjoint-test verification: five final
+serialized focused checks passed 35 printed gates (ten PolynomialTimeRange,
+six RootTimeRange, three RootContinuity including its private cap, seven
+InputRange, nine AdjointTests), each with exactly {propext, Quot.sound}.
+The finite identity needed beta reduction and scalar-sum order corrections;
+root continuity needed the pairing-data norm ceiling, explicit RCle
+composition and the actual half-power namespace. All final logs are clean.
+The sources were checked after those fixes; the added root imports are
+NOT a root check.
+
+The safe-build skill kept verification targeted and serialized: one worker,
+20 GiB ceiling and 12 GiB OS reserve. No safety stop, limit increase, full
+root/tree build, audit or guard. No new sorry/axiom, classical dependency,
+frontier weakening, kernel deletion or canonical chart change. Sol drafted
+the polynomial identity, Luna drafted the quotient-to-root estimate, and
+main finalized both, constructed the range diagonals and direct adjoint
+proof, and ran all compiler checks. Sol independently reviewed the scoped
+adjoint argument and the existing consumer interfaces. Final log SHA-256:
+
+- `/tmp/ym-wilson-polynomial-time-range-20260930.log`:
+  `e6bcd9ebcdbecfe0a22bd4be0878b86d34206db9496ba18dd43037b8eaf499c1`
+- `/tmp/ym-wilson-root-time-range-20260930.log`:
+  `6509bdf9f01c422107b582c3fa41afea7654029e2a9d70c910ef91190737d093`
+- `/tmp/ym-wilson-derivative-root-continuity-20260930.log`:
+  `e5ed8930ab5a45b16cc546d91123ab470384778917f2d3cf758a9f3a5e18c666`
+- `/tmp/ym-wilson-derivative-input-range-20260930.log`:
+  `a7a2cdc12941e6512dab43251f4333a6380accf496519491de488178e47c4bd9`
+- `/tmp/ym-wilson-derivative-adjoint-tests-20260930.log`:
+  `161dd37f6fee5477d446a7803f9a29f6459dd83c3e7ccc80bffbd4f4b6e82309`

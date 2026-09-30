@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL derivative domain and adjoint tests (2026-09-30
+UTC; chart unchanged): actual represented dyadic quotient convergence now
+constructs BOTH coordinate-range witnesses and the represented graph.
+Finite root polynomials split into vanishing scalar mass plus explicit
+original T-images; the quotient limit then makes roots approach the input.
+The fixed-nome/width form margin and real-time Taylor certificate apply
+without either range premise. A differentiable time-kernel input is zero;
+the ambient boundary states remain. On the witnessed sector, weak adjoint
+pairing tests also construct the graph directly. This is not yet a packaged
+Hilbert adjoint/self-adjoint Hamiltonian or physical-sector identification.
+Physical calibration, scaling survival and all canonical Clay fields remain
+OPEN. Five final focused serialized checks passed 35 gates within
+{propext, Quot.sound}; no broad run. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 Verified supporting ORIGINAL derivative/graph criterion (2026-09-30 UTC;
 chart unchanged): the separate output-range premise is now constructed
 from the input-range witness and actual dyadic quotient convergence.
@@ -7,8 +22,8 @@ A depth-dependent input tolerance absorbs the quotient's explicit
 distance factor. The converse graph-to-quotient limit has a computed
 all-tail cutoff from the graph Taylor radius. Both directions retain
 original source representatives and moduli; the constructed graph also
-supplies the all-small-positive-real-time Taylor certificate. Deriving
-the input-sector witness without assuming it, self-adjointness, physical
+supplies the all-small-positive-real-time Taylor certificate. The input-sector
+witness is now derived above. Packaged self-adjointness, physical
 calibration, scaling survival and all canonical Clay fields remain OPEN.
 Three final focused serialized checks passed 21 gates within
 {propext, Quot.sound}; no broad run. Evidence:
