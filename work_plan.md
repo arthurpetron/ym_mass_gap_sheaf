@@ -25,6 +25,34 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Source-orbit quantifier and multiscale direction review (2026-09-30 UTC)
+
+Source/research review, NOT a new kernel-checked milestone. The actual
+all-order, volume-uniform conditional-sweep input still exists at fixed nome
+1/40; no changing-coupling source-budget producer was found in the reviewed
+modules. The local and finite-volume conservative factors already have
+checked approach-to-one obstructions. A new elementary rational
+projection-product family shows why a uniform Dirichlet floor at the INITIAL
+source alone cannot give uniform decay over increasing Chebyshev orders.
+The missing estimate must control the slow component throughout the actual
+source orbit. This family is hand-derived, not Lean-checked or Yang--Mills.
+
+A targeted review of arXiv:2606.19362v1 did not supply that estimate or a usable
+physical gap producer: its mixed-covariance positivity and lower-to-upper
+operator inferences fail elementary tests. Retain the useful comparison
+question at MATCHED physical time, with signed mixed terms and total upper
+error strictly below the anchor. For variable one-step times, reuse the
+existing spacing-normalized loss consumers; mere summability is insufficient.
+No paper theorem or new analytic premise is imported.
+
+NEXT: test a candidate estimate on the ACTUAL original source orbit, or a
+same-physical-time original signed multiscale defect, before adding code.
+Require its full order/regulator dependence and quantitative payment of the
+normalized budget. Do not pursue seed-only floors, positive off-diagonal
+Gram masks, or another budget wrapper as substitutes. Ordinary B and physical
+T remain distinct. No proof node or canonical chart marker changed.
+Evidence: `audits/AUDIT-SOURCE-ORBIT-AND-RG-STEP-2026-09-30.md`.
+
 ### Step back: retain the ORIGINAL Chebyshev normalization budget (2026-09-30 UTC)
 
 The all-state coercivity route remains sufficient, not compulsory. For the
