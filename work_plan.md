@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Supplied two-edge algebra; physical weighted join next (2026-09-30 UTC)
+
+The signed-source alternative now has three proved ingredients: exact
+two-physical-edge coefficient isolation for the original centered face sum;
+the exposed fundamental mixed square S2(f)=8+f^2, hence H[W*S2]>=8*H[W]
+for any constructed nonnegative polynomial weight; and original-weight
+energy <=(24+36*C^2)*predictionError without singleton kinematic premises.
+The short mixed-square proof differentiates the existing Gamma(f)=4-f^2
+identity and uses head-linearity, rather than expanding 36 squares.
+
+NEXT: transport the two exposed derivatives to the SAME physical-link
+derivatives used in isolation, then apply the relative Ward bound twice
+with the incident/nonincident signed pieces retained. The proposed per-face
+variance bound is still OPEN. A separate bounded-interference/dual-family
+estimate must remove the family-size cost; singleton detection cannot do it.
+Do not substitute the older completed joint face-span carrier for Wilson.
+Six focused capped checks passed 30 gates in {propext, Quot.sound}; no
+canonical field or chart changed. Evidence:
+`audits/AUDIT-TWO-EDGE-SIGNED-SOURCE-2026-09-30.md`.
+
 ### Checked local-defect scaling test; next source viewpoint (2026-09-30 UTC)
 
 The normalized local defect y=(I-T)v fails an explicit candidate survival

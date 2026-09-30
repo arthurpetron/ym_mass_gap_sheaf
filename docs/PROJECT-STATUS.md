@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting two-edge algebra (2026-09-30 UTC; chart unchanged):
+two distinct physical edges isolate a plaquette coefficient in the original
+signed centered source. Separately, the exposed fundamental mixed square
+is exactly 8+f^2 with arbitrary insertion, yielding H[W*S2]>=8*H[W] for a
+constructed nonnegative weight. General original-weight energy is bounded
+by (24+36*C^2) times signed prediction error. The two-edge physical transport,
+weighted per-face variance estimate and family-uniform aggregation remain
+OPEN; no completed-carrier identification is inferred. Six focused checks
+passed 30 gates. Canonical statuses remain unchanged. Evidence:
+`audits/AUDIT-TWO-EDGE-SIGNED-SOURCE-2026-09-30.md`.
+
 Verified supporting local-defect scaling test (2026-09-30 UTC; chart
 unchanged): for w_j=1-1/(j+2), candidate spacing a_j=2^(-(j+1)) and
 n_j=2^(j+1), the SAME literal Wilson defect y_j=(I-T_j)v_j satisfies

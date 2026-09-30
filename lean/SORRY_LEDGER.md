@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED two-edge algebra; original weighted family join OPEN (2026-09-30 UTC)
+
+- `BF4ExactSlabPlaquetteMixedDerivativeIsolation` proves exact coefficient
+  extraction in the original signed `sourceSpan` and `affineSource`, by
+  differentiating at two distinct physical boundary links. Arbitrary
+  coefficient signs and centering are retained.
+- `QuaternionHaarMixedAngularSquare.mixed_square_of_linear_identities`
+  derives a mixed square from head-linearity and the two first-order pins.
+  `QuaternionHaarExposedMixedAngularSquare.exposed_mixed_angular_square`
+  supplies those pins for the actual exposed fundamental word, all
+  orientations, every carrier containing its four blocks. The result is
+  S2(f)=8+f^2 with arbitrary insertion; `exposed_mixed_weighted_floor`
+  proves H[W*S2]>=8*H[W] for a constructed nonnegative weight.
+- `QuaternionHaarRelativePredictionEnergy.angular_energy_le_prediction`
+  proves original-weight energy <=(24+36*C^2)*predictionError for supported
+  head-linear f and head-independent predictor. C is the supplied original
+  relative derivative cost, not a coupling-independent constant.
+- OPEN: two-edge exposed/physical derivative transport, the proposed
+  per-face weighted variance estimate, support-uniform family aggregation,
+  SAME literal completed consumer and all scaling/Clay fields. These are
+  not smuggled into new analytic hypothesis bundles.
+- Six final one-worker/20 GiB checks passed 30 gates in {propext, Quot.sound}.
+  No new sorry or axiom, no old sorry discharged, no broad audit/guard or
+  canonical chart change. Evidence:
+  `audits/AUDIT-TWO-EDGE-SIGNED-SOURCE-2026-09-30.md`.
+
 ## PROVED local-defect candidate scaling obstruction (2026-09-30 UTC)
 
 - `BF4WilsonNomeDyadicDefectSchedule` supplies nome=1-1/(j+2),

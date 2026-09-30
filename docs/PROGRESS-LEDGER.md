@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: local-defect candidate scaling obstruction (2026-09-30 UTC)
+## Current increment: two-edge signed-source algebra (2026-09-30 UTC)
+
+The proposed coefficient detector now has exact physical signed-source
+isolation, the exposed fundamental S2(f)=8+f^2 identity with arbitrary
+weight insertion, and the kinematics-free original Ward prediction-energy
+bound. The mixed-square proof uses the Laplacian and existing first-order
+identities instead of a large expansion. NEXT: prove the physical two-edge
+transport and compose the weighted bounds; a support-uniform signed-family
+estimate still needs bounded interference and is not inferred from these
+individual ingredients. Six focused checks passed 30 gates, with no canonical
+field change, broad guard or progress_metric.sh run. Evidence:
+`audits/AUDIT-TWO-EDGE-SIGNED-SOURCE-2026-09-30.md`.
+
+## Earlier increment: local-defect candidate scaling obstruction (2026-09-30 UTC)
 
 The explicit harmonic-nome/dyadic-spacing schedule now supplies the scalar
 budget, rather than assuming it. Original physical-time decay relative to
