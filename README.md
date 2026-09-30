@@ -14,8 +14,10 @@ Mathlib-free Lean with explicit witnesses and moduli.
 the original completed transfer T is now constructed and checked: R^2=T.
 It is symmetric, linear and contractive on the SAME carrier, with an explicit
 convergence modulus and the original boundary kernel retained. No inverse
-transfer or substitute carrier is assumed. Compatible dyadic time,
-continuous-time reconstruction and generator identification remain open. See the
+transfer or substitute carrier is assumed. Nested polynomial limits are now
+also constructed at every fixed natural depth, with explicit moduli; their
+compatible square laws, continuous-time reconstruction and generator
+identification remain open. See the
 [construction and exact boundary](audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md).
 
 **Original time-series graph bound (2026-09-30):** the existing transfer gap

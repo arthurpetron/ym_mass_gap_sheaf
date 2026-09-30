@@ -165,24 +165,84 @@ calibration is inferred. The construction is not yet an iteratable generic
 positive-contraction API, so applying it again to R is not an available
 formal step.
 
-### Next candidate, not a checked dyadic construction
+## Follow-on: all fixed-depth nested limits with explicit moduli
 
-Read-only review found existing finite Horner composition:
+Existing finite Horner composition is reused:
 `QPolyRatPolySubstitutionAlgebra.compose`,
 `lean/YMGap/Continuum/QPolyRatPolySubstitutionAlgebra.lean:118`, and
-`eval_compose` at line 122. The candidate keeps all approximants as
+`eval_compose` at line 122. The construction keeps all approximants as
 polynomials in the ORIGINAL D:
 
     Q_(0,n)(d)=d; Q_(k+1,n)(d)=p_n(Q_(k,n)(d)).
 
-The planned error certificate is
-E_n(t)=(1-p_n(t))^2-(1-t), with E_0=t and
-E_(n+1)=E_n*p_n+E_n^2/4. Its intended nonnegative coefficients and mass
-E_n(1)=r_n^2 would control each finite square-relation error. Coefficient
-positivity/monotonicity under composition, this error identity, a fixed-depth
-modulus and the compatible limiting tower remain UNPROVED. This is a
-mathematical work plan, not another assumed analytic input or a claim that
-dyadic time has been constructed.
+The shorter, now checked error certificate is E_n=2*(p_(n+1)-p_n).
+Its coefficients are nonnegative by the previous monotonicity proof; its
+evaluation is exactly (1-p_n(t))^2-(1-t) and its mass is r_n^2.
+This avoids the proposed separate nonlinear error recurrence entirely.
+
+Write s_(k,n)=1-Q_(k,n)(1). Coefficient-positive Horner composition and
+scalar monotonicity prove 0<=s_(k,n)<=1 and
+
+    s_(k+1,n)^2 <= s_(k,n) + r_n^2.
+
+The explicit rational-precision modulus is
+
+    N_0(e)=0,
+    N_(k+1)(e)=max(N_k(e^2/2),tailModulus(e^2/2)).
+
+For n>=N_k(e), s_(k,n)<=e. The induction uses r_n^2<=r_n and decidable
+rational square-order reflection, not selection of a real square root.
+There is no uniform-in-depth or practical computational-efficiency claim.
+
+For m<=n, the ORIGINAL-carrier polynomial bound gives
+
+    ||Q_(k,n)(D)x-Q_(k,m)(D)x||^2 <= s_(k,m)^2 ||x||^2.
+
+With supplied representative X and norm ceiling c, put
+j=max(c.num.toNat,e.den). The outer Cauchy modulus is N_k(invSucc j).
+The existing represented diagonal limit supplies its approximation modulus
+and a limit independent of the representation, at EVERY natural depth k.
+No operator on a newly induced carrier or choice of quotient representatives
+is involved.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `error_coeffNonnegative`, `eval_error`, `error_mass` | `lean/YMGap/Continuum/ComplementRootError.lean:30`, `:62`, `:77` | Positive finite square error with exactly identified scalar mass. |
+| `compose_coeffLe`, `nested_difference_nonnegative` | `lean/YMGap/Continuum/ComplementRootComposition.lean:62`, `:133` | Monotone composition and positive ordered nested differences. |
+| `residual_square_le` | `lean/YMGap/Continuum/ComplementRootNestedMass.lean:90` | Quantitative depth-step bound, retaining the scalar square error. |
+| `residualModulus`, `residual_small` | `lean/YMGap/Continuum/ComplementRootNestedMass.lean:100`, `:106` | Explicit modulus for every fixed natural depth and positive rational tolerance. |
+| `ordered_distance_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootIteration.lean:50` | SAME original completed-norm relative Cauchy bound. |
+| `iterationModulus`, `iterationRows` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootIteration.lean:88`, `:116` | Computed outer modulus and actual original representatives. |
+| `nestedLimit`, `nestedLimitCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootIteration.lean:138`, `:157` | Actual limits with witnessing convergence data, not supplied root objects. |
+| `nestedLimit_symmetric`, `nestedLimit_form_le` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootIteration.lean:165`, `:177` | Original pairing symmetry and norm-form ceiling pass to every fixed-depth limit. |
+
+The finite operator join is also checked. Put R_(k,n)=I-Q_(k,n)(D) and
+E_(k,n)=E_n(Q_(k,n)(D)). Then on the SAME original completion,
+
+    B(R_(k+1,n)x,R_(k+1,n)y) = B(x,R_(k,n)y) + B(x,E_(k,n)y),
+    ||E_(k,n)x||^2 <= r_n^4 ||x||^2.
+
+The error polynomial has nonnegative coefficients and mass <=r_n^2,
+independently of nesting depth. This is a convergence-error bound, not a
+uniform spectral gap. The exact polynomial identity descends through the
+existing constructive coefficient-reflection theorem and the proved finite
+action algebra. No polynomial functional-calculus axiom is introduced.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `action_eq_of_polyEqv` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootSquareError.lean:134` | Pointwise rational polynomial identity implies equality of actual finite actions, by proved coefficient reflection. |
+| `finite_square_action_identity`, `finite_square_pairing_identity` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootSquareError.lean:145`, `:156` | Exact finite square law with its retained error on the original completion. |
+| `nestedError_mass_le`, `nestedError_action_norm_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootSquareError.lean:170`, `:180` | Explicit vanishing error mass and original squared-norm bound. |
+
+Square compatibility between the limits remains OPEN. In particular this
+does not yet construct a dyadic semigroup: the next join must prove
+R_(k+1)^2=R_k for R_k=I-H_k and identify R_0 with the original T.
+The existing `BF4WilsonAllNomeCompletedPairingContinuity.pairing_small`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedPairingContinuity.lean:84`,
+is the intended consumer of the error norm bound before passing the exact
+pairing identity through the already represented limits.
+Strong continuity, the series derivative/generator join and physical scaling
+remain subsequent obligations.
 
 ## Remaining obligations
 
@@ -246,3 +306,28 @@ guard, new sorry/axiom or canonical frontier closure. Final log SHA-256:
   `c40b6f092f39e6d6629cb57eae8cc1cab68621c2c9de77429786d2c4df1e771e`
 - `/tmp/ym-wilson-square-root-20260930.log`:
   `10afbb6a2bcf6c2946c11523ecb3277bb901d403b9c9e69bcf447967979b6e64`
+
+Nested-limit verification: four final serialized focused checks passed 26 gates
+within {propext, Quot.sound}; the finite nested polynomial and modulus
+definitions have empty axiom sets. The same one-worker/20 GiB ceiling and
+12 GiB reserve applied. The composition proof needed two implicit induction
+argument corrections; all final gates are clean. The mass file has one
+unused-variable warning. No full root/tree build, audit/guard, new sorry/axiom,
+frontier weakening or canonical chart change. Final log SHA-256:
+
+- `/tmp/ym-complement-root-error-20260930.log`:
+  `e15ad0f5d68fd214401a71309501ce13562472da4d5b57878af3b9a1e1addc3e`
+- `/tmp/ym-complement-root-composition-20260930.log`:
+  `24ad326909b37daaf36166506ebb334b974235b03c0bcad09e7899d4edc9cee2`
+- `/tmp/ym-complement-root-nested-mass-20260930.log`:
+  `acfd83c9103c1b7eecf022ac81979d491aaccccca2181ed0bb2a887887c18004`
+- `/tmp/ym-wilson-nested-root-iteration-20260930.log`:
+  `d2e716236a25ee88ee13fc3c234b7b208ede51373d7bacc52304b63e5911c422`
+
+Finite-square-error verification: one further final focused target check
+passed seven gates in {propext, Quot.sound}, after a namespace qualification
+and a missing argument-parenthesis correction. The same resource bounds
+and verification scope apply. Together the five final targets passed 33
+gates; no claim of whole-tree verification. Log
+`/tmp/ym-wilson-nested-root-square-error-20260930.log`, SHA-256:
+`5ded56a3b0ed6b7419534131069041df2cde3591eccc001d252be0ec6d146b66`.

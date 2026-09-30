@@ -5783,6 +5783,12 @@ import YMGap.Continuum.BF4WilsonAllNomeDefectPolynomial
 import YMGap.Continuum.BF4WilsonAllNomeRootIteration
 import YMGap.Continuum.BF4WilsonAllNomeDefectPolynomialAlgebra
 import YMGap.Continuum.BF4WilsonAllNomeSquareRoot
+-- All fixed-depth nested limits with explicit moduli; compatibility is separate.
+import YMGap.Continuum.ComplementRootError
+import YMGap.Continuum.ComplementRootComposition
+import YMGap.Continuum.ComplementRootNestedMass
+import YMGap.Continuum.BF4WilsonAllNomeNestedRootIteration
+import YMGap.Continuum.BF4WilsonAllNomeNestedRootSquareError
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

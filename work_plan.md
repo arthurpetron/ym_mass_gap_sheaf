@@ -68,16 +68,32 @@ proves R^2=T. The constructed R is positive, symmetric, real-linear (with
 supplied scalar modulus) and contractive. Two further focused capped checks
 passed 23 gates in {propext, Quot.sound}; no canonical field changed.
 
-NEXT reconstruction step: compatible dyadic roots of this EXACT T. The
-first root constructor is Wilson-specific, so reapplying it to R without a
-proved interface would be a gap. Read-only review found an economical
-candidate: nested positive polynomials Q_(0,n)=d,
-Q_(k+1,n)=p_n(Q_(k,n)), all still acting on the ORIGINAL D. Existing Horner
-composition is `QPolyRatPolySubstitutionAlgebra.compose`; coefficient
-positivity/monotonicity under composition and the controlled square-error
-identity must still be proved. This is a planned argument, NOT a checked
-dyadic tower. Then establish strong continuity on the closure of the
-positive-time range and identify the existing series graph with its generator by a same-core
+FOLLOW-ON PROVED: nested positive polynomials Q_(0,n)=d,
+Q_(k+1,n)=p_n(Q_(k,n)) now have coefficient monotonicity and a computed
+fixed-depth mass-deficit modulus. The short certificate is
+E_n=2*(p_(n+1)-p_n): its coefficients are nonnegative and its value is
+exactly (1-p_n(t))^2-(1-t), with mass r_n^2. No new nonlinear error
+recursion is needed. `ComplementRootNestedMass.residualModulus` uses
+N_(k+1)(epsilon)=max(N_k(epsilon^2/2),tailModulus(epsilon^2/2)).
+`BF4WilsonAllNomeNestedRootIteration.nestedLimitCertificate` constructs
+the actual limit at EVERY fixed natural depth, on the SAME original
+completion, with explicit inner and outer moduli and no representative
+choice. Symmetry and the original-norm form ceiling pass to these limits.
+`BF4WilsonAllNomeNestedRootSquareError.finite_square_pairing_identity`
+now pins the finite square relation to this SAME carrier, with error
+squared norm <=r_n^4*||x||^2. The finite polynomial identity descends through
+proved coefficient reflection, not an assumed operator calculus. Five final
+focused capped target checks passed 33 gates within the axiom gate.
+This supplies limits and their finite error estimate, not yet compatible
+square laws between the limits; no canonical
+field changed and the modulus is not uniform in depth.
+
+NEXT reconstruction step: use the actual `pairing_small` estimate and
+represented pairing limits to remove the finite controlled square defect,
+giving R_(k+1)^2=R_k for R_k=I-H_k and pin R_0=T.
+Construct compatible dyadic time, then establish strong continuity on the
+closure of the positive-time range and identify the existing series graph
+with its generator by a same-core
 difference-quotient theorem and graph-core argument. Reuse scalar polynomial
 estimates where applicable; the existing thermodynamic
 dyadic semigroup uses a different carrier/transfer and is not this join.

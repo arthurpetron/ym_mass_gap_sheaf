@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED all fixed-depth nested original-carrier limits (2026-09-30 UTC)
+
+- `ComplementRootError.error_coeffNonnegative`, `eval_error` and
+  `error_mass` identify the positive finite square error as
+  E_n=2*(p_(n+1)-p_n), with mass equal to the scalar residual squared.
+- `ComplementRootComposition` proves coefficient-positive and monotone
+  finite composition. `nested_difference_nonnegative` retains the signed
+  difference before the norm estimate.
+- `ComplementRootNestedMass.residual_small` supplies an explicit recursive
+  rational-precision modulus for every fixed natural nesting depth.
+- `BF4WilsonAllNomeNestedRootIteration.nestedLimitCertificate` constructs
+  all these actual limits on the SAME original completion, with inner
+  representatives and outer moduli as data. No new intermediate carrier,
+  arbitrary representative selection or assumed root operator is used.
+- `nestedLimit_symmetric` and `nestedLimit_form_le` pass symmetry and the
+  original-norm form ceiling. `BF4WilsonAllNomeNestedRootSquareError`
+  proves the exact finite square identity on the SAME carrier, with squared
+  error norm <=r_n^4*||x||^2, by constructive polynomial coefficient reflection.
+- OPEN: compatible square laws, dyadic time and strong continuity,
+  same-core log derivative/generator identity, spatial/spacing calibration,
+  scaling survival and all Clay fields. The modulus is not uniform in depth.
+- Five final focused one-worker/20 GiB target checks passed 33 gates within
+  {propext, Quot.sound}; no full build/audit/guard, new sorry/axiom, frontier
+  weakening or canonical chart change. Evidence:
+  `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED positive square root of the ORIGINAL transfer (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeDefectPolynomialAlgebra.action_pmul` supplies exact

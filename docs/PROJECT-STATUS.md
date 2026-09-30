@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting all-depth nested limits (2026-09-30 UTC; chart unchanged):
+every fixed natural nesting depth now has an actual original-carrier limit
+and explicit modulus. The positive square-error certificate is simply twice
+the adjacent approximant difference. Coefficient monotonicity and a recursive
+scalar tolerance give convergence without reapplying a Wilson-only root
+constructor to a different operator. The exact finite square relation now
+also holds on the SAME carrier, with squared error norm <=r_n^4*||x||^2.
+Compatible square laws between the limits and continuous time remain OPEN,
+as do scaling survival and every canonical Clay field. Five final focused
+capped target checks passed 33 gates within {propext, Quot.sound}.
+Evidence: `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 Verified supporting original-carrier positive square root (2026-09-30 UTC;
 chart unchanged): the constructed limit H now gives R=I-H with R^2=T for
 the SAME Wilson transfer. Passing the finite recurrence through pairings
