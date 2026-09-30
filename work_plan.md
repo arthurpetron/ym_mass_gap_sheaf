@@ -25,6 +25,34 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Supplied-input joins after the step back (2026-09-30 UTC)
+
+A seed-only floor is insufficient for uniform UPPER orbit decay, but a
+lag-one LOWER Rayleigh floor propagates under the actual positive time
+operator. For r_n=<x,T^n x>, positivity of <(T-rho)x,T^n(T-rho)x> gives
+e_(n+1)>=rho*e_n, e_n=r_(n+1)-rho*r_n. No spectral theorem or division.
+`BF4WilsonAllNomeResponseLower.response_geometric_lower` proves this for
+every integer n. `BF4WilsonAllNomeLocalResponseOrbit` supplies all inputs
+for the original plaquette using rho(w)=localResponseFloor(w)/4 and its
+existing positive starRatio norm floor. Finite-lag survival now has constants
+independent of width for active faces, supplied by strict padding. It does
+not supply fixed-physical-time survival on a changing-coupling family.
+
+In parallel, `BF4ExactSlabFacePatchCovarianceLimit` carries the actual
+face-patch all-order coercivity through the ORIGINAL scalar cutoff limits,
+including exact nome 1/40. Its separated-support rate is independent of
+extent/cutoff at fixed coupling. A direct join to the selected-chart spatial
+limit was NOT FOUND in the inspected consumers: their actions and moments
+must not be silently identified with the full-slab ones.
+
+NEXT remains the primary analytic problem: an actual original source-orbit
+or matched-physical-time signed multiscale estimate with a useful scaling
+budget. These joins use already constructed inputs; do not turn them into
+another chain of conditional wrappers or claim continuum survival from
+positive finite-lag values. Canonical goal fields and chart are unchanged.
+Four final focused capped checks passed 33 gates within {propext, Quot.sound}.
+Evidence: `audits/AUDIT-LOCAL-RESPONSE-ORBIT-AND-PATCH-LIMIT-2026-09-30.md`.
+
 ### Source-orbit quantifier and multiscale direction review (2026-09-30 UTC)
 
 Source/research review, NOT a new kernel-checked milestone. The actual

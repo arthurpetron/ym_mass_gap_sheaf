@@ -36,9 +36,65 @@ open YMGap.Continuum.Z4HalfTimeReflectionFaceReindex
 open YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz.CReal
   (convergesTo_mul_general)
 
-/-- The original mixed covariance at the existing heat-cutoff limit has the
-same Chebyshev factor and both original diagonal variances. The literal
-support and sixteen-layer separation premise are fixed across the cutoff. -/
+/-- Generic fixed-extent passage from a finite original covariance inequality
+to the existing heat-cutoff limit, preserving the same two diagonal forms. -/
+theorem covariance_sq_bound_of_finite {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (extent : Nat) (p q : RatPoly) (factor : Q')
+    (hfinite : ∀ stage,
+      leEv
+        (CReal.mul
+          (ofQ' (finiteCovariance w hw0 hw1 extent (slabPhysicalFaceEdges extent)
+            (fun _ hi => hi) p q stage))
+          (ofQ' (finiteCovariance w hw0 hw1 extent (slabPhysicalFaceEdges extent)
+            (fun _ hi => hi) p q stage)))
+        (CReal.mul (ofQ' factor)
+          (CReal.mul
+            (ofQ' (finiteCovariance w hw0 hw1 extent (slabPhysicalFaceEdges extent)
+              (fun _ hi => hi) p p stage))
+            (ofQ' (finiteCovariance w hw0 hw1 extent (slabPhysicalFaceEdges extent)
+              (fun _ hi => hi) q q stage))))) :
+    leEv
+      (CReal.mul
+        (covariance w hw0 hw1 extent (slabPhysicalFaceEdges extent)
+          (fun _ hi => hi) p q)
+        (covariance w hw0 hw1 extent (slabPhysicalFaceEdges extent)
+          (fun _ hi => hi) p q))
+      (CReal.mul (ofQ' factor)
+        (CReal.mul
+          (covariance w hw0 hw1 extent (slabPhysicalFaceEdges extent)
+            (fun _ hi => hi) p p)
+          (covariance w hw0 hw1 extent (slabPhysicalFaceEdges extent)
+            (fun _ hi => hi) q q))) := by
+  let ids := slabPhysicalFaceEdges extent
+  let physical := fun (id : Nat) (h : id ∈ ids) => h
+  let f := fun a b : RatPoly => covariance w hw0 hw1 extent ids physical a b
+  let v := fun a b : RatPoly => fun stage : Nat =>
+    finiteCovariance w hw0 hw1 extent ids physical a b stage
+  have hpq := finite_covariance_converges w hw0 hw1 extent ids physical p q
+  have hpp := finite_covariance_converges w hw0 hw1 extent ids physical p p
+  have hqq := finite_covariance_converges w hw0 hw1 extent ids physical q q
+  have hleft : ConvergesTo
+      (fun stage => CReal.mul (ofQ' (v p q stage)) (ofQ' (v p q stage)))
+      (CReal.mul (f p q) (f p q)) :=
+    convergesTo_mul_general hpq hpq
+  have hright : ConvergesTo
+      (fun stage => CReal.mul (ofQ' factor)
+        (CReal.mul (ofQ' (v p p stage)) (ofQ' (v q q stage))))
+      (CReal.mul (ofQ' factor) (CReal.mul (f p p) (f q q))) :=
+    CReal.convergesTo_const_mul (ofQ' factor)
+      (convergesTo_mul_general hpp hqq)
+  change leEv (CReal.mul (f p q) (f p q))
+    (CReal.mul (ofQ' factor) (CReal.mul (f p p) (f q q)))
+  apply CReal.leEv_of_convergesTo_le hleft hright
+  intro stage
+  have h := hfinite stage
+  change leEv
+    (CReal.mul (ofQ' (v p q stage)) (ofQ' (v p q stage)))
+    (CReal.mul (ofQ' factor)
+      (CReal.mul (ofQ' (v p p stage)) (ofQ' (v q q stage)))) at h
+  exact h
+
 theorem covariance_sq_bound {w : Q'}
     (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (hsmall : heatRatio w ≤ HalfPow.half)
@@ -57,29 +113,8 @@ theorem covariance_sq_bound {w : Q'}
     leEv (CReal.mul (C p q) (C p q))
       (CReal.mul (ofQ' (covarianceFactor hd hm n * covarianceFactor hd hm n))
         (CReal.mul (C p p) (C q q))) := by
-  dsimp only
-  let ids := slabPhysicalFaceEdges extent
-  let physical := fun (id : Nat) (h : id ∈ ids) => h
-  let f := fun a b : RatPoly => covariance w hw0 hw1 extent ids physical a b
-  let v := fun a b : RatPoly => fun stage : Nat =>
-    finiteCovariance w hw0 hw1 extent ids physical a b stage
   let factor := covarianceFactor hd hm n * covarianceFactor hd hm n
-  have hpq := finite_covariance_converges w hw0 hw1 extent ids physical p q
-  have hpp := finite_covariance_converges w hw0 hw1 extent ids physical p p
-  have hqq := finite_covariance_converges w hw0 hw1 extent ids physical q q
-  have hleft : ConvergesTo
-      (fun stage => CReal.mul (ofQ' (v p q stage)) (ofQ' (v p q stage)))
-      (CReal.mul (f p q) (f p q)) :=
-    convergesTo_mul_general hpq hpq
-  have hright : ConvergesTo
-      (fun stage => CReal.mul (ofQ' factor)
-        (CReal.mul (ofQ' (v p p stage)) (ofQ' (v q q stage))))
-      (CReal.mul (ofQ' factor) (CReal.mul (f p p) (f q q))) :=
-    CReal.convergesTo_const_mul (ofQ' factor)
-      (convergesTo_mul_general hpp hqq)
-  change leEv (CReal.mul (f p q) (f p q))
-    (CReal.mul (ofQ' factor) (CReal.mul (f p p) (f q q)))
-  apply CReal.leEv_of_convergesTo_le hleft hright
+  apply covariance_sq_bound_of_finite hw0 hw1 extent p q factor
   intro stage
   have hfin := finiteCovariance_sq_bound hw0 hw1 hsmall hd hm extent stage n
     support testSupport
@@ -89,9 +124,17 @@ theorem covariance_sq_bound {w : Q'}
       (Nat.le_add_right _ _)).V)
     hpl hql hsep
   change leEv
-    (CReal.mul (ofQ' (v p q stage)) (ofQ' (v p q stage)))
+    (CReal.mul
+      (ofQ' (finiteCovariance w hw0 hw1 extent (slabPhysicalFaceEdges extent)
+        (fun _ hi => hi) p q stage))
+      (ofQ' (finiteCovariance w hw0 hw1 extent (slabPhysicalFaceEdges extent)
+        (fun _ hi => hi) p q stage)))
     (CReal.mul (ofQ' factor)
-      (CReal.mul (ofQ' (v p p stage)) (ofQ' (v q q stage)))) at hfin
+      (CReal.mul
+        (ofQ' (finiteCovariance w hw0 hw1 extent (slabPhysicalFaceEdges extent)
+          (fun _ hi => hi) p p stage))
+        (ofQ' (finiteCovariance w hw0 hw1 extent (slabPhysicalFaceEdges extent)
+          (fun _ hi => hi) q q stage)))) at hfin
   exact hfin
 
 /-- The cutoff-removed diagonal is nonnegative for the same original
@@ -212,6 +255,7 @@ theorem existingNome_covariance_sq_geometric_bound
 end YMGap.Continuum.BF4ExactSlabSmallNomeChebyshevCovarianceLimit
 
 #print axioms YMGap.Continuum.BF4ExactSlabSmallNomeChebyshevCovarianceLimit.covariance_sq_bound
+#print axioms YMGap.Continuum.BF4ExactSlabSmallNomeChebyshevCovarianceLimit.covariance_sq_bound_of_finite
 #print axioms YMGap.Continuum.BF4ExactSlabSmallNomeChebyshevCovarianceLimit.covariance_diagonal_nonnegative
 #print axioms YMGap.Continuum.BF4ExactSlabSmallNomeChebyshevCovarianceLimit.covariance_sq_geometric_bound
 #print axioms YMGap.Continuum.BF4ExactSlabSmallNomeChebyshevCovarianceLimit.covariance_sq_epsilon_bound

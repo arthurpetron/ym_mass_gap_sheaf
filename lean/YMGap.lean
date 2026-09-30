@@ -5678,6 +5678,9 @@ import YMGap.Continuum.BF4WilsonAllNomeLogPartialLaws
 import YMGap.Continuum.BF4WilsonAllNomeLogSeries
 -- Positive bounded real-linear SAME-carrier series; no generator/scaling claim.
 import YMGap.Continuum.BF4WilsonAllNomeCompletedPairingContinuity
+-- Width-independent finite-lag LOWER survival, not a scaling/upper-gap bound.
+import YMGap.Continuum.BF4WilsonAllNomeResponseLower
+import YMGap.Continuum.BF4WilsonAllNomeLocalResponseOrbit
 import YMGap.Continuum.BF4WilsonAllNomeRowPairingLimit
 import YMGap.Continuum.BF4WilsonAllNomeLogPartialAlgebra
 import YMGap.Continuum.BF4WilsonAllNomeLogOperator
@@ -5751,6 +5754,8 @@ import YMGap.Continuum.BF4ExactSlabFacePatchEnergy
 import YMGap.Continuum.BF4ExactSlabFacePatchSmallNome
 import YMGap.Continuum.BF4ExactSlabFacePatchGeneratorBound
 import YMGap.Continuum.BF4ExactSlabFacePatchUniformCoercivity
+-- Original cutoff-removed covariance at the improved small-nome regime.
+import YMGap.Continuum.BF4ExactSlabFacePatchCovarianceLimit
 -- Exact original patch kernel, not a quantitative patch or continuum gap.
 import YMGap.Continuum.BF4ExactSlabBlockCompletionComparison
 import YMGap.Continuum.SU2QuaternionWeightedHaarFamilyCompletion

@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## PROVED original finite-lag survival and face-patch cutoff passage (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeResponseLower.response_geometric_lower` propagates a
+  lag-one Rayleigh LOWER floor by positivity of `<(T-rho)x,T^n(T-rho)x>`.
+  `BF4WilsonAllNomeLocalResponseOrbit` supplies that input for the literal
+  original plaquette at every rational 0<w<1, using the actual local response
+  c(w)>0 and squared-norm cap four. With rho=c/4 and s=starRatio(w),
+  `plaquette_response_absolute_lower` gives s*rho^n<=<v,T^n v> and
+  `plaquette_time_ne_zero` proves every finite time image is nonzero.
+  The constants have no width argument; strict padding supplies active links.
+  Separate width carriers and all nome dependence remain explicit.
+- `BF4ExactSlabFacePatchCovarianceLimit.patch_covariance_sq_geometric_bound`
+  joins the supplied all-order face-patch reverse-energy estimate to the
+  ORIGINAL cutoff-removed covariance and diagonal variances. The exact nome
+  1/40 specialization supplies every nome guard; its rate is extent/cutoff
+  independent under the explicit 16*n-layer support-separation premise.
+  The old small-nome API is preserved through a generic scalar limit lemma.
+- OPEN: useful changing-coupling source/scaling control. Lower finite-lag
+  survival is not continuum survival; ordinary conditional B is not physical
+  T. No direct consumer joining the new full-slab covariance to the existing
+  selected-chart spatial construction was found in the reviewed modules.
+  All canonical continuum/Clay fields and chart markers remain unchanged.
+- Four final focused one-worker/20 GiB checks passed 33 gates, all within
+  {propext, Quot.sound}. No new sorry, custom axiom, analytic premise or
+  frontier weakening; no old sorry discharged. No broad build/audit/guard.
+  Evidence: `audits/AUDIT-LOCAL-RESPONSE-ORBIT-AND-PATCH-LIMIT-2026-09-30.md`.
+
 ## PROVED original Chebyshev normalization-budget criterion (2026-09-30 UTC)
 
 - `BF4ExactSlabChebyshevNormBudget.budget_pin` identifies the constructed

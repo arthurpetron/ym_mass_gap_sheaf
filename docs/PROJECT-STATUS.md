@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting original finite-lag survival and face-patch cutoff passage
+(2026-09-30 UTC; chart unchanged): the actual local response c(w)>0 and norm
+cap four now give s(w)*(c(w)/4)^n <= <v,T^n v> for the SAME literal plaquette
+at every integer lag, for every rational 0<w<1 and active face. Every finite
+time image is nonzero; constants are width independent but nome dependent.
+Separately, the supplied face-patch coefficient now bounds ORIGINAL
+cutoff-removed covariance with an extent-independent separated-support rate,
+including exact nome 1/40. The new full-slab estimate does not directly feed
+the existing selected-chart spatial-limit consumer. Scaling survival, useful
+changing-coupling upper decay and all Clay obligations remain open. Four final
+focused checks passed 33 gates. Evidence:
+`audits/AUDIT-LOCAL-RESPONSE-ORBIT-AND-PATCH-LIMIT-2026-09-30.md`.
+
 Verified ORIGINAL normalization-aware covariance criterion (2026-09-30 UTC;
 chart unchanged): the exact signed budget c*M+(eta*T_n^2-1)*||x||^2 admits
 negative reverse margin while still certifying a squared covariance factor
