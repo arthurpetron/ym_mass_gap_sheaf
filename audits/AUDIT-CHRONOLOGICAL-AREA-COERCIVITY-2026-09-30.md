@@ -99,3 +99,20 @@ a justified scaling family, using existing consumers rather than further
 wrapping this finite bound. OS/physical-time identification, nontrivial
 continuum survival, finite physical mass, full QFT and every compact simple
 group remain open. No canonical chart node changed; no ASCII reprint.
+
+### Source-reviewed next consumer (not a new proof)
+
+`reverse_energy_of_coercivity_at_balanced` at
+`lean/YMGap/Continuum/BF4ExactSlabFiniteVolumeReverseEnergy.lean:156` needs
+Dirichlet coercivity only at the actual balanced output B*u and converts
+delta into c=2+2*delta/625. The coefficient-parametric
+`finiteCovariance_sq_bound` at
+`lean/YMGap/Continuum/BF4ExactSlabChebyshevCovarianceBound.lean:102` consumes
+the reverse inequality at `(coupled ... c x n).2`, retaining the original
+centered x, both diagonal variances and grow(16*n) separation. The auxiliary
+depends on c: a changed coefficient must be proved on its own auxiliary.
+The specialized `BF4ExactSlabFiniteVolumeChebyshevRate.finiteCovariance_sq_rate_bound`
+is still tied to its previous coefficient; it does not automatically use the
+new area coefficient. A useful scaling-family estimate for these consumed
+outputs is the narrower next target. This source review supplies no such
+estimate and no physical-time calibration.

@@ -56,6 +56,19 @@ All same-theory continuum/Clay obligations remain open and the canonical chart
 state is unchanged. Evidence:
 `audits/AUDIT-CHRONOLOGICAL-AREA-COERCIVITY-2026-09-30.md`.
 
+The next bounded analytic target is the Dirichlet inequality at the ACTUAL
+balanced Chebyshev auxiliary output, with useful spatial/scaling dependence.
+`BF4ExactSlabFiniteVolumeReverseEnergy.reverse_energy_of_coercivity_at_balanced`
+consumes exactly that bound and gives c=2+2*delta/625.
+`BF4ExactSlabChebyshevCovarianceBound.finiteCovariance_sq_bound` consumes that
+reverse inequality at the actual order-n auxiliary (which itself depends on c),
+preserving both original diagonal variances and the grow(16*n) separation.
+Do not silently change c without changing its auxiliary. An all-state signed
+generator estimate is a possible stronger route, not a required new interface.
+This is a source-verified consumer map, not a newly supplied scaling estimate;
+the family, quantitative coefficient, separation and nontrivial survival
+still need proof, as does any OS/physical-time bridge.
+
 ### ORIGINAL chronological path-energy sum (2026-09-30 UTC; preceding checkpoint)
 
 The common-factor cancellation, exact single coefficient and completed
