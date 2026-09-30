@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Finite-volume coefficient limitation (2026-09-30 UTC):**
+`BF4ExactSlabFiniteVolumeChebyshevObstruction.factor_approaches_one`
+proves the ACTUAL covariance multiplier approaches one with an explicit
+extent modulus, uniformly in nome and degrees n<=physical face count.
+This also covers n<=extent by literal slab geometry. It limits the existing
+estimate, not actual correlations. Eleven gates passed three focused capped
+checks; no broad run. Useful signed spatial/scaling control remains open.
+Evidence: `audits/AUDIT-FINITE-VOLUME-CHEBYSHEV-OBSTRUCTION-2026-09-30.md`.
+
 **Positive bounded regularized operator (2026-09-30 UTC):**
 `BF4WilsonAllNomeLogOperator` proves symmetry, positivity, squared-norm cap
 one, rational and supplied-modulus real linearity, distance contraction and

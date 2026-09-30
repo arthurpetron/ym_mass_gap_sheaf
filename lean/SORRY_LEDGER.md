@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED degeneration of the existing finite-volume covariance factor (2026-09-30 UTC)
+
+- `BF4ExactSlabFiniteVolumeChebyshevObstruction.factor_bounds` proves the
+  actual multiplier lies in [1-(1/8)^F,1] for n<=F physical faces.
+  `BF4ExactSlabPhysicalFaceCount.extent_le_physicalFaces_length` converts
+  this to an extent bound; `factor_approaches_one` supplies the explicit
+  tolerance modulus `epsilon.den`, uniformly in nome and the stated degrees.
+- This excludes decay from THIS computed factor in the stated window,
+  not decay of actual covariance. No claim that disjointness forces n<=F.
+  A useful signed interacting estimate, controlled spatial/scaling passage
+  and all continuum/Clay requirements remain open; no canonical field changed.
+- Eleven gates passed three final focused serialized one-worker/20 GiB
+  checks, within {propext, Quot.sound}; no full-root/full-tree/audit/guard.
+  No sorry introduced/discharged, new axiom or analytic hypothesis. Sol
+  supplied scalar algebra and review, Luna geometry, root the actual bound.
+  Evidence: `audits/AUDIT-FINITE-VOLUME-CHEBYSHEV-OBSTRUCTION-2026-09-30.md`.
+
 ## PROVED bounded positive regularized operator laws on the original carrier (2026-09-30 UTC)
 
 - **actual producer:** `BF4WilsonAllNomeCompletedPairingContinuity` and

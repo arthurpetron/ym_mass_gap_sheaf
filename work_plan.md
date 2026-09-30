@@ -25,6 +25,28 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Existing finite-volume spatial factor degenerates (2026-09-30 UTC)
+
+`BF4ExactSlabFiniteVolumeChebyshevObstruction` proves the ACTUAL multiplier
+is in [1-(1/8)^F,1] for n<=F physical faces, uniformly in nome. Literal
+geometry gives extent<=F; the tolerance modulus is `epsilon.den`. Thus
+increasing degree within this window, including n<=extent, cannot rescue
+the global floor/cap coefficient as a useful spatial-decay producer.
+This is a limitation of the computed bound, not an actual-covariance lower
+bound or a Yang--Mills counterexample. No geometric claim beyond that
+explicit window is made. Eleven gates passed three final focused capped
+checks; no broad run. No chart state changed.
+
+Source review also confirms that original masked-action insertion,
+partition-cleared connected response and cutoff-limit consumers already
+exist. Do not add another normalization wrapper, further optimize this
+volume-cost rate in the ruled-out window, or silently drop small-nome
+guards. Seek a useful signed bound on the actual interacting response or
+collective conditional energy, retaining both endpoint normalizers and
+shared spectators. A03, full J02/J03 and Clay remain open. Evidence and
+declaration-level source map:
+`audits/AUDIT-FINITE-VOLUME-CHEBYSHEV-OBSTRUCTION-2026-09-30.md`.
+
 ### Positive bounded regularized operator on the SAME carrier (2026-09-30 UTC)
 
 `BF4WilsonAllNomeLogOperator` closes the norm/linearity/symmetry residue

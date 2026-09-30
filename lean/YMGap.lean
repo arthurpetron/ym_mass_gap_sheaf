@@ -5482,6 +5482,10 @@ import YMGap.Continuum.ChebyshevAboveOne
 import YMGap.Continuum.BF4ExactSlabFiniteVolumeChebyshevCovariance
 -- Explicit square-root-margin rate for the SAME finite covariance; not scaling uniformity.
 import YMGap.Continuum.BF4ExactSlabFiniteVolumeChebyshevRate
+-- This computed factor approaches one for n <= faceCount; not physical non-decay.
+import YMGap.Continuum.BF4ExactSlabPhysicalFaceCount
+import YMGap.Continuum.ChebyshevReciprocalNearOne
+import YMGap.Continuum.BF4ExactSlabFiniteVolumeChebyshevObstruction
 -- Original local variances pay for support, not all volume faces; no global gap.
 import YMGap.Continuum.BF4ExactSlabLocalSupportComparison
 import YMGap.Continuum.BF4ExactSlabLocalSupportVariance

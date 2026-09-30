@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Spatial-rate route test (2026-09-30):** the existing finite-volume
+Chebyshev covariance multiplier approaches one, uniformly in nome, for
+degrees no larger than the physical face count. Its volume cost defeats
+this proposed spatial estimate; actual covariance decay is not refuted.
+The signed interacting estimate remains the frontier. See the
+[checked bound and scope](audits/AUDIT-FINITE-VOLUME-CHEBYSHEV-OBSTRUCTION-2026-09-30.md).
+
 **Bounded original-carrier operator (2026-09-30):** the constructed
 regularized series is now proved positive, symmetric and linear, including
 constructive-real scalars with supplied moduli. It contracts the original

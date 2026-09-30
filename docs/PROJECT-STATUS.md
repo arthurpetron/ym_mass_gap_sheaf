@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Verified supporting spatial-rate limitation (2026-09-30 UTC; chart unchanged):
+the actual finite-volume Chebyshev factor lies in [1-(1/8)^F,1] for n<=F
+physical faces, with an explicit extent modulus uniform in nome. This
+rules out decay from that computed factor in the stated window, not actual
+covariance decay. The useful signed spatial/scaling estimate and all Clay
+obligations remain open. Eleven gates passed three focused capped checks.
+Evidence: `audits/AUDIT-FINITE-VOLUME-CHEBYSHEV-OBSTRUCTION-2026-09-30.md`.
+
 Verified supporting operator laws (2026-09-30 UTC; chart unchanged): the
 existing all-nome regularized series limit is now positive, symmetric and
 linear for rational and supplied-modulus CReal scalars, with norm cap one
