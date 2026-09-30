@@ -5834,6 +5834,10 @@ import YMGap.Continuum.BF4WilsonAllNomeDerivativeInverseSum
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeEquation
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphRange
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphEquation
+-- Actual derivative criterion on witnessed input sector; output range is derived.
+import YMGap.Continuum.BF4WilsonAllNomeStateQuotientDistance
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphQuotient
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeOutputRange
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

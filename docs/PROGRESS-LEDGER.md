@@ -4,7 +4,31 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL two-coordinate graph criterion (2026-09-30 UTC)
+## Current increment: ORIGINAL derivative/graph criterion without output-range premise (2026-09-30 UTC)
+
+`BF4WilsonAllNomeDerivativeOutputRange.outputRange` constructs the missing
+derivative-output range witness from the input range and actual state-quotient
+convergence. Its nth preimage uses the input modulus at
+invSucc(n)/(1+4*(2^n)^2), so the increasing quotient distance factor is paid
+explicitly, not assumed uniformly bounded. `representedGraphOfDerivative`
+then returns the actual graph with source representatives.
+`derivativeDataOfGraph` returns the reverse data: the input-sector witness
+and the actual quotient-limit modulus. `DerivativeGraphQuotient.stateQuotient_bound`
+cancels the exact squared dyadic time factor in the existing Taylor estimate.
+`derivativeRealTaylorCertificate` upgrades the actual quotient limit to
+every sufficiently small supplied positive real time. Abbreviated module
+names have prefix `BF4WilsonAllNome`.
+
+Consumer: identify the derivative domain without a separately supplied
+input-range witness, retaining explicit representatives and moduli.
+Self-adjointness remains a distinct obligation, as do log-series equality,
+physical calibration, scaling survival and Clay. No full-carrier continuity
+or kernel deletion is asserted. Three final focused serialized checks
+passed 21 printed gates within {propext, Quot.sound}; no broad run or
+canonical chart change. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
+## Earlier increment: ORIGINAL two-coordinate graph criterion (2026-09-30 UTC)
 
 `BF4WilsonAllNomeDerivativeGraphEquation.graphOfEquation` constructs the
 actual derivative graph from A u=T v and supplied original time-range
@@ -18,9 +42,9 @@ an actual dyadic state-quotient limit to the criterion;
 `equationRealTaylorCertificate` then returns the actual positive-real
 Taylor radius. Abbreviated module names have prefix `BF4WilsonAllNome`.
 
-Consumer: remove the separate output-range premise for differentiable
-states on the justified input sector, then address maximal-domain and
-self-adjointness. These remain OPEN, as do log-series identification,
+The separate output-range premise is now removed above for differentiable
+states on the witnessed input sector. Unrestricted domain identification
+and self-adjointness remain OPEN, as do log-series identification,
 physical calibration, scaling survival and Clay. The ambient boundary
 kernel is retained. Six final focused serialized checks passed 37 gates
 within {propext, Quot.sound}; no broad run or canonical chart change.

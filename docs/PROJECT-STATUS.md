@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL derivative/graph criterion (2026-09-30 UTC;
+chart unchanged): the separate output-range premise is now constructed
+from the input-range witness and actual dyadic quotient convergence.
+A depth-dependent input tolerance absorbs the quotient's explicit
+distance factor. The converse graph-to-quotient limit has a computed
+all-tail cutoff from the graph Taylor radius. Both directions retain
+original source representatives and moduli; the constructed graph also
+supplies the all-small-positive-real-time Taylor certificate. Deriving
+the input-sector witness without assuming it, self-adjointness, physical
+calibration, scaling survival and all canonical Clay fields remain OPEN.
+Three final focused serialized checks passed 21 gates within
+{propext, Quot.sound}; no broad run. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 Verified supporting ORIGINAL two-coordinate graph criterion (2026-09-30 UTC;
 chart unchanged): supplied range-closure witnesses for u and v plus A u=T v
 now construct the actual derivative graph, using explicit finite inverse
@@ -7,9 +21,9 @@ sums and computed defect-tail cutoffs. A represented graph supplies both
 range witnesses back; an actual dyadic state-quotient limit implies the
 equation. With original input/output representatives, the criterion feeds
 the existing all-small-positive-real-time Taylor certificate. No transfer
-inverse, uniform preimage cap or boundary-kernel deletion. Deriving the
-output-range witness from differentiability alone, maximal-domain
-identification and self-adjointness remain OPEN, as do physical calibration,
+inverse, uniform preimage cap or boundary-kernel deletion. The output-range
+derivation is now supplied above. Unrestricted domain identification and
+self-adjointness remain OPEN, as do physical calibration,
 scaling survival and all canonical Clay fields. Six final focused checks
 passed 37 gates within {propext, Quot.sound}; no broad run. Evidence:
 `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.

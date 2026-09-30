@@ -1,5 +1,36 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL derivative-output range and bidirectional graph criterion (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeStateQuotientDistance.stateQuotient_distance_bound`
+  controls the actual normalized root defect by the explicit rational
+  squared-distance cap 4*(2^n)^2. `preimageRepresentative_stateQuotient`
+  pins the supplied original representatives to these SAME states.
+- `BF4WilsonAllNomeDerivativeOutputRange.outputPreimage_close` chooses
+  a sufficiently accurate input-range preimage at each depth, retaining
+  all depth dependence. `outputRange` diagonalizes it with the actual
+  derivative limit and returns the OUTPUT range witness as data.
+  This closes the former separate output-range input for differentiable
+  states in the witnessed INPUT sector.
+- `representedGraphOfDerivative` returns the actual graph and source
+  representatives from that input-sector witness and quotient convergence.
+- `BF4WilsonAllNomeDerivativeGraphQuotient.stateQuotient_bound` and
+  `stateQuotientCertificate` recover actual quotient convergence from
+  represented graph data, using an explicit depth cutoff from the Taylor
+  radius. Exact rational normalization cancels the squared time factor.
+- `BF4WilsonAllNomeDerivativeOutputRange.derivativeDataOfGraph` returns
+  the input-range and quotient-limit data in the reverse direction;
+  `derivativeRealTaylorCertificate` supplies the positive-real Taylor
+  radius from the derivative limit, without an output-range premise.
+- OPEN: deriving the INPUT range witness from differentiability without
+  assuming it, self-adjointness, log-series equality, physical calibration,
+  spatial/scaling control, nontrivial survival and all canonical Clay fields.
+  No claim that all ambient states differentiate or that the boundary
+  kernel vanishes; no source representatives are selected by choice.
+- Three final focused serialized checks passed 21 printed gates within
+  {propext, Quot.sound}; no new sorry/axiom, frontier weakening or broad run.
+  Exact evidence: `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED ORIGINAL graph criterion on witnessed two-coordinate range closure (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeDefectContraction.defectPower_distance_contraction`
@@ -23,8 +54,8 @@
   consumes an actual quotient limit. `equationRealTaylorCertificate`
   returns the existing all-small-positive-real-time Taylor radius from
   this new graph constructor and supplied original input/output streams.
-- OPEN: deriving the output-range witness from differentiability on the
-  input sector alone, maximal generator-domain identification,
+- The output-range witness is now derived above from differentiability on
+  the witnessed input sector. OPEN: unrestricted generator-domain identification,
   self-adjointness, log-series equality, physical calibration, spatial and
   scaling control, nontrivial survival and all canonical Clay fields.
   The equation alone is NOT substituted for the graph on the full carrier;

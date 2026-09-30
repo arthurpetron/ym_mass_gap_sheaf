@@ -227,14 +227,33 @@ All abbreviated names have prefix `BF4WilsonAllNome`. Six final focused
 serialized checks passed 37 gates within {propext, Quot.sound}; no broad
 run or canonical chart change.
 
-NEXT reconstruction obligation: remove the separate output-range premise
-for a differentiable state in the witnessed input sector. Preserve actual
-representatives and moduli: investigate explicit T-preimage approximants
-to its state quotients, then a controlled diagonal into the derivative
-limit. This proposed next step is NOT yet proved. Only after closing it
-claim maximal-domain identification on the justified sector; self-adjointness
-is still separate. No countable choice of source representatives. The
-equation A u=T v alone is insufficient with the original boundary kernel.
+FOLLOW-ON PROVED: `BF4WilsonAllNomeDerivativeOutputRange.outputRange`
+constructs the former output-range premise from actual quotient convergence
+and the input-range witness. The nth source uses the input modulus at
+invSucc(n)/(1+4*(2^n)^2); the actual quotient cap is explicit and paid for
+before diagonalization. `representedGraphOfDerivative` returns the graph
+and its original source representatives. In reverse,
+`DerivativeGraphQuotient.stateQuotient_bound` rescales the one-step Taylor
+remainder and cancels the exact dyadic factors; its all-tail depth cutoff
+is the denominator of the computed graph radius. `derivativeDataOfGraph`
+returns both the input-sector witness and the actual quotient-limit modulus.
+`derivativeRealTaylorCertificate` supplies every-small-positive-real-time
+Taylor differentiation without a separate output-range assumption. These
+abbreviated module names have prefix `BF4WilsonAllNome`. Three final focused
+serialized checks passed 21 gates within {propext, Quot.sound}; no broad
+run or canonical chart change.
+
+NEXT reconstruction obligation: derive the INPUT time-range witness from
+actual quotient convergence, rather than assume it. Source-guided plan:
+first approximate each fixed-depth original root by T-images. For a finite
+defect polynomial p, the already proved T I_j x=x-D^j x gives the candidate
+finite identity p(D)x=p(1)x-T(sum_j p_j I_j x). The root polynomials have
+computed vanishing mass p(1); combine that error with their existing
+root-approximation modulus. Finally use the quotient limit to control
+u-R_k u and diagonalize. This plan is NOT yet a proved range witness;
+keep all source representatives/moduli and do not claim whole-carrier
+continuity. Self-adjointness still needs a separate same-sector argument.
+The equation A u=T v alone is insufficient with the original boundary kernel.
 The existing series graph concerns F=regularizedLog, not A; equality remains
 OPEN and is not an implicit identification. No full-carrier density or
 injectivity is available.

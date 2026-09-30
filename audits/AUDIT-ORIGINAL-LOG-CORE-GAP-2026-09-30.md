@@ -602,17 +602,67 @@ All constructed objects remain on the original fixed-nome/width carrier.
 The equation alone still permits extraneous kernel components: the two
 range hypotheses have not been erased or claimed automatic.
 
+## Follow-on: output-range premise removed; derivative criterion in both directions (PROVED)
+
+Write Q_n u=2^n*(u-R_n u) for the actual unshifted state quotient. Its
+squared-distance cap is C_n=4*(2^n)^2. Given an input-range witness R,
+choose its source at the computed tolerance
+eta_n=invSucc(n)/(C_n+1). The original quotient representative of this
+source has T-image Q_n(T source), and its squared distance to Q_n u is
+at most invSucc(n). Thus, when Q_n u converges to v with modulus m,
+the derivative output has an explicit range witness with modulus
+max(m(epsilon/4),(epsilon/4).den). There is NO output-range premise.
+The cap is depth-dependent and is paid by the chosen input tolerance;
+no uniform quotient bound or uniform preimage norm cap is assumed.
+
+For the reverse implication, the original graph Taylor theorem at a
+single dyadic mesh step has remainder E_n with
+||E_n||^2<=2^(-2n)*epsilon. The exact original-vector identity
+Q_n u-v=2^n E_n cancels the rational factors. The denominator of the
+computed positive Taylor radius is an explicit all-tail depth cutoff.
+
+With an original input representative supplied, these give constructive
+directions between represented graph data and input-range plus actual
+quotient-limit data. Source representatives and convergence moduli remain
+returned data. The already checked real Taylor consumer then upgrades
+this actual root-sequence derivative to EVERY sufficiently small supplied
+positive real time. This is not an assertion that every ambient state
+has a derivative, or that the original boundary kernel has vanished.
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `quotientCap`, `stateQuotient_distance_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeStateQuotientDistance.lean:44`, `:85` | Explicit positive cap C_n for the actual unshifted state quotients. |
+| `preimageRepresentative_stateQuotient` | `lean/YMGap/Continuum/BF4WilsonAllNomeStateQuotientDistance.lean:101` | The original Cauchy preimage represents exactly Q_n of the supplied state. |
+| `sourceTolerance`, `outputPreimage_close`, `outputRange` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeOutputRange.lean:58`, `:68`, `:82` | Pay the quotient cap at each depth, then construct the derivative-output range witness by an explicit diagonal. |
+| `graphOfDerivative`, `representedGraphOfDerivative` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeOutputRange.lean:106`, `:123` | Actual quotient convergence on the witnessed input sector constructs the graph, with source representatives when the input representative is supplied. |
+| `stateQuotient_error_pin`, `stateQuotientModulus`, `stateQuotient_bound`, `stateQuotientCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphQuotient.lean:56`, `:95`, `:111`, `:136` | Exact rescaled Taylor remainder and computed quotient convergence on every represented graph. |
+| `derivativeDataOfGraph` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeOutputRange.lean:136` | Returns the input-range witness and actual derivative-limit modulus from represented graph data. |
+| `derivativeRealTaylorCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeOutputRange.lean:148` | Real Taylor radius from the actual quotient limit and INPUT range only. |
+
 ## Remaining obligations and next consumer
 
-NEXT: derive the output-range witness from actual differentiability on
-the witnessed input sector, rather than assuming it separately. A proposed
-construction is to approximate state quotients by explicit T-images and
-diagonalize against their supplied derivative-limit modulus. That next
-construction is NOT proved here. Maximal-domain identification must retain
-the required representatives and moduli; self-adjointness remains separate.
-Full-carrier density must not be assumed with the original boundary kernel.
+NEXT: derive the INPUT range witness from actual differentiability,
+instead of supplying it. This is a proposed next construction, NOT a
+proved result. Finite root polynomials and their represented convergence
+are already available via `rootPolynomial` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootSquareError.lean:51`,
+`finiteRoot_eq_sub` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootBasics.lean:59`, and
+`nestedLimit_approximation` at
+`lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootIteration.lean:147`.
+Their scalar mass residual has `residualModulus` / `residual_small` at
+`lean/YMGap/Continuum/ComplementRootNestedMass.lean:100` and `:106`.
 
-The appropriate closed generator domain, self-adjointness, density in the
+A short candidate factorization follows termwise from `time_inverseSum_sub`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeInverseSum.lean:91`:
+p(D)x=p(1)x-T(sum_j p_j I_j x). This avoids requiring a general polynomial
+division package. Prove that identity, construct its original Cauchy
+preimages, combine the vanishing mass with the existing root convergence,
+and then diagonalize with u-R_n u=2^(-n)Q_n u. All moduli must be supplied;
+this paragraph records the next proof search, not a new checked theorem.
+
+Domain identification without a separately supplied input-sector witness,
+self-adjointness, density in the
 appropriate physical sector, real-time zero-continuity throughout that
 required sector, spatial/spacing and physical-time calibration, continuum
 nontriviality and all Clay fields remain OPEN. Equality A=regularizedLog
@@ -904,3 +954,30 @@ and ran every compiler check. Final log SHA-256:
   `bdc8d7e8e5d1800f4a61721ad3a32370af65186632aeea24e28c4991b9ef21d9`
 - `/tmp/ym-wilson-derivative-graph-equation-20260930.log`:
   `f59d2adeb480195cb540ea0049c32eb592f03647d4d58375396ae37becfab587`
+
+Derivative-output range and converse verification: three final serialized
+focused checks passed 21 printed gates (six StateQuotientDistance, including
+its private defect bound; five GraphQuotient; ten OutputRange), all within
+{propext, Quot.sound}, with no final warnings. StateQuotientDistance needed
+explicit RCle composition instead of a nonexistent LE RC instance;
+OutputRange needed an explicit rational endpoint for an intermediate
+inequality. GraphQuotient passed its first check after an explicit namespace
+open. Each final source, including the additional witness-returning join,
+was checked. Root imports are added but NOT root-checked.
+
+The safe-build skill kept checks narrow and serialized under one 20 GiB
+worker and a 12 GiB OS reserve. No ceiling increase, safety stop, full
+root/tree build, audit or guard. No new sorry/axiom, classical dependency,
+frontier weakening, kernel deletion or canonical chart change. Luna drafted
+the quotient distance cap; Sol drafted the Taylor-to-quotient proof; main
+constructed the output-range diagonal, reviewed/finalized every module and
+ran every compiler check. A separate Luna source review informed the next
+input-range plan only; it is not evidence of a proved input-range theorem.
+Final log SHA-256:
+
+- `/tmp/ym-wilson-state-quotient-distance-20260930.log`:
+  `3f4eef9d05da5a1e120e03d7201e05893076bc8ebe4769c501335cf5b9c854de`
+- `/tmp/ym-wilson-derivative-graph-quotient-20260930.log`:
+  `dffb0909935efe2c6971eea77e892e84ec23e6b926b3e14717cafe7bff9210ba`
+- `/tmp/ym-wilson-derivative-output-range-20260930.log`:
+  `c46e60c492c241439732ecac9be3d984ccff2dcb51f2e37a77a0cdd8097bf5ef`

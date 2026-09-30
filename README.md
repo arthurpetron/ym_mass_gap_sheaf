@@ -49,8 +49,12 @@ graph: finite inverse sums give errors exactly (I-T)^n u and (I-T)^n v,
 with computed decay cutoffs. A represented graph supplies those two range
 witnesses back. Actual dyadic state-quotient convergence implies the equation;
 the constructed graph then supplies the positive-real Taylor certificate.
-The output-range premise has not yet been derived from differentiability
-alone, so full generator-domain identification remains open.
+The output-range premise is now DERIVED from actual dyadic quotient
+convergence and the input-range witness, by an explicit depth-dependent
+diagonal. Conversely, the graph Taylor radius computes the quotient-limit
+modulus. This characterizes the represented graph on that witnessed input
+sector; no separate output-range assumption is needed. Deriving the input
+sector from differentiability without assuming it remains open.
 Time is still in original lattice units; self-adjointness,
 equality with the existing log series, physical calibration, scaling
 survival and Clay remain open.
