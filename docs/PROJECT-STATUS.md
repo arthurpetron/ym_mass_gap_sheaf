@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting local-defect scaling test (2026-09-30 UTC; chart
+unchanged): for w_j=1-1/(j+2), candidate spacing a_j=2^(-(j+1)) and
+n_j=2^(j+1), the SAME literal Wilson defect y_j=(I-T_j)v_j satisfies
+||T_j^n y_j||^2<=epsilon*||y_j||^2 for n>=n_j at a computed late index.
+This is uniform in width and plaquette; the n_j estimate also covers
+0<w<=w_j. Its positive norm at each index does not save a fixed positive
+relative response: that floor is proved impossible for this source/schedule.
+No physical calibration or Yang--Mills refutation follows. Next work turns
+to controlled-support sources and genuinely signed estimates. Two focused
+checks passed 15 gates; canonical statuses remain unchanged. Evidence:
+`audits/AUDIT-DYADIC-DEFECT-COLLAPSE-2026-09-30.md`.
+
 Verified supporting SAME-source polynomial normalization (2026-09-30 UTC;
 chart unchanged): the literal completed y=(I-T)v has the improved norm
 floor s(w)^2/16 and an explicit own-norm relative decay modulus. With

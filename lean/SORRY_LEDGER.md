@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## PROVED local-defect candidate scaling obstruction (2026-09-30 UTC)
+
+- `BF4WilsonNomeDyadicDefectSchedule` supplies nome=1-1/(j+2),
+  steps=2^(j+1), candidate spacing=2^(-(j+1)), their exact normalization,
+  and an explicit `scaleModulus` from polynomial/geometric decay.
+  `scalar_budget` supplies the formerly hypothetical scalar comparison
+  for this diagnostic schedule. No physical calibration is asserted.
+- `BF4WilsonAllNomeDyadicDefectCollapse.sampled_relative_small` and
+  `later_relative_small` bound the SAME actual defect orbit relative to
+  its own norm at candidate time one and later. `later_autocorrelation_small`
+  retains the actual response at twice that time.
+  `ceiling_relative_small` also covers every 0<w<=1-1/(j+2).
+  All widths and physical plaquettes are quantified with no active-link guard.
+- `sampled_relative_floor_impossible` uses the actual positive norm floor
+  to rule out a fixed positive relative survival floor at the computed
+  index. This is about one source class and a proposed schedule, not an
+  all-state gap, continuum construction, or Yang--Mills counterexample.
+- OPEN: justified physical calibration, a surviving original source,
+  useful signed collective estimates, all scaling/QFT/every-group fields.
+  The proposed two-edge signed-source detector is reviewed mathematics,
+  not a new proved or assumed Lean analytic input.
+- Two final focused one-worker/20 GiB checks passed 15 gates within
+  {propext, Quot.sound}. No new sorry, custom axiom, analytic premise or
+  weakened frontier; no old sorry discharged. No broad build/audit/guard,
+  CI change or canonical chart change. Evidence:
+  `audits/AUDIT-DYADIC-DEFECT-COLLAPSE-2026-09-30.md`.
+
 ## PROVED SAME-source polynomial normalization budget (2026-09-30 UTC)
 
 - `BF4RelativePredictionNomeBudget.selectedScore_cubic_bound` supplies

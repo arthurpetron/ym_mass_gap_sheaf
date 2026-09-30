@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: SAME-source polynomial normalization (2026-09-30 UTC)
+## Current increment: local-defect candidate scaling obstruction (2026-09-30 UTC)
+
+The explicit harmonic-nome/dyadic-spacing schedule now supplies the scalar
+budget, rather than assuming it. Original physical-time decay relative to
+the SAME defect's own norm follows with a computed index modulus, uniformly
+in width. A fixed positive relative survival floor is impossible for this
+source/schedule despite positive norm at every index. No physical trajectory
+or continuum limit is asserted. This changes the next action: reconsider
+physical support and signed-source estimates instead of extending the local
+defect's survival interfaces. The two-edge coefficient-detector idea in the
+audit is reviewed but unproved. Two focused checks passed 15 gates; no
+canonical field changes, broad guard or progress_metric.sh run. Evidence:
+`audits/AUDIT-DYADIC-DEFECT-COLLAPSE-2026-09-30.md`.
+
+## Earlier increment: SAME-source polynomial normalization (2026-09-30 UTC)
 
 The previously missing own-norm normalization estimate is now supplied for
 the actual completed defect y=(I-T)v. Original relative Ward gives the

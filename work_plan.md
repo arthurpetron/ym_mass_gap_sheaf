@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Checked local-defect scaling test; next source viewpoint (2026-09-30 UTC)
+
+The normalized local defect y=(I-T)v fails an explicit candidate survival
+test on the SAME literal Wilson carrier. Set w_j=1-1/(j+2), candidate
+spacing a_j=2^(-(j+1)), and n_j=2^(j+1). The exact product a_j*n_j is one.
+For every positive epsilon, an executable polynomial/geometric cutoff gives
+
+    ||T_j^n y_j||^2 <= epsilon*||y_j||^2   for n>=n_j,
+    <y_j,T_j^(2n)y_j> <= epsilon*||y_j||^2.
+
+Every width and physical plaquette is covered, even when changed with j.
+The source norm is positive at each index, so a fixed positive relative
+floor is proved impossible at the computed late index. The estimate at
+n_j also covers ANY nome 0<w<=w_j. No small-nome guard or old completed
+carrier is used. This is a source-specific obstruction on a proposed
+schedule, NOT a justified physical trajectory or a Yang--Mills refutation.
+
+NEXT: stop building survival interfaces for this local defect on that
+schedule. Investigate original sources with controlled physical support.
+The existing dyadic-loop carrier is literal Wilson, but still has the old
+nome-dependent variance floor. A signed plaquette-family alternative
+requires a genuine signed estimate: single-face floors do not control its
+Gram matrix. A reviewed two-edge differentiation argument may isolate a
+face coefficient, since distinct plaquettes share at most one edge; its
+mixed-derivative identity and original-weight bound are NOT yet Lean-proved.
+Even that per-face bound would not remove the family-size cost without a
+separate bounded-interference argument. The older completed family theorem
+uses a different joint face-span carrier and must not be silently imported.
+
+Two final focused capped checks passed 15 gates in {propext, Quot.sound}.
+All canonical Clay fields and chart markers remain unchanged. Evidence:
+`audits/AUDIT-DYADIC-DEFECT-COLLAPSE-2026-09-30.md`.
+
 ### Supplied SAME-source normalization and polynomial nome budget (2026-09-30 UTC)
 
 The actual completed defect y=(I-T)v now has the improved norm floor

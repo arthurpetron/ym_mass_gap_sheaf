@@ -5705,6 +5705,10 @@ import YMGap.Continuum.BF4RelativePredictionNomeBudget
 import YMGap.Continuum.RationalRelativePredictionScaling
 import YMGap.Continuum.BF4WilsonAllNomeRelativeDefectNormalization
 import YMGap.Continuum.BF4WilsonAllNomePolynomialDefectBudget
+-- Checked source-specific failure on an explicit candidate scaling schedule.
+-- Not physical calibration, an all-state bound, or a Yang--Mills refutation.
+import YMGap.Continuum.BF4WilsonNomeDyadicDefectSchedule
+import YMGap.Continuum.BF4WilsonAllNomeDyadicDefectCollapse
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 -- Constructed SAME-carrier regularized series, not a physical Hamiltonian.
 import YMGap.Continuum.BF4WilsonAllNomeLogPartial
