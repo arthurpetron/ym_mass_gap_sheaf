@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL all-state patch baseline (2026-09-30 UTC; chart
+unchanged): gamma*||x-Q_Sx||^2 <= E_S(x) and gamma*E_S(x) <= ||H_Sx||^2 now
+hold on EVERY state of the SAME original completion. Q_S is the existing
+block conditional, not a scalar vacuum projection; exterior ground states
+and empty/repeated lists remain. Gamma depends on nome and patch size, not
+ambient extent or late cutoff at fixed w,N. The actual gradient step also
+has a proved strict energy rate. This conservative coefficient does not
+supply useful collective/scaling control. Six focused checks passed 29 gates;
+all continuum/Clay requirements remain open. Evidence:
+`audits/AUDIT-ORIGINAL-PATCH-COMPLEMENT-2026-09-30.md`.
+
 Verified supporting ORIGINAL block groundspace (2026-09-30 UTC; chart
 unchanged): the existing block conditional projects onto the exact kernel
 of the SAME completed patch residual-sum operator. Its fixed space is

@@ -25,7 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### ORIGINAL exact block groundspace (2026-09-30 UTC)
+### ORIGINAL all-state patch complement and generator bound (2026-09-30 UTC)
+
+`BF4ExactSlabBlockComplementCoercivity.block_complement_coercivity` proves
+gamma*||x-Q_Sx||^2 <= E_S(x) for EVERY state of the SAME original completion,
+where Q_S is the EXISTING block conditional and E_S sums the EXISTING singleton
+residual norms on x. The explicit positive coefficient is
+
+    gamma(w,N) = min(headFloor(w),1)^(6*N)/(1+prefixCap(w))^(6*N).
+
+No centering, support-locality, small-nome or distinctness premise. The exact
+patch kernel includes exterior-dependent states; empty and repeated lists are
+allowed. Commuting background Haar variance and projection minimality produce
+one L/U cost, with the original action and original residuals restored in the
+conclusion. `BF4ExactSlabPatchGeneratorCoercivity.patch_generator_square_lower`
+then gives gamma*E_S(x) <= ||H_Sx||^2 by Young, using H_SQ_Sx=0, without a
+spectral theorem or division by zero energy. `patch_step_energy_contract`
+supplies strict actual patch-energy descent with s=1/(2*(N+1)), q=1-s*gamma.
+Six final focused serialized capped checks passed 29 gates within
+{propext, Quot.sound}; no new analytic premise or sorry.
+
+This closes the missing positive ALL-STATE subsystem baseline, not the useful
+collective/scaling estimate. Gamma depends on nome and patch size, not ambient
+extent or late cutoff at fixed w,N, and is smaller than the already inadequate
+supportRatio budget. It is useful for kernel-preserving, energy-relative
+approximation control, not a reason to pursue larger patches with this same
+coarse coefficient. NEXT: obtain a genuinely sharper original-action
+patch/overlap or signed collective estimate with viable local-to-global and
+scaling dependence. The finite-core/tail certificate and one-shared-face
+completed commuting retained-action conditional reference remain missing.
+Do not extend the completed collar-baseline branch just to repackage its rate.
+OS time, physical mass, continuum survival, full QFT and every group remain
+open; canonical chart unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-PATCH-COMPLEMENT-2026-09-30.md`.
+
+### ORIGINAL exact block groundspace (2026-09-30 UTC; preceding checkpoint)
 
 `BF4ExactSlabBlockFixedSpace.fixed_iff_generator_zero` now identifies the
 EXISTING original block conditional Q_S as the orthogonal projection onto

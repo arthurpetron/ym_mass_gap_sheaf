@@ -1,5 +1,13 @@
 # Defect-retaining collective estimates: revised quantitative entry test
 
+Further checked follow-up: `AUDIT-ORIGINAL-PATCH-COMPLEMENT-2026-09-30.md`
+supplies a positive ALL-STATE patch-complement and generator-square baseline
+for those exact groundspaces, with explicit nome/patch-size collar cost.
+This resolves the absence of any quantitative subsystem baseline, not a
+USEFUL finite-size/scaling bound. Its conservative coefficient remains too
+small for the previously recorded collar/box budget. Sharper collective
+control and a kernel-preserving finite-core/tail certificate remain open.
+
 Later checked follow-up: `AUDIT-ORIGINAL-BLOCK-GROUNDSPACE-2026-09-30.md`
 now identifies the EXISTING block conditional projection with the exact
 groundspace projection of the actual completed patch residual sum, for

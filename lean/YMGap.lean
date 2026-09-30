@@ -5753,6 +5753,12 @@ import YMGap.Continuum.SU2QuaternionWeightedHaarFamilyCompletion
 import YMGap.Continuum.BF4ExactSlabBlockReferenceProjection
 import YMGap.Continuum.GNSProjectionGeneratorKernel
 import YMGap.Continuum.BF4ExactSlabBlockFixedSpace
+import YMGap.Continuum.GNSProjectionDistanceMinimum
+import YMGap.Continuum.GNSCommutingPatchVariance
+import YMGap.Continuum.SU2QuaternionWeightedHaarFamilyVariance
+import YMGap.Continuum.BF4ExactSlabBlockComplementCoercivity
+import YMGap.Continuum.GNSProjectionKernelCoercivity
+import YMGap.Continuum.BF4ExactSlabPatchGeneratorCoercivity
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

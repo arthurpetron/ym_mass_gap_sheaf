@@ -1,5 +1,35 @@
 # Sorry Ledger
 
+## PROVED all-state original patch complement and generator baseline (2026-09-30 UTC)
+
+- `GNSProjectionSweep.Family.residual_distance_minimum` (in
+  `GNSProjectionDistanceMinimum.lean`) and `GNSCommutingPatchVariance`
+  supply completed minimum-distance and commuting-patch variance estimates.
+  `SU2QuaternionWeightedHaarFamilyVariance` instantiates them on the SAME
+  constructed spectator-weighted Haar family, with no new analytic input.
+- `BF4ExactSlabBlockComplementCoercivity.block_complement_coercivity` proves
+  gamma*||x-Q_Sx||^2 <= E_S(x) for every original completed state. Q_S and
+  E_S are the existing ORIGINAL block conditional and singleton energy.
+  The positive rational gamma is min(headFloor,1)^(6N)/(1+prefixCap)^(6N).
+  It is independent of ambient extent/late cutoff at fixed nome and patch
+  size, not uniform in nome, size or spacing. All exterior ground states,
+  empty lists and repeated indices remain; no centering/locality restriction.
+- `GNSProjectionKernelCoercivity.square_lower_of_coercive_pair` uses completed
+  Young without a spectral theorem. The actual
+  `BF4ExactSlabPatchGeneratorCoercivity.patch_generator_square_lower` proves
+  gamma*E_S(x) <= ||H_Sx||^2; `patch_step_energy_contract` gives the existing
+  gradient step's strict actual energy rate q=1-gamma/(2*(N+1)).
+- OPEN: a useful sharper original-action patch/overlap or signed collective
+  estimate on a justified scaling family. This conservative baseline does
+  not repair the known collar-budget insufficiency or construct a finite
+  core/tail certificate. The one-shared-face completed conditional reference,
+  OS/physical-time bridge, continuum survival, physical mass, full QFT and
+  every-group obligations remain open. No canonical field was changed.
+- Six final focused one-worker/20 GiB checks passed 29 printed gates within
+  {propext, Quot.sound}. No new sorry, analytic premise, custom axiom or
+  frontier weakening; no old sorry discharged. No full-root/tree/audit/guard
+  run. Evidence: `audits/AUDIT-ORIGINAL-PATCH-COMPLEMENT-2026-09-30.md`.
+
 ## PROVED exact original completed patch groundspace (2026-09-30 UTC)
 
 - `BF4ExactSlabBlockCompletionComparison` supplies explicit-modulus inverse
