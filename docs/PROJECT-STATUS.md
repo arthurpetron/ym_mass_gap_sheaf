@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting J02 complex observables (2026-09-30 UTC; chart unchanged):
+equal-time Wilson multipliers commute on every state of the existing all-nome
+fixed-width completion and its existing complexification. Their complex
+actions are linear, symmetric and bounded by the same spin-only squared-norm
+cap; the original unit/loop/time-correlation pin is preserved. All 16 gates
+passed focused capped checks; no broad run. This is not continuum locality,
+continuous time or signed scaling control. A03, full J02 and all Clay
+obligations remain open. Evidence:
+`audits/AUDIT-ALL-NOME-COMPLEX-OBSERVABLES-2026-09-30.md`.
+
 Verified supporting J02 vacuum generation (2026-09-30 UTC; chart unchanged):
 every bounded signed Wilson expression is now exactly generated from the
 existing vacuum by the SAME all-nome fixed-width time, loop and linear

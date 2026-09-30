@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**All-nome complex observables (2026-09-30 UTC):**
+`BF4WilsonAllNomeTimeZeroCommutation` proves equal-time commutation on the
+existing real completion. `BF4WilsonAllNomeComplexObservables` constructs
+the corresponding complex-linear, symmetric, bounded commuting maps on the
+existing complexification, with the original unit/loop/time-correlation pin.
+All 16 gates passed focused serialized capped checks; no broad run. This
+is fixed-width observable structure, not continuum locality or signed
+scaling control. Full QFT and Clay remain open. Evidence:
+`audits/AUDIT-ALL-NOME-COMPLEX-OBSERVABLES-2026-09-30.md` at repository root.
+
 **All-nome Wilson vacuum generation (2026-09-30 UTC):**
 `BF4WilsonAllNomeWindowPins` and `BF4WilsonAllNomeWindowRealization`
 prove exact finite-program generation of every bounded signed Wilson

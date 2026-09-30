@@ -25,6 +25,26 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Independent same-carrier complex observables (2026-09-30 UTC)
+
+The actual all-nome equal-time Wilson multipliers now commute on every
+completed state (`BF4WilsonAllNomeTimeZeroCommutation`). Their componentwise
+action on the EXISTING complexification is complex-linear with supplied
+scalar moduli, symmetric, and bounded by the SAME spin-only squared-norm
+cap (`BF4WilsonAllNomeComplexObservables`). The vacuum-created loop and its
+discrete-time correlation remain pinned to the original action.
+
+This is partial fixed-width J02 structure, not continuum spacelike locality
+or commutation with time evolution. The signed review supplied no useful
+new lower bound: retain prediction-defect squares and seek collective
+covariance control relative to the original energy. A conditional zero-
+covariance wrapper would not supply that producer, so none was added.
+A03, full J02 and the Clay target remain open; chart unchanged. All 16 gates
+passed two focused serialized one-worker/20 GiB checks after small source
+repairs; no broad run. Luna proved commutation, root the complex consumer,
+and Sol reviewed source semantics and the analytic boundary. Evidence:
+`audits/AUDIT-ALL-NOME-COMPLEX-OBSERVABLES-2026-09-30.md`.
+
 ### Independent same-carrier vacuum generation (2026-09-30 UTC)
 
 `BF4WilsonAllNomeWindowPins` descends free source-polynomial identities
@@ -11749,9 +11769,9 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
 8. **Bound literature polling (user request, 2026-09-16).** Check the routine
    math-ph new listing at most once every 12 hours, using the timestamped
    research audit between checks. Do not repeat a scan on each goal turn.
-   The latest scan ended at 2026-09-16 09:54 UTC; the next routine scan is
-   not before 21:54 UTC that day. A direct request to inspect a specific
-   paper is separate from routine listing polling. Prefer proof work when
+   Read the latest timestamped `audits/RESEARCH-MATH-PH-*.md` report for
+   the completed-scan time and earliest next refresh. A direct request to
+   inspect a specific paper is separate from routine listing polling. Prefer proof work when
    no new literature check is due.
 9. **Use forward-backward / bidirectional construction (user request,
    2026-09-17).** Maintain two explicit proof fronts: actual constructions

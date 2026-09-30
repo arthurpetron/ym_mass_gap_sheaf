@@ -10,6 +10,12 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Complex Wilson observables (2026-09-30):** equal-time multipliers now
+commute on the existing fixed-width all-nome completion and its complexification.
+They are complex-linear, symmetric and bounded, retaining the original vacuum
+and loop-correlation pins. This is not continuum locality or a signed scaling
+estimate. See the [proof and scope audit](audits/AUDIT-ALL-NOME-COMPLEX-OBSERVABLES-2026-09-30.md).
+
 **Same-carrier vacuum generation (2026-09-30):** every bounded signed Wilson
 expression now has an explicit program using the existing vacuum, time and
 loop operators at every rational nome `0<w<1` and fixed width. The original
