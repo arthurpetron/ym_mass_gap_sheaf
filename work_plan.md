@@ -25,6 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual transfer gap reaches the original series core (2026-09-30 UTC)
+
+An independent reconstruction join now has supplied inputs and a short proof.
+For the existing T and F=sum_(k>=1)(I-T)^k*T/k, positivity of the actual
+series tail gives B(Tx,Fx)>=B(Tx,(I-T)Tx). The original strict norm rate q
+then gives B(Tx,Fx)>=(1-q)/2*B(Tx,Tx) whenever Tx is vacuum-orthogonal.
+`BF4WilsonAllNomeLogCoreGap.core_form_gap` proves this on the SAME carrier,
+with explicit positive `coreMargin`. No inverse or square root of T is used.
+
+On the vacuum complement, F kills exactly the original time kernel.
+The existing witnessed graph has no nonzero input in that kernel, by its
+supplied positive-time approximation modulus. Therefore its zero-output
+vacuum-complement input is zero. An active plaquette has nonzero F output.
+The boundary time-kernel states still exist on the original carrier; they
+have not been removed, and full-carrier injectivity is not asserted.
+
+The quantitative gap here is on the CORE graph. The full witnessed graph
+kernel statement is not a quantitative full-graph gap. Passing the bounded
+defect-form comparison through its graph limits is the next reconstruction
+step with available inputs. Scalar-log identification, appropriate domain
+density, self-adjoint/continuous-time reconstruction and physical calibration
+remain OPEN. The rate is still nome- and width-dependent.
+
+Survival remains the separate primary analytic frontier below. Source review
+found no whole-family useful relative upper bound. A pure spatial coefficient-
+gradient bound cannot simply replace the temporal numerator: the checked
+family energy retains a positive coefficient-square lower floor at fixed
+nome. This is a source-level planning deduction, not a new checked asymptotic
+obstruction. Seek a genuine source-specific energy/variance improvement;
+neither smoothing nor filtering alone supplies one.
+
+Two focused capped checks passed 13 printed gates in {propext, Quot.sound};
+no broad run, new analytic premise, frontier weakening or canonical closure.
+Evidence: `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ### Whole signed temporal join; narrow the survival search (2026-09-30 UTC)
 
 `BF4WilsonAllNomeZeroRadiusIncrement.increment_reflected_pin` now proves

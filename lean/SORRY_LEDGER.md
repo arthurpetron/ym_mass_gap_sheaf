@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED original series-core gap and graph kernel control (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeLogRangePositive.regularizedLog_time_firstTerm_le`
+  retains the first term of the already constructed positive series:
+  B(Tx,(I-T)Tx)<=B(Tx,Fx), with F=sum_(k>=1)(I-T)^k*T/k.
+- `BF4WilsonAllNomeLogCoreGap.completed_defect_form_gap` uses the actual
+  fixed-nome/fixed-width two-step rate q to give (1-q)/2 times the SAME norm.
+  `core_form_gap` carries this strict bound to the original series graph core.
+- `regularizedLog_zero_iff_time_zero` identifies its kernel on the vacuum
+  complement with the existing time kernel. `graph_zero_output_iff` and
+  `action_zero_iff_input_zero` use actual graph approximants to rule out
+  nonzero zero-output inputs there. No original boundary state is discarded.
+  `plaquette_regularizedLog_ne_zero` supplies a concrete active-source result.
+- OPEN: quantitative full-graph closure, scalar-log identification,
+  appropriate density/self-adjointness/continuous physical time, useful
+  spatial/spacing control and the survival relative upper bound; all Clay
+  fields remain OPEN. Kernel triviality is not a physical spectral gap.
+- Two focused one-worker/20 GiB checks passed 13 gates in
+  {propext, Quot.sound}; no sorry or axiom introduced/discharged, broad run
+  or chart change. See `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED whole signed temporal join; relative upper bound OPEN (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeZeroRadiusIncrement.increment_reflected_pin` generalizes

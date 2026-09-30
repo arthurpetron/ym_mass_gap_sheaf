@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting original series-core gap (2026-09-30 UTC; chart unchanged):
+the actual transfer rate q now bounds the original series core form below by
+(1-q)/2 times its input norm. On the vacuum complement the series kernel is
+exactly the original time kernel; the existing witnessed graph has no nonzero
+zero-output input there. Active plaquettes supply nonzero series outputs.
+This retains the boundary kernel and is not a quantitative full-graph,
+Hamiltonian or physical/scaling gap. Two focused capped checks passed 13
+gates. No canonical field changed. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 Verified supporting signed temporal join (2026-09-30 UTC; chart unchanged):
 the whole signed family's original squared increment is now pinned to twice
 the SAME completed temporal defect B(v,v)-B(v,T^n v). Original action,

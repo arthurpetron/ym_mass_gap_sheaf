@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original time-series core bound (2026-09-30):** the existing transfer gap
+now gives a positive quadratic-form bound on the same constructed series
+core. Its witnessed graph has no nonzero zero-output vacuum-complement input,
+without deleting the original boundary kernel. This remains a fixed-coupling,
+fixed-width result, not a Hamiltonian or physical mass gap. See the
+[checked proof and scope](audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md).
+
 **Whole signed-family temporal join (2026-09-30):** the original squared
 time increment now equals twice the loss of the SAME completed transfer
 pairing, with every signed cross term and the common partition retained.
