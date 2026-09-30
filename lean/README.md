@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Actual finite-width time kernel (2026-09-30 UTC):**
+`BF4WilsonAllNomeFringeCorrelation` passes exact original inactive-face
+cancellation through the joint limit. `BF4WilsonAllNomeFringeTimeKernel`
+proves a positive-norm width-one plaquette is killed by T(1), refuting
+full-carrier injectivity there. The padded positive-response counterpart
+also excludes zero-preserving, centered-probe-preserving, time-intertwining
+transport between these carriers. Syntactic width naturality and strict
+upper contraction are unchanged. All nine gates passed focused capped
+checks; no broad run. Controlled bulk/spatial comparison and Clay remain open.
+Evidence: `audits/AUDIT-ALL-NOME-BOUNDARY-TIME-KERNEL-2026-09-30.md`.
+
 **Uniform fundamental-loop norm cap (2026-09-30 UTC):**
 `BF4WilsonAllNomeLoopNormBound` proves centered squared norm <=4 independent
 of nome, width and loop size. `BF4WilsonAllNomePlaquetteUniformCapResponse`

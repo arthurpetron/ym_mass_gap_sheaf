@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified boundary-route correction (2026-09-30 UTC; chart unchanged): the
+actual all-nome width-one completed T(1) kills a positive-norm centered
+origin plaquette. Full-carrier injectivity is false there. At padded width
+the counterpart has positive response, excluding an exact zero-preserving,
+centered-probe-preserving time intertwiner. Dense syntax naturality and the
+fixed-parameter upper contraction remain valid. Physical-time work must
+handle the fringe in controlled bulk/spatial/scaling comparisons; no
+positive-norm state is discarded. A03, J02, J03 and Clay remain open. Nine
+gates passed focused capped checks; no broad run. Evidence:
+`audits/AUDIT-ALL-NOME-BOUNDARY-TIME-KERNEL-2026-09-30.md`.
+
 Verified supporting norm/response control (2026-09-30 UTC; chart unchanged):
 every unrescaled fundamental Wilson loop has centered squared norm <=4 on
 the SAME all-nome carrier, independent of nome, width and loop size. The
@@ -1654,7 +1665,7 @@ the diagram. This is presentation bookkeeping, not a new Lean frontier bundle.
 | B05 | EVERY-state decay survives scaling | OPEN; one surviving excitation does not supply a universal bound. |
 | J01 | SAME thermodynamic + continuum limits, explicit moduli | OPEN; cutoff/time-window limits are not the full physical limit. |
 | J02 | Full Hilbert/OS/QFT structure and YM fields/UV behavior | OPEN; algebra, represented completeness and pairing inequalities are partial prerequisites. |
-| J03 | Physical time, Hamiltonian, and mass calibration | OPEN; discrete transfer and scalar logarithmic rates do not identify a physical Hamiltonian or mass edge. |
+| J03 | Physical time, Hamiltonian, and mass calibration | OPEN; discrete transfer and scalar logarithmic rates do not identify a physical Hamiltonian or mass edge. Full width-one time injectivity is REFUTED by `BF4WilsonAllNomeFringeTimeKernel.completedTime_one_not_injective_width_one`; boundary handling and controlled bulk/spatial comparison are required, not silent removal of positive-norm OS states. |
 | J04 | Construction for EVERY compact simple gauge group | OPEN; an SU(2) proof cannot close this node. |
 
 Verification context: `audits/AUDIT-FOUR-LINK-SQUARE-YOUNG-2026-09-24.md`,

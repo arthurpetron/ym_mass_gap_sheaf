@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## PROVED actual boundary time kernel; full finite-carrier injectivity route refuted (2026-09-30 UTC)
+
+- **original-limit join:** `BF4WilsonAllNomeFringeCorrelation` proves exact
+  inactive-face centered correlation zero at every positive integer lag,
+  preserving the original action, partition and both endpoint means through
+  the joint heat-cutoff/exterior-time limit.
+- **actual carrier:** `BF4WilsonAllNomeFringeTimeKernel.inactive_face_time_one_zero`
+  uses lag-two zero and completed positive definiteness to obtain T(1)v=0.
+  `.completedTime_one_not_injective_width_one` supplies the existing
+  positive-norm centered origin plaquette as an explicit witness.
+- **transport obstruction:** the padded origin plaquette has nonzero
+  one-step image. `.no_centered_plaquette_time_transport` excludes a function
+  preserving zero, carrying these actual centered probes and intertwining
+  one step at the probe. Their different means are not equated. No checked
+  dense syntax map asserted these completed properties.
+- **repoint/open:** unrestricted injectivity at width one is false, not an
+  unsupplied analytic hypothesis to keep pursuing. Preserve the positive-norm
+  state and original correlators. Controlled bulk/spatial/scaling comparison,
+  the useful signed/SAME-variance estimate, full physical time/QFT, mass and
+  every-group Clay remain open. A zero time eigenvalue is compatible with
+  the proved strict upper contraction; no continuum refutation is claimed.
+- **verification:** nine final gates within {propext, Quot.sound}, focused
+  serialized one-worker/20 GiB checks only. Root proved the limit pin and
+  transport consequence, Luna the kernel, Sol reviewed. No sorry introduced
+  or discharged, no new axiom/analytic input/field weakening. Full-root,
+  full-tree, full audit and guard not run. Evidence:
+  `audits/AUDIT-ALL-NOME-BOUNDARY-TIME-KERNEL-2026-09-30.md`.
+
 ## Original finite covariance square-root calibration (2026-09-30 UTC)
 
 - **proved:** Chebyshev argument monotonicity on [1,infinity), and a

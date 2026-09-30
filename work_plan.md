@@ -25,6 +25,28 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Same-carrier boundary kernel: physical-time route correction (2026-09-30 UTC)
+
+`BF4WilsonAllNomeFringeCorrelation.centeredTimeMoment_zero` passes the
+original inactive-face correlation cancellation through the actual joint
+cutoff/time limit. `BF4WilsonAllNomeFringeTimeKernel` proves that the
+positive-norm centered width-one origin plaquette is killed by T(1): full-
+carrier time injectivity is FALSE there. The padded origin has nonzero
+one-step image, so even a zero-preserving map carrying these centered probes
+and intertwining one step at the probe is impossible. No proved dense-width
+naturality is contradicted: those maps act on syntax, not the completed
+interacting forms, and do not identify different means.
+
+REPOINT physical-time work to controlled interior/bulk and spatial/scaling
+comparison with explicit fringe handling. Do not seek full finite-carrier
+injectivity or silently discard a positive-norm OS state. Original objects
+remain unchanged. The primary useful signed/SAME-variance estimate, scaling
+survival, full QFT and Clay remain open. A boundary kernel is compatible
+with strict upper contraction. All nine gates passed focused serialized
+one-worker/20 GiB checks; no broad run. Root proved the limit pin and
+transport obstruction, Luna the kernel, Sol reviewed. Chart unchanged.
+Evidence: `audits/AUDIT-ALL-NOME-BOUNDARY-TIME-KERNEL-2026-09-30.md`.
+
 ### Uniform fundamental-loop norm cap and response consumer (2026-09-30 UTC)
 
 `BF4WilsonAllNomeLoopNormBound.centered_loop_norm_le_four` proves squared
@@ -11771,6 +11793,11 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
    estimate: prove its SAME-operator join before using it for physical scaling.
    This is an execution priority, not authorization to weaken any canonical
    field or replace the current original Wilson carrier by a legacy carrier.
+   Full finite-width time injectivity is not an available subgoal: the actual
+   width-one all-nome Wilson carrier has a proved positive-norm boundary
+   kernel (`BF4WilsonAllNomeFringeTimeKernel`). Handle the fringe in controlled
+   bulk/spatial/scaling comparison; do not discard its positive-norm states
+   or infer a completed width map from syntactic naturality.
 5. **Keep a bounded useful frontier.** Each checkpoint should supply an actual
    object/estimate consumed by the route, reduce a named open input, or rule out
    a proposed route. State the residue. Stop extending a branch when its intended

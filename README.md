@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Boundary time-kernel correction (2026-09-30):** the actual width-one
+completed Wilson transfer kills a positive-norm centered plaquette. Full
+injectivity is therefore false there; a padded plaquette instead has positive
+response. This rules out a specific exact completed-width transport, not
+bulk or continuum Yang--Mills. The reconstruction route must handle the
+boundary explicitly. See the
+[checked proof and plan correction](audits/AUDIT-ALL-NOME-BOUNDARY-TIME-KERNEL-2026-09-30.md).
+
 **Uniform loop norm cap (2026-09-30):** centered fundamental Wilson loops
 have squared norm at most 4, independent of nome, width and loop size. This
 removes the generic norm ceiling from a same-carrier plaquette response
