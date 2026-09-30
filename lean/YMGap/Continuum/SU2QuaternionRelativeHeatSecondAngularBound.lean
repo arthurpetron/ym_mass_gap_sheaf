@@ -44,7 +44,7 @@ open YMGap.Continuum.QuaternionHaarUnitScalarSquare
 open YMGap.Continuum.QuaternionHaarPolynomialSquareBound
 open YMGap.Continuum.QuaternionHaarHeatSecondAngularDerivative
 
-private structure MixedJet (blocks oi oj ii ij : Nat) (p : RatPoly)
+structure MixedJet (blocks oi oj ii ij : Nat) (p : RatPoly)
     (a b c d : Q') : Type where
   value : Interval blocks p a
   inner : Interval blocks (angularDerivative ii ij p) b
@@ -78,7 +78,7 @@ private def coordinateAngular {blocks block i j coordinate : Nat}
     (angularDerivative_supported_at hxi hxj (coordinateInterval hc).support)
     (angular_coordinate_carrier hc) R
 
-private def coordinateJet {blocks ob ib oi oj ii ij coordinate : Nat}
+def coordinateJet {blocks ob ib oi oj ii ij coordinate : Nat}
     (hob : ob < blocks) (hib : ib < blocks)
     (hoi : oi < 4) (hoj : oj < 4) (hii : ii < 4) (hij : ij < 4)
     (hc : coordinate < 4 * blocks) :
@@ -137,7 +137,7 @@ private def coordinateJet {blocks ob ib oi oj ii ij coordinate : Nat}
         (angularDerivative_supported_at hxi hxj (coordinateInterval hc).support))
       (angularDerivative_carrier_at hob hoi hoj hin) rhsOuter⟩
 
-private def MixedJet.add {blocks oi oj ii ij : Nat} {p q : RatPoly}
+def MixedJet.add {blocks oi oj ii ij : Nat} {p q : RatPoly}
     {a b c d e f g h : Q'} (hoi : oi < 4*blocks) (hoj : oj < 4*blocks)
     (hii : ii < 4*blocks) (hij : ij < 4*blocks)
     (P : MixedJet blocks oi oj ii ij p a b c d)
@@ -154,7 +154,7 @@ private def MixedJet.add {blocks oi oj ii ij : Nat} {p q : RatPoly}
       ((angularDerivative_congr _ _ (angularDerivative_add _ _ _ _)).trans
         (angularDerivative_add _ _ _ _)) (P.mixed.add Q.mixed)⟩
 
-private def MixedJet.neg {blocks oi oj ii ij : Nat} {p : RatPoly}
+def MixedJet.neg {blocks oi oj ii ij : Nat} {p : RatPoly}
     {a b c d : Q'} (hoi : oi < 4*blocks) (hoj : oj < 4*blocks)
     (hii : ii < 4*blocks) (hij : ij < 4*blocks)
     (P : MixedJet blocks oi oj ii ij p a b c d) :
@@ -169,7 +169,7 @@ private def MixedJet.neg {blocks oi oj ii ij : Nat} {p : RatPoly}
       ((angularDerivative_congr _ _ (angularDerivative_neg _ _ _)).trans
         (angularDerivative_neg _ _ _)) (intervalNeg P.mixed)⟩
 
-private def MixedJet.mul {blocks oi oj ii ij : Nat} {p q : RatPoly}
+def MixedJet.mul {blocks oi oj ii ij : Nat} {p q : RatPoly}
     {a b c d e f g h : Q'} (hoi : oi < 4*blocks) (hoj : oj < 4*blocks)
     (hii : ii < 4*blocks) (hij : ij < 4*blocks)
     (P : MixedJet blocks oi oj ii ij p a b c d)
@@ -245,3 +245,8 @@ end YMGap.Continuum.SU2QuaternionRelativeHeatSecondAngularBound
 
 #print axioms YMGap.Continuum.SU2QuaternionRelativeHeatSecondAngularBound.scalarAt_mixedAngularInterval
 #print axioms YMGap.Continuum.SU2QuaternionRelativeHeatSecondAngularBound.heatSecondAngularInterval
+#print axioms YMGap.Continuum.SU2QuaternionRelativeHeatSecondAngularBound.MixedJet
+#print axioms YMGap.Continuum.SU2QuaternionRelativeHeatSecondAngularBound.coordinateJet
+#print axioms YMGap.Continuum.SU2QuaternionRelativeHeatSecondAngularBound.MixedJet.add
+#print axioms YMGap.Continuum.SU2QuaternionRelativeHeatSecondAngularBound.MixedJet.neg
+#print axioms YMGap.Continuum.SU2QuaternionRelativeHeatSecondAngularBound.MixedJet.mul

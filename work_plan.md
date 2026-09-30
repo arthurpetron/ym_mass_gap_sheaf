@@ -42,8 +42,28 @@ removes the weights on the SAME original heatPrefix. The mixed relative cost
 is m*R+d*e*R^2+1 at every sufficiently late cutoff. The heat floor enters
 only the required precision, not that cost. Both first bounds are retained.
 
-NEXT: instantiate actual four-link two-plane scalar caps and the collar
-numerator. Finite-family improvement and all scaling/Clay fields remain OPEN.
+PHYSICAL FOLLOW-ON PROVED: the actual four-link scalar now supplies two-plane
+first caps 2048 and mixed cap 16384. `BF4ExactSlabMixedRelativeHeatCollar`
+instantiates the original face heat and the literal at-most-twelve-factor
+two-link collar. First cap is 12*c and mixed cap 12*m+(12*c)^2, where c,m
+are the explicit original face relative costs. Four focused capped checks
+passed 19 gates. The full numerator Y X(A*g), residual and Gram joins remain
+open; a collar derivative bound is not that numerator estimate.
+
+NEXT PRIORITY (quantitative step back): do not build the remaining dual/Gram
+chain solely to divide the old absolute time-loss budget by a new small norm
+floor. Source algebra gives R=2w/((1-w)^2*(1-w^2)); the present mixed cost has
+near-one order (1-w)^-6. A squared-cost family floor would therefore have
+order (1-w)^12, still unable to pay the old O(1-w) budget by direct subtraction.
+This last proposed-floor comparison is a PAPER-LEVEL diagnostic, not a new
+Lean obstruction theorem or a statement about actual variance. Prioritize
+an estimate of temporal cost RELATIVE TO THE SAME signed centered source
+variance, retaining cancellations or exploiting controlled-support sources;
+check its coupling order before constructing more consumers. Reuse the local
+collar certificates where they help that estimate. Do not invent a spacing
+law or treat polynomial cost alone as useful physical calibration.
+
+Finite-family improvement and all scaling/Clay fields remain OPEN.
 The weighted milestone passed 20 gates; three further focused capped checks
 passed 15 gates (including the exposed existing term bound), all within
 {propext, Quot.sound}. No broad run or canonical chart change. Evidence:

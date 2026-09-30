@@ -5746,6 +5746,10 @@ import YMGap.Continuum.QuaternionHaarMixedRelativeAngularBound
 import YMGap.Continuum.JacobiHeatMixedRelativeAngularBound
 import YMGap.Continuum.QuaternionHaarHeatMixedAngularDeficit
 import YMGap.Continuum.QuaternionHaarHeatMixedRelativeAngularBound
+-- Actual two-plane plaquette and original two-link collar, with explicit nome cost.
+import YMGap.Continuum.BF4ExactSlabPlaquetteMixedAngularInterval
+import YMGap.Continuum.QuaternionHaarMixedRelativeProduct
+import YMGap.Continuum.BF4ExactSlabMixedRelativeHeatCollar
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 -- Constructed SAME-carrier regularized series, not a physical Hamiltonian.
 import YMGap.Continuum.BF4WilsonAllNomeLogPartial

@@ -19,9 +19,12 @@ cutoff, with no inverse heat-minimum factor. Follow-on
 `QuaternionHaarHeatMixedRelativeAngularBound.heatPrefixMixedRelativeBoundAt`
 removes the weights with an explicit mixed-deficit modulus, giving cost
 m*R+d*e*R^2+1 on the SAME original heat prefix. The floor enters only the
-cutoff precision. The physical two-plane four-link/collar estimate remains
-open. The weighted milestone passed 20 gates and the follow-on passed 15
-gates in focused capped checks; no broad run or Clay closure. Evidence:
+cutoff precision. The actual four-link two-plane scalar and ORIGINAL two-link
+collar now also check: collar first cost 12*c, mixed cost 12*m+(12*c)^2.
+The full dual numerator and signed relative temporal-energy estimate remain
+open. These polynomial costs alone do not resolve calibration. The weighted
+milestone passed 20 gates, weight removal 15, and physical collar 19, all in
+focused capped checks; no broad run or Clay closure. Evidence:
 `audits/AUDIT-MIXED-RELATIVE-HEAT-2026-09-30.md`.
 
 **Signed-family floor on the literal Wilson completion (2026-09-30 UTC):**

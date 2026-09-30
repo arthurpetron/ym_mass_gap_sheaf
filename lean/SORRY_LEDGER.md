@@ -15,8 +15,14 @@
   `QuaternionHaarHeatMixedRelativeAngularBound.heatPrefixMixedRelativeBoundAt`
   removes the weights, giving cost m*R+d*e*R^2+1 on the SAME original prefix
   at every sufficiently late cutoff. The heat floor sets precision only.
-- OPEN: actual physical two-plane four-link/collar mixed-score instance,
-  signed-family improvement and all scaling/Clay fields.
+- PHYSICAL FOLLOW-ON PROVED: `BF4ExactSlabPlaquetteMixedAngularInterval`
+  gives the actual four-link scalar's two first caps 2048 and mixed cap 16384.
+  `BF4ExactSlabMixedRelativeHeatCollar.twoLinkCollarMixedRelativeBound`
+  supplies the SAME original collar with first cap 12*c and mixed cap
+  12*m+(12*c)^2. Four focused capped checks passed 19 gates.
+- OPEN: the full physical numerator Y X(A*g), residual/Gram assembly,
+  signed-family improvement, relative temporal cost and all scaling/Clay
+  fields. The new explicit polynomial cost does not certify calibration.
 - Three focused capped checks passed 20 public gates within
   {propext, Quot.sound}; no sorry/axiom change, broad run or chart change.
   Evidence: `audits/AUDIT-MIXED-RELATIVE-HEAT-2026-09-30.md`.
