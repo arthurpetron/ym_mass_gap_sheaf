@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED all-input bounded-degree approximation of the original conditional sweep (2026-09-30 UTC)
+
+- `BF4ExactSlabPolynomialSweepApproximation.approximation` constructs the
+  actual pure-prediction polynomial sweep at a returned common cutoff;
+  `approximation_error` bounds its squared original-action error by epsilon
+  times input squared norm for EVERY supported polynomial, including zero
+  norm and arbitrary input degree. `approximation_degree` bounds every
+  output block degree independently of input degree.
+- The singleton block/star identity pins the target to the actual completed
+  conditional sweep. This is not OS time. The fixed finite K/extent range
+  bound and explicit schedule-length error budget are not uniform spatial
+  or continuum control. Finite-span/linearity/descent construction, a useful
+  finite weighted Gram certificate and all Clay-facing joins remain open.
+- Fifty gates passed five final focused serialized one-worker/20 GiB checks
+  within {propext, Quot.sound}. No full-root/full-tree/audit/guard run, new
+  sorry, axiom or analytic premise; no existing sorry discharged. Sol supplied
+  inverse error and generic sweep control, Luna degree algebra, root the
+  actual degree-erasing sweep and same-object join; both reviewed scope.
+  Evidence: `audits/AUDIT-ALL-INPUT-POLYNOMIAL-SWEEP-2026-09-30.md`.
+
 ## PROVED degeneration of the existing finite-volume covariance factor (2026-09-30 UTC)
 
 - `BF4ExactSlabFiniteVolumeChebyshevObstruction.factor_bounds` proves the

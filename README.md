@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**All-input sweep approximation (2026-09-30):** a computed iteration count
+controls the original conditional sweep's error for every supported polynomial,
+while bounding output degrees independently of input degree. This supplies
+rigorous approximation control for a finite-certificate route, not a tested
+low-degree input truncation. A finite weighted Gram certificate and useful
+spatial/scaling bound remain open. See the
+[proof and scope audit](audits/AUDIT-ALL-INPUT-POLYNOMIAL-SWEEP-2026-09-30.md).
+
 **Spatial-rate route test (2026-09-30):** the existing finite-volume
 Chebyshev covariance multiplier approaches one, uniformly in nome, for
 degrees no larger than the physical face count. Its volume cost defeats

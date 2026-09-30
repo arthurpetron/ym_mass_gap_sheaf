@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**All-input original conditional sweep approximation (2026-09-30 UTC):**
+`BF4ExactSlabPolynomialSweepApproximation.approximation_error` and
+`approximation_degree` join a common relative-error modulus to an
+input-independent output-degree bound on the SAME finite supported carrier.
+All 50 gates passed five final focused capped checks; no broad run. This
+is not yet a completed finite-rank operator, finite Gram gap certificate,
+OS-time or scaling theorem. Evidence:
+`audits/AUDIT-ALL-INPUT-POLYNOMIAL-SWEEP-2026-09-30.md` at repository root.
+
 **Finite-volume coefficient limitation (2026-09-30 UTC):**
 `BF4ExactSlabFiniteVolumeChebyshevObstruction.factor_approaches_one`
 proves the ACTUAL covariance multiplier approaches one with an explicit

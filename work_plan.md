@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### All-input bounded-degree original conditional sweep (2026-09-30 UTC)
+
+`BF4ExactSlabPolynomialSweepApproximation.approximation` computes a pure
+prediction sweep; `approximation_error` proves squared error at most
+epsilon times the SAME original full-action input norm, for EVERY supported
+polynomial at one cutoff `sweepCutoff w extent epsilon`. This count is
+independent of input degree and heat cutoff. `approximation_degree` returns
+an explicit per-block degree budget depending on w,K,extent,epsilon, not p.
+The singleton block/star identity identifies the target with the original
+conditional sweep, not physical time. Fifty gates passed five focused capped
+checks. Sol handled inverse error and generic sweep propagation, Luna degree
+algebra, root degree erasure and the actual join; scope was independently
+reviewed. No chart node changed.
+
+The pure conditional numerator integrates the selected block exactly. In
+contrast, subtracting an approximate residual leaves a multiple of p and
+does not erase arbitrary input degree. Preserve this distinction in future
+certificate work. Next certificate work must construct the finite span and
+linear factorization with the original weighted quotient and its dual
+functionals before asserting finite-matrix control of all inputs. No
+completed finite-rank operator or useful strict Gram bound is proved here.
+Do not launch a whole-volume matrix computation: first establish a feasible
+local certificate domain and its actual global signed-energy consumer.
+Neither the degree budget nor sweep error propagation is volume-uniform;
+the primary useful signed/scaling bound, OS join and Clay target remain open.
+Evidence: `audits/AUDIT-ALL-INPUT-POLYNOMIAL-SWEEP-2026-09-30.md`.
+
 ### Existing finite-volume spatial factor degenerates (2026-09-30 UTC)
 
 `BF4ExactSlabFiniteVolumeChebyshevObstruction` proves the ACTUAL multiplier

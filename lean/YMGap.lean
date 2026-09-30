@@ -5486,6 +5486,13 @@ import YMGap.Continuum.BF4ExactSlabFiniteVolumeChebyshevRate
 import YMGap.Continuum.BF4ExactSlabPhysicalFaceCount
 import YMGap.Continuum.ChebyshevReciprocalNearOne
 import YMGap.Continuum.BF4ExactSlabFiniteVolumeChebyshevObstruction
+-- All-input error and bounded output degrees for the ORIGINAL conditional sweep.
+-- No finite Gram gap certificate, OS-time identification or scaling claim.
+import YMGap.Continuum.SU2QuaternionBlockDegreeBound
+import YMGap.Continuum.BF4ExactSlabPolynomialSweepDegree
+import YMGap.Continuum.BF4ExactSlabBlockConditionalApproximationError
+import YMGap.Continuum.GNSFiniteSweepApproximation
+import YMGap.Continuum.BF4ExactSlabPolynomialSweepApproximation
 -- Original local variances pay for support, not all volume faces; no global gap.
 import YMGap.Continuum.BF4ExactSlabLocalSupportComparison
 import YMGap.Continuum.BF4ExactSlabLocalSupportVariance

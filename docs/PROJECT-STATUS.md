@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting all-input approximation (2026-09-30 UTC; chart unchanged):
+the original conditional sweep has a polynomial approximation with one
+computed relative-error cutoff for every supported input, and output degrees
+bounded independently of input degree. This avoids an unjustified input
+truncation. Finite Gram certification, useful spatial/scaling control,
+physical OS identification and A03/J02/J03/Clay closure remain open. All 50
+gates passed five focused capped checks; no broad run. Evidence:
+`audits/AUDIT-ALL-INPUT-POLYNOMIAL-SWEEP-2026-09-30.md`.
+
 Verified supporting spatial-rate limitation (2026-09-30 UTC; chart unchanged):
 the actual finite-volume Chebyshev factor lies in [1-(1/8)^F,1] for n<=F
 physical faces, with an explicit extent modulus uniform in nome. This
