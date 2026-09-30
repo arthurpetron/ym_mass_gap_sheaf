@@ -1,6 +1,31 @@
 # Sorry Ledger
 
-## PROVED original local spectator band; response join OPEN (2026-09-30 UTC)
+## PROVED width-independent original positive response (2026-09-30 UTC)
+
+- `BF4ExactSlabFixedSpatialLocalResponse.localResponseFloor_le_window`
+  constructs the positive nome-only floor ell^2/[U^2*(w^(-12)+5)] for the
+  original normalized one-step response. ell=headFloor^28, U=prefixCap^28;
+  width, terminal depth and late cutoff are absent from this coefficient.
+  Exact modulated transmission and one-edge moments retain the SAME exterior
+  quadratic, whose positivity follows from the original partition cap before
+  cancellation. The actual interacting endpoint is not replaced by a free
+  boundary action. The four-active-face guard remains explicit.
+- `BF4WilsonAllNomeLocalConnectedFloor.connected_response_floor` carries the
+  actual centered response through the existing cutoff/time limits. Its
+  `faceExcitation_response_floor` and padded version use the SAME existing
+  completed vector and time; strict padding supplies activity. No all-nome
+  thermodynamic construction or spacing-uniform bound is asserted.
+- Nine final focused one-worker/20 GiB checks passed 31 printed gates within
+  {propext, Quot.sound}; no broad build/audit/guard. No new sorry, custom axiom
+  or open analytic estimate; no old sorry discharged. Original signed/scaling
+  production, continuum survival, full QFT, physical mass and every group
+  remain open. No canonical chart state changes. Evidence:
+  `audits/AUDIT-LOCAL-POSITIVE-RESPONSE-2026-09-30.md`.
+
+## PROVED original local spectator band; historical response frontier (2026-09-30 UTC)
+
+The response join listed below was open at this preceding checkpoint and is
+now proved by the entry immediately above. Continuum/Clay boundaries remain.
 
 - `BF4ExactSlabFixedSpatialLocalSpectator.endpoint_lowerCertificate` and
   `endpoint_upperCertificate` compare the actual V*u_(n+1) to one constructed

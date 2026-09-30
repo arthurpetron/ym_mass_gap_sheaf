@@ -25,7 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Original endpoint local spectator band (2026-09-30 UTC)
+### Width-independent ORIGINAL positive-time response (2026-09-30 UTC)
+
+`BF4ExactSlabFixedSpatialLocalResponse.localResponseFloor_le_window`
+closes the preceding local-band response join. The SAME exterior quadratic
+is retained in the exact modulated dual cost, original detector and original
+odd partition, then cancelled only after its positivity is proved. The
+explicit floor is ell(w)^2/[U(w)^2*(w^(-12)+5)]>0, with ell=headFloor^28
+and U=prefixCap^28. It is independent of width, terminal depth and late
+cutoff, NOT nome or physical spacing. All four original face links must be
+active; strict padding supplies this condition for a fixed base face.
+
+`BF4WilsonAllNomeLocalConnectedFloor.connected_response_floor` passes the
+new bound through the EXISTING fixed-width cutoff/time limits after expanding
+the actual finite centered expression. `faceExcitation_response_floor` and
+`padded_faceExcitation_response_floor` pin it to B(v,T(1)v) for the SAME
+existing completed vector and time. No new limit/positivity assumption is
+introduced. Nine focused capped checks passed 31 printed gates within
+{propext, Quot.sound}; no broad run and no canonical chart state change.
+
+This removes a volume-dependent loss from a positive-response LOWER bound,
+not the missing signed upper-decay estimate. An all-nome thermodynamic family,
+spacing survival, physical mass calibration and every continuum/Clay join
+remain open. The existing spatial-union machinery retains its small-nome
+guards. Next return to a useful signed estimate for the ORIGINAL interacting
+action on a justified parameter family; do not add another normalization or
+completion wrapper in place of that producer. Evidence:
+`audits/AUDIT-LOCAL-POSITIVE-RESPONSE-2026-09-30.md`.
+
+### Original endpoint local spectator band (2026-09-30 UTC; preceding checkpoint)
+
+The response join described as next in this historical checkpoint is now
+proved by the result immediately above; its remaining continuum boundaries
+are unchanged.
 
 `BF4ExactSlabFixedSpatialLocalSpectator.endpoint_lowerCertificate` and
 `endpoint_upperCertificate` construct both bands for V*u_(n+1) against the

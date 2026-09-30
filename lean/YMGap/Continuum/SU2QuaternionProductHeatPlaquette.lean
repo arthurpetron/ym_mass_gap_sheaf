@@ -30,6 +30,7 @@ open YMGap.Continuum.BF4ExactSlabAllExtentWeightedFactorization
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
 open YMGap.Continuum.SU2QuaternionHaarBlockConditionalAlgebra
+open YMGap.Continuum.SU2QuaternionOneLinkFundamentalSchurSpectatorFubini
 open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.SU2QuaternionSolidZonalCharacter
 open YMGap.Continuum.SU2QuaternionRelativeHeatPairGeometry
@@ -182,6 +183,155 @@ theorem selected_pairing (n : Nat) (w : Q') (K : Nat) (hK : 1 ≤ K)
   exact Q'.eqv_trans _ _ _ (productMap_pairing n w K _ _ g)
     (Q'.eqv_trans _ _ _ e0 (four_factors w _))
 
+/-- Transmit the plaquette while retaining an arbitrary lower-slice spectator
+independent of its four selected coordinates. The unselected heat factors
+still act on that spectator; this is a supported-Haar identity, not a raw
+polynomial eigenidentity. -/
+theorem selected_pairing_spectator (n : Nat) (w : Q') (K : Nat) (hK : 1 ≤ K)
+    (a b c d : Nat) (ids : List Nat) (hn : (a::b::c::d::ids).Nodup)
+    (hids : ∀ i, i ∈ a::b::c::d::ids → i < n)
+    (A : RatPoly) (hA : SupportedQuaternionBlocks n A)
+    (hAa : QuaternionBlockIndependent a A) (hAb : QuaternionBlockIndependent b A)
+    (hAc : QuaternionBlockIndependent c A) (hAd : QuaternionBlockIndependent d A) :
+    SupportedHaarEqv n
+      (productMap n w K (a::b::c::d::ids) (polyMul (plaquette a b c d) A))
+      (polySmul (qpow w 12)
+        (polyMul (plaquette a b c d) (productMap n w K ids A))) := by
+  intro g hg
+  have hna := List.nodup_cons.mp hn
+  have hnb := List.nodup_cons.mp hna.2
+  have hnc := List.nodup_cons.mp hnb.2
+  have hnd := List.nodup_cons.mp hnc.2
+  have ha : a < n := hids a (by simp)
+  have hb : b < n := hids b (by simp)
+  have hc : c < n := hids c (by simp)
+  have hd : d < n := hids d (by simp)
+  have hab : a ≠ b := fun he => hna.1 (by simp [he])
+  have hac : a ≠ c := fun he => hna.1 (by simp [he])
+  have had : a ≠ d := fun he => hna.1 (by simp [he])
+  have hbc : b ≠ c := fun he => hnb.1 (by simp [he])
+  have hbd : b ≠ d := fun he => hnb.1 (by simp [he])
+  have hcd : c ≠ d := fun he => hnc.1 (by simp [he])
+  have hA2 : SupportedQuaternionBlocks (n+n) A :=
+    fun t ht => Nat.le_trans (hA t ht) (Nat.mul_le_mul_left 4 (Nat.le_add_right n n))
+  let C := PolyQuaternion.coordinateVariable
+  have s (j : Nat) (hj : j < n+n) : QuaternionSupported (n+n) (C j) :=
+    QuaternionSupported.coordinate hj
+  have z (i j : Nat) (hij : i ≠ j) : HasPolyQuaternionBlockDegree i 0 (C j) :=
+    coordinate_independent i j hij
+  have p0 : Propagates (n+n) a (n+a) w K (plaquette a b c d) (plaquette (n+a) b c d) :=
+    ((((coordinate_step ha w K hK).mul_right (C b) (s b (by omega)) (z a b hab)).mul_right
+      (PolyQuaternion.conj (C c)) (s c (by omega)).conj (z a c hac).conj).mul_right
+      (PolyQuaternion.conj (C d)) (s d (by omega)).conj (z a d had).conj).scalar.smul 2
+  have p1 : Propagates (n+n) b (n+b) w K (plaquette (n+a) b c d) (plaquette (n+a) (n+b) c d) :=
+    ((((coordinate_step hb w K hK).mul_left (C (n+a)) (s (n+a) (by omega)) (z b (n+a) (by omega))).mul_right
+      (PolyQuaternion.conj (C c)) (s c (by omega)).conj (z b c hbc).conj).mul_right
+      (PolyQuaternion.conj (C d)) (s d (by omega)).conj (z b d hbd).conj).scalar.smul 2
+  have p2 : Propagates (n+n) c (n+c) w K (plaquette (n+a) (n+b) c d) (plaquette (n+a) (n+b) (n+c) d) :=
+    (((coordinate_step hc w K hK).conj.mul_left (PolyQuaternion.mul (C (n+a)) (C (n+b)))
+      ((s (n+a) (by omega)).mul (s (n+b) (by omega)))
+      ((z c (n+a) (by omega)).mul (z c (n+b) (by omega)))).mul_right
+      (PolyQuaternion.conj (C d)) (s d (by omega)).conj (z c d hcd).conj).scalar.smul 2
+  have p3 : Propagates (n+n) d (n+d) w K (plaquette (n+a) (n+b) (n+c) d) (plaquette (n+a) (n+b) (n+c) (n+d)) :=
+    ((coordinate_step hd w K hK).conj.mul_left
+      (PolyQuaternion.mul (PolyQuaternion.mul (C (n+a)) (C (n+b))) (PolyQuaternion.conj (C (n+c))))
+      (((s (n+a) (by omega)).mul (s (n+b) (by omega))).mul (s (n+c) (by omega)).conj)
+      (((z d (n+a) (by omega)).mul (z d (n+b) (by omega))).mul (z d (n+c) (by omega)).conj)).scalar.smul 2
+  have h0 := remove_selected n w K a (b::c::d::ids) ha hna.1
+    (fun i hi => hids i (List.mem_cons_of_mem a hi))
+    (p0.mul_right A hA2 (independent_has_degree_zero hAa)) g hg
+  have h1 := remove_selected n w K b (c::d::ids) hb hnb.1
+    (fun i hi => hids i (List.mem_cons_of_mem a (List.mem_cons_of_mem b hi)))
+    (p1.mul_right A hA2 (independent_has_degree_zero hAb)) g hg
+  have h2 := remove_selected n w K c (d::ids) hc hnc.1
+    (fun i hi => hids i (List.mem_cons_of_mem a (List.mem_cons_of_mem b (List.mem_cons_of_mem c hi))))
+    (p2.mul_right A hA2 (independent_has_degree_zero hAc)) g hg
+  have h3 := remove_selected n w K d ids hd hnd.1
+    (fun i hi => hids i (by simp only [List.mem_cons]; exact Or.inr (Or.inr (Or.inr (Or.inr hi)))))
+    (p3.mul_right A hA2 (independent_has_degree_zero hAd)) g hg
+  have hshape : RatPolyCoeffEqv
+      (polyMul (polyMul (plaquette (n+a) (n+b) (n+c) (n+d)) A) (liftBoundary n g))
+      (polyMul A (liftBoundary n (polyMul g (plaquette a b c d)))) := by
+    rw [lift_product, lift_plaquette]
+    exact coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.mul (.var 0) (.var 1)) (.var 2))
+      (.mul (.var 1) (.mul (.var 2) (.var 0)))
+      (by decide)
+      (fun | 0 => plaquette (n+a) (n+b) (n+c) (n+d)
+           | 1 => A | _ => liftBoundary n g)
+  have htail : quaternionHaar (n+n) (polyMul (productHeat n w K ids)
+      (polyMul (polyMul (plaquette (n+a) (n+b) (n+c) (n+d)) A) (liftBoundary n g))) ≈
+      quaternionHaar n (polyMul (polyMul g (plaquette a b c d))
+        (productMap n w K ids A)) :=
+    Q'.eqv_trans _ _ _ (haar_of_coeff (hshape.mul_left _))
+      (Q'.eqv_symm (productMap_pairing n w K ids A (polyMul g (plaquette a b c d))))
+  have e3 := Q'.eqv_trans _ _ _ h3 (Q'.mul_eqv_congr_left _ _ _ htail)
+  have e2 := Q'.eqv_trans _ _ _ h2 (Q'.mul_eqv_congr_left _ _ _ e3)
+  have e1 := Q'.eqv_trans _ _ _ h1 (Q'.mul_eqv_congr_left _ _ _ e2)
+  have e0 := Q'.eqv_trans _ _ _ h0 (Q'.mul_eqv_congr_left _ _ _ e1)
+  have hfinal : quaternionHaar n (polyMul (polyMul g (plaquette a b c d))
+      (productMap n w K ids A)) ≈
+      quaternionHaar n (polyMul g
+        (polyMul (plaquette a b c d) (productMap n w K ids A))) :=
+    haar_of_coeff (RatPolyCoeffEqv.mul_assoc g (plaquette a b c d) _)
+  exact Q'.eqv_trans _ _ _ (productMap_pairing n w K _ _ g)
+    (Q'.eqv_trans _ _ _ e0
+      (Q'.eqv_trans _ _ _ (four_factors w _)
+        (Q'.eqv_trans _ _ _ (Q'.mul_eqv_congr_left _ _ _ hfinal)
+          (Q'.eqv_symm (quaternionHaar_polyMul_smul_right n _ g _)))))
+
+/-- The selected factors also leave an independent spectator unchanged as
+an input, under every supported Haar test. -/
+private theorem selected_input_removed (n : Nat) (w : Q') (K : Nat)
+    (a b c d : Nat) (ids : List Nat) (hn : (a::b::c::d::ids).Nodup)
+    (hids : ∀ i, i ∈ a::b::c::d::ids → i < n)
+    (A : RatPoly) (hA : SupportedQuaternionBlocks n A)
+    (hAa : QuaternionBlockIndependent a A) (hAb : QuaternionBlockIndependent b A)
+    (hAc : QuaternionBlockIndependent c A) (hAd : QuaternionBlockIndependent d A) :
+    SupportedHaarEqv n (productMap n w K (a::b::c::d::ids) A)
+      (productMap n w K ids A) := by
+  have hna := List.nodup_cons.mp hn
+  have hnb := List.nodup_cons.mp hna.2
+  have hnc := List.nodup_cons.mp hnb.2
+  have hnd := List.nodup_cons.mp hnc.2
+  have ha : a < n := hids a (by simp)
+  have hb : b < n := hids b (by simp)
+  have hc : c < n := hids c (by simp)
+  have hd : d < n := hids d (by simp)
+  have h0 := productMap_cons_input_independent n w K a (b::c::d::ids) ha hna.1
+    (fun i hi => hids i (List.mem_cons_of_mem a hi)) A hA hAa
+  have h1 := productMap_cons_input_independent n w K b (c::d::ids) hb hnb.1
+    (fun i hi => hids i (List.mem_cons_of_mem a (List.mem_cons_of_mem b hi))) A hA hAb
+  have h2 := productMap_cons_input_independent n w K c (d::ids) hc hnc.1
+    (fun i hi => hids i (List.mem_cons_of_mem a (List.mem_cons_of_mem b (List.mem_cons_of_mem c hi)))) A hA hAc
+  have h3 := productMap_cons_input_independent n w K d ids hd hnd.1
+    (fun i hi => hids i (by simp only [List.mem_cons]; exact Or.inr (Or.inr (Or.inr (Or.inr hi))))) A hA hAd
+  exact h0.trans (h1.trans (h2.trans h3))
+
+/-- Full-output form: the unchanged product heat acts on the spectator,
+while the four-link plaquette is transmitted by its exact fundamental mode. -/
+theorem selected_pairing_spectator_full (n : Nat) (w : Q') (K : Nat) (hK : 1 ≤ K)
+    (a b c d : Nat) (ids : List Nat) (hn : (a::b::c::d::ids).Nodup)
+    (hids : ∀ i, i ∈ a::b::c::d::ids → i < n)
+    (A : RatPoly) (hA : SupportedQuaternionBlocks n A)
+    (hAa : QuaternionBlockIndependent a A) (hAb : QuaternionBlockIndependent b A)
+    (hAc : QuaternionBlockIndependent c A) (hAd : QuaternionBlockIndependent d A) :
+    SupportedHaarEqv n
+      (productMap n w K (a::b::c::d::ids) (polyMul (plaquette a b c d) A))
+      (polySmul (qpow w 12)
+        (polyMul (plaquette a b c d) (productMap n w K (a::b::c::d::ids) A))) := by
+  have hword := selected_pairing_spectator n w K hK a b c d ids hn hids A hA hAa hAb hAc hAd
+  have herase := selected_input_removed n w K a b c d ids hn hids A hA hAa hAb hAc hAd
+  have hmul : SupportedHaarEqv n
+      (polyMul (plaquette a b c d) (productMap n w K ids A))
+      (polyMul (plaquette a b c d) (productMap n w K (a::b::c::d::ids) A)) :=
+    (SupportedHaarEqv.refl n (plaquette a b c d)).mul herase.symm
+      (productMap_supported n w K ids (fun i hi => hids i
+        (by simp only [List.mem_cons]; exact Or.inr (Or.inr (Or.inr (Or.inr hi))))) hA)
+      (fourWord_supported (hids a (by simp)) (hids b (by simp))
+        (hids c (by simp)) (hids d (by simp)))
+  exact hword.trans (hmul.smul (qpow w 12))
+
 /-- A literal finite permutation suffices to put the four physical links first. -/
 theorem productMap_plaquette_of_perm (n : Nat) (w : Q') (K : Nat) (hK : 1 ≤ K)
     (a b c d : Nat) (ids rest : List Nat) (hn : ids.Nodup)
@@ -204,4 +354,7 @@ end YMGap.Continuum.SU2QuaternionProductHeatPlaquette
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatPlaquette.fourWord_supported
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatPlaquette.lift_plaquette
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatPlaquette.selected_pairing
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatPlaquette.selected_pairing_spectator
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatPlaquette.selected_input_removed
+#print axioms YMGap.Continuum.SU2QuaternionProductHeatPlaquette.selected_pairing_spectator_full
 #print axioms YMGap.Continuum.SU2QuaternionProductHeatPlaquette.productMap_plaquette_of_perm

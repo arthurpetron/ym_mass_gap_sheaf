@@ -1,5 +1,10 @@
 # Original terminal endpoint: local spectator band
 
+Historical checkpoint: the response join below, then only a proof plan, is
+now checked through the SAME completed fixed-width carrier. See
+`AUDIT-LOCAL-POSITIVE-RESPONSE-2026-09-30.md`. The original text records the
+scope of this earlier checkpoint; the continuum/Clay boundaries remain open.
+
 ## Whole-project goal and scope
 
 The goal remains a constructive continuum Yang--Mills theory on R^4 for

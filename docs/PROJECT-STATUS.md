@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting width-independent positive response (2026-09-30 UTC;
+chart unchanged): the original centered plaquette has a positive nome-only
+one-step floor after cutoff/time removal on the SAME completed vector and
+operator. Exact spectator transmission, Haar moments and the original
+partition cap cancel the common exterior quadratic. Strict padding supplies
+the four-active-link guard. Nine focused capped checks passed 31 gates.
+This is a lower response bound, not signed upper decay, an all-nome spatial
+limit, spacing survival or Clay closure. Evidence:
+`audits/AUDIT-LOCAL-POSITIVE-RESPONSE-2026-09-30.md`.
+
 Verified supporting completed finite-moment tail (2026-09-30 UTC; chart unchanged):
 dense reverse tests extend the one-sweep tail bound to EVERY completed input
 annihilating the existing finite moment list. Equal moments also control
