@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Gauge-invariant route test (2026-09-30):** closing the shared-heat tests
+into loops preserves their exact correlation w^3. Thus gauge invariance
+alone cannot repair the excluded shared-factor-only degree budget. This
+finite three-path example is not the full lattice action or a Yang--Mills
+counterexample; the useful original signed estimate remains open. See the
+[proof and scope audit](audits/AUDIT-GAUGE-LOOP-CORRELATION-OBSTRUCTION-2026-09-30.md).
+
 **Original completed sweep preserves gauge-polynomial representatives (2026-09-30):**
 explicit invariant Cauchy representatives now pass through the actual
 completed conditional projections, sweep and both auxiliary recurrence

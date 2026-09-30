@@ -5596,6 +5596,11 @@ import YMGap.Continuum.BF4ExactSlabBlockSingletonProjection
 import YMGap.Continuum.BF4ExactSlabGaugeSweep
 import YMGap.Continuum.BF4ExactSlabGaugeCenteredWitness
 import YMGap.Continuum.SU2QuaternionSharedHeatCorrelationObstruction
+-- Gauge-invariant closed loops retain the shared-factor-only correlation obstruction.
+-- This three-path heat law is NOT the original full-slab action.
+import YMGap.Continuum.SU2QuaternionParallelLoopGauge
+import YMGap.Continuum.SU2QuaternionSharedHeatLoopMoments
+import YMGap.Continuum.SU2QuaternionGaugeLoopCorrelationObstruction
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

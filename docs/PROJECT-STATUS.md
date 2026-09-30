@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting gauge-invariant route test (2026-09-30 UTC; chart unchanged):
+Closing the shared-heat tests into loops does not remove their w^3
+correlation. A positive late-cutoff example excludes the factor-only
+degree*rho<1 budget for degree>=2, even for those invariant tests. This is
+a three-path heat law, not the full-slab action or a YM counterexample.
+The useful original signed scaling estimate, A03 and same-theory Clay
+requirements remain open. Evidence:
+`audits/AUDIT-GAUGE-LOOP-CORRELATION-OBSTRUCTION-2026-09-30.md`.
+
 Verified supporting represented-sector preservation (2026-09-30 UTC;
 chart unchanged): explicit gauge-invariant Cauchy representatives pass
 through the actual completed block projections, original star sweep,

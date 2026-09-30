@@ -25,6 +25,28 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Gauge-invariant loop test excludes the factor-only budget (2026-09-30 UTC)
+
+`SU2QuaternionGaugeLoopCorrelationObstruction` closes the two coordinate
+tests using a common Haar path. Both resulting closed loops are invariant
+under the same endpoint gauges, with variances 1/4 and covariance w^3/4
+under the complete shared heat packet. At w=7/8 and the explicit positive
+late cutoff, `test_degree_budget_obstruction` excludes degree*rho<1 for
+degree>=2. Gauge invariance alone therefore does not repair the excluded
+universal shared-factor estimate. This is NOT the full-slab action or a
+counterexample to its invariant-sector bound, recurrence or physical mass.
+
+NEXT: the useful original-action signed estimate must retain the one-sided
+weights and actual normalizer, or use collective signed geometry. Do not
+infer quantitative cancellation from sector preservation. Ward tests also
+need their actual star-locality/cost hypotheses: known growing-cone
+locality of the auxiliary is not fixed-star locality. No new input bundle.
+
+Three focused serialized one-worker/20 GiB checks passed all 24 gates within
+{propext, Quot.sound}. No new sorry, axiom, broad run or canonical chart
+change. The same-theory continuum/Clay goal remains open. Evidence:
+`audits/AUDIT-GAUGE-LOOP-CORRELATION-OBSTRUCTION-2026-09-30.md`.
+
 ### Original completed sweep preserves represented gauge sector (2026-09-30 UTC)
 
 `GNSRepresentedSector.Representative` retains an actual Cauchy sequence,

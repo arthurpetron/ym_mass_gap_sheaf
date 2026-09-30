@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## Gauge-invariant shared-heat obstruction (2026-09-30 UTC)
+
+- **proved:** closed-loop tests sharing a common path are invariant under
+  the same endpoint gauges; their means vanish, variances are 1/4 and
+  covariance is w^3/4 under the complete three-path shared-heat law.
+- **route exclusion:** any symmetric coefficient pays rho>=w^3. An explicit
+  positive late-cutoff instance at w=7/8 excludes degree*rho<1 for degree>=2.
+  Gauge restriction alone cannot repair this universal factor-only budget.
+- **scope/open:** not the original full-slab one-sided action or its actual
+  auxiliary states. Useful original signed control on justified scaling,
+  A03 and all same-theory continuum/Clay requirements remain open.
+- **verification:** three focused serialized one-worker/20 GiB checks;
+  all 24 gates within {propext, Quot.sound}. No new sorry, axiom, analytic
+  bundle, weakened field or broad run. Evidence:
+  `audits/AUDIT-GAUGE-LOOP-CORRELATION-OBSTRUCTION-2026-09-30.md`.
+
 ## Original represented gauge sector and actual sweep (2026-09-30 UTC)
 
 - **proved:** explicit invariant polynomial representatives, with their
