@@ -5681,6 +5681,13 @@ import YMGap.Continuum.BF4WilsonAllNomePositiveTimeTail
 import YMGap.Continuum.BF4WilsonAllNomeTimeDefectTail
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteEnergyFloor
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteDefectOrbit
+-- Original signed Ward control from constructed relative derivatives;
+-- width/depth independent at fixed nome, not a physical-time gap.
+import YMGap.Continuum.QuaternionHaarRelativeAngularYoung
+import YMGap.Continuum.QuaternionHaarLinearMeanWard
+import YMGap.Continuum.QuaternionHaarRelativeCenteredWard
+import YMGap.Continuum.BF4ExactSlabFixedSpatialMarginalRelativeBound
+import YMGap.Continuum.BF4ExactSlabFixedSpatialRelativeWardBound
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 -- Constructed SAME-carrier regularized series, not a physical Hamiltonian.
 import YMGap.Continuum.BF4WilsonAllNomeLogPartial

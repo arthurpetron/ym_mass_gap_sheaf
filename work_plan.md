@@ -25,6 +25,44 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Supplied original signed Ward estimate without a global minimum coefficient (2026-09-30 UTC)
+
+The step back from the vanishing defect source identified a better local
+analytic input: relative derivatives of the ORIGINAL full marginal, not
+comparison with its tiny global heat minimum. For W=V*g_n*g_(n+1), the
+constructed per-direction cap is C(w)=6*relativeCap(w,4096)+2*relativeCap(w,32).
+`BF4ExactSlabFixedSpatialMarginalRelativeBound` supplies its cone witnesses,
+including the selected-link frame transport, for every active selected link.
+The denominator-cleared Young identity controls both signs of the actual
+Ward correction. Exact centered integration by parts then gives
+
+    E_W[angularSquare f] <= 6*(1+C(w)^2)*Var_W(f)
+
+for the actual fundamental plaquette, with the SAME original middleRatio
+variance. `BF4ExactSlabFixedSpatialRelativeWardBound` supplies all analytic
+inputs; none is a new assumed estimate. Width, time depth and sufficiently
+late character cutoff do not occur in the coefficient. Nome dependence
+remains explicit; the heat floor still controls the late-cutoff modulus.
+The separate exact uncentered mean Ward identity is also checked.
+
+NEXT: transport the exposed identity angularSquare(f)=4-f^2 to an arbitrary
+physical plaquette under the original weighted insertion, and prove an
+exterior-prediction floor strong enough for the actual temporal-loss consumer.
+A global variance floor alone does not give that prediction floor. Do not
+replace the signed term by zero, infer a physical-time gap from angular
+energy, or claim normalized scaling survival. The source-relative scaling
+family and every canonical Clay field remain OPEN; chart unchanged.
+The next short argument has been algebraically reviewed, NOT Lean-checked:
+for arbitrary head-independent q, generalized Ward plus rational Young
+and angularSquare(f)+f^2=4 imply
+H[W] <= (5+2*C^2)*(2+3*C^2)*H[W*(f-q)^2]. This avoids fiberwise inverses.
+First supply the actual weighted physical-plaquette kinematic pin; then
+retain the correct joint time-window weight for a temporal predictor.
+The current one-slice marginal must not be silently substituted for that
+joint density. Detailed rational derivation is in the audit below.
+Five final focused checks passed 13 gates in {propext, Quot.sound}. Evidence:
+`audits/AUDIT-ORIGINAL-RELATIVE-WARD-BOUND-2026-09-30.md`.
+
 ### Supplied literal plaquette defect: time decay and scaling boundary (2026-09-30 UTC)
 
 Stepping back from the unproved conditional-source iteration gives a direct

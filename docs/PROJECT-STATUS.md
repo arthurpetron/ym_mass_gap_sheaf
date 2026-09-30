@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL relative signed Ward bound (2026-09-30 UTC;
+chart unchanged): for the literal W=V*g_n*g_(n+1) and an active physical
+plaquette edge, E_W[angularSquare(f)] <= 6*(1+C(w)^2)*Var_W(f), where
+C(w)=6*relativeCap(w,4096)+2*relativeCap(w,32). Both terminal factors and
+the signed Ward correction are retained. The coefficient has no global
+heat-minimum factor and is independent of width, depth and late cutoff,
+but NOT nome/spacing independent; the cutoff modulus still uses that minimum.
+The stronger exterior-prediction/temporal-loss floor and normalized scaling
+survival remain open. Five focused checks passed 13 gates. Evidence:
+`audits/AUDIT-ORIGINAL-RELATIVE-WARD-BOUND-2026-09-30.md`.
+
 Verified supporting literal plaquette defect orbit (2026-09-30 UTC; chart
 unchanged): on the ORIGINAL Wilson completion, y=(I-T)v is an explicitly
 supplied nonzero vacuum-complement source with ||y||^2 >= starRatio(w)^2/16

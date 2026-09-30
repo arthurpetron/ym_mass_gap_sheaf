@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## PROVED original relative signed Ward bound (2026-09-30 UTC)
+
+- `QuaternionHaarRelativeAngularYoung.scaled_young_certificate` constructs
+  a sum of positive weighted squares from CW +/- DW. The two signed Young
+  bounds allow arbitrary overlapping supported test polynomials; there is
+  no polynomial reciprocal or independence assumption.
+- `QuaternionHaarRelativeCenteredWard.residual_lower` bounds the actual
+  signed residual. `energy_le_variance` combines it with exact centered Ward
+  to prove H[W*angularSquare(f)] <= 6*(1+C^2)*H[W]*Var_W(f).
+- `BF4ExactSlabFixedSpatialMarginalRelativeBound.marginalRelativeBound`
+  supplies C(w)=6*relativeCap(w,4096)+2*relativeCap(w,32) for the literal
+  W=V*g_n*g_(n+1); `frameRelativeBound` preserves it under selected-link
+  recoding. `BF4ExactSlabFixedSpatialRelativeWardBound.plaquette_energy_le_originalVariance`
+  instantiates the estimate with the actual physical plaquette and ORIGINAL
+  middleRatio variance. No successful analytic premise remains in that instance.
+- The coefficient is width/depth/late-cutoff independent at fixed nome,
+  NOT nome/spacing independent. The global heat minimum affects the cutoff
+  modulus, not this coefficient. `QuaternionHaarLinearMeanWard.weighted_linear_mean_ward`
+  supplies the exact separate mean identity for the next kinematic join.
+- OPEN: arbitrary-width weighted plaquette kinematic pin, improved original
+  exterior-prediction/temporal-loss floor, normalized scaling-family survival,
+  every-state exponential decay, and all continuum/Clay requirements. No
+  angular-energy-to-physical-gap implication is asserted.
+- Five final focused one-worker/20 GiB checks passed 13 axiom gates within
+  {propext, Quot.sound}. No new sorry, custom axiom, analytic premise,
+  surrogate carrier or frontier weakening; no old sorry discharged. No broad
+  build/audit/guard, CI change or canonical chart change. Evidence:
+  `audits/AUDIT-ORIGINAL-RELATIVE-WARD-BOUND-2026-09-30.md`.
+
 ## PROVED literal plaquette defect orbit and vanishing boundary (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeTimeDefectTail.timeDefect_bound` proves
