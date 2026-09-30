@@ -353,6 +353,57 @@ at line 61 returns the stream AND equality to the existing dyadic action.
 This supplies rows for the next real-time limit without any countable choice
 of representatives from a quotient-valued sequence.
 
+## Follow-on: positive real-time operators on the SAME original carrier
+
+For supplied positive real time t with rational floor f>0, let p_n be its
+computed upper dyadic approximations. At a common refinement the original
+energy inequality proves
+
+    p,q >= f and |p-q| <= f*2^(-k)
+      => ||S(p)x-S(q)x||^2 <= 2^(-k)||x||^2.
+
+For original representative X, choose k=rangeModulus(X,epsilon) and feed
+f*2^(-k) into the supplied time-approximation modulus. The dyadic output
+representatives therefore form an actual original-carrier Cauchy family.
+Its diagonal supplies S(t)x, an output representative, and an explicit
+convergence modulus. The construction works for EVERY original state at
+strictly positive time, not just the range of T.
+
+Equal represented times give equal outputs by comparing two dyadic streams
+at the minimum of their positive floors and using the original squared
+distance. Prop-level real equivalence is eliminated only into that equality
+proof, never into the construction of output data. For positive dyadic t,
+the upper-approximation error and an explicit denominator cutoff show that
+the limit is the previous dyadic action. In particular S(n)=T(n), with one
+unit exactly the ORIGINAL one-step transfer.
+
+Positivity, symmetry and contraction pass through the existing represented
+pairing limits; symmetry yields linearity. For time addition, rows at
+p_n+q_n have a computed modulus and approach the already constructed sum-time
+action. The finite identity
+
+    B(S(p_n+q_n)x,y) = B(S(q_n)x,S(p_n)y)
+
+passes to their actual limits. Original pairing definiteness then proves
+S(s+t)=S(s)S(t). No continuity of operator composition is assumed, and no
+legacy completed carrier or operator is used. Only carrier-free numerical
+time data and scalar arithmetic are reused.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `mesh_close_bound`, `timeModulus` | `lean/YMGap/Continuum/BF4WilsonAllNomePositiveTimeAction.lean:70`, `:110` | Positive floor converts dyadic time precision into original-state precision. |
+| `timeRows`, `positiveAction`, `actionCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomePositiveTimeAction.lean:125`, `:149`, `:174` | Constructed original output and explicit convergence data for every strictly positive represented time. |
+| `positiveAction_symmetric`, `positiveAction_nonnegative`, `positiveAction_norm_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomePositiveTimeLaws.lean:43`, `:59`, `:84` | Symmetric positive contraction in the original completed pairing. |
+| `positiveAction_time_congr`, `positiveAction_dyadic`, `positiveAction_original` | `lean/YMGap/Continuum/BF4WilsonAllNomePositiveTimePins.lean:53`, `:110`, `:118` | Independence from time presentation and exact recovery of original dyadic/integer time. |
+| `realTimeAction` | `lean/YMGap/Continuum/BF4WilsonAllNomePositiveTimePins.lean:123` | Original operator descends to the existing numerical positive-real-time quotient. |
+| `sumRows_limit`, `positiveAction_sum`, `sumActionCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomePositiveTimeComposition.lean:141`, `:177`, `:185` | Constructed summed-mesh limit, actual composition law, and explicit output/convergence certificate. |
+| `realTimeAction_addTime`, `realTimeAction_mixed_moments`, `realTimeAction_original` | `lean/YMGap/Continuum/BF4WilsonAllNomePositiveRealSemigroup.lean:44`, `:59`, `:99` | Addition and moments on the existing numerical time quotient; exact original integer-time recovery. |
+
+The norm contraction constant is one at every positive time. It is not a
+strict mass-gap bound or a physical time calibration. Width and nome still
+parameterize the original carrier. Its nonzero boundary kernel is retained;
+no full-carrier zero-time continuity or continuous physical QFT is asserted.
+
 ## Remaining obligations
 
 Scalar-log identification, density in the appropriate physical sector,
@@ -360,10 +411,12 @@ self-adjointness, continuous physical time, spatial/spacing calibration,
 continuum nontriviality and all Clay fields remain OPEN. No formal frontier
 type was weakened or newly inhabited.
 
-The dyadic action and restricted continuity are now supplied. The next
-same-object reconstruction requirement is its real-time extension, plus
-continuity at zero on the witnessed positive-time sector and the explicit core limit
-(T x-T^s T x)/s -> F x and a graph-core identification. The existing
+The dyadic action, restricted dyadic continuity and positive real-time action
+are now supplied. Real-time continuity at zero on the witnessed positive-time
+sector and a genuine derivative/domain construction remain required. The
+specific core limit (T x-T^s T x)/s -> F x and the existing series-graph
+identification remain OPEN, but the direct derivative route below need not
+prove that identity first. The existing
 `BF4ExactSlabThermodynamicDyadicSemigroup.action_one`,
 `lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicSemigroup.lean:132`,
 is pinned to that OTHER carrier's two-step transfer, not this T. No bridge
@@ -371,19 +424,40 @@ is supplied by the present result. The nonzero original time kernel prevents
 assuming strong continuity on the whole carrier merely from positive-time
 power laws.
 
-The next source-level route reuses the carrier-free
-`PositiveRealDyadicTimeData.PositiveTime`, `approximation`,
-`approximation_cauchy` and `approximationReal_equiv`,
-`lean/YMGap/Continuum/PositiveRealDyadicTimeData.lean:27`, `:52`, `:74`,
-`:100`. A positive rational floor permits comparing dyadic time images of
-EVERY original state at strictly positive times. The other-carrier proof
-pattern is `BF4ExactSlabThermodynamicPositiveTimeAction.mesh_close_bound`
-and `timeRows`,
-`lean/YMGap/Continuum/BF4ExactSlabThermodynamicPositiveTimeAction.lean:68`,
-`:120`. This is a construction plan, not a current Wilson real-time theorem.
-Do not unnecessarily restrict the positive-time construction to ran T:
-the boundary-kernel restriction concerns continuity AT ZERO. The same
-physical time calibration and generator pin remain required afterward.
+### Recursive step back: construct the derivative directly (PLAN, not proof)
+
+The constructive target needs the actual time generator, not a compulsory
+detour through one chosen series presentation. Define the candidate
+Q_k x=2^k*(I-R_k)*T x. The original checked `root_square`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootCompatibility.lean:186`,
+suggests the finite identity
+
+    Q_(k+1)x-Q_k x = 2^k*(I-R_(k+1))^2*T x.
+
+The required smoothing estimate is NOT yet a Wilson declaration. The
+other-carrier proof pattern is `smoothing_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDefectDecay.lean:190`:
+positivity and exact splitting of mixed time/defect moments give an iterated
+weighted telescope. Reprove that estimate for each actual original R_k,
+using the finer original root for moment positivity. At depth k+1 and
+n=2^k, order two, the target bound becomes
+
+    2^(4*k) * ||(I-R_(k+1))^2*T x||^2 <= ||x||^2.
+
+It would give ||Q_(k+1)x-Q_k x||^2<=4^(-k)||x||^2. The existing OTHER-carrier
+implementation is `quotient_step_bound` and `quotient_tail_bound`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicDerivative.lean:100`,
+`:125`; neither is an original-carrier theorem by import alone.
+Positive refinement forms would let the derivative inherit the original
+`completed_defect_form_gap`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeLogCoreGap.lean:101`, on inputs T x.
+This reduces the next search to an actual smoothing estimate, not a new
+assumed generator bundle or a full polynomial calculus. The original
+derivative, all-real-time derivative identification, appropriate domain,
+self-adjointness and physical calibration are still unproved. Equality with
+regularizedLog stays an explicit separate obligation for that series graph;
+no frontier field is removed or weakened. Scaling survival remains the
+independent primary analytic problem.
 
 ## Verification
 
@@ -494,3 +568,30 @@ check, each with exactly {propext, Quot.sound}, under the same safety and
 scope limits. The three final targets therefore passed 25 gates. Log
 `/tmp/ym-wilson-dyadic-representatives-20260930.log`, SHA-256:
 `7f99b33e1a18d6bf4cb9b11a0474a46983c54c6186fc74ebff6e45b4537fb97c`.
+
+Positive-real-time verification: five final serialized focused file checks
+passed 51 printed gates (12 Action, eight Laws, eight Pins, 11 Composition,
+12 RealSemigroup), each with exactly {propext, Quot.sound}. The monitored
+launcher used one worker capped at 20 GiB, with 12 GiB OS reserve. No safety
+stop or ceiling increase was needed. The Action check needed a direct
+induction for half-power positivity; Composition needed a namespace open and
+explicit intermediate points in the generic squared-distance theorem.
+All final logs are clean. No full root/tree build, audit/guard, new sorry,
+new axiom, frontier weakening or canonical chart change was made.
+
+Sol implemented the original limit laws and summed-mesh composition; main
+constructed the actual limits, time pins and quotient-level laws and checked
+all targets. Luna independently reviewed the next derivative seam. That
+source review is a plan, not verification of new derivative theorems.
+The safe-build skill kept checks targeted and serialized. Final log SHA-256:
+
+- `/tmp/ym-wilson-positive-time-action-20260930.log`:
+  `f4a997be93fb059f984cf257ebe2abd1a777ebf76112f5ef52e643bf7e17f01f`
+- `/tmp/ym-wilson-positive-time-laws-20260930.log`:
+  `0e638b6bf01c1c16c485b03139279ea2760e358469376ba3c0f4f7e2efcc5446`
+- `/tmp/ym-wilson-positive-time-pins-20260930.log`:
+  `c4724942231e0904b64ca7bac23bb87ead88a9c373bd8ce119a5d7909b878426`
+- `/tmp/ym-wilson-positive-time-composition-20260930.log`:
+  `58643931ff25a76a8aed1964147f49d8676ac16464a2fffb37bf5cb1f9a12aca`
+- `/tmp/ym-wilson-positive-real-semigroup-20260930.log`:
+  `926b26e8bf2a119e0c95f4ca72bc6611ab628495da28252a835f1f4ef6df5303`

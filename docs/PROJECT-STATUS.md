@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL positive real-time action (2026-09-30 UTC;
+chart unchanged): explicit dyadic output streams and a positive time floor
+now construct S(t) on EVERY original state for t>0, with computed convergence
+moduli. The operator is independent of its time presentation, satisfies
+S(s+t)=S(s)S(t), and recovers exactly the original T(n), including T(1).
+Positivity, symmetry, linearity and contraction are checked. No legacy
+operator is substituted; its numerical time index is reused. The next
+shorter route seeks a direct derivative via higher dyadic smoothing, leaving
+the original log-series identification open. Zero-time continuity on the
+appropriate witnessed sector, generator/domain, physical calibration,
+scaling survival and all canonical Clay fields remain OPEN. Evidence:
+five final focused checks passed 51 gates within {propext, Quot.sound}; no
+full root/tree build or audit/guard. Source details and log hashes:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 Verified supporting ORIGINAL dyadic continuity (2026-09-30 UTC; chart
 unchanged): a single finite energy telescope proves
 ||S(t)Tx-Tx||^2<=2^(-k)||x||^2 for EVERY dyadic t<=2^(-k). The original
@@ -7,7 +22,8 @@ preimage representative computes a tolerance-to-depth modulus. The bound
 also holds relative to arbitrary positive dyadic anchors, and continuity
 extends to represented limits of time images with supplied preimage streams;
 those streams need not be uniformly bounded. No full-carrier density or
-zero-time continuity is asserted. Real-time extension, generator identity,
+zero-time continuity is asserted. Positive real-time action is supplied above;
+generator identity,
 physical scaling and all canonical Clay fields remain OPEN. Two focused
 capped checks passed 20 gates within {propext, Quot.sound}; no full-tree run.
 FOLLOW-ON: supplied meshes now return explicit original output Cauchy
@@ -21,8 +37,8 @@ time quotient. The SAME original completion has S(s+t)=S(s)S(t), S(0)=I,
 and S(n)=T(n), including the actual one-step transfer. Positivity, symmetry,
 rational and supplied-modulus real linearity, and norm/distance contraction
 are checked. No other-carrier identification or boundary-state deletion.
-The restricted continuity follow-on is now supplied above. Real-time
-extension, generator identity, physical scaling
+The restricted continuity and positive real-time follow-ons are now supplied
+above. Generator identity, physical scaling
 and all canonical Clay fields remain OPEN. One focused capped check passed
 16 gates within {propext, Quot.sound}; no full-tree check. Evidence:
 `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
@@ -34,7 +50,8 @@ symmetric, contractive family R_k with R_0=T, R_(k+1)^2=R_k, and exactly the
 original transfer kernel at every depth. The finite square-error estimate
 passes through the original pairing limits. The dyadic action is now proved
 in the follow-on above, as is continuity on the witnessed positive-time
-range closure. Real-time extension, generator identification, scaling survival and every canonical Clay field
+range closure, and positive real-time action is now supplied above.
+Generator identification, scaling survival and every canonical Clay field
 remain OPEN. The three final focused checks passed 24 gates within
 {propext, Quot.sound}. Evidence:
 `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
@@ -45,8 +62,8 @@ the SAME Wilson transfer. Passing the finite recurrence through pairings
 proves positivity, symmetry, linearity and contraction without an inverse
 or other-carrier identification. The original boundary kernel is retained.
 Compatible roots and dyadic action are supplied by the follow-ons above.
-The restricted continuity follow-on is supplied above. Real-time extension
-and generator identity remain OPEN, as do scaling survival
+The restricted continuity and positive real-time follow-ons are supplied above.
+Generator identity remains OPEN, as do scaling survival
 and every canonical Clay field. The preceding
 explicit complement-iteration modulus is retained. Two further focused
 capped checks passed 23 gates in {propext, Quot.sound}. Evidence:

@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL positive real-time action and addition (2026-09-30 UTC)
+
+- `BF4WilsonAllNomePositiveTimeAction.actionCertificate` supplies the actual
+  output Cauchy stream, convergence modulus and SAME-action pin at every
+  supplied strictly positive real time, on every original state.
+- `BF4WilsonAllNomePositiveTimePins.positiveAction_time_congr` proves
+  independence of presentation, floor and modulus; `positiveAction_original`
+  recovers T(n), including the original geometric one-step transfer.
+- `BF4WilsonAllNomePositiveTimeLaws` proves positivity, symmetry, rational
+  and supplied-modulus real linearity, norm and distance contraction.
+- `BF4WilsonAllNomePositiveTimeComposition.positiveAction_sum` proves the
+  actual addition law by controlled summed-mesh pairing limits.
+  `sumActionCertificate` retains original output streams and moduli as data.
+  No legacy operator or carrier is substituted; numerical time data are reused.
+- `BF4WilsonAllNomePositiveRealSemigroup.realTimeAction_addTime` and
+  `realTimeAction_original` give quotient-indexed addition and original time.
+  Five final focused checks passed 51 gates with exactly {propext, Quot.sound}.
+- OPEN: appropriate real-time zero-continuity, derivative/domain and
+  self-adjoint generator, identification with the existing log series/graph,
+  physical calibration, spatial/scaling control and all Clay fields. The next
+  plan constructs dyadic derivatives directly via higher smoothing, not by
+  first imposing the separate series identification. No canonical field changes.
+- Exact focused, serialized one-worker/20 GiB checks and axiom evidence:
+  `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`. No new sorry/axiom,
+  broad build/audit/guard, kernel deletion or full-carrier C0 claim.
+
 ## PROVED ORIGINAL positive-time dyadic continuity (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeDyadicEnergy.mesh_dissipation` uses the finer square
@@ -14,7 +40,8 @@
   limits of time images with supplied preimage representatives. Those
   preimages need not converge or have a uniform norm cap; no representative
   selection, inverse transfer or boundary-state removal occurs.
-- OPEN: real-time extension, same-core log derivative/generator identity,
+- FOLLOW-ON: positive real-time action is supplied above. OPEN: same-core
+  log derivative/generator identity,
   physical calibration, spatial/spacing control, scaling survival and all
   Clay fields. No full-carrier density or zero-time continuity is asserted.
 - Two final focused one-worker/20 GiB checks passed 20 gates with exactly
@@ -39,7 +66,7 @@
 - Positivity, symmetry, rational and supplied-modulus real linearity,
   norm/distance contraction and doubled-pairing identity are checked.
 - FOLLOW-ON: explicit dyadic continuity on the witnessed positive-time range
-  closure is supplied above. OPEN: real-time extension, same-core
+  closure and positive real-time action are supplied above. OPEN: same-core
   log derivative/generator identity, physical calibration, spatial/spacing
   control, scaling survival and all Clay fields. No kernel state was removed.
 - One final focused one-worker/20 GiB check passed 16 gates with exactly
@@ -63,7 +90,7 @@
   No boundary state is discarded, inverse assumed, or carrier replaced.
 - FOLLOW-ON: quotient-indexed dyadic action is constructed above.
   Dyadic continuity on the witnessed positive-time range closure is supplied
-  above. OPEN: real-time extension, same-core log derivative/generator identity,
+  above, as is positive real-time action. OPEN: same-core log derivative/generator identity,
   spatial/spacing calibration, scaling survival and all Clay fields.
   Root approximation moduli are not uniform in nesting depth.
 - Three final focused one-worker/20 GiB checks passed 24 printed gates in
@@ -90,7 +117,7 @@
   proves the exact finite square identity on the SAME carrier, with squared
   error norm <=r_n^4*||x||^2, by constructive polynomial coefficient reflection.
 - FOLLOW-ON: compatible square laws are proved in the entry above.
-  OPEN: real-time extension,
+  Positive real-time action is supplied above. OPEN:
   same-core log derivative/generator identity, spatial/spacing calibration,
   scaling survival and all Clay fields. The modulus is not uniform in depth.
 - Five final focused one-worker/20 GiB target checks passed 33 gates within
@@ -111,7 +138,7 @@
   squared-distance contraction are proved. The original kernel is retained.
 - FOLLOW-ON: compatible roots are constructed above by nested polynomials.
   Dyadic continuity on the witnessed positive-time range closure is supplied
-  above. OPEN: real-time extension, same-core log derivative and generator identification,
+  above, as is positive real-time action. OPEN: same-core log derivative and generator identification,
   spatial/spacing calibration, scaling survival and all Clay fields.
   No generic iteratable operator API is needed for that nested construction.
 - Two focused one-worker/20 GiB checks passed 23 printed gates in
@@ -133,7 +160,7 @@
   No arbitrary quotient-valued sequence is lifted by choice.
 - FOLLOW-ON: the square equation and root positivity are proved in the
   entries above, including compatible roots and dyadic action.
-  Restricted dyadic continuity is supplied above. OPEN: real-time extension,
+  Restricted dyadic continuity and positive real-time action are supplied above. OPEN:
   same-core regularized-log derivative, graph-core/generator identity,
   spatial/spacing calibration, survival and all Clay fields.
 - Four focused one-worker/20 GiB checks passed 26 printed gates in

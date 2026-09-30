@@ -119,19 +119,43 @@ returns actual original output Cauchy streams and their exact dyadic-action
 pins, by iterated computed root-row diagonals. Five further focused gates
 passed within {propext, Quot.sound}; no representative selection is needed.
 
-NEXT reconstruction step: use existing `PositiveRealDyadicTimeData` to
-construct real-time limits with explicit time approximation and state
-convergence data. At strictly positive times, the supplied rational time
-floor permits construction on EVERY original state. The range-closure
-restriction is needed for continuity at ZERO, not to construct positive-time
-images. Then identify the existing series graph with the
-generator by a same-core difference-quotient theorem
-and graph-core argument. The thermodynamic dyadic semigroup uses a different
-carrier/transfer and is not this join. Strong continuity at zero on the whole
-carrier must not be asserted while its nonzero time kernel remains. Scalar-log
-identification, appropriate domain density, self-adjoint/continuous-time
-reconstruction and physical calibration remain OPEN. The checked graph
-margin is nome- and width-dependent.
+FOLLOW-ON PROVED: `BF4WilsonAllNomePositiveTimeAction.actionCertificate`
+constructs strictly positive real-time images on EVERY original state,
+returning original output Cauchy streams and convergence moduli as data.
+The rational time floor converts closeness of time approximations into
+original squared-distance control. `PositiveTimePins.positiveAction_time_congr`
+makes the output independent of the real presentation, floor and modulus;
+`positiveAction_original` recovers exactly T(n), including the original T(1).
+`PositiveTimeLaws` proves positivity, symmetry, linearity and contraction.
+`PositiveTimeComposition.positiveAction_sum` proves S(s+t)=S(s)S(t) by
+passing the finite summed-mesh pairing identity through represented limits.
+These abbreviated module names have the `BF4WilsonAllNome` prefix. Only
+numerical time data are reused from legacy modules, never their operators.
+`BF4WilsonAllNomePositiveRealSemigroup.realTimeAction_addTime` proves the
+same law on the numerical time quotient, with original integer recovery.
+Five final focused capped checks passed all 51 gates with exactly
+{propext, Quot.sound}; no full root/tree build, audit/guard or canonical change.
+
+NEXT reconstruction step (recursive step back, 2026-09-30): construct the
+actual derivative directly before demanding identification with the existing
+log series. The candidate quotients are Q_k x=2^k*(I-R_k)*T x. Their proposed
+refinement identity is Q_(k+1)x-Q_k x=2^k*(I-R_(k+1))^2*T x. The missing
+original-carrier estimate is higher dyadic mixed-moment smoothing, giving
+||Q_(k+1)x-Q_k x||^2<=4^(-k)*||x||^2 and hence an explicit Cauchy modulus.
+The proof pattern exists on the OTHER carrier in
+`BF4ExactSlabThermodynamicDyadicDefectDecay.smoothing_bound` and
+`BF4ExactSlabThermodynamicDyadicDerivative.quotient_step_bound`; reprove it
+from the original root laws, not by asserting a carrier identification.
+Positive refinement forms would pass the already checked
+`BF4WilsonAllNomeLogCoreGap.completed_defect_form_gap` to this derivative.
+These derivative/smoothing statements are a PLAN, not current Wilson proofs.
+Equality with the existing regularizedLog and its graph remains OPEN; it is
+not a prerequisite for first constructing a derivative of the actual action.
+No canonical field is weakened. Real-time zero-continuity on the witnessed
+positive-time sector, derivative/domain identification, self-adjointness,
+physical calibration and scaling remain OPEN. The nonzero original kernel
+still forbids full-carrier zero-continuity. The graph margin remains nome-
+and width-dependent. The primary scaling-survival frontier is unchanged.
 
 Survival remains the separate primary analytic frontier below. Source review
 found no whole-family useful relative upper bound. A pure spatial coefficient-

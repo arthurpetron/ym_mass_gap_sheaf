@@ -4,7 +4,31 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL positive-time continuity (2026-09-30 UTC)
+## Current increment: ORIGINAL positive real-time action (2026-09-30 UTC)
+
+`BF4WilsonAllNomePositiveTimeAction.actionCertificate` constructs actual
+positive-time images with original output representatives and moduli.
+`PositiveTimePins.positiveAction_time_congr` removes time-presentation
+dependence; `positiveAction_original` pins S(n)=T(n), including original T(1).
+`PositiveTimeComposition.positiveAction_sum` proves the addition law through
+finite summed-mesh pairings. All names have the `BF4WilsonAllNome` prefix.
+Positivity, symmetry, linearity and contraction hold on the SAME carrier.
+Consumer: actual derivative/domain reconstruction, not an abstract replacement
+semigroup. No analytic premise, kernel deletion or canonical closure.
+
+Strategy contraction: first construct dyadic difference quotients directly,
+using a higher mixed-moment smoothing estimate. Identification with the
+existing log series stays OPEN but need not precede derivative construction.
+The original smoothing bound and derivative are not yet proved. Real-time
+zero-continuity on the witnessed sector, self-adjointness, physical calibration,
+scaling survival and Clay remain OPEN. Five final focused checks passed
+51 gates in {propext, Quot.sound}; quotient-indexed addition, moments and
+original integer recovery also check in `BF4WilsonAllNomePositiveRealSemigroup`.
+No chart change or broad verification.
+Exact checks and source references:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
+## Earlier increment: ORIGINAL positive-time continuity (2026-09-30 UTC)
 
 `BF4WilsonAllNomeDyadicEnergy.range_small_bound` proves the proposed
 energy-telescope estimate for every small dyadic increment on T(1)x.
@@ -22,7 +46,7 @@ analytic input, frontier weakening or canonical chart change. Evidence:
 FOLLOW-ON: `BF4WilsonAllNomeDyadicRepresentatives.suppliedMeshCertificate`
 returns actual output Cauchy streams and exact dyadic-action pins, enabling
 real-time rows without representative choice. Five further focused gates
-passed; real-time construction remains the next obligation.
+passed; the positive real-time construction is now supplied above.
 
 ## Earlier increment: ORIGINAL dyadic-time semigroup (2026-09-30 UTC)
 
@@ -52,8 +76,8 @@ positive, symmetric and contractive, satisfy R_0=T and R_(k+1)^2=R_k, and
 preserve exactly the original transfer kernel. The explicit convergence
 modulus depends on depth. The follow-on above supplies the action of the
 existing `NonnegativeDyadicTime.Time` quotient and continuity on the
-witnessed positive-time range closure. Real-time extension and generator
-identification, scaling survival and all Clay fields
+witnessed positive-time range closure. Positive real-time action is supplied
+above. Generator identification, scaling survival and all Clay fields
 remain open. Three final focused target checks passed 24 gates; no canonical
 field change, broad guard or progress_metric.sh run. Evidence:
 `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.

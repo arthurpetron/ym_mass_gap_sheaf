@@ -24,9 +24,14 @@ for the ORIGINAL geometric time, including one step. Positivity, symmetry,
 linearity and contraction hold. A finite energy telescope now proves
 ||S(t)Tx-Tx||^2 <= 2^(-k)||x||^2 for every dyadic t<=2^(-k), with explicit
 moduli on the original positive-time range and its represented closure with
-supplied preimages. The boundary kernel still rules out full-carrier
-continuity at zero. Real-time extension, generator identification, scaling
-survival and the Clay target remain open.
+supplied preimages. Strictly positive real-time operators are now constructed
+on every original state, with explicit output streams and moduli, independent
+of the time presentation. They satisfy S(s+t)=S(s)S(t) and recover exactly
+T(n), with positivity, symmetry, linearity and contraction. The boundary
+kernel still rules out full-carrier continuity at zero. Next is direct
+derivative construction through higher dyadic smoothing; identification
+with the existing log series remains a separate open join. Generator/domain
+identification, physical calibration, scaling survival and Clay remain open.
 See the
 [construction and exact boundary](audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md).
 
