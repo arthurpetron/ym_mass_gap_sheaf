@@ -5444,6 +5444,10 @@ import YMGap.Continuum.BF4ExactSlabStarExteriorSeedNorm
 import YMGap.Continuum.BF4ExactSlabStarResidualApproximation
 import YMGap.Continuum.BF4ExactSlabStarVariationalApproximation
 import YMGap.Continuum.BF4ExactSlabStarEnergyRelativeApproximation
+-- Energy-relative error for the actual signed neighbor sum; no positive margin.
+import YMGap.Continuum.GNSPairApproximationError
+import YMGap.Continuum.RCDirectedPairError
+import YMGap.Continuum.BF4ExactSlabSignedNeighborApproximation
 -- Same-carrier reverse adjoint and positive sweep product; no accelerated rate.
 import YMGap.Continuum.GNSProjectionSweepAdjoint
 -- Coupled Chebyshev energy and actual same-carrier non-strict polynomial stability.

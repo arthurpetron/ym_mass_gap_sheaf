@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting original signed-neighbor error control (2026-09-30 UTC;
+chart unchanged): the actual ordered signed Gram sum has a finite rational
+polynomial approximation with error <=50*(delta+delta^2/2) times original
+conditional energy, with no volume multiplier. Its signed value feeds the
+original conditional-generator square lower bound. A useful positive
+margin, omitted-mode control and justified scaling are NOT proved; the
+cutoff remains nome-dependent. A03 and all same-theory Clay obligations
+remain open. All 16 gates passed three focused resource-capped checks.
+Evidence: `audits/AUDIT-SIGNED-NEIGHBOR-APPROXIMATION-2026-09-30.md`.
+
 Verified supporting original residual approximation (2026-09-30 UTC;
 chart unchanged): polynomial-test error is now bounded relative to the SAME
 local residual energy, not the whole input norm. The existing rational

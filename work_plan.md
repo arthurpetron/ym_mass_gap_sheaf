@@ -25,6 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Signed-neighbor approximation error on the original action (2026-09-30 UTC)
+
+`BF4ExactSlabSignedNeighborApproximation.signedNeighbor_error_bounds`
+now bounds the error in the ACTUAL ordered signed neighbor sum by
+`50*(delta+delta^2/2)*E(p)`, using the existing polynomial residual
+approximants at `relativeCutoff(w,delta*delta)`. Both directed incidence
+bounds are counted; no volume factor appears. The finite rational signed
+value is retained, not replaced by the sum of absolute pairings.
+
+The direct consumer `conditionalGenerator_square_polynomial_lower` proves
+`E+V_n-50*(delta+delta^2/2)*E <= ||H p||^2` for the original conditional
+generator. It assumes no positive margin, and asserts none. This controls
+the signed-neighbor approximation error left open by the local result
+below; a USEFUL lower bound for V_n relative to E is still the next input.
+Input polynomials have arbitrary degree, but no finite-matrix omitted-mode
+certificate or efficient computation is supplied. The cutoff depends on
+nome and delta. This is not an OS/Hamiltonian gap or scaling estimate.
+
+Sol and Luna handled the pair lemma and directed accounting in parallel;
+all 16 gates passed three focused serialized one-worker/20 GiB checks.
+No new sorry, axiom or analytic premise; no broad run. A03 and every
+same-theory continuum/Clay obligation remain open; chart unchanged.
+Evidence: `audits/AUDIT-SIGNED-NEIGHBOR-APPROXIMATION-2026-09-30.md`.
+
 ### Actual energy-relative polynomial residual error (2026-09-30 UTC)
 
 `BF4ExactSlabStarEnergyRelativeApproximation.residual_approximation_energy`

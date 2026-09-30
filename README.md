@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Signed-neighbor approximation (2026-09-30):** the original signed
+neighboring-pair sum now has a finite rational approximation with error
+bounded relative to the SAME conditional energy, without a volume factor.
+Its signed value feeds a checked lower bound for the original conditional
+generator square. A useful positive margin remains open; this is not a
+physical mass-gap result. See the
+[proof and scope audit](audits/AUDIT-SIGNED-NEIGHBOR-APPROXIMATION-2026-09-30.md).
+
 **Signed feature cancellation (2026-09-30):** the original two-link
 covariance numerator is now a sum of products of antisymmetric feature
 minors; same-feature terms cancel exactly. The original action, normalizer
