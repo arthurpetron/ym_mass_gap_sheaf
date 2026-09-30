@@ -5496,6 +5496,7 @@ import YMGap.Continuum.BF4ExactSlabLocalChebyshevCovariance
 import YMGap.Continuum.BF4ExactSlabConeBudgetDegree
 import YMGap.Continuum.ChebyshevNearOneUpper
 import YMGap.Continuum.BF4ExactSlabLocalChebyshevObstruction
+import YMGap.Continuum.BF4ExactSlabPatchCollarBudgetObstruction
 -- Original signed neighbor terms, with a proved nonnegative remote remainder.
 import YMGap.Continuum.GNSProjectionResidualPair
 import YMGap.Continuum.GNSProjectionPredictionCovariance

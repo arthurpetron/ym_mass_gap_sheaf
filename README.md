@@ -17,6 +17,12 @@ finite three-path example is not the full lattice action or a Yang--Mills
 counterexample; the useful original signed estimate remains open. See the
 [proof and scope audit](audits/AUDIT-GAUGE-LOOP-CORRELATION-OBSTRUCTION-2026-09-30.md).
 
+**Patch-budget route test (2026-09-30):** the existing conservative local
+comparison coefficient cannot meet the proposed overlapping-box threshold,
+at any box size. This excludes that coefficient as a sufficient producer,
+not an actual patch gap or the collective approach. See the
+[checked scalar obstruction](audits/AUDIT-PATCH-COLLAR-BUDGET-2026-09-30.md).
+
 **Original completed sweep preserves gauge-polynomial representatives (2026-09-30):**
 explicit invariant Cauchy representatives now pass through the actual
 completed conditional projections, sweep and both auxiliary recurrence

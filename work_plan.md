@@ -25,6 +25,25 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Existing collar coefficient fails the proposed patch test (2026-09-30 UTC)
+
+`BF4ExactSlabPatchCollarBudgetObstruction` proves that the existing
+`supportRatio(w,4*L^4)` has scaled candidate margin
+`L^2*supportRatio - (18*L-3) <= -14` for every L>=1 and 0<w<1.
+Increasing L cannot make THIS coefficient clear the proposed overlap
+threshold. This is not an upper bound on an actual patch gap, and does not
+establish the coefficient as a valid conditional patch gap in the first
+place. The overlap argument itself remains unformalized. No patch compiler
+should be built using this unchanged coefficient as its intended producer.
+NEXT: obtain sharper original-action collective/signed control, retaining
+the actual normalizer and incident factors, or prove reverse energy directly
+on the actual auxiliary states. Do not add another missing-input bundle.
+The separate fundamental-plaquette nonzero floor already exists and is not a
+new frontier. One focused one-worker/20 GiB check passed all three gates in
+{propext, Quot.sound}; independent Sol review passed. No broad build, sorry,
+axiom, frontier closure or chart change. The same-theory Clay goal is open.
+Evidence: `audits/AUDIT-PATCH-COLLAR-BUDGET-2026-09-30.md`.
+
 ### Collective patch route: quantitative entry test (2026-09-30 UTC)
 
 Source/mathematical review only, not a new Lean result. Overlapping sums of

@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## Conservative patch coefficient excluded (2026-09-30 UTC)
+
+- **proved:** `BF4ExactSlabPatchCollarBudgetObstruction` shows that for
+  L>=1 the candidate scaled margin of `supportRatio(w,4*L^4)` is <= -14.
+  Enlarging the box does not repair THIS coefficient.
+- **scope:** arithmetic on an existing comparison coefficient, not an
+  actual patch-gap upper bound. Its identification as a patch gap and the
+  proposed overlapping-box theorem are not proved or assumed here.
+- **open:** a useful original-action signed/collective estimate on justified
+  scaling, the actual auxiliary reverse-energy input, and all same-theory
+  continuum/OS/QFT/physical mass/every-group requirements.
+- **verification:** one focused one-worker/20 GiB check passed all three
+  gates within {propext, Quot.sound}; independent Sol review. No new sorry,
+  axiom, analytic input bundle, broad run or canonical frontier closure.
+  Evidence: `audits/AUDIT-PATCH-COLLAR-BUDGET-2026-09-30.md`.
+
 ## Gauge-invariant shared-heat obstruction (2026-09-30 UTC)
 
 - **proved:** closed-loop tests sharing a common path are invariant under

@@ -4,6 +4,12 @@ Source baseline: `d2cfea5`. Reviewed 2026-09-30 UTC. This is mathematical
 analysis and source review, NOT a new Lean theorem or a closed frontier.
 No Lean files, axioms, sorrys, or canonical chart states are changed.
 
+Subsequent result: the unchanged conservative `supportRatio(w,4*L^4)`
+cannot clear this test at any L>=1. That scalar comparison is now checked;
+see `audits/AUDIT-PATCH-COLLAR-BUDGET-2026-09-30.md`. The patch-overlap
+derivation in this report remains unformalized, and the actual patch gap
+remains unbounded by that obstruction.
+
 ## Actual missing input and consumer
 
 The missing estimate is on a justified scaling family, not the already proved
