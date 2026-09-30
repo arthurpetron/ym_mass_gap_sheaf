@@ -25,6 +25,34 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual energy-relative polynomial residual error (2026-09-30 UTC)
+
+`BF4ExactSlabStarEnergyRelativeApproximation.residual_approximation_energy`
+sharpens the EXISTING actual polynomial approximation (q=inverseRate(w)) from
+`q^(2n)*||p||^2` to `q^(2n)*||R_i p||^2`. The proof subtracts finite
+exterior predictions without changing the error, then passes to the
+constructed conditional projection. No spectral gap, positive residual
+floor, new approximation algorithm, or additional analytic input is assumed.
+
+The existing `relativeCutoff(w,epsilon)` now gives a relative bracket for
+the existing finite rational dual value. Summing local squared errors costs
+at most `epsilon*E(p)`, with no number-of-links multiplier. This is NOT a
+bound on `||sum_i error_i||^2`; the signed cross terms and omitted-mode
+control for a finite matrix certificate remain separate. Nome dependence
+and computational cost remain; this does not justify a large calculation.
+
+Actual consumers: the original local dual-value certificate, summed
+diagonal energy, and prospective defect-retaining collective certificates.
+NEXT: control the signed/overlap terms against that same energy on a
+justified scaling family. Do not replace this missing estimate with an
+assumption wrapper. Parallel Sol review confirmed that scalar normalization
+of the existing excitation cannot fix its relative-loss shortfall; Luna
+review checked the energy-relative argument and aggregation boundary.
+All five gates passed a focused one-worker/20 GiB check within
+{propext, Quot.sound}; no new sorry, axiom, or broad run. Canonical chart
+unchanged; A03 and all same-theory continuum/Clay obligations remain open.
+Evidence: `audits/AUDIT-ENERGY-RELATIVE-RESIDUAL-2026-09-30.md`.
+
 ### Collective estimate: retain defects, screen constants first (2026-09-30 UTC)
 
 Source/mathematical review and targeted research, not a new Lean result.
@@ -40,9 +68,10 @@ refined inverse-square finite-size methods exist. Their same-operator,
 subsystem, constructive and boundary joins remain unproved here. A direct
 Anshu-constant screen is numerically prohibitive, so no compiler/SDP launch
 is justified yet. Any numerical certificate must control omitted modes and
-ground-kernel errors; the current norm-relative residual approximation is
-not automatically energy-relative. NEXT remains an actual useful signed
-or subsystem estimate, not more calibration/assumption wrappers. No Lean
+ground-kernel errors; the earlier norm-relative residual approximation was
+not automatically energy-relative (the explicit upgrade above now proves
+this for local residual errors, not collective cross terms). NEXT remains
+an actual useful signed or subsystem estimate, not more calibration/assumption wrappers. No Lean
 edits, builds, frontier closure or chart change. Evidence and source map:
 `audits/RESEARCH-DEFECT-RETAINING-COLLECTIVE-ROUTE-2026-09-30.md`.
 

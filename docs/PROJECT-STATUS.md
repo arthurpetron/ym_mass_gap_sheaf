@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting original residual approximation (2026-09-30 UTC;
+chart unchanged): polynomial-test error is now bounded relative to the SAME
+local residual energy, not the whole input norm. The existing rational
+dual value inherits that relative bracket; the sum of local squared errors
+is bounded by epsilon times original conditional energy without a volume
+factor. Collective cross terms, useful signed scaling control, A03 and
+all same-theory Clay obligations remain open. All five gates passed one
+focused resource-capped check. Evidence:
+`audits/AUDIT-ENERGY-RELATIVE-RESIDUAL-2026-09-30.md`.
+
 Verified supporting original finite covariance calibration (2026-09-30 UTC;
 chart unchanged): the exact Chebyshev coefficient now has a constructive
 geometric export with square-root-margin dependence and a degree modulus.

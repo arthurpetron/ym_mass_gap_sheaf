@@ -5,6 +5,12 @@ This is mathematical/source review and targeted primary-paper research,
 not a new Lean theorem or an analytic estimate. No Lean file was changed
 and no compiler, SDP, large enumeration or routine math-ph scan was run.
 
+Follow-up: `audits/AUDIT-ENERGY-RELATIVE-RESIDUAL-2026-09-30.md`
+records the subsequently checked local residual-energy approximation
+upgrade. It resolves that specific local-error issue below, not the signed
+collective estimate, omitted-mode control, or a same-operator finite-size
+criterion. The original source-baseline findings here remain historical.
+
 ## Decision
 
 Keep the original signed estimate primary, but do not impose pairwise

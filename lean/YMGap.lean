@@ -5443,6 +5443,7 @@ import YMGap.Continuum.BF4ExactSlabStarCertifiedApproximation
 import YMGap.Continuum.BF4ExactSlabStarExteriorSeedNorm
 import YMGap.Continuum.BF4ExactSlabStarResidualApproximation
 import YMGap.Continuum.BF4ExactSlabStarVariationalApproximation
+import YMGap.Continuum.BF4ExactSlabStarEnergyRelativeApproximation
 -- Same-carrier reverse adjoint and positive sweep product; no accelerated rate.
 import YMGap.Continuum.GNSProjectionSweepAdjoint
 -- Coupled Chebyshev energy and actual same-carrier non-strict polynomial stability.

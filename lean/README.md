@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original energy-relative residual approximation (2026-09-30 UTC):**
+`BF4ExactSlabStarEnergyRelativeApproximation` sharpens the polynomial
+kernel-test error to `inverseRate(w)^(2n)*||R_i p||^2`. The existing finite
+rational dual value has a relative residual-energy bracket, and summed
+local squared errors have no number-of-links loss. The explicit iteration
+cutoff is unchanged and still nome-dependent. All five gates passed a
+focused one-worker/20 GiB check within `{propext, Quot.sound}`. Signed
+collective control, useful scaling and the same-theory continuum/Clay
+target remain open. Evidence:
+`audits/AUDIT-ENERGY-RELATIVE-RESIDUAL-2026-09-30.md` at repository root.
+
 **Original residual variational completeness (2026-09-27 UTC):**
 Explicit polynomial kernel tests now approximate the SAME completed local
 residual with squared error at most `inverseRate(w)^(2n)*||p||^2`.
