@@ -21,6 +21,11 @@ width/family size at fixed nome, not along a changing-coupling limit; its
 known calibration obstruction remains. Both focused capped checks passed
 15 gates; no broad run or canonical Clay closure. Evidence:
 `audits/AUDIT-WILSON-SIGNED-FAMILY-JOIN-2026-09-30.md` at repository root.
+Follow-on `QuaternionHaarRelativeReciprocalDualNorm` proves a uniform finite
+reciprocal-dual square/weighted norm cap from signed relative numerator
+certificates, without an extra heat-minimum factor. Both gates passed a
+focused capped check. The required physical mixed relative certificate and
+useful coupling cost are still OPEN.
 
 **Finite original-weighted moment tail (2026-09-30 UTC):**
 `BF4ExactSlabFiniteMomentTail.physicalSweep_tail_bound` consumes an executable

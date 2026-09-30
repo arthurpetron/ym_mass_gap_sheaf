@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED relative reciprocal-dual norm algebra (2026-09-30 UTC)
+
+- `QuaternionHaarRelativeReciprocalDualNorm.reciprocal_dual_square_certificate`
+  multiplies the two signed numerator certificates and uses the existing
+  reciprocal multiplier-square certificate. Every finite approximant G_k*B
+  has cap C^2; no additional inverse-window factor enters that cap.
+- `reciprocal_dual_weighted_norm_le` gives the same bound with the ENTIRE
+  certified positive original weight retained. No multiplier-order assumption
+  or new analytic structure is introduced.
+- OPEN: actual collar mixed-numerator certificates C(w)*A +/- Y X(A*g)
+  with useful explicit coupling dependence, new-test residual/Gram assembly,
+  improved family coercivity and all scaling/Clay fields. The supplied C is
+  not asserted to have such dependence merely because the norm lemma checks.
+- One focused one-worker/20 GiB check passed both gates in
+  {propext, Quot.sound}; no broad run, sorry/axiom change or chart change.
+  Evidence: `audits/AUDIT-WILSON-SIGNED-FAMILY-JOIN-2026-09-30.md`.
+
 ## PROVED signed-family floor on the literal Wilson completion (2026-09-30 UTC)
 
 - Planning correction: `BF4ExactSlabPlaquetteAffineCoercivity` already

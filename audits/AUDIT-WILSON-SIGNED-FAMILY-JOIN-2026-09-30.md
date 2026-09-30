@@ -92,6 +92,48 @@ from the final coercivity constant, with its remaining role in the explicit
 approximation modulus recorded. Such an improved physical family estimate
 is NOT proved by this checkpoint.
 
+## Follow-on contraction: no extra heat-floor penalty in the dual norm
+
+This additional local algebra is now checked, not merely proposed. Let G_k
+be `QuaternionHaarPositiveWindowInverse.reciprocal A u hu k`. Given the
+existing positive window for A and certificates for C*A+B and C*A-B,
+
+    C^2-(G_k*B)^2
+      = G_k^2*(C*A+B)*(C*A-B) + C^2*(1-(A*G_k)^2).
+
+Every term on the right has an explicit positive certificate. The second
+uses the existing `multiplierSquareCertificate`; it does not require the
+stronger unproved order statement 0<=A*G_k<=1.
+
+- `QuaternionHaarRelativeReciprocalDualNorm.reciprocal_dual_square_certificate`,
+  `lean/YMGap/Continuum/QuaternionHaarRelativeReciprocalDualNorm.lean:55`,
+  supplies the literal polynomial certificate for every finite degree k.
+- `reciprocal_dual_weighted_norm_le`, same module :97, retains any certified
+  original positive background W and proves H[W*(G_k*B)^2]<=C^2*H[W].
+
+The window's lower/upper constants do not enter the final C^2 cap. They still
+enter the reciprocal construction and its convergence modulus. The source
+of C remains essential: this is not a polynomial coupling bound until an
+appropriate physical numerator certificate is actually supplied.
+
+For the candidate B=Y X(A*g), g=X Y f_p, the exact missing input is a
+cutoff-uniform original-collar certificate C(w)*A +/- B with useful explicit
+nome cost. The existing first-relative bounds in
+`QuaternionHaarHeatRelativeAngularBound.heatPrefixRelativeBoundAt` are relevant.
+`SU2QuaternionRelativeHeatSecondAngularBound.heatSecondAngularInterval` is
+an ABSOLUTE derivative interval (its name refers to a relative quaternion),
+not the required ratio-to-heat estimate. Furthermore,
+`SU2QuaternionHeatLogCurvature.secondRelativeCap`,
+`lean/YMGap/Continuum/SU2QuaternionHeatLogCurvature.lean:143`, explicitly
+divides by `headFloor`; its log-curvature wrapper does not remove that cost.
+The required mixed relative producer is still OPEN.
+
+The finite residual identity follows from the existing reciprocal cancellation
+algebra, but its original-source pairing and far-collar Gram bounds for THESE
+new tests have not been implemented. The old boundary-dual Gram proof is a
+template, not a theorem about the new numerator. No family improvement or
+scaling claim follows from the norm certificate alone.
+
 ## Verification boundary
 
 Both new modules passed final focused serialized monitored checks. All 15
@@ -108,3 +150,10 @@ limit, new axiom, new sorry, old sorry discharge or canonical frontier change.
 Sol supplied the finite source pin; Luna independently reviewed the scalar
 join and its scope; root supplied the completion proof and all verification.
 The canonical chart is unchanged and is not reprinted.
+
+The follow-on reciprocal-dual norm module additionally passed one focused
+serialized capped check, with both public gates in {propext, Quot.sound}:
+`/tmp/ym-relative-reciprocal-dual-norm-20260930.log`. Sol supplied the finite
+square-certificate proof; root supplied the weighted-norm consumer and its
+check. Total for this checkpoint: three new modules, 17 checked public gates;
+the same no-broad-run and open-frontier boundaries apply.

@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Supplied reciprocal-dual norm without a heat-minimum cost (2026-09-30 UTC)
+
+The next local algebra now closes without requiring a positive-order bound
+on the reciprocal multiplier. Given certificates C*A+B and C*A-B, let G_k
+be the existing finite reciprocal of A. The checked identity
+
+    C^2-(G_k*B)^2
+      = G_k^2*(C*A+B)*(C*A-B) + C^2*(1-(A*G_k)^2)
+
+constructs a positive certificate, since the multiplier-square certificate
+already exists. `QuaternionHaarRelativeReciprocalDualNorm` gives both this
+certificate and H[W*(G_k*B)^2] <= C^2*H[W] for every positive original W.
+The reciprocal's lower/upper window is absent from the final cap. This does
+NOT prove that the supplied C has good coupling dependence.
+
+NEXT PRIORITY: produce C(w)*A +/- Y X(A*g) on the actual two-link collar,
+g=X Y f_p, uniformly in late cutoff, with useful explicit nome cost. Use
+relative mixed derivatives, not an absolute derivative cap divided by a heat
+minimum: `SU2QuaternionHeatLogCurvature.secondRelativeCap` explicitly has
+that unwanted reciprocal. Then prove finite residual pairing and off-collar
+Gram cancellation for these new tests before the family coercivity join.
+The physical mixed-score producer and family improvement remain OPEN.
+One additional focused capped check passed both gates in {propext, Quot.sound}.
+Evidence and candidate input map are in
+`audits/AUDIT-WILSON-SIGNED-FAMILY-JOIN-2026-09-30.md`.
+
 ### Planning correction: reuse the existing signed-family floor (2026-09-30 UTC)
 
 The preceding next-priority was based on an incomplete source audit.

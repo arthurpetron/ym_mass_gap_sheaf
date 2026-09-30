@@ -1,5 +1,12 @@
 # Canonical one-page project status
 
+Verified supporting relative dual norm algebra (2026-09-30 UTC; chart
+unchanged): signed relative numerator certificates now bound every finite
+reciprocal dual by C^2 under the SAME original weight, with no extra inverse
+heat-window factor in that cap. The physical mixed-score certificate with
+useful coupling dependence remains OPEN. One focused capped check passed
+both gates. Evidence: `audits/AUDIT-WILSON-SIGNED-FAMILY-JOIN-2026-09-30.md`.
+
 Verified supporting signed-family Wilson join (2026-09-30 UTC; chart
 unchanged): the existing fixed-nome original-action variance floor now
 applies to arbitrary signed spatial plaquette families on the literal Wilson
