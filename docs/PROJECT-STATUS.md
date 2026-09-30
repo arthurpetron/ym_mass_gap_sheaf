@@ -5,9 +5,12 @@ the actual transfer rate q now bounds the original series core form below by
 (1-q)/2 times its input norm. On the vacuum complement the series kernel is
 exactly the original time kernel; the existing witnessed graph has no nonzero
 zero-output input there. Active plaquettes supply nonzero series outputs.
-This retains the boundary kernel and is not a quantitative full-graph,
-Hamiltonian or physical/scaling gap. Two focused capped checks passed 13
-gates. No canonical field changed. Evidence:
+FOLLOW-ON: the quantitative bound now passes to EVERY witnessed graph/domain
+input orthogonal to the original vacuum, with the full margin (1-q)/2.
+An explicit image-pairing modulus avoids bounds or chosen representatives
+for the preimage sequence. This retains the boundary kernel and is not a
+Hamiltonian or physical/scaling gap. Two focused checks passed 13 gates;
+one further focused check passed five gates. No canonical field changed. Evidence:
 `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
 
 Verified supporting signed temporal join (2026-09-30 UTC; chart unchanged):

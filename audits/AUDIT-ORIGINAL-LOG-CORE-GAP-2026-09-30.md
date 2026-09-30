@@ -1,4 +1,4 @@
-# The original transfer gap reaches the existing series core
+# The original transfer gap reaches the existing witnessed series graph
 
 Date: 2026-09-30 UTC. Classification: PROGRESS. Clay target remains OPEN.
 
@@ -62,17 +62,46 @@ budget. Any proposed estimate must retain appropriate zeroth-order/boundary
 terms or prove source-specific variance amplification. No new Lean
 asymptotic obstruction is claimed by this planning observation.
 
-## Remaining obligations
+## Follow-on: exact margin on the entire witnessed graph
 
-The quantitative bound above is on the core, not yet the entire witnessed
-graph. The full graph result here is a kernel statement, which alone is not
-a spectral gap. Passing the universal first-term/defect-form inequality
-through graph limits is the next available reconstruction step.
+The next step is now proved, not an assumed continuity premise. For every
+existing `GraphLimit` witness (x,y), its input images a_n=T(source_n) and
+output images F(source_n) approximate x and y with the supplied modulus.
+Distance-one control bounds ||a_n||^2 by 2+2*c when ||x||^2<=c. Time
+contraction then permits ordinary pairing continuity for both B(a_n,a_n)
+and B(a_n,T a_n). Together with the existing graph-pairing modulus this passes
+
+    B(a_n,(I-T)a_n) <= B(a_n,F(source_n))
+
+to B(x,(I-T)x)<=B(x,y). Neither bounded preimages nor their chosen Cauchy
+representatives are required. Applying the already checked defect gap to x
+gives the SAME full margin (1-q)/2 on every vacuum-orthogonal graph input.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `graphInputPairingModulus` | `lean/YMGap/Continuum/BF4WilsonAllNomeLogGraphGap.lean:89` | Explicit all-tail input-pairing cutoff from the original graph modulus and supplied norm cap. |
+| `graph_input_pairings_close` | `lean/YMGap/Continuum/BF4WilsonAllNomeLogGraphGap.lean:96` | Both order errors for the norm and one-step pairing along graph input images. |
+| `graph_defect_form_le` | `lean/YMGap/Continuum/BF4WilsonAllNomeLogGraphGap.lean:133` | Universal defect-form lower bound on every existing witnessed graph pair. |
+| `graph_form_gap` | `lean/YMGap/Continuum/BF4WilsonAllNomeLogGraphGap.lean:174` | Full original margin for vacuum-orthogonal graph input. |
+| `action_form_gap` | `lean/YMGap/Continuum/BF4WilsonAllNomeLogGraphGap.lean:182` | Same quantitative bound on the existing quotient domain and action. |
+
+## Remaining obligations
 
 Scalar-log identification, density in the appropriate physical sector,
 self-adjointness, continuous physical time, spatial/spacing calibration,
 continuum nontriviality and all Clay fields remain OPEN. No formal frontier
 type was weakened or newly inhabited.
+
+The next same-object reconstruction requirement is a fractional-time calculus
+for this original all-nome T, strongly continuous on the closure of its
+positive-time range, plus the explicit core limit
+(T x-T^s T x)/s -> F x and a graph-core identification. The existing
+`BF4ExactSlabThermodynamicDyadicSemigroup.action_one`,
+`lean/YMGap/Continuum/BF4ExactSlabThermodynamicDyadicSemigroup.lean:132`,
+is pinned to that OTHER carrier's two-step transfer, not this T. No bridge
+is supplied by the present result. The nonzero original time kernel prevents
+assuming strong continuity on the whole carrier merely from positive-time
+power laws.
 
 ## Verification
 
@@ -86,3 +115,8 @@ dependency. The canonical chart is unchanged and is not reprinted.
   `6ef15a6d4ed2131771f697a0845ebf6e87b6dc13b041978c6f1be8c4cc6b48e2`
 - `/tmp/ym-log-core-gap-20260930.log`, SHA-256:
   `869b358fb8d14e9cdc2ab3362f8cc8d21653c5de0624b5e206718ac4e27600a1`
+
+Follow-on verification: one further focused capped check passed the five new
+graph-gap gates within {propext, Quot.sound}; no full-tree check or canonical
+chart change. Log `/tmp/ym-log-graph-gap-20260930.log`, SHA-256:
+`0a9afb9c9e1faf8c5e99cf91be1c6a77137e09e4443c6a30c7a6e3dd801c78b3`.

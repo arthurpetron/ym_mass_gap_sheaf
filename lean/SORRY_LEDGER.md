@@ -13,7 +13,13 @@
   `action_zero_iff_input_zero` use actual graph approximants to rule out
   nonzero zero-output inputs there. No original boundary state is discarded.
   `plaquette_regularizedLog_ne_zero` supplies a concrete active-source result.
-- OPEN: quantitative full-graph closure, scalar-log identification,
+- FOLLOW-ON PROVED: `BF4WilsonAllNomeLogGraphGap.graph_defect_form_le`
+  passes the universal first-term/defect comparison through the existing
+  graph modulus. `graph_form_gap` and `action_form_gap` retain exactly
+  (1-q)/2 on EVERY vacuum-orthogonal graph/domain input. Its explicit
+  `graphInputPairingModulus` needs no preimage norm cap or representative
+  choice. One further focused check passed five gates in {propext, Quot.sound}.
+- OPEN: scalar-log identification,
   appropriate density/self-adjointness/continuous physical time, useful
   spatial/spacing control and the survival relative upper bound; all Clay
   fields remain OPEN. Kernel triviality is not a physical spectral gap.

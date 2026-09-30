@@ -5775,6 +5775,7 @@ import YMGap.Continuum.BF4WilsonAllNomeLogGraphLinear
 import YMGap.Continuum.BF4WilsonAllNomeLogGraphForm
 -- Actual transfer gap on the original series core; no physical calibration asserted.
 import YMGap.Continuum.BF4WilsonAllNomeLogCoreGap
+import YMGap.Continuum.BF4WilsonAllNomeLogGraphGap
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

@@ -41,12 +41,23 @@ vacuum-complement input is zero. An active plaquette has nonzero F output.
 The boundary time-kernel states still exist on the original carrier; they
 have not been removed, and full-carrier injectivity is not asserted.
 
-The quantitative gap here is on the CORE graph. The full witnessed graph
-kernel statement is not a quantitative full-graph gap. Passing the bounded
-defect-form comparison through its graph limits is the next reconstruction
-step with available inputs. Scalar-log identification, appropriate domain
-density, self-adjoint/continuous-time reconstruction and physical calibration
-remain OPEN. The rate is still nome- and width-dependent.
+FOLLOW-ON PROVED: `BF4WilsonAllNomeLogGraphGap.graph_defect_form_le`
+passes B(x,(I-T)x)<=B(x,y) through EVERY existing graph witness (x,y).
+An explicit input-pairing modulus bounds nearby images, never preimages.
+`graph_form_gap` and `action_form_gap` retain the full margin (1-q)/2 on
+the whole witnessed graph/domain's original vacuum complement. One further
+focused capped check passed all five printed gates in {propext, Quot.sound}.
+
+NEXT reconstruction frontier: construct fractional time for this EXACT T,
+with strong continuity on the closure of its positive-time range, then
+identify the existing series graph with its generator by a same-core
+difference-quotient theorem and graph-core argument. Reuse scalar polynomial
+root/approximation estimates where applicable; the existing thermodynamic
+dyadic semigroup uses a different carrier/transfer and is not this join.
+Strong continuity at zero on the whole carrier must not be asserted while
+its nonzero time kernel remains. Scalar-log identification, appropriate
+domain density, self-adjoint/continuous-time reconstruction and physical
+calibration remain OPEN. The checked graph margin is nome- and width-dependent.
 
 Survival remains the separate primary analytic frontier below. Source review
 found no whole-family useful relative upper bound. A pure spatial coefficient-
