@@ -15,9 +15,13 @@ the original completed transfer T is now constructed and checked: R^2=T.
 It is symmetric, linear and contractive on the SAME carrier, with an explicit
 convergence modulus and the original boundary kernel retained. No inverse
 transfer or substitute carrier is assumed. Nested polynomial limits are now
-also constructed at every fixed natural depth, with explicit moduli; their
-compatible square laws, continuous-time reconstruction and generator
-identification remain open. See the
+constructed at every fixed natural depth with explicit, depth-dependent
+moduli. They form a compatible family of positive symmetric contractions
+R_k on that same carrier, with R_0=T, R_(k+1)^2=R_k, and exactly the
+original transfer kernel at every depth. The next step is to iterate these
+roots into an action of the existing dyadic-time quotient. Strong continuity,
+generator identification, scaling survival and the Clay target remain open.
+See the
 [construction and exact boundary](audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md).
 
 **Original time-series graph bound (2026-09-30):** the existing transfer gap

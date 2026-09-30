@@ -4,19 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: all-depth original-carrier nested limits (2026-09-30 UTC)
+## Current increment: compatible original-carrier root family (2026-09-30 UTC)
 
 Finite nested polynomials now have coefficient-positive differences and an
 explicit fixed-depth mass-deficit modulus. Their actual limits and witnessing
 approximation data are constructed on the ORIGINAL Wilson completion at
-every natural depth. The square-error certificate reduces to twice an
-adjacent difference, reusing already proved monotonicity. The exact finite
-square relation is pinned to the SAME carrier with squared error norm
-<=r_n^4*||x||^2. Consumer: compatible dyadic roots of the original transfer;
-the limit square laws remain open. Scaling survival and all Clay fields remain
-open. Five final focused capped target checks passed 33 gates; no canonical
-field change, broad guard or progress_metric.sh
-run. Evidence: `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+every fixed natural depth. The square-error certificate reduces to twice an
+adjacent difference, reusing already proved monotonicity; its finite square
+relation passes through original pairing limits. The resulting roots are
+positive, symmetric and contractive, satisfy R_0=T and R_(k+1)^2=R_k, and
+preserve exactly the original transfer kernel. The explicit convergence
+modulus depends on depth. NEXT: iterate these roots to an action of the
+existing `NonnegativeDyadicTime.Time` quotient, then prove appropriate strong
+continuity and identify a generator. Scaling survival and all Clay fields
+remain open. Three final focused target checks passed 24 gates; no canonical
+field change, broad guard or progress_metric.sh run. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
 
 ## Earlier increment: original-transfer positive square root (2026-09-30 UTC)
 

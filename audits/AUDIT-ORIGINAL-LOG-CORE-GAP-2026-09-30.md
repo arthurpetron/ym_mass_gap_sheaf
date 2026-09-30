@@ -161,9 +161,9 @@ representatives is assumed.
 The previously constructed convergence modulus is retained through R=I-H.
 This algebraic positive square root acts on the whole original completion,
 including its boundary states. No kernel removal or physical-time
-calibration is inferred. The construction is not yet an iteratable generic
-positive-contraction API, so applying it again to R is not an available
-formal step.
+calibration is inferred. This first-root construction is not an iteratable
+generic positive-contraction API. The nested construction below avoids
+needing such an API by keeping every approximant a polynomial in I-T.
 
 ## Follow-on: all fixed-depth nested limits with explicit moduli
 
@@ -234,15 +234,42 @@ action algebra. No polynomial functional-calculus axiom is introduced.
 | `finite_square_action_identity`, `finite_square_pairing_identity` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootSquareError.lean:145`, `:156` | Exact finite square law with its retained error on the original completion. |
 | `nestedError_mass_le`, `nestedError_action_norm_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootSquareError.lean:170`, `:180` | Explicit vanishing error mass and original squared-norm bound. |
 
-Square compatibility between the limits remains OPEN. In particular this
-does not yet construct a dyadic semigroup: the next join must prove
-R_(k+1)^2=R_k for R_k=I-H_k and identify R_0 with the original T.
-The existing `BF4WilsonAllNomeCompletedPairingContinuity.pairing_small`,
-`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedPairingContinuity.lean:84`,
-is the intended consumer of the error norm bound before passing the exact
-pairing identity through the already represented limits.
-Strong continuity, the series derivative/generator join and physical scaling
-remain subsequent obligations.
+## Follow-on: compatible positive roots on the SAME original carrier
+
+Square compatibility now holds for the actual limits:
+
+    R_0=T,     B(R_(k+1)x,R_(k+1)y)=B(x,R_k y),     R_(k+1)^2=R_k.
+
+The proof consumes `BF4WilsonAllNomeCompletedPairingContinuity.pairing_small`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeCompletedPairingContinuity.lean:84`.
+For supplied original representatives X,Y, `errorPairingModulus X Y epsilon`
+computes a cutoff independent of k for BOTH signs of the error pairing.
+Represented root rows have modulus `iterationModulus k X (epsilon/2)`;
+their limits equal the constructed R_k, without choosing a representative
+from a quotient. In the finite pairing identity, the two pairing-limit errors
+and the finite square error each receive epsilon/3. Their maximum cutoff
+gives both inequalities up to arbitrary positive rational error. Definiteness
+then yields the operator square law. The root approximation modulus itself
+remains depth dependent.
+
+| Declaration | Source | Exact claim |
+| --- | --- | --- |
+| `root`, `root_nonnegative`, `root_form_le` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootBasics.lean:54`, `:88`, `:169` | Actual positive root candidates and original-norm form ceiling. |
+| `root_symmetric`, `root_realSmul`, `root_zero_depth` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootBasics.lean:71`, `:193`, `:230` | Symmetry, supplied-modulus real linearity and exact R_0=T(1). |
+| `errorPairingModulus`, `nestedError_pairing_small` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootErrorSmall.lean:63`, `:124` | Explicit depth-independent two-sided error-pairing modulus. |
+| `rootRows`, `limit_rootRows` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootCompatibility.lean:65`, `:88` | Original representatives and their exact root-limit pin. |
+| `root_pairing`, `root_square` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootCompatibility.lean:177`, `:186` | Vanishing-error pairing identity and compatible square law. |
+| `root_norm_bound`, `root_distance_bound` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootCompatibility.lean:191`, `:201` | Norm and squared-distance contraction at every depth. |
+| `root_zero_iff_time_zero` | `lean/YMGap/Continuum/BF4WilsonAllNomeNestedRootCompatibility.lean:214` | Every constructed root retains exactly the original T(1) kernel. |
+
+The next algebraic consumer is the dyadic action, not yet constructed here.
+The existing `NonnegativeDyadicTime.Time` and `add`,
+`lean/YMGap/Constructive/NonnegativeDyadicTime.lean:45`, `:73`, supply the
+time quotient. Iterating R_depth for the mesh step count should descend
+through its existing cross-multiplication relation using the checked square
+law. This is a plan, not a checked dyadic semigroup. Strong continuity,
+the series derivative/generator join and physical scaling remain subsequent
+obligations.
 
 ## Remaining obligations
 
@@ -331,3 +358,16 @@ and verification scope apply. Together the five final targets passed 33
 gates; no claim of whole-tree verification. Log
 `/tmp/ym-wilson-nested-root-square-error-20260930.log`, SHA-256:
 `5ded56a3b0ed6b7419534131069041df2cde3591eccc001d252be0ec6d146b66`.
+
+Compatible-root verification: three final serialized focused checks passed
+24 printed gates (13 Basics, three ErrorSmall, eight Compatibility), each
+with exactly {propext, Quot.sound}. The same one-worker/20 GiB ceiling and
+12 GiB reserve applied. No full root/tree build, audit/guard, new sorry/axiom,
+frontier weakening or canonical chart change. Final log SHA-256:
+
+- `/tmp/ym-wilson-nested-root-basics-20260930.log`:
+  `b868a069bffe6cd179e9592aa4b179c71f8b7be47c7e734e60ff0fb14193dc03`
+- `/tmp/ym-wilson-nested-root-error-small-20260930.log`:
+  `88102c98e08679c73d93322b145e0956d1fefb43732de4853d8f2e9dab03f79c`
+- `/tmp/ym-wilson-nested-root-compatibility-20260930.log`:
+  `143bb89151a8ee9f2276e18c5d5f70e01c41193ad7728d6827e1ab44f1da03be`

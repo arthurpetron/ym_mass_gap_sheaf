@@ -80,27 +80,30 @@ the actual limit at EVERY fixed natural depth, on the SAME original
 completion, with explicit inner and outer moduli and no representative
 choice. Symmetry and the original-norm form ceiling pass to these limits.
 `BF4WilsonAllNomeNestedRootSquareError.finite_square_pairing_identity`
-now pins the finite square relation to this SAME carrier, with error
-squared norm <=r_n^4*||x||^2. The finite polynomial identity descends through
-proved coefficient reflection, not an assumed operator calculus. Five final
-focused capped target checks passed 33 gates within the axiom gate.
-This supplies limits and their finite error estimate, not yet compatible
-square laws between the limits; no canonical
-field changed and the modulus is not uniform in depth.
+pins the finite square relation to this SAME carrier, with error squared norm
+<=r_n^4*||x||^2. The finite polynomial identity descends through proved
+coefficient reflection, not an assumed operator calculus. The following
+three checked modules pass that estimate through the original pairing limits:
+`BF4WilsonAllNomeNestedRootBasics` supplies positivity, symmetry, linearity
+and the original-norm form ceiling for R_k=I-H_k, and pins R_0=T;
+`BF4WilsonAllNomeNestedRootErrorSmall` supplies the finite error pairing modulus;
+`BF4WilsonAllNomeNestedRootCompatibility.root_square` proves
+R_(k+1)^2=R_k, and its `root_norm_bound` gives contraction.
+`root_zero_iff_time_zero` preserves exactly the original transfer kernel.
+The explicit approximation moduli are depth-dependent, not uniform in k.
+Three focused checks passed 24 gates within {propext, Quot.sound}; no
+canonical field changed.
 
-NEXT reconstruction step: use the actual `pairing_small` estimate and
-represented pairing limits to remove the finite controlled square defect,
-giving R_(k+1)^2=R_k for R_k=I-H_k and pin R_0=T.
-Construct compatible dyadic time, then establish strong continuity on the
-closure of the positive-time range and identify the existing series graph
-with its generator by a same-core
-difference-quotient theorem and graph-core argument. Reuse scalar polynomial
-estimates where applicable; the existing thermodynamic
-dyadic semigroup uses a different carrier/transfer and is not this join.
-Strong continuity at zero on the whole carrier must not be asserted while
-its nonzero time kernel remains. Scalar-log identification, appropriate
-domain density, self-adjoint/continuous-time reconstruction and physical
-calibration remain OPEN. The checked graph margin is nome- and width-dependent.
+NEXT reconstruction step: iterate this compatible family on the SAME carrier
+and descend the mesh action to the existing `Constructive.NonnegativeDyadicTime`
+quotient. Then prove appropriate strong continuity and identify the existing
+series graph with its generator by a same-core difference-quotient theorem
+and graph-core argument. The thermodynamic dyadic semigroup uses a different
+carrier/transfer and is not this join. Strong continuity at zero on the whole
+carrier must not be asserted while its nonzero time kernel remains. Scalar-log
+identification, appropriate domain density, self-adjoint/continuous-time
+reconstruction and physical calibration remain OPEN. The checked graph
+margin is nome- and width-dependent.
 
 Survival remains the separate primary analytic frontier below. Source review
 found no whole-family useful relative upper bound. A pure spatial coefficient-

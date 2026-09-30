@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED compatible roots of the ORIGINAL transfer (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeNestedRootBasics.root` constructs R_k=I-H_k for every
+  natural depth. `root_zero_depth` identifies R_0 with the ORIGINAL T(1).
+  Positivity, symmetry, rational and supplied-modulus real linearity, and
+  the original-norm form ceiling hold on the same completion.
+- `BF4WilsonAllNomeNestedRootErrorSmall.errorPairingModulus` supplies a
+  depth-independent modulus for the two-sided finite square-error pairing.
+  `BF4WilsonAllNomeNestedRootCompatibility.rootRows` retains actual root
+  representatives and the existing fixed-depth convergence moduli.
+- `root_pairing` removes the controlled finite error; `root_square` proves
+  R_(k+1)^2=R_k. `root_norm_bound` and `root_distance_bound` give contraction;
+  `root_zero_iff_time_zero` proves every root has exactly the original kernel.
+  No boundary state is discarded, inverse assumed, or carrier replaced.
+- OPEN: quotient-indexed dyadic action, strong continuity on the appropriate
+  positive-time range closure, same-core log derivative/generator identity,
+  spatial/spacing calibration, scaling survival and all Clay fields.
+  Root approximation moduli are not uniform in nesting depth.
+- Three final focused one-worker/20 GiB checks passed 24 printed gates in
+  {propext, Quot.sound}; no full build/audit/guard, new sorry/axiom, frontier
+  weakening or canonical chart change. Evidence:
+  `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED all fixed-depth nested original-carrier limits (2026-09-30 UTC)
 
 - `ComplementRootError.error_coeffNonnegative`, `eval_error` and
@@ -18,7 +41,8 @@
   original-norm form ceiling. `BF4WilsonAllNomeNestedRootSquareError`
   proves the exact finite square identity on the SAME carrier, with squared
   error norm <=r_n^4*||x||^2, by constructive polynomial coefficient reflection.
-- OPEN: compatible square laws, dyadic time and strong continuity,
+- FOLLOW-ON: compatible square laws are proved in the entry above.
+  OPEN: dyadic time and strong continuity,
   same-core log derivative/generator identity, spatial/spacing calibration,
   scaling survival and all Clay fields. The modulus is not uniform in depth.
 - Five final focused one-worker/20 GiB target checks passed 33 gates within
@@ -37,10 +61,11 @@
   `squareRoot_square` gives R^2=T on the SAME completion. Positivity,
   symmetry, rational and supplied-modulus real linearity, contraction and
   squared-distance contraction are proved. The original kernel is retained.
-- OPEN: compatible dyadic roots, strong continuity on the appropriate
+- FOLLOW-ON: compatible roots are constructed above by nested polynomials.
+  OPEN: dyadic action and strong continuity on the appropriate
   range closure, same-core log derivative and generator identification,
   spatial/spacing calibration, scaling survival and all Clay fields.
-  The root construction is not yet a generic iteratable operator API.
+  No generic iteratable operator API is needed for that nested construction.
 - Two focused one-worker/20 GiB checks passed 23 printed gates in
   {propext, Quot.sound}; no full build/audit/guard, new sorry/axiom, frontier
   weakening or canonical chart change. Evidence:
@@ -59,7 +84,7 @@
   original completion, with explicit representative and convergence data.
   No arbitrary quotient-valued sequence is lifted by choice.
 - FOLLOW-ON: the square equation and root positivity are proved in the
-  entry above. OPEN: dyadic compatibility, strong continuity on the
+  entries above, including compatible roots. OPEN: dyadic action and strong continuity on the
   appropriate range closure,
   same-core regularized-log derivative, graph-core/generator identity,
   spatial/spacing calibration, survival and all Clay fields.
