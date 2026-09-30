@@ -1,6 +1,42 @@
 # Sorry Ledger
 
+## PROVED original cross-exterior replacement-to-energy comparison (2026-09-30 UTC)
+
+- `QuaternionHaarOneSidedReciprocalComparison` constructs the shorter
+  comparison a*p*G_D*E >= b*(1-rho^k)*q from the actual raw certificate.
+  The second denominator remains literal; no G_E or second error factor.
+  `BF4ExactSlabOneSidedStarComparison` instantiates the original stars.
+- `SU2QuaternionCrossExteriorPair.singleton_pair_square_haar` and
+  `BF4ExactSlabCrossExteriorReplacement.replacement_integral_pin` identify
+  the original independent-full-replica cost with the comparison's joint
+  insertion. The insertion uses the singleton-swapped original W.
+- `SU2QuaternionConditionalReplicaMarginal` factors only the unused upper
+  exterior. `BF4ExactSlabInPlaceVarianceEnergy` pins the original singleton
+  determinant with its reciprocal and complement to actual varianceEnergy.
+  `BF4ExactSlabCrossExteriorEnergyFubini.comparison_integral_energy_pin`
+  proves the literal right-hand integral is Z*replicaIntegral, retaining
+  the ORIGINAL partition exactly once and the energy's factor two.
+- `GeometricCorrectedLimitOrder` retains the computed correctionCutoff;
+  `BF4ExactSlabReplacementEnergyBound.original_replacement_energy_bound`
+  proves ell^2 I_j <= U^2 Z*(energy_j+energy_j) for every original supported
+  input, where energy_j is the EXISTING completed conditional residual norm.
+  Constants are explicit and nome-dependent, not spacing-uniform.
+- OPEN: chronological physical-link ordering, its area pin and global path
+  summation/coercivity. The N*(prefixCap/headFloor)^(2C+12) global budget
+  is unproved and would still have an inadequate area loss for scaling.
+  Useful signed spatial/scaling control, OS/physical time identification,
+  full QFT, continuum survival, finite physical mass and every group remain
+  open; no canonical chart state changed.
+- Nine final focused serialized one-worker/20 GiB checks passed 23 printed
+  gates within {propext, Quot.sound}. No full-root build/audit/guard, new
+  sorry, custom axiom or analytic assumption; no old sorry discharged or
+  frontier weakened. Evidence:
+  `audits/AUDIT-CROSS-EXTERIOR-ENERGY-JOIN-2026-09-30.md`.
+
 ## PROVED original reciprocal energy limit and path-cut transport (2026-09-30 UTC)
+
+The cross-exterior comparison formerly listed as next below is now proved
+above; chronological geometry and the global path sum remain open.
 
 - `BF4ExactSlabReciprocalEnergyPairing.finiteLoss_split` proves original
   finite pairing loss = reciprocal-weighted variance + normalization error.

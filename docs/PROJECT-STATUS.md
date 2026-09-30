@@ -1,13 +1,24 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL cross-exterior energy join (2026-09-30 UTC;
+chart unchanged): the independent full-replica replacement cost I_j now
+satisfies ell^2 I_j <= U^2 Z*(energy_j+energy_j), with the ORIGINAL partition
+Z and EXISTING conditional residual energy. Exact coordinate/Fubini pins
+and one finite denominator correction prove it; both moduli and nome
+dependence remain explicit. Nine focused checks passed 23 gates. The
+chronological path/area/sum join, useful signed spatial/scaling control
+and all continuum/Clay obligations remain open. Evidence:
+`audits/AUDIT-CROSS-EXTERIOR-ENERGY-JOIN-2026-09-30.md`.
+
 Verified supporting ORIGINAL energy limit and path-cut transport
 (2026-09-30 UTC; chart unchanged): the literal two-head reciprocal integral
 converges, with explicit moduli, to twice the EXISTING conditional residual
 energy. The normalization defect is bounded by rho^k times the original
 input norm. Independently, raw physical-prefix path squares are bounded by
 single-block replacement squares under the original full-pair weight with
-the actual crossing-face cost. Eight focused checks passed 48 gates. The
-cross-exterior conditional comparison, time-layer-order pin, useful signed
+the actual crossing-face cost. Eight focused checks passed 48 gates. Its
+then-open cross-exterior comparison is now proved above. The time-layer-order
+pin, useful signed
 spatial/scaling control and all continuum/Clay joins remain open. Evidence:
 `audits/AUDIT-ORIGINAL-RECIPROCAL-ENERGY-2026-09-30.md`.
 
@@ -17,8 +28,8 @@ explicit moduli, to the EXISTING conditional update in the full original
 action space. Independently, a coordinate telescope bounds twice the
 original variance determinant by N times the two-copy sum of path-increment
 squares. Seven focused checks passed 45 gates. Its then-open two-head energy
-pairing is now identified above. Cross-exterior and time-layer-order joins
-remain open, as do useful signed
+pairing and cross-exterior comparison are now identified above.
+Time-layer-order and global path-sum joins remain open, as do useful signed
 spatial/scaling control and all continuum/Clay obligations. Evidence:
 `audits/AUDIT-RECIPROCAL-CONDITIONAL-IDENTIFICATION-2026-09-30.md`.
 

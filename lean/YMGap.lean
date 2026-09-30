@@ -5715,6 +5715,15 @@ import YMGap.Continuum.BF4ExactSlabReciprocalVarianceLimit
 import YMGap.Continuum.SU2QuaternionReplicaPathIncrement
 import YMGap.Continuum.BF4ExactSlabReplicaCutReverse
 import YMGap.Continuum.BF4ExactSlabReplicaPrefixCut
+import YMGap.Continuum.QuaternionHaarOneSidedReciprocalComparison
+import YMGap.Continuum.BF4ExactSlabOneSidedStarComparison
+import YMGap.Continuum.SU2QuaternionCrossExteriorPair
+import YMGap.Continuum.BF4ExactSlabCrossExteriorReplacement
+import YMGap.Continuum.SU2QuaternionConditionalReplicaMarginal
+import YMGap.Continuum.BF4ExactSlabInPlaceVarianceEnergy
+import YMGap.Continuum.BF4ExactSlabCrossExteriorEnergyFubini
+import YMGap.Continuum.GeometricCorrectedLimitOrder
+import YMGap.Continuum.BF4ExactSlabReplacementEnergyBound
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

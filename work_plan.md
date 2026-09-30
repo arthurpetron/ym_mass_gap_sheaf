@@ -25,7 +25,40 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### ORIGINAL conditional energy limit and path-cut transport (2026-09-30 UTC)
+### ORIGINAL full-replica replacement versus conditional energy (2026-09-30 UTC)
+
+`BF4ExactSlabReplacementEnergyBound.original_replacement_energy_bound`
+now proves, for every supported original polynomial and actual physical
+link j, ell^2 I_j <= U^2 Z*(energy_j+energy_j) in CReal quotient order.
+I_j is the independent FULL-replica replacement square integral, Z is the
+ORIGINAL full partition, and energy_j is the squared residual of the
+EXISTING original-action conditional projection. ell=headFloor(w)^d and
+U=prefixCap(w)^d retain the actual incident-face count d and nome dependence.
+
+The three coordinate/Fubini pins formerly open are now checked. The proof
+uses the singleton-swapped W in its joint insertion, integrates B*D at the
+other exterior to exactly Z, and pins the remaining singleton determinant
+to the existing two-head energy. A shorter raw-cross-certificate argument
+corrects only D: its finite bound costs 1-rho^k, not two such factors.
+The geometric error cutoff and the replica Cauchy modulus remain data.
+Nine focused capped checks passed 23 gates within {propext, Quot.sound};
+no new analytic assumption, sorry, broad run or chart-state change.
+
+NEXT: prove a chronological permutation of the actual physical links,
+generalize prefix-increment transport to that order, and sum the checked
+cut/replacement/energy bounds. Its prefixes must contain all earlier-time
+links and no later-time links so the existing area count applies. The
+eight-color schedule does not provide this. N*(prefixCap/headFloor)^(2C+12)
+remains an unproved global Poincare budget; even its area loss would not
+resolve useful signed spatial/scaling control. Keep that missing producer
+and the same-theory continuum/Clay obligations explicit rather than treating
+this finite conditional comparison as physical time decay.
+Evidence: `audits/AUDIT-CROSS-EXTERIOR-ENERGY-JOIN-2026-09-30.md`.
+
+### ORIGINAL conditional energy limit and path-cut transport (2026-09-30 UTC; preceding checkpoint)
+
+The cross-exterior conditional-energy comparison listed as next below is
+now proved above; chronological geometry and the global path sum remain.
 
 `BF4ExactSlabReciprocalEnergyPairing.finiteLoss_split` retains the exact
 normalization correction: original pairing loss equals reciprocal-weighted
