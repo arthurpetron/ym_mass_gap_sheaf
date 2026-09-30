@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original relative prediction and temporal floor (2026-09-30 UTC)
+## Current increment: SAME-source polynomial normalization (2026-09-30 UTC)
+
+The previously missing own-norm normalization estimate is now supplied for
+the actual completed defect y=(I-T)v. Original relative Ward gives the
+floor s(w)^2/16; the explicit Jacobi budget C(w)*(1-w)^3<=24582 bounds
+its cost by (1-w)^(-24). The joined physical-time inequality is
+(1-w)^24*||T^n y||^2 <=4*K0/(n+1)^2*||y||^2, with explicit constant K0.
+This is not a positive-time survival lower bound. NEXT: test it on a
+justified SAME-object physical trajectory; reconsider the local source if
+that test rules it out. No canonical field or chart marker changes.
+Four focused serialized checks passed 20 axiom gates. No broad guard or
+progress_metric.sh run. Evidence:
+`audits/AUDIT-POLYNOMIAL-DEFECT-NORMALIZATION-2026-09-30.md`.
+
+## Earlier increment: original relative prediction and temporal floor (2026-09-30 UTC)
 
 Stepping back from the global heat-minimum comparison supplies a different
 analytic estimate: signed generalized Ward plus relative Young and actual

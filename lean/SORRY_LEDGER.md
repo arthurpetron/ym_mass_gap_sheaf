@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED SAME-source polynomial normalization budget (2026-09-30 UTC)
+
+- `BF4RelativePredictionNomeBudget.selectedScore_cubic_bound` supplies
+  C(w)*(1-w)^3 <=24582 from the original Jacobi definitions.
+  `RationalRelativePredictionScaling.fourth_le_factor_times_floor` gives
+  the denominator-cleared Ward floor with fourth-power cost.
+- `BF4WilsonAllNomeRelativeDefectNormalization.plaquette_relative_defect_norm_floor`
+  gives ||y||^2 >= s(w)^2/16 for the literal completed y=(I-T)v.
+  `plaquette_defect_orbit_relative_small` uses that SAME norm on the right,
+  with an explicit tolerance modulus, not the preimage's norm.
+- `BF4WilsonAllNomePolynomialDefectBudget.plaquette_defect_polynomial_orbit_bound`
+  proves (1-w)^24*||T^n y||^2 <=4*K0/(n+1)^2*||y||^2, where
+  K0=16*F(24582)^2 and F(C)=(5+2*C^2)*(2+3*C^2).
+  `plaquette_defect_polynomial_relative_small` consumes the displayed
+  scalar budget. Width is unrestricted; nome cost is explicit.
+- OPEN: justified physical nome/spacing calibration, normalized survival
+  at positive physical time, useful every-state decay and all Clay fields.
+  No carrier identification with the legacy changing-nome family is made.
+- Four final focused one-worker/20 GiB checks passed 20 gates within
+  {propext, Quot.sound}. No new sorry, custom axiom, analytic premise,
+  surrogate carrier or weakened frontier; no old sorry discharged. No broad
+  build/audit/guard, CI change or chart state change. Evidence:
+  `audits/AUDIT-POLYNOMIAL-DEFECT-NORMALIZATION-2026-09-30.md`.
+
 ## PROVED original relative prediction and completed temporal floor (2026-09-30 UTC)
 
 - `QuaternionHaarGeneralizedLinearWard` retains both signed full-weight

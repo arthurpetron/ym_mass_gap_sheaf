@@ -25,6 +25,34 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Supplied SAME-source normalization and polynomial nome budget (2026-09-30 UTC)
+
+The actual completed defect y=(I-T)v now has the improved norm floor
+||y||^2 >= s(w)^2/16 and decay relative to its OWN norm, with an explicit
+tolerance modulus. The previous preimage-norm bound is not relabelled.
+Writing delta=1-w and F(C)=(5+2*C^2)*(2+3*C^2), the original Jacobi
+definitions give C(w)*delta^3 <=24582. The checked rational scaling argument
+then supplies, with K0=16*F(24582)^2,
+
+    delta^24 <= K0*||y||^2,
+    delta^24*||T^n y||^2 <= 4*K0/(n+1)^2*||y||^2.
+
+These are actual literal-Wilson estimates, uniform in width, with all nome
+dependence displayed. A scalar criterion now yields relative tolerance
+epsilon when 4*K0/(n+1)^2 <= epsilon*delta^24. This tests a proposed
+normalized source; it does not supply a physical nome/spacing trajectory.
+In particular, do not identify the legacy changingNomeDynamicFamily with
+this Wilson completion or claim that its schedule establishes physical
+calibration here.
+
+NEXT: test the source at matched physical time on a justified SAME-family
+trajectory. If it cannot retain a positive-time lower response, step back
+to an original observable with controlled physical support rather than
+adding survival wrappers for this local defect. Useful every-state decay,
+continuum survival and every Clay field remain OPEN. Four focused checks
+passed 20 gates in {propext, Quot.sound}. No chart state change. Evidence:
+`audits/AUDIT-POLYNOMIAL-DEFECT-NORMALIZATION-2026-09-30.md`.
+
 ### Supplied original prediction floor and SAME completed temporal form (2026-09-30 UTC)
 
 The preceding proposed Ward argument is now supplied end to end, not just

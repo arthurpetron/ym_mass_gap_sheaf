@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting SAME-source polynomial normalization (2026-09-30 UTC;
+chart unchanged): the literal completed y=(I-T)v has the improved norm
+floor s(w)^2/16 and an explicit own-norm relative decay modulus. With
+delta=1-w, F(C)=(5+2*C^2)*(2+3*C^2), K0=16*F(24582)^2, the actual
+Jacobi budget now gives delta^24*||T^n y||^2 <=4*K0/(n+1)^2*||y||^2.
+The source, transfer and norm are unchanged. This exposes nome dependence
+and tests proposed scaling paths; it supplies neither a physical spacing
+law nor normalized continuum survival. Four focused checks passed 20
+gates. Canonical field statuses are unchanged. Evidence:
+`audits/AUDIT-POLYNOMIAL-DEFECT-NORMALIZATION-2026-09-30.md`.
+
 Verified supporting ORIGINAL prediction-to-temporal floor (2026-09-30 UTC;
 chart unchanged): every supported predictor missing the actual plaquette's
 first link pays squared error at least s(w)=1/[(5+2*C(w)^2)*(2+3*C(w)^2)],

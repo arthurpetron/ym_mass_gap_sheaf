@@ -5699,6 +5699,12 @@ import YMGap.Continuum.BF4ExactSlabSelectedActionRelativeBound
 import YMGap.Continuum.BF4ExactSlabRelativePredictionError
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRelativeEnergyFloor
 import YMGap.Continuum.BF4WilsonAllNomeRelativePlaquetteEnergyFloor
+-- Explicit nome cost and decay relative to the SAME defect's own norm.
+-- No nome/spacing law or normalized continuum survival is supplied.
+import YMGap.Continuum.BF4RelativePredictionNomeBudget
+import YMGap.Continuum.RationalRelativePredictionScaling
+import YMGap.Continuum.BF4WilsonAllNomeRelativeDefectNormalization
+import YMGap.Continuum.BF4WilsonAllNomePolynomialDefectBudget
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 -- Constructed SAME-carrier regularized series, not a physical Hamiltonian.
 import YMGap.Continuum.BF4WilsonAllNomeLogPartial
