@@ -5827,6 +5827,13 @@ import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphContinuity
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphTimeBound
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphMesh
 import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphReal
+-- Explicit two-coordinate range criterion for the actual graph; no maximal-domain claim.
+import YMGap.Continuum.BF4WilsonAllNomeDefectContraction
+import YMGap.Continuum.BF4WilsonAllNomeTimeRangeClosure
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeInverseSum
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeEquation
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphRange
+import YMGap.Continuum.BF4WilsonAllNomeDerivativeGraphEquation
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

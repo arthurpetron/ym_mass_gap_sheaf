@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL two-coordinate graph criterion (2026-09-30 UTC;
+chart unchanged): supplied range-closure witnesses for u and v plus A u=T v
+now construct the actual derivative graph, using explicit finite inverse
+sums and computed defect-tail cutoffs. A represented graph supplies both
+range witnesses back; an actual dyadic state-quotient limit implies the
+equation. With original input/output representatives, the criterion feeds
+the existing all-small-positive-real-time Taylor certificate. No transfer
+inverse, uniform preimage cap or boundary-kernel deletion. Deriving the
+output-range witness from differentiability alone, maximal-domain
+identification and self-adjointness remain OPEN, as do physical calibration,
+scaling survival and all canonical Clay fields. Six final focused checks
+passed 37 gates within {propext, Quot.sound}; no broad run. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 Verified supporting ORIGINAL graph Taylor derivative (2026-09-30 UTC;
 chart unchanged): ||u-S(t)u-t*v||^2<=epsilon*t^2 now holds at graph limits
 with supplied source representatives for EVERY small positive real time,

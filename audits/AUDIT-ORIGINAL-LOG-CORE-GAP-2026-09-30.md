@@ -560,32 +560,57 @@ actual positive-generator-sign derivative: d/dt S(t)u at zero is -v.
 | `remainderRows_pin`, `remainderRows_limit`, `realRemainder_time_congr` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphReal.lean:90`, `:99`, `:74` | Original remainder rows converge to u-S(t)u-t*v, independent of time presentation. |
 | `real_taylor_bound`, `realTaylorCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphReal.lean:126`, `:180` | Every small supplied positive real time obeys the Taylor estimate at a represented graph limit, with computed positive radius. |
 
+## Follow-on: explicit two-coordinate graph criterion (PROVED)
+
+The previous candidate is now constructed. Write D=I-T and
+I_n=sum_(j<n)D^j. Exact finite identities give
+T I_n u=u-D^n u and A I_n u=v-D^n v under A u=T v. Thus the two graph
+errors are controlled by the same elementary tail argument, separately
+for each coordinate.
+
+For a supplied range witness R of z, choose ONE preimage x at its
+epsilon/4 index. Contraction bounds ||D^n(z-Tx)||^2 by epsilon/4.
+The existing positive-time tail, with that representative's own norm
+ceiling, computes n large enough for ||D^n Tx||^2<=epsilon/4.
+The squared triangle then gives ||D^n z||^2<=epsilon. There is no
+uniform preimage norm bound, inverse transfer or selected representative.
+
+Conversely, supplied source representatives of a graph give the input
+range witness directly. For its output, the nth source has an explicit
+dyadic quotient preimage at its computed invSucc(n)-accuracy depth.
+Synchronizing that error with the graph error gives an actual original
+time-range witness for the output. This is a two-coordinate criterion,
+not full-carrier density or maximal differentiability-domain identification.
+
+| Declaration | Source | Exact result |
+|---|---|---|
+| `defectPower_distance_contraction` | `lean/YMGap/Continuum/BF4WilsonAllNomeDefectContraction.lean:47` | Every original defect power contracts the original squared distance. |
+| `defectPower_time_kernel` | `lean/YMGap/Continuum/BF4WilsonAllNomeDefectContraction.lean:59` | Defect powers fix original time-kernel states, rather than deleting them. |
+| `RangeLimit`, `defectModulus`, `defect_small`, `defectDecayCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeTimeRangeClosure.lean:66`, `:98`, `:101`, `:120` | Supplied original time preimages and convergence modulus compute an all-tail defect cutoff. |
+| `kernel_zero` | `lean/YMGap/Continuum/BF4WilsonAllNomeTimeRangeClosure.lean:127` | The witnessed sector intersects the original time kernel only at zero; the ambient carrier is unchanged. |
+| `time_inverseSum_sub`, `derivativeAction_inverseSum_of_equation` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeInverseSum.lean:91`, `:105` | Exact graph-coordinate errors are D^n u and D^n v under A u=T v. |
+| `inverseSumRepresentative`, `inverseSumRepresentative_pin` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeInverseSum.lean:113`, `:118` | Supplied input representatives give explicit finite-sum representatives and exact original pins. |
+| `stateQuotient`, `time_stateQuotient`, `derivative_equation_of_quotient_limit` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeEquation.lean:46`, `:51`, `:61` | Convergence of actual normalized state quotients gives A u=T v by original T contraction and represented-limit uniqueness. |
+| `inputRange`, `outputPreimage`, `outputRange` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphRange.lean:45`, `:58`, `:75` | Construct both range witnesses from a represented graph; the output uses computed finite quotient preimages. |
+| `equationDataOfGraph` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphEquation.lean:69` | Returns both coordinate range witnesses and the equation from represented graph data. |
+| `graphOfEquation`, `graphOfEquation_representative_pin` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphEquation.lean:78`, `:92` | Constructs the actual graph and supplies source representatives when the input representative is supplied. |
+| `graphOfQuotientLimit` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphEquation.lean:101` | An actual quotient limit gives the graph given BOTH coordinate range witnesses. |
+| `equationRealTaylorCertificate` | `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphEquation.lean:110` | With original input/output streams, the equation criterion now supplies the actual all-small-positive-real-time Taylor radius. |
+
+`RangeLimit` is local convergence data, not a new frontier enumeration.
+All constructed objects remain on the original fixed-nome/width carrier.
+The equation alone still permits extraneous kernel components: the two
+range hypotheses have not been erased or claimed automatic.
+
 ## Remaining obligations and next consumer
 
-NEXT: characterize the maximal generator domain on a justified positive-time
-sector, then address self-adjointness. The preceding Taylor theorem proves
-one direction, not that all differentiable states carry the required graph
-witness. The graph equation T v=A u alone permits additional kernel terms
-in v; do not substitute it for the constructed graph. Full-carrier density
-must not be assumed with the original boundary kernel.
-
-Candidate next construction, not yet a proved characterization: use the
-original finite `inverseSum` and `inverseSum_identity` from
-`lean/YMGap/Continuum/BF4WilsonAllNomePositiveTimeRange.lean:42` and `:46`.
-Commutation would make both graph-coordinate errors powers of I-T.
-Their convergence needs explicit positive-time range-closure data for BOTH
-coordinates. This route retains actual finite polynomial preimages instead
-of assuming a transfer inverse or importing the other carrier's graph.
-Sol's independent source review agrees on these two missing joins:
-explicit defect-power decay on the supplied two-coordinate range closure,
-and A/inverseSum commutation. The existing ingredients are
-`positiveTimeTail_bound` at
-`lean/YMGap/Continuum/BF4WilsonAllNomePositiveTimeTail.lean:126`,
-`defect_pair_bound` at
-`lean/YMGap/Continuum/BF4WilsonAllNomeDefectPolynomial.lean:74`, and
-`defectPower_additive` at
-`lean/YMGap/Continuum/BF4WilsonAllNomeDefectPolynomialAlgebra.lean:66`.
-This review is planning evidence, not a new Lean theorem.
+NEXT: derive the output-range witness from actual differentiability on
+the witnessed input sector, rather than assuming it separately. A proposed
+construction is to approximate state quotients by explicit T-images and
+diagonalize against their supplied derivative-limit modulus. That next
+construction is NOT proved here. Maximal-domain identification must retain
+the required representatives and moduli; self-adjointness remains separate.
+Full-carrier density must not be assumed with the original boundary kernel.
 
 The appropriate closed generator domain, self-adjointness, density in the
 appropriate physical sector, real-time zero-continuity throughout that
@@ -847,3 +872,35 @@ Final log SHA-256:
   `698b01d80faa988fa91f6694b3abf1a1554dcfdb8732e7714810486c8e3d875c`
 - `/tmp/ym-wilson-derivative-graph-real-20260930.log`:
   `e19b6c79fdd136aa0a85c2807e5ecab79671bfb450f595a01894d22dbe5f3d13`
+
+Two-coordinate graph-criterion verification: six final serialized focused
+checks passed 37 printed gates (four DefectContraction, nine InverseSum,
+11 TimeRangeClosure, three Equation, four GraphRange, six GraphEquation),
+all within {propext, Quot.sound}, with no final warnings. DefectContraction
+needed an explicit import and removal of a redundant tactic; InverseSum
+needed beta reduction before a rewrite; Equation needed its dependent
+bound generalized before quotient induction. GraphRange's unused binder
+was renamed. The other new proofs checked on their first focused run.
+
+The safe-build skill kept checks targeted and serialized, with one worker
+capped at 20 GiB and a 12 GiB OS reserve. No safety stop or ceiling increase.
+No full root/tree build, audit or guard; added root imports are NOT root
+verification. No new sorry/axiom, classical dependency, frontier weakening,
+kernel deletion or canonical chart change. Sol drafted finite inverse
+sums and represented coordinate ranges; Luna drafted defect contraction
+and the necessary derivative equation. Main reviewed/finalized all files,
+constructed the explicit tail modulus and graph-equation/Taylor joins,
+and ran every compiler check. Final log SHA-256:
+
+- `/tmp/ym-wilson-defect-contraction-20260930.log`:
+  `085aa516e78977c4668aa0c12e7cfd5f61e5b551ebd1db421809c781cfa07951`
+- `/tmp/ym-wilson-derivative-inverse-sum-20260930.log`:
+  `ec7e1f870c687bfedf5466638edc992f354d88377099e8d8530206efb39fbba3`
+- `/tmp/ym-wilson-time-range-closure-20260930.log`:
+  `091cbc5cf92a41d926f9f4bb9c37dc50ce0c1c69da75beec5885ac26cc4fe0a4`
+- `/tmp/ym-wilson-derivative-equation-20260930.log`:
+  `fd1761c2fdaaa486c1f96d1f0c172f7e227f0548dc606804b15ed6d89b121cbe`
+- `/tmp/ym-wilson-derivative-graph-range-20260930.log`:
+  `bdc8d7e8e5d1800f4a61721ad3a32370af65186632aeea24e28c4991b9ef21d9`
+- `/tmp/ym-wilson-derivative-graph-equation-20260930.log`:
+  `f59d2adeb480195cb540ea0049c32eb592f03647d4d58375396ae37becfab587`

@@ -43,8 +43,15 @@ complement. No bound on preimages is required. The Taylor theorem now
 extends to graph limits with supplied source representatives: an explicit
 radius controls ||u-S(t)u-t*v||^2<=epsilon*t^2 at every small positive real
 time. A sharp increment bound in the graph OUTPUT norm makes one source
-approximant's own radius suffice. Identifying the full generator domain
-remains open. Time is still in original lattice units; self-adjointness,
+approximant's own radius suffice. On explicitly witnessed time-range
+closures for BOTH coordinates, the equation A u=T v now constructs the
+graph: finite inverse sums give errors exactly (I-T)^n u and (I-T)^n v,
+with computed decay cutoffs. A represented graph supplies those two range
+witnesses back. Actual dyadic state-quotient convergence implies the equation;
+the constructed graph then supplies the positive-real Taylor certificate.
+The output-range premise has not yet been derived from differentiability
+alone, so full generator-domain identification remains open.
+Time is still in original lattice units; self-adjointness,
 equality with the existing log series, physical calibration, scaling
 survival and Clay remain open.
 See the

@@ -210,17 +210,31 @@ These abbreviated names have prefix `BF4WilsonAllNome`. Six final focused
 serialized checks passed 36 gates within {propext, Quot.sound}; no broad
 check or canonical chart change.
 
-NEXT reconstruction obligation: identify the generator domain on a justified
-positive-time sector and address self-adjointness. The Taylor theorem is
-one direction, not the converse maximal-domain statement. Preserve supplied
-source representatives; do not extract them by countable choice. Investigate
-the already checked original finite inverse sums as simultaneous graph
-approximants, using range-closure moduli for BOTH coordinates. The equation
-A u=T v alone is insufficient with the original boundary kernel.
-The next missing joins are an explicit modulus for (I-T)^n z on supplied
-limits of T-images, and A/inverseSum commutation. Existing same-carrier
-positiveTimeTail_bound and defect_pair_bound supply the starting estimates;
-this is a source-checked plan, not a completed domain characterization.
+FOLLOW-ON PROVED: `BF4WilsonAllNomeTimeRangeClosure.defectDecayCertificate`
+returns an explicit cutoff for (I-T)^n z on supplied original time-range
+limits. Defect-power contraction lets ONE preimage norm per tolerance
+suffice. `DerivativeInverseSum.derivativeAction_inverseSum_of_equation`
+gives A I_n u=v-(I-T)^n v under A u=T v; the original time telescope
+gives T I_n u=u-(I-T)^n u. `DerivativeGraphEquation.graphOfEquation`
+therefore constructs the actual graph on witnessed range closures for BOTH
+coordinates. `equationDataOfGraph` returns both range witnesses and the
+equation from graph data with supplied source representatives; output
+preimages use one explicitly computed derivative quotient at each stage.
+`DerivativeEquation.derivative_equation_of_quotient_limit` derives A u=T v
+from an actual state-quotient limit. `equationRealTaylorCertificate` feeds
+the new graph to the existing every-small-positive-real-time Taylor theorem.
+All abbreviated names have prefix `BF4WilsonAllNome`. Six final focused
+serialized checks passed 37 gates within {propext, Quot.sound}; no broad
+run or canonical chart change.
+
+NEXT reconstruction obligation: remove the separate output-range premise
+for a differentiable state in the witnessed input sector. Preserve actual
+representatives and moduli: investigate explicit T-preimage approximants
+to its state quotients, then a controlled diagonal into the derivative
+limit. This proposed next step is NOT yet proved. Only after closing it
+claim maximal-domain identification on the justified sector; self-adjointness
+is still separate. No countable choice of source representatives. The
+equation A u=T v alone is insufficient with the original boundary kernel.
 The existing series graph concerns F=regularizedLog, not A; equality remains
 OPEN and is not an implicit identification. No full-carrier density or
 injectivity is available.

@@ -1,5 +1,39 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL graph criterion on witnessed two-coordinate range closure (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeDefectContraction.defectPower_distance_contraction`
+  contracts the SAME original squared distance under powers of I-T.
+- `BF4WilsonAllNomeTimeRangeClosure.RangeLimit` retains supplied original
+  time preimages and its all-tail modulus; `defectDecayCertificate` returns
+  a cutoff for ||(I-T)^n x||^2<=epsilon. Only one tolerance-dependent
+  preimage norm is used. `kernel_zero` separates this witnessed sector
+  from the original boundary time kernel without changing the carrier.
+- `BF4WilsonAllNomeDerivativeInverseSum` proves exact finite identities
+  T I_n u=u-(I-T)^n u and A I_n u=v-(I-T)^n v under A u=T v, with
+  actual Cauchy representatives from `inverseSumRepresentative`.
+- `BF4WilsonAllNomeDerivativeGraphRange.inputRange` and `outputRange`
+  construct BOTH coordinate range witnesses from represented graph data.
+- `BF4WilsonAllNomeDerivativeEquation.derivative_equation_of_quotient_limit`
+  derives A u=T v from supplied convergence of the actual dyadic state
+  quotients, using original T contraction and represented-limit uniqueness.
+- `BF4WilsonAllNomeDerivativeGraphEquation.graphOfEquation` constructs
+  the graph from both range witnesses and the equation; `equationDataOfGraph`
+  supplies reverse data from represented graphs. `graphOfQuotientLimit`
+  consumes an actual quotient limit. `equationRealTaylorCertificate`
+  returns the existing all-small-positive-real-time Taylor radius from
+  this new graph constructor and supplied original input/output streams.
+- OPEN: deriving the output-range witness from differentiability on the
+  input sector alone, maximal generator-domain identification,
+  self-adjointness, log-series equality, physical calibration, spatial and
+  scaling control, nontrivial survival and all canonical Clay fields.
+  The equation alone is NOT substituted for the graph on the full carrier;
+  both range hypotheses are explicit and no representatives are chosen.
+- Six final focused serialized checks passed 37 printed gates within
+  {propext, Quot.sound}. No new sorry/axiom, classical dependence, frontier
+  weakening or broad run. Exact evidence and log hashes:
+  `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
 ## PROVED ORIGINAL represented-graph Taylor derivative (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeNormLimitOrder.norm_limit_order` passes stagewise

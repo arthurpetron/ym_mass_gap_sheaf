@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL represented-graph Taylor derivative (2026-09-30 UTC)
+## Current increment: ORIGINAL two-coordinate graph criterion (2026-09-30 UTC)
+
+`BF4WilsonAllNomeDerivativeGraphEquation.graphOfEquation` constructs the
+actual derivative graph from A u=T v and supplied original time-range
+closure data for BOTH coordinates. The original finite inverse sums have
+exact graph errors (I-T)^n u and (I-T)^n v. `TimeRangeClosure.defect_small`
+controls these with computed cutoffs from ONE supplied preimage per
+tolerance, using contraction; no uniform preimage cap is required.
+`equationDataOfGraph` returns both range witnesses and the equation from a
+graph with supplied source representatives. `graphOfQuotientLimit` joins
+an actual dyadic state-quotient limit to the criterion;
+`equationRealTaylorCertificate` then returns the actual positive-real
+Taylor radius. Abbreviated module names have prefix `BF4WilsonAllNome`.
+
+Consumer: remove the separate output-range premise for differentiable
+states on the justified input sector, then address maximal-domain and
+self-adjointness. These remain OPEN, as do log-series identification,
+physical calibration, scaling survival and Clay. The ambient boundary
+kernel is retained. Six final focused serialized checks passed 37 gates
+within {propext, Quot.sound}; no broad run or canonical chart change.
+Evidence: `audits/AUDIT-ORIGINAL-LOG-CORE-GAP-2026-09-30.md`.
+
+## Earlier increment: ORIGINAL represented-graph Taylor derivative (2026-09-30 UTC)
 
 `BF4WilsonAllNomeDerivativeGraphReal.realTaylorCertificate` now returns
 an explicit positive radius controlling ||u-S(t)u-t*v||^2<=epsilon*t^2 at
@@ -18,7 +40,8 @@ bound or a common radius across the sequence. Names have prefix
 `BF4WilsonAllNome`; exact moduli and source pins remain data.
 
 Consumer: maximal-domain characterization and self-adjointness on a
-justified positive-time sector. The converse characterization remains OPEN,
+justified positive-time sector. The two-coordinate criterion is supplied
+above; the maximal-domain characterization remains OPEN,
 as do physical calibration, survival, the separate log-series identity
 and Clay. Six final focused serialized checks passed 36 gates within
 {propext, Quot.sound}; no broad run or canonical chart change. Evidence:
