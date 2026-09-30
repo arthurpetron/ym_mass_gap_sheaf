@@ -25,6 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original endpoint local spectator band (2026-09-30 UTC)
+
+`BF4ExactSlabFixedSpatialLocalSpectator.endpoint_lowerCertificate` and
+`endpoint_upperCertificate` construct both bands for V*u_(n+1) against the
+SAME explicit selected-link-independent spectator A=V_complement*P_rest(V*u_n).
+Only the selected final kinetic factors and incident spatial faces are
+compared; the complete previous input and exterior action remain. The
+factor count is at most seven per selected link, hence 28 for a plaquette,
+not spatial width or terminal depth. Nome dependence and late cutoff remain
+explicit. `BF4ExactSlabFixedSpatialUniformLocalBand` gives the actual same-A
+certificates with positive constants headFloor(w)^(7*size) and
+prefixCap(w)^(7*size) for selected.length<=size. For one plaquette the exponent
+is 28, independent of width, depth and late cutoff. Four focused capped
+checks passed 36 gates; no chart state changed.
+
+This is a concrete input to width-independent positive-time nontriviality,
+not another assumed analytic bundle or an upper decay bound. Next prove the
+spectator-modulated inverse-heat identity and retain the SAME exterior
+quadratic in dual cost, detector and partition. Exact kinetic Cauchy--Schwarz
+then offers homogeneous cancellation; the old 1+C regularization does not.
+The four ACTIVE face-link condition remains essential. No response lower
+bound, all-nome spatial limit, spacing-uniform survival or Clay closure is
+claimed yet. The original signed/scaling producer remains separately open.
+Evidence: `audits/AUDIT-LOCAL-SPECTATOR-BAND-2026-09-30.md`.
+
 ### Auxiliary-order diagnostic and quantitative target (2026-09-30 UTC)
 
 The new `BF4ExactSlabChebyshevRescale.coupled_norm_add_margin` exposes

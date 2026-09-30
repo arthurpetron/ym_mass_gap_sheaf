@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED original local spectator band; response join OPEN (2026-09-30 UTC)
+
+- `BF4ExactSlabFixedSpatialLocalSpectator.endpoint_lowerCertificate` and
+  `endpoint_upperCertificate` compare the actual V*u_(n+1) to one constructed
+  spectator V_complement*P_rest(V*u_n). Its positivity, support and independence
+  at selected original carrier links are proved. Both comparisons keep the
+  entire previous interacting terminal input and all exterior factors.
+- `BF4ExactSlabFixedSpatialLocalCollarGeometry` and
+  `SU2QuaternionProductHeatLocalBand` supply the exact geometry and actual
+  finite-prefix certificate induction. The total compared factor count is
+  <=7*selected.length, hence <=28 for the four plaquette links.
+- `BF4ExactSlabFixedSpatialUniformLocalBand.endpoint_localLowerCertificate`
+  and `endpoint_localUpperCertificate` replace those literal counts with
+  size-only positive coefficients headFloor(w)^(7*size) and
+  prefixCap(w)^(7*size). Width, terminal depth and late cutoff are absent from
+  those coefficients; nome dependence is explicit and not claimed uniform.
+- OPEN next join: spectator-modulated inverse-heat identity, local dual cost/
+  detector factorization, and cancellation of the same exterior quadratic
+  against the original partition. No width-independent positive response,
+  all-nome spatial limit, spacing survival, upper gap or Clay node is closed.
+  No new analytic hypothesis, sorry or axiom; no existing sorry discharged.
+- Four final focused one-worker/20 GiB checks passed all 36 printed gates
+  within {propext, Quot.sound}. No broad build/audit/guard. Independent scope
+  review found no action/carrier substitution; chart states unchanged.
+  Evidence: `audits/AUDIT-LOCAL-SPECTATOR-BAND-2026-09-30.md`.
+
 ## PROVED exact auxiliary-order budget and finite bootstrap obstruction (2026-09-30 UTC)
 
 - `BF4ExactSlabChebyshevRescale.coupled_norm_add_margin` proves
