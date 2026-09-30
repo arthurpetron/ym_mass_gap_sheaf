@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**All-nome Wilson vacuum generation (2026-09-30 UTC):**
+`BF4WilsonAllNomeWindowPins` and `BF4WilsonAllNomeWindowRealization`
+prove exact finite-program generation of every bounded signed Wilson
+expression on the same literal-width completion. Explicit approximating
+programs use the supplied Cauchy representative's own squared-distance
+modulus. All 20 gates passed focused serialized capped checks; no broad run.
+No small-nome guard or new analytic premise is used. This is fixed-width
+Wilson-syntax coverage, not full continuum reconstruction; the useful signed
+scaling estimate and Clay target remain open. Evidence:
+`audits/AUDIT-ALL-NOME-WILSON-GENERATION-2026-09-30.md` at repository root.
+
 **All-nome time-zero observables (2026-09-30 UTC):**
 `BF4WilsonAllNomeTimeZeroBound` and `BF4WilsonAllNomeTimeZeroOperator`
 construct bounded symmetric Wilson multiplication on the existing literal-width

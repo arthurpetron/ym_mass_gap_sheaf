@@ -25,6 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Independent same-carrier vacuum generation (2026-09-30 UTC)
+
+`BF4WilsonAllNomeWindowPins` descends free source-polynomial identities
+through the literal original joint limit and proves the existing completed
+operations' window pins. `BF4WilsonAllNomeWindowRealization.compileWindow_pin`
+then generates EVERY bounded signed Wilson expression using the same vacuum,
+time and loop operators. The finite program is explicit data; the original
+Cauchy modulus computes a program within any positive squared-distance
+tolerance of a supplied representative's class. No quotient representative
+is selected, no small-nome premise is needed, and no carrier is substituted.
+
+This is supporting fixed-width Wilson-syntax reconstruction, not full
+continuum observable coverage or `CanonicalOSRoot.stateEssentiallySurjective`.
+A03, full J02, scaling and the Clay target remain open; chart unchanged.
+The main analytic task remains a useful signed lower bound relative to the
+SAME original energy. The parallel degree audit confirms that current finite
+polynomial tests do not themselves control omitted modes of a finite matrix.
+Sol handled source descent, root handled generation, and Luna reviewed scope.
+All 20 gates passed focused serialized one-worker/20 GiB checks; no broad run.
+Evidence: `audits/AUDIT-ALL-NOME-WILSON-GENERATION-2026-09-30.md`.
+
 ### Independent same-carrier observable construction (2026-09-30 UTC)
 
 `BF4WilsonAllNomeTimeZeroBound` transfers the actual finite selected-action

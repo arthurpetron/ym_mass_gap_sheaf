@@ -5617,6 +5617,10 @@ import YMGap.Continuum.SU2QuaternionSharedHeatHilbertSchmidtObstruction
 import YMGap.Continuum.BF4WilsonAllNomeTimeZeroBound
 import YMGap.Continuum.BF4WilsonAllNomeTimeZeroOperator
 import YMGap.Continuum.BF4WilsonAllNomeTimeZeroVacuum
+-- Explicit vacuum programs cover the SAME all-nome fixed-width Wilson syntax.
+-- No continuum observable completeness or useful signed scaling estimate.
+import YMGap.Continuum.BF4WilsonAllNomeWindowPins
+import YMGap.Continuum.BF4WilsonAllNomeWindowRealization
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

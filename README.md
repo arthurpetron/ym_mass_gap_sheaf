@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Same-carrier vacuum generation (2026-09-30):** every bounded signed Wilson
+expression now has an explicit program using the existing vacuum, time and
+loop operators at every rational nome `0<w<1` and fixed width. The original
+Cauchy modulus gives quantitative program approximations on the same
+completion. This covers the present Wilson syntax, not all continuum
+observables; the signed scaling estimate and full QFT remain open. See the
+[proof and scope audit](audits/AUDIT-ALL-NOME-WILSON-GENERATION-2026-09-30.md).
+
 **Same-carrier observables (2026-09-30):** time-zero Wilson multiplication
 now extends to the existing reflected completion at every rational nome
 `0<w<1` and fixed width, with explicit moduli, symmetry, real linearity

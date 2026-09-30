@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting J02 vacuum generation (2026-09-30 UTC; chart unchanged):
+every bounded signed Wilson expression is now exactly generated from the
+existing vacuum by the SAME all-nome fixed-width time, loop and linear
+operators. An explicit program approximates each supplied Cauchy representative
+using its own squared-distance modulus. This covers the current Wilson syntax,
+not the full canonical continuum algebra. All 20 gates passed focused capped
+checks; no broad run. The useful signed estimate, A03, full J02 and all
+same-theory Clay obligations remain open. Evidence:
+`audits/AUDIT-ALL-NOME-WILSON-GENERATION-2026-09-30.md`.
+
 Verified supporting J02 observable construction (2026-09-30 UTC; chart
 unchanged): time-zero Wilson multiplication is now bounded, symmetric and
 constructive-real linear on the SAME all-nome fixed-width reflected
