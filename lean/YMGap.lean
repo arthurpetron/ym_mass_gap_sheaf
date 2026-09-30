@@ -5747,6 +5747,12 @@ import YMGap.Continuum.BF4ExactSlabFacePatchEnergy
 import YMGap.Continuum.BF4ExactSlabFacePatchSmallNome
 import YMGap.Continuum.BF4ExactSlabFacePatchGeneratorBound
 import YMGap.Continuum.BF4ExactSlabFacePatchUniformCoercivity
+-- Exact original patch kernel, not a quantitative patch or continuum gap.
+import YMGap.Continuum.BF4ExactSlabBlockCompletionComparison
+import YMGap.Continuum.SU2QuaternionWeightedHaarFamilyCompletion
+import YMGap.Continuum.BF4ExactSlabBlockReferenceProjection
+import YMGap.Continuum.GNSProjectionGeneratorKernel
+import YMGap.Continuum.BF4ExactSlabBlockFixedSpace
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

@@ -1,5 +1,13 @@
 # Defect-retaining collective estimates: revised quantitative entry test
 
+Later checked follow-up: `AUDIT-ORIGINAL-BLOCK-GROUNDSPACE-2026-09-30.md`
+now identifies the EXISTING block conditional projection with the exact
+groundspace projection of the actual completed patch residual sum, for
+every rational 0<w<1 and late cutoff. This resolves the subsystem-kernel
+identification mentioned below, not quantitative overlap decay, a patch gap,
+the finite-size criterion, or useful scaling control. The source-baseline
+review below remains historical.
+
 Date: 2026-09-30 UTC. Source baseline: `431b62d`.
 This is mathematical/source review and targeted primary-paper research,
 not a new Lean theorem or an analytic estimate. No Lean file was changed

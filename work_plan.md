@@ -25,7 +25,36 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### ORIGINAL collective face patches and stronger uniform coercivity (2026-09-30 UTC)
+### ORIGINAL exact block groundspace (2026-09-30 UTC)
+
+`BF4ExactSlabBlockFixedSpace.fixed_iff_generator_zero` now identifies the
+EXISTING original block conditional Q_S as the orthogonal projection onto
+the kernel of the ACTUAL patch generator sum_{i in S}(I-P_i), on the SAME
+completed full-action carrier. `fixed_iff_singletons` proves Q_S x=x iff
+every singleton update in S fixes x; `fixed_iff_energy_zero` pins the same
+space to zero Dirichlet energy. `union_fixed_iff` gives the intersection law
+for union blocks, without asserting interacting projections commute.
+
+This holds for every rational 0<w<1, late cutoff, physical link list and
+completed input, including empty/repeated lists and exterior-dependent
+states. The proof uses explicit-modulus norm equivalences and raw Haar maps
+only to identify ranges, never as replacements for original projections.
+Five focused serialized capped checks passed 41 gates within
+{propext, Quot.sound}; no analytic premise or sorry added.
+
+NEXT: obtain useful quantitative control on the complement of this ACTUAL
+patch groundspace, or on overlaps of these actual block projections, with
+viable local-to-global and scaling dependence. The exact kernel needed by a
+kernel-preserving finite certificate is now identified; no quantitative
+patch gap, finite-core/tail certificate or scaling family is supplied here.
+The one-shared-face form comparison still lacks its commuting retained-action
+conditional reference. Do not substitute the fully detached reference used
+for this fixed-space proof, or a local-support-only variance bound, for that
+missing estimate. All OS/continuum/physical-mass/every-group requirements stay
+open; canonical chart unchanged. Evidence:
+`audits/AUDIT-ORIGINAL-BLOCK-GROUNDSPACE-2026-09-30.md`.
+
+### ORIGINAL collective face patches and stronger uniform coercivity (2026-09-30 UTC; preceding checkpoint)
 
 The actual physical face patches now preserve the entire ORDERED signed
 neighbor sum: sum_f ||A_f x||^2 = sum_i d_i ||R_i x||^2 + C_near(x),

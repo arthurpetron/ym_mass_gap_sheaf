@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL block groundspace (2026-09-30 UTC; chart
+unchanged): the existing block conditional projects onto the exact kernel
+of the SAME completed patch residual-sum operator. Its fixed space is
+precisely the common singleton fixed space, with an intersection law for
+union blocks. Every rational 0<w<1, late cutoff and finite physical list is
+covered, including exterior-dependent states and repeated links. Five focused
+checks passed 41 gates. This identifies the kernel to preserve in collective
+methods; quantitative patch/overlap control and all scaling/Clay obligations
+remain open. Evidence: `audits/AUDIT-ORIGINAL-BLOCK-GROUNDSPACE-2026-09-30.md`.
+
 Verified supporting ORIGINAL collective face-patch bound (2026-09-30 UTC;
 chart unchanged): exact signed face incidence improves the actual conditional
 generator margin from 1-50e to 1-36e. The completed centered Dirichlet

@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## PROVED exact original completed patch groundspace (2026-09-30 UTC)
+
+- `BF4ExactSlabBlockCompletionComparison` supplies explicit-modulus inverse
+  identity-on-polynomial completion maps using the actual positive collar
+  bounds, at every rational 0<w<1. No small-nome guard or norm isometry.
+- `SU2QuaternionWeightedHaarFamilyCompletion` constructs the literal finite
+  family reference on the independent background. `BF4ExactSlabBlockReferenceProjection`
+  proves mutual range-fixing with the EXISTING original block conditional;
+  these operators are not asserted equal or both original-form orthogonal.
+- `BF4ExactSlabBlockFixedSpace.fixed_iff_singletons` proves the missing
+  reverse fixed-space implication for every completed original state.
+  `union_fixed_iff` identifies the union-block range with the intersection
+  of the ranges, not the product of two interacting projections.
+- `GNSProjectionGeneratorKernel` identifies zero energy and zero residual
+  sum with joint fixedness for arbitrary finite projection lists. The actual
+  `fixed_iff_generator_zero` and `fixed_iff_energy_zero` corollaries in
+  `BF4ExactSlabBlockFixedSpace` retain the original patch, action and completion,
+  including exterior dependence, empty lists and multiplicities.
+- OPEN: quantitative patch/overlap control on a justified scaling family.
+  The exact kernel identity is not a positive spectral lower bound on its
+  complement. The one-shared-face conditional reference also remains open;
+  this fully detached auxiliary construction does not discharge it. OS time,
+  physical mass, continuum nontriviality, full QFT and all groups remain open.
+- Five final focused one-worker/20 GiB checks passed 41 printed gates within
+  {propext, Quot.sound}. No new sorry, analytic premise, custom axiom or
+  frontier weakening; no old sorry discharged. Full-root/full-tree/audit/guard
+  NOT run. Canonical chart unchanged. Evidence:
+  `audits/AUDIT-ORIGINAL-BLOCK-GROUNDSPACE-2026-09-30.md`.
+
 ## PROVED original collective face-patch join and stronger small-nome margin (2026-09-30 UTC)
 
 - `GNSProjectionSweep.Family.patchSquareSum_eq_energy_add_cross` in
