@@ -5483,6 +5483,10 @@ import YMGap.Continuum.GNSInnerRationalBracket
 import YMGap.Continuum.BF4ExactSlabChebyshevRepresentative
 import YMGap.Continuum.BF4ExactSlabChebyshevFiniteTest
 import YMGap.Continuum.BF4ExactSlabChebyshevFiniteCovariance
+-- Retain the normalization allowance; a negative reverse margin can be admissible.
+import YMGap.Continuum.BF4ExactSlabChebyshevNormBudget
+import YMGap.Continuum.BF4ExactSlabChebyshevBudgetCovariance
+import YMGap.Continuum.RationalChebyshevNormalizationWitness
 -- Constructed original finite-volume coercivity and covariance, not scaling uniformity.
 import YMGap.Continuum.SU2QuaternionHaarEfronStein
 import YMGap.Continuum.BF4ExactSlabHaarVarianceComparison

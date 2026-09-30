@@ -25,7 +25,47 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### ORIGINAL all-state patch complement and generator bound (2026-09-30 UTC)
+### Step back: retain the ORIGINAL Chebyshev normalization budget (2026-09-30 UTC)
+
+The all-state coercivity route remains sufficient, not compulsory. For the
+ACTUAL source x, coupled first state t_n, second state u_n, and balanced
+conditional sweep B=W^* W, write T=Cheb.T n (c-1) and
+M=2*||W u_n||^2-c*||B u_n||^2. The existing exact energy law says
+||t_n||^2+c*M=||x||^2. For c>0, the old M>=0 condition is equivalent to
+the particular normalized norm bound ||t_n/T||^2<=||x||^2/T^2; it is NOT
+necessary for every strict normalized factor eta<1. The exact weaker target is
+
+    c*M + (eta*T^2-1)*||x||^2 >= 0,   0<=eta<1, T>0.
+
+`BF4ExactSlabChebyshevNormBudget.budget_pin` proves the SAME-state identity;
+its computed rational bracket certifies the normalized bound, and
+`BF4ExactSlabChebyshevBudgetCovariance.finiteCovariance_sq_bound_of_finite_budget`
+joins it to the ORIGINAL separated covariance and original diagonal variances.
+Negative reverse margin is allowed when eta*T^2>1. No canonical field or old
+theorem is weakened, and no useful physical family of successful tests is
+asserted. This is a proved alternative sufficient criterion, not the missing
+analytic producer or a new mass gap.
+
+The exact two-projection witness `RationalChebyshevNormalizationWitness`
+has M=-224/625 but normalized squared norm 169/625<1/3 at c=4,n=1.
+Its positive budget is 354/625. This is NOT a Yang--Mills example; it
+confirms that the old sign test is not necessary for normalized contraction.
+Three focused serialized capped checks passed 20 printed gates; no broad run.
+
+NEXT: seek a quantitative bound on this signed source budget, with explicit
+degree, cutoff, volume and coupling dependence, before requiring a global
+all-state gap or constructing the retained-action comparison machinery.
+Reuse the existing source Cauchy/margin moduli; a finite test at one parameter
+does not establish spatial exponential decay or a scaling family. Do not add
+more budget wrappers without an actual source estimate. All-state collective
+and one-shared-face methods remain alternatives only if their coefficients
+can pay this actual normalized budget. Full original one-sided action factors
+must remain; a shared character packet alone is not a diagonalization of the
+interacting conditional law. OS time, survival, physical mass, full QFT and
+every-group Clay obligations remain open. Evidence:
+`audits/AUDIT-CHEBYSHEV-NORMALIZATION-BUDGET-2026-09-30.md`.
+
+### ORIGINAL all-state patch complement and generator bound (2026-09-30 UTC; preceding checkpoint)
 
 `BF4ExactSlabBlockComplementCoercivity.block_complement_coercivity` proves
 gamma*||x-Q_Sx||^2 <= E_S(x) for EVERY state of the SAME original completion,

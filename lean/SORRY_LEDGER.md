@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## PROVED original Chebyshev normalization-budget criterion (2026-09-30 UTC)
+
+- `BF4ExactSlabChebyshevNormBudget.budget_pin` identifies the constructed
+  signed budget c*M+(eta*T_n^2-1)*||x||^2 with the EXACT original norm
+  deficit eta*T_n^2*||x||^2-||t_n||^2. Its supplied Cauchy representative
+  determines an explicit rational bracket and error modulus; no choice.
+- `normalizedFirst_norm_of_finite_budget` consumes a successful positive
+  rational lower bracket, not a nonnegative reverse-margin hypothesis.
+  `BF4ExactSlabChebyshevBudgetCovariance.finiteCovariance_sq_bound_of_finite_budget`
+  joins it to the original separated covariance and diagonal variances.
+  The conditional conclusion is squared covariance <= eta*Var(p)*Var(q).
+  Strictness requires an actual eta in [0,1); the theorem constructs no
+  successful original-source family or spatial/scaling rate.
+- `RationalChebyshevNormalizationWitness` checks a literal two-dimensional
+  symmetric-idempotent projection pair and its balanced adjoint square.
+  Negative reverse margin coexists with normalized squared norm 169/625<1/3.
+  This refutes necessity of that sign condition for normalized contraction
+  in general, NOT a Yang--Mills estimate or counterexample.
+- OPEN: a quantitative original-source budget with useful degree, volume,
+  cutoff and coupling dependence on a justified scaling family. All
+  canonical OS/survival/physical-mass/QFT/every-group fields stay unchanged.
+  No new named analytic assumption, sorry, axiom or frontier weakening;
+  no existing sorry discharged. Three final focused one-worker/20 GiB checks
+  passed 20 gates within {propext, Quot.sound}; the rational-witness gates
+  use at most propext (two are axiom-free). No full-root/tree/audit/guard run. Evidence:
+  `audits/AUDIT-CHEBYSHEV-NORMALIZATION-BUDGET-2026-09-30.md`.
+
 ## PROVED all-state original patch complement and generator baseline (2026-09-30 UTC)
 
 - `GNSProjectionSweep.Family.residual_distance_minimum` (in

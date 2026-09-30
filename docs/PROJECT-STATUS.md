@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified ORIGINAL normalization-aware covariance criterion (2026-09-30 UTC;
+chart unchanged): the exact signed budget c*M+(eta*T_n^2-1)*||x||^2 admits
+negative reverse margin while still certifying a squared covariance factor
+eta<1. The finite rational test preserves the original source, action,
+partition and auxiliary order. An exact two-projection example shows the
+old sign requirement is not necessary for normalized contraction; it is NOT
+a Yang--Mills instance. A successful uniform original-source family remains
+open. Three focused checks passed 20 gates; no canonical field changed.
+Evidence: `audits/AUDIT-CHEBYSHEV-NORMALIZATION-BUDGET-2026-09-30.md`.
+
 Verified supporting ORIGINAL all-state patch baseline (2026-09-30 UTC; chart
 unchanged): gamma*||x-Q_Sx||^2 <= E_S(x) and gamma*E_S(x) <= ||H_Sx||^2 now
 hold on EVERY state of the SAME original completion. Q_S is the existing
