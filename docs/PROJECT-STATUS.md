@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting certificate-route test (2026-09-30 UTC; chart unchanged):
+the isolated centered SU(2) heat kernel has Haar square >=4*w^6, which is
+>1 at the positive late-cutoff w=7/8 example despite strict ordinary heat
+operator contraction. Total Hilbert--Schmidt mass is therefore not a
+general contraction producer here. Source review retains the actual
+normalized marginal Grams and exterior dependence; their useful bound and
+the original collective signed estimate remain open, as do A03 and every
+same-theory Clay obligation. Nine gates passed one focused capped check.
+Evidence: `audits/AUDIT-NORMALIZED-FEATURE-CERTIFICATE-DOMAIN-2026-09-30.md`.
+
 Verified supporting original signed-neighbor error control (2026-09-30 UTC;
 chart unchanged): the actual ordered signed Gram sum has a finite rational
 polynomial approximation with error <=50*(delta+delta^2/2) times original

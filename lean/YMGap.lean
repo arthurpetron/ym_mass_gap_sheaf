@@ -5612,6 +5612,8 @@ import YMGap.Continuum.SU2QuaternionSharedHeatCorrelationObstruction
 import YMGap.Continuum.SU2QuaternionParallelLoopGauge
 import YMGap.Continuum.SU2QuaternionSharedHeatLoopMoments
 import YMGap.Continuum.SU2QuaternionGaugeLoopCorrelationObstruction
+-- Total centered-kernel Haar square can exceed one despite operator contraction.
+import YMGap.Continuum.SU2QuaternionSharedHeatHilbertSchmidtObstruction
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

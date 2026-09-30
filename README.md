@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Certificate-route test (2026-09-30):** an exact SU(2) heat-kernel example
+rules out using total Hilbert--Schmidt mass as a general substitute for
+operator contraction. The finite-feature review also identifies the actual
+marginal normalizations and exterior dependence a certificate must retain.
+The useful original-action collective bound is still open. See the
+[proof and certificate-domain audit](audits/AUDIT-NORMALIZED-FEATURE-CERTIFICATE-DOMAIN-2026-09-30.md).
+
 **Signed-neighbor approximation (2026-09-30):** the original signed
 neighboring-pair sum now has a finite rational approximation with error
 bounded relative to the SAME conditional energy, without a volume factor.

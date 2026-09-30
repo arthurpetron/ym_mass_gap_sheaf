@@ -25,6 +25,37 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Finite features: preserve normalized operator control (2026-09-30 UTC)
+
+Source review confirms that the original finite feature list has
+EXTERIOR-POLYNOMIAL entries, not a single numerical matrix. Arbitrary-degree
+cross modes factor through its exact moments at each exterior fiber, but
+their original diagonal variances are not thereby bounded. The correct
+centered features divide by the actual one-sided marginals. A paper
+derivation gives a singular-Gram-safe sufficient matrix condition
+`rho^2*Gx-D^2*Gx*Gy*Gx >= 0`, with no Gram inverse; its original-operator
+join, exterior control and useful coefficient remain unproved. No new
+conditional checker or analytic wrapper was implemented.
+
+A quantitative shortcut is now excluded:
+`SU2QuaternionSharedHeatHilbertSchmidtObstruction.centeredHeat_square_lower`
+proves the actual isolated centered heat kernel's Haar square is at least
+`4*w^6`, all K>=1. At the existing positive late-cutoff w=7/8 example,
+this exceeds one, although the ordinary centered heat map has a proved
+strict operator contraction. Thus total Hilbert--Schmidt mass cannot be
+the general contraction producer at the weak-coupling end. This excludes
+neither the normalized Gram criterion, a restricted-sector compression,
+the full one-sided weights nor defect-retaining collective control.
+
+NEXT remains a useful SAME-action signed estimate. Do not launch a
+principal test-matrix SDP/exterior grid as an all-state certificate, nor
+replace operator control by total channel mass. Sol implemented the
+screen; Luna reviewed the normalized Gram argument. Nine gates passed
+one focused one-worker/20 GiB check; no broad or large numerical run,
+new sorry or axiom. A03 and all continuum/Clay obligations remain open;
+chart unchanged. Evidence:
+`audits/AUDIT-NORMALIZED-FEATURE-CERTIFICATE-DOMAIN-2026-09-30.md`.
+
 ### Signed-neighbor approximation error on the original action (2026-09-30 UTC)
 
 `BF4ExactSlabSignedNeighborApproximation.signedNeighbor_error_bounds`
