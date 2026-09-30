@@ -5500,6 +5500,11 @@ import YMGap.Continuum.BF4ExactSlabPolynomialSweepAdjoint
 import YMGap.Continuum.SU2QuaternionBoundedMonomials
 import YMGap.Continuum.QuaternionHaarWeightedMonomialSpan
 import YMGap.Continuum.BF4ExactSlabFiniteMomentTail
+-- Dense adjoint tests extend the SAME finite-moment tail to every completed input.
+-- This does not bound the retained finite core or supply a patch/physical gap.
+import YMGap.Continuum.GNSDenseDualNormBound
+import YMGap.Continuum.QuaternionHaarCompletedMonomialSpan
+import YMGap.Continuum.BF4ExactSlabCompletedMomentTail
 -- Original local variances pay for support, not all volume faces; no global gap.
 import YMGap.Continuum.BF4ExactSlabLocalSupportComparison
 import YMGap.Continuum.BF4ExactSlabLocalSupportVariance

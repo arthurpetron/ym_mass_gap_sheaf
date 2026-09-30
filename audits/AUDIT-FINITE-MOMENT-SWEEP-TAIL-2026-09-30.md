@@ -74,8 +74,10 @@ Paths below are relative to `lean/YMGap/Continuum/`.
   strict Gram certificate or nonzero input passing the moment test was
   produced. The theorem proves soundness for every supplied passing input.
 - Exact zero-moment membership is not automatically preserved by dense
-  approximating sequences. No completed-space version of this tail predicate
-  or completed finite-rank approximant was constructed.
+  approximating sequences. A subsequent dense-dual argument resolves the
+  completed-tail statement without requiring such preservation; see
+  `AUDIT-COMPLETED-MOMENT-TAIL-2026-09-30.md`. A completed finite-rank
+  approximant is still not constructed by these increments.
 - The moment list depends on nome, heat cutoff, extent and requested error;
   no parameter-uniform finite-dimensional core or practical complexity bound
   is asserted. A uniform epsilon conclusion on a CHANGING checked input class

@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED completed finite-moment tail on the original carrier (2026-09-30 UTC)
+
+- `GNSDenseDualNormBound.norm_le_of_dense_approximate_dual` proves a sharp
+  completed norm bound from dense reverse tests, cancelling only a positive
+  rational tolerance. `QuaternionHaarCompletedMonomialSpan` supplies the
+  finite completed linear-span implication without a Gram inverse.
+- `BF4ExactSlabCompletedMomentTail.completed_sweep_tail_bound` proves
+  squared norm <=epsilon times input squared norm for every original
+  completed input annihilating the SAME finite dual moment list. Its
+  `completed_sweep_difference_of_moments` controls outputs of completed
+  inputs with equal moments. The earlier dense Boolean check implies the
+  completed predicate; arbitrary CReal equality is not claimed decidable.
+- This closes the completion residue below. No nonzero passing witness,
+  invariant tail, strict finite-core bound, patch lifting or useful
+  spatial/scaling estimate is supplied. All Clay-facing obligations and
+  canonical chart states remain open/unchanged.
+- Ten gates passed three focused serialized one-worker/20 GiB file checks,
+  all in {propext, Quot.sound}; no broad build/audit/guard, new sorry or axiom,
+  new analytic estimate assumption, or existing sorry discharged. Sol
+  supplied duality, Luna finite span, root the actual join; independent Sol
+  review passed. Evidence: `audits/AUDIT-COMPLETED-MOMENT-TAIL-2026-09-30.md`.
+
 ## PROVED finite weighted-moment criterion for the actual conditional-sweep tail (2026-09-30 UTC)
 
 - `BF4ExactSlabPolynomialConditionalAdjoint` proves finite inverse symmetry
@@ -13,7 +35,8 @@
   sweep squared norm <=epsilon times input squared norm for every supported
   input passing the epsilon-dependent finite test, with no input-degree cap.
 - No nonzero passing witness or strict finite-core certificate was produced.
-  The exact zero-moment predicate has not been extended to the completion.
+  The completed-tail residue was subsequently resolved by dense duality
+  in `BF4ExactSlabCompletedMomentTail`, recorded above.
   A useful fixed-patch-to-global lower estimate was NOT FOUND in the reviewed
   original-sweep route; the existing 625 estimate is an upper energy bound.
   Spatial/scaling, OS and all Clay obligations remain open; chart unchanged.

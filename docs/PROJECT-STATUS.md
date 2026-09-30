@@ -1,13 +1,13 @@
 # Canonical one-page project status
 
-Verified supporting finite-moment tail criterion (2026-09-30 UTC; chart unchanged):
-the exact polynomial sweep adjoint is its reverse schedule, with a computed
-input-independent degree bound. A finite original-weighted moment check now
-annihilates the approximant and controls the true sweep on EVERY supported
-input passing it. The moment core, completion of this tail predicate, useful
-local/global control and all Clay joins remain open. Twenty-three gates
-passed five focused capped checks. Evidence:
-`audits/AUDIT-FINITE-MOMENT-SWEEP-TAIL-2026-09-30.md`.
+Verified supporting completed finite-moment tail (2026-09-30 UTC; chart unchanged):
+dense reverse tests extend the one-sweep tail bound to EVERY completed input
+annihilating the existing finite moment list. Equal moments also control
+the difference of sweep outputs. No Gram inverse or moment-preserving input
+approximation is used. Ten gates passed three focused capped file checks.
+The retained moment core, tail invariance, useful local/global control and
+all Clay joins remain open. Evidence:
+`audits/AUDIT-COMPLETED-MOMENT-TAIL-2026-09-30.md`.
 
 Verified supporting all-input approximation (2026-09-30 UTC; chart unchanged):
 the original conditional sweep has a polynomial approximation with one

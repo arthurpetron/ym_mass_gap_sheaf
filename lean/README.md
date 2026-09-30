@@ -17,9 +17,12 @@ genuinely constructive.
 finite moment-zero check and bounds the actual sweep on EVERY supported
 polynomial passing it. Exact reverse adjoint and its bounded-degree range
 justify the test list; sphere/radical dependencies are retained. Twenty-three
-gates passed five focused capped checks; no broad run. No finite-core strict
-bound, completed tail theorem, patch lifting or Clay closure. Evidence:
-`audits/AUDIT-FINITE-MOMENT-SWEEP-TAIL-2026-09-30.md` at repository root.
+gates passed five focused capped checks. The subsequent
+`BF4ExactSlabCompletedMomentTail.completed_sweep_tail_bound` extends this to
+EVERY completed input with the same zero moments, by dense dual testing;
+ten further gates passed three focused capped file checks. No broad run,
+finite-core strict bound, invariant tail, patch lifting or Clay closure.
+Evidence: `audits/AUDIT-COMPLETED-MOMENT-TAIL-2026-09-30.md` at repository root.
 
 **All-input original conditional sweep approximation (2026-09-30 UTC):**
 `BF4ExactSlabPolynomialSweepApproximation.approximation_error` and

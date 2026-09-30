@@ -25,6 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Completed finite-moment tail by dense reverse tests (2026-09-30 UTC)
+
+`BF4ExactSlabCompletedMomentTail.completed_sweep_tail_bound` extends the
+same finite-moment condition to EVERY original completed input. The actual
+reverse sweep differs from its bounded-degree polynomial approximation by
+at most epsilon times each dense test's squared norm. Orthogonality kills
+the polynomial pairing; weighted Young and dense norm duality give the
+sharp completed tail bound. No Gram inverse, chosen representative or
+moment-preserving approximation of the input is needed. Equal finite moments
+also bound the difference of two completed sweep outputs. Ten gates passed
+three focused capped file checks; no chart node changed.
+
+This removes the preceding completed-tail residue, not the quantitative
+finite-core bound. The test list depends on w,K,extent,epsilon, and its
+annihilator is not proved sweep-invariant. Do not iterate this one-sweep
+bound as a sector gap, or transfer it to conditional patches. The primary
+signed-energy/spatial/scaling estimate and all Clay joins remain open.
+Next work should supply an actual quantitative producer for that estimate,
+not another completion wrapper or an unjustified whole-volume matrix launch.
+Evidence: `audits/AUDIT-COMPLETED-MOMENT-TAIL-2026-09-30.md`.
+
 ### Exact reverse adjoint and finite weighted-moment tail (2026-09-30 UTC)
 
 `BF4ExactSlabFiniteMomentTail.physicalSweep_tail_bound` now consumes an
@@ -45,8 +66,9 @@ a singular Gram. A quantitative bound on the remaining finite moment sector
 is still missing. Future finite-core work should use the adjoint identity
 to seek a singular-Gram-safe comparison; do not demand an orthonormal basis
 or quotient representative selection unless the actual consumer needs it.
-No nonzero passing witness, strict finite-core certificate, or completed
-zero-moment-tail statement was produced in this increment.
+No nonzero passing witness or strict finite-core certificate was produced.
+The completed zero-moment-tail statement was supplied by the subsequent
+dense-dual proof recorded immediately above.
 
 **Route checkpoint before computation:** source review found no fixed-size
 patch gap to whole-volume coercivity theorem for this original conditional
@@ -58,6 +80,7 @@ parameter budget, or return to a direct signed interacting estimate. Do not
 launch whole-volume matrices or interpret a fixed-volume certificate as
 spatial/scaling control. Exact moment-zero predicates also do not pass to
 completion by density alone: approximants can have small nonzero moments.
+The subsequent completed-tail proof avoids that step by dual testing.
 A03, full J02/J03 and the unchanged Clay goal remain open. Evidence:
 `audits/AUDIT-FINITE-MOMENT-SWEEP-TAIL-2026-09-30.md`.
 
