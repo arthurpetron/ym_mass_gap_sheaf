@@ -5860,6 +5860,10 @@ import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary
 import YMGap.Continuum.BF4WilsonAllNomeSectorInsertion
 import YMGap.Continuum.BF4WilsonAllNomeSectorExcitation
+-- Original source energy controls domain entry; boundary equal-time recovery fails.
+import YMGap.Continuum.BF4WilsonAllNomeSectorEqualTimeBoundary
+import YMGap.Continuum.BF4WilsonAllNomeSectorSmoothingEnergy
+import YMGap.Continuum.BF4WilsonAllNomeSectorSourceTransfer
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

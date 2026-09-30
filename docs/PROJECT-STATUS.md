@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL source/domain comparison (2026-09-30 UTC;
+chart unchanged): one original time step satisfies ||Tx-x||^2<=E(x),
+||Tx||^2>=||x||^2-2E(x) and B(Tx,Ax)<=E(x). GIVEN a relative source cost c
+with 0<=c<1/2, the actual derivative-domain state retains fraction 1-2c
+of its norm squared and has derivative-form ratio at most c/(1-2c).
+The missing scaling-relative source estimate is NOT proved. Conversely,
+the width-one boundary source is killed at every positive real time and
+cannot be recovered at equal time by shrinking the insertion time.
+Three final focused serialized checks passed 23 gates within
+{propext, Quot.sound}; no broad run or canonical field change. Evidence:
+`audits/AUDIT-ORIGINAL-SOURCE-DOMAIN-TRANSFER-2026-09-30.md`.
+
 Verified supporting ORIGINAL sector observables (2026-09-30 UTC; chart
 unchanged): the literal width-one time-zero multiplier cannot restrict to
 the witnessed time-continuity sector. The positive-time S(t) M S(t)

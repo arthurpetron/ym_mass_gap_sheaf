@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL source-energy to derivative-domain comparison (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeSectorSmoothingEnergy.derivative_terminal_energy`
+  proves B(Tx,Ax)+||Tx||^2<=B(x,Tx) by the actual dyadic moment telescope
+  and represented limit. `derivative_core_upper` gives B(Tx,Ax)<=E(x);
+  `norm_retention` gives ||Tx||^2>=||x||^2-2E(x), E(x)=B(x,(I-T)x).
+  These are unconditional inequalities on the ORIGINAL completion.
+- `BF4WilsonAllNomeSectorSourceTransfer.smoothing_distance_le_energy`
+  proves ||Tx-x||^2<=E(x). GIVEN E(x)<=c||x||^2 with c>=0 and r=1-2c>0,
+  `relative_derivative_bound` supplies c/r times the actual domain norm.
+  `corePoint_norm_floor` transfers floor b to r*b; orthogonality survives.
+  No original scaling-relative energy estimate is discharged here.
+- `BF4WilsonAllNomeSectorEqualTimeBoundary.positiveAction_kills_time_kernel`
+  proves all positive real times annihilate the original time kernel.
+  `originSeparationCertificate` and `no_origin_recovery` show the width-one
+  centered source cannot be recovered by shrinking positive insertion
+  times: the exact error is its positive original variance.
+- OPEN: actual signed source estimate on a justified scaling family,
+  physical reflected observable/Hilbert join, physical time/mass,
+  continuum survival, full QFT/every-group/Clay. No field was weakened.
+- Three final focused serialized checks passed 23 gates within
+  {propext, Quot.sound}; no new sorry/axiom or broad run. Evidence:
+  `audits/AUDIT-ORIGINAL-SOURCE-DOMAIN-TRANSFER-2026-09-30.md`.
+
 ## PROVED ORIGINAL sector insertion and time-zero restriction obstruction (2026-09-30 UTC)
 
 - `BF4WilsonAllNomePositiveTimeVacuum` proves actual dyadic and positive

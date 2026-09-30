@@ -320,6 +320,22 @@ checks passed 34 gates, all exactly {propext, Quot.sound}. No broad run or
 canonical chart change. Evidence:
 `audits/AUDIT-ORIGINAL-SECTOR-OBSERVABLES-2026-09-30.md`.
 
+FOLLOW-ON PROVED: `BF4WilsonAllNomeSectorSmoothingEnergy` gives the actual
+derivative upper bound B(Tx,Ax)<=E(x), E(x)=B(x,(I-T)x), and norm retention
+||Tx||^2>=||x||^2-2E(x). Its stronger terminal inequality comes from the
+original finite dyadic moments and the constructed derivative limit.
+`BF4WilsonAllNomeSectorSourceTransfer.smoothing_distance_le_energy` gives
+||Tx-x||^2<=E(x). A SUPPLIED relative budget E(x)<=c||x||^2 with c>=0 and
+r=1-2c>0 therefore supplies the SAME corePoint's norm fraction r, derivative
+ratio c/r and transferred positive floor r*b. This supplies a quantitative
+join to the derivative-domain branch, not the missing signed estimate.
+`BF4WilsonAllNomeSectorEqualTimeBoundary` also proves every positive real
+time kills the original time kernel; the width-one centered source has an
+exact time-independent recovery error >=starRatio(w)>0. No shrinking-time
+schedule repairs that boundary source. Three final focused serialized
+checks passed 23 gates within {propext, Quot.sound}; no broad run or chart
+change. Evidence: `audits/AUDIT-ORIGINAL-SOURCE-DOMAIN-TRANSFER-2026-09-30.md`.
+
 NEXT reconstruction residue: the SAME-object physical reflected OS/observable
 identification and compatible complex Hilbert structure, not another
 equivalent pairing criterion or an unjustified total Hamiltonian.
@@ -337,7 +353,7 @@ scope. Full physical Hilbert/Hamiltonian identification remains OPEN.
 The equation A u=T v alone remains insufficient on the full ambient carrier
 with its actual boundary kernel.
 
-The independent primary analytic task remains the source-specific
+NEXT PRIORITY: return to the source-specific
 energy/variance UPPER bound on a justified scaling family. Source review
 finds the existing same-action one-loop increment bound
 24*length^2*(1-w), but its combination with the current variance floor
@@ -348,6 +364,10 @@ or a justified row-summable bound sufficient for it; do not replace that
 estimate by local-overlap algebra. This is a source-guided next proposition,
 not a new proved upper estimate. Details:
 `audits/AUDIT-SIGNED-FAMILY-TEMPORAL-JOIN-2026-09-30.md`.
+The now-proved one-step source/domain transfer already controls the actual
+derivative energy, retained norm and source replacement. Do not build another
+equivalent conditional survival/domain wrapper before supplying a useful
+original signed estimate. Filtering alone creates no spectral support near one.
 The existing series graph concerns F=regularizedLog, not A; equality remains
 OPEN and is not an implicit identification. No full-carrier density or
 injectivity is available.
