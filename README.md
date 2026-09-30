@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Same-carrier observables (2026-09-30):** time-zero Wilson multiplication
+now extends to the existing reflected completion at every rational nome
+`0<w<1` and fixed width, with explicit moduli, symmetry, real linearity
+and a spin-only norm cap.
+This removes the small-coupling restriction from this observable construction,
+not from spatial/scaling estimates. The useful signed bound and continuum
+QFT remain open. See the
+[proof and scope audit](audits/AUDIT-ALL-NOME-TIME-ZERO-OBSERVABLES-2026-09-30.md).
+
 **Certificate-route test (2026-09-30):** an exact SU(2) heat-kernel example
 rules out using total Hilbert--Schmidt mass as a general substitute for
 operator contraction. The finite-feature review also identifies the actual

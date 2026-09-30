@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**All-nome time-zero observables (2026-09-30 UTC):**
+`BF4WilsonAllNomeTimeZeroBound` and `BF4WilsonAllNomeTimeZeroOperator`
+construct bounded symmetric Wilson multiplication on the existing literal-width
+reflected completion, with explicit moduli and constructive-real linearity.
+The cap depends only on spin; no small-nome premise or spatial-union carrier
+is used. `BF4WilsonAllNomeTimeZeroVacuum` pins the multiplier-created state
+and its time correlation to the existing loop and original lag moment.
+All 25 printed gates passed focused serialized capped checks; no broad run.
+Spatial/scaling control and the same-theory continuum/Clay target remain open.
+Evidence: `audits/AUDIT-ALL-NOME-TIME-ZERO-OBSERVABLES-2026-09-30.md`.
+
 **Original energy-relative residual approximation (2026-09-30 UTC):**
 `BF4ExactSlabStarEnergyRelativeApproximation` sharpens the polynomial
 kernel-test error to `inverseRate(w)^(2n)*||R_i p||^2`. The existing finite

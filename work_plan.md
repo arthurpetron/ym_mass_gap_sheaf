@@ -25,6 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Independent same-carrier observable construction (2026-09-30 UTC)
+
+`BF4WilsonAllNomeTimeZeroBound` transfers the actual finite selected-action
+multiplier bound through the literal-width joint limit. The existing padded
+spatial-chart pin was NOT used as a literal-width identification.
+`BF4WilsonAllNomeTimeZeroOperator` constructs bounded, symmetric,
+constructive-real-linear Wilson multipliers on the existing all-nome
+completion, with spin-only squared-norm cap c and tolerance epsilon/(c+1).
+`BF4WilsonAllNomeTimeZeroVacuum` identifies the fundamental multiplier of
+the existing unit with the existing loop state, then pins its completed-time
+autocorrelation to the original lag moment. All 25 printed gates passed
+focused serialized one-worker/20 GiB checks; no broad run. Sol proved the
+dense bound, Luna implemented the vacuum pin, and root completed/reviewed
+the maps and serialized verification. No new analytic hypothesis, sorry or axiom.
+
+This is independent partial J02 progress, not a new carrier or full QFT.
+Cross-width/spacing compatibility and continuum locality remain open.
+NEXT analytic priority remains useful SAME-action signed/collective control;
+do not substitute a sharper ordinary heat bound against H[(V F)^2] for the
+missing interacting-variance estimate. Review found existing finite reflected
+completions, so no duplicate GNSData wrapper was built. Canonical chart
+unchanged. Evidence:
+`audits/AUDIT-ALL-NOME-TIME-ZERO-OBSERVABLES-2026-09-30.md`.
+
 ### Finite features: preserve normalized operator control (2026-09-30 UTC)
 
 Source review confirms that the original finite feature list has

@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting J02 observable construction (2026-09-30 UTC; chart
+unchanged): time-zero Wilson multiplication is now bounded, symmetric and
+constructive-real linear on the SAME all-nome fixed-width reflected
+completion. The norm cap c depends only on spin; its tolerance is epsilon/(c+1).
+The original action and literal width are retained; a padded spatial chart
+is not substituted. The multiplier of the vacuum is the existing fundamental
+loop state, with the SAME original time correlation. All 25 printed gates
+passed focused serialized capped checks; no broad run. This removes
+small-nome guards from the observable
+construction, not from spatial/scaling control. A03, full J02 and all
+same-theory Clay obligations remain open. Evidence:
+`audits/AUDIT-ALL-NOME-TIME-ZERO-OBSERVABLES-2026-09-30.md`.
+
 Verified supporting certificate-route test (2026-09-30 UTC; chart unchanged):
 the isolated centered SU(2) heat kernel has Haar square >=4*w^6, which is
 >1 at the positive late-cutoff w=7/8 example despite strict ordinary heat
