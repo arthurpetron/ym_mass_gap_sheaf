@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Positive bounded regularized operator (2026-09-30 UTC):**
+`BF4WilsonAllNomeLogOperator` proves symmetry, positivity, squared-norm cap
+one, rational and supplied-modulus real linearity, distance contraction and
+vacuum-complement output for the SAME previously constructed series limit.
+Actual completed pairing continuity and explicit row-pairing moduli pass
+the finite estimates to that limit. All 39 gates passed four focused capped
+checks; no broad run. No generator, spatial/scaling or Clay closure follows.
+Evidence: `audits/AUDIT-ALL-NOME-REGULARIZED-OPERATOR-2026-09-30.md`.
+
 **Same-carrier regularized series (2026-09-30 UTC):**
 `BF4WilsonAllNomeLogPartial` supplies the finite reciprocal tail bound;
 `BF4WilsonAllNomeLogSeries.regularizedLogCertificate` constructs the actual

@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED bounded positive regularized operator laws on the original carrier (2026-09-30 UTC)
+
+- **actual producer:** `BF4WilsonAllNomeCompletedPairingContinuity` and
+  `BF4WilsonAllNomeRowPairingLimit` supply quantitative pairing convergence
+  and closed norm bounds on the SAME all-nome completion, with explicit
+  row moduli. `BF4WilsonAllNomeLogPartialAlgebra` supplies finite symmetry
+  and positivity from the original mixed time-defect moments.
+- **consumer:** `BF4WilsonAllNomeLogOperator` proves the existing series
+  map is symmetric, positive, norm-bounded by one and nonexpansive. Pairing
+  extensionality gives rational and supplied-modulus CReal linearity;
+  every output lies in the existing vacuum complement.
+- **closed residue:** limit norm/linearity/symmetry left open by the
+  preceding series checkpoint. No spectral/log identification, generator,
+  full-carrier injectivity, signed scaling estimate or continuum result.
+  The actual boundary kernel remains; no canonical Clay field is closed
+  by this increment.
+- **verification:** all 39 gates passed four focused serialized one-worker/
+  20 GiB checks within {propext, Quot.sound}; no broad run. No sorry added
+  or discharged, axiom, analytic premise or frontier weakening. Sol proved
+  pairing limits, Luna finite algebra, root the operator consumer; Sol
+  reviewed. Evidence:
+  `audits/AUDIT-ALL-NOME-REGULARIZED-OPERATOR-2026-09-30.md`.
+
 ## Constructed regularized series on the original all-nome completion (2026-09-30 UTC)
 
 - **estimate:** `BF4WilsonAllNomeLogPartial` bounds the squared distance

@@ -1,6 +1,8 @@
 # Constructive regularized series on the original Wilson completion
 
 Date: 2026-09-30 UTC. Three final focused checks passed; no broad run.
+This checkpoint is historical: its limit norm/linearity/symmetry residue
+was subsequently closed in `AUDIT-ALL-NOME-REGULARIZED-OPERATOR-2026-09-30.md`.
 Whole-project goal: constructive continuum Yang--Mills on R^4 for every
 compact simple group, with the same-theory QFT axioms and a positive finite
 physical mass gap. That goal remains OPEN.

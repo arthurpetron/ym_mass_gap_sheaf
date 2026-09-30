@@ -5636,6 +5636,11 @@ import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 import YMGap.Continuum.BF4WilsonAllNomeLogPartial
 import YMGap.Continuum.BF4WilsonAllNomeLogPartialLaws
 import YMGap.Continuum.BF4WilsonAllNomeLogSeries
+-- Positive bounded real-linear SAME-carrier series; no generator/scaling claim.
+import YMGap.Continuum.BF4WilsonAllNomeCompletedPairingContinuity
+import YMGap.Continuum.BF4WilsonAllNomeRowPairingLimit
+import YMGap.Continuum.BF4WilsonAllNomeLogPartialAlgebra
+import YMGap.Continuum.BF4WilsonAllNomeLogOperator
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

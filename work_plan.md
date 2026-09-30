@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Positive bounded regularized operator on the SAME carrier (2026-09-30 UTC)
+
+`BF4WilsonAllNomeLogOperator` closes the norm/linearity/symmetry residue
+of the preceding series checkpoint. Completed pairing continuity and
+explicit represented-row moduli pass finite symmetry, positivity and norm
+cap to the existing limit. Symmetry plus the original definite pairing
+gives linearity directly, including CReal scalars with supplied moduli.
+The map is nonexpansive and its output lies in the existing vacuum
+complement. All 39 gates passed four focused serialized one-worker/20 GiB
+checks; no broad run. Sol proved pairing limits, Luna finite algebra, root
+the operator laws; Sol reviewed. No new analytic premise or frontier change.
+
+This is not a physical Hamiltonian or scalar-log identification. The
+boundary kernel remains. Do not build a full-carrier generator by assuming
+that kernel away. Return the main analytic effort to useful original signed
+control on justified scaling and controlled bulk/spatial comparison;
+further scalar functional calculus alone supplies neither. A03, full J02/J03
+and Clay remain open; chart unchanged. Evidence:
+`audits/AUDIT-ALL-NOME-REGULARIZED-OPERATOR-2026-09-30.md`.
+The parallel spatial-source review confirms that the existing common union
+carrier still requires `heatRatio w<=1/2`, `heatRemainderBound w<1` and
+the entropy guard. It is not an all-nome completed-width comparison;
+the literal all-nome naturality lemmas only transport syntax. Seek actual
+interior form/correlation control under changing width/coupling, preserving
+the original action and boundary treatment, rather than erasing those guards.
+
 ### Constructed regularized series on the SAME all-nome carrier (2026-09-30 UTC)
 
 `BF4WilsonAllNomeLogPartial` applies the mixed-moment bounds to pairs of

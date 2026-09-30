@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Bounded original-carrier operator (2026-09-30):** the constructed
+regularized series is now proved positive, symmetric and linear, including
+constructive-real scalars with supplied moduli. It contracts the original
+squared distance and maps into the existing vacuum complement. These are
+same-carrier operator laws, not a generator or mass-gap theorem. See the
+[proof and scope audit](audits/AUDIT-ALL-NOME-REGULARIZED-OPERATOR-2026-09-30.md).
+
 **Constructive series limit (2026-09-30):** the regularized series
 `sum_{k>=1} (I-T)^k T x/k` now has an explicit convergence modulus on the
 original all-nome Wilson completion. The construction retains its boundary

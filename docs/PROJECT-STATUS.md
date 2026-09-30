@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting operator laws (2026-09-30 UTC; chart unchanged): the
+existing all-nome regularized series limit is now positive, symmetric and
+linear for rational and supplied-modulus CReal scalars, with norm cap one
+and distance contraction on the SAME carrier. Its image lies in the actual
+vacuum complement. This closes the preceding limit-law residue, not a
+generator or spatial/scaling estimate; the boundary kernel remains. All 39
+gates passed four focused capped checks; no broad run. A03, full J02/J03 and
+Clay remain open. Evidence:
+`audits/AUDIT-ALL-NOME-REGULARIZED-OPERATOR-2026-09-30.md`.
+
 Supporting same-carrier regularized series (2026-09-30 UTC; chart unchanged):
 the finite mixed-moment estimates now construct the actual limit of
 `sum_{k>=1} (I-T)^k T x/k` with explicit convergence data on the original
