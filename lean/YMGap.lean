@@ -5690,6 +5690,15 @@ import YMGap.Continuum.BF4ExactSlabCutFaceGeometry
 import YMGap.Continuum.BF4ExactSlabReplicaCutLocality
 import YMGap.Continuum.BF4ExactSlabReplicaCutArea
 import YMGap.Continuum.BF4ExactSlabReplicaCutComparison
+-- Both original exterior normalizers and explicit finite reciprocal errors.
+import YMGap.Continuum.SU2QuaternionSharedBlockExteriorSwap
+import YMGap.Continuum.QuaternionHaarCrossNormalizedComparison
+import YMGap.Continuum.BF4ExactSlabStarBandCertificate
+import YMGap.Continuum.BF4ExactSlabCrossExteriorStar
+import YMGap.Continuum.BF4ExactSlabStarReciprocalParameters
+import YMGap.Continuum.QuaternionHaarReciprocalCrossComparison
+import YMGap.Continuum.BF4ExactSlabConditionalStarComparison
+import YMGap.Continuum.SU2QuaternionGlobalVarianceReplica
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

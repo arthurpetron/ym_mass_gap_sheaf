@@ -1,6 +1,38 @@
 # Sorry Ledger
 
+## PROVED original finite two-normalizer comparison and variance identity (2026-09-30 UTC)
+
+- `BF4ExactSlabCrossExteriorStar.crossStarComparison` constructs
+  U^2 A E - ell^2 A' D >=0 with the same updated link and both actual
+  exterior normalizers. Its project/lift/head/full-marginal pins keep the
+  entire ORIGINAL complementary action. Shared face variables are retained;
+  no independent-face law or unknown ratio positivity is assumed.
+- `BF4ExactSlabConditionalStarComparison.weighted_kernel_comparison`
+  proves ell^2(1-rho^k) H[A'G_E r] <= U^2 H[A G_D r] under every
+  certified nonnegative joint insertion. The actual positive reciprocal
+  polynomials have one computed error cutoff for both denominators via
+  `bothNormalizerErrors`. ell=headFloor(w)^d, U=prefixCap(w)^d,
+  rho=1-ell/U; nome dependence is explicit, not spacing-uniform.
+- `SU2QuaternionGlobalVarianceReplica.global_variance_identity` proves
+  the exact two-copy square identity for arbitrary supported original W,f,
+  without positivity or inverse assumptions. It is the unnormalized
+  variance determinant, not a canonical-path bound.
+- OPEN next: identify the finite reciprocal pairings with the EXISTING
+  limiting conditional inverse under joint insertions; prove the original
+  ordered-coordinate telescope and path-energy inequality. The reviewed
+  N*(prefixCap/headFloor)^(2C+12) budget is still not a Lean coercivity
+  theorem and would not by itself resolve its spatial/scaling loss.
+- Eight final focused serialized one-worker/20 GiB checks passed 59 gates
+  within {propext, Quot.sound}. No full-root build/audit/guard, new sorry,
+  custom axiom or analytic assumption; no existing sorry discharged. The
+  useful signed/scaling estimate, continuum survival, full QFT, finite
+  physical mass and every-group goal remain open; chart unchanged.
+  Evidence: `audits/AUDIT-CROSS-EXTERIOR-CONDITIONAL-COMPARISON-2026-09-30.md`.
+
 ## PROVED original two-copy cut comparison and area count (2026-09-30 UTC)
+
+The raw/finite-reciprocal normalizer join formerly listed as next below
+is now proved in the entry above. Limiting inverse and path joins remain.
 
 - `BF4ExactSlabReplicaCutComparison.cutComparisonCertificate` and
   `weighted_cut_comparison` compare the two ORIGINAL shared-link action

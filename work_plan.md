@@ -25,7 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### ORIGINAL two-copy cut comparison and area count (2026-09-30 UTC)
+### ORIGINAL two-normalizer finite kernel comparison (2026-09-30 UTC)
+
+`BF4ExactSlabCrossExteriorStar.crossStarComparison` keeps the SAME updated
+physical link and both actual exterior normalizers D,E. It constructs
+U^2 A E - ell^2 A' D >=0 for the original incident stars, with
+ell=headFloor(w)^d, U=prefixCap(w)^d and d the actual incident face count.
+Exact pins identify D with the existing head normalizer, E with its lifted
+copy, and the full marginal with D times the entire complementary action.
+
+`BF4ExactSlabConditionalStarComparison.weighted_kernel_comparison`
+constructs ell^2(1-rho^k) H[A'G_E r] <= U^2 H[A G_D r], for arbitrary
+certified nonnegative joint-copy insertions. G_D,G_E are actual finite
+positive reciprocal polynomials; rho=1-ell/U. `bothNormalizerErrors` uses
+one computed tolerance cutoff for both actual denominators. Nome dependence
+is explicit. Independently, `SU2QuaternionGlobalVarianceReplica` proves
+the exact original two-copy square equals twice the unnormalized variance
+determinant. Eight focused checks passed 59 gates within {propext, Quot.sound}.
+No new analytic assumption, sorry, broad build or chart-state change.
+
+NEXT: pin these finite reciprocal approximants with joint insertions to the
+EXISTING conditional inverse pairings, then prove the ordered-coordinate
+path telescope/energy join with the original cut comparison. Do not treat
+normalization-defect bounds alone as that identification. The candidate
+N*(prefixCap/headFloor)^(2C+12) is still a paper budget, not a proved
+Poincare inequality; its area growth still does not furnish useful signed
+spatial/scaling control. Keep that primary quantitative target in view.
+All continuum/Clay obligations remain open. Evidence:
+`audits/AUDIT-CROSS-EXTERIOR-CONDITIONAL-COMPARISON-2026-09-30.md`.
+
+### ORIGINAL two-copy cut comparison and area count (2026-09-30 UTC; preceding checkpoint)
+
+The raw and finite-reciprocal two-normalizer comparison listed below as
+next is now proved above. Limiting conditional inverse and path joins remain.
 
 `BF4ExactSlabReplicaCutComparison.cutComparisonCertificate` constructs
 the actual full shared-link two-copy action comparison under partial

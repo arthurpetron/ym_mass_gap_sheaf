@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL two-normalizer comparison (2026-09-30 UTC;
+chart unchanged): both stars share the same updated link and retain their
+actual exterior Haar normalizers. Positive finite reciprocal polynomials
+give a quantitative joint-insertion comparison with one computed error
+cutoff for both denominators. The exact original two-copy variance identity
+is also proved. Eight focused checks passed 59 gates. The limiting inverse
+identification and ordered-path bound remain open, as do useful signed
+spatial/scaling control and all continuum/Clay joins. Evidence:
+`audits/AUDIT-CROSS-EXTERIOR-CONDITIONAL-COMPARISON-2026-09-30.md`.
+
 Verified supporting ORIGINAL two-copy cut comparison (2026-09-30 UTC;
 chart unchanged): partial replica exchange leaves every whole-side face
 pair unchanged. The full interacting action comparison therefore pays only
