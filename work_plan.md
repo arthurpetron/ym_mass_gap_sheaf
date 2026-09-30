@@ -25,6 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact reverse adjoint and finite weighted-moment tail (2026-09-30 UTC)
+
+`BF4ExactSlabFiniteMomentTail.physicalSweep_tail_bound` now consumes an
+executable finite check of original weighted moments. At fixed w,K,extent,
+EVERY supported input passing the epsilon-dependent test satisfies true
+conditional-sweep squared norm <=epsilon times input squared norm, without
+an input-degree bound. The new finite inverse/original conditional symmetry,
+reverse-schedule adjoint and exhaustive monomial list justify this criterion.
+The approximant is zero in the ORIGINAL weighted radical, not literally the
+zero polynomial. Twenty-three gates passed five focused capped checks;
+Sol supplied local adjoint and span algebra, Luna enumeration, root the
+reverse adjoint and tail consumer. No chart node changed.
+
+The previous bounded-degree output result alone did not justify a principal
+input truncation. The reverse adjoint now supplies an actual finite family
+of input tests, without assuming sphere-monomial independence or inverting
+a singular Gram. A quantitative bound on the remaining finite moment sector
+is still missing. Future finite-core work should use the adjoint identity
+to seek a singular-Gram-safe comparison; do not demand an orthonormal basis
+or quotient representative selection unless the actual consumer needs it.
+No nonzero passing witness, strict finite-core certificate, or completed
+zero-moment-tail statement was produced in this increment.
+
+**Route checkpoint before computation:** source review found no fixed-size
+patch gap to whole-volume coercivity theorem for this original conditional
+sweep. The 625 loss theorem is an upper final-energy estimate, not that lower
+estimate. Whole-volume coercivity and the guarded small-nome producer remain
+the available inputs. Before expensive Gram calculations, establish the
+actual finite-core-to-global signed-energy consumer with its overlap and
+parameter budget, or return to a direct signed interacting estimate. Do not
+launch whole-volume matrices or interpret a fixed-volume certificate as
+spatial/scaling control. Exact moment-zero predicates also do not pass to
+completion by density alone: approximants can have small nonzero moments.
+A03, full J02/J03 and the unchanged Clay goal remain open. Evidence:
+`audits/AUDIT-FINITE-MOMENT-SWEEP-TAIL-2026-09-30.md`.
+
 ### All-input bounded-degree original conditional sweep (2026-09-30 UTC)
 
 `BF4ExactSlabPolynomialSweepApproximation.approximation` computes a pure

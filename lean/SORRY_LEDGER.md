@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED finite weighted-moment criterion for the actual conditional-sweep tail (2026-09-30 UTC)
+
+- `BF4ExactSlabPolynomialConditionalAdjoint` proves finite inverse symmetry
+  in the detached form and pure conditional symmetry in the ORIGINAL full
+  action. `BF4ExactSlabPolynomialSweepAdjoint` identifies its exact reverse
+  adjoint and bounds its output degree independently of test input degree.
+- `SU2QuaternionBoundedMonomials` returns a literal exhaustive finite list;
+  `QuaternionHaarWeightedMonomialSpan` handles arbitrary repeated/dependent
+  terms without a Gram inverse. `BF4ExactSlabFiniteMomentTail.momentZeroCheck`
+  checks original weighted moments. `physicalSweep_tail_bound` proves true
+  sweep squared norm <=epsilon times input squared norm for every supported
+  input passing the epsilon-dependent finite test, with no input-degree cap.
+- No nonzero passing witness or strict finite-core certificate was produced.
+  The exact zero-moment predicate has not been extended to the completion.
+  A useful fixed-patch-to-global lower estimate was NOT FOUND in the reviewed
+  original-sweep route; the existing 625 estimate is an upper energy bound.
+  Spatial/scaling, OS and all Clay obligations remain open; chart unchanged.
+- Twenty-three gates passed five focused serialized one-worker/20 GiB checks
+  within {propext, Quot.sound}; no broad build/audit/guard, new sorry, axiom
+  or analytic premise, and no existing sorry discharged. Sol proved local
+  adjoint and finite span algebra; Luna enumeration; root the reverse adjoint
+  and actual finite-check tail consumer. Sol independently reviewed scope.
+  Evidence: `audits/AUDIT-FINITE-MOMENT-SWEEP-TAIL-2026-09-30.md`.
+
 ## PROVED all-input bounded-degree approximation of the original conditional sweep (2026-09-30 UTC)
 
 - `BF4ExactSlabPolynomialSweepApproximation.approximation` constructs the

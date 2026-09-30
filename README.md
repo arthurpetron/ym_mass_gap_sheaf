@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Finite-moment tail criterion (2026-09-30):** an exact finite check of
+original weighted moments now bounds the true conditional sweep on every
+supported input passing that check, without restricting its polynomial degree.
+The proof uses the actual reverse-sweep adjoint. The finite moment core,
+local-to-global control and physical mass gap remain open. See the
+[proof and route audit](audits/AUDIT-FINITE-MOMENT-SWEEP-TAIL-2026-09-30.md).
+
 **All-input sweep approximation (2026-09-30):** a computed iteration count
 controls the original conditional sweep's error for every supported polynomial,
 while bounding output degrees independently of input degree. This supplies

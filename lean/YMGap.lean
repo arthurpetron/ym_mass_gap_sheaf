@@ -5493,6 +5493,13 @@ import YMGap.Continuum.BF4ExactSlabPolynomialSweepDegree
 import YMGap.Continuum.BF4ExactSlabBlockConditionalApproximationError
 import YMGap.Continuum.GNSFiniteSweepApproximation
 import YMGap.Continuum.BF4ExactSlabPolynomialSweepApproximation
+-- Exact reverse adjoint and finite original-weighted moment tail criterion.
+-- The finite moment core and its useful spatial/global estimate remain open.
+import YMGap.Continuum.BF4ExactSlabPolynomialConditionalAdjoint
+import YMGap.Continuum.BF4ExactSlabPolynomialSweepAdjoint
+import YMGap.Continuum.SU2QuaternionBoundedMonomials
+import YMGap.Continuum.QuaternionHaarWeightedMonomialSpan
+import YMGap.Continuum.BF4ExactSlabFiniteMomentTail
 -- Original local variances pay for support, not all volume faces; no global gap.
 import YMGap.Continuum.BF4ExactSlabLocalSupportComparison
 import YMGap.Continuum.BF4ExactSlabLocalSupportVariance

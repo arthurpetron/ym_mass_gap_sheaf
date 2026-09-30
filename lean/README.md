@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Finite original-weighted moment tail (2026-09-30 UTC):**
+`BF4ExactSlabFiniteMomentTail.physicalSweep_tail_bound` consumes an executable
+finite moment-zero check and bounds the actual sweep on EVERY supported
+polynomial passing it. Exact reverse adjoint and its bounded-degree range
+justify the test list; sphere/radical dependencies are retained. Twenty-three
+gates passed five focused capped checks; no broad run. No finite-core strict
+bound, completed tail theorem, patch lifting or Clay closure. Evidence:
+`audits/AUDIT-FINITE-MOMENT-SWEEP-TAIL-2026-09-30.md` at repository root.
+
 **All-input original conditional sweep approximation (2026-09-30 UTC):**
 `BF4ExactSlabPolynomialSweepApproximation.approximation_error` and
 `approximation_degree` join a common relative-error modulus to an
