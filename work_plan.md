@@ -25,7 +25,35 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Supplied multi-affine two-Ward estimate; concrete source join next (2026-09-30 UTC)
+### Supplied inverse-free local dual; signed-family route next (2026-09-30 UTC)
+
+The next step back addresses the family-size loss directly. Write the full
+weight as W=V*A, with A the two-link collar product and V independent of the
+selected directions X,Y. An explicit five-term POLYNOMIAL J satisfies
+A*J=Y X(A^3*g); no reciprocal is introduced. The checked double-IBP identity
+retains the entire original weight:
+
+    H[W*J*f] = H[W*A^2*g*(X Y f)].
+
+It gives exact zero pairing when X Y f=0, not decorrelation of arbitrary
+local observables. Existing two-edge coefficient isolation and local action
+factorization are its concrete consumers. The physical collar instantiation
+is still OPEN; the extra A^2 must be retained and bounded, not dropped.
+
+NEXT PRIORITY: instantiate these polynomial duals on the actual two-link
+collars, prove their local support/coefficient pairing, then a cutoff-uniform
+local norm cap and finite collar-overlap count. This offers a direct signed
+Gram route rather than merely summing per-face bounds. The separate-frame
+two-Ward route below remains available, especially for improving constants;
+do not require an arbitrary-observable mixing theorem before checking the
+special exact dual cancellations. Local heat-floor cost is explicit and
+may be poor near w=1; no polynomial weak-coupling control is claimed.
+Family coercivity, SAME completed realization and all scaling/Clay fields
+remain OPEN. Three focused one-worker/20 GiB checks passed seven gates in
+{propext, Quot.sound}, with no canonical chart change. Evidence:
+`audits/AUDIT-LOCAL-POLYNOMIAL-DUAL-2026-09-30.md`.
+
+### Earlier multi-affine two-Ward checkpoint (2026-09-30 UTC)
 
 The recursive step back to degree<=1 polynomials now supplies the second
 relative-energy application. Split p=f+r into head-linear and head-free

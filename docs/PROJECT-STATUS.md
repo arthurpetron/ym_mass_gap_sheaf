@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting inverse-free local dual algebra (2026-09-30 UTC;
+chart unchanged): an explicit polynomial J satisfies A*J=Y X(A^3*g), and
+double IBP retains the SAME action W=V*A in H[W*J*f]=H[W*A^2*g*(X Y f)].
+Zero mixed test derivative gives exact zero pairing. Actual collar-local
+duals, cutoff-uniform norm caps, finite Gram overlap and the family estimate
+remain OPEN. The extra local heat-floor cost is not discarded or described
+as polynomial nome control. Three focused checks passed seven gates;
+canonical statuses unchanged. Evidence:
+`audits/AUDIT-LOCAL-POLYNOMIAL-DUAL-2026-09-30.md`.
+
 Verified supporting multi-affine two-Ward composition (2026-09-30 UTC;
 chart unchanged): the SAME-weight mixed angular energy now has the bound
 H[W*S2_head,b(p)]<=M(C)*M(D)*H[W*p^2] for every supported polynomial affine

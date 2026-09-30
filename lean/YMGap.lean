@@ -5731,6 +5731,10 @@ import YMGap.Continuum.QuaternionHaarDegreeBoundReindex
 import YMGap.Continuum.QuaternionHaarMixedAngularDegreeBound
 import YMGap.Continuum.QuaternionHaarMixedRelativeEnergy
 import YMGap.Continuum.BF4ExactSlabSignedSourceEncoding
+-- Inverse-free local dual algebra; actual collar/family estimate remains open.
+import YMGap.Continuum.QuaternionHaarRetainedDoubleIBP
+import YMGap.Continuum.QuaternionHaarLocalCubeAdjoint
+import YMGap.Continuum.QuaternionHaarLocalCubeDual
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 -- Constructed SAME-carrier regularized series, not a physical Hamiltonian.
 import YMGap.Continuum.BF4WilsonAllNomeLogPartial

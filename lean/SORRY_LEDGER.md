@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED inverse-free local dual algebra and same-weight pairing (2026-09-30 UTC)
+
+- `QuaternionHaarLocalCubeAdjoint.cubeAdjoint_factor` proves the explicit
+  polynomial factorization Y X(A^3*g)=A*J; J uses no inverse of A.
+- `QuaternionHaarRetainedDoubleIBP.retained_double_pair` transfers both
+  derivatives with the entire background V retained when its two derivatives
+  vanish. `QuaternionHaarLocalCubeDual.local_cube_dual_pair` composes the
+  factorization to H[W*J*f]=H[W*A^2*g*(X Y f)], W=V*A.
+- `local_cube_dual_annihilates` proves zero pairing when the mixed test
+  derivative vanishes. This is for the special dual, not a claim that distant
+  arbitrary local observables are uncorrelated under the interacting action.
+- OPEN: actual physical collar dual/local support/coefficient pairing,
+  cutoff-uniform local norm caps, bounded collar Gram row count, family
+  coercivity, SAME completed consumer and all scaling/Clay fields. The local
+  heat-floor cost may be poor; no polynomial nome bound is asserted.
+- Three focused single-worker/20 GiB checks passed seven public gates within
+  {propext, Quot.sound}. No new sorry/axiom, old sorry discharge, analytic
+  hypothesis bundle, frontier weakening, broad audit or chart change.
+  Evidence: `audits/AUDIT-LOCAL-POLYNOMIAL-DUAL-2026-09-30.md`.
+
 ## PROVED same-weight two-Ward bound for multi-affine polynomials (2026-09-30 UTC)
 
 - `QuaternionHaarHeadAffineSplit.headAffine_split` gives a constructive

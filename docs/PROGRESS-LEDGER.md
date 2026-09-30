@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: multi-affine two-Ward composition (2026-09-30 UTC)
+## Current increment: inverse-free local dual route (2026-09-30 UTC)
+
+Stepping back from per-face summation supplies the explicit polynomial dual
+A*J=Y X(A^3*g) and the SAME-weight pairing H[W*J*f]=H[W*A^2*g*(X Y f)].
+Mixed-test-derivative zero implies exact zero pairing. This special dual
+cancellation is stronger than locality of ordinary observables, and is now
+checked algebra rather than an assumed mixing estimate. NEXT: actual collar
+duals, cutoff-uniform local caps and bounded Gram overlap. Family coercivity
+and scaling remain open; the local heat-floor cost is not polynomial nome
+control. Three focused checks passed seven gates; no canonical field change,
+broad guard or progress_metric.sh run. Evidence:
+`audits/AUDIT-LOCAL-POLYNOMIAL-DUAL-2026-09-30.md`.
+
+## Earlier increment: multi-affine two-Ward composition (2026-09-30 UTC)
 
 The degree<=1 viewpoint supplies an actual reusable bound, not another
 analytic assumption: H[W*S2_head,b(p)] <= M(C)*M(D)*H[W*p^2] for the SAME
