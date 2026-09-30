@@ -25,7 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Supplied original signed Ward estimate without a global minimum coefficient (2026-09-30 UTC)
+### Supplied original prediction floor and SAME completed temporal form (2026-09-30 UTC)
+
+The preceding proposed Ward argument is now supplied end to end, not just
+as a conditional compiler. For the actual selected physical action and any
+supported predictor missing the plaquette's first link,
+
+    E_W[(f-q)^2] >= s(w),
+    s(w) = 1 / ((5+2*C(w)^2)*(2+3*C(w)^2)),
+    C(w) = 6*relativeCap(w,2048).
+
+Generalized signed Ward and relative Young are combined with the actual
+weighted plaquette identity Gamma(f)+f^2=4. The complete selected face list
+is retained; its duplicate-free physical link star has at most six factors.
+The upper-time plaquette is then used as the predictor under the COMPLETE
+joint window action, not the one-slice marginal. The exact original window
+pin and existing joint diagonal limit give
+
+    <v,(I-T)v> >= s(w)/2
+
+for the SAME literal completed Wilson plaquette and physical-time transfer.
+The coefficient is independent of width, boundary depth and sufficiently
+late heat cutoff at fixed nome. Its explicit nome dependence remains; the
+global heat minimum affects the cutoff modulus but not s(w).
+
+NEXT: test normalized sources at matched physical time on a justified
+changing-coupling/spacing family. This single-observable positive form bound
+is not nontrivial continuum survival or an EVERY-state spectral gap. Do not
+iterate a conditional projection as an independent loss step. No canonical
+Clay field changes. Eleven final focused one-worker/20 GiB checks passed
+39 printed axiom gates in {propext, Quot.sound}; no broad check was run.
+Evidence: `audits/AUDIT-RELATIVE-PREDICTION-TEMPORAL-FLOOR-2026-09-30.md`.
+
+### Earlier original signed Ward estimate without a global minimum coefficient (2026-09-30 UTC)
 
 The step back from the vanishing defect source identified a better local
 analytic input: relative derivatives of the ORIGINAL full marginal, not

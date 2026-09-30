@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: original conditional gauge approximants (2026-09-30 UTC)
+## Current increment: original relative prediction and temporal floor (2026-09-30 UTC)
+
+Stepping back from the global heat-minimum comparison supplies a different
+analytic estimate: signed generalized Ward plus relative Young and actual
+weighted plaquette kinematics give the explicit prediction floor
+s(w)=1/[(5+2*C(w)^2)*(2+3*C(w)^2)], C(w)=6*relativeCap(w,2048).
+All physical inputs are supplied, including the complete original joint
+window action. Its adjacent-time predictor joins to <v,(I-T)v> >= s(w)/2
+on the SAME literal Wilson completion. This is a newly inhabited original
+estimate, not another name for the missing scaling bound. Nome dependence
+remains, and the heat minimum still enters cutoff precision. NEXT: test
+normalized same-family sources at matched physical time; no survival or
+every-state gap is inferred. All canonical Clay fields remain open.
+Eleven focused serialized checks passed 39 axiom gates. No broad guard was
+run; `computations/progress_metric.sh` invokes that guard and was therefore
+not used as an unapproved broader build. Evidence:
+`audits/AUDIT-RELATIVE-PREDICTION-TEMPORAL-FLOOR-2026-09-30.md`.
+
+## Earlier increment: original conditional gauge approximants (2026-09-30 UTC)
 
 The actual finite vertex ledger commutes with physical family integration,
 including inverse orientations and supported-carrier composition. Exact

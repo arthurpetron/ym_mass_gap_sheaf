@@ -100,7 +100,9 @@ private theorem centered_sub_cancel (a b m : CReal) :
       (.add (.var 0) (.neg (.var 1))) (by decide)
       (fun | 0 => a.approx k | 1 => b.approx k | _ => m.approx k))
 
-private theorem source_square_plaquette :
+/-- The literal time-square source is the same adjacent-slice plaquette jump
+whose original-window energy is bounded below. -/
+theorem source_square_plaquette :
     RatPolyCoeffEqv (sourcePolynomial (timeSquare loop 1))
       (polyMul (jump width (characterPolynomial (plaquette width face).scalar 1))
         (jump width (characterPolynomial (plaquette width face).scalar 1))) := by
@@ -189,6 +191,7 @@ theorem plaquette_defect_form_floor :
   rw [hl] at hs
   exact hs
 
+#print axioms source_square_plaquette
 #print axioms finite_plaquette_increment_floor
 #print axioms plaquette_timeIncrement_floor
 #print axioms plaquette_timeIncrement_defect_pin

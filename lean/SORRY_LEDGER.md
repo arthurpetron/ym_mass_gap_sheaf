@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## PROVED original relative prediction and completed temporal floor (2026-09-30 UTC)
+
+- `QuaternionHaarGeneralizedLinearWard` retains both signed full-weight
+  residuals, including an arbitrary head-independent polynomial predictor.
+  `RationalRelativeWardPrediction.prediction_bound` and
+  `QuaternionHaarRelativePredictionFloor.raw_prediction_floor` prove
+  H[W] <= (5+2*C^2)*(2+3*C^2)*H[W*(f-q)^2].
+- `BF4ExactSlabSelectedPlaquetteDegree` supplies physical linearity and
+  predictor independence. `BF4ExactSlabFixedSpatialPlaquetteAngularSquare.fullSlabFaceCharacter_head_angularSquare`
+  supplies Gamma(f)+f^2=4 under arbitrary weighted insertions on the ACTUAL
+  full-slab carrier. `BF4ExactSlabSelectedActionRelativeBound.selectedActionRelativeBound`
+  supplies C(w)=6*relativeCap(w,2048) from the original at-most-six incident
+  factors and entire independent complementary action.
+- `BF4ExactSlabRelativePredictionError.finite_prediction_floor` gives the
+  explicit positive s(w)=1/[(5+2*C^2)*(2+3*C^2)] in the original finiteValue.
+  `BF4ExactSlabFixedSpatialRelativeEnergyFloor.plaquette_relative_energy_floor`
+  uses the literal adjacent-time predictor and COMPLETE original joint
+  action. `BF4WilsonAllNomeRelativePlaquetteEnergyFloor.plaquette_relative_defect_form_floor`
+  then gives <v,(I-T)v> >= s(w)/2 on the SAME literal Wilson completion.
+- Nome dependence and the relativeCutoff(w,2048) threshold are explicit.
+  No width/depth/late-cutoff factor or global heat minimum appears in s(w);
+  the heat minimum still enters the required cutoff. Only the selected
+  plaquette is bounded, not every vacuum-complement state.
+- OPEN: normalized matched-physical-time survival on a justified scaling
+  family, useful every-state decay, all-group construction and every
+  continuum/Clay requirement. No canonical chart state changes.
+- Eleven focused one-worker/20 GiB checks passed 39 printed axiom gates
+  within {propext, Quot.sound}. No new sorry, axiom, analytic premise,
+  surrogate carrier or weakened frontier; no old sorry discharged. No
+  broad build/audit/guard or CI change. Evidence:
+  `audits/AUDIT-RELATIVE-PREDICTION-TEMPORAL-FLOOR-2026-09-30.md`.
+
 ## PROVED original relative signed Ward bound (2026-09-30 UTC)
 
 - `QuaternionHaarRelativeAngularYoung.scaled_young_certificate` constructs

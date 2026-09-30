@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL prediction-to-temporal floor (2026-09-30 UTC;
+chart unchanged): every supported predictor missing the actual plaquette's
+first link pays squared error at least s(w)=1/[(5+2*C(w)^2)*(2+3*C(w)^2)],
+where C(w)=6*relativeCap(w,2048). The original full selected action is retained.
+Using the adjacent-time plaquette under the COMPLETE joint window action
+then proves <v,(I-T)v> >= s(w)/2 for the SAME literal completed Wilson source.
+The coefficient is width/depth/late-cutoff independent at fixed nome, but
+NOT nome/spacing independent. The heat minimum enters the explicit cutoff,
+not this coefficient. Eleven focused checks passed 39 axiom gates. The
+prediction/temporal join formerly open below is now supplied; normalized
+scaling survival, every-state decay and all Clay fields remain OPEN. Evidence:
+`audits/AUDIT-RELATIVE-PREDICTION-TEMPORAL-FLOOR-2026-09-30.md`.
+
 Verified supporting ORIGINAL relative signed Ward bound (2026-09-30 UTC;
 chart unchanged): for the literal W=V*g_n*g_(n+1) and an active physical
 plaquette edge, E_W[angularSquare(f)] <= 6*(1+C(w)^2)*Var_W(f), where

@@ -5688,6 +5688,17 @@ import YMGap.Continuum.QuaternionHaarLinearMeanWard
 import YMGap.Continuum.QuaternionHaarRelativeCenteredWard
 import YMGap.Continuum.BF4ExactSlabFixedSpatialMarginalRelativeBound
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRelativeWardBound
+-- Original full-action prediction floor and its literal temporal consumer.
+-- Explicit nome dependence remains; this is not continuum survival or an all-state gap.
+import YMGap.Continuum.QuaternionHaarGeneralizedLinearWard
+import YMGap.Continuum.RationalRelativeWardPrediction
+import YMGap.Continuum.QuaternionHaarRelativePredictionFloor
+import YMGap.Continuum.BF4ExactSlabSelectedPlaquetteDegree
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteAngularSquare
+import YMGap.Continuum.BF4ExactSlabSelectedActionRelativeBound
+import YMGap.Continuum.BF4ExactSlabRelativePredictionError
+import YMGap.Continuum.BF4ExactSlabFixedSpatialRelativeEnergyFloor
+import YMGap.Continuum.BF4WilsonAllNomeRelativePlaquetteEnergyFloor
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeRange
 -- Constructed SAME-carrier regularized series, not a physical Hamiltonian.
 import YMGap.Continuum.BF4WilsonAllNomeLogPartial

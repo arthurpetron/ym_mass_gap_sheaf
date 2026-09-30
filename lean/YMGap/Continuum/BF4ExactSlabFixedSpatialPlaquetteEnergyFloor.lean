@@ -158,7 +158,7 @@ private theorem schedule_faces {width : Nat} (p : Z4Plaq) (hp : p ∈ spatialFac
     subst f
     exact hp
 
-private theorem lower_link_misses_upper {width : Nat} (p : Z4Plaq)
+theorem lower_link_misses_upper {width : Nat} (p : Z4Plaq)
     (hp : p ∈ spatialFaces width) (n : Nat) :
     ((timeShiftPlaquette n p).1, (dirsOf p.2).1) ∉
       edgesOf (timeShiftPlaquette (n+1) p) := by
@@ -210,6 +210,45 @@ private theorem normalized_prediction {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (
       (Q'.le_of_eqv (Q'.mul_eqv_congr_right _ _ r
         (haar_of_coeff (RatPolyCoeffEqv.mul_comm A s)))))
 
+/-- Exact full-window realization of the literal plaquette jump. This pin
+retains the complete original chain action and its own partition; it can
+consume any proved prediction bound without changing the observable. -/
+theorem plaquette_jump_originalFiniteValue {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (width n stage : Nat) (p : Z4Plaq) (hp : p ∈ spatialFaces width) :
+    let E := width+(n+(1+n))+1
+    let ids := chainIds E width 0 (n+(1+n))
+    let err := polynomialError E (timeShiftPlaquette n p)
+      (faceCharacter E (timeShiftPlaquette (n+1) p))
+    (2 : Q') * normalizedEnergy hw0 hw1 (headCutoff w+stage) width
+      (Nat.le_add_right _ _) n (characterPolynomial (plaquette width p).scalar 1) ≈
+      finiteValue w hw0 hw1 E ids (fun _ hi => chainIds_physical hi)
+        (polyMul err err) stage := by
+  let E := width+(n+(1+n))+1
+  let c := characterPolynomial (plaquette width p).scalar 1
+  let err := polynomialError E (timeShiftPlaquette n p)
+    (faceCharacter E (timeShiftPlaquette (n+1) p))
+  let ids := chainIds E width 0 (n+(1+n))
+  have hw : width ≤ E := by dsimp [E]; omega
+  have ht : 0+(n+(1+n)) ≤ E := by dsimp [E]; omega
+  have hsource := difference_source width p
+  have hplaced := difference_placed E n p
+  have hpin : windowRatio hw0 hw1 (headCutoff w+stage) width (Nat.le_add_right _ _)
+      n 1 n (polyMul (jump width c) (jump width c)) ≈
+      finiteValue w hw0 hw1 E ids (fun _ hi => chainIds_physical hi) (polyMul err err) stage :=
+    Q'.eqv_trans _ _ _
+      (windowRatio_congr hw0 hw1 _ width (Nat.le_add_right _ _) n 1 n (hsource.mul hsource).symm)
+      (Q'.eqv_trans _ _ _
+        (windowRatio_span_mul_originalFiniteValue hw0 hw1 (start := 0) (m := n) (L := 1) (n := n)
+          hw ht (differenceSchedule p) (differenceSchedule p)
+          (schedule_within p) (schedule_faces p hp) (schedule_within p) (schedule_faces p hp) stage)
+        (finite_congr hw0 hw1 E ids (fun _ hi => chainIds_physical hi) stage
+          (by simpa only [Nat.zero_add] using hplaced.mul hplaced)))
+  exact Q'.eqv_trans _ _ _ (normalizedEnergy_window hw0 hw1 (headCutoff w+stage) width
+    (Nat.le_add_right _ _) n
+    (SU2QuaternionRelativeHeatPairGeometry.character_supported
+      (plaquette_supported width (N width) (Nat.le_refl _) p).scalar 1)) hpin
+
 private theorem stage_energy_floor {w : Q'}
     (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
     (width n stage : Nat) (p : Z4Plaq) (hp : p ∈ spatialFaces width) :
@@ -233,24 +272,8 @@ private theorem stage_energy_floor {w : Q'}
     ((face_scalar_local E upper).character 1) (lower_link_misses_upper p hp n)
   have hfloor := normalized_prediction hw0 hw1 E ids (fun _ hi => chainIds_physical hi)
     stage (polyMul err err) hpred
-  have hsource := difference_source width p
-  have hplaced := difference_placed E n p
-  have hpin : windowRatio hw0 hw1 (headCutoff w+stage) width (Nat.le_add_right _ _)
-      n 1 n (polyMul (jump width c) (jump width c)) ≈
-      finiteValue w hw0 hw1 E ids (fun _ hi => chainIds_physical hi) (polyMul err err) stage :=
-    Q'.eqv_trans _ _ _
-      (windowRatio_congr hw0 hw1 _ width (Nat.le_add_right _ _) n 1 n (hsource.mul hsource).symm)
-      (Q'.eqv_trans _ _ _
-        (windowRatio_span_mul_originalFiniteValue hw0 hw1 (start := 0) (m := n) (L := 1) (n := n)
-          hw ht (differenceSchedule p) (differenceSchedule p)
-          (schedule_within p) (schedule_faces p hp) (schedule_within p) (schedule_faces p hp) stage)
-        (finite_congr hw0 hw1 E ids (fun _ hi => chainIds_physical hi) stage
-          (by simpa only [Nat.zero_add] using hplaced.mul hplaced)))
-  have he := normalizedEnergy_window hw0 hw1 (headCutoff w+stage) width
-    (Nat.le_add_right _ _) n
-    (SU2QuaternionRelativeHeatPairGeometry.character_supported
-      (plaquette_supported width (N width) (Nat.le_refl _) p).scalar 1)
-  exact Q'.le_trans' _ _ _ hfloor (Q'.ge_of_eqv (Q'.eqv_trans _ _ _ he hpin))
+  exact Q'.le_trans' _ _ _ hfloor
+    (Q'.ge_of_eqv (plaquette_jump_originalFiniteValue hw0 hw1 width n stage p hp))
 
 /-- The explicit same-action energy floor for every physical spatial plaquette.
 The nome-dependent coefficient is independent of width, late cutoff and depth. -/
@@ -266,3 +289,4 @@ theorem plaquette_energy_floor {w : Q'}
 end YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteEnergyFloor
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteEnergyFloor.plaquette_energy_floor
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteEnergyFloor.plaquette_jump_originalFiniteValue
