@@ -5707,6 +5707,14 @@ import YMGap.Continuum.BF4ExactSlabStarReciprocalTransport
 import YMGap.Continuum.BF4ExactSlabInPlaceReciprocalConditional
 import YMGap.Continuum.SU2QuaternionReplicaPathTelescope
 import YMGap.Continuum.BF4ExactSlabReplicaPathVariance
+import YMGap.Continuum.BF4ExactSlabReciprocalEnergyPairing
+import YMGap.Continuum.QuaternionHaarReciprocalDefectBound
+import YMGap.Continuum.BF4ExactSlabReciprocalEnergyError
+import YMGap.Continuum.BF4ExactSlabReciprocalEnergyLimit
+import YMGap.Continuum.BF4ExactSlabReciprocalVarianceLimit
+import YMGap.Continuum.SU2QuaternionReplicaPathIncrement
+import YMGap.Continuum.BF4ExactSlabReplicaCutReverse
+import YMGap.Continuum.BF4ExactSlabReplicaPrefixCut
 -- Scalar normalizing estimate and order-independent energy, not accelerated decay.
 import YMGap.Continuum.ChebyshevReciprocalPair
 -- Constructive scalar calibration and explicit cutoff, not an interacting gap.

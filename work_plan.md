@@ -25,7 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### ORIGINAL reciprocal limit identification and path bound (2026-09-30 UTC)
+### ORIGINAL conditional energy limit and path-cut transport (2026-09-30 UTC)
+
+`BF4ExactSlabReciprocalEnergyPairing.finiteLoss_split` retains the exact
+normalization correction: original pairing loss equals reciprocal-weighted
+variance plus normalization error. The error lies between zero and
+rho^k F(p,p), with a computed cutoff. `BF4ExactSlabReciprocalVarianceLimit`
+constructs both CReal limits with explicit moduli and proves that the
+literal two-HEAD-copy reciprocal integral converges to twice the EXISTING
+conditional residual squared norm in the full ORIGINAL action completion.
+No division or identification of the bare determinant with energy is assumed.
+
+Independently, `BF4ExactSlabReplicaPrefixCut.original_prefix_increment_bound`
+joins the exact path change of variables to the reverse original cut
+comparison. Each prefix-path square is bounded by a single-block replacement
+square under the ORIGINAL two-copy weight, paying only its actual crossing
+faces. Eight focused capped checks passed 48 gates within {propext, Quot.sound};
+no new analytic assumption, sorry, broad run or chart-state change.
+
+NEXT: the replacement block still comes from an independent FULL replica,
+not the conditional law at the original exterior. Prove the exact
+cross-EXTERIOR kernel/Fubini comparison to the now-identified two-HEAD-copy
+energy, retaining BOTH normalizers and the original partition. Then join
+the path sum. The raw physical prefix is not yet time-layer ordered, so its
+area-count pin remains open. N*(prefixCap/headFloor)^(2C+12) is still an
+unproved Poincare budget and its area loss would not supply useful signed
+spatial/scaling control. All continuum/Clay obligations remain open.
+Evidence: `audits/AUDIT-ORIGINAL-RECIPROCAL-ENERGY-2026-09-30.md`.
+
+### ORIGINAL reciprocal limit identification and path bound (2026-09-30 UTC; preceding checkpoint)
+
+The two-head energy identification and raw prefix cut transport listed as
+next below are now proved above; cross-exterior and geometric-order joins
+remain open.
 
 `BF4ExactSlabStarReciprocalInverse` now proves that the finite positive
 reciprocal sequence converges to the EXISTING inverseState, with explicit

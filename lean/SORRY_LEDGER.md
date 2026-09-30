@@ -1,6 +1,38 @@
 # Sorry Ledger
 
+## PROVED original reciprocal energy limit and path-cut transport (2026-09-30 UTC)
+
+- `BF4ExactSlabReciprocalEnergyPairing.finiteLoss_split` proves original
+  finite pairing loss = reciprocal-weighted variance + normalization error.
+  `BF4ExactSlabReciprocalEnergyError.normalizationError_bounds` bounds the
+  latter between zero and rho^k F(p,p); `errorCutoff` is explicit data.
+- `BF4ExactSlabReciprocalEnergyLimit.finiteLoss_limit_eq_residual_norm`
+  identifies the loss limit with the existing original conditional energy.
+  `BF4ExactSlabReciprocalVarianceLimit.varianceCauchy` combines its modulus
+  and the error cutoff. `replica_limit_eq_twice_residual_norm` identifies the
+  literal two-head replica-integral limit with twice that SAME energy.
+- `SU2QuaternionReplicaPathIncrement.weighted_prefix_increment_change`
+  is the exact change of variables. `BF4ExactSlabReplicaCutReverse` proves
+  the needed reverse comparison; `BF4ExactSlabReplicaPrefixCut` pins the
+  raw coordinate prefix to original physical links and bounds each path
+  square by the original full-pair single-block replacement square with
+  the actual crossing-face cost.
+- OPEN: compare that independent-full-replica replacement with conditional
+  refresh at the original exterior, preserving BOTH normalizers and the
+  original partition, then sum the path bound. The time-layer-order pin
+  remains open. N*(prefixCap/headFloor)^(2C+12) is not a proved coercivity
+  estimate; its area loss would not resolve useful signed spatial/scaling
+  control. No OS-transfer, physical mass, continuum or every-group closure.
+- Eight final focused serialized one-worker/20 GiB checks passed 48 gates
+  within {propext, Quot.sound}. No full-root build/audit/guard, new sorry,
+  custom axiom or analytic assumption; no old sorry discharged or frontier
+  weakened. Canonical chart unchanged. Evidence:
+  `audits/AUDIT-ORIGINAL-RECIPROCAL-ENERGY-2026-09-30.md`.
+
 ## PROVED original reciprocal identification and weighted replica path (2026-09-30 UTC)
+
+The two-head energy limit and raw prefix cut transport formerly listed as
+next below are now proved above; the cross-exterior and order joins remain.
 
 - `BF4ExactSlabStarReciprocalInverse.reciprocal_residual_norm` bounds the
   actual reciprocal residual by rho^(2k) times the SAME input squared norm

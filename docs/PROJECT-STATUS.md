@@ -1,12 +1,24 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL energy limit and path-cut transport
+(2026-09-30 UTC; chart unchanged): the literal two-head reciprocal integral
+converges, with explicit moduli, to twice the EXISTING conditional residual
+energy. The normalization defect is bounded by rho^k times the original
+input norm. Independently, raw physical-prefix path squares are bounded by
+single-block replacement squares under the original full-pair weight with
+the actual crossing-face cost. Eight focused checks passed 48 gates. The
+cross-exterior conditional comparison, time-layer-order pin, useful signed
+spatial/scaling control and all continuum/Clay joins remain open. Evidence:
+`audits/AUDIT-ORIGINAL-RECIPROCAL-ENERGY-2026-09-30.md`.
+
 Verified supporting ORIGINAL conditional-limit identification (2026-09-30 UTC;
 chart unchanged): the literal finite reciprocal sequence now converges, with
 explicit moduli, to the EXISTING conditional update in the full original
 action space. Independently, a coordinate telescope bounds twice the
 original variance determinant by N times the two-copy sum of path-increment
-squares. Seven focused checks passed 45 gates. The joint conditional-energy
-pairing and time-layer-order joins remain open, as do useful signed
+squares. Seven focused checks passed 45 gates. Its then-open two-head energy
+pairing is now identified above. Cross-exterior and time-layer-order joins
+remain open, as do useful signed
 spatial/scaling control and all continuum/Clay obligations. Evidence:
 `audits/AUDIT-RECIPROCAL-CONDITIONAL-IDENTIFICATION-2026-09-30.md`.
 
