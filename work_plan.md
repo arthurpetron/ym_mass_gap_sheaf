@@ -44,6 +44,19 @@ actual-auxiliary estimate. Termwise absolute bounds and sector membership
 alone do not supply it. Do not build another conditional interface in place
 of that estimate. The conservative patch coefficient remains excluded.
 
+Follow-up quantitative screen: do not restart the absolute-window route
+after reducing twelve faces to one. Existing U>=32L already forces the
+proposed crossed-product coefficient (U^2-L^2)/(U^2+L^2)>=1023/1025,
+too large even for degree two. The proposed implementation was stopped
+before any files or builds. This is a source/mathematical review of a known
+failure class, not a new Lean theorem. Prefer the existing integrated
+`residual_pair_lower_of_dense_covariance_bound` or completed one-state
+consumer, which do NOT require a pointwise polynomial SOS certificate,
+or attack the actual-auxiliary reverse-energy bound directly. Demand a
+quantitatively sufficient original-action argument before further compiler
+work. The follow-up in the audit below records the precise rejected
+coefficient, source declarations and strong-coupling literature scope.
+
 Both new modules passed focused serialized one-worker/20 GiB checks; all
 13 printed gates are within {propext, Quot.sound}. Independent Luna/Sol
 review confirmed signs, multiplicities and original-law scope. No new sorry,
