@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED original source test norm against SAME variance (2026-10-01 UTC)
+
+- `SU2QuaternionProductHeatSumNorm.sumTest_norm_pin` reduces the actual
+  heat norm. `SU2QuaternionProductHeatSourceCentering` proves that the
+  original marginal center leaves the source-increment cost unchanged.
+- `BF4ExactSlabFixedSpatialSourceVarianceGram.centered_source_square`
+  pins the centered source moment to Z*Var_odd. `centered_sum_norm`
+  proves S=D+8*U+8*Z*Var_odd, using the SAME original mean and partition.
+- `SU2QuaternionProductHeatCenteredMixed.centered_mixed_pin` retains
+  the signed source correction and raw/interacting mean mismatch.
+  `BF4ExactSlabFixedSpatialFamilyHeatEigen.spatialSpan_fullRange`
+  supplies w^12 for ALL signed coefficients and repeated faces.
+- `BF4ExactSlabFixedSpatialSourceVarianceDefect.padded_family_test_norm_defect`
+  proves S=D+8*(1+w^12)*Z*Var_odd-8*delta for the whole signed family.
+  `padded_family_energy_defect_budget` feeds that exact norm into
+  4*K*E+K*J^2+X^2<=2*K*C, K=S-M^2>=0, with original temporal energy.
+  No source inverse, positive denominator or stationarity premise.
+- OPEN: useful control of the complete defect, responses and cost versus
+  SAME interacting variance on a justified physical family. Spectator-heat
+  channel moments do not equal raw q^2 moments; four-link single-face
+  channel results cannot discard signed-family cross terms. No strict gain,
+  scaling survival, uniform physical gap, continuum QFT or every-group closure.
+- Six final focused checks passed 20 gates exactly in {propext, Quot.sound}.
+  No sorry, canonical field/chart change or broad run. Evidence:
+  `audits/AUDIT-SOURCE-VARIANCE-GRAM-2026-10-01.md`.
+
 ## PROVED simultaneous centered source responses (2026-10-01 UTC)
 
 - `GNSUnitCenteredGram.centered_cauchySchwarz` supplies the joint Gram

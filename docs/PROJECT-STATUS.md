@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting original source norm and variance join (2026-10-01 UTC;
+chart unchanged): the complete signed family's symmetric test norm is now
+S=D+8*(1+w^12)*Z*Var_odd-8*delta, with the actual marginal center and
+complete source/mean defect retained. The original energy consumer uses
+K=S-M^2>=0 in 4*K*E+K*J^2+X^2<=2*K*C. No denominator or source is
+inverted; no strict gain is asserted. Defect/response/cost control against
+SAME variance on a justified physical family remains open. Six focused
+checks passed 20 gates exactly in {propext, Quot.sound}; no broad run.
+Evidence: `audits/AUDIT-SOURCE-VARIANCE-GRAM-2026-10-01.md`.
+
 Verified supporting joint source response estimate (2026-10-01 UTC; chart
 unchanged): the two original heat tests now yield
 4*K*E+K*J^2+(2*R-J*M)^2<=2*K*C with K=64*A-M^2>=0.

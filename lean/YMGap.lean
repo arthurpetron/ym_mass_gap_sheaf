@@ -4972,6 +4972,14 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceEvenCancellation
 import YMGap.Continuum.GNSUnitCenteredGram
 import YMGap.Continuum.SU2QuaternionProductHeatSumGram
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceJointCancellation
+-- Exact SAME-marginal source-test norm and whole signed-family defect.
+-- Useful variance-relative defect/response/cost control remains OPEN.
+import YMGap.Continuum.SU2QuaternionProductHeatSumNorm
+import YMGap.Continuum.SU2QuaternionProductHeatSourceCentering
+import YMGap.Continuum.SU2QuaternionProductHeatCenteredMixed
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyHeatEigen
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceVarianceGram
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceVarianceDefect
 import YMGap.Continuum.SU2PlaquetteEvenBudgetFloor
 import YMGap.Continuum.SU2QuaternionPositiveSourceVarianceFence
 -- Original plaquette energy: geometric O(1-w) weight and zeroth-order O((1-w)^2) remainder.

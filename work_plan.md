@@ -672,8 +672,28 @@ premise. The centered response can vanish; no strict gain or scaling order
 is asserted. Three final focused checks passed 15 gates exactly in
 {propext, Quot.sound}; no broad run or canonical change. Evidence:
 `audits/AUDIT-JOINT-SOURCE-CANCELLATION-2026-10-01.md`.
-NEXT: compare this complete response budget or the exact signed Ward/Taylor
-remainder with SAME interacting variance on a justified physical family.
+FOLLOW-ON PROVED ORIGINAL VARIANCE JOIN: `SourceVarianceGram.centered_sum_norm`
+(full prefix `BF4ExactSlabFixedSpatial`) reduces the actual symmetric
+test norm to S=D+8*U+8*Z*Var_odd. The marginal center is computed from the
+original W and Z; shifting leaves D unchanged. `FamilyHeatEigen.spatialSpan_fullRange`
+supplies lambda=w^12 for ALL signed coefficients and repeated faces.
+`SourceVarianceDefect.padded_family_test_norm_defect` therefore proves
+S=D+8*(1+w^12)*Z*Var_odd-8*delta, retaining the complete signed source
+correction and raw/interacting mean mismatch. Its original energy consumer
+proves 4*K*E+K*J^2+X^2<=2*K*C, K=S-M^2>=0. No inverse denominator,
+source stationarity, favorable defect sign or strict gain is assumed.
+Six final focused checks passed 20 gates exactly in {propext, Quot.sound};
+no broad run or canonical change. Evidence:
+`audits/AUDIT-SOURCE-VARIANCE-GRAM-2026-10-01.md`.
+NEXT: estimate the complete defect, responses and cost, or the exact signed
+Ward/Taylor remainder, versus SAME interacting variance on a justified
+physical family. Source review shows a necessary distinction: existing
+channels retain spectator heat, while the raw q^2 norm terms above do not.
+Use the already supplied spectator-preserving energy budget and suitable
+tests, or control the complete difference; local channel estimates alone
+do not remove it. A single-face four-link reduction cannot omit the active
+links in whole-family cross terms. Do not rebuild the channel decomposition
+or add another equivalent conditional survival wrapper.
 SOURCE REVIEW CORRECTION: terminal recursion gives no actual q^2 radial
 concentration. The exact free-leaf insertion rule applies to inactive faces,
 not this padded active plaquette. The available odd-law variance floor is
