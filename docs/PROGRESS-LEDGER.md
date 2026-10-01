@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original energy quadratic cost is bounded by a completed square (2026-10-01 UTC)
+## Current increment: Physical graph limits and a score calibration obstruction (2026-10-01 UTC)
+
+PROGRESS after `888c639`: original graph symmetry gives the full complex
+plus-shift graph pairing and exact sum of input/output squared distances.
+The existing constructed inverse now pulls back a supplied Rows Cauchy
+sequence to an actual domain limit, with BOTH components converging at the
+SAME explicit rate. No new analytic assumption or representative choice enters.
+
+The original score upper coefficient is proved >=24 for every nonempty list
+and 1/2<=w<1, so tuning this isolated envelope cannot supply the <1/2 retained-
+fraction guard. This is an obstruction for a computed ceiling, not actual
+energy. Primary work remains useful JOINT complete signed error/SAME-variance
+scaling. The operator branch can pursue scaled Cayley on a justified second
+core; no unitary-time product limit is supplied here.
+
+All 18 focused gates and independent reviews passed within the constructive
+gate. No broad build/audit/guard, raised limit or ASCII reprint. The historical
+progress-metric script was not run. Survival, physical time/mass, full continuum
+QFT and all groups remain OPEN. Evidence:
+`audits/AUDIT-GRAPH-NORM-AND-SCORE-CALIBRATION-2026-10-01.md`.
+
+## Earlier increment: Original energy quadratic cost is bounded by a completed square (2026-10-01 UTC)
 
 PROGRESS after `68bf46e`: A-H[B^2]=H[(q*f)^2]/4-H[(B-q*f/2)^2], with
 actual Type-level supported square data. This removes a separate raw angular

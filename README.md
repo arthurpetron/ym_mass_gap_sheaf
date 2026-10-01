@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Physical derivative graph limits and score calibration (2026-10-01):**
+the original imaginary-shift inverse now constructs represented graph limits,
+with both physical input and derivative output converging at the SAME explicit
+rate. The exact graph squared distance is the sum of their squared distances.
+Separately, the current score-based energy coefficient is proved at least 24
+for nonempty families and `1/2<=w<1`: that ceiling alone cannot supply a small
+energy/variance bound. This is not a lower bound on actual energy. All 18 focused
+axiom gates and independent reviews passed. Useful complete signed-error scaling,
+continuous unitary time and the continuum target remain open. See the
+[proof and remaining inputs](audits/AUDIT-GRAPH-NORM-AND-SCORE-CALIBRATION-2026-10-01.md).
+
 **Square completion in the original energy bound (2026-10-01):**
 the joint raw angular term minus its commutator square is now at most one
 quarter of the source-observable squared norm. Centering by the ORIGINAL

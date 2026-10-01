@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original physical graph limits and score calibration obstruction (2026-10-01 UTC)
+
+PROGRESS after `888c639`: the original plus imaginary shift preserves the
+complete Hermitian graph pairing and has squared distance equal to input
+distance plus output distance. Its existing inverse therefore constructs
+represented graph limits with BOTH physical components controlled by the
+SAME supplied Rows witness and explicit modulus. No representative choice,
+new analytic field or arbitrary-domain second derivative is assumed.
+
+Separately, the existing score envelope has energy coefficient >=24 for
+nonempty listed families and 1/2<=w<1. This is a bound on THAT computed upper
+coefficient, not actual energy. Stop attempting to calibrate the isolated
+envelope; retain the complete signed square/Ward/source estimate instead.
+
+All 18 gates passed two accepted focused checks within {propext,Quot.sound},
+with independent reviews. One monitored 20 GiB worker, unchanged 12 GiB reserve;
+no raised limit, broad build/audit/guard or CI change. Root imports registered
+only. Evidence: `audits/AUDIT-GRAPH-NORM-AND-SCORE-CALIBRATION-2026-10-01.md`.
+
+NEXT remains useful JOINT completeCenteredError/SAME-variance control on a
+justified coupling/spatial/spacing family. The operator branch's next concrete
+consumer is scaled Cayley approximation on a justified second-derivative core,
+not a supplied unitary-time interface. Its scaled maps/product moduli remain
+unbuilt here. Survival, physical time/mass, full continuum OS/QFT, field/UV
+identification, every group and Clay remain OPEN. No displayed chart claim
+changes; no ASCII reprint. The preceding user status turn was read-only.
+
 ### Centered square completion in the original signed energy bound (2026-10-01 UTC)
 
 PROGRESS after `68bf46e`: literal Casimir pairing gives A=H[(q*f)*B], where

@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Physical graph limits and score-envelope obstruction (2026-10-01 UTC):**
+`BF4WilsonAllNomeComplexBondOSGraphNorm` proves the original full Hermitian
+graph pairing and exact squared-distance decomposition. Its constructed
+`graphRowsLimit` controls both input and output with the supplied `limitRate`,
+without representative choice or a new analytic field.
+`BF4ExactSlabFixedSpatialScoreCalibrationObstruction` proves the EXISTING
+score-ceiling coefficient at least 24 for nonempty lists and `1/2<=w<1`,
+excluding calibration of that envelope alone, NOT bounding actual energy below.
+All 18 focused gates and independent reviews passed within {propext,Quot.sound}.
+Useful joint complete-error scaling, continuous unitary time, survival, physical
+mass, continuum QFT and all groups remain OPEN. No full-root build is claimed.
+Evidence: `audits/AUDIT-GRAPH-NORM-AND-SCORE-CALIBRATION-2026-10-01.md`.
+
 **Centered original remainder square (2026-10-01 UTC):**
 `SU2QuaternionCompleteRemainderSquare` proves
 `A-H[B^2]=H[(q*f)^2]/4-H[(B-q*f/2)^2]`, with an explicit supported square

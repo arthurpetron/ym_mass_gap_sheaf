@@ -4991,6 +4991,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyLocalAngular
 import YMGap.Continuum.QuaternionHaarLocalRelativeWard
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyFootprint
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyRelativeWard
+-- This computed score ceiling cannot meet the small-energy calibration guard;
+-- the complete signed correction remains a separate open route.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialScoreCalibrationObstruction
 -- Complete original signed remainder cancels its quadratic source-curvature flux.
 -- The retained square and explicit changing-source/cutoff budgets are not scaling closure.
 import YMGap.Continuum.SU2QuaternionCompleteRemainderCancellation
@@ -6091,6 +6094,9 @@ import YMGap.Continuum.BF4WilsonAllNomeResolventNeumannLimit
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolventDenominator
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSImaginaryShifts
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSCayley
+-- Constructed physical graph limits retain BOTH component rates on supplied Rows.
+-- Fixed-parameter graph convergence is not a continuum Hamiltonian.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSGraphNorm
 -- Original whole-family absolute kinetic upper and SAME completed time loss.
 -- Not a useful SAME-variance scaling estimate or a cross-width identification.
 import YMGap.Continuum.QuaternionHaarUniformFamilyCost

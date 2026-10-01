@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting physical graph limits and score calibration obstruction
+(2026-10-01 UTC; chart unchanged): the original complex derivative's plus shift
+has graph pairing equal to input plus output pairing, and graph squared distance
+equal to the sum of their physical squared distances. Constructed represented
+graph limits control BOTH components with the SAME Rows and explicit rate.
+The existing score-ceiling coefficient is >=24 for nonempty lists and
+1/2<=w<1; this excludes calibration of that envelope, NOT actual small energy.
+All 18 focused gates and independent reviews passed. Useful complete signed-error
+scaling, continuous unitary time, survival, physical mass, continuum QFT and
+all groups remain OPEN. No displayed claim changed; no ASCII reprint.
+Evidence: `audits/AUDIT-GRAPH-NORM-AND-SCORE-CALIBRATION-2026-10-01.md`.
+
 Verified supporting centered remainder square (2026-10-01 UTC; chart
 unchanged): the joint raw angular/commutator term has an exact completed
 negative square and a quarter source-square ceiling. Own-mean centering gives

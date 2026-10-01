@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED original physical graph limits and score envelope obstruction (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeComplexBondOSGraphNorm.plus_graph_pairing` proves full
+  Hermitian graph isometry using the ORIGINAL derivative symmetry.
+  `plus_graph_distance` identifies actual squared graph distance with the sum
+  of physical input/output distances. `graphRowsLimit` constructs the domain
+  limit; `graphRows_input_bound` and `graphRows_output_bound` retain the SAME
+  supplied Rows and `limitRate` with no representative selection.
+- `BF4ExactSlabFixedSpatialScoreCalibrationObstruction.squared_gap_budget_ge_one`
+  and `marginalScoreCap_formula` prove the computed cap barrier.
+  `family_energy_coefficient_ge_twentyFour` and
+  `not_family_energy_coefficient_lt_half` exclude calibrating the existing
+  upper-ceiling coefficient for nonempty families and 1/2<=w<1. They do NOT
+  bound actual energy below or refute the signed-error route.
+- All 18 gates passed two accepted focused checks, exactly {propext,Quot.sound},
+  with independent mathematical/source/log review. No new sorry, axiom,
+  Classical, native_decide, noncomputable declaration, analytic premise or
+  weakened frontier. No raised limit, broad build/audit/guard or CI change;
+  root import registration is not aggregate checking. Evidence:
+  `audits/AUDIT-GRAPH-NORM-AND-SCORE-CALIBRATION-2026-10-01.md`.
+- OPEN: useful JOINT complete centered error/SAME-variance scaling. Fixed
+  graph convergence is not continuous unitary time, a continuum Hamiltonian
+  or mass calibration. Survival, full continuum OS/QFT, field/UV identification,
+  spatial/spacing passage, every group and Clay remain OPEN.
+
 ## PROVED centered square completion in original signed energy (2026-10-01 UTC)
 
 - `SU2QuaternionCompleteRemainderSquare.sourceFirstOrder_commutator_pair`
