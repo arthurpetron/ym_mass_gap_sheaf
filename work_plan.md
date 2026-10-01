@@ -25,6 +25,34 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual physical quotient limit and full pairing (2026-10-01 UTC)
+
+PROGRESS after `b22e523`: `ScaledCayleyLimitMap.rows_limit_unique` transports
+the SAME represented completion's uniqueness. Equal input Rows have identical
+finite products, so `productLimit_congr` proves equal actual output classes.
+`limitMap` descends by Quotient.lift2 to EVERY original complex physical
+class without representative selection; supplied Rows keep their computed
+rate. Equivalent rational outer parameters give the SAME limit map.
+
+`ScaledCayleyLimitPairing.productLimit_pairing` passes the FULL finite
+Hermitian identity through the actual represented limits. Its public
+`sum_pairing_limits_eq` retains real sums; imaginary differences pass through
+an exact cross-add equality. No individual component pairing is claimed
+invariant. `limitMap_pairing_preserved` holds on EVERY physical class, giving
+exact SAME-distance isometry and injectivity without an onto assumption.
+Thirteen focused gates passed within {propext,Quot.sound}; independent
+reviews passed. Evidence: quotient-map addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+NEXT algebraic consumer: derive complex linearity from full pairing and
+definiteness, avoiding an unnecessary new scalar-continuity construction.
+A parallel Sol agent owns that proof; it is unverified at this checkpoint.
+Inverse/surjectivity, group/continuity and SAME-transfer physical-time/
+logarithm calibration remain OPEN. PRIMARY complete signed scaling,
+changing-family survival, finite positive physical mass, full continuum QFT,
+every group and Clay remain OPEN. No displayed chart change or broad
+build/audit/guard; CI and safety limits unchanged.
+
 ### Parallel extension to every supplied original Rows (2026-10-01 UTC)
 
 PROGRESS after `21f7e6a`: `ScaledCayleyAllRowsLimit.productSequence`

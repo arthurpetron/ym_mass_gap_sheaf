@@ -6133,6 +6133,9 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyDyadicProducts
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyDyadicLimit
 -- Every supplied original Rows has an explicit product limit; no time calibration.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyAllRowsLimit
+-- Actual choice-free pairing-preserving quotient limit map; time laws remain open.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitMap
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitPairing
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

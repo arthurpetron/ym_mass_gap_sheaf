@@ -1,13 +1,15 @@
 # Canonical one-page project status
 
-Verified supporting Cayley product limits for EVERY supplied original Rows
-(2026-10-01 UTC; chart unchanged): existing second-core density and finite
-iterate isometry give an explicit all-tail modulus for arbitrary represented
-physical inputs. One precision-dependent source is computed; two squared
-triangles cost 10*(epsilon/16)<=epsilon. Sixteen focused gates and independent
-review passed. Quotient operator descent, group/continuity laws and
-physical-time calibration remain OPEN, as do changing-scale survival/mass,
-full continuum QFT and every group. Evidence: all-Rows addendum in
+Verified supporting original physical quotient Cayley limit isometry
+(2026-10-01 UTC; chart unchanged): uniqueness proves representative
+independence before Quotient.lift2 constructs the map on EVERY original
+complex physical class. FULL Hermitian pairing survives the actual limits,
+retaining real sums and imaginary cross differences; exact squared-distance
+isometry and injectivity follow. Supplied Rows retain their computed rates.
+Thirteen focused gates and independent reviews passed. Complex linearity
+is in parallel development; inverse/group/continuity/physical-time laws,
+changing-scale survival/mass, full continuum QFT and every group remain OPEN.
+Evidence: quotient-map addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`. No displayed
 claim changed; no ASCII reprint.
 

@@ -4,8 +4,9 @@ The actual scaled Cayley maps on the ORIGINAL complex physical bond carrier
 have checked linked-domain errors, explicit squared ceilings, constructed
 graph-preserving witnesses and parameter commutation. The latest addendum
 constructs their dyadic-product limit first on the represented second core,
-then for EVERY supplied original Rows with a computed modulus. Nome and
-width remain fixed; no
+then for EVERY supplied original Rows with a computed modulus. The latest
+quotient-map addendum constructs a pairing-preserving injective map on every
+original physical class. Nome and width remain fixed; no
 physical-time group, calibrated Hamiltonian or continuum gap is claimed.
 
 ## Exact error and quantitative consumer
@@ -79,8 +80,9 @@ field or frontier weakening was introduced.
 The four local-error/commutation modules alone do not supply a product limit.
 The later `ScaledCayleyDyadicLimit.productLimitCertificate` now constructs
 that limit on the represented second core, as recorded below. The final
-addendum extends it through supplied-Rows density. Operator descent and
-time laws are next. Its phase must retain the factor two above. Identification
+addendum extends it through supplied-Rows density. The quotient-map addendum
+also proves descent and FULL pairing preservation. Complex linearity, inverse
+and time laws are next. Its phase must retain the factor two above. Identification
 with physical time and the original transfer logarithm remains separate and open.
 
 Useful complete signed error/SAME-variance scaling on a justified changing
@@ -365,9 +367,76 @@ repaired without changing the mathematics or raising limits. No new sorry,
 axiom, analytic field, witness erasure or canonical frontier change.
 One root import was added, but no full-root/tree/build/audit/guard ran.
 
-NEXT is a well-defined physical quotient operator with pairing/isometry
-laws, then the group/continuity laws and actual transfer/physical-time
-calibration. None is asserted by the Rows limit. PRIMARY useful complete
+At this Rows-only checkpoint, NEXT was a physical quotient operator with
+pairing/isometry laws. The following addendum supplies that map and its
+full pairing, distance and injectivity laws. Complex linearity, inverse,
+group/continuity and actual transfer/physical-time calibration remain open.
+None follows from the Rows limit alone. PRIMARY useful complete
 signed scaling, a justified changing-scale surviving excitation, finite
 positive physical mass, full continuum QFT, all actual compact groups and
 Clay remain OPEN. No displayed chart claim changed and no ASCII reprint.
+
+## Physical quotient limit and full pairing
+
+The constructed product limit now acts on EVERY original complex physical
+bond class. In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyLimitMap.lean`,
+`rows_limit_unique:45` transports the SAME physical distance and supplied
+Type-level rate through `sectorSequence` and the existing
+`ComplexTimeSector.limit_unique`. `productLimit_unique:61` identifies a
+limit of the ACTUAL finite products. Equal input classes give equal finite
+products, so `productLimit_congr:74` identifies their output classes.
+`limitMap:88` applies Quotient.lift2 to the two EXISTING real row setoids,
+with that proved independence. No representative is selected.
+
+`limitMap_ofRows:94` pins the quotient map to the original constructed Rows
+limit. `limitMap_bound:100` retains its computed approximation rate whenever
+Rows are supplied. `limitMap_parameter_congr:110` identifies equivalent
+rational presentations; it does not assert a parameter-addition law.
+
+The FULL Hermitian form is retained by the declarations in
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyLimitPairing.lean`.
+`finite_product_pairing:252` iterates the actual Cayley pairing law at the
+same step and power for both inputs. `sum_pairing_limits_eq:76` transports a
+TWO-TERM pairing equality through original represented limits. Four original
+`RowPairingLimit.row_pairing_bound` estimates use epsilon/4, and a common
+maximum of their COMPUTED moduli pays exactly epsilon. No new uniform source
+cap or analytic field is assumed.
+
+`productLimit_pairing:275` consumes those estimates for the full real SUM and
+the imaginary cross-term DIFFERENCE. The latter is transported by the exact
+equivalence `a-b=c-d` iff `a+d=c+b`. Individual real component pairings of
+the finite Cayley maps are NOT asserted invariant.
+`limitMap_pairing_preserved:332` descends this full identity to EVERY physical
+quotient class. The public original `GraphNorm.distance_pairing` then gives
+`limitMap_distance:354`. `limitMap_injective:366` tests original pairings
+against mapped test states; it requires no onto assumption.
+
+The two focused monitored checks succeeded and emitted their `.olean`s;
+independent mathematical and source/log reviews passed. All 13 source-site
+gates report {propext,Quot.sound}:
+
+| Module suffix | Gates | Accepted log in `/tmp` | SHA256 |
+| --- | ---: | --- | --- |
+| `ScaledCayleyLimitMap` | 7 | `ym-scaled-cayley-limit-map-first-20261001.log` | `28ad1a3933c7fa7d6953ac035d51442ff811e9655b052582e1f369936b196976` |
+| `ScaledCayleyLimitPairing` | 6 | `ym-scaled-cayley-limit-pairing-first-20261001.log` | `10d61ce82a247cafb61b3a310f69256d28c2a3b3f4bacf4c3f11efd265998495` |
+
+Targeted source scans and accepted logs contain no sorryAx or forbidden
+construct. One serialized 20-GiB worker and 12-GiB OS reserve were retained;
+capacity analysis found no competing build or swap. Two root imports were
+added, but no full-root/tree/build/audit/guard ran. CI is unchanged.
+
+NEXT is complex linearity from full pairing and positive definiteness, then
+an actual inverse and group/continuity laws. A pairing-preserving injective
+map is not yet declared unitary. The original derivative/transfer relation
+is written in `time_stateQuotient:51` and
+`derivative_equation_of_quotient_limit:61`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeEquation.lean`, and
+`graph_time_pin:97`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraph.lean`.
+These are original-transfer/graph identities, not physical spacing
+calibration or a declared equality A=-log(T). No new such identification
+is supplied here. Nome and width stay fixed. Useful complete signed scaling,
+continuum survival, finite positive physical mass, full continuum QFT,
+every actual compact group and Clay remain OPEN. No canonical displayed
+claim changed, so no ASCII chart was reprinted.

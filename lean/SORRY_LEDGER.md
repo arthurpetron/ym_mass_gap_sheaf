@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED original quotient Cayley limit and full pairing only (2026-10-01 UTC)
+
+- `ScaledCayleyLimitMap.rows_limit_unique` and `productLimit_unique` retain
+  the SAME completion and supplied Type-level rate. `productLimit_congr`
+  gives representative independence before `limitMap` uses Quotient.lift2.
+- `limitMap_bound` retains the original product rate for supplied Rows;
+  `limitMap_parameter_congr` identifies rational presentations only.
+- `ScaledCayleyLimitPairing.sum_pairing_limits_eq` transports TWO-TERM sums
+  with four quarter-error budgets. `productLimit_pairing` retains the FULL
+  Hermitian real sum and imaginary difference via exact cross-add transport.
+- `limitMap_pairing_preserved` holds for EVERY original physical class;
+  `limitMap_distance` and `limitMap_injective` follow without surjectivity.
+- Thirteen focused gates and independent reviews passed within
+  {propext,Quot.sound}. No sorry, new axiom, analytic field, witness erasure or
+  frontier weakening. Evidence: quotient-map addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: full complex linearity, inverse/surjectivity, group/continuity,
+  SAME-transfer physical-time/logarithm calibration; useful signed scaling,
+  continuum survival/mass/QFT and every actual compact group.
+- Two root imports added; full root/tree/build/audit/guard NOT run.
+
 ## PROVED actual Cayley product limit for every supplied physical Rows only (2026-10-01 UTC)
 
 - `ScaledCayleyAllRowsLimit.coreSource_near` computes the original represented
