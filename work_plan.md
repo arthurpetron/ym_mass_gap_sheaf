@@ -25,6 +25,21 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original negative-rational tangent (2026-10-01 UTC)
+
+PROGRESS after `ebf625e`: inverse-group algebra converts the actual negative
+residual into the transported positive residual plus the original output's
+displacement. Supplied Point/OUTPUT Rows compute a common radius; epsilon/4
+and epsilon/16 close the squared budget at t^2*epsilon. Division by -t
+retains the SAME -2i phase. Nine focused gates and independent reviews passed.
+One root import added; full root/tree/audit NOT checked. Evidence:
+negative-rational addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+NEXT: check the parallel raw Euclidean/Cayley slope pin and actual vacuum
+producer, then join full-real differentiation with supplied data. Physical
+spacing, changing-family estimates, survival, mass, QFT and every group remain
+OPEN. No new estimate/axiom/hole; chart, CI and memory limits unchanged.
+
 ### Original right-rational domain converse and parallel producers (2026-10-01 UTC)
 
 PROGRESS after `63f406e`: the SAME original positive resolvent J commutes with

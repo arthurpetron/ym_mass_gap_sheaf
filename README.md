@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original negative-rational tangent (2026-10-01):** the inverse-group
+residual now has a computed radius and the same exact `-2i` derivative phase,
+using the supplied graph point and its actual output rows. Nine focused gates
+and independent reviews passed. Together with the right-rational converse
+below, this advances the fixed-carrier generator branch; full-real
+differentiation, physical spacing and all continuum endpoints remain open.
+
 **Original right-rational domain converse (2026-10-01):** a supplied
 right-rational tangent, with its explicit radius and exact `-2i` phase, now
 constructs a domain witness for the SAME original derivative graph, with both

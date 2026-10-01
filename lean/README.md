@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original negative-rational tangent (2026-10-01 UTC):**
+`ScaledCayleyNegativeTangent.negative_error_identity` rewrites the inverse-group
+error into the transported positive error plus actual output displacement.
+`negativeRadius` computes the minimum of the supplied Point's positive radius
+at epsilon/4 and its OUTPUT Rows' continuity radius at epsilon/16.
+`negativeTangentCertificate` retains signed division by -t and the exact -2i
+phase. Nine focused gates and independent reviews passed, all
+{propext,Quot.sound}. One root import added; full root/tree/audit NOT checked.
+Full-real differentiation, physical spacing and continuum endpoints remain OPEN.
+
 **Original right-rational domain converse (2026-10-01 UTC):**
 `ScaledCayleyTangentData.ofPointTangent` retains the supplied ORIGINAL Point's
 radius and exact `-2i` phase; `RightTangent.unique` uses physical definiteness

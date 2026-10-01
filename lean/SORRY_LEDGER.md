@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED original negative-rational tangent only (2026-10-01 UTC)
+
+- `ScaledCayleyNegativeTangent.outputRows` uses the supplied original Point's
+  actual sector output, without selecting a quotient representative or requiring
+  that output itself to lie in the derivative domain. `negativeRadius` retains
+  both original positive moduli as data, at epsilon/4 and epsilon/16.
+- `negative_error_identity` gives E_minus=-G_minus(E_plus)+2it(G_minus(y)-y).
+  Original isometry and output continuity yield normSq(E_minus)<=t^2*epsilon.
+  `negativeTangentCertificate` divides by signed time -t, preserving -2i.
+- Nine focused gates passed, all {propext,Quot.sound}; independent
+  mathematical/source/log/hash reviews passed. No new analytic input or hole.
+  Evidence: negative-rational addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: full-real tangent, physical spacing/scaling, survival, finite positive
+  physical mass, full continuum QFT, every actual group and Clay.
+  One root import added; full root/tree/build/audit/guard NOT checked.
+  Chart, CI and safety limits unchanged.
+
 ## PROVED original right-rational domain converse only (2026-10-01 UTC)
 
 - `ScaledCayleyTangentData.RightTangent` DEFINES witnessed rational

@@ -1622,3 +1622,36 @@ No exact displayed chart claim changed; no ASCII reprint.
 Negative/full-real differentiation, physical spacing and useful signed scaling,
 nontrivial continuum survival, finite positive physical mass, full same-theory
 QFT, actual every-group realization and Clay remain OPEN.
+
+## Original negative-rational tangent
+
+After `ebf625e`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyNegativeTangent.lean:81`,
+`outputRows`, retains the supplied graph Point's ACTUAL output State; `:84`,
+`outputRows_pin`, pins its original physical class. `:103`, `negativeRadius`,
+is the minimum of the positive graph tangent radius at epsilon/4 and that
+output's original Rows continuity radius at epsilon/16. No representative is
+selected, and the output need not itself be a derivative-domain input.
+
+In the same module, `:286`, `negative_error_identity`, is exactly
+E_minus=-G_minus(E_plus)+2it(G_minus(y)-y). Original isometry and output
+continuity give squared norm <=2*t^2*(epsilon/4)+8*t^2*(epsilon/16)
+=t^2*epsilon. `:448`, `normalizedNegativeResidual`, divides by signed time
+-t; `:451`, `physicalPoint_negative_normalized_bound`, preserves the SAME
+-2i derivative convention. `:487`, `negativeTangentCertificate`, returns
+the positive radius and all-tail bound as Type data.
+
+The focused check emitted an olean; all NINE source-site gates are exactly
+{propext,Quot.sound}. Independent updated-source mathematical and exact
+source/log/hash reviews passed. The first error/sorryAx-bearing log is rejected,
+not proof evidence. Accepted log: `/tmp/ym-negative-tangent-second-20261001.log`,
+SHA256 `09e6ec91260e6480d614e0cc079ba4854f48935102735ec96bd302a4fd21562c`.
+Source SHA256:
+`a0320ae59302789003bfc2b3fe092acb309df57be98395048592c8bc702bc434`.
+
+No new analytic premise, sorry, axiom, erased witness or weakened frontier.
+One root import added; full root/tree/build/audit/guard NOT checked. ONE
+20-GiB worker with 12-GiB OS reserve and continuous telemetry; CI and safety
+limits unchanged. No displayed claim changed; no ASCII reprint. Full-real
+differentiation, physical spacing/scaling, continuum survival, finite positive
+physical mass, full QFT, every actual group and Clay remain OPEN.

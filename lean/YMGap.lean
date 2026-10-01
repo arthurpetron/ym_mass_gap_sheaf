@@ -6191,6 +6191,7 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSPairingContinuity
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyResolventTangent
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyTangentData
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyGeneratorConverse
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyNegativeTangent
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

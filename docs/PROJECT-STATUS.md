@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting original negative-rational tangent (2026-10-01 UTC;
+chart unchanged): the inverse residual uses the supplied original graph Point
+and its actual OUTPUT Rows. The computed radius retains signed division by -t
+and the SAME -2i derivative phase. Nine focused gates and independent reviews
+passed. Full-real differentiation, physical spacing and all continuum endpoints
+remain OPEN. Evidence: negative-rational addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original right-rational domain converse (2026-10-01 UTC;
 chart unchanged): supplied tangent data transport through the ORIGINAL positive
 resolvent with unchanged radius. Physical tangent uniqueness reconstructs the
