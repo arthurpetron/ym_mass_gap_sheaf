@@ -1,10 +1,11 @@
 # Local Cayley consistency and commutation
 
 The actual scaled Cayley maps on the ORIGINAL complex physical bond carrier
-now have a checked linked-domain local error, an explicit squared ceiling,
-constructed graph-preserving witnesses and parameter commutation. These are
-fixed-nome, fixed-width inputs to time-product construction, not a physical-time
-group, calibrated Hamiltonian or continuum mass gap.
+have checked linked-domain errors, explicit squared ceilings, constructed
+graph-preserving witnesses and parameter commutation. The latest addendum
+constructs their dyadic-product limit on the represented second core with
+original Rows and a computed modulus. Nome and width remain fixed; no
+physical-time group, calibrated Hamiltonian or continuum gap is claimed.
 
 ## Exact error and quantitative consumer
 
@@ -74,11 +75,12 @@ field or frontier weakening was introduced.
 
 ## Remaining join
 
-No actual Cayley time-product limit declaration is supplied by these modules.
-The next construction is a dyadic-product Cauchy modulus on the represented
-second core, then extension through its supplied-Rows density. Its phase must
-retain the factor two above. Identification with physical time and the original
-transfer logarithm remains separate and open.
+The four local-error/commutation modules alone do not supply a product limit.
+The later `ScaledCayleyDyadicLimit.productLimitCertificate` now constructs
+that limit on the represented second core, as recorded below. Extension
+through supplied-Rows density is next. Its phase must retain the factor two
+above. Identification with physical time and the original transfer logarithm
+remains separate and open.
 
 Useful complete signed error/SAME-variance scaling on a justified changing
 family, continuum survival, positive finite physical mass, full same-theory
@@ -114,10 +116,11 @@ point with input x and output y. `cayley_domain_difference_norm_le_four`, at
 imaginary-scalar norm lemmas are proved on the original physical completion.
 No unbounded operator is applied to an arbitrary completed vector.
 
-The missing doubled-step theorem is distinct: linked original graph points
-must control `||C_h^2 x-C_(2h) x||^2` at fourth order. It is NOT present in the
-new module. Subsequent finite-power amplification, explicit dyadic Cauchy
-modulus, supplied-Rows density extension and physical-time/logarithm pin
+At this earlier checkpoint, the doubled-step theorem was missing: linked
+original graph points must control `||C_h^2 x-C_(2h) x||^2` at fourth order.
+The first-difference module does not prove it. The latest addendum supplies
+the doubled estimate, finite-power amplification and explicit core Cauchy
+modulus. Supplied-Rows density extension and physical-time/logarithm pin
 remain open.
 
 ## Literal plaquette moment input
@@ -128,10 +131,10 @@ prove bare third and fourth Haar moments 0 and 2 for the same literal four-link
 spatial face. The proof decomposes the fundamental powers into SU(2) characters
 and integrates an actual selected face link. It does not assume the moments.
 
-These supply inputs to an auxiliary-source Ward-sign diagnostic. The weighted
-Haar moments and the source's own centered residual have not been proved here;
-no sign, useful SAME-variance bound or terminal-source identification follows
-from the bare moments alone.
+These supply inputs to an auxiliary-source Ward-sign diagnostic. The bare
+moments alone prove no sign or terminal-source identification. The latest
+addendum supplies weighted moments and the auxiliary source's own centered
+negative residual, not a useful YM SAME-variance scaling estimate.
 
 ## Requested parallel continuum review
 
@@ -193,3 +196,130 @@ Verification used one serialized worker, the unchanged 20-GiB ceiling and
 12-GiB OS reserve. No broad build, audit or guard ran. Root imports were added
 but no full-root check is claimed. CI is unchanged. The canonical chart's
 displayed claims remain unchanged, so it was not reprinted.
+
+## Constructed second core product limit
+
+For actual linked domain points, `doubled_error_identity`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyDoubledIdentity.lean:275`,
+expands `C_h^2 x-C_(2h) x` into three local consistency errors and one
+first-graph-difference term. `doubled_error_norm_le`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyDoubledBound.lean:115`,
+proves its squared norm is at most `352*h^4*||output e||^2`.
+`secondCore_doubled_error_norm_le`, at the same path `:162`, consumes the
+actual linked second core and bounds the same quantity by its ORIGINAL
+preimage norm. There is no third-derivative assumption.
+
+`cayley_parameter_congr`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyParameter.lean:65`,
+identifies actual operators at rationally equivalent parameters.
+`dyadic_iterate_comparison`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyPowerComparison.lean:248`,
+uses parameter commutation and unitarity to amplify a comparison with base
+counts `a,b` by `4^n` in squared norm. The dyadic consumer takes `a=2,b=1`;
+equal base counts would not compare two half steps with one full step.
+
+`productRows_pin`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyDyadicProducts.lean:114`,
+pins original represented Rows to
+`P_n Y=C_(t/2^n)^(2^n)(input(first Y))`.
+`product_consecutive_norm_le`, at the same path `:232`, proves
+
+`||P_(n+1) Y-P_n Y||^2 <= 22*t^4*(1/4)^n*preimageNorm Y`.
+
+The coefficient is the proved rational equivalence
+`352*4^n*(t/2^(n+1))^4 = 22*t^4*(1/4)^n`, not an opaque constant.
+`geometric_tail_bound`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSGeometricRowsLimit.lean:111`,
+contracts a consecutive squared-distance bound `B*(1/4)^n` into the all-tail
+bound `4*B*(1/4)^n`. `cauchyOfConsecutive`, at the same path `:150`, returns
+an actual Rows sequence with modulus `geometricCutoff quarter (4*B)`.
+
+`preimageNorm_le_ceiling`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyDyadicLimit.lean:78`,
+uses the two supplied ORIGINAL Cauchy streams and the SAME pairing data to
+compute a nonnegative rational ceiling `C(Y)`.
+`productSequence:127` consumes the proved product estimate with computed
+budget `B=22*t^4*C(Y)`. `productLimitCertificate:150` returns original limit
+Rows and an explicit rate, with the actual physical-distance bound proved
+by `productLimit_bound:139`. No quotient representative, countable choice,
+analytic convergence field or changed physical carrier is introduced.
+
+This closes the represented second-core product Cauchy construction. Extension
+to arbitrary supplied Rows is assigned separately using the existing core
+density and finite-product isometry. No all-carrier descent, continuous unitary
+group, generator/transfer logarithm or physical-time identification is yet
+claimed. Nome and width stay fixed, and the original local phase retains its
+factor two.
+
+## Own centered auxiliary Ward sign
+
+For the literal spatial plaquette character `f`, the auxiliary weight is
+`U=(1+f/4)*(1+lambda*f/4)`. The declarations in
+`lean/YMGap/Continuum/SU2QuaternionPlaquetteAuxiliaryWardSign.lean` are
+`auxiliary_mass:154`, `auxiliary_first:175`, `auxiliary_second:199` and
+`auxiliary_angular:279`. They prove actual bare-Haar pins
+`Z=1+lambda/16`, `H(U*f)=(1+lambda)/4`, `H(U*f^2)=1+lambda/8` and
+`H(U*Gamma(f,f))=12+lambda/2`.
+
+`auxiliary_mass_positive:313` proves positive TOTAL mass for lambda>=0.
+`auxiliaryCenter:325` centers f using U's OWN mean, and
+`auxiliary_center_mean_zero:332` verifies it. `auxiliary_ward_residual_pin:349`
+proves the complete residual
+
+`12*H(U*(f-ownMean)^2)-H(U*Gamma(f,f))`
+`=lambda-(3/4)*(1+lambda)^2/(1+lambda/16)`.
+
+`auxiliary_ward_residual_le_neg_one:531` proves this is <=-1 for
+lambda>=1/2. The module supplies no pointwise positivity theorem for U,
+terminal heat-image pin or original Yang--Mills source identity. This is a
+finite auxiliary-source sign diagnostic, NOT a Yang--Mills counterexample
+or useful changing-family error/SAME-variance estimate.
+
+## Parallel survival mass and group findings
+
+The source reviews found no independent unconditional survival/mass producer
+beyond the earlier conditional consumers. The current physical carriers fix
+nome and width; separate nonzero excitations at every cutoff do not constitute
+a common continuum excitation. `nonzeroExcitation`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicExcitation.lean:93`, has the
+nome-dependent `starRatio` floor, not a uniform common-limit norm floor.
+The absolute original-family loss is already controlled by
+`completed_family_time_l1_bound`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyKineticUpper.lean:259`;
+it is not a relative bound on a justified changing family. The remaining
+inputs are original pairing-compatible scale maps, fixed-physical-time
+nonzero survival, and SAME-generator finite upper/positive lower rate
+calibration. The product limit does not supply those inputs.
+
+The group review again found no new algebraic theorem filling a physical
+all-group consumer. `descendRepresentation`, at
+`lean/YMGap/RepTheory/ConstructiveRepresentationDescent.lean:230`, and its
+rational unit-quaternion consumer already exist. Finite Cartan/global-form/G2
+codes do not construct normalized Haar, representations or heat/action data
+for an actual compact group. No duplicate assumption wrapper was added.
+
+## Product and auxiliary sign verification
+
+Eight focused checks succeeded; independent mathematical and source/log reviews
+passed. There are 51 source-site gates: two empty, one {propext} and 48
+{propext,Quot.sound}. The accepted logs and SHA256s are:
+
+| Module suffix | Gates | Accepted log in `/tmp` | SHA256 |
+| --- | ---: | --- | --- |
+| `ScaledCayleyDoubledIdentity` | 4 | `ym-scaled-cayley-doubled-identity-second-20261001.log` | `c7e8bc2e755d5024f75ebd04d4d721b36c3d6a1443f6bfa0bb845ec90773d596` |
+| `ScaledCayleyDoubledBound` | 2 | `ym-scaled-cayley-doubled-bound-first-20261001.log` | `a8107a510a192fb4edf45ec404bfbfba3185bfac5f958997f84efe76059efba6` |
+| `ScaledCayleyParameter` | 5 | `ym-scaled-cayley-parameter-first-20261001.log` | `e20d13d2382bf09577000426bd2ce5468302efe03fc692c48a6e5fdd6ce2274e` |
+| `ScaledCayleyPowerComparison` | 7 | `ym-scaled-cayley-power-comparison-second-20261001.log` | `b7217ecc64db62604896098471f2b3c1252017d611906c0d85f8cbbeb4faab4f` |
+| `GeometricRowsLimit` | 5 | `ym-complex-bond-geometric-rows-second-20261001.log` | `f56ba414a0cae02224a07cdcdb6cc77f46ed15b723823c1ab1bb90dbab5cc4ca` |
+| `ScaledCayleyDyadicProducts` | 6 | `ym-scaled-cayley-dyadic-products-normalized-second-20261001.log` | `2abf135a3f8712889b1261cdc182f5b218822056ccd78189589c048a3dffbc52` |
+| `ScaledCayleyDyadicLimit` | 11 | `ym-scaled-cayley-dyadic-limit-third-20261001.log` | `4e30ed04c3e3bc1f40901d15a49b2f9ee45e4eb71e8da7fde0ffc162ee46a4a1` |
+| `PlaquetteAuxiliaryWardSign` | 11 | `ym-plaquette-auxiliary-ward-sign-second-20261001.log` | `06e65ed76f0ae40273f5c6b35b1a66465a0cddc64a64952fbac4e657b76f2a7a` |
+
+The focused checks emitted their `.olean`s. Source scans and accepted logs
+contain no sorryAx or forbidden axiom; one harmless unused-argument warning
+remains in the auxiliary module. The failed draft normalization and projection
+notation checks were repaired and are not accepted verification evidence.
+One serialized worker, 20-GiB hard ceiling and 12-GiB OS reserve were retained.
+Eight semantic-root imports were added; the root itself and full-tree
+build/audit/guard were NOT run. CI is unchanged. No canonical displayed
+claim changed, so no ASCII chart was reprinted. The Clay target remains OPEN.

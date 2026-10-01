@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Constructed represented second-core products and parallel work (2026-10-01 UTC)
+
+PROGRESS after `25d7c79`: actual Cayley doubled steps satisfy the squared
+ceiling `352*h^4*||second output||^2`. Equivalent rational parameters give
+the SAME operator. Commuting finite powers with counts 2 and 1 yield the
+actual dyadic consecutive bound `22*t^4*(1/4)^n*preimageNorm Y`. Original
+Cauchy source ceilings compute the budget; `ScaledCayleyDyadicLimit` returns
+original physical limit Rows and a Type-level convergence rate. This is a
+constructed second-core limit, not an assumed analytic field.
+
+The literal auxiliary weight `(1+f/4)*(1+lambda*f/4)` also has exact Haar
+moments, its OWN mean and Ward residual <=-1 for lambda>=1/2. Its total
+mass is positive; pointwise weight positivity and terminal heat/source
+identification are not supplied. It is a finite sign diagnostic, not a YM
+counterexample or a scaling estimate. All 51 focused gates and independent
+reviews passed; no analytic assumption or frontier statement changed.
+Evidence: product-limit addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+NEXT QFT structure: extend the ACTUAL product Cauchy construction to arbitrary
+SUPPLIED original physical Rows using second-core density and finite-product
+isometry, then establish operator descent, group/continuity laws and the
+physical-time/logarithm pin. The all-Rows extension is assigned to a parallel
+Sol agent; it is not yet claimed proved. Survival/mass review still needs a
+justified changing `(w,width,spacing)` family with positive sampled response,
+original pairing-compatible cross-scale maps and finite upper/positive lower
+physical rate calibration. Group review found no additional algebraic theorem
+that supplies actual compact-group Haar/heat realization; existing central
+quotient representation descent is already complete. Do not duplicate these
+conditional wrappers. PRIMARY useful complete signed error/SAME-variance
+scaling, survival, physical mass, full QFT, every group and Clay remain OPEN.
+No displayed chart change, broad build/audit/guard or resource-limit increase.
+
 ### Represented products and parallel frontier review (2026-10-01 UTC)
 
 PROGRESS after `599e21f`: original raw time-sector states now supply Rows for

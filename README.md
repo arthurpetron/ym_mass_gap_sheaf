@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Constructed Cayley product limit on the represented core (2026-10-01):**
+the actual dyadic products now converge with a computed modulus on the
+original physical second core, at fixed coupling and width. This uses a proved
+geometric error estimate, not an assumed convergence certificate. Parallel
+work is extending the construction through supplied-Rows density; survival,
+physical mass calibration, full QFT and every-group realization remain open.
+A separate finite auxiliary-source calculation checks a negative Ward
+residual without identifying that source with Yang--Mills. See the
+[checked construction and remaining joins](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#constructed-second-core-product-limit).
+
 **Explicit finite Cayley products and parallel frontier review (2026-10-01):**
 original witnessed states now produce Rows for every finite Cayley iterate,
 without choosing quotient representatives. The actual graph also has a checked

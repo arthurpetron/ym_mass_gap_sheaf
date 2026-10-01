@@ -6120,11 +6120,21 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSecondCore
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSecondCoreDensity
 -- Fourth-order squared local ceiling against the ORIGINAL represented preimage.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyErrorBound
--- Witnessed finite-product Rows and first graph differences; convergence still open.
+-- Witnessed finite-product Rows and first graph differences.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyRows
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyRefinement
+-- Constructed represented second-core product limits, not calibrated physical time.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyDoubledIdentity
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyDoubledBound
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyParameter
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPowerComparison
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSGeometricRowsLimit
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyDyadicProducts
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyDyadicLimit
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
+-- Own-centered auxiliary Ward sign; no terminal heat/source identification.
+import YMGap.Continuum.SU2QuaternionPlaquetteAuxiliaryWardSign
 -- Original whole-family absolute kinetic upper and SAME completed time loss.
 -- Not a useful SAME-variance scaling estimate or a cross-width identification.
 import YMGap.Continuum.QuaternionHaarUniformFamilyCost

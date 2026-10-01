@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED actual represented second-core Cayley product limit only (2026-10-01 UTC)
+
+- `ScaledCayleyDoubledIdentity.doubled_error_identity` and
+  `ScaledCayleyDoubledBound.secondCore_doubled_error_norm_le` keep the SAME
+  linked graph and prove the explicit 352*h^4 squared ceiling.
+- `ScaledCayleyParameter` identifies equivalent rational parameters;
+  `ScaledCayleyPowerComparison.dyadic_iterate_comparison` retains counts 2/1.
+- `ScaledCayleyDyadicProducts.product_consecutive_norm_le` proves the ACTUAL
+  consecutive ceiling `22*t^4*(1/4)^n*preimageNorm Y`. No convergence input
+  is assumed. `GeometricRowsLimit.cauchyOfConsecutive` supplies all-tail control.
+- `ScaledCayleyDyadicLimit.productLimitCertificate` constructs original Rows
+  and a Type-level rate from the supplied ORIGINAL Cauchy preimages' ceilings.
+- `SU2QuaternionPlaquetteAuxiliaryWardSign.auxiliary_ward_residual_le_neg_one`
+  proves the literal auxiliary weight's OWN-centered residual <=-1 for
+  lambda>=1/2, with positive total Haar mass. No pointwise weight positivity,
+  heat-image pin or terminal source identity is claimed.
+- All 51 focused gates and independent reviews passed: two empty, one
+  {propext}, 48 {propext,Quot.sound}. No sorry, new axiom, analytic field,
+  erased witness or frontier weakening. Eight root imports added; root itself
+  and full-tree build/audit/guard NOT run. Evidence: product-limit addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: extension to arbitrary supplied Rows, all-carrier descent/unitary
+  group/continuity, physical time/logarithm; useful original signed scaling,
+  changing-scale nonzero survival, finite positive physical mass, full QFT and
+  actual compact-group Haar/heat/Wilson construction for every group.
+
 ## PROVED finite Cayley representations and first graph differences only (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeComplexBondOSScaledCayleyRows.cayleyState_pin` and

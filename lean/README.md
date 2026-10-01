@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Constructed represented second-core product limit (2026-10-01 UTC):**
+`ScaledCayleyDyadicProducts.product_consecutive_norm_le` bounds ACTUAL
+consecutive squared error by `22*t^4*(1/4)^n*preimageNorm Y`.
+`ScaledCayleyDyadicLimit.productLimitCertificate` computes original physical
+limit Rows and a Type-level modulus from the supplied ORIGINAL source streams.
+The doubled-step estimate and finite-power comparison are proved, not fields.
+The separate `PlaquetteAuxiliaryWardSign` module proves an OWN-centered
+negative residual for a literal auxiliary weight, not a terminal heat source.
+All 51 focused gates and independent reviews passed within the constructive
+gate. All-Rows extension, physical time, signed scaling and continuum remain
+OPEN. Evidence: product-limit addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Represented finite products and first graph differences (2026-10-01 UTC):**
 `ScaledCayleyRows.iterateRows_pin` constructs actual original Rows for every
 finite Cayley iterate, retaining range witnesses and moduli without quotient

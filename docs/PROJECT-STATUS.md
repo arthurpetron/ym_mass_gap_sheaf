@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting represented second-core Cayley product limit
+(2026-10-01 UTC; chart unchanged): the actual doubled-step squared bound
+352*h^4 and finite-power comparison give consecutive squared error
+22*t^4*(1/4)^n times the ORIGINAL preimage norm. Computed source ceilings
+construct original limit Rows and an explicit modulus. A literal auxiliary
+plaquette source has a checked own-centered Ward residual <=-1 for lambda>=1/2;
+it is not identified with a terminal heat source. All 51 focused gates and
+independent reviews passed. Extension through supplied-Rows density is next;
+physical-time/logarithm calibration, changing-scale survival/mass inputs,
+full QFT and actual every-group Haar/heat realizations remain OPEN. No
+displayed claim changed; no ASCII reprint. Evidence: product-limit addendum
+in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 Verified supporting represented finite Cayley products and first graph
 differences (2026-10-01 UTC; chart unchanged): actual original Rows are
 constructed for every finite iterate without quotient selection. The first
