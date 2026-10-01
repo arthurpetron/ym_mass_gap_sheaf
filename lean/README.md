@@ -12,6 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Complete signed-family angular/SAME-variance producer (2026-10-01 UTC):**
+`QuaternionHaarLocalRelativeWard` pays the actual signed weight derivative
+with the same centered square and angular square on each original block.
+`BF4ExactSlabFixedSpatialFamilyFootprint` counts at most four actual slots
+per listed face, including repeats, and supplies computed active physical links.
+`BF4ExactSlabFixedSpatialFamilyRelativeWard` constructs original marginal
+score certificates only on that footprint and combines Casimir 12 with the
+actual centered-square pin: `A<=(24+6*|J|*C(w)^2)*Z*Var_odd`.
+Normalization cancels only SAME positive Z; the width-independent envelope
+charges at most `4*qs.length` links. The original temporal energy retains its
+COMPLETE normalizedRemainder. Seventeen gates passed three accepted focused
+checks within {propext, Quot.sound}, with independent reviews. No new analytic
+premise, full-root build or scaling claim. Useful complete signed scaling,
+survival, physical mass, continuum QFT and all groups remain OPEN. Evidence:
+`audits/AUDIT-WHOLE-FAMILY-RELATIVE-WARD-2026-10-01.md`.
+
 **Local angular cost of the complete signed family (2026-10-01 UTC):**
 `QuaternionHaarLocalAngularFamily` constructs filtered-row finite Cauchy
 certificates under ONE positive weight, preserving all signed cross terms.

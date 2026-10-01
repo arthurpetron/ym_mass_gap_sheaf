@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Complete signed-family angular/SAME-variance bound (2026-10-01):**
+local score certificates and the actual Casimir identity now prove
+`Angular(F) <= (24+6*|J|*C(w)^2)*Var_odd(F)` after original normalization,
+where the actual link footprint satisfies `|J|<=4*number of listed faces`.
+Arbitrary signed coefficients and repeated faces are retained. No inverse
+density floor or full-volume factor appears; the score cap C depends on coupling.
+The temporal-energy consumer retains its COMPLETE signed remainder, so useful
+scaling and the Clay target remain open. All 17 focused axiom gates and
+independent reviews passed. See the
+[proof and remaining input](audits/AUDIT-WHOLE-FAMILY-RELATIVE-WARD-2026-10-01.md).
+
 **Local angular budget for complete signed families (2026-10-01):**
 for distinct spatial faces, actual link incidence replaces a whole-family
 size factor with a coefficient-square cost. Under the ORIGINAL odd marginal,
@@ -17,8 +28,8 @@ size factor with a coefficient-square cost. Under the ORIGINAL odd marginal,
 width or family-size factor; the actual moments still depend on those parameters.
 The original temporal energy consumes this budget with its COMPLETE signed
 Taylor remainder retained. All 17 gates passed three focused checks and
-independent reviews. This is not yet a SAME-family variance comparison or
-physical scaling estimate. See the
+independent reviews. This cap-deficit estimate alone is not a SAME-family
+variance comparison or physical scaling estimate. See the
 [proof and open input](audits/AUDIT-LOCAL-SIGNED-FAMILY-ANGULAR-2026-10-01.md).
 
 **Original one-loop energy now has an actual-mean bound (2026-10-01):**

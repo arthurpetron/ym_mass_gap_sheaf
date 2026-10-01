@@ -25,6 +25,52 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Complete original signed-family angular cost versus SAME variance (2026-10-01 UTC)
+
+PROGRESS after `2d9577d`: the local coefficient-square cap deficits need not
+be converted into the family's centered variance with a conservative floor.
+Use the ACTUAL constructed relative score bound for W=V*g_n*g_(n+1) on each
+block of the ONE deduplicated literal family footprint J. Six-plane relative
+Young gives `-2*Ward<=6*|J|*C(w)^2*(Z*Var_odd)+Angular`. Every spectator
+derivative vanishes coefficientwise; W is not declared independent there.
+Combine the actual complete-family Casimir identity `Angular+Ward=12*Z*Var`:
+
+    Angular(F) <= (24+6*|J|*C(w)^2)*(Z*Var_odd(F)),
+    |J| <= 4*qs.length,
+    C(w) = 6*relativeCap(w,4096)+2*relativeCap(w,32).
+
+Arbitrary signs, repeated faces and zero variance are allowed. Strict padding
+makes every J slot active. The link used by each Type-valued score certificate
+is computed by getElem; a first-occurrence equality is proved in Prop without
+using the legacy classical nodup/index equivalence. The length envelope has
+no width, depth or late-cutoff dependence and no inverse source-floor cost.
+The existing original Taylor consumer now proves
+
+    normalizedEnergy(F) <= (1-w)*(24+24*qs.length*C(w)^2)*Var_odd(F)
+                            + normalizedRemainder(F).
+
+Every original source factor and the COMPLETE signed remainder remain.
+This supplies the previously missing whole-family angular/SAME-variance
+producer, NOT a useful complete signed temporal-energy scaling estimate.
+C(w) and its computed cutoff onset depend on nome, with no useful near-one
+calibration; fixed-list counting is not uniform control over growing families.
+
+Three accepted focused checks passed all 17 gates: three empty, fourteen
+exactly {propext, Quot.sound}. Independent mathematical/source/log reviews
+passed. A compiled intermediate index draft FAILED the gate and was replaced,
+not accepted. One monitored 20 GiB worker and 12 GiB OS reserve; final swap zero;
+no full-root/tree build, broad audit, guard, raised limit or CI change. Root
+imports are registered only. Evidence:
+`audits/AUDIT-WHOLE-FAMILY-RELATIVE-WARD-2026-10-01.md`.
+
+NEXT: control the JOINT original angular/remainder budget relative to SAME
+interacting variance on a justified changing-coupling/spatial/spacing family.
+Do not assume the score coefficient scales usefully, assign a sign to the
+remainder, or substitute a source-q^2 law for the actual odd marginal.
+Nontrivial continuum survival, physical time/mass, full continuum OS/QFT,
+field/UV identification and every compact simple group remain OPEN.
+Broader displayed claims are unchanged; no ASCII reprint.
+
 ### Local coefficient-square angular budget on the ORIGINAL signed family (2026-10-01 UTC)
 
 PROGRESS after `1167dc2`: no SAME-law near-vacuum mean estimate was found;

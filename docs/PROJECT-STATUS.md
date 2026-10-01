@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting COMPLETE signed-family angular/SAME-variance producer
+(2026-10-01 UTC; chart unchanged): actual marginal score certificates only
+on the family's literal deduplicated link footprint give
+A<=(24+6*|J|*C(w)^2)*(Z*Var_odd), with |J|<=4*qs.length including repeated
+faces. Spectator derivatives vanish coefficientwise; the same own mean,
+variance and every signed cross term remain. The envelope has no width,
+depth, late-cutoff or inverse-source-floor factor, but C depends on nome.
+The original temporal-energy consumer retains the COMPLETE signed remainder.
+Seventeen gates passed three accepted focused checks within the constructive
+gate, with independent review. Useful JOINT signed scaling, nontrivial
+continuum survival, physical time/mass, full QFT and all groups remain OPEN.
+No displayed claim changed; no ASCII reprint. Evidence:
+`audits/AUDIT-WHOLE-FAMILY-RELATIVE-WARD-2026-10-01.md`.
+
 Verified supporting local ORIGINAL signed-family angular budget
 (2026-10-01 UTC; chart unchanged): finite Cauchy is localized to literal
 link-face rows of length at most six. For Nodup spatial families under the

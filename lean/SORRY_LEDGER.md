@@ -1,5 +1,41 @@
 # Sorry Ledger
 
+## PROVED complete original signed-family angular/SAME-variance bound (2026-10-01 UTC)
+
+- `QuaternionHaarLocalRelativeWard.block_residual_lower` and
+  `active_residual_lower` prove actual signed derivative-of-weight Young
+  budgets at any original block and an explicit block list. No head-linearity,
+  density minimum or residual-sign premise is supplied.
+- `BF4ExactSlabFixedSpatialFamilyFootprint.familyObservableBlocks_length_le_four`
+  proves `|J|<=4*qs.length` even for repeated faces.
+  `familyObservableBlocks_active_after_padding` discharges each physical
+  active-link guard. `linkAt` computes the selected link as data;
+  `linkAt_idxOf` proves its first-occurrence index using only Prop-level
+  face-link existence, without extracting that existence into the certificate.
+- `BF4ExactSlabFixedSpatialFamilyRelativeWard.familyBlockRelativeBound`
+  constructs the actual score certificate on W=V*g_n*g_(n+1).
+  `family_angular_variance_cleared` retains all signed cross terms, removes
+  only zero spectator derivatives, and combines the own-mean square pin and
+  Casimir 12: `A<=(24+6*|J|*C(w)^2)*(Z*Var_odd)`.
+  `family_angular_variance_length_cleared` gives a width/depth/cutoff-independent
+  length envelope at fixed nome. `family_normalized_angular_variance` divides
+  only by SAME positive Z, never by variance or a source floor.
+- `padded_family_energy_relative_ward` proves the actual temporal energy
+  is at most this variance-relative angular budget times (1-w), PLUS the
+  COMPLETE signed normalizedRemainder. The angular-weight defect is retained.
+- Seventeen gates passed three accepted focused checks: three empty and
+  fourteen {propext, Quot.sound}. Independent mathematical/source/log reviews
+  passed. An intermediate index draft's inherited Classical.choice was rejected
+  and removed from the final proof path. No final sorry, new axiom, classical
+  dependency, analytic field or weakened frontier. One monitored 20 GiB worker,
+  12 GiB OS reserve; no full-root/tree build, broad audit, guard or CI change.
+  Evidence: `audits/AUDIT-WHOLE-FAMILY-RELATIVE-WARD-2026-10-01.md`.
+- OPEN: useful COMPLETE signed temporal-energy/SAME-variance control along
+  a justified spatial/coupling/spacing family. C(w) and the cutoff onset are
+  nome-dependent; no useful near-one calibration or bound on the signed
+  remainder is supplied. Nonzero continuum survival, physical mass, full
+  continuum OS/QFT, field/UV identification and all groups remain OPEN.
+
 ## PROVED local angular budget for an ORIGINAL distinct-face signed family (2026-10-01 UTC)
 
 - `QuaternionHaarLocalAngularFamily.masked_square_certificate` pads each

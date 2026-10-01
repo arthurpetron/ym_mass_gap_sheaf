@@ -4,7 +4,30 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Actual energy/variance limits meet the original completion (2026-10-01 UTC)
+## Current increment: Whole signed-family angular cost meets SAME variance (2026-10-01 UTC)
+
+PROGRESS after `2d9577d`: local relative Young on the family's actual link
+footprint, exact zero spectator derivatives, the original own-mean square pin
+and actual Casimir 12 give `A<=(24+6*|J|*C(w)^2)*(Z*Var_odd)`.
+The deduplicated footprint has `|J|<=4*qs.length`, with repetitions allowed.
+Every score certificate is constructed on the ORIGINAL marginal. No complete
+source floor/cap, width or terminal-depth penalty enters the length envelope.
+Original normalization cancels only SAME positive Z. The temporal-energy
+consumer retains its entire signed normalizedRemainder, including the angular
+weight defect. No new analytic input or frontier alias is supplied.
+
+This is a new physical finite producer, not a rephrasing of the still-open
+complete signed scaling input. The score coefficient and cutoff onset depend
+on nome; their useful scaling calibration and the JOINT signed remainder
+control are unproved. No completed angular/remainder limit or changing-width
+map is inferred. Survival, physical mass, continuum QFT and all groups remain
+OPEN. All 17 gates passed three accepted focused checks within the constructive
+gate, with independent review; the inherited classical index route was rejected
+and replaced. No broad build/audit/guard or ASCII reprint. The historical
+progress-metric script calls a broad guard and was not run. Evidence:
+`audits/AUDIT-WHOLE-FAMILY-RELATIVE-WARD-2026-10-01.md`.
+
+## Earlier increment: Actual energy/variance limits meet the original completion (2026-10-01 UTC)
 
 PROGRESS after `cb41d35`: the finite angular reserve now has a one-sided
 bound against an explicit completed bond-norm representative, requiring

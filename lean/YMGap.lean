@@ -4986,6 +4986,11 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonMeanQuartic
 import YMGap.Continuum.QuaternionHaarLocalAngularFamily
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyIncidence
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyLocalAngular
+-- Actual whole-family angular/SAME-variance bound from local score certificates.
+-- The original temporal-energy consumer still retains the COMPLETE signed remainder.
+import YMGap.Continuum.QuaternionHaarLocalRelativeWard
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyFootprint
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyRelativeWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.
 import YMGap.Continuum.SU2HeatQuarticBudgetFloor
 -- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.
