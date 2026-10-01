@@ -10,7 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Joint signed correction (2026-10-01):** the actual terminal source now
+**Channel first order without full-width cost (2026-10-01):** the actual
+passive-channel angular cost now obeys A_ch<=C*Z*Var in the original
+interacting theory. C depends on coupling and complete observable-family
+size, not spatial width, late cutoff or positive terminal depth. The exact
+original energy is E=(1-w)*A_ch+D_ch, retaining the signed cutoff remainder.
+This removes one volume-dependent cost; controlling the full expression
+along physical scaling remains open. See the
+[proof and remaining debt](audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md#addendum-actual-channel-first-order-against-same-original-variance).
+
+**Joint signed RAW-source correction (2026-10-01):** the actual terminal source now
 has a first-order bound against the SAME interacting variance, with an
 explicit coefficient independent of late cutoff and positive terminal
 depth at fixed coupling and full width. The energy estimate combines both

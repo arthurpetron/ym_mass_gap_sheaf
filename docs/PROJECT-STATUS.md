@@ -1,13 +1,28 @@
 # Canonical one-page project status
 
+Verified supporting ACTUAL channel first order versus SAME variance
+(2026-10-01 UTC; chart unchanged): actual projected terminal bands and
+one exact common spectator mass prove l^2*A_ch<=12*u^2*Z*Var, hence
+A_ch<=C(w,|qs|)*Z*Var. C=12*u^2/l^2 has NO full-width, late-cutoff or
+positive-depth cost. The lower comparison retains ORIGINAL full heat;
+bare/heat retention is not assumed. Signed/repeated faces and original
+mean/partition remain. Exact original energy E=(1-w)*A_ch+D_ch gives
+normalizedEnergy<=(1-w)*C*Var+D_ch/Z, with both actual signed remainder
+terms and omitted cutoff modes intact. C can deteriorate with coupling
+or family size; useful scaling of the complete debt/rate remains OPEN.
+Three focused checks passed 28 gates within {propext, Quot.sound}; no broad
+run or canonical field change. Evidence: actual-channel addendum in
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 Verified supporting weighted channel monotonicity (2026-10-01 UTC; chart
 unchanged): the actual spectator heat and whole certified shared weight
 give C_p(e)<=C_q(e) under certified positive source order p<=q, with exact
 scaling C_(c*p)(e)=c^2*C_p(e). The existing weighted partial-swap pin is
 now public. All signed channels and heat factors remain; no bare spectator
 mass comparison is assumed. Actual terminal-band/common-spectator and
-SAME-variance joins, plus useful cutoff/remainder scaling control, remain
-OPEN. One focused check passed four gates in {propext, Quot.sound}.
+SAME-variance joins are now supplied above; useful cutoff/remainder
+scaling control remains OPEN. One focused check passed four gates in
+{propext, Quot.sound}.
 Evidence: weighted-channel addendum in
 `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
 

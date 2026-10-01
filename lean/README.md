@@ -12,7 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Actual source first order versus SAME variance (2026-10-01 UTC):**
+**Actual CHANNEL first order without full-width cost (2026-10-01 UTC):**
+`SU2QuaternionPassiveChannelMomentFactorization` supplies one exact common
+mass for the original spectator heat and square-inserted source moment.
+`BF4ExactSlabFixedSpatialFamilyChannelVarianceBound` proves A_ch<=C*Z*Var,
+with C=12*u^2/l^2 depending only on nome/family size, not width/cutoff/depth.
+`FamilyChannelTaylorVariance` gives exact original E=(1-w)*A_ch+D_ch and
+normalizedEnergy<=(1-w)*C*Var+D_ch/Z. Original signed/repeated faces,
+source, mean, partition and omitted cutoff modes remain. The signed debt
+and changing-coupling coefficient still need scaling control. Three focused
+checks passed 28 gates; no broad run or continuum/Clay closure. Evidence:
+actual-channel addendum in `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
+**Actual RAW source first order versus SAME variance (2026-10-01 UTC):**
 `BF4ExactSlabFixedSpatialTerminalSourceBounds` and `FamilyBareHaar` construct
 the actual-source/bare-square inputs. `FamilySourceVarianceBound` proves
 A<=U(w,width)*Z*Var for the whole signed family at positive depth, without

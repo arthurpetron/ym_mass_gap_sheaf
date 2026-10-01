@@ -5033,6 +5033,11 @@ import YMGap.Continuum.SU2QuaternionSourceDefectSignFence
 -- Positive independent spectators do not have an extent-uniform bare/heat
 -- mass comparison. No counterexample to the actual 4D terminal recursion.
 import YMGap.Continuum.SU2QuaternionSpectatorHeatRetentionFence
+-- Actual passive-channel first order against SAME original variance, with
+-- footprint-only bands and exact spectator heat retained. Signed debt OPEN.
+import YMGap.Continuum.SU2QuaternionPassiveChannelMomentFactorization
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelVarianceBound
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelTaylorVariance
 -- Complete original-source local regularity and explicit one-link RAW Haar
 -- spectral tails, then conditional SAME-channel tails with shared active links.
 -- The original-partition floor below retains four-link heat;

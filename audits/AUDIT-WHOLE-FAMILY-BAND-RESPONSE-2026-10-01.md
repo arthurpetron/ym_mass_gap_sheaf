@@ -287,3 +287,118 @@ canonical fields/chart are unchanged; the ASCII chart was not reprinted.
 
 Final log: `/tmp/ym-weighted-channel-mono-20261001.log`.
 SHA-256: `d16f084bb76fcbcd5f3f1b37d312393d47d108d09c810fa39496ecf2d5d7e21b`.
+
+## Addendum: actual channel first order against SAME original variance
+
+The physical application proposed in the preceding addendum is now proved.
+It bounds the CHANNEL first order in the existing original-energy expansion,
+not the old raw Haar first order. No extent-uniform bare/heat spectator
+retention assertion is used or assumed.
+
+### Original objects and common-mass argument
+
+Let N=|baseLinks(width)|, f=spatialSpan(width,c,qs), psi=f minus its ORIGINAL
+odd mean at depth n+1, and q the original projected endpoint source at that
+same positive depth. Let P be familySpectatorBlocks(width,qs), and let R be
+the actual common family spectator at predecessor n, projected over the
+unchanged fringe schedule. Define b_z(a)=familyProject(P,a*z) using the
+unchanged productChannels(N,w,K,P) with weights rho_z. Set
+
+    C_a(e) = sum_z rho_z H[b_z(a)^2*e],
+    M_R = sum_z rho_z H[b_z(R)^2] >= 0,
+    l = localLower(w,4*|qs|), u = localUpper(w,4*|qs|),
+    G = Gamma_full(f,f), e = familyProject(P,G),
+    A_ch = C_q(G).
+
+The actual projected source has constructed l*R<=q<=u*R certificates:
+`projectedFamily_lowerCertificate` and `projectedFamily_upperCertificate`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyChannelVarianceBound.lean:133`
+and `:161`. `projectedFamilySpectator_outside_passive` at `:116` proves the
+independence needed for R; it is not assumed from a footprint diagram.
+
+The generic declarations below are in
+`lean/YMGap/Continuum/SU2QuaternionPassiveChannelMomentFactorization.lean`.
+`spectator_channel_independent` at `:108` proves every b_z(R) is independent
+of EVERY original block. `channelSquare_factor` at `:136` gives
+C_R(e)=M_R*H[e]. `spectator_sourceMoment_factor` at `:214` gives
+sourceMoment_full(R,psi^2)=M_R*H[psi^2]. Its passive-independence premise
+for the insertion is essential. This is ORIGINAL full-heat sourceMoment,
+not a replacement bare-channel variance.
+
+`channelSquare_project_weight` at `:167` proves C_q(G)=C_q(e) by exact
+Fubini. This avoids falsely assuming literal syntactic independence of
+zero-coefficient derivative terms in G. The whole projected SOS certificate
+supplies positivity of e. The existing signed-family bare Haar Casimir pin
+and shift inequality give H[e]=H[G]=12*H[f^2]<=12*H[psi^2], at the actual
+original mean. Weighted source order and exact u^2 scaling therefore yield
+A_ch<=12*u^2*sourceMoment_full(R,psi^2).
+
+For the lower direction, `sourceMoment_square_mono` at `:259` and
+`sourceMoment_smul` at `:241` give
+l^2*sourceMoment_full(R,psi^2)<=sourceMoment_full(q,psi^2)=Z*Var_original.
+Combining the two inequalities cancels NO mass or variance by division:
+
+    l^2*A_ch <= 12*u^2*Z*Var_original.
+
+`family_channel_firstOrder_variance_cleared` at `:198` and
+`family_channel_firstOrder_variance_bound` at `:326` of
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyChannelVarianceBound.lean`
+supply these two final statements. `channelFirstOrderVarianceConstant`
+at `:313` returns the explicit positive coefficient C=12*u^2/l^2 as data,
+dividing only by the constructed positive scalar l^2.
+
+### Actual original-energy consumer and open residue
+
+`familyChannelTaylorDebt`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyChannelTaylorVariance.lean:107`,
+is the signed channel sum of pairRemainder(b_z,b_z*f^2) minus
+pairRemainder(b_z*f,b_z*f), at ORIGINAL w,K and the complete block list.
+`padded_family_channel_energy_taylor` at `:119` proves the exact identity
+E_original=(1-w)*A_ch+D_ch. `padded_family_energy_le_channelVariance` at
+`:167` and `padded_family_normalizedEnergy_le_channelVariance` at `:189`
+give its unnormalized and SAME-positive-partition normalized consumers:
+
+    E_original/Z <= (1-w)*C*Var_original + D_ch/Z.
+
+For the variance comparison, assumptions are 0<w<1, K>=headCutoff(w),
+strict spatial padding, all faces in the smaller slice, and positive depth
+n+1. Coefficients may have either sign; repeated and zero/empty families
+are retained. C depends only on nome and family-list size, not full width,
+late cutoff or positive depth. NO boundedness as w approaches one or family
+size grows is claimed. The signed debt contains actual omitted finite-cutoff
+modes and has neither an asserted favorable sign nor scaling smallness.
+
+NEXT: jointly estimate that debt on a justified physical scaling family.
+The existing Casimir-12 retained-square producer accepts signed channel
+sources and can sharpen it, but signed curvature and cubic/omitted-mode
+errors still require SAME-variance control. Spatial/spacing-uniform decay,
+nontrivial continuum survival, physical mass calibration, full QFT and
+every compact simple group remain OPEN. No canonical chart state changes.
+
+### Verification and review
+
+Three final focused file checks exited zero, with 28 printed gates within
+{propext, Quot.sound}; channelSum_congr uses only propext. No new sorry,
+axiom, Classical dependency, native_decide or noncomputable declaration.
+Independent Sol and Luna read-only reviews confirmed original depth/source,
+the full-heat versus bare distinction, projected insertion, signed/zero
+cases and parameter scope. Only main compiled, serially with one worker,
+20 GiB ceiling, 12 GiB OS reserve and automatic safety telemetry. The latest
+preflight found no competing compiler/runner, 84 percent free memory and
+zero swap. No safety or heartbeat limit was raised; local irreducibility
+prevented needless unfolding. Initial elaboration/syntax errors were repaired
+before the accepted checks. The generic factorization's accepted check
+preceded the resumed physical consumers; its final source is unchanged.
+
+Root imports are registration only; no aggregate/root/tree build, broad
+audit or guard was run. CI remains manual-only. The safe-build skill confined
+verification to the exact changed targets; no unchanged chart was printed.
+
+Accepted logs and SHA-256 values:
+
+- `/tmp/ym-passive-channel-factorization-repaired-20261001.log`:
+  `cbcc091f2b791cfc345b13f567e3d2e38209ded549983f3512f8e1d899619624`.
+- `/tmp/ym-family-channel-variance-final-20261001.log`:
+  `cb42129c98879cdcebd41b352d001eeba2b3f3f0e1b2577109e8495b3deaefa3`.
+- `/tmp/ym-family-channel-taylor-variance-accepted-20261001.log`:
+  `aa559260c13cbefc4384ffaa8beca4be6a518c6e32e6fdd5d02501baa7fa79e5`.

@@ -25,6 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual channel first order meets SAME variance without full-width cost (2026-10-01 UTC)
+
+The revised local-band argument now has supplied physical inputs and a checked
+original-energy consumer. Actual fringe projection preserves l*R<=q<=u*R,
+with l=localLower(w,4*|qs|), u=localUpper(w,4*|qs|) and the SAME projected
+common spectator R. Exact passive-channel factorization gives one common
+nonnegative mass in both the channel angular weight and ORIGINAL full-heat
+centered moment. The lower comparison uses full-heat source order, not a
+replacement bare channel square. Projection of the complete Gamma insertion
+is justified by exact Fubini; zero derivative coefficients require no false
+syntactic-independence premise.
+
+`BF4ExactSlabFixedSpatialFamilyChannelVarianceBound.family_channel_firstOrder_variance_bound`
+proves A_ch<=C*Z*Var at positive depth n+1, with explicit C=12*u^2/l^2.
+This is the actual CHANNEL first order, not the old raw H[q^2*Gamma(f,f)].
+Arbitrary signed coefficients, repeated faces, the original mean and odd
+partition remain. C depends only on nome and family-list size, not full
+width, late cutoff or positive terminal depth. No source mass or variance
+is divided by. `FamilyChannelTaylorVariance.padded_family_channel_energy_taylor`
+then proves EXACT E_original=(1-w)*A_ch+D_ch, with both actual signed
+pairRemainder terms in D_ch. Its normalized consumer is
+E_original/Z<=(1-w)*C*Var+D_ch/Z, without discarding omitted cutoff modes.
+
+Three focused checks passed 28 gates within {propext, Quot.sound}; no broad
+run or canonical field/chart change. Evidence: actual-channel addendum in
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
+NEXT: control the signed channel debt jointly with this first-order estimate
+on a justified physical scaling family. C can deteriorate as w approaches
+one or the family grows. The existing whole-family Casimir/retained-square
+bound applies to signed channel sources and can sharpen D_ch, but its signed
+curvature and cubic/omitted-mode errors still need a variance-relative scale
+estimate. Spatial/spacing-uniform decay, continuum survival, physical mass,
+full same-theory QFT and every compact simple group remain OPEN.
+
 ### Weighted channel monotonicity retains spectator heat (2026-10-01 UTC)
 
 The exact weighted conditional-kernel pin already existed privately in
@@ -41,16 +76,17 @@ in {propext, Quot.sound}; Luna independently reviewed the signed identity,
 whole-weight certificate and parameter scope. Evidence: weighted-channel
 addendum in `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
 
-NEXT: apply the actual terminal local-band certificates after justified
+FOLLOW-ON SUPPLIED ABOVE: apply the actual terminal local-band certificates after justified
 fringe projection; prove the exact selected/passive/common-spectator moment
 pins and the whole-family Gamma/Haar factorization. The intended finite
 consumer is l^2*A_ch<=12*u^2*Z*Var at the SAME original mean, with l,u
 depending only on nome and family footprint. A_ch is the weighted passive
 CHANNEL first-order sum, not the old raw first order A=H[q^2*Gamma(f,f)].
 Use the existing channel Taylor consumer and retain its original signed
-cutoff/remainder debt. That debt still needs useful scale control. No actual
-terminal/variance bound, scaling rate, survival, physical mass, full QFT or
-every-group claim is closed by the generic lemmas; chart unchanged.
+cutoff/remainder debt. The actual terminal/variance join is now proved above;
+that debt still needs useful scale control. The generic lemmas alone close
+no scaling rate, survival, physical mass, full QFT or every-group claim;
+chart unchanged.
 
 ### Spectator heat-retention obstruction and localized next argument (2026-10-01 UTC)
 
@@ -71,15 +107,15 @@ One final focused check passed 25 gates in {propext, Quot.sound}; no broad run.
 Evidence: spectator-retention addendum in
 `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
 
-NEXT physical producer, NOT PROVED: bound the passive
+FOLLOW-ON physical producer, NOW PROVED in the checkpoint above: bound the passive
 weighted channel first-order sum against original Z*Var, keeping spectator
 heat at ORIGINAL w,K. Reuse the ALREADY checked
 `SU2QuaternionProductHeatPassiveChannels.sourceEnergy_projected_channels`;
 do not repackage its decomposition. Its signed channel sources are computed
 from the unchanged full source, and the Taylor consumer must retain actual
 selected cutoff debt. The generic weighted pin and monotonicity are now
-supplied by the checkpoint above; their actual-source/variance join remains
-open. Existing productMap on a subset
+supplied by the earlier checkpoint; their actual-source/variance join is
+supplied by the new actual-channel proof above. Existing productMap on a subset
 integrates missing slots; it is NOT Id_selected tensor P_rest and cannot
 implement this argument by naive subset composition. No arbitrary source
 replacement or newly assumed retention field is a join. The intended

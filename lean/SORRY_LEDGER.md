@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED actual channel first order versus SAME variance (2026-10-01 UTC)
+
+- `SU2QuaternionPassiveChannelMomentFactorization` proves exact common-mass
+  factorization for the ORIGINAL passive heat and full-heat source moment,
+  plus square-inserted source monotonicity. Passive-independence of the
+  insertion is essential for the full-moment factorization; the channel
+  Gamma insertion is instead projected through a proved Fubini equality.
+- `BF4ExactSlabFixedSpatialFamilyChannelVarianceBound` constructs the actual
+  projected spectator and both projected band certificates. It proves
+  l^2*A_ch<=12*u^2*Z*Var, then returns C=12*u^2/l^2 and A_ch<=C*Z*Var.
+  Width, late cutoff and positive depth do not enter C; nome and complete
+  family-list size do. No division by source mass or variance. Original
+  projected terminal, mean, partition, signed/repeated faces remain.
+- `BF4ExactSlabFixedSpatialFamilyChannelTaylorVariance` proves EXACT
+  E_original=(1-w)*A_ch+D_ch and normalizedEnergy<=(1-w)*C*Var+D_ch/Z.
+  D_ch is the computed signed sum of BOTH actual pairRemainder terms,
+  including omitted finite-cutoff modes, not a newly assumed analytic field.
+- OPEN: useful joint debt/rate control on a justified physical scaling
+  family. C need not remain bounded as coupling changes or family grows.
+  Survival, physical mass, full QFT and every group remain OPEN; no sorry,
+  new axiom, canonical field or chart marker is introduced or discharged.
+- Three final focused serialized capped checks passed all 28 gates within
+  {propext, Quot.sound}; no aggregate/root/tree/audit/guard run. Evidence:
+  actual-channel addendum in
+  `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 ## PROVED weighted passive-channel source monotonicity (2026-10-01 UTC)
 
 - The already-proved `SU2QuaternionFamilyHeatGramPositiveWeight.weighted_cross_pin`
@@ -13,8 +39,8 @@
 - NEW `productChannels_familyProject_weighted_square_smul` proves
   C_(c*q)(e)=c^2*C_q(e) for arbitrary rational c, retaining all channel
   weights and the original heat. This supplies the exact local-band scalar.
-- OPEN: actual projected-terminal band, partition/common-spectator moment
-  pins, whole-family Gamma factorization, and SAME original Z*Var join.
+- FOLLOW-ON PROVED above: actual projected-terminal band, partition/common-
+  spectator moment pins, whole-family Gamma factorization, and SAME Z*Var join.
   The channel first order is not the old bare-source first order; the
   existing exact energy/Taylor channel consumer retains cutoff/remainder
   debt. Useful physical scaling of the complete correction remains open,

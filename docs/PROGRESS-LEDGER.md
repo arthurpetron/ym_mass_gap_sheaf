@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Weighted channel order without dropping spectator heat (2026-10-01 UTC)
+## Current increment: Actual channel first order without full-width cost (2026-10-01 UTC)
+
+The revised local-band route now supplies its missing physical producer:
+A_ch<=C(w,|qs|)*Z*Var_original, C=12*u^2/l^2. Exact common-mass
+factorization and ORIGINAL full-heat square-moment order replace the false
+bare-spectator retention inference. The whole projected Gamma weight is
+handled by exact Fubini, retaining arbitrary signed/repeated faces.
+
+The SAME original energy now has exact E=(1-w)*A_ch+D_ch and normalized
+ceiling (1-w)*C*Var+D_ch/Z. This removes full-width cost from the actual
+CHANNEL first order, not the old raw Haar first order. Actual nome, cutoff,
+positive depth, mean, partition and both signed remainder terms remain.
+Useful physical scale control of C and D_ch is still OPEN, as are continuum
+survival, mass, QFT and every group. Three focused checks passed 28 gates;
+no broad run or canonical chart change. Evidence: actual-channel addendum
+in `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
+## Earlier increment: Weighted channel order without dropping spectator heat (2026-10-01 UTC)
 
 `SU2QuaternionFamilyHeatGramPositiveWeight` now proves weighted channel
 source monotonicity from constructed positive polynomial order, and exact
@@ -13,8 +30,8 @@ short new order certificate keeps the SAME original partial-swap heat and
 shared weight, with no absolute-value channel sum or bare spectator norm.
 
 This supplies the generic producer for the revised local-band argument.
-The actual terminal/fringe/common-spectator and SAME-variance joins remain
-open, as does useful scaling control of the retained cutoff/remainder debt.
+The actual terminal/fringe/common-spectator and SAME-variance joins are now
+supplied above; useful scaling control of the cutoff/remainder debt remains open.
 One focused check passed four gates in {propext, Quot.sound}; independent
 review passed. No new assumed analytic field, broad run or canonical chart
 change. Evidence: weighted-channel addendum in
