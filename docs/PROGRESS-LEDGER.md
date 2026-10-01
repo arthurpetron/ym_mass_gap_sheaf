@@ -4,7 +4,30 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Whole signed-family angular cost meets SAME variance (2026-10-01 UTC)
+## Current increment: Complete original signed remainder cancels its source flux (2026-10-01 UTC)
+
+PROGRESS after `0703b83`: exact finite-cutoff Taylor of the original angular
+weight defect cancels the source's quadratic curvature flux. The actual
+depth-n projected endpoint and complete signed family give
+R=h^2/2*(Araw-S)+sourceCubic-sourceOmitted-h*angularPairRemainder, with an
+actual Type-level supported square certificate for S>=0. The exact original
+variance consumer retains the complete-weight Ward correction; the ceiling
+retains -h^2*S/2 and supplies explicit cubic/omitted/angular budgets. No
+source stationarity, sign of the remainder or source-degree cutoff shortcut
+is assumed. Normalization uses ONLY SAME positive oddMass.
+
+This is a new cancellation in the existing complete correction, not another
+analytic input wrapper. It removes the uncancelled source-curvature term,
+but useful JOINT SAME-variance scaling is still open: Araw is q^2-weighted,
+not the preceding q*Pq angular quantity, and the changing-source budgets
+have no supplied useful calibration. Continuum survival, physical mass/time,
+full QFT and all groups remain OPEN. All 24 gates passed two accepted focused
+checks within the constructive gate, with independent mathematical/source/log
+review. No broad build/audit/guard or ASCII reprint. The historical progress-
+metric script invokes a broad guard and was not run. Evidence:
+`audits/AUDIT-COMPLETE-SIGNED-REMAINDER-CANCELLATION-2026-10-01.md`.
+
+## Earlier increment: Whole signed-family angular cost meets SAME variance (2026-10-01 UTC)
 
 PROGRESS after `2d9577d`: local relative Young on the family's actual link
 footprint, exact zero spectator derivatives, the original own-mean square pin

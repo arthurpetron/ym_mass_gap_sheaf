@@ -25,6 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Exact source flux cancellation in the complete signed remainder (2026-10-01 UTC)
+
+PROGRESS after `0703b83`: collect the EXISTING angularWeightDefect into one
+H[q*(Pq-q)*Gamma(f,f)] pairing, with the original depth-n projected endpoint.
+Finite-cutoff Taylor gives defect=-h*Phi+pairRemainder(q,q*Gamma), h=1-w.
+The existing exact source second moment is D2=-2*Phi-S, with constructed
+nonnegative commutator square S. Cancel the two flux terms BEFORE normalization:
+
+    signedRemainder = (h^2/2)*(sourceFirstOrder-S)
+      + sourceCubic-sourceOmitted-h*pairRemainder(q,q*Gamma(f,f)).
+
+The actual whole signed/repeated-family energy identity retains SAME odd
+variance, own mean and COMPLETE-weight Ward correction. The ceiling keeps
+-h^2*S/2 and pays sourceErrorBudget+h^3*pairBudget(q,q*Gamma), with explicit
+computed max of the existing score and quadratic cutoff onsets. The preceding
+marginal angular producer consumes this reduced correction without replacing
+the actual law or assuming smallness. Raw sourceFirstOrder is under q^2, NOT
+the previously bounded q*Pq marginal angular cost.
+
+Two accepted focused checks passed all 24 gates: one empty, one {propext},
+twenty-two {propext,Quot.sound}. Independent mathematical/source/log reviews
+passed. One monitored 20 GiB worker, unchanged 12 GiB OS reserve, zero final
+swap; no full-root/tree build, broad audit, guard, raised limit or CI change.
+Root imports are registered only. Evidence:
+`audits/AUDIT-COMPLETE-SIGNED-REMAINDER-CANCELLATION-2026-10-01.md`.
+
+NEXT: exploit the retained square while comparing the JOINT original raw
+angular cost and signed angular/cubic/omitted debts, with the complete Ward
+correction where used, to SAME interacting variance on a justified changing-
+coupling/spatial/spacing family. Neither the changing-source leaf budgets nor
+the marginal score coefficient has useful near-one calibration. Do not claim
+uniform O(h^2) from the displayed prefactors or substitute q^2 for q*Pq.
+Nontrivial continuum survival, physical mass/time, full continuum OS/QFT,
+field/UV identification and every group remain OPEN. No displayed claim changes;
+no ASCII reprint. The previous user-requested status report was read-only.
+
 ### Complete original signed-family angular cost versus SAME variance (2026-10-01 UTC)
 
 PROGRESS after `2d9577d`: the local coefficient-square cap deficits need not

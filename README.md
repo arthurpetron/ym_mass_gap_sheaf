@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Exact cancellation in the complete signed remainder (2026-10-01):**
+on the ORIGINAL projected endpoint source, the quadratic source-curvature
+flux cancels against the angular change-of-weight correction before estimates.
+The remainder is now `h^2/2*(A-S)+cubic-cutoff-h*angularPairRemainder`, where
+S is a constructed nonnegative commutator square and A is raw source-square
+angular cost. Its actual signed-family consumers retain the SAME mean, variance
+and partition. All 24 focused gates and independent reviews passed.
+The changing-source debts and useful variance-relative scaling remain OPEN;
+this does not establish a physical mass gap. See the
+[proof and remaining input](audits/AUDIT-COMPLETE-SIGNED-REMAINDER-CANCELLATION-2026-10-01.md).
+
 **Complete signed-family angular/SAME-variance bound (2026-10-01):**
 local score certificates and the actual Casimir identity now prove
 `Angular(F) <= (24+6*|J|*C(w)^2)*Var_odd(F)` after original normalization,

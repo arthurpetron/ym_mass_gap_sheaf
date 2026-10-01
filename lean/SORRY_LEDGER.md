@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## PROVED complete original signed remainder source flux cancellation (2026-10-01 UTC)
+
+- `SU2QuaternionCompleteRemainderCancellation.angularWeightChange_taylor`
+  proves defect=-h*Phi+pairRemainder(q,q*Gamma) at the actual finite cutoff.
+  `completeRemainder_cancellation` cancels that flux against D2=-2*Phi-S,
+  leaving h^2/2*(sourceFirstOrder-S)+sourceCubic-sourceOmitted-h*pairRemainder.
+  `squareMassCertificate` constructs actual supported square data and
+  `squareMass_nonnegative` certifies S>=0 without source/observable positivity.
+  `completeRemainder_le_retained` preserves the negative square and pays explicit
+  cubic/omitted/angular pair budgets; no scaling smallness is asserted.
+- `BF4ExactSlabFixedSpatialRemainderCancellation.angularWeightDefect_generic`
+  collects the original finite sum. `signedRemainder_cancellation` uses the
+  ORIGINAL depth-n projected source. `normalizedRemainder_cancellation` and
+  `varianceRemainder_cancellation` retain SAME positive Z, own mean/variance and
+  complete-weight Ward correction. `padded_family_energy_cancellation` gives
+  the exact original signed/repeated-family energy identity.
+- `cancellationCutoff` computes the joined existing onsets.
+  `normalizedRemainder_le_retained` and `padded_family_energy_le_cancelled`
+  provide the concrete ceiling and its previous angular/SAME-variance consumer.
+- All 24 gates passed two accepted focused checks: one empty, one {propext},
+  twenty-two {propext,Quot.sound}. Independent mathematical/source/log review
+  passed. No new sorry, axiom, Classical, native_decide, noncomputable declaration,
+  analytic field or weakened frontier. One monitored 20 GiB worker and unchanged
+  12 GiB OS reserve; zero final swap. No broad build/audit/guard or CI change.
+  Root imports registered, not aggregate-checked. Evidence:
+  `audits/AUDIT-COMPLETE-SIGNED-REMAINDER-CANCELLATION-2026-10-01.md`.
+- OPEN: useful JOINT signed energy/SAME-variance scaling. Raw sourceFirstOrder
+  is q^2-weighted, NOT the bounded original marginal angular cost. Its changing-
+  source comparison, cubic/omitted/angular debts and useful score calibration
+  remain unproved. Survival, physical mass/time, full same-theory continuum
+  OS/QFT, field/UV identification, all groups and the Clay target remain OPEN.
+
 ## PROVED complete original signed-family angular/SAME-variance bound (2026-10-01 UTC)
 
 - `QuaternionHaarLocalRelativeWard.block_residual_lower` and

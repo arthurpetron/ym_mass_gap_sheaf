@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Complete original signed remainder cancellation (2026-10-01 UTC):**
+`SU2QuaternionCompleteRemainderCancellation` proves exact cancellation of the
+quadratic source-curvature flux against the angular-weight Taylor coefficient,
+constructs the retained commutator square certificate, and keeps signed cubic,
+omitted-mode and angular-pair debt. `BF4ExactSlabFixedSpatialRemainderCancellation`
+pins it to the ORIGINAL depth-n projected endpoint, SAME oddMass, mean and
+variance, with arbitrary signed/repeated-family identity and ceiling consumers.
+Twenty-four gates passed two accepted focused checks within the constructive
+gate, with independent reviews. No new analytic premise or full-root build.
+Useful complete signed scaling, survival, physical mass, continuum QFT and all
+groups remain OPEN. Evidence:
+`audits/AUDIT-COMPLETE-SIGNED-REMAINDER-CANCELLATION-2026-10-01.md`.
+
 **Complete signed-family angular/SAME-variance producer (2026-10-01 UTC):**
 `QuaternionHaarLocalRelativeWard` pays the actual signed weight derivative
 with the same centered square and angular square on each original block.

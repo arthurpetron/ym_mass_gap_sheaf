@@ -4991,6 +4991,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyLocalAngular
 import YMGap.Continuum.QuaternionHaarLocalRelativeWard
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyFootprint
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyRelativeWard
+-- Complete original signed remainder cancels its quadratic source-curvature flux.
+-- The retained square and explicit changing-source/cutoff budgets are not scaling closure.
+import YMGap.Continuum.SU2QuaternionCompleteRemainderCancellation
+import YMGap.Continuum.BF4ExactSlabFixedSpatialRemainderCancellation
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.
 import YMGap.Continuum.SU2HeatQuarticBudgetFloor
 -- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.

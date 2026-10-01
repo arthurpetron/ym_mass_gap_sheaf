@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting COMPLETE original signed remainder cancellation
+(2026-10-01 UTC; chart unchanged): the quadratic source-curvature flux cancels
+against the actual angular-weight defect before estimates or normalization.
+The ORIGINAL depth-n source gives R=h^2/2*(Araw-S)+cubic-cutoff-h*angularPairR,
+with constructed nonnegative square S. Signed/repeated-family consumers keep
+SAME mean, variance, oddMass and complete Ward correction. The ceiling retains
+the negative square and explicit source-dependent budgets. Twenty-four gates
+passed two accepted focused checks and independent review. Araw uses q^2, not
+the bounded q*Pq marginal angular cost; changing-source debts and useful JOINT
+scaling remain OPEN. Survival, physical mass/time, full continuum QFT and every
+group remain OPEN. No displayed claim changed; no ASCII reprint. Evidence:
+`audits/AUDIT-COMPLETE-SIGNED-REMAINDER-CANCELLATION-2026-10-01.md`.
+
 Verified supporting COMPLETE signed-family angular/SAME-variance producer
 (2026-10-01 UTC; chart unchanged): actual marginal score certificates only
 on the family's literal deduplicated link footprint give
