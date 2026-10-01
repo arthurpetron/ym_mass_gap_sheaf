@@ -12,15 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original physical quotient limit and full pairing (2026-10-01 UTC):**
+**Original physical quotient limit and complex linearity (2026-10-01 UTC):**
 `ScaledCayleyLimitMap.limitMap` acts on EVERY original complex physical
 class, with representative independence proved before Quotient.lift2.
 `ScaledCayleyLimitPairing.limitMap_pairing_preserved` retains the FULL
 Hermitian real sum and imaginary difference through constructed limits;
 exact squared-distance isometry and injectivity follow without surjectivity.
-Thirteen focused gates and independent reviews passed. Complex linearity,
-inverse/group/continuity and physical-time laws remain OPEN. Evidence:
-quotient-map addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+Full pairing and physical definiteness now prove `limitMap_add` and
+`limitMap_smul`, retaining both supplied scalar moduli without an onto premise.
+The two new focused gates and independent reviews passed; inverse/group/
+continuity and physical-time laws remain OPEN. Evidence: complex-linearity
+addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
 **Parallel product-limit extension to every supplied physical Rows (2026-10-01 UTC):**
 `ScaledCayleyAllRowsLimit.productLimitCertificate` constructs original

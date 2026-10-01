@@ -1,5 +1,21 @@
 # Sorry Ledger
 
+## PROVED complex linearity of the original quotient Cayley limit only (2026-10-01 UTC)
+
+- `ScaledCayleyLimitLinear.limitMap_add` and `limitMap_smul` concern the
+  ACTUAL original-carrier product limit. Full Hermitian pairing and physical
+  positive definiteness give zero difference norm, with no onto assumption.
+- Complex scalars retain BOTH supplied QCauchy witnesses; no scalar-continuity
+  premise, representative selection, new analytic field, sorry, axiom or
+  frontier weakening was introduced.
+- Two focused gates and independent mathematical/source/log reviews passed
+  within {propext,Quot.sound}. Evidence: complex-linearity addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: actual inverse/surjectivity, group/continuity and SAME-transfer
+  physical-time/logarithm calibration; useful signed scaling, changing-family
+  survival, finite positive physical mass, full continuum QFT and every group.
+- One root import added; full root/tree/build/audit/guard NOT run.
+
 ## PROVED original quotient Cayley limit and full pairing only (2026-10-01 UTC)
 
 - `ScaledCayleyLimitMap.rows_limit_unique` and `productLimit_unique` retain

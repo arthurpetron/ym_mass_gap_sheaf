@@ -25,7 +25,7 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Actual physical quotient limit and full pairing (2026-10-01 UTC)
+### Actual physical quotient limit and complex linearity (2026-10-01 UTC)
 
 PROGRESS after `b22e523`: `ScaledCayleyLimitMap.rows_limit_unique` transports
 the SAME represented completion's uniqueness. Equal input Rows have identical
@@ -44,10 +44,17 @@ Thirteen focused gates passed within {propext,Quot.sound}; independent
 reviews passed. Evidence: quotient-map addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
-NEXT algebraic consumer: derive complex linearity from full pairing and
-definiteness, avoiding an unnecessary new scalar-continuity construction.
-A parallel Sol agent owns that proof; it is unverified at this checkpoint.
-Inverse/surjectivity, group/continuity and SAME-transfer physical-time/
+The parallel `ScaledCayleyLimitLinear` proof now derives `limitMap_add`
+and `limitMap_smul` from full pairing and physical definiteness, without
+surjectivity or a new scalar-continuity construction. Both original scalar
+QCauchy witnesses remain supplied. Its two focused gates and independent
+mathematical/source/log reviews passed within {propext,Quot.sound}.
+
+NEXT algebraic consumer: actual inverse/onto for this SAME map, using
+componentwise physical conjugation and the already constructed finite
+Cayley inverse. A Sol agent owns that bounded prerequisite; it is not yet
+verified at this checkpoint. Inverse/surjectivity, group/continuity and
+SAME-transfer physical-time/
 logarithm calibration remain OPEN. PRIMARY complete signed scaling,
 changing-family survival, finite positive physical mass, full continuum QFT,
 every group and Clay remain OPEN. No displayed chart change or broad

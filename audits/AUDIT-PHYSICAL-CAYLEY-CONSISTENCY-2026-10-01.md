@@ -5,8 +5,9 @@ have checked linked-domain errors, explicit squared ceilings, constructed
 graph-preserving witnesses and parameter commutation. The latest addendum
 constructs their dyadic-product limit first on the represented second core,
 then for EVERY supplied original Rows with a computed modulus. The latest
-quotient-map addendum constructs a pairing-preserving injective map on every
-original physical class. Nome and width remain fixed; no
+quotient-map and linearity addenda construct a complex-linear,
+pairing-preserving injective map on every original physical class.
+Nome and width remain fixed; no
 physical-time group, calibrated Hamiltonian or continuum gap is claimed.
 
 ## Exact error and quantitative consumer
@@ -426,8 +427,9 @@ construct. One serialized 20-GiB worker and 12-GiB OS reserve were retained;
 capacity analysis found no competing build or swap. Two root imports were
 added, but no full-root/tree/build/audit/guard ran. CI is unchanged.
 
-NEXT is complex linearity from full pairing and positive definiteness, then
-an actual inverse and group/continuity laws. A pairing-preserving injective
+At the quotient-map checkpoint, NEXT was complex linearity from full pairing
+and positive definiteness; the next addendum proves it. An actual inverse
+and group/continuity laws remain open. A pairing-preserving injective
 map is not yet declared unitary. The original derivative/transfer relation
 is written in `time_stateQuotient:51` and
 `derivative_equation_of_quotient_limit:61`, at
@@ -440,3 +442,31 @@ is supplied here. Nome and width stay fixed. Useful complete signed scaling,
 continuum survival, finite positive physical mass, full continuum QFT,
 every actual compact group and Clay remain OPEN. No canonical displayed
 claim changed, so no ASCII chart was reprinted.
+
+## Complex linearity on the original physical carrier
+
+The actual quotient limit is now complex-linear. In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyLimitLinear.lean`,
+`limitMap_add:155` and `limitMap_smul:163` consume the checked full Hermitian
+identity and the ORIGINAL physical positive-definiteness law. The proof
+compares the mapped sum/scalar multiple with the sum/scalar multiple of the
+mapped inputs. Their norm and cross-pairing identities make their physical
+squared distance zero. It requires neither surjectivity nor a new
+scalar-continuity estimate; both supplied scalar QCauchy witnesses remain.
+
+The first focused monitored check passed and emitted the target `.olean`.
+Accepted log: `/tmp/ym-scaled-cayley-limit-linear-first-20261001.log`, SHA256
+`4f3415757a7951f2e3878f348a3b57425d48387dd663b0fed72f856a48846f7e`.
+Both source-site gates report {propext,Quot.sound}; independent mathematical
+and source/log/hash reviews passed. Targeted source scans found no forbidden
+construct. One serialized 20-GiB worker and 12-GiB OS reserve were retained;
+no competing compiler or swap was found. One semantic-root import was added,
+but no full-root/tree/build/audit/guard ran. CI is unchanged.
+
+NEXT is an actual inverse of this SAME map, followed by group/continuity laws.
+The finite Cayley inverse supplies an algebraic starting point; inverse-limit
+closure is not asserted here. Physical-time/logarithm identification and the
+changing-scale continuum construction are still separate OPEN obligations.
+This proof fixes nome and width. Complete signed scaling, continuum survival,
+finite positive physical mass, full continuum QFT, every actual compact group
+and Clay remain OPEN. No displayed chart claim changed and no ASCII reprint.

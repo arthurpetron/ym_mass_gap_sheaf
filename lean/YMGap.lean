@@ -6136,6 +6136,7 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyAllRowsLimit
 -- Actual choice-free pairing-preserving quotient limit map; time laws remain open.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitMap
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitPairing
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitLinear
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.
