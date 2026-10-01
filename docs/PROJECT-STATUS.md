@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting exact spectator cost comparison (2026-10-01 UTC; chart
+unchanged): for ONE actual plaquette C_ch<=C_original, with signed heat
+coefficients retained. The original terminal energy satisfies
+4*E+sum_c rho_c*J_c^2<=2*C_ch, and D_original-D_ch=2*(C_original-C_ch).
+No quantitative response fraction, whole-family cross-term estimate or
+physical scaling rate is supplied. Two focused checks passed 11 gates
+exactly in {propext, Quot.sound}; no broad run. Evidence:
+`audits/AUDIT-PASSIVE-EXACT-YOUNG-COST-2026-10-01.md`.
+
 Verified supporting original source norm and variance join (2026-10-01 UTC;
 chart unchanged): the complete signed family's symmetric test norm is now
 S=D+8*(1+w^12)*Z*Var_odd-8*delta, with the actual marginal center and

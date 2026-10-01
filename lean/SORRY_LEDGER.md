@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED exact spectator cost contraction and retained responses (2026-10-01 UTC)
+
+- `BF4ExactSlabFixedSpatialChannelYoungCostComparison.channelYoungCost_le_raw`
+  proves C_ch<=C_original for ONE face and arbitrary supported q. The
+  sign-changing coefficient alpha=1+w^32-2*w^12 is retained: its negative
+  branch uses gamma=5-8*w^12+3*w^32>=0 and the geometric gap contraction.
+  `channelSingleEndedCost_le_original` pins the actual heat costs at K>=2.
+- `BF4ExactSlabFixedSpatialPassiveSourceCancellation.padded_terminal_channel_young_identity`
+  proves 4*E_original+D_ch=2*C_ch with the COMPLETE terminal source.
+  `padded_terminal_passive_retained_square` proves
+  4*E_original+sum_c rho_c*J_c^2<=2*C_ch. The channel responses are computed
+  from the integrated sources, not relabeled as interacting means.
+- `padded_terminal_increment_difference` proves
+  D_original-D_ch=2*(C_original-C_ch); the channel increment contracts,
+  rather than being falsely identified with the original one.
+- OPEN: actual quantitative response/cost cancellation versus SAME variance
+  on a justified physical family. No strict gain, signed-family cross-term
+  estimate, scaling survival, uniform physical gap, QFT/every-group closure.
+- Two final focused checks passed 11 gates exactly in {propext, Quot.sound}.
+  No sorry, canonical field/chart change or broad run. Evidence:
+  `audits/AUDIT-PASSIVE-EXACT-YOUNG-COST-2026-10-01.md`.
+
 ## PROVED original source test norm against SAME variance (2026-10-01 UTC)
 
 - `SU2QuaternionProductHeatSumNorm.sumTest_norm_pin` reduces the actual

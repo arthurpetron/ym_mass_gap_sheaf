@@ -694,6 +694,27 @@ tests, or control the complete difference; local channel estimates alone
 do not remove it. A single-face four-link reduction cannot omit the active
 links in whole-family cross terms. Do not rebuild the channel decomposition
 or add another equivalent conditional survival wrapper.
+FOLLOW-ON PROVED SPECTATOR COST COMPARISON: `ChannelYoungCostComparison`
+(full prefix `BF4ExactSlabFixedSpatial`) proves C_ch<=C_original for ONE
+literal face and arbitrary supported source. Keep alpha=1+w^32-2*w^12:
+if it is nonnegative, contract mass and face square; otherwise use
+gamma*A+(-alpha)*(4*A-F), gamma=5-8*w^12+3*w^32>=0, and contract the
+mass and literal geometric gap. No absolute-value majorant is substituted.
+`PassiveSourceCancellation.padded_terminal_passive_retained_square`
+proves 4*E_original+sum_c rho_c*J_c^2<=2*C_ch for the complete actual
+terminal source. `padded_terminal_increment_difference` pins
+D_original-D_ch=2*(C_original-C_ch), and its increment contraction is
+checked. This is a smaller exact cost with internally consistent channel
+responses, not an identification of new responses/increments with old ones.
+Two final focused checks passed 11 gates exactly in {propext, Quot.sound};
+no broad run or canonical change. Evidence:
+`audits/AUDIT-PASSIVE-EXACT-YOUNG-COST-2026-10-01.md`.
+NEXT REMAINS ANALYTIC: obtain a useful response/cost cancellation versus
+the SAME interacting variance on a justified physical source family, or
+bound the whole-family Ward/Taylor correction. One-face cost contraction
+does not control signed-family cross terms, supply nonzero responses or
+give a physical scaling rate. Do not compose it facewise to assert any
+of those missing conclusions.
 SOURCE REVIEW CORRECTION: terminal recursion gives no actual q^2 radial
 concentration. The exact free-leaf insertion rule applies to inactive faces,
 not this padded active plaquette. The available odd-law variance floor is

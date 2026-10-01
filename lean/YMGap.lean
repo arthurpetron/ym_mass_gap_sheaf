@@ -4987,6 +4987,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoungGeometricBudget
 -- Spectator heat retained: original energy, SAME four-link moments, and a no-larger geometric budget.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelActiveMoments
 import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelGeometricContraction
+-- Exact ONE-face spectator cost contraction, with SAME original energy
+-- and computed channel response squares. No signed-family/scaling closure.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelYoungCostComparison
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveSourceCancellation
 -- Complete original-source local regularity and explicit one-link RAW Haar
 -- spectral tails, then conditional SAME-channel tails with shared active links.
 -- The original-partition floor below retains four-link heat;
