@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED two-sided original fixed-source step and moment limits (2026-10-01 UTC)
+
+- `SU2QuaternionProductHeatSourceSlope.sourceEnergy_ge_firstOrder_sub_quadratic`
+  retains both signed original remainder budgets in a lower estimate.
+  `sourceEnergy_slope_interval` and `slopeCertificate` return explicit
+  source-dependent small-step control h*(A-e)<=E<=h*(A+e), h=1-w,
+  for EVERY actual cutoff K>=sufficientCutoff(w). A is the source-squared
+  angular cost, not interacting variance. No norm or variance is inverted.
+- `SU2QuaternionProductHeatSourceMomentLimit.sourceMoment_endpoint_interval`
+  preserves the exact original moment H[(a*p)*P(a)] and its zero-step
+  endpoint H[(a*p)*a]. `momentCertificate` computes its nome-to-one radius
+  for signed insertions from 1+abs(pairCasimir)+abs(pairBudget).
+- OPEN: useful bounds for the CHANGING actual terminal/channel sources,
+  their complete signed energy versus SAME variance, spatial/spacing control,
+  nontrivial continuum survival, physical mass, full QFT and every group.
+  No uniform source-family radius or canonical field closure is asserted.
+- Two focused serialized checks passed 13 gates in {propext, Quot.sound};
+  Luna source reviews passed. No new sorry/axiom, Classical, native_decide,
+  noncomputable declaration, broad run or canonical chart change. Evidence:
+  fixed-source addendum in
+  `audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 ## PROVED sharp complex mixed original bond decay (2026-10-01 UTC)
 
 - `RationalOrthogonalPairBessel.orthogonal_pair_bessel` proves the sharp

@@ -125,3 +125,74 @@ Final logs under `/tmp/`, with SHA-256:
   `ae9fb6efe9f5f502c34adfc62f83481879d4f0b47402319e46397f3500b1deb7`.
 - `ym-family-joint-correction-accepted-20261001.log`:
   `740034386772b96df5342bfa25d967afb9b0bfc92cc7ac882147bc10a500a4a9`.
+
+## Addendum: two-sided fixed-source heat-step and moment limits
+
+The actual fixed-source zero-step calculations now have quantitative joins
+to the ORIGINAL finite-cutoff energy and moments. These are constructed
+moduli, not new assumed analytic fields. They do not control a changing
+terminal source along a physical scaling trajectory.
+
+### Original energy slope
+
+The declarations below are in
+`lean/YMGap/Continuum/SU2QuaternionProductHeatSourceSlope.lean`.
+`sourceEnergy_ge_firstOrder_sub_quadratic` at line 36 supplies the lower
+companion to the existing upper Taylor estimate, retaining BOTH signed
+pair-remainder bounds. `slopeCap` at line 65 computes
+
+    cap = 1 + abs(sourceTaylorBudget(tail,a,f)),
+    radius = e / cap,  h = 1-w,
+    h*(A-e) <= E_original <= h*(A+e).
+
+`sourceEnergy_slope_interval` at line 98 proves the interval whenever
+0<=w<1, h<=radius and K>=sufficientCutoff(w). Here A is exactly the
+existing weightedAngularEnergy(tail,a,f), and E_original is the full
+List.range(tail+1) original product-heat energy of the SAME supported
+source and observable. `slopeRadius` at line 80 and `slopeCertificate`
+at line 145 return the positive radius and the all-guarded-cutoff proof
+as Type-level data. Neither h nor a variance is inverted in the inequality.
+
+### Original signed moment endpoint
+
+The declarations below are in
+`lean/YMGap/Continuum/SU2QuaternionProductHeatSourceMomentLimit.lean`.
+`zeroStepMoment` at line 31 is H[(a*p)*a], not a replacement positive-step
+interacting variance. `momentCap` at line 35 computes
+
+    cap = 1 + abs(pairCasimir(tail,a,a*p)) + abs(pairBudget(tail,a,a*p)).
+
+`sourceMoment_endpoint_interval` at line 64 proves
+M0-h*cap<=H[(a*p)*P(a)]<=M0+h*cap for 0<=w<1 and EVERY
+K>=sufficientCutoff(w). The h^2<=h reduction explicitly uses w>=0.
+`momentRadius` at line 44 and `momentCertificate` at line 124 return
+e/cap and its two-sided e-precision bound. The insertion p may be signed;
+only a has a supported-source premise. The actual cutoff and heat operator
+are retained throughout.
+
+### Consumer, scope and verification
+
+These certificates allow a concrete FIXED-source Haar/Ward endpoint
+calculation to be tested at genuine positive heat steps. The source is
+fixed BEFORE w varies. Applying the theorem separately to parameter-dependent
+terminal sources does not produce a common radius. The required useful
+SAME-interacting-variance bound for the actual terminal/channel source on a
+justified physical family remains OPEN, as do scaling survival, physical
+mass, full continuum QFT and every compact simple group.
+
+Both final focused checks exited zero, with 13 printed gates within
+{propext, Quot.sound}. Independent read-only reviews checked the signs,
+cutoff quantifiers, signed insertion and returned witness scope. No new
+sorry, axiom, Classical dependency, native_decide or noncomputable
+declaration. One unused-binder warning in slopeCertificate is harmless.
+Only main compiled with the monitored one-worker 20 GiB ceiling and 12 GiB
+OS reserve. The safe-build skill confined verification to the exact targets.
+No aggregate/root/tree build, broad audit or guard ran; CI stays manual-only.
+No canonical chart marker changed, so no chart was reprinted.
+
+Accepted logs and SHA-256:
+
+- `/tmp/ym-source-slope-first-20261001.log`:
+  `4aa12a9f0e66c67c3080cf12d8bdfb893d1d3e1e2cd1e76791d8ae95f1237fa3`.
+- `/tmp/ym-source-moment-limit-accepted-20261001.log`:
+  `52532fc6f2ac2b3851856fd3e0616e57a91f581f401fc79e9aa7dc49dd2b7149`.

@@ -25,6 +25,35 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Two-sided original fixed-source heat-step and moment limits (2026-10-01 UTC)
+
+`SU2QuaternionProductHeatSourceSlope` now supplies the lower companion to
+the existing actual-energy Taylor ceiling. Its computed certificate gives
+h*(A-e)<=E_original<=h*(A+e), h=1-w, at every h below the explicit radius
+e/(1+abs(sourceTaylorBudget)), for EVERY K>=sufficientCutoff(w).
+A is the ACTUAL source-squared angular energy. All source dependence and
+both signed remainder budgets remain; no variance is inverted or replaced.
+
+`SU2QuaternionProductHeatSourceMomentLimit` also returns an explicit radius
+for EVERY signed insertion p, bounding original H[(a*p)*P(a)] within e of
+H[(a*p)*a]. Its cap is 1+abs(pairCasimir)+abs(pairBudget), computed from
+the SAME fixed source. This constructs the previously unavailable quantitative
+join from a zero-step source calculation to actual positive-step moments.
+Two focused checks passed 13 gates within {propext, Quot.sound}; independent
+read-only reviews passed. No broad run or canonical chart change. Evidence:
+fixed-source addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+These are fixed-source nome-to-one limits, NOT thermodynamic or physical
+continuum limits. The source is fixed BEFORE the nome varies. The actual
+terminal/channel source varies with nome, cutoff and depth; applying these
+certificates at each parameter does not yield a uniform family radius.
+The next mathematical test is the exact concentrated-source Ward family:
+does positivity alone give a bounded angular-cost/SAME-variance coefficient?
+Its endpoint producer and actual finite-step join must be checked before
+claiming an obstruction. The PRIMARY actual-terminal signed scaling bound,
+physical survival, calibration, QFT and every-group construction remain OPEN.
+
 ### Sharp complex mixed decay on the SAME physical carrier (2026-10-01 UTC)
 
 The missing sharp inequality is now proved on the literal original form.

@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Sharp complex mixed decay on the original carrier (2026-10-01 UTC)
+## Current increment: Construct original fixed-source heat-step limits (2026-10-01 UTC)
+
+The actual energy now has a checked lower Taylor companion and a computed
+two-sided slope radius. Original fixed-source moments have a separate
+computed radius toward their q-squared zero-step Haar endpoints, retaining
+signed insertions and the actual cutoff guard. This supplies quantitative
+producers for testing whether proposed source estimates survive weak steps;
+neither radius is uniform for changing terminal sources.
+
+The primary SAME interacting variance/scaling estimate remains OPEN.
+An exact concentrated-source Ward test is under construction, not yet a
+checked obstruction. Two focused checks passed 13 gates within the
+constructive gate; independent reviews passed. No broad run or canonical
+chart change. Evidence: fixed-source addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+## Earlier increment: Sharp complex mixed decay on the original carrier (2026-10-01 UTC)
 
 An actual rational phase-vector argument now proves sharp complex
 Cauchy--Schwarz on the literal all-nome reflected Wilson form. All eight

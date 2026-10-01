@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting original fixed-source step/moment limits (2026-10-01
+UTC; chart unchanged): explicit source-dependent radii give two-sided
+E/h control around the actual angular coefficient, and original signed
+H[(a*p)*P(a)] control around H[(a*p)*a]. The ACTUAL sufficient-cutoff
+guard remains. These are nome-to-one estimates for a FIXED source, not
+uniform limits for changing terminal/channel sources. Signed scaling,
+survival, physical mass, QFT and all groups remain OPEN. Two focused
+checks passed 13 gates; no broad run. Evidence: fixed-source addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 Verified supporting sharp complex mixed bond decay (2026-10-01 UTC;
 chart unchanged): the actual finite reflected Wilson form now has a
 constant-one complex Cauchy--Schwarz proof, transported through all eight

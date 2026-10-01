@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original fixed-source heat-step limits (2026-10-01 UTC):**
+`SU2QuaternionProductHeatSourceSlope.slopeCertificate` returns a positive
+radius for h*(A-e)<=E_original<=h*(A+e), with h=1-w and the actual angular
+coefficient A. `ProductHeatSourceMomentLimit.momentCertificate` returns a
+radius for signed original moments H[(a*p)*P(a)] around H[(a*p)*a]. Both
+retain EVERY K>=sufficientCutoff(w); their caps are computed from the fixed
+source and insertion. Two focused checks passed 13 axiom gates. No uniform
+changing-terminal-source, thermodynamic or physical continuum claim follows.
+Evidence: fixed-source addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 **Complex physical bond completion and time (2026-10-01 UTC):**
 `BF4WilsonAllNomeComplexBondOSCompletion` constructs the two-way isometry
 from paired ORIGINAL physical bond Cauchy classes to the existing complex

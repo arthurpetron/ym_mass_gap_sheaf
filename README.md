@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Fixed-source heat-step limits (2026-10-01):** computed positive radii now
+control both the original energy's first-order slope and original signed
+source moments as the heat step tends to zero, at every cutoff above the
+actual guard. The source is fixed before coupling varies: these are not
+uniform estimates for changing terminal messages or continuum limits. See
+the [construction and scope](audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md#addendum-two-sided-fixed-source-heat-step-and-moment-limits).
+
 **Complex physical bond reconstruction (2026-10-01):** the original bond-source
 completion is now identified isometrically with the existing complex time
 sector. Its Hermitian form retains all four original reflected pairings.
