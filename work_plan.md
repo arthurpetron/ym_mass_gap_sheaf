@@ -25,6 +25,44 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual imaginary shifts and unitary Cayley on physical classes (2026-10-01 UTC)
+
+PROGRESS after `f0e468a`: that checkpoint is pushed to main, and its real
+denominator inverse now supplies an actual structural consumer.
+`BF4WilsonAllNomeComplexBondOSImaginaryShifts` proves output(Dom x)=(I-R)x,
+RJ=JR and the needed original rational linearity. Explicit original paired
+domain classes give preimages of input+i output and input-i output on EVERY
+existing complex physical bond class. No inverse or analytic field is assumed.
+
+`BF4WilsonAllNomeComplexBondOSCayley` uses actual Hermitian graph symmetry
+to cancel ALL cross terms. Physical pairing faithfulness and opposite-shift
+surjectivity identify each preimage uniquely; their component averages recover
+the original graph inputs. The literal (I-iA)(I+iA)^(-1) now has BOTH inverse
+laws, FULL complex pairing preservation and original complex linearity,
+retaining both supplied scalar QCauchy witnesses. This is a genuine unitary
+operator, not another conditional frontier interface.
+
+Twenty-five gates passed two final focused checks, each exactly
+{propext, Quot.sound}; independent mathematics and source/log reviews passed.
+The final Cayley check takes 4.2 seconds with default heartbeats after opaque
+scalar cancellation replaced dependent-expression reduction. One 20 GiB worker,
+12 GiB OS reserve, dynamic telemetry, 84 percent pressure-free memory and zero
+swap; no hardware limits raised. No full root/tree build/audit, guard or CI
+change. Root imports are registered, not checked in aggregate. Evidence:
+`audits/AUDIT-PHYSICAL-BOND-CAYLEY-2026-10-01.md`.
+
+NEXT remains the PRIMARY source-aware signed scaling estimate. Parallel review
+found no near-one response producer in current positivity/source-order/channel
+APIs. Target increments of the actual signed centered family under the edge
+law K_w(x,y)q(x)q(y), q=V_w*T_w^(n+1)1, relative to SAME Z*oddVariance on a
+justified changing-coupling/spatial/spacing family. The fixed family band and
+output smoothing do not prove that estimate. This unitary operator is not a
+continuous unitary time group, physical-time calibration or continuum Hamiltonian.
+Do not extend operator scaffolding without its next actual consumer. Scaling,
+continuum survival, physical mass, full continuum OS/QFT, field/UV identification
+and every compact simple group remain OPEN. Displayed chart claims are unchanged;
+no ASCII reprint.
+
 ### Actual physical resolvent denominator constructed (2026-10-01 UTC)
 
 PROGRESS after `9554f18`: the source-aware scaling review found no valid
@@ -57,12 +95,14 @@ Root imports are registered, not checked in aggregate; CI remains manual-only.
 Evidence: denominator addendum in
 `audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
 
-NEXT structural consumer: componentwise complexification of the constructed
+The subsequent structural consumer, now supplied above, is componentwise
+complexification of the constructed
 real denominator inverse gives imaginary-shift preimages for the EXISTING
 complex physical derivative graph, then full Hermitian symmetry supplies a
-unitary Cayley map. No current Cayley declaration consumes the new inverse;
-that actual SAME-carrier theorem is the next implementation, not a assumed
-frontier field. This will not identify a continuum Hamiltonian or solve the
+unitary Cayley map. At the prior denominator checkpoint it was not yet
+implemented; its actual SAME-carrier construction is recorded above, not
+assumed as a frontier field.
+This does not identify a continuum Hamiltonian or solve the
 PRIMARY complete signed scaling estimate. Useful physical scaling, nontrivial
 continuum survival, physical mass, full continuum OS/QFT and all groups remain
 OPEN. The displayed chart claims are unchanged, so no ASCII reprint.

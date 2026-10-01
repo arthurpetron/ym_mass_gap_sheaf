@@ -12,6 +12,23 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Actual complex physical Cayley operator (2026-10-01 UTC):**
+`BF4WilsonAllNomeComplexBondOSImaginaryShifts` consumes the constructed
+denominator inverse and pins the original positive-resolvent graph output
+to `I-R`. Explicit paired original domain classes give BOTH imaginary-shift
+preimages on every existing complex physical bond class.
+`BF4WilsonAllNomeComplexBondOSCayley` proves uniqueness from original
+Hermitian symmetry and physical pairing tests, then constructs the actual
+two-sided Cayley inverse, FULL Hermitian pairing preservation and complex
+linearity. Both scalar QCauchy witnesses are retained; no analytic field,
+choice or spectral theorem is added. Twenty-five gates passed two focused
+checks within {propext, Quot.sound}, with independent review. The final
+proof uses default heartbeats and one 20 GiB worker; no full-tree audit.
+This is fixed-parameter unitary operator structure, not a continuous unitary
+time group, physical-time calibration or continuum Hamiltonian. Primary
+signed scaling, survival, physical mass, continuum QFT and all groups remain
+OPEN. Evidence: `audits/AUDIT-PHYSICAL-BOND-CAYLEY-2026-10-01.md`.
+
 **Actual physical resolvent-denominator inverse (2026-10-01 UTC):**
 `BF4WilsonAllNomeBondOSResolventReflection` proves the actual
 `S=2(I+A)^(-1)-I` symmetric/contractive and `N=2R(I-R)` squared-distance
@@ -26,8 +43,8 @@ ceiling is `4`. `inverseCertificate` returns an actual inverse and explicit
 row-approximation rate, paying the scaling factor four at epsilon/4.
 Forty-nine gates passed three final focused checks within
 {propext, Quot.sound}, with independent review. No new analytic field or
-canonical closure. Complex imaginary shifts/Cayley are the next structural
-step; useful signed scaling, physical time/mass and continuum QFT remain OPEN.
+canonical closure. Its complex imaginary-shift/Cayley consumer is now supplied
+above; useful signed scaling, physical time/mass and continuum QFT remain OPEN.
 Evidence: denominator addendum in
 `audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
 

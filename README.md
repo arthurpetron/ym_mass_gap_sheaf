@@ -10,14 +10,25 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Constructed complex physical Cayley operator (2026-10-01):**
+the actual derivative graph now has computed two-sided inverses for
+`input+i*output` and `input-i*output` on EVERY class of the existing complex
+physical bond completion. Their original Hermitian symmetry constructs
+`(I-iA)(I+iA)^(-1)`, its inverse, full pairing preservation and complex
+linearity with supplied scalar moduli. This is an actual fixed-parameter
+unitary operator, NOT a continuous time group or a continuum Hamiltonian.
+Twenty-five gates passed two focused checks and independent review. The
+complete signed scaling estimate and Clay target remain open. See the
+[proof and scope](audits/AUDIT-PHYSICAL-BOND-CAYLEY-2026-10-01.md).
+
 **Constructed physical resolvent-denominator inverse (2026-10-01):**
 on every state of the SAME completed physical bond carrier, positivity proves
 `S=2R-I` contractive for the actual `R=(I+A)^(-1)`. Thus `N=2R(I-R)` has
 squared-distance factor `1/4`. Witness-preserving geometric iteration now
 constructs the two-sided inverse of `R^2+(I-R)^2`, with norm ceiling `2`
 and explicit approximation moduli for supplied rows. This removes an actual
-operator-construction input to the future complex imaginary-shift/Cayley
-step; it is not a physical mass or scaling bound. Forty-nine gates passed
+operator-construction input used by the complex imaginary-shift/Cayley
+step above; it is not a physical mass or scaling bound. Forty-nine gates passed
 three final focused checks. See the
 [proof and scope](audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md#addendum-actual-resolvent-denominator-inverse).
 

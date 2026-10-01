@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting actual complex physical Cayley operator
+(2026-10-01 UTC; chart unchanged): the constructed real denominator inverse
+now supplies original graph preimages for BOTH imaginary shifts on EVERY
+complex physical bond class. Full Hermitian graph symmetry and physical
+pairing tests prove uniqueness, BOTH Cayley inverse laws, complete complex
+pairing preservation and complex linearity with supplied scalar moduli.
+Twenty-five gates passed two focused checks and independent review within
+{propext, Quot.sound}. No analytic input or representative choice is added.
+This is fixed-parameter unitary operator structure, NOT a continuous unitary
+time group or continuum Hamiltonian. Useful signed scaling, survival, physical
+time/mass, full continuum QFT and all groups remain OPEN. Evidence:
+`audits/AUDIT-PHYSICAL-BOND-CAYLEY-2026-10-01.md`.
+
 Verified supporting actual physical resolvent-denominator inverse
 (2026-10-01 UTC; chart unchanged): the original positive resolvent R=(I+A)^-1
 gives symmetric/contractive S=2R-I on EVERY physical bond class. The actual
@@ -10,9 +23,9 @@ choice and proves BOTH inverse laws for D=R^2+(I-R)^2. D has form floor 1/2;
 its inverse has squared-norm ceiling 4 and a Type-valued supplied-Rows
 approximation certificate. Forty-nine gates passed three final focused
 checks and independent review. These constants describe a resolvent
-denominator, NOT a physical mass gap. Complex imaginary shifts/Cayley,
-useful signed scaling, survival, physical mass, continuum QFT and all groups
-remain OPEN. Evidence: denominator addendum in
+denominator, NOT a physical mass gap. Its complex imaginary-shift/Cayley
+consumer is supplied above; useful signed scaling, survival, physical mass,
+continuum QFT and all groups remain OPEN. Evidence: denominator addendum in
 `audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
 
 Verified supporting quantified passive-vacuum/Ward gain (2026-10-01 UTC;

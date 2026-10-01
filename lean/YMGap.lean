@@ -6062,6 +6062,8 @@ import YMGap.Continuum.BF4WilsonAllNomeBondOSResolvent
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolventReflection
 import YMGap.Continuum.BF4WilsonAllNomeResolventNeumannLimit
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolventDenominator
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSImaginaryShifts
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSCayley
 import YMGap.Continuum.BF4WilsonAllNomeBondOSAdjoint
 import YMGap.Continuum.BF4WilsonAllNomeBondOSSubgapResolvent
 -- Original one-step-buffered source products and their SAME bond vacuum moments.

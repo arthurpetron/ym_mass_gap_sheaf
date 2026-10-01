@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## PROVED actual complex physical imaginary shifts and Cayley operator (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeComplexBondOSImaginaryShifts.output_resolventDomain`
+  pins output to I-R on actual original resolvent-domain classes.
+  `complement_add`, `complement_sub` and `resolvent_complement` give the
+  literal linear/commutation laws. `plusDomain` and `minusDomain` consume
+  the existing D^-1 for D=R^2+(I-R)^2 and return original paired domain
+  classes; `plus_right` and `minus_right` attain EVERY complex physical class.
+- `BF4WilsonAllNomeComplexBondOSCayley.eq_of_pairings` uses only original
+  physical tests. `shift_pairing` cancels ALL real/imaginary cross terms
+  through original graph symmetry. Opposite-shift surjectivity yields
+  `plus_injective`, `minus_injective`, `plus_left` and `minus_left`, with
+  no domain or quotient representative choice.
+- `cayley` is the literal (I-iA)(I+iA)^(-1); `inverse` is its opposite.
+  `inverse_right` and `inverse_left` hold on EVERY complex physical class.
+  `pairing_preserved` is FULL Hermitian equality; `pairing_inverse` gives
+  the actual adjoint action. `cayley_add` and `cayley_smul` prove original
+  complex linearity, retaining BOTH supplied CReal QCauchy witnesses.
+- No new analytic input, sorry, axiom, classical shortcut, noncomputable
+  declaration, surrogate or canonical-field/guard change was introduced.
+  All 25 printed gates passed two focused checks, exactly
+  {propext, Quot.sound}; independent mathematical and source/log review passed.
+  Accepted checks used one 20 GiB worker and the default heartbeat budget.
+  No full root/tree build, broad audit, guard or CI change. Root imports are
+  registered, not checked in aggregate.
+- OPEN: a continuous unitary time group/physical-time calibration, useful
+  COMPLETE signed energy/SAME-variance control on a justified scaling family,
+  nontrivial continuum survival, physical mass, full continuum OS/QFT and
+  every compact simple group. This fixed-parameter unitary operator closes
+  none of those broader nodes. Evidence:
+  `audits/AUDIT-PHYSICAL-BOND-CAYLEY-2026-10-01.md`.
+
 ## PROVED actual physical resolvent-denominator inverse (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeBondOSResolventReflection.graph_sum` retains BOTH actual
@@ -24,8 +56,8 @@
   Rows rate, with `inverse_approximation_bound` paying epsilon/4.
 - These are fixed-nome/width dimensionless operator constructions. Constants
   1/4, 1/2 and 4 are uniform for this resolvent denominator, NOT physical
-  gap estimates. OPEN: complex imaginary shifts/Cayley realization; useful
-  complete signed energy/SAME-variance scaling on a justified family;
+  gap estimates. Its complex imaginary-shift/Cayley consumer is supplied above.
+  OPEN: useful complete signed energy/SAME-variance scaling on a justified family;
   continuum survival, physical time/mass calibration, full OS/QFT and all
   compact simple groups. No canonical field, guard or chart marker changed.
 - Forty-nine printed gates passed three final focused checks, each exactly
