@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Complex physical bond reconstruction (2026-10-01):** the original bond-source
+completion is now identified isometrically with the existing complex time
+sector. Its Hermitian form retains all four original reflected pairings.
+Finite-source density, represented Cauchy limits and numerical positive-time
+continuity have explicit witnesses/moduli. This joins existing constructions;
+it is fixed coupling/width, not continuum OS reconstruction or physical mass.
+See the [construction and scope](audits/AUDIT-BOND-COMPLETION-REAL-TIME-2026-10-01.md#addendum-complex-physical-bond-completion-and-time).
+
 **Channel first order without full-width cost (2026-10-01):** the actual
 passive-channel angular cost now obeys A_ch<=C*Z*Var in the original
 interacting theory. C depends on coupling and complete observable-family

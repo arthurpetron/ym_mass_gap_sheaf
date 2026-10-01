@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Retain channel cancellation; reject band-only calibration (2026-10-01 UTC)
+## Current increment: Join the complex physical bond carrier and time (2026-10-01 UTC)
+
+The previously separate complex sector and real physical source completion
+now meet by a computed two-way isometry. The complex physical form is exactly
+four original bond pairings; source density and represented Cauchy limits
+return explicit physical data. Complex scalar/Hermitian laws and original
+numerical time composition/symmetry/contraction preserve this identification.
+Paired row moduli give a shared half-tolerance zero-continuity radius.
+
+This supplies a missing fixed-parameter reconstruction join, not full QFT
+or a canonical continuum OS realization. Those physical observable/support/
+reflection pins and the signed scaling estimate remain open. Two final
+focused checks passed 42 gates within the constructive axiom gate.
+Independent review passed; no broad run or canonical chart change. Evidence:
+complex addendum in `audits/AUDIT-BOND-COMPLETION-REAL-TIME-2026-10-01.md`.
+
+## Earlier increment: Retain channel cancellation; reject band-only calibration (2026-10-01 UTC)
 
 The actual signed channel debt now has a proved quadratic upper estimate
 t*(A_ch-Curv_ch-48*Sq_ch)+Err_ch, with Sq_ch>=0, t=(1-w)^2/2, and actual

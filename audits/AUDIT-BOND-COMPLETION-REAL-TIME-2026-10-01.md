@@ -87,3 +87,72 @@ Final logs and SHA-256 values:
   `a5875bee12b45edfebad30e3338eb35f9e19319efd15d93455eaadd2047af374`.
 - `/tmp/ym-bond-os-real-time-20261001.log`:
   `6e982c37ba9abcd3fb3d5c5cf905d63d0d343cdbfeb2a508e62cf0861cd61efb`.
+
+## Addendum: complex physical bond completion and time
+
+The previously absent physical/complex join is now constructed, at the SAME
+fixed nome and literal width. It uses two existing real BondCompletion
+factors, not a new analytic Hilbert carrier or an assumed isometry.
+
+In `lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSCompletion.lean`,
+`value_injective` (line 60) embeds the pair in the EXISTING complex Wilson
+completion. `toSector` and `fromSector` (lines 107 and 115) descend explicit
+representative operations to the existing complex value-based sector setoid.
+`toSector_fromSector` and `fromSector_toSector` (lines 133 and 138) prove both
+inverse laws; `toSector_isometry` (line 166) proves the original norm pin.
+Range witness records are not equated, nor selected from quotient classes.
+
+`inner` (line 144) consists of the four existing physical real bond pairings:
+
+    Re = B(x_re,y_re)+B(x_im,y_im),
+    Im = B(x_re,y_im)-B(x_im,y_re).
+
+`source_pairing` (line 204) identifies all four terms with the ORIGINAL
+normalized odd reflected joint limits. `inner_conj_symm`, `inner_nonnegative`
+and `inner_posdef` (lines 177, 181 and 185) give the actual Hermitian/null
+geometry. The raw ambient time kernel is not discarded by decree.
+
+`denseSource_bound` (line 224) computes an actual finite paired Wilson source
+from supplied physical rows at half tolerance per coordinate.
+`CauchySequence` (line 237) requires represented paired rows and one explicit
+all-tail modulus. `limitRows` and `limitCertificate` (lines 254 and 267)
+return new physical rows and a computed joint rate from the original complex
+sector limits. No arbitrary quotient-sequence representative stream is chosen.
+
+In `lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSTime.lean`, `value_add`
+and `value_smul` (lines 59 and 66) pin complex operations to the existing
+ones, retaining the supplied constructive-real scalar moduli. The Hermitian
+add/scalar laws have the correct conjugate-linear first argument.
+`action_value`, `action_addTime`, `action_symmetric` and
+`action_distance_bound` (lines 160, 168, 174 and 183) identify numerical
+positive time with the original action. `action_ofSource_one` (line 200)
+preserves the ORIGINAL advance of both finite source components.
+`continuityRadius` (line 213) is the minimum of the two physical row radii at
+half tolerance; `action_smallTime` and `continuityCertificate` (lines 225
+and 257) control every numerical positive time below that radius.
+
+This fills only the complex physical bond carrier/pairing/time join. No
+existing canonical full-QFT consumer accepts it without the missing SAME
+continuum Schwinger functional, half-space observable/support/reflection
+realization and scaling/time/generator calibration. Complex scalar-field
+instances, full QFT, survival, all compact simple groups and Clay closure
+are not asserted. The primary signed energy/variance scaling estimate is
+still OPEN; no canonical scorecard field or displayed chart status changed.
+
+Both final focused checks exited zero, with 23 completion and 19 time gates
+exactly in {propext, Quot.sound}. Independent read-only review confirmed
+source pins, witness flow, scalar signs, radius and parameter scope. Main
+alone compiled with the SAME one-worker 20 GiB ceiling and 12 GiB OS reserve;
+initial elaboration/syntax failures were repaired before acceptance, without
+raising heartbeat or safety limits. Preflight found no competing compiler/
+runner, 84 percent pressure-free memory and zero swap. No full root/tree
+build, broad audit or guard was run; root imports are registration only.
+The safe-build skill confined checks to the actual changed files. CI remains
+manual-only; the unchanged chart was not printed.
+
+Accepted logs and SHA-256:
+
+- `/tmp/ym-complex-bond-completion-repaired-20261001.log`:
+  `bda514f9c892849f9e27d4353bdb4e55d8d92fdb7ec3592781fae64718694fb5`.
+- `/tmp/ym-complex-bond-time-repaired-20261001.log`:
+  `8a06cd56ec3d2c6c9de5276e4713fa59d82e25c2c4becc8a839d71437bd59c6e`.

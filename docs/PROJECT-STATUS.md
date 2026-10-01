@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting complex physical bond completion/time join (2026-10-01
+UTC; chart unchanged): paired original physical Cauchy classes are now
+computably isometric to the existing complex sector quotient. All four
+Hermitian source-pairing terms are ORIGINAL bond limits. Represented
+finite-source density, Cauchy limits and numerical positive-time continuity
+retain explicit paired witnesses and moduli. No quotient representative is
+selected. Canonical limiting OS/observable identification, physical time,
+scaling, survival and full QFT remain OPEN. Two final focused checks passed
+42 gates within {propext, Quot.sound}; no broad run. Evidence: complex
+addendum in `audits/AUDIT-BOND-COMPLETION-REAL-TIME-2026-10-01.md`.
+
 Verified supporting signed channel quadratic refinement and band-only fence
 (2026-10-01 UTC; chart unchanged): D_ch<=t*(A_ch-Curv_ch-48*Sq_ch)+Err_ch,
 t=(1-w)^2/2, with Sq_ch>=0 and original signed channel sources. The SAME

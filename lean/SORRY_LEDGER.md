@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED complex physical bond completion and time join (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeComplexBondOSCompletion.toSector_fromSector`,
+  `fromSector_toSector` and `toSector_isometry` identify paired ORIGINAL
+  physical bond Cauchy classes with the existing complex sector quotient.
+  Only underlying values are quotiented; range witnesses are not equated.
+- `source_pairing` preserves all four original normalized reflected bond
+  pairings. `inner_posdef` supplies actual null geometry.
+  `denseSource_bound` computes a paired finite Wilson source at half
+  tolerance per coordinate. `limitCertificate` returns actual paired
+  physical rows and an explicit rate for represented Cauchy sequences.
+- `BF4WilsonAllNomeComplexBondOSTime` supplies complex add/scalar Hermitian
+  laws, numerical positive-time composition/symmetry/contraction and the
+  ORIGINAL pair-source advance at time one. `continuityCertificate`
+  retains explicit paired rows and the min of their half-tolerance radii.
+- OPEN: canonical continuum OS observable/support/reflection identification,
+  physical time/generator calibration, scaling-uniform estimates, survival,
+  full QFT and all compact simple groups. No canonical field was changed.
+  This is not arbitrary quotient-sequence completeness by implicit choice.
+- Two final focused serialized checks passed 42 gates within
+  {propext, Quot.sound}; independent review passed. No new sorry/axiom,
+  Classical dependency, native_decide, noncomputable declaration or broad
+  run. Evidence: complex addendum in
+  `audits/AUDIT-BOND-COMPLETION-REAL-TIME-2026-10-01.md`.
+
 ## PROVED signed channel square and band-only calibration fence (2026-10-01 UTC)
 
 - `BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare` constructs actual

@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Joined complex physical bond carrier and time (2026-10-01 UTC)
+
+`BF4WilsonAllNomeComplexBondOSCompletion` fills the previously absent
+complex/physical pairing join: paired existing BondCompletion classes are
+computably isometric to the quotient of the existing ComplexTimeSector.
+Its Hermitian form has four ORIGINAL reflected source-limit terms.
+Computed finite-source density and Cauchy limits retain both range witnesses;
+limits are returned as actual paired physical rows with an explicit modulus,
+not by selecting representatives of arbitrary quotient-class sequences.
+
+`ComplexBondOSTime` supplies complex scalar laws and original numerical
+positive-time composition, symmetry, contraction and pair-source time-one
+advance. The represented continuity radius is the min of the two physical
+radii at half tolerance. Two final focused checks passed 42 gates in
+{propext, Quot.sound}; no new analytic assumption, broad run or canonical
+chart change. Independent review confirmed the witness and SAME-source pins.
+Evidence: complex addendum in
+`audits/AUDIT-BOND-COMPLETION-REAL-TIME-2026-10-01.md`.
+
+The canonical limiting half-space observable/reflection identification,
+full QFT, physical generator/time calibration and scaling remain OPEN.
+The next available sharp complex mixed-correlation consequence needs
+complex Cauchy--Schwarz on this literal all-nome form, not the older
+fixed-spatial joint carrier. The primary analytic task remains the sharper
+ACTUAL signed source/variance estimate or useful joint cancellation below.
+
 ### Signed channel debt and a decisive band-coefficient limitation (2026-10-01 UTC)
 
 `BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare.familyChannelTaylorDebt_le_retained`

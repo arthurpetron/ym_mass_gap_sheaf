@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Complex physical bond completion and time (2026-10-01 UTC):**
+`BF4WilsonAllNomeComplexBondOSCompletion` constructs the two-way isometry
+from paired ORIGINAL physical bond Cauchy classes to the existing complex
+sector quotient, with four physical source-pairing pins, represented density
+and limits. `ComplexBondOSTime` joins complex scalar/Hermitian laws and the
+original numerical positive-time action, with source time-one and explicit
+min-of-half-tolerance continuity radii. Both final focused checks passed
+42 gates within {propext, Quot.sound}. No representative choice, new analytic
+input, broad run, canonical field or continuum/Clay closure. Evidence:
+complex addendum in `audits/AUDIT-BOND-COMPLETION-REAL-TIME-2026-10-01.md`.
+
 **Actual CHANNEL first order without full-width cost (2026-10-01 UTC):**
 `SU2QuaternionPassiveChannelMomentFactorization` supplies one exact common
 mass for the original spectator heat and square-inserted source moment.

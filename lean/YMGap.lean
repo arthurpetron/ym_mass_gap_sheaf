@@ -6016,6 +6016,10 @@ import YMGap.Continuum.BF4WilsonAllNomeBondOSRealTime
 -- Actual derivative and positive resolvent on the completed physical bond sources.
 -- The represented Taylor radius and fixed-parameter form gap retain their scope.
 import YMGap.Continuum.BF4WilsonAllNomeBondOSLinear
+-- Computed complex/physical source isometry and represented limits/time.
+-- Fixed nome/width, not the canonical continuum OS/observable join.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSCompletion
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSTime
 import YMGap.Continuum.BF4WilsonAllNomeBondOSDerivative
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolvent
 import YMGap.Continuum.BF4WilsonAllNomeBondOSSubgapResolvent
