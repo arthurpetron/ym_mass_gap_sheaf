@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED dyadic quartic correction below the nome defect (2026-10-01 UTC)
+
+- `SU2HeatQuarticDyadicSchedule` proves the required nome/spin guards for
+  h=2^(-3m), S=2^(2m), m>=6. `SU2HeatQuarticDyadicBudget.budget_bound`
+  proves B<=2968*2^(-4m); `smallModulus` and `budget_small` compute the
+  all-tail threshold for B<=epsilon*h, with no new analytic premise.
+- `BF4ExactSlabFixedSpatialDyadicQuartic` supplies the heat cutoff and
+  original-weight word/energy consumers. Both terminal messages, SAME odd
+  partition and 16*L^4 factor remain. For fixed length the correction is
+  o(h) relative to that partition, not relative to centered variance.
+- OPEN: the original mixed radial or signed-remainder/SAME-variance bound,
+  a justified physical scaling family, survival and the continuum/Clay
+  target. The heat-parameter schedule is not a physical spacing law.
+- Three final focused checks passed 20 gates within {propext, Quot.sound}.
+  No sorry, canonical field or chart node changed; no broad run. Evidence:
+  `audits/AUDIT-DYADIC-QUARTIC-SUBLEADING-2026-10-01.md`.
+
 ## PROVED numerical real time on the physical bond completion (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeBondOSTime.bondAction` constructs the original positive

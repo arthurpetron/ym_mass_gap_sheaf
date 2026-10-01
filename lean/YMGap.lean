@@ -4947,6 +4947,11 @@ import YMGap.Continuum.QuaternionHaarWordComponents
 import YMGap.Continuum.QuaternionHaarWordQuartic
 import YMGap.Continuum.BF4ExactSlabFixedSpatialLinkQuartic
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonQuarticIncrement
+-- Explicit dyadic quartic budget o(1-w), relative to the original partition.
+-- This is a heat-parameter schedule, not a justified physical scaling family.
+import YMGap.Continuum.SU2HeatQuarticDyadicSchedule
+import YMGap.Continuum.SU2HeatQuarticDyadicBudget
+import YMGap.Continuum.BF4ExactSlabFixedSpatialDyadicQuartic
 -- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoung
 -- Scalar coefficient bounds only; no four-link spin-two heat image is assumed.

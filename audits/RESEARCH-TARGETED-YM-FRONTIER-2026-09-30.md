@@ -262,3 +262,36 @@ not authorize transporting the time-zero multiplier algebra.
 (`lean/YMGap/Continuum/BF4WilsonAllNomeSectorObservableBoundary.lean:107`)
 already refutes that direct restriction at width one. It does not assert
 the stronger, unproved failure of every possible bond-null algebra action.
+
+## Spatial reflection boundary test
+
+Reviewed 2026-10-01 UTC by parallel source inspection. This is a geometric
+planning deduction, not a newly kernel-checked obstruction or a theorem
+against every possible spatial reflection argument.
+
+`BF4ExactSlabFixedSpatialFacePlacement.spatialFaces_mem_iff`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFacePlacement.lean:98`)
+requires every spatial BASE coordinate to be strictly below width,
+including coordinates transverse to the face. For positive width, the
+p12 face based at (0,0,0,0) belongs to the list; reflection of the physical
+box by x0 -> width-x0 sends its base to (width,0,0,0), which fails that
+membership condition. Thus this standard spatial box reflection does not
+permute the current original finite face set. Invariance of the full
+finite action and terminal messages cannot be assumed from that geometry.
+
+The similarly named existing
+`BF4ExactSlabSpatialLinkReflection.spatial_link_reflection`
+(`lean/YMGap/Continuum/BF4ExactSlabSpatialLinkReflection.lean:115`)
+reflects spatial links in TIME. Its underlying map is
+`Z4HalfTimeReflectionGeometry.timeReflectVertex`
+(`lean/YMGap/Continuum/Z4HalfTimeReflectionGeometry.lean:56`),
+(a,b,c,d) -> (a,b,c,extent-d); it does not supply the missing spatial
+invariance. Changing the face set would require an original-law comparison,
+not merely a relabeling of this time-reflection theorem.
+
+The separate checked advance is the dyadic quartic estimate in
+`audits/AUDIT-DYADIC-QUARTIC-SUBLEADING-2026-10-01.md`: its original-weight
+correction is o(1-w) relative to the SAME partition for fixed word length.
+This supplies neither spatial covariance positivity nor the missing
+SAME-variance bound. The source-specific signed comparison and physical
+scaling inputs remain the next mathematical task.

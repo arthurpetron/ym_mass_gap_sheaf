@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting dyadic quartic estimate (2026-10-01 UTC; chart
+unchanged): h=1-w=2^(-3m), S=2^(2m) now supplies all guards and the
+bound B<=2968*2^(-4m), with an explicit tolerance modulus. The actual
+original-weight word and energy consumers retain the SAME odd partition,
+both terminal messages and 16*L^4. The quartic correction is o(h) relative
+to the partition for fixed length; mixed radial/SAME-variance and physical
+scaling comparisons remain open. Three final focused checks passed 20
+gates within {propext, Quot.sound}; no broad run or canonical change.
+Evidence: `audits/AUDIT-DYADIC-QUARTIC-SUBLEADING-2026-10-01.md`.
+
 Verified supporting positive real time on the physical bond completion
 (2026-10-01 UTC; chart unchanged): the original operator now acts on the
 completed bond sources at numerical positive real times, with composition,

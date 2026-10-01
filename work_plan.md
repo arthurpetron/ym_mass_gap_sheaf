@@ -656,6 +656,19 @@ quartic correction, leaving the original mixed moment unestimated. Growing
 loops must pay their L^4 dependence. Four final focused checks passed 21
 gates within {propext, Quot.sound}; no canonical change or broad run. Evidence:
 `audits/AUDIT-WILSON-WORD-QUARTIC-2026-10-01.md`.
+FOLLOW-ON PROVED: `SU2HeatQuarticDyadicSchedule` supplies all spin/nome
+guards for h=1-w=2^(-3m), S=2^(2m), m>=6.
+`SU2HeatQuarticDyadicBudget.budget_bound` gives B(w,S)<=2968*2^(-4m),
+and `budget_small` proves B(w,S)<=epsilon*h beyond the explicit
+`smallModulus`. `BF4ExactSlabFixedSpatialDyadicQuartic` supplies
+K=max(headCutoff(w),S+3)+stage and applies both bounds under the ORIGINAL
+edge density and SAME odd partition, retaining 16*L^4. Its direct energy
+consumer leaves the mixed radial moment untouched. Thus the quartic
+correction is o(h) relative to the partition for fixed word length, not
+o(SAME variance), nor a calibrated physical-spacing result. Three final
+focused checks passed 20 gates within {propext, Quot.sound}; no canonical
+change or broad run. Evidence:
+`audits/AUDIT-DYADIC-QUARTIC-SUBLEADING-2026-10-01.md`.
 NEXT: specify a signed observable family and actual physical-time budget;
 test the combined remainder in `padded_family_energy_variance` against
 that SAME centered variance, or supply a direct sampled-response estimate.
@@ -664,9 +677,10 @@ relative-variance consumer: signed-source polarization would still leave a
 vector cross response, not scalar centered variance. A fixed microscopic
 source is not refuted, and a growing/smeared family is not yet justified.
 Retain all signed cross terms and the original source/normalization; prove
-any changing-family limit joins. Supply an explicit useful nome/split
-schedule and its actual physical time/scaling justification; do not infer
-these from the guards. The appended source-selection review in
+any changing-family limit joins. The explicit nome/split schedule above
+still needs its actual physical time/scaling justification; do not infer
+this from the guards or small quartic budget. The appended source-selection
+review in
 `audits/RESEARCH-TARGETED-YM-FRONTIER-2026-09-30.md` records this priority.
 Its signed-family review rules out assuming cancellation from zero-sum
 coefficients or identifying original nome variation with an auxiliary Haar
@@ -676,8 +690,8 @@ absolute correlation bound. No reviewed source supplies this comparison,
 its SAME-variance floor and physical-time budget together. These are source
 review conclusions, not new refutations or checked scaling estimates.
 The existing one-index ratio guard is too coarse near L=(1-w)^(-2/3);
-use the now-proved block bound. The diagnostic dyadic schedule is still
-unformalized and is NOT a justified physical scaling family. Existing
+use the now-proved block bound. The diagnostic dyadic schedule is now
+formalized but is NOT a justified physical scaling family. Existing
 character upper bounds require the full
 pointwise certificate W*a*lift(a), which the ORIGINAL positive endpoint
 source supplies; PSD alone or a centered signed source does not suffice.
