@@ -27,6 +27,10 @@ Its uniform denominator constants are not a physical mass bound. Scaled
 Cayley/time products and the continuum target remain OPEN. See the
 [checked construction and scope](audits/AUDIT-SCALED-PHYSICAL-RESOLVENT-2026-10-01.md).
 
+Parallel group groundwork now includes a checked finite G2 root-coordinate
+certificate. It does not realize a compact group or provide its Haar/heat/OS
+data. See the [certificate and remaining group construction](audits/AUDIT-G2-ROOT-COORDINATES-2026-10-01.md).
+
 **Sharper original energy-to-domain bound (2026-10-01):**
 an exact positive-square identity improves norm retention from `1-2c` to
 `(1-c)^2` when original energy satisfies `E<=c*N`. It handles zero norm

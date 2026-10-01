@@ -25,6 +25,24 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Parallel finite G2 root-coordinate groundwork (2026-10-01 UTC)
+
+Finite PROGRESS: explicit G2 positive/signed roots, coroot pairings, squared
+lengths, reflection closure and involutions are checked; existing Cartan
+root-count and center CODE pins remain explicitly finite classification data.
+Thirteen gates passed: eleven empty, two {propext,Quot.sound}; independent
+review passed. No compatible typed root-datum consumer was found, so this
+certificate is standalone groundwork, not an analytic group instance.
+Actual compact groups, representation/Haar/heat data and physical Wilson/OS
+construction beyond SU(2) remain OPEN. No every-group frontier closure.
+Evidence: `audits/AUDIT-G2-ROOT-COORDINATES-2026-10-01.md`.
+
+PRIMARY remains complete signed error/SAME-variance scaling on a justified
+changing family. NEXT operator consumer remains scaled imaginary shifts/
+Cayley and second-core product estimates. Survival/mass missing inputs and
+full continuum QFT remain open as recorded below. No displayed chart change,
+ASCII reprint, broad build/audit/guard or raised limit.
+
 ### Parallel complex physical Wilson-word action (2026-10-01 UTC)
 
 PROGRESS: the ORIGINAL real buffered word action has a checked complex-linear

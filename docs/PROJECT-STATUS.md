@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Verified finite G2 root-coordinate groundwork (2026-10-01 UTC; chart
+unchanged): explicit roots, pairings, lengths and reflection checks passed
+thirteen gates and independent review. Cartan/center CODE pins are not actual
+group realization; no compatible root-datum consumer or physical G2 Haar/
+heat/OS construction is supplied. Every-group continuum YM remains OPEN.
+No displayed claim changed; no ASCII reprint. Evidence:
+`audits/AUDIT-G2-ROOT-COORDINATES-2026-10-01.md`.
+
 Verified supporting complex Wilson-word action (2026-10-01 UTC; chart
 unchanged): the original buffered real words act complex-linearly on the
 existing physical complex carrier, with full Hermitian word-reversal adjoint

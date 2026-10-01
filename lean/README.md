@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Finite G2 group groundwork (2026-10-01 UTC):**
+`RepTheory.G2RootCoordinateCertificate` checks six positive/twelve signed
+roots, coroot pairings, lengths and simple reflections. Thirteen focused
+gates passed: eleven empty, two {propext,Quot.sound}; independent review
+passed. The existing Cartan/center code pins are not group realizations;
+no compatible root-datum consumer or physical G2 Haar/heat/OS object is
+supplied. Every-group continuum YM remains OPEN. Evidence:
+`audits/AUDIT-G2-ROOT-COORDINATES-2026-10-01.md`.
+
 **Complex original Wilson-word action (2026-10-01 UTC):**
 `BF4WilsonAllNomeComplexBondOSSeparatedWords` extends the actual buffered
 real action to the existing complex carrier. Word reversal gives the full

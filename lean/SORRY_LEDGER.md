@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## PROVED finite G2 coordinate certificate only (2026-10-01 UTC)
+
+- `YMGap.RepTheory.G2RootCoordinates` checks the six positive/twelve
+  signed roots, coroot-pairing/length tables, both simple reflections'
+  finite closure/length preservation and global coordinate involutions.
+- `positiveRootCount_matches_code` and `g2_centerCode_is_trivial` pin
+  EXISTING classification codes. `cartanDeterminant_one` is arithmetic,
+  not a compact-group center theorem.
+- Thirteen focused gates and independent review passed: eleven empty,
+  two {propext,Quot.sound}. No new sorry, analytic field or frontier weakening.
+  Evidence: `audits/AUDIT-G2-ROOT-COORDINATES-2026-10-01.md`.
+- OPEN: compatible typed root-datum consumer, actual compact-group/root/
+  representation realization, Haar/heat data and physical Wilson/OS beyond
+  SU(2). This standalone finite groundwork closes no every-group frontier.
+
 ## PROVED complex original buffered Wilson-word action (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeComplexBondOSSeparatedWords.wordAct`, `wordAct_append`,

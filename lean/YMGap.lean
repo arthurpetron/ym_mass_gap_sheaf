@@ -88,6 +88,8 @@ import YMGap.RepTheory.RationalQuaternionUnitNormGroup
 import YMGap.RepTheory.RationalQuaternionSignQuotient
 import YMGap.RepTheory.RationalQuaternionQ8Fixture
 import YMGap.RepTheory.CompactSimpleGlobalForm
+-- Finite root-coordinate groundwork only; not an actual compact G2 group.
+import YMGap.RepTheory.G2RootCoordinateCertificate
 import YMGap.RepTheory.SU2
 import YMGap.RepTheory.SU3
 import YMGap.RepTheory.RepData

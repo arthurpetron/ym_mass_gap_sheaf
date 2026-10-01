@@ -4,7 +4,21 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Complex original Wilson-word action (2026-10-01 UTC)
+## Current increment: Finite G2 root-coordinate groundwork (2026-10-01 UTC)
+
+Finite PROGRESS: explicit root lists, pairings, lengths and simple-reflection
+certificates replace a bare G2 code with checked coordinate data. Thirteen
+focused gates and independent review passed. The existing root-count/center
+code pins do NOT realize a compact group or representation, and no compatible
+typed root-datum consumer was found. This is standalone groundwork, not a
+physical analytic compiler or an every-group frontier closure.
+
+Primary signed scaling, survival/mass inputs, physical time, full continuum
+QFT and every group remain OPEN. No broad build/audit/guard, progress-metric
+script, raised limit or ASCII reprint. Evidence:
+`audits/AUDIT-G2-ROOT-COORDINATES-2026-10-01.md`.
+
+## Earlier increment: Complex original Wilson-word action (2026-10-01 UTC)
 
 PROGRESS: extend the ACTUAL original buffered real words to the EXISTING
 physical complex completion. Full Hermitian word-reversal adjoint, complex
