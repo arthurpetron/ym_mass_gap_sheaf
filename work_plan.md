@@ -25,6 +25,34 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original negative-real and two-sided supplied-time tangent (2026-10-01 UTC)
+
+PROGRESS after `2efc6f8`: the parallel Sol algebra bridge identifies actual
+componentwise reciprocal scaling with full complex smul on the ORIGINAL
+carrier. Signed action therefore commutes with that scaling and the actual
+imaginary rotation/difference. Division by SIGNED -t gives q_minus=G_minus(q_plus),
+NOT -G_minus(q_plus). The residual is G_minus(r_plus)+2i*(output-G_minus(output)).
+Actual inverse isometry and the supplied graph OUTPUT Rows' own continuity
+radius close 2*(epsilon/4)+8*(epsilon/16)=epsilon. One computed radius now
+controls BOTH directions on supplied positive-time data, without deciding an
+arbitrary real's sign. Sixteen focused gates and independent reviews passed.
+Evidence: negative-real/two-sided addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+NEXT mathematical proposition: prove rational recovery of the constructed
+reciprocal/real quotient and use restriction to rational increments to join
+the already proved SAME-graph `ScaledCayleyGeneratorConverse.ofRightTangent`.
+That existing consumer constructs the original domain with BOTH input/output
+pins; the supplied-real converse is not yet declared. The current producer
+`NegativeRealTangent.twoSidedTangentCertificate` gives both actual error laws,
+not a physical-clock or scaling identification. Preserve Type-level data;
+do not choose quotient representatives, decide an arbitrary real's sign or
+infer A=T^-1-I. The primary useful signed original-energy/SAME-variance estimate
+on a justified changing family, nonzero survival, physical spacing and finite
+positive mass, full QFT, every actual group and Clay remain OPEN. Two root
+imports added; full root/tree/build/audit/guard NOT checked. ONE 20-GiB compiler,
+12-GiB OS reserve and continuous telemetry; CI and canonical chart unchanged.
+
 ### Original normalized positive-real difference quotient (2026-10-01 UTC)
 
 PROGRESS after `02801b1`: the supplied numerical time's actual reciprocal
@@ -36,7 +64,7 @@ the ACTUAL original difference quotient minus its SAME -2i graph output.
 Seven focused gates and independent reviews passed. Evidence: normalized-
 positive-real addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
-NEXT mathematical proposition: extend the actual difference quotient to
+NEXT AT THAT CHECKPOINT (now proved above): extend the actual difference quotient to
 negative real time using the constructed inverse action, full complex linearity
 and original OUTPUT continuity. The prior rational consumer is
 `ScaledCayleyNegativeTangent.negativeTangentCertificate`; the positive-real

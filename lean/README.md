@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original negative-real and two-sided tangent (2026-10-01 UTC):**
+`SignedScalarCommutation.signedAction_realScalar` joins the constructed
+componentwise reciprocal to the ACTUAL full complex signed action.
+`NegativeRealTangent.negative_quotient_pin` gives q_minus=G_minus(q_plus), with
+division by SIGNED time -t. `negative_error_identity` retains the transported
+positive residual plus 2i*(output-G_minus(output)). Its squared budget is
+2*(epsilon/4)+8*(epsilon/16)=epsilon. `twoSidedTangentCertificate` computes ONE
+radius for BOTH directions on supplied positive-time data, with no sign
+decision or quotient-selected modulus. Sixteen focused gates and independent
+reviews passed, all {propext,Quot.sound}. Two root imports added; full root/tree/
+build/audit/guard NOT checked. Full-real domain identification, physical
+spacing/scaling/mass, survival, full QFT, every actual group and Clay remain OPEN.
+Evidence: negative-real/two-sided addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Original normalized positive-real tangent (2026-10-01 UTC):**
 `ScaledCayleyPositiveRealNormalizedTangent.differenceQuotient` scales the
 ACTUAL original increment by the supplied time's constructed reciprocal.
@@ -20,7 +35,7 @@ with `normalizedResidual`. `normalized_bound` cancels the time square exactly;
 `normalizedTangentCertificate` retains the UNCHANGED computed positive radius
 as Type data. Seven focused gates and independent reviews passed, all
 {propext,Quot.sound}. One root import added; full root/tree/build/audit/guard
-NOT checked. Negative-real/full-real domain identification, physical spacing/
+NOT checked. Negative-real control is proved above; full-real domain identification, physical spacing/
 scaling/mass, survival, full QFT and every actual group remain OPEN. Evidence:
 normalized-positive-real addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.

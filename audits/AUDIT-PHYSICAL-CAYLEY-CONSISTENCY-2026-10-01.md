@@ -1872,3 +1872,59 @@ reprint. Negative-real differentiation/full-real domain identification,
 physical spacing/scaling, useful signed original-energy/SAME-variance control,
 nonzero continuum survival, finite positive physical mass, full QFT, every
 actual compact simple group and Clay remain OPEN.
+
+## Original negative-real and two-sided supplied-time tangent
+
+After `2efc6f8`, in
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleySignedScalarCommutation.lean:57`,
+`fullSmul_realScalar`, identifies the original componentwise real scale with
+full complex smul(s,0), retaining its explicit QCauchy data. In that module,
+`:71`, `signedAction_realScalar`, transports the constructed time reciprocal;
+`:85`, `signedAction_imagScale`, `:124`, `signedAction_cneg`, and `:131`,
+`signedAction_diff`, transport the original physical operations. These are
+algebraic consequences of the ACTUAL signed action's checked complex linearity.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyNegativeRealTangent.lean:83`,
+`negativeClock`, is exactly negTime(positiveTime(timeValue D)); `:86`,
+`negativeClock_value`, pins its numerical value to -D.real. `:145`,
+`negativeDifferenceQuotient`, is reciprocal*(u-G_minus(u)): division by
+SIGNED time -t reverses the increment. `:151`, `negative_quotient_pin`, gives
+q_minus=G_minus(q_plus), not -G_minus(q_plus). `:169`, `negative_error_identity`,
+gives the exact residual G_minus(r_plus)+2i*(output-G_minus(output)).
+Its output is the SAME original graph output; no derivative-domain hypothesis
+on that output is introduced.
+
+`:184`, `negativeRealRadius`, computes the minimum of the original positive
+tangent radius at epsilon/4 and the actual output Rows' signed continuity
+radius at epsilon/16. `:256`, `negative_normalized_bound`, uses original
+Hermitian isometry, actual inverse displacement and both numerical continuity
+guards. The squared triangle pays 2*(epsilon/4)+8*(epsilon/16)=epsilon.
+`:284`, `negativeRealTangentCertificate`, returns its positive radius and bound.
+`:294`, `twoSidedTangentCertificate`, computes ONE radius for both signed
+directions on supplied positive-time data. It does not decide the sign of an
+arbitrary real, select representatives or erase a modulus.
+
+Both focused checks emitted oleans. All SIXTEEN gates (5+11) are exactly
+{propext,Quot.sound}; independent mathematical and final source/log/hash reviews
+passed. Accepted evidence:
+
+- Signed-scalar source SHA256
+  `84f081ce473a6040a4fd4e3903bb8cc93b8539914fcffae5df968f7086b37efe`;
+  `/tmp/ym-signed-scalar-commutation-20261001.log`, SHA256
+  `68ae0592d2a35d8e26d1b62177638d3ac339bc44e62c7936dd757e559d23aa19`.
+- Negative-real source SHA256
+  `dfba981fde4e21de226101ed3dd4f61fca2b27949ec86309aad783a89cf61b34`;
+  `/tmp/ym-negative-real-tangent-third-20261001.log`, SHA256
+  `7f087c3209c2e6a3ec1310cd2c146d0a1df1a37f1335daa552627cacb8d65a34`.
+
+The first negative-real error/sorryAx-bearing log is rejected. The second
+passed ten gates, but the third supersedes it after the two-sided certificate
+was added. No new analytic premise, sorry, axiom, erased witness or weakened
+frontier. Two root imports added; full root/tree/build/audit/guard NOT checked.
+ONE 20-GiB compiler, 12-GiB OS reserve and continuous pressure/swap telemetry;
+CI and safety limits unchanged. No exact displayed chart claim changed; no
+ASCII reprint. Full-real domain identification, physical spacing/scaling,
+useful signed original-energy/SAME-variance control, nonzero continuum survival,
+finite positive physical mass, full QFT, every actual compact simple group
+and Clay remain OPEN.

@@ -1,11 +1,21 @@
 # Canonical one-page project status
 
+Verified supporting original negative-real/two-sided tangent (2026-10-01 UTC;
+chart unchanged): signed division by -t gives q_minus=G_minus(q_plus). The
+actual inverse isometry and original OUTPUT continuity bound its residual
+with the SAME -2i graph slope. ONE computed radius now controls both signed
+directions on supplied time data. Sixteen focused gates and independent reviews
+passed. Full-real domain identification and all physical/continuum endpoints
+remain OPEN. Evidence: negative-real/two-sided addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original normalized positive-real quotient (2026-10-01 UTC;
 chart unchanged): the supplied numerical time's constructed reciprocal acts
 on the ACTUAL original increment. Its difference from the SAME -2i graph
 output is the normalized residual, whose physical squared norm is <= epsilon
 with the UNCHANGED computed radius. Seven focused gates and independent
-reviews passed. Negative-real/full-real identification and all physical/
+reviews passed. Negative-real control is proved above; full-real domain identification and all physical/
 continuum endpoints remain OPEN. Evidence: normalized-positive-real addendum
 in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 No exact displayed claim changed; no ASCII reprint.

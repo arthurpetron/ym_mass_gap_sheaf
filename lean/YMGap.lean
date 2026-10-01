@@ -6204,6 +6204,9 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveRealTang
 import YMGap.Continuum.PositiveTimeReciprocalData
 -- Actual right-real quotient on supplied original graph Points, not physical mass.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveRealNormalizedTangent
+-- Both supplied-real directions on the SAME graph; full-real domain/scaling open.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleySignedScalarCommutation
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyNegativeRealTangent
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

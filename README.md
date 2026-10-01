@@ -10,11 +10,19 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original two-sided supplied-real tangent (2026-10-01):** positive and
+negative difference quotients now approach `-2i` times the SAME original graph
+output with one computed radius. The negative direction uses the constructed
+inverse action and actual output continuity; no new analytic estimate is
+assumed. Sixteen focused gates and independent reviews passed. Full-real
+domain identification, physical calibration and continuum claims remain open.
+See the [two-sided proof](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-negative-real-and-two-sided-supplied-time-tangent).
+
 **Original positive-real difference quotient (2026-10-01):** the actual
 quotient now converges to `-2i` times the SAME original graph output, using
 the supplied time's constructed reciprocal and the unchanged computed radius.
-Seven focused gates and independent reviews passed. Negative-real and full-real
-domain identification, physical scaling and continuum claims remain open.
+Seven focused gates and independent reviews passed. The negative direction is
+proved above; full-real domain identification, physical scaling and continuum claims remain open.
 See the [normalized proof](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-normalized-positive-real-difference-quotient).
 
 **Original positive-real graph estimate (2026-10-01):** the Cayley and

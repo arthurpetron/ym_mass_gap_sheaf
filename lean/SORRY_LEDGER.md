@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED original negative-real/two-sided supplied-time tangent only (2026-10-01 UTC)
+
+- `SignedScalarCommutation.fullSmul_realScalar` joins componentwise real
+  scaling to full complex scaling on the SAME original carrier.
+  `signedAction_realScalar`, `signedAction_imagScale` and `signedAction_diff`
+  therefore transport the constructed reciprocal and actual residual exactly.
+- `NegativeRealTangent.negativeClock_value` pins the numerical time to -D.real;
+  `negativeDifferenceQuotient` uses reciprocal*(u-G_minus(u)), hence division
+  by SIGNED -t. `negative_quotient_pin` gives q_minus=G_minus(q_plus).
+- `negative_error_identity` gives transported positive error plus
+  2i*(output-G_minus(output)). The actual output Rows supply their own
+  continuity radius; inverse isometry and 2*(epsilon/4)+8*(epsilon/16)=epsilon
+  prove `negative_normalized_bound`. No output derivative-domain input is needed.
+- `twoSidedTangentCertificate` computes ONE positive radius for BOTH directions
+  on supplied positive-time data. It decides no sign of an arbitrary real and
+  selects no quotient representative or modulus.
+- Sixteen focused gates and independent math/source/log/hash reviews passed,
+  all {propext,Quot.sound}. No new analytic premise, sorry, axiom, erased witness
+  or weakened frontier. Evidence: negative-real/two-sided addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: full-real domain identification, physical clock/spacing/scaling,
+  useful signed original-energy/SAME-variance control, nonzero continuum
+  survival, finite positive physical mass, full QFT, every actual group and Clay.
+  Two root imports added; full root/tree/build/audit/guard NOT checked.
+  Canonical chart, CI and safety limits unchanged.
+
 ## PROVED original normalized positive-real tangent only (2026-10-01 UTC)
 
 - `ScaledCayleyPositiveRealNormalizedTangent.realScalar` retains the explicit
@@ -16,7 +42,7 @@
   all {propext,Quot.sound}. No new analytic premise, sorry, axiom, erased
   witness or weakened frontier. Evidence: normalized-positive-real addendum
   in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
-- OPEN: negative-real differentiation/full-real domain identification,
+- Negative-real control is proved above. OPEN: full-real domain identification,
   physical clock/spacing/scaling, useful signed original-energy/SAME-variance
   control, nonzero continuum survival, finite positive physical mass, full QFT,
   every actual group and Clay. One root import added; full root/tree/build/
