@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED actual centered transfer to original bond norm (2026-10-01 UTC)
+
+- `BF4ExactSlabFixedSpatialCenteredTransferCovariance.normalizedCenteredTransferQuadratic_window`
+  pins the actual centered transfer quadratic divided ONLY by positive
+  original oddMass to the original centered one-step window product.
+  `normalizedCenteredTransferQuadratic_covariance` removes the moving
+  finite mean using proved coefficient congruence and endpoint mean laws.
+- `BF4WilsonAllNomeCenteredTransferBondLimit.singleSlice` requires supplied
+  Within(0,e). `finiteScalar_connected_pin` aligns three literal original
+  windows with the same source, chart, cutoff, depth, action and partition.
+- `jointTolerance`, `cutoffThreshold`, `timeThreshold`,
+  `finiteScalar_rectangle`, `transferCauchy` and `transferLimit_approx`
+  return and prove explicit independent heat/time and representative moduli.
+- `transferLimit_completed_pin` identifies the constructed limit of the
+  ACTUAL normalized quadratic with the existing connected physical bond
+  norm of ofSource(singleSlice(e)). No new analytic hypothesis is assumed.
+- OPEN: varying-output angular passage, multitime radius>0 extension,
+  useful complete signed scaling, nontrivial continuum survival, physical
+  time/mass, canonical continuum OS/QFT and every compact simple group.
+  Single-slice oddVariance is not bond norm. No canonical field changes.
+- Fifteen focused gates passed: singleSlice empty, fourteen exactly
+  {propext, Quot.sound}. No new sorry/axiom, Classical dependency,
+  native_decide or noncomputable declaration. No broad run or CI change.
+  Evidence: `audits/AUDIT-CENTERED-TRANSFER-BOND-LIMIT-2026-10-01.md`.
+
 ## PROVED actual complex physical derivative/adjoint (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeComplexBondOSDerivative.Domain` is a pair of existing

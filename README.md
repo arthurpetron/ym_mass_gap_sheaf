@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Finite centered transfer reaches SAME bond norm (2026-10-01):** for
+every supplied single-slice Wilson expression, the actual normalized
+centered transfer quadratic now has computed independent cutoff/time
+thresholds and a joint CReal limit. That limit is exactly the connected
+norm of its source class on the existing physical bond completion. All
+three finite covariance terms keep the same action and partition; the
+moving finite mean is removed by proof. Width and coupling remain fixed.
+Passing angular regularity and obtaining useful physical scaling remain
+open. See the [proof and scope](audits/AUDIT-CENTERED-TRANSFER-BOND-LIMIT-2026-10-01.md).
+
 **Complex physical derivative/adjoint (2026-10-01):** the existing complex
 bond completion now carries the actual paired derivative-domain classes.
 Full Hermitian adjoint tests construct a unique class with both input/output

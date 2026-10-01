@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting finite centered-transfer/bond join (2026-10-01 UTC;
+chart unchanged): for supplied radius-zero Wilson sources, the ACTUAL
+normalized moving-center transfer quadratic is exactly a three-term
+covariance on one original finite window. Computed independent heat/time
+thresholds give a full rectangular bound and Type-valued QCauchy modulus.
+Its CReal limit is the SAME connected zero-lag pairing on the existing
+physical bond completion. Single-slice oddVariance is NOT equated with the
+bond norm, and no varying-output angular passage is claimed. Width/nome
+remain fixed; signed scaling, survival, physical mass, QFT and all groups
+remain OPEN. Fifteen focused gates passed within the allowed axiom set.
+Evidence: `audits/AUDIT-CENTERED-TRANSFER-BOND-LIMIT-2026-10-01.md`.
+
 Verified supporting COMPLEX physical derivative/adjoint (2026-10-01 UTC;
 chart unchanged): the actual real physical-domain quotients now form a
 complex graph on the existing complex BondCompletion. Full Hermitian tests

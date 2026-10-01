@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Actual complex physical derivative/adjoint (2026-10-01 UTC)
+## Current increment: Actual centered transfer reaches SAME bond norm (2026-10-01 UTC)
+
+PROGRESS after `86ddb59`: the finite centered quadratic is now pinned to
+the original window covariance, using the ACTUAL moving odd-marginal mean.
+For each supplied single-slice Wilson expression, all three fixed-source
+moments share one one-step chart, action and partition. Computed mean caps
+pay their product error; maxima of existing source thresholds give separate
+heat/time cutoffs, a rectangular bound, a Type-valued QCauchy witness and
+the actual quadratic's CReal limit.
+
+That limit is exactly connected(0,ofSource(x),ofSource(x)) on the EXISTING
+physical bond completion. This supplies the previously missing finite-to-
+bond norm join for radius-zero sources without another analytic premise.
+It does not equate single-slice oddVariance with bond norm, or pass the
+finite output ANGULAR form to completion. That passage and useful complete
+signed scaling, survival, physical mass, continuum OS/QFT and every group
+remain OPEN. Two final focused checks passed fifteen gates: one empty,
+fourteen exactly {propext, Quot.sound}, with independent read-only review.
+No broad run, canonical field/marker change or ASCII reprint. Evidence:
+`audits/AUDIT-CENTERED-TRANSFER-BOND-LIMIT-2026-10-01.md`.
+
+## Earlier increment: Actual complex physical derivative/adjoint (2026-10-01 UTC)
 
 PROGRESS after `2e0096d`: the intrinsic adjoint result now meets the SAME
 complex physical completion. The domain is a pair of existing real physical

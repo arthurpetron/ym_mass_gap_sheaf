@@ -12,6 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original centered-transfer/bond limit (2026-10-01 UTC):**
+`BF4ExactSlabFixedSpatialCenteredTransferCovariance` equates the actual
+normalized moving-center quadratic with a one-partition finite covariance.
+`BF4WilsonAllNomeCenteredTransferBondLimit.transferCauchy` constructs its
+QCauchy witness for a supplied radius-zero Wilson source. Independent
+`cutoffThreshold`/`timeThreshold` and `transferLimit_approx` control the
+whole late rectangle. `transferLimit_completed_pin` identifies the RC limit
+with the original connected zero-lag bond pairing. This does NOT equate
+single-slice oddVariance or a finite angular reserve with that norm.
+Fifteen focused gates passed: one empty, fourteen {propext, Quot.sound}.
+Width/nome are fixed; angular passage, signed scaling, survival, physical
+mass and continuum QFT remain OPEN. Evidence:
+`audits/AUDIT-CENTERED-TRANSFER-BOND-LIMIT-2026-10-01.md`.
+
 **Actual complex physical derivative/adjoint (2026-10-01 UTC):**
 `BF4WilsonAllNomeComplexBondOSDerivative` pairs the existing real physical
 domain quotients on the SAME complex BondCompletion. `ofAdjoint` returns

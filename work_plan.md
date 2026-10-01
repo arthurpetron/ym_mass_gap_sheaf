@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual centered-transfer limit reaches SAME bond norm (2026-10-01 UTC)
+
+PROGRESS after `86ddb59`: the original finite moving-center quadratic
+now has its missing completed physical consumer for every supplied
+single-slice Wilson expression. `BF4ExactSlabFixedSpatialCenteredTransferCovariance`
+proves its exact normalized covariance identity without replacing finite
+means. `BF4WilsonAllNomeCenteredTransferBondLimit` pins the three fixed
+insertions to one original one-step window and partition, computes independent
+heat/time cutoffs and a full rectangular estimate, and returns the actual
+quadratic's QCauchy witness and CReal limit. `transferLimit_completed_pin`
+identifies that RC limit with the ORIGINAL connected zero-lag bond pairing.
+
+Fifteen focused gates passed: one empty, fourteen {propext, Quot.sound}.
+Independent read-only review found no source, partition or scope mismatch.
+No analytic input, representative selection, frontier field or chart marker
+is added. Evidence: `audits/AUDIT-CENTERED-TRANSFER-BOND-LIMIT-2026-10-01.md`.
+
+NEXT remains the PRIMARY useful complete signed energy/SAME-variance
+estimate on a justified physical scaling family. The finite-to-bond norm
+join is now supplied for radius-zero representable sources, not arbitrary
+multitime inputs. Passing the existing output angular reserve still requires
+a constructed limiting/lower-semicontinuous angular form for varying outputs;
+single-slice oddVariance remains distinct from the adjacent bond norm.
+Spatial/spacing control, nontrivial continuum survival, physical mass/time,
+canonical continuum OS/QFT and all compact simple groups remain OPEN.
+
 ### Actual COMPLEX physical derivative/adjoint join (2026-10-01 UTC)
 
 PROGRESS after `2e0096d`: `BF4WilsonAllNomeComplexBondOSDerivative` now
@@ -48,12 +74,13 @@ Evidence: complex addendum in
 
 NEXT remains the PRIMARY useful complete signed energy/SAME-variance
 estimate on a justified physical scaling family. A concrete finite-to-bond
-join also needs the finite moving-center transfer quadratic to converge to
-the ORIGINAL connected bond pairing for representable Wilson sources;
-finite oddVariance is a single-slice variance, NOT already the bond norm.
-Passing angular regularity additionally needs a limiting/lower-semicontinuous
-angular form for varying outputs. These are unproved joins, not premises
-assumed by the new complex operator construction. Physical time/calibration,
+join at that checkpoint also needed convergence of the finite moving-center
+transfer quadratic to the ORIGINAL connected bond pairing. The radius-zero
+norm join is now proved above. Finite oddVariance remains a single-slice
+variance, NOT the bond norm. Passing angular regularity still needs a
+constructed limiting/lower-semicontinuous angular form for varying outputs;
+this is unproved, not a premise assumed by the complex operator construction.
+Physical time/calibration,
 nontrivial continuum survival, canonical half-space OS/QFT and all groups
 remain OPEN. Do not substitute a generic-polynomial reserve floor for one
 justified bulk physical survival witness.

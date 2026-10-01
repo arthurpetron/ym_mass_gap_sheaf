@@ -6037,6 +6037,10 @@ import YMGap.Continuum.SU2QuaternionCyclicPathHeatEigen
 import YMGap.Continuum.SU2QuaternionProductHeatSmoothing
 import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSmoothing
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredTransferReserve
+-- Actual moving-center finite quadratic and its joint limit on the SAME
+-- physical bond carrier. Single-slice sources, fixed nome and spatial width.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredTransferCovariance
+import YMGap.Continuum.BF4WilsonAllNomeCenteredTransferBondLimit
 import YMGap.Continuum.BF4WilsonAllNomeBondOSDerivative
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolvent
 import YMGap.Continuum.BF4WilsonAllNomeBondOSAdjoint
