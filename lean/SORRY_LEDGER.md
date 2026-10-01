@@ -1,5 +1,40 @@
 # Sorry Ledger
 
+## PROVED actual physical resolvent-denominator inverse (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeBondOSResolventReflection.graph_sum` retains BOTH actual
+  original derivative-graph terms, with R=(I+A)^(-1). Original positivity
+  proves `reflection_norm_bound` for S=2R-I; actual resolvent symmetry gives
+  `reflection_symmetric`. `square_complement_bound` and
+  `neumannStep_norm_bound` give the sharp squared-norm factor 1/4, and
+  `neumannStep_resolvent_pin` identifies N with 2R(I-R). Rational linear
+  laws give `neumannStep_distance_bound` for arbitrary state pairs.
+- `BF4WilsonAllNomeResolventNeumannLimit.stepState_pin` identifies the
+  witnessed iteration with that SAME physical operator. `partial_tail_bound`,
+  `modulus` and `rows` construct actual geometric Cauchy data. `normalized`,
+  `normalizedRate`, `normalized_bound` and `fixed_point` retain the original
+  range witnesses; `normalized_congr` compares underlying completed values.
+- `BF4WilsonAllNomeBondOSResolventDenominator.denominator_resolvent_square_pin`
+  is D=I-N=R^2+(I-R)^2. Quotient-lift `normalized` uses the preceding value
+  congruence, never representative choice. `inverse_right`,
+  `denominator_form_floor`, `denominator_injective` and `inverse_left`
+  establish BOTH inverse laws on EVERY physical bond class. The actual
+  denominator has form floor 1/2 and `inverse_norm_bound` has squared-norm
+  ceiling 4. `inverseCertificate` returns the inverse and explicit supplied-
+  Rows rate, with `inverse_approximation_bound` paying epsilon/4.
+- These are fixed-nome/width dimensionless operator constructions. Constants
+  1/4, 1/2 and 4 are uniform for this resolvent denominator, NOT physical
+  gap estimates. OPEN: complex imaginary shifts/Cayley realization; useful
+  complete signed energy/SAME-variance scaling on a justified family;
+  continuum survival, physical time/mass calibration, full OS/QFT and all
+  compact simple groups. No canonical field, guard or chart marker changed.
+- Forty-nine printed gates passed three final focused checks, each exactly
+  {propext, Quot.sound}, with independent mathematical and source/log review.
+  No sorry, new axiom, Classical, native_decide, noncomputable or new analytic
+  hypothesis was introduced. No full root/tree build, broad audit, guard or
+  CI change. Evidence: denominator addendum in
+  `audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
 ## PROVED quantified passive-vacuum gain and SAME-variance Ward budget (2026-10-01 UTC)
 
 - `SU2QuaternionProductHeatChannelNomeComparison.product_channel_sum_pin`

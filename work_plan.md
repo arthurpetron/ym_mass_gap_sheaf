@@ -25,6 +25,48 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual physical resolvent denominator constructed (2026-10-01 UTC)
+
+PROGRESS after `9554f18`: the source-aware scaling review found no valid
+deduction of the missing signed bracket from output smoothing; it requires
+a new lower estimate on the original centered transfer response. No identity-
+only wrapper or guessed scaling law was added. The independent SAME-carrier
+operator branch instead has sufficient proved inputs for a real construction.
+
+`BF4WilsonAllNomeBondOSResolventReflection` transports actual resolvent
+linearity/symmetry to the existing physical bond carrier. If R=(I+A)^(-1),
+the ORIGINAL graph gives x=Rx+ARx and positivity makes S=2R-I contractive.
+Symmetry and contraction imply ||(I-S^2)x||^2<=||x||^2. Thus the actual
+N=2R(I-R) has squared-distance factor 1/4 on every physical bond state.
+
+`BF4WilsonAllNomeResolventNeumannLimit` builds b0=0,
+b_(n+1)=x/2+N*b_n on ALL witnessed original time-range states. Norm bounds,
+geometric tails and the stored input representative give explicit moduli.
+The constructed limit obeys its fixed-point equation; value congruence
+descends it without quotient representative choice.
+`BF4WilsonAllNomeBondOSResolventDenominator` constructs D^-1=2*lim b for
+the literal D=R^2+(I-R)^2, proves BOTH inverse laws and the squared-norm
+ceiling 4. Its half-form floor supplies injectivity. Supplied physical Rows
+also return an actual inverse and approximation rate via `inverseCertificate`.
+No inverse, contraction, centered-state premise or analytic field is assumed.
+
+Forty-nine gates passed three final focused checks within
+{propext, Quot.sound}; independent source/log and mathematical reviews passed.
+No new sorry, canonical guard/marker change or full root/tree build/audit.
+Root imports are registered, not checked in aggregate; CI remains manual-only.
+Evidence: denominator addendum in
+`audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
+NEXT structural consumer: componentwise complexification of the constructed
+real denominator inverse gives imaginary-shift preimages for the EXISTING
+complex physical derivative graph, then full Hermitian symmetry supplies a
+unitary Cayley map. No current Cayley declaration consumes the new inverse;
+that actual SAME-carrier theorem is the next implementation, not a assumed
+frontier field. This will not identify a continuum Hamiltonian or solve the
+PRIMARY complete signed scaling estimate. Useful physical scaling, nontrivial
+continuum survival, physical mass, full continuum OS/QFT and all groups remain
+OPEN. The displayed chart claims are unchanged, so no ASCII reprint.
+
 ### Quantified passive gain meets SAME-variance Ward budget (2026-10-01 UTC)
 
 PROGRESS after `df3824d`: the original finite product channels now have a

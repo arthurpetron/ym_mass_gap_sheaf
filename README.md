@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Constructed physical resolvent-denominator inverse (2026-10-01):**
+on every state of the SAME completed physical bond carrier, positivity proves
+`S=2R-I` contractive for the actual `R=(I+A)^(-1)`. Thus `N=2R(I-R)` has
+squared-distance factor `1/4`. Witness-preserving geometric iteration now
+constructs the two-sided inverse of `R^2+(I-R)^2`, with norm ceiling `2`
+and explicit approximation moduli for supplied rows. This removes an actual
+operator-construction input to the future complex imaginary-shift/Cayley
+step; it is not a physical mass or scaling bound. Forty-nine gates passed
+three final focused checks. See the
+[proof and scope](audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md#addendum-actual-resolvent-denominator-inverse).
+
 **Quantified signed-family channel gain (2026-10-01):** the original
 SU(2) nonvacuum channels now have a checked `w^3` attenuation, while the
 conditional-vacuum contribution is identified exactly. Applied to the

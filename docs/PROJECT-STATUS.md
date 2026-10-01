@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting actual physical resolvent-denominator inverse
+(2026-10-01 UTC; chart unchanged): the original positive resolvent R=(I+A)^-1
+gives symmetric/contractive S=2R-I on EVERY physical bond class. The actual
+N=2R(I-R) has squared-distance factor 1/4, independent of nome and width.
+Original witnessed states and explicit geometric moduli construct the
+normalized Neumann limit. Value congruence descends it without representative
+choice and proves BOTH inverse laws for D=R^2+(I-R)^2. D has form floor 1/2;
+its inverse has squared-norm ceiling 4 and a Type-valued supplied-Rows
+approximation certificate. Forty-nine gates passed three final focused
+checks and independent review. These constants describe a resolvent
+denominator, NOT a physical mass gap. Complex imaginary shifts/Cayley,
+useful signed scaling, survival, physical mass, continuum QFT and all groups
+remain OPEN. Evidence: denominator addendum in
+`audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
 Verified supporting quantified passive-vacuum/Ward gain (2026-10-01 UTC;
 chart unchanged): exact Casimir-tagged ORIGINAL channels give nonvacuum
 attenuation w^3, without a channel-count factor. The literal vacuum channel

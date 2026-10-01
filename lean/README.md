@@ -12,6 +12,25 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Actual physical resolvent-denominator inverse (2026-10-01 UTC):**
+`BF4WilsonAllNomeBondOSResolventReflection` proves the actual
+`S=2(I+A)^(-1)-I` symmetric/contractive and `N=2R(I-R)` squared-distance
+contractive by `1/4` on every physical bond class.
+`BF4WilsonAllNomeResolventNeumannLimit` retains original range witnesses
+in the normalized geometric recurrence and constructs its limit, explicit
+modulus and exact fixed-point equation. Congruence of original values lets
+`BF4WilsonAllNomeBondOSResolventDenominator` descend that limit without
+representative choice and construct BOTH inverse laws for
+`D=I-N=R^2+(I-R)^2`. Its form floor is `1/2`; the inverse squared-norm
+ceiling is `4`. `inverseCertificate` returns an actual inverse and explicit
+row-approximation rate, paying the scaling factor four at epsilon/4.
+Forty-nine gates passed three final focused checks within
+{propext, Quot.sound}, with independent review. No new analytic field or
+canonical closure. Complex imaginary shifts/Cayley are the next structural
+step; useful signed scaling, physical time/mass and continuum QFT remain OPEN.
+Evidence: denominator addendum in
+`audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
 **Quantified passive channel/Ward gain (2026-10-01 UTC):**
 `SU2QuaternionProductHeatChannelNomeComparison` retains every original
 channel normalizer and computed Casimir; nonzero charge is at least three.
