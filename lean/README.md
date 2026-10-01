@@ -12,6 +12,14 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original marginal Ward transport (2026-10-01 UTC):**
+`BF4ExactSlabFixedSpatialProjectedWard.completeCenteredError_projected_pair`
+rewrites the integrated Ward term in the actual complete centered error,
+keeping the original mean, partition and coefficient `-(1-w)`. Four focused
+gates and independent review passed within {propext,Quot.sound}. This does
+not equate marginal/projected weights or supply a sign or scaling estimate.
+Evidence: `audits/AUDIT-PROJECTED-WARD-2026-10-01.md`.
+
 **Scaled original physical Cayley operators (2026-10-01 UTC):**
 `BF4WilsonAllNomeComplexBondOSScaledImaginaryShifts` and `ScaledCayley`
 construct both inverses of input±i*t*output for t>0 and the SAME graph's

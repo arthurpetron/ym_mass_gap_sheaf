@@ -5003,6 +5003,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialRemainderCancellation
 -- Complete the negative source square; SAME-variance correction and Ward debt remain signed.
 import YMGap.Continuum.SU2QuaternionCompleteRemainderSquare
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredRemainderSquare
+-- Integrated original Ward residual transport, not a weight/derivative identity.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedWard
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.
 import YMGap.Continuum.SU2HeatQuarticBudgetFloor
 -- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.

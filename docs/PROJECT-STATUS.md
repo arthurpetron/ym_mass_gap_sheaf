@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Verified supporting original Ward transport (2026-10-01 UTC; chart
+unchanged): the integrated projected-source residual rewrites the actual
+complete centered error for padded signed/repeated spatial families. Original
+mean, odd partition and negative coefficient remain. Four gates and independent
+review passed. No equality of weights/derivatives, favorable sign or useful
+scaling estimate is supplied. No displayed claim changed; no ASCII reprint.
+Evidence: `audits/AUDIT-PROJECTED-WARD-2026-10-01.md`.
+
 Verified supporting scaled physical Cayley operators (2026-10-01 UTC;
 chart unchanged): for t>0 rational, actual two-sided imaginary-shift inverses
 construct the SAME graph's complex-linear unitary Cayley map. Full Hermitian

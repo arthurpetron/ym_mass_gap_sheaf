@@ -4,7 +4,20 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Scaled original physical Cayley operators (2026-10-01 UTC)
+## Current increment: Original marginal Ward transport (2026-10-01 UTC)
+
+PROGRESS after `dc3d872`: the actual complete centered error consumes an
+integrated projected-source Ward pairing, preserving original mean, partition
+and coefficient `-(1-w)` for padded signed/repeated families. Four gates and
+independent review passed with no new analytic input. This removes the scalar
+transport seam, NOT the needed source-gradient sign/scaling estimate.
+
+Useful complete signed error/SAME-variance scaling, survival, physical time/
+mass, continuum QFT and every group remain OPEN. No broad build/audit/guard,
+progress-metric script, raised limit or ASCII reprint. Evidence:
+`audits/AUDIT-PROJECTED-WARD-2026-10-01.md`.
+
+## Earlier increment: Scaled original physical Cayley operators (2026-10-01 UTC)
 
 PROGRESS after `bc30e91`: original graph inverses for input±i*t*output
 and the actual Cayley map are constructed for every positive rational t.

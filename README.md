@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original marginal Ward transport (2026-10-01):**
+the integrated signed Ward residual now has a projected-source representation
+inside the actual complete centered error, retaining its original mean,
+partition and negative coefficient. Four focused gates and independent review
+passed. This is not polynomial equality of weights or a scaling estimate. See
+the [proof and remaining estimate](audits/AUDIT-PROJECTED-WARD-2026-10-01.md).
+
 **Scaled original physical Cayley operators (2026-10-01):**
 every positive rational t now has constructed two-sided imaginary-shift
 inverses and an actual complex-linear unitary `(I-i*t*A)(I+i*t*A)^(-1)`

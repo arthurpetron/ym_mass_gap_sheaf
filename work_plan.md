@@ -25,6 +25,23 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original marginal Ward transport (2026-10-01 UTC)
+
+PROGRESS after `dc3d872`: the ORIGINAL complete centered error now consumes
+an integrated projected-source Ward identity. Padded signed/repeated spatial
+families retain the original mean, odd partition and coefficient `-(1-w)`.
+The proof transports the independent centered test and angular squares, then
+cancels equal Casimir Ward identities; it does NOT equate the weights or their
+derivatives. Four focused gates and independent review passed. Evidence:
+`audits/AUDIT-PROJECTED-WARD-2026-10-01.md`.
+
+PRIMARY remains a useful JOINT complete signed error/SAME-variance bound on
+a justified changing family. The new scalar identity permits projected-source
+gradient analysis but provides no sign or quantitative scaling estimate.
+NEXT operator work is linked-second-core local error/product estimates.
+Survival, physical time/mass, full continuum QFT, every group and Clay remain
+OPEN. No displayed chart change, ASCII reprint or broad build/audit/guard.
+
 ### Scaled original physical Cayley operators (2026-10-01 UTC)
 
 PROGRESS after `bc30e91`: actual t-scaled imaginary-shift inverses for every

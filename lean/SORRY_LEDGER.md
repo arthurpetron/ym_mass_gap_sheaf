@@ -1,5 +1,18 @@
 # Sorry Ledger
 
+## PROVED original marginal integrated Ward transport (2026-10-01 UTC)
+
+- `BF4ExactSlabFixedSpatialProjectedWard.wardResidual_projected_pair` and
+  `normalizedWardResidual_projected_pair` transport the INTEGRATED residual
+  for padded arbitrary signed/repeated families, not the marginal polynomial.
+- `completeCenteredError_projected_pair` is the actual consumer: its original
+  mean, odd partition and coefficient `-(1-w)` are unchanged.
+- Four focused gates and independent source/log review passed within
+  {propext,Quot.sound}; no new sorry, analytic field or frontier weakening.
+  Evidence: `audits/AUDIT-PROJECTED-WARD-2026-10-01.md`.
+- OPEN: useful complete signed error/SAME-variance scaling, surviving
+  continuum excitation, physical mass/time, full QFT and every group.
+
 ## PROVED scaled original physical imaginary shifts and Cayley (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeComplexBondOSScaledImaginaryShifts` constructs actual
