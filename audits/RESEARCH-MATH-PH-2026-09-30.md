@@ -135,3 +135,77 @@ The two prioritized lessons are exact conditional-matrix preservation before
 boundary cancellation (40171), and proof of locality before dual substitution
 (39780). No theorem was imported as a Lean premise; these notes close no proof
 node. Routine literature polling remains at most once per twelve hours.
+
+## Focused applicability second pass (2026-10-01 23:19 UTC)
+
+The user requested these same seven IDs again. The main agent refreshed their
+primary records: all remain v1. A parallel Sol reviewer inspected the strongest
+arguments against the current source frontier. This was a targeted second pass,
+NOT another math-ph listing scan. No Lean premise, proof status or goal changed;
+no build or heavy computation ran.
+
+### Preserve the information that makes cancellation exact
+
+[2609.40171, equations (8)--(10), (14)--(16), theorems 1--2 and appendix 9.1](https://arxiv.org/html/2609.40171v1)
+preserves unnormalized conditional interior matrices, not just branch
+probabilities. Matched interior terms therefore cancel before the boundary
+estimate. Its length-uniform cost is at fixed spacing, transverse width,
+coupling and cutoff, under H1--H4; it is not a spacing-small variance-relative
+temporal cost.
+
+Our existing one-slice pins already preserve original mass and moments:
+`BF4ExactSlabFixedSpatialFamilyVarianceWard.marginalMass_pin`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceWard.lean:48`) and
+`BF4ExactSlabFixedSpatialProjectedSourceEnergy.oddMoment_projected_source`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialProjectedSourceEnergy.lean:117`).
+The latter requires supported, fringe-independent tests. These are not
+cross-width or changing-family maps. A proposed comparison must retain the
+original joint pairings and signed insertions, not just their scalar mass.
+
+### Lower-gap assembly is not automatic from local gaps
+
+[2609.39802, section 2.1, theorem 1](https://arxiv.org/html/2609.39802v1)
+is abstract finite-dimensional positive-operator algebra, not restricted to
+Davies dynamics. It requires a positive local decomposition of the SAME
+operator, an orthogonal interface projection, local gaps, local shorted-form
+(Schur-complement) lower bounds, and coverage/overlap/assembly conditions G1--G3.
+The resulting lower bound is
+`(1 - sqrt(1 - eta)) * min(a, tau)` with the stated assembly constants.
+The Schur-loss condition explicitly controls coupling to complementary
+directions; separate local gaps do not replace it. This is a potential
+lower-gap method only after those original-operator inputs are proved, not a
+replacement for the current upper-energy survival estimate. The finite-group
+Davies application still does not identify the Wilson OS transfer.
+
+### Keep the direction and operator of the variance inequality
+
+[2609.38295, equation (1.1), theorem 1.1 and lemma 2.4](https://arxiv.org/html/2609.38295v1)
+provides `Var <= C * gradientEnergy` and Lipschitz pushforward transfer
+`C_P(T#nu) <= L^2 * C_P(nu)`. This is a LOWER gradient-energy estimate;
+it does not provide the desired UPPER temporal-energy estimate
+`E_j <= C * a_j * OWNVar_j`. Its main theorem requires isotropic,
+unconditional log-concavity. No original Wilson identification with that
+measure class was supplied by this review.
+
+The actual current recipient remains
+`BF4ExactSlabFixedSpatialFamilyVarianceTaylor.padded_family_energy_variance`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceTaylor.lean:67`):
+`E = 12*(1-w)*OWNVar + varianceRemainder`, on its stated original padded
+family. The complete signed remainder, physical spacing join and justified
+changing family still need their own estimates.
+
+### Certificates and qualified obstructions
+
+[2609.38220, section 7 and appendix B](https://arxiv.org/html/2609.38220v1)
+separates a frozen finite bridge from a proved invariant all-level family.
+Its one-sided rounding preserves the comparison order; integer/rational and
+rigorous interval checks verify the finite conditions. This is a useful
+certificate design pattern only after proving a corresponding ORIGINAL
+Wilson recursion and preserved order. The hierarchical spin-glass recursion
+is not such a law, and its external checker is not a Lean proof oracle.
+
+[2609.39780, theorem 1, corollary III.2 and theorem 2](https://arxiv.org/html/2609.39780v1)
+rules out the specified local static/dynamic plaquette dualizations, not our
+original-link route. The blockade result (39475) and cubic-code Davies result
+(39959) remain different-model estimates as recorded above. None of the seven
+supplies the missing original Wilson scaling producer or closes a Clay node.
