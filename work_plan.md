@@ -25,6 +25,42 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original maximal-graph right-rational tangent and parallel endpoint work (2026-10-01 UTC)
+
+PROGRESS after `2021dc0`: the ORIGINAL finite displacement passes through its
+actual product limit with coefficient 8. `GraphTangentComparison` splits an
+original graph point into its second-core approximant plus a graph difference.
+Its proximity cost is ONLY derivative-output distance, so normalization does
+not divide a fixed input error by time. `MaximalTangent.tangentRadius` computes
+one original second-core approximant at epsilon/128 and its preimage ceiling;
+`normalizedTangentCertificate` bounds the SAME physical normalized -2i residual
+by epsilon throughout its computed positive rational radius.
+`signedAction_positive_rational` pins that map to the constructed signed group.
+Twenty-five focused gates and independent math/source/log/hash reviews passed.
+Rates remain supplied-Point data, not quotient representative selections.
+Evidence: right-rational tangent addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+The requested parallel endpoint work found the exact next missing producers:
+survival's all-nome two-nome comparison retains a growing action-face count,
+whereas its volume-independent alternatives retain small-nome guards;
+QFT's actual buffered R*M*R words require controlled buffer removal/locality
+and source-compatible time translation, not bare multiplier commutation;
+every group requires compatible actual Haar/heat/action realizations, not
+Cartan/root/central codes. No redundant assumed-input wrapper was added.
+
+NEXT narrow operator joins: negative/full-real tangent and the converse
+infinitesimal-domain argument against the ORIGINAL intrinsic adjoint graph.
+Reuse original Euclidean integer sampling and its witnessed negative right
+derivative, retaining the factor-two phase. These joins still do not calibrate
+physical spacing. Endpoint work remains directed at original changing-family
+volume-uniform pairing estimates, translated buffered locality and actual
+group producers; their missing analytic inputs cannot be declared proved
+independently. Primary useful complete signed scaling, changing-family survival,
+finite positive physical mass, continuum QFT, every group and Clay remain OPEN.
+Three root imports added; full root/tree/build/audit/guard NOT checked.
+Canonical chart, CI and resource thresholds unchanged.
+
 ### Actual physical quotient limit, rational addition and tangent (2026-10-01 UTC)
 
 PROGRESS after `b22e523`: `ScaledCayleyLimitMap.rows_limit_unique` transports

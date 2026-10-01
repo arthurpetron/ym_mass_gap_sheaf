@@ -10,13 +10,26 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original maximal-graph right-rational tangent (2026-10-01):** each supplied
+physical graph point now computes a positive radius for its normalized Cayley
+residual, retaining the exact `-2i` phase and SAME derivative output. The proof
+uses output-coordinate approximation, not input error divided by time squared,
+and pins rational Cayley time to the constructed signed group. Focused Lean
+checks and independent reviews passed. Negative/full-real differentiability,
+converse generator-domain identification, physical spacing, survival, full QFT
+and every-group realization remain open. Parallel endpoint reviews found the
+specific missing original-action, buffered-locality and Haar/heat producers;
+no duplicate assumed-input wrapper was added. See the
+[tangent proof and parallel endpoint findings](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-maximal-graph-right-rational-tangent-and-parallel-endpoint-review).
+
 **Parallel generator prerequisites (2026-10-01):** the constructed signed-time
 group now preserves EVERY original maximal derivative-domain class, with both
 input/output pins supplied by the same computed unit-resolvent witness.
 Independently, each supplied represented physical domain point now computes a
 second-core approximant controlling BOTH graph components. Focused constructive
 checks and independent reviews passed. These remove two generator prerequisites;
-the tangent extension and physical spacing/calibration remain open. Parallel
+the right-rational extension is recorded above; full generator-domain
+identification and physical spacing/calibration remain open. Parallel
 reviews also identify the missing near-one-nome spatial estimate, translated
 buffered-locality join, and compatible compact-group Haar/heat realization.
 See the [proofs and endpoint findings](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#parallel-maximal-graph-transport-and-second-core-graph-approximation).

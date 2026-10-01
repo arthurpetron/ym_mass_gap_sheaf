@@ -1,5 +1,35 @@
 # Sorry Ledger
 
+## PROVED original maximal-graph right-rational tangent only (2026-10-01 UTC)
+
+- `ScaledCayleyDomainDisplacement.limitMap_domain_distance_le_eight` passes
+  the ORIGINAL finite bound through the ORIGINAL computed product rate;
+  the available squared-distance triangle pays factor 8, not a claimed sharp 4.
+  The proposition covers EVERY original maximal-domain class.
+- `GraphTangentComparison.graph_tangent_comparison` reconstructs the actual
+  graph difference and bounds its tangent by OUTPUT distance only. Its budget
+  is 736*t^4 times the second output norm plus 48*t^2 times output distance.
+  No input error is divided by time.
+- `MaximalTangent.tangentRadius` uses the actual second-core approximation at
+  epsilon/128 and original preimage ceiling. `physicalPoint_tangent_bound`
+  gives squared error <=t^2*epsilon. `normalizedTangentCertificate` returns
+  the radius as Type data with squared normalized residual <=epsilon.
+  `signedAction_positive_rational` identifies the actual group at these times.
+  The phase is exactly -2i; nome and width are fixed. Moduli belong to supplied
+  original Points, not chosen representatives of quotient classes.
+- Twenty-five focused gates (4+7+14) passed: one {propext}, 24
+  {propext,Quot.sound}. Independent mathematical/source/log/hash reviews passed.
+  No new sorry, axiom, analytic premise, erased witness or weakened frontier.
+  Evidence: right-rational tangent addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: negative/full-real tangent and converse infinitesimal-domain
+  identification; SAME physical clock/spacing; primary useful signed scaling,
+  changing-family survival, finite positive physical mass, full continuum QFT,
+  actual every-group realization and Clay. Parallel endpoint reviews found
+  missing producers and added no equivalent conditional wrapper.
+- Three root imports added; full root/tree/build/audit/guard NOT checked.
+  Canonical chart, CI and safety limits unchanged.
+
 ## PROVED parallel original signed graph transport and represented graph approximation only (2026-10-01 UTC)
 
 - `ScaledCayleyResolventLimit.resolventRows` retains BOTH original range

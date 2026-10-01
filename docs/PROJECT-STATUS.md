@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting original maximal-graph RIGHT-RATIONAL tangent
+(2026-10-01 UTC; chart unchanged): the actual limit displacement holds on
+EVERY original domain class. Comparing two graph points pays only derivative
+OUTPUT error; supplied physical Points compute a positive radius for the
+normalized residual with exact -2i phase, pinned to the signed action at
+positive rational times. Twenty-five focused gates and independent reviews
+passed. Negative/full-real differentiability, converse generator-domain and
+physical-clock/spacing identification remain OPEN, as do primary signed
+scaling, changing-family survival, physical mass, continuum QFT and every group.
+Parallel endpoint reviews found missing original near-one volume-uniform
+comparison, buffered-locality and compatible compact Haar/heat producers.
+Evidence: right-rational tangent addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting parallel maximal-graph prerequisites (2026-10-01 UTC;
 chart unchanged): actual signed time commutes with the original positive
 resolvent and constructs a graph-domain image on EVERY maximal physical class,

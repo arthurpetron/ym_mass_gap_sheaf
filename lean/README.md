@@ -12,6 +12,20 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original maximal-graph right-rational tangent (2026-10-01 UTC):**
+`ScaledCayleyDomainDisplacement.limitMap_domain_distance_le_eight` passes
+the actual finite displacement bound to EVERY original domain class.
+`GraphTangentComparison.graph_tangent_comparison` pays only original OUTPUT
+distance. `MaximalTangent.normalizedTangentCertificate` computes a positive
+rational radius from each SUPPLIED physical Point and tolerance, with the
+exact `-2i` residual; `signedAction_positive_rational` pins its time map.
+All 25 focused gates and independent reviews passed within the constructive
+gate. Negative/full-real differentiability, converse generator-domain and
+physical-clock/spacing identification, changing-family survival, continuum QFT
+and every group remain OPEN. Three root imports added; full root/tree/audit
+NOT checked. Evidence: right-rational tangent addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Parallel maximal-graph prerequisites (2026-10-01 UTC):**
 `ScaledCayleyResolventLimit` transports actual commutation through the original
 rational and positive-real limits with their unchanged rates.

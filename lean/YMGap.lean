@@ -6183,6 +6183,9 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleySignedTimeContin
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyResolventLimit
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleySignedGraph
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSecondCoreGraphDensity
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyDomainDisplacement
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyGraphTangentComparison
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyMaximalTangent
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

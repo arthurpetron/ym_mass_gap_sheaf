@@ -1410,3 +1410,122 @@ The original maximal-domain invariance and represented graph approximation
 are proved. The maximal tangent/physical-clock identification, primary useful
 signed scaling, changing-family survival, finite positive physical mass,
 full continuum QFT, every compact simple group and Clay remain OPEN.
+
+## Original maximal-graph right-rational tangent and parallel endpoint review
+
+The requested parallel work used two Sol workstreams and one Luna review;
+Lean checks remained serialized. The new proved component belongs to the
+generator branch on the SAME original fixed-nome/fixed-width physical carrier.
+The endpoint reviews below identify missing producers; they do not close them.
+
+### Proved output-controlled tangent extension
+
+- `lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyDomainDisplacement.lean:92`,
+  `point_limit_distance_le_eight`, uses the ORIGINAL product rate and its
+  supplied input Rows. The squared-distance triangle gives coefficient 8;
+  no sharp coefficient-4 distance-limit lemma is assumed. `:136`,
+  `limitMap_domain_distance_le_eight`, covers EVERY original domain class.
+- `lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyGraphTangentComparison.lean:152`,
+  `graphDifference`, constructs the actual original difference domain;
+  `:196`, `graphDifference_reconstruct`, uses input injectivity.
+  `:209`, `tangentError_add`, splits the exact -2i residual.
+  `:293`, `graph_tangent_comparison`, gives squared bound
+  736*t^4*normSq(second output)+48*t^2*distance(original output,first output).
+  There is NO input-error term to divide by t^2.
+- `lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyMaximalTangent.lean:73`,
+  `approximation`, computes the existing original second-core witness at
+  epsilon/128. `:99`, `tangentRadius`, uses its original preimage ceiling.
+  The coefficient 48*(epsilon/128)<=epsilon/2 and the computed radius's
+  736*t^2*ceiling<=epsilon/2 give `:167`, `physicalPoint_tangent_bound`:
+  squared residual <=t^2*epsilon.
+- In that SAME module, `:222`, `normSq_realScale`, and exact rational
+  reciprocal cancellation give `:255`, `physicalPoint_normalized_bound`.
+  `:272`, `normalizedTangentCertificate`, returns a positive rational radius
+  with squared normalized residual <=epsilon as Type data. `:281`,
+  `signedAction_positive_rational`, pins the map to the constructed signed
+  group's actual positive rational action. Moduli belong to SUPPLIED original
+  Points; no quotient representative is chosen to compute them.
+
+This proves the RIGHT-RATIONAL -2i tangent on represented points of the
+ORIGINAL maximal graph. It does NOT prove negative/full-real differentiability,
+the converse infinitesimal-domain characterization, physical-clock/spacing
+calibration or a physical Hamiltonian mass gap. The original Euclidean pins
+remain available at
+`lean/YMGap/Continuum/BF4WilsonAllNomePositiveTimePins.lean:118`,
+`positiveAction_original`, and
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSDerivative.lean:325`,
+`realTaylorCertificate`; no new scalar-logarithm premise was introduced.
+
+### Endpoint review: exact remaining producer seams
+
+Survival's all-nome original-action comparison exists, but is NOT volume-free:
+`lean/YMGap/Continuum/BF4ExactSlabTwoNomeExpectationBound.lean:48`,
+`finiteSetCap`, is exactly |ids|*(2*c*relativeVariation), and `:100`,
+`expectation_difference_bound`, retains it after cutoff removal.
+`lean/YMGap/Continuum/BF4ExactSlabWilsonFiniteWindowCoupling.lean:60`,
+`finiteWindow_difference_bound`, uses a face set growing with time and outer
+extent. The volume-free alternative at
+`lean/YMGap/Continuum/BF4ExactSlabSummedCouplingPath.lean:172`,
+`full_slab_original_change_bound`, retains hsmall/hd/hs; so do
+`lean/YMGap/Continuum/BF4ExactSlabSpatialTwoNomeExpectationBound.lean:110`,
+`expectation_difference_bound`, and
+`lean/YMGap/Continuum/BF4ExactSlabLocalizedCouplingBound.lean:93`,
+`localized_coupling_bound`. NOT FOUND in these producers: an all-nome,
+outer-volume-uniform comparison of the SAME reflected pairing along a justified
+changing family. Repackaging the growing face cap as a variance consumer
+would not supply that input; no such wrapper was added.
+
+QFT's exact source operation is
+`lean/YMGap/Continuum/BF4WilsonAllNomeBondOSInsertion.lean:67`, `bufferedSource`,
+namely multiply(L,i,advance(1,x)); `:100`, `act_root_pin`, is R*M*R.
+`lean/YMGap/Continuum/BF4WilsonAllNomeBondOSSeparatedWords.lean:49`,
+`sourceWord`, retains each buffer, and
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSSeparatedWords.lean:173`,
+`wordAct_ofSource`, pins the same complex physical action. Two letters therefore
+have middle factors M_L*T*M_R and M_R*T*M_L, not merely M_L*M_R and M_R*M_L.
+NOT FOUND in these modules or the signed-time modules: an original-source
+translated-buffered-locality identity or a controlled buffer-removal estimate.
+Formal signed conjugation alone does not supply that input; no generic
+conjugated-word wrapper was added.
+
+Every-group review: the actual current finite producer
+`lean/YMGap/Continuum/SU2QuaternionProductHeatMarginals.lean:53`, `productHeat`,
+is SU(2)-specific. `lean/YMGap/RepTheory/CompactSimpleGlobalForm.lean:318`,
+`CompactSimpleGlobalFormCode`, explicitly stores no group realization or
+analytic data; `lean/YMGap/RepTheory/ConstructiveRepresentationDescent.lean:21`
+documents its algebraic-only boundary. NOT FOUND in these modules, CartanType,
+G2RootCoordinateCertificate or the endpoint review: a compatible non-SU(2)
+compact Haar/heat/action producer. A further finite classification-code check
+would not provide it. The consumers
+`lean/YMGap/Continuum/CanonicalOSRoot.lean:84`, `ReferenceWeightStageFamily`,
+and `:268`, `PositiveTimeOSRoot`, still require the actual shared stage,
+Schwinger/support/reflection/transfer and nonzero-probe data.
+
+### Verification and residue
+
+All three focused checks emitted `.olean`s; all 25 source-site gates passed:
+one {propext}, 24 {propext,Quot.sound}. Independent mathematical and exact
+source/log/hash reviews passed. Rejected drafts' private-zero and rational-add
+namespace seams were repaired before acceptance; their sorryAx-bearing error
+logs are NOT accepted evidence. No source sorry, new axiom, analytic premise,
+erased witness or weakened canonical frontier was introduced.
+
+| Module suffix | Gates | Accepted log in `/tmp` | SHA256 |
+| --- | ---: | --- | --- |
+| `ScaledCayleyDomainDisplacement` | 4 | `ym-domain-displacement-20261001.log` | `e2d3406105b6b43b8c62d34ed2783b253c39c98d3965556ffa648335a491dec5` |
+| `ScaledCayleyGraphTangentComparison` | 7 | `ym-graph-tangent-comparison-second-20261001.log` | `74fb43e09e14c5a4ded8ae807ce549ced0d53b6ed2a552dee9c440bbeef184fa` |
+| `ScaledCayleyMaximalTangent` | 14 | `ym-maximal-tangent-second-20261001.log` | `34193b2fdd7488598ee27e4922934c3d844d0cb04eb00c9d1b058156a0403c03` |
+
+The worker cap remains 20 GiB, the OS reserve 12 GiB, with ONE compiler and
+continuous safety telemetry. Preflight found zero swap and no Lean/Lake/test/
+runner conflict; other user work was left alone. Three root imports added;
+full root/tree/build/audit/guard NOT checked. CI and resource thresholds
+unchanged. No exact displayed chart claim changed; no ASCII reprint.
+
+Next operator joins are negative/full-real tangent and the converse
+infinitesimal-domain argument using the ORIGINAL `AdjointPair` and `ofAdjoint`
+in `BF4WilsonAllNomeComplexBondOSDerivative.lean:115` and `:177`.
+These remain separate from the original changing-family volume-uniform pairing
+estimate, translated buffered locality and actual compact-group producers.
+Physical spacing/scaling, nontrivial continuum survival, finite positive
+physical mass, full QFT, every compact simple group and Clay remain OPEN.
