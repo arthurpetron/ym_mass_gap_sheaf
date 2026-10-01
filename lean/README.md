@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Parameterized original physical resolvents (2026-10-01 UTC):**
+`BF4WilsonAllNomeBondOSScaledResolvent` constructs the two-sided original
+graph inverse for input+t*output, for every positive rational t. Its
+`ScaledReflection`, `ScaledResolventNeumannLimit` and `ScaledDenominator`
+successors construct the SAME resolvent denominator inverse with explicit
+represented approximation rates. All 71 focused gates passed within
+{propext,Quot.sound}, with independent reviews. The uniform denominator
+floor 1/2 and squared inverse norm ceiling 4 are not physical gap bounds.
+Scaled imaginary shifts, Cayley time products and continuum remain OPEN.
+Evidence: `audits/AUDIT-SCALED-PHYSICAL-RESOLVENT-2026-10-01.md`.
+
 **Sharp original source-energy retention (2026-10-01 UTC):**
 `BF4WilsonAllNomeSectorSharpEnergyTransfer.retention_square_identity` proves
 `||Tx-(1-c)x||^2+2*(1-c)*(c*N-E)=||Tx||^2-(1-c)^2*N` on the ORIGINAL carrier.

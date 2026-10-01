@@ -25,6 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Parameterized original physical resolvents (2026-10-01 UTC)
+
+PROGRESS after `7f3886d`: for every t>0 rational, construct the actual
+R_t=(I+t*A)^(-1) on the original physical carrier and quotient graph domain.
+Positivity gives contractive S_t=2R_t-I and squared-distance factor 1/4
+for N_t=2R_t(I-R_t). Original witnessed geometric iteration constructs BOTH
+inverse laws for D_t=R_t^2+(I-R_t)^2, with form floor 1/2 and squared inverse
+norm ceiling 4. Supplied Rows return explicit approximation moduli; no
+representative choice or new analytic premise. All 71 gates and independent
+reviews passed. Evidence: `audits/AUDIT-SCALED-PHYSICAL-RESOLVENT-2026-10-01.md`.
+
+NEXT operator consumer is scaled imaginary shifts/Cayley, then second-core
+consistency and a product-Cauchy modulus with the factor-two phase convention.
+These parameter-uniform denominator constants do NOT supply a physical gap
+or spacing calibration. PRIMARY remains useful JOINT complete signed
+error/SAME-variance scaling on a justified changing family. Source review
+found no valid depth telescope: the next projected endpoint contains a fresh
+spatial weight. The remaining order-h Ward correction is not absorbed into
+an O(h^2) estimate by the retained h^2 square without a new source estimate.
+Do not repeat those shortcuts or substitute q^2 for the original marginal.
+Survival, physical mass/time, full continuum QFT, field/UV identification,
+every group and Clay remain OPEN. No displayed chart claim changes, ASCII
+reprint, broad build/audit/guard or raised limit.
+
 ### Sharp original source energy retention (2026-10-01 UTC)
 
 PROGRESS after `c1e95a8`: the ORIGINAL pairing gives the exact positive square

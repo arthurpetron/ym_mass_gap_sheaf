@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED parameterized original physical resolvent and denominator (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeBondOSScaledResolvent` constructs R_t=(I+t*A)^(-1)
+  for every positive rational t on the EXISTING physical carrier, with
+  original domain witnesses and both graph inverse laws.
+- `BF4WilsonAllNomeBondOSScaledReflection` proves symmetry/contraction
+  and N_t=(I-S_t^2)/2=2R_t(I-R_t), squared-distance factor 1/4.
+- `BF4WilsonAllNomeScaledResolventNeumannLimit` constructs the witnessed
+  geometric limit y=x/2+N_t y with a source-dependent explicit modulus.
+- `BF4WilsonAllNomeBondOSScaledDenominator` pins D_t=R_t^2+(I-R_t)^2,
+  constructs its inverse 2y on every class, and returns supplied-Rows
+  approximations/rates. Form floor 1/2; squared inverse norm ceiling 4.
+- All 71 focused gates and independent reviews passed within
+  {propext,Quot.sound}. No new sorry, analytic field or frontier weakening.
+  Evidence: `audits/AUDIT-SCALED-PHYSICAL-RESOLVENT-2026-10-01.md`.
+- OPEN: scaled imaginary shifts/Cayley products, continuous physical time,
+  useful complete signed scaling, continuum survival/mass/QFT and all groups.
+  Denominator uniformity is NOT a physical generator spectral-gap estimate.
+
 ## PROVED sharp original source energy retention consumer (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeSectorSharpEnergyTransfer.retention_square_identity`

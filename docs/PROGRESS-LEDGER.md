@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Sharp original source energy retention (2026-10-01 UTC)
+## Current increment: Parameterized original physical resolvents (2026-10-01 UTC)
+
+PROGRESS after `7f3886d`: actual R_t=(I+t*A)^(-1) for every rational t>0
+and its original denominator inverse are constructed, not assumed. The SAME
+domain points and represented source moduli are retained. The uniform
+Neumann squared-distance factor 1/4 gives both denominator inverse laws
+with form floor 1/2, squared inverse norm ceiling 4 and explicit all-tail
+supplied-Rows rates. All 71 focused gates and independent reviews passed.
+
+This removes a construction input for scaled imaginary shifts; it is NOT
+a physical generator gap, spacing calibration or time-product limit.
+Primary useful JOINT complete signed scaling, continuum survival/mass/QFT
+and every group remain OPEN. No broad build/audit/guard, progress-metric
+script, raised limit or ASCII reprint. Evidence:
+`audits/AUDIT-SCALED-PHYSICAL-RESOLVENT-2026-10-01.md`.
+
+## Earlier increment: Sharp original source energy retention (2026-10-01 UTC)
 
 PROGRESS after `c1e95a8`: exact original pairing square completion improves
 the source-to-domain retained fraction from 1-2c to (1-c)^2. It handles zero

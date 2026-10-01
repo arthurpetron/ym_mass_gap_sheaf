@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting parameterized physical resolvents (2026-10-01 UTC;
+chart unchanged): for every rational t>0, the actual graph inverse
+R_t=(I+t*A)^(-1) and both inverse laws for R_t^2+(I-R_t)^2 are constructed
+on the original physical carrier with supplied-Rows approximation moduli.
+All 71 gates and independent reviews passed. Uniform denominator estimates
+are not a physical gap or time calibration. Scaled Cayley/time products,
+primary signed scaling, survival, physical mass, continuum QFT and all groups
+remain OPEN. No displayed claim changed; no ASCII reprint. Evidence:
+`audits/AUDIT-SCALED-PHYSICAL-RESOLVENT-2026-10-01.md`.
+
 Verified supporting sharp source-energy retention (2026-10-01 UTC; chart
 unchanged): the ORIGINAL positive-square identity gives (1-c)^2 norm retention
 from E<=c*N and c<=1, including zero norm. The actual derivative-core ratio

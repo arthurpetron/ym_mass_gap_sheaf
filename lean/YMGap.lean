@@ -6092,6 +6092,12 @@ import YMGap.Continuum.BF4WilsonAllNomeBondOSResolvent
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolventReflection
 import YMGap.Continuum.BF4WilsonAllNomeResolventNeumannLimit
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolventDenominator
+-- Parameterized actual graph resolvents and denominator inverses for t>0.
+-- Explicit witness/rate construction, not physical time or mass calibration.
+import YMGap.Continuum.BF4WilsonAllNomeBondOSScaledResolvent
+import YMGap.Continuum.BF4WilsonAllNomeBondOSScaledReflection
+import YMGap.Continuum.BF4WilsonAllNomeScaledResolventNeumannLimit
+import YMGap.Continuum.BF4WilsonAllNomeBondOSScaledDenominator
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSImaginaryShifts
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSCayley
 -- Constructed physical graph limits retain BOTH component rates on supplied Rows.

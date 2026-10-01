@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Parameterized original physical resolvents (2026-10-01):**
+for every positive rational t, construct `(I+t*A)^(-1)` on the existing
+physical bond carrier and a two-sided inverse of `R_t^2+(I-R_t)^2`.
+The geometric construction retains original source witnesses and explicit
+approximation moduli. All 71 focused gates and independent reviews passed.
+Its uniform denominator constants are not a physical mass bound. Scaled
+Cayley/time products and the continuum target remain OPEN. See the
+[checked construction and scope](audits/AUDIT-SCALED-PHYSICAL-RESOLVENT-2026-10-01.md).
+
 **Sharper original energy-to-domain bound (2026-10-01):**
 an exact positive-square identity improves norm retention from `1-2c` to
 `(1-c)^2` when original energy satisfies `E<=c*N`. It handles zero norm
