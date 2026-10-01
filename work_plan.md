@@ -25,6 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Parallel original Euclidean rational-sample limit (2026-10-01 UTC)
+
+PROGRESS after `749cdb3`: the original Wilson mesh/range estimate now
+compares actual numerical time values on the ORIGINAL all-nome carrier.
+BOTH source input-range representatives and the supplied time QCauchy
+modulus compute `euclideanSampleRate`; `euclidean_sample_bound` proves
+convergence in the SAME complex bond distance. Shared legacy time lemmas
+are purely numerical; no legacy action or completion enters. Three focused
+gates and independent reviews passed. Evidence: Euclidean rational-sample
+addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+NEXT: join actual Cayley and Euclidean rational samples at supplied real time.
+The computed two rates control the raw mixed remainder with squared-distance
+budget 2+8=10. A constructive closed-ball order passage can retain a small
+time radius with headroom, then the existing original Euclidean real Taylor
+certificate supplies the graph term. This is a proof task, NOT a new analytic
+hypothesis or a claim that different sample streams coincide. Physical
+spacing/scaling, survival, finite positive physical mass, locality/full QFT,
+every actual group and Clay remain OPEN. One root import added; full root/tree/
+build/audit/guard NOT checked. Compiler cap, OS reserve, telemetry, CI and
+canonical chart unchanged.
+
 ### Parallel original vacuum stationarity (2026-10-01 UTC)
 
 PROGRESS after `57e8497`: the original unit source constructs an actual

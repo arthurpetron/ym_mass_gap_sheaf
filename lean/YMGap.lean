@@ -6196,6 +6196,8 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyNegativeTangent
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSWickSlopeComparison
 -- Fixed-nome/width SAME-vacuum stationarity, not continuum survival/locality.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyVacuum
+-- Computed original Euclidean sample convergence; not paired-stream identity.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSEuclideanSampleLimit
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting original Euclidean rational-sample limit (2026-10-01 UTC;
+chart unchanged): BOTH original source range witnesses and the supplied time
+QCauchy modulus compute a convergence rate in the SAME complex physical bond
+distance. Numerical legacy time lemmas do not substitute a legacy operator.
+Three focused gates and independent reviews passed. The raw real-time slope
+join and all continuum endpoints remain OPEN. Evidence: Euclidean
+rational-sample addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original vacuum stationarity (2026-10-01 UTC;
 chart unchanged): the actual unit source constructs a graph point with SAME
 vacuum input and zero output. Finite Cayley products, their computed limits

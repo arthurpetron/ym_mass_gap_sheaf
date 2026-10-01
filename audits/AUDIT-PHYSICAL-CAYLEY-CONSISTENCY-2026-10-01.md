@@ -1727,3 +1727,38 @@ unchanged. No exact displayed chart claim changed; no ASCII reprint.
 Full-real differentiation, physical spacing/scaling, useful signed scaling,
 nonzero continuum survival, finite positive physical mass, full QFT,
 every actual compact simple group and Clay remain OPEN.
+
+## Original Euclidean rational-sample limit
+
+After `749cdb3`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSEuclideanSampleLimit.lean:138`,
+`original_time_close`, compares the actual original all-nome Wilson action
+at two numerically close times. It uses the original mesh bound and original
+source range modulus, with the three-segment completed-distance estimate.
+The numerical time floor, proximity and radius helpers from
+`BF4ExactSlabThermodynamicPositiveRealContinuity` do NOT supply a legacy
+action or completion bound. The legacy `realTimeAction_close_bound` is not
+used: its carrier is different.
+
+In the new module, `:218`, `euclideanSampleRate`, computes a Nat cutoff
+from the supplied time QCauchy modulus and the separate radii of BOTH
+original input-range representatives. `:226`, `euclidean_sample_bound`,
+pins those coordinates to the SAME original physical graph input and proves
+that the actual Euclidean action at rational samples approaches its action
+at the supplied positive real time. Rates remain Type-level data; local
+eventual-order witnesses occur only inside inequality proofs. The rational
+Cayley samples and Euclidean mesh stages are NOT identified.
+
+The focused check emitted an olean; all THREE source-site gates are exactly
+{propext,Quot.sound}. Independent mathematical and exact source/log/hash reviews
+passed. Accepted log: `/tmp/ym-euclidean-sample-limit-20261001.log`, SHA256
+`4aa725a7ef7c51b2dc624cf60dca018d899d746923bcadd38c468dfc50559deb`.
+Source SHA256:
+`0fa7bfb0318afe0b69d89722dd8d8ce871e9d22bcfa2807731b5fa1608feef1b`.
+No new analytic premise, sorry, axiom, erased witness or weakened frontier.
+One root import added; full root/tree/build/audit/guard NOT checked. ONE
+20-GiB worker, 12-GiB OS reserve and continuous telemetry; CI and safety limits
+unchanged. No exact displayed chart claim changed; no ASCII reprint.
+The raw real-time slope join, full-real tangent, physical spacing/scaling,
+nonzero continuum survival, finite positive physical mass, locality/full QFT,
+every actual compact simple group and Clay remain OPEN.

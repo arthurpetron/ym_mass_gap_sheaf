@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED original Euclidean rational-sample limit only (2026-10-01 UTC)
+
+- `ComplexBondOSEuclideanSampleLimit.original_time_close` adapts the ORIGINAL
+  Wilson mesh/range-modulus proof to numerical time-value proximity. No
+  legacy carrier or action bound is used; shared numerical time lemmas only.
+- `euclideanSampleRate` is Type data computed from the supplied time QCauchy
+  modulus and BOTH original input-range representatives. `euclidean_sample_bound`
+  compares the actual original complex action at the supplied positive real
+  time with its action at rational samples, in the SAME physical distance.
+- Three focused gates and independent math/source/log/hash reviews passed,
+  all {propext,Quot.sound}. No new analytic premise, sorry, axiom, erased
+  witness or weakened frontier. Evidence: Euclidean rational-sample addendum
+  in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: raw real-time Cayley/Euclidean slope join, full-real tangent, physical
+  clock/spacing/scaling and mass, continuum survival, locality and full QFT,
+  every actual compact simple group and Clay. Different rational/mesh sample
+  streams are NOT equated. One root import added; full root/tree/build/audit/
+  guard NOT checked. Canonical chart, CI and safety limits unchanged.
+
 ## PROVED original vacuum stationarity only (2026-10-01 UTC)
 
 - `ScaledCayleyVacuum.vacuumPoint` constructs an actual original unit-source

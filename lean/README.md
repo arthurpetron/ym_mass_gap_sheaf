@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original Euclidean rational-sample limit (2026-10-01 UTC):**
+`ComplexBondOSEuclideanSampleLimit.original_time_close` uses the original
+Wilson mesh bound and source range modulus. `euclideanSampleRate` computes
+the cutoff from BOTH supplied input-range representatives and the supplied
+time QCauchy modulus. `euclidean_sample_bound` compares the actual original
+complex action at supplied real time and its rational samples. Legacy
+continuity supplies ONLY numerical time lemmas, not an action or completion.
+Three focused gates and independent reviews passed, all {propext,Quot.sound}.
+One root import added; full root/tree/audit NOT checked. The raw real-time
+slope join, physical clock/calibration and continuum endpoints remain OPEN.
+Evidence: Euclidean rational-sample addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Original vacuum stationarity (2026-10-01 UTC):**
 `ScaledCayleyVacuum.vacuumPoint` constructs the actual unit-source graph point;
 its input/output pins are the SAME vacuum and zero. `signedAction_vacuum`

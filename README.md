@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original Euclidean sample convergence (2026-10-01):** rational samples of
+a supplied positive real time now converge under the SAME original Euclidean
+action, with a rate computed from both original source coordinates and the
+supplied time modulus. Three focused gates and independent reviews passed.
+This supplies the Euclidean input to the real-time slope-limit join; it does
+not identify two different sample streams or calibrate a physical clock. See
+the [sample-limit proof](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-euclidean-rational-sample-limit).
+
 **Original vacuum stationarity (2026-10-01):** the actual unit source now
 constructs a derivative-graph point with vacuum input and zero output. The
 finite Cayley products, their constructed limits and the signed-real-time
