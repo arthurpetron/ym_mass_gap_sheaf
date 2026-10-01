@@ -1,5 +1,35 @@
 # Sorry Ledger
 
+## PROVED original signed-time group and supplied-Rows continuity only (2026-10-01 UTC)
+
+- `SignedRealTimeData.pair_value_cross` pins equal numerical differences to
+  equal crossed positive sums. `ofSuppliedReal` computes a shift from the
+  supplied QCauchy modulus and ONE rational sample; `shiftedPositive` retains
+  that explicit modulus and proves floor one. `realValue_ofSuppliedReal`
+  recovers the original RC value, without CReal.abs or Prop-witness extraction.
+- `ScaledCayleySignedTime.pairAction_congr` cancels the actual positive/inverse
+  actions through a common injective positive sum. `signedAction` thus covers
+  EVERY original physical class without representative selection.
+  `signedAction_addTime`, zero and inverse laws, FULL Hermitian preservation,
+  distance isometry and complex linearity are proved, not assumed.
+  `signedAction_positiveTime` EXACTLY recovers the previous action;
+  `suppliedRealAction_congr` retains numerical presentation independence.
+- `PositiveTimeContinuity.parameterDelta` and its certificate compute a radius
+  from original Rows. Actual numerical order gives eventual sample closeness;
+  original rational parameter bounds and BOTH time-limit rates give the estimate.
+  `SignedTimeContinuity.signedContinuityCertificate` transports it via the
+  EXACT signed-displacement identity to EVERY signed-time center. No physical
+  quotient representative or canonical class-to-radius selector is supplied.
+- Sixty focused gates passed: one empty, one {propext}, fifty-eight
+  {propext,Quot.sound}. Independent source/math/log/hash reviews passed.
+  Evidence: signed-time addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: SAME maximal-generator and physical-clock/spacing calibration;
+  useful complete signed scaling, changing-family survival, finite positive
+  physical mass, continuum QFT, every compact simple group and Clay.
+- Four root imports added; full root/tree/build/audit/guard NOT run.
+  No canonical frontier/diagram claim changed; CI and safety limits unchanged.
+
 ## PROVED positive-real complex linearity from actual inverse preimages only (2026-10-01 UTC)
 
 - `PositiveTimeLinear.positiveRealAction_add` and `positiveRealAction_smul`

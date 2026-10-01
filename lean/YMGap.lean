@@ -6173,6 +6173,11 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimePair
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimeInverse
 -- Actual inverse preimages prove complex linearity; physical calibration is open.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimeLinear
+-- Original signed-time group and supplied-Rows moduli, not physical calibration.
+import YMGap.Continuum.SignedRealTimeData
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimeContinuity
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleySignedTime
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleySignedTimeContinuity
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

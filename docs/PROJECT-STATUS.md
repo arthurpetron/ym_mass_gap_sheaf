@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting signed-time group and source-computed continuity
+(2026-10-01 UTC; chart unchanged): every real with supplied QCauchy data
+gets an actual positive-difference presentation pinned to its original
+numerical value. Actual composition and computed inverses prove signed
+representation independence, group laws, FULL Hermitian preservation and
+complex linearity on EVERY original physical class; the previous positive-real
+action is recovered exactly. Supplied original Rows compute a positive radius
+controlling squared physical distance around EVERY signed-time center.
+Sixty focused gates and independent reviews passed. Maximal-generator and
+physical-clock calibration, primary signed scaling, changing-family survival,
+physical mass, continuum QFT and every group remain OPEN. Evidence: signed-time
+addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No displayed claim changed; no ASCII reprint.
+
 Verified supporting positive-real addition, full pairing and constructed inverse
 (2026-10-01 UTC; chart unchanged): an explicit dyadic rounding cutoff joins
 the actual sum-time action with composition using BOTH original convergence

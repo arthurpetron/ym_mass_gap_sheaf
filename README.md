@@ -21,9 +21,21 @@ preserves the FULL Hermitian pairing, and has a computed two-sided conjugate
 inverse with Type-level preimage. Testing against those explicit preimages now
 proves complex linearity, retaining both scalar Cauchy witnesses. Focused
 constructive checks and independent
-reviews passed. Signed-real time, strong continuity and physical calibration
-remain open. This fixes coupling and width, not continuum Yang--Mills. See the
+reviews passed. The signed-time extension and source-computed continuity are
+described below; physical calibration remains open. This fixes coupling and
+width, not continuum Yang--Mills. See the
 [addition, pairing and inverse proofs](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#positive-real-addition-full-pairing-and-constructed-inverse).
+
+**Signed-time group with source-computed continuity (2026-10-01):**
+positive differences now give a representation-independent complex-linear
+group on EVERY original physical class, preserving the FULL Hermitian pairing
+and recovering the previous positive-real action exactly. Every constructive
+real with a supplied Cauchy modulus has an explicit positive-difference
+presentation, without deciding its sign. Supplied original Rows compute a
+positive continuity radius valid around every signed-time center.
+Focused constructive checks and independent reviews passed. This is fixed
+coupling and width, not a physical-clock/generator identification or continuum
+construction. See the [signed-time laws and continuity certificate](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#signed-time-group-and-source-computed-continuity).
 
 **Original Euclidean time and Cayley compatibility (2026-10-01):**
 the original Euclidean action now preserves every physical derivative-domain

@@ -147,10 +147,28 @@ QCauchy witnesses. Two further focused gates and independent review passed;
 no assumed surjectivity or new analytic premise. Evidence: complex-linearity
 addendum in the same audit.
 
-NEXT operator propositions: join positive parameters with their constructed
-inverses into a signed-real group with original source-derived continuity.
-These have existing inputs; no group law or continuity is to be assumed.
-Preserve the proved -2i normalization. Addition/pairing/inverses alone do not identify
+The signed-time group and source-computed continuity are now constructed.
+`SignedRealTimeData` quotients positive differences by their ORIGINAL numerical
+value. `ofSuppliedReal` shifts any supplied CReal/QCauchy pair by the absolute
+value of ONE rational sample plus two; it computes both positive presentations
+and pins their difference, without deciding a real sign or extracting a Prop
+Cauchy witness. Actual inverse/composition laws prove `SignedTime.pairAction_congr`
+and descend `signedAction` to EVERY original physical class. Group, pairing,
+distance and complex-linear laws hold; `signedAction_positiveTime` recovers
+the previous actual action exactly.
+`PositiveTimeContinuity.parameterContinuityCertificate` computes the source
+radius using actual numerical order, original rational continuity and BOTH
+original time-limit rates. `SignedTimeContinuity.signedContinuityCertificate`
+transports that radius through the EXACT displacement identity to EVERY signed
+center on supplied original Rows; no physical quotient representative is selected.
+Sixty focused gates and independent source/math/log/hash reviews passed.
+Evidence: signed-time addendum in the same audit.
+
+NEXT operator propositions: identify the signed group's infinitesimal action
+with the SAME maximal physical derivative graph, retaining the original
+second-core tangent and -2i normalization; then prove the actual physical-time
+normalization join to the ORIGINAL Euclidean sampling/derivative pins.
+Group laws and supplied-Rows continuity alone do not identify
 generators or calibrate physical time. The primary
 analytic changing-family signed-energy/variance estimate remains OPEN.
 Existing `PositiveTimePins.positiveAction_original` already pins positive
@@ -163,8 +181,8 @@ reviews found no ready new continuum
 QFT or every-group physical producer: buffered locality needs its actual
 intertwining join, and classification/central descent still lacks compatible
 compact Haar/heat realization. Do not add isolated algebra or repeat existing
-conditional wrappers. The constructed positive-real parameter map is not the
-full signed-real unitary group or physical-spacing/maximal-generator calibration;
+conditional wrappers. The constructed signed-time group and supplied-Rows
+moduli are NOT physical-clock/maximal-generator or spacing/scaling calibration;
 those remain OPEN.
 PRIMARY complete signed scaling,
 changing-family survival, finite positive physical mass, full continuum QFT,

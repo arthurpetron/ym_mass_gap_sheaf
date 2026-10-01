@@ -1132,3 +1132,123 @@ positive-time bijective isometries alone do not supply those parameter laws,
 the physical clock/maximal-generator calibration or any changing-scale input.
 Complete signed scaling, continuum survival, finite positive physical mass,
 full continuum QFT, actual every-group realization and Clay remain OPEN.
+
+## Signed-time group and source-computed continuity
+
+This closes an ORIGINAL operator join, not the continuum target. Two Sol
+agents constructed numerical signed time and positive-real continuity while
+the parent proved the actual signed action and its continuity consumer. Luna
+independently reviewed current sources, mathematics, exact gate sites and
+accepted logs/hashes. The continuity author also reviewed both signed proofs.
+All operators stay on the SAME original completed complex Wilson bond.
+
+### Genuine numerical coverage without a real-sign decision
+
+In `lean/YMGap/Continuum/SignedRealTimeData.lean`,
+`pair_value_cross:58` turns equality of numerical differences into equality
+of crossed positive sums. `SignedTimeValue:71` identifies precisely positive
+pairs with the same ORIGINAL RC value. `addTime:149`, `negTime:166` and
+`zeroTime:184` have proved value pins and additive-group identities.
+`positiveTime:190` embeds the existing positive-real values with
+`realValue_positiveTime:201`.
+
+`shift:209` computes |r.approx(cr.M1)|+2 from ONE rational sample and a
+SUPPLIED Type-level QCauchy witness. `shiftedPositive:250` constructs the
+actual stream r+shift with explicit scalar-add Cauchy data, start cr.M1 and
+floor1 proved from cr.bound1. `shiftedRight:265` is the actual positive rational
+shift. `ofSuppliedReal:269` therefore represents EVERY supplied pair
+(r:CReal,cr:QCauchy r.approx); `realValue_ofSuppliedReal:274` pins its difference
+EXACTLY to the original RC value. No CReal.abs stream, decision of a real sign,
+or extraction from the legacy Prop-valued r.cauchy field occurs. Coverage of
+such supplied data is proved; no canonical representative/modulus selector for
+an arbitrary bare RC quotient is claimed.
+
+### Signed action descends through actual positive cancellation
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleySignedTime.lean`,
+`positive_inverse_commute:57` and `inverse_addTime:63` derive their laws from
+the ACTUAL positive action, inverse and injectivity; they are not inputs.
+`pairAction:98` is U_(positive) V_(negative).
+`positive_sum_pairAction_cancel:100` cancels actual operators through a positive
+sum. `pairAction_congr:108` applies the common injective U_(p.2+q.2): both
+outputs reduce to the crossed positive sums already pinned numerically.
+No selected physical or numerical quotient representative is used.
+
+`signedAction:125` descends to EVERY original physical class.
+`signedAction_addTime:139`, `signedAction_zero:146`,
+`signedAction_neg_left:179` and `signedAction_neg_right:185` prove the actual
+group laws. `signedAction_positiveTime:152` EXACTLY recovers the previous
+positive-real action. `suppliedRealAction:160` consumes the computed numerical
+presentation; `suppliedRealAction_congr:163` proves independence of supplied
+real presentations/moduli. `signedAction_pairing_preserved:191`,
+`signedAction_distance:198`, `signedAction_add_state:205` and
+`signedAction_smul:213` retain the FULL original Hermitian pairing and both
+supplied complex-scalar Cauchy witnesses.
+
+`pairAction_displacement:224` proves EXACTLY
+D(U_a V_b x,x)=D(U_a x,U_b x), even for two large positive times. This is the
+specific consumer of the independently constructed positive parameter bound.
+
+### Source-computed continuity, with actual real-value hypotheses
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimeContinuity.lean`,
+`parameterDelta:65` is one sixteenth of the ORIGINAL source radius at e/16;
+`parameterDelta_positive:68` proves positivity. The legacy module contributes
+ONLY numerical `time_close_eventually`, not its physical carrier/estimate.
+Actual RC order gives eventual dyadic closeness; the upper approximation error
+and computed half-power cutoff turn it into raw-sample error <=3delta, below
+the original rational radius. These logical eventual witnesses stay within
+the Prop-valued bound proof. The original rational parameter estimate and BOTH
+original timeLimitRates then cost10e/16<=e in squared physical distance.
+`positiveAction_parameter_close_ofRows:159` and
+`positiveRealAction_parameter_close_ofRows:204` bound the SAME original source.
+`parameterContinuityCertificate:219` returns the computed radius in Type.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleySignedTimeContinuity.lean`,
+`signedAction_difference_distance:68` moves an arbitrary-center distance to
+zero by ACTUAL group isometry/inverse laws. `signedAction_near_zero_ofRows:80`
+translates the two bounds on the ACTUAL signed numerical value and its negative
+into the positive-parameter hypotheses, then uses the exact displacement
+identity. `signedAction_parameter_close_ofRows:99` uses the SAME source radius
+around EVERY signed center. `signedContinuityCertificate:111` returns that
+radius, positivity and the whole bound in Type. Source Rows remain SUPPLIED;
+no physical quotient representative or canonical class-to-radius selector is
+manufactured. This is source-computed continuity, not an operator-norm or
+spacing-uniform estimate.
+
+### Verification and remaining causal frontier
+
+All four focused checks emitted `.olean`s. All60 exact source-site gates
+passed: one empty, one {propext}, fifty-eight {propext,Quot.sound}.
+Independent reviews passed:
+
+| Module suffix | Gates | Accepted log in `/tmp` | SHA256 |
+| --- | ---: | --- | --- |
+| `SignedRealTimeData` | 26 | `ym-signed-real-time-data-final-20261001.log` | `21f72e988be220075a4b890b518efa405ac1635a807e56741f39ef0f39a7e5dd` |
+| `ScaledCayleyPositiveTimeContinuity` | 5 | `ym-cayley-positive-time-continuity-second-20261001.log` | `ff22e8001b9108ed56666816acff3546388e61111efdb103cbee9cd2f560daf2` |
+| `ScaledCayleySignedTime` | 25 | `ym-cayley-signed-time-second-20261001.log` | `9da589d192d0a2af9d0c171cc9fb977afda2a5c7084fbf85cc988cee7541906b` |
+| `ScaledCayleySignedTimeContinuity` | 4 | `ym-cayley-signed-time-continuity-second-20261001.log` | `b2fce993fa239c9cd1ae8825970f49bc2cb5082770d72ce5ee755f758f4cbd04` |
+
+Rejected drafts had only explicit namespace/private-visibility, associativity,
+quotient-motive and constructor-rewrite seams. The first signed target found
+its numerical dependency unbuilt; it was not a meaningful action check.
+The accepted signed action passed on its first dependency-complete check.
+The numerical module was also rechecked after its docstring clarified the
+proved supplied-QCauchy coverage; proof code, gate sites and log hash are unchanged.
+Accepted sources/logs contain no sorryAx, forbidden axiom, new analytic premise
+or canonical statement weakening. One serialized20-GiB worker and12-GiB OS
+reserve retained; live preflight found zero swap and no competing compiler,
+test or runner. Four root imports added; full root/tree/build/audit/guard NOT
+run. CI and safety limits unchanged. No displayed chart claim changed;
+no ASCII reprint.
+
+NEXT: identify the signed infinitesimal action with the SAME maximal physical
+derivative graph, preserving the checked second-core -2i normalization and
+joining to ORIGINAL Euclidean integer sampling/right derivative. The group
+and source moduli alone do not identify that maximal generator or a physical
+clock. Spatial/spacing scaling, useful complete signed-energy/variance control,
+changing-family nonzero survival, finite positive physical mass, full continuum
+QFT, actual every-group realization and the Clay target remain OPEN.

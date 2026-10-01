@@ -24,14 +24,28 @@ positive rationals recover the original limit. Nineteen focused gates and
 independent reviews passed within {propext,Quot.sound}. The actual limit now
 obeys positive-real addition, preserves the FULL original Hermitian pairing
 and has a constructed two-sided conjugate inverse with Type-level preimage.
-Twenty-seven further focused gates and independent reviews passed. Signed-real
-time, strong continuity and physical calibration remain OPEN.
+Twenty-seven further focused gates and independent reviews passed. Physical
+calibration remains OPEN; the signed-time extension is described below.
 `PositiveTimeLinear.positiveRealAction_add` and `positiveRealAction_smul` now
 test against the actual inverse preimage to prove complex linearity on the SAME
 carrier, retaining both scalar Cauchy witnesses. Two further focused gates and
 independent review passed. Evidence: positive-real parameter,
 addition/pairing/inverse and complex-linearity addenda in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+**Signed-time group and supplied-Rows continuity (2026-10-01 UTC):**
+`SignedRealTimeData.ofSuppliedReal` computes a positive-difference presentation
+from any CReal with supplied QCauchy data and pins the ORIGINAL numerical value.
+`ScaledCayleySignedTime.signedAction` descends the ACTUAL positive action/inverse
+to signed values, with group, pairing, distance and complex-linear laws on
+EVERY original physical class; `signedAction_positiveTime` recovers the original
+positive-real action exactly. `SignedTimeContinuity.signedContinuityCertificate`
+returns an ORIGINAL Rows-computed positive radius around every signed center.
+Sixty focused gates and independent reviews passed within the constructive
+gate. No quotient representative is selected to manufacture a modulus.
+Maximal-generator/physical-clock identification, spatial/spacing scaling,
+survival, full continuum QFT and every group remain OPEN. Evidence: signed-time
+addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
 **Original Euclidean graph transport and Cayley limit commutation (2026-10-01 UTC):**
 the bounded original dyadic derivative commutes with the original positive-time
