@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Local original Cayley consistency and commutation (2026-10-01):**
+the SAME graph now has an exact factor-two phase, squared local-error ceiling
+`4*t^4` with an explicit original-preimage norm, constructed Cayley graph
+preservation and commutation at positive rational parameters. All 38 focused
+gates and independent reviews passed. The time-product limit and physical-time
+calibration remain open. See the
+[proof and next construction](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md).
+
 **Original marginal Ward transport (2026-10-01):**
 the integrated signed Ward residual now has a projected-source representation
 inside the actual complete centered error, retaining its original mean,

@@ -1,5 +1,14 @@
 # Canonical one-page project status
 
+Verified supporting local Cayley consistency and commutation (2026-10-01 UTC;
+chart unchanged): exact linked-domain factor-two phase, explicit `4*t^4`
+squared ceiling against the original represented preimage norm, constructed
+graph preservation and parameter commutation are checked. All 38 gates and
+independent reviews passed. The dyadic-product limit and physical-time/logarithm
+calibration remain OPEN; survival/mass/QFT/all-group nodes remain OPEN. No
+displayed claim changed; no ASCII reprint. Evidence:
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 Verified supporting original Ward transport (2026-10-01 UTC; chart
 unchanged): the integrated projected-source residual rewrites the actual
 complete centered error for padded signed/repeated spatial families. Original

@@ -6099,12 +6099,16 @@ import YMGap.Continuum.BF4WilsonAllNomeBondOSResolventDenominator
 -- Parameterized actual graph resolvents and denominator inverses for t>0.
 -- Explicit witness/rate construction, not physical time or mass calibration.
 import YMGap.Continuum.BF4WilsonAllNomeBondOSScaledResolvent
+import YMGap.Continuum.BF4WilsonAllNomeBondOSScaledResolventCommutation
 import YMGap.Continuum.BF4WilsonAllNomeBondOSScaledReflection
 import YMGap.Continuum.BF4WilsonAllNomeScaledResolventNeumannLimit
 import YMGap.Continuum.BF4WilsonAllNomeBondOSScaledDenominator
 -- Actual scaled imaginary inverses and Cayley maps; not a physical time group.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledImaginaryShifts
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayley
+-- Linked local phase and witnessed Cayley graph preservation/reordering.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyConsistency
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyCommutation
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSImaginaryShifts
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSCayley
 -- Constructed physical graph limits retain BOTH component rates on supplied Rows.
@@ -6114,6 +6118,8 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSGraphNorm
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSecondCore
 -- Explicit represented second-core input density, with source-dependent cutoffs.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSecondCoreDensity
+-- Fourth-order squared local ceiling against the ORIGINAL represented preimage.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyErrorBound
 -- Original whole-family absolute kinetic upper and SAME completed time loss.
 -- Not a useful SAME-variance scaling estimate or a cross-width identification.
 import YMGap.Continuum.QuaternionHaarUniformFamilyCost

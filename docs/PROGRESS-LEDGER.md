@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original marginal Ward transport (2026-10-01 UTC)
+## Current increment: Local Cayley consistency and commutation (2026-10-01 UTC)
+
+PROGRESS after `fbb0002`: exact linked-domain consistency and the explicit
+`4*t^4` squared ceiling now have actual represented second-core consumers.
+Original preimage norms and the factor-two phase remain. Actual resolvents
+commute; a constructed unit-resolvent graph witness proves Cayley graph
+preservation and parameter commutation. All 38 gates and independent reviews
+passed, with no new analytic input.
+
+This removes local consistency and reordering inputs for a future dyadic-product
+Cauchy construction, NOT physical-time/logarithm calibration or mass. PRIMARY
+complete signed scaling, cross-scale survival, physical mass, full continuum QFT
+and every group remain OPEN. Parallel backward-input reviews are planning, not
+new producers. No broad build/audit/guard, progress-metric script, raised limit
+or ASCII reprint. Evidence:
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+## Earlier increment: Original marginal Ward transport (2026-10-01 UTC)
 
 PROGRESS after `dc3d872`: the actual complete centered error consumes an
 integrated projected-source Ward pairing, preserving original mean, partition

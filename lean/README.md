@@ -12,6 +12,16 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Local Cayley consistency and commutation (2026-10-01 UTC):**
+`ScaledCayleyConsistency` and `ScaledCayleyErrorBound` retain the ORIGINAL
+linked graph and prove the explicit `4*t^4` squared ceiling on actual represented
+second-core points, against their ORIGINAL PREIMAGE norm. Real resolvent and
+complex Cayley `Commutation` modules construct graph witnesses and parameter
+reordering without assumed domain invariance. All 38 focused gates and independent
+reviews passed within {propext,Quot.sound}. Product limits, physical time/logarithm
+calibration, mass and continuum remain OPEN. Evidence:
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Original marginal Ward transport (2026-10-01 UTC):**
 `BF4ExactSlabFixedSpatialProjectedWard.completeCenteredError_projected_pair`
 rewrites the integrated Ward term in the actual complete centered error,

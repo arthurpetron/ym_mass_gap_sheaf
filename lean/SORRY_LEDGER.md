@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED original Cayley local error and parameter commutation (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeComplexBondOSScaledCayleyConsistency` proves the exact
+  linked-graph error and actual plus-shift averaging pin, with phase factor two.
+- `BF4WilsonAllNomeComplexBondOSScaledCayleyErrorBound` proves the explicit
+  `4*t^4` squared bound and consumes the actual second core, retaining its
+  ORIGINAL represented preimage norm rather than the smoothed input norm.
+- `BF4WilsonAllNomeBondOSScaledResolventCommutation` proves original graph
+  transport and parameter commutation without `s-t` division.
+- `BF4WilsonAllNomeComplexBondOSScaledCayleyCommutation.graphMap` constructs
+  original unit-resolvent domain witnesses; BOTH input/output pins give
+  Cayley commutation, not a group law or domain membership of arbitrary outputs.
+- All 38 focused gates and independent reviews passed within {propext,Quot.sound}.
+  No new sorry, analytic field or frontier weakening. Evidence:
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: actual dyadic-product Cauchy limit, density extension, physical-time/
+  logarithm calibration, useful signed scaling, survival/mass/QFT and every group.
+
 ## PROVED original marginal integrated Ward transport (2026-10-01 UTC)
 
 - `BF4ExactSlabFixedSpatialProjectedWard.wardResidual_projected_pair` and

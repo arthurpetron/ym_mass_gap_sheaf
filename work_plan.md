@@ -25,6 +25,37 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Local Cayley consistency and commutation (2026-10-01 UTC)
+
+PROGRESS after `fbb0002`: actual linked original graph points now satisfy
+`C_t x-x+2*i*t*y=-t^2*(z+C_t z)=-2*t^2*J_t z`. The checked squared ceiling
+is `4*t^4*||z||^2`; represented second-core points bound it by the supplied
+ORIGINAL PREIMAGE norm, not the smoothed input norm. Original resolvents commute
+at all positive rational parameters. A constructed unit-resolvent graph witness
+proves BOTH Cayley input/output pins and hence Cayley parameter commutation.
+All 38 focused gates and independent reviews passed, with no new analytic input.
+Evidence: `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+NEXT operator proposition: construct a Cauchy modulus for dyadic Cayley products
+on the actual represented second core, then extend through supplied-Rows density.
+No such product-limit declaration exists yet. Use commutation/unitarity to control
+doubled powers, preserve the factor-two phase and keep physical-time/logarithm
+identification separate. Do not re-assume domain invariance: Cayley graph
+preservation is now a witnessed theorem, though arbitrary outputs need not
+belong to the domain.
+
+The requested parallel survival/mass review confirms missing cross-scale
+comparison and spacing-matched original-source estimates; it produces no new
+input. Its legacy cylinder rate-band/continuum-join consumers are NOT identified
+with the current original Wilson bond carrier by a typed same-action pin; do not
+use them as Wilson survival or physical-Hamiltonian producers. Construct direct
+Wilson inputs, or prove such a pin only if that legacy consumer is actually needed.
+The every-group review found no realization consumer fillable from G2
+coordinates alone; do not add another classification-code wrapper. PRIMARY remains
+useful JOINT complete signed error/SAME-variance scaling on a justified changing
+family. Survival, positive finite physical mass, full continuum QFT, every group
+and Clay remain OPEN. No displayed chart change or broad build/audit/guard.
+
 ### Original marginal Ward transport (2026-10-01 UTC)
 
 PROGRESS after `dc3d872`: the ORIGINAL complete centered error now consumes
