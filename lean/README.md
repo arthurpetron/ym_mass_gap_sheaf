@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Actual complex physical derivative/adjoint (2026-10-01 UTC):**
+`BF4WilsonAllNomeComplexBondOSDerivative` pairs the existing real physical
+domain quotients on the SAME complex BondCompletion. `ofAdjoint` returns
+the unique actual domain class for full Hermitian adjoint tests on EVERY
+complex physical class. `add`/`smul` construct graph operations with exact
+input/output pins, retaining both supplied constructive scalar moduli.
+`densityCertificate` consumes explicit physical Rows; `realTaylorCertificate`
+consumes explicit original graph Point data. Neither selects a representative
+from an arbitrary quotient class. Positivity and `form_gap` retain the original
+complex vacuum and fixed coreMargin(w,width), using full Hermitian vacuum
+orthogonality. Thirty gates passed the final focused check within
+{propext, Quot.sound}; no broad run or canonical frontier closure. Scaling,
+survival, physical mass and continuum QFT remain OPEN. Evidence: complex
+addendum in `audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
 **Intrinsic real physical bond adjoint (2026-10-01 UTC):**
 `BF4WilsonAllNomeBondOSAdjoint.ofAdjoint` returns a Type-valued domain
 class and both exact input/output identities for EVERY intrinsic adjoint
@@ -21,7 +36,7 @@ proof. Original symmetry, surjectivity and physical difference tests prove
 the identities and uniqueness without representative selection. The existing
 fixed-nome/width vacuum-complement form bound is retained. Eight gates
 passed one final focused check within {propext, Quot.sound}; no broad run
-or canonical frontier closure. Complex physical derivative/adjoint joins,
+or canonical frontier closure. The complex physical join is supplied above;
 physical scaling, survival and continuum QFT remain OPEN. Evidence:
 `audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
 

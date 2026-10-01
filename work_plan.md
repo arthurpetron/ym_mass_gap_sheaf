@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual COMPLEX physical derivative/adjoint join (2026-10-01 UTC)
+
+PROGRESS after `2e0096d`: `BF4WilsonAllNomeComplexBondOSDerivative` now
+joins the existing complex physical BondCompletion to the pair of actual
+real derivative-domain quotients. Full Hermitian adjoint tests reduce to
+component tests while preserving both imaginary cross pairings. The real
+resolvent candidates construct a unique actual complex domain class for
+EVERY adjoint pair, with exact input/output identities as Type-valued data.
+Constructed graph addition and complex scaling preserve the ORIGINAL
+physical operations and both supplied scalar moduli.
+
+The same graph has positive form and the existing fixed coreMargin bound
+under full complex vacuum orthogonality. Supplied physical Rows compute
+dense domain approximants and an all-tail rate; explicit original Point
+data compute a Taylor radius in SAME norm and original positive real time.
+No radius or source representative is selected from an arbitrary quotient.
+Thirty gates passed the final focused check within {propext, Quot.sound},
+with independent source review and no broad run or canonical marker change.
+Evidence: complex addendum in
+`audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
+NEXT remains the PRIMARY useful complete signed energy/SAME-variance
+estimate on a justified physical scaling family. A concrete finite-to-bond
+join also needs the finite moving-center transfer quadratic to converge to
+the ORIGINAL connected bond pairing for representable Wilson sources;
+finite oddVariance is a single-slice variance, NOT already the bond norm.
+Passing angular regularity additionally needs a limiting/lower-semicontinuous
+angular form for varying outputs. These are unproved joins, not premises
+assumed by the new complex operator construction. Physical time/calibration,
+nontrivial continuum survival, canonical half-space OS/QFT and all groups
+remain OPEN. Do not substitute a generic-polynomial reserve floor for one
+justified bulk physical survival witness.
+
 ### Intrinsic real adjoint on ALL physical bond classes (2026-10-01 UTC)
 
 PROGRESS after `cba988f`: the actual physical BondOSDerivative and
@@ -45,9 +78,10 @@ with independent read-only review and no broad run. No new analytic field,
 quotient representative selection or canonical field/ASCII change. Evidence:
 `audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
 
-NEXT on this independent operator front: join the existing COMPLEX bond
+NEXT at that checkpoint on this independent operator front: join the existing COMPLEX bond
 carrier and Hermitian form to the actual paired derivative classes and
 intrinsic adjoint tests, preserving all four pairings and original time.
+That join is now supplied by the complex increment recorded above.
 The PRIMARY signed scaling estimate remains open. A lattice-time adjoint
 graph is not physical-time calibration, continuum survival, the canonical
 half-space OS root, full QFT or an every-group construction.

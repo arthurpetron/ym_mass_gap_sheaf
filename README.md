@@ -10,13 +10,23 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Complex physical derivative/adjoint (2026-10-01):** the existing complex
+bond completion now carries the actual paired derivative-domain classes.
+Full Hermitian adjoint tests construct a unique class with both input/output
+identities. The graph is closed under actual complex addition and scaling;
+supplied physical rows/graph points compute density moduli and original-time
+Taylor radii. Positivity and the fixed-parameter form margin retain the same
+vacuum and all four physical pairings. This does not supply continuum OS/QFT
+or physical scaling/mass calibration. See the
+[proof and scope](audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md#addendum-actual-complex-physical-derivative-and-adjoint).
+
 **Intrinsic physical bond adjoint (2026-10-01):** every real adjoint pair
 on the ORIGINAL completed bond carrier now returns its unique actual
 derivative-domain class, computed as (I+A)^(-1)(u+v). The existing resolvent,
 symmetry and definite original pairing prove both input/output identities
 without quotient representative selection. The fixed-parameter form margin
-is retained. This is not complex/continuum Hamiltonian reconstruction or
-physical scaling; those joins remain open. See the
+is retained. The complex physical join is supplied above; continuum
+Hamiltonian reconstruction and physical scaling remain open. See the
 [proof and scope](audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md).
 
 **Centered output versus SAME variance (2026-10-01):** the original

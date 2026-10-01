@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting COMPLEX physical derivative/adjoint (2026-10-01 UTC;
+chart unchanged): the actual real physical-domain quotients now form a
+complex graph on the existing complex BondCompletion. Full Hermitian tests
+construct its unique domain class, with all four original pairings retained.
+Complex graph addition/scaling have exact input/output pins. Supplied Rows
+and Point data compute density moduli and original-time Taylor radii; no
+quotient representative is selected. The original complex vacuum, positivity
+and fixed coreMargin form bound are retained under FULL vacuum orthogonality.
+Thirty gates passed the final focused check; independent review passed.
+Physical scaling, survival, continuum OS/QFT, mass and all groups remain
+OPEN. Evidence: complex addendum in
+`audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
 Verified supporting intrinsic REAL bond adjoint (2026-10-01 UTC; chart
 unchanged): the actual positive resolvent now constructs the unique
 physical derivative-domain class of EVERY intrinsic adjoint pair u,v.

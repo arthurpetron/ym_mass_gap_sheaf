@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## PROVED actual complex physical derivative/adjoint (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeComplexBondOSDerivative.Domain` is a pair of existing
+  real physical-domain quotients; `ofPoint` and its value_input/output pins
+  identify the original witnessed complex graph in the SAME bond carrier.
+- `AdjointPair`, `adjoint_components` and `components_adjoint` retain
+  all four actual Hermitian pairing terms, not only real tests. `ofAdjoint`
+  returns the unique actual class and exact input/output identities as
+  Type-valued data for EVERY completed complex adjoint pair.
+- `add` and `smul` construct domain closure under actual complex physical
+  operations, with exact input/output pins and both supplied real scalar
+  QCauchy moduli. No domain representative or new analytic input is selected.
+- `densityCertificate` consumes explicit physical Rows and returns domain
+  approximants with an all-tail modulus. `realTaylorCertificate` consumes
+  explicit original Point data and returns its radius in actual lattice
+  time and the SAME complex physical norm. No arbitrary quotient-class
+  modulus selection is asserted.
+- `nonnegative`, `vacuum`, `value_vacuum`, `form_gap` and `adjoint_form_gap`
+  retain the original vacuum and fixed coreMargin(w,width), with FULL
+  Hermitian vacuum orthogonality. No scaling-uniform physical mass follows.
+- OPEN: canonical continuum half-space OS/observable identification,
+  physical scaling/time/mass, nontrivial survival, full QFT and every group.
+  No canonical field/guard or displayed chart marker changes.
+- Thirty gates passed the final focused check, exactly {propext, Quot.sound},
+  with independent source review. No new sorry/axiom, Classical dependency,
+  native_decide or noncomputable declaration; no broad root/tree build,
+  audit, guard or CI change. Evidence: complex addendum in
+  `audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
 ## PROVED intrinsic real adjoint on physical bond classes (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeBondOSAdjoint.AdjointPair` tests the ORIGINAL physical

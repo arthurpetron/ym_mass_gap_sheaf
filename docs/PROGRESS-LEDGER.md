@@ -4,7 +4,32 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Intrinsic adjoint on the actual physical bond carrier (2026-10-01 UTC)
+## Current increment: Actual complex physical derivative/adjoint (2026-10-01 UTC)
+
+PROGRESS after `2e0096d`: the intrinsic adjoint result now meets the SAME
+complex physical completion. The domain is a pair of existing real physical
+domain quotients, with original input/output pins. Full Hermitian tests
+reduce to the two real tests and retain both imaginary cross terms; the
+real resolvent candidates construct a unique complex class for EVERY
+adjoint pair. Graph addition and complex scaling are constructed with exact
+input/output identities and both constructive scalar moduli.
+
+Actual physical Rows compute dense domain approximants and an explicit rate;
+supplied original graph Point data compute a positive Taylor radius in the
+SAME bond norm and original time. No quotient representative is selected.
+The graph is positive and preserves the original fixed coreMargin under
+full complex vacuum orthogonality. This fills the complex carrier/domain/
+adjoint join, not the continuum Hamiltonian or scaling input. Vector-space
+coherence laws beyond the displayed graph closure are not asserted.
+
+Thirty final focused gates passed within {propext, Quot.sound}, with
+independent read-only review. No broad run, new analytic field, canonical
+marker or ASCII reprint. The primary signed scaling estimate, same-continuum
+OS/observable identification, survival, physical mass, QFT and all groups
+remain OPEN. Evidence: complex addendum in
+`audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
+## Earlier increment: Intrinsic adjoint on the actual physical bond carrier (2026-10-01 UTC)
 
 PROGRESS after `cba988f`: the previously constructed physical derivative
 and positive resolvent now fill the intrinsic REAL graph/adjoint join on
