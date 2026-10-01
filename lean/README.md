@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original normalized positive-real tangent (2026-10-01 UTC):**
+`ScaledCayleyPositiveRealNormalizedTangent.differenceQuotient` scales the
+ACTUAL original increment by the supplied time's constructed reciprocal.
+`quotient_error_pin` identifies its difference from the SAME -2i graph output
+with `normalizedResidual`. `normalized_bound` cancels the time square exactly;
+`normalizedTangentCertificate` retains the UNCHANGED computed positive radius
+as Type data. Seven focused gates and independent reviews passed, all
+{propext,Quot.sound}. One root import added; full root/tree/build/audit/guard
+NOT checked. Negative-real/full-real domain identification, physical spacing/
+scaling/mass, survival, full QFT and every actual group remain OPEN. Evidence:
+normalized-positive-real addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Original positive-real graph estimate and reciprocal (2026-10-01 UTC):**
 `ComplexBondOSWickPositiveRealLimit.real_wick_bound` passes the raw SAME-action
 remainder through BOTH original sample convergence rates.
@@ -22,8 +35,8 @@ for squared error <= time^2*epsilon with the SAME output and exact -2i phase.
 `reciprocal_product` pins its product with the supplied time's actual real value
 to one. Twenty-four focused gates and independent reviews passed: two empty,
 three {propext}, nineteen {propext,Quot.sound}. Three root imports added;
-full root/tree/build/audit/guard NOT checked. Normalized positive-real and
-negative-real differentiation, physical clock/spacing/scaling, survival,
+full root/tree/build/audit/guard NOT checked. Normalized positive-real control
+is proved above. Negative-real differentiation, physical clock/spacing/scaling, survival,
 physical mass, full QFT and every group remain OPEN. Evidence: positive-real
 graph-estimate addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 

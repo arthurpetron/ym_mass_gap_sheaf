@@ -6202,6 +6202,8 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSEuclideanSampleLimit
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSWickPositiveRealLimit
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveRealTangent
 import YMGap.Continuum.PositiveTimeReciprocalData
+-- Actual right-real quotient on supplied original graph Points, not physical mass.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveRealNormalizedTangent
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

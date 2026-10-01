@@ -1,13 +1,24 @@
 # Canonical one-page project status
 
+Verified supporting original normalized positive-real quotient (2026-10-01 UTC;
+chart unchanged): the supplied numerical time's constructed reciprocal acts
+on the ACTUAL original increment. Its difference from the SAME -2i graph
+output is the normalized residual, whose physical squared norm is <= epsilon
+with the UNCHANGED computed radius. Seven focused gates and independent
+reviews passed. Negative-real/full-real identification and all physical/
+continuum endpoints remain OPEN. Evidence: normalized-positive-real addendum
+in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original positive-real graph estimate and supplied-time
 reciprocal (2026-10-01 UTC; chart unchanged): BOTH original action sample rates
 give the raw mixed remainder; the original Euclidean Taylor certificate gives
 the SAME graph output with squared error <= time^2*epsilon and exact -2i phase.
 Its radius is computed from the supplied Point. The time's own positive sample
 stream and floor now construct reciprocal Cauchy data and an actual product pin.
-Twenty-four focused gates and independent reviews passed. Normalized real
-differentiation and all physical/continuum endpoints remain OPEN. Evidence:
+Twenty-four focused gates and independent reviews passed. Positive-real
+normalization is proved above; negative/full-real identification and all
+physical/continuum endpoints remain OPEN. Evidence:
 positive-real graph-estimate addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 No exact displayed claim changed; no ASCII reprint.

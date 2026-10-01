@@ -1833,3 +1833,42 @@ chart claim changed; no ASCII reprint. Normalized/full-real differentiation,
 physical spacing/scaling, useful signed original-energy/SAME-variance control,
 nonzero continuum survival, finite positive physical mass, full QFT, every
 actual compact simple group and Clay remain OPEN.
+
+## Original normalized positive-real difference quotient
+
+After `02801b1`, in
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveRealNormalizedTangent.lean:73`,
+`realScalar` retains explicit CReal QCauchy data in BOTH original physical
+coordinates. `:127`, `normSq_realScalar`, derives the exact scalar-square law
+from the original completed diagonal pairing, not an auxiliary L2 form.
+`:159`, `differenceQuotient`, scales the ACTUAL original positiveAction
+increment by `PositiveTimeReciprocalData.reciprocalReal` with its computed
+`reciprocalRealCauchy`. `:165`, `normalizedResidual`, scales the already proved
+original graph error. `:170`, `quotient_error_pin`, identifies that residual
+with the difference quotient minus -2i times the SAME original graph output.
+
+In that module, `:205`, `normalized_bound`, multiplies the original
+`real_tangent_bound` by the nonnegative reciprocal square. The checked product
+with the ACTUAL supplied D.real, not just its shifted sample limit, cancels
+time^2 exactly. `:219`, `normalizedTangentCertificate`, returns the UNCHANGED
+computed positive radius and all-small-positive-real quotient error bound
+as Type data. Quotient induction occurs only in algebraic proofs, never
+to select radius, representative or Cauchy data. Generic imported quotient
+order/square lemmas carry no replacement physical carrier.
+
+The focused check emitted an olean; all SEVEN source-site gates are exactly
+{propext,Quot.sound}. Independent mathematical and final source/log/hash reviews
+passed. The first error/sorryAx-bearing log is rejected evidence. Accepted log:
+`/tmp/ym-positive-real-normalized-tangent-second-20261001.log`, SHA256
+`fb1bbee82bb4d2863b847ec6d10625bcd2d49611da1ba4a021722d96226a86cf`.
+Source SHA256:
+`369018718545c5defef9141ffd1ff829a5c1a35b2195ab9674a91c4c42db6b5c`.
+
+No new analytic premise, sorry, axiom, erased witness or weakened frontier.
+One root import added; full root/tree/build/audit/guard NOT checked. ONE
+20-GiB worker, 12-GiB OS reserve, continuous pressure/swap telemetry; CI and
+safety limits unchanged. No exact displayed chart claim changed; no ASCII
+reprint. Negative-real differentiation/full-real domain identification,
+physical spacing/scaling, useful signed original-energy/SAME-variance control,
+nonzero continuum survival, finite positive physical mass, full QFT, every
+actual compact simple group and Clay remain OPEN.

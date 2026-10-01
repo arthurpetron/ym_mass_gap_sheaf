@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED original normalized positive-real tangent only (2026-10-01 UTC)
+
+- `ScaledCayleyPositiveRealNormalizedTangent.realScalar` retains the explicit
+  reciprocal QCauchy witness in BOTH original physical coordinates.
+  `normSq_realScalar` gives the exact original scalar-square norm identity.
+- `differenceQuotient` is the ACTUAL original positiveAction increment
+  scaled by the supplied time's constructed reciprocal. `quotient_error_pin`
+  pins its error against the SAME original output with exact -2i phase.
+- `normalized_bound` multiplies the previous original bound by the nonnegative
+  reciprocal square and cancels `(time*reciprocal)^2` exactly.
+  `normalizedTangentCertificate` returns the UNCHANGED computed positive radius
+  and all-small-positive-real error law as Type data.
+- Seven focused gates and independent math/source/log/hash reviews passed,
+  all {propext,Quot.sound}. No new analytic premise, sorry, axiom, erased
+  witness or weakened frontier. Evidence: normalized-positive-real addendum
+  in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: negative-real differentiation/full-real domain identification,
+  physical clock/spacing/scaling, useful signed original-energy/SAME-variance
+  control, nonzero continuum survival, finite positive physical mass, full QFT,
+  every actual group and Clay. One root import added; full root/tree/build/
+  audit/guard NOT checked. Canonical chart, CI and safety limits unchanged.
+
 ## PROVED original positive-real graph estimate and reciprocal only (2026-10-01 UTC)
 
 - `ComplexBondOSWickPositiveRealLimit.real_wick_bound` uses BOTH original
@@ -17,7 +39,7 @@
   analytic premise, sorry, axiom, erased witness or weakened frontier.
   Evidence: positive-real graph-estimate addendum in
   `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
-- OPEN: normalized positive-real and negative-real differentiation and
+- Positive-real normalization is proved above. OPEN: negative-real differentiation and
   full-real domain identification, physical clock/spacing/scaling, useful
   signed original-energy/SAME-variance control, nonzero continuum survival,
   finite positive physical mass, full QFT, every actual group and Clay.
