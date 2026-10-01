@@ -6046,6 +6046,10 @@ import YMGap.Continuum.BF4WilsonAllNomeCenteredTransferBondLimit
 import YMGap.Continuum.BF4WilsonAllNomeCenteredAngularBondBound
 import YMGap.Continuum.BF4WilsonAllNomeTemporalEnergyLimit
 import YMGap.Continuum.BF4WilsonAllNomeMarginalVarianceLimit
+-- Whole signed interior-family response on the SAME physical bond carrier,
+-- and every integer-lag lower orbit. Fixed nome; no continuum survival claim.
+import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyBondFloor
+import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyBondOrbit
 import YMGap.Continuum.BF4WilsonAllNomeBondOSDerivative
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolvent
 import YMGap.Continuum.BF4WilsonAllNomeBondOSAdjoint

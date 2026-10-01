@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting completed WHOLE signed-family bond floor and orbit
+(2026-10-01 UTC; chart unchanged): normalize the original finite family
+band and cancel Var=Energy+Bond, then pass the ACTUAL constructed limits.
+This gives rho*ambientVariance<=SAME completed physical bond covariance.
+Distinct interior faces give a positive coefficient-square floor; a nonzero
+coefficient vector gives nonzero response. The exact generic source pin is
+bond lag k = centered ambient time k+1. Existing positivity of SAME time
+powers propagates the family floor to EVERY integer lag, with coefficient
+rho^(k+1)*varianceFloor(w). Nome and family size enter; width and regulators
+do not. These LOWER response bounds are not physical-time scaling survival
+or an improved upper gap. Twelve gates passed two final focused checks and
+independent review. Signed scaling, continuum survival, physical mass/QFT
+and every group remain OPEN. Evidence: completed addendum in
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 Verified supporting ACTUAL temporal-energy and marginal-variance limits
 (2026-10-01 UTC; chart unchanged): one fixed signed squared-increment
 insertion gives the original normalized finite energy's rectangular

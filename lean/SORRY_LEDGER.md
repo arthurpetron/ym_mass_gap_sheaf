@@ -1,5 +1,39 @@
 # Sorry Ledger
 
+## PROVED completed whole signed-family bond floor and orbit (2026-10-01 UTC)
+
+- `BF4WilsonAllNomePlaquetteFamilyBondFloor.finite_family_energy_pin` and
+  `finite_family_variance_pin` preserve the original signed source, both
+  moments, mean, partition and regulators. `finite_family_energy_band`
+  normalizes ONLY by positive oddMass; `finite_family_bond_fraction`
+  cancels the exact Var=Energy+Bond to prove Bond>=rho*Var.
+- `completed_family_bond_fraction` passes the actual constructed variance
+  and transfer limits to the SAME completed bond covariance. The ambient
+  diagonal and physical bond norm are not equated. `family_bond_floor`
+  and `family_bond_ne_zero` give actual distinct-face coefficient coercivity
+  and nonzero response, not just a conditional input bundle.
+- `BF4WilsonAllNomePlaquetteFamilyBondOrbit.connected_source_time_pairing`
+  proves the original-source bond lag k = centered ambient time k+1 pin.
+  `family_rayleigh_floor` constructs the actual family input to existing
+  `response_geometric_lower`; `family_time_geometric_floor`,
+  `family_bond_geometric_floor` and `family_bond_response_ne_zero` give
+  a genuine every-integer-lag lower response for the whole signed family.
+- The explicit fraction depends only on strict nome and family size; the
+  coefficient-square norm floor additionally depends on nome. Strict
+  interior padding is required. Distinctness enters the absolute floor,
+  and positive coefficient-square sum enters nonzero. No width, regulator
+  or exterior-depth constant is added.
+- OPEN: useful complete signed scaling estimate, cross-width/spacing
+  comparison, nontrivial continuum survival, physical-time/mass calibration,
+  canonical continuum OS/QFT and every compact simple group. This lower
+  rate may deteriorate and is not a uniform physical survival statement.
+  No canonical field, guard or chart marker changes.
+- Twelve printed gates passed two final focused checks, all exactly
+  {propext, Quot.sound}; independent source/log and mathematical review.
+  No new sorry, axiom, Classical, native_decide or noncomputable declaration.
+  No full root/tree build, audit, guard or CI change. Evidence: completed
+  addendum in `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 ## PROVED actual temporal energy and marginal variance limits (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeCenteredAngularBondBound.normalizedAngularReserve_le_finiteScalar`

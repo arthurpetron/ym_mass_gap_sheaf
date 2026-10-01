@@ -508,3 +508,125 @@ Accepted logs and SHA-256 values:
   `fa3d8e90d74197edd4b9a228359cf5e8deb85c5a6725f54d50f7bec598b3559c`.
 - `/tmp/ym-family-channel-retained-square-variance-final-20261001.log`:
   `f6fa085672209043ed9a0d0ace660157aa9cf1bdf4bf947451800260cbb293df`.
+
+## Addendum: completed whole-family bond floor and every integer lag
+
+After `65692f3`, the finite whole-family band now has a constructed SAME
+completed physical consumer. No new analytic input is assumed. The family
+is literal `familyState` with arbitrary rational signed coefficients; the
+source, finite center, action and positive odd partition are unchanged.
+
+### Finite and completed fraction
+
+The declarations below are in
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyBondFloor.lean`.
+`finite_family_energy_pin` at :147 uses the two existing squared-increment
+pins on ONE insertion and cancels the rational factor two.
+`finite_family_variance_pin` at :155 uses `source_family_shift` at zero,
+then `middleRatio_congr` on both the source and its square, retaining the
+actual moving center. All signed cross terms and unit terms survive.
+
+With base<width and every face in spatialFaces(base),
+`finite_family_energy_band` at :165 normalizes the existing band by ONLY
+SAME positive oddMass. At stage k>=1 and terminal depth n+1 it gives
+
+    E(k,n+1) <= (1-rho)*Var(k,n+1).
+
+`finite_family_bond_fraction` at :181 uses the original exact finite
+Var=Energy+Bond and additive rational cancellation to obtain
+
+    rho*Var(k,n+1) <= Bond(k,n+1).
+
+This cancellation assumes no sign of 1-rho or the variance and never
+inverts a source or its variance. At diagonal stage s>=1, n=s-1 gives
+the required positive depth and retained-mode guards.
+
+`completed_family_bond_fraction` at :188 uses the existing Type-valued
+variance/transfer Cauchy witnesses and the one-sided rational-limit order
+theorem. Their original completed pins prove
+
+    rho*B_V(v,v) <= connected_bond(0,ofSource(x),ofSource(x)),
+    v = original centeredVector(x).
+
+The ambient centered norm on the left is NOT the bond norm on the right.
+`family_bond_floor` at :217 combines the existing distinct-face ambient
+floor with positive scalar monotonicity. `family_bond_ne_zero` at :228
+then excludes zero physical response when sum(c^2)>0. No quotient
+representative is selected.
+
+### Original correlator at every integer lag
+
+The declarations below are in
+`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyBondOrbit.lean`.
+`connected_source_time_pairing` at :63 proves, for EVERY original intrinsic
+source x, including multitime sources,
+
+    connected_bond(k,ofSource(x),ofSource(x)) = B_V(v,T_(k+1)v).
+
+The original odd reflected joint pin, literal advance composition, both
+unit-stationarity laws and centered-vector pairing establish the exact
+one-step offset. No new mean, transfer, carrier or time is substituted.
+
+`family_rayleigh_floor` at :104 constructs the actual family input to
+`BF4WilsonAllNomeResponseLower.response_geometric_lower`. The latter uses
+positivity of powers of the SAME original time map.
+`family_time_geometric_floor` at :110 and
+`family_bond_geometric_floor` at :118 consequently give
+
+    rho^(k+1)*varianceFloor(w)*sum(c^2)
+        <= connected_bond(k,ofSource(x),ofSource(x))
+
+at EVERY integer lag k. `family_bond_response_ne_zero` at :131 proves
+strict nonzero for distinct interior faces and sum(c^2)>0, including lag
+zero. It never decides equality of a constructive real or divides by a norm.
+
+### Consumer, parameter budget and open residue
+
+rho is the existing explicit familyResponseFraction(w,|qs|), with 0<w<1;
+varianceFloor depends on w. Neither coefficient contains width, heat cutoff
+or terminal depth. Nodup is needed only for the absolute coefficient floor,
+not for the finite/completed variance fraction. Empty and repeated families
+remain covered by that fraction; the strict nonzero guard excludes the
+zero coefficient budget.
+
+This supplies fixed-nome physical nontriviality and lower-response orbit
+control for the COMPLETE signed family, extending the previous one-face
+orbit. It does not identify different widths, supply changing-coupling
+moduli, or keep rho^(k+1) away from zero at fixed physical time as spacing
+vanishes. The lower coefficient can deteriorate with nome or family size.
+It is NOT an improved upper decay/gap estimate. The useful complete signed
+energy/SAME-variance scaling estimate, continuum survival, physical time/mass,
+canonical continuum OS/QFT and every compact simple group remain OPEN.
+No canonical field or displayed chart marker changes; no ASCII reprint.
+
+### Focused verification and independent review
+
+Both final focused file checks exited zero; all SEVEN floor and FIVE orbit
+printed gates depend exactly on {propext, Quot.sound}. No sorry, new axiom,
+Classical dependency, native_decide or noncomputable declaration is present.
+The first floor drafts had a namespace omission and a whnf timeout; the
+correct defining namespace and opaque original finite objects resolved
+them without changing hypotheses, heartbeat or safety limits. Earlier
+failed logs, including their generated sorryAx cascades, are not accepted
+proof evidence. The orbit check passed on its first draft.
+
+Independent Sol review checked signed source transport, original partitions,
+zero cases, the scalar cancellation, regulator guards, exact time offset,
+and the actual all-lag consumer. Luna independently matched all twelve
+source gates to the accepted logs and checked fixed-nome scope/forbidden
+shortcuts. Neither reviewer ran a compiler.
+
+Main alone compiled, serialized with the safe-build skill and monitored
+launcher: one worker, 20 GiB ceiling, 12 GiB OS reserve and dynamic telemetry.
+Preflight found no competing Lean/Lake/test/runner process, 84 percent
+pressure-free capacity and zero swap. No limit was raised. No full root/tree
+build, broad audit or guard ran. Root imports are registered, not checked
+in aggregate; the broad audit baseline was not regenerated. CI stays
+manual-only.
+
+Accepted logs and SHA-256:
+
+- `/tmp/ym-family-bond-floor-final-20261001.log`:
+  `b5eaaa4e054ebeed111198be736afbaeddbb3a97dc2440a157c0997741f9d2ab`.
+- `/tmp/ym-family-bond-orbit-final-20261001.log`:
+  `d001cde03bdb2051e5bcc2060e1e23f9d90efc3d8596d6fd530a4060bf88fdf1`.

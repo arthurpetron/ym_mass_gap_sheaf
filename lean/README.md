@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Completed whole signed-family response (2026-10-01 UTC):**
+`BF4WilsonAllNomePlaquetteFamilyBondFloor` transports the existing finite
+interior-family band through the ACTUAL variance and transfer limits,
+proving rho*ambientVariance <= original connected bond covariance.
+Distinct faces give its positive coefficient-square floor.
+`BF4WilsonAllNomePlaquetteFamilyBondOrbit.connected_source_time_pairing`
+pins EVERY original source's bond lag k to ambient centered time k+1;
+the actual family Rayleigh input then yields a geometric coefficient-square
+lower floor and nonzero response at every integer lag. Coefficients depend
+only on strict nome and family-list size, not width or regulators. Twelve
+gates passed two final focused checks within {propext, Quot.sound}, with
+independent read-only review. No scaling survival, physical mass, continuum
+QFT or canonical frontier closure; no broad build. Evidence: completed
+addendum in `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 **Actual temporal energy and marginal variance limits (2026-10-01 UTC):**
 `BF4WilsonAllNomeTemporalEnergyLimit` pins twice the original normalized
 finite energy to one fixed signed squared-increment Wilson insertion,

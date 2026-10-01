@@ -25,6 +25,46 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Whole signed family reaches completed physical response at every lag (2026-10-01 UTC)
+
+PROGRESS after `65692f3`: `BF4WilsonAllNomePlaquetteFamilyBondFloor`
+uses the two original squared-increment pins to transport the ACTUAL finite
+energy, and coefficient congruence transports BOTH source moments and the
+moving center. Normalize the existing family band by ONLY SAME positive
+oddMass, then cancel Var=Energy+Bond to obtain Bond>=rho*Var. At every late
+diagonal stage, the existing variance and transfer Cauchy witnesses pass
+this inequality to the ORIGINAL completed bond covariance. The ambient
+norm and bond norm remain distinct.
+
+The distinct-face ambient floor now gives a positive coefficient-square
+floor on the SAME physical bond carrier. Nome and family-list size enter
+rho; width, heat cutoff and terminal depth do not. Empty/repeated signed
+families are allowed for the fraction; Nodup and positive coefficient-square
+sum enter only where required for the absolute floor and strict nonzero.
+
+`BF4WilsonAllNomePlaquetteFamilyBondOrbit.connected_source_time_pairing`
+also proves the generic original-source bond lag k = ambient centered
+time k+1 identity. It constructs the actual family Rayleigh input and
+propagates its floor with the existing SAME time-power positivity theorem.
+Thus every integer-lag connected covariance has the explicit lower floor
+rho^(k+1)*varianceFloor(w)*sum(c^2), and is nonzero for a nonzero coefficient
+vector on distinct interior faces. No source or quotient representative is
+selected and no analytic field is introduced.
+
+Twelve gates passed two final focused checks, each exactly
+{propext, Quot.sound}; independent mathematical and source/log review
+passed. No full root/tree build, broad audit or guard. Root imports are
+registered, not checked in aggregate. Canonical fields and chart markers
+are unchanged; no ASCII reprint. Evidence: completed addendum in
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
+NEXT remains the PRIMARY useful complete signed energy/SAME-variance
+estimate on a justified changing-coupling/spatial/spacing family. The new
+lower rate is fixed-nome, can deteriorate with coupling/family size, and
+does not identify different widths or survive fixed physical time as
+spacing vanishes. Nontrivial continuum survival, physical mass/calibration,
+canonical continuum OS/QFT and all compact simple groups remain OPEN.
+
 ### Actual finite energy/variance meet the original completed norms (2026-10-01 UTC)
 
 PROGRESS after `cb41d35`: a weaker finite one-sided angular consequence

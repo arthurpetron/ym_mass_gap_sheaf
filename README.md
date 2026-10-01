@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Whole signed-family physical response (2026-10-01):** the finite
+signed-family bound now reaches the SAME completed bond carrier. Its
+connected covariance has an explicit positive coefficient-square floor,
+and a geometric lower bound at every integer time separation. The
+coefficients depend on coupling and family size, not spatial width or
+regulators; distinct interior faces and a positive coefficient-square sum
+give a nonzero response. This is fixed-coupling nontriviality, NOT a
+continuum-surviving excitation or physical mass bound. See the
+[proof and scope](audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md#addendum-completed-whole-family-bond-floor-and-every-integer-lag).
+
 **Actual energy and marginal variance reach completion (2026-10-01):**
 for any supplied single-slice signed Wilson expression, the original finite
 temporal energy and odd marginal variance now have explicit independent
