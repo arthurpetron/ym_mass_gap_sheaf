@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## PROVED signed channel square and band-only calibration fence (2026-10-01 UTC)
+
+- `BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare` constructs actual
+  channel curvature, retained square and original cubic/omitted-mode budget.
+  `familyChannelTaylorDebt_le_retained` proves
+  D_ch<=t*(A_ch-Curv_ch-48*Sq_ch)+Err_ch, t=(1-w)^2/2. Signed sources are
+  supported, not assumed positive; all original nonnegative weights remain.
+  `familyChannelObservableSquare_nonnegative` supplies only Sq_ch>=0.
+- `padded_family_energy_le_retainedChannelVariance` gives the SAME original
+  positive-depth energy consumer
+  E<=(h+t)*C*Z*Var+t*(-Curv_ch-48*Sq_ch)+Err_ch. Curvature remains signed;
+  the retained raw square is NOT interacting variance. No cutoff is dropped.
+- `BF4ExactSlabFixedSpatialChannelCoefficientFence.headFloor_le_stepEighth`
+  uses the actual Euler floor to show headFloor<=h^2/8<=h/8.
+  `channelLeadingCoefficient_ge_ninetySix` proves h*C>=96 for every positive
+  family-list size and 0<w<1. This fences ONLY the constructed coefficient,
+  not the true energy, variance, correlations or physical mass.
+- OPEN: a sharper actual-source estimate or useful complete signed
+  cancellation against SAME variance on a justified scaling family. A
+  nonnegative remainder payment alone cannot meet the small-energy guard
+  with this band coefficient. Continuum survival, mass, QFT and every group
+  remain OPEN; no new sorry/axiom or canonical field/chart change.
+- Two final focused serialized checks passed eight gates exactly within
+  {propext, Quot.sound}; Sol/Luna reviews passed. No broad run. Evidence:
+  retained-channel/coefficient addendum in
+  `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 ## PROVED actual channel first order versus SAME variance (2026-10-01 UTC)
 
 - `SU2QuaternionPassiveChannelMomentFactorization` proves exact common-mass

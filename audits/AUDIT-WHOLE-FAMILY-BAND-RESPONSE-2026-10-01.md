@@ -402,3 +402,109 @@ Accepted logs and SHA-256 values:
   `cb42129c98879cdcebd41b352d001eeba2b3f3f0e1b2577109e8495b3deaefa3`.
 - `/tmp/ym-family-channel-taylor-variance-accepted-20261001.log`:
   `aa559260c13cbefc4384ffaa8beca4be6a518c6e32e6fdd5d02501baa7fa79e5`.
+
+## Addendum: retained channel square and band-only calibration fence
+
+Two finite results sharpen and limit the preceding consumer. They preserve
+the original action, source and same-object variance and do not close the
+physical scaling input or any canonical chart node.
+
+### Actual signed channel correction
+
+All declarations below are in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare.lean`.
+For the SAME b_z and rho_z above, `familyChannelCurvature` at `:133`,
+`familyChannelObservableSquare` at `:145`, and `familyChannelErrorBudget`
+at `:155` compute
+
+    Curv_ch = sum_z rho_z H[b_z^2*C_full Gamma_full(f,f)],
+    Sq_ch   = sum_z rho_z H[(b_z*f)^2],
+    Err_ch  = sum_z rho_z sourceErrorBudget(N-1,w,K,b_z,f).
+
+`familyChannelObservableSquare_nonnegative` at `:165` proves Sq_ch>=0
+using actual supported Haar squares and nonnegative original channel
+weights. Individual b_z may be signed. The square retains the unshifted
+complete f and is NOT identified with interacting centered variance.
+
+`familyChannelTaylorDebt_le_retained` at `:288` proves, t=(1-w)^2/2,
+
+    D_ch <= t*(A_ch-Curv_ch-48*Sq_ch)+Err_ch.
+
+Its inputs are produced, not new analytic fields: each actual b_z is
+supported; `spatialSpan_casimir` in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCasimir.lean:294` supplies
+the whole signed-family Cf=12f pin; the existing
+`sourceSecondMoment_le_retainedSquare` in
+`lean/YMGap/Continuum/SU2QuaternionSecondOrderRetainedSquare.lean:240`
+accepts signed supported sources without a positivity premise. The exact
+`sourceRemainder_secondOrder` and `sourceError_bound` in
+`lean/YMGap/Continuum/SU2QuaternionCyclicSecondOrder.lean:197` and `:275`
+retain actual cubic and omitted finite-cutoff terms. Multiplication by
+rho_z>=0 and ordered finite summation preserve the inequalities; linear
+regrouping keeps curvature signed and retains all off-diagonal face terms.
+
+`padded_family_energy_le_retainedChannelVariance` at `:357` meets the
+existing actual first-order producer and exact original-energy identity:
+
+    E_original <= (h+t)*C*(Z*Var_original)
+                  + t*(-Curv_ch-48*Sq_ch)+Err_ch, h=1-w.
+
+This consumer uses positive depth n+1, original odd partition and mean,
+strict spatial padding, 0<w<1 and K>=headCutoff(w). Arbitrary coefficients
+and repeated faces remain. The debt estimate itself holds at every supplied
+depth and finite K without asserting positivity of the truncated full heat.
+Neither a favorable sign for Curv_ch nor a SAME-variance or scaling-small
+estimate for Err_ch is proved.
+
+### The chosen leading coefficient cannot supply survival smallness
+
+`headFloor_le_stepEighth`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialChannelCoefficientFence.lean:47`,
+uses the existing `EulerProductStrictFloor.floor_le_euler` at N=1
+(`lean/YMGap/Continuum/EulerProductStrictFloor.lean:64`). The actual Euler
+floor is <=euler(w,1)=h, the retained head equals EulerFloor^2/8, and
+0<h<1. Thus headFloor<=h^2/8<=h/8. For nonempty family size m, the local
+floor l=headFloor^(28m) has l^2<=headFloor, and the local cap u is >=1.
+Cleared positive-scalar cancellation then gives the exact conclusion
+
+    h*C >= 96,  C=12*u^2/l^2.
+
+`channelLeadingCoefficient_ge_ninetySix` at `:81` proves this for EVERY
+0<w<1 and positive family-list size. No family coefficient, width, cutoff
+or depth is used. Empty lists are deliberately excluded. The consumer
+`relative_derivative_bound`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeSectorSourceTransfer.lean:116`,
+requires positive retainedFraction(c)=1-2c (same module `:51`), hence c<1/2. Therefore this
+particular band-derived first-order ceiling with nonnegative debt payment
+cannot provide that smallness. This is ONLY an obstruction to using the
+chosen upper-bound coefficient that way, NOT a lower bound on actual
+energy, channel cost, correlations, spectral gap or physical mass.
+
+The next analytic producer must improve the actual source/variance comparison
+without those band extremes, or retain and estimate the complete signed
+correction jointly on a justified physical scaling family. Reducing positive
+cutoff/cubic payment alone does not repair this leading coefficient. The
+checked width-independent first-order estimate remains true and available;
+no physical construction or canonical field is weakened or replaced.
+
+### Verification and review
+
+Both final focused checks exited zero, with all eight printed gates in
+{propext, Quot.sound}. No new sorry, axiom, Classical dependency,
+native_decide or noncomputable declaration. Sol implemented the bounded
+channel producer without compiling; main repaired namespace/tuple/syntax
+seams and supplied the original variance consumer. Luna independently
+reviewed signs, whole-family scope and original depth/mean/partition. Main
+implemented the coefficient fence; Sol and Luna reviewed its arithmetic
+and bound-on-bound scope. Only main compiled under the SAME serialized
+one-worker, 20 GiB ceiling, 12 GiB reserve and dynamic safety telemetry.
+No heartbeat or safety limits were raised. Root imports were registered
+but no aggregate/root/tree build, broad audit or guard was run. CI remains
+manual-only; canonical chart unchanged and not reprinted.
+
+Accepted logs and SHA-256 values:
+
+- `/tmp/ym-channel-leading-coefficient-fence-accepted-20261001.log`:
+  `fa3d8e90d74197edd4b9a228359cf5e8deb85c5a6725f54d50f7bec598b3559c`.
+- `/tmp/ym-family-channel-retained-square-variance-final-20261001.log`:
+  `f6fa085672209043ed9a0d0ace660157aa9cf1bdf4bf947451800260cbb293df`.

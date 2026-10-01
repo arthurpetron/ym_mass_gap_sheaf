@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Actual channel first order without full-width cost (2026-10-01 UTC)
+## Current increment: Retain channel cancellation; reject band-only calibration (2026-10-01 UTC)
+
+The actual signed channel debt now has a proved quadratic upper estimate
+t*(A_ch-Curv_ch-48*Sq_ch)+Err_ch, with Sq_ch>=0, t=(1-w)^2/2, and actual
+cubic/omitted cutoff errors. Its ORIGINAL energy consumer meets the existing
+footprint-only first-order/SAME-variance producer. No signed channel is
+assumed positive and no mean, partition or source is replaced.
+
+Separately the constructed leading coefficient h*C is at least 96 for EVERY
+nonempty family. The exact Euler-floor proof rules out getting the existing
+small-energy survival guard by improving cutoff alone and upper-paying all
+signed debt nonnegatively. This is a bound-on-bound obstruction, not true
+energy or mass-gap evidence. NEXT needs a sharper actual-source comparison
+or the complete useful signed cancellation, on a justified physical family.
+Two final focused checks passed eight gates; independent reviews passed.
+No broad run or canonical chart change. Evidence: retained-channel/coefficient
+addendum in `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
+## Earlier increment: Actual channel first order without full-width cost (2026-10-01 UTC)
 
 The revised local-band route now supplies its missing physical producer:
 A_ch<=C(w,|qs|)*Z*Var_original, C=12*u^2/l^2. Exact common-mass

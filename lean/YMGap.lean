@@ -5038,6 +5038,10 @@ import YMGap.Continuum.SU2QuaternionSpectatorHeatRetentionFence
 import YMGap.Continuum.SU2QuaternionPassiveChannelMomentFactorization
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelVarianceBound
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelTaylorVariance
+-- Actual signed channel quadratic gain and SAME-variance energy consumer.
+-- The band-only leading coefficient cannot be scaling-small; cancellation OPEN.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare
+import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelCoefficientFence
 -- Complete original-source local regularity and explicit one-link RAW Haar
 -- spectral tails, then conditional SAME-channel tails with shared active links.
 -- The original-partition floor below retains four-link heat;

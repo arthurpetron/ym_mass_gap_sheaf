@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting signed channel quadratic refinement and band-only fence
+(2026-10-01 UTC; chart unchanged): D_ch<=t*(A_ch-Curv_ch-48*Sq_ch)+Err_ch,
+t=(1-w)^2/2, with Sq_ch>=0 and original signed channel sources. The SAME
+energy consumer is E<=(h+t)*C*Z*Var+t*(-Curv_ch-48*Sq_ch)+Err_ch.
+Curvature remains signed; raw Sq_ch is not interacting variance; actual
+cubic/omitted-mode debt is retained. A separate coefficient theorem proves
+h*C>=96 for every nonempty family, so this band-derived leading ceiling
+cannot meet the survival smallness guard through nonnegative debt payment.
+This is NOT a lower bound on true energy or a Yang--Mills counterexample.
+Sharper actual-source control or useful JOINT signed cancellation on a
+justified scaling family remains OPEN. Two focused checks passed eight
+gates in {propext, Quot.sound}; no broad run or canonical field change.
+Evidence: retained-channel/coefficient addendum in
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 Verified supporting ACTUAL channel first order versus SAME variance
 (2026-10-01 UTC; chart unchanged): actual projected terminal bands and
 one exact common spectator mass prove l^2*A_ch<=12*u^2*Z*Var, hence

@@ -25,6 +25,38 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Signed channel debt and a decisive band-coefficient limitation (2026-10-01 UTC)
+
+`BF4ExactSlabFixedSpatialFamilyChannelRetainedSquare.familyChannelTaylorDebt_le_retained`
+now proves D_ch<=t*(A_ch-Curv_ch-48*Sq_ch)+Err_ch, t=(1-w)^2/2.
+Every signed channel source is the SAME projected terminal dressed by its
+actual Gram channel; the generic Casimir-12 completed-square certificate
+requires support, not positivity of that source. Sq_ch=sum rho_z H[(b_z*f)^2]
+is proved nonnegative, NOT identified with interacting variance. Curv_ch
+remains signed; Err_ch retains original cubic and finite-cutoff omitted-mode
+budgets. The actual energy consumer at depth n+1 is
+E_original<=(h+t)*C*Z*Var+t*(-Curv_ch-48*Sq_ch)+Err_ch, h=1-w.
+
+The arithmetic direction is now also decisive:
+`BF4ExactSlabFixedSpatialChannelCoefficientFence.channelLeadingCoefficient_ge_ninetySix`
+proves h*C>=96 for EVERY nonempty family and 0<w<1. The constructed
+headFloor is <=h^2/8<=h/8, while the local cap is >=1. This is solely a
+limitation of the chosen band-derived coefficient, NOT a lower bound on
+true energy, A_ch, decay or mass. Paying the signed remainder only by a
+nonnegative scalar cannot make this particular ceiling meet the existing
+survival consumer's c<1/2 guard. Two focused checks passed eight gates in
+{propext, Quot.sound}; no broad run or canonical chart change. Evidence:
+retained-channel/coefficient addendum in
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
+NEXT: seek a sharper ACTUAL-source/variance first order that does not use
+the global local-band extremes, or control the COMPLETE signed correction
+jointly with its leading term on a justified physical family. Merely reducing
+positive cubic/cutoff payment cannot repair h*C>=96. Keep the original heat,
+center, partition and finite-cutoff channel sources; do not replace them by
+a stationary or bare Haar law. Uniform spatial/spacing control, nonzero
+continuum survival, physical mass, full QFT and every group remain OPEN.
+
 ### Actual channel first order meets SAME variance without full-width cost (2026-10-01 UTC)
 
 The revised local-band argument now has supplied physical inputs and a checked
@@ -54,10 +86,10 @@ run or canonical field/chart change. Evidence: actual-channel addendum in
 
 NEXT: control the signed channel debt jointly with this first-order estimate
 on a justified physical scaling family. C can deteriorate as w approaches
-one or the family grows. The existing whole-family Casimir/retained-square
-bound applies to signed channel sources and can sharpen D_ch, but its signed
-curvature and cubic/omitted-mode errors still need a variance-relative scale
-estimate. Spatial/spacing-uniform decay, continuum survival, physical mass,
+one or the family grows. The whole-family Casimir/retained-square bound now
+sharpens D_ch above; the new coefficient fence excludes band-only smallness.
+Signed curvature and cubic/omitted-mode errors still need a JOINT variance-
+relative scale estimate. Spatial/spacing-uniform decay, continuum survival, physical mass,
 full same-theory QFT and every compact simple group remain OPEN.
 
 ### Weighted channel monotonicity retains spectator heat (2026-10-01 UTC)

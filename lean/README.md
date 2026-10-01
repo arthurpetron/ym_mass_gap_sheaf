@@ -24,6 +24,15 @@ and changing-coupling coefficient still need scaling control. Three focused
 checks passed 28 gates; no broad run or continuum/Clay closure. Evidence:
 actual-channel addendum in `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
 
+Follow-on `FamilyChannelRetainedSquare` now retains a nonnegative channel
+square in the original signed quadratic debt and SAME-variance energy
+consumer, keeping signed curvature and actual cubic/cutoff error.
+`ChannelCoefficientFence` proves (1-w)*C>=96 for every nonempty family:
+this particular coefficient cannot meet the small-energy guard through
+nonnegative debt payment. It does not bound true energy from below. A
+sharper actual-source bound or useful joint cancellation remains OPEN.
+Two focused checks passed eight gates; no broad run or canonical change.
+
 **Actual RAW source first order versus SAME variance (2026-10-01 UTC):**
 `BF4ExactSlabFixedSpatialTerminalSourceBounds` and `FamilyBareHaar` construct
 the actual-source/bare-square inputs. `FamilySourceVarianceBound` proves

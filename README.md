@@ -19,6 +19,14 @@ This removes one volume-dependent cost; controlling the full expression
 along physical scaling remains open. See the
 [proof and remaining debt](audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md#addendum-actual-channel-first-order-against-same-original-variance).
 
+The signed channel debt now retains a proved negative square alongside
+curvature and actual cubic/cutoff error. A separate theorem shows the
+band-derived leading coefficient is always at least 96 for a nonempty
+family. That measures this upper bound's looseness, not the true energy:
+useful physical scaling needs a sharper actual-source estimate or complete
+signed cancellation. See the
+[refinement and coefficient limitation](audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md#addendum-retained-channel-square-and-band-only-calibration-fence).
+
 **Joint signed RAW-source correction (2026-10-01):** the actual terminal source now
 has a first-order bound against the SAME interacting variance, with an
 explicit coefficient independent of late cutoff and positive terminal
