@@ -630,3 +630,148 @@ Accepted logs and SHA-256:
   `b5eaaa4e054ebeed111198be736afbaeddbb3a97dc2440a157c0997741f9d2ab`.
 - `/tmp/ym-family-bond-orbit-final-20261001.log`:
   `d001cde03bdb2051e5bcc2060e1e23f9d90efc3d8596d6fd530a4060bf88fdf1`.
+
+## Addendum: quantified passive vacuum gain and SAME-variance Ward budget
+
+After `df3824d`, coefficient-one angular contraction is sharpened by a
+computed SU(2) nonvacuum attenuation. This is a NEW finite estimate and
+actual-source consumer, not a new scaling assumption or continuum claim.
+
+### Literal channels and vacuum
+
+`SU2QuaternionProductHeatChannelNomeComparison.product_channel_sum_pin`
+(`lean/YMGap/Continuum/SU2QuaternionProductHeatChannelNomeComparison.lean:203`)
+matches computed charge/weight/polynomial tags to every original finite
+real/imaginary Gram channel, including inverse basis normalizers. Charges
+add under Cartesian multiplication and are zero or at least three.
+`productChannels_nome_interpolation` (same file :340) consequently proves
+
+    S_w(F) <= (1-w^3)*S_0(F) + w^3*S_1(F), 0<=w<=1.
+
+Every K, including zero, and repeated selected blocks are allowed. F is
+nonnegative on supported polynomials; no out-of-carrier positivity is
+assumed. The SAME F/source is frozen in all three auxiliary weight tests.
+This is not comparison of physical Yang--Mills laws at different couplings.
+
+`SU2QuaternionProductHeatChannelVacuum.heatChannels_zero_nome`
+(`lean/YMGap/Continuum/SU2QuaternionProductHeatChannelVacuum.lean:109`)
+retains exactly the degree-zero real unit/imaginary zero leaves;
+`productChannels_zero_nome` (same file :166) gives S_0(F)=F(polyOne), and
+`productChannels_vacuum_contraction` (same file :186) supplies its consumer.
+
+`SU2QuaternionPassiveChannelStrictAngular.channel_angular_zero_nome`
+(`lean/YMGap/Continuum/SU2QuaternionPassiveChannelStrictAngular.lean:90`)
+identifies this vacuum with the literal conditional projection P_ids(q).
+`channel_angular_vacuum_le_raw` (:106), `channel_angular_vacuum_bound`
+(:119) and `channel_angular_gain_lower` (:145) prove
+
+    A0 <= Araw,
+    A_ch <= (1-w^3)*A0+w^3*Araw,
+    (1-w^3)*(Araw-A0) <= Araw-A_ch.
+
+Here Araw=weightedAngularEnergy(q,f), A0=weightedAngularEnergy(P_ids q,f),
+and A_ch is the actual complete finite angular channel sum. Supported q,f,
+valid distinct ids and passive independence of f are retained. At nome one
+the Bessel step is an INEQUALITY, not assumed finite-cutoff completeness.
+
+### Actual source, complete signed energy and Ward join
+
+All declarations in this section are in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyChannelVacuumGain.lean`.
+`familyRawAngularCost` (:78) and `familyVacuumAngularCost` (:86) compute
+these costs on q=projectedEndpointSource(w,K,width,terminalMessage(depth))
+and f=spatialSpan(width,c,qs), with the original spectator schedule.
+`family_vacuum_cost_le_raw` (:95), `family_first_order_vacuum_bound`
+(:112) and `family_angular_gain_lower` (:133) supply their actual instances
+for every width/depth/cutoff, without a channel-count coefficient.
+
+`padded_family_energy_vacuum_bound` (:155) preserves the original exact
+Taylor debt D_ch and gives E<=h*((1-w^3)*A0+w^3*Araw)+D_ch, h=1-w.
+`padded_family_normalized_energy_vacuum_bound` (:170) divides ONLY by the
+SAME proved-positive oddMass. Interior padding is required for these
+energy consumers; strict nome and headCutoff guard enter normalization.
+
+`padded_family_energy_ward_gain` (:212) joins the actual raw first-order
+pin to `BF4ExactSlabFixedSpatialFamilyJointCorrection.family_firstOrder_defect_ward`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyJointCorrection.lean:77`).
+At depth n+1, write delta=angularWeightDefect, R=wardResidual, Z=oddMass,
+and Var=the SAME original moving-center oddVariance. Araw+delta+R=12*Z*Var
+then gives the stronger signed ceiling
+
+    E <= 12*h*(Z*Var)+D_ch
+         -h*(delta+R+(1-w^3)*(Araw-A0)).
+
+The two signed remainder terms, omitted finite-cutoff modes, original mean,
+partition, action and coupling stay unchanged. No sign is assumed for
+D_ch, delta or R; repeated/empty families and zero coefficients are allowed.
+The subtracted new gain is nonnegative, but is NOT a variance-relative floor.
+Algebraically h*(1-w^3)=h^2*(1+w+w^2). This second-order gain alone cannot
+alter the leading 12*h coefficient. No changing-source remainder bound follows.
+
+### Exact next input and SAME-carrier consumer
+
+For a chosen relative one-step loss delta_j, the remaining finite producer
+is an upper bound on the COMPLETE signed bracket
+
+    J_j = D_ch,j - h_j*(W_j+R_j+(1-w_j^3)*(Araw_j-A0_j))
+    J_j <= (delta_j-12*h_j)*Z_j*Var_j.
+
+Here W_j is angularWeightDefect, distinct from the chosen relative loss
+delta_j. This must hold on the original regulator rectangle
+for an explicitly justified changing-coupling/spatial/spacing family.
+`BF4WilsonAllNomePlaquetteFamilyBondFloor.finite_family_energy_pin` and
+`finite_family_variance_pin`
+(`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyBondFloor.lean:147`, :155)
+identify its actual finite family quantities with the constructed limit
+sequences. `BF4WilsonAllNomeTemporalEnergyLimit.energyLimit_completed_pin`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeTemporalEnergyLimit.lean:218`) and
+`BF4WilsonAllNomeMarginalVarianceLimit.varianceLimit_completed_pin`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeMarginalVarianceLimit.lean:236`)
+are the SAME all-nome completed loss and ambient-norm pins.
+The downstream response theorem is
+`BF4WilsonAllNomeResponseLower.response_geometric_lower`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeResponseLower.lean:117`), and
+`BF4WilsonAllNomePlaquetteFamilyBondOrbit.connected_source_time_pairing`
+(`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyBondOrbit.lean:63`)
+supplies its physical bond time-offset pin. These are existing declarations,
+not a newly proved relative-loss instance in this milestone. The legacy
+JointCompletion survival theorem is not substituted for this carrier.
+
+`BF4ExactSlabFixedSpatialCenteredTransferReserve.centered_transfer_angular_reserve`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCenteredTransferReserve.lean:110`)
+gives an upper bound on a DIFFERENT output reserve, not the required upper
+bound on J_j. No constructed physical scaling family or useful complete
+signed-bracket estimate is supplied here. Physical-time survival also needs
+its loss rate controlled against spacing and nonvanishing normalized states.
+Continuum survival, physical mass, canonical OS/QFT and all groups remain
+OPEN. No canonical field, chart marker or ASCII layout changes.
+
+### Focused verification and review
+
+Four final focused checks passed 2+3+5+6=16 gates, all exactly
+{propext, Quot.sound}. The five-gate angular source supersedes its earlier
+four-gate log; the six-gate BF4 log below supersedes the earlier four-gate
+draft. The accepted six-gate check passed on its first check; the word
+"first" in its filename does not imply a failure or incomplete source.
+No sorry, new axiom, Classical, native_decide or noncomputable declaration
+is present. Independent Sol mathematical/source review and Luna final
+source/log gate review passed; reviewers did not run compilers.
+
+Main alone compiled, serialized through the monitored safe-build launcher,
+one worker, 20 GiB ceiling, 12 GiB reserve and dynamic telemetry. Fresh
+preflight found no competing compiler/test/runner, 84 percent pressure-free
+capacity and zero swap; no limit was raised. No full root/tree build, broad
+audit or guard ran; root imports are registered but not aggregate-checked.
+CI remains manual-only. The intervening status-only user response was not
+proof progress; this continuation completed the quantified-gain milestone.
+
+Accepted log SHA-256:
+
+- `/tmp/ym-channel-nome-comparison-final-20261001.log`:
+  `b241d446bc3c7bfe0e9a011ab9df0a7714ecd47a6fc7439c92a66bde8784d732`.
+- `/tmp/ym-channel-vacuum-final-20261001.log`:
+  `3050ef2bdc2cf0b8c9ca32f4a5f2e4fce9ac3b2717438b46313262d9531b4c04`.
+- `/tmp/ym-passive-strict-angular-complete-final-20261001.log`:
+  `8a542decac6530c2e15428e07b8b1ed0f5e5e1d16c54424d77e6966db656dea7`.
+- `/tmp/ym-family-channel-ward-gain-first-20261001.log`:
+  `dcf49183113a1785403a26dac01bea87edbac4bcb427e8490e9e2f90213f4953`.

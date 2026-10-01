@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Quantified passive gain meets SAME-variance Ward budget (2026-10-01 UTC)
+
+PROGRESS after `df3824d`: the original finite product channels now have a
+computed charge/normalizer pin. Charge zero is unchanged and every nonzero
+SU(2) charge is at least three; hence S_w<=(1-w^3)*S_0+w^3*S_1.
+The literal vacuum test is conditional Haar projection of the SAME source,
+not a Yang--Mills measure at another coupling. The angular Bessel consumer
+gives A0<=Araw and A_ch<=(1-w^3)*A0+w^3*Araw at EVERY cutoff.
+
+`BF4ExactSlabFixedSpatialFamilyChannelVacuumGain` instantiates the actual
+terminal source and complete signed family. It retains the ORIGINAL signed
+Taylor debt and normalizes only by SAME positive oddMass. Its
+`padded_family_energy_ward_gain` proves
+
+    E <= 12*h*(Z*Var)+D_ch
+         -h*(angularDefect+WardResidual+(1-w^3)*(Araw-A0)), h=1-w.
+
+Sixteen gates passed four final focused checks within {propext, Quot.sound};
+independent mathematical and source/log reviews passed. No new analytic
+field, sorry, canonical guard/marker change, full root/tree build, broad
+audit or CI change. Root imports are registered, not checked in aggregate.
+Evidence: quantified-gain addendum in
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
+NEXT: bound the COMPLETE signed bracket by (delta-12*h)*Z*Var on a
+justified changing-coupling/spatial/spacing family, then use the existing
+ALL-NOME actual energy/variance limits and response theorem. Do not replace
+this by separate absolute-value budgets or a legacy carrier substitution.
+The new gain has prefactor h^2*(1+w+w^2); it cannot alone change the leading
+12*h term. No such physical scaling producer is constructed here. Nontrivial
+continuum survival, physical mass, canonical continuum OS/QFT and all compact
+simple groups remain OPEN; the unchanged chart is not reprinted.
+
 ### Whole signed family reaches completed physical response at every lag (2026-10-01 UTC)
 
 PROGRESS after `65692f3`: `BF4WilsonAllNomePlaquetteFamilyBondFloor`

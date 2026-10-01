@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting quantified passive-vacuum/Ward gain (2026-10-01 UTC;
+chart unchanged): exact Casimir-tagged ORIGINAL channels give nonvacuum
+attenuation w^3, without a channel-count factor. The literal vacuum channel
+is conditional Haar projection of the SAME source; A0<=Araw and
+A_ch<=(1-w^3)*A0+w^3*Araw. Applied to the actual projected terminal source
+and whole signed family, the original Taylor and Ward identities give
+E<=12*h*(Z*Var)+D_ch-h*(angularDefect+WardResidual+(1-w^3)*(Araw-A0)),
+h=1-w. Every signed correction and omitted-cutoff debt remains. Its new
+nonnegative gain has second-order prefactor near w=1, not a variance-relative
+floor or a scaling-small bound. Sixteen gates passed four focused checks
+and independent review. Useful signed scaling, survival, physical mass,
+continuum QFT and all groups remain OPEN. Evidence: quantified-gain addendum
+in `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 Verified supporting completed WHOLE signed-family bond floor and orbit
 (2026-10-01 UTC; chart unchanged): normalize the original finite family
 band and cancel Var=Energy+Bond, then pass the ACTUAL constructed limits.

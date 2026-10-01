@@ -1,5 +1,39 @@
 # Sorry Ledger
 
+## PROVED quantified passive-vacuum gain and SAME-variance Ward budget (2026-10-01 UTC)
+
+- `SU2QuaternionProductHeatChannelNomeComparison.product_channel_sum_pin`
+  retains literal finite channels, inverse basis weights and computed
+  Casimirs. `productChannels_nome_interpolation` proves the w^3 nonvacuum
+  comparison for every cutoff, including zero, and repeated selected blocks.
+- `SU2QuaternionProductHeatChannelVacuum.heatChannels_zero_nome` and
+  `productChannels_zero_nome` identify the actual vacuum test;
+  `productChannels_vacuum_contraction` keeps it unchanged. Nome-zero/one
+  change auxiliary channel weights, not the original supplied source.
+- `SU2QuaternionPassiveChannelStrictAngular.channel_angular_zero_nome`
+  pins that test to conditional Haar projection. `channel_angular_vacuum_le_raw`,
+  `channel_angular_vacuum_bound` and `channel_angular_gain_lower` use the
+  original supported source and passive-independent observable, with valid
+  distinct blocks for Bessel, not a finite-cutoff completeness assumption.
+- `BF4ExactSlabFixedSpatialFamilyChannelVacuumGain.family_vacuum_cost_le_raw`,
+  `family_first_order_vacuum_bound` and `family_angular_gain_lower` instantiate
+  the literal projected terminal source and signed family. Its energy and
+  normalized-energy consumers retain every signed Taylor/cutoff term.
+  `padded_family_energy_ward_gain` places the quantified nonnegative gain
+  inside the ORIGINAL oddVariance Ward budget, retaining both signed
+  complete-weight corrections and SAME positive partition.
+- OPEN: a useful upper bound on the COMPLETE signed remainder versus SAME
+  interacting variance on a justified changing-coupling/spatial/spacing
+  family. The new energy gain has second-order prefactor near w=1; no
+  variance-relative lower floor, scaling survival, physical mass, continuum
+  OS/QFT or every-group estimate follows. No canonical field/guard/marker
+  is weakened or closed and no new analytic input is assumed.
+- Sixteen gates passed four final focused checks, all {propext, Quot.sound},
+  with independent source/log and mathematical review. No sorry, new axiom,
+  Classical, native_decide or noncomputable declaration; no broad build,
+  audit, guard or CI change. Evidence: quantified-gain addendum in
+  `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 ## PROVED completed whole signed-family bond floor and orbit (2026-10-01 UTC)
 
 - `BF4WilsonAllNomePlaquetteFamilyBondFloor.finite_family_energy_pin` and

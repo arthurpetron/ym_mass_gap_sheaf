@@ -12,6 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Quantified passive channel/Ward gain (2026-10-01 UTC):**
+`SU2QuaternionProductHeatChannelNomeComparison` retains every original
+channel normalizer and computed Casimir; nonzero charge is at least three.
+`ChannelVacuum` identifies the literal zero-nome channel contribution.
+`PassiveChannelStrictAngular` proves A0<=Araw and
+A_ch<=(1-w^3)*A0+w^3*Araw for the SAME supported source/observable.
+`BF4ExactSlabFixedSpatialFamilyChannelVacuumGain` instantiates the actual
+terminal source and signed family, preserving all Taylor/cutoff debt.
+`padded_family_energy_ward_gain` gives
+E<=12*h*(Z*Var)+D_ch-h*(angularDefect+WardResidual+(1-w^3)*(Araw-A0)),
+h=1-w. The gain is second-order near w=1; no variance-relative reserve or
+changing-source scaling smallness is supplied. Sixteen gates passed four
+focused checks, all {propext, Quot.sound}, with independent review. No broad
+run, canonical-field change or continuum closure. Evidence: quantified-gain
+addendum in `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 **Completed whole signed-family response (2026-10-01 UTC):**
 `BF4WilsonAllNomePlaquetteFamilyBondFloor` transports the existing finite
 interior-family band through the ACTUAL variance and transfer limits,

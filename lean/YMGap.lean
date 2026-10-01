@@ -6050,6 +6050,13 @@ import YMGap.Continuum.BF4WilsonAllNomeMarginalVarianceLimit
 -- and every integer-lag lower orbit. Fixed nome; no continuum survival claim.
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyBondFloor
 import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyBondOrbit
+-- Quantified ORIGINAL passive nonvacuum attenuation and literal vacuum
+-- projection, joined to the SAME signed Taylor/Ward variance budget.
+-- No changing-source scaling bound or continuum reserve is asserted.
+import YMGap.Continuum.SU2QuaternionProductHeatChannelNomeComparison
+import YMGap.Continuum.SU2QuaternionProductHeatChannelVacuum
+import YMGap.Continuum.SU2QuaternionPassiveChannelStrictAngular
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelVacuumGain
 import YMGap.Continuum.BF4WilsonAllNomeBondOSDerivative
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolvent
 import YMGap.Continuum.BF4WilsonAllNomeBondOSAdjoint

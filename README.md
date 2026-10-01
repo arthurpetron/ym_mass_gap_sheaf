@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Quantified signed-family channel gain (2026-10-01):** the original
+SU(2) nonvacuum channels now have a checked `w^3` attenuation, while the
+conditional-vacuum contribution is identified exactly. Applied to the
+actual terminal source, this improves the complete signed energy ceiling
+and enters its SAME interacting-variance Ward budget without replacing
+the measure or discarding signed corrections. The energy gain is
+second-order near `w=1`; a useful estimate of the complete signed remainder
+on a justified continuum-scaling family remains open. Sixteen gates passed
+four focused checks. See the
+[proof and remaining input](audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md#addendum-quantified-passive-vacuum-gain-and-same-variance-ward-budget).
+
 **Whole signed-family physical response (2026-10-01):** the finite
 signed-family bound now reaches the SAME completed bond carrier. Its
 connected covariance has an explicit positive coefficient-square floor,
