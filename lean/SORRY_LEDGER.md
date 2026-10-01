@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL sector derivative resolvent (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeResolventLimit.resolventCertificate` constructs the
+  actual dyadic norm limit, with original output streams and explicit moduli.
+- `BF4WilsonAllNomeResolventEquation.resolvent_equation` proves
+  A(R_lambda x)=T(x-lambda*R_lambda x), with norm ceiling 1/lambda.
+- `BF4WilsonAllNomeResolventRange.resolventRange` computes its original
+  range witness from the exact scaled-root residual, without preimage bounds.
+- `BF4WilsonAllNomeSectorShiftInjective.input_injective` and
+  `BF4WilsonAllNomeSectorResolvent.inverse_right`/`inverse_left` construct
+  the two-sided inverse of lambda I+H for the EXISTING sector derivative,
+  every rational lambda>0. `domainPoint` retains both original range witnesses.
+- This closes the preceding dyadic limit/range/sector-resolvent subtask.
+  OPEN: physical OS/observable and spectral identification, signed scaling
+  estimate, continuum survival, full QFT/every-group/Clay. Ambient kernel
+  unchanged; no canonical field or existing sorry changed.
+- Six final focused serialized checks passed all 56 gates within
+  {propext, Quot.sound}; no broad run. Evidence:
+  `audits/AUDIT-ORIGINAL-SECTOR-RESOLVENT-2026-09-30.md`.
+
 ## PROVED ORIGINAL sharp dyadic resolvent refinement (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeShiftedRootResolvent` constructs the actual inverse of

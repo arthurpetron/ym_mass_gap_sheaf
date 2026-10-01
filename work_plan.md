@@ -376,15 +376,27 @@ focused serialized checks passed 39 gates within {propext, Quot.sound};
 no broad run or canonical change. Evidence:
 `audits/AUDIT-ORIGINAL-DYADIC-RESOLVENT-REFINEMENT-2026-09-30.md`.
 
-NEXT resolvent proposition: telescope this sharp adjacent estimate to an
-explicit geometric Cauchy modulus and construct the actual represented
-dyadic limit. Supply its sector range witness and prove the derivative
-equation A_derivative u=T(f-lambda*u). The existing intrinsic sector graph
-then supplies the domain join. Do not call the approximants a constructed
-generator resolvent or physical mass gap. The original kernel remains.
+FOLLOW-ON PROVED: `BF4WilsonAllNomeResolventLimit` telescopes the adjacent
+estimate to an h^2 tail and constructs the actual R_lambda with original
+representatives and explicit moduli. `DyadicResolventLaws` supplies the exact
+finite equation; `ResolventEquation.resolvent_equation` passes it to
+A(R_lambda x)=T(x-lambda*R_lambda x), retaining the 1/lambda norm ceiling.
+`ResolventRange.dyadic_root_residual` identifies the vanishing residual
+from a scaled root image, and `resolventRange` computes the original range
+witness. For sector input x, both output coordinates now have range data.
+`SectorShiftInjective.input_injective` uses positivity of the original
+difference graph. `SectorResolvent.domainPoint`, `inverse_right` and
+`inverse_left` therefore CONSTRUCT the two-sided inverse of lambda I+H
+for the EXISTING sector derivative H, for every rational lambda>0.
+These abbreviated names have prefix `BF4WilsonAllNome`. Six final focused
+serialized checks passed 56 gates within {propext, Quot.sound}; no broad run
+or canonical chart change. Evidence:
+`audits/AUDIT-ORIGINAL-SECTOR-RESOLVENT-2026-09-30.md`.
+The ambient kernel remains; no ambient inverse, physical OS identification,
+spectral exclusion interval above the vacuum or physical mass is asserted.
 
 NEXT reconstruction residue: the SAME-object physical reflected OS/observable
-identification and the generator resolvent/spectral join, not another
+identification and physical spectral join, not another
 real-to-complex compatibility wrapper or an unjustified total Hamiltonian.
 Direct restriction of the original time-zero algebra is now ruled out at
 width one; positive-time insertions do not by themselves identify a
@@ -394,7 +406,8 @@ already supplies `compileWindow_pin` on this carrier. The remaining
 canonical join needs the supported observable and reflected-form/time pins
 against the SAME limiting theory (`CanonicalOSRoot.PositiveTimeOSRoot`),
 not merely positivity of an independently defined Gram form.
-The intrinsic real AND complex presented-sector adjoint joins are supplied. Do NOT
+The intrinsic real AND complex presented-sector adjoint joins and the real
+positive-parameter sector resolvent are supplied. Do NOT
 silently select source data from the old quotient Domain or redefine its
 scope. Full physical Hilbert/Hamiltonian identification remains OPEN.
 The equation A u=T v alone remains insufficient on the full ambient carrier

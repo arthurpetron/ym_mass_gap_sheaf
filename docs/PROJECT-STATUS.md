@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL sector derivative resolvent (2026-09-30 UTC;
+chart unchanged): the actual dyadic norm limit now has explicit original
+representatives, convergence moduli and a computed time-range witness.
+Its equation A u=T(x-lambda*u) supplies BOTH coordinates of the existing
+sector domain. Positivity proves uniqueness, hence actual two-sided inverse
+laws for lambda I+H on that sector, every rational lambda>0, with norm cap
+1/lambda. No ambient inverse, kernel deletion, physical OS identification,
+scaling estimate or physical mass claim. Six final focused serialized checks
+passed 56 gates within {propext, Quot.sound}; no broad run or canonical change.
+Evidence: `audits/AUDIT-ORIGINAL-SECTOR-RESOLVENT-2026-09-30.md`.
+
 Verified supporting ORIGINAL dyadic resolvent refinement (2026-09-30 UTC;
 chart unchanged): shifted root inverses have computed original outputs and
 cap 1/delta. Four nonnegative mixed moments prove the sharp square comparison;
