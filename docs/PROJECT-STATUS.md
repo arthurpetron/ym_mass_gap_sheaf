@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting sharp complex mixed bond decay (2026-10-01 UTC;
+chart unchanged): the actual finite reflected Wilson form now has a
+constant-one complex Cauchy--Schwarz proof, transported through all eight
+original joint/intrinsic/completed pairings. EVERY pair of completed
+complex physical bond states obeys |M_(2n)|^2 <= (q^n*Var(X))*(q^n*Var(Y)),
+with SAME centered physical variances and all four signed source pins.
+Zero cases require no norm inverse or square root. The original q remains
+fixed-nome/width, not scaling uniform. Signed scaling control, survival,
+physical mass, full QFT and all groups remain OPEN. Four focused checks
+passed 16 gates within {propext, Quot.sound}; no broad run. Evidence:
+complex addendum in `audits/AUDIT-BOND-MIXED-CONNECTED-DECAY-2026-10-01.md`.
+
 Verified supporting complex physical bond completion/time join (2026-10-01
 UTC; chart unchanged): paired original physical Cauchy classes are now
 computably isometric to the existing complex sector quotient. All four

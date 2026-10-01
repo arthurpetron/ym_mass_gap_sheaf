@@ -23,6 +23,17 @@ min-of-half-tolerance continuity radii. Both final focused checks passed
 input, broad run, canonical field or continuum/Clay closure. Evidence:
 complex addendum in `audits/AUDIT-BOND-COMPLETION-REAL-TIME-2026-10-01.md`.
 
+**Sharp complex mixed decay (2026-10-01 UTC):** a rational orthogonal
+phase-vector argument proves constant-one complex Cauchy--Schwarz on the
+ACTUAL all-nome reflected finite form and its original joint/completion
+limits. `BF4WilsonAllNomeComplexBondOSConnectedDecay` gives
+|M_(2n)(X,Y)|^2<=(q^n*Var(X))*(q^n*Var(Y)) for every completed complex
+physical bond pair, retaining original variances and four signed source
+terms. No extra prefactor or variance inverse. Nome/width and rate remain
+fixed; scaling and continuum claims remain OPEN. Four focused checks
+passed 16 gates within {propext, Quot.sound}; no broad run. Evidence:
+complex addendum in `audits/AUDIT-BOND-MIXED-CONNECTED-DECAY-2026-10-01.md`.
+
 **Actual CHANNEL first order without full-width cost (2026-10-01 UTC):**
 `SU2QuaternionPassiveChannelMomentFactorization` supplies one exact common
 mass for the original spectator heat and square-inserted source moment.

@@ -12,6 +12,8 @@ import YMGap.Continuum.BF4WilsonAllNomeReflectedForm
 import YMGap.Continuum.BF4WilsonAllNomeFormLaws
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonWindowReflectionPositive
 import YMGap.Continuum.Z4HalfTimeReflectionStrictJointCRealCompletedCauchySchwarz
+import YMGap.Continuum.RationalOrthogonalPairBessel
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFiniteComplexRealification
 
 namespace YMGap.Continuum.BF4WilsonAllNomeCauchySchwarz
 
@@ -232,7 +234,161 @@ theorem intrinsicForm_radical_zero {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 :
       (SumOfSquares.Equiv_of_approx_eqv (fun n =>
         Q'.zero_mul_eqv ((intrinsicForm hw0 hw1 y y).approx n))))))
 
+/-! The following complex bound uses the SAME literal original finite form.
+Only the carrier-free direct-sum construction is reused from the older
+finite realification module; its physical form is never substituted. -/
+
+private theorem finite_add_right {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {width : Nat} (H stage t : Nat) (e f g : WindowExpression width)
+    (he : Within H e) (hf : Within H f) (hg : Within H g) :
+    finitePairing hw0 hw1 H stage t e (.add f g) ≈
+      finitePairing hw0 hw1 H stage t e f + finitePairing hw0 hw1 H stage t e g :=
+  Q'.eqv_trans _ _ _ (finite_symm hw0 hw1 H stage t e (.add f g) he ⟨hf,hg⟩)
+    (Q'.eqv_trans _ _ _ (finite_add_left hw0 hw1 H stage t f g e hf hg he)
+      (Q'.add_eqv_congr'
+        (finite_symm hw0 hw1 H stage t f e hf he)
+        (finite_symm hw0 hw1 H stage t g e hg he)))
+
+private theorem finite_smul_right {w : Q'}
+    (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    {width : Nat} (H stage t : Nat) (c : Q') (e f : WindowExpression width)
+    (he : Within H e) (hf : Within H f) :
+    finitePairing hw0 hw1 H stage t e (.smul c f) ≈
+      c * finitePairing hw0 hw1 H stage t e f :=
+  Q'.eqv_trans _ _ _ (finite_symm hw0 hw1 H stage t e (.smul c f) he hf)
+    (Q'.eqv_trans _ _ _ (finite_smul_left hw0 hw1 H stage t c f e hf he)
+      (Q'.mul_eqv_congr_left c _ _ (finite_symm hw0 hw1 H stage t f e hf he)))
+
+private def complexFiniteForm {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (width H stage t : Nat) : PreInnerForm (guardedExpression width H × guardedExpression width H) :=
+  BF4ExactSlabFixedSpatialFiniteComplexRealification.directSumPreInnerForm
+    (finitePreInnerForm hw0 hw1 width H stage t) (finitePreInnerForm hw0 hw1 width H stage t)
+
+private def complexFiniteAdd {width H : Nat}
+    (x y : guardedExpression width H × guardedExpression width H) :
+    guardedExpression width H × guardedExpression width H :=
+  (⟨WindowExpression.add x.1.val y.1.val,⟨x.1.property,y.1.property⟩⟩,
+   ⟨WindowExpression.add x.2.val y.2.val,⟨x.2.property,y.2.property⟩⟩)
+
+private def complexFiniteSmul {width H : Nat} (c : Q')
+    (x : guardedExpression width H × guardedExpression width H) :
+    guardedExpression width H × guardedExpression width H :=
+  (⟨WindowExpression.smul c x.1.val,x.1.property⟩,
+   ⟨WindowExpression.smul c x.2.val,x.2.property⟩)
+
+private def complexFiniteTurn {width H : Nat}
+    (y : guardedExpression width H × guardedExpression width H) :
+    guardedExpression width H × guardedExpression width H :=
+  (y.2,⟨WindowExpression.smul (-1) y.1.val,y.1.property⟩)
+
+section ComplexFinite
+
+variable {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+  (width H stage t : Nat)
+
+local notation "R" => complexFiniteForm hw0 hw1 width H stage t
+local notation "B" => finitePairing hw0 hw1 (width := width) H stage t
+
+private theorem complexFinite_add_right
+    (x y z : guardedExpression width H × guardedExpression width H) :
+    (R).B x (complexFiniteAdd y z) ≈ (R).B x y + (R).B x z := by
+  dsimp only [complexFiniteForm,
+    BF4ExactSlabFixedSpatialFiniteComplexRealification.directSumPreInnerForm,
+    finitePreInnerForm,complexFiniteAdd]
+  refine Q'.eqv_trans _ _ _ (Q'.add_eqv_congr'
+    (finite_add_right hw0 hw1 H stage t _ _ _ x.1.property y.1.property z.1.property)
+    (finite_add_right hw0 hw1 H stage t _ _ _ x.2.property y.2.property z.2.property)) ?_
+  exact RingNormaliser.poly_identity_of_normal_eq
+    (.add (.add (.var 0) (.var 1)) (.add (.var 2) (.var 3)))
+    (.add (.add (.var 0) (.var 2)) (.add (.var 1) (.var 3)))
+    (by decide)
+    (fun | 0 => B x.1.val y.1.val | 1 => B x.1.val z.1.val
+         | 2 => B x.2.val y.2.val | _ => B x.2.val z.2.val)
+
+private theorem complexFinite_smul_right (c : Q')
+    (x y : guardedExpression width H × guardedExpression width H) :
+    (R).B x (complexFiniteSmul c y) ≈ c*(R).B x y := by
+  dsimp only [complexFiniteForm,
+    BF4ExactSlabFixedSpatialFiniteComplexRealification.directSumPreInnerForm,
+    finitePreInnerForm,complexFiniteSmul]
+  exact Q'.eqv_trans _ _ _ (Q'.add_eqv_congr'
+    (finite_smul_right hw0 hw1 H stage t c _ _ x.1.property y.1.property)
+    (finite_smul_right hw0 hw1 H stage t c _ _ x.2.property y.2.property))
+    (Q'.eqv_symm (Q'.mul_add_eqv c _ _))
+
+private theorem complexFinite_symm
+    (x y : guardedExpression width H × guardedExpression width H) :
+    (R).B x y ≈ (R).B y x :=
+  Q'.add_eqv_congr'
+    (finite_symm hw0 hw1 H stage t _ _ x.1.property y.1.property)
+    (finite_symm hw0 hw1 H stage t _ _ x.2.property y.2.property)
+
+private theorem negative_one_mul (a : Q') : (-1)*a ≈ -a :=
+  RingNormaliser.poly_identity_of_normal_eq
+    (.mul (.neg (.const 1)) (.var 0)) (.neg (.var 0)) (by decide) (fun _ => a)
+
+private theorem complexFinite_turn_pairing
+    (x y : guardedExpression width H × guardedExpression width H) :
+    (R).B x (complexFiniteTurn y) ≈ B x.1.val y.2.val - B x.2.val y.1.val := by
+  exact Q'.add_eqv_congr_left _ _ _
+    (Q'.eqv_trans _ _ _
+      (finite_smul_right hw0 hw1 H stage t (-1) _ _ x.2.property y.1.property)
+      (negative_one_mul _))
+
+private theorem complexFinite_turn_orthogonal
+    (y : guardedExpression width H × guardedExpression width H) :
+    (R).B y (complexFiniteTurn y) ≈ 0 := by
+  exact Q'.eqv_trans _ _ _ (complexFinite_turn_pairing hw0 hw1 width H stage t y y)
+    (Q'.eqv_trans _ _ _
+      (Q'.add_eqv_congr_right _ _ _ (finite_symm hw0 hw1 H stage t _ _ y.1.property y.2.property))
+      (Q'.add_neg_self_eqv _))
+
+private theorem complexFinite_turn_norm
+    (y : guardedExpression width H × guardedExpression width H) :
+    (R).B (complexFiniteTurn y) (complexFiniteTurn y) ≈ (R).B y y := by
+  have h := Q'.eqv_trans _ _ _
+    (finite_smul_left hw0 hw1 H stage t (-1) y.1.val (.smul (-1) y.1.val)
+      y.1.property y.1.property)
+    (Q'.mul_eqv_congr_left (-1) _ _
+      (finite_smul_right hw0 hw1 H stage t (-1) _ _ y.1.property y.1.property))
+  have hneg : (-1)*((-1)*B y.1.val y.1.val) ≈ B y.1.val y.1.val :=
+    RingNormaliser.poly_identity_of_normal_eq
+      (.mul (.neg (.const 1)) (.mul (.neg (.const 1)) (.var 0)))
+      (.var 0) (by decide) (fun _ => B y.1.val y.1.val)
+  exact Q'.eqv_trans _ _ _
+    (Q'.add_eqv_congr_left _ _ _ (Q'.eqv_trans _ _ _ h hneg))
+    (Q'.add_comm_eqv _ _)
+
+/-- Sharp complex Cauchy--Schwarz at the literal ORIGINAL finite window. -/
+theorem finiteWindowComplex_cauchySchwarz
+    (x y : WindowExpression width × WindowExpression width)
+    (hx1 : Within H x.1) (hx2 : Within H x.2)
+    (hy1 : Within H y.1) (hy2 : Within H y.2) :
+    (B x.1 y.1+B x.2 y.2)*(B x.1 y.1+B x.2 y.2) +
+      (B x.1 y.2-B x.2 y.1)*(B x.1 y.2-B x.2 y.1) ≤
+    (B x.1 x.1+B x.2 x.2)*(B y.1 y.1+B y.2 y.2) := by
+  let X : guardedExpression width H × guardedExpression width H := (⟨x.1,hx1⟩,⟨x.2,hx2⟩)
+  let Y : guardedExpression width H × guardedExpression width H := (⟨y.1,hy1⟩,⟨y.2,hy2⟩)
+  have h := RationalOrthogonalPairBessel.orthogonal_pair_bessel R
+    complexFiniteAdd complexFiniteSmul
+    (complexFinite_add_right hw0 hw1 width H stage t)
+    (complexFinite_smul_right hw0 hw1 width H stage t)
+    (complexFinite_symm hw0 hw1 width H stage t)
+    X Y (complexFiniteTurn Y)
+    (complexFinite_turn_orthogonal hw0 hw1 width H stage t Y)
+    (complexFinite_turn_norm hw0 hw1 width H stage t Y)
+  have hp := complexFinite_turn_pairing hw0 hw1 width H stage t X Y
+  exact Q'.le_trans' _ _ _
+    (Q'.ge_of_eqv (Q'.add_eqv_congr_left _ _ _
+      (Q'.eqv_trans _ _ _
+        (Q'.mul_eqv_congr_right _ _ _ hp)
+        (Q'.mul_eqv_congr_left _ _ _ hp)))) h
+
+end ComplexFinite
+
 end YMGap.Continuum.BF4WilsonAllNomeCauchySchwarz
 
 #print axioms YMGap.Continuum.BF4WilsonAllNomeCauchySchwarz.intrinsicForm_cauchySchwarz
 #print axioms YMGap.Continuum.BF4WilsonAllNomeCauchySchwarz.intrinsicForm_radical_zero
+#print axioms YMGap.Continuum.BF4WilsonAllNomeCauchySchwarz.finiteWindowComplex_cauchySchwarz

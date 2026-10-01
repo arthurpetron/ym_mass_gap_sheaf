@@ -6020,6 +6020,9 @@ import YMGap.Continuum.BF4WilsonAllNomeBondOSLinear
 -- Fixed nome/width, not the canonical continuum OS/observable join.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSCompletion
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSTime
+import YMGap.Continuum.RationalOrthogonalPairBessel
+import YMGap.Continuum.BF4WilsonAllNomeComplexCauchySchwarz
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSConnectedDecay
 import YMGap.Continuum.BF4WilsonAllNomeBondOSDerivative
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolvent
 import YMGap.Continuum.BF4WilsonAllNomeBondOSSubgapResolvent

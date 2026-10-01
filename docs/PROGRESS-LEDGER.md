@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Join the complex physical bond carrier and time (2026-10-01 UTC)
+## Current increment: Sharp complex mixed decay on the original carrier (2026-10-01 UTC)
+
+An actual rational phase-vector argument now proves sharp complex
+Cauchy--Schwarz on the literal all-nome reflected Wilson form. All eight
+pairings pass through the original joint/source/completion limits.
+The completed physical complex bond covariance therefore satisfies
+|M_(2n)(X,Y)|^2 <= (q^n*Var(X))*(q^n*Var(Y)) for EVERY pair of states,
+without a factor-two loss, variance inverse or new analytic premise.
+Variance and all four signed source terms retain their ORIGINAL pins.
+
+This closes the precise missing complex mixed-correlation prerequisite,
+not a scaling-uniform gap or continuum QFT node. The SAME fixed-nome/width
+rate is unchanged. Primary signed scaling control, survival, physical mass,
+QFT and all groups remain OPEN. Four focused checks passed 16 gates within
+the constructive axiom gate; independent reviews passed. No broad run or
+canonical chart change. Evidence: complex addendum in
+`audits/AUDIT-BOND-MIXED-CONNECTED-DECAY-2026-10-01.md`.
+
+## Earlier increment: Join the complex physical bond carrier and time (2026-10-01 UTC)
 
 The previously separate complex sector and real physical source completion
 now meet by a computed two-way isometry. The complex physical form is exactly

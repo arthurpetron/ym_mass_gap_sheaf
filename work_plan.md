@@ -25,6 +25,49 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Sharp complex mixed decay on the SAME physical carrier (2026-10-01 UTC)
+
+The missing sharp inequality is now proved on the literal original form.
+`RationalOrthogonalPairBessel.orthogonal_pair_bessel` uses the rational
+phase vector and ordinary real Cauchy--Schwarz, including the zero case.
+`BF4WilsonAllNomeCauchySchwarz.finiteWindowComplex_cauchySchwarz` applies it
+to the ACTUAL reflected `originalWindowScalar`; only carrier-free direct-sum
+algebra is reused. `ComplexCauchySchwarz` transports all eight original
+pairings through the common joint diagonal, intrinsic source chart and
+existing represented completion to the sharp constant-one complex bound.
+
+`ComplexBondOSConnectedDecay.connected_even_lag_modulus_sq_decay` then
+proves |M_(2n)(X,Y)|^2 <= (q^n*Var(X))*(q^n*Var(Y)) for EVERY pair of
+completed complex physical bond states. Variance is exactly the sum of the
+two ORIGINAL centered bond variances. Four signed source covariances retain
+both original marginal means. No factor-two loss, square root or variance
+inverse is used. The SAME q depends on fixed nome and literal width; this
+does not improve its scaling behavior or construct continuum QFT.
+
+Four focused checks passed 16 printed gates within {propext, Quot.sound}
+(the phase-vector definition is axiom-free). Independent source reviews
+confirmed the actual finite form, joint-stage pins, witness flow and sharp
+consumer. No full-root/tree/audit/guard run or canonical chart change.
+Evidence: complex addendum in
+`audits/AUDIT-BOND-MIXED-CONNECTED-DECAY-2026-10-01.md`.
+
+NEXT remains the sharper ACTUAL signed source/variance estimate or useful
+JOINT cancellation on a justified physical scaling family below. Do not
+extend fixed-parameter reconstruction consequences as a substitute for it.
+Physical calibration, nonzero continuum survival, full QFT and all groups
+remain OPEN.
+
+Bounded parallel source review also checked the proposed retained-square
+join. `FamilyChannelRetainedSquare.familyChannelObservableSquare` uses
+sum rho*H[b^2*f^2], whereas
+`FamilyPassiveCancellation.padded_family_centered_channel_variance` pins
+Z*Var to sum rho*H[b*(P b)*(f-m)^2], with the SAME global mean m.
+Neither heat-pairing replacement nor the bare centered cross term has a
+proved favorable sign. This review supplies no new estimate; do not treat
+the retained raw square as interacting variance or add a wrapper assuming
+their comparison. A useful actual-source joint estimate must retain those
+weighted heat defects and mean corrections along with the first order.
+
 ### Joined complex physical bond carrier and time (2026-10-01 UTC)
 
 `BF4WilsonAllNomeComplexBondOSCompletion` fills the previously absent
@@ -46,10 +89,11 @@ Evidence: complex addendum in
 
 The canonical limiting half-space observable/reflection identification,
 full QFT, physical generator/time calibration and scaling remain OPEN.
-The next available sharp complex mixed-correlation consequence needs
-complex Cauchy--Schwarz on this literal all-nome form, not the older
-fixed-spatial joint carrier. The primary analytic task remains the sharper
-ACTUAL signed source/variance estimate or useful joint cancellation below.
+The formerly missing sharp complex Cauchy--Schwarz and mixed-correlation
+consequence on the literal all-nome form are now supplied above, without
+using the older fixed-spatial physical form. The primary analytic task
+remains the sharper ACTUAL signed source/variance estimate or useful joint
+cancellation below.
 
 ### Signed channel debt and a decisive band-coefficient limitation (2026-10-01 UTC)
 

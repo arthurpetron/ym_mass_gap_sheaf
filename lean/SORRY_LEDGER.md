@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED sharp complex mixed original bond decay (2026-10-01 UTC)
+
+- `RationalOrthogonalPairBessel.orthogonal_pair_bessel` proves the sharp
+  rational two-direction bound from actual bilinear positivity. The phase
+  vector and rational zero/positive split require no real zero decision.
+- `BF4WilsonAllNomeCauchySchwarz.finiteWindowComplex_cauchySchwarz` uses the
+  ORIGINAL reflected finite `originalWindowScalar`, not an older carrier.
+  `BF4WilsonAllNomeComplexCauchySchwarz.inner_cauchySchwarz` preserves the
+  constant one through all eight actual joint/intrinsic/completion pairings.
+- `BF4WilsonAllNomeComplexBondOSConnectedDecay.variance_pin` identifies
+  variance with the actual centered complex norm, the sum of the two real
+  ORIGINAL physical variances. `connected_even_lag_modulus_sq_decay` proves
+  the sharp SAME-q mixed bound on EVERY pair of completed complex physical
+  bond states, including zero variances and lag zero. `connected_source_pin`
+  retains all four signed original source terms and both marginal means.
+- OPEN: spatial/spacing-uniform rate, physical generator/time calibration,
+  nontrivial continuum survival, canonical limiting OS/observable pins,
+  full QFT and every compact simple group. No canonical field changed.
+- Four focused serialized checks passed 16 printed gates within
+  {propext, Quot.sound}; phaseVector is axiom-free. Sol/Luna source reviews
+  passed. No new sorry/axiom, Classical dependency, native_decide,
+  noncomputable declaration, broad run or canonical chart change. Evidence:
+  complex addendum in `audits/AUDIT-BOND-MIXED-CONNECTED-DECAY-2026-10-01.md`.
+
 ## PROVED complex physical bond completion and time join (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeComplexBondOSCompletion.toSector_fromSector`,
