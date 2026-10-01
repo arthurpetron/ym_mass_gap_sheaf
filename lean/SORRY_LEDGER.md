@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL signed-family energy/variance identity (2026-09-30 UTC)
+
+- `SU2QuaternionBlockLinearCasimir.blockCasimir_linear` transports the
+  degree-one block eigenaction on the original arbitrary-insertion carrier.
+  `BF4ExactSlabFixedSpatialFamilyCasimir.spatialSpan_casimir` obtains total
+  Casimir 12 from the four actual incident links and spectator cancellation,
+  then extends to arbitrary signed/repeated plaquette families by linearity.
+- `SU2QuaternionWeightedCasimirWard.complete_ward_own_mean` retains the
+  COMPLETE weight derivative. `FamilyVarianceWard.family_normalized_ward`
+  (BF4ExactSlabFixedSpatial prefix) pins it to the original odd partition and
+  interacting variance: A/Z+B/Z=12*Var.
+- `BF4ExactSlabFixedSpatialFamilyVarianceTaylor.finite_family_increment_variance`
+  gives the EXISTING finite Wilson increment as twice
+  12*(1-w)*Var+[R_mixed-R_diagonal-(1-w)*(D+B)]/Z.
+- OPEN: useful combined signed UPPER estimate relative to SAME variance on
+  a justified scaling family, physical calibration, continuum survival,
+  full OS/QFT/every-group/Clay. No sign or uniform quadratic size is proved.
+  No existing sorry, frontier field or canonical chart node changed.
+- Five final focused serialized checks passed 20 gates exactly in
+  {propext, Quot.sound}; no broad run. Evidence:
+  `audits/AUDIT-SIGNED-FAMILY-ENERGY-VARIANCE-2026-09-30.md`.
+
 ## PROVED ORIGINAL signed-family marginal Taylor identity (2026-09-30 UTC)
 
 - `SU2QuaternionAngularSquareLocality` supplies coefficientwise zero on

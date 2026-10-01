@@ -4901,6 +4901,12 @@ import YMGap.Continuum.SU2QuaternionAngularSquareLocality
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyFringeIndependent
 import YMGap.Continuum.BF4ExactSlabFixedSpatialAngularMarginal
 import YMGap.Continuum.BF4ExactSlabFixedSpatialMarginalTaylor
+-- Exact signed energy/variance identity; quantitative scaling remainder remains open.
+import YMGap.Continuum.SU2QuaternionBlockLinearCasimir
+import YMGap.Continuum.SU2QuaternionWeightedCasimirWard
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCasimir
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyVarianceWard
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyVarianceTaylor
 -- Exact spectator Gram-channel reduction of original moments and plaquette energy.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
 -- Computed Casimir-square channel contraction; actual second moment joined by the BF4 consumer above.

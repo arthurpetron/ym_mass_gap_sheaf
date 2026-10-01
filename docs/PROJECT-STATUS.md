@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL signed energy/variance identity (2026-09-30 UTC;
+chart unchanged): four actual incident links and spectator cancellation give
+Casimir 12 for the whole signed plaquette family. The complete-weight Ward
+identity now joins to the original finite Wilson increment as twice
+12*(1-w)*Var_odd plus the combined signed correction, using the SAME odd
+partition, mean and original spatial/terminal factors. The useful relative
+UPPER bound for one-excitation survival and the scaling trajectory remain
+open; no sign or uniform quadratic remainder is asserted. Five focused
+serialized checks passed 20 gates exactly in {propext, Quot.sound}; no broad
+run or canonical field change. Evidence:
+`audits/AUDIT-SIGNED-FAMILY-ENERGY-VARIANCE-2026-09-30.md`.
+
 Verified supporting ORIGINAL signed marginal Taylor identity (2026-09-30 UTC;
 chart unchanged): the whole padded signed family now has an exact normalized
 energy identity with its leading angular term under the ORIGINAL odd marginal.

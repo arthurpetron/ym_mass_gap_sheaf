@@ -454,19 +454,28 @@ partition Z and all terminal/spatial factors and signed cross terms.
 Four final focused serialized checks passed 15 gates exactly within
 {propext, Quot.sound}; no canonical change or broad run. Evidence:
 `audits/AUDIT-SIGNED-ORIGINAL-MARGINAL-TAYLOR-2026-09-30.md`.
-NEXT: compare this original marginal angular term and COMBINED signed
-remainder to the SAME centered variance, using original-weight Ward identities
-where useful. Neither the defect D nor the effective remainder has a proved
-useful sign or scaling size. Do not rebuild the supplied energy/normalizer
-join, silently identify q^2 with the odd marginal, or assume the rebased
-remainder is uniformly quadratic. A justified physical time trajectory and
-the useful relative upper estimate remain OPEN.
-Concrete algebraic producer to test: extend the existing selected-link
-centered Ward identity to the whole signed family under the SAME marginal,
-retaining the complete-weight derivative residual. Prove the required
-total Casimir action from actual source geometry; do not infer it merely
-from the bare plaquette w^12 kinetic eigenvalue. This identity would still
-leave a combined signed relative estimate, not close it by itself.
+FOLLOW-ON PROVED: actual four-link geometry, spectator cancellation and
+linearity give the complete signed family's total Casimir eigenvalue 12.
+`BF4ExactSlabFixedSpatialFamilyVarianceWard.family_normalized_ward` now
+proves A_odd/Z+B/Z=12*Var_odd, retaining the complete-weight derivative
+residual B and the actual marginal mean. No heat eigenvalue is differentiated.
+`BF4ExactSlabFixedSpatialFamilyVarianceTaylor.finite_family_increment_variance`
+joins it to the EXISTING finite Wilson increment, exactly twice
+12*(1-w)*Var_odd + [R_mixed-R_diagonal-(1-w)*(D+B)]/Z.
+All original spatial/terminal factors, parameters and signed cross terms
+remain. Five final focused serialized checks passed 20 gates exactly in
+{propext, Quot.sound}; no canonical field or broad run. Evidence:
+`audits/AUDIT-SIGNED-FAMILY-ENERGY-VARIANCE-2026-09-30.md`.
+NEXT: produce a useful UPPER bound for the COMBINED signed correction
+relative to this SAME variance on one justified scaling family. This branch
+is ONE-excitation survival, not an every-state coercivity lower bound.
+The identity supplies no useful sign or scaling size by itself. The complete-
+weight Ward residual may be leading order, not a small error; preserve its
+cancellation with the other terms. Do not rebuild the supplied geometric
+eigenpin, mean/partition, Ward, Taylor or finite-window joins, identify q^2
+with the odd marginal, or assume the combined remainder is uniformly
+quadratic. Physical time calibration and the relative upper estimate remain
+OPEN. A new conditional survival wrapper does not supply either input.
 The now-proved one-step source/domain transfer already controls the actual
 derivative energy, retained norm and source replacement. Do not build another
 equivalent conditional survival/domain wrapper before supplying a useful
