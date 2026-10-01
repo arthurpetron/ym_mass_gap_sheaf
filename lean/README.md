@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Actual source first order versus SAME variance (2026-10-01 UTC):**
+`BF4ExactSlabFixedSpatialTerminalSourceBounds` and `FamilyBareHaar` construct
+the actual-source/bare-square inputs. `FamilySourceVarianceBound` proves
+A<=U(w,width)*Z*Var for the whole signed family at positive depth, without
+inverting source mass or variance. `FamilyJointCorrection` combines both
+signed first-order corrections exactly, yielding original normalizedEnergy
+<=(h+h^2/2)*U*Var+debt/Z, with curvature and cubic/cutoff debt unchanged.
+The coefficient is cutoff/depth independent, not width/scaling uniform.
+Four focused capped checks passed 35 gates; no broad run or Clay closure.
+Evidence: `audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 **Retained source square and literal plaquette curvature (2026-10-01 UTC):**
 `QuaternionHaarPolynomialGramDeterminant` constructs finite Gram square data.
 `SU2QuaternionSecondOrderRetainedSquare` retains 48*H[(q*f)^2] in the

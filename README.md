@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Joint signed correction (2026-10-01):** the actual terminal source now
+has a first-order bound against the SAME interacting variance, with an
+explicit coefficient independent of late cutoff and positive terminal
+depth at fixed coupling and full width. The energy estimate combines both
+signed first-order corrections; curvature and cubic/cutoff debt remain.
+The coefficient is not width/scaling uniform. See the
+[proof and open scaling input](audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md).
+
 **Mixed connected correlations (2026-10-01):** arbitrary completed bond
 states now satisfy a squared decay bound normalized by their actual bond
 variances. Signed source and separated-word correlations are identified

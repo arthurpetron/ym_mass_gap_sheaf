@@ -25,6 +25,29 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual first order meets SAME variance and joint signed correction (2026-10-01 UTC)
+
+The actual positive-depth projected source now has A<=U(w,width)*Z*Var
+for the whole signed/repeated physical family at its original mean. The
+constructed source cap and marginal floor share a predecessor mass square;
+scaled substitution removes it without division. U=12*v_+^2*k_+^2/(v_-^2*k_-^3)
+depends on nome and FULL width, not late cutoff or positive terminal depth.
+
+`BF4ExactSlabFixedSpatialFamilyJointCorrection.padded_family_energy_le_jointVariance`
+uses the exact A+Delta+Ward=12*Z*Var join to prove
+normalizedEnergy<=(h+h^2/2)*U*Var+debt/Z, h=1-w. All source, mean and
+partition pins remain, as do the signed whole-family curvature, negative
+48*H[(q*f)^2], and actual cubic/omitted-mode cutoff budgets in debt.
+Four focused checks passed 35 gates within {propext, Quot.sound}; no broad
+run. Evidence: `audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+NEXT: control the remaining debt and rate on a justified physical family.
+The full-width coefficient is not a spatial/spacing-uniform estimate; do
+not turn this global cap/floor comparison into a survival claim. Preserve
+the original signed cancellation when seeking local or scale-controlled
+actual-source estimates. Physical scaling, survival, QFT, mass calibration
+and every group remain OPEN; no canonical node or chart changed.
+
 ### Retain a quantitative square in the complete signed family (2026-10-01 UTC)
 
 The previous quadratic upper estimate is now improved without altering the

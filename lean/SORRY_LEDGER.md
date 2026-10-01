@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED actual first order versus SAME variance and joint correction (2026-10-01 UTC)
+
+- `BF4ExactSlabFixedSpatialTerminalSourceBounds` constructs caps/floors for
+  the actual projected terminal and unchanged marginal at depth n+1,
+  retaining the same predecessor original mass squared.
+- `BF4ExactSlabFixedSpatialFamilyBareHaar` proves the complete signed/repeated
+  physical family has zero bare mean and H[Gamma(f,f)]=12*H[f^2]; any center
+  increases its bare square. No interacting mean is replaced.
+- `BF4ExactSlabFixedSpatialFamilySourceVarianceBound.family_firstOrder_variance_cleared`
+  proves L0*A<=12*U0*Z*Var with L0=v_-^2*k_-^3 and U0=v_+^2*k_+^2.
+  Neither predecessor mass nor variance is inverted. The computed U=12*U0/L0
+  gives A<=U*Z*Var, independent of cutoff/depth at fixed nome/FULL width.
+- `BF4ExactSlabFixedSpatialFamilyJointCorrection.family_firstOrder_defect_ward`
+  supplies A+Delta+Ward=12*Z*Var. `padded_family_energy_le_jointVariance`
+  proves normalizedEnergy<=(h+h^2/2)*U*Var+debt/Z, h=1-w, retaining
+  debt=(h^2/2)*(-curvatureMoment-48*projectedObservableSquare)+sourceErrorBudget.
+  Both signed first-order corrections are combined before estimation.
+- OPEN: useful complete signed control on a justified physical scaling
+  family. The coefficient depends on full width/nome; the remaining curvature
+  and cubic/cutoff debts have no scaling-relative variance estimate. Physical
+  survival, mass, QFT and every group remain open. No new analytic field,
+  sorry, canonical field or chart marker is introduced or discharged.
+- Four focused checks passed 35 gates within {propext, Quot.sound}; unchanged
+  serialized safety caps and no broad run. Evidence:
+  `audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 ## PROVED retained square and literal plaquette curvature (2026-10-01 UTC)
 
 - `QuaternionHaarPolynomialGramDeterminant.gramDeterminantCertificate`

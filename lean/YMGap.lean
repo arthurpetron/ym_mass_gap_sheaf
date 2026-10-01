@@ -4921,6 +4921,11 @@ import YMGap.Continuum.QuaternionHaarPolynomialGramDeterminant
 import YMGap.Continuum.SU2QuaternionSecondOrderRetainedSquare
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteCurvature
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyRetainedSquare
+-- Actual terminal first order versus the SAME variance, with joint signed debt.
+import YMGap.Continuum.BF4ExactSlabFixedSpatialTerminalSourceBounds
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyBareHaar
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilySourceVarianceBound
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyJointCorrection
 -- Exact spectator Gram-channel reduction of original moments and plaquette energy.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
 -- Computed Casimir-square channel contraction; actual second moment joined by the BF4 consumer above.

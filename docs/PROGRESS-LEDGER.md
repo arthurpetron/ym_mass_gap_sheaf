@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: ORIGINAL dense sector derivative and intrinsic adjoint (2026-09-30 UTC)
+## Current increment: Actual first order and joint signed variance control (2026-10-01 UTC)
+
+The ORIGINAL positive-depth projected terminal first order A now satisfies
+A<=U(w,width)*Z*Var for the complete signed/repeated family at its actual
+odd-marginal mean. The source cap and marginal floor are constructed and
+share the same predecessor mass square; no mass or variance is inverted.
+U is explicit and cutoff/depth independent, but depends on FULL width/nome.
+
+Exact A+Delta+Ward=12*Z*Var combines both interacting first-order corrections.
+The actual consumer is normalizedEnergy<=(h+h^2/2)*U*Var+debt/Z; signed
+curvature, negative retained source square and original cubic/cutoff debt
+remain. Four focused checks passed 35 gates; no broad run. The missing
+scale-controlled complete estimate, continuum survival, mass and QFT remain
+OPEN. No canonical chart marker changed. Evidence:
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+## Earlier increment: ORIGINAL dense sector derivative and intrinsic adjoint (2026-09-30 UTC)
 
 `BF4WilsonAllNomeTimeSector.limitCertificate` computes a limit of any
 supplied sector-state Cauchy sequence with explicit modulus, without asking

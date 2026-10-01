@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting actual first order and joint signed correction
+(2026-10-01 UTC; chart unchanged): the original positive-depth projected
+source now has A<=U(w,width)*Z*Var for the complete signed family. Its
+constructed coefficient is independent of late cutoff and terminal depth,
+not nome or FULL width. Exact A+Delta+Ward=12*Z*Var gives the original
+energy consumer (h+h^2/2)*U*Var+debt/Z; signed curvature, negative retained
+source square and cubic/actual-cutoff budgets remain in debt. A useful
+physical scaling estimate remains OPEN. Four focused checks passed 35
+gates within the permitted axiom gate; no broad run or canonical field
+change. Evidence:
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 Verified supporting retained square and physical plaquette curvature
 (2026-10-01 UTC; chart unchanged): the complete original signed-family D2
 now has upper bound -H[q^2*C Gamma(f,f)]-48*H[(q*f)^2]. Constructed Gram
