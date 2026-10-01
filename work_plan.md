@@ -164,7 +164,34 @@ center on supplied original Rows; no physical quotient representative is selecte
 Sixty focused gates and independent source/math/log/hash reviews passed.
 Evidence: signed-time addendum in the same audit.
 
-NEXT operator propositions: identify the signed group's infinitesimal action
+The user-requested parallel endpoint work now supplies two additional actual
+generator prerequisites. `ScaledCayleyResolventLimit.resolventRows` preserves
+both represented range witnesses; contraction passes finite commutation through
+the actual rational and positive-real limits with UNCHANGED original rates.
+`ScaledCayleySignedGraph.signedGraphMap` uses the ORIGINAL unit resolvent of
+G_t(input+output) to construct a maximal-domain image on EVERY original class.
+Its input AND output pins, composition and inverse laws are checked.
+Independently, `SecondCoreGraphDensity.physicalGraphCertificate` computes nested
+inverse sums approximating BOTH original graph coordinates of each SUPPLIED
+physical Point. Its modulus is not selected from an arbitrary quotient class.
+Thirty-three focused gates and independent reviews passed. Evidence: parallel
+maximal-graph addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+The survival review found the original spatial comparison still guarded by
+heatRatio(w)=32*w^3<=1/2, excluding w>1/4. Fixed-nome spatial floors and
+fixed-width all-nome floors do not compose into changing-family survival.
+QFT still needs signed-time/translated-buffered-locality compatibility, not
+bare-multiplier commutation. Every group still needs actual compatible compact
+Haar/heat/action data, not classification or central-descent codes. No duplicate
+conditional wrapper or new analytic premise was added. Three root imports added;
+the full root/tree/build/audit/guard was NOT checked. Canonical chart, CI and
+safety limits unchanged.
+
+NEXT operator propositions: pass the actual finite graph displacement ceiling
+to the limit, then use graph OUTPUT approximation (not input-only density)
+to extend the original second-core tangent without dividing a fixed input
+error by time squared. Identify the signed group's infinitesimal action
 with the SAME maximal physical derivative graph, retaining the original
 second-core tangent and -2i normalization; then prove the actual physical-time
 normalization join to the ORIGINAL Euclidean sampling/derivative pins.

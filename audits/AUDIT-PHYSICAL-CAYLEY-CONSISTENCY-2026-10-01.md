@@ -1252,3 +1252,161 @@ and source moduli alone do not identify that maximal generator or a physical
 clock. Spatial/spacing scaling, useful complete signed-energy/variance control,
 changing-family nonzero survival, finite positive physical mass, full continuum
 QFT, actual every-group realization and the Clay target remain OPEN.
+
+## Parallel maximal-graph transport and second-core graph approximation
+
+The user requested parallel work on continuum survival, physical mass,
+full QFT and every compact simple group. Two Sol workstreams and one Luna
+review ran alongside the parent. Compiler checks remained serialized. The
+new mathematical results are generator prerequisites on the ORIGINAL
+fixed-nome/fixed-width carrier, not independent continuum endpoints.
+
+### Actual resolvent commutation and constructed signed graph image
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyResolventLimit.lean`:
+
+- `pairResolvent_distance_bound:78` derives SAME-distance contraction from
+  the original real `resolvent_sub` and `norm_bound`; it is not an assumed
+  bounded-operator field.
+- `resolventRows:84` and `resolventRows_pin:89` construct BOTH original
+  range-bearing state images before quotienting.
+- `iterate_pairResolvent_commute:94` uses the actual finite Cayley law.
+  `product_resolvent_limit_bound:104` preserves the ORIGINAL product rate.
+  `limitMap_pairResolvent_commute:127` identifies actual rational limits
+  on EVERY physical class by original limit uniqueness.
+- `time_resolvent_limit_bound:136` preserves the ORIGINAL positive-real
+  time-limit rate. `positiveRealAction_pairResolvent_commute:171` passes
+  that identity through the numerical time quotient, with no representative
+  selected to compute a physical rate.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleySignedGraph.lean`:
+
+- `inverseRealAction_pairResolvent_commute:58` follows by applying the
+  actual positive action's injectivity to its computed inverse.
+  `signedAction_pairResolvent_commute:67` therefore holds for signed time.
+- `signedGraphMap:112` constructs the ORIGINAL unit-resolvent domain of
+  G_t(input(d)+output(d)). `signedGraphMap_input:115` uses resolvent
+  commutation and the original inverse law to pin input to G_t(input(d)).
+- `signedGraphMap_output:140` uses the SAME witness, original graph-sum
+  law and actual signed linearity to pin output to G_t(output(d)).
+  The maximal domain is not assumed invariant; its image is constructed.
+- `signedGraphMap_addTime:150`, `signedGraphMap_zero:157` and
+  `signedGraphMap_neg_left:162` transport the original signed group laws
+  through maximal-domain input injectivity.
+
+The word "maximal" refers to the ORIGINAL intrinsic adjoint graph in
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSDerivative.lean`:
+`Domain:52`, `adjointDomain:156` and `ofAdjoint:177`. It does not assert
+that the newly constructed signed action's infinitesimal graph has already
+been identified with that derivative graph.
+
+### Independent simultaneous second-core graph approximation
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSSecondCoreGraphDensity.lean`:
+
+- `second_input_tail:64` proves the actual identity
+  T^2(inverseSum_k X)=T X-defectPower_k(T X).
+- `second_output_tail:72` uses the original derivative/inverse-sum
+  commutation to prove T A(inverseSum_k X)=A X-defectPower_k(A X).
+- `coreInputRange:78` and `coreOutputRange:82` retain actual range
+  witnesses for BOTH target coordinates. `coreDepth:87` is the maximum
+  of their supplied defect moduli.
+- `graphSecondSource:113` first samples the ORIGINAL graph at its
+  explicit outer modulus, then applies that inner inverse sum.
+  `graph_second_input_bound:118` and `graph_second_output_bound:141`
+  control both coordinates using two squared-distance triangles.
+- `physicalSecondSource:166` applies the construction to both components
+  of a SUPPLIED original physical Point. `physical_second_input_bound:181`
+  and `physical_second_output_bound:213` use the SAME second-core witness
+  and the actual original graph pins.
+- `physicalGraphCertificate:248` returns that computed preimage and both
+  bounds in Type. This is graph approximation, not merely input density.
+
+Coverage comes from the existing actual point data:
+`lean/YMGap/Continuum/BF4WilsonAllNomeSectorDerivative.lean`:
+`graph:74`, `sourceRepresentative:80`, `sourceRepresentative_pin:84`
+and `corePoint:137`. No Type-valued modulus is selected from an arbitrary
+quotient Domain class. The intended consumer is extension of
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyLimitInfinitesimal.lean`:
+`limitMap_secondCore_tangent:153`; that extension is NOT proved here.
+
+NEXT short argument: pass
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyProductContinuity.lean`:
+`product_domain_distance_le_four:86` to the actual limit. Apply it to a graph
+difference before time normalization; the graph OUTPUT error, rather than a
+fixed input error divided by t^2, then controls the tangent comparison.
+The represented graph certificate supplies that output approximation. This
+is the remaining operator proposition, not a physical spacing estimate.
+
+### Endpoint source findings, not newly closed proofs
+
+Survival: the available original spatial comparison remains small-nome.
+`lean/YMGap/Continuum/QuaternionHaarCharacterInterval.lean:80`, `heatRatio`,
+is exactly 32*w^3; and
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonSpatialComparison.lean:186`,
+`chartScalar_spatial_bound`, requires heatRatio(w)<=1/2. This guard excludes
+w>1/4 and therefore a near-one nome trajectory. Fixed-nome spatial-union
+floors and fixed-width all-nome bond floors are not a pairing-compatible
+changing-spacing family. Naive width/time transport is also obstructed by
+`lean/YMGap/Continuum/BF4WilsonAllNomeFringeTimeKernel.lean:94`,
+`completedTime_one_not_injective_width_one`, and `:130`,
+`no_centered_plaquette_time_transport`.
+`lean/YMGap/Continuum/BF4WilsonSpatialUnionPhysicalCalibration.lean:240`,
+`fixedMass_no_finite_physical_ceiling`, rules out a fixed dimensionless rate
+as a finite physical-rate band along spacing to zero. No duplicate survival
+consumer was added. The missing producer is an original-action spatial
+comparison on the justified changing family, with an explicit pairing modulus
+and retained excitation floor.
+
+QFT: `lean/YMGap/Continuum/BF4WilsonAllNomeBondOSInsertion.lean:100`,
+`act_root_pin`, pins physical insertion to R*M*R.
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexObservables.lean:96`,
+`complexMultiply_comm`, concerns bare multipliers.
+NOT FOUND: a translated-source/locality intertwining theorem joining the
+constructed signed group to the buffered physical word action. Searched these
+modules, `BF4WilsonAllNomeBondOSSeparatedWords.lean`,
+`BF4WilsonAllNomeComplexBondOSSeparatedWords.lean`, and the signed-time modules.
+The two different actions cannot be identified by bare commutation.
+
+Every group: `lean/YMGap/Continuum/SU2QuaternionProductHeatMarginals.lean:53`,
+`productHeat`, is quaternion-specific. Classification and global-form codes
+are not compact Haar/heat realizations:
+`lean/YMGap/RepTheory/CartanType.lean:58`, `CartanType`;
+`lean/YMGap/RepTheory/CompactSimpleGlobalForm.lean:318`,
+`CompactSimpleGlobalFormCode`; and
+`lean/YMGap/RepTheory/ConstructiveRepresentationDescent.lean:230`,
+`descendRepresentation`, supply codes or algebraic descent only.
+NOT FOUND: a compatible non-SU(2) compact-group Haar/heat/action producer for
+the pinned physical carrier. Searched those modules,
+`RationalQuaternionUnitNormGroup.lean`, `G2RootCoordinateCertificate.lean`
+and the current group endpoint reports. No group-realization closure is claimed.
+
+### Exact verification boundary
+
+All three narrow checks emitted `.olean`s. All33 source-site gates passed,
+each exactly {propext,Quot.sound}; independent mathematical and exact
+source/log/hash reviews passed.
+
+| Module suffix | Gates | Accepted log in `/tmp` | SHA256 |
+| --- | ---: | --- | --- |
+| `ScaledCayleyResolventLimit` | 11 | `ym-cayley-resolvent-limit-second-20261001.log` | `b75c39a224fcb76f5a6de7effa496e3c56a07b749f125d3d7d3c7421ed320a36` |
+| `ScaledCayleySignedGraph` | 8 | `ym-cayley-signed-graph-second-20261001.log` | `8f0ff0031c0f2a281e7b8af8465c4fce77f5b37d08797eadf30874bac74a4bbb` |
+| `SecondCoreGraphDensity` | 14 | `ym-second-core-graph-density-20261001.log` | `7126820ec18c76cda79c73922f898a19feaa2bcaaebefe0a16619939003e773e` |
+
+The rejected main drafts needed only explicit timeLimitRows folding and a
+final definitional equality for pairAction. Graph density passed first check.
+Accepted sources/logs contain no sorryAx, forbidden axiom, new analytic premise,
+erased Type witness or frontier weakening. One20-GiB worker and12-GiB OS reserve
+were retained; preflight found zero swap and no Lean/Lake/test/runner conflict.
+Other user computation was left untouched and live telemetry remained enabled.
+Three root imports added; full root/tree/build/audit/guard NOT checked.
+CI and safety limits unchanged. No exact displayed chart claim changed;
+no ASCII reprint.
+
+The original maximal-domain invariance and represented graph approximation
+are proved. The maximal tangent/physical-clock identification, primary useful
+signed scaling, changing-family survival, finite positive physical mass,
+full continuum QFT, every compact simple group and Clay remain OPEN.

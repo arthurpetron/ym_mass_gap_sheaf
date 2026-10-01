@@ -6178,6 +6178,11 @@ import YMGap.Continuum.SignedRealTimeData
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimeContinuity
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleySignedTime
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleySignedTimeContinuity
+-- Constructed signed maximal-graph transport and represented graph density only.
+-- Infinitesimal identification and physical spacing/calibration remain open.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyResolventLimit
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleySignedGraph
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSecondCoreGraphDensity
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

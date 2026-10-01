@@ -1,5 +1,38 @@
 # Sorry Ledger
 
+## PROVED parallel original signed graph transport and represented graph approximation only (2026-10-01 UTC)
+
+- `ScaledCayleyResolventLimit.resolventRows` retains BOTH original range
+  witnesses. Original resolvent contraction and finite Cayley commutation pass
+  through actual product and positive-real limits with UNCHANGED original rates;
+  `positiveRealAction_pairResolvent_commute` holds on EVERY original class.
+- `ScaledCayleySignedGraph.signedAction_pairResolvent_commute` transports that
+  identity through the computed inverse. `signedGraphMap` constructs the
+  original unit-resolvent domain of G_t(input+output), not a supplied invariance
+  field. `signedGraphMap_input` and `signedGraphMap_output` pin BOTH graph
+  components on EVERY maximal domain class; composition, zero and inverse
+  domain laws follow from original input injectivity.
+- `SecondCoreGraphDensity.physicalGraphCertificate` computes nested inverse
+  sums from the original represented graph and its source representatives.
+  Actual range witnesses for BOTH T*x and A*x supply finite defect depths.
+  The resulting second-core point controls BOTH original graph coordinates.
+  Its witness and modulus belong to a SUPPLIED physical Point, not to a chosen
+  representative of an arbitrary quotient class.
+- Thirty-three focused gates (11+8+14) passed, all {propext,Quot.sound};
+  independent math/source/log/hash reviews passed. No new analytic premise,
+  sorry, axiom, classical step or canonical frontier weakening.
+  Evidence: parallel maximal-graph addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: extend the actual second-core -2i tangent to the SAME maximal graph;
+  join original Euclidean sampling/right derivative to physical clock/spacing;
+  useful complete signed scaling, changing-family survival, finite positive
+  physical mass, full continuum QFT, every compact simple group and Clay.
+- Parallel endpoint reviews found missing original near-one-nome spatial
+  comparison, translated buffered-locality pin and compatible compact-group
+  Haar/heat realization; no duplicate conditional consumer was introduced.
+- Three root imports added; full root/tree/build/audit/guard NOT run.
+  Canonical chart, CI and machine-safety limits unchanged.
+
 ## PROVED original signed-time group and supplied-Rows continuity only (2026-10-01 UTC)
 
 - `SignedRealTimeData.pair_value_cross` pins equal numerical differences to

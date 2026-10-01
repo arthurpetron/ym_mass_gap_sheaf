@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting parallel maximal-graph prerequisites (2026-10-01 UTC;
+chart unchanged): actual signed time commutes with the original positive
+resolvent and constructs a graph-domain image on EVERY maximal physical class,
+with BOTH original input/output pins. Independently, supplied represented
+physical points compute second-core approximants controlling BOTH graph
+components. Thirty-three focused gates and independent reviews passed.
+The represented modulus is not selected from a quotient class. The maximal
+tangent extension, physical-clock/spacing calibration, primary signed scaling,
+changing-family survival, finite positive physical mass, continuum QFT and
+every group remain OPEN. Parallel endpoint findings and proof evidence are
+in the maximal-graph addendum of
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting signed-time group and source-computed continuity
 (2026-10-01 UTC; chart unchanged): every real with supplied QCauchy data
 gets an actual positive-difference presentation pinned to its original

@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Parallel generator prerequisites (2026-10-01):** the constructed signed-time
+group now preserves EVERY original maximal derivative-domain class, with both
+input/output pins supplied by the same computed unit-resolvent witness.
+Independently, each supplied represented physical domain point now computes a
+second-core approximant controlling BOTH graph components. Focused constructive
+checks and independent reviews passed. These remove two generator prerequisites;
+the tangent extension and physical spacing/calibration remain open. Parallel
+reviews also identify the missing near-one-nome spatial estimate, translated
+buffered-locality join, and compatible compact-group Haar/heat realization.
+See the [proofs and endpoint findings](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#parallel-maximal-graph-transport-and-second-core-graph-approximation).
+
 **Constructed positive-real Cayley action and inverse (2026-10-01):**
 the original rational Cayley limit now extends to every supplied positive
 constructive-real parameter, on EVERY original physical class. The output

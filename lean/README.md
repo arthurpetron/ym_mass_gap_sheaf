@@ -12,6 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Parallel maximal-graph prerequisites (2026-10-01 UTC):**
+`ScaledCayleyResolventLimit` transports actual commutation through the original
+rational and positive-real limits with their unchanged rates.
+`ScaledCayleySignedGraph.signedGraphMap` constructs an original domain witness
+for EVERY maximal graph class; `signedGraphMap_input` and `signedGraphMap_output`
+pin both coordinates to the same signed action. Independently,
+`SecondCoreGraphDensity.physicalGraphCertificate` returns a computed second-core
+preimage controlling both graph coordinates of each supplied represented
+physical point. It does not select a modulus from an arbitrary quotient class.
+Thirty-three focused gates and independent reviews passed within
+{propext,Quot.sound}. Tangent extension, physical-clock/spacing calibration,
+changing-family survival, continuum QFT and every group remain OPEN. Three root
+imports added; the full root/tree/build/audit/guard was NOT checked. Evidence:
+parallel maximal-graph addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Constructed positive-real Cayley action and inverse (2026-10-01 UTC):**
 `ParameterContinuity.parameter_ordered_distance` reduces parameter differences
 EXACTLY to zero-time displacement using rational addition and isometry.
