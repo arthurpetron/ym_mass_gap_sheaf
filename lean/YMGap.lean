@@ -4913,6 +4913,10 @@ import YMGap.Continuum.SU2HeatProductCutoffDebt
 import YMGap.Continuum.SU2QuaternionCyclicCasimirMixed
 import YMGap.Continuum.SU2QuaternionCyclicSecondOrder
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilySecondOrder
+-- Exact quadratic cancellation and observable-curvature consumer; physical scaling still open.
+import YMGap.Continuum.SU2QuaternionActiveCasimirProduct
+import YMGap.Continuum.SU2QuaternionSecondOrderCancellation
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCurvature
 -- Exact spectator Gram-channel reduction of original moments and plaquette energy.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
 -- Computed Casimir-square channel contraction; actual second moment joined by the BF4 consumer above.

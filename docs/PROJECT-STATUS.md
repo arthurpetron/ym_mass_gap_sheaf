@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting quadratic cancellation and original curvature consumer
+(2026-10-01 UTC; chart unchanged): D2 now splits exactly into
+-H[B^2]-2*H[Gamma(q,q)*Gamma(f,f)]-H[q^2*C Gamma(f,f)], on the ORIGINAL
+full block list and source. Two explicit square certificates justify the
+first two negative contributions. The whole-family SAME-variance consumer
+retains the signed curvature term, cubic/cutoff payment, angular weight
+defect and complete Ward residual under the unchanged oddMass. Useful
+control of their combination on a physical scaling family remains OPEN;
+source positivity does not supply it. Three focused checks passed 25 gates
+within {propext, Quot.sound}; no broad run or canonical field change.
+Evidence: `audits/AUDIT-QUADRATIC-CANCELLATION-AND-CURVATURE-2026-10-01.md`.
+
 Verified supporting signed second order with actual cutoff debt
 (2026-10-01 UTC; chart unchanged): the ORIGINAL signed-family energy now
 has an explicit second-order ceiling under its SAME odd partition and

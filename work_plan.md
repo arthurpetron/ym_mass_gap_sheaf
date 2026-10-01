@@ -25,6 +25,32 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Quadratic cancellation isolates observable curvature (2026-10-01 UTC)
+
+The candidate local argument below now has a checked producer and original
+consumer. For the actual C=-sum X^2 and Gamma(p,q)=sum (Xp)*(Xq), the
+Leibniz rule gives C(q*f)=f*Cq+B, B=q*Cf-2*Gamma(q,f). Pointwise polynomial
+cancellation removes every term containing f*Cq from the mixed square:
+D2=-2*H[q*(Cq)*Gamma(f,f)]-H[B^2]. Haar integration by parts then proves
+D2=-H[B^2]-2*H[Gamma(q,q)*Gamma(f,f)]-H[q^2*C Gamma(f,f)].
+The first two negative contributions have constructed square certificates.
+
+`BF4ExactSlabFixedSpatialFamilyCurvature.padded_family_energy_le_curvature`
+feeds the resulting upper estimate to the SAME original signed-family
+energy/variance identity. It replaces only D2 by its proved curvature
+upper bound; sourceFirstOrder, cubic/actual cutoff payments, both signed
+interacting corrections, original mean and oddMass remain. All input
+producers are supplied; this is not a new assumed curvature field.
+Three focused checks passed 25 gates within {propext, Quot.sound}. Evidence:
+`audits/AUDIT-QUADRATIC-CANCELLATION-AND-CURVATURE-2026-10-01.md`.
+
+NEXT: estimate the complete signed correction against SAME variance on a
+justified scaling family, using the exact negative-square split when its
+cancellation is needed. The curvature-only upper estimate may be too weak;
+source positivity does not control its signed curvature insertion or Ward
+residual. No physical rate, surviving continuum excitation, QFT axiom or
+every-group construction is proved by these finite identities.
+
 ### Signed second order retains cancellation and actual cutoff debt (2026-10-01 UTC)
 
 The complete signed-family identity now has an actual second-order upper
@@ -44,13 +70,12 @@ inverse, variance inverse, alternate marginal or terminal-depth change.
 Six focused checks passed 58 gates within {propext, Quot.sound}. Evidence:
 `audits/AUDIT-SIGNED-SECOND-ORDER-CUTOFF-DEBT-2026-10-01.md`.
 
-NEXT: localize the retained quadratic cancellation using the actual
-Casimir product rule and Haar integration by parts, then bound the
-remaining interacting derivatives and finite cutoff payment against
-SAME variance on a justified physical family. This is a candidate argument,
-not a checked derivative identity or scaling estimate. The finite-tree
-budgets may grow with the changing terminal source. No canonical node,
-continuum prerequisite or whole-project target is closed by this result.
+FOLLOW-ON: the actual product rule and Haar integration-by-parts localization
+are now proved in the checkpoint above. Remaining interacting derivatives
+and finite cutoff payment still need control against SAME variance on a
+justified physical family. The finite-tree budgets may grow with the changing
+terminal source. No canonical node, continuum prerequisite or whole-project
+target is closed by this result.
 
 ### Actual transfer gap reaches the original series core (2026-09-30 UTC)
 

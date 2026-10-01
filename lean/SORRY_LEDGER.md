@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED quadratic cancellation and original curvature consumer (2026-10-01 UTC)
+
+- `SU2QuaternionActiveCasimirProduct.activeCasimirPolynomial_mul`
+  proves the literal C(p*q)=(Cp)*q+p*(Cq)-2*Gamma(p,q) on the original
+  block list. `activeGamma_squareCertificate` constructs each diagonal
+  Gamma as a supported sum of squares by structural recursion.
+- `SU2QuaternionSecondOrderCancellation.sourceSecondMoment_curvature`
+  proves D2=-H[B^2]-2*H[Gamma(q,q)*Gamma(f,f)]-H[q^2*C Gamma(f,f)],
+  B=q*Cf-2*Gamma(q,f). Complete cross terms remain. The two negative
+  contributions have actual square certificates; the last term is signed.
+- `sourceSecondMoment_le_curvature` and `sourceEnergy_le_curvature`
+  give an upper bound involving only that observable-curvature insertion,
+  while retaining the ORIGINAL cubic and coordinatewise-cutoff payment.
+- `BF4ExactSlabFixedSpatialFamilyCurvature.padded_family_energy_le_curvature`
+  joins it to the EXISTING whole-family energy and SAME interacting
+  variance. The projected terminal source stays at depth n; oddMass,
+  actual mean, angular weight defect and complete Ward residual are unchanged.
+- OPEN: useful control of the combined correction on a justified physical
+  family. Neither curvature nor the two interacting corrections acquire a
+  useful sign. Dropping the negative terms may weaken the estimate; the
+  exact split remains available for cancellation-sensitive bounds. No
+  scaling survival, physical mass, continuum QFT or every-group closure.
+- Three focused checks passed 25 gates within {propext, Quot.sound}; no
+  sorry, new axiom, broad run or canonical field/chart change. Evidence:
+  `audits/AUDIT-QUADRATIC-CANCELLATION-AND-CURVATURE-2026-10-01.md`.
+
 ## PROVED signed second order with actual cutoff debt (2026-10-01 UTC)
 
 - `SU2HeatRetainedCubicTaylor.cubicRemainder_budget_lower` and
