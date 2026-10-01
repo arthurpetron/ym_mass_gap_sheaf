@@ -25,7 +25,7 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Actual physical quotient limit and complex linearity (2026-10-01 UTC)
+### Actual physical quotient limit and constructive inverse (2026-10-01 UTC)
 
 PROGRESS after `b22e523`: `ScaledCayleyLimitMap.rows_limit_unique` transports
 the SAME represented completion's uniqueness. Equal input Rows have identical
@@ -50,15 +50,36 @@ surjectivity or a new scalar-continuity construction. Both original scalar
 QCauchy witnesses remain supplied. Its two focused gates and independent
 mathematical/source/log reviews passed within {propext,Quot.sound}.
 
-NEXT algebraic consumer: actual inverse/onto for this SAME map, using
-componentwise physical conjugation and the already constructed finite
-Cayley inverse. A Sol agent owns that bounded prerequisite; it is not yet
-verified at this checkpoint. Inverse/surjectivity, group/continuity and
-SAME-transfer physical-time/
-logarithm calibration remain OPEN. PRIMARY complete signed scaling,
+The parallel `ScaledCayleyConjugation` construction now supplies actual
+physical conjugation, represented Rows, graph input/output and the finite
+inverse identity. `ScaledCayleyLimitInverse.inverseRows_product_distance`
+turns the actual inverse-product error EXACTLY into the existing forward
+error for conjugateRows. `productLimit_unique` and the unchanged computed
+rate yield `limitMap_inverse_right`; injectivity yields the left inverse.
+`preimage` returns Type-level data on EVERY original physical class.
+Seventeen focused gates and independent mathematical/source/log reviews
+passed within {propext,Quot.sound}. Evidence: constructive-inverse addendum
+in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+NEXT mathematical proposition: rational time-composition of these ACTUAL
+limit maps, followed by explicit strong-continuity moduli on supplied Rows.
+No time-composition theorem for this constructed limit has been supplied.
+Group/continuity and SAME-transfer physical-time/logarithm calibration
+remain OPEN. PRIMARY complete signed scaling,
 changing-family survival, finite positive physical mass, full continuum QFT,
 every group and Clay remain OPEN. No displayed chart change or broad
 build/audit/guard; CI and safety limits unchanged.
+
+Parallel endpoint reviews distinguish available inputs from missing producers.
+The original receding-volume spatial comparison and computed Cauchy modulus
+already exist under small-nome guards; they do not cover arbitrary nome or
+the near-one regime. Reuse these rather than add another conditional survival
+wrapper. The original fixed-parameter rate and derivative/transfer graph pins
+do not supply physical spacing or a SAME-generator scaling calibration.
+Finite Cartan/global-form codes and algebraic central quotient descent do
+not construct compact-group Haar/heat/action realizations. Detailed source
+boundaries are in the parallel endpoint addendum of
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
 ### Parallel extension to every supplied original Rows (2026-10-01 UTC)
 

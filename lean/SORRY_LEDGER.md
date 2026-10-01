@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED constructive inverse of the original quotient Cayley limit only (2026-10-01 UTC)
+
+- `ScaledCayleyConjugation` constructs actual componentwise conjugation,
+  represented Rows and the conjugate derivative-domain witness through the
+  ORIGINAL physical adjoint theorem. Input/output and finite inverse pins
+  are proved, not assumed. The Rows pin keeps the large range witness opaque.
+- `ScaledCayleyLimitInverse.iterate_conjugate_inverse_right` proves exact
+  finite inversion. `inverseRows_product_distance` identifies the inverse
+  error with the SAME existing forward error on conjugateRows, unchanged.
+- `limitMap_inverse_right` uses original represented-limit uniqueness and
+  the computed forward rate; `limitMap_inverse_left` uses proved injectivity.
+  `preimage` returns Type-level data for EVERY original completed class.
+- Seventeen focused gates and independent mathematical/source/log/hash
+  reviews passed within {propext,Quot.sound}. No sorry, new axiom, analytic
+  field, witness selection, limit increase or frontier weakening. Evidence:
+  constructive-inverse addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: time-composition/continuity, SAME-transfer physical-time/logarithm
+  calibration; useful signed scaling, changing-family survival, finite positive
+  physical mass, full continuum QFT and every actual compact group.
+- Two root imports added; full root/tree/build/audit/guard NOT run.
+
 ## PROVED complex linearity of the original quotient Cayley limit only (2026-10-01 UTC)
 
 - `ScaledCayleyLimitLinear.limitMap_add` and `limitMap_smul` concern the

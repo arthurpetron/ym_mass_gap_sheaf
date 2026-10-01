@@ -5,8 +5,9 @@ have checked linked-domain errors, explicit squared ceilings, constructed
 graph-preserving witnesses and parameter commutation. The latest addendum
 constructs their dyadic-product limit first on the represented second core,
 then for EVERY supplied original Rows with a computed modulus. The latest
-quotient-map and linearity addenda construct a complex-linear,
-pairing-preserving injective map on every original physical class.
+quotient-map, linearity and inverse addenda construct a complex-linear,
+pairing-preserving bijective map on every original physical class, with
+an actual two-sided inverse and Type-valued preimage witness.
 Nome and width remain fixed; no
 physical-time group, calibrated Hamiltonian or continuum gap is claimed.
 
@@ -463,10 +464,110 @@ construct. One serialized 20-GiB worker and 12-GiB OS reserve were retained;
 no competing compiler or swap was found. One semantic-root import was added,
 but no full-root/tree/build/audit/guard ran. CI is unchanged.
 
-NEXT is an actual inverse of this SAME map, followed by group/continuity laws.
-The finite Cayley inverse supplies an algebraic starting point; inverse-limit
-closure is not asserted here. Physical-time/logarithm identification and the
+At this linearity checkpoint, NEXT was an actual inverse of this SAME map;
+the constructive-inverse addendum below supplies it. Group/continuity laws
+remain open. Physical-time/logarithm identification and the
 changing-scale continuum construction are still separate OPEN obligations.
 This proof fixes nome and width. Complete signed scaling, continuum survival,
 finite positive physical mass, full continuum QFT, every actual compact group
 and Clay remain OPEN. No displayed chart claim changed and no ASCII reprint.
+
+## Parallel endpoint input review
+
+These are read-only source findings, not additional proof closures.
+
+Continuum survival already has a small-nome spatial comparison:
+`chartScalar_spatial_bound`, at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonSpatialComparison.lean:186`,
+compares the actual normalized recentered finite actions with their partitions.
+`spatialCauchy:62` and `spatialCauchy_modulus:70`, at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialWilsonSpatialLimit.lean`,
+provide computed spatial Cauchy data. Their small-nome, remainder and entropy
+guards are essential. In particular, `heatRemainderBound_eq`, at
+`lean/YMGap/Continuum/QuaternionHaarCharacterInterval.lean:85`, gives 128*w^3,
+so the remainder guard excludes w tending to one. The review found no
+corresponding all-nome original centered cross-width comparison. A syntactic
+width/time identity is already proved by `denseTime_naturality`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDenseTimeNaturalTransformation.lean:82`;
+its module explicitly supplies no map between different completed carriers.
+The existing small-nome result must not be duplicated or advertised as a
+changing-spacing survival theorem.
+
+Physical mass has fixed-parameter ingredients: `twoStepRate:45` and
+`twoStepRate_lt_one:53`, at
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDenseCenteredGap.lean`, and
+`coreMargin:52`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeLogCoreGap.lean`.
+The latter module explicitly excludes scalar-log, generator and physical
+mass identification. The original range derivative and its transfer graph
+pin are documented above; the Cayley limit does not introduce lattice
+spacing or identify a physical Hamiltonian. A justified changing family,
+spacing-matched calibration and a surviving nonzero response remain missing.
+
+Every-group algebraic inputs are separate from actual gauge realization.
+`ConstructiveGroup`, at `lean/YMGap/RepTheory/ConstructiveGroup.lean:51`,
+is a setoid group, and `CompactSimpleGlobalFormCode`, at
+`lean/YMGap/RepTheory/CompactSimpleGlobalForm.lean:318`, is finite code data.
+`group`, at `lean/YMGap/RepTheory/RationalQuaternionUnitNormGroup.lean:419`,
+constructs rational unit quaternions; its header explicitly excludes compact
+completion and all of SU(2). The review found no typed construction from
+general Cartan/global-form codes into the current SU(2)-specific original
+Haar/heat/Wilson carrier. No extra code-level wrapper was added. Actual
+compact-group realization with compatible Haar, representations and heat
+action, followed by the analytic/scaling construction, remains OPEN.
+
+## Constructive inverse on the original physical carrier
+
+The actual limit map now has a constructive two-sided inverse. In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyConjugation.lean`,
+`conjugate:56` negates only the imaginary ORIGINAL bond component.
+`conjugate_involutive:69` and `conjugate_distance:75` retain the original
+physical quotient and squared distance. `conjugateRows:95` constructs the
+negated supplied sector Rows; `conjugateRows_pin:100` keeps its large range
+witness opaque. No arbitrary quotient representative is selected.
+
+`conjugateDomain:170`, `conjugateDomain_input:172` and
+`conjugateDomain_output:178` use the actual BondOSAdjoint construction to
+supply the conjugate graph point, not an ambient replacement domain.
+`conjugate_cayley_conjugate:220` proves K*C_t*K=the actual finite inverse
+at the SAME positive rational parameter.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyLimitInverse.lean`,
+`iterate_conjugate_inverse_right:61` gives P_n*(K*P_n*K)=identity.
+`inverseRows_product_distance:87` identifies
+
+`D(P_n(inverseRows X),ofRows X)`
+`=D(P_n(conjugateRows X),F(ofRows(conjugateRows X)))`.
+
+This is an EXACT equality from finite-product and conjugation isometry,
+not a new analytic estimate. `inverseMap:73` is K*F*K;
+`inverseRows:76` and `inverseRows_pin:80` retain constructed original Rows.
+`limitMap_inverse_right:122` applies the original product-limit uniqueness
+with the UNCHANGED computed forward rate for conjugateRows.
+`limitMap_inverse_left:137` uses already proved injectivity.
+`preimage:143` returns a Type-valued witnessing preimage on EVERY class.
+With the prior linearity and full-pairing laws, F is a complex-linear
+bijective isometry at fixed nome and width.
+
+Both focused monitored checks passed and emitted their `.olean`s;
+independent mathematical and source/log/hash reviews passed. All seventeen
+source-site gates report {propext,Quot.sound}:
+
+| Module suffix | Gates | Accepted log in `/tmp` | SHA256 |
+| --- | ---: | --- | --- |
+| `ScaledCayleyConjugation` | 9 | `ym-scaled-cayley-conjugation-third-20261001.log` | `afeef9731d89096ebf348ae68a91c62b761058e50befdc24903c3fb16823153d` |
+| `ScaledCayleyLimitInverse` | 8 | `ym-scaled-cayley-limit-inverse-second-20261001.log` | `adea3e6f6680d4607a7cef7050e325929df2bfb129b8110241da2590fc08a184` |
+
+Rejected elaboration logs are not verification evidence. Their opaque-range,
+namespace and local-parameter seams were repaired without changing estimates
+or increasing limits. Accepted sources/logs contain no sorryAx or forbidden
+construct. One serialized 20-GiB worker and 12-GiB OS reserve remained in
+force. Two root imports were added, but no full-root/tree/build/audit/guard
+ran. CI is unchanged. No canonical displayed claim changed and no ASCII reprint.
+
+NEXT is rational parameter composition of this ACTUAL limit and explicit
+strong-continuity moduli on supplied Rows. No such law, physical-time/
+logarithm calibration, changing-family continuum survival, finite positive
+physical mass, full continuum QFT or every-group realization is asserted.
+The primary complete signed scaling estimate and Clay target remain OPEN.

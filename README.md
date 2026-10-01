@@ -10,15 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Original physical quotient limit and complex linearity (2026-10-01):**
+**Original physical quotient limit and constructive inverse (2026-10-01):**
 the constructed product limit now acts on every original physical complex
-class, without representative selection. It is a complex-linear injective
-isometry preserving the FULL Hermitian pairing; supplied Rows keep their
-explicit rates and complex scalars retain both supplied moduli. The new
-linearity proof and independent reviews passed. Inverse/group/time laws
-and continuum QFT remain open.
+class, without representative selection. It is a complex-linear bijective
+isometry preserving the FULL Hermitian pairing, with a constructed two-sided
+inverse and preimage witness. Supplied Rows keep their explicit rates and
+complex scalars retain both supplied moduli. The inverse proof and independent
+reviews passed. Time-composition/continuity laws and continuum QFT remain open.
 This is fixed coupling and width, not physical mass calibration. See the
-[complex linearity and remaining laws](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#complex-linearity-on-the-original-physical-carrier).
+[constructive inverse and remaining laws](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#constructive-inverse-on-the-original-physical-carrier).
 
 **Constructed Cayley product limit on the represented core (2026-10-01):**
 the actual dyadic products now converge with a computed modulus on the

@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Verified supporting original physical quotient Cayley limit complex linearity
+Verified supporting original physical quotient Cayley limit constructive inverse
 (2026-10-01 UTC; chart unchanged): uniqueness proves representative
 independence before Quotient.lift2 constructs the map on EVERY original
 complex physical class. FULL Hermitian pairing survives the actual limits,
@@ -8,10 +8,12 @@ retaining real sums and imaginary cross differences; exact squared-distance
 isometry and injectivity follow. Full pairing and physical definiteness now
 prove addition and complex-scalar compatibility without an onto premise;
 both scalar moduli remain supplied. Supplied Rows retain their computed rates.
-The two new focused gates and independent reviews passed.
-Inverse/group/continuity/physical-time laws,
+Physical conjugation now constructs an actual two-sided inverse and a
+Type-valued preimage. Its exact finite-product distance identity consumes
+the existing forward rate unchanged. Seventeen new focused gates and
+independent reviews passed. Group/continuity/physical-time laws,
 changing-scale survival/mass, full continuum QFT and every group remain OPEN.
-Evidence: complex-linearity addendum in
+Evidence: constructive-inverse addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`. No displayed
 claim changed; no ASCII reprint.
 
