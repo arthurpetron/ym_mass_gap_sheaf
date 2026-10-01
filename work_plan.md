@@ -25,7 +25,7 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Actual physical quotient limit and exact doubling (2026-10-01 UTC)
+### Actual physical quotient limit and rational continuity (2026-10-01 UTC)
 
 PROGRESS after `b22e523`: `ScaledCayleyLimitMap.rows_limit_unique` transports
 the SAME represented completion's uniqueness. Equal input Rows have identical
@@ -73,13 +73,28 @@ introduced Classical.choice; explicit Nat order lemmas remove it. Evidence:
 exact-doubling addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
-NEXT mathematical propositions: FULL rational composition, using a mixed
-local defect identity and composite-power comparison on the actual second
-core; and a computed t-to-zero radius for supplied original Rows, using the
-new finite bound and existing density. These parallel proofs are not yet
-verified. Doubling alone is not arbitrary addition; finite displacement is
-not yet limit continuity. Group/continuity and SAME-transfer physical-time/logarithm calibration
-remain OPEN. PRIMARY complete signed scaling,
+`ScaledCayleyLimitContinuity.continuityCertificate` now computes a positive
+rational t-to-zero radius from supplied ORIGINAL Rows and tolerance. Existing
+second-core density, a source-derived graph-output ceiling and the actual
+product-limit rate give this limit law without a new analytic premise.
+`ScaledCayleyMixedIdentity.mixed_error_identity` exposes the exact local
+mixed defect; `MixedBound.mixed_error_norm_le` supplies its explicit quartic
+coefficient against the linked second output. `CompositePowerComparison`
+amplifies that actual squared defect by 4^n at exponent 2^n. Sixteen focused
+gates and independent reviews passed. Evidence: rational-continuity addendum
+in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+NEXT mathematical propositions, assigned in parallel: combine the homogeneous
+mixed bound with dyadic coefficient cancellation, then pass through the
+ORIGINAL limits to prove FULL rational composition; and prove the exact
+factor-two infinitesimal action on linked actual graph points. These next
+drafts are not verified. Endpoint source reviews found no ready new continuum
+QFT or every-group physical producer: buffered locality needs its actual
+intertwining join, and classification/central descent still lacks compatible
+compact Haar/heat realization. Do not add isolated algebra or repeat existing
+conditional wrappers. Rational zero-parameter continuity is not full-real
+time or SAME-transfer physical-time/logarithm calibration; those remain OPEN.
+PRIMARY complete signed scaling,
 changing-family survival, finite positive physical mass, full continuum QFT,
 every group and Clay remain OPEN. No displayed chart change or broad
 build/audit/guard; CI and safety limits unchanged.

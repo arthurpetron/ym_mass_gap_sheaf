@@ -568,7 +568,7 @@ ran. CI is unchanged. No canonical displayed claim changed and no ASCII reprint.
 
 At this inverse checkpoint, NEXT was rational composition and continuity.
 The next addendum proves exact doubling and finite-product continuity only.
-Full rational composition, limit-continuity moduli, physical-time/
+No full rational composition, limit-continuity moduli, physical-time/
 logarithm calibration, changing-family continuum survival, finite positive
 physical mass, full continuum QFT or every-group realization is asserted.
 The primary complete signed scaling estimate and Clay target remain OPEN.
@@ -619,3 +619,74 @@ drafts are not yet verified. These laws are distinct from physical-time/
 logarithm calibration and the changing-family continuum construction.
 Signed scaling, survival, physical mass, full continuum QFT, every group and
 Clay remain OPEN. No canonical displayed claim changed and no ASCII reprint.
+
+## Computed rational zero-parameter continuity and mixed defects
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyLimitContinuity.lean`,
+`first_output_norm_le_preimage:64` combines ORIGINAL time and derivative
+contraction; `first_output_norm_le_ceiling:81` retains the computed source
+ceiling. For supplied original Rows X and positive tolerance e,
+`radius:140` uses the existing rational linear tolerance with budget
+4*outputCeiling(X,e)+e/256+1. Its positive radius is thus equivalent to
+(e/256)/(4*outputCeiling(X,e)+e/256+2). This is source/nome/width/tolerance
+dependent, not a uniform cap over those parameters.
+
+`finite_product_near_identity:242` uses the existing second-core source
+approximation and finite isometry; three original squared-distance bridges
+cost 10*(e/256). `limitMap_near_identity_ofRows:296` selects the ACTUAL
+product-limit rate at e/256; one further squared triangle costs 22*(e/256)
+<=e. `continuityCertificate:326` returns the positive rational radius as
+Type-level data and its all-positive-rational-t bound. No representative is
+selected. This is rational zero-parameter continuity of the original
+fixed-carrier limit, not full-real or physically calibrated time.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyMixedIdentity.lean`,
+`mixed_error_identity:239` expresses C_b*C_a-C_(a+b) on an actual graph input
+as three ORIGINAL local errors and the positive correction
+2*i*b*(output d-C_a(output d)). The identity needs d only. In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyMixedBound.lean`,
+`mixedCoefficient:106` retains the nested squared-triangle coefficient,
+equal modulo rational equivalence to
+32*b^4+32*a^4+16*(a+b)^4+32*a^2*b^2.
+`mixed_error_norm_le:127` requires actual linked d,e with output d=input e
+and bounds the squared defect against ||output e||^2. No third derivative or
+parameter-addition law is assumed.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyCompositePowerComparison.lean`,
+`compositeIterate:37` is the actual pair of original Cayley powers.
+`dyadic_composite_comparison:90` uses their proved commutation and isometry
+to amplify a one-step squared defect by 4^n at exponent 2^n. It applies to
+actual operators, not a substitute composite. Dyadic coefficient cancellation
+and the limit-addition consumer remain to be proved.
+
+All four focused monitored checks emitted their `.olean`s; independent
+source/math/log/hash review passed. Sixteen source-site gates report one
+empty and fifteen {propext,Quot.sound} profiles:
+
+| Module suffix | Gates | Accepted log in `/tmp` | SHA256 |
+| --- | ---: | --- | --- |
+| `ScaledCayleyMixedIdentity` | 2 | `ym-scaled-cayley-mixed-identity-second-20261001.log` | `d22fcdd84dafce0b1dfaae29b458c7ff129fdfea7fb8dee47bae4d948751cbe8` |
+| `ScaledCayleyMixedBound` | 2 | `ym-scaled-cayley-mixed-bound-first-20261001.log` | `9fa7a68b2e9169d6773e6a8e6ecdc238191b36f420293e6355aa9d4480959bb5` |
+| `ScaledCayleyCompositePowerComparison` | 5 | `ym-scaled-cayley-composite-power-first-20261001.log` | `e662a8d20526dce6785fed02f0ad2e9e2e813dbedc342c11d1db4259f793fb02` |
+| `ScaledCayleyLimitContinuity` | 7 | `ym-scaled-cayley-limit-continuity-third-20261001.log` | `714d72cda005539f15a9f6ffd8bde1d94a19ccb9a5e417d983f2a6866927082e` |
+
+Rejected continuity drafts had elaboration seams, not accepted axiom evidence;
+the explicit rational-coefficient `change` repair preserves the proof budget.
+Accepted sources/logs contain no sorryAx or forbidden construct. One
+serialized 20-GiB worker and 12-GiB OS reserve were retained; preflight found
+no competing compiler and zero swap. Four root imports were added, but no
+full-root/tree/build/audit/guard ran. CI is unchanged.
+
+The user-requested endpoint parallel review found that fixed-parameter
+positive-time/vacuum laws already exist and do not fill the missing canonical
+continuum realization pins. No new QFT closure was reported. General Cartan
+codes and central representation descent likewise have no supplied physical
+Haar/heat/Wilson join. Further proof work is assigned to the actual mixed
+dyadic-product estimate and the factor-two infinitesimal action; both are
+unverified at this checkpoint. Complete signed scaling, changing-family
+survival, SAME-transfer physical-time/logarithm calibration, finite positive
+physical mass, full continuum QFT, every actual group and Clay remain OPEN.
+No canonical displayed claim changed; no ASCII chart was reprinted.

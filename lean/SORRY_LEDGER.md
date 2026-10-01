@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED rational Cayley limit continuity and finite mixed defects only (2026-10-01 UTC)
+
+- `ScaledCayleyLimitContinuity.continuityCertificate` returns a positive
+  rational radius from supplied ORIGINAL Rows and tolerance. Second-core
+  approximation and its actual graph-output ceiling bound all finite depths;
+  the existing product-limit rate passes the bound to the SAME limit.
+- `MixedIdentity.mixed_error_identity` is an exact one-graph-point identity.
+  `MixedBound.mixed_error_norm_le` needs the supplied linked second point and
+  retains the exact quartic coefficient against its original output norm.
+- `CompositePowerComparison.dyadic_composite_comparison` bounds actual
+  commuting composite powers by 4^n times the mixed squared defect. It does
+  not assume or establish an additive parameter law.
+- Sixteen focused gates and independent source/math/log/hash reviews passed:
+  one empty, fifteen {propext,Quot.sound}. No sorry, new axiom, analytic
+  field, witness selection, limit increase or frontier weakening. Evidence:
+  rational-continuity addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: full rational addition, full-real time, SAME-transfer physical-time/
+  logarithm calibration; useful signed scaling, changing-family survival,
+  finite positive physical mass, full continuum QFT and every actual group.
+- Four root imports added; full root/tree/build/audit/guard NOT run.
+
 ## PROVED exact Cayley limit doubling and finite continuity only (2026-10-01 UTC)
 
 - `ScaledCayleyLimitComposition.product_double_succ` aligns rational steps

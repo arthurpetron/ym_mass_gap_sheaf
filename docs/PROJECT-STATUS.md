@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Verified supporting original physical Cayley limit doubling and finite continuity
+Verified supporting original physical Cayley limit doubling and rational continuity
 (2026-10-01 UTC; chart unchanged): uniqueness proves representative
 independence before Quotient.lift2 constructs the map on EVERY original
 complex physical class. FULL Hermitian pairing survives the actual limits,
@@ -14,10 +14,14 @@ the existing forward rate unchanged. Seventeen new focused gates and
 independent reviews passed. Exact finite squaring now proves F_(2t)=F_t*F_t
 on EVERY original class; graph-input finite displacement is bounded by
 4*t^2 times its original output norm, independently of product depth.
-Ten new gates and independent reviews passed. Full addition, limit continuity
-and physical-time laws,
+Ten focused gates and independent reviews passed at that checkpoint. Supplied
+original Rows now compute a positive rational zero-parameter continuity radius
+for the ACTUAL limit. An exact mixed identity, homogeneous quartic local bound
+and actual composite-power comparison also passed; sixteen focused gates and
+independent reviews cover these four new modules. Full parameter addition,
+full-real-time construction and physical-time/logarithm calibration,
 changing-scale survival/mass, full continuum QFT and every group remain OPEN.
-Evidence: exact-doubling addendum in
+Evidence: rational-continuity addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`. No displayed
 claim changed; no ASCII reprint.
 

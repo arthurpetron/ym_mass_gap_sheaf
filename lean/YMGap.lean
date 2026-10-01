@@ -6143,6 +6143,11 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitInverse
 -- Exact doubling and graph-input finite continuity, not full addition/time calibration.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitComposition
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyProductContinuity
+-- Supplied-Rows rational zero continuity and finite mixed defects, not physical time.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitContinuity
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyMixedIdentity
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyMixedBound
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyCompositePowerComparison
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.
