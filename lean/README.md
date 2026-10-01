@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Local angular cost of the complete signed family (2026-10-01 UTC):**
+`QuaternionHaarLocalAngularFamily` constructs filtered-row finite Cauchy
+certificates under ONE positive weight, preserving all signed cross terms.
+`BF4ExactSlabFixedSpatialFamilyIncidence` computes literal block-face rows
+and proves their length at most six for Nodup families.
+`BF4ExactSlabFixedSpatialFamilyLocalAngular` joins the actual four-link
+Gamma identity to the SAME odd marginal, giving
+`normalizedAngular(F)<=24*sum c_p^2*(4-middleRatio(f_p^2))`.
+Its Ward and original Taylor energy consumers retain signed corrections.
+Seventeen gates passed three focused checks within {propext, Quot.sound},
+with independent review; no full-root build or new analytic premise.
+Useful SAME-variance scaling, survival, physical mass, continuum QFT and all
+groups remain OPEN. Evidence:
+`audits/AUDIT-LOCAL-SIGNED-FAMILY-ANGULAR-2026-10-01.md`.
+
 **Actual-mean one-loop radial budget (2026-10-01 UTC):**
 `QuaternionHaarRadialMeanYoung` supplies an exact Young square under ONE
 certified Haar weight. `BF4ExactSlabFixedSpatialWilsonMeanRadial` identifies

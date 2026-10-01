@@ -1,5 +1,36 @@
 # Sorry Ledger
 
+## PROVED local angular budget for an ORIGINAL distinct-face signed family (2026-10-01 UTC)
+
+- `QuaternionHaarLocalAngularFamily.masked_square_certificate` pads each
+  filtered derivative row to its certified count with zeros and returns
+  finite Cauchy SOS data. `weighted_finitePolySum_activeGamma_local_family`
+  sums all six planes and actual active blocks under ONE supplied Certificate W.
+  No signed mixed term is set to zero or assigned a sign.
+- `BF4ExactSlabFixedSpatialFamilyIncidence.blockRowFaces_length_le_six`
+  proves at most six distinct literal faces per actual physical link index;
+  `blockRow_derivative_zero` proves off-row angular generators vanish.
+- `BF4ExactSlabFixedSpatialFamilyLocalAngular.family_normalized_angular_le`
+  instantiates the original marginal Certificate for W=V*g_n*g_(n+1),
+  keeping its actual oddMass and middleRatio: A(F)<=C_local with
+  `C_local=24*sum c_p^2*(4-middleRatio(f_p^2))` for Nodup spatial faces.
+  `family_ward_local_budget` gives 12*Var-C_local<=normalizedWardResidual;
+  `padded_family_energy_local_angular` gives E<=(1-w)*C_local+normalizedRemainder,
+  retaining BOTH signed Taylor remainders and the angular-weight defect.
+- Three accepted focused checks passed 5+6+6=17 gates, each exactly
+  {propext, Quot.sound}; independent mathematical and source/log reviews passed.
+  No new sorry, axiom, classical dependency, analytic field or weakened frontier.
+  One monitored 20 GiB worker, 12 GiB OS reserve; no full root/tree build,
+  broad audit, guard, raised limit or CI change. Root imports registered only.
+  Evidence: `audits/AUDIT-LOCAL-SIGNED-FAMILY-ANGULAR-2026-10-01.md`.
+- OPEN: useful JOINT local angular/Taylor budget relative to SAME signed
+  interacting variance on a justified scaling family. The constant 24 is
+  parameter-independent, not a uniform physical gap: face deficits and the
+  signed remainder remain parameter-dependent. Repeated lists require proved
+  coefficient consolidation; no general-family obligation is weakened.
+  Spatial/spacing control, continuum survival, physical time/mass, full
+  continuum OS/QFT, field/UV identification and all groups remain OPEN.
+
 ## PROVED actual-mean one-loop radial budget under the ORIGINAL law (2026-10-01 UTC)
 
 - `QuaternionHaarRadialMeanYoung.young_identity` is the exact polynomial

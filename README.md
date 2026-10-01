@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Local angular budget for complete signed families (2026-10-01):**
+for distinct spatial faces, actual link incidence replaces a whole-family
+size factor with a coefficient-square cost. Under the ORIGINAL odd marginal,
+`Angular(F) <= 24*sum c_p^2*(4-E_odd[f_p^2])`. The constant has no coupling,
+width or family-size factor; the actual moments still depend on those parameters.
+The original temporal energy consumes this budget with its COMPLETE signed
+Taylor remainder retained. All 17 gates passed three focused checks and
+independent reviews. This is not yet a SAME-family variance comparison or
+physical scaling estimate. See the
+[proof and open input](audits/AUDIT-LOCAL-SIGNED-FAMILY-ANGULAR-2026-10-01.md).
+
 **Original one-loop energy now has an actual-mean bound (2026-10-01):**
 an exact sum-of-squares argument removes its unevaluated mixed radial moment.
 For the SAME interacting mean c and variance Var, normalized energy E obeys

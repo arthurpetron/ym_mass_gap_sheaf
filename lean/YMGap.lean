@@ -4981,6 +4981,11 @@ import YMGap.Continuum.QuaternionHaarRadialMeanYoung
 import YMGap.Continuum.QuaternionHaarWordQuadratic
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonMeanRadial
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonMeanQuartic
+-- Actual local row Cauchy removes whole-family angular size cost for distinct faces.
+-- The original odd marginal/Taylor consumers retain all signed scaling remainder.
+import YMGap.Continuum.QuaternionHaarLocalAngularFamily
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyIncidence
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyLocalAngular
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.
 import YMGap.Continuum.SU2HeatQuarticBudgetFloor
 -- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.

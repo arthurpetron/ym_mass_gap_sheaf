@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting local ORIGINAL signed-family angular budget
+(2026-10-01 UTC; chart unchanged): finite Cauchy is localized to literal
+link-face rows of length at most six. For Nodup spatial families under the
+SAME odd marginal, normalizedAngular<=24*sum c_p^2*(4-middleRatio(f_p^2)),
+with no extra family-size, width or inverse source-floor factor. All signed
+cross terms remain on the left. The actual Ward consumer retains its signed
+residual, and the original temporal energy consumer retains the COMPLETE
+normalizedRemainder, including the angular-weight defect. Seventeen gates
+passed three focused checks within {propext, Quot.sound}, with independent
+review. The joint budget's SAME-variance scaling comparison, nontrivial
+continuum survival, physical time/mass, full continuum QFT and all groups
+remain OPEN. No displayed node changed; no ASCII reprint. Evidence:
+`audits/AUDIT-LOCAL-SIGNED-FAMILY-ANGULAR-2026-10-01.md`.
+
 Verified supporting ORIGINAL actual-mean one-loop radial budget
 (2026-10-01 UTC; chart unchanged): an exact Young square now bounds the
 previously unevaluated mixed radial moment using the SAME odd variance and

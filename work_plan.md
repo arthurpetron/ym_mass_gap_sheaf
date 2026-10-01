@@ -25,6 +25,43 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Local coefficient-square angular budget on the ORIGINAL signed family (2026-10-01 UTC)
+
+PROGRESS after `1167dc2`: no SAME-law near-vacuum mean estimate was found;
+the literal one-loop cap is not extended to arbitrary signed families.
+Instead use local incidence BEFORE estimating the complete angular square.
+For a distinct-face family F=sum c_p*f_p, each literal link meets at most
+six faces. A filtered-row finite Cauchy SOS under ANY common certified weight W
+proves H[W*Gamma(F,F)]<=6*sum H[W*Gamma(c_p*f_p,c_p*f_p)].
+The actual four-link SU(2) Gamma pin gives 4*(4-f_p^2), hence the original
+odd marginal W=V*g_n*g_(n+1) supplies the constructed budget
+
+    C_local = 24*sum c_p^2*(4-middleRatio_(n+1,n)(f_p^2)).
+    normalizedAngular(F) <= C_local,
+    12*Var_odd(F)-C_local <= normalizedWardResidual(F),
+    normalizedEnergy(F) <= (1-w)*C_local+normalizedRemainder(F).
+
+The complete family cross terms remain on the left. The normalizer is ONLY
+the SAME proved-positive oddMass; every source factor and the COMPLETE signed
+Taylor/weight-defect remainder remain. The number 24 has no width, nome or
+family-size dependence; the actual face moments and remainder do. Nodup is
+essential to the six-incidence count; repeated lists are NOT covered without
+consolidating their coefficients. No existing general-family field is weakened.
+
+Three accepted focused checks passed all 17 gates, exactly {propext, Quot.sound}.
+Independent mathematical and source/log reviews passed. One monitored 20 GiB
+worker and 12 GiB OS reserve; no raised limit, full root/tree build, broad audit,
+guard or CI change. Root imports are registered, not checked in aggregate.
+Evidence: `audits/AUDIT-LOCAL-SIGNED-FAMILY-ANGULAR-2026-10-01.md`.
+
+NEXT: estimate the JOINT original budget (1-w)*C_local+normalizedRemainder
+relative to SAME signed-family variance on a justified changing-coupling,
+spatial and spacing family. Do not assume smallness/sign of the remainder,
+replace cap deficits by variance, or discard favorable signed cancellation.
+Nontrivial continuum survival, physical time/mass, full continuum OS/QFT,
+field/UV identification and every compact simple group remain OPEN.
+The broader displayed chart claims are unchanged; no ASCII reprint.
+
 ### Actual-mean one-loop radial budget with explicit remainder rates (2026-10-01 UTC)
 
 PROGRESS after `4ba8766`: remove the unevaluated mixed radial moment in the
