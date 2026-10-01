@@ -6161,6 +6161,8 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitInfinitesim
 import YMGap.Continuum.BF4WilsonAllNomeDerivativePositiveTimeCommutation
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSDerivativeTime
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyEuclideanCommutation
+-- Actual limit intertwines original Euclidean time; physical calibration is open.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyEuclideanLimit
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

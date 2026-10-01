@@ -106,9 +106,17 @@ constructs both graph pins and transports every intrinsic adjoint pair.
 and all finite powers on EVERY original class. Seventeen focused gates and
 independent reviews passed. No assumed graph-invariance field was introduced.
 
-NEXT: pass the finite Euclidean/Cayley commutation to the actual product limit
-using its original rates and original Euclidean contraction, before expanding
-real Cayley time further.
+`ScaledCayleyEuclideanLimit.actionRows` now constructs the actual time-acted
+Rows with both original range witnesses. Original Euclidean contraction and
+the unchanged source-dependent product rate prove `limitMap_action_commute`
+on EVERY original physical class. Five further focused gates and independent
+review passed; no new analytic premise or representative selection.
+
+NEXT available operator proposition: extend the positive-rational Cayley limit
+parameter to supplied positive constructive-real time with an explicit
+source-dependent modulus. Preserve the proved -2i normalization; commutation
+alone does not identify generators or calibrate physical time. The primary
+analytic changing-family signed-energy/variance estimate remains OPEN.
 Existing `PositiveTimePins.positiveAction_original` already pins positive
 integer samples to the ORIGINAL transfer, and the witnessed real Taylor
 theorem gives its negative right derivative. Do not misidentify derivativeAction
@@ -125,6 +133,19 @@ PRIMARY complete signed scaling,
 changing-family survival, finite positive physical mass, full continuum QFT,
 every group and Clay remain OPEN. No displayed chart change or broad
 build/audit/guard; CI and safety limits unchanged.
+
+The user-requested parallel endpoint work on 2026-10-01 separated the available
+operator join above from unavailable producers. The survival agent found no
+changing-nome/spacing pairing-compatible family beyond the existing fixed-nome
+maps and states. The parent mass review confirmed that positive sampled
+response is still a hypothesis of the existing calibrated-rate consumer; the
+fixed-carrier route has a proved no-finite-physical-rate-band obstruction.
+The QFT agent proved the actual Euclidean/Cayley join, but found no translated
+buffered-locality pin to the canonical reflected continuum root. The group
+agent found only classification/descent data, not the required compatible
+compact Haar/heat realization. No duplicate conditional wrapper was added.
+See the parallel endpoint assignment addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
 Parallel endpoint reviews distinguish available inputs from missing producers.
 The original receding-volume spatial comparison and computed Cauchy modulus

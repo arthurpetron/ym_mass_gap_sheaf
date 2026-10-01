@@ -853,3 +853,94 @@ fixed-carrier join, not an inhabitant of the continuum QFT root. Generator
 identification, physical spacing/scaling, useful complete signed scaling,
 survival, finite positive physical mass, full QFT, every group and Clay remain
 OPEN.
+
+## Original Euclidean action commutes with the actual Cayley limit
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyEuclideanLimit.lean`,
+`actionRows:49` constructs the actual time-acted original sector Rows, retaining
+BOTH range witnesses. `actionRows_pin:53` pins their quotient class to the
+original positive-time action. `product_action_limit_bound:70` uses the finite
+iterate identity and original Euclidean distance contraction to transport the
+ACTUAL product bound. It uses the unchanged `productLimitRate X t ht`: no
+second rate, assumed continuity or new analytic field is needed.
+
+`limitMap_action_commute_ofRows:91` invokes the actual completion's
+`productLimit_unique` with those constructed Rows and that computed rate.
+`limitMap_action_commute:118` extends the Prop-valued equality by quotient
+induction to EVERY original complex physical class. It constructs no quotient
+representative-selection function. The proved statement is
+
+`F_t(S_s x) = S_s(F_t x)`
+
+for positive rational t and supplied original positive Euclidean time s, at
+fixed nome and width. It is NOT a generator identity, physical-time
+calibration, real-parameter Cayley extension or continuum QFT construction.
+
+The first focused check emitted an `.olean`. All five printed gates report
+{propext,Quot.sound}; independent source/math/log/hash review passed. Accepted
+log: `/tmp/ym-cayley-euclidean-limit-first-20261001.log`, SHA256
+`2031a25e5e1f6cbdeabe91cc104a4ba94b2ce0f4f2472e92c117fb69ecb17493`.
+No sorryAx, forbidden construct, new premise or frontier change. One serialized
+20-GiB worker and 12-GiB OS reserve were retained. One root import added;
+full root/tree/build/audit/guard NOT run. CI unchanged. No displayed chart
+claim changed; no ASCII reprint.
+
+## Parallel endpoint assignments and results
+
+User requested independent work on survival, physical calibration, QFT and
+every compact simple group. Three agents handled survival, QFT and groups;
+the parent handled calibration and all serialized compiler checks. The QFT
+agent supplied the finite/limit commutation proofs above. The other findings
+below are bounded source reviews, not additional mathematical closures.
+
+- **Survival.** Original `denseToUnion:91` and
+  `completedTime_denseToUnion:134`, at
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionNaturalTransformation.lean`,
+  retain fixed-nome width inclusion. `normalizedCertificate:165`, at
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionNormalizedExcitation.lean`,
+  supplies an actual fixed-nome unit excitation. `nonzeroExcitation:93`, at
+  `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicExcitation.lean`, supplies per-nome
+  states, while `dyadic_response_floor_of_relative_energy:124`, at
+  `lean/YMGap/Continuum/BF4WilsonAllNomeDyadicRelativeSurvival.lean`, requires
+  the SAME-state relative-energy estimate. These do not supply changing-nome
+  pairing-compatible maps or a uniform surviving response.
+- **Calibration.** `logRate_le_of_sampled_response:161`, at
+  `lean/YMGap/Continuum/BF4ExactSlabFixedSpatialJointSurvivalCalibration.lean`,
+  consumes a positive sampled response and norm ceiling on the SAME carrier;
+  it does not construct those changing-family inputs or a Hamiltonian pin.
+  `fixedCarrierDynamicFamily:62` and
+  `noPhysicalRateBand_of_fixedCarrier:125`, at
+  `lean/YMGap/Continuum/BF4WilsonFixedCarrierDynamicFamily.lean`, exhibit and
+  refute a finite physical-rate band on the constant-nome shrinking-spacing
+  route. `currentRateFloor_cofinal:204` and
+  `fixedMass_no_finite_physical_ceiling:240`, at
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionPhysicalCalibration.lean`,
+  record the fixed-rate obstruction. A changing calibrated family is still
+  missing; adding spacing labels to the fixed carrier does not supply it.
+- **QFT.** The new actual limit commutation supplies an independent
+  fixed-carrier time/operator join. `PositiveTimeOSRoot:268`, at
+  `lean/YMGap/Continuum/CanonicalOSRoot.lean`, still requires the canonical
+  limiting algebra, geometric positive support and reflected-form pins.
+  `act_root_pin:100`, at
+  `lean/YMGap/Continuum/BF4WilsonAllNomeBondOSInsertion.lean`, describes the
+  physical buffered insertion as R_half M R_half.
+  `completedMultiply_comm:160`, at
+  `lean/YMGap/Continuum/BF4WilsonSpatialUnionTimeZeroCommutation.lean`,
+  proves ambient multiplier commutation, not translated buffered locality.
+  No such locality/root identification was constructed in this assignment.
+- **Every group.** `CompactSimpleGlobalFormCode:318`, at
+  `lean/YMGap/RepTheory/CompactSimpleGlobalForm.lean`, carries Cartan validity
+  and finite center-subgroup code, not compact topology, Haar or heat action;
+  the module's boundary at lines29--37 states those exclusions.
+  `group:419`, at
+  `lean/YMGap/RepTheory/RationalQuaternionUnitNormGroup.lean`, constructs an
+  algebraic rational unit-quaternion group, not its compact completion.
+  The review found no compatible general-group realization to plug into the
+  current physical construction. No extra classification wrapper was added.
+
+The unchanged continuum/Clay target remains OPEN. The available next operator
+proposition is constructive-real parameter extension of the actual rational
+limit with source moduli; physical generator identification, spacing/scaling,
+useful signed-energy control, survival and all-group realization are separate
+obligations, not consequences of the commutation identity.

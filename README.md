@@ -13,11 +13,12 @@ Mathlib-free Lean with explicit witnesses and moduli.
 **Original Euclidean time and Cayley compatibility (2026-10-01):**
 the original Euclidean action now preserves every physical derivative-domain
 class, including its input/output pins and intrinsic adjoint graph. Consequently
-it commutes with the actual finite Cayley operator and every finite power on
-the SAME completed complex Wilson bond. Focused constructive checks and
-independent reviews passed. Passing this equality to the constructed product
-limit is next; physical spacing, continuum QFT and mass calibration remain open.
-See the [graph transport and finite commutation evidence](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-euclidean-time-preserves-the-physical-derivative-graph).
+it commutes with the actual finite Cayley operator, every finite power and the
+constructed product limit on EVERY class of the SAME completed complex Wilson
+bond. The limit proof retains the original source-dependent rate without a new
+analytic input. Focused constructive checks and independent reviews passed;
+physical spacing, continuum QFT and mass calibration remain open. See the
+[actual limit commutation and parallel input review](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-euclidean-action-commutes-with-the-actual-cayley-limit).
 
 **Original physical Cayley limit: rational addition and tangent (2026-10-01):**
 the constructed product limit now acts on every original physical complex

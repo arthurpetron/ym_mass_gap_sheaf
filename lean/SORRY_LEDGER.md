@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED original Euclidean action commutes with actual Cayley limit only (2026-10-01 UTC)
+
+- `ScaledCayleyEuclideanLimit.actionRows` constructs original time-acted Rows
+  with BOTH range witnesses and `actionRows_pin` on the actual physical bond.
+- `product_action_limit_bound` uses the unchanged ORIGINAL source product rate,
+  exact finite commutation and original Euclidean distance contraction.
+- `productLimit_unique` proves `limitMap_action_commute_ofRows`; quotient
+  induction proves `limitMap_action_commute` on EVERY original physical class,
+  without representative selection or a new analytic input.
+- Five focused gates and independent review passed within {propext,Quot.sound}.
+  Evidence: Euclidean limit-commutation addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: full-real Cayley time, SAME-generator physical-spacing/scaling
+  calibration; complete signed scaling, continuum survival, finite positive
+  physical mass, full continuum QFT, every actual group and Clay.
+- One root import added; full root/tree/build/audit/guard NOT run.
+
 ## PROVED original Euclidean graph transport and finite Cayley commutation only (2026-10-01 UTC)
 
 - `DerivativePositiveTimeCommutation.derivativeAction_positiveAction_commutes`

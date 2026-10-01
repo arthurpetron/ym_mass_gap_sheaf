@@ -5,10 +5,12 @@ commutation (2026-10-01 UTC; chart unchanged): original derivative/time
 commutation constructs transport of EVERY physical derivative-domain class,
 both graph pins and every intrinsic adjoint pair. The actual finite Cayley
 operator and all its finite powers commute with that SAME Euclidean action.
-Seventeen focused gates and independent reviews passed. Passing commutation
-to the actual limit is next; physical spacing/scaling, survival, physical mass,
-full continuum QFT and every-group realization remain OPEN. Evidence:
-Euclidean graph-transport addendum in
+Seventeen focused gates and independent reviews passed. Constructed actionRows,
+the unchanged original product rate and Euclidean contraction now pass the
+identity to the ACTUAL limit on EVERY class; five further gates and independent
+review passed. Physical spacing/scaling, survival, physical mass, full continuum
+QFT and every-group realization remain OPEN. Evidence:
+Euclidean limit-commutation addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 No displayed claim changed; no ASCII reprint.
 

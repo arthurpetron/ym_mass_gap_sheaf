@@ -12,15 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original Euclidean graph transport and finite commutation (2026-10-01 UTC):**
+**Original Euclidean graph transport and Cayley limit commutation (2026-10-01 UTC):**
 the bounded original dyadic derivative commutes with the original positive-time
 action. Constructed `DerivativeTime.timeDomain` transports EVERY physical graph
 class and both pins; it also preserves every intrinsic adjoint pair. Actual
 linearity and imaginary-shift inverses prove `cayley_action_commute` and
 `iterate_action_commute` on the SAME complex bond completion. Seventeen focused
-gates and independent reviews passed within {propext,Quot.sound}. Passing the
-identity to the existing product limit is next. No physical-spacing or continuum
-generator calibration follows. Evidence: Euclidean graph-transport addendum in
+gates and independent reviews passed within {propext,Quot.sound}.
+`ScaledCayleyEuclideanLimit.actionRows` now retains both original range witnesses;
+the unchanged product-limit rate and Euclidean contraction prove
+`limitMap_action_commute` on EVERY class. Five further gates and independent
+review passed. No physical-spacing or continuum generator calibration follows.
+Evidence: Euclidean limit-commutation addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
 **Original physical quotient limit, rational addition and tangent (2026-10-01 UTC):**
