@@ -1663,11 +1663,11 @@ original actions at their ACTUAL common graph slope.
 `lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSWickSlopeComparison.lean:111`,
 `euclideanRemainder_eq`, pins the original rational Euclidean remainder to
 `(I-S_t)u-t*a` for u=input and a=output of the SAME original Point.
-The actual Cayley error is `(U_t-I)u+2it*a`. In that module, `wickRemainder_pin`
+The actual Cayley error is `(U_t-I)u+2it*a`. In that module, `:247`, `wickRemainder_pin`,
 cancels the shared derivative terms EXACTLY, leaving `(U_t-I)u+2i(I-S_t)u`.
-`wickRadius` computes the minimum of BOTH original positive radii at epsilon/10.
-`wick_remainder_bound` uses 2+8=10 copies in the squared triangle/scaling
-budget and proves norm squared <=t^2*epsilon. `euclidean_integer_original`
+`:262`, `wickRadius`, computes the minimum of BOTH original positive radii at epsilon/10.
+`:319`, `wick_remainder_bound`, uses 2+8=10 copies in the squared triangle/scaling
+budget and proves norm squared <=t^2*epsilon. `:350`, `euclidean_integer_original`,
 pins positive integer samples to the original completed transfer on EVERY
 original physical class. No scalar-logarithm identification is assumed.
 
@@ -1689,3 +1689,41 @@ One root import added; full root/tree/build/audit/guard NOT checked. ONE
 unchanged. No displayed claim changed; no ASCII reprint. Full-real
 differentiation, physical spacing/scaling, useful signed scaling, survival,
 finite positive physical mass, full QFT, every actual group and Clay remain OPEN.
+
+## Original vacuum stationarity
+
+After `57e8497`,
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyVacuum.lean:57`,
+`vacuumPoint`, constructs the actual original unit-source derivative-graph
+Point with its supplied time-range witness. In the same module, `:61`,
+`vacuumPoint_input`, pins the SAME original vacuum; `:72`,
+`vacuumPoint_output`, pins zero. Neither a quotient representative nor an
+analytic vacuum hypothesis is selected.
+
+`:127`, `vacuumPoint_shifts`, pins both actual shifts to that vacuum.
+`:187`, `cayley_vacuum`, and `:200`, `iterate_vacuum`, give exact finite
+stationarity. `:208`, `vacuumRows`, supplies the actual input representation;
+`:213`, `vacuumRows_pin`, identifies it. `:228`, `limitMap_vacuum`, uses
+the original product-limit uniqueness with the explicit constant rate zero.
+`:243`, `positiveAction_vacuum`, and `:256`, `positiveRealAction_vacuum`,
+pass the same pin through the original real-time limits. `:265`,
+`inverseRealAction_vacuum`, fixes the vacuum under the actual inverse;
+`:273`, `signedAction_vacuum`, fixes it under every constructed signed time.
+`:283`, `signedAction_vacuum_pairing`, retains the FULL Hermitian pairing
+against every original physical vector. This is fixed nome/width stationarity,
+NOT translated buffered locality, cyclicity, continuum vacuum survival or QFT.
+
+The focused check emitted an olean; all FOURTEEN source-site gates are exactly
+{propext,Quot.sound}. Independent mathematical and exact source/log/hash reviews
+passed. The first three error logs are rejected evidence. Accepted log:
+`/tmp/ym-cayley-vacuum-fourth-20261001.log`, SHA256
+`157a7341e9914fa0abff843e9bfbd4b5b344799e17c1f1fbfbbb941ab6b3ae99`.
+Source SHA256:
+`567652f8caa40c33dc813b6263c181ac84c6a4d1233513d18560434e4a4e8e02`.
+No new analytic premise, sorry, axiom, erased witness or weakened frontier.
+One root import added; full root/tree/build/audit/guard NOT checked. ONE
+20-GiB worker, 12-GiB OS reserve and continuous telemetry; CI and safety limits
+unchanged. No exact displayed chart claim changed; no ASCII reprint.
+Full-real differentiation, physical spacing/scaling, useful signed scaling,
+nonzero continuum survival, finite positive physical mass, full QFT,
+every actual compact simple group and Clay remain OPEN.

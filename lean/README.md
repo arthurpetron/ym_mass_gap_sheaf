@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original vacuum stationarity (2026-10-01 UTC):**
+`ScaledCayleyVacuum.vacuumPoint` constructs the actual unit-source graph point;
+its input/output pins are the SAME vacuum and zero. `signedAction_vacuum`
+passes exact stationarity through the finite products and their original
+computed limits. `signedAction_vacuum_pairing` retains the FULL Hermitian
+pairing against every original physical vector. Fourteen focused gates and
+independent reviews passed, all {propext,Quot.sound}. One root import added;
+full root/tree/audit NOT checked. Fixed nome and width only: continuum vacuum
+survival, translated buffered locality, cyclicity, full QFT, physical mass and
+every actual group remain OPEN. Evidence: vacuum-stationarity addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Original Euclidean/Cayley slope comparison (2026-10-01 UTC):**
 `ComplexBondOSWickSlopeComparison.wickRemainder_pin` is the exact SAME-action
 identity `(U_t-I)u+2i(I-S_t)u`, on the supplied original graph Point.
@@ -20,8 +32,8 @@ identity `(U_t-I)u+2i(I-S_t)u`, on the supplied original graph Point.
 pin is on EVERY original complex physical class. Ten focused gates and
 independent reviews passed, all {propext,Quot.sound}. One root import added;
 full root/tree/audit NOT checked. This is dimensionless normalization, NOT
-Wick analytic continuation, physical spacing or mass. The vacuum draft is
-still unverified; continuum endpoints remain OPEN.
+Wick analytic continuation, physical spacing or mass. Vacuum stationarity is
+recorded above; continuum endpoints remain OPEN.
 
 **Original negative-rational tangent (2026-10-01 UTC):**
 `ScaledCayleyNegativeTangent.negative_error_identity` rewrites the inverse-group
@@ -46,7 +58,7 @@ not needed for the shorter resolvent converse. Twenty-four focused gates
 (1+9+7+7) and independent reviews passed: one empty, 23 {propext,Quot.sound}.
 Four root imports added; full root/tree/build/audit/guard NOT checked.
 Negative/full-real differentiation, physical spacing, survival, full continuum
-QFT and every group remain OPEN. Parallel slope/vacuum drafts are unverified.
+QFT and every group remain OPEN. Later slope/vacuum proofs are recorded above.
 Evidence: domain-converse addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 

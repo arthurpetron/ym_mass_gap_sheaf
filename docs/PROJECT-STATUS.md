@@ -1,12 +1,22 @@
 # Canonical one-page project status
 
+Verified supporting original vacuum stationarity (2026-10-01 UTC;
+chart unchanged): the actual unit source constructs a graph point with SAME
+vacuum input and zero output. Finite Cayley products, their computed limits
+and the signed-real-time action fix this vacuum; the FULL Hermitian vacuum
+pairing is stationary. Fourteen focused gates and independent reviews passed.
+Fixed nome/width only: continuum vacuum survival, locality, full QFT and all
+other continuum endpoints remain OPEN. Evidence: vacuum-stationarity addendum
+in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original Euclidean/Cayley slope comparison (2026-10-01 UTC;
 chart unchanged): an exact SAME-action pin cancels both original graph terms.
 The minimum of BOTH source-computed radii gives squared remainder <=t^2*epsilon;
 the original Euclidean integer samples stay pinned to the original transfer.
 Ten focused gates and independent reviews passed. This fixes dimensionless
 factor-two normalization only; physical spacing/mass and continuum endpoints
-remain OPEN. The parallel vacuum draft is unverified. Evidence: slope-comparison
+remain OPEN. Later vacuum stationarity is recorded above. Evidence: slope-comparison
 addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 No exact displayed claim changed; no ASCII reprint.
 
@@ -26,8 +36,8 @@ original unit-resolvent domain of input+output with BOTH graph pins and exact
 -2i phase. Twenty-four focused gates and independent reviews passed, including
 the separate full Hermitian pairing-continuity estimate. Negative/full-real
 differentiation, physical spacing, changing-family survival, physical mass,
-continuum QFT and every group remain OPEN. Parallel Euclidean/Cayley slope and
-vacuum-producer drafts are not counted as proved. Evidence: domain-converse
+continuum QFT and every group remain OPEN. Later Euclidean/Cayley slope and
+vacuum proofs are recorded above. Evidence: domain-converse
 addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 No exact displayed claim changed; no ASCII reprint.
 

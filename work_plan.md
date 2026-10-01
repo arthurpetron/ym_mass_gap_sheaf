@@ -25,6 +25,27 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Parallel original vacuum stationarity (2026-10-01 UTC)
+
+PROGRESS after `57e8497`: the original unit source constructs an actual
+derivative-graph Point with vacuum input and zero output. Its exact finite
+Cayley stationarity passes through the constructed products, positive-real
+limits, inverse and signed action. The FULL Hermitian vacuum pairing is
+stationary against every original physical vector. Fourteen focused gates
+and independent reviews passed. Fixed nome/width only: this does NOT prove
+continuum vacuum survival, cyclicity or translated buffered locality.
+Evidence: vacuum-stationarity addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+NEXT: construct an actual SAME-original-carrier comparison between rational
+Euclidean samples and supplied real time, retaining computed source/time
+moduli; then pass the raw slope comparison to that limit. The legacy
+`BF4ExactSlabThermodynamicPositiveRealContinuity.realTimeAction_close_bound`
+has the wrong carrier and is NOT an input to this join. Survival still needs
+the connected remote-face response uniformly near nome one; group extension
+still needs compatible compact Haar/heat data, not classification codes.
+One root import added; full root/tree/build/audit/guard NOT checked. ONE
+20-GiB compiler, 12-GiB OS reserve, unchanged safety telemetry, CI and chart.
+
 ### Parallel original Euclidean/Cayley slope comparison (2026-10-01 UTC)
 
 PROGRESS after `d84fcd3`: the Sol normalization workstream proves the exact

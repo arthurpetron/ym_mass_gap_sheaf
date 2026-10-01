@@ -6194,6 +6194,8 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyGeneratorConvers
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyNegativeTangent
 -- Exact dimensionless SAME-graph slope comparison, not physical spacing/mass.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSWickSlopeComparison
+-- Fixed-nome/width SAME-vacuum stationarity, not continuum survival/locality.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyVacuum
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

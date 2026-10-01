@@ -10,14 +10,22 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original vacuum stationarity (2026-10-01):** the actual unit source now
+constructs a derivative-graph point with vacuum input and zero output. The
+finite Cayley products, their constructed limits and the signed-real-time
+action fix this SAME vacuum; its full Hermitian pairing is stationary.
+Fourteen focused gates and independent reviews passed. This is fixed coupling
+and width, not continuum vacuum survival, locality or full QFT. See the
+[vacuum proof and remaining joins](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-vacuum-stationarity).
+
 **Original Euclidean/Cayley slope comparison (2026-10-01):** the two
 original small-time motions now have a checked common graph slope. An exact
 identity cancels their derivative terms, and both computed radii bound the
 remaining squared norm by `t^2*epsilon`. Original Euclidean integer samples
 remain pinned to the original transfer. Ten focused gates and independent
 reviews passed. This fixes dimensionless factor-two normalization, not physical
-spacing, Wick analytic continuation or mass calibration. The parallel vacuum
-producer is still under verification; continuum endpoints remain open.
+spacing, Wick analytic continuation or mass calibration. Vacuum stationarity
+is recorded above; continuum endpoints remain open.
 
 **Original negative-rational tangent (2026-10-01):** the inverse-group
 residual now has a computed radius and the same exact `-2i` derivative phase,
@@ -34,9 +42,8 @@ uniqueness reconstructs the witness without a spectral theorem or quotient
 representative choice. Twenty-four focused gates and independent reviews
 passed, including the resolvent adapter and full complex pairing continuity.
 Full-real differentiation, physical spacing, continuum survival, full QFT,
-every-group realization and the Clay target remain open. Parallel agents are
-working on the original Euclidean/Cayley slope comparison and vacuum producer;
-these drafts are not counted as proved. See the
+every-group realization and the Clay target remain open. The later slope and
+vacuum proofs are recorded above. See the
 [domain-converse proof and parallel work](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-right-rational-domain-converse-and-parallel-endpoint-producers).
 
 **Original maximal-graph right-rational tangent (2026-10-01):** each supplied

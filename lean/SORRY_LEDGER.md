@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED original vacuum stationarity only (2026-10-01 UTC)
+
+- `ScaledCayleyVacuum.vacuumPoint` constructs an actual original unit-source
+  derivative-graph Point; `vacuumPoint_input` and `vacuumPoint_output` pin
+  the SAME original vacuum and zero without choosing a representative.
+- `cayley_vacuum`, `iterate_vacuum` and `limitMap_vacuum` pass exact
+  stationarity through actual finite products and their computed original
+  limits. `signedAction_vacuum` includes positive-real and inverse time;
+  `signedAction_vacuum_pairing` retains the FULL Hermitian pairing against
+  every original physical vector.
+- Fourteen focused gates and independent math/source/log/hash reviews passed,
+  all {propext,Quot.sound}. No new analytic premise, sorry, axiom, erased
+  witness or weakened frontier. Evidence: vacuum-stationarity addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: continuum vacuum/nonzero-excitation survival, translated buffered
+  locality, cyclicity, full same-theory QFT, physical spacing/scaling and mass,
+  every actual compact simple group and Clay. This is fixed nome/width only.
+  One root import added; full root/tree/build/audit/guard NOT checked.
+  Canonical chart, CI and safety limits unchanged.
+
 ## PROVED original Euclidean/Cayley slope comparison only (2026-10-01 UTC)
 
 - `ComplexBondOSWickSlopeComparison.euclideanRemainder_eq` retains the ACTUAL
@@ -16,8 +36,8 @@
   `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 - OPEN: full-real tangent, physical spacing/scaling, survival, finite positive
   physical mass, full continuum QFT, every actual group and Clay. This is NOT
-  Wick analytic continuation or a physical mass calibration. Vacuum draft
-  remains unverified. One root import added; full root/tree/audit NOT checked.
+  Wick analytic continuation or a physical mass calibration. Later vacuum
+  stationarity is recorded above. One root import added; full root/tree/audit NOT checked.
   Canonical chart, CI and safety limits unchanged.
 
 ## PROVED original negative-rational tangent only (2026-10-01 UTC)
@@ -61,7 +81,7 @@
 - OPEN: negative/full-real differentiation; physical spacing and changing-family
   calibration; useful complete signed scaling, nonzero continuum survival,
   finite positive physical mass, full continuum QFT, every actual group and Clay.
-  New parallel Euclidean/Cayley slope and vacuum producer drafts are unverified.
+  Later Euclidean/Cayley slope and vacuum proofs are recorded above.
 - Four root imports added; full root/tree/build/audit/guard NOT checked.
   Canonical chart, CI and memory-safety limits unchanged.
 
