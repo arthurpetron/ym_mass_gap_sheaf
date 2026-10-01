@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting positive real time on the physical bond completion
+(2026-10-01 UTC; chart unchanged): the original operator now acts on the
+completed bond sources at numerical positive real times, with composition,
+contraction, symmetry, vacuum and original time-one source pins. Explicit
+Cauchy rows supply zero-continuity radii and forward-increment control,
+without choosing quotient representatives. Fixed nome/width, dimensionless
+time only; canonical continuum OS/observable and physical scaling joins
+remain open. Two final focused checks passed 34 gates exactly in
+{propext, Quot.sound}; no broad run or canonical change. Evidence:
+`audits/AUDIT-BOND-COMPLETION-REAL-TIME-2026-10-01.md`.
+
 Verified supporting ORIGINAL whole-word quartic correction (2026-10-01 UTC;
 chart unchanged): the four-coordinate ordered telescope lifts each actual
 active-link fourth moment with explicit factor 16*L^4. The original radial

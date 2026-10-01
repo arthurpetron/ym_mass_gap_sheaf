@@ -5929,6 +5929,10 @@ import YMGap.Continuum.BF4WilsonAllNomeBondReflectedForm
 import YMGap.Continuum.BF4WilsonAllNomeBondOSRealization
 import YMGap.Continuum.BF4WilsonAllNomeBondOSQuotient
 import YMGap.Continuum.BF4WilsonAllNomeBondOSCompletion
+-- Numerical positive time on that SAME bond completion, with represented
+-- zero-continuity radii. Fixed nome/width; no physical scaling identification.
+import YMGap.Continuum.BF4WilsonAllNomeBondOSTime
+import YMGap.Continuum.BF4WilsonAllNomeBondOSRealTime
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary

@@ -463,6 +463,20 @@ a quotient. This completes the fixed-nome/width represented join, not the
 canonical continuum OS root or a time-zero multiplier action. Evidence:
 `audits/AUDIT-QUARTIC-MAJORANT-AND-BOND-COMPLETION-2026-10-01.md`.
 
+FOLLOW-ON PROVED: `BF4WilsonAllNomeBondOSTime` transports the original
+positive-time action to that SAME physical bond completion, retaining the
+computed range witness before quotienting. `BF4WilsonAllNomeBondOSRealTime`
+descends it to numerical positive real times, with composition, contraction,
+symmetry, nonnegative pairing, vacuum and original time-one source pins.
+`continuityCertificate` computes a positive zero-continuity radius from each
+explicit physical Cauchy row; `action_smallIncrement` uses the same radius
+at every forward time increment. No representative or modulus is selected
+from a quotient. Fixed nome/width, dimensionless time only; this neither
+descends the time-zero algebra nor supplies physical scaling. Two final
+focused checks passed 34 gates exactly in {propext, Quot.sound}; no broad
+run or canonical change. Evidence:
+`audits/AUDIT-BOND-COMPLETION-REAL-TIME-2026-10-01.md`.
+
 NEXT reconstruction residue: the SAME-object canonical limiting half-space
 OS/observable identification and physical spectral join, not another
 real-to-complex compatibility wrapper or an unjustified total Hamiltonian.
@@ -654,6 +668,13 @@ any changing-family limit joins. Supply an explicit useful nome/split
 schedule and its actual physical time/scaling justification; do not infer
 these from the guards. The appended source-selection review in
 `audits/RESEARCH-TARGETED-YM-FRONTIER-2026-09-30.md` records this priority.
+Its signed-family review rules out assuming cancellation from zero-sum
+coefficients or identifying original nome variation with an auxiliary Haar
+heat flow of the entire marginal. For a two-source difference, the existing
+exact expansion needs a LOWER cross-increment comparison, not another
+absolute correlation bound. No reviewed source supplies this comparison,
+its SAME-variance floor and physical-time budget together. These are source
+review conclusions, not new refutations or checked scaling estimates.
 The existing one-index ratio guard is too coarse near L=(1-w)^(-2/3);
 use the now-proved block bound. The diagnostic dyadic schedule is still
 unformalized and is NOT a justified physical scaling family. Existing

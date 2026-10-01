@@ -207,3 +207,58 @@ extending the positive mixed-moment branch. A proposed growing or smeared
 family must pay its support/length dependence and prove its limit joins.
 No new survival wrapper or unconditional angular-to-variance comparison
 is justified by the reviewed inputs.
+
+## Signed family and original weight review
+
+Reviewed 2026-10-01 UTC by parallel source inspection, without a new
+literature scan. These are planning conclusions from existing declarations,
+not new Lean estimates.
+
+Zero-sum spatial coefficients do not remove the leading Casimir term:
+`BF4ExactSlabFixedSpatialFamilyCasimir.spatialSpan_casimir`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyCasimir.lean:292`)
+has eigenvalue 12 for the entire signed plaquette family. Consequently
+`padded_family_energy_variance`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceTaylor.lean:65`)
+still reads `E = 12*(1-w)*Var + varianceRemainder`. The remainder includes
+both the original Taylor correction and the derivative of the full weight;
+no favorable sign is supplied by a coefficient sum alone.
+
+For a difference of two sources, `combinedTimeIncrement_expand`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeMixedTimeIncrement.lean:156`)
+already gives the exact expression `Dpp + Dqq - 2*Dpq` at coefficients
+1 and -1. Thus exploiting this cancellation needs a lower bound on Dpq
+relative to the diagonal terms. The existing
+`mixedTimeIncrement_cauchySchwarz`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeMixedTimeIncrement.lean:56`)
+supplies an absolute bound, not this lower comparison. A new two-by-two
+Gram expansion would repeat existing algebra without supplying the input.
+
+The law cannot be replaced by an independently heated or translated weight.
+`BF4ExactSlabFixedSpatialActualMarginalDual.marginalWeight`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialActualMarginalDual.lean:75`)
+is the product of the spatial weight and BOTH terminal messages at n and
+n+1. `SU2QuaternionWeightedCasimirWard.blockResidual`
+(`lean/YMGap/Continuum/SU2QuaternionWeightedCasimirWard.lean:45`)
+differentiates this complete weight. In contrast,
+`BF4ExactSlabCouplingCenteredResponse.face_response_pin`
+(`lean/YMGap/Continuum/BF4ExactSlabCouplingCenteredResponse.lean:71`)
+changes a selected face while retaining its background. Neither declaration
+identifies variation of the original nome with a Haar heat flow of the
+entire marginal. The proposed auxiliary heat-flow susceptibility identity
+is not implemented and is not a producer for the required original-family
+bound.
+
+The next analytic test therefore remains one specified original signed
+source, with either a signed remainder bound or a positive cross-increment
+lower comparison, a SAME-variance floor, and an actual physical-time
+budget. No reviewed declaration supplies that full combination. Do not
+assume finite spatial translation invariance of the terminal messages.
+
+The independent reconstruction task has a supplied-input route: transport
+the existing time action through the physical bond completion. This does
+not authorize transporting the time-zero multiplier algebra.
+`BF4WilsonAllNomeSectorObservableBoundary.no_original_multiplier_sector_map`
+(`lean/YMGap/Continuum/BF4WilsonAllNomeSectorObservableBoundary.lean:107`)
+already refutes that direct restriction at width one. It does not assert
+the stronger, unproved failure of every possible bond-null algebra action.

@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED numerical real time on the physical bond completion (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeBondOSTime.bondAction` constructs the original positive
+  time action on the completed physical bond sources. Range data are
+  constructed before quotienting; the original vector, distance, pairing,
+  vacuum and time-one geometric source advance are pinned.
+- `BF4WilsonAllNomeBondOSRealTime.action` depends only on the numerical
+  positive real time, composes by addition, and preserves contraction,
+  symmetry and nonnegative pairing. `continuityCertificate` computes a
+  positive radius from explicit Cauchy rows, without quotient choice.
+  `action_smallIncrement` propagates it to every forward increment.
+- Fixed nome/width and dimensionless time only. OPEN: signed cost versus
+  SAME interacting variance on a justified physical scaling family,
+  canonical limiting OS/observable identification, physical calibration,
+  continuum survival, full QFT/every-group/Clay. No time-zero algebra is
+  silently restricted to the sector.
+- Two final focused checks passed 34 gates exactly in {propext, Quot.sound}.
+  No sorry, canonical field or chart node changed; no broad run. Evidence:
+  `audits/AUDIT-BOND-COMPLETION-REAL-TIME-2026-10-01.md`.
+
 ## PROVED original whole Wilson word quartic correction (2026-10-01 UTC)
 
 - `QuaternionHaarWordComponents.terms_components` telescopes the literal
