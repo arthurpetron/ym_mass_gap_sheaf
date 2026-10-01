@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting signed second order with actual cutoff debt
+(2026-10-01 UTC; chart unchanged): the ORIGINAL signed-family energy now
+has an explicit second-order ceiling under its SAME odd partition and
+interacting variance. The mixed-minus-diagonal quadratic coefficient
+retains its negative Casimir square; only cubic and omitted-mode terms
+are bounded absolutely. Both interacting weight/Ward corrections remain
+signed. Actual coordinatewise cutoff debt is paid, not replaced by an
+untruncated operator. Scaling-uniform control of these budgets and the
+combined correction remains OPEN. Six focused checks passed 58 gates
+within {propext, Quot.sound}; no broad run or canonical field change.
+Evidence: `audits/AUDIT-SIGNED-SECOND-ORDER-CUTOFF-DEBT-2026-10-01.md`.
+
 Verified supporting mixed connected bond decay (2026-10-01 UTC; chart
 unchanged): EVERY pair of completed physical bond states satisfies
 M_(2n)(X,Y)^2<=(q^n*Var_bond(X))*(q^n*Var_bond(Y)), with the existing

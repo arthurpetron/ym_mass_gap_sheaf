@@ -4907,6 +4907,12 @@ import YMGap.Continuum.SU2QuaternionWeightedCasimirWard
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCasimir
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyVarianceWard
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyVarianceTaylor
+-- Signed quadratic cancellation, cubic payment and ORIGINAL coordinatewise cutoff debt.
+import YMGap.Continuum.SU2HeatRetainedCubicTaylor
+import YMGap.Continuum.SU2HeatProductCutoffDebt
+import YMGap.Continuum.SU2QuaternionCyclicCasimirMixed
+import YMGap.Continuum.SU2QuaternionCyclicSecondOrder
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilySecondOrder
 -- Exact spectator Gram-channel reduction of original moments and plaquette energy.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
 -- Computed Casimir-square channel contraction; actual second moment joined by the BF4 consumer above.

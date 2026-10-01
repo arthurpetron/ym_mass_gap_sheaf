@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Signed second order retains cancellation and actual cutoff debt (2026-10-01 UTC)
+
+The complete signed-family identity now has an actual second-order upper
+estimate, not an assumed analytic certificate. For h=1-w and the original
+projected source q, the quadratic coefficient retains
+D2=H[(Cq)*C(q*f^2)]-H[(C(q*f))^2]. The source energy is
+h*A+(h^2/2)*(D2+A)+cubicCorrection-cutoffCorrection. Only the last two
+terms receive absolute bounds, using computed finite-tree cubic budgets
+and the ORIGINAL coordinatewise cutoff debt. The coefficient of a removed
+path is at most w^((K+1)*(K+3)), before paying its signed pairing norm.
+
+`BF4ExactSlabFixedSpatialFamilySecondOrder.padded_family_energy_le_secondOrder`
+places this estimate in the EXISTING energy/variance identity under the
+SAME odd mass and original mean. It retains both -h*angularWeightDefect
+and -h*wardResidual; neither is assigned a helpful sign. There is no source
+inverse, variance inverse, alternate marginal or terminal-depth change.
+Six focused checks passed 58 gates within {propext, Quot.sound}. Evidence:
+`audits/AUDIT-SIGNED-SECOND-ORDER-CUTOFF-DEBT-2026-10-01.md`.
+
+NEXT: localize the retained quadratic cancellation using the actual
+Casimir product rule and Haar integration by parts, then bound the
+remaining interacting derivatives and finite cutoff payment against
+SAME variance on a justified physical family. This is a candidate argument,
+not a checked derivative identity or scaling estimate. The finite-tree
+budgets may grow with the changing terminal source. No canonical node,
+continuum prerequisite or whole-project target is closed by this result.
+
 ### Actual transfer gap reaches the original series core (2026-09-30 UTC)
 
 An independent reconstruction join now has supplied inputs and a short proof.

@@ -102,7 +102,7 @@ private theorem qListSum_smul_eqv (c : Q') (f : Nat → Q') : ∀ ids : List Nat
       (Q'.add_eqv_congr' (Q'.eqv_refl _) (qListSum_smul_eqv c f ds))
       (Q'.eqv_symm (Q'.mul_add_eqv c _ _))
 
-private theorem leafSum_congr (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
+theorem leafSum_congr (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
     (left right : List Nat → Q'),
     (∀ ds, ds.length = m → left ds ≈ right ds) →
     leafSum tail m p test left ≈ leafSum tail m p test right
@@ -112,7 +112,7 @@ private theorem leafSum_congr (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
         leafSum_congr tail m (nextPiece tail p d) test _ _
           (fun ds hlen => h (d::ds) (by simp only [List.length_cons, hlen])))
 
-private theorem leafSum_add (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
+theorem leafSum_add (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
     (left right : List Nat → Q'),
     leafSum tail m p test (fun ds => left ds + right ds) ≈
       leafSum tail m p test left + leafSum tail m p test right
@@ -131,7 +131,7 @@ private theorem leafSum_add (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
           leafSum_add tail m (nextPiece tail p d) test _ _))
         (qListSum_add_eqv _ _ _)
 
-private theorem leafSum_smul (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
+theorem leafSum_smul (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
     (c : Q') (weight : List Nat → Q'),
     leafSum tail m p test (fun ds => c * weight ds) ≈
       c * leafSum tail m p test weight
@@ -143,7 +143,7 @@ private theorem leafSum_smul (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
           leafSum_smul tail m (nextPiece tail p d) test c _))
         (qListSum_smul_eqv c _ _)
 
-private theorem leafAbsSum_smul (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
+theorem leafAbsSum_smul (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
     (c : Q') (weight : List Nat → Q'),
     leafAbsSum tail m p test (fun ds => c * weight ds) ≈
       c * leafAbsSum tail m p test weight
@@ -213,7 +213,7 @@ private theorem leafSum_taylor (tail : Nat) (m : Nat) (p test : RatPoly)
                   | _ => leafSum tail m p test totalCasimir))))))
         (Q'.eqv_refl _)))
 
-private theorem leaf_two_sided_bound (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
+theorem leaf_two_sided_bound (tail : Nat) : ∀ (m : Nat) (p test : RatPoly)
     (weight bound : List Nat → Q'),
     (∀ ds, ds.length = m → (0 : Q') ≤ weight ds) →
     (∀ ds, ds.length = m → weight ds ≤ bound ds) →
@@ -331,5 +331,10 @@ end YMGap.Continuum.SU2QuaternionCyclicModeTaylor
 
 #print axioms YMGap.Continuum.SU2QuaternionCyclicModeTaylor.leafSum_modeFold
 #print axioms YMGap.Continuum.SU2QuaternionCyclicModeTaylor.productPair_taylor
+#print axioms YMGap.Continuum.SU2QuaternionCyclicModeTaylor.leafSum_congr
+#print axioms YMGap.Continuum.SU2QuaternionCyclicModeTaylor.leafSum_add
+#print axioms YMGap.Continuum.SU2QuaternionCyclicModeTaylor.leafSum_smul
+#print axioms YMGap.Continuum.SU2QuaternionCyclicModeTaylor.leafAbsSum_smul
+#print axioms YMGap.Continuum.SU2QuaternionCyclicModeTaylor.leaf_two_sided_bound
 #print axioms YMGap.Continuum.SU2QuaternionCyclicModeTaylor.pairRemainder_le_quadratic
 #print axioms YMGap.Continuum.SU2QuaternionCyclicModeTaylor.neg_pairRemainder_le_quadratic

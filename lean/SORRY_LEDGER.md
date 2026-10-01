@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED signed second order with actual cutoff debt (2026-10-01 UTC)
+
+- `SU2HeatRetainedCubicTaylor.cubicRemainder_budget_lower` and
+  `cubicRemainder_nonpositive` bound the scalar cubic remainder by
+  -B(S)*(1-w)^3 and zero, with an explicit recursive nonnegative B.
+- `SU2HeatProductCutoffDebt.productRemainder_secondOrder` preserves the
+  ORIGINAL coordinatewise cutoff. The omitted coefficient is explicit,
+  nonnegative and bounded by w^((K+1)*(K+3)); signed pairing coefficients
+  still have to be paid. No untruncated operator or source-degree guard.
+- `SU2QuaternionCyclicSecondOrder.sourceSecondMoment_literal` retains
+  H[(Cq)*C(q*f^2)]-H[(C(q*f))^2]. `sourceEnergy_le_secondOrder`
+  bounds only the cubic and omitted-mode terms absolutely, keeping the
+  mixed-minus-diagonal quadratic coefficient signed.
+- `BF4ExactSlabFixedSpatialFamilySecondOrder.padded_family_energy_le_secondOrder`
+  joins this to the EXISTING normalized energy and SAME interacting
+  variance. Both the angular weight defect and complete-weight Ward
+  residual remain, with the original mean, projected source and odd mass.
+- OPEN: a useful bound on that combined correction relative to SAME
+  variance along a justified scaling family. The cubic/tree budget and
+  cutoff tail coefficient norm have no proved scaling-uniform control.
+  Physical survival, mass, continuum QFT and every group remain open.
+- Six focused checks passed 58 printed gates within {propext, Quot.sound}.
+  No sorry, new axiom, broad run or canonical field/chart change. Evidence:
+  `audits/AUDIT-SIGNED-SECOND-ORDER-CUTOFF-DEBT-2026-10-01.md`.
+
 ## PROVED mixed connected decay on EVERY original bond class (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeBondOSConnectedDecay.connected_even_lag_sq_decay`
