@@ -25,8 +25,12 @@ independent reviews passed within {propext,Quot.sound}. The actual limit now
 obeys positive-real addition, preserves the FULL original Hermitian pairing
 and has a constructed two-sided conjugate inverse with Type-level preimage.
 Twenty-seven further focused gates and independent reviews passed. Signed-real
-time, strong continuity and physical calibration remain OPEN. Evidence:
-positive-real parameter and addition/pairing/inverse addenda in
+time, strong continuity and physical calibration remain OPEN.
+`PositiveTimeLinear.positiveRealAction_add` and `positiveRealAction_smul` now
+test against the actual inverse preimage to prove complex linearity on the SAME
+carrier, retaining both scalar Cauchy witnesses. Two further focused gates and
+independent review passed. Evidence: positive-real parameter,
+addition/pairing/inverse and complex-linearity addenda in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
 **Original Euclidean graph transport and Cayley limit commutation (2026-10-01 UTC):**

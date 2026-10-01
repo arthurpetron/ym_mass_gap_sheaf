@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED positive-real complex linearity from actual inverse preimages only (2026-10-01 UTC)
+
+- `PositiveTimeLinear.positiveRealAction_add` and `positiveRealAction_smul`
+  use original physical `eq_of_pairings` with each test's computed
+  `inverseRealAction` preimage, not an assumed onto range. FULL Hermitian
+  preservation and original pairing laws prove the exact linear identities.
+  Both complex scalar QCauchy witnesses remain explicit.
+- Two focused gates and independent source/math/log/hash review passed within
+  {propext,Quot.sound}; no new analytic input, choice, sorry or axiom.
+  Evidence: complex-linearity addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: signed-real group and strong continuity; SAME-generator physical
+  spacing/scaling calibration, complete signed scaling, continuum survival,
+  finite positive mass, full continuum QFT, every compact simple group and Clay.
+- One root import added; full root/tree/build/audit/guard NOT run.
+  No canonical chart claim changed; CI and safety limits unchanged.
+
 ## PROVED positive-real addition, full pairing and constructed inverse only (2026-10-01 UTC)
 
 - `PositiveTimeAddition.sum_sample_close` bounds the existing sum-time's upward

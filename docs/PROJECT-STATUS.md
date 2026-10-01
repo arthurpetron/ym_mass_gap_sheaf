@@ -6,9 +6,12 @@ the actual sum-time action with composition using BOTH original convergence
 rates. FULL Hermitian preservation passes the real sum and imaginary cross
 difference through actual original limits. Physical conjugation constructs
 a two-sided inverse and Type-level preimage using the original forward rate.
-Twenty-seven focused gates and independent reviews passed. Signed-real time,
+Twenty-seven focused gates and independent reviews passed. The constructed
+preimages now prove complex linearity with both scalar moduli retained; its
+two further focused gates and independent review passed. Signed-real time,
 strong continuity, physical calibration, primary signed scaling, survival,
 continuum QFT and every group remain OPEN. Evidence: addition/pairing/inverse
+and complex-linearity
 addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 No displayed claim changed; no ASCII reprint.
 

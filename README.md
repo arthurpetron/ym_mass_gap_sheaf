@@ -18,7 +18,9 @@ and original source-dependent continuity radius. Equivalent real-time
 presentations give the SAME map, and positive rationals recover the original
 limit exactly. The SAME constructed action now obeys positive-real addition,
 preserves the FULL Hermitian pairing, and has a computed two-sided conjugate
-inverse with Type-level preimage. Focused constructive checks and independent
+inverse with Type-level preimage. Testing against those explicit preimages now
+proves complex linearity, retaining both scalar Cauchy witnesses. Focused
+constructive checks and independent
 reviews passed. Signed-real time, strong continuity and physical calibration
 remain open. This fixes coupling and width, not continuum Yang--Mills. See the
 [addition, pairing and inverse proofs](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#positive-real-addition-full-pairing-and-constructed-inverse).

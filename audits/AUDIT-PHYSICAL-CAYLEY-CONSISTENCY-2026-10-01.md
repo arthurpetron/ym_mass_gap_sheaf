@@ -1102,3 +1102,33 @@ energy estimates, translated continuum locality or compact-group Haar/heat
 realizations. Generator identification, physical spacing/scaling, useful
 signed-energy control, survival, finite positive physical mass, full continuum
 QFT, every actual compact simple group and Clay remain OPEN.
+
+## Positive-real complex linearity from constructed preimages
+
+The parallel inverse author supplied this short SAME-carrier consumer in
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimeLinear.lean`.
+`positiveRealAction_add:51` and `positiveRealAction_smul:70` use original
+physical `eq_of_pairings`. For each test z, the ACTUAL
+`inverseRealAction time z` is an explicit preimage: the already proved right
+inverse rewrites z as U_t(preimage). FULL Hermitian preservation and the
+original `inner_add_left`/`inner_smul_left` laws then give the exact identities.
+No surjectivity field, representative selection or duplicated polarization
+algebra is needed. BOTH supplied scalar QCauchy witnesses remain explicit.
+
+The parent focused check emitted the module's `.olean`; both source-site
+gates90--91 passed within {propext,Quot.sound}. Luna independently reviewed
+the mathematics, source, sites, accepted log and SHA256:
+
+- `/tmp/ym-cayley-positive-time-linear-first-20261001.log`
+- `7a7fb52c5984d6912b41c44a23f3f1638ab8d36ffef5f41f834d82f0e85e7d11`
+
+No sorry, forbidden axiom, new analytic premise, safety-limit change or
+canonical frontier weakening. One serialized20-GiB worker and12-GiB reserve
+retained. One root import added; full root/tree/build/audit/guard NOT run.
+CI unchanged. No displayed chart claim changed; no ASCII reprint.
+
+NEXT: signed-real group and source-derived strong continuity. Complex-linear
+positive-time bijective isometries alone do not supply those parameter laws,
+the physical clock/maximal-generator calibration or any changing-scale input.
+Complete signed scaling, continuum survival, finite positive physical mass,
+full continuum QFT, actual every-group realization and Clay remain OPEN.

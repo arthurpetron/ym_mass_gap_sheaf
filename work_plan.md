@@ -139,8 +139,15 @@ source/math/log/hash reviews passed. Evidence: positive-real
 addition/pairing/inverse addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
-NEXT operator propositions: derive complex linearity of the constructed
-positive-real action and join positive parameters with their constructed
+The parallel `PositiveTimeLinear.positiveRealAction_add` and
+`positiveRealAction_smul` now derive complex linearity by testing against
+the ACTUAL `inverseRealAction` preimage of each original physical test.
+FULL Hermitian preservation and original pairing laws retain BOTH scalar
+QCauchy witnesses. Two further focused gates and independent review passed;
+no assumed surjectivity or new analytic premise. Evidence: complex-linearity
+addendum in the same audit.
+
+NEXT operator propositions: join positive parameters with their constructed
 inverses into a signed-real group with original source-derived continuity.
 These have existing inputs; no group law or continuity is to be assumed.
 Preserve the proved -2i normalization. Addition/pairing/inverses alone do not identify
