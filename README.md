@@ -10,6 +10,19 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original right-rational domain converse (2026-10-01):** a supplied
+right-rational tangent, with its explicit radius and exact `-2i` phase, now
+constructs a domain witness for the SAME original derivative graph, with both
+input and output pins. The original positive resolvent transports the tangent;
+uniqueness reconstructs the witness without a spectral theorem or quotient
+representative choice. Twenty-four focused gates and independent reviews
+passed, including the resolvent adapter and full complex pairing continuity.
+Full-real differentiation, physical spacing, continuum survival, full QFT,
+every-group realization and the Clay target remain open. Parallel agents are
+working on the original Euclidean/Cayley slope comparison and vacuum producer;
+these drafts are not counted as proved. See the
+[domain-converse proof and parallel work](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-right-rational-domain-converse-and-parallel-endpoint-producers).
+
 **Original maximal-graph right-rational tangent (2026-10-01):** each supplied
 physical graph point now computes a positive radius for its normalized Cayley
 residual, retaining the exact `-2i` phase and SAME derivative output. The proof

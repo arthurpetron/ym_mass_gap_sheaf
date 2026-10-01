@@ -6186,6 +6186,11 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSecondCoreGraphDensity
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyDomainDisplacement
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyGraphTangentComparison
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyMaximalTangent
+-- Witnessed RIGHT-RATIONAL converse on the SAME graph; not full-real/scaling closure.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSPairingContinuity
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyResolventTangent
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyTangentData
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyGeneratorConverse
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

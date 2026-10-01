@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## PROVED original right-rational domain converse only (2026-10-01 UTC)
+
+- `ScaledCayleyTangentData.RightTangent` DEFINES witnessed rational
+  differentiability of the actual original Cayley map, not an assumed
+  Yang--Mills estimate. `ofPointTangent` computes this data from a SUPPLIED
+  original Point; `RightTangent.unique` retains BOTH explicit radii.
+- `ScaledCayleyResolventTangent` proves original rational linear/difference,
+  contraction and unit-domain graph pins. `GeneratorConverse.transportTangent`
+  uses them with the unchanged supplied radius. Original tangent uniqueness
+  pins the resolvent output; `ofRightTangent` computes the unit-resolvent
+  domain of u+v, with input u and output v. Quotient induction is only in an
+  equality proof, never a class-to-modulus or Type-witness selection.
+- `ComplexBondOSPairingContinuity.inner_pairing_close` proves explicit
+  two-slot FULL Hermitian continuity, keeping diagonal sums and signed cross
+  differences. It is useful independently; the short converse does not use it.
+- Twenty-four focused gates (1+9+7+7) passed: one empty, 23
+  {propext,Quot.sound}; independent math/source/log/hash reviews passed.
+  No new sorry, axiom, analytic estimate, erased witness or weakened frontier.
+  Evidence: domain-converse addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: negative/full-real differentiation; physical spacing and changing-family
+  calibration; useful complete signed scaling, nonzero continuum survival,
+  finite positive physical mass, full continuum QFT, every actual group and Clay.
+  New parallel Euclidean/Cayley slope and vacuum producer drafts are unverified.
+- Four root imports added; full root/tree/build/audit/guard NOT checked.
+  Canonical chart, CI and memory-safety limits unchanged.
+
 ## PROVED original maximal-graph right-rational tangent only (2026-10-01 UTC)
 
 - `ScaledCayleyDomainDisplacement.limitMap_domain_distance_le_eight` passes

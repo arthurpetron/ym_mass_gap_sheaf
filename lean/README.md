@@ -12,6 +12,23 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original right-rational domain converse (2026-10-01 UTC):**
+`ScaledCayleyTangentData.ofPointTangent` retains the supplied ORIGINAL Point's
+radius and exact `-2i` phase; `RightTangent.unique` uses physical definiteness
+and both computed radii. `ScaledCayleyGeneratorConverse.transportTangent`
+uses the ORIGINAL resolvent contraction without changing the supplied radius.
+`ofRightTangent` constructs the actual unit-resolvent domain of `u+v`, with
+BOTH original input/output pins. No class-to-radius selection, spectral
+theorem or new analytic estimate is used. The separate full Hermitian
+`PairingContinuity.inner_pairing_close` keeps both signed cross terms; it is
+not needed for the shorter resolvent converse. Twenty-four focused gates
+(1+9+7+7) and independent reviews passed: one empty, 23 {propext,Quot.sound}.
+Four root imports added; full root/tree/build/audit/guard NOT checked.
+Negative/full-real differentiation, physical spacing, survival, full continuum
+QFT and every group remain OPEN. Parallel slope/vacuum drafts are unverified.
+Evidence: domain-converse addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Original maximal-graph right-rational tangent (2026-10-01 UTC):**
 `ScaledCayleyDomainDisplacement.limitMap_domain_distance_le_eight` passes
 the actual finite displacement bound to EVERY original domain class.

@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting original right-rational domain converse (2026-10-01 UTC;
+chart unchanged): supplied tangent data transport through the ORIGINAL positive
+resolvent with unchanged radius. Physical tangent uniqueness reconstructs the
+original unit-resolvent domain of input+output with BOTH graph pins and exact
+-2i phase. Twenty-four focused gates and independent reviews passed, including
+the separate full Hermitian pairing-continuity estimate. Negative/full-real
+differentiation, physical spacing, changing-family survival, physical mass,
+continuum QFT and every group remain OPEN. Parallel Euclidean/Cayley slope and
+vacuum-producer drafts are not counted as proved. Evidence: domain-converse
+addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original maximal-graph RIGHT-RATIONAL tangent
 (2026-10-01 UTC; chart unchanged): the actual limit displacement holds on
 EVERY original domain class. Comparing two graph points pays only derivative

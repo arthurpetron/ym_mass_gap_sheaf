@@ -1529,3 +1529,96 @@ These remain separate from the original changing-family volume-uniform pairing
 estimate, translated buffered locality and actual compact-group producers.
 Physical spacing/scaling, nontrivial continuum survival, finite positive
 physical mass, full QFT, every compact simple group and Clay remain OPEN.
+
+## Original right-rational domain converse and parallel endpoint producers
+
+After `63f406e`, the requested parallel work produced a short ORIGINAL-resolvent
+domain converse while separate agents investigated survival, physical
+normalization, QFT and compact-group consumers. The theorem below concerns the
+SAME fixed-nome/fixed-width carrier; it is not a continuum closure.
+
+### Proved rational tangent and reconstructed domain
+
+- `lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyTangentData.lean:64`,
+  `slope`, is exactly -2i times the supplied output. `:67`, `rightQuotient`,
+  uses the ACTUAL original Cayley limit. `:72`, `RightTangent`, defines its
+  witnessed rational differentiability, with the radius as Type-level data.
+  `:202`, `ofPointTangent`, computes this from a supplied original Point.
+  `:219`, `eq_of_distance_small`, and `:241`, `RightTangent.unique`, use
+  physical definiteness and both supplied radii, without choosing representatives.
+- `lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyResolventTangent.lean:67`,
+  `pairResolvent_add`; `:74`, `pairResolvent_realScale`; `:95`,
+  `pairResolvent_imagScale`; and `:106`, `pairResolvent_diff`, are laws of the
+  ORIGINAL graph inverse. `:128`, `unitDomain`, and `:132`, `unitDomain_input`,
+  compute its original domain; `:140`, `unitDomain_graph_sum`, pins input+output.
+- `lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyGeneratorConverse.lean:48`,
+  `rightQuotient_pairResolvent`, transports the actual quotient. `:55`,
+  `transportTangent`, uses original distance contraction and UNCHANGED radius.
+  `:81`, `resolvent_output`, pins the resolvent output by original tangent
+  uniqueness. Quotient induction is only in that equality proof. `:90`,
+  `reconstructedDomain`, computes unitDomain(u+v); `:92`,
+  `reconstructedDomain_input`, and `:102`, `reconstructedDomain_output`, pin
+  BOTH original graph coordinates. `:112`, `ofRightTangent`, returns the
+  original Domain and both pins as Type data. There is no spectral theorem,
+  pairing-limit proof, new estimate or class-to-radius selection.
+- Independently,
+  `lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSPairingContinuity.lean:94`,
+  `inner_pairing_close`, passes FOUR original real two-slot estimates into the
+  FULL Hermitian diagonal sum and signed cross difference, with explicit
+  rational cap and tolerance. This is not needed for the shorter converse.
+
+### Requested parallel endpoint work
+
+Survival's exact finite cancellation is already proved:
+`lean/YMGap/Continuum/BF4ExactSlabFaceInsertionDeterminant.lean:59`,
+`face_insertion_determinant`, and
+`lean/YMGap/Continuum/BF4ExactSlabCouplingCenteredResponse.lean:81`,
+`face_centered_response_pin`, retain the SAME background and normalized source.
+`lean/YMGap/Continuum/BF4ExactSlabHeterogeneousConnectedExpansion.lean:108`,
+`connectedNumerator_zero`, and `:185`, `connectedNumerator_filtered`, remove
+genuinely separated selections, not remote faces joined by intermediate faces.
+The missing producer is a near-one-nome, cutoff- and volume-uniform SUMMABLE
+bound on that actual connected face response. No duplicate cancellation
+theorem or assumed-survival wrapper was added.
+
+The physical-normalization agent is drafting an actual original
+Euclidean/Cayley slope comparison; the QFT agent is drafting the original
+unit-source vacuum graph and signed-group invariance. They are UNVERIFIED and
+not included in the gate count or committed proof scope here. Neither would
+supply physical spacing, a scaling rate band or translated buffered locality.
+
+Group review distinguishes center gauge symmetry from independent link-sign
+descent. `lean/YMGap/Continuum/SU2QuaternionProductHeatCenterSign.lean:348`,
+`heatAt_centerSign`, changes BOTH paired endpoints. It does not prove an
+independent q-to-minus-q quotient law for the original all-spin heat. The
+rational sign quotient supplies no compact Haar/OS consumer; no parity-only
+module or SO(3) Yang--Mills claim was introduced.
+
+### Exact verification boundary
+
+All FOUR focused checks emitted oleans. Twenty-four source-site gates passed:
+one empty axiom set, 23 exactly {propext,Quot.sound}. Independent mathematical
+and exact source/log/hash reviews passed. The first converse error log is
+rejected evidence; its missing CReal namespace was fixed before acceptance.
+No new sorry, axiom, analytic estimate, erased witness or weakened frontier.
+
+| Module suffix | Gates | Accepted log in `/tmp` | Log SHA256 |
+| --- | ---: | --- | --- |
+| `ComplexBondOSPairingContinuity` | 1 | `ym-complex-bond-pairing-continuity-20261001.log` | `fbb753f7672d79b2f4104aeb63af280ad5aabf1b37bcdd0b0bfdae06cd221361` |
+| `ScaledCayleyResolventTangent` | 9 | `ym-resolvent-tangent-20261001.log` | `83d2e7578c7198c622a311e29b2752401cc03eca5e49d5b7795f9d27499e73b9` |
+| `ScaledCayleyTangentData` | 7 | `ym-tangent-data-20261001.log` | `d8b11f0be0e94193cda4a0d1f8af731d023591f69e990ec68f90df33b5562f4e` |
+| `ScaledCayleyGeneratorConverse` | 7 | `ym-generator-converse-second-20261001.log` | `287a152b8503f5c10e01562d8c568f0358f919549fda0a73e6c6fb686c97a30e` |
+
+The corresponding source SHA256 values are, in table order:
+`d22f3e7d928aace7b5d4a607b833a5b24d03f6d05f4991a3a8a8e0aee5210c54`,
+`264f30157a1cdc31ffc18b2d24e418620c2f2d6c7febf9ef1387d7235b3e1342`,
+`6896cf605300077d53d5922a8f0eed7bba08a3ab7163237416b9c09d181213cc`,
+`957ec6e3398cf1a372ac1c3c90b747f21bc4456705e5334f3c9fa509209348cd`.
+
+Four root imports added; full root/tree/build/audit/guard NOT checked. ONE
+20-GiB compiler and 12-GiB OS reserve were retained with continuous telemetry;
+other user computation was left alone. CI and resource thresholds unchanged.
+No exact displayed chart claim changed; no ASCII reprint.
+Negative/full-real differentiation, physical spacing and useful signed scaling,
+nontrivial continuum survival, finite positive physical mass, full same-theory
+QFT, actual every-group realization and Clay remain OPEN.

@@ -25,6 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original right-rational domain converse and parallel producers (2026-10-01 UTC)
+
+PROGRESS after `63f406e`: the SAME original positive resolvent J commutes with
+the actual Cayley difference quotient and its -2i slope. Its distance
+contraction transports a supplied `RightTangent` with UNCHANGED radius.
+The represented original graph tangent and physical uniqueness give
+J(v)=u-J(u). Hence the already computed unit-domain of u+v has input u and
+output v. `GeneratorConverse.ofRightTangent` returns BOTH pins with the original
+Domain as Type data, not an assumed domain or selected quotient representative.
+`RightTangent` defines witnessed rational differentiability; it is not a new
+open analytic hypothesis. The independent full complex pairing-continuity
+lemma is available, but the shorter converse does not need a pairing limit.
+Twenty-four focused gates and independent math/source/log/hash reviews passed.
+Evidence: domain-converse addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+Requested parallel work is split by actual consumers, not duplicate wrappers:
+one Sol agent is drafting the SAME original Euclidean/Cayley first-order slope
+comparison with BOTH computed radii and an exact action pin; another is
+drafting an explicit unit-source vacuum graph and its signed-action invariant.
+Neither draft is counted as proved. Luna reviewed source/gates and endpoint
+interfaces. Survival's exact disconnected-selection cancellation is already
+proved: the missing input bounds the CONNECTED remote-face response uniformly
+near nome one. The SU(2) center-sign laws do not give independent-link SO(3)
+descent; central averaging changes the action and lacks an all-cutoff floor.
+No parity-only or assumed-survival module was added.
+
+NEXT: finish serialized negative-tangent, slope-pin and original-vacuum checks;
+then pass the graph identification to full real time with supplied data.
+Physical spacing and changing-family finite positive mass, survival, translated
+buffered locality, the full continuum QFT and actual every-group producers
+remain separate OPEN obligations. Four root imports added; full root/tree/build/
+audit/guard NOT checked. ONE 20-GiB compiler, 12-GiB OS reserve, continuous safety
+telemetry; no parallel compilers. Canonical chart and CI unchanged.
+
 ### Original maximal-graph right-rational tangent and parallel endpoint work (2026-10-01 UTC)
 
 PROGRESS after `2021dc0`: the ORIGINAL finite displacement passes through its
