@@ -4967,6 +4967,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoungExplicit
 -- The one-copy source response is not the interacting variance.
 import YMGap.Continuum.SU2QuaternionProductHeatJumpMean
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoungCancellation
+import YMGap.Continuum.SU2QuaternionProductHeatSumTest
+import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceEvenCancellation
 import YMGap.Continuum.SU2QuaternionPositiveSourceVarianceFence
 -- Original plaquette energy: geometric O(1-w) weight and zeroth-order O((1-w)^2) remainder.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoungGeometricBudget

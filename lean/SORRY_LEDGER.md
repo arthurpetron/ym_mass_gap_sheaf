@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED quadratic source correction in original plaquette energy (2026-10-01 UTC)
+
+- `SU2QuaternionProductHeatSumTest.sumTest_square_le_rawSourceMass`
+  proves the test norm bound 64*A, A=H[q^2], for the original product heat.
+- `BF4ExactSlabFixedSpatialSourceEvenCancellation.quadratic_jump_mean`
+  computes the test pairing as 2*R, R=(1-w^32)*(F-A), F=H[q^2*f^2].
+  `sourceIncrement_even_square` gives R^2<=16*A*D.
+- `padded_terminal_even_square` supplies the COMPLETE projected terminal
+  source and proves 64*A*E+R^2<=32*A*C. Its normalized companion retains
+  the SAME odd Z: 64*(A/Z)*(E/Z)+(R/Z)^2<=32*(A/Z)*(C/Z).
+  No source reciprocal, stationarity or nonzero-response premise is added.
+- OPEN: actual source-moment control, comparison with SAME interacting
+  centered variance and a justified physical scaling family. R can vanish
+  when F=A; no strict gain is asserted. The odd/even correction squares
+  cannot be added without a joint estimate. Continuum/Clay remain open.
+- Two focused checks passed eight gates exactly in {propext, Quot.sound}.
+  No sorry, canonical field or chart change; no broad run. Evidence:
+  `audits/AUDIT-QUADRATIC-SOURCE-CANCELLATION-2026-10-01.md`.
+
 ## PROVED retained source square in original plaquette energy bound (2026-10-01 UTC)
 
 - `SU2QuaternionProductHeatJumpMean` gives the exact normalized heat

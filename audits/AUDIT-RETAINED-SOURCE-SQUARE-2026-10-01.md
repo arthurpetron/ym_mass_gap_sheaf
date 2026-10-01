@@ -68,7 +68,7 @@ from temporal averaging or widening coefficients alone. Their existing
 norm/energy estimates do not establish a vanishing energy/variance ratio.
 This review is not a new impossibility theorem for either family.
 
-The next reviewed, NOT kernel-checked candidate uses the test
+At this checkpoint, the next reviewed, NOT kernel-checked candidate used the test
 (q_x+q_y)*(f_x+f_y). The product with Delta q*Delta f is
 Delta(q^2)*Delta(f^2). With A=H[q^2] and F=H[q^2*f^2], the exact
 label-two heat image suggests mean 2*(1-w^32)*(F-A); the existing
@@ -77,6 +77,11 @@ yield 64*A*E+(1-w^32)^2*(F-A)^2<=32*A*C, without any response reciprocal.
 The linear and quadratic test squares may NOT be added without proving
 their joint Gram/orthogonalization estimate. This candidate still requires
 the separate SAME interacting variance comparison.
+
+Subsequent checkpoint: this quadratic test and its normalized energy
+consumer are now checked. See
+`audits/AUDIT-QUADRATIC-SOURCE-CANCELLATION-2026-10-01.md` for the exact
+declarations and remaining source-moment input.
 
 ## Verification boundary
 

@@ -627,17 +627,26 @@ one-copy Haar moment is NOT the interacting mean under q*Pq. Neither a
 positive fraction of the channel cost nor a SAME-variance scaling gain is
 proved. Keep this distinction when seeking stronger retained corrections.
 Evidence: `audits/AUDIT-RETAINED-SOURCE-SQUARE-2026-10-01.md`.
-NEXT ANALYTIC CANDIDATE (reviewed argument, NOT yet kernel-checked): test
-the source-increment product against (q_x+q_y)*(f_x+f_y), not just 1.
-With A=H[q^2], F=H[q^2*f^2], its mean is
-2*(1-w^32)*(F-A), and the existing character cap suggests squared test
-norm <=64*A. Cauchy--Schwarz would then give the unconditional cleared
-bound 64*A*E+(1-w^32)^2*(F-A)^2<=32*A*plaquetteChannelCost.
-This retains quadratic source information missed by H[q*f], without
-dividing by an unproved positive response. Do NOT add the two retained
-squares: they test the SAME correction and require their joint Gram matrix
-or orthogonalization for an additive improvement. Neither raw source
-moment is the SAME interacting variance; that comparison remains primary.
+FOLLOW-ON PROVED: `SU2QuaternionProductHeatSumTest` bounds the squared
+test norm of (q_x+q_y)*(f_x+f_y) by 64*A, A=H[q^2].
+`BF4ExactSlabFixedSpatialSourceEvenCancellation.quadratic_jump_mean`
+computes its pairing with the source-increment product as 2*R, where
+R=(1-w^32)*(F-A), F=H[q^2*f^2]. Cauchy--Schwarz gives R^2<=16*A*D.
+`padded_terminal_even_square` therefore proves 64*A*E+R^2<=32*A*C
+for the COMPLETE projected terminal source and original channel cost C.
+The normalized companion proves
+64*(A/Z)*(E/Z)+(R/Z)^2<=32*(A/Z)*(C/Z), with the SAME original odd Z.
+There is no division by A or R, and no stationarity or nonzero-response
+assumption. Two focused checks passed eight gates exactly in
+{propext, Quot.sound}; no broad run or canonical chart change. Evidence:
+`audits/AUDIT-QUADRATIC-SOURCE-CANCELLATION-2026-10-01.md`.
+NEXT: estimate the ACTUAL terminal-source moments relative to the SAME
+interacting centered variance on a justified scaling family. The new square
+vanishes when F=A; no nonzero response or useful relative gain is supplied.
+Raw q^2 moments are not q*Pq moments, and A/Z is not identified with one.
+Prioritize these source-dependent comparisons over more parameter-only
+tests. Do NOT add the odd and even retained squares: they bound the SAME D
+and need a joint Gram matrix or orthogonalization for additive improvement.
 FOLLOW-ON CORRECTION AND PROVED FENCE: spectator-preserving Young is ALREADY
 supplied by `PassiveGeometricBudget.padded_terminal_plaquette_passive_signed_geometric_budget`.
 Do not rebuild its channel decomposition. The exact scalar ceiling is now
