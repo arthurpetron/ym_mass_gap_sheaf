@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL bond form realization and exact cost fence (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeBondReflectedForm.crossOdd_pin` and `completed_crossOdd_pin`
+  identify the actual mixed odd-window joint limit with B(x,T(1)y).
+  `BF4WilsonAllNomeBondOSRealization.image_pairing` realizes it via the
+  constructed root_1 in the SAME witnessed time sector. `image_distance`,
+  `image_eq_iff_bond_null`, `bond_null_iff_time_kernel`, `image_advance` and
+  `image_unit` preserve the physical null relation, transfer and vacuum.
+- `denseExpression_bound`, `denseRows` and `dense_limit` construct finite
+  Wilson approximants for EVERY existing sector state, with explicit moduli.
+  This is a dense witnessed fixed-nome/width realization, not a separately
+  constructed completed quotient isometry or canonical continuum OS root.
+- `BF4ExactSlabFixedSpatialEndpointExactCoefficientFence` proves the actual
+  signed-channel scalar ceiling kappa=(1-w^32)+4*max(1+w^32-2*w^12,0).
+  With the existing endpoint floor rho, kappa<=2*rho*c implies c>=1.
+  Improving only the coarse coefficient therefore cannot certify subunit
+  loss by this route. This does NOT lower-bound actual energy or refute YM.
+- OPEN: useful SAME-variance signed upper estimate, justified physical
+  scaling, canonical continuum OS/observable identification, full physical
+  spectral identification, continuum survival, QFT/every-group/Clay.
+  No existing sorry, canonical frontier field or chart node changed.
+- Three final focused serialized checks passed 23 gates within
+  {propext, Quot.sound}; no broad run. Evidence:
+  `audits/AUDIT-BOND-REALIZATION-AND-EXACT-COST-FENCE-2026-10-01.md`.
+
 ## PROVED ORIGINAL rational subgap inverses (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeSectorVacuumInverse` supplies delta*H^(-1) as an actual

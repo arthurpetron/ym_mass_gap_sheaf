@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL bond-form realization and exact-cost fence
+(2026-10-01 UTC; chart unchanged): the actual mixed bond-reflected Wilson
+limit is B(x,T(1)y), realized by root_1 on the existing witnessed time sector.
+Physical null relation, transfer and vacuum are pinned; every sector state
+has computed finite-source approximants and an exact limit with explicit
+moduli. This is fixed nome/width, not the canonical continuum OS root.
+Separately, retaining exact Young coefficients still cannot certify a loss
+below one using the existing endpoint floor. This excludes a coefficient-
+only repair, not the actual theory. The source-sensitive signed estimate
+and justified physical scaling remain open. Three focused serialized checks
+passed 23 gates within {propext, Quot.sound}; no broad run or canonical change.
+Evidence: `audits/AUDIT-BOND-REALIZATION-AND-EXACT-COST-FENCE-2026-10-01.md`.
+
 Verified supporting ORIGINAL rational subgap inverses (2026-10-01 UTC;
 chart unchanged): for every rational 0<=a<delta=coreMargin(w,width), an
 explicit geometric iteration constructs the actual inverse of H-a I on

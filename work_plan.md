@@ -427,8 +427,24 @@ Seven final focused serialized checks passed 55 printed gates exactly in
 {propext, Quot.sound}; no broad run or canonical field change. Evidence:
 `audits/AUDIT-ORIGINAL-SECTOR-SUBGAP-RESOLVENT-2026-10-01.md`.
 
-NEXT reconstruction residue: the SAME-object physical reflected OS/observable
-identification and physical spectral join, not another
+FOLLOW-ON PROVED: the ORIGINAL fixed-width physical bond-reflection form now
+has an explicit dense realization in the existing witnessed time sector.
+`BondReflectedForm.crossOdd_pin` pins two signed sources, in a common odd
+window, to B(x,T(1)y). `BondOSRealization.image_pairing` identifies this actual
+physical joint limit with B(root_1(x),root_1(y)). Its null relation, original
+one-step advance and vacuum are preserved. `denseExpression_bound` computes
+an actual finite Wilson source for every sector state and requested error;
+`denseRows` and `dense_limit` recover that state with explicit moduli.
+Names have prefix `BF4WilsonAllNome`. No ambient kernel is deleted: precisely
+the bond-null dense sources have zero ORIGINAL transfer image. This supplies
+a dense witnessed realization, not a new completed quotient-isometry datatype
+or the canonical continuum `PositiveTimeOSRoot`. Three final focused checks,
+including the exact-coefficient fence below, passed 23 gates within
+{propext, Quot.sound}; no broad run or canonical change. Evidence:
+`audits/AUDIT-BOND-REALIZATION-AND-EXACT-COST-FENCE-2026-10-01.md`.
+
+NEXT reconstruction residue: the SAME-object canonical limiting half-space
+OS/observable identification and physical spectral join, not another
 real-to-complex compatibility wrapper or an unjustified total Hamiltonian.
 Direct restriction of the original time-zero algebra is now ruled out at
 width one; positive-time insertions do not by themselves identify a
@@ -437,7 +453,8 @@ Do not redo finite multi-time generation: `BF4WilsonAllNomeWindowRealization`
 already supplies `compileWindow_pin` on this carrier. The remaining
 canonical join needs the supported observable and reflected-form/time pins
 against the SAME limiting theory (`CanonicalOSRoot.PositiveTimeOSRoot`),
-not merely positivity of an independently defined Gram form.
+not merely the now-supplied fixed-width bond-form realization. Canonical
+continuum support/approximation and observable actions remain unconstructed.
 The intrinsic real AND complex presented-sector adjoint joins, the real
 positive-parameter sector resolvent, actual zero-shift inverse and rational
 subgap inverses on the original vacuum complement are supplied. The full
@@ -529,6 +546,21 @@ cost retains the signed w^12 and w^32 contributions; its raw q^2 moments
 are NOT the interacting variance. Do not reprove this identity or discard
 the source-increment correction prematurely. No useful relative scaling
 bound for that actual source was found in the subgap milestone's review.
+FOLLOW-ON CORRECTION AND PROVED FENCE: spectator-preserving Young is ALREADY
+supplied by `PassiveGeometricBudget.padded_terminal_plaquette_passive_signed_geometric_budget`.
+Do not rebuild its channel decomposition. The exact scalar ceiling is now
+`EndpointExactCoefficientFence.exactChannelCeiling`:
+kappa=(1-w^32)+4*max(1+w^32-2*w^12,0). It bounds the actual channel cost
+using only 0<=F<=4A, but `normalizedExactCeiling_not_subunit` proves
+kappa<=2*rho*c forces c>=1 for the EXISTING endpoint floor rho.
+Thus replacing the coarse 960 remainder by exact coefficients still cannot
+certify subunit loss via this floor. This is a certificate obstruction, NOT
+an energy lower bound or Yang--Mills refutation. Next analytic work must
+control the actual inserted response P(q*f) relative to SAME centered
+variance, retain a useful quantitative source-increment cancellation, or
+justify a different low-energy observable. The terminal recursion controls
+the uninserted response; it is not a Perron equation for q. Keep the original
+action, source and physical time. No new conditional wrapper is needed.
 The now-proved one-step source/domain transfer already controls the actual
 derivative energy, retained norm and source replacement. Do not build another
 equivalent conditional survival/domain wrapper before supplying a useful

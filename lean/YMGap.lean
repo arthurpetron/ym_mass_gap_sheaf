@@ -4944,6 +4944,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointChannelHeatFloor
 -- Actual original-energy consumer of the fixed-nome partition floor.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointEnergyPartitionBound
 import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointEnergyCoefficientFence
+import YMGap.Continuum.BF4ExactSlabFixedSpatialEndpointExactCoefficientFence
 -- Literal dyadic Wilson family and its SAME all-nome, fixed-width reflected
 -- time-moment/loss identity. No face-span completion or scaling-survival pin.
 import YMGap.Continuum.BF4WilsonAllNomeLoopTimePin
@@ -5895,6 +5896,8 @@ import YMGap.Continuum.BF4WilsonAllNomeSectorNeumannPartial
 import YMGap.Continuum.BF4WilsonAllNomeSectorNeumannLimit
 import YMGap.Continuum.BF4WilsonAllNomeSectorSubgapInjective
 import YMGap.Continuum.BF4WilsonAllNomeSectorSubgapResolvent
+import YMGap.Continuum.BF4WilsonAllNomeBondReflectedForm
+import YMGap.Continuum.BF4WilsonAllNomeBondOSRealization
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary
