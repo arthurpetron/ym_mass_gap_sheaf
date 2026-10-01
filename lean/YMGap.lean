@@ -6041,6 +6041,11 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredTransferReserve
 -- physical bond carrier. Single-slice sources, fixed nome and spatial width.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredTransferCovariance
 import YMGap.Continuum.BF4WilsonAllNomeCenteredTransferBondLimit
+-- Actual radius-zero energy/variance limits, with ambient and bond norms
+-- kept distinct. Finite angular upper bound, not a limiting angular form.
+import YMGap.Continuum.BF4WilsonAllNomeCenteredAngularBondBound
+import YMGap.Continuum.BF4WilsonAllNomeTemporalEnergyLimit
+import YMGap.Continuum.BF4WilsonAllNomeMarginalVarianceLimit
 import YMGap.Continuum.BF4WilsonAllNomeBondOSDerivative
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolvent
 import YMGap.Continuum.BF4WilsonAllNomeBondOSAdjoint

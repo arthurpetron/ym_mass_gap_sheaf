@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Actual energy and marginal variance reach completion (2026-10-01):**
+for any supplied single-slice signed Wilson expression, the original finite
+temporal energy and odd marginal variance now have explicit independent
+cutoff/time moduli and constructed CReal limits. Their exact budget is
+variance = temporal energy + connected bond norm. The variance limit is
+the original AMBIENT centered norm; bond norm alone is not that variance.
+The finite angular reserve also has a one-sided bound by a completed bond
+norm representative, without assuming convergence of the angular outputs.
+Coupling and width remain fixed; useful signed physical scaling is still
+open. See the [proof and scope](audits/AUDIT-ACTUAL-TEMPORAL-ENERGY-VARIANCE-LIMIT-2026-10-01.md).
+
 **Finite centered transfer reaches SAME bond norm (2026-10-01):** for
 every supplied single-slice Wilson expression, the actual normalized
 centered transfer quadratic now has computed independent cutoff/time

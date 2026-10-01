@@ -1,5 +1,38 @@
 # Sorry Ledger
 
+## PROVED actual temporal energy and marginal variance limits (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeCenteredAngularBondBound.normalizedAngularReserve_le_finiteScalar`
+  and `normalizedAngularReserve_completed_approx` bound the ACTUAL centered
+  transfer output's angular reserve by the existing completed bond-norm
+  representative, with independent cutoff/time/representative thresholds.
+  No raw-output Cauchy or angular-limit hypothesis is introduced.
+- `BF4WilsonAllNomeTemporalEnergyLimit.source_square_jump` retains the
+  complete signed source and padded unit terms. `finite_increment_pin`
+  identifies its one original squared-increment window with twice the
+  ACTUAL normalized energy under SAME action and positive oddMass.
+- `energyCauchy`, `energyLimit`, `finiteEnergy_rectangle` and
+  `energyLimit_approx` construct and prove explicit Type-valued moduli.
+  `energyLimit_completed_pin` identifies the actual limit with the
+  original ambient centered vector's one-step time LOSS, not ||v-Tv||^2.
+- `BF4WilsonAllNomeMarginalVarianceLimit.finiteVariance_budget_pin` proves
+  actual finite Var=Energy+Bond after only SAME positive normalization.
+  `varianceCauchy`, `varianceLimit`, `finiteVariance_rectangle` and
+  `varianceLimit_approx` supply the actual oddVariance's computed moduli.
+- `bond_connected_time_pairing` pins the physical bond covariance to the
+  original ambient centered one-step pairing; `varianceLimit_budget_pin`
+  and `varianceLimit_completed_pin` identify the variance limit with the
+  original AMBIENT centered norm. Bond norm alone is NOT this variance.
+- OPEN: nome/width stay fixed. No useful complete signed scaling estimate,
+  positive angular fraction/form, nonzero continuum excitation, physical
+  mass/time calibration, canonical continuum OS/QFT or every-group proof.
+  No canonical field/guard or displayed chart marker changes.
+- Twenty-eight gates passed final focused checks, all {propext, Quot.sound},
+  with independent source/log review. No sorry, new axiom, Classical,
+  native_decide or noncomputable declaration; no full root/tree build,
+  broad audit, guard or CI change. Evidence:
+  `audits/AUDIT-ACTUAL-TEMPORAL-ENERGY-VARIANCE-LIMIT-2026-10-01.md`.
+
 ## PROVED actual centered transfer to original bond norm (2026-10-01 UTC)
 
 - `BF4ExactSlabFixedSpatialCenteredTransferCovariance.normalizedCenteredTransferQuadratic_window`

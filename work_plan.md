@@ -25,6 +25,44 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual finite energy/variance meet the original completed norms (2026-10-01 UTC)
+
+PROGRESS after `cb41d35`: a weaker finite one-sided angular consequence
+already suffices to bound the normalized reserve by an explicit completed
+bond representative. `BF4WilsonAllNomeCenteredAngularBondBound` constructs
+this bound with independent cutoff/time/representative guards, without
+requiring strong convergence of the raw or angular outputs.
+
+`BF4WilsonAllNomeTemporalEnergyLimit` supplies the missing generic actual
+energy producer for arbitrary signed e with Within(0,e): twice its finite
+normalized energy is ONE original squared-increment Wilson insertion.
+Padded source equality handles units and preserves all cross terms. Existing
+joint rectangle estimates at 2*epsilon return the energy's QCauchy witness,
+CReal and independent moduli; its completed pin is the original centered
+vector's one-step time loss, not the squared vector-difference norm.
+
+`BF4WilsonAllNomeMarginalVarianceLimit` normalizes the exact original
+E+B=Z*Var with SAME positive oddMass. The actual moving-center oddVariance
+equals Energy+Bond at every regulator. Maxima of both rectangle thresholds
+at epsilon/2 construct its own QCauchy data, CReal and late-rectangle bound.
+The physical connected bond covariance is pinned to the original ambient
+centered vector's one-step pairing. Thus the variance limit is the ORIGINAL
+AMBIENT centered norm, not the bond norm alone. No convergence or analytic
+estimate has been re-assumed as a new field.
+
+Twenty-eight gates passed the three final focused checks, all exactly
+{propext, Quot.sound}; independent source/log review passed. No broad run,
+canonical field/marker change or ASCII reprint. Evidence:
+`audits/AUDIT-ACTUAL-TEMPORAL-ENERGY-VARIANCE-LIMIT-2026-10-01.md`.
+
+NEXT remains the PRIMARY useful complete signed original-energy/SAME-variance
+estimate on a justified changing-coupling/spatial/spacing family. These
+new fixed-nome/width radius-zero joins remove separate finite energy and
+variance convergence obligations, not scaling smallness. A limiting angular
+form would still need construction if that stronger form is used; it is not
+needed for the proved finite one-sided bound. Nontrivial continuum survival,
+physical time/mass, canonical continuum OS/QFT and all groups remain OPEN.
+
 ### Actual centered-transfer limit reaches SAME bond norm (2026-10-01 UTC)
 
 PROGRESS after `86ddb59`: the original finite moving-center quadratic

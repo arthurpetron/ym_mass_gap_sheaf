@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting ACTUAL temporal-energy and marginal-variance limits
+(2026-10-01 UTC; chart unchanged): one fixed signed squared-increment
+insertion gives the original normalized finite energy's rectangular
+cutoff/time modulus and completed time-loss pin. Exact finite Var=Energy+Bond
+then constructs the actual marginal variance's own CReal and modulus.
+Its limit is the original AMBIENT centered norm, NOT the bond norm alone.
+The angular reserve has a finite one-sided bound by a completed bond
+representative; no angular-output limit is assumed or constructed. Every
+supplied radius-zero signed Wilson source works at fixed nome and width.
+Twenty-eight final focused gates and independent review passed. Useful signed
+scaling, survival, physical mass, full continuum QFT and every group remain
+OPEN. Evidence:
+`audits/AUDIT-ACTUAL-TEMPORAL-ENERGY-VARIANCE-LIMIT-2026-10-01.md`.
+
 Verified supporting finite centered-transfer/bond join (2026-10-01 UTC;
 chart unchanged): for supplied radius-zero Wilson sources, the ACTUAL
 normalized moving-center transfer quadratic is exactly a three-term

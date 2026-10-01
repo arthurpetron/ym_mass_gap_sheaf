@@ -12,6 +12,24 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Actual temporal energy and marginal variance limits (2026-10-01 UTC):**
+`BF4WilsonAllNomeTemporalEnergyLimit` pins twice the original normalized
+finite energy to one fixed signed squared-increment Wilson insertion,
+constructs its independent cutoff/time QCauchy data, and identifies its
+limit with the existing centered vector's ORIGINAL one-step time loss.
+`BF4WilsonAllNomeMarginalVarianceLimit` proves finite Var=Energy+Bond,
+constructs the actual oddVariance's own rectangular modulus and CReal,
+and pins that limit to the original AMBIENT centered norm. Its
+`bond_connected_time_pairing` keeps the physical bond covariance distinct
+from the ambient diagonal norm. `CenteredAngularBondBound` supplies a finite
+one-sided angular bound against a completed bond representative WITHOUT an
+angular limit. Twenty-eight final focused gates are {propext, Quot.sound},
+with independent source/log review; no broad run, new analytic field or
+canonical frontier closure. Nome and width remain fixed. The useful complete
+signed scaling estimate, continuum survival, physical mass, full QFT and
+every group remain OPEN. Evidence:
+`audits/AUDIT-ACTUAL-TEMPORAL-ENERGY-VARIANCE-LIMIT-2026-10-01.md`.
+
 **Original centered-transfer/bond limit (2026-10-01 UTC):**
 `BF4ExactSlabFixedSpatialCenteredTransferCovariance` equates the actual
 normalized moving-center quadratic with a one-partition finite covariance.

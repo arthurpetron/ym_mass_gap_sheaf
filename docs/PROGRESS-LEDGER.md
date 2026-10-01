@@ -4,7 +4,34 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Actual centered transfer reaches SAME bond norm (2026-10-01 UTC)
+## Current increment: Actual energy/variance limits meet the original completion (2026-10-01 UTC)
+
+PROGRESS after `cb41d35`: the finite angular reserve now has a one-sided
+bound against an explicit completed bond-norm representative, requiring
+neither a raw-output Cauchy premise nor a constructed angular limit.
+For arbitrary supplied radius-zero signed Wilson sources, twice the
+ACTUAL normalized finite energy is one fixed squared-increment insertion.
+The original joint rectangle therefore computes the energy's own QCauchy
+modulus and limit, pinned to the ORIGINAL centered-vector time loss.
+
+Normalize the exact E+B=Z*Var by SAME positive oddMass: the actual finite
+marginal variance is Energy+Bond. Half-tolerance maxima of both rectangles
+construct its independent cutoff/time and representative moduli and CReal.
+The connected physical bond covariance is proved to equal the original
+ambient centered vector's one-step time pairing. Adding its time loss
+identifies the marginal variance limit with the AMBIENT centered norm,
+not bond norm alone. No convergence or scalar witness is newly assumed.
+
+Twenty-eight gates passed the three final focused checks, all exactly
+{propext, Quot.sound}; independent mathematical/source/log review passed.
+Initial support-variable/doc-comment and elaboration errors were repaired
+using explicit scalar types and generic normalization, not raised limits.
+No broad run, canonical field/marker change or ASCII reprint. Primary
+useful complete signed scaling, nonzero continuum survival, physical mass,
+full QFT and every group remain OPEN. Evidence:
+`audits/AUDIT-ACTUAL-TEMPORAL-ENERGY-VARIANCE-LIMIT-2026-10-01.md`.
+
+## Earlier increment: Actual centered transfer reaches SAME bond norm (2026-10-01 UTC)
 
 PROGRESS after `86ddb59`: the finite centered quadratic is now pinned to
 the original window covariance, using the ACTUAL moving odd-marginal mean.
