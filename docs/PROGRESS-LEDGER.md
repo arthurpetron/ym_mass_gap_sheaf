@@ -4,7 +4,29 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Construct original fixed-source heat-step limits (2026-10-01 UTC)
+## Current increment: Actual-heat generic-source obstruction (2026-10-01 UTC)
+
+The exact concentrated one-link radial source now has constructed finite
+nonnegativity certificates, positive Haar mass/second moment and zero first
+Haar moment. Ward gives mass=(N+1)*J and A=(4N+3)*J; a short ratio recurrence
+proves J>0 without a high-degree expansion. The existing fixed-source moduli
+then join this endpoint to original positive-step energy and moments.
+
+`SU2QuaternionConcentratedSourceHeatFence.obstruction` computes N,w with
+0<w<1. EVERY K>=sufficientCutoff(w) defeats the requested C>=0 in the
+comparison E<=C*(1-w)*actualUncenteredSecondMoment. No endpoint is substituted
+for a finite-step moment. Nonnegative sources are not pointwise strict and
+are NOT identified with the actual 4D terminal recursion. This rules out a
+generic-source shortcut, not Yang--Mills or a positive-step centered-variance
+theorem. The next task requires actual terminal-specific joint signed control.
+
+Three focused checks passed 30 permitted axiom gates; independent reviews
+passed. No broad run, new analytic field, canonical marker or ASCII reprint.
+Scaling survival, physical mass, full QFT and every-group construction remain
+OPEN. Evidence: concentrated-source addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+## Earlier increment: Construct original fixed-source heat-step limits (2026-10-01 UTC)
 
 The actual energy now has a checked lower Taylor companion and a computed
 two-sided slope radius. Original fixed-source moments have a separate
@@ -14,8 +36,8 @@ producers for testing whether proposed source estimates survive weak steps;
 neither radius is uniform for changing terminal sources.
 
 The primary SAME interacting variance/scaling estimate remains OPEN.
-An exact concentrated-source Ward test is under construction, not yet a
-checked obstruction. Two focused checks passed 13 gates within the
+The exact concentrated-source Ward test and finite-step obstruction are
+now checked above. Two focused checks passed 13 gates within the
 constructive gate; independent reviews passed. No broad run or canonical
 chart change. Evidence: fixed-source addendum in
 `audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.

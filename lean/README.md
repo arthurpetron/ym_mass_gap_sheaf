@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Generic-source Ward obstruction (2026-10-01 UTC):**
+`SU2QuaternionConcentratedSourceWard` constructs nonnegative radial sources
+and exact mass/angular identities. `ConcentratedSourceMoments` proves strict
+Haar mass and second moment by the recurrence (2k+4)*Z_(k+1)=(2k+3)*Z_k.
+`ConcentratedSourceHeatFence.obstruction` returns N,w with 0<w<1 that defeat
+EVERY C>=0 in E<=C*(1-w)*actualUncenteredMoment, for EVERY guarded cutoff.
+No positive-step centered variance or 4D terminal identification is asserted.
+Three focused target checks passed 30 gates; no broad run or Clay closure.
+Evidence: concentrated-source addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 **Original fixed-source heat-step limits (2026-10-01 UTC):**
 `SU2QuaternionProductHeatSourceSlope.slopeCertificate` returns a positive
 radius for h*(A-e)<=E_original<=h*(A+e), with h=1-w and the actual angular

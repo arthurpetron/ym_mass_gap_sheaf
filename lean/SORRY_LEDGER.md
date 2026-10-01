@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## PROVED nonnegativity-only source calibration obstruction (2026-10-01 UTC)
+
+- `SU2QuaternionConcentratedSourceWard.sourceCertificate` constructs the
+  actual radial-power source certificate (NONNEGATIVE, not pointwise strict).
+  `sourceSquare_moment` and `sourceSquare_angular` prove mass=(N+1)*J and
+  A=(4N+3)*J using original Haar/Casimir geometry. The Casimir eigenpin is
+  arbitrary-insertion Haar equality, not false raw padded-key equality.
+- `SU2QuaternionConcentratedSourceMoments.radialMass_step` and
+  `radialMass_pos` construct strict Haar mass by recurrence from exponent
+  zero. `secondMoment_pos` supplies J>0; `firstMoment_zero` uses Ward rather
+  than a parity expansion. No nondegeneracy input is assumed.
+- `SU2QuaternionConcentratedSourceHeatFence.obstruction` returns explicit
+  N,w with 0<w<1, such that EVERY K>=sufficientCutoff(w) obeys
+  E_original>C*(1-w)*sourceMoment(q_N,f^2) for the requested C>=0.
+  The energy and UNCENTERED moment are actual original finite-step objects.
+- OPEN: actual 4D terminal-source identification is NOT asserted for these
+  witnesses. They exclude only nonnegativity-only generic calibration, not
+  a terminal-source bound, pointwise-strict-source theorem, positive-step
+  centered-variance theorem or Yang--Mills. Actual signed scaling control,
+  survival, physical mass, QFT and every group remain OPEN.
+- Three final focused checks passed 30 gates in {propext, Quot.sound},
+  including one axiom-free exponent definition. Independent source reviews
+  passed. No new sorry/axiom, Classical, native_decide or noncomputable
+  declaration. No broad run or canonical chart change. Evidence:
+  concentrated-source addendum in
+  `audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 ## PROVED two-sided original fixed-source step and moment limits (2026-10-01 UTC)
 
 - `SU2QuaternionProductHeatSourceSlope.sourceEnergy_ge_firstOrder_sub_quadratic`

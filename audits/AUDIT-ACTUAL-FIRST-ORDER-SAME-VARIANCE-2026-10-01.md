@@ -196,3 +196,119 @@ Accepted logs and SHA-256:
   `4aa12a9f0e66c67c3080cf12d8bdfb893d1d3e1e2cd1e76791d8ae95f1237fa3`.
 - `/tmp/ym-source-moment-limit-accepted-20261001.log`:
   `52532fc6f2ac2b3851856fd3e0616e57a91f581f401fc79e9aa7dc49dd2b7149`.
+
+## Addendum: concentrated-source Ward obstruction on actual heat
+
+This supplies the preceding fixed-source certificates' concrete consumer.
+For each requested nonnegative coefficient C, actual source/nome witnesses
+defeat E<=C*(1-w)*B, where E and B are ORIGINAL finite-step energy and
+uncentered second moment. This is not an actual terminal-family claim.
+
+### Exact one-link source and Ward identities
+
+Declarations in
+`lean/YMGap/Continuum/SU2QuaternionConcentratedSourceWard.lean`:
+
+- `sourceCertificate`, line 87, constructs the NONNEGATIVITY certificate
+  of q_N=(x1^2+x2^2+x3^2)^N. This is not pointwise strict positivity.
+- `radial_carrier`, line 98, pins radial+chi_1^2/4=1 on the SAME unit
+  quaternion Haar carrier under arbitrary insertions.
+- `fundamental_casimir`, line 112, pins C f=3f under every original Haar
+  insertion. It does not equate padded and unpadded raw monomial keys.
+- `fundamental_sourceSquare_gamma`, line 192, proves the exact coefficient
+  identity Gamma(f,q_N^2)=-4N*f*q_N^2.
+- `sourceSquare_moment`, line 382, proves Z=(N+1)*J, with Z=H[q_N^2]
+  and J=H[q_N^2*f^2]. `sourceSquare_angular`, line 390, proves A=(4N+3)*J.
+
+Declarations in
+`lean/YMGap/Continuum/SU2QuaternionConcentratedSourceMoments.lean`:
+`radialMass_step`, line 243, proves (2k+4)*Z_(k+1)=(2k+3)*Z_k for
+Z_k=H[radial^k]. `radialMass_pos`, line 251, inducts from Z_0=1.
+`source_power_add`, line 277, identifies the actual source square with
+the double radial power. `mass_pos`, line 288, and `secondMoment_pos`,
+line 294, supply Z>0 and J>0 without assumed nondegeneracy.
+`firstMoment_zero`, line 306, follows directly from Ward and positive
+coefficient cancellation, without a parity or high-degree expansion.
+
+### Computed original positive-step witnesses
+
+All declarations below are in
+`lean/YMGap/Continuum/SU2QuaternionConcentratedSourceHeatFence.lean`.
+`escapeExponent`, line 47, returns N=C.num.toNat; its coefficient proof
+at line 49 gives 2C<4N+2 for C>=0. `step`, line 77, computes
+
+    h = min(1/2, slopeRadius(0,q_N,f,J), momentRadius(0,q_N,f^2,J)),
+    w = 1-h,  0<w<1.
+
+`zeroStep_square_pin`, line 66, identifies H[(q_N*f^2)*q_N] with J.
+The slope error J gives E>=h*(4N+2)*J; the signed moment error J gives
+B=H[(q_N*f^2)*P(q_N)]<=2J. Since h,J>0, their exact combination proves
+
+    E > C*h*B
+
+in `energy_gt_same_secondMoment`, line 120, for EVERY
+K>=sufficientCutoff(w). `obstruction`, line 183, returns N,w and this
+all-guarded-cutoff proof as Type-level data. No endpoint replaces a
+positive-step heat expression; no interacting variance is inverted.
+
+### Scope and next actual-source input
+
+The finite-step B is UNCENTERED. The proved zero first moment belongs to
+the bare Haar endpoint, not an asserted positive-step centering identity.
+These q_N are nonnegative certified sources, not pointwise-strict sources
+or identified BF4 terminal messages. Consequently this refutes only a
+nonnegativity-only source-independent comparison. It refutes no actual
+terminal-source theorem, scaling trajectory, continuum theory or mass gap.
+
+The stronger existing actual-source input is
+`BF4ExactSlabFixedSpatialEndpointRelativeBound.projectedEndpointRelativeBound`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialEndpointRelativeBound.lean:96`.
+Its original same-channel consumer is
+`projectedEndpoint_familyChannelDerivative_le`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialEndpointChannelRegularity.lean:61`,
+and `padded_plaquetteChannel_firstMoment_le`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialEndpointChannelFirstMoment.lean:136`.
+Their cap-squared cost is still not useful scaling control. The original
+positive-depth heat-recursion pin is `terminal_cons_pin`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTerminalJacobiAngularBound.lean:53`.
+An improved integrated heat-score estimate from that recursion is a next
+candidate to investigate, not a proved estimate or an assumed new field.
+Read-only search found no existing one-sided heat-relative Casimir bound
+with useful O(1/(1-w)) cost. The alternative candidate is the integrated
+spectral inequality (1-w)*lambda*w^(2*lambda)<=w^lambda and its actual
+source-pairing/derivative join. The relevant original grouping declaration
+is `polynomial_grouped_heat_pairing` in
+`lean/YMGap/Continuum/SU2QuaternionGroupedHeatComparison.lean`; source
+grouping alone does not justify arbitrary spectator-weight orthogonality.
+This candidate has not been formalized in this checkpoint and supplies
+no new terminal or scaling estimate.
+The actual complete signed SAME-variance scaling bound, survival, physical
+mass, full QFT and every-group construction remain OPEN.
+
+### Focused verification
+
+Three final focused target checks exited zero with 30 printed gates within
+{propext, Quot.sound}; the exponent definition is axiom-free. Independent
+Sol/Luna reviews passed on the Ward signs, strict-moment producer, original
+finite-step joins, all-cutoff quantifier and nonnegative/uncentered scope.
+Initial namespace, scalar-parenthesis and rational simplification errors
+were repaired. A false raw-key Casimir statement was replaced by its actual
+arbitrary-insertion Haar equality; no canonical field was weakened.
+There is no new sorry, axiom, Classical, native_decide or noncomputable
+declaration in the accepted sources.
+
+Main alone compiled, serially under the monitored one-worker 20 GiB cap
+and 12 GiB OS reserve. Preflight found 84 percent pressure-free memory,
+zero swap and no competing compiler/test/runner. No limit was raised.
+The safe-build skill confined verification to these targets. No full
+root/tree build, broad audit or guard ran. CI remains manual-only; the
+unchanged canonical chart was not reprinted.
+
+Accepted logs and SHA-256:
+
+- `/tmp/ym-concentrated-source-ward-accepted-20261001.log`:
+  `b22411972470d0523786b746e39421f0de0145cfb0a3c326f31aa31fef4d9485`.
+- `/tmp/ym-concentrated-source-moments-accepted-final-20261001.log`:
+  `1f23bf2af13a48af52088d6e650cd767d8b1ad6bd7a77c55fcf8dbc7d4e16324`.
+- `/tmp/ym-concentrated-source-heat-fence-accepted-20261001.log`:
+  `9e755e1ad176d98c6b6359037831fd1b66ab11c23a8701c82794ee9b63752b07`.

@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting generic-source obstruction (2026-10-01 UTC; chart
+unchanged): an exact concentrated one-link Ward family has strictly positive
+Haar mass/second moment. Computed source/nome witnesses defeat EVERY
+nonnegative coefficient in E<=C*(1-w)*actualUncenteredMoment, for EVERY
+guarded cutoff. Sources are NONNEGATIVE, not pointwise strict; no 4D
+terminal identification or positive-step centered-variance claim is made.
+Actual signed scaling, survival, physical mass, QFT and all groups remain
+OPEN. Three focused checks passed 30 permitted gates; no broad run.
+Evidence: concentrated-source addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 Verified supporting original fixed-source step/moment limits (2026-10-01
 UTC; chart unchanged): explicit source-dependent radii give two-sided
 E/h control around the actual angular coefficient, and original signed

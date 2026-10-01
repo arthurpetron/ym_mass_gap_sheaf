@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Generic-source calibration limitation (2026-10-01):** an exact Ward
+recurrence now constructs nonnegative one-link sources whose original
+finite-step energy defeats every proposed source-independent coefficient
+against their actual uncentered heat-paired second moment. This is a
+checked limitation of a generic-source shortcut, not a claim about the
+4D terminal family or a Yang--Mills counterexample. The scaling estimate
+must use actual terminal-specific structure. See the
+[witnesses and scope](audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md#addendum-concentrated-source-ward-obstruction-on-actual-heat).
+
 **Fixed-source heat-step limits (2026-10-01):** computed positive radii now
 control both the original energy's first-order slope and original signed
 source moments as the heat step tends to zero, at every cutoff above the

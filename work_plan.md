@@ -25,6 +25,40 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Concentrated-source Ward obstruction on actual heat (2026-10-01 UTC)
+
+The bounded nonnegativity-only calibration test is now proved, not just
+predicted. `SU2QuaternionConcentratedSourceWard` uses the actual one-link
+radial source q_N=(x1^2+x2^2+x3^2)^N, carrier-equivalent to
+(1-chi_1^2/4)^N. It constructs finite NONNEGATIVITY certificates and proves
+mass=(N+1)*J and angularEnergy=(4N+3)*J. Its fundamental Casimir pin is
+arbitrary-insertion Haar equality: raw monomial padding is not identified
+by an invalid coefficient equality.
+
+`ConcentratedSourceMoments` proves J>0 and zero first Haar moment by Ward.
+The short recurrence (2k+4)*Z_(k+1)=(2k+3)*Z_k, with Z_0=1, supplies
+strict mass without an exponentially expanded monomial calculation.
+`ConcentratedSourceHeatFence.obstruction` returns N(C)=C.num.toNat and
+w=1-min(1/2,slopeRadius(N,J),momentRadius(N,J)). For EVERY C>=0 and EVERY
+K>=sufficientCutoff(w), the ORIGINAL one-link heat satisfies
+
+    E_original > C*(1-w)*H[(q_N*f^2)*P(q_N)].
+
+Both finite-step objects are retained; this is not merely a zero-step ratio.
+The right side is an UNCENTERED second moment, not a silently substituted
+positive-step interacting variance. Sources are certified nonnegative, not
+pointwise strictly positive, and are NOT identified with the 4D terminal
+recursion. Three focused checks passed 30 gates within {propext, Quot.sound};
+independent reviews passed. No broad run or canonical chart marker changed.
+Evidence: concentrated-source addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+NEXT: use actual terminal recursion/heat structure, rather than a generic
+nonnegative-source comparison, to control the joint signed angular, Ward
+and heat-defect contributions against SAME variance along a justified
+physical scaling family. That PRIMARY input, nonzero continuum survival,
+physical mass, full QFT and every compact simple group remain OPEN.
+
 ### Two-sided original fixed-source heat-step and moment limits (2026-10-01 UTC)
 
 `SU2QuaternionProductHeatSourceSlope` now supplies the lower companion to
@@ -48,10 +82,10 @@ These are fixed-source nome-to-one limits, NOT thermodynamic or physical
 continuum limits. The source is fixed BEFORE the nome varies. The actual
 terminal/channel source varies with nome, cutoff and depth; applying these
 certificates at each parameter does not yield a uniform family radius.
-The next mathematical test is the exact concentrated-source Ward family:
-does positivity alone give a bounded angular-cost/SAME-variance coefficient?
-Its endpoint producer and actual finite-step join must be checked before
-claiming an obstruction. The PRIMARY actual-terminal signed scaling bound,
+The exact concentrated-source Ward test and genuine finite-step obstruction
+are now checked above, with their precise nonnegative/uncentered scope.
+They do not refute a source-specific terminal estimate.
+The PRIMARY actual-terminal signed scaling bound,
 physical survival, calibration, QFT and every-group construction remain OPEN.
 
 ### Sharp complex mixed decay on the SAME physical carrier (2026-10-01 UTC)
