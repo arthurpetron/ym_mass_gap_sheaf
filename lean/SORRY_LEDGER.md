@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED whole signed family SAME-variance local band (2026-10-01 UTC)
+
+- `PositiveDualBandScalar.response_cleared` includes the zero-mass branch
+  and cancels only an explicitly positive scalar in the positive-mass case.
+  `SU2QuaternionProductHeatBandResponse.response_band_cleared` constructs
+  the kinetic dual R*(f-lambda*c) and proves lambda*l^2*M<=u^2*B for the
+  SAME source moment M, from actual polynomial band certificates.
+- `BF4ExactSlabFixedSpatialFamilyLocalBand.family_spectator_kinetic` and
+  `family_spectator_zero` supply the original active heat and one common
+  exterior-retaining spectator for the whole signed family, with lambda=w^12.
+- `BF4ExactSlabFixedSpatialFamilyBandResponse.centered_unprojected_square`
+  pins M to original Z*Var_odd, and `energy_shifted` preserves original
+  energy. `padded_family_energy_band` proves E<=(1-rho)*Z*Var_odd, with
+  `familyResponseFraction_positive` and explicit rho depending only on
+  nome and family-list size. Width, late cutoff and positive depth remain
+  quantified but do not enter rho. The marginal is at depth n+1.
+- OPEN: useful scaling-small energy versus SAME interacting variance on
+  a justified physical family. A positive finite rho need not approach
+  one; no continuum survival, physical mass, uniform completed physical
+  gap, QFT or every-group claim is closed. Existing fields are unchanged.
+- Four focused checks passed 28 gates within {propext, Quot.sound}.
+  No new sorry or axiom and no broad run. Evidence:
+  `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 ## PROVED whole signed family spectator cost contraction (2026-10-01 UTC)
 
 - `SU2QuaternionProductHeatJumpDensity.jumpDensity_certificate` constructs

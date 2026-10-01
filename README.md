@@ -10,12 +10,21 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Whole-family SAME-variance ceiling (2026-10-01):** the original terminal
+energy now obeys E<=(1-rho)*Z*Var_odd for arbitrary signed plaquette
+coefficients, with an explicit rho>0 depending only on nome and family-list
+size. The common spectator retains the full exterior; width, late cutoff
+and positive terminal depth do not enter rho. This is finite quantitative
+control, not a scaling-small energy ceiling or physical mass calibration.
+See the [proof and exact scope](audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md).
+
 **Whole-family cancellation (2026-10-01):** exact spectator cost contraction
 now applies to the entire signed plaquette family, retaining every cross
 term and the complete original terminal source. The original energy ceiling
 retains a computed nonnegative gain. Its same-channel centered moment sum
-equals the original interacting Z*Var, but no useful quantitative fraction
-or physical scaling rate is proved. See the
+equals the original interacting Z*Var. The separate local-band proof above
+now supplies a finite response fraction; a physical scaling rate remains
+open. See the
 [proof and remaining estimate](audits/AUDIT-WHOLE-FAMILY-PASSIVE-CANCELLATION-2026-10-01.md).
 
 **Direct reconstruction step (2026-09-30):** a positive square root R of

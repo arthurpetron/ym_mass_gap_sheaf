@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting WHOLE signed-family SAME-variance ceiling (2026-10-01
+UTC; chart unchanged): the ORIGINAL unprojected V*u_(n+1) gives
+E_original<=(1-rho)*Z*Var_odd at odd depth n+1, with
+rho=w^12*(localLower(w,4*|qs|)/localUpper(w,4*|qs|))^2>0.
+One common spectator retains the complete exterior and all signed cross
+terms. The coefficient is independent of width, late cutoff and positive
+terminal depth, but depends on nome and family-list size. It need not
+approach one, so no scaling-small energy ceiling or physical survival
+follows. Four focused checks passed 28 gates within {propext, Quot.sound};
+no broad run or canonical field change. Evidence:
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 Verified supporting WHOLE signed family contraction (2026-10-01 UTC;
 chart unchanged): one common union of face supports retains all cross
 terms in the exact C_ch<=C_original comparison. The complete original

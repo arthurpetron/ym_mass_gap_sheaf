@@ -5004,6 +5004,12 @@ import YMGap.Continuum.SU2QuaternionProductHeatPassiveYoungContraction
 import YMGap.Continuum.SU2QuaternionProductHeatEigenResponse
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelPartition
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyPassiveCancellation
+-- Whole signed family versus its SAME original variance; explicit fixed-nome
+-- response fraction, independent of spectator volume. Physical scaling OPEN.
+import YMGap.Continuum.PositiveDualBandScalar
+import YMGap.Continuum.SU2QuaternionProductHeatBandResponse
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyLocalBand
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyBandResponse
 -- Complete original-source local regularity and explicit one-link RAW Haar
 -- spectral tails, then conditional SAME-channel tails with shared active links.
 -- The original-partition floor below retains four-link heat;

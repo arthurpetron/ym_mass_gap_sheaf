@@ -744,11 +744,28 @@ positive variances; do not discard them termwise or recenter each channel.
 Seven final focused checks passed 19 gates exactly in {propext, Quot.sound};
 no broad run, canonical field change or chart reprint. Evidence:
 `audits/AUDIT-WHOLE-FAMILY-PASSIVE-CANCELLATION-2026-10-01.md`.
-NEXT: bound the complete cost/retained gain or signed Ward/Taylor remainder
+FOLLOW-ON PROVED SAME-VARIANCE BAND: a common link spectator for the
+UNPROJECTED original q=V*u_(n+1) now gives
+E_original<=(1-rho)*Z*Var_odd at odd depth n+1, with
+rho=w^12*(localLower(w,4*|qs|)/localUpper(w,4*|qs|))^2>0.
+`BF4ExactSlabFixedSpatialFamilyBandResponse.padded_family_energy_band`
+supplies all original source, center and normalization joins. The dual is
+R*(f-w^12*c); its kinetic image is w^12*(P_R)*(f-c), and the spectator
+first moment is zero. Sharp kinetic Cauchy--Schwarz controls the complete
+signed family's variance without dividing by it, including the zero case.
+Only the explicit positive band cap is inverted. Width, late cutoff and
+positive terminal depth do not enter rho; nome and family-list size do.
+This is a finite strict ceiling, NOT the scaling-small upper bound needed
+for physical survival. Do not pursue equivalent finite-band wrappers:
+the next input needs genuinely useful scaling dependence. Four focused
+checks passed 28 gates within {propext, Quot.sound}; no broad run or
+canonical field/chart change. Evidence:
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+NEXT: improve the complete cost/retained gain or signed Ward/Taylor remainder
 against this SAME interacting variance on a justified physical observable
-family. Whole-family contraction removes the former one-face scope limit,
-but supplies neither a nonzero gain nor a scaling-small energy/variance
-ratio. Reuse its exact centered channel pin; do not replace q*Pq by q^2,
+family to supply a scaling-small energy/variance ratio. The positive finite
+band fraction above does not supply that rate; the earlier channel gain G
+can still vanish. Reuse the exact centered pins; do not replace q*Pq by q^2,
 introduce another equivalent survival wrapper or assert physical calibration.
 SOURCE REVIEW CORRECTION: terminal recursion gives no actual q^2 radial
 concentration. The exact free-leaf insertion rule applies to inactive faces,
