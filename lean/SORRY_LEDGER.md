@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED constructed positive-real Cayley parameter only (2026-10-01 UTC)
+
+- `ParameterContinuity.parameter_ordered_distance` uses exact rational
+  addition/isometry. `parameter_close_bound` retains the ONE original source
+  radius in both rational orders; no new analytic input is added.
+- `PositiveTime.timeRows` consists of actual original rational product-limit
+  Rows. The supplied numerical QCauchy modulus and source radius prove their
+  Cauchy bound. `timeLimitCertificate` returns original Rows and a computed
+  rate; input congruence descends `positiveAction` to EVERY physical class.
+- `PositiveTimePins.positiveAction_time_congr` proves equality for numerical
+  Equiv without extracting Type data from it. `positiveRealAction` descends
+  to the existing carrier-free numerical time quotient; positive rationals
+  recover the original Cayley limit exactly.
+- Nineteen focused gates passed: two {propext}, seventeen {propext,Quot.sound}.
+  Independent source/math/log/hash reviews passed. No sorry, new axiom,
+  analytic hypothesis, selection, safety-limit increase or frontier weakening.
+  Evidence: positive-real parameter addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: positive-real addition/full pairing laws and signed-real unitary group;
+  SAME-generator physical-spacing/scaling calibration, useful signed scaling,
+  continuum survival, finite positive mass, full QFT, every group and Clay.
+- Three root imports added; full root/tree/build/audit/guard NOT run.
+
 ## PROVED original Euclidean action commutes with actual Cayley limit only (2026-10-01 UTC)
 
 - `ScaledCayleyEuclideanLimit.actionRows` constructs original time-acted Rows

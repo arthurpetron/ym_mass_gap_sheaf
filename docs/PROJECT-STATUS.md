@@ -1,5 +1,19 @@
 # Canonical one-page project status
 
+Verified supporting positive-real Cayley parameter construction
+(2026-10-01 UTC; chart unchanged): the exact rational parameter-difference
+identity and the ORIGINAL source radius produce a physical Rows Cauchy
+sequence from supplied numerical time data. Actual limit Rows and their rate
+are computed. Presentation independence descends the action to positive real
+time values on EVERY original physical class; rational parameters recover the
+original limit exactly. Nineteen focused gates and independent reviews passed.
+Real addition, full pairing preservation, signed-real unitary group and
+physical calibration are not asserted. Primary signed scaling, survival,
+physical mass, continuum QFT and every group remain OPEN. Evidence:
+positive-real parameter addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No displayed claim changed; no ASCII reprint.
+
 Verified supporting original Euclidean graph transport and finite Cayley
 commutation (2026-10-01 UTC; chart unchanged): original derivative/time
 commutation constructs transport of EVERY physical derivative-domain class,

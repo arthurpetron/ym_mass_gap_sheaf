@@ -6163,6 +6163,10 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSDerivativeTime
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyEuclideanCommutation
 -- Actual limit intertwines original Euclidean time; physical calibration is open.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyEuclideanLimit
+-- Constructed positive-real Cayley parameter, not a real group or physical clock.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyParameterContinuity
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTime
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimePins
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

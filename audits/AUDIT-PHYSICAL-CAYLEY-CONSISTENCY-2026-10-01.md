@@ -944,3 +944,61 @@ proposition is constructive-real parameter extension of the actual rational
 limit with source moduli; physical generator identification, spacing/scaling,
 useful signed-energy control, survival and all-group realization are separate
 obligations, not consequences of the commutation identity.
+
+## Constructed positive-real Cayley parameter
+
+This extends the ACTUAL rational Cayley limit on the SAME physical bond
+carrier, at fixed nome and width. No continuum or physical clock is identified.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyParameterContinuity.lean`,
+`parameter_ordered_distance:65` proves EXACTLY
+`D(F_b x,F_a x)=D(F_(b-a) x,x)` for 0<a<b, using actual addition and isometry.
+`parameter_close_bound:83` handles both rational orders and semantic equality
+with the ONE original source-computed zero-time radius; no second modulus.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTime.lean`,
+`timeRows:60` supplies actual original product-limit Rows at positive numerical
+samples. `timeModulus:68` composes the supplied numerical QCauchy modulus with
+the original source radius. `timeRows_cauchy:71` proves the all-tail physical
+bound; `timeSequence:91` feeds the existing ORIGINAL completion.
+`timeLimitCertificate:110` returns output Rows and their computed rate.
+`timeLimit_congr:118` compares actual limits, so `positiveAction:131` descends
+to EVERY original physical class without representative selection.
+`positiveAction_rational:141` recovers the original rational limit exactly.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimePins.lean`,
+`positiveAction_time_congr:141` handles different real presentations, start
+offsets, floors and moduli. Numerical Equiv is eliminated only locally in
+the Prop-valued equality proof; no Type rate is extracted from it. The original
+two limit rates and parameter comparison at epsilon/16 pay10epsilon/16.
+`positiveRealAction:182` descends to the already defined carrier-free numerical
+positive-time quotient; `positiveRealAction_pin:186` and
+`positiveRealAction_rational:190` retain the actual action and rational recovery.
+
+All three focused checks emitted `.olean`s. All nineteen source-site gates
+passed: two {propext}, seventeen {propext,Quot.sound}. Independent
+source/math/log/hash reviews passed:
+
+| Module suffix | Gates | Accepted log in `/tmp` | SHA256 |
+| --- | ---: | --- | --- |
+| `ScaledCayleyParameterContinuity` | 3 | `ym-cayley-parameter-continuity-first-20261001.log` | `497fa10157c47b8d710d90b4bd7c312036311e99b8599c3fbab850e092a1e82a` |
+| `ScaledCayleyPositiveTime` | 12 | `ym-cayley-positive-time-third-20261001.log` | `13dd4cfb2f712def909b96fe8c1a782c91f8a9c44c602e91069fc9e7750f79b0` |
+| `ScaledCayleyPositiveTimePins` | 4 | `ym-cayley-positive-time-pins-first-20261001.log` | `4164ac93f747e87921d6cbac88df425b3fd66dec936173dcf6366794430accd9` |
+
+The first PositiveTime draft's rational-recovery rewrite did not expose the
+ofRows constructor after quotient induction; explicit `change` repairs only
+that elaboration seam. The final check also directly gates four additional
+public pins. Accepted sources/logs contain no sorryAx or forbidden construct.
+One serialized20-GiB worker and12-GiB OS reserve were retained; preflight found
+zero swap and no competing compiler/test/runner. Three root imports added;
+full root/tree/build/audit/guard NOT run. CI and safety limits unchanged.
+No displayed canonical claim changed; no ASCII reprint.
+
+NEXT: actual positive-real addition and FULL Hermitian pairing preservation,
+then the signed-real unitary group. These are available original-limit joins,
+not new assumed analytic fields. Generator identification, physical spacing/
+scaling, useful signed-energy control, survival, finite positive physical mass,
+full continuum QFT, every group and Clay remain OPEN.

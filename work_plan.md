@@ -112,10 +112,23 @@ the unchanged source-dependent product rate prove `limitMap_action_commute`
 on EVERY original physical class. Five further focused gates and independent
 review passed; no new analytic premise or representative selection.
 
-NEXT available operator proposition: extend the positive-rational Cayley limit
-parameter to supplied positive constructive-real time with an explicit
-source-dependent modulus. Preserve the proved -2i normalization; commutation
-alone does not identify generators or calibrate physical time. The primary
+The positive-real Cayley parameter extension is now constructed.
+`ParameterContinuity.parameter_ordered_distance` reduces rational differences
+EXACTLY to the original zero-time displacement. The ONE source radius and
+supplied numerical QCauchy modulus construct actual `PositiveTime.timeSequence`;
+`timeLimitCertificate` returns original output Rows and the computed rate.
+Input congruence descends to EVERY original physical class.
+`PositiveTimePins.positiveAction_time_congr` proves presentation independence,
+so `positiveRealAction` acts on numerical positive real time values and
+recovers the original positive-rational limit. Nineteen focused gates and
+independent reviews passed; no new analytic premise or representative choice.
+
+NEXT operator propositions: prove addition for the constructed positive-real
+action and preservation of the FULL original Hermitian pairing by actual limit
+comparison. These supply the positive half of the signed-real unitary-group
+construction; no such group law is assumed. Preserve the proved -2i
+normalization. Commutation and real-parameter construction alone do not identify
+generators or calibrate physical time. The primary
 analytic changing-family signed-energy/variance estimate remains OPEN.
 Existing `PositiveTimePins.positiveAction_original` already pins positive
 integer samples to the ORIGINAL transfer, and the witnessed real Taylor
@@ -127,8 +140,9 @@ reviews found no ready new continuum
 QFT or every-group physical producer: buffered locality needs its actual
 intertwining join, and classification/central descent still lacks compatible
 compact Haar/heat realization. Do not add isolated algebra or repeat existing
-conditional wrappers. Rational zero-parameter continuity is not full-real
-time or physical-spacing/maximal-generator calibration; those remain OPEN.
+conditional wrappers. The constructed positive-real parameter map is not the
+full signed-real unitary group or physical-spacing/maximal-generator calibration;
+those remain OPEN.
 PRIMARY complete signed scaling,
 changing-family survival, finite positive physical mass, full continuum QFT,
 every group and Clay remain OPEN. No displayed chart change or broad
