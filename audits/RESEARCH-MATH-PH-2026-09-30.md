@@ -209,3 +209,15 @@ rules out the specified local static/dynamic plaquette dualizations, not our
 original-link route. The blockade result (39475) and cubic-code Davies result
 (39959) remain different-model estimates as recorded above. None of the seven
 supplies the missing original Wilson scaling producer or closes a Clay node.
+
+### Terminal-source obstruction follow-up (2026-10-01 23:38 UTC)
+
+A further requested parallel Sol check found no additional original-source
+producer in these seven papers; the cached priorities and scope remain
+unchanged. The new checked generic model in
+`audits/AUDIT-POSITIVE-SOURCE-HEAT-MODE-SCALING-2026-10-01.md` rules out filling
+their missing Wilson comparison/interface inputs using only positive heat,
+source positivity and a bare low-mode pin. Transferring either method still
+requires control of the actual terminal `q*(f-ownmean)` on the SAME `q*P(q)`
+law, not replacement by a truncated bare mode. No literature-derived module
+or assumed analytic input was added; no routine listing scan was performed.

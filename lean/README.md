@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Generic source-uniform scaling obstruction (2026-10-01 UTC):**
+`PositiveSourceHeatModeScalingObstruction.counterexample` computes a positive
+two-state source and heat step for each nonnegative rational C, refuting
+E<=C*h*OWNVariance despite symmetric Markov positive contractive heat and an
+EXACT low bare eigenmode. The actual q*P(q) mass and OWN mean are retained.
+Eighteen focused gates and independent reviews passed within the permitted
+axiom gate. This is NOT a Wilson terminal source or a Yang--Mills counterexample.
+The original source-specific signed changing-family estimate remains OPEN.
+One semantic root import added; full root/tree/build/audit/guard NOT checked.
+Evidence: `audits/AUDIT-POSITIVE-SOURCE-HEAT-MODE-SCALING-2026-10-01.md`.
+
 **Original supplied-real generator-domain converse (2026-10-01 UTC):**
 `PositiveTimeReciprocalRationalPins.realScalar_reciprocal_rational` recovers
 rational scaling on BOTH original physical coordinates.

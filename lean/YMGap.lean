@@ -5035,6 +5035,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceVarianceGram
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceVarianceDefect
 import YMGap.Continuum.SU2PlaquetteEvenBudgetFloor
 import YMGap.Continuum.SU2QuaternionPositiveSourceVarianceFence
+-- Generic source-uniform O(heat-step) shortcut refuted; not a Wilson source.
+import YMGap.Continuum.PositiveSourceHeatModeScalingObstruction
 -- Original plaquette energy: geometric O(1-w) weight and zeroth-order O((1-w)^2) remainder.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoungGeometricBudget
 -- Spectator heat retained: original energy, SAME four-link moments, and a no-larger geometric budget.

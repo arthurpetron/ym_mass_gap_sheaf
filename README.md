@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**A generic scaling shortcut is now refuted (2026-10-01):** positivity,
+contractive heat and an exact low bare eigenmode alone do not give a
+source-uniform small energy/OWN-variance ratio. An explicit two-state family
+passed its focused Lean check and independent reviews. It is NOT a Wilson
+terminal-source or Yang--Mills counterexample. The next task is still the
+original source-specific signed estimate on a justified changing family.
+See the [checked obstruction and scope](audits/AUDIT-POSITIVE-SOURCE-HEAT-MODE-SCALING-2026-10-01.md).
+
 **Original supplied-real generator-domain converse (2026-10-01):** the
 constructed real quotient recovers the original rational quotient exactly.
 A supplied two-sided real tangent now constructs the SAME bond-domain witness

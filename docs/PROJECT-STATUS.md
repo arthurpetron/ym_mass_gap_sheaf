@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting source-uniform low-mode shortcut obstruction (2026-10-01
+UTC; chart unchanged): positive symmetric Markov contractive heat and an exact
+low bare eigenmode do NOT yield E<=C*h*OWNVariance uniformly over positive
+sources. A computed two-state counterexample retains the SAME q*P(q) law and
+OWN mean. Eighteen focused gates and independent reviews passed. This is NOT
+the actual Wilson terminal source or a Yang--Mills counterexample; original
+signed changing-family control and all continuum endpoints remain OPEN.
+Evidence: `audits/AUDIT-POSITIVE-SOURCE-HEAT-MODE-SCALING-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original supplied-real generator-domain converse
 (2026-10-01 UTC; chart unchanged): the constructed reciprocal and actual
 quotient recover rational increments exactly. Supplied graph Points compute

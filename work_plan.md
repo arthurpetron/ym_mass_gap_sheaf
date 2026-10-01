@@ -25,6 +25,25 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Source-uniform low-heat-mode shortcut pruned (2026-10-01 UTC)
+
+PROGRESS: `PositiveSourceHeatModeScalingObstruction.counterexample` computes,
+for every nonnegative rational C, a positive two-state source and heat step
+refuting `E <= C*h*OWNVariance`. The SAME heat is symmetric, Markov, positive
+and contractive; the probe is an EXACT low bare eigenmode. All mass, mean and
+variance use `q*P(q)`. Eighteen focused gates and independent Sol/Luna reviews
+passed. This is generic finite-chain route pruning, NOT a Wilson terminal
+source or Yang--Mills counterexample. Evidence:
+`audits/AUDIT-POSITIVE-SOURCE-HEAT-MODE-SCALING-2026-10-01.md`.
+
+NEXT remains the original JOINT signed-energy/SAME-variance estimate below,
+on a justified changing family. Control the actual terminal `q*(f-ownmean)`
+and its signed correction; source positivity and the bare eigenpin cannot
+replace this input. No new analytic bundle or fixed-clock wrapper. Physical
+spacing/lower-gap joins, survival, full QFT, every group and Clay remain OPEN.
+One semantic root import added; full root/tree/build/audit/guard NOT checked.
+Canonical chart and CI unchanged; no exact displayed claim changed.
+
 ### Original supplied-real generator-domain converse (2026-10-01 UTC)
 
 PROGRESS after `db8478f`: the constructed time reciprocal and BOTH original

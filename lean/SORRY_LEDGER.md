@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED generic positive-source low-mode scaling obstruction only (2026-10-01 UTC)
+
+- `PositiveSourceHeatModeScalingObstruction.heat_markov`, `heat_selfAdjoint`,
+  `heat_contraction`, `heat_positive` and `heat_probe` prove the two-state heat
+  assumptions, including an EXACT low bare eigenmode. `source_positive` proves
+  strict positivity of the computed source `(1,h^2)`.
+- `normalizedVariance_cleared` retains the actual `q*P(q)` mass and OWN mean.
+  `half_variance_energy_floor` gives E >= OWNVariance/2 in cleared form.
+  `counterStep` computes h=1/[4(C+1)]; `counterStep_bounds` gives C*h<=1/4.
+  `counterStep_normalized_bound_false` refutes ACTUAL E<=C*h*OWNVariance;
+  `counterexample` returns its explicit positive-variance witness as Type data.
+- Eighteen focused gates and independent math/source/log/hash reviews passed:
+  seventeen {propext,Quot.sound}, one {propext}. No new sorry, axiom, erased
+  witness, analytic premise or weakened frontier. Evidence and exact scope:
+  `audits/AUDIT-POSITIVE-SOURCE-HEAT-MODE-SCALING-2026-10-01.md`.
+- Scope: generic finite-chain shortcut obstruction, NOT an original Wilson
+  terminal-source or Yang--Mills counterexample. OPEN: source-specific JOINT
+  signed energy versus OWN interacting variance on a justified changing family,
+  original cross-scale bond-pairing compatibility, physical spacing/lower gap,
+  survival, finite positive physical mass, full QFT, every group and Clay.
+  One semantic root import added; full root/tree/build/audit/guard NOT checked.
+  Canonical chart, CI and safety limits unchanged.
+
 ## PROVED original supplied-real generator-domain converse only (2026-10-01 UTC)
 
 - `PositiveTimeReciprocalRationalPins.reciprocal_rational` identifies the
