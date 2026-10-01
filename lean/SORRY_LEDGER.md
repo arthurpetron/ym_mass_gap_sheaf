@@ -1,13 +1,33 @@
 # Sorry Ledger
 
+## PROVED quartic heat coefficients and finite block tail (2026-10-01 UTC)
+
+- `SU2HeatQuarticBulkCoefficient.quarticBulkCoeff_factor` identifies the
+  actual five untruncated heat coefficients with the signed scalar polynomial.
+  `quarticBulkCoeff_le_relative` gives the explicit relative budget
+  296*h^2+32*(k+3)^4*h^4, h=1-w, under 1<=2*w^(4*k+8).
+  `SU2HeatQuarticNomeBudget` supplies the nome-defect specialization.
+- `SU2HeatDimensionBlockTail.dimensionTail_le_eight_blocks` bounds every
+  finite dimension-squared tail from L by 8*L^3*w^(L^2), for 0<=w<=1,
+  L>=1 and w^(L^2)<=1/8. Uniform in tail length only, with w and L explicit.
+- `SU2QuaternionHeatQuarticExpansion.heat_quartic_expansion` proves the
+  exact unregrouped finite expansion, retaining all signed terms and all
+  cutoffs. OPEN: regrouping, exceptional low-spin inequalities, boundary
+  payment and original-source insertion estimate. The diagnostic schedule,
+  SAME-variance scaling estimate and justified physical family remain open.
+- No existing sorry, canonical field or chart node changed. Four final
+  focused checks passed 18 gates within {propext, Quot.sound}; no broad run.
+  Evidence: `audits/AUDIT-QUARTIC-COEFFICIENTS-AND-BLOCK-TAIL-2026-10-01.md`.
+
 ## PROVED scalar quartic majorant and represented bond completion (2026-10-01 UTC)
 
 - `SU2HeatQuarticCoefficientMajorant.quarticP_le_majorant` bounds the
   signed five-term polynomial by n*(1-A)^4+12*(1-V)*(1-A)+15*(n+2)*(1-V)^2
   for n>=0 and 0<=A,V<=1. Its excess is an explicit sum of six nonnegative
-  terms. OPEN: original second-fusion coefficient identification, exceptional
-  low spins, finite boundary and moving high-spin tail. The reviewed
-  h-specialization and diagnostic schedule are not yet Lean theorems.
+  terms. The follow-on entry above supplies the original bulk coefficient
+  identification, h-specialization and finite block tail. Exceptional
+  low-spin inequalities, finite boundary payment and the diagnostic schedule
+  remain open.
 - `BF4WilsonAllNomeBondOSCompletion` constructs explicit physical Cauchy
   rows and closeness moduli, computed representative maps, both quotient
   inverse laws, isometry, and original constant-source distance/pairing pins.

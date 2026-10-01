@@ -1,9 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting quartic coefficients and finite block tail (2026-10-01
+UTC; chart unchanged): the actual five-coefficient combination now has an
+explicit relative nome budget under a stated spin/nome guard. A blockwise
+dimension-squared tail bound holds for every finite length. The exact
+unregrouped character expansion retains all finite-cutoff terms. Regrouping,
+exceptional low-spin inequalities, boundary payment and the original-source
+insertion estimate remain open, before the SAME-variance and physical
+scaling joins. Four focused checks passed 18 gates within {propext,
+Quot.sound}; no broad run or canonical change. Evidence:
+`audits/AUDIT-QUARTIC-COEFFICIENTS-AND-BLOCK-TAIL-2026-10-01.md`.
+
 Verified supporting scalar quartic majorant and represented physical bond
 completion (2026-10-01 UTC; chart unchanged): six nonnegative products give
-a short signed-polynomial bound for the low-spin quartic route. Its original
-heat-coefficient identification and moving high-spin tail remain OPEN.
+a short signed-polynomial bound for the low-spin quartic route. The follow-on
+above supplies its bulk heat-coefficient identification and finite block tail.
 Separately, explicit physical Cauchy rows now give inverse quotient maps
 and an isometry to the existing witnessed time sector, retaining moduli
 and original constant-source pairing/distance. This is fixed nome/width,

@@ -614,18 +614,31 @@ one possible route, not a necessary intermediate theorem. The new
 scalar step toward a character-channel split: an exact six-positive-term
 identity bounds the signed five-term polynomial by
 n*(1-A)^4+12*(1-V)*(1-A)+15*(n+2)*(1-V)^2 on 0<=A,V<=1, n>=0.
-NEXT: prove its identification with the original second-fusion coefficients,
-handle low spins and finite cutoff boundaries, and supply a moving
-dimension-squared tail bound by blocks. The current one-index ratio guard
-is too coarse at L approximately (1-w)^(-2/3). The reviewed low/high
-estimates and diagnostic dyadic schedule are not yet kernel-checked or a
-physical scaling family. Existing character upper bounds require the full
+FOLLOW-ON PROVED: `SU2HeatQuarticBulkCoefficient` identifies the actual
+five-coefficient combination and bounds it by
+(296*h^2+32*(k+3)^4*h^4)*coeffW(w,k+2), h=1-w, for 0<=w<=1 under
+the explicit guard 1<=2*w^(4*k+8). `SU2HeatQuarticNomeBudget` supplies its quantitative
+Bernoulli step. `SU2HeatDimensionBlockTail.dimensionTail_le_eight_blocks`
+bounds EVERY finite tail from L by 8*L^3*w^(L^2), for 0<=w<=1, L>=1 and
+w^(L^2)<=1/8. `SU2QuaternionHeatQuarticExpansion.heat_quartic_expansion`
+retains every original finite-prefix term, including small cutoffs, but
+does not yet regroup equal output spins. NEXT: prove the regrouped output
+coefficient formula with zero-extended original coefficients, bound the
+exceptional spins zero/one and the finite boundary, then combine the
+guarded bulk and tail estimates under the ORIGINAL positive insertion.
+The existing one-index ratio guard is too coarse near L=(1-w)^(-2/3);
+use the now-proved block bound. The diagnostic dyadic schedule is still
+unformalized and is NOT a justified physical scaling family. Existing
+character upper bounds require the full
 pointwise certificate W*a*lift(a), which the ORIGINAL positive endpoint
 source supplies; PSD alone or a centered signed source does not suffice.
 After that, the full-word mixed moment versus SAME centered variance and
 physical time calibration remain. Do not reprove nome order, error
 absorption or positive-source certification, and do not infer survival
 from partition control. The combined signed-correction route remains available.
+Four final focused checks of the coefficient/budget/tail/expansion modules
+passed 18 gates within {propext, Quot.sound}; no canonical change or broad
+run. Evidence: `audits/AUDIT-QUARTIC-COEFFICIENTS-AND-BLOCK-TAIL-2026-10-01.md`.
 The new scalar proof and represented bond completion passed 27 printed
 gates in two focused checks, with no canonical change or broad run. Evidence:
 `audits/AUDIT-QUARTIC-MAJORANT-AND-BOND-COMPLETION-2026-10-01.md`.
