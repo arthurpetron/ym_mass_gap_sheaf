@@ -30,7 +30,7 @@ codes only. The certificate pins those existing codes, but does not supply
 root-data provenance to an analytic group instance. A compatible typed
 root-datum consumer was NOT FOUND in the targeted RepTheory/RG source review.
 
-`ConstructiveGroup` in `lean/YMGap/RepTheory/ConstructiveGroup.lean:46`
+`ConstructiveGroup` in `lean/YMGap/RepTheory/ConstructiveGroup.lean:51`
 specifies setoid group operations/laws, not compact topology or Haar data.
 Actual group/root/weight/representation realization, invariant integration,
 heat action, and the original physical Wilson/OS construction beyond SU(2)
