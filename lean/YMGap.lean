@@ -5010,6 +5010,7 @@ import YMGap.Continuum.PositiveDualBandScalar
 import YMGap.Continuum.SU2QuaternionProductHeatBandResponse
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyLocalBand
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyBandResponse
+import YMGap.Continuum.SU2QuaternionSourceDefectSignFence
 -- Complete original-source local regularity and explicit one-link RAW Haar
 -- spectral tails, then conditional SAME-channel tails with shared active links.
 -- The original-partition floor below retains four-link heat;

@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified source-sign shortcut fence (2026-10-01 UTC; chart unchanged):
+positive q=1+chi_2/4 and q=1-chi_2/4 on the same one-link heat, each
+centered in its own q*Pq density with positive variance, give source
+defects -765/16384 and +255/16384. Both universal sign claims fail.
+Neither source is identified with a 4D terminal message. Source review
+also gives rho<=2^(-280) for the latest nonempty-family band, so that
+particular certified ceiling cannot become scaling-small; this deduction
+is not a new Lean theorem or a lower bound on true energy. The signed
+SAME-variance scaling input remains OPEN. One repaired focused check
+passed 24 gates exactly in {propext, Quot.sound}, without raised safety
+limits or broad verification. Evidence:
+`audits/AUDIT-CENTERED-SOURCE-DEFECT-SIGNS-2026-10-01.md`.
+
 Verified supporting WHOLE signed-family SAME-variance ceiling (2026-10-01
 UTC; chart unchanged): the ORIGINAL unprojected V*u_(n+1) gives
 E_original<=(1-rho)*Z*Var_odd at odd depth n+1, with

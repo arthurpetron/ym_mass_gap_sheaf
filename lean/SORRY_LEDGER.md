@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED both signs of the own-law centered source defect (2026-10-01 UTC)
+
+- `SU2QuaternionSourceDefectSignFence` constructs positive q=1+chi_2/4
+  and q=1-chi_2/4 on the same actual one-link heat at w=1/2, K=3.
+  Both use their OWN q*Pq center and have positive variance. The defect
+  values are -765/16384 and +255/16384. The two universal defect-sign
+  claims are refuted; neither source is a proved BF4 terminal message.
+- Source review, NOT a new Lean theorem: for a nonempty family the
+  latest band fraction rho<=2^(-280), so its ceiling 1-rho cannot
+  become scaling-small or meet the c<1/2 retained-fraction guard.
+  This is a limitation of the certificate, not a true-energy lower bound.
+- OPEN: useful control of the complete signed correction against SAME
+  interacting variance on a justified physical family. No continuum
+  survival, physical mass, QFT, every-group or canonical field is closed.
+- The repaired focused check passed 24 gates exactly in
+  {propext, Quot.sound}, under unchanged serialized safety caps. No
+  sorry or broad run. Evidence:
+  `audits/AUDIT-CENTERED-SOURCE-DEFECT-SIGNS-2026-10-01.md`.
+
 ## PROVED whole signed family SAME-variance local band (2026-10-01 UTC)
 
 - `PositiveDualBandScalar.response_cleared` includes the zero-mass branch

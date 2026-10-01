@@ -761,6 +761,21 @@ the next input needs genuinely useful scaling dependence. Four focused
 checks passed 28 gates within {propext, Quot.sound}; no broad run or
 canonical field/chart change. Evidence:
 `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+FOLLOW-ON PROVED SIGN FENCE: certified positive sources 1+chi_2/4 and
+1-chi_2/4 on the SAME one-link product heat give opposite own-q*Pq-centered
+source defects, -765/16384 and +255/16384, with positive variance.
+`SU2QuaternionSourceDefectSignFence` refutes both universal sign claims.
+Neither source is proved to be an original BF4 terminal message.
+SOURCE REVIEW, not a new Lean theorem: for EVERY nonempty family the
+current band fraction is at most 2^(-280), by headFloor<=1/32 and
+prefixCap>=1. Its certified ceiling therefore cannot tend to zero or
+meet c<1/2 in `SectorSourceTransfer.relative_derivative_bound`; this
+does not bound actual energy from below. Do not optimize that floor/cap
+route further for the missing scaling input. Preserve the complete
+source-dependent signed terms and seek a genuinely sharper estimate.
+The repaired focused sign check passed 24 gates exactly in
+{propext, Quot.sound}, with unchanged caps and no broad run. Evidence:
+`audits/AUDIT-CENTERED-SOURCE-DEFECT-SIGNS-2026-10-01.md`.
 NEXT: improve the complete cost/retained gain or signed Ward/Taylor remainder
 against this SAME interacting variance on a justified physical observable
 family to supply a scaling-small energy/variance ratio. The positive finite
