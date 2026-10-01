@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL vacuum-complement inverse (2026-09-30 UTC;
+chart unchanged): positive-shift resolvents preserve the vacuum complement,
+have norm cap 1/(lambda+delta), and satisfy an exact parameter identity.
+Their explicit zero-shift limit constructs the actual inverse of the
+existing sector derivative, with both inverse laws and cap 1/delta,
+delta=coreMargin(w,width). Original range witnesses, pairing and time unit
+are retained; no ambient kernel is removed. The bound is uniform in the
+shift only. Physical OS identification and the primary signed scaling
+estimate remain open. Seven focused serialized checks passed 22 gates
+exactly in {propext, Quot.sound}; no broad run or canonical field change.
+Evidence: `audits/AUDIT-ORIGINAL-SECTOR-ZERO-RESOLVENT-2026-09-30.md`.
+
 Verified supporting ORIGINAL signed energy/variance identity (2026-09-30 UTC;
 chart unchanged): four actual incident links and spectator cancellation give
 Casimir 12 for the whole signed plaquette family. The complete-weight Ward

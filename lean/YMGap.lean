@@ -5868,10 +5868,10 @@ import YMGap.Continuum.BF4WilsonAllNomeSectorDerivative
 -- Same complex carrier: witnessed sector completeness and intrinsic complex adjoint.
 import YMGap.Continuum.BF4WilsonAllNomeComplexTimeSector
 import YMGap.Continuum.BF4WilsonAllNomeComplexSectorDerivative
--- Constructed bounded root inverses; shrinking-time generator resolvent remains open.
+-- Constructed bounded root inverses and original sector derivative resolvents.
 import YMGap.Continuum.BF4WilsonAllNomeRootResolventPartial
 import YMGap.Continuum.BF4WilsonAllNomeRootResolvent
--- Actual adjacent dyadic resolvents; represented generator limit remains open.
+-- Actual adjacent dyadic resolvents and their represented generator limit.
 import YMGap.Continuum.BF4WilsonAllNomeShiftedRootResolvent
 import YMGap.Continuum.BF4WilsonAllNomeResolventSquareComparison
 import YMGap.Continuum.BF4WilsonAllNomeAdjacentRootResolvent
@@ -5882,6 +5882,14 @@ import YMGap.Continuum.BF4WilsonAllNomeResolventEquation
 import YMGap.Continuum.BF4WilsonAllNomeResolventRange
 import YMGap.Continuum.BF4WilsonAllNomeSectorShiftInjective
 import YMGap.Continuum.BF4WilsonAllNomeSectorResolvent
+-- Actual zero-shift inverse on the original vacuum complement, fixed nome/width.
+import YMGap.Continuum.BF4WilsonAllNomeSectorResolventIdentity
+import YMGap.Continuum.BF4WilsonAllNomeSectorResolventGap
+import YMGap.Continuum.BF4WilsonAllNomeSectorResolventContinuity
+import YMGap.Continuum.BF4WilsonAllNomeSectorZeroInjective
+import YMGap.Continuum.BF4WilsonAllNomeSectorZeroResolventLimit
+import YMGap.Continuum.BF4WilsonAllNomeSectorZeroResolventEquation
+import YMGap.Continuum.BF4WilsonAllNomeSectorZeroResolvent
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary

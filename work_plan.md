@@ -395,6 +395,24 @@ or canonical chart change. Evidence:
 The ambient kernel remains; no ambient inverse, physical OS identification,
 spectral exclusion interval above the vacuum or physical mass is asserted.
 
+FOLLOW-ON PROVED: `BF4WilsonAllNomeSectorResolventGap` preserves the
+original vacuum complement and proves the sharp cap 1/(lambda+delta),
+delta=coreMargin(w,width), plus the shift-independent cap 1/delta.
+`SectorResolventIdentity.resolvent_identity` and
+`SectorResolventContinuity.parameter_bound` give the exact difference and
+||R_lambda x-R_mu x||^2<=(mu-lambda)^2*delta^(-4)*||x||^2.
+`SectorZeroResolventLimit.zeroShift` constructs the SAME-sector limit along
+2^(-(n+1)), with original representatives, range witnesses and explicit rate.
+`SectorZeroResolventEquation.zeroShift_equation` proves A u=T(1)x, yielding
+the actual original domain point with output exactly x.
+`SectorZeroResolvent.inverse_right` and `inverse_left` give the two-sided
+zero-shift inverse on the existing vacuum complement; it is symmetric,
+nonnegative and has norm cap 1/delta. Abbreviated names have prefix
+`BF4WilsonAllNome`. This is a fixed-nome/width result, not uniform physical
+mass calibration. Seven final focused serialized checks passed 22 gates
+exactly in {propext, Quot.sound}; no broad run or canonical field change.
+Evidence: `audits/AUDIT-ORIGINAL-SECTOR-ZERO-RESOLVENT-2026-09-30.md`.
+
 NEXT reconstruction residue: the SAME-object physical reflected OS/observable
 identification and physical spectral join, not another
 real-to-complex compatibility wrapper or an unjustified total Hamiltonian.
@@ -406,8 +424,9 @@ already supplies `compileWindow_pin` on this carrier. The remaining
 canonical join needs the supported observable and reflected-form/time pins
 against the SAME limiting theory (`CanonicalOSRoot.PositiveTimeOSRoot`),
 not merely positivity of an independently defined Gram form.
-The intrinsic real AND complex presented-sector adjoint joins and the real
-positive-parameter sector resolvent are supplied. Do NOT
+The intrinsic real AND complex presented-sector adjoint joins, the real
+positive-parameter sector resolvent, and its actual zero-shift inverse on
+the original vacuum complement are supplied. Do NOT
 silently select source data from the old quotient Domain or redefine its
 scope. Full physical Hilbert/Hamiltonian identification remains OPEN.
 The equation A u=T v alone remains insufficient on the full ambient carrier
@@ -476,6 +495,18 @@ eigenpin, mean/partition, Ward, Taylor or finite-window joins, identify q^2
 with the odd marginal, or assume the combined remainder is uniformly
 quadratic. Physical time calibration and the relative upper estimate remain
 OPEN. A new conditional survival wrapper does not supply either input.
+FOLLOW-ON SOURCE REVIEW: the existing partition-normalized endpoint energy
+coefficient is fenced below by 32 (`EndpointEnergyCoefficientFence`), a
+limitation of THAT certificate, not an energy lower bound or model refutation.
+The existing `RelativeWardBound` is an angular-energy comparison with a
+nome-dependent score cap, not a scaling-small temporal remainder estimate.
+`ClearedCovariance.clearedDefect_pairing` already exposes the exact full-weight
+test Z*E-c*Z^2*Var; its existing proved sign is the LOWER coercivity direction.
+Do not rebuild this test or reverse that inequality to infer survival.
+These abbreviated modules have prefix `BF4ExactSlabFixedSpatial`; source
+citations are in the zero-resolvent audit above. The next useful analytic
+increment must estimate the combined correction for an actual source and
+justify its physical scaling, not merely add an equivalent hypothesis.
 The now-proved one-step source/domain transfer already controls the actual
 derivative energy, retained norm and source replacement. Do not build another
 equivalent conditional survival/domain wrapper before supplying a useful

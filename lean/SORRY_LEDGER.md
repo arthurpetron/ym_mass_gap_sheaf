@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL vacuum complement zero shift inverse (2026-09-30 UTC)
+
+- `BF4WilsonAllNomeSectorResolventGap` proves vacuum preservation and
+  norm caps 1/(lambda+delta) and 1/delta for delta=coreMargin(w,width).
+  `SectorResolventIdentity.resolvent_identity` and
+  `SectorResolventContinuity.parameter_bound` give the actual shift identity
+  and squared parameter bound (mu-lambda)^2*delta^(-4)*||x||^2.
+- `SectorZeroResolventLimit.zeroShift` constructs the actual limit along
+  2^(-(n+1)), retaining original range witnesses and an explicit rate.
+  Vacuum orthogonality and the cap 1/delta survive. `SectorZeroResolventEquation`
+  proves A u=T(1)x and returns the original domain point with output exactly x.
+- `SectorZeroInjective.input_injective` and
+  `SectorZeroResolvent.inverse_left`/`inverse_right` prove both inverse laws
+  on the SAME vacuum complement. Its inverse is symmetric, nonnegative and
+  independent of witness presentation. Abbreviated names above have prefix
+  `BF4WilsonAllNome`.
+- OPEN: useful original signed scaling estimate, physical OS identification,
+  spacing-uniform calibrated mass, continuum survival, full QFT/every-group/Clay.
+  This uniformity is only in the shift, not nome/width. Ambient kernel intact;
+  no existing sorry, canonical field or chart node changed.
+- Seven final focused serialized checks passed 22 gates exactly in
+  {propext, Quot.sound}; no broad run. Evidence and primary-frontier review:
+  `audits/AUDIT-ORIGINAL-SECTOR-ZERO-RESOLVENT-2026-09-30.md`.
+
 ## PROVED ORIGINAL signed-family energy/variance identity (2026-09-30 UTC)
 
 - `SU2QuaternionBlockLinearCasimir.blockCasimir_linear` transports the
