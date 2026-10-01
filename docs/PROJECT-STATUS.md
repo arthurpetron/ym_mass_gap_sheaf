@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL signed marginal Taylor identity (2026-09-30 UTC;
+chart unchanged): the whole padded signed family now has an exact normalized
+energy identity with its leading angular term under the ORIGINAL odd marginal.
+Both Taylor remainders and the signed q*Pq-minus-q^2 weight correction remain,
+all divided by the same original partition. The prior source review overlooked
+the already existing unnormalized energy join and has been corrected.
+Useful combined remainder/variance control and scaling survival remain open.
+Four focused serialized checks passed 15 gates exactly in {propext, Quot.sound};
+no broad run or canonical change. Evidence:
+`audits/AUDIT-SIGNED-ORIGINAL-MARGINAL-TAYLOR-2026-09-30.md`.
+
 Verified supporting ORIGINAL sector derivative resolvent (2026-09-30 UTC;
 chart unchanged): the actual dyadic norm limit now has explicit original
 representatives, convergence moduli and a computed time-range witness.

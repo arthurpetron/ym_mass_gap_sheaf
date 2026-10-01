@@ -4897,6 +4897,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialGroundStateEnergy
 import YMGap.Continuum.BF4ExactSlabFixedSpatialProjectedSourceEnergy
 -- Original-energy Taylor bound with checked source cancellation; scaling remains open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceTaylor
+import YMGap.Continuum.SU2QuaternionAngularSquareLocality
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyFringeIndependent
+import YMGap.Continuum.BF4ExactSlabFixedSpatialAngularMarginal
+import YMGap.Continuum.BF4ExactSlabFixedSpatialMarginalTaylor
 -- Exact spectator Gram-channel reduction of original moments and plaquette energy.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
 -- Computed Casimir-square channel contraction; actual second moment joined by the BF4 consumer above.

@@ -439,14 +439,34 @@ are scoped controls, not refutations of this family. The 2D universality,
 strong-coupling large-N and 2+1D outline results do not close 4D fields.
 Lean-Quantum depends on Mathlib: proof ideas only, no dependency import.
 This is a research-driven priority adjustment, not a new proved estimate.
-FOLLOW-ON SOURCE REVIEW: the original signed family's finite numerator,
-shared partition and terminal factors have exact scalar pins, but no
-declaration yet identifies them with the angular Taylor a^2 weight and
-its signed remainders. The next producer must supply that SAME-cutoff
-comparison for the actual family/jump source before invoking the existing
-`SectorSourceTransfer.relative_derivative_bound`. Evidence and exact names:
-`audits/AUDIT-SIGNED-ANGULAR-ORIGINAL-WEIGHT-SEAM-2026-09-30.md`.
-This is a located missing comparison, not a new bound or impossibility theorem.
+CORRECTED SOURCE REVIEW AND PROVED FOLLOW-ON: the review missed existing
+`BF4ExactSlabFixedSpatialProjectedSourceEnergy.energy_projected_source` and
+`BF4ExactSlabFixedSpatialSourceTaylor.energy_taylor_angular`; the original
+energy Taylor join already existed for fringe-independent observables.
+The leading q^2 weight differs from the original odd marginal q*Pq.
+`BF4ExactSlabFixedSpatialAngularMarginal.angular_weight_identity` now
+proves A_square+D=A_odd with explicit SIGNED
+D=sum_i H[q*(Pq-q)*Gamma_i(f)]. Locality is proved also for the whole padded
+signed family. `BF4ExactSlabFixedSpatialMarginalTaylor.finite_family_increment_taylor`
+pins its EXISTING normalized Wilson window to
+2*((1-w)*A_odd/Z + (R_mixed-R_diagonal-(1-w)*D)/Z), preserving the original
+partition Z and all terminal/spatial factors and signed cross terms.
+Four final focused serialized checks passed 15 gates exactly within
+{propext, Quot.sound}; no canonical change or broad run. Evidence:
+`audits/AUDIT-SIGNED-ORIGINAL-MARGINAL-TAYLOR-2026-09-30.md`.
+NEXT: compare this original marginal angular term and COMBINED signed
+remainder to the SAME centered variance, using original-weight Ward identities
+where useful. Neither the defect D nor the effective remainder has a proved
+useful sign or scaling size. Do not rebuild the supplied energy/normalizer
+join, silently identify q^2 with the odd marginal, or assume the rebased
+remainder is uniformly quadratic. A justified physical time trajectory and
+the useful relative upper estimate remain OPEN.
+Concrete algebraic producer to test: extend the existing selected-link
+centered Ward identity to the whole signed family under the SAME marginal,
+retaining the complete-weight derivative residual. Prove the required
+total Casimir action from actual source geometry; do not infer it merely
+from the bare plaquette w^12 kinetic eigenvalue. This identity would still
+leave a combined signed relative estimate, not close it by itself.
 The now-proved one-step source/domain transfer already controls the actual
 derivative energy, retained norm and source replacement. Do not build another
 equivalent conditional survival/domain wrapper before supplying a useful

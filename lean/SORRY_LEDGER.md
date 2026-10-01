@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL signed-family marginal Taylor identity (2026-09-30 UTC)
+
+- `SU2QuaternionAngularSquareLocality` supplies coefficientwise zero on
+  inactive differentiated blocks and syntactic independence at distinct blocks.
+  `BF4ExactSlabFixedSpatialFamilyFringeIndependent` supplies locality for
+  arbitrary whole signed plaquette families after strict padding.
+- `BF4ExactSlabFixedSpatialAngularMarginal.angular_weight_identity` proves
+  A_square+D=A_odd with D=sum_i H[q*(Pq-q)*Gamma_i(f)], retaining its sign.
+- `BF4ExactSlabFixedSpatialMarginalTaylor.finite_family_increment_taylor`
+  gives the ORIGINAL finite Wilson increment as twice
+  ((1-w)*A_odd + R_mixed-R_diagonal-(1-w)*D)/Z, using the SAME partition,
+  cutoff, spatial action and terminal messages. No termwise absolute bounds.
+- Corrected the preceding source review: the unnormalized original energy
+  Taylor join was already present. OPEN: quantitative combined signed cost
+  relative to the SAME variance, justified scaling family, continuum survival,
+  physical OS/QFT/every-group/Clay. No existing sorry or canonical field changed.
+- Four final focused serialized checks passed 15 gates exactly in
+  {propext, Quot.sound}; no broad run. Evidence:
+  `audits/AUDIT-SIGNED-ORIGINAL-MARGINAL-TAYLOR-2026-09-30.md`.
+
 ## PROVED ORIGINAL sector derivative resolvent (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeResolventLimit.resolventCertificate` constructs the
