@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED sharp original source energy retention consumer (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeSectorSharpEnergyTransfer.retention_square_identity`
+  constructs the exact positive-square identity on the ORIGINAL completed
+  pairing. `relative_norm_retention` retains (1-c)^2 of the source norm from
+  E<=c*N and c<=1, including zero norm without division.
+- `energyRatio` returns c/(1-c)^2 as rational data. `relative_derivative_bound`
+  and `corePoint_relative_bound` consume the existing actual derivative-core
+  energy bound for 0<=c<1. `corePoint_norm_floor` and `transferredFloor_positive`
+  transport the original source floor through that square fraction.
+- Ten gates passed: one empty, two {propext}, seven {propext,Quot.sound}, with
+  independent math/source/log review. No sorry, new axiom, Classical,
+  native_decide, noncomputable declaration, analytic input or weakened frontier.
+  No raised limit or broad run; root imports registered only. Evidence:
+  `audits/AUDIT-SHARP-ORIGINAL-SOURCE-RETENTION-2026-10-01.md`.
+- OPEN: useful original energy/SAME-variance scaling bound, complete centered
+  error control, physical time/mass, nonzero continuum survival, full same-theory
+  continuum OS/QFT and field/UV identification, every group and Clay. This is
+  an improved conditional consumer, not a discharge of its analytic input.
+
 ## PROVED density of represented physical second-core inputs (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeComplexBondOSSecondCoreDensity.baseSource`, `correctionDepth`

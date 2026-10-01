@@ -6123,6 +6123,8 @@ import YMGap.Continuum.BF4WilsonAllNomeSectorExcitation
 import YMGap.Continuum.BF4WilsonAllNomeSectorEqualTimeBoundary
 import YMGap.Continuum.BF4WilsonAllNomeSectorSmoothingEnergy
 import YMGap.Continuum.BF4WilsonAllNomeSectorSourceTransfer
+-- Positive-square retention sharpens the SAME-source conditional consumer.
+import YMGap.Continuum.BF4WilsonAllNomeSectorSharpEnergyTransfer
 import YMGap.Continuum.SU2QuaternionReplicaPairSwap
 import YMGap.Continuum.SU2QuaternionReplicaPairBounds
 import YMGap.Continuum.QuaternionHaarChangedProductComparison

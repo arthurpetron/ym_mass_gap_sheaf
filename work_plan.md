@@ -25,6 +25,31 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Sharp original source energy retention (2026-10-01 UTC)
+
+PROGRESS after `c1e95a8`: the ORIGINAL pairing gives the exact positive square
+`||Tx-(1-c)x||^2+2*(1-c)*(c*N-E)=||Tx||^2-(1-c)^2*N`.
+For c<=1 and E<=c*N it proves square-fraction norm retention, with no source-
+norm inverse or zero decision. For 0<=c<1 the actual represented derivative
+core has form ratio c/(1-c)^2; an original rational floor retains (1-c)^2.
+This improves the old consumer's 1-2c fraction and c<1/2 ratio guard.
+
+All ten gates passed the final focused check: one empty, two {propext}, seven
+{propext,Quot.sound}; independent reviews passed. No new analytic input or
+frontier weakening. The existing family lag-two response already contains
+its fixed-nome rho^2 floor; no redundant survival claim is added. Evidence:
+`audits/AUDIT-SHARP-ORIGINAL-SOURCE-RETENTION-2026-10-01.md`.
+
+PRIMARY remains production of useful JOINT complete signed error/SAME-variance
+scaling on a justified changing-coupling/spatial/spacing family. This sharper
+consumer does not supply that input. The operator branch now has represented
+second-core density; NEXT is scaled imaginary shifts and local Cayley consistency,
+then a product-Cauchy modulus with factor-two phase calibration. Survival,
+physical time/mass, full continuum QFT, field/UV identification, every group and
+Clay remain OPEN. No displayed chart claim changes; no ASCII reprint. No raised
+limit, broad build/audit/guard or CI change. Prior read-only status was not counted
+as proof progress; these completed components are PROGRESS.
+
 ### Explicit represented physical second-core density (2026-10-01 UTC)
 
 PROGRESS after `61773ff`: supplied physical Rows now construct approximating

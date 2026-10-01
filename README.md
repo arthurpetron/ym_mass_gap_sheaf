@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Sharper original energy-to-domain bound (2026-10-01):**
+an exact positive-square identity improves norm retention from `1-2c` to
+`(1-c)^2` when original energy satisfies `E<=c*N`. It handles zero norm
+without division; for `0<=c<1` the actual derivative-core ratio is
+`c/(1-c)^2`. Original positive source floors retain the square factor.
+All ten focused gates and independent reviews passed. The useful energy
+estimate on a justified scaling family remains OPEN, not assumed proved.
+See the [proof and remaining input](audits/AUDIT-SHARP-ORIGINAL-SOURCE-RETENTION-2026-10-01.md).
+
 **Explicit physical second-core density (2026-10-01):**
 every supplied physical Rows witness now computes twice-time-smoothed
 approximants with linked second-domain witnesses and an all-tail squared-

@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting sharp source-energy retention (2026-10-01 UTC; chart
+unchanged): the ORIGINAL positive-square identity gives (1-c)^2 norm retention
+from E<=c*N and c<=1, including zero norm. The actual derivative-core ratio
+c/(1-c)^2 requires 0<=c<1; original source floors retain the square fraction.
+All ten gates and independent reviews passed. This does not supply the needed
+scaling energy estimate or a new family survival floor. Primary complete signed
+scaling, spatial/spacing passage, physical time/mass, continuum QFT and all groups
+remain OPEN. No displayed claim changed; no ASCII reprint. Evidence:
+`audits/AUDIT-SHARP-ORIGINAL-SOURCE-RETENTION-2026-10-01.md`.
+
 Verified supporting physical second-core density (2026-10-01 UTC; chart
 unchanged): supplied physical Rows have actual second-core input approximants
 with squared-distance bound invSucc(n) and explicit all-tail modulus e.den.

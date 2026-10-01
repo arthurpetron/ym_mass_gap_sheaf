@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Explicit physical second-core input density (2026-10-01 UTC)
+## Current increment: Sharp original source energy retention (2026-10-01 UTC)
+
+PROGRESS after `c1e95a8`: exact original pairing square completion improves
+the source-to-domain retained fraction from 1-2c to (1-c)^2. It handles zero
+norm without division and extends the positive actual derivative-core ratio
+guard from c<1/2 to c<1, with ratio c/(1-c)^2 for c>=0. Original floors are
+transported by the square factor. All ten focused gates and independent
+reviews passed. No new analytic premise or frontier weakening.
+
+This is an improved consumer, NOT production of the missing complete signed
+error/SAME-variance scaling estimate. Existing family lag-two response already
+contains its fixed-nome squared floor. Spatial/spacing passage, nonzero continuum
+survival, physical time/mass, full continuum QFT and every group remain OPEN.
+No broad build/audit/guard, raised limit or ASCII reprint. The historical
+progress-metric script was not run. The previous user status report was read-only,
+not a proof increment. Evidence:
+`audits/AUDIT-SHARP-ORIGINAL-SOURCE-RETENTION-2026-10-01.md`.
+
+## Earlier increment: Explicit physical second-core input density (2026-10-01 UTC)
 
 PROGRESS after `61773ff`: the actual inverse-sum range estimate now produces
 second-core domain-point approximants for every supplied physical Rows witness.

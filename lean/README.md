@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Sharp original source-energy retention (2026-10-01 UTC):**
+`BF4WilsonAllNomeSectorSharpEnergyTransfer.retention_square_identity` proves
+`||Tx-(1-c)x||^2+2*(1-c)*(c*N-E)=||Tx||^2-(1-c)^2*N` on the ORIGINAL carrier.
+`relative_norm_retention` requires only c<=1 and E<=c*N, including zero norm.
+The actual core-form ratio is c/(1-c)^2 for 0<=c<1; original source floors
+retain the square factor. Ten focused gates and independent reviews passed:
+one empty, two {propext}, seven {propext,Quot.sound}. This is a sharper consumer,
+not a producer of useful complete signed error/SAME-variance scaling. Survival,
+physical mass/time, full continuum QFT and all groups remain OPEN. Evidence:
+`audits/AUDIT-SHARP-ORIGINAL-SOURCE-RETENTION-2026-10-01.md`.
+
 **Explicit density of represented physical second-core inputs (2026-10-01 UTC):**
 `BF4WilsonAllNomeComplexBondOSSecondCoreDensity` returns actual source
 representatives, source-dependent finite inverse-sum depths, second-core
