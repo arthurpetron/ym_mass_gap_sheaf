@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED original separated correlations on physical bond completion (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeBondOSInsertion.act` constructs sqrt(T)*M*sqrt(T)
+  on every physical bond class, with original-vector pin, symmetry,
+  supplied-modulus real linearity and the original spin-only norm/distance
+  cap. `act_ofSource` is exactly multiplication after one source advance.
+- `BF4WilsonAllNomeBondOSSeparatedWords.wordAct_ofSource` gives the actual
+  finite product source. `wordAct_source_pairing` and `vacuum_word` pin
+  its reflected matrix elements and vacuum moments to the ORIGINAL
+  normalized Wilson joint limits. `wordAct_adjoint` gives reversal on
+  every completed input. `BF4WilsonAllNomeWindowExpectation.vacuum_embedWindow`
+  supplies the generic original all-window vacuum expectation pin.
+- OPEN: equal-time/canonical limiting observable identification, the
+  source-specific SAME-variance scaling bound, physical calibration,
+  continuum survival, full QFT/every-group/Clay. The buffer gives original
+  lattice-time separation; it is not an observable-algebra homomorphism.
+- Three focused checks passed 19 gates within {propext, Quot.sound}.
+  No sorry, canonical field or chart change; no broad run. Evidence:
+  `audits/AUDIT-BOND-SEPARATED-CORRELATIONS-2026-10-01.md`.
+
 ## PROVED quadratic floor of the displayed quartic budget (2026-10-01 UTC)
 
 - `SU2HeatQuarticBudgetFloor.budget_floor` proves B(w,S)>=296*(1-w)^2

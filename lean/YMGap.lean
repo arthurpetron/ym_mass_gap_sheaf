@@ -5945,6 +5945,11 @@ import YMGap.Continuum.BF4WilsonAllNomeBondOSRealTime
 import YMGap.Continuum.BF4WilsonAllNomeBondOSLinear
 import YMGap.Continuum.BF4WilsonAllNomeBondOSDerivative
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolvent
+-- Original one-step-buffered source products and their SAME bond vacuum moments.
+-- Not an equal-time algebra restriction or a continuum OS root.
+import YMGap.Continuum.BF4WilsonAllNomeWindowExpectation
+import YMGap.Continuum.BF4WilsonAllNomeBondOSInsertion
+import YMGap.Continuum.BF4WilsonAllNomeBondOSSeparatedWords
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary

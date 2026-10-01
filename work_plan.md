@@ -492,12 +492,28 @@ Three focused checks passed 32 gates exactly in {propext, Quot.sound};
 no broad run or canonical change. Evidence:
 `audits/AUDIT-BOND-DERIVATIVE-AND-QUARTIC-FLOOR-2026-10-01.md`.
 
+FOLLOW-ON PROVED: `BF4WilsonAllNomeBondOSInsertion.act_ofSource` identifies
+the actual sqrt(T)*M*sqrt(T) action on EVERY bond class with the literal
+finite source operation multiply-after-one-advance. The SAME bond norm,
+distance, symmetry and supplied-modulus real linearity are retained.
+`BF4WilsonAllNomeBondOSSeparatedWords.wordAct_source_pairing` pins every
+mixed dense matrix element of a finite separated word to the original odd
+reflected joint limit. `vacuum_word` pins its vacuum moment to the original
+normalized Wilson joint limit, using the generic all-window expectation
+theorem in `BF4WilsonAllNomeWindowExpectation`. Word reversal is the adjoint
+on every completed input. Three focused checks passed 19 gates within
+{propext, Quot.sound}. The one-step buffer is necessary to this construction:
+these operators are not an equal-time algebra homomorphism. Fixed nome/width
+only; no canonical field or chart change. Evidence:
+`audits/AUDIT-BOND-SEPARATED-CORRELATIONS-2026-10-01.md`.
+
 NEXT reconstruction residue: the SAME-object canonical limiting half-space
 OS/observable identification and physical spectral join, not another
 real-to-complex compatibility wrapper or an unjustified total Hamiltonian.
 Direct restriction of the original time-zero algebra is now ruled out at
-width one; positive-time insertions do not by themselves identify a
-physical reflected algebra or its full correlation functional.
+width one. The separated-word correlation join above is now supplied, but
+does not identify the full equal-time reflected algebra or continuum
+correlation functional. Do not repeat that fixed-width join as a new gap.
 Do not redo finite multi-time generation: `BF4WilsonAllNomeWindowRealization`
 already supplies `compileWindow_pin` on this carrier. The remaining
 canonical join needs the supported observable and reflected-form/time pins
