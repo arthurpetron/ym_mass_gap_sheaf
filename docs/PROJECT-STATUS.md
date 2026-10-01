@@ -1,12 +1,27 @@
 # Canonical one-page project status
 
+Verified supporting original full-product/terminal output smoothing
+(2026-10-01 UTC; chart unchanged): exact per-slot Casimir actions and
+original heat eigenpairings now give h*Angular(P_full p)<=H[p*P_full p],
+h=1-w, without a lattice-size factor. The COMPLETE spatial source V*f is
+then integrated on genuinely inactive coordinates, not replaced. This proves
+h*Angular(T f)<=H[V*f*T f] and, for the literal terminal successor,
+h*Angular(g_(n+1))<=SAME oddMass(n). EVERY cutoff and 0<=w<=1 work;
+no width/depth or inverse heat-floor penalty. LHS is unweighted output
+angular energy, NOT complete endpoint observable energy versus interacting
+centered variance. That signed scaling input, survival, physical mass, QFT
+and all groups remain OPEN. Six focused checks passed 22 gates (15 new,
+seven existing); no broad run. Evidence: full-product addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 Verified supporting original one-head smoothing (2026-10-01 UTC; chart
 unchanged): the ACTUAL spectator-preserving headMap now obeys
 (1-w)*H[angularSquare(P_head p)]<=H[p*P_head p] for every supported signed
 input, every cutoff and 0<=w<=1. Exact grouped output energy retains
-within-degree signed cross terms; no heat floor enters. Full weighted
-product/terminal composition and SAME interacting-variance identification
-remain OPEN, as do scaling, survival, physical mass, QFT and all groups.
+within-degree signed cross terms; no heat floor enters. Full product/terminal
+OUTPUT composition is now supplied above. Endpoint-observable energy versus
+SAME interacting variance, scaling, survival, physical mass, QFT and all
+groups remain OPEN.
 Three focused checks passed eight gates (seven new); no broad run.
 Evidence: one-head smoothing addendum in
 `audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.

@@ -407,3 +407,134 @@ CI remains manual-only. Accepted logs and SHA-256:
   `77c7512f5143802448f8182dd79a621befd9936dd5fbb9f36a11ec0449f55232`.
 - `/tmp/ym-original-head-smoothing-final-scope-20261001.log`:
   `ccfd7e4254a377a96b2c4ff6ca52ec0e3f2facf4070fc1e672c1df0cf4bc63f0`.
+
+## Addendum: full-product and original terminal output smoothing
+
+Date: 2026-10-01 UTC. The earlier local smoothing estimate now has a
+proved full-product and ORIGINAL interacting-transfer output consumer.
+No endpoint-observable/interacting-variance comparison is asserted.
+
+### Literal paths, eigenvalues and scalar budget
+
+`product_squared_casimir_smoothing`,
+`lean/YMGap/Continuum/SU2HeatProductCasimirSmoothing.lean:41`, proves
+
+    (h*totalCasimir(ds))*productAttenuation(ds)^2 <= productAttenuation(ds),
+    h=1-w.
+
+Every retained path has exactly w raised to its TOTAL integer Casimir;
+an omitted coordinate makes the actual attenuation zero. Applying the
+existing one-power bound to the total, rather than summing separate
+one-link estimates, introduces no extent factor. Every cutoff and
+0<=w<=1 are included. At w=1 the rescaled derivative bound is degenerate;
+this is not an unscaled coupling-uniform regularity or mass assertion.
+
+`characterProduct_one_upperLaplacian` and
+`full_path_blockCasimir_carrier`,
+`lean/YMGap/Continuum/SU2QuaternionCyclicPathBlockCasimir.lean:75` and
+`:183`, differentiate each actual character on its OWN upper endpoint,
+then insert the original source and integrate the original lower endpoints.
+Each valid full path consequently has its degree's d(d+2) eigenvalue on
+each corresponding output block, not merely a total-Casimir eigenvalue.
+
+`literalPair_symm` and `haar_activeCasimir_self`,
+`lean/YMGap/Continuum/SU2QuaternionLiteralCasimirPairing.lean:151` and
+`:184`, expose existing proved identities without changing types or proofs.
+Distinct full degree paths are orthogonal by this original Casimir symmetry,
+strict separation of d(d+2), and rational cancellation. This is derived,
+not a new orthogonality assumption. `full_path_heat_pairing`,
+`lean/YMGap/Continuum/SU2QuaternionCyclicPathHeatEigen.lean:149`, expands
+the actual supported test tree and reassembles its surviving equal-degree
+terms. It identifies the original full heat attenuation under EVERY
+supported Haar test, without a nome or cutoff guard. It does not assert
+equality under arbitrary unsupported tests.
+
+### Actual full-product output energy
+
+`productMap_casimir_grouped`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatSmoothing.lean:83`, proves
+the exact output energy sum over the ORIGINAL input-dependent ragged tree:
+
+    H[(P_full p)*C(P_full p)]
+      = sum_paths totalCasimir(ds)*attenuation(ds)^2*H[p*pathPiece(ds)].
+
+The original complete-path input masses are already proved nonnegative by
+`full_path_pairing_nonnegative`,
+`lean/YMGap/Continuum/SU2QuaternionCyclicDiagonalRemainder.lean:70`.
+No signed coefficient norm or supplied spectral decomposition replaces
+them. `productMap_angular_smoothing`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatSmoothing.lean:123`, therefore
+proves for every supported signed input, every cutoff and 0<=w<=1:
+
+    h*Angular(P_full p) <= H[p*P_full p].
+
+The RHS remains the original uncentered Haar heat pairing at this stage.
+
+### Original spatial source, inactive coordinates and terminal recursion
+
+All declarations in this section are in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferSmoothing.lean`.
+`transferStep_projected_full_heat`, line 77, retains the COMPLETE source
+V*f and integrates it on genuinely inactive fringe blocks. Proved original
+geometry shows fringe plus active blocks is a permutation of every block;
+the projected source is independent of the integrated fringe. Only then
+are those absent heat factors restored and the full heat estimate applied.
+The identity is under all supported tests, not deletion of action factors.
+
+`transferStep_angular_smoothing`, line 126, uses the original quadratic
+pin and Casimir self-adjointness to prove
+
+    h*Angular(T f) <= weightedMass(f*T f) = H[V*f*T f].
+
+Every width, cutoff and supported signed f is included. A literal origin
+link proves the finite carrier is nonempty even at width zero.
+`terminalMessage_angular_smoothing`, line 157, applies this to the actual
+terminal recursion T(g_n)=g_(n+1), obtaining exactly
+
+    h*Angular(g_(n+1)) <= oddMass(n).
+
+The RHS is the SAME original odd-window partition, with the original nome,
+cutoff, width and time index. No width/depth factor, inverse heat floor,
+large-cutoff guard or division by the partition enters this estimate.
+
+### Remaining causal input and verification boundary
+
+This is UNWEIGHTED output angular energy. The endpoint source still
+contains spatial multiplication, and observable energy contains original
+centering, products and signed heat defects. Those terms cannot be dropped
+or assigned favorable signs by this theorem. Useful control of their
+complete combination against SAME interacting variance on a justified
+physical scaling family remains OPEN. Nonzero continuum survival, physical
+mass, full same-theory QFT and every compact simple group remain OPEN.
+No canonical field, chart status or frontier statement was changed.
+
+Six final focused file checks passed 22 printed axiom gates: 15 newly
+public/new and seven existing, all within {propext, Quot.sound}. No new
+sorry, axiom, Classical dependency, native_decide or noncomputable
+declaration. Independent Sol/Luna reviews confirmed full action retention,
+inactive-coordinate integration, parameter scopes, terminal time index and
+the absence of an interacting-variance claim. Initial namespace, rational
+zero and per-slot elaboration errors were repaired without changing the
+mathematical statements or raising limits.
+
+Main alone compiled serially through the safe-build skill's monitored
+launcher: one worker, mandatory 20 GiB ceiling, 12 GiB OS reserve and
+dynamic telemetry. Preflight found 84 percent pressure-free memory, zero
+swap and no competing compiler/test/runner. No broad root/tree build,
+full axiom audit or guard ran; root imports are registration only. CI
+remains manual-only. The unchanged canonical ASCII chart was not printed.
+
+Accepted log SHA-256 values:
+
+- `/tmp/ym-product-casimir-scalar-repaired-20261001.log`:
+  `ecaa25726f8e1048d04228e0b70fddfdc47390a5a8d443a858635ef6f8ca7593`.
+- `/tmp/ym-path-block-casimir-final-20261001.log`:
+  `6f7a87711cc355446b49b28f6fd6e627412f96d490965167ad49134f7c8f4ad8`.
+- `/tmp/ym-literal-casimir-symmetry-20261001.log`:
+  `86374348135673e7b248ee95b68113b1c9c63f81714a75b3780763f154ab79e3`.
+- `/tmp/ym-path-heat-eigen-final-gates-20261001.log`:
+  `71113e1e90a30f5a7eb868f7c6ccf97e101b808567a59e23784499c43ec9c0f5`.
+- `/tmp/ym-product-heat-smoothing-20261001.log`:
+  `3056f195082f9d1432f9b1d1a285123a1af9f6a5f1cbb6e39adf13e1fdf02e45`.
+- `/tmp/ym-original-transfer-smoothing-repaired-20261001.log`:
+  `943c56483ab03c0a1e9b0eaa59325ccbb5ce85d01bc663bb950e04af55d6a8c0`.

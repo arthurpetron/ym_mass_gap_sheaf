@@ -5,7 +5,7 @@ program. It is organized around milestones with concrete deliverables.
 The authoritative specification is `docs/outline.md`; the motivation
 is `docs/context.md`; this file is the *schedule*.
 
-## Whole-project goal and live completion map (updated 2026-09-26 UTC)
+## Whole-project goal and live completion map (updated 2026-10-01 UTC)
 
 The unchanged mathematical target is: for each compact simple gauge group G,
 construct a nontrivial quantum Yang--Mills theory on R^4 satisfying the QFT
@@ -25,7 +25,46 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Actual one-head output smoothing, without a heat floor (2026-10-01 UTC)
+### Full-product smoothing meets the ORIGINAL terminal recursion (2026-10-01 UTC)
+
+The actual full heat and original interacting transfer now consume the
+division-free scalar smoothing law. `CyclicPathBlockCasimir` derives
+per-output-link eigenvalues of each literal full path. `CyclicPathHeatEigen`
+then proves the original full-product eigenpairing against every supported
+test; distinct-path orthogonality is derived from Casimir self-adjointness
+and strict separation of d(d+2), not assumed as a new analytic input.
+
+`SU2QuaternionProductHeatSmoothing.productMap_angular_smoothing` uses the
+actual input-dependent ragged tree and proved positive diagonal path masses:
+
+    h*Angular(P_full p) <= H[p*P_full p], h=1-w.
+
+Every supported signed input, every K and 0<=w<=1 work. The coefficient
+has no number-of-links factor. `BF4ExactSlabFixedSpatialTransferSmoothing`
+integrates the COMPLETE V*f on genuinely absent kinetic coordinates before
+restoring full heat, then transports the angular energy by literal Casimir
+self-adjointness. No spatial action is deleted. Its proved consumers are
+
+    h*Angular(T f) <= H[V*f*T f],
+    h*Angular(terminalMessage(n+1)) <= oddMass(n).
+
+The RHS of the second inequality is the SAME original odd-window partition
+at the stated width, cutoff and depth. Neither bound uses a heat-floor
+inverse, width/depth factor or sufficiently-large-cutoff guard. Six focused
+checks passed 22 gates (15 new plus seven existing), all within the permitted
+gate. Independent Sol/Luna source reviews passed. No broad run or canonical
+chart marker changes. Evidence: full-product addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+NEXT: control the actual endpoint-observable energy, not only the unweighted
+angular energy of the terminal. Multiplication by the original spatial
+weight, observable products, SAME mean/partition, and signed heat defects
+must remain through that join. A useful complete signed bound relative to
+SAME variance on a justified physical scaling family is still missing.
+Nonzero continuum survival, physical mass, full QFT and all groups remain
+OPEN. No wrapper assuming the missing comparison is a replacement proof.
+
+### Earlier one-head output smoothing, without a heat floor (2026-10-01 UTC)
 
 The integrated candidate now has its concrete one-head operator join.
 `SU2HeatSquaredCasimirSmoothing.attenuation_squared_casimir_smoothing`
@@ -54,14 +93,14 @@ run, canonical frontier change or unchanged-chart reprint. Evidence:
 one-head smoothing addendum in
 `audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
 
-NEXT: retain the actual terminal recursion and endpoint action while joining
-the local smoothing to the complete weighted product/channel energy and
-SAME interacting variance. `productMap` integrates omitted coordinates;
-it is NOT this spectator-preserving headMap. Its existing signed degree-path
-expansion does not itself supply joint orthogonality/positive masses.
-Neither arbitrary spectator-weight orthogonality nor the desired terminal
-comparison is assumed. Signed physical scaling, nonzero continuum survival,
-physical mass, full QFT and every compact simple group remain OPEN.
+The full-product and original terminal OUTPUT joins are now supplied above.
+`productMap` still integrates omitted coordinates; it is NOT the
+spectator-preserving headMap. Full-path diagonal input masses are proved by
+the actual character-product Gram positivity, and the needed distinct-path
+orthogonality is now derived. Neither arbitrary spectator-WEIGHTED
+orthogonality nor the desired endpoint-observable/SAME-variance comparison
+is assumed. Signed physical scaling, nonzero continuum survival, physical
+mass, full QFT and every compact simple group remain OPEN.
 
 ### Concentrated-source Ward obstruction on actual heat (2026-10-01 UTC)
 

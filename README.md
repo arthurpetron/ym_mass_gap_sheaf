@@ -10,10 +10,22 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Original local heat smoothing (2026-10-01):** a checked output-energy
+**Original full-transfer smoothing (2026-10-01):** a checked output-energy
+estimate now has a full-product and original interacting-transfer consumer.
+The complete output angular energy obeys
+(1-w)*Angular(T f)<=H[V*f*T f], retaining the entire spatial action V and
+exact inactive-coordinate integration. For the literal terminal successor,
+the RHS is the original odd-window partition. Every cutoff and nome endpoint
+is included, with no width/depth factor or inverse heat floor. This is NOT
+endpoint-observable energy versus centered interacting variance; that scaling
+comparison remains open. See the
+[new proof and scope](audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md#addendum-full-product-and-original-terminal-output-smoothing).
+
+**Earlier one-head heat smoothing (2026-10-01):** a checked output-energy
 estimate now controls the actual spectator-preserving one-link heat update
 without a heat-floor constant, for arbitrary signed sources and every cutoff.
-The full weighted terminal/interacting-variance join remains open. See the
+Its full-transfer output join is now supplied above; the endpoint-observable/
+interacting-variance scaling comparison remains open. See the
 [proof and scope](audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md#addendum-original-one-head-output-angular-smoothing).
 
 **Generic-source calibration limitation (2026-10-01):** an exact Ward

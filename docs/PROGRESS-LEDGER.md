@@ -4,7 +4,33 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Original output angular smoothing (2026-10-01 UTC)
+## Current increment: Full-product smoothing reaches original terminals (2026-10-01 UTC)
+
+The scalar-to-product-to-interacting-transfer seam is now proved on the
+actual objects. Per-slot character/path Casimirs derive the literal full
+heat eigenpairings; reassembly with proved positive diagonal path masses
+gives h*Angular(P_full p)<=H[p*P_full p], with h=1-w and no extent factor.
+No joint orthogonality premise is supplied: distinct-path orthogonality is
+derived only for the concrete eigenpairing proof.
+
+Exact inactive-coordinate projection of the COMPLETE V*f identifies the
+original T f with P_full(projectFringe(V*f)) under all supported tests.
+Casimir self-adjointness transfers the output angular energy. The actual
+consumer is h*Angular(T f)<=H[V*f*T f]; literal terminal recursion gives
+h*Angular(g_(n+1))<=oddMass(n). No factor of width, depth or cutoff, no
+inverse heat floor, and no sufficient-cutoff guard is used in these bounds.
+
+This closes the concrete full-output/terminal smoothing prerequisite, not
+the complete signed endpoint observable energy versus SAME interacting
+variance. Spatial multiplication, mean corrections and signed heat debt
+remain in that PRIMARY scaling input. Survival, physical mass, full QFT
+and every group remain OPEN. Six focused checks passed 22 gates within
+{propext, Quot.sound}, with independent Sol/Luna reviews and no broad run.
+No canonical chart marker changed; no chart was reprinted. Evidence:
+full-product addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+## Earlier increment: Original output angular smoothing (2026-10-01 UTC)
 
 The previously missing output-side pin is now proved for the ACTUAL
 spectator-preserving headMap. Its complete signed harmonic-degree groups

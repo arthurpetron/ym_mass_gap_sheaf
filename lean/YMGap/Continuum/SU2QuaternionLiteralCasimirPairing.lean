@@ -146,7 +146,9 @@ private theorem qsum_blockPair_symm (n : Nat) : ∀ (ids : List Nat) p q,
       (blockAngularPairValue_symm n block p q)
       (qsum_blockPair_symm n ids p q)
 
-private theorem literalPair_symm (n : Nat) (active : List Nat)
+/-- The literal finite Casimir is symmetric in the original Haar pairing,
+with arbitrary signed tests and every selected block inside the carrier. -/
+theorem literalPair_symm (n : Nat) (active : List Nat)
     (hactive : ∀ i, i ∈ active → i < n) (p q : RatPoly) :
     H n (polyMul q (activeCasimirPolynomial active p)) ≈
       H n (polyMul p (activeCasimirPolynomial active q)) := by
@@ -177,7 +179,9 @@ private theorem literalPair_add_source (n : Nat) (active : List Nat)
         (Q'.eqv_symm (literalPair_symm n active hactive p r))
         (Q'.eqv_symm (literalPair_symm n active hactive q r))))
 
-private theorem haar_activeCasimir_self (n : Nat) : ∀ (active : List Nat),
+/-- The diagonal of the literal Casimir is exactly its original sum of
+six-plane block angular energies. -/
+theorem haar_activeCasimir_self (n : Nat) : ∀ (active : List Nat),
     (∀ i, i ∈ active → i < n) → ∀ p : RatPoly,
     H n (polyMul p (activeCasimirPolynomial active p)) ≈
       angularListSum n active p
@@ -342,6 +346,8 @@ end YMGap.Continuum.SU2QuaternionLiteralCasimirPairing
 #print axioms YMGap.Continuum.SU2QuaternionLiteralCasimirPairing.blockAngularLaplacian_self_pair
 #print axioms YMGap.Continuum.SU2QuaternionLiteralCasimirPairing.blockAngularLaplacian_pair
 #print axioms YMGap.Continuum.SU2QuaternionLiteralCasimirPairing.activeCasimirPolynomial_pair
+#print axioms YMGap.Continuum.SU2QuaternionLiteralCasimirPairing.literalPair_symm
+#print axioms YMGap.Continuum.SU2QuaternionLiteralCasimirPairing.haar_activeCasimir_self
 #print axioms YMGap.Continuum.SU2QuaternionLiteralCasimirPairing.pairCasimir_diagonal_eq_literal
 #print axioms YMGap.Continuum.SU2QuaternionLiteralCasimirPairing.pairCasimir_eq_literal
 #print axioms YMGap.Continuum.SU2QuaternionLiteralCasimirPairing.casimirSweep_square_eq_literal

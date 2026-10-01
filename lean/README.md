@@ -12,14 +12,31 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original one-head angular smoothing (2026-10-01 UTC):**
+**Original full-transfer and terminal angular smoothing (2026-10-01 UTC):**
+the full-product and actual interacting-transfer joins are now checked.
+`SU2QuaternionProductHeatSmoothing.productMap_angular_smoothing` proves
+h*Angular(P_full p)<=H[p*P_full p] from the actual degree paths, per-slot
+Casimir eigenpins, derived heat eigenpairings and positive diagonal masses.
+`BF4ExactSlabFixedSpatialTransferSmoothing.transferStep_angular_smoothing`
+retains the COMPLETE V*f and exact inactive-coordinate integration, giving
+h*Angular(T f)<=H[V*f*T f]. `terminalMessage_angular_smoothing` pins this
+to h*Angular(g_(n+1))<=oddMass(n). Here h=1-w; EVERY cutoff, width/depth
+and 0<=w<=1 are included, without a volume factor or heat-floor inverse.
+Unweighted output angular energy is NOT the complete endpoint observable
+energy or SAME centered variance. That signed scaling comparison remains
+OPEN. Six focused checks passed 22 gates, including seven existing gates;
+no broad run or canonical frontier closure. Evidence: full-product addendum
+in `audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+**Earlier original one-head angular smoothing (2026-10-01 UTC):**
 `SU2QuaternionHeadHeatSmoothing.headMap_angular_smoothing` proves
 (1-w)*H[angularSquare(P_head p)]<=H[p*P_head p] for the actual
 spectator-preserving head update, arbitrary signed input and every cutoff.
 `SU2HeatSquaredCasimirSmoothing` supplies the division-free scalar estimate;
 exact output degree groups retain signed cross terms. The RHS is uncentered,
-not interacting variance; the weighted terminal/physical scaling join remains
-OPEN. Three focused checks passed eight gates; no broad run or Clay closure.
+not interacting variance. The full-transfer OUTPUT join is now supplied above;
+the endpoint-observable/physical scaling join remains OPEN. Three focused
+checks passed eight gates; no broad run or Clay closure.
 
 **Generic-source Ward obstruction (2026-10-01 UTC):**
 `SU2QuaternionConcentratedSourceWard` constructs nonnegative radial sources

@@ -1,5 +1,40 @@
 # Sorry Ledger
 
+## PROVED original full-product and terminal output smoothing (2026-10-01 UTC)
+
+- `SU2HeatProductCasimirSmoothing.product_squared_casimir_smoothing`
+  proves h*totalCasimir(ds)*productAttenuation(ds)^2<=productAttenuation(ds),
+  using the ORIGINAL retained/omitted path coefficient and h=1-w.
+- `SU2QuaternionCyclicPathBlockCasimir.full_path_blockCasimir_carrier`
+  derives each actual full path's per-output-slot Casimir from the literal
+  character factors and original partial Haar integration. Distinct degree
+  paths are consequently orthogonal, not supplied as an analytic field.
+- `SU2QuaternionCyclicPathHeatEigen.full_path_heat_pairing` proves the
+  actual full-product path attenuation against EVERY supported test, with
+  no nome/cutoff guard. It does NOT assert arbitrary unsupported-test equality.
+- `SU2QuaternionProductHeatSmoothing.productMap_casimir_grouped` retains
+  exact total-Casimir times squared attenuation and original path masses.
+  `productMap_angular_smoothing` proves h*Angular(P_full p)<=H[p*P_full p]
+  for arbitrary supported signed input, every cutoff and 0<=w<=1.
+- `BF4ExactSlabFixedSpatialTransferSmoothing.transferStep_projected_full_heat`
+  integrates the COMPLETE original V*f on absent kinetic coordinates.
+  `transferStep_angular_smoothing` gives h*Angular(T f)<=H[V*f*T f].
+  `terminalMessage_angular_smoothing` gives h*Angular(g_(n+1))<=oddMass(n),
+  with the original width, cutoff and time index. All width/depth values work.
+- Existing `LiteralCasimirPairing.literalPair_symm` and
+  `haar_activeCasimir_self` are exposed without changing their types/proofs.
+- OPEN: output energy is unweighted Haar angular energy. The endpoint source
+  contains spatial multiplication; the observable energy also contains signed
+  heat defects and original centering. No complete SAME-variance scaling bound,
+  nontrivial continuum survival, physical mass, QFT or every-group construction
+  follows. No canonical field or chart marker changes.
+- Six final focused checks passed 22 printed gates (15 new, seven existing)
+  within {propext, Quot.sound}; independent Sol/Luna reviews passed. No new
+  sorry/axiom, Classical dependency, native_decide or noncomputable declaration.
+  One compiler, 20 GiB ceiling, 12 GiB OS reserve; no broad run, changed limits
+  or automated CI. Evidence: full-product addendum in
+  `audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 ## PROVED original one-head output angular smoothing (2026-10-01 UTC)
 
 - `SU2HeatSquaredCasimirSmoothing.casimir_power_le_one` uses a finite
