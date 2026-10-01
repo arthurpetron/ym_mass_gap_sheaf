@@ -6140,6 +6140,9 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitLinear
 -- Constructed inverse on the SAME fixed carrier; physical-time laws remain open.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyConjugation
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitInverse
+-- Exact doubling and graph-input finite continuity, not full addition/time calibration.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitComposition
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyProductContinuity
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

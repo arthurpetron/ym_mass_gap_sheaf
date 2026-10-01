@@ -12,7 +12,7 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original physical quotient limit and constructive inverse (2026-10-01 UTC):**
+**Original physical quotient limit and exact doubling (2026-10-01 UTC):**
 `ScaledCayleyLimitMap.limitMap` acts on EVERY original complex physical
 class, with representative independence proved before Quotient.lift2.
 `ScaledCayleyLimitPairing.limitMap_pairing_preserved` retains the FULL
@@ -22,8 +22,12 @@ Full pairing and physical definiteness now prove `limitMap_add` and
 `limitMap_smul`, retaining both supplied scalar moduli without an onto premise.
 Physical conjugation now constructs its two-sided inverse and Type-valued
 preimage. An exact finite-product distance identity reuses the SAME forward
-rate unchanged. Seventeen new focused gates and independent reviews passed;
-group/continuity and physical-time laws remain OPEN. Evidence: constructive-inverse
+rate unchanged. Seventeen new focused gates and independent reviews passed.
+Exact finite squaring now proves `limitMap_double` on EVERY original class,
+with a computed maximum of two supplied-Rows rates. Finite-product continuity
+on graph inputs has the bound 4*t^2 times the ORIGINAL output norm, independent
+of depth. Ten new focused gates and independent reviews passed; full addition,
+limit continuity and physical-time laws remain OPEN. Evidence: exact-doubling
 addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
 **Parallel product-limit extension to every supplied physical Rows (2026-10-01 UTC):**

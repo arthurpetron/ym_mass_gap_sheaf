@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Verified supporting original physical quotient Cayley limit constructive inverse
+Verified supporting original physical Cayley limit doubling and finite continuity
 (2026-10-01 UTC; chart unchanged): uniqueness proves representative
 independence before Quotient.lift2 constructs the map on EVERY original
 complex physical class. FULL Hermitian pairing survives the actual limits,
@@ -11,9 +11,13 @@ both scalar moduli remain supplied. Supplied Rows retain their computed rates.
 Physical conjugation now constructs an actual two-sided inverse and a
 Type-valued preimage. Its exact finite-product distance identity consumes
 the existing forward rate unchanged. Seventeen new focused gates and
-independent reviews passed. Group/continuity/physical-time laws,
+independent reviews passed. Exact finite squaring now proves F_(2t)=F_t*F_t
+on EVERY original class; graph-input finite displacement is bounded by
+4*t^2 times its original output norm, independently of product depth.
+Ten new gates and independent reviews passed. Full addition, limit continuity
+and physical-time laws,
 changing-scale survival/mass, full continuum QFT and every group remain OPEN.
-Evidence: constructive-inverse addendum in
+Evidence: exact-doubling addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`. No displayed
 claim changed; no ASCII reprint.
 

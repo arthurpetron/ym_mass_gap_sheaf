@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED exact Cayley limit doubling and finite continuity only (2026-10-01 UTC)
+
+- `ScaledCayleyLimitComposition.product_double_succ` aligns rational steps
+  and sums the actual finite exponent. `doubleRate` is computed from the
+  original input and constructed limit Rows rates at epsilon/4, plus one.
+- `product_double_limit_bound` pays four quarter errors; `limitMap_double`
+  follows by the SAME completion's uniqueness and quotient induction.
+  This is only F_(2t)=F_t*F_t, not arbitrary rational addition.
+- `ScaledCayleyProductContinuity.displacementCoefficient_pin` cancels
+  4^n*4*step(t,n)^2 to 4*t^2. `product_domain_distance_le_four` retains
+  the actual derivative input/output and bounds finite squared displacement
+  independently of depth. No third derivative or new analytic field.
+- Ten focused gates and independent reviews passed: one empty, one propext,
+  eight {propext,Quot.sound}. An earlier classical-dependent automated index
+  proof was rejected and replaced by constructive Nat order lemmas.
+- No sorry, new axiom, witness selection, limit increase or frontier weakening.
+  Evidence: exact-doubling addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: full parameter addition, limit continuity, SAME-transfer physical-time/
+  logarithm calibration; useful signed scaling, changing-family survival,
+  finite positive physical mass, full continuum QFT and every actual group.
+- Two root imports added; full root/tree/build/audit/guard NOT run.
+
 ## PROVED constructive inverse of the original quotient Cayley limit only (2026-10-01 UTC)
 
 - `ScaledCayleyConjugation` constructs actual componentwise conjugation,

@@ -566,8 +566,56 @@ construct. One serialized 20-GiB worker and 12-GiB OS reserve remained in
 force. Two root imports were added, but no full-root/tree/build/audit/guard
 ran. CI is unchanged. No canonical displayed claim changed and no ASCII reprint.
 
-NEXT is rational parameter composition of this ACTUAL limit and explicit
-strong-continuity moduli on supplied Rows. No such law, physical-time/
+At this inverse checkpoint, NEXT was rational composition and continuity.
+The next addendum proves exact doubling and finite-product continuity only.
+Full rational composition, limit-continuity moduli, physical-time/
 logarithm calibration, changing-family continuum survival, finite positive
 physical mass, full continuum QFT or every-group realization is asserted.
 The primary complete signed scaling estimate and Clay target remain OPEN.
+
+## Exact doubling and finite product continuity
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyLimitComposition.lean`,
+`doubled_step_eqv:61` aligns step(2t,n+1) with step(t,n) by rational
+equivalence. `product_double_succ:72` combines actual parameter congruence
+and `PowerComparison.iterate_add_index` to prove P_(n+1)(2t)=P_n(t)^2.
+`doubleRate:86` computes max(rate_X(e/4),rate_limitRowsX(e/4))+1.
+`product_double_limit_bound:91` applies finite-product isometry and one
+squared triangle; four quarter-error copies pay e. Original limit uniqueness
+gives `limitMap_double_ofRows:134` and quotient induction gives
+`limitMap_double:155` on EVERY original class. No shifted sequence or
+scalar spectral calculus is assumed. This is the doubling case only.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyProductContinuity.lean`,
+`displacementCoefficient_pin:46` proves 4^n*4*step(t,n)^2=4*t^2 modulo
+rational equivalence. `product_domain_distance_le_four:86` applies the
+actual dyadic power comparison with counts 1 and 0, then the ORIGINAL
+graph one-step bound and squared-distance symmetry. Its ceiling is
+4*t^2*||output d||^2 for every finite depth and actual graph point d;
+there is no third derivative, universal source-norm cap or limit assertion.
+
+The focused monitored checks emitted `.olean`s, and independent source/math/
+log/hash reviews passed. All ten source-site gates stay inside the permitted
+gate: one empty, one {propext}, eight {propext,Quot.sound}.
+
+| Module suffix | Gates | Accepted log in `/tmp` | SHA256 |
+| --- | ---: | --- | --- |
+| `ScaledCayleyLimitComposition` | 7 | `ym-scaled-cayley-limit-composition-third-20261001.log` | `1818c2b2c90767d41d7f34ebd23a9e4fd547bb4b9af40755bc35551d0fcd6024` |
+| `ScaledCayleyProductContinuity` | 3 | `ym-scaled-cayley-product-continuity-second-20261001.log` | `1a7013c926407865e3183f9d14aa3b75e0250659babd506f4e82c01614077076` |
+
+One rejected doubling draft compiled but reported Classical.choice; replacing
+the automated index reasoning by explicit Nat.max/succ order lemmas removed
+that dependency. Earlier rejected logs are not accepted evidence. Accepted
+sources/logs contain no sorryAx or forbidden construct. One serialized
+20-GiB worker and 12-GiB OS reserve were retained. Two root imports were
+added; no full-root/tree/build/audit/guard ran, and CI is unchanged.
+
+NEXT: the full rational addition law requires mixed local defect control and
+composite-power comparison; t-to-zero limit continuity requires the finite
+ceiling, constructed original source caps and existing density. Parallel
+drafts are not yet verified. These laws are distinct from physical-time/
+logarithm calibration and the changing-family continuum construction.
+Signed scaling, survival, physical mass, full continuum QFT, every group and
+Clay remain OPEN. No canonical displayed claim changed and no ASCII reprint.

@@ -25,7 +25,7 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Actual physical quotient limit and constructive inverse (2026-10-01 UTC)
+### Actual physical quotient limit and exact doubling (2026-10-01 UTC)
 
 PROGRESS after `b22e523`: `ScaledCayleyLimitMap.rows_limit_unique` transports
 the SAME represented completion's uniqueness. Equal input Rows have identical
@@ -61,10 +61,24 @@ Seventeen focused gates and independent mathematical/source/log reviews
 passed within {propext,Quot.sound}. Evidence: constructive-inverse addendum
 in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
-NEXT mathematical proposition: rational time-composition of these ACTUAL
-limit maps, followed by explicit strong-continuity moduli on supplied Rows.
-No time-composition theorem for this constructed limit has been supplied.
-Group/continuity and SAME-transfer physical-time/logarithm calibration
+`ScaledCayleyLimitComposition.product_double_succ` proves the EXACT actual
+finite square P_(n+1)(2t)=P_n(t)^2. `doubleRate` computes the maximum of the
+two original forward rates at epsilon/4, plus one; finite isometry and the
+squared triangle yield `limitMap_double` on EVERY original class.
+`ScaledCayleyProductContinuity.product_domain_distance_le_four` bounds every
+actual finite product's displacement by 4*t^2 times the ORIGINAL graph-output
+norm, with the exact 4^n*step^2 cancellation. Ten focused gates and independent
+source/log reviews passed. The rejected draft's automated index argument
+introduced Classical.choice; explicit Nat order lemmas remove it. Evidence:
+exact-doubling addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+NEXT mathematical propositions: FULL rational composition, using a mixed
+local defect identity and composite-power comparison on the actual second
+core; and a computed t-to-zero radius for supplied original Rows, using the
+new finite bound and existing density. These parallel proofs are not yet
+verified. Doubling alone is not arbitrary addition; finite displacement is
+not yet limit continuity. Group/continuity and SAME-transfer physical-time/logarithm calibration
 remain OPEN. PRIMARY complete signed scaling,
 changing-family survival, finite positive physical mass, full continuum QFT,
 every group and Clay remain OPEN. No displayed chart change or broad
