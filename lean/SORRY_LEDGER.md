@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED rational subgap inverse on physical bond completion (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeBondOSSubgapResolvent.CenteredBond` is the ordinary
+  vacuum-orthogonal subtype of the SAME completed physical bond carrier.
+  `resolventDomain` constructs a derivative-domain class for EVERY such
+  input, using dependent quotient recursion and the supplied row witnesses.
+- For 0<=a<delta, `inverse_right` and `inverse_left` give both inverse laws
+  for H-a*I on that complement. `norm_bound` retains the explicit squared
+  cap (delta-a)^(-2), with the ORIGINAL `coreMargin` delta.
+- Fixed nome/width, rational real shifts and lattice-time units only.
+  OPEN: scaling control, physical calibration, canonical continuum OS/QFT
+  identification, survival and every-group/Clay. No complex spectral
+  calculus or full ambient-carrier inverse is asserted.
+- One final focused check passed eight gates exactly in {propext, Quot.sound}.
+  No sorry, canonical field/chart change or broad run. Evidence:
+  `audits/AUDIT-PHYSICAL-BOND-SUBGAP-INVERSE-2026-10-01.md`.
+
 ## PROVED quadratic source correction in original plaquette energy (2026-10-01 UTC)
 
 - `SU2QuaternionProductHeatSumTest.sumTest_square_le_rawSourceMass`

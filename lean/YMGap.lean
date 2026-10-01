@@ -5951,6 +5951,7 @@ import YMGap.Continuum.BF4WilsonAllNomeBondOSRealTime
 import YMGap.Continuum.BF4WilsonAllNomeBondOSLinear
 import YMGap.Continuum.BF4WilsonAllNomeBondOSDerivative
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolvent
+import YMGap.Continuum.BF4WilsonAllNomeBondOSSubgapResolvent
 -- Original one-step-buffered source products and their SAME bond vacuum moments.
 -- Not an equal-time algebra restriction or a continuum OS root.
 import YMGap.Continuum.BF4WilsonAllNomeWindowExpectation

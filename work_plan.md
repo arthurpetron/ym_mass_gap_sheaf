@@ -492,6 +492,18 @@ Three focused checks passed 32 gates exactly in {propext, Quot.sound};
 no broad run or canonical change. Evidence:
 `audits/AUDIT-BOND-DERIVATIVE-AND-QUARTIC-FLOOR-2026-10-01.md`.
 
+FOLLOW-ON PROVED: `BF4WilsonAllNomeBondOSSubgapResolvent` constructs the
+inverse of H-a*I for EVERY vacuum-orthogonal physical bond class, at every
+rational 0<=a<delta with the original delta=`coreMargin`.
+`resolventDomain` returns the actual derivative-domain class; both inverse
+laws and squared-norm cap (delta-a)^(-2) are checked. Dependent quotient
+recursion retains source witnesses without choosing a representative or
+restricting the ordinary orthogonal subtype. One final focused check passed
+eight gates exactly in {propext, Quot.sound}. Fixed nome/width and original
+lattice time only; no complex spectral calculus, physical calibration,
+canonical chart change or broad run. Evidence:
+`audits/AUDIT-PHYSICAL-BOND-SUBGAP-INVERSE-2026-10-01.md`.
+
 FOLLOW-ON PROVED: `BF4WilsonAllNomeBondOSInsertion.act_ofSource` identifies
 the actual sqrt(T)*M*sqrt(T) action on EVERY bond class with the literal
 finite source operation multiply-after-one-advance. The SAME bond norm,
@@ -647,6 +659,18 @@ Raw q^2 moments are not q*Pq moments, and A/Z is not identified with one.
 Prioritize these source-dependent comparisons over more parameter-only
 tests. Do NOT add the odd and even retained squares: they bound the SAME D
 and need a joint Gram matrix or orthogonalization for additive improvement.
+SOURCE REVIEW CORRECTION: terminal recursion gives no actual q^2 radial
+concentration. The exact free-leaf insertion rule applies to inactive faces,
+not this padded active plaquette. The available odd-law variance floor is
+only a certificate bounded above by h^12, h=1-w; this is not an upper bound
+on actual variance. Do NOT assume a Var>=c*h*A/Z floor to match an O(h^2*A)
+energy ceiling. A microscopic trace near identity can have O(h^2) variance,
+and raw 4-f^2 concentration does not control the negative branch f=-2 or
+replace q^2 by q*Pq. This is a scaling diagnostic, not proved YM asymptotics.
+Prioritize a matched complete signed energy/variance estimate for a specified
+observable family and physical time. Smearing/blocking is a candidate, not
+yet a proved low-energy producer. Source citations and exact scope:
+`audits/AUDIT-ACTUAL-SOURCE-MOMENT-INPUTS-2026-10-01.md`.
 FOLLOW-ON CORRECTION AND PROVED FENCE: spectator-preserving Young is ALREADY
 supplied by `PassiveGeometricBudget.padded_terminal_plaquette_passive_signed_geometric_budget`.
 Do not rebuild its channel decomposition. The exact scalar ceiling is now
