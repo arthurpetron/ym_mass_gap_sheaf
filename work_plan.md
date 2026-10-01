@@ -123,11 +123,27 @@ so `positiveRealAction` acts on numerical positive real time values and
 recovers the original positive-rational limit. Nineteen focused gates and
 independent reviews passed; no new analytic premise or representative choice.
 
-NEXT operator propositions: prove addition for the constructed positive-real
-action and preservation of the FULL original Hermitian pairing by actual limit
-comparison. These supply the positive half of the signed-real unitary-group
-construction; no such group law is assumed. Preserve the proved -2i
-normalization. Commutation and real-parameter construction alone do not identify
+The parallel positive-real laws are now proved, not assumed.
+`PositiveTimeAddition.sum_sample_close` bounds the actual numerical sum-time's
+upward dyadic rounding with an explicit half-power cutoff. `additionRate`
+joins it with BOTH original convergence rates; actual rational addition,
+isometry and original limit uniqueness give `positiveRealAction_addTime` on
+EVERY original physical class. `PositiveTimePairing` passes the FULL real sum
+and imaginary cross difference through actual limits, giving Hermitian
+preservation, exact distance isometry and injectivity.
+`PositiveTimeInverse.inverseTimeRows` constructs actual conjugate-inverse Rows.
+The sample inverse defect equals the original forward defect EXACTLY; the
+UNCHANGED conjugate-input rate supplies both inverse laws and the Type-level
+`positiveRealPreimage`. Twenty-seven further focused gates and independent
+source/math/log/hash reviews passed. Evidence: positive-real
+addition/pairing/inverse addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+NEXT operator propositions: derive complex linearity of the constructed
+positive-real action and join positive parameters with their constructed
+inverses into a signed-real group with original source-derived continuity.
+These have existing inputs; no group law or continuity is to be assumed.
+Preserve the proved -2i normalization. Addition/pairing/inverses alone do not identify
 generators or calibrate physical time. The primary
 analytic changing-family signed-energy/variance estimate remains OPEN.
 Existing `PositiveTimePins.positiveAction_original` already pins positive

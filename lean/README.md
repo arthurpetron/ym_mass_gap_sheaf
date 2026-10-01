@@ -12,7 +12,7 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Constructed positive-real Cayley parameter (2026-10-01 UTC):**
+**Constructed positive-real Cayley action and inverse (2026-10-01 UTC):**
 `ParameterContinuity.parameter_ordered_distance` reduces parameter differences
 EXACTLY to zero-time displacement using rational addition and isometry.
 `PositiveTime.timeModulus` composes the supplied numerical QCauchy modulus with
@@ -21,9 +21,12 @@ and their convergence rate; `positiveAction` descends without representative
 selection. `PositiveTimePins.positiveAction_time_congr` proves presentation
 independence before `positiveRealAction` descends to numerical time values;
 positive rationals recover the original limit. Nineteen focused gates and
-independent reviews passed within {propext,Quot.sound}. Real addition, full
-pairing preservation, signed-real unitary group and physical calibration remain
-OPEN. Evidence: positive-real parameter addendum in
+independent reviews passed within {propext,Quot.sound}. The actual limit now
+obeys positive-real addition, preserves the FULL original Hermitian pairing
+and has a constructed two-sided conjugate inverse with Type-level preimage.
+Twenty-seven further focused gates and independent reviews passed. Signed-real
+time, strong continuity and physical calibration remain OPEN. Evidence:
+positive-real parameter and addition/pairing/inverse addenda in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
 **Original Euclidean graph transport and Cayley limit commutation (2026-10-01 UTC):**

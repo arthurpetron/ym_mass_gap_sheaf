@@ -10,16 +10,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Constructed positive-real Cayley parameter (2026-10-01):**
+**Constructed positive-real Cayley action and inverse (2026-10-01):**
 the original rational Cayley limit now extends to every supplied positive
 constructive-real parameter, on EVERY original physical class. The output
 Rows and convergence rate are computed from the supplied numerical modulus
 and original source-dependent continuity radius. Equivalent real-time
 presentations give the SAME map, and positive rationals recover the original
-limit exactly. Focused constructive checks and independent reviews passed.
-Real addition, full pairing preservation, the signed-real unitary group and
-physical calibration remain open. This fixes coupling and width, not continuum
-Yang--Mills. See the [construction and remaining laws](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#constructed-positive-real-cayley-parameter).
+limit exactly. The SAME constructed action now obeys positive-real addition,
+preserves the FULL Hermitian pairing, and has a computed two-sided conjugate
+inverse with Type-level preimage. Focused constructive checks and independent
+reviews passed. Signed-real time, strong continuity and physical calibration
+remain open. This fixes coupling and width, not continuum Yang--Mills. See the
+[addition, pairing and inverse proofs](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#positive-real-addition-full-pairing-and-constructed-inverse).
 
 **Original Euclidean time and Cayley compatibility (2026-10-01):**
 the original Euclidean action now preserves every physical derivative-domain

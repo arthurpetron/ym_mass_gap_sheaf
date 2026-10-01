@@ -1,5 +1,33 @@
 # Sorry Ledger
 
+## PROVED positive-real addition, full pairing and constructed inverse only (2026-10-01 UTC)
+
+- `PositiveTimeAddition.sum_sample_close` bounds the existing sum-time's upward
+  dyadic rounding with a computed half-power cutoff, without a numerical
+  Cauchy rate. `additionRate` joins that cutoff with BOTH original time-limit
+  rates at epsilon/16. Actual rational addition/isometry and original limit
+  uniqueness prove `positiveRealAction_addTime` on EVERY original class.
+- `PositiveTimePairing.positiveAction_pairing_rows` transports the FULL real
+  sum and imaginary cross difference through actual represented limits.
+  `positiveRealAction_pairing_preserved`, distance isometry and injectivity
+  hold on EVERY original physical class, without assumed surjectivity.
+- `PositiveTimeInverse.inverseTimeRows` constructs actual inverse-output Rows
+  by physical conjugation. `inverseTimeRows_sample_distance` identifies the
+  inverse defect EXACTLY with the original forward defect on conjugate input;
+  `inverseTimeRate` reuses that original computed rate. Limit uniqueness and
+  proved injectivity give both inverse laws. `positiveRealPreimage` retains
+  its witness in Type, without choice or a new analytic premise.
+- Twenty-seven focused gates passed: one {propext}, twenty-six
+  {propext,Quot.sound}. Independent source/math/log/hash reviews passed.
+  Evidence: addition/pairing/inverse addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: signed-real group and strong continuity, complex linearity of the
+  positive-real action, SAME-generator physical-spacing/scaling calibration,
+  complete signed scaling, continuum survival, finite positive physical mass,
+  full continuum QFT, every actual compact simple group and Clay.
+- Three root imports added; full root/tree/build/audit/guard NOT run.
+  No canonical claim or chart changed; CI and safety limits unchanged.
+
 ## PROVED constructed positive-real Cayley parameter only (2026-10-01 UTC)
 
 - `ParameterContinuity.parameter_ordered_distance` uses exact rational

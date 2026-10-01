@@ -1002,3 +1002,103 @@ then the signed-real unitary group. These are available original-limit joins,
 not new assumed analytic fields. Generator identification, physical spacing/
 scaling, useful signed-energy control, survival, finite positive physical mass,
 full continuum QFT, every group and Clay remain OPEN.
+
+## Positive-real addition, full pairing and constructed inverse
+
+The user-requested parallel work now supplies three ACTUAL laws on the SAME
+original completed complex Wilson bond, at fixed nome and width. Sol built
+pairing preservation and the constructive inverse in separate modules; the
+parent built addition and serialized every compiler check. Luna independently
+reviewed the mathematics, current sources, exact gate sites and accepted logs;
+the pairing author also reviewed the inverse argument. No unavailable survival,
+spacing, continuum or compact-group input was assumed to make this progress.
+
+### Addition uses the actual numerical sum constructor
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimeAddition.lean`,
+`sum_sample_close:62` compares the sum-time's UPPER dyadic samples with the sum
+of the original raw samples. Each error is at most half^n; the computed
+`halfCutoff(half*r)` pays both errors. This needs no numerical Cauchy rate.
+Only numerical `addTime`/`addTime_comm` are reused from the legacy semigroup
+module; its operator and physical carrier are NOT reused.
+
+`additionRate:84` takes the maximum of the rounding cutoff at the ORIGINAL
+source radius and BOTH original time-limit rates, all at epsilon/16.
+`sum_composition_limit_bound:124` compares the actual sum-time sample with
+the actual two-stage output: parameter closeness controls rounding; rational
+addition/commutation and isometry transport the inner original limit bound;
+the outer original limit bound supplies the last bridge. Squared triangles
+cost10epsilon/16<=epsilon. No sum-time forward rate is additionally required.
+
+`positiveAction_sum_ofRows:162` invokes original limit uniqueness, not an
+assumed composition law. `positiveAction_sum:172` covers EVERY original class;
+`positiveRealAction_addTime:180` and `positiveRealAction_commute:187` descend
+to the already constructed numerical positive-real time quotient.
+
+### Full Hermitian pairing, not separate component invariance
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimePairing.lean`,
+`positiveAction_pairing_rows:170` compares the same positive rational sample
+on both original sources. The real sum passes through `sum_pairing_limits_eq`.
+The imaginary cross difference is first rewritten to a cross-add equality,
+passed through that same original limit lemma, and recovered by exact
+subtraction. No individual real-component pairing is claimed invariant.
+
+`positiveAction_pairing_preserved:226` and
+`positiveRealAction_pairing_preserved:241` cover EVERY original physical class.
+`positiveAction_distance:248`, `positiveRealAction_distance:256`,
+`positiveAction_injective:264` and `positiveRealAction_injective:275` follow
+from original physical pairing/definiteness; no onto hypothesis is used.
+
+### Computed inverse with the unchanged original forward rate
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimeInverse.lean`,
+`inverseAction:57` is the actual formula K U_t K.
+`inverseTimeRows:61` constructs original output Rows using physical conjugation
+and the existing actual time-limit Rows; `inverseTimeRows_pin:65` pins them.
+`inverseTimeRate:75` is EXACTLY the existing forward rate on conjugate input.
+
+`inverseTimeRows_sample_distance:80` uses the already proved rational inverse,
+rational isometry and physical conjugation isometry to identify the candidate's
+sample inverse defect EXACTLY with the original forward time-limit defect.
+`inverseTimeRows_sample_bound:116` thus retains the original computed rate.
+Original limit uniqueness proves `positiveAction_inverse_right:126`; proved
+injectivity proves `positiveAction_inverse_left:142`.
+`inverseRealAction:149`, `positiveRealAction_inverse_right:152` and
+`positiveRealAction_inverse_left:159` retain those laws on the existing
+numerical time quotient. `positiveRealPreimage:166` returns its witness in
+Type, with no quotient representative selection or Prop-to-Type extraction.
+
+### Exact verification boundary
+
+All three focused checks emitted `.olean`s. All27 source-site gates passed:
+one {propext}, twenty-six {propext,Quot.sound}. Independent reviews passed.
+
+| Module suffix | Gates | Accepted log in `/tmp` | SHA256 |
+| --- | ---: | --- | --- |
+| `ScaledCayleyPositiveTimeAddition` | 8 | `ym-cayley-positive-time-addition-third-20261001.log` | `3b12708fad26c2efe50558a3cf6de740f3d31298b75103c0ba56639b67d8457d` |
+| `ScaledCayleyPositiveTimePairing` | 7 | `ym-cayley-positive-time-pairing-first-20261001.log` | `3f150445869d4316cb116fe62fa69516f7e7afd40bf6401a488f76490115cee7` |
+| `ScaledCayleyPositiveTimeInverse` | 12 | `ym-cayley-positive-time-inverse-final-20261001.log` | `11d3c36667d90238911daf45c6a336e858cc4c59091ff48ce45dd6ab7c66a57c` |
+
+Addition's rejected drafts had only an antitone-lemma namespace error and a
+let-bound radius rewrite seam. Opening the defining namespace and explicitly
+exposing the radius argument repaired these; the accepted proof has no sorryAx.
+Pairing passed its first check. The inverse passed its first check and was
+rechecked after a docstring-only once/twice correction. Accepted sources/logs
+contain no sorry, forbidden axiom or new analytic premise.
+One serialized20-GiB worker and12-GiB OS reserve were retained; preflight found
+zero swap and no competing compiler/test/runner. Three root imports added;
+full root/tree/build/audit/guard NOT run. CI and safety limits unchanged.
+No displayed canonical claim changed; no ASCII reprint.
+
+NEXT: complex linearity using the FULL pairing and computed preimage, then
+signed-real parameter/group and source-derived continuity joins. Preserve
+the proved -2i normalization. These fixed-carrier laws do not produce the
+missing changing-scale pairing maps, uniform nonzero response, spacing-matched
+energy estimates, translated continuum locality or compact-group Haar/heat
+realizations. Generator identification, physical spacing/scaling, useful
+signed-energy control, survival, finite positive physical mass, full continuum
+QFT, every actual compact simple group and Clay remain OPEN.

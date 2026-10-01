@@ -6167,6 +6167,10 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyEuclideanLimit
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyParameterContinuity
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTime
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimePins
+-- Actual positive-real addition, full pairing and inverse; not a signed group.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimeAddition
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimePairing
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveTimeInverse
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.
