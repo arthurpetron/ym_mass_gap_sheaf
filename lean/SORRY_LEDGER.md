@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL heat mass comparison and bond quotient (2026-10-01 UTC)
+
+- `SU2QuaternionHeatNomeComparison.prefix_nome_mono` proves selected
+  heat-nome quadratic order for the SAME signed endpoint source and PSD
+  spectator kernel. `constant_error_le` pays a constant error by the same
+  retained mass, using the existing vacuum channel and no inverse floor.
+- `BF4ExactSlabFixedSpatialHeatNomeComparison.selectedMass_pin` identifies
+  that mass with the original odd partition. `selectedMass_le_original`
+  and `constant_error_le_original` retain all spatial/terminal factors.
+  `affine_original_bound` constructs their positivity certificate but
+  still requires the explicit kernel-shape certificate. The quartic
+  shape estimate and SAME-variance scaling bound remain OPEN.
+- `BF4WilsonAllNomeBondOSQuotient` constructs the physical bond-null finite
+  source quotient, injective original-completion map, pairing, one-step
+  transfer and vacuum pins, and Type-level dense approximants for every
+  supplied witnessed time-sector state. It does not select or identify
+  range witnesses, complete the source quotient, or instantiate the
+  canonical continuum OS root.
+- OPEN: useful original relative-energy scaling estimate, physical time
+  calibration, continuum survival, full QFT/every-group/Clay. No existing
+  sorry or canonical chart node changed. Three focused serialized checks
+  passed 21 gates within {propext, Quot.sound}; no broad run. Evidence:
+  `audits/AUDIT-HEAT-NOME-ORDER-AND-BOND-QUOTIENT-2026-10-01.md`.
+
 ## PROVED ORIGINAL radial increment with quartic correction (2026-10-01 UTC)
 
 - `SU2QuaternionRadialMarginalEnergyFence.radial_marginal_bound_three_false`

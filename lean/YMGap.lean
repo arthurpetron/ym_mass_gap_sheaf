@@ -4923,6 +4923,10 @@ import YMGap.Continuum.SU2QuaternionAngularOnlyEnergyFence
 import YMGap.Continuum.SU2QuaternionRadialMarginalEnergyFence
 import YMGap.Continuum.QuaternionHaarRadialChordalIncrement
 import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonRadialIncrement
+-- Same-source selected heat order and floor-free constant error absorption.
+-- The pointwise kernel-shape and SAME-variance scaling estimates remain open.
+import YMGap.Continuum.SU2QuaternionHeatNomeComparison
+import YMGap.Continuum.BF4ExactSlabFixedSpatialHeatNomeComparison
 -- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoung
 -- Scalar coefficient bounds only; no four-link spin-two heat image is assumed.
@@ -5903,6 +5907,7 @@ import YMGap.Continuum.BF4WilsonAllNomeSectorSubgapInjective
 import YMGap.Continuum.BF4WilsonAllNomeSectorSubgapResolvent
 import YMGap.Continuum.BF4WilsonAllNomeBondReflectedForm
 import YMGap.Continuum.BF4WilsonAllNomeBondOSRealization
+import YMGap.Continuum.BF4WilsonAllNomeBondOSQuotient
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary

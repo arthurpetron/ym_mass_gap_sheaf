@@ -443,6 +443,15 @@ including the exact-coefficient fence below, passed 23 gates within
 {propext, Quot.sound}; no broad run or canonical change. Evidence:
 `audits/AUDIT-BOND-REALIZATION-AND-EXACT-COST-FENCE-2026-10-01.md`.
 
+FOLLOW-ON PROVED: `BF4WilsonAllNomeBondOSQuotient` constructs the actual
+bond-null finite-source quotient and its injective map into the ORIGINAL
+completion. Physical pairing/distance, one-step transfer and vacuum are
+pinned, with Type-level dense approximants computed from each supplied
+sector state's range witness. No quotient representative or range witness
+is selected. This is not a separate completed source quotient/isometry or
+the canonical continuum OS root. Evidence:
+`audits/AUDIT-HEAT-NOME-ORDER-AND-BOND-QUOTIENT-2026-10-01.md`.
+
 NEXT reconstruction residue: the SAME-object canonical limiting half-space
 OS/observable identification and physical spectral join, not another
 real-to-complex compatibility wrapper or an unjustified total Hamiltonian.
@@ -579,6 +588,25 @@ the combined signed-correction route available; no scaling gain is proved
 by kinematics alone. Three final focused serialized checks passed 18 gates
 within {propext, Quot.sound}; no canonical change or broad run. Evidence:
 `audits/AUDIT-RADIAL-WILSON-INCREMENT-2026-10-01.md`.
+FOLLOW-ON PROVED: `SU2QuaternionHeatNomeComparison` proves selected-nome
+quadratic order I_u<=I_w for 0<=u<=w with SAME endpoint source and PSD
+spectators; its vacuum-channel error consumer pays a constant e by e*I_w.
+`BF4ExactSlabFixedSpatialHeatNomeComparison` identifies I_w with the actual
+odd partition, retaining all original spatial and terminal factors.
+Thus an additive constant kernel error does NOT require an inverse heat
+minimum in this symmetric same-source setting. The contrary initial
+source-review concern was incorrect; the existing vacuum channel suffices.
+The affine consumer requires an explicit shape certificate and constructs
+the original positive insertion. NEXT on this radial route: supply the
+quartic pointwise/certificate heat-widening estimate and its cutoff error,
+then the full-word mixed-moment comparison with SAME centered variance.
+Do not reprove nome order or error absorption, do not assume the shape
+certificate, and do not infer a variance or physical-scale estimate from
+partition control. The combined signed-correction route remains available.
+Together with the physical bond quotient above, three focused serialized
+checks passed 21 gates within {propext, Quot.sound}; no canonical change
+or broad run. Evidence:
+`audits/AUDIT-HEAT-NOME-ORDER-AND-BOND-QUOTIENT-2026-10-01.md`.
 The now-proved one-step source/domain transfer already controls the actual
 derivative energy, retained norm and source replacement. Do not build another
 equivalent conditional survival/domain wrapper before supplying a useful

@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL heat comparison and physical bond quotient
+(2026-10-01 UTC; chart unchanged): decreasing one selected heat nome
+decreases its quadratic mass with the complete original source retained.
+The vacuum channel absorbs a constant kernel error into the SAME odd
+partition without an inverse heat minimum. The kernel-shape and relative-
+variance scaling estimates remain open. Separately, the actual bond-null
+finite source quotient now maps injectively into the original completion,
+with physical pairing, transfer, vacuum and computed dense approximants;
+this is not a completed quotient or canonical continuum OS root.
+Three focused serialized checks passed 21 gates within {propext, Quot.sound};
+no broad run or canonical change. Evidence:
+`audits/AUDIT-HEAT-NOME-ORDER-AND-BOND-QUOTIENT-2026-10-01.md`.
+
 Verified supporting ORIGINAL radial increment (2026-10-01 UTC; chart
 unchanged): an explicit positive-source example refutes the universal
 coefficient-three radial-marginal replacement. Seven supported squares
