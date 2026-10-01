@@ -659,6 +659,21 @@ Raw q^2 moments are not q*Pq moments, and A/Z is not identified with one.
 Prioritize these source-dependent comparisons over more parameter-only
 tests. Do NOT add the odd and even retained squares: they bound the SAME D
 and need a joint Gram matrix or orthogonalization for additive improvement.
+FOLLOW-ON PROVED JOINT ESTIMATE: `GNSUnitCenteredGram` centers both tests
+along the unit polynomial. `SourceJointCancellation.plaquette_sum_mean`
+(full prefix `BF4ExactSlabFixedSpatial`) computes M=2*(1+w^12)*H[q*f].
+The original terminal consumer proves
+4*K*E+K*J^2+(2*R-J*M)^2<=2*K*C, K=64*A-M^2>=0;
+its stronger exact-norm form uses S-M^2, with S the actual test norm.
+The normalized companion divides every quadratic factor by the SAME odd Z.
+The simultaneous estimate is supplied; the naive sum of J^2 and R^2
+remains invalid. No source inverse, stationarity or nonzero-response
+premise. The centered response can vanish; no strict gain or scaling order
+is asserted. Three final focused checks passed 15 gates exactly in
+{propext, Quot.sound}; no broad run or canonical change. Evidence:
+`audits/AUDIT-JOINT-SOURCE-CANCELLATION-2026-10-01.md`.
+NEXT: compare this complete response budget or the exact signed Ward/Taylor
+remainder with SAME interacting variance on a justified physical family.
 SOURCE REVIEW CORRECTION: terminal recursion gives no actual q^2 radial
 concentration. The exact free-leaf insertion rule applies to inactive faces,
 not this padded active plaquette. The available odd-law variance floor is

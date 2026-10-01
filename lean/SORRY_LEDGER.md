@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED simultaneous centered source responses (2026-10-01 UTC)
+
+- `GNSUnitCenteredGram.centered_cauchySchwarz` supplies the joint Gram
+  argument. `SU2QuaternionProductHeatSumGram.sumTest_mean` computes the
+  second test's mean with the original heat marginals and symmetry.
+- `BF4ExactSlabFixedSpatialSourceJointCancellation.plaquette_sum_mean`
+  pins M=2*(1+w^12)*H[q*f]. The original responses J and R are retained
+  through X=2*R-J*M, with proved nonnegative cap K=64*A-M^2.
+- `padded_terminal_joint_budget` proves 4*K*E+K*J^2+X^2<=2*K*C for
+  the COMPLETE terminal source. The exact-norm companion uses S-M^2.
+  `padded_terminal_normalized_joint_budget` retains the SAME original Z.
+  Neither A nor a centered Gram norm is inverted; no stationarity premise.
+- OPEN: complete signed cost versus SAME interacting variance and
+  justified physical scaling. X can vanish even when R does not; no
+  unconditional additive R^2 improvement or strict gain is asserted.
+  Survival, continuum/Clay and every-group fields remain open.
+- Three final focused checks passed 15 gates exactly in
+  {propext, Quot.sound}. No sorry, canonical field/chart change or broad
+  run. Evidence: `audits/AUDIT-JOINT-SOURCE-CANCELLATION-2026-10-01.md`.
+
 ## PROVED quadratic floor of the even corrected Young budget (2026-10-01 UTC)
 
 - `SU2PlaquetteEvenBudgetFloor.evenBudget64_formula` pins the literal

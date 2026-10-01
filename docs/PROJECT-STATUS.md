@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting joint source response estimate (2026-10-01 UTC; chart
+unchanged): the two original heat tests now yield
+4*K*E+K*J^2+(2*R-J*M)^2<=2*K*C with K=64*A-M^2>=0.
+The stronger exact-norm form and SAME-partition normalized consumer retain
+the complete terminal source. No source inverse or stationarity premise.
+Comparison with interacting centered variance and physical scaling remains
+open; no strict gain is asserted. Three final focused checks passed within
+{propext, Quot.sound}; no broad run. Evidence:
+`audits/AUDIT-JOINT-SOURCE-CANCELLATION-2026-10-01.md`.
+
 Verified bound-only limitation (2026-10-01 UTC; chart unchanged): the current
 quartic majorant is at least 296*(1-w)^2 for every spin split. It cannot
 be bounded by C*(1-w)^3 when C*(1-w)<296 and w<1. This is not a lower
