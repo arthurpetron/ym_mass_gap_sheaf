@@ -6148,6 +6148,8 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitContinuity
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyMixedIdentity
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyMixedBound
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyCompositePowerComparison
+-- Quarter-geometric actual mixed finite products on the original second core.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyMixedProducts
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

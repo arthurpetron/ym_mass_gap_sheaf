@@ -85,9 +85,12 @@ gates and independent reviews passed. Evidence: rational-continuity addendum
 in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
 NEXT mathematical propositions, assigned in parallel: combine the homogeneous
-mixed bound with dyadic coefficient cancellation, then pass through the
-ORIGINAL limits to prove FULL rational composition; and prove the exact
-factor-two infinitesimal action on linked actual graph points. These next
+mixed bound with the ORIGINAL limits to prove FULL rational composition;
+and prove the exact factor-two infinitesimal action on linked actual graph
+points. `ScaledCayleyMixedProducts.mixed_products_bound` now supplies the
+finite second-core estimate: squared error <= quarter^n*mixedCoefficient(a,b)
+times the ORIGINAL preimage norm. Exact dyadic cancellation is proved; five
+focused gates and independent review passed. The limit-addition and tangent
 drafts are not verified. Endpoint source reviews found no ready new continuum
 QFT or every-group physical producer: buffered locality needs its actual
 intertwining join, and classification/central descent still lacks compatible

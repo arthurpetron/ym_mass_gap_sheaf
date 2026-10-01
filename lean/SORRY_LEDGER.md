@@ -1,5 +1,19 @@
 # Sorry Ledger
 
+## PROVED quarter-geometric mixed finite products only (2026-10-01 UTC)
+
+- `ScaledCayleyMixedProducts.dyadic_mixed_coefficient_eqv` proves exact
+  fourth-degree scaling and 4^n cancellation to quarter^n.
+- `mixed_products_bound` retains the actual second-core first/second graph
+  points and the ORIGINAL preimage norm. Its finite squared error is bounded
+  by quarter^n*mixedCoefficient(a,b)*preimageNorm; no scalar rounding.
+- Five focused gates and independent source/math/log/hash review passed
+  within {propext,Quot.sound}. No new sorry/axiom/analytic field or weakening.
+  Evidence: mixed-products addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: limit addition, physical-time/calibration and all continuum/Clay
+  endpoints. One root import added; no full root/tree/build/audit/guard.
+
 ## PROVED rational Cayley limit continuity and finite mixed defects only (2026-10-01 UTC)
 
 - `ScaledCayleyLimitContinuity.continuityCertificate` returns a positive

@@ -21,6 +21,10 @@ and actual composite-power comparison also passed; sixteen focused gates and
 independent reviews cover these four new modules. Full parameter addition,
 full-real-time construction and physical-time/logarithm calibration,
 changing-scale survival/mass, full continuum QFT and every group remain OPEN.
+The actual mixed finite-product estimate now has the exact quarter^n rate
+against each original second-core preimage norm; five more gates and
+independent review passed. Passing this estimate through the actual limits
+to prove arbitrary rational addition remains the next consumer.
 Evidence: rational-continuity addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`. No displayed
 claim changed; no ASCII reprint.

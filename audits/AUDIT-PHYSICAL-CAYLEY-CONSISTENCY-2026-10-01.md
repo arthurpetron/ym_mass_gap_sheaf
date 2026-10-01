@@ -690,3 +690,34 @@ unverified at this checkpoint. Complete signed scaling, changing-family
 survival, SAME-transfer physical-time/logarithm calibration, finite positive
 physical mass, full continuum QFT, every actual group and Clay remain OPEN.
 No canonical displayed claim changed; no ASCII chart was reprinted.
+
+## Quarter-geometric mixed finite products
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyMixedProducts.lean`,
+`step_add_eqv:52` aligns the actual halved parameter sum.
+`mixedCoefficient_scale_eqv:82` proves exact quartic homogeneity;
+`dyadic_fourth_factor_eqv:93` uses 4*(1/2)^4=1/4, and
+`dyadic_mixed_coefficient_eqv:127` combines both identities.
+`mixed_products_bound:185` applies the actual mixed defect and commuting
+finite-power comparison to the ORIGINAL represented first/second graph
+points. Its squared error is <= quarter^n*mixedCoefficient(a,b)*preimageNorm Y.
+The second-output ceiling is scaled only after explicit nonnegativity.
+
+The second focused monitored check emitted its `.olean`; independent
+source/math/log/hash review passed. All five gates report
+{propext,Quot.sound}. Accepted log:
+`/tmp/ym-scaled-cayley-mixed-products-second-20261001.log`, SHA256
+`c66605b496ca5f2bee3390ed55343bf3de80ccefa1e5587b9c113e54ffe38a3c`.
+The rejected draft used unsupported notation-qualified `PD.Cauchy`; writing
+the actual Cauchy type repairs elaboration without changing the proposition.
+Accepted source/log contains no sorryAx or forbidden construct. One
+serialized 20-GiB worker and 12-GiB OS reserve were retained, with zero swap
+and no competing compiler at preflight. One root import was added; no
+full-root/tree/build/audit/guard ran and CI is unchanged.
+
+This is a finite same-carrier estimate, not the limiting addition law.
+Passing it through actual limits is the next mathematical consumer.
+The factor-two tangent draft is separate and unverified. Physical calibration,
+changing-family survival/mass, full continuum QFT, every actual group and Clay
+remain OPEN. No displayed chart claim changed; no ASCII reprint.
