@@ -238,7 +238,8 @@ private theorem regroup (a b c d : RatPoly) :
     (.add (.add (.var 0) (.var 2)) (.add (.var 1) (.var 3)))
     (by decide) (fun | 0 => a | 1 => b | 2 => c | _ => d)
 
-private theorem activeCasimir_add (active : List Nat) (p q : RatPoly) :
+/-- Literal Casimir linearity, also available to quadratic observable consumers. -/
+theorem activeCasimir_add (active : List Nat) (p q : RatPoly) :
     RatPolyCoeffEqv (activeCasimirPolynomial active (polyAdd p q))
       (polyAdd (activeCasimirPolynomial active p)
         (activeCasimirPolynomial active q)) := by
@@ -258,7 +259,8 @@ private theorem activeCasimir_add (active : List Nat) (p q : RatPoly) :
             (activeCasimirPolynomial rest q)))
       exact (ht.add ih).trans (regroup _ _ _ _)
 
-private theorem activeCasimir_smul (active : List Nat) (c : Q') (p : RatPoly) :
+/-- Rational scaling commutes with the original active-block Casimir. -/
+theorem activeCasimir_smul (active : List Nat) (c : Q') (p : RatPoly) :
     RatPolyCoeffEqv (activeCasimirPolynomial active (polySmul c p))
       (polySmul c (activeCasimirPolynomial active p)) := by
   induction active with
@@ -336,3 +338,5 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCasimir
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCasimir.plaquette_casimir
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCasimir.spatialSpan_casimir
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCasimir.activeCasimir_add
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCasimir.activeCasimir_smul

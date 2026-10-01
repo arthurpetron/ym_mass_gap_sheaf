@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Retained source square and literal plaquette curvature (2026-10-01 UTC):**
+`QuaternionHaarPolynomialGramDeterminant` constructs finite Gram square data.
+`SU2QuaternionSecondOrderRetainedSquare` retains 48*H[(q*f)^2] in the
+quadratic correction for Cf=12f. `BF4ExactSlabFixedSpatialFamilyRetainedSquare`
+supplies the actual whole signed-family SAME-variance consumer and a proved
+nonnegative ceiling gain, preserving source, mean and all signed corrections.
+`BF4ExactSlabFixedSpatialPlaquetteCurvature` evaluates the literal full-carrier
+curvature as -128*(f^2-1), at arbitrary-insertion Haar-carrier equality.
+Scaling-relative signed control remains open; raw source square is not
+interacting variance. Six focused capped checks passed 24 gates; no broad
+run or continuum/Clay closure. Evidence at repository root:
+`audits/AUDIT-RETAINED-SQUARE-AND-PLAQUETTE-CURVATURE-2026-10-01.md`.
+
 **Actual positive Jacobi mixed relative bound (2026-09-30 UTC):**
 `JacobiHeatMixedRelativeAngularBound.weightedHeatBound` supplies relative
 cost m*R+d*e*R^2 for the ordered mixed derivative, independent of Jacobi

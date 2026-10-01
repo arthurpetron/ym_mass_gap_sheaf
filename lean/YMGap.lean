@@ -4917,6 +4917,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilySecondOrder
 import YMGap.Continuum.SU2QuaternionActiveCasimirProduct
 import YMGap.Continuum.SU2QuaternionSecondOrderCancellation
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyCurvature
+import YMGap.Continuum.QuaternionHaarPolynomialGramDeterminant
+import YMGap.Continuum.SU2QuaternionSecondOrderRetainedSquare
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteCurvature
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyRetainedSquare
 -- Exact spectator Gram-channel reduction of original moments and plaquette energy.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveChannels
 -- Computed Casimir-square channel contraction; actual second moment joined by the BF4 consumer above.

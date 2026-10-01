@@ -25,6 +25,35 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Retain a quantitative square in the complete signed family (2026-10-01 UTC)
+
+The previous quadratic upper estimate is now improved without altering the
+original source or law. A constructive polynomial Gram determinant and the
+actual whole-family Cf=12f eigenpin prove
+D2<=-H[q^2*C Gamma(f,f)]-48*H[(q*f)^2]. The short certificate is
+3*(B^2+2*Gamma(q,q)*Gamma(f,f)-48*(q*f)^2)
+=2*(12*q*f-3*Gamma(q,f))^2+6*GramDet, with B=12*q*f-2*Gamma(q,f).
+
+`BF4ExactSlabFixedSpatialFamilyRetainedSquare.padded_family_energy_le_retained`
+feeds this into the EXISTING SAME-variance consumer. The original curvature
+ceiling is lowered by (h^2/2)*48*H[(q*f)^2]/oddMass, h=1-w; its payment is
+proved nonnegative, not strictly positive or variance-relative. All signed
+coefficients, repeated faces, cross terms, sourceFirstOrder, cubic/cutoff
+budgets, angular-weight defect, complete Ward residual and original mean
+remain. Separately, literal full-carrier physical plaquette geometry proves
+Gamma(f,f)=4*(4-f^2), C(f^2)=32*(f^2-1) and C Gamma(f,f)=-128*(f^2-1)
+at arbitrary-insertion Haar-carrier equality. The final mode is signed.
+Six focused checks passed 24 gates within {propext, Quot.sound}. Evidence:
+`audits/AUDIT-RETAINED-SQUARE-AND-PLAQUETTE-CURVATURE-2026-10-01.md`.
+
+NEXT: control the COMPLETE signed combination for the ACTUAL projected
+terminal source against SAME variance on a justified physical scaling
+family. Neither a raw Haar square nor an arbitrary-source geometric bound
+is a variance comparison. Preserve the negative-square cancellation and
+the interacting first-order terms together; avoid another assumed analytic
+field or a surrogate law. Physical scaling, survival, QFT, mass calibration
+and every-group inputs remain OPEN; no canonical node or chart changed.
+
 ### Quadratic cancellation isolates observable curvature (2026-10-01 UTC)
 
 The candidate local argument below now has a checked producer and original

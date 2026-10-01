@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED retained square and literal plaquette curvature (2026-10-01 UTC)
+
+- `QuaternionHaarPolynomialGramDeterminant.gramDeterminantCertificate`
+  constructs the full polynomial two-column Gram determinant as square data,
+  retaining repetitions and overlapping variables. No independence premise.
+- `SU2QuaternionSecondOrderRetainedSquare.sourceSecondMoment_le_retainedSquare`
+  supplies D2<=-H[q^2*C Gamma(f,f)]-48*H[(q*f)^2] from the actual Cf=12f
+  eigenpin and a completed-square certificate, not an assumed bound.
+- `BF4ExactSlabFixedSpatialFamilyRetainedSquare.padded_family_energy_le_retained`
+  feeds it to the EXISTING whole signed-family energy/SAME-variance identity.
+  `retainedVarianceCeiling_gain` pins the lowering to (h^2/2)*48*H[(q*f)^2]/Z;
+  `retainedVarianceCeiling_le_curvature` proves it nonnegative. No strict gain.
+  Original source depth, odd mass, mean, signed corrections and budgets remain.
+- `BF4ExactSlabFixedSpatialPlaquetteCurvature.plaquette_gamma`,
+  `plaquette_square_casimir` and `plaquette_gamma_casimir` prove the literal
+  full-carrier pins 4*(4-f^2), 32*(f^2-1) and -128*(f^2-1), respectively,
+  at arbitrary-insertion Haar-carrier equality. Curvature has no useful sign.
+- OPEN: complete signed correction versus SAME variance on a justified
+  physical scaling family. Raw H[(q*f)^2] is not that centered variance.
+  Physical scaling/survival, mass, QFT and every compact simple group remain
+  open; no canonical field or chart change, no new named input or sorry.
+- Six focused checks passed all 24 gates within {propext, Quot.sound}, with
+  unchanged serial safety caps and no broad run. Evidence:
+  `audits/AUDIT-RETAINED-SQUARE-AND-PLAQUETTE-CURVATURE-2026-10-01.md`.
+
 ## PROVED quadratic cancellation and original curvature consumer (2026-10-01 UTC)
 
 - `SU2QuaternionActiveCasimirProduct.activeCasimirPolynomial_mul`

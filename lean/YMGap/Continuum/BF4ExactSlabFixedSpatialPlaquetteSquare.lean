@@ -9,6 +9,7 @@ hypothesis.
 
 import YMGap.Continuum.SU2QuaternionProductHeatPlaquetteSquare
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteKinetic
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteChannelPartition
 
 namespace YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteSquare
 
@@ -26,6 +27,7 @@ open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceCarrier
   (baseLinks baseLinks_mem_iff)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialFacePlacement (spatialFaces)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialFaceSelection
+open YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteChannelPartition (faceSlots)
 open YMGap.Continuum.BF4ExactSlabFixedSpatialFringeFaceGeometry
 open YMGap.Continuum.BF4ExactSlabFixedSpatialSliceHeat (plaquette)
 open YMGap.Continuum.BF4ExactSlabTemporalGaugeLedger
@@ -44,7 +46,9 @@ open YMGap.Continuum.Z4UnitCubeIncidenceParity
 
 local notation:max "N" width:arg => List.length (baseLinks width)
 
-private structure FullRangePlaquetteSelection
+/-- Computed four-link presentation of the actual spatial face, retaining the
+permutation of the complete original carrier and its literal scalar pin. -/
+structure FullRangePlaquetteSelection
     (width : Nat) (face : Z4Plaq) where
   a : Nat
   b : Nat
@@ -52,10 +56,13 @@ private structure FullRangePlaquetteSelection
   d : Nat
   rest : List Nat
   perm : (List.range (N width)).Perm (a::b::c::d::rest)
+  slots : (faceSlots width face).Perm [a,b,c,d]
   scalar : RatPolyCoeffEqv (plaquette width face).scalar
     (word a b c d false false true true).scalar
 
-private def fullRangePlaquetteSelection
+/-- The original geometric selection is reusable by differential consumers;
+no new activity, exposure or distinctness hypothesis is requested. -/
+def fullRangePlaquetteSelection
     (width : Nat) (face : Z4Plaq) (hf : face ∈ spatialFaces width) :
     FullRangePlaquetteSelection width face := by
   let la : Z4Link := (face.1, (dirsOf face.2).1)
@@ -132,7 +139,10 @@ private def fullRangePlaquetteSelection
     simpa only [a, b, c, d, la, lb, lc, ld,
       SU2QuaternionOrientedWordSelection.word,
       orientedCoordinateQuaternion] using h
-  exact ⟨a, b, c, d, r3, hp, hscalar⟩
+  have hslots : (faceSlots width face).Perm [a,b,c,d] := by
+    change [a,d,c,b].Perm [a,b,c,d]
+    exact List.Perm.cons a (List.reverse_perm [d,c,b]).symm
+  exact ⟨a, b, c, d, r3, hp, hslots, hscalar⟩
 
 /-- The full product heat sends the actual fundamental plaquette character
 to `w^12` times itself. -/
@@ -198,3 +208,4 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteSquare
 
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteSquare.plaquette_fullRange
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteSquare.plaquetteSquare_fullRange
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialPlaquetteSquare.fullRangePlaquetteSelection

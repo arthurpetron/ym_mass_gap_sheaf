@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting retained square and physical plaquette curvature
+(2026-10-01 UTC; chart unchanged): the complete original signed-family D2
+now has upper bound -H[q^2*C Gamma(f,f)]-48*H[(q*f)^2]. Constructed Gram
+and commutator-square data lower the previous SAME-variance ceiling by
+(h^2/2)*48*H[(q*f)^2]/oddMass, proved nonnegative but not strict or
+variance-relative. All original signed corrections and budgets remain.
+The literal one-face full-carrier curvature pin is -128*(f^2-1), with no
+assumed sign. Complete signed control for the ACTUAL terminal source on a
+justified physical family remains OPEN, as do scaling survival, mass, QFT
+and every group. Six focused checks passed 24 gates within the permitted
+axiom gate; no broad run or canonical field change. Evidence:
+`audits/AUDIT-RETAINED-SQUARE-AND-PLAQUETTE-CURVATURE-2026-10-01.md`.
+
 Verified supporting quadratic cancellation and original curvature consumer
 (2026-10-01 UTC; chart unchanged): D2 now splits exactly into
 -H[B^2]-2*H[Gamma(q,q)*Gamma(f,f)]-H[q^2*C Gamma(f,f)], on the ORIGINAL
