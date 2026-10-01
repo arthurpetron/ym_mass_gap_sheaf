@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting centered-transfer SAME-variance reserve
+(2026-10-01 UTC; chart unchanged): original centering and source moments
+give EXACT E+B=Z*Var, with B=H[V*(g*centered(f))*T(g*centered(f))]. Full
+output smoothing gives E+h*Angular(T(g*centered(f)))<=Z*Var, h=1-w.
+Normalizing ONLY by SAME positive oddMass proves h*Angular(output)/Z<=Var.
+Every supported signed f, every width/depth and the original headCutoff
+guard are retained, with no extra volume/depth or heat-floor constant.
+This is an UPPER budget, not a positive reserve fraction or complete signed
+cost/variance scaling estimate. Survival, physical mass, QFT and all groups
+remain OPEN. Four gates passed one final focused check; no broad run.
+Evidence: centered-transfer addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 Verified supporting original full-product/terminal output smoothing
 (2026-10-01 UTC; chart unchanged): exact per-slot Casimir actions and
 original heat eigenpairings now give h*Angular(P_full p)<=H[p*P_full p],

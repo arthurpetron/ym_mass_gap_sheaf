@@ -25,6 +25,40 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Centered output smoothing meets SAME interacting variance (2026-10-01 UTC)
+
+PROGRESS after `ca2e261`: the finite output regularity estimate now has
+an actual odd-marginal variance consumer. For g=terminalMessage(depth)
+and psi=oddCentered(f) at that SAME depth, the exact original identity is
+
+    E(f)+H[V*(g*psi)*T(g*psi)] = Z*Var(f).
+
+The complete V*g*psi source is retained through the original quadratic
+pin; centering leaves E unchanged. Applying actual full-transfer smoothing
+to g*psi proves
+
+    E(f)+h*Angular(T(g*psi)) <= Z*Var(f), h=1-w.
+
+`BF4ExactSlabFixedSpatialCenteredTransferReserve` also proves the normalized
+budget using ONLY the original positive partition, and drops only proved
+nonnegative E to obtain h*Angular(T(g*psi))/Z<=Var(f). All supported signed
+f, every width/depth and headCutoff(w)<=K are included for 0<w<1; no family
+or fringe restriction, added extent/depth factor or heat-floor inverse.
+Four gates passed the final focused check within {propext, Quot.sound};
+independent Sol/Luna reviews passed. No broad run or canonical chart change.
+Evidence: centered-transfer addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+NEXT remains a useful complete signed original-energy/variance rate on a
+justified physical observable/scaling family. The new estimate is an UPPER
+payment for the advanced centered angular energy, not a lower response
+fraction or smallness of the endpoint-source cost. Retain the spatial action,
+actual signed heat debt and mean corrections. Do not demand a positive
+response fraction on every arbitrary polynomial as a replacement for a
+chosen physical survival witness. Existing completed-time fringe kernels
+are not counterexamples to this polynomial reserve without a SAME-object pin.
+No continuum survival, physical mass, full QFT or all-group input is supplied.
+
 ### Full-product smoothing meets the ORIGINAL terminal recursion (2026-10-01 UTC)
 
 The actual full heat and original interacting transfer now consume the

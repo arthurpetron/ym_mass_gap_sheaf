@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Centered-transfer SAME-variance reserve (2026-10-01 UTC):**
+`BF4ExactSlabFixedSpatialCenteredTransferReserve.centered_transfer_quadratic_pin`
+proves E+B=Z*Var for the actual g=T^depth1 and original odd-marginal center.
+`centered_transfer_angular_reserve` pays h*Angular(T(g*centered(f))) inside
+that budget. `normalized_centered_transfer_angular_reserve` and
+`centered_output_angular_le_variance` normalize only by SAME oddMass:
+h*Angular(T(g*centered(f)))/Z<=Var, h=1-w. Every supported signed f, width
+and depth works at the original headCutoff guard and 0<w<1. No family/fringe
+restriction or width/depth/floor constant is supplied. This does NOT bound
+the full signed endpoint cost by a useful scaling-small fraction or supply
+a lower bound on the reserve. Four gates passed one final focused check;
+no broad run, new analytic field or canonical frontier closure. Evidence:
+centered-transfer addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 **Original full-transfer and terminal angular smoothing (2026-10-01 UTC):**
 the full-product and actual interacting-transfer joins are now checked.
 `SU2QuaternionProductHeatSmoothing.productMap_angular_smoothing` proves

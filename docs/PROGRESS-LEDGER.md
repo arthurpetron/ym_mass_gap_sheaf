@@ -4,7 +4,32 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Full-product smoothing reaches original terminals (2026-10-01 UTC)
+## Current increment: Centered transfer output paid by SAME variance (2026-10-01 UTC)
+
+PROGRESS after `ca2e261`: the new output smoothing now meets the actual
+odd-marginal centered observable. For g=T^depth1 and its ORIGINAL center
+psi, the exact identity E(f)+H[V*(g*psi)*T(g*psi)]=Z*Var(f) uses the
+unchanged source, mean and odd partition. Smoothing of the complete g*psi
+then proves E(f)+h*Angular(T(g*psi))<=Z*Var(f), h=1-w.
+
+Both terms normalize by the SAME proved-positive Z. Dropping only the
+proved nonnegative original temporal energy gives h*Angular(T(g*psi))/Z
+<=Var(f). This supplies a concrete centered-output/interacting-variance
+regularity join, not another assumed comparison. All supported signed
+observables and all depths/widths are included, at the original headCutoff
+guard and 0<w<1. No added size/depth or heat-floor factor enters.
+
+The bound is an UPPER budget; no useful variance-relative lower reserve
+or scaling-small full signed energy ceiling is constructed. The complete
+signed physical scaling input, survival, physical mass, QFT and all groups
+remain OPEN. No arbitrary polynomial output/completed Wilson-time pin is
+claimed. Four gates passed the final focused check within
+{propext, Quot.sound}; independent Sol/Luna review passed. No broad run,
+new analytic field, canonical marker or ASCII reprint. Evidence:
+centered-transfer addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+## Earlier increment: Full-product smoothing reaches original terminals (2026-10-01 UTC)
 
 The scalar-to-product-to-interacting-transfer seam is now proved on the
 actual objects. Per-slot character/path Casimirs derive the literal full

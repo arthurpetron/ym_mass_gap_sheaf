@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Centered output versus SAME variance (2026-10-01):** the original
+centered insertion now has the exact budget E+B=Z*Var and the checked
+reserve E+(1-w)*Angular(T(g*centered(f)))<=Z*Var. Dividing only by the
+original positive partition gives an angular-output estimate against the
+SAME interacting variance, for every supported signed observable and depth.
+There is no added width/depth or heat-floor constant. This is an UPPER
+budget, not a positive variance-relative reserve or the needed scaling-small
+complete observable-energy bound. See the
+[proof and remaining input](audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md#addendum-centered-transfer-output-against-the-same-interacting-variance).
+
 **Original full-transfer smoothing (2026-10-01):** a checked output-energy
 estimate now has a full-product and original interacting-transfer consumer.
 The complete output angular energy obeys

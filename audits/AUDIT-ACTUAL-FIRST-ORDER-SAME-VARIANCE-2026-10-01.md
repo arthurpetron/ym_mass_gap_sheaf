@@ -538,3 +538,91 @@ Accepted log SHA-256 values:
   `3056f195082f9d1432f9b1d1a285123a1af9f6a5f1cbb6e39adf13e1fdf02e45`.
 - `/tmp/ym-original-transfer-smoothing-repaired-20261001.log`:
   `943c56483ab03c0a1e9b0eaa59325ccbb5ce85d01bc663bb950e04af55d6a8c0`.
+
+## Addendum: centered transfer output against the SAME interacting variance
+
+Date: 2026-10-01 UTC. This is a concrete consumer of the full-transfer
+smoothing above, with no new analytic hypothesis. Let g=T^depth1,
+psi=oddCentered(f), and Z=oddMass(depth), at the ORIGINAL nome, width,
+cutoff and odd-marginal mean. All new declarations are in
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCenteredTransferReserve.lean`.
+
+### Exact centered energy and response quadratic
+
+`centered_transfer_quadratic_pin`, line 65, proves
+
+    E(g,f) + B = Z*Var_odd(f),
+    B = H[V*(g*psi)*T(g*psi)].
+
+`energy_shifted`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyBandResponse.lean:130`,
+first leaves the ORIGINAL two-slice temporal energy unchanged by centering.
+`energy_source_pin`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialProjectedSourceEnergy.lean:81`,
+then writes that energy as the actual centered source moment minus its
+original active-heat pairing. With q=V*g, the first term is
+H[(q*psi^2)*P_active(q)]. `centered_unprojected_square`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyBandResponse.lean:95`,
+pins it to Z*Var_odd(f), with the actual mean, not a raw Haar/q-squared mean.
+The original transfer quadratic pin identifies the second term as B.
+Only exact scalar cancellation remains. V is present in both endpoint
+sources of the kinetic pairing; no fringe-independence premise is needed.
+
+### Angular reserve and normalized actual consumer
+
+`centered_transfer_angular_reserve`, line 113, applies
+`transferStep_angular_smoothing`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialTransferSmoothing.lean:126`,
+to the COMPLETE supported signed input g*psi. It proves
+
+    E(g,f) + h*Angular(T(g*psi)) <= Z*Var_odd(f), h=1-w.
+
+`normalized_centered_transfer_angular_reserve`, line 138, multiplies BOTH
+terms by the same proved-positive original Z reciprocal:
+
+    normalizedEnergy(f) + h*Angular(T(g*psi))/Z <= Var_odd(f).
+
+`centered_output_angular_le_variance`, line 173, drops only the already
+proved nonnegative ORIGINAL normalized temporal energy, obtaining
+
+    h*Angular(T(g*psi))/Z <= Var_odd(f).
+
+The input nonnegativity theorem is `normalizedEnergy_nonnegative`,
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialDirichletWindow.lean:97`.
+The original Z equals the compact partition with 2*depth+1 transitions,
+not an independently normalized mass. No source or variance is inverted.
+Every supported signed f, every width and depth (including zero), and
+headCutoff(w)<=K are retained for 0<w<1. No family-size restriction,
+fringe restriction, added width/depth coefficient or heat-floor quotient.
+
+### Residue and independent review
+
+This supplies the advanced CENTERED OUTPUT/interacting-variance regularity
+join. It remains an UPPER budget; no useful positive lower reserve or
+scaling-small complete signed endpoint observable-energy bound is proved.
+The full spatial multiplication, signed heat/cutoff debt and mean corrections
+in that primary physical estimate remain. A chosen physical observable
+and justified changing-coupling/spacing family still need useful control.
+Survival, physical mass, full QFT and every compact simple group remain OPEN.
+
+The existing width-one completed Wilson-time kernel witness is not silently
+identified with T(g*psi) or its finite polynomial angular energy. Review
+found no declaration pinning those two objects for this purpose, so no
+finite-reserve counterexample is inferred from that witness. Nor is a
+positive reserve fraction for every arbitrary polynomial made into a new
+canonical requirement. Sol/Luna independently reviewed the centered source,
+time index, complete action, normalization and inequality directions.
+
+The final focused file check exited zero with all FOUR printed gates
+exactly {propext, Quot.sound}. A missing `haar_of_coeff` namespace was
+repaired before acceptance; no mathematical statement or safety limit
+changed. No new sorry, axiom, Classical dependency, native_decide or
+noncomputable declaration. Main alone compiled with the monitored safe-build
+procedure, one worker, 20 GiB ceiling, 12 GiB OS reserve and dynamic telemetry.
+Preflight showed 84 percent pressure-free memory, zero swap, and no competing
+compiler/test/runner. No full root/tree build, broad audit or guard ran;
+the root import is registration only. CI remains manual-only. No canonical
+field or chart marker changed, and no unchanged chart was printed.
+
+Accepted final log: `/tmp/ym-centered-transfer-reserve-final-20261001.log`.
+SHA-256: `1e65b1d0cc545d49f84aed46d9e44a80d3cdf11a2f46bb6c4949bf0397079cac`.

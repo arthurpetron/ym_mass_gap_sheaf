@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED centered-transfer SAME interacting variance reserve (2026-10-01 UTC)
+
+- `BF4ExactSlabFixedSpatialCenteredTransferReserve.centered_transfer_quadratic_pin`
+  gives EXACT original E(f)+B(g*psi)=Z*Var(f), where psi uses the original
+  odd-marginal mean at the SAME depth and B is the COMPLETE V-weighted
+  original transfer quadratic. No fringe projection or replacement law.
+- `centered_transfer_angular_reserve` gives
+  E(f)+(1-w)*Angular(T(g*psi))<=Z*Var(f), using actual full-output smoothing.
+- `normalized_centered_transfer_angular_reserve` normalizes both terms by
+  ONLY SAME proved-positive oddMass. `centered_output_angular_le_variance`
+  drops the proved nonnegative original energy to give
+  (1-w)*Angular(T(g*psi))/Z<=Var(f).
+- All supported signed f, width/depth values and the original headCutoff
+  guard are retained, with 0<w<1 and no added width/depth/floor constant.
+  No source or variance is inverted and no new analytic field is assumed.
+- OPEN: an upper budget is not a useful positive lower reserve or the
+  scaling-small complete signed cost bound. A polynomial angular output is
+  not silently identified with a completed Wilson-time image. Physical
+  scaling, continuum survival, mass, QFT and every group remain OPEN.
+- One final focused check passed all four gates within
+  {propext, Quot.sound}, with independent source review. No new sorry/axiom,
+  classical dependency or changed safety limit; no broad run or CI change.
+  No canonical field or chart marker changed. Evidence: centered-transfer
+  addendum in `audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 ## PROVED original full-product and terminal output smoothing (2026-10-01 UTC)
 
 - `SU2HeatProductCasimirSmoothing.product_squared_casimir_smoothing`
