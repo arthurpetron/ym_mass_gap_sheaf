@@ -165,3 +165,45 @@ These are source citations, not claims of a fresh compilation in this review.
 No canonical diagram state changed; no chart is reprinted. The signed gauge
 estimate, justified scaling family, physical OS identification, nontrivial
 continuum survival, physical mass, full QFT and all-group result remain OPEN.
+
+## Source selection review after the quartic estimate
+
+Reviewed 2026-10-01 UTC from source, without another literature scan.
+The backfill remains research context, not a supplied gauge inequality.
+
+`SU2QuaternionProductHeatExactAlignment.product_displacement_nome_bound`
+(`lean/YMGap/Continuum/SU2QuaternionProductHeatExactAlignment.lean:141`)
+allows a signed supported endpoint source. Thus a proposed polarization
+argument may insert a vector component of a Wilson word into that source;
+pointwise positivity of the modified source is not required. Its additional
+`sufficientCutoff` guard must be retained. Slice symmetry has an existing
+producer, `BF4ExactSlabFixedSpatialKineticSymmetry.kineticWeight_swap`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialKineticSymmetry.lean:163`).
+The proposed mixed-moment polarization is not yet a checked declaration.
+Even if proved, its vector cross correlation is not the scalar centered
+variance. No source cited here supplies that comparison.
+
+This is a reason to prioritize a source-specific signed estimate, not to
+declare a fixed microscopic plaquette impossible. The checked bare-heat
+fence `QuaternionHaarHeatAngularVarianceObstruction.angular_not_le_variance_multiple`
+(`lean/YMGap/Continuum/QuaternionHaarHeatAngularVarianceObstruction.lean:152`)
+concerns angular energy in an exposed heat law, not temporal energy in the
+interacting terminal marginal. It cannot settle survival of the actual source.
+
+The existing `spatialSpan`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialPlaquetteFamilySchedule.lean:61`)
+permits finite signed families. `BF4WilsonAllNomePlaquetteFamilyVariance.familyExcitation`
+(`lean/YMGap/Continuum/BF4WilsonAllNomePlaquetteFamilyVariance.lean:147`)
+places each such family on the original completion. A family can be chosen
+at each scale, but cross-scale identification and a useful normalized
+energy bound are not supplied by that permission. The strongest existing
+starting identity is `padded_family_energy_variance`
+(`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceTaylor.lean:65`):
+it retains the entire signed correction to `12*(1-w)*Var`.
+
+Next priority: specify the observable family and physical-time budget,
+then test its combined signed correction against its SAME variance before
+extending the positive mixed-moment branch. A proposed growing or smeared
+family must pay its support/length dependence and prove its limit joins.
+No new survival wrapper or unconditional angular-to-variance comparison
+is justified by the reviewed inputs.

@@ -1,12 +1,24 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL whole-word quartic correction (2026-10-01 UTC;
+chart unchanged): the four-coordinate ordered telescope lifts each actual
+active-link fourth moment with explicit factor 16*L^4. The original radial
+energy consumer now pays that quartic correction under the unchanged edge
+density and SAME odd partition. Mixed radial/SAME-variance and physical
+scaling comparisons remain open; growing loops must pay length dependence.
+The source review redirects the next analytic task to a specified signed
+family and its complete Ward/Taylor remainder. Four final focused checks
+passed 21 gates within {propext, Quot.sound}; no broad run or canonical
+change. Evidence: `audits/AUDIT-WILSON-WORD-QUARTIC-2026-10-01.md`.
+
 Verified supporting ORIGINAL selected-link quartic moment (2026-10-01 UTC;
 chart unchanged): exact finite regrouping, exceptional low-spin estimates
 and high-tail payment now combine under the complete original spatial and
 terminal weight. The quartic insertion is bounded by an explicit function
 of nome and spin split times the SAME odd partition, with cutoff guards
 retained. This is not centered-variance control or physical scaling.
-Whole-word quartic and mixed radial comparisons remain open. Seven final
+The follow-on above supplies whole-word quartic control; the mixed radial
+comparison remains open. Seven final
 focused checks passed 51 gates within {propext, Quot.sound}; no broad run
 or canonical change. Evidence:
 `audits/AUDIT-ORIGINAL-QUARTIC-MOMENT-2026-10-01.md`.

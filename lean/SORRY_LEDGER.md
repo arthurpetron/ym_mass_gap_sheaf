@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED original whole Wilson word quartic correction (2026-10-01 UTC)
+
+- `QuaternionHaarWordComponents.terms_components` telescopes the literal
+  noncommuting word in all four coordinates. `QuaternionHaarWordQuartic`
+  lifts same-weight link fourth moments with explicit factor 16*L^4.
+- `BF4ExactSlabFixedSpatialLinkQuartic.selected_quartic_bound` identifies
+  each active oriented link's geometric moment in the complete original
+  edge density. `BF4ExactSlabFixedSpatialWilsonQuarticIncrement.word_quartic_bound`
+  supplies the word-level estimate with the previous explicit B(w,S),
+  nome/split/cutoff guards and SAME odd partition. No hidden width/depth
+  constant is introduced; growing loop length must still be paid.
+- `wilson_energy_radial_quartic_cleared` pays the original radial bound's
+  fourth-order correction. OPEN: mixed moment versus SAME centered variance,
+  specified observable/scaling family with physical time, survival, full
+  QFT/every-group/Clay. The source review prioritizes the existing signed
+  Ward/Taylor remainder, not another positivity-only or conditional wrapper.
+- Four final focused checks passed 21 gates within {propext, Quot.sound}.
+  No existing sorry, canonical field or chart node changed; no broad run.
+  Evidence: `audits/AUDIT-WILSON-WORD-QUARTIC-2026-10-01.md`.
+
 ## PROVED ORIGINAL selected link quartic moment (2026-10-01 UTC)
 
 - `SU2HeatQuarticFiniteRegroup.finite_regroup` gives exact all-cutoff
@@ -16,7 +36,8 @@
   for 0<w<1, S>=1, K>=S+3, 1<=2*w^(4*(S+2)), w^(S^2)<=1/8 and
   headCutoff(w)<=K. It is uniform in cutoff, width and depth under those
   guards, not in nome or physical spacing.
-- OPEN: whole-word quartic and mixed radial comparisons, SAME centered
+- The follow-on above supplies the whole-word quartic bound. OPEN: mixed
+  radial comparison, SAME centered
   variance estimate, useful schedule with physical time/scaling calibration,
   continuum survival, QFT/every-group/Clay. No existing sorry, canonical
   field or chart node changed. Seven final focused checks passed 51 gates

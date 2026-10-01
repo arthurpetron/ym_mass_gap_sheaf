@@ -633,10 +633,27 @@ every source/positivity input and proves the selected-link quartic moment
 is at most [296*h^2+32*(S+2)^4*h^4+80*S^3*w^(S^2)] times the SAME odd
 partition, for S>=1, K>=S+3, 1<=2*w^(4*(S+2)), w^(S^2)<=1/8 and the
 original positive-prefix cutoff. All spatial and terminal weights remain.
-NEXT: lift selected-link quartic control to the whole Wilson-word quartic
-correction, then control the mixed radial moment against SAME centered
-variance. Supply an explicit useful nome/split schedule and its actual
-physical time/scaling justification; do not infer these from the guards.
+FOLLOW-ON PROVED: `QuaternionHaarWordComponents` gives the full ordered
+quaternion telescope; `QuaternionHaarWordQuartic.word_norm_quartic_bound`
+lifts each link fourth moment with explicit factor 16*L^4. The actual
+`BF4ExactSlabFixedSpatialWilsonQuarticIncrement.word_quartic_bound` supplies
+all original-edge inputs. Its radial energy consumer now pays the whole-word
+quartic correction, leaving the original mixed moment unestimated. Growing
+loops must pay their L^4 dependence. Four final focused checks passed 21
+gates within {propext, Quot.sound}; no canonical change or broad run. Evidence:
+`audits/AUDIT-WILSON-WORD-QUARTIC-2026-10-01.md`.
+NEXT: specify a signed observable family and actual physical-time budget;
+test the combined remainder in `padded_family_energy_variance` against
+that SAME centered variance, or supply a direct sampled-response estimate.
+Do not extend the positive mixed-moment branch before identifying its useful
+relative-variance consumer: signed-source polarization would still leave a
+vector cross response, not scalar centered variance. A fixed microscopic
+source is not refuted, and a growing/smeared family is not yet justified.
+Retain all signed cross terms and the original source/normalization; prove
+any changing-family limit joins. Supply an explicit useful nome/split
+schedule and its actual physical time/scaling justification; do not infer
+these from the guards. The appended source-selection review in
+`audits/RESEARCH-TARGETED-YM-FRONTIER-2026-09-30.md` records this priority.
 The existing one-index ratio guard is too coarse near L=(1-w)^(-2/3);
 use the now-proved block bound. The diagnostic dyadic schedule is still
 unformalized and is NOT a justified physical scaling family. Existing
