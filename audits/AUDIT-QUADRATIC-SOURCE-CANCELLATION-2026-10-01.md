@@ -73,6 +73,12 @@ Controlling those actual source moments and their relation to the SAME
 centered variance is the next input; additional scalar tests alone do not
 supply it. The physical scaling family is still to be justified.
 
+Subsequent checkpoint: the resulting even-only scalar upper budget has a
+proved floor 31*(1-w)^2/64 for every raw moment ratio in [0,4]. Source
+concentration alone cannot make that formula cubic; see
+`audits/AUDIT-EVEN-CORRECTED-BUDGET-FLOOR-2026-10-01.md`. This is not a
+lower bound on actual energy.
+
 The preceding odd test and this even test each bound the SAME D. Their
 retained squares cannot be added without a joint Gram or orthogonalization
 estimate. Neither this bound nor the previous one supplies spatial/spacing

@@ -671,6 +671,19 @@ Prioritize a matched complete signed energy/variance estimate for a specified
 observable family and physical time. Smearing/blocking is a candidate, not
 yet a proved low-energy producer. Source citations and exact scope:
 `audits/AUDIT-ACTUAL-SOURCE-MOMENT-INPUTS-2026-10-01.md`.
+FOLLOW-ON PROVED FENCE: `SU2PlaquetteEvenBudgetFloor.even_budget_floor`
+proves B(w,x)>=31*h^2/64 for EVERY 0<=x<=4 and 0<=w<=1, h=1-w,
+where B is exactly the even-corrected upper formula for E/A.
+`evenBudget64_formula` pins the literal w^12/w^32 coefficients;
+`even_budget_not_cubic` excludes B<=C*h^3 when h>0 and 64*C*h<31.
+Thus source-ratio concentration alone cannot make THIS ceiling cubic.
+When the consumer needs o(h^2) relative to raw source mass, retain stronger
+signed cancellation or justify another observable estimate; do not spend
+more work optimizing x in this formula. This does not prove actual energy
+is quadratic, prescribe a physical spacing law or rule out joint odd/even
+tests. Four final focused gates passed within {propext, Quot.sound}; no
+broad run or canonical change. Evidence:
+`audits/AUDIT-EVEN-CORRECTED-BUDGET-FLOOR-2026-10-01.md`.
 FOLLOW-ON CORRECTION AND PROVED FENCE: spectator-preserving Young is ALREADY
 supplied by `PassiveGeometricBudget.padded_terminal_plaquette_passive_signed_geometric_budget`.
 Do not rebuild its channel decomposition. The exact scalar ceiling is now

@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED quadratic floor of the even corrected Young budget (2026-10-01 UTC)
+
+- `SU2PlaquetteEvenBudgetFloor.evenBudget64_formula` pins the literal
+  scalar upper budget obtained from the retained even source correction.
+  For EVERY 0<=w<=1 and 0<=x<=4, `even_budget_floor` proves
+  B(w,x)>=31*(1-w)^2/64.
+- `even_budget_not_cubic` excludes B<=C*(1-w)^3 whenever 1-w>0 and
+  64*C*(1-w)<31. Optimizing the source ratio x alone cannot make this
+  EVEN-ONLY formula cubic. This is NOT a lower bound on actual energy;
+  stronger signed cancellations and different observables remain possible.
+- OPEN: complete signed energy versus SAME interacting variance, the
+  justified physical family/time scale and continuum/Clay. No required
+  physical scaling law is inferred from this scalar obstruction.
+- One final focused check passed four gates within {propext, Quot.sound}
+  (the definition itself is axiom-free). No sorry/canonical field/chart
+  change or broad run. Evidence:
+  `audits/AUDIT-EVEN-CORRECTED-BUDGET-FLOOR-2026-10-01.md`.
+
 ## PROVED rational subgap inverse on physical bond completion (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeBondOSSubgapResolvent.CenteredBond` is the ordinary
