@@ -5993,6 +5993,7 @@ import YMGap.Continuum.BF4WilsonAllNomeBondOSSubgapResolvent
 import YMGap.Continuum.BF4WilsonAllNomeWindowExpectation
 import YMGap.Continuum.BF4WilsonAllNomeBondOSInsertion
 import YMGap.Continuum.BF4WilsonAllNomeBondOSSeparatedWords
+import YMGap.Continuum.BF4WilsonAllNomeBondOSConnectedDecay
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary

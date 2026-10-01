@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED mixed connected decay on EVERY original bond class (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeBondOSConnectedDecay.connected_even_lag_sq_decay`
+  proves M_(2n)(X,Y)^2<=(q^n*Var_bond(X))*(q^n*Var_bond(Y)) for
+  arbitrary completed physical bond classes and every natural n,
+  q=`twoStepRate(hw0,hw1,width)`. These are the actual bond variances.
+- `connected_positive_action` pins positive integer lag to the actual
+  original bond action. `connected_source_pin` retains both signed
+  sources and both original vacuum means in the odd reflected joint
+  limits. The word consumer retains the necessary one-step time buffer.
+- OPEN: physical spatial/spacing-uniform rate, justified scaling survival,
+  canonical continuum OS/QFT and physical spectral/mass identification,
+  every compact simple group. This is fixed nome/width lattice time.
+- One final repaired focused check passed eight gates exactly in
+  {propext, Quot.sound}, under unchanged serial safety caps. No sorry,
+  broad run or canonical chart/field change. Evidence:
+  `audits/AUDIT-BOND-MIXED-CONNECTED-DECAY-2026-10-01.md`.
+
 ## PROVED both signs of the own-law centered source defect (2026-10-01 UTC)
 
 - `SU2QuaternionSourceDefectSignFence` constructs positive q=1+chi_2/4

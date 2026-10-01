@@ -519,6 +519,18 @@ these operators are not an equal-time algebra homomorphism. Fixed nome/width
 only; no canonical field or chart change. Evidence:
 `audits/AUDIT-BOND-SEPARATED-CORRELATIONS-2026-10-01.md`.
 
+FOLLOW-ON PROVED: `BF4WilsonAllNomeBondOSConnectedDecay` proves mixed
+connected decay on EVERY pair of completed physical bond states:
+M_(2n)(X,Y)^2<=(q^n*Var_bond(X))*(q^n*Var_bond(Y)), using the existing
+fixed-nome/width q. `connected_positive_action` pins positive integer lag
+to the original bond operator; `connected_source_pin` identifies the
+joint term and BOTH means with original odd reflected limits. The word
+consumer retains both signed source clusters and their time buffers.
+No variance inverse, replacement carrier, physical rate or continuum
+claim. One final repaired focused check passed eight gates exactly in
+{propext, Quot.sound}; no broad run or canonical field/chart change.
+Evidence: `audits/AUDIT-BOND-MIXED-CONNECTED-DECAY-2026-10-01.md`.
+
 NEXT reconstruction residue: the SAME-object canonical limiting half-space
 OS/observable identification and physical spectral join, not another
 real-to-complex compatibility wrapper or an unjustified total Hamiltonian.

@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting mixed connected bond decay (2026-10-01 UTC; chart
+unchanged): EVERY pair of completed physical bond states satisfies
+M_(2n)(X,Y)^2<=(q^n*Var_bond(X))*(q^n*Var_bond(Y)), with the existing
+q=twoStepRate(w,width). Both signed finite sources and buffered Wilson
+words are pinned to original odd reflected joint limits, including both
+vacuum means. The rate remains fixed-nome/width; physical scaling, continuum
+survival and full same-theory QFT remain OPEN. One repaired focused check
+passed eight gates exactly in {propext, Quot.sound}; no broad run. Evidence:
+`audits/AUDIT-BOND-MIXED-CONNECTED-DECAY-2026-10-01.md`.
+
 Verified source-sign shortcut fence (2026-10-01 UTC; chart unchanged):
 positive q=1+chi_2/4 and q=1-chi_2/4 on the same one-link heat, each
 centered in its own q*Pq density with positive variance, give source

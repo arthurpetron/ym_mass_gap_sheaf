@@ -295,3 +295,50 @@ correction is o(1-w) relative to the SAME partition for fixed word length.
 This supplies neither spatial covariance positivity nor the missing
 SAME-variance bound. The source-specific signed comparison and physical
 scaling inputs remain the next mathematical task.
+
+## Second order signed cancellation and the actual cutoff
+
+Reviewed 2026-10-01 UTC from source and a parallel algebraic calculation;
+no new literature scan or kernel-checked second-order theorem. The next
+candidate is cancellation between the mixed and diagonal second Casimir
+moments BEFORE taking absolute budgets, not another local-support wrapper.
+
+For a reference untruncated angular heat, write C=-Delta, G=Gamma(f,f),
+A=H[q^2*G]. Leibniz and integration by parts give the proposed identity
+
+    D2 = H[(Cq)*C(q*f^2)] - H[(C(q*f))^2]
+       = -2*H[q*(Cq)*G] - H[(q*(Cf)-2*Gamma(q,f))^2],
+    H[q*(Cq)*G] = H[Gamma(q,q)*G + q*Gamma(q,G)].
+
+The quadratic coefficient for nome w=1-h is (D2+A)/2, NOT (D2-A)/2.
+The remaining signed derivative interaction is local to the support of f;
+the negative square should be retained. This calculation treats q as fixed
+while expanding the operator; it does NOT differentiate the full q(w,K,n)
+family or prove a parameter-uniform bound.
+
+Much of the concrete algebra exists in `pairCasimir_eq_literal`,
+`lean/YMGap/Continuum/SU2QuaternionLiteralCasimirPairing.lean:211`,
+`full_squareMoment_eq_literal`,
+`lean/YMGap/Continuum/SU2QuaternionCyclicCasimirSquare.lean:70`, and
+`weighted_angular_cancellation`,
+`lean/YMGap/Continuum/QuaternionHaarWeightedAngularCancellation.lean:123`.
+Merely localizing separate Casimir-square upper budgets would duplicate
+`sourceEnergy_le_angular_add_activeCasimir_diagonals`,
+`lean/YMGap/Continuum/SU2QuaternionPassiveChannelRemainderSobolev.lean:198`.
+
+The actual finite operator has `attenuation`,
+`lean/YMGap/Continuum/SU2HeatCutoffCasimirBound.lean:28`, equal to ZERO
+above K. Hence `productRemainder`,
+`lean/YMGap/Continuum/SU2HeatProductTaylorRemainder.lean:33`, is -1+h*C
+on an omitted degree vector, not its reference quadratic coefficient.
+The actual K-dependent terminal source is not supplied with a proof that
+all its relevant degrees stay below K. The existing absolute bound is
+`pairRemainder_two_sided`,
+`lean/YMGap/Continuum/SU2QuaternionCyclicModeTaylor.lean:288`.
+
+Execution consequence: do not build the differential identity in isolation
+and claim it bounds the original signed remainder. The needed analytic join
+must retain a signed low-mode expansion AND quantify the omitted/high-mode
+tail against the SAME interacting variance, on the actual observable and
+physical-time family. Those estimates remain open. No canonical field or
+displayed chart state changes.

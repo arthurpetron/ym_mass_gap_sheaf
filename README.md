@@ -10,6 +10,13 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Mixed connected correlations (2026-10-01):** arbitrary completed bond
+states now satisfy a squared decay bound normalized by their actual bond
+variances. Signed source and separated-word correlations are identified
+with the original reflected joint limits. Coupling and width remain fixed;
+this is not a physical continuum rate. See the
+[checked estimate and scope](audits/AUDIT-BOND-MIXED-CONNECTED-DECAY-2026-10-01.md).
+
 **Whole-family SAME-variance ceiling (2026-10-01):** the original terminal
 energy now obeys E<=(1-rho)*Z*Var_odd for arbitrary signed plaquette
 coefficients, with an explicit rho>0 depending only on nome and family-list
