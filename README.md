@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Parallel Cayley product limit for every represented input (2026-10-01):**
+the original physical Rows now have a constructed dyadic-product limit and
+computed modulus for every supplied input, using existing core density and
+finite-product isometry. Sixteen focused gates and independent review passed.
+This remains fixed coupling and width; quotient operator laws, physical time
+and continuum QFT are not claimed. See the
+[extension and remaining operator join](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#extension-to-every-supplied-original-rows).
+
 **Constructed Cayley product limit on the represented core (2026-10-01):**
 the actual dyadic products now converge with a computed modulus on the
 original physical second core, at fixed coupling and width. This uses a proved

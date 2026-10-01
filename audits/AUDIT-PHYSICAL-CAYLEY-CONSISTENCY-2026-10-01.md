@@ -3,8 +3,9 @@
 The actual scaled Cayley maps on the ORIGINAL complex physical bond carrier
 have checked linked-domain errors, explicit squared ceilings, constructed
 graph-preserving witnesses and parameter commutation. The latest addendum
-constructs their dyadic-product limit on the represented second core with
-original Rows and a computed modulus. Nome and width remain fixed; no
+constructs their dyadic-product limit first on the represented second core,
+then for EVERY supplied original Rows with a computed modulus. Nome and
+width remain fixed; no
 physical-time group, calibrated Hamiltonian or continuum gap is claimed.
 
 ## Exact error and quantitative consumer
@@ -77,10 +78,10 @@ field or frontier weakening was introduced.
 
 The four local-error/commutation modules alone do not supply a product limit.
 The later `ScaledCayleyDyadicLimit.productLimitCertificate` now constructs
-that limit on the represented second core, as recorded below. Extension
-through supplied-Rows density is next. Its phase must retain the factor two
-above. Identification with physical time and the original transfer logarithm
-remains separate and open.
+that limit on the represented second core, as recorded below. The final
+addendum extends it through supplied-Rows density. Operator descent and
+time laws are next. Its phase must retain the factor two above. Identification
+with physical time and the original transfer logarithm remains separate and open.
 
 Useful complete signed error/SAME-variance scaling on a justified changing
 family, continuum survival, positive finite physical mass, full same-theory
@@ -120,8 +121,8 @@ At this earlier checkpoint, the doubled-step theorem was missing: linked
 original graph points must control `||C_h^2 x-C_(2h) x||^2` at fourth order.
 The first-difference module does not prove it. The latest addendum supplies
 the doubled estimate, finite-power amplification and explicit core Cauchy
-modulus. Supplied-Rows density extension and physical-time/logarithm pin
-remain open.
+modulus; the final addendum extends to every supplied Rows.
+Physical-time/logarithm pin remains open.
 
 ## Literal plaquette moment input
 
@@ -244,8 +245,8 @@ Rows and an explicit rate, with the actual physical-distance bound proved
 by `productLimit_bound:139`. No quotient representative, countable choice,
 analytic convergence field or changed physical carrier is introduced.
 
-This closes the represented second-core product Cauchy construction. Extension
-to arbitrary supplied Rows is assigned separately using the existing core
+This closes the represented second-core product Cauchy construction. The
+final addendum extends to arbitrary supplied Rows using the existing core
 density and finite-product isometry. No all-carrier descent, continuous unitary
 group, generator/transfer logarithm or physical-time identification is yet
 claimed. Nome and width stay fixed, and the original local phase retains its
@@ -323,3 +324,50 @@ One serialized worker, 20-GiB hard ceiling and 12-GiB OS reserve were retained.
 Eight semantic-root imports were added; the root itself and full-tree
 build/audit/guard were NOT run. CI is unchanged. No canonical displayed
 claim changed, so no ASCII chart was reprinted. The Clay target remains OPEN.
+
+## Extension to every supplied original Rows
+
+The parallel Sol construction now removes the second-core restriction for
+SUPPLIED original physical Rows. It does not select representatives of
+arbitrary quotient classes. The declarations are in
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyAllRowsLimit.lean`.
+`ofRows_eq_ofState_rowState:80` pins the existing computed state to the
+original Rows class. `productRows_pin:96` identifies the finite represented
+product with `P_n X=C_(t/2^n)^(2^n)(ofRows X)`.
+`iterate_distance:104` proves exact finite-power isometry by consuming the
+proved additive-difference and norm laws, not a domain invariance assumption.
+
+For epsilon>0, `coreSource:61` computes one source using the existing
+`SecondCoreDensity.pairSources X` at index `(epsilon/16).den`.
+`coreSource_near:64` proves squared distance to its actual second-core input
+is at most delta=epsilon/16. `product_near_core:117` transports that estimate
+to every finite product index without changing its constant. The all-tail
+core product bound at tolerance delta supplies the middle comparison.
+Two squared triangles give
+
+`D(P_m X,P_n X) <= 2*delta+2*(2*delta+2*delta)`
+`=10*delta <= epsilon`.
+
+`productModulus:167` computes the SAME chosen source's core modulus at delta.
+`productSequence:171` returns the actual Rows Cauchy sequence with that
+all-tail modulus. `productLimitCertificate:224` returns original limit Rows
+and an explicit rate; `productLimit_bound:213` proves the SAME physical
+squared-distance estimate. The norm-dependent core cutoff is read from
+constructed source data. It is not claimed uniform over all inputs.
+
+The focused serialized check passed and emitted the target `.olean`:
+`/tmp/ym-scaled-cayley-all-rows-limit-second-20261001.log`, SHA256
+`a9d88aee4433127f8c93dd8a9dda7ccb3984ea05d13aa1b7b1c4f08930ceac6b`.
+All 16 source-site gates passed: two empty, fourteen {propext,Quot.sound}.
+Independent mathematical and source/log review passed. The rejected first
+draft's rational-equivalence notation and sequence-projection rewrites were
+repaired without changing the mathematics or raising limits. No new sorry,
+axiom, analytic field, witness erasure or canonical frontier change.
+One root import was added, but no full-root/tree/build/audit/guard ran.
+
+NEXT is a well-defined physical quotient operator with pairing/isometry
+laws, then the group/continuity laws and actual transfer/physical-time
+calibration. None is asserted by the Rows limit. PRIMARY useful complete
+signed scaling, a justified changing-scale surviving excitation, finite
+positive physical mass, full continuum QFT, all actual compact groups and
+Clay remain OPEN. No displayed chart claim changed and no ASCII reprint.

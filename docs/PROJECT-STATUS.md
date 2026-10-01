@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting Cayley product limits for EVERY supplied original Rows
+(2026-10-01 UTC; chart unchanged): existing second-core density and finite
+iterate isometry give an explicit all-tail modulus for arbitrary represented
+physical inputs. One precision-dependent source is computed; two squared
+triangles cost 10*(epsilon/16)<=epsilon. Sixteen focused gates and independent
+review passed. Quotient operator descent, group/continuity laws and
+physical-time calibration remain OPEN, as do changing-scale survival/mass,
+full continuum QFT and every group. Evidence: all-Rows addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`. No displayed
+claim changed; no ASCII reprint.
+
 Verified supporting represented second-core Cayley product limit
 (2026-10-01 UTC; chart unchanged): the actual doubled-step squared bound
 352*h^4 and finite-power comparison give consecutive squared error

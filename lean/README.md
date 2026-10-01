@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Parallel product-limit extension to every supplied physical Rows (2026-10-01 UTC):**
+`ScaledCayleyAllRowsLimit.productLimitCertificate` constructs original
+physical Rows and an explicit rate for arbitrary represented inputs. Its
+computed Cauchy modulus combines actual second-core density and exact finite
+Cayley isometry, with no choice or new analytic premise. Sixteen focused
+gates and independent review passed. Quotient operator/group/continuity laws,
+physical-time identification and continuum remain OPEN. Evidence: all-Rows
+addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Constructed represented second-core product limit (2026-10-01 UTC):**
 `ScaledCayleyDyadicProducts.product_consecutive_norm_le` bounds ACTUAL
 consecutive squared error by `22*t^4*(1/4)^n*preimageNorm Y`.

@@ -25,6 +25,30 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Parallel extension to every supplied original Rows (2026-10-01 UTC)
+
+PROGRESS after `21f7e6a`: `ScaledCayleyAllRowsLimit.productSequence`
+constructs the ACTUAL dyadic-product Cauchy sequence for arbitrary supplied
+physical Rows, not just second-core inputs. At target epsilon it computes
+delta=epsilon/16, the existing density source at index delta.den, and that
+source's core product modulus. Exact finite-product isometry and two squared
+triangles give 10*delta<=epsilon. `productLimitCertificate` returns original
+limit Rows and a Type-level rate. This removes the represented-domain
+restriction without choice or a new analytic premise.
+
+Sixteen focused gates passed (two empty, fourteen {propext,Quot.sound});
+independent review passed. Evidence: all-Rows addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+NEXT operator proposition: well-defined physical quotient descent and
+pairing/isometry laws for this constructed limit, then group/continuity
+laws and SAME-transfer physical-time/logarithm identification. No such
+operator/time identification is asserted by the Rows limit. PRIMARY complete
+signed scaling, changing-family survival, finite positive physical mass,
+full continuum QFT, every group and Clay remain OPEN. Parallel survival/mass
+and group reviews supplied no new analytic instance, as detailed below.
+No displayed chart change or broad build/audit/guard; CI and safety limits
+unchanged.
+
 ### Constructed represented second-core products and parallel work (2026-10-01 UTC)
 
 PROGRESS after `25d7c79`: actual Cayley doubled steps satisfy the squared

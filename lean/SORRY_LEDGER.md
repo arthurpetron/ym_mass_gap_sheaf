@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED actual Cayley product limit for every supplied physical Rows only (2026-10-01 UTC)
+
+- `ScaledCayleyAllRowsLimit.coreSource_near` computes the original represented
+  second-core source at tolerance epsilon/16 and index (epsilon/16).den.
+- `iterate_distance` proves exact SAME-carrier finite power isometry;
+  `productRows_pin` retains the actual original represented product.
+- `productSequence` constructs an all-tail Type-level Cauchy modulus using
+  the SAME chosen source's core modulus. Two squared triangles pay exactly
+  ten copies of the tolerance; there is no assumed convergence or choice.
+- `productLimitCertificate` returns original Rows and a Type-level rate
+  with the actual physical-distance estimate for EVERY supplied Rows input.
+- Sixteen focused gates passed (two empty, fourteen {propext,Quot.sound});
+  independent review passed. No sorry, new axiom, analytic field or frontier
+  weakening. Evidence: all-Rows addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: well-defined quotient operator descent, group/continuity laws,
+  SAME-transfer physical-time/logarithm calibration; useful signed scaling,
+  nonzero continuum survival, finite positive physical mass, full QFT and
+  every actual compact group's compatible Haar/heat/Wilson construction.
+- One root import added; full root/tree/build/audit/guard NOT run.
+
 ## PROVED actual represented second-core Cayley product limit only (2026-10-01 UTC)
 
 - `ScaledCayleyDoubledIdentity.doubled_error_identity` and
