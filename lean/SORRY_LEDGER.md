@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL selected link quartic moment (2026-10-01 UTC)
+
+- `SU2HeatQuarticFiniteRegroup.finite_regroup` gives exact all-cutoff
+  regrouping with zero-extended input coefficients and every output through
+  K+2. No signed or cutoff-boundary term is discarded.
+- `SU2HeatQuarticLowCoefficients` proves b0<=60*h^2 and b1<=148*h^2,
+  h=1-w. `SU2HeatQuarticHeadComparison` combines the relative exceptional
+  bounds with the bulk; `SU2HeatQuarticTailComparison` pays every high
+  output spin by 80*S^3*w^(S^2) times the erased-link mass.
+- `BF4ExactSlabFixedSpatialQuarticMoment.selected_quartic_bound` supplies
+  the ORIGINAL spatial/terminal source, PSD spectators and full positive
+  background certificate. The resulting bound is
+  [296*h^2+32*(S+2)^4*h^4+80*S^3*w^(S^2)] times the SAME odd partition,
+  for 0<w<1, S>=1, K>=S+3, 1<=2*w^(4*(S+2)), w^(S^2)<=1/8 and
+  headCutoff(w)<=K. It is uniform in cutoff, width and depth under those
+  guards, not in nome or physical spacing.
+- OPEN: whole-word quartic and mixed radial comparisons, SAME centered
+  variance estimate, useful schedule with physical time/scaling calibration,
+  continuum survival, QFT/every-group/Clay. No existing sorry, canonical
+  field or chart node changed. Seven final focused checks passed 51 gates
+  within {propext, Quot.sound}; no broad run. Evidence:
+  `audits/AUDIT-ORIGINAL-QUARTIC-MOMENT-2026-10-01.md`.
+
 ## PROVED quartic heat coefficients and finite block tail (2026-10-01 UTC)
 
 - `SU2HeatQuarticBulkCoefficient.quarticBulkCoeff_factor` identifies the
@@ -12,8 +35,8 @@
   L>=1 and w^(L^2)<=1/8. Uniform in tail length only, with w and L explicit.
 - `SU2QuaternionHeatQuarticExpansion.heat_quartic_expansion` proves the
   exact unregrouped finite expansion, retaining all signed terms and all
-  cutoffs. OPEN: regrouping, exceptional low-spin inequalities, boundary
-  payment and original-source insertion estimate. The diagnostic schedule,
+  cutoffs. The follow-on above supplies regrouping, exceptional low-spin
+  inequalities, boundary payment and original-source insertion. The diagnostic schedule,
   SAME-variance scaling estimate and justified physical family remain open.
 - No existing sorry, canonical field or chart node changed. Four final
   focused checks passed 18 gates within {propext, Quot.sound}; no broad run.

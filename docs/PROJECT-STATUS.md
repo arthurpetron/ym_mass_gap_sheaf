@@ -1,13 +1,24 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL selected-link quartic moment (2026-10-01 UTC;
+chart unchanged): exact finite regrouping, exceptional low-spin estimates
+and high-tail payment now combine under the complete original spatial and
+terminal weight. The quartic insertion is bounded by an explicit function
+of nome and spin split times the SAME odd partition, with cutoff guards
+retained. This is not centered-variance control or physical scaling.
+Whole-word quartic and mixed radial comparisons remain open. Seven final
+focused checks passed 51 gates within {propext, Quot.sound}; no broad run
+or canonical change. Evidence:
+`audits/AUDIT-ORIGINAL-QUARTIC-MOMENT-2026-10-01.md`.
+
 Verified supporting quartic coefficients and finite block tail (2026-10-01
 UTC; chart unchanged): the actual five-coefficient combination now has an
 explicit relative nome budget under a stated spin/nome guard. A blockwise
 dimension-squared tail bound holds for every finite length. The exact
-unregrouped character expansion retains all finite-cutoff terms. Regrouping,
-exceptional low-spin inequalities, boundary payment and the original-source
-insertion estimate remain open, before the SAME-variance and physical
-scaling joins. Four focused checks passed 18 gates within {propext,
+unregrouped character expansion retains all finite-cutoff terms. The follow-on
+above supplies regrouping, exceptional low-spin inequalities, boundary payment
+and original-source insertion; the SAME-variance and physical scaling joins
+remain open. Four focused checks passed 18 gates within {propext,
 Quot.sound}; no broad run or canonical change. Evidence:
 `audits/AUDIT-QUARTIC-COEFFICIENTS-AND-BLOCK-TAIL-2026-10-01.md`.
 

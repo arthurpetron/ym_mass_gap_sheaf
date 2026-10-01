@@ -4928,12 +4928,19 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonRadialIncrement
 import YMGap.Continuum.SU2QuaternionHeatNomeComparison
 import YMGap.Continuum.BF4ExactSlabFixedSpatialHeatNomeComparison
 -- Signed quartic coefficients, explicit nome budgets, and finite block tails.
--- Full coefficient regrouping and SAME-variance insertion estimates remain open.
+-- Exact regrouping and original-source quartic insertion; SAME-variance remains open.
 import YMGap.Continuum.SU2HeatQuarticCoefficientMajorant
 import YMGap.Continuum.SU2HeatQuarticNomeBudget
 import YMGap.Continuum.SU2HeatQuarticBulkCoefficient
 import YMGap.Continuum.SU2HeatDimensionBlockTail
 import YMGap.Continuum.SU2QuaternionHeatQuarticExpansion
+import YMGap.Continuum.SU2HeatQuarticFiniteRegroup
+import YMGap.Continuum.SU2HeatQuarticLowCoefficients
+import YMGap.Continuum.SU2HeatQuarticHeadComparison
+import YMGap.Continuum.SU2HeatQuarticTailComparison
+import YMGap.Continuum.SU2QuaternionHeatQuarticMoment
+import YMGap.Continuum.SU2QuaternionHeatQuarticBound
+import YMGap.Continuum.BF4ExactSlabFixedSpatialQuarticMoment
 -- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoung
 -- Scalar coefficient bounds only; no four-link spin-two heat image is assumed.

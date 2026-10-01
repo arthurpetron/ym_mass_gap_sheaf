@@ -621,21 +621,36 @@ the explicit guard 1<=2*w^(4*k+8). `SU2HeatQuarticNomeBudget` supplies its quant
 Bernoulli step. `SU2HeatDimensionBlockTail.dimensionTail_le_eight_blocks`
 bounds EVERY finite tail from L by 8*L^3*w^(L^2), for 0<=w<=1, L>=1 and
 w^(L^2)<=1/8. `SU2QuaternionHeatQuarticExpansion.heat_quartic_expansion`
-retains every original finite-prefix term, including small cutoffs, but
-does not yet regroup equal output spins. NEXT: prove the regrouped output
-coefficient formula with zero-extended original coefficients, bound the
-exceptional spins zero/one and the finite boundary, then combine the
-guarded bulk and tail estimates under the ORIGINAL positive insertion.
+retains every original finite-prefix term, including small cutoffs.
+FOLLOW-ON PROVED: `SU2HeatQuarticFiniteRegroup.finite_regroup` now regroups
+the zero-extended coefficients exactly, through output spin K+2. Explicit
+exceptional-spin factorizations supply b0<=60*h^2 and b1<=148*h^2.
+`SU2HeatQuarticHeadComparison` combines these with the bulk bound, and
+`SU2HeatQuarticTailComparison` pays all high output spins, including the
+cutoff edge, by 80*S^3*w^(S^2)*J. The original vacuum channel gives J<=Z.
+`BF4ExactSlabFixedSpatialQuarticMoment.selected_quartic_bound` supplies
+every source/positivity input and proves the selected-link quartic moment
+is at most [296*h^2+32*(S+2)^4*h^4+80*S^3*w^(S^2)] times the SAME odd
+partition, for S>=1, K>=S+3, 1<=2*w^(4*(S+2)), w^(S^2)<=1/8 and the
+original positive-prefix cutoff. All spatial and terminal weights remain.
+NEXT: lift selected-link quartic control to the whole Wilson-word quartic
+correction, then control the mixed radial moment against SAME centered
+variance. Supply an explicit useful nome/split schedule and its actual
+physical time/scaling justification; do not infer these from the guards.
 The existing one-index ratio guard is too coarse near L=(1-w)^(-2/3);
 use the now-proved block bound. The diagnostic dyadic schedule is still
 unformalized and is NOT a justified physical scaling family. Existing
 character upper bounds require the full
 pointwise certificate W*a*lift(a), which the ORIGINAL positive endpoint
 source supplies; PSD alone or a centered signed source does not suffice.
-After that, the full-word mixed moment versus SAME centered variance and
-physical time calibration remain. Do not reprove nome order, error
-absorption or positive-source certification, and do not infer survival
+The selected-link bound is relative to the partition, not the variance.
+Do not reprove nome order, error absorption, positive-source certification
+or finite regrouping, and do not infer survival
 from partition control. The combined signed-correction route remains available.
+Seven final focused checks of the regrouping/head/tail/original-insertion
+chain passed 51 printed gates within {propext, Quot.sound}; no canonical
+change or broad run. Evidence:
+`audits/AUDIT-ORIGINAL-QUARTIC-MOMENT-2026-10-01.md`.
 Four final focused checks of the coefficient/budget/tail/expansion modules
 passed 18 gates within {propext, Quot.sound}; no canonical change or broad
 run. Evidence: `audits/AUDIT-QUARTIC-COEFFICIENTS-AND-BLOCK-TAIL-2026-10-01.md`.
