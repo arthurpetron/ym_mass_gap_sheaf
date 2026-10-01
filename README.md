@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original Euclidean time and Cayley compatibility (2026-10-01):**
+the original Euclidean action now preserves every physical derivative-domain
+class, including its input/output pins and intrinsic adjoint graph. Consequently
+it commutes with the actual finite Cayley operator and every finite power on
+the SAME completed complex Wilson bond. Focused constructive checks and
+independent reviews passed. Passing this equality to the constructed product
+limit is next; physical spacing, continuum QFT and mass calibration remain open.
+See the [graph transport and finite commutation evidence](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-euclidean-time-preserves-the-physical-derivative-graph).
+
 **Original physical Cayley limit: rational addition and tangent (2026-10-01):**
 the constructed product limit now acts on every original physical complex
 class, without representative selection. It is a complex-linear bijective

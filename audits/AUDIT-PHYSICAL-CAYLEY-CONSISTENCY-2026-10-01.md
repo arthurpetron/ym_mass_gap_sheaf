@@ -798,3 +798,58 @@ Euclidean action/maximal physical graph join is under review; lattice-spacing
 and changing-family calibration are still separate OPEN obligations.
 Complete signed scaling, continuum survival, finite positive physical mass,
 full continuum QFT, every actual group and Clay remain OPEN.
+
+## Original Euclidean time preserves the physical derivative graph
+
+This checkpoint proves graph transport and finite commutation on the ORIGINAL
+fixed-nome, fixed-width carrier, not physical-time calibration or continuum QFT.
+
+In `lean/YMGap/Continuum/BF4WilsonAllNomeDerivativePositiveTimeCommutation.lean`,
+`positiveAction_root_commutes:65` uses the actual real semigroup and original
+dyadic pins. `positiveAction_differenceQuotient:90` transports the actual finite
+derivative quotient. `derivativeAction_positiveAction_commutes:128` compares
+the TWO represented derivative limits at the maximum of their own computed
+rates, using original positive-action contraction and the squared triangle.
+
+In `lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSDerivativeTime.lean`,
+`timePoint:58` retains both original range witnesses; its graph equation follows
+from that proved commutation. `realTimeDomain:68` descends by Quotient.lift,
+without representative selection. `realTimeDomain_input:72` and
+`realTimeDomain_output:83` keep the original real time pins. `timeDomain:95`,
+`timeDomain_input:98` and `timeDomain_output:104` transport EVERY complex physical
+domain class. `timeAction_adjoint_pair:112` uses the already constructed actual
+domain witness for every intrinsic adjoint pair, not a smaller represented core.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyEuclideanCommutation.lean`,
+`action_add:92` and `action_smul:100` retain actual complex linearity and both
+supplied scalar moduli. `plus_timeDomain:116` and `minus_timeDomain:128` prove
+exact transported imaginary shifts. `cayley_action_commute:141` identifies
+the transported plus inverse through its actual left/right inverse pins,
+then transports minus. `iterate_action_commute:160` extends it to EVERY finite
+power on EVERY physical class. No assumed invariance or commutation is added.
+
+All three focused checks emitted `.olean`s. All seventeen source-site gates
+report {propext,Quot.sound}; independent source/math/log/hash reviews passed:
+
+| Module suffix | Gates | Accepted log in `/tmp` | SHA256 |
+| --- | ---: | --- | --- |
+| `DerivativePositiveTimeCommutation` | 3 | `ym-derivative-positive-time-commutation-first-20261001.log` | `19f954c3a41ba726a84ba113c241b70562d58694c2a3afd59cea2c05681686da` |
+| `ComplexBondOSDerivativeTime` | 8 | `ym-physical-derivative-time-second-20261001.log` | `50f6cb7342952480eb94b929c117c1629d33d996716fe6134116a3346a63916b` |
+| `ScaledCayleyEuclideanCommutation` | 6 | `ym-cayley-euclidean-commutation-first-20261001.log` | `10c940f1d160cf80e6c21d7f1efdf6086a69cd81001593c2a476136d415ab09e` |
+
+The rejected graph-transport draft used unavailable core Quotient.map and a
+local notation collision; Quotient.lift and an unambiguous local name repair
+those seams without changing the proposition. Accepted sources/logs contain
+no sorryAx or forbidden construct. Verification retained one serialized
+20-GiB worker and a 12-GiB OS reserve; current preflight found zero swap and no
+competing Lean/Lake/pytest/runner executable. Three root imports were added;
+full root/tree/build/audit/guard NOT run. CI and safety limits unchanged.
+No canonical displayed claim changed; no ASCII reprint.
+
+NEXT: original Euclidean contraction and the computed product-limit rates
+must pass the finite identity to the ACTUAL limit. This is an available
+fixed-carrier join, not an inhabitant of the continuum QFT root. Generator
+identification, physical spacing/scaling, useful complete signed scaling,
+survival, finite positive physical mass, full QFT, every group and Clay remain
+OPEN.

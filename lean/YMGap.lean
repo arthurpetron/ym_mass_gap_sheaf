@@ -6156,6 +6156,11 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyAllRowsMixedComp
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitAddition
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyInfinitesimal
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitInfinitesimal
+-- Original Euclidean graph transport and finite Cayley commutation only.
+-- No physical-spacing or continuum-generator identification is inferred.
+import YMGap.Continuum.BF4WilsonAllNomeDerivativePositiveTimeCommutation
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSDerivativeTime
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyEuclideanCommutation
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

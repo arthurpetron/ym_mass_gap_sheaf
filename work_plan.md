@@ -98,13 +98,22 @@ actual rate give `LimitInfinitesimal.limitMap_secondCore_tangent` with coefficie
 passed. Evidence: rational-addition addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
-NEXT: check and prove the actual Euclidean action's compatibility with the
-maximal physical derivative graph before expanding real Cayley time further.
+The original Euclidean action now preserves EVERY maximal physical derivative
+graph class. `DerivativePositiveTimeCommutation` proves bounded derivative/time
+commutation from the original computed rates; `ComplexBondOSDerivativeTime`
+constructs both graph pins and transports every intrinsic adjoint pair.
+`ScaledCayleyEuclideanCommutation` then proves finite Cayley/time commutation
+and all finite powers on EVERY original class. Seventeen focused gates and
+independent reviews passed. No assumed graph-invariance field was introduced.
+
+NEXT: pass the finite Euclidean/Cayley commutation to the actual product limit
+using its original rates and original Euclidean contraction, before expanding
+real Cayley time further.
 Existing `PositiveTimePins.positiveAction_original` already pins positive
 integer samples to the ORIGINAL transfer, and the witnessed real Taylor
 theorem gives its negative right derivative. Do not misidentify derivativeAction
 with T^-1-I, or impose scalar -log(T) equality as an unnecessary prerequisite
-if the actual generator/sampling route suffices. Maximal-graph compatibility,
+if the actual generator/sampling route suffices. Generator identification,
 physical spacing and scaling remain distinct residues. Endpoint source
 reviews found no ready new continuum
 QFT or every-group physical producer: buffered locality needs its actual

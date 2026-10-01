@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting original Euclidean graph transport and finite Cayley
+commutation (2026-10-01 UTC; chart unchanged): original derivative/time
+commutation constructs transport of EVERY physical derivative-domain class,
+both graph pins and every intrinsic adjoint pair. The actual finite Cayley
+operator and all its finite powers commute with that SAME Euclidean action.
+Seventeen focused gates and independent reviews passed. Passing commutation
+to the actual limit is next; physical spacing/scaling, survival, physical mass,
+full continuum QFT and every-group realization remain OPEN. Evidence:
+Euclidean graph-transport addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No displayed claim changed; no ASCII reprint.
+
 Verified supporting original physical Cayley limit rational addition and tangent
 (2026-10-01 UTC; chart unchanged): uniqueness proves representative
 independence before Quotient.lift2 constructs the map on EVERY original

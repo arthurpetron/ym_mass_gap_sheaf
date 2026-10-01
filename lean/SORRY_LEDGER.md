@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED original Euclidean graph transport and finite Cayley commutation only (2026-10-01 UTC)
+
+- `DerivativePositiveTimeCommutation.derivativeAction_positiveAction_commutes`
+  compares the TWO original derivative limits using their computed rates and
+  actual positive-action contraction; no commutation premise is added.
+- `ComplexBondOSDerivativeTime.timeDomain` transports EVERY original physical
+  graph class. Its input/output pins and `timeAction_adjoint_pair` preserve
+  the actual intrinsic adjoint graph without selecting representatives.
+- `ScaledCayleyEuclideanCommutation.cayley_action_commute` uses exact transported
+  imaginary shifts and their original two-sided inverses. The identity holds
+  on EVERY physical class and all finite powers (`iterate_action_commute`).
+- Seventeen focused gates and independent reviews passed within
+  {propext,Quot.sound}. No sorry, new axiom, analytic premise, safety-limit
+  increase or frontier weakening. Evidence: Euclidean graph-transport addendum
+  in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: commutation of the actual product limit (next), full-real Cayley time,
+  SAME-generator physical-spacing/scaling calibration; complete signed scaling,
+  continuum survival, finite positive physical mass, full QFT and every group.
+- Three root imports added; full root/tree/build/audit/guard NOT run.
+
 ## PROVED positive rational Cayley limit addition and second-core tangent only (2026-10-01 UTC)
 
 - `AllRowsMixedComparison.mixedRate` computes the actual source-derived
