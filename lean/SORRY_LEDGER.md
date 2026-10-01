@@ -1,5 +1,20 @@
 # Sorry Ledger
 
+## PROVED scaled original physical imaginary shifts and Cayley (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeComplexBondOSScaledImaginaryShifts` constructs actual
+  domain preimages for input±i*t*output for every positive rational t.
+  Its output pin retains the required t factor on the ORIGINAL graph.
+- `BF4WilsonAllNomeComplexBondOSScaledCayley` proves both inverse laws,
+  full Hermitian pairing preservation and complex linearity of the actual
+  Cayley map; original carrier and both scalar Cauchy witnesses remain.
+- All 24 focused gates and independent reviews passed within
+  {propext,Quot.sound}. No new sorry, analytic field or frontier weakening.
+  Evidence: `audits/AUDIT-SCALED-PHYSICAL-CAYLEY-2026-10-01.md`.
+- OPEN: second-core local error estimates, product-Cauchy moduli, physical
+  time/logarithm calibration, useful signed scaling, continuum survival/mass/
+  QFT and all groups. This is not a unitary time group or physical mass gap.
+
 ## PROVED finite G2 coordinate certificate only (2026-10-01 UTC)
 
 - `YMGap.RepTheory.G2RootCoordinates` checks the six positive/twelve

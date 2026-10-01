@@ -25,6 +25,22 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Scaled original physical Cayley operators (2026-10-01 UTC)
+
+PROGRESS after `bc30e91`: actual t-scaled imaginary-shift inverses for every
+t>0 rational now construct C_t=(I-i*t*A)(I+i*t*A)^(-1) and its inverse on
+the SAME complex physical carrier/domain. Full Hermitian pairing preservation
+and complex linearity retain both supplied scalar moduli. All 24 focused
+gates and independent reviews passed; no new analytic input or raised limit.
+Evidence: `audits/AUDIT-SCALED-PHYSICAL-CAYLEY-2026-10-01.md`.
+
+NEXT operator work is the linked-second-core local error identity/bound,
+then an actual product-Cauchy modulus with the factor-two phase convention.
+PRIMARY remains useful JOINT complete signed error/SAME-variance scaling on
+a justified changing family. No physical-time or generator-log calibration,
+survival, mass, full continuum QFT, all-group or Clay closure is claimed.
+No displayed chart change, ASCII reprint or broad build/audit/guard.
+
 ### Parallel finite G2 root-coordinate groundwork (2026-10-01 UTC)
 
 Finite PROGRESS: explicit G2 positive/signed roots, coroot pairings, squared

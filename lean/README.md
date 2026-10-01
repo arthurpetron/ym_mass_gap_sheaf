@@ -12,6 +12,14 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Scaled original physical Cayley operators (2026-10-01 UTC):**
+`BF4WilsonAllNomeComplexBondOSScaledImaginaryShifts` and `ScaledCayley`
+construct both inverses of input±i*t*output for t>0 and the SAME graph's
+complex-linear unitary Cayley map, preserving the full Hermitian pairing.
+All 24 gates and independent reviews passed within {propext,Quot.sound}.
+Local consistency, product moduli, physical-time calibration and continuum
+remain OPEN. Evidence: `audits/AUDIT-SCALED-PHYSICAL-CAYLEY-2026-10-01.md`.
+
 **Finite G2 group groundwork (2026-10-01 UTC):**
 `RepTheory.G2RootCoordinateCertificate` checks six positive/twelve signed
 roots, coroot pairings, lengths and simple reflections. Thirteen focused

@@ -1,5 +1,13 @@
 # Canonical one-page project status
 
+Verified supporting scaled physical Cayley operators (2026-10-01 UTC;
+chart unchanged): for t>0 rational, actual two-sided imaginary-shift inverses
+construct the SAME graph's complex-linear unitary Cayley map. Full Hermitian
+pairings and scalar moduli are retained. All 24 gates and independent reviews
+passed. Local error/product estimates, physical time and the continuum target
+remain OPEN. No displayed claim changed; no ASCII reprint. Evidence:
+`audits/AUDIT-SCALED-PHYSICAL-CAYLEY-2026-10-01.md`.
+
 Verified finite G2 root-coordinate groundwork (2026-10-01 UTC; chart
 unchanged): explicit roots, pairings, lengths and reflection checks passed
 thirteen gates and independent review. Cartan/center CODE pins are not actual

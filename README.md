@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Scaled original physical Cayley operators (2026-10-01):**
+every positive rational t now has constructed two-sided imaginary-shift
+inverses and an actual complex-linear unitary `(I-i*t*A)(I+i*t*A)^(-1)`
+on the SAME physical carrier. All 24 focused gates and independent reviews
+passed. Local error/time-product limits and physical-time calibration remain
+open; this is not a continuum Hamiltonian or mass-gap claim. See the
+[construction and next consumer](audits/AUDIT-SCALED-PHYSICAL-CAYLEY-2026-10-01.md).
+
 **Complex original Wilson-word action (2026-10-01):**
 the existing buffered insertions now have a complex-linear word action with
 full Hermitian adjoint and unchanged original source/vacuum matrix elements

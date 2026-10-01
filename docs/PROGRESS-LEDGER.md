@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Finite G2 root-coordinate groundwork (2026-10-01 UTC)
+## Current increment: Scaled original physical Cayley operators (2026-10-01 UTC)
+
+PROGRESS after `bc30e91`: original graph inverses for input±i*t*output
+and the actual Cayley map are constructed for every positive rational t.
+Both inverse laws, full Hermitian pairing preservation and constructive
+complex linearity hold on the SAME physical carrier. All 24 focused gates
+and independent reviews passed; no new analytic premise.
+
+This removes the scaled-map construction input for second-core local
+consistency/product work. It does NOT construct a continuous physical-time
+group, spacing calibration or continuum Hamiltonian. Primary signed scaling,
+survival/mass/QFT and every group remain OPEN. No broad build/audit/guard,
+progress-metric script, raised limit or ASCII reprint. Evidence:
+`audits/AUDIT-SCALED-PHYSICAL-CAYLEY-2026-10-01.md`.
+
+## Earlier increment: Finite G2 root-coordinate groundwork (2026-10-01 UTC)
 
 Finite PROGRESS: explicit root lists, pairings, lengths and simple-reflection
 certificates replace a bare G2 code with checked coordinate data. Thirteen

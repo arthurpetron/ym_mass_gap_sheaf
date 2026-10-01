@@ -6100,6 +6100,9 @@ import YMGap.Continuum.BF4WilsonAllNomeBondOSScaledResolvent
 import YMGap.Continuum.BF4WilsonAllNomeBondOSScaledReflection
 import YMGap.Continuum.BF4WilsonAllNomeScaledResolventNeumannLimit
 import YMGap.Continuum.BF4WilsonAllNomeBondOSScaledDenominator
+-- Actual scaled imaginary inverses and Cayley maps; not a physical time group.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledImaginaryShifts
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayley
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSImaginaryShifts
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSCayley
 -- Constructed physical graph limits retain BOTH component rates on supplied Rows.
