@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED positive rational Cayley limit addition and second-core tangent only (2026-10-01 UTC)
+
+- `AllRowsMixedComparison.mixedRate` computes the actual source-derived
+  geometric cutoff; `mixed_allRows_bound` removes the second-core restriction
+  from the finite comparison using the SAME original Rows and isometries.
+- `LimitAddition.additionRate` combines that rate with the two existing
+  forward rates at e/16. `product_addition_limit_bound` pays10e/16;
+  uniqueness and quotient induction give `limitMap_add_parameter` and
+  `limitMap_commute` for EVERY original class and positive rational parameters.
+- `Infinitesimal.finite_product_tangent` proves the exact -2i phase with
+  squared error <=184*t^4*||linked second output||^2. Constructed original
+  `LimitInfinitesimal.coreRows` and the actual rate yield
+  `limitMap_secondCore_tangent` with coefficient368, without a norm-limit axiom.
+- Seventeen focused gates and independent source/math/log/hash reviews passed
+  within {propext,Quot.sound}. No sorry, new axiom, analytical field, selection,
+  increased safety limit or frontier weakening. Evidence: rational-addition
+  addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: full-real Cayley time, maximal physical generator/spacing and scaling
+  compatibility; complete signed scaling, continuum survival, finite positive
+  physical mass, full continuum QFT, every actual group and Clay.
+- Four root imports added; full root/tree/build/audit/guard NOT run.
+
 ## PROVED quarter-geometric mixed finite products only (2026-10-01 UTC)
 
 - `ScaledCayleyMixedProducts.dyadic_mixed_coefficient_eqv` proves exact

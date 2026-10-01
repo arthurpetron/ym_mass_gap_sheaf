@@ -10,27 +10,29 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
-**Original physical Cayley limit and explicit rational continuity (2026-10-01):**
+**Original physical Cayley limit: rational addition and tangent (2026-10-01):**
 the constructed product limit now acts on every original physical complex
 class, without representative selection. It is a complex-linear bijective
 isometry preserving the FULL Hermitian pairing, with a constructed two-sided
 inverse and preimage witness. Supplied Rows keep their explicit rates and
 complex scalars retain both supplied moduli. The inverse proof and independent
-reviews passed. The SAME limit now satisfies `F_(2t)=F_t composed with F_t`;
+reviews passed. The SAME limit now satisfies `F_(a+b)=F_b composed with F_a`
+for all positive rational parameters, on every original physical class;
 its finite products have the graph-input displacement ceiling
 `4*t^2*||output||^2`, independent of product depth. Supplied original Rows
 now produce a positive rational radius controlling the actual limit as t
-tends to zero. An exact mixed-step identity, quartic defect bound and actual
-composite-power comparison supply ingredients for general addition; the
-addition law, full-real-time construction and continuum QFT remain open.
+tends to zero. The actual limit also has the second-core first-order phase
+`-2 i t A`, with squared error bounded by `368*t^4` times the linked
+second-output norm. These laws have focused constructive checks and independent
+reviews. Full-real-time construction and continuum QFT remain open.
 This is fixed coupling and width, not physical mass calibration. See the
-[rational continuity and remaining laws](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#computed-rational-zero-parameter-continuity-and-mixed-defects).
+[rational addition, tangent and remaining joins](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#positive-rational-limit-addition-and-second-core-tangent).
 
 **Constructed Cayley product limit on the represented core (2026-10-01):**
 the actual dyadic products now converge with a computed modulus on the
 original physical second core, at fixed coupling and width. This uses a proved
-geometric error estimate, not an assumed convergence certificate. Parallel
-work is extending the construction through supplied-Rows density; survival,
+geometric error estimate, not an assumed convergence certificate. The later
+supplied-Rows extension and quotient laws are summarized above; survival,
 physical mass calibration, full QFT and every-group realization remain open.
 A separate finite auxiliary-source calculation checks a negative Ward
 residual without identifying that source with Yang--Mills. See the

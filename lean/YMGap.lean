@@ -6150,6 +6150,12 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyMixedBound
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyCompositePowerComparison
 -- Quarter-geometric actual mixed finite products on the original second core.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyMixedProducts
+-- Actual positive-rational limit addition and original second-core tangent.
+-- No physical-spacing or continuum-generator identification is inferred.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyAllRowsMixedComparison
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitAddition
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyInfinitesimal
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyLimitInfinitesimal
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

@@ -721,3 +721,80 @@ Passing it through actual limits is the next mathematical consumer.
 The factor-two tangent draft is separate and unverified. Physical calibration,
 changing-family survival/mass, full continuum QFT, every actual group and Clay
 remain OPEN. No displayed chart claim changed; no ASCII reprint.
+
+## Positive rational limit addition and second-core tangent
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyAllRowsMixedComparison.lean`,
+`mixedBudget:88` multiplies the exact mixed coefficient by the ceiling of
+the ONE computed original source at requested precision. `mixedRate:101`
+returns its quarter-geometric cutoff at e/16. `mixed_allRows_bound:146`
+uses actual composite isometry, the checked core estimate and the same-core
+endpoint comparison; three squared-distance bridges cost10e/16<=e.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyLimitAddition.lean`,
+`additionRate:96` is max(mixedRate, max(rate_X(a),rate_limitRows_X_a(b)))
+at tolerance e/16. `product_addition_limit_bound:105` uses those three
+all-larger-index estimates to bound the ACTUAL parameter-(a+b) products
+against F_b(F_a x). `limitMap_add_parameter_ofRows:145` identifies their
+original limit by `productLimit_unique`; `limitMap_add_parameter:167`
+descends by quotient induction to EVERY original physical class.
+`limitMap_commute:176` uses rational parameter congruence. These are arbitrary
+positive rational parameters, not just the prior doubling case.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyInfinitesimal.lean`,
+`orbit_consecutive:122` pays22*t^4*quarter^n against the actual linked second
+output norm. `orbit_tail:196` retains that CReal-valued norm, with coefficient
+88*t^4 at index0. `finite_product_tangent:275` combines the tail with the
+4*t^4 one-step graph error to pay184*t^4. Its phase is EXACTLY -2i, not -i.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyLimitInfinitesimal.lean`,
+`coreRows:65`, `coreRows_input:70` and `coreRows_product:85` construct and pin
+ORIGINAL Rows from the supplied firstPoint, without representative selection.
+`limitMap_secondCore_tangent:153` chooses the ACTUAL product-limit rate at
+epsilon/2; the squared triangle and `le_of_all_errors` remove epsilon and give
+
+`||F_t(input d)-input d+i*t*(output d+output d)||^2`
+`<=368*t^4*||output e||^2`,
+
+for original d=first Y and e=second Y. No third graph point, rational surrogate
+norm cap, norm-limit axiom or physical-time premise is introduced.
+
+All four focused checks emitted `.olean`s; independent source/math/log/hash
+reviews passed. All seventeen source-site gates report {propext,Quot.sound}:
+
+| Module suffix | Gates | Accepted log in `/tmp` | SHA256 |
+| --- | ---: | --- | --- |
+| `ScaledCayleyAllRowsMixedComparison` | 4 | `ym-scaled-cayley-all-rows-mixed-first-20261001.log` | `7766245806914d4bafcaf6866ea2022bb35203c8f8904e28a8de32a924a0fa3e` |
+| `ScaledCayleyLimitAddition` | 5 | `ym-scaled-cayley-limit-addition-first-20261001.log` | `1c72e2da83a37f92550789f4dfbd5f0bba12ff832cc02ce5fcf389be93f8eb64` |
+| `ScaledCayleyInfinitesimal` | 4 | `ym-scaled-cayley-infinitesimal-third-20261001.log` | `13aa15642288f62cf959e6af54f805c3cbacf361db2357ea6655d1975e0cb506` |
+| `ScaledCayleyLimitInfinitesimal` | 4 | `ym-scaled-cayley-limit-infinitesimal-second-20261001.log` | `0e989363176acc16dcf446f808ee5e7b040fd1cd8e01acec82aadd8d88ba1ef1` |
+
+Rejected tangent drafts had private-zero, normalization and distance-orientation
+seams; direct existing algebra and explicit symmetry repair them without a
+changed bound. Nat index equalities use explicit algebra, not automated
+classical-dependent reasoning. Accepted sources/logs contain no sorryAx or
+forbidden construct. One serialized20-GiB worker and12-GiB OS reserve were
+retained; refreshed preflight found zero swap and no competing compiler.
+Four root imports were added; no full-root/tree/build/audit/guard ran. CI is
+unchanged. No canonical displayed claim changed; no ASCII reprint.
+
+The parallel calibration review distinguishes the missing join from already
+available SAME-transfer evidence. `positiveAction_original:118`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomePositiveTimePins.lean`, identifies its
+positive integer samples with ORIGINAL `completedTime n`. `differenceQuotient:60`
+and `derivativeAction:274`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDyadicDerivative.lean`, define the root-defect
+derivative, not T^-1-I. `core:86` and `graph_time_pin:97`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraph.lean`, retain the original
+core and exact transfer relation. The witnessed negative Taylor derivative is
+`real_taylor_bound:126`, at
+`lean/YMGap/Continuum/BF4WilsonAllNomeDerivativeGraphReal.lean`.
+No scalar logarithm identity follows from the graph relation. The actual
+Euclidean action/maximal physical graph join is under review; lattice-spacing
+and changing-family calibration are still separate OPEN obligations.
+Complete signed scaling, continuum survival, finite positive physical mass,
+full continuum QFT, every actual group and Clay remain OPEN.

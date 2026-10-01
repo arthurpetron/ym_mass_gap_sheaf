@@ -1,6 +1,6 @@
 # Canonical one-page project status
 
-Verified supporting original physical Cayley limit doubling and rational continuity
+Verified supporting original physical Cayley limit rational addition and tangent
 (2026-10-01 UTC; chart unchanged): uniqueness proves representative
 independence before Quotient.lift2 constructs the map on EVERY original
 complex physical class. FULL Hermitian pairing survives the actual limits,
@@ -18,14 +18,18 @@ Ten focused gates and independent reviews passed at that checkpoint. Supplied
 original Rows now compute a positive rational zero-parameter continuity radius
 for the ACTUAL limit. An exact mixed identity, homogeneous quartic local bound
 and actual composite-power comparison also passed; sixteen focused gates and
-independent reviews cover these four new modules. Full parameter addition,
-full-real-time construction and physical-time/logarithm calibration,
+independent reviews cover these four new modules. Full-real-time construction,
+physical-spacing/maximal-generator calibration,
 changing-scale survival/mass, full continuum QFT and every group remain OPEN.
 The actual mixed finite-product estimate now has the exact quarter^n rate
 against each original second-core preimage norm; five more gates and
-independent review passed. Passing this estimate through the actual limits
-to prove arbitrary rational addition remains the next consumer.
-Evidence: rational-continuity addendum in
+independent review passed. The all-Rows comparison and two actual forward
+rates now prove F_(a+b)=F_b*F_a and commutation on EVERY original class for
+all positive rational parameters. Constructed core Rows also pass the exact
+-2i tangent through the actual limit with squared error
+<=368*t^4*||second output||^2. Seventeen further focused gates and independent
+reviews passed. These are fixed-carrier laws, not continuum/time calibration.
+Evidence: rational-addition addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`. No displayed
 claim changed; no ASCII reprint.
 

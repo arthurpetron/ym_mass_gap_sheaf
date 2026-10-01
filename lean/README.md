@@ -12,7 +12,7 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
-**Original physical quotient limit and rational continuity (2026-10-01 UTC):**
+**Original physical quotient limit, rational addition and tangent (2026-10-01 UTC):**
 `ScaledCayleyLimitMap.limitMap` acts on EVERY original complex physical
 class, with representative independence proved before Quotient.lift2.
 `ScaledCayleyLimitPairing.limitMap_pairing_preserved` retains the FULL
@@ -31,9 +31,14 @@ of depth. Ten focused gates and independent reviews passed at that checkpoint.
 rational t-to-zero radius computed from supplied ORIGINAL Rows and tolerance.
 `MixedIdentity`, `MixedBound` and `CompositePowerComparison` prove the actual
 mixed-step identity, quartic local budget and 4^n squared-error amplification.
-Their sixteen focused gates and independent reviews passed. Full parameter
-addition, full-real time and physical-time/logarithm calibration remain OPEN.
-Evidence: rational-continuity addendum in
+Their sixteen focused gates and independent reviews passed. The later actual
+all-Rows mixed comparison now feeds `LimitAddition.limitMap_add_parameter`
+and `limitMap_commute` for EVERY original class and all positive rational
+parameters. `LimitInfinitesimal.limitMap_secondCore_tangent` uses constructed
+core Rows and the actual rate to prove the exact -2i phase with squared
+error <=368*t^4*||second output||^2. Seventeen further focused gates and
+independent reviews passed. Full-real time and physical-spacing/maximal
+generator calibration remain OPEN. Evidence: rational-addition addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
 **Parallel product-limit extension to every supplied physical Rows (2026-10-01 UTC):**

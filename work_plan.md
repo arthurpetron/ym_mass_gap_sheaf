@@ -25,7 +25,7 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
-### Actual physical quotient limit and rational continuity (2026-10-01 UTC)
+### Actual physical quotient limit, rational addition and tangent (2026-10-01 UTC)
 
 PROGRESS after `b22e523`: `ScaledCayleyLimitMap.rows_limit_unique` transports
 the SAME represented completion's uniqueness. Equal input Rows have identical
@@ -84,19 +84,34 @@ amplifies that actual squared defect by 4^n at exponent 2^n. Sixteen focused
 gates and independent reviews passed. Evidence: rational-continuity addendum
 in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
-NEXT mathematical propositions, assigned in parallel: combine the homogeneous
-mixed bound with the ORIGINAL limits to prove FULL rational composition;
-and prove the exact factor-two infinitesimal action on linked actual graph
-points. `ScaledCayleyMixedProducts.mixed_products_bound` now supplies the
+`ScaledCayleyMixedProducts.mixed_products_bound` supplies the
 finite second-core estimate: squared error <= quarter^n*mixedCoefficient(a,b)
 times the ORIGINAL preimage norm. Exact dyadic cancellation is proved; five
-focused gates and independent review passed. The limit-addition and tangent
-drafts are not verified. Endpoint source reviews found no ready new continuum
+focused gates and independent review passed. `AllRowsMixedComparison.mixedRate`
+computes the source-dependent geometric cutoff. `LimitAddition.additionRate`
+joins it with the two ORIGINAL forward rates at e/16; `productLimit_unique`
+and quotient induction prove F_(a+b)=F_b*F_a and commutation on EVERY original
+class, for arbitrary positive rational a,b. `Infinitesimal` bounds finite
+tangent error by184*t^4*||second output||^2; constructed `coreRows` and the
+actual rate give `LimitInfinitesimal.limitMap_secondCore_tangent` with coefficient
+368 and the EXACT -2i phase. Seventeen focused gates and independent reviews
+passed. Evidence: rational-addition addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+NEXT: check and prove the actual Euclidean action's compatibility with the
+maximal physical derivative graph before expanding real Cayley time further.
+Existing `PositiveTimePins.positiveAction_original` already pins positive
+integer samples to the ORIGINAL transfer, and the witnessed real Taylor
+theorem gives its negative right derivative. Do not misidentify derivativeAction
+with T^-1-I, or impose scalar -log(T) equality as an unnecessary prerequisite
+if the actual generator/sampling route suffices. Maximal-graph compatibility,
+physical spacing and scaling remain distinct residues. Endpoint source
+reviews found no ready new continuum
 QFT or every-group physical producer: buffered locality needs its actual
 intertwining join, and classification/central descent still lacks compatible
 compact Haar/heat realization. Do not add isolated algebra or repeat existing
 conditional wrappers. Rational zero-parameter continuity is not full-real
-time or SAME-transfer physical-time/logarithm calibration; those remain OPEN.
+time or physical-spacing/maximal-generator calibration; those remain OPEN.
 PRIMARY complete signed scaling,
 changing-family survival, finite positive physical mass, full continuum QFT,
 every group and Clay remain OPEN. No displayed chart change or broad
@@ -15334,6 +15349,12 @@ SHA-256 `4589a5b10313a1d2685d41d3a286088f33b0f42e47978e7d39ede404a943b3a0`.
    sufficient; do not turn an all-bare-coupling theorem into an unnecessary
    prerequisite. A rounded heat-window budget is not an interacting-transfer
    estimate: prove its SAME-operator join before using it for physical scaling.
+   The ORIGINAL positive action already samples `completedTime n` at positive
+   integers (`PositiveTimePins.positiveAction_original`) and has a witnessed
+   negative right Taylor derivative. Use these actual pins before imposing a
+   scalar logarithm identity as an extra prerequisite; the maximal physical
+   graph and spacing/scaling joins must still be proved. Do not infer the
+   unsupported identity A=T^-1-I from `graph_time_pin`.
    This is an execution priority, not authorization to weaken any canonical
    field or replace the current original Wilson carrier by a legacy carrier.
    Full finite-width time injectivity is not an available subgoal: the actual
