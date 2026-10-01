@@ -244,6 +244,46 @@ private theorem double_square (p : RatPoly) :
       ((RatPolyCoeffEqv.smul_assoc 2 2 _).trans
         (RatPolyCoeffEqv.smul_coefficient (by decide) _)))
 
+/-- The original word/trace compiler consumes ANY proved common link budget
+under the SAME complete edge density. In particular the error-free alignment
+can be used without paying the older explicit cutoff-error budget. -/
+theorem wilson_energy_of_link_budget {w : Q'} (hw0 : (0 : Q') < w)
+    (hw1 : w < (1 : Q')) (K width : Nat) (hK : headCutoff w ≤ K)
+    (depth : Nat) (loop : SourceLoop width) (budget : Q')
+    (hb : ∀ e, e ∈ loop.edges →
+      quaternionHaar (N width+N width)
+        (polyMul (edgeDensity w K width (terminalMessage w K width depth))
+          (polyQuaternionNorm (difference (orientedLink width e) (upperOriented width e)))) ≤ budget) :
+    (2 : Q') * energy w K width (terminalMessage w K width depth)
+        (sourceCharacter width loop.edges 1) ≤
+      (4 : Q') * ((Q'.ofNat loop.edges.length * Q'.ofNat loop.edges.length) * budget) := by
+  let W := edgeDensity w K width (terminalMessage w K width depth)
+  let d := (difference (sourceWord width loop.edges) (wordWith (upperOriented width) loop.edges)).scalar
+  have hw := edgeDensity_supported w K width (terminalMessage_supported w K width depth)
+  have hj := jump_supported width (sourceCharacter_supported width loop.edges 1)
+  have hd : SupportedQuaternionBlocks (N width+N width) d :=
+    (difference_supported
+      (word_supported (orientedLink width) loop.edges (fun e he => lower_supported (loop.physical e he)))
+      (word_supported (upperOriented width) loop.edges (fun e he => upper_supported (loop.physical e he)))).scalar
+  have hds := supported_smul hd (2 : Q')
+  have hpin := ((jump_pin width loop).mul (jump_pin width loop)).haar_insert
+    (supported_polyMul hj hj) (supported_polyMul hds hds) W hw
+  have he := Q'.eqv_trans _ _ _
+    (energy_identity w K width (terminalMessage_supported w K width depth)
+      (sourceCharacter_supported width loop.edges 1))
+    (Q'.eqv_trans _ _ _ hpin (Q'.eqv_trans _ _ _
+      (haar_of_coeff ((double_square d).mul_left W)) (weighted_scale _ W _ 4)))
+  have hword := word_scalar_square_bound
+    (edgeCertificate hw0 hw1 K width hK (terminalMessage_supported w K width depth)
+      (terminalMessage_certificate hw0 hw1 K width hK depth))
+    (orientedLink width) (upperOriented width) loop.edges
+    (fun e he => lower_supported (loop.physical e he))
+    (fun e he => upper_supported (loop.physical e he))
+    (fun e he => lower_unit (loop.physical e he))
+    (fun e he => upper_unit (loop.physical e he)) budget hb
+  exact Q'.le_trans' _ _ _ (Q'.le_of_eqv he)
+    (Q'.mul_le_mul_of_nonneg_left _ _ 4 hword (by decide))
+
 /-- Cleared energy bound for the SAME original transfer and fundamental
 Wilson character. The factor 4 is the unnormalized trace's square. -/
 theorem wilson_energy_cleared {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
@@ -332,6 +372,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.upperOriented
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.word_increment_bound
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.upper_character_lift
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.wilson_energy_of_link_budget
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.wilson_energy_cleared
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.wilson_energy_normalized
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.wilson_energy_tolerance

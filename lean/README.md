@@ -12,6 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Whole-family kinetic upper on the original carrier (2026-10-01 UTC):**
+`BF4ExactSlabFixedSpatialFamilyKineticUpper` joins existing exact active-link
+alignment to the WHOLE signed family under the original complete edge law.
+`QuaternionHaarUniformFamilyCost` uses normalized Gram/Young to pay
+`(sum abs c)^2`, with no separate list-length factor or assumed orthogonality.
+`BF4WilsonAllNomePlaquetteFamilyKineticUpper` passes this bound through the
+actual energy CReal and SAME centered time-loss pin, then telescopes the
+positive transfer: `B(v,v)-B(v,T(n)v)<=192*n*(1-w)*(sum abs c)^2`.
+The cutoff onset depends on nome only. These are absolute estimates, not
+useful SAME-variance scaling or completed width maps. Thirty-four gates
+passed four focused checks within {propext, Quot.sound}; seven are axiom-free.
+Independent reviews passed; no broad build or new analytic field. The primary
+signed scaling estimate, survival, physical mass, continuum QFT and all groups
+remain OPEN. Evidence:
+`audits/AUDIT-WHOLE-FAMILY-KINETIC-UPPER-2026-10-01.md`.
+
 **Actual complex physical Cayley operator (2026-10-01 UTC):**
 `BF4WilsonAllNomeComplexBondOSImaginaryShifts` consumes the constructed
 denominator inverse and pins the original positive-resolvent graph output

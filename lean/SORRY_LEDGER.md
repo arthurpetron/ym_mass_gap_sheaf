@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## PROVED whole-family original kinetic upper and integer-time consumer (2026-10-01 UTC)
+
+- `BF4ExactSlabFixedSpatialWilsonKineticIncrement.wilson_energy_of_link_budget`
+  joins existing exact alignment to the original oriented Wilson-word energy.
+  `BF4ExactSlabFixedSpatialFamilyKineticUpper.face_jump_bound` uses strict
+  active-link padding; `family_jump_sum` retains the WHOLE signed jump.
+  `family_energy_nome_cleared` and `family_energy_nome_normalized` give the
+  explicit `192*(1-w)*qs.length*sum(c^2)` energy ceiling.
+- `QuaternionHaarUniformFamilyCost.normalized_pair_abs_le` and
+  `normalized_family_l1_cost` bound every mixed entry under ONE certified
+  normalized weight. `family_energy_l1_normalized` instantiates the ORIGINAL
+  edge density/partition, giving `2*normalizedEnergy<=384*(1-w)*(sum abs c)^2`.
+  No coefficient-sign, distinctness, nonempty or positive-depth premise.
+- `BF4WilsonAllNomePlaquetteFamilyKineticUpper` constructs explicit coefficient
+  costs and nome-only `cutoffOnset`. Actual finite-energy pins and the EXISTING
+  energy CReal give `completed_family_energy_nome_bound` and
+  `completed_family_energy_l1_bound`. `time_loss_linear_bound` telescopes
+  the SAME positive transfer on EVERY completed state;
+  `completed_family_time_l1_bound` gives actual family loss at lag n bounded
+  by `192*n*(1-w)*(sum abs c)^2`.
+- Four focused checks passed all 34 gates: seven empty axiom sets, twenty-seven
+  exactly {propext, Quot.sound}. Independent math/source/log review passed.
+  No new sorry/axiom/Classical/native_decide/noncomputable or weakened field.
+  One monitored worker, unchanged cap/reserve; no full root/tree build, broad
+  audit, guard or CI change. Root imports are registered, not aggregate-checked.
+- OPEN: useful COMPLETE signed energy versus SAME interacting variance on a
+  justified scaling family. The L1 RHS does not exploit signed cancellation;
+  the existing SAME-law variance floor has inadequate certified calibration.
+  Continuum survival, spatial/spacing control, physical time/mass, full continuum
+  OS/QFT and all groups remain OPEN. Evidence:
+  `audits/AUDIT-WHOLE-FAMILY-KINETIC-UPPER-2026-10-01.md`.
+
 ## PROVED actual complex physical imaginary shifts and Cayley operator (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeComplexBondOSImaginaryShifts.output_resolventDomain`

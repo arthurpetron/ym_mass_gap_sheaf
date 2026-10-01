@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Whole signed-family kinetic estimate (2026-10-01):** the original
+completed centered family now satisfies
+`B(v,v)-B(v,T(n)v) <= 192*n*(1-w)*(sum abs c)^2` at every integer time lag.
+The proof keeps the original action, partition and transfer; coefficients
+may be signed, repeated or zero. There is no endpoint source floor/cap or
+spatial-width factor, but the coefficient sum and nome remain explicit.
+This is an absolute bound, NOT the missing useful interacting-variance
+comparison on a continuum scaling family. Thirty-four focused axiom gates
+and independent reviews passed. See the
+[proof and open boundary](audits/AUDIT-WHOLE-FAMILY-KINETIC-UPPER-2026-10-01.md).
+
 **Constructed complex physical Cayley operator (2026-10-01):**
 the actual derivative graph now has computed two-sided inverses for
 `input+i*output` and `input-i*output` on EVERY class of the existing complex

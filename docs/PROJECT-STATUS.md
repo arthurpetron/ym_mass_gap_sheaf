@@ -1,5 +1,20 @@
 # Canonical one-page project status
 
+Verified supporting WHOLE-family original kinetic upper (2026-10-01 UTC;
+chart unchanged): existing error-free SU(2) alignment and actual oriented
+word/face telescoping now give absolute signed-family energy bounds without
+an endpoint floor/cap or regulator coefficient. A common diagonal bound under
+the SAME edge density controls every mixed entry; the coefficient-L1 ceiling
+has no separate list-length factor. Actual energy-limit pins give
+B(v,v)-B(v,T(1)v)<=192*(1-w)*(sum abs c)^2 on the ORIGINAL centered carrier.
+Positive-transfer telescoping gives its EVERY-integer-lag ceiling with factor n.
+No spatial map or relative-variance estimate is inferred; the RHS does not
+exploit cancellation. A SAME-law family floor exists but its checked calibration
+is inadequate. Thirty-four focused gates and independent reviews passed.
+Primary useful signed scaling, continuum survival, physical mass, full continuum
+QFT and all groups remain OPEN. Evidence:
+`audits/AUDIT-WHOLE-FAMILY-KINETIC-UPPER-2026-10-01.md`.
+
 Verified supporting actual complex physical Cayley operator
 (2026-10-01 UTC; chart unchanged): the constructed real denominator inverse
 now supplies original graph preimages for BOTH imaginary shifts on EVERY

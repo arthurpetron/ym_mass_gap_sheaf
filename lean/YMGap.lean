@@ -6064,6 +6064,11 @@ import YMGap.Continuum.BF4WilsonAllNomeResolventNeumannLimit
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolventDenominator
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSImaginaryShifts
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSCayley
+-- Original whole-family absolute kinetic upper and SAME completed time loss.
+-- Not a useful SAME-variance scaling estimate or a cross-width identification.
+import YMGap.Continuum.QuaternionHaarUniformFamilyCost
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyKineticUpper
+import YMGap.Continuum.BF4WilsonAllNomePlaquetteFamilyKineticUpper
 import YMGap.Continuum.BF4WilsonAllNomeBondOSAdjoint
 import YMGap.Continuum.BF4WilsonAllNomeBondOSSubgapResolvent
 -- Original one-step-buffered source products and their SAME bond vacuum moments.

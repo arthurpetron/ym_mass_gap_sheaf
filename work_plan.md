@@ -25,6 +25,44 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Whole-family original kinetic upper reaches completion (2026-10-01 UTC)
+
+PROGRESS after `855b0c3`: reuse the existing error-free SU(2) alignment under
+the ORIGINAL edge law, rather than paying a deteriorating endpoint source
+floor/cap comparison. The literal oriented-word telescope now consumes any
+proved SAME-edge link budget. Strict padding makes all four plaquette links
+active; their common squared-jump ceiling is `384*(1-w)*oddMass`.
+
+`BF4ExactSlabFixedSpatialFamilyKineticUpper` retains the COMPLETE signed
+jump, including repeated and empty lists. Finite Cauchy gives a
+`qs.length*sum(c^2)` cost. Constructive normalized Gram/Young in
+`QuaternionHaarUniformFamilyCost` instead gives `(sum abs c)^2`, with no
+separate list-length factor or unjustified zero interference.
+
+`BF4WilsonAllNomePlaquetteFamilyKineticUpper` passes BOTH ceilings through
+the ACTUAL constructed energy limit and its original centered-vector pin.
+Thus `B(v,v)-B(v,T(1)v) <= 192*(1-w)*(sum abs c)^2` on the SAME completion.
+Positive-transfer moment telescoping gives the actual all-integer-lag bound
+`B(v,v)-B(v,T(n)v) <= 192*n*(1-w)*(sum abs c)^2`. The common cutoff onset
+depends explicitly on nome, not width, terminal depth or coefficients.
+No new analytic premise, limit, surrogate or representative choice enters.
+
+Thirty-four gates passed four accepted focused checks; seven are axiom-free
+and twenty-seven are exactly {propext, Quot.sound}. Independent mathematical
+and source/log reviews passed. One monitored 20 GiB worker, 12 GiB OS reserve
+and zero swap; no raised limits, full root/tree build, broad audit or guard.
+Root imports are registered, not checked in aggregate. Evidence:
+`audits/AUDIT-WHOLE-FAMILY-KINETIC-UPPER-2026-10-01.md`.
+
+NEXT remains the PRIMARY useful COMPLETE signed energy/SAME-interacting-
+variance estimate on a justified changing-coupling/spatial/spacing family.
+These new ceilings are absolute and discard cancellation on their right;
+they do not supply that relative estimate. A SAME-law family floor exists,
+but its conservative calibration obstruction remains checked and unchanged.
+Nontrivial continuum survival, physical mass, full continuum OS/QFT, field/UV
+identification and all compact simple groups remain OPEN. No displayed chart
+claim changed; no ASCII reprint.
+
 ### Actual imaginary shifts and unitary Cayley on physical classes (2026-10-01 UTC)
 
 PROGRESS after `f0e468a`: that checkpoint is pushed to main, and its real
