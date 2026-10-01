@@ -6099,6 +6099,8 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSCayley
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSGraphNorm
 -- Two represented physical graph steps; preimage norm ceiling, not full-domain invariance.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSecondCore
+-- Explicit represented second-core input density, with source-dependent cutoffs.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSecondCoreDensity
 -- Original whole-family absolute kinetic upper and SAME completed time loss.
 -- Not a useful SAME-variance scaling estimate or a cross-width identification.
 import YMGap.Continuum.QuaternionHaarUniformFamilyCost

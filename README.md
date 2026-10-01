@@ -10,6 +10,16 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Explicit physical second-core density (2026-10-01):**
+every supplied physical Rows witness now computes twice-time-smoothed
+approximants with linked second-domain witnesses and an all-tail squared-
+distance modulus. Each finite inverse-sum depth uses the sampled source's
+own norm ceiling; no uniform second-derivative bound or arbitrary-domain
+invariance is asserted. All eight focused gates and independent reviews
+passed. Scaled Cayley/time-group construction and useful complete signed
+scaling remain open. See the
+[proof and scope](audits/AUDIT-PHYSICAL-SECOND-CORE-DENSITY-2026-10-01.md).
+
 **Physical derivative graph limits and second-domain witnesses (2026-10-01):**
 the original imaginary-shift inverse now constructs represented graph limits,
 with both physical input and derivative output converging at the SAME explicit

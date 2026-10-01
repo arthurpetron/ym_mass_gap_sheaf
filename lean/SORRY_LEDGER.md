@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED density of represented physical second-core inputs (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeComplexBondOSSecondCoreDensity.baseSource`, `correctionDepth`
+  and `approximationSource` compute actual original Cauchy sources using
+  each supplied range witness and sampled source norm ceiling.
+  `approximationSource_bound` controls actual T^2 input squared distance.
+  `pairSources_bound` sums the original physical component distances.
+  `densityCertificate` returns the second-core point sequence, e.den modulus
+  and all-tail bound for supplied physical Rows. Each point has the existing
+  adjoining second-domain witness; no new domain-invariance premise.
+- All eight gates passed the accepted focused check, exactly {propext,Quot.sound},
+  with independent math/source/log review. No new sorry, axiom, Classical,
+  native_decide, noncomputable declaration, analytic input or weakened frontier.
+  Root imports are registered only; no raised limit or broad run. Evidence:
+  `audits/AUDIT-PHYSICAL-SECOND-CORE-DENSITY-2026-10-01.md`.
+- OPEN: scaled imaginary shifts, Cayley local consistency/product modulus and
+  continuous unitary time. The approximating sequence's second-output ceiling
+  is not uniform. Primary complete signed scaling, continuum survival, physical
+  time/mass, full continuum QFT/field/UV identification, every group and Clay
+  remain OPEN.
+
 ## PROVED represented second-domain witnesses on original physical carrier (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeComplexBondOSSecondCore.timeSeed` and `derivativeSeed`

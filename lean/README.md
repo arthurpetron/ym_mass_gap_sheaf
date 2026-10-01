@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Explicit density of represented physical second-core inputs (2026-10-01 UTC):**
+`BF4WilsonAllNomeComplexBondOSSecondCoreDensity` returns actual source
+representatives, source-dependent finite inverse-sum depths, second-core
+domain points and a Type-valued all-tail modulus for supplied physical Rows.
+The physical squared-distance bound is invSucc(n), with tolerance modulus
+e.den. Each point has the existing adjoining second-domain witness. All eight
+focused gates and independent reviews passed within {propext,Quot.sound}.
+No ambient T^2-range density, uniform second-derivative sequence bound,
+arbitrary-domain invariance or unitary time group is claimed. Primary signed
+scaling, continuum survival, physical mass and the Clay target remain OPEN.
+Evidence: `audits/AUDIT-PHYSICAL-SECOND-CORE-DENSITY-2026-10-01.md`.
+
 **Represented physical second-domain witnesses (2026-10-01 UTC):**
 `BF4WilsonAllNomeComplexBondOSSecondCore` computes sources representing T y
 and the original bounded derivativeAction L y, then constructs actual linked

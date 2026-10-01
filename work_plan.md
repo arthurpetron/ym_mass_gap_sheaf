@@ -25,6 +25,29 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Explicit represented physical second-core density (2026-10-01 UTC)
+
+PROGRESS after `61773ff`: supplied physical Rows now construct approximating
+inputs of the ACTUAL second-core graph points. Each component samples its
+original range witness at e/4, computes the sampled preimage norm ceiling,
+and uses a finite inverse sum. The squared-distance triangle pays its factors
+two exactly. The paired sequence has distance<=invSucc(n), and the Type-valued
+all-tail modulus is e.den. No representative choice or new analytic input.
+
+All eight gates passed the resumed terminal-success focused check within
+{propext,Quot.sound}, with independent reviews. Source norm ceilings may grow
+along the sequence; no uniform second-output bound, ambient T^2-density or
+arbitrary-domain invariance is supplied. Evidence:
+`audits/AUDIT-PHYSICAL-SECOND-CORE-DENSITY-2026-10-01.md`.
+
+NEXT operator work: construct scaled imaginary shifts and prove local Cayley
+consistency on fixed second-core points, then build a product-Cauchy modulus
+with the correct factor-two phase calibration. PRIMARY remains useful JOINT
+complete signed error/SAME-variance scaling on a justified coupling/spatial/
+spacing family. Survival, physical time/mass, full continuum QFT, field/UV
+identification, all groups and Clay remain OPEN. No displayed chart claim
+changes; no ASCII reprint. No broad build/audit/guard or raised limit.
+
 ### Constructed second-domain witnesses on the original physical carrier (2026-10-01 UTC)
 
 PROGRESS after `627d529`: explicit original Cauchy preimages y construct

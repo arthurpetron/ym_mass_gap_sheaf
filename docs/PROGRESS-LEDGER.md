@@ -4,7 +4,24 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Constructed physical second-domain witnesses (2026-10-01 UTC)
+## Current increment: Explicit physical second-core input density (2026-10-01 UTC)
+
+PROGRESS after `61773ff`: the actual inverse-sum range estimate now produces
+second-core domain-point approximants for every supplied physical Rows witness.
+The all-tail modulus is computed as e.den; each source/correction depth uses
+its own original range witness and sampled rational norm ceiling. The SAME
+physical squared distance is at most invSucc(n). No new analytic input or
+quotient representative selection. Eight focused gates and independent
+reviews passed. No uniform second-output sequence bound, arbitrary-domain
+invariance, scaled Cayley/product modulus or unitary time group is claimed.
+
+This removes the assembled represented-density obligation. Primary complete
+signed error/SAME-variance scaling, survival, physical time/mass, full continuum
+QFT and every group remain OPEN. No broad build/audit/guard, raised limit or
+ASCII reprint. The historical progress-metric script was not run. Evidence:
+`audits/AUDIT-PHYSICAL-SECOND-CORE-DENSITY-2026-10-01.md`.
+
+## Earlier increment: Constructed physical second-domain witnesses (2026-10-01 UTC)
 
 PROGRESS after `627d529`: compute represented original sources T y and L y,
 then build TWO actual physical derivative-domain points with completed-value

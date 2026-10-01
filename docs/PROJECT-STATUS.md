@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting physical second-core density (2026-10-01 UTC; chart
+unchanged): supplied physical Rows have actual second-core input approximants
+with squared-distance bound invSucc(n) and explicit all-tail modulus e.den.
+Their finite inverse-sum depths read sampled source norm ceilings, which need
+not be uniform along n. All eight gates and independent reviews passed.
+No ambient T^2-density, arbitrary-domain invariance or unitary time group claim.
+Scaled Cayley/product estimates, primary complete signed scaling, survival,
+physical mass, continuum QFT and all groups remain OPEN. No displayed claim
+changed; no ASCII reprint. Evidence:
+`audits/AUDIT-PHYSICAL-SECOND-CORE-DENSITY-2026-10-01.md`.
+
 Verified supporting ORIGINAL second-domain witnesses (2026-10-01 UTC;
 chart unchanged): supplied Cauchy preimages construct linked physical graph
 points T^2 y -> T L y -> L^2 y on the SAME bond carrier. The second output's
