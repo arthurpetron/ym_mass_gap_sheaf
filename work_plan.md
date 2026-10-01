@@ -561,6 +561,24 @@ variance, retain a useful quantitative source-increment cancellation, or
 justify a different low-energy observable. The terminal recursion controls
 the uninserted response; it is not a Perron equation for q. Keep the original
 action, source and physical time. No new conditional wrapper is needed.
+FOLLOW-ON RADIAL TEST AND CORRECTED BOUND: floor-free link alignment was
+already supplied by `SU2QuaternionProductHeatExactAlignment`; do not rebuild
+its absolute O(1-w) displacement bound. The universal proposed radial
+replacement E<=3*(1-w)*H[q*(4-f^2)*Pq] fails for the certified positive
+one-link source q=1+f^8 at w=1/2, K=3, by exactly 605/16. This is not the
+actual terminal source and does not refute a larger finite coefficient.
+`QuaternionHaarRadialChordalIncrement.radialCertificate` now gives the
+corrected seven-square bound (f-g)^2<=2*r*(4-f^2)+2*r^2, r=|p-q|^2.
+`BF4ExactSlabFixedSpatialWilsonRadialIncrement` joins it to ONE original
+Wilson loop energy with the COMPLETE edge density and SAME odd partition.
+Neither mixed radial-displacement nor quartic moment is estimated, and
+the result is not an arbitrary signed-family bound. Next use of this route
+requires an actual-source moment comparison against SAME centered variance;
+factorization or a uniform quadratic remainder may not be assumed. Keep
+the combined signed-correction route available; no scaling gain is proved
+by kinematics alone. Three final focused serialized checks passed 18 gates
+within {propext, Quot.sound}; no canonical change or broad run. Evidence:
+`audits/AUDIT-RADIAL-WILSON-INCREMENT-2026-10-01.md`.
 The now-proved one-step source/domain transfer already controls the actual
 derivative energy, retained norm and source replacement. Do not build another
 equivalent conditional survival/domain wrapper before supplying a useful

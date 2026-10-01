@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL radial increment with quartic correction (2026-10-01 UTC)
+
+- `SU2QuaternionRadialMarginalEnergyFence.radial_marginal_bound_three_false`
+  gives a positive-source counterexample to E<=3*(1-w)*H[q*(4-f^2)*Pq]
+  at w=1/2, K=3, q=1+f^8. All moments and the strict kernel certificate
+  are original-carrier data; the exact excess is 605/16. This refutes only
+  that universal coefficient, not the actual terminal source or YM.
+- `QuaternionHaarRadialChordalIncrement.radialCertificate` constructs
+  seven supported squares proving (f-g)^2<=2*r*(4-f^2)+2*r^2 for Haar-unit
+  word quaternions, r their squared chordal distance. `radialBudget_pin`
+  exposes the literal polynomial; `weighted_radial_bound` retains any
+  certified positive insertion.
+- `BF4ExactSlabFixedSpatialWilsonRadialIncrement.wilson_energy_radial_cleared`
+  and `wilson_energy_radial_normalized` apply it to ONE actual SourceLoop,
+  retaining the complete original edge density and SAME odd partition.
+  Neither the mixed radial-displacement nor the quartic moment is estimated.
+- OPEN: useful SAME-centered-variance upper estimate for an actual source
+  on a justified physical scaling family, continuum survival and the full
+  QFT/every-group/Clay target. No canonical node or existing sorry changed.
+- Three final focused serialized checks passed 18 gates within
+  {propext, Quot.sound}; no broad run. Evidence:
+  `audits/AUDIT-RADIAL-WILSON-INCREMENT-2026-10-01.md`.
+
 ## PROVED ORIGINAL bond form realization and exact cost fence (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeBondReflectedForm.crossOdd_pin` and `completed_crossOdd_pin`

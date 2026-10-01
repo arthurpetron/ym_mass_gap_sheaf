@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL radial increment (2026-10-01 UTC; chart
+unchanged): an explicit positive-source example refutes the universal
+coefficient-three radial-marginal replacement. Seven supported squares
+give the corrected bound (f-g)^2<=2*r*(4-f^2)+2*r^2 for unit word quaternions.
+Its original Wilson-energy consumer retains the complete edge density and
+SAME partition. Mixed radial-displacement and quartic moments remain
+unestimated; no SAME-variance scaling bound or continuum survival follows.
+Three focused serialized checks passed 18 gates within {propext, Quot.sound};
+no broad run or canonical change. Evidence:
+`audits/AUDIT-RADIAL-WILSON-INCREMENT-2026-10-01.md`.
+
 Verified supporting ORIGINAL bond-form realization and exact-cost fence
 (2026-10-01 UTC; chart unchanged): the actual mixed bond-reflected Wilson
 limit is B(x,T(1)y), realized by root_1 on the existing witnessed time sector.
