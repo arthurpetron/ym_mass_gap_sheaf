@@ -1,5 +1,30 @@
 # Sorry Ledger
 
+## PROVED weighted passive-channel source monotonicity (2026-10-01 UTC)
+
+- The already-proved `SU2QuaternionFamilyHeatGramPositiveWeight.weighted_cross_pin`
+  is public and gated: it pins the weighted channel square to the ORIGINAL
+  partial-swap heat pairing, with unselected coordinates shared.
+- NEW `productChannels_familyProject_positiveWeighted_square_mono` proves
+  C_p(e)<=C_q(e) from whole positive certificates for p,q,e and q-p.
+  Its certificate factors q*swap(q)-p*swap(p) as
+  (q-p)*swap(q)+p*swap(q-p). No channelwise sign or independent-square
+  generator assumption is made; only e itself must be passive-independent.
+- NEW `productChannels_familyProject_weighted_square_smul` proves
+  C_(c*q)(e)=c^2*C_q(e) for arbitrary rational c, retaining all channel
+  weights and the original heat. This supplies the exact local-band scalar.
+- OPEN: actual projected-terminal band, partition/common-spectator moment
+  pins, whole-family Gamma factorization, and SAME original Z*Var join.
+  The channel first order is not the old bare-source first order; the
+  existing exact energy/Taylor channel consumer retains cutoff/remainder
+  debt. Useful physical scaling of the complete correction remains open,
+  as do survival, mass, QFT and every group. No new analytic field or sorry.
+- One focused serialized capped check passed four gates exactly in
+  {propext, Quot.sound}, including the existing contraction theorem. Luna
+  independently reviewed the signs, certificates and scope. No broad run
+  or canonical field/chart change. Evidence: weighted-channel addendum in
+  `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 ## PROVED generic spectator-retention obstruction (2026-10-01 UTC)
 
 - `SU2QuaternionSpectatorHeatRetentionFence.pairProductCertificate` and

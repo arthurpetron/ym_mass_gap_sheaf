@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Weighted channel monotonicity retains spectator heat (2026-10-01 UTC)
+
+The exact weighted conditional-kernel pin already existed privately in
+`SU2QuaternionFamilyHeatGramPositiveWeight`; it is now public and gated.
+Two NEW mathematical lemmas prove: a certified positive source order p<=q
+implies C_p(e)<=C_q(e) for the SAME actual passive heat and certified shared
+weight e; and C_(c*p)(e)=c^2*C_p(e). The order certificate is built from
+(q-p)*swap(q)+p*swap(q-p), retaining the complete heat and weight. Channel
+polynomials may have either sign; no coefficient absolute-value sum is paid.
+
+This supplies the generic local-band monotonicity producer missing from
+the revised route below. One final focused check passed four gates exactly
+in {propext, Quot.sound}; Luna independently reviewed the signed identity,
+whole-weight certificate and parameter scope. Evidence: weighted-channel
+addendum in `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
+NEXT: apply the actual terminal local-band certificates after justified
+fringe projection; prove the exact selected/passive/common-spectator moment
+pins and the whole-family Gamma/Haar factorization. The intended finite
+consumer is l^2*A_ch<=12*u^2*Z*Var at the SAME original mean, with l,u
+depending only on nome and family footprint. A_ch is the weighted passive
+CHANNEL first-order sum, not the old raw first order A=H[q^2*Gamma(f,f)].
+Use the existing channel Taylor consumer and retain its original signed
+cutoff/remainder debt. That debt still needs useful scale control. No actual
+terminal/variance bound, scaling rate, survival, physical mass, full QFT or
+every-group claim is closed by the generic lemmas; chart unchanged.
+
 ### Spectator heat-retention obstruction and localized next argument (2026-10-01 UTC)
 
 `SU2QuaternionSpectatorHeatRetentionFence` now supplies a constructive
@@ -44,14 +71,15 @@ One final focused check passed 25 gates in {propext, Quot.sound}; no broad run.
 Evidence: spectator-retention addendum in
 `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
 
-NEXT mathematical producer under review, NOT PROVED: bound the passive
+NEXT physical producer, NOT PROVED: bound the passive
 weighted channel first-order sum against original Z*Var, keeping spectator
 heat at ORIGINAL w,K. Reuse the ALREADY checked
 `SU2QuaternionProductHeatPassiveChannels.sourceEnergy_projected_channels`;
 do not repackage its decomposition. Its signed channel sources are computed
 from the unchanged full source, and the Taylor consumer must retain actual
-selected cutoff debt. A weighted channel-square/spectator-pairing pin is
-needed before applying the local band. Existing productMap on a subset
+selected cutoff debt. The generic weighted pin and monotonicity are now
+supplied by the checkpoint above; their actual-source/variance join remains
+open. Existing productMap on a subset
 integrates missing slots; it is NOT Id_selected tensor P_rest and cannot
 implement this argument by naive subset composition. No arbitrary source
 replacement or newly assumed retention field is a join. The intended

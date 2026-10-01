@@ -5,6 +5,11 @@ The weight is a genuinely certified polynomial independent of the selected
 heat blocks. Its certificate need not have independent square generators.
 The proof uses the complete doubled heat kernel and a partial-swap square;
 it does not assume an analytic bound on the channel sum.
+
+The weighted kernel pin is public. Positive-cone source order now gives
+monotonicity of the SAME weighted channel square, retaining spectator heat
+and shared coordinates. A scalar band scales this square by exactly c^2.
+No physical terminal/variance or scaling comparison is assumed or concluded.
 -/
 
 import YMGap.Continuum.SU2QuaternionPartialSwapHeat
@@ -23,6 +28,7 @@ open YMGap.Continuum.BF4CompactActionCPOrder
 open YMGap.Continuum.BF4ExactCutoffOneSurfaceForestGaugeWordCarrierSemantics
 open YMGap.Continuum.SU2QuaternionPolynomialHaarCarrier
 open YMGap.Continuum.SU2QuaternionRatPolyDifferential
+open YMGap.Continuum.SU2QuaternionAngularSupport (polySmul_supported)
 open YMGap.Continuum.SU2QuaternionArbitraryHaarRadialPositivity
 open YMGap.Continuum.SU2QuaternionArbitraryHaarBlockReflection
 open YMGap.Continuum.SU2QuaternionTranslationPolynomialImages
@@ -74,7 +80,7 @@ private theorem channelSum_congr (left right : RatPoly → Q') :
 
 /- The existing conditional-kernel identity pins the mixed term in the
 partial-swap square to the SAME channel family. -/
-private theorem weighted_cross_pin (n : Nat) (w : Q') (K : Nat)
+theorem weighted_cross_pin (n : Nat) (w : Q') (K : Nat)
     (ids : List Nat) (hn : ids.Nodup) (hids : ∀ i, i ∈ ids → i < n)
     (q e : RatPoly) (hq : SupportedQuaternionBlocks n q)
     (he : SupportedQuaternionBlocks n e)
@@ -124,6 +130,109 @@ private theorem weighted_cross_pin (n : Nat) (w : Q') (K : Nat)
           (by decide) (fun | 0 => e | 1 => b | _ => b)))
   exact Q'.eqv_trans _ _ _ hleft
     (Q'.eqv_trans _ _ _ hpair.symm hright)
+
+/-- Source order in the positive polynomial cone, not channelwise positivity.
+The selected-coordinate weight is certified as a WHOLE polynomial. -/
+theorem productChannels_familyProject_positiveWeighted_square_mono
+    (n : Nat) {w : Q'} (hw0 : (0 : Q') < w) (hw1 : w < (1 : Q'))
+    (K : Nat) (hK : YMGap.Continuum.BF4ExactSlabRetainedHeatHeadComparison.headCutoff w ≤ K)
+    (ids : List Nat) (hn : ids.Nodup) (hids : ∀ i, i ∈ ids → i < n)
+    (p q e : RatPoly) (hp : SupportedQuaternionBlocks n p)
+    (hq : SupportedQuaternionBlocks n q) (he : SupportedQuaternionBlocks n e)
+    (P : Certificate n p) (Q : Certificate n q) (E : Certificate n e)
+    (D : Certificate n (polyAdd q (polyNeg p)))
+    (hind : ∀ i, i ∈ ids → QuaternionBlockIndependent i e) :
+    channelSum (productChannels n w K ids) (fun c =>
+      H n (polyMul
+        (polyMul (familyProject ids (polyMul p c))
+          (familyProject ids (polyMul p c))) e)) ≤
+    channelSum (productChannels n w K ids) (fun c =>
+      H n (polyMul
+        (polyMul (familyProject ids (polyMul q c))
+          (familyProject ids (polyMul q c))) e)) := by
+  let s := swap n ids
+  let k := productHeat n w K ids
+  let d := polyAdd q (polyNeg p)
+  let p' := reindexQuaternionPolynomial s p
+  let q' := reindexQuaternionPolynomial s q
+  let d' := reindexQuaternionPolynomial s d
+  let lower := polyMul k (polyMul (polyMul p p') e)
+  let upper := polyMul k (polyMul (polyMul q q') e)
+  let positive := polyMul k
+    (polyMul (polyAdd (polyMul d q') (polyMul p d')) e)
+  have hd : SupportedQuaternionBlocks n d := supported_add hq (support_neg hp)
+  have C : Certificate (n+n) positive :=
+    (productHeatCertificate n hw0 hw1 K hK ids hids).mul
+      ((((certificate_extend n hd D).mul
+        (reindex_certificate s (support_lower hq) (certificate_extend n hq Q))).add
+        ((certificate_extend n hp P).mul
+          (reindex_certificate s (support_lower hd) (certificate_extend n hd D)))).mul
+        (certificate_extend n he E))
+  have hshape : RatPolyCoeffEqv positive (polyAdd upper (polyNeg lower)) := by
+    dsimp only [positive, upper, lower, d, p', q', d']
+    rw [reindexQuaternionPolynomial_add, reindexQuaternionPolynomial_neg]
+    exact coeffEvalExpr_eqv_of_normalize_eq
+      (.mul (.var 0) (.mul
+        (.add (.mul (.add (.var 1) (.neg (.var 2))) (.var 3))
+          (.mul (.var 2) (.add (.var 3) (.neg (.var 4))))) (.var 5)))
+      (.add (.mul (.var 0) (.mul (.mul (.var 1) (.var 3)) (.var 5)))
+        (.neg (.mul (.var 0) (.mul (.mul (.var 2) (.var 4)) (.var 5)))))
+      (by decide) (fun
+        | 0 => k
+        | 1 => q
+        | 2 => p
+        | 3 => q'
+        | 4 => p'
+        | _ => e)
+  have hexpand : H (n+n) positive ≈ H (n+n) upper + -(H (n+n) lower) :=
+    Q'.eqv_trans _ _ _ (haar_of_coeff hshape)
+      (Q'.eqv_trans _ _ _ (quaternionHaar_append _ _ _)
+        (Q'.add_eqv_congr' (Q'.eqv_refl _) (haar_neg _ _)))
+  have hpin := Q'.eqv_trans _ _ _ hexpand
+    (Q'.add_eqv_congr' (weighted_cross_pin n w K ids hn hids q e hq he hind)
+      (Q'.neg_eqv_congr _ _ (weighted_cross_pin n w K ids hn hids p e hp he hind)))
+  exact Q'.le_of_sub_nonneg
+    (Q'.le_trans' _ _ _ C.haar_nonnegative (Q'.le_of_eqv hpin))
+
+/-- The coefficient of a local source band remains explicit and exactly
+squared. No sum of absolute channel coefficients is introduced. -/
+theorem productChannels_familyProject_weighted_square_smul
+    (n : Nat) (w : Q') (K : Nat) (ids : List Nat)
+    (hn : ids.Nodup) (hids : ∀ i, i ∈ ids → i < n)
+    (q e : RatPoly) (hq : SupportedQuaternionBlocks n q)
+    (he : SupportedQuaternionBlocks n e)
+    (hind : ∀ i, i ∈ ids → QuaternionBlockIndependent i e) (c : Q') :
+    channelSum (productChannels n w K ids) (fun z =>
+      H n (polyMul
+        (polyMul (familyProject ids (polyMul (polySmul c q) z))
+          (familyProject ids (polyMul (polySmul c q) z))) e)) ≈
+      (c*c)*channelSum (productChannels n w K ids) (fun z =>
+        H n (polyMul
+          (polyMul (familyProject ids (polyMul q z))
+            (familyProject ids (polyMul q z))) e)) := by
+  let s := swap n ids
+  let k := productHeat n w K ids
+  let q' := reindexQuaternionPolynomial s q
+  have hpair : RatPolyCoeffEqv
+      (polyMul (polySmul c q) (polySmul c q'))
+      (polySmul (c*c) (polyMul q q')) :=
+    (RatPolyCoeffEqv.polyMul_smul_left c q (polySmul c q')).trans
+      (((RatPolyCoeffEqv.polyMul_smul_right c q q').smul c).trans
+        (RatPolyCoeffEqv.smul_assoc c c _))
+  have hshape : RatPolyCoeffEqv
+      (polyMul k (polyMul (polyMul (polySmul c q) (polySmul c q')) e))
+      (polySmul (c*c) (polyMul k (polyMul (polyMul q q') e))) :=
+    (RatPolyCoeffEqv.mul_left k
+      ((hpair.mul_right e).trans (RatPolyCoeffEqv.polyMul_smul_left (c*c) _ e))).trans
+      (RatPolyCoeffEqv.polyMul_smul_right (c*c) k _)
+  have hstart := (weighted_cross_pin n w K ids hn hids (polySmul c q) e
+    (polySmul_supported hq c) he hind).symm
+  rw [reindexQuaternionPolynomial_smul] at hstart
+  exact Q'.eqv_trans _ _ _ hstart
+    (Q'.eqv_trans _ _ _ (haar_of_coeff hshape)
+      (Q'.eqv_trans _ _ _ (quaternionHaar_polySmul _ _ _)
+        (Q'.mul_eqv_congr_left _ _ _
+          (weighted_cross_pin n w K ids hn hids q e hq he hind))))
 
 /-- Coefficient-one weighted Bessel contraction for the *actual* selected
 product heat channels. The positive weight is certified as a whole; its
@@ -232,6 +341,9 @@ theorem productChannels_familyProject_positiveWeighted_square_le
     Q'.le_of_mul_le_mul_left hmul (by decide : (0 : Q') < 2)
   exact Q'.le_of_sub_nonneg hsub
 
+#print axioms weighted_cross_pin
+#print axioms productChannels_familyProject_positiveWeighted_square_mono
+#print axioms productChannels_familyProject_weighted_square_smul
 #print axioms productChannels_familyProject_positiveWeighted_square_le
 
 end YMGap.Continuum.SU2QuaternionFamilyHeatGramPositiveWeight

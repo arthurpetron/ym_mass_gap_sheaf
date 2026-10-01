@@ -4,7 +4,23 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Refute generic spectator heat retention (2026-10-01 UTC)
+## Current increment: Weighted channel order without dropping spectator heat (2026-10-01 UTC)
+
+`SU2QuaternionFamilyHeatGramPositiveWeight` now proves weighted channel
+source monotonicity from constructed positive polynomial order, and exact
+c^2 source scaling. Its already-proved weighted kernel pin is public. The
+short new order certificate keeps the SAME original partial-swap heat and
+shared weight, with no absolute-value channel sum or bare spectator norm.
+
+This supplies the generic producer for the revised local-band argument.
+The actual terminal/fringe/common-spectator and SAME-variance joins remain
+open, as does useful scaling control of the retained cutoff/remainder debt.
+One focused check passed four gates in {propext, Quot.sound}; independent
+review passed. No new assumed analytic field, broad run or canonical chart
+change. Evidence: weighted-channel addendum in
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
+## Earlier increment: Refute generic spectator heat retention (2026-10-01 UTC)
 
 The SAME positive source at both ends of independent original SU(2) heat
 copies now has exact bare and heat masses (17/16)^m and (4097/4096)^m.

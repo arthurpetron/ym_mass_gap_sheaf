@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting weighted channel monotonicity (2026-10-01 UTC; chart
+unchanged): the actual spectator heat and whole certified shared weight
+give C_p(e)<=C_q(e) under certified positive source order p<=q, with exact
+scaling C_(c*p)(e)=c^2*C_p(e). The existing weighted partial-swap pin is
+now public. All signed channels and heat factors remain; no bare spectator
+mass comparison is assumed. Actual terminal-band/common-spectator and
+SAME-variance joins, plus useful cutoff/remainder scaling control, remain
+OPEN. One focused check passed four gates in {propext, Quot.sound}.
+Evidence: weighted-channel addendum in
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
 Verified supporting spectator-retention obstruction (2026-10-01 UTC;
 chart unchanged): positive independent copies of the SAME original one-link
 heat/source have bare square (17/16)^m and heat pairing (4097/4096)^m.
@@ -9,7 +20,8 @@ refutes only positivity/independence-only inference; the sources are not
 identified with physical terminal messages or independently gauge-invariant
 sources. No actual terminal or Clay claim is refuted. One focused check
 passed 25 gates in {propext, Quot.sound}. The existing passive-channel
-expansion still needs its first-order/SAME-variance bound and cutoff control.
+expansion still needs its actual first-order/SAME-variance join and cutoff
+control; the generic weighted monotonicity producer is recorded above.
 Evidence:
 `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md` addendum.
 

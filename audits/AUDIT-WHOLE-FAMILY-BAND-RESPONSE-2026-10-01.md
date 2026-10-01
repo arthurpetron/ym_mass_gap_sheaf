@@ -218,3 +218,72 @@ CI remains manual-only. No canonical frontier field or chart marker changed.
 
 Final log: `/tmp/ym-spectator-retention-fence-outside-final-20261001.log`.
 SHA-256: `7c1cde5d18caf60b4c8430473a52c864049b8097d64dfbaf3d6a52714b231bd7`.
+
+## Addendum: weighted channel monotonicity on the original kernel
+
+The weighted conditional-kernel pin mentioned above ALREADY existed as a
+private theorem; exporting it is not new mathematics. New source-order and
+scaling lemmas now supply the kernel-level local-band producer, rather than
+another energy-decomposition wrapper. All declarations in this addendum are
+in `lean/YMGap/Continuum/SU2QuaternionFamilyHeatGramPositiveWeight.lean`.
+
+For passive ids, write b_c(p)=familyProject(ids,p*c), cs=the ORIGINAL
+productChannels(n,w,K,ids), and
+
+    C_p(e)=sum_(c in cs) rho_c * H[b_c(p)^2 * e].
+
+The weight e is supported on the n-block carrier and independent of every
+passive id. `weighted_cross_pin`, line 83, proves C_p(e) equals
+
+    H_(2n)[productHeat(ids) * p * swap_ids(p) * e].
+
+Passive variables are copied; unselected variables remain SHARED. This is
+not the repository's subset productMap. No positivity hypothesis is needed
+for this exact identity. The polynomial e need not have independent square
+generators, and signed channel polynomials are retained.
+
+NEW `productChannels_familyProject_positiveWeighted_square_mono`, line
+136, requires 0<w<1, K>=headCutoff(w), distinct physical ids, support and
+WHOLE positive-polynomial certificates P,Q,E for p,q,e, plus D for q-p.
+It proves C_p(e)<=C_q(e). The short positive two-copy certificate is
+
+    productHeat * [(q-p)*swap(q) + p*swap(q-p)] * e.
+
+Its exact polynomial expansion is the upper kernel square minus the lower
+one. Extension and reindexing transport each existing certificate; Haar
+nonnegativity and the weighted kernel pin give the result. No normalization,
+source mass or variance is inverted. No positive sign is assigned separately
+to the channel polynomials, and no absolute coefficient budget is introduced.
+
+NEW `productChannels_familyProject_weighted_square_smul`, line 199, proves
+C_(c*p)(e)=c^2*C_p(e) for ANY rational c. It needs only the support,
+independence and channel-index conditions of the algebraic pin, not a
+positive c or a heat-floor hypothesis. Consequently a supplied local upper
+band q<=u*R can be used with the exact coefficient u^2, while keeping the
+SAME spectator heat and selected weight. This is a generic cone consequence,
+not yet an actual-terminal/SAME-variance theorem.
+
+The intended physical consumer remains l^2*A_ch<=12*u^2*Z*Var for the
+complete signed/repeated spatial family at the ORIGINAL odd-marginal mean.
+A_ch is the channel-weighted first-order angular sum, distinct from the
+old raw A=H[q^2*Gamma(f,f)]. Its actual producer still needs terminal-band
+transport through justified fringe projection, exact physical selected/passive
+partition and common-spectator moment pins, and the whole-family Gamma/Haar
+factorization. The old full-width raw A bound is unchanged. The existing
+channel energy/Taylor consumer must retain its actual signed cutoff and
+remainder debt. No useful scaling-small rate, continuum survival, physical
+mass, full same-theory QFT or every-group conclusion follows yet.
+
+The final focused check exited zero with all four printed gates EXACTLY
+{propext, Quot.sound}, including the unchanged Bessel-contraction theorem.
+Independent Luna source review confirmed the difference factorization,
+whole-weight certificates, c^2 coefficient and parameter scope. No sorry,
+new axiom, Classical dependency, native_decide or noncomputable declaration.
+No memory or heartbeat limits were raised. Only main compiled, serialized
+through the monitored one-worker 20 GiB launcher with 12 GiB OS reserve.
+Initial preflight for this sequence found no competing process, 84 percent
+pressure-free capacity and zero swap. No root/tree/audit/guard ran. CI and
+canonical fields/chart are unchanged; the ASCII chart was not reprinted.
+
+Final log: `/tmp/ym-weighted-channel-mono-20261001.log`.
+SHA-256: `d16f084bb76fcbcd5f3f1b37d312393d47d108d09c810fa39496ecf2d5d7e21b`.
