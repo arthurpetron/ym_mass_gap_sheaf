@@ -4,7 +4,26 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Complete original signed remainder cancels its source flux (2026-10-01 UTC)
+## Current increment: Original energy quadratic cost is bounded by a completed square (2026-10-01 UTC)
+
+PROGRESS after `68bf46e`: A-H[B^2]=H[(q*f)^2]/4-H[(B-q*f/2)^2], with
+actual Type-level supported square data. This removes a separate raw angular
+versus interacting variance comparison from the quadratic ceiling. Apply to
+psi centered by the SAME original mean: H[(q*psi)^2]=Z*Var-sourceCorrection.
+The original signed/repeated-family energy is at most (12*h+h^2/8)*Var plus
+the complete centered error, without a quadratic score-cap coefficient.
+
+That error keeps the SIGNED sourceCorrection, complete-weight Ward residual,
+and changing-source cubic, omitted-mode and angular-pair budgets. Their useful
+joint scaling control is not proved, and no error limit or new analytic input
+is supplied. Twenty-eight gates passed two accepted focused checks within the
+constructive gate, with independent mathematical/source/log review. No broad
+build/audit/guard, raised limit or ASCII reprint. Survival, physical time/mass,
+full continuum QFT and every group remain OPEN. The historical progress-metric
+script invokes a broad guard and was not run. Evidence:
+`audits/AUDIT-CENTERED-REMAINDER-SQUARE-2026-10-01.md`.
+
+## Earlier increment: Complete original signed remainder cancels its source flux (2026-10-01 UTC)
 
 PROGRESS after `0703b83`: exact finite-cutoff Taylor of the original angular
 weight defect cancels the source's quadratic curvature flux. The actual

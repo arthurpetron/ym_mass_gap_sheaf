@@ -25,6 +25,37 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Centered square completion in the original signed energy bound (2026-10-01 UTC)
+
+PROGRESS after `68bf46e`: literal Casimir pairing gives A=H[(q*f)*B], where
+B=q*Cf-2*Gamma(q,f). Complete the retained square BEFORE source estimates:
+A-H[B^2]=H[(q*f)^2]/4-H[(B-q*f/2)^2]. An explicit supported Type-valued square
+certificate supplies the nonnegative term; no eigenpin or score cap is used.
+
+Apply to psi centered by its ORIGINAL odd-marginal mean, not a q^2 mean.
+The exact same-object pin is H[(q*psi)^2]=Z*Var_odd-sourceCorrection(q,psi).
+Energy and marginal angular shift invariance plus the original family Ward
+identity give E<=(12*h+h^2/8)*Var_odd+completeCenteredError for arbitrary
+signed/repeated padded families. The error retains the signed source correction
+and complete Ward residual together with sourceCubic/omitted and angular-pair
+budgets. No sign, smallness or changing-source limit is assumed.
+
+Two accepted focused checks passed all 28 gates: four empty, one {propext},
+twenty-three {propext,Quot.sound}. Independent mathematical/source/log reviews
+passed. A default-heartbeat whnf timeout was repaired using locally opaque
+scalar definitions, not raised limits. One monitored 20 GiB worker and unchanged
+12 GiB reserve; no broad build/audit/guard or CI change. Root imports registered
+only. Evidence: `audits/AUDIT-CENTERED-REMAINDER-SQUARE-2026-10-01.md`.
+
+NEXT: useful JOINT completeCenteredError/SAME-variance control on a justified
+coupling/spatial/spacing family. This route no longer needs a separate raw
+angular-versus-variance estimate for its quadratic ceiling. The remaining
+terminal-source higher-mode/cutoff budgets and complete-weight Ward control
+are not supplied by transfer smoothing or the exact Ward identity. Do not infer
+smallness from h prefactors. Survival, physical mass/time, full continuum
+OS/QFT, field/UV identification, every group and Clay remain OPEN. No displayed
+claim changes; no ASCII reprint. The preceding user status turn was read-only.
+
 ### Exact source flux cancellation in the complete signed remainder (2026-10-01 UTC)
 
 PROGRESS after `0703b83`: collect the EXISTING angularWeightDefect into one

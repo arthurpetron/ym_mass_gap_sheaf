@@ -1,5 +1,34 @@
 # Sorry Ledger
 
+## PROVED centered square completion in original signed energy (2026-10-01 UTC)
+
+- `SU2QuaternionCompleteRemainderSquare.sourceFirstOrder_commutator_pair`
+  proves A=H[(q*f)*B] from actual Casimir pairing and product rules.
+  `sourceFirstOrder_sub_square_complete` gives A-H[B^2]=H[(q*f)^2]/4
+  minus a constructed nonnegative square. `completedSquareCertificate`
+  returns supported square data; `completeRemainder_square_completion` and
+  `completeRemainder_le_squareCeiling` retain original mode/cutoff budgets.
+- `BF4ExactSlabFixedSpatialCenteredRemainderSquare.normalizedEnergy_centered_taylor`
+  uses original energy/angular shift invariance. `centered_sourceSquare_pin`
+  gives the own-mean source square as SAME Z*Var minus SIGNED sourceCorrection.
+  `normalizedRemainder_centered_square_bound` cancels ONLY positive Z.
+  `padded_family_energy_centered_square` yields E<=(12*h+h^2/8)*Var
+  plus `completeCenteredError`, including signed source and Ward terms and
+  explicit changing-source cubic, omitted and angular-pair budgets.
+- All 28 gates passed two accepted focused checks: four empty, one {propext},
+  twenty-three {propext,Quot.sound}. Independent math/source/log review passed.
+  No sorry, axiom, Classical, native_decide, noncomputable, analytic premise or
+  weakened frontier. One monitored 20 GiB worker, unchanged 12 GiB OS reserve;
+  no raised limit, broad build/audit/guard or CI change. Root imports registered,
+  not aggregate-checked. Evidence:
+  `audits/AUDIT-CENTERED-REMAINDER-SQUARE-2026-10-01.md`.
+- OPEN: useful control of the COMPLETE centered error relative to SAME variance
+  along a justified coupling/spatial/spacing family. The quadratic raw angular
+  term now has a joint square ceiling; sourceCorrection and complete Ward
+  residual are NOT assigned signs. Source-dependent budgets are not uniformly
+  calibrated. Survival, physical time/mass, full continuum OS/QFT, field/UV
+  identification, every group and Clay remain OPEN.
+
 ## PROVED complete original signed remainder source flux cancellation (2026-10-01 UTC)
 
 - `SU2QuaternionCompleteRemainderCancellation.angularWeightChange_taylor`

@@ -4995,6 +4995,9 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyRelativeWard
 -- The retained square and explicit changing-source/cutoff budgets are not scaling closure.
 import YMGap.Continuum.SU2QuaternionCompleteRemainderCancellation
 import YMGap.Continuum.BF4ExactSlabFixedSpatialRemainderCancellation
+-- Complete the negative source square; SAME-variance correction and Ward debt remain signed.
+import YMGap.Continuum.SU2QuaternionCompleteRemainderSquare
+import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredRemainderSquare
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.
 import YMGap.Continuum.SU2HeatQuarticBudgetFloor
 -- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.

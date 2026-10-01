@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Centered original remainder square (2026-10-01 UTC):**
+`SU2QuaternionCompleteRemainderSquare` proves
+`A-H[B^2]=H[(q*f)^2]/4-H[(B-q*f/2)^2]`, with an explicit supported square
+certificate. `BF4ExactSlabFixedSpatialCenteredRemainderSquare` centers by the
+SAME odd mean and retains `H[(q*psi)^2]=Z*Var_odd-sourceCorrection` exactly.
+Its original signed/repeated-family bound has leading rate `12*h+h^2/8`
+and an explicit complete error, including signed source and Ward corrections
+and changing-source mode/cutoff budgets. No useful scaling bound is asserted.
+Twenty-eight gates passed two accepted focused checks within the constructive
+gate, with independent reviews. No new analytic premise or full-root build.
+Useful signed scaling, survival, physical mass, continuum QFT and all groups
+remain OPEN. Evidence: `audits/AUDIT-CENTERED-REMAINDER-SQUARE-2026-10-01.md`.
+
 **Complete original signed remainder cancellation (2026-10-01 UTC):**
 `SU2QuaternionCompleteRemainderCancellation` proves exact cancellation of the
 quadratic source-curvature flux against the angular-weight Taylor coefficient,

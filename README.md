@@ -10,6 +10,18 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Square completion in the original energy bound (2026-10-01):**
+the joint raw angular term minus its commutator square is now at most one
+quarter of the source-observable squared norm. Centering by the ORIGINAL
+interacting mean gives that norm as `Z*Var_odd` minus a signed source correction.
+The whole signed/repeated-family consumer proves
+`E <= (12*h+h^2/8)*Var_odd + completeCenteredError`, `h=1-w`, without a
+score-cap coefficient in the quadratic term. The error retains the signed
+source correction, complete Ward residual and changing-source/cutoff budgets;
+their useful scaling control remains OPEN. Twenty-eight focused axiom gates
+and independent reviews passed. This is not continuum or physical mass closure.
+See the [proof and remaining input](audits/AUDIT-CENTERED-REMAINDER-SQUARE-2026-10-01.md).
+
 **Exact cancellation in the complete signed remainder (2026-10-01):**
 on the ORIGINAL projected endpoint source, the quadratic source-curvature
 flux cancels against the angular change-of-weight correction before estimates.

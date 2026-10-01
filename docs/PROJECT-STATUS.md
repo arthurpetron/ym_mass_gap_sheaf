@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting centered remainder square (2026-10-01 UTC; chart
+unchanged): the joint raw angular/commutator term has an exact completed
+negative square and a quarter source-square ceiling. Own-mean centering gives
+the SAME Z*Var minus a SIGNED sourceCorrection, not a replacement law.
+The original signed/repeated-family consumer has rate 12*h+h^2/8 and keeps
+the complete signed source/Ward correction plus mode/cutoff budgets. Twenty-eight
+focused gates and independent reviews passed. Useful COMPLETE-error scaling,
+survival, physical time/mass, continuum QFT and all groups remain OPEN.
+No displayed claim changed; no ASCII reprint. Evidence:
+`audits/AUDIT-CENTERED-REMAINDER-SQUARE-2026-10-01.md`.
+
 Verified supporting COMPLETE original signed remainder cancellation
 (2026-10-01 UTC; chart unchanged): the quadratic source-curvature flux cancels
 against the actual angular-weight defect before estimates or normalization.
