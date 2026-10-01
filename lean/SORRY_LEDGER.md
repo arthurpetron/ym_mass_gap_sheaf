@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED scalar quartic majorant and represented bond completion (2026-10-01 UTC)
+
+- `SU2HeatQuarticCoefficientMajorant.quarticP_le_majorant` bounds the
+  signed five-term polynomial by n*(1-A)^4+12*(1-V)*(1-A)+15*(n+2)*(1-V)^2
+  for n>=0 and 0<=A,V<=1. Its excess is an explicit sum of six nonnegative
+  terms. OPEN: original second-fusion coefficient identification, exceptional
+  low spins, finite boundary and moving high-spin tail. The reviewed
+  h-specialization and diagnostic schedule are not yet Lean theorems.
+- `BF4WilsonAllNomeBondOSCompletion` constructs explicit physical Cauchy
+  rows and closeness moduli, computed representative maps, both quotient
+  inverse laws, isometry, and original constant-source distance/pairing pins.
+  This is fixed nome/width, with the existing range witnesses preserved
+  before quotienting. It does not choose representatives, supply the canonical
+  continuum OS root, or descend the time-zero multiplier algebra.
+- OPEN: SAME-variance source-relative energy estimate, justified physical
+  scaling/time calibration, survival, full QFT/every-group/Clay. No existing
+  sorry, canonical field or chart node changed. Two final focused checks
+  passed 27 gates within {propext, Quot.sound}; no broad run. Evidence:
+  `audits/AUDIT-QUARTIC-MAJORANT-AND-BOND-COMPLETION-2026-10-01.md`.
+
 ## PROVED ORIGINAL heat mass comparison and bond quotient (2026-10-01 UTC)
 
 - `SU2QuaternionHeatNomeComparison.prefix_nome_mono` proves selected

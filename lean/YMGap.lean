@@ -4927,6 +4927,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonRadialIncrement
 -- The pointwise kernel-shape and SAME-variance scaling estimates remain open.
 import YMGap.Continuum.SU2QuaternionHeatNomeComparison
 import YMGap.Continuum.BF4ExactSlabFixedSpatialHeatNomeComparison
+-- Scalar signed second-fusion majorant; original coefficient and moving-tail joins remain.
+import YMGap.Continuum.SU2HeatQuarticCoefficientMajorant
 -- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoung
 -- Scalar coefficient bounds only; no four-link spin-two heat image is assumed.
@@ -5908,6 +5910,7 @@ import YMGap.Continuum.BF4WilsonAllNomeSectorSubgapResolvent
 import YMGap.Continuum.BF4WilsonAllNomeBondReflectedForm
 import YMGap.Continuum.BF4WilsonAllNomeBondOSRealization
 import YMGap.Continuum.BF4WilsonAllNomeBondOSQuotient
+import YMGap.Continuum.BF4WilsonAllNomeBondOSCompletion
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary

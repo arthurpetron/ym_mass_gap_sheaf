@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting scalar quartic majorant and represented physical bond
+completion (2026-10-01 UTC; chart unchanged): six nonnegative products give
+a short signed-polynomial bound for the low-spin quartic route. Its original
+heat-coefficient identification and moving high-spin tail remain OPEN.
+Separately, explicit physical Cauchy rows now give inverse quotient maps
+and an isometry to the existing witnessed time sector, retaining moduli
+and original constant-source pairing/distance. This is fixed nome/width,
+not the canonical continuum OS root or a physical scaling result.
+Two focused checks passed 27 gates within {propext, Quot.sound}; no broad
+run or canonical change. Evidence:
+`audits/AUDIT-QUARTIC-MAJORANT-AND-BOND-COMPLETION-2026-10-01.md`.
+
 Verified supporting ORIGINAL heat comparison and physical bond quotient
 (2026-10-01 UTC; chart unchanged): decreasing one selected heat nome
 decreases its quadratic mass with the complete original source retained.

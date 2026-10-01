@@ -452,6 +452,17 @@ is selected. This is not a separate completed source quotient/isometry or
 the canonical continuum OS root. Evidence:
 `audits/AUDIT-HEAT-NOME-ORDER-AND-BOND-QUOTIENT-2026-10-01.md`.
 
+FOLLOW-ON PROVED: `BF4WilsonAllNomeBondOSCompletion` now constructs the
+represented physical bond completion itself. Rows and their closeness
+retain explicit moduli; the quotient relation starts from physical bond
+distance. Computed original limits give inverse quotient maps and an
+isometry to the existing witnessed time sector modulo underlying-vector
+equality. Constant sources recover the physical distance and pairing.
+Representative maps retain range witnesses; no witness is selected from
+a quotient. This completes the fixed-nome/width represented join, not the
+canonical continuum OS root or a time-zero multiplier action. Evidence:
+`audits/AUDIT-QUARTIC-MAJORANT-AND-BOND-COMPLETION-2026-10-01.md`.
+
 NEXT reconstruction residue: the SAME-object canonical limiting half-space
 OS/observable identification and physical spectral join, not another
 real-to-complex compatibility wrapper or an unjustified total Hamiltonian.
@@ -597,15 +608,30 @@ Thus an additive constant kernel error does NOT require an inverse heat
 minimum in this symmetric same-source setting. The contrary initial
 source-review concern was incorrect; the existing vacuum channel suffices.
 The affine consumer requires an explicit shape certificate and constructs
-the original positive insertion. NEXT on this radial route: supply the
-quartic pointwise/certificate heat-widening estimate and its cutoff error,
-then the full-word mixed-moment comparison with SAME centered variance.
-Do not reprove nome order or error absorption, do not assume the shape
-certificate, and do not infer a variance or physical-scale estimate from
-partition control. The combined signed-correction route remains available.
-Together with the physical bond quotient above, three focused serialized
-checks passed 21 gates within {propext, Quot.sound}; no canonical change
-or broad run. Evidence:
+the original positive insertion. A pointwise heat-widening certificate is
+one possible route, not a necessary intermediate theorem. The new
+`SU2HeatQuarticCoefficientMajorant.quarticP_le_majorant` supplies a shorter
+scalar step toward a character-channel split: an exact six-positive-term
+identity bounds the signed five-term polynomial by
+n*(1-A)^4+12*(1-V)*(1-A)+15*(n+2)*(1-V)^2 on 0<=A,V<=1, n>=0.
+NEXT: prove its identification with the original second-fusion coefficients,
+handle low spins and finite cutoff boundaries, and supply a moving
+dimension-squared tail bound by blocks. The current one-index ratio guard
+is too coarse at L approximately (1-w)^(-2/3). The reviewed low/high
+estimates and diagnostic dyadic schedule are not yet kernel-checked or a
+physical scaling family. Existing character upper bounds require the full
+pointwise certificate W*a*lift(a), which the ORIGINAL positive endpoint
+source supplies; PSD alone or a centered signed source does not suffice.
+After that, the full-word mixed moment versus SAME centered variance and
+physical time calibration remain. Do not reprove nome order, error
+absorption or positive-source certification, and do not infer survival
+from partition control. The combined signed-correction route remains available.
+The new scalar proof and represented bond completion passed 27 printed
+gates in two focused checks, with no canonical change or broad run. Evidence:
+`audits/AUDIT-QUARTIC-MAJORANT-AND-BOND-COMPLETION-2026-10-01.md`.
+The preceding heat-comparison/bond-quotient checkpoint passed 21 gates
+within {propext, Quot.sound} in three focused serialized checks, with no
+canonical change or broad run. Its evidence remains:
 `audits/AUDIT-HEAT-NOME-ORDER-AND-BOND-QUOTIENT-2026-10-01.md`.
 The now-proved one-step source/domain transfer already controls the actual
 derivative energy, retained norm and source replacement. Do not build another
