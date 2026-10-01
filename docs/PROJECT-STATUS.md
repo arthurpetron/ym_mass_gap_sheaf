@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting original one-head smoothing (2026-10-01 UTC; chart
+unchanged): the ACTUAL spectator-preserving headMap now obeys
+(1-w)*H[angularSquare(P_head p)]<=H[p*P_head p] for every supported signed
+input, every cutoff and 0<=w<=1. Exact grouped output energy retains
+within-degree signed cross terms; no heat floor enters. Full weighted
+product/terminal composition and SAME interacting-variance identification
+remain OPEN, as do scaling, survival, physical mass, QFT and all groups.
+Three focused checks passed eight gates (seven new); no broad run.
+Evidence: one-head smoothing addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 Verified supporting generic-source obstruction (2026-10-01 UTC; chart
 unchanged): an exact concentrated one-link Ward family has strictly positive
 Haar mass/second moment. Computed source/nome witnesses defeat EVERY

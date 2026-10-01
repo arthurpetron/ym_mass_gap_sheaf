@@ -25,6 +25,44 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Actual one-head output smoothing, without a heat floor (2026-10-01 UTC)
+
+The integrated candidate now has its concrete one-head operator join.
+`SU2HeatSquaredCasimirSmoothing.attenuation_squared_casimir_smoothing`
+proves h*lambda*a_d^2<=a_d, h=1-w, for the ORIGINAL cutoff attenuation;
+omitted degrees give zero on both sides. Finite geometric sums supply
+the bound for every 0<=w<=1, without a large-cutoff guard.
+
+`SU2QuaternionHeadHeatSmoothing.headMap_grouped` identifies the computed
+spectator-preserving headMap output under EVERY Haar insertion. Its
+`headMap_angular_grouped` proves the exact output energy
+sum lambda*a_d^2*H[group_d^2]. Complete signed contributions are grouped
+BEFORE squaring; different-degree orthogonality does not discard
+within-degree cross terms. The generalized angular Pythagoras producer
+is `GroupedAngularEnergy.carrier_harmonic_sum_angular_energy`.
+
+`headMap_angular_smoothing` consequently proves
+
+    (1-w)*H[angularSquare(headMap(w,K,p))] <= H[p*headMap(w,K,p)]
+
+for every supported signed input, every cutoff, and every spectator count.
+This is a source-independent rescaled ORIGINAL local smoothing estimate,
+not a pointwise signed Casimir/kernel bound or a heat-floor comparison.
+Three focused checks passed eight printed gates (seven new plus one existing),
+all within {propext, Quot.sound}. Independent source review passed. No broad
+run, canonical frontier change or unchanged-chart reprint. Evidence:
+one-head smoothing addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+NEXT: retain the actual terminal recursion and endpoint action while joining
+the local smoothing to the complete weighted product/channel energy and
+SAME interacting variance. `productMap` integrates omitted coordinates;
+it is NOT this spectator-preserving headMap. Its existing signed degree-path
+expansion does not itself supply joint orthogonality/positive masses.
+Neither arbitrary spectator-weight orthogonality nor the desired terminal
+comparison is assumed. Signed physical scaling, nonzero continuum survival,
+physical mass, full QFT and every compact simple group remain OPEN.
+
 ### Concentrated-source Ward obstruction on actual heat (2026-10-01 UTC)
 
 The bounded nonnegativity-only calibration test is now proved, not just

@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED original one-head output angular smoothing (2026-10-01 UTC)
+
+- `SU2HeatSquaredCasimirSmoothing.casimir_power_le_one` uses a finite
+  geometric sum to prove h*lambda*w^lambda<=1, with h=1-w. Its
+  `attenuation_squared_casimir_smoothing` proves h*lambda*a_d^2<=a_d
+  for actual retained/omitted cutoff degrees, including all endpoint cases.
+- `SU2QuaternionGroupedAngularEnergy.carrier_harmonic_sum_angular_energy`
+  reuses original angular Pythagoras for a represented finite harmonic sum.
+- `SU2QuaternionHeadHeatSmoothing.headMap_grouped` pins the actual computed
+  head output under arbitrary Haar insertion. `headMap_angular_grouped`
+  identifies its exact six-plane energy with sum lambda*a_d^2*H[group_d^2].
+  Signed contributions within each degree remain in one square.
+- `headMap_angular_smoothing` proves h*H[angularSquare(P_head p)]<=H[p*P_head p]
+  for every supported signed input, every finite cutoff and 0<=w<=1.
+  Spectators remain shared; no heat floor or degree/cutoff restriction enters.
+- OPEN: the RHS is UNCENTERED original one-head heat pairing, not the
+  original interacting variance. Full weighted product/channel composition,
+  terminal endpoint action, signed scaling, survival, physical mass, full QFT
+  and every group remain OPEN. No productMap/headMap substitution is made.
+- Three focused file checks passed eight printed gates, including one
+  unchanged existing declaration. All lie within {propext, Quot.sound}.
+  Independent source review passed; no new sorry/axiom, Classical dependency,
+  native_decide or noncomputable declaration. No broad run or canonical chart
+  change. Evidence: one-head smoothing addendum in
+  `audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
 ## PROVED nonnegativity-only source calibration obstruction (2026-10-01 UTC)
 
 - `SU2QuaternionConcentratedSourceWard.sourceCertificate` constructs the

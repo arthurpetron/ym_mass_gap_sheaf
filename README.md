@@ -10,6 +10,12 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original local heat smoothing (2026-10-01):** a checked output-energy
+estimate now controls the actual spectator-preserving one-link heat update
+without a heat-floor constant, for arbitrary signed sources and every cutoff.
+The full weighted terminal/interacting-variance join remains open. See the
+[proof and scope](audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md#addendum-original-one-head-output-angular-smoothing).
+
 **Generic-source calibration limitation (2026-10-01):** an exact Ward
 recurrence now constructs nonnegative one-link sources whose original
 finite-step energy defeats every proposed source-independent coefficient

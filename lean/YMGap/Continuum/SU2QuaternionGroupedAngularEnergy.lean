@@ -255,6 +255,23 @@ private theorem qListSum_pairValue (blocks : Nat) (f : Nat → RatPoly) :
   | d::ds => Q'.add_eqv_congr' (Q'.eqv_symm (angularSquare_pairValue blocks (f d)))
       (qListSum_pairValue blocks f ds)
 
+/-- Angular Pythagoras for a carrier represented by any finite collection of
+distinct harmonic degrees. Scalar weights may be included in the harmonics;
+within-degree cross terms are never discarded. This supplies the output-side
+energy identity for the actual heat-smoothed polynomial. -/
+theorem carrier_harmonic_sum_angular_energy (tail : Nat) (p : RatPoly)
+    (f : Nat → RatPoly)
+    (hf : ∀ d, HasQuaternionBlockDegree 0 d (f d))
+    (hh : ∀ d, RatPolyCoeffEqv (headLaplacian (f d)) polyZero)
+    (ids : List Nat) (hids : ids.Nodup)
+    (hc : HaarCarrierEqv (tail+1) p (polySum (ids.map f))) :
+    quaternionHaar (tail+1) (angularSquare p) ≈
+      qListSum (ids.map fun d => quaternionHaar (tail+1) (angularSquare (f d))) :=
+  Q'.eqv_trans _ _ _ (haar_of_carrier (angularSquare_carrier (by omega) hc))
+    (Q'.eqv_trans _ _ _ (angularSquare_pairValue (tail+1) _)
+      (Q'.eqv_trans _ _ _ (pair_norm_sum tail f hf hh ids hids)
+        (qListSum_pairValue (tail+1) f ids)))
+
 /-- The original polynomial's complete six-plane energy is exactly the sum of
 the energies of its complete signed harmonic-degree groups. -/
 theorem polynomial_angular_energy (tail : Nat) (p : RatPoly)
@@ -280,3 +297,4 @@ theorem polynomial_angular_energy (tail : Nat) (p : RatPoly)
 end YMGap.Continuum.SU2QuaternionGroupedAngularEnergy
 
 #print axioms YMGap.Continuum.SU2QuaternionGroupedAngularEnergy.polynomial_angular_energy
+#print axioms YMGap.Continuum.SU2QuaternionGroupedAngularEnergy.carrier_harmonic_sum_angular_energy

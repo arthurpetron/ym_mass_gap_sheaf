@@ -4,7 +4,27 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Actual-heat generic-source obstruction (2026-10-01 UTC)
+## Current increment: Original output angular smoothing (2026-10-01 UTC)
+
+The previously missing output-side pin is now proved for the ACTUAL
+spectator-preserving headMap. Its complete signed harmonic-degree groups
+give exact six-plane energy sum lambda*a_d^2*H[group_d^2]. A short finite
+geometric argument pays that energy with the original input heat pairing:
+(1-w)*H[angularSquare(P_head p)]<=H[p*P_head p]. Every supported signed
+input and every cutoff work; no heat floor, source-dependent constant or
+degree-below-cutoff premise is used.
+
+This contracts the proposed scalar-to-concrete-local-operator seam, not the
+full terminal/SAME-variance seam. The RHS is an UNCENTERED heat pairing;
+the full product, endpoint action and spectator weights cannot be dropped.
+NEXT is their actual weighted composition/variance join, not another
+conditional wrapper. Scaling survival, physical mass, full QFT and every
+group remain OPEN. Three focused checks passed eight gates (seven new),
+with independent review and no broad run or canonical chart change.
+Evidence: one-head smoothing addendum in
+`audits/AUDIT-ACTUAL-FIRST-ORDER-SAME-VARIANCE-2026-10-01.md`.
+
+## Earlier increment: Actual-heat generic-source obstruction (2026-10-01 UTC)
 
 The exact concentrated one-link radial source now has constructed finite
 nonnegativity certificates, positive Haar mass/second moment and zero first

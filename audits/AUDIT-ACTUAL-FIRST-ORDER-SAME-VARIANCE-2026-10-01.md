@@ -312,3 +312,98 @@ Accepted logs and SHA-256:
   `1f23bf2af13a48af52088d6e650cd767d8b1ad6bd7a77c55fcf8dbc7d4e16324`.
 - `/tmp/ym-concentrated-source-heat-fence-accepted-20261001.log`:
   `9e755e1ad176d98c6b6359037831fd1b66ab11c23a8701c82794ee9b63752b07`.
+
+## Addendum: original one-head output angular smoothing
+
+Date: 2026-10-01 UTC. The integrated candidate above now has a proved
+scalar-to-concrete-local-operator join. This supplies an output-side estimate
+on an actual heat-smoothed source; it is not a new assumed terminal certificate.
+
+### Scalar input and exact output realization
+
+`SU2HeatSquaredCasimirSmoothing.casimir_power_le_one`,
+`lean/YMGap/Continuum/SU2HeatSquaredCasimirSmoothing.lean:24`, proves
+h*lambda*w^lambda<=1, h=1-w, using the exact finite geometric sum.
+`qpow_squared_casimir_smoothing`, `:57`, pays a squared heat multiplier.
+`attenuation_squared_casimir_smoothing`, `:75`, applies this to the
+ORIGINAL finite-cutoff attenuation a_d, with lambda=d*(d+2):
+
+    h*lambda*a_d^2 <= a_d.
+
+The quantifiers are 0<=w<=1 and every K,d; omitted degrees have a_d=0.
+No input-degree-below-cutoff, sufficient-cutoff or pointwise heat-floor
+premise is used.
+
+`SU2QuaternionGroupedAngularEnergy.carrier_harmonic_sum_angular_energy`,
+`lean/YMGap/Continuum/SU2QuaternionGroupedAngularEnergy.lean:262`, generalizes
+the existing angular Pythagoras to a carrier represented by any finite
+distinct-degree harmonic sum. It reuses the proved carrier derivative
+congruence and original angular orthogonality, not a supplied norm identity.
+
+`SU2QuaternionHeadHeatSmoothing.headMap_grouped`,
+`lean/YMGap/Continuum/SU2QuaternionHeadHeatSmoothing.lean:64`, pins the ACTUAL
+computed headMap under EVERY arbitrary Haar insertion. The head map is the
+existing conditional original two-link heat with all spectators shared.
+`headMap_angular_grouped`, `:138`, consequently proves
+
+    H[angularSquare(P_head p)] = sum_d lambda*a_d^2*H[group_d^2].
+
+The groups are computed from the supported ORIGINAL p. Complete signed
+equal-degree contributions are added before squaring, so their cross terms
+remain. The actual output energy is not replaced by an abstract norm budget.
+
+### Concrete consumer and residue
+
+`headMap_angular_smoothing`,
+`lean/YMGap/Continuum/SU2QuaternionHeadHeatSmoothing.lean:174`, proves
+
+    (1-w)*H[angularSquare(P_head p)] <= H[p*P_head p]
+
+for every supported signed p, every cutoff, every spectator count and
+0<=w<=1. Each nonnegative full grouped square multiplies the scalar bound;
+`HeadHeatDiagonal.polynomial_diagonal` supplies the SAME original RHS.
+The numerator constant is one; all coupling dependence is explicit in h.
+This is a source-independent rescaled one-head smoothing estimate. For
+w<1 its unscaled cost is 1/(1-w), not a heat-floor quotient. At w=1 the
+statement is degenerate, not a uniform unscaled derivative bound.
+
+The RHS is UNCENTERED Haar heat pairing. It is not the original interacting
+variance or an OS form. The headMap preserves spectator coordinates,
+whereas `productMap` integrates omitted coordinates; they are not identified.
+The actual terminal recursion includes the spatial action and full product
+heat. Its existing signed degree-path expansion does not prove joint-mode
+orthogonality or permit dropping spectator/endpoint weights.
+
+NEXT remains their genuine weighted composition and SAME-variance join,
+with joint signed corrections retained along a justified physical family.
+A centered original heat-pairing refinement would also need actual constant
+and linearity pins; merely applying the inequality to a shifted polynomial
+does not assert that refinement. No new analytic input field is introduced.
+Actual signed physical scaling, nonzero continuum survival, physical mass,
+full QFT and every compact simple group remain OPEN. No canonical marker
+changed; no unchanged ASCII chart was printed.
+
+### Focused verification
+
+Three final focused file checks exited zero with eight printed gates, seven
+new and one existing. All dependencies are within {propext, Quot.sound};
+no new sorry, axiom, Classical dependency, native_decide or noncomputable
+declaration occurs. Independent Luna review passed the cutoff cases,
+degree grouping, signed source, shared spectators and inequality direction.
+Sol's source review confirmed that no immediate terminal/variance join is
+available. Missing namespaces and an unspecified scalar multiplier were
+repaired before acceptance, without changing the mathematical estimate.
+
+Main alone compiled through the safe-build skill's focused monitored
+launcher, one worker, mandatory 20 GiB ceiling and 12 GiB OS reserve.
+Preflight found 84 percent pressure-free memory, zero swap and no competing
+Lean/Lake/test/runner process. No limit was raised. Root imports register
+the modules only; no aggregate/root/tree build, broad audit or guard ran.
+CI remains manual-only. Accepted logs and SHA-256:
+
+- `/tmp/ym-squared-casimir-smoothing-accepted-20261001.log`:
+  `76afd52791fedb3119e3aeb3c121269915d278ec30787454b21c861239219681`.
+- `/tmp/ym-harmonic-output-angular-20261001.log`:
+  `77c7512f5143802448f8182dd79a621befd9936dd5fbb9f36a11ec0449f55232`.
+- `/tmp/ym-original-head-smoothing-final-scope-20261001.log`:
+  `ccfd7e4254a377a96b2c4ff6ca52ec0e3f2facf4070fc1e672c1df0cf4bc63f0`.

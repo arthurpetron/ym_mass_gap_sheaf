@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original one-head angular smoothing (2026-10-01 UTC):**
+`SU2QuaternionHeadHeatSmoothing.headMap_angular_smoothing` proves
+(1-w)*H[angularSquare(P_head p)]<=H[p*P_head p] for the actual
+spectator-preserving head update, arbitrary signed input and every cutoff.
+`SU2HeatSquaredCasimirSmoothing` supplies the division-free scalar estimate;
+exact output degree groups retain signed cross terms. The RHS is uncentered,
+not interacting variance; the weighted terminal/physical scaling join remains
+OPEN. Three focused checks passed eight gates; no broad run or Clay closure.
+
 **Generic-source Ward obstruction (2026-10-01 UTC):**
 `SU2QuaternionConcentratedSourceWard` constructs nonnegative radial sources
 and exact mass/angular identities. `ConcentratedSourceMoments` proves strict
