@@ -4971,6 +4971,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonQuarticIncrement
 import YMGap.Continuum.SU2HeatQuarticDyadicSchedule
 import YMGap.Continuum.SU2HeatQuarticDyadicBudget
 import YMGap.Continuum.BF4ExactSlabFixedSpatialDyadicQuartic
+-- A logarithmic spin split sharpens ORIGINAL word/trace fourth moments.
+-- Diagnostic heat parameters only; the mixed radial/SAME-variance input stays open.
+import YMGap.Continuum.SU2HeatQuarticLogDyadicBudget
+import YMGap.Continuum.BF4ExactSlabFixedSpatialLogQuartic
 -- The displayed majorant retains a quadratic floor; not a true-moment lower bound.
 import YMGap.Continuum.SU2HeatQuarticBudgetFloor
 -- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.

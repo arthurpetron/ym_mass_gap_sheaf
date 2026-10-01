@@ -25,6 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original-source fourth moment sharpened by a logarithmic split (2026-10-01 UTC)
+
+PROGRESS after `a9c7189`: source review found no valid route from existing
+first alignment or terminal positivity to the missing mixed radial/SAME-
+variance estimate. No generic-source shortcut or guessed scaling law is added.
+Instead, re-optimize the existing actual-source quartic estimate: at
+`h=2^(-6r)` take `S=r*2^(3r)`. For every `r>=22`, the low-spin head is at
+most `808*r^4*h^2`; the complete high-spin tail is at most `80*r^4*h^2`,
+using `w^(S^2)<=2^(-r^2)`. Both required heat guards are proved.
+
+`SU2HeatQuarticLogDyadicBudget.logBudget_bound` gives the explicit total
+`888*r^4*h^2`, improving the prior diagnostic `O(h^(4/3))` ceiling.
+`BF4ExactSlabFixedSpatialLogQuartic.word_quartic_log_bound` retains the
+ORIGINAL spatial/terminal edge density, odd partition, ordered word and
+explicit fourth-power path-length factor. The literal trace jump is twice
+the scalar word difference; its actual fourth moment and SAME-partition
+normalized fourth moment have sixteen times the word ceiling.
+`wilson_energy_log_quartic` consumes the sharper remainder in the ORIGINAL
+radial energy formula, leaving `2*mixedRadialMoment` explicit and unchanged.
+
+Four focused checks passed 37 gates: ten axiom-free, two propext-only, and
+twenty-five exactly {propext, Quot.sound}. Independent source and mathematical
+reviews passed. One monitored 20 GiB worker, unchanged 12 GiB OS reserve,
+no full root/tree build, broad audit, guard, raised limit or CI change.
+Root imports are registered, not checked in aggregate. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-QUARTIC-2026-10-01.md`.
+
+NEXT remains the PRIMARY useful COMPLETE signed energy/SAME-interacting-
+variance estimate on a justified changing-coupling/spatial/spacing family.
+The mixed radial/source-spectrum comparison is NOT supplied by this scalar
+optimization, nor is a completed spatial map or a physical scaling trajectory.
+Nontrivial continuum survival, physical time/mass, full continuum OS/QFT,
+field/UV identification and every compact simple group remain OPEN.
+Displayed chart claims are unchanged; no ASCII reprint.
+
 ### Whole-family original kinetic upper reaches completion (2026-10-01 UTC)
 
 PROGRESS after `855b0c3`: reuse the existing error-free SU(2) alignment under

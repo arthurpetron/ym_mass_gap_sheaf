@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Sharper original-source fourth moments (2026-10-01 UTC):**
+`SU2HeatQuarticLogDyadicBudget` proves the complete head/tail budget
+`888*r^4*h^2` for `h=2^(-6r)`, spin split `r*2^(3r)` and `r>=22`.
+`BF4ExactSlabFixedSpatialLogQuartic` applies it to the ACTUAL word chordal
+fourth moment, fundamental trace-jump fourth moment and original radial energy
+formula. The trace jump is pinned on the SAME doubled carrier and pays the
+exact factor sixteen; normalization uses only the SAME positive odd partition.
+Thirty-seven gates passed four focused checks, within {propext, Quot.sound}.
+Independent reviews passed; no new analytic premise, broad build or raised limit.
+Mixed radial control, useful signed SAME-variance scaling, survival, physical mass,
+continuum QFT and all groups remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-QUARTIC-2026-10-01.md`.
+
 **Whole-family kinetic upper on the original carrier (2026-10-01 UTC):**
 `BF4ExactSlabFixedSpatialFamilyKineticUpper` joins existing exact active-link
 alignment to the WHOLE signed family under the original complete edge law.

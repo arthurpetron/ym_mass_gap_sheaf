@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting sharper ORIGINAL fourth moments (2026-10-01 UTC;
+chart unchanged): the computed split S=r*2^(3r) at h=2^(-6r), r>=22,
+reduces the complete actual-source quartic ceiling to 888*r^4*h^2.
+Both heat guards and the entire tail are proved. Actual ordered-word and
+fundamental trace-jump fourth moments retain SAME edge density and oddMass;
+the trace factor is sixteen. Original radial energy consumes this remainder
+without estimating or dropping its mixed radial moment. Thirty-seven focused
+gates passed within the constructive gate, with independent reviews. No
+physical scaling or SAME-variance ratio follows; primary signed scaling,
+survival, physical mass, continuum QFT and all groups remain OPEN. Evidence:
+`audits/AUDIT-ORIGINAL-LOG-QUARTIC-2026-10-01.md`.
+
 Verified supporting WHOLE-family original kinetic upper (2026-10-01 UTC;
 chart unchanged): existing error-free SU(2) alignment and actual oriented
 word/face telescoping now give absolute signed-family energy bounds without

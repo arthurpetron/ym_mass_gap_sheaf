@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Sharper original-source fourth moments (2026-10-01):** a computed spin split
+now improves the existing quartic ceiling from `O(h^(4/3))` to the explicit
+`888*r^4*h^2`, where `h=2^(-6r)` and `r>=22`. The unchanged Wilson edge law
+gives actual ordered-word and fundamental trace-jump fourth moments, retaining
+the original terminal source and partition. The radial energy formula consumes
+this sharper remainder; its mixed radial moment and useful SAME-variance scaling
+estimate remain open. This is a diagnostic heat schedule, not continuum scaling.
+See the [proof and scope](audits/AUDIT-ORIGINAL-LOG-QUARTIC-2026-10-01.md).
+
 **Whole signed-family kinetic estimate (2026-10-01):** the original
 completed centered family now satisfies
 `B(v,v)-B(v,T(n)v) <= 192*n*(1-w)*(sum abs c)^2` at every integer time lag.

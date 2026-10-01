@@ -237,6 +237,15 @@ private theorem jump_pin (width : Nat) (loop : SourceLoop width) :
         (RatPolyCoeffEqv.neg (QuaternionHaarPolynomialSquareBound.cap_mul_left 2 q))).symm.trans
         (h.trans (QuaternionHaarPolynomialSquareBound.cap_mul_left 2 _))))
 
+/-- The exact padded fundamental-character jump pin is also used by the
+fourth-moment consumer. It retains the SAME literal ordered words. -/
+theorem fundamental_jump_scalar_pin (width : Nat) (loop : SourceLoop width) :
+    PaddedPolynomialCoeffEqv (N width+N width)
+      (jump width (sourceCharacter width loop.edges 1))
+      (polySmul 2 (difference (sourceWord width loop.edges)
+        (wordWith (upperOriented width) loop.edges)).scalar) :=
+  jump_pin width loop
+
 private theorem double_square (p : RatPoly) :
     RatPolyCoeffEqv (polyMul (polySmul 2 p) (polySmul 2 p)) (polySmul 4 (polyMul p p)) :=
   (RatPolyCoeffEqv.polyMul_smul_left 2 p (polySmul 2 p)).trans
@@ -372,6 +381,7 @@ end YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.upperOriented
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.word_increment_bound
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.upper_character_lift
+#print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.fundamental_jump_scalar_pin
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.wilson_energy_of_link_budget
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.wilson_energy_cleared
 #print axioms YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonKineticIncrement.wilson_energy_normalized

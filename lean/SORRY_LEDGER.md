@@ -1,5 +1,35 @@
 # Sorry Ledger
 
+## PROVED sharper ORIGINAL word/trace fourth moments (2026-10-01 UTC)
+
+- `SU2HeatQuarticLogDyadicBudget` uses `h=2^(-6r)`, `logSplit=r*2^(3r)`
+  and `logOnset=22`. `logHalf_guard` and `logTail_le_eighth` satisfy the
+  existing quartic producer's actual guards; `logTail_guard` pays the tail
+  by `2^(-r^2)`. `logBudget_bound` proves `888*r^4*h^2`, not an assumed
+  near-quadratic rate or a replacement of the original polynomial budget.
+- `BF4ExactSlabFixedSpatialWilsonKineticIncrement.fundamental_jump_scalar_pin`
+  exposes the existing exact padded ordered-word identity for its actual
+  fourth-moment consumer. `WilsonQuarticIncrement.jumpFourthMoment` retains
+  the literal trace jump and full ORIGINAL edge density;
+  `jump_fourth_le_word_square` proves the exact factor-sixteen upper bound.
+- `BF4ExactSlabFixedSpatialLogQuartic.logCutoff` satisfies BOTH original
+  head and shifted-spin guards. `word_quartic_log_bound`,
+  `jump_fourth_log_bound` and `jump_fourth_log_normalized` bound ACTUAL
+  original moments at every later cutoff stage, every width/depth, and every
+  supplied word whose links are active. `wilson_energy_log_quartic` consumes
+  the sharper quartic term while retaining the original mixed radial moment.
+- All 37 gates passed four focused checks: ten empty, two {propext}, and
+  twenty-five {propext, Quot.sound}. No new sorry, axiom, classical shortcut,
+  native_decide, noncomputable declaration or analytic field. Independent
+  mathematical and source/log reviews passed. No full root/tree build, broad
+  audit, guard, raised machine limit or CI change. Root imports are registered,
+  not aggregate-checked. Evidence:
+  `audits/AUDIT-ORIGINAL-LOG-QUARTIC-2026-10-01.md`.
+- OPEN: useful COMPLETE signed energy/SAME-variance control, the original mixed
+  radial/source-spectrum comparison, a justified spatial/coupling/spacing family,
+  nonzero continuum survival, physical mass, full continuum QFT and all groups.
+  This diagnostic heat schedule closes none of those broader nodes.
+
 ## PROVED whole-family original kinetic upper and integer-time consumer (2026-10-01 UTC)
 
 - `BF4ExactSlabFixedSpatialWilsonKineticIncrement.wilson_energy_of_link_budget`
