@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting represented finite Cayley products and first graph
+differences (2026-10-01 UTC; chart unchanged): actual original Rows are
+constructed for every finite iterate without quotient selection. The first
+graph-difference squared ceiling is 4*t^2 times the original output norm.
+Literal spatial plaquette cubic/quartic bare Haar moments are 0 and 2.
+All 23 focused gates and independent reviews passed. Doubled-step refinement,
+product convergence, weighted Ward-sign control and physical-time identification
+remain OPEN. Parallel reviews found missing changing-scale survival/mass inputs,
+buffered-locality inputs and actual compact-group Haar/heat realization. No
+displayed claim changed; no ASCII reprint. Evidence: addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 Verified supporting local Cayley consistency and commutation (2026-10-01 UTC;
 chart unchanged): exact linked-domain factor-two phase, explicit `4*t^4`
 squared ceiling against the original represented preimage norm, constructed

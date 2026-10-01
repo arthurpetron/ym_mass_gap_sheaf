@@ -12,6 +12,18 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Represented finite products and first graph differences (2026-10-01 UTC):**
+`ScaledCayleyRows.iterateRows_pin` constructs actual original Rows for every
+finite Cayley iterate, retaining range witnesses and moduli without quotient
+selection. `ScaledCayleyRefinement.cayley_domain_difference_norm_le_four`
+proves the first-order graph ceiling `4*t^2*||output d||^2`, NOT the doubled-step
+estimate. `SU2QuaternionPlaquetteQuarticHaar` proves literal bare cubic/quartic
+moments 0 and 2, NOT weighted source/Ward control. All 23 focused gates and
+independent reviews passed within {propext,Quot.sound}. Product convergence,
+physical time, useful signed scaling and continuum requirements remain OPEN.
+Evidence: addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Local Cayley consistency and commutation (2026-10-01 UTC):**
 `ScaledCayleyConsistency` and `ScaledCayleyErrorBound` retain the ORIGINAL
 linked graph and prove the explicit `4*t^4` squared ceiling on actual represented

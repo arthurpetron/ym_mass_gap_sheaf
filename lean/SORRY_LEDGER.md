@@ -1,5 +1,27 @@
 # Sorry Ledger
 
+## PROVED finite Cayley representations and first graph differences only (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeComplexBondOSScaledCayleyRows.cayleyState_pin` and
+  `iterateRows_pin` construct actual original state/Rows representatives for
+  every finite Cayley iterate; all existing range witnesses and moduli remain.
+  No representatives are selected from quotient classes.
+- `BF4WilsonAllNomeComplexBondOSScaledCayleyRefinement.cayley_domain_difference`
+  proves `x-C_t x=i*t*(y+C_t y)` on the actual graph. Its
+  `cayley_domain_difference_norm_le_four` bounds squared norm by `4*t^2*||y||^2`.
+  This is NOT a doubled-step refinement bound.
+- `SU2QuaternionPlaquetteQuarticHaar.plaquette_cubic_zero` and
+  `plaquette_quartic_two` prove bare Haar moments on the literal spatial face,
+  using actual selected-link character integration, not surrogate moments.
+- All 23 focused gates and independent reviews passed within {propext,Quot.sound}.
+  No sorry, analytic field, new axiom or frontier weakening was introduced.
+  Evidence: addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: doubled-step estimate, dyadic-product Cauchy proof, density extension,
+  physical-time/logarithm identification; weighted auxiliary-source Ward sign;
+  useful signed scaling, changing-scale survival, finite physical mass, full QFT
+  and every-group compact Haar/heat/Wilson construction. Parallel reviews
+  produce no inhabitant for those requirements.
+
 ## PROVED original Cayley local error and parameter commutation (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeComplexBondOSScaledCayleyConsistency` proves the exact

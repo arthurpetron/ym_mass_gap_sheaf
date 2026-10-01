@@ -6120,6 +6120,11 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSecondCore
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSecondCoreDensity
 -- Fourth-order squared local ceiling against the ORIGINAL represented preimage.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyErrorBound
+-- Witnessed finite-product Rows and first graph differences; convergence still open.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyRows
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyRefinement
+-- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
+import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Original whole-family absolute kinetic upper and SAME completed time loss.
 -- Not a useful SAME-variance scaling estimate or a cross-width identification.
 import YMGap.Continuum.QuaternionHaarUniformFamilyCost

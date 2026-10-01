@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Represented products and parallel frontier review (2026-10-01 UTC)
+
+PROGRESS after `599e21f`: original raw time-sector states now supply Rows for
+every finite actual Cayley iterate, with exact quotient pins and no choice of
+representatives. The same graph has a first-difference squared ceiling
+`4*t^2*||output d||^2`. Literal four-link spatial plaquettes have bare Haar
+third/fourth moments 0 and 2. All 23 focused gates and independent reviews passed.
+Evidence: addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+NEXT operator proposition remains the doubled-step refinement estimate on
+linked actual graph points, then finite-power amplification and a dyadic-product
+Cauchy modulus. The new Rows factory supplies representation data for that
+limit, not its Cauchy proof. Physical-time/logarithm identification stays separate.
+NEXT signed-source diagnostic needs weighted Haar moments and the source's OWN
+centering before any Ward sign is asserted; bare moments alone do not prove it.
+
+Requested parallel reviews: existing Wilson survival and exact-log ceilings
+still require a positive sampled response with a norm cap on a changing family;
+neither a new relative-energy estimate nor a cross-scale map was found. Bare
+ambient multiplier commutation does not prove commutation of physical buffered
+insertions. The current algebraic global-form descent does not provide compact
+group realization, normalized Haar or group-specific heat data. No redundant
+conditional wrapper, substitute carrier or extra group-code enumeration was
+added. PRIMARY useful complete signed error/SAME-variance scaling, survival,
+positive finite physical mass, full QFT, every group and Clay remain OPEN.
+The displayed chart is unchanged; no broad build/audit/guard was run.
+
 ### Local Cayley consistency and commutation (2026-10-01 UTC)
 
 PROGRESS after `fbb0002`: actual linked original graph points now satisfy

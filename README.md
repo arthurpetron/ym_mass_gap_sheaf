@@ -10,6 +10,17 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Explicit finite Cayley products and parallel frontier review (2026-10-01):**
+original witnessed states now produce Rows for every finite Cayley iterate,
+without choosing quotient representatives. The actual graph also has a checked
+first-difference ceiling, and literal spatial plaquettes have checked cubic
+and quartic bare Haar moments. These support time-product convergence and
+signed-source analysis; they do not prove either. Parallel reviews confirm
+that survival/mass still need changing-scale estimates, buffered insertions
+cannot inherit bare-multiplier commutation, and classification codes do not
+supply compact-group Haar/heat data. See the
+[proved inputs and remaining dependencies](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#explicit-product-representatives-and-first-graph-differences).
+
 **Local original Cayley consistency and commutation (2026-10-01):**
 the SAME graph now has an exact factor-two phase, squared local-error ceiling
 `4*t^4` with an explicit original-preimage norm, constructed Cayley graph
