@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting original Euclidean/Cayley slope comparison (2026-10-01 UTC;
+chart unchanged): an exact SAME-action pin cancels both original graph terms.
+The minimum of BOTH source-computed radii gives squared remainder <=t^2*epsilon;
+the original Euclidean integer samples stay pinned to the original transfer.
+Ten focused gates and independent reviews passed. This fixes dimensionless
+factor-two normalization only; physical spacing/mass and continuum endpoints
+remain OPEN. The parallel vacuum draft is unverified. Evidence: slope-comparison
+addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original negative-rational tangent (2026-10-01 UTC;
 chart unchanged): the inverse residual uses the supplied original graph Point
 and its actual OUTPUT Rows. The computed radius retains signed division by -t

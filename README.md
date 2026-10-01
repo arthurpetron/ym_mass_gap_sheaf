@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original Euclidean/Cayley slope comparison (2026-10-01):** the two
+original small-time motions now have a checked common graph slope. An exact
+identity cancels their derivative terms, and both computed radii bound the
+remaining squared norm by `t^2*epsilon`. Original Euclidean integer samples
+remain pinned to the original transfer. Ten focused gates and independent
+reviews passed. This fixes dimensionless factor-two normalization, not physical
+spacing, Wick analytic continuation or mass calibration. The parallel vacuum
+producer is still under verification; continuum endpoints remain open.
+
 **Original negative-rational tangent (2026-10-01):** the inverse-group
 residual now has a computed radius and the same exact `-2i` derivative phase,
 using the supplied graph point and its actual output rows. Nine focused gates

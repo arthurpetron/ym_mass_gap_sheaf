@@ -1,5 +1,25 @@
 # Sorry Ledger
 
+## PROVED original Euclidean/Cayley slope comparison only (2026-10-01 UTC)
+
+- `ComplexBondOSWickSlopeComparison.euclideanRemainder_eq` retains the ACTUAL
+  original action and graph slope. `wickRemainder_pin` cancels that shared slope
+  EXACTLY, leaving `(U_t-I)u+2i(I-S_t)u`, not a surrogate map.
+- `wickRadius` computes BOTH existing graph rates at epsilon/10; squared
+  triangle and imaginary-scale norm pay 2+8=10 copies. `wick_remainder_bound`
+  therefore gives <=t^2*epsilon on supplied original Points.
+- `euclidean_integer_original` pins EVERY original physical class to the
+  ORIGINAL completed transfer at positive integer Euclidean samples.
+- Ten focused gates and independent math/source/log/hash reviews passed,
+  all {propext,Quot.sound}. No new analytic estimate, sorry, axiom, erased
+  witness or weakened frontier. Evidence: slope-comparison addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: full-real tangent, physical spacing/scaling, survival, finite positive
+  physical mass, full continuum QFT, every actual group and Clay. This is NOT
+  Wick analytic continuation or a physical mass calibration. Vacuum draft
+  remains unverified. One root import added; full root/tree/audit NOT checked.
+  Canonical chart, CI and safety limits unchanged.
+
 ## PROVED original negative-rational tangent only (2026-10-01 UTC)
 
 - `ScaledCayleyNegativeTangent.outputRows` uses the supplied original Point's

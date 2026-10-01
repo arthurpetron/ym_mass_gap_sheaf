@@ -12,6 +12,17 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original Euclidean/Cayley slope comparison (2026-10-01 UTC):**
+`ComplexBondOSWickSlopeComparison.wickRemainder_pin` is the exact SAME-action
+identity `(U_t-I)u+2i(I-S_t)u`, on the supplied original graph Point.
+`wickRadius` computes the minimum of BOTH original radii at epsilon/10;
+`wick_remainder_bound` gives squared norm <=t^2*epsilon. The integer sampling
+pin is on EVERY original complex physical class. Ten focused gates and
+independent reviews passed, all {propext,Quot.sound}. One root import added;
+full root/tree/audit NOT checked. This is dimensionless normalization, NOT
+Wick analytic continuation, physical spacing or mass. The vacuum draft is
+still unverified; continuum endpoints remain OPEN.
+
 **Original negative-rational tangent (2026-10-01 UTC):**
 `ScaledCayleyNegativeTangent.negative_error_identity` rewrites the inverse-group
 error into the transported positive error plus actual output displacement.

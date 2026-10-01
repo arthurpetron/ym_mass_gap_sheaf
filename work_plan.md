@@ -25,6 +25,24 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Parallel original Euclidean/Cayley slope comparison (2026-10-01 UTC)
+
+PROGRESS after `d84fcd3`: the Sol normalization workstream proves the exact
+SAME-action pin `(U_t-I)u+2i(I-S_t)u`. Its common derivative terms cancel;
+the minimum of BOTH original radii at epsilon/10 gives squared remainder
+<=t^2*epsilon. Original integer Euclidean samples are pinned on EVERY original
+physical class. Ten focused gates and independent reviews passed. This joins
+the SAME graph/action normalization without a scalar-logarithm premise; it
+does NOT calibrate spacing, prove Wick analytic continuation or physical mass.
+Evidence: slope-comparison addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+NEXT: check the parallel actual unit-source vacuum graph and signed invariance;
+then join full-real graph differentiation with supplied data. The useful
+changing-family signed estimate, nonzero survival, physical mass, translated
+buffered locality, full QFT and actual every-group realization remain OPEN.
+One root import added; full root/tree/audit NOT checked. ONE capped compiler,
+unchanged memory telemetry/OS reserve, CI and canonical chart.
+
 ### Original negative-rational tangent (2026-10-01 UTC)
 
 PROGRESS after `ebf625e`: inverse-group algebra converts the actual negative

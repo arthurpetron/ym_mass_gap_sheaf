@@ -1655,3 +1655,37 @@ One root import added; full root/tree/build/audit/guard NOT checked. ONE
 limits unchanged. No displayed claim changed; no ASCII reprint. Full-real
 differentiation, physical spacing/scaling, continuum survival, finite positive
 physical mass, full QFT, every actual group and Clay remain OPEN.
+
+## Parallel original Euclidean/Cayley slope comparison
+
+After `d84fcd3`, the parallel Sol normalization workstream joined the two
+original actions at their ACTUAL common graph slope.
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSWickSlopeComparison.lean:111`,
+`euclideanRemainder_eq`, pins the original rational Euclidean remainder to
+`(I-S_t)u-t*a` for u=input and a=output of the SAME original Point.
+The actual Cayley error is `(U_t-I)u+2it*a`. In that module, `wickRemainder_pin`
+cancels the shared derivative terms EXACTLY, leaving `(U_t-I)u+2i(I-S_t)u`.
+`wickRadius` computes the minimum of BOTH original positive radii at epsilon/10.
+`wick_remainder_bound` uses 2+8=10 copies in the squared triangle/scaling
+budget and proves norm squared <=t^2*epsilon. `euclidean_integer_original`
+pins positive integer samples to the original completed transfer on EVERY
+original physical class. No scalar-logarithm identification is assumed.
+
+This is a dimensionless SAME-graph first-order normalization, not Wick analytic
+continuation, physical spacing or a mass estimate. Source-dependent radii are
+computed from the supplied Point, not selected from a quotient class. The
+separate original-vacuum producer remains UNVERIFIED at this checkpoint.
+
+The focused check emitted an olean; all TEN source-site gates are exactly
+{propext,Quot.sound}. Independent mathematical and exact source/log/hash reviews
+passed. The first explicit-private-zero error log is rejected evidence.
+Accepted log: `/tmp/ym-wick-slope-comparison-second-20261001.log`, SHA256
+`8aef0a7f779d93c4e914e13c29869c834db7f76cda75efa17a9cce9aca68032e`.
+Source SHA256:
+`219eaf8ebaf37d61aef868349b4d2e54d9cf14a25e725e308b7db82627b5c416`.
+No new analytic premise, sorry, axiom, erased witness or weakened frontier.
+One root import added; full root/tree/build/audit/guard NOT checked. ONE
+20-GiB worker, 12-GiB OS reserve and continuous telemetry; CI and safety limits
+unchanged. No displayed claim changed; no ASCII reprint. Full-real
+differentiation, physical spacing/scaling, useful signed scaling, survival,
+finite positive physical mass, full QFT, every actual group and Clay remain OPEN.
