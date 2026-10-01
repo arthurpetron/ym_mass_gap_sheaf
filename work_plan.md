@@ -477,6 +477,21 @@ focused checks passed 34 gates exactly in {propext, Quot.sound}; no broad
 run or canonical change. Evidence:
 `audits/AUDIT-BOND-COMPLETION-REAL-TIME-2026-10-01.md`.
 
+FOLLOW-ON PROVED: the actual derivative and positive resolvent now act on
+that SAME physical bond completion. `BF4WilsonAllNomeBondOSLinear` supplies
+original-vector-pinned linear operations. `BF4WilsonAllNomeBondOSDerivative`
+constructs the input-equality domain, single-valued output, nonnegativity,
+symmetry and the original vacuum-complement form gap. Supplied bond rows
+give explicit domain-density sequences, and supplied domain points give
+Taylor radii for the actual bond time action. `BF4WilsonAllNomeBondOSResolvent`
+constructs the positive-parameter inverse on EVERY bond class, with both
+inverse laws and squared-norm cap 1/lambda^2. No quotient representative
+or modulus is selected. These are fixed-nome/width lattice-time results,
+not full physical spectral identification or continuum calibration.
+Three focused checks passed 32 gates exactly in {propext, Quot.sound};
+no broad run or canonical change. Evidence:
+`audits/AUDIT-BOND-DERIVATIVE-AND-QUARTIC-FLOOR-2026-10-01.md`.
+
 NEXT reconstruction residue: the SAME-object canonical limiting half-space
 OS/observable identification and physical spectral join, not another
 real-to-complex compatibility wrapper or an unjustified total Hamiltonian.
@@ -669,6 +684,17 @@ o(SAME variance), nor a calibrated physical-spacing result. Three final
 focused checks passed 20 gates within {propext, Quot.sound}; no canonical
 change or broad run. Evidence:
 `audits/AUDIT-DYADIC-QUARTIC-SUBLEADING-2026-10-01.md`.
+FOLLOW-ON PROVED LIMITATION: `SU2HeatQuarticBudgetFloor.budget_floor`
+gives B(w,S)>=296*h^2 for EVERY split, h=1-w. `not_cubic_budget`
+excludes B(w,S)<=C*h^3 whenever h>0 and C*h<296. This concerns the
+existing upper-bound formula, NOT a lower bound on the actual moment
+or a refutation of microscopic-source survival. A further focused check
+passed both gates within {propext, Quot.sound}. Do not spend further
+turns changing only the spin split to seek a cubic bound from this formula.
+First specify the actual physical-time and SAME-variance scale that the
+source needs; an o(h) partition-relative error alone does not pay
+O(tau*Var). Evidence:
+`audits/AUDIT-BOND-DERIVATIVE-AND-QUARTIC-FLOOR-2026-10-01.md`.
 NEXT: specify a signed observable family and actual physical-time budget;
 test the combined remainder in `padded_family_energy_variance` against
 that SAME centered variance, or supply a direct sampled-response estimate.

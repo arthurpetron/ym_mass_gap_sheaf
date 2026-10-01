@@ -1,5 +1,37 @@
 # Sorry Ledger
 
+## PROVED quadratic floor of the displayed quartic budget (2026-10-01 UTC)
+
+- `SU2HeatQuarticBudgetFloor.budget_floor` proves B(w,S)>=296*(1-w)^2
+  for every split S and 0<=w<=1. `not_cubic_budget` excludes
+  B(w,S)<=C*(1-w)^3 when 1-w>0 and C*(1-w)<296.
+- This is a limitation of the current upper-bound formula, not a lower
+  bound on the original moment or a Yang--Mills counterexample. It rules
+  out obtaining a cubic error by changing only that formula's spin split.
+  SAME-variance control and actual physical-time scaling remain OPEN.
+- A focused capped check passed both gates within {propext, Quot.sound};
+  no sorry/canonical change or broad run. Evidence:
+  `audits/AUDIT-BOND-DERIVATIVE-AND-QUARTIC-FLOOR-2026-10-01.md`.
+
+## PROVED derivative and positive resolvent on physical bond completion (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeBondOSLinear` constructs linear operations with exact
+  original-vector pins, building range witnesses before quotienting.
+- `BF4WilsonAllNomeBondOSDerivative` gives the actual dense represented
+  domain and single-valued action on the existing bond completion. The
+  original time action has the returned Taylor radius at every represented
+  domain point; nonnegativity, symmetry and the original form gap survive.
+- `BF4WilsonAllNomeBondOSResolvent` supplies a domain point for every
+  physical bond class, both inverse laws for lambda I plus the derivative,
+  and the squared-norm bound 1/lambda^2, lambda>0. No surrogate norm is used.
+- OPEN: canonical continuum OS/observable identification, physical spectral
+  calibration and the primary SAME-variance scaling estimate. These results
+  are at fixed nome/width in lattice-time units. Sharper shifted/subgap
+  resolvent bounds remain on the original sector, not exported here.
+- Three focused checks passed 32 gates exactly in {propext, Quot.sound}.
+  No sorry, canonical field or chart change; no broad run. Evidence:
+  `audits/AUDIT-BOND-DERIVATIVE-AND-QUARTIC-FLOOR-2026-10-01.md`.
+
 ## PROVED dyadic quartic correction below the nome defect (2026-10-01 UTC)
 
 - `SU2HeatQuarticDyadicSchedule` proves the required nome/spin guards for

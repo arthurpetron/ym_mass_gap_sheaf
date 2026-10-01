@@ -4952,6 +4952,8 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialWilsonQuarticIncrement
 import YMGap.Continuum.SU2HeatQuarticDyadicSchedule
 import YMGap.Continuum.SU2HeatQuarticDyadicBudget
 import YMGap.Continuum.BF4ExactSlabFixedSpatialDyadicQuartic
+-- The displayed majorant retains a quadratic floor; not a true-moment lower bound.
+import YMGap.Continuum.SU2HeatQuarticBudgetFloor
 -- Exact original-source Young/moment identity; raw-weight versus SAME-variance control remains open.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialSourceYoung
 -- Scalar coefficient bounds only; no four-link spin-two heat image is assumed.
@@ -5938,6 +5940,11 @@ import YMGap.Continuum.BF4WilsonAllNomeBondOSCompletion
 -- zero-continuity radii. Fixed nome/width; no physical scaling identification.
 import YMGap.Continuum.BF4WilsonAllNomeBondOSTime
 import YMGap.Continuum.BF4WilsonAllNomeBondOSRealTime
+-- Actual derivative and positive resolvent on the completed physical bond sources.
+-- The represented Taylor radius and fixed-parameter form gap retain their scope.
+import YMGap.Continuum.BF4WilsonAllNomeBondOSLinear
+import YMGap.Continuum.BF4WilsonAllNomeBondOSDerivative
+import YMGap.Continuum.BF4WilsonAllNomeBondOSResolvent
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary

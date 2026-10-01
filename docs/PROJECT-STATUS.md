@@ -1,5 +1,23 @@
 # Canonical one-page project status
 
+Verified bound-only limitation (2026-10-01 UTC; chart unchanged): the current
+quartic majorant is at least 296*(1-w)^2 for every spin split. It cannot
+be bounded by C*(1-w)^3 when C*(1-w)<296 and w<1. This is not a lower
+bound on the true moment or a survival obstruction; it prevents a cutoff-only
+optimization from supplying that cubic budget. Two focused gates passed
+within {propext, Quot.sound}. Evidence:
+`audits/AUDIT-BOND-DERIVATIVE-AND-QUARTIC-FLOOR-2026-10-01.md`.
+
+Verified supporting derivative on the physical bond completion (2026-10-01
+UTC; chart unchanged): the actual domain, represented density and Taylor
+radius now belong to the completed original bond sources, retaining the
+original form gap. A positive-parameter resolvent has both inverse laws
+and squared-norm cap 1/lambda^2. No quotient representative is selected.
+Fixed nome/width and lattice-time units only; physical spectral/continuum
+identification and the SAME-variance scaling estimate remain open. Three
+focused checks passed 32 gates exactly in {propext, Quot.sound}; no broad run.
+Evidence: `audits/AUDIT-BOND-DERIVATIVE-AND-QUARTIC-FLOOR-2026-10-01.md`.
+
 Verified supporting dyadic quartic estimate (2026-10-01 UTC; chart
 unchanged): h=1-w=2^(-3m), S=2^(2m) now supplies all guards and the
 bound B<=2968*2^(-4m), with an explicit tolerance modulus. The actual
