@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting WHOLE signed family contraction (2026-10-01 UTC;
+chart unchanged): one common union of face supports retains all cross
+terms in the exact C_ch<=C_original comparison. The complete original
+terminal energy has 4*E+J_original^2+G<=2*C_original with
+G=2*(C-C_ch)+(R_ch-J_original^2)>=0. The SAME globally centered channel
+moment sum equals Z*Var_odd; individual terms are not separate positive
+variances. Useful quantitative gain against this variance and justified
+physical scaling remain OPEN. Seven focused checks passed 19 gates exactly
+in {propext, Quot.sound}; no broad run. Evidence:
+`audits/AUDIT-WHOLE-FAMILY-PASSIVE-CANCELLATION-2026-10-01.md`.
+
 Verified supporting spectator response dominance (2026-10-01 UTC; chart
 unchanged): R_ch>=J_original^2 for the COMPLETE terminal source. Together
 with C_ch<=C_original this proves a nonnegative combined gain

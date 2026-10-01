@@ -726,6 +726,30 @@ bound the whole-family Ward/Taylor correction. One-face cost contraction
 does not control signed-family cross terms, supply nonzero responses or
 give a physical scaling rate. Do not compose it facewise to assert any
 of those missing conclusions.
+FOLLOW-ON PROVED WHOLE-FAMILY EXTENSION: `ProductHeatJumpDensity`
+(prefix `SU2Quaternion`) constructs e_f=partialHaarHeads(K_A*(jump f)^2)
+with a Type-level positive certificate, preserving all signed cross terms.
+`ProductHeatPassiveYoungContraction.singleEndedCost_projected_channels_le`
+proves C_ch<=C_original via this actual weight and a complete doubled
+partial-swap square; no square-generator independence shortcut.
+`FamilyChannelPartition` (prefix `BF4ExactSlabFixedSpatial`) supplies a
+common union of all face slots, not merely fringe where q is already
+projected. `FamilyPassiveCancellation` supplies the complete actual source
+and existing w^12 family eigenpin: R_ch>=J_original^2 and
+4*E_original+J_original^2+G<=2*C_original, with
+G=2*(C-C_ch)+(R_ch-J_original^2)>=0 for the WHOLE signed family.
+`padded_family_centered_channel_variance` pins the same globally centered
+channel-moment sum to ORIGINAL Z*Var_odd. These terms are not individual
+positive variances; do not discard them termwise or recenter each channel.
+Seven final focused checks passed 19 gates exactly in {propext, Quot.sound};
+no broad run, canonical field change or chart reprint. Evidence:
+`audits/AUDIT-WHOLE-FAMILY-PASSIVE-CANCELLATION-2026-10-01.md`.
+NEXT: bound the complete cost/retained gain or signed Ward/Taylor remainder
+against this SAME interacting variance on a justified physical observable
+family. Whole-family contraction removes the former one-face scope limit,
+but supplies neither a nonzero gain nor a scaling-small energy/variance
+ratio. Reuse its exact centered channel pin; do not replace q*Pq by q^2,
+introduce another equivalent survival wrapper or assert physical calibration.
 SOURCE REVIEW CORRECTION: terminal recursion gives no actual q^2 radial
 concentration. The exact free-leaf insertion rule applies to inactive faces,
 not this padded active plaquette. The available odd-law variance floor is

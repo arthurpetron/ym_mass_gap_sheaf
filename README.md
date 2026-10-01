@@ -1,6 +1,6 @@
 # Constructive Yang--Mills mass-gap formalization
 
-## Current proof boundary (2026-09-30 UTC)
+## Current proof boundary (2026-10-01 UTC)
 
 The [canonical one-page status chart](docs/PROJECT-STATUS.md) keeps fixed
 wording, layout, proof-status meanings and permanent node IDs across updates.
@@ -9,6 +9,14 @@ The Clay target remains **open**: a nontrivial continuum Yang--Mills theory on
 R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
+
+**Whole-family cancellation (2026-10-01):** exact spectator cost contraction
+now applies to the entire signed plaquette family, retaining every cross
+term and the complete original terminal source. The original energy ceiling
+retains a computed nonnegative gain. Its same-channel centered moment sum
+equals the original interacting Z*Var, but no useful quantitative fraction
+or physical scaling rate is proved. See the
+[proof and remaining estimate](audits/AUDIT-WHOLE-FAMILY-PASSIVE-CANCELLATION-2026-10-01.md).
 
 **Direct reconstruction step (2026-09-30):** a positive square root R of
 the original completed transfer T is now constructed and checked: R^2=T.

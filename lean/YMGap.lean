@@ -4995,6 +4995,15 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveSourceCancellation
 -- Both retained gains are nonnegative; variance-relative scaling remains OPEN.
 import YMGap.Continuum.SU2QuaternionProductHeatChannelMeanGram
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveResponseDominance
+-- Whole-observable exact cost contraction using a CONSTRUCTED positive
+-- jump density and one common family footprint; SAME-variance scaling OPEN.
+import YMGap.Continuum.SU2QuaternionPartialSwapHeat
+import YMGap.Continuum.SU2QuaternionFamilyHeatGramPositiveWeight
+import YMGap.Continuum.SU2QuaternionProductHeatJumpDensity
+import YMGap.Continuum.SU2QuaternionProductHeatPassiveYoungContraction
+import YMGap.Continuum.SU2QuaternionProductHeatEigenResponse
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyChannelPartition
+import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyPassiveCancellation
 -- Complete original-source local regularity and explicit one-link RAW Haar
 -- spectral tails, then conditional SAME-channel tails with shared active links.
 -- The original-partition floor below retains four-link heat;

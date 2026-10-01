@@ -1,5 +1,31 @@
 # Sorry Ledger
 
+## PROVED whole signed family spectator cost contraction (2026-10-01 UTC)
+
+- `SU2QuaternionProductHeatJumpDensity.jumpDensity_certificate` constructs
+  the actual positive whole-jump weight with Type-level data.
+  `SU2QuaternionProductHeatPassiveYoungContraction.singleEndedCost_projected_channels_le`
+  proves coefficient-one exact cost contraction for the WHOLE observable.
+  No independence of individual square generators or facewise addition.
+- `BF4ExactSlabFixedSpatialFamilyChannelPartition` supplies one union of
+  all literal face slots and the complete signed family's independence
+  of its spectator complement, including repeated faces and signed coefficients.
+- `BF4ExactSlabFixedSpatialFamilyPassiveCancellation.family_cost_le_original`
+  supplies the complete projected source; `padded_family_energy_channel_responses`
+  proves 4*E_original+R_ch<=2*C_ch. `family_responses_ge_original` gives
+  R_ch>=J_original^2. `familyGain_nonnegative` and the actual terminal
+  consumer give G=2*(C-C_ch)+(R_ch-J_original^2)>=0 and
+  4*E_original+J_original^2+G<=2*C_original, now for the WHOLE signed family.
+- `padded_family_centered_channel_variance` pins the same globally
+  centered channel-moment sum to the ORIGINAL Z*Var_odd. Individual terms
+  are not asserted nonnegative or interpreted as channel variances.
+- OPEN: useful quantitative cost/response/remainder comparison against
+  SAME interacting variance on a justified physical family. No strict
+  gain, physical scaling, continuum survival/gap, QFT or every-group closure.
+- Seven focused checks passed 19 gates exactly in {propext, Quot.sound}.
+  No sorry, canonical field/chart change or broad run. Evidence:
+  `audits/AUDIT-WHOLE-FAMILY-PASSIVE-CANCELLATION-2026-10-01.md`.
+
 ## PROVED spectator response dominance and two retained gains (2026-10-01 UTC)
 
 - `SU2QuaternionProductHeatChannelMeanGram.channelMeanSquares_pin` pins
