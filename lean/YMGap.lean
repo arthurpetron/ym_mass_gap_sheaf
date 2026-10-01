@@ -6198,6 +6198,10 @@ import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSWickSlopeComparison
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyVacuum
 -- Computed original Euclidean sample convergence; not paired-stream identity.
 import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSEuclideanSampleLimit
+-- Supplied positive-real graph error and reciprocal; not physical calibration.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSWickPositiveRealLimit
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveRealTangent
+import YMGap.Continuum.PositiveTimeReciprocalData
 -- Bare literal-face Haar moments, not an interacting variance or Ward-sign bound.
 import YMGap.Continuum.SU2QuaternionPlaquetteQuarticHaar
 -- Own-centered auxiliary Ward sign; no terminal heat/source identification.

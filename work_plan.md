@@ -25,6 +25,39 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original positive-real graph estimate and supplied-time reciprocal (2026-10-01 UTC)
+
+PROGRESS after `5bcaca9`: actual original Cayley and Euclidean action samples
+converge on the SAME supplied time stream. Their mixed remainder passes to
+positive real time with computed radius. The original Euclidean Taylor
+certificate then yields squared Cayley graph error <= time^2*epsilon, retaining
+the SAME graph output and exact -2i phase. Independently, the supplied positive
+time's floor and sample QCauchy data construct its reciprocal and pin the
+actual real product to one. Twenty-four focused gates and independent reviews
+passed. Evidence: positive-real graph-estimate addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+NEXT mathematical proposition: apply this constructed reciprocal to normalize
+the ACTUAL positive-real difference quotient on supplied original graph Points.
+The existing producer is `ScaledCayleyPositiveRealTangent.real_tangent_bound`;
+the normalized positive-real consumer is not yet declared. Exact scalar-square
+cancellation should remove time^2 without adding an inverse hypothesis or
+selecting data from a quotient class. Then extend to negative real time using
+the actual inverse action and original OUTPUT continuity, before full-real
+domain identification. This is numerical-time differentiation, not a physical
+clock calibration. The primary useful signed original-energy/SAME-variance
+estimate on a justified scaling family, nonzero continuum survival, physical
+spacing and finite positive mass, locality/full QFT, every actual group and
+Clay remain OPEN. Three root imports added; full root/tree/build/audit/guard
+NOT checked. ONE 20-GiB compiler, 12-GiB OS reserve, continuous pressure/swap
+telemetry; CI and canonical chart unchanged.
+
+Requested seven-paper review is cached in
+`audits/RESEARCH-MATH-PH-2026-09-30.md`. Fixed-regulator boundary cancellation
+is a method to investigate, not a supplied original Wilson scaling estimate;
+plaquette-only non-Abelian dualization needs an independently proved locality
+join. No thermal sampler gap was substituted for our OS/Hamiltonian gap.
+
 ### Parallel original Euclidean rational-sample limit (2026-10-01 UTC)
 
 PROGRESS after `749cdb3`: the original Wilson mesh/range estimate now
@@ -35,7 +68,7 @@ convergence in the SAME complex bond distance. Shared legacy time lemmas
 are purely numerical; no legacy action or completion enters. Three focused
 gates and independent reviews passed. Evidence: Euclidean rational-sample
 addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
-NEXT: join actual Cayley and Euclidean rational samples at supplied real time.
+NEXT AT THAT CHECKPOINT (now proved above): join actual Cayley and Euclidean rational samples at supplied real time.
 The computed two rates control the raw mixed remainder with squared-distance
 budget 2+8=10. A constructive closed-ball order passage can retain a small
 time radius with headroom, then the existing original Euclidean real Taylor

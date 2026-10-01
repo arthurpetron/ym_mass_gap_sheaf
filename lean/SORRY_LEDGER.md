@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED original positive-real graph estimate and reciprocal only (2026-10-01 UTC)
+
+- `ComplexBondOSWickPositiveRealLimit.real_wick_bound` uses BOTH original
+  action sample rates on the SAME supplied time stream; it does not equate
+  different Cayley rational samples and Euclidean mesh stages.
+- `ScaledCayleyPositiveRealTangent.realError_decomposition` gives the exact
+  original error = mixed remainder - 2i * Euclidean Taylor remainder.
+  `realTangentCertificate` computes the radius from both original estimates,
+  giving squared error <= time^2*epsilon with the SAME output and -2i phase.
+- `PositiveTimeReciprocalData.reciprocalRealCauchy` returns a Type-level
+  modulus from the supplied time's positive sample stream and floor;
+  `reciprocal_product` identifies the product with that SAME time value as one.
+- Twenty-four focused gates and independent math/source/log/hash reviews
+  passed: two empty, three {propext}, nineteen {propext,Quot.sound}. No new
+  analytic premise, sorry, axiom, erased witness or weakened frontier.
+  Evidence: positive-real graph-estimate addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- OPEN: normalized positive-real and negative-real differentiation and
+  full-real domain identification, physical clock/spacing/scaling, useful
+  signed original-energy/SAME-variance control, nonzero continuum survival,
+  finite positive physical mass, full QFT, every actual group and Clay.
+  Three root imports added; full root/tree/build/audit/guard NOT checked.
+  Canonical chart, CI and safety limits unchanged.
+
 ## PROVED original Euclidean rational-sample limit only (2026-10-01 UTC)
 
 - `ComplexBondOSEuclideanSampleLimit.original_time_close` adapts the ORIGINAL
@@ -13,7 +37,7 @@
   all {propext,Quot.sound}. No new analytic premise, sorry, axiom, erased
   witness or weakened frontier. Evidence: Euclidean rational-sample addendum
   in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
-- OPEN: raw real-time Cayley/Euclidean slope join, full-real tangent, physical
+- Raw real-time Cayley/Euclidean slope join is proved above. OPEN: full-real tangent, physical
   clock/spacing/scaling and mass, continuum survival, locality and full QFT,
   every actual compact simple group and Clay. Different rational/mesh sample
   streams are NOT equated. One root import added; full root/tree/build/audit/

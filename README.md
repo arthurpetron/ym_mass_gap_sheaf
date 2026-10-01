@@ -10,11 +10,20 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original positive-real graph estimate (2026-10-01):** the Cayley and
+Euclidean sample limits now join on the SAME original carrier. Their shared
+graph output gives a computed radius with squared first-order error
+`<= time^2*epsilon`, retaining the exact `-2i` phase. A separate constructive
+reciprocal uses the supplied time's own sample stream and floor. Twenty-four
+focused gates and independent reviews passed. Normalizing the real difference
+quotient is next; signed-real differentiation and physical calibration remain
+open. See the [proof boundary](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-positive-real-graph-estimate-and-supplied-time-reciprocal).
+
 **Original Euclidean sample convergence (2026-10-01):** rational samples of
 a supplied positive real time now converge under the SAME original Euclidean
 action, with a rate computed from both original source coordinates and the
 supplied time modulus. Three focused gates and independent reviews passed.
-This supplies the Euclidean input to the real-time slope-limit join; it does
+This supplies the Euclidean input to the real-time slope-limit join above; it does
 not identify two different sample streams or calibrate a physical clock. See
 the [sample-limit proof](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-euclidean-rational-sample-limit).
 

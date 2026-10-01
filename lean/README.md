@@ -12,6 +12,21 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original positive-real graph estimate and reciprocal (2026-10-01 UTC):**
+`ComplexBondOSWickPositiveRealLimit.real_wick_bound` passes the raw SAME-action
+remainder through BOTH original sample convergence rates.
+`ScaledCayleyPositiveRealTangent.realError_decomposition` cancels the actual
+Euclidean graph remainder; `realTangentCertificate` computes a positive radius
+for squared error <= time^2*epsilon with the SAME output and exact -2i phase.
+`PositiveTimeReciprocalData.reciprocalRealCauchy` supplies a Type-level modulus;
+`reciprocal_product` pins its product with the supplied time's actual real value
+to one. Twenty-four focused gates and independent reviews passed: two empty,
+three {propext}, nineteen {propext,Quot.sound}. Three root imports added;
+full root/tree/build/audit/guard NOT checked. Normalized positive-real and
+negative-real differentiation, physical clock/spacing/scaling, survival,
+physical mass, full QFT and every group remain OPEN. Evidence: positive-real
+graph-estimate addendum in `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Original Euclidean rational-sample limit (2026-10-01 UTC):**
 `ComplexBondOSEuclideanSampleLimit.original_time_close` uses the original
 Wilson mesh bound and source range modulus. `euclideanSampleRate` computes
@@ -21,7 +36,7 @@ complex action at supplied real time and its rational samples. Legacy
 continuity supplies ONLY numerical time lemmas, not an action or completion.
 Three focused gates and independent reviews passed, all {propext,Quot.sound}.
 One root import added; full root/tree/audit NOT checked. The raw real-time
-slope join, physical clock/calibration and continuum endpoints remain OPEN.
+slope join is proved above; physical clock/calibration and continuum endpoints remain OPEN.
 Evidence: Euclidean rational-sample addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 

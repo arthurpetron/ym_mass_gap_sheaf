@@ -1759,6 +1759,77 @@ No new analytic premise, sorry, axiom, erased witness or weakened frontier.
 One root import added; full root/tree/build/audit/guard NOT checked. ONE
 20-GiB worker, 12-GiB OS reserve and continuous telemetry; CI and safety limits
 unchanged. No exact displayed chart claim changed; no ASCII reprint.
-The raw real-time slope join, full-real tangent, physical spacing/scaling,
+At that checkpoint the raw real-time slope join (now proved below), full-real tangent, physical spacing/scaling,
 nonzero continuum survival, finite positive physical mass, locality/full QFT,
 every actual compact simple group and Clay remain OPEN.
+
+## Original positive-real graph estimate and supplied-time reciprocal
+
+After `5bcaca9`, the two original action limits join on the supplied numerical
+positive time, without identifying different sample streams or using a legacy
+carrier. In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSWickPositiveRealLimit.lean:202`,
+`realWickRemainder` is exactly `(U_D-I)u+2i(I-S_D)u`, with original graph input
+u. In that module, `:369`, `realWickRadius`, computes half the existing rational
+radius at half epsilon; `:382`, `real_wick_bound`, gives squared norm
+<= time^2*epsilon. BOTH the original Cayley and Euclidean convergence rates
+control the action at their common supplied rational sample. Their difference
+pays 2+8=10 copies of sample error. The final closed-ball order passage uses
+only generic CReal scalar/order lemmas; Prop-local eventual indices do not
+select radius data.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyPositiveRealTangent.lean:72`,
+`realOutputTerm` scales the SAME actual graph output by the supplied time value.
+`:80`, `realError`, retains the exact -2i derivative convention. `:85`,
+`remainder_eq`, pins the original Euclidean Taylor remainder; `:151`,
+`realError_decomposition`, proves E_D=W_D-2i*R_D exactly. `:162`,
+`realTangentRadius`, takes the minimum of the original mixed radius at epsilon/4
+and original Euclidean Taylor radius at epsilon/16. `:212`,
+`real_tangent_bound`, closes 2*(epsilon/4)+8*(epsilon/16)=epsilon.
+`:236`, `realTangentCertificate`, returns the radius, positivity and all-small-time
+bound as Type data. `:244`, `realError_signed_pin`, pins the actual signed action.
+This is a positive-real first-order NUMERATOR/error estimate, not yet the
+normalized real difference quotient, negative-real derivative or full-real
+domain identification. It is not Wick analytic continuation or physical time
+calibration.
+
+In `lean/YMGap/Continuum/PositiveTimeReciprocalData.lean:28`, `sampleCauchy`,
+the SAME supplied positive sample stream uses the original time QCauchy modulus.
+`:36`, `sample_floor`, retains its supplied positive floor. `:52`,
+`sampleLimit_equiv`, pins its limit to the ACTUAL supplied real value.
+`:67`, `reciprocalStreamCauchy`, and `:77`, `reciprocalRealCauchy`, construct
+Type-level moduli. `:87`, `reciprocal_product`, proves the product of that SAME
+time value and the constructed reciprocal equals one. No inverse hypothesis,
+quotient-selected representative or physical-clock premise was introduced.
+The next consumer is normalization of the actual positive-real graph estimate.
+
+All THREE focused checks emitted oleans. The 24 source-site gates are exactly:
+two empty, three {propext}, nineteen {propext,Quot.sound}. Independent
+mathematical and final source/log/hash reviews passed. Accepted evidence:
+
+- Wick limit source SHA256
+  `26d2d4bd908a4a8b49cb258dd9e579f898c624369eda4009aaf0d9500ebbfc05`;
+  `/tmp/ym-wick-positive-real-limit-third-20261001.log`, SHA256
+  `70f56e7125b58b6cc48c3e82cac3ad191947786150591d13106cab692bd96e0a`;
+  four gates, all {propext,Quot.sound}.
+- Tangent source SHA256
+  `6d89493c471b7452f88660913a01b4bea8ae7b8c313ea533939546b9af45d330`;
+  `/tmp/ym-positive-real-tangent-second-20261001.log`, SHA256
+  `c26f989b9b44a6034a33d59fe39ee257ff353bd6f813a910f6311a7fb6f7692f`;
+  nine gates, all {propext,Quot.sound}.
+- Reciprocal source SHA256
+  `6866aac7e47d1383fd51d60734ebec56d88dad592725ea8dc1f67a980518d826`;
+  `/tmp/ym-positive-time-reciprocal-20261001.log`, SHA256
+  `28017aab67a55bc528d2494982c0ac42f16dda6843d9f24c7a2631320d0d36ef`;
+  eleven gates: two empty, three {propext}, six {propext,Quot.sound}.
+
+The first two Wick error logs and first tangent error log are REJECTED, not
+proof evidence. No new analytic premise, sorry, axiom, erased witness or
+weakened frontier. Three root imports added; full root/tree/build/audit/guard
+NOT checked. ONE serialized 20-GiB worker, 12-GiB OS reserve, continuous
+pressure/swap telemetry; CI and safety limits unchanged. No exact displayed
+chart claim changed; no ASCII reprint. Normalized/full-real differentiation,
+physical spacing/scaling, useful signed original-energy/SAME-variance control,
+nonzero continuum survival, finite positive physical mass, full QFT, every
+actual compact simple group and Clay remain OPEN.

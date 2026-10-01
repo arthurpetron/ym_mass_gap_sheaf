@@ -1,11 +1,23 @@
 # Canonical one-page project status
 
+Verified supporting original positive-real graph estimate and supplied-time
+reciprocal (2026-10-01 UTC; chart unchanged): BOTH original action sample rates
+give the raw mixed remainder; the original Euclidean Taylor certificate gives
+the SAME graph output with squared error <= time^2*epsilon and exact -2i phase.
+Its radius is computed from the supplied Point. The time's own positive sample
+stream and floor now construct reciprocal Cauchy data and an actual product pin.
+Twenty-four focused gates and independent reviews passed. Normalized real
+differentiation and all physical/continuum endpoints remain OPEN. Evidence:
+positive-real graph-estimate addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original Euclidean rational-sample limit (2026-10-01 UTC;
 chart unchanged): BOTH original source range witnesses and the supplied time
 QCauchy modulus compute a convergence rate in the SAME complex physical bond
 distance. Numerical legacy time lemmas do not substitute a legacy operator.
 Three focused gates and independent reviews passed. The raw real-time slope
-join and all continuum endpoints remain OPEN. Evidence: Euclidean
+join is proved above; all continuum endpoints remain OPEN. Evidence: Euclidean
 rational-sample addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 No exact displayed claim changed; no ASCII reprint.
