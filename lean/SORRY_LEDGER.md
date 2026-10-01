@@ -1,5 +1,24 @@
 # Sorry Ledger
 
+## PROVED retained source square in original plaquette energy bound (2026-10-01 UTC)
+
+- `SU2QuaternionProductHeatJumpMean` gives the exact normalized heat
+  mass and the mean of the source/observable jump product.
+- `BF4ExactSlabFixedSpatialSourceYoungCancellation.plaquette_jump_mean`
+  computes that mean as J=2*(1-w^12)*H[q*f].
+  `sourceIncrement_ge_response_square` proves D>=J^2 with the positive
+  product-heat certificate and Cauchy--Schwarz.
+- `padded_terminal_energy_retained_square` gives 4*E+J^2<=2*channelCost
+  for the COMPLETE projected terminal source. Its normalized companion
+  retains the SAME odd partition. No stationary-source or nonzero-moment
+  assumption is introduced.
+- OPEN: H[q*f] need not be declared nonzero; it is not the q*Pq interacting
+  mean. No relative correction fraction, SAME-variance/scaling estimate,
+  physical calibration or continuum/Clay result follows here.
+- Two focused checks passed six gates exactly in {propext, Quot.sound}.
+  No sorry, canonical field or chart change; no broad run. Evidence:
+  `audits/AUDIT-RETAINED-SOURCE-SQUARE-2026-10-01.md`.
+
 ## PROVED original separated correlations on physical bond completion (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeBondOSInsertion.act` constructs sqrt(T)*M*sqrt(T)

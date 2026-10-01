@@ -611,6 +611,33 @@ cost retains the signed w^12 and w^32 contributions; its raw q^2 moments
 are NOT the interacting variance. Do not reprove this identity or discard
 the source-increment correction prematurely. No useful relative scaling
 bound for that actual source was found in the subgap milestone's review.
+FOLLOW-ON PROVED: `BF4ExactSlabFixedSpatialSourceYoungCancellation`
+now retains a computed lower square of the favorable correction. For the
+COMPLETE projected terminal source q and actual fundamental plaquette f,
+`sourceIncrement_ge_response_square` gives
+D >= [2*(1-w^12)*H(q*f)]^2 by normalized product-heat Cauchy--Schwarz.
+`padded_terminal_energy_retained_square` therefore proves
+4*E+[2*(1-w^12)*H(q*f)]^2 <= 2*plaquetteChannelCost, and
+`padded_terminal_normalized_retained_square` divides every term by the
+SAME positive odd partition. No moment/nonzero/source-stationarity premise
+is added. Six gates passed in two focused checks, within {propext, Quot.sound}.
+The bound is strictly better than discarding D only when H(q*f) is nonzero;
+that property is not supplied for the complete terminal source. This
+one-copy Haar moment is NOT the interacting mean under q*Pq. Neither a
+positive fraction of the channel cost nor a SAME-variance scaling gain is
+proved. Keep this distinction when seeking stronger retained corrections.
+Evidence: `audits/AUDIT-RETAINED-SOURCE-SQUARE-2026-10-01.md`.
+NEXT ANALYTIC CANDIDATE (reviewed argument, NOT yet kernel-checked): test
+the source-increment product against (q_x+q_y)*(f_x+f_y), not just 1.
+With A=H[q^2], F=H[q^2*f^2], its mean is
+2*(1-w^32)*(F-A), and the existing character cap suggests squared test
+norm <=64*A. Cauchy--Schwarz would then give the unconditional cleared
+bound 64*A*E+(1-w^32)^2*(F-A)^2<=32*A*plaquetteChannelCost.
+This retains quadratic source information missed by H[q*f], without
+dividing by an unproved positive response. Do NOT add the two retained
+squares: they test the SAME correction and require their joint Gram matrix
+or orthogonalization for an additive improvement. Neither raw source
+moment is the SAME interacting variance; that comparison remains primary.
 FOLLOW-ON CORRECTION AND PROVED FENCE: spectator-preserving Young is ALREADY
 supplied by `PassiveGeometricBudget.padded_terminal_plaquette_passive_signed_geometric_budget`.
 Do not rebuild its channel decomposition. The exact scalar ceiling is now
