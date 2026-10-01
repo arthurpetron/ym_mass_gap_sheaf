@@ -1,5 +1,23 @@
 # Sorry Ledger
 
+## PROVED spectator response dominance and two retained gains (2026-10-01 UTC)
+
+- `SU2QuaternionProductHeatChannelMeanGram.channelMeanSquares_pin` pins
+  the complete mean-square sum to the SAME selected-product kinetic form.
+  `channelMeanSquares_ge_haar_square` proves it dominates H[p]^2;
+  projection pull-through retains a whole spectator-independent signed f.
+- `BF4ExactSlabFixedSpatialPassiveResponseDominance.passive_responses_ge_original`
+  supplies the actual q=P_fringe(V*g_depth) and proves J_original^2<=R_ch.
+  `passiveGain_nonnegative` gives G=2*(C-C_ch)+(R_ch-J_original^2)>=0.
+  `padded_terminal_energy_with_passive_gain` proves 4*E+J_original^2+G<=2*C
+  for the SAME original terminal energy and exact ONE-face cost.
+- OPEN: useful quantitative gain versus SAME interacting variance,
+  whole-family cost/cross-term control and justified physical scaling.
+  No strict gain, continuum survival, physical gap, QFT/every-group closure.
+- Two focused checks passed nine gates exactly in {propext, Quot.sound}.
+  No sorry, canonical field/chart change or broad run. Evidence:
+  `audits/AUDIT-PASSIVE-RESPONSE-DOMINANCE-2026-10-01.md`.
+
 ## PROVED exact spectator cost contraction and retained responses (2026-10-01 UTC)
 
 - `BF4ExactSlabFixedSpatialChannelYoungCostComparison.channelYoungCost_le_raw`

@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting spectator response dominance (2026-10-01 UTC; chart
+unchanged): R_ch>=J_original^2 for the COMPLETE terminal source. Together
+with C_ch<=C_original this proves a nonnegative combined gain
+G=2*(C_original-C_ch)+(R_ch-J_original^2), retained in
+4*E_original+J_original^2+G<=2*C_original. No strict gain or SAME-variance
+scaling estimate follows; the concrete cost comparison remains ONE-face.
+Two focused checks passed nine gates exactly in {propext, Quot.sound};
+no broad run. Evidence:
+`audits/AUDIT-PASSIVE-RESPONSE-DOMINANCE-2026-10-01.md`.
+
 Verified supporting exact spectator cost comparison (2026-10-01 UTC; chart
 unchanged): for ONE actual plaquette C_ch<=C_original, with signed heat
 coefficients retained. The original terminal energy satisfies

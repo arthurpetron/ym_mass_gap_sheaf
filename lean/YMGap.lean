@@ -4991,6 +4991,10 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelGeometricContraction
 -- and computed channel response squares. No signed-family/scaling closure.
 import YMGap.Continuum.BF4ExactSlabFixedSpatialChannelYoungCostComparison
 import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveSourceCancellation
+-- Exact mean-square Gram floor and actual-source response dominance.
+-- Both retained gains are nonnegative; variance-relative scaling remains OPEN.
+import YMGap.Continuum.SU2QuaternionProductHeatChannelMeanGram
+import YMGap.Continuum.BF4ExactSlabFixedSpatialPassiveResponseDominance
 -- Complete original-source local regularity and explicit one-link RAW Haar
 -- spectral tails, then conditional SAME-channel tails with shared active links.
 -- The original-partition floor below retains four-link heat;

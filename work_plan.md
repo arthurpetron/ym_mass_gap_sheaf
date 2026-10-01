@@ -709,6 +709,17 @@ responses, not an identification of new responses/increments with old ones.
 Two final focused checks passed 11 gates exactly in {propext, Quot.sound};
 no broad run or canonical change. Evidence:
 `audits/AUDIT-PASSIVE-EXACT-YOUNG-COST-2026-10-01.md`.
+FOLLOW-ON PROVED RESPONSE DOMINANCE: `SU2QuaternionProductHeatChannelMeanGram`
+pins the mean-square sum to the original selected-product kinetic form.
+Cauchy--Schwarz against its unit proves R(p)>=H[p]^2 without a source sign
+or vacuum-channel selection. `PassiveResponseDominance` (full prefix
+`BF4ExactSlabFixedSpatial`) supplies the actual q and proves
+R_ch>=J_original^2. Together with the exact cost contraction this gives
+G=2*(C-C_ch)+(R_ch-J_original^2)>=0 and the ORIGINAL energy ceiling
+4*E+J_original^2+G<=2*C. Neither correction is asserted nonzero or
+variance-relative. Two focused checks passed nine gates exactly in
+{propext, Quot.sound}; no broad run or canonical change. Evidence:
+`audits/AUDIT-PASSIVE-RESPONSE-DOMINANCE-2026-10-01.md`.
 NEXT REMAINS ANALYTIC: obtain a useful response/cost cancellation versus
 the SAME interacting variance on a justified physical source family, or
 bound the whole-family Ward/Taylor correction. One-face cost contraction
