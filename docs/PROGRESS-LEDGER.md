@@ -4,7 +4,28 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Centered transfer output paid by SAME variance (2026-10-01 UTC)
+## Current increment: Intrinsic adjoint on the actual physical bond carrier (2026-10-01 UTC)
+
+PROGRESS after `cba988f`: the previously constructed physical derivative
+and positive resolvent now fill the intrinsic REAL graph/adjoint join on
+EVERY BondCompletion class. Given B(u,Ae)=B(v,e) for every actual domain
+class e, adjointDomain(u,v) computes (I+A)^(-1)(u+v). Surjectivity and
+symmetry identify its input and output as u,v; the self-difference test
+uses only the physical carrier. ofAdjoint returns the class and both
+identities as Type-level data, with uniqueness and the existing fixed-
+parameter vacuum-complement form bound.
+
+No adjoint, density, representative-selection or new analytic premise is
+assumed. The represented sector had an earlier adjoint characterization;
+the new join is explicitly on all completed physical bond classes. The
+complex physical graph and continuum/physical-time calibration are not
+claimed. The primary signed scaling estimate, survival, QFT and all groups
+remain OPEN. Eight gates passed the final focused check in
+{propext, Quot.sound}; independent read-only review passed. No broad run,
+canonical field change or ASCII reprint. Evidence:
+`audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
+## Earlier increment: Centered transfer output paid by SAME variance (2026-10-01 UTC)
 
 PROGRESS after `ca2e261`: the new output smoothing now meets the actual
 odd-marginal centered observable. For g=T^depth1 and its ORIGINAL center

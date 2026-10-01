@@ -6038,6 +6038,7 @@ import YMGap.Continuum.BF4ExactSlabFixedSpatialTransferSmoothing
 import YMGap.Continuum.BF4ExactSlabFixedSpatialCenteredTransferReserve
 import YMGap.Continuum.BF4WilsonAllNomeBondOSDerivative
 import YMGap.Continuum.BF4WilsonAllNomeBondOSResolvent
+import YMGap.Continuum.BF4WilsonAllNomeBondOSAdjoint
 import YMGap.Continuum.BF4WilsonAllNomeBondOSSubgapResolvent
 -- Original one-step-buffered source products and their SAME bond vacuum moments.
 -- Not an equal-time algebra restriction or a continuum OS root.

@@ -1,5 +1,16 @@
 # Canonical one-page project status
 
+Verified supporting intrinsic REAL bond adjoint (2026-10-01 UTC; chart
+unchanged): the actual positive resolvent now constructs the unique
+physical derivative-domain class of EVERY intrinsic adjoint pair u,v.
+Both input/output identities use the ORIGINAL bond pairing and operations;
+the self-difference test stays in that physical carrier. No representative
+is selected, and the existing fixed-parameter form margin is retained.
+This is not a complex/continuum Hamiltonian or scaling result. Eight gates
+passed the final focused check; independent source review passed. Primary
+signed scaling, survival, physical mass, QFT and all groups remain OPEN.
+Evidence: `audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
 Verified supporting centered-transfer SAME-variance reserve
 (2026-10-01 UTC; chart unchanged): original centering and source moments
 give EXACT E+B=Z*Var, with B=H[V*(g*centered(f))*T(g*centered(f))]. Full

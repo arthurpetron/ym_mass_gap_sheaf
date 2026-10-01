@@ -1,5 +1,28 @@
 # Sorry Ledger
 
+## PROVED intrinsic real adjoint on physical bond classes (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeBondOSAdjoint.AdjointPair` tests the ORIGINAL physical
+  pairing against EVERY existing derivative-domain class, not an abstract
+  graph supplied as new input. `domain_adjoint` proves the forward direction.
+- `adjointDomain` computes the actual resolventDomain at shift one on u+v.
+  `adjointDomain_input` and `adjointDomain_output` identify both coordinates
+  using surjectivity, original symmetry and definite physical difference
+  pairing. No quotient representative or preimage witness is selected.
+- `ofAdjoint` returns a Type-valued Sigma of the class and both identities;
+  `adjointDomain_unique` proves uniqueness. `adjoint_form_gap` retains the
+  already-proved coreMargin(w,width) bound under actual vacuum orthogonality.
+- OPEN: this transports the earlier represented real-sector adjoint result
+  to ALL physical bond classes. It does not construct the complex physical
+  derivative graph, a canonical continuum OS root or a physical Hamiltonian.
+  Signed scaling, nontrivial survival, physical mass, full QFT and every
+  compact simple group remain OPEN; no canonical field changes.
+- Eight final focused gates are exactly {propext, Quot.sound}. No new sorry,
+  axiom, classical dependency, native_decide or noncomputable declaration.
+  Independent read-only source review passed. No full root/tree build,
+  broad audit, guard or CI change. Evidence:
+  `audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
 ## PROVED centered-transfer SAME interacting variance reserve (2026-10-01 UTC)
 
 - `BF4ExactSlabFixedSpatialCenteredTransferReserve.centered_transfer_quadratic_pin`

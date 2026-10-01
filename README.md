@@ -10,6 +10,15 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Intrinsic physical bond adjoint (2026-10-01):** every real adjoint pair
+on the ORIGINAL completed bond carrier now returns its unique actual
+derivative-domain class, computed as (I+A)^(-1)(u+v). The existing resolvent,
+symmetry and definite original pairing prove both input/output identities
+without quotient representative selection. The fixed-parameter form margin
+is retained. This is not complex/continuum Hamiltonian reconstruction or
+physical scaling; those joins remain open. See the
+[proof and scope](audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md).
+
 **Centered output versus SAME variance (2026-10-01):** the original
 centered insertion now has the exact budget E+B=Z*Var and the checked
 reserve E+(1-w)*Angular(T(g*centered(f)))<=Z*Var. Dividing only by the

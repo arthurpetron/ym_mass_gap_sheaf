@@ -25,6 +25,33 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Intrinsic real adjoint on ALL physical bond classes (2026-10-01 UTC)
+
+PROGRESS after `cba988f`: the actual physical BondOSDerivative and
+BondOSResolvent now meet the backward intrinsic adjoint requirement on
+EVERY BondCompletion class. No corresponding declaration on those physical
+classes existed; the earlier SectorDerivative result used represented states.
+
+`BF4WilsonAllNomeBondOSAdjoint.AdjointPair` tests B(u,Out e)=B(v,In e)
+against all actual domain classes. `adjointDomain(u,v)` computes
+resolventDomain(1,u+v). The shifted inverse law and graph symmetry give
+B(u,z)=B(In d,z) for every physical z; testing their actual difference
+identifies In d=u. The same shifted identity gives Out d=v. `ofAdjoint`
+returns the actual class with both identities as Type-valued data;
+uniqueness and the original fixed-parameter form margin are proved.
+
+Eight gates passed a final focused check within {propext, Quot.sound},
+with independent read-only review and no broad run. No new analytic field,
+quotient representative selection or canonical field/ASCII change. Evidence:
+`audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
+NEXT on this independent operator front: join the existing COMPLEX bond
+carrier and Hermitian form to the actual paired derivative classes and
+intrinsic adjoint tests, preserving all four pairings and original time.
+The PRIMARY signed scaling estimate remains open. A lattice-time adjoint
+graph is not physical-time calibration, continuum survival, the canonical
+half-space OS root, full QFT or an every-group construction.
+
 ### Centered output smoothing meets SAME interacting variance (2026-10-01 UTC)
 
 PROGRESS after `ca2e261`: the finite output regularity estimate now has

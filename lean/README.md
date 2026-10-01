@@ -12,6 +12,19 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Intrinsic real physical bond adjoint (2026-10-01 UTC):**
+`BF4WilsonAllNomeBondOSAdjoint.ofAdjoint` returns a Type-valued domain
+class and both exact input/output identities for EVERY intrinsic adjoint
+pair on the existing BondCompletion. Its `adjointDomain` is the actual
+resolventDomain at shift one applied to u+v, independent of the adjoint
+proof. Original symmetry, surjectivity and physical difference tests prove
+the identities and uniqueness without representative selection. The existing
+fixed-nome/width vacuum-complement form bound is retained. Eight gates
+passed one final focused check within {propext, Quot.sound}; no broad run
+or canonical frontier closure. Complex physical derivative/adjoint joins,
+physical scaling, survival and continuum QFT remain OPEN. Evidence:
+`audits/AUDIT-PHYSICAL-BOND-INTRINSIC-ADJOINT-2026-10-01.md`.
+
 **Centered-transfer SAME-variance reserve (2026-10-01 UTC):**
 `BF4ExactSlabFixedSpatialCenteredTransferReserve.centered_transfer_quadratic_pin`
 proves E+B=Z*Var for the actual g=T^depth1 and original odd-marginal center.
