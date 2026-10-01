@@ -1,5 +1,22 @@
 # Sorry Ledger
 
+## PROVED complex original buffered Wilson-word action (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeComplexBondOSSeparatedWords.wordAct`, `wordAct_append`,
+  `wordAct_adjoint`, `wordAct_add`, `wordAct_smul` act on the EXISTING
+  physical complex carrier, including the full imaginary cross pairings
+  and both supplied constructive scalar moduli.
+- `wordAct_ofSource`, `wordAct_source_pairing`, `vacuum_word` pin the
+  unchanged original source/vacuum limits; `letter_norm_bound` preserves
+  the existing spin-only ceiling for each buffered letter.
+- Ten focused gates and independent review passed: one empty, nine
+  {propext,Quot.sound}. No new sorry, analytic field or frontier weakening.
+  Evidence: `audits/AUDIT-COMPLEX-WILSON-WORDS-2026-10-01.md`.
+- OPEN: unbuffered/equal-time algebra, locality, vacuum cyclicity, OS-root
+  inhabitant, physical time, cross-scale maps, full continuum QFT and Clay.
+  Existing fixed-nome floors and conditional mass consumers do not supply
+  the missing survival or spacing-matched physical gap inputs.
+
 ## PROVED parameterized original physical resolvent and denominator (2026-10-01 UTC)
 
 - `BF4WilsonAllNomeBondOSScaledResolvent` constructs R_t=(I+t*A)^(-1)

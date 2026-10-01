@@ -10,6 +10,14 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Complex original Wilson-word action (2026-10-01):**
+the existing buffered insertions now have a complex-linear word action with
+full Hermitian adjoint and unchanged original source/vacuum matrix elements
+on the physical complex carrier. Ten focused gates and independent review
+passed. This is independent operator-algebra progress, not equal-time
+locality, vacuum cyclicity or continuum QFT closure. See the
+[checked construction and missing QFT inputs](audits/AUDIT-COMPLEX-WILSON-WORDS-2026-10-01.md).
+
 **Parameterized original physical resolvents (2026-10-01):**
 for every positive rational t, construct `(I+t*A)^(-1)` on the existing
 physical bond carrier and a two-sided inverse of `R_t^2+(I-R_t)^2`.

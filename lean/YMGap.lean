@@ -6119,6 +6119,8 @@ import YMGap.Continuum.BF4WilsonAllNomeBondOSSubgapResolvent
 import YMGap.Continuum.BF4WilsonAllNomeWindowExpectation
 import YMGap.Continuum.BF4WilsonAllNomeBondOSInsertion
 import YMGap.Continuum.BF4WilsonAllNomeBondOSSeparatedWords
+-- Actual complex word action, adjoints and original moments; buffered letters only.
+import YMGap.Continuum.BF4WilsonAllNomeComplexBondOSSeparatedWords
 import YMGap.Continuum.BF4WilsonAllNomeBondOSConnectedDecay
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum

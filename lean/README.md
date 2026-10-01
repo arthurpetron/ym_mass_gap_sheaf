@@ -12,6 +12,15 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Complex original Wilson-word action (2026-10-01 UTC):**
+`BF4WilsonAllNomeComplexBondOSSeparatedWords` extends the actual buffered
+real action to the existing complex carrier. Word reversal gives the full
+Hermitian adjoint, both constructive scalar moduli remain, and source/vacuum
+pairings are the original limits. All ten focused gates passed: one empty,
+nine {propext,Quot.sound}; independent review passed. Equal-time algebra,
+locality, cyclicity, time group, cross-scale maps and continuum QFT remain OPEN.
+Evidence: `audits/AUDIT-COMPLEX-WILSON-WORDS-2026-10-01.md`.
+
 **Parameterized original physical resolvents (2026-10-01 UTC):**
 `BF4WilsonAllNomeBondOSScaledResolvent` constructs the two-sided original
 graph inverse for input+t*output, for every positive rational t. Its

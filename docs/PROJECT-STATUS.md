@@ -1,5 +1,15 @@
 # Canonical one-page project status
 
+Verified supporting complex Wilson-word action (2026-10-01 UTC; chart
+unchanged): the original buffered real words act complex-linearly on the
+existing physical complex carrier, with full Hermitian word-reversal adjoint
+and original source/vacuum pairings. Ten gates and independent review passed.
+This does not close equal-time locality, cyclicity, physical time, cross-scale
+maps or continuum QFT. Survival/mass review found substantive missing maps and
+spacing-matched estimates, not an independent unconditional closure. No displayed
+claim changed; no ASCII reprint. Evidence:
+`audits/AUDIT-COMPLEX-WILSON-WORDS-2026-10-01.md`.
+
 Verified supporting parameterized physical resolvents (2026-10-01 UTC;
 chart unchanged): for every rational t>0, the actual graph inverse
 R_t=(I+t*A)^(-1) and both inverse laws for R_t^2+(I-R_t)^2 are constructed

@@ -4,7 +4,22 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Parameterized original physical resolvents (2026-10-01 UTC)
+## Current increment: Complex original Wilson-word action (2026-10-01 UTC)
+
+PROGRESS: extend the ACTUAL original buffered real words to the EXISTING
+physical complex completion. Full Hermitian word-reversal adjoint, complex
+linearity with supplied scalar moduli, unchanged original source/vacuum
+matrix elements and one-letter norm ceiling are checked. Ten focused gates
+and independent review passed, with no new analytic premise.
+
+This is an independent QFT prerequisite, not full QFT closure. Equal-time
+algebra/locality/cyclicity, physical time, cross-scale maps, useful signed
+scaling, continuum survival/mass and every group remain OPEN. The parallel
+survival/mass review produced no duplicate wrapper around unsupplied inputs.
+No broad build/audit/guard, raised limit or ASCII reprint. Evidence:
+`audits/AUDIT-COMPLEX-WILSON-WORDS-2026-10-01.md`.
+
+## Earlier increment: Parameterized original physical resolvents (2026-10-01 UTC)
 
 PROGRESS after `7f3886d`: actual R_t=(I+t*A)^(-1) for every rational t>0
 and its original denominator inverse are constructed, not assumed. The SAME

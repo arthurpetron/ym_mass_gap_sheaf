@@ -25,6 +25,24 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Parallel complex physical Wilson-word action (2026-10-01 UTC)
+
+PROGRESS: the ORIGINAL real buffered word action has a checked complex-linear
+extension to the existing physical complex completion, full Hermitian
+word-reversal adjoint, original source/vacuum moments and one-letter norm
+ceiling. Ten focused gates and independent review passed. No new analytic
+premise; this work is independent of the unresolved scaling estimate.
+Evidence: `audits/AUDIT-COMPLEX-WILSON-WORDS-2026-10-01.md`.
+
+The parallel survival/mass review identified missing original cross-scale
+state/pairing maps, spacing-matched LOWER generator gap and fixed-physical-time
+nonzero response with an UPPER rate. Existing fixed-nome floors and conditional
+scalar consumers are not new producers of these inputs. Do not add duplicate
+wrappers or infer a positive gap from a near-one Rayleigh upper bound.
+Equal-time algebra/locality/cyclicity, continuous physical time, full continuum
+QFT and Clay remain OPEN. PRIMARY signed scaling and NEXT scaled Cayley
+construction are unchanged. No displayed chart claim changes or ASCII reprint.
+
 ### Parameterized original physical resolvents (2026-10-01 UTC)
 
 PROGRESS after `7f3886d`: for every t>0 rational, construct the actual
