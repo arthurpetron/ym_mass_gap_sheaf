@@ -25,6 +25,41 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Original supplied-real generator-domain converse (2026-10-01 UTC)
+
+PROGRESS after `db8478f`: the constructed time reciprocal and BOTH original
+physical coordinates recover literal rational scaling. The actual real
+quotient therefore restricts EXACTLY to the checked rational quotient with
+the SAME -2i graph slope. Supplied original Points compute ONE two-sided
+radius; `ScaledCayleyRealTangentData.toRightTangent` retains it and
+`ofRealTangent` constructs the existing ORIGINAL unit-resolvent Domain with
+BOTH input/output pins. Thirteen focused gates and independent reviews passed.
+No modulus or representative is chosen from an arbitrary domain quotient.
+Evidence: supplied-real domain-converse addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
+The bounded parallel consumer audit found no ready physical-spacing recipient
+of this fixed-carrier domain identification. The bond carrier quotients the
+time kernel (`BondOSRealization.bond_null_iff_time_kernel`); the ambient
+width-one source cannot be recovered at ANY positive insertion time
+(`SectorEqualTimeBoundary.no_origin_recovery`). Neither numerical clock
+rescaling nor naive completed cross-width naturality removes that obstruction.
+
+NEXT mathematical frontier: bound the JOINT original temporal energy against
+its OWN interacting variance on a justified padded/changing family, with a
+spacing-useful rate (for example E_j <= C*a_j*Var_j, not a claimed theorem).
+The existing `FamilyVarianceTaylor.padded_family_energy_variance` retains
+`12*(1-w)*Var + varianceRemainder`; `CenteredRemainderSquare.padded_family_energy_centered_square`
+retains the complete signed centered correction. Prove the needed cancellation
+on that SAME original marginal; do not assume log-concavity, a favorable
+remainder sign, or a useful near-one score bound. Original bond-pairing/response
+compatibility across scales and a spacing-matched LOWER generator bound remain
+separate missing inputs. Do not extend the infinitesimal branch with another
+fixed-clock wrapper. Nonzero survival, finite positive physical mass, full QFT,
+every actual compact simple group and Clay remain OPEN. Two root imports added;
+full root/tree/build/audit/guard NOT checked. ONE 20-GiB compiler, 12-GiB OS
+reserve, continuous telemetry; CI and canonical chart unchanged.
+
 ### Original negative-real and two-sided supplied-time tangent (2026-10-01 UTC)
 
 PROGRESS after `2efc6f8`: the parallel Sol algebra bridge identifies actual
@@ -39,11 +74,11 @@ arbitrary real's sign. Sixteen focused gates and independent reviews passed.
 Evidence: negative-real/two-sided addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 
-NEXT mathematical proposition: prove rational recovery of the constructed
+NEXT AT THAT CHECKPOINT (now proved above): prove rational recovery of the constructed
 reciprocal/real quotient and use restriction to rational increments to join
 the already proved SAME-graph `ScaledCayleyGeneratorConverse.ofRightTangent`.
 That existing consumer constructs the original domain with BOTH input/output
-pins; the supplied-real converse is not yet declared. The current producer
+pins; the supplied-real converse is now declared above. The current producer
 `NegativeRealTangent.twoSidedTangentCertificate` gives both actual error laws,
 not a physical-clock or scaling identification. Preserve Type-level data;
 do not choose quotient representatives, decide an arbitrary real's sign or

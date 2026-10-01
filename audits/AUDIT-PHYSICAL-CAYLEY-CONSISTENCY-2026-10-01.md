@@ -1928,3 +1928,88 @@ ASCII reprint. Full-real domain identification, physical spacing/scaling,
 useful signed original-energy/SAME-variance control, nonzero continuum survival,
 finite positive physical mass, full QFT, every actual compact simple group
 and Clay remain OPEN.
+
+## Original supplied-real generator-domain converse
+
+After `db8478f`, in `lean/YMGap/Continuum/PositiveTimeReciprocalRationalPins.lean:41`,
+`reciprocalTerm_rational`, every raw reciprocal sample is the literal rational
+reciprocal, by constant-stream reduction. `:46`, `reciprocal_approx_rational`,
+pins the regularized approximants; `:53`, `reciprocal_rational`, pins the computed
+CReal to that rational. `:93`, `realScalar_reciprocal_rational`, transports the
+computed reciprocal through original `bondValue` and BOTH physical coordinates.
+No inverse hypothesis, scalar representative selection or physical clock is used.
+
+In
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyRealTangentData.lean:69`,
+`realRightQuotient`, and `:74`, `realLeftQuotient`, define the ACTUAL two signed
+quotients for an arbitrary original bond input. The negative direction reverses
+the numerator, hence divides by SIGNED -D.real. `:80`, `realRightQuotient_rational`,
+recovers the SAME rational quotient exactly. `:87`, `slope_pin`, proves that
+the rational and real statements have the identical -2i graph phase.
+
+In that module, `:110`, `RealTangent`, defines Type-witnessed two-sided
+differentiability on supplied positive-time data. `:120`, `ofPointRealTangent`,
+inhabits it for every supplied original graph Point using the already checked
+two-sided certificate and the original physical distance. `:143`,
+`toRightTangent`, keeps its entire radius unchanged. `:153`, `RealTangent.unique`,
+pins the original output. `:161`, `ofRealTangent`, calls
+`lean/YMGap/Continuum/BF4WilsonAllNomeComplexBondOSScaledCayleyGeneratorConverse.lean:112`,
+`ofRightTangent`, to COMPUTE the existing original unit-resolvent Domain witness
+with BOTH original input/output pins. No new analytic YM premise or domain
+is assumed. The forward producer takes a supplied Point; no Type-valued
+modulus is selected from an arbitrary quotient-domain class.
+
+Both focused checks emitted oleans; all THIRTEEN gates (4+9) are exactly
+{propext,Quot.sound}. Independent Luna source/math/log/hash reviews passed.
+Accepted evidence:
+
+- Reciprocal-pin source SHA256
+  `355a95bb34961e7289c7e057cf8bd3ab0a8e132418cf6a4c0717878335833580`;
+  `/tmp/ym-reciprocal-rational-pins-second-20261001.log`, SHA256
+  `4f5d0ae46a3a2ee3aff07fd9b7e1765b004630f7d1c7cbcfb44db19d1e05e407`.
+- Real-tangent source SHA256
+  `1b0334c2935f458f3e1de75daf411d79d39c2b9215ca8328cbd2f9eef7462cfe`;
+  `/tmp/ym-real-tangent-domain-first-20261001.log`, SHA256
+  `5c3dbba69eecef4cab394496181af498f7aabf7cd5befb6edfeb8d5330abbaa9`.
+
+The first reciprocal-pin error/sorryAx-bearing log is REJECTED: rewriting a
+dependent positivity proof failed. The accepted proof instead reduces the
+actual constant sample definition directly. No new sorry, axiom, erased
+witness or weakened frontier was added. Two root imports were added;
+full root/tree/build/audit/guard NOT checked. ONE 20-GiB compiler, 12-GiB OS
+reserve and continuous pressure/swap telemetry; CI and safety limits unchanged.
+No exact displayed chart claim changed; no ASCII reprint.
+
+### Bounded parallel consumer audit and next mathematical frontier
+
+The Sol read-only consumer audit distinguishes the ORIGINAL bond/time-range
+carrier from the full ambient completion. In
+`lean/YMGap/Continuum/BF4WilsonAllNomeBondOSRealization.lean:99`,
+`bond_null_iff_time_kernel`, the bond seminorm quotients the original time
+kernel. In `lean/YMGap/Continuum/BF4WilsonAllNomeSectorEqualTimeBoundary.lean:71`,
+`positiveAction_kills_time_kernel`, every positive Euclidean time kills that
+ambient kernel. `:90`, `origin_recovery_floor`, and `:106`, `no_origin_recovery`,
+give the quantitative obstruction for the nonzero width-one boundary source.
+The new bond-domain converse does not remove that obstruction or construct
+a completed spatial transport. It also supplies no physical time/spacing pin.
+
+The source-specific next estimate must retain the signed cancellation already
+exposed by
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialFamilyVarianceTaylor.lean:67`,
+`padded_family_energy_variance`, namely energy = 12*(1-w)*OWN odd variance +
+the complete signed variance remainder. The alternative original consumer
+`lean/YMGap/Continuum/BF4ExactSlabFixedSpatialCenteredRemainderSquare.lean:292`,
+`padded_family_energy_centered_square`, retains the complete centered correction.
+A spacing-useful relative energy bound on a JUSTIFIED changing family is
+still missing; no favorable remainder sign, log-concavity or near-one score
+calibration is supplied here. This is an analytic proof target, not another
+assumed field. Cross-scale original bond-pairing/response compatibility and
+a spacing-matched LOWER generator bound remain separate missing inputs.
+The existing
+`lean/YMGap/Continuum/BF4WilsonSurvivalPhysicalRateCeiling.lean:149`,
+`logRate_le_of_sampled_response`, consumes a supplied physical-time response
+and norm cap on its own small-nome carrier; it is not an immediate consumer
+of this all-nome bond Domain and does not prove a positive generator-gap floor.
+No duplicate numerical-time rescaling wrapper was added. Physical scaling,
+nonzero continuum survival, finite positive physical mass, full QFT,
+every actual compact simple group and the Clay target remain OPEN.

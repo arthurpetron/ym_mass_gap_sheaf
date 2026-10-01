@@ -1,11 +1,24 @@
 # Canonical one-page project status
 
+Verified supporting original supplied-real generator-domain converse
+(2026-10-01 UTC; chart unchanged): the constructed reciprocal and actual
+quotient recover rational increments exactly. Supplied graph Points compute
+one two-sided radius; restriction retains it and reconstructs the SAME
+original bond-domain witness with BOTH input/output pins. Thirteen focused
+gates and independent reviews passed. No arbitrary quotient-domain modulus
+is selected. The bond/time-range carrier does not identify the full ambient
+carrier or remove its fringe obstruction. Physical clock, changing-family
+signed-energy/SAME-variance control and all continuum endpoints remain OPEN.
+Evidence: supplied-real domain-converse addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+No exact displayed claim changed; no ASCII reprint.
+
 Verified supporting original negative-real/two-sided tangent (2026-10-01 UTC;
 chart unchanged): signed division by -t gives q_minus=G_minus(q_plus). The
 actual inverse isometry and original OUTPUT continuity bound its residual
 with the SAME -2i graph slope. ONE computed radius now controls both signed
 directions on supplied time data. Sixteen focused gates and independent reviews
-passed. Full-real domain identification and all physical/continuum endpoints
+passed. The supplied-real converse is proved above; all physical/continuum endpoints
 remain OPEN. Evidence: negative-real/two-sided addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
 No exact displayed claim changed; no ASCII reprint.

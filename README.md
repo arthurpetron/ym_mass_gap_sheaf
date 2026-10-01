@@ -10,12 +10,23 @@ R^4 for every compact simple group, with full same-theory QFT axioms and a
 positive physical Hamiltonian mass gap. This repository uses constructive,
 Mathlib-free Lean with explicit witnesses and moduli.
 
+**Original supplied-real generator-domain converse (2026-10-01):** the
+constructed real quotient recovers the original rational quotient exactly.
+A supplied two-sided real tangent now constructs the SAME bond-domain witness
+with both input and output pins; supplied graph Points compute its radius.
+Thirteen focused gates and independent reviews passed. This does not select
+moduli from arbitrary domain classes or identify a physical clock. The bond
+carrier is not the full ambient carrier with its proved fringe obstruction.
+The next analytic frontier remains signed energy versus its OWN interacting
+variance on a justified changing family. See the
+[proof and consumer boundary](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-supplied-real-generator-domain-converse).
+
 **Original two-sided supplied-real tangent (2026-10-01):** positive and
 negative difference quotients now approach `-2i` times the SAME original graph
 output with one computed radius. The negative direction uses the constructed
 inverse action and actual output continuity; no new analytic estimate is
-assumed. Sixteen focused gates and independent reviews passed. Full-real
-domain identification, physical calibration and continuum claims remain open.
+assumed. Sixteen focused gates and independent reviews passed. The supplied-real
+domain converse is proved above; physical calibration and continuum claims remain open.
 See the [two-sided proof](audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md#original-negative-real-and-two-sided-supplied-time-tangent).
 
 **Original positive-real difference quotient (2026-10-01):** the actual

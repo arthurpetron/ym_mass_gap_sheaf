@@ -12,6 +12,22 @@ than merely intended. A Lean proof that typechecks under the
 discipline below is a machine-checked certificate that a given step is
 genuinely constructive.
 
+**Original supplied-real generator-domain converse (2026-10-01 UTC):**
+`PositiveTimeReciprocalRationalPins.realScalar_reciprocal_rational` recovers
+rational scaling on BOTH original physical coordinates.
+`ScaledCayleyRealTangentData.realRightQuotient_rational` pins the actual quotient;
+`ofPointRealTangent` computes ONE radius and both signed error laws on supplied
+original graph Points. `toRightTangent` retains that radius; `ofRealTangent`
+uses the existing original resolvent reconstruction with BOTH domain pins.
+Thirteen focused gates and independent reviews passed, all {propext,Quot.sound}.
+No arbitrary domain-class modulus is selected. This is the original bond/time-
+range carrier, not the full ambient carrier with its positive-norm fringe kernel.
+Two root imports added; full root/tree/build/audit/guard NOT checked. Physical
+clock, useful signed-energy/SAME-variance changing-family control, survival,
+finite positive physical mass, full QFT, every actual group and Clay remain OPEN.
+Evidence: supplied-real domain-converse addendum in
+`audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+
 **Original negative-real and two-sided tangent (2026-10-01 UTC):**
 `SignedScalarCommutation.signedAction_realScalar` joins the constructed
 componentwise reciprocal to the ACTUAL full complex signed action.
@@ -22,7 +38,7 @@ positive residual plus 2i*(output-G_minus(output)). Its squared budget is
 radius for BOTH directions on supplied positive-time data, with no sign
 decision or quotient-selected modulus. Sixteen focused gates and independent
 reviews passed, all {propext,Quot.sound}. Two root imports added; full root/tree/
-build/audit/guard NOT checked. Full-real domain identification, physical
+build/audit/guard NOT checked. The supplied-real converse is proved above; physical
 spacing/scaling/mass, survival, full QFT, every actual group and Clay remain OPEN.
 Evidence: negative-real/two-sided addendum in
 `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.

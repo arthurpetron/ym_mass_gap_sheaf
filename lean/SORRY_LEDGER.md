@@ -1,5 +1,29 @@
 # Sorry Ledger
 
+## PROVED original supplied-real generator-domain converse only (2026-10-01 UTC)
+
+- `PositiveTimeReciprocalRationalPins.reciprocal_rational` identifies the
+  constructed numerical reciprocal with the literal rational reciprocal;
+  `realScalar_reciprocal_rational` transports BOTH original physical coordinates.
+- `ScaledCayleyRealTangentData.realRightQuotient_rational` is exact recovery of
+  the ORIGINAL rational quotient. `slope_pin` retains the SAME -2i phase.
+  `ofPointRealTangent` computes ONE radius and both actual signed laws from a
+  supplied original graph Point; it selects no data from a domain quotient.
+- `toRightTangent` retains the supplied radius. `RealTangent.unique` pins the
+  original output; `ofRealTangent` computes the existing original unit-resolvent
+  Domain witness with BOTH input and output pins, not an assumed domain.
+- Thirteen focused gates and independent source/math/log/hash reviews passed,
+  all {propext,Quot.sound}. No new analytic premise, sorry, axiom, erased witness
+  or weakened frontier. Evidence: supplied-real domain-converse addendum in
+  `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
+- Scope: arbitrary domain-class-to-modulus extraction is NOT provided or needed
+  by this converse. OPEN: physical clock, useful signed original-energy/SAME-variance changing-family control,
+  cross-scale original bond-pairing compatibility, nonzero continuum survival,
+  finite positive physical mass, full QFT, every actual group and Clay.
+  The bond/time-range carrier is not identified with the full ambient carrier
+  containing the proved fringe kernel. Two root imports added; full root/tree/
+  build/audit/guard NOT checked. Canonical chart, CI and safety limits unchanged.
+
 ## PROVED original negative-real/two-sided supplied-time tangent only (2026-10-01 UTC)
 
 - `SignedScalarCommutation.fullSmul_realScalar` joins componentwise real
@@ -20,7 +44,7 @@
   all {propext,Quot.sound}. No new analytic premise, sorry, axiom, erased witness
   or weakened frontier. Evidence: negative-real/two-sided addendum in
   `audits/AUDIT-PHYSICAL-CAYLEY-CONSISTENCY-2026-10-01.md`.
-- OPEN: full-real domain identification, physical clock/spacing/scaling,
+- The supplied-real domain converse is proved above. OPEN: physical clock/spacing/scaling,
   useful signed original-energy/SAME-variance control, nonzero continuum
   survival, finite positive physical mass, full QFT, every actual group and Clay.
   Two root imports added; full root/tree/build/audit/guard NOT checked.
