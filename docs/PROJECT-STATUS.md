@@ -1,5 +1,17 @@
 # Canonical one-page project status
 
+Verified supporting ORIGINAL rational subgap inverses (2026-10-01 UTC;
+chart unchanged): for every rational 0<=a<delta=coreMargin(w,width), an
+explicit geometric iteration constructs the actual inverse of H-a I on
+the existing witnessed vacuum complement. Both inverse identities and
+the sharp squared norm cap (delta-a)^(-2) are checked; original range
+witnesses and convergence moduli are retained. Fixed nome/width only:
+full real/complex spectral identification, physical OS identification and
+the primary signed scaling estimate remain open. Seven focused serialized
+checks passed 55 printed gates exactly in {propext, Quot.sound}; no broad
+run or canonical field change. Evidence:
+`audits/AUDIT-ORIGINAL-SECTOR-SUBGAP-RESOLVENT-2026-10-01.md`.
+
 Verified supporting ORIGINAL vacuum-complement inverse (2026-09-30 UTC;
 chart unchanged): positive-shift resolvents preserve the vacuum complement,
 have norm cap 1/(lambda+delta), and satisfy an exact parameter identity.

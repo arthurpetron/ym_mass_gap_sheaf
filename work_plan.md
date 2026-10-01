@@ -413,6 +413,20 @@ mass calibration. Seven final focused serialized checks passed 22 gates
 exactly in {propext, Quot.sound}; no broad run or canonical field change.
 Evidence: `audits/AUDIT-ORIGINAL-SECTOR-ZERO-RESOLVENT-2026-09-30.md`.
 
+FOLLOW-ON PROVED: actual rational subgap inverses on this SAME witnessed
+vacuum complement. For every rational 0<=a<delta, `SectorSubgapResolvent`
+constructs an original domain point with (H-a I)u=x, proves BOTH inverse
+identities and the sharp squared cap (delta-a)^(-2). `SectorVacuumInverse`
+supplies the contraction delta*H^(-1); `SectorNeumannPartial` and
+`SectorNeumannLimit` construct its normalized geometric iteration and limit
+with original representatives, range witnesses and explicit modulus.
+`SectorSubgapInjective` obtains uniqueness from the original form margin.
+Names have prefix `BF4WilsonAllNome`. Rational a only, fixed nome and width;
+this is not full real/complex spectral identification or physical mass.
+Seven final focused serialized checks passed 55 printed gates exactly in
+{propext, Quot.sound}; no broad run or canonical field change. Evidence:
+`audits/AUDIT-ORIGINAL-SECTOR-SUBGAP-RESOLVENT-2026-10-01.md`.
+
 NEXT reconstruction residue: the SAME-object physical reflected OS/observable
 identification and physical spectral join, not another
 real-to-complex compatibility wrapper or an unjustified total Hamiltonian.
@@ -425,8 +439,9 @@ canonical join needs the supported observable and reflected-form/time pins
 against the SAME limiting theory (`CanonicalOSRoot.PositiveTimeOSRoot`),
 not merely positivity of an independently defined Gram form.
 The intrinsic real AND complex presented-sector adjoint joins, the real
-positive-parameter sector resolvent, and its actual zero-shift inverse on
-the original vacuum complement are supplied. Do NOT
+positive-parameter sector resolvent, actual zero-shift inverse and rational
+subgap inverses on the original vacuum complement are supplied. The full
+real/complex spectral identification remains separate. Do NOT
 silently select source data from the old quotient Domain or redefine its
 scope. Full physical Hilbert/Hamiltonian identification remains OPEN.
 The equation A u=T v alone remains insufficient on the full ambient carrier
@@ -507,6 +522,13 @@ These abbreviated modules have prefix `BF4ExactSlabFixedSpatial`; source
 citations are in the zero-resolvent audit above. The next useful analytic
 increment must estimate the combined correction for an actual source and
 justify its physical scaling, not merely add an equivalent hypothesis.
+The existing `SourceYoungExplicit.padded_terminal_plaquette_young_channels`
+also supplies 4*E+sourceIncrementCost=2*plaquetteChannelCost for ONE actual
+padded plaquette and the COMPLETE projected terminal source. Its channel
+cost retains the signed w^12 and w^32 contributions; its raw q^2 moments
+are NOT the interacting variance. Do not reprove this identity or discard
+the source-increment correction prematurely. No useful relative scaling
+bound for that actual source was found in the subgap milestone's review.
 The now-proved one-step source/domain transfer already controls the actual
 derivative energy, retained norm and source replacement. Do not build another
 equivalent conditional survival/domain wrapper before supplying a useful

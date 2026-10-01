@@ -5890,6 +5890,11 @@ import YMGap.Continuum.BF4WilsonAllNomeSectorZeroInjective
 import YMGap.Continuum.BF4WilsonAllNomeSectorZeroResolventLimit
 import YMGap.Continuum.BF4WilsonAllNomeSectorZeroResolventEquation
 import YMGap.Continuum.BF4WilsonAllNomeSectorZeroResolvent
+import YMGap.Continuum.BF4WilsonAllNomeSectorVacuumInverse
+import YMGap.Continuum.BF4WilsonAllNomeSectorNeumannPartial
+import YMGap.Continuum.BF4WilsonAllNomeSectorNeumannLimit
+import YMGap.Continuum.BF4WilsonAllNomeSectorSubgapInjective
+import YMGap.Continuum.BF4WilsonAllNomeSectorSubgapResolvent
 -- Original sector insertions, time-zero obstruction and a nonzero centered domain source.
 import YMGap.Continuum.BF4WilsonAllNomePositiveTimeVacuum
 import YMGap.Continuum.BF4WilsonAllNomeSectorObservableBoundary

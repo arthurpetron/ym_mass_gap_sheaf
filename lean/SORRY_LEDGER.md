@@ -1,5 +1,26 @@
 # Sorry Ledger
 
+## PROVED ORIGINAL rational subgap inverses (2026-10-01 UTC)
+
+- `BF4WilsonAllNomeSectorVacuumInverse` supplies delta*H^(-1) as an actual
+  contraction on the existing witnessed vacuum complement, with
+  delta=coreMargin(w,width). `SectorNeumannPartial.partial_tail_bound`
+  and `SectorNeumannLimit.normalized` construct the geometric limit with
+  explicit modulus and original range witnesses.
+- `SectorSubgapResolvent.domainPoint`, `inverse_right`, `inverse_left`
+  and `norm_bound` construct the two-sided inverse of H-a I for every
+  rational 0<=a<delta, with squared norm cap (delta-a)^(-2).
+  `SectorSubgapInjective` proves uniqueness using the original form margin.
+  Abbreviated module names have prefix `BF4WilsonAllNome`.
+- OPEN: full real/complex spectral identification, physical OS identification,
+  useful original signed scaling estimate, spacing-uniform calibrated mass,
+  continuum survival, full QFT/every-group/Clay. This is fixed nome/width;
+  no ambient inverse or kernel deletion. No existing sorry, canonical field
+  or chart node changed.
+- Seven final focused serialized checks passed 55 printed gates exactly in
+  {propext, Quot.sound}; no broad run. Evidence and analytic source review:
+  `audits/AUDIT-ORIGINAL-SECTOR-SUBGAP-RESOLVENT-2026-10-01.md`.
+
 ## PROVED ORIGINAL vacuum complement zero shift inverse (2026-09-30 UTC)
 
 - `BF4WilsonAllNomeSectorResolventGap` proves vacuum preservation and

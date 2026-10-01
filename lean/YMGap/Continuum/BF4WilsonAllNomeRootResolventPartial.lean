@@ -200,7 +200,8 @@ private theorem rc_add_zero (a : RC) : RCadd a RCzero = a := by
   exact Quotient.sound (SumOfSquares.Equiv_of_approx_eqv
     (fun n => QPoly.q_add_zero_eqv (X.approx n)))
 
-private theorem convex_norm_le (r : Q') (hr0 : (0 : Q') ≤ r)
+/-- Convex squared-norm bound on the original completed Wilson carrier. -/
+theorem convex_norm_le (r : Q') (hr0 : (0 : Q') ≤ r)
     (hr1 : r ≤ (1 : Q')) (x y : V) :
     RCle (BF4WilsonAllNomeCompletedInner.completedInner hw0 hw1
       (A (S (1-r) x) (S r y)) (A (S (1-r) x) (S r y)))
@@ -313,6 +314,7 @@ theorem partialRepresentative_pin (depth : Nat) (r : Q') (n : Nat)
 #print axioms partial_root_commute
 #print axioms partial_mesh_commute
 #print axioms partial_split
+#print axioms convex_norm_le
 #print axioms partial_norm_bound
 #print axioms partial_tail_bound
 #print axioms partialRepresentative

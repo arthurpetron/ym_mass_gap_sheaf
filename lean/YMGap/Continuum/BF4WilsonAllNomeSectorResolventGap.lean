@@ -88,7 +88,7 @@ theorem state_orthogonal (lambda : Q') (hl : (0 : Q') < lambda)
 
 /-- A square-completion estimate: coercivity of one pairing gives a sharp
 inverse norm cap without dividing by the norm of the unknown vector. -/
-private theorem norm_from_coercivity (a : Q') (ha : (0 : Q') < a)
+theorem norm_from_coercivity (a : Q') (ha : (0 : Q') < a)
     (u x : V) (h : RCle (RCscale a (B u u)) (B u x)) :
     RCle (B u u)
       (RCscale (Q'.recipPos a ha * Q'.recipPos a ha) (B x x)) := by
@@ -223,6 +223,7 @@ theorem uniform_norm_bound (lambda : Q') (hl : (0 : Q') < lambda)
     (margin_coercivity hw0 hw1 lambda hl x hx)
 
 #print axioms state_orthogonal
+#print axioms norm_from_coercivity
 #print axioms norm_bound
 #print axioms uniform_norm_bound
 
