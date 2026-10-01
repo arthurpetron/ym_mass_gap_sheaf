@@ -4,7 +4,25 @@
 mathematical-theory **loops** (re-deriving the same irreducible obligation from a
 new angle). Run `bash computations/progress_metric.sh` each iteration.
 
-## Current increment: Actual first order and joint signed variance control (2026-10-01 UTC)
+## Current increment: Refute generic spectator heat retention (2026-10-01 UTC)
+
+The SAME positive source at both ends of independent original SU(2) heat
+copies now has exact bare and heat masses (17/16)^m and (4097/4096)^m.
+An explicit violating extent refutes every fixed nonnegative comparison
+constant. Exact support-independence and Haar pins preserve this outside
+any fixed selected footprint. This removes a false generic inference from
+the proposed local-band first-order comparison; it does not constrain the
+actual terminal recursion or gauge-invariant physical sources.
+
+The next proposed argument reuses the existing exact passive-channel energy
+expansion. Its missing producer is a channel first-order/SAME-variance
+bound, with spectator heat and actual cutoff debt retained. Subset productMap
+is not an identity on omitted slots. This is a changed next action, not a
+solved scaling input. One focused check
+passed 25 gates; no broad run or canonical chart change. Evidence:
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md` addendum.
+
+## Earlier increment: Actual first order and joint signed variance control (2026-10-01 UTC)
 
 The ORIGINAL positive-depth projected terminal first order A now satisfies
 A<=U(w,width)*Z*Var for the complete signed/repeated family at its actual

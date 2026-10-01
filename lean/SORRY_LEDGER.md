@@ -1,5 +1,32 @@
 # Sorry Ledger
 
+## PROVED generic spectator-retention obstruction (2026-10-01 UTC)
+
+- `SU2QuaternionSpectatorHeatRetentionFence.pairProductCertificate` and
+  `pairedDensityCertificate` construct positivity for independent copies
+  of the actual one-link heat and the SAME source at both endpoints.
+- `bareMass_value` and `pairedMass_value` prove exact factors (17/16)^m
+  and (4097/4096)^m. `pairedMass_positive` supplies the denominator sign.
+- `escapeExponent` computes m(C)=17*C.num.toNat+1. `retentionCounterexample`
+  returns the violating extent as data; `no_uniform_heat_retention` excludes
+  any nonnegative extent-independent comparison constant for these sources.
+- `outsideSpectator_independent`, `outsideBareMass_pin`,
+  `outsidePairedMass_pin`, and `outside_retention_failure` preserve that
+  obstruction outside ANY fixed selected footprint, not just a chosen link.
+- OPEN / SCOPE: these sources are not actual 4D terminal messages and are
+  not claimed independently vertex-gauge-invariant. The theorem refutes
+  positivity/independence-only inference, not the existing full-width
+  actual-source bound, physical terminal mixing, or Yang--Mills mass gap.
+  The next proposed producer is a SAME-variance bound for the first-order
+  sum in the existing exact passive-channel expansion, retaining cutoff
+  debt. It is not a supplied estimate or a new assumed field. Do not treat
+  existing subset productMap as an identity on omitted selected slots.
+- One final focused serialized capped check passed all 25 printed gates
+  within {propext, Quot.sound}, two axiom-free definitions. No new sorry,
+  axiom, Classical dependency, canonical field or chart-state change.
+  Root registration only; no aggregate/root/tree/audit/guard run. Evidence:
+  `audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md` addendum.
+
 ## PROVED actual first order versus SAME variance and joint correction (2026-10-01 UTC)
 
 - `BF4ExactSlabFixedSpatialTerminalSourceBounds` constructs caps/floors for

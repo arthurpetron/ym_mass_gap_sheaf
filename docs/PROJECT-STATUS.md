@@ -1,5 +1,18 @@
 # Canonical one-page project status
 
+Verified supporting spectator-retention obstruction (2026-10-01 UTC;
+chart unchanged): positive independent copies of the SAME original one-link
+heat/source have bare square (17/16)^m and heat pairing (4097/4096)^m.
+Computed m(C)=17*C.num.toNat+1 defeats every nonnegative extent-independent
+comparison constant, even outside any fixed selected footprint. This
+refutes only positivity/independence-only inference; the sources are not
+identified with physical terminal messages or independently gauge-invariant
+sources. No actual terminal or Clay claim is refuted. One focused check
+passed 25 gates in {propext, Quot.sound}. The existing passive-channel
+expansion still needs its first-order/SAME-variance bound and cutoff control.
+Evidence:
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md` addendum.
+
 Verified supporting actual first order and joint signed correction
 (2026-10-01 UTC; chart unchanged): the original positive-depth projected
 source now has A<=U(w,width)*Z*Var for the complete signed family. Its

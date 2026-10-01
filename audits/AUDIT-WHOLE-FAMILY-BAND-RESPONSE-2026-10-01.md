@@ -123,3 +123,98 @@ Final log SHA-256 values under `/tmp/`:
   `2497759e01e0db9dc8efb9021ac8b9aa86f33892ba021cda4c80d3ef77acfde3`.
 - `ym-family-band-response-final-accepted-20261001.log`:
   `3328fcb235cbf0d66e1e1dcc00e6506da7b49f1c8441dec14048145e81146dbd`.
+
+## Addendum: a generic spectator heat-retention comparison is false
+
+The proved band-response theorem above is unchanged. This addendum checks
+a DIFFERENT proposed use of local bands: replacing the FULL-width source
+cap/floor in the bare-source first-order bound with a selected-footprint band.
+That argument must not silently identify bare spectator square with the
+spectator's original heat pairing. No such terminal estimate is supplied here.
+
+All new declarations are in
+`lean/YMGap/Continuum/SU2QuaternionSpectatorHeatRetentionFence.lean`.
+The seed is the existing positive q=1+chi_2/4 and the ORIGINAL one-link
+`heatAt 0 1 half 3`. `pairingSeed_mass_pin`, line 153, proves its paired
+integral is exactly the existing sourceMass(q)=H[q*Pq]. The source is the
+same at both endpoints, not an auxiliary law substituted into a YM claim.
+`sourceSeedCertificate` and `pairingSeedCertificate`, lines 137 and 140,
+supply polynomial positivity. `sourceSeed_square_value` and
+`pairingSeed_value`, lines 149 and 160, give 17/16 and 4097/4096.
+
+`pairProduct`, line 58, places independent copies on literal interleaved
+block pairs (0,1),(2,3),.... `haar_pairProduct`, line 102, proves exact
+ordered Fubini. `pairProduct_mul`, line 88, pins the duplicated source in
+the heat integrand. The heat product and both sources remain explicit in
+`pairedMass`, line 172; this is not a scalar or character-diagonal surrogate.
+`spectatorCertificate` and `pairedDensityCertificate`, lines 175 and 178,
+return the positivity data on every finite enlarged carrier.
+
+`bareMass_value` and `pairedMass_value`, lines 184 and 190, prove
+
+    bareMass(m) = (17/16)^m,
+    pairedMass(m) = (4097/4096)^m.
+
+`pairedMass_positive`, line 197, proves the latter is positive.
+`escapeExponent`, line 237, computes m(C)=17*C.num.toNat+1 for C>=0.
+`ratio_escapes`, line 239, uses the existing constructive numerator bound
+and Bernoulli inequality: (17*n+1)*(255/4097)>n>=C. The exact per-copy
+ratio is 4352/4097>1. `retention_failure`, line 280, proves
+
+    C*pairedMass(m(C)) < bareMass(m(C)).
+
+`retentionCounterexample`, line 293, returns the extent and its proof as
+Type-level data. `no_uniform_heat_retention`, line 297, excludes ANY fixed
+nonnegative comparison constant for this actual independent-heat family.
+No reciprocal of the spectator mass is used.
+
+`outsideSpectator_independent`, line 206, proves independence of EVERY
+block in ANY fixed selected footprint. `outsideSpectatorCertificate`, line
+210, carries positivity to that placement. `outsideBareMass_pin` and
+`outsidePairedMass_pin`, lines 221 and 226, prove both masses unchanged;
+`outside_retention_failure`, line 303, transports the violation. Therefore
+adding selected-footprint independence does not repair the generic inference.
+
+These sources are NOT identified with the original 4D terminal recursion,
+and are NOT claimed independently vertex-gauge-invariant. The theorem does
+not refute an estimate using those additional physical properties, the
+existing full-width `family_firstOrder_variance_bound`, or the whole-family
+band-response theorem. It is not a Yang--Mills counterexample. The consumer
+is pruning a proposed positivity/independence-only local replacement of the
+source comparison, rather than adding an assumed analytic field.
+
+The next proposed producer is a first-order/SAME-variance bound within the
+EXISTING exact passive-channel energy expansion. The checked declaration
+`SU2QuaternionProductHeatPassiveChannels.sourceEnergy_projected_channels`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatPassiveChannels.lean:252`,
+already retains spectator heat at its original nome and cutoff through
+computed Gram channels. Its first-order sum still needs an exact weighted
+channel-square/spectator-pairing pin and quantitative bound against original
+centered Z*Var. These are unproved next estimates, not a source replacement
+or a claimed physical scaling estimate. Actual selected cutoff debt remains.
+
+An API distinction matters: existing subset productMap integrates ALL lower
+slots, including those absent from its kernel list. In particular
+`SU2QuaternionProductHeatMarginals.productMap_nil`,
+`lean/YMGap/Continuum/SU2QuaternionProductHeatMarginals.lean:84`, returns a
+Haar constant, not the input polynomial. Thus naive composition of subset
+productMap is NOT an identity-on-selected/spectator-only operator. Reuse
+the proved channel decomposition instead of assuming that false operator
+equality. The finite w=1 selected kernel is also a cutoff projection, not
+an identity on every polynomial; original omitted-mode debt may not be erased.
+
+The final focused check exited zero with all 25 printed gates within
+{propext, Quot.sound}; pairProduct and escapeExponent are axiom-free.
+Independent Sol reviewed the source pins, heat eigenvalue, Fubini, explicit
+extent and scope; Luna located the constructive growth APIs. Namespace,
+carrier-order arithmetic and elaboration errors were repaired without
+changing mathematical hypotheses or raising memory/heartbeat limits.
+Only main compiled, serialized through the safe launcher with one worker,
+20 GiB ceiling and 12 GiB OS reserve. Preflight found no competing process,
+84 percent pressure-free capacity and zero swap. No new sorry, axiom,
+Classical dependency, native_decide or noncomputable declaration. Root
+registration is not aggregate verification; no root/tree/audit/guard ran.
+CI remains manual-only. No canonical frontier field or chart marker changed.
+
+Final log: `/tmp/ym-spectator-retention-fence-outside-final-20261001.log`.
+SHA-256: `7c1cde5d18caf60b4c8430473a52c864049b8097d64dfbaf3d6a52714b231bd7`.

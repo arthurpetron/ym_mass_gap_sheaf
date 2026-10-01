@@ -5030,6 +5030,9 @@ import YMGap.Continuum.SU2QuaternionProductHeatBandResponse
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyLocalBand
 import YMGap.Continuum.BF4ExactSlabFixedSpatialFamilyBandResponse
 import YMGap.Continuum.SU2QuaternionSourceDefectSignFence
+-- Positive independent spectators do not have an extent-uniform bare/heat
+-- mass comparison. No counterexample to the actual 4D terminal recursion.
+import YMGap.Continuum.SU2QuaternionSpectatorHeatRetentionFence
 -- Complete original-source local regularity and explicit one-link RAW Haar
 -- spectral tails, then conditional SAME-channel tails with shared active links.
 -- The original-partition floor below retains four-link heat;

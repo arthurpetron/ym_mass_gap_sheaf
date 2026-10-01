@@ -25,6 +25,40 @@ a new axiom, witness erasure, surrogate substitution or weakened fields, and
 audit their correspondence to the official target. Inhabiting an inadequate
 formal statement would not solve the mathematical problem.
 
+### Spectator heat-retention obstruction and localized next argument (2026-10-01 UTC)
+
+`SU2QuaternionSpectatorHeatRetentionFence` now supplies a constructive
+counterexample to a proposed generic comparison, not to the actual terminal
+recursion. Positive q=1+chi_2/4 at BOTH ends of each original one-link heat
+(w=1/2,K=3) gives bare square (17/16)^m and heat pairing (4097/4096)^m.
+For any C>=0 the explicit m(C)=17*C.num.toNat+1 violates bare<=C*heat.
+The witnesses remain independent of EVERY link in any fixed selected
+footprint, with positive-polynomial certificates and exact Haar pins.
+
+This prunes the unsupported inference from a local band alone to a width-free
+bare-source first-order/SAME-variance comparison. The existing full-width
+actual-source bound and whole-family response theorem are unaffected. The
+fence does not identify these sources with terminal messages, impose gauge
+invariance, or disprove an estimate using that additional physical structure.
+One final focused check passed 25 gates in {propext, Quot.sound}; no broad run.
+Evidence: spectator-retention addendum in
+`audits/AUDIT-WHOLE-FAMILY-BAND-RESPONSE-2026-10-01.md`.
+
+NEXT mathematical producer under review, NOT PROVED: bound the passive
+weighted channel first-order sum against original Z*Var, keeping spectator
+heat at ORIGINAL w,K. Reuse the ALREADY checked
+`SU2QuaternionProductHeatPassiveChannels.sourceEnergy_projected_channels`;
+do not repackage its decomposition. Its signed channel sources are computed
+from the unchanged full source, and the Taylor consumer must retain actual
+selected cutoff debt. A weighted channel-square/spectator-pairing pin is
+needed before applying the local band. Existing productMap on a subset
+integrates missing slots; it is NOT Id_selected tensor P_rest and cannot
+implement this argument by naive subset composition. No arbitrary source
+replacement or newly assumed retention field is a join. The intended
+consumer remains the complete signed-cost/SAME-variance bound. Scaling-small
+rate, survival, physical mass, QFT, and every-group closure remain OPEN;
+chart unchanged.
+
 ### Actual first order meets SAME variance and joint signed correction (2026-10-01 UTC)
 
 The actual positive-depth projected source now has A<=U(w,width)*Z*Var
